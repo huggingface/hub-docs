@@ -1,12 +1,13 @@
 <script>
 	import type { WidgetProps } from "../../shared/types";
-	import type { PipelineType } from "$lib/interfaces/Types";
 
 	import { onMount } from "svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
-	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
+	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
+	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
+		addInferenceParameters,
 		getDemoInputs,
 		getResponse,
 		getSearchParams,
@@ -30,14 +31,6 @@
 	let output = "";
 	let outputJson: string;
 	let text = "";
-
-	// Deactivate server caching for these two pipeline types
-	// (translation uses this widget too and still needs caching)
-	const useCache = !(
-		["text-generation", "text2text-generation"] as Array<
-			keyof typeof PipelineType
-		>
-	).includes(model.pipeline_tag);
 
 	onMount(() => {
 		const [textParam] = getSearchParams(["text"]);
@@ -68,6 +61,7 @@
 		}
 
 		const requestBody = { inputs: trimmedValue };
+		addInferenceParameters(requestBody, model);
 
 		isLoading = true;
 
@@ -77,8 +71,7 @@
 			requestBody,
 			apiToken,
 			parseOutput,
-			withModelLoading,
-			useCache
+			withModelLoading
 		);
 
 		isLoading = false;
@@ -106,19 +99,21 @@
 
 	function parseOutput(body: unknown): string {
 		if (Array.isArray(body) && body.length) {
-			const firstEntry = body[0];
-			return (
-				firstEntry["generated_text"] ?? // text-generation + text2text-generation
-				firstEntry["translation_text"] ?? // translation
-				""
-			);
+			return body[0]?.["summary_text"] ?? "";
 		}
-		return "";
+		throw new TypeError(
+			"Invalid output: output must be of type Array & non-empty"
+		);
+	}
+
+	function applyInputSample(sample: Record<string, any>) {
+		text = sample.text;
 	}
 </script>
 
 <WidgetWrapper
 	{apiUrl}
+	{applyInputSample}
 	{computeTime}
 	{error}
 	{model}
@@ -127,11 +122,11 @@
 	{outputJson}
 >
 	<svelte:fragment slot="top">
-		<form>
-			<WidgetQuickInput
-				bind:value={text}
+		<form class="space-y-2">
+			<WidgetTextarea bind:value={text} />
+			<WidgetSubmitBtn
 				{isLoading}
-				onClickSubmitBtn={() => {
+				onClick={() => {
 					getOutput();
 				}}
 			/>

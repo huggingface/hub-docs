@@ -1,12 +1,11 @@
 <script>
 	import type { WidgetProps } from "../../shared/types";
-	import type { PipelineType } from "$lib/interfaces/Types";
 
 	import { onMount } from "svelte";
-	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
+		addInferenceParameters,
 		getDemoInputs,
 		getResponse,
 		getSearchParams,
@@ -28,16 +27,8 @@
 		estimatedTime: 0,
 	};
 	let output = "";
-	let outputJson: string;
+	let outputJson = "";
 	let text = "";
-
-	// Deactivate server caching for these two pipeline types
-	// (translation uses this widget too and still needs caching)
-	const useCache = !(
-		["text-generation", "text2text-generation"] as Array<
-			keyof typeof PipelineType
-		>
-	).includes(model.pipeline_tag);
 
 	onMount(() => {
 		const [textParam] = getSearchParams(["text"]);
@@ -54,20 +45,20 @@
 	});
 
 	async function getOutput(withModelLoading = false) {
-		const trimmedValue = text.trim();
+		const trimmedText = text.trim();
 
-		if (!trimmedValue) {
+		if (!trimmedText) {
 			error = "You need to input some text";
 			output = "";
-			outputJson = "";
 			return;
 		}
 
 		if (shouldUpdateUrl) {
-			updateUrl({ text: trimmedValue });
+			updateUrl({ text: trimmedText });
 		}
 
-		const requestBody = { inputs: trimmedValue };
+		const requestBody = { inputs: trimmedText };
+		addInferenceParameters(requestBody, model);
 
 		isLoading = true;
 
@@ -77,8 +68,7 @@
 			requestBody,
 			apiToken,
 			parseOutput,
-			withModelLoading,
-			useCache
+			withModelLoading
 		);
 
 		isLoading = false;
@@ -100,25 +90,27 @@
 			};
 			getOutput(true);
 		} else if (res.status === "error") {
-			error = res.error;
+			error = res.error || `Error encountered on input "${trimmedText}"`;
 		}
 	}
 
 	function parseOutput(body: unknown): string {
-		if (Array.isArray(body) && body.length) {
-			const firstEntry = body[0];
-			return (
-				firstEntry["generated_text"] ?? // text-generation + text2text-generation
-				firstEntry["translation_text"] ?? // translation
-				""
-			);
+		if (body && typeof body === "object" && body instanceof Blob) {
+			return URL.createObjectURL(body);
 		}
-		return "";
+		throw new TypeError(
+			"Invalid output: output must be of type object & of instance Blob"
+		);
+	}
+
+	function applyInputSample(sample: Record<string, any>) {
+		text = sample.text;
 	}
 </script>
 
 <WidgetWrapper
 	{apiUrl}
+	{applyInputSample}
 	{computeTime}
 	{error}
 	{model}
@@ -131,13 +123,15 @@
 			<WidgetQuickInput
 				bind:value={text}
 				{isLoading}
-				onClickSubmitBtn={() => {
-					getOutput();
-				}}
+				onClickSubmitBtn={() => getOutput()}
 			/>
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
-		<WidgetOutputText classNames="mt-4" {output} />
+		{#if output.length}
+			<div class="flex justify-center mt-4 bg-gray-50">
+				<img class="max-w-sm object-contain" src={output} alt="" />
+			</div>
+		{/if}
 	</svelte:fragment>
 </WidgetWrapper>
