@@ -1,10 +1,6 @@
 <script lang="ts">
 	import type { SvelteComponent } from "svelte";
-<<<<<<< HEAD:widgets/src/lib/ModelPipelineIcon/ModelPipelineIcon.svelte
-	import type { PipelineType } from "$lib/interfaces/Types";
-=======
 	import type { PipelineType } from "../../interfaces/Types";
->>>>>>> 4ecdf28d (Shared components directory (#579)):js/src/lib/components/ModelPipelineIcon/ModelPipelineIcon.svelte
 
 	import IconAudioSourceSeparation from "../Icons/IconAudioSourceSeparation.svelte";
 	import IconAudioToAudio from "../Icons/IconAudioToAudio.svelte";
@@ -27,6 +23,7 @@
 	import IconTranslation from "../Icons/IconTranslation.svelte";
 	import IconVoiceActivityDetection from "../Icons/IconVoiceActivityDetection.svelte";
 	import IconZeroShotClassification from "../Icons/IconZeroShotClassification.svelte";
+	import IconReinforcementLearning from "../Icons/IconReinforcementLearning.svelte";
 
 	export let classNames = "";
 	export let pipeline = "";
@@ -57,6 +54,10 @@
 		"image-classification": IconImageClassification,
 		"object-detection": IconObjectDetection,
 		"image-segmentation": IconImageSegmentation,
+		"text-to-image": IconTextToImage,
+		"structured-data-classification": IconStructuredDataClassification,
+		"audio-classification": IconAudioClassification,
+		"reinforcement-learning": IconReinforcementLearning,
 	};
 </script>
 
