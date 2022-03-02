@@ -1,13 +1,7 @@
-<script>
-<<<<<<< HEAD:widgets/src/routes/index.svelte
-	import InferenceWidget from "$lib/InferenceWidget/InferenceWidget.svelte";
-	import ModeSwitcher from "$lib/_demo/ModeSwitcher.svelte";
-	import type { ModelData } from "$lib/interfaces/Types";
-=======
+<script lang="ts">
 	import InferenceWidget from "../lib/components/InferenceWidget/InferenceWidget.svelte";
 	import ModeSwitcher from "../lib/components/DemoThemeSwitcher/DemoThemeSwitcher.svelte";
 	import type { ModelData } from "../lib/interfaces/Types";
->>>>>>> 4ecdf28d (Shared components directory (#579)):js/src/routes/index.svelte
 
 	const models: ModelData[] = [
 		{
@@ -17,6 +11,10 @@
 		{
 			id: "facebook/detr-resnet-50",
 			pipeline_tag: "object-detection",
+		},
+		{
+			id: "facebook/detr-resnet-50-panoptic",
+			pipeline_tag: "image-segmentation",
 		},
 		{
 			id: "julien-c/distilbert-feature-extraction",
@@ -138,7 +136,7 @@
 			],
 		},
 		{
-			id: "google/t5-small-ssm-nq",
+			id: "bigscience/T0pp",
 			pipeline_tag: "text2text-generation",
 		},
 		{

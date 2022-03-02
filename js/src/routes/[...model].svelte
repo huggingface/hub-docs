@@ -1,12 +1,8 @@
 <script context="module">
 	import type { Load } from "@sveltejs/kit";
-	import type { ModelData } from "$lib/interfaces/Types";
+	import type { ModelData } from "../lib/interfaces/Types";
 
-<<<<<<< HEAD:widgets/src/routes/[...model].svelte
-	import InferenceWidget from "$lib/InferenceWidget/InferenceWidget.svelte";
-=======
 	import InferenceWidget from "../lib/components/InferenceWidget/InferenceWidget.svelte";
->>>>>>> 4ecdf28d (Shared components directory (#579)):js/src/routes/[...model].svelte
 
 	/**
 	 * This page is capable of loading any model
@@ -34,12 +30,8 @@
 	};
 </script>
 
-<script>
-<<<<<<< HEAD:widgets/src/routes/[...model].svelte
-	import ModeSwitcher from "$lib/_demo/ModeSwitcher.svelte";
-=======
+<script lang="ts">
 	import ModeSwitcher from "../lib/components/DemoThemeSwitcher/DemoThemeSwitcher.svelte";
->>>>>>> 4ecdf28d (Shared components directory (#579)):js/src/routes/[...model].svelte
 
 	export let model: ModelData | undefined;
 	export let message: string | undefined;

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
 <<<<<<< HEAD:widgets/src/lib/InferenceWidget/widgets/TextGenerationWidget/TextGenerationWidget.svelte
 	import type { PipelineType } from "$lib/interfaces/Types";

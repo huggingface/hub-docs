@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import type { SvelteComponent } from "svelte";
 <<<<<<< HEAD:widgets/src/lib/InferenceWidget/InferenceWidget.svelte
 	import type { PipelineType } from "$lib/interfaces/Types";
