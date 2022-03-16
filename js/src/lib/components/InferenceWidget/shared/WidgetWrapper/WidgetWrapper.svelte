@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import type { WidgetProps, LoadingStatus } from "../types";
 
 	import { onMount } from "svelte";
@@ -13,6 +13,7 @@
 	export let apiUrl: string;
 	export let computeTime: string;
 	export let error: string;
+	export let isLoading = false;
 	export let model: WidgetProps["model"];
 	export let modelLoading = {
 		isLoading: false,
@@ -20,8 +21,10 @@
 	};
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (sample: Record<string, any>[]) => void =
-		([]) => {};
+	export let applyInputSample: (sample: Record<string, any>) => void =
+		({}) => {};
+	export let previewInputSample: (sample: Record<string, any>) => void =
+		({}) => {};
 
 	let isMaximized = false;
 	let modelStatus: LoadingStatus = "unknown";
@@ -55,12 +58,14 @@
 		</button>
 	{/if}
 	<WidgetHeader {noTitle} pipeline={model.pipeline_tag}>
-		{#if model.pipeline_tag === "fill-mask"}
-			Mask token: <code>{model.mask_token}</code>
-		{/if}
-		{#if inputSamples.length > 1}
+		{#if inputSamples.length}
 			<!-- Show samples selector when there are more than one sample -->
-			<WidgetInputSamples {inputSamples} {applyInputSample} />
+			<WidgetInputSamples
+				{isLoading}
+				{inputSamples}
+				{applyInputSample}
+				{previewInputSample}
+			/>
 		{/if}
 	</WidgetHeader>
 	<slot name="top" />

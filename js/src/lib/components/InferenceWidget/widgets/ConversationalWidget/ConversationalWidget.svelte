@@ -153,8 +153,13 @@
 		);
 	}
 
+	function previewInputSample(sample: Record<string, any>) {
+		text = sample.text;
+	}
+
 	function applyInputSample(sample: Record<string, any>) {
 		text = sample.text;
+		getOutput();
 	}
 </script>
 
@@ -163,10 +168,12 @@
 	{applyInputSample}
 	{computeTime}
 	{error}
+	{isLoading}
 	{model}
 	{modelLoading}
 	{noTitle}
 	{outputJson}
+	{previewInputSample}
 >
 	<svelte:fragment slot="top">
 		<WidgetOutputConvo modelId={model.id} {output} />

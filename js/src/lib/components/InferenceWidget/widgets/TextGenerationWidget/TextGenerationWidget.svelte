@@ -1,16 +1,14 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-<<<<<<< HEAD:widgets/src/lib/InferenceWidget/widgets/TextGenerationWidget/TextGenerationWidget.svelte
-	import type { PipelineType } from "$lib/interfaces/Types";
-=======
 	import type { PipelineType } from "../../../../interfaces/Types";
->>>>>>> 4ecdf28d (Shared components directory (#579)):js/src/lib/components/InferenceWidget/widgets/TextGenerationWidget/TextGenerationWidget.svelte
 
 	import { onMount } from "svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
-	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
+	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
+	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
+		addInferenceParameters,
 		getDemoInputs,
 		getResponse,
 		getSearchParams,
@@ -72,6 +70,7 @@
 		}
 
 		const requestBody = { inputs: trimmedValue };
+		addInferenceParameters(requestBody, model);
 
 		isLoading = true;
 
@@ -117,25 +116,39 @@
 				""
 			);
 		}
-		return "";
+		throw new TypeError(
+			"Invalid output: output must be of type Array & non-empty"
+		);
+	}
+
+	function previewInputSample(sample: Record<string, any>) {
+		text = sample.text;
+	}
+
+	function applyInputSample(sample: Record<string, any>) {
+		text = sample.text;
+		getOutput();
 	}
 </script>
 
 <WidgetWrapper
 	{apiUrl}
+	{applyInputSample}
 	{computeTime}
 	{error}
+	{isLoading}
 	{model}
 	{modelLoading}
 	{noTitle}
 	{outputJson}
+	{previewInputSample}
 >
 	<svelte:fragment slot="top">
-		<form>
-			<WidgetQuickInput
-				bind:value={text}
+		<form class="space-y-2">
+			<WidgetTextarea bind:value={text} />
+			<WidgetSubmitBtn
 				{isLoading}
-				onClickSubmitBtn={() => {
+				onClick={() => {
 					getOutput();
 				}}
 			/>

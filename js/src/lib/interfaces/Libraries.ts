@@ -82,7 +82,7 @@ const allennlp = (model: ModelData) => {
 	if (model.tags?.includes("question-answering")) {
 		return allennlpQuestionAnswering(model);
 	}
-	return allennlpUnknown();
+	return allennlpUnknown(model);
 };
 
 const asteroid = (model: ModelData) =>
@@ -249,12 +249,33 @@ model = ${speechbrainInterface}.from_hparams(
   "${model.id}"
 )
 model.${speechbrainMethod}("file.wav")`;
-}
+};
 
-const transformers = (model: ModelData) =>
-`from transformers import AutoTokenizer, ${model.autoArchitecture}
-  
-tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? `, use_auth_token=True` : ``})
+const transformers = (model: ModelData) => {
+	const info = model.transformersInfo;
+	if (!info) {
+		return `# ⚠️ Type of model unknown`;
+	}
+	if (info.processor) {
+		const varName = info.processor === "AutoTokenizer" ? "tokenizer"
+			: info.processor === "AutoFeatureExtractor" ? "extractor"
+				: "processor"
+		;
+		return [
+			`from transformers import ${info.processor}, ${info.auto_model}`,
+			"",
+			`${varName} = ${info.processor}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`,
+			"",
+			`model = ${info.auto_model}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`,
+		].join("\n");
+	} else {
+		return [
+			`from transformers import ${info.auto_model}`,
+			"",
+			`model = ${info.auto_model}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`,
+		].join("\n");
+	}
+};
 
 const fasttext = (model: ModelData) =>
 	`from huggingface_hub import hf_hub_download
@@ -273,7 +294,8 @@ checkpoint = load_from_hub(
 
 
 
-export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]: LibraryUiElement } = {
+export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?: LibraryUiElement } = {
+	// ^^ TODO(remove the optional ? marker when Stanza snippet is available)
 	"adapter-transformers": {
 		btnLabel: "Adapter Transformers",
 		repoName: "adapter-transformers",

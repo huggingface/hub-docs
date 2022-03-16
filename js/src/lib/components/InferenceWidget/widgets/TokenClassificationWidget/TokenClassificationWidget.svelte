@@ -2,8 +2,9 @@
 	import type { WidgetProps } from "../../shared/types";
 
 	import { onMount } from "svelte";
-	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetOuputTokens from "../../shared/WidgetOutputTokens/WidgetOutputTokens.svelte";
+	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
+	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
 		addInferenceParameters,
@@ -228,8 +229,13 @@
 		return a.type === b.type && a.start === b.start && a.end === b.end;
 	}
 
+	function previewInputSample(sample: Record<string, any>) {
+		text = sample.text;
+	}
+
 	function applyInputSample(sample: Record<string, any>) {
 		text = sample.text;
+		getOutput();
 	}
 </script>
 
@@ -238,17 +244,20 @@
 	{applyInputSample}
 	{computeTime}
 	{error}
+	{isLoading}
 	{model}
 	{modelLoading}
 	{noTitle}
 	{outputJson}
+	{previewInputSample}
 >
 	<svelte:fragment slot="top">
 		<form>
-			<WidgetQuickInput
-				bind:value={text}
+			<WidgetTextarea bind:value={text} />
+			<WidgetSubmitBtn
+				classNames="mt-2"
 				{isLoading}
-				onClickSubmitBtn={() => {
+				onClick={() => {
 					getOutput();
 				}}
 			/>

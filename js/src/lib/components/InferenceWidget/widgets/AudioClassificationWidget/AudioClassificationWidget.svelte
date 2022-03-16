@@ -4,18 +4,16 @@
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
-	import WidgetRadio from "../../shared/WidgetRadio/WidgetRadio.svelte";
 	import WidgetRecorder from "../../shared/WidgetRecorder/WidgetRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, proxify } from "../../shared/helpers";
+	import { getResponse, getBlobFromUrl } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 
-	let areSamplesVisible = true;
 	let computeTime = "";
 	let error: string = "";
 	let file: Blob | File | null = null;
@@ -31,14 +29,7 @@
 	let outputJson: string;
 	let selectedSampleUrl = "";
 
-	function onChangeRadio() {
-		file = null;
-		filename = "";
-		fileUrl = "";
-	}
-
 	function onRecordStart() {
-		areSamplesVisible = false;
 		file = null;
 		filename = "";
 		fileUrl = "";
@@ -50,7 +41,6 @@
 	}
 
 	function onSelectFile(updatedFile: Blob | File) {
-		areSamplesVisible = false;
 		isRecording = false;
 		selectedSampleUrl = "";
 
@@ -75,9 +65,7 @@
 		}
 
 		if (!file && selectedSampleUrl) {
-			const proxiedUrl = proxify(selectedSampleUrl);
-			const res = await fetch(proxiedUrl);
-			file = await res.blob();
+			file = await getBlobFromUrl(selectedSampleUrl);
 		}
 
 		const requestBody = { file };
@@ -135,7 +123,18 @@
 	}
 
 	function applyInputSample(sample: Record<string, any>) {
+		file = null;
+		filename = sample.example_title;
 		fileUrl = sample.src;
+		selectedSampleUrl = sample.src;
+		getOutput();
+	}
+
+	function previewInputSample(sample: Record<string, any>) {
+		filename = sample.example_title;
+		fileUrl = sample.src;
+		output = [];
+		outputJson = "";
 	}
 </script>
 
@@ -144,10 +143,12 @@
 	{applyInputSample}
 	{computeTime}
 	{error}
+	{isLoading}
 	{model}
 	{modelLoading}
 	{noTitle}
 	{outputJson}
+	{previewInputSample}
 >
 	<svelte:fragment slot="top">
 		<form>
@@ -168,28 +169,6 @@
 			{#if fileUrl}
 				<WidgetAudioTrack classNames="mt-3" label={filename} src={fileUrl} />
 			{/if}
-			{#if model.widgetData}
-				<details
-					open={areSamplesVisible}
-					class="text-gray-500 text-sm mt-4 mb-2"
-				>
-					<summary class="mb-2">Or pick a sample audio file</summary>
-					<div class="mt-4 space-y-5">
-						<!-- Shouldnt this be an option ? -->
-						{#each model.widgetData as widgetData}
-							<WidgetAudioTrack classNames="mt-3" src={String(widgetData.src)}>
-								<WidgetRadio
-									bind:group={selectedSampleUrl}
-									classNames="mb-1.5"
-									label={String(widgetData.label)}
-									onChange={onChangeRadio}
-									value={String(widgetData.src)}
-								/>
-							</WidgetAudioTrack>
-						{/each}
-					</div>
-				</details>
-			{/if}
 			<WidgetSubmitBtn
 				classNames="mt-2"
 				isDisabled={isRecording}
@@ -201,6 +180,6 @@
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
-		<WidgetOutputChart classNames="mt-4" {output} />
+		<WidgetOutputChart classNames="pt-4" {output} />
 	</svelte:fragment>
 </WidgetWrapper>

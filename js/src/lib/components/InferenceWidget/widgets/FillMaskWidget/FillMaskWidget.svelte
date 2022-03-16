@@ -3,7 +3,8 @@
 
 	import { onMount } from "svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
-	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
+	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
+	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
 		addInferenceParameters,
@@ -114,8 +115,13 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
+	function previewInputSample(sample: Record<string, any>) {
+		text = sample.text;
+	}
+
 	function applyInputSample(sample: Record<string, any>) {
 		text = sample.text;
+		getOutput();
 	}
 </script>
 
@@ -124,23 +130,29 @@
 	{applyInputSample}
 	{computeTime}
 	{error}
+	{isLoading}
 	{model}
 	{modelLoading}
 	{noTitle}
 	{outputJson}
+	{previewInputSample}
 >
 	<svelte:fragment slot="top">
 		<form>
-			<WidgetQuickInput
-				bind:value={text}
+			<div class="text-sm text-gray-500 mb-1.5">
+				Mask token: <code>{model.mask_token}</code>
+			</div>
+			<WidgetTextarea bind:value={text} />
+			<WidgetSubmitBtn
+				classNames="mt-2"
 				{isLoading}
-				onClickSubmitBtn={() => {
+				onClick={() => {
 					getOutput();
 				}}
 			/>
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
-		<WidgetOutputChart classNames="mt-4" {output} />
+		<WidgetOutputChart classNames="pt-4" {output} />
 	</svelte:fragment>
 </WidgetWrapper>

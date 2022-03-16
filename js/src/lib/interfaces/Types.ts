@@ -28,17 +28,20 @@ export enum PipelineType {
 	"text-to-speech"                                          = "Text-to-Speech",
 	"automatic-speech-recognition"                            = "Automatic Speech Recognition",
 	"audio-to-audio"                                          = "Audio-to-Audio",
+	"audio-classification"                                    = "Audio Classification",
 	"voice-activity-detection"                                = "Voice Activity Detection",
 	/// computer vision
 	"image-classification"                                    = "Image Classification",
 	"object-detection"                                        = "Object Detection",
 	"image-segmentation"                                      = "Image Segmentation",
 	"text-to-image"                                           = "Text-to-Image",
+	"image-to-text"                                           = "Image-to-Text",
 	/// others
 	"structured-data-classification"                          = "Structured Data Classification",
 	"reinforcement-learning"                                  = "Reinforcement Learning",
 }
 
+export const ALL_PIPELINE_TYPES = Object.keys(PipelineType) as (keyof typeof PipelineType)[];
 
 /// Finer-grained task classification
 ///
@@ -96,6 +99,7 @@ export const PIPELINE_TAG_MODALITIES: Record<keyof typeof PipelineType, Modality
 	"object-detection":               "cv",
 	"image-segmentation":             "cv",
 	"text-to-image":                  "cv",
+	"image-to-text":                  "cv",
 	"structured-data-classification": "other",
 	"reinforcement-learning":         "other",
 };
@@ -162,6 +166,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<keyof typeof PipelineType> = [
 	"object-detection",
 	"image-segmentation",
 	"text-to-image",
+	"image-to-text",
 	/// others
 	"structured-data-classification",
 	"reinforcement-learning",
@@ -192,9 +197,9 @@ export interface ModelData {
 	 */
 	tags?: string[];
 	/**
-	 * this is transformers-specific
+	 * transformers-specific info to display in the code sample.
 	 */
-	autoArchitecture?: string;
+	transformersInfo?: TransformersInfo;
 	/**
 	 * Pipeline type
 	 */
@@ -225,4 +230,23 @@ export interface ModelData {
 			parameters?: Record<string, any>;
 		};
 	};
+}
+
+
+/**
+ * transformers-specific info to display in the code sample.
+ */
+export interface TransformersInfo {
+	/**
+	 * e.g. AutoModelForSequenceClassification
+	 */
+	auto_model: string;
+	/**
+	 * e.g. text-classification
+	 */
+	pipeline_tag?: keyof typeof PipelineType;
+	/**
+	 * e.g. "AutoTokenizer" | "AutoFeatureExtractor" | "AutoProcessor"
+	 */
+	processor?: string;
 }

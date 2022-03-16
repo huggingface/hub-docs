@@ -149,10 +149,17 @@
 		);
 	}
 
+	function previewInputSample(sample: Record<string, any>) {
+		candidateLabels = sample.candidate_labels;
+		multiClass = sample.multi_class;
+		text = sample.text;
+	}
+
 	function applyInputSample(sample: Record<string, any>) {
 		candidateLabels = sample.candidate_labels;
 		multiClass = sample.multi_class;
 		text = sample.text;
+		getOutput();
 	}
 </script>
 
@@ -161,10 +168,12 @@
 	{applyInputSample}
 	{computeTime}
 	{error}
+	{isLoading}
 	{model}
 	{modelLoading}
 	{noTitle}
 	{outputJson}
+	{previewInputSample}
 >
 	<svelte:fragment slot="top">
 		<form class="flex flex-col space-y-2">
@@ -188,7 +197,7 @@
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
 		{#if output.length}
-			<WidgetOutputChart classNames="mt-4" {output} />
+			<WidgetOutputChart classNames="pt-4" {output} />
 		{/if}
 	</svelte:fragment>
 </WidgetWrapper>

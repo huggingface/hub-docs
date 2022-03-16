@@ -153,9 +153,15 @@
 		);
 	}
 
+	function previewInputSample(sample: Record<string, any>) {
+		query = sample.text;
+		table = sample.table;
+	}
+
 	function applyInputSample(sample: Record<string, any>) {
 		query = sample.text;
 		table = sample.table;
+		getOutput();
 	}
 </script>
 
@@ -164,10 +170,12 @@
 	{applyInputSample}
 	{computeTime}
 	{error}
+	{isLoading}
 	{model}
 	{modelLoading}
 	{noTitle}
 	{outputJson}
+	{previewInputSample}
 >
 	<svelte:fragment slot="top">
 		<form>
@@ -179,8 +187,6 @@
 				}}
 			/>
 		</form>
-	</svelte:fragment>
-	<svelte:fragment slot="bottom">
 		<div class="mt-4">
 			{#if output}
 				<WidgetOutputTableQA {output} />

@@ -128,9 +128,15 @@
 		);
 	}
 
+	function previewInputSample(sample: Record<string, any>) {
+		question = sample.text;
+		context = sample.context;
+	}
+
 	function applyInputSample(sample: Record<string, any>) {
 		question = sample.text;
 		context = sample.context;
+		getOutput();
 	}
 </script>
 
@@ -139,10 +145,12 @@
 	{applyInputSample}
 	{computeTime}
 	{error}
+	{isLoading}
 	{model}
 	{modelLoading}
 	{noTitle}
 	{outputJson}
+	{previewInputSample}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">
