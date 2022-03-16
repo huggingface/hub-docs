@@ -43,21 +43,21 @@ Once the pipeline is submitted and deployed, you should be able to use the Infer
 
 ## Using Community Inference API with a supported library
 
-The Hub also supports over 10 open-source libraries in the [Community Inference API](https://github.com/huggingface/huggingface_hub/tree/main/api-inference-community). 
+The Hub also supports over 10 open-source libraries in the [Community Inference API](https://github.com/huggingface/api-inference-community). 
 
 **Adding a new task is relatively straightforward and requires 2 PRs:**
-* PR 1: Add the new task to the API [validation](https://github.com/huggingface/huggingface_hub/blob/main/api-inference-community/api_inference_community/validation.py). This code ensures that the inference input is valid for a given task. Some PR examples:
+* PR 1: Add the new task to the API [validation](https://github.com/huggingface/api-inference-community/blob/main/api_inference_community/validation.py). This code ensures that the inference input is valid for a given task. Some PR examples:
     * [Add text-to-image](https://github.com/huggingface/huggingface_hub/commit/5f040a117cf2a44d704621012eb41c01b103cfca#diff-db8bbac95c077540d79900384cfd524d451e629275cbb5de7a31fc1cd5d6c189)
     * [Add audio-classification](https://github.com/huggingface/huggingface_hub/commit/141e30588a2031d4d5798eaa2c1250d1d1b75905#diff-db8bbac95c077540d79900384cfd524d451e629275cbb5de7a31fc1cd5d6c189)
     * [Add structured-data-classification](https://github.com/huggingface/huggingface_hub/commit/dbea604a45df163d3f0b4b1d897e4b0fb951c650#diff-db8bbac95c077540d79900384cfd524d451e629275cbb5de7a31fc1cd5d6c189)
-* PR 2: Add the new task to a library docker image. You should also add a template to [`docker_images/common/app/pipelines`](https://github.com/huggingface/huggingface_hub/tree/main/api-inference-community/docker_images/common/app/pipelines) to facilitate integrating the task in other libraries. Here is an example PR:
+* PR 2: Add the new task to a library docker image. You should also add a template to [`docker_images/common/app/pipelines`](https://github.com/huggingface/api-inference-community/tree/main/docker_images/common/app/pipelines) to facilitate integrating the task in other libraries. Here is an example PR:
     * [Add text-classification to spaCy](https://github.com/huggingface/huggingface_hub/commit/6926fd9bec23cb963ce3f58ec53496083997f0fa#diff-3f1083a92ca0047b50f9ad2d04f0fe8dfaeee0e26ab71eb8835e365359a1d0dc)
 
 ## Adding Community Inference API for a quick prototype
 
 **My model is not supported by any library. Am I doomed? 😱**
 
-No, you're not! We have an experimental Docker image for quick prototyping of new tasks and introduction of new libraries. This is the [generic Inference API](https://github.com/huggingface/huggingface_hub/tree/main/api-inference-community/docker_images/generic) and should allow you to have a new task in production with very little development from your side.
+No, you're not! We have an experimental Docker image for quick prototyping of new tasks and introduction of new libraries. This is the [generic Inference API](https://github.com/huggingface/api-inference-community/tree/main/docker_images/generic) and should allow you to have a new task in production with very little development from your side.
 
 How does it work from the user point of view? Users create a copy of a [template](https://huggingface.co/templates) repo for their given task. Users then need to define their `requirements.txt` and fill `pipeline.py`. Note that this is not intended for fast production use cases, but more for quick experimentation and prototyping.
 
@@ -68,7 +68,7 @@ The Hub allows users to filter models by a given task. In order to do this, you 
 
 1. Add the task type to `Types.ts`
 
-In [interfaces/Types.ts](https://github.com/huggingface/huggingface_hub/blob/main/js/src/lib/interfaces/Types.ts), you need to do a couple of things
+In [interfaces/Types.ts](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Types.ts), you need to do a couple of things
 
 * Add the type to `PipelineType`. Note that they are sorted in different categories (NLP, Audio, Computer Vision and others).
 * Specify the task color in `PIPELINE_COLOR`. 
@@ -76,11 +76,11 @@ In [interfaces/Types.ts](https://github.com/huggingface/huggingface_hub/blob/mai
 
 2. Choose an icon
 
-You can add an icon in the [lib/Icons](https://github.com/huggingface/huggingface_hub/tree/main/js/src/lib/Icons) directory. We usually choose carbon icons from https://icones.js.org/collection/carbon. 
+You can add an icon in the [lib/Icons](https://github.com/huggingface/hub-docs/tree/main/js/src/lib/Icons) directory. We usually choose carbon icons from https://icones.js.org/collection/carbon. 
 
 
 ## Widget
 
 Once the task is in production, what could be more exciting that implementing some way for users to play directly with the models in their browser? 🤩 You can find all the widgets [here](https://huggingface-widgets.netlify.app/). 
 
-In case you would be interested in contributing with a widget, you can look at the [implementation](https://github.com/huggingface/huggingface_hub/tree/main/js/src/lib/components/InferenceWidget/widgets) of all the widgets. You can also find WIP documentation on how to implement a widget in https://github.com/huggingface/huggingface_hub/tree/main/js. 
+In case you would be interested in contributing with a widget, you can look at the [implementation](https://github.com/huggingface/hub-docs/tree/main/js/src/lib/components/InferenceWidget/widgets) of all the widgets. You can also find WIP documentation on how to implement a widget in https://github.com/huggingface/hub-docs/tree/main/js. 

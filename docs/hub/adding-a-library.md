@@ -89,7 +89,7 @@ We recommend adding a code snippet to explain how a model should be used in your
 
 ![/docs/assets/hub/code_snippet.png](/docs/assets/hub/code_snippet.png)
 
-Add a code snippet by updating the [Libraries Typescript file](https://github.com/huggingface/huggingface_hub/blob/main/js/src/lib/interfaces/Libraries.ts) with instructions for your model. For example, the [Asteroid](https://huggingface.co/asteroid-team) integration includes a brief code snippet for how to load and use an Asteroid model:
+Add a code snippet by updating the [Libraries Typescript file](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Libraries.ts) with instructions for your model. For example, the [Asteroid](https://huggingface.co/asteroid-team) integration includes a brief code snippet for how to load and use an Asteroid model:
 
 ```typescript
 const asteroid = (model: ModelData) =>
@@ -151,12 +151,12 @@ Lastly, it is important to add a model card, so users understand how to use your
 
 Our Inference API powers models uploaded to the Hub through your library.
 
-All third-party libraries are Dockerized, so you can install the dependencies you'll need for your library to work correctly. Add your library to the existing Docker images by navigating to the [Docker images folder](https://github.com/huggingface/huggingface_hub/tree/main/api-inference-community/docker_images).
+All third-party libraries are Dockerized, so you can install the dependencies you'll need for your library to work correctly. Add your library to the existing Docker images by navigating to the [Docker images folder](https://github.com/huggingface/api-inference-community/tree/main/docker_images).
 
 1. Copy the `common` folder and rename it with the name of your library (e.g. `docker/common` to `docker/your-awesome-library`).
 2. There are four files you need to edit:
     * List the packages required for your library to work in `requirements.txt`.
-    * Update `app/main.py` with the tasks supported by your model (see [here](https://github.com/huggingface/huggingface_hub/tree/main/api-inference-community) for a complete list of available tasks). Look out for the `IMPLEMENT_THIS` flag to add your supported task.
+    * Update `app/main.py` with the tasks supported by your model (see [here](https://github.com/huggingface/api-inference-community) for a complete list of available tasks). Look out for the `IMPLEMENT_THIS` flag to add your supported task.
 
        ```python
        ALLOWED_TASKS: Dict[str, Type[Pipeline]] = {
@@ -164,7 +164,7 @@ All third-party libraries are Dockerized, so you can install the dependencies yo
        }
        ```
 
-    * For each task your library supports, modify the `app/pipelines/task_name.py` files accordingly. We have also added an `IMPLEMENT_THIS` flag in the pipeline files to guide you. If there isn't a pipeline that supports your task, feel free to add one. Open an [issue](https://github.com/huggingface/huggingface_hub/issues/new) here, and we will be happy to help you.
+    * For each task your library supports, modify the `app/pipelines/task_name.py` files accordingly. We have also added an `IMPLEMENT_THIS` flag in the pipeline files to guide you. If there isn't a pipeline that supports your task, feel free to add one. Open an [issue](https://github.com/huggingface/hub-docs/issues/new) here, and we will be happy to help you.
     * Add your model and task to the `tests/test_api.py` file. For example, if you have a text generation model:
 
        ```python
