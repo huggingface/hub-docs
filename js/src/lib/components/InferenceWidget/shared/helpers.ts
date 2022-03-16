@@ -1,12 +1,6 @@
-<<<<<<< HEAD:widgets/src/lib/InferenceWidget/shared/helpers.ts
-import type { ModelData } from '$lib/interfaces/Types';
-import { randomItem, parseJSON, } from './ViewUtils';
-import type { LoadingStatus } from './types';
-=======
 import type { ModelData } from '../../../interfaces/Types';
 import { randomItem, parseJSON } from '../../../utils/ViewUtils';
 import type { LoadingStatus, TableData } from './types';
->>>>>>> 4ecdf28d (Shared components directory (#579)):js/src/lib/components/InferenceWidget/shared/helpers.ts
 
 export function getSearchParams(keys: string[]): string[] {
 	const searchParams = new URL(window.location.href).searchParams;
@@ -18,7 +12,7 @@ export function getSearchParams(keys: string[]): string[] {
 
 export function getDemoInputs(model: ModelData, keys: (number | string)[]): any[] {
 	const widgetData = Array.isArray(model.widgetData) ? model.widgetData : [];
-	const randomEntry = randomItem(widgetData) ?? {};
+	const randomEntry = (randomItem(widgetData) ?? {}) as any;
 	return keys.map((key) => {
 		const value = (randomEntry[key])
 			? randomEntry[key]
@@ -43,6 +37,22 @@ export function updateUrl(obj: Record<string, string>) {
 	}
 	const path = `${window.location.pathname}?${sp.toString()}`;
 	window.history.replaceState(null, "", path);
+}
+
+// Run through our own proxy to bypass CORS:
+function proxify(url: string): string {
+	return url.startsWith(`http://localhost`)
+		|| new URL(url).host === window.location.host
+		? url
+		: `https://widgets-cors-proxy.huggingface.co/proxy?url=${url}`;
+}
+
+// Get BLOB from a given URL after proxifying the URL
+export async function getBlobFromUrl(url: string): Promise<Blob>{
+	const proxiedUrl = proxify(url);
+	const res = await fetch(proxiedUrl);
+	const blob = await res.blob();
+	return blob;
 }
 
 async function callApi(
@@ -124,10 +134,16 @@ export async function getResponse<T>(
 		const body = !isMediaContent 
 			? await response.json()
 			: await response.blob();
-		const output = outputParsingFn(body);
-		const outputJson = !isMediaContent ? JSON.stringify(body, null, 2) : '';
-		
-		return { computeTime, output, outputJson, response, status: 'success' }
+
+		try{
+			const output = outputParsingFn(body);
+			const outputJson = !isMediaContent ? JSON.stringify(body, null, 2) : '';
+			return { computeTime, output, outputJson, response, status: 'success' }
+		}catch(e){
+			// Invalid output
+			const error = `API Implementation Error: ${e.message}`;
+			return { error, status: 'error' }
+		}
 	} else {
 		// Error
 		const bodyText = await response.text();
@@ -142,7 +158,8 @@ export async function getResponse<T>(
 			return { error: body["error"], estimatedTime: body["estimated_time"], status: 'loading-model' };
 		} else {
 			// Other errors
-			return { error: body["error"] ?? body["traceback"] ?? body, status: 'error' };
+			const { status, statusText } = response;
+			return { error: body["error"] ?? body["traceback"] ?? `${status} ${statusText}`, status: 'error' };
 		}
 	}
 }
@@ -158,8 +175,6 @@ export async function getModelStatus(url: string, repoId: string): Promise<Loadi
 		return 'error';
 	}
 }
-<<<<<<< HEAD:widgets/src/lib/InferenceWidget/shared/helpers.ts
-=======
 
 // Extend Inference API requestBody with user supplied Inference API parameters
 export function addInferenceParameters(requestBody: Record<string, any>, model: ModelData) {
@@ -211,4 +226,3 @@ export function convertDataToTable(data: TableData): (string | number)[][] {
 				.map((_, x) => (y === 0 ? dataArray[x][0] : dataArray[x][1][y - 1]))
 		);
 }
->>>>>>> 4ecdf28d (Shared components directory (#579)):js/src/lib/components/InferenceWidget/shared/helpers.ts
