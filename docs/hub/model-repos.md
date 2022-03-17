@@ -42,7 +42,7 @@ metrics:
 ---
 ```
 
-You can find the detailed specification [here](https://github.com/huggingface/huggingface_hub/blame/main/modelcard.md).
+You can find the detailed specification [here](https://github.com/huggingface/hub-docs/blame/main/modelcard.md).
 
 
 Some useful information on them:
@@ -50,7 +50,7 @@ Some useful information on them:
 * License identifiers are the keywords listed in the right column of [this table](#list-of-license-identifiers).
 * Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages and in the [`datasets`](https://github.com/huggingface/datasets) repository.
 
-You can even specify your **model's eval results** in a structured way, which will allow the Hub to parse, display, and even link them to Papers With Code leaderboards. See how to format this data [in the metadata spec](https://github.com/huggingface/huggingface_hub/blame/main/modelcard.md).
+You can even specify your **model's eval results** in a structured way, which will allow the Hub to parse, display, and even link them to Papers With Code leaderboards. See how to format this data [in the metadata spec](https://github.com/huggingface/hub-docs/blame/main/modelcard.md).
 
 
 Here is a partial example (omitting the eval results part):
@@ -105,7 +105,7 @@ widget:
   example_title: "Reading comprehension"
 ```
 
-Moreover, you can specify non-text example inputs in the model card metadata. Refer [here](https://github.com/huggingface/huggingface_hub/blob/main/docs/hub/input-examples.md) for a complete list of example input formats for all widget types. For vision & audio widget types, provide example inputs with `src` rather than `text`. 
+Moreover, you can specify non-text example inputs in the model card metadata. Refer [here](https://github.com/huggingface/hub-docs/blob/main/docs/hub/input-examples.md) for a complete list of example input formats for all widget types. For vision & audio widget types, provide example inputs with `src` rather than `text`. 
 
 For example, allow users to choose from two sample audio files for automatic speech recognition tasks by:
 
@@ -126,7 +126,7 @@ widget:
   example_title: Custom Speech Sample 1
 ```
 
-We provide example inputs for some languages and most widget types in [the DefaultWidget.ts file](https://github.com/huggingface/huggingface_hub/blob/master/js/src/lib/interfaces/DefaultWidget.ts). If some examples are missing, we welcome PRs from the community to add them!
+We provide example inputs for some languages and most widget types in [the DefaultWidget.ts file](https://github.com/huggingface/hub-docs/blob/master/js/src/lib/interfaces/DefaultWidget.ts). If some examples are missing, we welcome PRs from the community to add them!
 
 ## How can I control my model's widget Inference API parameters?
 
