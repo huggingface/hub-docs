@@ -13,7 +13,24 @@
 	export let entries: Array<{
 		classNames?: string;
 		href?: string;
-	@@ -34,7 +35,7 @@
+		icon?: typeof SvelteComponent;
+		iconClassNames?: string;
+		onClick?: (e: MouseEvent) => void;
+		label?: string;
+		noFollow?: boolean;
+		underline?: boolean;
+		targetBlank?: boolean;
+	}> = [];
+	export let forceMenuAlignement: "left" | "right" | undefined = undefined;
+	export let menuClassNames = "";
+	export let noBtnClass: boolean | undefined = undefined;
+	export let withBtnCaret = false;
+	let element: HTMLElement | undefined = undefined;
+	let isOpen = false;
+</script>
+
+<div class="relative {classNames}" bind:this={element}>
+	<!-- Button -->
 	<button
 		class="{btnClassNames}
 			{!noBtnClass ? 'cursor-pointer w-full btn text-sm' : ''}"
