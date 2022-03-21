@@ -15,6 +15,7 @@
 
 	onMount(() => {
 		document.addEventListener("click", handleClickDocument);
+		window.addEventListener("blur", onClose);
 
 		if (!forceAlignement) {
 			const docWidth = document.documentElement.clientWidth;
@@ -26,6 +27,7 @@
 
 		return () => {
 			document.removeEventListener("click", handleClickDocument);
+			window.removeEventListener("blur", onClose);
 		};
 	});
 
