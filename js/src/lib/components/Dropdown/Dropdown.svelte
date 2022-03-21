@@ -25,6 +25,7 @@
 	export let menuClassNames = "";
 	export let noBtnClass: boolean | undefined = undefined;
 	export let withBtnCaret = false;
+
 	let element: HTMLElement | undefined = undefined;
 	let isOpen = false;
 </script>
