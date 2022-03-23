@@ -46,12 +46,12 @@
 
 <div
 	bind:this={element}
-	class="absolute top-full mt-1 min-w-full w-auto bg-white rounded-xl overflow-hidden shadow-lg z-10 border border-gray-100
+	class="absolute top-full mt-1 min-w-full bg-white rounded-xl overflow-hidden shadow-lg z-10 border border-gray-100
 		{alignement === 'right' ? 'right-0' : 'left-0'}
 		{classNames}"
 	on:click|stopPropagation={onClose}
 >
-	<ul class="min-w-full w-auto">
+	<ul class="min-w-full">
 		<slot />
 	</ul>
 </div>
