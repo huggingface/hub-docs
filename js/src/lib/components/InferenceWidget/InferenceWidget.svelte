@@ -76,6 +76,7 @@
 </script>
 
 {#if widgetComponent}
+<p>debug</p>
 	<svelte:component
 		this={WIDGET_COMPONENTS[model.pipeline_tag ?? ""]}
 		{...widgetProps}
