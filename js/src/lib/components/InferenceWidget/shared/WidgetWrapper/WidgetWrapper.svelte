@@ -21,6 +21,7 @@
 	};
 	export let noTitle = false;
 	export let noModelInfo = false;
+	export let noFooter = false;
 	export let outputJson: string;
 	export let applyInputSample: (sample: Record<string, any>) => void =
 		({}) => {};
@@ -77,5 +78,7 @@
 		<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
 	{/if}
 	<slot name="bottom" />
-	<WidgetFooter {onClickMaximizeBtn} {outputJson} />
+	{#if !noFooter}
+		<WidgetFooter {onClickMaximizeBtn} {outputJson} />
+	{/if}
 </div>

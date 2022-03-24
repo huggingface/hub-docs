@@ -20,23 +20,20 @@
 	{isLoading}
 	{model}
 	{modelLoading}
-	noTitle={true}
-	noModelInfo={true}
+	noTitle
+	noModelInfo
+	noFooter
 	{outputJson}
 >
 	<svelte:fragment slot="top">
-		<!-- svelte-ignore a11y-media-has-caption -->
-		<video
-			src="https://huggingface.co/ThomasSimonini/ppo-LunarLander-v2/resolve/main/output.mp4"
-			controls
-			autoplay
-			loop
-		/>
-		<div class="flex justify-center">
-			<img
-				alt="clipart game controller"
-				class="dark:invert w-36"
-				src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Video_game_controller_icon_designed_by_Maico_Amorim.svg/1249px-Video_game_controller_icon_designed_by_Maico_Amorim.svg.png"
+		<div class="rounded-lg overflow-hidden w-full">
+			<!-- svelte-ignore a11y-media-has-caption -->
+			<video
+				class="w-full"
+				src="https://huggingface.co/ThomasSimonini/ppo-LunarLander-v2/resolve/main/output.mp4"
+				controls
+				autoplay
+				loop
 			/>
 		</div>
 	</svelte:fragment>
