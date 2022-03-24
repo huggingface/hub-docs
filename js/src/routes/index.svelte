@@ -5,6 +5,10 @@
 
 	const models: ModelData[] = [
 		{
+			id: "ThomasSimonini/ppo-LunarLander-v2",
+			pipeline_tag: "reinforcement-learning",
+		},
+		{
 			id: "sgugger/resnet50d",
 			pipeline_tag: "image-classification",
 		},
