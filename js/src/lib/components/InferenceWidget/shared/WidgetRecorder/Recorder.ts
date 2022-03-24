@@ -18,9 +18,7 @@ export default class Recorder {
 		this.recordedBlobs = [];
 
 		const constraints: MediaStreamConstraints =
-			this.type === "video"
-				? { audio: true, video: true }
-				: { audio: true };
+			this.type === "video" ? { audio: true, video: true } : { audio: true };
 		this.stream = await navigator.mediaDevices.getUserMedia(constraints);
 		this.startRecording();
 	}
@@ -30,8 +28,7 @@ export default class Recorder {
 			mimeType: this.desiredMimeType,
 		});
 		this.mediaRecorder.onstop = this.handleStop.bind(this);
-		this.mediaRecorder.ondataavailable =
-			this.handleDataAvailable.bind(this);
+		this.mediaRecorder.ondataavailable = this.handleDataAvailable.bind(this);
 		this.mediaRecorder.start(10); // timeslice in ms
 	}
 	handleStop() {}

@@ -60,7 +60,6 @@
 	}
 }
 
-
 @tailwind components;
 
 @layer components {
@@ -165,21 +164,21 @@
 	.tag-ico-yellow {
 		@apply from-yellow-50 text-yellow-500 dark:from-gray-925;
 	}
-	.form-input:not([type='checkbox']) {
+	.form-input:not([type="checkbox"]) {
 		@apply border-gray-200 shadow-sm border-2
     focus:border-blue-300 focus:ring focus:ring-blue-200
     focus:ring-opacity-50 dark:bg-gray-950 dark:border-gray-700;
 	}
-	.form-input:not([type='radio']):not([type='checkbox']) {
+	.form-input:not([type="radio"]):not([type="checkbox"]) {
 		@apply block mt-1 w-full rounded-md;
 	}
-	.form-input[type='radio'] {
+	.form-input[type="radio"] {
 		@apply mt-2 mr-1.5 h-3.5 w-3.5;
 	}
-	.form-input[type='checkbox'] {
+	.form-input[type="checkbox"] {
 		@apply rounded bg-gray-200 border-transparent text-blue-500 focus:border-transparent  focus:ring-1 focus:ring-offset-2 focus:ring-gray-200;
 	}
-	.form-input[type='checkbox']:checked {
+	.form-input[type="checkbox"]:checked {
 		@apply bg-blue-500;
 	}
 	.form-input:disabled {
@@ -189,7 +188,6 @@
 		@apply h-10 px-3 border border-gray-200 rounded-lg shadow-inner outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-200 dark:focus:ring-indigo-50 focus:shadow-inner placeholder-gray-400 dark:bg-gray-925;
 	}
 }
-
 
 @tailwind utilities;
 

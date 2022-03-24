@@ -1,4 +1,4 @@
-import type { ModelData } from '../../../interfaces/Types';
+import type { ModelData } from "../../../interfaces/Types";
 
 export interface WidgetProps {
 	apiToken?: string;
@@ -8,7 +8,6 @@ export interface WidgetProps {
 	noTitle: boolean;
 	shouldUpdateUrl: boolean;
 }
-
 
 export type LoadingStatus = "error" | "loaded" | "unknown";
 
@@ -28,7 +27,7 @@ export type DetectedObject = {
 	label: string;
 	score: number;
 	color?: string;
-}
+};
 export interface ImageSegment {
 	label: string;
 	score: number;
@@ -36,4 +35,4 @@ export interface ImageSegment {
 	color?: string;
 	imgData?: ImageData;
 	bitmap?: ImageBitmap;
-};
+}

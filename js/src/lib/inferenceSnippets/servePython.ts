@@ -12,34 +12,40 @@ export const bodyBasic = (model: ModelData): string =>
 	"inputs": ${getModelInputSnippet(model)},
 })`;
 
-export const pythonSnippetBodies:
-	Partial<Record<keyof typeof PipelineType, (model: ModelData) => string>> =
-{
+export const pythonSnippetBodies: Partial<
+	Record<keyof typeof PipelineType, (model: ModelData) => string>
+> = {
 	// Same order as in js/src/lib/interfaces/Types.ts
-	"text-classification":      bodyBasic,
-	"token-classification":     bodyBasic,
+	"text-classification": bodyBasic,
+	"token-classification": bodyBasic,
 	"table-question-answering": bodyBasic,
-	"question-answering":       bodyBasic,
+	"question-answering": bodyBasic,
 	"zero-shot-classification": bodyZeroShotClassification,
-	"translation":              bodyBasic,
-	"summarization":            bodyBasic,
-	"conversational":           bodyBasic,
-	"feature-extraction":       bodyBasic,
-	"text-generation":          bodyBasic,
-	"text2text-generation":     bodyBasic,
-	"fill-mask":                bodyBasic,
-	"sentence-similarity":      bodyBasic,
+	translation: bodyBasic,
+	summarization: bodyBasic,
+	conversational: bodyBasic,
+	"feature-extraction": bodyBasic,
+	"text-generation": bodyBasic,
+	"text2text-generation": bodyBasic,
+	"fill-mask": bodyBasic,
+	"sentence-similarity": bodyBasic,
 };
 
-export function getPythonInferenceSnippet(model: ModelData, accessToken: string): string {
-	const body = model.pipeline_tag && model.pipeline_tag in pythonSnippetBodies
-		? pythonSnippetBodies[model.pipeline_tag]?.(model) ?? ""
-		: "";
+export function getPythonInferenceSnippet(
+	model: ModelData,
+	accessToken: string
+): string {
+	const body =
+		model.pipeline_tag && model.pipeline_tag in pythonSnippetBodies
+			? pythonSnippetBodies[model.pipeline_tag]?.(model) ?? ""
+			: "";
 
 	return `import requests
 
 API_URL = "https://api-inference.huggingface.co/models/${model.id}"
-headers = {"Authorization": ${accessToken ? `"Bearer ${accessToken}"` : `f"Bearer {API_TOKEN}"`}}
+headers = {"Authorization": ${
+		accessToken ? `"Bearer ${accessToken}"` : `f"Bearer {API_TOKEN}"`
+	}}
 
 def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)

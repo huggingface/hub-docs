@@ -1,22 +1,23 @@
-import type { ModelData } from '../../../interfaces/Types';
-import { randomItem, parseJSON } from '../../../utils/ViewUtils';
-import type { LoadingStatus, TableData } from './types';
+import type { ModelData } from "../../../interfaces/Types";
+import { randomItem, parseJSON } from "../../../utils/ViewUtils";
+import type { LoadingStatus, TableData } from "./types";
 
 export function getSearchParams(keys: string[]): string[] {
 	const searchParams = new URL(window.location.href).searchParams;
 	return keys.map((key) => {
 		const value = searchParams.get(key);
-		return value ? value : '';
+		return value ? value : "";
 	});
 }
 
-export function getDemoInputs(model: ModelData, keys: (number | string)[]): any[] {
+export function getDemoInputs(
+	model: ModelData,
+	keys: (number | string)[]
+): any[] {
 	const widgetData = Array.isArray(model.widgetData) ? model.widgetData : [];
 	const randomEntry = (randomItem(widgetData) ?? {}) as any;
 	return keys.map((key) => {
-		const value = (randomEntry[key])
-			? randomEntry[key]
-			: null;
+		const value = randomEntry[key] ? randomEntry[key] : null;
 		return value ? randomEntry[key] : null;
 	});
 }
@@ -41,14 +42,14 @@ export function updateUrl(obj: Record<string, string>) {
 
 // Run through our own proxy to bypass CORS:
 function proxify(url: string): string {
-	return url.startsWith(`http://localhost`)
-		|| new URL(url).host === window.location.host
+	return url.startsWith(`http://localhost`) ||
+		new URL(url).host === window.location.host
 		? url
 		: `https://widgets-cors-proxy.huggingface.co/proxy?url=${url}`;
 }
 
 // Get BLOB from a given URL after proxifying the URL
-export async function getBlobFromUrl(url: string): Promise<Blob>{
+export async function getBlobFromUrl(url: string): Promise<Blob> {
 	const proxiedUrl = proxify(url);
 	const res = await fetch(proxiedUrl);
 	const blob = await res.blob();
@@ -56,19 +57,20 @@ export async function getBlobFromUrl(url: string): Promise<Blob>{
 }
 
 async function callApi(
-	url: string, 
-	repoId: string, 
-	requestBody: Record<string, any>, 
-	apiToken = '',
+	url: string,
+	repoId: string,
+	requestBody: Record<string, any>,
+	apiToken = "",
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
-	useCache = true,
-): Promise<Response> {	
-	const contentType = 'file' in requestBody && 'type' in requestBody['file']
-		? requestBody['file']['type']  
-		: 'application/json';
-	
+	useCache = true
+): Promise<Response> {
+	const contentType =
+		"file" in requestBody && "type" in requestBody["file"]
+			? requestBody["file"]["type"]
+			: "application/json";
+
 	const headers = new Headers();
-	headers.set('Content-Type', contentType);
+	headers.set("Content-Type", contentType);
 	if (apiToken) {
 		headers.set("Authorization", `Bearer ${apiToken}`);
 	}
@@ -76,52 +78,52 @@ async function callApi(
 		headers.set("X-Wait-For-Model", "true");
 	}
 	if (useCache === false) {
-		headers.set('X-Use-Cache', "false");
+		headers.set("X-Use-Cache", "false");
 	}
-	
-	const body: File | string = 'file' in requestBody
-		? requestBody.file
-		: JSON.stringify(requestBody);
-	
-	return await fetch(
-		`${url}/models/${repoId}`,
-		{
-			method: "POST",
-			body,
-			headers,
-		}
-	);
+
+	const body: File | string =
+		"file" in requestBody ? requestBody.file : JSON.stringify(requestBody);
+
+	return await fetch(`${url}/models/${repoId}`, {
+		method: "POST",
+		body,
+		headers,
+	});
 }
 
 export async function getResponse<T>(
-	url: string, 
-	repoId: string, 
-	requestBody: Record<string, any>, 
-	apiToken = '',
-	outputParsingFn: (x: unknown) =>  T,
+	url: string,
+	repoId: string,
+	requestBody: Record<string, any>,
+	apiToken = "",
+	outputParsingFn: (x: unknown) => T,
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
-	useCache = true,
-): Promise<{
-	computeTime: string,
-	output: T,
-	outputJson: string,
-	response: Response,
-	status: 'success'
-} | {
-	error: string,
-	estimatedTime: number,
-	status: 'loading-model'
-} | {
-	error: string,
-	status: 'error'
-}>  {
+	useCache = true
+): Promise<
+	| {
+			computeTime: string;
+			output: T;
+			outputJson: string;
+			response: Response;
+			status: "success";
+	  }
+	| {
+			error: string;
+			estimatedTime: number;
+			status: "loading-model";
+	  }
+	| {
+			error: string;
+			status: "error";
+	  }
+> {
 	const response = await callApi(
 		url,
 		repoId,
 		requestBody,
 		apiToken,
 		waitForModel,
-		useCache,
+		useCache
 	);
 
 	if (response.ok) {
@@ -129,20 +131,22 @@ export async function getResponse<T>(
 		const computeTime = response.headers.has("x-compute-time")
 			? `${response.headers.get("x-compute-time")} s`
 			: `cached`;
-		const isMediaContent = (response.headers.get('content-type')?.search(/^(?:audio|image)/i) ?? -1) !== -1;
-		
-		const body = !isMediaContent 
+		const isMediaContent =
+			(response.headers.get("content-type")?.search(/^(?:audio|image)/i) ??
+				-1) !== -1;
+
+		const body = !isMediaContent
 			? await response.json()
 			: await response.blob();
 
-		try{
+		try {
 			const output = outputParsingFn(body);
-			const outputJson = !isMediaContent ? JSON.stringify(body, null, 2) : '';
-			return { computeTime, output, outputJson, response, status: 'success' }
-		}catch(e){
+			const outputJson = !isMediaContent ? JSON.stringify(body, null, 2) : "";
+			return { computeTime, output, outputJson, response, status: "success" };
+		} catch (e) {
 			// Invalid output
 			const error = `API Implementation Error: ${e.message}`;
-			return { error, status: 'error' }
+			return { error, status: "error" };
 		}
 	} else {
 		// Error
@@ -155,35 +159,54 @@ export async function getResponse<T>(
 			body["estimated_time"] != null // != null -> check for null AND undefined
 		) {
 			// Model needs loading
-			return { error: body["error"], estimatedTime: body["estimated_time"], status: 'loading-model' };
+			return {
+				error: body["error"],
+				estimatedTime: body["estimated_time"],
+				status: "loading-model",
+			};
 		} else {
 			// Other errors
 			const { status, statusText } = response;
-			return { error: body["error"] ?? body["traceback"] ?? `${status} ${statusText}`, status: 'error' };
+			return {
+				error: body["error"] ?? body["traceback"] ?? `${status} ${statusText}`,
+				status: "error",
+			};
 		}
 	}
 }
 
-
-export async function getModelStatus(url: string, repoId: string): Promise<LoadingStatus> {
+export async function getModelStatus(
+	url: string,
+	repoId: string
+): Promise<LoadingStatus> {
 	const response = await fetch(`${url}/status/${repoId}`);
 	const output = await response.json();
-	if (response.ok && typeof output === 'object' && output.loaded !== undefined) {
-		return output.loaded ? 'loaded' : 'unknown';
+	if (
+		response.ok &&
+		typeof output === "object" &&
+		output.loaded !== undefined
+	) {
+		return output.loaded ? "loaded" : "unknown";
 	} else {
 		console.warn(response.status, output.error);
-		return 'error';
+		return "error";
 	}
 }
 
 // Extend Inference API requestBody with user supplied Inference API parameters
-export function addInferenceParameters(requestBody: Record<string, any>, model: ModelData) {
+export function addInferenceParameters(
+	requestBody: Record<string, any>,
+	model: ModelData
+) {
 	const inference = model?.cardData?.inference;
 	if (typeof inference === "object") {
 		const inferenceParameters = inference?.parameters;
 		if (inferenceParameters) {
 			if (requestBody.parameters) {
-				requestBody.parameters = { ...requestBody.parameters, ...inferenceParameters };
+				requestBody.parameters = {
+					...requestBody.parameters,
+					...inferenceParameters,
+				};
 			} else {
 				requestBody.parameters = inferenceParameters;
 			}
@@ -192,9 +215,9 @@ export function addInferenceParameters(requestBody: Record<string, any>, model: 
 }
 
 /*
-* Converts table from [[Header0, Header1, Header2], [Column0Val0, Column1Val0, Column2Val0], ...]
-* to {Header0: [ColumnVal0, ...], Header1: [Column1Val0, ...], Header2: [Column2Val0, ...]}
-*/
+ * Converts table from [[Header0, Header1, Header2], [Column0Val0, Column1Val0, Column2Val0], ...]
+ * to {Header0: [ColumnVal0, ...], Header1: [Column1Val0, ...], Header2: [Column2Val0, ...]}
+ */
 export function convertTableToData(table: (string | number)[][]): TableData {
 	return Object.fromEntries(
 		table[0].map((cell, x) => {
@@ -211,9 +234,9 @@ export function convertTableToData(table: (string | number)[][]): TableData {
 }
 
 /*
-* Converts data from {Header0: [ColumnVal0, ...], Header1: [Column1Val0, ...], Header2: [Column2Val0, ...]}
-* to [[Header0, Header1, Header2], [Column0Val0, Column1Val0, Column2Val0], ...]
-*/
+ * Converts data from {Header0: [ColumnVal0, ...], Header1: [Column1Val0, ...], Header2: [Column2Val0, ...]}
+ * to [[Header0, Header1, Header2], [Column0Val0, Column1Val0, Column2Val0], ...]
+ */
 export function convertDataToTable(data: TableData): (string | number)[][] {
 	const dataArray = Object.entries(data); // [header, cell[]][]
 	const nbCols = dataArray.length;

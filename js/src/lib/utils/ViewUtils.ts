@@ -11,7 +11,7 @@ const ESCAPED = {
 /**
  *  Returns a function that clamps input value to range [min <= x <= max].
  */
- export function clamp(x: number, min: number, max: number): number {
+export function clamp(x: number, min: number, max: number): number {
 	return Math.max(min, Math.min(x, max));
 }
 
@@ -19,7 +19,7 @@ const ESCAPED = {
  * HTML escapes the passed string
  */
 export function escape(html: unknown): string {
-	return String(html).replace(/["'&<>]/g, match => ESCAPED[match]);
+	return String(html).replace(/["'&<>]/g, (match) => ESCAPED[match]);
 }
 
 /**
@@ -91,18 +91,26 @@ export function scrollToMax(elt: HTMLElement, axis: "x" | "y" = "y") {
 }
 
 /*
-* Converts hex string to rgb array (i.e. [r,g,b])
-* original from https://stackoverflow.com/a/39077686/6558628
-*/
-export function hexToRgb(hex: string): number[]{
-	return hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i
-			   ,(_, r, g, b) => '#' + r + r + g + g + b + b)
-	  .substring(1).match(/.{2}/g)
-	  ?.map(x => parseInt(x, 16)) || [0, 0, 0];
+ * Converts hex string to rgb array (i.e. [r,g,b])
+ * original from https://stackoverflow.com/a/39077686/6558628
+ */
+export function hexToRgb(hex: string): number[] {
+	return (
+		hex
+			.replace(
+				/^#?([a-f\d])([a-f\d])([a-f\d])$/i,
+				(_, r, g, b) => "#" + r + r + g + g + b + b
+			)
+			.substring(1)
+			.match(/.{2}/g)
+			?.map((x) => parseInt(x, 16)) || [0, 0, 0]
+	);
 }
 
 // Get the Task id corresponding to the modelPipeline (should be === in 99% cases)
-export function getPipelineTask(modelPipeline: keyof typeof PipelineType): string {
+export function getPipelineTask(
+	modelPipeline: keyof typeof PipelineType
+): string {
 	return modelPipeline === "text2text-generation"
 		? "text-generation"
 		: modelPipeline;
