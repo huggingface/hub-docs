@@ -34,14 +34,7 @@
 	does NOT use InferenceAPI (unlike other pipelines widgets)
 -->
 <div class="flex flex-col w-full max-w-full">
-	<div class="flex items-start">
-		<WidgetHeader noTitle pipeline="reinforcement-learning" />
-		{#if replay === Replay.Loading}
-			<IconSpin
-				classNames="text-purple-400 dark:text-purple-200 animate-spin mt-0.5"
-			/>
-		{/if}
-	</div>
+	<WidgetHeader noTitle pipeline="reinforcement-learning" />
 	<div class="rounded-lg overflow-hidden w-full">
 		{#if replay === Replay.Available}
 			<!-- svelte-ignore a11y-media-has-caption -->
@@ -62,6 +55,13 @@
 					<span>Missing <code>replay.mp4</code> in this repository.</span>
 				{/if}
 			</div>
+		{:else}
+			<span class="flex space justify-center items-center"
+				><span class="mr-1 opacity-50">loading</span>
+				<IconSpin
+					classNames="text-purple-400 dark:text-purple-200 animate-spin mt-0.5"
+				/>
+			</span>
 		{/if}
 	</div>
 </div>
