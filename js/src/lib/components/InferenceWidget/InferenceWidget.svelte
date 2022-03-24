@@ -81,5 +81,3 @@
 		{...widgetProps}
 	/>
 {/if}
-
-<!-- debug -->
