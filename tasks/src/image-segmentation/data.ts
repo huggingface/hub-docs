@@ -9,10 +9,6 @@ const taskData: TaskData = {
 			description: "Widely used benchmark dataset for multiple Vision tasks.",
 			id:          "merve/coco2017",
 		},
-		{
-			description: "A dataset of sidewalk images with semantic segmentation labels.",
-			id:          "segments/sidewalk-semantic",
-		},
 	],
 	demo: {
 		inputs: [
@@ -55,10 +51,6 @@ const taskData: TaskData = {
 			description: "Solid panoptic segmentation model trained on the COCO 2017 benchmark dataset.",
 			id:          "facebook/detr-resnet-50-panoptic",
 		},
-		{
-			description: "SegFormer (semantic segmentation model) fine-tuned on sidewalk images.",
-			id: "segments-tobias/segformer-b3-finetuned-segments-sidewalk"
-		}
 	],
 	summary:      "Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.",
 	widgetModels: ["facebook/detr-resnet-50-panoptic"],
