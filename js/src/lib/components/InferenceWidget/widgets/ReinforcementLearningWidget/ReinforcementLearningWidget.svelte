@@ -2,6 +2,7 @@
 	import type { WidgetProps } from "../../shared/types";
 	import { onMount } from "svelte";
 	import IconSpin from "../../../Icons/IconSpin.svelte";
+	import IconCross from "../../../Icons/IconCross.svelte";
 	import WidgetHeader from "../../shared/WidgetHeader/WidgetHeader.svelte";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -35,28 +36,32 @@
 	does NOT use InferenceAPI (unlike other pipelines widgets)
 -->
 <div class="flex flex-col w-full max-w-full">
-	<WidgetHeader noTitle pipeline="reinforcement-learning" />
+	<WidgetHeader title="Video Preview" pipeline="reinforcement-learning" />
 	<div class="rounded-lg overflow-hidden w-full">
 		{#if replay === Replay.Available}
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<video class="w-full" src={replaySrc} controls autoplay loop />
 		{:else if replay === Replay.Unavailable}
-			<div class="opacity-50">
+			<div
+				class="flex items-center justify-center border py-6 rounded-lg text-gray-500 text-sm"
+			>
 				{#if !!apiToken}
-					<span
-						>Please push your <code>replay.mp4</code> to be displayed here.</span
-					>
+					Add<span class="font-mono text-xs">&nbsp;./replay.mp4&nbsp;</span>file
+					to display a preview
 				{:else}
-					<span>Missing <code>replay.mp4</code> in this repository.</span>
+					<IconCross />
+					Preview not found
 				{/if}
 			</div>
 		{:else}
-			<span class="flex space justify-center items-center"
-				><span class="mr-1 opacity-50">loading</span>
+			<div
+				class="flex items-center justify-center border py-6 rounded-lg text-gray-500 text-sm"
+			>
 				<IconSpin
-					classNames="text-purple-400 dark:text-purple-200 animate-spin mt-0.5"
+					classNames="mr-1.5 text-purple-400 dark:text-purple-200 animate-spin mt-0.5"
 				/>
-			</span>
+				<span class="text-gray-500">loading</span>
+			</div>
 		{/if}
 	</div>
 </div>

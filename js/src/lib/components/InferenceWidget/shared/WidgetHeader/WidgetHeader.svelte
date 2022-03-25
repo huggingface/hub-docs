@@ -7,14 +7,18 @@
 	import IconLightning from "../../../Icons/IconLightning.svelte";
 	import ModelPipelineTag from "../../../ModelPipelineTag/ModelPipelineTag.svelte";
 
-	export let noTitle = false;
+	export let title: string | null = null;
 	export let pipeline: keyof typeof PipelineType | undefined;
 
 	$: task = pipeline ? getPipelineTask(pipeline) : undefined;
 </script>
 
 <div class="font-semibold flex items-center mb-2">
-	{#if !noTitle}
+	{#if title}
+		<div class="text-lg flex items-center">
+			{title}
+		</div>
+	{:else}
 		<div class="text-lg flex items-center">
 			<IconLightning classNames="-ml-1 mr-1 text-yellow-500" />
 			Hosted inference API
