@@ -31,6 +31,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 
 - [Course Chapter on Fine-tuning a Masked Language Model](https://huggingface.co/course/chapter7/3?fw=pt)
 - [Workshop on Pretraining Language Models and CodeParrot](https://www.youtube.com/watch?v=ExUR7w6xe94)
+- [BERT 101: State Of The Art NLP Model Explained](https://huggingface.co/blog/bert-101)
 
 ### Notebooks
 
