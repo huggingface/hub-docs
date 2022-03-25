@@ -64,8 +64,6 @@
 
 	$: widgetComponent = WIDGET_COMPONENTS[model.pipeline_tag ?? ""];
 
-	// debug change
-
 	// prettier-ignore
 	$: widgetProps = ({
 		apiToken,
