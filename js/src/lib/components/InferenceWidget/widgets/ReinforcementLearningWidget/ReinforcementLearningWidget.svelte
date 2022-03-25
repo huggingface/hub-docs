@@ -40,7 +40,7 @@
 	<div class="rounded-lg overflow-hidden w-full">
 		{#if replay === Replay.Available}
 			<!-- svelte-ignore a11y-media-has-caption -->
-			<video class="w-full" src={replaySrc} controls autoplay loop />
+			<video class="w-full" src={replaySrc} controls autoplay muted loop />
 		{:else if replay === Replay.Unavailable}
 			<div
 				class="flex items-center justify-center border py-6 rounded-lg text-gray-500 text-sm"
