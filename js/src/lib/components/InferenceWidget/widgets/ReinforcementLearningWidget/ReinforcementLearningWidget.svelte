@@ -14,12 +14,13 @@
 	}
 
 	let replay = Replay.Loading;
+	let replaySrc = "";
 
 	function doesReplayExist() {
 		// check if repository has `replay.mp4` file
-		const replayUrl = `https://huggingface.co/${model.id}/resolve/main/output.mp4`;
+		replaySrc = `https://huggingface.co/${model.id}/resolve/main/output.mp4`;
 		const xhr = new XMLHttpRequest();
-		xhr.open("HEAD", replayUrl, false);
+		xhr.open("HEAD", replaySrc, false);
 		xhr.send();
 		return xhr.status !== 404;
 	}
@@ -40,7 +41,7 @@
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<video
 				class="w-full"
-				src="https://huggingface.co/ThomasSimonini/ppo-LunarLander-v2/resolve/main/output.mp4"
+				src={replaySrc}
 				controls
 				autoplay
 				loop
