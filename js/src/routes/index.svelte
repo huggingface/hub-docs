@@ -5,7 +5,7 @@
 
 	const models: ModelData[] = [
 		{
-			id: "ThomasSimonini/ppo-LunarLander-v2",
+			id: "edbeeching/decision-transformer-gym-hopper-medium-replay",
 			pipeline_tag: "reinforcement-learning",
 		},
 		{
