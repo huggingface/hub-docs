@@ -5,11 +5,6 @@ on:
     paths:
       - "js/**"
       - "!js/src/lib/interfaces/**"
-  pull_request:
-    paths:
-      - "js/**"
-      - "!js/src/lib/interfaces/**"
-
 
 jobs:
   build:
@@ -47,9 +42,9 @@ jobs:
           npm i netlify-cli
 
       - name: Netlify find out whether push to prod
-        if: endsWith(github.ref, '/master')
+        if: endsWith(github.ref, '/main')
         run: |
-          echo "::set-env name=NETLIFY_EXTRA_FLAG::--prod"
+          echo "NETLIFY_EXTRA_FLAG=--prod" >> $GITHUB_ENV
 
       - name: Netlify deploy
         working-directory: js
