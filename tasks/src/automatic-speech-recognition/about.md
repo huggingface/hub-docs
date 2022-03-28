@@ -42,3 +42,7 @@ On March 2020, over 300 participants collaborated, trained and shared 236 ASR mo
 ![Leaderboard of ASR Models](/tasks/assets/automatic-speech-recognition/wav2vec2.png)
 
 These events help democratize ASR for all languages, including low-resource languages. In addition to the trained models, the event helps to build practical collaborative knowledge.
+
+## Useful Resources
+- [Making automatic speech recognition work on large files with Wav2Vec2 in 🤗 Transformers](https://huggingface.co/blog/asr-chunking)
+- [Boosting Wav2Vec2 with n-grams in 🤗 Transformers](https://huggingface.co/blog/wav2vec2-with-ngram)

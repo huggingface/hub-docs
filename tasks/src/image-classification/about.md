@@ -24,6 +24,8 @@ clf("path_to_a_cat_image")
 
 ## Useful Resources
 
+- [Fine-Tune ViT for Image Classification with 🤗Transformers](https://huggingface.co/blog/fine-tune-vit)
+
 ### Creating your own image classifier in just a few minutes
 
 With [HuggingPics](https://github.com/nateraw/huggingpics), you can fine-tune Vision Transformers for anything using images found on the web. This project downloads images of classes defined by you, trains a model, and pushes it to the Hub. You even get to try out the model directly with a working widget in the browser, ready to be shared with all your friends!

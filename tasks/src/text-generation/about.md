@@ -78,6 +78,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Hugging Face Course Workshops: Pretraining Language Models & CodeParrot](https://www.youtube.com/watch?v=ExUR7w6xe94&ab_channel=HuggingFace)
 - [Training CodeParrot 🦜 from Scratch](https://huggingface.co/blog/codeparrot)
 - [How to generate text: using different decoding methods for language generation with Transformers](https://huggingface.co/blog/how-to-generate)
+- [Guiding Text Generation with Constrained Beam Search in 🤗 Transformers](https://huggingface.co/blog/constrained-beam-search)
 
 ### Notebooks
 

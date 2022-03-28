@@ -50,6 +50,10 @@ const taskData: TaskData = {
 			// TO DO: write description
 			description: "Solid panoptic segmentation model trained on the COCO 2017 benchmark dataset.",
 			id:          "facebook/detr-resnet-50-panoptic",
+		},
+		{
+			description: "Semantic segmentation model trained on ADE20k benchmark dataset.",
+			id:          "microsoft/beit-large-finetuned-ade-640-640",
 		}
 	],
 	summary:      "Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.",

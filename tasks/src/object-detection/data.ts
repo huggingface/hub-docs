@@ -47,7 +47,11 @@ const taskData: TaskData = {
 			// TO DO: write description
 			description: "Solid object detection model trained on the benchmark dataset COCO 2017.",
 			id:          "facebook/detr-resnet-50",
-		}
+		},
+		{
+			description: "Strong object detection model trained on ImageNet-21k dataset.",
+			id:          "microsoft/beit-base-patch16-224-pt22k-ft22k",
+		},
 	],
 	summary:      "Object Detection models allow users to identify objects of certain defined classes. Object detection models receive an image as input and output the images with bounding boxes and labels on detected objects.",
 	widgetModels: ["facebook/detr-resnet-50"],
