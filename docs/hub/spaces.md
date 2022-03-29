@@ -87,6 +87,10 @@ pinned: false
 
 For additional settings, refer to the [Reference](#reference) section.
 
+### Compare or Clone Models and Spaces
+You can build a space comparing Hugging Face Models and Spaces or create clones of them with [Model Comparator Space Builder](https://huggingface.co/spaces/farukozderim/Model-Comparator-Space-Builder) 🤗.
+
+
 ### Organization card
 
 Organization cards are a way to describe your organization to other users. They take the form of a `README.md` static file, inside a Space repo named `README`.
