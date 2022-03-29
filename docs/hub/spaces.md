@@ -88,10 +88,13 @@ pinned: false
 For additional settings, refer to the [Reference](#reference) section.
 
 ### Comparing Different Models
-There is a Space that allows you to automatically create a Space to compare different models and Spaces. Check the first example within [Model Comparator Space Builder](https://huggingface.co/spaces/farukozderim/Model-Comparator-Space-Builder) 🤗. 
+There is a Space that allows you to automatically create a Space to compare different Models and Spaces. Check the first example within [Model Comparator Space Builder](https://huggingface.co/spaces/farukozderim/Model-Comparator-Space-Builder) 🤗. 
 
 ### Duplicating a Space
-You can duplicate a Space or create a Space from a Model. Check the second example within [Model Comparator Space Builder](https://huggingface.co/spaces/farukozderim/Model-Comparator-Space-Builder).
+You can duplicate a Space as well, check the second example within [Model Comparator Space Builder](https://huggingface.co/spaces/farukozderim/Model-Comparator-Space-Builder).
+
+### Create a Space from a Model
+It is also possible to create a Space from a Model with [Model Comparator Space Builder](https://huggingface.co/spaces/farukozderim/Model-Comparator-Space-Builder), just check the third example.
 
 ### Organization cards are a way to describe your organization to other users. They take the form of a `README.md` static file, inside a Space repo named `README`.
 
