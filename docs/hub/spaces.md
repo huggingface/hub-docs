@@ -96,7 +96,8 @@ You can duplicate a Space as well, check the second example within [Model Compar
 ### Create a Space from a Model
 It is also possible to create a Space from a Model with [Model Comparator Space Builder](https://huggingface.co/spaces/farukozderim/Model-Comparator-Space-Builder), just check the third example.
 
-### Organization cards are a way to describe your organization to other users. They take the form of a `README.md` static file, inside a Space repo named `README`.
+### Organization card
+Organization cards are a way to describe your organization to other users. They take the form of a `README.md` static file, inside a Space repo named `README`.
 
 Please read more in the [dedicated doc section](/docs/hub/org-cards).
 
