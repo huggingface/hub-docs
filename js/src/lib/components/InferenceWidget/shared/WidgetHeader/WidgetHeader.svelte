@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PipelineType } from "../../../../interfaces/Types";
+	import type { PIPELINE_TYPE_DATA } from "../../../../interfaces/Types";
 
 	import { getPipelineTask } from "../../../../utils/ViewUtils";
 	import { TASKS_DATA } from "../../../../../../../tasks/src/tasksData";
@@ -9,7 +9,7 @@
 
 	export let noTitle = false;
 	export let title: string | null = null;
-	export let pipeline: keyof typeof PipelineType | undefined;
+	export let pipeline: keyof typeof PIPELINE_TYPE_DATA | undefined;
 
 	$: task = pipeline ? getPipelineTask(pipeline) : undefined;
 </script>

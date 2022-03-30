@@ -1,66 +1,179 @@
-
-/// Coarse-grained task classification.
-///
-/// This type is used to determine which inference API & widget
-/// we want to display for each given model.
-///
-/// As such, they describe the "shape" of each model's API (inputs and outputs)
-/// so the number of different types is not expected to grow very significantly over time.
-///
-/// In each category, order by decreasing specificity
-/// The order can influence which default pipeline tag is affected to a model (if unspecified in model card)
-export enum PipelineType {
-	/// nlp
-	"text-classification"                                     = "Text Classification",
-	"token-classification"                                    = "Token Classification",
-	"table-question-answering"                                = "Table Question Answering",
-	"question-answering"                                      = "Question Answering",
-	"zero-shot-classification"                                = "Zero-Shot Classification",
-	"translation"                                             = "Translation",
-	"summarization"                                           = "Summarization",
-	"conversational"                                          = "Conversational",
-	"feature-extraction"                                      = "Feature Extraction",
-	"text-generation"                                         = "Text Generation",
-	"text2text-generation"                                    = "Text2Text Generation",
-	"fill-mask"                                               = "Fill-Mask",
-	"sentence-similarity"                                     = "Sentence Similarity",
-	/// audio
-	"text-to-speech"                                          = "Text-to-Speech",
-	"automatic-speech-recognition"                            = "Automatic Speech Recognition",
-	"audio-to-audio"                                          = "Audio-to-Audio",
-	"audio-classification"                                    = "Audio Classification",
-	"voice-activity-detection"                                = "Voice Activity Detection",
-	/// computer vision
-	"image-classification"                                    = "Image Classification",
-	"object-detection"                                        = "Object Detection",
-	"image-segmentation"                                      = "Image Segmentation",
-	"text-to-image"                                           = "Text-to-Image",
-	"image-to-text"                                           = "Image-to-Text",
-	"image-to-image"                                          = "Image-to-Image",
-	"unconditional-image-generation"                          = "Unconditional Image Generation",
-	/// others
-	"structured-data-classification"                          = "Structured Data Classification",
-	"reinforcement-learning"                                  = "Reinforcement Learning",
+export interface SubTask {
+	type: string;
+	name: string;
 }
 
-export const ALL_PIPELINE_TYPES = Object.keys(PipelineType) as (keyof typeof PipelineType)[];
-
-/// Finer-grained task classification
-///
-/// This is used in a model card's `model-index` metadata.
-/// (see https://github.com/huggingface/huggingface_hub/blame/main/modelcard.md for spec)
-/// and is a more granular classification that can grow significantly over time
-/// as we provide support for more ML tasks.
-///
-/// We decide to keep it flat (non-hierchical) for simplicity and consistency.
-export enum FinerGrainedTaskType {
-	/// nlp
-	"named-entity-recognition"                                = "Named Entity Recognition",
-	"part-of-speech-tagging"                                  = "Part-Of-Speech Tagging",
-	/// audio
-	"audio-source-separation"                                 = "Audio Source Separation",
-	"speech-enhancement"                                      = "Speech Enhancement",
+export interface PipelineData {
+	name: string;
+	subtasks: SubTask[];
+	modality: Modality;
+	color: "blue" | "green" | "indigo" | "orange" | "red" | "yellow";
 }
+
+export const PIPELINE_DATA = Object.freeze({
+	"text-classification": {
+		name:     "Text Classification",
+		subtasks: [],
+		modality: "nlp",
+		color:    "blue",
+	},
+	"token-classification": {
+		name:     "Token Classification",
+		subtasks: [
+			{
+				type: "named-entity-recognition",
+				name: "Named Entity Recognition",
+			},
+			{
+				type: "part-of-speech",
+				name: "Part of Speech",
+			},
+		],
+		modality: "nlp",
+		color:    "blue",
+	},
+	"table-question-answering": {
+		name:     "Table Question Answering",
+		subtasks: [],
+		modality: "nlp",
+		color:    "green",
+	},
+	"question-answering": {
+		name:     "Question Answering",
+		subtasks: [],
+		modality: "nlp",
+		color:    "blue",
+	},
+	"zero-shot-classification": {
+		name:     "Zero-Shot Classification",
+		subtasks: [],
+		modality: "nlp",
+		color:    "yellow",
+	},
+	"translation": {
+		name:     "Translation",
+		subtasks: [],
+		modality: "nlp",
+		color:    "green",
+	},
+	"summarization": {
+		name:     "Summarization",
+		subtasks: [],
+		modality: "nlp",
+		color:    "indigo",
+	},
+	"conversational": {
+		name:     "Conversational",
+		subtasks: [],
+		modality: "nlp",
+		color:    "green",
+	},
+	"feature-extraction": {
+		name:     "Feature Extraction",
+		subtasks: [],
+		modality: "nlp",
+		color:    "red",
+	},
+	"text-generation": {
+		name:     "Text Generation",
+		subtasks: [],
+		modality: "nlp",
+		color:    "indigo",
+	},
+	"text2text-generation": {
+		name:     "Text2Text Generation",
+		subtasks: [],
+		modality: "nlp",
+		color:    "indigo",
+	},
+	"fill-mask": {
+		name:     "Fill-Mask",
+		subtasks: [],
+		modality: "nlp",
+		color:    "red",
+	},
+	"sentence-similarity": {
+		name:     "Sentence Similarity",
+		subtasks: [],
+		modality: "nlp",
+		color:    "green",
+	},
+	"text-to-speech": {
+		name:     "Text-to-Speech",
+		subtasks: [],
+		modality: "audio",
+		color:    "yellow",
+	},
+	"automatic-speech-recognition": {
+		name:     "Automatic Speech Recognition",
+		subtasks: [],
+		modality: "audio",
+		color:    "green",
+	},
+	"audio-to-audio": {
+		name:     "Audio-to-Audio",
+		subtasks: [],
+		modality: "audio",
+		color:    "green",
+	},
+	"audio-classification": {
+		name:     "Audio Classification",
+		subtasks: [],
+		modality: "audio",
+		color:    "green",
+	},
+	"voice-activity-detection": {
+		name:     "Voice Activity Detection",
+		subtasks: [],
+		modality: "audio",
+		color:    "green",
+	},
+	"image-classification": {
+		name:     "Image Classification",
+		subtasks: [],
+		modality: "cv",
+		color:    "yellow",
+	},
+	"object-detection": {
+		name:     "Object Detection",
+		subtasks: [],
+		modality: "cv",
+		color:    "green",
+	},
+	"image-segmentation": {
+		name:     "Image Segmentation",
+		subtasks: [],
+		modality: "cv",
+		color:    "green",
+	},
+	"text-to-image": {
+		name:     "Text-to-Image",
+		subtasks: [],
+		modality: "cv",
+		color:    "green",
+	},
+	"image-to-text": {
+		name:     "Image-to-Text",
+		subtasks: [],
+		modality: "cv",
+		color:    "green",
+	},
+	"structured-data-classification": {
+		name:     "Structured Data Classification",
+		subtasks: [],
+		modality: "other",
+		color:    "green",
+	},
+	"reinforcement-learning": {
+		name:     "Reinforcement Learning",
+		subtasks: [],
+		modality: "other",
+		color:    "green",
+	},
+} as const);
+
+export type PipelineType = keyof typeof PIPELINE_DATA;
+export const ALL_PIPELINE_TYPES = Object.keys(PIPELINE_DATA) as PipelineType[];
 
 export const MODALITIES = [
 	"nlp",
@@ -80,75 +193,10 @@ export const MODALITY_LABELS: Record<Modality, string> = {
 	other: "Other",
 };
 
-export const PIPELINE_TAG_MODALITIES: Record<keyof typeof PipelineType, Modality> = {
-	"text-classification":            "nlp",
-	"token-classification":           "nlp",
-	"table-question-answering":       "nlp",
-	"question-answering":             "nlp",
-	"zero-shot-classification":       "nlp",
-	"translation":                    "nlp",
-	"summarization":                  "nlp",
-	"conversational":                 "nlp",
-	"feature-extraction":             "nlp",
-	"text-generation":                "nlp",
-	"text2text-generation":           "nlp",
-	"fill-mask":                      "nlp",
-	"sentence-similarity":            "nlp",
-	"text-to-speech":                 "audio",
-	"automatic-speech-recognition":   "audio",
-	"audio-to-audio":                 "audio",
-	"audio-classification":           "audio",
-	"voice-activity-detection":       "audio",
-	"image-classification":           "cv",
-	"object-detection":               "cv",
-	"image-segmentation":             "cv",
-	"text-to-image":                  "cv",
-	"image-to-text":                  "cv",
-	"image-to-image":                 "cv",
-	"unconditional-image-generation": "cv",
-	"reinforcement-learning":         "rl",
-	"structured-data-classification": "other",
-};
-
-/*
- * Specification of tag color.
- */
-export const PIPELINE_COLOR: {
-	[key in keyof typeof PipelineType]?: "blue" | "green" | "indigo" | "orange" | "red" | "yellow";
-} = {
-	"audio-classification":           "green",
-	"audio-to-audio":                 "blue",
-	"automatic-speech-recognition":   "yellow",
-	"conversational":                 "green",
-	"fill-mask":                      "red",
-	"feature-extraction":             "red",
-	"image-classification":           "blue",
-	"image-segmentation":             "green",
-	"image-to-text":                  "red",
-	"object-detection":               "orange",
-	"image-to-image":                 "indigo",
-	"unconditional-image-generation": "green",
-	"question-answering":             "blue",
-	"sentence-similarity":            "orange",
-	"structured-data-classification": "indigo",
-	"summarization":                  "indigo",
-	"table-question-answering":       "green",
-	"token-classification":           "blue",
-	"text2text-generation":           "indigo",
-	"text-classification":            "orange",
-	"text-generation":                "indigo",
-	"text-to-image":                  "orange",
-	"text-to-speech":                 "yellow",
-	"translation":                    "green",
-	"voice-activity-detection":       "red",
-	"zero-shot-classification":       "yellow",
-	"reinforcement-learning":         "red",
-};
-
 /*
  * Specification of pipeline tag display order.
  */
-export const PIPELINE_TAGS_DISPLAY_ORDER: Array<keyof typeof PipelineType> = [
+export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	/// nlp
 	"fill-mask",
 	"question-answering",
@@ -213,7 +261,7 @@ export interface ModelData {
 	/**
 	 * Pipeline type
 	 */
-	pipeline_tag?: (keyof typeof PipelineType) | undefined;
+	pipeline_tag?: PipelineType | undefined;
 	/**
 	 * for relevant models, get mask token
 	 */
@@ -254,7 +302,7 @@ export interface TransformersInfo {
 	/**
 	 * e.g. text-classification
 	 */
-	pipeline_tag?: keyof typeof PipelineType;
+	pipeline_tag?: PipelineType;
 	/**
 	 * e.g. "AutoTokenizer" | "AutoFeatureExtractor" | "AutoProcessor"
 	 */

@@ -20,7 +20,7 @@ import textGeneration from "./text-generation/data";
 
 // To make comparisons easier, task order is the same as in /lib/interfaces/Types.ts
 export const TASKS_DATA: Record<
-	keyof typeof PipelineType,
+	PipelineType,
 	TaskData | undefined
 > = {
 	/// nlp

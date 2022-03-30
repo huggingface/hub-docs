@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SvelteComponent } from "svelte";
-	import type { PipelineType } from "../../interfaces/Types";
+	import type { PIPELINE_TYPE_DATA } from "../../interfaces/Types";
 
 	import IconAudioClassification from "../Icons/IconAudioClassification.svelte";
 	import IconAudioToAudio from "../Icons/IconAudioToAudio.svelte";
@@ -34,7 +34,7 @@
 	export let pipeline = "";
 
 	const ICON_COMPONENTS: {
-		[key in keyof typeof PipelineType]?: typeof SvelteComponent;
+		[key in keyof typeof PIPELINE_TYPE_DATA]?: typeof SvelteComponent;
 	} = {
 		/// Keep same order as in huggingface_hub/Types.ts
 		/// for easy mapping.

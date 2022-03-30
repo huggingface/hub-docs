@@ -1,4 +1,4 @@
-import type { PipelineType, ModelData } from "../interfaces/Types";
+import type { PIPELINE_DATA, ModelData } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
 export const bodyBasic = (model: ModelData): string =>
@@ -8,7 +8,7 @@ export const bodyZeroShotClassification = (model: ModelData): string =>
 	`-d '{"inputs": ${getModelInputSnippet(model, true)}, "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}'`;
 
 export const curlSnippetBodies:
-	Partial<Record<keyof typeof PipelineType, (model: ModelData) => string>> =
+	Partial<Record<keyof typeof PIPELINE_DATA, (model: ModelData) => string>> =
 {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":      bodyBasic,

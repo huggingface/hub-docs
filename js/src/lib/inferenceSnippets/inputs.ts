@@ -1,4 +1,4 @@
-import type { PipelineType, ModelData } from "../interfaces/Types";
+import type { PIPELINE_DATA, ModelData } from "../interfaces/Types";
 
 const inputsZeroShotClassification = () =>
 	`"Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!"`;
@@ -66,7 +66,7 @@ const inputsFeatureExtraction = () =>
 	`"Today is a sunny day and I'll get some ice cream."`;
 
 const modelInputSnippets: {
-	[key in keyof typeof PipelineType]?: (model: ModelData) => string;
+	[key in keyof typeof PIPELINE_DATA]?: (model: ModelData) => string;
 } = {
 	"conversational":           inputsConversational,
 	"feature-extraction":       inputsFeatureExtraction,

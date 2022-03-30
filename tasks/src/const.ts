@@ -4,7 +4,7 @@ import type { PipelineType } from "../../js/src/lib/interfaces/Types";
 /*
  * Model libraries compatible with each ML task
  */
-export const TASKS_MODEL_LIBRARIES: Record<keyof typeof PipelineType, Array<keyof typeof ModelLibrary>> = {
+export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof ModelLibrary>> = {
 	/// nlp
 	"text-classification":            ["adapter-transformers", "spacy", "transformers"],
 	"token-classification":           ["adapter-transformers", "flair", "spacy", "stanza", "transformers"],

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PipelineType } from "../../interfaces/Types";
+	import { PIPELINE_DATA } from "../../interfaces/Types";
 	import ModelPipelineIcon from "../ModelPipelineIcon/ModelPipelineIcon.svelte";
 
 	export let classNames = "";
@@ -9,6 +9,6 @@
 <div class="inline-flex items-center {classNames}">
 	<ModelPipelineIcon classNames="mr-1" {pipeline} />
 	<span>
-		{PipelineType[pipeline] ?? pipeline}
+		{PIPELINE_DATA[pipeline].name ?? pipeline}
 	</span>
 </div>
