@@ -11,11 +11,47 @@ export interface PipelineData {
 }
 
 export const PIPELINE_DATA = Object.freeze({
+	"fill-mask": {
+		name:     "Fill-Mask",
+		subtasks: [],
+		modality: "nlp",
+		color:    "red",
+	},
+	"question-answering": {
+		name:     "Question Answering",
+		subtasks: [],
+		modality: "nlp",
+		color:    "blue",
+	},
+	"summarization": {
+		name:     "Summarization",
+		subtasks: [],
+		modality: "nlp",
+		color:    "indigo",
+	},
+	"table-question-answering": {
+		name:     "Table Question Answering",
+		subtasks: [],
+		modality: "nlp",
+		color:    "green",
+	},
 	"text-classification": {
 		name:     "Text Classification",
 		subtasks: [],
 		modality: "nlp",
-		color:    "blue",
+		color:    "orange",
+	},
+	"text-generation": {
+		name:     "Text Generation",
+		subtasks: [],
+		modality: "nlp",
+		color:    "indigo",
+	},
+	"text2text-generation": {
+		name:     "Text2Text Generation",
+		subtasks: [],
+		modality: "nlp",
+		color:    "indigo",
 	},
 	"token-classification": {
 		name:     "Token Classification",
@@ -32,17 +68,11 @@ export const PIPELINE_DATA = Object.freeze({
 		modality: "nlp",
 		color:    "blue",
 	},
-	"table-question-answering": {
-		name:     "Table Question Answering",
+	"translation": {
+		name:     "Translation",
 		subtasks: [],
 		modality: "nlp",
 		color:    "green",
-	},
-	"question-answering": {
-		name:     "Question Answering",
-		subtasks: [],
-		modality: "nlp",
-		color:    "blue",
 	},
 	"zero-shot-classification": {
 		name:     "Zero-Shot Classification",
@@ -50,17 +80,11 @@ export const PIPELINE_DATA = Object.freeze({
 		modality: "nlp",
 		color:    "yellow",
 	},
-	"translation": {
-		name:     "Translation",
+	"sentence-similarity": {
+		name:     "Sentence Similarity",
 		subtasks: [],
 		modality: "nlp",
-		color:    "green",
-	},
-	"summarization": {
-		name:     "Summarization",
-		subtasks: [],
-		modality: "nlp",
-		color:    "indigo",
+		color:    "yellow",
 	},
 	"conversational": {
 		name:     "Conversational",
@@ -74,30 +98,6 @@ export const PIPELINE_DATA = Object.freeze({
 		modality: "nlp",
 		color:    "red",
 	},
-	"text-generation": {
-		name:     "Text Generation",
-		subtasks: [],
-		modality: "nlp",
-		color:    "indigo",
-	},
-	"text2text-generation": {
-		name:     "Text2Text Generation",
-		subtasks: [],
-		modality: "nlp",
-		color:    "indigo",
-	},
-	"fill-mask": {
-		name:     "Fill-Mask",
-		subtasks: [],
-		modality: "nlp",
-		color:    "red",
-	},
-	"sentence-similarity": {
-		name:     "Sentence Similarity",
-		subtasks: [],
-		modality: "nlp",
-		color:    "green",
-	},
 	"text-to-speech": {
 		name:     "Text-to-Speech",
 		subtasks: [],
@@ -108,13 +108,13 @@ export const PIPELINE_DATA = Object.freeze({
 		name:     "Automatic Speech Recognition",
 		subtasks: [],
 		modality: "audio",
-		color:    "green",
+		color:    "yellow",
 	},
 	"audio-to-audio": {
 		name:     "Audio-to-Audio",
 		subtasks: [],
 		modality: "audio",
-		color:    "green",
+		color:    "blue",
 	},
 	"audio-classification": {
 		name:     "Audio Classification",
@@ -126,19 +126,19 @@ export const PIPELINE_DATA = Object.freeze({
 		name:     "Voice Activity Detection",
 		subtasks: [],
 		modality: "audio",
-		color:    "green",
+		color:    "red",
 	},
 	"image-classification": {
 		name:     "Image Classification",
 		subtasks: [],
 		modality: "cv",
-		color:    "yellow",
+		color:    "blue",
 	},
 	"object-detection": {
 		name:     "Object Detection",
 		subtasks: [],
 		modality: "cv",
-		color:    "green",
+		color:    "yellow",
 	},
 	"image-segmentation": {
 		name:     "Image Segmentation",
@@ -150,25 +150,25 @@ export const PIPELINE_DATA = Object.freeze({
 		name:     "Text-to-Image",
 		subtasks: [],
 		modality: "cv",
-		color:    "green",
+		color:    "yellow",
 	},
 	"image-to-text": {
 		name:     "Image-to-Text",
 		subtasks: [],
 		modality: "cv",
-		color:    "green",
+		color:    "red",
 	},
 	"structured-data-classification": {
 		name:     "Structured Data Classification",
 		subtasks: [],
 		modality: "other",
-		color:    "green",
+		color:    "blue",
 	},
 	"reinforcement-learning": {
 		name:     "Reinforcement Learning",
 		subtasks: [],
 		modality: "other",
-		color:    "green",
+		color:    "red",
 	},
 } as const);
 
@@ -192,43 +192,6 @@ export const MODALITY_LABELS: Record<Modality, string> = {
 	rl:    "Reinforcement Learning",
 	other: "Other",
 };
-
-/*
- * Specification of pipeline tag display order.
- */
-export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
-	/// nlp
-	"fill-mask",
-	"question-answering",
-	"summarization",
-	"table-question-answering",
-	"text-classification",
-	"text-generation",
-	"text2text-generation",
-	"token-classification",
-	"translation",
-	"zero-shot-classification",
-	"sentence-similarity",
-	"conversational",
-	"feature-extraction",
-	/// audio
-	"text-to-speech",
-	"automatic-speech-recognition",
-	"audio-to-audio",
-	"audio-classification",
-	"voice-activity-detection",
-	/// computer vision
-	"image-classification",
-	"object-detection",
-	"image-segmentation",
-	"text-to-image",
-	"image-to-text",
-	"image-to-image",
-	"unconditional-image-generation",
-	/// others
-	"structured-data-classification",
-	"reinforcement-learning",
-];
 
 /**
  * Public interface for model metadata
