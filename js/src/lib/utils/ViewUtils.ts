@@ -105,7 +105,7 @@ export function hexToRgb(hex: string): number[]{
 export function getPipelineTask(modelPipeline: PipelineType): string {
 	return modelPipeline === "text2text-generation"
 		? "text-generation"
-		: "hello";
+		: modelPipeline;
 }
 
 /*

@@ -35,7 +35,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "audio-classification",
-	label:     PIPELINE_DATA["audio-classification"]["name"],
+	label:     PIPELINE_DATA["audio-classification"].name,
 	libraries: TASKS_MODEL_LIBRARIES["audio-classification"],
 	metrics:   [
 		{

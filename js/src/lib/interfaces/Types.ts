@@ -43,13 +43,7 @@ export interface PipelineData {
 	 * displayed name of the task (e.g. Text Classification)
 	 */
 	name: string;
-	/**
-	 * fine-grained subtasks
-	 */
-	subtasks: SubTask[];
-	/**
-	 * modality of the task
-	 */
+	subtasks?: SubTask[];
 	modality: Modality;
 	/**
 	 * color for the tag icon.
