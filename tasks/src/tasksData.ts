@@ -51,7 +51,7 @@ export const TASKS_DATA: Record<
 	"text-to-image":                  undefined,
 	"image-to-text":                  undefined,
 	"image-to-image":                 undefined,
-	"image-generation":               undefined,
+	"unconditional-image-generation": undefined,
 	/// others
 	"structured-data-classification": undefined,
 	"reinforcement-learning":         undefined,

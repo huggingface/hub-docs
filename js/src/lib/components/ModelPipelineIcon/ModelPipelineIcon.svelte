@@ -28,7 +28,7 @@
 	import IconZeroShotClassification from "../Icons/IconZeroShotClassification.svelte";
 	import IconReinforcementLearning from "../Icons/IconReinforcementLearning.svelte";
 	import IconImageToImage from "../Icons/IconImageToImage.svelte";
-	import IconImageGeneration from "../Icons/IconImageGeneration.svelte";
+	import IconUnconditionalImageGeneration from "../Icons/IconUnconditionalImageGeneration.svelte";
 
 	export let classNames = "";
 	export let pipeline = "";
@@ -64,7 +64,7 @@
 		"audio-classification": IconAudioClassification,
 		"reinforcement-learning": IconReinforcementLearning,
 		"image-to-image": IconImageToImage,
-		"image-generation": IconImageGeneration,
+		"unconditional-image-generation": IconUnconditionalImageGeneration,
 	};
 </script>
 
