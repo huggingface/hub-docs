@@ -1,57 +1,80 @@
+export const MODALITIES = [
+	"nlp",
+	"audio",
+	"cv",
+	"other",
+] as const;
+
+export type Modality = typeof MODALITIES[number];
+
+export const MODALITY_LABELS: Record<Modality, string> = {
+	nlp:   "Natural Language Processing",
+	audio: "Audio",
+	cv:    "Computer Vision",
+	other: "Other",
+};
+
+/**
+ * Public interface for a sub task.
+ * 
+ * This can be used in a model card's `model-index` metadata.
+ * and is more granular classification that can grow significantly
+ * over time as new tasks are added.
+ */
 export interface SubTask {
+	/**
+	 * type of the task (e.g. audio-source-separation)
+	 */
 	type: string;
+	/**
+	 * displayed name of the task (e.g. Audio Source Separation)
+	 */
 	name: string;
 }
 
+/**
+ * Public interface for a PipelineData.
+ * 
+ * This information corresponds to a pipeline type (aka task)
+ * in the Hub.
+ */
 export interface PipelineData {
+	/**
+	 * displayed name of the task (e.g. Text Classification)
+	 */
 	name: string;
+	/**
+	 * fine-grained subtasks
+	 */
 	subtasks: SubTask[];
+	/**
+	 * modality of the task
+	 */
 	modality: Modality;
+	/**
+	 * color for the tag icon.
+	 */
 	color: "blue" | "green" | "indigo" | "orange" | "red" | "yellow";
 }
 
+/// Coarse-grained taxonomy of tasks
+///
+/// This type is used in multiple places in the Hugging Face
+/// ecosystem:
+///  - To determine which widget to show.
+///  - To determine which endpoint of Inference API to use.
+///  - As filters at the left of models and datasets page.
+///
+/// Note that this is sensitive to order.
+/// For each domain, the order should be of decreasing specificity. 
+/// This will impact the default pipeline tag of a model when not
+/// specified. 
+/// This also impacts the display order.
 export const PIPELINE_DATA = Object.freeze({
-	"fill-mask": {
-		name:     "Fill-Mask",
-		subtasks: [],
-		modality: "nlp",
-		color:    "red",
-	},
-	"question-answering": {
-		name:     "Question Answering",
-		subtasks: [],
-		modality: "nlp",
-		color:    "blue",
-	},
-	"summarization": {
-		name:     "Summarization",
-		subtasks: [],
-		modality: "nlp",
-		color:    "indigo",
-	},
-	"table-question-answering": {
-		name:     "Table Question Answering",
-		subtasks: [],
-		modality: "nlp",
-		color:    "green",
-	},
 	"text-classification": {
 		name:     "Text Classification",
-		subtasks: [],
 		modality: "nlp",
 		color:    "orange",
-	},
-	"text-generation": {
-		name:     "Text Generation",
-		subtasks: [],
-		modality: "nlp",
-		color:    "indigo",
-	},
-	"text2text-generation": {
-		name:     "Text2Text Generation",
-		subtasks: [],
-		modality: "nlp",
-		color:    "indigo",
 	},
 	"token-classification": {
 		name:     "Token Classification",
@@ -68,105 +91,118 @@ export const PIPELINE_DATA = Object.freeze({
 		modality: "nlp",
 		color:    "blue",
 	},
-	"translation": {
-		name:     "Translation",
-		subtasks: [],
+	"table-question-answering": {
+		name:     "Table Question Answering",
 		modality: "nlp",
 		color:    "green",
 	},
+	"question-answering": {
+		name:     "Question Answering",
+		modality: "nlp",
+		color:    "blue",
+	},
 	"zero-shot-classification": {
 		name:     "Zero-Shot Classification",
-		subtasks: [],
 		modality: "nlp",
 		color:    "yellow",
 	},
-	"sentence-similarity": {
-		name:     "Sentence Similarity",
-		subtasks: [],
+	"translation": {
+		name:     "Translation",
 		modality: "nlp",
-		color:    "yellow",
+		color:    "green",
+	},
+	"summarization": {
+		name:     "Summarization",
+		modality: "nlp",
+		color:    "indigo",
 	},
 	"conversational": {
 		name:     "Conversational",
-		subtasks: [],
 		modality: "nlp",
 		color:    "green",
 	},
 	"feature-extraction": {
 		name:     "Feature Extraction",
-		subtasks: [],
 		modality: "nlp",
 		color:    "red",
 	},
+	"text-generation": {
+		name:     "Text Generation",
+		modality: "nlp",
+		color:    "indigo",
+	},
+	"text2text-generation": {
+		name:     "Text2Text Generation",
+		modality: "nlp",
+		color:    "indigo",
+	},
+	"fill-mask": {
+		name:     "Fill-Mask",
+		modality: "nlp",
+		color:    "red",
+	},
+	"sentence-similarity": {
+		name:     "Sentence Similarity",
+		modality: "nlp",
+		color:    "yellow",
+	},
 	"text-to-speech": {
 		name:     "Text-to-Speech",
-		subtasks: [],
 		modality: "audio",
 		color:    "yellow",
 	},
 	"automatic-speech-recognition": {
 		name:     "Automatic Speech Recognition",
-		subtasks: [],
 		modality: "audio",
 		color:    "yellow",
 	},
 	"audio-to-audio": {
 		name:     "Audio-to-Audio",
-		subtasks: [],
 		modality: "audio",
 		color:    "blue",
 	},
 	"audio-classification": {
 		name:     "Audio Classification",
-		subtasks: [],
 		modality: "audio",
 		color:    "green",
 	},
 	"voice-activity-detection": {
 		name:     "Voice Activity Detection",
-		subtasks: [],
 		modality: "audio",
 		color:    "red",
 	},
 	"image-classification": {
 		name:     "Image Classification",
-		subtasks: [],
 		modality: "cv",
 		color:    "blue",
 	},
 	"object-detection": {
 		name:     "Object Detection",
-		subtasks: [],
 		modality: "cv",
 		color:    "yellow",
 	},
 	"image-segmentation": {
 		name:     "Image Segmentation",
-		subtasks: [],
 		modality: "cv",
 		color:    "green",
 	},
 	"text-to-image": {
 		name:     "Text-to-Image",
-		subtasks: [],
 		modality: "cv",
 		color:    "yellow",
 	},
 	"image-to-text": {
 		name:     "Image-to-Text",
-		subtasks: [],
 		modality: "cv",
 		color:    "red",
 	},
 	"structured-data-classification": {
 		name:     "Structured Data Classification",
-		subtasks: [],
 		modality: "other",
 		color:    "blue",
 	},
 	"reinforcement-learning": {
 		name:     "Reinforcement Learning",
-		subtasks: [],
 		modality: "other",
 		color:    "red",
 	},
@@ -174,24 +210,6 @@ export const PIPELINE_DATA = Object.freeze({
 
 export type PipelineType = keyof typeof PIPELINE_DATA;
 export const ALL_PIPELINE_TYPES = Object.keys(PIPELINE_DATA) as PipelineType[];
-
-export const MODALITIES = [
-	"nlp",
-	"audio",
-	"cv",
-	"rl",
-	"other",
-] as const;
-
-export type Modality = typeof MODALITIES[number];
-
-export const MODALITY_LABELS: Record<Modality, string> = {
-	nlp:   "Natural Language Processing",
-	audio: "Audio",
-	cv:    "Computer Vision",
-	rl:    "Reinforcement Learning",
-	other: "Other",
-};
 
 /**
  * Public interface for model metadata

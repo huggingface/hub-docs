@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SvelteComponent } from "svelte";
-	import type { PIPELINE_TYPE_DATA } from "../../interfaces/Types";
+	import type { PipelineType } from "../../interfaces/Types";
 
 	import IconAudioClassification from "../Icons/IconAudioClassification.svelte";
 	import IconAudioToAudio from "../Icons/IconAudioToAudio.svelte";
@@ -34,34 +34,34 @@
 	export let pipeline = "";
 
 	const ICON_COMPONENTS: {
-		[key in keyof typeof PIPELINE_TYPE_DATA]?: typeof SvelteComponent;
+		[key in PipelineType]?: typeof SvelteComponent;
 	} = {
 		/// Keep same order as in huggingface_hub/Types.ts
 		/// for easy mapping.
-		"text-classification": IconTextClassification,
-		"token-classification": IconTokenClassification,
-		"table-question-answering": IconTableQuestionAnswering,
+		"fill-mask": IconFillMask,
 		"question-answering": IconQuestionAnswering,
-		"zero-shot-classification": IconZeroShotClassification,
-		"image-to-text": IconImageToText,
-		translation: IconTranslation,
 		summarization: IconSummarization,
-		conversational: IconConversational,
-		"feature-extraction": IconFeatureExtraction,
+		"table-question-answering": IconTableQuestionAnswering,
+		"text-classification": IconTextClassification,
 		"text-generation": IconTextGeneration,
 		"text2text-generation": IconText2textGeneration,
-		"fill-mask": IconFillMask,
+		"token-classification": IconTokenClassification,
+		translation: IconTranslation,
+		"zero-shot-classification": IconZeroShotClassification,
 		"sentence-similarity": IconSentenceSimilarity,
+		conversational: IconConversational,
+		"feature-extraction": IconFeatureExtraction,
 		"text-to-speech": IconTextToSpeech,
 		"automatic-speech-recognition": IconAutomaticSpeechRecognition,
 		"audio-to-audio": IconAudioToAudio,
+		"audio-classification": IconAudioClassification,
 		"voice-activity-detection": IconVoiceActivityDetection,
 		"image-classification": IconImageClassification,
 		"object-detection": IconObjectDetection,
 		"image-segmentation": IconImageSegmentation,
 		"text-to-image": IconTextToImage,
+		"image-to-text": IconImageToText,
 		"structured-data-classification": IconStructuredDataClassification,
-		"audio-classification": IconAudioClassification,
 		"reinforcement-learning": IconReinforcementLearning,
 		"image-to-image": IconImageToImage,
 		"unconditional-image-generation": IconUnconditionalImageGeneration,

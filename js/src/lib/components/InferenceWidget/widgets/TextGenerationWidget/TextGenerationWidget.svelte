@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { PIPELINE_TYPE_DATA } from "../../../../interfaces/Types";
+	import type { PipelineType } from "../../../../interfaces/Types";
 
 	import { onMount } from "svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
@@ -38,7 +38,7 @@
 	// (translation uses this widget too and still needs caching)
 	const useCache = !(
 		["text-generation", "text2text-generation"] as Array<
-			keyof typeof PIPELINE_TYPE_DATA
+			PipelineType
 		>
 	).includes(model.pipeline_tag);
 
