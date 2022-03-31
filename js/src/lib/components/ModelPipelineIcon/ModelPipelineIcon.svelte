@@ -27,6 +27,8 @@
 	import IconVoiceActivityDetection from "../Icons/IconVoiceActivityDetection.svelte";
 	import IconZeroShotClassification from "../Icons/IconZeroShotClassification.svelte";
 	import IconReinforcementLearning from "../Icons/IconReinforcementLearning.svelte";
+	import IconImageToImage from "../Icons/IconImageToImage.svelte";
+	import IconUnconditionalImageGeneration from "../Icons/IconUnconditionalImageGeneration.svelte";
 
 	export let classNames = "";
 	export let pipeline = "";
@@ -61,6 +63,8 @@
 		"structured-data-classification": IconStructuredDataClassification,
 		"audio-classification": IconAudioClassification,
 		"reinforcement-learning": IconReinforcementLearning,
+		"image-to-image": IconImageToImage,
+		"unconditional-image-generation": IconUnconditionalImageGeneration,
 	};
 </script>
 
