@@ -44,7 +44,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "image-classification",
-	label:     PIPELINE_DATA["image-classification"]["name"],
+	label:     PIPELINE_DATA["image-classification"].name,
 	libraries: TASKS_MODEL_LIBRARIES["image-classification"],
 	metrics:   [
 		{

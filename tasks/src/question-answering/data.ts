@@ -38,7 +38,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "question-answering",
-	label:     PIPELINE_DATA["question-answering"]["name"],
+	label:     PIPELINE_DATA["question-answering"].name,
 	libraries: TASKS_MODEL_LIBRARIES["question-answering"],
 	metrics:   [
 		{

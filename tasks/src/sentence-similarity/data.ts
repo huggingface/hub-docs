@@ -58,7 +58,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "sentence-similarity",
-	label:     PIPELINE_DATA["sentence-similarity"]["name"],
+	label:     PIPELINE_DATA["sentence-similarity"].name,
 	libraries: TASKS_MODEL_LIBRARIES["sentence-similarity"],
 	metrics:   [
 		{

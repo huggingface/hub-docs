@@ -25,7 +25,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "audio-to-audio",
-	label:     PIPELINE_DATA["audio-to-audio"]["name"],
+	label:     PIPELINE_DATA["audio-to-audio"].name,
 	libraries: TASKS_MODEL_LIBRARIES["audio-to-audio"],
 	metrics:   [
 		{

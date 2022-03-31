@@ -44,7 +44,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "token-classification",
-	label:     PIPELINE_DATA["token-classification"]["name"],
+	label:     PIPELINE_DATA["token-classification"].name,
 	libraries: TASKS_MODEL_LIBRARIES["token-classification"],
 	metrics:   [
 		{

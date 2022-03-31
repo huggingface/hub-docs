@@ -32,7 +32,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "text-to-speech",
-	label:     PIPELINE_DATA["text-to-speech"]["name"],
+	label:     PIPELINE_DATA["text-to-speech"].name,
 	libraries: TASKS_MODEL_LIBRARIES["text-to-speech"],
 	metrics: [
 		{

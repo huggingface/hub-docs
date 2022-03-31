@@ -31,7 +31,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "automatic-speech-recognition",
-	label:     PIPELINE_DATA["automatic-speech-recognition"]["name"],
+	label:     PIPELINE_DATA["automatic-speech-recognition"].name,
 	libraries: TASKS_MODEL_LIBRARIES["automatic-speech-recognition"],
 	metrics:   [
 		{

@@ -34,7 +34,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "translation",
-	label:     PIPELINE_DATA["translation"]["name"],
+	label:     PIPELINE_DATA["translation"].name,
 	libraries: TASKS_MODEL_LIBRARIES["translation"],
 	metrics:   [
 		{

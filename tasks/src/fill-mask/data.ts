@@ -52,7 +52,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "fill-mask",
-	label:     PIPELINE_DATA["fill-mask"]["name"],
+	label:     PIPELINE_DATA["fill-mask"].name,
 	libraries: TASKS_MODEL_LIBRARIES["fill-mask"],
 	metrics:   [
 		{

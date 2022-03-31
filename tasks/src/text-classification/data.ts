@@ -44,7 +44,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "text-classification",
-	label:     PIPELINE_DATA["text-classification"]["name"],
+	label:     PIPELINE_DATA["text-classification"].name,
 	libraries: TASKS_MODEL_LIBRARIES["text-classification"],
 	metrics:   [
 		{

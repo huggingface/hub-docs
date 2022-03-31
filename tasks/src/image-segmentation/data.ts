@@ -25,7 +25,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "image-segmentation",
-	label:     PIPELINE_DATA["image-segmentation"]["name"],
+	label:     PIPELINE_DATA["image-segmentation"].name,
 	libraries: TASKS_MODEL_LIBRARIES["image-segmentation"],
 	metrics:   [
 		{

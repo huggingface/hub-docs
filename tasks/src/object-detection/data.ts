@@ -26,7 +26,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "object-detection",
-	label:     PIPELINE_DATA["object-detection"]["name"],
+	label:     PIPELINE_DATA["object-detection"].name,
 	libraries: TASKS_MODEL_LIBRARIES["object-detection"],
 	metrics:   [
 		{

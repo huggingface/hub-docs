@@ -34,7 +34,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "text-generation",
-	label:     PIPELINE_DATA["text-generation"]["name"],
+	label:     PIPELINE_DATA["text-generation"].name,
 	libraries: TASKS_MODEL_LIBRARIES["text-generation"],
 	metrics:   [
 		{
