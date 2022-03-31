@@ -51,6 +51,14 @@ export interface PipelineData {
 	 * color for the tag icon.
 	 */
 	color: "blue" | "green" | "indigo" | "orange" | "red" | "yellow";
+	/**
+	 * whether to hide in /models filters
+	 */
+	hideInModels?: boolean;
+	/**
+	 * whether to hide in /datasets filters
+	 */
+	hideInDatasets?: boolean;
 }
 
 function ensureRecordOfPipelines<Keys extends string>(record: Record<Keys, PipelineData>): Record<Keys, PipelineData> {
@@ -73,6 +81,68 @@ function ensureRecordOfPipelines<Keys extends string>(record: Record<Keys, Pipel
 export const PIPELINE_DATA = ensureRecordOfPipelines({
 	"text-classification": {
 		name:     "Text Classification",
+		subtasks: [
+			{
+				type: "acceptability-classification",
+				name: "Acceptability Classification",
+			},
+			{
+				type: "entity-linking-classification",
+				name: "Entity Linking Classification",
+			},
+			{
+				type: "fact-checking",
+				name: "Fact Checking",
+			},
+			{
+				type: "intent-classification",
+				name: "Intent Classification",
+			},
+			{
+				type: "multi-class-classification",
+				name: "Multi Class Classification",
+			},
+			{
+				type: "multi-label-classification",
+				name: "Multi Label Classification",
+			},
+			{
+				type: "natural-language-inference",
+				name: "Natural Language Inference",
+			},
+			{
+				type: "semantic-similarity-classification",
+				name: "Semantic Similarity Classification",
+			},
+			{
+				type: "sentiment-classification",
+				name: "Sentiment Classification",
+			},
+			{
+				type: "topic-classification",
+				name: "Topic Classification",
+			},
+			{
+				type: "semantic-similarity-scoring",
+				name: "Semantic Similarity Scoring",
+			},
+			{
+				type: "sentiment-scoring",
+				name: "Sentiment Scoring",
+			},
+			{
+				type: "sentiment-analysis",
+				name: "Sentiment Analysis",
+			},
+			{
+				type: "hate-speech-detection",
+				name: "Hate Speech Detection",
+			},
+			{
+				type: "text-scoring",
+				name: "Text Scoring",
+			},
+		],
 		modality: "nlp",
 		color:    "orange",
 	},
@@ -87,6 +157,22 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				type: "part-of-speech",
 				name: "Part of Speech",
 			},
+			{
+				type: "parsing",
+				name: "Parsing",
+			},
+			{
+				type: "lemmatization",
+				name: "Lemmatization",
+			},
+			{
+				type: "word-sense-disambiguation",
+				name: "Word Sense Disambiguation",
+			},
+			{
+				type: "coreference-resolution",
+				name: "Coreference-resolution",
+			},
 		],
 		modality: "nlp",
 		color:    "blue",
@@ -98,6 +184,20 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"question-answering": {
 		name:     "Question Answering",
+		subtasks: [
+			{
+				type: "extractive-qa",
+				name: "Extractive QA",
+			},
+			{
+				type: "open-domain-qa",
+				name: "Open Domain QA",
+			},
+			{
+				type: "closed-domain-qa",
+				name: "Closed Domain QA",
+			},
+		],
 		modality: "nlp",
 		color:    "blue",
 	},
@@ -113,11 +213,23 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"summarization": {
 		name:     "Summarization",
+		subtasks: [
+			{
+				type: "news-articles-summarization",
+				name: "News Articles Summarization",
+			},
+		],
 		modality: "nlp",
 		color:    "indigo",
 	},
 	"conversational": {
 		name:     "Conversational",
+		subtasks: [
+			{
+				type: "dialogue-generation",
+				name: "Dialogue Generation",
+			},
+		],
 		modality: "nlp",
 		color:    "green",
 	},
@@ -128,16 +240,66 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"text-generation": {
 		name:     "Text Generation",
+		subtasks: [
+			{
+				type: "dialogue-modeling",
+				name: "Dialogue Modeling",
+			},
+			{
+				type: "language-modeling",
+				name: "Language Modeling",
+			},
+		],
 		modality: "nlp",
 		color:    "indigo",
 	},
 	"text2text-generation": {
 		name:     "Text2Text Generation",
+		subtasks: [
+			{
+				type: "text-simplification",
+				name: "Text simplification",
+			},
+			{
+				type: "explanation-generation",
+				name: "Explanation Generation",
+			},
+			{
+				type: "abstractive-qa",
+				name: "Abstractive QA",
+			},
+			{
+				type: "open-domain-abstractive-qa",
+				name: "Open Domain Abstractive QA",
+			},
+			{
+				type: "closed-domain-qa",
+				name: "Closed Domain QA",
+			},
+			{
+				type: "open-book-qa",
+				name: "Open Book QA",
+			},
+			{
+				type: "closed-book-qa",
+				name: "Closed Book QA",
+			},
+		],
 		modality: "nlp",
 		color:    "indigo",
 	},
 	"fill-mask": {
 		name:     "Fill-Mask",
+		subtasks: [
+			{
+				type: "slot-filling",
+				name: "Slot Filling",
+			},
+			{
+				type: "masked-language-modeling",
+				name: "Masked Language Modeling",
+			},
+		],
 		modality: "nlp",
 		color:    "red",
 	},
@@ -163,6 +325,28 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"audio-classification": {
 		name:     "Audio Classification",
+		subtasks: [
+			{
+				type: "keyword-spotting",
+				name: "Keyword Spotting",
+			},
+			{
+				type: "speaker-identification",
+				name: "Speaker Identification",
+			},
+			{
+				type: "speaker-intent-classification",
+				name: "Speaker Intent Classification",
+			},
+			{
+				type: "emotion-recognition",
+				name: "Emotion Recognition",
+			},
+			{
+				type: "speaker-language-identification",
+				name: "Speaker Language Identification",
+			},
+		],
 		modality: "audio",
 		color:    "green",
 	},
@@ -173,16 +357,50 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"image-classification": {
 		name:     "Image Classification",
+		subtasks: [
+			{
+				type: "multi-label-image-classification",
+				name: "Multi Label Image Classification",
+			},
+			{
+				type: "multi-class-image-classification",
+				name: "Multi Class Image Classification",
+			},
+		],
 		modality: "cv",
 		color:    "blue",
 	},
 	"object-detection": {
 		name:     "Object Detection",
+		subtasks: [
+			{
+				type: "face-detection",
+				name: "Face Detection",
+			},
+			{
+				type: "vehicle-detection",
+				name: "Vehicle Detection",
+			},
+		],
 		modality: "cv",
 		color:    "yellow",
 	},
 	"image-segmentation": {
 		name:     "Image Segmentation",
+		subtasks: [
+			{
+				type: "instance-segmentation",
+				name: "Instance Segmentation",
+			},
+			{
+				type: "semantic-segmentation",
+				name: "Semantic Segmentation",
+			},
+			{
+				type: "panoptic-segmentation",
+				name: "Panoptic Segmentation",
+			},
+		],
 		modality: "cv",
 		color:    "green",
 	},
@@ -193,6 +411,12 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"image-to-text": {
 		name:     "Image-to-Text",
+		subtasks: [
+			{
+				type: "image-captioning",
+				name: "Image Captioning",
+			},
+		],
 		modality: "cv",
 		color:    "red",
 	},
@@ -210,6 +434,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		name:     "Reinforcement Learning",
 		modality: "rl",
 		color:    "red",
+		hideInDatasets: true,
 	},
 	"structured-data-classification": {
 		name:     "Structured Data Classification",
