@@ -188,7 +188,9 @@ Usually, the height of Spaces is adjusted automatically when using the Gradio li
 ```HTML
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.min.js"></script>
 ```
-
+As an example, here is the same Space with and without the script:
+- https://huggingface.co/spaces/ronvolutional/http-server
+- https://huggingface.co/spaces/ronvolutional/iframe-test
 
 
 ## Contact
