@@ -175,19 +175,21 @@ Issues may occur when you use an unsupported Streamlit version. The Streamlit ve
 
 ### Custom Python Spaces
 
-While not an official workflow yet, you are able to run your own Python + interface stack in Spaces by selecting Gradio as your SDK and serving a frontend on port `7680`. See the [templates](https://huggingface.co/templates#spaces) for examples.
+While not an official workflow, you are able to run your own Python + interface stack in Spaces by selecting Gradio as your SDK and serving a frontend on port `7680`. See the [templates](https://huggingface.co/templates#spaces) for examples.
 
-Because you are now responsible for the interface, you must add an [iFrame Resizer script](https://cdnjs.com/libraries/iframe-resizer) that is normally imported by the Gradio library:
+Spaces are served in iframes, which by default restrict links from opening in the parent page. The simplest solution is to open them a new window:
+
+```HTML
+<a href="https://hf.space" rel="noopener" target="_blank">Spaces</a>
+```
+
+Usually, the height of Spaces is adjusted automatically when using the Gradio library interface. If you provide your own frontend in the Gradio SDK however, you'll need to add an [iFrame Resizer script](https://cdnjs.com/libraries/iframe-resizer) so that content can scroll in the iframe:
 
 ```HTML
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.min.js"></script>
 ```
 
-Iframes by default are also restricted from opening links in the parent page, so you should open them in a new window:
 
-```HTML
-<a href="https://hf.space" rel="noopener" target="_blank">Spaces</a>
-```
 
 ## Contact
 
