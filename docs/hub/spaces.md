@@ -169,7 +169,25 @@ jobs:
 
 ## Troubleshoot
 
+### Streamlit
+
 Issues may occur when you use an unsupported Streamlit version. The Streamlit version is not configured in the **requirements.txt** file but rather in the `YAML` settings through the `sdk_version` setting. Not all Streamlit versions are supported. Check that you are using a supported version of Streamlit. Refer to the [reference section](#reference) for more information about supported versions.
+
+### Custom Python Spaces
+
+While not an official workflow yet, you are able to run your own Python + interface stack in Spaces by selecting Gradio as your SDK and serving a frontend on port `7680`. See the [templates](https://huggingface.co/templates#spaces) for examples.
+
+Because you are now responsible for the interface, you must add an [iFrame Resizer script](https://cdnjs.com/libraries/iframe-resizer) that is normally imported by the Gradio library:
+
+```HTML
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.min.js"></script>
+```
+
+Iframes by default are also restricted from opening links in the parent page, so you should open them in a new window:
+
+```HTML
+<a href="https://hf.space" rel="noopener" target="_blank">Spaces</a>
+```
 
 ## Contact
 
