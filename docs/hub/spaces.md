@@ -183,7 +183,7 @@ Spaces are served in iframes, which by default restrict links from opening in th
 <a href="https://hf.space" rel="noopener" target="_blank">Spaces</a>
 ```
 
-Usually, the height of Spaces is adjusted automatically when using the Gradio library interface. If you provide your own frontend in the Gradio SDK however, and if your content height is larger than the viewport, you'll need to add an [iFrame Resizer script](https://cdnjs.com/libraries/iframe-resizer) so that content can scroll in the iframe:
+Usually, the height of Spaces is automatically adjusted when using the Gradio library interface. However, if you provide your own frontend in the Gradio SDK and the content height is larger than the viewport, you'll need to add an [iFrame Resizer script](https://cdnjs.com/libraries/iframe-resizer) so the content is scrollable in the iframe:
 
 ```HTML
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.min.js"></script>
