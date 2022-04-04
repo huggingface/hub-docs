@@ -177,7 +177,7 @@ Issues may occur when you use an unsupported Streamlit version. The Streamlit ve
 
 While not an official workflow, you are able to run your own Python + interface stack in Spaces by selecting Gradio as your SDK and serving a frontend on port `7680`. See the [templates](https://huggingface.co/templates#spaces) for examples.
 
-Spaces are served in iframes, which by default restrict links from opening in the parent page. The simplest solution is to open them a new window:
+Spaces are served in iframes, which by default restrict links from opening in the parent page. The simplest solution is to open them in a new window:
 
 ```HTML
 <a href="https://hf.space" rel="noopener" target="_blank">Spaces</a>
