@@ -25,23 +25,25 @@ Unlike other hosting solutions, the Hub offers **versioning, commit history, dif
 ## Models
 Models on the Hugging Face Hub allow for simple discovery and usage to maximize model impact. Model repos provide useful [metadata](/docs/hub/model-repos#model-card-metadata) about info such as their tasks, languages, and metrics, with training metrics charts even included if the repository contains [TensorBoard traces](https://huggingface.co/models?filter=tensorboard). It's also easy to add an **inference widget** to your model, allowing anyone to play with the model directly in the browser! For production settings, an API is provided to **instantly serve your model**.
 
-To upload models to the Hub, or download models and integrate them into your work, explore the **Models documentation**, or choose from [over a dozen frameworks](/docs/hub/libraries) such as 🤗 Transformers, Asteroid and ESPnet supporting the Hugging Face Hub.
+To upload models to the Hub, or download models and integrate them into your work, explore the **Models documentation**, or choose from [**over a dozen frameworks**](/docs/hub/libraries) such as 🤗 Transformers, Asteroid and ESPnet supporting the Hugging Face Hub.
 
 ## Datasets
-The Hugging Face Hub is home to over 11,000 datasets in 100 languages that can be used for a broad range of tasks across NLP and Computer Vision. 
+The Hugging Face Hub is home to over 11,000 datasets in more than 100 languages that can be used for a broad range of tasks across NLP and Computer Vision. The Hub makes it simple to find, download, and upload datasets. Datasets are accompanied by extensive documentation in the form of **Dataset Cards**, and an accompanying **Dataset Preview** to let you explore the data directly in your browser. While many datasets are public, **organizations** and individuals have the ability to create private datasets to comply with licensing or privacy issues. You can learn more about **Datasets here on Hugging Face Hub documentation.**
 
-[TODO: Fill this out]
+The [**datasets Python library**](https://huggingface.co/docs/datasets/index) allows you to programmatically interact with the datasets, so you can easily use datasets from the Hub in your projects.
 
 ## Spaces
 [Spaces are a simple way to host ML demo apps on the Hub](https://huggingface.co/spaces). They allow you to create your ML portfolio, showcase your projects at conferences or to stakeholders, and work collaboratively with other people in the ML ecosystem.
 
 We support two awesome SDKs that let you build cool apps in Python in a matter of minutes: **[Streamlit](https://streamlit.io/)** and **[Gradio](https://gradio.app/)**.
 
-After you've explored a few Spaces [TODO: CHOOSE SOME SPACES TO LINK], dive into the **Spaces documentation** to learn all about how you can create your own Space.
+After you've explored a few Spaces (take a look at our [Space of the Week!](https://huggingface.co/spaces)), dive into the **Spaces documentation** to learn all about how you can create your own Space.
 
 
 ## Organizations
-[TODO: Fill this out]
+Companies, universities and non-profits are an essential part of the Hugging Face community! The Hugging Face Hub offers **Organizations**, which can be used to group accounts and manage datasets, models, and spaces. An organization's repositories will be featured on the organization’s page and every member of the organization will have the ability to contribute to the repository. In addition to conveniently grouping all of an organization's work, the Hub allows admins to set roles to **control access to repositories**, and [manage their organization's subscription](https://huggingface.co/pricing).
+
+[Explore existing organizations](https://huggingface.co/organizations), create a new organization [here](https://huggingface.co/organizations/new), and then visit the **Organizations documentation** to learn more.
 
 ## Security
 The Hugging Face Hub supports security and access control features, to give you the peace of mind that your code, models, and data are safe. Visit the **Security** section in these docs to learn about:
