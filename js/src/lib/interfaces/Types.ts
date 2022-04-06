@@ -66,6 +66,7 @@ export const MODALITIES = [
 	"nlp",
 	"audio",
 	"cv",
+	"rl",
 	"other",
 ] as const;
 
@@ -75,6 +76,7 @@ export const MODALITY_LABELS: Record<Modality, string> = {
 	nlp:   "Natural Language Processing",
 	audio: "Audio",
 	cv:    "Computer Vision",
+	rl:    "Reinforcement Learning",
 	other: "Other",
 };
 
@@ -104,8 +106,8 @@ export const PIPELINE_TAG_MODALITIES: Record<keyof typeof PipelineType, Modality
 	"image-to-text":                  "cv",
 	"image-to-image":                 "cv",
 	"unconditional-image-generation": "cv",
+	"reinforcement-learning":         "rl",
 	"structured-data-classification": "other",
-	"reinforcement-learning":         "other",
 };
 
 /*
