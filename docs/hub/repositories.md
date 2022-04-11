@@ -7,16 +7,16 @@ title: Repositories
 
 ## What is a repository?
 
-Models, Spaces, and datasets are hosted on the Hugging Face Hub as [Git repositories](https://git-scm.com/about), which means that version control and collaboration are core elements of the Hub. In a nutshell, a repository (also known as a **"repo"**) is a place where code and assets can be stored to back up your work, to (optionally) share it with the community and work in a team. 
+Models, Spaces, and datasets are hosted on the Hugging Face Hub as [Git repositories](https://git-scm.com/about), which means that version control and collaboration are core elements of the Hub. In a nutshell, a repository (also known as a **repo**) is a place where code and assets can be stored to back up your work, share it with the community, and work in a team. 
 
-There are specific sections in these docs detailing how **models, spaces, and datasets** can each be managed, but in this document, we will go over the basics of getting started with Git and interacting with repositories on the Hub. Once you have the hang of it, you can explore the best practices and next steps that we've compiled for effective repository usage.
+In this document, we will go over the basics of getting started with Git and interacting with repositories on the Hub. Once you get the hang of it, you can explore the best practices and next steps that we've compiled for effective repository usage.
 
 
 ## Getting started
 
 ### Requirements
 
-If you do not yet have `git` available as a CLI command, you will first need to [install Git for your platform](https://git-scm.com/downloads). You will also need to [install Git LFS](https://git-lfs.github.com/), which will be used to handle large files such as images and model weights.
+If you do not have `git` available as a CLI command yet, you will need to [install Git](https://git-scm.com/downloads) for your platform. You will also need to [install Git LFS](https://git-lfs.github.com/), which will be used to handle large files such as images and model weights.
 
 We also recommend you create a [Hugging Face account](https://huggingface.co/join) which you'll be able to use to create and manage repositories on the Hub.
 
@@ -67,7 +67,7 @@ git lfs install
 
 ### Adding files to a repository
 
-Now's the time 🔥 You can add any files you want to the repository!
+Now's the time, you can add any files you want to the repository! 🔥
 
 You can do this with the usual Git workflow:
 
@@ -109,18 +109,22 @@ If these are use cases you need help with, please send us an email at **website 
 
 ### Dealing with large files
 
-Do you have files larger than 10MB? Those files should be tracked with `git-lfs`. When you use Hugging Face to create a repository, we automatically provide a list of common file extensions for these sfiles in `.gitattributes`, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
+Do you have files larger than 10MB? Those files should be tracked with `git-lfs`. When you use Hugging Face to create a repository, we automatically provide a list of common file extensions for these files in `.gitattributes`, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
 
 
 ## Best practices
 
 ### Private Repositories
 
-You can choose a repository's visibility when you create it, and any repository that you own can have its visibility toggled between *public* and *private* in the **Settings** tab. Unless your repository is owned by an organization (more about that [**here!**](TODO)), you are the only user that can make changes to your repo or upload any code. Setting your visibility to *private* will ensure that your repo is not discoverable for other users by searching on the Hub, and that anyone other than you who visits the URL for your repo will receive `404 - Repo not found` error. Additionally, other users will not be able to clone your repo.
+You can choose a repository's visibility when you create it, and any repository that you own can have its visibility toggled between *public* and *private* in the **Settings** tab. Unless your repository is owned by an organization (more about that [**here!**](TODO)), you are the only user that can make changes to your repo or upload any code. Setting your visibility to *private* will:
+
+ - Ensure your repo is not discoverable by other users by searching the Hub,
+ - Other users who visit the URL of your private repo will receive a `404 - Repo not found` error. 
+ - Other users will not be able to clone your repo.
 
 ### Security for repositories
 
-`git` has an authentication layer to control who can push commits to a repo, but it does not authentify the actual commit authors.
+`git` has an authentication layer to control who can push commits to a repo, but it does not authenticate the actual commit authors.
 
 In other words, you can commit changes as `Elon Musk <elon@tesla.com>`, push them to your preferred `git` host (for instance github.com) and your commit will link to Elon's GitHub profile. (Try it! But don't blame us if Elon gets mad at you for impersonating him)
 
@@ -152,7 +156,7 @@ Beyond making it easy to identify important commits in your repo's history, usin
 
 A duplicate of a repository is called a *fork*. You may choose to fork one of your own repos, but it also common to fork other people's projects if you would like to tinker with them.
 
-When you want to fork or [rebase](https://git-scm.com/docs/git-rebase) a repository with [LFS](https://git-lfs.github.com/) files you cannot use the usual Git approach that you might be familiar with since you need to be careful to not break the LFS pointers. Forking can take time depending on your bandwidth, because you will have to fetch an re-upload all the LFS files in your fork.
+When you want to fork or [rebase](https://git-scm.com/docs/git-rebase) a repository with [LFS](https://git-lfs.github.com/) files you cannot use the usual Git approach that you might be familiar with since you need to be careful to not break the LFS pointers. Forking can take time depending on your bandwidth because you will have to fetch and re-upload all the LFS files in your fork.
 
 For example, say you have an upstream repository, **upstream**, and you just created your own repository on the Hub which is **myfork** in this example.
 
@@ -179,7 +183,7 @@ git fetch upstream
 git lfs fetch --all upstream # this can take time depending on your download bandwidth
 ```
 
-4.a. If you want to override completely the fork history (which should only have an initial commit), run:
+4.a. If you want to completely override the fork history (which should only have an initial commit), run:
 
 ```
 git reset --hard upstream/main
