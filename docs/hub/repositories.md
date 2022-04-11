@@ -18,8 +18,6 @@ In this document, we will go over the basics of getting started with Git and int
 
 If you do not have `git` available as a CLI command yet, you will need to [install Git](https://git-scm.com/downloads) for your platform. You will also need to [install Git LFS](https://git-lfs.github.com/), which will be used to handle large files such as images and model weights.
 
-We also recommend you create a [Hugging Face account](https://huggingface.co/join) which you'll be able to use to create and manage repositories on the Hub.
-
 To be able to push your code to the Hub, you'll need to authenticate somehow. The easiest way to do this is by installing the [`huggingface_hub` CLI](https://huggingface.co/docs/huggingface_hub/index) and running the login command:
 
 ```bash
@@ -60,16 +58,21 @@ git clone https://huggingface.co/<your-username>/<your-model-id>
 cd <your-model-id>
 ```
 
-Then, *within the local repo*, you'll need to run the following to set up Git LFS:
-```bash
-git lfs install
-```
-
 ### Adding files to a repository
 
 Now's the time, you can add any files you want to the repository! 🔥
 
-You can do this with the usual Git workflow:
+
+Do you have files larger than 10MB? Those files should be tracked with `git-lfs`, which you can initialize with:
+
+```bash
+git lfs install
+```
+
+When you use Hugging Face to create a repository, we automatically provide a list of common file extensions for these files in the `.gitattributes` file, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
+
+
+You can use Git to save new files and any changes to already existing files as a bundle of changes called a *commit*, which can be though of as a "revision" to your project. To create a commit, we have to `add` the files to let Git know that we're planning on saving the changes and then `commit` those changes. In order to sync the new commit with the Hugging Face Hub, we then `push` the commit to the Hub.
 
 ```bash
 # Create any files you like! Then...
@@ -105,11 +108,6 @@ Moving does not work for ❌
 - Transferring a repository from user A to user B.
 
 If these are use cases you need help with, please send us an email at **website at huggingface.co**.
-
-
-### Dealing with large files
-
-Do you have files larger than 10MB? Those files should be tracked with `git-lfs`. When you use Hugging Face to create a repository, we automatically provide a list of common file extensions for these files in `.gitattributes`, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
 
 
 ## Best practices
