@@ -140,9 +140,9 @@
 	<svelte:fragment slot="top">
 		<form>
 			{#if model.pipeline_tag === "fill-mask"}
-				 <div class="text-sm text-gray-500 mb-1.5">
-					 Mask token: <code>{model.mask_token}</code>
-				 </div>
+				<div class="text-sm text-gray-500 mb-1.5">
+					Mask token: <code>{model.mask_token}</code>
+				</div>
 			{/if}
 			<WidgetTextarea bind:value={text} />
 			<WidgetSubmitBtn
