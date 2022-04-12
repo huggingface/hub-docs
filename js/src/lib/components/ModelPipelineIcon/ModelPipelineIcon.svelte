@@ -38,19 +38,19 @@
 	} = {
 		/// Keep same order as in huggingface_hub/Types.ts
 		/// for easy mapping.
-		"fill-mask": IconFillMask,
-		"question-answering": IconQuestionAnswering,
-		summarization: IconSummarization,
-		"table-question-answering": IconTableQuestionAnswering,
 		"text-classification": IconTextClassification,
-		"text-generation": IconTextGeneration,
-		"text2text-generation": IconText2textGeneration,
 		"token-classification": IconTokenClassification,
-		translation: IconTranslation,
+		"table-question-answering": IconTableQuestionAnswering,
+		"question-answering": IconQuestionAnswering,
 		"zero-shot-classification": IconZeroShotClassification,
-		"sentence-similarity": IconSentenceSimilarity,
+		translation: IconTranslation,
+		summarization: IconSummarization,
 		conversational: IconConversational,
 		"feature-extraction": IconFeatureExtraction,
+		"text-generation": IconTextGeneration,
+		"text2text-generation": IconText2textGeneration,
+		"fill-mask": IconFillMask,
+		"sentence-similarity": IconSentenceSimilarity,
 		"text-to-speech": IconTextToSpeech,
 		"automatic-speech-recognition": IconAutomaticSpeechRecognition,
 		"audio-to-audio": IconAudioToAudio,
@@ -61,10 +61,10 @@
 		"image-segmentation": IconImageSegmentation,
 		"text-to-image": IconTextToImage,
 		"image-to-text": IconImageToText,
-		"structured-data-classification": IconStructuredDataClassification,
-		"reinforcement-learning": IconReinforcementLearning,
 		"image-to-image": IconImageToImage,
 		"unconditional-image-generation": IconUnconditionalImageGeneration,
+		"reinforcement-learning": IconReinforcementLearning,
+		"structured-data-classification": IconStructuredDataClassification,
 	};
 </script>
 
