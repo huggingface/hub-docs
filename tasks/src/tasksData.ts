@@ -55,5 +55,5 @@ export const TASKS_DATA: Record<
 	/// rl
 	"reinforcement-learning":         undefined,
 	/// other
-	"structured-data-classification": undefined,
+	"tabular-classification":         undefined,
 } as const;

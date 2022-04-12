@@ -1,19 +1,23 @@
 export const MODALITIES = [
+	"multimodal",
 	"nlp",
 	"audio",
 	"cv",
 	"rl",
+	"time_series",
 	"other",
 ] as const;
 
 export type Modality = typeof MODALITIES[number];
 
 export const MODALITY_LABELS: Record<Modality, string> = {
-	nlp:   "Natural Language Processing",
-	audio: "Audio",
-	cv:    "Computer Vision",
-	rl:    "Reinforcement Learning",
-	other: "Other",
+	multimodal:  "Multimodal",
+	nlp:         "Natural Language Processing",
+	audio:       "Audio",
+	cv:          "Computer Vision",
+	rl:          "Reinforcement Learning",
+	time_series: "Time Series",
+	other:       "Other",
 };
 
 /**
@@ -218,6 +222,10 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				type: "news-articles-summarization",
 				name: "News Articles Summarization",
 			},
+			{
+				type: "news-articles-headline-generation",
+				name: "News Articles Headline Generation",
+			},
 		],
 		modality: "nlp",
 		color:    "indigo",
@@ -235,7 +243,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"feature-extraction": {
 		name:     "Feature Extraction",
-		modality: "nlp",
+		modality: "multimodal",
 		color:    "red",
 	},
 	"text-generation": {
@@ -310,12 +318,12 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"text-to-speech": {
 		name:     "Text-to-Speech",
-		modality: "audio",
+		modality: "multimodal",
 		color:    "yellow",
 	},
 	"automatic-speech-recognition": {
 		name:     "Automatic Speech Recognition",
-		modality: "audio",
+		modality: "multimodal",
 		color:    "yellow",
 	},
 	"audio-to-audio": {
@@ -406,7 +414,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"text-to-image": {
 		name:     "Text-to-Image",
-		modality: "cv",
+		modality: "multimodal",
 		color:    "yellow",
 	},
 	"image-to-text": {
@@ -417,7 +425,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Image Captioning",
 			},
 		],
-		modality: "cv",
+		modality: "multimodal",
 		color:    "red",
 	},
 	"image-to-image": {
@@ -431,16 +439,132 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		color:    "green",
 	},
 	"reinforcement-learning": {
-		name:     "Reinforcement Learning",
-		modality: "rl",
-		color:    "red",
+		name:           "Reinforcement Learning",
+		modality:       "rl",
+		color:          "red",
 		hideInDatasets: true,
 	},
-	"structured-data-classification": {
-		name:     "Structured Data Classification",
-		modality: "other",
-		color:    "blue",
+	"tabular-classification": {
+		name:     "Tabular Classification",
+		modality: "nlp",
+		subtasks: [
+			{
+				type: "tabular-multi-class-classification",
+				name: "Tabular Multi Class Classification",
+			},
+			{
+				type: "tabular-multi-label-classification",
+				name: "Tabular Multi Label Classification",
+			},
+			{
+				type: "tabular-single-column-regression",
+				name: "Tabular Single Column Classification",
+			},
+		],
+		color: "blue",
 	},
+	"tabular-to-text": {
+		name:     "Tabular to Text",
+		modality: "nlp",
+		subtasks: [
+			{
+				type: "rdf-to-text",
+				name: "RDF to text",
+			},
+		],
+		color:        "blue",
+		hideInModels: true,
+	},
+	"table-to-text": {
+		name:     "Table to Text",
+		modality: "nlp",
+		subtasks: [
+			{
+				type: "rdf-to-text",
+				name: "RDF to text",
+			},
+		],
+		color:        "blue",
+		hideInModels: true,
+	},
+	"multiple-choice": {
+		name:     "Multiple Choice",
+		subtasks: [
+			{
+				type: "multiple-choice-qa",
+				name: "Multiple Choice QA",
+			},
+			{
+				type: "multiple-choice-coreference-resolution",
+				name: "Multiple Choice Coreference Resolution",
+			},
+		],
+		modality:     "nlp",
+		color:        "blue",
+		hideInModels: true,
+	},
+	"text-retrieval": {
+		name:     "Text Retrieval",
+		subtasks: [
+			{
+				type: "document-retrieval",
+				name: "Document Retrieval",
+			},
+			{
+				type: "utterance-retrieval",
+				name: "Utterance Retrieval",
+			},
+			{
+				type: "entity-linking-retrieval",
+				name: "Entity Linking Retrieval",
+			},
+			{
+				type: "fact-checking-retrieval",
+				name: "Fact Checking Retrieval",
+			},
+		],
+		modality: "nlp",
+		color:    "indigo",
+	},
+	"time-series-forecasting": {
+		name:     "Time Series Forecasting",
+		modality: "time_series",
+		subtasks: [
+			{
+				type: "univariate-time-series-forecasting",
+				name: "Univariate Time Series Forecasting",
+			},
+			{
+				type: "multivariate-time-series-forecasting",
+				name: "Multivariate Time Series Forecasting",
+			},
+		],
+		color:        "blue",
+		hideInModels: true,
+	},
+	"visual-question-answering": {
+		name:     "Visual Question Answering",
+		subtasks: [
+			{
+				type: "visual-question-answering",
+				name: "Visual Question Answering",
+			},
+		],
+		modality:     "multimodal",
+		color:        "red",
+		hideInModels: true,
+	},
+	"zero-shot-image-classification": {
+		name:     "Zero-Shot Image Classification",
+		modality: "multimodal",
+		color:    "yellow",
+	},
+	"other": {
+        name:         "Other",
+		modality:     "other",
+		hideInModels: true,
+		color:        "blue",
+    },
 });
 
 export type PipelineType = keyof typeof PIPELINE_DATA;
@@ -464,10 +588,21 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"zero-shot-classification",
 	"sentence-similarity",
 	"conversational",
+	"multiple-choice",
+	"tabular-classification",
+	"tabular-to-text",
+	"table-to-text",
+	"multiple-choice",
+	"text-retrieval",
+	/// multimodal
 	"feature-extraction",
-	/// audio
-	"text-to-speech",
 	"automatic-speech-recognition",
+	"text-to-speech",
+	"text-to-image",
+	"image-to-text",
+	"visual-question-answering",
+	"zero-shot-image-classification",
+	/// audio
 	"audio-to-audio",
 	"audio-classification",
 	"voice-activity-detection",
@@ -475,14 +610,14 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"image-classification",
 	"object-detection",
 	"image-segmentation",
-	"text-to-image",
-	"image-to-text",
 	"image-to-image",
 	"unconditional-image-generation",
 	/// rl
 	"reinforcement-learning",
+	/// time-series
+	"time-series-forecasting",
 	/// other
-	"structured-data-classification",
+	"other",
 ];
 
 

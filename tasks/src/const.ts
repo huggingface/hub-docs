@@ -36,5 +36,5 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof Mode
 	/// rl
 	"reinforcement-learning":         ["transformers", "stable-baselines3"],
 	/// other
-	"structured-data-classification": ["sklearn"],
+	"tabular-classification":         ["sklearn"],
 };
