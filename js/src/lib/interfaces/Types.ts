@@ -40,7 +40,7 @@ export interface SubTask {
 
 /**
  * Public interface for a PipelineData.
- * 
+ *
  * This information corresponds to a pipeline type (aka task)
  * in the Hub.
  */
