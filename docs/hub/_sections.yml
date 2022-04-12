@@ -45,3 +45,7 @@
 
 - local: security
   title: Security tips
+
+# This should be under /libraries
+- local: spacy
+  title: SpaCy
