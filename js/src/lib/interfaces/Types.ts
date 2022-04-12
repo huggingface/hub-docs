@@ -2,6 +2,7 @@ export const MODALITIES = [
 	"nlp",
 	"audio",
 	"cv",
+	"rl",
 	"other",
 ] as const;
 
@@ -11,6 +12,7 @@ export const MODALITY_LABELS: Record<Modality, string> = {
 	nlp:   "Natural Language Processing",
 	audio: "Audio",
 	cv:    "Computer Vision",
+	rl:    "Reinforcement Learning",
 	other: "Other",
 };
 
@@ -190,15 +192,15 @@ export const PIPELINE_DATA = Object.freeze({
 		modality: "cv",
 		color:    "red",
 	},
+	"reinforcement-learning": {
+		name:     "Reinforcement Learning",
+		modality: "rl",
+		color:    "red",
+	},
 	"structured-data-classification": {
 		name:     "Structured Data Classification",
 		modality: "other",
 		color:    "blue",
-	},
-	"reinforcement-learning": {
-		name:     "Reinforcement Learning",
-		modality: "other",
-		color:    "red",
 	},
 } as const);
 
