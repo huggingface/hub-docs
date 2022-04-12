@@ -461,7 +461,8 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Tabular Single Column Classification",
 			},
 		],
-		color: "blue",
+		color:        "blue",
+		hideInModels: true,
 	},
 	"tabular-to-text": {
 		name:     "Tabular to Text",
@@ -523,8 +524,9 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Fact Checking Retrieval",
 			},
 		],
-		modality: "nlp",
-		color:    "indigo",
+		modality:     "nlp",
+		color:        "indigo",
+		hideInModels: true,
 	},
 	"time-series-forecasting": {
 		name:     "Time Series Forecasting",
@@ -555,15 +557,16 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		hideInModels: true,
 	},
 	"zero-shot-image-classification": {
-		name:     "Zero-Shot Image Classification",
-		modality: "multimodal",
-		color:    "yellow",
+		name:         "Zero-Shot Image Classification",
+		modality:     "multimodal",
+		color:        "yellow",
+		hideInModels: true,
 	},
 	"other": {
         name:         "Other",
 		modality:     "other",
-		hideInModels: true,
 		color:        "blue",
+		hideInModels: true,
     },
 });
 
@@ -592,7 +595,6 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"tabular-classification",
 	"tabular-to-text",
 	"table-to-text",
-	"multiple-choice",
 	"text-retrieval",
 	/// multimodal
 	"feature-extraction",
