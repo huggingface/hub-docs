@@ -53,6 +53,10 @@ export interface PipelineData {
 	color: "blue" | "green" | "indigo" | "orange" | "red" | "yellow";
 }
 
+function ensureRecordOfPipelines<Keys extends string>(record: Record<Keys, PipelineData>): Record<Keys, PipelineData> {
+	return record;
+}
+
 /// Coarse-grained taxonomy of tasks
 ///
 /// This type is used in multiple places in the Hugging Face
@@ -66,7 +70,7 @@ export interface PipelineData {
 /// This will impact the default pipeline tag of a model when not
 /// specified. 
 /// This also impacts the display order.
-export const PIPELINE_DATA = Object.freeze({
+export const PIPELINE_DATA = ensureRecordOfPipelines({
 	"text-classification": {
 		name:     "Text Classification",
 		modality: "nlp",
@@ -212,7 +216,7 @@ export const PIPELINE_DATA = Object.freeze({
 		modality: "other",
 		color:    "blue",
 	},
-} as const);
+});
 
 export type PipelineType = keyof typeof PIPELINE_DATA;
 export const ALL_PIPELINE_TYPES = Object.keys(PIPELINE_DATA) as PipelineType[];
