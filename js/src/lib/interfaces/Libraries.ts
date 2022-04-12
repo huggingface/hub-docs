@@ -316,7 +316,7 @@ checkpoint = load_from_hub(
 )`;
 
 const nemoDomainResolver = (domain: string, model: ModelData) => {
-	var model_name = (model.id).split("/").pop();
+	var model_name = `${(model.id).split("/").pop()}.nemo`;
 
 	switch (domain) {
 		case "ASR":
