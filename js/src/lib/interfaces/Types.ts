@@ -4,22 +4,20 @@ export const MODALITIES = [
 	"audio",
 	"cv",
 	"rl",
-	"time_series",
-	"tabular",
+	"structured",
 	"other",
 ] as const;
 
 export type Modality = typeof MODALITIES[number];
 
 export const MODALITY_LABELS: Record<Modality, string> = {
-	multimodal:  "Multimodal",
-	nlp:         "Natural Language Processing",
-	audio:       "Audio",
-	cv:          "Computer Vision",
-	rl:          "Reinforcement Learning",
-	time_series: "Time Series",
-	tabular:     "Tabular",
-	other:       "Other",
+	multimodal: "Multimodal",
+	nlp:        "Natural Language Processing",
+	audio:      "Audio",
+	cv:         "Computer Vision",
+	rl:         "Reinforcement Learning",
+	structured: "Structured",
+	other:      "Other",
 };
 
 /**
@@ -448,7 +446,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"tabular-classification": {
 		name:     "Tabular Classification",
-		modality: "tabular",
+		modality: "structured",
 		subtasks: [
 			{
 				type: "tabular-multi-class-classification",
@@ -468,7 +466,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"tabular-to-text": {
 		name:     "Tabular to Text",
-		modality: "nlp",
+		modality: "structured",
 		subtasks: [
 			{
 				type: "rdf-to-text",
@@ -594,8 +592,6 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"sentence-similarity",
 	"conversational",
 	"multiple-choice",
-	"tabular-classification",
-	"tabular-to-text",
 	"table-to-text",
 	"text-retrieval",
 	/// multimodal
@@ -618,7 +614,9 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"unconditional-image-generation",
 	/// rl
 	"reinforcement-learning",
-	/// time-series
+	/// structured
+	"tabular-classification",
+	"tabular-to-text",
 	"time-series-forecasting",
 	/// other
 	"other",
