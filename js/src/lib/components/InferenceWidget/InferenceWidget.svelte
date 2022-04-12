@@ -37,7 +37,7 @@
 	// In the future it may be useful / easier to maintain if we created
 	// a single dedicated widget for each pipeline type.
 	const WIDGET_COMPONENTS: {
-		[key in keyof typeof PipelineType]?: typeof SvelteComponent;
+		[key in PipelineType]?: typeof SvelteComponent;
 	} = {
 		"audio-to-audio": AudioToAudioWidget,
 		"audio-classification": AudioClassificationWidget,
