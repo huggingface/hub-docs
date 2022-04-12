@@ -3,7 +3,7 @@ import type { PipelineType } from "./Types";
 type LanguageCode = string;
 
 type PerLanguageMapping = Map<
-    PipelineType,
+	PipelineType,
 	(Record<string, any> | string)[]
 >;
 
