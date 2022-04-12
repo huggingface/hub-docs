@@ -28,6 +28,11 @@
       title: Carbon Emissions
   - local: models-libraries
     title: Libraries
+    sections:
+      - local: spacy
+        title: SpaCy
+      - local: transformers
+        title: transformers
   - local: models-interacting
     title: Interacting with Models on the Hub
   - local: models-widgets
