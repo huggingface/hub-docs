@@ -5,6 +5,7 @@ export const MODALITIES = [
 	"cv",
 	"rl",
 	"time_series",
+	"tabular",
 	"other",
 ] as const;
 
@@ -17,6 +18,7 @@ export const MODALITY_LABELS: Record<Modality, string> = {
 	cv:          "Computer Vision",
 	rl:          "Reinforcement Learning",
 	time_series: "Time Series",
+	tabular:     "Tabular",
 	other:       "Other",
 };
 
@@ -318,12 +320,12 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"text-to-speech": {
 		name:     "Text-to-Speech",
-		modality: "multimodal",
+		modality: "audio",
 		color:    "yellow",
 	},
 	"automatic-speech-recognition": {
 		name:     "Automatic Speech Recognition",
-		modality: "multimodal",
+		modality: "audio",
 		color:    "yellow",
 	},
 	"audio-to-audio": {
@@ -446,7 +448,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"tabular-classification": {
 		name:     "Tabular Classification",
-		modality: "nlp",
+		modality: "tabular",
 		subtasks: [
 			{
 				type: "tabular-multi-class-classification",
@@ -558,16 +560,16 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"zero-shot-image-classification": {
 		name:         "Zero-Shot Image Classification",
-		modality:     "multimodal",
+		modality:     "cv",
 		color:        "yellow",
 		hideInModels: true,
 	},
 	"other": {
-        name:         "Other",
+		name:         "Other",
 		modality:     "other",
 		color:        "blue",
 		hideInModels: true,
-    },
+	},
 });
 
 export type PipelineType = keyof typeof PIPELINE_DATA;

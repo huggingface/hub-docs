@@ -18,51 +18,44 @@ import textClassification from "./text-classification/data";
 import textGeneration from "./text-generation/data";
 
 
-// To make comparisons easier, task order is the same as in PIPELINE_TAGS_DISPLAY_ORDER in /lib/interfaces/Types.ts
+// To make comparisons easier, task order is the same as in const.ts
 export const TASKS_DATA: Record<
 	PipelineType,
 	TaskData | undefined
 > = {
-	/// nlp
-	"fill-mask":                      fillMask,
-	"question-answering":             questionAnswering,
-	"summarization":                  summarization,
-	"table-question-answering":       undefined,
-	"text-classification":            textClassification,
-	"text-generation":                textGeneration,
-	"text2text-generation":           textGeneration,
-	"token-classification":           tokenClassification,
-	"translation":                    translation,
-	"zero-shot-classification":       undefined,
-	"sentence-similarity":            sentenceSimilarity,
-	"conversational":                 undefined,
-	"tabular-classification":         undefined,
-	"tabular-to-text":                undefined,
-	"table-to-text":                  undefined,
-	"multiple-choice":                undefined,
-	"text-retrieval":                 undefined,
-	/// multimodal
-	"feature-extraction":             undefined,
-	"automatic-speech-recognition":   automaticSpeechRecognition,
-	"text-to-speech":                 textToSpeech,
-	"text-to-image":                  undefined,
-	"image-to-text":                  undefined,
-	"visual-question-answering":      undefined,
-	"zero-shot-image-classification": undefined,
-	/// audio
-	"audio-to-audio":                 audioToAudio,
 	"audio-classification":           audioClassification,
-	"voice-activity-detection":       undefined,
-	/// computer vision
+	"audio-to-audio":                 audioToAudio,
+	"automatic-speech-recognition":   automaticSpeechRecognition,
+	"conversational":                 undefined,
+	"feature-extraction":             undefined,
+	"fill-mask":                      fillMask,
 	"image-classification":           imageClassification,
-	"object-detection":               objectDetection,
 	"image-segmentation":             imageSegmentation,
 	"image-to-image":                 undefined,
-	"unconditional-image-generation": undefined,
-	/// rl
-	"reinforcement-learning":         undefined,
-	/// time-series
-	"time-series-forecasting":        undefined,
-	/// other
+	"image-to-text":                  undefined,
+	"multiple-choice":                undefined,
+	"object-detection":               objectDetection,
 	"other":                          undefined,
+	"question-answering":             questionAnswering,
+	"reinforcement-learning":         undefined,
+	"sentence-similarity":            sentenceSimilarity,
+	"summarization":                  summarization,
+	"table-question-answering":       undefined,
+	"table-to-text":                  undefined,
+	"tabular-classification":         undefined,
+	"tabular-to-text":                undefined,
+	"text2text-generation":           textGeneration,
+	"text-classification":            textClassification,
+	"text-generation":                textGeneration,
+	"text-retrieval":                 undefined,
+	"text-to-image":                  undefined,
+	"text-to-speech":                 textToSpeech,
+	"time-series-forecasting":        undefined,
+	"token-classification":           tokenClassification,
+	"translation":                    translation,
+	"unconditional-image-generation": undefined,
+	"visual-question-answering":      undefined,
+	"voice-activity-detection":       undefined,
+	"zero-shot-classification":       undefined,
+	"zero-shot-image-classification": undefined,
 } as const;
