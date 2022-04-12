@@ -343,16 +343,16 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Speaker Identification",
 			},
 			{
-				type: "speaker-intent-classification",
-				name: "Speaker Intent Classification",
+				type: "audio-intent-classification",
+				name: "Audio Intent Classification",
 			},
 			{
-				type: "emotion-recognition",
-				name: "Emotion Recognition",
+				type: "audio-emotion-recognition",
+				name: "Audio Emotion Recognition",
 			},
 			{
-				type: "speaker-language-identification",
-				name: "Speaker Language Identification",
+				type: "audio-language-identification",
+				name: "Audio Language Identification",
 			},
 		],
 		modality: "audio",
