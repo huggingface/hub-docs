@@ -31,7 +31,7 @@
 	import IconUnconditionalImageGeneration from "../Icons/IconUnconditionalImageGeneration.svelte";
 
 	export let classNames = "";
-	export let pipeline: PipelineType;
+	export let pipeline = "";
 
 	const ICON_COMPONENTS: {
 		[key in PipelineType]: typeof SvelteComponent;
