@@ -8,7 +8,7 @@ export const bodyZeroShotClassification = (model: ModelData): string =>
 	`{"inputs": ${getModelInputSnippet(model)}, "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}`;
 
 export const jsSnippetBodies:
-	Partial<Record<keyof typeof PipelineType, (model: ModelData) => string>> =
+	Partial<Record<PipelineType, (model: ModelData) => string>> =
 {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":      bodyBasic,

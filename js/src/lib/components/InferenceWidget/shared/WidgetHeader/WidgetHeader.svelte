@@ -9,7 +9,7 @@
 
 	export let noTitle = false;
 	export let title: string | null = null;
-	export let pipeline: keyof typeof PipelineType | undefined;
+	export let pipeline: PipelineType | undefined;
 
 	$: task = pipeline ? getPipelineTask(pipeline) : undefined;
 </script>

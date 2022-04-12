@@ -66,7 +66,7 @@ const inputsFeatureExtraction = () =>
 	`"Today is a sunny day and I'll get some ice cream."`;
 
 const modelInputSnippets: {
-	[key in keyof typeof PipelineType]?: (model: ModelData) => string;
+	[key in PipelineType]?: (model: ModelData) => string;
 } = {
 	"conversational":           inputsConversational,
 	"feature-extraction":       inputsFeatureExtraction,

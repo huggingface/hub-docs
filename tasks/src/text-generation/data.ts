@@ -1,6 +1,6 @@
 import type { TaskData } from "../Types";
 
-import { PipelineType } from "../../../js/src/lib/interfaces/Types";
+import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
 import { TASKS_MODEL_LIBRARIES } from "../const";
 
 const taskData: TaskData = {
@@ -34,7 +34,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "text-generation",
-	label:     PipelineType["text-generation"],
+	label:     PIPELINE_DATA["text-generation"].name,
 	libraries: TASKS_MODEL_LIBRARIES["text-generation"],
 	metrics:   [
 		{

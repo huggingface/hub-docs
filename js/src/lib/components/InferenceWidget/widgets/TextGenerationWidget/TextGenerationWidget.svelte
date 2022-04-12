@@ -37,9 +37,7 @@
 	// Deactivate server caching for these two pipeline types
 	// (translation uses this widget too and still needs caching)
 	const useCache = !(
-		["text-generation", "text2text-generation"] as Array<
-			keyof typeof PipelineType
-		>
+		["text-generation", "text2text-generation"] as Array<PipelineType>
 	).includes(model.pipeline_tag);
 
 	onMount(() => {

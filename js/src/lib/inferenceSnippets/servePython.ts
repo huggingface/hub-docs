@@ -13,7 +13,7 @@ export const bodyBasic = (model: ModelData): string =>
 })`;
 
 export const pythonSnippetBodies:
-	Partial<Record<keyof typeof PipelineType, (model: ModelData) => string>> =
+	Partial<Record<PipelineType, (model: ModelData) => string>> =
 {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":      bodyBasic,

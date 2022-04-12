@@ -1,6 +1,6 @@
 import type { TaskData } from "../Types";
 
-import { PipelineType } from "../../../js/src/lib/interfaces/Types";
+import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
 import { TASKS_MODEL_LIBRARIES } from "../const";
 
 const taskData: TaskData = {
@@ -44,7 +44,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "token-classification",
-	label:     PipelineType["token-classification"],
+	label:     PIPELINE_DATA["token-classification"].name,
 	libraries: TASKS_MODEL_LIBRARIES["token-classification"],
 	metrics:   [
 		{
