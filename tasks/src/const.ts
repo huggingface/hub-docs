@@ -33,7 +33,8 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof Mode
 	"image-to-text":                  [],
 	"image-to-image":                 [],
 	"unconditional-image-generation": [],
-	/// others
-	"structured-data-classification": ["sklearn"],
+	/// rl
 	"reinforcement-learning":         ["transformers", "stable-baselines3"],
+	/// other
+	"structured-data-classification": ["sklearn"],
 };
