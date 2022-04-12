@@ -446,6 +446,46 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 export type PipelineType = keyof typeof PIPELINE_DATA;
 export const ALL_PIPELINE_TYPES = Object.keys(PIPELINE_DATA) as PipelineType[];
 
+
+/*
+ * Specification of pipeline tag display order.
+ */
+export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
+	/// nlp
+	"fill-mask",
+	"question-answering",
+	"summarization",
+	"table-question-answering",
+	"text-classification",
+	"text-generation",
+	"text2text-generation",
+	"token-classification",
+	"translation",
+	"zero-shot-classification",
+	"sentence-similarity",
+	"conversational",
+	"feature-extraction",
+	/// audio
+	"text-to-speech",
+	"automatic-speech-recognition",
+	"audio-to-audio",
+	"audio-classification",
+	"voice-activity-detection",
+	/// computer vision
+	"image-classification",
+	"object-detection",
+	"image-segmentation",
+	"text-to-image",
+	"image-to-text",
+	"image-to-image",
+	"unconditional-image-generation",
+	/// rl
+	"reinforcement-learning",
+	/// other
+	"structured-data-classification",
+];
+
+
 /**
  * Public interface for model metadata
  */
