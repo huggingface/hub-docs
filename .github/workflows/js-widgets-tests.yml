@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - "js/**"
-      - "!js/src/lib/interfaces/**"
+      # - "!js/src/lib/interfaces/**"
 
 jobs:
   build:
