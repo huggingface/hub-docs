@@ -31,10 +31,10 @@
 	import IconUnconditionalImageGeneration from "../Icons/IconUnconditionalImageGeneration.svelte";
 
 	export let classNames = "";
-	export let pipeline = "";
+	export let pipeline: PipelineType;
 
 	const ICON_COMPONENTS: {
-		[key in PipelineType]?: typeof SvelteComponent;
+		[key in PipelineType]: typeof SvelteComponent;
 	} = {
 		/// Keep same order as in huggingface_hub/Types.ts
 		/// for easy mapping.
