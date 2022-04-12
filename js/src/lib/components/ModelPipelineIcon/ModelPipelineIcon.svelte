@@ -34,7 +34,7 @@
 	export let pipeline = "";
 
 	const ICON_COMPONENTS: {
-		[key in PipelineType]: typeof SvelteComponent;
+		[key in PipelineType]?: typeof SvelteComponent;
 	} = {
 		/// Keep same order as in huggingface_hub/Types.ts
 		/// for easy mapping.
@@ -64,7 +64,7 @@
 		"image-to-image": IconImageToImage,
 		"unconditional-image-generation": IconUnconditionalImageGeneration,
 		"reinforcement-learning": IconReinforcementLearning,
-		"structured-data-classification": IconStructuredDataClassification,
+		"tabular-classification": IconStructuredDataClassification,
 	};
 </script>
 
