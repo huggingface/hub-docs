@@ -192,6 +192,16 @@ export const PIPELINE_DATA = Object.freeze({
 		modality: "cv",
 		color:    "red",
 	},
+	"image-to-image": {
+		name:     "Image-to-Image",
+		modality: "cv",
+		color:    "indigo",
+	},
+	"unconditional-image-generation": {
+		name:     "Unconditional Image Generation",
+		modality: "cv",
+		color:    "green",
+	},
 	"reinforcement-learning": {
 		name:     "Reinforcement Learning",
 		modality: "rl",
