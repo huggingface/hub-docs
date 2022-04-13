@@ -1,7 +1,7 @@
 - local: hugging-face-hub
   title: Hugging Face Hub
 
-- local: repositories
+- local: repositories-main
   title: Repositories
 
 - local: main

@@ -1,18 +1,9 @@
 ---
-title: Repositories
+title: Getting Started with Repositories
 ---
 
-<h1>Repositories</h1>
+<h1>Getting Started with Repositories</h1>
 
-
-## What is a repository?
-
-Models, Spaces, and datasets are hosted on the Hugging Face Hub as [Git repositories](https://git-scm.com/about), which means that version control and collaboration are core elements of the Hub. In a nutshell, a repository (also known as a **repo**) is a place where code and assets can be stored to back up your work, share it with the community, and work in a team. 
-
-In this document, we will go over the basics of getting started with Git and interacting with repositories on the Hub. Once you get the hang of it, you can explore the best practices and next steps that we've compiled for effective repository usage.
-
-
-## Getting started
 
 ### Requirements
 
@@ -72,7 +63,7 @@ git lfs install
 When you use Hugging Face to create a repository, we automatically provide a list of common file extensions for these files in the `.gitattributes` file, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
 
 
-You can use Git to save new files and any changes to already existing files as a bundle of changes called a *commit*, which can be though of as a "revision" to your project. To create a commit, we have to `add` the files to let Git know that we're planning on saving the changes and then `commit` those changes. In order to sync the new commit with the Hugging Face Hub, we then `push` the commit to the Hub.
+You can use Git to save new files and any changes to already existing files as a bundle of changes called a *commit*, which can be thought of as a "revision" to your project. To create a commit, we have to `add` the files to let Git know that we're planning on saving the changes and then `commit` those changes. In order to sync the new commit with the Hugging Face Hub, we then `push` the commit to the Hub.
 
 ```bash
 # Create any files you like! Then...
@@ -81,11 +72,17 @@ git commit -m "First model version"  # You can choose any descriptive message
 git push
 ```
 
-And we're done! You can check your repository on Hugging Face with all the recently added files. For example, in the screenshot below the user added a number of files. Note that one of the files in this example has a size of `413.3 MB`, so the repo would use Git LFS to track it.
+And we're done! You can check your repository on Hugging Face with all the recently added files. For example, in the screenshot below the user added a number of files. Note that one of the files in this example has a size of `413 MB`, so the repo uses Git LFS to track it.
 
 ![/docs/assets/hub/repo_with_files.png](/docs/assets/hub/repo_with_files.png)
 
-Every time you go through the `add`-`commit`-`push` cycle, the repo will keep track of every change you've made to your files. The UI allows you to explore the model files and commits and to see the difference (also known as *diff*) introduced by each commit:
+
+### Viewing a repo's history
+Every time you go through the `add`-`commit`-`push` cycle, the repo will keep track of every change you've made to your files. The UI allows you to explore the model files and commits and to see the difference (also known as *diff*) introduced by each commit. To see the history, you can click on the `History: X commits` link.
+
+![/docs/assets/hub/repo_history.png](/docs/assets/hub/repo_history.png)
+
+You can click on an individual commit to see what changes that commit introduced:
 
 ![/docs/assets/hub/explore_history.gif](/docs/assets/hub/explore_history.gif)
 
@@ -122,27 +119,25 @@ You can choose a repository's visibility when you create it, and any repository 
 
 ### Security for repositories
 
-`git` has an authentication layer to control who can push commits to a repo, but it does not authenticate the actual commit authors.
+We run every file of your repositories through a [malware scanner](https://www.clamav.net/). Scanning is triggered at each commit or when you visit a repository page.
 
-In other words, you can commit changes as `Elon Musk <elon@tesla.com>`, push them to your preferred `git` host (for instance github.com) and your commit will link to Elon's GitHub profile. (Try it! But don't blame us if Elon gets mad at you for impersonating him)
-
-See this post by Ale Segala for more context: [How (and why) to sign `git` commits](https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html)
-
-You can prove a commit was authored by you, using GNU Privacy Guard (GPG) and a key server. GPG is a cryptographic tool used to verify the authenticity of a message's origin. To learn about setting up signed commits verification with GPG, visit the [**Security**](TODO) section of our docs!
+To learn about the security features available on the Hugging Face Hub, visit the [**Security**](TODO) section of our docs!
 
 ### Licenses
 
-You are able to add a license to any repo that you create on the Hugging Face Hub to let other users know about the permissions that you want to attribute to your code. Likewise, remember to seek out and respect a project's license if you're considering using their code.
+You are able to add a license to any repo that you create on the Hugging Face Hub to let other users know about the permissions that you want to attribute to your code. The license can also be added to your repository's `README.md` file, known as a *card* on the Hub, in the card's metadata section. Remember to seek out and respect a project's license if you're considering using their code.
 
 A [**full list of the available licenses**](TODO) is available in these docs.
 
 ## Next steps
 
-A good place to visit if you want to continue learning about Git is [GitHub's "Using Git" tutorial](https://docs.github.com/en/get-started/using-git/about-git). These next sections highlight features and additional information that you may find useful to make the most out of the Git repositories on the Hugging Face Hub.
+A good place to visit if you want to continue learning about Git is [this Git tutorial](https://learngitbranching.js.org/). These next sections highlight features and additional information that you may find useful to make the most out of the Git repositories on the Hugging Face Hub.
 
 ### How to use branches
 
-To effectively use Git repos collaboratively and to work on features without releasing premature code you can use **branches**. Branches allow you to separate your "work in progress" code from your "production-ready" code, with the additional benefit of letting multiple people work on a project without frequently conflicting with each others' contributions. To learn about Git branching, you can try out the [Learn Git Branching interactive tutorial](https://learngitbranching.js.org/).
+To effectively use Git repos collaboratively and to work on features without releasing premature code you can use **branches**. Branches allow you to separate your "work in progress" code from your "production-ready" code, with the additional benefit of letting multiple people work on a project without frequently conflicting with each others' contributions. Your can use branches to isolate experiments in their own branch, and even [adopt team-wide practices for managing branches](https://ericmjl.github.io/essays-on-data-science/workflow/gitflow/).
+
+To learn about Git branching, you can try out the [Learn Git Branching interactive tutorial](https://learngitbranching.js.org/).
 
 ### Using tags
 
@@ -150,9 +145,17 @@ Git allows you to *tag* commits so that you can easily note milestones in your p
 
 Beyond making it easy to identify important commits in your repo's history, using Git tags also allows you to [clone a repository at a specific tag](https://www.techiedelight.com/clone-specific-tag-with-git/). The `huggingface_hub` library also supports working with tags, such as [downloading files from a specific tagged commit](https://huggingface.co/docs/huggingface_hub/main/en/how-to-downstream#hfhuburl).
 
-### How to duplicate/fork a repo (including LFS pointers)
+### How to duplicate or fork a repo (including LFS pointers)
 
-A duplicate of a repository is called a *fork*. You may choose to fork one of your own repos, but it also common to fork other people's projects if you would like to tinker with them.
+If you'd like to copy a repository, depending on whether you want to preserve the Git history there are two options.
+
+#### Duplicating without Git history
+
+In many scenarious, if you want your own copy of a particular codebase you might not be concerned about the previous Git history. In this case, you can quickly duplicate a repo with the handy [Repo Duplicator](https://huggingface.co/spaces/osanseviero/repo_duplicator)! You'll have to create a User Access Token, which you can read more about in the [security documentation](TODO).
+
+#### Duplicating with the Git history (Fork)
+
+A duplicate of a repository with the commit history preserved is called a *fork*. You may choose to fork one of your own repos, but it also common to fork other people's projects if you would like to tinker with them.
 
 When you want to fork or [rebase](https://git-scm.com/docs/git-rebase) a repository with [LFS](https://git-lfs.github.com/) files you cannot use the usual Git approach that you might be familiar with since you need to be careful to not break the LFS pointers. Forking can take time depending on your bandwidth because you will have to fetch and re-upload all the LFS files in your fork.
 
