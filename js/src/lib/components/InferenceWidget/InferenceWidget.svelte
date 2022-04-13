@@ -59,7 +59,7 @@
 		"text-to-image": TextToImageWidget,
 		"text-to-speech": TextToSpeechWidget,
 		translation: TextGenerationWidget,
-		"structured-data-classification": StructuredDataClassificationWidget,
+		"tabular-classification": StructuredDataClassificationWidget,
 		"reinforcement-learning": ReinforcementLearningWidget,
 		"zero-shot-classification": ZeroShotClassificationWidget,
 	};
