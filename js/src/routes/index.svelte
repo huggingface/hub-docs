@@ -120,7 +120,7 @@
 		},
 		{
 			id: "julien-c/wine-quality",
-			pipeline_tag: "structured-data-classification",
+			pipeline_tag: "tabular-classification",
 			widgetData: [
 				{
 					structuredData: {
