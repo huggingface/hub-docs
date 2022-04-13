@@ -61,6 +61,12 @@ Do you have files larger than 10MB? Those files should be tracked with `git-lfs`
 git lfs install
 ```
 
+Note that if your files are larger than **5GB** you'll also need to run:
+
+```bash
+huggingface-cli lfs-enable-largefiles
+```
+
 When you use Hugging Face to create a repository, we automatically provide a list of common file extensions for these files in the `.gitattributes` file, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
 
 
