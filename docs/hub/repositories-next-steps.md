@@ -12,7 +12,7 @@ A good place to visit if you want to continue learning about Git is [this Git tu
 
 ## How to use branches
 
-To effectively use Git repos collaboratively and to work on features without releasing premature code you can use **branches**. Branches allow you to separate your "work in progress" code from your "production-ready" code, with the additional benefit of letting multiple people work on a project without frequently conflicting with each others' contributions. Your can use branches to isolate experiments in their own branch, and even [adopt team-wide practices for managing branches](https://ericmjl.github.io/essays-on-data-science/workflow/gitflow/).
+To effectively use Git repos collaboratively and to work on features without releasing premature code you can use **branches**. Branches allow you to separate your "work in progress" code from your "production-ready" code, with the additional benefit of letting multiple people work on a project without frequently conflicting with each others' contributions. You can use branches to isolate experiments in their own branch, and even [adopt team-wide practices for managing branches](https://ericmjl.github.io/essays-on-data-science/workflow/gitflow/).
 
 To learn about Git branching, you can try out the [Learn Git Branching interactive tutorial](https://learngitbranching.js.org/).
 
@@ -28,7 +28,7 @@ If you'd like to copy a repository, depending on whether you want to preserve th
 
 ### Duplicating without Git history
 
-In many scenarious, if you want your own copy of a particular codebase you might not be concerned about the previous Git history. In this case, you can quickly duplicate a repo with the handy [Repo Duplicator](https://huggingface.co/spaces/osanseviero/repo_duplicator)! You'll have to create a User Access Token, which you can read more about in the [security documentation](TODO).
+In many scenarios, if you want your own copy of a particular codebase you might not be concerned about the previous Git history. In this case, you can quickly duplicate a repo with the handy [Repo Duplicator](https://huggingface.co/spaces/osanseviero/repo_duplicator)! You'll have to create a User Access Token, which you can read more about in the [security documentation](TODO).
 
 ### Duplicating with the Git history (Fork)
 
@@ -40,13 +40,13 @@ For example, say you have an upstream repository, **upstream**, and you just cre
 
 1. Create a destination repository (e.g. **myfork**) in https://huggingface.co 
 
-2. Clone your fork repository
+2. Clone your fork repository:
 
 ```
 git lfs clone https://huggingface.co/me/myfork.git
 ```
 
-3. Fetch non LFS files
+3. Fetch non LFS files:
 
 ```
 cd myfork
@@ -55,7 +55,7 @@ git remote add upstream https://huggingface.co/friend/upstream.git
 git fetch upstream
 ```
 
-4. Fetch large files. This can take some time depending on your download bandwidth
+4. Fetch large files. This can take some time depending on your download bandwidth:
 
 ```
 git lfs fetch --all upstream # this can take time depending on your download bandwidth
@@ -67,20 +67,20 @@ git lfs fetch --all upstream # this can take time depending on your download ban
 git reset --hard upstream/main
 ```
 
-4.b. If you want to rebase instead of overriding, run the following command and solve any conflicts
+4.b. If you want to rebase instead of overriding, run the following command and resolve any conflicts:
 
 ```
 git rebase upstream/main
 ```
 
-5. Prepare your LFS files to push
+5. Prepare your LFS files to push:
 
 ```
 git lfs install --force --local # this reinstalls the LFS hooks
 huggingface-cli lfs-enable-largefiles . # needed if some files are bigger than 5Gb
 ```
 
-6. And finally push
+6. And finally push:
 
 ```
 git push --force origin main # this can take time depending on your upload bandwidth
@@ -91,4 +91,4 @@ Now you have your own fork or rebased repo in the Hub!
 
 ## How to programmatically manage repositories
 
-So far in these docs we've looked at using the Git CLI and the Hugging Face Hub to work with our repos, but Hugging Face also supports accessing repos with Python via the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index). The operations that we've explored such as downloading repositories and uploading files are available through the library, as well as other useful functionality!
+So far, we've looked at using the Git CLI and the Hugging Face Hub to work with our repos. But Hugging Face also supports accessing repos with Python via the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index). The operations that we've explored such as downloading repositories and uploading files are available through the library, as well as other useful functions!
