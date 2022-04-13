@@ -85,7 +85,7 @@ And we're done! You can check your repository on Hugging Face with all the recen
 
 
 ## Viewing a repo's history
-Every time you go through the `add`-`commit`-`push` cycle, the repo will keep track of every change you've made to your files. The UI allows you to explore the model files and commits and to see the difference (also known as *diff*) introduced by each commit. To see the history, you can click on the `History: X commits` link.
+Every time you go through the `add`-`commit`-`push` cycle, the repo will keep track of every change you've made to your files. The UI allows you to explore the model files and commits and to see the difference (also known as *diff*) introduced by each commit. To see the history, you can click on the **History: X commits** link.
 
 ![/docs/assets/hub/repo_history.png](/docs/assets/hub/repo_history.png)
 
