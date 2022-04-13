@@ -81,7 +81,6 @@ function ensureRecordOfPipelines<Keys extends string>(record: Record<Keys, Pipel
 /// For each domain, the order should be of decreasing specificity. 
 /// This will impact the default pipeline tag of a model when not
 /// specified. 
-/// This also impacts the display order.
 export const PIPELINE_DATA = ensureRecordOfPipelines({
 	"text-classification": {
 		name:     "Text Classification",
@@ -530,7 +529,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"time-series-forecasting": {
 		name:     "Time Series Forecasting",
-		modality: "time_series",
+		modality: "structured",
 		subtasks: [
 			{
 				type: "univariate-time-series-forecasting",
