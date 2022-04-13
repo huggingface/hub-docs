@@ -6,7 +6,7 @@ title: Getting Started with Repositories
 
 This beginner-friendly guide will help you get the basic skills you need to create and manage your repository on the Hub. Each section builds on the previous one, so feel free to choose where to start!
 
-### Requirements
+## Requirements
 
 If you do not have `git` available as a CLI command yet, you will need to [install Git](https://git-scm.com/downloads) for your platform. You will also need to [install Git LFS](https://git-lfs.github.com/), which will be used to handle large files such as images and model weights.
 
@@ -21,7 +21,7 @@ The content in the **Getting Started** section of this document is also availabl
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rkCly_cbMBk" title="Managing a repo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Creating a repository
+## Creating a repository
 
 Using the Hub's web interface you can easily create repositories, add files (even large ones!), explore models, visualize diffs, and much more. There are three kinds of repositories on the Hub, and in this guide we'll be creating a **model repository** for demonstration purposes. For information on creating and managing models, datasets, and Spaces, refer to their respective documentation.
 
@@ -42,7 +42,7 @@ After creating your model repository, you should see a page like this:
 Note that the Hub prompts you to create a *Model Card*, which you can learn about in the **Model Cards documentation** (TODO: LINK). Including a Model Card in your model repo is best practice, but since we're only making a test repo at the moment we can skip this.
 
 
-### Cloning repositories
+## Cloning repositories
 
 Downloading repositories to your local machine is called *cloning*. You can use the following commands to load the repo that we made and navigate to it:
 ```bash
@@ -50,7 +50,7 @@ git clone https://huggingface.co/<your-username>/<your-model-id>
 cd <your-model-id>
 ```
 
-### Adding files to a repository
+## Adding files to a repository
 
 Now's the time, you can add any files you want to the repository! 🔥
 
@@ -84,7 +84,7 @@ And we're done! You can check your repository on Hugging Face with all the recen
 ![/docs/assets/hub/repo_with_files.png](/docs/assets/hub/repo_with_files.png)
 
 
-### Viewing a repo's history
+## Viewing a repo's history
 Every time you go through the `add`-`commit`-`push` cycle, the repo will keep track of every change you've made to your files. The UI allows you to explore the model files and commits and to see the difference (also known as *diff*) introduced by each commit. To see the history, you can click on the `History: X commits` link.
 
 ![/docs/assets/hub/repo_history.png](/docs/assets/hub/repo_history.png)
@@ -94,7 +94,7 @@ You can click on an individual commit to see what changes that commit introduced
 ![/docs/assets/hub/explore_history.gif](/docs/assets/hub/explore_history.gif)
 
 
-### Renaming or transferring a repo
+## Renaming or transferring a repo
 
 
 If you own a repository, you will be able to visit the **Settings** tab to manage the name and ownership. Note that there are certain limitations in terms of use cases.
@@ -112,113 +112,3 @@ Moving does not work for ❌
 - Transferring a repository from user A to user B.
 
 If these are use cases you need help with, please send us an email at **website at huggingface.co**.
-
-
-## Best practices
-
-### Private Repositories
-
-You can choose a repository's visibility when you create it, and any repository that you own can have its visibility toggled between *public* and *private* in the **Settings** tab. Unless your repository is owned by an organization (more about that [**here!**](TODO)), you are the only user that can make changes to your repo or upload any code. Setting your visibility to *private* will:
-
- - Ensure your repo is not discoverable by other users by searching the Hub,
- - Other users who visit the URL of your private repo will receive a `404 - Repo not found` error. 
- - Other users will not be able to clone your repo.
-
-### Security for repositories
-
-We run every file of your repositories through a [malware scanner](https://www.clamav.net/). Scanning is triggered at each commit or when you visit a repository page.
-
-To learn about the security features available on the Hugging Face Hub, visit the [**Security**](TODO) section of our docs!
-
-### Licenses
-
-You are able to add a license to any repo that you create on the Hugging Face Hub to let other users know about the permissions that you want to attribute to your code. The license can also be added to your repository's `README.md` file, known as a *card* on the Hub, in the card's metadata section. Remember to seek out and respect a project's license if you're considering using their code.
-
-A [**full list of the available licenses**](TODO) is available in these docs.
-
-## Next steps
-
-A good place to visit if you want to continue learning about Git is [this Git tutorial](https://learngitbranching.js.org/). These next sections highlight features and additional information that you may find useful to make the most out of the Git repositories on the Hugging Face Hub.
-
-### How to use branches
-
-To effectively use Git repos collaboratively and to work on features without releasing premature code you can use **branches**. Branches allow you to separate your "work in progress" code from your "production-ready" code, with the additional benefit of letting multiple people work on a project without frequently conflicting with each others' contributions. Your can use branches to isolate experiments in their own branch, and even [adopt team-wide practices for managing branches](https://ericmjl.github.io/essays-on-data-science/workflow/gitflow/).
-
-To learn about Git branching, you can try out the [Learn Git Branching interactive tutorial](https://learngitbranching.js.org/).
-
-### Using tags
-
-Git allows you to *tag* commits so that you can easily note milestones in your project. As such, you can use tags to mark commits in your Hub repos! To learn about using tags, you can visit [this DevConnected post](https://devconnected.com/how-to-create-git-tags/).
-
-Beyond making it easy to identify important commits in your repo's history, using Git tags also allows you to [clone a repository at a specific tag](https://www.techiedelight.com/clone-specific-tag-with-git/). The `huggingface_hub` library also supports working with tags, such as [downloading files from a specific tagged commit](https://huggingface.co/docs/huggingface_hub/main/en/how-to-downstream#hfhuburl).
-
-### How to duplicate or fork a repo (including LFS pointers)
-
-If you'd like to copy a repository, depending on whether you want to preserve the Git history there are two options.
-
-#### Duplicating without Git history
-
-In many scenarious, if you want your own copy of a particular codebase you might not be concerned about the previous Git history. In this case, you can quickly duplicate a repo with the handy [Repo Duplicator](https://huggingface.co/spaces/osanseviero/repo_duplicator)! You'll have to create a User Access Token, which you can read more about in the [security documentation](TODO).
-
-#### Duplicating with the Git history (Fork)
-
-A duplicate of a repository with the commit history preserved is called a *fork*. You may choose to fork one of your own repos, but it also common to fork other people's projects if you would like to tinker with them.
-
-When you want to fork or [rebase](https://git-scm.com/docs/git-rebase) a repository with [LFS](https://git-lfs.github.com/) files you cannot use the usual Git approach that you might be familiar with since you need to be careful to not break the LFS pointers. Forking can take time depending on your bandwidth because you will have to fetch and re-upload all the LFS files in your fork.
-
-For example, say you have an upstream repository, **upstream**, and you just created your own repository on the Hub which is **myfork** in this example.
-
-1. Create a destination repository (e.g. **myfork**) in https://huggingface.co 
-
-2. Clone your fork repository
-
-```
-git lfs clone https://huggingface.co/me/myfork.git
-```
-
-3. Fetch non LFS files
-
-```
-cd myfork
-git lfs install --skip-smudge --local # affects only this clone
-git remote add upstream https://huggingface.co/friend/upstream.git
-git fetch upstream
-```
-
-4. Fetch large files. This can take some time depending on your download bandwidth
-
-```
-git lfs fetch --all upstream # this can take time depending on your download bandwidth
-```
-
-4.a. If you want to completely override the fork history (which should only have an initial commit), run:
-
-```
-git reset --hard upstream/main
-```
-
-4.b. If you want to rebase instead of overriding, run the following command and solve any conflicts
-
-```
-git rebase upstream/main
-```
-
-5. Prepare your LFS files to push
-
-```
-git lfs install --force --local # this reinstalls the LFS hooks
-huggingface-cli lfs-enable-largefiles . # needed if some files are bigger than 5Gb
-```
-
-6. And finally push
-
-```
-git push --force origin main # this can take time depending on your upload bandwidth
-```
-
-Now you have your own fork or rebased repo in the Hub!
-
-
-### How to programmatically manage repositories
-
-So far in these docs we've looked at using the Git CLI and the Hugging Face Hub to work with our repos, but Hugging Face also supports accessing repos with Python via the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index). The operations that we've explored such as downloading repositories and uploading files are available through the library, as well as other useful functionality!
