@@ -4,6 +4,7 @@ title: Getting Started with Repositories
 
 <h1>Getting Started with Repositories</h1>
 
+This beginner-friendly guide will help you get the basic skills you need to create and manage your repository on the Hub. Each section builds on the previous one, so feel free to choose where to start!
 
 ### Requirements
 

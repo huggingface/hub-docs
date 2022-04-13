@@ -4,6 +4,8 @@ title: Getting Started with Repositories
 
 <h1>Best practices with repositories</h1>
 
+Here are some additional best practices to help you get the most out of your repository.
+
 ## Private Repositories
 
 You can choose a repository's visibility when you create it, and any repository that you own can have its visibility toggled between *public* and *private* in the **Settings** tab. Unless your repository is owned by an organization (more about that [**here!**](TODO)), you are the only user that can make changes to your repo or upload any code. Setting your visibility to *private* will:
