@@ -334,7 +334,7 @@ const nemoDomainResolver = (domain: string, model: ModelData) => {
 };
 
 const nemo = (model: ModelData) => {
-	var command = undefined;
+	let command = undefined;
 	// Resolve the tag to a nemo domain/sub-domain 
 	if (model.tags?.includes("automatic-speech-recognition")) {
 		command = nemoDomainResolver("ASR", model)
