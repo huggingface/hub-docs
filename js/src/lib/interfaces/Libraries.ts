@@ -23,6 +23,7 @@ export enum ModelLibrary {
 	"stanza"                 = "Stanza",
 	"fasttext"               = "fastText",
 	"stable-baselines3"      = "Stable-Baselines3",
+	"nemo"					 = "NeMo",
 }
 
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as (keyof typeof ModelLibrary)[];
@@ -314,6 +315,38 @@ checkpoint = load_from_hub(
 	filename="{MODEL FILENAME}.zip",
 )`;
 
+const nemoDomainResolver = (domain: string, model: ModelData) => {
+	var model_name = `${(model.id).split("/").pop()}.nemo`;
+
+	switch (domain) {
+		case "ASR":
+		    return `import nemo.collections.asr as nemo_asr
+		    from huggingface_hub import hf_hub_download
+		    
+		    path = hf_hub_download(repo_id="${model.id}",filename="${model_name}")
+		    asr_model = nemo_asr.models.ASRModel.restore_from(path)
+
+			transcriptions = asr_model.transcribe(["file.wav"])
+		    `;
+		default:
+			return undefined;
+	}
+};
+
+const nemo = (model: ModelData) => {
+	let command = undefined;
+	// Resolve the tag to a nemo domain/sub-domain 
+	if (model.tags?.includes("automatic-speech-recognition")) {
+		command = nemoDomainResolver("ASR", model)
+	}
+
+	if (command === undefined) {
+		return `# tag did not correspond to a valid NeMo domain.`; 
+	}
+
+	return command;
+};
+
 //#endregion
 
 
@@ -427,6 +460,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "stable-baselines3",
 		repoUrl:  "https://github.com/huggingface/huggingface_sb3",
 		snippet:  stableBaselines3,
+	},
+	"nemo": {
+		btnLabel: "NeMo",
+		repoName: "NeMo",
+		repoUrl:  "https://github.com/NVIDIA/NeMo",
+		snippet:  nemo,
 	},
 } as const;
 
