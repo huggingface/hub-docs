@@ -34,5 +34,5 @@ jobs:
       - name: Run export-tasks script
         working-directory: js
         run: |
-          npx tsm src/scripts/export-tasks.ts
+          npm run export-task
         # copy/paste this JSON output to any repo that might need it.
