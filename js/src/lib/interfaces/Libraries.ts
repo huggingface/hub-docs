@@ -11,6 +11,7 @@ export enum ModelLibrary {
 	"fairseq"                = "Fairseq",
 	"flair"                  = "Flair",
 	"keras"                  = "Keras",
+	"nemo"                   = "NeMo",
 	"pyannote-audio"         = "pyannote.audio",
 	"sentence-transformers"  = "Sentence Transformers",
 	"sklearn"                = "Scikit-learn",
@@ -23,7 +24,6 @@ export enum ModelLibrary {
 	"stanza"                 = "Stanza",
 	"fasttext"               = "fastText",
 	"stable-baselines3"      = "Stable-Baselines3",
-	"nemo"					 = "NeMo",
 }
 
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as (keyof typeof ModelLibrary)[];
@@ -88,19 +88,19 @@ const allennlp = (model: ModelData) => {
 
 const asteroid = (model: ModelData) =>
 	`from asteroid.models import BaseModel
-  
+
 model = BaseModel.from_pretrained("${model.id}")`;
 
 const espnetTTS = (model: ModelData) =>
 	`from espnet2.bin.tts_inference import Text2Speech
-    
+
 model = Text2Speech.from_pretrained("${model.id}")
 
 speech, *_ = model("text to generate speech from")`;
 
 const espnetASR = (model: ModelData) =>
 	`from espnet2.bin.asr_inference import Speech2Text
-    
+
 model = Speech2Text.from_pretrained(
   "${model.id}"
 )
@@ -130,7 +130,7 @@ models, cfg, task = load_model_ensemble_and_task_from_hf_hub(
 
 const flair = (model: ModelData) =>
 	`from flair.models import SequenceTagger
-  
+
 tagger = SequenceTagger.load("${model.id}")`;
 
 const keras = (model: ModelData) =>
@@ -238,7 +238,7 @@ const spacy = (model: ModelData) =>
 import spacy
 nlp = spacy.load("${nameWithoutNamespace(model.id)}")
 
-# Importing as module.
+# Importing as module.
 import ${nameWithoutNamespace(model.id)}
 nlp = ${nameWithoutNamespace(model.id)}.load()`;
 
@@ -315,36 +315,31 @@ checkpoint = load_from_hub(
 	filename="{MODEL FILENAME}.zip",
 )`;
 
-const nemoDomainResolver = (domain: string, model: ModelData) => {
-	var model_name = `${(model.id).split("/").pop()}.nemo`;
+const nemoDomainResolver = (domain: string, model: ModelData): string | undefined => {
+	const modelName = `${nameWithoutNamespace(model.id)}.nemo`;
 
 	switch (domain) {
 		case "ASR":
-		    return `import nemo.collections.asr as nemo_asr
-		    from huggingface_hub import hf_hub_download
-		    
-		    path = hf_hub_download(repo_id="${model.id}",filename="${model_name}")
-		    asr_model = nemo_asr.models.ASRModel.restore_from(path)
+			return `import nemo.collections.asr as nemo_asr
+from huggingface_hub import hf_hub_download
 
-			transcriptions = asr_model.transcribe(["file.wav"])
-		    `;
+path = hf_hub_download(repo_id="${model.id}",filename="${modelName}")
+asr_model = nemo_asr.models.ASRModel.restore_from(path)
+
+transcriptions = asr_model.transcribe(["file.wav"])`;
 		default:
 			return undefined;
 	}
 };
 
 const nemo = (model: ModelData) => {
-	let command = undefined;
+	let command: string | undefined = undefined;
 	// Resolve the tag to a nemo domain/sub-domain 
 	if (model.tags?.includes("automatic-speech-recognition")) {
-		command = nemoDomainResolver("ASR", model)
+		command = nemoDomainResolver("ASR", model);
 	}
-
-	if (command === undefined) {
-		return `# tag did not correspond to a valid NeMo domain.`; 
-	}
-
-	return command;
+	
+	return command ?? `# tag did not correspond to a valid NeMo domain.`;
 };
 
 //#endregion
@@ -394,6 +389,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "Keras",
 		repoUrl:  "https://github.com/keras-team/keras",
 		snippet:  keras,
+	},
+	"nemo": {
+		btnLabel: "NeMo",
+		repoName: "NeMo",
+		repoUrl:  "https://github.com/NVIDIA/NeMo",
+		snippet:  nemo,
 	},
 	"pyannote-audio": {
 		btnLabel: "pyannote.audio",
@@ -460,12 +461,6 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "stable-baselines3",
 		repoUrl:  "https://github.com/huggingface/huggingface_sb3",
 		snippet:  stableBaselines3,
-	},
-	"nemo": {
-		btnLabel: "NeMo",
-		repoName: "NeMo",
-		repoUrl:  "https://github.com/NVIDIA/NeMo",
-		snippet:  nemo,
 	},
 } as const;
 
