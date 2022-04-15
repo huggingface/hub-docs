@@ -5,6 +5,10 @@ on:
     paths:
       - "js/**"
       - "js/src/lib/interfaces/**"
+  pull_request:
+    paths:
+      - "js/**"
+      - "js/src/lib/interfaces/**"
 
 
 jobs:
