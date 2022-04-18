@@ -1,6 +1,9 @@
 - local: hugging-face-hub
   title: Hugging Face Hub
 
+- local: repositories-main
+  title: Repositories
+
 - local: main
   title: Hub documentation
 
