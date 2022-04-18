@@ -14,11 +14,9 @@ You can choose a repository's visibility when you create it, and any repository 
  - Other users who visit the URL of your private repo will receive a `404 - Repo not found` error. 
  - Other users will not be able to clone your repo.
 
-## Security for repositories
-
-We run every file of your repositories through a [malware scanner](https://www.clamav.net/). Scanning is triggered at each commit or when you visit a repository page.
-
-To learn about the security features available on the Hugging Face Hub, visit the [**Security**](TODO) section of our docs!
+## Handling multiple experiments
+### TODO
+Can use content from https://github.com/huggingface/huggingface_hub/issues/769 and https://github.com/huggingface/hub-docs/issues/53
 
 ## Licenses
 
