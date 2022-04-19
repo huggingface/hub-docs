@@ -46,6 +46,7 @@ export const pythonSnippets:
 	"text2text-generation":     snippetBasic,
 	"fill-mask":                snippetBasic,
 	"sentence-similarity":      snippetBasic,
+	"text-to-speech":           snippetBasic,
 	"audio-to-audio":           snippetFile,
 	"audio-classification":     snippetFile,
 	"image-classification":     snippetFile,
