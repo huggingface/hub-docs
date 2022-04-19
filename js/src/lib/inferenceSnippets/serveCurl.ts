@@ -39,6 +39,8 @@ export const curlSnippets:
 	"text2text-generation":     snippetBasic,
 	"fill-mask":                snippetBasic,
 	"sentence-similarity":      snippetBasic,
+	"audio-to-audio":           snippetFile,
+	"audio-classification":     snippetFile,
 	"image-classification":     snippetFile,
 	"object-detection":         snippetFile,
 	"image-segmentation":       snippetFile,
