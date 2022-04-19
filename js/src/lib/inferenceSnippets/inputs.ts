@@ -73,33 +73,36 @@ const inputsObjectDetection = () => `"cats.jpg"`;
 
 const inputsAudioToAudio = () => `"sample1.flac"`;
 
-const inputsAudipClassification = () => `"sample1.flac"`;
+const inputsAudioClassification = () => `"sample1.flac"`;
 
 const inputsTextToSpeech = () =>
-	`"The answer to the universe is 42"`;
+`"The answer to the universe is 42"`;
+
+const inputsAutomaticSpeechRecognition = () => `"sample1.flac"`;
 
 const modelInputSnippets: {
 	[key in PipelineType]?: (model: ModelData) => string;
 } = {
-	"audio-to-audio":           inputsAudioToAudio,
-	"audio-classification":     inputsAudipClassification,
-	"conversational":           inputsConversational,
-	"feature-extraction":       inputsFeatureExtraction,
-	"fill-mask":                inputsFillMask,
-	"image-classification":     inputsImageClassification,
-	"image-segmentation":       inputsImageSegmentation,
-	"object-detection":         inputsObjectDetection,
-	"question-answering":       inputsQuestionAnswering,
-	"sentence-similarity":      inputsSentenceSimilarity,
-	"summarization":            inputsSummarization,
-	"table-question-answering": inputsTableQuestionAnswering,
-	"text-classification":      inputsTextClassification,
-	"text-generation":          inputsTextGeneration,
-	"text-to-speech":           inputsTextToSpeech,
-	"text2text-generation":     inputsText2TextGeneration,
-	"token-classification":     inputsTokenClassification,
-	"translation":              inputsTranslation,
-	"zero-shot-classification": inputsZeroShotClassification,
+	"audio-to-audio":               inputsAudioToAudio,
+	"audio-classification":         inputsAudioClassification,
+	"automatic-speech-recognition": inputsAutomaticSpeechRecognition,
+	"conversational":               inputsConversational,
+	"feature-extraction":           inputsFeatureExtraction,
+	"fill-mask":                    inputsFillMask,
+	"image-classification":         inputsImageClassification,
+	"image-segmentation":           inputsImageSegmentation,
+	"object-detection":             inputsObjectDetection,
+	"question-answering":           inputsQuestionAnswering,
+	"sentence-similarity":          inputsSentenceSimilarity,
+	"summarization":                inputsSummarization,
+	"table-question-answering":     inputsTableQuestionAnswering,
+	"text-classification":          inputsTextClassification,
+	"text-generation":              inputsTextGeneration,
+	"text-to-speech":               inputsTextToSpeech,
+	"text2text-generation":         inputsText2TextGeneration,
+	"token-classification":         inputsTokenClassification,
+	"translation":                  inputsTranslation,
+	"zero-shot-classification":     inputsZeroShotClassification,
 };
 
 // Use noWrap to put the whole snippet on a single line (removing new lines and tabulations)
