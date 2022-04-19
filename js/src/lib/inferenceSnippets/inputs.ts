@@ -71,9 +71,9 @@ const inputsImageSegmentation = () => `"cats.jpg"`;
 
 const inputsObjectDetection = () => `"cats.jpg"`;
 
-const inputsAudioToAudio = () => `sample1.flac`;
+const inputsAudioToAudio = () => `"sample1.flac"`;
 
-const inputsAudipClassification = () => `sample1.flac`;
+const inputsAudipClassification = () => `"sample1.flac"`;
 
 const modelInputSnippets: {
 	[key in PipelineType]?: (model: ModelData) => string;
