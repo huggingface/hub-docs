@@ -1,37 +1,8 @@
 import type { PipelineType, ModelData } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
-export const bodyBasic = (model: ModelData): string =>
-	`{"inputs": ${getModelInputSnippet(model)}}`;
-
-export const bodyZeroShotClassification = (model: ModelData): string =>
-	`{"inputs": ${getModelInputSnippet(model)}, "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}`;
-
-export const jsSnippetBodies:
-	Partial<Record<PipelineType, (model: ModelData) => string>> =
-{
-	// Same order as in js/src/lib/interfaces/Types.ts
-	"text-classification":      bodyBasic,
-	"token-classification":     bodyBasic,
-	"table-question-answering": bodyBasic,
-	"question-answering":       bodyBasic,
-	"zero-shot-classification": bodyZeroShotClassification,
-	"translation":              bodyBasic,
-	"summarization":            bodyBasic,
-	"conversational":           bodyBasic,
-	"feature-extraction":       bodyBasic,
-	"text-generation":          bodyBasic,
-	"text2text-generation":     bodyBasic,
-	"fill-mask":                bodyBasic,
-	"sentence-similarity":      bodyBasic,
-};
-
-export function getJsInferenceSnippet(model: ModelData, accessToken: string): string {
-	const body = model.pipeline_tag && model.pipeline_tag in jsSnippetBodies
-		? jsSnippetBodies[model.pipeline_tag]?.(model) ?? ""
-		: "";
-	
-	return `async function query(data) {
+export const snippetBasic = (model: ModelData, accessToken: string): string =>
+	`async function query(data) {
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/${model.id}",
 		{
@@ -44,11 +15,73 @@ export function getJsInferenceSnippet(model: ModelData, accessToken: string): st
 	return result;
 }
 
-query(${body}).then((response) => {
+query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
 	console.log(JSON.stringify(response));
 });`;
+
+export const snippetZeroShotClassification = (model: ModelData, accessToken: string): string =>
+	`async function query(data) {
+	const response = await fetch(
+		"https://api-inference.huggingface.co/models/${model.id}",
+		{
+			headers: { Authorization: "Bearer ${accessToken || `{API_TOKEN}`}" },
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.json();
+	return result;
+}
+
+query({"inputs": ${getModelInputSnippet(model)}, "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}).then((response) => {
+	console.log(JSON.stringify(response));
+});`;
+
+export const snippetFile = (model: ModelData, accessToken: string): string =>
+	`async function query(filename) {
+	const data = fs.readFileSync(filename);
+	const response = await fetch(
+		"https://api-inference.huggingface.co/models/${model.id}",
+		{
+			headers: { Authorization: "Bearer ${accessToken || `{API_TOKEN}`}" },
+			method: "POST",
+			body: data,
+		}
+	);
+	const result = await response.json();
+	return result;
+}
+
+query(${getModelInputSnippet(model)}).then((response) => {
+	console.log(JSON.stringify(response));
+});`;
+
+export const jsSnippets:
+	Partial<Record<PipelineType, (model: ModelData, accessToken: string) => string>> =
+{
+	// Same order as in js/src/lib/interfaces/Types.ts
+	"text-classification":      snippetBasic,
+	"token-classification":     snippetBasic,
+	"table-question-answering": snippetBasic,
+	"question-answering":       snippetBasic,
+	"zero-shot-classification": snippetZeroShotClassification,
+	"translation":              snippetBasic,
+	"summarization":            snippetBasic,
+	"conversational":           snippetBasic,
+	"feature-extraction":       snippetBasic,
+	"text-generation":          snippetBasic,
+	"text2text-generation":     snippetBasic,
+	"fill-mask":                snippetBasic,
+	"sentence-similarity":      snippetBasic,
+	"image-classification":     snippetFile,
+};
+
+export function getJsInferenceSnippet(model: ModelData, accessToken: string): string {
+	return model.pipeline_tag && model.pipeline_tag in jsSnippets
+		? jsSnippets[model.pipeline_tag]?.(model, accessToken) ?? ""
+		: "";
 }
 
 export function hasJsInferenceSnippet(model: ModelData): boolean {
-	return !!model.pipeline_tag && model.pipeline_tag in jsSnippetBodies;
+	return !!model.pipeline_tag && model.pipeline_tag in jsSnippets;
 }

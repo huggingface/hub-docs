@@ -65,12 +65,15 @@ const inputsSentenceSimilarity = () =>
 const inputsFeatureExtraction = () =>
 	`"Today is a sunny day and I'll get some ice cream."`;
 
+const inputsImageClassification = () => `"cats.jpg"`;
+
 const modelInputSnippets: {
 	[key in PipelineType]?: (model: ModelData) => string;
 } = {
 	"conversational":           inputsConversational,
 	"feature-extraction":       inputsFeatureExtraction,
 	"fill-mask":                inputsFillMask,
+	"image-classification":     inputsImageClassification,
 	"question-answering":       inputsQuestionAnswering,
 	"sentence-similarity":      inputsSentenceSimilarity,
 	"summarization":            inputsSummarization,
@@ -84,13 +87,21 @@ const modelInputSnippets: {
 };
 
 // Use noWrap to put the whole snippet on a single line (removing new lines and tabulations)
-export function getModelInputSnippet(model: ModelData, noWrap = false): string {
+// Use noQuotes to strip quotes from start & end (example: "abc" -> abc)
+export function getModelInputSnippet(model: ModelData, noWrap = false, noQuotes = false): string {
 	if (model.pipeline_tag) {
 		const inputs = modelInputSnippets[model.pipeline_tag];
 		if (inputs) {
-			return noWrap
-				? inputs(model).replace(/(?:(?:\r?\n|\r)\t*)|\t+/g, " ")
-				: inputs(model);
+			let result = inputs(model);
+			if (noWrap) {
+				result = result.replace(/(?:(?:\r?\n|\r)\t*)|\t+/g, " ");
+			}
+			if (noQuotes) {
+				const REGEX_QUOTES = /^"(.+)"$/s;
+				const match = result.match(REGEX_QUOTES);
+				result = match ? match[1] : result;
+			}
+			return result;
 		}
 	}
 	return "No input example has been defined for this model task.";
