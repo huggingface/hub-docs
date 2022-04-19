@@ -56,7 +56,7 @@ query(${getModelInputSnippet(model)}).then((response) => {
 	console.log(JSON.stringify(response));
 });`;
 
-export const jsSnippetBodies:
+export const jsSnippets:
 	Partial<Record<PipelineType, (model: ModelData, accessToken: string) => string>> =
 {
 	// Same order as in js/src/lib/interfaces/Types.ts
@@ -77,11 +77,11 @@ export const jsSnippetBodies:
 };
 
 export function getJsInferenceSnippet(model: ModelData, accessToken: string): string {
-	return model.pipeline_tag && model.pipeline_tag in jsSnippetBodies
-		? jsSnippetBodies[model.pipeline_tag]?.(model, accessToken) ?? ""
+	return model.pipeline_tag && model.pipeline_tag in jsSnippets
+		? jsSnippets[model.pipeline_tag]?.(model, accessToken) ?? ""
 		: "";
 }
 
 export function hasJsInferenceSnippet(model: ModelData): boolean {
-	return !!model.pipeline_tag && model.pipeline_tag in jsSnippetBodies;
+	return !!model.pipeline_tag && model.pipeline_tag in jsSnippets;
 }

@@ -29,7 +29,7 @@ export const snippetFile = (model: ModelData): string =>
 
 output = query(${getModelInputSnippet(model)})`;
 
-export const pythonSnippetBodies:
+export const pythonSnippets:
 	Partial<Record<PipelineType, (model: ModelData) => string>> =
 {
 	// Same order as in js/src/lib/interfaces/Types.ts
@@ -50,8 +50,8 @@ export const pythonSnippetBodies:
 };
 
 export function getPythonInferenceSnippet(model: ModelData, accessToken: string): string {
-	const body = model.pipeline_tag && model.pipeline_tag in pythonSnippetBodies
-		? pythonSnippetBodies[model.pipeline_tag]?.(model) ?? ""
+	const body = model.pipeline_tag && model.pipeline_tag in pythonSnippets
+		? pythonSnippets[model.pipeline_tag]?.(model) ?? ""
 		: "";
 
 	return `import requests
@@ -63,5 +63,5 @@ ${body}`;
 }
 
 export function hasPythonInferenceSnippet(model: ModelData): boolean {
-	return !!model.pipeline_tag && model.pipeline_tag in pythonSnippetBodies;
+	return !!model.pipeline_tag && model.pipeline_tag in pythonSnippets;
 }

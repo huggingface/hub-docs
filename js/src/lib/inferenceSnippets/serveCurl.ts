@@ -22,7 +22,7 @@ export const snippetFile = (model: ModelData, accessToken: string): string =>
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
-export const curlSnippetBodies:
+export const curlSnippets:
 	Partial<Record<PipelineType, (model: ModelData, accessToken: string) => string>> =
 {
 	// Same order as in js/src/lib/interfaces/Types.ts
@@ -43,11 +43,11 @@ export const curlSnippetBodies:
 };
 
 export function getCurlInferenceSnippet(model: ModelData, accessToken: string): string {
-	return model.pipeline_tag && model.pipeline_tag in curlSnippetBodies
-		? curlSnippetBodies[model.pipeline_tag]?.(model, accessToken) ?? ""
+	return model.pipeline_tag && model.pipeline_tag in curlSnippets
+		? curlSnippets[model.pipeline_tag]?.(model, accessToken) ?? ""
 		: "";
 }
 
 export function hasCurlInferenceSnippet(model: ModelData): boolean {
-	return !!model.pipeline_tag && model.pipeline_tag in curlSnippetBodies;
+	return !!model.pipeline_tag && model.pipeline_tag in curlSnippets;
 }
