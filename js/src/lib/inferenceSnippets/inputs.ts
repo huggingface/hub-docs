@@ -75,6 +75,9 @@ const inputsAudioToAudio = () => `"sample1.flac"`;
 
 const inputsAudipClassification = () => `"sample1.flac"`;
 
+const inputsTextToSpeech = () =>
+	`"The answer to the universe is 42"`;
+
 const modelInputSnippets: {
 	[key in PipelineType]?: (model: ModelData) => string;
 } = {
@@ -92,6 +95,7 @@ const modelInputSnippets: {
 	"table-question-answering": inputsTableQuestionAnswering,
 	"text-classification":      inputsTextClassification,
 	"text-generation":          inputsTextGeneration,
+	"text-to-speech":           inputsTextToSpeech,
 	"text2text-generation":     inputsText2TextGeneration,
 	"token-classification":     inputsTokenClassification,
 	"translation":              inputsTranslation,
