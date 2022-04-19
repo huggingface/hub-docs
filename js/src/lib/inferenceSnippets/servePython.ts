@@ -47,6 +47,8 @@ export const pythonSnippets:
 	"fill-mask":                snippetBasic,
 	"sentence-similarity":      snippetBasic,
 	"image-classification":     snippetFile,
+	"object-detection":         snippetFile,
+	"image-segmentation":       snippetFile,
 };
 
 export function getPythonInferenceSnippet(model: ModelData, accessToken: string): string {
