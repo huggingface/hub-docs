@@ -73,6 +73,7 @@ const modelInputSnippets: {
 	"conversational":           inputsConversational,
 	"feature-extraction":       inputsFeatureExtraction,
 	"fill-mask":                inputsFillMask,
+	"image-classification":     inputsImageClassification,
 	"question-answering":       inputsQuestionAnswering,
 	"sentence-similarity":      inputsSentenceSimilarity,
 	"summarization":            inputsSummarization,
@@ -83,7 +84,6 @@ const modelInputSnippets: {
 	"token-classification":     inputsTokenClassification,
 	"translation":              inputsTranslation,
 	"zero-shot-classification": inputsZeroShotClassification,
-	"image-classification":     inputsImageClassification,
 };
 
 // Use noWrap to put the whole snippet on a single line (removing new lines and tabulations)
