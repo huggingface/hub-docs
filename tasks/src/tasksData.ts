@@ -49,7 +49,7 @@ export const TASKS_DATA: Record<
 	"text-retrieval":                 undefined,
 	"text-to-image":                  undefined,
 	"text-to-speech":                 textToSpeech,
-	"text2text-generation":           textGeneration,
+	"text2text-generation":           undefined,
 	"time-series-forecasting":        undefined,
 	"token-classification":           tokenClassification,
 	"translation":                    translation,
