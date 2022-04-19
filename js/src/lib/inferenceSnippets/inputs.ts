@@ -67,6 +67,10 @@ const inputsFeatureExtraction = () =>
 
 const inputsImageClassification = () => `"cats.jpg"`;
 
+const inputsImageSegmentation = () => `"cats.jpg"`;
+
+const inputsObjectDetection = () => `"cats.jpg"`;
+
 const modelInputSnippets: {
 	[key in PipelineType]?: (model: ModelData) => string;
 } = {
@@ -74,6 +78,8 @@ const modelInputSnippets: {
 	"feature-extraction":       inputsFeatureExtraction,
 	"fill-mask":                inputsFillMask,
 	"image-classification":     inputsImageClassification,
+	"image-segmentation":       inputsImageSegmentation,
+	"object-detection":         inputsObjectDetection,
 	"question-answering":       inputsQuestionAnswering,
 	"sentence-similarity":      inputsSentenceSimilarity,
 	"summarization":            inputsSummarization,
