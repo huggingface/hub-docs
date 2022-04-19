@@ -89,7 +89,6 @@ const modelInputSnippets: {
 // Use noWrap to put the whole snippet on a single line (removing new lines and tabulations)
 // Use noQuotes to strip quotes from start & end (example: "abc" -> abc)
 export function getModelInputSnippet(model: ModelData, noWrap = false, noQuotes = false): string {
-	const REGEX_QUOTES = /^"(.+)"$/s;
 	if (model.pipeline_tag) {
 		const inputs = modelInputSnippets[model.pipeline_tag];
 		if (inputs) {
@@ -97,8 +96,10 @@ export function getModelInputSnippet(model: ModelData, noWrap = false, noQuotes 
 			if (noWrap) {
 				result = result.replace(/(?:(?:\r?\n|\r)\t*)|\t+/g, " ");
 			}
-			if (noQuotes && result.match(REGEX_QUOTES)) {
-				result = result.match(REGEX_QUOTES)[1];
+			if (noQuotes) {
+				const REGEX_QUOTES = /^"(.+)"$/s;
+				const match = result.match(REGEX_QUOTES);
+				result = match ? match[1] : result;
 			}
 			return result;
 		}
