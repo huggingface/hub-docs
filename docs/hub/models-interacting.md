@@ -13,7 +13,7 @@ git lfs install
 git clone <MODEL URL>
 ```
 
-For detailed information on how to access the model you can click on the "Use in Transformer" button on any model page.
+For detailed information on how to access the model, you can click on the "Use in Transformer" button on any model page.
 
 ![Models can be used locally through the "Use in Transformer" button](../assets/hub/models-usage.png)
 
@@ -21,9 +21,9 @@ If the model can be used with `🤗 transformers`, you'll even receive snippets 
 
 ![Snippets for using a model with the 🤗 transformers library](../assets/hub/models-usage-modal.png)
 
-### Can I access models programatically?
+### Can I access models programmatically?
 
-You can use the [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) library to create, delete, update and retrieve information from repos. You can also use it to download files from repos and integrate it to your own library! For example, you can easily load a Scikit learn model with few lines.
+You can use the [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) library to create, delete, update and retrieve information from repos. You can also use it to download files from repos and integrate it to your own library! For example, you can easily load a Scikit learn model with a few lines.
 
 ```py
 from huggingface_hub import hf_hub_url, cached_download
@@ -41,7 +41,7 @@ model = joblib.load(cached_download(
 
 The first step is to create an account at [Hugging Face](https://huggingface.co/login). The models are shared in the form of Git-based repositories which give you versioning, branches, discoverability and sharing features, integration with over a dozen libraries and more! You have control over what you want to upload to your repository, which could include checkpoints, configs and any other files.
 
-The repository can be either linked with an individual, such as [osanseviero/fashion_brands_patterns](https://huggingface.co/osanseviero/fashion_brands_patterns) or with an organization, such as [facebook/bart-large-xsum](https://huggingface.co/facebook/bart-large-xsum). Organizations can be used if you want to upload models that are related to a company, community or library! If you choose an organization, the model will be featured on the organization’s page and every member of the organization will have the ability to contribute to the repository. You can create a new organization [here](https://huggingface.co/organizations/new).
+The repository can either be linked with an individual, such as [osanseviero/fashion_brands_patterns](https://huggingface.co/osanseviero/fashion_brands_patterns) or with an organization, such as [facebook/bart-large-xsum](https://huggingface.co/facebook/bart-large-xsum). Organizations can be used if you want to upload models that are related to a company, community or library! If you choose an organization, the model will be featured on the organization’s page and every member of the organization will have the ability to contribute to the repository. You can create a new organization [here](https://huggingface.co/organizations/new).
 
 There are several ways to upload models to the Hub, which are described below.
 
@@ -111,7 +111,7 @@ It's up to the person who uploaded the model to include the training information
 
 ### How can I see an example of the model in action?
 
-Models can have inference widgets which let you try out the model in the browser! Inference widgets are easy to configure, and there are many kinds to choose from. Visit the [Widgets documentation](models-widgets.md) to learn more.
+Models can have inference widgets that let you try out the model in the browser! Inference widgets are easy to configure, and there are many kinds to choose from. Visit the [Widgets documentation](models-widgets.md) to learn more.
 
 The Hugging Face Hub is also home to Spaces, which are interactive demos that can be used to showcase models. If a model has any Spaces associated with it, they'll be linked on the model page like so:
 
@@ -125,4 +125,4 @@ Releasing an update to a model that you've already published can be done by push
 
 ### What if I have a different checkpoint of the model trained on a different dataset?
 
-By convention each model repo should contain a single checkpoint trained on a particular dataset, and any new checkpoints trained on different datasets should be uploaded to the Hub in a new model repo. You can link the models together by using a [tag in your model card's metadata](./modelcard), or by linking them in the model cards. The [akiyamasho/AnimeBackgroundGAN-Shinkai](https://huggingface.co/akiyamasho/AnimeBackgroundGAN-Shinkai#other-pre-trained-model-versions) model, for example, references other checkpoints in the model card under *"Other pre-trained model versions"*.
+By convention, each model repo should contain a single checkpoint trained on a particular dataset, and any new checkpoints trained on different datasets should be uploaded to the Hub in a new model repo. You can link the models together by using a [tag in your model card's metadata](./modelcard), or by linking to them in the model cards. The [akiyamasho/AnimeBackgroundGAN-Shinkai](https://huggingface.co/akiyamasho/AnimeBackgroundGAN-Shinkai#other-pre-trained-model-versions) model, for example, references other checkpoints in the model card under *"Other pre-trained model versions"*.

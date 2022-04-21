@@ -6,7 +6,7 @@ title: Carbon Emissions
 
 ## Why is it useful to calculate the carbon emissions of my model?
 
-Training ML models is often energy intensive and can produce a substantial carbon footprint, as described by [Strubell et al.](https://arxiv.org/abs/1906.02243). It's therefore important to *track* and *report* the emissions of models to get a better idea of the environmental impacts of our field.
+Training ML models is often energy-intensive and can produce a substantial carbon footprint, as described by [Strubell et al.](https://arxiv.org/abs/1906.02243). It's therefore important to *track* and *report* the emissions of models to get a better idea of the environmental impacts of our field.
 
 
 ## What information should I include about the carbon footprint of my model?
@@ -38,7 +38,7 @@ By taking into account the computing hardware, location, usage and training time
 
 The math is actually pretty simple! ➕
 
-First, you take the *carbon intensity* of the electric grid that is being used for the training -- this is how much CO<sub>2</sub> is produced by KwH of electricity used. This depends on the location where the hardware is located and the [energy mix](https://electricitymap.org/) used at that location -- whether it's renewable energy like solar 🌞, wind 🌬️ and hydro 💧, or non-renewable energy like coal ⚫ and natural gas 💨. The more renewable energy is used, the less carbon intensive it is!
+First, you take the *carbon intensity* of the electric grid that is being used for the training -- this is how much CO<sub>2</sub> is produced by KwH of electricity used. This depends on the location where the hardware is located and the [energy mix](https://electricitymap.org/) used at that location -- whether it's renewable energy like solar 🌞, wind 🌬️ and hydro 💧, or non-renewable energy like coal ⚫ and natural gas 💨. The more renewable energy is used, the less carbon-intensive it is!
  
 Then, you take the power consumption of the GPU during training -- this is done using the `pynvml` library.
 

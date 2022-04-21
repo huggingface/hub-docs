@@ -1,8 +1,8 @@
 ---
-title: Model Widg
+title: Model Widgets
 ---
 
-<h1>The Model Hub</h1>
+<h1>Widgets</h1>
 
 ## What's a widget?
 
@@ -41,7 +41,7 @@ You can provide more than one example input. In the examples dropdown menu of th
 
 ```yaml
 widget:
-- text: "Is this review positive or negative? Review: Best cast iron skillet you will every buy."
+- text: "Is this review positive or negative? Review: Best cast iron skillet you will ever buy."
   example_title: "Sentiment analysis"
 - text: "Barack Obama nominated Hilary Clinton as his secretary of state on Monday. He chose her because she had ..."
   example_title: "Coreference resolution"
@@ -51,7 +51,7 @@ widget:
   example_title: "Reading comprehension"
 ```
 
-Moreover, you can specify non-text example inputs in the model card metadata. Refer [here](https://github.com/huggingface/hub-docs/blob/main/docs/hub/input-examples.md) for a complete list of example input formats for all widget types. For vision & audio widget types, provide example inputs with `src` rather than `text`. 
+Moreover, you can specify non-text example inputs in the model card metadata. Refer [here](https://github.com/huggingface/hub-docs/blob/main/docs/hub/input-examples.md) for a complete list of sample input formats for all widget types. For vision & audio widget types, provide example inputs with `src` rather than `text`. 
 
 For example, allow users to choose from two sample audio files for automatic speech recognition tasks by:
 
@@ -79,7 +79,7 @@ We provide example inputs for some languages and most widget types in [the Defau
 
 You can find all the supported tasks [here](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Types.ts).
 
-Here are some with links to examples:
+Here are some links to examples:
 
 - `text-classification`, for instance [`roberta-large-mnli`](https://huggingface.co/roberta-large-mnli)
 - `token-classification`, for instance [`dbmdz/bert-large-cased-finetuned-conll03-english`](https://huggingface.co/dbmdz/bert-large-cased-finetuned-conll03-english)

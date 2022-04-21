@@ -10,7 +10,7 @@ Tasks, or pipeline types, describe the "shape" of each model's API (inputs and o
 
 ![/docs/assets/hub/tasks.png](/docs/assets/hub/tasks.png)
 
-This classification is rather coarse-grained (you can always add more fine-grained task name in your model tags), so **you should rarely have to create a new task**. If you do want to add support for a new task, this document explains the required steps.
+This classification is rather coarse-grained (you can always add more fine-grained task names in your model tags), so **you should rarely have to create a new task**. If you do want to add support for a new task, this document explains the required steps.
 
 ## Overview
 
@@ -59,9 +59,9 @@ The Hub also supports over 10 open-source libraries in the [Community Inference 
 
 **My model is not supported by any library. Am I doomed? 😱**
 
-No, you're not! We have an experimental Docker image for quick prototyping of new tasks and introduction of new libraries. This is the [generic Inference API](https://github.com/huggingface/api-inference-community/tree/main/docker_images/generic) and should allow you to have a new task in production with very little development from your side.
+No, you're not! We have an experimental Docker image for quick prototyping of new tasks and the introduction of new libraries. This is the [generic Inference API](https://github.com/huggingface/api-inference-community/tree/main/docker_images/generic) and should allow you to have a new task in production with very little development from your side.
 
-How does it work from the user point of view? Users create a copy of a [template](https://huggingface.co/templates) repo for their given task. Users then need to define their `requirements.txt` and fill `pipeline.py`. Note that this is not intended for fast production use cases, but more for quick experimentation and prototyping.
+How does it work from the user's point of view? Users create a copy of a [template](https://huggingface.co/templates) repo for their given task. Users then need to define their `requirements.txt` and fill `pipeline.py`. Note that this is not intended for fast production use cases, but more for quick experimentation and prototyping.
 
 
 ### UI elements
@@ -72,7 +72,7 @@ The Hub allows users to filter models by a given task. In order to do this, you 
 
 In [interfaces/Types.ts](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Types.ts), you need to do a couple of things
 
-* Add the type to `PipelineType`. Note that they are sorted in different categories (NLP, Audio, Computer Vision and others).
+* Add the type to `PipelineType`. Note that they are sorted into different categories (NLP, Audio, Computer Vision and others).
 * Specify the task color in `PIPELINE_COLOR`. 
 * Specify the display order in `PIPELINE_TAGS_DISPLAY_ORDER`.
 
@@ -83,6 +83,6 @@ You can add an icon in the [lib/Icons](https://github.com/huggingface/hub-docs/t
 
 ### Widget
 
-Once the task is in production, what could be more exciting that implementing some way for users to play directly with the models in their browser? 🤩 You can find all the widgets [here](https://huggingface-widgets.netlify.app/). 
+Once the task is in production, what could be more exciting than implementing some way for users to play directly with the models in their browser? 🤩 You can find all the widgets [here](https://huggingface-widgets.netlify.app/). 
 
 In case you would be interested in contributing with a widget, you can look at the [implementation](https://github.com/huggingface/hub-docs/tree/main/js/src/lib/components/InferenceWidget/widgets) of all the widgets. You can also find WIP documentation on how to implement a widget in https://github.com/huggingface/hub-docs/tree/main/js. 

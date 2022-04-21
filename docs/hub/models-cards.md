@@ -6,7 +6,7 @@ title: Model Cards
 
 ## What are Model Cards?
 
-Mdoel cards are markdown files that accompany the models and provide very useful information. They are extremely important for discoverability, reproducibility and sharing! They are the `README.md` file in any model repo.
+Model cards are markdown files that accompany the models and provide very useful information. They are extremely important for discoverability, reproducibility and sharing! They are the `README.md` file in any model repo.
 
 The model card should describe:
 - the model
