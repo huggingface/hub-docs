@@ -18,7 +18,13 @@ You can try out all the widgets [here](https://huggingface-widgets.netlify.app/)
 
 ## Creating a Widget
 
-[TODO]
+A widget is automatically created for your model when you upload it to the Hub. To determine which pipeline and widget to display (`text-classification`, `token-classification`, `translation`, etc.), we analyze information in the repo such as the metadata provided in the model card and configuration files. This information is mapped to a single `pipeline_tag`. We choose to expose **only one** widget per model for simplicity.
+
+For most use cases, the model type is determined from the tags. For example, if there is `tag: text-classification` in the metadata, the inferred `pipeline_tag` will be `text-classification`.
+
+For `🤗 Transformers` however, the model type is determined automatically from `config.json`. The architecture can be used to determine the type: for example, `AutoModelForTokenClassification` corresponds to `token-classification`. If you're really interested in this, you can see pseudo-code in [this gist](https://gist.github.com/julien-c/857ba86a6c6a895ecd90e7f7cab48046).
+
+You can always manually override your pipeline type with pipeline_tag: xxx in your model card metadata.
 
 ### How can I control my model's widget example input?
 
@@ -67,16 +73,6 @@ widget:
 ```
 
 We provide example inputs for some languages and most widget types in [the DefaultWidget.ts file](https://github.com/huggingface/hub-docs/blob/master/js/src/lib/interfaces/DefaultWidget.ts). If some examples are missing, we welcome PRs from the community to add them!
-
-### How is a model's type of inference API and widget determined?
-
-To determine which pipeline and widget to display (`text-classification`, `token-classification`, `translation`, etc.), we analyze information in the repo such as the metadata provided in the model card and configuration files. This information is mapped to a single `pipeline_tag`. We choose to expose **only one** widget per model for simplicity.
-
-For most use cases, the model type is determined from the tags. For example, if there is `tag: text-classification` in the metadata, the inferred `pipeline_tag` will be `text-classification`.
-
-For `🤗 Transformers` however, the model type is determined automatically from `config.json`. The architecture can be used to determine the type: for example, `AutoModelForTokenClassification` corresponds to `token-classification`. If you're really interested in this, you can see pseudo-code in [this gist](https://gist.github.com/julien-c/857ba86a6c6a895ecd90e7f7cab48046).
-
-You can always manually override your pipeline type with pipeline_tag: xxx in your model card metadata.
 
 
 ## What are all the possible task/widget types?

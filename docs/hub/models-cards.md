@@ -5,6 +5,7 @@ title: Model Cards
 <h1>Model Cards</h1>
 
 ## What are Model Cards?
+
 Mdoel cards are markdown files that accompany the models and provide very useful information. They are extremely important for discoverability, reproducibility and sharing! They are the `README.md` file in any model repo.
 
 The model card should describe:
@@ -14,7 +15,6 @@ The model card should describe:
 - which datasets did you train on and your eval results
 
 ## Model Card metadata
-<!-- Try not to change this header as we use the corresponding anchor link --> [TODO: How to handle this?]
 
 You can add a YAML section to the model cards (that `README.md` file) by adding three `---` to the top of your model card, including all of the metadata, and enclosing it with another group of `---` such as the example below:
 
@@ -70,9 +70,8 @@ If a model includes valid eval results, they will be displayed like this:
 
 ![/docs/assets/hub/eval-results.jpg](/docs/assets/hub/eval-results.jpg)
 
-### CO2 Emissions
-(Maybe this should be its own page? Or rather, this can link to another page?)
-[TODO: LINK TO A SUB-DOC]
+### CO<sub>2</sub> Emissions
+Among other details, the Model Card is also a great place to store information about the CO<sub>2</sub> impact of your model. Visit our [guide on tracking and reporting CO<sub>2</sub> emissions](./models-cards-co2) to learn more.
 
 ## FAQ
 
@@ -80,7 +79,7 @@ If a model includes valid eval results, they will be displayed like this:
 
 Each model page lists all the model's tags in the page header, below the model name.
 
-Those are primarily computed from the model card metadata, except that we also add some of them automatically, as described in [How is a model's type of inference API and widget determined?](TODO).
+Those are primarily computed from the model card metadata, except that we also add some of them automatically, as described in [How is a model's type of inference API and widget determined?](./models-widgets).
 
 ### Can I specify which framework supports my model?
 
@@ -91,7 +90,7 @@ tags:
 - flair
 ```
 
-Find more about our supported libraries [here](TODO: LINK TO LIBRARIES LIST)!
+Find more about our supported libraries [here](./models-the-hub#Libraries)!
 
 ### How can I link a model to a dataset?
 

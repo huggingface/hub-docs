@@ -6,7 +6,20 @@ title: Interacting with Models on the Hub
 
 ## Accessing models for local use
 
-TODO
+Since all models are stored on the Model Hub as Git repositories, you can clone the models locally by running:
+
+```bash
+git lfs install
+git clone <MODEL URL>
+```
+
+For detailed information on how to access the model you can click on the "Use in Transformer" button on any model page.
+
+![Models can be used locally through the "Use in Transformer" button](../assets/hub/models-usage.png)
+
+If the model can be used with `🤗 transformers`, you'll even receive snippets to help you get started.
+
+![Snippets for using a model with the 🤗 transformers library](../assets/hub/models-usage-modal.png)
 
 ### Can I access models programatically?
 
@@ -112,4 +125,4 @@ Releasing an update to a model that you've already published can be done by push
 
 ### What if I have a different checkpoint of the model trained on a different dataset?
 
-By convention each model repo should contain a single checkpoint trained on a particular dataset, and any new checkpoints trained on different datasets should be uploaded to the Hub in a new model repo. You can link the models together by using a [tag in your model card's metadata](TODO), or by linking the in the model cards. The [akiyamasho/AnimeBackgroundGAN-Shinkai](https://huggingface.co/akiyamasho/AnimeBackgroundGAN-Shinkai#other-pre-trained-model-versions) model, for example, references other checkpoints in the model card under "Other pre-trained model versions".
+By convention each model repo should contain a single checkpoint trained on a particular dataset, and any new checkpoints trained on different datasets should be uploaded to the Hub in a new model repo. You can link the models together by using a [tag in your model card's metadata](./modelcard), or by linking the in the model cards. The [akiyamasho/AnimeBackgroundGAN-Shinkai](https://huggingface.co/akiyamasho/AnimeBackgroundGAN-Shinkai#other-pre-trained-model-versions) model, for example, references other checkpoints in the model card under "Other pre-trained model versions".
