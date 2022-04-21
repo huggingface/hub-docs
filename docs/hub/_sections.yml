@@ -4,6 +4,9 @@
 - local: repositories-main
   title: Repositories
 
+- local: models-main
+  title: Models
+
 - local: main
   title: Hub documentation
 
