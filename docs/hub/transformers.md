@@ -6,9 +6,11 @@ title: 🤗transformers
 
 🤗 `transformers` is a library with state-of-the-art Machine Learning for Pytorch, TensorFlow and JAX. It provides thousands of pretrained models to perform tasks on different modalities such as text, vision, and audio. We are a bit biased, but we really like 🤗 `transformers`!
 
-## Exploring 🤗 `transformers` in the Hub
+## Exploring 🤗 transformers in the Hub
 
-There are over 25,000 `transformers` models in the Hub which you can find by filtering at the left of [the models page](https://huggingface.co/models?library=transformers&sort=downloads). You can find models for many different tasks:
+There are over 25,000 `transformers` models in the Hub which you can find by filtering at the left of [the models page](https://huggingface.co/models?library=transformers&sort=downloads). 
+
+You can find models for many different tasks:
 
 * Extracting the answer from a context ([question-answering](https://huggingface.co/models?library=transformers&pipeline_tag=question-answering&sort=downloads)).
 * Creating summaries from a large text ([summarization](https://huggingface.co/models?library=transformers&pipeline_tag=summarization&sort=downloads)).

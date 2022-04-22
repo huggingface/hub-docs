@@ -6,7 +6,7 @@ title: Adapter Transformers
 
 `adapter-transformers` is a library that extends 🤗 `transformers` by allowing to integrate, train and use Adapters and other efficient fine-tuning methods. The library is fully compatible with `transformers`. Adapters are small learnt layers insrted within each layer of a pre-trained model. You can learn more about this in the [original paper](https://arxiv.org/abs/2007.07779). 
 
-## Exploring `adapter-transformers` in the Hub
+## Exploring adapter-transformers in the Hub
 
 You can find over a hundred `adapter-transformer` models by filtering at the left of the [models page](https://huggingface.co/models?library=adapter-transformers&sort=download). Some adapter models can be found in the Adapter Hub [repository](https://github.com/adapter-hub/hub). Models from both sources are then aggregated in the [AdapterHub](https://adapterhub.ml/explore/).
 

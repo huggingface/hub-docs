@@ -56,3 +56,5 @@
 - local: adapter-transformers
   title: Adapter Transformers
 
+- local: allennlp
+  title: AllenNLP
