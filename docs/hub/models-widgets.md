@@ -6,7 +6,7 @@ title: Model Widgets
 
 ## What's a widget?
 
-Many model repos have a widget that allows anyone to do inference directly in the browser!
+Many model repos have a widget that allows anyone to run inferences directly in the browser!
 
 Here are some examples:
 * [Named Entity Recognition](https://huggingface.co/spacy/en_core_web_sm?text=My+name+is+Sarah+and+I+live+in+London) using [spaCy](https://spacy.io/).
@@ -18,13 +18,13 @@ You can try out all the widgets [here](https://huggingface-widgets.netlify.app/)
 
 ## Creating a Widget
 
-A widget is automatically created for your model when you upload it to the Hub. To determine which pipeline and widget to display (`text-classification`, `token-classification`, `translation`, etc.), we analyze information in the repo such as the metadata provided in the model card and configuration files. This information is mapped to a single `pipeline_tag`. We choose to expose **only one** widget per model for simplicity.
+A widget is automatically created for your model when you upload it to the Hub. To determine which pipeline and widget to display (`text-classification`, `token-classification`, `translation`, etc.), we analyze information in the repo, such as the metadata provided in the model card and configuration files. This information is mapped to a single `pipeline_tag`. We choose to expose **only one** widget per model for simplicity.
 
-For most use cases, the model type is determined from the tags. For example, if there is `tag: text-classification` in the metadata, the inferred `pipeline_tag` will be `text-classification`.
+For most use cases, we determine the model type from the tags. For example, if there is `tag: text-classification` in the metadata, the inferred `pipeline_tag` will be `text-classification`.
 
-For `🤗 Transformers` however, the model type is determined automatically from `config.json`. The architecture can be used to determine the type: for example, `AutoModelForTokenClassification` corresponds to `token-classification`. If you're really interested in this, you can see pseudo-code in [this gist](https://gist.github.com/julien-c/857ba86a6c6a895ecd90e7f7cab48046).
+However, for `🤗 Transformers`, the model type is determined automatically from `config.json`. The architecture can determine the type: for example, `AutoModelForTokenClassification` corresponds to `token-classification`. If you're interested in this, you can see pseudo-code in [this gist](https://gist.github.com/julien-c/857ba86a6c6a895ecd90e7f7cab48046).
 
-You can always manually override your pipeline type with pipeline_tag: xxx in your model card metadata.
+You can always manually override your pipeline type with `pipeline_tag: xxx` in your model card metadata.
 
 ### How can I control my model's widget example input?
 
@@ -113,4 +113,4 @@ inference:
     temperature: 0.7
 ``` 
 
-The Inference API allows you to send HTTP requests to models in the Hugging Face Hub. The Inference API is 2x to 10x faster than the widgets! ⚡⚡ Learn more about it by reading the [Inference API documentation](./models-inference).
+The Inference API allows you to send HTTP requests to models in the Hugging Face Hub, and it's 2x to 10x faster than the widgets! ⚡⚡ Learn more about it by reading the [Inference API documentation](./models-inference).

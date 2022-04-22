@@ -10,16 +10,16 @@ Tasks, or pipeline types, describe the "shape" of each model's API (inputs and o
 
 ![/docs/assets/hub/tasks.png](/docs/assets/hub/tasks.png)
 
-This classification is rather coarse-grained (you can always add more fine-grained task names in your model tags), so **you should rarely have to create a new task**. If you do want to add support for a new task, this document explains the required steps.
+This classification is relatively coarse-grained (you can always add more fine-grained task names in your model tags), so **you should rarely have to create a new task**. If you want to add support for a new task, this document explains the required steps.
 
 ## Overview
 
-Having a new task fully integrated in the Hub means that:
+Having a new task integrated into the Hub means that:
 * Users can search for all models of a given task.
 * The Inference API supports the task.
 * Users can try out models directly with the widget. 🏆
 
-Note that you're not expected to implement all the steps. Adding a new task is a community effort, and multiple people can contribute to it. 🧑‍🤝‍🧑
+Note that you don't need to implement all the steps by yourself. Adding a new task is a community effort, and multiple people can contribute. 🧑‍🤝‍🧑
 
 To begin the process, open a new issue in the [huggingface_hub](https://github.com/huggingface/huggingface_hub/issues) repository. Please use the "Adding a new task" template. ⚠️Before doing any coding, it's suggested to go over this document. ⚠️
 
@@ -27,11 +27,11 @@ The first step is to upload a model for your proposed task. Once you have a mode
 
 * 🤗 using a `transformers` model
 * 🐳 using a model from an [officially supported library](/docs/hub/libraries)
-* 🖨️ using a model with custom inference code. This option is experimental and has downsides, so it's always suggested to use any of the other two approaches if possible.
+* 🖨️ using a model with custom inference code. This experimental option has downsides, so we recommend using one of the other approaches.
 
-Finally, there are a couple of UI elements that can be added, such as the task icon and the widget, that complete the integration in the Hub. 📷 
+Finally, you can add a couple of UI elements, such as the task icon and the widget, that complete the integration in the Hub. 📷 
 
-Some steps are orthogonal, you don't need to do them in order. **You don't need the Inference API to add the icon.** This means that, even if there isn't full integration at the moment, users can still search for models of a given task.
+Some steps are orthogonal; you don't need to do them in order. **You don't need the Inference API to add the icon.** This means that, even if there isn't full integration yet, users can still search for models of a given task.
 
 ## Adding new tasks to the Hub
 
@@ -59,20 +59,20 @@ The Hub also supports over 10 open-source libraries in the [Community Inference 
 
 **My model is not supported by any library. Am I doomed? 😱**
 
-No, you're not! We have an experimental Docker image for quick prototyping of new tasks and the introduction of new libraries. This is the [generic Inference API](https://github.com/huggingface/api-inference-community/tree/main/docker_images/generic) and should allow you to have a new task in production with very little development from your side.
+No, you're not! The [generic Inference API](https://github.com/huggingface/api-inference-community/tree/main/docker_images/generic) is an experimental Docker image for quickly prototyping new tasks and introducing new libraries,  which should allow you to have a new task in production with very little development from your side.
 
-How does it work from the user's point of view? Users create a copy of a [template](https://huggingface.co/templates) repo for their given task. Users then need to define their `requirements.txt` and fill `pipeline.py`. Note that this is not intended for fast production use cases, but more for quick experimentation and prototyping.
+How does it work from the user's point of view? Users create a copy of a [template](https://huggingface.co/templates) repo for their given task. Users then need to define their `requirements.txt` and fill `pipeline.py`. Note that this is intended for quick experimentation and prototyping instead of fast production use-cases.
 
 
 ### UI elements
 
-The Hub allows users to filter models by a given task. In order to do this, you need to add the task to a couple of places and pick an icon for the task.
+The Hub allows users to filter models by a given task. To do this, you need to add the task to several places. You'll also get to pick an icon for the task!
 
 1. Add the task type to `Types.ts`
 
 In [interfaces/Types.ts](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Types.ts), you need to do a couple of things
 
-* Add the type to `PipelineType`. Note that they are sorted into different categories (NLP, Audio, Computer Vision and others).
+* Add the type to `PipelineType`. Note that pipeline types are sorted into different categories (NLP, Audio, Computer Vision, and others).
 * Specify the task color in `PIPELINE_COLOR`. 
 * Specify the display order in `PIPELINE_TAGS_DISPLAY_ORDER`.
 
@@ -85,4 +85,4 @@ You can add an icon in the [lib/Icons](https://github.com/huggingface/hub-docs/t
 
 Once the task is in production, what could be more exciting than implementing some way for users to play directly with the models in their browser? 🤩 You can find all the widgets [here](https://huggingface-widgets.netlify.app/). 
 
-In case you would be interested in contributing with a widget, you can look at the [implementation](https://github.com/huggingface/hub-docs/tree/main/js/src/lib/components/InferenceWidget/widgets) of all the widgets. You can also find WIP documentation on how to implement a widget in https://github.com/huggingface/hub-docs/tree/main/js. 
+If you would be interested in contributing with a widget, you can look at the [implementation](https://github.com/huggingface/hub-docs/tree/main/js/src/lib/components/InferenceWidget/widgets) of all the widgets. You can also find WIP documentation on implementing a widget in https://github.com/huggingface/hub-docs/tree/main/js. 

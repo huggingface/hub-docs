@@ -6,7 +6,7 @@ title: The Model Hub
 
 ## What is the Model Hub?
 
-The Model Hub is where the members of the Hugging Face community can host all of their model checkpoints for simple storage, discovery, and sharing. Pre-trained models are available to be downloaded using the [`huggingface_hub` client library](https://huggingface.co/docs/huggingface_hub/index) or with [`🤗 transformers`](https://huggingface.co/docs/transformers/index) for fine-tuning and other usages. To use models in production, they can even be deployed using the [Inference API](./models-inference).
+The Model Hub is where the members of the Hugging Face community can host all of their model checkpoints for simple storage, discovery, and sharing. Pre-trained models are available to be downloaded using the [`huggingface_hub` client library](https://huggingface.co/docs/huggingface_hub/index) or with [`🤗 transformers`](https://huggingface.co/docs/transformers/index) for fine-tuning and other usages. You can even leverage the [Inference API](./models-inference) to use models in production.
 
 You can refer to the following video for a guide on navigating the Model Hub:
 
@@ -14,9 +14,9 @@ You can refer to the following video for a guide on navigating the Model Hub:
 
 ## Libraries
 
-The Hub supports a number of libraries and we're working on expanding this support! We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
+The Hub supports many libraries, and we're working on expanding this support! We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
 
-The table below summarizes the supported libraries and how they are integrated. Find all our supported libraries [here](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Libraries.ts)! 
+The table below summarizes the supported libraries and their level of integration. Find all our supported libraries [here](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Libraries.ts)! 
 
 | Library               | Description                                                                   | Inference API | Widgets | Download from Hub | Push to Hub |
 |-----------------------|-------------------------------------------------------------------------------|---------------|-------:|-------------------|-------------|

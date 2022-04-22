@@ -6,17 +6,18 @@ title: Model Cards
 
 ## What are Model Cards?
 
-Model cards are markdown files that accompany the models and provide very useful information. They are extremely important for discoverability, reproducibility and sharing! They are the `README.md` file in any model repo.
+Model cards are markdown files that accompany the models and provide handy information. They are essential for discoverability, reproducibility, and sharing! They are the `README.md` file in any model repo.
 
 The model card should describe:
 - the model
 - its intended uses & potential limitations, including bias and ethical considerations as detailed in [Mitchell, 2018](https://arxiv.org/abs/1810.03993)
 - the training params and experimental info (you can embed or link to an experiment tracking platform for reference)
-- which datasets did you train on and your eval results
+- which datasets were used to train your model
+- your evaluation results
 
-## Model Card metadata
+## Model card metadata
 
-You can add a YAML section to the model cards (that `README.md` file) by adding three `---` to the top of your model card, including all of the metadata, and enclosing it with another group of `---` such as the example below:
+A model repo will render its `README.md` as a model card. To control how the Hub displays the card, you can create a YAML section in the README file to define some metadata. Start by adding three `---` at the top, then include all of the relevant metadata, and close the section with another group of `---` like the example below:
 
 ```yaml
 ---
@@ -40,14 +41,12 @@ metrics:
 
 You can find the detailed specification [here](https://github.com/huggingface/hub-docs/blame/main/modelcard.md).
 
-
-Some useful information on them:
-* All the tags can be used to filter the list of models on https://huggingface.co/models.
+These are some useful things to know about the metadata in model cards:
+* You can filter the list of models on https://huggingface.co/models with tags.
 * License identifiers are the keywords listed in the right column of [this table](#list-of-license-identifiers).
 * Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages and in the [`datasets`](https://github.com/huggingface/datasets) repository.
 
 You can even specify your **model's eval results** in a structured way, which will allow the Hub to parse, display, and even link them to Papers With Code leaderboards. See how to format this data [in the metadata spec](https://github.com/huggingface/hub-docs/blame/main/modelcard.md).
-
 
 Here is a partial example (omitting the eval results part):
 ```yaml
@@ -71,15 +70,13 @@ If a model includes valid eval results, they will be displayed like this:
 ![/docs/assets/hub/eval-results.jpg](/docs/assets/hub/eval-results.jpg)
 
 ### CO<sub>2</sub> Emissions
-Among other details, the Model Card is also a great place to store information about the CO<sub>2</sub> impact of your model. Visit our [guide on tracking and reporting CO<sub>2</sub> emissions](./models-cards-co2) to learn more.
+The model card is also a great place to store information about the CO<sub>2</sub> impact of your model. Visit our [guide on tracking and reporting CO<sub>2</sub> emissions](./models-cards-co2) to learn more.
 
 ## FAQ
 
 ### How are model tags determined?
 
-Each model page lists all the model's tags in the page header, below the model name.
-
-Those are primarily computed from the model card metadata, except that we also add some of them automatically, as described in [How is a model's type of inference API and widget determined?](./models-widgets).
+Each model page lists all the model's tags in the page header, below the model name. These are primarily computed from the model card metadata, although some are added automatically, as described in [How is a model's type of inference API and widget determined?](./models-widgets).
 
 ### Can I specify which framework supports my model?
 
@@ -103,7 +100,7 @@ datasets:
 
 ### Can I write LaTeX in my model card?
 
-Yes, we use the [KaTeX](https://katex.org/) math typesetting library to render math formulas server-side, before parsing the markdown.
+Yes! We use the [KaTeX](https://katex.org/) math typesetting library to render math formulas server-side before parsing the markdown.
 
 You have to use the following delimiters:
 - `$$ ... $$` for display mode

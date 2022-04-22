@@ -4,7 +4,7 @@ title: Integrate a library with the Hub
 
 # Integrate your library with the Hub
 
-The Hugging Face Hub aims to facilitate the sharing of machine learning models, checkpoints, and artifacts. This endeavor includes integrating the Hub into many of the amazing third-party libraries in the community. Some of the ones already integrated include [spaCy](https://spacy.io/usage/projects#huggingface_hub), [AllenNLP](https://allennlp.org/), and [timm](https://rwightman.github.io/pytorch-image-models/), among many others. Integration means users can download and upload files to the Hub directly from your library. We hope you will integrate your library and join us in democratizing artificial intelligence for everyone!
+The Hugging Face Hub aims to facilitate sharing machine learning models, checkpoints, and artifacts. This endeavor includes integrating the Hub into many of the amazing third-party libraries in the community. Some of the ones already integrated include [spaCy](https://spacy.io/usage/projects#huggingface_hub), [AllenNLP](https://allennlp.org/), and [timm](https://rwightman.github.io/pytorch-image-models/), among many others. Integration means users can download and upload files to the Hub directly from your library. We hope you will integrate your library and join us in democratizing artificial intelligence for everyone!
 
 Integrating the Hub with your library provides many benefits, including:
 
@@ -17,7 +17,7 @@ This tutorial will help you integrate the Hub into your library so your users ca
 
 Before you begin, we recommend you create a [Hugging Face account](https://huggingface.co/join) from which you can manage your repositories and files. 
 
-If you need help with the integration at any point, feel free to open an [issue](https://github.com/huggingface/huggingface_hub/issues/new/choose), and we would be more than happy to help you!
+If you need help with the integration, feel free to open an [issue](https://github.com/huggingface/huggingface_hub/issues/new/choose), and we would be more than happy to help you!
 
 ## Installation
 
@@ -85,7 +85,7 @@ Use the `cache_dir` parameter to change where a file is stored:
 
 ### Code sample
 
-We recommend adding a code snippet to explain how a model should be used in your downstream library. 
+We recommend adding a code snippet to explain how to use a model in your downstream library. 
 
 ![/docs/assets/hub/code_snippet.png](/docs/assets/hub/code_snippet.png)
 
@@ -98,13 +98,13 @@ const asteroid = (model: ModelData) =>
 model = BaseModel.from_pretrained("${model.id}")`;
 ```
 
-This will also add a tag to your model so users can quickly identify models from your library.
+Doing so will also add a tag to your model so users can quickly identify models from your library.
 
 ![/docs/assets/hub/libraries-tags.png](/docs/assets/hub/libraries-tags.png)
 
 ## Upload files to the Hub
 
-You might also want to provide a method for creating model repositories and uploading files to the Hub directly from your library. The `huggingface_hub` library offers two methods to assist you with creating repositories and uploading files:
+You might also want to provide a method for creating model repositories and uploading files to the Hub directly from your library. The `huggingface_hub` library offers two ways to assist you with creating repositories and uploading files:
 
 - `create_repo` creates a repository on the Hub.
 - `upload_file` directly uploads files to a repository on the Hub.
@@ -141,11 +141,11 @@ For example:
 'https://huggingface.co/lysandre/test-model/blob/main/README.md'
 ```
 
-If you need to upload more than one file, take a look at the utilities offered by the `Repository` class [here](/docs/hub/how-to-upstream#`Repository`).
+If you need to upload more than one file, look at the utilities offered by the `Repository` class [here](TODO).
 
 Once again, if you check your Hugging Face account, you should see the file inside your repository.
 
-Lastly, it is important to add a model card, so users understand how to use your model. See [here](/docs/hub/model-repos#what-are-model-cards-and-why-are-they-useful) for more details about how to create a model card.
+Lastly, it is important to add a model card so users understand how to use your model. See [here](/docs/hub/model-repos#what-are-model-cards-and-why-are-they-useful) for more details about how to create a model card.
 
 ## Set up the Inference API
 

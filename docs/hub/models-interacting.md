@@ -6,24 +6,24 @@ title: Interacting with Models on the Hub
 
 ## Accessing models for local use
 
-Since all models are stored on the Model Hub as Git repositories, you can clone the models locally by running:
+Since all models on the Model Hub are Git repositories, you can clone the models locally by running:
 
 ```bash
 git lfs install
 git clone <MODEL URL>
 ```
 
-For detailed information on how to access the model, you can click on the "Use in Transformer" button on any model page.
+For detailed information on accessing the model, you can click on the "Use in Transformer" button on any model page.
 
 ![Models can be used locally through the "Use in Transformer" button](../assets/hub/models-usage.png)
 
-If the model can be used with `🤗 transformers`, you'll even receive snippets to help you get started.
+If the model is compatible with `🤗 transformers`, you'll even receive snippets to help you get started.
 
 ![Snippets for using a model with the 🤗 transformers library](../assets/hub/models-usage-modal.png)
 
 ### Can I access models programmatically?
 
-You can use the [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) library to create, delete, update and retrieve information from repos. You can also use it to download files from repos and integrate it to your own library! For example, you can easily load a Scikit learn model with a few lines.
+You can use the [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) library to create, delete, update and retrieve information from repos. You can also download files from repos or integrate them into your library! For example, you can quickly load a Scikit learn model with a few lines.
 
 ```py
 from huggingface_hub import hf_hub_url, cached_download
@@ -39,11 +39,11 @@ model = joblib.load(cached_download(
 
 ## Uploading models
 
-The first step is to create an account at [Hugging Face](https://huggingface.co/login). The models are shared in the form of Git-based repositories which give you versioning, branches, discoverability and sharing features, integration with over a dozen libraries and more! You have control over what you want to upload to your repository, which could include checkpoints, configs and any other files.
+The first step is to create an account at [Hugging Face](https://huggingface.co/login). Models on the Hub are Git-based repositories, which give you versioning, branches, discoverability and sharing features, integration with over a dozen libraries, and more! You have control over what you want to upload to your repository, which could include checkpoints, configs, and any other files.
 
-The repository can either be linked with an individual, such as [osanseviero/fashion_brands_patterns](https://huggingface.co/osanseviero/fashion_brands_patterns) or with an organization, such as [facebook/bart-large-xsum](https://huggingface.co/facebook/bart-large-xsum). Organizations can be used if you want to upload models that are related to a company, community or library! If you choose an organization, the model will be featured on the organization’s page and every member of the organization will have the ability to contribute to the repository. You can create a new organization [here](https://huggingface.co/organizations/new).
+You can link repositories with an individual, such as [osanseviero/fashion_brands_patterns](https://huggingface.co/osanseviero/fashion_brands_patterns), or with an organization, such as [facebook/bart-large-xsum](https://huggingface.co/facebook/bart-large-xsum). Organizations can collect models related to a company, community, or library! If you choose an organization, the model will be featured on the organization’s page, and every member of the organization will have the ability to contribute to the repository. You can create a new organization [here](https://huggingface.co/organizations/new).
 
-There are several ways to upload models to the Hub, which are described below.
+There are several ways to upload models to the Hub, described below.
 
 ### Using the web interface
 
@@ -57,7 +57,7 @@ To create a brand new model repository, visit [huggingface.co/new](http://huggin
 
 ![docs/assets/hub/commit-file.png](/docs/assets/hub/commit-file.png)
 
-3. Afterwards click "Commit changes" and your model will be uploaded to the Hub!
+3. Afterwards, click **Commit changes** to upload your model to the Hub!
 
 4. Inspect files and history
 
@@ -73,7 +73,7 @@ The UI allows you to explore the model files and commits and to see the diff int
 
 You can add metadata to your model card. You can specify:
 * the type of task this model is for, enabling widgets and the Inference API.
-* the used library (`transformers`, `spaCy`, etc)
+* the used library (`transformers`, `spaCy`, etc.)
 * the language
 * the dataset
 * metrics
@@ -98,31 +98,31 @@ Since model repos are just Git repositories, you can use Git to push your model 
 
 ### Using the `huggingface_hub` client library
 
-There is a rich feature set in the `huggingface_hub` library which allows you to manage repositories, including creating repos and uploading models to the Model Hub. For more information, visit [the client library's documentation](https://huggingface.co/docs/huggingface_hub/index).
+The rich feature set in the `huggingface_hub` library allows you to manage repositories, including creating repos and uploading models to the Model Hub. Visit [the client library's documentation](https://huggingface.co/docs/huggingface_hub/index) to learn more.
 
 
 ## FAQ
 
 ### How can I see what dataset was used to train the model?
 
-It's up to the person who uploaded the model to include the training information! You may find the information about the datasets that the model was trained on in the model card. If the datasets that were used for the model are on the Hub, the uploader may have included them in the model card's metadata. In that case, the datasets would be linked with this handy card on the right side of the model page:
+It's up to the person who uploaded the model to include the training information! You may find the information about the datasets that the model was trained on in the model card. If the datasets used for the model are on the Hub, the uploader may have included them in the model card's metadata. In that case, the datasets would be linked with a handy card on the right side of the model page:
 
 ![Linked datasets for a model](../assets/hub/models-linked-datasets.png)
 
 ### How can I see an example of the model in action?
 
-Models can have inference widgets that let you try out the model in the browser! Inference widgets are easy to configure, and there are many kinds to choose from. Visit the [Widgets documentation](models-widgets.md) to learn more.
+Models can have inference widgets that let you try out the model in the browser! Inference widgets are easy to configure, and there are many different options at your disposal. Visit the [Widgets documentation](models-widgets.md) to learn more.
 
-The Hugging Face Hub is also home to Spaces, which are interactive demos that can be used to showcase models. If a model has any Spaces associated with it, they'll be linked on the model page like so:
+The Hugging Face Hub is also home to Spaces, which are interactive demos used to showcase models. If a model has any Spaces associated with it, you'll find them linked on the model page like so:
 
 ![Linked spaces for a model](../assets/hub/models-linked-spaces.png)
 
-Spaces are a great way to show off a model you've made, or to explore new ways to use existing models! Visit the [Spaces documentation](TODO) to learn all about how to make your own.
+Spaces are a great way to show off a model you've made or explore new ways to use existing models! Visit the [Spaces documentation](TODO) to learn how to make your own.
 
 ### How do I upload an update / new version of the model?
 
-Releasing an update to a model that you've already published can be done by pushing a new commit to your model's repo. To do this, go through the same process that you followed to upload your initial model. Your previous model versions will remain in the repository as previous commits.
+Releasing an update to a model that you've already published can be done by pushing a new commit to your model's repo. To do this, go through the same process that you followed to upload your initial model. Your previous model versions will remain in the repository's commit history.
 
 ### What if I have a different checkpoint of the model trained on a different dataset?
 
-By convention, each model repo should contain a single checkpoint trained on a particular dataset, and any new checkpoints trained on different datasets should be uploaded to the Hub in a new model repo. You can link the models together by using a [tag in your model card's metadata](./modelcard), or by linking to them in the model cards. The [akiyamasho/AnimeBackgroundGAN-Shinkai](https://huggingface.co/akiyamasho/AnimeBackgroundGAN-Shinkai#other-pre-trained-model-versions) model, for example, references other checkpoints in the model card under *"Other pre-trained model versions"*.
+By convention, each model repo should contain a single checkpoint trained on a particular dataset. You should upload any new checkpoints trained on different datasets to the Hub in a new model repo. You can link the models together by using a [tag in your model card's metadata](./modelcard) or by linking to them in the model cards. The [akiyamasho/AnimeBackgroundGAN-Shinkai](https://huggingface.co/akiyamasho/AnimeBackgroundGAN-Shinkai#other-pre-trained-model-versions) model, for example, references other checkpoints in the model card under *"Other pre-trained model versions"*.
