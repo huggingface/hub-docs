@@ -33,6 +33,8 @@
         title: SpaCy
       - local: transformers
         title: transformers
+      - local: adapter-transformers
+        title: adapter-transformers
   - local: models-interacting
     title: Interacting with Models on the Hub
   - local: models-widgets
