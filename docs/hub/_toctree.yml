@@ -35,6 +35,8 @@
         title: transformers
       - local: adapter-transformers
         title: adapter-transformers
+      - local: allennlp
+        title: AllenNLP
   - local: models-interacting
     title: Interacting with Models on the Hub
   - local: models-widgets

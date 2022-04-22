@@ -11,6 +11,7 @@ All models on the Hub come up with useful features
 2. An evaluation sections at top right where you can look at the metrics.
 3. Metadata tags that help for discoverability and contain information such as license and language.
 4. An interactive widget you can use to play out with the model directly in the browser
+5. An Inference API that allows to make inference requests.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-spacy_widget.png"/>
