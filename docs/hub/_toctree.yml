@@ -37,6 +37,8 @@
         title: adapter-transformers
       - local: allennlp
         title: AllenNLP
+      - local: asteroid
+        title: Asteroid
   - local: models-interacting
     title: Interacting with Models on the Hub
   - local: models-widgets
