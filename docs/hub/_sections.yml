@@ -47,5 +47,12 @@
   title: Security tips
 
 # This should be under /libraries
+- local: transformers
+  title: 🤗 Transformers
+
 - local: spacy
   title: SpaCy
+
+- local: adapter-transformers
+  title: Adapter Transformers
+
