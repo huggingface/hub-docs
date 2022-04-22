@@ -50,11 +50,17 @@
 - local: transformers
   title: 🤗 Transformers
 
-- local: spacy
-  title: SpaCy
-
 - local: adapter-transformers
   title: Adapter Transformers
 
 - local: allennlp
   title: AllenNLP
+
+- local: asteroid
+  title: Asteroid
+
+- local: espnet
+  title: ESPnet
+
+- local: spacy
+  title: SpaCy
