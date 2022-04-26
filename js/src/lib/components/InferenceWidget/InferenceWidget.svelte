@@ -30,6 +30,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle = false;
 	export let shouldUpdateUrl = false;
+	export let includeCredentials = false;
 
 	// Note: text2text-generation, text-generation and translation all
 	// uses the TextGenerationWidget as they work almost the same.
@@ -74,6 +75,7 @@
 		model,
 		noTitle,
 		shouldUpdateUrl,
+		includeCredentials,
 	}) as WidgetProps;
 </script>
 

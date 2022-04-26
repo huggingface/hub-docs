@@ -26,6 +26,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
+	export let includeCredentials: WidgetProps["includeCredentials"];
 
 	const columns: string[] = Object.keys(
 		model?.widgetData?.[0]?.structuredData ?? {}
@@ -120,7 +121,8 @@
 			requestBody,
 			apiToken,
 			parseOutput,
-			withModelLoading
+			withModelLoading,
+			includeCredentials
 		);
 
 		isLoading = false;

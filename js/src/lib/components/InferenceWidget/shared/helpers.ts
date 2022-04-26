@@ -62,6 +62,7 @@ async function callApi(
 	apiToken = '',
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
 	useCache = true,
+	includeCredentials = false,
 ): Promise<Response> {	
 	const contentType = 'file' in requestBody && 'type' in requestBody['file']
 		? requestBody['file']['type']  
@@ -89,6 +90,7 @@ async function callApi(
 			method: "POST",
 			body,
 			headers,
+			credentials: includeCredentials,
 		}
 	);
 }
@@ -100,6 +102,7 @@ export async function getResponse<T>(
 	apiToken = '',
 	outputParsingFn: (x: unknown) =>  T,
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
+	includeCredentials = false,
 	useCache = true,
 ): Promise<{
 	computeTime: string,
@@ -122,6 +125,7 @@ export async function getResponse<T>(
 		apiToken,
 		waitForModel,
 		useCache,
+		includeCredentials,
 	);
 
 	if (response.ok) {

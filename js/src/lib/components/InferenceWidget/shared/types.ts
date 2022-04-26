@@ -7,6 +7,7 @@ export interface WidgetProps {
 	model: ModelData;
 	noTitle: boolean;
 	shouldUpdateUrl: boolean;
+	includeCredentials: boolean;
 }
 
 

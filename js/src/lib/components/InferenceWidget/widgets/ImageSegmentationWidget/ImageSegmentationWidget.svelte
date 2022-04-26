@@ -15,6 +15,7 @@
 	export let apiUrl: WidgetProps["apiUrl"];
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
+	export let includeCredentials: WidgetProps["includeCredentials"];
 
 	const maskOpacity = Math.floor(255 * 0.6);
 	const colorToRgb = COLORS.reduce((acc, clr) => {
@@ -66,7 +67,8 @@
 			requestBody,
 			apiToken,
 			parseOutput,
-			withModelLoading
+			withModelLoading,
+			includeCredentials
 		);
 
 		isLoading = false;

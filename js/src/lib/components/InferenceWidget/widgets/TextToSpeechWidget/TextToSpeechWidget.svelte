@@ -20,6 +20,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
+	export let includeCredentials: WidgetProps["includeCredentials"];
 
 	let computeTime = "";
 	let error: string = "";
@@ -70,7 +71,8 @@
 			requestBody,
 			apiToken,
 			parseOutput,
-			withModelLoading
+			withModelLoading,
+			includeCredentials
 		);
 
 		isLoading = false;
