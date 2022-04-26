@@ -90,7 +90,7 @@ async function callApi(
 			method: "POST",
 			body,
 			headers,
-			credentials: includeCredentials,
+			credentials: includeCredentials ? "include" : null,
 		}
 	);
 }
