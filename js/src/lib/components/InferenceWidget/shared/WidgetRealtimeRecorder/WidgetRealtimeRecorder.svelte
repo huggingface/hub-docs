@@ -1,16 +1,20 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+
 	import { onDestroy, onMount } from "svelte";
 	import IconMagicWand from "../../../Icons/IconMagicWand.svelte";
 	import Recorder from "./Recorder";
+
 	export let apiToken: WidgetProps["apiUrl"];
 	export let classNames = "";
 	export let model: WidgetProps["model"];
 	export let onError: (err: string) => void = () => null;
+
 	let isRecording = false;
 	let recorder: Recorder;
 	let txt = "";
 	let warning = "";
+
 	async function onClick() {
 		try {
 			isRecording = !isRecording;
@@ -37,14 +41,17 @@
 			}
 		}
 	}
+
 	function renderText(_txt: string) {
 		warning = "";
 		txt = _txt;
 		onError("");
 	}
+
 	function renderWarning(_warning: string) {
 		warning = _warning;
 	}
+
 	onMount(() => {
 		recorder = new Recorder(
 			model.id,
@@ -54,6 +61,7 @@
 			onError
 		);
 	});
+
 	onDestroy(() => {
 		if (recorder) {
 			recorder.stop();
