@@ -21,6 +21,7 @@
 			if (isRecording) {
 				await recorder.start();
 			} else {
+				txt = "";
 				recorder.stop();
 			}
 		} catch (e) {
