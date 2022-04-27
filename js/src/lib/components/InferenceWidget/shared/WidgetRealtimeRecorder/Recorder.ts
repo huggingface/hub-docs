@@ -11,21 +11,15 @@ export default class Recorder {
 	private socket: WebSocket;
 	private stream: MediaStream;
 
-	constructor(modelId: string, apiToken: string, renderText: (txt: string) => void, renderWarning: (warning: string) => void, onError: (err: string) => void){
+	constructor(modelId: string, apiToken: string | undefined, renderText: (txt: string) => void, renderWarning: (warning: string) => void, onError: (err: string) => void){
 		this.modelId = modelId;
-		this.apiToken = apiToken;
-		// TODO: for testing purposes, supply your hf.co/settings/tokens value in the line below
-		this.apiToken = "";
+		this.apiToken = !!apiToken ? apiToken : "";
 		this.renderText = renderText;
 		this.renderWarning = renderWarning;
 		this.onError = onError;
 	}
 
 	async start() {
-		if(!this.apiToken){
-			throw new Error("You need to be loggedn in and have API token enabled. Find more at: hf.co/settings/token");
-		}
-
 		const constraints: MediaStreamConstraints =
 			this.type === "video"
 				? { audio: true, video: true }
