@@ -65,32 +65,62 @@ const inputsSentenceSimilarity = () =>
 const inputsFeatureExtraction = () =>
 	`"Today is a sunny day and I'll get some ice cream."`;
 
+const inputsImageClassification = () => `"cats.jpg"`;
+
+const inputsImageSegmentation = () => `"cats.jpg"`;
+
+const inputsObjectDetection = () => `"cats.jpg"`;
+
+const inputsAudioToAudio = () => `"sample1.flac"`;
+
+const inputsAudioClassification = () => `"sample1.flac"`;
+
+const inputsTextToSpeech = () =>
+`"The answer to the universe is 42"`;
+
+const inputsAutomaticSpeechRecognition = () => `"sample1.flac"`;
+
 const modelInputSnippets: {
-	[key in keyof typeof PipelineType]?: (model: ModelData) => string;
+	[key in PipelineType]?: (model: ModelData) => string;
 } = {
-	"conversational":           inputsConversational,
-	"feature-extraction":       inputsFeatureExtraction,
-	"fill-mask":                inputsFillMask,
-	"question-answering":       inputsQuestionAnswering,
-	"sentence-similarity":      inputsSentenceSimilarity,
-	"summarization":            inputsSummarization,
-	"table-question-answering": inputsTableQuestionAnswering,
-	"text-classification":      inputsTextClassification,
-	"text-generation":          inputsTextGeneration,
-	"text2text-generation":     inputsText2TextGeneration,
-	"token-classification":     inputsTokenClassification,
-	"translation":              inputsTranslation,
-	"zero-shot-classification": inputsZeroShotClassification,
+	"audio-to-audio":               inputsAudioToAudio,
+	"audio-classification":         inputsAudioClassification,
+	"automatic-speech-recognition": inputsAutomaticSpeechRecognition,
+	"conversational":               inputsConversational,
+	"feature-extraction":           inputsFeatureExtraction,
+	"fill-mask":                    inputsFillMask,
+	"image-classification":         inputsImageClassification,
+	"image-segmentation":           inputsImageSegmentation,
+	"object-detection":             inputsObjectDetection,
+	"question-answering":           inputsQuestionAnswering,
+	"sentence-similarity":          inputsSentenceSimilarity,
+	"summarization":                inputsSummarization,
+	"table-question-answering":     inputsTableQuestionAnswering,
+	"text-classification":          inputsTextClassification,
+	"text-generation":              inputsTextGeneration,
+	"text-to-speech":               inputsTextToSpeech,
+	"text2text-generation":         inputsText2TextGeneration,
+	"token-classification":         inputsTokenClassification,
+	"translation":                  inputsTranslation,
+	"zero-shot-classification":     inputsZeroShotClassification,
 };
 
 // Use noWrap to put the whole snippet on a single line (removing new lines and tabulations)
-export function getModelInputSnippet(model: ModelData, noWrap = false): string {
+// Use noQuotes to strip quotes from start & end (example: "abc" -> abc)
+export function getModelInputSnippet(model: ModelData, noWrap = false, noQuotes = false): string {
 	if (model.pipeline_tag) {
 		const inputs = modelInputSnippets[model.pipeline_tag];
 		if (inputs) {
-			return noWrap
-				? inputs(model).replace(/(?:(?:\r?\n|\r)\t*)|\t+/g, " ")
-				: inputs(model);
+			let result = inputs(model);
+			if (noWrap) {
+				result = result.replace(/(?:(?:\r?\n|\r)\t*)|\t+/g, " ");
+			}
+			if (noQuotes) {
+				const REGEX_QUOTES = /^"(.+)"$/s;
+				const match = result.match(REGEX_QUOTES);
+				result = match ? match[1] : result;
+			}
+			return result;
 		}
 	}
 	return "No input example has been defined for this model task.";

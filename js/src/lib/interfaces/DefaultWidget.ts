@@ -1,9 +1,9 @@
-import type { PipelineType } from './Types';
+import type { PipelineType } from "./Types";
 
 type LanguageCode = string;
 
 type PerLanguageMapping = Map<
-	keyof typeof PipelineType,
+	PipelineType,
 	(Record<string, any> | string)[]
 >;
 

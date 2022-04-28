@@ -32,13 +32,12 @@
 	let output = "";
 	let outputJson: string;
 	let text = "";
+	let warning: string = "";
 
 	// Deactivate server caching for these two pipeline types
 	// (translation uses this widget too and still needs caching)
 	const useCache = !(
-		["text-generation", "text2text-generation"] as Array<
-			keyof typeof PipelineType
-		>
+		["text-generation", "text2text-generation"] as Array<PipelineType>
 	).includes(model.pipeline_tag);
 
 	onMount(() => {
@@ -88,6 +87,7 @@
 		// Reset values
 		computeTime = "";
 		error = "";
+		warning = "";
 		modelLoading = { isLoading: false, estimatedTime: 0 };
 		output = "";
 		outputJson = "";
@@ -96,6 +96,9 @@
 			computeTime = res.computeTime;
 			output = res.output;
 			outputJson = res.outputJson;
+			if (output.length === 0) {
+				warning = "No text was generated";
+			}
 		} else if (res.status === "loading-model") {
 			modelLoading = {
 				isLoading: true,
@@ -152,6 +155,9 @@
 					getOutput();
 				}}
 			/>
+			{#if warning}
+				<div class="alert alert-warning mt-2">{warning}</div>
+			{/if}
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">

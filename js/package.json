@@ -8,14 +8,14 @@
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. .",
-		"format": "prettier --write --plugin-search-dir=. ."
+		"format": "prettier --write --plugin-search-dir=. .",
+		"export-task": "tsm src/scripts/export-tasks.ts"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^1.0.0-next.13",
-		"@sveltejs/kit": "next",
+		"@sveltejs/kit": "1.0.0-next.173",
 		"@tailwindcss/forms": "^0.3.3",
 		"@tailwindcss/line-clamp": "^0.2.1",
-		"@types/dom-mediacapture-record": "^1.0.7",
 		"@types/tailwindcss": "^2.2.1",
 		"autoprefixer": "^10.2.6",
 		"postcss": "^8.3.1",
@@ -27,7 +27,8 @@
 		"svelte-preprocess": "^4.0.0",
 		"tailwindcss": "^2.2.19",
 		"tslib": "^2.0.0",
-		"typescript": "^4.0.0"
+		"tsm": "^2.2.1",
+		"typescript": "^4.6.3"
 	},
 	"type": "module"
 }

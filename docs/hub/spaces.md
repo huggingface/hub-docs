@@ -24,7 +24,7 @@ The default Spaces environment comes with several pre-installed dependencies:
 
 * [`datasets`](https://github.com/huggingface/datasets) allows you to fetch or display datasets from inside your app easily.
 
-Each Spaces environment is limited to 16GB RAM and 8 CPU cores. Organization [subscribers](https://huggingface.co/pricing) (Lab, Startup, and Enterprise) can access Spaces with one T4 GPU on a case-by-case basis. Please email us at **website at huggingface.co** or let us know on [Twitter](https://twitter.com/huggingface) if you need one.
+Each Spaces environment is limited to 16GB RAM and 8 CPU cores. Individuals and Organization [subscribers](https://huggingface.co/pricing) (Lab, Startup, and Enterprise) can access Spaces with one T4 GPU on a case-by-case basis. Please email us at **website at huggingface.co**.
 
 ## Streamlit and Gradio
 
@@ -87,8 +87,16 @@ pinned: false
 
 For additional settings, refer to the [Reference](#reference) section.
 
-### Organization card
+### Comparing Different Models
+There is a Space that allows you to automatically create a Space to compare different Models and Spaces. Check the first example within [Model Comparator Space Builder](https://huggingface.co/spaces/farukozderim/Model-Comparator-Space-Builder) 🤗. 
 
+### Duplicating a Space
+You can duplicate a Space as well, check the second example within [Model Comparator Space Builder](https://huggingface.co/spaces/farukozderim/Model-Comparator-Space-Builder).
+
+### Create a Space from a Model
+It is also possible to create a Space from a Model with [Model Comparator Space Builder](https://huggingface.co/spaces/farukozderim/Model-Comparator-Space-Builder), just check the third example.
+
+### Organization card
 Organization cards are a way to describe your organization to other users. They take the form of a `README.md` static file, inside a Space repo named `README`.
 
 Please read more in the [dedicated doc section](/docs/hub/org-cards).
@@ -161,7 +169,29 @@ jobs:
 
 ## Troubleshoot
 
+### Streamlit
+
 Issues may occur when you use an unsupported Streamlit version. The Streamlit version is not configured in the **requirements.txt** file but rather in the `YAML` settings through the `sdk_version` setting. Not all Streamlit versions are supported. Check that you are using a supported version of Streamlit. Refer to the [reference section](#reference) for more information about supported versions.
+
+### Custom Python Spaces
+
+While not an official workflow, you are able to run your own Python + interface stack in Spaces by selecting Gradio as your SDK and serving a frontend on port `7680`. See the [templates](https://huggingface.co/templates#spaces) for examples.
+
+Spaces are served in iframes, which by default restrict links from opening in the parent page. The simplest solution is to open them in a new window:
+
+```HTML
+<a href="https://hf.space" rel="noopener" target="_blank">Spaces</a>
+```
+
+Usually, the height of Spaces is automatically adjusted when using the Gradio library interface. However, if you provide your own frontend in the Gradio SDK and the content height is larger than the viewport, you'll need to add an [iFrame Resizer script](https://cdnjs.com/libraries/iframe-resizer) so the content is scrollable in the iframe:
+
+```HTML
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.min.js"></script>
+```
+As an example, here is the same Space with and without the script:
+- https://huggingface.co/spaces/ronvolutional/http-server
+- https://huggingface.co/spaces/ronvolutional/iframe-test
+
 
 ## Contact
 

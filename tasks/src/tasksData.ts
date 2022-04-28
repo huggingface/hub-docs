@@ -18,39 +18,44 @@ import textClassification from "./text-classification/data";
 import textGeneration from "./text-generation/data";
 
 
-// To make comparisons easier, task order is the same as in /lib/interfaces/Types.ts
+// To make comparisons easier, task order is the same as in const.ts
 export const TASKS_DATA: Record<
-	keyof typeof PipelineType,
+	PipelineType,
 	TaskData | undefined
 > = {
-	/// nlp
-	"text-classification":            textClassification,
-	"token-classification":           tokenClassification,
-	"table-question-answering":       undefined,
-	"question-answering":             questionAnswering,
-	"zero-shot-classification":       undefined,
-	"translation":                    translation,
-	"summarization":                  summarization,
+	"audio-classification":           audioClassification,
+	"audio-to-audio":                 audioToAudio,
+	"automatic-speech-recognition":   automaticSpeechRecognition,
 	"conversational":                 undefined,
 	"feature-extraction":             undefined,
-	"text-generation":                textGeneration,
-	// note: we don't have a text2text-generation task, we use text-generation instead
-	"text2text-generation":           undefined,
 	"fill-mask":                      fillMask,
-	"sentence-similarity":            sentenceSimilarity,
-	/// audio
-	"text-to-speech":                 textToSpeech,
-	"automatic-speech-recognition":   automaticSpeechRecognition,
-	"audio-to-audio":                 audioToAudio,
-	"audio-classification":           audioClassification,
-	"voice-activity-detection":       undefined,
-	/// computer vision
 	"image-classification":           imageClassification,
-	"object-detection":               objectDetection,
 	"image-segmentation":             imageSegmentation,
-	"text-to-image":                  undefined,
+	"image-to-image":                 undefined,
 	"image-to-text":                  undefined,
-	/// others
-	"structured-data-classification": undefined,
+	"multiple-choice":                undefined,
+	"object-detection":               objectDetection,
+	"other":                          undefined,
+	"question-answering":             questionAnswering,
 	"reinforcement-learning":         undefined,
+	"sentence-similarity":            sentenceSimilarity,
+	"summarization":                  summarization,
+	"table-question-answering":       undefined,
+	"table-to-text":                  undefined,
+	"tabular-classification":         undefined,
+	"tabular-to-text":                undefined,
+	"text-classification":            textClassification,
+	"text-generation":                textGeneration,
+	"text-retrieval":                 undefined,
+	"text-to-image":                  undefined,
+	"text-to-speech":                 textToSpeech,
+	"text2text-generation":           undefined,
+	"time-series-forecasting":        undefined,
+	"token-classification":           tokenClassification,
+	"translation":                    translation,
+	"unconditional-image-generation": undefined,
+	"visual-question-answering":      undefined,
+	"voice-activity-detection":       undefined,
+	"zero-shot-classification":       undefined,
+	"zero-shot-image-classification": undefined,
 } as const;

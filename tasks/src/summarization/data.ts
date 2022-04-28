@@ -1,6 +1,6 @@
 import type { TaskData } from "../Types";
 
-import { PipelineType } from "../../../js/src/lib/interfaces/Types";
+import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
 import { TASKS_MODEL_LIBRARIES } from "../const";
 
 const taskData: TaskData = {
@@ -34,7 +34,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "summarization",
-	label:     PipelineType["summarization"],
+	label:     PIPELINE_DATA["summarization"].name,
 	libraries: TASKS_MODEL_LIBRARIES["summarization"],
 	metrics:   [
 		{

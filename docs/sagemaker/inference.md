@@ -73,7 +73,7 @@ There are two ways to deploy your Hugging Face model trained in SageMaker:
 - Deploy it after your training has finished. 
 - Deploy your saved model at a later time from S3 with the `model_data`.
 
-📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/master/sagemaker/10_deploy_model_from_s3/deploy_transformer_model_from_s3.ipynb) for an example of how to deploy a model from S3 to SageMaker for inference.
+📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/10_deploy_model_from_s3/deploy_transformer_model_from_s3.ipynb) for an example of how to deploy a model from S3 to SageMaker for inference.
 
 ### Deploy after training
 
@@ -247,7 +247,7 @@ After you run our request, you can delete the endpoint again with:
 predictor.delete_endpoint()
 ```
 
-📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/master/sagemaker/11_deploy_model_from_hf_hub/deploy_transformer_model_from_hf_hub.ipynb) for an example of how to deploy a model from the 🤗 Hub to SageMaker for inference.
+📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/11_deploy_model_from_hf_hub/deploy_transformer_model_from_hf_hub.ipynb) for an example of how to deploy a model from the 🤗 Hub to SageMaker for inference.
 
 ## Run batch transform with 🤗 Transformers and SageMaker
 
@@ -320,7 +320,7 @@ The `input.jsonl` looks like this:
 {"inputs":"this movie is amazing"}
 ```
 
-📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/master/sagemaker/12_batch_transform_inference/sagemaker-notebook.ipynb) for an example of how to run a batch transform job for inference.
+📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/12_batch_transform_inference/sagemaker-notebook.ipynb) for an example of how to run a batch transform job for inference.
 
 ## User defined code and modules
 

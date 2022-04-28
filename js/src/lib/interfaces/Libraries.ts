@@ -11,7 +11,8 @@ export enum ModelLibrary {
 	"fairseq"                = "Fairseq",
 	"flair"                  = "Flair",
 	"keras"                  = "Keras",
-	"pyannote"               = "Pyannote",
+	"nemo"                   = "NeMo",
+	"pyannote-audio"         = "pyannote.audio",
 	"sentence-transformers"  = "Sentence Transformers",
 	"sklearn"                = "Scikit-learn",
 	"spacy"                  = "spaCy",
@@ -87,19 +88,19 @@ const allennlp = (model: ModelData) => {
 
 const asteroid = (model: ModelData) =>
 	`from asteroid.models import BaseModel
-  
+
 model = BaseModel.from_pretrained("${model.id}")`;
 
 const espnetTTS = (model: ModelData) =>
 	`from espnet2.bin.tts_inference import Text2Speech
-    
+
 model = Text2Speech.from_pretrained("${model.id}")
 
 speech, *_ = model("text to generate speech from")`;
 
 const espnetASR = (model: ModelData) =>
 	`from espnet2.bin.asr_inference import Speech2Text
-    
+
 model = Speech2Text.from_pretrained(
   "${model.id}"
 )
@@ -129,7 +130,7 @@ models, cfg, task = load_model_ensemble_and_task_from_hf_hub(
 
 const flair = (model: ModelData) =>
 	`from flair.models import SequenceTagger
-  
+
 tagger = SequenceTagger.load("${model.id}")`;
 
 const keras = (model: ModelData) =>
@@ -138,18 +139,42 @@ const keras = (model: ModelData) =>
 model = from_pretrained_keras("${model.id}")
 `;
 
-const pyannote = (model: ModelData) =>
-	`from pyannote.audio.core.inference import Inference
+const pyannote_audio_pipeline = (model: ModelData) =>
+	`from pyannote.audio import Pipeline
   
-model = Inference("${model.id}")
+pipeline = Pipeline.from_pretrained("${model.id}")
 
 # inference on the whole file
-model("file.wav")
+pipeline("file.wav")
 
 # inference on an excerpt
 from pyannote.core import Segment
 excerpt = Segment(start=2.0, end=5.0)
-model.crop("file.wav", excerpt)`;
+
+from pyannote.audio import Audio
+waveform, sample_rate = Audio().crop("file.wav", excerpt)
+pipeline({"waveform": waveform, "sample_rate": sample_rate})`;
+
+const pyannote_audio_model = (model: ModelData) =>
+	`from pyannote.audio import Model, Inference
+
+model = Model.from_pretrained("${model.id}")
+inference = Inference(model)
+
+# inference on the whole file
+inference("file.wav")
+
+# inference on an excerpt
+from pyannote.core import Segment
+excerpt = Segment(start=2.0, end=5.0)
+inference.crop("file.wav", excerpt)`;
+
+const pyannote_audio = (model: ModelData) => {
+	if (model.tags?.includes("pyannote-audio-pipeline")) {
+		return pyannote_audio_pipeline(model);
+	}
+	return pyannote_audio_model(model);
+};
 
 const tensorflowttsTextToMel = (model: ModelData) =>
 	`from tensorflow_tts.inference import AutoProcessor, TFAutoModel
@@ -213,7 +238,7 @@ const spacy = (model: ModelData) =>
 import spacy
 nlp = spacy.load("${nameWithoutNamespace(model.id)}")
 
-# Importing as module.
+# Importing as module.
 import ${nameWithoutNamespace(model.id)}
 nlp = ${nameWithoutNamespace(model.id)}.load()`;
 
@@ -290,6 +315,33 @@ checkpoint = load_from_hub(
 	filename="{MODEL FILENAME}.zip",
 )`;
 
+const nemoDomainResolver = (domain: string, model: ModelData): string | undefined => {
+	const modelName = `${nameWithoutNamespace(model.id)}.nemo`;
+
+	switch (domain) {
+		case "ASR":
+			return `import nemo.collections.asr as nemo_asr
+from huggingface_hub import hf_hub_download
+
+path = hf_hub_download(repo_id="${model.id}", filename="${modelName}")
+asr_model = nemo_asr.models.ASRModel.restore_from(path)
+
+transcriptions = asr_model.transcribe(["file.wav"])`;
+		default:
+			return undefined;
+	}
+};
+
+const nemo = (model: ModelData) => {
+	let command: string | undefined = undefined;
+	// Resolve the tag to a nemo domain/sub-domain 
+	if (model.tags?.includes("automatic-speech-recognition")) {
+		command = nemoDomainResolver("ASR", model);
+	}
+	
+	return command ?? `# tag did not correspond to a valid NeMo domain.`;
+};
+
 //#endregion
 
 
@@ -338,11 +390,17 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoUrl:  "https://github.com/keras-team/keras",
 		snippet:  keras,
 	},
-	"pyannote": {
-		btnLabel: "pyannote",
+	"nemo": {
+		btnLabel: "NeMo",
+		repoName: "NeMo",
+		repoUrl:  "https://github.com/NVIDIA/NeMo",
+		snippet:  nemo,
+	},
+	"pyannote-audio": {
+		btnLabel: "pyannote.audio",
 		repoName: "pyannote-audio",
 		repoUrl:  "https://github.com/pyannote/pyannote-audio",
-		snippet:  pyannote,
+		snippet:  pyannote_audio,
 	},
 	"sentence-transformers": {
 		btnLabel: "sentence-transformers",

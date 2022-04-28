@@ -1,6 +1,6 @@
 import type { TaskData } from "../Types";
 
-import { PipelineType } from "../../../js/src/lib/interfaces/Types";
+import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
 import { TASKS_MODEL_LIBRARIES } from "../const";
 
 const taskData: TaskData = {
@@ -29,7 +29,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "image-segmentation",
-	label:     PipelineType["image-segmentation"],
+	label:     PIPELINE_DATA["image-segmentation"].name,
 	libraries: TASKS_MODEL_LIBRARIES["image-segmentation"],
 	metrics:   [
 		{
@@ -56,8 +56,8 @@ const taskData: TaskData = {
 			id:          "facebook/detr-resnet-50-panoptic",
 		},
 		{
-			description: "SegFormer (semantic segmentation model) fine-tuned on sidewalk images.",
-			id: "segments-tobias/segformer-b3-finetuned-segments-sidewalk"
+			description: "Semantic segmentation model trained on ADE20k benchmark dataset.",
+			id:          "microsoft/beit-large-finetuned-ade-640-640",
 		}
 	],
 	summary:      "Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.",

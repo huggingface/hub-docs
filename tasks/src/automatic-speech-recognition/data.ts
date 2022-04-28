@@ -1,6 +1,6 @@
 import type { TaskData } from "../Types";
 
-import { PipelineType } from "../../../js/src/lib/interfaces/Types";
+import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
 import { TASKS_MODEL_LIBRARIES } from "../const";
 
 const taskData: TaskData = {
@@ -31,7 +31,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "automatic-speech-recognition",
-	label:     PipelineType["automatic-speech-recognition"],
+	label:     PIPELINE_DATA["automatic-speech-recognition"].name,
 	libraries: TASKS_MODEL_LIBRARIES["automatic-speech-recognition"],
 	metrics:   [
 		{

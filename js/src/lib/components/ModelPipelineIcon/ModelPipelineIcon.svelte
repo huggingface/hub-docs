@@ -27,12 +27,14 @@
 	import IconVoiceActivityDetection from "../Icons/IconVoiceActivityDetection.svelte";
 	import IconZeroShotClassification from "../Icons/IconZeroShotClassification.svelte";
 	import IconReinforcementLearning from "../Icons/IconReinforcementLearning.svelte";
+	import IconImageToImage from "../Icons/IconImageToImage.svelte";
+	import IconUnconditionalImageGeneration from "../Icons/IconUnconditionalImageGeneration.svelte";
 
 	export let classNames = "";
 	export let pipeline = "";
 
 	const ICON_COMPONENTS: {
-		[key in keyof typeof PipelineType]?: typeof SvelteComponent;
+		[key in PipelineType]?: typeof SvelteComponent;
 	} = {
 		/// Keep same order as in huggingface_hub/Types.ts
 		/// for easy mapping.
@@ -41,7 +43,6 @@
 		"table-question-answering": IconTableQuestionAnswering,
 		"question-answering": IconQuestionAnswering,
 		"zero-shot-classification": IconZeroShotClassification,
-		"image-to-text": IconImageToText,
 		translation: IconTranslation,
 		summarization: IconSummarization,
 		conversational: IconConversational,
@@ -53,14 +54,17 @@
 		"text-to-speech": IconTextToSpeech,
 		"automatic-speech-recognition": IconAutomaticSpeechRecognition,
 		"audio-to-audio": IconAudioToAudio,
+		"audio-classification": IconAudioClassification,
 		"voice-activity-detection": IconVoiceActivityDetection,
 		"image-classification": IconImageClassification,
 		"object-detection": IconObjectDetection,
 		"image-segmentation": IconImageSegmentation,
 		"text-to-image": IconTextToImage,
-		"structured-data-classification": IconStructuredDataClassification,
-		"audio-classification": IconAudioClassification,
+		"image-to-text": IconImageToText,
+		"image-to-image": IconImageToImage,
+		"unconditional-image-generation": IconUnconditionalImageGeneration,
 		"reinforcement-learning": IconReinforcementLearning,
+		"tabular-classification": IconStructuredDataClassification,
 	};
 </script>
 

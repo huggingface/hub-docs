@@ -1,6 +1,6 @@
 import type { TaskData } from "../Types";
 
-import { PipelineType } from "../../../js/src/lib/interfaces/Types";
+import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
 import { TASKS_MODEL_LIBRARIES } from "../const";
 
 const taskData: TaskData = {
@@ -32,7 +32,7 @@ const taskData: TaskData = {
 		],
 	},
 	id:        "text-to-speech",
-	label:     PipelineType["text-to-speech"],
+	label:     PIPELINE_DATA["text-to-speech"].name,
 	libraries: TASKS_MODEL_LIBRARIES["text-to-speech"],
 	metrics: [
 		{

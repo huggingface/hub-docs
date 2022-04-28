@@ -43,7 +43,7 @@ Would you like to learn more about QA? Awesome! Here are some curated resources 
 ### Notebooks
 
 - [PyTorch](https://github.com/huggingface/notebooks/blob/master/examples/question_answering.ipynb)
-- [TensorFlow](https://github.com/huggingface/notebooks/blob/master/examples/token_classification-tf.ipynb)
+- [TensorFlow](https://github.com/huggingface/notebooks/blob/main/examples/question_answering-tf.ipynb)
 
 ### Scripts for training
 

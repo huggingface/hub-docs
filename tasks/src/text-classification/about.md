@@ -139,6 +139,7 @@ classifier("I will walk to home when I went through the bus.")
 Would you like to learn more about the topic? Awesome! Here you can find some curated resources that you may find helpful!
 
 - [Course Chapter on Fine-tuning a Text Classification Model](https://huggingface.co/course/chapter3/1?fw=pt)
+- [Getting Started with Sentiment Analysis using Python](https://huggingface.co/blog/sentiment-analysis-python)
 
 ### Notebooks
 

@@ -5,6 +5,10 @@
 
 	const models: ModelData[] = [
 		{
+			id: "edbeeching/decision-transformer-gym-hopper-medium-replay",
+			pipeline_tag: "reinforcement-learning",
+		},
+		{
 			id: "sgugger/resnet50d",
 			pipeline_tag: "image-classification",
 		},
@@ -116,7 +120,7 @@
 		},
 		{
 			id: "julien-c/wine-quality",
-			pipeline_tag: "structured-data-classification",
+			pipeline_tag: "tabular-classification",
 			widgetData: [
 				{
 					structuredData: {

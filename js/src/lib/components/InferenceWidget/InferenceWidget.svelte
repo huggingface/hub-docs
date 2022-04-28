@@ -21,6 +21,7 @@
 	import TextToSpeechWidget from "./widgets/TextToSpeechWidget/TextToSpeechWidget.svelte";
 	import TokenClassificationWidget from "./widgets/TokenClassificationWidget/TokenClassificationWidget.svelte";
 	import StructuredDataClassificationWidget from "./widgets/StructuredDataClassificationWidget/StructuredDataClassificationWidget.svelte";
+	import ReinforcementLearningWidget from "./widgets/ReinforcementLearningWidget/ReinforcementLearningWidget.svelte";
 	import ZeroShotClassificationWidget from "./widgets/ZeroShowClassificationWidget/ZeroShotClassificationWidget.svelte";
 
 	export let apiToken: WidgetProps["apiToken"] = undefined;
@@ -36,7 +37,7 @@
 	// In the future it may be useful / easier to maintain if we created
 	// a single dedicated widget for each pipeline type.
 	const WIDGET_COMPONENTS: {
-		[key in keyof typeof PipelineType]?: typeof SvelteComponent;
+		[key in PipelineType]?: typeof SvelteComponent;
 	} = {
 		"audio-to-audio": AudioToAudioWidget,
 		"audio-classification": AudioClassificationWidget,
@@ -58,7 +59,8 @@
 		"text-to-image": TextToImageWidget,
 		"text-to-speech": TextToSpeechWidget,
 		translation: TextGenerationWidget,
-		"structured-data-classification": StructuredDataClassificationWidget,
+		"tabular-classification": StructuredDataClassificationWidget,
+		"reinforcement-learning": ReinforcementLearningWidget,
 		"zero-shot-classification": ZeroShotClassificationWidget,
 	};
 

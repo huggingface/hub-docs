@@ -40,7 +40,7 @@ export interface TaskDemo {
 export interface TaskData {
 	datasets: ExampleRepo[];
 	demo: TaskDemo;
-	id: keyof typeof PipelineType;
+	id: PipelineType;
 	label: string;
 	libraries: Array<keyof typeof ModelLibrary>;
 	metrics: ExampleRepo[];
