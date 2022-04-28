@@ -9,10 +9,6 @@ const taskData: TaskData = {
 			description: "Widely used benchmark dataset for multiple Vision tasks.",
 			id:          "merve/coco2017",
 		},
-		{
-			description: "A dataset of sidewalk images with semantic segmentation labels.",
-			id:          "segments/sidewalk-semantic",
-		},
 	],
 	demo: {
 		inputs: [
