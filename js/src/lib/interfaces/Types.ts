@@ -579,7 +579,7 @@ export const ALL_PIPELINE_TYPES = Object.keys(PIPELINE_DATA) as PipelineType[];
 export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"image-classification",
 	"translation",
-	"unconditional-image-generation",
+	"image-segmentation",
 	"fill-mask",
 	"automatic-speech-recognition",
 	"token-classification",
@@ -599,7 +599,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"tabular-classification",
 	"image-to-image",
 	"tabular-to-text",
-	"image-segmentation",
+	"unconditional-image-generation",
 	"text-retrieval",
 	"text-to-speech",
 	"object-detection",
