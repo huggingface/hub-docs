@@ -321,10 +321,7 @@ const nemoDomainResolver = (domain: string, model: ModelData): string | undefine
 	switch (domain) {
 		case "ASR":
 			return `import nemo.collections.asr as nemo_asr
-from huggingface_hub import hf_hub_download
-
-path = hf_hub_download(repo_id="${model.id}", filename="${modelName}")
-asr_model = nemo_asr.models.ASRModel.restore_from(path)
+asr_model = nemo_asr.models.ASRModel.from_pretrained("${model.id}")
 
 transcriptions = asr_model.transcribe(["file.wav"])`;
 		default:
