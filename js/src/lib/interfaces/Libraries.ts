@@ -219,12 +219,9 @@ model = joblib.load(
 )`;
 
 const fastai = (model: ModelData) =>
-	`from huggingface_hub import hf_hub_download
-from fastai.learner import load_learner
+	`from huggingface_hub import from_pretrained_fastai
 
-model = load_learner(
-    hf_hub_download("${model.id}", "model.pkl")
-)`;
+learn = from_pretrained_fastai("${model.id}")`;
 
 const sentenceTransformers = (model: ModelData) =>
 	`from sentence_transformers import SentenceTransformer
