@@ -465,7 +465,6 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 			},
 		],
 		color:        "blue",
-		hideInModels: true,
 	},
 	"tabular-to-text": {
 		name:     "Tabular to Text",
