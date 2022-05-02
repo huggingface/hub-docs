@@ -110,6 +110,10 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Multi Label Classification",
 			},
 			{
+				type: "multi-input-text-classification",
+				name: "Multi-input Text Classification",
+			},
+			{
 				type: "natural-language-inference",
 				name: "Natural Language Inference",
 			},
