@@ -131,6 +131,10 @@
 		output = "";
 		outputJson = "";
 	}
+
+	function updateModelLoading(isLoading: boolean, estimatedTime: number = 0) {
+		modelLoading = { isLoading, estimatedTime };
+	}
 </script>
 
 <WidgetWrapper
@@ -163,6 +167,7 @@
 						classNames="mt-1.5"
 						{apiToken}
 						{model}
+						{updateModelLoading}
 						onError={onRecordError}
 					/>
 				{/if}

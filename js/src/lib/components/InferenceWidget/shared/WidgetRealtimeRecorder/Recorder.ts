@@ -6,17 +6,19 @@ export default class Recorder {
 	private isLoggedIn = false;
 	private modelId: string;
 	private onError: (err: string) => void;
+	private updateModelLoading: (isLoading: boolean, estimatedTime?: number) => void;
 	private renderText: (txt: string) => void;
 	private renderWarning: (warning: string) => void;
 	private socket: WebSocket;
 	private stream: MediaStream;
 
-	constructor(modelId: string, apiToken: string | undefined, renderText: (txt: string) => void, renderWarning: (warning: string) => void, onError: (err: string) => void){
+	constructor(modelId: string, apiToken: string | undefined, renderText: (txt: string) => void, renderWarning: (warning: string) => void, onError: (err: string) => void, updateModelLoading: (isLoading: boolean, estimatedTime?: number) => void){
 		this.modelId = modelId;
 		this.apiToken = !!apiToken ? apiToken : "";
 		this.renderText = renderText;
 		this.renderWarning = renderWarning;
 		this.onError = onError;
+		this.updateModelLoading = updateModelLoading;
 	}
 
 	async start() {
@@ -40,6 +42,9 @@ export default class Recorder {
 			const data = JSON.parse(e.data);
 			if(data.type === "status" && data.message === "Successful login"){
 				this.isLoggedIn = true;
+			}
+			else if(data.type === "status" && !!data.estimated_time){
+				this.updateModelLoading(true, data.estimated_time);
 			}else{
 				if(!!data.text){
 					this.renderText(data.text)

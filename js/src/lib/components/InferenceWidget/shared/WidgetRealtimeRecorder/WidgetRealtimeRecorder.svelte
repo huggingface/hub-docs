@@ -8,6 +8,10 @@
 	export let apiToken: WidgetProps["apiUrl"];
 	export let classNames = "";
 	export let model: WidgetProps["model"];
+	export let updateModelLoading: (
+		isLoading: boolean,
+		estimatedTime?: number
+	) => void;
 	export let onError: (err: string) => void = () => null;
 
 	let isRecording = false;
@@ -47,10 +51,12 @@
 		warning = "";
 		txt = _txt;
 		onError("");
+		updateModelLoading(false);
 	}
 
 	function renderWarning(_warning: string) {
 		warning = _warning;
+		updateModelLoading(false);
 	}
 
 	onMount(() => {
@@ -59,7 +65,8 @@
 			apiToken,
 			renderText,
 			renderWarning,
-			onError
+			onError,
+			updateModelLoading
 		);
 	});
 
