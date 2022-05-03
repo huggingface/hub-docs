@@ -12,6 +12,8 @@
 		isLoading: boolean,
 		estimatedTime?: number
 	) => void;
+	export let onRecordStart: () => void = () => null;
+	export let onRecordStop: () => void = () => null;
 	export let onError: (err: string) => void = () => null;
 
 	let isRecording = false;
@@ -23,13 +25,16 @@
 		try {
 			isRecording = !isRecording;
 			if (isRecording) {
+				onRecordStart();
 				await recorder.start();
 			} else {
+				onRecordStop();
 				txt = "";
 				recorder.stop();
 			}
 		} catch (e) {
 			isRecording = false;
+			onRecordStop();
 			switch (e.name) {
 				case "NotAllowedError": {
 					onError("Please allow access to your microphone");

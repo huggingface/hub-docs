@@ -42,6 +42,10 @@
 		error = err;
 	}
 
+	function onRealtimeRecordStop() {
+		isRecording = false;
+	}
+
 	function onSelectFile(updatedFile: Blob | File) {
 		isRecording = false;
 		selectedSampleUrl = "";
@@ -168,6 +172,8 @@
 						{apiToken}
 						{model}
 						{updateModelLoading}
+						{onRecordStart}
+						onRecordStop={onRealtimeRecordStop}
 						onError={onRecordError}
 					/>
 				{/if}
