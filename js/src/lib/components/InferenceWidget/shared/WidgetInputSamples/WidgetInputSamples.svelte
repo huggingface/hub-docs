@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onDestroy } from "svelte";
 	import { slide } from "svelte/transition";
 
 	export let isLoading = false;
@@ -10,13 +9,6 @@
 	let containerEl: HTMLElement;
 	let isOptionsVisible = false;
 	let title = "Examples";
-	let timeoutMobile: any;
-
-	onDestroy(() => {
-		if (timeoutMobile) {
-			clearTimeout(timeoutMobile);
-		}
-	});
 
 	function _applyInputSample(idx: number) {
 		hideOptions();
@@ -29,12 +21,7 @@
 		const sample = inputSamples[idx];
 		previewInputSample(sample);
 		if (isTouch) {
-			if (timeoutMobile) {
-				clearTimeout(timeoutMobile);
-			}
-			timeoutMobile = setTimeout(() => {
-				_applyInputSample(idx);
-			}, 2000);
+			_applyInputSample(idx);
 		}
 	}
 
