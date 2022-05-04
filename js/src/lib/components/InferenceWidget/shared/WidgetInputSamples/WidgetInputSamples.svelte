@@ -8,8 +8,6 @@
 
 	let containerEl: HTMLElement;
 	let isOptionsVisible = false;
-	let isTouchOptionClicked = false;
-	let touchSelectedIdx: number;
 	let title = "Examples";
 
 	function _applyInputSample(idx: number) {
@@ -19,13 +17,12 @@
 		applyInputSample(sample);
 	}
 
-	function _previewInputSample(idx: number, isTocuh = false) {
+	function _previewInputSample(idx: number, isTouch = false) {
 		const sample = inputSamples[idx];
-		if (isTocuh) {
-			isTouchOptionClicked = true;
-			touchSelectedIdx = idx;
-		}
 		previewInputSample(sample);
+		if (isTouch) {
+			_applyInputSample(idx);
+		}
 	}
 
 	function toggleOptionsVisibility() {
@@ -47,7 +44,6 @@
 
 	function hideOptions() {
 		isOptionsVisible = false;
-		isTouchOptionClicked = false;
 	}
 </script>
 
@@ -79,36 +75,26 @@
 			/>
 		</svg>
 	</div>
-	{#if !isTouchOptionClicked}
-		<div
-			class="with-hover:hidden inline-flex justify-between w-32 lg:w-44 rounded-md border border-gray-100 px-4 py-1"
-			on:click={toggleOptionsVisibility}
+	<div
+		class="with-hover:hidden inline-flex justify-between w-32 lg:w-44 rounded-md border border-gray-100 px-4 py-1"
+		on:click={toggleOptionsVisibility}
+	>
+		<div class="text-sm truncate">{title}</div>
+		<svg
+			class="-mr-1 ml-2 h-5 w-5 transition ease-in-out transform {isOptionsVisible &&
+				'-rotate-180'}"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 20 20"
+			fill="currentColor"
+			aria-hidden="true"
 		>
-			<div class="text-sm truncate">{title}</div>
-			<svg
-				class="-mr-1 ml-2 h-5 w-5 transition ease-in-out transform {isOptionsVisible &&
-					'-rotate-180'}"
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 20 20"
-				fill="currentColor"
-				aria-hidden="true"
-			>
-				<path
-					fill-rule="evenodd"
-					d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-					clip-rule="evenodd"
-				/>
-			</svg>
-		</div>
-	{:else}
-		<!-- Better UX for mobile/table through CSS breakpoints -->
-		<div
-			class="with-hover:hidden inline-flex justify-center w-32 lg:w-44 rounded-md border border-green-500 px-4 py-1"
-			on:click={() => _applyInputSample(touchSelectedIdx)}
-		>
-			<div class="text-green-500">Compute</div>
-		</div>
-	{/if}
+			<path
+				fill-rule="evenodd"
+				d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+				clip-rule="evenodd"
+			/>
+		</svg>
+	</div>
 
 	{#if isOptionsVisible}
 		<div
