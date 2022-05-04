@@ -46,6 +46,7 @@
 	let outputJson: string;
 	let table: (string | number)[][] = [[]];
 	let query = "";
+	let isAnswerOnlyOutput = false;
 
 	let highlighted: HighlightCoordinates = {};
 	$: highlighted =
@@ -141,17 +142,23 @@
 			arg &&
 			typeof arg === "object" &&
 			typeof arg["answer"] === "string" &&
-			Array.isArray(arg["coordinates"]) &&
-			Array.isArray(arg["cells"])
+			(arg["aggregator"] === undefined
+				? true
+				: typeof arg["aggregator"] === "string") &&
+			(Array.isArray(arg["coordinates"]) || isAnswerOnlyOutput) &&
+			(Array.isArray(arg["cells"]) || isAnswerOnlyOutput)
 		);
 	}
 
 	function parseOutput(body: unknown): Output {
+		if (body["coordinates"] === undefined && body["cells"] === undefined) {
+			isAnswerOnlyOutput = true;
+		}
 		if (isValidOutput(body)) {
 			return body;
 		}
 		throw new TypeError(
-			"Invalid output: output must be of type <answer:string; coordinates:Array; cells:Array>"
+			"Invalid output: output must be of type <answer:string; coordinates?:Array; cells?:Array; aggregator?:string>"
 		);
 	}
 
@@ -191,7 +198,7 @@
 		</form>
 		<div class="mt-4">
 			{#if output}
-				<WidgetOutputTableQA {output} />
+				<WidgetOutputTableQA {output} {isAnswerOnlyOutput} />
 			{/if}
 			{#if table.length > 1 || table[0].length > 1}
 				<WidgetTableInput {highlighted} onChange={onChangeTable} {table} />

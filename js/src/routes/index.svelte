@@ -119,6 +119,25 @@
 			],
 		},
 		{
+			id: "microsoft/tapex-base-finetuned-wtq",
+			pipeline_tag: "table-question-answering",
+			widgetData: [
+				{
+					text: "How many stars does the transformers repository have?",
+					table: {
+						Repository: ["Transformers", "Datasets", "Tokenizers"],
+						Stars: [36542, 4512, 3934],
+						Contributors: [651, 77, 34],
+						"Programming language": [
+							"Python",
+							"Python",
+							"Rust, Python and NodeJS",
+						],
+					},
+				},
+			],
+		},
+		{
 			id: "julien-c/wine-quality",
 			pipeline_tag: "tabular-classification",
 			widgetData: [
