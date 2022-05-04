@@ -13,8 +13,8 @@
 </script>
 
 <div
-	class="col-span-12 overflow-x-auto px-3 h-10 border border-b-0 flex items-center bg-gradient-to-r to-white dark:to-gray-950 rounded-t-lg {output
-		?.cells.length || isAnswerOnlyOutput
+	class="col-span-12 overflow-x-auto px-3 h-10 border border-b-0 flex items-center bg-gradient-to-r to-white dark:to-gray-950 rounded-t-lg {!!output
+		?.cells?.length || isAnswerOnlyOutput
 		? 'border-green-50 from-green-50 via-green dark:border-green-800 dark:from-green-800'
 		: 'border-red-50 from-red-50 via-red dark:border-red-800 dark:from-red-800'}"
 	in:fly
