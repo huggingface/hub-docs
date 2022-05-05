@@ -129,6 +129,16 @@ Tasks supported by the Inference Toolkit API include:
 - **`translation_xx_to_yy`**
 - **`text2text-generation`**
 - **`text-generation`**
+- **`audio-classificatin`**
+- **`automatic-speech-recognition`**
+- **`conversational`**
+- **`image-classification`**
+- **`image-segmentation`**
+- **`object-detection`**
+- **`table-question-answering`**
+- **`zero-shot-classification`**
+- **`zero-shot-image-classification`**
+
 
 See the following request examples for some of the tasks:
 
