@@ -30,11 +30,13 @@
 			} else {
 				onRecordStop();
 				txt = "";
+				updateModelLoading(false);
 				recorder.stop();
 			}
 		} catch (e) {
 			isRecording = false;
 			onRecordStop();
+			updateModelLoading(false);
 			switch (e.name) {
 				case "NotAllowedError": {
 					onError("Please allow access to your microphone");
@@ -95,7 +97,7 @@
 
 {#if isRecording}
 	<div
-		class="relative top-0 left-0 inline-flex w-full mb-2 mt-4 items-center justify-center {!!warning &&
+		class="relative top-0 left-0 inline-flex w-full my-2 items-center justify-center {!!warning &&
 			'animate-pulse'}"
 	>
 		{#if warning}

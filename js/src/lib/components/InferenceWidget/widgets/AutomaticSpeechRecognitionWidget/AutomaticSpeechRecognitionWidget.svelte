@@ -22,6 +22,7 @@
 	let fileUrl: string;
 	let isLoading = false;
 	let isRecording = false;
+	let isRealtimeRecording = false;
 	let modelLoading = {
 		isLoading: false,
 		estimatedTime: 0,
@@ -40,10 +41,6 @@
 
 	function onRecordError(err: string) {
 		error = err;
-	}
-
-	function onRealtimeRecordStop() {
-		isRecording = false;
 	}
 
 	function onSelectFile(updatedFile: Blob | File) {
@@ -156,41 +153,51 @@
 	<svelte:fragment slot="top">
 		<form>
 			<div class="flex items-center flex-wrap">
-				<WidgetFileInput accept="audio/*" classNames="mt-1.5" {onSelectFile} />
-				<span class="mt-1.5 mx-2">or</span>
-				<WidgetRecorder
-					classNames="mt-1.5"
-					{onRecordStart}
-					onRecordStop={onSelectFile}
-					onError={onRecordError}
-				/>
+				{#if !isRealtimeRecording}
+					<WidgetFileInput
+						accept="audio/*"
+						classNames="mt-1.5"
+						{onSelectFile}
+					/>
+					<span class="mt-1.5 mx-2">or</span>
+					<WidgetRecorder
+						classNames="mt-1.5"
+						{onRecordStart}
+						onRecordStop={onSelectFile}
+						onError={onRecordError}
+					/>
+				{/if}
 				<!-- TODO: rm `true` from line below (for debug reasons it was added) -->
 				{#if model?.cardData?.widget_realtime_asr || true}
-					<span class="mt-1.5 mx-2">or</span>
+					{#if !isRealtimeRecording}
+						<span class="mt-1.5 mx-2">or</span>
+					{/if}
 					<WidgetRealtimeRecorder
 						classNames="mt-1.5"
 						{apiToken}
 						{model}
 						{updateModelLoading}
-						{onRecordStart}
-						onRecordStop={onRealtimeRecordStop}
+						onRecordStart={() => (isRealtimeRecording = true)}
+						onRecordStop={() => (isRealtimeRecording = false)}
 						onError={onRecordError}
 					/>
 				{/if}
 			</div>
-			{#if fileUrl}
-				<WidgetAudioTrack classNames="mt-3" label={filename} src={fileUrl} />
-			{/if}
-			<WidgetSubmitBtn
-				classNames="mt-2"
-				isDisabled={isRecording}
-				{isLoading}
-				onClick={() => {
-					getOutput();
-				}}
-			/>
-			{#if warning}
-				<div class="alert alert-warning mt-2">{warning}</div>
+			{#if !isRealtimeRecording}
+				{#if fileUrl}
+					<WidgetAudioTrack classNames="mt-3" label={filename} src={fileUrl} />
+				{/if}
+				<WidgetSubmitBtn
+					classNames="mt-2"
+					isDisabled={isRecording}
+					{isLoading}
+					onClick={() => {
+						getOutput();
+					}}
+				/>
+				{#if warning}
+					<div class="alert alert-warning mt-2">{warning}</div>
+				{/if}
 			{/if}
 		</form>
 	</svelte:fragment>
