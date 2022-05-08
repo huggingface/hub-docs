@@ -24,6 +24,7 @@ export enum ModelLibrary {
 	"stanza"                 = "Stanza",
 	"fasttext"               = "fastText",
 	"stable-baselines3"      = "Stable-Baselines3",
+	"npc-engine"             = "NPC Engine"
 }
 
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as (keyof typeof ModelLibrary)[];
@@ -339,6 +340,14 @@ const nemo = (model: ModelData) => {
 	return command ?? `# tag did not correspond to a valid NeMo domain.`;
 };
 
+const npc_engine = (model: ModelData) =>
+	`#!/bin/bash
+npc-engine download-model --models-path models "${model.id}"
+npc-engine run --models-path models --port 5555 --http --start-all
+# This will start an HTTP server that will serve inference API for "${model.id}"
+`;
+
+
 //#endregion
 
 
@@ -458,6 +467,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "stable-baselines3",
 		repoUrl:  "https://github.com/huggingface/huggingface_sb3",
 		snippet:  stableBaselines3,
+	},
+	"npc-engine": {
+		btnLabel: "NPC Engine",
+		repoName: "npc-engine",
+		repoUrl:  "https://github.com/npc-engine/npc-engine",
+		snippet:  npc_engine,
 	},
 } as const;
 
