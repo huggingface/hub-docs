@@ -167,21 +167,18 @@
 						onError={onRecordError}
 					/>
 				{/if}
-				<!-- TODO: rm `true` from line below (for debug reasons it was added) -->
-				{#if model?.cardData?.widget_realtime_asr || true}
-					{#if !isRealtimeRecording}
-						<span class="mt-1.5 mx-2">or</span>
-					{/if}
-					<WidgetRealtimeRecorder
-						classNames="mt-1.5"
-						{apiToken}
-						{model}
-						{updateModelLoading}
-						onRecordStart={() => (isRealtimeRecording = true)}
-						onRecordStop={() => (isRealtimeRecording = false)}
-						onError={onRecordError}
-					/>
+				{#if !isRealtimeRecording}
+					<span class="mt-1.5 mx-2">or</span>
 				{/if}
+				<WidgetRealtimeRecorder
+					classNames="mt-1.5"
+					{apiToken}
+					{model}
+					{updateModelLoading}
+					onRecordStart={() => (isRealtimeRecording = true)}
+					onRecordStop={() => (isRealtimeRecording = false)}
+					onError={onRecordError}
+				/>
 			</div>
 			{#if !isRealtimeRecording}
 				{#if fileUrl}
