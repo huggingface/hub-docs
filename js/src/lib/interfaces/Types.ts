@@ -672,7 +672,6 @@ export interface ModelData {
 		inference?: boolean | {
 			parameters?: Record<string, any>;
 		};
-		widget_realtime_asr?: boolean;
 	};
 }
 
