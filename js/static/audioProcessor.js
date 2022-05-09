@@ -1,3 +1,4 @@
+// for js/src/lib/components/InferenceWidget/shared/WidgetRealtimeRecorder/Recorder.ts
 class AudioDataExtractor extends AudioWorkletProcessor {
     _updateIntervalInMS;
     _sampleInFrames;
