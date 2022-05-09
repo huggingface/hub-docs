@@ -4,6 +4,7 @@ export default class Recorder {
 	private apiToken: string | undefined;
 	private audioContext: AudioContext;
 	private isLoggedIn = false;
+	private isModelLoaded = false;
 	private modelId: string;
 	private onError: (err: string) => void;
 	private updateModelLoading: (isLoading: boolean, estimatedTime?: number) => void;
@@ -43,9 +44,11 @@ export default class Recorder {
 			if(data.type === "status" && data.message === "Successful login"){
 				this.isLoggedIn = true;
 			}
-			else if(data.type === "status" && !!data.estimated_time){
+			else if(data.type === "status" && !!data.estimated_time && !this.isModelLoaded){
 				this.updateModelLoading(true, data.estimated_time);
 			}else{
+				// data.type === "results"
+				this.isModelLoaded = true;
 				if(!!data.text){
 					this.renderText(data.text)
 				}else{
@@ -62,7 +65,7 @@ export default class Recorder {
 
 		dataExtractor.port.onmessage = (event) => {
 			const {buffer, sampling_rate} = event.data;
-			if(buffer.reduce((sum: number, x: number) => sum + x) === 0){
+			if(this.isModelLoaded && buffer.reduce((sum: number, x: number) => sum + x) === 0){
 				this.renderWarning("🎤 input is empty: try speaking louder 🗣️ & make sure correct mic source is selected");
 			}else{
 				const base64: string = btoa(String.fromCharCode(...new Uint8Array(buffer.buffer)));
