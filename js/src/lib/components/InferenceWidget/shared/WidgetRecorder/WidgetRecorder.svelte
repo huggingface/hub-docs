@@ -35,7 +35,7 @@
 			isRecording = false;
 			switch (e.name) {
 				case "NotAllowedError": {
-					onError("Please allow access to your microphone");
+					onError("Please allow access to your microphone & refresh the page");
 					break;
 				}
 				case "NotFoundError": {
