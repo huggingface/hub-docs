@@ -63,6 +63,7 @@
 
 	function renderWarning(_warning: string) {
 		warning = _warning;
+		onError("");
 		updateModelLoading(false);
 	}
 
