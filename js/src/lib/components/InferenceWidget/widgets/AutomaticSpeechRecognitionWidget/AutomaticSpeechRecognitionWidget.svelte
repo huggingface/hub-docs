@@ -5,6 +5,7 @@
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetRecorder from "../../shared/WidgetRecorder/WidgetRecorder.svelte";
+	import WidgetRealtimeRecorder from "../../shared/WidgetRealtimeRecorder/WidgetRealtimeRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { getResponse, getBlobFromUrl } from "../../shared/helpers";
@@ -22,6 +23,7 @@
 	let fileUrl: string;
 	let isLoading = false;
 	let isRecording = false;
+	let isRealtimeRecording = false;
 	let modelLoading = {
 		isLoading: false,
 		estimatedTime: 0,
@@ -132,6 +134,10 @@
 		output = "";
 		outputJson = "";
 	}
+
+	function updateModelLoading(isLoading: boolean, estimatedTime: number = 0) {
+		modelLoading = { isLoading, estimatedTime };
+	}
 </script>
 
 <WidgetWrapper
@@ -149,32 +155,48 @@
 	<svelte:fragment slot="top">
 		<form>
 			<div class="flex items-center flex-wrap">
-				<WidgetFileInput
-					accept="audio/*"
-					classNames="mt-1.5 mr-2"
-					{onSelectFile}
-				/>
-				<span class="mt-1.5 mr-2">or</span>
-				<WidgetRecorder
+				{#if !isRealtimeRecording}
+					<WidgetFileInput
+						accept="audio/*"
+						classNames="mt-1.5"
+						{onSelectFile}
+					/>
+					<span class="mt-1.5 mx-2">or</span>
+					<WidgetRecorder
+						classNames="mt-1.5"
+						{onRecordStart}
+						onRecordStop={onSelectFile}
+						onError={onRecordError}
+					/>
+				{/if}
+				{#if !isRealtimeRecording}
+					<span class="mt-1.5 mx-2">or</span>
+				{/if}
+				<WidgetRealtimeRecorder
 					classNames="mt-1.5"
-					{onRecordStart}
-					onRecordStop={onSelectFile}
+					{apiToken}
+					{model}
+					{updateModelLoading}
+					onRecordStart={() => (isRealtimeRecording = true)}
+					onRecordStop={() => (isRealtimeRecording = false)}
 					onError={onRecordError}
 				/>
 			</div>
-			{#if fileUrl}
-				<WidgetAudioTrack classNames="mt-3" label={filename} src={fileUrl} />
-			{/if}
-			<WidgetSubmitBtn
-				classNames="mt-2"
-				isDisabled={isRecording}
-				{isLoading}
-				onClick={() => {
-					getOutput();
-				}}
-			/>
-			{#if warning}
-				<div class="alert alert-warning mt-2">{warning}</div>
+			{#if !isRealtimeRecording}
+				{#if fileUrl}
+					<WidgetAudioTrack classNames="mt-3" label={filename} src={fileUrl} />
+				{/if}
+				<WidgetSubmitBtn
+					classNames="mt-2"
+					isDisabled={isRecording}
+					{isLoading}
+					onClick={() => {
+						getOutput();
+					}}
+				/>
+				{#if warning}
+					<div class="alert alert-warning mt-2">{warning}</div>
+				{/if}
 			{/if}
 		</form>
 	</svelte:fragment>

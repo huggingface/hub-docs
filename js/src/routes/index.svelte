@@ -201,6 +201,26 @@
 			],
 		},
 		{
+			id: "facebook/wav2vec2-large-xlsr-53-french",
+			pipeline_tag: "automatic-speech-recognition",
+			widgetData: [
+				{
+					label: "Librispeech sample 1",
+					src: "https://cdn-media.huggingface.co/speech_samples/sample1.flac",
+				},
+			],
+		},
+		{
+			id: "manandey/wav2vec2-large-xlsr-mongolian",
+			pipeline_tag: "automatic-speech-recognition",
+			widgetData: [
+				{
+					label: "Librispeech sample 1",
+					src: "https://cdn-media.huggingface.co/speech_samples/sample1.flac",
+				},
+			],
+		},
+		{
 			id: "osanseviero/full-sentence-distillroberta2",
 			pipeline_tag: "sentence-similarity",
 			widgetData: [
