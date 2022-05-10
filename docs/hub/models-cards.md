@@ -6,11 +6,11 @@ title: Model Cards
 
 ## What are Model Cards?
 
-Model cards are markdown files that accompany the models and provide handy information. They are essential for discoverability, reproducibility, and sharing! They are the `README.md` file in any model repo.
+Model cards are Markdown files that accompany the models and provide handy information. They are essential for discoverability, reproducibility, and sharing! You can find a model card as the `README.md` file in any model repo.
 
 The model card should describe:
 - the model
-- its intended uses & potential limitations, including bias and ethical considerations as detailed in [Mitchell, 2018](https://arxiv.org/abs/1810.03993)
+- its intended uses & potential limitations, including biases and ethical considerations as detailed in [Mitchell, 2018](https://arxiv.org/abs/1810.03993)
 - the training params and experimental info (you can embed or link to an experiment tracking platform for reference)
 - which datasets were used to train your model
 - your evaluation results
@@ -70,7 +70,7 @@ If a model includes valid eval results, they will be displayed like this:
 ![/docs/assets/hub/eval-results.jpg](/docs/assets/hub/eval-results.jpg)
 
 ### CO<sub>2</sub> Emissions
-The model card is also a great place to store information about the CO<sub>2</sub> impact of your model. Visit our [guide on tracking and reporting CO<sub>2</sub> emissions](./models-cards-co2) to learn more.
+The model card is also a great place to show information about the CO<sub>2</sub> impact of your model. Visit our [guide on tracking and reporting CO<sub>2</sub> emissions](./models-cards-co2) to learn more.
 
 ## FAQ
 
@@ -100,7 +100,7 @@ datasets:
 
 ### Can I write LaTeX in my model card?
 
-Yes! We use the [KaTeX](https://katex.org/) math typesetting library to render math formulas server-side before parsing the markdown.
+Yes! We use the [KaTeX](https://katex.org/) math typesetting library to render math formulas server-side before parsing the Markdown.
 
 You have to use the following delimiters:
 - `$$ ... $$` for display mode

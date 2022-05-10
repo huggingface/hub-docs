@@ -6,7 +6,7 @@ title: The Model Hub
 
 ## What is the Model Hub?
 
-The Model Hub is where the members of the Hugging Face community can host all of their model checkpoints for simple storage, discovery, and sharing. Pre-trained models are available to be downloaded using the [`huggingface_hub` client library](https://huggingface.co/docs/huggingface_hub/index) or with [`🤗 transformers`](https://huggingface.co/docs/transformers/index) for fine-tuning and other usages. You can even leverage the [Inference API](./models-inference) to use models in production.
+The Model Hub is where the members of the Hugging Face community can host all of their model checkpoints for simple storage, discovery, and sharing. Download pre-trained models with the [`huggingface_hub` client library](https://huggingface.co/docs/huggingface_hub/index) or with 🤗  [`Transformers`](https://huggingface.co/docs/transformers/index) for fine-tuning and other usages. You can even leverage the [Inference API](./models-inference) to use models in production.
 
 You can refer to the following video for a guide on navigating the Model Hub:
 

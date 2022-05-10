@@ -17,7 +17,7 @@ For detailed information on accessing the model, you can click on the "Use in Tr
 
 ![Models can be used locally through the "Use in Transformer" button](../assets/hub/models-usage.png)
 
-If the model is compatible with `🤗 transformers`, you'll even receive snippets to help you get started.
+If the model is compatible with 🤗  Transformers, you'll even receive snippets to help you get started.
 
 ![Snippets for using a model with the 🤗 transformers library](../assets/hub/models-usage-modal.png)
 

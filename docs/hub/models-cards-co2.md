@@ -15,7 +15,7 @@ If you can, you should include information about:
 - where the model was trained (in terms of location)
 - the hardware used -- e.g. GPU, TPU, or CPU, and how many
 - training type: pre-training or fine-tuning
-- the estimated carbon footprint of the model, calculated in real-time with the [Code Carbon](https://github.com/mlco2/codecarbon) package or after the fact using the [ML CO2 Calculator](https://mlco2.github.io/impact/).
+- the estimated carbon footprint of the model, calculated in real-time with the [Code Carbon](https://github.com/mlco2/codecarbon) package or after training using the [ML CO2 Calculator](https://mlco2.github.io/impact/).
 
 ## Carbon footprint metadata
 
