@@ -39,6 +39,8 @@ export default class Recorder {
 			this.socket.send(`Bearer ${this.apiToken}`);
 		}
 
+		this.updateModelLoading(true);
+
 		this.socket.onmessage = (e: MessageEvent) => {
 			const data = JSON.parse(e.data);
 			if(data.type === "status" && data.message === "Successful login"){
