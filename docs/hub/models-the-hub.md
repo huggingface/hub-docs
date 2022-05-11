@@ -14,7 +14,7 @@ You can refer to the following video for a guide on navigating the Model Hub:
 
 ## Libraries
 
-The Hub supports many libraries, and we're working on expanding this support! We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
+Integrating the `huggingface_hub` library into your projects allows users to interact with the Hub directly from your library. The Hub supports many libraries, and we're working on expanding this support! We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
 
 The table below summarizes the supported libraries and their level of integration. Find all our supported libraries [here](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Libraries.ts)! 
 

@@ -20,11 +20,11 @@ You can try out all the widgets [here](https://huggingface-widgets.netlify.app/)
 
 A widget is automatically created for your model when you upload it to the Hub. To determine which pipeline and widget to display (`text-classification`, `token-classification`, `translation`, etc.), we analyze information in the repo, such as the metadata provided in the model card and configuration files. This information is mapped to a single `pipeline_tag`. We choose to expose **only one** widget per model for simplicity.
 
-For most use cases, we determine the model type from the tags. For example, if there is `tag: text-classification` in the metadata, the inferred `pipeline_tag` will be `text-classification`.
+For most use cases, we determine the model type from the tags. For example, if there is `tag: text-classification` in the [model card metadata](./models-cards), the inferred `pipeline_tag` will be `text-classification`.
 
 However, for 🤗  Transformers, the model type is determined automatically from `config.json`. The architecture can determine the type: for example, `AutoModelForTokenClassification` corresponds to `token-classification`. If you're interested in this, you can see pseudo-code in [this gist](https://gist.github.com/julien-c/857ba86a6c6a895ecd90e7f7cab48046).
 
-You can always manually override your pipeline type with `pipeline_tag: xxx` in your model card metadata.
+You can always manually override your pipeline type with `pipeline_tag: xxx` in your [model card metadata](./models-cards).
 
 ### How can I control my model's widget example input?
 

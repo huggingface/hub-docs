@@ -39,12 +39,21 @@ metrics:
 ---
 ```
 
-You can find the detailed specification [here](https://github.com/huggingface/hub-docs/blame/main/modelcard.md).
+You can also specify the supported frameworks in the model card metadata section:
 
-These are some useful things to know about the metadata in model cards:
-* You can filter the list of models on https://huggingface.co/models with tags.
-* License identifiers are the keywords listed in the right column of [this table](#list-of-license-identifiers).
-* Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages and in the [`datasets`](https://github.com/huggingface/datasets) repository.
+```yaml
+tags:
+- flair
+```
+
+Find more about our supported libraries [here](./models-the-hub#libraries), and see the detailed model card specification [here](https://github.com/huggingface/hub-docs/blame/main/modelcard.md).
+
+The metadata that you add to the model card enables certain interactions on the Hub. For example:
+* The tags that you add to the metadata allow users to filter and discover models at https://huggingface.co/models.
+* If you choose a license using the keywords listed in the right column of [this table](#list-of-license-identifiers), the license will be displayed on the model page.
+* Adding datasets to the metadata will add a message reading `Datasets used to train:` to your model card and link the relevant datasets, if they're available on the Hub.
+
+Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages and in the [`datasets`](https://github.com/huggingface/datasets) repository.
 
 You can even specify your **model's eval results** in a structured way, which will allow the Hub to parse, display, and even link them to Papers With Code leaderboards. See how to format this data [in the metadata spec](https://github.com/huggingface/hub-docs/blame/main/modelcard.md).
 
@@ -77,26 +86,6 @@ The model card is also a great place to show information about the CO<sub>2</sub
 ### How are model tags determined?
 
 Each model page lists all the model's tags in the page header, below the model name. These are primarily computed from the model card metadata, although some are added automatically, as described in [How is a model's type of inference API and widget determined?](./models-widgets).
-
-### Can I specify which framework supports my model?
-
-Yes!🔥 You can specify the framework in the model card metadata section:
-
-```yaml
-tags:
-- flair
-```
-
-Find more about our supported libraries [here](./models-the-hub#libraries)!
-
-### How can I link a model to a dataset?
-
-You can specify the dataset in the metadata:
-
-```yaml
-datasets:
-- wmt19
-```
 
 ### Can I write LaTeX in my model card?
 
