@@ -5,6 +5,7 @@ export default class Recorder {
 	private audioContext: AudioContext;
 	private isLoggedIn = false;
 	private isModelLoaded = false;
+	private isEmptyBuffer = false;
 	private modelId: string;
 	private onError: (err: string) => void;
 	private updateModelLoading: (isLoading: boolean, estimatedTime?: number) => void;
@@ -53,7 +54,7 @@ export default class Recorder {
 				this.isModelLoaded = true;
 				if(!!data.text){
 					this.renderText(data.text)
-				}else{
+				}else if(!this.isEmptyBuffer){
 					this.renderWarning("result was empty");
 				}
 			}
@@ -67,20 +68,20 @@ export default class Recorder {
 
 		dataExtractor.port.onmessage = (event) => {
 			const {buffer, sampling_rate} = event.data;
-			if(this.isModelLoaded && buffer.reduce((sum: number, x: number) => sum + x) === 0){
+			this.isEmptyBuffer = buffer.reduce((sum: number, x: number) => sum + x) === 0;
+			if(this.isModelLoaded && this.isEmptyBuffer){
 				this.renderWarning("🎤 input is empty: try speaking louder 🗣️ & make sure correct mic source is selected");
-			}else{
-				const base64: string = btoa(String.fromCharCode(...new Uint8Array(buffer.buffer)));
-				const message = {
-					raw: base64,
-					sampling_rate,
-				};
-				if(this.isLoggedIn){
-					try{
-						this.socket.send(JSON.stringify(message));
-					}catch(e){
-						this.onError(`Error sending data to websocket: ${e}`);
-					}
+			}
+			const base64: string = btoa(String.fromCharCode(...new Uint8Array(buffer.buffer)));
+			const message = {
+				raw: base64,
+				sampling_rate,
+			};
+			if(this.isLoggedIn){
+				try{
+					this.socket.send(JSON.stringify(message));
+				}catch(e){
+					this.onError(`Error sending data to websocket: ${e}`);
 				}
 			}
 		};
