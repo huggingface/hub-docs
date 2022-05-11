@@ -1,13 +1,10 @@
-<<<<<<< HEAD
-=======
 ---
 title: Integrate a library with the Hub
 ---
 
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 # Integrate your library with the Hub
 
-The Hugging Face Hub aims to facilitate sharing machine learning models, checkpoints, and artifacts. This endeavor includes integrating the Hub into many of the amazing third-party libraries in the community. Some of the ones already integrated include [spaCy](https://spacy.io/usage/projects#huggingface_hub), [AllenNLP](https://allennlp.org/), and [timm](https://rwightman.github.io/pytorch-image-models/), among many others. Integration means users can download and upload files to the Hub directly from your library. We hope you will integrate your library and join us in democratizing artificial intelligence for everyone!
+The Hugging Face Hub aims to facilitate the sharing of machine learning models, checkpoints, and artifacts. This endeavor includes integrating the Hub into many of the amazing third-party libraries in the community. Some of the ones already integrated include [spaCy](https://spacy.io/usage/projects#huggingface_hub), [AllenNLP](https://allennlp.org/), and [timm](https://rwightman.github.io/pytorch-image-models/), among many others. Integration means users can download and upload files to the Hub directly from your library. We hope you will integrate your library and join us in democratizing artificial intelligence for everyone!
 
 Integrating the Hub with your library provides many benefits, including:
 
@@ -20,7 +17,7 @@ This tutorial will help you integrate the Hub into your library so your users ca
 
 Before you begin, we recommend you create a [Hugging Face account](https://huggingface.co/join) from which you can manage your repositories and files. 
 
-If you need help with the integration, feel free to open an [issue](https://github.com/huggingface/huggingface_hub/issues/new/choose), and we would be more than happy to help you!
+If you need help with the integration at any point, feel free to open an [issue](https://github.com/huggingface/huggingface_hub/issues/new/choose), and we would be more than happy to help you!
 
 ## Installation
 
@@ -61,7 +58,7 @@ If you need help with the integration, feel free to open an [issue](https://gith
 
 Integration allows users to download your hosted files directly from the Hub using your library. 
 
-Use the `hf_hub_download` function to retrieve a URL and download files from your repository. Downloaded files are stored in your cache: `~/.cache/huggingface/hub`. You don't have to re-download the file the next time you use it, and for larger files, this can save a lot of time. Furthermore, if the repository is updated with a new version of the file, `huggingface_hub` will automatically download the latest version and store it in the cache for you. Users don't have to worry about updating their files.
+Use the `hf_hub_download` function to retrieve a URL and download files from your repository. Downloaded files are stored in your cache: `~/.cache/huggingface/hub`. You don't have to redownload the file the next time you use it, and for larger files, this can save a lot of time. Furthermore, if the repository is updated with a new version of the file, `huggingface_hub` will automatically download the latest version and store it in the cache for you. Users don't have to worry about updating their files.
 
 For example, download the `config.json` file from the [lysandre/arxiv-nlp](https://huggingface.co/lysandre/arxiv-nlp) repository:
 
@@ -88,13 +85,9 @@ Use the `cache_dir` parameter to change where a file is stored:
 
 ### Code sample
 
-We recommend adding a code snippet to explain how to use a model in your downstream library. 
+We recommend adding a code snippet to explain how a model should be used in your downstream library. 
 
-<<<<<<< HEAD
-![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet.png)
-=======
 ![/docs/assets/hub/code_snippet.png](/docs/assets/hub/code_snippet.png)
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 
 Add a code snippet by updating the [Libraries Typescript file](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Libraries.ts) with instructions for your model. For example, the [Asteroid](https://huggingface.co/asteroid-team) integration includes a brief code snippet for how to load and use an Asteroid model:
 
@@ -105,17 +98,13 @@ const asteroid = (model: ModelData) =>
 model = BaseModel.from_pretrained("${model.id}")`;
 ```
 
-Doing so will also add a tag to your model so users can quickly identify models from your library.
+This will also add a tag to your model so users can quickly identify models from your library.
 
-<<<<<<< HEAD
-![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags.png)
-=======
 ![/docs/assets/hub/libraries-tags.png](/docs/assets/hub/libraries-tags.png)
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 
 ## Upload files to the Hub
 
-You might also want to provide a method for creating model repositories and uploading files to the Hub directly from your library. The `huggingface_hub` library offers two ways to assist you with creating repositories and uploading files:
+You might also want to provide a method for creating model repositories and uploading files to the Hub directly from your library. The `huggingface_hub` library offers two methods to assist you with creating repositories and uploading files:
 
 - `create_repo` creates a repository on the Hub.
 - `upload_file` directly uploads files to a repository on the Hub.
@@ -152,11 +141,11 @@ For example:
 'https://huggingface.co/lysandre/test-model/blob/main/README.md'
 ```
 
-If you need to upload more than one file, look at the utilities offered by the `Repository` class [here](TODO).
+If you need to upload more than one file, take a look at the utilities offered by the `Repository` class [here](/docs/hub/how-to-upstream#`Repository`).
 
 Once again, if you check your Hugging Face account, you should see the file inside your repository.
 
-Lastly, it is important to add a model card so users understand how to use your model. See [here](/docs/hub/model-repos#what-are-model-cards-and-why-are-they-useful) for more details about how to create a model card.
+Lastly, it is important to add a model card, so users understand how to use your model. See [here](/docs/hub/model-repos#what-are-model-cards-and-why-are-they-useful) for more details about how to create a model card.
 
 ## Set up the Inference API
 
