@@ -33,13 +33,13 @@ Using the Hub's web interface you can easily create repositories, add files (eve
 
 3. Next, enter your model’s name. This will also be the name of the repository. Finally, you can specify whether you want your model to be public or private.
 
-You can leave the *License* field blank for now. To learn about licenses, visit the **Licenses** (TODO: LINK TO LICENSES) section of this document.
+You can leave the *License* field blank for now. To learn about licenses, visit the [**Licenses**](repositories-best-practices#Licenses) section of this documentation.
 
 After creating your model repository, you should see a page like this:
 
 ![/docs/assets/hub/empty_repo.png](/docs/assets/hub/empty_repo.png)
 
-Note that the Hub prompts you to create a *Model Card*, which you can learn about in the **Model Cards documentation** (TODO: LINK). Including a Model Card in your model repo is best practice, but since we're only making a test repo at the moment we can skip this.
+Note that the Hub prompts you to create a *Model Card*, which you can learn about in the [**Model Cards documentation**](./models-cards). Including a Model Card in your model repo is best practice, but since we're only making a test repo at the moment we can skip this.
 
 
 ## Cloning repositories
