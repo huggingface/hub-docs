@@ -1,5 +1,5 @@
 ---
-title: Spaces Changelog
+title: Spaces Configuration Reference
 ---
 
 <h1>Spaces Configuration Reference</h1>
