@@ -8,5 +8,7 @@ In these pages, we will go over the basics of getting started with Git and inter
 
 - [Getting Started with Repositories](./repositories-getting-started)
 - [Settings](./repositories-settings)
+- [Pull Requests & Discussions](./repositories-pull-requests-discussions)
+  - [Pull Requests advanced usage](./repositories-pull-requests-advanced)
 - [Next Steps](./repositories-next-steps)
 - [Licenses](./repositories-licenses)
