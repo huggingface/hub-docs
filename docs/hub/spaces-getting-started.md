@@ -10,11 +10,11 @@ Hugging Face Spaces make it easy for you to create and deploy ML-powered demos i
 
 ## Spaces setup
 
-**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Streamlit, and static HTML. You can read more about these in the [SDK section of these docs](TODO).
+**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Streamlit, and static HTML. You can read more about these in the [SDK section of these docs](./spaces-sdks).
 
 ![Viewing a brand new Hugging Face Space](/docs/assets/hub/spaces-blank-space.png)
 
-Under the hood, Spaces stores your code inside a git repository, just like the model and dataset repositories. Thanks to this, the same tools we use for all the [other repositories on the Hub](./repositories-main.md) (`git` and `git-lfs`) also work for Spaces.
+Under the hood, Spaces stores your code inside a git repository, just like the model and dataset repositories. Thanks to this, the same tools we use for all the [other repositories on the Hub](./repositories-main) (`git` and `git-lfs`) also work for Spaces. Follow the same flow as in [Getting Started with Repositories](./repositories-getting-started) to add files to your Space. Each time that a new commit is pushed, the Space will automatically rebuild and restart.
 
 Each Spaces environment is limited to 16GB RAM and 8 CPU cores. Individuals and Organization [subscribers](https://huggingface.co/pricing) (Lab, Startup, and Enterprise) can access Spaces with one T4 GPU on a case-by-case basis. Please email us at **website at huggingface.co**.
 
@@ -26,7 +26,7 @@ The default Spaces environment comes with several pre-installed dependencies:
 
 * [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) allows you to download models from the Hub and programmatically access the Inference API from your Space. If you choose to instantiate the model in your app with our Inference API, you can benefit from the built-in acceleration optimizations. This option also consumes less computing resources, which is always nice for the environment! 🌎 
 
-  Refer to this [page](https://huggingface.co/docs/hub/how-to-inference) for more information on how to programmatically access the Inference API.
+  Refer to this [page](https://huggingface.co/docs/huggingface_hub/how-to-inference) for more information on how to programmatically access the Inference API.
 
 * [`requests`](https://docs.python-requests.org/en/master/) is useful for calling third-party APIs from your app.
 
@@ -54,7 +54,7 @@ pinned: false
 ---
 ```
 
-For additional settings, refer to the [Reference](TODO) section.
+For additional settings, refer to the [Reference](./spaces-reference) section.
 
 ## Managing secrets
 
