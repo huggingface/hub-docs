@@ -6,15 +6,15 @@ title: Spaces SDKs
 
 Hugging Face Spaces officially supports three different SDKs: Gradio, Streamlit, and static HTML. This section gives a brief overview of the three methods for creating a Space.
 
-Gradio and Streamlit make it easy to quickly build apps in Python, and we recommend you try both out because they're really awesome! For in-depth information about using them, you can refer to their respective documentation.
+Gradio and Streamlit make it easy to quickly build apps using Python, and we recommend you try both out because they're really awesome! For in-depth information about using them, you can refer to their respective documentation.
 
 ## Gradio
 
-**Gradio** provides an easy and intuitive interface for running a model from a list of inputs, and displaying the outputs. For more details, take a look at this [tutorial](https://huggingface.co/blog/gradio) from the Gradio team about building GUIs for Hugging Face models.
+**Gradio** provides an easy and intuitive interface for running a model from a list of inputs and displaying the outputs. For more details, take a look at this [tutorial](https://huggingface.co/blog/gradio) from the Gradio team about building GUIs for Hugging Face models.
 
 Selecting **Gradio** as the SDK when [creating a new Space](https://huggingface.co/new-space) will initialize your Space with the latest version of Gradio by setting the `sdk` property to `gradio` in your `README.md` file's YAML block. If you'd like to change the Gradio version, you can edit the `sdk_version` property.
 
-Visit the [Gradio documentation](https://gradio.app/getting_started) to learn all about its features, and check out the [Gradio Guides](https://gradio.app/guides/) for some handy tutorials to help you get started!
+Visit the [Gradio documentation](https://gradio.app/getting_started) to learn all about its features and check out the [Gradio Guides](https://gradio.app/guides/) for some handy tutorials to help you get started!
 
 ### Managing long queue times
 
@@ -31,9 +31,9 @@ sdk: streamlit
 sdk_version: 1.2.0 # The latest supported version
 ```
 
-As shown here, the Streamlit version is not configured in the **requirements.txt** file but rather in the `YAML` settings through the `sdk_version` setting.  You can edit the `sdk_version`, but note that issues may occur when you use an unsupported Streamlit version. Not all Streamlit versions are supported, so please refer to the [reference section](./spaces-reference) to see which versions are available.
+As shown here, the Streamlit version is not configured in the **requirements.txt** file but rather in the `YAML` settings through the `sdk_version` setting. You can edit the `sdk_version`, but note that issues may occur when you use an unsupported Streamlit version. Not all Streamlit versions are supported, so please refer to the [reference section](./spaces-reference) to see which versions are available.
 
-If you need want to learn more about Streamlit, refer to the [Streamlit documentation](https://docs.streamlit.io/).
+If you want to learn more about Streamlit, refer to the [Streamlit documentation](https://docs.streamlit.io/).
 
 ## Static HTML
 
@@ -54,7 +54,7 @@ Spaces are served in iframes, which by default restrict links from opening in th
 <a href="https://hf.space" rel="noopener" target="_blank">Spaces</a>
 ```
 
-Usually, the height of Spaces is automatically adjusted when using the Gradio library interface. However, if you provide your own frontend in the Gradio SDK and the content height is larger than the viewport, you'll need to add an [iFrame Resizer script](https://cdnjs.com/libraries/iframe-resizer) so the content is scrollable in the iframe:
+Usually, the height of Spaces is automatically adjusted when using the Gradio library interface. However, if you provide your own frontend in the Gradio SDK and the content height is larger than the viewport, you'll need to add an [iFrame Resizer script](https://cdnjs.com/libraries/iframe-resizer), so the content is scrollable in the iframe:
 
 ```HTML
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.min.js"></script>

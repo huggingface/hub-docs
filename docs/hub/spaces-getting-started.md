@@ -14,7 +14,7 @@ Hugging Face Spaces make it easy for you to create and deploy ML-powered demos i
 
 ![Viewing a brand new Hugging Face Space](/docs/assets/hub/spaces-blank-space.png)
 
-Under the hood, Spaces stores your code inside a git repository, just like the model and dataset repositories. Thanks to this, the same tools we use for the all the [other repositories on the Hub](./repositories-main.md) (`git` and `git-lfs`) also work for Spaces.
+Under the hood, Spaces stores your code inside a git repository, just like the model and dataset repositories. Thanks to this, the same tools we use for all the [other repositories on the Hub](./repositories-main.md) (`git` and `git-lfs`) also work for Spaces.
 
 Each Spaces environment is limited to 16GB RAM and 8 CPU cores. Individuals and Organization [subscribers](https://huggingface.co/pricing) (Lab, Startup, and Enterprise) can access Spaces with one T4 GPU on a case-by-case basis. Please email us at **website at huggingface.co**.
 
@@ -34,7 +34,7 @@ The default Spaces environment comes with several pre-installed dependencies:
 
 ## Adding extra dependencies
 
-If you need other Python packages to run your app, add it to a **requirements.txt** file at the root of your repository. Spaces runtime engine will create a custom environment on-the-fly.
+If you need other Python packages to run your app, add them to a **requirements.txt** file at the root of your repository. Spaces runtime engine will create a custom environment on-the-fly.
 
 Debian dependencies are also supported. Add a **packages.txt** file at the root of your repository, and list all your dependencies in it. Each dependency should be on a separate line, and each line will be read and installed by `apt-get install`.
 

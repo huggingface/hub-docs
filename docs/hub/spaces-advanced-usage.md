@@ -8,7 +8,7 @@ This section highlights some additional miscellaneous features that you can use 
 
 ## Using OpenCV in Spaces
 
-In order to use OpenCV, you'll need to add it to both the `packages.txt` and `requirements.txt` files in your repository. If those files don't exist, you'll need to create them. For an example, [see this sample repository](https://huggingface.co/spaces/templates/gradio_opencv/tree/main).
+In order to use OpenCV, you'll need to add it to both the `packages.txt` and `requirements.txt` files in your repository. If those files don't exist, you'll need to create them. For example, [see this sample repository](https://huggingface.co/spaces/templates/gradio_opencv/tree/main).
 
 ## Using Spaces for Organization cards
 
@@ -32,7 +32,7 @@ It is also possible to create a Space from a Model with [Model Comparator Space 
 
 Keep your app in sync with your Github repository with Github Actions. For files larger than 10MB, Spaces requires Git-LFS. If you don't want to use Git-LFS, you may need to review your files and check your history. Use a tool like [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to remove any large files from your history. BFG Repo-Cleaner will keep a local copy of your repository as a backup.
 
-First, you should setup your GitHub repository and Spaces app together. Add your Spaces app as an additional remote to your existing Git repository.
+First, you should set up your GitHub repository and Spaces app together. Add your Spaces app as an additional remote to your existing Git repository.
 
 ```bash
 git remote add space https://huggingface.co/spaces/FULL_SPACE_NAME
@@ -44,7 +44,7 @@ Then force push to sync everything for the first time:
 git push --force space main
 ```
 
-Next, setup a GitHub Action to push your main branch to Spaces. In the example below:
+Next, set up a GitHub Action to push your main branch to Spaces. In the example below:
 
 * Replace `HF_USERNAME` with your username and `FULL_SPACE_NAME` with your Space name. 
 * Create a [Github secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-environment) with your `HF_TOKEN`. You can find your Hugging Face API token under **API Tokens** on your Hugging Face profile.

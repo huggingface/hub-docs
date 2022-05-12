@@ -4,14 +4,9 @@ title: Spaces
 
 <h1>Spaces</h1>
 
+[Hugging Face Spaces](https://huggingface.co/spaces) offer a simple way to host ML demo apps directly on your profile or your organization's  profile. This allows you to create your ML portfolio, showcase your projects at conferences or to stakeholders, and work collaboratively with other people in the ML ecosystem.
 
-[LINK TO https://huggingface.co/new-space]
-
-Spaces are a simple way to host ML demo apps directly on your profile or your organization’s  profile. This allows you to create your ML portfolio, showcase your projects at conferences or to stakeholders, and work collaboratively with other people in the ML ecosystem.
-
-We support two awesome SDKs that let you build cool apps in Python in a matter of minutes: **[Streamlit](https://streamlit.io/)** and **[Gradio](https://gradio.app/)**. You can also create static Spaces using JavaScript and HTML. [LINK TO DOCS]
-
-[EMBED SOME SPACES HERE?]
+We support two awesome SDKs that let you build cool apps in Python in a matter of minutes: **[Streamlit](https://streamlit.io/)** and **[Gradio](https://gradio.app/)**. For more custom demos, you can also create static Spaces using JavaScript and HTML.
 
 ## Contents
 

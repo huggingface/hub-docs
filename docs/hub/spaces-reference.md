@@ -4,7 +4,7 @@ title: Spaces Changelog
 
 <h1>Spaces Configuration Reference</h1>
 
-Spaces are configured adding a `YAML` block at the top of the **README.md** file at the root of the repository. All the accepted parameters are listed below.
+Spaces are configured by adding a `YAML` block at the top of the **README.md** file at the root of the repository. All the accepted parameters are listed below.
 
 **`title`** : _string_
 Display title for the Space.
