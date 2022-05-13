@@ -12,11 +12,14 @@ We support two awesome SDKs that let you build cool apps in Python in a matter o
 
 - [Your First Space: Hot Dog Classifier tutorial](./spaces-tutorial)
 - [Spaces Overview](./spaces-overview)
+  - [Using OpenCV in Spaces](./spaces-using-opencv)
+  - [Using Spaces for Organization Cards](./spaces-organization-cards)
+  - [More ways to create Spaces](./spaces-more-ways-to-create)
+  - [Managing Spaces with Github Actions](./spaces-github-actions)
 - [SDKs](./spaces-sdks)
   - [Gradio](./spaces-sdks-gradio)
   - [Streamlit](./spaces-sdks-streamlit)
 - [Reference](./spaces-config-reference)
-- [Advanced Usage](./spaces-advanced-usage)
 - [Changelog](./spaces-changelog)
 
 ## Contact
