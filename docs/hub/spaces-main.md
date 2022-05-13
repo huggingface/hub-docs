@@ -18,7 +18,7 @@ We support two awesome SDKs that let you build cool apps in Python in a matter o
 
 ## Contact
 
-Feel free to ask questions on the [forum](https://discuss.huggingface.co/) if you need help with making a Space, or if you run into any other issues on the Hub.
+Feel free to ask questions on the [forum](https://discuss.huggingface.co/c/spaces/24) if you need help with making a Space, or if you run into any other issues on the Hub.
 
 If you're interested in infra challenges, custom demos, GPUs, or something else, please reach out to us by sending an email to **website at huggingface.co**.
 

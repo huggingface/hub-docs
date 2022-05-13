@@ -4,7 +4,7 @@ title: Spaces Configuration Reference
 
 <h1>Spaces Configuration Reference</h1>
 
-Spaces are configured by adding a `YAML` block at the top of the **README.md** file at the root of the repository. All the accepted parameters are listed below.
+Spaces are configured through the `YAML` block at the top of the **README.md** file at the root of the repository. All the accepted parameters are listed below.
 
 **`title`** : _string_
 Display title for the Space.
@@ -43,4 +43,4 @@ HF dataset IDs (like `common_voice` or `oscar-corpus/OSCAR-2109`) used in the Sp
 Will be parsed automatically from your code if not specified here.
 
 **`pinned`** : _boolean_
-Whether the Space stays on top of your list.
+Whether the Space stays on top of your profile. Can be useful if you have a lot of Spaces so you and others can quickly see your best Space.

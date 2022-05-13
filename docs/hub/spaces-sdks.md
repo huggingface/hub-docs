@@ -10,21 +10,21 @@ Gradio and Streamlit make it easy to quickly build apps using Python, and we rec
 
 ## Gradio
 
-**Gradio** provides an easy and intuitive interface for running a model from a list of inputs and displaying the outputs. For more details, take a look at this [tutorial](https://huggingface.co/blog/gradio) from the Gradio team about building GUIs for Hugging Face models.
+**Gradio** provides an easy and intuitive interface for running a model from a list of inputs and displaying the outputs. For more details, take a look at the [Getting started](https://gradio.app/getting_started/) guide from the Gradio team.
 
 Selecting **Gradio** as the SDK when [creating a new Space](https://huggingface.co/new-space) will initialize your Space with the latest version of Gradio by setting the `sdk` property to `gradio` in your `README.md` file's YAML block. If you'd like to change the Gradio version, you can edit the `sdk_version` property.
 
-Visit the [Gradio documentation](https://gradio.app/getting_started) to learn all about its features and check out the [Gradio Guides](https://gradio.app/guides/) for some handy tutorials to help you get started!
+Visit the [Gradio documentation](https://gradio.app/docs/) to learn all about its features and check out the [Gradio Guides](https://gradio.app/guides/) for some handy tutorials to help you get started!
 
 ### Managing long queue times
 
-Since it's possible that many users could use your Space concurrently, we recommend using [Gradio's parameter for queueing predictions](https://gradio.app/getting_started/#queuing-to-manage-long-inference-times).
+Since it's possible that many users could use your Space concurrently, we recommend using [Gradio's `enable_queue`](https://gradio.app/getting_started/#queuing-to-manage-long-inference-times) parameter to prevent any timeouts.
 
 ## Streamlit
 
 **Streamlit** gives users more freedom to build a full-featured web app with Python in a *reactive* way. Your code is rerun each time the state of the app changes. Streamlit is also great for data visualization and supports several charting libraries such as Bokeh, Plotly, and Altair. Read our [blog post](https://huggingface.co/blog/streamlit-spaces) about building and hosting Streamlit apps in Spaces.
 
-To use Streamlit in a Space, you can select **Streamlit** as the SDK when you create a Space through the [**New Space** form](https://huggingface.co/new-space). This will create a repository with a `README.md` that contains the following properties in the YAML configuration block:
+To use Streamlit in a Space, select **Streamlit** as the SDK when you create a Space through the [**New Space** form](https://huggingface.co/new-space). This will create a repository with a `README.md` that contains the following properties in the YAML configuration block:
 
 ```yaml
 sdk: streamlit
