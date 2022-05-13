@@ -15,7 +15,7 @@ We support two awesome SDKs that let you build cool apps in Python in a matter o
 - [SDKs](./spaces-sdks)
   - [Gradio](./spaces-sdks-gradio)
   - [Streamlit](./spaces-sdks-streamlit)
-- [Reference](./spaces-reference)
+- [Reference](./spaces-config-reference)
 - [Advanced Usage](./spaces-advanced-usage)
 - [Changelog](./spaces-changelog)
 

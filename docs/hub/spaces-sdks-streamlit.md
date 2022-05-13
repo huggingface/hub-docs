@@ -13,6 +13,6 @@ sdk: streamlit
 sdk_version: 1.2.0 # The latest supported version
 ```
 
-As shown here, the Streamlit version is not configured in the **requirements.txt** file but rather in the `YAML` settings through the `sdk_version` setting. You can edit the `sdk_version`, but note that issues may occur when you use an unsupported Streamlit version. Not all Streamlit versions are supported, so please refer to the [reference section](./spaces-reference) to see which versions are available.
+As shown here, the Streamlit version is not configured in the **requirements.txt** file but rather in the `YAML` settings through the `sdk_version` setting. You can edit the `sdk_version`, but note that issues may occur when you use an unsupported Streamlit version. Not all Streamlit versions are supported, so please refer to the [reference section](./spaces-config-reference) to see which versions are available.
 
 If you want to learn more about Streamlit, refer to the [Streamlit documentation](https://docs.streamlit.io/).

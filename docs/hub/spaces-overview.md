@@ -59,7 +59,7 @@ pinned: false
 ---
 ```
 
-For additional settings, refer to the [Reference](./spaces-reference) section.
+For additional settings, refer to the [Reference](./spaces-config-reference) section.
 
 ## Managing secrets
 
