@@ -8,7 +8,7 @@ This section highlights some additional miscellaneous features that you can use 
 
 ## Using OpenCV in Spaces
 
-In order to use OpenCV, you'll need to add it to both the `packages.txt` and `requirements.txt` files in your repository. If those files don't exist, you'll need to create them. For example, [see this sample repository](https://huggingface.co/spaces/templates/gradio_opencv/tree/main).
+In order to use OpenCV in your Gradio or Streamlit Spaces, you'll need to add it to both the `packages.txt` and `requirements.txt` files in your repository. If those files don't exist, you'll need to create them. For example, [see this Gradio project](https://huggingface.co/spaces/templates/gradio_opencv/tree/main).
 
 ## Using Spaces for Organization cards
 

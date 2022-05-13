@@ -1,22 +1,22 @@
 ---
-title: Getting Started with Spaces
+title: Spaces Overview
 ---
 
-<h1>Getting Started with Spaces</h1>
+<h1>Spaces Overview</h1>
 
-Hugging Face Spaces make it easy for you to create and deploy ML-powered demos in minutes. In the following section, you'll learn the basics of creating a Space, configuring it, and deploying your code to it. Watch the following video for a quick introduction to Spaces:
+Hugging Face Spaces make it easy for you to create and deploy ML-powered demos in minutes. Watch the following video for a quick introduction to Spaces:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3bSVKNKb_PY" title="Spaces intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Spaces setup
+In the following sections, you'll learn the basics of creating a Space, configuring it, and deploying your code to it.
 
-**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Streamlit, and static HTML. You can read more about these in the [SDK section of these docs](./spaces-sdks).
+## Creating a new Space
+
+**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Streamlit, and static HTML. You can read more about these in the [SDK section of these docs](./spaces-sdks). If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
 
 ![Viewing a brand new Hugging Face Space](/docs/assets/hub/spaces-blank-space.png)
 
 Under the hood, Spaces stores your code inside a git repository, just like the model and dataset repositories. Thanks to this, the same tools we use for all the [other repositories on the Hub](./repositories-main) (`git` and `git-lfs`) also work for Spaces. Follow the same flow as in [Getting Started with Repositories](./repositories-getting-started) to add files to your Space. Each time a new commit is pushed, the Space will automatically rebuild and restart.
-
-Each Spaces environment is limited to 16GB RAM and 8 CPU cores. Individuals and Organization [subscribers](https://huggingface.co/pricing) (Lab, Startup, and Enterprise) can access Spaces with one T4 GPU on a case-by-case basis. Please email us at **website at huggingface.co** to request a T4 GPU.
 
 ## Dependencies
 
@@ -32,11 +32,16 @@ The default Spaces environment comes with several pre-installed dependencies:
 
 * [`datasets`](https://github.com/huggingface/datasets) allows you to fetch or display any dataset from the Hub inside your app.
 
-## Adding extra dependencies
+### Adding extra dependencies
 
-If you need other Python packages to run your app, add them to a **requirements.txt** file at the root of your repository. Spaces runtime engine will create a custom environment on-the-fly.
+We you need other Python packages to run your app, add them to a **requirements.txt** file at the root of your repository. The Spaces runtime engine will create a custom environment on-the-fly.
 
 Debian dependencies are also supported. Add a **packages.txt** file at the root of your repository, and list all your dependencies in it. Each dependency should be on a separate line, and each line will be read and installed by `apt-get install`.
+
+
+## Hardware resources
+
+Each Spaces environment is limited to 16GB RAM and 8 CPU cores. Individuals and Organization [subscribers](https://huggingface.co/pricing) (Lab, Startup, and Enterprise) can access Spaces with one T4 GPU on a case-by-case basis. Please email us at **website at huggingface.co** to request a T4 GPU.
 
 ## Configuring Spaces settings
 

@@ -10,8 +10,11 @@ We support two awesome SDKs that let you build cool apps in Python in a matter o
 
 ## Contents
 
-- [Getting Started](./spaces-getting-started)
+- [Your First Space: Hot Dog Classifier tutorial](./spaces-tutorial)
+- [Spaces Overview](./spaces-overview)
 - [SDKs](./spaces-sdks)
+  - [Gradio](./spaces-sdks-gradio)
+  - [Streamlit](./spaces-sdks-streamlit)
 - [Reference](./spaces-reference)
 - [Advanced Usage](./spaces-advanced-usage)
 - [Changelog](./spaces-changelog)
