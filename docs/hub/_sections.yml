@@ -6,3 +6,6 @@
 
 - local: models-main
   title: Models
+
+- local: spaces-main
+  title: Spaces
