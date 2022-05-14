@@ -10,7 +10,6 @@ We support two awesome SDKs that let you build cool apps in Python in a matter o
 
 ## Contents
 
-- [Your First Space: Hot Dog Classifier tutorial](./spaces-tutorial)
 - [Spaces Overview](./spaces-overview)
   - [Using OpenCV in Spaces](./spaces-using-opencv)
   - [Using Spaces for Organization Cards](./spaces-organization-cards)

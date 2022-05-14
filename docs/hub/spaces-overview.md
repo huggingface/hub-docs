@@ -18,6 +18,10 @@ In the following sections, you'll learn the basics of creating a Space, configur
 
 Under the hood, Spaces stores your code inside a git repository, just like the model and dataset repositories. Thanks to this, the same tools we use for all the [other repositories on the Hub](./repositories-main) (`git` and `git-lfs`) also work for Spaces. Follow the same flow as in [Getting Started with Repositories](./repositories-getting-started) to add files to your Space. Each time a new commit is pushed, the Space will automatically rebuild and restart.
 
+For step-by-step tutorials to creating your first Space, see the guides below:
+* [Creating a Gradio Space](./spaces-sdks-gradio)
+* [Creating a Streamlit Space](./spaces-sdks-streamlit)
+
 ## Dependencies
 
 ### Default dependencies
