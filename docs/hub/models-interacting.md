@@ -117,7 +117,7 @@ The Hugging Face Hub is also home to Spaces, which are interactive demos used to
 
 ![Linked spaces for a model](../assets/hub/models-linked-spaces.png)
 
-Spaces are a great way to show off a model you've made or explore new ways to use existing models! Visit the [Spaces documentation](TODO) to learn how to make your own.
+Spaces are a great way to show off a model you've made or explore new ways to use existing models! Visit the [Spaces documentation](./spaces-main) to learn how to make your own.
 
 ### How do I upload an update / new version of the model?
 
