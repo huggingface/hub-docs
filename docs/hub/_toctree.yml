@@ -1,0 +1,57 @@
+- local: index
+  title: 🤗 Hugging Face Hub
+- local: repositories-main
+  title: Repositories
+  sections:
+  - local: repositories-getting-started
+    title: Getting Started with Repositories
+  - local: repositories-best-practices
+    title: Best practices with repositories
+  - local: repositories-next-steps
+    title: Next Steps    
+- title: Models
+  local: models-main
+  sections:
+  - local: models-the-hub
+    title: The Model Hub
+  - local: models-cards
+    title: Model Cards
+    sections:
+    - local: models-cards-co2
+      title: Carbon Emissions
+  - local: models-tasks
+    title: Tasks
+  - local: models-interacting
+    title: Interacting with Models on the Hub
+    sections:
+    - local: models-adding-libraries
+      title: Integrate a library with the Hub
+  - local: models-widgets
+    title: Model Widgets
+  - local: models-inference
+    title: Inference API docs
+- local: spaces-main
+  title: Spaces
+  sections:
+  - local: spaces-overview
+    title: Spaces Overview
+    sections:
+    - local: spaces-using-opencv
+      title: Using OpenCV in Spaces
+    - local: spaces-organization-cards
+      title: Using Spaces for Organization Cards
+    - local: spaces-more-ways-to-create
+      title: More ways to create Spaces
+    - local: spaces-github-actions
+      title: Managing Spaces with Github Actions      
+  - local: spaces-sdks
+    title: Spaces SDKs
+    sections:
+    - local: spaces-sdks-gradio
+      title: Gradio Spaces
+    - local: spaces-sdks-streamlit
+      title: Streamlit Spaces
+  - local: spaces-config-reference
+    title: Spaces Configuration Reference
+  - local: spaces-changelog
+    title: Spaces Changelog

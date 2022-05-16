@@ -1,8 +1,4 @@
----
-title: Model Widgets
----
-
-<h1>Widgets</h1>
+# Widgets
 
 ## What's a widget?
 
@@ -37,7 +33,7 @@ widget:
 
 You can provide more than one example input. In the examples dropdown menu of the widget, they will appear as `Example 1`, `Example 2`, etc. Optionally, you can supply `example_title` as well.
 
-![/docs/assets/hub/widget_input_examples.gif](/docs/assets/hub/widget_input_examples.gif)
+![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/widget_input_examples.gif](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/widget_input_examples.gif)
 
 ```yaml
 widget:

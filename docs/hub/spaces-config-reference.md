@@ -1,8 +1,4 @@
----
-title: Spaces Configuration Reference
----
-
-<h1>Spaces Configuration Reference</h1>
+# Spaces Configuration Reference
 
 Spaces are configured through the `YAML` block at the top of the **README.md** file at the root of the repository. All the accepted parameters are listed below.
 

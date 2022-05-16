@@ -1,8 +1,4 @@
----
-title: Managing Spaces with Github Actions
----
-
-<h1>Managing Spaces with Github Actions</h1>
+# Managing Spaces with Github Actions
 
 You can keep your app in sync with your GitHub repository with **Github Actions**. Remember that for files larger than 10MB, Spaces requires Git-LFS. If you don't want to use Git-LFS, you may need to review your files and check your history. Use a tool like [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to remove any large files from your history. BFG Repo-Cleaner will keep a local copy of your repository as a backup.
 

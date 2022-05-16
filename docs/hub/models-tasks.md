@@ -1,14 +1,10 @@
----
-title: Tasks
----
-
 # Tasks
 
 ## What's a task?
 
 Tasks, or pipeline types, describe the "shape" of each model's API (inputs and outputs) and are used to determine which Inference API and widget we want to display for any given model. 
 
-![/docs/assets/hub/tasks.png](/docs/assets/hub/tasks.png)
+![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tasks.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tasks.png)
 
 This classification is relatively coarse-grained (you can always add more fine-grained task names in your model tags), so **you should rarely have to create a new task**. If you want to add support for a new task, this document explains the required steps.
 

@@ -1,8 +1,4 @@
----
-title: Hugging Face on Amazon SageMaker
----
-
-<h1>Hugging Face on Amazon SageMaker</h1>
+# Hugging Face on Amazon SageMaker
 
 ![cover](/docs/assets/sagemaker/cover.png)
 

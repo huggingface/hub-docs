@@ -1,8 +1,4 @@
----
-title: Next Steps
----
-
-<h1>Next steps</h1>
+# Next steps
 
 These next sections highlight features and additional information that you may find useful to make the most out of the Git repositories on the Hugging Face Hub.
 
