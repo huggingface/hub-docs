@@ -1,8 +1,4 @@
----
-title: More ways to create Spaces
----
-
-<h1>More ways to create Spaces</h1>
+# More ways to create Spaces
 
 ## Duplicating a Space
 

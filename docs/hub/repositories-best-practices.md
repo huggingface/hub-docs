@@ -1,8 +1,4 @@
----
-title: Getting Started with Repositories
----
-
-<h1>Best practices with repositories</h1>
+# Best practices with repositories
 
 Here are some additional best practices to help you get the most out of your repository.
 

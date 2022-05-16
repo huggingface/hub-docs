@@ -1,8 +1,4 @@
----
-title: Spaces Changelog
----
-
-<h1>Spaces Changelog</h1>
+# Spaces Changelog
 
 ## [2022-02-21] - Python versions
 - You can specify the version of Python that you want your Space to run on.

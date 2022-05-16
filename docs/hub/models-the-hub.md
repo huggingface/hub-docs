@@ -1,8 +1,4 @@
----
-title: The Model Hub
----
-
-<h1>The Model Hub</h1>
+# The Model Hub
 
 ## What is the Model Hub?
 

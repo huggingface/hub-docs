@@ -1,8 +1,4 @@
----
-title: Carbon Emissions
----
-
-<h1>Displaying carbon emissions for your model</h1>
+# Displaying carbon emissions for your model
 
 ## Why is it beneficial to calculate the carbon emissions of my model?
 

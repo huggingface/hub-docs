@@ -1,8 +1,4 @@
----
-title: Gradio Spaces
----
-
-<h1>Gradio Spaces</h1>
+# Gradio Spaces
 
 **Gradio** provides an easy and intuitive interface for running a model from a list of inputs and displaying the outputs in formats such as images, audio, 3D objects, and more. Gradio now even has a [Plot output component](https://gradio.app/docs/#o_plot) for creating data visualizations with Matplotlib, Bokeh, and Plotly! For more details, take a look at the [Getting started](https://gradio.app/getting_started/) guide from the Gradio team.
 
@@ -55,4 +51,4 @@ gr.Interface(
 
 This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/docs/transformers/pipeline_tutorial) to load the [julien-c/hotdog-not-hotdog](https://huggingface.co/julien-c/hotdog-not-hotdog) model, which is used by the Gradio interface. The Gradio app will expect you to upload an image, which it'll then classify as *hot dog* or *not hot dog*. Once you've saved the code to the **app.py** file, visit the **App** tab to see your app in action!
 
-![Hot Dog Classifier Space](/docs/assets/hub/spaces-hot-dog-gradio.png)
+![Hot Dog Classifier Space](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-hot-dog-gradio.png)

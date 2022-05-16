@@ -1,8 +1,4 @@
----
-title: Using OpenCV in Spaces
----
-
-<h1>Using OpenCV in Spaces</h1>
+# Using OpenCV in Spaces
 
 In order to use OpenCV in your Gradio or Streamlit Spaces, you'll need to make the Space install both the Python and Debian dependencies
 

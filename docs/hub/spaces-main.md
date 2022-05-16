@@ -1,8 +1,4 @@
----
-title: Spaces
----
-
-<h1>Spaces</h1>
+# Spaces
 
 [Hugging Face Spaces](https://huggingface.co/spaces) offer a simple way to host ML demo apps directly on your profile or your organization's  profile. This allows you to create your ML portfolio, showcase your projects at conferences or to stakeholders, and work collaboratively with other people in the ML ecosystem.
 

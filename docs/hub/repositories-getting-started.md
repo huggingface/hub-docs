@@ -1,8 +1,4 @@
----
-title: Getting Started with Repositories
----
-
-<h1>Getting Started with Repositories</h1>
+# Getting Started with Repositories
 
 This beginner-friendly guide will help you get the basic skills you need to create and manage your repository on the Hub. Each section builds on the previous one, so feel free to choose where to start!
 
@@ -27,7 +23,7 @@ Using the Hub's web interface you can easily create repositories, add files (eve
 
 1. To create a new repository, visit [huggingface.co/new](http://huggingface.co/new):
 
-![/docs/assets/hub/new_repo.png](/docs/assets/hub/new_repo.png)
+![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_repo.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_repo.png)
 
 2. First, specify the owner of the repository: this can be either you or any of the organizations you’re affiliated with. 
 
@@ -37,7 +33,7 @@ You can leave the *License* field blank for now. To learn about licenses, visit 
 
 After creating your model repository, you should see a page like this:
 
-![/docs/assets/hub/empty_repo.png](/docs/assets/hub/empty_repo.png)
+![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/empty_repo.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/empty_repo.png)
 
 Note that the Hub prompts you to create a *Model Card*, which you can learn about in the [**Model Cards documentation**](./models-cards). Including a Model Card in your model repo is best practice, but since we're only making a test repo at the moment we can skip this.
 
@@ -81,17 +77,17 @@ git push
 
 And we're done! You can check your repository on Hugging Face with all the recently added files. For example, in the screenshot below the user added a number of files. Note that one of the files in this example has a size of `413 MB`, so the repo uses Git LFS to track it.
 
-![/docs/assets/hub/repo_with_files.png](/docs/assets/hub/repo_with_files.png)
+![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files.png)
 
 
 ## Viewing a repo's history
 Every time you go through the `add`-`commit`-`push` cycle, the repo will keep track of every change you've made to your files. The UI allows you to explore the model files and commits and to see the difference (also known as *diff*) introduced by each commit. To see the history, you can click on the **History: X commits** link.
 
-![/docs/assets/hub/repo_history.png](/docs/assets/hub/repo_history.png)
+![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_history.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_history.png)
 
 You can click on an individual commit to see what changes that commit introduced:
 
-![/docs/assets/hub/explore_history.gif](/docs/assets/hub/explore_history.gif)
+![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif)
 
 
 ## Renaming or transferring a repo
