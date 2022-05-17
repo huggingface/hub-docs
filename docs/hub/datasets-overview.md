@@ -6,13 +6,13 @@ title: Datasets Overview
 
 ## Datasets on the Hub
 
-In service of being the one-stop-shop for all your Machine Learning needs, the Hugging Face Hub hosts a [large number of community-curated datasets](https://huggingface.co/datasets) for a diverse range of tasks. Alongside the information contained in the [dataset card](TODO), many datasets, such as [Glue](https://huggingface.co/datasets/glue), include a Dataset Preview to showcase the data. There is also a handy [Datasets Viewer](https://huggingface.co/datasets/viewer/) for more in-depth exploration.
+In service of being the one-stop-shop for all your Machine Learning needs, the Hugging Face Hub hosts a [large number of community-curated datasets](https://huggingface.co/datasets) for a diverse range of tasks. Alongside the information contained in the [dataset card](./datasets-cards), many datasets, such as [Glue](https://huggingface.co/datasets/glue), include a Dataset Preview to showcase the data. There is also a handy [Datasets Viewer](https://huggingface.co/datasets/viewer/) for more in-depth exploration.
 
 Each dataset is a [Git repository](./repositories-main), equipped with the necessary scripts to download the data and generate splits for training, evaluation, and testing. For information on how a dataset repository is structured, refer to the [🤗 Datasets guides](https://huggingface.co/docs/datasets/repository_structure).
 
 ## Searching for datasets
 
-Like models and Spaces, you can search the Hub for datasets using the search bar in the top navigation, or on the main datasets page. There's a large number of languages, tasks, and licenses that you can use to filter you results to find a dataset that's right for you.
+Like models and Spaces, you can search the Hub for datasets using the search bar in the top navigation, or on the [main datasets page](https://huggingface.co/datasets). There's a large number of languages, tasks, and licenses that you can use to filter your results to find a dataset that's right for you.
 
 ![Datasets search page on the Hugging Face Hub](/docs/assets/hub/datasets-main.png)
 
