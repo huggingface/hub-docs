@@ -1,4 +1,8 @@
-# Train and deploy Hugging Face on Amazon SageMaker
+---
+title: Get started
+---
+
+<h1>Train and deploy Hugging Face on Amazon SageMaker</h1>
 
 The get started guide will show you how to quickly use Hugging Face on Amazon SageMaker. Learn how to fine-tune and deploy a pretrained 🤗 Transformers model on SageMaker for a binary text classification task.
 
