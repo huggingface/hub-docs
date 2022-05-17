@@ -2,7 +2,7 @@
 
 <div class="w-full flex flex-wrap justify-evenly gap-y-16">
 
-<div class="w-64 flex flex-col space-y-2 border rounded-xl border-orange-700 px-6 py-4 group">
+<div class="w-52 flex flex-col space-y-2 border-2 rounded-xl border-orange-700 px-6 py-4 hover:shadow-xl">
 <span class="flex items-center py-0.5 dark:text-gray-400 text-orange-600 text-xl"><svg class="mr-1.5 text-orange-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2a2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82Z"></path></svg> Repositories</span>
 <a class="!no-underline hover:opacity-70" href="./repositories-main">Introduction</a>
 <a class="!no-underline hover:opacity-70" href="./repositories-getting-started">Getting Started</a>
@@ -10,7 +10,7 @@
 <a class="!no-underline hover:opacity-70" href="./repositories-next-steps">Next Steps</a>
 </div>
 
-<div class="w-64 flex flex-col space-y-2 border rounded-xl border-indigo-700 px-6 py-4 group">
+<div class="w-52 flex flex-col space-y-2 border-2 rounded-xl border-indigo-700 px-6 py-4 hover:shadow-xl">
 <span class="flex items-center py-0.5 dark:text-gray-400 text-indigo-700 text-xl"><svg class="mr-1.5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path class="uim-quaternary" d="M20.23 7.24L12 12L3.77 7.24a1.98 1.98 0 0 1 .7-.71L11 2.76c.62-.35 1.38-.35 2 0l6.53 3.77c.29.173.531.418.7.71z" opacity=".25" fill="currentColor"></path><path class="uim-tertiary" d="M12 12v9.5a2.09 2.09 0 0 1-.91-.21L4.5 17.48a2.003 2.003 0 0 1-1-1.73v-7.5a2.06 2.06 0 0 1 .27-1.01L12 12z" opacity=".5" fill="currentColor"></path><path class="uim-primary" d="M20.5 8.25v7.5a2.003 2.003 0 0 1-1 1.73l-6.62 3.82c-.275.13-.576.198-.88.2V12l8.23-4.76c.175.308.268.656.27 1.01z" fill="currentColor"></path></svg> Models</span>
 <a class="!no-underline hover:opacity-70" href="./models-main">Introduction</a>
 <a class="!no-underline hover:opacity-70" href="./models-the-hub">The Model Hub</a>
@@ -21,7 +21,12 @@
 <a class="!no-underline hover:opacity-70" href="./models-inference">Inference API</a>
 </div>
 
-<div class="w-64 flex flex-col space-y-2 border rounded-xl border-blue-700 px-6 py-4 group">
+<div class="w-52 flex flex-col space-y-2 border-2 rounded-xl border-red-700 px-6 py-4 hover:shadow-xl">
+<span class="flex items-center py-0.5 dark:text-gray-400 text-red-700 text-xl"><svg class="mr-1.5 text-red-400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 25 25"><ellipse cx="12.5" cy="5" fill="currentColor" fill-opacity="0.25" rx="7.5" ry="2"></ellipse><path d="M12.5 15C16.6421 15 20 14.1046 20 13V20C20 21.1046 16.6421 22 12.5 22C8.35786 22 5 21.1046 5 20V13C5 14.1046 8.35786 15 12.5 15Z" fill="currentColor" opacity="0.5"></path><path d="M12.5 7C16.6421 7 20 6.10457 20 5V11.5C20 12.6046 16.6421 13.5 12.5 13.5C8.35786 13.5 5 12.6046 5 11.5V5C5 6.10457 8.35786 7 12.5 7Z" fill="currentColor" opacity="0.5"></path><path d="M5.23628 12C5.08204 12.1598 5 12.8273 5 13C5 14.1046 8.35786 15 12.5 15C16.6421 15 20 14.1046 20 13C20 12.8273 19.918 12.1598 19.7637 12C18.9311 12.8626 15.9947 13.5 12.5 13.5C9.0053 13.5 6.06886 12.8626 5.23628 12Z" fill="currentColor"></path></svg> Datasets</span>
+<a class="!no-underline hover:opacity-70" href="./">TODO: add datasets docs</a>
+</div>
+
+<div class="w-52 flex flex-col space-y-2 border-2 rounded-xl border-blue-700 px-6 py-4 hover:shadow-xl">
 <span class="flex items-center py-0.5 dark:text-gray-400 text-blue-700 text-xl"><svg class="mr-1.5 text-blue-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 25 25"><path opacity=".5" d="M6.016 14.674v4.31h4.31v-4.31h-4.31ZM14.674 14.674v4.31h4.31v-4.31h-4.31ZM6.016 6.016v4.31h4.31v-4.31h-4.31Z" fill="currentColor"></path><path opacity=".75" fill-rule="evenodd" clip-rule="evenodd" d="M3 4.914C3 3.857 3.857 3 4.914 3h6.514c.884 0 1.628.6 1.848 1.414a5.171 5.171 0 0 1 7.31 7.31c.815.22 1.414.964 1.414 1.848v6.514A1.914 1.914 0 0 1 20.086 22H4.914A1.914 1.914 0 0 1 3 20.086V4.914Zm3.016 1.102v4.31h4.31v-4.31h-4.31Zm0 12.968v-4.31h4.31v4.31h-4.31Zm8.658 0v-4.31h4.31v4.31h-4.31Zm0-10.813a2.155 2.155 0 1 1 4.31 0 2.155 2.155 0 0 1-4.31 0Z" fill="currentColor"></path><path opacity=".25" d="M16.829 6.016a2.155 2.155 0 1 0 0 4.31 2.155 2.155 0 0 0 0-4.31Z" fill="currentColor"></path></svg> Spaces</span>
 <a class="!no-underline hover:opacity-70" href="./spaces-main">Introduction</a>
 <a class="!no-underline hover:opacity-70" href="./spaces-overview">Spaces Overview</a>
