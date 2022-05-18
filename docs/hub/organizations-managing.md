@@ -1,0 +1,21 @@
+---
+title: Managing organizations
+---
+
+<h1>Managing organizations</h1>
+
+## Creating an organization
+
+Visit the **"New Organization"** form to create an organization. 
+
+## Managing members
+
+New members can be added to an organization by visiting the **Organization settings** and clicking on the **Members** tab. There, you'll be able to generate an invite link, add members individually, or send out email invitations in bulk. If the `Allow requests to join from the organization page` setting is enabled, you'll also be able to approve or reject any pending requests on the **Members** page.
+
+![The "Members" panel for an Organization](/docs/assets/hub/organizations-members.png)
+
+You can also revoke a user's membership or change their role  this page.
+
+## Organization domain name
+
+Under the **Account** tab in the Organization settings, you're able to set an `Organization domain name`. Setting a domain name will allow any user with a matching email address on the Hugging Face Hub to joing your organization.

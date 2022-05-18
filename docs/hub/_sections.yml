@@ -12,3 +12,6 @@
 
 - local: datasets-main
   title: Datasets
+
+- local: organizations-main
+  title: Organizations
