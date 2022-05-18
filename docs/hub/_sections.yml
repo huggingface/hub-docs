@@ -9,3 +9,6 @@
 
 - local: spaces-main
   title: Spaces
+
+- local: datasets-main
+  title: Datasets
