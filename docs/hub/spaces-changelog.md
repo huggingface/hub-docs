@@ -1,5 +1,24 @@
 # Spaces Changelog
 
+## [2022-05-21] - Default Debian pakcages
+- Spaces environment now comes with pre-installed popular packages (`ffmpeg`, `libsndfile1`, etc.)
+- This way, most of the time, you don't need to specify any additional package for your Space to work properly
+- The `packages.txt` file can still be used if needed
+
+## [2022-05-17] - Add support for Streamlit 1.9.0
+- All `1.x.0` versions are now supported (up to `1.9.0`)
+
+## [2022-05-16] - Gradio 3 is out !
+- This is the default version when creating a new Space, don't hesitate to check it out
+- https://huggingface.co/blog/gradio-blocks
+
+## [2022-03-04] - SDK version lock
+- The `sdk_version` field is now automatically pre-filled at Space creation time
+- It ensures that your Space stays on the same SDK version after an update by default
+
+## [2022-03-02] - Gradio version pinning
+- The `sdk_version` configuration field now also works with the Gradio sdk
+
 ## [2022-02-21] - Python versions
 - You can specify the version of Python that you want your Space to run on.
 - Only Python 3 versions are supported.
