@@ -17,7 +17,7 @@
 - It ensures that your Space stays on the same SDK version after an update by default
 
 ## [2022-03-02] - Gradio version pinning
-- The `sdk_version` configuration field now also works with the Gradio sdk
+- The `sdk_version` configuration field now also works with the Gradio SDK.
 
 ## [2022-02-21] - Python versions
 - You can specify the version of Python that you want your Space to run on.
