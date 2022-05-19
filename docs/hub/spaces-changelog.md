@@ -9,8 +9,7 @@
 - All `1.x.0` versions are now supported (up to `1.9.0`)
 
 ## [2022-05-16] - Gradio 3 is out!
-- This is the default version when creating a new Space, don't hesitate to check it out
-- https://huggingface.co/blog/gradio-blocks
+- This is the default version when creating a new Space, don't hesitate to [check it out](https://huggingface.co/blog/gradio-blocks).
 
 ## [2022-03-04] - SDK version lock
 - The `sdk_version` field is now automatically pre-filled at Space creation time.
