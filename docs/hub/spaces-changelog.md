@@ -1,6 +1,6 @@
 # Spaces Changelog
 
-## [2022-05-21] - Default Debian pakcages
+## [2022-05-21] - Default Debian packages
 - Spaces environment now comes with pre-installed popular packages (`ffmpeg`, `libsndfile1`, etc.)
 - This way, most of the time, you don't need to specify any additional package for your Space to work properly
 - The `packages.txt` file can still be used if needed
