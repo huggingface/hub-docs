@@ -6,7 +6,7 @@
 - The `packages.txt` file can still be used if needed
 
 ## [2022-05-17] - Add support for Streamlit 1.9.0
-- All `1.x.0` versions are now supported (up to `1.9.0`)
+- All `1.x.0` versions are now supported (up to `1.9.0`).
 
 ## [2022-05-16] - Gradio 3 is out!
 - This is the default version when creating a new Space, don't hesitate to [check it out](https://huggingface.co/blog/gradio-blocks).
