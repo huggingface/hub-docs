@@ -6,7 +6,7 @@ title: Signing commits with GPG
 
 `git` has an authentication layer to control who can push commits to a repo, but it does not authentify the actual commit authors.
 
-In other words, you can commit changes as `Elon Musk <elon@tesla.com>`, push them to your preferred `git` host (for instance github.com) and your commit will link to Elon's GitHub profile. (Try it! But don't blame us if Elon gets mad at you for impersonating him)
+In other words, you can commit changes as `Elon Musk <elon@tesla.com>`, push them to your preferred `git` host (for instance github.com), and your commit will link to Elon's GitHub profile. (Try it! But don't blame us if Elon gets mad at you for impersonating him.)
 
 See this post by Ale Segala for more context: [How (and why) to sign `git` commits](https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html)
 
@@ -87,7 +87,7 @@ git config user.signingkey <Your GPG Key ID>
 git config user.email <Your email on hf.co>
 ```
 
-You can then add the `-S` flag to your `git commit` commands to sign your commits !
+You can then add the `-S` flag to your `git commit` commands to sign your commits!
 
 ```bash
 git commit -S -m "My first signed commit"

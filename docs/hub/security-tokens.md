@@ -13,7 +13,7 @@ User Access Tokens are the preferred way to authenticate an application or noteb
 
 Access tokens allow applications and notebooks to perform specific actions specified by the scope of the roles shown in the following:
 
-- `read`: tokens with this role can only be used to provide read access to repositories you could read. That includes public repositories and private repositories that you, or an organization you're a member of, own. Use this role if you only need to read content from the Hugging Face Hub (e.g. when downloading private models or doing inference).
+- `read`: tokens with this role can only be used to provide read access to repositories you could read. That includes public and private repositories that you, or an organization you're a member of, own. Use this role if you only need to read content from the Hugging Face Hub (e.g. when downloading private models or doing inference).
 
 - `write`: tokens with this role additionally grant write access to the repositories you have write access to. Use this token if you need to create or push content to a repository (e.g., when training a model or modifying a model card).
 

@@ -11,7 +11,7 @@ On an organization's profile, an organization card looks like this:
 ![/docs/assets/hub/org-card.png](/docs/assets/hub/org-card.png)
 
 
-You'll see a button to create or edit your organization card on any organization page of which you're a member. Organization cards are a `README.md` static file, inside a Space repo named `README`. The card can be as simple as Markdown text or you can create a more customized appearance with HTML.
+If you're a member of an organization, you'll see a button to create or edit your organization card on the organization's main page. Organization cards are a `README.md` static file inside a Space repo named `README`. The card can be as simple as Markdown text, or you can create a more customized appearance with HTML.
 
 As an example, take a look at:
 

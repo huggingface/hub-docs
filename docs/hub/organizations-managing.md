@@ -18,4 +18,4 @@ You can also revoke a user's membership or change their role  this page.
 
 ## Organization domain name
 
-Under the **Account** tab in the Organization settings, you're able to set an `Organization domain name`. Setting a domain name will allow any user with a matching email address on the Hugging Face Hub to joing your organization.
+Under the **Account** tab in the Organization settings, you can set an `Organization domain name`. Specifying a domain name will allow any user with a matching email address on the Hugging Face Hub to join your organization.
