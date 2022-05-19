@@ -6,7 +6,7 @@ title: Organization cards
 
 You can create an organization card to help users learn more about what your organization is working on and how users can use your libraries, models, datasets, and Spaces. 
 
-On an organization's profile, an organization card looks like this:
+An organization card is displayed on an organization's profile:
 
 ![/docs/assets/hub/org-card.png](/docs/assets/hub/org-card.png)
 

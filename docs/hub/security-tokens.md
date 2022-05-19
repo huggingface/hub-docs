@@ -19,13 +19,13 @@ Access tokens allow applications and notebooks to perform specific actions speci
 
 ## How to manage User Access Tokens?
 
-To create an access token, go to your settings, then click on the ["Access Tokens" tab](https://huggingface.co/settings/tokens). Click on the "New token" button to create a new User Access Token.
+To create an access token, go to your settings, then click on the [Access Tokens tab](https://huggingface.co/settings/tokens). Click on the **New token** button to create a new User Access Token.
 
 ![/docs/assets/hub/new-token.png](/docs/assets/hub/new-token.png)
 
 Select a role and a name for your token and voilà - you're ready to go!
 
-You can delete and refresh User Access Tokens by clicking on the "Manage" button.
+You can delete and refresh User Access Tokens by clicking on the **Manage** button.
 
 ![/docs/assets/hub/delete-token.png](/docs/assets/hub/delete-token.png)
 
@@ -33,7 +33,7 @@ You can delete and refresh User Access Tokens by clicking on the "Manage" button
 
 There are plenty of ways to use a User Access Token to access the Hugging Face Hub, granting you the flexibility you need to build awesome apps on top of it.
 
-- User Access Tokens can be used **in place of a password** to access the Hugging Face Hub with git or with basic authentication
+- User Access Tokens can be used **in place of a password** to access the Hugging Face Hub with git or with basic authentication.
 - User Access Tokens can be passed as a **bearer token** when calling the [Inference API](https://huggingface.co/inference-api).
 - User Access Tokens can be used in the Hugging Face Python libraries, such as `transformers` or `datasets`:
 

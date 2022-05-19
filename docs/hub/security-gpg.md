@@ -4,13 +4,13 @@ title: Signing commits with GPG
 
 <h1>Signing commits with GPG</h1>
 
-`git` has an authentication layer to control who can push commits to a repo, but it does not authentify the actual commit authors.
+`git` has an authentication layer to control who can push commits to a repo, but it does not authenticate the actual commit authors.
 
 In other words, you can commit changes as `Elon Musk <elon@tesla.com>`, push them to your preferred `git` host (for instance github.com), and your commit will link to Elon's GitHub profile. (Try it! But don't blame us if Elon gets mad at you for impersonating him.)
 
-See this post by Ale Segala for more context: [How (and why) to sign `git` commits](https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html)
+See Ale Segala's [How (and why) to sign `git` commits](https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html) for more context.
 
-You can prove a commit was authored by you, using GNU Privacy Guard (GPG) and a key server. GPG is a cryptographic tool used to verify the authenticity of a message's origin. We'll explain how to set this up on hf.co below.
+You can prove a commit was authored by you with GNU Privacy Guard (GPG) and a key server. GPG is a cryptographic tool used to verify the authenticity of a message's origin. We'll explain how to set this up on Hugging Face below.
 
 The Pro Git book is, as usual, a good resource about commit signing: [Pro Git: Signing your work](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work).
 
@@ -18,12 +18,12 @@ The Pro Git book is, as usual, a good resource about commit signing: [Pro Git: S
 ## Why we implemented signed commits verification on the Hugging Face hub
 
 The reasons we implemented GPG signing were:
-- To provide finer-grained security, especially as more and more Enterprise users rely on the Hub (in the future you'll be able to disallow non-signed commits)
-- Coupled with our model [eval results metadata](https://github.com/huggingface/hub-docs/blame/main/modelcard.md), GPG signing enables a cryptographically-secure trustable source of ML benchmarks. 🤯 
+- To provide finer-grained security, especially as more and more Enterprise users rely on the Hub.
+- To provide ML benchmarks backed by a cryptographically-secure source.
 
 ## Setting up signed commits verification
 
-> You will need to install [GPG](https://gnupg.org/) on your system in order to execute the following commands.
+You will need to install [GPG](https://gnupg.org/) on your system in order to execute the following commands.
 > It's included by default in most Linux distributions.
 > On Windows, it is included in Git Bash (which comes with `git` for Windows).
 
@@ -46,7 +46,7 @@ For a commit to be marked as **verified**, you need to upload the public key use
 Use the `gpg --list-secret-keys` command to list the GPG keys for which you have both a public and private key.
 A private key is required for signing commits or tags.
 
-If you have no GPG key pair, or you don't want to use the existing keys to sign your commits, go to **Generating a new GPG key**.
+If you don't have a GPG key pair or you don't want to use the existing keys to sign your commits, go to **Generating a new GPG key**.
 
 Otherwise, go straight to  [Adding a GPG key to your account](#adding-a-gpg-key-to-your-account).
 
@@ -64,9 +64,9 @@ Make sure you specify an email address for this key, and that the email address 
 
 ## Adding a GPG key to your account
 
-1. First, select or generate a GPG key on your computer. Make sure that the email address of the key matches the one of your Hugging Face [account](https://huggingface.co/settings/account) and that the email of your account is verified.
+1. First, select or generate a GPG key on your computer. Make sure the email address of the key matches the one in your Hugging Face [account](https://huggingface.co/settings/account) and that the email of your account is verified.
 
-2. Then, export the public part of the selected key:
+2. Export the public part of the selected key:
 
 ```bash
 gpg --armor --export <YOUR KEY ID>
@@ -76,7 +76,7 @@ gpg --armor --export <YOUR KEY ID>
 
 Copy & paste the output of the `gpg --export` command in the text area and click on **Add Key**.
 
-4. Congratulations ! 🎉 You've just added a GPG key to your account !
+4. Congratulations! 🎉  You've just added a GPG key to your account!
 
 ## Configure git to sign your commits with GPG
 
@@ -87,7 +87,7 @@ git config user.signingkey <Your GPG Key ID>
 git config user.email <Your email on hf.co>
 ```
 
-You can then add the `-S` flag to your `git commit` commands to sign your commits!
+Then add the `-S` flag to your `git commit` commands to sign your commits!
 
 ```bash
 git commit -S -m "My first signed commit"
