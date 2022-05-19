@@ -13,8 +13,8 @@
 - https://huggingface.co/blog/gradio-blocks
 
 ## [2022-03-04] - SDK version lock
-- The `sdk_version` field is now automatically pre-filled at Space creation time
-- It ensures that your Space stays on the same SDK version after an update by default
+- The `sdk_version` field is now automatically pre-filled at Space creation time.
+- It ensures that your Space stays on the same SDK version after an update by default.
 
 ## [2022-03-02] - Gradio version pinning
 - The `sdk_version` configuration field now also works with the Gradio SDK.
