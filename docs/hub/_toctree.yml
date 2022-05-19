@@ -30,6 +30,19 @@
     title: Model Widgets
   - local: models-inference
     title: Inference API docs
+- title: Datasets
+  local: datasets-main
+  sections:
+  - local: datasets-overview
+    title: Datasets Overview
+  - local: datasets-cards
+    title: Dataset Cards
+  - local: datasets-gated
+    title: Gated Datasets
+  - local: datasets-usage
+    title: Using Datasets
+  - local: datasets-adding
+    title: Adding New Datasets
 - local: spaces-main
   title: Spaces
   sections:
