@@ -1,8 +1,4 @@
----
-title: Adding New Datasets
----
-
-<h1>Adding new datasets</h1>
+# Adding new datasets
 
 Any Hugging Face user can create a dataset! You can start by [creating your dataset repository](https://huggingface.co/new-dataset) and choosing one of the following methods to upload your dataset:
 

@@ -1,8 +1,4 @@
----
-title: Datasets
----
-
-<h1>Datasets</h1>
+# Datasets
 
 The Hugging Face Hub is home to a growing collection of datasets that span a variety of domains and tasks. These docs will guide you through interacting with the datasets on the Hub, uploading new datasets, and using datasets in your projects.
 
