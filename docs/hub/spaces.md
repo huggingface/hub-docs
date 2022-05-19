@@ -139,10 +139,16 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Setup git
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "you@example.com"
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/FULL_SPACE_NAME main
+        run: |
+          git pull https://HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/FULL_SPACE_NAME main --rebase 
+          git push https://HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/FULL_SPACE_NAME main
 ```
 
 Finally, create an Action that automatically checks the file size of any new pull request:
