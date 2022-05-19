@@ -15,3 +15,6 @@
 
 - local: organizations-main
   title: Organizations
+
+- local: security-main
+  title: Security
