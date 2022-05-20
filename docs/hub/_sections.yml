@@ -12,3 +12,12 @@
 
 - local: datasets-main
   title: Datasets
+
+- local: organizations-main
+  title: Organizations
+
+- local: security-main
+  title: Security
+
+- local: api-main
+  title: Hub API Endpoints
