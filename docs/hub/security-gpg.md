@@ -8,18 +8,15 @@ title: Signing commits with GPG
 
 In other words, you can commit changes as `Elon Musk <elon@tesla.com>`, push them to your preferred `git` host (for instance github.com), and your commit will link to Elon's GitHub profile. (Try it! But don't blame us if Elon gets mad at you for impersonating him.)
 
+The reasons we implemented GPG signing were:
+- To provide finer-grained security, especially as more and more Enterprise users rely on the Hub.
+- To provide ML benchmarks backed by a cryptographically-secure source.
+
 See Ale Segala's [How (and why) to sign `git` commits](https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html) for more context.
 
 You can prove a commit was authored by you with GNU Privacy Guard (GPG) and a key server. GPG is a cryptographic tool used to verify the authenticity of a message's origin. We'll explain how to set this up on Hugging Face below.
 
 The Pro Git book is, as usual, a good resource about commit signing: [Pro Git: Signing your work](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work).
-
-
-## Why we implemented signed commits verification on the Hugging Face hub
-
-The reasons we implemented GPG signing were:
-- To provide finer-grained security, especially as more and more Enterprise users rely on the Hub.
-- To provide ML benchmarks backed by a cryptographically-secure source.
 
 ## Setting up signed commits verification
 
