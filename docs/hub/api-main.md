@@ -28,21 +28,3 @@ We have open endpoints that you can use to retrieve information from the Hub as 
 | /api/repos/move POST                                                         	| Move a repository (rename within same namespace or transfer from user to organization).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 	| `move_repo()`                     	| ```headers = { "authorization" :  "Bearer $token" }```    ```json= {"fromRepo" : "namespace/repo_name", "toRepo" : "namespace2/repo_name2"}```                        	|   	|
 | /api/{type}/{repo_id}/upload/{revision}/{path_in_repo}    POST               	| Upload a file to a specific repository.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	| `upload_file()`                   	| ```headers = { "authorization" :  "Bearer $token" }```  ```"data"="bytestream"```                                                                                     	|   	|
 | /api/whoami-v2    GET                                                           	| Get username and organizations the user belongs to.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    	| `whoami(token)`                   	| ```headers = { "authorization" :  "Bearer $token" }```                                                                                                                	|   	|
-
-## Webhook
-
-If you ever need to programmatically get notified about all the changes/additions to model/dataset/Space repositories on the Hugging Face Hub, you can subscribe to the Hugging Face Hub webhook.
-
-When you're subscribed – meaning you sent us a URL on your side that you want us to ping – we will call it over HTTP with the following payload:
-
-```python
-{ "add": "user/model_id" }
-# or
-{ "add": "datasets/user/dataset_id" }
-# or
-{ "update": "spaces/organization/space_id" }
-# or
-{ "remove": "user/model_id" }
-```
-
-✉️ Contact us at `website at huggingface.co` if you would like to subscribe to the webhook.

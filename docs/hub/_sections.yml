@@ -21,3 +21,6 @@
 
 - local: api-main
   title: Hub API Endpoints
+
+- local: api-webhook
+  title: Webhook
