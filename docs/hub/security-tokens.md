@@ -33,9 +33,10 @@ You can delete and refresh User Access Tokens by clicking on the **Manage** butt
 
 There are plenty of ways to use a User Access Token to access the Hugging Face Hub, granting you the flexibility you need to build awesome apps on top of it.
 
-- User Access Tokens can be used **in place of a password** to access the Hugging Face Hub with git or with basic authentication.
-- User Access Tokens can be passed as a **bearer token** when calling the [Inference API](https://huggingface.co/inference-api).
-- User Access Tokens can be used in the Hugging Face Python libraries, such as `transformers` or `datasets`:
+User Access Tokens can be:
+- used **in place of a password** to access the Hugging Face Hub with git or with basic authentication.
+- passed as a **bearer token** when calling the [Inference API](https://huggingface.co/inference-api).
+- used in the Hugging Face Python libraries, such as `transformers` or `datasets`:
 
 ```python
 from transformers import AutoModel
