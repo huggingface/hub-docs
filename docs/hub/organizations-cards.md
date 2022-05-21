@@ -1,8 +1,4 @@
----
-title: Organization cards
----
-
-<h1>Organization cards</h1>
+# Organization cards
 
 You can create an organization card to help users learn more about what your organization is working on and how users can use your libraries, models, datasets, and Spaces. 
 

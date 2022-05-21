@@ -1,8 +1,4 @@
----
-title: Managing organizations
----
-
-<h1>Managing organizations</h1>
+# Managing organizations
 
 ## Creating an organization
 

@@ -1,9 +1,4 @@
----
-title: User Access Tokens
----
-
-<h1>User access tokens</h1>
-
+# User access tokens
 
 ## What are User Access Tokens?
 

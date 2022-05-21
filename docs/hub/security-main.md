@@ -1,8 +1,4 @@
----
-title: Security
----
-
-<h1>Security</h1>
+# Security
 
 The Hugging Face Hub offers several security features to ensure that your code and data are secure. Beyond offering [private repositories](./repositories-best-practices) for models, datasets, and Spaces, the Hub supports access tokens, commit signatures, and malware scanning.
 

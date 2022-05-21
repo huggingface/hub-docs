@@ -1,8 +1,4 @@
----
-title: Access control in organizations
----
-
-<h1>Access control in organizations</h1>
+# Access control in organizations
 
 Members of organizations can have three different roles: `read`, `write` or `admin`:
 

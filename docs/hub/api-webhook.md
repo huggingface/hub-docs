@@ -1,8 +1,4 @@
----
-title: Webhook
----
-
-<h1>Webhook</h1>
+# Webhook
 
 If you ever need to programmatically get notified about all the changes/additions to model/dataset/Space repositories on the Hugging Face Hub, you can subscribe to the Hugging Face Hub webhook.
 
