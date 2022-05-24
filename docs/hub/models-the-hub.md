@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 # The Model Hub
-=======
----
-title: The Model Hub
----
-
-<h1>The Model Hub</h1>
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 
 ## What is the Model Hub?
 
@@ -31,10 +23,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [docTR](https://github.com/mindee/doctr) | Models and datasets for OCR-related tasks in PyTorch & TensorFlow | ✅ | ✅ | ✅ | ❌ |
 | [ESPnet](https://github.com/espnet/espnet)                | End-to-end speech processing toolkit (e.g. TTS)                               |       ✅       | ✅      |         ✅         |      ❌      |
 | [Flair](https://github.com/flairNLP/flair)                 | Very simple framework for state-of-the-art NLP. |       ✅       |    ✅   |         ✅         |      ❌      |
-<<<<<<< HEAD
 | [NeMo](https://github.com/NVIDIA/NeMo)                 | Conversational AI toolkit built for researchers  |       ✅       |    ✅   |         ✅         |      ❌      |
-=======
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 | [Pyannote](https://github.com/pyannote/pyannote-audio)              | Neural building blocks for speaker diarization.                               |       ❌       |    ❌   |         ✅         |      ❌      |
 | [PyCTCDecode](https://github.com/kensho-technologies/pyctcdecode)                  | Language model supported CTC decoding for speech recognition                |       ❌       |    ❌   |         ✅         |      ❌      |
 | [Sentence Transformers](https://github.com/UKPLab/sentence-transformers) | Compute dense vector representations for sentences, paragraphs, and images.   |       ✅       |    ✅   |         ✅         |      ✅      |

@@ -38,8 +38,4 @@ You can head to the [Inference API dashboard](https://api-inference.huggingface.
 
 ## Is there programmatic access to the Inference API?
 
-<<<<<<< HEAD
 Yes, the `huggingface_hub` library has a client wrapper documented [here](https://huggingface.co/docs/huggingface_hub/how-to-inference).
-=======
-Yes, the `huggingface_hub` library has a client wrapper documented [here](/docs/hub/how-to-inference).
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))

@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 # Interacting with models on the hub
-=======
----
-title: Interacting with Models on the Hub
----
-
-<h1>Interacting with models on the hub</h1>
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 
 ## Accessing models for local use
 
@@ -19,19 +11,11 @@ git clone <MODEL URL>
 
 For detailed information on accessing the model, you can click on the "Use in Transformer" button on any model page.
 
-<<<<<<< HEAD
 ![Models can be used locally through the 'Use in Transformer' button](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-usage.png)
 
 If the model is compatible with 🤗  Transformers, you'll even receive snippets to help you get started.
 
 ![Snippets for using a model with the 🤗 transformers library](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-usage-modal.png)
-=======
-![Models can be used locally through the "Use in Transformer" button](../assets/hub/models-usage.png)
-
-If the model is compatible with 🤗  Transformers, you'll even receive snippets to help you get started.
-
-![Snippets for using a model with the 🤗 transformers library](../assets/hub/models-usage-modal.png)
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 
 ### Can I access models programmatically?
 
@@ -63,19 +47,11 @@ To create a brand new model repository, visit [huggingface.co/new](http://huggin
 
 1. In the "Files and versions" tab, select "Add File" and specify "Upload File":
 
-<<<<<<< HEAD
 ![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/add-file.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/add-file.png)
 
 2. From there, select a file from your computer to upload and leave a helpful commit message to know what you are uploading:
 
 ![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/commit-file.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/commit-file.png)
-=======
-![/docs/assets/hub/add-file.png](/docs/assets/hub/add-file.png)
-
-2. From there, select a file from your computer to upload and leave a helpful commit message to know what you are uploading:
-
-![docs/assets/hub/commit-file.png](/docs/assets/hub/commit-file.png)
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 
 3. Afterwards, click **Commit changes** to upload your model to the Hub!
 
@@ -83,19 +59,11 @@ To create a brand new model repository, visit [huggingface.co/new](http://huggin
 
 You can check your repository with all the recently added files!
 
-<<<<<<< HEAD
 ![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files.png)
 
 The UI allows you to explore the model files and commits and to see the diff introduced by each commit:
 
 ![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif)
-=======
-![/docs/assets/hub/repo_with_files.png](/docs/assets/hub/repo_with_files.png)
-
-The UI allows you to explore the model files and commits and to see the diff introduced by each commit:
-
-![/docs/assets/hub/explore_history.gif](/docs/assets/hub/explore_history.gif)
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 
 5. Add metadata
 
@@ -114,11 +82,7 @@ Read more about model tags [here](/docs/hub/model-repos#model-card-metadata).
 
 Any repository that contains TensorBoard traces (filenames that contain `tfevents`) is categorized with the [`TensorBoard` tag](https://huggingface.co/models?filter=tensorboard). As a convention, we suggest that you save traces under the `runs/` subfolder. The "Training metrics" tab then makes it easy to review charts of the logged variables, like the loss or the accuracy.
 
-<<<<<<< HEAD
 ![Training metrics tab on a model's page, with TensorBoard](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tensorboard.png)
-=======
-![Training metrics tab on a model's page, with TensorBoard](/docs/assets/hub/tensorboard.png)
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 
 Models trained with 🤗 Transformers will generate [TensorBoard traces](https://huggingface.co/transformers/main_classes/callback.html?highlight=tensorboard#transformers.integrations.TensorBoardCallback) by default if [`tensorboard`](https://pypi.org/project/tensorboard/) is installed.
 
@@ -139,11 +103,7 @@ The rich feature set in the `huggingface_hub` library allows you to manage repos
 
 It's up to the person who uploaded the model to include the training information! You may find the information about the datasets that the model was trained on in the model card. If the datasets used for the model are on the Hub, the uploader may have included them in the model card's metadata. In that case, the datasets would be linked with a handy card on the right side of the model page:
 
-<<<<<<< HEAD
 ![Linked datasets for a model](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-datasets.png)
-=======
-![Linked datasets for a model](../assets/hub/models-linked-datasets.png)
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 
 ### How can I see an example of the model in action?
 
@@ -151,15 +111,9 @@ Models can have inference widgets that let you try out the model in the browser!
 
 The Hugging Face Hub is also home to Spaces, which are interactive demos used to showcase models. If a model has any Spaces associated with it, you'll find them linked on the model page like so:
 
-<<<<<<< HEAD
 ![Linked spaces for a model](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-spaces.png)
 
 Spaces are a great way to show off a model you've made or explore new ways to use existing models! Visit the [Spaces documentation](./spaces-main) to learn how to make your own.
-=======
-![Linked spaces for a model](../assets/hub/models-linked-spaces.png)
-
-Spaces are a great way to show off a model you've made or explore new ways to use existing models! Visit the [Spaces documentation](TODO) to learn how to make your own.
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 
 ### How do I upload an update / new version of the model?
 
