@@ -41,6 +41,8 @@
         title: Asteroid
       - local: espnet
         title: ESPnet
+      - local: sentence-transformers
+        title: Sentence Transformers
       - local: tensorboard
         title: TensorBoard
   - local: models-interacting
