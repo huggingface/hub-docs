@@ -59,7 +59,6 @@ from sentence_transformers import SentenceTransformer
 
 # Load or train a model
 model.save_to_hub("my_new_model")
-)
 ```
 
 This command creates a repository with an automatically generated model card, an inference widget, example code snippets, and more! [Here](https://huggingface.co/osanseviero/my_new_model) is an example.
