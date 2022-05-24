@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 # Inference API
-=======
----
-title: Inference API docs
----
-
-<h1>Inference API</h1>
->>>>>>> 2bcd4d6 (Docs Revamp: Models documentation (#117))
 
 Please refer to [Accelerated Inference API Documentation](https://api-inference.huggingface.co/docs/python/html/index.html) for detailed information.
 
