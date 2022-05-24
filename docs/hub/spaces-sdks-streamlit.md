@@ -1,8 +1,4 @@
----
-title: Streamlit Spaces
----
-
-<h1>Streamlit Spaces</h1>
+# Streamlit Spaces
 
 **Streamlit** gives users more freedom to build a full-featured web app with Python in a *reactive* way. Your code is rerun each time the state of the app changes. Streamlit is also great for data visualization and supports several charting libraries such as Bokeh, Plotly, and Altair. Read our [blog post](https://huggingface.co/blog/streamlit-spaces) about building and hosting Streamlit apps in Spaces.
 
@@ -69,4 +65,4 @@ if file_name is not None:
 
 This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/docs/transformers/pipeline_tutorial) to load the [julien-c/hotdog-not-hotdog](https://huggingface.co/julien-c/hotdog-not-hotdog) model, which is used by the Streamlit interface. The Streamlit app will expect you to upload an image, which it'll then classify as *hot dog* or *not hot dog*. Once you've saved the code to the **app.py** file, visit the **App** tab to see your app in action!
 
-![Hot Dog Classifier Space](/docs/assets/hub/spaces-hot-dog-streamlit.png)
+![Hot Dog Classifier Space](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-hot-dog-streamlit.png)

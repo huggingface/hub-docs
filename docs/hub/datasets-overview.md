@@ -1,8 +1,4 @@
----
-title: Datasets Overview
----
-
-<h1>Datasets Overview</h1>
+# Datasets Overview
 
 ## Datasets on the Hub
 
@@ -14,7 +10,7 @@ Each dataset is a [Git repository](./repositories-main), equipped with the neces
 
 Like models and Spaces, you can search the Hub for datasets using the search bar in the top navigation or on the [main datasets page](https://huggingface.co/datasets). There's a large number of languages, tasks, and licenses that you can use to filter your results to find a dataset that's right for you.
 
-![Datasets search page on the Hugging Face Hub](/docs/assets/hub/datasets-main.png)
+![Datasets search page on the Hugging Face Hub](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-main.png)
 
 ## Privacy
 

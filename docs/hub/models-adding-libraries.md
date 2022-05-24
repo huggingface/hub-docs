@@ -1,7 +1,3 @@
----
-title: Integrate a library with the Hub
----
-
 # Integrate your library with the Hub
 
 The Hugging Face Hub aims to facilitate sharing machine learning models, checkpoints, and artifacts. This endeavor includes integrating the Hub into many of the amazing third-party libraries in the community. Some of the ones already integrated include [spaCy](https://spacy.io/usage/projects#huggingface_hub), [AllenNLP](https://allennlp.org/), and [timm](https://rwightman.github.io/pytorch-image-models/), among many others. Integration means users can download and upload files to the Hub directly from your library. We hope you will integrate your library and join us in democratizing artificial intelligence for everyone!
@@ -87,7 +83,7 @@ Use the `cache_dir` parameter to change where a file is stored:
 
 We recommend adding a code snippet to explain how to use a model in your downstream library. 
 
-![/docs/assets/hub/code_snippet.png](/docs/assets/hub/code_snippet.png)
+![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet.png)
 
 Add a code snippet by updating the [Libraries Typescript file](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Libraries.ts) with instructions for your model. For example, the [Asteroid](https://huggingface.co/asteroid-team) integration includes a brief code snippet for how to load and use an Asteroid model:
 
@@ -100,7 +96,7 @@ model = BaseModel.from_pretrained("${model.id}")`;
 
 Doing so will also add a tag to your model so users can quickly identify models from your library.
 
-![/docs/assets/hub/libraries-tags.png](/docs/assets/hub/libraries-tags.png)
+![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags.png)
 
 ## Upload files to the Hub
 

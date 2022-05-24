@@ -1,8 +1,4 @@
----
-title: Signing commits with GPG
----
-
-<h1>Signing commits with GPG</h1>
+# Signing commits with GPG
 
 `git` has an authentication layer to control who can push commits to a repo, but it does not authenticate the actual commit authors.
 

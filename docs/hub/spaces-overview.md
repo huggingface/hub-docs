@@ -1,8 +1,4 @@
----
-title: Spaces Overview
----
-
-<h1>Spaces Overview</h1>
+# Spaces Overview
 
 Hugging Face Spaces make it easy for you to create and deploy ML-powered demos in minutes. Watch the following video for a quick introduction to Spaces:
 
@@ -14,7 +10,7 @@ In the following sections, you'll learn the basics of creating a Space, configur
 
 **To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Streamlit, and static HTML. You can read more about these in the [SDK section of these docs](./spaces-sdks). If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
 
-![Viewing a brand new Hugging Face Space](/docs/assets/hub/spaces-blank-space.png)
+![Viewing a brand new Hugging Face Space](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-blank-space.png)
 
 Under the hood, Spaces stores your code inside a git repository, just like the model and dataset repositories. Thanks to this, the same tools we use for all the [other repositories on the Hub](./repositories-main) (`git` and `git-lfs`) also work for Spaces. Follow the same flow as in [Getting Started with Repositories](./repositories-getting-started) to add files to your Space. Each time a new commit is pushed, the Space will automatically rebuild and restart.
 
@@ -69,4 +65,4 @@ For additional settings, refer to the [Reference](./spaces-config-reference) sec
 
 If your app requires secret keys or tokens, don't hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and enter your secrets there. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. 
 
-![screenshot of secrets settings](/docs/assets/hub/secrets.png)
+![screenshot of secrets settings](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets.png)

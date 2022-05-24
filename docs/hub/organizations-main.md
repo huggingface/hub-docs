@@ -1,8 +1,4 @@
----
-title: Organizations
----
-
-<h1>Organizations</h1>
+# Organizations
 
 The Hugging Face Hub offers **Organizations**, which can be used to group accounts and manage datasets, models, and Spaces. The Hub also allows admins to set user roles to [**control access to repositories**](./organizations-security) and manage their organization's [subscription](https://huggingface.co/pricing).
 

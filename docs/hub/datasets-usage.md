@@ -1,8 +1,4 @@
----
-title: Using 🤗 Datasets
----
-
-<h1>Using 🤗 Datasets</h1>
+# Using 🤗 Datasets
 
 Once you've found an interesting dataset on the Hugging Face Hub, you can load the dataset using 🤗 Datasets. You can click on the **Use in dataset library** button to copy the code to load a dataset. Many datasets on the Hub contain a [loading script](https://huggingface.co/docs/datasets/dataset_script), which allows you to easily [load the dataset when you need it](https://huggingface.co/docs/datasets/load_hub).
 

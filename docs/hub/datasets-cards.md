@@ -1,8 +1,4 @@
----
-title: Dataset Cards
----
-
-<h1>Dataset Cards</h1>
+# Dataset Cards
 
 Each dataset may be documented by the `README.md` file in the repository. This file is called a **dataset card**, and the Hugging Face Hub will render its contents on the dataset's main page. To inform users about how to responsibly use the data, it's a good idea to include information about any potential biases within the dataset. Generally, dataset cards help users understand the contents of the dataset and give context for how the dataset should be used.
 

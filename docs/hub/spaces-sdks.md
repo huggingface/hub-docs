@@ -1,8 +1,4 @@
----
-title: Spaces SDKs
----
-
-<h1>Spaces SDKs</h1>
+# Spaces SDKs
 
 Hugging Face Spaces officially supports three different SDKs: Gradio, Streamlit, and static HTML.
 

@@ -1,8 +1,4 @@
----
-title: Gated datasets
----
-
-<h1>Gated datasets</h1>
+# Gated datasets
 
 To give dataset creators more control over how their datasets are used, the Hub allows users to enable **User Access requests** through a dataset's **Settings** tab. Enabling this setting requires users to agree to share their contact information with Hugging Face in order to access the dataset. The contact information is stored in a database, and dataset owners are able to download a copy of the user access report.
 
@@ -18,6 +14,6 @@ extra_gated_fields:
 ---
 ```
 
-![A gated Dataset showing the User Access request dialog](/docs/assets/hub/datasets-gated.png)
+![A gated Dataset showing the User Access request dialog](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-gated.png)
 
 The `README.md` file for a dataset is called a [Dataset Card](./datasets-cards). Visit the documentation to learn more about how to use it and to see the properties that you can configure.
