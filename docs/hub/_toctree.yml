@@ -39,6 +39,10 @@
         title: AllenNLP
       - local: asteroid
         title: Asteroid
+      - local: espnet
+        title: ESPnet
+      - local: tensorboard
+        title: TensorBoard
   - local: models-interacting
     title: Interacting with Models on the Hub
   - local: models-widgets

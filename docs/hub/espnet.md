@@ -1,7 +1,3 @@
----
-title: ESPnet
----
-
 # Using ESPnet at Hugging Face
 
 `espnet` is an end-to-end toolkit for speech processing, including automatic speech recognition, text to speech, speech enhancement, dirarization and other tasks.
@@ -16,8 +12,10 @@ All models on the Hub come up with useful features
 3. An interactive widget you can use to play out with the model directly in the browser.
 4. An Inference API that allows to make inference requests.
 
-![widget](/docs/assets/hub/espnet_widget.png)
-
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-espnet_widget.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-espnet_widget-dark.png"/>
+</div>
 
 ## Using existing models
 
@@ -52,8 +50,10 @@ espnet_model_zoo_download --unpack true <model_name>
 
 If you want to see how to load a specific model, you can click `Use in ESPnet` and you will be given a working snippet that you can load it! 
 
-![snippet](/docs/assets/hub/espnet_snippet.png)
-
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-espnet_snippet.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-espnet_snippet-dark.png"/>
+</div>
 
 ## Sharing your models
 
@@ -64,8 +64,6 @@ The `run.sh` script allows to upload a given model to a Hugging Face repository.
 ```bash
 ./run.sh --stage 15 --skip_upload_hf false --hf_repo username/model_repo
 ```
-
-
 
 ## Additional resources
 
