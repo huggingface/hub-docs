@@ -62,6 +62,9 @@
 - local: espnet
   title: ESPnet
 
+- local: sentence-transformers
+  title: Sentence Transformers
+
 - local: spacy
   title: SpaCy
 
