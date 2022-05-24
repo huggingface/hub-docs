@@ -68,8 +68,6 @@ You can then check if the command has been registered successfully
 python -m spacy huggingface-hub --help
 ```
 
-[TODO: Add some instructions about Git LFS. All libraries will need this, so it would be great if we could refactor that]
-
 To push with the CLI, you can use the `huggingface-hub push` command as seen below.
 
 ```bash
