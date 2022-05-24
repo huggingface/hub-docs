@@ -1,6 +1,6 @@
 # Hugging Face Hub documentation
 
-<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-orange-100 bg-gradient-to-br from-orange-50 px-6 py-4 transition-all hover:shadow-xl dark:border-orange-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-orange-600 dark:text-gray-400">
