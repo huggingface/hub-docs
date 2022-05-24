@@ -64,3 +64,6 @@
 
 - local: spacy
   title: SpaCy
+
+- local: tensorboard
+  title: TensorBoard
