@@ -1,4 +1,4 @@
-# Next steps
+# Next Steps
 
 These next sections highlight features and additional information that you may find useful to make the most out of the Git repositories on the Hugging Face Hub.
 
@@ -24,7 +24,7 @@ If you'd like to copy a repository, depending on whether you want to preserve th
 
 ### Duplicating without Git history
 
-In many scenarios, if you want your own copy of a particular codebase you might not be concerned about the previous Git history. In this case, you can quickly duplicate a repo with the handy [Repo Duplicator](https://huggingface.co/spaces/osanseviero/repo_duplicator)! You'll have to create a User Access Token, which you can read more about in the [security documentation](TODO).
+In many scenarios, if you want your own copy of a particular codebase you might not be concerned about the previous Git history. In this case, you can quickly duplicate a repo with the handy [Repo Duplicator](https://huggingface.co/spaces/osanseviero/repo_duplicator)! You'll have to create a User Access Token, which you can read more about in the [security documentation](./security-tokens).
 
 ### Duplicating with the Git history (Fork)
 

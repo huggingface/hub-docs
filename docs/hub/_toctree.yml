@@ -5,10 +5,12 @@
   sections:
   - local: repositories-getting-started
     title: Getting Started with Repositories
-  - local: repositories-best-practices
-    title: Best practices with repositories
+  - local: repositories-settings
+    title: Repository Settings
   - local: repositories-next-steps
     title: Next Steps    
+  - local: repositories-licenses
+    title: Licenses    
 - title: Models
   local: models-main
   sections:

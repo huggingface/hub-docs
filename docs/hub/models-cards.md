@@ -81,7 +81,7 @@ The model card is also a great place to show information about the CO<sub>2</sub
 
 ### How are model tags determined?
 
-Each model page lists all the model's tags in the page header, below the model name. These are primarily computed from the model card metadata, although some are added automatically, as described in [How is a model's type of inference API and widget determined?](./models-widgets).
+Each model page lists all the model's tags in the page header, below the model name. These are primarily computed from the model card metadata, although some are added automatically, as described in [Creating a Widget](./models-widgets#creating-a-widget).
 
 ### Can I write LaTeX in my model card?
 

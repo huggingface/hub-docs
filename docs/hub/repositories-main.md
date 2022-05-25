@@ -6,6 +6,7 @@ In these pages, we will go over the basics of getting started with Git and inter
 
 ## Contents
 
-- [Getting Started](./repositories-getting-started)
-- [Best Practices](./repositories-best-practices)
+- [Getting Started with Repositories](./repositories-getting-started)
+- [Settings](./repositories-settings)
 - [Next Steps](./repositories-next-steps)
+- [Licenses](./repositories-licenses)

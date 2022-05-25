@@ -14,4 +14,4 @@ Like models and Spaces, you can search the Hub for datasets using the search bar
 
 ## Privacy
 
-Since datasets are repositories, you can [toggle their visibility between private and public](./repositories-best-practices) through the Settings tab. If a dataset is owned by an [organization](TODO), the privacy settings apply to all the members of the organization.
+Since datasets are repositories, you can [toggle their visibility between private and public](./repositories-settings#private-repositories) through the Settings tab. If a dataset is owned by an [organization](./organizations-main), the privacy settings apply to all the members of the organization.

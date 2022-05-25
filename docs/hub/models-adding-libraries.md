@@ -137,11 +137,11 @@ For example:
 'https://huggingface.co/lysandre/test-model/blob/main/README.md'
 ```
 
-If you need to upload more than one file, look at the utilities offered by the `Repository` class [here](TODO).
+If you need to upload more than one file, look at the [utilities offered by the `Repository` class](https://huggingface.co/docs/huggingface_hub/package_reference/repository).
 
 Once again, if you check your Hugging Face account, you should see the file inside your repository.
 
-Lastly, it is important to add a model card so users understand how to use your model. See [here](/docs/hub/model-repos#what-are-model-cards-and-why-are-they-useful) for more details about how to create a model card.
+Lastly, it is important to add a model card so users understand how to use your model. See [here](./models-cards) for more details about how to create a model card.
 
 ## Set up the Inference API
 

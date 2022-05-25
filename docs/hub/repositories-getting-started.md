@@ -29,7 +29,7 @@ Using the Hub's web interface you can easily create repositories, add files (eve
 
 3. Next, enter your model’s name. This will also be the name of the repository. Finally, you can specify whether you want your model to be public or private.
 
-You can leave the *License* field blank for now. To learn about licenses, visit the [**Licenses**](repositories-best-practices#Licenses) section of this documentation.
+You can leave the *License* field blank for now. To learn about licenses, visit the [**Licenses**](repositories-licenses) section of this documentation.
 
 After creating your model repository, you should see a page like this:
 
@@ -88,23 +88,3 @@ Every time you go through the `add`-`commit`-`push` cycle, the repo will keep tr
 You can click on an individual commit to see what changes that commit introduced:
 
 ![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif)
-
-
-## Renaming or transferring a repo
-
-
-If you own a repository, you will be able to visit the **Settings** tab to manage the name and ownership. Note that there are certain limitations in terms of use cases.
-
-Moving can be used in these use cases ✅ 
-- Renaming a repository within same user.
-- Renaming a repository within same organization. The user must be part of the organization and have "write" or "admin" rights in the organization.
-- Transferring repository from user to an organization. The user must be part of the organization and have "write" or "admin" rights in the organization.
-- Transferring a repository from an organization to yourself. You must be part of the organization, and have "admin" rights in the organization.
-- Transferring a repository from a source organization to another target organization. The user must have "admin" rights in the source organization **and** either "write" or "admin" rights in the target organization. 
-
-Moving does not work for ❌
-- Transferring a repository from an organization to another user who is not yourself.
-- Transferring a repository from a source organization to another target organization if the user does not have both "admin" rights in the source organization **and** either "write" or "admin" rights in the target organization.
-- Transferring a repository from user A to user B.
-
-If these are use cases you need help with, please send us an email at **website at huggingface.co**.
