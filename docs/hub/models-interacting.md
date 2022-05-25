@@ -139,7 +139,7 @@ The Hugging Face Hub is also home to Spaces, which are interactive demos used to
 <img class="hidden dark:block" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-spaces-dark.png"/>
 </div>
 
-Spaces are a great way to show off a model you've made or explore new ways to use existing models! Visit the [Spaces documentation](./spaces-main) to learn how to make your own.
+Spaces are a great way to show off a model you've made or explore new ways to use existing models! Visit the [Spaces documentation](./spaces) to learn how to make your own.
 
 ### How do I upload an update / new version of the model?
 
