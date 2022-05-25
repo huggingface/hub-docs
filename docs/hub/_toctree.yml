@@ -23,13 +23,8 @@
       title: Carbon Emissions
   - local: models-libraries
     title: Libraries
-  - local: models-tasks
-    title: Tasks
   - local: models-interacting
     title: Interacting with Models on the Hub
-    sections:
-    - local: models-adding-libraries
-      title: Integrate a library with the Hub
   - local: models-widgets
     title: Model Widgets
   - local: models-inference
@@ -38,7 +33,7 @@
     title: Advanced Topics
     sections:
       - local: models-adding-libraries
-        title: Integrating libraries with the Hub
+        title: Integrate a library with the Hub
       - local: models-tasks
         title: Tasks
 - title: Datasets
