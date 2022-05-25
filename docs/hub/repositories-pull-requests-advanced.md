@@ -1,7 +1,6 @@
+# Pull requests advanced usage
 
-## Pull requests advanced usage
-
-### Advanced: for Pull requests, where in the git repo are changes stored
+## Advanced: for Pull requests, where in the git repo are changes stored
 
 Our Pull requests do not use forks and branches, but instead custom "branches" called `refs` that are stored directly on the source repo.
 
@@ -9,7 +8,7 @@ Our Pull requests do not use forks and branches, but instead custom "branches" c
 
 The advantage of using custom refs (like `refs/pr/42` for instance) instead of branches is that they're not fetched (by default) by people (including the repo "owner") cloning the repo, but they can still be fetched on demand.
 
-### Advanced: how do I locally check out a Pull request then?
+## Advanced: how do I locally check out a Pull request then?
 
 Let's assume your PR number is 42:
 
@@ -19,7 +18,7 @@ git checkout pr/42
 git push origin pr/42:refs/pr/42
 ```
 
-### Even more advanced: for git magicians 🧙‍♀️
+## Even more advanced: for git magicians 🧙‍♀️
 
 You can tweak your local **refspec** to fetch all Pull requests:
 

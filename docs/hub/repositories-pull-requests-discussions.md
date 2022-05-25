@@ -1,7 +1,3 @@
----
-title: Hub Pull requests and Discussions
----
-
 # Pull requests and Discussions
 
 We just enabled **community contributions to repos**, a feature we call 'Hub Pull requests and Discussions'.
