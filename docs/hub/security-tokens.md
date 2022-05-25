@@ -50,7 +50,9 @@ access_token = "hf_..."
 model = AutoModel.from_pretrained("private/model", use_auth_token=access_token)
 ```
 
-⚠️ Try not to leak your token! Though you can always rotate it, anyone will be able to read or write your private repos in the meantime which is 💩
+<Tip warning={true}>
+Try not to leak your token! Though you can always rotate it, anyone will be able to read or write your private repos in the meantime which is 💩
+</Tip>
 
 ### Best practices
 
