@@ -91,6 +91,7 @@ The Hugging Face Hub is home to over 3,000 datasets in more than 100 languages t
 [🤗 `datasets`](https://huggingface.co/docs/datasets/index) allows you to programmatically interact with the datasets, so you can easily use datasets from the Hub in your projects.
 
 ## Spaces
+
 [Spaces](https://huggingface.co/spaces) is a simple way to host ML demo apps on the Hub. They allow you to create your ML portfolio, showcase your projects at conferences or to stakeholders, and work collaboratively with other people in the ML ecosystem.
 
 We currently support two awesome SDKs (**[Gradio](https://gradio.app/)** and **[Streamlit](https://streamlit.io/)**) that let you build cool apps in Python in a matter of minutes, with more ways to build coming soon.
