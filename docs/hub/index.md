@@ -8,6 +8,7 @@
 <a class="transform !no-underline transition-all hover:translate-x-px hover:text-gray-700" href="./repositories-main">Introduction</a>
 <a class="transform !no-underline transition-all hover:translate-x-px hover:text-gray-700" href="./repositories-getting-started">Getting Started</a>
 <a class="transform !no-underline transition-all hover:translate-x-px hover:text-gray-700" href="./repositories-settings">Repository Settings</a>
+<a class="transform !no-underline transition-all hover:translate-x-px hover:text-gray-700" href="./repositories-pull-requests-discussions">Pull requests and Discussions</a>
 <a class="transform !no-underline transition-all hover:translate-x-px hover:text-gray-700" href="./repositories-next-steps">Next Steps</a>
 <a class="transform !no-underline transition-all hover:translate-x-px hover:text-gray-700" href="./repositories-licenses">Licenses</a>
 </div>
