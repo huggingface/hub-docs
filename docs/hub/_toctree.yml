@@ -34,6 +34,8 @@
     title: Model Widgets
   - local: models-inference
     title: Inference API docs
+  - local: models-faq
+    title: Frequently Asked Questions
   - local: models-advanced
     title: Advanced Topics
     sections:
