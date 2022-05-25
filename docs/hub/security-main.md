@@ -4,7 +4,7 @@ The Hugging Face Hub offers several security features to ensure that your code a
 
 Hugging Face is also [SOC2 Type 1 certified](https://us.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc1report.html), meaning we provide security certification to our customers and actively monitor and patch any security weaknesses.
 
-![SOC Type 1 Certification logo](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-soc-1.jpeg)
+<img width="150" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-soc-1.jpg">
 
 ## Contents
 

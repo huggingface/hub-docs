@@ -4,7 +4,10 @@
 
 User Access Tokens are the preferred way to authenticate an application or notebook to Hugging Face services. You can manage your access tokens in your [settings](https://huggingface.co/settings/tokens).
 
-![/docs/assets/hub/access-tokens.png](/docs/assets/hub/access-tokens.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/access-tokens.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/access-tokens-dark.png"/>
+</div>
 
 Access tokens allow applications and notebooks to perform specific actions specified by the scope of the roles shown in the following:
 
@@ -16,13 +19,19 @@ Access tokens allow applications and notebooks to perform specific actions speci
 
 To create an access token, go to your settings, then click on the [Access Tokens tab](https://huggingface.co/settings/tokens). Click on the **New token** button to create a new User Access Token.
 
-![/docs/assets/hub/new-token.png](/docs/assets/hub/new-token.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new-token.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new-token-dark.png"/>
+</div>
 
 Select a role and a name for your token and voilà - you're ready to go!
 
 You can delete and refresh User Access Tokens by clicking on the **Manage** button.
 
-![/docs/assets/hub/delete-token.png](/docs/assets/hub/delete-token.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/delete-token.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/delete-token-dark.png"/>
+</div>
 
 ## How to use User Access Tokens?
 

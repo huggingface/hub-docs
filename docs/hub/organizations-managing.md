@@ -8,7 +8,10 @@ Visit the [New Organization](https://hf.co/organizations/new) form to create an 
 
 New members can be added to an organization by visiting the **Organization settings** and clicking on the **Members** tab. There, you'll be able to generate an invite link, add members individually, or send out email invitations in bulk. If the **Allow requests to join from the organization page** setting is enabled, you'll also be able to approve or reject any pending requests on the **Members** page.
 
-![The 'Members' panel for an Organization](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/organizations-members.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/organizations-members.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/organizations-members-dark.png"/>
+</div>
 
 You can also revoke a user's membership or change their role on this page.
 

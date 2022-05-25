@@ -72,7 +72,10 @@ metrics:
 
 If a model includes valid eval results, they will be displayed like this:
 
-![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results.jpg](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results.jpg)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results-dark.png"/>
+</div>
 
 ### CO<sub>2</sub> Emissions
 

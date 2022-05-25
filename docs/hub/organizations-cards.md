@@ -4,7 +4,10 @@ You can create an organization card to help users learn more about what your org
 
 An organization card is displayed on an organization's profile:
 
-![/docs/assets/hub/org-card.png](/docs/assets/hub/org-card.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-card.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-card-dark.png"/>
+</div>
 
 
 If you're a member of an organization, you'll see a button to create or edit your organization card on the organization's main page. Organization cards are a `README.md` static file inside a Space repo named `README`. The card can be as simple as Markdown text, or you can create a more customized appearance with HTML.

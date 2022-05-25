@@ -10,4 +10,7 @@ Members of organizations can have three different roles: `read`, `write` or `adm
 
 As an organization `admin`, go to the **Members** section of the org settings to manage roles for users.
 
-![/docs/assets/hub/org-members-page.png](/docs/assets/hub/org-members-page.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-members-page.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-members-page-dark.png"/>
+</div>

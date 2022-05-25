@@ -14,6 +14,9 @@ extra_gated_fields:
 ---
 ```
 
-![A gated Dataset showing the User Access request dialog](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-gated.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-gated.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-gated-dark.png"/>
+</div>
 
 The `README.md` file for a dataset is called a [Dataset Card](./datasets-cards). Visit the documentation to learn more about how to use it and to see the properties that you can configure.

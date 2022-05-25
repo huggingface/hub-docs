@@ -33,7 +33,9 @@ widget:
 
 You can provide more than one example input. In the examples dropdown menu of the widget, they will appear as `Example 1`, `Example 2`, etc. Optionally, you can supply `example_title` as well.
 
-![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/widget_input_examples.gif](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/widget_input_examples.gif)
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/widget_input_examples.gif"/>
+</div>
 
 ```yaml
 widget:

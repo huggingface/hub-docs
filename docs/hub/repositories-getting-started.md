@@ -23,7 +23,10 @@ Using the Hub's web interface you can easily create repositories, add files (eve
 
 1. To create a new repository, visit [huggingface.co/new](http://huggingface.co/new):
 
-![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_repo.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_repo.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_repo.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_repo-dark.png"/>
+</div>
 
 2. First, specify the owner of the repository: this can be either you or any of the organizations you’re affiliated with. 
 
@@ -33,7 +36,10 @@ You can leave the *License* field blank for now. To learn about licenses, visit 
 
 After creating your model repository, you should see a page like this:
 
-![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/empty_repo.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/empty_repo.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/empty_repo.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/empty_repo-dark.png"/>
+</div>
 
 Note that the Hub prompts you to create a *Model Card*, which you can learn about in the [**Model Cards documentation**](./models-cards). Including a Model Card in your model repo is best practice, but since we're only making a test repo at the moment we can skip this.
 
@@ -77,14 +83,22 @@ git push
 
 And we're done! You can check your repository on Hugging Face with all the recently added files. For example, in the screenshot below the user added a number of files. Note that one of the files in this example has a size of `413 MB`, so the repo uses Git LFS to track it.
 
-![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files-dark.png"/>
+</div>
 
 
 ## Viewing a repo's history
 Every time you go through the `add`-`commit`-`push` cycle, the repo will keep track of every change you've made to your files. The UI allows you to explore the model files and commits and to see the difference (also known as *diff*) introduced by each commit. To see the history, you can click on the **History: X commits** link.
 
-![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_history.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_history.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_history.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_history-dark.png"/>
+</div>
 
 You can click on an individual commit to see what changes that commit introduced:
 
-![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif)
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif"/>
+</div>

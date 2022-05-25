@@ -83,7 +83,10 @@ Use the `cache_dir` parameter to change where a file is stored:
 
 We recommend adding a code snippet to explain how to use a model in your downstream library. 
 
-![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet-dark.png"/>
+</div>
 
 Add a code snippet by updating the [Libraries Typescript file](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Libraries.ts) with instructions for your model. For example, the [Asteroid](https://huggingface.co/asteroid-team) integration includes a brief code snippet for how to load and use an Asteroid model:
 
@@ -96,7 +99,10 @@ model = BaseModel.from_pretrained("${model.id}")`;
 
 Doing so will also add a tag to your model so users can quickly identify models from your library.
 
-![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags-dark.png"/>
+</div>
 
 ## Upload files to the Hub
 
