@@ -1,6 +1,6 @@
 - local: index
   title: 🤗 Hugging Face Hub
-- local: repositories-main
+- local: repositories
   title: Repositories
   sections:
   - local: repositories-getting-started
@@ -17,7 +17,7 @@
   - local: repositories-licenses
     title: Licenses    
 - title: Models
-  local: models-main
+  local: models
   sections:
   - local: models-the-hub
     title: The Model Hub
@@ -42,7 +42,7 @@
       - local: models-tasks
         title: Tasks
 - title: Datasets
-  local: datasets-main
+  local: datasets
   sections:
   - local: datasets-overview
     title: Datasets Overview
@@ -54,7 +54,7 @@
     title: Using Datasets
   - local: datasets-adding
     title: Adding New Datasets
-- local: spaces-main
+- local: spaces
   title: Spaces
   sections:
   - local: spaces-overview
@@ -84,10 +84,10 @@
     title: Spaces Configuration Reference
   - local: spaces-changelog
     title: Spaces Changelog
-- local: other-main
+- local: other
   title: Other
   sections:    
-  - local: organizations-main
+  - local: organizations
     title: Organizations
     sections:
     - local: organizations-managing
@@ -96,7 +96,7 @@
       title: Organization Cards
     - local: organizations-security
       title: Access control in organizations
-  - local: security-main
+  - local: security
     title: Security
     sections:
     - local: security-tokens
@@ -105,7 +105,7 @@
       title: Signing commits with GPG
     - local: security-malware
       title: Malware Scanning
-  - local: api-main
+  - local: api
     title: Hub API Endpoints
     sections:
     - local: api-webhook
