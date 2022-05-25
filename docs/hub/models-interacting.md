@@ -124,8 +124,8 @@ The rich feature set in the `huggingface_hub` library allows you to manage repos
 It's up to the person who uploaded the model to include the training information! You may find the information about the datasets that the model was trained on in the model card. If the datasets used for the model are on the Hub, the uploader may have included them in the model card's metadata. In that case, the datasets would be linked with a handy card on the right side of the model page:
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-datasets.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-datasets-dark.png"/>
+<img class="block dark:hidden" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-datasets.png"/>
+<img class="hidden dark:block" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-datasets-dark.png"/>
 </div>
 
 ### How can I see an example of the model in action?
@@ -135,8 +135,8 @@ Models can have inference widgets that let you try out the model in the browser!
 The Hugging Face Hub is also home to Spaces, which are interactive demos used to showcase models. If a model has any Spaces associated with it, you'll find them linked on the model page like so:
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-spaces.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-spaces-dark.png"/>
+<img class="block dark:hidden" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-spaces.png"/>
+<img class="hidden dark:block" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-spaces-dark.png"/>
 </div>
 
 Spaces are a great way to show off a model you've made or explore new ways to use existing models! Visit the [Spaces documentation](./spaces-main) to learn how to make your own.
