@@ -21,6 +21,8 @@
     sections:
     - local: models-cards-co2
       title: Carbon Emissions
+  - local: models-libraries
+    title: Libraries
   - local: models-tasks
     title: Tasks
   - local: models-interacting
@@ -63,13 +65,14 @@
       title: More ways to create Spaces
     - local: spaces-github-actions
       title: Managing Spaces with Github Actions      
-  - local: spaces-sdks
-    title: Spaces SDKs
-    sections:
-    - local: spaces-sdks-gradio
-      title: Gradio Spaces
-    - local: spaces-sdks-streamlit
-      title: Streamlit Spaces
+  - local: spaces-sdks-gradio
+    title: Gradio Spaces
+  - local: spaces-sdks-streamlit
+    title: Streamlit Spaces
+  - local: spaces-sdks-static
+    title: Static HTML Spaces
+  - local: spaces-sdks-python
+    title: Custom Python Spaces
   - local: spaces-config-reference
     title: Spaces Configuration Reference
   - local: spaces-changelog

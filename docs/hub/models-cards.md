@@ -42,7 +42,7 @@ tags:
 - flair
 ```
 
-Find more about our supported libraries [here](./models-the-hub#libraries), and see the detailed model card specification [here](https://github.com/huggingface/hub-docs/blame/main/modelcard.md).
+Find more about our supported libraries [here](./models-libraries), and see the detailed model card specification [here](https://github.com/huggingface/hub-docs/blame/main/modelcard.md).
 
 The metadata that you add to the model card enables certain interactions on the Hub. For example:
 * The tags that you add to the metadata allow users to filter and discover models at https://huggingface.co/models.

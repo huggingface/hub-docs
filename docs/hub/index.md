@@ -19,6 +19,7 @@
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-main">Introduction</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-the-hub">The Model Hub</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-cards">Model Cards</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-libraries">Libraries</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-tasks">Tasks</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-interacting">Interacting with models on the Hub</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-widgets">Widgets</a>
@@ -41,7 +42,8 @@
 <svg class="shrink-0 mr-1.5 text-blue-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 25 25"><path opacity=".5" d="M6.016 14.674v4.31h4.31v-4.31h-4.31ZM14.674 14.674v4.31h4.31v-4.31h-4.31ZM6.016 6.016v4.31h4.31v-4.31h-4.31Z" fill="currentColor"></path><path opacity=".75" fill-rule="evenodd" clip-rule="evenodd" d="M3 4.914C3 3.857 3.857 3 4.914 3h6.514c.884 0 1.628.6 1.848 1.414a5.171 5.171 0 0 1 7.31 7.31c.815.22 1.414.964 1.414 1.848v6.514A1.914 1.914 0 0 1 20.086 22H4.914A1.914 1.914 0 0 1 3 20.086V4.914Zm3.016 1.102v4.31h4.31v-4.31h-4.31Zm0 12.968v-4.31h4.31v4.31h-4.31Zm8.658 0v-4.31h4.31v4.31h-4.31Zm0-10.813a2.155 2.155 0 1 1 4.31 0 2.155 2.155 0 0 1-4.31 0Z" fill="currentColor"></path><path opacity=".25" d="M16.829 6.016a2.155 2.155 0 1 0 0 4.31 2.155 2.155 0 0 0 0-4.31Z" fill="currentColor"></path></svg> Spaces</div>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-main">Introduction</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-overview">Spaces Overview</a>
-<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-sdks">SDKs</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-sdks-gradio">Gradio Spaces</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-sdks-streamlit">Streamlit Spaces</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-config-reference">Reference</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-changelog">Changelog</a>
 </div>
@@ -79,7 +81,7 @@ Unlike other hosting solutions, the Hub offers **versioning, commit history, dif
 
 Models on the Hugging Face Hub allow for simple discovery and usage to maximize model impact. To promote responsible model usage and development, model repos are equipped with [Model Cards](./models-cards) to inform users of each model's limitations and biases. Additional [metadata](./models-cards#model-card-metadata) about info such as their tasks, languages, and metrics can be included, with training metrics charts even added if the repository contains [TensorBoard traces](https://huggingface.co/models?filter=tensorboard). It's also easy to add an [**inference widget**](./models-widgets) to your model, allowing anyone to play with the model directly in the browser! For production settings, an API is provided to [**instantly serve your model**](./models-inference).
 
-To upload models to the Hub, or download models and integrate them into your work, explore the [**Models documentation**](./models-main). You can also choose from [**over a dozen frameworks**](./models-the-hub#libraries) such as 🤗 Transformers, Asteroid, and ESPnet that support the Hugging Face Hub.
+To upload models to the Hub, or download models and integrate them into your work, explore the [**Models documentation**](./models-main). You can also choose from [**over a dozen frameworks**](./models-libraries) such as 🤗 Transformers, Asteroid, and ESPnet that support the Hugging Face Hub.
 
 ## Datasets
 

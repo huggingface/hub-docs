@@ -13,9 +13,10 @@ We support two awesome SDKs that let you build cool apps in Python in a matter o
   - [Using Spaces for Organization Cards](./spaces-organization-cards)
   - [More ways to create Spaces](./spaces-more-ways-to-create)
   - [Managing Spaces with Github Actions](./spaces-github-actions)
-- [SDKs](./spaces-sdks)
-  - [Gradio](./spaces-sdks-gradio)
-  - [Streamlit](./spaces-sdks-streamlit)
+- [Gradio Spaces](./spaces-sdks-gradio)
+- [Streamlit Spaces](./spaces-sdks-streamlit)
+- [Static HTML Spaces](./spaces-sdks-static)
+- [Custom Python Spaces](./spaces-sdks-python)
 - [Reference](./spaces-config-reference)
 - [Changelog](./spaces-changelog)
 
