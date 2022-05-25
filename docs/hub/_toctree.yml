@@ -7,6 +7,11 @@
     title: Getting Started with Repositories
   - local: repositories-settings
     title: Repository Settings
+  - local: repositories-pull-requests-discussions
+    title: Pull Requests & Discussions
+    sections:
+      - local: repositories-pull-requests-advanced
+        title: Pull Requests advanced usage
   - local: repositories-next-steps
     title: Next Steps    
   - local: repositories-licenses
