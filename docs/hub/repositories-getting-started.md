@@ -4,6 +4,8 @@ This beginner-friendly guide will help you get the basic skills you need to crea
 
 ## Requirements
 
+This document shows how to handle repositories through the web interface as well as through the terminal. There are no requirements if working with the UI. If you want to work with the terminal, please follow these instructions.
+
 If you do not have `git` available as a CLI command yet, you will need to [install Git](https://git-scm.com/downloads) for your platform. You will also need to [install Git LFS](https://git-lfs.github.com/), which will be used to handle large files such as images and model weights.
 
 To be able to push your code to the Hub, you'll need to authenticate somehow. The easiest way to do this is by installing the [`huggingface_hub` CLI](https://huggingface.co/docs/huggingface_hub/index) and running the login command:
@@ -19,7 +21,7 @@ The content in the **Getting Started** section of this document is also availabl
 
 ## Creating a repository
 
-Using the Hub's web interface you can easily create repositories, add files (even large ones!), explore models, visualize diffs, and much more. There are three kinds of repositories on the Hub, and in this guide we'll be creating a **model repository** for demonstration purposes. For information on creating and managing models, datasets, and Spaces, refer to their respective documentation.
+Using the Hub's web interface you can easily create repositories, add files (even large ones!), explore models, visualize diffs, and much more. There are three kinds of repositories on the Hub, and in this guide you'll be creating a **model repository** for demonstration purposes. For information on creating and managing models, datasets, and Spaces, refer to their respective documentation.
 
 1. To create a new repository, visit [huggingface.co/new](http://huggingface.co/new):
 
@@ -28,11 +30,13 @@ Using the Hub's web interface you can easily create repositories, add files (eve
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_repo-dark.png"/>
 </div>
 
-2. First, specify the owner of the repository: this can be either you or any of the organizations you’re affiliated with. 
+2. Specify the owner of the repository: this can be either you or any of the organizations you’re affiliated with. 
 
-3. Next, enter your model’s name. This will also be the name of the repository. Finally, you can specify whether you want your model to be public or private.
+3. Enter your model’s name. This will also be the name of the repository. 
 
-You can leave the *License* field blank for now. To learn about licenses, visit the [**Licenses**](repositories-licenses) section of this documentation.
+4. Specify whether you want your model to be public or private.
+
+5. Specify the license. You can leave the *License* field blank for now. To learn about licenses, visit the [**Licenses**](repositories-licenses) documentation.
 
 After creating your model repository, you should see a page like this:
 
@@ -47,12 +51,13 @@ Note that the Hub prompts you to create a *Model Card*, which you can learn abou
 ## Cloning repositories
 
 Downloading repositories to your local machine is called *cloning*. You can use the following commands to load the repo that we made and navigate to it:
+
 ```bash
 git clone https://huggingface.co/<your-username>/<your-model-id>
 cd <your-model-id>
 ```
 
-## Adding files to a repository
+## Adding files to a repository (terminal)
 
 Now's the time, you can add any files you want to the repository! 🔥
 
@@ -69,10 +74,9 @@ Note that if your files are larger than **5GB** you'll also need to run:
 huggingface-cli lfs-enable-largefiles
 ```
 
-When you use Hugging Face to create a repository, we automatically provide a list of common file extensions for these files in the `.gitattributes` file, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
+When you use Hugging Face to create a repository, Hugging Face automatically provides a list of common file extensions for common Machine Learning large files in the `.gitattributes` file, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
 
-
-You can use Git to save new files and any changes to already existing files as a bundle of changes called a *commit*, which can be thought of as a "revision" to your project. To create a commit, we have to `add` the files to let Git know that we're planning on saving the changes and then `commit` those changes. In order to sync the new commit with the Hugging Face Hub, we then `push` the commit to the Hub.
+You can use Git to save new files and any changes to already existing files as a bundle of changes called a *commit*, which can be thought of as a "revision" to your project. To create a commit, you have to `add` the files to let Git know that we're planning on saving the changes and then `commit` those changes. In order to sync the new commit with the Hugging Face Hub, you then `push` the commit to the Hub.
 
 ```bash
 # Create any files you like! Then...
@@ -81,7 +85,7 @@ git commit -m "First model version"  # You can choose any descriptive message
 git push
 ```
 
-And we're done! You can check your repository on Hugging Face with all the recently added files. For example, in the screenshot below the user added a number of files. Note that one of the files in this example has a size of `413 MB`, so the repo uses Git LFS to track it.
+And you're done! You can check your repository on Hugging Face with all the recently added files. For example, in the screenshot below the user added a number of files. Note that one of the files in this example has a size of `413 MB`, so the repo uses Git LFS to track it.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files.png"/>
