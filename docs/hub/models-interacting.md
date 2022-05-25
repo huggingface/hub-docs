@@ -122,3 +122,9 @@ Releasing an update to a model that you've already published can be done by push
 ### What if I have a different checkpoint of the model trained on a different dataset?
 
 By convention, each model repo should contain a single checkpoint trained on a particular dataset. You should upload any new checkpoints trained on different datasets to the Hub in a new model repo. You can link the models together by using a [tag in your model card's metadata](./modelcard) or by linking to them in the model cards. The [akiyamasho/AnimeBackgroundGAN-Shinkai](https://huggingface.co/akiyamasho/AnimeBackgroundGAN-Shinkai#other-pre-trained-model-versions) model, for example, references other checkpoints in the model card under *"Other pre-trained model versions"*.
+
+### Can I link my model to a paper on arXiv?
+
+If the model card includes a link to a paper on arXiv, the Hugging Face Hub will extract the arXiv ID  and include it in the model tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you visit the paper on arXiv, as well as filter for other models on the Hub that cite the same paper.
+
+![arXiv tag for models on the Hub](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv.jpeg)

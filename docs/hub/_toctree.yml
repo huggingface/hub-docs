@@ -51,6 +51,10 @@
   - local: spaces-overview
     title: Spaces Overview
     sections:
+    - local: spaces-dependencies
+      title: Handling Spaces Dependencies
+    - local: spaces-settings
+      title: Spaces Settings
     - local: spaces-using-opencv
       title: Using OpenCV in Spaces
     - local: spaces-organization-cards

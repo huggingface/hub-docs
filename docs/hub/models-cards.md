@@ -75,6 +75,7 @@ If a model includes valid eval results, they will be displayed like this:
 ![https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results.jpg](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results.jpg)
 
 ### CO<sub>2</sub> Emissions
+
 The model card is also a great place to show information about the CO<sub>2</sub> impact of your model. Visit our [guide on tracking and reporting CO<sub>2</sub> emissions](./models-cards-co2) to learn more.
 
 ## FAQ

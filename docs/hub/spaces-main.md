@@ -7,6 +7,8 @@ We support two awesome SDKs that let you build cool apps in Python in a matter o
 ## Contents
 
 - [Spaces Overview](./spaces-overview)
+  - [Handling Spaces Dependencies](./spaces-dependencies)
+  - [Spaces Settings](./spaces-settings)
   - [Using OpenCV in Spaces](./spaces-using-opencv)
   - [Using Spaces for Organization Cards](./spaces-organization-cards)
   - [More ways to create Spaces](./spaces-more-ways-to-create)
