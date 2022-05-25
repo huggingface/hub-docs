@@ -34,6 +34,13 @@
     title: Model Widgets
   - local: models-inference
     title: Inference API docs
+  - local: models-advanced
+    title: Advanced Topics
+    sections:
+      - local: models-adding-libraries
+        title: Integrating libraries with the Hub
+      - local: models-tasks
+        title: Tasks
 - title: Datasets
   local: datasets-main
   sections:
