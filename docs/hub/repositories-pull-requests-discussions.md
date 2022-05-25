@@ -23,4 +23,4 @@ Coming soon in https://github.com/huggingface/huggingface_hub 🔥🔥
 
 ## FAQ
 
-- Read more on [Advanced usage of pull requests](./repositories-pull-requests-advanced.md)
+- Read more on [Advanced usage of pull requests](./repositories-pull-requests-advanced)
