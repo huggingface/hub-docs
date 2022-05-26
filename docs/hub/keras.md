@@ -35,6 +35,8 @@ print(f'The image is a {classes[(np.argmax(prediction))]}!')
 
 If you want to see how to load a specific model, you can click `Use in keras` and you will be given a working snippet that you can load it! 
 
+![snippet](docs/assets/hub/keras_snippet1.png)
+![snippet](docs/assets/hub/keras_snippet2.png)
 
 ## Sharing your models
 
@@ -51,11 +53,11 @@ push_to_hub_keras(model,
 )
 ```
 The repository will host your tensorboard traces like below.
-
+![TensorBoard](docs/assets/hub/keras_tensorboard.png)
 
 ## Additional resources
 
 * [Keras Developer Guides](https://keras.io/guides/).
 * [Keras examples](https://keras.io/examples/).
 * [Keras examples on 🤗 Hub](https://huggingface.co/keras-io).
-* [Putting Keras on 🤗 Hub for Collaborative Training and Reproducibility](https://merveenoyan.medium.com/putting-keras-on-hub-for-collaborative-training-and-reproducibility-9018301de877) tutorial.
+* For more capabilities of the Keras integration, check out [Putting Keras on 🤗 Hub for Collaborative Training and Reproducibility](https://merveenoyan.medium.com/putting-keras-on-hub-for-collaborative-training-and-reproducibility-9018301de877) tutorial.
