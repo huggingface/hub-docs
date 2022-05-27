@@ -4,11 +4,11 @@ title: Keras
 
 # Using Keras at Hugging Face
 
-`Keras` is an open-source machine learning library that leverages PyTorch and Python to provide high-level components to train neural networks with state-of-the-art outputs on all modalities.
+`Keras` is an open-source machine learning library that leverages TensorFlow and Python to provide high-level components to train neural networks with state-of-the-art outputs on all modalities.
 
 ## Exploring Keras in the Hub
 
-You can find `Keras` models by filtering at the left of the [models page](https://huggingface.co/models?library=keras&sort=downloads). All models on the Hub come up with useful features such as an automatically generated model card and metadata tags that help for discoverability. If provided by the model owner, TensorBoard logs are hosted on the Keras repositories as well.
+You can find `Keras` models by iltering at the left of the [models page](https://huggingface.co/models?library=keras&sort=downloads). All models on the Hub come up with useful features such as an automatically generated model card and metadata tags that help for discoverability. If provided by the model owner, TensorBoard logs are hosted on the Keras repositories as well.
 
 
 ## Using existing models
