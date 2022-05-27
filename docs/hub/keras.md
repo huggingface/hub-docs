@@ -8,7 +8,7 @@ title: Keras
 
 ## Exploring Keras in the Hub
 
-You can find `Keras` models by iltering at the left of the [models page](https://huggingface.co/models?library=keras&sort=downloads). All models on the Hub come up with useful features such as an automatically generated model card and metadata tags that help for discoverability. If provided by the model owner, TensorBoard logs are hosted on the Keras repositories as well.
+You can find `Keras` models by filtering at the left of the [models page](https://huggingface.co/models?library=keras&sort=downloads). All models on the Hub come up with useful features such as an automatically generated model card and metadata tags that help for discoverability. If provided by the model owner, TensorBoard logs are hosted on the Keras repositories as well.
 
 
 ## Using existing models
