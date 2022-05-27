@@ -13,7 +13,7 @@ You can find `Keras` models by iltering at the left of the [models page](https:/
 
 ## Using existing models
 
-The `huggingface_hub` library is a lightweight Python client with utlity functions to download models from the Hub.
+The `huggingface_hub` library is a lightweight Python client with utility functions to download models from the Hub.
 
 ```
 pip install huggingface_hub["tensorflow"]
