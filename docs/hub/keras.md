@@ -52,7 +52,7 @@ push_to_hub_keras(model,
     **model_save_kwargs,
 )
 ```
-The repository will host your tensorboard traces like below.
+The repository will host your TensorBoard traces like below.
 ![TensorBoard](docs/assets/hub/keras_tensorboard.png)
 
 ## Additional resources
