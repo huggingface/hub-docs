@@ -19,7 +19,7 @@ The `huggingface_hub` library is a lightweight Python client with utlity functio
 pip install huggingface_hub["tensorflow"]
 ```
 
-Once you have the library installed, you just need to use the `from_pretrained_keras` method. 
+Once you have the library installed, you just need to use the `from_pretrained_keras` method. Read more about `from_pretrained_keras` [here](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/mixins#huggingface_hub.from_pretrained_keras).
 
 ```py
 from huggingface_hub import from_pretrained_keras
@@ -40,7 +40,7 @@ If you want to see how to load a specific model, you can click `Use in keras` an
 
 ## Sharing your models
 
-You can share your `keras` models by using the `push_to_hub_keras` method. This will generate a model card that includes your model’s hyperparameters, plot of your model and couple of sections related to the usage purpose of your model, biases the training data might have and limitations about putting your model to production, puts the metrics of your model in a JSON if model has a history. 
+You can share your `keras` models by using the `push_to_hub_keras` method. This will generate a model card that includes your model’s hyperparameters, plot of your model and couple of sections related to the usage purpose of your model, biases the model has and limitations about putting your model to production. This saves the metrics of your model in a JSON if model has a history. Read more about `push_to_hub_keras` [here](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/mixins#huggingface_hub.push_to_hub_keras).
 
 ```py
 from huggingface_hub import push_to_hub_keras
