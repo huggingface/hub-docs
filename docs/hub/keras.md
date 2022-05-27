@@ -33,7 +33,7 @@ print(f'The image is a {classes[(np.argmax(prediction))]}!')
 ```
 
 
-If you want to see how to load a specific model, you can click `Use in keras` and you will be given a working snippet that you can load it! 
+If you want to see how to load a specific model, you can click **Use in keras** and you will be given a working snippet that you can load it! 
 
 ![snippet](docs/assets/hub/keras_snippet1.png)
 ![snippet](docs/assets/hub/keras_snippet2.png)
