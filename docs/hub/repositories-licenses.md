@@ -9,6 +9,7 @@ Fullname | License identifier (to use in model card)
 Academic Free License v3.0	| `afl-3.0`
 Apache license 2.0	| `apache-2.0`
 Artistic license 2.0	| `artistic-2.0`
+BigScience BLOOM RAIL 1.0	| `bigscience-bloom-rail-1.0`
 Boost Software License 1.0	| `bsl-1.0`
 BSD 2-clause "Simplified" license	| `bsd-2-clause`
 BSD 3-clause "New" or "Revised" license	| `bsd-3-clause`
