@@ -66,6 +66,7 @@ We are helping the community work together towards the goal of advancing Machine
 The Hugging Face Hub is a platform with over 50K models, 5K datasets, and 5K demos in which people can easily collaborate in their ML workflows. The Hub works as a central place where anyone can share, explore, discover, and experiment with open-source Machine Learning.
 
 No single company, including the Tech Titans, will be able to “solve AI” by themselves – the only way we'll achieve this is by sharing knowledge and resources in a community-centric approach. We are building the largest open-source collection of models, datasets, demos and metrics on the Hugging Face Hub to democratize and advance AI for everyone 🚀.
+
 ## What can you find on the Hub?
 
 The Hugging Face Hub hosts Git-based repositories, which are version-controlled spaces that can contain all your files. 💾
@@ -98,10 +99,9 @@ We currently support two awesome SDKs (**[Gradio](https://gradio.app/)** and **[
 
 After you've explored a few Spaces (take a look at our [Space of the Week!](https://huggingface.co/spaces)), dive into the [**Spaces documentation**](./spaces-overview) to learn all about how you can create your own Space.
 
-
 ## Organizations
 
-Companies, universities and non-profits are an essential part of the Hugging Face community! The Hugging Face Hub offers [**Organizations**](./organizations), which can be used to group accounts and manage datasets, models, and Spaces. An organization's repositories will be featured on the organization’s page and every member of the organization will have the ability to contribute to the repository. In addition to conveniently grouping all of an organization's work, the Hub allows admins to set roles to [**control access to repositories**](./organizations-security), and manage their organization's [subscription](https://huggingface.co/pricing).
+Companies, universities and non-profits are an essential part of the Hugging Face community! The Hugging Face Hub offers [**Organizations**](./organizations), which can be used to group accounts and manage datasets, models, and Spaces. Educators can also create collaborative organizations for students using [Hugging Face for Classrooms](https://huggingface.co/classrooms). An organization's repositories will be featured on the organization’s page and every member of the organization will have the ability to contribute to the repository. In addition to conveniently grouping all of an organization's work, the Hub allows admins to set roles to [**control access to repositories**](./organizations-security), and manage their organization's [subscription](https://huggingface.co/pricing).
 
 [Explore existing organizations](https://huggingface.co/organizations), create a new organization [here](https://huggingface.co/organizations/new), and then visit the [**Organizations documentation**](./organizations) to learn more.
 

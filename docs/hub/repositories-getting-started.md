@@ -85,7 +85,7 @@ git commit -m "First model version"  # You can choose any descriptive message
 git push
 ```
 
-And you're done! You can check your repository on Hugging Face with all the recently added files. For example, in the screenshot below the user added a number of files. Note that one of the files in this example has a size of `413 MB`, so the repo uses Git LFS to track it.
+And you're done! You can check your repository on Hugging Face with all the recently added files. For example, in the screenshot below the user added a number of files. Note that some files in this example have a size of `1.04 GB`, so the repo uses Git LFS to track it.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files.png"/>
@@ -94,6 +94,7 @@ And you're done! You can check your repository on Hugging Face with all the rece
 
 
 ## Viewing a repo's history
+
 Every time you go through the `add`-`commit`-`push` cycle, the repo will keep track of every change you've made to your files. The UI allows you to explore the model files and commits and to see the difference (also known as *diff*) introduced by each commit. To see the history, you can click on the **History: X commits** link.
 
 <div class="flex justify-center">

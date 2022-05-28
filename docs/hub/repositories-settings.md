@@ -4,7 +4,7 @@
 
 You can choose a repository's visibility when you create it, and any repository that you own can have its visibility toggled between *public* and *private* in the **Settings** tab. Unless your repository is owned by an [organization](./organizations), you are the only user that can make changes to your repo or upload any code. Setting your visibility to *private* will:
 
- - Ensure your repo is not discoverable by other users by searching the Hub.
+ - Ensure your repo does not show up in other users' search results.
  - Other users who visit the URL of your private repo will receive a `404 - Repo not found` error. 
  - Other users will not be able to clone your repo.
 
