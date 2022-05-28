@@ -63,7 +63,7 @@
 
 We are helping the community work together towards the goal of advancing Machine Learning 🔥.
 
-The Hugging Face Hub is a platform with over 30K models, 3K datasets, and 2K demos in which people can easily collaborate in their ML workflows. The Hub works as a central place where anyone can share, explore, discover, and experiment with open-source Machine Learning.
+The Hugging Face Hub is a platform with over 50K models, 5K datasets, and 5K demos in which people can easily collaborate in their ML workflows. The Hub works as a central place where anyone can share, explore, discover, and experiment with open-source Machine Learning.
 
 No single company, including the Tech Titans, will be able to “solve AI” by themselves – the only way we'll achieve this is by sharing knowledge and resources in a community-centric approach. We are building the largest open-source collection of models, datasets, demos and metrics on the Hugging Face Hub to democratize and advance AI for everyone 🚀.
 ## What can you find on the Hub?
@@ -86,7 +86,7 @@ To upload models to the Hub, or download models and integrate them into your wor
 
 ## Datasets
 
-The Hugging Face Hub is home to over 3,000 datasets in more than 100 languages that can be used for a broad range of tasks across NLP, Computer Vision, and Audio. The Hub makes it simple to find, download, and upload datasets. Datasets are accompanied by extensive documentation in the form of [**Dataset Cards**](./models-cards) and [**Dataset Preview**](./datasets-overview#datasets-on-the-hub) to let you explore the data directly in your browser. While many datasets are public, [**organizations**](./organizations) and individuals can create private datasets to comply with licensing or privacy issues. You can learn more about [**Datasets here on Hugging Face Hub documentation**](./datasets-overview).
+The Hugging Face Hub is home to over 5,000 datasets in more than 100 languages that can be used for a broad range of tasks across NLP, Computer Vision, and Audio. The Hub makes it simple to find, download, and upload datasets. Datasets are accompanied by extensive documentation in the form of [**Dataset Cards**](./models-cards) and [**Dataset Preview**](./datasets-overview#datasets-on-the-hub) to let you explore the data directly in your browser. While many datasets are public, [**organizations**](./organizations) and individuals can create private datasets to comply with licensing or privacy issues. You can learn more about [**Datasets here on Hugging Face Hub documentation**](./datasets-overview).
 
 [🤗 `datasets`](https://huggingface.co/docs/datasets/index) allows you to programmatically interact with the datasets, so you can easily use datasets from the Hub in your projects.
 

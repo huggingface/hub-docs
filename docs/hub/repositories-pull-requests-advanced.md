@@ -1,6 +1,6 @@
 # Pull requests advanced usage
 
-## Advanced: for Pull requests, where in the git repo are changes stored
+## Advanced: for Pull requests, where in the git repo are changes stored?
 
 Our Pull requests do not use forks and branches, but instead custom "branches" called `refs` that are stored directly on the source repo.
 

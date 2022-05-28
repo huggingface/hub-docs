@@ -6,7 +6,7 @@ Pull requests and discussions work the same for all our repo types: models, data
 
 At a high level, we aim to build a simpler version of other git hosts' (like GitHub's) PRs and Issues:
 - no forks are involved, contributors push to a special `ref` branch directly on the source repo
-- there's no hard distinction between discussions and PRs they are essentially the same so we display them in the same lists
+- there's no hard distinction between discussions and PRs, they are essentially the same so we display them in the same lists
 - they are streamlined for ML (i.e. models/datasets/spaces repos), not arbitrary repos
 
 ## List

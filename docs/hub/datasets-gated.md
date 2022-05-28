@@ -1,6 +1,6 @@
 # Gated datasets
 
-To give dataset creators more control over how their datasets are used, the Hub allows users to enable **User Access requests** through a dataset's **Settings** tab. Enabling this setting requires users to agree to share their contact information with Hugging Face in order to access the dataset. The contact information is stored in a database, and dataset owners are able to download a copy of the user access report.
+To give dataset creators more control over how their datasets are used, the Hub allows users to enable **User Access requests** through a dataset's **Settings** tab. Enabling this setting requires users to agree to share their contact information in order to access the dataset. The contact information is stored in a database, and dataset owners are able to download a copy of the user access report.
 
 The User Access request dialog can be modified to include additional text and checkbox fields in the prompt. To do this, add a YAML section to the dataset's `README.md` file (create one if it does not already exist) and add an `extra_gated_fields` property. Within this property, you'll be able to add as many custom fields as you like and whether they are a `text` or `checkbox` field. An `extra_gated_prompt` property can also be included to add a customized text message.
 

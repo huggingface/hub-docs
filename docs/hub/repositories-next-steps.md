@@ -42,7 +42,7 @@ For example, say you have an upstream repository, **upstream**, and you just cre
 git lfs clone https://huggingface.co/me/myfork.git
 ```
 
-3. Fetch non LFS files:
+3. Fetch non-LFS files:
 
 ```
 cd myfork
