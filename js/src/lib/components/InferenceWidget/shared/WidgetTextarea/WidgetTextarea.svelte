@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { tick } from "svelte";
 
 	import WidgetLabel from "../WidgetLabel/WidgetLabel.svelte";
