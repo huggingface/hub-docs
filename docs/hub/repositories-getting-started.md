@@ -105,5 +105,6 @@ Every time you go through the `add`-`commit`-`push` cycle, the repo will keep tr
 You can click on an individual commit to see what changes that commit introduced:
 
 <div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history-dark.gif"/>
 </div>

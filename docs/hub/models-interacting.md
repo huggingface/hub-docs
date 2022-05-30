@@ -79,7 +79,8 @@ You can check your repository with all the recently added files!
 The UI allows you to explore the model files and commits and to see the diff introduced by each commit:
 
 <div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history.gif"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/explore_history-dark.gif"/>
 </div>
 
 5. Add metadata
