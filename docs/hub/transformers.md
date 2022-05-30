@@ -19,7 +19,7 @@ You can find models for many different tasks:
 * Segment an image ([image-segmentation](https://huggingface.co/models?library=transformers&pipeline_tag=image-segmentation&sort=downloads)).
 * Do Reinforcement Learning ([reinforcement-learning](https://huggingface.co/models?library=transformers&pipeline_tag=reinforcement-learning&sort=downloads))!
 
-You can try out the models directly in the browser if you want to test them out without downloading the models. 
+You can try out the models directly in the browser if you want to test them out without downloading them thanks to the in-browser widgets! 
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-transformers_widget.png"/>
@@ -28,7 +28,7 @@ You can try out the models directly in the browser if you want to test them out 
 
 ## Using existing models
 
-All `transformer` models are a line away from being used! Depending on how you want to use them, you can use the high-level API using the `pipeline` function or you can use `AutoModel`
+All `transformer` models are a line away from being used! Depending on how you want to use them, you can use the high-level API using the `pipeline` function or you can use `AutoModel` for more control.
 
 ```py
 # With pipeline, just specify the task and the model id from the Hub.
@@ -41,7 +41,7 @@ tokenizer = AutoTokenizer.from_pretrained("distilgpt2")
 model = AutoModelForCausalLM.from_pretrained("distilgpt2")
 ```
 
-You cana also load a model from a specific version (based on commit hash, tag name, or branch) as follows:
+You can also load a model from a specific version (based on commit hash, tag name, or branch) as follows:
 
 ```py
 model = AutoModel.from_pretrained(
@@ -77,6 +77,6 @@ There is much more you can do, so we suggest to review the [Share a model](https
 
 ## Additional resources
 
-* [Transformers](https://github.com/huggingface/transformers) library.
-* [Transformers](https://huggingface.co/docs/transformers/index) docs.
-* [Share a model guide](https://huggingface.co/docs/transformers/model_sharing).
+* Transformers [library](https://github.com/huggingface/transformers).
+* Transformers [docs](https://huggingface.co/docs/transformers/index).
+* Share a model [guide](https://huggingface.co/docs/transformers/model_sharing).

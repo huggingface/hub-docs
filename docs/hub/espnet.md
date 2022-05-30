@@ -6,7 +6,7 @@
 
 You can find hundreds of `espnet` models by filtering at the left of the [models page](https://huggingface.co/models?library=espnet&sort=downloads). 
 
-All models on the Hub come up with useful features
+All models on the Hub come up with useful features:
 1. An automatically generated model card with a description, a training configuration, licenses and more.
 2. Metadata tags that help for discoverability and contain information such as license, language and datasets.
 3. An interactive widget you can use to play out with the model directly in the browser.
@@ -19,8 +19,6 @@ All models on the Hub come up with useful features
 
 ## Using existing models
 
-### With the Python API
-
 For a full guide on loading pre-trained models, we recommend checking out the [official guide](https://github.com/espnet/espnet_model_zoo)). 
 
 If you're interested in doing inference, different classes for different tasks have a `from_pretrained` method that allows loading models from the Hub. For example:
@@ -28,24 +26,15 @@ If you're interested in doing inference, different classes for different tasks h
 * `Text2Speech` for Text to Speech.
 * `SeparateSpeech` for Audio Source Separation.
 
+Here is an inference example:
+
 ```py
 import soundfile
 from espnet2.bin.tts_inference import Text2Speech
+
 text2speech = Text2Speech.from_pretrained("model_name")
 speech = text2speech("foobar")["wav"]
 soundfile.write("out.wav", speech.numpy(), text2speech.fs, "PCM_16")
-```
-
-### With the Command Line Tool
-
-Given a repository ID, you can do the following
-
-```bash
-# Print the path of the downloaded file
-espnet_model_zoo_download <model_name>
-
-# Print the path of unpacked files
-espnet_model_zoo_download --unpack true <model_name>
 ```
 
 If you want to see how to load a specific model, you can click `Use in ESPnet` and you will be given a working snippet that you can load it! 

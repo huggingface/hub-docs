@@ -1,6 +1,6 @@
 # Using Adapter Transformers at Hugging Face
 
-`adapter-transformers` is a library that extends 🤗 `transformers` by allowing to integrate, train and use Adapters and other efficient fine-tuning methods. The library is fully compatible with `transformers`. Adapters are small learnt layers insrted within each layer of a pre-trained model. You can learn more about this in the [original paper](https://arxiv.org/abs/2007.07779). 
+`adapter-transformers` is a library that extends 🤗 `transformers` by allowing to integrate, train and use Adapters and other efficient fine-tuning methods. The library is fully compatible with 🤗 `transformers`. Adapters are small learnt layers inserted within each layer of a pre-trained model. You can learn more about this in the [original paper](https://arxiv.org/abs/2007.07779). 
 
 ## Exploring adapter-transformers in the Hub
 
@@ -11,7 +11,7 @@ You can find over a hundred `adapter-transformer` models by filtering at the lef
 
 For a full guide on loading pre-trained adapters, we recommend checking out the [official guide](https://docs.adapterhub.ml/loading.html). 
 
-As a brief summary, once you load a model with the usual `*Model` classes from `transformers`, you can use the `load_adapter` method to load and activate the Adapter (remember `adapter-transformers` extends `transformers`.).
+As a brief summary, once you load a model with the usual `*Model` classes from 🤗`transformers`, you can use the `load_adapter` method to load and activate the Adapter (remember `adapter-transformers` extends 🤗`transformers`.).
 
 ```py
 from transformers import AutoModelWithHeads
@@ -26,7 +26,7 @@ You can also use `list_adapters` to find all Adapter Models programmatically
 ```py
 from transformers import list_adapters
 
-# source can be "ah" (AdapterHub), "hf" (huggingface.co) or None (for both, default)
+# source can be "ah" (AdapterHub), "hf" (hf.co) or None (for both, default)
 adapter_infos = list_adapters(source="hf", model_name="bert-base-uncased")
 ```
 
@@ -62,6 +62,6 @@ This command creates a repository with an automatically generated model card and
 
 ## Additional resources
 
-* [Adapter Transformers](https://github.com/adapter-hub/adapter-transformers) library.
-* [Adapter Transformers](https://docs.adapterhub.ml/index.html) docs.
-* [Integration with Hub](https://docs.adapterhub.ml/huggingface_hub.html) docs.
+* Adapter Transformers [library]((https://github.com/adapter-hub/adapter-transformers).
+* Adapter Transformers [docs](https://docs.adapterhub.ml/index.html).
+* Integration with Hub [docs](https://docs.adapterhub.ml/huggingface_hub.html).

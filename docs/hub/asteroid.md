@@ -6,12 +6,11 @@
 
 You can find `asteroid` models by filtering at the left of the [models page](https://huggingface.co/models?filter=asteroid). 
 
-All models on the Hub come up with useful features
+All models on the Hub come up with the following features:
 1. An automatically generated model card with a description, a training configuration, metrics and more.
 2. Metadata tags that help for discoverability and contain information such as license and datasets.
 3. An interactive widget you can use to play out with the model directly in the browser.
 4. An Inference API that allows to make inference requests.
-5. A training metrics tab with automatically hosted TensorBoard traces if you upload them.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-transformers_widget.png"/>
@@ -40,11 +39,10 @@ If you want to see how to load a specific model, you can click `Use in Adapter T
 
 At the moment there is no automatic method to upload your models to the Hub, but the process to upload them is documented in the [official guide](https://github.com/asteroid-team/asteroid/blob/master/docs/source/readmes/pretrained_models.md#share-your-models).
 
-All the recipes create all the needed files to upload a model to the Hub. The process usually involves
-1. Creating a model repository.
-2. Cloning the repository locally.
-3. Moving files from the recipe output to the repository (model card, model filte, TensorBoard traces).
-4. Push the files (`git add` + `git commit` + `git push`).
+All the recipes create all the needed files to upload a model to the Hub. The process usually involves the following steps:
+1. Create and clone a model repository.
+2. Moving files from the recipe output to the repository (model card, model filte, TensorBoard traces).
+3. Push the files (`git add` + `git commit` + `git push`).
 
 Once you do this, you can try out your model directly in the browser and share it with the rest of the community.
 

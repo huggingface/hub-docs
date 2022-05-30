@@ -41,6 +41,10 @@
         title: Asteroid
       - local: espnet
         title: ESPnet
+      - local: fastai
+        title: FastAI
+      - local: keras
+        title: Keras
       - local: sentence-transformers
         title: Sentence Transformers
       - local: tensorboard
