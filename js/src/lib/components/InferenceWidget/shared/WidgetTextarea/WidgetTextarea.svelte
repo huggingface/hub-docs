@@ -3,8 +3,8 @@
 
 	import WidgetLabel from "../WidgetLabel/WidgetLabel.svelte";
 
-	export let label: string = "";
-	export let placeholder: string = "Your sentence here...";
+	export let label = "";
+	export let placeholder = "Your sentence here...";
 	export let value: string;
 
 	let textAreaEl: HTMLTextAreaElement;
