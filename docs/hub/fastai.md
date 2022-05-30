@@ -4,7 +4,7 @@
 
 ## Exploring fastai in the Hub
 
-You can find `fastai` models by filtering at the left of the [models page](https://huggingface.co/models?library=fastai&sort=downloads). All models on the Hub come up with useful features such as an automatically generated model card, metadata tags that help for discoverability and Inference.
+You can find `fastai` models by filtering at the left of the [models page](https://huggingface.co/models?library=fastai&sort=downloads).
 
 All models on the Hub come up with the following features:
 1. An automatically generated model card with a brief description and metadata tags that help for discoverability.

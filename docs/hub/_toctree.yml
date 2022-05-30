@@ -47,6 +47,10 @@
         title: Keras
       - local: sentence-transformers
         title: Sentence Transformers
+      - local: stanza
+        title: Stanza
+      - local: speechbrain
+        title: SpeechBrain
       - local: tensorboard
         title: TensorBoard
   - local: models-interacting
