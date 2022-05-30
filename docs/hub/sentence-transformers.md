@@ -4,13 +4,13 @@ title: Sentence Transformers
 
 # Using Sentence Transformers at Hugging Face
 
-`sentence-transformers` is a library that provides easy methods to compute embeddings (dense vector representations) for sentences, paragraphs and images. Things are embedded in a vector space such that similar text is close, which enables applications such as semantic search, clustering, and retrieval. 
+`sentence-transformers` is a library that provides easy methods to compute embeddings (dense vector representations) for sentences, paragraphs and images. Texts are embedded in a vector space such that similar text is close, which enables applications such as semantic search, clustering, and retrieval. 
 
 ## Exploring sentence-transformers in the Hub
 
 You can find over 500 hundred `sentence-transformer` models by filtering at the left of the [models page](https://huggingface.co/models?library=sentence-transformers&sort=downloads). Most of these models support different tasks, such as doing [`feature-extraction`](https://huggingface.co/models?library=sentence-transformers&pipeline_tag=feature-extraction&sort=downloads) to generate the embedding, and [`sentence-similarity`](https://huggingface.co/models?library=sentence-transformers&pipeline_tag=sentence-similarity&sort=downloads) as a way to determine how similar is a given sentence to other. You can also find an overview of the official pre-trained models in [the official docs](https://www.sbert.net/docs/pretrained_models.html).
 
-All models on the Hub come up with useful features
+All models on the Hub come up with features:
 1. An automatically generated model card with a description, example code snippets, architecture overview, and more. 
 2. Metadata tags that help for discoverability and contain information such as license.
 3. An interactive widget you can use to play out with the model directly in the browser.
@@ -69,6 +69,6 @@ This command creates a repository with an automatically generated model card, an
 
 ## Additional resources
 
-* [Sentence Transformers](https://github.com/UKPLab/sentence-transformers) library.
-* [Sentence Transformers](https://www.sbert.net/) docs.
-* [Integration with Hub](https://huggingface.co/blog/sentence-transformers-in-the-hub) announcement.
+* Sentence Transformers [library](https://github.com/UKPLab/sentence-transformers).
+* Sentence Transformers [docs](https://www.sbert.net/).
+* Integration with Hub [announcement](https://huggingface.co/blog/sentence-transformers-in-the-hub).

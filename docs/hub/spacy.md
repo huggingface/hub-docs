@@ -4,7 +4,7 @@
 
 ## Exploring spaCy models in the Hub
 
-The official models from `spaCy` 2.1 are in the `spaCy` [Organization Page](https://huggingface.co/spacy). Anyone in the community can also share their `spaCy` models, which you can find by filtering at the left of the [models page](https://huggingface.co/models?library=spacy).
+The official models from `spaCy` 3.3 are in the `spaCy` [Organization Page](https://huggingface.co/spacy). Anyone in the community can also share their `spaCy` models, which you can find by filtering at the left of the [models page](https://huggingface.co/models?library=spacy).
 
 All models on the Hub come up with useful features
 1. An automatically generated model card with label scheme, metrics, components, and more.
@@ -74,10 +74,6 @@ To push with the CLI, you can use the `huggingface-hub push` command as seen bel
 python -m spacy huggingface-hub push [whl_path] [--org] [--msg] [--local-repo] [--verbose]
 ```
 
-```bash
-python -m spacy_huggingface_hub push [whl_path] [--org] [--msg] [--local-repo] [--verbose]
-```
-
 | Argument             | Type         | Description                                                                                                                   |
 | -------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
 | `whl_path`           | str / `Path` | The path to the `.whl` file packaged with [`spacy package`](https://spacy.io/api/cli#package).                                |
@@ -87,7 +83,7 @@ python -m spacy_huggingface_hub push [whl_path] [--org] [--msg] [--local-repo] [
 | `--verbose`, `-V`    | bool         | Output additional info for debugging, e.g. the full generated hub metadata.                                                   |
 
 
-You can then upload any pipeline packaged with `[spacy package](https://spacy.io/api/cli#package)`. Make sure to set `--build wheel` to output a binary .whl file. The uploader will read all metadata from the pipeline package, including the auto-generated pretty `README.md` and the model details available in the `meta.json`.
+You can then upload any pipeline packaged with [`spacy package`](https://spacy.io/api/cli#package). Make sure to set `--build wheel` to output a binary .whl file. The uploader will read all metadata from the pipeline package, including the auto-generated pretty `README.md` and the model details available in the `meta.json`.
 
 ```bash
 huggingface-cli login
@@ -117,7 +113,7 @@ print(result["url"])
 
 ## Additional resources
 
-* [spacy-huggingface-hub](https://github.com/explosion/spacy-huggingface-hub) library.
-* [Launch blog post](https://huggingface.co/blog/spacy)
-* [SpaCy v 3.1 Announcement](https://explosion.ai/blog/spacy-v3-1#huggingface-hub)
-* [spaCy documentation](https://spacy.io/universe/project/spacy-huggingface-hub/)
+* spacy-huggingface-hub [library](https://github.com/explosion/spacy-huggingface-hub).
+* Launch [blog post](https://huggingface.co/blog/spacy)
+* SpaCy v 3.1 [Announcement](https://explosion.ai/blog/spacy-v3-1#huggingface-hub)
+* spaCy [documentation](https://spacy.io/universe/project/spacy-huggingface-hub/)

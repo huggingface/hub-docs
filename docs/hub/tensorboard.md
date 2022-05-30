@@ -18,4 +18,4 @@ THe Hub automatically detects TensorBoard traces (such as `tfevents`). Once you 
 
 ## Additional resources
 
-* [TensorBoard documentation](https://www.tensorflow.org/tensorboard).
+* TensorBoard [documentation](https://www.tensorflow.org/tensorboard).
