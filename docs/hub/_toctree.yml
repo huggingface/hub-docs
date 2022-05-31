@@ -9,7 +9,7 @@
   - title: Pull Requests & Discussions
     sections:
       - local: repositories-pull-requests-discussions
-        title: Overview
+        title: PR & Discussions Overview
       - local: repositories-pull-requests-advanced
         title: Advanced Usage
   - local: repositories-next-steps
