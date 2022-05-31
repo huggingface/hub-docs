@@ -6,12 +6,10 @@
     title: Getting Started
   - local: repositories-settings
     title: Settings
-  - title: Pull Requests & Discussions
-    sections:
-      - local: repositories-pull-requests-discussions
-        title: PR & Discussions Overview
-      - local: repositories-pull-requests-advanced
-        title: Advanced Usage
+  - local: repositories-pull-requests-discussions
+    title: PR & Discussions
+  - local: repositories-pull-requests-advanced
+    title: PR & Discussions Advanced Usage
   - local: repositories-next-steps
     title: Next Steps    
   - local: repositories-licenses
@@ -20,12 +18,10 @@
   sections:
   - local: models-the-hub
     title: The Model Hub
-  - title: Model Cards
-    sections:
-    - local: models-cards
-      title: Overview
-    - local: models-cards-co2
-      title: Carbon Emissions
+  - local: models-cards
+    title: Model Cards
+  - local: models-cards-co2
+    title: Carbon Emissions
   - title: Libraries
     sections:
       - local: models-libraries
@@ -60,14 +56,12 @@
     title: Model Widgets
   - local: models-inference
     title: Inference API docs
+  - local: models-adding-libraries
+    title: Integrate a library with the Hub
+  - local: models-tasks
+    title: Tasks
   - local: models-faq
     title: Frequently Asked Questions
-  - title: Advanced Topics
-    sections:
-      - local: models-adding-libraries
-        title: Integrate a library with the Hub
-      - local: models-tasks
-        title: Tasks
 - title: Datasets
   sections:
   - local: datasets-overview
