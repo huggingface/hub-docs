@@ -81,10 +81,10 @@
     title: Adding New Datasets
 - title: Spaces
   sections:
+  - local: spaces-overview
+    title: Spaces Overview
   - title: Get Started
     sections:
-    - local: spaces-overview
-      title: Spaces Overview
     - local: spaces-dependencies
       title: Handling Spaces Dependencies
     - local: spaces-settings
