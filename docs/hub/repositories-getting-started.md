@@ -49,7 +49,32 @@ Note that the Hub prompts you to create a *Model Card*, which you can learn abou
 
 ## Adding files to a repository (Web UI)
 
-TODO
+To add files to your repository via the web UI, start by selecting the **Files** tab, navigating to the desired directory, and then clicking **Add file**. You'll be given the option to create a new file or upload a file directly from your computer. 
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-add_file.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-add_file-dark.png"/>
+</div>
+
+### Creating a new file
+
+Choosing to create a new file will take you to the following editor screen, where you can choose a name for your file, add content, and save your file with a message that summarizes your changes. Instead of directly committing the new file to your repo's `main` branch, you can select `Open as a pull request` to create a [Pull Request](./repositories-pull-requests-discussions).
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-create_file.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-create_file-dark.png"/>
+</div>
+
+### Uploading a file
+
+If you choose _Upload file_ you'll be able to choose a local file to upload, along with a message summarizing your changes to the repo.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-upload_file.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-upload_file-dark.png"/>
+</div>
+
+As with creating new files, you can select `Open as a pull request` to create a [Pull Request](./repositories-pull-requests-discussions) instead of adding your changes directly to the `main` branch of your repo.
 
 ## Adding files to a repository (terminal)
 
