@@ -3,9 +3,9 @@
 - title: Repositories
   sections:
   - local: repositories-getting-started
-    title: Getting Started with Repositories
+    title: Getting Started
   - local: repositories-settings
-    title: Repository Settings
+    title: Settings
   - title: Pull Requests & Discussions
     sections:
       - local: repositories-pull-requests-discussions
@@ -23,13 +23,13 @@
   - title: Model Cards
     sections:
     - local: models-cards
-      title: Model Cards Overview
+      title: Overview
     - local: models-cards-co2
       title: Carbon Emissions
   - title: Libraries
     sections:
       - local: models-libraries
-        title: Libraries Overview
+        title: Overview
       - local: spacy
         title: SpaCy
       - local: transformers
@@ -71,7 +71,7 @@
 - title: Datasets
   sections:
   - local: datasets-overview
-    title: Datasets Overview
+    title: Overview
   - local: datasets-cards
     title: Dataset Cards
   - local: datasets-gated
@@ -83,8 +83,8 @@
 - title: Spaces
   sections:
   - local: spaces-overview
-    title: Spaces Overview
-  - title: Get Started
+    title: Overview
+  - title: Getting Started
     sections:
     - local: spaces-dependencies
       title: Handling Spaces Dependencies
