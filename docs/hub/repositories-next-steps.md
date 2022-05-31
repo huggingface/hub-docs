@@ -16,7 +16,7 @@ To learn about Git branching, you can try out the [Learn Git Branching interacti
 
 Git allows you to *tag* commits so that you can easily note milestones in your project. As such, you can use tags to mark commits in your Hub repos! To learn about using tags, you can visit [this DevConnected post](https://devconnected.com/how-to-create-git-tags/).
 
-Beyond making it easy to identify important commits in your repo's history, using Git tags also allows you to [clone a repository at a specific tag](https://www.techiedelight.com/clone-specific-tag-with-git/). The `huggingface_hub` library also supports working with tags, such as [downloading files from a specific tagged commit](https://huggingface.co/docs/huggingface_hub/main/en/how-to-downstream#hfhuburl).
+Beyond making it easy to identify important commits in your repo's history, using Git tags also allows you to do A/B testing, [clone a repository at a specific tag](https://www.techiedelight.com/clone-specific-tag-with-git/), and more! The `huggingface_hub` library also supports working with tags, such as [downloading files from a specific tagged commit](https://huggingface.co/docs/huggingface_hub/main/en/how-to-downstream#hfhuburl).
 
 ## How to duplicate or fork a repo (including LFS pointers)
 
