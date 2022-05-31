@@ -28,6 +28,31 @@
       title: Carbon Emissions
   - local: models-libraries
     title: Libraries
+    sections:
+      - local: spacy
+        title: SpaCy
+      - local: transformers
+        title: transformers
+      - local: adapter-transformers
+        title: adapter-transformers
+      - local: allennlp
+        title: AllenNLP
+      - local: asteroid
+        title: Asteroid
+      - local: espnet
+        title: ESPnet
+      - local: fastai
+        title: FastAI
+      - local: keras
+        title: Keras
+      - local: sentence-transformers
+        title: Sentence Transformers
+      - local: stanza
+        title: Stanza
+      - local: speechbrain
+        title: SpeechBrain
+      - local: tensorboard
+        title: TensorBoard
   - local: models-interacting
     title: Interacting with Models on the Hub
   - local: models-widgets
