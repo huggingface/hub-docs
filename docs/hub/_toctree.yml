@@ -1,7 +1,6 @@
 - local: index
   title: 🤗 Hugging Face Hub
-- local: repositories
-  title: Repositories
+- title: Repositories
   sections:
   - local: repositories-getting-started
     title: Getting Started with Repositories
@@ -17,18 +16,19 @@
   - local: repositories-licenses
     title: Licenses    
 - title: Models
-  local: models
   sections:
   - local: models-the-hub
     title: The Model Hub
-  - local: models-cards
-    title: Model Cards
+  - title: Model Cards
     sections:
+    - local: models-cards
+      title: Model Cards Overview
     - local: models-cards-co2
       title: Carbon Emissions
-  - local: models-libraries
-    title: Libraries
+  - title: Libraries
     sections:
+      - local: models-libraries
+        title: Libraries Overview
       - local: spacy
         title: SpaCy
       - local: transformers
@@ -61,15 +61,13 @@
     title: Inference API docs
   - local: models-faq
     title: Frequently Asked Questions
-  - local: models-advanced
-    title: Advanced Topics
+  - title: Advanced Topics
     sections:
       - local: models-adding-libraries
         title: Integrate a library with the Hub
       - local: models-tasks
         title: Tasks
 - title: Datasets
-  local: datasets
   sections:
   - local: datasets-overview
     title: Datasets Overview
@@ -81,12 +79,12 @@
     title: Using Datasets
   - local: datasets-adding
     title: Adding New Datasets
-- local: spaces
-  title: Spaces
+- title: Spaces
   sections:
-  - local: spaces-overview
-    title: Spaces Overview
+  - title: Get Started
     sections:
+    - local: spaces-overview
+      title: Spaces Overview
     - local: spaces-dependencies
       title: Handling Spaces Dependencies
     - local: spaces-settings
@@ -111,29 +109,31 @@
     title: Spaces Configuration Reference
   - local: spaces-changelog
     title: Spaces Changelog
-- local: other
-  title: Other
+- title: Other
   sections:    
-  - local: organizations
-    title: Organizations
+  - title: Organizations
     sections:
+    - local: organizations
+      title: Organizations Overview
     - local: organizations-managing
       title: Managing Organizations
     - local: organizations-cards
       title: Organization Cards
     - local: organizations-security
       title: Access control in organizations
-  - local: security
-    title: Security
+  - title: Security
     sections:
+    - local: security
+      title: Security Overview
     - local: security-tokens
       title: User Access Tokens
     - local: security-gpg
       title: Signing commits with GPG
     - local: security-malware
       title: Malware Scanning
-  - local: api
-    title: Hub API Endpoints
+  - title: API
     sections:
+    - local: api
+      title: Hub API Endpoints
     - local: api-webhook
       title: Webhook
