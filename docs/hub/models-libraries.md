@@ -1,6 +1,6 @@
 # Libraries
 
-Integrating the `huggingface_hub` library into your projects allows users to interact with the Hub directly from your library. The Hub supports many libraries, and we're working on expanding this support! We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
+The Hub has support for dozens of libraries in the Open Source ecosystem. Thanks to the `huggingface_hub` Python library, it's easy to enable sharing your models in the Hub. The Hub supports many libraries, and we're working on expanding this support! We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
 
 The table below summarizes the supported libraries and their level of integration. Find all our supported libraries [here](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Libraries.ts)! 
 
@@ -21,9 +21,9 @@ The table below summarizes the supported libraries and their level of integratio
 | [Speechbrain](https://speechbrain.github.io/)                 | A PyTorch Powered Speech Toolkit. |       ✅       |    ✅   |         ✅         |      ❌      |
 | [TensorFlowTTS](https://github.com/TensorSpeech/TensorFlowTTS)         | Real-time state-of-the-art speech synthesis architectures.                    |       ❌       |    ❌   |         ✅         |      ❌      |
 | [Timm](https://github.com/rwightman/pytorch-image-models)                  | Collection of image models, scripts, pretrained weights, etc.                 |       ❌       |    ❌   |         ✅         |      ❌      |
-| [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3)                  | Set of reliable implementations of deep reinforcement learning algorithms in PyTorch                  |       ❌       |    ❌   |         ✅         |      ✅      |
+| [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3)                  | Set of reliable implementations of deep reinforcement learning algorithms in PyTorch                  |       ❌       |    ✅   |         ✅         |      ✅      |
 
 
 ### How can I add a new library to the Inference API?
 
-Read about it in [Adding a Library Guide](./models-adding-libraries).
+If you're interested in adding your library, please reach out to us! Read about it in [Adding a Library Guide](./models-adding-libraries).
