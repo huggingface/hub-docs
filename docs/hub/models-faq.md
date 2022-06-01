@@ -2,7 +2,7 @@
 
 ## How can I see what dataset was used to train the model?
 
-It's up to the person who uploaded the model to include the training information! You may find the information about the datasets that the model was trained on in the model card. If the datasets used for the model are on the Hub, the uploader may have included them in the model card's metadata. In that case, the datasets would be linked with a handy card on the right side of the model page:
+It's up to the person who uploaded the model to include the training information! You may find the information about the datasets that the model was trained on in the model card. If the datasets used for the model are on the Hub, the uploader may have included them in the [model card's metadata](https://huggingface.co/Jiva/xlm-roberta-large-it-mnli/blob/main/README.md#L7-L9). In that case, the datasets would be linked with a handy card on the right side of the model page:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-datasets.png"/>
@@ -24,7 +24,7 @@ Spaces are a great way to show off a model you've made or explore new ways to us
 
 ## How do I upload an update / new version of the model?
 
-Releasing an update to a model that you've already published can be done by pushing a new commit to your model's repo. To do this, go through the same process that you followed to upload your initial model. Your previous model versions will remain in the repository's commit history.
+Releasing an update to a model that you've already published can be done by pushing a new commit to your model's repo. To do this, go through the same process that you followed to upload your initial model. Your previous model versions will remain in the repository's commit history, so you can still download previous model versions from a specific git commit or tag or revert to previous versions if needed.
 
 ## What if I have a different checkpoint of the model trained on a different dataset?
 

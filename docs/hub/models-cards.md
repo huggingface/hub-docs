@@ -2,7 +2,7 @@
 
 ## What are Model Cards?
 
-Model cards are Markdown files that accompany the models and provide handy information. They are essential for discoverability, reproducibility, and sharing! You can find a model card as the `README.md` file in any model repo.
+Model cards are files that accompany the models and provide handy information. Under the hood, model cards are simple Markdown files with additional metadata. Model cards are essential for discoverability, reproducibility, and sharing! You can find a model card as the `README.md` file in any model repo.
 
 The model card should describe:
 - the model
