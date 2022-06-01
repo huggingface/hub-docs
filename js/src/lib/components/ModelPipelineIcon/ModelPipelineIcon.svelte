@@ -13,7 +13,8 @@
 	import IconObjectDetection from "../Icons/IconObjectDetection.svelte";
 	import IconQuestionAnswering from "../Icons/IconQuestionAnswering.svelte";
 	import IconSentenceSimilarity from "../Icons/IconSentenceSimilarity.svelte";
-	import IconStructuredDataClassification from "../Icons/IconStructuredDataClassification.svelte";
+	import IconTabularClassification from "../Icons/IconTabularClassification.svelte";
+	import IconTabularRegression from "../Icons/IconTabularRegression.svelte";
 	import IconSummarization from "../Icons/IconSummarization.svelte";
 	import IconTableQuestionAnswering from "../Icons/IconTableQuestionAnswering.svelte";
 	import IconText2textGeneration from "../Icons/IconText2textGeneration.svelte";
@@ -64,7 +65,8 @@
 		"image-to-image": IconImageToImage,
 		"unconditional-image-generation": IconUnconditionalImageGeneration,
 		"reinforcement-learning": IconReinforcementLearning,
-		"tabular-classification": IconStructuredDataClassification,
+		"tabular-classification": IconTabularClassification,
+		"tabular-regression": IconTabularRegression,
 	};
 </script>
 

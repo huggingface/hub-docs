@@ -4,7 +4,7 @@ export const MODALITIES = [
 	"audio",
 	"cv",
 	"rl",
-	"structured",
+	"tabular",
 	"other",
 ] as const;
 
@@ -16,7 +16,7 @@ export const MODALITY_LABELS: Record<Modality, string> = {
 	audio:      "Audio",
 	cv:         "Computer Vision",
 	rl:         "Reinforcement Learning",
-	structured: "Structured",
+	tabular: "Tabular",
 	other:      "Other",
 };
 
@@ -449,7 +449,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"tabular-classification": {
 		name:     "Tabular Classification",
-		modality: "structured",
+		modality: "tabular",
 		subtasks: [
 			{
 				type: "tabular-multi-class-classification",
@@ -468,7 +468,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"tabular-to-text": {
 		name:     "Tabular to Text",
-		modality: "structured",
+		modality: "tabular",
 		subtasks: [
 			{
 				type: "rdf-to-text",
@@ -532,7 +532,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"time-series-forecasting": {
 		name:     "Time Series Forecasting",
-		modality: "structured",
+		modality: "tabular",
 		subtasks: [
 			{
 				type: "univariate-time-series-forecasting",
