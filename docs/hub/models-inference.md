@@ -5,7 +5,7 @@ Please refer to [Accelerated Inference API Documentation](https://api-inference.
 
 ## What technology do you use to power the inference API?
 
-For 🤗 `Transformers` models, [Pipelines](https://huggingface.co/transformers/main_classes/pipelines.html)  power the API.
+For 🤗 Transformers models, [Pipelines](https://huggingface.co/transformers/main_classes/pipelines.html) power the API.
 
 On top of `Pipelines` and depending on the model type, there are several production optimizations like:
 - compiling models to optimized intermediary representations (e.g. [ONNX](https://medium.com/microsoftazure/accelerate-your-nlp-pipelines-using-hugging-face-transformers-and-onnx-runtime-2443578f4333)),
