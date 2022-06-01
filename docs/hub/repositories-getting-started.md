@@ -4,7 +4,7 @@ This beginner-friendly guide will help you get the basic skills you need to crea
 
 ## Requirements
 
-This document shows how to handle repositories through the web interface as well as through the terminal. There are no requirements if working with the UI. If you want to work with the terminal, please follow these instructions.
+This document shows how to handle repositories through the web interface as well as through the terminal. There are no requirements if working with the UI. If you want to work with the terminal, please follow these installation instructions.
 
 If you do not have `git` available as a CLI command yet, you will need to [install Git](https://git-scm.com/downloads) for your platform. You will also need to [install Git LFS](https://git-lfs.github.com/), which will be used to handle large files such as images and model weights.
 
@@ -15,7 +15,7 @@ python -m pip install huggingface_hub
 huggingface-cli login
 ```
 
-The content in the **Getting Started** section of this document is also available as a video!
+**The content in the Getting Started section of this document is also available as a video!**
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rkCly_cbMBk" title="Managing a repo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -47,20 +47,49 @@ After creating your model repository, you should see a page like this:
 
 Note that the Hub prompts you to create a *Model Card*, which you can learn about in the [**Model Cards documentation**](./models-cards). Including a Model Card in your model repo is best practice, but since we're only making a test repo at the moment we can skip this.
 
+## Adding files to a repository (Web UI)
 
-## Cloning repositories
+To add files to your repository via the web UI, start by selecting the **Files** tab, navigating to the desired directory, and then clicking **Add file**. You'll be given the option to create a new file or upload a file directly from your computer. 
 
-Downloading repositories to your local machine is called *cloning*. You can use the following commands to load the repo that we made and navigate to it:
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-add_file.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-add_file-dark.png"/>
+</div>
 
-```bash
-git clone https://huggingface.co/<your-username>/<your-model-id>
-cd <your-model-id>
-```
+### Creating a new file
+
+Choosing to create a new file will take you to the following editor screen, where you can choose a name for your file, add content, and save your file with a message that summarizes your changes. Instead of directly committing the new file to your repo's `main` branch, you can select `Open as a pull request` to create a [Pull Request](./repositories-pull-requests-discussions).
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-create_file.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-create_file-dark.png"/>
+</div>
+
+### Uploading a file
+
+If you choose _Upload file_ you'll be able to choose a local file to upload, along with a message summarizing your changes to the repo.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-upload_file.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repositories-upload_file-dark.png"/>
+</div>
+
+As with creating new files, you can select `Open as a pull request` to create a [Pull Request](./repositories-pull-requests-discussions) instead of adding your changes directly to the `main` branch of your repo.
 
 ## Adding files to a repository (terminal)
 
-Now's the time, you can add any files you want to the repository! 🔥
+### Cloning repositories
 
+Downloading repositories to your local machine is called *cloning*. You can use the following commands to load your repo and navigate to it:
+
+```bash
+git clone https://huggingface.co/<your-username>/<your-model-name>
+cd <your-model-id>
+```
+
+### Set up
+
+Now's the time, you can add any files you want to the repository! 🔥
 
 Do you have files larger than 10MB? Those files should be tracked with `git-lfs`, which you can initialize with:
 
@@ -75,6 +104,8 @@ huggingface-cli lfs-enable-largefiles
 ```
 
 When you use Hugging Face to create a repository, Hugging Face automatically provides a list of common file extensions for common Machine Learning large files in the `.gitattributes` file, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
+
+### Pushing files
 
 You can use Git to save new files and any changes to already existing files as a bundle of changes called a *commit*, which can be thought of as a "revision" to your project. To create a commit, you have to `add` the files to let Git know that we're planning on saving the changes and then `commit` those changes. In order to sync the new commit with the Hugging Face Hub, you then `push` the commit to the Hub.
 
