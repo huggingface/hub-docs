@@ -50,8 +50,10 @@
         title: SpeechBrain
       - local: tensorboard
         title: TensorBoard
-  - local: models-interacting
-    title: Interacting with Models on the Hub
+  - local: models-uploading
+    title: Uploading Models
+  - local: models-downloading
+    title: Downloading Models
   - local: models-widgets
     title: Model Widgets
   - local: models-inference

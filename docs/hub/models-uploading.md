@@ -1,53 +1,12 @@
-# Interacting with models on the hub
+# Uploading models
 
-## Accessing models for local use
-
-Since all models on the Model Hub are Git repositories, you can clone the models locally by running:
-
-```bash
-git lfs install
-git clone <MODEL URL>
-```
-
-For detailed information on accessing the model, you can click on the "Use in Transformer" button on any model page.
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-usage.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-usage-dark.png"/>
-</div>
-
-If the model is compatible with 🤗  Transformers, you'll even receive snippets to help you get started.
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-usage-modal.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-usage-modal-dark.png"/>
-</div>
-
-### Can I access models programmatically?
-
-You can use the [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) library to create, delete, update and retrieve information from repos. You can also download files from repos or integrate them into your library! For example, you can quickly load a Scikit learn model with a few lines.
-
-```py
-from huggingface_hub import hf_hub_url, cached_download
-import joblib
-
-REPO_ID = "YOUR_REPO_ID"
-FILENAME = "sklearn_model.joblib"
-
-model = joblib.load(cached_download(
-    hf_hub_url(REPO_ID, FILENAME)
-))
-```
-
-## Uploading models
-
-The first step is to create an account at [Hugging Face](https://huggingface.co/login). Models on the Hub are Git-based repositories, which give you versioning, branches, discoverability and sharing features, integration with over a dozen libraries, and more! You have control over what you want to upload to your repository, which could include checkpoints, configs, and any other files.
+To upload models to the Hub, you'll need to create an account at [Hugging Face](https://huggingface.co/join). Models on the Hub are [Git-based repositories](./repositories.md), which give you versioning, branches, discoverability and sharing features, integration with over a dozen libraries, and more! You have control over what you want to upload to your repository, which could include checkpoints, configs, and any other files.
 
 You can link repositories with an individual, such as [osanseviero/fashion_brands_patterns](https://huggingface.co/osanseviero/fashion_brands_patterns), or with an organization, such as [facebook/bart-large-xsum](https://huggingface.co/facebook/bart-large-xsum). Organizations can collect models related to a company, community, or library! If you choose an organization, the model will be featured on the organization’s page, and every member of the organization will have the ability to contribute to the repository. You can create a new organization [here](https://huggingface.co/organizations/new).
 
-There are several ways to upload models to the Hub, described below.
+There are several ways to upload models to the Hub, described below. We suggest adding a [Model Card](./models-cards.md) to to your repo to document your model.
 
-### Using the web interface
+## Using the web interface
 
 To create a brand new model repository, visit [huggingface.co/new](http://huggingface.co/new). Then follow these steps:
 
@@ -107,12 +66,10 @@ Any repository that contains TensorBoard traces (filenames that contain `tfevent
 
 Models trained with 🤗 Transformers will generate [TensorBoard traces](https://huggingface.co/transformers/main_classes/callback.html?highlight=tensorboard#transformers.integrations.TensorBoardCallback) by default if [`tensorboard`](https://pypi.org/project/tensorboard/) is installed.
 
-
-### Using Git
+## Using Git
 
 Since model repos are just Git repositories, you can use Git to push your model files to the Hub. Follow the guide on [Getting Started with Repositories](repositories-getting-started.md) to learn about using the `git` CLI to commit and push your models.
 
-
-### Using the `huggingface_hub` client library
+## Using the `huggingface_hub` client library
 
 The rich feature set in the `huggingface_hub` library allows you to manage repositories, including creating repos and uploading models to the Model Hub. Visit [the client library's documentation](https://huggingface.co/docs/huggingface_hub/index) to learn more.

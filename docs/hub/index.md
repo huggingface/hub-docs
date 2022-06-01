@@ -22,7 +22,8 @@
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-cards">Model Cards</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-libraries">Libraries</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-tasks">Tasks</a>
-<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-interacting">Interacting with models on the Hub</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-uploading">Uploading Models</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-downloading">Downloading Models</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-widgets">Widgets</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-inference">Inference API</a>
 </div>
