@@ -25,6 +25,7 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof Mode
 	"table-question-answering":       ["transformers"],
 	"table-to-text":                  ["transformers"],
 	"tabular-classification":         ["sklearn"],
+	"tabular-regression":         	  ["sklearn"],
 	"tabular-to-text":                ["transformers"],
 	"text-classification":            ["adapter-transformers", "spacy", "transformers"],
 	"text-generation":                ["transformers"],
