@@ -11,3 +11,5 @@ jobs:
     with:
       pr_number: ${{ github.event.number }}
       package: hub-docs
+      package_name: hub
+
