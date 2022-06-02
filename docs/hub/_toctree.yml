@@ -32,10 +32,8 @@
   - local: models-libraries
     title: Integrated Libraries
     sections:
-      - local: spacy
-        title: spaCy
       - local: transformers
-        title: transformers
+        title: 🤗 transformers
       - local: adapter-transformers
         title: Adapter Transformers
       - local: allennlp
@@ -50,10 +48,12 @@
         title: Keras
       - local: sentence-transformers
         title: Sentence Transformers
-      - local: stanza
-        title: Stanza
+      - local: spacy
+        title: spaCy
       - local: speechbrain
         title: SpeechBrain
+      - local: stanza
+        title: Stanza
       - local: tensorboard
         title: TensorBoard
   - local: models-widgets
