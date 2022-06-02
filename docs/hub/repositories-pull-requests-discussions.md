@@ -69,7 +69,7 @@ git fetch
 3. create a local branch tracking the ref
 
 ```bash
-git co pr/:num
+git checkout pr/:num
 ```
 
 4. IF you make local changes, to push to the PR ref:
