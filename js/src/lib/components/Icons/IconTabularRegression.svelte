@@ -8,7 +8,6 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" 
     aria-hidden="true" 
     role="img" 
-    class="iconify iconify--carbon" 
     width="1em" 
     height="1em" 
     preserveAspectRatio="xMidYMid meet" 

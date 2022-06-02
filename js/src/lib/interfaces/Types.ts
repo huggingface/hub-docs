@@ -466,6 +466,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		],
 		color:        "blue",
 	},
+	"tabular-regression": {
+		name:     "Tabular Regression",
+		modality: "tabular",
+		color:        "blue",
+	},
 	"tabular-to-text": {
 		name:     "Tabular to Text",
 		modality: "tabular",
@@ -600,6 +605,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"text2text-generation",
 	"zero-shot-image-classification",
 	"tabular-classification",
+	"tabular-regression",
 	"image-to-image",
 	"tabular-to-text",
 	"unconditional-image-generation",
