@@ -4,7 +4,7 @@ export const MODALITIES = [
 	"audio",
 	"cv",
 	"rl",
-	"structured",
+	"tabular",
 	"other",
 ] as const;
 
@@ -16,7 +16,7 @@ export const MODALITY_LABELS: Record<Modality, string> = {
 	audio:      "Audio",
 	cv:         "Computer Vision",
 	rl:         "Reinforcement Learning",
-	structured: "Structured",
+	tabular: "Tabular",
 	other:      "Other",
 };
 
@@ -449,7 +449,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"tabular-classification": {
 		name:     "Tabular Classification",
-		modality: "structured",
+		modality: "tabular",
 		subtasks: [
 			{
 				type: "tabular-multi-class-classification",
@@ -466,9 +466,14 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		],
 		color:        "blue",
 	},
+	"tabular-regression": {
+		name:     "Tabular Regression",
+		modality: "tabular",
+		color:        "blue",
+	},
 	"tabular-to-text": {
 		name:     "Tabular to Text",
-		modality: "structured",
+		modality: "tabular",
 		subtasks: [
 			{
 				type: "rdf-to-text",
@@ -532,7 +537,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"time-series-forecasting": {
 		name:     "Time Series Forecasting",
-		modality: "structured",
+		modality: "tabular",
 		subtasks: [
 			{
 				type: "univariate-time-series-forecasting",
@@ -600,6 +605,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"text2text-generation",
 	"zero-shot-image-classification",
 	"tabular-classification",
+	"tabular-regression",
 	"image-to-image",
 	"tabular-to-text",
 	"unconditional-image-generation",
