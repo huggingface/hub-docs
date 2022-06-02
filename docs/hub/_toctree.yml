@@ -33,7 +33,7 @@
     title: Integrated Libraries
     sections:
       - local: spacy
-        title: SpaCy
+        title: spaCy
       - local: transformers
         title: transformers
       - local: adapter-transformers
