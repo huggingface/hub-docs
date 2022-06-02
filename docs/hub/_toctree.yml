@@ -45,7 +45,7 @@
       - local: espnet
         title: ESPnet
       - local: fastai
-        title: FastAI
+        title: fastai
       - local: keras
         title: Keras
       - local: sentence-transformers

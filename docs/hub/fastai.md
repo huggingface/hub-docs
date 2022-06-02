@@ -1,4 +1,4 @@
-# Using FastAI at Hugging Face
+# Using fastai at Hugging Face
 
 `fastai` is an open-source Deep Learning library that leverages PyTorch and Python to provide high-level components to train fast and accurate neural networks with state-of-the-art outputs on text, vision, and tabular data. 
 
