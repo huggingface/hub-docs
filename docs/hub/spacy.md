@@ -1,4 +1,4 @@
-# Using SpaCy at Hugging Face
+# Using spaCy at Hugging Face
 
 `spaCy` is a popular library for advanced Natural Language Processing used widely across industry. `spaCy` makes it easy to use and train pipelines for tasks like named entity recognition, text classification, part of speech tagging and more, and lets you build powerful applications to process and analyze large volumes of text.
 
@@ -115,5 +115,5 @@ print(result["url"])
 
 * spacy-huggingface-hub [library](https://github.com/explosion/spacy-huggingface-hub).
 * Launch [blog post](https://huggingface.co/blog/spacy)
-* SpaCy v 3.1 [Announcement](https://explosion.ai/blog/spacy-v3-1#huggingface-hub)
+* spaCy v 3.1 [Announcement](https://explosion.ai/blog/spacy-v3-1#huggingface-hub)
 * spaCy [documentation](https://spacy.io/universe/project/spacy-huggingface-hub/)
