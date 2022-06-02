@@ -11,7 +11,7 @@ It's up to the person who uploaded the model to include the training information
 
 ## How can I see an example of the model in action?
 
-Models can have inference widgets that let you try out the model in the browser! Inference widgets are easy to configure, and there are many different options at your disposal. Visit the [Widgets documentation](models-widgets.md) to learn more.
+Models can have inference widgets that let you try out the model in the browser! Inference widgets are easy to configure, and there are many different options at your disposal. Visit the [Widgets documentation](models-widgets) to learn more.
 
 The Hugging Face Hub is also home to Spaces, which are interactive demos used to showcase models. If a model has any Spaces associated with it, you'll find them linked on the model page like so:
 
