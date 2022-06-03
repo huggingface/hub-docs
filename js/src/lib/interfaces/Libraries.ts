@@ -239,6 +239,13 @@ nlp = spacy.load("${nameWithoutNamespace(model.id)}")
 import ${nameWithoutNamespace(model.id)}
 nlp = ${nameWithoutNamespace(model.id)}.load()`;
 
+const stanza = (model: ModelData) =>
+	`import stanza
+
+stanza.download("${nameWithoutNamespace(model.id).replace("stanza-", "")}")
+nlp = stanza.Pipeline("${nameWithoutNamespace(model.id).replace("stanza-", "")}")`;
+
+
 const speechBrainMethod = (speechbrainInterface: string) => {
 	switch (speechbrainInterface) {
 		case "EncoderClassifier":
@@ -425,6 +432,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "speechbrain",
 		repoUrl:  "https://github.com/speechbrain/speechbrain",
 		snippet:  speechbrain,
+	},
+	"stanza": {
+		btnLabel: "Stanza",
+		repoName: "stanza",
+		repoUrl: "https://github.com/stanfordnlp/stanza",
+		snippet: stanza,
 	},
 	"tensorflowtts": {
 		btnLabel: "TensorFlowTTS",
