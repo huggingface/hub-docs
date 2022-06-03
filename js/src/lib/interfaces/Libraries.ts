@@ -242,8 +242,8 @@ nlp = ${nameWithoutNamespace(model.id)}.load()`;
 const stanza = (model: ModelData) =>
 	`from stanza import Pipeline
 
-stanza.download("${nameWithoutNamespace(model.id)}")
-nlp = stanza.Pipeline("${nameWithoutNamespace(model.id)}")`;
+stanza.download("${nameWithoutNamespace(model.id).replace("stanza-", "")}")
+nlp = stanza.Pipeline("${nameWithoutNamespace(model.id).replace("stanza-", "")}")`;
 
 
 const speechBrainMethod = (speechbrainInterface: string) => {
