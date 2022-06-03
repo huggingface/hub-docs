@@ -50,7 +50,7 @@ The Hub also supports over 10 open-source libraries in the [Community Inference 
 * PR 1: Add the new task to the API [validation](https://github.com/huggingface/api-inference-community/blob/main/api_inference_community/validation.py). This code ensures that the inference input is valid for a given task. Some PR examples:
     * [Add text-to-image](https://github.com/huggingface/huggingface_hub/commit/5f040a117cf2a44d704621012eb41c01b103cfca#diff-db8bbac95c077540d79900384cfd524d451e629275cbb5de7a31fc1cd5d6c189)
     * [Add audio-classification](https://github.com/huggingface/huggingface_hub/commit/141e30588a2031d4d5798eaa2c1250d1d1b75905#diff-db8bbac95c077540d79900384cfd524d451e629275cbb5de7a31fc1cd5d6c189)
-    * [Add structured-data-classification](https://github.com/huggingface/huggingface_hub/commit/dbea604a45df163d3f0b4b1d897e4b0fb951c650#diff-db8bbac95c077540d79900384cfd524d451e629275cbb5de7a31fc1cd5d6c189)
+    * [Add tabular-classification](https://github.com/huggingface/huggingface_hub/commit/dbea604a45df163d3f0b4b1d897e4b0fb951c650#diff-db8bbac95c077540d79900384cfd524d451e629275cbb5de7a31fc1cd5d6c189)
 * PR 2: Add the new task to a library docker image. You should also add a template to [`docker_images/common/app/pipelines`](https://github.com/huggingface/api-inference-community/tree/main/docker_images/common/app/pipelines) to facilitate integrating the task in other libraries. Here is an example PR:
     * [Add text-classification to spaCy](https://github.com/huggingface/huggingface_hub/commit/6926fd9bec23cb963ce3f58ec53496083997f0fa#diff-3f1083a92ca0047b50f9ad2d04f0fe8dfaeee0e26ab71eb8835e365359a1d0dc)
 

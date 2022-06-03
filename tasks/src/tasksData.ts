@@ -43,6 +43,7 @@ export const TASKS_DATA: Record<
 	"table-question-answering":       undefined,
 	"table-to-text":                  undefined,
 	"tabular-classification":         undefined,
+	"tabular-regression":             undefined,
 	"tabular-to-text":                undefined,
 	"text-classification":            textClassification,
 	"text-generation":                textGeneration,
