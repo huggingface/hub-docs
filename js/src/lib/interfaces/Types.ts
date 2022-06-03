@@ -16,7 +16,7 @@ export const MODALITY_LABELS: Record<Modality, string> = {
 	audio:      "Audio",
 	cv:         "Computer Vision",
 	rl:         "Reinforcement Learning",
-	tabular: "Tabular",
+	tabular:   "Tabular",
 	other:      "Other",
 };
 
