@@ -434,6 +434,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoUrl:  "https://github.com/speechbrain/speechbrain",
 		snippet:  speechbrain,
 	},
+	"stanza": {
+		btnLabel: "stanza",
+		repoName: "stanza",
+		repoUrl: "https://github.com/stanfordnlp/stanza",
+		snippet: stanza,
+	},
 	"tensorflowtts": {
 		btnLabel: "TensorFlowTTS",
 		repoName: "TensorFlowTTS",
