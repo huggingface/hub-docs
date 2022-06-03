@@ -459,16 +459,18 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				type: "tabular-multi-label-classification",
 				name: "Tabular Multi Label Classification",
 			},
-			{
-				type: "tabular-single-column-regression",
-				name: "Tabular Single Column Classification",
-			},
 		],
 		color:        "blue",
 	},
 	"tabular-regression": {
 		name:     "Tabular Regression",
 		modality: "tabular",
+		subtasks: [
+			{
+				type: "tabular-single-column-regression",
+				name: "Tabular Single Column Regression",
+			},
+		],
 		color:    "blue",
 	},
 	"tabular-to-text": {
