@@ -435,7 +435,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		snippet:  speechbrain,
 	},
 	"stanza": {
-		btnLabel: "stanza",
+		btnLabel: "Stanza",
 		repoName: "stanza",
 		repoUrl: "https://github.com/stanfordnlp/stanza",
 		snippet: stanza,
