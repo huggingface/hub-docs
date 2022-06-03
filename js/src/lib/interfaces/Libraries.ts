@@ -239,6 +239,14 @@ nlp = spacy.load("${nameWithoutNamespace(model.id)}")
 import ${nameWithoutNamespace(model.id)}
 nlp = ${nameWithoutNamespace(model.id)}.load()`;
 
+const stanza = (model: ModelData) =>
+	`from stanza import Pipeline
+
+stanza.download("${nameWithoutNamespace(model.id)}")
+nlp = stanza.Pipeline("${nameWithoutNamespace(model.id)}") 
+doc = nlp("My name is Omar and I live in Zürich.")`;
+
+
 const speechBrainMethod = (speechbrainInterface: string) => {
 	switch (speechbrainInterface) {
 		case "EncoderClassifier":
