@@ -469,7 +469,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	"tabular-regression": {
 		name:     "Tabular Regression",
 		modality: "tabular",
-		color:        "blue",
+		color:    "blue",
 	},
 	"tabular-to-text": {
 		name:     "Tabular to Text",
