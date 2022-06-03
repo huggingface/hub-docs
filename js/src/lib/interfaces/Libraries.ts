@@ -240,7 +240,7 @@ import ${nameWithoutNamespace(model.id)}
 nlp = ${nameWithoutNamespace(model.id)}.load()`;
 
 const stanza = (model: ModelData) =>
-	`from stanza import Pipeline
+	`import stanza
 
 stanza.download("${nameWithoutNamespace(model.id).replace("stanza-", "")}")
 nlp = stanza.Pipeline("${nameWithoutNamespace(model.id).replace("stanza-", "")}")`;
