@@ -11,6 +11,7 @@ The Hugging Face Hub hosts many models for a [variety of machine learning tasks]
 - [Uploading Models](./models-uploading)
 - [Downloading Models](./models-downloading)
 - [Widgets](./models-widgets)
+  - [Widget Examples](./models-widgets-examples)
 - [Inference API](./models-inference)
 - [Frequently Asked Questions](./models-faq)
 - [Advanced Topics](./models-advanced)

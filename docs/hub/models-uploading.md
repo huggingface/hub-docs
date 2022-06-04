@@ -53,7 +53,7 @@ You can add metadata to your model card. You can specify:
 * license
 * a lot more!
 
-Read more about model tags [here](/docs/hub/model-repos#model-card-metadata).
+Read more about model tags [here](./models-cards#model-card-metadata).
 
 6. Add TensorBoard traces
 

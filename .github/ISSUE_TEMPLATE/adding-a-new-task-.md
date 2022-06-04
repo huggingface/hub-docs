@@ -18,4 +18,4 @@ Note that you're not expected to do all of the following steps. This PR helps tr
 - [ ] Added basic UI elements (icon, order specification, etc)
 - [ ] Added a widget
 
-Integration guide: https://hf.co/docs/hub/adding-a-task
+Integration guide: https://hf.co/docs/hub/models-tasks

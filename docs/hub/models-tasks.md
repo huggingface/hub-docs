@@ -25,7 +25,7 @@ To begin the process, open a new issue in the [huggingface_hub](https://github.c
 The first step is to upload a model for your proposed task. Once you have a model in the Hub for the new task, the next step is to enable it in the Inference API. There are three types of support that you can choose from:
 
 * 🤗 using a `transformers` model
-* 🐳 using a model from an [officially supported library](/docs/hub/libraries)
+* 🐳 using a model from an [officially supported library](./models-libraries)
 * 🖨️ using a model with custom inference code. This experimental option has downsides, so we recommend using one of the other approaches.
 
 Finally, you can add a couple of UI elements, such as the task icon and the widget, that complete the integration in the Hub. 📷 
