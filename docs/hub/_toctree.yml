@@ -58,6 +58,9 @@
         title: TensorBoard
   - local: models-widgets
     title: Model Widgets
+    sections:
+      - local: models-widgets-examples
+        title: Widget Examples
   - local: models-inference
     title: Inference API docs
   - local: models-faq

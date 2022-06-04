@@ -50,7 +50,7 @@ widget:
   example_title: "Reading comprehension"
 ```
 
-Moreover, you can specify non-text example inputs in the model card metadata. Refer [here](https://github.com/huggingface/hub-docs/blob/main/docs/hub/input-examples.md) for a complete list of sample input formats for all widget types. For vision & audio widget types, provide example inputs with `src` rather than `text`. 
+Moreover, you can specify non-text example inputs in the model card metadata. Refer [here](./models-widgets-examples) for a complete list of sample input formats for all widget types. For vision & audio widget types, provide example inputs with `src` rather than `text`. 
 
 For example, allow users to choose from two sample audio files for automatic speech recognition tasks by:
 

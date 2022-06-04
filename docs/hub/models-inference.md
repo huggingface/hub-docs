@@ -12,7 +12,7 @@ On top of `Pipelines` and depending on the model type, there are several product
 - maintaining a Least Recently Used cache, ensuring that the most popular models are always loaded,
 - scaling the underlying compute infrastructure on the fly depending on the load constraints.
 
-For models from [other libraries](/docs/hub/libraries), the API uses [Starlette](https://www.starlette.io) and runs in [Docker containers](https://github.com/huggingface/api-inference-community/tree/main/docker_images). Each library defines the implementation of [different pipelines](https://github.com/huggingface/api-inference-community/tree/main/docker_images/sentence_transformers/app/pipelines).
+For models from [other libraries](./models-libraries), the API uses [Starlette](https://www.starlette.io) and runs in [Docker containers](https://github.com/huggingface/api-inference-community/tree/main/docker_images). Each library defines the implementation of [different pipelines](https://github.com/huggingface/api-inference-community/tree/main/docker_images/sentence_transformers/app/pipelines).
 
 
 ## How can I turn off the inference API for my model?
