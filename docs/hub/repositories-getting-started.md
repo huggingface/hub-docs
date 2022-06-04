@@ -76,7 +76,7 @@ If you choose _Upload file_ you'll be able to choose a local file to upload, alo
 
 As with creating new files, you can select `Open as a pull request` to create a [Pull Request](./repositories-pull-requests-discussions) instead of adding your changes directly to the `main` branch of your repo.
 
-## Adding files to a repository (terminal)
+## Adding files to a repository (terminal)[[terminal]]
 
 ### Cloning repositories
 
