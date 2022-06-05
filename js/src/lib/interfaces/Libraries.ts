@@ -247,8 +247,6 @@ nlp = stanza.Pipeline("${nameWithoutNamespace(model.id).replace("stanza-", "")}"
 
 
 const speechbrainTTS = (model: ModelData) => {
-	const speechbrainInterface = model.config?.speechbrain?.interface;
-
 	const vocoderInterface = model.config?.speechbrain?.vocoder_interface;
 	if (vocoderInterface === undefined) {
 		return `# vocoder_interface not specified in config.json`;
@@ -259,7 +257,7 @@ const speechbrainTTS = (model: ModelData) => {
 		return `# vocoder_model_id not specified in config.json`;
 	}
 
-
+	const speechbrainInterface = model.config?.speechbrain?.interface;
 	return `from speechbrain.pretrained import ${speechbrainInterface}
 from speechbrain.pretrained import ${vocoderInterface}
 
@@ -272,8 +270,7 @@ vocoder_model = HIFIGAN.from_hparams(source="${vocoderModelId}")
 waveforms = vocoder_model.decode_batch(mel_output)
 
 # Save audio
-torchaudio.save('example_TTS.wav',waveforms.squeeze(1), 22050)
-`
+torchaudio.save('example_TTS.wav',waveforms.squeeze(1), 22050)`;
 };
 
 const speechBrainMethod = (speechbrainInterface: string) => {
