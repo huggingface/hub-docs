@@ -169,7 +169,7 @@ from pyannote.core import Segment
 excerpt = Segment(start=2.0, end=5.0)
 inference.crop("file.wav", excerpt)`;
 
-const pyannote_audio = (model: ModelData) => {
+const pyannoteAudio = (model: ModelData) => {
 	if (model.tags?.includes("pyannote-audio-pipeline")) {
 		return pyannote_audio_pipeline(model);
 	}
@@ -246,6 +246,36 @@ stanza.download("${nameWithoutNamespace(model.id).replace("stanza-", "")}")
 nlp = stanza.Pipeline("${nameWithoutNamespace(model.id).replace("stanza-", "")}")`;
 
 
+const speechbrainTTS = (model: ModelData) => {
+	const speechbrainInterface = model.config?.speechbrain?.interface;
+
+	const vocoderInterface = model.config?.speechbrain?.vocoder_interface;
+	if (vocoderInterface === undefined) {
+		return `# vocoder_interface not specified in config.json`;
+	}
+
+	const vocoderModelId = model.config?.speechbrain?.vocoder_model_id;
+	if (vocoderModelId === undefined) {
+		return `# vocoder_model_id not specified in config.json`;
+	}
+
+
+	return `from speechbrain.pretrained import ${speechbrainInterface}
+from speechbrain.pretrained import ${vocoderInterface}
+
+# Text to spectrogram
+model = Tacotron2.from_hparams(source="${model.id}")
+mel_output, _, _ = model.encode_text("Example text")
+
+# Vocoder: Spectrogram to Waveform
+vocoder_model = HIFIGAN.from_hparams(source="${vocoderModelId}")
+waveforms = vocoder_model.decode_batch(mel_output)
+
+# Save audio
+torchaudio.save('example_TTS.wav',waveforms.squeeze(1), 22050)
+`
+};
+
 const speechBrainMethod = (speechbrainInterface: string) => {
 	switch (speechbrainInterface) {
 		case "EncoderClassifier":
@@ -266,6 +296,15 @@ const speechbrain = (model: ModelData) => {
 	const speechbrainInterface = model.config?.speechbrain?.interface;
 	if (speechbrainInterface === undefined) {
 		return `# interface not specified in config.json`;
+	}
+
+	const pipelineType = model.pipeline_tag;
+	if (pipelineType === undefined) {
+		return `# pipeline_tag is not set`;
+	}
+
+	if (pipelineType === "text-to-speech") {
+		return speechbrainTTS(model);
 	}
 
 	const speechbrainMethod = speechBrainMethod(speechbrainInterface);
@@ -320,8 +359,6 @@ checkpoint = load_from_hub(
 )`;
 
 const nemoDomainResolver = (domain: string, model: ModelData): string | undefined => {
-	const modelName = `${nameWithoutNamespace(model.id)}.nemo`;
-
 	switch (domain) {
 		case "ASR":
 			return `import nemo.collections.asr as nemo_asr
@@ -401,7 +438,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		btnLabel: "pyannote.audio",
 		repoName: "pyannote-audio",
 		repoUrl:  "https://github.com/pyannote/pyannote-audio",
-		snippet:  pyannote_audio,
+		snippet:  pyannoteAudio,
 	},
 	"sentence-transformers": {
 		btnLabel: "sentence-transformers",
@@ -436,8 +473,8 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 	"stanza": {
 		btnLabel: "Stanza",
 		repoName: "stanza",
-		repoUrl: "https://github.com/stanfordnlp/stanza",
-		snippet: stanza,
+		repoUrl:  "https://github.com/stanfordnlp/stanza",
+		snippet:  stanza,
 	},
 	"tensorflowtts": {
 		btnLabel: "TensorFlowTTS",
