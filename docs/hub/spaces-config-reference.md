@@ -2,6 +2,8 @@
 
 Spaces are configured through the `YAML` block at the top of the **README.md** file at the root of the repository. All the accepted parameters are listed below.
 
+<!-- Trailing whitespaces are intended : they render as a newline in the hub documentation -->
+
 **`title`** : _string_  
 Display title for the Space.  
 
