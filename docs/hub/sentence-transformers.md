@@ -1,7 +1,3 @@
----
-title: Sentence Transformers
----
-
 # Using Sentence Transformers at Hugging Face
 
 `sentence-transformers` is a library that provides easy methods to compute embeddings (dense vector representations) for sentences, paragraphs and images. Texts are embedded in a vector space such that similar text is close, which enables applications such as semantic search, clustering, and retrieval. 
