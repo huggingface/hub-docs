@@ -1,9 +1,9 @@
 # Hugging Face Hub documentation
 
-<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-10">
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-orange-100 bg-gradient-to-br from-orange-50 dark:bg-none px-6 py-4 transition-all hover:shadow-xl dark:border-orange-700">
-<div class="flex items-center py-0.5 text-lg font-semibold text-orange-600 dark:text-gray-400">
+<div class="flex items-center py-0.5 text-lg font-semibold text-orange-600 dark:text-gray-400 mb-1">
  <svg class="shrink-0 mr-1.5 text-orange-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2a2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82Z"></path></svg>Repositories</div>
 <a class="transform !no-underline transition-all hover:translate-x-px hover:text-gray-700" href="./repositories">Introduction</a>
 <a class="transform !no-underline transition-all hover:translate-x-px hover:text-gray-700" href="./repositories-getting-started">Getting Started</a>
@@ -15,7 +15,7 @@
 
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-indigo-100 bg-gradient-to-br from-indigo-50 dark:bg-none px-6 py-4 transition-all hover:shadow-xl dark:border-indigo-700">
-<div class="flex items-center py-0.5 text-lg font-semibold text-indigo-600 dark:text-gray-400">
+<div class="flex items-center py-0.5 text-lg font-semibold text-indigo-600 dark:text-gray-400 mb-1">
     <svg class="shrink-0 mr-1.5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path class="uim-quaternary" d="M20.23 7.24L12 12L3.77 7.24a1.98 1.98 0 0 1 .7-.71L11 2.76c.62-.35 1.38-.35 2 0l6.53 3.77c.29.173.531.418.7.71z" opacity=".25" fill="currentColor"></path><path class="uim-tertiary" d="M12 12v9.5a2.09 2.09 0 0 1-.91-.21L4.5 17.48a2.003 2.003 0 0 1-1-1.73v-7.5a2.06 2.06 0 0 1 .27-1.01L12 12z" opacity=".5" fill="currentColor"></path><path class="uim-primary" d="M20.5 8.25v7.5a2.003 2.003 0 0 1-1 1.73l-6.62 3.82c-.275.13-.576.198-.88.2V12l8.23-4.76c.175.308.268.656.27 1.01z" fill="currentColor"></path></svg> Models</div>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models">Introduction</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./models-the-hub">The Model Hub</a>
@@ -29,7 +29,7 @@
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-red-100 bg-gradient-to-br from-red-50 dark:bg-none px-6 py-4 transition-all hover:shadow-xl dark:border-red-700">
-<div class="flex items-center py-0.5 text-lg font-semibold text-red-600 dark:text-gray-400">
+<div class="flex items-center py-0.5 text-lg font-semibold text-red-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-red-400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 25 25"><ellipse cx="12.5" cy="5" fill="currentColor" fill-opacity="0.25" rx="7.5" ry="2"></ellipse><path d="M12.5 15C16.6421 15 20 14.1046 20 13V20C20 21.1046 16.6421 22 12.5 22C8.35786 22 5 21.1046 5 20V13C5 14.1046 8.35786 15 12.5 15Z" fill="currentColor" opacity="0.5"></path><path d="M12.5 7C16.6421 7 20 6.10457 20 5V11.5C20 12.6046 16.6421 13.5 12.5 13.5C8.35786 13.5 5 12.6046 5 11.5V5C5 6.10457 8.35786 7 12.5 7Z" fill="currentColor" opacity="0.5"></path><path d="M5.23628 12C5.08204 12.1598 5 12.8273 5 13C5 14.1046 8.35786 15 12.5 15C16.6421 15 20 14.1046 20 13C20 12.8273 19.918 12.1598 19.7637 12C18.9311 12.8626 15.9947 13.5 12.5 13.5C9.0053 13.5 6.06886 12.8626 5.23628 12Z" fill="currentColor"></path></svg> Datasets</div>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./datasets">Introduction</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./datasets-overview">Datasets Overview</a>
@@ -40,7 +40,7 @@
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 dark:bg-none px-6 py-4 transition-all hover:shadow-xl dark:border-blue-700">
-<div class="flex items-center py-0.5 text-lg font-semibold text-blue-600 dark:text-gray-400">
+<div class="flex items-center py-0.5 text-lg font-semibold text-blue-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-blue-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 25 25"><path opacity=".5" d="M6.016 14.674v4.31h4.31v-4.31h-4.31ZM14.674 14.674v4.31h4.31v-4.31h-4.31ZM6.016 6.016v4.31h4.31v-4.31h-4.31Z" fill="currentColor"></path><path opacity=".75" fill-rule="evenodd" clip-rule="evenodd" d="M3 4.914C3 3.857 3.857 3 4.914 3h6.514c.884 0 1.628.6 1.848 1.414a5.171 5.171 0 0 1 7.31 7.31c.815.22 1.414.964 1.414 1.848v6.514A1.914 1.914 0 0 1 20.086 22H4.914A1.914 1.914 0 0 1 3 20.086V4.914Zm3.016 1.102v4.31h4.31v-4.31h-4.31Zm0 12.968v-4.31h4.31v4.31h-4.31Zm8.658 0v-4.31h4.31v4.31h-4.31Zm0-10.813a2.155 2.155 0 1 1 4.31 0 2.155 2.155 0 0 1-4.31 0Z" fill="currentColor"></path><path opacity=".25" d="M16.829 6.016a2.155 2.155 0 1 0 0 4.31 2.155 2.155 0 0 0 0-4.31Z" fill="currentColor"></path></svg> Spaces</div>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces">Introduction</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-overview">Spaces Overview</a>
@@ -54,7 +54,7 @@
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-green-100 bg-gradient-to-br from-green-50 dark:bg-none px-6 py-4 transition-all hover:shadow-xl dark:border-green-700">
-<div class="flex items-center py-0.5 text-lg font-semibold text-green-600 dark:text-gray-400">
+<div class="flex items-center py-0.5 text-lg font-semibold text-green-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-green-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" stroke="currentColor" d="M8.892 21.854a6.25 6.25 0 0 1-4.42-10.67l7.955-7.955a4.5 4.5 0 0 1 6.364 6.364l-6.895 6.894a2.816 2.816 0 0 1-3.89 0a2.75 2.75 0 0 1 .002-3.888l5.126-5.127a1 1 0 1 1 1.414 1.414l-5.126 5.127a.75.75 0 0 0 0 1.06a.768.768 0 0 0 1.06 0l6.895-6.894a2.503 2.503 0 0 0 0-3.535a2.56 2.56 0 0 0-3.536 0l-7.955 7.955a4.25 4.25 0 1 0 6.01 6.01l6.188-6.187a1 1 0 1 1 1.414 1.414l-6.187 6.186a6.206 6.206 0 0 1-4.42 1.832z"></path></svg> Other</div>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./organizations">Organizations</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./security">Security</a>
