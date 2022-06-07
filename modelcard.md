@@ -3,7 +3,7 @@ language:
 - {lang_0}  # Example: fr
 - {lang_1}  # Example: en
 license: {license}  # Example: apache-2.0 or any license from https://hf.co/docs/hub/repositories-licenses
-library_name: {library_name}  # Optional. Example: keras or any library from https://github.com/huggingface/huggingface_hub/blob/main/js/src/lib/interfaces/Libraries.ts
+library_name: {library_name}  # Optional. Example: keras or any library from https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Libraries.ts
 tags:
 - {tag_0}  # Example: audio
 - {tag_1}  # Example: automatic-speech-recognition
