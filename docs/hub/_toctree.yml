@@ -10,6 +10,9 @@
     title: Repository Settings
   - local: repositories-pull-requests-discussions
     title: Pull Requests & Discussions
+    sections:
+    - local: repositories-pull-requests-advanced
+      title: Advanced Usage
   - local: repositories-next-steps
     title: Next Steps    
   - local: repositories-licenses
