@@ -7,6 +7,7 @@ The Hugging Face Hub hosts many models for a [variety of machine learning tasks]
 - [The Model Hub](./models-the-hub)
 - [Model Cards](./models-cards)
   - [CO<sub>2</sub> emissions](./models-cards-co2)
+  - [Gated models](./models-gated)
 - [Libraries](./models-libraries)
 - [Uploading Models](./models-uploading)
 - [Downloading Models](./models-downloading)

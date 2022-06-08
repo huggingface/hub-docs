@@ -25,6 +25,8 @@
     sections:
     - local: models-cards-co2
       title: Carbon Emissions
+    - local: models-gated
+      title: Gated models
   - local: models-uploading
     title: Uploading Models
   - local: models-downloading
