@@ -16,7 +16,7 @@ export const MODALITY_LABELS: Record<Modality, string> = {
 	audio:      "Audio",
 	cv:         "Computer Vision",
 	rl:         "Reinforcement Learning",
-	tabular:   "Tabular",
+	tabular:    "Tabular",
 	other:      "Other",
 };
 
@@ -460,7 +460,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Tabular Multi Label Classification",
 			},
 		],
-		color:        "blue",
+		color: "blue",
 	},
 	"tabular-regression": {
 		name:     "Tabular Regression",
@@ -471,7 +471,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Tabular Single Column Regression",
 			},
 		],
-		color:    "blue",
+		color: "blue",
 	},
 	"tabular-to-text": {
 		name:     "Tabular to Text",
