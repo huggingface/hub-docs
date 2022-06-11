@@ -26,10 +26,7 @@
 		if (!itemList || isLoading) {
 			return;
 		}
-		const items: DataTransferItem[] = [];
-		for (let i = 0; i < itemList.length; i++) {
-			items.push(itemList[i]);
-		}
+		const items = Array.from(itemList);
 		const uriItem = items.find(
 			(x) => x.kind === "string" && x.type === "text/uri-list"
 		);
