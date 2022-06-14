@@ -26,7 +26,7 @@ Defaults to `3.8.9`.
 **`sdk_version`** : _string_  
 Specify the version of the selected SDK (Streamlit or Gradio).  
 All versions of Gradio are supported.  
-Streamlit versions are supported from `0.79.0` to `1.2.0`.  
+Streamlit versions are supported from `0.79.0` to `1.10.0`.  
 
 **`app_file`** : _string_  
 Path to your main application file (which contains either `gradio` or `streamlit` Python code, or `static` html code).  
