@@ -2,8 +2,8 @@
 
 ## [2022-06-07] - Add support for Streamlit 1.10.0
 
-- The new multipage apps feature is working out-of-the-box on Spaces
-- Streamlit blogpost : https://blog.streamlit.io/introducing-multipage-apps
+- The new multipage apps feature is working out-of-the-box on Spaces.
+- Streamlit blogpost : https://blog.streamlit.io/introducing-multipage-apps.
 
 ## [2022-05-23] - Spaces speedup and reactive system theme
 
