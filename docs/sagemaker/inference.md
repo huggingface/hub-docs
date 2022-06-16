@@ -16,9 +16,9 @@ huggingface_model = HuggingFaceModel(...).deploy()
 This guide will show you how to deploy models with zero-code using the [Inference Toolkit](https://github.com/aws/sagemaker-huggingface-inference-toolkit). The Inference Toolkit builds on top of the [`pipeline` feature](https://huggingface.co/transformers/main_classes/pipelines.html) from 🤗 Transformers. Learn how to:
 
 - [Install and setup the Inference Toolkit](#installation-and-setup).
-- [Deploy a 🤗 Transformers model trained in SageMaker](#deploy-a-transformer-model-trained-in-sagemaker).
-- [Deploy a 🤗 Transformers model from the Hugging Face [model Hub](https://huggingface.co/models)](#deploy-a-model-from-the-hub).
-- [Run a Batch Transform Job using 🤗 Transformers and Amazon SageMaker](#run-batch-transform-with-transformers-and-sagemaker).
+- [Deploy a 🤗 Transformers model trained in SageMaker](#deploy-a-🤗-transformers-model-trained-in-sagemaker).
+- [Deploy a model from the 🤗 Hub](#deploy-a-model-from-the-🤗-hub).
+- [Run a Batch Transform Job using 🤗 Transformers and Amazon SageMaker](#run-batch-transform-with-🤗-transformers-and-sagemaker).
 - [Create a custom inference module](#user-defined-code-and-modules).
 
 ## Installation and setup
