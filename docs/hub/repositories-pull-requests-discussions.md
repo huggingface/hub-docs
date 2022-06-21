@@ -21,9 +21,9 @@ At a high level, the aim is to build a simpler version of other git hosts' (like
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-view-dark.png"/>
 </div>
 
-## Editing a disucssion / pull request title
+## Editing a Discussion / Pull request title
 
-If you opened a PR or discussion, or are the author of the repository (or otherwise have write access to it), you can edit the discussion title by clicking on the pencil button.
+If you opened a PR or discussion, are the author of the repository, or have write access to it, you can edit the discussion title by clicking on the pencil button.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-edit-title.PNG"/>
@@ -45,7 +45,7 @@ If you wrote a comment or have write access to the repository, you can edit the 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-menu-edit-dark.png"/>
 </div>
 
-You can also hide that comment. Hiding a comment is irreversible, and nobody will be able to see its content nor edit it anymore.
+You can also hide a comment. Hiding a comment is irreversible, and nobody will be able to see its content nor edit it anymore.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-hidden.png"/>
