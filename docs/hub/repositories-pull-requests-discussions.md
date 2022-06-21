@@ -21,6 +21,39 @@ At a high level, the aim is to build a simpler version of other git hosts' (like
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-view-dark.png"/>
 </div>
 
+## Editing a disucssion / pull request title
+
+If you opened a PR or discussion, or are the author of the repository, you can edit the discussion title by clicking on the pencil button.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-edit-title.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-edit-title-dark.png"/>
+</div>
+
+
+## Comment edition and moderation
+
+If you wrote a comment or are the author of the repository, You can edit the content of the comment from the contextual menu in the top-right corner of the comment box.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-menu.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-menu-dark.png"/>
+</div>
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-menu-edit.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-menu-edit-dark.png"/>
+</div>
+
+You can also hide that comment. Hiding a comment is irreversible, and nobody will be able to see its content nor edit it anymore.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-hidden.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-hidden-dark.png"/>
+</div>
+
+
+
 ## How do I manage Pull requests locally?
 
 Let's assume your PR number is 42. 
