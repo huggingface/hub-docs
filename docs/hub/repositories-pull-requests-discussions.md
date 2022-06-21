@@ -23,7 +23,7 @@ At a high level, the aim is to build a simpler version of other git hosts' (like
 
 ## Editing a disucssion / pull request title
 
-If you opened a PR or discussion, or are the author of the repository, you can edit the discussion title by clicking on the pencil button.
+If you opened a PR or discussion, or are the author of the repository (or otherwise have write access to it), you can edit the discussion title by clicking on the pencil button.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-edit-title.png"/>
@@ -33,7 +33,7 @@ If you opened a PR or discussion, or are the author of the repository, you can e
 
 ## Comment edition and moderation
 
-If you wrote a comment or are the author of the repository, You can edit the content of the comment from the contextual menu in the top-right corner of the comment box.
+If you wrote a comment or have write access to the repository, you can edit the content of the comment from the contextual menu in the top-right corner of the comment box.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-menu.png"/>
