@@ -100,7 +100,7 @@ git lfs install
 Note that if your files are larger than **5GB** you'll also need to run:
 
 ```bash
-huggingface-cli lfs-enable-largefiles
+huggingface-cli lfs-enable-largefiles .
 ```
 
 When you use Hugging Face to create a repository, Hugging Face automatically provides a list of common file extensions for common Machine Learning large files in the `.gitattributes` file, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
