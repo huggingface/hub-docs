@@ -6,6 +6,7 @@ import type { ModelData } from "./Types";
 export enum ModelLibrary {
 	"adapter-transformers"   = "Adapter Transformers",
 	"allennlp"               = "allenNLP",
+	"dhub"                   = "dHub",
 	"asteroid"               = "Asteroid",
 	"espnet"                 = "ESPnet",
 	"fairseq"                = "Fairseq",
@@ -90,6 +91,11 @@ const asteroid = (model: ModelData) =>
 	`from asteroid.models import BaseModel
 
 model = BaseModel.from_pretrained("${model.id}")`;
+
+const dhub = (model: ModelData) =>
+	`import dhub
+  
+algorithm = dhub.load_algorithm("ocean:AlgoveraAI/${model.id}")`;
 
 const espnetTTS = (model: ModelData) =>
 	`from espnet2.bin.tts_inference import Text2Speech
