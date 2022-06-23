@@ -48,8 +48,6 @@
         title: fastai
       - local: keras
         title: Keras
-      - local: ml-agents
-        title: ML-Agents
       - local: sentence-transformers
         title: Sentence Transformers
       - local: spacy
