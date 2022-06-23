@@ -1,6 +1,6 @@
 # Using RL-Baselines3-Zoo at Hugging Face
 
-`rl-baselines3-zoo` is a training framework for Reinforcement Learning, using Stable Baselines3.
+`rl-baselines3-zoo` is a training framework for Reinforcement Learning using Stable Baselines3.
 
 ## Exploring RL-Baselines3-Zoo in the Hub
 
