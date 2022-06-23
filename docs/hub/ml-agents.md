@@ -61,5 +61,6 @@ You need to define four parameters:
 
 
 ## Additional resources
-- Hugging Face ML-Agents [documentation](https://github.com/huggingface/ml-agents)
-- Official Unity ML-Agents Spaces [demos](https://huggingface.co/unity)
+
+* Hugging Face ML-Agents [documentation](https://github.com/huggingface/ml-agents)
+* Official Unity ML-Agents Spaces [demos](https://huggingface.co/unity)
