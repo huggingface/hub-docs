@@ -4,7 +4,7 @@
 
 ## Exploring ML-Agents in the Hub
 
-You can find ml-agents models by filtering at the left of the [models page](https://huggingface.co/models?library=ml-agents).
+You can find `ml-agents` models by filtering at the left of the [models page](https://huggingface.co/models?library=ml-agents).
 
 All models on the Hub come up with useful features:
 1. An automatically generated model card with a description, a training configuration, and more.
