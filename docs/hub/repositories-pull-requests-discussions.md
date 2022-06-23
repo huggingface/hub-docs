@@ -69,7 +69,7 @@ git push origin pr/42:refs/pr/42
 
 ### Draft mode
 
-Draft mode is the default status when opening a new Pull request from scratch, before making any file change (i.e. in "Advanced mode"). With this status, other contributors know that your Pull request is under work and it cannot be merged. When your branch is ready, just hit the "Publish" button to change the status of the Pull request to "Open". Note that once published you cannot go back to draft mode. 
+Draft mode is the default status when opening a new Pull request from scratch in "Advanced mode". With this status, other contributors know that your Pull request is under work and it cannot be merged. When your branch is ready, just hit the "Publish" button to change the status of the Pull request to "Open". Note that once published you cannot go back to draft mode. 
 
 ## Programmatic access
 
