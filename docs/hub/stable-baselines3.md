@@ -12,9 +12,11 @@ All models on the Hub come up with useful features:
 3. A video widget where you can watch your agent performing.
 
 ## Install the library
+
 To install the `stable-baselines3` library, you need to install two packages:
 - `stable-baselines3`: Stable-Baselines3 library.
 - `huggingface-sb3`: additional code to load and upload Stable-baselines3 models from the Hub.
+
 ```
 pip install stable-baselines3
 pip install huggingface-sb3
