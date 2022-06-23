@@ -75,5 +75,6 @@ You need to define three parameters:
 
 
 ## Additional resources
-- Hugging Face Stable-Baselines3 [documentation](https://github.com/huggingface/huggingface_sb3#hugging-face--x-stable-baselines3-v20)
-- Stable-Baselines3 [documentation](https://stable-baselines3.readthedocs.io/en/master/)
+
+* Hugging Face Stable-Baselines3 [documentation](https://github.com/huggingface/huggingface_sb3#hugging-face--x-stable-baselines3-v20)
+* Stable-Baselines3 [documentation](https://stable-baselines3.readthedocs.io/en/master/)
