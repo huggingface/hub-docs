@@ -1,6 +1,6 @@
 # Using ML-Agents at Hugging Face
 
-`ml-agents` is an open-source toolkit that enables games and simulations made with Unity **to serve as environments for training intelligent agents.**
+`ml-agents` is an open-source toolkit that enables games and simulations made with Unity to serve as environments for training intelligent agents.
 
 ## Exploring ML-Agents in the Hub
 
@@ -12,10 +12,11 @@ All models on the Hub come up with useful features:
 3. Tensorboard summary files to visualize the training metrics.
 4. A link to the Spaces web demo where you can visualize your agent playing in your browser.
 
-<img src="./assets/ml-agents/ml-agents-demo.gif" alt="ML-Agents demo on Spaces"/>
+<img src="../assets/ml-agents/ml-agents-demo.gif" alt="ML-Agents demo on Spaces"/>
 
 ## Install the library
 To install the `ml-agents` library, you need to clone the repo:
+
 ```
 # Clone the repository
 git clone https://github.com/huggingface/ml-agents/
@@ -32,8 +33,9 @@ You can simply download a model from the Hub using `mlagents-load-from-hf`
 ```
 mlagents-load-from-hf --repo-id="ThomasSimonini/MLAgents-Pyramids --local-dir="./downloads"
 ```
+
 You need to define two parameters:
-- `-- repo-id`: the name of the Hugging Face repo you want to download.
+- `--repo-id`: the name of the Hugging Face repo you want to download.
 - `--local-dir`: the path to download the model.
 
 ## Visualize an agent playing
@@ -45,15 +47,17 @@ You can easily watch any `ml-agent` playing directly in your browser:
 4. In step 2, choose what model you want to replay.
 
 ## Sharing your models
-You can easily upload your models using `mlagents-push-to-hf`
+You can easily upload your models using `mlagents-push-to-hf`:
+
 ```
 mlagents-push-to-hf --run-id="First Training" --local-dir="results/First Training" --repo-id="ThomasSimonini/MLAgents-Pyramids" --commit-message="Pyramids"
 ```
+
 You need to define four parameters:
 - `--run-id`: the name of the training run id.
 - `--local-dir`: where the model was saved.
-- `-- repo-id`: the name of the Hugging Face repo you want to create or update. It’s `<your huggingface username>/<the repo name>`
-- `--commit-message`
+- `--repo-id`: the name of the Hugging Face repo you want to create or update. It’s `<your huggingface username>/<the repo name>`.
+- `--commit-message`.
 
 
 ## Additional resources
