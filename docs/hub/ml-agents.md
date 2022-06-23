@@ -28,7 +28,7 @@ pip3 install -e ./ml-agents
 ```
 
 ## Using existing models
-You can simply download a model from the Hub using `mlagents-load-from-hf`
+You can simply download a model from the Hub using `mlagents-load-from-hf`.
 
 ```
 mlagents-load-from-hf --repo-id="ThomasSimonini/MLAgents-Pyramids --local-dir="./downloads"
