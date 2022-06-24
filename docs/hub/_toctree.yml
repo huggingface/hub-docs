@@ -84,6 +84,8 @@
     title: Dataset Cards
   - local: datasets-gated
     title: Gated Datasets
+  - local: datasets-viwer
+    title: Dataset Viewer
   - local: datasets-usage
     title: Using Datasets
   - local: datasets-adding
