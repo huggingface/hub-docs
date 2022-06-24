@@ -11,7 +11,8 @@ The Stable-Baselines3 team is hosting a collection of +150 trained Reinforcement
 All models on the Hub come up with useful features:
 1. An automatically generated model card with a description, a training configuration, and more.
 2. Metadata tags that help for discoverability.
-3. A video widget where you can watch your agent performing.
+3. Evaluation results to compare with other models.
+4. A video widget where you can watch your agent performing.
 
 ## Using existing models
 You can simply download a model from the Hub using `load_from_hub`:
