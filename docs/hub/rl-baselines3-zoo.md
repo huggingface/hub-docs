@@ -25,7 +25,7 @@ python enjoy.py --algo dqn --env SpaceInvadersNoFrameskip-v4  -f logs/
 
 You can define three parameters:
 - `--repo-name`: The name of the repo.
-- `-orga`: Your Hugging Face username.
+- `-orga`: A Hugging Face username or organization.
 - `-f`: The destination folder.
 
 ## Sharing your models
