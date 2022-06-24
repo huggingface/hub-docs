@@ -9,7 +9,8 @@ You can find Stable-Baselines3 models by filtering at the left of the [models pa
 All models on the Hub come up with useful features:
 1. An automatically generated model card with a description, a training configuration, and more.
 2. Metadata tags that help for discoverability.
-3. A video widget where you can watch your agent performing.
+3. Evaluation results to compare with other models.
+4. A video widget where you can watch your agent performing.
 
 ## Install the library
 
