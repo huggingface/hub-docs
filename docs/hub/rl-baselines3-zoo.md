@@ -29,7 +29,7 @@ You can define three parameters:
 - `-f`: The destination folder.
 
 ## Sharing your models
-You can easily upload your models with `push_to_hub`, that will save the model, evaluate it, generate a model card and record a replay video of your agent before pushing the complete repo to the Hub.
+You can easily upload your models with `push_to_hub`. That will save the model, evaluate it, generate a model card and record a replay video of your agent before pushing the complete repo to the Hub.
 
 ```
 python -m utils.push_to_hub  --algo dqn  --env SpaceInvadersNoFrameskip-v4  --repo-name dqn-SpaceInvadersNoFrameskip-v4  -orga ThomasSimonini  -f logs/
