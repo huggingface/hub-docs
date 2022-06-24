@@ -334,6 +334,9 @@ transcriptions = asr_model.transcribe(["file.wav"])`;
 	}
 };
 
+const mlAgents = (model: ModelData) =>
+	`mlagents-load-from-hf --repo-id="${model.id}" --local-dir="./downloads"`;
+	
 const nemo = (model: ModelData) => {
 	let command: string | undefined = undefined;
 	// Resolve the tag to a nemo domain/sub-domain 
@@ -474,7 +477,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		btnLabel: "ml-agents",
 		repoName: "ml-agents",
 		repoUrl:  "https://github.com/huggingface/ml-agents",
-		snippet:  ml-agents,
+		snippet:  mlAgents,
 	},
 } as const;
 
