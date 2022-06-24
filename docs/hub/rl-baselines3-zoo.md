@@ -17,18 +17,9 @@ All models on the Hub come up with useful features:
 ## Using existing models
 You can simply download a model from the Hub using `load_from_hub`:
 
-If it's from the official Stable-Baselines3 team:
-
 ```
-# Download ppo Cartpole model from the Stable-Baselines3 team
-python -m utils.load_from_hub --algo ppo --env CartPole-v1 -f logs/ -orga sb3
-```
-
-Else:
-
-```
-# Download model and save it into the logs/ folder
-python -m utils.load_from_hub --algo dqn --env SpaceInvadersNoFrameskip-v4 -orga ThomasSimonini -f logs/
+# Download ppo SpaceInvadersNoFrameskip-v4 model and save it into the logs/ folder
+python -m utils.load_from_hub --algo dqn --env SpaceInvadersNoFrameskip-v4 -f logs/ -orga sb3
 python enjoy.py --algo dqn --env SpaceInvadersNoFrameskip-v4  -f logs/
 ```
 
