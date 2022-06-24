@@ -24,7 +24,7 @@ export enum ModelLibrary {
 	"stanza"                 = "Stanza",
 	"fasttext"               = "fastText",
 	"stable-baselines3"      = "Stable-Baselines3",
-	"ml-agents"		 = "ML-Agents",
+	"ml-agents"	             = "ML-Agents",
 }
 
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as (keyof typeof ModelLibrary)[];
