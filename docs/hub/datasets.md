@@ -8,5 +8,6 @@ This documentation focuses on the datasets functionality in the Hugging Face Hub
 - [Datasets Overview](./datasets-overview)
 - [Dataset Cards](./datasets-cards)
 - [Gated Datasets](./datasets-gated)
+- [Dataset Viewer](./datasets-viewer)
 - [Using Datasets](./datasets-usage)
 - [Adding New Datasets](./datasets-adding)

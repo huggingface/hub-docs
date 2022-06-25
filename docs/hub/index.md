@@ -35,6 +35,7 @@
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./datasets-overview">Datasets Overview</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./datasets-cards">Dataset Cards</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./datasets-gated">Gated Datasets</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./datasets-viewer">Dataset viewer</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./datasets-usage">Using Datasets</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./datasets-adding">Adding New Datasets</a>
 </div>
