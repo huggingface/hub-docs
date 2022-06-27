@@ -20,6 +20,7 @@
 			await delay(typingEffectSpeedMs);
 			spanEl.textContent += char;
 		}
+		value += outputTxt;
 	}
 
 	// handle FireFox contenteditable paste bug
