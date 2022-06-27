@@ -7,6 +7,7 @@ export enum ModelLibrary {
 	"adapter-transformers"   = "Adapter Transformers",
 	"allennlp"               = "allenNLP",
 	"asteroid"               = "Asteroid",
+	"diffusers"              = "Diffusers",
 	"espnet"                 = "ESPnet",
 	"fairseq"                = "Fairseq",
 	"flair"                  = "Flair",
@@ -90,6 +91,11 @@ const asteroid = (model: ModelData) =>
 	`from asteroid.models import BaseModel
 
 model = BaseModel.from_pretrained("${model.id}")`;
+
+const diffusers = (model: ModelData) =>
+	`from diffusers import DiffusionPipeline
+
+pipeline = DiffusionPipeline.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`;
 
 const espnetTTS = (model: ModelData) =>
 	`from espnet2.bin.tts_inference import Text2Speech
@@ -366,6 +372,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "Asteroid",
 		repoUrl:  "https://github.com/asteroid-team/asteroid",
 		snippet:  asteroid,
+	},
+	"diffusers": {
+		btnLabel: "Diffusers",
+		repoName: "🤗/diffusers",
+		repoUrl:  "https://github.com/huggingface/diffusers",
+		snippet:  diffusers,
 	},
 	"espnet": {
 		btnLabel: "ESPnet",
