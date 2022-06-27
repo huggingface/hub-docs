@@ -9,9 +9,7 @@
 		? 'opacity-40'
 		: 'opacity-70'}"
 >
-	<span class="text-xs border-2 py-1 px-1.5 rounded-lg"
-		>Shift + Enter</span
-	>
+	<span class="text-xs border-2 py-1 px-1.5 rounded-lg">Shift + Enter</span>
 	{#if isLoading}
 		<IconSpin classNames="text-gray-600 animate-spin" />
 	{:else}
