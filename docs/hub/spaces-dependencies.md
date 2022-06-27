@@ -14,7 +14,7 @@ The default Spaces environment comes with several pre-installed dependencies:
 
 * The SDK you specified, which could be either `streamlit` or `gradio`. The version is specified in the `README.md` file.
 
-* Common Debian packages, such as `ffmeg`, `cmake`, `libsm6`, and few others.
+* Common Debian packages, such as `ffmpeg`, `cmake`, `libsm6`, and few others.
 
 ## Adding your own dependencies
 
