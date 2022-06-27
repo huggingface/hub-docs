@@ -25,6 +25,7 @@ export enum ModelLibrary {
 	"stanza"                 = "Stanza",
 	"fasttext"               = "fastText",
 	"stable-baselines3"      = "Stable-Baselines3",
+	"ml-agents"              = "ML-Agents",
 }
 
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as (keyof typeof ModelLibrary)[];
@@ -339,6 +340,9 @@ transcriptions = asr_model.transcribe(["file.wav"])`;
 	}
 };
 
+const mlAgents = (model: ModelData) =>
+	`mlagents-load-from-hf --repo-id="${model.id}" --local-dir="./downloads"`;
+	
 const nemo = (model: ModelData) => {
 	let command: string | undefined = undefined;
 	// Resolve the tag to a nemo domain/sub-domain 
@@ -480,6 +484,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "stable-baselines3",
 		repoUrl:  "https://github.com/huggingface/huggingface_sb3",
 		snippet:  stableBaselines3,
+	},
+	"ml-agents": {
+		btnLabel: "ml-agents",
+		repoName: "ml-agents",
+		repoUrl:  "https://github.com/huggingface/ml-agents",
+		snippet:  mlAgents,
 	},
 } as const;
 

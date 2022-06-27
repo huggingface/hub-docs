@@ -48,12 +48,18 @@
         title: fastai
       - local: keras
         title: Keras
+      - local: ml-agents
+        title: ML-Agents
+      - local: rl-baselines3-zoo
+        title: RL-Baselines3-Zoo
       - local: sentence-transformers
         title: Sentence Transformers
       - local: spacy
         title: spaCy
       - local: speechbrain
         title: SpeechBrain
+      - local: stable-baselines3
+        title: Stable-Baselines3
       - local: stanza
         title: Stanza
       - local: tensorboard
