@@ -12,7 +12,9 @@ All models on the Hub come up with useful features:
 3. Tensorboard summary files to visualize the training metrics.
 4. A link to the Spaces web demo where you can visualize your agent playing in your browser.
 
-![ML-Agents demo on Spaces](/docs/assets/ml-agents/ml-agents-demo.gif)
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ml-agents-demo.gif"/>
+</div>
 
 ## Install the library
 To install the `ml-agents` library, you need to clone the repo:
