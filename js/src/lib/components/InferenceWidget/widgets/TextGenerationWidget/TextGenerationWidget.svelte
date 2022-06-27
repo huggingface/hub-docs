@@ -3,8 +3,8 @@
 	import type { PipelineType } from "../../../../interfaces/Types";
 
 	import { onMount } from "svelte";
-	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
+	import WidgetShiftRunLabel from "../../shared/WidgetShiftRunLabel/WidgetShiftRunLabel.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
@@ -34,6 +34,7 @@
 	let outputJson: string;
 	let text = "";
 	let warning: string = "";
+	let renderTypingEffect: (outputTxt: string) => Promise<void>;
 
 	// Deactivate server caching for these two pipeline types
 	// (translation uses this widget too and still needs caching)
@@ -85,7 +86,6 @@
 			useCache
 		);
 
-		isLoading = false;
 		// Reset values
 		computeTime = "";
 		error = "";
@@ -100,6 +100,9 @@
 			outputJson = res.outputJson;
 			if (output.length === 0) {
 				warning = "No text was generated";
+			} else {
+				const outputWithoutInput = output.slice(text.length);
+				await renderTypingEffect(outputWithoutInput);
 			}
 		} else if (res.status === "loading-model") {
 			modelLoading = {
@@ -110,6 +113,8 @@
 		} else if (res.status === "error") {
 			error = res.error;
 		}
+
+		isLoading = false;
 	}
 
 	function parseOutput(body: unknown): string {
@@ -134,7 +139,19 @@
 		text = sample.text;
 		getOutput();
 	}
+
+	function onKeyDown(e: KeyboardEvent) {
+		const { shiftKey, key } = e;
+		if (shiftKey && key === "Enter") {
+			e.preventDefault();
+			if (!isLoading) {
+				getOutput();
+			}
+		}
+	}
 </script>
+
+<svelte:window on:keydown={onKeyDown} />
 
 <WidgetWrapper
 	{apiUrl}
@@ -150,19 +167,18 @@
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">
-			<WidgetTextarea bind:value={text} />
+			<WidgetTextarea bind:value={text} bind:renderTypingEffect />
 			<WidgetSubmitBtn
+				classNames="with-hover:hidden"
 				{isLoading}
 				onClick={() => {
 					getOutput();
 				}}
 			/>
+			<WidgetShiftRunLabel {isLoading} />
 			{#if warning}
 				<div class="alert alert-warning mt-2">{warning}</div>
 			{/if}
 		</form>
-	</svelte:fragment>
-	<svelte:fragment slot="bottom">
-		<WidgetOutputText classNames="mt-4" {output} />
 	</svelte:fragment>
 </WidgetWrapper>
