@@ -684,6 +684,11 @@ export interface ModelData {
 			parameters?: Record<string, any>;
 		};
 	};
+	/**
+	 * Library name
+	 * Example: transformers, SpeechBrain, Stanza, etc.
+	 */
+	library_name?: string;
 }
 
 
