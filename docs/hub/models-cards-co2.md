@@ -20,7 +20,7 @@ You can add the carbon footprint data to the model card metadata (in the README.
 ```yaml
 ---
 co2_eq_emissions:
-  emissions: "in grams of CO2"
+  emissions: number (in grams of CO2)
   source: "source of the information, either directly from AutoTrain, code carbon or from a scientific article documenting the model"
   training_type: "pre-training or fine-tuning"
   geographical_location: "as granular as possible, for instance Quebec, Canada or Brooklyn, NY, USA"
