@@ -20,11 +20,11 @@ You can add the carbon footprint data to the model card metadata (in the README.
 ```yaml
 ---
 co2_eq_emissions:
-      emissions: "in grams of CO2"
-      source: "source of the information, either directly from AutoTrain, code carbon or from a scientific article documenting the model"
-      training_type: "pre-training or fine-tuning"
-      geographical_location: "as granular as possible, for instance Quebec, Canada or Brooklyn, NY, USA"
-      hardware_used: "how much compute and what kind, e.g. 8 v100 GPUs"
+  emissions: "in grams of CO2"
+  source: "source of the information, either directly from AutoTrain, code carbon or from a scientific article documenting the model"
+  training_type: "pre-training or fine-tuning"
+  geographical_location: "as granular as possible, for instance Quebec, Canada or Brooklyn, NY, USA"
+  hardware_used: "how much compute and what kind, e.g. 8 v100 GPUs"
 ---
 ```
 
@@ -45,6 +45,11 @@ Keep in mind that this isn't an exact number because other factors come into pla
 To add **Carbon Emissions** metadata to your models:
 
 1. If you are using **AutoTrain**, this is tracked for you 🔥
-2. Otherwise, use a tracker like  Code Carbon in your training code, then specify `co2_eq_emissions.emissions: 1.2345` in your model card metadata, where `1.2345` is the emissions value in **grams**. 
+2. Otherwise, use a tracker like  Code Carbon in your training code, then specify
+```yaml
+co2_eq_emissions: 
+  emissions: 1.2345
+```
+in your model card metadata, where `1.2345` is the emissions value in **grams**. 
 
 To learn more about the carbon footprint of Transformers, check out the [video](https://www.youtube.com/watch?v=ftWlj4FBHTg), part of the Hugging Face Course!
