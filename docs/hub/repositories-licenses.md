@@ -4,6 +4,8 @@ You are able to add a license to any repo that you create on the Hugging Face Hu
 
 A full list of the available licenses is available here:
 
+<!-- IMPORTANT: This list is to be kept in sync with the list in both `moon-landing` and `datasets` -->
+
 Fullname | License identifier (to use in model card)
 --- | ---
 Academic Free License v3.0	| `afl-3.0`
