@@ -9,11 +9,14 @@
 
 	let containerSpanEl: HTMLSpanElement;
 	const typingEffectSpeedMs = 15;
+	const classNamesInput = "font-normal";
+	const classNamesOutput = "font-semibold";
+
 
 	export async function renderTypingEffect(outputTxt: string) {
 		const spanEl = document.createElement("span");
 		spanEl.contentEditable = "true";
-		spanEl.className = "font-semibold";
+		spanEl.className = classNamesOutput;
 		containerSpanEl?.appendChild(spanEl);
 		await tick();
 		for (const char of outputTxt) {
@@ -30,9 +33,25 @@
 		if (selection.rangeCount && !!copiedTxt.length) {
 			const range = selection.getRangeAt(0);
 			range.deleteContents();
-			range.insertNode(document.createTextNode(copiedTxt));
+			const spanEl = document.createElement("span");
+			spanEl.contentEditable = "true";
+			spanEl.className = classNamesInput;
+			spanEl.innerText = copiedTxt;
+			range.insertNode(spanEl);
 		}
 		window.getSelection().collapseToEnd();
+	}
+
+	// user input should always look different from computed output
+	function handleKeyPress(){
+		const range = window.getSelection().getRangeAt(0);
+		const spanEl = document.createElement("span");
+		spanEl.contentEditable = "true";
+		spanEl.innerHTML = "&#8203";
+		spanEl.className = classNamesInput;
+		range.deleteContents();
+		range.insertNode(spanEl);
+		spanEl.focus();
 	}
 </script>
 
@@ -41,13 +60,14 @@
 		<span
 			class="{label
 				? 'mt-1.5'
-				: ''} block overflow-auto resize-y py-2 px-3 w-full min-h-[90px] max-h-[500px] border border-gray-200 rounded-lg shadow-inner outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-200 focus:shadow-inner dark:bg-gray-925"
+				: ''} select-none block overflow-auto resize-y py-2 px-3 w-full min-h-[90px] max-h-[500px] border border-gray-200 rounded-lg shadow-inner outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-200 focus:shadow-inner dark:bg-gray-925"
 			role="textbox"
 			contenteditable
 			style="--placeholder: '{placeholder}'"
 			bind:textContent={value}
 			bind:this={containerSpanEl}
 			on:paste|preventDefault={handlePaste}
+			on:keypress={handleKeyPress}
 		>
 			<span contenteditable />
 		</span>
