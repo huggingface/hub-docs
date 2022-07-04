@@ -13,7 +13,6 @@
 	const classNamesInput = "font-normal";
 	const classNamesOutput = "font-semibold";
 
-
 	export async function renderTypingEffect(outputTxt: string) {
 		const spanEl = document.createElement("span");
 		spanEl.contentEditable = "true";
@@ -28,9 +27,9 @@
 		moveCaretToEnd();
 	}
 
-	function moveCaretToEnd(){
+	function moveCaretToEnd() {
 		containerSpanEl?.focus();
-		if(containerSpanEl){
+		if (containerSpanEl) {
 			const range = document.createRange();
 			range.selectNodeContents(containerSpanEl);
 			range.collapse(false);
@@ -42,7 +41,7 @@
 
 	// handle FireFox contenteditable paste bug
 	function handlePaste(e: ClipboardEvent) {
-		if(isLoading){
+		if (isLoading) {
 			return e.preventDefault();
 		}
 		const copiedTxt = e.clipboardData.getData("text/plain");
@@ -60,8 +59,8 @@
 	}
 
 	// user input should always look different from computed output
-	function handleKeyPress(e: KeyboardEvent){
-		if(isLoading){
+	function handleKeyPress(e: KeyboardEvent) {
+		if (isLoading) {
 			return e.preventDefault();
 		}
 		const range = window.getSelection().getRangeAt(0);
