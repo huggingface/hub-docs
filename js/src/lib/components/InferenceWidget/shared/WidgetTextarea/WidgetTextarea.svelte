@@ -9,9 +9,9 @@
 	export let isLoading = false;
 
 	let containerSpanEl: HTMLSpanElement;
-	const typingEffectSpeedMs = 15;
+	const typingEffectSpeedMs = 12;
 	const classNamesInput = "font-normal";
-	const classNamesOutput = "font-semibold";
+	const classNamesOutput = "text-blue-600";
 
 	export async function renderTypingEffect(outputTxt: string) {
 		const spanEl = document.createElement("span");
@@ -79,7 +79,7 @@
 		<span
 			class="{label
 				? 'mt-1.5'
-				: ''} select-none block overflow-auto resize-y py-2 px-3 w-full min-h-[90px] max-h-[500px] border border-gray-200 rounded-lg shadow-inner outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-200 focus:shadow-inner dark:bg-gray-925"
+				: ''} select-none block overflow-auto resize-y py-2 px-3 w-full min-h-[144px] max-h-[500px] border border-gray-200 rounded-lg shadow-inner outline-none focus:ring focus:ring-blue-200 focus:shadow-inner dark:bg-gray-925"
 			role="textbox"
 			contenteditable
 			style="--placeholder: '{placeholder}'"
