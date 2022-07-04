@@ -4,7 +4,7 @@
 
 	import { onMount } from "svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
-	import WidgetShiftRunLabel from "../../shared/WidgetShiftRunLabel/WidgetShiftRunLabel.svelte";
+	import WidgetTabRunLabel from "../../shared/WidgetTabRunLabel/WidgetTabRunLabel.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
@@ -139,19 +139,7 @@
 		text = sample.text;
 		getOutput();
 	}
-
-	function onKeyDown(e: KeyboardEvent) {
-		const { shiftKey, key } = e;
-		if (shiftKey && key === "Enter") {
-			e.preventDefault();
-			if (!isLoading) {
-				getOutput();
-			}
-		}
-	}
 </script>
-
-<svelte:window on:keydown={onKeyDown} />
 
 <WidgetWrapper
 	{apiUrl}
@@ -175,7 +163,7 @@
 					getOutput();
 				}}
 			/>
-			<WidgetShiftRunLabel {isLoading} />
+			<WidgetTabRunLabel {isLoading} {getOutput} />
 			{#if warning}
 				<div class="alert alert-warning mt-2">{warning}</div>
 			{/if}
