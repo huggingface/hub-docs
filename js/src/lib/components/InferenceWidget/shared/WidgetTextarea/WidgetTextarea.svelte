@@ -25,6 +25,19 @@
 			spanEl.textContent += char;
 		}
 		value += outputTxt;
+		moveCaretToEnd();
+	}
+
+	function moveCaretToEnd(){
+		containerSpanEl?.focus();
+		if(containerSpanEl){
+			const range = document.createRange();
+			range.selectNodeContents(containerSpanEl);
+			range.collapse(false);
+			const selection = window.getSelection();
+			selection.removeAllRanges();
+			selection.addRange(range);
+		}
 	}
 
 	// handle FireFox contenteditable paste bug
