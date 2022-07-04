@@ -1,25 +1,32 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+
 	export let isLoading: boolean;
 	export let getOutput: () => void;
 
+	let shortcutLabel = "";
+
+	onMount(() => {
+		const isMac = navigator.platform.includes("Mac");
+		shortcutLabel = isMac ? "⌘+K" : "Ctrl+K";
+	});
+
 	function onKeyDown(e: KeyboardEvent) {
-		const { key } = e;
-		if (key === "Tab") {
+		if (isLoading) {
+			return;
+		}
+		if (e.code === "Enter" && (e.metaKey || e.ctrlKey)) {
 			e.preventDefault();
-			if (!isLoading) {
-				getOutput();
-			}
+			getOutput();
 		}
 	}
 </script>
 
 <svelte:window on:keydown={onKeyDown} />
 
-<div
-	class="no-hover:hidden flex items-center space-x-1 {isLoading
+<kbd
+	class="no-hover:hidden text-sm bg-gray-100 text-gray-700 py-0.5 px-1.5 rounded leading-none border border-gray-200 {isLoading
 		? 'opacity-40'
 		: 'opacity-70'}"
->
-	<span class="text-xs border-2 py-1 px-1.5 rounded-lg">Tab</span>
-	<span>to run</span>
-</div>
+	>{shortcutLabel}
+</kbd>
