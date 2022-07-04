@@ -156,14 +156,15 @@
 	<svelte:fragment slot="top">
 		<form class="space-y-2">
 			<WidgetTextarea bind:value={text} bind:renderTypingEffect />
-			<WidgetSubmitBtn
-				classNames="with-hover:hidden"
-				{isLoading}
-				onClick={() => {
-					getOutput();
-				}}
-			/>
-			<WidgetTabRunLabel {isLoading} {getOutput} />
+			<div class="flex items-center gap-x-2">
+				<WidgetSubmitBtn
+					{isLoading}
+					onClick={() => {
+						getOutput();
+					}}
+				/>
+				<WidgetTabRunLabel {isLoading} {getOutput} />
+			</div>
 			{#if warning}
 				<div class="alert alert-warning mt-2">{warning}</div>
 			{/if}
