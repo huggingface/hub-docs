@@ -6,6 +6,7 @@
 	export let label: string = "";
 	export let placeholder: string = "Your sentence here...";
 	export let value: string;
+	export let isLoading = false;
 
 	let containerSpanEl: HTMLSpanElement;
 	const typingEffectSpeedMs = 15;
@@ -28,6 +29,9 @@
 
 	// handle FireFox contenteditable paste bug
 	function handlePaste(e: ClipboardEvent) {
+		if(isLoading){
+			return e.preventDefault();
+		}
 		const copiedTxt = e.clipboardData.getData("text/plain");
 		const selection = window.getSelection();
 		if (selection.rangeCount && !!copiedTxt.length) {
@@ -43,7 +47,10 @@
 	}
 
 	// user input should always look different from computed output
-	function handleKeyPress(){
+	function handleKeyPress(e: KeyboardEvent){
+		if(isLoading){
+			return e.preventDefault();
+		}
 		const range = window.getSelection().getRangeAt(0);
 		const spanEl = document.createElement("span");
 		spanEl.contentEditable = "true";
