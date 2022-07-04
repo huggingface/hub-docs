@@ -25,9 +25,9 @@
 	export let menuClassNames = "";
 	export let noBtnClass: boolean | undefined = undefined;
 	export let withBtnCaret = false;
+	export let isOpen = false;
 
 	let element: HTMLElement | undefined = undefined;
-	let isOpen = false;
 </script>
 
 <div class="relative {classNames}" bind:this={element}>
