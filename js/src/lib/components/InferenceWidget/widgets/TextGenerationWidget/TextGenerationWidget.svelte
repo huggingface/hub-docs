@@ -4,7 +4,7 @@
 
 	import { onMount } from "svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
-	import WidgetTabRunLabel from "../../shared/WidgetTabRunLabel/WidgetTabRunLabel.svelte";
+	import WidgetShortcutRunLabel from "../../shared/WidgetShortcutRunLabel/WidgetShortcutRunLabel.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
@@ -163,7 +163,7 @@
 						getOutput();
 					}}
 				/>
-				<WidgetTabRunLabel {isLoading} {getOutput} />
+				<WidgetShortcutRunLabel {isLoading} {getOutput} />
 			</div>
 			{#if warning}
 				<div class="alert alert-warning mt-2">{warning}</div>
