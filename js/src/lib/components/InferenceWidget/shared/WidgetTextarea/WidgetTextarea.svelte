@@ -22,9 +22,9 @@
 		for (const char of outputTxt) {
 			await delay(typingEffectSpeedMs);
 			spanEl.textContent += char;
+			moveCaretToEnd();
 		}
 		value += outputTxt;
-		moveCaretToEnd();
 	}
 
 	function moveCaretToEnd() {
