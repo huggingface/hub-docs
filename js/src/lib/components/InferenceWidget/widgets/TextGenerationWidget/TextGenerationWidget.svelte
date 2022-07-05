@@ -6,6 +6,7 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetShortcutRunLabel from "../../shared/WidgetShortcutRunLabel/WidgetShortcutRunLabel.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
+	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
 		addInferenceParameters,
@@ -35,6 +36,7 @@
 	let text = "";
 	let warning: string = "";
 	let renderTypingEffect: (outputTxt: string) => Promise<void>;
+	let inferenceTimer: any;
 
 	// Deactivate server caching for these two pipeline types
 	// (translation uses this widget too and still needs caching)
@@ -74,6 +76,7 @@
 		addInferenceParameters(requestBody, model);
 
 		isLoading = true;
+		inferenceTimer.start();
 
 		const res = await getResponse(
 			apiUrl,
@@ -102,6 +105,7 @@
 				warning = "No text was generated";
 			} else {
 				const outputWithoutInput = output.slice(text.length);
+				inferenceTimer.stop();
 				await renderTypingEffect(outputWithoutInput);
 			}
 		} else if (res.status === "loading-model") {
@@ -115,6 +119,7 @@
 		}
 
 		isLoading = false;
+		inferenceTimer.stop();
 	}
 
 	function parseOutput(body: unknown): string {
@@ -164,6 +169,7 @@
 					}}
 				/>
 				<WidgetShortcutRunLabel {isLoading} {getOutput} />
+				<WidgetTimer bind:this={inferenceTimer} />
 			</div>
 			{#if warning}
 				<div class="alert alert-warning mt-2">{warning}</div>
