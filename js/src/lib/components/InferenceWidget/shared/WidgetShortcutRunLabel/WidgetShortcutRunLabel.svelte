@@ -25,7 +25,7 @@
 <svelte:window on:keydown={onKeyDown} />
 
 <kbd
-	class="no-hover:hidden text-sm bg-gray-100 text-gray-700 py-0.5 px-1.5 rounded leading-none border border-gray-200 {isLoading
+	class="no-hover:hidden text-sm bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 py-0.5 px-1.5 rounded leading-none border border-gray-200 {isLoading
 		? 'opacity-40'
 		: 'opacity-70'}"
 	>{shortcutLabel}
