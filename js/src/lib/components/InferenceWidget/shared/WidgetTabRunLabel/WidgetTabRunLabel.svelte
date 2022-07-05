@@ -8,7 +8,7 @@
 
 	onMount(() => {
 		const isMac = navigator.platform.includes("Mac");
-		shortcutLabel = isMac ? "⌘+K" : "Ctrl+K";
+		shortcutLabel = isMac ? "⌘+Enter" : "Ctrl+Enter";
 	});
 
 	function onKeyDown(e: KeyboardEvent) {
