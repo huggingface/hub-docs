@@ -169,7 +169,9 @@
 					}}
 				/>
 				<WidgetShortcutRunLabel {isLoading} {getOutput} />
-				<WidgetTimer bind:this={inferenceTimer} />
+				<div class="ml-auto self-start">
+					<WidgetTimer bind:this={inferenceTimer} />
+				</div>
 			</div>
 			{#if warning}
 				<div class="alert alert-warning mt-2">{warning}</div>

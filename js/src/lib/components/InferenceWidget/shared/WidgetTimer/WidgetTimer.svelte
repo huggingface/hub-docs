@@ -29,5 +29,5 @@
 </script>
 
 {#if shouldDisplay}
-	<span class="opacity-80">{counterHuman}s</span>
+	<span class="text-gray-500 font-mono text-xs">{counterHuman}</span>
 {/if}
