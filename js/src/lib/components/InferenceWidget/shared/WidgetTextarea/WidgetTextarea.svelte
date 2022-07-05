@@ -10,8 +10,8 @@
 
 	let containerSpanEl: HTMLSpanElement;
 	const typingEffectSpeedMs = 12;
-	const classNamesInput = "font-normal";
-	const classNamesOutput = "text-blue-600";
+	const classNamesInput = "font-normal text-black dark:text-white";
+	const classNamesOutput = "text-blue-600 dark:text-blue-400";
 
 	export async function renderTypingEffect(outputTxt: string) {
 		const spanEl = document.createElement("span");
@@ -56,6 +56,7 @@
 			range.insertNode(spanEl);
 		}
 		window.getSelection().collapseToEnd();
+		value = containerSpanEl.textContent;
 	}
 
 	// user input should always look different from computed output
