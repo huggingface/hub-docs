@@ -13,6 +13,7 @@ export enum ModelLibrary {
 	"flair"                  = "Flair",
 	"keras"                  = "Keras",
 	"nemo"                   = "NeMo",
+	"ocean-marketplace"      = "Ocean Marketplace",
 	"pyannote-audio"         = "pyannote.audio",
 	"sentence-transformers"  = "Sentence Transformers",
 	"sklearn"                = "Scikit-learn",
@@ -145,6 +146,17 @@ const keras = (model: ModelData) =>
 
 model = from_pretrained_keras("${model.id}")
 `;
+
+const ocean_marketplace = (model: ModelData) =>
+	`from ocean_lib.web3_internal.wallet import Wallet
+from ocean_lib.ocean.ocean import Ocean
+from ocean_lib.config import Config
+	
+ocean = Ocean(Config('config.ini'))
+wallet = Wallet(ocean.web3, os.getenv('PRIVATE_KEY'))
+
+asset = ocean.assets.find("${model.id}")
+file_path = ocean.assets.download_asset(asset=asset, consumer_wallet=wallet)`;
 
 const pyannote_audio_pipeline = (model: ModelData) =>
 	`from pyannote.audio import Pipeline
@@ -412,6 +424,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "NeMo",
 		repoUrl:  "https://github.com/NVIDIA/NeMo",
 		snippet:  nemo,
+	},
+	"ocean-marketplace": {
+		btnLabel: "Ocean Marketplace",
+		repoName: "ocean.py",
+		repoUrl:  "https://github.com/oceanprotocol/ocean.py",
+		snippet:  ocean_marketplace,
 	},
 	"pyannote-audio": {
 		btnLabel: "pyannote.audio",
