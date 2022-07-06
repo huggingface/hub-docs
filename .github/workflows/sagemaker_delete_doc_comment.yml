@@ -1,0 +1,15 @@
+name: Delete sagemaker dev documentation
+
+on:
+  pull_request:
+    types: [ closed ]
+
+
+jobs:
+  delete:
+    uses: huggingface/doc-builder/.github/workflows/delete_doc_comment.yml@main
+    with:
+      pr_number: ${{ github.event.number }}
+      package: hub-docs
+      package_name: sagemaker
+
