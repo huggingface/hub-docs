@@ -26,6 +26,7 @@ export enum ModelLibrary {
 	"fasttext"               = "fastText",
 	"stable-baselines3"      = "Stable-Baselines3",
 	"ml-agents"              = "ML-Agents",
+	"pythae"				 = "pythae"
 }
 
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as (keyof typeof ModelLibrary)[];
@@ -353,6 +354,11 @@ const nemo = (model: ModelData) => {
 	return command ?? `# tag did not correspond to a valid NeMo domain.`;
 };
 
+const pythae = (model: ModelData) =>
+	`from pythae.models import AutoModel
+
+model = AutoModel.load_from_hf_hub("${model.id}")`;
+
 //#endregion
 
 
@@ -490,6 +496,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "ml-agents",
 		repoUrl:  "https://github.com/huggingface/ml-agents",
 		snippet:  mlAgents,
+	},
+	"pythae": {
+		btnLabel: "pythae",
+		repoName: "pythae",
+		repoUrl:  "https://github.com/clementchadebec/benchmark_VAE",
+		snippet:  pythae,
 	},
 } as const;
 
