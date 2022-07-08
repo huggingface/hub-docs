@@ -625,6 +625,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"time-series-forecasting",
 ];
 
+export type WidgetInputSample = Record<string | "example_title" | "group", string>;
 
 /**
  * Public interface for model metadata
@@ -668,7 +669,7 @@ export interface ModelData {
 	 * can be set in the model card metadata (under `widget`),
 	 * or by default in `DefaultWidget.ts`
 	 */
-	widgetData?: Record<string, any>[] | undefined;
+	widgetData?: WidgetInputSample[] | undefined;
 	/**
 	 * Parameters that will be used by the widget when calling Inference API
 	 * https://api-inference.huggingface.co/docs/python/html/detailed_parameters.html

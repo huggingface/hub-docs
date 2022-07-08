@@ -1,37 +1,21 @@
 <script lang="ts">
-	import type { WidgetInputSample } from "../../../../interfaces/Types";
 	import { slide } from "svelte/transition";
 	import IconCaretDownV2 from "../../../Icons/IconCaretDownV2.svelte";
 
 	export let classNames = "";
 	export let isLoading = false;
-	export let inputSamples: WidgetInputSample[];
-	export let applyInputSample: (sample: Record<string, any>) => void;
-	export let previewInputSample: (sample: Record<string, any>) => void;
+	export let inputGroups: string[];
+	export let selectedInputGroup: string;
 
 	let containerEl: HTMLElement;
 	let isOptionsVisible = false;
-	let title = "Examples";
+	let title = "Groups";
 
-	$: {
-		// reset title on inputSamples change (i.e. input group change)
-		inputSamples;
-		title = "Examples";
-	}
-
-	function _applyInputSample(idx: number) {
+	function chooseInputGroup(idx: number) {
 		hideOptions();
-		const sample = inputSamples[idx];
-		title = sample.example_title;
-		applyInputSample(sample);
-	}
-
-	function _previewInputSample(idx: number, isTouch = false) {
-		const sample = inputSamples[idx];
-		previewInputSample(sample);
-		if (isTouch) {
-			_applyInputSample(idx);
-		}
+		const inputGroup = inputGroups[idx];
+		title = inputGroup;
+		selectedInputGroup = inputGroup;
 	}
 
 	function toggleOptionsVisibility() {
@@ -91,20 +75,12 @@
 			transition:slide
 		>
 			<div class="py-1 bg-white rounded-md" role="none">
-				{#each inputSamples as { example_title }, i}
+				{#each inputGroups as inputGroup, i}
 					<div
-						class="no-hover:hidden px-4 py-2 text-sm truncate hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-						on:mouseover={() => _previewInputSample(i)}
-						on:click={() => _applyInputSample(i)}
+						class="px-4 py-2 text-sm truncate hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+						on:click={() => chooseInputGroup(i)}
 					>
-						{example_title}
-					</div>
-					<!-- Better UX for mobile/table through CSS breakpoints -->
-					<div
-						class="with-hover:hidden px-4 py-2 text-sm truncate hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-						on:click={() => _previewInputSample(i, true)}
-					>
-						{example_title}
+						{inputGroup}
 					</div>
 				{/each}
 			</div>
