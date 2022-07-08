@@ -95,7 +95,7 @@
 				{/if}
 				<WidgetInputSamples
 					classNames={!selectedInputSamples
-						? "opacity-70 pointer-events-none"
+						? "opacity-50 pointer-events-none"
 						: ""}
 					{isLoading}
 					inputSamples={selectedInputSamples?.inputSamples ?? []}
