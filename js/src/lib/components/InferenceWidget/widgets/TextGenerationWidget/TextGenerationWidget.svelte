@@ -3,9 +3,10 @@
 	import type { PipelineType } from "../../../../interfaces/Types";
 
 	import { onMount } from "svelte";
-	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
+	import WidgetShortcutRunLabel from "../../shared/WidgetShortcutRunLabel/WidgetShortcutRunLabel.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
+	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
 		addInferenceParameters,
@@ -34,6 +35,8 @@
 	let outputJson: string;
 	let text = "";
 	let warning: string = "";
+	let renderTypingEffect: (outputTxt: string) => Promise<void>;
+	let inferenceTimer: any;
 
 	// Deactivate server caching for these two pipeline types
 	// (translation uses this widget too and still needs caching)
@@ -73,6 +76,7 @@
 		addInferenceParameters(requestBody, model);
 
 		isLoading = true;
+		inferenceTimer.start();
 
 		const res = await getResponse(
 			apiUrl,
@@ -85,7 +89,6 @@
 			useCache
 		);
 
-		isLoading = false;
 		// Reset values
 		computeTime = "";
 		error = "";
@@ -100,6 +103,10 @@
 			outputJson = res.outputJson;
 			if (output.length === 0) {
 				warning = "No text was generated";
+			} else {
+				const outputWithoutInput = output.slice(text.length);
+				inferenceTimer.stop();
+				await renderTypingEffect(outputWithoutInput);
 			}
 		} else if (res.status === "loading-model") {
 			modelLoading = {
@@ -110,6 +117,9 @@
 		} else if (res.status === "error") {
 			error = res.error;
 		}
+
+		isLoading = false;
+		inferenceTimer.stop();
 	}
 
 	function parseOutput(body: unknown): string {
@@ -150,19 +160,27 @@
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">
-			<WidgetTextarea bind:value={text} />
-			<WidgetSubmitBtn
+			<WidgetTextarea
+				bind:value={text}
 				{isLoading}
-				onClick={() => {
-					getOutput();
-				}}
+				size="big"
+				bind:renderTypingEffect
 			/>
+			<div class="flex items-center gap-x-2">
+				<WidgetSubmitBtn
+					{isLoading}
+					onClick={() => {
+						getOutput();
+					}}
+				/>
+				<WidgetShortcutRunLabel {isLoading} {getOutput} />
+				<div class="ml-auto self-start">
+					<WidgetTimer bind:this={inferenceTimer} />
+				</div>
+			</div>
 			{#if warning}
 				<div class="alert alert-warning mt-2">{warning}</div>
 			{/if}
 		</form>
-	</svelte:fragment>
-	<svelte:fragment slot="bottom">
-		<WidgetOutputText classNames="mt-4" {output} />
 	</svelte:fragment>
 </WidgetWrapper>

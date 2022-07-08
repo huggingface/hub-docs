@@ -80,6 +80,17 @@
 			],
 		},
 		{
+			id: "bigscience/bloom",
+			pipeline_tag: "text-generation",
+			widgetData: [
+				{ text: "My name is Julien and I like to" },
+				{ text: "My name is Thomas and my main" },
+				{ text: "My name is Mariama, my favorite" },
+				{ text: "My name is Clara and I am" },
+				{ text: "Once upon a time," },
+			],
+		},
+		{
 			id: "distilroberta-base",
 			pipeline_tag: "fill-mask",
 			mask_token: "<mask>",
