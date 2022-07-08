@@ -58,27 +58,12 @@
 		window.getSelection().collapseToEnd();
 		value = containerSpanEl.textContent;
 	}
-
-	// user input should always look different from computed output
-	function handleKeyPress(e: KeyboardEvent) {
-		if (isLoading) {
-			return e.preventDefault();
-		}
-		const range = window.getSelection().getRangeAt(0);
-		const spanEl = document.createElement("span");
-		spanEl.contentEditable = "true";
-		spanEl.innerHTML = "&#8203";
-		spanEl.className = classNamesInput;
-		range.deleteContents();
-		range.insertNode(spanEl);
-		spanEl.focus();
-	}
 </script>
 
 <WidgetLabel {label}>
 	<svelte:fragment slot="after">
 		<span
-			class="{label
+			class="{isLoading ? 'pointer-events-none' : ''} {label
 				? 'mt-1.5'
 				: ''} block overflow-auto resize-y py-2 px-3 w-full min-h-[144px] max-h-[500px] border border-gray-200 rounded-lg shadow-inner outline-none focus:ring focus:ring-blue-200 focus:shadow-inner dark:bg-gray-925"
 			role="textbox"
@@ -87,10 +72,7 @@
 			bind:textContent={value}
 			bind:this={containerSpanEl}
 			on:paste|preventDefault={handlePaste}
-			on:keypress={handleKeyPress}
-		>
-			<span contenteditable />
-		</span>
+		/>
 	</svelte:fragment>
 </WidgetLabel>
 
