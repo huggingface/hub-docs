@@ -160,7 +160,12 @@
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">
-			<WidgetTextarea bind:value={text} {isLoading} bind:renderTypingEffect />
+			<WidgetTextarea
+				bind:value={text}
+				{isLoading}
+				size="big"
+				bind:renderTypingEffect
+			/>
 			<div class="flex items-center gap-x-2">
 				<WidgetSubmitBtn
 					{isLoading}

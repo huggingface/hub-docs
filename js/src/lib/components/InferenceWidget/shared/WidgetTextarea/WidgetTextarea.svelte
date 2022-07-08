@@ -7,6 +7,7 @@
 	export let placeholder: string = "Your sentence here...";
 	export let value: string;
 	export let isLoading = false;
+	export let size: "small" | "big" = "small";
 
 	let containerSpanEl: HTMLSpanElement;
 	const typingEffectSpeedMs = 12;
@@ -65,7 +66,9 @@
 		<span
 			class="{isLoading ? 'pointer-events-none' : ''} {label
 				? 'mt-1.5'
-				: ''} block overflow-auto resize-y py-2 px-3 w-full min-h-[144px] max-h-[500px] border border-gray-200 rounded-lg shadow-inner outline-none focus:ring focus:ring-blue-200 focus:shadow-inner dark:bg-gray-925"
+				: ''} block overflow-auto resize-y py-2 px-3 w-full {size === 'small'
+				? 'min-h-[42px]'
+				: 'min-h-[144px]'} max-h-[500px] border border-gray-200 rounded-lg shadow-inner outline-none focus:ring focus:ring-blue-200 focus:shadow-inner dark:bg-gray-925"
 			role="textbox"
 			contenteditable
 			style="--placeholder: '{placeholder}'"
