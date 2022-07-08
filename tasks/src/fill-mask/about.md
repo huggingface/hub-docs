@@ -41,6 +41,6 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 
 ### Scripts for training
 
-- [PyTorch](https://github.com/huggingface/transformers/tree/master/examples/pytorch/language-modeling)
-- [Flax](https://github.com/huggingface/transformers/tree/master/examples/flax/language-modeling)
-- [TensorFlow](https://github.com/huggingface/transformers/tree/master/examples/tensorflow/language-modeling)
+- [PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling)
+- [Flax](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling)
+- [TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling)
