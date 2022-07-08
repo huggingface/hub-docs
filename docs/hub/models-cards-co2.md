@@ -23,7 +23,7 @@ co2_eq_emissions:
   emissions: number (in grams of CO2)
   source: "source of the information, either directly from AutoTrain, code carbon or from a scientific article documenting the model"
   training_type: "pre-training or fine-tuning"
-  geographical_location: "as granular as possible, for instance Quebec, Canada or Brooklyn, NY, USA"
+  geographical_location: "as granular as possible, for instance Quebec, Canada or Brooklyn, NY, USA. To check your compute's electricity grid, you can check out https://app.electricitymap.org."
   hardware_used: "how much compute and what kind, e.g. 8 v100 GPUs"
 ---
 ```
