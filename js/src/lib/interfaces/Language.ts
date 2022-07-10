@@ -1,12 +1,30 @@
 
+export interface Language {
+	code: string;
+	name: string;
+	nativeName?: string;
+	/**
+	 * Hydrated
+	 */
+	numModels?: number;
+	numDatasets?: number;
+}
+
+export function wikiLink(l: Language): string {
+	return `https://en.wikipedia.org/wiki/ISO_639:${l.code}`;
+}
+
+
 /**
+ * List of languages used in huggingface.co/languages
+ * 
  * This dictionary is exported from
  * github.com/huggingface/widgets-server
  * 
  * Please do not modify it directly here,
  * but open a PR upstream instead.
  */
-const LANGUAGES: Record<string, any> = {
+export const LANGUAGES: Record<string, Language> = {
 	aa: {
 		code:       "aa",
 		name:       "Afar",
@@ -1197,39 +1215,3 @@ const LANGUAGES: Record<string, any> = {
 	},
 };
 
-
-
-export class Language {
-	code: string;
-	name: string;
-	nativeName?: string;
-	/**
-	 * Hydrated
-	 */
-	numModels?: number;
-	numDatasets?: number;
-	
-	constructor(o: any) {
-		return Object.assign(this, o);
-	}
-	/**
-	 * Works with all different parts of ISO 639.
-	 */
-	get wikiLink() {
-		return `https://en.wikipedia.org/wiki/ISO_639:${this.code}`;
-	}
-	
-	/**
-	 * List of languages used in huggingface.co/languages
-	 */
-	static all(): Map<string, Language> {
-		const all = new Map<string, Language>();
-		for (const [code, v] of Object.entries(LANGUAGES)) {
-			all.set(
-				code,
-				new Language({ code, ...v })
-			);
-		}
-		return all;
-	}
-}
