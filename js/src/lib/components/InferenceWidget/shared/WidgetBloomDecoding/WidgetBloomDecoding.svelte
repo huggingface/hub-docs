@@ -17,7 +17,9 @@
 			>sampling</span
 		>
 		<div class="cursor-pointer" on:click={toggleState}>
-			<div class="w-8 h-2 border-2 border-blue-200 dark:border-blue-800 rounded-full relative">
+			<div
+				class="w-8 h-2 border-2 border-blue-200 dark:border-blue-800 rounded-full relative"
+			>
 				<div
 					class="absolute w-4 h-4 bg-blue-400 dark:bg-blue-600 rounded-full -mt-1.5 transition-transform {!isSampling
 						? 'translate-x-3.5'
