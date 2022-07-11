@@ -119,7 +119,7 @@
 			role="textbox"
 			contenteditable
 			style="--placeholder: '{placeholder}'"
-			spellcheck={false}
+			spellcheck="false"
 			bind:this={containerSpanEl}
 			on:paste|preventDefault={handlePaste}
 			on:keypress={updateInnerTextValue}
