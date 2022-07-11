@@ -60,7 +60,7 @@
 			range.insertNode(spanEl);
 		}
 		window.getSelection().collapseToEnd();
-		value = containerSpanEl.textContent;
+		updateInnerTextValue();
 	}
 
 	function updateInnerTextValue() {
