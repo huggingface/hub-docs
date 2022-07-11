@@ -49,7 +49,7 @@
 	bind:this={containerEl}
 >
 	<div
-		class="no-hover:hidden inline-flex justify-between w-32 lg:w-44 rounded-md border border-gray-100 px-4 py-1"
+		class="no-hover:hidden inline-flex justify-between w-32 rounded-md border border-gray-100 px-4 py-1"
 		on:click={toggleOptionsVisibility}
 	>
 		<div class="text-sm truncate">{title}</div>
