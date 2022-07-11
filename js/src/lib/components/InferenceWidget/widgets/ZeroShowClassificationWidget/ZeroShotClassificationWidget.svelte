@@ -37,6 +37,7 @@
 	let outputJson: string;
 	let text = "";
 	let warning: string = "";
+	let setTextAreaValue: (text: string) => void;
 
 	onMount(() => {
 		const [candidateLabelsParam, multiClassParam, textParam] = getSearchParams([
@@ -47,7 +48,7 @@
 		if (candidateLabelsParam && !!multiClassParam && textParam) {
 			candidateLabels = candidateLabelsParam;
 			multiClass = multiClassParam === "true";
-			text = textParam;
+			setTextAreaValue(textParam);
 			getOutput();
 		} else {
 			const [demoCandidateLabels, demoMultiClass, demoText] = getDemoInputs(
@@ -56,7 +57,7 @@
 			);
 			candidateLabels = (demoCandidateLabels as string) ?? "";
 			multiClass = demoMultiClass === "true";
-			text = (demoText as string) ?? "";
+			setTextAreaValue(demoText ?? "");
 			if (candidateLabels && text && callApiOnMount) {
 				getOutput();
 			}
@@ -159,13 +160,13 @@
 	function previewInputSample(sample: Record<string, any>) {
 		candidateLabels = sample.candidate_labels;
 		multiClass = sample.multi_class;
-		text = sample.text;
+		setTextAreaValue(sample.text);
 	}
 
 	function applyInputSample(sample: Record<string, any>) {
 		candidateLabels = sample.candidate_labels;
 		multiClass = sample.multi_class;
-		text = sample.text;
+		setTextAreaValue(sample.text);
 		getOutput();
 	}
 </script>
@@ -184,7 +185,11 @@
 >
 	<svelte:fragment slot="top">
 		<form class="flex flex-col space-y-2">
-			<WidgetTextarea bind:value={text} placeholder="Text to classify..." />
+			<WidgetTextarea
+				bind:value={text}
+				bind:setValue={setTextAreaValue}
+				placeholder="Text to classify..."
+			/>
 			<WidgetTextInput
 				bind:value={candidateLabels}
 				label="Possible class names (comma-separated)"

@@ -32,6 +32,7 @@
 	let output: { answer: string; score: number } | null = null;
 	let outputJson: string;
 	let question = "";
+	let setTextAreaValue: (text: string) => void;
 
 	onMount(() => {
 		const [contextParam, questionParam] = getSearchParams([
@@ -39,15 +40,16 @@
 			"question",
 		]);
 		if (contextParam && questionParam) {
-			[context, question] = [contextParam, questionParam];
+			question = questionParam;
+			setTextAreaValue(contextParam);
 			getOutput();
 		} else {
 			const [demoContext, demoQuestion] = getDemoInputs(model, [
 				"context",
 				"text",
 			]);
-			context = (demoContext as string) ?? "";
 			question = (demoQuestion as string) ?? "";
+			setTextAreaValue(demoContext ?? "");
 			if (context && question && callApiOnMount) {
 				getOutput();
 			}
@@ -132,12 +134,12 @@
 
 	function previewInputSample(sample: Record<string, any>) {
 		question = sample.text;
-		context = sample.context;
+		setTextAreaValue(sample.context);
 	}
 
 	function applyInputSample(sample: Record<string, any>) {
 		question = sample.text;
-		context = sample.context;
+		setTextAreaValue(sample.context);
 		getOutput();
 	}
 </script>
@@ -165,6 +167,7 @@
 			/>
 			<WidgetTextarea
 				bind:value={context}
+				bind:setValue={setTextAreaValue}
 				placeholder="Please input some context..."
 				label="Context"
 			/>
