@@ -1,9 +1,11 @@
 <script lang="ts">
 	import type { WidgetProps, LoadingStatus } from "../types";
+	import type { WidgetInputSample } from "../../../../interfaces/Types";
 
 	import { onMount } from "svelte";
 	import IconCross from "../../../Icons/IconCross.svelte";
 	import WidgetInputSamples from "../WidgetInputSamples/WidgetInputSamples.svelte";
+	import WidgetInputSamplesGroup from "../WidgetInputSamplesGroup/WidgetInputSamplesGroup.svelte";
 	import WidgetFooter from "../WidgetFooter/WidgetFooter.svelte";
 	import WidgetHeader from "../WidgetHeader/WidgetHeader.svelte";
 	import WidgetInfo from "../WidgetInfo/WidgetInfo.svelte";
@@ -28,14 +30,37 @@
 
 	let isMaximized = false;
 	let modelStatus: LoadingStatus = "unknown";
+	let selectedInputGroup: string;
 
-	const inputSamples: Record<string, any>[] = (model?.widgetData ?? [])
+	const inputSamples: WidgetInputSample[] = (model?.widgetData ?? [])
 		.sort(
 			(sample1, sample2) =>
 				(sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0)
 		)
-		.map((sample, idx) => ({ example_title: `Example ${++idx}`, ...sample }))
-		.slice(0, 5);
+		.map((sample, idx) => ({
+			example_title: `Example ${++idx}`,
+			group: "Group 1",
+			...sample,
+		}));
+
+	const inputGroups: { group: string; inputSamples: WidgetInputSample[] }[] =
+		[];
+	for (const inputSample of inputSamples) {
+		const isExist = inputGroups.find(
+			({ group }) => group === inputSample.group
+		);
+		if (!isExist) {
+			inputGroups.push({ group: inputSample.group, inputSamples: [] });
+		}
+		inputGroups
+			.find(({ group }) => group === inputSample.group)
+			?.inputSamples.push(inputSample);
+	}
+
+	$: selectedInputSamples =
+		inputGroups.length === 1
+			? inputGroups[0]
+			: inputGroups.find(({ group }) => group === selectedInputGroup);
 
 	onMount(() => {
 		getModelStatus(apiUrl, model.id).then((status) => {
@@ -58,14 +83,26 @@
 		</button>
 	{/if}
 	<WidgetHeader {noTitle} pipeline={model.pipeline_tag}>
-		{#if inputSamples.length}
-			<!-- Show samples selector when there are more than one sample -->
-			<WidgetInputSamples
-				{isLoading}
-				{inputSamples}
-				{applyInputSample}
-				{previewInputSample}
-			/>
+		{#if !!inputGroups.length}
+			<div class="ml-auto flex gap-x-1">
+				<!-- Show samples selector when there are more than one sample -->
+				{#if inputGroups.length > 1}
+					<WidgetInputSamplesGroup
+						bind:selectedInputGroup
+						{isLoading}
+						inputGroups={inputGroups.map(({ group }) => group)}
+					/>
+				{/if}
+				<WidgetInputSamples
+					classNames={!selectedInputSamples
+						? "opacity-50 pointer-events-none"
+						: ""}
+					{isLoading}
+					inputSamples={selectedInputSamples?.inputSamples ?? []}
+					{applyInputSample}
+					{previewInputSample}
+				/>
+			</div>
 		{/if}
 	</WidgetHeader>
 	<slot name="top" />
