@@ -23,6 +23,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let isLoggedIn: WidgetProps["includeCredentials"];
 
 	let computeTime = "";
 	let error: string = "";
@@ -60,6 +61,13 @@
 	});
 
 	async function getOutput(withModelLoading = false) {
+		if (isLoggedIn === false && model.id === "bigscience/bloom") {
+			window.location.href = `/login?next=${encodeURIComponent(
+				window.location.href
+			)}`;
+			return;
+		}
+
 		const trimmedValue = text.trim();
 
 		if (!trimmedValue) {

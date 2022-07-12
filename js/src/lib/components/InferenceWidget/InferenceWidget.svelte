@@ -31,6 +31,7 @@
 	export let noTitle = false;
 	export let shouldUpdateUrl = false;
 	export let includeCredentials = false;
+	export let isLoggedIn = false;
 
 	// Note: text2text-generation, text-generation and translation all
 	// uses the TextGenerationWidget as they work almost the same.
@@ -77,6 +78,7 @@
 		noTitle,
 		shouldUpdateUrl,
 		includeCredentials,
+		isLoggedIn,
 	}) as WidgetProps;
 </script>
 
