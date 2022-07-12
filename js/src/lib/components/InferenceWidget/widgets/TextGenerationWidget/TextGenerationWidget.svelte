@@ -24,6 +24,10 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let isLoggedIn: WidgetProps["includeCredentials"];
+
+	const isBloomLoginRequired =
+		isLoggedIn === false && model.id === "bigscience/bloom";
 
 	let computeTime = "";
 	let error: string = "";
@@ -62,6 +66,10 @@
 	});
 
 	async function getOutput(withModelLoading = false) {
+		if (isBloomLoginRequired) {
+			return;
+		}
+
 		const trimmedValue = text.trim();
 
 		if (!trimmedValue) {
@@ -156,6 +164,18 @@
 		setTextAreaValue(sample.text);
 		getOutput();
 	}
+
+	function redirectLogin() {
+		window.location.href = `/login?next=${encodeURIComponent(
+			window.location.href
+		)}`;
+	}
+
+	function redirectJoin() {
+		window.location.href = `/join?next=${encodeURIComponent(
+			window.location.href
+		)}`;
+	}
 </script>
 
 <WidgetWrapper
@@ -182,7 +202,11 @@
 			{#if model.id === "bigscience/bloom"}
 				<WidgetBloomDecoding bind:decodingStrategy />
 			{/if}
-			<div class="flex items-center gap-x-2">
+			<div
+				class="flex items-center gap-x-2 {isBloomLoginRequired
+					? 'opacity-50 pointer-events-none'
+					: ''}"
+			>
 				<WidgetSubmitBtn
 					{isLoading}
 					onClick={() => {
@@ -196,6 +220,17 @@
 			</div>
 			{#if warning}
 				<div class="alert alert-warning mt-2">{warning}</div>
+			{/if}
+			{#if isBloomLoginRequired}
+				<div class="alert alert-warning mt-2">
+					Please <span class="underline cursor-pointer" on:click={redirectLogin}
+						>login</span
+					>
+					or
+					<span class="underline cursor-pointer" on:click={redirectJoin}
+						>register</span
+					> to try BLOOM 🌸
+				</div>
 			{/if}
 		</form>
 	</svelte:fragment>
