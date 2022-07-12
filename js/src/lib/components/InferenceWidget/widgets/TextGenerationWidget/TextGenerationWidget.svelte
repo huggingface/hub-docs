@@ -5,6 +5,7 @@
 	import { onMount } from "svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetShortcutRunLabel from "../../shared/WidgetShortcutRunLabel/WidgetShortcutRunLabel.svelte";
+	import WidgetBloomDecoding from "../../shared/WidgetBloomDecoding/WidgetBloomDecoding.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
@@ -42,6 +43,7 @@
 	let renderTypingEffect: (outputTxt: string) => Promise<void>;
 	let inferenceTimer: any;
 	let setTextAreaValue: (text: string) => void;
+	let decodingStrategy: "sampling" | "greedy" = "sampling";
 
 	// Deactivate server caching for these two pipeline types
 	// (translation uses this widget too and still needs caching)
@@ -83,6 +85,15 @@
 
 		const requestBody = { inputs: trimmedValue };
 		addInferenceParameters(requestBody, model);
+
+		if (model.id === "bigscience/bloom") {
+			// see https://huggingface.co/docs/api-inference/detailed_parameters#text-generation-task
+			const parameters = { do_sample: decodingStrategy === "sampling" };
+			if (decodingStrategy === "sampling") {
+				parameters["top_p"] = 0.9;
+			}
+			requestBody["parameters"] = parameters;
+		}
 
 		isLoading = true;
 		inferenceTimer.start();
@@ -188,6 +199,9 @@
 				size="big"
 				bind:renderTypingEffect
 			/>
+			{#if model.id === "bigscience/bloom"}
+				<WidgetBloomDecoding bind:decodingStrategy />
+			{/if}
 			<div
 				class="flex items-center gap-x-2 {isBloomLoginRequired
 					? 'opacity-50 pointer-events-none'
