@@ -88,23 +88,17 @@
 
 		if (model.id === "bigscience/bloom") {
 			// see https://huggingface.co/docs/api-inference/detailed_parameters#text-generation-task
-			let parameters = {};
+			const parameters = {
+				seed: Date.now() % 100,
+				early_stopping: false,
+				length_penalty: 0.0,
+				max_new_tokens: 32,
+			};
 			if (decodingStrategy === "sampling") {
-				parameters = {
-					do_sample: true,
-					top_p: 0.9,
-					seed: Date.now() % 100,
-					early_stopping: false,
-					length_penalty: 0.0,
-				};
+				parameters["do_sample"] = true;
+				parameters["top_p"] = 0.9;
 			} else {
-				parameters = {
-					do_sample: false,
-					seed: Date.now() % 100,
-					early_stopping: false,
-					length_penalty: 0.0,
-					max_new_tokens: 32,
-				};
+				parameters["do_sample"] = false;
 			}
 			requestBody["parameters"] = parameters;
 		}
