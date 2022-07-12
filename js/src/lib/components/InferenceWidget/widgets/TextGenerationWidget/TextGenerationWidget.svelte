@@ -92,7 +92,7 @@
 				seed: Date.now() % 100,
 				early_stopping: false,
 				length_penalty: 0.0,
-				max_new_tokens: 32,
+				max_new_tokens: 20,
 			};
 			if (decodingStrategy === "sampling") {
 				parameters["do_sample"] = true;
