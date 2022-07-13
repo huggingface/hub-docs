@@ -4,8 +4,8 @@
 	$: isSampling = decodingStrategy === "sampling";
 	$: description =
 		decodingStrategy === "sampling"
-			? "imaginative completions (may be not super accurate e.g. math/history)"
-			: "accurate completions (may be more boring or have repetitions)";
+			? 'Switch to "greedy" for more accurate completion e.g. math/history/translations (but which may be repetitive/less original)'
+			: 'Switch to "sampling" for more imaginative completions e.g. story/poetry (but which may be less accurate)';
 
 	function toggleState() {
 		decodingStrategy = decodingStrategy === "sampling" ? "greedy" : "sampling";
@@ -57,8 +57,9 @@
 			{/if}
 		</div>
 	</div>
-	<span
-		class="opacity-70 bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 py-0.5 px-1.5 rounded leading-none border border-gray-200"
-		>{description}</span
+	<p
+		class="my-1 opacity-70 bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 py-0.5 px-1.5 rounded leading-none border border-gray-200"
 	>
+		{description}
+	</p>
 </div>
