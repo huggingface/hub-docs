@@ -4,7 +4,7 @@
 	$: isSampling = decodingStrategy === "sampling";
 	$: description =
 		decodingStrategy === "sampling"
-			? 'Switch to "greedy" for more accurate completion e.g. math/history/translations (but which may be repetitive/less original)'
+			? 'Switch to "greedy" for more accurate completion e.g. math/history/translations (but which may be repetitive/less inventive)'
 			: 'Switch to "sampling" for more imaginative completions e.g. story/poetry (but which may be less accurate)';
 
 	function toggleState() {
