@@ -120,6 +120,7 @@
 			contenteditable
 			style="--placeholder: '{placeholder}'"
 			spellcheck="false"
+			dir="auto"
 			bind:this={containerSpanEl}
 			on:paste|preventDefault={handlePaste}
 			on:keypress={updateInnerTextValue}
