@@ -8,6 +8,7 @@
 	import WidgetBloomDecoding from "../../shared/WidgetBloomDecoding/WidgetBloomDecoding.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
+	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
 		addInferenceParameters,
@@ -131,7 +132,7 @@
 			outputJson = res.outputJson;
 			if (output.length === 0) {
 				warning = "No text was generated";
-			} else {
+			} else if (model?.pipeline_tag === "text-generation") {
 				const outputWithoutInput = output.slice(text.length);
 				inferenceTimer.stop();
 				await renderTypingEffect(outputWithoutInput);
@@ -241,5 +242,10 @@
 				</div>
 			{/if}
 		</form>
+	</svelte:fragment>
+	<svelte:fragment slot="bottom">
+		{#if model?.pipeline_tag === "text2text-generation"}
+			<WidgetOutputText classNames="mt-4" {output} />
+		{/if}
 	</svelte:fragment>
 </WidgetWrapper>
