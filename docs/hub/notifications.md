@@ -1,6 +1,6 @@
 # Notifications
 
-Notifications allow you to know when new activities (pull requests or discussions) happen on users or organizations you are watching.
+Notifications allow you to know when new activities (pull requests or discussions) happen on models, datasets and spaces belonging to users or organizations you are watching.
 
 By default, you'll receive a notification if:
 
@@ -23,6 +23,8 @@ _Unlike Github, you cannot watch a specific repository. You must watch users/org
 ## Notifications settings
 
 In your [notifications settings](https://huggingface.co/settings/notifications) page, you can choose specific channels to get notified on depending on the type of activity, for example, receiving an email for direct mentions but only a web notification for new activity on watched users and organizations. By default, you'll get an email and a web notification for any new activity but feel free to adjust your settings depending on your needs.
+
+Clicking the unsubscribe link in an email will unsubscribe you for the type of activity, eg direct mentions.
 
 ![Notifications settings page](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/notifications-settings.png)
 
