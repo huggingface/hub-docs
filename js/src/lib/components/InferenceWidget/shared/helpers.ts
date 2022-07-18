@@ -44,7 +44,7 @@ function proxify(url: string): string {
 	return url.startsWith(`http://localhost`)
 		|| new URL(url).host === window.location.host
 		? url
-		: `https://widgets-cors-proxy.huggingface.co/proxy?url=${url}`;
+		: `https://widgets.hf.co/proxy?url=${url}`;
 }
 
 // Get BLOB from a given URL after proxifying the URL
