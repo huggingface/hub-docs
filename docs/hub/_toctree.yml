@@ -10,6 +10,8 @@
     title: Repository Settings
   - local: repositories-pull-requests-discussions
     title: Pull Requests & Discussions
+  - local: notifications
+    title: Notifications
   - local: repositories-next-steps
     title: Next Steps    
   - local: repositories-licenses
