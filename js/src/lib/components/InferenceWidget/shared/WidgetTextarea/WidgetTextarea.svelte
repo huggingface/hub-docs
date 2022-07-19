@@ -123,7 +123,7 @@
 			dir="auto"
 			bind:this={containerSpanEl}
 			on:paste|preventDefault={handlePaste}
-			on:keypress={updateInnerTextValue}
+			on:input={updateInnerTextValue}
 		/>
 	</svelte:fragment>
 </WidgetLabel>
