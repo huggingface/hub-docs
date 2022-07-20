@@ -79,7 +79,7 @@
 				? 'mt-1.5'
 				: ''} block overflow-auto resize-y py-2 px-3 w-full {size === 'small'
 				? 'min-h-[42px]'
-				: 'min-h-[144px]'} max-h-[500px] whitespace-pre-wrap inline-block border-gray-200 rounded-lg shadow-inner outline-none focus:ring focus:ring-blue-200 focus:shadow-inner dark:bg-gray-925"
+				: 'min-h-[144px]'} max-h-[500px] whitespace-pre-wrap inline-block border border-gray-200 rounded-lg shadow-inner outline-none focus:ring focus:ring-blue-200 focus:shadow-inner dark:bg-gray-925"
 			role="textbox"
 			contenteditable
 			style="--placeholder: '{placeholder}'"
