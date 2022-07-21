@@ -11,14 +11,19 @@
 
 	let containerSpanEl: HTMLSpanElement;
 	const typingEffectSpeedMs = 12;
-	const classNamesInput = "font-normal text-black dark:text-white";
-	const classNamesOutput = "text-blue-600 dark:text-blue-400";
+	const classNamesInput =
+		"whitespace-pre-wrap inline font-normal text-black dark:text-white";
+	const classNamesOutput =
+		"whitespace-pre-wrap inline text-blue-600 dark:text-blue-400";
 
 	export async function renderTypingEffect(outputTxt: string) {
 		const spanEl = document.createElement("span");
 		spanEl.contentEditable = "true";
 		spanEl.className = classNamesOutput;
 		containerSpanEl?.appendChild(spanEl);
+		await tick();
+		// fix Chrome bug that adds `<br>` els on contentedtiable el
+		containerSpanEl?.querySelectorAll("br").forEach((brEl) => brEl.remove());
 		await tick();
 		// split on whitespace or any other character to correctly render newlines \n
 		for (const char of outputTxt.split(/(\s|.)/g)) {
