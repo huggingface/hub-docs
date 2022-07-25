@@ -5,6 +5,7 @@ Each dataset may be documented by the `README.md` file in the repository. This f
 You can also add dataset metadata to your card. The metadata describes important information about a dataset such as its license, language, and size. It also contains tags to help users discover a dataset on the Hub. Tags are defined in a YAML metadata section at the top of the `README.md` file. Supported tags include:
 
 ```yaml
+tags: List[str]
 annotations_creators: List[str]
 language_creators: List[str]
 language: List[str]
