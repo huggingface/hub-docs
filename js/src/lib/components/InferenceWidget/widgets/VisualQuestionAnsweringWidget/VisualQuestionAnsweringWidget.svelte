@@ -44,7 +44,6 @@
 	}
 
 	function isValidOutput(arg: any): arg is { answer: string; score: number }[] {
-		console.log(arg)
 		return (
 			Array.isArray(arg) &&
 			arg.every(
@@ -53,7 +52,9 @@
 		);
 	}
 
-	function parseOutput(body: unknown): Array<{ answer: string; score: number }> {
+	function parseOutput(
+		body: unknown
+	): Array<{ answer: string; score: number }> {
 		if (isValidOutput(body)) {
 			return body;
 		}
@@ -190,6 +191,6 @@
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
-		<WidgetOutputChart classNames="pt-4" {output} />
+		<WidgetOutputChart labelField="answer" classNames="pt-4" {output} />
 	</svelte:fragment>
 </WidgetWrapper>

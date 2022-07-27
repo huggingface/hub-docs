@@ -13,8 +13,12 @@ from-yellow-400 to-yellow-200 dark:from-yellow-400 dark:to-yellow-600
 <script lang="ts">
 	export let classNames = "";
 	export let defaultBarColor = "purple";
-	export let output: Array<{ label: string; score: number; color?: string }> =
-		[];
+	type LabelField = "label" | "answer";
+	export let labelField: LabelField = "label";
+	export let output: Array<
+		| { label: string; score: number; color?: string }
+		| { answer: string; score: number; color?: string }
+	> = [];
 	export let highlightIndex = -1;
 	export let mouseover: (index: number) => void = () => {};
 	export let mouseout: () => void = () => {};
@@ -28,7 +32,7 @@ from-yellow-400 to-yellow-200 dark:from-yellow-400 dark:to-yellow-600
 {#if output.length}
 	<div class="space-y-3.5 {classNames}">
 		<!-- NB: We sadly can't do color = defaultBarColor as the Svelte compiler will throw an unused-export-let warning (bug  on their side) ... -->
-		{#each output as { label, score, color }, index}
+		{#each output as { score, color }, index}
 			<div
 				class="flex items-start justify-between font-mono text-xs leading-none
 					animate__animated animate__fadeIn transition duration-200 ease-in-out
@@ -49,7 +53,7 @@ from-yellow-400 to-yellow-200 dark:from-yellow-400 dark:to-yellow-600
 							dark:to-{color ?? defaultBarColor}-600"
 						style={`width: ${Math.ceil((score / scoreMax) * 100 * 0.8)}%;`}
 					/>
-					<span class="leading-snug">{label}</span>
+					<span class="leading-snug">{output[index][labelField]}</span>
 				</div>
 				<span class="pl-2">{score.toFixed(3)}</span>
 			</div>
