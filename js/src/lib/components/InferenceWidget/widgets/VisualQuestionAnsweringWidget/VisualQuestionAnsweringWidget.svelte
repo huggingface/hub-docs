@@ -21,7 +21,7 @@
 		isLoading: false,
 		estimatedTime: 0,
 	};
-	let output: Array<{ label: string; score: number }> = [];
+	let output: Array<{ answer: string; score: number }> = [];
 	let outputJson: string;
 	let question = "";
 	let imgSrc = "";
@@ -43,21 +43,22 @@
 		fileReader.readAsDataURL(file);
 	}
 
-	function isValidOutput(arg: any): arg is { label: string; score: number }[] {
+	function isValidOutput(arg: any): arg is { answer: string; score: number }[] {
+		console.log(arg)
 		return (
 			Array.isArray(arg) &&
 			arg.every(
-				(x) => typeof x.label === "string" && typeof x.score === "number"
+				(x) => typeof x.answer === "string" && typeof x.score === "number"
 			)
 		);
 	}
 
-	function parseOutput(body: unknown): Array<{ label: string; score: number }> {
+	function parseOutput(body: unknown): Array<{ answer: string; score: number }> {
 		if (isValidOutput(body)) {
 			return body;
 		}
 		throw new TypeError(
-			"Invalid output: output must be of type Array<label: string, score:number>"
+			"Invalid output: output must be of type Array<answer: string, score:number>"
 		);
 	}
 

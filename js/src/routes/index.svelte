@@ -5,7 +5,7 @@
 
 	const models: ModelData[] = [
 		{
-			id: "distilbert-base-uncased-distilled-squad",
+			id: "dandelin/vilt-b32-finetuned-vqa",
 			pipeline_tag: "visual-question-answering",
 		},
 		{
