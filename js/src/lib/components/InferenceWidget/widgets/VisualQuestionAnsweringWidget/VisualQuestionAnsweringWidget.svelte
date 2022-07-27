@@ -20,7 +20,7 @@
 		isLoading: false,
 		estimatedTime: 0,
 	};
-	let output: { answer: string; score: number } | null = null;
+	let output: Array<{ label: string; score: number }> = [];
 	let outputJson: string;
 	let question = "";
 	let imgSrc = "";
@@ -40,6 +40,38 @@
 		};
 		isLoading = true;
 		fileReader.readAsDataURL(file);
+	}
+
+	function isValidOutput(arg: any): arg is { label: string; score: number }[] {
+		return (
+			Array.isArray(arg) &&
+			arg.every(
+				(x) => typeof x.label === "string" && typeof x.score === "number"
+			)
+		);
+	}
+
+	function parseOutput(body: unknown): Array<{ label: string; score: number }> {
+		if (isValidOutput(body)) {
+			return body;
+		}
+		throw new TypeError(
+			"Invalid output: output must be of type Array<label: string, score:number>"
+		);
+	}
+
+	function previewInputSample(sample: Record<string, any>) {
+		question = sample.text;
+		imgSrc = sample.img;
+	}
+
+	async function applyInputSample(sample: Record<string, any>) {
+		question = sample.text;
+		imgSrc = sample.src;
+		const res = await fetch(imgSrc);
+		const blob = await res.blob();
+		updateImageBase64(blob);
+		getOutput();
 	}
 
 	async function getOutput(withModelLoading = false) {
@@ -97,34 +129,6 @@
 		} else if (res.status === "error") {
 			error = res.error;
 		}
-	}
-
-	function parseOutput(body: unknown): { answer: string; score: number } {
-		if (
-			body &&
-			typeof body === "object" &&
-			"answer" in body &&
-			"score" in body
-		) {
-			return { answer: body["answer"], score: body["score"] };
-		}
-		throw new TypeError(
-			"Invalid output: output must be of type <answer:string; score:number>"
-		);
-	}
-
-	function previewInputSample(sample: Record<string, any>) {
-		question = sample.text;
-		imgSrc = sample.img;
-	}
-
-	async function applyInputSample(sample: Record<string, any>) {
-		question = sample.text;
-		imgSrc = sample.src;
-		const res = await fetch(imgSrc);
-		const blob = await res.blob();
-		updateImageBase64(blob);
-		getOutput();
 	}
 </script>
 
