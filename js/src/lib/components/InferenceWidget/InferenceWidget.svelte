@@ -13,6 +13,7 @@
 	import ImageSegmentationWidget from "./widgets/ImageSegmentationWidget/ImageSegmentationWidget.svelte";
 	import ObjectDetectionWidget from "./widgets/ObjectDetectionWidget/ObjectDetectionWidget.svelte";
 	import QuestionAnsweringWidget from "./widgets/QuestionAnsweringWidget/QuestionAnsweringWidget.svelte";
+	import VisualQuestionAnsweringWidget from "./widgets/VisualQuestionAnsweringWidget/VisualQuestionAnsweringWidget.svelte";
 	import SentenceSimilarityWidget from "./widgets/SentenceSimilarityWidget/SentenceSimilarityWidget.svelte";
 	import SummarizationWidget from "./widgets/SummarizationWidget/SummarizationWidget.svelte";
 	import TableQuestionAnsweringWidget from "./widgets/TableQuestionAnsweringWidget/TableQuestionAnsweringWidget.svelte";
@@ -63,6 +64,7 @@
 		translation: TextGenerationWidget,
 		"tabular-classification": TabularDataWidget,
 		"tabular-regression": TabularDataWidget,
+		"visual-question-answering": VisualQuestionAnsweringWidget,
 		"reinforcement-learning": ReinforcementLearningWidget,
 		"zero-shot-classification": ZeroShotClassificationWidget,
 	};

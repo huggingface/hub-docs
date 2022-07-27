@@ -18,6 +18,7 @@
 		{placeholder}
 		required={true}
 		type="text"
+		disabled={isLoading}
 	/>
 	<WidgetSubmitBtn
 		classNames="rounded-l-none border-l-0 {flatTop ? 'rounded-t-none' : ''}"
