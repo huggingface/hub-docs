@@ -7,6 +7,16 @@
 		{
 			id: "dandelin/vilt-b32-finetuned-vqa",
 			pipeline_tag: "visual-question-answering",
+			widgetData: [
+				{
+					text: "What animal is it?",
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg",
+				},
+				{
+					text: "Where is it?",
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/palace.jpg",
+				},
+			],
 		},
 		{
 			id: "roberta-large-mnli",

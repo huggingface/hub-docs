@@ -27,20 +27,28 @@
 	let imgSrc = "";
 	let imageBase64 = "";
 
-	function onSelectFile(file: File | Blob) {
+	async function onSelectFile(file: File | Blob) {
 		imgSrc = URL.createObjectURL(file);
-		updateImageBase64(file);
+		await updateImageBase64(file);
 	}
 
-	function updateImageBase64(file: File | Blob) {
-		let fileReader: FileReader = new FileReader();
-		fileReader.onload = () => {
-			const imageBase64WithPrefix: string = fileReader.result as string;
-			imageBase64 = imageBase64WithPrefix.split(",")[1]; // remove prefix
-			isLoading = false;
-		};
-		isLoading = true;
-		fileReader.readAsDataURL(file);
+	function updateImageBase64(file: File | Blob): Promise<void> {
+		return new Promise((resolve, reject) => {
+			let fileReader: FileReader = new FileReader();
+			fileReader.onload = async () => {
+				try {
+					const imageBase64WithPrefix: string = fileReader.result as string;
+					imageBase64 = imageBase64WithPrefix.split(",")[1]; // remove prefix
+					isLoading = false;
+					resolve();
+				} catch (err) {
+					reject(err);
+				}
+			};
+			fileReader.onerror = (e) => reject(e);
+			isLoading = true;
+			fileReader.readAsDataURL(file);
+		});
 	}
 
 	function isValidOutput(arg: any): arg is { answer: string; score: number }[] {
@@ -65,7 +73,7 @@
 
 	function previewInputSample(sample: Record<string, any>) {
 		question = sample.text;
-		imgSrc = sample.img;
+		imgSrc = sample.src;
 	}
 
 	async function applyInputSample(sample: Record<string, any>) {
@@ -73,7 +81,7 @@
 		imgSrc = sample.src;
 		const res = await fetch(imgSrc);
 		const blob = await res.blob();
-		updateImageBase64(blob);
+		await updateImageBase64(blob);
 		getOutput();
 	}
 
@@ -191,6 +199,8 @@
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
-		<WidgetOutputChart labelField="answer" classNames="pt-4" {output} />
+		{#if output}
+			<WidgetOutputChart labelField="answer" classNames="pt-4" {output} />
+		{/if}
 	</svelte:fragment>
 </WidgetWrapper>
