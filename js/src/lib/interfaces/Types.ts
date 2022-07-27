@@ -563,7 +563,6 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		],
 		modality:     "multimodal",
 		color:        "red",
-		hideInModels: true,
 	},
 	"zero-shot-image-classification": {
 		name:         "Zero-Shot Image Classification",
