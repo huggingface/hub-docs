@@ -5,6 +5,10 @@
 
 	const models: ModelData[] = [
 		{
+			id: "distilbert-base-uncased-distilled-squad",
+			pipeline_tag: "visual-question-answering",
+		},
+		{
 			id: "roberta-large-mnli",
 			pipeline_tag: "text-classification",
 			widgetData: [
