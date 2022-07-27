@@ -5,6 +5,7 @@
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
+	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import { addInferenceParameters, getResponse } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -188,11 +189,6 @@
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
-		{#if output}
-			<div class="mt-4 alert alert-success flex items-baseline">
-				<span>{output.answer}</span>
-				<span class="font-mono text-xs ml-auto">{output.score.toFixed(3)}</span>
-			</div>
-		{/if}
+		<WidgetOutputChart classNames="pt-4" {output} />
 	</svelte:fragment>
 </WidgetWrapper>
