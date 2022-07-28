@@ -1,12 +1,9 @@
 name: Build sagemaker PR Documentation
 
 on:
-  push:
+  pull_request:
     paths:
       - "docs/sagemaker/**"
-    branches:
-      - "*"
-      - "!main"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
