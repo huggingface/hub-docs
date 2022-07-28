@@ -14,6 +14,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
+      - uses: andymckay/cancel-action@0.2
   build:
     uses: huggingface/doc-builder/.github/workflows/build_pr_documentation.yml@main
     needs: build_test
