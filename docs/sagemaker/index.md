@@ -1,10 +1,6 @@
----
-title: Hugging Face on Amazon SageMaker
----
+# Hugging Face on Amazon SageMaker
 
-<h1>Hugging Face on Amazon SageMaker</h1>
-
-![cover](/docs/assets/sagemaker/cover.png)
+![cover](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/cover.png)
 
 ## Deep Learning Containers
 

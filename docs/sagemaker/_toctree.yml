@@ -1,14 +1,10 @@
+- local: index
+  title: Hugging Face on Amazon SageMaker
 - local: getting-started
   title: Get started
-
-- local: main
-  title: Hugging Face on Amazon SageMaker
-
 - local: train
   title: Run training on Amazon SageMaker
-
 - local: inference
   title: Deploy models to Amazon SageMaker
-
 - local: reference
   title: Reference

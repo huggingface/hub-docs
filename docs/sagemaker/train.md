@@ -1,8 +1,4 @@
----
-title: Run training on Amazon SageMaker
----
-
-<h1>Run training on Amazon SageMaker</h1>
+# Run training on Amazon SageMaker
 
 <iframe width="700" height="394" src="https://www.youtube.com/embed/ok3hetb42gU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
