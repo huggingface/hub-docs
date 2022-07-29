@@ -59,7 +59,7 @@
 			const spanEl = document.createElement("span");
 			spanEl.contentEditable = "true";
 			spanEl.className = classNamesInput;
-			spanEl.innerText = copiedTxt;
+			spanEl.textContent = copiedTxt;
 			range.insertNode(spanEl);
 		}
 		window.getSelection().collapseToEnd();
