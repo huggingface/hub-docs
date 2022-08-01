@@ -4,7 +4,7 @@
 
 The Hugging Face Hub hosts a [large number of community-curated datasets](https://huggingface.co/datasets) for a diverse range of tasks such as translation, automatic speech recognition, and image classification. Alongside the information contained in the [dataset card](./datasets-cards), many datasets, such as [GLUE](https://huggingface.co/datasets/glue), include a Dataset Preview to showcase the data.
 
-Each dataset is a [Git repository](./repositories), equipped with the necessary scripts to download the data and generate splits for training, evaluation, and testing. For information on how a dataset repository is structured, refer to the [Structure your repository guide](https://huggingface.co/docs/datasets/repository_structure). Following the supported repo structure will ensure thata your repository will have a preview on its dataset page on the Hub.
+Each dataset is a [Git repository](./repositories), equipped with the necessary scripts to download the data and generate splits for training, evaluation, and testing. For information on how a dataset repository is structured, refer to the [Structure your repository guide](https://huggingface.co/docs/datasets/repository_structure). Following the supported repo structure will ensure that your repository will have a preview on its dataset page on the Hub.
 
 ## Search for datasets
 
