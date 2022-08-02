@@ -90,29 +90,24 @@ The advantage of using custom refs (like `refs/pr/42` for instance) instead of b
 
 You can tweak your local **refspec** to fetch all Pull requests:
 
-1. Add this refspec to your .git/config:
+1. Fetch
 
 ```bash
-[remote "origin"]
-	fetch = +refs/pr/*:refs/remotes/origin/pr/*
+git fetch refs/pr/*:refs/remotes/origin/pr/*
 ```
 
-2. Fetch
+2. create a local branch tracking the ref
 
 ```bash
-git fetch
+git checkout pr/{PR_NUMBER}
+# for example: git checkout pr/42
 ```
 
-3. create a local branch tracking the ref
+3. IF you make local changes, to push to the PR ref:
 
 ```bash
-git checkout pr/:num
-```
-
-4. IF you make local changes, to push to the PR ref:
-
-```bash
-git push origin pr/42:refs/pr/42
+git push origin pr/{PR_NUMBER}:refs/pr/{PR_NUMBER}
+# for example: git push origin pr/42:refs/pr/42
 ```
 
 
