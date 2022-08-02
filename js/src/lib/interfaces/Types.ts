@@ -102,6 +102,10 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Intent Classification",
 			},
 			{
+				type: "binary-classification",
+				name: "Binary Classification",
+			},
+			{
 				type: "multi-class-classification",
 				name: "Multi Class Classification",
 			},
@@ -377,6 +381,10 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				type: "multi-class-image-classification",
 				name: "Multi Class Image Classification",
 			},
+			{
+				type: "binary-image-classification",
+				name: "Binary Image Classification",
+			},
 		],
 		modality: "cv",
 		color:    "blue",
@@ -458,6 +466,10 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 			{
 				type: "tabular-multi-label-classification",
 				name: "Tabular Multi Label Classification",
+			},
+			{
+				type: "tabular-binary-classification",
+				name: "Tabular Binary Classification",
 			},
 		],
 		color: "blue",
