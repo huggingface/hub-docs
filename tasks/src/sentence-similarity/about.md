@@ -93,3 +93,5 @@ Would you like to learn more about Sentence Transformers and Sentence Similarity
 
 - [Sentence Transformers Documentation](https://www.sbert.net/)
 - [Sentence Transformers in the Hub](https://huggingface.co/blog/sentence-transformers-in-the-hub)
+- [Building a Playlist Generator with Sentence Transformers](https://huggingface.co/blog/playlist-generator)
+- [Getting Started With Embeddings](https://huggingface.co/blog/getting-started-with-embeddings)

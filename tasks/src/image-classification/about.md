@@ -25,6 +25,7 @@ clf("path_to_a_cat_image")
 ## Useful Resources
 
 - [Fine-Tune ViT for Image Classification with 🤗Transformers](https://huggingface.co/blog/fine-tune-vit)
+- [Computer Vision in Hugging Face - CV Study Group](https://www.youtube.com/watch?v=oL-xmufhZM8)
 
 ### Creating your own image classifier in just a few minutes
 
