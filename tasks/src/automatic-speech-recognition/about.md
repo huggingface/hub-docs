@@ -46,3 +46,4 @@ These events help democratize ASR for all languages, including low-resource lang
 ## Useful Resources
 - [Making automatic speech recognition work on large files with Wav2Vec2 in 🤗 Transformers](https://huggingface.co/blog/asr-chunking)
 - [Boosting Wav2Vec2 with n-grams in 🤗 Transformers](https://huggingface.co/blog/wav2vec2-with-ngram)
+- [ML for Audio Study Group - Intro to Audio and ASR Deep Dive](https://www.youtube.com/watch?v=D-MH6YjuIlE)

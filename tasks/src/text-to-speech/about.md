@@ -37,3 +37,6 @@ model = Text2Speech.from_pretrained("espnet/kan-bayashi_ljspeech_vits")
 
 speech, *_ = model("text to generate speech from")
 ```
+
+## Useful Resources
+- [ML for Audio Study Group - Text to Speech Deep Dive](https://www.youtube.com/watch?v=aLBedWj-5CQ)
