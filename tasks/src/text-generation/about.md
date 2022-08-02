@@ -79,7 +79,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Training CodeParrot 🦜 from Scratch](https://huggingface.co/blog/codeparrot)
 - [How to generate text: using different decoding methods for language generation with Transformers](https://huggingface.co/blog/how-to-generate)
 - [Guiding Text Generation with Constrained Beam Search in 🤗 Transformers](https://huggingface.co/blog/constrained-beam-search)
-- [Code generation with 🤗](https://huggingface.co/spaces/codeparrot/code-generation-models)
+- [Code generation with Hugging Face](https://huggingface.co/spaces/codeparrot/code-generation-models)
 - [🌸 Introducing The World's Largest Open Multilingual Language Model: BLOOM 🌸](https://huggingface.co/blog/bloom)
 - [The Technology Behind BLOOM Training](https://huggingface.co/blog/bloom-megatron-deepspeed)
 - [Faster Text Generation with TensorFlow and XLA](https://huggingface.co/blog/tf-xla-generate)
