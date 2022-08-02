@@ -30,3 +30,6 @@ model("path_to_cat_image")
 #  'score': 0.917},
 #...]
 ```
+
+# Useful Resources
+- [Walkthrough of Computer Vision Ecosystem in Hugging Face - CV Study Group](https://www.youtube.com/watch?v=oL-xmufhZM8)
