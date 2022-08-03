@@ -35,23 +35,41 @@ metrics:
 ---
 ```
 
-You can also specify the supported frameworks in the model card metadata section:
+The metadata that you add to the model card enables certain interactions on the Hub. For example:
+* Allow users to filter and discover models at https://huggingface.co/models.
+* If you choose a license using the keywords listed in the right column of [this table](./repositories-licenses), the license will be displayed on the model page.
+* Adding datasets to the metadata will add a message reading `Datasets used to train:` to your model card and link the relevant datasets, if they're available on the Hub.
+
+Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages and in the [`datasets`](https://github.com/huggingface/datasets) repository.
+
+See the detailed model card specification [here](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
+
+### Specifying a library
+
+You can also specify the supported libraries in the model card metadata section. Find more about our supported libraries [here](./models-libraries). The library can be specified with the following order of priority
+
+1. Specifying `library_name` in the model card (recommended)
+
+```yaml
+library_name: flair
+```
+
+2. Having a tag with the name of a library that is supported
 
 ```yaml
 tags:
 - flair
 ```
 
-Find more about our supported libraries [here](./models-libraries), and see the detailed model card specification [here](https://github.com/huggingface/hub-docs/blame/main/modelcard.md).
+If it's not specified, the Hub will try to automatically detect the library type. This approach is discouraged and repo creators should use the explicit license as much as possible.
 
-The metadata that you add to the model card enables certain interactions on the Hub. For example:
-* The tags that you add to the metadata allow users to filter and discover models at https://huggingface.co/models.
-* If you choose a license using the keywords listed in the right column of [this table](#list-of-license-identifiers), the license will be displayed on the model page.
-* Adding datasets to the metadata will add a message reading `Datasets used to train:` to your model card and link the relevant datasets, if they're available on the Hub.
+1. By looking into the presence of files such as `*.nemo` or `*saved_model.pb*`, the Hub can determine if a model is from NeMo or Keras. 
+2. If nothing is detected and there is a `config.json` file, it's assumed the library is `transformers`.
 
-Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages and in the [`datasets`](https://github.com/huggingface/datasets) repository.
 
-You can even specify your **model's eval results** in a structured way, which will allow the Hub to parse, display, and even link them to Papers With Code leaderboards. See how to format this data [in the metadata spec](https://github.com/huggingface/hub-docs/blame/main/modelcard.md).
+### Evaluation Results
+
+You can even specify your **model's eval results** in a structured way, which will allow the Hub to parse, display, and even link them to Papers With Code leaderboards. See how to format this data [in the metadata spec](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
 
 Here is a partial example (omitting the eval results part):
 ```yaml
@@ -77,6 +95,7 @@ If a model includes valid eval results, they will be displayed like this:
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results-dark.png"/>
 </div>
 
+
 ### CO<sub>2</sub> Emissions
 
 The model card is also a great place to show information about the CO<sub>2</sub> impact of your model. Visit our [guide on tracking and reporting CO<sub>2</sub> emissions](./models-cards-co2) to learn more.
@@ -89,7 +108,7 @@ Each model page lists all the model's tags in the page header, below the model n
 
 ### Can I write LaTeX in my model card?
 
-Yes! We use the [KaTeX](https://katex.org/) math typesetting library to render math formulas server-side before parsing the Markdown.
+Yes! The Hub uses the [KaTeX](https://katex.org/) math typesetting library to render math formulas server-side before parsing the Markdown.
 
 You have to use the following delimiters:
 - `$$ ... $$` for display mode
