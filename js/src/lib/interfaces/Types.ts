@@ -561,8 +561,8 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Visual Question Answering",
 			},
 		],
-		modality:     "multimodal",
-		color:        "red",
+		modality: "multimodal",
+		color:    "red",
 	},
 	"zero-shot-image-classification": {
 		name:         "Zero-Shot Image Classification",
@@ -671,7 +671,7 @@ export interface ModelData {
 	widgetData?: WidgetInputSample[] | undefined;
 	/**
 	 * Parameters that will be used by the widget when calling Inference API
-	 * https://api-inference.huggingface.co/docs/python/html/detailed_parameters.html
+	 * https://huggingface.co/docs/api-inference/detailed_parameters
 	 *
 	 * can be set in the model card metadata (under `inference/parameters`)
 	 * Example:
