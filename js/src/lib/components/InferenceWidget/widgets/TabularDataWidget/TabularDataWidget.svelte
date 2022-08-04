@@ -55,6 +55,8 @@
 			highlighted = highlightOutput(output, lastColIndex);
 			scrollTableToRight();
 		} else {
+			delete strucuredData.Prediction;
+			highlighted = {};
 			if (highlightErrorKey) {
 				highlighted[highlightErrorKey] =
 					"bg-red-100 border-red-100 dark:bg-red-800 dark:border-red-800";
