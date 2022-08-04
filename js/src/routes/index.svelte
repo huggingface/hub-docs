@@ -5,6 +5,10 @@
 
 	const models: ModelData[] = [
 		{
+			id: "skops/hf_hub_example-bdc26c1f-7e82-42eb-9657-0318315f2df0",
+			pipeline_tag: "tabular-classification",
+		},
+		{
 			id: "dandelin/vilt-b32-finetuned-vqa",
 			pipeline_tag: "visual-question-answering",
 			widgetData: [
