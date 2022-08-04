@@ -1,6 +1,6 @@
 # Inference API
 
-Please refer to [Inference API Documentation](https://huggingface.co/docs/api-inference/index) for detailed information.
+Please refer to [Inference API Documentation](https://huggingface.co/docs/api-inference) for detailed information.
 
 
 ## What technology do you use to power the inference API?
