@@ -186,11 +186,11 @@
 	}
 
 	function previewInputSample(sample: Record<string, any>) {
-		table = sample.structuredData;
+		table = convertDataToTable(sample.structuredData);
 	}
 
 	function applyInputSample(sample: Record<string, any>) {
-		table = sample.structuredData;
+		table = convertDataToTable(sample.structuredData);
 		getOutput();
 	}
 </script>
