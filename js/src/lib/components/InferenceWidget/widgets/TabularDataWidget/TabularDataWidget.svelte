@@ -55,8 +55,6 @@
 			highlighted = highlightOutput(output, lastColIndex);
 			scrollTableToRight();
 		} else {
-			delete strucuredData.Prediction;
-			highlighted = {};
 			if (highlightErrorKey) {
 				highlighted[highlightErrorKey] =
 					"bg-red-100 border-red-100 dark:bg-red-800 dark:border-red-800";
@@ -100,15 +98,19 @@
 			}
 		}
 
+		// strip prediction column
+		let { Prediction, ...tableWithoutOutput } =
+			convertTableToData(tableWithOutput);
+
 		if (shouldUpdateUrl) {
 			updateUrl({
-				data: JSON.stringify(convertTableToData(table)),
+				data: JSON.stringify(tableWithoutOutput),
 			});
 		}
 
 		const requestBody = {
 			inputs: {
-				data: convertTableToData(table),
+				data: tableWithoutOutput,
 			},
 		};
 		addInferenceParameters(requestBody, model);
