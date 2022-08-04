@@ -215,6 +215,7 @@
 				{#if table.length > 1 || table[1]?.length > 1}
 					<WidgetTableInput
 						{highlighted}
+						{isLoading}
 						onChange={onChangeTable}
 						table={tableWithOutput}
 						canAddCol={false}

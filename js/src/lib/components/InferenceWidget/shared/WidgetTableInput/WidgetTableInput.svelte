@@ -10,6 +10,7 @@
 	export let table: (string | number)[][] = [[]];
 	export let canAddRow = true;
 	export let canAddCol = true;
+	export let isLoading = false;
 
 	let initialTable: (string | number)[][] = [[]];
 	let tableContainerEl: HTMLElement;
@@ -66,7 +67,7 @@
 			<tr>
 				{#each table[0] as header, x}
 					<th
-						contenteditable={canAddCol}
+						contenteditable={canAddCol && !isLoading}
 						class="border-2 border-gray-100 h-6"
 						on:keydown={onKeyDown}
 						on:input={(e) => editCell(e, [x, 0])}
@@ -83,7 +84,7 @@
 						<td
 							class={(highlighted[`${y}-${x}`] ?? "border-gray-100") +
 								" border-2 h-6"}
-							contenteditable
+							contenteditable={!isLoading}
 							on:keydown={onKeyDown}
 							on:input={(e) => editCell(e, [x, y + 1])}>{cell}</td
 						>
