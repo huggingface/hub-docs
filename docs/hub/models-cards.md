@@ -48,7 +48,7 @@ See the detailed model card specification [here](https://github.com/huggingface/
 
 You can also specify the supported libraries in the model card metadata section. Find more about our supported libraries [here](./models-libraries). The library can be specified with the following order of priority
 
-1. Specifying `library_name` in the model card (recommended)
+1. Specifying `library_name` in the model card (recommended if your model is not a `transformers` model)
 
 ```yaml
 library_name: flair
