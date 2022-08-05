@@ -33,3 +33,7 @@ If your app requires secret keys or tokens, don't hard-code them inside your app
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets-dark.png"/>
 </div>
+
+## Networking
+
+If your Space needs to make any network requests, you can make requests through the standard HTTP and HTTPS ports (80 and 443). Any requests going to other ports will be blocked.
