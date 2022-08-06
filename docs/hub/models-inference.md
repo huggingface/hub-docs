@@ -1,6 +1,6 @@
 # Inference API
 
-Please refer to [Accelerated Inference API Documentation](https://api-inference.huggingface.co/docs/python/html/index.html) for detailed information.
+Please refer to [Inference API Documentation](https://huggingface.co/docs/api-inference) for detailed information.
 
 
 ## What technology do you use to power the inference API?
@@ -26,7 +26,7 @@ If you are interested in accelerated inference, higher volumes of requests, or a
 
 ## How can I see my usage?
 
-You can head to the [Inference API dashboard](https://api-inference.huggingface.co/dashboard/). Learn more about it in the [Inference API documentation](https://api-inference.huggingface.co/docs/python/html/usage.html#api-usage-dashboard).
+You can head to the [Inference API dashboard](https://api-inference.huggingface.co/dashboard/). Learn more about it in the [Inference API documentation](https://huggingface.co/docs/api-inference/usage).
 
 ## Is there programmatic access to the Inference API?
 
