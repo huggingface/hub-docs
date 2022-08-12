@@ -248,6 +248,16 @@ widget:
   example_title: "Dog"
 ```
 
+### Visual Question Answering
+
+```yaml
+widget:
+- text: "What animal is it?"
+  src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg"
+- text: "Where is it?"
+  src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/palace.jpg"
+```
+
 ## Other
 
 ### Structured Data Classification

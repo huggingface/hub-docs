@@ -1,8 +1,4 @@
----
-title: Reference
----
-
-<h1>Reference</h1>
+# Reference
 
 ## Deep Learning Container
 

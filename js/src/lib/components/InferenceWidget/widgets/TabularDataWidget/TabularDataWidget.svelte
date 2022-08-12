@@ -100,15 +100,19 @@
 			}
 		}
 
+		// strip prediction column
+		let { Prediction, ...tableWithoutOutput } =
+			convertTableToData(tableWithOutput);
+
 		if (shouldUpdateUrl) {
 			updateUrl({
-				data: JSON.stringify(convertTableToData(table)),
+				data: JSON.stringify(tableWithoutOutput),
 			});
 		}
 
 		const requestBody = {
 			inputs: {
-				data: convertTableToData(table),
+				data: tableWithoutOutput,
 			},
 		};
 		addInferenceParameters(requestBody, model);
@@ -184,11 +188,11 @@
 	}
 
 	function previewInputSample(sample: Record<string, any>) {
-		table = sample.structuredData;
+		table = convertDataToTable(sample.structuredData);
 	}
 
 	function applyInputSample(sample: Record<string, any>) {
-		table = sample.structuredData;
+		table = convertDataToTable(sample.structuredData);
 		getOutput();
 	}
 </script>
@@ -211,6 +215,7 @@
 				{#if table.length > 1 || table[1]?.length > 1}
 					<WidgetTableInput
 						{highlighted}
+						{isLoading}
 						onChange={onChangeTable}
 						table={tableWithOutput}
 						canAddCol={false}

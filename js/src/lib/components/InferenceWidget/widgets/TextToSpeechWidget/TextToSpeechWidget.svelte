@@ -32,15 +32,16 @@
 	let output = "";
 	let outputJson = "";
 	let text = "";
+	let setTextAreaValue: (text: string) => void;
 
 	onMount(() => {
 		const [textParam] = getSearchParams(["text"]);
 		if (textParam) {
-			text = textParam;
+			setTextAreaValue(textParam);
 			getOutput();
 		} else {
 			const [demoText] = getDemoInputs(model, ["text"]);
-			text = (demoText as string) ?? "";
+			setTextAreaValue(demoText ?? "");
 			if (text && callApiOnMount) {
 				getOutput();
 			}
@@ -108,11 +109,11 @@
 	}
 
 	function previewInputSample(sample: Record<string, any>) {
-		text = sample.text;
+		setTextAreaValue(sample.text);
 	}
 
 	function applyInputSample(sample: Record<string, any>) {
-		text = sample.text;
+		setTextAreaValue(sample.text);
 		getOutput();
 	}
 </script>
@@ -131,7 +132,7 @@
 >
 	<svelte:fragment slot="top">
 		<form>
-			<WidgetTextarea bind:value={text} />
+			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} />
 			<WidgetSubmitBtn
 				classNames="mt-2"
 				{isLoading}

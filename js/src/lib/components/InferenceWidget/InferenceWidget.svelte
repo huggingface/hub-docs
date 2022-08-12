@@ -13,6 +13,7 @@
 	import ImageSegmentationWidget from "./widgets/ImageSegmentationWidget/ImageSegmentationWidget.svelte";
 	import ObjectDetectionWidget from "./widgets/ObjectDetectionWidget/ObjectDetectionWidget.svelte";
 	import QuestionAnsweringWidget from "./widgets/QuestionAnsweringWidget/QuestionAnsweringWidget.svelte";
+	import VisualQuestionAnsweringWidget from "./widgets/VisualQuestionAnsweringWidget/VisualQuestionAnsweringWidget.svelte";
 	import SentenceSimilarityWidget from "./widgets/SentenceSimilarityWidget/SentenceSimilarityWidget.svelte";
 	import SummarizationWidget from "./widgets/SummarizationWidget/SummarizationWidget.svelte";
 	import TableQuestionAnsweringWidget from "./widgets/TableQuestionAnsweringWidget/TableQuestionAnsweringWidget.svelte";
@@ -31,6 +32,7 @@
 	export let noTitle = false;
 	export let shouldUpdateUrl = false;
 	export let includeCredentials = false;
+	export let isLoggedIn = false;
 
 	// Note: text2text-generation, text-generation and translation all
 	// uses the TextGenerationWidget as they work almost the same.
@@ -62,6 +64,7 @@
 		translation: TextGenerationWidget,
 		"tabular-classification": TabularDataWidget,
 		"tabular-regression": TabularDataWidget,
+		"visual-question-answering": VisualQuestionAnsweringWidget,
 		"reinforcement-learning": ReinforcementLearningWidget,
 		"zero-shot-classification": ZeroShotClassificationWidget,
 	};
@@ -77,6 +80,7 @@
 		noTitle,
 		shouldUpdateUrl,
 		includeCredentials,
+		isLoggedIn,
 	}) as WidgetProps;
 </script>
 

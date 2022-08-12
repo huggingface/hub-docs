@@ -32,6 +32,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Course Chapter on Fine-tuning a Masked Language Model](https://huggingface.co/course/chapter7/3?fw=pt)
 - [Workshop on Pretraining Language Models and CodeParrot](https://www.youtube.com/watch?v=ExUR7w6xe94)
 - [BERT 101: State Of The Art NLP Model Explained](https://huggingface.co/blog/bert-101)
+- [Nyströmformer: Approximating self-attention in linear time and memory via the Nyström method](https://huggingface.co/blog/nystromformer)
 
 ### Notebooks
 
@@ -41,6 +42,6 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 
 ### Scripts for training
 
-- [PyTorch](https://github.com/huggingface/transformers/tree/master/examples/pytorch/language-modeling)
-- [Flax](https://github.com/huggingface/transformers/tree/master/examples/flax/language-modeling)
-- [TensorFlow](https://github.com/huggingface/transformers/tree/master/examples/tensorflow/language-modeling)
+- [PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling)
+- [Flax](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling)
+- [TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling)

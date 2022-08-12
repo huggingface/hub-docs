@@ -11,8 +11,10 @@
 
 	let containerSpanEl: HTMLSpanElement;
 	const typingEffectSpeedMs = 12;
-	const classNamesInput = "font-normal text-black dark:text-white";
-	const classNamesOutput = "text-blue-600 dark:text-blue-400";
+	const classNamesInput =
+		"whitespace-pre-wrap inline font-normal text-black dark:text-white";
+	const classNamesOutput =
+		"whitespace-pre-wrap inline text-blue-600 dark:text-blue-400";
 
 	export async function renderTypingEffect(outputTxt: string) {
 		const spanEl = document.createElement("span");
@@ -20,12 +22,16 @@
 		spanEl.className = classNamesOutput;
 		containerSpanEl?.appendChild(spanEl);
 		await tick();
-		for (const char of outputTxt) {
+		// fix Chrome bug that adds `<br>` els on contentedtiable el
+		containerSpanEl?.querySelectorAll("br").forEach((brEl) => brEl.remove());
+		await tick();
+		// split on whitespace or any other character to correctly render newlines \n
+		for (const char of outputTxt.split(/(\s|.)/g)) {
 			await delay(typingEffectSpeedMs);
 			spanEl.textContent += char;
 			moveCaretToEnd();
 		}
-		value += outputTxt;
+		updateInnerTextValue();
 	}
 
 	function moveCaretToEnd() {
@@ -53,28 +59,40 @@
 			const spanEl = document.createElement("span");
 			spanEl.contentEditable = "true";
 			spanEl.className = classNamesInput;
-			spanEl.innerText = copiedTxt;
+			spanEl.textContent = copiedTxt;
 			range.insertNode(spanEl);
 		}
 		window.getSelection().collapseToEnd();
-		value = containerSpanEl.textContent;
+		updateInnerTextValue();
+	}
+
+	function updateInnerTextValue() {
+		value = containerSpanEl?.textContent ?? "";
+	}
+
+	export function setValue(text: string) {
+		containerSpanEl.textContent = text;
+		updateInnerTextValue();
 	}
 </script>
 
 <WidgetLabel {label}>
 	<svelte:fragment slot="after">
+		<!-- `whitespace-pre-wrap inline-block` are needed to get correct newlines from `el.textContent` on Chrome -->
 		<span
 			class="{isLoading ? 'pointer-events-none' : ''} {label
 				? 'mt-1.5'
 				: ''} block overflow-auto resize-y py-2 px-3 w-full {size === 'small'
 				? 'min-h-[42px]'
-				: 'min-h-[144px]'} max-h-[500px] border border-gray-200 rounded-lg shadow-inner outline-none focus:ring focus:ring-blue-200 focus:shadow-inner dark:bg-gray-925"
+				: 'min-h-[144px]'} max-h-[500px] whitespace-pre-wrap inline-block border border-gray-200 rounded-lg shadow-inner outline-none focus:ring focus:ring-blue-200 focus:shadow-inner dark:bg-gray-925"
 			role="textbox"
 			contenteditable
 			style="--placeholder: '{placeholder}'"
-			bind:textContent={value}
+			spellcheck="false"
+			dir="auto"
 			bind:this={containerSpanEl}
 			on:paste|preventDefault={handlePaste}
+			on:input={updateInnerTextValue}
 		/>
 	</svelte:fragment>
 </WidgetLabel>

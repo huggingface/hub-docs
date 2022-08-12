@@ -5,6 +5,36 @@
 
 	const models: ModelData[] = [
 		{
+			id: "skops/hf_hub_example-bdc26c1f-7e82-42eb-9657-0318315f2df0",
+			pipeline_tag: "tabular-classification",
+		},
+		{
+			id: "dandelin/vilt-b32-finetuned-vqa",
+			pipeline_tag: "visual-question-answering",
+			widgetData: [
+				{
+					text: "What animal is it?",
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg",
+				},
+				{
+					text: "Where is it?",
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/palace.jpg",
+				},
+			],
+		},
+		{
+			id: "roberta-large-mnli",
+			pipeline_tag: "text-classification",
+			widgetData: [
+				{ text: "I like you. I love you.", group: "Contradiction" },
+				{ text: "This is good. This is bad.", group: "Contradiction" },
+				{ text: "He runs fast. He runs slow", group: "Contradiction" },
+				{ text: "I like you", group: "Neutral" },
+				{ text: "This is good", group: "Neutral" },
+				{ text: "He runs fast", group: "Neutral" },
+			],
+		},
+		{
 			id: "edbeeching/decision-transformer-gym-hopper-medium-replay",
 			pipeline_tag: "reinforcement-learning",
 		},
@@ -29,11 +59,6 @@
 			id: "sentence-transformers/distilbert-base-nli-stsb-mean-tokens",
 			pipeline_tag: "feature-extraction",
 			widgetData: [{ text: "Hello, world" }],
-		},
-		{
-			id: "roberta-large-mnli",
-			pipeline_tag: "text-classification",
-			widgetData: [{ text: "I like you. </s></s> I love you." }],
 		},
 		{
 			id: "dbmdz/bert-large-cased-finetuned-conll03-english",

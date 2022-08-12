@@ -45,3 +45,4 @@ model("cat.png")
 Would you like to learn more about image segmentation? Great! Here you can find some curated resources that you may find helpful!
 
 - [Fine-Tune a Semantic Segmentation Model with a Custom Dataset](https://huggingface.co/blog/fine-tune-segformer)
+- [Walkthrough of Computer Vision Ecosystem in Hugging Face - CV Study Group](https://www.youtube.com/watch?v=oL-xmufhZM8)

@@ -5,8 +5,10 @@
 	import { onMount } from "svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetShortcutRunLabel from "../../shared/WidgetShortcutRunLabel/WidgetShortcutRunLabel.svelte";
+	import WidgetBloomDecoding from "../../shared/WidgetBloomDecoding/WidgetBloomDecoding.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
+	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
 		addInferenceParameters,
@@ -23,6 +25,10 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let isLoggedIn: WidgetProps["includeCredentials"];
+
+	const isBloomLoginRequired =
+		isLoggedIn === false && model.id === "bigscience/bloom";
 
 	let computeTime = "";
 	let error: string = "";
@@ -37,6 +43,8 @@
 	let warning: string = "";
 	let renderTypingEffect: (outputTxt: string) => Promise<void>;
 	let inferenceTimer: any;
+	let setTextAreaValue: (text: string) => void;
+	let decodingStrategy: "sampling" | "greedy" = "sampling";
 
 	// Deactivate server caching for these two pipeline types
 	// (translation uses this widget too and still needs caching)
@@ -47,11 +55,11 @@
 	onMount(() => {
 		const [textParam] = getSearchParams(["text"]);
 		if (textParam) {
-			text = textParam;
+			setTextAreaValue(textParam);
 			getOutput();
 		} else {
 			const [demoText] = getDemoInputs(model, ["text"]);
-			text = (demoText as string) ?? "";
+			setTextAreaValue(demoText ?? "");
 			if (text && callApiOnMount) {
 				getOutput();
 			}
@@ -59,6 +67,10 @@
 	});
 
 	async function getOutput(withModelLoading = false) {
+		if (isBloomLoginRequired) {
+			return;
+		}
+
 		const trimmedValue = text.trim();
 
 		if (!trimmedValue) {
@@ -74,6 +86,23 @@
 
 		const requestBody = { inputs: trimmedValue };
 		addInferenceParameters(requestBody, model);
+
+		if (model.id === "bigscience/bloom") {
+			// see https://huggingface.co/docs/api-inference/detailed_parameters#text-generation-task
+			const parameters = {
+				seed: Date.now() % 100,
+				early_stopping: false,
+				length_penalty: 0.0,
+				max_new_tokens: 20,
+			};
+			if (decodingStrategy === "sampling") {
+				parameters["do_sample"] = true;
+				parameters["top_p"] = 0.9;
+			} else {
+				parameters["do_sample"] = false;
+			}
+			requestBody["parameters"] = parameters;
+		}
 
 		isLoading = true;
 		inferenceTimer.start();
@@ -103,7 +132,7 @@
 			outputJson = res.outputJson;
 			if (output.length === 0) {
 				warning = "No text was generated";
-			} else {
+			} else if (model?.pipeline_tag === "text-generation") {
 				const outputWithoutInput = output.slice(text.length);
 				inferenceTimer.stop();
 				await renderTypingEffect(outputWithoutInput);
@@ -137,12 +166,24 @@
 	}
 
 	function previewInputSample(sample: Record<string, any>) {
-		text = sample.text;
+		setTextAreaValue(sample.text);
 	}
 
 	function applyInputSample(sample: Record<string, any>) {
-		text = sample.text;
+		setTextAreaValue(sample.text);
 		getOutput();
+	}
+
+	function redirectLogin() {
+		window.location.href = `/login?next=${encodeURIComponent(
+			window.location.href
+		)}`;
+	}
+
+	function redirectJoin() {
+		window.location.href = `/join?next=${encodeURIComponent(
+			window.location.href
+		)}`;
 	}
 </script>
 
@@ -162,11 +203,19 @@
 		<form class="space-y-2">
 			<WidgetTextarea
 				bind:value={text}
+				bind:setValue={setTextAreaValue}
 				{isLoading}
 				size="big"
 				bind:renderTypingEffect
 			/>
-			<div class="flex items-center gap-x-2">
+			{#if model.id === "bigscience/bloom"}
+				<WidgetBloomDecoding bind:decodingStrategy />
+			{/if}
+			<div
+				class="flex items-center gap-x-2 {isBloomLoginRequired
+					? 'opacity-50 pointer-events-none'
+					: ''}"
+			>
 				<WidgetSubmitBtn
 					{isLoading}
 					onClick={() => {
@@ -181,6 +230,22 @@
 			{#if warning}
 				<div class="alert alert-warning mt-2">{warning}</div>
 			{/if}
+			{#if isBloomLoginRequired}
+				<div class="alert alert-warning mt-2">
+					Please <span class="underline cursor-pointer" on:click={redirectLogin}
+						>login</span
+					>
+					or
+					<span class="underline cursor-pointer" on:click={redirectJoin}
+						>register</span
+					> to try BLOOM 🌸
+				</div>
+			{/if}
 		</form>
+	</svelte:fragment>
+	<svelte:fragment slot="bottom">
+		{#if model?.pipeline_tag === "text2text-generation"}
+			<WidgetOutputText classNames="mt-4" {output} />
+		{/if}
 	</svelte:fragment>
 </WidgetWrapper>

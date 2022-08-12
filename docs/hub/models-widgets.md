@@ -71,7 +71,7 @@ widget:
   example_title: Custom Speech Sample 1
 ```
 
-We provide example inputs for some languages and most widget types in [the DefaultWidget.ts file](https://github.com/huggingface/hub-docs/blob/master/js/src/lib/interfaces/DefaultWidget.ts). If some examples are missing, we welcome PRs from the community to add them!
+We provide example inputs for some languages and most widget types in [the DefaultWidget.ts file](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/DefaultWidget.ts). If some examples are missing, we welcome PRs from the community to add them!
 
 
 ## What are all the possible task/widget types?
@@ -94,7 +94,7 @@ Here are some links to examples:
 
 ## How can I control my model's widget Inference API parameters?
 
-Generally, the Inference API for a model uses the default pipeline settings associated with each task. But if you'd like to change the pipeline's default settings and specify additional inference parameters, you can configure the parameters directly through the model card metadata. Refer [here](https://api-inference.huggingface.co/docs/python/html/detailed_parameters.html#) for some of the most commonly used parameters associated with each task.
+Generally, the Inference API for a model uses the default pipeline settings associated with each task. But if you'd like to change the pipeline's default settings and specify additional inference parameters, you can configure the parameters directly through the model card metadata. Refer [here](https://huggingface.co/docs/api-inference/detailed_parameters) for some of the most commonly used parameters associated with each task.
 
 For example, if you want to specify an aggregation strategy for a NER task in the widget:
 

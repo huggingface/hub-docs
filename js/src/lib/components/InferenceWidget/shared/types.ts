@@ -8,6 +8,7 @@ export interface WidgetProps {
 	noTitle: boolean;
 	shouldUpdateUrl: boolean;
 	includeCredentials: boolean;
+	isLoggedIn?: boolean;
 }
 
 
