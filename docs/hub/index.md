@@ -62,6 +62,8 @@ The Hugging Face Hub is a platform with over 60K models, 6K datasets, and 6K dem
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./organizations">Organizations</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./security">Security</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./api">Hub API Endpoints</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="https://huggingface.co/code-of-conduct">Contributor Code of Conduct</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="https://huggingface.co/content-guidelines">Content Guidelines</a>
 </div>
 
 </div>
@@ -73,6 +75,8 @@ We are helping the community work together towards the goal of advancing Machine
 The Hugging Face Hub is a platform with over 60K models, 6K datasets, and 6K demos in which people can easily collaborate in their ML workflows. The Hub works as a central place where anyone can share, explore, discover, and experiment with open-source Machine Learning.
 
 No single company, including the Tech Titans, will be able to “solve AI” by themselves – the only way we'll achieve this is by sharing knowledge and resources in a community-centric approach. We are building the largest open-source collection of models, datasets, demos and metrics on the Hugging Face Hub to democratize and advance ML for everyone 🚀.
+
+We encourage you to read the [Code of Conduct](https://huggingface.co/code-of-conduct) and the [Content Guidelines](https://huggingface.co/content-guidelines) to familiarize yourself with the values that we expect our community members to uphold 🤗. 
 
 ## What can you find on the Hub?
 
