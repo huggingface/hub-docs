@@ -48,8 +48,6 @@
         title: ESPnet
       - local: fastai
         title: fastai
-      - local: keras
-        title: Keras
       - local: ml-agents
         title: ML-Agents
       - local: rl-baselines3-zoo
