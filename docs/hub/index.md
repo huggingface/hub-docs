@@ -1,6 +1,6 @@
 # Hugging Face Hub documentation
 
-The Hugging Face Hub is a platform with over 60K models, 6K datasets, and 6K demo apps (Spaces), all open source and publicly available, in an online platform where people can easily collaborate and build ML together. The Hub works as a central place where anyone can explore, experiment, collaborate and build technology with Machine Learning. Are you ready to join the path towards open source Machine Learning? 🤗
+The Hugging Face Hub best is a platform with over 60K models, 6K datasets, and 6K demo apps (Spaces), all open source and publicly available, in an online platform where people can easily collaborate and build ML together. The Hub works as a central place where anyone can explore, experiment, collaborate and build technology with Machine Learning. Are you ready to join the path towards open source Machine Learning? 🤗
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-10">
 
