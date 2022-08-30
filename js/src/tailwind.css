@@ -194,22 +194,18 @@
 @tailwind utilities;
 
 @layer utilities {
-	@variants hover, focus {
-		.filter-none {
-			filter: none;
-		}
-		.filter-grayscale {
-			filter: grayscale(100%);
-		}
+	.filter-none {
+		filter: none;
 	}
-	@variants responsive {
-		.from-gray-50-to-white {
-			@apply from-gray-50 to-white dark:from-gray-925 dark:to-gray-950;
-		}
+	.filter-grayscale {
+		filter: grayscale(100%);
+	}
+	.from-gray-50-to-white {
+		@apply from-gray-50 to-white dark:from-gray-925 dark:to-gray-950;
+	}
 
-		.from-gray-100-to-white {
-			@apply from-gray-100 to-white dark:from-gray-925 dark:to-gray-925;
-		}
+	.from-gray-100-to-white {
+		@apply from-gray-100 to-white dark:from-gray-925 dark:to-gray-925;
 	}
 	.min-h-main {
 		min-height: calc(100vh - theme(spacing.16) - 1px);
