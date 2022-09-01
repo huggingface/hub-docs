@@ -8,9 +8,11 @@ import fillMask from "./fill-mask/data";
 import imageClassification from "./image-classification/data";
 import imageSegmentation from "./image-segmentation/data";
 import objectDetection from "./object-detection/data";
+import placeholder from "./placeholder/data";
 import questionAnswering from "./question-answering/data";
 import sentenceSimilarity from "./sentence-similarity/data";
 import summarization from "./summarization/data";
+import tabularClassification from "./tabular-classification/data"
 import textToSpeech from "./text-to-speech/data";
 import tokenClassification from "./token-classification/data";
 import translation from "./translation/data";
@@ -26,37 +28,37 @@ export const TASKS_DATA: Record<
 	"audio-classification":           audioClassification,
 	"audio-to-audio":                 audioToAudio,
 	"automatic-speech-recognition":   automaticSpeechRecognition,
-	"conversational":                 undefined,
-	"feature-extraction":             undefined,
+	"conversational":                 placeholder,
+	"feature-extraction":             placeholder,
 	"fill-mask":                      fillMask,
 	"image-classification":           imageClassification,
 	"image-segmentation":             imageSegmentation,
-	"image-to-image":                 undefined,
-	"image-to-text":                  undefined,
-	"multiple-choice":                undefined,
+	"image-to-image":                 placeholder,
+	"image-to-text":                  placeholder,
+	"multiple-choice":                placeholder,
 	"object-detection":               objectDetection,
-	"other":                          undefined,
+	"other":                          placeholder,
 	"question-answering":             questionAnswering,
-	"reinforcement-learning":         undefined,
+	"reinforcement-learning":         placeholder,
 	"sentence-similarity":            sentenceSimilarity,
 	"summarization":                  summarization,
-	"table-question-answering":       undefined,
-	"table-to-text":                  undefined,
-	"tabular-classification":         undefined,
-	"tabular-regression":             undefined,
-	"tabular-to-text":                undefined,
+	"table-question-answering":       placeholder,
+	"table-to-text":                  placeholder,
+	"tabular-classification":         tabularClassification,
+	"tabular-regression":             placeholder,
+	"tabular-to-text":                placeholder,
 	"text-classification":            textClassification,
 	"text-generation":                textGeneration,
-	"text-retrieval":                 undefined,
-	"text-to-image":                  undefined,
+	"text-retrieval":                 placeholder,
+	"text-to-image":                  placeholder,
 	"text-to-speech":                 textToSpeech,
-	"text2text-generation":           undefined,
-	"time-series-forecasting":        undefined,
+	"text2text-generation":           placeholder,
+	"time-series-forecasting":        placeholder,
 	"token-classification":           tokenClassification,
 	"translation":                    translation,
-	"unconditional-image-generation": undefined,
-	"visual-question-answering":      undefined,
-	"voice-activity-detection":       undefined,
-	"zero-shot-classification":       undefined,
-	"zero-shot-image-classification": undefined,
+	"unconditional-image-generation": placeholder,
+	"visual-question-answering":      placeholder,
+	"voice-activity-detection":       placeholder,
+	"zero-shot-classification":       placeholder,
+	"zero-shot-image-classification": placeholder,
 } as const;
