@@ -5,6 +5,10 @@
 
 	const models: ModelData[] = [
 		{
+			id: "microsoft/trocr-base-printed",
+			pipeline_tag: "image-to-text",
+		},
+		{
 			id: "skops/hf_hub_example-bdc26c1f-7e82-42eb-9657-0318315f2df0",
 			pipeline_tag: "tabular-classification",
 		},
