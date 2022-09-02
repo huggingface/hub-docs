@@ -16,6 +16,7 @@ export enum ModelLibrary {
 	"pyannote-audio"         = "pyannote.audio",
 	"sentence-transformers"  = "Sentence Transformers",
 	"sklearn"                = "Scikit-learn",
+	"skops"                  = "SKOPS",
 	"spacy"                  = "spaCy",
 	"speechbrain"            = "speechbrain",
 	"tensorflowtts"          = "TensorFlowTTS",
