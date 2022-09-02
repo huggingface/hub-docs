@@ -4,13 +4,13 @@
 
 ## Exploring Timm in the Hub
 
-You can find a number of `timm` models by filtering at the left of the [models page](https://huggingface.co/models?library=timm&sort=downloads).
+You can find a number of `timm` models using the filters on the left of the [models page](https://huggingface.co/models?library=timm&sort=downloads).
 
-All models on the Hub come up with useful feature:
+All models on the Hub come with several useful features:
 1. An automatically generated model card, which model authors can complete with [information about their model](./models-cards).
-2. Metadata tags that help for discoverability, allowing users to find the model when searching for `timm` models.
-3. An [interactive widget](./models-widgets) you can use to play out with the model directly in the browser
-4. An [Inference API](./models-inference) that allows users to make inference requests
+2. Metadata tags that help with discoverability, allowing users to find the model when searching for `timm` models.
+3. An [interactive widget](./models-widgets) you can use to play with the model directly in the browser.
+4. An [Inference API](./models-inference) that allows users to make inference requests.
 
 ## Using existing models
 
@@ -23,7 +23,7 @@ import timm
 model = timm.create_model("hf_hub:sgugger/resnet50d", pretrained=True)
 ```
 
-If you want to see how to load a specific model, you can click **Use in timm** and you will be given a working snippet that you can load it! 
+If you want to see how to load a specific model, you can click **Use in timm** and you will be given a working snippet to load it! 
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-timm_snippet1.png"/>
