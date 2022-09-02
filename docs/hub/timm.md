@@ -45,7 +45,7 @@ from PIL import Image
 from timm.data import resolve_data_config
 from timm.data.transforms_factory import create_transform
 
-# Load from hub 🔥
+# Load from Hub 🔥
 model = timm.create_model(
     'hf_hub:nateraw/resnet50-oxford-iiit-pet',
     pretrained=True
