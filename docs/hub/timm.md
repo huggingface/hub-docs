@@ -23,7 +23,7 @@ import timm
 model = timm.create_model("hf_hub:sgugger/resnet50d", pretrained=True)
 ```
 
-If you want to see how to load a specific model, you can click **Use in keras** and you will be given a working snippet that you can load it! 
+If you want to see how to load a specific model, you can click **Use in timm** and you will be given a working snippet that you can load it! 
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-timm_snippet1.png"/>
@@ -63,6 +63,10 @@ import timm
 # Build or load a model, e.g. timm's pretrained resnet18
 model = timm.create_model('resnet18', pretrained=True, num_classes=4)
 
+###########################
+# [Fine tune your model...]
+###########################
+
 # Push it to the 🤗 Hub
 timm.models.hub.push_to_hf_hub(
     model,
@@ -95,3 +99,8 @@ curl https://api-inference.huggingface.co/models/nateraw/timm-resnet50-beans \
 ```
 
 ## Additional resources (TODO)
+
+* timm (pytorch-image-models) [GitHub Repo](https://github.com/rwightman/pytorch-image-models).
+* timm [documentation](https://rwightman.github.io/pytorch-image-models/).
+* Additional documentation at [timmdocs](https://timm.fast.ai) by [Aman Arora](https://github.com/amaarora).
+* [Getting Started with PyTorch Image Models (timm): A Practitioner’s Guide](https://towardsdatascience.com/getting-started-with-pytorch-image-models-timm-a-practitioners-guide-4e77b4bf9055) by [Chris Hughes](https://github.com/Chris-hughes10).
