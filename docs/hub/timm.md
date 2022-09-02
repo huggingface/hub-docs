@@ -98,7 +98,7 @@ curl https://api-inference.huggingface.co/models/nateraw/timm-resnet50-beans \
 # [{"label":"angular_leaf_spot","score":0.9845947027206421},{"label":"bean_rust","score":0.01368315052241087},{"label":"healthy","score":0.001722085871733725}]
 ```
 
-## Additional resources (TODO)
+## Additional resources
 
 * timm (pytorch-image-models) [GitHub Repo](https://github.com/rwightman/pytorch-image-models).
 * timm [documentation](https://rwightman.github.io/pytorch-image-models/).
