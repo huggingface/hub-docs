@@ -2,8 +2,6 @@
 
 `timm`, also known as [pytorch-image-models](https://github.com/rwightman/pytorch-image-models), is an open-source collection of state-of-the-art PyTorch image models, pretrained weights, and utility scripts for training, inference, and validation.
 
-## Exploring Timm in the Hub
-
 You can find a number of `timm` models using the filters on the left of the [models page](https://huggingface.co/models?library=timm&sort=downloads).
 
 All models on the Hub come with several useful features:
@@ -12,15 +10,15 @@ All models on the Hub come with several useful features:
 3. An [interactive widget](./models-widgets) you can use to play with the model directly in the browser.
 4. An [Inference API](./models-inference) that allows users to make inference requests.
 
-## Using existing models
+## Using existing models from the Hub
 
 Any `timm` model from the Hugging Face Hub can be loaded with a single line of code as long as you have `timm` installed! Once you've selected a model from the Hub, pass the model's ID prefixed with `hf_hub:` to `timm`'s `create_model` method to download and instantiate the model. 
 
 ```py
 import timm
 
-# Loading https://huggingface.co/sgugger/resnet50d
-model = timm.create_model("hf_hub:sgugger/resnet50d", pretrained=True)
+# Loading https://huggingface.co/timm/eca_nfnet_l0
+model = timm.create_model("hf_hub:timm/eca_nfnet_l0", pretrained=True)
 ```
 
 If you want to see how to load a specific model, you can click **Use in timm** and you will be given a working snippet to load it! 
@@ -49,7 +47,10 @@ from timm.data.transforms_factory import create_transform
 model = timm.create_model(
     'hf_hub:nateraw/resnet50-oxford-iiit-pet',
     pretrained=True
-).eval()
+)
+
+# Set model to eval mode for inference
+model.eval()
 
 # Create Transform
 transform = create_transform(**resolve_data_config(model.pretrained_cfg, model=model))
