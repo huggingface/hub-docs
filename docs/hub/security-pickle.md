@@ -1,6 +1,22 @@
 # Pickle Scanning
 
-## What is a pickle ?
+## TL;DR
+
+Pickle is a widely used serialization format in ML. Most notably, it is the default format for PyTorch model weights.
+
+There are dangerous arbitrary code execution attacks that can be perpetrated when you load a pickle file.
+
+- [What is a pickle?](#what-is-a-pickle-)
+- [Why is it dangerous?](#why-is-it-dangerous-)
+- [Mitigation Strategies](#mitigation-strategies)
+  * [Load files from users and organizations you trust](#load-files-from-users-and-organizations-you-trust)
+  * [Load model weights from TF or Flax](#load-model-weights-from-tf-or-flax)
+  * [Hub’s Security Scanner](#hub-s-security-scanner)
+    + [What we have now](#what-we-have-now)
+    + [Potential solutions](#potential-solutions)
+- [Further Reading](#further-reading)
+
+## What is a pickle?
 
 From the [official docs](https://docs.python.org/3/library/pickle.html) :
 
@@ -13,7 +29,7 @@ We call a pickle the binary file that was generated while pickling.
 
 At its core, the pickle is basically a stack of instructions or opcodes. As you probably have guessed, it’s not human readable. The opcodes are generated when pickling and read sequentially at unpickling. Based on the opcode, a given action is executed.
 
-Here’s a small example :
+Here’s a small example:
 
 ```python
 import pickle
@@ -31,7 +47,7 @@ with open('payload.pkl', 'rb') as f:
     pickletools.dis(f)
 ```
 
-When you run this, it will create a pickle file and print the following instructions in your terminal :
+When you run this, it will create a pickle file and print the following instructions in your terminal:
 
 ```python
     0: \x80 PROTO      4
@@ -44,13 +60,13 @@ highest protocol among opcodes = 4
 
 Don’t worry too much about the instructions for now, just know that the [pickletools](https://docs.python.org/3/library/pickletools.html) module is very useful for analyzing pickles. It allows you to read the instructions in the file ***without*** executing any code.
 
-Pickle is not simply a serialization protocol, it allows more flexibility by giving the ability to users to run python code at de-serialization time. Doesn’t sound good, does it ?
+Pickle is not simply a serialization protocol, it allows more flexibility by giving the ability to users to run python code at de-serialization time. Doesn’t sound good, does it?
 
-## Why is it dangerous ?
+## Why is it dangerous?
 
-As we’ve stated above, de-serializing pickle means that code can be executed. But this comes with certain limitations : you can only reference functions and classes from the top level module ; you cannot embed them in the pickle file itself.
+As we’ve stated above, de-serializing pickle means that code can be executed. But this comes with certain limitations: you can only reference functions and classes from the top level module; you cannot embed them in the pickle file itself.
 
-Back to the drawing board :
+Back to the drawing board:
 
 ```python
 import pickle
@@ -66,9 +82,9 @@ with open('payload.pkl', 'wb') as f:
     pickle.dump(d, f)
 ```
 
-When we run this script we get the `payload.pkl` again. When we check the file’s contents :
+When we run this script we get the `payload.pkl` again. When we check the file’s contents:
 
-```python
+```bash
 
 # cat payload.pkl
 __main__Data)}important_stuff42sb.%
@@ -82,9 +98,9 @@ __main__Data)}important_stuff42sb.%
 └────────┴─────────────────────────┴─────────────────────────┴────────┴────────┘
 ```
 
-We can see that there isn’t much in there, a few opcodes and the associated data. You might be thinking, so what’s the problem with pickle ?
+We can see that there isn’t much in there, a few opcodes and the associated data. You might be thinking, so what’s the problem with pickle?
 
-Let’s try something else :
+Let’s try something else:
 
 ```python
 from fickling.pickle import Pickled
@@ -105,21 +121,21 @@ with open('payload.pkl', 'wb') as f:
 # innocently unpickle and get your friend's data
 with open('payload.pkl', 'rb') as f:
     data = pickle.load(f)
-		print(data)
+    print(data)
 ```
 
-Here we’re using the [fickling](https://github.com/trailofbits/fickling) library for simplicity. It allows us to add pickle instructions to execute code contained in a string via the `exec` function. This is how you circumvent the fact that you cannot define functions or classes in your pickles : you run exec on python code saved as a string.
+Here we’re using the [fickling](https://github.com/trailofbits/fickling) library for simplicity. It allows us to add pickle instructions to execute code contained in a string via the `exec` function. This is how you circumvent the fact that you cannot define functions or classes in your pickles: you run exec on python code saved as a string.
 
-When you run this, it creates a `payload.pkl` and prints the following :
+When you run this, it creates a `payload.pkl` and prints the following:
 
-```python
+```
 you've been pwned !
 my friend needs to know this
 ```
 
-If we check the contents of the pickle file we get :
+If we check the contents of the pickle file, we get:
 
-```python
+```bash
 # cat payload.pkl
 c__builtin__
 exec
@@ -137,7 +153,7 @@ tR my friend needs to know this.%
 └────────┴─────────────────────────┴─────────────────────────┴────────┴────────┘
 ```
 
-Basically, this is what’s happening when you unpickle :
+Basically, this is what’s happening when you unpickle:
 
 ```python
 # ...
@@ -154,7 +170,7 @@ The instructions that pose a threat are `STACK_GLOBAL`, `GLOBAL` and `REDUCE`.
 
 `REDUCE` is what tells the unpickler to execute the function with the provided arguments and `*GLOBAL` instructions are telling the unpickler to `import` stuff.
 
-To sum up, pickle is dangerous because :
+To sum up, pickle is dangerous because:
 
 - when importing a python module, arbitrary code can be executed
 - you can import builtin functions like `eval` or `exec`, which can be used to execute arbitrary code
@@ -166,32 +182,44 @@ This is why it is stated in most docs using pickle, do not unpickle data from un
 
 ***Don’t use pickle***
 
-Sound advice Luc, but pickle is used profusely and isn’t going anywhere soon : finding a new format everyone is happy with and initiating the change will take some time.
+Sound advice Luc, but pickle is used profusely and isn’t going anywhere soon: finding a new format everyone is happy with and initiating the change will take some time.
 
-So what can we do for now ?
+So what can we do for now?
 
-### Commit signing
+### Load files from users and organizations you trust
 
-On the Hub, you have the ability to [sign your commits with a GPG key](./security-gpg). This does **not** guarantee that your file is not infected, but it does guarantee the origin of the file.
+On the Hub, you have the ability to [sign your commits with a GPG key](./security-gpg). This does **not** guarantee that your file is safe, but it does guarantee the origin of the file.
 
-If you know and trust user A and the commit that includes the file on the hub is signed by user A’s GPG key, it’s pretty safe to assume that you can trust the file.
+If you know and trust user A and the commit that includes the file on the Hub is signed by user A’s GPG key, it’s pretty safe to assume that you can trust the file.
+
+### Load model weights from TF or Flax
+
+TensorFlow and Flax checkpoints are not affected, and can be loaded within PyTorch architectures using the `from_tf` and `from_flax` kwargs for the `from_pretrained` method to circumvent this issue.
+
+E.g.:
+
+```python
+from transformers import AutoModel
+
+model = AutoModel.from_pretrained("bert-base-cased", from_flax=True)
+```
 
 ### Hub’s Security Scanner
 
 #### What we have now
 
-We have created a security scanner that scans every file pushed to the hub and runs security checks. At the time of writing, it runs two types of scans :
+We have created a security scanner that scans every file pushed to the Hub and runs security checks. At the time of writing, it runs two types of scans:
 
 - ClamAV scans
 - Pickle Import scans
 
-For ClamAV scans, files are run through the open-source antivirus [ClamAV](https://www.clamav.net). While this covers a good amount of dangerous files, it doesn’t cover the aforementioned pickle exploits.
+For ClamAV scans, files are run through the open-source antivirus [ClamAV](https://www.clamav.net). While this covers a good amount of dangerous files, it doesn’t cover pickle exploits.
 
 We have implemented a Pickle Import scan, which extracts the list of imports referenced in a pickle file. Every time you upload a `pytorch_model.bin`, this scan is run.
 
 We get this data thanks to `[pickletools.genops](https://docs.python.org/3/library/pickletools.html#pickletools.genops)` which allows us to read the file without executing potentially dangerous code.
 
-Note that this is what allows to know if, when unpickling a file, it will `REDUCE` on a potentially dangerous function that was imported by `*GLOBAL`.
+Note that this is what allows to know if, when unpickling a file, it will `REDUCE` on a potentially dangerous function that was imported by `*GLOBAL` (more on that below).
 
 #### Potential solutions
 
@@ -203,7 +231,7 @@ The current solution I propose is creating a file resembling a `.gitignore` but 
 
 This file would be a whitelist of imports that would make a `pytorch_model.bin` file flagged as dangerous if there are imports not included in the whitelist.
 
-One could imagine having a regex-ish format where you could allow all numpy submodules for instance via a simple line like : `numpy.*`.
+One could imagine having a regex-ish format where you could allow all numpy submodules for instance via a simple line like: `numpy.*`.
 
 ## Further Reading
 
