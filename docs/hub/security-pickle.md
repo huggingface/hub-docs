@@ -219,7 +219,7 @@ We have implemented a Pickle Import scan, which extracts the list of imports ref
 
 We get this data thanks to `[pickletools.genops](https://docs.python.org/3/library/pickletools.html#pickletools.genops)` which allows us to read the file without executing potentially dangerous code.
 
-Note that this is what allows to know if, when unpickling a file, it will `REDUCE` on a potentially dangerous function that was imported by `*GLOBAL` (more on that below).
+Note that this is what allows to know if, when unpickling a file, it will `REDUCE` on a potentially dangerous function that was imported by `*GLOBAL`.
 
 #### Potential solutions
 
@@ -234,6 +234,8 @@ This file would be a whitelist of imports that would make a `pytorch_model.bin` 
 One could imagine having a regex-ish format where you could allow all numpy submodules for instance via a simple line like: `numpy.*`.
 
 ## Further Reading
+
+[Safe way of loading only weights from *.pt file by default](https://github.com/pytorch/pytorch/issues/52181)
 
 [pickle - Python object serialization - Python 3.10.6 documentation](https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled)
 
