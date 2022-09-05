@@ -21,8 +21,7 @@ There are dangerous arbitrary code execution attacks that can be perpetrated whe
 
 From the [official docs](https://docs.python.org/3/library/pickle.html) :
 
-> The `[pickle](https://docs.python.org/3/library/pickle.html#module-pickle)` module implements binary protocols for serializing and de-serializing a Python object structure.
-> 
+> The `pickle` module implements binary protocols for serializing and de-serializing a Python object structure.
 
 What this means is that pickle is a serializing protocol, something you use to efficiently share data amongst parties.
 
