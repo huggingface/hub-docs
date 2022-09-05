@@ -154,6 +154,8 @@
       title: Signing commits with GPG
     - local: security-malware
       title: Malware Scanning
+    - local: security-pickle
+      title: Pickle Scanning
   - local: api
     title: Hub API Endpoints
     sections:
