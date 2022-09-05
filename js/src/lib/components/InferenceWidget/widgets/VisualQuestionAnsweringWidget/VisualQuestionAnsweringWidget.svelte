@@ -6,10 +6,16 @@
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
-	import { addInferenceParameters, getResponse } from "../../shared/helpers";
+	import {
+		addInferenceParameters,
+		getDemoInputs,
+		getResponse,
+	} from "../../shared/helpers";
+	import { onMount } from "svelte";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
+	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -141,6 +147,18 @@
 			error = res.error;
 		}
 	}
+
+	onMount(async () => {
+		const [text, src] = getDemoInputs(model, ["text", "src"]);
+		if (callApiOnMount && text && src) {
+			question = text;
+			imgSrc = src;
+			const res = await fetch(imgSrc);
+			const blob = await res.blob();
+			await updateImageBase64(blob);
+			getOutput();
+		}
+	});
 </script>
 
 <WidgetWrapper

@@ -6,10 +6,16 @@
 	import WidgetRecorder from "../../shared/WidgetRecorder/WidgetRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, getBlobFromUrl } from "../../shared/helpers";
+	import {
+		getResponse,
+		getBlobFromUrl,
+		getDemoInputs,
+	} from "../../shared/helpers";
+	import { onMount } from "svelte";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
+	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -144,6 +150,16 @@
 		output = [];
 		outputJson = "";
 	}
+
+	onMount(() => {
+		const [example_title, src] = getDemoInputs(model, ["example_title", "src"]);
+		if (callApiOnMount && src) {
+			filename = example_title ?? "";
+			fileUrl = src;
+			selectedSampleUrl = src;
+			getOutput();
+		}
+	});
 </script>
 
 <WidgetWrapper
