@@ -15,7 +15,7 @@
 
 Pickle is a widely used serialization format in ML. Most notably, it is the default format for PyTorch model weights.
 
-There are dangerous arbitrary code execution attacks that can be perpetrated when you load a pickle file.
+There are dangerous arbitrary code execution attacks that can be perpetrated when you load a pickle file. We suggest loading models from users and organizations you trust, relying on signed commits, and/or loading models from TF or Jax formats with the `from_tf=True` auto-conversion mechanism. We will also alleviate this issue shortly by displaying/"vetting" the list of imports in any pickled file, directly on the Hub. 
 
 ## What is a pickle?
 
