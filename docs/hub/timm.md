@@ -1,4 +1,4 @@
-# Using Timm at Hugging Face
+# Using timm at Hugging Face
 
 `timm`, also known as [pytorch-image-models](https://github.com/rwightman/pytorch-image-models), is an open-source collection of state-of-the-art PyTorch image models, pretrained weights, and utility scripts for training, inference, and validation.
 
