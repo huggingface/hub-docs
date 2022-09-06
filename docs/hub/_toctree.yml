@@ -66,6 +66,8 @@
         title: Stanza
       - local: tensorboard
         title: TensorBoard
+      - local: timm
+        title: timm
   - local: models-widgets
     title: Model Widgets
     sections:
