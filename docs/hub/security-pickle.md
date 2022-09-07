@@ -216,9 +216,11 @@ model = AutoModel.from_pretrained("bert-base-cased", from_flax=True)
 - [Avro](https://avro.apache.org/)
 - [safetensors](https://github.com/Narsil/safetensors/)
 
+We might consider rolling our own serialization format (like `safetensors` above) in the future!
+
 ### Improve `torch.load/save`
 
-[Safe way of loading only weights from *.pt file by default](https://github.com/pytorch/pytorch/issues/52181)
+There's an open discussion in progress at PyTorch on having a [Safe way of loading only weights from *.pt file by default](https://github.com/pytorch/pytorch/issues/52181) – please chime in there!
 
 ### Hub’s Security Scanner
 
