@@ -138,13 +138,15 @@
 		outputJson = "";
 	}
 
-	onMount(async () => {
-		const [src] = getDemoInputs(model, ["src"]);
-		if (callApiOnMount && src) {
-			imgSrc = src;
-			const blob = await getBlobFromUrl(imgSrc);
-			getOutput(blob);
-		}
+	onMount(() => {
+		async () => {
+			const [src] = getDemoInputs(model, ["src"]);
+			if (callApiOnMount && src) {
+				imgSrc = src;
+				const blob = await getBlobFromUrl(imgSrc);
+				getOutput(blob);
+			}
+		};
 	});
 </script>
 
