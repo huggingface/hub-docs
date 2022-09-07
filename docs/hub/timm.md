@@ -12,13 +12,13 @@ All models on the Hub come with several useful features:
 
 ## Using existing models from the Hub
 
-Any `timm` model from the Hugging Face Hub can be loaded with a single line of code as long as you have `timm` installed! Once you've selected a model from the Hub, pass the model's ID prefixed with `hf_hub:` to `timm`'s `create_model` method to download and instantiate the model. 
+Any `timm` model from the Hugging Face Hub can be loaded with a single line of code as long as you have `timm` installed! Once you've selected a model from the Hub, pass the model's ID prefixed with `hf-hub:` to `timm`'s `create_model` method to download and instantiate the model. 
 
 ```py
 import timm
 
 # Loading https://huggingface.co/timm/eca_nfnet_l0
-model = timm.create_model("hf_hub:timm/eca_nfnet_l0", pretrained=True)
+model = timm.create_model("hf-hub:timm/eca_nfnet_l0", pretrained=True)
 ```
 
 If you want to see how to load a specific model, you can click **Use in timm** and you will be given a working snippet to load it! 
@@ -45,7 +45,7 @@ from timm.data.transforms_factory import create_transform
 
 # Load from Hub 🔥
 model = timm.create_model(
-    'hf_hub:nateraw/resnet50-oxford-iiit-pet',
+    'hf-hub:nateraw/resnet50-oxford-iiit-pet',
     pretrained=True
 )
 
@@ -133,7 +133,7 @@ timm.models.hub.push_to_hf_hub(
 
 # Load your model from the Hub
 model_reloaded = timm.create_model(
-    'hf_hub:<your-username>/resnet18-random-classifier',
+    'hf-hub:<your-username>/resnet18-random-classifier',
     pretrained=True
 )
 ```
