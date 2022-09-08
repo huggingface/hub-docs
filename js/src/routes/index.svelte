@@ -21,6 +21,20 @@
 					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/palace.jpg",
 				},
 			],
+        },
+        {
+			id: "impira/layoutlm-document-qa",
+			pipeline_tag: "document-question-answering",
+			widgetData: [
+				{
+					text: "What animal is it?",
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg",
+				},
+				{
+					text: "Where is it?",
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/palace.jpg",
+				},
+			],
 		},
 		{
 			id: "roberta-large-mnli",
