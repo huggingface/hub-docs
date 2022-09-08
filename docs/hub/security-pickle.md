@@ -6,6 +6,8 @@
 - [Mitigation Strategies](#mitigation-strategies)
   * [Load files from users and organizations you trust](#load-files-from-users-and-organizations-you-trust)
   * [Load model weights from TF or Flax](#load-model-weights-from-tf-or-flax)
+  * [Use your own serialization format](#use-your-own-serialization-format)
+  * [Improve `torch.load/save`](#improve-torchloadsave)
   * [Hub’s Security Scanner](#hubs-security-scanner)
     + [What we have now](#what-we-have-now)
     + [Potential solutions](#potential-solutions)
@@ -204,6 +206,22 @@ from transformers import AutoModel
 model = AutoModel.from_pretrained("bert-base-cased", from_flax=True)
 ```
 
+### Use your own serialization format
+
+- [HDF5](https://github.com/HDFGroup/hdf5)
+- [SavedModel](https://www.tensorflow.org/guide/saved_model)
+- [MsgPack](https://msgpack.org/index.html)
+- [Protobuf](https://developers.google.com/protocol-buffers)
+- [Cap'n'proto](https://capnproto.org/)
+- [Avro](https://avro.apache.org/)
+- [safetensors](https://github.com/Narsil/safetensors/)
+
+We might consider rolling our own serialization format (like `safetensors` above) in the future!
+
+### Improve `torch.load/save`
+
+There's an open discussion in progress at PyTorch on having a [Safe way of loading only weights from *.pt file by default](https://github.com/pytorch/pytorch/issues/52181) – please chime in there!
+
 ### Hub’s Security Scanner
 
 #### What we have now
@@ -235,7 +253,6 @@ One could imagine having a regex-ish format where you could allow all numpy subm
 
 ## Further Reading
 
-[Safe way of loading only weights from *.pt file by default](https://github.com/pytorch/pytorch/issues/52181)
 
 [pickle - Python object serialization - Python 3.10.6 documentation](https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled)
 
@@ -253,4 +270,4 @@ One could imagine having a regex-ish format where you could allow all numpy subm
 
 [CTFtime.org / Balsn CTF 2019 / pyshv1 / Writeup](https://ctftime.org/writeup/16723)
 
-[https://github.com/moreati/pickle-fuzz](https://github.com/moreati/pickle-fuzz)
+[Rehabilitating Python's pickle module](https://github.com/moreati/pickle-fuzz)
