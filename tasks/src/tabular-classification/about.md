@@ -8,7 +8,7 @@ Tabular classification models can be used in predicting customer churn in teleco
 
 ## Model Hosting and Inference
 
-You can use [Skops](https://github.com/skops-dev/skops) library to host `tabular-classification` models on Hugging Face Hub. With `Skops`, you can automatically generate configuration for your model that includes the information needed to enable the widget on Hugging Face Hub and requirements needed to infer the model. `Skops` also generates a model card including hyperparameter table and plot of the model, that you can later add information programmatically. You can push the model and the related files using Skops. The repository contains configuration file, model card and the model. You can pull a `scikit-learn` `tabular-classification` model like below:
+You can use the [Skops](https://github.com/skops-dev/skops) library to host `scikit-learn` models on Hugging Face Hub. With `Skops`, you can automatically generate a configuration for your model that includes the information needed to enable the widget on Hugging Face Hub and the requirements needed to infer the model. `Skops` also generates a model card including a hyperparameter table and plot of the model, that you can later add information programmatically. You can push the model and the related files using Skops. The repository contains the configuration file, model card and the model. You can pull a `scikit-learn` `tabular-classification` model like below:
 
 
 ```python
