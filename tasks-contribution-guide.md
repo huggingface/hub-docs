@@ -1,6 +1,6 @@
 ## Contributing to Tasks
 
-Welcome to contribution guide to [Hugging Face Tasks](https://huggingface.co/tasks) and thank you for considering to help us out! 
+Welcome to the contribution guide to [Hugging Face Tasks](https://huggingface.co/tasks) and thank you for considering to help us out! 
 
 ### Philosophy behind Tasks
 
