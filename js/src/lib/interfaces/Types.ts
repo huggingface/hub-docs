@@ -564,6 +564,18 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		modality: "multimodal",
 		color:    "red",
 	},
+	"document-question-answering": {
+		name:     "Document Question Answering",
+		subtasks: [
+			{
+				type: "document-question-answering",
+				name: "Document Question Answering",
+			},
+		],
+		modality: "multimodal",
+		color:    "blue",
+		hideInDatasets: true,
+	},
 	"zero-shot-image-classification": {
 		name:         "Zero-Shot Image Classification",
 		modality:     "cv",
@@ -622,6 +634,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"reinforcement-learning",
 	"voice-activity-detection",
 	"time-series-forecasting",
+  "document-question-answering",
 ];
 
 export type WidgetInputSample = Record<string | "example_title" | "group", string>;
