@@ -1,6 +1,7 @@
 ## About the Task
 
-Tabular classification is the task of predicting a variable that can take limited number of values. This type of variable is called a categorical variable. There's three types of categorical variables:
+Tabular classification is the task of predicting a variable that can take limited number of values. This type of variable is called a categorical variable. Tabular classification models take a table of data as input and output a category. For example, input can be attributes of a customer (balance of the customer, their education status, or more) and output can be whether customer churns or not.
+There's three types of categorical variables:
 
 - Binary variables: Variables that can take two values, like yes or no, open or closed. The task of predicting binary variables is called binary classification.
 - Ordinal variables: Variables that have a ranking relationship among them, e.g. good, insignificant and bad product reviews. The task of predicting ordinal variables is called ordinal classification.

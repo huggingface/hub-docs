@@ -46,7 +46,7 @@ const taskData: TaskData = {
 			id:          "scikit-learn/cancer-prediction-trees",
 		},
 	],
-	summary:      "Tabular classification is the task of classifying a target category based on a set of categories (groups).",
+	summary:      "Tabular classification is the task of classifying a target category (a group) based on set of attributes.",
 	widgetModels: [""],
     youtubeId:""
 };
