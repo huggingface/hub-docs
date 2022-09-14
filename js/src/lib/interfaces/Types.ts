@@ -634,7 +634,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"reinforcement-learning",
 	"voice-activity-detection",
 	"time-series-forecasting",
-  "document-question-answering",
+	"document-question-answering",
 ];
 
 export type WidgetInputSample = Record<string | "example_title" | "group", string>;
