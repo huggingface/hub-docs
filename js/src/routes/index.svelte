@@ -4,6 +4,20 @@
 	import type { ModelData } from "../lib/interfaces/Types";
 
 	const models: ModelData[] = [
+        {
+			id: "impira/layoutlm-document-qa",
+			pipeline_tag: "document-question-answering",
+			widgetData: [
+				{
+					text: "What animal is it?",
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg",
+				},
+				{
+					text: "Where is it?",
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/palace.jpg",
+				},
+			],
+		},
 		{
 			id: "skops/hf_hub_example-bdc26c1f-7e82-42eb-9657-0318315f2df0",
 			pipeline_tag: "tabular-classification",
@@ -22,20 +36,6 @@
 				},
 			],
         },
-        {
-			id: "impira/layoutlm-document-qa",
-			pipeline_tag: "document-question-answering",
-			widgetData: [
-				{
-					text: "What animal is it?",
-					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg",
-				},
-				{
-					text: "Where is it?",
-					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/palace.jpg",
-				},
-			],
-		},
 		{
 			id: "roberta-large-mnli",
 			pipeline_tag: "text-classification",
