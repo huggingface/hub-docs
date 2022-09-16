@@ -13,12 +13,12 @@
 			pipeline_tag: "document-question-answering",
 			widgetData: [
 				{
-					text: "What animal is it?",
-					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg",
+					text: "What is the invoice number?",
+					src: "https://huggingface.co/spaces/impira/docquery/resolve/2359223c1837a7587402bda0f2643382a6eefeab/invoice.png",
 				},
 				{
-					text: "Where is it?",
-					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/palace.jpg",
+					text: "What is the purchase amount??",
+					src: "https://huggingface.co/spaces/impira/docquery/resolve/2359223c1837a7587402bda0f2643382a6eefeab/contract.jpeg",
 				},
 			],
 		},
