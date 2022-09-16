@@ -24,7 +24,6 @@
 	import TabularDataWidget from "./widgets/TabularDataWidget/TabularDataWidget.svelte";
 	import ReinforcementLearningWidget from "./widgets/ReinforcementLearningWidget/ReinforcementLearningWidget.svelte";
 	import ZeroShotClassificationWidget from "./widgets/ZeroShowClassificationWidget/ZeroShotClassificationWidget.svelte";
-	import DocumentQuestionAnsweringWidget from "./widgets/DocumentQuestionAnsweringWidget/DocumentQuestionAnsweringWidget.svelte";
 
 	export let apiToken: WidgetProps["apiToken"] = undefined;
 	export let callApiOnMount = false;
@@ -68,7 +67,7 @@
 		"visual-question-answering": VisualQuestionAnsweringWidget,
 		"reinforcement-learning": ReinforcementLearningWidget,
 		"zero-shot-classification": ZeroShotClassificationWidget,
-		"document-question-answering": DocumentQuestionAnsweringWidget,
+		"document-question-answering": VisualQuestionAnsweringWidget,
 	};
 
 	$: widgetComponent = WIDGET_COMPONENTS[model.pipeline_tag ?? ""];
