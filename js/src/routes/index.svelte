@@ -5,7 +5,7 @@
 
 	const models: ModelData[] = [
 		{
-			id: "https://huggingface.co/ydshieh/vit-gpt2-coco-en",
+			id: "ydshieh/vit-gpt2-coco-en",
 			pipeline_tag: "image-to-text",
 		},
 		{
