@@ -248,6 +248,16 @@ widget:
   example_title: "Dog"
 ```
 
+### Document Question Answering
+
+```yaml
+widget:
+- text: "What is the invoice number?"
+  src: "https://huggingface.co/spaces/impira/docquery/resolve/2359223c1837a7587402bda0f2643382a6eefeab/invoice.png"
+- text: "What is the purchase amount?"
+  src: "https://huggingface.co/spaces/impira/docquery/resolve/2359223c1837a7587402bda0f2643382a6eefeab/contract.jpeg"
+```
+
 ### Visual Question Answering
 
 ```yaml
