@@ -4,7 +4,7 @@
 	import type { ModelData } from "../lib/interfaces/Types";
 
 	const models: ModelData[] = [
-        {
+		{
 			id: "impira/layoutlm-document-qa",
 			pipeline_tag: "document-question-answering",
 			widgetData: [
@@ -35,7 +35,7 @@
 					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/palace.jpg",
 				},
 			],
-        },
+		},
 		{
 			id: "roberta-large-mnli",
 			pipeline_tag: "text-classification",

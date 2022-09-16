@@ -68,7 +68,7 @@
 		"visual-question-answering": VisualQuestionAnsweringWidget,
 		"reinforcement-learning": ReinforcementLearningWidget,
 		"zero-shot-classification": ZeroShotClassificationWidget,
-        "document-question-answering": DocumentQuestionAnsweringWidget,
+		"document-question-answering": DocumentQuestionAnsweringWidget,
 	};
 
 	$: widgetComponent = WIDGET_COMPONENTS[model.pipeline_tag ?? ""];
