@@ -10,7 +10,7 @@ There's three types of categorical variables:
 ## Use Cases
 
 ### Fraud Detection
-Tabular classification models can be used in detecting fraudulent credit card transactions, where features can be amount of the transaction and account balance, and target to predict is whether the transaction is fraudulent or not. This is an example to binary classification.
+Tabular classification models can be used in detecting fraudulent credit card transactions, where the features could be the amount of the transaction and the account balance, and the target to predict could be whether the transaction is fraudulent or not. This is an example of binary classification.
 
 ### Churn Prediction
 Tabular classification models can be used in predicting customer churn in telecommunication. An example dataset for the task is hosted [here](https://huggingface.co/datasets/scikit-learn/churn-prediction).
