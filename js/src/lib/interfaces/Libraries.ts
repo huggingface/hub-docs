@@ -217,6 +217,13 @@ const timm = (model: ModelData) =>
 
 model = timm.create_model("hf_hub:${model.id}", pretrained=True)`;
 
+const skops = (model: ModelData) =>
+	`from skops.hub_utils import download
+from skops.io import load
+download("${model.id}", "path_to_folder")
+model = load({MODEL FILENAME}.skops)
+)`;
+
 const sklearn = (model: ModelData) =>
 	`from huggingface_hub import hf_hub_download
 import joblib
