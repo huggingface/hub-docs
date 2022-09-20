@@ -10,7 +10,7 @@ Fullname | License identifier (to use in model card)
 --- | ---
 OpenRAIL license family	| `openrail`
 BigScience OpenRAIL-M	| `bigscience-openrail-m`
-CreativeML Open RAIL-M	| `creativeml-openrail-m`
+CreativeML OpenRAIL-M	| `creativeml-openrail-m`
 BigScience BLOOM RAIL 1.0	| `bigscience-bloom-rail-1.0`
 Academic Free License v3.0	| `afl-3.0`
 Apache license 2.0	| `apache-2.0`
