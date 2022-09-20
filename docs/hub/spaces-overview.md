@@ -36,4 +36,4 @@ If your app requires secret keys or tokens, don't hard-code them inside your app
 
 ## Networking
 
-If your Space needs to make any network requests, you can make requests through the standard HTTP and HTTPS ports (80 and 443). Any requests going to other ports will be blocked.
+If your Space needs to make any network requests, you can make requests through the standard HTTP and HTTPS ports (80 and 443) along with port 8080. Any requests going to other ports will be blocked.
