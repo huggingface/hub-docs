@@ -25,7 +25,7 @@
   - local: model-cards
     title: Model Cards
     sections:
-    - local: models-cards-co2
+    - local: model-cards-co2
       title: Carbon Emissions
     - local: models-gated
       title: Gated models
