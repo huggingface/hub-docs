@@ -219,10 +219,11 @@ model = timm.create_model("hf_hub:${model.id}", pretrained=True)`;
 
 const sklearn = (model: ModelData) => {
 	if (model.tags?.includes("skops")) {
+		const skopsmodelFile = model.config?.sklearn?.model?.file;
 		return `from skops.hub_utils import download
 from skops.io import load
 download("${model.id}", "path_to_folder")
-	model = load({MODEL FILENAME}.skops))`;
+	model = load(${skopsmodelFile})`;
 	}
 	else
 	{
