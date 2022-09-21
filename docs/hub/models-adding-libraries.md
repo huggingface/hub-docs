@@ -147,7 +147,7 @@ If you need to upload more than one file, look at the [utilities offered by the 
 
 Once again, if you check your Hugging Face account, you should see the file inside your repository.
 
-Lastly, it is important to add a model card so users understand how to use your model. See [here](./models-cards) for more details about how to create a model card.
+Lastly, it is important to add a model card so users understand how to use your model. See [here](./model-cards) for more details about how to create a model card.
 
 ## Set up the Inference API
 

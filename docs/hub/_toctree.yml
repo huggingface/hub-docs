@@ -22,7 +22,7 @@
   sections:
   - local: models-the-hub
     title: The Model Hub
-  - local: models-cards
+  - local: model-cards
     title: Model Cards
     sections:
     - local: models-cards-co2

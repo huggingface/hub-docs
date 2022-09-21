@@ -5,7 +5,7 @@
 You can find a number of `timm` models using the filters on the left of the [models page](https://huggingface.co/models?library=timm&sort=downloads).
 
 All models on the Hub come with several useful features:
-1. An automatically generated model card, which model authors can complete with [information about their model](./models-cards).
+1. An automatically generated model card, which model authors can complete with [information about their model](./model-cards).
 2. Metadata tags help users discover the relevant `timm` models.
 3. An [interactive widget](./models-widgets) you can use to play with the model directly in the browser.
 4. An [Inference API](./models-inference) that allows users to make inference requests.
