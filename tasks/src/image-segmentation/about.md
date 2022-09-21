@@ -10,7 +10,7 @@ Image Segmentation models are used in cameras to erase the background of certain
 
 ### Medical Imaging
 
-Image Segmentation models are used to distinguish organs or tissues, improving medical imaging workflows. Models are used to segment dental instances, analyze X-Ray scans or even segment cells for pathological diagnosis. This [dataset](<[https://github.com/v7labs/covid-19-xray-dataset](https://github.com/v7labs/covid-19-xray-dataset)>) contains images of lungs of healthy patients and patients with COVID-19 segmented with masks. Another [segmentation dataset](<[https://ivdm3seg.weebly.com/data.html](https://ivdm3seg.weebly.com/data.html)>) contains segmented MRI data of the lower spine to analyze the effect of spaceflight simulation.
+Image Segmentation models are used to distinguish organs or tissues, improving medical imaging workflows. Models are used to segment dental instances, analyze X-Ray scans or even segment cells for pathological diagnosis. This [dataset](https://github.com/v7labs/covid-19-xray-dataset) contains images of lungs of healthy patients and patients with COVID-19 segmented with masks. Another [segmentation dataset](https://ivdm3seg.weebly.com/data.html) contains segmented MRI data of the lower spine to analyze the effect of spaceflight simulation.
 
 ## Task Variants
 
