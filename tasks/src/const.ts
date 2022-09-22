@@ -7,7 +7,7 @@ import type { PipelineType } from "../../js/src/lib/interfaces/Types";
 export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof ModelLibrary>> = {
 	"audio-classification":           ["speechbrain", "transformers"],
 	"audio-to-audio":                 ["asteroid", "speechbrain"],
-	"automatic-speech-recognition":   ["espnet", "speechbrain", "transformers"],
+	"automatic-speech-recognition":   ["espnet", "nemo", "speechbrain", "transformers"],
 	"conversational":                 ["transformers"],
 	"document-question-answering":    ["transformers"],
 	"feature-extraction":             ["sentence-transformers", "transformers"],
