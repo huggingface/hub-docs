@@ -89,7 +89,7 @@ You can tweak your local **refspec** to fetch all Pull requests:
 1. Fetch
 
 ```bash
-git fetch refs/pr/*:refs/remotes/origin/pr/*
+git fetch origin refs/pr/*:refs/remotes/origin/pr/*
 ```
 
 2. create a local branch tracking the ref
