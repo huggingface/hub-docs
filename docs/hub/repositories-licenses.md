@@ -8,10 +8,13 @@ A full list of the available licenses is available here:
 
 Fullname | License identifier (to use in model card)
 --- | ---
+OpenRAIL license family	| `openrail`
+BigScience OpenRAIL-M	| `bigscience-openrail-m`
+CreativeML OpenRAIL-M	| `creativeml-openrail-m`
+BigScience BLOOM RAIL 1.0	| `bigscience-bloom-rail-1.0`
 Academic Free License v3.0	| `afl-3.0`
 Apache license 2.0	| `apache-2.0`
 Artistic license 2.0	| `artistic-2.0`
-BigScience BLOOM RAIL 1.0	| `bigscience-bloom-rail-1.0`
 Boost Software License 1.0	| `bsl-1.0`
 BSD license family	| `bsd`
 BSD 2-clause "Simplified" license	| `bsd-2-clause`
@@ -26,10 +29,12 @@ Creative Commons Attribution 3.0	| `cc-by-3.0`
 Creative Commons Attribution 4.0	| `cc-by-4.0`
 Creative Commons Attribution Share Alike 3.0	| `cc-by-sa-3.0`
 Creative Commons Attribution Share Alike 4.0	| `cc-by-sa-4.0`
+Creative Commons Attribution Non Commercial 2.0	| `cc-by-nc-2.0`
 Creative Commons Attribution Non Commercial 3.0	| `cc-by-nc-3.0`
 Creative Commons Attribution Non Commercial 4.0	| `cc-by-nc-4.0`
 Creative Commons Attribution No Derivatives 4.0	| `cc-by-nd-4.0`
 Creative Commons Attribution Non Commercial No Derivatives 4.0	| `cc-by-nc-nd-4.0`
+Creative Commons Attribution Non Commercial Share Alike 2.0	| `cc-by-nc-sa-2.0`
 Creative Commons Attribution Non Commercial Share Alike 3.0	| `cc-by-nc-sa-3.0`
 Creative Commons Attribution Non Commercial Share Alike 4.0	| `cc-by-nc-sa-4.0`
 Do What The F*ck You Want To Public License	| `wtfpl`

@@ -6,7 +6,7 @@ Integrating the Hub with your library provides many benefits, including:
 
 - Free model hosting for you and your users.
 - Built-in file versioning - even for huge files - made possible by [Git-LFS](https://git-lfs.github.com/).
-- All public models are powered by the [Inference API](https://api-inference.huggingface.co/docs/python/html/index.html).
+- All public models are powered by the [Inference API](https://huggingface.co/docs/api-inference/index).
 - In-browser widgets allow users to interact with your hosted models directly.
 
 This tutorial will help you integrate the Hub into your library so your users can benefit from all the features offered by the Hub.

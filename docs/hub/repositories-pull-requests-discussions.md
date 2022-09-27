@@ -71,10 +71,6 @@ git push origin pr/42:refs/pr/42
 
 Draft mode is the default status when opening a new Pull request from scratch in "Advanced mode". With this status, other contributors know that your Pull request is under work and it cannot be merged. When your branch is ready, just hit the "Publish" button to change the status of the Pull request to "Open". Note that once published you cannot go back to draft mode. 
 
-## Programmatic access
-
-Coming soon in https://github.com/huggingface/huggingface_hub 🔥🔥
-
 # Pull requests advanced usage
 
 ## Where in the git repo are changes stored?
@@ -90,29 +86,24 @@ The advantage of using custom refs (like `refs/pr/42` for instance) instead of b
 
 You can tweak your local **refspec** to fetch all Pull requests:
 
-1. Add this refspec to your .git/config:
+1. Fetch
 
 ```bash
-[remote "origin"]
-	fetch = +refs/pr/*:refs/remotes/origin/pr/*
+git fetch origin refs/pr/*:refs/remotes/origin/pr/*
 ```
 
-2. Fetch
+2. create a local branch tracking the ref
 
 ```bash
-git fetch
+git checkout pr/{PR_NUMBER}
+# for example: git checkout pr/42
 ```
 
-3. create a local branch tracking the ref
+3. IF you make local changes, to push to the PR ref:
 
 ```bash
-git checkout pr/:num
-```
-
-4. IF you make local changes, to push to the PR ref:
-
-```bash
-git push origin pr/42:refs/pr/42
+git push origin pr/{PR_NUMBER}:refs/pr/{PR_NUMBER}
+# for example: git push origin pr/42:refs/pr/42
 ```
 
 

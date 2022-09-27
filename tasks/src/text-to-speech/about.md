@@ -12,7 +12,7 @@ TTS models are widely used in airport and public transportation announcement sys
 
 ## Inference
 
-The Hub contains over [100 TTS models](https://huggingface.co/models?pipeline_tag=text-to-speech&sort=downloads) that you can use right away by trying out the widgets directly in the browser or calling the models as a service using the Accelerated Inference API. Here is a simple code snippet to do exactly this:
+The Hub contains over [100 TTS models](https://huggingface.co/models?pipeline_tag=text-to-speech&sort=downloads) that you can use right away by trying out the widgets directly in the browser or calling the models as a service using the Inference API. Here is a simple code snippet to do exactly this:
 
 ```python
 import json
@@ -37,3 +37,6 @@ model = Text2Speech.from_pretrained("espnet/kan-bayashi_ljspeech_vits")
 
 speech, *_ = model("text to generate speech from")
 ```
+
+## Useful Resources
+- [ML for Audio Study Group - Text to Speech Deep Dive](https://www.youtube.com/watch?v=aLBedWj-5CQ)

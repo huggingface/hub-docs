@@ -10,6 +10,7 @@
 	export let table: (string | number)[][] = [[]];
 	export let canAddRow = true;
 	export let canAddCol = true;
+	export let isLoading = false;
 
 	let initialTable: (string | number)[][] = [[]];
 	let tableContainerEl: HTMLElement;
