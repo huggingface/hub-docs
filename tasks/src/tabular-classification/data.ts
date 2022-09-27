@@ -15,7 +15,7 @@ const taskData: TaskData = {
 		},
 	],
 	demo: {
-		inputs: [],
+		inputs:  [{ table: [[], []], type: "tabular" }],
 		outputs: [],
 	},
 	id:        "tabular-classification",
@@ -48,7 +48,7 @@ const taskData: TaskData = {
 	],
 	summary:      "Tabular classification is the task of classifying a target category (a group) based on set of attributes.",
 	widgetModels: [""],
-    youtubeId:""
+	youtubeId:    "",
 };
 
 export default taskData;
