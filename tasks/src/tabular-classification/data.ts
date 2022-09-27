@@ -15,7 +15,17 @@ const taskData: TaskData = {
 		},
 	],
 	demo: {
-		inputs:  [{ table: [[], []], type: "tabular" }],
+		inputs: [
+			{
+				table: [
+					["Title 1", "Title 2", "Title 3", "Title 4", "Title 5"],
+					["Entry", "Entry", "Entry", "Entry", "Entry"],
+					["Entry", "Entry", "Entry", "Entry", "Entry"],
+					["Entry", "Entry", "Entry", "Entry", "Entry"],
+				],
+				type: "tabular",
+			},
+		],
 		outputs: [],
 	},
 	id:        "tabular-classification",
@@ -38,7 +48,6 @@ const taskData: TaskData = {
 			description: "",
 			id:          "f1",
 		},
-
 	],
 	models: [
 		{
@@ -46,7 +55,8 @@ const taskData: TaskData = {
 			id:          "scikit-learn/cancer-prediction-trees",
 		},
 	],
-	summary:      "Tabular classification is the task of classifying a target category (a group) based on set of attributes.",
+	summary:
+		"Tabular classification is the task of classifying a target category (a group) based on set of attributes.",
 	widgetModels: [""],
 	youtubeId:    "",
 };
