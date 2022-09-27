@@ -222,7 +222,7 @@
 						getOutput();
 					}}
 				/>
-				<WidgetShortcutRunLabel {isLoading} {getOutput} />
+				<WidgetShortcutRunLabel {isLoading} />
 				<div class="ml-auto self-start">
 					<WidgetTimer bind:this={inferenceTimer} />
 				</div>
