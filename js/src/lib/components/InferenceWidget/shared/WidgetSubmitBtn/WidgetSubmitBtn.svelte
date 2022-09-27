@@ -5,8 +5,21 @@
 	export let isDisabled = false;
 	export let isLoading: boolean;
 	export let label = "Compute";
-	export let onClick: (e: MouseEvent) => void;
+	export let onClick: () => void;
+
+	function onKeyDown(e: KeyboardEvent) {
+		if (isLoading) {
+			return;
+		}
+		// run inference on cmd+Enter
+		if (e.code === "Enter" && (e.metaKey || e.ctrlKey)) {
+			e.preventDefault();
+			onClick();
+		}
+	}
 </script>
+
+<svelte:window on:keydown={onKeyDown} />
 
 <button
 	class="btn-widget w-24 h-10 px-5 {classNames}"
