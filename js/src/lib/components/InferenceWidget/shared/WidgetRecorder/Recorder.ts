@@ -48,6 +48,11 @@ export default class Recorder {
 			this.stream.getTracks().forEach((t) => t.stop()); // Stop stream.
 		}
 
+		// handle stopRecording gets called before this.mediaRecorder is initialized
+		if(!this.mediaRecorder){
+			return new Blob(this.recordedBlobs);
+		}
+
 		await delay(30);
 		// Wait for the last blob in handleDataAvailable.
 		// Alternative: hook into `onstop` event.

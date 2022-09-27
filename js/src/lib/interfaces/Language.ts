@@ -1213,5 +1213,15 @@ export const LANGUAGES: Record<string, Language> = {
 		code: "fon",
 		name: "Fon",
 	},
+	ady: {
+		code: "ady",
+		name: "Circassian Adyghean",
+		nativeName: "Адыгэбзэ Къэбэрдей",
+	},
+	kbd: {
+		code: "kbd",
+		name: "Circassian Kabardian",
+		nativeName: "Адыгэбзэ КIахэ",
+	},
 };
 

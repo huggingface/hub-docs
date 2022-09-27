@@ -5,6 +5,28 @@
 
 	const models: ModelData[] = [
 		{
+			id: "ydshieh/vit-gpt2-coco-en",
+			pipeline_tag: "image-to-text",
+		},
+		{
+			id: "impira/layoutlm-document-qa",
+			pipeline_tag: "document-question-answering",
+			widgetData: [
+				{
+					text: "What is the invoice number?",
+					src: "https://huggingface.co/spaces/impira/docquery/resolve/2359223c1837a7587402bda0f2643382a6eefeab/invoice.png",
+				},
+				{
+					text: "What is the purchase amount?",
+					src: "https://huggingface.co/spaces/impira/docquery/resolve/2359223c1837a7587402bda0f2643382a6eefeab/contract.jpeg",
+				},
+			],
+		},
+		{
+			id: "skops/hf_hub_example-bdc26c1f-7e82-42eb-9657-0318315f2df0",
+			pipeline_tag: "tabular-classification",
+		},
+		{
 			id: "dandelin/vilt-b32-finetuned-vqa",
 			pipeline_tag: "visual-question-answering",
 			widgetData: [

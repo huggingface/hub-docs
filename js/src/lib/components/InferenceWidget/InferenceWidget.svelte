@@ -10,6 +10,7 @@
 	import FeatureExtractionWidget from "./widgets/FeatureExtractionWidget/FeatureExtractionWidget.svelte";
 	import FillMaskWidget from "./widgets/FillMaskWidget/FillMaskWidget.svelte";
 	import ImageClassificationWidget from "./widgets/ImageClassificationWidget/ImageClassificationWidget.svelte";
+	import ImageToTextWidget from "./widgets/ImageToTextWidget/ImageToTextWidget.svelte";
 	import ImageSegmentationWidget from "./widgets/ImageSegmentationWidget/ImageSegmentationWidget.svelte";
 	import ObjectDetectionWidget from "./widgets/ObjectDetectionWidget/ObjectDetectionWidget.svelte";
 	import QuestionAnsweringWidget from "./widgets/QuestionAnsweringWidget/QuestionAnsweringWidget.svelte";
@@ -49,6 +50,7 @@
 		"feature-extraction": FeatureExtractionWidget,
 		"fill-mask": FillMaskWidget,
 		"image-classification": ImageClassificationWidget,
+		"image-to-text": ImageToTextWidget,
 		"image-segmentation": ImageSegmentationWidget,
 		"object-detection": ObjectDetectionWidget,
 		"question-answering": QuestionAnsweringWidget,
@@ -67,6 +69,7 @@
 		"visual-question-answering": VisualQuestionAnsweringWidget,
 		"reinforcement-learning": ReinforcementLearningWidget,
 		"zero-shot-classification": ZeroShotClassificationWidget,
+		"document-question-answering": VisualQuestionAnsweringWidget,
 	};
 
 	$: widgetComponent = WIDGET_COMPONENTS[model.pipeline_tag ?? ""];

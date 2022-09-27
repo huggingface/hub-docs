@@ -6,8 +6,8 @@ import { TASKS_MODEL_LIBRARIES } from "../const";
 const taskData: TaskData = {
 	datasets: [
 		{
-			description: "Widely used benchmark dataset for multiple Vision tasks.",
-			id:          "merve/coco2017",
+			description: "Scene segmentation dataset.",
+			id:          "scene_parse_150",
 		},
 	],
 	demo: {

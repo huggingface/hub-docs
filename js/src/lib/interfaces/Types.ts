@@ -561,14 +561,25 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Visual Question Answering",
 			},
 		],
-		modality:     "multimodal",
-		color:        "red",
+		modality: "multimodal",
+		color:    "red",
+	},
+	"document-question-answering": {
+		name:     "Document Question Answering",
+		subtasks: [
+			{
+				type: "document-question-answering",
+				name: "Document Question Answering",
+			},
+		],
+		modality: "multimodal",
+		color:    "blue",
+		hideInDatasets: true,
 	},
 	"zero-shot-image-classification": {
 		name:         "Zero-Shot Image Classification",
 		modality:     "cv",
 		color:        "yellow",
-		hideInModels: true,
 	},
 	"other": {
 		name:         "Other",
@@ -622,6 +633,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"reinforcement-learning",
 	"voice-activity-detection",
 	"time-series-forecasting",
+	"document-question-answering",
 ];
 
 export type WidgetInputSample = Record<string | "example_title" | "group", string>;
@@ -671,7 +683,7 @@ export interface ModelData {
 	widgetData?: WidgetInputSample[] | undefined;
 	/**
 	 * Parameters that will be used by the widget when calling Inference API
-	 * https://api-inference.huggingface.co/docs/python/html/detailed_parameters.html
+	 * https://huggingface.co/docs/api-inference/detailed_parameters
 	 *
 	 * can be set in the model card metadata (under `inference/parameters`)
 	 * Example:

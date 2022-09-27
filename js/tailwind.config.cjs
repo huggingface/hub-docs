@@ -2,8 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-	mode: "jit",
-	purge: [
+	content: [
 		"./src/**/*.{html,js,svelte,ts}",
 	],
 	darkMode: 'class',
@@ -14,14 +13,9 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				orange: colors.orange,
-				teal: colors.teal,
-				sky: colors.sky,
-				violet: colors.violet,
-				fuchsia: colors.fuchsia,
-				pink: colors.pink,
-				lime: colors.lime,
-				cyan: colors.cyan,
+				green: colors.emerald,
+				yellow: colors.amber,
+				purple: colors.violet,
 				gray: {
 					350: '#b3bcc9',
 					// Dark blue

@@ -24,7 +24,11 @@ clf("path_to_a_cat_image")
 
 ## Useful Resources
 
+- [Let's Play Pictionary with Machine Learning!](https://www.youtube.com/watch?v=LS9Y2wDVI0k)
 - [Fine-Tune ViT for Image Classification with 🤗Transformers](https://huggingface.co/blog/fine-tune-vit)
+- [Walkthrough of Computer Vision Ecosystem in Hugging Face - CV Study Group](https://www.youtube.com/watch?v=oL-xmufhZM8)
+- [Computer Vision Study Group: Swin Transformer](https://www.youtube.com/watch?v=Ngikt-K1Ecc)
+- [Computer Vision Study Group: Masked Autoencoders Paper Walkthrough](https://www.youtube.com/watch?v=Ngikt-K1Ecc)
 
 ### Creating your own image classifier in just a few minutes
 

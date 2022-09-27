@@ -2,6 +2,12 @@
 
 These next sections highlight features and additional information that you may find useful to make the most out of the Git repositories on the Hugging Face Hub.
 
+## How to programmatically manage repositories
+
+Hugging Face supports accessing repos with Python via the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index). The operations that we've explored, such as downloading repositories and uploading files, are available through the library, as well as other useful functions!
+
+If you prefer to use git directly, please read the sections below.
+
 ## Learning more about Git
 
 A good place to visit if you want to continue learning about Git is [this Git tutorial](https://learngitbranching.js.org/). For even more background on Git, you can take a look at [GitHub's Git Guides](https://github.com/git-guides). 
@@ -83,8 +89,3 @@ git push --force origin main # this can take time depending on your upload bandw
 ```
 
 Now you have your own fork or rebased repo in the Hub!
-
-
-## How to programmatically manage repositories
-
-So far, we've looked at using the Git CLI and the Hugging Face Hub to work with our repos. But Hugging Face also supports accessing repos with Python via the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index). The operations that we've explored such as downloading repositories and uploading files are available through the library, as well as other useful functions!

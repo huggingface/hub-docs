@@ -30,6 +30,7 @@
 	import IconReinforcementLearning from "../Icons/IconReinforcementLearning.svelte";
 	import IconImageToImage from "../Icons/IconImageToImage.svelte";
 	import IconUnconditionalImageGeneration from "../Icons/IconUnconditionalImageGeneration.svelte";
+	import IconDocumentQuestionAnswering from "../Icons/IconDocumentQuestionAnswering.svelte";
 
 	export let classNames = "";
 	export let pipeline = "";
@@ -67,6 +68,7 @@
 		"reinforcement-learning": IconReinforcementLearning,
 		"tabular-classification": IconTabularClassification,
 		"tabular-regression": IconTabularRegression,
+		"document-question-answering": IconDocumentQuestionAnswering,
 	};
 </script>
 

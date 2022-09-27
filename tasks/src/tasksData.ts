@@ -28,6 +28,7 @@ export const TASKS_DATA: Record<
 	"audio-to-audio":                 audioToAudio,
 	"automatic-speech-recognition":   automaticSpeechRecognition,
 	"conversational":                 placeholder,
+  "document-question-answering":    placeholder,
 	"feature-extraction":             placeholder,
 	"fill-mask":                      fillMask,
 	"image-classification":           imageClassification,

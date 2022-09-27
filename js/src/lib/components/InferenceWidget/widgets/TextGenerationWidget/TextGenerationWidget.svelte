@@ -222,7 +222,7 @@
 						getOutput();
 					}}
 				/>
-				<WidgetShortcutRunLabel {isLoading} {getOutput} />
+				<WidgetShortcutRunLabel {isLoading} />
 				<div class="ml-auto self-start">
 					<WidgetTimer bind:this={inferenceTimer} />
 				</div>
@@ -244,7 +244,8 @@
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
-		{#if model?.pipeline_tag === "text2text-generation"}
+		{#if model?.pipeline_tag !== "text-generation"}
+			<!-- for pipelines: text2text-generation & translation -->
 			<WidgetOutputText classNames="mt-4" {output} />
 		{/if}
 	</svelte:fragment>
