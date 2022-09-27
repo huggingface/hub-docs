@@ -1,0 +1,64 @@
+import type { TaskData } from "../Types";
+
+import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
+import { TASKS_MODEL_LIBRARIES } from "../const";
+
+const taskData: TaskData = {
+	datasets: [
+		{
+			description: "Binary classification dataset based on a census on income.",
+			id:          "scikit-learn/adult-census-income",
+		},
+		{
+			description: "Multi-class dataset on iris flower species.",
+			id:          "scikit-learn/iris",
+		},
+	],
+	demo: {
+		inputs: [
+			{
+				table: [
+					["Title 1", "Title 2", "Title 3", "Title 4", "Title 5"],
+					["Entry", "Entry", "Entry", "Entry", "Entry"],
+					["Entry", "Entry", "Entry", "Entry", "Entry"],
+					["Entry", "Entry", "Entry", "Entry", "Entry"],
+				],
+				type: "tabular",
+			},
+		],
+		outputs: [],
+	},
+	id:        "tabular-classification",
+	label:     PIPELINE_DATA["tabular-classification"].name,
+	libraries: TASKS_MODEL_LIBRARIES["tabular-classification"],
+	metrics:   [
+		{
+			description: "",
+			id:          "accuracy",
+		},
+		{
+			description: "",
+			id:          "recall",
+		},
+		{
+			description: "",
+			id:          "precision",
+		},
+		{
+			description: "",
+			id:          "f1",
+		},
+	],
+	models: [
+		{
+			description: "Breast cancer prediction model based on decision trees.",
+			id:          "scikit-learn/cancer-prediction-trees",
+		},
+	],
+	summary:
+		"Tabular classification is the task of classifying a target category (a group) based on set of attributes.",
+	widgetModels: [""],
+	youtubeId:    "",
+};
+
+export default taskData;

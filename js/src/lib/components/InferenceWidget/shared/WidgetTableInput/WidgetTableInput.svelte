@@ -62,37 +62,39 @@
 </script>
 
 <div class="overflow-auto" bind:this={tableContainerEl}>
-	<table class="table-question-answering">
-		<thead>
-			<tr>
-				{#each table[0] as header, x}
-					<th
-						contenteditable={canAddCol && !isLoading}
-						class="border-2 border-gray-100 h-6"
-						on:keydown={onKeyDown}
-						on:input={(e) => editCell(e, [x, 0])}
-					>
-						{header}
-					</th>
-				{/each}
-			</tr>
-		</thead>
-		<tbody>
-			{#each table.slice(1) as row, y}
-				<tr class={highlighted[`${y}`] ?? "bg-white"}>
-					{#each row as cell, x}
-						<td
-							class={(highlighted[`${y}-${x}`] ?? "border-gray-100") +
-								" border-2 h-6"}
-							contenteditable={!isLoading}
+	{#if table.length > 1}
+		<table class="table-question-answering">
+			<thead>
+				<tr>
+					{#each table[0] as header, x}
+						<th
+							contenteditable={canAddCol}
+							class="border-2 border-gray-100 h-6"
 							on:keydown={onKeyDown}
-							on:input={(e) => editCell(e, [x, y + 1])}>{cell}</td
+							on:input={(e) => editCell(e, [x, 0])}
 						>
+							{header}
+						</th>
 					{/each}
 				</tr>
-			{/each}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				{#each table.slice(1) as row, y}
+					<tr class={highlighted[`${y}`] ?? "bg-white"}>
+						{#each row as cell, x}
+							<td
+								class={(highlighted[`${y}-${x}`] ?? "border-gray-100") +
+									" border-2 h-6"}
+								contenteditable
+								on:keydown={onKeyDown}
+								on:input={(e) => editCell(e, [x, y + 1])}>{cell}</td
+							>
+						{/each}
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	{/if}
 </div>
 
 <div class="flex mb-1 flex-wrap">
