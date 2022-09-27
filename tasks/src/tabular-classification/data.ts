@@ -22,6 +22,7 @@ const taskData: TaskData = {
 					["Entry", "Entry", "Entry", "Entry", "Entry"],
 					["Entry", "Entry", "Entry", "Entry", "Entry"],
 					["Entry", "Entry", "Entry", "Entry", "Entry"],
+					["Entry", "Entry", "Entry", "Entry", "Entry"],
 				],
 				type: "tabular",
 			},
