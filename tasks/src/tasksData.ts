@@ -18,17 +18,13 @@ import translation from "./translation/data";
 import textClassification from "./text-classification/data";
 import textGeneration from "./text-generation/data";
 
-
 // To make comparisons easier, task order is the same as in const.ts
-export const TASKS_DATA: Record<
-	PipelineType,
-	TaskData | undefined
-> = {
+export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"audio-classification":           audioClassification,
 	"audio-to-audio":                 audioToAudio,
 	"automatic-speech-recognition":   automaticSpeechRecognition,
 	"conversational":                 placeholder,
-  "document-question-answering":    placeholder,
+	"document-question-answering":    placeholder,
 	"feature-extraction":             placeholder,
 	"fill-mask":                      fillMask,
 	"image-classification":           imageClassification,

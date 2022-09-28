@@ -16,27 +16,26 @@ const taskData: TaskData = {
 			{
 				label:   "Input",
 				content: "Contribute a schema for this task!",
-				type: "text",
+				type:    "text",
 			},
-			
 		],
 		outputs: [
 			{
-				"type": "chart",
+				type: "chart",
 				data: [
 					{
-						"label": "POSITIVE",
-						"score": 0.90
+						label: "POSITIVE",
+						score: 0.9,
 					},
 					{
-						"label": "NEUTRAL",
-						"score": 0.10
+						label: "NEUTRAL",
+						score: 0.1,
 					},
 					{
-						"label": "NEGATIVE",
-						"score": 0.00
-					}
-				]
+						label: "NEGATIVE",
+						score: 0.0,
+					},
+				],
 			},
 		],
 	},
