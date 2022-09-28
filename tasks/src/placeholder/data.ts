@@ -1,9 +1,11 @@
 import type { TaskData } from "../Types";
+import type { PipelineType } from "../../../js/src/lib/interfaces/Types";
+
 
 import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
 import { TASKS_MODEL_LIBRARIES } from "../const";
 
-const taskData: TaskData = {
+const taskData: ((type: PipelineType) => TaskData) = (type: PipelineType) => ({
 	datasets: [
 		{
 			// TODO write proper description
@@ -39,9 +41,9 @@ const taskData: TaskData = {
 			},
 		],
 	},
-	id:        "text-classification",
-	label:     PIPELINE_DATA["text-classification"].name,
-	libraries: TASKS_MODEL_LIBRARIES["text-classification"],
+	id:        type,
+	label:     PIPELINE_DATA[type].name,
+	libraries: TASKS_MODEL_LIBRARIES[type],
 	metrics:   [
 		{
 			description: "Contribute a metric for this task!",
@@ -58,6 +60,6 @@ const taskData: TaskData = {
 	summary:      "[insert a nice description for the task here]",
 	widgetModels: ["distilbert-base-uncased-finetuned-sst-2-english"],
 	youtubeId:    "",
-};
+});
 
 export default taskData;
