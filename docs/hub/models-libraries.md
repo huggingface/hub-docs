@@ -23,7 +23,8 @@ The table below summarizes the supported libraries and their level of integratio
 | [Pythae](https://github.com/clementchadebec/benchmark_VAE)                  | Unifyed framework for Generative Autoencoders in Python | ❌ | ❌ | ✅ | ✅ |
 | [RL-Baselines3-Zoo](https://github.com/DLR-RM/rl-baselines3-zoo) | Training framework for Reinforcement Learning, using [Stable Baselines3](https://github.com/DLR-RM/stable-baselines3).| ❌ | ✅ | ✅ | ✅ |
 | [Sentence Transformers](https://github.com/UKPLab/sentence-transformers)    | Compute dense vector representations for sentences, paragraphs, and images.          | ✅ | ✅ | ✅ | ✅ |
-| [spaCy](https://github.com/explosion/spaCy)                                 | Advanced Natural Language Processing in Python and Cython.                           | ✅ | ✅ | ✅ | ✅ |
+| [Timm](https://github.com/rwightman/pytorch-image-models)                   | Collection of image models, scripts, pretrained weights, etc.                        | ✅ | ✅ | ✅ | ✅ |
+| [Scikit Learn](https://github.com/skops-dev/skops)                          | Machine Learning in Python.                           | ✅ | ✅ | ✅ | ✅ |
 | [Speechbrain](https://speechbrain.github.io/)                               | A PyTorch Powered Speech Toolkit.                                                    | ✅ | ✅ | ✅ | ❌ |
 | [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3)            | Set of reliable implementations of deep reinforcement learning algorithms in PyTorch | ❌ | ✅ | ✅ | ✅ |
 | [TensorFlowTTS](https://github.com/TensorSpeech/TensorFlowTTS)              | Real-time state-of-the-art speech synthesis architectures.                           | ❌ | ❌ | ✅ | ❌ |
