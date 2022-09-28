@@ -208,8 +208,6 @@ model = AutoModel.from_pretrained("bert-base-cased", from_flax=True)
 
 ### Use your own serialization format
 
-- [HDF5](https://github.com/HDFGroup/hdf5)
-- [SavedModel](https://www.tensorflow.org/guide/saved_model)
 - [MsgPack](https://msgpack.org/index.html)
 - [Protobuf](https://developers.google.com/protocol-buffers)
 - [Cap'n'proto](https://capnproto.org/)
