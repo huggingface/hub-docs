@@ -8,7 +8,6 @@ import { TASKS_MODEL_LIBRARIES } from "../const";
 const taskData: ((type: PipelineType) => TaskData) = (type: PipelineType) => ({
 	datasets: [
 		{
-			// TODO write proper description
 			description: "Contribute a dataset for this page!",
 			id:          "huggingface-projects/contribute-a-dataset",
 		},
@@ -16,28 +15,16 @@ const taskData: ((type: PipelineType) => TaskData) = (type: PipelineType) => ({
 	demo: {
 		inputs: [
 			{
-				label:   "Input",
-				content: "Contribute a schema for this task!",
+				label:   "Example Input",
+				content: "Contribute some schema input for this task!",
 				type:    "text",
 			},
 		],
 		outputs: [
 			{
-				type: "chart",
-				data: [
-					{
-						label: "POSITIVE",
-						score: 0.9,
-					},
-					{
-						label: "NEUTRAL",
-						score: 0.1,
-					},
-					{
-						label: "NEGATIVE",
-						score: 0.0,
-					},
-				],
+				label:   "Example Output",
+				content: "Contribute some schema output for this task!",
+				type:    "text",
 			},
 		],
 	},
@@ -47,18 +34,17 @@ const taskData: ((type: PipelineType) => TaskData) = (type: PipelineType) => ({
 	metrics:   [
 		{
 			description: "Contribute a metric for this task!",
-			id:          "Metric",
+			id:          "Example Metric",
 		},
 	],
 	models: [
 		{
-			// TO DO: write description
 			description: "Contribute a model for this task!",
 			id:          "huggingface-projects/contribute-a-model",
 		},
 	],
 	summary:      "[insert a nice description for the task here]",
-	widgetModels: ["distilbert-base-uncased-finetuned-sst-2-english"],
+	widgetModels: [],
 	youtubeId:    "",
 });
 
