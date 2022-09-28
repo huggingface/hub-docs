@@ -1,20 +1,5 @@
 # Pickle Scanning
 
-- [TL;DR](#tldr)
-- [What is a pickle?](#what-is-a-pickle)
-- [Why is it dangerous?](#why-is-it-dangerous)
-- [Mitigation Strategies](#mitigation-strategies)
-  * [Load files from users and organizations you trust](#load-files-from-users-and-organizations-you-trust)
-  * [Load model weights from TF or Flax](#load-model-weights-from-tf-or-flax)
-  * [Use your own serialization format](#use-your-own-serialization-format)
-  * [Improve `torch.load/save`](#improve-torchloadsave)
-  * [Hub’s Security Scanner](#hubs-security-scanner)
-    + [What we have now](#what-we-have-now)
-    + [Potential solutions](#potential-solutions)
-- [Further Reading](#further-reading)
-
-## TL;DR
-
 Pickle is a widely used serialization format in ML. Most notably, it is the default format for PyTorch model weights.
 
 There are dangerous arbitrary code execution attacks that can be perpetrated when you load a pickle file. We suggest loading models from users and organizations you trust, relying on signed commits, and/or loading models from TF or Jax formats with the `from_tf=True` auto-conversion mechanism. We will also alleviate this issue shortly by displaying/"vetting" the list of imports in any pickled file, directly on the Hub. 
