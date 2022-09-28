@@ -7,11 +7,11 @@ const taskData: TaskData = {
 	datasets: [
 		{
 			description: "Binary classification dataset based on a census on income.",
-			id:          "scikit-learn/adult-census-income",
+			id: "scikit-learn/adult-census-income",
 		},
 		{
 			description: "Multi-class dataset on iris flower species.",
-			id:          "scikit-learn/iris",
+			id: "scikit-learn/iris",
 		},
 	],
 	demo: {
@@ -27,39 +27,44 @@ const taskData: TaskData = {
 				type: "tabular",
 			},
 		],
-		outputs: [],
+		outputs: [
+			{
+				table: [["Title 1"], ["Result"], ["Result"], ["Result"], ["Result"]],
+				type: "tabular",
+			},
+		],
 	},
-	id:        "tabular-classification",
-	label:     PIPELINE_DATA["tabular-classification"].name,
+	id: "tabular-classification",
+	label: PIPELINE_DATA["tabular-classification"].name,
 	libraries: TASKS_MODEL_LIBRARIES["tabular-classification"],
-	metrics:   [
+	metrics: [
 		{
 			description: "",
-			id:          "accuracy",
+			id: "accuracy",
 		},
 		{
 			description: "",
-			id:          "recall",
+			id: "recall",
 		},
 		{
 			description: "",
-			id:          "precision",
+			id: "precision",
 		},
 		{
 			description: "",
-			id:          "f1",
+			id: "f1",
 		},
 	],
 	models: [
 		{
 			description: "Breast cancer prediction model based on decision trees.",
-			id:          "scikit-learn/cancer-prediction-trees",
+			id: "scikit-learn/cancer-prediction-trees",
 		},
 	],
 	summary:
 		"Tabular classification is the task of classifying a target category (a group) based on set of attributes.",
 	widgetModels: [""],
-	youtubeId:    "",
+	youtubeId: "",
 };
 
 export default taskData;
