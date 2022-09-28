@@ -52,19 +52,18 @@
 		});
 	}
 
+	function isValidOutput(arg: any): arg is { label: string; score: number }[] {
+		return (
+			Array.isArray(arg) &&
+			arg.every(
+				(x) => typeof x.label === "string" && typeof x.score === "number"
+			)
+		);
+	}
+
 	function parseOutput(body: unknown): Array<{ label: string; score: number }> {
-		if (
-			body &&
-			typeof body === "object" &&
-			Array.isArray(body["labels"]) &&
-			Array.isArray(body["scores"])
-		) {
-			return body["labels"]
-				.filter((_, i) => body["scores"][i] != null) // != null -> not null OR undefined
-				.map((x, i) => ({
-					label: x ?? "",
-					score: body["scores"][i] ?? 0,
-				}));
+		if (isValidOutput(body)) {
+			return body;
 		}
 		throw new TypeError(
 			"Invalid output: output must be of type <labels:Array; scores:Array>"
