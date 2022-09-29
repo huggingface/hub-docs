@@ -41,6 +41,7 @@ export interface TaskData {
 	datasets: ExampleRepo[];
 	demo: TaskDemo;
 	id: PipelineType;
+	isPlaceholder?: boolean;
 	label: string;
 	libraries: Array<keyof typeof ModelLibrary>;
 	metrics: ExampleRepo[];
