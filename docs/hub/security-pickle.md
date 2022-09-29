@@ -235,9 +235,18 @@ For ClamAV scans, files are run through the open-source antivirus [ClamAV](https
 
 We have implemented a Pickle Import scan, which extracts the list of imports referenced in a pickle file. Every time you upload a `pytorch_model.bin`, this scan is run.
 
+On the hub the list of imports will be displayed next to each file containing imports. If any import looks suspicious, it will be highlighted. 
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-pickle-imports.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-pickle-imports-dark.png"/>
+</div>
+
 We get this data thanks to [`pickletools.genops`](https://docs.python.org/3/library/pickletools.html#pickletools.genops) which allows us to read the file without executing potentially dangerous code.
 
 Note that this is what allows to know if, when unpickling a file, it will `REDUCE` on a potentially dangerous function that was imported by `*GLOBAL`.
+
+
 
 #### Potential solutions
 
