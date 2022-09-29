@@ -2,7 +2,7 @@
 
 Pickle is a widely used serialization format in ML. Most notably, it is the default format for PyTorch model weights.
 
-There are dangerous arbitrary code execution attacks that can be perpetrated when you load a pickle file. We suggest loading models from users and organizations you trust, relying on signed commits, and/or loading models from TF or Jax formats with the `from_tf=True` auto-conversion mechanism. We will also alleviate this issue shortly by displaying/"vetting" the list of imports in any pickled file, directly on the Hub. 
+There are dangerous arbitrary code execution attacks that can be perpetrated when you load a pickle file. We suggest loading models from users and organizations you trust, relying on signed commits, and/or loading models from TF or Jax formats with the `from_tf=True` auto-conversion mechanism. We also alleviate this issue by displaying/"vetting" the list of imports in any pickled file, directly on the Hub. Finally, we are experimenting with a new, simple serialization format for weights called [`safetensors`](https://github.com/huggingface/safetensors).
 
 ## What is a pickle?
 
@@ -199,7 +199,7 @@ model = AutoModel.from_pretrained("bert-base-cased", from_flax=True)
 - [Avro](https://avro.apache.org/)
 - [safetensors](https://github.com/Narsil/safetensors/)
 
-We might consider rolling our own serialization format (like `safetensors` above) in the future!
+This last format, `safetensors`, is a simple serialization format that we are working on and experimenting with currently! Please help or contribute if you can 🔥.
 
 ### Improve `torch.load/save`
 
@@ -216,7 +216,7 @@ We have created a security scanner that scans every file pushed to the Hub and r
 
 For ClamAV scans, files are run through the open-source antivirus [ClamAV](https://www.clamav.net). While this covers a good amount of dangerous files, it doesn’t cover pickle exploits.
 
-We have implemented a Pickle Import scan, which extracts the list of imports referenced in a pickle file. Every time you upload a `pytorch_model.bin`, this scan is run.
+We have implemented a Pickle Import scan, which extracts the list of imports referenced in a pickle file. Every time you upload a `pytorch_model.bin` or any other pickled file, this scan is run.
 
 On the hub the list of imports will be displayed next to each file containing imports. If any import looks suspicious, it will be highlighted. 
 
