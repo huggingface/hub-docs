@@ -7,20 +7,8 @@ import { TASKS_MODEL_LIBRARIES } from "../const";
 const taskData: (type: PipelineType) => TaskData = (type: PipelineType) => ({
 	datasets: [],
 	demo:     {
-		inputs: [
-			{
-				label:   "Example Input",
-				content: "Contribute some schema input for this task!",
-				type:    "text",
-			},
-		],
-		outputs: [
-			{
-				label:   "Example Output",
-				content: "Contribute some schema output for this task!",
-				type:    "text",
-			},
-		],
+		inputs:  [],
+		outputs: [],
 	},
 	id:            type,
 	isPlaceholder: true,
@@ -28,7 +16,7 @@ const taskData: (type: PipelineType) => TaskData = (type: PipelineType) => ({
 	libraries:     TASKS_MODEL_LIBRARIES[type],
 	metrics:       [],
 	models:        [],
-	summary:       "[insert a nice description for the task here]",
+	summary:       "",
 	widgetModels:  [],
 	youtubeId:     "",
 });
