@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			// TODO write proper description
@@ -25,28 +22,25 @@ const taskData: TaskData = {
 		],
 		outputs: [
 			{
-				"type": "chart",
+				type: "chart",
 				data: [
 					{
-						"label": "Egyptian cat",
-						"score": 0.514
+						label: "Egyptian cat",
+						score: 0.514,
 					},
 					{
-						"label": "Tabby cat",
-						"score": 0.193
+						label: "Tabby cat",
+						score: 0.193,
 					},
 					{
-						"label": "Tiger cat",
-						"score": 0.068
+						label: "Tiger cat",
+						score: 0.068,
 					},
-				]
+				],
 			},
 		],
 	},
-	id:        "image-classification",
-	label:     PIPELINE_DATA["image-classification"].name,
-	libraries: TASKS_MODEL_LIBRARIES["image-classification"],
-	metrics:   [
+	metrics: [
 		{
 			description: "",
 			id:          "accuracy",

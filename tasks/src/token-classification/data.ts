@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "A widely used dataset useful to benchmark named entity recognition models.",
@@ -43,26 +40,23 @@ const taskData: TaskData = {
 			},
 		],
 	},
-	id:        "token-classification",
-	label:     PIPELINE_DATA["token-classification"].name,
-	libraries: TASKS_MODEL_LIBRARIES["token-classification"],
-	metrics:   [
+	metrics: [
 		{
 			description: "",
-			id: "accuracy",
+			id:          "accuracy",
 		},
 		{
 			description: "",
-			id: "recall",
+			id:          "recall",
 
 		},
 		{
 			description: "",
-			id: "precision",
+			id:          "precision",
 		},
 		{
 			description: "",
-			id: "f1",
+			id:          "f1",
 		},
 	],
 	models: [

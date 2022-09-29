@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "News articles in five different languages along with their summaries. Widely used for benchmarking multilingual summarization models.",
@@ -33,10 +30,7 @@ const taskData: TaskData = {
 			},
 		],
 	},
-	id:        "summarization",
-	label:     PIPELINE_DATA["summarization"].name,
-	libraries: TASKS_MODEL_LIBRARIES["summarization"],
-	metrics:   [
+	metrics: [
 		{
 			description: "The generated sequence is compared against its summary, and the overlap of tokens are counted. ROUGE-N refers to overlap of N subsequent tokens, ROUGE-1 refers to overlap of single tokens and ROUGE-2 is the overlap of two subsequent tokens.",
 			id:          "rouge",

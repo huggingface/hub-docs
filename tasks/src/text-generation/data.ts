@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "A large multilingual dataset of text crawled from the web.",
@@ -33,10 +30,7 @@ const taskData: TaskData = {
 			},
 		],
 	},
-	id:        "text-generation",
-	label:     PIPELINE_DATA["text-generation"].name,
-	libraries: TASKS_MODEL_LIBRARIES["text-generation"],
-	metrics:   [
+	metrics: [
 		{
 			description: "Cross Entropy is a metric that calculates the difference between two probability distributions. Each probability distribution is the distribution of predicted words",
 			id:          "Cross Entropy",

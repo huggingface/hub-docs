@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			// TODO write proper description
@@ -37,10 +34,7 @@ const taskData: TaskData = {
 			},
 		],
 	},
-	id:        "question-answering",
-	label:     PIPELINE_DATA["question-answering"].name,
-	libraries: TASKS_MODEL_LIBRARIES["question-answering"],
-	metrics:   [
+	metrics: [
 		{
 			description: "Exact Match is a metric based on the strict character match of the predicted answer and the right answer. For answers predicted correctly, the Exact Match will be 1. Even if only one character is different, Exact Match will be 0",
 			id:          "exact-match",
