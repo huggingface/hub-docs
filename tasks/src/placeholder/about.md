@@ -12,9 +12,4 @@ This section should have useful information about how to pull a model from Huggi
 
 ## Useful Resources
 
-[insert useful resources about how to train or use a model for this task]
-
-## How to Contribute
-
-You can contribute above sections, datasets, metrics and models related to this task and more by opening a pull request to [this repository](https://github.com/huggingface/hub-docs). 
-See the contribution guide [here](https://github.com/huggingface/hub-docs/blob/main/tasks-contribution-guide.md).
+In this area, you can insert useful resources about how to train or use a model for this task.
