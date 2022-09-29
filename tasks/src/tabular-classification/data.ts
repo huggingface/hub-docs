@@ -18,7 +18,8 @@ const taskData: TaskData = {
 		inputs: [
 			{
 				table: [["Glucose", "Blood Pressure ", "Skin Thickness", "Insulin", "BMI"],
-				["148", "72", "35", "0", "33.6"]],
+				["148", "72", "35", "0", "33.6"], ["150", "50", "30", "0", "35.1"],
+				["141", "60", "29", "1", "39.2"]],
 				type: "tabular",
 			},
 		],
@@ -26,7 +27,7 @@ const taskData: TaskData = {
 			{
 				table: [
 					["Diabetes"],
-					["1"],
+					["1"],["1"],["0"]
 				],
 				type: "tabular",
 			},
