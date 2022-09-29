@@ -36,4 +36,4 @@ extra_gated_fields:
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-dark.png"/>
 </div>
 
-The `README.md` file for a model is called a [model Card](./models-cards). Visit the documentation to learn more about how to use it and to see the properties that you can configure.
+The `README.md` file for a model is called a [model Card](./model-cards). Visit the documentation to learn more about how to use it and to see the properties that you can configure.
