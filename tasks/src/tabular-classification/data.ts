@@ -17,19 +17,17 @@ const taskData: TaskData = {
 	demo: {
 		inputs: [
 			{
-				table: [
-					["Title 1", "Title 2", "Title 3", "Title 4", "Title 5"],
-					["Entry", "Entry", "Entry", "Entry", "Entry"],
-					["Entry", "Entry", "Entry", "Entry", "Entry"],
-					["Entry", "Entry", "Entry", "Entry", "Entry"],
-					["Entry", "Entry", "Entry", "Entry", "Entry"],
-				],
+				table: [["Glucose", "Blood Pressure ", "Skin Thickness", "Insulin", "BMI"],
+				["148", "72", "35", "0", "33.6"]],
 				type: "tabular",
 			},
 		],
 		outputs: [
 			{
-				table: [["Title 1"], ["Result"], ["Result"], ["Result"], ["Result"]],
+				table: [
+					["Diabetes"],
+					["1"],
+				],
 				type: "tabular",
 			},
 		],
