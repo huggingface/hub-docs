@@ -1,10 +1,11 @@
+// Warning: order of modalities here determine how they are listed on the /tasks page
 export const MODALITIES = [
-	"multimodal",
 	"nlp",
 	"audio",
 	"cv",
-	"rl",
 	"tabular",
+	"multimodal",
+	"rl",
 	"other",
 ] as const;
 
