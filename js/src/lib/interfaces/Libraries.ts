@@ -226,7 +226,7 @@ from skops.io import load
 download("${model.id}", "path_to_folder")
 model = load(${skopsmodelFile})`;
 	} else {
-		`from huggingface_hub import hf_hub_download
+		return `from huggingface_hub import hf_hub_download
 import joblib
 model = joblib.load(
 	hf_hub_download("${model.id}", "sklearn_model.joblib")
