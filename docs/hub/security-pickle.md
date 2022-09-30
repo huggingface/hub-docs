@@ -197,7 +197,7 @@ model = AutoModel.from_pretrained("bert-base-cased", from_flax=True)
 - [Protobuf](https://developers.google.com/protocol-buffers)
 - [Cap'n'proto](https://capnproto.org/)
 - [Avro](https://avro.apache.org/)
-- [safetensors](https://github.com/Narsil/safetensors/)
+- [safetensors](https://github.com/huggingface/safetensors)
 
 This last format, `safetensors`, is a simple serialization format that we are working on and experimenting with currently! Please help or contribute if you can 🔥.
 
@@ -229,6 +229,8 @@ We get this data thanks to [`pickletools.genops`](https://docs.python.org/3/libr
 
 Note that this is what allows to know if, when unpickling a file, it will `REDUCE` on a potentially dangerous function that was imported by `*GLOBAL`.
 
+***Disclaimer***: this is not 100% foolproof. It is your responsibility as a user to check if something is safe or not. We are not actively auditing python packages for safety, the safe/unsafe imports list we have are maintained in a best-effort manner.
+Please contact us if you think something is not safe and we flag it as such.
 
 
 #### Potential solutions
