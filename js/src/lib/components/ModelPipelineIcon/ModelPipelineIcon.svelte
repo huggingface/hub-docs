@@ -28,6 +28,7 @@
 	import IconVoiceActivityDetection from "../Icons/IconVoiceActivityDetection.svelte";
 	import IconZeroShotClassification from "../Icons/IconZeroShotClassification.svelte";
 	import IconReinforcementLearning from "../Icons/IconReinforcementLearning.svelte";
+	import IconRobotics from "../Icons/IconRobotics.svelte";
 	import IconImageToImage from "../Icons/IconImageToImage.svelte";
 	import IconUnconditionalImageGeneration from "../Icons/IconUnconditionalImageGeneration.svelte";
 	import IconDocumentQuestionAnswering from "../Icons/IconDocumentQuestionAnswering.svelte";
@@ -66,6 +67,7 @@
 		"image-to-image": IconImageToImage,
 		"unconditional-image-generation": IconUnconditionalImageGeneration,
 		"reinforcement-learning": IconReinforcementLearning,
+		"robotics": IconRobotics,
 		"tabular-classification": IconTabularClassification,
 		"tabular-regression": IconTabularRegression,
 		"document-question-answering": IconDocumentQuestionAnswering,

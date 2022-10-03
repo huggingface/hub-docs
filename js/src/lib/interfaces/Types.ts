@@ -448,8 +448,8 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		hideInDatasets: true,
 	},
 	"robotics": {
-		name:           "Robotics",
-		modality:       "rl",
+		name:     "Robotics",
+		modality: "rl",
 		subtasks: [
 			{
 				type: "grasping",
@@ -588,14 +588,14 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Document Question Answering",
 			},
 		],
-		modality: "multimodal",
-		color:    "blue",
+		modality:       "multimodal",
+		color:          "blue",
 		hideInDatasets: true,
 	},
 	"zero-shot-image-classification": {
-		name:         "Zero-Shot Image Classification",
-		modality:     "cv",
-		color:        "yellow",
+		name:     "Zero-Shot Image Classification",
+		modality: "cv",
+		color:    "yellow",
 	},
 	"other": {
 		name:         "Other",

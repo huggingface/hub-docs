@@ -39,6 +39,7 @@ export const TASKS_DATA: Record<
 	"other":                          undefined,
 	"question-answering":             questionAnswering,
 	"reinforcement-learning":         undefined,
+	"robotics":                       undefined,
 	"sentence-similarity":            sentenceSimilarity,
 	"summarization":                  summarization,
 	"table-question-answering":       undefined,
