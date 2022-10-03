@@ -38,4 +38,4 @@ model.predict(sample)
 
 ### Training your own model in just a few seconds
 
-We have built a [baseline trainer](https://huggingface.co/spaces/scikit-learn/baseline-trainer) application that you can drag and drop your dataset to, and it will train a baseline and push it to your Hugging Face Hub profile with model card containing information about the model.
+We have built a [baseline trainer](https://huggingface.co/spaces/scikit-learn/baseline-trainer) application to which you can drag and drop your dataset. It will train a baseline and push it to your Hugging Face Hub profile with a model card containing information about the model.
