@@ -4,7 +4,7 @@ Tabular classification is the task of assigning a label or class given a limited
 There are three types of categorical variables:
 
 - Binary variables: Variables that can take two values, like yes or no, open or closed. The task of predicting binary variables is called binary classification.
-- Ordinal variables: Variables that have a ranking relationship among them, e.g. good, insignificant and bad product reviews. The task of predicting ordinal variables is called ordinal classification.
+- Ordinal variables: Variables with a ranking relationship, e.g., good, insignificant, and bad product reviews. The task of predicting ordinal variables is called ordinal classification.
 - Nominal variables: Variables that have no ranking relationship among them, e.g. predicting an animal from their weight and height, where categories are cat, dog or bird. The task of predicting nominal variables is called multinomial classification.
 
 ## Use Cases
