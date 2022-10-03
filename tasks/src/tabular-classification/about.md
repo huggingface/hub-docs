@@ -32,7 +32,7 @@ model.predict(sample)
 
 ## Useful Resources
 
-- Check out [scikit-learn organization](https://huggingface.co/scikit-learn) to learn more about different algorithms used for this task.
+- Check out the [scikit-learn organization](https://huggingface.co/scikit-learn) to learn more about different algorithms used for this task.
 - [Skops documentation](https://skops.readthedocs.io/en/latest/)
 - [Skops announcement blog](https://huggingface.co/blog/skops)
 
