@@ -67,7 +67,7 @@
 		"image-to-image": IconImageToImage,
 		"unconditional-image-generation": IconUnconditionalImageGeneration,
 		"reinforcement-learning": IconReinforcementLearning,
-		"robotics": IconRobotics,
+		robotics: IconRobotics,
 		"tabular-classification": IconTabularClassification,
 		"tabular-regression": IconTabularRegression,
 		"document-question-answering": IconDocumentQuestionAnswering,
