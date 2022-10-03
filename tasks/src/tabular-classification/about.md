@@ -1,6 +1,6 @@
 ## About the Task
 
-Tabular classification is the task of assigning a label or class given a limited number of attributes. For example, the input can be data related to a customer (balance of the customer, the time being a customer, or more) and output can be whether the customer will churn from the service or not.
+Tabular classification is the task of assigning a label or class given a limited number of attributes. For example, the input can be data related to a customer (balance of the customer, the time being a customer, or more) and the output can be whether the customer will churn from the service or not.
 There's three types of categorical variables:
 
 - Binary variables: Variables that can take two values, like yes or no, open or closed. The task of predicting binary variables is called binary classification.
