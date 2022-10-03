@@ -447,6 +447,22 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		color:          "red",
 		hideInDatasets: true,
 	},
+	"robotics": {
+		name:           "Robotics",
+		modality:       "rl",
+		subtasks: [
+			{
+				type: "grasping",
+				name: "Grasping",
+			},
+			{
+				type: "task-planning",
+				name: "Task Planning",
+			},
+		],
+		color:          "blue",
+		hideInDatasets: true,
+	},
 	"tabular-classification": {
 		name:     "Tabular Classification",
 		modality: "tabular",
@@ -631,6 +647,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"visual-question-answering",
 	"image-to-text",
 	"reinforcement-learning",
+	"robotics",
 	"voice-activity-detection",
 	"time-series-forecasting",
 	"document-question-answering",
