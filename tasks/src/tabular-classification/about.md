@@ -17,7 +17,7 @@ Tabular classification models can be used in predicting customer churn in teleco
 
 ## Model Hosting and Inference
 
-You can use the [skops](https://github.com/skops-dev/skops) library to share, explore, and use `scikit-learn` models on the Hugging Face Hub. `skops` models have widgets to try the models on the browser and have descriptive reports (also known as model cards) in their repositories. You can pull a `scikit-learn` model like below using `skops`:
+You can use the [skops](https://skops.readthedocs.io/en/stable/) library to share, explore, and use `scikit-learn` models on the Hugging Face Hub. `skops` models have widgets to try the models on the browser and have descriptive reports (also known as model cards) in their repositories. You can pull a `scikit-learn` model like below using `skops`:
 
 
 ```python
