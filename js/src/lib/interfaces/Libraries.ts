@@ -225,7 +225,9 @@ const sklearn = (model: ModelData) => {
 from skops.io import load
 
 download("${model.id}", "path_to_folder")
-model = load(${skopsmodelFile})`;
+# make sure model file is in skops format
+# if model is a pickle file, load with pickle at your own risk
+model = load("path_to_folder/${skopsmodelFile}")`;
 	} else {
 		return `from huggingface_hub import hf_hub_download
 import joblib
