@@ -230,7 +230,7 @@ We get this data thanks to [`pickletools.genops`](https://docs.python.org/3/libr
 Note that this is what allows to know if, when unpickling a file, it will `REDUCE` on a potentially dangerous function that was imported by `*GLOBAL`.
 
 ***Disclaimer***: this is not 100% foolproof. It is your responsibility as a user to check if something is safe or not. We are not actively auditing python packages for safety, the safe/unsafe imports lists we have are maintained in a best-effort manner.
-Please contact us if you think something is not safe and we flag it as such.
+Please contact us if you think something is not safe, and we flag it as such, by sending us an email to website at huggingface.co
 
 
 #### Potential solutions
