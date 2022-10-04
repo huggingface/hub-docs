@@ -13,7 +13,7 @@
 	width="1em"
 	height="1em"
 	preserveAspectRatio="xMidYMid meet"
-	viewBox="0 0 32 32"
+	viewBox="0 0 24 24"
 >
 	<path
 		fill="currentColor"
