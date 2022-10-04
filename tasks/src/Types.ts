@@ -19,6 +19,9 @@ export type TaskDemoEntry = {
 	filename: string;
 	type: "img";
 } | {
+	table: string[][];
+	type: "tabular";
+} | {
 	content: string;
 	label: string;
 	type: "text";

@@ -11,6 +11,7 @@ import objectDetection from "./object-detection/data";
 import questionAnswering from "./question-answering/data";
 import sentenceSimilarity from "./sentence-similarity/data";
 import summarization from "./summarization/data";
+import tabularClassification from "./tabular-classification/data"
 import textToSpeech from "./text-to-speech/data";
 import tokenClassification from "./token-classification/data";
 import translation from "./translation/data";
@@ -43,7 +44,7 @@ export const TASKS_DATA: Record<
 	"summarization":                  summarization,
 	"table-question-answering":       undefined,
 	"table-to-text":                  undefined,
-	"tabular-classification":         undefined,
+	"tabular-classification":         tabularClassification,
 	"tabular-regression":             undefined,
 	"tabular-to-text":                undefined,
 	"text-classification":            textClassification,
