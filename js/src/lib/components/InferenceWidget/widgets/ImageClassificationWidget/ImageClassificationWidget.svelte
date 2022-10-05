@@ -36,7 +36,11 @@
 		getOutput(file);
 	}
 
-	async function getOutput(file: File | Blob, withModelLoading = false) {
+	async function getOutput(
+		file: File | Blob,
+		withModelLoading = false,
+		isOnLoadCall = false
+	) {
 		if (!file) {
 			return;
 		}
@@ -59,7 +63,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;
@@ -119,7 +124,7 @@
 			if (callApiOnMount && src) {
 				imgSrc = src;
 				const blob = await getBlobFromUrl(imgSrc);
-				getOutput(blob);
+				getOutput(blob, false, true);
 			}
 		})();
 	});

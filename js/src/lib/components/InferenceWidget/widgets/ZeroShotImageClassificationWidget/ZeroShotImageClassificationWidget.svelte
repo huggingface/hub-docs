@@ -90,7 +90,7 @@
 		getOutput();
 	}
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
 		const trimmedCandidateLabels = candidateLabels.trim().split(",").join(",");
 
 		if (!trimmedCandidateLabels) {
@@ -124,7 +124,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;
@@ -162,7 +163,7 @@
 				const res = await fetch(imgSrc);
 				const blob = await res.blob();
 				await updateImageBase64(blob);
-				getOutput();
+				getOutput(false, true);
 			}
 		})();
 	});

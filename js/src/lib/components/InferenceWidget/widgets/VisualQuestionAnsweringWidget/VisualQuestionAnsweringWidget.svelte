@@ -91,7 +91,7 @@
 		getOutput();
 	}
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
 		const trimmedQuestion = question.trim();
 
 		if (!trimmedQuestion) {
@@ -122,7 +122,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;
@@ -157,7 +158,7 @@
 				const res = await fetch(imgSrc);
 				const blob = await res.blob();
 				await updateImageBase64(blob);
-				getOutput();
+				getOutput(false, true);
 			}
 		};
 	});

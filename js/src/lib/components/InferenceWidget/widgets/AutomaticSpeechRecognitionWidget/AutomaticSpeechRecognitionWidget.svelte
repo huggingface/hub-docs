@@ -66,7 +66,7 @@
 		}
 	}
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			output = "";
@@ -89,7 +89,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;
@@ -151,7 +152,7 @@
 			filename = example_title ?? "";
 			fileUrl = src;
 			selectedSampleUrl = src;
-			getOutput();
+			getOutput(false, true);
 		}
 	});
 </script>
