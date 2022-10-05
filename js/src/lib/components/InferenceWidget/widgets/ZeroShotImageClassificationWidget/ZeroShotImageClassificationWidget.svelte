@@ -157,7 +157,7 @@
 				"src",
 				"candidate_labels",
 			]);
-			if (callApiOnMount && src) {
+			if (callApiOnMount && src && candidate_labels) {
 				candidateLabels = candidate_labels;
 				imgSrc = src;
 				const res = await fetch(imgSrc);
