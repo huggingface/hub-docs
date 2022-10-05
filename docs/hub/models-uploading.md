@@ -4,7 +4,7 @@ To upload models to the Hub, you'll need to create an account at [Hugging Face](
 
 You can link repositories with an individual, such as [osanseviero/fashion_brands_patterns](https://huggingface.co/osanseviero/fashion_brands_patterns), or with an organization, such as [facebook/bart-large-xsum](https://huggingface.co/facebook/bart-large-xsum). Organizations can collect models related to a company, community, or library! If you choose an organization, the model will be featured on the organization’s page, and every member of the organization will have the ability to contribute to the repository. You can create a new organization [here](https://huggingface.co/organizations/new).
 
-There are several ways to upload models to the Hub, described below. We suggest adding a [Model Card](./models-cards) to to your repo to document your model.
+There are several ways to upload models to the Hub, described below. We suggest adding a [Model Card](./model-cards) to your repo to document your model.
 
 ## Using the web interface
 
@@ -53,7 +53,7 @@ You can add metadata to your model card. You can specify:
 * license
 * a lot more!
 
-Read more about model tags [here](./models-cards#model-card-metadata).
+Read more about model tags [here](./model-cards#model-card-metadata).
 
 6. Add TensorBoard traces
 

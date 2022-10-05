@@ -5,6 +5,10 @@
 
 	const models: ModelData[] = [
 		{
+			id: "openai/clip-vit-base-patch16",
+			pipeline_tag: "zero-shot-image-classification",
+		},
+		{
 			id: "ydshieh/vit-gpt2-coco-en",
 			pipeline_tag: "image-to-text",
 		},

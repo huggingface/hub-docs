@@ -1,23 +1,8 @@
 # Pickle Scanning
 
-- [TL;DR](#tldr)
-- [What is a pickle?](#what-is-a-pickle)
-- [Why is it dangerous?](#why-is-it-dangerous)
-- [Mitigation Strategies](#mitigation-strategies)
-  * [Load files from users and organizations you trust](#load-files-from-users-and-organizations-you-trust)
-  * [Load model weights from TF or Flax](#load-model-weights-from-tf-or-flax)
-  * [Use your own serialization format](#use-your-own-serialization-format)
-  * [Improve `torch.load/save`](#improve-torchloadsave)
-  * [Hub’s Security Scanner](#hubs-security-scanner)
-    + [What we have now](#what-we-have-now)
-    + [Potential solutions](#potential-solutions)
-- [Further Reading](#further-reading)
-
-## TL;DR
-
 Pickle is a widely used serialization format in ML. Most notably, it is the default format for PyTorch model weights.
 
-There are dangerous arbitrary code execution attacks that can be perpetrated when you load a pickle file. We suggest loading models from users and organizations you trust, relying on signed commits, and/or loading models from TF or Jax formats with the `from_tf=True` auto-conversion mechanism. We will also alleviate this issue shortly by displaying/"vetting" the list of imports in any pickled file, directly on the Hub. 
+There are dangerous arbitrary code execution attacks that can be perpetrated when you load a pickle file. We suggest loading models from users and organizations you trust, relying on signed commits, and/or loading models from TF or Jax formats with the `from_tf=True` auto-conversion mechanism. We also alleviate this issue by displaying/"vetting" the list of imports in any pickled file, directly on the Hub. Finally, we are experimenting with a new, simple serialization format for weights called [`safetensors`](https://github.com/huggingface/safetensors).
 
 ## What is a pickle?
 
@@ -208,15 +193,13 @@ model = AutoModel.from_pretrained("bert-base-cased", from_flax=True)
 
 ### Use your own serialization format
 
-- [HDF5](https://github.com/HDFGroup/hdf5)
-- [SavedModel](https://www.tensorflow.org/guide/saved_model)
 - [MsgPack](https://msgpack.org/index.html)
 - [Protobuf](https://developers.google.com/protocol-buffers)
 - [Cap'n'proto](https://capnproto.org/)
 - [Avro](https://avro.apache.org/)
-- [safetensors](https://github.com/Narsil/safetensors/)
+- [safetensors](https://github.com/huggingface/safetensors)
 
-We might consider rolling our own serialization format (like `safetensors` above) in the future!
+This last format, `safetensors`, is a simple serialization format that we are working on and experimenting with currently! Please help or contribute if you can 🔥.
 
 ### Improve `torch.load/save`
 
@@ -233,11 +216,22 @@ We have created a security scanner that scans every file pushed to the Hub and r
 
 For ClamAV scans, files are run through the open-source antivirus [ClamAV](https://www.clamav.net). While this covers a good amount of dangerous files, it doesn’t cover pickle exploits.
 
-We have implemented a Pickle Import scan, which extracts the list of imports referenced in a pickle file. Every time you upload a `pytorch_model.bin`, this scan is run.
+We have implemented a Pickle Import scan, which extracts the list of imports referenced in a pickle file. Every time you upload a `pytorch_model.bin` or any other pickled file, this scan is run.
+
+On the hub the list of imports will be displayed next to each file containing imports. If any import looks suspicious, it will be highlighted. 
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-pickle-imports.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-pickle-imports-dark.png"/>
+</div>
 
 We get this data thanks to [`pickletools.genops`](https://docs.python.org/3/library/pickletools.html#pickletools.genops) which allows us to read the file without executing potentially dangerous code.
 
 Note that this is what allows to know if, when unpickling a file, it will `REDUCE` on a potentially dangerous function that was imported by `*GLOBAL`.
+
+***Disclaimer***: this is not 100% foolproof. It is your responsibility as a user to check if something is safe or not. We are not actively auditing python packages for safety, the safe/unsafe imports lists we have are maintained in a best-effort manner.
+Please contact us if you think something is not safe, and we flag it as such, by sending us an email to website at huggingface.co
+
 
 #### Potential solutions
 

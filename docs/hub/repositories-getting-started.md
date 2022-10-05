@@ -45,7 +45,7 @@ After creating your model repository, you should see a page like this:
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/empty_repo-dark.png"/>
 </div>
 
-Note that the Hub prompts you to create a *Model Card*, which you can learn about in the [**Model Cards documentation**](./models-cards). Including a Model Card in your model repo is best practice, but since we're only making a test repo at the moment we can skip this.
+Note that the Hub prompts you to create a *Model Card*, which you can learn about in the [**Model Cards documentation**](./model-cards). Including a Model Card in your model repo is best practice, but since we're only making a test repo at the moment we can skip this.
 
 ## Adding files to a repository (Web UI)
 

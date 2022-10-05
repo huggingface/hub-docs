@@ -97,7 +97,7 @@ If a model includes valid eval results, they will be displayed like this:
 
 ### CO<sub>2</sub> Emissions
 
-The model card is also a great place to show information about the CO<sub>2</sub> impact of your model. Visit our [guide on tracking and reporting CO<sub>2</sub> emissions](./models-cards-co2) to learn more.
+The model card is also a great place to show information about the CO<sub>2</sub> impact of your model. Visit our [guide on tracking and reporting CO<sub>2</sub> emissions](./model-cards-co2) to learn more.
 
 ## FAQ
 

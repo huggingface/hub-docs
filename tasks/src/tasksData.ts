@@ -12,6 +12,7 @@ import placeholder from "./placeholder/data";
 import questionAnswering from "./question-answering/data";
 import sentenceSimilarity from "./sentence-similarity/data";
 import summarization from "./summarization/data";
+import tabularClassification from "./tabular-classification/data"
 import textToSpeech from "./text-to-speech/data";
 import tokenClassification from "./token-classification/data";
 import translation from "./translation/data";
@@ -41,7 +42,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"summarization":                  getData("summarization", summarization),
 	"table-question-answering":       getData("table-question-answering", placeholder),
 	"table-to-text":                  getData("table-to-text", placeholder),
-	"tabular-classification":         getData("tabular-classification", placeholder),
+	"tabular-classification":         getData("tabular-classification", tabularClassification),
 	"tabular-regression":             getData("tabular-regression", placeholder),
 	"tabular-to-text":                getData("tabular-to-text", placeholder),
 	"text-classification":            getData("text-classification", textClassification),
