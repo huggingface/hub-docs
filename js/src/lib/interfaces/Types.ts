@@ -1,8 +1,8 @@
 // Warning: order of modalities here determine how they are listed on the /tasks page
 export const MODALITIES = [
+	"cv",
 	"nlp",
 	"audio",
-	"cv",
 	"tabular",
 	"multimodal",
 	"rl",
