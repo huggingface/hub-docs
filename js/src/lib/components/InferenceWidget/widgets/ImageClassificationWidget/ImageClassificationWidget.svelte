@@ -114,14 +114,14 @@
 	}
 
 	onMount(() => {
-		async () => {
+		(async () => {
 			const [src] = getDemoInputs(model, ["src"]);
 			if (callApiOnMount && src) {
 				imgSrc = src;
 				const blob = await getBlobFromUrl(imgSrc);
 				getOutput(blob);
 			}
-		};
+		})();
 	});
 </script>
 
