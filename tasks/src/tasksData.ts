@@ -21,7 +21,9 @@ import textGeneration from "./text-generation/data";
 import { TASKS_MODEL_LIBRARIES } from "./const";
 
 // To make comparisons easier, task order is the same as in const.ts
-// Tasks set to undefined won't have an associated task page
+// Tasks set to undefined won't have an associated task page.
+// Tasks that call getData() without the second argument will
+// have a "placeholder" page.
 export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"audio-classification":           getData("audio-classification", audioClassification),
 	"audio-to-audio":                 getData("audio-to-audio", audioToAudio),
