@@ -5,10 +5,16 @@
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, getBlobFromUrl } from "../../shared/helpers";
+	import {
+		getResponse,
+		getBlobFromUrl,
+		getDemoInputs,
+	} from "../../shared/helpers";
+	import { onMount } from "svelte";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
+	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -98,6 +104,17 @@
 		output = "";
 		outputJson = "";
 	}
+
+	onMount(() => {
+		(async () => {
+			const [src] = getDemoInputs(model, ["src"]);
+			if (callApiOnMount && src) {
+				imgSrc = src;
+				const blob = await getBlobFromUrl(imgSrc);
+				getOutput(blob);
+			}
+		})();
+	});
 </script>
 
 <WidgetWrapper
