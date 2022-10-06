@@ -9,24 +9,9 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	demo: {
-		inputs: [
-			{
-				filename: "",
-				type:     "img",
-			},
-		],
-		outputs: [
-			{
-				type: "chart",
-				data: [
-					{
-						label: "",
-						score: 0,
-					},
-				],
-			},
-		],
-	},
+		inputs: [],
+		outputs: [],
+   },
 	metrics: [
 		{
 			description: "Computes the number of times the correct label appears in top K labels predicted",
