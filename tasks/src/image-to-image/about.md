@@ -2,7 +2,7 @@
 
 ### Style transfer
 
-One of the first and most popular applications, style transfer can convert a regular photography into a paining in the
+One of the most popular use cases of image to image is the style transfer. Style transfer models can convert a regular photography into a painting in the style of a famous painter.
 style of Claude Monet.
 
 ### Image segementation
