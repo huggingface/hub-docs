@@ -44,7 +44,7 @@ const taskData: TaskDataCustom = {
 			id: "keras-io/low-light-image-enhancement"
 		}
 		{
-			description: "Increases the resolution of an image",
+			description: "A model that increases the resolution of an image.",
 			id: "keras-io/super-resolution"
 		}
 		{
