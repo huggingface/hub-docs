@@ -30,7 +30,7 @@ const taskData: TaskDataCustom = {
 			id:          "PSNR"
 		},
 		{
-			description: "Structural Similarity Index (SSIM) is a perceptual metric which compares the luminance, constrast and structure of two images. Between -1 and 1, the higer values indicate closer resemblance.",
+			description: "Structural Similarity Index (SSIM) is a perceptual metric which compares the luminance, constrast and structure of two images. The values of SSIM range between -1 and 1, and higher values indicate closer resemblance to the original image.",
 			id:          "SSIM"
 		},
 		{
