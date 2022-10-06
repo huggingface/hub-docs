@@ -5,10 +5,7 @@
 One of the most popular use cases of image to image is the style transfer. Style transfer models can convert a regular photography into a painting in the style of a famous painter.
 style of Claude Monet.
 
-### Image segementation
-
-Image segmentation represents is a pixel level classification - each pixel is assigned a numeric label, according to
-the object it belongs to.
+## Task Variants
 
 ### Image inpainting
 
@@ -22,10 +19,6 @@ Old, black and white images can be brought up to life using an image colorizatio
 ### Super Resolution
 
 Super resolution models increase the resolution of an image, allowing for higher quality viewing and printing.
-
-## Task Variants 
-
-This place can be filled with variants of this task if there's any. 
 
 ## Inference
 

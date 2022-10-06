@@ -3,16 +3,8 @@ import { type TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
 	datasets: [
 		{
-			description: "Synthetic dataset, simulating fog on real scenes",
-			id: "FoggyCityscapes"
-		},
-		{
 			description: "Synthetic dataset, for image relighting",
 			id: "VIDIT"
-		},
-		{
-			description: "A collection of selfie images and similar faces from anime"
-			id: "selfie2anime"
 		},
 		{
 			description: "Multiple images of celebrities, used for facial expression translation"
