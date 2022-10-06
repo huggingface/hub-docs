@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "A benchmark of 10 different audio tasks.",
@@ -17,43 +14,38 @@ const taskData: TaskData = {
 				type:     "audio",
 			},
 		],
-		outputs: 
-		[
+		outputs: [
 			{
 				data: [
 					{
-						"label": "Up",
-						"score": 0.2
+						label: "Up",
+						score: 0.2,
 					},
 					{
-						"label": "Down",
-						"score": 0.8
+						label: "Down",
+						score: 0.8,
 					},
 				],
-				"type": "chart",
+				type: "chart",
 			},
 		],
 	},
-	id:        "audio-classification",
-	label:     PIPELINE_DATA["audio-classification"].name,
-	libraries: TASKS_MODEL_LIBRARIES["audio-classification"],
-	metrics:   [
+	metrics: [
 		{
 			description: "",
-			id: "accuracy",
+			id:          "accuracy",
 		},
 		{
 			description: "",
-			id: "recall",
-
+			id:          "recall",
 		},
 		{
 			description: "",
-			id: "precision",
+			id:          "precision",
 		},
 		{
 			description: "",
-			id: "f1",
+			id:          "f1",
 		},
 	],
 	models: [
@@ -66,7 +58,8 @@ const taskData: TaskData = {
 			id:          "superb/hubert-large-superb-er",
 		},
 	],
-	summary: "Audio classification is the task of assigning a label or class to a given audio. It can be used for recognizing which command a user is giving or the emotion of a statement, as well as identifying a speaker.",
+	summary:
+		"Audio classification is the task of assigning a label or class to a given audio. It can be used for recognizing which command a user is giving or the emotion of a statement, as well as identifying a speaker.",
 	widgetModels: ["speechbrain/google_speech_command_xvector"],
 	youtubeId:    "KWwzcmG98Ds",
 };

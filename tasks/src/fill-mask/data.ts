@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "A common dataset that is used to train models for many languages.",
@@ -25,36 +22,33 @@ const taskData: TaskData = {
 		],
 		outputs: [
 			{
-				"type": "chart",
+				type: "chart",
 				data: [
 					{
-						"label": "wolf",
-						"score": 0.487
+						label: "wolf",
+						score: 0.487,
 					},
 					{
-						"label": "dog",
-						"score": 0.061
+						label: "dog",
+						score: 0.061,
 					},
 					{
-						"label": "cat",
-						"score": 0.058
+						label: "cat",
+						score: 0.058,
 					},
 					{
-						"label": "fox",
-						"score": 0.047
+						label: "fox",
+						score: 0.047,
 					},
 					{
-						"label": "squirrel",
-						"score": 0.025
-					}
-				]
+						label: "squirrel",
+						score: 0.025,
+					},
+				],
 			},
 		],
 	},
-	id:        "fill-mask",
-	label:     PIPELINE_DATA["fill-mask"].name,
-	libraries: TASKS_MODEL_LIBRARIES["fill-mask"],
-	metrics:   [
+	metrics: [
 		{
 			description: "Cross Entropy is a metric that calculates the difference between two probability distributions. Each probability distribution is the distribution of predicted words",
 			id:          "cross_entropy",

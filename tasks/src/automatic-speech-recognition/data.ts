@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "An English dataset with 1,000 hours of data.",
@@ -30,10 +27,7 @@ const taskData: TaskData = {
 			},
 		],
 	},
-	id:        "automatic-speech-recognition",
-	label:     PIPELINE_DATA["automatic-speech-recognition"].name,
-	libraries: TASKS_MODEL_LIBRARIES["automatic-speech-recognition"],
-	metrics:   [
+	metrics: [
 		{
 			description: "",
 			id:          "wer",

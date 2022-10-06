@@ -218,13 +218,26 @@ const timm = (model: ModelData) =>
 
 model = timm.create_model("hf_hub:${model.id}", pretrained=True)`;
 
-const sklearn = (model: ModelData) =>
-	`from huggingface_hub import hf_hub_download
+const sklearn = (model: ModelData) => {
+	if (model.tags?.includes("skops")) {
+		const skopsmodelFile = model.config?.sklearn?.filename;
+		return `from skops.hub_utils import download
+from skops.io import load
+
+download("${model.id}", "path_to_folder")
+# make sure model file is in skops format
+# if model is a pickle file, make sure it's from a source you trust
+model = load("path_to_folder/${skopsmodelFile}")`;
+	} else {
+		return `from huggingface_hub import hf_hub_download
 import joblib
 
 model = joblib.load(
 	hf_hub_download("${model.id}", "sklearn_model.joblib")
-)`;
+	)`;
+	}
+};
+
 
 const fastai = (model: ModelData) =>
 	`from huggingface_hub import from_pretrained_fastai

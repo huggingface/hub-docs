@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "Thousands of short audio clips of a single speaker.",
@@ -28,16 +25,13 @@ const taskData: TaskData = {
 			{
 				filename: "audio.wav",
 				type:     "audio",
-			}
+			},
 		],
 	},
-	id:        "text-to-speech",
-	label:     PIPELINE_DATA["text-to-speech"].name,
-	libraries: TASKS_MODEL_LIBRARIES["text-to-speech"],
 	metrics: [
 		{
 			description: "The Mel Cepstral Distortion (MCD) metric is used to calculate the quality of generated speech.",
-			id: "mel cepstral distortion",
+			id:          "mel cepstral distortion",
 		},
 	],
 	models: [

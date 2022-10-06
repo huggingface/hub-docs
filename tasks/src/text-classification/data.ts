@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "A widely used dataset used to benchmark multiple variants of text classification.",
@@ -19,34 +16,31 @@ const taskData: TaskData = {
 			{
 				label:   "Input",
 				content: "I love Hugging Face!",
-				type: "text",
+				type:    "text",
 			},
 			
 		],
 		outputs: [
 			{
-				"type": "chart",
+				type: "chart",
 				data: [
 					{
-						"label": "POSITIVE",
-						"score": 0.90
+						label: "POSITIVE",
+						score: 0.90,
 					},
 					{
-						"label": "NEUTRAL",
-						"score": 0.10
+						label: "NEUTRAL",
+						score: 0.10,
 					},
 					{
-						"label": "NEGATIVE",
-						"score": 0.00
-					}
-				]
+						label: "NEGATIVE",
+						score: 0.00,
+					},
+				],
 			},
 		],
 	},
-	id:        "text-classification",
-	label:     PIPELINE_DATA["text-classification"].name,
-	libraries: TASKS_MODEL_LIBRARIES["text-classification"],
-	metrics:   [
+	metrics: [
 		{
 			description: "",
 			id:          "accuracy",
@@ -62,7 +56,7 @@ const taskData: TaskData = {
 		},
 		{
 			description: "The F1 metric is the harmonic mean of the precision and recall. It can be calculated as: F1 = 2 * (precision * recall) / (precision + recall)",
-			id: "f1",
+			id:          "f1",
 		},
 	],
 	models: [
