@@ -52,7 +52,7 @@ const taskData: TaskDataCustom = {
 			id: "akiyamasho/AnimeBackgroundGAN-Shinkai"
 		}
 	],
-	summary:       "Image to image models aim at transforming a source image to match the characteristics of a target image or a target image domain. There is an endless list of image manipulations and enhancements possible using image to image machine learning models."
+	summary:       "Image to image is the task of transforming a source image to match the characteristics of a target image or a target image domain. Any image manipulation and enhancement is possible with image to image models."
 	widgetModels:  [],
 	youtubeId:     "",
 };
