@@ -15,3 +15,9 @@ Diverse design patterns can be generated to obtain unique fashion. This will mak
 ### Architecture Industry
   
 Architects can utilise the models to construct an environment based out on the requirements of the floor plan. This can also include the furniture that has to be placed in that environment.
+  
+## Useful Resources
+- [MinImagen - Build Your Own Imagen Text-to-Image Model](https://www.assemblyai.com/blog/minimagen-build-your-own-imagen-text-to-image-model/)
+- [OpenAI Blog - Dall E](https://openai.com/blog/dall-e/)
+- [Text to Image](https://towardsdatascience.com/text-to-image-a3b201b003ae)
+- [Text-to-Image Synthesis](https://medium.datadriveninvestor.com/text-to-image-synthesis-6e5de1bf86ec)
