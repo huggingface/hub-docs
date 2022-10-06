@@ -51,7 +51,7 @@ const taskData: TaskDataCustom = {
 			id:          "laion/CLIP-ViT-H-14-laion2B-s32B-b79K",
 		},
 	],
-	summary:      "Zero shot image classification is when pre-trained models are used to classify data unseen during training. It is an extension of transfer learning.",
+	summary:      "Zero shot image classification is when pre-trained models are used to classify previously unseen classes during training. It is an extension of transfer learning.",
 	widgetModels: ["openai/clip-vit-large-patch14"],
 	youtubeId:    "",
 };
