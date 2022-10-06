@@ -47,10 +47,6 @@ const taskData: TaskDataCustom = {
 			description: "A model that increases the resolution of an image.",
 			id: "keras-io/super-resolution"
 		}
-		{
-			description: "Transforms photographies into a Japanese animation style image",
-			id: "akiyamasho/AnimeBackgroundGAN-Shinkai"
-		}
 	],
 	summary:       "Image to image is the task of transforming a source image to match the characteristics of a target image or a target image domain. Any image manipulation and enhancement is possible with image to image models."
 	widgetModels:  [],
