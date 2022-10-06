@@ -52,7 +52,7 @@ const taskData: TaskDataCustom = {
 			id: "akiyamasho/AnimeBackgroundGAN-Shinkai"
 		}
 	],
-	summary:       "Image to image models aim at transforming a source image to match the characteristics of a target image. A very common application is style transfer - converting a photography into a cartoon, or in a Monet-style painting. Also, semantic segmentation is a form of image to image translation.",
+	summary:       "Image to image models aim at transforming a source image to match the characteristics of a target image or a target image domain. There is an endless list of image manipulations and enhancements possible using image to image machine learning models."
 	widgetModels:  [],
 	youtubeId:     "",
 };

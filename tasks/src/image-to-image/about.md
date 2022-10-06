@@ -1,6 +1,27 @@
 ## Use Cases
 
-You can contribute this area with common use cases of the task! 
+### Style transfer
+
+One of the first and most popular applications, style transfer can convert a regular photography into a paining in the
+style of Claude Monet.
+
+### Image segementation
+
+Image segmentation represents is a pixel level classification - each pixel is assigned a numeric label, according to
+the object it belongs to.
+
+### Image inpainting
+
+Image inpaining is widely used during photography editing to remove unwanted objects, such as poles, wires or sensor
+dust.
+
+### Image colorization
+
+Old, black and white images can be brought up to life using an image colorization model.
+
+### Super Resolution
+
+Super resolution models increase the resolution of an image, allowing for higher quality viewing and printing.
 
 ## Task Variants 
 
