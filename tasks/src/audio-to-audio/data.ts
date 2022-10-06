@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 	],
 	demo: {
@@ -24,10 +21,7 @@ const taskData: TaskData = {
 			},
 		],
 	},
-	id:        "audio-to-audio",
-	label:     PIPELINE_DATA["audio-to-audio"].name,
-	libraries: TASKS_MODEL_LIBRARIES["audio-to-audio"],
-	metrics:   [
+	metrics: [
 		{
 			description: "The Signal-to-Noise ratio is the relationship between the target signal level and the background noise level. It is calculated as the logarithm of the target signal divided by the background noise, in decibels.",
 			id:          "snri",

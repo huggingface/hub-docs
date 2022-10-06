@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "Scene segmentation dataset.",
@@ -24,10 +21,7 @@ const taskData: TaskData = {
 			},
 		],
 	},
-	id:        "image-segmentation",
-	label:     PIPELINE_DATA["image-segmentation"].name,
-	libraries: TASKS_MODEL_LIBRARIES["image-segmentation"],
-	metrics:   [
+	metrics: [
 		{
 			description: "Average Precision (AP) is the Area Under the PR Curve (AUC-PR). It is calculated for each semantic class separately",
 			id:          "Average Precision",
@@ -54,7 +48,7 @@ const taskData: TaskData = {
 		{
 			description: "Semantic segmentation model trained on ADE20k benchmark dataset.",
 			id:          "microsoft/beit-large-finetuned-ade-640-640",
-		}
+		},
 	],
 	summary:      "Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.",
 	widgetModels: ["facebook/detr-resnet-50-panoptic"],

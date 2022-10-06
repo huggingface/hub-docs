@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			// TODO write proper description
@@ -25,10 +22,7 @@ const taskData: TaskData = {
 			},
 		],
 	},
-	id:        "object-detection",
-	label:     PIPELINE_DATA["object-detection"].name,
-	libraries: TASKS_MODEL_LIBRARIES["object-detection"],
-	metrics:   [
+	metrics: [
 		{
 			description: "The Average Precision (AP) metric is the Area Under the PR Curve (AUC-PR). It is calculated for each class separately",
 			id:          "Average Precision",

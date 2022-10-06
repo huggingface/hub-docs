@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "Bing queries with relevant passages from various web sources.",
@@ -39,28 +36,25 @@ const taskData: TaskData = {
 		],
 		outputs: [
 			{
-				"type": "chart",
+				type: "chart",
 				data: [
 					{
-						"label": "Deep learning is so straightforward.",
-						"score": 0.623
+						label: "Deep learning is so straightforward.",
+						score: 0.623,
 					},
 					{
-						"label": "This is so difficult, like rocket science.",
-						"score": 0.413
+						label: "This is so difficult, like rocket science.",
+						score: 0.413,
 					},
 					{
-						"label": "I can't believe how much I struggled with this.",
-						"score": 0.256
+						label: "I can't believe how much I struggled with this.",
+						score: 0.256,
 					},
-				]
+				],
 			},
 		],
 	},
-	id:        "sentence-similarity",
-	label:     PIPELINE_DATA["sentence-similarity"].name,
-	libraries: TASKS_MODEL_LIBRARIES["sentence-similarity"],
-	metrics:   [
+	metrics: [
 		{
 			description: "Reciprocal Rank is a measure used to rank the relevancy of documents given a set of documents. Reciprocal Rank is the reciprocal of the rank of the document retrieved, meaning, if the rank is 3, the Reciprocal Rank is 0.33. If the rank is 1, the Reciprocal Rank is 1",
 			id:          "Mean Reciprocal Rank",

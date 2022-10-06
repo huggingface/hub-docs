@@ -44,6 +44,7 @@ export interface TaskData {
 	datasets: ExampleRepo[];
 	demo: TaskDemo;
 	id: PipelineType;
+	isPlaceholder?: boolean;
 	label: string;
 	libraries: Array<keyof typeof ModelLibrary>;
 	metrics: ExampleRepo[];
@@ -52,3 +53,5 @@ export interface TaskData {
 	widgetModels: string[];
 	youtubeId: string;
 }
+
+export type TaskDataCustom = Omit<TaskData, "id" | "label" | "libraries">;
