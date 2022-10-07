@@ -3,75 +3,28 @@ import type { TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
 	datasets: [
 		{
-			description: "A widely used dataset used to benchmark multiple variants of text classification.",
-			id:          "glue",
+			description: "",
+			id:          "",
 		},
 		{
-			description: "A text classification dataset used to benchmark natural language inference models",
-			id:          "snli",
+			description: "",
+			id:          "",
 		},
 	],
-	demo: {
-		inputs: [
-			{
-				label:   "Input",
-				content: "I love Hugging Face!",
-				type:    "text",
-			},
-			
-		],
-		outputs: [
-			{
-				type: "chart",
-				data: [
-					{
-						label: "POSITIVE",
-						score: 0.90,
-					},
-					{
-						label: "NEUTRAL",
-						score: 0.10,
-					},
-					{
-						label: "NEGATIVE",
-						score: 0.00,
-					},
-				],
-			},
-		],
-	},
-	metrics: [
-		{
-			description: "",
-			id:          "accuracy",
-		},
-		{
-			description: "",
-			id:          "recall",
-            
-		},
-		{
-			description: "",
-			id:          "precision",
-		},
-		{
-			description: "The F1 metric is the harmonic mean of the precision and recall. It can be calculated as: F1 = 2 * (precision * recall) / (precision + recall)",
-			id:          "f1",
-		},
-	],
+	
 	models: [
 		{
-			description: "A robust model trained for sentiment analysis.",
-			id:          "distilbert-base-uncased-finetuned-sst-2-english",
+			description: "",
+			id:          "",
 		},
 		{
-			description: "Multi-genre natural language inference model.",
-			id:          "roberta-large-mnli",
+			description: "",
+			id:          "i",
 		},
 	],
-	summary:      "Text Classification is the task of assigning a label or class to a given text. Some use cases are sentiment analysis, natural language inference, and assessing grammatical correctness.",
-	widgetModels: ["distilbert-base-uncased-finetuned-sst-2-english"],
-	youtubeId:    "leNG9fN9FQU",
+	summary:      "Zero-shot classification is a machine learning classification task where the training data does not contain any labels for the classes that the model will be asked to predict. The model must learn to map the input data to the correct class based solely on the input data. This is in contrast to traditional classification tasks, where the model is trained on data that is labeled with the correct class.",
+	widgetModels: [""],
+	youtubeId:    "",
 };
 
 export default taskData;
