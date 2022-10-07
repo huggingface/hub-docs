@@ -1,24 +1,24 @@
 ## Use Cases
 
 ### Automatic Medical Diagnostic
-Visual Question Answering (VQA) models can be used to diagnose illnesses, helping clinical staff make decisions. For example, a doctor could feed the model an MRI scan and ask ¿what does this MRI scan show?
+Visual Question Answering (VQA) models can be used to help clinical staff diagnose conditions. For example, a doctor could input an MRI scan to the model and ask "what does this MRI scan show?" and get the answer to their question. 
 
-###  Aid to the Blind
+###  Aid the Visually Impaired Persons
 VQA models can be used to reduce visual barriers for visually impaired individuals by allowing them to get information about images from the web and the real world.
 
 ### Unattended Surveillance
-Video Question Answering can be used to quickly extract valuable information from surveillance recordings. It can also be used to raise alarms in case it detects anomalous situations.
+Video Question Answering can be used to quickly extract valuable information from surveillance recordings. 
 
 ### Education
 VQA models can be used to improve experiences at museums by allowing observers to directly ask questions they interested in.
 
 ### Improved Image Retrieval
-Models can be used to retrieve images with specific characteristics. For example, to find all images with dogs, you could aks "Is there a dog?".
+Visual question answering models can be used to retrieve images with specific characteristics. For example, the user can ask "Is there a dog?" to find all images with dogs from a set of images.
 
 ## Task Variants 
 
 ### Video Question Answering
-Video Question Answering aims to answer natural language questions based on videos.
+Video Question Answering aims to answer questions asked about the content of a video.
 
 ## Inference
 

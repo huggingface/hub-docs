@@ -51,7 +51,7 @@ const taskData: TaskDataCustom = {
 			id:          "dandelin/vilt-b32-finetuned-vqa",
 		},
 	],
-	summary:       "Visual Question Answering models can answer open-ended questions based on an image. They provide natural language responses to natural language questions.",
+	summary:       "Visual Question Answering is the task of answering open-ended questions based on an image. They output natural language responses to natural language questions.",
 	widgetModels:  ["dandelin/vilt-b32-finetuned-vqa"],
 	youtubeId:     "",
 };
