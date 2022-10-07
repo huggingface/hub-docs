@@ -39,10 +39,9 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"multiple-choice":                undefined,
 	"object-detection":               getData("object-detection", objectDetection),
 	"other":                          undefined,
-
 	"question-answering":             getData("question-answering", questionAnswering),
 	"reinforcement-learning":         getData("reinforcement-learning"),
-  "robotics":                       getData("robotics"),
+	"robotics":                       getData("robotics"),
 	"sentence-similarity":            getData("sentence-similarity", sentenceSimilarity),
 	"summarization":                  getData("summarization", summarization),
 	"table-question-answering":       getData("table-question-answering"),

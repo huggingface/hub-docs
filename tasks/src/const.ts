@@ -20,7 +20,7 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof Mode
 	"object-detection":               ["transformers"],
 	"other":                          [],
 	"question-answering":             ["adapter-transformers", "allennlp", "transformers"],
-	"robotics":						  [],
+	"robotics":                       [],
 	"reinforcement-learning":         ["transformers", "stable-baselines3", "ml-agents"],
 	"sentence-similarity":            ["sentence-transformers", "spacy"],
 	"summarization":                  ["transformers"],
