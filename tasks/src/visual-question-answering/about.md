@@ -22,7 +22,7 @@ Video Question Answering aims to answer questions asked about the content of a v
 
 ## Inference
 
-You can infer with Visual Question Answering models using the `vqa` (or `visual-question-answering`) pipeline. You need to install PIL first  (`pip install pillow`).
+You can infer with Visual Question Answering models using the `vqa` (or `visual-question-answering`) pipeline. This pipeline requires [the Python Image Library (PIL)](https://pillow.readthedocs.io/en/stable/) to process images. You can install it with (`pip install pillow`).
 
 ```python
 from PIL import Image
