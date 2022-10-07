@@ -3,7 +3,7 @@ import type { TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
 	datasets: [
 		{
-			description: "A subset of widely used Datasets for Data Driven Deep Reinforcement Learning (D4RL)",
+			description: "A curation of widely used datasets for Data Driven Deep Reinforcement Learning (D4RL)",
 			id:          "edbeeching/decision_transformer_gym_replay",
 		}
 	],
@@ -12,13 +12,12 @@ const taskData: TaskDataCustom = {
 		outputs: [],
 	},
     metrics: [{
-        description: "Mean reward per episode obtained after running policy for a certain number of evaluation episodes ",
+        description: "Average return obtained after running the policy for a certain number of evaluation episodes ",
         id:          "Mean Reward",
     }],
-    isPlaceholder: true,
 	models: [
         {
-			description: "A Decision Transformer model trained on expert trajectories sampled from the Gym Hopper environment",
+			description: "A Transformer-based Reinforcement Learning model trained on expert data from the Gym Hopper environment",
 			id:          "edbeeching/decision-transformer-gym-hopper-expert",
 		},
 		{
