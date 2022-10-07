@@ -23,24 +23,18 @@ const taskData: TaskDataCustom = {
 		{
 			// TO DO: write description
 			description:
-				"Robust image classification model trained on publicly available image-caption data.",
+				"Robust image classification model trained on publicly available image-caption data using a ViT-L/14 Transformer architecture base as an image encoder and uses a masked self-attention Transformer as a text encoder.",
 			id: "openai/clip-vit-large-patch14",
 		},
 		{
 			// TO DO: write description
 			description:
-				"Robust image classification model trained on publicly available image-caption data.",
+				"Robust image classification model trained on publicly available image-caption data using a ViT-B/16 Transformer architecture as an image encoder and uses a masked self-attention Transformer as a text encoder.",
 			id: "openai/clip-vit-base-patch16",
-		},
-		{
-			// TO DO: write description
-			description:
-				"Robust image classification model trained on  LAION-2B English subset of LAION-5B (https://laion.ai/blog/laion-5b/) using OpenCLIP (https://github.com/mlfoundations/open_clip).",
-			id: "laion/CLIP-ViT-H-14-laion2B-s32B-b79K",
 		},
 	],
 	summary:
-		"Zero shot image classification is when pre-trained models are used to classify previously unseen classes during training. It is an extension of transfer learning. For instance a model trained to differentiate cars and airplanes is used to classify images of ships.",
+		"Zero shot image classification is the task of classifying previously unseen classes during training of a model.",
 	widgetModels: ["openai/clip-vit-large-patch14"],
 	youtubeId: "",
 };
