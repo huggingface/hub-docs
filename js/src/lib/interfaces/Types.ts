@@ -448,6 +448,22 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		color:          "red",
 		hideInDatasets: true,
 	},
+	"robotics": {
+		name:     "Robotics",
+		modality: "rl",
+		subtasks: [
+			{
+				type: "grasping",
+				name: "Grasping",
+			},
+			{
+				type: "task-planning",
+				name: "Task Planning",
+			},
+		],
+		color:          "blue",
+		hideInDatasets: true,
+	},
 	"tabular-classification": {
 		name:     "Tabular Classification",
 		modality: "tabular",
@@ -573,14 +589,14 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Document Question Answering",
 			},
 		],
-		modality: "multimodal",
-		color:    "blue",
+		modality:       "multimodal",
+		color:          "blue",
 		hideInDatasets: true,
 	},
 	"zero-shot-image-classification": {
-		name:         "Zero-Shot Image Classification",
-		modality:     "cv",
-		color:        "yellow",
+		name:     "Zero-Shot Image Classification",
+		modality: "cv",
+		color:    "yellow",
 	},
 	"other": {
 		name:         "Other",
@@ -632,6 +648,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"visual-question-answering",
 	"image-to-text",
 	"reinforcement-learning",
+	"robotics",
 	"voice-activity-detection",
 	"time-series-forecasting",
 	"document-question-answering",
