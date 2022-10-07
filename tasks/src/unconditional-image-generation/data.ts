@@ -47,7 +47,7 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	summary:      "Unconditional image generation is the task of generating images with no condition in any context (prompt text, another image, etc.). Once trained, the model will create images that resemble its training data distribution.",
-	widgetModels: ["google/vit-base-patch16-224"],
+	widgetModels: "",
 	// TODO: Add related video
 	youtubeId:    "",
 };
