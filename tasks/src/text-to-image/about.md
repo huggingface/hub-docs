@@ -2,7 +2,7 @@
 
 ### Data Generation
   
-Businesses can create additional data for their task specific to their use cases by inputting text and getting image outputs. 
+Businesses can generate data for their their use cases by inputting text and getting image outputs. 
   
 ### Immersive Conversational Chatbots
   
