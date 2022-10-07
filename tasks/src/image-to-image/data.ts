@@ -44,10 +44,14 @@ const taskData: TaskDataCustom = {
 		{
 			description: "A model that enhances images captured in low light conditions.",
 			id: "keras-io/low-light-image-enhancement"
-		}
+		},
 		{
 			description: "A model that increases the resolution of an image.",
 			id: "keras-io/super-resolution"
+		},
+		{
+			description: "A model that creates a set of variations of the imput image in the style of DALL-E using Stable Diffusion.",
+			id: "lambdalabs/sd-image-variations-diffusers"
 		}
 	],
 	summary:       "Image to image is the task of transforming a source image to match the characteristics of a target image or a target image domain. Any image manipulation and enhancement is possible with image to image models."
