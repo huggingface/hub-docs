@@ -8,7 +8,7 @@ One of the most popular use cases of image to image is the style transfer. Style
 
 ### Image inpainting
 
-Image inpaining is widely used during photography editing to remove unwanted objects, such as poles, wires or sensor
+Image inpainting is widely used during photography editing to remove unwanted objects, such as poles, wires or sensor
 dust.
 
 ### Image colorization
