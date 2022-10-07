@@ -34,11 +34,11 @@ const taskData: TaskDataCustom = {
 			},
 		],
 	},
-	isPlaceholder: true,
+	isPlaceholder: false,
 	metrics:       [
 		{
-			description: "For open-ended and multiple-choice VQA.",
-			id:          "Accuracy",
+			description: "",
+			id:          "accuracy",
 		},
 		{
 			description: "Measures how much a predicted answer differs from the ground truth based on the difference in their semantic meaning.",
@@ -47,7 +47,7 @@ const taskData: TaskDataCustom = {
 	],
 	models:        [
 		{
-			description: "Vision-and-Language Transformer (ViLT) model fine-tuned on VQAv2",
+			description: "Robust Visual Question Answering model trained on the VQAv2 dataset.",
 			id:          "dandelin/vilt-b32-finetuned-vqa",
 		},
 	],
