@@ -114,7 +114,7 @@ model = Speech2Text.from_pretrained(
 )
 
 speech, rate = soundfile.read("speech.wav")
-text, *_ = model(speech)`;
+text, *_ = model(speech)[0]`;
 
 const espnetUnknown = () =>
 	`unknown model type (must be text-to-speech or automatic-speech-recognition)`;
