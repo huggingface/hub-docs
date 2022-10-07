@@ -3,32 +3,31 @@ import type { TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
 	datasets: [
 		{
-			description: "NFT images dataset of 'cryptopunks' for unconditional image generation.",
-			id:          "huggingnft/cryptopunks",
+			description: "The CIFAR-100 dataset consists of 60000 32x32 colour images in 100 classes, with 600 images per class.",
+			id:          "cifar100",
 		},
 		{
-			description: "NFT images dataset of 'alpacadabraz' for unconditional image generation.",
-			id:          "huggingnft/alpacadabraz",
+			description: "Multiple images of celebrities, used for facial expression translation.",
+			id:          "CelebA",
 		},
 	],
 	demo: {
 		inputs: [
 			{
-				label:   "Input",
-				content: "",
-				type:    "text",
+				filename: "unconditional-image-generation/unconditional-image-generation-input.png",
+				type:    "img",
 			},
 		],
 		outputs: [
 			{
-				filename: "unconditional-image-generation-output.jpeg",
+				filename: "unconditional-image-generation/unconditional-image-generation-output.png",
 				type:     "img",
 			},
 		],
 	},
 	metrics: [
 		{
-			description: "The inception score (IS) evaluates the quality of image generative models by using the output of a pre-trained classifier (InceptionV3). It measures that the generated images are diverse (the model predictions are evenly distributed across all possible labels) and distinct (the model confidently predicts a single label for each image).",
+			description: "The inception score (IS) evaluates the quality of generated images. It measures the diversity of the generated images (the model predictions are evenly distributed across all possible labels) and their 'distinction' or 'sharpness' (the model confidently predicts a single label for each image).",
 			id:          "Inception score (IS)",
 		},
 		{
@@ -38,11 +37,11 @@ const taskData: TaskDataCustom = {
 	],
 	models: [
 		{
-			description: "LightWeight GAN model for unconditional generation.",
-			id:          "huggingnft/cryptopunks",
+			description: "High-quality image generation model trained on the CIFAR-10 dataset. It synthesizes images of the ten classes presented in the dataset using diffusion probabilistic models, a class of latent variable models inspired by considerations from nonequilibrium thermodynamics.",
+			id:          "google/ddpm-cifar10-32",
 		},
 		{
-			description: "The mode generates high-quality image synthesis using diffusion probabilistic models, a class of latent variable models inspired by considerations from nonequilibrium thermodynamics.",
+			description: "High-quality image generation model trained on the 256x256 CelebA-HQ dataset. It synthesizes images of faces using diffusion probabilistic models, a class of latent variable models inspired by considerations from nonequilibrium thermodynamics.",
 			id:          "google/ddpm-celebahq-256",
 		},
 	],
