@@ -1,7 +1,12 @@
 import { type TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
-	datasets: [],
+	datasets: [
+		{
+			description: "A widely used dataset containing questions (with answers) about images.",
+			id:          "Graphcore/vqa",
+		},
+	],
 	demo: {
 		inputs: [
 			{
