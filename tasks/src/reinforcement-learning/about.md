@@ -11,7 +11,8 @@ This place can be filled with variants of this task if there's any.
 <!-- ![RL Loop](https://huggingface.co/blog/assets/63_deep_rl_intro/RL_process.jpg "Agent Environment Interaction") TODO: Uncomment image for visual understanding if it fits within the page--> 
 
 
-**Agent:** The learner and the decision maker
+**Agent:** The learner and the decision maker.
+
 
 **Environment:** The part of the world the agent interacts, comprising everything outside the agent.
 
