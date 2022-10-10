@@ -138,8 +138,6 @@
   title: Other
   isExpanded: true
   sections:    
-  - local: doi
-    title: Digital Object Identifier (DOI)
   - local: organizations
     title: Organizations
     sections:
@@ -149,6 +147,8 @@
       title: Organization Cards
     - local: organizations-security
       title: Access control in organizations
+  - local: doi
+    title: Digital Object Identifier (DOI)
   - local: security
     title: Security
     sections:
