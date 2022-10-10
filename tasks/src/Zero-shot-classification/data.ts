@@ -19,10 +19,10 @@ const taskData: TaskDataCustom = {
 		},
 		{
 			description: "",
-			id:          "i",
+			id:          "",
 		},
 	],
-	summary:      "Zero-shot classification is a machine learning classification task where the training data does not contain any labels for the classes that the model will be asked to predict. The model must learn to map the input data to the correct class based solely on the input data. This is in contrast to traditional classification tasks, where the model is trained on data that is labeled with the correct class.",
+	summary:      "Zero-shot classification is a type of machine learning that can classify data points without any training data. This is done by using a model that has been previously trained on a similar task. The model is able to generalize from the training data to the new data points.",
 	widgetModels: [""],
 	youtubeId:    "",
 };
