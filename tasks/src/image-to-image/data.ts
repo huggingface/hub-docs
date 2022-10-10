@@ -8,7 +8,7 @@ const taskData: TaskDataCustom = {
 		},
 		{
 			description: "Multiple images of celebrities, used for facial expression translation"
-			id: "CelebA"
+			id: "huggan/CelebA-faces"
 		}
 	],
 	demo:     {
