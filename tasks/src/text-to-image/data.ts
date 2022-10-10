@@ -12,9 +12,9 @@ const taskData: TaskDataCustom = {
         },
     ],
     demo:          {
-		inputs:  [],
-		outputs: [],
-	},
+        inputs:  [],
+        outputs: [],
+    },
     metrics:       [],
     models:        [
         {
