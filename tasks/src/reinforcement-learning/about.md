@@ -1,3 +1,18 @@
+## Task Description
+
+
+## Most used dataset for the task
+
+
+## Most used model for the task
+
+
+## Metrics that are used to evaluate the task
+
+
+## Libraries used for the task
+
+
 ## Use cases
 
 In this part we will see where we can actually use these algorithms and how it is helping the people in numerous ways.
@@ -29,3 +44,5 @@ Reinforcement learning can be used to guide patients to the right treatment regi
 Reinforcement Learning in healthcare is categorized as dynamic treatment regimes(DTRs) in chronic disease or critical care, automated medical diagnosis, and other general domains. The medical sector has always used technological advancements, for past few years it has used the reinforcement learning for implementing dynamic treatment regimes(DTRs) for patients who have long term illness i.e. chronic disease.
 
 It has also found its application in automated medical diagnosis, health resource scheduling, drug discovery and development, and health management.Reinforcement Learning has taken over medical report generation, identification of nodules/tumors and blood vessel blockage, analysis of these reports, etc.
+
+##  Small snippet for inference that demonstrates the task
