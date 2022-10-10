@@ -17,7 +17,8 @@ const taskData: TaskDataCustom = {
     }],
 	models: [
         {
-			description: "A Transformer-based Reinforcement Learning model trained on expert data from the Gym Hopper environment",
+			description: "A Reinforcement Learning model trained on expert data from the Gym Hopper environment",
+
 			id:          "edbeeching/decision-transformer-gym-hopper-expert",
 		},
 		{
