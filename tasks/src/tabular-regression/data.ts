@@ -12,20 +12,16 @@ const taskData: TaskData = {
 		{
 			description: "Dataset containing mile-per-gallon (mpg) information for various vehicles",
 			id:          "scikit-learn/auto-mpg",
-		},
-		{
-			description: "Dataset containing measurements of fish at a market.",
-			id:          "brendenc/fish",
-		},
+		}
 	],
 	demo: {
 		inputs: [
 			{
 				table: [
-					["Mother's Height (cm)", "Father's Height (cm)"],
-					["162", "172",],
-					["165", "178"],
-					["170", "165"]
+					["Car Name", "Horsepower", "Weight"],
+					["ford torino", "140", "3,449"],
+					["amc hornet", "97", "2,774"],
+					["toyota corolla", "65", "1,773"]
 
 				],
 				type: "tabular",
@@ -33,7 +29,7 @@ const taskData: TaskData = {
 		],
 		outputs: [
 			{
-				table: [["Baby's Height (cm)"], ["47"], ["50"], ["51"]],
+				table: [["MPG (miles per gallon)"], ["17"], ["18"], ["31"]],
 				type:  "tabular",
 			},
 		],
