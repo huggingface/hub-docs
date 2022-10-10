@@ -15,7 +15,8 @@ This place can be filled with variants of this task if there's any.
 
 **Environment:** The part of the world the agent interacts, comprising everything outside the agent
 
-**State:** Information the agent receives from the environment. In the case of a video game it can be a frame (a screenshot), in the case of a chess playing agent it can be the board position, in the case of a trading agent it can be the price of a certain stock, etc
+**State:** Information the agent receives from the environment. In the case of a video game it can be a frame (a screenshot), in the case of a chess playing agent it can be the board position, in the case of a trading agent it can be the price of a certain stock.
+
 
 **Action:** The decision taken by the agent
 
