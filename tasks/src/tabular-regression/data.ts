@@ -51,7 +51,7 @@ const taskData: TaskData = {
 		},
 	],
 	summary:
-		"Tabular regression is the task of predicting a numerical value given a set of attributes/features.",
+		"Tabular regression is the task of predicting a numerical value given a set of attributes.",
 	widgetModels: [""],
 	youtubeId:    "",
 };
