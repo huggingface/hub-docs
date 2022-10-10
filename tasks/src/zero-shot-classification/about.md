@@ -67,5 +67,5 @@ classifier(sentence , labels)
 
 Would you like to learn more about the topic? Awesome! Here you can find some curated resources that you may find helpful!
 
-[Github Repositery contaning all important papers , datasets and other resource in ZSL](https://github.com/sbharadwajj/awesome-zero-shot-learning)
-[Pytorch Implementation](https://github.com/edgarschnfld/CADA-VAE-PyTorch)
+- [Github Repositery contaning all important papers , datasets and other resource in ZSL](https://github.com/sbharadwajj/awesome-zero-shot-learning)
+- [Pytorch Implementation](https://github.com/edgarschnfld/CADA-VAE-PyTorch)
