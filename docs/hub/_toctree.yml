@@ -138,6 +138,8 @@
   title: Other
   isExpanded: true
   sections:    
+  - local: doi
+    title: Digital Object Identifier (DOI)
   - local: organizations
     title: Organizations
     sections:
