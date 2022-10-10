@@ -22,7 +22,7 @@ const taskData: TaskDataCustom = {
 			id:          "",
 		},
 	],
-	summary:      "Zero-shot classification is a type of machine learning that can classify data points without any training data. This is done by using a model that has been previously trained on a similar task. The model is able to generalize from the training data to the new data points.",
+	summary:      "Zero-shot text classification is a task in natural language processing (NLP) where a model is trained on a set of labeled examples but is then able to classify new examples from previously unseen classes by transferring knowledge from seen to unseen classes.",
 	widgetModels: [""],
 	youtubeId:    "",
 };
