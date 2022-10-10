@@ -38,7 +38,7 @@ You just need to click on "Generate new DOI" and tadaam!🎉 a new DOI is assign
 
 ## Why there is "locked by DOI" message on delete, rename and change visibility action on my model/dataset?
 
-DOIs make finding information about a model or dataset easier and sharing them with the world via a permanent link that will never expire or change. As such, datasets/models with DOIs are intended to persist perpetually and may only be deleted, renamed and change their visibility upon filing a request with our support (website@huggingface.co)
+DOIs make finding information about a model or dataset easier and sharing them with the world via a permanent link that will never expire or change. As such, datasets/models with DOIs are intended to persist perpetually and may only be deleted, renamed and changed their visibility upon filing a request with our support (website@huggingface.co)
 
 ## Further Reading
 - [Introducing DOI: the Digital Object Identifier to Datasets and Models](https://huggingface.co/blog/introducing-doi)
