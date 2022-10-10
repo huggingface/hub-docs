@@ -63,7 +63,7 @@ classifier(sentence , labels)
 ```
 
 
-## Useful Resources
+## Useful Resources
 
 Would you like to learn more about the topic? Awesome! Here you can find some curated resources that you may find helpful!
 
