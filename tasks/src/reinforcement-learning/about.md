@@ -19,7 +19,8 @@ In this part we will see where we can actually use these algorithms and how it i
 
 ### Applications in autonomous driving
 
-Autonomous or self driving cars are quite trending now a days. It is also a big step towards driver less commute or where the machine is itself able to perform the task, which makes it an problem of machine learning and artificial intelligence. So the vehicle, driving in the real world without any driver must be backed by an machine learning model trained with all the possibilities. 
+Autonomous or self driving cars are quite trending nowadays. It is also a big step towards driverless commute where the machine is itself able to perform the task. The vehicle without any driver can be backed by a machine learning model. 
+
 
 In self-driving cars, there are various aspects to consider, such as speed limits at various places, drivable zones, avoiding collisions — just to mention a few. The collection of these variety of situations is tough problem to solve.
 
