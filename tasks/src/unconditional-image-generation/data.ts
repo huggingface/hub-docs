@@ -20,7 +20,7 @@ const taskData: TaskDataCustom = {
 			},
 			{
 				label:   "Number of images to generate:",
-				content: "2",
+				content: "4",
 				type:    "text",
 			},
 		],
