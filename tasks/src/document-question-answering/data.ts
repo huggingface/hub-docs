@@ -7,11 +7,6 @@ const taskData: TaskDataCustom = {
 			description: "Dataset from the 2020 DocVQA challenge. The documents are taken from the UCSF Industry Documents Library.",
 			id:          "eliolio/docvqa",
 		},
-		{
-			// TODO write proper description
-			description: "Dataset from the 2021 ICDAR DocVQA challenge. The documents consist of infographic images (charts, diagram, etc.).",
-			id:          "eliolio/infographic-vqa",
-		},
 	],
 	demo: {
 		inputs: [

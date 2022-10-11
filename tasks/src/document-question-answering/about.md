@@ -1,6 +1,6 @@
 ## Use Cases
 
-Document question answering models can be used to extract information directly from document images. 
+Document question answering models can be used to answer natural language questions directly from document images. This is useful when the visual information of the document is important for answering the question.
 
 ### Document Parsing
 
@@ -12,7 +12,7 @@ You can use Document question answering models to extract information from invoi
 
 ## Inference
 
-You can infer with Document QA models with the 🤗 Transformers library using the [`document-question-answering` pipeline](https://huggingface.co/docs/transformers/en/main_classes/pipelines#transformers.DocumentQuestionAnsweringPipeline). If no model checkpoint is given, the pipeline will be initialized with [`impira/layoutlm-document-qa`](https://huggingface.co/impira/layoutlm-document-qa). This pipeline answers the question(s) given as inputs by using the document(s). A document is defined as an image and an optional list of (word, box) tuples which represent the text in the document. If the word_boxes are not provided, it will use the Tesseract OCR engine (if available) to extract the words and boxes automatically for LayoutLM-like models which require them as input. For Donut, no OCR is run.
+You can infer with Document QA models with the 🤗 Transformers library using the [`document-question-answering` pipeline](https://huggingface.co/docs/transformers/en/main_classes/pipelines#transformers.DocumentQuestionAnsweringPipeline). If no model checkpoint is given, the pipeline will be initialized with [`impira/layoutlm-document-qa`](https://huggingface.co/impira/layoutlm-document-qa). This pipeline answers the question(s) given as inputs by using the document(s). A document is defined as an image and an optional list of (word, box) tuples which represent the text in the document. If the word_boxes are not provided, it will use the Tesseract OCR engine (if available) to extract the words and boxes automatically for LayoutLM-like models which require them as input. For Donut, no OCR is run (see [paper](https://arxiv.org/abs/2111.15664)).
 
 ```python
 from transformers import pipeline
