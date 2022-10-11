@@ -3,12 +3,12 @@ import type { TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
     datasets:      [
         {
-            description: "A large-scale image dataset containing images of everyday objects and people with their textual descriptions.",
-            id:          "ChristophSchuhmann/MS_COCO_2017_URL_TEXT",
+            description: "RedCaps is a large-scale dataset of 12M image-text pairs collected from Reddit.",
+            id:          "red_caps",
         },
         {
-            description: "A dataset created from Midjourney User Prompts & Generated Images",
-            id:          "nateraw/midjourney-texttoimage-new",
+            description: "Conceptual Captions is a dataset consisting of ~3.3M images annotated with captions.",
+            id:          "conceptual_captions",
         },
     ],
     demo:          {
