@@ -11,6 +11,41 @@ const taskData: TaskDataCustom = {
 			id:          "",
 		},
 	],
+	demo: {
+		inputs: [
+			{
+
+			},
+			
+		],
+		outputs: [
+			{
+				type: "",
+				data: [
+
+				],
+			},
+		],
+	},
+	metrics: [
+		{
+			description: "",
+			id:          "",
+		},
+		{
+			description: "",
+			id:          "",
+            
+		},
+		{
+			description: "",
+			id:          "",
+		},
+		{
+			description: "",
+			id:          "",
+		},
+	],
 	
 	models: [
 		{
