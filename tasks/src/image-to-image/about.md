@@ -4,6 +4,8 @@ Pix2Pix is a popular model used for image to image translation tasks. It is base
 
 https://phillipi.github.io/pix2pix/
 
+Below images show some of the examples shared in the paper that can be obtained using Pix2Pix. There are various cases this model can be applied to. It may do relatively simple things like converting a grayscale image to its colored version. But more importantly it can generate realistic pictures from rough sketches (as in the purse example) or from painting like images (as in the street and facade examples below).
+
 <img src="/tasks/assets/image-to-image/pix2pix_examples.jpg" alt="Alt text" title="Optional title">
 
 ## Use Cases
