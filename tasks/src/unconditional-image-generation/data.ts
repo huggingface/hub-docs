@@ -14,24 +14,19 @@ const taskData: TaskDataCustom = {
 	demo: {
 		inputs: [
 			{
-				label:   "Choose model:",
-				content: "azuki",
+				label:   "Seed",
+				content: "42",
 				type:    "text",
 			},
 			{
-				label:   "Select generation type:",
-				content: "default",
-				type:    "text",
-			},
-			{
-				label:   "Number of rows:",
+				label:   "Number of images to generate:",
 				content: "2",
 				type:    "text",
 			},
 		],
 		outputs: [
 			{
-				filename: "unconditional-image-generation/unconditional-image-generation-output.jpeg",
+				filename: "unconditional-image-generation-output.jpeg",
 				type:     "img",
 			},
 		],
@@ -56,7 +51,7 @@ const taskData: TaskDataCustom = {
 			id:          "google/ddpm-celebahq-256",
 		},
 	],
-	summary:      "Unconditional image generation is the task of generating images with no condition in any context (prompt text, another image, etc.). Once trained, the model will create images that resemble its training data distribution.",
+	summary:      "Unconditional image generation is the task of generating images with no condition in any context (like a prompt text or another image). Once trained, the model will create images that resemble its training data distribution.",
 	widgetModels: [""],
 	// TODO: Add related video
 	youtubeId:    "",
