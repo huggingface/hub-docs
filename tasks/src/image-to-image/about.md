@@ -36,3 +36,7 @@ This section should have useful information about how to pull a model from Huggi
 ## Useful Resources
 
 In this area, you can insert useful resources about how to train or use a model for this task.
+
+## References 
+
+[1] P. Isola, J. -Y. Zhu, T. Zhou and A. A. Efros, "Image-to-Image Translation with Conditional Adversarial Networks," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 5967-5976, doi: 10.1109/CVPR.2017.632.
