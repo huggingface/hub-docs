@@ -1,3 +1,9 @@
+## Most Used Model for the Task
+
+Pix2Pix is a popular model used for image to image translation tasks. It is based on a conditional-GAN (generative adversarial network) where instead of a noise vector a 2D image is given as input. More information about Pix2Pix can be retreived from the below link where the associated paper and Github repository can be found.
+
+https://phillipi.github.io/pix2pix/
+
 ## Use Cases
 
 ### Style transfer
