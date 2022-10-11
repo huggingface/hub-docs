@@ -26,7 +26,9 @@ export enum ModelLibrary {
 	"fasttext"               = "fastText",
 	"stable-baselines3"      = "Stable-Baselines3",
 	"ml-agents"              = "ML-Agents",
-	"pythae"                 = "Pythae"
+	"pythae"                 = "Pythae",
+	"optimum-habana"         = "Optimum Habana",
+	"optimum-graphcore"      = "Optimum Graphcore"
 }
 
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as (keyof typeof ModelLibrary)[];
@@ -372,6 +374,25 @@ const pythae = (model: ModelData) =>
 
 model = AutoModel.load_from_hf_hub("${model.id}")`;
 
+const optimum_habana = (model: ModelData) =>
+	`from transformers import AutoModel
+from optimum.habana import GaudiTrainer, GaudiTrainingArguments
+
+model = AutoModel.from_pretrained("${model.id.split("/").at(-1)}")
+
+training_args = GaudiTrainingArguments(..., use_habana=True, use_lazy_mode=True, gaudi_config_name="${model.id}")
+trainer = GaudiTrainer(model=model, args=training_args,...)`;
+
+const optimum_graphcore = (model: ModelData) =>
+	`from transformers import AutoModel
+from optimum.graphcore import IPUConfig, IPUTrainer, IPUTrainingArguments
+
+model = AutoModel.from_pretrained("${model.id.split("/").at(-1)}")
+
+training_args = IPUTrainingArguments(..., ipu_config_name="${model.id}")
+ipu_config = IPUConfig.from_pretrained(training_args.ipu_config_name)
+trainer = IPUTrainer(model=model, ipu_config=ipu_config, args=training_args,...)`;
+
 //#endregion
 
 
@@ -515,6 +536,18 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "pythae",
 		repoUrl:  "https://github.com/clementchadebec/benchmark_VAE",
 		snippet:  pythae,
+	},
+	"optimum-habana": {
+		btnLabel: "optimum-habana",
+		repoName: "optimum-habana",
+		repoUrl:  "https://github.com/huggingface/optimum-habana",
+		snippet:  optimum_habana,
+	},
+	"optimum-graphcore": {
+		btnLabel: "optimum-graphcore",
+		repoName: "optimum-graphcore",
+		repoUrl:  "https://github.com/huggingface/optimum-graphcore",
+		snippet:  optimum_graphcore,
 	},
 } as const;
 
