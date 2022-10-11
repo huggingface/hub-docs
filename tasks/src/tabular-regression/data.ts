@@ -43,7 +43,7 @@ const taskData: TaskData = {
 	models: [
 		{
 			description: "Fish weight prediction based on length measurements and species.",
-			id:          "brendenc/Fish-Weight",
+			id:          "scikit-learn/Fish-Weight",
 		},
 	],
 	summary:
