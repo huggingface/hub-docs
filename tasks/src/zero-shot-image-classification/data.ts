@@ -20,22 +20,23 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	models: [
+
 		{
 			// TO DO: write description
 			description:
-				"Robust image classification model trained on publicly available image-caption data using a ViT-L/14 Transformer architecture base as an image encoder and uses a masked self-attention Transformer as a text encoder.",
-			id: "openai/clip-vit-large-patch14",
+				"Robust image classification model trained on publicly available image-caption data.",
+			id: "openai/clip-vit-base-patch16",
 		},
 		{
 			// TO DO: write description
 			description:
-				"Robust image classification model trained on publicly available image-caption data using a ViT-B/16 Transformer architecture as an image encoder and uses a masked self-attention Transformer as a text encoder.",
-			id: "openai/clip-vit-base-patch16",
+				"Robust image classification model trained on publicly available image-caption data trained on additional high pixel data for better performance.",
+			id: "openai/clip-vit-large-patch14-336",
 		},
 	],
 	summary:
 		"Zero shot image classification is the task of classifying previously unseen classes during training of a model.",
-	widgetModels: ["openai/clip-vit-large-patch14"],
+	widgetModels: ["openai/clip-vit-large-patch14-336"],
 	youtubeId: "",
 };
 
