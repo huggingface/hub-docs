@@ -14,13 +14,24 @@ const taskData: TaskDataCustom = {
 	demo: {
 		inputs: [
 			{
-				filename: "unconditional-image-generation/unconditional-image-generation-input.png",
-				type:    "img",
+				label:   "Choose model:",
+				content: "azuki",
+				type:    "text",
+			},
+			{
+				label:   "Select generation type:",
+				content: "default",
+				type:    "text",
+			},
+			{
+				label:   "Number of rows:",
+				content: "2",
+				type:    "text",
 			},
 		],
 		outputs: [
 			{
-				filename: "unconditional-image-generation/unconditional-image-generation-output.png",
+				filename: "unconditional-image-generation/unconditional-image-generation-output.jpeg",
 				type:     "img",
 			},
 		],
