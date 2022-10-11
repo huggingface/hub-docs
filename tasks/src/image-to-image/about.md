@@ -4,6 +4,8 @@ Pix2Pix is a popular model used for image to image translation tasks. It is base
 
 https://phillipi.github.io/pix2pix/
 
+<img src="hub-docs/tasks/assets/image-to-image/pix2pix_examples.jpg" alt="Alt text" title="Optional title">
+
 ## Use Cases
 
 ### Style transfer
