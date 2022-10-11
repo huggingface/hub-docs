@@ -26,29 +26,9 @@ const taskData: TaskDataCustom = {
 		],
 		outputs: [
 			{
-				type: "chart",
-				data: [
-					{
-						label: "wolf",
-						score: 0.487,
-					},
-					{
-						label: "dog",
-						score: 0.061,
-					},
-					{
-						label: "cat",
-						score: 0.058,
-					},
-					{
-						label: "fox",
-						score: 0.047,
-					},
-					{
-						label: "squirrel",
-						score: 0.025,
-					},
-				],
+				label:   "Answer",
+				content: "Hi Julien! My name is Julia! I am well.",
+				type:    "text",
 			},
 		],
 	},
