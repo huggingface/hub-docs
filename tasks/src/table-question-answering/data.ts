@@ -26,6 +26,7 @@ const taskData: TaskDataCustom = {
 			  type: "text",
 			},
 		],
+	},
 	metrics: 
 		[
 		{ description: "",
@@ -46,8 +47,10 @@ const taskData: TaskDataCustom = {
 			id: "google/tapas-base-finetuned-wtq",
 
 		},
+	],
 	summary: "Table Question Answering (Table QA) refers to providing precise answers from tables to answer a user's question.",
 	widgetModels: ["microsoft/tapex-base"],
+	},
 
 
 export default taskData;
