@@ -6,12 +6,23 @@ const taskData: TaskDataCustom = {
 			description:"The Fewshot Table dataset consists of tables that naturally occur on the web, that are formatted as few-shot tasks for fine-tuning language models to improve their few-shot performance.",
 			id: "JeremyAlain/123_test",
 		},
+		{
+			description:"WikiSQL is a dataset of 80654 hand-annotated examples of questions and SQL queries distributed across 24241 tables from Wikipedia.",
+			id: "wikisql",
+		},
 	],
 	demo: {
 		inputs: [
-			{ label: "Table",
-		          filename: "tableQA.jpg",
-			  type: "img",
+			{ table: [
+				["Rank", "Name", "No.of reigns", "Combined days"],
+				[1, 'lou Thesz', 3, 3749],
+                                [2, 'Ric Flair', 8, 3103],
+                                [3, 'Harley Race', 7, 1799],
+                                [4, 'Dory Funk Jr.', 1, 1563],
+                                [5, 'Dan Severn', 2, 1559],
+                                [6, 'Gene Kiniski', 1, 1131]
+			],
+			  type: "tabular",
 			 },
 			 
 			 { label: "Question",
@@ -29,21 +40,18 @@ const taskData: TaskDataCustom = {
 	},
 	metrics: 
 		[
-		{ description: "",
-		  id: "execution accuracy",
-		},
-		{ description: "",
-			id: "logical form accuracy",
+		{ description: "checks whetherchecks whether the predicted answer(s) is equal to the ground-truth answer(s).",
+		  id: "denotation accuracy",
 		},
 	],
 	models: 
 		[ 
 		{
-		       	description: "an empirically powerful pre-training approach to empower existing models with table reasoning skills.",
+		       	description: "You can use the raw model for simulating neural SQL execution, i.e., employ TAPEX to execute a SQL query on a given table.",
 		         id: "microsoft/tapex-base",
 		},
 		{
-			description: "TAPAS is a BERT-like transformers model pretrained on a large corpus of English data from Wikipedia in a self-supervised fashion.",
+			description: "You can use this model for answering questions related to a table.",
 			id: "google/tapas-base-finetuned-wtq",
 
 		},
