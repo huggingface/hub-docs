@@ -49,7 +49,8 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	summary:      "Conversational response modelling is the task of generating conversational text that is relevant, coherent and knowledgable given a prompt. These models have applications in chatbots, and as a part of voice assistants",
-	widgetModels: ["facebook/blenderbot-400M-distill"]
+	widgetModels: ["facebook/blenderbot-400M-distill"],
+	youtubeId: "",
 };
 
 export default taskData;
