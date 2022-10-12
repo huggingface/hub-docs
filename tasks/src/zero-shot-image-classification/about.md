@@ -6,4 +6,4 @@ The data in this learning paradigm consists of
 
 - Seen data - images and their corresponding labels
 - Unseen data -  only labels and no images
-- auxilary information - additional information given to the model during training connecting the unseen and seen data. This can be in the form of textual description, word embeddings etc.
+- auxiliary information - additional information given to the model during training connecting the unseen and seen data. This can be in the form of textual description or word embeddings.
