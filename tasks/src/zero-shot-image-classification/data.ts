@@ -20,15 +20,12 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	models: [
-
 		{
-			// TO DO: write description
 			description:
 				"Robust image classification model trained on publicly available image-caption data.",
 			id: "openai/clip-vit-base-patch16",
 		},
 		{
-			// TO DO: write description
 			description:
 				"Robust image classification model trained on publicly available image-caption data trained on additional high pixel data for better performance.",
 			id: "openai/clip-vit-large-patch14-336",
