@@ -1,7 +1,7 @@
 import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
-    datasets:      [
+    datasets: [
         {
             description: "RedCaps is a large-scale dataset of 12M image-text pairs collected from Reddit.",
             id:          "red_caps",
@@ -11,12 +11,12 @@ const taskData: TaskDataCustom = {
             id:          "conceptual_captions",
         },
     ],
-    demo:          {
-        inputs:  [],
+    demo: {
+        inputs: [],
         outputs: [],
     },
-    metrics:       [],
-    models:        [
+    metrics: [],
+    models: [
         {
             description: "A model that can be used to generate images based on text prompts. The DALL·E Mega model is the largest version of DALLE Mini.",
             id:          "dalle-mini/dalle-mega",
