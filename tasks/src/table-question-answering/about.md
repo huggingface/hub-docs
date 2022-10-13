@@ -22,6 +22,7 @@ table = pd.DataFrame.from_dict(data)
 question = "how many movies does Leonardo Di Caprio have?"
 
 # pipeline model
+# Note: you must to install torch-scatter first.
 tqa = pipeline(task="table-question-answering", model="google/tapas-large-finetuned-wtq")
 
 # result
