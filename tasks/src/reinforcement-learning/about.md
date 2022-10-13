@@ -1,6 +1,10 @@
 ## Use Cases
 
-You can contribute this area with common use cases of the task! 
+### Gaming
+
+Reinforcement learning is known for its application to video games. Since the games provide a safe environment to the agent to be trained in the sense that it is perfectly defined and controllable. This makes them perfect candidates for experimentation and will help a lot to learn about the capabilities and limitations of various RL algorithms. 
+
+Many example videos can be found on the Internet where the RL agent starts with a really bad gaming strategy due to random initialization but gets better and better with each episode of the training. This [paper](https://arxiv.org/abs/1912.10944) particularly investigates the performance of RL on popular games such as Minecraft or Dota2. Usually super-human level can be reached although there are still some challenges mostly related to efficiency to construct the gaming policy of the RL agent.
 
 ## Task Variants 
 
@@ -48,3 +52,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Train a Deep Reinforcement Learning lander agent to land correctly on the Moon 🌕 using Stable-Baselines3](https://github.com/huggingface/deep-rl-class/blob/main/unit1/unit1.ipynb)
 - [Introduction to Unity MLAgents](https://colab.research.google.com/github/huggingface/deep-rl-class/blob/main/unit4/unit4.ipynb)
 - [Training Decision Transformers with 🤗 transformers](https://github.com/huggingface/blog/blob/main/notebooks/101_train-decision-transformers.ipynb)
+
+## References 
+
+[1] P. Isola, J. -Y. Zhu, T. Zhou and A. A. Efros, "Image-to-Image Translation with Conditional Adversarial Networks," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 5967-5976, doi: 10.1109/CVPR.2017.632.
