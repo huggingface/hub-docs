@@ -8,7 +8,7 @@ Many example videos can be found on the Internet where the RL agent starts with 
 
 ### Healthcare
 
-RL techniques can be used to recommend optimal treatments to the patients based on certain readings of the patients like vital signs or laboratory measurements. The usage of RL is advantageous because other automated systems in healthcare are based on models that rely on human knowledge whereas RL constructs the necessary models susing past experiences. The optimal actions in this case can be dosage of a medication, optimal settings of a medical machine etc.
+RL techniques can be used to recommend optimal treatments to the patients based on certain readings of the patients like vital signs or laboratory measurements. The usage of RL is advantageous because other automated systems in healthcare are based on models that rely on human knowledge whereas RL constructs the necessary models using past experiences. The optimal actions in this case can be dosage of a medication, optimal settings of a medical machine etc.
 
 ## Task Variants 
 
