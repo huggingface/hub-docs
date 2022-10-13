@@ -16,7 +16,7 @@ This place can be filled with variants of this task if there's any.
 
 You can infer with TableQA models using the 🤗 Transformers library.
 
-'''python 
+```python 
 from transformers import pipeline
 import pandas as pd
 
@@ -34,7 +34,7 @@ tqa = pipeline(task="table-question-answering", model="google/tapas-large-finetu
 print(tqa(table=table, query=query)['cells'][0])
 #53
 
-'''
+```
 
 ## Useful Resources
 
