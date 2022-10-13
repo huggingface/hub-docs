@@ -16,8 +16,7 @@
 
 	const azureStatus = {
 		error: "⚠️ This model could not be loaded.",
-		loaded:
-			"This model is currently loaded and running on AzureML Managed Endpoint",
+		loaded: "This model is loaded and running on AzureML Managed Endpoint",
 		unknown: "This model can be loaded loaded on AzureML Managed Endpoint",
 	} as const;
 </script>
