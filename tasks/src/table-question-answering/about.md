@@ -8,6 +8,10 @@ You can use the Table Question Answering models to simulate SQL execution by inp
 
 Table Question Answering models are capable of answering questions based on a table.
 
+## Task Variants
+
+This place can be filled with variants of this task if there's any.
+
 ## Inference 
 
 You can infer with TableQA models using the 🤗 Transformers library.
@@ -31,3 +35,7 @@ print(tqa(table=table, query=query)['cells'][0])
 #53
 
 '''
+
+## Useful Resources
+
+In this area, you can insert useful resources about how to train or use a model for this task.
