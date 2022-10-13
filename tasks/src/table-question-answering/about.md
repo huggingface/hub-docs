@@ -2,36 +2,31 @@
 
 ### SQL execution
 
-You can use Table Question Answering model to simulate SQL execution by using provided table.
+You can use the Table Question Answering models to simulate SQL execution by inputting a table. 
 
 ### Table Question Answering 
 
-Given the question and the table, the task is to answer the question based on the table, You can use Table Question Answering model to answer question based on the table. 
+Table Question Answering models are capable of answering questions based on a table.
 
 ## Inference 
 
-You can infer with TableQA models with the 🤗 Transformers library.
+You can infer with TableQA models using the 🤗 Transformers library.
 
 '''python 
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import pipeline
 import pandas as pd
-
-tokenizer = AutoTokenizer.from_pretrained("microsoft/tapex-large-finetuned-wtq")
-model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/tapex-large-finetuned-wtq")
 
 # prepare table + question
 data = {"Actors": ["Brad Pitt", "Leonardo Di Caprio", "George Clooney"], "Number of movies": ["87", "53", "69"]}
 table = pd.DataFrame.from_dict(data)
 question = "how many movies does Leonardo Di Caprio have?"
 
-encoding = tokenizer(table, question, return_tensors="pt")
+# pipeline model
+tqa = pipeline(task="table-question-answering", model="google/tapas-large-finetuned-wtq")
 
-# let the model generate an answer autoregressively
-outputs = model.generate(**encoding)
+# result
 
-# decode back to text
-predicted_answer = tokenizer.batch_decode(outputs, skip_special_tokens=True)[0]
-print(predicted_answer)
+print(tqa(table=table, query=query)['cells'][0])
 #53
 
 '''
