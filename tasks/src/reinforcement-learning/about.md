@@ -6,6 +6,10 @@ Reinforcement learning is known for its application to video games. Since the ga
 
 Many example videos can be found on the Internet where the RL agent starts with a really bad gaming strategy due to random initialization but gets better and better with each episode of the training. This [paper](https://arxiv.org/abs/1912.10944) particularly investigates the performance of RL on popular games such as Minecraft or Dota2. Usually super-human level can be reached although there are still some challenges mostly related to efficiency to construct the gaming policy of the RL agent.
 
+### Healthcare
+
+RL techniques can be used to recommend optimal treatments to the patients based on certain readings of the patients like vital signs or laboratory measurements. The usage of RL is advantageous because other automated systems in healthcare are based on models that rely on human knowledge whereas RL constructs the necessary models susing past experiences. The optimal actions in this case can be dosage of a medication, optimal settings of a medical machine etc.
+
 ## Task Variants 
 
 This place can be filled with variants of this task if there's any. 
