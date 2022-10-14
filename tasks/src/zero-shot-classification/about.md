@@ -10,33 +10,27 @@ In pretrained language models like BERT , model is to finetuned according to the
 
 A word embedding is a learned representation of a text where words with similar meanings have similar representations. individual words are represented as real-valued vectors in a predefined vector space. 
 
-<<<<<<< HEAD
-In a given sentence we can convert all of its words as embedding vectors and take a mean of all the vectors to get a representation of sentence . Now we can encode these vectors into our embedding space by a text encoder like BERT . We can provide labels like ['postive' , 'negative' , 'politics' , 'science' ] on which we want to classify our sentences . 
-=======
-
-So if we are given a sentence we can convert all it's words as embedding vector and take a mean of all the vectors to get a representation of sentence and given the labels like ['postive' , 'negative' , 'politics' , 'science' ] on which we want to classify and run them to the simailar text encoder like BERT
->>>>>>> b58b8535487bc6f769c422a6c5296dcabb1bf888
+If we are given a sentence, we can convert all of its words as embedding vectors and take a mean of all the vectors to get a representation of sentence . We can encode this vector using a text encoder like BERT in our embedding space . Now we can classify our sentence on one of the labels like ['sports'  , 'politics' , 'science' ] 
 
 By defining a similarity parameter, we can see the similarity between embedding of our sentence and the embeddings of the labels, and return the label that is most similar to the sentence.
 
-
-In this way we can eaisly classify sentences without training the model
+This way, we can easily classify sentences without training a separate model.
 
 #### Inference
 
-We can use pretrained BERT model from 
+We can use pre-trained BERT model to create the embeddings, as follows:
 
 ```python
 from transformers import pipeline
 
-encoder = pipeline("feature-extraction" , model = "deepset/sentence_bert")
+pipe = pipeline("feature-extraction" , model = "deepset/sentence_bert")
 
-sentence = "Artificial Science will revolutnize the world"
-labels = ['postive' , 'negative' , 'politics' , 'science' ]
+sentence = "Artificial intelligence will revolutionize the world."
+labels = ['sports' , 'politics' , 'science' ]
 
 #Mean Pooling across sentence
-sentence_vector = np.array(encoder(sentence).mean(axis=1))
-label_vector = [np.array(encoder(l).mean(axis=1)) for l in labels]
+sentence_vector = np.array(pipe(sentence).mean(axis=1))
+label_vector = [np.array(pipe(l).mean(axis=1)) for l in labels]
 
 from scipy import spatial
 #Using cosine similarity between sentence vector and label vector
@@ -47,25 +41,25 @@ print(labels[np.argmin(dist)])
 ```
 ## Natural Language Inference (NLI)
 
-In NLI the model determines the relationship between two given texts. Concretely, the model takes a premise and a hypothesis and returns a class that can either be:
+In natural language inference, the model determines the relationship between two given texts. Concretely, the model takes a premise (context given in a sentence) and a hypothesis (inference one can draw from given premise) and returns a class that can either be:
 
 - **entailment**, which means the hypothesis is true.
 - **contraction**, which means the hypothesis is false.
 - **neutral**, which means there's no relation between the hypothesis and the premise.
 
-Hugging face has implemented a Zero-Shot Classification pipeline which travels a slightly different route . It uses Natural Language Inference models to carry out classification by a bit of creative prompt engineering
+The implementation of `zero-shot-classification` pipeline of Hugging Face is different. It uses Natural Language Inference models to carry out classification by a bit of creative prompt engineering.
 
 #### Inference
 
 ```python
 from transformers import pipeline
 
-classifier = pipeline("zero-shot-classification" , model="facebook/bart-large-mnli")
+pipe = pipeline("zero-shot-classification" , model="facebook/bart-large-mnli")
 
 sentence = "Artificial Science will revolutnize the world"
 labels = ['postive' , 'negative' , 'politics' , 'science' ]
 
-classifier(sentence , labels)
+pipe(sentence , labels)
 ```
 
 
@@ -73,5 +67,5 @@ classifier(sentence , labels)
 
 Would you like to learn more about the topic? Awesome! Here you can find some curated resources that you may find helpful!
 
-- [Github Repositery contaning all important papers , datasets and other resource in ZSL](https://github.com/sbharadwajj/awesome-zero-shot-learning)
+- [A GitHub repository that contains important papers, datasets and more about zero-shot classification](https://github.com/sbharadwajj/awesome-zero-shot-learning)
 - [Pytorch Implementation](https://github.com/edgarschnfld/CADA-VAE-PyTorch)

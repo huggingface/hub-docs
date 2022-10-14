@@ -41,7 +41,7 @@ const taskData: TaskDataCustom = {
 	},
 	
 	
-	summary: "Zero-shot learning refers to a specific use case of deep learning where you want the model to classify data based on very few or even no labeled example", 
+	summary: "Zero-shot learning is the task of classifying text, based on few or no labeled examples", 
 	
 };
 
