@@ -24,7 +24,8 @@ Autonomous or self-driving cars are pretty trending nowadays. It is also a big s
 
 
 
-In self-driving cars, there are various problems to consider, such as speed limits or drivable zones. The collection of these variety of situations is tough problem to solve.
+In self-driving cars, there are various problems, such as speed limits or drivable zones. The collection of this variety of situations is a challenging problem to solve.
+
 
 
 Reinforcement learning can be used to prepare a model for this purpose. Reinforcement Learning models are trained in a dynamic environment by learning a policy from its own experiences following the principles of exploration and exploitation that minimize disruption to traffic. Self-driving cars may learn from many aspects which will make it able to make a optimal decision when stuck in a situation.In this case we can also call it as scenario based learning.
