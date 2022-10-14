@@ -12,7 +12,8 @@ A word embedding is a learned representation for text where words that have the 
 
 So if we are given a sentence we can convert all it's words as embedding vector and take a mean of all the vectors to get a representation of sentence and given the labels like ['postive' , 'negative' , 'politics' , 'science' ] on which we want to classify and run them to the simailar text encoder like BERT
 
-By defining a similarity parameter we can see the similarity between embedding of our sentence and that of labels and return the label with most similarity
+By defining a similarity parameter, we can see the similarity between embedding of our sentence and the embeddings of the labels, and return the label that is most similar to the sentence.
+
 
 In this way we can eaisly classify sentences without training the model
 
