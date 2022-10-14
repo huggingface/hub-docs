@@ -41,7 +41,8 @@ NLP is a branch of machine learning or artificial intelligence concerned with al
 
 Language understanding uses Reinforcement Learning because of its inherent nature of decision making it learns from the mistakes. The agent tries to understand the state of the sentence and tries to form an action set maximizing the value it would add.
 
-Reinforcement Learning is used in multiple areas of NLP like text summarization, question answering, translation, dialogue generation, machine translation etc.  
+Reinforcement Learning is used in various NLP tasks such as text summarization, question answering, translation, dialogue generation, or machine translation.
+
 
 Reinforcement Learning agents can be trained to understand a few sentences of the document and use it to answer the corresponding questions. Reinforcement Learning with a combination of RNN is used to generate the answers for those questions as shown in this paper.
 
