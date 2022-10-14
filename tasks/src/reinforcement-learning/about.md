@@ -6,10 +6,6 @@ Reinforcement learning is known for its application to video games. Since the ga
 
 Many example videos can be found on the Internet where the RL agent starts with a really bad gaming strategy due to random initialization but gets better and better with each episode of the training. This [paper](https://arxiv.org/abs/1912.10944) particularly investigates the performance of RL on popular games such as Minecraft or Dota2. Usually super-human level can be reached although there are still some challenges mostly related to efficiency to construct the gaming policy of the RL agent.
 
-### Healthcare
-
-RL techniques can be used to recommend optimal treatments to the patients based on certain readings of the patients like vital signs or laboratory measurements. The usage of RL is advantageous because other automated systems in healthcare are based on models that rely on human knowledge whereas RL constructs the necessary models using past experiences. The optimal actions in this case can be dosage of a medication, optimal settings of a medical machine etc.
-
 ## Task Variants 
 
 This place can be filled with variants of this task if there's any. 
@@ -56,7 +52,3 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Train a Deep Reinforcement Learning lander agent to land correctly on the Moon 🌕 using Stable-Baselines3](https://github.com/huggingface/deep-rl-class/blob/main/unit1/unit1.ipynb)
 - [Introduction to Unity MLAgents](https://colab.research.google.com/github/huggingface/deep-rl-class/blob/main/unit4/unit4.ipynb)
 - [Training Decision Transformers with 🤗 transformers](https://github.com/huggingface/blog/blob/main/notebooks/101_train-decision-transformers.ipynb)
-
-## References 
-
-[1] P. Isola, J. -Y. Zhu, T. Zhou and A. A. Efros, "Image-to-Image Translation with Conditional Adversarial Networks," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 5967-5976, doi: 10.1109/CVPR.2017.632.
