@@ -35,7 +35,8 @@ Some of the autonomous driving tasks where reinforcement learning could be appli
 
 ### NLP (Natural Language processing)
 
-First of all, NLP is that branch of machine learning or artificial intelligence which is concerned with giving computers the ability to understand the text and spoken words the same way as a human being does.  
+NLP is a branch of machine learning or artificial intelligence concerned with allowing computers to understand the text and spoken words the same way as a human does.  
+
 
 Language understanding uses Reinforcement Learning because of its inherent nature of decision making it learns from the mistakes. The agent tries to understand the state of the sentence and tries to form an action set maximizing the value it would add.
 
