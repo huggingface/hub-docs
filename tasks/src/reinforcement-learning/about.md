@@ -15,7 +15,8 @@
 
 ## Use cases
 
-In this part we will see where we can actually use these algorithms and how it is helping the people in numerous ways.
+In this part, we will see where we can use these algorithms and how it is helping people in numerous ways.
+
 
 ### Applications in autonomous driving
 
