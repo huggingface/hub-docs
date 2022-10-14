@@ -25,7 +25,7 @@ from transformers import pipeline
 
 pipe = pipeline("feature-extraction" , model = "deepset/sentence_bert")
 
-sentence = "Artificial intelligence will revolutionize the world."
+sentence = "Jupiter is the largest planet in our solar system."
 labels = ['sports' , 'politics' , 'science' ]
 
 #Mean Pooling across sentence
@@ -56,8 +56,8 @@ from transformers import pipeline
 
 pipe = pipeline("zero-shot-classification" , model="facebook/bart-large-mnli")
 
-sentence = "Artificial Science will revolutnize the world"
-labels = ['postive' , 'negative' , 'politics' , 'science' ]
+sentence = "Jupiter is the largest planet in our solar system."
+labels = ['sports' , 'politics' , 'science' ]
 
 pipe(sentence , labels)
 ```
