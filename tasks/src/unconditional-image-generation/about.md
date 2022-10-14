@@ -1,19 +1,23 @@
 ## About the Task
 
-Unconditional image generation is the task of generating images with no condition in any context (like a *prompt text* or *another image*). Once trained, the model will create images that resemble its training data distribution.
-Unconditional image generation models usually start with a *seed* that generates a *random noise vector*. The model will then upsample this vector to create the final image. 
-An example of unconditional image generation would be generating the image of a face on a model trained with the [CelebA dataset](https://huggingface.co/datasets/huggan/CelebA-HQ).
+Unconditional image generation models usually start with a *seed* that generates a *random noise vector*. The model will then use this vector to create an output image similar to the images used for training the model. 
+
+An example of unconditional image generation would be generating the image of a face on a model trained with the [CelebA dataset](https://huggingface.co/datasets/huggan/CelebA-HQ) or [generating a butterfly](https://huggingface.co/spaces/huggan/butterfly-gan) on a model trained with the [Smithsonian Butterflies dataset](https://huggingface.co/datasets/ceyda/smithsonian_butterflies).
+
+[GANs](https://en.wikipedia.org/wiki/Generative_adversarial_network) and [Diffusions](https://huggingface.co/docs/diffusers/index) are common models for this task.
 
 ## Use Cases
 
-
+You can contribute this area with common use cases of the task!
 
 ## Model Hosting and Inference
 
-
+This section should have useful information about Model Hosting and Inference
 
 ## Useful Resources
 
-
+In this area, you can insert useful resources about how to train or use a model for this task.
 
 ### Training your own model in just a few seconds
+
+In this area, you can insert useful information about training the model
