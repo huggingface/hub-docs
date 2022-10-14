@@ -10,8 +10,12 @@ In pretrained language models like BERT , model is to finetuned according to the
 
 A word embedding is a learned representation of a text where words with similar meanings have similar representations. individual words are represented as real-valued vectors in a predefined vector space. 
 
+<<<<<<< HEAD
+In a given sentence we can convert all of its words as embedding vectors and take a mean of all the vectors to get a representation of sentence . Now we can encode these vectors into our embedding space by a text encoder like BERT . We can provide labels like ['postive' , 'negative' , 'politics' , 'science' ] on which we want to classify our sentences . 
+=======
 
 So if we are given a sentence we can convert all it's words as embedding vector and take a mean of all the vectors to get a representation of sentence and given the labels like ['postive' , 'negative' , 'politics' , 'science' ] on which we want to classify and run them to the simailar text encoder like BERT
+>>>>>>> b58b8535487bc6f769c422a6c5296dcabb1bf888
 
 By defining a similarity parameter, we can see the similarity between embedding of our sentence and the embeddings of the labels, and return the label that is most similar to the sentence.
 
