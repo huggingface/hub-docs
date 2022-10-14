@@ -106,7 +106,7 @@
 		{/if}
 	</WidgetHeader>
 	<slot name="top" />
-	<WidgetInfo {computeTime} {error} {modelStatus} />
+	<WidgetInfo {model} {computeTime} {error} {modelStatus} />
 	{#if modelLoading.isLoading}
 		<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
 	{/if}
