@@ -37,8 +37,8 @@ const taskData: TaskDataCustom = {
 	},
 	metrics: 
 		[
-		{ description: "checks whether the predicted answer(s) is equal to the ground-truth answer(s).",
-		  id: "denotation accuracy",
+		{ description: "Checks whether the predicted answer(s) is equal to the ground-truth answer(s).",
+		  id: "Denotation Accuracy",
 		},
 	],
 	models: 
