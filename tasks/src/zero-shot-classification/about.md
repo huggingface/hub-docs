@@ -8,7 +8,8 @@ In pretrained language models like BERT , model is to finetuned according to the
 
 ### Latent Embedding
 
-A word embedding is a learned representation for text where words that have the same meaning have a similar representation. individual words are represented as real-valued vectors in a predefined vector space. 
+A word embedding is a learned representation of a text where words with similar meanings have similar representations. individual words are represented as real-valued vectors in a predefined vector space. 
+
 
 So if we are given a sentence we can convert all it's words as embedding vector and take a mean of all the vectors to get a representation of sentence and given the labels like ['postive' , 'negative' , 'politics' , 'science' ] on which we want to classify and run them to the simailar text encoder like BERT
 
