@@ -4,11 +4,11 @@ const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "Synthetic dataset, for image relighting",
-			id: "VIDIT"
+			id: "VIDIT",
 		},
 		{
-			description: "Multiple images of celebrities, used for facial expression translation"
-			id: "huggan/CelebA-faces"
+			description: "Multiple images of celebrities, used for facial expression translation",
+			id: "huggan/CelebA-faces",
 		}
 	],
 	demo:     {
@@ -54,7 +54,7 @@ const taskData: TaskDataCustom = {
 			id: "lambdalabs/sd-image-variations-diffusers"
 		}
 	],
-	summary:       "Image to image is the task of transforming a source image to match the characteristics of a target image or a target image domain. Any image manipulation and enhancement is possible with image to image models."
+	summary:       "Image to image is the task of transforming a source image to match the characteristics of a target image or a target image domain. Any image manipulation and enhancement is possible with image to image models.",
 	widgetModels:  [""],
 	youtubeId:     "",
 };
