@@ -39,3 +39,5 @@ print(tqa(table=table, query=query)['cells'][0])
 ## Useful Resources
 
 In this area, you can insert useful resources about how to train or use a model for this task.
+
+This task page is complete thanks to the efforts of [Hao Kim Tieu](https://huggingface.co/haotieu). 🦸 
