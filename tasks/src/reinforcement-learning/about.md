@@ -31,7 +31,8 @@ In self-driving cars, there are various problems, such as speed limits or drivab
 Reinforcement learning can be used to prepare a model for this purpose. Reinforcement Learning models are trained in a dynamic environment by learning a policy from their own experiences, following the principles of exploration and exploitation that minimize disruption to traffic. Self-driving cars may learn from many aspects, enabling them to make optimal decisions when stuck in a situation. In this case, we can also call it scenario-based learning.
 
 
-Some of the autonomous driving tasks where reinforcement learning could be applied include trajectory optimization, motion planning, dynamic pathing, controller optimization, and scenario-based learning policies for highways. Reinforcement Learning agents are trained in dynamic environments to optimize trajectories. The agents learn motion planning, route changing, decision and position of parking and speed control, etc.
+Some of the autonomous driving tasks where reinforcement learning could be applied include trajectory optimization, motion planning, dynamic path finding, controller optimization, and scenario-based learning policies for highways. Reinforcement Learning agents are trained in dynamic environments to optimize trajectories. The agents are capable of accomplishing tasks such as motion planning, route changing, decision and position of parking and speed control.
+
 
 ### NLP (Natural Language processing)
 
