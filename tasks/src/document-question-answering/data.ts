@@ -12,7 +12,7 @@ const taskData: TaskDataCustom = {
 		inputs: [
 			{
 				label:   "Question",
-				content: "Which is the most critical issue for live rep support?",
+				content: "What is the idea behind the consumer relations efficiency team?",
 				type:    "text",
 			},
 			{
@@ -23,14 +23,14 @@ const taskData: TaskDataCustom = {
 		outputs: [
 			{
 				label:   "Answer",
-				content: "Product Quality/Liability Issues",
+				content: "Balance cost efficiency with quality customer service",
 				type:    "text",
 			},
 		],
 	},
 	metrics: [
 		{
-			description: "The evaluation metric for the DocVQA challenge is the Average Normalized Levenshtein Similarity (ANLS). This metric is robust to OCR errors and is based on the Levenshtein distance between the predicted answer and the ground truth answer.",
+			description: "The evaluation metric for the DocVQA challenge is the Average Normalized Levenshtein Similarity (ANLS). This metric is flexible to character regognition errors and compares the predicted answer with the ground truth answer.",
 			id:          "anls",
 		},
 		{
@@ -40,7 +40,7 @@ const taskData: TaskDataCustom = {
 	],
 	models: [
 		{
-			description: "A robust baseline model for Document QA task. LayoutLM fine-tuned on DocVQA and SQuAD2.0. OCR based on Tesseract.",
+			description: "A LayoutLM model for the document QA task, fine-tuned on DocVQA and SQuAD2.0.",
 			id:          "impira/layoutlm-document-qa",
 		},
 		{
@@ -50,7 +50,7 @@ const taskData: TaskDataCustom = {
 	],
 	summary:      "Document Question Answering (also known as Document **Visual** Question Answering) is the task of answering questions on document images. Document question answering models take a (document, question) pair as input and return an answer in natural language. Models usually rely on multi-modal features, combining text, position of words (bounding-boxes) and image.",
 	widgetModels: ["impira/layoutlm-document-qa"],
-	youtubeId:    "None",
+	youtubeId:    "",
 };
 
 
