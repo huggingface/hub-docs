@@ -1,16 +1,26 @@
 ## Task Description
 
+this place describes the task. Contribute by adding a nice description!
+
 
 ## Most used dataset for the task
+
+Write about the data used to train a reinforcement learning model. As reinforcement learning model create its own data, explain about that. 
 
 
 ## Most used model for the task
 
+Contribute by giving example of the model that is used for this task.
+
 
 ## Metrics that are used to evaluate the task
 
+Explain different evaluation techniques which are used to find the underlying weakness of reinforcement learning models.
+
 
 ## Libraries used for the task
+
+Write about different libraries which can be used to implement reinforcement learning algorithms. Explain different features of that library that makes it useful. 
 
 
 ## Use cases
