@@ -19,7 +19,7 @@ You can simply download a model from the Hub using `load_from_hub`:
 
 ```
 # Download ppo SpaceInvadersNoFrameskip-v4 model and save it into the logs/ folder
-python -m utils.load_from_hub --algo dqn --env SpaceInvadersNoFrameskip-v4 -f logs/ -orga sb3
+python -m rl_zoo3.load_from_hub --algo dqn --env SpaceInvadersNoFrameskip-v4 -f logs/ -orga sb3
 python enjoy.py --algo dqn --env SpaceInvadersNoFrameskip-v4  -f logs/
 ```
 
@@ -32,7 +32,7 @@ You can define three parameters:
 You can easily upload your models with `push_to_hub`. That will save the model, evaluate it, generate a model card and record a replay video of your agent before pushing the complete repo to the Hub.
 
 ```
-python -m utils.push_to_hub  --algo dqn  --env SpaceInvadersNoFrameskip-v4  --repo-name dqn-SpaceInvadersNoFrameskip-v4  -orga ThomasSimonini  -f logs/
+python -m rl_zoo3.push_to_hub  --algo dqn  --env SpaceInvadersNoFrameskip-v4  --repo-name dqn-SpaceInvadersNoFrameskip-v4  -orga ThomasSimonini  -f logs/
 ```
 
 You can define three parameters:
