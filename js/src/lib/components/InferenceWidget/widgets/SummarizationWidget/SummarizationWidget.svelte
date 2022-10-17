@@ -43,12 +43,12 @@
 			const [demoText] = getDemoInputs(model, ["text"]);
 			setTextAreaValue(demoText ?? "");
 			if (text && callApiOnMount) {
-				getOutput();
+				getOutput(false, true);
 			}
 		}
 	});
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
 		const trimmedValue = text.trim();
 
 		if (!trimmedValue) {
@@ -74,7 +74,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;

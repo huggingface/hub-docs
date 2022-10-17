@@ -63,6 +63,7 @@ async function callApi(
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
 	useCache = true,
 	includeCredentials = false,
+	isOnLoadCall = false,
 ): Promise<Response> {	
 	const contentType = 'file' in requestBody && 'type' in requestBody['file']
 		? requestBody['file']['type']  
@@ -78,6 +79,9 @@ async function callApi(
 	}
 	if (useCache === false) {
 		headers.set('X-Use-Cache', "false");
+	}
+	if (isOnLoadCall) {
+		headers.set('X-Load-Model', "0");
 	}
 	
 	const body: File | string = 'file' in requestBody
@@ -103,6 +107,7 @@ export async function getResponse<T>(
 	outputParsingFn: (x: unknown) =>  T,
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
 	includeCredentials = false,
+	isOnLoadCall = false, // If true, the server will try to answer from cache and not do anything if not
 	useCache = true,
 ): Promise<{
 	computeTime: string,
@@ -126,6 +131,7 @@ export async function getResponse<T>(
 		waitForModel,
 		useCache,
 		includeCredentials,
+		isOnLoadCall,
 	);
 
 	if (response.ok) {

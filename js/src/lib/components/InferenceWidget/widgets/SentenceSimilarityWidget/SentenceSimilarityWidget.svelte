@@ -15,6 +15,7 @@
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
+	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -33,17 +34,7 @@
 	let output: Array<{ label: string; score: number }> = [];
 	let outputJson: string;
 
-	onMount(() => {
-		const [demoSourcesentence, demoComparisonSentence] = getDemoInputs(model, [
-			"source_sentence",
-			"sentences",
-		]);
-		sourceSentence = (demoSourcesentence as string) ?? "";
-		comparisonSentences = demoComparisonSentence ?? [""];
-		nComparisonSentences = comparisonSentences.length;
-	});
-
-	async function getOutput(withModelLoading = false) {
+	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
 		const trimmedSourceSentence = sourceSentence.trim();
 		if (!trimmedSourceSentence) {
 			error = "You need to input some text";
@@ -91,7 +82,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;
@@ -140,6 +132,19 @@
 		nComparisonSentences = comparisonSentences.length;
 		getOutput();
 	}
+
+	onMount(() => {
+		const [demoSourcesentence, demoComparisonSentence] = getDemoInputs(model, [
+			"source_sentence",
+			"sentences",
+		]);
+		if (callApiOnMount && demoSourcesentence && comparisonSentences?.length) {
+			sourceSentence = (demoSourcesentence as string) ?? "";
+			comparisonSentences = demoComparisonSentence ?? [""];
+			nComparisonSentences = comparisonSentences.length;
+			getOutput(false, true);
+		}
+	});
 </script>
 
 <WidgetWrapper
