@@ -122,6 +122,8 @@ export async function getResponse<T>(
 } | {
 	error: string,
 	status: 'error'
+} | {
+	status: 'cache not found'
 }>  {
 	const response = await callApi(
 		url,
@@ -150,6 +152,9 @@ export async function getResponse<T>(
 			const outputJson = !isMediaContent ? JSON.stringify(body, null, 2) : '';
 			return { computeTime, output, outputJson, response, status: 'success' }
 		}catch(e){
+			if(isOnLoadCall && body.error === "not loaded yet"){
+				return { status: 'cache not found' }
+			}
 			// Invalid output
 			const error = `API Implementation Error: ${e.message}`;
 			return { error, status: 'error' }
