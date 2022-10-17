@@ -150,7 +150,7 @@
 	}
 
 	onMount(() => {
-		async () => {
+		(async () => {
 			const [text, src] = getDemoInputs(model, ["text", "src"]);
 			if (callApiOnMount && text && src) {
 				question = text;
@@ -160,7 +160,7 @@
 				await updateImageBase64(blob);
 				getOutput(false, true);
 			}
-		};
+		})();
 	});
 </script>
 
