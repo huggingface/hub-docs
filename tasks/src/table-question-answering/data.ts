@@ -23,7 +23,7 @@ const taskData: TaskDataCustom = {
 			 },
 			 
 			 { label: "Question",
-		           content: "What is the number of reigns for Harley Race",
+		           content: "What is the number of reigns for Harley Race?",
 			   type: "text",
 
 			 },
