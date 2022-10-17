@@ -1,4 +1,4 @@
-import type { Task DataCustom } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
 	datasets: [
@@ -15,9 +15,9 @@ const taskData: TaskDataCustom = {
 		inputs: [
 			{ table: [
 				["Rank", "Name", "No.of reigns", "Combined days"],
-				[1, 'lou Thesz', 3, 3749],
-                                [2, 'Ric Flair', 8, 3103],
-                                [3, 'Harley Race', 7, 1799],
+				["1", 'lou Thesz', "3", "3749"],
+                                ["2", 'Ric Flair', "8", "3103"],
+                                ["3", 'Harley Race', "7", "1799"],
 			],
 			  type: "tabular",
 			 },
@@ -55,7 +55,7 @@ const taskData: TaskDataCustom = {
 	],
 	summary: "Table Question Answering (Table QA) is the answering a question about an information on a given table.",
 	widgetModels: ["microsoft/tapex-base"],
-	},
+	}
 
 
 export default taskData;
