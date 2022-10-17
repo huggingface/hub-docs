@@ -55,6 +55,10 @@ export interface LibraryUiElement {
 	 * Code snippet displayed on model page
 	 */
 	snippet:   (model: ModelData) => string;
+	/**
+	 * Whether to show the library or not.
+	 */
+	isHidden?: boolean;
 }
 
 function nameWithoutNamespace(modelId: string): string {
@@ -542,12 +546,14 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "optimum-habana",
 		repoUrl:  "https://github.com/huggingface/optimum-habana",
 		snippet:  optimum_habana,
+		isHidden: true,
 	},
 	"optimum-graphcore": {
 		btnLabel: "optimum-graphcore",
 		repoName: "optimum-graphcore",
 		repoUrl:  "https://github.com/huggingface/optimum-graphcore",
 		snippet:  optimum_graphcore,
+		isHidden: true,
 	},
 } as const;
 
