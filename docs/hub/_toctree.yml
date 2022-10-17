@@ -134,6 +134,8 @@
       title: More ways to create Spaces
     - local: spaces-github-actions
       title: Managing Spaces with Github Actions      
+    - local: spaces-gpus
+      title: Using GPU Spaces
 - local: other
   title: Other
   isExpanded: true
