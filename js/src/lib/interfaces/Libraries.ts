@@ -226,7 +226,8 @@ from skops.io import load
 
 download("${model.id}", "path_to_folder")
 # make sure model file is in skops format
-# if model is a pickle file, make sure it's from a source you trust
+# if the model is a pickle file, make sure it's from a source you trust
+# and deserialize using the pickle library instead
 model = load("path_to_folder/${skopsmodelFile}")`;
 	} else {
 		return `from huggingface_hub import hf_hub_download
