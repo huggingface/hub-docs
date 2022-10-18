@@ -4,10 +4,11 @@ You are able to add a license to any repo that you create on the Hugging Face Hu
 
 A full list of the available licenses is available here:
 
-<!-- IMPORTANT: This list is to be kept in sync with the list in both `moon-landing` and `datasets` -->
+<!-- IMPORTANT: do not remove or alter the "region" comments below -->
 
 Fullname | License identifier (to use in model card)
 --- | ---
+<!-- region licenses -->
 OpenRAIL license family	| `openrail`
 BigScience OpenRAIL-M	| `bigscience-openrail-m`
 CreativeML OpenRAIL-M	| `creativeml-openrail-m`
@@ -67,5 +68,6 @@ Open Data Commons Public Domain Dedication and License	| `pddl`
 Lesser General Public License For Linguistic Resources	| `lgpl-lr`
 Unknown	| `unknown`
 Other	| `other`
+<!-- endregion -->
 
 In case of `license: other` please add the license's text to a `LICENSE` file inside your repo (or contact us to add the license you use to this list).
