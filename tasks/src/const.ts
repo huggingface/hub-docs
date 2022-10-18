@@ -16,7 +16,7 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof Mode
 	"image-segmentation":             ["transformers"],
 	"image-to-image":                 [],
 	"image-to-text":                  [],
-	"video-classification":		      [],
+	"video-classification":           [],
 	"multiple-choice":                ["transformers"],
 	"object-detection":               ["transformers"],
 	"other":                          [],
