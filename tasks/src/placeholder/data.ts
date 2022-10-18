@@ -1,4 +1,4 @@
-import { type TaskDataCustom } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
 	datasets: [],
