@@ -2,9 +2,9 @@
 
 At Hugging Face, we build a collaboration platform for the ML community (i.e., the Hub), and we **monetize by providing simple access to compute for AI**, directly from the collaboration platform.
 
-We partner with cloud providers like AWS and Azure and build our own self-serve compute services.
+We partner with cloud providers like AWS and Azure, and build our own self-serve compute services.
 
-Both users and organizations accounts have a billing system set up. You can submit your payment info and then access "pay-as-you-go" services.
+All users and organizations accounts have a billing system set up. You can submit your payment info and then access "pay-as-you-go" services.
 
 From the [Settings > Billing](https://huggingface.co/settings/billing) page, you can see a real time view of your usage across different HF services:
 - [Spaces](./spaces),
