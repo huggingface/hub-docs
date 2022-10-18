@@ -4,6 +4,8 @@
 
 We support two awesome SDKs that let you build cool apps in Python in a matter of minutes: **[Streamlit](https://streamlit.io/)** and **[Gradio](https://gradio.app/)**. For more custom demos, you can also create static Spaces using JavaScript and HTML.
 
+You'll also be able to upgrade your Space to run [on a GPU or other accelerated hardware](./spaces-gpus). ⚡️
+
 ## Contents
 
 - [Spaces Overview](./spaces-overview)
@@ -13,6 +15,7 @@ We support two awesome SDKs that let you build cool apps in Python in a matter o
   - [Using Spaces for Organization Cards](./spaces-organization-cards)
   - [More ways to create Spaces](./spaces-more-ways-to-create)
   - [Managing Spaces with Github Actions](./spaces-github-actions)
+- [Spaces Hardware Upgrades](./spaces-gpu)
 - [Gradio Spaces](./spaces-sdks-gradio)
 - [Streamlit Spaces](./spaces-sdks-streamlit)
 - [Static HTML Spaces](./spaces-sdks-static)
@@ -24,6 +27,6 @@ We support two awesome SDKs that let you build cool apps in Python in a matter o
 
 Feel free to ask questions on the [forum](https://discuss.huggingface.co/c/spaces/24) if you need help with making a Space, or if you run into any other issues on the Hub.
 
-If you're interested in infra challenges, custom demos, GPUs, or something else, please reach out to us by sending an email to **website at huggingface.co**.
+If you're interested in infra challenges, custom demos, advanced GPUs, or something else, please reach out to us by sending an email to **website at huggingface.co**.
 
 You can also tag us [on Twitter](https://twitter.com/huggingface)! 🤗

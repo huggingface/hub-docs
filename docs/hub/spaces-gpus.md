@@ -2,7 +2,24 @@
 
 You can upgrade your Space to use a GPU accelerator using the _Settings_ button in the top navigation bar of the Space. You can even request a free upgrade if you are building a cool demo for a side project!
 
-Most Spaces should run out of the box after the upgrade, but sometimes you'll need to install CUDA versions of the machine learning frameworks you use. Please, follow this guide to ensure your Space takes advantage of the improved hardware.
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-gpu-settings.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-gpu-settings-dark.png"/>
+</div>
+
+<Tip>
+Longer-term, we would also like to expose non-GPU hardware, like HPU, IPU or TPU. If you have a specific AI hardware you'd like to run on, please let us know (website@huggingface.co).
+</Tip>
+
+As soon as your Space is running on GPU you can see which hardware it’s running on directly from this badge:
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-running-badge.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-running-badge-dark.png"/>
+</div>
+
+
+Most Spaces should run out of the box after a GPU upgrade, but sometimes you'll need to install CUDA versions of the machine learning frameworks you use. Please, follow this guide to ensure your Space takes advantage of the improved hardware.
 
 ## PyTorch installation
 
