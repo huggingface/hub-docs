@@ -442,6 +442,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		modality: "cv",
 		color:    "green",
 	},
+	"video-classification": {
+		name:     "Video Classification",
+		modality: "cv",
+		color:    "blue",
+	},
 	"reinforcement-learning": {
 		name:           "Reinforcement Learning",
 		modality:       "rl",
@@ -641,6 +646,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"text-retrieval",
 	"text-to-speech",
 	"object-detection",
+	"video-classification",
 	"audio-to-audio",
 	"text-generation",
 	"conversational",
