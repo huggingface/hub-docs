@@ -114,7 +114,7 @@
     - local: spaces-organization-cards
       title: Using Spaces for Organization Cards
   - local: spaces-gpus
-    title: Using GPU Spaces
+    title: Spaces GPU Upgrades
   - local: spaces-sdks-gradio
     title: Gradio Spaces
   - local: spaces-sdks-streamlit
