@@ -11,7 +11,7 @@ const taskData: TaskDataCustom = {
 	models:        [],
 	summary:       "",
 	widgetModels:  [],
-	youtubeId:     "",
+	youtubeId:     undefined,
 };
 
 export default taskData;

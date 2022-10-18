@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import type { ModelData } from "./Types";
 
 /**
@@ -26,7 +27,7 @@ export enum ModelLibrary {
 	"fasttext"               = "fastText",
 	"stable-baselines3"      = "Stable-Baselines3",
 	"ml-agents"              = "ML-Agents",
-	"pythae"                 = "Pythae"
+	"pythae"                 = "Pythae",
 }
 
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as (keyof typeof ModelLibrary)[];
@@ -226,7 +227,7 @@ from skops.io import load
 
 download("${model.id}", "path_to_folder")
 # make sure model file is in skops format
-# if model is a pickle file, make sure it's from a source you trust
+# if model is a pickle file, make sure it's from a source you trust
 model = load("path_to_folder/${skopsmodelFile}")`;
 	} else {
 		return `from huggingface_hub import hf_hub_download
@@ -471,8 +472,8 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 	"stanza": {
 		btnLabel: "Stanza",
 		repoName: "stanza",
-		repoUrl: "https://github.com/stanfordnlp/stanza",
-		snippet: stanza,
+		repoUrl:  "https://github.com/stanfordnlp/stanza",
+		snippet:  stanza,
 	},
 	"tensorflowtts": {
 		btnLabel: "TensorFlowTTS",
