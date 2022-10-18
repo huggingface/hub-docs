@@ -10,4 +10,4 @@ While in many cases it's possible to just add raw data to your dataset repo in a
 
 ## Datasets outside a namespace
 
-Datasets outside a namespace are maintained by the Hugging Face team on GitHub. Unlike the naming convention used for community datasets (`username/dataset_name` or `org/dataset_name`), datasets outside a namespace can be referenced directly by their name (e.g. [`glue`](https://huggingface.co/datasets/glue)). If you find that an improvement is needed, refer to the [🤗 Datasets documentation](https://huggingface.co/docs/datasets/main/en/share#datasets-on-github-legacy) for an explanation on how to submit a PR on the Hub to propose edits.
+Datasets outside a namespace are maintained by the Hugging Face team. Unlike the naming convention used for community datasets (`username/dataset_name` or `org/dataset_name`), datasets outside a namespace can be referenced directly by their name (e.g. [`glue`](https://huggingface.co/datasets/glue)). If you find that an improvement is needed, use their "Community" tab to open a discussion or submit a PR on the Hub to propose edits.
