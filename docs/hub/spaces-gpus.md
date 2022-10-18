@@ -8,7 +8,7 @@ You can upgrade your Space to use a GPU accelerator using the _Settings_ button 
 </div>
 
 <Tip>
-Longer-term, we would also like to expose non-GPU hardware, like HPU, IPU or TPU. If you have a specific AI hardware you'd like to run on, please let us know (website@huggingface.co).
+Longer-term, we would also like to expose non-GPU hardware, like HPU, IPU or TPU. If you have a specific AI hardware you'd like to run on, please let us know (website at huggingface.co).
 </Tip>
 
 As soon as your Space is running on GPU you can see which hardware it’s running on directly from this badge:
