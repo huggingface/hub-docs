@@ -1,29 +1,3 @@
-
-## Task Description
-
-this place describes the task. Contribute by adding a nice description!
-
-
-## Most used dataset for the task
-
-Write about the data used to train a reinforcement learning model. As reinforcement learning model create its own data, explain about that. 
-
-
-## Most used model for the task
-
-Contribute by giving example of the model that is used for this task.
-
-
-## Metrics that are used to evaluate the task
-
-Explain different evaluation techniques which are used to find the underlying weakness of reinforcement learning models.
-
-
-## Libraries used for the task
-
-Write about different libraries which can be used to implement reinforcement learning algorithms. Explain different features of that library that makes it useful. 
-
-
 ## Use cases
 
 In this part, we will see where we can use these algorithms and how it is helping people in numerous ways.
@@ -97,9 +71,30 @@ Robots in industries or healthcare working towards reducing manual intervention 
 
 Robots operate in a highly dynamic and ever-changing environment, making it impossible to predict what will happen next. Reinforcement Learning provides a considerable advantage in these scenarios to make the robots robust enough and help acquire complex behaviors adaptively in different scenarios.
 
-It aims to remove the need for time-consuming and tedious checks and replaces them with computer vision systems ensuring higher levels of quality control on the production assembly line. (still to be added in this part and completed)
+It aims to remove the need for time-consuming and tedious checks and replaces them with computer vision systems ensuring higher levels of quality control on the production assembly line.
+
+A wide variety of problems in robotics can be considered as ones of reinforcement learning. Reinforcement learning (RL) enables a robot to autonomously discover an optimal behavior through trial-and-error interactions with its environment. Instead of explicitly detailing the solution to a problem, in reinforcement learning the designer of a control task provides feedback in terms of a scalar objective function that measures the one-step performance of the robot.
+
+## Task Variants 
+
+This place can be filled with variants of this task if there's any. 
 
 
-##  Small snippet for inference that demonstrates the task
+## Inference
 
-This place gives idea about how to contribute to the task
+This section should have useful information about how to pull a model from Hugging Face Hub that is a part of a library specialized in a task and use it.
+
+## Useful Resources
+
+Would you like to learn more about the topic? Awesome! Here you can find some curated resources that you may find helpful!
+
+- [HuggingFace Deep Reinforcement Learning Class](https://github.com/huggingface/deep-rl-class)
+- [Introduction to Deep Reinforcement Learning](https://huggingface.co/blog/deep-rl-intro)
+- [Stable Baselines Integration with HuggingFace](https://huggingface.co/blog/sb3)
+
+### Notebooks
+- [Train a Deep Reinforcement Learning lander agent to land correctly on the Moon 🌕 using Stable-Baselines3](https://github.com/huggingface/deep-rl-class/blob/main/unit1/unit1.ipynb)
+- [Introduction to Unity MLAgents](https://colab.research.google.com/github/huggingface/deep-rl-class/blob/main/unit4/unit4.ipynb)
+- [Training Decision Transformers with 🤗 transformers](https://github.com/huggingface/blog/blob/main/notebooks/101_train-decision-transformers.ipynb)
+
+
