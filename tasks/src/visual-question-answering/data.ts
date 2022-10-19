@@ -15,7 +15,7 @@ const taskData: TaskDataCustom = {
 			},
 			{
 				label:   "Question",
-				content: "Is there an elephant?",
+				content: "What is in this image?",
 				type:    "text",
 			},
 		],
@@ -24,16 +24,16 @@ const taskData: TaskDataCustom = {
 				type: "chart",
 				data: [
 					{
-						label: "yes",
-						score: 0.999,
+						label: "elephant",
+						score: 0.97,
 					},
 					{
-						label: "no",
-						score: 0.009,
+						label: "elephants",
+						score: 0.06,
 					},
 					{
-						label: "1",
-						score: 0.002,
+						label: "animal",
+						score: 0.003,
 					},
 				],
 			},
