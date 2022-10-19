@@ -17,7 +17,7 @@ size_categories: List[str]
 source_datasets: List[str]
 task_categories: List[str]
 task_ids: List[str]
-paperswithcode_id: str
+paperswithcode_id: Optional[str]
 train-eval-index: List[Dict]
 configs: List[str]
 extra_gated_fields: Dict
