@@ -68,7 +68,8 @@ Not only the state space is huge, but the action space is also huge too. Action 
 
 For solving this problem DRRN(deep reinforcement relevance network) was proposed. The idea of DRRN is to project both the state and action into a continuous space(as vectors). Q-function is a relevance function of the state vector and action vector.the DRRN experiences higher average reward.
 
-The deep Reinforecement Learning finds application in a chatbot dialogue. Conversations are simulated using two virtual agents and the quality is improved in progressive iterations.
+Chatbot dialogues can be improved using Deep Reinforcement Learning. Conversations are simulated using two virtual agents, and the quality is improved in progressive iterations.
+
 
 
 ## Glossary
