@@ -1,6 +1,4 @@
-## Use cases
-
-In this part, we will see where we can use these algorithms and how it is helping people in numerous ways.
+## Use Cases
 
 
 ### Applications in autonomous driving
@@ -34,9 +32,19 @@ Reinforcement Learning is used in various NLP tasks such as text summarization, 
 
 Reinforcement Learning agents can be trained to understand a few sentences of the document and use it to answer the corresponding questions.
 
-The state space S is a set of all the states that the agent can transition to and action space A is a set of all actions the agent can act out in a certain environment. There are also Partial Observable cases, where the agent is unable to observe the complete state information of the environment.
+Robots in industries or healthcare working towards reducing manual intervention use reinforcement learning to map natural language instructions to sequences of executable actions. During training, the learner repeatedly constructs action sequences, executes those actions, and observes the resulting rewards. A reward function works in the backend that defines the quality of these executed actions.
 
-#### Q - Learning
+### Robotics 
+
+Robots operate in a highly dynamic and ever-changing environment, making it impossible to predict what will happen next. Reinforcement Learning provides a considerable advantage in these scenarios to make the robots robust enough and help acquire complex behaviors adaptively in different scenarios.
+
+It aims to remove the need for time-consuming and tedious checks and replaces them with computer vision systems ensuring higher levels of quality control on the production assembly line.
+
+A wide variety of problems in robotics can be considered as ones of reinforcement learning. Reinforcement learning (RL) enables a robot to autonomously discover an optimal behavior through trial-and-error interactions with its environment. Instead of explicitly detailing the solution to a problem, in reinforcement learning the designer of a control task provides feedback in terms of a scalar objective function that measures the one-step performance of the robot.
+
+## Task Variants 
+
+### Q - Learning
 
 * It is used to learn the policy for reinforcement learning
 * Policy: a rule that the agent should follow to select actions given the current state.
@@ -52,10 +60,7 @@ But when we talk about reinforcement learning for natural language processing th
 
 #### Sequential decision making problem for text understanding
 
-* Agent observes state as a string of text at a time t
-* Agent also knows a set of possible actions, each describes as a string text
-* Agent tries to understand the “state text” and all possible “action texts”, then takes a decision which maximizes the long term reward.
-* Then, the environment state transits to a new state, agent receives an immediate reward.
+Agent observes state as a string of text at a time 't'. Agent also knows a set of possible actions, each describes as a string text. Agent tries to understand the “state text” and all possible “action texts”, then takes a decision which maximizes the long term reward. Then, the environment state transits to a new state, agent receives an immediate reward.
 
 #### Unbounded action space in reinforcement learning
 
@@ -65,19 +70,32 @@ For solving this problem DRRN(deep reinforcement relevance network) was proposed
 
 The deep Reinforecement Learning finds application in a chatbot dialogue. Conversations are simulated using two virtual agents and the quality is improved in progressive iterations.
 
-Robots in industries or healthcare working towards reducing manual intervention use reinforcement learning to map natural language instructions to sequences of executable actions. During training, the learner repeatedly constructs action sequences, executes those actions, and observes the resulting rewards. A reward function works in the backend that defines the quality of these executed actions.
 
-### Robotics 
+## Glossary
 
-Robots operate in a highly dynamic and ever-changing environment, making it impossible to predict what will happen next. Reinforcement Learning provides a considerable advantage in these scenarios to make the robots robust enough and help acquire complex behaviors adaptively in different scenarios.
+<!-- ![RL Loop](https://huggingface.co/blog/assets/63_deep_rl_intro/RL_process.jpg "Agent Environment Interaction") TODO: Uncomment image for visual understanding if it fits within the page--> 
 
-It aims to remove the need for time-consuming and tedious checks and replaces them with computer vision systems ensuring higher levels of quality control on the production assembly line.
 
-A wide variety of problems in robotics can be considered as ones of reinforcement learning. Reinforcement learning (RL) enables a robot to autonomously discover an optimal behavior through trial-and-error interactions with its environment. Instead of explicitly detailing the solution to a problem, in reinforcement learning the designer of a control task provides feedback in terms of a scalar objective function that measures the one-step performance of the robot.
+**Agent:** The learner and the decision maker.
 
-## Task Variants 
 
-This place can be filled with variants of this task if there's any. 
+**Environment:** The part of the world the agent interacts, comprising everything outside the agent.
+
+
+**State:** Information the agent receives from the environment. In the case of a video game it can be a frame (a screenshot), in the case of a chess playing agent it can be the board position, in the case of a trading agent it can be the price of a certain stock.
+
+
+**Action:** The decision taken by the agent.
+
+
+**Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action
+
+**Return:** Cumulative Reward.  In the simplest case, the return is the sum of the rewards.
+
+
+**Episode:** For some applications there is a natural notion of final time step.  In this case, there is a starting point and an ending point (a terminal state). This creates an episode: a list of States, Actions, Rewards, and new States. For instance, think about Chess: an episode begins at the initial board position and ends when the game is over.
+
+**Policy:** The Policy is the brain of the Agent, it’s the function that tells what action to take given the state. So it defines the agent’s behavior at a given time. Reinforcement learning methods specify how the agent’s policy is changed as a result of its experience.
 
 
 ## Inference
