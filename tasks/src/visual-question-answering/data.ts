@@ -40,7 +40,7 @@ const taskData: TaskDataCustom = {
 		],
 	},
 	isPlaceholder: false,
-	metrics: [
+	metrics:       [
 		{
 			description: "",
 			id:          "accuracy",
