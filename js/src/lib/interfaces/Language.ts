@@ -155,6 +155,11 @@ export const LANGUAGES: Record<string, Language> = {
 		name:       "Corsican",
 		nativeName: "corsu",
 	},
+	code: {
+		code:       "code",
+		name:       "Code",
+		nativeName: "code",
+	},
 	cr: {
 		code:       "cr",
 		name:       "Cree",
