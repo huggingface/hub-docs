@@ -503,14 +503,8 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		hideInModels: true,
 	},
 	"table-to-text": {
-		name:     "Table to Text",
-		modality: "nlp",
-		subtasks: [
-			{
-				type: "rdf-to-text",
-				name: "RDF to text",
-			},
-		],
+		name:         "Table to Text",
+		modality:     "nlp",
 		color:        "blue",
 		hideInModels: true,
 	},
