@@ -14,7 +14,7 @@ This classification is relatively coarse-grained (you can always add more fine-g
 ## Overview
 
 Having a new task integrated into the Hub means that:
-* Users can search for all models of a given task.
+* Users can search for all models – and datasets – of a given task.
 * The Inference API supports the task.
 * Users can try out models directly with the widget. 🏆
 
