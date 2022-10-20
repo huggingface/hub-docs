@@ -33,6 +33,6 @@ Tabular data is one of the most prevalent data out there, and many raw-datasets 
 
 - Tutorials on popular tree based methods like [XGBoost](https://machinelearningmastery.com/xgboost-for-regression/), [LightGBM](https://machinelearningmastery.com/light-gradient-boosted-machine-lightgbm-ensemble/) and [CatBoost](https://www.kaggle.com/code/allunia/house-prices-tutorial-with-catboost/notebook) to name a few.
 
-- [A Short Chronology of Deep Lernign for Tabular Data](https://sebastianraschka.com/blog/2022/deep-learning-for-tabular-data.html) by Sebastian Raschka.
+- [A Short Chronology of Deep Learning for Tabular Data](https://sebastianraschka.com/blog/2022/deep-learning-for-tabular-data.html) by Sebastian Raschka.
 
 ### Training your own model in just a few seconds
