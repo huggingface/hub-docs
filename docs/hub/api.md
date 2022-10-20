@@ -7,6 +7,8 @@ We have open endpoints that you can use to retrieve information from the Hub as 
   <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"> </script>
 </div>
 
+refresh?
+
 ## Endpoints table
 
 | Endpoint                                                                     	| Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            	| `huggingface_hub` root methods    	| Payload                                                                                                                                                               	|   	|
