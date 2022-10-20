@@ -23,9 +23,7 @@
 
 <div class="mt-2">
 	<div class="text-gray-400 text-xs">
-		{#if computeTime}
-			Computation time on cpu: {computeTime}
-		{:else if model.id === "bigscience/bloom"}
+		{#if model.id === "bigscience/bloom"}
 			<div class="flex items-baseline">
 				<div class="flex items-center whitespace-nowrap text-gray-700">
 					<IconAzureML classNames="mr-1 flex-none" /> Powered by&nbsp;
@@ -42,6 +40,8 @@
 					{azureStatus[modelStatus]}
 				</div>
 			</div>
+		{:else if computeTime}
+			Computation time on cpu: {computeTime}
 		{:else}
 			{status[modelStatus]}
 		{/if}
