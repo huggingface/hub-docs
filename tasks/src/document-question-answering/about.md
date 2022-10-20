@@ -1,7 +1,7 @@
 ## Use Cases
 
 Document Question Answering models can be used to answer natural language questions about documents. Typically, document QA models consider textual, layout and potentially visual information. This is useful when the question requires some understanding of the visual aspects of the document.
-Nevertheless, certain document QA models can work without document images. Hence the task is not limited to visually-rich documents and allows to ask questions on spreadsheets, text PDFs, etc!
+Nevertheless, certain document QA models can work without document images. Hence the task is not limited to visually-rich documents and allows users to ask questions based on spreadsheets, text PDFs, etc!
 
 ### Document Parsing
 
@@ -14,7 +14,7 @@ Another very popular use case is invoice information extraction. For example, yo
 ## Inference
 
 You can infer with Document QA models with the 🤗 Transformers library using the [`document-question-answering` pipeline](https://huggingface.co/docs/transformers/en/main_classes/pipelines#transformers.DocumentQuestionAnsweringPipeline). If no model checkpoint is given, the pipeline will be initialized with [`impira/layoutlm-document-qa`](https://huggingface.co/impira/layoutlm-document-qa). This pipeline takes question(s) and document(s) as input. 
-In this case, we define a document as an image and an optional list of (word, box) tuples representing the text in the document. The pipeline will then return the answer to the question in the document
+In this case, we define a document as an image and an optional list of (word, box) tuples representing the text in the document. The pipeline will then return the answer to the question in the document.  
 👉 Note that the question answering task solved here is extractive: the model extracts the answer from a context (the document).
 
 
