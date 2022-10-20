@@ -13,8 +13,7 @@ Another very popular use case is invoice information extraction. For example, yo
 
 ## Inference
 
-You can infer with Document QA models with the 🤗 Transformers library using the [`document-question-answering` pipeline](https://huggingface.co/docs/transformers/en/main_classes/pipelines#transformers.DocumentQuestionAnsweringPipeline). If no model checkpoint is given, the pipeline will be initialized with [`impira/layoutlm-document-qa`](https://huggingface.co/impira/layoutlm-document-qa). This pipeline takes question(s) and document(s) as input. 
-In this case, we define a document as an image and an optional list of (word, box) tuples representing the text in the document. The pipeline will then return the answer to the question in the document.  
+You can infer with Document QA models with the 🤗 Transformers library using the [`document-question-answering` pipeline](https://huggingface.co/docs/transformers/en/main_classes/pipelines#transformers.DocumentQuestionAnsweringPipeline). If no model checkpoint is given, the pipeline will be initialized with [`impira/layoutlm-document-qa`](https://huggingface.co/impira/layoutlm-document-qa). This pipeline takes question(s) and document(s) as input, and returns the answer.  
 👉 Note that the question answering task solved here is extractive: the model extracts the answer from a context (the document).
 
 
