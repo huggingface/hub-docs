@@ -8,9 +8,6 @@ Tabular data is one of the most prevalent data out there, and many raw-datasets 
 - **Predicting a continuous target variable**: 
   When the data has been shared to us as a table, say in a spreadsheet in this case we can use the set of attributes/features to predict our target. Some popular examples like, predicting Taxi Fare based on distance traveled and time taken, predicting the Price of House based on number of rooms, square ft. area,  etc.
 
-- **Time Series Forecasting**:
-  Almost all time series forecasting problems can be solved as a tabular regression problem. Popular examples could be predicting the temperature next day, forecasting the Sales of a store across time.
-
 - **Filling Missing Values**:
   This would be a little different from above examples however, suppose you have a table of data with some values that missing across multiple columns and rows. Here the challenge we address is of filling in those missing values.  
 
