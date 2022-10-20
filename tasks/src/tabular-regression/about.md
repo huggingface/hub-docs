@@ -5,7 +5,7 @@ Tabular regression is the task of predicting a numerical value given a set of at
 ## Use Cases
 Tabular data is one of the most prevalent data out there, and many raw-datasets once we extract features from them can be arrange in tabular form. Below you can find some of the popular tabular use-cases:-
 
-- **Preditcting a continuous target value**: 
+- **Predicting a continuous target variable**: 
   When the data has been shared to us as a table, say in a spreadsheet in this case we can use the set of attributes/features to predict our target. Some popular examples like, predicting Taxi Fare based on distance traveled and time taken, predicting the Price of House based on number of rooms, square ft. area,  etc.
 
 - **Time Series Forecasting**:
