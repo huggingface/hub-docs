@@ -48,7 +48,7 @@ const taskData: TaskDataCustom = {
 			id:          "naver-clova-ix/donut-base-finetuned-docvqa",
 		},
 	],
-	summary:      "Document Question Answering (also known as Document **Visual** Question Answering) is the task of answering questions on document images. Document question answering models take a (document, question) pair as input and return an answer in natural language. Models usually rely on multi-modal features, combining text, position of words (bounding-boxes) and image.",
+	summary:      "Document Question Answering (also known as Document Visual Question Answering) is the task of answering questions on document images. Document question answering models take a (document, question) pair as input and return an answer in natural language. Models usually rely on multi-modal features, combining text, position of words (bounding-boxes) and image.",
 	widgetModels: ["impira/layoutlm-document-qa"],
 	youtubeId:    "",
 };
