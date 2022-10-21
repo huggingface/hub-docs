@@ -27,7 +27,7 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	summary:
-		"Zero shot text classification is the task of generating specific outputs (labels or coaxed sequences) from large, pre-trained, language models",
+		"Zero shot classification is the task of generating specific outputs (labels or coaxed sequences) from large, pre-trained, language models",
 	widgetModels: ["facebook/bart-large-mnli"],
 	youtubeId: "",
 };
