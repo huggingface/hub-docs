@@ -1,3 +1,23 @@
+## Use Cases
+
+### Virtual Speech Assistants
+
+Many end devices have embedded a virtual assistance as a better way to interact with end users. These assistances rely on ASR models to recognize different voice commands in order to perform specified tasks. For instance, you might ask your phone for dialing a phone number, asking for an answer or scheduling a meeting. 
+
+### Caption Generation
+
+A Caption Generation model can take the audio from sources such as live streamed videos or recorded videos to generate automatic captions. This can help with content accessibility for example: audiences who are watching in a non-native language can rely on captions to interpret the content. Furthermore, it helps with information retention.
+
+## Task Variants
+
+### Multilingual ASR
+
+These models are intended to transcript multiple languages from a given audio. Some models might incorporate [language identification](https://huggingface.co/tasks/audio-classification) blocks to improve multilingual ASR. 
+
+The use of Multilingual ASR has become popular, the idea of maintaining just a single model for all language can simplify the production pipeline. Take a look at this [model](https://huggingface.co/voidful/wav2vec2-xlsr-multilingual-56) to get an idea on how 56 languages can be processed by a single model. 
+
+## Inference
+
 The Hub contains over [500 ASR models](https://huggingface.co/models?pipeline_tag=automatic-speech-recognition&sort=downloads) that you can use right away by trying out the widgets directly in the browser or calling the models as a service using the Inference API. Here is a simple code snippet to do exactly this:
 
 ```python
@@ -47,3 +67,5 @@ These events help democratize ASR for all languages, including low-resource lang
 - [Making automatic speech recognition work on large files with Wav2Vec2 in 🤗 Transformers](https://huggingface.co/blog/asr-chunking)
 - [Boosting Wav2Vec2 with n-grams in 🤗 Transformers](https://huggingface.co/blog/wav2vec2-with-ngram)
 - [ML for Audio Study Group - Intro to Audio and ASR Deep Dive](https://www.youtube.com/watch?v=D-MH6YjuIlE)
+- [Massively Multilingual ASR: 50 Languages, 1 Model, 1 Billion Parameters](https://arxiv.org/pdf/2007.03001.pdf)
+- [NeMo ToolKits](https://github.com/NVIDIA/NeMo)
