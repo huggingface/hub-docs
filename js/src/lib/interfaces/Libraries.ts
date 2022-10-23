@@ -8,6 +8,7 @@ export enum ModelLibrary {
 	"adapter-transformers"   = "Adapter Transformers",
 	"allennlp"               = "allenNLP",
 	"asteroid"               = "Asteroid",
+	"cleanrl"                = "CleanRL",
 	"diffusers"              = "Diffusers",
 	"espnet"                 = "ESPnet",
 	"fairseq"                = "Fairseq",
