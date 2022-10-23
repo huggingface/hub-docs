@@ -34,15 +34,15 @@ const taskData: TaskDataCustom = {
     ],
     models: [
         {
-            description: "Resonable Image Captioning model using encoder-decoder architecture.",
+            description: "Reasonable Image Captioning model.",
             id: "nlpconnect/vit-gpt2-image-captioning",
         },
         {
-            description: "TrOCR model is fine-tuned on the SROIE dataset.",
+            description: "Optical Character Recognition model is trained on scanned receipts.",
             id: "microsoft/trocr-base-printed",
         },
     ],
-    summary: "Image-to-Text or Image Captioning is the task of describing contents of an image in natural-language sentence.",
+    summary: "Image-to-Text or Image Captioning is the task of generating textual description for an image.",
     widgetModels: ["nlpconnect/vit-gpt2-image-captioning"],
     youtubeId: "",
 };
