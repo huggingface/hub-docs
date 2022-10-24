@@ -3,7 +3,11 @@
 	import { onMount } from "svelte";
 	import { COLORS } from "../../shared/consts";
 	import { clamp, mod, hexToRgb } from "../../../../utils/ViewUtils";
-	import { getResponse, getBlobFromUrl } from "../../shared/helpers";
+	import {
+		getResponse,
+		getBlobFromUrl,
+		getDemoInputs,
+	} from "../../shared/helpers";
 
 	import Canvas from "./Canvas.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
@@ -13,6 +17,7 @@
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
+	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -45,7 +50,11 @@
 		getOutput(file);
 	}
 
-	async function getOutput(file: File | Blob, withModelLoading = false) {
+	async function getOutput(
+		file: File | Blob,
+		withModelLoading = false,
+		isOnLoadCall = false
+	) {
 		if (!file) {
 			return;
 		}
@@ -68,7 +77,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;
@@ -227,6 +237,15 @@
 		if (typeof createImageBitmap === "undefined") {
 			polyfillCreateImageBitmap();
 		}
+
+		(async () => {
+			const [src] = getDemoInputs(model, ["src"]);
+			if (callApiOnMount && src) {
+				imgSrc = src;
+				const blob = await getBlobFromUrl(imgSrc);
+				getOutput(blob, false, true);
+			}
+		})();
 	});
 </script>
 

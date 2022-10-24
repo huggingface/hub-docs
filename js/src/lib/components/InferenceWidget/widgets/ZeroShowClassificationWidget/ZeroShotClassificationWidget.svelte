@@ -59,12 +59,12 @@
 			multiClass = demoMultiClass === "true";
 			setTextAreaValue(demoText ?? "");
 			if (candidateLabels && text && callApiOnMount) {
-				getOutput();
+				getOutput(false, true);
 			}
 		}
 	});
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
 		const trimmedText = text.trim();
 		const trimmedCandidateLabels = candidateLabels.trim().split(",").join(",");
 
@@ -108,7 +108,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;

@@ -61,12 +61,12 @@
 			const [demoText] = getDemoInputs(model, ["text"]);
 			setTextAreaValue(demoText ?? "");
 			if (text && callApiOnMount) {
-				getOutput();
+				getOutput(false, true);
 			}
 		}
 	});
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
 		if (isBloomLoginRequired) {
 			return;
 		}
@@ -115,6 +115,7 @@
 			parseOutput,
 			withModelLoading,
 			includeCredentials,
+			isOnLoadCall,
 			useCache
 		);
 

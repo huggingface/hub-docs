@@ -62,12 +62,12 @@
 			const [demoText] = getDemoInputs(model, ["text"]);
 			text = (demoText as string) ?? "";
 			if (text && callApiOnMount) {
-				getOutput();
+				getOutput(false, true);
 			}
 		}
 	});
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -96,7 +96,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;
