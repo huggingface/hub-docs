@@ -5,7 +5,7 @@
 	import { TASKS_DATA } from "../../../../../../../tasks/src/tasksData";
 	import IconInfo from "../../../Icons/IconInfo.svelte";
 	import IconLightning from "../../../Icons/IconLightning.svelte";
-	import ModelPipelineTag from "../../../ModelPipelineTag/ModelPipelineTag.svelte";
+	import PipelineTag from "../../../PipelineTag/PipelineTag.svelte";
 
 	export let noTitle = false;
 	export let title: string | null = null;
@@ -41,7 +41,7 @@
 			target="_blank"
 			title={TASKS_DATA[task] ? `Learn more about ${task}` : undefined}
 		>
-			<ModelPipelineTag classNames="mr-2 mb-1.5" {pipeline} />
+			<PipelineTag classNames="mr-2 mb-1.5" {pipeline} />
 		</a>
 	{/if}
 	<slot />

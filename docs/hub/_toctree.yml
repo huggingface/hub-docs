@@ -13,9 +13,9 @@
   - local: notifications
     title: Notifications
   - local: repositories-next-steps
-    title: Next Steps    
+    title: Next Steps
   - local: repositories-licenses
-    title: Licenses    
+    title: Licenses
 - title: Models
   local: models
   isExpanded: true
@@ -113,6 +113,8 @@
       title: Spaces Settings
     - local: spaces-organization-cards
       title: Using Spaces for Organization Cards
+  - local: spaces-gpus
+    title: Spaces GPU Upgrades
   - local: spaces-sdks-gradio
     title: Gradio Spaces
   - local: spaces-sdks-streamlit
@@ -137,7 +139,7 @@
 - local: other
   title: Other
   isExpanded: true
-  sections:    
+  sections:
   - local: organizations
     title: Organizations
     sections:
@@ -147,6 +149,10 @@
       title: Organization Cards
     - local: organizations-security
       title: Access control in organizations
+  - local: billing
+    title: Billing
+  - local: doi
+    title: Digital Object Identifier (DOI)
   - local: security
     title: Security
     sections:

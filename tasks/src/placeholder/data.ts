@@ -1,4 +1,4 @@
-import { type TaskDataCustom } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
 	datasets: [],
@@ -11,7 +11,7 @@ const taskData: TaskDataCustom = {
 	models:        [],
 	summary:       "",
 	widgetModels:  [],
-	youtubeId:     "",
+	youtubeId:     undefined,
 };
 
 export default taskData;

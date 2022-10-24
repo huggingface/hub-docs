@@ -60,6 +60,7 @@ The Hugging Face Hub is a platform with over 60K models, 6K datasets, and 6K dem
 <div class="flex items-center py-0.5 text-lg font-semibold text-green-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-green-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" stroke="currentColor" d="M8.892 21.854a6.25 6.25 0 0 1-4.42-10.67l7.955-7.955a4.5 4.5 0 0 1 6.364 6.364l-6.895 6.894a2.816 2.816 0 0 1-3.89 0a2.75 2.75 0 0 1 .002-3.888l5.126-5.127a1 1 0 1 1 1.414 1.414l-5.126 5.127a.75.75 0 0 0 0 1.06a.768.768 0 0 0 1.06 0l6.895-6.894a2.503 2.503 0 0 0 0-3.535a2.56 2.56 0 0 0-3.536 0l-7.955 7.955a4.25 4.25 0 1 0 6.01 6.01l6.188-6.187a1 1 0 1 1 1.414 1.414l-6.187 6.186a6.206 6.206 0 0 1-4.42 1.832z"></path></svg> Other</div>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./organizations">Organizations</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./doi">Digital Object Identifier (DOI)</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./security">Security</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./api">Hub API Endpoints</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="https://huggingface.co/code-of-conduct">Contributor Code of Conduct</a>
@@ -94,7 +95,7 @@ The Hub offers **versioning, commit history, diffs, branches, and over a dozen l
 
 You can discover and use dozens of thousands of open-source ML models shared by the community. To promote responsible model usage and development, model repos are equipped with [Model Cards](./model-cards) to inform users of each model's limitations and biases. Additional [metadata](./model-cards#model-card-metadata) about info such as their tasks, languages, and metrics can be included, with training metrics charts even added if the repository contains [TensorBoard traces](./tensorboard). It's also easy to add an [**inference widget**](./models-widgets) to your model, allowing anyone to play with the model directly in the browser! For production settings, an API is provided to [**instantly serve your model**](./models-inference).
 
-To upload models to the Hub, or download models and integrate them into your work, explore the [**Models documentation**](./models). You can also choose from [**over a dozen frameworks**](./models-libraries) such as 🤗 Transformers, Asteroid, and ESPnet that support the Hub.
+To upload models to the Hub, or download models and integrate them into your work, explore the [**Models documentation**](./models). You can also choose from [**over a dozen libraries**](./models-libraries) such as 🤗 Transformers, Asteroid, and ESPnet that support the Hub.
 
 ## Datasets
 
@@ -108,11 +109,11 @@ The [🤗 `datasets`](https://huggingface.co/docs/datasets/index) library allows
 
 We currently support two awesome Python SDKs (**[Gradio](https://gradio.app/)** and **[Streamlit](https://streamlit.io/)**) that let you build cool apps in a matter of minutes. Users can also create static Spaces which are simple HTML/CSS/JavaScript page within a Space.
 
-After you've explored a few Spaces (take a look at our [Space of the Week!](https://huggingface.co/spaces)), dive into the [**Spaces documentation**](./spaces-overview) to learn all about how you can create your own Space.
+After you've explored a few Spaces (take a look at our [Space of the Week!](https://huggingface.co/spaces)), dive into the [**Spaces documentation**](./spaces-overview) to learn all about how you can create your own Space. You'll also be able to upgrade your Space to run on a GPU or other accelerated hardware. ⚡️
 
 ## Organizations
 
-Companies, universities and non-profits are an essential part of the Hugging Face community! The Hub offers [**Organizations**](./organizations), which can be used to group accounts and manage datasets, models, and Spaces. Educators can also create collaborative organizations for students using [Hugging Face for Classrooms](https://huggingface.co/classrooms). An organization's repositories will be featured on the organization’s page and every member of the organization will have the ability to contribute to the repository. In addition to conveniently grouping all of an organization's work, the Hub allows admins to set roles to [**control access to repositories**](./organizations-security), and manage their organization's [subscription](https://huggingface.co/pricing). Machine Learning is more fun when collaborating! 🔥
+Companies, universities and non-profits are an essential part of the Hugging Face community! The Hub offers [**Organizations**](./organizations), which can be used to group accounts and manage datasets, models, and Spaces. Educators can also create collaborative organizations for students using [Hugging Face for Classrooms](https://huggingface.co/classrooms). An organization's repositories will be featured on the organization’s page and every member of the organization will have the ability to contribute to the repository. In addition to conveniently grouping all of an organization's work, the Hub allows admins to set roles to [**control access to repositories**](./organizations-security), and manage their organization's [payment method and billing info](https://huggingface.co/pricing). Machine Learning is more fun when collaborating! 🔥
 
 [Explore existing organizations](https://huggingface.co/organizations), create a new organization [here](https://huggingface.co/organizations/new), and then visit the [**Organizations documentation**](./organizations) to learn more.
 
