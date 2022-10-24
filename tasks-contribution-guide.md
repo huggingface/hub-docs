@@ -20,7 +20,7 @@ We have `tasks/assets` that contains data used in the inference widget and image
 This might seem overwhelming, but you don't necessarily need to add all of these in one pull request or on your own, you can simply contribute one section. Feel free to ask for help whenever you need. 
 
 ### I have a merge conflict, what now! 😱
-So essentially what happens is that you were trying to write your changes to this repository's main branch. However, since you opened the PR, some changes occurred to that branch. Because of this, there's a conflict. Git says that "for fifth line of the code you wanted to write this, but this line is now changed, so it's better if you adapt your changes on top of these changes".
+So essentially, what happens is that you were trying to write your changes to this repository's main branch. However, since you opened the PR, some changes occurred to that branch in the same files you're modifying. Because of this, there's a conflict. Git says that "for fifth line of the code you wanted to write this, but this line is now changed, so it's better if you adapt your changes on top of these changes".
 
 Because you're working on a fork of original repository, first you need to have the changes (for main branch) To do so, simply sync your fork first:
 ![Sync Fork](tasks/assets/contribution-guide/sync-fork.png)
