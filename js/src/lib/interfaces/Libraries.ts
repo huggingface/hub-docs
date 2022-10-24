@@ -240,13 +240,12 @@ model = joblib.load(
 	}
 };
 
-
 const fastai = (model: ModelData) =>
 	`from huggingface_hub import from_pretrained_fastai
 
 learn = from_pretrained_fastai("${model.id}")`;
 
-const sample-factory = (model: ModelData) =>
+const sampleFactory = (model: ModelData) =>
 	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d <train_dir_path>`;
 
 const sentenceTransformers = (model: ModelData) =>
@@ -502,6 +501,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "fastText",
 		repoUrl:  "https://fasttext.cc/",
 		snippet:  fasttext,
+	},
+	"sample-factory": {
+		btnLabel: "sample-factory",
+		repoName: "sample-factory",
+		repoUrl:  "https://github.com/alex-petrenko/sample-factory",
+		snippet:  sampleFactory,
 	},
 	"stable-baselines3": {
 		btnLabel: "stable-baselines3",
