@@ -15,6 +15,7 @@ export enum ModelLibrary {
 	"keras"                  = "Keras",
 	"nemo"                   = "NeMo",
 	"pyannote-audio"         = "pyannote.audio",
+	"sample-factory"         = "Sample Factory",
 	"sentence-transformers"  = "Sentence Transformers",
 	"sklearn"                = "Scikit-learn",
 	"spacy"                  = "spaCy",
@@ -244,6 +245,12 @@ const fastai = (model: ModelData) =>
 	`from huggingface_hub import from_pretrained_fastai
 
 learn = from_pretrained_fastai("${model.id}")`;
+
+const sample-factory = (model: ModelData) =>
+	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d <train_dir_path>`
+
+const mlAgents = (model: ModelData) =>
+	`mlagents-load-from-hf --repo-id="${model.id}" --local-dir="./downloads"`;
 
 const sentenceTransformers = (model: ModelData) =>
 	`from sentence_transformers import SentenceTransformer
