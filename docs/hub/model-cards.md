@@ -1,5 +1,6 @@
 # Model Cards
 
+  ### [  <u>New! Try our experimental Modal Card Creator App</u>](https://huggingface.co/spaces/huggingface/Model_Cards_Writing_Tool)
 ## What are Model Cards?
 
 Model cards are files that accompany the models and provide handy information. Under the hood, model cards are simple Markdown files with additional metadata. Model cards are essential for discoverability, reproducibility, and sharing! You can find a model card as the `README.md` file in any model repo.
