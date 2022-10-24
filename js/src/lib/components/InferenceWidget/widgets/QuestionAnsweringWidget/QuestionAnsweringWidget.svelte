@@ -51,12 +51,12 @@
 			question = (demoQuestion as string) ?? "";
 			setTextAreaValue(demoContext ?? "");
 			if (context && question && callApiOnMount) {
-				getOutput();
+				getOutput(false, true);
 			}
 		}
 	});
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
 		const trimmedQuestion = question.trim();
 		const trimmedContext = context.trim();
 
@@ -92,7 +92,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;

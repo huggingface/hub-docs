@@ -77,7 +77,7 @@
 			const [demoTable] = getDemoInputs(model, ["structuredData"]);
 			table = convertDataToTable((demoTable as TableData) ?? {});
 			if (table && callApiOnMount) {
-				getOutput();
+				getOutput(false, true);
 			}
 		}
 	});
@@ -87,7 +87,7 @@
 		output = [];
 	}
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
 		for (let [i, row] of table.entries()) {
 			for (const [j, cell] of row.entries()) {
 				if (!String(cell)) {
@@ -126,7 +126,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;

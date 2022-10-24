@@ -448,6 +448,22 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		color:          "red",
 		hideInDatasets: true,
 	},
+	"robotics": {
+		name:     "Robotics",
+		modality: "rl",
+		subtasks: [
+			{
+				type: "grasping",
+				name: "Grasping",
+			},
+			{
+				type: "task-planning",
+				name: "Task Planning",
+			},
+		],
+		color:          "blue",
+		hideInDatasets: true,
+	},
 	"tabular-classification": {
 		name:     "Tabular Classification",
 		modality: "tabular",
@@ -487,14 +503,8 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		hideInModels: true,
 	},
 	"table-to-text": {
-		name:     "Table to Text",
-		modality: "nlp",
-		subtasks: [
-			{
-				type: "rdf-to-text",
-				name: "RDF to text",
-			},
-		],
+		name:         "Table to Text",
+		modality:     "nlp",
 		color:        "blue",
 		hideInModels: true,
 	},
@@ -573,14 +583,14 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Document Question Answering",
 			},
 		],
-		modality: "multimodal",
-		color:    "blue",
+		modality:       "multimodal",
+		color:          "blue",
 		hideInDatasets: true,
 	},
 	"zero-shot-image-classification": {
-		name:         "Zero-Shot Image Classification",
-		modality:     "cv",
-		color:        "yellow",
+		name:     "Zero-Shot Image Classification",
+		modality: "cv",
+		color:    "yellow",
 	},
 	"other": {
 		name:         "Other",
@@ -593,6 +603,8 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 export type PipelineType = keyof typeof PIPELINE_DATA;
 export const ALL_PIPELINE_TYPES = Object.keys(PIPELINE_DATA) as PipelineType[];
 
+export const ALL_SUBTASKS = Object.values(PIPELINE_DATA).flatMap(data => data.subtasks ?? []);
+export const ALL_SUBTASK_TYPES = ALL_SUBTASKS.map(s => s.type);
 
 /*
  * Specification of pipeline tag display order.
@@ -632,6 +644,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"visual-question-answering",
 	"image-to-text",
 	"reinforcement-learning",
+	"robotics",
 	"voice-activity-detection",
 	"time-series-forecasting",
 	"document-question-answering",

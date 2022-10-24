@@ -10,7 +10,7 @@ const taskData: TaskDataCustom = {
 		{
 			// TODO write proper description
 			description: "Dataset consisting of images of garments.",
-			id:          "fashion-mnist",
+			id:          "fashion_mnist",
 		},
 	],
 	demo: {
@@ -71,7 +71,7 @@ const taskData: TaskDataCustom = {
 			id:          "facebook/deit-base-distilled-patch16-224",
 		},
 	],
-	summary:      "Image classification is the task of assigning a label or class to an entire image. Images are expected to have only one class for each image.Image classification models take an image as input and return a prediction about which class the image belongs to.",
+	summary:      "Image classification is the task of assigning a label or class to an entire image. Images are expected to have only one class for each image. Image classification models take an image as input and return a prediction about which class the image belongs to.",
 	widgetModels: ["google/vit-base-patch16-224"],
 	youtubeId:    "tjAIM7BOYhw",
 };

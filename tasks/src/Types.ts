@@ -51,7 +51,7 @@ export interface TaskData {
 	models: ExampleRepo[];
 	summary: string;
 	widgetModels: string[];
-	youtubeId: string;
+	youtubeId?: string;
 }
 
 export type TaskDataCustom = Omit<TaskData, "id" | "label" | "libraries">;
