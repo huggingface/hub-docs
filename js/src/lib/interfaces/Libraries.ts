@@ -246,7 +246,7 @@ const fastai = (model: ModelData) =>
 learn = from_pretrained_fastai("${model.id}")`;
 
 const sampleFactory = (model: ModelData) =>
-	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d <train_dir_path>`;
+	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d ./train_dir`;
 
 const sentenceTransformers = (model: ModelData) =>
 	`from sentence_transformers import SentenceTransformer
