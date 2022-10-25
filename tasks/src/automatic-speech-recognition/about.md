@@ -6,7 +6,7 @@ Many edge devices have an embedded virtual assistant to interact with the end us
 
 ### Caption Generation
 
-A Caption Generation model can take the audio from sources such as live streamed videos or recorded videos to generate automatic captions. This can help with content accessibility for example: audiences who are watching in a non-native language can rely on captions to interpret the content. Furthermore, it helps with information retention.
+A caption generation model takes audio as input from sources to generate automatic captions through transcription, for live-streamed or recorded videos. This can help with content accessibility. For example, an audience watching a video that includes a non-native language, can rely on captions to interpret the content. It can also help with information retention.
 
 ## Task Variants
 
