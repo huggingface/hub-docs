@@ -54,6 +54,8 @@
         title: ML-Agents
       - local: rl-baselines3-zoo
         title: RL-Baselines3-Zoo
+      - local: sample-factory
+        title: Sample Factory
       - local: sentence-transformers
         title: Sentence Transformers
       - local: spacy
