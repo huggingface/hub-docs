@@ -2,7 +2,7 @@
 
 ### Virtual Speech Assistants
 
-Many end devices have embedded a virtual assistance as a better way to interact with end users. These assistances rely on ASR models to recognize different voice commands in order to perform specified tasks. For instance, you might ask your phone for dialing a phone number, asking for an answer or scheduling a meeting. 
+Many edge devices have an embedded virtual assistant to interact with the end users better. These assistances rely on ASR models to recognize different voice commands to perform various tasks. For instance, you can ask your phone for dialing a phone number, ask a general question, or schedule a meeting.
 
 ### Caption Generation
 
