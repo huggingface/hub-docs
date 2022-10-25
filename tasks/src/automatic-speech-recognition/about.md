@@ -12,7 +12,7 @@ A caption generation model takes audio as input from sources to generate automat
 
 ### Multilingual ASR
 
-These models are intended to transcript multiple languages from a given audio. Some models might incorporate [language identification](https://huggingface.co/tasks/audio-classification) blocks to improve multilingual ASR. 
+Multilingual ASR models can convert audio inputs with multiple languages into transcripts. Some multilingual ASR models include [language identification](https://huggingface.co/tasks/audio-classification) blocks to improve the performance.
 
 The use of Multilingual ASR has become popular, the idea of maintaining just a single model for all language can simplify the production pipeline. Take a look at this [model](https://huggingface.co/voidful/wav2vec2-xlsr-multilingual-56) to get an idea on how 56 languages can be processed by a single model. 
 
