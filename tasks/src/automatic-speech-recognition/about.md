@@ -6,7 +6,7 @@ Many edge devices have an embedded virtual assistant to interact with the end us
 
 ### Caption Generation
 
-A caption generation model takes audio as input from sources to generate automatic captions through transcription, for live-streamed or recorded videos. This can help with content accessibility. For example, an audience watching a video that includes a non-native language, can rely on captions to interpret the content. It can also help with information retention.
+A caption generation model takes audio as input from sources to generate automatic captions through transcription, for live-streamed or recorded videos. This can help with content accessibility. For example, an audience watching a video that includes a non-native language, can rely on captions to interpret the content. It can also help with information retention at online-classes environments improving knowledge assimilation while reading and taking notes faster.
 
 ## Task Variants
 
@@ -68,4 +68,4 @@ These events help democratize ASR for all languages, including low-resource lang
 - [Boosting Wav2Vec2 with n-grams in 🤗 Transformers](https://huggingface.co/blog/wav2vec2-with-ngram)
 - [ML for Audio Study Group - Intro to Audio and ASR Deep Dive](https://www.youtube.com/watch?v=D-MH6YjuIlE)
 - [Massively Multilingual ASR: 50 Languages, 1 Model, 1 Billion Parameters](https://arxiv.org/pdf/2007.03001.pdf)
-- [NeMo ToolKits](https://github.com/NVIDIA/NeMo)
+- An ASR toolkit made by [NVIDIA: NeMo](https://github.com/NVIDIA/NeMo) with code and pretrained models useful for new ASR models. Watch the [introductory video](https://www.youtube.com/embed/wBgpMf_KQVw) for an overview.
