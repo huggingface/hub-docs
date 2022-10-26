@@ -508,14 +508,8 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		hideInModels: true,
 	},
 	"table-to-text": {
-		name:     "Table to Text",
-		modality: "nlp",
-		subtasks: [
-			{
-				type: "rdf-to-text",
-				name: "RDF to text",
-			},
-		],
+		name:         "Table to Text",
+		modality:     "nlp",
 		color:        "blue",
 		hideInModels: true,
 	},
@@ -614,6 +608,8 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 export type PipelineType = keyof typeof PIPELINE_DATA;
 export const ALL_PIPELINE_TYPES = Object.keys(PIPELINE_DATA) as PipelineType[];
 
+export const ALL_SUBTASKS = Object.values(PIPELINE_DATA).flatMap(data => data.subtasks ?? []);
+export const ALL_SUBTASK_TYPES = ALL_SUBTASKS.map(s => s.type);
 
 /*
  * Specification of pipeline tag display order.
