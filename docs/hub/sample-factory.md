@@ -17,9 +17,9 @@ All models on the Hub come up with useful features:
 ## Install the library
 To install the `sample-factory` library, you need to install the package:
 
-`pip install sample-factory
+`pip install sample-factory`
 
-SF is known to work on Linux and macOS. There is no Windows support at this time.`
+SF is known to work on Linux and macOS. There is no Windows support at this time.
 
 ## Loading models from the Hub
 ### Using load_from_hub
