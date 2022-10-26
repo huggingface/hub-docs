@@ -1,6 +1,6 @@
 # Using sample-factory at Hugging Face
 
-`sample-factory` is a codebase for high throughput asynchronous reinforcement learning. It has integrations with HuggingFace Hub to push models with evaluation results and training metrics to the hub.
+`sample-factory` is a codebase for high throughput asynchronous reinforcement learning. It has integrations with the Hugging Face Hub to share models with evaluation results and training metrics.
 
 
 ## Exploring sample-factory in the Hub
