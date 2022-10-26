@@ -39,6 +39,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"image-to-text":                  getData("image-to-text"),
 	"multiple-choice":                undefined,
 	"object-detection":               getData("object-detection", objectDetection),
+	"video-classification":           getData("video-classification"),
 	"other":                          undefined,
 	"question-answering":             getData("question-answering", questionAnswering),
 	"reinforcement-learning":         getData("reinforcement-learning"),
