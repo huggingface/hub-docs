@@ -37,7 +37,7 @@ The command line arguments are:
 
 ### Download Model Repository Directly
 
-HuggingFace repositories can be downloaded directly using `git clone`:
+Hugging Face repositories can be downloaded directly using `git clone`:
 
 ```
 git clone <URL of HuggingFace Repo>
