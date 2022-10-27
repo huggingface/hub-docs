@@ -2,7 +2,8 @@
 
 ### Gaming
 
-Reinforcement learning is known for its application to video games. Since the games provide a safe environment to the agent to be trained in the sense that it is perfectly defined and controllable. This makes them perfect candidates for experimentation and will help a lot to learn about the capabilities and limitations of various RL algorithms. 
+Reinforcement learning is known for its application to video games. Since the games provide a safe environment for the agent to be trained in the sense that it is perfectly defined and controllable, this makes them perfect candidates for experimentation and will help a lot to learn about the capabilities and limitations of various RL algorithms. 
+
 
 There are many videos on the Internet where a game-playing reinforcement learning agent starts with a terrible gaming strategy due to random initialization of its settings, but over iterations, the agent gets better and better with each episode of the training. This [paper](https://arxiv.org/abs/1912.10944) mainly investigates the performance of RL in popular games such as Minecraft or Dota2. The agent's performance can exceed a human player's, although there are still some challenges mainly related to efficiency in constructing the gaming policy of the reinforcement learning agent.
 
