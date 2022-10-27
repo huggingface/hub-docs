@@ -64,7 +64,7 @@ python -m sample_factory.huggingface.push_to_hub -r <hf_repo_name> -u <hf_userna
 
 The command line arguments are:
 
-- `-r`: The name of the repo to save on HF Hub. This is the same as `hf_repository` in the enjoy script
+- `-r`: The repo's name to save on Hub. This is the same as `hf_repository` in the enjoy script
 - `-u`: Your Hugging Face username or organization where to save the models
 - `-d`: The full path to your experiment directory to upload
 
