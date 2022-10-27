@@ -24,7 +24,7 @@ SF is known to work on Linux and macOS. There is no Windows support at this time
 ## Loading models from the Hub
 ### Using load_from_hub
 
-To download a model from the HuggingFace Hub to use with Sample-Factory, use the `load_from_hub` script:
+To download a model from the Hugging Face Hub to use with Sample-Factory, use the `load_from_hub` script:
 
 ```
 python -m sample_factory.huggingface.load_from_hub -r <HuggingFace_repo_id> -d <train_dir_path>
