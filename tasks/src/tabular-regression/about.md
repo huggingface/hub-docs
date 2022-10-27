@@ -24,11 +24,13 @@ Whenever we have a set of variables recorded in a table and using them we try to
 
 ## Useful Resources
 
-- For starting with Tabular Data Regression:
-    - Doing [Exploratory Data Analysis](https://neptune.ai/blog/exploratory-data-analysis-for-tabular-data) for tabular data.
+- For starting with tabular regression:
+    - Doing [Exploratory Data Analysis](https://neptune.ai/blog/exploratory-data-analysis-for-tabular-data) for tabular data. 
+      - The data considered here consists of details of Olympic athletes and medal results from Athens 1896 to Rio 2016. 
+      - Here you can learn more about how to explore and analyse the data and visualize them in order to get a better understanding of dataset.
     - Building your [first ML model](https://www.kaggle.com/code/dansbecker/your-first-machine-learning-model).
 
-- Moving to other approaches:
+- Intermediate level tutorials on tabular regression:
     - A tutorial on using a set of decisions to split the data into different subsets (decision trees) and predict the target variable. You can check out this [example](https://medium.com/pursuitnotes/decision-tree-regression-in-6-steps-with-python-1a1c5aa2ee16).
     - [A Short Chronology of Deep Learning for Tabular Data](https://sebastianraschka.com/blog/2022/deep-learning-for-tabular-data.html) by Sebastian Raschka.
 
