@@ -17,7 +17,7 @@ size_categories: List[str]
 source_datasets: List[str]
 task_categories: List[str]
 task_ids: List[str]
-paperswithcode_id: str
+paperswithcode_id: Optional[str]
 train-eval-index: List[Dict]
 configs: List[str]
 extra_gated_fields: Dict
@@ -26,4 +26,4 @@ extra_gated_prompt: str
 
 Use the [Dataset Metadata Creator](https://huggingface.co/spaces/huggingface/datasets-tagging) to help you generate the appropriate metadata. For a step-by-step guide on creating a dataset card, check out the [Create a dataset card](https://huggingface.co/docs/datasets/dataset_card) guide.
 
-Reading through existing dataset cards, such as the [ELI5 dataset card](https://github.com/huggingface/datasets/blob/main/datasets/eli5/README.md), is a great way to familiarize yourself with the common conventions.
+Reading through existing dataset cards, such as the [ELI5 dataset card](https://huggingface.co/datasets/eli5/blob/main/README.md), is a great way to familiarize yourself with the common conventions.

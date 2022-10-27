@@ -68,7 +68,7 @@
 			query = (demoQuery as string) ?? "";
 			table = convertDataToTable(demoTable as TableData);
 			if (query && table && callApiOnMount) {
-				getOutput();
+				getOutput(false, true);
 			}
 		}
 	});
@@ -77,7 +77,7 @@
 		table = updatedTable;
 	}
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
 		const trimmedQuery = query.trim();
 
 		if (!trimmedQuery) {
@@ -111,7 +111,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;
