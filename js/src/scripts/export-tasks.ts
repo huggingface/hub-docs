@@ -8,11 +8,9 @@ interface ExportedPipelineData {
 }
 
 (async () => {
-	const tasks = Object.fromEntries(
-		Object.entries(PIPELINE_DATA).map(([k, v]) => {
+	const tasks = Object.fromEntries( Object.entries(PIPELINE_DATA).map(([k, v]) => {
 			if (!DISABLE_HIDE_IN_DATASETS && v.hideInDatasets) {
-				return;
-			}
+		return}
 			// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 			return [k, {
 				type:     v.modality,
