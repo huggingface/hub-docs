@@ -1,8 +1,7 @@
 
 export interface Language {
 	code: string;
-	name: string;
-	nativeName?: string;
+	name: string; nativeName?: string;
 	/**
 	 * Hydrated
 	 */
@@ -30,13 +29,13 @@ export const LANGUAGES: Record<string, Language> = {
 		name:       "Afar",
 		nativeName: "Afaraf",
 	},
-	ab: {
-		code:       "ab",
-		name:       "Abkhaz",
+ab: {
+ 	code:       "ab",
+  		name:       "Abkhaz",
 		nativeName: "аҧсуа бызшәа",
 	},
 	ae: {
-		code:       "ae",
+		code:       'ae',
 		name:       "Avestan",
 		nativeName: "avesta",
 	},
