@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, LoadingStatus } from "../types";
+	import type { WidgetProps, ModelLoadInfo } from "../types";
 	import type { WidgetInputSample } from "../../../../interfaces/Types";
 
 	import { onMount } from "svelte";
@@ -10,7 +10,7 @@
 	import WidgetHeader from "../WidgetHeader/WidgetHeader.svelte";
 	import WidgetInfo from "../WidgetInfo/WidgetInfo.svelte";
 	import WidgetModelLoading from "../WidgetModelLoading/WidgetModelLoading.svelte";
-	import { getModelStatus } from "../../shared/helpers";
+	import { getModelLoadInfo } from "../../shared/helpers";
 
 	export let apiUrl: string;
 	export let computeTime: string;
@@ -29,7 +29,7 @@
 		({}) => {};
 
 	let isMaximized = false;
-	let modelStatus: LoadingStatus = "unknown";
+	let modelLoadInfo: ModelLoadInfo = { status: "unknown" };
 	let selectedInputGroup: string;
 
 	const inputSamples: WidgetInputSample[] = (model?.widgetData ?? [])
@@ -63,8 +63,9 @@
 			: inputGroups.find(({ group }) => group === selectedInputGroup);
 
 	onMount(() => {
-		getModelStatus(apiUrl, model.id).then((status) => {
-			modelStatus = status;
+		getModelLoadInfo(apiUrl, model.id).then((info) => {
+			modelLoadInfo = info;
+			console.log(modelLoadInfo);
 		});
 	});
 
@@ -106,7 +107,7 @@
 		{/if}
 	</WidgetHeader>
 	<slot name="top" />
-	<WidgetInfo {model} {computeTime} {error} {modelStatus} />
+	<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} />
 	{#if modelLoading.isLoading}
 		<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
 	{/if}

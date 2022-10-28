@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { WidgetProps, LoadingStatus } from "../types";
+	import type { WidgetProps, ModelLoadInfo, LoadingStatus } from "../types";
 
 	import IconAzureML from "../../../Icons/IconAzureML.svelte";
 
 	export let model: WidgetProps["model"];
 	export let computeTime: string;
 	export let error: string;
-	export let modelStatus: LoadingStatus = "unknown";
+	export let modelLoadInfo: ModelLoadInfo = { status: "unknown" };
 
 	const status = {
 		error: "⚠️ This model could not be loaded by the inference API. ⚠️",
@@ -19,6 +19,19 @@
 		loaded: "This model is loaded and running on AzureML Managed Endpoint",
 		unknown: "This model can be loaded loaded on AzureML Managed Endpoint",
 	} as const;
+
+	function getStatusReport(
+		modelLoadInfo: ModelLoadInfo,
+		statuses: Record<LoadingStatus, string>
+	): string {
+		if (
+			modelLoadInfo.compute_type === "cpu" &&
+			modelLoadInfo.status === "loaded"
+		) {
+			return `The model is loaded and running on <a class="underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon Ice Lake</a>.`;
+		}
+		return statuses[modelLoadInfo.status];
+	}
 </script>
 
 <div class="mt-2">
@@ -37,13 +50,13 @@
 					class="flex border-dotter border-b border-gray-100 flex-1 mx-2 -translate-y-px"
 				/>
 				<div>
-					{azureStatus[modelStatus]}
+					{@html getStatusReport(modelLoadInfo, azureStatus)}
 				</div>
 			</div>
 		{:else if computeTime}
 			Computation time on cpu: {computeTime}
 		{:else}
-			{status[modelStatus]}
+			{@html getStatusReport(modelLoadInfo, status)}
 		{/if}
 	</div>
 	{#if error}
