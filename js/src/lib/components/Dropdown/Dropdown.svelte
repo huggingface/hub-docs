@@ -1,11 +1,12 @@
 <script lang="ts">
 	import type { SvelteComponent } from "svelte";
 	import DropdownEntry from "../DropdownEntry/DropdownEntry.svelte";
-	import DropdownMenu from "../DropdownMenu/DropdownMenu.svelte"
-	import IconCaretDown from '../Icons/IconCaretDown.svelte';
+	import DropdownMenu from "../DropdownMenu/DropdownMenu.svelte";
+	import IconCaretDown from "../Icons/IconCaretDown.svelte";
 
 	export let classNames = "";
-	export let btnClassNames = ""; export let btnIcon: typeof SvelteComponent | undefined = undefined;
+	export let btnClassNames = "";
+	export let btnIcon: typeof SvelteComponent | undefined = undefined;
 	export let btnIconClassNames = "";
 	export let btnLabel = "";
 	export let disabled = false;
@@ -56,7 +57,8 @@
 	<!-- /Button -->
 	<!-- Menu -->
 	{#if isOpen}
-		<DropdownMenu classNames={menuClassNames}
+		<DropdownMenu
+			classNames={menuClassNames}
 			dropdownElement={element}
 			forceAlignement={forceMenuAlignement}
 			onClose={() => (isOpen = false)}
