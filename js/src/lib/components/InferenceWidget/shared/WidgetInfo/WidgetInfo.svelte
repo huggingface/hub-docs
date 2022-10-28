@@ -28,7 +28,7 @@
 			modelLoadInfo.compute_type === "cpu" &&
 			modelLoadInfo.status === "loaded"
 		) {
-			return `The model is loaded and running on <a class="underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon Ice Lake</a>.`;
+			return `The model is loaded and running on <a href="https://huggingface.co/intel" target="_blank">Intel Xeon Ice Lake CPU</a>.`;
 		}
 		return statuses[modelLoadInfo.status];
 	}
