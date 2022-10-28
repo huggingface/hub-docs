@@ -22,7 +22,7 @@ const taskData: TaskDataCustom = {
 	models: [
 		{
 			description:
-				"Great example of a pre-trained LLM for use in zero-shot text classification tasks, see the original paper- ",
+				"Powerful zero-shot text classification model",
 			id: "facebook/bart-large-mnli6",
 		},
 	],
