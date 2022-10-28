@@ -3,8 +3,7 @@ import type { TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
 	datasets: [
 		{
-			// TODO write proper description
-			description: "Zero Shot Classification is the task of providing a large language model with a specific prompt requesting it to output a label or sequence of text that effectively answers or classifies the input",
+			description: "",
 			id: "",
 		},
 	],
