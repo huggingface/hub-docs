@@ -65,7 +65,6 @@
 	onMount(() => {
 		getModelLoadInfo(apiUrl, model.id).then((info) => {
 			modelLoadInfo = info;
-			console.log(modelLoadInfo);
 		});
 	});
 
