@@ -10,6 +10,10 @@ const taskData: TaskDataCustom = {
 			description: "Dataset in 60 languages including demographic information.",
 			id:          "common_voice",
 		},
+		{
+			description: "Multi-speaker high quality transcribed audio data in various languages.",
+			id: "openslr",
+		},
 	],
 	demo: {
 		inputs: [
