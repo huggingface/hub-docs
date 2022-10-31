@@ -1,6 +1,6 @@
 ## Use Cases
 
-### Improving Accessibility for Blind People
+### Improving Accessibility for Visually Impaired People
 
 Image-to-text models can be used to create text descriptions for the images, allowing visually impaired people to understand the context of the image.
 
