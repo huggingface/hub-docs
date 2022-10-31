@@ -1,3 +1,29 @@
+## Glossary
+
+<!-- ![RL Loop](https://huggingface.co/blog/assets/63_deep_rl_intro/RL_process.jpg "Agent Environment Interaction") TODO: Uncomment image for visual understanding if it fits within the page--> 
+
+
+**Agent:** The learner and the decision maker.
+
+
+**Environment:** The part of the world the agent interacts, comprising everything outside the agent.
+
+
+**State:** Information the agent receives from the environment. In the case of a video game it can be a frame (a screenshot), in the case of a chess playing agent it can be the board position, in the case of a trading agent it can be the price of a certain stock.
+
+
+**Action:** The decision taken by the agent.
+
+
+**Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action
+
+**Return:** Cumulative Reward.  In the simplest case, the return is the sum of the rewards.
+
+
+**Episode:** For some applications there is a natural notion of final time step.  In this case, there is a starting point and an ending point (a terminal state). This creates an episode: a list of States, Actions, Rewards, and new States. For instance, think about Chess: an episode begins at the initial board position and ends when the game is over.
+
+**Policy:** The Policy is the brain of the Agent, it’s the function that tells what action to take given the state. So it defines the agent’s behavior at a given time. Reinforcement learning methods specify how the agent’s policy is changed as a result of its experience.
+
 ## Use Cases
 
 
@@ -47,7 +73,6 @@ A wide variety of problems in robotics can be considered as ones of reinforcemen
 ### Q - Learning
 
 * It is used to learn the policy for reinforcement learning
-* Policy: a rule that the agent should follow to select actions given the current state.
 * Q - learning is to find the optimal policy for making decisions
 * Q-function[Q(s,a)]: returns Q-value for action a at state s. Learning an action-value function, a.k.a. Q function, that computes the expected utility of taking an action in a state after training converges.
 * it will find the best course of action, given the current state of the agent. Depending on where the agent is in the environment, it will decide the next action to be taken.
@@ -70,33 +95,6 @@ For solving this problem DRRN(deep reinforcement relevance network) was proposed
 
 Chatbot dialogues can be improved using Deep Reinforcement Learning. Conversations are simulated using two virtual agents, and the quality is improved in progressive iterations.
 
-
-
-## Glossary
-
-<!-- ![RL Loop](https://huggingface.co/blog/assets/63_deep_rl_intro/RL_process.jpg "Agent Environment Interaction") TODO: Uncomment image for visual understanding if it fits within the page--> 
-
-
-**Agent:** The learner and the decision maker.
-
-
-**Environment:** The part of the world the agent interacts, comprising everything outside the agent.
-
-
-**State:** Information the agent receives from the environment. In the case of a video game it can be a frame (a screenshot), in the case of a chess playing agent it can be the board position, in the case of a trading agent it can be the price of a certain stock.
-
-
-**Action:** The decision taken by the agent.
-
-
-**Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action
-
-**Return:** Cumulative Reward.  In the simplest case, the return is the sum of the rewards.
-
-
-**Episode:** For some applications there is a natural notion of final time step.  In this case, there is a starting point and an ending point (a terminal state). This creates an episode: a list of States, Actions, Rewards, and new States. For instance, think about Chess: an episode begins at the initial board position and ends when the game is over.
-
-**Policy:** The Policy is the brain of the Agent, it’s the function that tells what action to take given the state. So it defines the agent’s behavior at a given time. Reinforcement learning methods specify how the agent’s policy is changed as a result of its experience.
 
 
 ## Inference
