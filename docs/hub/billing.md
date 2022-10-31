@@ -1,4 +1,4 @@
-# Billing
+# Billing testing
 
 At Hugging Face, we build a collaboration platform for the ML community (i.e., the Hub), and we **monetize by providing simple access to compute for AI**, with services like AutoTrain, Spaces and Inference Endpoints, directly accessible from the Hub, and billed by Hugging Face to the credit card on file.
 
