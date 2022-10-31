@@ -11,7 +11,7 @@ const taskData: TaskDataCustom = {
 			id:          "common_voice",
 		},
 		{
-			description: "Multi-speaker high quality transcribed audio data in various languages.",
+			description: "High quality, multi-speaker audio data and their transcriptions  in various languages.",
 			id: "openslr",
 		},
 	],
