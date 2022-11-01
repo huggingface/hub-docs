@@ -82,7 +82,8 @@ Agent observes state as a string of text at a time 't'. Agent also knows a set o
 
 #### Unbounded action space in reinforcement learning
 
-Not only the state space is huge, but the action space is also huge too. Action is characterized by unbounded natural language descriptions. For example, if say to the model “Hi! how are you? Have you eaten your lunch? Don't forget to call me tomorrow as it is the bigday ”. Well, this input text from me is the state-space for the model(quite heavy), and the action space is every text combination available(or infinity). This problem for such a huge action space was still the problem in Deep-Q-Network.
+Environments with vast state space is a problem in reinforcement learning. On top of this, action space can be enormous too, and choosing responses to natural language prompts is one of them. 
+
 
 For solving this problem DRRN(deep reinforcement relevance network) was proposed. The idea of DRRN is to project both the state and action into a continuous space(as vectors). Q-function is a relevance function of the state vector and action vector.the DRRN experiences higher average reward.
 
