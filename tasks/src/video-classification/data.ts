@@ -68,7 +68,7 @@ const taskData: TaskDataCustom = {
     ],
     summary: "Video classification is the task of assigning a label or class to an entire video. Videos are expected to have only one class for each video. video classification models take an image as input and return a prediction about which class the video belongs to.",
     widgetModels: ["MCG-NJU/videomae-base-finetuned-kinetics"],
-    youtubeId: "tjAIM7BOYhw",
+    // youtubeId: "tjAIM7BOYhw",
 };
 
 export default taskData;
