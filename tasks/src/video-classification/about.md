@@ -5,10 +5,8 @@ Video classification models can be used to categorize what a video is all about.
 Video classification models are used to perform activity recognition which are useful for fitness applications. Activity 
 recognition is also helpful for vision-impaired individuals especially when they're commuting.
 
-### Surveillance
-
-Video classification models are employed to power many surveillance applications to keep track of different activities
-happening inside an organization and to flag anything inappropriate.
+### Video Search
+Models trained in video classification can improve user experience by organizing and categorizing video galleries on the phone or in the cloud, on multiple keywords or tags.
 
 ## Inference
 
@@ -64,6 +62,7 @@ print(model.config.id2label[predicted_label])
 
 - [Developing a simple video classification model](https://keras.io/examples/vision/video_classification)
 - [Video classification with Transformers](https://keras.io/examples/vision/video_transformers)
+- [Building a video archive](https://www.youtube.com/watch?v=_IeS1m8r6SY)
 
 ### Creating your own video classifier in just a few minutes
 
