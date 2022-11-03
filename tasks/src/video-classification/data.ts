@@ -8,33 +8,10 @@ const taskData: TaskDataCustom = {
             id: "kinetics400",
         },
     ],
-    // demo: {
-    //     inputs: [
-    //         {
-    //             filename: "image-classification-input.jpeg",
-    //             type: "img",
-    //         },
-    //     ],
-    //     outputs: [
-    //         {
-    //             type: "chart",
-    //             data: [
-    //                 {
-    //                     label: "Egyptian cat",
-    //                     score: 0.514,
-    //                 },
-    //                 {
-    //                     label: "Tabby cat",
-    //                     score: 0.193,
-    //                 },
-    //                 {
-    //                     label: "Tiger cat",
-    //                     score: 0.068,
-    //                 },
-    //             ],
-    //         },
-    //     ],
-    // },
+    demo: {
+        inputs: [],
+        outputs: [],
+    },
     metrics: [
         {
             description: "",
@@ -57,18 +34,18 @@ const taskData: TaskDataCustom = {
     models: [
         {
             // TO DO: write description
-            description: "Strong Video Classification model trained on the Kinects-400 dataset.",
+            description: "Strong Video Classification model trained on the Kinects 400 dataset.",
             id: "MCG-NJU/videomae-base-finetuned-kinetics",
         },
         {
             // TO DO: write description
-            description: "Strong Video Classification model trained on the Kinects-400 dataset.",
+            description: "Strong Video Classification model trained on the Kinects 400 dataset.",
             id: "microsoft/xclip-base-patch32",
         },
     ],
     summary: "Video classification is the task of assigning a label or class to an entire video. Videos are expected to have only one class for each video. video classification models take an image as input and return a prediction about which class the video belongs to.",
     widgetModels: ["MCG-NJU/videomae-base-finetuned-kinetics"],
-    // youtubeId: "tjAIM7BOYhw",
+    youtubeId: "",
 };
 
 export default taskData;

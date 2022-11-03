@@ -2,8 +2,7 @@
 Video classification models can be used to categorize what a video is all about.
 
 ### Activity Recognition
-Video classification models are used to perform activity recognition which are useful for fitness applications. Activity 
-recognition is also helpful for vision-impaired individuals especially when they're commuting.
+Video classification models are used to perform activity recognition which is useful for fitness applications. Activity  recognition is also helpful for vision-impaired individuals especially when they're commuting.
 
 ### Video Search
 Models trained in video classification can improve user experience by organizing and categorizing video galleries on the phone or in the cloud, on multiple keywords or tags.
@@ -23,6 +22,8 @@ from huggingface_hub import hf_hub_download
 np.random.seed(0)
 
 
+# Videos consist of multiple frames which are static images. Below is a 
+# utility to sample a few frames from the input video.
 def sample_frame_indices(clip_len, frame_sample_rate, seg_len):
     converted_len = int(clip_len * frame_sample_rate)
     end_idx = np.random.randint(converted_len, seg_len)
@@ -38,21 +39,25 @@ file_path = hf_hub_download(
 )
 videoreader = VideoReader(file_path, num_threads=1, ctx=cpu(0))
 
-# sample 16 frames
+# sample 16 frames and collate them in a batch
 videoreader.seek(0)
 indices = sample_frame_indices(clip_len=16, frame_sample_rate=4, seg_len=len(videoreader))
 video = videoreader.get_batch(indices).asnumpy()
 
+# load the feature extractor to preprocess the video frames and the video
+# classification model
 feature_extractor = VideoMAEFeatureExtractor.from_pretrained("MCG-NJU/videomae-base-finetuned-kinetics")
 model = VideoMAEForVideoClassification.from_pretrained("MCG-NJU/videomae-base-finetuned-kinetics")
 
+# preprocess the input frames
 inputs = feature_extractor(list(video), return_tensors="pt")
 
+# run inference
 with torch.no_grad():
     outputs = model(**inputs)
     logits = outputs.logits
 
-# model predicts one of the 400 Kinetics-400 classes
+# model predicts one of the 400 Kinetics 400 classes
 predicted_label = logits.argmax(-1).item()
 print(model.config.id2label[predicted_label])
 # eating spaghetti
