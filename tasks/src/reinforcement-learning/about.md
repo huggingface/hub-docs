@@ -17,10 +17,12 @@
 
 **Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action
 
+
 **Return:** Cumulative Reward.  In the simplest case, the return is the sum of the rewards.
 
 
 **Episode:** For some applications there is a natural notion of final time step.  In this case, there is a starting point and an ending point (a terminal state). This creates an episode: a list of States, Actions, Rewards, and new States. For instance, think about Chess: an episode begins at the initial board position and ends when the game is over.
+
 
 **Policy:** The Policy is the brain of the Agent, it’s the function that tells what action to take given the state. So it defines the agent’s behavior at a given time. Reinforcement learning methods specify how the agent’s policy is changed as a result of its experience.
 
@@ -57,11 +59,14 @@ Robots in industries or healthcare working towards reducing manual intervention 
 
 ### Robotics 
 
-Robots operate in a highly dynamic and ever-changing environment, making it impossible to predict what will happen next. Reinforcement Learning provides a considerable advantage in these scenarios to make the robots robust enough and help acquire complex behaviors adaptively in different scenarios.
+Robots operate in a highly dynamic and ever-changing environment, making it impossible to predict what will happen next. Reinforcement Learning provides a considerable advantage in these scenarios to make the robots robust enough and help acquire complex behaviors adaptively in different scenarios. It aims to remove the need for time-consuming and tedious checks and replaces them with computer vision systems ensuring higher levels of quality control on the production assembly line.
+
+
 
 It aims to remove the need for time-consuming and tedious checks and replaces them with computer vision systems ensuring higher levels of quality control on the production assembly line.
 
 A wide variety of problems in robotics can be considered as problems related to reinforcement learning. Reinforcement learning enables a robot to autonomously discover an optimal behavior, through interactions with its environment. Instead of explicitly detailing the solution to a problem, the designer of a control task provides feedback in terms of a scalar objective function that measures the one-step performance of the robot.
+
 
 
 ## Task Variants 
@@ -72,26 +77,17 @@ A wide variety of problems in robotics can be considered as problems related to 
 * Q-function[Q(s,a)]: returns Q-value for action a at state s. Learning an action-value function, a.k.a. Q function, that computes the expected utility of taking an action in a state after training converges.
 * it will find the best course of action, given the current state of the agent. Depending on where the agent is in the environment, it will decide the next action to be taken.
 
-With the help of Q - value and advanced statistics we can find the Deep - Q - Network. You all must have heard of a game called chess. nowadays it is mostly played online, also you don't need a second player to play, you can just play against a bot and also get defeated, which leaves you thinking how can a machine beat me. Well, because it is learning. 
-
-Now, the thing to understand is when training the learner for games like Chess, the agent has a very small action space, but large state space. For example, in the game of chess, the state space is the whole 20X20 board, but the action space is small like a pawn can move only in 1–2 directions. Deep-Q-Network has been proven to be very effective.
-
-But when we talk about reinforcement learning for natural language processing there are few problems which are discussed below:
-
 #### Sequential decision making problem for text understanding
 
 Agent observes state as a string of text at a time 't'. Agent also knows a set of possible actions, each describes as a string text. Agent tries to understand the “state text” and all possible “action texts”, then takes a decision which maximizes the long term reward. Then, the environment state changes to a new state, agent receives an immediate reward.
 
 #### Unbounded action space in reinforcement learning
 
-Environments with vast state space is a problem in reinforcement learning. On top of this, action space can be enormous too, and choosing responses to natural language prompts is one of them. 
-
+Environments with vast state space is a problem in reinforcement learning. Also the action space can be quite large. 
 
 For solving this problem DRRN(deep reinforcement relevance network) was proposed. The idea of DRRN is to project both the state and action into a continuous space(as vectors). Q-function is a relevance function of the state vector and action vector.the DRRN experiences higher average reward.
 
-Chatbot dialogues can be improved using Deep Reinforcement Learning. Conversations are simulated using two virtual agents, and the quality is improved in progressive iterations.
-
-
+Chatbot dialogues can be improved using Deep Reinforcement Learning. 
 
 ## Inference
 
