@@ -61,7 +61,8 @@ Robots operate in a highly dynamic and ever-changing environment, making it impo
 
 It aims to remove the need for time-consuming and tedious checks and replaces them with computer vision systems ensuring higher levels of quality control on the production assembly line.
 
-A wide variety of problems in robotics can be considered as ones of reinforcement learning. Reinforcement learning (RL) enables a robot to autonomously discover an optimal behavior through trial-and-error interactions with its environment. Instead of explicitly detailing the solution to a problem, in reinforcement learning the designer of a control task provides feedback in terms of a scalar objective function that measures the one-step performance of the robot.
+A wide variety of problems in robotics can be considered as problems related to reinforcement learning. Reinforcement learning enables a robot to autonomously discover an optimal behavior, through interactions with its environment. Instead of explicitly detailing the solution to a problem, the designer of a control task provides feedback in terms of a scalar objective function that measures the one-step performance of the robot.
+
 
 ## Task Variants 
 
