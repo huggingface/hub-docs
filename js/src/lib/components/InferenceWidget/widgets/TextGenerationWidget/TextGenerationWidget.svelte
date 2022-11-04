@@ -135,10 +135,10 @@
 				warning = "No text was generated";
 			} else if (model?.pipeline_tag === "text-generation") {
 				const outputWithoutInput = output.slice(text.length);
-				if(outputWithoutInput.length === 0){
+				inferenceTimer.stop();
+				if (outputWithoutInput.length === 0) {
 					warning = "No text was generated";
-				}else{
-					inferenceTimer.stop();
+				} else {
 					await renderTypingEffect(outputWithoutInput);
 				}
 			}
