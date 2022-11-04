@@ -73,9 +73,7 @@ A wide variety of problems in robotics can be considered as problems related to 
 
 ### Q - Learning
 
-* It is used to learn the policy for reinforcement learning
-* Q-function[Q(s,a)]: returns Q-value for action a at state s. Learning an action-value function, a.k.a. Q function, that computes the expected utility of taking an action in a state after training converges.
-* it will find the best course of action, given the current state of the agent. Depending on where the agent is in the environment, it will decide the next action to be taken.
+Q - Learning is a learning policy that is used to find the next best action which maximizes the reward. It chooses the action randomly so that the rewward is maximized. Also it does not require past dataset and it takes decision only on the basis of state of the environment. Actions are not based on learning from the past dataset rather it is acccording to the environment and current state of the agent. It does not use reward system to learn rather it uses trial - error.
 
 #### Sequential decision making problem for text understanding
 
