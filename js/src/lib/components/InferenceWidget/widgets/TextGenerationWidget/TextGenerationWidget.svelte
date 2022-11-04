@@ -135,8 +135,12 @@
 				warning = "No text was generated";
 			} else if (model?.pipeline_tag === "text-generation") {
 				const outputWithoutInput = output.slice(text.length);
-				inferenceTimer.stop();
-				await renderTypingEffect(outputWithoutInput);
+				if(outputWithoutInput.length === 0){
+					warning = "No text was generated";
+				}else{
+					inferenceTimer.stop();
+					await renderTypingEffect(outputWithoutInput);
+				}
 			}
 		} else if (res.status === "loading-model") {
 			modelLoading = {
