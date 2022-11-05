@@ -1,5 +1,6 @@
 ## Glossary
 
+<<<<<<< HEAD
 <!-- ![RL Loop](https://huggingface.co/blog/assets/63_deep_rl_intro/RL_process.jpg "Agent Environment Interaction") TODO: Uncomment image for visual understanding if it fits within the page--> 
 
 
@@ -61,11 +62,7 @@ Robots in industries or healthcare working towards reducing manual intervention 
 
 Robots operate in a highly dynamic and ever-changing environment, making it impossible to predict what will happen next. Reinforcement Learning provides a considerable advantage in these scenarios to make the robots robust enough and help acquire complex behaviors adaptively in different scenarios. It aims to remove the need for time-consuming and tedious checks and replaces them with computer vision systems ensuring higher levels of quality control on the production assembly line.
 
-
-
-It aims to remove the need for time-consuming and tedious checks and replaces them with computer vision systems ensuring higher levels of quality control on the production assembly line.
-
-A wide variety of problems in robotics can be considered as problems related to reinforcement learning. Reinforcement learning enables a robot to autonomously discover an optimal behavior, through interactions with its environment. Instead of explicitly detailing the solution to a problem, the designer of a control task provides feedback in terms of a scalar objective function that measures the one-step performance of the robot.
+A wide variety of problems in robotics can be considered as problems related to reinforcement learning. Reinforcement learning enables a robot to autonomously discover an optimal behavior, through interactions with its environment. Instead of finding a solution to a problem,through interactions with its environment 
 
 
 
@@ -73,7 +70,7 @@ A wide variety of problems in robotics can be considered as problems related to 
 
 ### Q - Learning
 
-Q - Learning is a learning policy that is used to find the next best action which maximizes the reward. It chooses the action randomly so that the rewward is maximized. Also it does not require past dataset and it takes decision only on the basis of state of the environment. Actions are not based on learning from the past dataset rather it is acccording to the environment and current state of the agent. It does not use reward system to learn rather it uses trial - error.
+Q - learning will find the best course of action, given the current state of the agent. Depending on where the agent is in the environment, it will decide the next action to be taken. It chooses the action such that it maximize the reward.
 
 #### Sequential decision making problem for text understanding
 
@@ -103,5 +100,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Train a Deep Reinforcement Learning lander agent to land correctly on the Moon 🌕 using Stable-Baselines3](https://github.com/huggingface/deep-rl-class/blob/main/unit1/unit1.ipynb)
 - [Introduction to Unity MLAgents](https://colab.research.google.com/github/huggingface/deep-rl-class/blob/main/unit4/unit4.ipynb)
 - [Training Decision Transformers with 🤗 transformers](https://github.com/huggingface/blog/blob/main/notebooks/101_train-decision-transformers.ipynb)
+
+
 
 
