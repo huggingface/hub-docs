@@ -12,9 +12,17 @@ const taskData: TaskDataCustom = {
 		outputs: [],
 	},
     metrics: [{
-        description: "Average return obtained after running the policy for a certain number of evaluation episodes ",
+		description: "Accumulated reward across all time steps discounted by a factor that ranges between 0 and 1 and determines how much the agent optimizes for future relative to immediate rewards. Measures how good is the policy ultimately found by a given algorithm considering uncertainty over the future.",
+		id:          "Discounted Total Reward",
+	},
+	{
+        description: "Average return obtained after running the policy for a certain number of evaluation episodes. As opposed to total reward, mean reward considers how much reward a given algorithm receives while learning.",
         id:          "Mean Reward",
-    }],
+    },
+	{
+		description: "Measures how good a given algorithm is after a predefined time. Some algorithms may be guaranteed to converge to optimal behavior across many time steps. However, an agent that reaches an acceptable level of optimality after a given time horizon may be preferable to one that ultimately reaches optimality but takes a long time.",
+		id:          "Level of Performance After Some Time",
+	}],
 	models: [
         {
 			description: "A Reinforcement Learning model trained on expert data from the Gym Hopper environment",
