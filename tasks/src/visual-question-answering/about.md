@@ -40,4 +40,4 @@ vqa_pipeline(image, question, top_k=1)
 - [Multi Modal Framework (MMF) - Meta Research](https://mmf.sh/docs/getting_started/video_overview/)
 
 The contents of this page are contributed by [
-Bharat Raghunathan](https://huggingface.co/bharat-raghunathan).
+Bharat Raghunathan](https://huggingface.co/bharat-raghunathan) and [Jose Londono Botero](https://huggingface.co/jlondonobo).
