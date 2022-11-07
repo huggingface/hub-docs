@@ -6,9 +6,9 @@ A full list of the available licenses is available here:
 
 <!-- IMPORTANT: do not remove or alter the "region" comments below -->
 
+<!-- region licenses -->
 Fullname | License identifier (to use in model card)
 --- | ---
-<!-- region licenses -->
 OpenRAIL license family	| `openrail`
 BigScience OpenRAIL-M	| `bigscience-openrail-m`
 CreativeML OpenRAIL-M	| `creativeml-openrail-m`
