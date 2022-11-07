@@ -49,13 +49,7 @@ Some of the autonomous driving tasks where reinforcement learning could be appli
 
 Natural language processing is a branch of machine learning concerned with allowing computers to understand text and spoken words the same way a human does.  
 
-
-Dialogue systems use reinforcement learning because of its inherent nature of decision-making. It learns from mistakes. The system tries to understand the sentence's state and form an action set maximizing the value it would add.
-
-
-Reinforcement Learning is used in various NLP tasks such as text summarization, question answering, translation, dialogue generation, or machine translation.
-
-Reinforcement Learning agents can be trained to understand a few sentences of the document and use it to answer the corresponding questions.
+Dialogue systems use reinforcement learning because of its inherent nature of decision-making. It learns from mistakes. The system tries to understand the sentence's state and form an action set maximizing the value it would add. Reinforcement Learning is used in various NLP tasks such as text summarization, question answering, translation, dialogue generation, or machine translation. Reinforcement Learning agents can be trained to understand a few sentences of the document and use it to answer the corresponding questions.
 
 Robots in industries or healthcare working towards reducing manual intervention use reinforcement learning to map natural language instructions to sequences of executable actions. During training, the learner repeatedly constructs action sequences, executes those actions, and observes the resulting rewards. A reward function works in the backend that defines the quality of these executed actions.
 
@@ -67,10 +61,6 @@ A wide variety of problems in robotics can be considered as problems related to 
 
 
 ## Task Variants 
-
-### Q - Learning
-
-Q - learning will find the best course of action, given the current state of the agent. Depending on where the agent is in the environment, it will decide the next action to be taken. It chooses the action such that it maximize the reward.
 
 #### Sequential decision making problem for text understanding
 
