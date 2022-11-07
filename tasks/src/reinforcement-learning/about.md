@@ -29,7 +29,6 @@
 
 ## Use Cases
 
-
 ### Applications in autonomous driving
 
 Autonomous or self-driving cars are pretty trending nowadays. It is also a big step towards driverless commute where the machine is itself able to perform the task. A machine learning model can back the vehicle without any driver. 
@@ -58,8 +57,6 @@ Robots in industries or healthcare working towards reducing manual intervention 
 Robots operate in a highly dynamic and ever-changing environment, making it impossible to predict what will happen next. Reinforcement Learning provides a considerable advantage in these scenarios to make the robots robust enough and help acquire complex behaviors adaptively in different scenarios. It aims to remove the need for time-consuming and tedious checks and replaces them with computer vision systems ensuring higher levels of quality control on the production assembly line.
 
 A wide variety of problems in robotics can be considered problems related to reinforcement learning. Reinforcement learning enables a robot to autonomously discover an optimal behavior by interacting with its environment.
-
-
 
 ## Task Variants 
 
