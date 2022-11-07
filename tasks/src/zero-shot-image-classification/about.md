@@ -17,7 +17,7 @@ The data in this learning paradigm consists of
 Autonomous Vehicles are a perfect use case for Zero-shot image classification. Occasionally in real-life situations, even we humans encounter new objects on the road that we are not sure how to react to instantly. Detecting + Classifying novel objects and deciding the correct actions to take are crucial for Robust Autonomous Vehicle Systems.
 
 ### Image Retrieval
-Zero-shot learning resolves several challenges in existing Image retrieval systems. For example, with the rapid growth of unseen categories on the web, it is challenging to index images based on known categories.
+Zero-shot learning resolves several challenges in image retrieval systems. For example, with the rapid growth of unseen categories on the web, it is challenging to index images based on known categories.
 
 Zero-shot learning also has applicability in Image Instance Retrieval, where against an input image, images representing the same features are retrieved from a database. Conventional systems can only search for  semantically-related images, not always the exact instances.
 
