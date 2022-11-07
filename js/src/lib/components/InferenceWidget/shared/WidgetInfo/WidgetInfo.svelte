@@ -22,11 +22,13 @@
 
 	function getStatusReport(
 		modelLoadInfo: ModelLoadInfo,
-		statuses: Record<LoadingStatus, string>
+		statuses: Record<LoadingStatus, string>,
+		isAzure = false
 	): string {
 		if (
 			modelLoadInfo.compute_type === "cpu" &&
-			modelLoadInfo.status === "loaded"
+			modelLoadInfo.status === "loaded" &&
+			!isAzure
 		) {
 			return `The model is loaded and running on <a href="https://huggingface.co/intel" target="_blank">Intel Xeon Ice Lake</a> CPU.`;
 		}
@@ -50,7 +52,7 @@
 					class="flex border-dotter border-b border-gray-100 flex-1 mx-2 -translate-y-px"
 				/>
 				<div>
-					{@html getStatusReport(modelLoadInfo, azureStatus)}
+					{@html getStatusReport(modelLoadInfo, azureStatus, true)}
 				</div>
 			</div>
 		{:else if computeTime}
