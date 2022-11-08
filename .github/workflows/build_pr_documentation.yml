@@ -21,3 +21,4 @@ jobs:
       additional_args: --not_python_module
     secrets:
       token: ${{ secrets.HF_DOC_PUSH }}
+      comment_bot_token: ${{ secrets.HUGGINGFACE_PUSH }}
