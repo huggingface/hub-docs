@@ -10,7 +10,7 @@ Whenever we have a set of variables recorded in a table and using them we try to
   - For example, say we want to predict the `sales` of an Ice-Cream shop based on `temperature` and `hours` shop was open. Here we can build a regression model with `temperature` and `hours` as input variable and `sales` as target variable.
 
 - **Filling Missing Values**:
-  - In real-world due to human error or other reasons some of the value can be missing or there might be some problem due to which no data was recorded. 
+  - In real-world applications, due to human error or other reasons, some of the input values can be missing or there might not be any recorded data. 
   - Consider the example above, say the shopkeeper watch was broken and they forgot to calculate the `hours` for which the shop was open. This will lead to a missing value in their dataset.
   - In this case, missing values could be replaced it with zero, or average hours for which the shop is kept open.
   - Another approach we can try is to use `temperature` and `sales` variables to predict the `hours` variable here.
