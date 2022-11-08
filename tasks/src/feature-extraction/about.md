@@ -78,7 +78,7 @@ print(f'Test Accuracy is {accuracy_score(y_test,y_pred)*100} %')
 # Output:
 # Test Accuracy is 95.0 %
 ```
-This exercise shows the potential of using embeddings as an input to a classifier. For imbalanced dataset, we can use performance metrics like F1 and ROC_AUC.
+This exercise shows the potential of using embeddings as input to a classifier. For an imbalanced dataset, we can use performance metrics like F1-score and ROC AUC.
 
 
 # Task Variants
