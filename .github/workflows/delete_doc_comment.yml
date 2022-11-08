@@ -7,7 +7,7 @@ on:
 
 jobs:
   delete:
-    uses: huggingface/doc-builder/.github/workflows/delete_doc_comment.yml
+    uses: huggingface/doc-builder/.github/workflows/delete_doc_comment.yml@use_hf_hub
     with:
       pr_number: ${{ github.event.number }}
       package: hub-docs
