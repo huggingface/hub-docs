@@ -12,7 +12,7 @@ Whenever we have a set of variables recorded in a table and using them we try to
 - **Filling Missing Values**:
   - In real-world due to human error or other reasons some of the value can be missing or there might be some problem due to which no data was recorded. 
   - Consider the example above, say the shopkeeper watch was broken and they forgot to calculate the `hours` for which the shop was open. This will lead to a missing value in their dataset.
-  - Here some ways to handle this missing value could be filling it with zero, replacing with average hours for which shop is kept open, etc,
+  - In this case, missing values could be replaced it with zero, or average hours for which the shop is kept open.
   - Another approach we can try is to use `temperature` and `sales` variables to predict the `hours` variable here.
 
 ## Metrics Used
