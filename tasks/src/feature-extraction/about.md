@@ -32,7 +32,7 @@ dataset =  datasets.fetch_20newsgroups()
 X = dataset.data[:100]
 y = dataset.target[:100]
 ```
-This function creates a sparse embedding for each token present in the sentence. Please remember to use the same tokenizer that you would be using while calling the feature-extraction pipeline. As the default BERT tokenizer used in the pipeline is bert-base-cased so we use the same for initializing the dataframe with number of columns = vocabulary size of tokenizer. We are using dataframe within the function for ease of understanding and it returns an np.array of size (n_samples,vocab_size)
+This function creates a sparse embedding for each token present in the sentence. Please remember to use the same tokenizer that you would be using while calling the `feature-extraction` pipeline. As the default, BERT tokenizer used in the pipeline is bert-base-cased, so we use the same for initializing the dataframe with number of columns equal to vocabulary size of the tokenizer. We are using a dataframe within the function for ease of understanding, and it returns an `np.array` of size `(n_samples,vocab_size)`.
 
 ```python
 def get_features(X,feature_extraction):
