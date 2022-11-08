@@ -7,7 +7,7 @@ Whenever we have a set of variables recorded in a table and using them we try to
 
 - **Predicting a continuous target variable**: 
   - It is used in case when we have to predict a continuous variable based on a set of input variable(s).
-  - For example, say we want to predict the `sales` of an Ice-Cream shop based on `temperature` and `hours` shop was open. Here we can build a regression model with `temperature` and `hours` as input variable and `sales` as target variable.
+  - For example, predicting `sales` of an ice cream shop based on `temperature` of weather and `duration of hours` shop was open. Here we can build a regression model with `temperature` and `duration of hours` as input variable and `sales` as target variable.
 
 - **Filling Missing Values**:
   - In real-world applications, due to human error or other reasons, some of the input values can be missing or there might not be any recorded data. 
