@@ -87,7 +87,7 @@ This exercise shows the potential of using embeddings as input to a classifier. 
 
 This pipeline extracts the hidden states from the base transformer, which can be used as features in downstream tasks. You can infer the text data with the 🤗 Transformers library using the `feature-extraction` pipeline. This pipeline takes a string or a list of string input and generates features for each input. All models may be used for this pipeline (see a list of all models on https://huggingface.co/models).
 
-The output generated for a single input is a shape of dataframe which contains 768 embeddings for each token. See the use-case above where we calculate mean of these embeddings and use them as input to a classifier.
+The output generated for a single input is a shape of a dataframe, which contains 768 embeddings for each token. See the use-case above, where we calculate mean of these embeddings and use them as input to a classifier.
 
 ```python
 from transformers import pipeline
