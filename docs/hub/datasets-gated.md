@@ -20,3 +20,14 @@ extra_gated_fields:
 </div>
 
 The `README.md` file for a dataset is called a [Dataset Card](./datasets-cards). Visit the documentation to learn more about how to use it and to see the properties that you can configure.
+
+## Additional Customization
+
+In some cases, you might also want to modify the text in the heading of the gate as well as the text in the button. For those use cases you can modify `extra_gated_heading` and `extra_gated_button_content`.
+
+```
+---
+extra_gated_heading: "Approve license to accept the repository"
+extra_gated_button_content: "Accept license"
+---
+```
