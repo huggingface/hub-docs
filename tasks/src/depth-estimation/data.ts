@@ -1,22 +1,11 @@
 import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
-	datasets: [
-		{
-			// TODO write proper description
-			description: "Benchmark dataset used for depth estimation with images that belong to 100 classes.",
-			id:          "cifar100",
-		},
-		{
-			// TODO write proper description
-			description: "Dataset consisting of images of garments.",
-			id:          "fashion_mnist",
-		},
-	],
+	datasets: [],
 	demo: {
 		inputs: [
 			{
-				filename: "depth-estimation-input.jpeg",
+				filename: "depth-estimation-input.jpg",
 				type:     "img",
 			},
 		],
