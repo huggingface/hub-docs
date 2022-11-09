@@ -4,6 +4,7 @@ import type { TaskDataCustom, TaskData } from "./Types";
 import audioClassification from "./audio-classification/data";
 import audioToAudio from "./audio-to-audio/data";
 import automaticSpeechRecognition from "./automatic-speech-recognition/data";
+import documentQuestionAnswering from "./document-question-answering/data";
 import fillMask from "./fill-mask/data";
 import imageClassification from "./image-classification/data";
 import imageSegmentation from "./image-segmentation/data";
@@ -20,6 +21,7 @@ import tokenClassification from "./token-classification/data";
 import translation from "./translation/data";
 import textClassification from "./text-classification/data";
 import textGeneration from "./text-generation/data";
+import visualQuestionAnswering from "./visual-question-answering/data";
 import { TASKS_MODEL_LIBRARIES } from "./const";
 
 // To make comparisons easier, task order is the same as in const.ts
@@ -63,7 +65,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"token-classification":           getData("token-classification", tokenClassification),
 	"translation":                    getData("translation", translation),
 	"unconditional-image-generation": getData("unconditional-image-generation"),
-	"visual-question-answering":      getData("visual-question-answering"),
+	"visual-question-answering":      getData("visual-question-answering", visualQuestionAnswering),
 	"voice-activity-detection":       getData("voice-activity-detection"),
 	"zero-shot-classification":       getData("zero-shot-classification"),
 	"zero-shot-image-classification": getData("zero-shot-image-classification"),

@@ -46,3 +46,4 @@ Would you like to learn more about Document QA? Awesome! Here are some curated r
 - [Fine-tuning Donut on DocVQA dataset](https://github.com/NielsRogge/Transformers-Tutorials/tree/0ea77f29d01217587d7e32a848f3691d9c15d6ab/Donut/DocVQA)
 - [Fine-tuning LayoutLMv2 on DocVQA dataset](https://github.com/NielsRogge/Transformers-Tutorials/tree/1b4bad710c41017d07a8f63b46a12523bfd2e835/LayoutLMv2/DocVQA)
 
+The contents of this page are contributed by [Eliott Zemour](https://huggingface.co/eliolio) and reviewed by [Kwadwo Agyapon-Ntra](https://huggingface.co/KayO) and [Ankur Goyal](https://huggingface.co/ankrgyl).
