@@ -69,3 +69,9 @@ This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/do
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-hot-dog-streamlit.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-hot-dog-streamlit-dark.png"/>
 </div>
+
+<Tip>
+You can use the HTML `<iframe>` tag to embed a Streamlit Space as an inline frame on other webpages. Simply include the name of your Space in the URL, delimited with a dash between the user/org and Space name, followed by the `.hf.space` suffix. For example, the demo above is embedded in these docs with the following tag `<iframe src="https://NimaBoscarino-hotdog-gradio.hf.space" title="My awesome Streamlit Space"></iframe>`.
+</Tip>
+
+<iframe src="https://NimaBoscarino-hotdog-gradio.hf.space" title="My awesome Streamlit Space"></iframe>
