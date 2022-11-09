@@ -1,4 +1,6 @@
 ---
+# Example metadata to be added to a model card.  
+# Full model card template at https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md.
 language:
 - {lang_0}  # Example: fr
 - {lang_1}  # Example: en
@@ -41,4 +43,6 @@ model-index:
 ---
 
 This markdown file contains the spec for the modelcard metadata regarding evaluation parameters. When present, and only then, 'model-index', 'datasets' and 'license' contents will be verified when git pushing changes to your README.md file.
-Valid license identifiers can be found in [our docs](https://huggingface.co/docs/hub/repositories-licenses)
+Valid license identifiers can be found in [our docs](https://huggingface.co/docs/hub/repositories-licenses).
+
+For the full model card template, see: [https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md)
