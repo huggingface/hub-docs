@@ -55,3 +55,13 @@ This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/do
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-hot-dog-gradio.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-hot-dog-gradio-dark.png"/>
 </div>
+
+## Embed Gradio Spaces on other webpages
+
+You can use the HTML `<iframe>` tag to embed a Gradio Space as an inline frame on other webpages. Simply include the name of your Space in the URL, delimited with a dash `-` between the user/org and Space name, followed by the `.hf.space` suffix. For example, the demo above can be embedded in these docs with the following tag:
+
+```
+<iframe src="https://NimaBoscarino-hotdog-gradio.hf.space" title="My awesome Gradio Space"></iframe>
+```
+
+<iframe src="https://lewtun-hotdog-gradio.hf.space" frameBorder="0" height="500" title="Gradio app" class="container p-0 flex-grow space-iframe" allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"></iframe>
