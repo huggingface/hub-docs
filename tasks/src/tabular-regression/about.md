@@ -19,8 +19,7 @@ Whenever we have a set of variables recorded in a table and use them, we try to 
 ## Model Hosting and Inference
 
 
-
-## Useful Resources
+## Useful Resources
 
 - For starting with tabular regression:
     - Doing [Exploratory Data Analysis](https://neptune.ai/blog/exploratory-data-analysis-for-tabular-data) for tabular data. 
