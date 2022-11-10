@@ -42,7 +42,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"fill-mask":                      getData("fill-mask", fillMask),
 	"image-classification":           getData("image-classification", imageClassification),
 	"image-segmentation":             getData("image-segmentation", imageSegmentation),
-	"image-to-image":                 getData("image-to-image", imageToText),
+	"image-to-image":                 getData("image-to-image", imageToImage),
 	"image-to-text":                  getData("image-to-text"),
 	"multiple-choice":                undefined,
 	"object-detection":               getData("object-detection", objectDetection),
