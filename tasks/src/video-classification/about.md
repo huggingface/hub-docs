@@ -32,14 +32,15 @@ def sample_frame_indices(clip_len, frame_sample_rate, seg_len):
     indices = np.clip(indices, start_idx, end_idx - 1).astype(np.int64)
     return indices
 
-
+# Download a video clip for inference.
 # video clip consists of 300 frames (10 seconds at 30 FPS)
 file_path = hf_hub_download(
     repo_id="nielsr/video-demo", filename="eating_spaghetti.mp4", repo_type="dataset"
 )
+# We initialize a VideoReader to stream the video frame by frame.
 videoreader = VideoReader(file_path, num_threads=1, ctx=cpu(0))
 
-# sample 16 frames and collate them in a batch
+# Sample 16 frames and collate them in a batch.
 videoreader.seek(0)
 indices = sample_frame_indices(clip_len=16, frame_sample_rate=4, seg_len=len(videoreader))
 video = videoreader.get_batch(indices).asnumpy()
