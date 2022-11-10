@@ -27,7 +27,7 @@ In some cases, you might also want to modify the text in the heading of the gate
 
 ```
 ---
-extra_gated_heading: "Approve license to accept the repository"
+extra_gated_heading: "Acknowledge license to accept the repository"
 extra_gated_button_content: "Acknowledge license"
 ---
 ```
