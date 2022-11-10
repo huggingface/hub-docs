@@ -36,3 +36,5 @@ converse([conversation_1, conversation_2])
 ## Useful Resources
 
 In this area, you can insert useful resources about how to train or use a model for this task.
+
+This page was made possible thanks to the efforts of [Viraat Aryabumi](https://huggingface.co/viraat).
