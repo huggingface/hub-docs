@@ -55,4 +55,4 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Introduction to Unity MLAgents](https://colab.research.google.com/github/huggingface/deep-rl-class/blob/main/unit4/unit4.ipynb)
 - [Training Decision Transformers with 🤗 transformers](https://github.com/huggingface/blog/blob/main/notebooks/101_train-decision-transformers.ipynb)
 
-This page was made possible thanks to the efforts of [Ram Ananth](https://huggingface.co/RamAnanth1), [Emilio Lehoucq](https://github.com/emiliolehoucq) and [Osman Alenbey](https://huggingface.co/osman93).
+This page was made possible thanks to the efforts of [Ram Ananth](https://huggingface.co/RamAnanth1), [Emilio Lehoucq](https://huggingface.co/emiliol) and [Osman Alenbey](https://huggingface.co/osman93).
