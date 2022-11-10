@@ -58,7 +58,15 @@ This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/do
 
 ## Embed Gradio Spaces on other webpages
 
-You can use the HTML `<iframe>` tag to embed a Gradio Space as an inline frame on other webpages. Simply include the name of your Space in the URL, delimited with a dash `"-"` between the user/org and Space name, followed by the `.hf.space` suffix. For example, the demo above can be embedded in these docs with the following tag:
+You can embed a Gradio Space on other webpages by using either Web Components or the HTML `<iframe>` tag.
+
+<script type="module"
+src="https://gradio.s3-us-west-2.amazonaws.com/3.9.1/gradio.js">
+</script>
+<gradio-app space="NimaBoscarino/hotdog-gradio"></gradio-app>
+
+
+For example, the demo above can be embedded in these docs with the following tag:
 
 ```
 <iframe src="https://NimaBoscarino-hotdog-gradio.hf.space" title="My awesome Gradio Space"></iframe>
