@@ -30,6 +30,7 @@ const taskData: TaskDataCustom = {
 				type: "text",
 			},
 		],
+	},
     metrics: [{
 		description: "Accumulated reward across all time steps discounted by a factor that ranges between 0 and 1 and determines how much the agent optimizes for future relative to immediate rewards. Measures how good is the policy ultimately found by a given algorithm considering uncertainty over the future.",
 		id:          "Discounted Total Reward",
