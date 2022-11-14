@@ -56,7 +56,7 @@
 		const [textParam] = getSearchParams(["text"]);
 		if (textParam) {
 			setTextAreaValue(textParam);
-			getOutput({ useCache });
+			getOutput({ useCache: true });
 		} else {
 			const [demoText] = getDemoInputs(model, ["text"]);
 			setTextAreaValue(demoText ?? "");
