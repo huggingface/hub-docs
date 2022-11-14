@@ -40,12 +40,15 @@
 			const [demoText] = getDemoInputs(model, ["text"]);
 			text = (demoText as string) ?? "";
 			if (text && callApiOnMount) {
-				getOutput(false, true);
+				getOutput({ isOnLoadCall: true });
 			}
 		}
 	});
 
-	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+	} = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -93,7 +96,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error || `Error encountered on input "${trimmedText}"`;
 		}
