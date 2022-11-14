@@ -62,6 +62,7 @@
 		addInferenceParameters(requestBody, model);
 
 		isLoading = true;
+		const useCache = false;
 
 		const res = await getResponse(
 			apiUrl,
@@ -71,7 +72,8 @@
 			parseOutput,
 			withModelLoading,
 			includeCredentials,
-			isOnLoadCall
+			isOnLoadCall,
+			useCache
 		);
 
 		isLoading = false;
