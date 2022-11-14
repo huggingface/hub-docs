@@ -56,12 +56,12 @@
 		const [textParam] = getSearchParams(["text"]);
 		if (textParam) {
 			setTextAreaValue(textParam);
-			getOutput();
+			getOutput({ useCache });
 		} else {
 			const [demoText] = getDemoInputs(model, ["text"]);
 			setTextAreaValue(demoText ?? "");
 			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
+				getOutput({ isOnLoadCall: true, useCache: true });
 			}
 		}
 	});
@@ -69,6 +69,7 @@
 	async function getOutput({
 		withModelLoading = false,
 		isOnLoadCall = false,
+		useCache = true,
 	} = {}) {
 		if (isBloomLoginRequired) {
 			return;
@@ -150,7 +151,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput({ withModelLoading: true });
+			getOutput({ withModelLoading: true, useCache });
 		} else if (res.status === "error") {
 			error = res.error;
 		}
@@ -179,7 +180,7 @@
 
 	function applyInputSample(sample: Record<string, any>) {
 		setTextAreaValue(sample.text);
-		getOutput();
+		getOutput({ useCache });
 	}
 
 	function redirectLogin() {
@@ -227,7 +228,7 @@
 				<WidgetSubmitBtn
 					{isLoading}
 					onClick={() => {
-						getOutput();
+						getOutput({ useCache });
 					}}
 				/>
 				<WidgetShortcutRunLabel {isLoading} />
