@@ -21,11 +21,11 @@ Super resolution models increase the resolution of an image, allowing for higher
 
 ## Inference
 
-This section should have useful information about how to pull a model from Hugging Face Hub that is a part of a library specialized in a task and use it.
+You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/image-to-image/about.md) that shows how to infer with `image-to-image` models.
 
 ## Useful Resources
 
-In this area, you can insert useful resources about how to train or use a model for this task.
+You can contribute useful resources about this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/image-to-image/about.md).
 
 ## Most Used Model for the Task
 

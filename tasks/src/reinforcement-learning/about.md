@@ -10,7 +10,7 @@ There are many videos on the Internet where a game-playing reinforcement learnin
 
 ## Task Variants 
 
-This place can be filled with variants of this task if there's any. 
+You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/reinforcement-learning/about.md).
 
 ## Glossary
 
@@ -40,7 +40,7 @@ This place can be filled with variants of this task if there's any.
 
 ## Inference
 
-This section should have useful information about how to pull a model from Hugging Face Hub that is a part of a library specialized in a task and use it.
+You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/reinforcement-learning/about.md) that shows how to infer with `reinforcement-learning` models.
 
 ## Useful Resources
 
