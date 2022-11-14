@@ -72,7 +72,9 @@ This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/do
 
 ## Embed Steamlit Spaces on other webpages
 
-You can use the HTML `<iframe>` tag to embed a Streamlit Space as an inline frame on other webpages. Simply include the name of your Space in the URL, delimited with a dash `"-"` between the user/org and Space name, followed by the `.hf.space` suffix. For example, the demo above can be embedded in these docs with the following tag:
+You can use the HTML `<iframe>` tag to embed a Streamlit Space as an inline frame on other webpages. Simply include the URL of your Space, ending with the `.hf.space` suffix. To find the URL of your Space, you can use "Inspect element" in your browser, or use the "How to embed" button we'll ship shortly on all Spaces pages.
+
+For example, the demo above can be embedded in these docs with the following tag:
 
 ```
 <iframe src="https://NimaBoscarino-hotdog-streamlit.hf.space" title="My awesome Streamlit Space"></iframe>
