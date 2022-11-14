@@ -15,7 +15,7 @@ The model card template is available here: [https://github.com/huggingface/huggi
 
 ## Model card metadata
 
-A model repo will render its `README.md` as a model card. To control how the Hub displays the card, you can create a YAML section in the README file to define some metadata. Start by adding three `---` at the top, then include all of the relevant metadata, and close the section with another group of `---` like the example below:
+A model repo will render its `README.md` as a model card. To control how the Hub displays the card, you should create a YAML section in the README file to define some metadata. Start by adding three `---` at the top, then include all of the relevant metadata, and close the section with another group of `---` like the example below:
 
 ```yaml
 ---
