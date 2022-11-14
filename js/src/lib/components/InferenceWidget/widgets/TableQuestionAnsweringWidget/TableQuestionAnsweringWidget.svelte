@@ -68,7 +68,7 @@
 			query = (demoQuery as string) ?? "";
 			table = convertDataToTable(demoTable as TableData);
 			if (query && table && callApiOnMount) {
-				getOutput(false, true);
+				getOutput({ isOnLoadCall: true });
 			}
 		}
 	});
@@ -77,7 +77,10 @@
 		table = updatedTable;
 	}
 
-	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+	} = {}) {
 		const trimmedQuery = query.trim();
 
 		if (!trimmedQuery) {
@@ -132,7 +135,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error;
 		}

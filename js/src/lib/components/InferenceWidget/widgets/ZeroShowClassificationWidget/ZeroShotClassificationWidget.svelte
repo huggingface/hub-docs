@@ -59,12 +59,15 @@
 			multiClass = demoMultiClass === "true";
 			setTextAreaValue(demoText ?? "");
 			if (candidateLabels && text && callApiOnMount) {
-				getOutput(false, true);
+				getOutput({ isOnLoadCall: true });
 			}
 		}
 	});
 
-	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+	} = {}) {
 		const trimmedText = text.trim();
 		const trimmedCandidateLabels = candidateLabels.trim().split(",").join(",");
 
@@ -133,7 +136,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error;
 		}
