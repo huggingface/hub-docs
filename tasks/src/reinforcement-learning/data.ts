@@ -12,7 +12,7 @@ const taskData: TaskDataCustom = {
 			{
 				label:   "State",
 				content:
-						"Red traffic light, pedestrians are passing.",
+						"Red traffic light, pedestrians are about to pass.",
 				type: "text",
 			},
 		],
@@ -26,7 +26,7 @@ const taskData: TaskDataCustom = {
 			{
 				label:   "Next State",
 				content:
-						"Yellow light.",
+						"Yellow light, pedestrians have crossed.",
 				type: "text",
 			},
 		],
