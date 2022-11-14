@@ -35,12 +35,12 @@
 		const [textParam] = getSearchParams(["text"]);
 		if (textParam) {
 			text = textParam;
-			getOutput();
+			getOutput({ useCache: true });
 		} else {
 			const [demoText] = getDemoInputs(model, ["text"]);
 			text = (demoText as string) ?? "";
 			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
+				getOutput({ isOnLoadCall: true, useCache: true });
 			}
 		}
 	});
@@ -48,6 +48,7 @@
 	async function getOutput({
 		withModelLoading = false,
 		isOnLoadCall = false,
+		useCache = false,
 	} = {}) {
 		const trimmedText = text.trim();
 
@@ -65,7 +66,6 @@
 		addInferenceParameters(requestBody, model);
 
 		isLoading = true;
-		const useCache = false;
 
 		const res = await getResponse(
 			apiUrl,
