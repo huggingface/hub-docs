@@ -9,3 +9,17 @@ The data in this learning paradigm consists of
 - Seen data - images and their corresponding labels
 - Unseen data -  only labels and no images
 - auxiliary information - additional information given to the model during training connecting the unseen and seen data. This can be in the form of textual description or word embeddings.
+
+## Task Variants 
+
+You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/zero-shot-image-classification/about.md).
+
+## Inference
+
+You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/zero-shot-image-classification/about.md) that shows how to infer with `zero-shot-image-classification` models.
+
+## Useful Resources
+
+You can contribute useful resources about this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/zero-shot-image-classification/about.md).
+
+This page was made possible thanks to the efforts of [Shamima Hossain](https://huggingface.co/Shamima).
