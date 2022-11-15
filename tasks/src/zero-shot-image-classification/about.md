@@ -13,7 +13,6 @@ The data in this learning paradigm consists of
 
 ## Use Cases
 
-### Autonomous Vehicles
 Autonomous Vehicles are a perfect use case for Zero-shot image classification. Occasionally in real-life situations, even we humans encounter new objects on the road that we are not sure how to react to instantly. Detecting + Classifying novel objects and deciding the correct actions to take are crucial for Robust Autonomous Vehicle Systems.
 
 ### Image Retrieval
