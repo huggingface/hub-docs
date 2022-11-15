@@ -9,9 +9,32 @@ const taskData: TaskDataCustom = {
         },
     ],
     demo: {
-        inputs: [],
-        outputs: [],
-    },
+		inputs: [
+			{
+				filename: "video-classification-input.gif",
+				type:     "img",
+			},
+		],
+		outputs: [
+			{
+				type: "chart",
+				data: [
+					{
+						label: "Playing Guitar",
+						score: 0.514,
+					},
+					{
+						label: "Playing Tennis",
+						score: 0.193,
+					},
+					{
+						label: "Cooking",
+						score: 0.068,
+					},
+				],
+			},
+		],
+	},
     metrics: [
         {
             description: "",
