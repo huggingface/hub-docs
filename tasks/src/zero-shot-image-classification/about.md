@@ -15,7 +15,7 @@ The data in this learning paradigm consists of
 
 
 ### Image Retrieval
-Zero-shot learning resolves several challenges in image retrieval systems. For example, with the rapid growth of unseen categories on the web, it is challenging to index images based on known categories.
+Zero-shot learning resolves several challenges in image retrieval systems. For example, with the rapid growth of categories on the web, it is challenging to index images based on unseen categories, With zero-shot learning we can associate unseen categories to images by exploiting attributes to model the relationships among visual features and labels.
 
 Zero-shot learning also has applicability in Image Instance Retrieval, where against an input image, images representing the same features are retrieved from a database. Conventional systems can only search for  semantically-related images, not always the exact instances.
 
@@ -24,5 +24,4 @@ Zero-shot learning can be helpful in disease classification, where we have a sca
 
 
 ### Action Recognition
-For any given use case of action/gesture recognition, if all the possible classes of actions are not known beforehand, Zero-shot learning can be a solution.
-
+Action recognition is the task of identifying when a person in an image/video is performing a given action from a set of actions. If all the possible actions are not known beforehand, conventional deep learning models fail. With zero-shot learning, for a given domain of a set of actions, we can create a mapping connecting low-level features and a semantic description of auxiliary data to classify unknown classes of actions.
