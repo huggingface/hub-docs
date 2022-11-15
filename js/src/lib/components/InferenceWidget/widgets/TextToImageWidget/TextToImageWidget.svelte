@@ -35,17 +35,21 @@
 		const [textParam] = getSearchParams(["text"]);
 		if (textParam) {
 			text = textParam;
-			getOutput();
+			getOutput({ useCache: true });
 		} else {
 			const [demoText] = getDemoInputs(model, ["text"]);
 			text = (demoText as string) ?? "";
 			if (text && callApiOnMount) {
-				getOutput(false, true);
+				getOutput({ isOnLoadCall: true, useCache: true });
 			}
 		}
 	});
 
-	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		useCache = false,
+	} = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -71,7 +75,8 @@
 			parseOutput,
 			withModelLoading,
 			includeCredentials,
-			isOnLoadCall
+			isOnLoadCall,
+			useCache
 		);
 
 		isLoading = false;
@@ -91,7 +96,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error || `Error encountered on input "${trimmedText}"`;
 		}

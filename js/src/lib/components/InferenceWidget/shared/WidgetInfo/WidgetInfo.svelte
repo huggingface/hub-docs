@@ -56,7 +56,7 @@
 				</div>
 			</div>
 		{:else if computeTime}
-			Computation time on cpu: {computeTime}
+			Computation time on {modelLoadInfo?.compute_type ?? "cpu"}: {computeTime}
 		{:else}
 			{@html getStatusReport(modelLoadInfo, status)}
 		{/if}

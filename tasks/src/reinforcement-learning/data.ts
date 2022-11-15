@@ -7,9 +7,29 @@ const taskData: TaskDataCustom = {
 			id:          "edbeeching/decision_transformer_gym_replay",
 		}
 	],
-    demo:     {
-		inputs:  [],
-		outputs: [],
+    demo: {
+		inputs: [
+			{
+				label:   "State",
+				content:
+						"Red traffic light, pedestrians are about to pass.",
+				type: "text",
+			},
+		],
+		outputs: [
+			{
+				label:   "Action",
+				content:
+						"Stop the car.",
+				type: "text",
+			},
+			{
+				label:   "Next State",
+				content:
+						"Yellow light, pedestrians have crossed.",
+				type: "text",
+			},
+		],
 	},
     metrics: [{
 		description: "Accumulated reward across all time steps discounted by a factor that ranges between 0 and 1 and determines how much the agent optimizes for future relative to immediate rewards. Measures how good is the policy ultimately found by a given algorithm considering uncertainty over the future.",

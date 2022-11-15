@@ -11,10 +11,21 @@ const taskData: TaskDataCustom = {
             id:          "conceptual_captions",
         },
     ],
-    demo: {
-        inputs: [],
-        outputs: [],
-    },
+    demo:     {
+		inputs: [
+            {
+				label:   "Input",
+				content: "A city above clouds, pastel colors, Victorian style",
+				type:    "text",
+			},
+		],
+		outputs: [
+			{
+				filename: "image.jpeg",
+				type:     "img",
+			},
+		]
+	},
     metrics: [],
     models: [
         {

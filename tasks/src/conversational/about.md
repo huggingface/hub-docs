@@ -10,7 +10,7 @@ Conversational response models are used as part of voice assistants to provide a
 
 ## Task Variants
 
-This place can be filled with variants of this task if there's any. 
+You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/conversational/about.md).
 
 ## Inference
 
@@ -35,4 +35,6 @@ converse([conversation_1, conversation_2])
 
 ## Useful Resources
 
-In this area, you can insert useful resources about how to train or use a model for this task.
+In this area, you can insert useful resources about how to train or use a model for this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/conversational/about.md).
+
+This page was made possible thanks to the efforts of [Viraat Aryabumi](https://huggingface.co/viraat).
