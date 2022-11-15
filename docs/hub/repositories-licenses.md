@@ -59,6 +59,7 @@ MIT | `mit`
 Mozilla Public License 2.0 | `mpl-2.0`
 Open Data Commons License Attribution family | `odc-by`
 Open Database License family | `odbl`
+Open Rail++-M License | `openrail++`
 Open Software License 3.0 | `osl-3.0`
 PostgreSQL License | `postgresql`
 SIL Open Font License 1.1 | `ofl-1.1`
