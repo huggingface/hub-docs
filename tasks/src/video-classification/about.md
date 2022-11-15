@@ -71,5 +71,4 @@ print(model.config.id2label[predicted_label])
 - [Building a video archive](https://www.youtube.com/watch?v=_IeS1m8r6SY)
 
 ### Creating your own video classifier in minutes
-
 - [Fine-tuning tutorial notebook (PyTorch)](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/video_classification.ipynb)
