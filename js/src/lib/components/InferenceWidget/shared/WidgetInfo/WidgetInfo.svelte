@@ -30,7 +30,7 @@
 			modelLoadInfo.status === "loaded" &&
 			!isAzure
 		) {
-			return `The model is loaded and running on <a href="https://huggingface.co/intel" target="_blank">Intel Xeon Ice Lake</a> CPU.`;
+			return `The model is loaded and running on <a href="https://huggingface.co/intel" target="_blank">Intel Xeon 3rd Gen Scalable CPU</a>`;
 		}
 		return statuses[modelLoadInfo.status];
 	}
