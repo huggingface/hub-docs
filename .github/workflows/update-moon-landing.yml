@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           repository: huggingface/moon-landing
-          token: ${{ secrets.HUGGINGFACE_PUSH }}
+          token: ${{ secrets.MOONLANDING_PUSH }}
 
       - name: Make changes to pull request
         run: git submodule update --init --recursive && cd server/hub-docs && git pull
@@ -21,7 +21,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.HUGGINGFACE_PUSH }}
+          token: ${{ secrets.MOONLANDING_PUSH }}
           commit-message: ⬆️ Upgrade hub-docs with https://github.com/huggingface/hub-docs/commit/${{ github.sha }}
           committer: machineuser <tech@huggingface.co>
           author: machineuser <tech@huggingface.co>
