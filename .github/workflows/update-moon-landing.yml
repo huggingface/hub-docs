@@ -1,9 +1,9 @@
 on:
   push:
-    branches:
-      - main
-    paths:
-      - "js/**"
+    # branches:
+    #   - main
+    # paths:
+    #   - "js/**"
 
 jobs:
   createPullRequest:
@@ -15,7 +15,7 @@ jobs:
           token: ${{ secrets.MOONLANDING_PUSH }}
 
       - name: Make changes to pull request
-        run: git submodule update --init --recursive && cd server/hub-docs && git pull
+        run: git submodule update --init --recursive && cd server/hub-docs && git checkout ${{ github.sha }}
 
       - name: Create Pull Request
         id: cpr
