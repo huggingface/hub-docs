@@ -22,7 +22,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.HUGGINGFACE_PUSH }}
-          commit-message: ⬆️ Upgrade hub-docs
+          commit-message: ⬆️ Upgrade hub-docs with https://github.com/huggingface/hub-docs/commit/${{ github.sha }}
           committer: machineuser <tech@huggingface.co>
           author: machineuser <tech@huggingface.co>
           signoff: false
