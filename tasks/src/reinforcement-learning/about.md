@@ -35,7 +35,7 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 
 **Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action.
 
-**Observation:** The agent at each step receieves a reward and an observation from the environment. This is because the agent can't understand the state of the environment, hence it receives an observation as a result of it's action taken by it at the preceding step.
+**Observation:** The agent at each step receives a reward and an observation from the environment. This is because the agent can't understand the state of the environment, hence it receives an observation as a result of it's action taken by it at the preceding step.
 
 **Return:** Cumulative Reward.  In the simplest case, the return is the sum of the rewards.
 
