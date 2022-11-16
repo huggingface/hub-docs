@@ -7,6 +7,9 @@ Reinforcement learning is known for its application to video games. Since the ga
 
 There are many videos on the Internet where a game-playing reinforcement learning agent starts with a terrible gaming strategy due to random initialization of its settings, but over iterations, the agent gets better and better with each episode of the training. This [paper](https://arxiv.org/abs/1912.10944) mainly investigates the performance of RL in popular games such as Minecraft or Dota2. The agent's performance can exceed a human player's, although there are still some challenges mainly related to efficiency in constructing the gaming policy of the reinforcement learning agent.
 
+### Trading and Finance
+Reinforcement learning is the science to train computers to make decisions and thus has a novel use in trading and finance. All time-series models are helpful in predicting prices, volume and future sales of a product or a stock. Reinforcement based automated agents can decide to sell, buy or hold a stock. It shifts the impact of AI in this field to real time decision making rather than just prediction of prices.
+
 
 ## Task Variants 
 
@@ -29,7 +32,9 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 **Action:** The decision taken by the agent.
 
 
-**Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action
+**Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action.
+
+**Observation:** The agent at each step receieves a reward and an observation from the environment. This is because the agent can't understand the state of the environment, hence it receives an observation as a result of it's action taken by it at the preceding step.
 
 **Return:** Cumulative Reward.  In the simplest case, the return is the sum of the rewards.
 
