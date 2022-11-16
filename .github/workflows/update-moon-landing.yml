@@ -18,7 +18,7 @@ jobs:
           submodules: true
 
       - name: Make changes to pull request
-        run: cd moon-landing && git checkout ${{ github.sha }}
+        run: cd moon-landing/server/hub/docs && git checkout ${{ github.sha }}
 
       - name: Create Pull Request
         id: cpr
