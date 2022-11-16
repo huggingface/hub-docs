@@ -1,3 +1,9 @@
+# Github Action that creates or updates a PR on moon-landing
+# to update hub-docs there.
+#
+# - if existing PR: update the PR
+# - if no PR: create new PR
+
 on:
   push:
     branches:
