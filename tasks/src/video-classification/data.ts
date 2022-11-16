@@ -9,9 +9,32 @@ const taskData: TaskDataCustom = {
         },
     ],
     demo: {
-        inputs: [],
-        outputs: [],
-    },
+		inputs: [
+			{
+				filename: "video-classification-input.gif",
+				type:     "img",
+			},
+		],
+		outputs: [
+			{
+				type: "chart",
+				data: [
+					{
+						label: "Playing Guitar",
+						score: 0.514,
+					},
+					{
+						label: "Playing Tennis",
+						score: 0.193,
+					},
+					{
+						label: "Cooking",
+						score: 0.068,
+					},
+				],
+			},
+		],
+	},
     metrics: [
         {
             description: "",
@@ -43,7 +66,7 @@ const taskData: TaskDataCustom = {
             id: "microsoft/xclip-base-patch32",
         },
     ],
-    summary: "Video classification is the task of assigning a label or class to an entire video. Videos are expected to have only one class for each video. video classification models take an image as input and return a prediction about which class the video belongs to.",
+    summary: "Video classification is the task of assigning a label or class to an entire video. Videos are expected to have only one class for each video. Video classification models take a video as input and return a prediction about which class the video belongs to.",
     widgetModels: ["MCG-NJU/videomae-base-finetuned-kinetics"],
     youtubeId: "",
 };

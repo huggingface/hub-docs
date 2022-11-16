@@ -24,6 +24,7 @@ import tokenClassification from "./token-classification/data";
 import translation from "./translation/data";
 import textClassification from "./text-classification/data";
 import textGeneration from "./text-generation/data";
+import videoClassification from "./video-classification/data";
 import visualQuestionAnswering from "./visual-question-answering/data";
 import zeroShotImageClassification from "./zero-shot-image-classification/data";
 import { TASKS_MODEL_LIBRARIES } from "./const";
@@ -46,7 +47,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"image-to-text":                  getData("image-to-text"),
 	"multiple-choice":                undefined,
 	"object-detection":               getData("object-detection", objectDetection),
-	"video-classification":           getData("video-classification"),
+	"video-classification":           getData("video-classification", videoClassification),
 	"other":                          undefined,
 	"question-answering":             getData("question-answering", questionAnswering),
 	"reinforcement-learning":         getData("reinforcement-learning", reinforcementLearning),
