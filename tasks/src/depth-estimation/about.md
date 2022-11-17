@@ -27,9 +27,11 @@ result
 #           [22.5073, 22.5148, 22.5114,  ..., 22.6604, 22.6344, 22.5871],
 #           [22.5176, 22.5275, 22.5218,  ..., 22.6282, 22.6216, 22.6108]]]),
 #  'depth': <PIL.Image.Image image mode=L size=640x480 at 0x7F1A8BFE5D90>}
+
+# You can visualize the result just by calling `result["depth"]`.
 ```
 
 ## Useful Resources
 
-
+In this area, you can insert useful resources about how to train or use a model for this task.
 
