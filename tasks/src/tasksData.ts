@@ -11,6 +11,7 @@ import imageClassification from "./image-classification/data";
 import imageToImage from "./image-to-image/data";
 import imageSegmentation from "./image-segmentation/data";
 import objectDetection from "./object-detection/data";
+import depthEstimation from "./depth-estimation/data";
 import placeholder from "./placeholder/data";
 import reinforcementLearning from "./reinforcement-learning/data";
 import questionAnswering from "./question-answering/data";
@@ -37,8 +38,9 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"audio-classification":           getData("audio-classification", audioClassification),
 	"audio-to-audio":                 getData("audio-to-audio", audioToAudio),
 	"automatic-speech-recognition":   getData("automatic-speech-recognition", automaticSpeechRecognition),
-	"conversational":                 getData("conversational", conversational),
-	"document-question-answering":    getData("document-question-answering", documentQuestionAnswering),
+	"conversational":                 getData("conversational"),
+	"depth-estimation":               getData("depth-estimation", depthEstimation),
+	"document-question-answering":    getData("document-question-answering"),
 	"feature-extraction":             getData("feature-extraction"),
 	"fill-mask":                      getData("fill-mask", fillMask),
 	"image-classification":           getData("image-classification", imageClassification),

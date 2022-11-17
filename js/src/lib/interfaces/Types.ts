@@ -367,6 +367,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		modality: "audio",
 		color:    "red",
 	},
+	"depth-estimation": {
+		name:     "Depth Estimation",
+		modality: "cv",
+		color:    "yellow",
+	},
 	"image-classification": {
 		name:     "Image Classification",
 		subtasks: [
@@ -656,6 +661,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"voice-activity-detection",
 	"time-series-forecasting",
 	"document-question-answering",
+	"depth-estimation",
 ];
 
 export type WidgetInputSample = Record<string | "example_title" | "group", string>;
