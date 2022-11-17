@@ -68,15 +68,6 @@ Q - learning will find the best course of action, given the agent's current stat
 
 Agent observes state as a string of text at a time 't'. Agent also knows a set of possible actions, each describes as a string text. Agent tries to understand the “state text” and all possible “action texts”, then takes a decision which maximizes the long term reward. Then, the environment state changes to a new state, agent receives an immediate reward.
 
-#### Unbounded action space in reinforcement learning
-
-Environments with vast state space are a problem in reinforcement learning. Also, the action space can be pretty large. 
-
-
-For solving this problem DRRN(deep reinforcement relevance network) was proposed. The idea of DRRN is to project both the state and action into a continuous space(as vectors). Q-function is a relevance function of the state vector and action vector.the DRRN experiences higher average reward.
-
-Chatbot dialogues can be improved using Deep Reinforcement Learning. 
-
 ## Inference
 
 You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/reinforcement-learning/about.md) that shows how to infer with `reinforcement-learning` models.
