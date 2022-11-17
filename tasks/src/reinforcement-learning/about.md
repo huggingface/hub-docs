@@ -70,7 +70,8 @@ Agent observes state as a string of text at a time 't'. Agent also knows a set o
 
 #### Unbounded action space in reinforcement learning
 
-Environments with vast state space is a problem in reinforcement learning. Also the action space can be quite large. 
+Environments with vast state space are a problem in reinforcement learning. Also, the action space can be pretty large. 
+
 
 For solving this problem DRRN(deep reinforcement relevance network) was proposed. The idea of DRRN is to project both the state and action into a continuous space(as vectors). Q-function is a relevance function of the state vector and action vector.the DRRN experiences higher average reward.
 
