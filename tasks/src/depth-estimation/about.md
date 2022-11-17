@@ -1,14 +1,12 @@
 ## Use Cases
-Depth estimation models can be used to approximate the depth of different objects present in an image.
+Depth estimation models can be used to estimate the depth of different objects present in an image.
 
 ### Estimation of Volumetric Information
-Depth estimation models are widely used to study volumetric formation of objects present inside an image. This is an
-important use case in the domain of computer graphics. 
+Depth estimation models are widely used to study volumetric formation of objects present inside an image. This is an important use case in the domain of computer graphics. 
 
 ### 3D Representation
 
-Models trained for depth estimation can also be used to develop a 3D understanding from a 2D image which is another
-important use case for computer graphics.
+Depth estimation models can also be used to develop a 3D representation from a 2D image.
 
 ## Inference
 
@@ -34,5 +32,4 @@ result
 ## Useful Resources
 
 
-### Creating your own image classifier in just a few minutes
 
