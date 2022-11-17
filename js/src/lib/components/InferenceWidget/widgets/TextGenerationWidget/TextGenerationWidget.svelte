@@ -56,17 +56,21 @@
 		const [textParam] = getSearchParams(["text"]);
 		if (textParam) {
 			setTextAreaValue(textParam);
-			getOutput();
+			getOutput({ useCache: true });
 		} else {
 			const [demoText] = getDemoInputs(model, ["text"]);
 			setTextAreaValue(demoText ?? "");
 			if (text && callApiOnMount) {
-				getOutput();
+				getOutput({ isOnLoadCall: true, useCache: true });
 			}
 		}
 	});
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		useCache = true,
+	} = {}) {
 		if (isBloomLoginRequired) {
 			return;
 		}
@@ -115,6 +119,7 @@
 			parseOutput,
 			withModelLoading,
 			includeCredentials,
+			isOnLoadCall,
 			useCache
 		);
 
@@ -135,14 +140,18 @@
 			} else if (model?.pipeline_tag === "text-generation") {
 				const outputWithoutInput = output.slice(text.length);
 				inferenceTimer.stop();
-				await renderTypingEffect(outputWithoutInput);
+				if (outputWithoutInput.length === 0) {
+					warning = "No text was generated";
+				} else {
+					await renderTypingEffect(outputWithoutInput);
+				}
 			}
 		} else if (res.status === "loading-model") {
 			modelLoading = {
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true, useCache });
 		} else if (res.status === "error") {
 			error = res.error;
 		}
@@ -171,7 +180,7 @@
 
 	function applyInputSample(sample: Record<string, any>) {
 		setTextAreaValue(sample.text);
-		getOutput();
+		getOutput({ useCache });
 	}
 
 	function redirectLogin() {
@@ -219,7 +228,7 @@
 				<WidgetSubmitBtn
 					{isLoading}
 					onClick={() => {
-						getOutput();
+						getOutput({ useCache });
 					}}
 				/>
 				<WidgetShortcutRunLabel {isLoading} />

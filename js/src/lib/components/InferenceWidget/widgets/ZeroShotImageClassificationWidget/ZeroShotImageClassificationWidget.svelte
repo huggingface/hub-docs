@@ -7,10 +7,16 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
-	import { addInferenceParameters, getResponse } from "../../shared/helpers";
+	import {
+		addInferenceParameters,
+		getResponse,
+		getDemoInputs,
+	} from "../../shared/helpers";
+	import { onMount } from "svelte";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
+	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -84,7 +90,10 @@
 		getOutput();
 	}
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+	} = {}) {
 		const trimmedCandidateLabels = candidateLabels.trim().split(",").join(",");
 
 		if (!trimmedCandidateLabels) {
@@ -118,7 +127,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;
@@ -138,11 +148,28 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error;
 		}
 	}
+
+	onMount(() => {
+		(async () => {
+			const [src, candidate_labels] = getDemoInputs(model, [
+				"src",
+				"candidate_labels",
+			]);
+			if (callApiOnMount && src && candidate_labels) {
+				candidateLabels = candidate_labels;
+				imgSrc = src;
+				const res = await fetch(imgSrc);
+				const blob = await res.blob();
+				await updateImageBase64(blob);
+				getOutput({ isOnLoadCall: true });
+			}
+		})();
+	});
 </script>
 
 <WidgetWrapper

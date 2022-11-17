@@ -51,12 +51,15 @@
 			question = (demoQuestion as string) ?? "";
 			setTextAreaValue(demoContext ?? "");
 			if (context && question && callApiOnMount) {
-				getOutput();
+				getOutput({ isOnLoadCall: true });
 			}
 		}
 	});
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+	} = {}) {
 		const trimmedQuestion = question.trim();
 		const trimmedContext = context.trim();
 
@@ -92,7 +95,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;
@@ -112,7 +116,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error;
 		}

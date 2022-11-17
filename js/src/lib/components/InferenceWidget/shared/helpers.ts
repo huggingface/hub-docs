@@ -1,6 +1,6 @@
 import type { ModelData } from '../../../interfaces/Types';
 import { randomItem, parseJSON } from '../../../utils/ViewUtils';
-import type { LoadingStatus, TableData } from './types';
+import type { ModelLoadInfo, TableData } from './types';
 
 export function getSearchParams(keys: string[]): string[] {
 	const searchParams = new URL(window.location.href).searchParams;
@@ -63,6 +63,7 @@ async function callApi(
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
 	useCache = true,
 	includeCredentials = false,
+	isOnLoadCall = false,
 ): Promise<Response> {	
 	const contentType = 'file' in requestBody && 'type' in requestBody['file']
 		? requestBody['file']['type']  
@@ -78,6 +79,9 @@ async function callApi(
 	}
 	if (useCache === false) {
 		headers.set('X-Use-Cache', "false");
+	}
+	if (isOnLoadCall) {
+		headers.set('X-Load-Model', "0");
 	}
 	
 	const body: File | string = 'file' in requestBody
@@ -103,6 +107,7 @@ export async function getResponse<T>(
 	outputParsingFn: (x: unknown) =>  T,
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
 	includeCredentials = false,
+	isOnLoadCall = false, // If true, the server will try to answer from cache and not do anything if not
 	useCache = true,
 ): Promise<{
 	computeTime: string,
@@ -117,6 +122,8 @@ export async function getResponse<T>(
 } | {
 	error: string,
 	status: 'error'
+} | {
+	status: 'cache not found'
 }>  {
 	const response = await callApi(
 		url,
@@ -126,6 +133,7 @@ export async function getResponse<T>(
 		waitForModel,
 		useCache,
 		includeCredentials,
+		isOnLoadCall,
 	);
 
 	if (response.ok) {
@@ -144,6 +152,9 @@ export async function getResponse<T>(
 			const outputJson = !isMediaContent ? JSON.stringify(body, null, 2) : '';
 			return { computeTime, output, outputJson, response, status: 'success' }
 		}catch(e){
+			if(isOnLoadCall && body.error === "not loaded yet"){
+				return { status: 'cache not found' }
+			}
 			// Invalid output
 			const error = `API Implementation Error: ${e.message}`;
 			return { error, status: 'error' }
@@ -169,14 +180,16 @@ export async function getResponse<T>(
 }
 
 
-export async function getModelStatus(url: string, repoId: string): Promise<LoadingStatus> {
+export async function getModelLoadInfo(url: string, repoId: string): Promise<ModelLoadInfo> {
 	const response = await fetch(`${url}/status/${repoId}`);
 	const output = await response.json();
 	if (response.ok && typeof output === 'object' && output.loaded !== undefined) {
-		return output.loaded ? 'loaded' : 'unknown';
+		const status = output.loaded ? 'loaded' : 'unknown';
+		const compute_type = output.compute_type;
+		return {status, compute_type}
 	} else {
 		console.warn(response.status, output.error);
-		return 'error';
+		return {status: 'error'};
 	}
 }
 

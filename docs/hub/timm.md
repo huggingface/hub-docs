@@ -2,7 +2,9 @@
 
 `timm`, also known as [pytorch-image-models](https://github.com/rwightman/pytorch-image-models), is an open-source collection of state-of-the-art PyTorch image models, pretrained weights, and utility scripts for training, inference, and validation.
 
-You can find a number of `timm` models using the filters on the left of the [models page](https://huggingface.co/models?library=timm&sort=downloads).
+This documentation focuses on `timm` functionality in the Hugging Face Hub instead of the `timm` library itself. For detailed information about the `timm` library, visit [its documentation](https://huggingface.co/docs/timm).
+
+You can find a number of `timm` models on the Hub using the filters on the left of the [models page](https://huggingface.co/models?library=timm&sort=downloads).
 
 All models on the Hub come with several useful features:
 1. An automatically generated model card, which model authors can complete with [information about their model](./model-cards).
@@ -158,6 +160,6 @@ curl https://api-inference.huggingface.co/models/nateraw/timm-resnet50-beans \
 ## Additional resources
 
 * timm (pytorch-image-models) [GitHub Repo](https://github.com/rwightman/pytorch-image-models).
-* timm [documentation](https://rwightman.github.io/pytorch-image-models/).
+* timm [documentation](https://huggingface.co/docs/timm).
 * Additional documentation at [timmdocs](https://timm.fast.ai) by [Aman Arora](https://github.com/amaarora).
 * [Getting Started with PyTorch Image Models (timm): A Practitioner’s Guide](https://towardsdatascience.com/getting-started-with-pytorch-image-models-timm-a-practitioners-guide-4e77b4bf9055) by [Chris Hughes](https://github.com/Chris-hughes10).

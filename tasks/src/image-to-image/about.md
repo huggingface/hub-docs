@@ -21,11 +21,11 @@ Super resolution models increase the resolution of an image, allowing for higher
 
 ## Inference
 
-This section should have useful information about how to pull a model from Hugging Face Hub that is a part of a library specialized in a task and use it.
+You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/image-to-image/about.md) that shows how to infer with `image-to-image` models.
 
 ## Useful Resources
 
-In this area, you can insert useful resources about how to train or use a model for this task.
+You can contribute useful resources about this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/image-to-image/about.md).
 
 ## Most Used Model for the Task
 
@@ -39,3 +39,5 @@ Below images show some of the examples shared in the paper that can be obtained 
 ## References 
 
 [1] P. Isola, J. -Y. Zhu, T. Zhou and A. A. Efros, "Image-to-Image Translation with Conditional Adversarial Networks," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 5967-5976, doi: 10.1109/CVPR.2017.632.
+
+This page was made possible thanks to the efforts of [Paul Gafton](https://github.com/Paul92) and [Osman Alenbey](https://huggingface.co/osman93).

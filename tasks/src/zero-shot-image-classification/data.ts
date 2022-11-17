@@ -9,8 +9,36 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	demo: {
-		inputs: [],
-		outputs: [],
+		inputs: [
+			{
+				filename: "image-classification-input.jpeg",
+				type:     "img",
+			},
+			{
+				label:   "Classes",
+				content: "cat, dog, bird",
+				type:    "text",
+			},
+		],
+		outputs: [
+			{
+				type: "chart",
+				data: [
+					{
+						label: "Cat",
+						score: 0.664,
+					},
+					{
+						label: "Dog",
+						score: 0.329,
+					},
+					{
+						label: "Bird",
+						score: 0.008,
+					},
+				],
+			},
+		],
 	},
 	metrics: [
 		{

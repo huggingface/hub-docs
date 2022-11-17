@@ -79,7 +79,7 @@ Chatbot dialogues can be improved using Deep Reinforcement Learning.
 
 ## Inference
 
-This section should have useful information about how to pull a model from Hugging Face Hub that is a part of a library specialized in a task and use it.
+You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/reinforcement-learning/about.md) that shows how to infer with `reinforcement-learning` models.
 
 ## Useful Resources
 
@@ -93,7 +93,3 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Train a Deep Reinforcement Learning lander agent to land correctly on the Moon 🌕 using Stable-Baselines3](https://github.com/huggingface/deep-rl-class/blob/main/unit1/unit1.ipynb)
 - [Introduction to Unity MLAgents](https://colab.research.google.com/github/huggingface/deep-rl-class/blob/main/unit4/unit4.ipynb)
 - [Training Decision Transformers with 🤗 transformers](https://github.com/huggingface/blog/blob/main/notebooks/101_train-decision-transformers.ipynb)
-
-
-
-

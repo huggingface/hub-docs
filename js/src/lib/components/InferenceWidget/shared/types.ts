@@ -14,6 +14,13 @@ export interface WidgetProps {
 
 export type LoadingStatus = "error" | "loaded" | "unknown";
 
+export type ComputeType = "cpu" | "gpu";
+
+export type ModelLoadInfo = {
+	status: LoadingStatus;
+	compute_type?: ComputeType;
+}
+
 export type TableData = Record<string, (string | number)[]>;
 
 export type HighlightCoordinates = Record<string, string>;

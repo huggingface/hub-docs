@@ -8,10 +8,16 @@
 	import WidgetRealtimeRecorder from "../../shared/WidgetRealtimeRecorder/WidgetRealtimeRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, getBlobFromUrl } from "../../shared/helpers";
+	import {
+		getResponse,
+		getBlobFromUrl,
+		getDemoInputs,
+	} from "../../shared/helpers";
+	import { onMount } from "svelte";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
+	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -60,7 +66,10 @@
 		}
 	}
 
-	async function getOutput(withModelLoading = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+	} = {}) {
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			output = "";
@@ -83,7 +92,8 @@
 			apiToken,
 			parseOutput,
 			withModelLoading,
-			includeCredentials
+			includeCredentials,
+			isOnLoadCall
 		);
 
 		isLoading = false;
@@ -107,7 +117,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error;
 		}
@@ -138,6 +148,16 @@
 	function updateModelLoading(isLoading: boolean, estimatedTime: number = 0) {
 		modelLoading = { isLoading, estimatedTime };
 	}
+
+	onMount(() => {
+		const [example_title, src] = getDemoInputs(model, ["example_title", "src"]);
+		if (callApiOnMount && src) {
+			filename = example_title ?? "";
+			fileUrl = src;
+			selectedSampleUrl = src;
+			getOutput({ isOnLoadCall: true });
+		}
+	});
 </script>
 
 <WidgetWrapper
