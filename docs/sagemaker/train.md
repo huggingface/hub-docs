@@ -194,9 +194,9 @@ huggingface_estimator = HuggingFace(
         instance_type='ml.p3dn.24xlarge',
         instance_count=2,
         role=role,
-        transformers_version='4.4.2',
-        pytorch_version='1.6.0',
-        py_version='py36',
+        transformers_version='4.12', 
+        pytorch_version='1.9',
+        py_version='py38',
         hyperparameters = hyperparameters,
         distribution = distribution
 )
