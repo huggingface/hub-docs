@@ -367,6 +367,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		modality: "audio",
 		color:    "red",
 	},
+	"depth-estimation": {
+		name:     "Depth Estimation",
+		modality: "cv",
+		color:    "yellow",
+	},
 	"image-classification": {
 		name:     "Image Classification",
 		subtasks: [
@@ -442,6 +447,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		modality: "cv",
 		color:    "green",
 	},
+	"video-classification": {
+		name:     "Video Classification",
+		modality: "cv",
+		color:    "blue",
+	},
 	"reinforcement-learning": {
 		name:           "Reinforcement Learning",
 		modality:       "rl",
@@ -503,14 +513,8 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		hideInModels: true,
 	},
 	"table-to-text": {
-		name:     "Table to Text",
-		modality: "nlp",
-		subtasks: [
-			{
-				type: "rdf-to-text",
-				name: "RDF to text",
-			},
-		],
+		name:         "Table to Text",
+		modality:     "nlp",
 		color:        "blue",
 		hideInModels: true,
 	},
@@ -608,9 +612,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 
 export type PipelineType = keyof typeof PIPELINE_DATA;
 export const ALL_PIPELINE_TYPES = Object.keys(PIPELINE_DATA) as PipelineType[];
+export const ALL_PIPELINE_TYPES_SET = new Set(ALL_PIPELINE_TYPES);
 
 export const ALL_SUBTASKS = Object.values(PIPELINE_DATA).flatMap(data => data.subtasks ?? []);
 export const ALL_SUBTASK_TYPES = ALL_SUBTASKS.map(s => s.type);
+export const ALL_SUBTASK_TYPES_SET = new Set(ALL_SUBTASK_TYPES);
 
 /*
  * Specification of pipeline tag display order.
@@ -643,6 +649,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"text-retrieval",
 	"text-to-speech",
 	"object-detection",
+	"video-classification",
 	"audio-to-audio",
 	"text-generation",
 	"conversational",
@@ -654,6 +661,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"voice-activity-detection",
 	"time-series-forecasting",
 	"document-question-answering",
+	"depth-estimation",
 ];
 
 export type WidgetInputSample = Record<string | "example_title" | "group", string>;

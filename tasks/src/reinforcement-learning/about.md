@@ -1,10 +1,16 @@
 ## Use Cases
 
-You can contribute this area with common use cases of the task! 
+### Gaming
+
+Reinforcement learning is known for its application to video games. Since the games provide a safe environment for the agent to be trained in the sense that it is perfectly defined and controllable, this makes them perfect candidates for experimentation and will help a lot to learn about the capabilities and limitations of various RL algorithms. 
+
+
+There are many videos on the Internet where a game-playing reinforcement learning agent starts with a terrible gaming strategy due to random initialization of its settings, but over iterations, the agent gets better and better with each episode of the training. This [paper](https://arxiv.org/abs/1912.10944) mainly investigates the performance of RL in popular games such as Minecraft or Dota2. The agent's performance can exceed a human player's, although there are still some challenges mainly related to efficiency in constructing the gaming policy of the reinforcement learning agent.
+
 
 ## Task Variants 
 
-This place can be filled with variants of this task if there's any. 
+You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/reinforcement-learning/about.md).
 
 ## Glossary
 
@@ -34,7 +40,7 @@ This place can be filled with variants of this task if there's any.
 
 ## Inference
 
-This section should have useful information about how to pull a model from Hugging Face Hub that is a part of a library specialized in a task and use it.
+You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/reinforcement-learning/about.md) that shows how to infer with `reinforcement-learning` models.
 
 ## Useful Resources
 
@@ -48,3 +54,5 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Train a Deep Reinforcement Learning lander agent to land correctly on the Moon 🌕 using Stable-Baselines3](https://github.com/huggingface/deep-rl-class/blob/main/unit1/unit1.ipynb)
 - [Introduction to Unity MLAgents](https://colab.research.google.com/github/huggingface/deep-rl-class/blob/main/unit4/unit4.ipynb)
 - [Training Decision Transformers with 🤗 transformers](https://github.com/huggingface/blog/blob/main/notebooks/101_train-decision-transformers.ipynb)
+
+This page was made possible thanks to the efforts of [Ram Ananth](https://huggingface.co/RamAnanth1), [Emilio Lehoucq](https://huggingface.co/emiliol) and [Osman Alenbey](https://huggingface.co/osman93).
