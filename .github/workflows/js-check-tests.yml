@@ -1,9 +1,10 @@
-name: JS Widgets
+name: JS check (svelte-check)
 
 on:
   push:
     paths:
       - "js/**"
+      - "tasks/**"
       # - "!js/src/lib/interfaces/**"
 
 jobs:
