@@ -83,7 +83,7 @@ if __name__ == "__main__":
     # hyperparameters sent by the client are passed as command-line arguments to the script
     parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--per_device_train_batch_size", type=int, default=32)
-    parser.add_argument("--model_name_or_path", type=str)
+    parser.add_argument("--model_name", type=str)
 
     # data, model, and output directories
     parser.add_argument("--model-dir", type=str, default=os.environ["SM_MODEL_DIR"])
@@ -120,7 +120,7 @@ from sagemaker.huggingface import HuggingFace
 # hyperparameters which are passed to the training job
 hyperparameters={'epochs': 1,
                  'per_device_train_batch_size': 32,
-                 'model_name_or_path': 'distilbert-base-uncased'
+                 'model_name': 'distilbert-base-uncased'
                  }
 
 # create the Estimator
