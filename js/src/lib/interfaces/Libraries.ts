@@ -150,25 +150,12 @@ model = from_pretrained_keras("${model.id}")
 `;
 
 const paddlenlp = (model: ModelData) => {
-	const info = model.transformersInfo;
-	if (!info) {
-		return `# ⚠️ Type of model unknown`;
-	}
-	if (info.processor) {
-		return [
-			`from paddlenlp.transformers import AutoTokenizer, ${info.auto_model}`,
-			"",
-			`tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
-			"",
-			`model = ${info.auto_model}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
-		].join("\n");
-	} else {
-		return [
-			`from paddlenlp.transformers import ${info.auto_model}`,
-			"",
-			`model = ${info.auto_model}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
-		].join("\n");
-	}
+	return [
+	  `from paddlenlp.transformers import AutoModel, AutoTokenizer`,
+	  "",
+	  `tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`, 
+	  `model = AutoModel.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
+        ].join("\n");
 };
 
 const pyannote_audio_pipeline = (model: ModelData) =>
