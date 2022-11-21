@@ -8,7 +8,7 @@ The data in this learning paradigm consists of
 
 - Seen data - images and their corresponding labels
 - Unseen data -  only labels and no images
-- auxiliary information - additional information given to the model during training connecting the unseen and seen data. This can be in the form of textual description or word embeddings.
+- Auxiliary information - additional information given to the model during training connecting the unseen and seen data. This can be in the form of textual description or word embeddings.
 
 
 ## Use Cases
@@ -16,11 +16,6 @@ The data in this learning paradigm consists of
 
 ### Image Retrieval
 Zero-shot learning resolves several challenges in image retrieval systems. For example, with the rapid growth of categories on the web, it is challenging to index images based on unseen categories, With zero-shot learning we can associate unseen categories to images by exploiting attributes to model the relationships among visual features and labels.
-
-Zero-shot learning also has applicability in Image Instance Retrieval, where against an input image, images representing the same features are retrieved from a database. Conventional systems can only search for  semantically-related images, not always the exact instances.
-
-### Disease Classification
-Zero-shot learning can be helpful in disease classification, where we have a scarcity of labeled images for a specific disease. Here we can use a zero-shot image classifier that has learned from the dataset of other similar diseases along with the auxiliary information provided.
 
 
 ### Action Recognition
