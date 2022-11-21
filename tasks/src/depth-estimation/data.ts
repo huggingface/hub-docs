@@ -30,7 +30,7 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	summary:      "Depth estimation is the task of predicting depth of the objects present in an image.",
-	widgetModels: ["Intel/dpt-large"],
+	widgetModels: [""],
 	youtubeId:    "",
 };
 
