@@ -1,0 +1,105 @@
+# Detailed usage and pinned models
+
+## API Usage dashboard
+
+The [API Usage Dashboard](https://api-inference.huggingface.co/dashboard/) (beta) shows
+historical number of requests and input characters per model for an API Token.
+
+Please note that each user account, and each organization, has its own
+API Token. By default, you should
+not have anything to do. However, if you have any doubt about what's
+being shown to you, or you have a complex setup (user subscription,
+multiple organizations and so on), please contact api-entreprise@hugginface.co.
+
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-api/dashboard_example.png" width="600">
+
+## Pinned models
+
+<Tip>
+
+Model pinning is only supported for existing customers.
+
+If you're interested in having a model that you can [readily deploy for
+inference](https://ui.endpoints.huggingface.co/new), take a look at our [Inference
+Endpoints](https://huggingface.co/inference-endpoints) solution! It is a secure production environment with dedicated
+and autoscaling infrastructure, and you have the flexibility to choose between CPU and GPU resources.
+
+</Tip>
+
+A pinned model is a model which is preloaded for inference and instantly
+available for requests authenticated with an API Token.
+
+You can set pinned models to your API Token in the API Usage dashboard.
+
+[Pinned models](https://api-inference.huggingface.co/dashboard/pinned_models)
+
+Model pinning is also accessible directly from the API. Here is how you
+see what your current pinned models are :
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_pinning.py",
+"language": "python",
+"start-after": "START python_pinning",
+"end-before": "END python_pinning",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_pinning.py",
+"language": "node",
+"start-after": "START node_pinning",
+"end-before": "END node_pinning",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_pinning.py",
+"language": "bash",
+"start-after": "START curl_pinning",
+"end-before": "END curl_pinning",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+Pinning models is done that way.
+
+<Tip warning>
+
+Be careful, you need to specify ALL the pinned models each time !
+
+</Tip>
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_pinning.py",
+"language": "python",
+"start-after": "START python_set_pinning",
+"end-before": "END python_set_pinning",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_pinning.py",
+"language": "node",
+"start-after": "START node_set_pinning",
+"end-before": "END node_set_pinning",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_pinning.py",
+"language": "bash",
+"start-after": "START curl_set_pinning",
+"end-before": "END curl_set_pinning",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>

@@ -1,0 +1,1277 @@
+# Detailed parameters
+
+## Which task is used by this model ?
+
+In general the 🤗 Hosted API Inference accepts a simple string as an
+input. However, more advanced usage depends on the "task" that the
+model solves.
+
+The "task" of a model is defined here on it's model page:
+
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-api/task.png" width="300">
+<img class="hidden dark:block invert" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-api/task-dark.png" width="300">
+
+## Natural Language Processing
+
+### Fill Mask task
+
+Tries to fill in a hole with a missing word (token to be precise).
+That's the base task for BERT models.
+
+<Tip>
+
+**Recommended model**:
+[bert-base-uncased](https://huggingface.co/bert-base-uncased) (it's a simple model, but fun to play with).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+
+Example:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START fill_mask_inference",
+"end-before": "END fill_mask_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_fill_mask_inference",
+"end-before": "END node_fill_mask_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_fill_mask_inference",
+"end-before": "END curl_fill_mask_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a JSON encoded payload. Here
+are all the options
+
+| All parameters         |                                                                                                                                                                                                                                                                                                                                                                                               |
+| :--------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **inputs** (required): | a string to be filled from, must contain the [MASK] token (check model card for exact name of the mask)                                                                                                                                                                                                                                                                                       |
+| **options**            | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| use_cache              | (Default: `true`). Boolean. There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. |
+| wait_for_model         | (Default: `false`) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.                                                                                      |
+
+Return value is either a dict or a list of dicts if you sent a list of inputs
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START fill_mask_inference_answer",
+"end-before": "END fill_mask_inference_answer",
+"dedent": 8}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values |                                                                                       |
+| :-------------- | :------------------------------------------------------------------------------------ |
+| **sequence**    | The actual sequence of tokens that ran against the model (may contain special tokens) |
+| **score**       | The probability for this token.                                                       |
+| **token**       | The id of the token                                                                   |
+| **token_str**   | The string representation of the token                                                |
+
+### Summarization task
+
+This task is well known to summarize longer text into shorter text.
+Be careful, some models have a maximum length of input. That means that
+the summary cannot handle full books for instance. Be careful when
+choosing your model. If you want to discuss your summarization needs,
+please get in touch with us: <api-enterprise@huggingface.co>
+
+<Tip>
+
+**Recommended model**:
+[facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+
+Example:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START summarization_inference",
+"end-before": "END summarization_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_summarization_inference",
+"end-before": "END node_summarization_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_summarization_inference",
+"end-before": "END curl_summarization_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a JSON encoded payload. Here
+are all the options
+
+| All parameters        |                                                                                                                                                                                                                                                                                                                                                                                               |
+| :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **inputs** (required) | a string to be summarized                                                                                                                                                                                                                                                                                                                                                                     |
+| **parameters**        | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| min_length            | (Default: `None`). Integer to define the minimum length **in tokens** of the output summary.                                                                                                                                                                                                                                                                                                  |
+| max_length            | (Default: `None`). Integer to define the maximum length **in tokens** of the output summary.                                                                                                                                                                                                                                                                                                  |
+| top_k                 | (Default: `None`). Integer to define the top tokens considered within the `sample` operation to create new text.                                                                                                                                                                                                                                                                              |
+| top_p                 | (Default: `None`). Float to define the tokens that are within the `sample` operation of text generation. Add tokens in the sample for more probable to least probable until the sum of the probabilities is greater than `top_p`.                                                                                                                                                             |
+| temperature           | (Default: `1.0`). Float (0.0-100.0). The temperature of the sampling operation. 1 means regular sampling, `0` means always take the highest score, `100.0` is getting closer to uniform probability.                                                                                                                                                                                          |
+| repetition_penalty    | (Default: `None`). Float (0.0-100.0). The more a token is used within generation the more it is penalized to not be picked in successive generation passes.                                                                                                                                                                                                                                   |
+| max_time              | (Default: `None`). Float (0-120.0). The amount of time in seconds that the query should take maximum. Network can cause some overhead so it will be a soft limit.                                                                                                                                                                                                                             |
+| **options**           | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| use_cache             | (Default: `true`). Boolean. There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. |
+| wait_for_model        | (Default: `false`) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.                                                                                      |
+
+Return value is either a dict or a list of dicts if you sent a list of inputs
+
+| Returned values        |                                |
+| :--------------------- | :----------------------------- |
+| **summarization_text** | The string after summarization |
+
+### Question Answering task
+
+Want to have a nice know-it-all bot that can answer any question?
+
+<Tip>
+
+**Recommended model**:
+[deepset/roberta-base-squad2](https://huggingface.co/deepset/roberta-base-squad2).
+
+</Tip>
+
+Available with: [🤗Transformers](https://github.com/huggingface/transformers) and
+[AllenNLP](https://github.com/allenai/allennlp)
+
+Example:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START question_answering_inference",
+"end-before": "END question_answering_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_question_answering_inference",
+"end-before": "END node_question_answering_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_question_answering_inference",
+"end-before": "END curl_question_answering_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a JSON encoded payload. Here
+are all the options
+
+Return value is a dict.
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START question_answering_inference_answer",
+"end-before": "END question_answering_inference_answer",
+"dedent": 8}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values |                                                                      |
+| :-------------- | :------------------------------------------------------------------- |
+| **answer**      | A string that’s the answer within the text.                          |
+| **score**       | A float that represents how likely that the answer is correct        |
+| **start**       | The index (string wise) of the start of the answer within `context`. |
+| **stop**        | The index (string wise) of the stop of the answer within `context`.  |
+
+### Table Question Answering task
+
+Don't know SQL? Don't want to dive into a large spreadsheet? Ask
+questions in plain english!
+
+<Tip>
+
+**Recommended model**:
+[google/tapas-base-finetuned-wtq](https://huggingface.co/google/tapas-base-finetuned-wtq).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+
+Example:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START table_question_answering_inference",
+"end-before": "END table_question_answering_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_table_question_answering_inference",
+"end-before": "END node_table_question_answering_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_table_question_answering_inference",
+"end-before": "END curl_table_question_answering_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a JSON encoded payload. Here
+are all the options
+
+| All parameters        |                                                                                                                                                                                                                                                                                                                                                                                               |
+| :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **inputs** (required) |                                                                                                                                                                                                                                                                                                                                                                                               |
+| query (required)      | The query in plain text that you want to ask the table                                                                                                                                                                                                                                                                                                                                        |
+| table (required)      | A table of data represented as a dict of list where entries are headers and the lists are all the values, all lists must have the same size.                                                                                                                                                                                                                                                  |
+| **options**           | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| use_cache             | (Default: `true`). Boolean. There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. |
+| wait_for_model        | (Default: `false`) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.                                                                                      |
+
+Return value is either a dict or a list of dicts if you sent a list of inputs
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START table_question_answering_inference_answer",
+"end-before": "END table_question_answering_inference_answer",
+"dedent": 8}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values |                                                             |
+| :-------------- | :---------------------------------------------------------- |
+| **answer**      | The plaintext answer                                        |
+| **coordinates** | a list of coordinates of the cells referenced in the answer |
+| **cells**       | a list of coordinates of the cells contents                 |
+| **aggregator**  | The aggregator used to get the answer                       |
+
+### Sentence Similarity task
+
+Calculate the semantic similarity between one text and a list of other sentences by comparing their embeddings.
+
+<Tip>
+
+**Recommended model**:
+[sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2).
+
+</Tip>
+
+Available with: [Sentence Transformers](https://www.sbert.net/index.html)
+
+Example:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START sentence_similarity_inference",
+"end-before": "END sentence_similarity_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_sentence_similarity_inference",
+"end-before": "END node_sentence_similarity_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_sentence_similarity_inference",
+"end-before": "END curl_sentence_similarity_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a JSON encoded payload. Here
+are all the options
+
+| All parameters             |                                                                                                                                                                                                                                                                                                                                                                                               |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **inputs** (required)      |                                                                                                                                                                                                                                                                                                                                                                                               |
+| source_sentence (required) | The string that you wish to compare the other strings with. This can be a phrase, sentence, or longer passage, depending on the model being used.                                                                                                                                                                                                                                             |
+| sentences (required)       | A list of strings which will be compared against the source_sentence.                                                                                                                                                                                                                                                                                                                         |
+| **options**                | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| use_cache                  | (Default: `true`). Boolean. There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. |
+| wait_for_model             | (Default: `false`) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.                                                                                      |
+
+The return value is a list of similarity scores, given as floats.
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START sentence_similarity_inference_answer",
+"end-before": "END sentence_similarity_inference_answer",
+"dedent": 8}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values |                                                               |
+| :-------------- | :------------------------------------------------------------ |
+| **Scores**      | The associated similarity score for each of the given strings |
+
+### Text Classification task
+
+Usually used for sentiment-analysis this will output the likelihood of
+classes of an input.
+
+<Tip>
+
+**Recommended model**:
+[distilbert-base-uncased-finetuned-sst-2-english](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english)
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+
+Example:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START text_classification_inference",
+"end-before": "END text_classification_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_text_classification_inference",
+"end-before": "END node_text_classification_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_text_classification_inference",
+"end-before": "END curl_text_classification_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a JSON encoded payload. Here
+are all the options
+
+| All parameters        |                                                                                                                                                                                                                                                                                                                                                                                               |
+| :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **inputs** (required) | a string to be classified                                                                                                                                                                                                                                                                                                                                                                     |
+| **options**           | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| use_cache             | (Default: `true`). Boolean. There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. |
+| wait_for_model        | (Default: `false`) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.                                                                                      |
+
+Return value is either a dict or a list of dicts if you sent a list of inputs
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START text_classification_inference_answer",
+"end-before": "END text_classification_inference_answer",
+"dedent": 8}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values |                                                                              |
+| :-------------- | :--------------------------------------------------------------------------- |
+| **label**       | The label for the class (model specific)                                     |
+| **score**       | A floats that represents how likely is that the text belongs the this class. |
+
+### Text Generation task
+
+Use to continue text from a prompt. This is a very generic task.
+
+<Tip>
+
+**Recommended model**: [gpt2](https://huggingface.co/gpt2) (it's a simple model, but fun to play with).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+
+Example:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START text_generation_inference",
+"end-before": "END text_generation_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_text_generation_inference",
+"end-before": "END node_text_generation_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_text_generation_inference",
+"end-before": "END curl_text_generation_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a JSON encoded payload. Here
+are all the options
+
+| All parameters         |                                                                                                                                                                                                                                                                                                                                                                                               |
+| :--------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **inputs** (required): | a string to be generated from                                                                                                                                                                                                                                                                                                                                                                 |
+| **parameters**         | dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                           |
+| top_k                  | (Default: `None`). Integer to define the top tokens considered within the `sample` operation to create new text.                                                                                                                                                                                                                                                                              |
+| top_p                  | (Default: `None`). Float to define the tokens that are within the `sample` operation of text generation. Add tokens in the sample for more probable to least probable until the sum of the probabilities is greater than `top_p`.                                                                                                                                                             |
+| temperature            | (Default: `1.0`). Float (0.0-100.0). The temperature of the sampling operation. 1 means regular sampling, `0` means always take the highest score, `100.0` is getting closer to uniform probability.                                                                                                                                                                                          |
+| repetition_penalty     | (Default: `None`). Float (0.0-100.0). The more a token is used within generation the more it is penalized to not be picked in successive generation passes.                                                                                                                                                                                                                                   |
+| max_new_tokens         | (Default: `None`). Int (0-250). The amount of new tokens to be generated, this does **not** include the input length it is a estimate of the size of generated text you want. Each new tokens slows down the request, so look for balance between response times and length of text generated.                                                                                                |
+| max_time               | (Default: `None`). Float (0-120.0). The amount of time in seconds that the query should take maximum. Network can cause some overhead so it will be a soft limit. Use that in combination with `max_new_tokens` for best results.                                                                                                                                                             |
+| return_full_text       | (Default: `True`). Bool. If set to False, the return results will **not** contain the original query making it easier for prompting.                                                                                                                                                                                                                                                          |
+| num_return_sequences   | (Default: `1`). Integer. The number of proposition you want to be returned.                                                                                                                                                                                                                                                                                                                   |
+| do_sample              | (Optional: `True`). Bool. Whether or not to use sampling, use greedy decoding otherwise.                                                                                                                                                                                                                                                                                                      |
+| **options**            | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| use_cache              | (Default: `true`). Boolean. There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. |
+| wait_for_model         | (Default: `false`) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.                                                                                      |
+
+Return value is either a dict or a list of dicts if you sent a list of inputs
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START text_generation_inference_answer",
+"end-before": "END text_generation_inference_answer",
+"dedent": 8}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values    |                        |
+| :----------------- | :--------------------- |
+| **generated_text** | The continuated string |
+
+### Text2Text Generation task
+
+Essentially [Text-generation task](#text-generation-task). But uses
+Encoder-Decoder architecture, so might change in the future for more
+options.
+
+### Token Classification task
+
+Usually used for sentence parsing, either grammatical, or Named Entity
+Recognition (NER) to understand keywords contained within text.
+
+<Tip>
+
+**Recommended model**:
+[dbmdz/bert-large-cased-finetuned-conll03-english](https://huggingface.co/dbmdz/bert-large-cased-finetuned-conll03-english)
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers),
+[Flair](https://github.com/flairNLP/flair)
+
+Example:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START token_classification_inference",
+"end-before": "END token_classification_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_token_classification_inference",
+"end-before": "END node_token_classification_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_token_classification_inference",
+"end-before": "END curl_token_classification_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a JSON encoded payload. Here
+are all the options
+
+| All parameters        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **inputs** (required) | a string to be classified                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **parameters**        | a dict containing the following key:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| aggregation_strategy  | (Default: `simple`). There are several aggregation strategies: <br> `none`: Every token gets classified without further aggregation. <br> `simple`: Entities are grouped according to the default schema (B-, I- tags get merged when the tag is similar). <br> `first`: Same as the `simple` strategy except words cannot end up with different tags. Words will use the tag of the first token when there is ambiguity. <br> `average`: Same as the `simple` strategy except words cannot end up with different tags. Scores are averaged across tokens and then the maximum label is applied. <br> `max`: Same as the `simple` strategy except words cannot end up with different tags. Word entity will be the token with the maximum score. |
+| **options**           | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| use_cache             | (Default: `true`). Boolean. There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query.                                                                                                                                                                                                                                                                                                                                                    |
+| wait_for_model        | (Default: `false`) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+Return value is either a dict or a list of dicts if you sent a list of inputs
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START token_classification_inference_answer",
+"end-before": "END token_classification_inference_answer",
+"dedent": 8}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values  |                                                                                                            |
+| :--------------- | :--------------------------------------------------------------------------------------------------------- |
+| **entity_group** | The type for the entity being recognized (model specific).                                                 |
+| **score**        | How likely the entity was recognized.                                                                      |
+| **word**         | The string that was captured                                                                               |
+| **start**        | The offset stringwise where the answer is located. Useful to disambiguate if `word` occurs multiple times. |
+| **end**          | The offset stringwise where the answer is located. Useful to disambiguate if `word` occurs multiple times. |
+
+### Named Entity Recognition (NER) task
+
+See [Token-classification task](#token-classification-task)
+
+### Translation task
+
+This task is well known to translate text from one language to another
+
+<Tip>
+
+**Recommended model**:
+[Helsinki-NLP/opus-mt-ru-en](https://huggingface.co/Helsinki-NLP/opus-mt-ru-en).
+Helsinki-NLP uploaded many models with many language pairs.
+**Recommended model**: [t5-base](https://huggingface.co/t5-base).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+
+Example:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START translation_inference",
+"end-before": "END translation_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_translation_inference",
+"end-before": "END node_translation_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_translation_inference",
+"end-before": "END curl_translation_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a JSON encoded payload. Here
+are all the options
+
+| All parameters        |                                                                                                                                                                                                                                                                                                                                                                                               |
+| :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **inputs** (required) | a string to be translated in the original languages                                                                                                                                                                                                                                                                                                                                           |
+| **options**           | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| use_cache             | (Default: `true`). Boolean. There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. |
+| wait_for_model        | (Default: `false`) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.                                                                                      |
+
+Return value is either a dict or a list of dicts if you sent a list of inputs
+
+| Returned values      |                              |
+| :------------------- | :--------------------------- |
+| **translation_text** | The string after translation |
+
+### Zero-Shot Classification task
+
+This task is super useful to try out classification with zero code,
+you simply pass a sentence/paragraph and the possible labels for that
+sentence, and you get a result.
+
+<Tip>
+
+**Recommended model**:
+[facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+
+Request:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START zero_shot_inference",
+"end-before": "END zero_shot_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_zero_shot_inference",
+"end-before": "END node_zero_shot_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_zero_shot_inference",
+"end-before": "END curl_zero_shot_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a JSON encoded payload. Here
+are all the options
+
+| All parameters              |                                                                                                                                                                                                                                                                                                                                                                                               |
+| :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **inputs** (required)       | a string or list of strings                                                                                                                                                                                                                                                                                                                                                                   |
+| **parameters** (required)   | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| candidate_labels (required) | a list of strings that are potential classes for `inputs`. (max 10 candidate_labels, for more, simply run multiple requests, results are going to be misleading if using too many candidate_labels anyway. If you want to keep the exact same, you can simply run `multi_label=True` and do the scaling on your end. )                                                                        |
+| multi_label                 | (Default: `false`) Boolean that is set to True if classes can overlap                                                                                                                                                                                                                                                                                                                         |
+| **options**                 | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| use_cache                   | (Default: `true`). Boolean. There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. |
+| wait_for_model              | (Default: `false`) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.                                                                                      |
+
+Return value is either a dict or a list of dicts if you sent a list of inputs
+
+Response:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START zero_shot_inference_answer",
+"end-before": "END zero_shot_inference_answer",
+"dedent": 8}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values |                                                                                               |
+| :-------------- | :-------------------------------------------------------------------------------------------- |
+| **sequence**    | The string sent as an input                                                                   |
+| **labels**      | The list of strings for labels that you sent (in order)                                       |
+| **scores**      | a list of floats that correspond the the probability of label, in the same order as `labels`. |
+
+### Conversational task
+
+This task corresponds to any chatbot like structure. Models tend to have
+shorter max_length, so please check with caution when using a given
+model if you need long range dependency or not.
+
+<Tip>
+
+**Recommended model**:
+[microsoft/DialoGPT-large](https://huggingface.co/microsoft/DialoGPT-large).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+
+Example:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START conversational_inference",
+"end-before": "END conversational_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_conversational_inference",
+"end-before": "END node_conversational_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_conversational_inference",
+"end-before": "END curl_conversational_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a JSON encoded payload. Here
+are all the options
+
+| All parameters        |                                                                                                                                                                                                                                                                                                                                                                                               |
+| :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **inputs** (required) |                                                                                                                                                                                                                                                                                                                                                                                               |
+| text (required)       | The last input from the user in the conversation.                                                                                                                                                                                                                                                                                                                                             |
+| generated_responses   | A list of strings corresponding to the earlier replies from the model.                                                                                                                                                                                                                                                                                                                        |
+| past_user_inputs      | A list of strings corresponding to the earlier replies from the user. Should be of the same length of `generated_responses`.                                                                                                                                                                                                                                                                  |
+| **parameters**        | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| min_length            | (Default: `None`). Integer to define the minimum length **in tokens** of the output summary.                                                                                                                                                                                                                                                                                                  |
+| max_length            | (Default: `None`). Integer to define the maximum length **in tokens** of the output summary.                                                                                                                                                                                                                                                                                                  |
+| top_k                 | (Default: `None`). Integer to define the top tokens considered within the `sample` operation to create new text.                                                                                                                                                                                                                                                                              |
+| top_p                 | (Default: `None`). Float to define the tokens that are within the `sample` operation of text generation. Add tokens in the sample for more probable to least probable until the sum of the probabilities is greater than `top_p`.                                                                                                                                                             |
+| temperature           | (Default: `1.0`). Float (0.0-100.0). The temperature of the sampling operation. 1 means regular sampling, `0` means always take the highest score, `100.0` is getting closer to uniform probability.                                                                                                                                                                                          |
+| repetition_penalty    | (Default: `None`). Float (0.0-100.0). The more a token is used within generation the more it is penalized to not be picked in successive generation passes.                                                                                                                                                                                                                                   |
+| max_time              | (Default: `None`). Float (0-120.0). The amount of time in seconds that the query should take maximum. Network can cause some overhead so it will be a soft limit.                                                                                                                                                                                                                             |
+| **options**           | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| use_cache             | (Default: `true`). Boolean. There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. |
+| wait_for_model        | (Default: `false`) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.                                                                                      |
+
+Return value is either a dict or a list of dicts if you sent a list of inputs
+
+| Returned values     |                                                                                                    |
+| :------------------ | :------------------------------------------------------------------------------------------------- |
+| **generated_text**  | The answer of the bot                                                                              |
+| **conversation**    | A facility dictionnary to send back for the next input (with the new user input addition).         |
+| past_user_inputs    | List of strings. The last inputs from the user in the conversation, <em>after the model has run.   |
+| generated_responses | List of strings. The last outputs from the model in the conversation, <em>after the model has run. |
+
+### Feature Extraction task
+
+This task reads some text and outputs raw float values, that are usually
+consumed as part of a semantic database/semantic search.
+
+<Tip>
+
+**Recommended model**:
+[Sentence-transformers](https://huggingface.co/sentence-transformers/paraphrase-xlm-r-multilingual-v1).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+[Sentence-transformers](https://github.com/UKPLab/sentence-transformers)
+
+Request:
+
+| All parameters         |                                                                                                                                                                                                                                                                                                                                                                                               |
+| :--------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **inputs** (required): | a string or a list of strings to get the features from.                                                                                                                                                                                                                                                                                                                                       |
+| **options**            | a dict containing the following keys:                                                                                                                                                                                                                                                                                                                                                         |
+| use_cache              | (Default: `true`). Boolean. There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. |
+| wait_for_model         | (Default: `false`) Boolean. If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.                                                                                      |
+
+Return value is either a dict or a list of dicts if you sent a list of inputs
+
+| Returned values                                 |                                                                |
+| :---------------------------------------------- | :------------------------------------------------------------- |
+| **A list of float (or list of list of floats)** | The numbers that are the representation features of the input. |
+
+<small>
+  Returned values are a list of floats, or a list of list of floats (depending
+  on if you sent a string or a list of string, and if the automatic reduction,
+  usually mean_pooling for instance was applied for you or not. This should be
+  explained on the model's README.
+</small>
+
+## Audio
+
+### Automatic Speech Recognition task
+
+This task reads some audio input and outputs the said words within the
+audio files.
+
+<Tip>
+
+**Recommended model**: [Check your
+langage](https://huggingface.co/models?pipeline_tag=automatic-speech-recognition).
+
+</Tip>
+
+<Tip>
+
+**English**:
+[facebook/wav2vec2-large-960h-lv60-self](https://huggingface.co/facebook/wav2vec2-large-960h-lv60-self).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+[ESPnet](https://github.com/espnet/espnet) and
+[SpeechBrain](https://github.com/speechbrain/speechbrain)
+
+Request:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START asr_inference",
+"end-before": "END asr_inference",
+"dedent": 12}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_asr_inference",
+"end-before": "END node_asr_inference",
+"dedent": 12}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_asr_inference",
+"end-before": "END curl_asr_inference",
+"dedent": 12}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a binary payload that simply
+contains your audio file. We try to support most formats (Flac, Wav,
+Mp3, Ogg etc\...). And we automatically rescale the sampling rate to the
+appropriate rate for the given model (usually 16KHz).
+
+| All parameters              |                                                                                       |
+| :-------------------------- | :------------------------------------------------------------------------------------ |
+| **no parameter** (required) | a binary representation of the audio file. No other parameters are currently allowed. |
+
+Return value is either a dict or a list of dicts if you sent a list of inputs
+
+Response:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START asr_inference_answer",
+"end-before": "END asr_inference_answer",
+"dedent": 12}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values |                                                       |
+| :-------------- | :---------------------------------------------------- |
+| **text**        | The string that was recognized within the audio file. |
+
+### Audio Classification task
+
+This task reads some audio input and outputs the likelihood of classes.
+
+<Tip>
+
+**Recommended model**:
+[superb/hubert-large-superb-er](https://huggingface.co/superb/hubert-large-superb-er).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+[SpeechBrain](https://github.com/speechbrain/speechbrain)
+
+Request:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START aud_cls_inference",
+"end-before": "END aud_cls_inference",
+"dedent": 12}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_aud_cls_inference",
+"end-before": "END node_aud_cls_inference",
+"dedent": 12}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_aud_cls_inference",
+"end-before": "END curl_aud_cls_inference",
+"dedent": 12}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a binary payload that simply
+contains your audio file. We try to support most formats (Flac, Wav,
+Mp3, Ogg etc\...). And we automatically rescale the sampling rate to the
+appropriate rate for the given model (usually 16KHz).
+
+| All parameters              |                                                                                       |
+| :-------------------------- | :------------------------------------------------------------------------------------ |
+| **no parameter** (required) | a binary representation of the audio file. No other parameters are currently allowed. |
+
+Return value is a dict
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START aud_cls_inference_answer",
+"end-before": "END aud_cls_inference_answer",
+"dedent": 12}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values |                                                                                     |
+| :-------------- | :---------------------------------------------------------------------------------- |
+| **label**       | The label for the class (model specific)                                            |
+| **score**       | A float that represents how likely it is that the audio file belongs to this class. |
+
+## Computer Vision
+
+### Image Classification task
+
+This task reads some image input and outputs the likelihood of classes.
+
+<Tip>
+
+**Recommended model**:
+[google/vit-base-patch16-224](https://huggingface.co/google/vit-base-patch16-224).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+
+Request:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START img_cls_inference",
+"end-before": "END img_cls_inference",
+"dedent": 12}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_img_cls_inference",
+"end-before": "END node_img_cls_inference",
+"dedent": 12}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_img_cls_inference",
+"end-before": "END curl_img_cls_inference",
+"dedent": 12}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a binary payload that simply
+contains your image file. We support all image formats [Pillow
+supports](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).
+
+| All parameters              |                                                                                       |
+| :-------------------------- | :------------------------------------------------------------------------------------ |
+| **no parameter** (required) | a binary representation of the image file. No other parameters are currently allowed. |
+
+Return value is a dict
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START img_cls_inference_answer",
+"end-before": "END img_cls_inference_answer",
+"dedent": 12}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values |                                                                                     |
+| :-------------- | :---------------------------------------------------------------------------------- |
+| **label**       | The label for the class (model specific)                                            |
+| **score**       | A float that represents how likely it is that the image file belongs to this class. |
+
+### Object Detection task
+
+This task reads some image input and outputs the likelihood of classes &
+bounding boxes of detected objects.
+
+<Tip>
+
+**Recommended model**:
+[facebook/detr-resnet-50](https://huggingface.co/facebook/detr-resnet-50).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+
+Request:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START obj_det_inference",
+"end-before": "END obj_det_inference",
+"dedent": 12}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_obj_det_inference",
+"end-before": "END node_obj_det_inference",
+"dedent": 12}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_obj_det_inference",
+"end-before": "END curl_obj_det_inference",
+"dedent": 12}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a binary payload that simply
+contains your image file. We support all image formats [Pillow
+supports](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).
+
+| All parameters              |                                                                                       |
+| :-------------------------- | :------------------------------------------------------------------------------------ |
+| **no parameter** (required) | a binary representation of the image file. No other parameters are currently allowed. |
+
+Return value is a dict
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START obj_det_inference_answer",
+"end-before": "END obj_det_inference_answer",
+"dedent": 12}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values |                                                                                               |
+| :-------------- | :-------------------------------------------------------------------------------------------- |
+| **label**       | The label for the class (model specific) of a detected object.                                |
+| **score**       | A float that represents how likely it is that the detected object belongs to the given class. |
+| **box**         | A dict (with keys [xmin,ymin,xmax,ymax]) representing the bounding box of a detected object.  |
+
+### Image Segmentation task
+
+This task reads some image input and outputs the likelihood of classes &
+bounding boxes of detected objects.
+
+<Tip>
+
+**Recommended model**:
+[facebook/detr-resnet-50-panoptic](https://huggingface.co/facebook/detr-resnet-50-panoptic).
+
+</Tip>
+
+Available with: [🤗 Transformers](https://github.com/huggingface/transformers)
+
+Request:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START img_seg_inference",
+"end-before": "END img_seg_inference",
+"dedent": 12}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_img_seg_inference",
+"end-before": "END node_img_seg_inference",
+"dedent": 12}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_img_seg_inference",
+"end-before": "END curl_img_seg_inference",
+"dedent": 12}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+When sending your request, you should send a binary payload that simply
+contains your image file. We support all image formats [Pillow
+supports](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).
+
+| All parameters              |                                                                                       |
+| :-------------------------- | :------------------------------------------------------------------------------------ |
+| **no parameter** (required) | a binary representation of the image file. No other parameters are currently allowed. |
+
+Return value is a dict
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START img_seg_inference_answer",
+"end-before": "END img_seg_inference_answer",
+"dedent": 12}
+</literalinclude>
+</python>
+</inferencesnippet>
+
+| Returned values |                                                                                                |
+| :-------------- | :--------------------------------------------------------------------------------------------- |
+| **label**       | The label for the class (model specific) of a segment.                                         |
+| **score**       | A float that represents how likely it is that the segment belongs to the given class.          |
+| **mask**        | A str (base64 str of a single channel black-and-white img) representing the mask of a segment. |

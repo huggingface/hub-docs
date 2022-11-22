@@ -1,0 +1,119 @@
+# Parallelism and batch jobs
+
+In order to get your answers as quickly as possible, you probably want
+to run some kind of parallelism on your jobs.
+
+There are two options at your disposal for this.
+
+- The streaming option
+- The dataset option
+
+## Streaming
+
+In order to maximize the speed of inference, instead of running many
+HTTP requests it will be more efficient to stream your data to the API.
+This will require the use of websockets on your end. Internally we're
+using a queue system where machines can variously pull work, seamlessly
+using parallelism for you. **This is meant as a batching mechanism and a
+single stream should be open at any give time**. If multiple streams are
+open, requests will go to either without any guarantee. This is intended
+as it allows recovering from a stream cut. Simply reinitializing the
+stream will recover results, everything that was sent is being processed
+even if you are not connected anymore. So make sure you don't send item
+multiple times other wise you will be billed multiple times.
+
+Here is a small example:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_parallelism.py",
+"language": "python",
+"start-after": "START python_parallelism",
+"end-before": "END python_parallelism",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_parallelism.py",
+"language": "js",
+"start-after": "START node_parallelism",
+"end-before": "END node_parallelism",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_parallelism.py",
+"language": "bash",
+"start-after": "START curl_parallelism",
+"end-before": "END curl_parallelism",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+The messages you need to send need to contain inputs keys.
+
+Optionnally you can specifiy id key that will be sent back
+with the result. We try to maintain the ordering of results as you sent,
+but it's better to be sure, the id key is there for that.
+
+Optionnally, you can specify parameters key that
+corresponds to `detailed_parameters` of
+the pipeline you are using.
+
+The received messages will _always_ contain a type key.
+
+- status message: These messages will contain a
+  message key that will inform you about the current
+  status of the job
+- results message: These messages will contain the
+  actual results of the computation. id will contain the
+  id you have sent (or one will be generated automatically).
+  outputs will contain the result like it would be sent
+  by the HTTP endpoint. See `detailed_parameters` for more information.
+
+## Dataset
+
+If you are running regularly against the same dataset to check
+differences between models or drifts we recommend using a
+[dataset](https://huggingface.co/docs/datasets/) .
+
+Or use any of the 2000 available datasets:
+[here](https://huggingface.co/datasets).
+
+The outputs of this method will automatically create a private dataset
+on your account, and use git mechanisms to store versions of the various
+outputs.
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_parallelism.py",
+"language": "python",
+"start-after": "START python_parallelism_datasets",
+"end-before": "END python_parallelism_datasets",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_parallelism.py",
+"language": "node",
+"start-after": "START node_parallelism_datasets",
+"end-before": "END node_parallelism_datasets",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_parallelism.py",
+"language": "bash",
+"start-after": "START curl_parallelism_datasets",
+"end-before": "END curl_parallelism_datasets",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>

@@ -1,0 +1,107 @@
+# Overview
+
+Let's have a quick look at the 🤗 Hosted Inference API.
+
+## Main features:
+
+- Leverage **80,000+ Transformer models** (T5, Blenderbot, Bart, GPT-2, Pegasus\...)
+- Upload, manage and serve your **own models privately**
+- Run Classification, NER, Conversational, Summarization, Translation, Question-Answering, Embeddings Extraction tasks
+- Get up to **10x inference speedup** to reduce user latency
+- Accelerated inference for a number of supported models on CPU
+- Run **large models** that are challenging to deploy in production
+- Scale up to 1,000 requests per second with **automatic scaling** built-in
+- **Ship new NLP, CV, Audio, or RL features faster** as new models become available
+- Build your business on a platform powered by the reference open source project in ML
+
+## Get your API Token
+
+To get started you need to:
+
+- [Register](https://huggingface.co/join) or [Login](https://huggingface.co/login).
+- Get a User Access or API token [in your Hugging Face profile settings](https://huggingface.co/settings/tokens).
+
+You should see a token `hf_xxxxx` (old tokens are `api_XXXXXXXX` or `api_org_XXXXXXX`).
+
+If you do not submit your API token when sending requests to the API,
+you will not be able to run inference on your private models.
+
+## Running Inference with API Requests
+
+The first step is to choose which model you are going to run. Go to the
+[Model Hub](https://huggingface.co/models) and select the model you want
+to use. If you are unsure where to start, make sure to check the
+[recommended models for each ML
+task](https://api-inference.huggingface.co/docs/python/html/detailed_parameters.html#detailed-parameters)
+available, or the [Tasks](https://huggingface.co/tasks) overview.
+
+```
+ENDPOINT = https://api-inference.huggingface.co/models/<MODEL_ID>
+```
+
+Let's use [gpt2](https://huggingface.co/gpt2) as an example. To run
+inference, simply use this code:
+
+<inferencesnippet>
+<python>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "python",
+"start-after": "START simple_inference",
+"end-before": "END simple_inference",
+"dedent": 8}
+</literalinclude>
+</python>
+<js>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "node",
+"start-after": "START node_simple_inference",
+"end-before": "END node_simple_inference",
+"dedent": 8}
+</literalinclude>
+</js>
+<curl>
+<literalinclude>
+{"path": "../../tests/documentation/test_inference.py",
+"language": "bash",
+"start-after": "START curl_simple_inference",
+"end-before": "END curl_simple_inference",
+"dedent": 8}
+</literalinclude>
+</curl>
+</inferencesnippet>
+
+## API Options and Parameters
+
+Depending on the task (aka pipeline) the model is configured for, the
+request will accept specific parameters. When sending requests to run
+any model, API options allow you to specify the caching and model
+loading behavior. All API options and
+parameters are detailed here [`detailed_parameters`](detailed_parameters).
+
+## Using CPU-Accelerated Inference
+
+As an API customer, your API token will automatically enable CPU-Accelerated inference on your requests if the model type is supported. For instance, if you compare
+gpt2 model inference through our API with
+CPU-Acceleration, compared to running inference on the model out of the
+box on a local setup, you should measure a **\~10x speedup**. The
+specific performance boost depends on the model and input payload (and
+your local hardware).
+
+To verify you are using the CPU-Accelerated version of a model you can
+check the x-compute-type header of your requests, which
+should be cpu+optimized. If you do not see it, it simply
+means not all optimizations are turned on. This can be for various
+factors; the model might have been added recently to transformers, or
+the model can be optimized in several different ways and the best one
+depends on your use case.
+
+If you contact us at api-enterprise@huggingface.co, we'll be able to
+increase the inference speed for you, depending on your actual use case.
+
+## Model Loading and latency
+
+The Hosted Inference API can serve predictions on-demand from over 100,000 models deployed on the Hugging Face Hub, dynamically loaded on shared infrastructure. If the requested model is not loaded in memory, the Hosted Inference API will start by loading the model into memory and returning a 503 response, before it can respond with the prediction.
+
+If your use case requires large volume or predictable latencies, you can use our paid solution [Inference Endpoints](https://huggingface.co/inference-endpoints) to easily deploy your models on dedicated, fully-managed infrastructure. With Inference Endpoints you can quickly create endpoints on the cloud, region, CPU or GPU compute instance of your choice.

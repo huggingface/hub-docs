@@ -1,0 +1,32 @@
+# More information about the API
+
+## Rate limits
+
+The free Inference API may be rate limited for heavy use cases. We try to balance the loads evenly between all our
+available resources, and favoring steady flows of requests. If your account suddenly sends 10k requests then you're
+likely to receive 503 errors saying models are loading. In order to prevent that, you should instead try to start
+running queries smoothly from 0 to 10k over the course of a few minutes.
+
+## Running private models
+
+You can run private models by default ! If you don't see them on your
+[Hugging Face](https://huggingface.co) page please make sure you are
+logged in. Within the API make sure you include your token, otherwise
+your model will be declared as non existent.
+
+## Running a public model that I do not own
+
+You can. Please check the model card for any licensing issue that might
+arise, but most public models are delivered by researchers and are
+usable within commercial products. But please double check.
+
+## Finetuning a public model
+
+To automatically finetune a model on your data, please try [AutoTrain](https://huggingface.co/autotrain). It's a
+hands-free solution for automatically training and deploying a model; all you have to do is upload your data!
+
+## Running the inference on my infrastructure
+
+To run on premise inference on your own infrastructure, please contact our team to [request a
+demo](https://huggingface.co/platform#form) for more information about our [Private
+Hub](https://huggingface.co/platform). 

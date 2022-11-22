@@ -1,0 +1,14 @@
+- sections:
+    - local: index
+      title: 🤗 Accelerated Inference API
+    - local: quicktour
+      title: Overview
+    - local: detailed_parameters
+      title: Detailed parameters
+    - local: parallelism
+      title: Parallelism and batch jobs
+    - local: usage
+      title: Detailed usage and pinned models
+    - local: faq
+      title: More information about the API
+  title: Getting started
