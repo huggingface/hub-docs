@@ -107,7 +107,7 @@
 		let { Prediction, ...tableWithoutOutput } =
 			convertTableToData(tableWithOutput);
 
-		if (shouldUpdateUrl) {
+		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
 				data: JSON.stringify(tableWithoutOutput),
 			});
