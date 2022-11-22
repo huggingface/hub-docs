@@ -13,10 +13,24 @@ The data in this learning paradigm consists of
 
 ## Use Cases
 
-
 ### Image Retrieval
 Zero-shot learning resolves several challenges in image retrieval systems. For example, with the rapid growth of categories on the web, it is challenging to index images based on unseen categories, With zero-shot learning we can associate unseen categories to images by exploiting attributes to model the relationships among visual features and labels.
 
-
 ### Action Recognition
 Action recognition is the task of identifying when a person in an image/video is performing a given action from a set of actions. If all the possible actions are not known beforehand, conventional deep learning models fail. With zero-shot learning, for a given domain of a set of actions, we can create a mapping connecting low-level features and a semantic description of auxiliary data to classify unknown classes of actions.
+
+
+## Task Variants 
+
+You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/zero-shot-image-classification/about.md).
+
+## Inference
+
+You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/zero-shot-image-classification/about.md) that shows how to infer with `zero-shot-image-classification` models.
+
+## Useful Resources
+
+You can contribute useful resources about this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/zero-shot-image-classification/about.md).
+
+This page was made possible thanks to the efforts of [Shamima Hossain](https://huggingface.co/Shamima).
+

@@ -16,7 +16,7 @@ defaults:
     working-directory: js
 
 jobs:
-  version_and_release:
+  manual_lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

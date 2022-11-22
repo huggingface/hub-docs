@@ -68,7 +68,10 @@
 		}
 	}
 
-	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+	} = {}) {
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			return;
@@ -107,7 +110,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error;
 		}
@@ -158,7 +161,7 @@
 			filename = example_title ?? "";
 			fileUrl = src;
 			selectedSampleUrl = src;
-			getOutput(false, true);
+			getOutput({ isOnLoadCall: true });
 		}
 	});
 </script>

@@ -14,6 +14,7 @@ export enum ModelLibrary {
 	"flair"                  = "Flair",
 	"keras"                  = "Keras",
 	"nemo"                   = "NeMo",
+	"paddlenlp"              = "PaddleNLP",
 	"pyannote-audio"         = "pyannote.audio",
 	"sentence-transformers"  = "Sentence Transformers",
 	"sklearn"                = "Scikit-learn",
@@ -147,6 +148,15 @@ const keras = (model: ModelData) =>
 
 model = from_pretrained_keras("${model.id}")
 `;
+
+const paddlenlp = (model: ModelData) => {
+	return [
+	  `from paddlenlp.transformers import AutoModel, AutoTokenizer`,
+	  "",
+	  `tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`, 
+	  `model = AutoModel.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
+        ].join("\n");
+};
 
 const pyannote_audio_pipeline = (model: ModelData) =>
 	`from pyannote.audio import Pipeline
@@ -432,6 +442,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "NeMo",
 		repoUrl:  "https://github.com/NVIDIA/NeMo",
 		snippet:  nemo,
+	},
+	"paddlenlp": {
+		btnLabel: "paddlenlp",
+		repoName: "PaddleNLP",
+		repoUrl:  "https://github.com/PaddlePaddle/PaddleNLP",
+		snippet:  paddlenlp,
 	},
 	"pyannote-audio": {
 		btnLabel: "pyannote.audio",

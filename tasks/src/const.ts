@@ -9,6 +9,7 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof Mode
 	"audio-to-audio":                 ["asteroid", "speechbrain"],
 	"automatic-speech-recognition":   ["espnet", "nemo", "speechbrain", "transformers"],
 	"conversational":                 ["transformers"],
+	"depth-estimation":               ["transformers"],
 	"document-question-answering":    ["transformers"],
 	"feature-extraction":             ["sentence-transformers", "transformers"],
 	"fill-mask":                      ["transformers"],
