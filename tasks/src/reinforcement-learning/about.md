@@ -7,6 +7,7 @@ Reinforcement learning is known for its application to video games. Since the ga
 
 There are many videos on the Internet where a game-playing reinforcement learning agent starts with a terrible gaming strategy due to random initialization of its settings, but over iterations, the agent gets better and better with each episode of the training. This [paper](https://arxiv.org/abs/1912.10944) mainly investigates the performance of RL in popular games such as Minecraft or Dota2. The agent's performance can exceed a human player's, although there are still some challenges mainly related to efficiency in constructing the gaming policy of the reinforcement learning agent.
 
+
 ### Trading and Finance
 Reinforcement learning is the science to train computers to make decisions and thus has a novel use in trading and finance. All time-series models are helpful in predicting prices, volume and future sales of a product or a stock. Reinforcement based automated agents can decide to sell, buy or hold a stock. It shifts the impact of AI in this field to real time decision making rather than just prediction of prices. The glossary given below will clear some parameters to as to how we can train a model to take these decisions.
 
@@ -27,7 +28,13 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 **Environment:** The part of the world the agent interacts, comprising everything outside the agent.
 
 
-**State:** It is the summary of information presented as the function of history of actions,observations and rewards . In the case of a video game it can be a frame (a screenshot), in the case of a chess playing agent it can be the board position, in the case of a trading agent it can be the price of a certain stock.
+Observations/States are the information our agent gets from the environment. In the case of a video game, it can be a frame (a screenshot). In the case of the trading agent, it can be the value of a certain stock, etc.
+
+
+**State s:** is a complete description of the state of the world (there is no hidden information). In a fully observed environment.
+
+
+**Observation o:** is a partial description of the state. In a partially observed environment.
 
 
 **Action:** The decision taken by the agent.
@@ -35,14 +42,15 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 
 **Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action.
 
-**Observation:** The agent at each step receives a reward and an observation from the environment. This is because the agent can't understand the state of the environment, hence it receives an observation as a result of it's action taken by it at the preceding step.
 
 **Return:** Cumulative Reward.  In the simplest case, the return is the sum of the rewards.
 
 
 **Episode:** For some applications there is a natural notion of final time step.  In this case, there is a starting point and an ending point (a terminal state). This creates an episode: a list of States, Actions, Rewards, and new States. For instance, think about Chess: an episode begins at the initial board position and ends when the game is over.
 
+
 **Policy:** The Policy is the brain of the Agent, it’s the function that tells what action to take given the state. So it defines the agent’s behavior at a given time. Reinforcement learning methods specify how the agent’s policy is changed as a result of its experience.
+
 
 ## Inference
 
