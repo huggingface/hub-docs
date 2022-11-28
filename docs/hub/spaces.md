@@ -15,6 +15,7 @@ You'll also be able to upgrade your Space to run [on a GPU or other accelerated 
   - [Using Spaces for Organization Cards](./spaces-organization-cards)
   - [More ways to create Spaces](./spaces-more-ways-to-create)
   - [Managing Spaces with Github Actions](./spaces-github-actions)
+  - [How to Add a Space to ArXiv](./arxiv)
 - [Spaces GPU Upgrades](./spaces-gpus)
 - [Gradio Spaces](./spaces-sdks-gradio)
 - [Streamlit Spaces](./spaces-sdks-streamlit)
