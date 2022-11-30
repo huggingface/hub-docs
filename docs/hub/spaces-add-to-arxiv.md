@@ -14,7 +14,7 @@ We'll cover the steps on how to add your Space to ArXiv and have it show up in  
 * The paper is **associated with a model or a dataset** that is on the Hugging Face Hub (or can be uploaded there)
 * You have built or (can build) a demo for the model or the dataset on Spaces
 
-**Steps to Add Your Space**
+**Steps to Add Your Space to ArXiv**
 
 1. First, upload the model or dataset associated with the ArXiv paper onto the Hugging Face Hub if it is not already there. ([Detailed instructions are here](./models-uploading))
 
