@@ -25,7 +25,7 @@ We'll cover the steps on how to add your Space to ArXiv and have it show up in  
 
 3. Then, create a demo on Spaces that loads this model. Somewhere within the code, the full path to the model must be included in order for Hugging Face to detect that a Space is associated with a particular model.
 
-    For example, the [docformer_for_document_classification](https://huggingface.co/spaces/iakarshu/docformer_for_document_classification) Space loads the LayoutLM [like this](https://huggingface.co/spaces/iakarshu/docformer_for_document_classification/blob/main/modeling.py#L484):
+    For example, the [docformer_for_document_classification](https://huggingface.co/spaces/iakarshu/docformer_for_document_classification) Space loads the LayoutLM [like this](https://huggingface.co/spaces/iakarshu/docformer_for_document_classification/blob/main/modeling.py#L484) and include the string `"microsoft/layoutlm-base-uncased"`:
 
     ```py
     from transformers import LayoutLMForTokenClassification
