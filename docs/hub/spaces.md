@@ -20,6 +20,7 @@ You'll also be able to upgrade your Space to run [on a GPU or other accelerated 
 - [Streamlit Spaces](./spaces-sdks-streamlit)
 - [Static HTML Spaces](./spaces-sdks-static)
 - [Custom Python Spaces](./spaces-sdks-python)
+- [Embedding your Space](./spaces-embedding)
 - [Reference](./spaces-config-reference)
 - [Changelog](./spaces-changelog)
 

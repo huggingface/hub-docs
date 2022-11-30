@@ -70,9 +70,9 @@ This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/do
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-hot-dog-streamlit-dark.png"/>
 </div>
 
-## Embed Steamlit Spaces on other webpages
+## Embed Streamlit Spaces on other webpages
 
-You can use the HTML `<iframe>` tag to embed a Streamlit Space as an inline frame on other webpages. Simply include the URL of your Space, ending with the `.hf.space` suffix. To find the URL of your Space, you can use "Inspect element" in your browser, or use the "How to embed" button we'll ship shortly on all Spaces pages.
+You can use the HTML `<iframe>` tag to embed a Streamlit Space as an inline frame on other webpages. Simply include the URL of your Space, ending with the `.hf.space` suffix. To find the URL of your Space, you can use the "Embed this Space" button from the Spaces options.
 
 For example, the demo above can be embedded in these docs with the following tag:
 
@@ -81,3 +81,5 @@ For example, the demo above can be embedded in these docs with the following tag
 ```
 
 <iframe src="https://NimaBoscarino-hotdog-streamlit.hf.space" frameBorder="0" height="600" title="Streamlit app" class="container p-0 flex-grow space-iframe" allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"></iframe>
+
+Additionally, you can checkout [our documentation](./spaces-embedding).

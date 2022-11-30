@@ -51,6 +51,7 @@ The Hugging Face Hub is a platform with over 60K models, 6K datasets, and 6K dem
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-sdks-streamlit">Streamlit Spaces</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-sdks-static">Static HTML Spaces</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-sdks-python">Custom Python Spaces</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-embedding">Embedding your Space</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-config-reference">Reference</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-changelog">Changelog</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-advanced">Advanced Topics</a>
