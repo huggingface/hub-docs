@@ -77,3 +77,19 @@ import tensorflow as tf
 print(tf.config.list_physical_devices('GPU'))
 # [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
 ```
+
+## Billing
+
+Billing on Spaces is based on hardware usage and is minute based.
+
+During its lifecycle a Space is only billed when the Space is actually `Running` meaning that there is no cost during either build or startup.
+
+If during runtime a space starts repeatedly crashing it is automatically suspended hence suspending the billing as well since the Space is no longer `Running`.
+
+Contrary to Spaces using free hardware a Space with upgraded hardware is not suspended automatically if it is not used during an extended period of time. If you wish to interrupt billing on your Space you will need to change its hardware settings back to CPU basic.
+
+<Tip>
+Additional lifecycle control over Spaces with upgraded hardware will soon be provided such as configuration of an automated suspension of the Space after a custom delay.
+</Tip>
+
+Additional information about can be found in the [dedicated section](./billing).
