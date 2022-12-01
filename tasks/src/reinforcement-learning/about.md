@@ -31,7 +31,8 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 Observations/States are the information our agent gets from the environment. In the case of a video game, it can be a frame (a screenshot). In the case of the trading agent, it can be the value of a certain stock, etc.
 
 
-**State s:** is a complete description of the state of the world (there is no hidden information). In a fully observed environment.
+**State:** Complete description of the state of the environment with no hidden information.
+
 
 
 **Observation o:** is a partial description of the state. In a partially observed environment.
