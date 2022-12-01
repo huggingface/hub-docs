@@ -26,23 +26,35 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 
 ## Inference
 
+The model can be loaded with the zero-shot-image-classification pipeline like so:
 ```python
-# Import pipeline from transformers
 from transformers import pipeline
-
-# More models in the models hub.
+# More models in the model hub.
 model_name = "openai/clip-vit-large-patch14-336"
-
-# Create a zero shot image classification pipeline.
-classifier = pipeline("zero-shot-image-classification", model=model_name)
-
-image_to_classify = "path_to_cat_and_dog_image"
-labels_for_classification =  ["cat and dog", "lion and cheetah"]
-classifier(image_to_classify, candidate_labels = labels_for_classification)
-
-# Output
-[{'score': 0.9999114274978638, 'label': 'cat and dog'},
- {'score': 8.859939407557249e-05, 'label': 'lion and cheetah'}]
+classifier = pipeline("zero-shot-image-classification", model = model_name)
+```
+You can then use this pipeline to classify images into any of the class names you specify. You can specify more than two class labels too.
+```python
+image_to_classify = "path_to_cat_and_dog_image.jpeg"
+labels_for_classification =  ["cat and dog", 
+                              "lion and cheetah", 
+                              "rabbit and lion"]
+scores = classifier(image_to_classify, 
+                    candidate_labels = labels_for_classification)
+```
+The classifier would return a list of dictionaries after the inference which is stored in the variable `scores` in the code snippet above. Variable `scores` would look as follows:
+```python
+[{'score': 0.9950482249259949, 'label': 'cat and dog'},
+{'score': 0.004863627254962921, 'label': 'rabbit and lion'},
+{'score': 8.816882473183796e-05, 'label': 'lion and cheetah'}]
+```
+The dictionary at the zeroth index of the list will contain the label with the highest score.
+```python
+print(f"The highest score is {scores[0]['score']:.3f} for the label {scores[0]['label']}")
+```
+Output
+```
+The highest probability is 0.995 for the label cat and dog
 ```
 
 ## Useful Resources
