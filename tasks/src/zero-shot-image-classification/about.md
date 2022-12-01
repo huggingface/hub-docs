@@ -52,7 +52,7 @@ The dictionary at the zeroth index of the list will contain the label with the h
 ```python
 print(f"The highest score is {scores[0]['score']:.3f} for the label {scores[0]['label']}")
 ```
-Output
+The output from the print statement above would look as follows:
 ```
 The highest probability is 0.995 for the label cat and dog
 ```
