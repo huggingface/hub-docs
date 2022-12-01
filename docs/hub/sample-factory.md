@@ -19,7 +19,7 @@ To install the `sample-factory` library, you need to install the package:
 
 `pip install sample-factory`
 
-SF is known to work on Linux and macOS. There is no Windows support at this time.
+SF is known to work on Linux and MacOS. There is no Windows support at this time.
 
 ## Loading models from the Hub
 ### Using load_from_hub
