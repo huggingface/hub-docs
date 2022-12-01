@@ -16,6 +16,7 @@ export enum ModelLibrary {
 	"nemo"                   = "NeMo",
 	"paddlenlp"              = "PaddleNLP",
 	"pyannote-audio"         = "pyannote.audio",
+	"sample-factory"         = "Sample Factory",
 	"sentence-transformers"  = "Sentence Transformers",
 	"sklearn"                = "Scikit-learn",
 	"spacy"                  = "spaCy",
@@ -249,11 +250,13 @@ model = joblib.load(
 	}
 };
 
-
 const fastai = (model: ModelData) =>
 	`from huggingface_hub import from_pretrained_fastai
 
 learn = from_pretrained_fastai("${model.id}")`;
+
+const sampleFactory = (model: ModelData) =>
+	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d ./train_dir`;
 
 const sentenceTransformers = (model: ModelData) =>
 	`from sentence_transformers import SentenceTransformer
@@ -514,6 +517,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "fastText",
 		repoUrl:  "https://fasttext.cc/",
 		snippet:  fasttext,
+	},
+	"sample-factory": {
+		btnLabel: "sample-factory",
+		repoName: "sample-factory",
+		repoUrl:  "https://github.com/alex-petrenko/sample-factory",
+		snippet:  sampleFactory,
 	},
 	"stable-baselines3": {
 		btnLabel: "stable-baselines3",
