@@ -26,7 +26,24 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 
 ## Inference
 
-You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/zero-shot-image-classification/about.md) that shows how to infer with `zero-shot-image-classification` models.
+```python
+# Import pipeline from transformers
+from transformers import pipeline
+
+# More models in the models hub.
+model_name = "openai/clip-vit-large-patch14-336"
+
+# Create a zero shot image classification pipeline.
+classifier = pipeline("zero-shot-image-classification", model=model_name)
+
+image_to_classify = "path_to_cat_and_dog_image"
+labels_for_classification =  ["cat and dog", "lion and cheetah"]
+classifier(image_to_classify, labels_for_classification)
+
+# Output
+[{'score': 0.9999114274978638, 'label': 'cat and dog'},
+ {'score': 8.859939407557249e-05, 'label': 'lion and cheetah'}]
+```
 
 ## Useful Resources
 
