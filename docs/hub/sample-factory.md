@@ -32,7 +32,7 @@ python -m sample_factory.huggingface.load_from_hub -r <HuggingFace_repo_id> -d <
 
 The command line arguments are:
 
-- `-r`: The repo ID for the HF repository to download. The repo ID should be in the format `<username>/<repo_name>`
+- `-r`: The repo ID for the HF repository to download from. The repo ID should be in the format `<username>/<repo_name>`
 - `-d`: An optional argument to specify the directory to save the experiment to. Defaults to `./train_dir` which will save the repo to `./train_dir/<repo_name>`
 
 ### Download Model Repository Directly
