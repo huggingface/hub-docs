@@ -1,6 +1,6 @@
 # Using sample-factory at Hugging Face
 
-`sample-factory` <a href="https://github.com/alex-petrenko/sample-factory">is a codebase for high throughput asynchronous reinforcement learning</a>. It has integrations with the Hugging Face Hub to share models with evaluation results and training metrics.
+[`sample-factory`](https://github.com/alex-petrenko/sample-factory) is a codebase for high throughput asynchronous reinforcement learning. It has integrations with the Hugging Face Hub to share models with evaluation results and training metrics.
 
 
 ## Exploring sample-factory in the Hub
