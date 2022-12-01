@@ -35,7 +35,8 @@ Observations/States are the information our agent gets from the environment. In 
 
 
 
-**Observation o:** is a partial description of the state. In a partially observed environment.
+**Observation:** Partial description of the state, in a partially observed environment.
+
 
 
 **Action:** The decision taken by the agent.
