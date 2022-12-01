@@ -23,7 +23,7 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof Mode
 	"other":                          [],
 	"question-answering":             ["adapter-transformers", "allennlp", "transformers"],
 	"robotics":                       [],
-	"reinforcement-learning":         ["transformers", "stable-baselines3", "ml-agents"],
+	"reinforcement-learning":         ["transformers", "stable-baselines3", "ml-agents", "sample-factory"],
 	"sentence-similarity":            ["sentence-transformers", "spacy"],
 	"summarization":                  ["transformers"],
 	"table-question-answering":       ["transformers"],
