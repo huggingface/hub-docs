@@ -59,13 +59,12 @@ Note, you may have to specify the `--train_dir` if your local train_dir has a di
 If you want to upload without generating evaluation metrics or a replay video, you can use the `push_to_hub` script:
 
 ```
-python -m sample_factory.huggingface.push_to_hub -r <hf_repo_name> -u <hf_username> -d <experiment_dir_path>
+python -m sample_factory.huggingface.push_to_hub -r <hf_username>/<hf_repo_name> -d <experiment_dir_path>
 ```
 
 The command line arguments are:
 
-- `-r`: The repo's name to save on Hub. This is the same as `hf_repository` in the enjoy script
-- `-u`: Your Hugging Face username or organization where to save the models
+- `-r`: The repo_id to save on HF Hub. This is the same as `hf_repository` in the enjoy script and must be in the form `<hf_username>/<hf_repo_name>`
 - `-d`: The full path to your experiment directory to upload
 
 
