@@ -1,8 +1,10 @@
+![paddlenlp-banner](https://user-images.githubusercontent.com/1371212/175816733-8ec25eb0-9af3-4380-9218-27c154518258.png)
+
 # Using PaddleNLP at Hugging Face
 
 Leveraging the [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) framework, [`PaddleNLP`](https://github.com/PaddlePaddle/PaddleNLP) is an easy-to-use and powerful NLP library with awesome pre-trained model zoo, supporting wide-range of NLP tasks from research to industrial applications.
 
-## Exploring fastai in the Hub
+## Exploring PaddleNLP in the Hub
 
 You can find `PaddleNLP` models by filtering at the left of the [models page](https://huggingface.co/models?library=paddlenlp&sort=downloads).
 
@@ -14,7 +16,7 @@ All models on the Hub come up with the following features:
 
 ## Installation
 
-You can follow [PaddlePaddle Quick Start](https://www.paddlepaddle.org.cn/en/install) to intall the PaddlePaddle Framework with your favorite OS, Package Manager and Compute Platform.
+To get started, you can follow [PaddlePaddle Quick Start](https://www.paddlepaddle.org.cn/en/install) to intall the PaddlePaddle Framework with your favorite OS, Package Manager and Compute Platform.
 
 `PaddleNLP` offers a quick one-line install through pip
 
@@ -37,7 +39,6 @@ tokenizer = AutoTokenizer.from_pretrained("PaddlePaddle/ernie-1.0-base-zh", from
 model = AutoModelForMaskedLM.from_pretrained("PaddlePaddle/ernie-1.0-base-zh", from_hf_hub=True)
 ```
 
-TODO: 
 If you want to see how to load a specific model, you can click `Use in paddlenlp` and you will be given a working snippet that you can load it! 
 
 <div class="flex justify-center">
@@ -51,13 +52,16 @@ If you want to see how to load a specific model, you can click `Use in paddlenlp
 
 ## Sharing your models
 
-TODO: 
-You can share your `PaddleNLP` models by using the `push_to_hub_fastai` method.
+You can share your `PaddleNLP` models by using the `save_to_hf_hub` method under all `Model` and `Tokenizer` class.
 
 ```py
-from huggingface_hub import push_to_hub_fastai
+from paddlenlp.transformers import AutoTokenizer, AutoModelForMaskedLM
 
-push_to_hub_fastai(learner=learn, repo_id="espejelomar/identify-my-cat")
+tokenizer = AutoTokenizer.from_pretrained("PaddlePaddle/ernie-1.0-base-zh", from_hf_hub=True)
+model = AutoModelForMaskedLM.from_pretrained("PaddlePaddle/ernie-1.0-base-zh", from_hf_hub=True)
+
+tokenizer.save_to_hf_hub(repo_id="<my_org_name>/<my_repo_name>")
+model.save_to_hf_hub(repo_id="<my_org_name>/<my_repo_name>")
 ```
 
 
@@ -65,3 +69,4 @@ push_to_hub_fastai(learner=learn, repo_id="espejelomar/identify-my-cat")
 
 * PaddlePaddle Installation [guide](https://www.paddlepaddle.org.cn/en/install).
 * PaddleNLP [GitHub Repo](https://github.com/PaddlePaddle/PaddleNLP).
+* [PaddlePaddle on Huggingface Hub](https://huggingface.co/PaddlePaddle)
