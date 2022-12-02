@@ -137,7 +137,9 @@
     - local: spaces-more-ways-to-create
       title: More ways to create Spaces
     - local: spaces-github-actions
-      title: Managing Spaces with Github Actions      
+      title: Managing Spaces with Github Actions 
+    - local: spaces-add-to-arxiv
+      title: How to Add a Space to ArXiv      
 - local: other
   title: Other
   isExpanded: true
