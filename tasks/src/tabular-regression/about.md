@@ -10,7 +10,6 @@ Whenever we have a set of variables recorded in a table and use them, we try to 
 
 - **Filling Missing Values**:
   - In real-world applications, due to human error or other reasons, some of the input values can be missing or there might not be any recorded data. 
-  - Considering the example above, say the shopkeeper's watch was broken and they forgot to calculate the `hours` for which the shop was open. This will lead to a missing value in their dataset.
 
 ## Metrics Used
 
