@@ -31,7 +31,6 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 Observations and states are the information our agent gets from the environment. In the case of a video game, it can be a frame (a screenshot). In the case of the trading agent, it can be the value of a certain stock.
 
 
-
 **State:** Complete description of the state of the environment with no hidden information.
 
 
