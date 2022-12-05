@@ -18,11 +18,11 @@ Whenever we have a set of variables recorded in a table and use them, we try to 
 
 Say you have your data in this format:
 
-| Feature 1 | Feature 2 | Feature 3 | Target Variable |
-|-----------|-----------|-----------|-----------------|
-|           |           |           |                 |
-|           |           |           |                 |
-|           |           |           |                 |
+| Feature 1 | Feature 2 | Feature 3 | Target<br>Variable |
+|---|---|---|---|
+| ... |...  |...  |... |
+| ... | ... | ... | ... |
+| ... | ... | ... | ... |
 
 Then you can create a simple regression model as follows:
 
