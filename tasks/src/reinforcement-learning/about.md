@@ -35,7 +35,6 @@ Observations and states are the information our agent gets from the environment.
 **State:** Complete description of the state of the environment with no hidden information.
 
 
-
 **Observation:** Partial description of the state, in a partially observed environment.
 
 
