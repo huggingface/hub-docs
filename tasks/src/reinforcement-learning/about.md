@@ -40,7 +40,6 @@ Observations and states are the information our agent gets from the environment.
 
 **Action:** The decision taken by the agent.
 
-
 **Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action.
 
 
