@@ -30,4 +30,3 @@ Whenever we have a set of variables recorded in a table and use them, we try to 
 - Intermediate level tutorials on tabular regression:
     - [A Short Chronology of Deep Learning for Tabular Data](https://sebastianraschka.com/blog/2022/deep-learning-for-tabular-data.html) by Sebastian Raschka.
 
-### Training your own model in just a few seconds
