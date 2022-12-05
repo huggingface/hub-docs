@@ -16,6 +16,27 @@ Whenever we have a set of variables recorded in a table and use them, we try to 
 ## Inference
 [Here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/tabular-regression/about.md) you can add a small snippet that shows how to infer a tabular regression model.
 
+Say you have your data in this format:
+
+| Feature 1 | Feature 2 | Feature 3 | Target Variable |
+|-----------|-----------|-----------|-----------------|
+|           |           |           |                 |
+|           |           |           |                 |
+|           |           |           |                 |
+
+Then you can create a simple regression model as follows:
+
+```python
+#set the input features
+X = data[["Feature 1", "Feature 2", "Feature 3"]]
+#set the target variable
+y = data["Target Variable"]
+#initialize the model
+model = LinearRegression()
+#Fit the model
+model.fit(X, y)
+```
+
 
 ## Useful Resources
 
