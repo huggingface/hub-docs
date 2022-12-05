@@ -38,7 +38,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"audio-classification":           getData("audio-classification", audioClassification),
 	"audio-to-audio":                 getData("audio-to-audio", audioToAudio),
 	"automatic-speech-recognition":   getData("automatic-speech-recognition", automaticSpeechRecognition),
-	"conversational":                 getData("conversational"),
+	"conversational":                 getData("conversational", conversational),
 	"depth-estimation":               getData("depth-estimation", depthEstimation),
 	"document-question-answering":    getData("document-question-answering", documentQuestionAnswering),
 	"feature-extraction":             getData("feature-extraction"),
