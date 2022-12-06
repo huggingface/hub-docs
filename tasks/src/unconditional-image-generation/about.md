@@ -15,13 +15,13 @@ Unconditional image generation can be used for a variety of applications, includ
 
 Artistic expression: Unconditional image generation can be used to create novel, original artwork that is not based on any existing images. This can be used to explore new creative possibilities and produce unique, imaginative images.
 
-Data augmentation: Unconditional image generation can be used to generate new images that can be added to a dataset to improve the performance of image recognition algorithms. This can help to make the algorithms more robust and better able to handle a wider range of images.
+Data augmentation: It can be used to generate new images that can be added to a dataset to improve the performance of image recognition algorithms. This can help to make the algorithms more robust and better able to handle a wider range of images.
 
-Virtual reality: Unconditional image generation can be used to create photorealistic images that can be used in virtual reality environments. This can help to make the VR experience more immersive and realistic.
+Virtual reality: It can be used to create photorealistic images that can be used in virtual reality environments. This can help to make the VR experience more immersive and realistic.
 
-Medical imaging: Unconditional image generation can be used to generate new medical images, such as CT or MRI scans, that can be used to train and evaluate medical image analysis algorithms. This can help to improve the accuracy and reliability of these algorithms.
+Medical imaging: It can be used to generate new medical images, such as CT or MRI scans, that can be used to train and evaluate medical image analysis algorithms. This can help to improve the accuracy and reliability of these algorithms.
 
-Design: Unconditional image generation can be used to generate new designs for products, such as clothing or furniture, that are not based on any existing designs. This can help designers to explore new creative possibilities and produce unique, innovative designs.
+Design: It can be used to generate new designs for products, such as clothing or furniture, that are not based on any existing designs. This can help designers to explore new creative possibilities and produce unique, innovative designs.
 
 ## Model Hosting and Inference
 
