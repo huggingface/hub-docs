@@ -199,6 +199,9 @@ _Results should be based on the Factors and Metrics defined above._
 
 ### Summary
 
+
+{{ results_summary | default("", true)}}
+
 _What do the results say? This can function as a kind of tl;dr for general audiences._
 
 # Model Examination [optional]
