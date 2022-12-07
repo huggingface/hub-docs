@@ -16,7 +16,7 @@ This section should have useful information about Model Hosting and Inference
 
 ## Useful Resources
 
-- [Hugging Face Diffusion Models Class](https://github.com/huggingface/diffusion-models-class)
+- [Hugging Face Diffusion Models Course](https://github.com/huggingface/diffusion-models-class)
 - [Getting Started with Diffusers](https://huggingface.co/docs/diffusers/index)
 - [Unconditional Image Generation Training](https://huggingface.co/docs/diffusers/training/unconditional_training)
 
