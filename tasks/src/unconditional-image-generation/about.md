@@ -1,6 +1,6 @@
 ## About the Task
 
-Unconditional image generation is the process of using Artificial Intelligence, specifically Machine learning algorithms to generate new images without any specific input. The main goal of this is to create novel, original images that are not based on existing images.
+Unconditional image generation is the task of generating new images without any specific input. The main goal of this is to create novel, original images that are not based on existing images.
 This can be used for a variety of applications, such as creating new artistic images, improving image recognition algorithms, or generating photorealistic images for virtual reality environments.
 
 Unconditional image generation models usually start with a *seed* that generates a *random noise vector*. The model will then use this vector to create an output image similar to the images used for training the model.
