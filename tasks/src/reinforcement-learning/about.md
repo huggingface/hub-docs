@@ -8,6 +8,11 @@ Reinforcement learning is known for its application to video games. Since the ga
 There are many videos on the Internet where a game-playing reinforcement learning agent starts with a terrible gaming strategy due to random initialization of its settings, but over iterations, the agent gets better and better with each episode of the training. This [paper](https://arxiv.org/abs/1912.10944) mainly investigates the performance of RL in popular games such as Minecraft or Dota2. The agent's performance can exceed a human player's, although there are still some challenges mainly related to efficiency in constructing the gaming policy of the reinforcement learning agent.
 
 
+### Trading and Finance
+Reinforcement learning is the science to train computers to make decisions and thus has a novel use in trading and finance. All time-series models are helpful in predicting prices, volume and future sales of a product or a stock. Reinforcement based automated agents can decide to sell, buy or hold a stock. It shifts the impact of AI in this field to real time decision making rather than just prediction of prices. The glossary given below will clear some parameters to as to how we can train a model to take these decisions.
+
+
+
 ## Task Variants 
 
 You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/reinforcement-learning/about.md).
@@ -23,13 +28,20 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 **Environment:** The part of the world the agent interacts, comprising everything outside the agent.
 
 
-**State:** Information the agent receives from the environment. In the case of a video game it can be a frame (a screenshot), in the case of a chess playing agent it can be the board position, in the case of a trading agent it can be the price of a certain stock.
+Observations and states are the information our agent gets from the environment. In the case of a video game, it can be a frame (a screenshot). In the case of the trading agent, it can be the value of a certain stock.
+
+
+**State:** Complete description of the state of the environment with no hidden information.
+
+
+**Observation:** Partial description of the state, in a partially observed environment.
+
 
 
 **Action:** The decision taken by the agent.
 
+**Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action.
 
-**Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action
 
 **Return:** Cumulative Reward.  In the simplest case, the return is the sum of the rewards.
 
