@@ -31,4 +31,4 @@ You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/
 - [MinImagen - Build Your Own Imagen Text-to-Image Model](https://www.assemblyai.com/blog/minimagen-build-your-own-imagen-text-to-image-model/)
 - [OpenAI Blog - Dall E](https://openai.com/blog/dall-e/)
 
-This page was made possible thanks to efforts of [Ishan Dutta](https://huggingface.co/ishandutta) and [Oğuz Akif](https://huggingface.co/oguzakif).
+This page was made possible thanks to the efforts of [Ishan Dutta](https://huggingface.co/ishandutta), [Enrique Elias Ubaldo](https://huggingface.co/herrius) and [Oğuz Akif](https://huggingface.co/oguzakif).

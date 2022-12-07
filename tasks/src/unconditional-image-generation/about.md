@@ -41,3 +41,5 @@ This section should have useful information about Model Hosting and Inference
 ### Training your own model in just a few seconds
 
 In this area, you can insert useful information about training the model
+
+This page was made possible thanks to the efforts of [Someet Sahoo](https://huggingface.co/Someet24) and [Juan Carlos Piñeros](https://huggingface.co/juancopi81).
