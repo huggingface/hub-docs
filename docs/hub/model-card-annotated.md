@@ -22,7 +22,13 @@ _Instructions are provided below, in italics._
 
 # Model Name
 
-**Section Overview:**  A 1-2 sentence summary of what the model is. 
+**Section Overview:**  Provide the model name and a 1-2 sentence summary of what the model is. 
+
+{{ model_id | default("Model ID", true) }}
+{{ summary | default("", true) }}
+
+# Table of Contents
+**Section Overview:** Provide this with links to each section, to enable people to easily jump around/use the file in other locations with the preserved TOC/print out the content/etc.
 
 # Model Details
 
