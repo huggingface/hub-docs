@@ -22,7 +22,8 @@ Unconditional image generation models can be used to generate new images to impr
 ## Virtual Reality 
 Unconditional image generation models can be used to create photorealistic images that can be used in virtual reality environments. This makes the VR experience more immersive and realistic.
 
-Medical imaging: It can be used to generate new medical images, such as CT or MRI scans, that can be used to train and evaluate medical image analysis algorithms. This can help to improve the accuracy and reliability of these algorithms.
+## Medical Imaging 
+Unconditional image generation models can generate new medical images, such as CT or MRI scans, that can be used to train and evaluate medical imaging algorithms. This can improve the accuracy and reliability of these algorithms.
 
 Design: It can be used to generate new designs for products, such as clothing or furniture, that are not based on any existing designs. This can help designers to explore new creative possibilities and produce unique, innovative designs.
 
