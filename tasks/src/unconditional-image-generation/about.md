@@ -13,7 +13,7 @@ An example of unconditional image generation would be generating the image of a 
 
 Unconditional image generation can be used for a variety of applications.
 
-## Artistic Expression
+## Artistic Expression
 Unconditional image generation can be used to create novel, original artwork that is not based on any existing images. This can be used to explore new creative possibilities and produce unique, imaginative images.
 
 ## Data Augmentation 
@@ -25,14 +25,14 @@ Unconditional image generation models can be used to create photorealistic image
 ## Medical Imaging 
 Unconditional image generation models can generate new medical images, such as CT or MRI scans, that can be used to train and evaluate medical imaging algorithms. This can improve the accuracy and reliability of these algorithms.
 
-## Industrial Design 
+## Industrial Design
 Unconditional image generation models can generate new designs for products, such as clothing or furniture, that are not based on any existing designs. This way, designers can explore new creative possibilities and produce unique, innovative designs.
 
 ## Model Hosting and Inference
 
 This section should have useful information about Model Hosting and Inference
 
-## Useful Resources
+## Useful Resources
 
 In this area, you can insert useful resources about how to train or use a model for this task.
 
