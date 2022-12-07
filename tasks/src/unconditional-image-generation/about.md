@@ -16,7 +16,8 @@ Unconditional image generation can be used for a variety of applications, includ
 ## Artistic Expression
 Unconditional image generation can be used to create novel, original artwork that is not based on any existing images. This can be used to explore new creative possibilities and produce unique, imaginative images.
 
-Data augmentation: It can be used to generate new images that can be added to a dataset to improve the performance of image recognition algorithms. This can help to make the algorithms more robust and better able to handle a wider range of images.
+## Data Augmentation 
+Unconditional image generation models can be used to generate new images to improve the performance of image recognition algorithms. This makes algorithms more robust and able to handle a broader range of images.
 
 Virtual reality: It can be used to create photorealistic images that can be used in virtual reality environments. This can help to make the VR experience more immersive and realistic.
 
