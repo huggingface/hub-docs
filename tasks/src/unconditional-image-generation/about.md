@@ -11,7 +11,7 @@ An example of unconditional image generation would be generating the image of a 
 
 ## Use Cases
 
-Unconditional image generation can be used for a variety of applications, including:
+Unconditional image generation can be used for a variety of applications.
 
 ## Artistic Expression
 Unconditional image generation can be used to create novel, original artwork that is not based on any existing images. This can be used to explore new creative possibilities and produce unique, imaginative images.
