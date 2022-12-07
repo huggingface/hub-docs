@@ -22,7 +22,7 @@ _Instructions are provided below, in italics._
 
 # Model Name
 
-_Provide a 1-2 sentence summary of what the model is. Important disclaimers may go here as well._
+**Section Overview:**  A 1-2 sentence summary of what the model is. 
 
 # Model Details
 
@@ -78,12 +78,11 @@ _If this model has another model as its base, link to that model here._
 
 ## Model Sources [optional]
 
-_Provide sources for the user to directly see the model and its details. Additional kinds of resources – training logs, lessons learned, etc. – belong in the [More Information](#more-information) section. If you include one thing for this section, link to the repository._
-
 * **Repository:** {{ repo | default("[More Information Needed]", true)}}
 * **Paper [optional]:** {{ paper | default("[More Information Needed]", true)}}
 * **Demo [optional]:** {{ demo | default("[More Information Needed]", true)}}
 
+_Provide sources for the user to directly see the model and its details. Additional kinds of resources – training logs, lessons learned, etc. – belong in the [More Information](#more-information) section. If you include one thing for this section, link to the repository._
 
 # Uses
 **Section Overview:** This section addresses questions around how the model is intended to be used, discusses the foreseeable users of the model (including those affected by the model), and describes uses that are considered out of scope or misuse of the model.  Note this section is not intended to include the license usage details. For that, link directly to the license.
@@ -106,16 +105,15 @@ _List how this model can be used when fine-tuned for a task, or when plugged int
 
 ## Out-of-Scope Use
 
-_List how the model may foreseeably be misused and address what users ought not do with the model._
-
-
 {{ out_of_scope_use | default("[More Information Needed]", true)}}
+
+_List how the model may foreseeably be misused and address what users ought not do with the model._
 
 
 
 # Bias, Risks, and Limitations
 
-**Section Overview:** This section identifies foreseeable harms and misunderstandings, and both technical and sociotechnical limitations.
+**Section Overview:** This section identifies foreseeable harms and misunderstandings, and both technical and sociotechnical limitations. It also provides information on warnings and potential mitigations.
 
 {{ bias_risks_limitations | default("[More Information Needed]", true)}}
 
@@ -124,8 +122,6 @@ _What are the known or foreseeable issues stemming from this model?_
 
 
 ## Recommendations
-
-**Section Overview:** This section provides information on warnings and potential mitigations.
 
 
 {{ bias_recommendations | default("Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.", true)}}
@@ -208,6 +204,8 @@ _What do the results say? This can function as a kind of tl;dr for general audie
 
 # Environmental Impact
 
+**Section Overview:** Summarizes the information necessary to calculate environmental impacts such as electricity usage and carbon emissions.
+
 * **Hardware Type:** {{ hardware | default("[More Information Needed]", true)}}
 * **Hours used:** {{ hours_used | default("[More Information Needed]", true)}}
 * **Cloud Provider:** {{ cloud_provider | default("[More Information Needed]", true)}}
@@ -218,7 +216,6 @@ _Carbon emissions can be estimated using the [Machine Learning Impact calculator
 
 
 # Technical Specifications [optional]
-
 
 **Section Overview:** This section includes details about the model objective and architecture, and the compute infrastructure. It is useful for people interested in model development. Writing this section usually requires the model developer to be directly involved.
 
