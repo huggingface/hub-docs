@@ -221,15 +221,22 @@ model = timm.create_model("hf_hub:${model.id}", pretrained=True)`;
 const sklearn = (model: ModelData) => {
 	if (model.tags?.includes("skops")) {
 		const skopsmodelFile = model.config?.sklearn?.filename;
+		const skopssaveFormat = model.config?.sklearn?.save_format;
+		if (skopssaveFormat == "pickle")
+		{
+			return `download("${model.id}", "path_to_folder")
+import joblib
+model = joblib.load(
+	"${skopsmodelFile}"
+)`
+} else {
 		return `from skops.hub_utils import download
 from skops.io import load
 
 download("${model.id}", "path_to_folder")
-# make sure model file is in skops format
-# if the model is a pickle file, make sure it's from a source you trust
-# and deserialize using the pickle library instead
 model = load("path_to_folder/${skopsmodelFile}")`;
-	} else {
+	}
+ } else {
 		return `from huggingface_hub import hf_hub_download
 import joblib
 
