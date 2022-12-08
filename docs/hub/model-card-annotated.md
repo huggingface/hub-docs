@@ -28,6 +28,7 @@ _Instructions are provided below, in italics._
 {{ model_summary | default("", true) }}
 
 # Table of Contents
+
 **Section Overview:** Provide this with links to each section, to enable people to easily jump around/use the file in other locations with the preserved TOC/print out the content/etc.
 
 # Model Details
