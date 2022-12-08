@@ -38,8 +38,7 @@
 
 	async function getOutput(
 		file: File | Blob,
-		withModelLoading = false,
-		isOnLoadCall = false
+		{ withModelLoading = false, isOnLoadCall = false } = {}
 	) {
 		if (!file) {
 			return;
@@ -82,7 +81,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(file, true);
+			getOutput(file, { withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error;
 		}
@@ -124,7 +123,7 @@
 			if (callApiOnMount && src) {
 				imgSrc = src;
 				const blob = await getBlobFromUrl(imgSrc);
-				getOutput(blob, false, true);
+				getOutput(blob, { isOnLoadCall: true });
 			}
 		})();
 	});

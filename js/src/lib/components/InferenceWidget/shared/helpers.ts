@@ -1,6 +1,6 @@
 import type { ModelData } from '../../../interfaces/Types';
 import { randomItem, parseJSON } from '../../../utils/ViewUtils';
-import type { LoadingStatus, TableData } from './types';
+import type { ModelLoadInfo, TableData } from './types';
 
 export function getSearchParams(keys: string[]): string[] {
 	const searchParams = new URL(window.location.href).searchParams;
@@ -180,14 +180,16 @@ export async function getResponse<T>(
 }
 
 
-export async function getModelStatus(url: string, repoId: string): Promise<LoadingStatus> {
+export async function getModelLoadInfo(url: string, repoId: string): Promise<ModelLoadInfo> {
 	const response = await fetch(`${url}/status/${repoId}`);
 	const output = await response.json();
 	if (response.ok && typeof output === 'object' && output.loaded !== undefined) {
-		return output.loaded ? 'loaded' : 'unknown';
+		const status = output.loaded ? 'loaded' : 'unknown';
+		const compute_type = output.compute_type;
+		return {status, compute_type}
 	} else {
 		console.warn(response.status, output.error);
-		return 'error';
+		return {status: 'error'};
 	}
 }
 

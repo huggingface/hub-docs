@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { WidgetProps, LoadingStatus } from "../types";
+	import type { WidgetProps, ModelLoadInfo, LoadingStatus } from "../types";
 
 	import IconAzureML from "../../../Icons/IconAzureML.svelte";
 
 	export let model: WidgetProps["model"];
 	export let computeTime: string;
 	export let error: string;
-	export let modelStatus: LoadingStatus = "unknown";
+	export let modelLoadInfo: ModelLoadInfo = { status: "unknown" };
 
 	const status = {
 		error: "⚠️ This model could not be loaded by the inference API. ⚠️",
@@ -19,16 +19,29 @@
 		loaded: "This model is loaded and running on AzureML Managed Endpoint",
 		unknown: "This model can be loaded loaded on AzureML Managed Endpoint",
 	} as const;
+
+	function getStatusReport(
+		modelLoadInfo: ModelLoadInfo,
+		statuses: Record<LoadingStatus, string>,
+		isAzure = false
+	): string {
+		if (
+			modelLoadInfo.compute_type === "cpu" &&
+			modelLoadInfo.status === "loaded" &&
+			!isAzure
+		) {
+			return `The model is loaded and running on <a class="hover:underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon 3rd Gen Scalable CPU</a>`;
+		}
+		return statuses[modelLoadInfo.status];
+	}
 </script>
 
 <div class="mt-2">
 	<div class="text-gray-400 text-xs">
-		{#if computeTime}
-			Computation time on cpu: {computeTime}
-		{:else if model.id === "bigscience/bloom"}
+		{#if model.id === "bigscience/bloom"}
 			<div class="flex items-baseline">
 				<div class="flex items-center whitespace-nowrap text-gray-700">
-					<IconAzureML classNames="mr-1 flex-none" /> Sponsored by&nbsp;
+					<IconAzureML classNames="mr-1 flex-none" /> Powered by&nbsp;
 					<a
 						class="underline hover:text-gray-800"
 						href="https://azure.microsoft.com/products/machine-learning"
@@ -39,11 +52,13 @@
 					class="flex border-dotter border-b border-gray-100 flex-1 mx-2 -translate-y-px"
 				/>
 				<div>
-					{azureStatus[modelStatus]}
+					{@html getStatusReport(modelLoadInfo, azureStatus, true)}
 				</div>
 			</div>
+		{:else if computeTime}
+			Computation time on {modelLoadInfo?.compute_type ?? "cpu"}: {computeTime}
 		{:else}
-			{status[modelStatus]}
+			{@html getStatusReport(modelLoadInfo, status)}
 		{/if}
 	</div>
 	{#if error}

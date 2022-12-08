@@ -4,7 +4,7 @@ const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "Thousands of short audio clips of a single speaker.",
-			id:          "LJ Speech Dataset",
+			id:          "lj_speech",
 		},
 		{
 			description: "Multi-speaker English dataset.",

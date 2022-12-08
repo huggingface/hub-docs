@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import type { ModelData } from "./Types";
 
 /**
@@ -13,7 +14,9 @@ export enum ModelLibrary {
 	"flair"                  = "Flair",
 	"keras"                  = "Keras",
 	"nemo"                   = "NeMo",
+	"paddlenlp"              = "PaddleNLP",
 	"pyannote-audio"         = "pyannote.audio",
+	"sample-factory"         = "Sample Factory",
 	"sentence-transformers"  = "Sentence Transformers",
 	"sklearn"                = "Scikit-learn",
 	"spacy"                  = "spaCy",
@@ -26,7 +29,7 @@ export enum ModelLibrary {
 	"fasttext"               = "fastText",
 	"stable-baselines3"      = "Stable-Baselines3",
 	"ml-agents"              = "ML-Agents",
-	"pythae"                 = "Pythae"
+	"pythae"                 = "Pythae",
 }
 
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as (keyof typeof ModelLibrary)[];
@@ -147,6 +150,15 @@ const keras = (model: ModelData) =>
 model = from_pretrained_keras("${model.id}")
 `;
 
+const paddlenlp = (model: ModelData) => {
+	return [
+	  `from paddlenlp.transformers import AutoModel, AutoTokenizer`,
+	  "",
+	  `tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`, 
+	  `model = AutoModel.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
+        ].join("\n");
+};
+
 const pyannote_audio_pipeline = (model: ModelData) =>
 	`from pyannote.audio import Pipeline
   
@@ -246,11 +258,13 @@ model = joblib.load(
 	}
 };
 
-
 const fastai = (model: ModelData) =>
 	`from huggingface_hub import from_pretrained_fastai
 
 learn = from_pretrained_fastai("${model.id}")`;
+
+const sampleFactory = (model: ModelData) =>
+	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d ./train_dir`;
 
 const sentenceTransformers = (model: ModelData) =>
 	`from sentence_transformers import SentenceTransformer
@@ -440,6 +454,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoUrl:  "https://github.com/NVIDIA/NeMo",
 		snippet:  nemo,
 	},
+	"paddlenlp": {
+		btnLabel: "paddlenlp",
+		repoName: "PaddleNLP",
+		repoUrl:  "https://github.com/PaddlePaddle/PaddleNLP",
+		snippet:  paddlenlp,
+	},
 	"pyannote-audio": {
 		btnLabel: "pyannote.audio",
 		repoName: "pyannote-audio",
@@ -479,8 +499,8 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 	"stanza": {
 		btnLabel: "Stanza",
 		repoName: "stanza",
-		repoUrl: "https://github.com/stanfordnlp/stanza",
-		snippet: stanza,
+		repoUrl:  "https://github.com/stanfordnlp/stanza",
+		snippet:  stanza,
 	},
 	"tensorflowtts": {
 		btnLabel: "TensorFlowTTS",
@@ -505,6 +525,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?:
 		repoName: "fastText",
 		repoUrl:  "https://fasttext.cc/",
 		snippet:  fasttext,
+	},
+	"sample-factory": {
+		btnLabel: "sample-factory",
+		repoName: "sample-factory",
+		repoUrl:  "https://github.com/alex-petrenko/sample-factory",
+		snippet:  sampleFactory,
 	},
 	"stable-baselines3": {
 		btnLabel: "stable-baselines3",
