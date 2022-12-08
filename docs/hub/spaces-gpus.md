@@ -18,6 +18,11 @@ As soon as your Space is running on GPU you can see which hardware it’s runnin
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-running-badge-dark.png"/>
 </div>
 
+## Configure hardware programmatically
+
+You can programmatically configure your Space hardware using `huggingface_hub`. This allows for a wide range of use cases where you need to dynamically assign GPUs.
+Check out [this guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/manage_spaces) for more details.
+
 ## Framework specific requirements[[frameworks]]
 
 Most Spaces should run out of the box after a GPU upgrade, but sometimes you'll need to install CUDA versions of the machine learning frameworks you use. Please, follow this guide to ensure your Space takes advantage of the improved hardware.
