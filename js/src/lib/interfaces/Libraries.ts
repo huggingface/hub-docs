@@ -236,8 +236,10 @@ const sklearn = (model: ModelData) => {
 		const skopssaveFormat = model.config?.sklearn?.save_format;
 		if (skopssaveFormat == "pickle")
 		{
-			return `download("${model.id}", "path_to_folder")
-import joblib
+			return `import joblib
+from skops.hub_utils import download
+
+download("${model.id}", "path_to_folder")
 model = joblib.load(
 	"${skopsmodelFile}"
 )`
