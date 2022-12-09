@@ -233,7 +233,7 @@ model = timm.create_model("hf_hub:${model.id}", pretrained=True)`;
 const sklearn = (model: ModelData) => {
 	if (model.tags?.includes("skops")) {
 		const skopsmodelFile = model.config?.sklearn?.filename;
-		const skopssaveFormat = model.config?.sklearn?.save_format;
+		const skopssaveFormat = model.config?.sklearn?.model_format;
 		if (skopssaveFormat == "pickle")
 		{
 			return `import joblib
