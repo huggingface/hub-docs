@@ -32,7 +32,7 @@ export enum ModelLibrary {
 	"pythae"                 = "Pythae",
 }
 
-export type ModelLibraryKey = ModelLibraryKey;
+export type ModelLibraryKey = keyof typeof ModelLibrary;
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as ModelLibraryKey[];
 
 
