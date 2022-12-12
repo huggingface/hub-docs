@@ -233,30 +233,18 @@ model = timm.create_model("hf_hub:${model.id}", pretrained=True)`;
 const sklearn = (model: ModelData) => {
 	if (model.tags?.includes("skops")) {
 		const skopsmodelFile = model.config?.sklearn?.filename;
-		const skopssaveFormat = model.config?.sklearn?.model_format;
-		if (skopssaveFormat == "pickle")
-		{
-			return `import joblib
-from skops.hub_utils import download
-
-download("${model.id}", "path_to_folder")
-model = joblib.load(
-	"${skopsmodelFile}"
-)`
-} else {
 		return `from skops.hub_utils import download
 from skops.io import load
 
 download("${model.id}", "path_to_folder")
 model = load("path_to_folder/${skopsmodelFile}")`;
-	}
- } else {
+} else {
 		return `from huggingface_hub import hf_hub_download
 import joblib
 
 model = joblib.load(
 	hf_hub_download("${model.id}", "sklearn_model.joblib")
-	)`;
+)`;
 	}
 };
 
