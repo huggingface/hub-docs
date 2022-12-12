@@ -123,7 +123,7 @@ _List how the model may foreseeably be misused and address what users ought not 
 
 # Bias, Risks, and Limitations
 
-**Section Overview:** This section identifies foreseeable harms and misunderstandings, and both technical and sociotechnical limitations. It also provides information on warnings and potential mitigations.
+**Section Overview:** This section identifies foreseeable harms, misunderstandings, and technical and sociotechnical limitations. It also provides information on warnings and potential mitigations.
 
 `bias_risks_limitations`
 
