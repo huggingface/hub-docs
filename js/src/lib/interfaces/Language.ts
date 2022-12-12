@@ -1223,5 +1223,10 @@ export const LANGUAGES: Record<string, Language> = {
 		name: "Circassian Kabardian",
 		nativeName: "Адыгэбзэ КIахэ",
 	},
+	sah: {
+		code: "sah",
+		name: "Yakut",
+		nativeName: "саха тыла",
+	},
 };
 

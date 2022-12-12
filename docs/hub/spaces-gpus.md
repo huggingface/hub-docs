@@ -18,10 +18,11 @@ As soon as your Space is running on GPU you can see which hardware it’s runnin
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-running-badge-dark.png"/>
 </div>
 
+## Framework specific requirements[[frameworks]]
 
 Most Spaces should run out of the box after a GPU upgrade, but sometimes you'll need to install CUDA versions of the machine learning frameworks you use. Please, follow this guide to ensure your Space takes advantage of the improved hardware.
 
-## PyTorch installation
+### PyTorch
 
 You'll need to install a version of PyTorch compatible with the built-in CUDA drivers. Adding the following two lines to your `requirements.txt` file should work:
 
@@ -47,7 +48,7 @@ model = load_pytorch_model()
 model = model.to("cuda")
 ```
 
-## JAX
+### JAX
 
 If you use JAX, you need to specify the binary that is compatible with the CUDA and cuDNN versions installed in your GPU Space. Please, add the following two lines to your `requirements.txt` file:
 
@@ -67,7 +68,7 @@ print(f"JAX device type: {jax.devices()[0].device_kind}")
 # JAX device type: Tesla T4
 ```
 
-## Tensorflow
+### Tensorflow
 
 The default `tensorflow` installation should recognize the CUDA device. Just add `tensorflow` to your `requirements.txt` file and use the following code in your `app.py` to verify in your Space logs.
 
@@ -76,3 +77,18 @@ import tensorflow as tf
 print(tf.config.list_physical_devices('GPU'))
 # [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
 ```
+
+## Billing
+
+Billing on Spaces is based on hardware usage and is minute based.
+
+During a Space's lifecycle, it is only billed when the Space is actually `Running`. This means that there is no cost during either build or startup.
+
+If a running Space starts to fail, it will be automatically suspended, hence the billing will stop.
+
+Spaces running on free hardware are suspended automatically if they are not used for an extended period of time (e.g. two days). Upgraded Spaces will run indefinitely, even if there is no usage. To interrupt the billing on your Space, you can change the Hardware to CPU basic.
+<Tip>
+Additional lifecycle control over Spaces with upgraded hardware will soon be provided such as configuration of an automated suspension of the Space after a custom delay.
+</Tip>
+
+Additional information about billing can be found in the [dedicated section](./billing).

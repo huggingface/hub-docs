@@ -16,7 +16,7 @@ const taskData: TaskDataCustom = {
 				type:    "text",
 			},
 			{
-				filename: "document-question-answering-input.jpeg",
+				filename: "document-question-answering-input.png",
 				type:    "img",
 			},
 		],

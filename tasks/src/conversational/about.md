@@ -8,10 +8,6 @@ Chatbots are used to have conversations instead of providing direct contact with
 
 Conversational response models are used as part of voice assistants to provide appropriate responses to voice based queries. 
 
-## Task Variants
-
-This place can be filled with variants of this task if there's any. 
-
 ## Inference
 
 You can infer with Conversational models with the 🤗 Transformers library using the `conversational` pipeline. This pipeline takes a conversation prompt or a list of conversations and generates responses for each prompt. The models that this pipeline can use are models that have been fine-tuned on a multi-turn conversational task (see https://huggingface.co/models?filter=conversational for a list of updated Conversational models). 
@@ -35,4 +31,6 @@ converse([conversation_1, conversation_2])
 
 ## Useful Resources
 
-In this area, you can insert useful resources about how to train or use a model for this task.
+In this area, you can insert useful resources about how to train or use a model for this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/conversational/about.md).
+
+This page was made possible thanks to the efforts of [Viraat Aryabumi](https://huggingface.co/viraat).
