@@ -237,7 +237,9 @@ const sklearn = (model: ModelData) => {
 from skops.io import load
 
 download("${model.id}", "path_to_folder")
-model = load("path_to_folder/${skopsmodelFile}")`;
+model = load("path_to_folder/${skopsmodelFile}")
+# check out persistence docs of skops for more info
+# https://skops.readthedocs.io/en/stable/persistence.html`;
 } else {
 		return `from huggingface_hub import hf_hub_download
 import joblib
