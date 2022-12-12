@@ -125,6 +125,8 @@
     title: Static HTML Spaces
   - local: spaces-sdks-python
     title: Custom Python Spaces
+  - local: spaces-embed
+    title: Embed your Space
   - local: spaces-config-reference
     title: Spaces Configuration Reference
   - local: spaces-changelog
