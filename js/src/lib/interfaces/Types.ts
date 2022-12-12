@@ -1,4 +1,4 @@
-import type { ModelLibrary } from "./Libraries";
+import type { ModelLibraryKey } from "./Libraries";
 
 // Warning: order of modalities here determine how they are listed on the /tasks page
 export const MODALITIES = [
@@ -760,7 +760,7 @@ export interface TransformersInfo {
  * This mapping is generated automatically by "python-api-export-tasks" action in huggingface/api-inference-community repo upon merge.
  * Ref: https://github.com/huggingface/api-inference-community/pull/158
  */
-export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<keyof typeof ModelLibrary, PipelineType[]>> = {
+export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLibraryKey, PipelineType[]>> = {
 	"adapter-transformers": [
 		"question-answering",
 		"text-classification",

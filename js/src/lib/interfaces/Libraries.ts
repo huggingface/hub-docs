@@ -32,7 +32,8 @@ export enum ModelLibrary {
 	"pythae"                 = "Pythae",
 }
 
-export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as (keyof typeof ModelLibrary)[];
+export type ModelLibraryKey = ModelLibraryKey;
+export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as ModelLibraryKey[];
 
 
 /**
@@ -390,7 +391,7 @@ model = AutoModel.load_from_hf_hub("${model.id}")`;
 
 
 
-export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?: LibraryUiElement } = {
+export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in ModelLibraryKey]?: LibraryUiElement } = {
 	// ^^ TODO(remove the optional ? marker when Stanza snippet is available)
 	"adapter-transformers": {
 		btnLabel: "Adapter Transformers",
