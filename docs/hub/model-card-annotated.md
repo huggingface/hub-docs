@@ -103,7 +103,7 @@ _Provide sources for the user to directly see the model and its details. Additio
 
 `direct_use`
 
-_List how the model can be used without fine-tuning, post-processing, or plugging into a pipeline._
+_Explain how the model can be used without fine-tuning, post-processing, or plugging into a pipeline. An example code snippet is recommended._
 
 
 ## Downstream Use [optional]
