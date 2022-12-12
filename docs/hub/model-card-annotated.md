@@ -304,3 +304,5 @@ _Clearly define terms in order to be accessible across audiences._
 
 
 **Section Overview:** Provides a code snippet to show how to use the model.
+
+`get_started_code`
