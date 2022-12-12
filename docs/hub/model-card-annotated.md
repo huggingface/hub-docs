@@ -110,7 +110,7 @@ _List how the model can be used without fine-tuning, post-processing, or pluggin
 
 `downstream_use`
 
-_List how this model can be used when fine-tuned for a task, or when plugged into a larger ecosystem or app._
+_Explain how this model can be used when fine-tuned for a task or when plugged into a larger ecosystem or app. An example code snippet is recommended._
 
 
 ## Out-of-Scope Use
