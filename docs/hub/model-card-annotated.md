@@ -20,12 +20,15 @@ Fully filling out a model card requires input from a few different roles. (One p
 
 _Instructions are provided below, in italics._
 
+Template variable names appear in `monospace`.
+
 # Model Name
 
 **Section Overview:**  Provide the model name and a 1-2 sentence summary of what the model is. 
 
-{{ model_id | default("Model ID", true) }}
-{{ model_summary | default("", true) }}
+`model_id`
+
+`model_summary`
 
 # Table of Contents
 
@@ -39,24 +42,24 @@ _Instructions are provided below, in italics._
 ## Model Description
 
 
-{{ model_description | default("", true) }}
+`model_description`
 
 _Provide basic details about the model. This includes the architecture, version, if it was introduced in a paper, if an original implementation is available, and the creators. Any copyright should be attributed here. General information about training procedures, parameters, and important disclaimers can also be mentioned in this section._
 
 
-* **Developed by:** {{ developers | default("[More Information Needed]", true)}}
+* **Developed by:** `developers`
 
 _List (and ideally link to) the people who built the model._
 
 
 
-* **Shared by [optional]:** {{ shared_by | default("[More Information Needed]", true)}}
+* **Shared by [optional]:** `shared_by`
 
 _List (and ideally link to) the people/organization making the model available online._
 
 
 
-* **Model type:** {{ model_type | default("[More Information Needed]", true)}}
+* **Model type:** `model_type`
 
 _You can name the “type” as:_
 
@@ -66,28 +69,28 @@ _2. Machine Learning Type_
 
 _3. Modality_
 
-* **Language(s)** [NLP]: {{ language | default("[More Information Needed]", true)}}
+* **Language(s)** [NLP]: `language`
 
 _Use this field when the system is a natural language processing system._
 
 
 
-* **License:** {{ license | default("[More Information Needed]", true)}}
+* **License:** `license`
 
 _Name, and link to, the license being used._
 
 
 
-* **Finetuned From Model [optional]:** {{ finetuned_from | default("[More Information Needed]", true)}}
+* **Finetuned From Model [optional]:** `finetuned_from`
 
 _If this model has another model as its base, link to that model here._
 
 
 ## Model Sources [optional]
 
-* **Repository:** {{ repo | default("[More Information Needed]", true)}}
-* **Paper [optional]:** {{ paper | default("[More Information Needed]", true)}}
-* **Demo [optional]:** {{ demo | default("[More Information Needed]", true)}}
+* **Repository:** `repo`
+* **Paper [optional]:** `paper`
+* **Demo [optional]:** `demo`
 
 _Provide sources for the user to directly see the model and its details. Additional kinds of resources – training logs, lessons learned, etc. – belong in the [More Information](#more-information) section. If you include one thing for this section, link to the repository._
 
@@ -98,21 +101,21 @@ _Provide sources for the user to directly see the model and its details. Additio
 ## Direct Use
 
 
-{{ direct_use | default("[More Information Needed]", true)}}
+`direct_use`
 
 _List how the model can be used without fine-tuning, post-processing, or plugging into a pipeline._
 
 
 ## Downstream Use [optional]
 
-{{ downstream_use | default("[More Information Needed]", true)}}
+`downstream_use`
 
 _List how this model can be used when fine-tuned for a task, or when plugged into a larger ecosystem or app._
 
 
 ## Out-of-Scope Use
 
-{{ out_of_scope_use | default("[More Information Needed]", true)}}
+`out_of_scope_use`
 
 _List how the model may foreseeably be misused and address what users ought not do with the model._
 
@@ -122,8 +125,7 @@ _List how the model may foreseeably be misused and address what users ought not 
 
 **Section Overview:** This section identifies foreseeable harms and misunderstandings, and both technical and sociotechnical limitations. It also provides information on warnings and potential mitigations.
 
-{{ bias_risks_limitations | default("[More Information Needed]", true)}}
-
+`bias_risks_limitations`
 
 _What are the known or foreseeable issues stemming from this model?_
 
@@ -131,7 +133,7 @@ _What are the known or foreseeable issues stemming from this model?_
 ## Recommendations
 
 
-{{ bias_recommendations | default("Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.", true)}}
+`bias_recommendations`
 
 _What are recommendations with respect to the foreseeable issues? This can include everything from “downsample your image” to filtering explicit content._
 
@@ -144,7 +146,7 @@ It is relevant for anyone who wants to know the basics of what the model is lear
 ## Training Data
 
 
-{{ training_data | default("[More Information Needed]", true)}}
+`training_data`
 
 _Write 1-2 sentences on what the training data is. Ideally this links to a Dataset Card for further information. Links to documentation related to data pre-processing or additional filtering may go here as well as in [More Information](#more-information)._
  
@@ -155,13 +157,14 @@ _Write 1-2 sentences on what the training data is. Ideally this links to a Datas
 ### Preprocessing
 
 
-{{ preprocessing | default("[More Information Needed]", true)}}
+`preprocessing`
 
+_Detail tokenization, resizing/rewriting (depending on the modality), etc._
 
 ### Speeds, Sizes, Times
 
 
-{{ speeds_sizes_times | default("[More Information Needed]", true)}}
+`speeds_sizes_times`
 
 _Detail throughput, start/end time, checkpoint sizes, etc._
 
@@ -175,25 +178,25 @@ _Detail throughput, start/end time, checkpoint sizes, etc._
 
 ### Testing Data
 
-{{ testing_data | default("[More Information Needed]", true)}}
+`testing_data`
 
 _Ideally this links to a Dataset Card for the testing data._
 
 ### Factors
 
-{{ testing_factors | default("[More Information Needed]", true)}}
+`testing_factors`
 
 _What are the foreseeable characteristics that will influence how the model behaves? This includes domain and context, as well as population subgroups. Evaluation should ideally be **disaggregated** across factors._
 
 ### Metrics
 
-{{ testing_metrics | default("[More Information Needed]", true)}}
+`testing_metrics`
 
 _What metrics will be used for evaluation in light of tradeoffs between different errors?_
 
 ## Results
 
-{{ results | default("[More Information Needed]", true)}}
+`results`
 
 
 _Results should be based on the Factors and Metrics defined above._
@@ -201,7 +204,7 @@ _Results should be based on the Factors and Metrics defined above._
 ### Summary
 
 
-{{ results_summary | default("", true)}}
+`results_summary`
 
 _What do the results say? This can function as a kind of tl;dr for general audiences._
 
@@ -209,18 +212,17 @@ _What do the results say? This can function as a kind of tl;dr for general audie
 
 **Section Overview:** This is an experimental section some developers are beginning to add, where work on explainability/interpretability may go.
 
-{{ model_examination | default("[More Information Needed]", true)}}
-
+`model_examination`
 
 # Environmental Impact
 
 **Section Overview:** Summarizes the information necessary to calculate environmental impacts such as electricity usage and carbon emissions.
 
-* **Hardware Type:** {{ hardware | default("[More Information Needed]", true)}}
-* **Hours used:** {{ hours_used | default("[More Information Needed]", true)}}
-* **Cloud Provider:** {{ cloud_provider | default("[More Information Needed]", true)}}
-* **Compute Region:** {{ cloud_region | default("[More Information Needed]", true)}}
-* **Carbon Emitted:** {{ co2_emitted | default("[More Information Needed]", true)}}
+* **Hardware Type:** `hardware`
+* **Hours used:** `hours_used`
+* **Cloud Provider:** `cloud_provider`
+* **Compute Region:** `cloud_region`
+* **Carbon Emitted:** `co2_emitted`
 
 _Carbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700)._
 
@@ -232,19 +234,19 @@ _Carbon emissions can be estimated using the [Machine Learning Impact calculator
 
 ## Model Architecture and Objective
 
-{{ model_specs | default("[More Information Needed]", true)}}
+`model_specs`
 
 ## Compute Infrastructure
 
-{{ compute_infrastructure | default("[More Information Needed]", true)}}
+`compute_infrastructure`
 
 ### Hardware
 
-{{ hardware | default("[More Information Needed]", true)}}
+`hardware`
 
 ### Software
 
-{{ software | default("[More Information Needed]", true)}}
+`software`
 
 
 # Citation [optional]
@@ -255,12 +257,12 @@ _Carbon emissions can be estimated using the [Machine Learning Impact calculator
 
 ### BibTeX 
 
-{{ citation_bibtex | default("[More Information Needed]", true)}}
+`citation_bibtex`
 
 
 ### APA 
 
-{{ citation_apa | default("[More Information Needed]", true)}}
+`citation_apa`
 
 
 # Glossary [optional]
@@ -269,7 +271,7 @@ _Carbon emissions can be estimated using the [Machine Learning Impact calculator
 **Section Overview:** This section defines common terms and how metrics are calculated.
 
 
-{{ glossary | default("[More Information Needed]", true)}}
+`glossary`
 
 _Clearly define terms in order to be accessible across audiences._
 
@@ -279,7 +281,7 @@ _Clearly define terms in order to be accessible across audiences._
 **Section Overview:** This section provides links to writing on dataset creation, technical specifications, lessons learned, and initial results.
 
 
-{{ more_information | default("[More Information Needed]", true)}}
+`more_information`
 
 
 # Model Card Authors [optional]
@@ -287,7 +289,7 @@ _Clearly define terms in order to be accessible across audiences._
 
 **Section Overview:** This section lists the people who create the model card, providing recognition and accountability for the detailed work that goes into its construction.
 
-{{ model_card_authors | default("[More Information Needed]", true)}}
+`model_card_authors`
 
 
 
@@ -296,8 +298,7 @@ _Clearly define terms in order to be accessible across audiences._
 
 **Section Overview:** Provides a way for people who have updates to the Model Card, suggestions, or questions, to contact the Model Card authors
 
-{{ model_card_contact | default("[More Information Needed]", true)}}
-
+`model_card_contact`
 
 # How to Get Started with the Model
 
