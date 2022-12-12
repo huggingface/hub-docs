@@ -123,8 +123,8 @@
     title: Static HTML Spaces
   - local: spaces-sdks-python
     title: Custom Python Spaces
-  - local: spaces-embedding
-    title: Embedding your Space
+  - local: spaces-embed
+    title: Embed your Space
   - local: spaces-config-reference
     title: Spaces Configuration Reference
   - local: spaces-changelog
