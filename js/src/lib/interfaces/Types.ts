@@ -1,3 +1,5 @@
+import type { ModelLibrary } from "./Libraries";
+
 // Warning: order of modalities here determine how they are listed on the /tasks page
 export const MODALITIES = [
 	"cv",
@@ -758,88 +760,88 @@ export interface TransformersInfo {
  * This mapping is generated automatically by "python-api-export-tasks" action in huggingface/api-inference-community repo upon merge.
  * Ref: https://github.com/huggingface/api-inference-community/pull/158
  */
-export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Record<string, Array<string>> = {
-	"adapter_transformers": [
+export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<keyof typeof ModelLibrary, PipelineType[]>> = {
+	"adapter-transformers": [
 		"question-answering",
 		"text-classification",
-		"token-classification"
+		"token-classification",
 	],
 	"allennlp": [
-		"question-answering"
+		"question-answering",
 	],
 	"asteroid": [
-		"audio-source-separation",
-		"audio-to-audio"
+		// "audio-source-separation",
+		"audio-to-audio",
 	],
 	"diffusers": [
-		"text-to-image"
+		"text-to-image",
 	],
-	"doctr": [
-		"object-detection"
-	],
+	// "doctr": [
+	// 	"object-detection",
+	// ],
 	"espnet": [
 		"text-to-speech",
-		"automatic-speech-recognition"
+		"automatic-speech-recognition",
 	],
 	"fairseq": [
 		"text-to-speech",
-		"audio-to-audio"
+		"audio-to-audio",
 	],
 	"fastai": [
-		"image-classification"
+		"image-classification",
 	],
 	"fasttext": [
 		"feature-extraction",
-		"text-classification"
+		"text-classification",
 	],
 	"flair": [
-		"token-classification"
+		"token-classification",
 	],
-	"k2_sherpa": [
-		"automatic-speech-recognition"
-	],
+	// "k2_sherpa": [
+	// 	"automatic-speech-recognition",
+	// ],
 	"keras": [
-		"image-classification"
+		"image-classification",
 	],
 	"nemo": [
-		"automatic-speech-recognition"
+		"automatic-speech-recognition",
 	],
 	"paddlenlp": [
 		"conversational",
-		"fill-mask"
+		"fill-mask",
 	],
-	"pyannote_audio": [
-		"automatic-speech-recognition"
+	"pyannote-audio": [
+		"automatic-speech-recognition",
 	],
-	"sentence_transformers": [
+	"sentence-transformers": [
 		"feature-extraction",
-		"sentence-similarity"
+		"sentence-similarity",
 	],
 	"sklearn": [
 		"tabular-classification",
 		"tabular-regression",
-		"text-classification"
+		"text-classification",
 	],
 	"spacy": [
 		"token-classification",
 		"text-classification",
-		"sentence-similarity"
+		"sentence-similarity",
 	],
 	"speechbrain": [
 		"audio-classification",
 		"audio-to-audio",
 		"automatic-speech-recognition",
 		"text-to-speech",
-		"text2text-generation"
+		"text2text-generation",
 	],
 	"stanza": [
-		"token-classification"
+		"token-classification",
 	],
-	"superb": [
-		"automatic-speech-recognition",
-		"speech-segmentation"
-	],
+	// "superb": [
+	// 	"automatic-speech-recognition",
+	// 	"speech-segmentation",
+	// ],
 	"timm": [
-		"image-classification"
-	]
-}
+		"image-classification",
+	],
+};
