@@ -30,6 +30,7 @@
     - local: models-gated
       title: Gated models
     - title: Model Card Guidebook
+      local: model-card-guidebook
       sections:
       - local: model-card-annotated
         title: Annotated Model Card
