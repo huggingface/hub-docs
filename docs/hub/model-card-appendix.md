@@ -5,6 +5,7 @@
 
 
 ## How would you define model cards?
+
 ***Insight: Respondents had generally similar views of what model cards are: documentation focused on issues like training, use cases, and bias/limitations***
 
 * “Model cards are model descriptions, both of how they were trained, their use cases, and potential biases and limitations”
@@ -24,6 +25,7 @@
 
 
 ## What do you like about model cards?
+
 * They are interesting to teach people about new models
 * As a non-technical guy, the possibility of getting to know the model, to understand the basics of it, it's an opportunity for the author to disclose its innovation in a transparent & explainable (i.e. trustworthy) way.
 * I like interactive model cards with visuals and widgets that allow me to try the model without running any code.
@@ -33,7 +35,9 @@
 * It helps to get an understanding of what the model is good (or bad) at.
 * Conciseness and accessibility
 
+
 ## What do you dislike about model cards?
+
 * Might get to technical and/or dense
 * <mark >They contain lots of information for different audiences (researchers, engineers, non engineers), so it's difficult to explore model cards with an intended use cases.</mark> 
   * [NOTE: this comment could be addressed with toggle views for different audiences]
