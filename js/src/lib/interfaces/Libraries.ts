@@ -154,9 +154,9 @@ const paddlenlp = (model: ModelData) => {
 	return [
 	  `from paddlenlp.transformers import AutoModel, AutoTokenizer`,
 	  "",
-	  `tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`, 
+	  `tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
 	  `model = AutoModel.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
-        ].join("\n");
+	].join("\n");
 };
 
 const pyannote_audio_pipeline = (model: ModelData) =>
@@ -233,9 +233,8 @@ model = timm.create_model("hf_hub:${model.id}", pretrained=True)`;
 const sklearn = (model: ModelData) => {
 	if (model.tags?.includes("skops")) {
 		const skopsmodelFile = model.config?.sklearn?.filename;
-		const skopssaveFormat = model.config?.sklearn?.model_format;
-		if (skopssaveFormat == "pickle")
-		{
+		const skopssaveFormat = model.config?.sklearn?.fileformat;
+		if (skopssaveFormat === "pickle") {
 			return `import joblib
 from skops.hub_utils import download
 download("${model.id}", "path_to_folder")
@@ -243,16 +242,16 @@ model = joblib.load(
 	"${skopsmodelFile}"
 )
 # only load pickle files from sources you trust
-# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`
-} else {
-		return `from skops.hub_utils import download
+# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
+		} else {
+			return `from skops.hub_utils import download
 from skops.io import load
 download("${model.id}", "path_to_folder")
 model = load("path_to_folder/${skopsmodelFile}")
 # check out persistence docs of skops for more info
 # https://skops.readthedocs.io/en/stable/persistence.html`;
-	}
- } else {
+		}
+	} else {
 		return `from huggingface_hub import hf_hub_download
 import joblib
 model = joblib.load(
