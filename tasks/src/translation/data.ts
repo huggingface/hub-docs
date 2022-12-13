@@ -50,6 +50,7 @@ const taskData: TaskDataCustom = {
 			id:          "t5-base",
 		},
 	],
+	spaces:       [],
 	summary:      "Translation is the task of converting text from one language to another.",
 	widgetModels: ["t5-small"],
 	youtubeId:    "1JvfrvZgi6c",

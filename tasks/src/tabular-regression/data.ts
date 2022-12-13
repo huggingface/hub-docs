@@ -12,7 +12,7 @@ const taskData: TaskData = {
 		{
 			description: "Dataset containing mile-per-gallon (mpg) information for various vehicles",
 			id:          "scikit-learn/auto-mpg",
-		}
+		},
 	],
 	demo: {
 		inputs: [
@@ -21,7 +21,7 @@ const taskData: TaskData = {
 					["Car Name", "Horsepower", "Weight"],
 					["ford torino", "140", "3,449"],
 					["amc hornet", "97", "2,774"],
-					["toyota corolla", "65", "1,773"]
+					["toyota corolla", "65", "1,773"],
 
 				],
 				type: "tabular",
@@ -46,6 +46,7 @@ const taskData: TaskData = {
 			id:          "scikit-learn/Fish-Weight",
 		},
 	],
+	spaces:  [],
 	summary:
 		"Tabular regression is the task of predicting a numerical value given a set of attributes.",
 	widgetModels: [""],
