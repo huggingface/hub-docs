@@ -14,7 +14,6 @@ Whenever we have a set of variables recorded in a table and use them, we try to 
 
 
 ## Inference
-[Here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/tabular-regression/about.md) you can add a small snippet that shows how to infer a tabular regression model.
 
 Say you have your data in this format:
 
