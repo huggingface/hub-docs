@@ -8,7 +8,7 @@ You can watch repo changes or community events. If you watch all repos belonging
 
 ## Webhook payloads
 
-You will receive payloads through the `POST` method on the specified URL, in JSON format.
+After registering a webhook, you will be notified of events via an `HTTP POST` call on the specified URL. The payload is encoded in JSON.
 
 To determine the nature of the event, you can look at the `event` and `domain` fields in the payload.
 
