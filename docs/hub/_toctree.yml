@@ -29,8 +29,8 @@
       title: Carbon Emissions
     - local: models-gated
       title: Gated models
-    - title: Model Card Guidebook
-      local: model-card-guidebook
+    - local: model-card-guidebook
+      title: Model Card Guidebook
       sections:
       - local: model-card-annotated
         title: Annotated Model Card
