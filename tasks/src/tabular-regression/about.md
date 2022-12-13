@@ -15,7 +15,7 @@ Whenever we have a set of variables recorded in a table and use them, we try to 
 
 ## Inference
 
-Say you have your data in this format:
+Given the following data,
 
 | Feature 1 | Feature 2 | Feature 3 | Target<br>Variable |
 |---|---|---|---|
