@@ -34,6 +34,9 @@
       sections:
       - local: model-card-annotated
         title: Annotated Model Card
+      - local: model-cards-user-studies
+        title: User Study
+      - 
   - local: models-uploading
     title: Uploading Models
   - local: models-downloading
