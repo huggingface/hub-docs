@@ -121,6 +121,13 @@
     title: Streamlit Spaces
   - local: spaces-sdks-static
     title: Static HTML Spaces
+  - local: spaces-sdks-docker
+    title: Docker Spaces
+    sections:
+      - local: spaces-sdks-docker-first-demo
+        title: Your first Docker Spaces
+      - local: spaces-sdks-docker-examples
+        title: Example Docker Spaces
   - local: spaces-sdks-python
     title: Custom Python Spaces
   - local: spaces-config-reference

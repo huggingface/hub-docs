@@ -18,6 +18,7 @@ You'll also be able to upgrade your Space to run [on a GPU or other accelerated 
 - [Spaces GPU Upgrades](./spaces-gpus)
 - [Gradio Spaces](./spaces-sdks-gradio)
 - [Streamlit Spaces](./spaces-sdks-streamlit)
+- [Docker Spaces](./spaces-sdks-docker)
 - [Static HTML Spaces](./spaces-sdks-static)
 - [Custom Python Spaces](./spaces-sdks-python)
 - [Reference](./spaces-config-reference)
