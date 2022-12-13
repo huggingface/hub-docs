@@ -5,7 +5,7 @@ Tabular regression is the task of predicting a numerical value given a set of at
 ## Use Cases
 Whenever we have a set of variables recorded in a table and use them, we try to predict a target variable; this kind of scenario could be classified as tabular regression. Some of the popular tabular use cases are:
 
-- **Predicting a continuous target variable**: 
+## Sales Prediction: a Use Case for Predicting a Continuous Target Variable 
   Here the objective is to predict a continuous variable based on a set of input variable(s). For example, predicting `sales` of an ice cream shop based on `temperature` of weather and `duration of hours` shop was open. Here we can build a regression model with `temperature` and `duration of hours` as input variable and `sales` as target variable.
 
 **Filling Missing Values**:
