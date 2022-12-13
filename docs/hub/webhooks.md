@@ -16,7 +16,7 @@ You can check the last payloads sent in the activity tab of the webhook page, as
 
 ### Event & Domain
 
-The top-level properties `repo` and `domain` are always specified and used to determine the nature of the event.
+The top-level properties `event` and `domain` are always specified and used to determine the nature of the event.
 
 `event` can take one of the following values: 
 
