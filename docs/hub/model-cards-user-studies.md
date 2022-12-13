@@ -1,5 +1,5 @@
 # User Studies
-## **MODEL CARD AUDIENCES AND USE CASES**
+## MODEL CARD AUDIENCES AND USE CASES
 
 
 During our investigation into the landscape of model documentation tools (data cards etc), we noted how different stakeholders make use of existing infrastructure to create a kind of model card with information focused on their needed domain.
@@ -21,7 +21,7 @@ As different people, of varying technical backgrounds, could be collaborating on
 Participants ranked the different sections of model cards in the perspective of one reading a model card and then as an author of a model card. An ordering scheme -  1 being the highest weight and 10 being the lowest -  was applied to the different sections that the user would usually read first in a model card and the sections of a model card that a model card author would find easiest to write. 
 
 
-## **Summary of Responses to the User Studies Survey**
+## Summary of Responses to the User Studies Survey
 
 Our user studies provided further clarity on the sections that different user profiles/stakeholders would find more challenging or easier to write. 
 
@@ -48,23 +48,31 @@ Using this information, we returned back to our analysis of all model cards on t
 * Research Intern
 
 **What are the key pieces of information you want or need to know about a model when interacting with a machine learning model?**
+
 **Insight:**
+
 * Respondents prioritised information about the model task/domain (x3), training data/training procedure (x2), how to use the model (with code) (x2), bias and limitations, and the model licence
 
 ### Feedback on Specific Model Card Formats
 
 #### Format 1: Current [distilgpt2 model card](https://huggingface.co/distilgpt2) on the Hub
-**Insights:** 
+
+**Insights:**
+
 * Respondents found this model card format to be concise, complete, and readable. 
 * There was no consensus about the collapsible sections (some liked them and wanted more, some disliked them). 
 * Some respondents said “Risks and Limitations” should go with “Out of Scope Uses”
 
 #### Format 2: Nazneen Rajani's [Interactive Model Card space](https://huggingface.co/spaces/nazneen/interactive-model-cards)
+
 **Insights:**
+
 * While a few respondents really liked this format, most found it overwhelming or as an overload of information. Several suggested this could be a nice tool to layer onto a base model card for more advanced audiences.
 
 #### Format 3: Ezi Ozoani's [Semi-Interactive Model Card Space](https://huggingface.co/spaces/Ezi/ModelCardsAnalysis)
+
 **Insights:**
+
 * Several respondents found this format overwhelming, but they generally found it less overwhelming than format 2 
 * Several respondents disagreed with the current layout and gave specific feedback about which sections should be prioritised within each column
 
