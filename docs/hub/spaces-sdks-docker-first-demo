@@ -1,16 +1,130 @@
-# Your First Docker Space: Hot Dog Classifier
+# Your First Docker Space: Text Generation with T5
 
-...
+In the following sections, you'll learn the basics of creating a Docker Space, configuring it, and deploying your code to it. We'll create a **Text Generation** Space with Docker that'll be used to demo the [google/flan-t5-small](https://huggingface.co/google/flan-t5-small) model, which can generate text given some input text.
+
+You can find a completed version of this hosted at [NimaBoscarino/hotdog-gradio](https://huggingface.co/spaces/NimaBoscarino/hotdog-gradio).
 
 ## Create a new Docker Space
 
+We'll start by [creating a brand new Space](https://huggingface.co/new-space) and choosing **Docker** as our SDK. Hugging Face Spaces are Git repositories, meaning that you can work on your Space incrementally (and collaboratively) by pushing commits. Take a look at the [Getting Started with Repositories](./repositories-getting-started) guide to learn about how you can create and edit files before continuing. If you prefer to work with a UI, you can also do the work directly in the browser.
 
+Selecting **Docker** as the SDK when [creating a new Space](https://huggingface.co/new-space) will initialize your Docker Space by setting the `sdk` property to `docker` in your `README.md` file's YAML block.
+
+
+```yaml
+sdk: docker
+```
 
 ## Add the dependencies
+
+For the **Text Generation** Space, we'll be building a FastAPI app that showcases a text generation model called Flan T5. For the model inference, we'll be using a [🤗 Transformers pipeline](https://huggingface.co/docs/transformers/pipeline_tutorial) to use the model. We need to start by installing a few dependencies. This can be done by creating a **requirements.txt** file in our repository, and adding the following dependencies to it:
+
+```
+fastapi==0.74.*
+requests==2.27.*
+sentencepiece==0.1.*
+torch==1.11.*
+transformers==4.*
+uvicorn[standard]==0.17.*
+```
+
+The Spaces runtime will handle installing the dependencies!
 
 
 ## Create the app
 
+Let's kick off the process with a dummy FastAPI app to see that we can get an endpoint working. The first step is to create an app file, in this case, we'll call it `main.py`.
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World!"}
+```
+
 
 ## Create the Dockerfile
+
+The main step for a Docker Space is creating a Dockerfile. You can read more about Dockerfiles [here](TODO). Although we're using FastAPI in this tutorial, Dockerfiles give great flexibility to users allowing you to build a new generation of ML demos. Let's write the Dockerfile for our application
+
+```Dockerfile
+FROM python:3.9
+
+WORKDIR /code
+
+COPY ./requirements.txt /code/requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+COPY ./main.py /code/app/main.py
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
+
+**Tip for power users (you can skip):** If you're developing locally, this is a good moment in which you can do `docker build` and `docker run` to debug locally, but it's even easier to push the changes to the Hub and see how it looks like!
+
+```bash
+docker build -t fastapi .
+docker run  -it -p 7860:7860 fastapi
+```
+
+When the changes are saved, the Space will rebuild and your demo should be up after a couple of seconds! [Here](https://huggingface.co/spaces/DockerTemplates/fastapi_dummy) is an example result at this point.
+
+TODO: Add Images from https://huggingface.co/spaces/DockerTemplates/fastapi_dummy 
+
+## Adding some ML to our app
+
+As mentioned before, the idea is to use a Flan T5 model for text generation. We'll want to add some HTML and CSS for an input field, so let's create a directory called static with `index.html`, `style.css`, and `script.js` files. At this moment, your file structure should look like this:
+
+```
+/static
+/static/index.html
+/static/script.js
+/static/style.css
+Dockerfile
+main.py
+README.md
+requirements.txt
+```
+
+Let's go through all the steps to make this working
+
+1. Add the static directory to the working directory in your `Dockerfile`
+
+```Dockerfile
+COPY ./static /code/app/static
+```
+
+2. Write the `index.html` to have a simpple form containing the code of the page.
+
+First, we'll change the `index.html` to contain the code of the landing page
+
+```html
+<main>
+    <section id="text-gen">
+    <h2>Text generation using Flan T5</h2>
+    <p>
+        Model:
+        <a
+          href="https://huggingface.co/google/flan-t5-small"
+          rel="noreferrer"
+          target="_blank"
+        >google/flan-t5-small
+        </a>
+    </p>
+    <form class="text-gen-form">
+        <label for="text-gen-input">Text prompt</label>
+        <input
+          id="text-gen-input"
+          type="text"
+          value="German: There are many ducks"
+        />
+        <button id="text-gen-submit">Submit</button>
+        <p class="text-gen-output"></p>
+    </form>
+    </section>
+</main>
+```
 
