@@ -27,7 +27,7 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	summary:
-		"Zero shot classification is the task of generating specific outputs (labels or sequences of text) from large, pre-trained, language models",
+	"Zero-shot classification is the task of predicting classes that the model previously hasn't seen during the training.",
 	widgetModels: ["facebook/bart-large-mnli"],
 	youtubeId: "",
 };
