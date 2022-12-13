@@ -36,7 +36,7 @@ The top-level properties `event` and `domain` are always specified and used to d
 
 ⚠️ **You should consider that any event on a more granular domain is an `"update"` on the encompassing domains.** ⚠️
 
-For example, any event on `["community", "discussion", "..."]` is an `"update"` on `["community", "discussion"]`.
+For example, any event on the domain `["community", "discussion", "..."]` is also an `"update"` of the domain `["community", "discussion"]`.
 
 This is important in case more granularity is added to the domains by Hugging Face. For example if the domain domain `["repo", "config", "doi"]` is added, it would be accompanied by an `"add"` event when DOIs are created. 
 
