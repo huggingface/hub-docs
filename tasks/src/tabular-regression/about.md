@@ -23,7 +23,7 @@ Given the following data,
 | ... | ... | ... | ... |
 | ... | ... | ... | ... |
 
-Then you can create a simple regression model as follows:
+A simple regression model can be created as follows:
 
 ```python
 #set the input features
