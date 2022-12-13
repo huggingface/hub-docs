@@ -40,7 +40,7 @@ For example, any event on `["community", "discussion", "..."]` is an `"update"` 
 
 This is important in case more granularity is added to the domains by Hugging Face. For example if the domain domain `["repo", "config", "doi"]` is added, it would be accompanied by an `"add"` event when DOIs are created. 
 
-If you followed the rule above, your application will treat any event on `["repo", "config", "doi"]` as an `"update"` on `["repo", "config"]`, and will not break if Hugging Face adds more granularity to its domains.
+If you follow the rule above, your application will treat any event on `["repo", "config", "doi"]` as an `"update"` on `["repo", "config"]`, and will not break if Hugging Face adds more granularity to its domains.
 
 ### Repo
 
@@ -117,4 +117,4 @@ The top level property `comment` is specified when a comment is created, includi
 You can associate a secret to your webhook in two ways:
 
 - Updating the url of the webhook to add your secret as a query parameter.
-- Setting the secret on the webhook. It will be sent as a `X-Webhook-Secret` header on every request.
+- Setting the secret on the webhook. It will be sent as a `X-Webhook-Secret` HTTP header on every request.
