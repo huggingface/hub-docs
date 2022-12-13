@@ -3,7 +3,6 @@
 Tabular regression is the task of predicting a numerical value given a set of attributes/features. *Tabular* meaning that data is stored in a table (like an excel sheet), and each sample is contained in its own row. The features used to predict our target can be both numerical and categorical. However, including categorical features often requires additional preprocessing/feature engineering (a few models do accept categorical features directly, like [CatBoost](https://catboost.ai/)). An example of tabular regression would be predicting the weight of a fish given its' species and length.
 
 ## Use Cases
-Whenever we have a set of variables recorded in a table and use them, we try to predict a target variable; this kind of scenario could be classified as tabular regression. Some of the popular tabular use cases are:
 
 ## Sales Prediction: a Use Case for Predicting a Continuous Target Variable 
   Here the objective is to predict a continuous variable based on a set of input variable(s). For example, predicting `sales` of an ice cream shop based on `temperature` of weather and `duration of hours` shop was open. Here we can build a regression model with `temperature` and `duration of hours` as input variable and `sales` as target variable.
