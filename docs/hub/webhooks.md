@@ -1,6 +1,6 @@
 # Webhooks
 
-Webhooks allow you to know when new changes happen on specific repos or repos belonging to specific users / organizations (not just your repos, but any repo!).
+Webhooks allow you to react when new changes happen on specific repos or repos belonging to specific users / organizations (not just your repos, but any repo!).
 
 You can configure the webhooks in your [settings](https://huggingface.co/settings/webhooks).
 
