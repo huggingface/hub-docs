@@ -8,7 +8,7 @@ In the following sections, you'll learn the basics of creating a Space, configur
 
 ## Creating a new Space
 
-**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Streamlit, and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
+**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers four SDK options: Gradio, Streamlit, Docker and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-blank-space.png"/>
