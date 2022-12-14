@@ -68,7 +68,7 @@ In the current version of webhooks, the top level property `repo` is always spec
 }
 ```
 
-`headSha` is only sent when the domain starts with `"repo"`, it's not sent on community events.
+`headSha` is only sent when the `domain` contains the value `"repo"`, it's not sent on community events.
 
 ### Discussion
 
