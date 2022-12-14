@@ -9,10 +9,12 @@ export enum ModelLibrary {
 	"allennlp"               = "allenNLP",
 	"asteroid"               = "Asteroid",
 	"diffusers"              = "Diffusers",
+	"doctr"                  = "docTR",
 	"espnet"                 = "ESPnet",
 	"fairseq"                = "Fairseq",
 	"flair"                  = "Flair",
 	"keras"                  = "Keras",
+	"k2"                     = "K2",
 	"nemo"                   = "NeMo",
 	"paddlenlp"              = "PaddleNLP",
 	"pyannote-audio"         = "pyannote.audio",
@@ -34,6 +36,10 @@ export enum ModelLibrary {
 
 export type ModelLibraryKey = keyof typeof ModelLibrary;
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as ModelLibraryKey[];
+
+const EXCLUDE_THOSE_LIBRARIES_FROM_DISPLAY: ModelLibraryKey[] = ["doctr", "k2"];
+
+export const ALL_DISPLAY_MODEL_LIBRARY_KEYS = ALL_MODEL_LIBRARY_KEYS.filter(k => !EXCLUDE_THOSE_LIBRARIES_FROM_DISPLAY.includes(k));
 
 
 /**

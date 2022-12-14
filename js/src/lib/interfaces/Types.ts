@@ -776,9 +776,9 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 	"diffusers": [
 		"text-to-image",
 	],
-	// "doctr": [
-	// 	"object-detection",
-	// ],
+	"doctr": [
+		"object-detection",
+	],
 	"espnet": [
 		"text-to-speech",
 		"automatic-speech-recognition",
@@ -797,9 +797,9 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 	"flair": [
 		"token-classification",
 	],
-	// "k2_sherpa": [
-	// 	"automatic-speech-recognition",
-	// ],
+	"k2": [
+		"automatic-speech-recognition",
+	],
 	"keras": [
 		"image-classification",
 	],
@@ -837,10 +837,6 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 	"stanza": [
 		"token-classification",
 	],
-	// "superb": [
-	// 	"automatic-speech-recognition",
-	// 	"speech-segmentation",
-	// ],
 	"timm": [
 		"image-classification",
 	],
