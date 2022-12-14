@@ -101,9 +101,16 @@ If you want your Space to never deactivate, or if you want to set a custom sleep
 
 By default, a upgraded Space will never go to sleep. However, you can use this setting for your upgraded Space to "turn off" (go back to cpu-basic) when it's unused. 😴
 
-The following options will then be available in your Spaces hardware settings:
+The following interface will then be available in your Spaces hardware settings:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time-dark.png"/>
+</div>
+
+The following options are available:
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time-options.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time-options-dark.png"/>
 </div>
