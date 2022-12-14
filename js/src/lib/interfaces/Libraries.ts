@@ -256,7 +256,7 @@ model = load("path_to_folder/${skopsmodelFile}")
 import joblib
 model = joblib.load(
 	hf_hub_download("${model.id}", "sklearn_model.joblib")
-	)
+)
 # only load pickle files from sources you trust
 # read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
 	}
