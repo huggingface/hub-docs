@@ -32,14 +32,13 @@ As an example, here is the full payload when a pull request is opened:
   "repo": {
     "type": "model",
     "name": "gpt2",
-    "gitalyUid": "aed40ec4b80dfaffc3f076570c546561e00e5e2a95de8166bea95dd930b76387",
     "id": "621ffdc036468d709f17434d",
     "private": false,
     "url": {
       "web": "https://hugginface.co/gpt2",
       "api": "https://hugginface.co/api/models/gpt2"
     },
-    "author": {
+    "owner": {
       "id": "628b753283ef59b5be89e937"
     }
   },
@@ -104,7 +103,6 @@ In the current version of webhooks, the top level property `repo` is always spec
 "repo": {
 	"type": "model",
 	"name": "some-user/some-repo",
-	"gitalyUid": "583c43bd0009f32d976f788446d5010ed6ea4af0c6d0235358378cb56d312f2b",
 	"id": "6366c000a2abcdf2fd69a080",
 	"private": false,
 	"url": {
@@ -116,7 +114,7 @@ In the current version of webhooks, the top level property `repo` is always spec
 		"license:other",
 		"has_space"
 	],
-	"author": {
+	"owner": {
 		"id": "61d2000c3c2083e1c08af22d"
 	}
 }
