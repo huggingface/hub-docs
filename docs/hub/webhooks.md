@@ -180,7 +180,9 @@ This can be helpful if accessing the HTTP headers of the request is complicated 
 
 ## Rate limiting
 
-Each webhook is limited to 1000 triggers per 24 hours. You can check the  daily triggers for your webhook in your webhook settings, in the "Activity" tab.
+Each webhook is limited to 1,000 triggers per 24 hours. You can check the  daily triggers for your webhook in your webhook settings, in the "Activity" tab.
+
+If you need to increase the number of triggers for your webhook, contact us at website@huggingface.co.
 
 ## Debugging webhooks
 
