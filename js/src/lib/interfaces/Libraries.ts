@@ -397,7 +397,7 @@ model = AutoModel.load_from_hf_hub("${model.id}")`;
 
 
 
-export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in ModelLibraryKey]?: LibraryUiElement } = {
+export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, LibraryUiElement>> = {
 	// ^^ TODO(remove the optional ? marker when Stanza snippet is available)
 	"adapter-transformers": {
 		btnLabel: "Adapter Transformers",
