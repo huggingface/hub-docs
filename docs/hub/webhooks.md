@@ -6,7 +6,7 @@ You can configure the webhooks in your [settings](https://huggingface.co/setting
 
 You can watch repo changes or community events. If you watch all repos belonging to a user or an organization, you can also receive events for repo creation.
 
-## Webhook payloads
+## Webhook Payloads
 
 After registering a webhook, you will be notified of events via an `HTTP POST` call on the specified URL. The payload is encoded in JSON.
 
