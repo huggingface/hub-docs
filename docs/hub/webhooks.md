@@ -100,7 +100,7 @@ For example, if the `"repo.config.dois"` scope is added in the future, any event
 
 ### Repo
 
-In the current version of webhooks, the top level property `repo` is always specified, as events can always be associated to a repo. Sample payload:
+In the current version of webhooks, the top level property `repo` is always specified, as events can always be associated to a repo. For example, consider the following value:
 
 ```json
 "repo": {
@@ -128,7 +128,7 @@ In the current version of webhooks, the top level property `repo` is always spec
 
 ### Discussion
 
-The top level property `discussion` is specified on community events. The `isPullRequest` property is a boolean indicating if the discussion is also a pull request (on HF, a PR is a special case of a Discussion). Sample payload:
+The top level property `discussion` is specified on community events. The `isPullRequest` property is a boolean indicating if the discussion is also a pull request (on HF, a PR is a special case of a Discussion). Here is an example value:
 
 ```json
 "discussion": {
@@ -152,7 +152,7 @@ The top level property `discussion` is specified on community events. The `isPul
 
 ### Comment
 
-The top level property `comment` is specified when a comment is created (including on discussion creation) or updated. Sample payload:
+The top level property `comment` is specified when a comment is created (including on discussion creation) or updated. Here is an example value:
 
 ```json
 "comment": {
