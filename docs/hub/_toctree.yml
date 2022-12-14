@@ -32,11 +32,11 @@
     - local: model-card-guidebook
       title: Model Card Guidebook
     - local: model-card-landscape-analysis
-      title: MC Guidebook: Landscape Analysis
+      title: Landscape Analysis [MC Guidebook]
     - local: model-cards-user-studies
-      title: MC Guidebook: User Studies
+      title: User Studies [MC Guidebook]
     - local: model-card-appendix
-      title: MC Guidebook: Appendix
+      title: Appendix [MC Guidebook]
   - local: models-gated
     title: Gating models
   - local: models-uploading
