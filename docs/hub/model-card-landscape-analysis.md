@@ -1,5 +1,5 @@
 # THE LANDSCAPE OF ML DOCUMENTATION TOOLS
-The development of the model cards framework in 2018 was inspired by the major documentation framework efforts of Data Statements for Natural Language Processing ( [Bender & Friedman, 2018](https://aclanthology.org/Q18-1041/) ) and Datasheets for Datasets ( [Gebru et al., 2018](https://www.fatml.org/media/documents/datasheets_for_datasets.pdf) ). Since model cards were proposed, a number of other tools have been proposed for documenting and evaluating various aspects of the machine learning development cycle. These tools, including model cards and related documentation efforts proposed prior to model cards, can be contextualised with regard to their focus (e.g., on which part of the ML system lifecycle does the tool focus?) and their intended audiences (e.g., who is the tool designed for?). In Figures 1-2 below, we summarise several prominent documentation tools along these dimensions, provide contextual descriptions of each tool, and link to examples. We broadly classify the documentation tools as belong to the following groups: 
+The development of the model cards framework in 2018 was inspired by the major documentation framework efforts of Data Statements for Natural Language Processing ([Bender & Friedman, 2018](https://aclanthology.org/Q18-1041/)) and Datasheets for Datasets ([Gebru et al., 2018](https://www.fatml.org/media/documents/datasheets_for_datasets.pdf)). Since model cards were proposed, a number of other tools have been proposed for documenting and evaluating various aspects of the machine learning development cycle. These tools, including model cards and related documentation efforts proposed prior to model cards, can be contextualised with regard to their focus (e.g., on which part of the ML system lifecycle does the tool focus?) and their intended audiences (e.g., who is the tool designed for?). In Figures 1-2 below, we summarise several prominent documentation tools along these dimensions, provide contextual descriptions of each tool, and link to examples. We broadly classify the documentation tools as belong to the following groups: 
 
 * **Data-focused**, including documentation tools focused on datasets used in the machine learning system lifecycle
 * **Models-and-methods-focused**, including documentation tools focused on machine learning models and methods; and 
@@ -56,10 +56,15 @@ Several proposed documentation tools focus on datasets used in the ML system lif
 Another set of documentation tools can be thought of as focusing on machine learning models and machine learning methods. These include:
 
 * [Mitchell et al. (2018)](https://arxiv.org/pdf/1810.03993.pdf) propose **model cards** for model reporting to accompany trained ML models and document issues related to evaluation, use, and other issues
-* [Shen et al. (2021)](https://dl.acm.org/doi/abs/10.1145/3442188.3445971) propose **value cards** for teaching students and practitioners about values related to ML models\
+
+* [Shen et al. (2021)](https://dl.acm.org/doi/abs/10.1145/3442188.3445971) propose **value cards** for teaching students and practitioners about values related to ML models
+
 * [Seifert et al. (2019)](https://ris.utwente.nl/ws/portalfiles/portal/158031484/Seifert2019_cogmi_consumer_labels_preprint.pdf) propose **consumer labels for ML models** to help non-experts using or affected by the model understand key issues related to the model.
+
 * [Adkins et al. (2022)](https://dl.acm.org/doi/pdf/10.1145/3491101.3519724) analyse aspects of descriptive documentation tools – which they consider to include **model cards** and data sheets – and argue for increased prescriptive tools for ML engineers. They propose method cards, focused on ML methods, and design primarily with technical stakeholders like model developers and reviewers in mind.
+
   * They envision the relationship between model cards and method cards, in part, by stating: “The sections and prompts we propose…[in the method card template] focus on ML methods that are sufficient to produce a proper ML model with defined input, output, and task. Examples for these are object detection methods such as Single-shot Detectors and language modelling methods such as Generative Pre-trained Transformers (GPT). *It is possible to create Model Cards for the models created using these methods*.”
+  
   * They also state “While Model Cards and FactSheets put main focus on documenting existing models, Method Cards focus more on the underlying methodical and algorithmic choices that need to be considered when creating and training these models. *As a rough analogy, if Model Cards and FactSheets provide nutritional information about cooked meals, Method Cards provide the recipes*.”
  
 
