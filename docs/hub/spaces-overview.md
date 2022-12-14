@@ -27,6 +27,8 @@ Each Spaces environment is limited to 16GB RAM and 2 CPU cores by default, which
 
 You can also request a community GPU grant if you are building something cool as a side project. Drop us a note using the link in the _Settings_ tab of your Space!
 
+Read more in [Spaces GPU Upgrades](./spaces-gpus).
+
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-gpu-settings.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-gpu-settings-dark.png"/>

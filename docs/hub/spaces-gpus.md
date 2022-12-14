@@ -80,7 +80,7 @@ print(tf.config.list_physical_devices('GPU'))
 
 ## Billing
 
-Billing on Spaces is based on hardware usage and is minute based.
+Billing on Spaces is based on hardware usage and is computed by the minute.
 
 During a Space's lifecycle, it is only billed when the Space is actually `Running`. This means that there is no cost during either build or startup.
 
@@ -91,4 +91,19 @@ Spaces running on free hardware are suspended automatically if they are not used
 Additional lifecycle control over Spaces with upgraded hardware will soon be provided such as configuration of an automated suspension of the Space after a custom delay.
 </Tip>
 
-Additional information about billing can be found in the [dedicated section](./billing).
+Additional information about billing can be found in the [dedicated Hub-wide section](./billing).
+
+## Expose a custom sleep time[[sleep-time]]
+
+If your Space is running on the default `cpu-basic` hardware, it will go to sleep if inactive for more a set time (currently, 72 hours). Anyone visting your Space will restart it automatically.
+
+If you want your Space to never deactivate, or if you want to set a custom sleep time, you need to upgrade to a paid Hardware.
+
+By default, a upgraded Space will never go to sleep. However, you can use this setting for your upgraded Space to "turn off" (go back to cpu-basic) when it's unused. 😴
+
+The following options will then be available in your Spaces hardware settings:
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time-dark.png"/>
+</div>
