@@ -182,4 +182,4 @@ Success! Your app should be working now! Check out [DockerTemplates/fastapi_t5](
 
 TODO: Add screenshot
 
-What a journey! Please remember that Docker Spaces give you lots of freedom, so you're not limited to use FastAPI. From a [Go Endpoint](https://huggingface.co/spaces/DockerTemplates/test-docker-go) to a [Shiny App](https://huggingface.co/spaces/DockerTemplates/shiny-with-python), the limit is the moon! Check out [some official examples](./spaces-sdks-docker-examples).
+What a journey! Please remember that Docker Spaces give you lots of freedom, so you're not limited to use FastAPI. From a [Go Endpoint](https://huggingface.co/spaces/DockerTemplates/test-docker-go) to a [Shiny App](https://huggingface.co/spaces/DockerTemplates/shiny-with-python), the limit is the moon! Check out [some official examples](./spaces-sdks-docker-examples). You can also upgrade your Space to a GPU if needed 😃
