@@ -97,9 +97,9 @@ Additional information about billing can be found in the [dedicated Hub-wide sec
 
 If your Space runs on the default `cpu-basic` hardware, it will go to sleep if inactive for more than a set time (currently, 72 hours). Anyone visiting your Space will restart it automatically.
 
-If you want your Space to never deactivate, or if you want to set a custom sleep time, you need to upgrade to a paid Hardware.
+If you want your Space never to deactivate or if you want to set a custom sleep time, you need to upgrade to a paid Hardware.
 
-By default, an upgraded Space will never go to sleep. However, you can use this setting for your upgraded Space to "turn off" (go back to cpu-basic) when it's unused. 😴
+By default, an upgraded Space will never go to sleep. However, you can use this setting for your upgraded Space to become idle when it's unused 😴. You are not going to be charged for the upgraded hardware while it is asleep. The Space will 'wake up' or get restarted once it receives a new visitor.
 
 The following interface will then be available in your Spaces hardware settings:
 
