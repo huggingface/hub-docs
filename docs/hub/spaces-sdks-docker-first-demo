@@ -59,7 +59,7 @@ COPY ./requirements.txt /code/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-COPY ./main.py /code/app/main.py
+COPY . .
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
 
@@ -89,17 +89,24 @@ README.md
 requirements.txt
 ```
 
-Let's go through all the steps to make this working
+Let's go through all the steps to make this working. We'll skip some of the details of the CSS and HTML. You can find the whole code in the Files and versions tab of the [DockerTemplates/fastapi_t5](https://huggingface.co/spaces/DockerTemplates/fastapi_t5) Space.
 
-1. Add the static directory to the working directory in your `Dockerfile`
+1. Write the FastAPI endpoint to do inference
 
-```Dockerfile
-COPY ./static /code/app/static
+We'll use the `pipeline` from `transformers` to load the [google/flan-t5-small](https://huggingface.co/google/flan-t5-small) model. We'll set an endpoint called `infer_t5` that receives and input and outputs the result of the inference call
+
+```python
+from transformers import pipeline
+
+pipe_flan = pipeline("text2text-generation", model="google/flan-t5-small")
+
+@app.get("/infer_t5")
+def t5(input):
+    output = pipe_flan(input)
+    return {"output": output[0]["generated_text"]}
 ```
 
-2. Write the `index.html` to have a simpple form containing the code of the page.
-
-First, we'll change the `index.html` to contain the code of the landing page
+2. Write the `index.html` to have a simple form containing the code of the page.
 
 ```html
 <main>
@@ -128,3 +135,50 @@ First, we'll change the `index.html` to contain the code of the landing page
 </main>
 ```
 
+3. In the `app.py` file, mount the static files and show the html file in the root route
+
+```python
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
+
+@app.get("/")
+def index() -> FileResponse:
+    return FileResponse(path="/app/static/index.html", media_type="text/html")
+```
+
+4. In the `script.js` file, make it handle the request
+
+```javascript
+const textGenForm = document.querySelector('.text-gen-form');
+
+const translateText = async (text) => {
+    const inferResponse = await fetch(`infer_t5?input=${text}`);
+    const inferJson = await inferResponse.json();
+
+    return inferJson.output;
+};
+
+textGenForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const textGenInput = document.getElementById('text-gen-input');
+  const textGenParagraph = document.querySelector('.text-gen-output');
+
+  textGenParagraph.textContent = await translateText(textGenInput.value);
+});
+```
+
+5. Grant permissions to the right directories
+
+As discussed in the Permissions Section (TODO: Add link), the container runs with user ID 1000. That means that the Space might face permission issues. For example, `transformers` downloads and caches the models in the path under the `HUGGINGFACE_HUB_CACHE` path. We can specify this path and use `chmod` to grant the right permissions. Add the following lines to the `Dockerfile`.
+
+```Dockerfile
+RUN mkdir -p /data
+RUN chmod 777 /data
+ENV HUGGINGFACE_HUB_CACHE=/data
+```
+
+Success! Your app should be working now! Check out [DockerTemplates/fastapi_t5](https://huggingface.co/spaces/DockerTemplates/fastapi_t5) to see the final result.
+
+TODO: Add screenshot
+
+What a journey! Please remember that Docker Spaces give you lots of freedom, so you're not limited to use FastAPI. From a [Go Endpoint](https://huggingface.co/spaces/DockerTemplates/test-docker-go) to a [Shiny App](TODO), the limit is the moon! Check out [some official examples](./spaces-sdks-docker-examples).
