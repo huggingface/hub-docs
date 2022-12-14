@@ -1,6 +1,10 @@
 # Spaces Changelog
 
 
+## [2022-12-14] - Ability to set a custom "sleep" time
+
+- Read more doc here: [Spaces sleep time](./spaces-gpus#sleep-time)
+
 ## [2022-12-07] - Add support for Streamlit 1.15
 
 - Announcement : https://twitter.com/osanseviero/status/1600881584214638592.
