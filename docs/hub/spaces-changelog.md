@@ -1,5 +1,10 @@
 # Spaces Changelog
 
+
+## [2022-12-07] - Add support for Streamlit 1.15
+
+- Announcement : https://twitter.com/osanseviero/status/1600881584214638592.
+
 ## [2022-06-07] - Add support for Streamlit 1.10.0
 
 - The new multipage apps feature is working out-of-the-box on Spaces.
