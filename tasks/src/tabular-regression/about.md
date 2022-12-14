@@ -12,7 +12,7 @@ Tabular regression is the task of predicting a numerical value given a set of at
 
 
 
-## Inference
+## Model Training
 
 Given the following data,
 
