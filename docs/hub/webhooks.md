@@ -96,7 +96,7 @@ The top level property `discussion` is specified on community events. Its `isPul
 
 ### Comment
 
-The top level property `comment` is specified when a comment is created, including on discussion creation, or updated. Sample payload:
+The top level property `comment` is specified when a comment is created (including on discussion creation) or updated. Sample payload:
 
 ```json
 "comment": {
