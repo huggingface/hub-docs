@@ -2,7 +2,7 @@
 
 In the following sections, you'll learn the basics of creating a Docker Space, configuring it, and deploying your code to it. We'll create a **Text Generation** Space with Docker that'll be used to demo the [google/flan-t5-small](https://huggingface.co/google/flan-t5-small) model, which can generate text given some input text.
 
-You can find a completed version of this hosted at [NimaBoscarino/hotdog-gradio](https://huggingface.co/spaces/NimaBoscarino/hotdog-gradio).
+You can find a completed version of this hosted [here](https://huggingface.co/spaces/DockerTemplates/fastapi_t5).
 
 ## Create a new Docker Space
 
