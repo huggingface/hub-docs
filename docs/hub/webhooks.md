@@ -1,45 +1,102 @@
 # Webhooks
 
-Webhooks allow you to react when new changes happen on specific repos or repos belonging to specific users / organizations (not just your repos, but any repo!).
+Webhooks are a foundation for MLOps related features. You can use this to auto-convert models, build community bots, or build CI/CD for your datasets or Spaces…
+
+They allow you to react when new changes happen on specific repos or repos belonging to specific users / organizations (not just your repos, but any repo!).
 
 You can configure the webhooks in your [settings](https://huggingface.co/settings/webhooks).
 
-You can watch repo changes or community events. If you watch all repos belonging to a user or an organization, you can also receive events for repo creation.
+![Settings of an individual webhook](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-settings.png)
+
+You can watch repo changes and discussions / pull requests / comments. You can even use a Space to react to webhooks! In the screenshot, the user `coyotte508` created a space named `webhooks` that reacts to webhooks.
+
+<!-- Todo: add a link to a guide  -->
 
 ## Webhook Payloads
 
 After registering a webhook, you will be notified of events via an `HTTP POST` call on the specified URL. The payload is encoded in JSON.
 
-
 You can check the last payloads sent in the activity tab of the webhook page, as well as replay webhooks.
 
-### Event & Domain
 
-The top-level properties `event` and `domain` are always specified and used to determine the nature of the event.
+![image.png](https://s3.amazonaws.com/moonup/production/uploads/1671034300077-61d2f90c3c2083e1c08af22d.png)
 
-`event` can take one of the following values: 
+As an example, here is the full payload when a pull request is opened:
 
-- `"create"`
-- `"delete"`
-- `"update"`
-- `"move"`
+```json
+{
+  "event": {
+    "action": "create",
+    "scope": "discussion"
+  },
+  "repo": {
+    "type": "model",
+    "name": "gpt2",
+    "gitalyUid": "aed40ec4b80dfaffc3f076570c546561e00e5e2a95de8166bea95dd930b76387",
+    "id": "621ffdc036468d709f17434d",
+    "private": false,
+    "url": {
+      "web": "https://hugginface.co/gpt2",
+      "api": "https://hugginface.co/api/models/gpt2"
+    },
+    "author": {
+      "id": "628b753283ef59b5be89e937"
+    }
+  },
+  "discussion": {
+    "id": "6399f58518721fdd27fc9ca9",
+    "title": "Update co2 emissions",
+    "url": {
+      "web": "https://hugginface.co/gpt2/discussions/19",
+      "api": "https://hugginface.co/api/models/gpt2/discussions/19"
+    },
+    "status": "open",
+    "author": {
+      "id": "61d2f90c3c2083e1c08af22d"
+    },
+    "num": 19,
+    "isPullRequest": true,
+    "changes": {
+      "base": "refs/heads/main"
+    }
+  },
+  "comment": {
+    "id": "6399f58518721fdd27fc9caa",
+    "author": {
+      "id": "61d2f90c3c2083e1c08af22d"
+    },
+    "content": "Add co2 emissions information to the model card",
+    "hidden": false,
+    "url": {
+      "web": "https://hugginface.co/gpt2/discussions/19#6399f58518721fdd27fc9caa"
+    }
+  },
+  "webhook": {
+    "id": "6390e855e30d9209411de93b",
+    "version": 3
+  }
+}
+```
 
-`domain` specifies the domain of the event. It can be one of the following values:
+### Event
 
+The top-level properties `event` is always specified and used to determine the nature of the event.
 
-- `["repo"]` - Global events on repos: create, delete, move
-- `["repo", "content"]` - Events on the content of the repo, like new commits or tags. Triggers on new pull requests as well due to the newly created reference / commit.
-- `["repo", "config"]` - Events on the config: update space secrets, update settings, update DOIs, disabled or not, ...
-- `["community", "discussion"]` - Creating a discussion or pull request, updating the title or status
-- `["community", "discussion", "comment"]` - Creating, updating, hiding a comment
+It has two sub-properties: `action` and `scope`.
 
-⚠️ **You should consider that any event on a more granular domain is an `"update"` on the encompassing domains.** ⚠️
+`action` can take one of the following values: `"create"`, `"delete"`, `"update"`, `"move"`.
 
-For example, any event on the domain `["community", "discussion", "..."]` is also an `"update"` of the domain `["community", "discussion"]`.
+`scope` can be one of the following values:
 
-This is important in case more granularity is added to the domains by Hugging Face. For example if the domain `["repo", "config", "doi"]` is added, it would be accompanied by an `"add"` event when DOIs are created. 
+- `"repo"` - Global events on repos. Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`, `"move"`.
+- `"repo.content"` - Events on the content of the repo, like new commits or tags. Triggers on new pull requests as well due to the newly created reference / commit. The associated `action` is always `"update"`.
+- `"repo.config"` - Events on the config: update space secrets, update settings, update DOIs, disabled or not, ... The associated `action` is always `"update"`.
+- `"discussion"` - Creating a discussion or pull request, updating the title or status (including merging).  Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`.
+- `"discussion.comment"` - Creating, updating, hiding a comment. Possible values for the associated `action`: `"create"`, `"update"`.
 
-If you follow the rule above, your application will treat any event on `["repo", "config", "doi"]` as an `"update"` on `["repo", "config"]`, and will not break if Hugging Face adds more granularity to its domains.
+More scopes can be added in the future. As a rule a thumb, any event on a scope can be considered as an `"update"` action on the broader scope.
+
+For example, if the `"repo.config.dois"` scope is added in the future, any event with that scope can be considered by your application as an `"update"` action on the `"repo.config"` scope.
 
 ### Repo
 
@@ -67,7 +124,7 @@ In the current version of webhooks, the top level property `repo` is always spec
 }
 ```
 
-`headSha` is only sent when the `domain` contains the value `"repo"`, it's not sent on community events.
+`headSha` is only sent when the `scope` starts with `"repo"`, it's not sent on community events like discussions and comments.
 
 ### Discussion
 
@@ -113,7 +170,20 @@ The top level property `comment` is specified when a comment is created (includi
 
 ## Webhook secret
 
-You can associate a secret to your webhook in two ways:
+If you set a secret for your webhook, it will be sent along as a `X-Webhook-Secret` HTTP header on every request. Only ASCII characters are supported.
 
-- Updating the url of the webhook to add your secret as a query parameter.
-- Setting the secret on the webhook. It will be sent as a `X-Webhook-Secret` HTTP header on every request.
+<Tip>
+You can also change the URL of the webhook to add a secret to the URL. For example, setting it to `https://example.com/webhook?secret=XXX`.
+
+This can be helpful if accessing the HTTP headers of the request is complicated for your application listening to webhooks.
+</Tip>
+
+## Debugging webhooks
+
+Go in the activity tab for your webhook, there you will see the list of recent events.
+
+ ![image.png](https://s3.amazonaws.com/moonup/production/uploads/1671035382840-61d2f90c3c2083e1c08af22d.png)
+ 
+You will see the HTTP status code and the payload of the events. You can replay events too by clicking on the `replay` button!
+
+You can also change the url or secret of your webhook and then replay an event, it will send the payload to the updated URL.
