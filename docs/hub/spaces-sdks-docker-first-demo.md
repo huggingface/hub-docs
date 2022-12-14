@@ -169,7 +169,8 @@ textGenForm.addEventListener('submit', async (event) => {
 
 5. Grant permissions to the right directories
 
-As discussed in the Permissions Section (TODO: Add link), the container runs with user ID 1000. That means that the Space might face permission issues. For example, `transformers` downloads and caches the models in the path under the `HUGGINGFACE_HUB_CACHE` path. We can specify this path and use `chmod` to grant the right permissions. Add the following lines to the `Dockerfile`.
+
+As discussed in the [Permissions Section](./spaces-sdks-docker#permissions), the container runs with user ID 1000. That means that the Space might face permission issues. For example, `transformers` downloads and caches the models in the path under the `HUGGINGFACE_HUB_CACHE` path. We can specify this path and use `chmod` to grant the right permissions. Add the following lines to the `Dockerfile`.
 
 ```Dockerfile
 RUN mkdir -p /data
@@ -181,4 +182,4 @@ Success! Your app should be working now! Check out [DockerTemplates/fastapi_t5](
 
 TODO: Add screenshot
 
-What a journey! Please remember that Docker Spaces give you lots of freedom, so you're not limited to use FastAPI. From a [Go Endpoint](https://huggingface.co/spaces/DockerTemplates/test-docker-go) to a [Shiny App](TODO), the limit is the moon! Check out [some official examples](./spaces-sdks-docker-examples).
+What a journey! Please remember that Docker Spaces give you lots of freedom, so you're not limited to use FastAPI. From a [Go Endpoint](https://huggingface.co/spaces/DockerTemplates/test-docker-go) to a [Shiny App](https://huggingface.co/spaces/DockerTemplates/shiny-with-python), the limit is the moon! Check out [some official examples](./spaces-sdks-docker-examples).

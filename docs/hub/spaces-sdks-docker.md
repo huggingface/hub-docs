@@ -1,18 +1,15 @@
 # Docker Spaces
 
-Spaces accommodate custom Docker containers for apps that go outside the scope of Streamlit and Gradio. Docker Spaces give freedom to users to go beyond the limits of what was previously possible with the standard sdks. From FastAPI to Go endpoints, Phoenix apps and ML Ops tools, Docker Spaces can help in many different setups.
+Spaces accommodate custom Docker containers for apps that go outside the scope of Streamlit and Gradio. Docker Spaces give freedom to users to go beyond the limits of what was previously possible with the standard sdks. From FastAPI and Go endpoints to Phoenix apps and ML Ops tools, Docker Spaces can help in many different setups.
 
 ## Setting up Docker Spaces
 
 Selecting **Docker** as the SDK when [creating a new Space](https://huggingface.co/new-space) will initialize your Space by setting the `sdk` property to `docker` in your `README.md` file's YAML block. Alternatively, given an existing Space repository, set `sdk: docker` inside the `YAML` block at the top of your Spaces **README.md** file. Afterwards, you can create a usual `Dockerfile`.
 
-Some important considerations
-* 
-
 
 ## Secret Management
 
-In Docker Spaces, the secrets management is a bit different for security reasons. Once you create a secret in the [Settings tab](./spaces-overview#managing-secrets), you can expose the secret by adding the following line in your Dockerfile.
+In Docker Spaces, the secrets management is different for security reasons. Once you create a secret in the [Settings tab](./spaces-overview#managing-secrets), you can expose the secret by adding the following line in your Dockerfile.
 
 ```Dockerfile
 RUN --mount=type=secret,id=EXAMPLE,required=true cat /run/secrets/EXAMPLE > /example
@@ -28,7 +25,3 @@ The container runs with user ID 1000. If you face permission issues, you might n
 RUN mkdir -p /data
 RUN chmod 777 /data
 ```
-
-## Debugging Docker Spaces
-
-## Environment Variables
