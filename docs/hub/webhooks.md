@@ -168,6 +168,8 @@ The top level property `comment` is specified when a comment is created (includi
 
 ## Webhook secret
 
+Setting a webhook secret is useful to make sure payloads sent to your webhook handler come from Hugging Face.
+
 If you set a secret for your webhook, it will be sent along as an `X-Webhook-Secret` HTTP header on every request. Only ASCII characters are supported.
 
 <Tip>
@@ -175,6 +177,10 @@ You can also change the URL of the webhook to add a secret to the URL. For examp
 
 This can be helpful if accessing the HTTP headers of the request is complicated for your webhook handler.
 </Tip>
+
+## Rate limiting
+
+Each webhook is limited to 1000 triggers per 24 hours. You can check the  daily triggers for your webhook in your webhook settings, in the "Activity" tab.
 
 ## Debugging webhooks
 
