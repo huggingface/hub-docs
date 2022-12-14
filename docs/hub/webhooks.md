@@ -10,7 +10,6 @@ You can watch repo changes or community events. If you watch all repos belonging
 
 After registering a webhook, you will be notified of events via an `HTTP POST` call on the specified URL. The payload is encoded in JSON.
 
-To determine the nature of the event, you can look at the `event` and `domain` fields in the payload.
 
 You can check the last payloads sent in the activity tab of the webhook page, as well as replay webhooks.
 
