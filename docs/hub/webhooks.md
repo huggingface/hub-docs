@@ -4,19 +4,19 @@ Webhooks are a foundation for MLOps related features. You can use this to auto-c
 
 They allow you to react when new changes happen on specific repos or repos belonging to specific users / organizations (not just your repos, but any repo!).
 
-You can configure the webhooks in your [settings](https://huggingface.co/settings/webhooks).
+You can configure the webhooks in your [settings](https://huggingface.co/settings/webhooks):
 
 ![Settings of an individual webhook](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-settings.png)
 
-You can watch repo changes and discussions / pull requests / comments. You can even use a Space to react to webhooks! In the screenshot, the user `coyotte508` created a space named `webhooks` that reacts to webhooks.
+You can watch repo changes and discussions / pull requests / comments. You can even use a Space to react to webhooks!
 
-<!-- Todo: add a link to a guide  -->
+<!-- Todo: add a link to a guide with a real example -->
 
 ## Webhook Payloads
 
 After registering a webhook, you will be notified of events via an `HTTP POST` call on the specified URL. The payload is encoded in JSON.
 
-You can check the last payloads sent in the activity tab of the webhook page, as well as replay webhooks.
+You can check the last payloads sent in the activity tab of the webhook page, as well as replay webhooks:
 
 
 ![image.png](https://s3.amazonaws.com/moonup/production/uploads/1671034300077-61d2f90c3c2083e1c08af22d.png)
@@ -82,11 +82,9 @@ As an example, here is the full payload when a pull request is opened:
 
 The top-level properties `event` is always specified and used to determine the nature of the event.
 
-It has two sub-properties: `action` and `scope`.
+It has two sub-properties: `event.action` and `event.scope`.
 
-`action` can take one of the following values: `"create"`, `"delete"`, `"update"`, `"move"`.
-
-`scope` can be one of the following values:
+`event.scope` can take one of the following values:
 
 - `"repo"` - Global events on repos. Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`, `"move"`.
 - `"repo.content"` - Events on the content of the repo, like new commits or tags. Triggers on new pull requests as well due to the newly created reference / commit. The associated `action` is always `"update"`.
@@ -94,9 +92,9 @@ It has two sub-properties: `action` and `scope`.
 - `"discussion"` - Creating a discussion or pull request, updating the title or status (including merging).  Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`.
 - `"discussion.comment"` - Creating, updating, hiding a comment. Possible values for the associated `action`: `"create"`, `"update"`.
 
-More scopes can be added in the future. As a rule a thumb, any event on a scope can be considered as an `"update"` action on the broader scope.
+More scopes can be added in the future. To handle unknown events, your webhook handler can consider any action on a narrowed scope to be an `"update"` action on the broader scope.
 
-For example, if the `"repo.config.dois"` scope is added in the future, any event with that scope can be considered by your application as an `"update"` action on the `"repo.config"` scope.
+For example, if the `"repo.config.dois"` scope is added in the future, any event with that scope can be considered by your webhook handler as an `"update"` action on the `"repo.config"` scope.
 
 ### Repo
 
@@ -124,11 +122,11 @@ In the current version of webhooks, the top level property `repo` is always spec
 }
 ```
 
-`headSha` is only sent when the `scope` starts with `"repo"`, it's not sent on community events like discussions and comments.
+`repo.headSha` is the sha of the latest commit on the repo's `main` branch. It is only sent when `event.scope` starts with `"repo"`, not on community events like discussions and comments.
 
 ### Discussion
 
-The top level property `discussion` is specified on community events. The `isPullRequest` property is a boolean indicating if the discussion is also a pull request (on HF, a PR is a special case of a Discussion). Here is an example value:
+The top level property `discussion` is specified on community events. The `discussion.isPullRequest` property is a boolean indicating if the discussion is also a pull request (on HF, a PR is a special case of a Discussion). Here is an example value:
 
 ```json
 "discussion": {
@@ -175,7 +173,7 @@ If you set a secret for your webhook, it will be sent along as an `X-Webhook-Sec
 <Tip>
 You can also change the URL of the webhook to add a secret to the URL. For example, setting it to `https://example.com/webhook?secret=XXX`.
 
-This can be helpful if accessing the HTTP headers of the request is complicated for your application listening to webhooks.
+This can be helpful if accessing the HTTP headers of the request is complicated for your webhook handler.
 </Tip>
 
 ## Debugging webhooks
@@ -186,4 +184,4 @@ Go in the activity tab for your webhook, there you will see the list of recent e
  
 You will see the HTTP status code and the payload of the events. You can replay events too by clicking on the `replay` button!
 
-You can also change the url or secret of your webhook and then replay an event, it will send the payload to the updated URL.
+It is possible to change the url or secret of the webhook and then replay an event; it will send the payload to the updated URL.
