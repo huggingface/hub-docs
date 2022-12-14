@@ -71,7 +71,7 @@ In the current version of webhooks, the top level property `repo` is always spec
 
 ### Discussion
 
-The top level property `discussion` is specified on community events. Its `isPullRequest` property is a boolean indicating if the discussion is also a pull request. Sample payload:
+The top level property `discussion` is specified on community events. The `isPullRequest` property is a boolean indicating if the discussion is also a pull request (on HF, a PR is a special case of a Discussion). Sample payload:
 
 ```json
 "discussion": {
