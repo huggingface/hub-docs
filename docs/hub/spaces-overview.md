@@ -44,3 +44,12 @@ If your app requires secret keys or tokens, don't hard-code them inside your app
 ## Networking
 
 If your Space needs to make any network requests, you can make requests through the standard HTTP and HTTPS ports (80 and 443) along with port 8080. Any requests going to other ports will be blocked.
+
+## Helper environment variables
+
+In some cases, you might be interested in having programmatic access to the Space author or repository name. This feature is particularly useful when you expect users to duplicate your Space. To help with this, Spaces exposes different environment variables at runtime. Given a Space [`osanseviero/i-like-flan`](https://huggingface.co/spaces/osanseviero/i-like-flan):
+
+* `SPACE_AUTHOR_NAME`: osanseviero
+* `SPACE_REPO_NAME`: i-like-flan
+* `SPACE_TITLE`: I Like Flan (specified in the README file)
+* `SPACE_ID`: `osanseviero/i-like-flan`
