@@ -99,7 +99,7 @@ If your Space runs on the default `cpu-basic` hardware, it will go to sleep if i
 
 If you want your Space never to deactivate or if you want to set a custom sleep time, you need to upgrade to a paid Hardware.
 
-By default, an upgraded Space will never go to sleep. However, you can use this setting for your upgraded Space to become idle when it's unused 😴. You are not going to be charged for the upgraded hardware while it is asleep. The Space will 'wake up' or get restarted once it receives a new visitor.
+By default, an upgraded Space will never go to sleep. However, you can use this setting for your upgraded Space to become idle (`stopped` stage) when it's unused 😴. You are not going to be charged for the upgraded hardware while it is asleep. The Space will 'wake up' or get restarted once it receives a new visitor.
 
 The following interface will then be available in your Spaces hardware settings:
 
