@@ -21,7 +21,27 @@ Where `EXAMPLE` is the name of the secret. Afterwards, you can access the secret
 
 The container runs with user ID 1000. If you face permission issues, you might need to use `chmod` in your `Dockerfile` to grant the right permissions. For example, if you want to use the directory `/data`, you can do:
 
-```
+```Dockerfile
 RUN mkdir -p /data
 RUN chmod 777 /data
+```
+
+Alternatively, you can create a user and set the `WORKDIR` to the user's home directory. This way, you can avoid user permission issues.
+
+```Dockerfile
+# Set up a new user named "user" with user ID 1000
+RUN useradd -m -u 1000 user
+
+# Switch to the "user" user
+USER user
+
+# Set home to the user's home directory
+ENV HOME=/home/user \
+	PATH=/home/user/.local/bin:$PATH
+
+# Set the working directory to the user's home directory
+WORKDIR $HOME/app
+
+# Copy the current directory contents into the container at $HOME/app setting the owner to the user
+COPY --chown=user . $HOME/app
 ```
