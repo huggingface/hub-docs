@@ -26,11 +26,41 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 
 ## Inference
 
-You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/zero-shot-image-classification/about.md) that shows how to infer with `zero-shot-image-classification` models.
+The model can be loaded with the zero-shot-image-classification pipeline like so:
+```python
+from transformers import pipeline
+# More models in the model hub.
+model_name = "openai/clip-vit-large-patch14-336"
+classifier = pipeline("zero-shot-image-classification", model = model_name)
+```
+You can then use this pipeline to classify images into any of the class names you specify. You can specify more than two class labels too.
+```python
+image_to_classify = "path_to_cat_and_dog_image.jpeg"
+labels_for_classification =  ["cat and dog", 
+                              "lion and cheetah", 
+                              "rabbit and lion"]
+scores = classifier(image_to_classify, 
+                    candidate_labels = labels_for_classification)
+```
+The classifier would return a list of dictionaries after the inference which is stored in the variable `scores` in the code snippet above. Variable `scores` would look as follows:
+```python
+[{'score': 0.9950482249259949, 'label': 'cat and dog'},
+{'score': 0.004863627254962921, 'label': 'rabbit and lion'},
+{'score': 8.816882473183796e-05, 'label': 'lion and cheetah'}]
+```
+The dictionary at the zeroth index of the list will contain the label with the highest score.
+```python
+print(f"The highest score is {scores[0]['score']:.3f} for the label {scores[0]['label']}")
+```
+The output from the print statement above would look as follows:
+```
+The highest probability is 0.995 for the label cat and dog
+```
 
 ## Useful Resources
 
 You can contribute useful resources about this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/zero-shot-image-classification/about.md).
 
-This page was made possible thanks to the efforts of [Shamima Hossain](https://huggingface.co/Shamima).
+This page was made possible thanks to the efforts of [Shamima Hossain](https://huggingface.co/Shamima), [Haider Zaidi
+](https://huggingface.co/chefhaider) and [Paarth Bhatnagar](https://huggingface.co/Paarth).
 

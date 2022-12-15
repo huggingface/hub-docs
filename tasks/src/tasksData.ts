@@ -25,6 +25,7 @@ import tokenClassification from "./token-classification/data";
 import translation from "./translation/data";
 import textClassification from "./text-classification/data";
 import textGeneration from "./text-generation/data";
+import unconditionalImageGeneration from "./unconditional-image-generation/data";
 import videoClassification from "./video-classification/data";
 import visualQuestionAnswering from "./visual-question-answering/data";
 import zeroShotImageClassification from "./zero-shot-image-classification/data";
@@ -38,7 +39,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"audio-classification":           getData("audio-classification", audioClassification),
 	"audio-to-audio":                 getData("audio-to-audio", audioToAudio),
 	"automatic-speech-recognition":   getData("automatic-speech-recognition", automaticSpeechRecognition),
-	"conversational":                 getData("conversational"),
+	"conversational":                 getData("conversational", conversational),
 	"depth-estimation":               getData("depth-estimation", depthEstimation),
 	"document-question-answering":    getData("document-question-answering", documentQuestionAnswering),
 	"feature-extraction":             getData("feature-extraction"),
@@ -70,7 +71,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"time-series-forecasting":        undefined,
 	"token-classification":           getData("token-classification", tokenClassification),
 	"translation":                    getData("translation", translation),
-	"unconditional-image-generation": getData("unconditional-image-generation"),
+	"unconditional-image-generation": getData("unconditional-image-generation", unconditionalImageGeneration),
 	"visual-question-answering":      getData("visual-question-answering", visualQuestionAnswering),
 	"voice-activity-detection":       getData("voice-activity-detection"),
 	"zero-shot-classification":       getData("zero-shot-classification"),
