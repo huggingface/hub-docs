@@ -1,4 +1,4 @@
-# Example Docker Spaces
+# Docker Spaces Examples
 
 We gathered some example demos in the [Docker Templates](https://huggingface.co/DockerTemplates) organization. Please check them out!
 
