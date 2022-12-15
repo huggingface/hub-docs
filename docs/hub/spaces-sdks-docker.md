@@ -1,10 +1,21 @@
 # Docker Spaces
 
-Spaces accommodate custom Docker containers for apps that go outside the scope of Streamlit and Gradio. Docker Spaces give freedom to users to go beyond the limits of what was previously possible with the standard sdks. From FastAPI and Go endpoints to Phoenix apps and ML Ops tools, Docker Spaces can help in many different setups.
+Spaces accommodate custom [Docker containers](https://docs.docker.com/get-started/) for apps that go outside the scope of Streamlit and Gradio. Docker Spaces give freedom to users to go beyond the limits of what was previously possible with the standard sdks. From FastAPI and Go endpoints to Phoenix apps and ML Ops tools, Docker Spaces can help in many different setups.
 
 ## Setting up Docker Spaces
 
-Selecting **Docker** as the SDK when [creating a new Space](https://huggingface.co/new-space) will initialize your Space by setting the `sdk` property to `docker` in your `README.md` file's YAML block. Alternatively, given an existing Space repository, set `sdk: docker` inside the `YAML` block at the top of your Spaces **README.md** file. Afterwards, you can create a usual `Dockerfile`.
+Selecting **Docker** as the SDK when [creating a new Space](https://huggingface.co/new-space) will initialize your Space by setting the `sdk` property to `docker` in your `README.md` file's YAML block. Alternatively, given an existing Space repository, set `sdk: docker` inside the `YAML` block at the top of your Spaces **README.md** file. You can also change the default exposed port `7860` by setting `app_port: 7860`. Afterwards, you can create a usual `Dockerfile`.
+
+```Yaml
+---
+title: Basic Docker SDK Space
+emoji: 🐳
+colorFrom: purple
+colorTo: gray
+sdk: docker
+app_port: 7860
+---
+```
 
 
 ## Secret Management
@@ -45,3 +56,8 @@ WORKDIR $HOME/app
 # Copy the current directory contents into the container at $HOME/app setting the owner to the user
 COPY --chown=user . $HOME/app
 ```
+
+## Read More
+
+* [Full Docker demo example](spaces-sdks-docker-first-demo)
+* [List of Docker Spaces examples](spaces-sdks-docker-examples)
