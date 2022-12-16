@@ -18,15 +18,15 @@ All models on the Hub come up with the following features:
 
 To get started, you can follow [PaddlePaddle Quick Start](https://www.paddlepaddle.org.cn/en/install) to intall the PaddlePaddle Framework with your favorite OS, Package Manager and Compute Platform.
 
-`PaddleNLP` offers a quick one-line install through pip:
+`paddlenlp` offers a quick one-line install through pip:
 
 ```
-pip install paddlenlp
+pip install -U paddlenlp
 ```
 
 ## Using existing models
 
-Similar to `transformer` models, the `PaddleNLP` library provides a simple one-liner to load models! Depending on how you want to use them, you can use the high-level API using the `Taskflow` function or you can use `AutoModel` and `AutoTokenizer` for more control.
+Similar to `transformer` models, the `paddlenlp` library provides a simple one-liner to load models from the Hugging Face Hub by setting `from_hf_hub=True`! Depending on how you want to use them, you can use the high-level API using the `Taskflow` function or you can use `AutoModel` and `AutoTokenizer` for more control.
 
 ```py
 # Taskflow provides a simple end-to-end capability and a more optimized experience for inference
