@@ -11,6 +11,8 @@
 	import IconImageClassification from "../Icons/IconImageClassification.svelte";
 	import IconImageSegmentation from "../Icons/IconImageSegmentation.svelte";
 	import IconObjectDetection from "../Icons/IconObjectDetection.svelte";
+	import IconDepthEstimation from "../Icons/IconDepthEstimation.svelte";
+	import IconVideoClassification from "../Icons/IconVideoClassification.svelte";
 	import IconQuestionAnswering from "../Icons/IconQuestionAnswering.svelte";
 	import IconSentenceSimilarity from "../Icons/IconSentenceSimilarity.svelte";
 	import IconTabularClassification from "../Icons/IconTabularClassification.svelte";
@@ -59,8 +61,10 @@
 		"audio-to-audio": IconAudioToAudio,
 		"audio-classification": IconAudioClassification,
 		"voice-activity-detection": IconVoiceActivityDetection,
+		"depth-estimation": IconDepthEstimation,
 		"image-classification": IconImageClassification,
 		"object-detection": IconObjectDetection,
+		"video-classification": IconVideoClassification,
 		"image-segmentation": IconImageSegmentation,
 		"text-to-image": IconTextToImage,
 		"image-to-text": IconImageToText,

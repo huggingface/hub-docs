@@ -91,7 +91,10 @@
 		getOutput();
 	}
 
-	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+	} = {}) {
 		const trimmedQuestion = question.trim();
 
 		if (!trimmedQuestion) {
@@ -143,7 +146,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error;
 		}
@@ -158,7 +161,7 @@
 				const res = await fetch(imgSrc);
 				const blob = await res.blob();
 				await updateImageBase64(blob);
-				getOutput(false, true);
+				getOutput({ isOnLoadCall: true });
 			}
 		})();
 	});

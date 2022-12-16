@@ -34,7 +34,10 @@
 	let output: Array<{ label: string; score: number }> = [];
 	let outputJson: string;
 
-	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+	} = {}) {
 		const trimmedSourceSentence = sourceSentence.trim();
 		if (!trimmedSourceSentence) {
 			error = "You need to input some text";
@@ -107,7 +110,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error;
 		}
@@ -142,7 +145,7 @@
 			sourceSentence = (demoSourcesentence as string) ?? "";
 			comparisonSentences = demoComparisonSentence ?? [""];
 			nComparisonSentences = comparisonSentences.length;
-			getOutput(false, true);
+			getOutput({ isOnLoadCall: true });
 		}
 	});
 </script>

@@ -197,7 +197,7 @@ huggingface_estimator = HuggingFace(
         transformers_version='4.4.2',
         pytorch_version='1.6.0',
         py_version='py36',
-        hyperparameters = hyperparameters
+        hyperparameters = hyperparameters,
         distribution = distribution
 )
 ```

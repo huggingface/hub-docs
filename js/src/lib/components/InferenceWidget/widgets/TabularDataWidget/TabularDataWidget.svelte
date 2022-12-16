@@ -77,7 +77,7 @@
 			const [demoTable] = getDemoInputs(model, ["structuredData"]);
 			table = convertDataToTable((demoTable as TableData) ?? {});
 			if (table && callApiOnMount) {
-				getOutput(false, true);
+				getOutput({ isOnLoadCall: true });
 			}
 		}
 	});
@@ -87,7 +87,10 @@
 		output = [];
 	}
 
-	async function getOutput(withModelLoading = false, isOnLoadCall = false) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+	} = {}) {
 		for (let [i, row] of table.entries()) {
 			for (const [j, cell] of row.entries()) {
 				if (!String(cell)) {
@@ -104,7 +107,7 @@
 		let { Prediction, ...tableWithoutOutput } =
 			convertTableToData(tableWithOutput);
 
-		if (shouldUpdateUrl) {
+		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
 				data: JSON.stringify(tableWithoutOutput),
 			});
@@ -147,7 +150,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput(true);
+			getOutput({ withModelLoading: true });
 		} else if (res.status === "error") {
 			error = res.error;
 		}
