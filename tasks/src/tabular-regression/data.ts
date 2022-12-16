@@ -6,13 +6,9 @@ import { TASKS_MODEL_LIBRARIES } from "../const";
 const taskData: TaskData = {
 	datasets: [
 		{
-			description: "Dataset containing tip amounts for food servers.",
-			id:          "scikit-learn/tips",
+			description: "A comprehensive curation of datasets covering all benchmarks.",
+			id:          "inria-soda/tabular-benchmark",
 		},
-		{
-			description: "Dataset containing mile-per-gallon (mpg) information for various vehicles",
-			id:          "scikit-learn/auto-mpg",
-		}
 	],
 	demo: {
 		inputs: [
@@ -21,7 +17,7 @@ const taskData: TaskData = {
 					["Car Name", "Horsepower", "Weight"],
 					["ford torino", "140", "3,449"],
 					["amc hornet", "97", "2,774"],
-					["toyota corolla", "65", "1,773"]
+					["toyota corolla", "65", "1,773"],
 
 				],
 				type: "tabular",
@@ -38,7 +34,14 @@ const taskData: TaskData = {
 	label:     PIPELINE_DATA["tabular-regression"].name,
 	libraries: TASKS_MODEL_LIBRARIES["tabular-regression"],
 	metrics:   [
-		
+		{
+			description: "",
+			id:          "mse",
+		},
+		{
+			description: "Coefficient of determination (or R-squared) is a measure of how well the model fits the data. Higher R-squared is considered a better fit.",
+			id:          "r-squared",
+		},
 	],
 	models: [
 		{
@@ -48,7 +51,7 @@ const taskData: TaskData = {
 	],
 	summary:
 		"Tabular regression is the task of predicting a numerical value given a set of attributes.",
-	widgetModels: [""],
+	widgetModels: ["scikit-learn/Fish-Weight"],
 	youtubeId:    "",
 };
 

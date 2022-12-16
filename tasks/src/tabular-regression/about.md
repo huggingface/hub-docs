@@ -14,14 +14,6 @@ Tabular regression is the task of predicting a numerical value given a set of at
 
 ## Model Training
 
-Given the following data,
-
-| Feature 1 | Feature 2 | Feature 3 | Target<br>Variable |
-|---|---|---|---|
-| ... |...  |...  |... |
-| ... | ... | ... | ... |
-| ... | ... | ... | ... |
-
 A simple regression model can be created as follows:
 
 ```python
@@ -36,7 +28,46 @@ model.fit(X, y)
 ```
 
 
+# Model Hosting and Inference
+
+You can use [skops](https://skops.readthedocs.io/) for model hosting and inference on 🤗Hub. Using `skops` you can:
+- Easily use inference API,
+- Build Gradio UIs with one line of code,
+- Programmatically create model cards,
+- Securely serialize your scikit-learn model. (See limitations of using pickle [here](https://huggingface.co/docs/hub/security-pickle).)
+
+You can push your model as follows: 
+
+```python
+from skops import hub_utils
+# initialize a repository with a trained model
+hub_utils.init(model, dst=local_repo)
+# push to Hub!
+hub_utils.push("username/my-awesome-model", source=local_repo)
+```
+
+Once model is pushed, you can infer easily.
+
+```python
+import skops.hub_utils as hub_utils
+import pandas as pd
+data = pd.DataFrame(your_data)
+# Load the model from the Hub
+res = hub_utils.get_model_output("username/my-awesome-model", data)
+```
+
+You can launch a UI for your model with only one line of code!
+
+```python
+import gradio as gr
+gr.Interface.load("huggingface/username/my-awesome-model").launch()
+```
+
 ## Useful Resources
+
+- [Skops documentation](https://skops.readthedocs.io/en/stable/index.html)
+- [Notebook: Persisting your scikit-learn model using skops](https://www.kaggle.com/code/unofficialmerve/persisting-your-scikit-learn-model-using-skops)
+
 
 - For starting with tabular regression:
     - Doing [Exploratory Data Analysis](https://neptune.ai/blog/exploratory-data-analysis-for-tabular-data) for tabular data. 
@@ -47,3 +78,7 @@ model.fit(X, y)
 - Intermediate level tutorials on tabular regression:
     - [A Short Chronology of Deep Learning for Tabular Data](https://sebastianraschka.com/blog/2022/deep-learning-for-tabular-data.html) by Sebastian Raschka.
 
+
+### Training your own model in just a few seconds
+
+We have built a [baseline trainer](https://huggingface.co/spaces/scikit-learn/baseline-trainer) application to which you can drag and drop your dataset. It will train a baseline and push it to your Hugging Face Hub profile with a model card containing information about the model.
