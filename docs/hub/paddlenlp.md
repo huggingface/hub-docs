@@ -10,15 +10,15 @@ You can find `PaddleNLP` models by filtering at the left of the [models page](ht
 
 All models on the Hub come up with the following features:
 1. An automatically generated model card with a brief description and metadata tags that help for discoverability.
-2. An interactive widget you can use to play out with the model directly in the browser 
-3. An Inference API that allows to make inference requests
+2. An interactive widget you can use to play out with the model directly in the browser.
+3. An Inference API that allows to make inference requests.
 
 
 ## Installation
 
 To get started, you can follow [PaddlePaddle Quick Start](https://www.paddlepaddle.org.cn/en/install) to intall the PaddlePaddle Framework with your favorite OS, Package Manager and Compute Platform.
 
-`PaddleNLP` offers a quick one-line install through pip
+`PaddleNLP` offers a quick one-line install through pip:
 
 ```
 pip install paddlenlp
@@ -52,7 +52,7 @@ If you want to see how to load a specific model, you can click `Use in paddlenlp
 
 ## Sharing your models
 
-You can share your `PaddleNLP` models by using the `save_to_hf_hub` method under all `Model` and `Tokenizer` class.
+You can share your `PaddleNLP` models by using the `save_to_hf_hub` method under all `Model` and `Tokenizer` classes.
 
 ```py
 from paddlenlp.transformers import AutoTokenizer, AutoModelForMaskedLM
@@ -69,4 +69,4 @@ model.save_to_hf_hub(repo_id="<my_org_name>/<my_repo_name>")
 
 * PaddlePaddle Installation [guide](https://www.paddlepaddle.org.cn/en/install).
 * PaddleNLP [GitHub Repo](https://github.com/PaddlePaddle/PaddleNLP).
-* [PaddlePaddle on Huggingface Hub](https://huggingface.co/PaddlePaddle)
+* [PaddlePaddle on the Hugging Face Hub](https://huggingface.co/PaddlePaddle)
