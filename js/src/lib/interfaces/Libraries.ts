@@ -233,7 +233,7 @@ model = timm.create_model("hf_hub:${model.id}", pretrained=True)`;
 const sklearn = (model: ModelData) => {
 	if (model.tags?.includes("skops")) {
 		const skopsmodelFile = model.config?.sklearn?.filename;
-		const skopssaveFormat = model.config?.sklearn?.fileformat;
+		const skopssaveFormat = model.config?.sklearn?.model_format;
 		if (skopssaveFormat === "pickle") {
 			return `import joblib
 from skops.hub_utils import download
@@ -247,11 +247,18 @@ model = joblib.load(
 			return `from skops.hub_utils import download
 from skops.io import load
 download("${model.id}", "path_to_folder")
+<<<<<<< HEAD
+# make sure model file is in skops format
+# if model is a pickle file, make sure it's from a source you trust
+model = load("path_to_folder/${skopsmodelFile}")`;
+} else {
+=======
 model = load("path_to_folder/${skopsmodelFile}")
 # check out persistence docs of skops for more info
 # https://skops.readthedocs.io/en/stable/persistence.html`;
 		}
 	} else {
+>>>>>>> f84874f59e5bc54ac8d7199ed650c5703b68dedd
 		return `from huggingface_hub import hf_hub_download
 import joblib
 model = joblib.load(
