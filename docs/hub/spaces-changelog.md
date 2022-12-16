@@ -1,5 +1,8 @@
 # Spaces Changelog
 
+## [2022-12-15] - Spaces supports Docker Containers
+
+- Read more doc about: [Docker Spaces](./spaces-sdks-docker)
 
 ## [2022-12-14] - Ability to set a custom `sleep` time
 

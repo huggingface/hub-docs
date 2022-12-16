@@ -17,7 +17,7 @@ Color for Thumbnail gradient (red, yellow, green, blue, indigo, purple, pink, gr
 Color for Thumbnail gradient (red, yellow, green, blue, indigo, purple, pink, gray).  
 
 **`sdk`** : _string_  
-Can be either `gradio`, `streamlit` or `static`.  
+Can be either `gradio`, `streamlit`, `docker`, or `static`.  
 
 **`python_version`**: _string_  
 Any valid Python `3.x` or `3.x.x` version.  

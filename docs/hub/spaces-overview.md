@@ -8,7 +8,7 @@ In the following sections, you'll learn the basics of creating a Space, configur
 
 ## Creating a new Space
 
-**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Streamlit, and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
+**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers four SDK options: Gradio, Streamlit, Docker and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-blank-space.png"/>
@@ -20,6 +20,7 @@ Under the hood, Spaces stores your code inside a git repository, just like the m
 For step-by-step tutorials to creating your first Space, see the guides below:
 * [Creating a Gradio Space](./spaces-sdks-gradio)
 * [Creating a Streamlit Space](./spaces-sdks-streamlit)
+* [Creating a Docker Space](./spaces-sdks-docker-first-demo)
 
 ## Hardware resources
 
@@ -36,7 +37,7 @@ Read more in [Spaces GPU Upgrades](./spaces-gpus).
 
 ## Managing secrets
 
-If your app requires secret keys or tokens, don't hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and enter your secrets there. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. 
+If your app requires secret keys or tokens, don't hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and enter your secrets there. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [secret management with Docker](./spaces-sdks-docker#secret-management).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets.png"/>
