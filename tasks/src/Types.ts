@@ -49,6 +49,7 @@ export interface TaskData {
 	libraries: ModelLibraryKey[];
 	metrics: ExampleRepo[];
 	models: ExampleRepo[];
+	spaces: ExampleRepo[];
 	summary: string;
 	widgetModels: string[];
 	youtubeId?: string;

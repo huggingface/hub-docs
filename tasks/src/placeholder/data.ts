@@ -9,6 +9,7 @@ const taskData: TaskDataCustom = {
 	isPlaceholder: true,
 	metrics:       [],
 	models:        [],
+	spaces:        [],
 	summary:       "",
 	widgetModels:  [],
 	youtubeId:     undefined,
