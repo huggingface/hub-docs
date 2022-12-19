@@ -35,6 +35,7 @@ These templates were then used to generate model cards for the top 200 most down
 Using this information, we returned back to our analysis of all model cards on the hub, coupled with suggestions from other researchers and peers at HF and additional research on the type of prompted information we could provide to users while they are creating model cards. These defaulted prompted text allowed us to satisfy the aims:
 
 1) For those who have not created model cards before or who do not usually make a model card or any other type of model documentation for their model’s, the prompted text enables these users to easily create a model card. In turn increasing the number of model cards created.
+   
 2) Users who already write model cards, the prompted text invites them to add more to their model card, further developing the content/standard of model cards. 
 
 ### Respondent Demographics
@@ -55,7 +56,8 @@ Using this information, we returned back to our analysis of all model cards on t
 
 ### Feedback on Specific Model Card Formats
 
-#### Format 1: Current [distilgpt2 model card](https://huggingface.co/distilgpt2) on the Hub
+#### Format 1: 
+**Current [distilgpt2 model card](https://huggingface.co/distilgpt2) on the Hub**
 
 **Insights:**
 
@@ -63,13 +65,15 @@ Using this information, we returned back to our analysis of all model cards on t
 * There was no consensus about the collapsible sections (some liked them and wanted more, some disliked them). 
 * Some respondents said “Risks and Limitations” should go with “Out of Scope Uses”
 
-#### Format 2: Nazneen Rajani's [Interactive Model Card space](https://huggingface.co/spaces/nazneen/interactive-model-cards)
+#### Format 2: 
+**Nazneen Rajani's [Interactive Model Card space](https://huggingface.co/spaces/nazneen/interactive-model-cards)**
 
 **Insights:**
 
 * While a few respondents really liked this format, most found it overwhelming or as an overload of information. Several suggested this could be a nice tool to layer onto a base model card for more advanced audiences.
 
-#### Format 3: Ezi Ozoani's [Semi-Interactive Model Card Space](https://huggingface.co/spaces/Ezi/ModelCardsAnalysis)
+#### Format 3: 
+**Ezi Ozoani's [Semi-Interactive Model Card Space](https://huggingface.co/spaces/Ezi/ModelCardsAnalysis)**
 
 **Insights:**
 

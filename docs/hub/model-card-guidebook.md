@@ -14,6 +14,6 @@ With the launch of this Guidebook, we introduce several new resources and connec
 
 3) A [Model Card Creator Tool](https://huggingface.co/spaces/huggingface/Model_Cards_Writing_Tool), to ease card creation without needing to program, and to help teams share the work of different sections.
 
-4) A [User Study](http://github.com/huggingface/hub-docs/docs/hub/user-study.md) on Model Card usage at Hugging Face
+4) A [User Study](http://github.com/huggingface/hub-docs/docs/hub/model-cards-user-studies.md) on Model Card usage at Hugging Face
 
-5) A [Landscape Analysis and Literature Review](http://github.com/huggingface/hub-docs/docs/hub/landscape-analysis.md) of the state of the art in model documentation.
+5) A [Landscape Analysis and Literature Review](http://github.com/huggingface/hub-docs/docs/hub/model-card-landscape-analysis.md) of the state of the art in model documentation.
