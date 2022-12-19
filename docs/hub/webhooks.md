@@ -1,6 +1,6 @@
 # Webhooks
 
-Webhooks are a foundation for MLOps related features. You can use this to auto-convert models, build community bots, or build CI/CD for your datasets or Spaces…
+Webhooks are a foundation for MLOps related features. You can use this to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces.
 
 They allow you to react when new changes happen on specific repos or repos belonging to specific users / organizations (not just your repos, but any repo!).
 
