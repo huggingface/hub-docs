@@ -1,14 +1,14 @@
 import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
-    datasets: [
-        {
-            // TODO write proper description
-            description: "Benchmark dataset used for video classification with videos that belong to 400 classes.",
-            id: "kinetics400",
-        },
-    ],
-    demo: {
+	datasets: [
+		{
+			// TODO write proper description
+			description: "Benchmark dataset used for video classification with videos that belong to 400 classes.",
+			id:          "kinetics400",
+		},
+	],
+	demo: {
 		inputs: [
 			{
 				filename: "video-classification-input.gif",
@@ -35,40 +35,41 @@ const taskData: TaskDataCustom = {
 			},
 		],
 	},
-    metrics: [
-        {
-            description: "",
-            id: "accuracy",
-        },
-        {
-            description: "",
-            id: "recall",
-        },
-        {
-            description: "",
-            id: "precision",
-        },
-        {
-            description: "",
-            id: "f1",
-        },
+	metrics: [
+		{
+			description: "",
+			id:          "accuracy",
+		},
+		{
+			description: "",
+			id:          "recall",
+		},
+		{
+			description: "",
+			id:          "precision",
+		},
+		{
+			description: "",
+			id:          "f1",
+		},
 
-    ],
-    models: [
-        {
-            // TO DO: write description
-            description: "Strong Video Classification model trained on the Kinects 400 dataset.",
-            id: "MCG-NJU/videomae-base-finetuned-kinetics",
-        },
-        {
-            // TO DO: write description
-            description: "Strong Video Classification model trained on the Kinects 400 dataset.",
-            id: "microsoft/xclip-base-patch32",
-        },
-    ],
-    summary: "Video classification is the task of assigning a label or class to an entire video. Videos are expected to have only one class for each video. Video classification models take a video as input and return a prediction about which class the video belongs to.",
-    widgetModels: [],
-    youtubeId: "",
+	],
+	models: [
+		{
+			// TO DO: write description
+			description: "Strong Video Classification model trained on the Kinects 400 dataset.",
+			id:          "MCG-NJU/videomae-base-finetuned-kinetics",
+		},
+		{
+			// TO DO: write description
+			description: "Strong Video Classification model trained on the Kinects 400 dataset.",
+			id:          "microsoft/xclip-base-patch32",
+		},
+	],
+	spaces:       [],
+	summary:      "Video classification is the task of assigning a label or class to an entire video. Videos are expected to have only one class for each video. Video classification models take a video as input and return a prediction about which class the video belongs to.",
+	widgetModels: [],
+	youtubeId:    "",
 };
 
 export default taskData;

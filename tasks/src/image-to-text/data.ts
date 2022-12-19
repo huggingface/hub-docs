@@ -7,7 +7,7 @@ const taskData: TaskDataCustom = {
 			description: "Dataset from 12M image-text of Reddit",
 			id:          "red_caps",
 		},
-        {
+		{
 			// TODO write proper description
 			description: "Dataset from 3.3M images of Google",
 			id:          "datasets/conceptual_captions",
@@ -18,7 +18,7 @@ const taskData: TaskDataCustom = {
 		inputs: [
 			{
 				filename: "savanna.jpg",
-				type:    "img",
+				type:     "img",
 			},
 		],
 		outputs: [
@@ -37,18 +37,19 @@ const taskData: TaskDataCustom = {
 		{
 			description: "",
 			id:          "",
-		}
+		},
 	],
 	models: [
-        {
-            description: "The model gets information in text of an image with text",
-            id:          "naver-clova-ix/donut-base-finetuned-docvqa",
-        },
+		{
+			description: "The model gets information in text of an image with text",
+			id:          "naver-clova-ix/donut-base-finetuned-docvqa",
+		},
 		{
 			description: "A strong image captioning model.",
 			id:          "nlpconnect/vit-gpt2-image-captioning",
 		},
 	],
+	spaces:       [],
 	summary:      "",
 	widgetModels: ["nlpconnect/vit-gpt2-image-captioning"],
 	youtubeId:    "",

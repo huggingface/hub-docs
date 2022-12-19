@@ -49,6 +49,7 @@ const taskData: TaskData = {
 			id:          "scikit-learn/Fish-Weight",
 		},
 	],
+	spaces:  [],
 	summary:
 		"Tabular regression is the task of predicting a numerical value given a set of attributes.",
 	widgetModels: ["scikit-learn/Fish-Weight"],
