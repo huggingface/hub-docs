@@ -15,18 +15,41 @@ Tabular classification models can be used in detecting fraudulent credit card tr
 ### Churn Prediction
 Tabular classification models can be used in predicting customer churn in telecommunication. An example dataset for the task is hosted [here](https://huggingface.co/datasets/scikit-learn/churn-prediction).
 
-## Model Hosting and Inference
 
-You can use the [skops](https://skops.readthedocs.io/en/stable/) library to share, explore, and use `scikit-learn` models on the Hugging Face Hub. `skops` models have widgets to try the models on the browser and have descriptive reports (also known as model cards) in their repositories. You can pull a `scikit-learn` model like below using `skops`:
+# Model Hosting and Inference 
 
+You can use [skops](https://skops.readthedocs.io/) for model hosting and inference on the Hugging Face Hub. This library is built to improve production workflows of various libraries that are used to train tabular models, including [sklearn](https://scikit-learn.org/stable/) and [xgboost](https://xgboost.readthedocs.io/en/stable/).  Using `skops` you can:
+- Easily use inference API,
+- Build neat UIs with one line of code,
+- Programmatically create model cards,
+- Securely serialize your scikit-learn model. (See limitations of using pickle [here](https://huggingface.co/docs/hub/security-pickle).)
+
+You can push your model as follows: 
 
 ```python
 from skops import hub_utils
-import joblib
+# initialize a repository with a trained model
+local_repo = "/path_to_new_repo"
+hub_utils.init(model, dst=local_repo)
+# push to Hub!
+hub_utils.push("username/my-awesome-model", source=local_repo)
+```
 
-hub_utils.download(repo_id="user-name/my-awesome-model", dst=target_path)
-model = joblib.load(Path(target_path)/"model.pkl")
-model.predict(sample)
+Once the model is pushed, you can infer easily.
+
+```python
+import skops.hub_utils as hub_utils
+import pandas as pd
+data = pd.DataFrame(your_data)
+# Load the model from the Hub
+res = hub_utils.get_model_output("username/my-awesome-model", data)
+```
+
+You can launch a UI for your model with only one line of code!
+
+```python
+import gradio as gr
+gr.Interface.load("huggingface/username/my-awesome-model").launch()
 ```
 
 
@@ -35,6 +58,7 @@ model.predict(sample)
 - Check out the [scikit-learn organization](https://huggingface.co/scikit-learn) to learn more about different algorithms used for this task.
 - [Skops documentation](https://skops.readthedocs.io/en/latest/)
 - [Skops announcement blog](https://huggingface.co/blog/skops)
+- [Notebook: Persisting your scikit-learn model using skops](https://www.kaggle.com/code/unofficialmerve/persisting-your-scikit-learn-model-using-skops)
 
 ### Training your own model in just a few seconds
 

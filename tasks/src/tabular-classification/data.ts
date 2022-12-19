@@ -6,12 +6,8 @@ import { TASKS_MODEL_LIBRARIES } from "../const";
 const taskData: TaskData = {
 	datasets: [
 		{
-			description: "Binary classification dataset based on a census on income.",
-			id:          "scikit-learn/adult-census-income",
-		},
-		{
-			description: "Multi-class dataset on iris flower species.",
-			id:          "scikit-learn/iris",
+			description: "A comprehensive curation of datasets covering all benchmarks.",
+			id:          "inria-soda/tabular-benchmark",
 		},
 	],
 	demo: {
@@ -63,7 +59,7 @@ const taskData: TaskData = {
 	spaces:  [],
 	summary:
 		"Tabular classification is the task of classifying a target category (a group) based on set of attributes.",
-	widgetModels: [""],
+	widgetModels: ["scikit-learn/tabular-playground"],
 	youtubeId:    "",
 };
 
