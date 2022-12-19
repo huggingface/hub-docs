@@ -58,6 +58,7 @@ const taskData: TaskDataCustom = {
 			id:          "superb/hubert-large-superb-er",
 		},
 	],
+	spaces:  [],
 	summary:
 		"Audio classification is the task of assigning a label or class to a given audio. It can be used for recognizing which command a user is giving or the emotion of a statement, as well as identifying a speaker.",
 	widgetModels: ["speechbrain/google_speech_command_xvector"],
