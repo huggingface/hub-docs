@@ -49,12 +49,6 @@
 * They are usually either too concise or too verbose.
 * writing them lol bless you
 
-## Policy content from various documents
-Policymakers around the world are increasingly proposing and enacting regulations focused on transparency and fairness issues in the use of AI systems 9. Given the role of model cards as a leading transparency mechanism in industry we will prioritize aligning this project with upcoming regulations.
-
-* For example, in the U.S., federal and state policymakers are considering regulations requiring disclosure of intersectional performance metrics and considerations of applicable explainability/interpretability techniques in the context of content recommendation and algorithmic decision-making.
-  
-In the longer term, this focus could also position model cards as a key transparency and documentation mechanism for considering complex questions raised by privacy regulations, including/related to “unlearning” and consumer data rights.
 
 
 # Appendix A -Landscape Analysis:
