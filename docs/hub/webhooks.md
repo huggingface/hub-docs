@@ -8,7 +8,7 @@ You can configure the webhooks in your [settings](https://huggingface.co/setting
 
 ![Settings of an individual webhook](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-settings.png)
 
-You can watch repo changes and discussions / pull requests / comments. You can even use a Space to react to webhooks!
+You can watch repo changes, discussions, and Pull requests and comments. You can even use a Space to react to webhooks!
 
 <!-- Todo: add a link to a guide with a real example -->
 
@@ -21,7 +21,7 @@ You can check the last payloads sent in the activity tab of the webhook page, as
 
 ![image.png](https://s3.amazonaws.com/moonup/production/uploads/1671034300077-61d2f90c3c2083e1c08af22d.png)
 
-As an example, here is the full payload when a pull request is opened:
+As an example, here is the full payload when a Pull request is opened:
 
 ```json
 {
@@ -86,10 +86,10 @@ It has two sub-properties: `event.action` and `event.scope`.
 `event.scope` can take one of the following values:
 
 - `"repo"` - Global events on repos. Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`, `"move"`.
-- `"repo.content"` - Events on the content of the repo, like new commits or tags. Triggers on new pull requests as well due to the newly created reference / commit. The associated `action` is always `"update"`.
-- `"repo.config"` - Events on the config: update space secrets, update settings, update DOIs, disabled or not, ... The associated `action` is always `"update"`.
-- `"discussion"` - Creating a discussion or pull request, updating the title or status (including merging).  Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`.
-- `"discussion.comment"` - Creating, updating, hiding a comment. Possible values for the associated `action`: `"create"`, `"update"`.
+- `"repo.content"` - Events on the repo's content, such as new commits or tags. It triggers on new Pull requests as well due to the newly created reference/commit. The associated `action` is always `"update"`.
+- `"repo.config"` - Events on the config: update Space secrets, update settings, update DOIs, disabled or not, etc. The associated `action` is always `"update"`.
+- `"discussion"` - Creating a discussion or Pull request, updating the title or status, and merging.  Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`.
+- `"discussion.comment"` - Creating, updating, and hiding a comment. Possible values for the associated `action`: `"create"`, `"update"`.
 
 More scopes can be added in the future. To handle unknown events, your webhook handler can consider any action on a narrowed scope to be an `"update"` action on the broader scope.
 
@@ -122,9 +122,9 @@ In the current version of webhooks, the top level property `repo` is always spec
 
 `repo.headSha` is the sha of the latest commit on the repo's `main` branch. It is only sent when `event.scope` starts with `"repo"`, not on community events like discussions and comments.
 
-### Discussion
+### Discussion and Pull Requests
 
-The top level property `discussion` is specified on community events. The `discussion.isPullRequest` property is a boolean indicating if the discussion is also a pull request (on HF, a PR is a special case of a Discussion). Here is an example value:
+The top level property `discussion` is specified on community events (discussions and Pull requests). The `discussion.isPullRequest` property is a boolean indicating if the discussion is also a Pull request (on the Hub, a PR is a special case of a discussion). Here is an example value:
 
 ```json
 "discussion": {
