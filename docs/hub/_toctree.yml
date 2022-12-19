@@ -32,8 +32,9 @@
     - local: model-card-guidebook
       title: Model Card Guidebook
     - local: model-card-landscape-analysis
-      title: Landscape Analysis
-      
+      title: Landscape Analysis 
+    - local: model-cards-user-studies
+    - local: model-card-appendix
   - local: models-gated
     title: Gating models
   - local: models-uploading
@@ -130,17 +131,8 @@
     title: Streamlit Spaces
   - local: spaces-sdks-static
     title: Static HTML Spaces
-  - local: spaces-sdks-docker
-    title: Docker Spaces
-    sections:
-      - local: spaces-sdks-docker-first-demo
-        title: Your first Docker Spaces
-      - local: spaces-sdks-docker-examples
-        title: Example Docker Spaces
   - local: spaces-sdks-python
     title: Custom Python Spaces
-  - local: spaces-embed
-    title: Embed your Space
   - local: spaces-config-reference
     title: Spaces Configuration Reference
   - local: spaces-changelog
