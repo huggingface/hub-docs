@@ -171,7 +171,7 @@ Setting a webhook secret is useful to make sure payloads sent to your webhook ha
 If you set a secret for your webhook, it will be sent along as an `X-Webhook-Secret` HTTP header on every request. Only ASCII characters are supported.
 
 <Tip>
-You can also change the URL of the webhook to add a secret to the URL. For example, setting it to `https://example.com/webhook?secret=XXX`.
+You can also change the URL of the webhook to add a secret to the URL. For example, setting it to https://example.com/webhook?secret=XXX.
 
 This can be helpful if accessing the HTTP headers of the request is complicated for your webhook handler.
 </Tip>
