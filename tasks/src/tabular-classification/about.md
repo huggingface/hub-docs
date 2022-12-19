@@ -18,9 +18,9 @@ Tabular classification models can be used in predicting customer churn in teleco
 
 # Model Hosting and Inference 
 
-You can use [skops](https://skops.readthedocs.io/) for model hosting and inference on the Hugging Face Hub. Using `skops` you can:
+You can use [skops](https://skops.readthedocs.io/) for model hosting and inference on the Hugging Face Hub. This library is built to improve production workflows of various libraries that are used to train tabular models, including [sklearn](https://scikit-learn.org/stable/) and [xgboost](https://xgboost.readthedocs.io/en/stable/).  Using `skops` you can:
 - Easily use inference API,
-- Build Gradio UIs with one line of code,
+- Build neat UIs with one line of code,
 - Programmatically create model cards,
 - Securely serialize your scikit-learn model. (See limitations of using pickle [here](https://huggingface.co/docs/hub/security-pickle).)
 
