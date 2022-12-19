@@ -41,6 +41,7 @@ You can push your model as follows:
 ```python
 from skops import hub_utils
 # initialize a repository with a trained model
+local_repo = "/path_to_new_repo"
 hub_utils.init(model, dst=local_repo)
 # push to Hub!
 hub_utils.push("username/my-awesome-model", source=local_repo)
