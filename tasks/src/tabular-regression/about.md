@@ -30,7 +30,7 @@ model.fit(X, y)
 
 # Model Hosting and Inference
 
-You can use [skops](https://skops.readthedocs.io/) for model hosting and inference on 🤗Hub. Using `skops` you can:
+You can use [skops](https://skops.readthedocs.io/) for model hosting and inference on the Hugging Face Hub. Using `skops` you can:
 - Easily use inference API,
 - Build Gradio UIs with one line of code,
 - Programmatically create model cards,
