@@ -1,6 +1,6 @@
 # Docker Spaces
 
-Spaces accommodate custom [Docker containers](https://docs.docker.com/get-started/) for apps that go outside the scope of Streamlit and Gradio. Docker Spaces give freedom to users to go beyond the limits of what was previously possible with the standard sdks. From FastAPI and Go endpoints to Phoenix apps and ML Ops tools, Docker Spaces can help in many different setups.
+Spaces accommodate custom [Docker containers](https://docs.docker.com/get-started/) for apps outside the scope of Streamlit and Gradio. Docker Spaces allows users to go beyond the limits of what was previously possible with the standard sdks. From FastAPI and Go endpoints to Phoenix apps and ML Ops tools, Docker Spaces can help in many different setups.
 
 ## Setting up Docker Spaces
 
@@ -17,6 +17,7 @@ app_port: 7860
 ---
 ```
 
+Internally you could have as many open ports as you want - and use a reverse proxy like Nginx to dispatch requests from the broader internet.
 
 ## Secret Management
 
@@ -57,7 +58,11 @@ WORKDIR $HOME/app
 COPY --chown=user . $HOME/app
 ```
 
+## Data Persistence
+
+We don't provide a way to persist data in the Docker Spaces. However, we suggest using our [Datasets hub](datasets) for specific cases, where you can store state and data in a git LFS repository. In all other cases, you might need an external storage solution DB, S3, etc.
+
 ## Read More
 
-* [Full Docker demo example](spaces-sdks-docker-first-demo)
-* [List of Docker Spaces examples](spaces-sdks-docker-examples)
+- [Full Docker demo example](spaces-sdks-docker-first-demo)
+- [List of Docker Spaces examples](spaces-sdks-docker-examples)
