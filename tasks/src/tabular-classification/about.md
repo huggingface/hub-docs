@@ -34,7 +34,7 @@ hub_utils.init(model, dst=local_repo)
 hub_utils.push("username/my-awesome-model", source=local_repo)
 ```
 
-Once model is pushed, you can infer easily.
+Once the model is pushed, you can infer easily.
 
 ```python
 import skops.hub_utils as hub_utils
