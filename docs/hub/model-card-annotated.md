@@ -186,7 +186,7 @@ _Ideally this links to a Dataset Card for the testing data._
 
 `testing_factors`
 
-_What are the foreseeable characteristics that will influence how the model behaves? This includes domain and context, as well as population subgroups. Evaluation should ideally be **disaggregated** across factors._
+_What are the foreseeable characteristics that will influence how the model behaves? This includes domain and context, as well as population subgroups. Evaluation should ideally be **disaggregated** across factors in order to uncover disparities in performance._
 
 ### Metrics
 
