@@ -104,5 +104,10 @@ We selected people from a variety of different backgrounds relevant to machine l
  </Tip>
 
 
+Acknowledgements
+================
+
+We want to acknowledge and thank [Bibi Ofuya](https://www.figma.com/proto/qrPCjWfFz5HEpWqQ0PJSWW/Bibi's-Portfolio?page-id=0%3A1&node-id=1%3A28&viewport=243%2C48%2C0.2&scaling=min-zoom&starting-point-node-id=1%3A28) for her question creation and her guidance on user-focused ordering and presentation during the user studies.
+
 
 [^1]: See https://towardsdatascience.com/dag-card-is-the-new-model-card-70754847a111
