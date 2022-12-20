@@ -15,8 +15,8 @@ Fully filling out a model card requires input from a few different roles. (One p
 * The **sociotechnic** is necessary for filling out “Bias” and “Risks” within [Bias, Risks, and Limitations](#bias-risks-and-limitations), and particularly useful for “Out of Scope Use” within [Uses](#uses).
 
 * The **project organizer** is necessary for filling out [Model Details](#model-details) and [Uses](#uses). They might also fill out
-[Training Data](#training-data). Project organizers could also be in charge of [Citation](#citation), [Glossary](#glossary), 
-[Model Card Contact](#model-card-contact), [Model Card Authors](#model-card-authors), and [More Information](#more-information).
+[Training Data](#training-data). Project organizers could also be in charge of [Citation](#citation-optional), [Glossary](#glossary-optional), 
+[Model Card Contact](#model-card-contact), [Model Card Authors](#model-card-authors-optional), and [More Information](#more-information-optional).
 
 _Instructions are provided below, in italics._
 
