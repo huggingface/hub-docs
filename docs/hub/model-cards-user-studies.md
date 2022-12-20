@@ -94,7 +94,11 @@ Using this information, we returned back to our analysis of all model cards on t
 ![user studies results 2](https://github.com/huggingface/hub-docs/blob/meg-huggingface-patch-1/docs/assets/model-card-guidebook/user-studies-responses(2).png) 
 
 
+<Tip>
 
+ [Checkout the Appendix](https://github.com/huggingface/hub-docs/blob/meg-huggingface-patch-1/docs/hub/model-card-appendix.md)
+
+ </Tip>
 
 
 
