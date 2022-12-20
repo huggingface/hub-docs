@@ -17,3 +17,5 @@ With the launch of this Guidebook, we introduce several new resources and connec
 4) A [User Study](./model-cards-user-studies) on Model Card usage at Hugging Face
 
 5) A [Landscape Analysis and Literature Review](./model-card-landscape-analysis) of the state of the art in model documentation.
+
+We also include an [Appendix](./model-card-appendix) with further details from this work.
