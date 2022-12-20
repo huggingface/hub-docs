@@ -34,7 +34,7 @@
     - local: model-card-landscape-analysis
       title: Landscape Analysis 
   - local: models-gated
-    title: Gated models
+    title: Gated Models
   - local: models-uploading
     title: Uploading Models
   - local: models-downloading
