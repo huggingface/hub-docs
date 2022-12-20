@@ -92,7 +92,7 @@ _If this model has another model as its base, link to that model here._
 * **Paper [optional]:** `paper`
 * **Demo [optional]:** `demo`
 
-_Provide sources for the user to directly see the model and its details. Additional kinds of resources – training logs, lessons learned, etc. – belong in the [More Information](#more-information) section. If you include one thing for this section, link to the repository._
+_Provide sources for the user to directly see the model and its details. Additional kinds of resources – training logs, lessons learned, etc. – belong in the [More Information](#more-information-optional) section. If you include one thing for this section, link to the repository._
 
 # Uses
 **Section Overview:** This section addresses questions around how the model is intended to be used in different applied contexts, discusses the foreseeable users of the model (including those affected by the model), and describes uses that are considered out of scope or misuse of the model.  Note this section is not intended to include the license usage details. For that, link directly to the license.
@@ -140,7 +140,7 @@ _What are recommendations with respect to the foreseeable issues? This can inclu
 
 # Training Details
 
-**Section Overview:** This section provides information to describe and replicate training, including the training data, the speed and size of training elements, and the environmental impact of training. This relates heavily to the [Technical Specifications](#technical-specifications) as well, and content here should link to that section when it is relevant to the training procedure.  It is useful for people who want to learn more about the model inputs and training footprint.
+**Section Overview:** This section provides information to describe and replicate training, including the training data, the speed and size of training elements, and the environmental impact of training. This relates heavily to the [Technical Specifications](#technical-specifications-optional) as well, and content here should link to that section when it is relevant to the training procedure.  It is useful for people who want to learn more about the model inputs and training footprint.
 It is relevant for anyone who wants to know the basics of what the model is learning.
 
 ## Training Data
@@ -148,7 +148,7 @@ It is relevant for anyone who wants to know the basics of what the model is lear
 
 `training_data`
 
-_Write 1-2 sentences on what the training data is. Ideally this links to a Dataset Card for further information. Links to documentation related to data pre-processing or additional filtering may go here as well as in [More Information](#more-information)._
+_Write 1-2 sentences on what the training data is. Ideally this links to a Dataset Card for further information. Links to documentation related to data pre-processing or additional filtering may go here as well as in [More Information](#more-information-optional)._
  
 
 ## Training Procedure [optional]
