@@ -44,7 +44,7 @@ The metadata that you add to the model card enables certain interactions on the 
 
 Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages and in the [`datasets`](https://github.com/huggingface/datasets) repository.
 
-See the detailed model card metadata [here](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
+See the detailed model card metadata specification [here](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
 
 ### Specifying a library
 
