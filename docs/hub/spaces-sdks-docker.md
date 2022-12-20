@@ -62,7 +62,7 @@ COPY --chown=user . $HOME/app
 
 ## Data Persistence
 
-We don't provide a way to persist data in the Docker Spaces. However, we suggest using our [Datasets hub](datasets) for specific cases, where you can store state and data in a git LFS repository. In all other cases, you might need an external storage solution DB, S3, etc.
+We don't yet provide a built-in way to persist data in the Docker Spaces. However, we suggest using our [Datasets hub](datasets) for specific cases, where you can store state and data in a git LFS repository. In other cases, you might want to use from your Space's code an external storage solution like an external hosted DB, S3, etc.
 
 ## Read More
 
