@@ -107,7 +107,7 @@ model = BaseModel.from_pretrained("${model.id}")`;
 const diffusers = (model: ModelData) =>
 	`from diffusers import DiffusionPipeline
 
-pipeline = DiffusionPipeline.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`;
+pipeline = DiffusionPipeline.from_pretrained("${model.id}")`;
 
 const espnetTTS = (model: ModelData) =>
 	`from espnet2.bin.tts_inference import Text2Speech
@@ -335,15 +335,15 @@ const transformers = (model: ModelData) => {
 		return [
 			`from transformers import ${info.processor}, ${info.auto_model}`,
 			"",
-			`${varName} = ${info.processor}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`,
+			`${varName} = ${info.processor}.from_pretrained("${model.id}")`,
 			"",
-			`model = ${info.auto_model}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`,
+			`model = ${info.auto_model}.from_pretrained("${model.id}")`,
 		].join("\n");
 	} else {
 		return [
 			`from transformers import ${info.auto_model}`,
 			"",
-			`model = ${info.auto_model}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`,
+			`model = ${info.auto_model}.from_pretrained("${model.id}")`,
 		].join("\n");
 	}
 };
