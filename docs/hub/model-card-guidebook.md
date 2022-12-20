@@ -10,7 +10,7 @@ With the launch of this Guidebook, we introduce several new resources and connec
 
 1) An updated Model Card template, released [in the `huggingface_hub` library](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md), drawing together Model Card work in academia and throughout the industry.
 
-2) An [Annotated version of the updated template](./model-card-annotated), which details how to fill the Card out.
+2) An [Annotated Model Card Template](./model-card-annotated), which details how to fill the card out.
 
 3) A [Model Card Creator Tool](https://huggingface.co/spaces/huggingface/Model_Cards_Writing_Tool), to ease card creation without needing to program, and to help teams share the work of different sections.
 
