@@ -29,7 +29,7 @@ The results illustrated below show that while the Bias, Risks and Limitations se
 
 These templates were then used to generate model cards for the top 200 most downloaded Hugging Face models. 
 
-* We first began by pulling all Hugging Face model's on the hub and, in particular, the Limitations and bias sections.
+* We first began by pulling all Hugging Face model's on the hub and, in particular, the Limitations and Bias sections.
 * Based on inputs that were the most continuously used with a higher number of model downloads, grouped by model typed, the tool provides prompted text within the Bias, Risks and Limitations sections. We also prompt a default text if the model type is not specified.
 
 Using this information, we returned back to our analysis of all model cards on the hub, coupled with suggestions from other researchers and peers at HF and additional research on the type of prompted information we could provide to users while they are creating model cards. These defaulted prompted text allowed us to satisfy the aims:
