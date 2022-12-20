@@ -1,4 +1,4 @@
-![paddlenlp-banner](https://user-images.githubusercontent.com/1371212/175816733-8ec25eb0-9af3-4380-9218-27c154518258.png)
+![paddlenlp-banner](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/PaddleNLP-logo.png)
 
 # Using PaddleNLP at Hugging Face
 
@@ -9,14 +9,39 @@ Leveraging the [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) framework,
 You can find `PaddleNLP` models by filtering at the left of the [models page](https://huggingface.co/models?library=paddlenlp&sort=downloads).
 
 All models on the Hub come up with the following features:
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/PaddleNLP-5.jpg"/>
+</div>
+
+
 1. An automatically generated model card with a brief description and metadata tags that help for discoverability.
 2. An interactive widget you can use to play out with the model directly in the browser.
+
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/PaddleNLP.jpg"/>
+</div>
+
+
 3. An Inference API that allows to make inference requests.
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/PaddleNLP-3.jpg"/>
+</div>
+
+4. Easiliy deploy your model as a Gradio app on Spaces.
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/PaddleNLP-4.jpg"/>
+</div>
+
+
 
 
 ## Installation
 
-To get started, you can follow [PaddlePaddle Quick Start](https://www.paddlepaddle.org.cn/en/install) to intall the PaddlePaddle Framework with your favorite OS, Package Manager and Compute Platform.
+To get started, you can follow [PaddlePaddle Quick Start](https://www.paddlepaddle.org.cn/en/install) to install the PaddlePaddle Framework with your favorite OS, Package Manager and Compute Platform.
 
 `paddlenlp` offers a quick one-line install through pip:
 
@@ -39,16 +64,12 @@ tokenizer = AutoTokenizer.from_pretrained("PaddlePaddle/ernie-1.0-base-zh", from
 model = AutoModelForMaskedLM.from_pretrained("PaddlePaddle/ernie-1.0-base-zh", from_hf_hub=True)
 ```
 
-If you want to see how to load a specific model, you can click `Use in paddlenlp` and you will be given a working snippet that you can load it! 
+If you want to see how to load a specific model, you can click `Use in paddlenlp` and you will be given a working snippet that you can load it!
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-fastai_snippet1.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-fastai_snippet1-dark.png"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/PaddleNLP-1.jpg"/>
 </div>
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-fastai_snippet2.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-fastai_snippet2-dark.png"/>
-</div>
+
 
 ## Sharing your models
 
@@ -64,9 +85,8 @@ tokenizer.save_to_hf_hub(repo_id="<my_org_name>/<my_repo_name>")
 model.save_to_hf_hub(repo_id="<my_org_name>/<my_repo_name>")
 ```
 
-
 ## Additional resources
 
-* PaddlePaddle Installation [guide](https://www.paddlepaddle.org.cn/en/install).
-* PaddleNLP [GitHub Repo](https://github.com/PaddlePaddle/PaddleNLP).
-* [PaddlePaddle on the Hugging Face Hub](https://huggingface.co/PaddlePaddle)
+- PaddlePaddle Installation [guide](https://www.paddlepaddle.org.cn/en/install).
+- PaddleNLP [GitHub Repo](https://github.com/PaddlePaddle/PaddleNLP).
+- [PaddlePaddle on the Hugging Face Hub](https://huggingface.co/PaddlePaddle)
