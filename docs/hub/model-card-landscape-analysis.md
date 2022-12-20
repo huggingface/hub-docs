@@ -100,7 +100,7 @@ We began by analysing language model, model cards, in order to identify patterns
 From our analysis of all the models on the hub, we noticed that the most downloads come from top 200 models.
 
 
-![number of mc downloads](https://huggingface.co/datasets/huggingface/documentation-images/tree/main/hub/mc-downloads.png)
+![number of mc downloads](https://huggingface.co/datasets/huggingface/documentation-images/blob/main/hub/mc-downloads.png)
 
 With a continued focus on large language models, ordered by most downloaded and only models with model cards to begin with, we noted the most recurring sections within their respective model cards. 
 
