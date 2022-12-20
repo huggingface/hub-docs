@@ -17,7 +17,7 @@ As we began to structure our user studies, two variations of model cards - that 
 
 As different people, of varying technical backgrounds, could be collaborating on a model and subsequently the model card, we sought to validate the need for different stakeholders perspectives. Based on the ease of use of writing the different model card sections and the sections that one would read first
 
-Participants ranked the different sections of model cards in the perspective of one reading a model card and then as an author of a model card. An ordering scheme - 1 being the highest weight and 10 being the lowest -  was applied to the different sections that the user would usually read first in a model card and the sections of a model card that a model card author would find easiest to write. 
+Participants ranked the different sections of model cards in the perspective of one reading a model card and then as an author of a model card. An ordering scheme - 1 being the highest weight and 10 being the lowest - was applied to the different sections that the user would usually read first in a model card and the sections of a model card that a model card author would find easiest to write. 
 
 
 ## Summary of Responses to the User Studies Survey
@@ -28,7 +28,7 @@ The results illustrated below show that while the Bias, Risks and Limitations se
 
 These templates were then used to generate model cards for the top 200 most downloaded Hugging Face (HF) models. 
 
-* We first began by pulling all Hugging Face model's on the hub and, in particular, subsections on Limitations and Bias.
+* We first began by pulling all Hugging Face model's on the hub and, in particular, subsections on Limitations and Bias ("Risks" subsections were largely not present).
 * Based on inputs that were the most continuously used with a higher number of model downloads, grouped by model typed, the tool provides prompted text within the Bias, Risks and Limitations sections. We also prompt a default text if the model type is not specified.
 
 Using this information, we returned back to our analysis of all model cards on the hub, coupled with suggestions from other researchers and peers at HF and additional research on the type of prompted information we could provide to users while they are creating model cards. These defaulted prompted text allowed us to satisfy the aims:
