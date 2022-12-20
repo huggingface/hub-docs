@@ -34,6 +34,14 @@
 		}
 		return statuses[modelLoadInfo.status];
 	}
+
+	function getComputeTypeMsg(): string {
+		let compute_type = modelLoadInfo?.compute_type ?? "cpu";
+		if (compute_type === "cpu") {
+			return "Intel Xeon 3rd Gen Scalable cpu";
+		}
+		return compute_type;
+	}
 </script>
 
 <div class="mt-2">
@@ -56,7 +64,7 @@
 				</div>
 			</div>
 		{:else if computeTime}
-			Computation time on {modelLoadInfo?.compute_type ?? "cpu"}: {computeTime}
+			Computation time on {getComputeTypeMsg()}: {computeTime}
 		{:else}
 			{@html getStatusReport(modelLoadInfo, status)}
 		{/if}
