@@ -16,9 +16,11 @@ The model card should describe:
 - which datasets were used to train your model
 - your evaluation results
 
+The model card template is available [here](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md).
+
 ## Model card metadata
 
-A model repo will render its `README.md` as a model card. To control how the Hub displays the card, you can create a YAML section in the README file to define some metadata. Start by adding three `---` at the top, then include all of the relevant metadata, and close the section with another group of `---` like the example below:
+A model repo will render its `README.md` as a model card. To control how the Hub displays the card, you should create a YAML section in the README file to define some metadata. Start by adding three `---` at the top, then include all of the relevant metadata, and close the section with another group of `---` like the example below:
 
 ```yaml
 ---
@@ -47,7 +49,7 @@ The metadata that you add to the model card enables certain interactions on the 
 
 Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages and in the [`datasets`](https://github.com/huggingface/datasets) repository.
 
-See the detailed model card specification [here](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
+See the detailed model card metadata specification [here](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
 
 ### Specifying a library
 
