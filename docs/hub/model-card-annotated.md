@@ -77,7 +77,7 @@ _Use this field when the system is a natural language processing system._
 
 * **License:** `license`
 
-_Name, and link to, the license being used._
+_Name and link to the license being used._
 
 
 
