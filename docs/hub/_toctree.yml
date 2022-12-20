@@ -130,8 +130,6 @@
         title: Your first Docker Spaces
       - local: spaces-sdks-docker-examples
         title: Example Docker Spaces
-  - local: spaces-sdks-python
-    title: Custom Python Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-config-reference
@@ -147,8 +145,10 @@
       title: More ways to create Spaces
     - local: spaces-github-actions
       title: Managing Spaces with Github Actions 
+    - local: spaces-sdks-python
+      title: Custom Python Spaces
     - local: spaces-add-to-arxiv
-      title: How to Add a Space to ArXiv      
+      title: How to Add a Space to ArXiv
 - local: other
   title: Other
   isExpanded: true
