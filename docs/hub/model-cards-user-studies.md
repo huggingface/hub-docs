@@ -4,7 +4,7 @@
 
 During our investigation into the landscape of model documentation tools (data cards etc), we noted how different stakeholders make use of existing infrastructure to create a kind of model card with information focused on their needed domain.
 
-One such example are ‘business analysts’ or those whose focus is on B2B as well as an internal only audience. ( [insert and cite](https://towardsdatascience.com/dag-card-is-the-new-model-card-70754847a111)) The static and more manual approach for this audience is using Confluence pages. (if PMs write the page, we are detaching the model creators from its theoretical consumption; if ML engineers write the page, they may tend to stress only a certain type of information. ) or a proposed combination of HTML (Jinja) templates, Metaflow classes and external APi keys, in order to create model cards that include a perspective of the model information that is needed for their domain/use case. 
+One such example are ‘business analysts’ or those whose focus is on B2B as well as an internal only audience.The static and more manual approach for this audience is using Confluence pages. (*if PMs write the page, we are detaching the model creators from its theoretical consumption; if ML engineers write the page, they may tend to stress only a certain type of information.* [^1]) or a proposed combination of HTML (Jinja) templates, Metaflow classes and external APi keys, in order to create model cards that include a perspective of the model information that is needed for their domain/use case. 
 
 We conducted a user study, with the aim of validating a literature informed model card structure and to understand sections/ areas of ranked importance for the different stakeholders perspectives. The study aimed to validate the following components:
 
@@ -102,3 +102,4 @@ Using this information, we returned back to our analysis of all model cards on t
 
 
 
+[^1]: See https://towardsdatascience.com/dag-card-is-the-new-model-card-70754847a111
