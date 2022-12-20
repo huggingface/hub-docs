@@ -96,7 +96,7 @@ Using this information, we returned back to our analysis of all model cards on t
 
 <Tip>
 
- [Checkout the Appendix](https://github.com/huggingface/hub-docs/blob/meg-huggingface-patch-1/docs/hub/model-card-appendix.md)
+ [Checkout the Appendix](./model-card-appendix)
 
  </Tip>
 

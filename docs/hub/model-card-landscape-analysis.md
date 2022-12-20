@@ -110,14 +110,14 @@ While some headings within model cards may differ between models, we grouped com
 
 <Tip>
 
- [Checkout the User Studies](https://huggingface.co/docs/hub/model-cards/model-cards-user-studies.md)
+ [Checkout the User Studies](./model-cards-user-studies)
 
  </Tip>
 
 
 <Tip>
 
- [See Appendix](https://huggingface.co/docs/hub/model-cards/model-card-appendix.md)
+ [See Appendix](./model-card-appendix)
 
  </Tip>
 
