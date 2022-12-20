@@ -107,7 +107,6 @@ With a continued focus on large language models, ordered by most downloaded and 
 While some headings within model cards may differ between models, we grouped components/the theme of each section within each model cards and then mapped them to section headings that were the most recurring (mostly found in the top 200 downloaded models and with the aid/guidance of the Bloom model card)
 
 
-![mapping mc sections](https://huggingface.co/datasets/huggingface/documentation-images/tree/main/hub/mc-mapping.png)
 
 <Tip>
 
