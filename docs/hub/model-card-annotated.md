@@ -95,7 +95,7 @@ _If this model has another model as its base, link to that model here._
 _Provide sources for the user to directly see the model and its details. Additional kinds of resources – training logs, lessons learned, etc. – belong in the [More Information](#more-information) section. If you include one thing for this section, link to the repository._
 
 # Uses
-**Section Overview:** This section addresses questions around how the model is intended to be used, discusses the foreseeable users of the model (including those affected by the model), and describes uses that are considered out of scope or misuse of the model.  Note this section is not intended to include the license usage details. For that, link directly to the license.
+**Section Overview:** This section addresses questions around how the model is intended to be used in different applied contexts, discusses the foreseeable users of the model (including those affected by the model), and describes uses that are considered out of scope or misuse of the model.  Note this section is not intended to include the license usage details. For that, link directly to the license.
 
 
 ## Direct Use
