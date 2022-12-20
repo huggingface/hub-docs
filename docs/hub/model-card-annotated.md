@@ -71,7 +71,7 @@ _3. Modality_
 
 * **Language(s)** [NLP]: `language`
 
-_Use this field when the system is a natural language processing system._
+_Use this field when the system uses or processes natural (human) language._
 
 
 
