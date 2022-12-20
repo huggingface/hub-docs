@@ -117,6 +117,12 @@ While some headings within model cards may differ between models, we grouped com
  </Tip>
 
 
+<Tip>
+
+ [See Appendix](https://github.com/huggingface/hub-docs/blob/meg-huggingface-patch-1/docs/hub/model-card-appendix.md)
+
+ </Tip>
+
 [^1]: For each tool, descriptions are excerpted from the linked paper listed in the second column.
 
 [^2]: See https://techpolicylab.uw.edu/data-statements/ .
