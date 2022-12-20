@@ -11,7 +11,6 @@ These groupings are not mutually exclusive; they do include overlapping aspects 
 * Focused on documentation of some (or multiple) aspects of the ML system lifecycle
 * Included the release of a template intended for repeated use, adoption, and adaption
 
-Templates for each tool provided by the developers are included in the Appendix. 
 
 ## Summary of ML Documentation Tools
 
@@ -112,14 +111,14 @@ While some headings within model cards may differ between models, we grouped com
 
 <Tip>
 
- [Checkout the User Studies](https://github.com/huggingface/hub-docs/blob/meg-huggingface-patch-1/docs/hub/model-cards-user-studies.md)
+ [Checkout the User Studies](https://huggingface.co/docs/hub/model-cards/model-cards-user-studies.md)
 
  </Tip>
 
 
 <Tip>
 
- [See Appendix](https://github.com/huggingface/hub-docs/blob/meg-huggingface-patch-1/docs/hub/model-card-appendix.md)
+ [See Appendix](https://huggingface.co/docs/hub/model-cards/model-card-appendix.md)
 
  </Tip>
 
