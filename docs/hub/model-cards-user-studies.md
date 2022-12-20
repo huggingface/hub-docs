@@ -39,7 +39,7 @@ Using this information, we returned back to our analysis of all model cards on t
 
 ## User Study Details
 
-We selected people from a variety of different backgrounds relevant to machine learning and model documentation. Below, we detail their demographics, the questions they were asked, and the corresponding insights from their responses. Full details on responses are available in [Appendix A](./model-card-appendix#appendix-A).
+We selected people from a variety of different backgrounds relevant to machine learning and model documentation. Below, we detail their demographics, the questions they were asked, and the corresponding insights from their responses. Full details on responses are available in [Appendix A](./model-card-appendix#appendix-a-user-study).
 
 ### Respondent Demographics
 
