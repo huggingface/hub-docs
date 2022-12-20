@@ -17,7 +17,9 @@ app_port: 7860
 ---
 ```
 
-Internally you could have as many open ports as you want - and use a reverse proxy like Nginx to dispatch requests from the broader internet.
+Internally you could have as many open ports as you want, for instance you can install Elasticsearch inside your Space and call it internally on its default port 9200.
+
+If you want to expose apps served on multiple ports to the outside world, a workaround is to use a reverse proxy like Nginx to dispatch requests from the broader internet (on a single port) to different internal ports.
 
 ## Secret Management
 
