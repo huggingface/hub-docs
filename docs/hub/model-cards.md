@@ -11,7 +11,7 @@ The model card should describe:
 - which datasets were used to train your model
 - your evaluation results
 
-The model card template is available here: [https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md).
+The model card template is available [here](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md).
 
 ## Model card metadata
 
