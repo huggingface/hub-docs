@@ -89,9 +89,9 @@ Using this information, we returned back to our analysis of all model cards on t
 * When ranking the sections of the model card by ease/quickness of writing, consensus was that the sections on uses and limitations and risks were the most difficult.
 * When reading model cards, respondents said they looked at the cards’ sections in an order that was close to – but not perfectly aligned with – the order in which the sections were listed in the survey question.
 
-![user studies results 1](https://github.com/huggingface/hub-docs/blob/meg-huggingface-patch-1/docs/assets/model-card-guidebook/usaer-studes-responses(1).png) 
+![user studies results 1](https://huggingface.co/datasets/huggingface/documentation-images/tree/main/hub/usaer-studes-responses(1).png) 
 
-![user studies results 2](https://github.com/huggingface/hub-docs/blob/meg-huggingface-patch-1/docs/assets/model-card-guidebook/user-studies-responses(2).png) 
+![user studies results 2](https://huggingface.co/datasets/huggingface/documentation-images/tree/main/hub/user-studies-responses(2).png) 
 
 
 <Tip>
