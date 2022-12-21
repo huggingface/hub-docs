@@ -23,13 +23,28 @@ If you want to expose apps served on multiple ports to the outside world, a work
 
 ## Secret Management
 
+### Buildtime
+
 In Docker Spaces, the secrets management is different for security reasons. Once you create a secret in the [Settings tab](./spaces-overview#managing-secrets), you can expose the secret by adding the following line in your Dockerfile.
 
+For example, `SECRET_EXAMPLE` is the name of the secret you created in the Settings tab.
+
 ```Dockerfile
-RUN --mount=type=secret,id=EXAMPLE,required=true cat /run/secrets/EXAMPLE > /example
+# Expose the secret SECRET_EXAMPLE at buildtime and use its value as git remote URL
+RUN --mount=type=secret,id=SECRET_EXAMPLE,mode=0444,required=true \
+ git init && \
+ git remote add origin $(cat /run/secrets/SECRET_EXAMPLE)
 ```
 
-Where `EXAMPLE` is the name of the secret. Afterwards, you can access the secret as an environment variable. For example, in Python you would do `os.environ.get("EXAMPLE")`. Check out this [example](https://huggingface.co/spaces/DockerTemplates/secret-example) of a Docker Space that uses secrets.
+```Dockerfile
+# Expose the secret SECRET_EXAMPLE at buildtime and use its value as a Bearer token for a curl request
+RUN --mount=type=secret,id=SECRET_EXAMPLE,mode=0444,required=true \
+	curl test -H 'Authorization: Bearer $(cat /run/secrets/SECRET_EXAMPLE)'
+```
+
+### Runtime
+
+At runtime, you can access the secrets as environment variables. For example, in Python you would do `os.environ.get("SECRET_EXAMPLE")`. Check out this [example](https://huggingface.co/spaces/DockerTemplates/secret-example) of a Docker Space that uses secrets.
 
 ## Permissions
 
