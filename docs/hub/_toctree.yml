@@ -58,6 +58,8 @@
         title: Keras
       - local: ml-agents
         title: ML-Agents
+      - local: paddlenlp
+        title: PaddleNLP
       - local: rl-baselines3-zoo
         title: RL-Baselines3-Zoo
       - local: sample-factory

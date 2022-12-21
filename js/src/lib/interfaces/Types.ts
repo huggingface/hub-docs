@@ -809,6 +809,7 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 	"paddlenlp": [
 		"conversational",
 		"fill-mask",
+		"summarization",
 	],
 	"pyannote-audio": [
 		"automatic-speech-recognition",
