@@ -74,6 +74,14 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
 
 ```
 
+When the changes are saved, the Space will rebuild and your demo should be up after a couple of seconds! [Here](https://huggingface.co/spaces/DockerTemplates/fastapi_dummy) is an example result at this point.
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_dummy.jpg"/>
+</div>
+
+### Testing locally
+
 **Tip for power users (you can skip):** If you're developing locally, this is a good moment in which you can do `docker build` and `docker run` to debug locally, but it's even easier to push the changes to the Hub and see how it looks like!
 
 ```bash
@@ -81,11 +89,19 @@ docker build -t fastapi .
 docker run  -it -p 7860:7860 fastapi
 ```
 
-When the changes are saved, the Space will rebuild and your demo should be up after a couple of seconds! [Here](https://huggingface.co/spaces/DockerTemplates/fastapi_dummy) is an example result at this point.
+If you have [Secrets](spaces-sdks-docker#secret-management) you can use `docker buildx` and pass the secrets as build arguments
 
-<div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_dummy.jpg"/>
-</div>
+```bash
+export SECRET_EXAMPLE="my_secret_value"
+docker buildx build --secret id=SECRET_EXAMPLE,env=SECRET_EXAMPLE -t fastapi .
+```
+
+and run with `docker run` passing the secrets as environment variables
+
+```bash
+export SECRET_EXAMPLE="my_secret_value"
+docker run -it -p 7860:7860 -e SECRET_EXAMPLE=$SECRET_EXAMPLE fastapi
+```
 
 ## Adding some ML to our app
 

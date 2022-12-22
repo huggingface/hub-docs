@@ -1,6 +1,6 @@
 # Docker Spaces
 
-Spaces accommodate custom [Docker containers](https://docs.docker.com/get-started/) for apps that go outside the scope of Streamlit and Gradio. Docker Spaces give freedom to users to go beyond the limits of what was previously possible with the standard sdks. From FastAPI and Go endpoints to Phoenix apps and ML Ops tools, Docker Spaces can help in many different setups.
+Spaces accommodate custom [Docker containers](https://docs.docker.com/get-started/) for apps outside the scope of Streamlit and Gradio. Docker Spaces allow users to go beyond the limits of what was previously possible with the standard SDKs. From FastAPI and Go endpoints to Phoenix apps and ML Ops tools, Docker Spaces can help in many different setups.
 
 ## Setting up Docker Spaces
 
@@ -17,16 +17,35 @@ app_port: 7860
 ---
 ```
 
+Internally you could have as many open ports as you want. For instance, you can install Elasticsearch inside your Space and call it internally on its default port 9200.
+
+If you want to expose apps served on multiple ports to the outside world, a workaround is to use a reverse proxy like Nginx to dispatch requests from the broader internet (on a single port) to different internal ports.
 
 ## Secret Management
 
+### Buildtime
+
 In Docker Spaces, the secrets management is different for security reasons. Once you create a secret in the [Settings tab](./spaces-overview#managing-secrets), you can expose the secret by adding the following line in your Dockerfile.
 
+For example, if `SECRET_EXAMPLE` is the name of the secret you created in the Settings tab, you can read it at build time by mounting it to a file, then reading it with `$(cat /run/secrets/SECRET_EXAMPLE)`.
+
+See an example below:
 ```Dockerfile
-RUN --mount=type=secret,id=EXAMPLE,required=true cat /run/secrets/EXAMPLE > /example
+# Expose the secret SECRET_EXAMPLE at buildtime and use its value as git remote URL
+RUN --mount=type=secret,id=SECRET_EXAMPLE,mode=0444,required=true \
+ git init && \
+ git remote add origin $(cat /run/secrets/SECRET_EXAMPLE)
 ```
 
-Where `EXAMPLE` is the name of the secret. Afterwards, you can access the secret as an environment variable. For example, in Python you would do `os.environ.get("EXAMPLE")`. Check out this [example](https://huggingface.co/spaces/DockerTemplates/secret-example) of a Docker Space that uses secrets.
+```Dockerfile
+# Expose the secret SECRET_EXAMPLE at buildtime and use its value as a Bearer token for a curl request
+RUN --mount=type=secret,id=SECRET_EXAMPLE,mode=0444,required=true \
+	curl test -H 'Authorization: Bearer $(cat /run/secrets/SECRET_EXAMPLE)'
+```
+
+### Runtime
+
+At runtime, you can access the secrets as environment variables. For example, in Python you would do `os.environ.get("SECRET_EXAMPLE")`. Check out this [example](https://huggingface.co/spaces/DockerTemplates/secret-example) of a Docker Space that uses secrets.
 
 ## Permissions
 
@@ -57,7 +76,13 @@ WORKDIR $HOME/app
 COPY --chown=user . $HOME/app
 ```
 
+## Data Persistence
+
+We don't yet provide a built-in way to persist data in the Docker Spaces. However, we suggest using our Datasets Hub for specific cases, where you can store state and data in a git LFS repository. You can find an example of persistence [here](https://huggingface.co/spaces/julien-c/persistent-data), which uses the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index) for programmatically uploading files to a dataset repository.
+
+In other cases, you might want to use an external storage solution from your Space's code like an external hosted DB, S3, etc.
+
 ## Read More
 
-* [Full Docker demo example](spaces-sdks-docker-first-demo)
-* [List of Docker Spaces examples](spaces-sdks-docker-examples)
+- [Full Docker demo example](spaces-sdks-docker-first-demo)
+- [List of Docker Spaces examples](spaces-sdks-docker-examples)
