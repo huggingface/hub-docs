@@ -27,8 +27,9 @@ If you want to expose apps served on multiple ports to the outside world, a work
 
 In Docker Spaces, the secrets management is different for security reasons. Once you create a secret in the [Settings tab](./spaces-overview#managing-secrets), you can expose the secret by adding the following line in your Dockerfile.
 
-For example, `SECRET_EXAMPLE` is the name of the secret you created in the Settings tab.
+For example, if `SECRET_EXAMPLE` is the name of the secret you created in the Settings tab, you can read it at build time by mounting it to a file, then reading it with `$(cat /run/secrets/SECRET_EXAMPLE)`.
 
+See an example below:
 ```Dockerfile
 # Expose the secret SECRET_EXAMPLE at buildtime and use its value as git remote URL
 RUN --mount=type=secret,id=SECRET_EXAMPLE,mode=0444,required=true \
