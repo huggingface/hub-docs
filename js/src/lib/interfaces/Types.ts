@@ -1,5 +1,3 @@
-import type { ModelLibraryKey } from "./Libraries";
-
 // Warning: order of modalities here determine how they are listed on the /tasks page
 export const MODALITIES = [
 	"cv",
