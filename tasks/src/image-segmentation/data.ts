@@ -50,6 +50,7 @@ const taskData: TaskDataCustom = {
 			id:          "microsoft/beit-large-finetuned-ade-640-640",
 		},
 	],
+	spaces:       [],
 	summary:      "Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.",
 	widgetModels: ["facebook/detr-resnet-50-panoptic"],
 	youtubeId:    "dKE8SIt9C-w",

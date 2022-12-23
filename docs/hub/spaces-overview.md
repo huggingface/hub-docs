@@ -8,7 +8,7 @@ In the following sections, you'll learn the basics of creating a Space, configur
 
 ## Creating a new Space
 
-**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Streamlit, and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
+**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers four SDK options: Gradio, Streamlit, Docker and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-blank-space.png"/>
@@ -20,12 +20,15 @@ Under the hood, Spaces stores your code inside a git repository, just like the m
 For step-by-step tutorials to creating your first Space, see the guides below:
 * [Creating a Gradio Space](./spaces-sdks-gradio)
 * [Creating a Streamlit Space](./spaces-sdks-streamlit)
+* [Creating a Docker Space](./spaces-sdks-docker-first-demo)
 
 ## Hardware resources
 
 Each Spaces environment is limited to 16GB RAM and 2 CPU cores by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
 
 You can also request a community GPU grant if you are building something cool as a side project. Drop us a note using the link in the _Settings_ tab of your Space!
+
+Read more in [Spaces GPU Upgrades](./spaces-gpus).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-gpu-settings.png"/>
@@ -34,7 +37,7 @@ You can also request a community GPU grant if you are building something cool as
 
 ## Managing secrets
 
-If your app requires secret keys or tokens, don't hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and enter your secrets there. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. 
+If your app requires secret keys or tokens, don't hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and enter your secrets there. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [secret management with Docker](./spaces-sdks-docker#secret-management).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets.png"/>
@@ -44,3 +47,12 @@ If your app requires secret keys or tokens, don't hard-code them inside your app
 ## Networking
 
 If your Space needs to make any network requests, you can make requests through the standard HTTP and HTTPS ports (80 and 443) along with port 8080. Any requests going to other ports will be blocked.
+
+## Helper environment variables
+
+In some cases, you might be interested in having programmatic access to the Space author or repository name. This feature is particularly useful when you expect users to duplicate your Space. To help with this, Spaces exposes different environment variables at runtime. Given a Space [`osanseviero/i-like-flan`](https://huggingface.co/spaces/osanseviero/i-like-flan):
+
+* `SPACE_AUTHOR_NAME`: osanseviero
+* `SPACE_REPO_NAME`: i-like-flan
+* `SPACE_TITLE`: I Like Flan (specified in the README file)
+* `SPACE_ID`: `osanseviero/i-like-flan`

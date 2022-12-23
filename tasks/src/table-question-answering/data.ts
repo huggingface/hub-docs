@@ -48,6 +48,7 @@ const taskData: TaskDataCustom = {
 
 			},
 		],
+	spaces:       [],
 	summary:      "Table Question Answering (Table QA) is the answering a question about an information on a given table.",
 	widgetModels: ["google/tapas-base-finetuned-wtq"],
 };

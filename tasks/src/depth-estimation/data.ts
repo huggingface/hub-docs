@@ -2,7 +2,7 @@ import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
 	datasets: [],
-	demo: {
+	demo:     {
 		inputs: [
 			{
 				filename: "depth-estimation-input.jpg",
@@ -17,7 +17,7 @@ const taskData: TaskDataCustom = {
 		],
 	},
 	metrics: [],
-	models: [
+	models:  [
 		{
 			// TO DO: write description
 			description: "Strong Depth Estimation model trained on 1.4 million images.",
@@ -29,6 +29,7 @@ const taskData: TaskDataCustom = {
 			id:          "vinvino02/glpn-kitti",
 		},
 	],
+	spaces:       [],
 	summary:      "Depth estimation is the task of predicting depth of the objects present in an image.",
 	widgetModels: [""],
 	youtubeId:    "",

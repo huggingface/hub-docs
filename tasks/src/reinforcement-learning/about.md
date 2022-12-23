@@ -61,6 +61,8 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [HuggingFace Deep Reinforcement Learning Class](https://github.com/huggingface/deep-rl-class)
 - [Introduction to Deep Reinforcement Learning](https://huggingface.co/blog/deep-rl-intro)
 - [Stable Baselines Integration with HuggingFace](https://huggingface.co/blog/sb3)
+- Learn how reinforcement learning is used in conversational agents in this blog: [Illustrating Reinforcement Learning from Human Feedback (RLHF)](https://huggingface.co/blog/rlhf)
+- [Reinforcement Learning from Human Feedback From Zero to ChatGPT](https://www.youtube.com/watch?v=EAd4oQtEJOM)
 
 ### Notebooks
 - [Train a Deep Reinforcement Learning lander agent to land correctly on the Moon 🌕 using Stable-Baselines3](https://github.com/huggingface/deep-rl-class/blob/main/unit1/unit1.ipynb)

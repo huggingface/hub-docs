@@ -19,6 +19,7 @@ import sentenceSimilarity from "./sentence-similarity/data";
 import summarization from "./summarization/data";
 import tableQuestionAnswering from "./table-question-answering/data";
 import tabularClassification from "./tabular-classification/data";
+import tabularRegression from "./tabular-regression/data";
 import textToImage from "./text-to-image/data";
 import textToSpeech from "./text-to-speech/data";
 import tokenClassification from "./token-classification/data";
@@ -60,7 +61,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"table-question-answering":       getData("table-question-answering", tableQuestionAnswering),
 	"table-to-text":                  undefined,
 	"tabular-classification":         getData("tabular-classification", tabularClassification),
-	"tabular-regression":             getData("tabular-regression"),
+	"tabular-regression":             getData("tabular-regression", tabularRegression),
 	"tabular-to-text":                undefined,
 	"text-classification":            getData("text-classification", textClassification),
 	"text-generation":                getData("text-generation", textGeneration),

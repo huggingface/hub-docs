@@ -1,4 +1,4 @@
-import type { ModelLibrary } from "../../js/src/lib/interfaces/Libraries";
+import type { ModelLibraryKey } from "../../js/src/lib/interfaces/Libraries";
 import type { PipelineType } from "../../js/src/lib/interfaces/Types";
 
 export interface ExampleRepo {
@@ -46,9 +46,10 @@ export interface TaskData {
 	id: PipelineType;
 	isPlaceholder?: boolean;
 	label: string;
-	libraries: Array<keyof typeof ModelLibrary>;
+	libraries: ModelLibraryKey[];
 	metrics: ExampleRepo[];
 	models: ExampleRepo[];
+	spaces: ExampleRepo[];
 	summary: string;
 	widgetModels: string[];
 	youtubeId?: string;

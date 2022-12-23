@@ -15,7 +15,9 @@ from huggingface_hub import notebook_login
 notebook_login()
 ```
 
-Then, ensure that your library uses the token. For example, if using 🤗 Transformers [you'll need to pass `use_auth_token=True`](https://huggingface.co/docs/transformers/main/en/main_classes/model#transformers.PreTrainedModel.from_pretrained) when calling `.from_pretrained()`.  
+Then, ensure that your library uses the token. This is now the case by default in huggingface-maintained libraries.
+
+However, on older versions of libraries, for example if using 🤗 Transformers with a version of `huggingface_hub` older than `v0.10` [you'll need to pass `use_auth_token=True`](https://huggingface.co/docs/transformers/main/en/main_classes/model#transformers.PreTrainedModel.from_pretrained) when calling `.from_pretrained()`.  
 
 ## Modifying the prompt 
 

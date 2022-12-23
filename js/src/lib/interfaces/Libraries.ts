@@ -9,10 +9,12 @@ export enum ModelLibrary {
 	"allennlp"               = "allenNLP",
 	"asteroid"               = "Asteroid",
 	"diffusers"              = "Diffusers",
+	"doctr"                  = "docTR",
 	"espnet"                 = "ESPnet",
 	"fairseq"                = "Fairseq",
 	"flair"                  = "Flair",
 	"keras"                  = "Keras",
+	"k2"                     = "K2",
 	"nemo"                   = "NeMo",
 	"paddlenlp"              = "PaddleNLP",
 	"pyannote-audio"         = "pyannote.audio",
@@ -32,7 +34,12 @@ export enum ModelLibrary {
 	"pythae"                 = "Pythae",
 }
 
-export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as (keyof typeof ModelLibrary)[];
+export type ModelLibraryKey = keyof typeof ModelLibrary;
+export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as ModelLibraryKey[];
+
+const EXCLUDE_THOSE_LIBRARIES_FROM_DISPLAY: ModelLibraryKey[] = ["doctr", "k2"];
+
+export const ALL_DISPLAY_MODEL_LIBRARY_KEYS = ALL_MODEL_LIBRARY_KEYS.filter(k => !EXCLUDE_THOSE_LIBRARIES_FROM_DISPLAY.includes(k));
 
 
 /**
@@ -100,7 +107,7 @@ model = BaseModel.from_pretrained("${model.id}")`;
 const diffusers = (model: ModelData) =>
 	`from diffusers import DiffusionPipeline
 
-pipeline = DiffusionPipeline.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`;
+pipeline = DiffusionPipeline.from_pretrained("${model.id}")`;
 
 const espnetTTS = (model: ModelData) =>
 	`from espnet2.bin.tts_inference import Text2Speech
@@ -328,15 +335,15 @@ const transformers = (model: ModelData) => {
 		return [
 			`from transformers import ${info.processor}, ${info.auto_model}`,
 			"",
-			`${varName} = ${info.processor}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`,
+			`${varName} = ${info.processor}.from_pretrained("${model.id}")`,
 			"",
-			`model = ${info.auto_model}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`,
+			`model = ${info.auto_model}.from_pretrained("${model.id}")`,
 		].join("\n");
 	} else {
 		return [
 			`from transformers import ${info.auto_model}`,
 			"",
-			`model = ${info.auto_model}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""})`,
+			`model = ${info.auto_model}.from_pretrained("${model.id}")`,
 		].join("\n");
 	}
 };
@@ -390,7 +397,7 @@ model = AutoModel.load_from_hf_hub("${model.id}")`;
 
 
 
-export const MODEL_LIBRARIES_UI_ELEMENTS: { [key in keyof typeof ModelLibrary]?: LibraryUiElement } = {
+export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, LibraryUiElement>> = {
 	// ^^ TODO(remove the optional ? marker when Stanza snippet is available)
 	"adapter-transformers": {
 		btnLabel: "Adapter Transformers",

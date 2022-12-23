@@ -5,7 +5,7 @@ const taskData: TaskDataCustom = {
 		{
 			// TODO write proper description
 			description: "",
-			id: "",
+			id:          "",
 		},
 	],
 	demo: {
@@ -59,10 +59,11 @@ const taskData: TaskDataCustom = {
 			id: "openai/clip-vit-large-patch14-336",
 		},
 	],
+	spaces:  [],
 	summary:
 		"Zero shot image classification is the task of classifying previously unseen classes during training of a model.",
 	widgetModels: ["openai/clip-vit-large-patch14-336"],
-	youtubeId: "",
+	youtubeId:    "",
 };
 
 export default taskData;
