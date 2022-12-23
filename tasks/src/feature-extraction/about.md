@@ -4,25 +4,27 @@ One everyday use case for feature extraction is in natural language processing (
 To enable the model to understand the text, we need to extract features from the data that are relevant to the task at hand. This might involve converting the text into numerical vectors, where each element of the vector represents a particular word or phrase in the text. These vectors can then be fed into the machine learning model, which can use them to learn patterns and make predictions about the sentiment of new text.
 Overall, feature extraction is an essential step in many machine learning tasks, as it helps to reduce noise and irrelevant information in the data and make it more usable by the algorithms. By extracting relevant features from the data, we can improve the model's performance and make it better at solving the task at hand.
  
-## Different Techniques for Feature extraction
-The three most common techniques for feature extraction are:
+## Task Variants
 
-### Countvectorizer 
-CountVectorizer is a feature extraction technique that converts a collection of text documents to a vector of term/token counts. It is also known as the bag-of-words model. This model is widely used in text mining and information retrieval. 
-### TF-IDF Vectorizer
-TF-IDF stands for Term Frequency-Inverse Document Frequency. It is a numerical statistic used to measure a word's importance in a document. The idea behind TF-IDF is that words that are commonly used across many documents are not very useful for identifying the specific content of a particular document. In contrast, words that are unique to a specific document are more likely to be relevant to its meaning. Therefore, the TF-IDF value for a word increases as the number of times it occurs in the document increases but is offset by the number of documents in the corpus that contain the word. This allows the model to identify and prioritize the most critical words in a document and use them to make predictions about their meaning.
+Feature extraction is extracting relevant information from a dataset and converting it into a set of features that can be used to train a machine learning model. There are many different approaches to feature extraction, and the specific technique best suited for a given problem will depend on the data's characteristics and the analysis's goals. Some common approaches to feature extraction include:
 
-### Word Embeddings
-Word embeddings are a way of representing words as vectors (arrays of numbers) in a lower-dimensional space. This means that instead of describing each word as a long list of 0s and 1s, as a computer would, we can represent them using a shorter list of numbers that capture the word's meaning. This makes it easier for a computer model to understand the relationships between words and their meanings. For example, if the model knows that the words "happy" and "sad" are often used in similar contexts, it can use that information to make better predictions about the sentiment of a piece of text. In other words, word embeddings allow a computer model to understand better the meaning of words in a text, which can improve its ability to process and understand that text.
+1) Dimensionality reduction: Dimensionality reduction is a technique for reducing the number of features in a dataset by combining or eliminating redundant or irrelevant to the task at hand. This can be useful when working with high-dimensional datasets, as it can reduce the complexity of the data and make it easier to visualize and analyze. Some standard dimensionality reduction techniques include principal component analysis (PCA), linear discriminant analysis (LDA), and independent component analysis (ICA).
+
+2) Feature selection: Feature selection is the process of selecting a subset of the most relevant features from the data. This can be done manually by selecting features based on domain knowledge or intuition or automatically using a feature selection algorithm. Automatic feature selection algorithms can be used to identify the most relevant features based on their statistical significance or their ability to improve the performance of a machine learning model.
+
+3) Feature engineering: Feature engineering is the process of creating new features from the existing data by applying transformations or combining existing features. This can be a time-consuming process, but it can be very effective in improving the performance of a machine-learning model. Standard techniques for feature engineering include creating polynomial features, applying transformations such as log or square root, and combining features using techniques such as feature crossing.
+
+4) Data encoding: Data encoding is the process of converting categorical variables into numerical values that machine learning algorithms can use. Categorical variables are variables that take on a limited number of values, such as "male" or "female" or "red," "green," and "blue." There are several different methods for encoding categorical data, including one-hot encoding and ordinal encoding.
+
+5) Feature scaling: Feature scaling is the process of transforming the values of a feature so that they are on the same scale. This can be important for algorithms that are sensitive to the scale of the data, such as support vector machines (SVMs) and k-nearest neighbors (KNN). There are several methods for scaling features, including standardization, which scales the data to have zero mean and unit variance, and min-max scaling, which scales the data to a specified range.
+
+
 
 
 ## Useful Resources
 
 Want to learn more about feature extraction? Here are some resources to get you started:
 
-- [Feature Extraction](https://www.analyticsvidhya.com/blog/2021/07/feature-extraction-and-embeddings-in-nlp-a-beginners-guide-to-understand-natural-language-processing/)
+- [Feature Extraction Tutorial from hugging face](https://huggingface.co/docs/timm/feature_extraction)
 
-- [A tutorial on using BERT for feature extraction and text classification](https://mccormickml.com/2019/05/14/BERT-word-embeddings-tutorial/)
-
-- [Hugging face Transformers Pipeline](https://www.analyticsvidhya.com/blog/2022/01/hugging-face-transformers-pipeline-functions-advanced-nlp/)
-
+- [Hugging Face Documentation for Feature Extractor](https://huggingface.co/transformers/v4.7.0/main_classes/feature_extractor.html)
