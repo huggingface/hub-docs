@@ -1,22 +1,22 @@
 # Webhooks
 
-Webhooks are a foundation for MLOps related features. You can use this to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces.
+Webhooks are a foundation for MLOps related features. You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces.
 
-They allow you to react when new changes happen on specific repos or repos belonging to specific users / organizations (not just your repos, but any repo!).
+They allow you to listen for new changes on specific repos or repos belonging to particular users/organizations (not just your repos, but any repo!).
 
-You can configure the webhooks in your [settings](https://huggingface.co/settings/webhooks):
+You can create new webhooks and edit exiting ones in your webhooks [settings](https://huggingface.co/settings/webhooks):
 
 ![Settings of an individual webhook](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-settings.png)
 
-You can watch repo changes, discussions, and Pull requests and comments. You can even use a Space to react to webhooks!
+Webhooks can watch for repos updates, Pull requests, discussions, and new comments. It's even possible to create a Space to react to your webhooks!
 
 <!-- Todo: add a link to a guide with a real example -->
 
 ## Webhook Payloads
 
-After registering a webhook, you will be notified of events via an `HTTP POST` call on the specified URL. The payload is encoded in JSON.
+After registering a webhook, you will be notified of new events via an `HTTP POST` call on the specified target URL. The payload is encoded in JSON.
 
-You can check the last payloads sent in the activity tab of the webhook page, as well as replay webhooks:
+You can view the history of payloads sent in the activity tab of the webhook settings page, it's also possible to replay past webhooks for easier debugging:
 
 
 ![image.png](https://s3.amazonaws.com/moonup/production/uploads/1671034300077-61d2f90c3c2083e1c08af22d.png)
@@ -83,7 +83,7 @@ The top-level properties `event` is always specified and used to determine the n
 
 It has two sub-properties: `event.action` and `event.scope`.
 
-`event.scope` can take one of the following values:
+`event.scope` will be one of the following values:
 
 - `"repo"` - Global events on repos. Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`, `"move"`.
 - `"repo.content"` - Events on the repo's content, such as new commits or tags. It triggers on new Pull requests as well due to the newly created reference/commit. The associated `action` is always `"update"`.
@@ -124,7 +124,7 @@ In the current version of webhooks, the top level property `repo` is always spec
 
 ### Discussion and Pull Requests
 
-The top level property `discussion` is specified on community events (discussions and Pull requests). The `discussion.isPullRequest` property is a boolean indicating if the discussion is also a Pull request (on the Hub, a PR is a special case of a discussion). Here is an example value:
+The top-level property `discussion` is specified on community events (discussions and Pull requests). The `discussion.isPullRequest` property is a boolean indicating if the discussion is also a Pull request (on the Hub, a PR is a special type of discussion). Here is an example value:
 
 ```json
 "discussion": {
@@ -166,19 +166,19 @@ The top level property `comment` is specified when a comment is created (includi
 
 ## Webhook secret
 
-Setting a webhook secret is useful to make sure payloads sent to your webhook handler come from Hugging Face.
+Setting a webhook secret is useful to make sure payloads sent to your webhook handler URL are from Hugging Face.
 
 If you set a secret for your webhook, it will be sent along as an `X-Webhook-Secret` HTTP header on every request. Only ASCII characters are supported.
 
 <Tip>
-You can also change the URL of the webhook to add a secret to the URL. For example, setting it to https://example.com/webhook?secret=XXX.
+It's also possible to add the secret directly in the handler URL. For example, setting it as a query parameter: https://example.com/webhook?secret=XXX.
 
 This can be helpful if accessing the HTTP headers of the request is complicated for your webhook handler.
 </Tip>
 
 ## Rate limiting
 
-Each webhook is limited to 1,000 triggers per 24 hours. You can check the  daily triggers for your webhook in your webhook settings, in the "Activity" tab.
+Each webhook is limited to 1,000 triggers per 24 hours. You can view your usage in the Webhook settings page in the "Activity" tab.
 
 If you need to increase the number of triggers for your webhook, contact us at website@huggingface.co.
 
@@ -188,6 +188,6 @@ Go in the activity tab for your webhook, there you will see the list of recent e
 
  ![image.png](https://s3.amazonaws.com/moonup/production/uploads/1671035382840-61d2f90c3c2083e1c08af22d.png)
  
-You will see the HTTP status code and the payload of the events. You can replay events too by clicking on the `replay` button!
+You will see the HTTP status code and the payload of past events. You can replay those events by clicking on the `replay` button!
 
-It is possible to change the url or secret of the webhook and then replay an event; it will send the payload to the updated URL.
+When changing the target URL or secret of a webhook, replaying an event will send the payload to the updated URL.
