@@ -4,7 +4,7 @@
 
 Visit the [Argilla documentation](https://docs.argilla.io) to learn about its features and check out the [Deep Dive Guides](https://docs.argilla.io/en/latest/guides/guides.html) and [Tutorials](https://docs.argilla.io/en/latest/tutorials/tutorials.html).
 
-If you want to play with the Argilla UI without installing anything, check this [live demo](https://huggingface.co/spaces/argilla/live-demo). The demo is powered by Hugging Face Docker Spaces, the same technology you'll learn in this guide. To login into the UI use: username: `argilla`, password: `1234`.
+If you want to play with the Argilla UI without installing anything, check this [live demo](https://huggingface.co/spaces/argilla/live-demo). The demo is powered by Hugging Face Docker Spaces, the same technology you'll learn in this guide. To login into the UI use: username: `huggingface`, password: `1234`.
 
 In the next sections, you'll learn to deploy your own Argilla app and use it for data labelling workflows right from the Hub. 
 
