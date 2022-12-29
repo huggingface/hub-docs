@@ -64,7 +64,7 @@ If everything went well, you now have a dataset available from the Argilla UI to
 
 ### Data labelling and model training
 
-At this step, you can label your data directly using your Argilla Space and read the training data to train your model of choice. In this [Colab notebook](https://colab.research.google.com/drive/1GeBBuRw8CIZ6SYql5Vdx4Q2Vv74eFa1I?usp=sharing) you can follow the full step-by-step tutorial, but let's see how we can retrieve data from our interactive data annotation session.
+At this point, you can label your data directly using your Argilla Space and read the training data to train your model of choice. In this [Colab notebook](https://colab.research.google.com/drive/1GeBBuRw8CIZ6SYql5Vdx4Q2Vv74eFa1I?usp=sharing), you can follow the full step-by-step tutorial, but let's see how we can retrieve data from our interactive data annotation session, and the code need to train a SetFit model.
 
 ```python
 # this will read our current dataset and turn it into a clean dataset for training
@@ -72,12 +72,41 @@ dataset = rg.load("bankingapp_sentiment").prepare_for_training()
 ```
 
 You can also get the full dataset and push it to the Hub for reproducibility and versioning:
+
 ```python
 # save full argilla dataset for reproducibility
 rg.load("bankingapp_sentiment").to_datasets().push_to_hub("bankingapp_sentiment") 
 ```
 
-## More advanced settings
+Finally, this is how you can train a SetFit model using data from your Argilla Space:
+
+```python
+from sentence_transformers.losses import CosineSimilarityLoss
+
+from setfit import SetFitModel, SetFitTrainer
+
+# Create train test split
+dataset = dataset.train_test_split()
+
+# Load SetFit model from Hub
+model = SetFitModel.from_pretrained("sentence-transformers/paraphrase-mpnet-base-v2")
+
+# Create trainer
+trainer = SetFitTrainer(
+    model=model,
+    train_dataset=dataset["train"],
+    eval_dataset=dataset["test"],
+    loss_class=CosineSimilarityLoss,
+    batch_size=8,
+    num_iterations=20, 
+)
+
+# Train and evaluate
+trainer.train()
+metrics = trainer.evaluate()
+```
+
+## Advanced settings
 
 This section provides details about what's done under the hood for setting up the Template Docker Space. You can use this guide to set up your own Docker Space.
 
