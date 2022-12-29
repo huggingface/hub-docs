@@ -7,3 +7,4 @@ We gathered some example demos in the [Docker Templates](https://huggingface.co/
 * Phoenix app for https://huggingface.co/spaces/DockerTemplates/single_file_phx_bumblebee_ml
 * HTTP endpoint in Go with query parameters https://huggingface.co/spaces/XciD/test-docker-go?q=Adrien
 * Shiny app written in Python https://huggingface.co/spaces/elonmuskceo/shiny-orbit-simulation
+* Genie.jl app in Julia https://huggingface.co/spaces/nooji/GenieOnHuggingFaceSpaces
