@@ -18,6 +18,10 @@ You can find the final app at [this example Space](https://huggingface.co/spaces
 
 The easiest way to get started is by [duplicating the Argilla Docker Template](https://huggingface.co/spaces/argilla/template-space-docker?duplicate=true). You need to define the **Owner** (your personal account or an organization you are part of), a **Space name**, and the **Visibility**, which we recommend to set up to Public if you want to interact with the Argilla app from the outside. Once you are all set, click "Duplicate Space". 
 
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-duplicate-space.png"/>
+</div>
+
 Note: You'll see a mention to the need of setting up environment variables (`API_KEY`) by adding a secret to your Space but will see this in a second.
 
 ### Setting up secret environment variables
@@ -33,6 +37,10 @@ In order to set up these secrets, you need to go to the Settings tab on your new
 ### Create your first dataset
 
 Once your Argilla Space is running, you can start interacting with the it using the Direct URL you'll find in the "Embed this Space" option (top right). Let's say it's https://dvilasuero-argilla-setfit.hf.space. This URL will give you access to a full-screen, stable Argilla app, but will also serve as an endpoint for interacting with Argilla Python library. Let's see how to create our first dataset for labelling. You also can access the app directly using the main URL of the Space, for example: https://huggingface.co/spaces/dvilasuero/argilla-setfit.
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-embed-space.png"/>
+</div>
 
 First we need to pip install `datasets` and `argilla` on Colab or your local machine:
 
