@@ -54,7 +54,16 @@ const taskData: TaskDataCustom = {
 			id:          "lambdalabs/sd-image-variations-diffusers",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "An application to enhance the light in the image.",
+			id:          "keras-io/low-light-image-enhancement",
+		},
+		{
+			description: "An application for style transfer to an image.",
+			id:          "keras-io/neural-style-transfer",
+		},
+	],
 	summary:      "Image to image is the task of transforming a source image to match the characteristics of a target image or a target image domain. Any image manipulation and enhancement is possible with image to image models.",
 	widgetModels: [""],
 	youtubeId:    "",

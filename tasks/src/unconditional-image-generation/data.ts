@@ -51,7 +51,12 @@ const taskData: TaskDataCustom = {
 			id:          "google/ddpm-celebahq-256",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "An application that can generate realistic faces.",
+			id:          "CompVis/celeba-latent-diffusion",
+		},
+	],
 	summary:      "Unconditional image generation is the task of generating images with no condition in any context (like a prompt text or another image). Once trained, the model will create images that resemble its training data distribution.",
 	widgetModels: [""],
 	// TODO: Add related video

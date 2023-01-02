@@ -37,7 +37,12 @@ const taskData: TaskDataCustom = {
 			id:          "CompVis/stable-diffusion-v1-4",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "A powerful text-to-image application",
+			id:          "stabilityai/stable-diffusion",
+		},
+	],
 	summary:      "Generates images from input text. These models can be used to generate and modify images based on text prompts.",
 	widgetModels: ["CompVis/stable-diffusion-v1-4"],
 	youtubeId:    "",

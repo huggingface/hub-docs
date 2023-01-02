@@ -50,7 +50,20 @@ const taskData: TaskDataCustom = {
 			id:          "t5-base",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "An application that can translate from speech to speech between Hokkien and English.",
+			id:          "facebook/Hokkien_Translation",
+		},
+		{
+			description: "An application that can translate between 100 languages.",
+			id:          "Iker/Translate-100-languages",
+		},
+		{
+			description: "An application that can translate between English, Spanish and Hindi.",
+			id:          "EuroPython2022/Translate-with-Bloom",
+		},
+	],
 	summary:      "Translation is the task of converting text from one language to another.",
 	widgetModels: ["t5-small"],
 	youtubeId:    "1JvfrvZgi6c",
