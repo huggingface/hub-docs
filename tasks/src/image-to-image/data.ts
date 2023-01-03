@@ -56,12 +56,20 @@ const taskData: TaskDataCustom = {
 	],
 	spaces:       [
 		{
-			description: "An application to enhance the light in the image.",
+			description: "Image enhancer application for low light.",
 			id:          "keras-io/low-light-image-enhancement",
 		},
 		{
-			description: "An application for style transfer to an image.",
+			description: "Style transfer application.",
 			id:          "keras-io/neural-style-transfer",
+		},
+		{
+			description: "An application that prettifies your drawings.",
+			id:          "huggingface-projects/diffuse-the-rest",
+		},
+		{
+			description: "Image colorization application for anime drawings.",
+			id:          "Gradio-Blocks/anime-colorization",
 		},
 	],
 	summary:      "Image to image is the task of transforming a source image to match the characteristics of a target image or a target image domain. Any image manipulation and enhancement is possible with image to image models.",

@@ -55,6 +55,10 @@ const taskData: TaskDataCustom = {
 			description: "A robust text generation model that can perform various tasks through natural language prompting.",
 			id:          "huggingface/bloom_demo",
 		},
+		{
+			description: "An text generation based application that can write code for Python, Java & JavaScript.",
+			id:          "bigcode/santacoder-demo",
+		},
 	],
 	summary:      "Generating text is the task of producing new text. These models can, for example, fill in incomplete text or paraphrase.",
 	widgetModels: ["gpt2"],

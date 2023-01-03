@@ -50,8 +50,8 @@ const taskData: TaskDataCustom = {
 	],
 	spaces:       [
 		{
-			description: "DialoGPT is a large-scale pretrained dialogue response generation model for multiturn conversations.",
-			id:          "microsoft/DialoGPT-large",
+			description: "A chatbot based on Blender model.",
+			id:          "EXFINITE/BlenderBot-UI",
 		},
 	],
 	summary:      "Conversational response modelling is the task of generating conversational text that is relevant, coherent and knowledgable given a prompt. These models have applications in chatbots, and as a part of voice assistants",

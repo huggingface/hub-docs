@@ -56,6 +56,10 @@ const taskData: TaskDataCustom = {
 			description: "A powerful general-purpose speech recognition application.",
 			id:          "openai/whisper",
 		},
+		{
+			description: "An application that transcribes speeches in YouTube videos.",
+			id:          "jeffistyping/Youtube-Whisperer",
+		},
 	],
 	summary:      "Automatic Speech Recognition (ASR), also known as Speech to Text (STT), is the task of transcribing a given audio to text. It has many applications, such as voice user interfaces.",
 	widgetModels: ["facebook/wav2vec2-base-960h"],

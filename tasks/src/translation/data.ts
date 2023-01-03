@@ -52,10 +52,6 @@ const taskData: TaskDataCustom = {
 	],
 	spaces:       [
 		{
-			description: "An application that can translate from speech to speech between Hokkien and English.",
-			id:          "facebook/Hokkien_Translation",
-		},
-		{
 			description: "An application that can translate between 100 languages.",
 			id:          "Iker/Translate-100-languages",
 		},

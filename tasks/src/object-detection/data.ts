@@ -56,6 +56,10 @@ const taskData: TaskDataCustom = {
 			description: "An object detection application that can detect facemasks in an image.",
 			id:          "nickmuchi/Face-Mask-Detection-with-YOLOS",
 		},
+		{
+			description: "An application that contains various object detection models to try from.",
+			id:          "Gradio-Blocks/Object-Detection-With-DETR-and-YOLOS",
+		},
 	],
 	summary:      "Object Detection models allow users to identify objects of certain defined classes. Object detection models receive an image as input and output the images with bounding boxes and labels on detected objects.",
 	widgetModels: ["facebook/detr-resnet-50"],

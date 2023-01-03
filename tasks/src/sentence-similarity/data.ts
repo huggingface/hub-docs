@@ -80,12 +80,16 @@ const taskData: TaskDataCustom = {
 			id:          "Gradio-Blocks/Ask_Questions_To_YouTube_Videos",
 		},
 		{
-			description: "An application that leverages sentence similarity to summarize text.",
-			id:          "nickmuchi/article-text-summarizer",
+			description: "An application that retrieves relevant PubMed abstracts for a given online article which can be used as further references.",
+			id:          "Gradio-Blocks/pubmed-abstract-retriever",
 		},
 		{
 			description: "An application that leverages sentence similarity to summarize text.",
 			id:          "nickmuchi/article-text-summarizer",
+		},
+		{
+			description: "A guide that explains how Sentence Transformers can be used for semantic search.",
+			id:          "sentence-transformers/Sentence_Transformers_for_semantic_search",
 		},
 	],
 	summary:      "Sentence Similarity is the task of determining how similar two texts are. Sentence similarity models convert input texts into vectors (embeddings) that capture semantic information and calculate how close (similar) they are between them. This task is particularly useful for information retrieval and clustering/grouping.",
