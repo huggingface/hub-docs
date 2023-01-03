@@ -2,23 +2,12 @@ import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
 
-	datasets: [
-		{
-			description: "",
-			id: "",
-		},
-	],
+	datasets: [],
 	demo: {
 		inputs: [],
 		outputs: [],
 	},
-	metrics: [
-		{
-			description:
-				"",
-			id: "",
-		},
-	],
+	metrics: [],
 	models: [
 		{
 			description:

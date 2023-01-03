@@ -2,7 +2,7 @@
 
 ## About the Task
 
-Zero Shot Classification is a name for prompting a large language model with a task in natural language. This method, which leverages a pre-trained language model, can be thought of as an instance of [transfer learning](https://www.youtube.com/watch?v=BqqfQnyjmgg) which generally refers to using a model trained for one task in a different application than what it was originally trained for. This is particularly useful for situations where there is little labeled data.
+Zero Shot Classification is the task of predicting a class that wasn't seen by the model during training. This method, which leverages a pre-trained language model, can be thought of as an instance of [transfer learning](https://www.youtube.com/watch?v=BqqfQnyjmgg) which generally refers to using a model trained for one task in a different application than what it was originally trained for. This is particularly useful for situations where the amount of labeled data is small.
 
 In Zero Shot Classification we provide a model with a prompt, a sequence of text that describes what we want our model to do in natural language. Zero shot classification does not include any examples of the desired task being completed. This differs from Single or Few Shot Classification, as these tasks include either a single or a few examples of the desired task being completed.
 
@@ -18,7 +18,7 @@ Sentiment: positive
 
 ```
 
-One great example of this task with a nice off-the-shelf model is available at the widget of this page, where the user can input a sequence of text and candidate labels to the model. This is a *token level* example of zero shot classification and more elaborate generations are available with larger models. Testing these models out and getting a feel for prompt engineering is the best way to learn. 
+One great example of this task with a nice off-the-shelf model is available at the widget of this page, where the user can input a sequence of text and candidate labels to the model. This is a *word level* example of zero shot classification, more elaborate and lengthy generations are available with larger models. Testing these models out and getting a feel for prompt engineering is the best way to learn how to use them. 
 
 
 ## Useful Resources
