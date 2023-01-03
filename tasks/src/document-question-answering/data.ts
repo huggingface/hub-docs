@@ -17,7 +17,7 @@ const taskData: TaskDataCustom = {
 			},
 			{
 				filename: "document-question-answering-input.png",
-				type:    "img",
+				type:     "img",
 			},
 		],
 		outputs: [
@@ -36,7 +36,7 @@ const taskData: TaskDataCustom = {
 		{
 			description: "Exact Match is a metric based on the strict character match of the predicted answer and the right answer. For answers predicted correctly, the Exact Match will be 1. Even if only one character is different, Exact Match will be 0",
 			id:          "exact-match",
-		}
+		},
 	],
 	models: [
 		{
@@ -48,6 +48,7 @@ const taskData: TaskDataCustom = {
 			id:          "naver-clova-ix/donut-base-finetuned-docvqa",
 		},
 	],
+	spaces:       [],
 	summary:      "Document Question Answering (also known as Document Visual Question Answering) is the task of answering questions on document images. Document question answering models take a (document, question) pair as input and return an answer in natural language. Models usually rely on multi-modal features, combining text, position of words (bounding-boxes) and image.",
 	widgetModels: ["impira/layoutlm-document-qa"],
 	youtubeId:    "",

@@ -3,22 +3,21 @@ import type { TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
 
 	datasets: [],
-	demo: {
-		inputs: [],
+	demo:     {
+		inputs:  [],
 		outputs: [],
 	},
 	metrics: [],
-	models: [
+	models:       [
 		{
 			description:
 				"Powerful zero-shot text classification model",
 			id: "facebook/bart-large-mnli6",
 		},
 	],
-	summary:
-	"Zero-shot classification is the task of predicting classes that the model previously hasn't seen during the training.",
+	spaces:       [],
+	summary:      "Zero-shot text classification is a task in natural language processing (NLP) where a model is trained on a set of labeled examples but is then able to classify new examples from previously unseen classes by transferring knowledge from seen to unseen classes.",
 	widgetModels: ["facebook/bart-large-mnli"],
-	youtubeId: "",
 };
 
 export default taskData;

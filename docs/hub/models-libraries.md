@@ -18,10 +18,12 @@ The table below summarizes the supported libraries and their level of integratio
 | [Flair](https://github.com/flairNLP/flair)                                  | Very simple framework for state-of-the-art NLP.                                      | ✅ | ✅ | ✅ | ❌ |
 | [ML-Agents](https://github.com/huggingface/ml-agents) | Enables games and simulations made with Unity to serve as environments for training intelligent agents. | ❌ | ❌ | ✅ | ✅ |
 | [NeMo](https://github.com/NVIDIA/NeMo)                                      | Conversational AI toolkit built for researchers                                      | ✅ | ✅ | ✅ | ❌ |
+| [PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP)                      | Easy-to-use and powerful NLP library built on PaddlePaddle                           | ✅ | ✅ | ✅ | ✅ |
 | [Pyannote](https://github.com/pyannote/pyannote-audio)                      | Neural building blocks for speaker diarization.                                      | ❌ | ❌ | ✅ | ❌ |
 | [PyCTCDecode](https://github.com/kensho-technologies/pyctcdecode)           | Language model supported CTC decoding for speech recognition                         | ❌ | ❌ | ✅ | ❌ |
 | [Pythae](https://github.com/clementchadebec/benchmark_VAE)                  | Unifyed framework for Generative Autoencoders in Python | ❌ | ❌ | ✅ | ✅ |
 | [RL-Baselines3-Zoo](https://github.com/DLR-RM/rl-baselines3-zoo) | Training framework for Reinforcement Learning, using [Stable Baselines3](https://github.com/DLR-RM/stable-baselines3).| ❌ | ✅ | ✅ | ✅ |
+| [Sample Factory](https://github.com/alex-petrenko/sample-factory)    | Codebase for high throughput asynchronous reinforcement learning.          | ❌ | ✅ | ✅ | ✅ |
 | [Sentence Transformers](https://github.com/UKPLab/sentence-transformers)    | Compute dense vector representations for sentences, paragraphs, and images.          | ✅ | ✅ | ✅ | ✅ |
 | [spaCy](https://github.com/explosion/spaCy)                                 | Advanced Natural Language Processing in Python and Cython.                           | ✅ | ✅ | ✅ | ✅ |
 | [Scikit Learn (using skops)](https://skops.readthedocs.io/en/stable/)                          | Machine Learning in Python.                           | ✅ | ✅ | ✅ | ✅ |

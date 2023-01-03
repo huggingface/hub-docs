@@ -46,6 +46,7 @@ const taskData: TaskDataCustom = {
 			id:          "google/bigbird-pegasus-large-pubmed",
 		},
 	],
+	spaces:       [],
 	summary:      "Summarization is the task of producing a shorter version of a document while preserving its important information. Some models can extract text from the original input, while other models can generate entirely new text.",
 	widgetModels: ["sshleifer/distilbart-cnn-12-6"],
 	youtubeId:    "yHnr5Dk2zCI",

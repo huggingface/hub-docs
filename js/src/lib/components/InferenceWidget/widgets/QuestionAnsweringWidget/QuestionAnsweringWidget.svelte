@@ -77,7 +77,7 @@
 			return;
 		}
 
-		if (shouldUpdateUrl) {
+		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({ context: trimmedContext, question: trimmedQuestion });
 		}
 

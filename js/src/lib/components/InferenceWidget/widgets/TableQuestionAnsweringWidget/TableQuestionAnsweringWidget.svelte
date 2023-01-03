@@ -90,7 +90,7 @@
 			return;
 		}
 
-		if (shouldUpdateUrl) {
+		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
 				query: trimmedQuery,
 				table: JSON.stringify(convertTableToData(table)),
