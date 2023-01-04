@@ -37,7 +37,8 @@ from scipy import spatial
 similarity = [spatial.distance.cosine(sentence_vector , lv) for lv in label_vector]
 
 
-print(labels[np.argmin(dist)])
+print(labels[np.argmin(similarity)])
+
 
 ```
 ## Natural Language Inference (NLI)
