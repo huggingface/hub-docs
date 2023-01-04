@@ -34,7 +34,8 @@ label_vector = [np.array(pipe(l).mean(axis=1)) for l in labels]
 
 from scipy import spatial
 #Using cosine similarity between sentence vector and label vector
-dist = [spatial.distance.cosine(sentence_vector , lv) for lv in label_vector]
+similarity = [spatial.distance.cosine(sentence_vector , lv) for lv in label_vector]
+
 
 print(labels[np.argmin(dist)])
 
