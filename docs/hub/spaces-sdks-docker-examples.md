@@ -9,3 +9,4 @@ We gathered some example demos in the [Docker Templates](https://huggingface.co/
 * Shiny app written in Python https://huggingface.co/spaces/elonmuskceo/shiny-orbit-simulation
 * Genie.jl app in Julia https://huggingface.co/spaces/nooji/GenieOnHuggingFaceSpaces
 * Argilla app for data labelling and curation: https://huggingface.co/spaces/argilla/live-demo and [write-up about hosting Argilla on Spaces](./spaces-sdks-docker-argilla) by [@dvilasuero](https://huggingface.co/dvilasuero) 🎉
+* JupyterLab: https://huggingface.co/spaces/camenduru/jupyter
