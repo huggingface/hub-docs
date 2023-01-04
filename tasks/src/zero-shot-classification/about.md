@@ -13,7 +13,8 @@ Here is an example of a zero-shot prompt for classifying the sentiment of a sequ
 ```
 Classify the following input text into one of the following three categories: [positive, negative, neutral]
 
-Input Text: Hugging Face is awesome for making all of these State of the Art models available
+Input Text: Hugging Face is awesome for making all of these 
+state of the art models available!
 Sentiment: positive
 
 ```
