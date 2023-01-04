@@ -58,7 +58,8 @@ A wide variety of problems in robotics can be considered problems related to rei
 ### Q-Learning
 
 
-Q - learning will find the best course of action, given the agent's current state. Depending on where the agent is in the environment, it will decide the following action to be taken. It chooses the action such that it maximizes the reward.
+Q-learning will find the best course of action, given the agent's current state. Depending on where the agent is in the environment, it will decide the following action to be taken. It chooses the action such that it maximizes the reward.
+
 
 #### Sequential decision making problem for text understanding
 
