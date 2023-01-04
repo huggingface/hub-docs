@@ -1,6 +1,5 @@
 ## Glossary
 
-
 <!-- ![RL Loop](https://huggingface.co/blog/assets/63_deep_rl_intro/RL_process.jpg "Agent Environment Interaction") TODO: Uncomment image for visual understanding if it fits within the page--> 
 
 
