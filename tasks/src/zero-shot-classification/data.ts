@@ -12,7 +12,7 @@ const taskData: TaskDataCustom = {
 		{
 			description:
 				"Powerful zero-shot text classification model",
-			id: "facebook/bart-large-mnli6",
+			id: "facebook/bart-large-mnli",
 		},
 	],
 	spaces:       [],
