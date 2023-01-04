@@ -54,6 +54,19 @@ If your app requires secret keys or tokens, don't hard-code them inside your app
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets-dark.png"/>
 </div>
 
+## Duplicating a Space
+
+Duplicating a Space can be useful if you want to build a new demo using another demo as an initial template. Duplicated Spaces can also be useful if you want to have an individual Upgraded Space for your use with fast inference.
+
+If you want to duplicate a Space, you can click the three dots at the top right of the space and click **Duplicate this Space**. Once you do this, you will be able to change the following attributes:
+
+* Owner: The duplicated Space can be under your account or any organization in which you have write access
+* Space name
+* Visiblity: The Space is private by default. Read more about private repositories [here](./repositories-settings#private-repositories). 
+
+Some Spaces might have environment variables that you might need to setup up. In those cases, the duplicate workflow will give you a warning about them. The duplicated Space will use a free CPU by default, but you can later upgrade it if needed.
+
+
 ## Networking
 
 If your Space needs to make any network requests, you can make requests through the standard HTTP and HTTPS ports (80 and 443) along with port 8080. Any requests going to other ports will be blocked.

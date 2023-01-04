@@ -1,6 +1,6 @@
 # Pull requests and Discussions
 
-We just enabled **community contributions to repos**, a feature called 'Hub Pull requests and Discussions'. Pull requests and discussions work the same for all the repo types.
+Hub Pull requests and Discussions allow users to do community contributions to repositories. Pull requests and discussions work the same for all the repo types.
 
 At a high level, the aim is to build a simpler version of other git hosts' (like GitHub's) PRs and Issues:
 - no forks are involved: contributors push to a special `ref` branch directly on the source repo.
@@ -9,12 +9,18 @@ At a high level, the aim is to build a simpler version of other git hosts' (like
 
 ## List
 
+By going to the community tab in any repository, you can see all Discussions and Pull requests. You can also filter to only see the ones that are open.
+
+[TODO: Update images]
+
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-list.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-list-dark.png"/>
 </div>
 
 ## View
+
+The Discussion page allows you to see the comments from different users. If it's a Pull Request, you can see all the changes by going to the Files changed tab.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-view.png"/>
@@ -71,9 +77,9 @@ git push origin pr/42:refs/pr/42
 
 Draft mode is the default status when opening a new Pull request from scratch in "Advanced mode". With this status, other contributors know that your Pull request is under work and it cannot be merged. When your branch is ready, just hit the "Publish" button to change the status of the Pull request to "Open". Note that once published you cannot go back to draft mode. 
 
-# Pull requests advanced usage
+## Pull requests advanced usage
 
-## Where in the git repo are changes stored?
+### Where in the git repo are changes stored?
 
 Our Pull requests do not use forks and branches, but instead custom "branches" called `refs` that are stored directly on the source repo.
 
@@ -82,7 +88,7 @@ Our Pull requests do not use forks and branches, but instead custom "branches" c
 The advantage of using custom refs (like `refs/pr/42` for instance) instead of branches is that they're not fetched (by default) by people (including the repo "owner") cloning the repo, but they can still be fetched on demand.
 
 
-## Fetching all Pull requests: for git magicians 🧙‍♀️
+### Fetching all Pull requests: for git magicians 🧙‍♀️
 
 You can tweak your local **refspec** to fetch all Pull requests:
 

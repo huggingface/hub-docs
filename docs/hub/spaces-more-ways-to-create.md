@@ -2,7 +2,7 @@
 
 ## Duplicating a Space
 
-The [Repo Duplicator](https://huggingface.co/spaces/osanseviero/repo_duplicator) space lets you duplicate any repository on the Hugging Face Hub, including Spaces.
+You can duplicate a Space by clicking the three dots at the top right and selecting **Duplicate this Space**. Learn more about it [here]](./spaces-overview#duplicating-a-space).
 
 ## Creating a Space from a model
 
