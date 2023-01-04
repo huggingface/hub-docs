@@ -26,7 +26,6 @@
 **Policy:** The Policy is the brain of the Agent, it’s the function that tells what action to take given the state. So it defines the agent’s behavior at a given time. Reinforcement learning methods specify how the agent’s policy is changed as a result of its experience.
 
 ## Use Cases
-
 ### Applications in autonomous driving
 Autonomous or self-driving cars are pretty trending nowadays. It is also a big step towards driverless commute where the machine is itself able to perform the task. A machine learning model can back the vehicle without any driver. 
 
