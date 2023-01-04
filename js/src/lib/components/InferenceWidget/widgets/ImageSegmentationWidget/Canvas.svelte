@@ -5,8 +5,11 @@
 	export let classNames = "";
 	export let highlightIndex: number;
 	export let imgSrc = "";
-	export let mousemove: (e: Event, canvasW: number, canvasH: number) => void =
-		() => {};
+	export let mousemove: (
+		e: Event,
+		canvasW: number,
+		canvasH: number
+	) => void = () => {};
 	export let mouseout: () => void = () => {};
 	export let output: ImageSegment[] = [];
 
@@ -70,6 +73,7 @@
 		/>
 	</div>
 	{#if output.length}
+		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 		<canvas
 			class="absolute top-0 left-0"
 			{width}
