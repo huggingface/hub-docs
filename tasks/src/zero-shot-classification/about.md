@@ -4,7 +4,7 @@
 
 Zero Shot Classification is the task of predicting a class that wasn't seen by the model during training. This method, which leverages a pre-trained language model, can be thought of as an instance of [transfer learning](https://www.youtube.com/watch?v=BqqfQnyjmgg) which generally refers to using a model trained for one task in a different application than what it was originally trained for. This is particularly useful for situations where the amount of labeled data is small.
 
-In Zero Shot Classification we provide a model with a prompt, a sequence of text that describes what we want our model to do in natural language. Zero shot classification does not include any examples of the desired task being completed. This differs from Single or Few Shot Classification, as these tasks include either a single or a few examples of the desired task being completed.
+In zero shot classification, we provide the model with a prompt and a sequence of text that describes what we want our model to do, in natural language. Zero-shot classification excludes any examples of the desired task being completed. This differs from single or few-shot classification, as these tasks include a single or a few examples of the selected task.
 
 Zero, Single and Few Shot Classification seem to be an emergent feature of large language models. This feature seems to come about at around model sizes of +100M parameters. The effectiveness of a model at a zero, single or few-shot task seems to scale with model size, meaning that larger models (models with more trainable parameters and/or layers), generally do better at this task.
 
