@@ -17,7 +17,6 @@
 
 **Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action
 
-
 **Return:** Cumulative Reward.  In the simplest case, the return is the sum of the rewards.
 
 **Episode:** For some applications there is a natural notion of final time step.  In this case, there is a starting point and an ending point (a terminal state). This creates an episode: a list of States, Actions, Rewards, and new States. For instance, think about Chess: an episode begins at the initial board position and ends when the game is over.
