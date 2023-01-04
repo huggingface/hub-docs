@@ -39,7 +39,8 @@ The deep reinforcement learning algorithms can learn to operate in unknown condi
 Some of the autonomous driving tasks where reinforcement learning could be applied include trajectory optimization, motion planning, dynamic path finding, controller optimization, and scenario-based learning policies for highways. Reinforcement Learning agents are trained in dynamic environments to optimize trajectories. The agents are capable of accomplishing tasks such as motion planning, route changing, decision and position of parking and speed control.
 
 
-### NLP (Natural Language processing)
+### Natural Language Processing
+
 Natural language processing is a branch of machine learning concerned with allowing computers to understand text and spoken words the same way a human does.  
 
 Dialogue systems use reinforcement learning because of its inherent nature of decision-making. It learns from mistakes. The system tries to understand the sentence's state and form an action set maximizing the value it would add. Reinforcement Learning is used in various NLP tasks such as text summarization, question answering, translation, dialogue generation, or machine translation. Reinforcement Learning agents can be trained to understand a few sentences of the document and use it to answer the corresponding questions.
