@@ -66,7 +66,16 @@ const taskData: TaskDataCustom = {
 			id:          "microsoft/xclip-base-patch32",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "An application that classifies video at different timestamps.",
+			id:          "nateraw/lavila",
+		},
+		{
+			description: "An application that classifies video.",
+			id:          "fcakyon/video-classification",
+		},
+	],
 	summary:      "Video classification is the task of assigning a label or class to an entire video. Videos are expected to have only one class for each video. Video classification models take a video as input and return a prediction about which class the video belongs to.",
 	widgetModels: [],
 	youtubeId:    "",

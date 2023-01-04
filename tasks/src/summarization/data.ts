@@ -46,7 +46,24 @@ const taskData: TaskDataCustom = {
 			id:          "google/bigbird-pegasus-large-pubmed",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "An application that can summarize long paragraphs.",
+			id:          "pszemraj/summarize-long-text",
+		},
+		{
+			description: "A much needed summarization application for terms and conditions.",
+			id:          "ml6team/distilbart-tos-summarizer-tosdr",
+		},
+		{
+			description: "An application that summarizes long documents.",
+			id:          "pszemraj/document-summarization",
+		},
+		{
+			description: "An application that can detect errors in abstractive summarization.",
+			id:          "ml6team/post-processing-summarization",
+		},
+	],
 	summary:      "Summarization is the task of producing a shorter version of a document while preserving its important information. Some models can extract text from the original input, while other models can generate entirely new text.",
 	widgetModels: ["sshleifer/distilbart-cnn-12-6"],
 	youtubeId:    "yHnr5Dk2zCI",
