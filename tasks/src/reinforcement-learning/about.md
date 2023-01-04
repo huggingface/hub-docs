@@ -44,7 +44,6 @@ Some of the autonomous driving tasks where reinforcement learning could be appli
 
 
 ### NLP (Natural Language processing)
-
 Natural language processing is a branch of machine learning concerned with allowing computers to understand text and spoken words the same way a human does.  
 
 Dialogue systems use reinforcement learning because of its inherent nature of decision-making. It learns from mistakes. The system tries to understand the sentence's state and form an action set maximizing the value it would add. Reinforcement Learning is used in various NLP tasks such as text summarization, question answering, translation, dialogue generation, or machine translation. Reinforcement Learning agents can be trained to understand a few sentences of the document and use it to answer the corresponding questions.
