@@ -6,7 +6,7 @@ Zero Shot Classification is the task of predicting a class that wasn't seen by t
 
 In zero shot classification, we provide the model with a prompt and a sequence of text that describes what we want our model to do, in natural language. Zero-shot classification excludes any examples of the desired task being completed. This differs from single or few-shot classification, as these tasks include a single or a few examples of the selected task.
 
-Zero, Single and Few Shot Classification seem to be an emergent feature of large language models. This feature seems to come about at around model sizes of +100M parameters. The effectiveness of a model at a zero, single or few-shot task seems to scale with model size, meaning that larger models (models with more trainable parameters and/or layers), generally do better at this task.
+Zero, single and few-shot classification seem to be an emergent feature of large language models. This feature seems to come about around model sizes of +100M parameters. The effectiveness of a model at a zero, single or few-shot task seems to scale with model size, meaning that larger models (models with more trainable parameters or layers) generally do better at this task.
 
 
 Here is an example of a zero-shot prompt for classifying the sentiment of a sequence of text:
