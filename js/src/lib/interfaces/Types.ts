@@ -675,11 +675,11 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 export const OTHER_TAGS_SUGGESTIONS = [
 	"biomedical",
 	"chemistry",
+	"biology,
 	"finance",
 	"legal",
 	"music",
-	"science",
-	"waifu-diffusion",
+	"art",
 ];
 
 
