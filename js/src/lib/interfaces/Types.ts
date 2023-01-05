@@ -664,6 +664,25 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"depth-estimation",
 ];
 
+/**
+ * Tags that are suggested inside the metadata GUI
+ * (above model card or dataset card editor)
+ * 
+ * Usually tags for domains or industries.
+ * 
+ * Let's keep their number not too high to not spread out models/datasets too much.
+ */
+export const OTHER_TAGS_SUGGESTIONS = [
+	"biomedical",
+	"chemistry",
+	"finance",
+	"legal",
+	"music",
+	"science",
+	"waifu-diffusion",
+];
+
+
 export type WidgetInputSample = Record<string | "example_title" | "group", string>;
 
 /**
