@@ -79,7 +79,7 @@ dataset_info:
 #       ...
 # ```
 
-# Optional. If you want your dataset to be protected behind a gate that users have to accept to access the dataset:
+# Optional. If you want your dataset to be protected behind a gate that users have to accept to access the dataset. More info at https://huggingface.co/docs/hub/datasets-gated
 extra_gated_fields:
 - {field_name_0}: {field_type_0}  # Example: Name: text
 - {field_name_1}: {field_type_1}  # Example: Affiliation: text
@@ -87,7 +87,7 @@ extra_gated_fields:
 - {field_name_3}: {field_type_3}  # Example for speech datasets: I agree to not attempt to determine the identity of speakers in this dataset: checkbox
 extra_gated_prompt: {extra_gated_prompt}  # Example for speech datasets: By clicking on “Access repository” below, you also agree to not attempt to determine the identity of speakers in the dataset.
 
-# Optional. Add this if you want to encode a train and evaluation info in a structured way for AutoTrain
+# Optional. Add this if you want to encode a train and evaluation info in a structured way for AutoTrain or Evaluation on the Hub
 train-eval-index:
   - config: {config_name}           # The dataset config name to use. Example for datasets without configs: default. Example for glue: sst2
     task: {task_name}               # The task category name (same as task_category). Example: question-answering
