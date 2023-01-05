@@ -8,18 +8,12 @@ license: {license}  # Example: apache-2.0 or any license from https://hf.co/docs
 tags:
 - {tag_0}  # Example: audio
 - {tag_1}  # Example: bio
-- {tag_2}  # Example: natural language understanding
-- {tag_3}  # Example: birds classification
+- {tag_2}  # Example: natural-language-understanding
+- {tag_3}  # Example: birds-classification
 annotations_creators:
-- {creator_0}  # Example: crowdsourced
-- {creator_1}  # Example: found
-- {creator_3}  # Example: expert-generated
-- {creator_4}  # Example: machine-generated
+- {creator}  # Example: crowdsourced, found, expert-generated, machine-generated
 language_creators:
-- {creator_0}  # Example: crowdsourced
-- {creator_1}  # Example: found
-- {creator_3}  # Example: expert-generated
-- {creator_4}  # Example: machine-generated
+- {creator}  # Example: crowdsourced, ...
 language_details:
 - {bcp47_lang_0}  # Example: fr-FR
 - {bcp47_lang_1}  # Example: en-US
@@ -46,7 +40,7 @@ configs:  # Optional for datasets with multiple configurations like glue.
 dataset_info:
   features:
     - name: {feature_name_0}    # Example: id
-      dtype: {feature_dtyp_e0}  # Example: int32
+      dtype: {feature_dtype_0}  # Example: int32
     - name: {feature_name_1}    # Example: text
       dtype: {feature_dtype_1}  # Example: string
     - name: {feature_name_2}    # Example: image
