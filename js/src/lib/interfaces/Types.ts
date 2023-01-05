@@ -681,6 +681,7 @@ export const OTHER_TAGS_SUGGESTIONS = [
 	"art",
 	"code",
 	"climate",
+	"medical",
 ];
 
 
