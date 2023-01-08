@@ -84,4 +84,4 @@ gr.Interface.load("huggingface/username/my-awesome-model").launch()
 
 We have built a [baseline trainer](https://huggingface.co/spaces/scikit-learn/baseline-trainer) application to which you can drag and drop your dataset. It will train a baseline and push it to your Hugging Face Hub profile with a model card containing information about the model.
 
-This page was made possible thanks to efforts of [Brenden Connors](https://huggingface.co/brendenc) and [Ayush Bilani](https://huggingface.co/hsuyab).
+This page was made possible thanks to efforts of [Brenden Connors](https://huggingface.co/brendenc) and [Ayush Bihani](https://huggingface.co/hsuyab).

@@ -59,7 +59,16 @@ const taskData: TaskDataCustom = {
 			id: "HumanCompatibleAI/ppo-seals-CartPole-v0",
 		},
 	],
-	spaces:  [],
+	spaces:  [
+		{
+			description: "An application for a cute puppy agent learning to catch a stick.",
+			id:          "ThomasSimonini/Huggy",
+		},
+		{
+			description: "An application to play Snowball Fight with a reinforcement learning agent.",
+			id:          "ThomasSimonini/SnowballFight",
+		},
+	],
 	summary:
 		"Reinforcement learning is the computational approach of learning from action by interacting with an environment through trial and error and receiving rewards (negative or positive) as feedback",
 	widgetModels: [],

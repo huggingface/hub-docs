@@ -54,7 +54,12 @@ const taskData: TaskDataCustom = {
 			id:          "google/tapas-base-finetuned-wtq",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "An application that can answer a long question from Wikipedia.",
+			id:          "deepset/wikipedia-assistant",
+		},
+	],
 	summary:      "Question Answering models can retrieve the answer to a question from a given text, which is useful for searching for an answer in a document. Some question answering models can generate answers without context!",
 	widgetModels: ["deepset/roberta-base-squad2"],
 	youtubeId:    "ajPx5LwJD-I",

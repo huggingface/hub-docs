@@ -29,7 +29,16 @@ const taskData: TaskDataCustom = {
 			id:          "vinvino02/glpn-kitti",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "An application that predicts the depth of an image and then reconstruct the 3D model as voxels.",
+			id:          "radames/dpt-depth-estimation-3d-voxels",
+		},
+		{
+			description: "An application that can estimate the depth in a given image.",
+			id:          "keras-io/Monocular-Depth-Estimation",
+		},
+	],
 	summary:      "Depth estimation is the task of predicting depth of the objects present in an image.",
 	widgetModels: [""],
 	youtubeId:    "",
