@@ -1,5 +1,7 @@
 # Webhooks
 
+**Join the [webhooks-explorer](https://huggingface.co/webhooks-explorers) organization to beta-test webhooks!**
+
 Webhooks are a foundation for MLOps related features. You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces.
 
 They allow you to listen for new changes on specific repos or repos belonging to particular users/organizations (not just your repos, but any repo!).
