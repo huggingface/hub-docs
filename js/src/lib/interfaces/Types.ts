@@ -674,7 +674,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
  */
 export const OTHER_TAGS_SUGGESTIONS = [
 	"chemistry",
-	"biology,
+	"biology",
 	"finance",
 	"legal",
 	"music",
