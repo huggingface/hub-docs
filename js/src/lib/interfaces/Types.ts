@@ -673,13 +673,15 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
  * Let's keep their number not too high to not spread out models/datasets too much.
  */
 export const OTHER_TAGS_SUGGESTIONS = [
-	"biomedical",
 	"chemistry",
+	"biology",
 	"finance",
 	"legal",
 	"music",
-	"science",
-	"waifu-diffusion",
+	"art",
+	"code",
+	"climate",
+	"medical",
 ];
 
 
