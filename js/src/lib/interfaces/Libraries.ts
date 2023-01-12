@@ -158,9 +158,7 @@ model = from_pretrained_keras("${model.id}")
 `;
 
 const paddlenlp = (model: ModelData) => {
-	if (!(model.config && model.config.architectures)) {
-		return `# ⚠️ Type of model unknown`;
-	} else {
+	if (model.config && model.config.architectures && model.config.architectures[0]) {
 		const architecture = model.config.architectures[0];
 		return [
 			`from paddlenlp.transformers import AutoTokenizer, ${architecture}`,
@@ -168,6 +166,8 @@ const paddlenlp = (model: ModelData) => {
 			`tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
 			`model = ${architecture}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
 		].join("\n");
+	} else {
+		return `# ⚠️ Type of model unknown`;
 	}
 };
 
