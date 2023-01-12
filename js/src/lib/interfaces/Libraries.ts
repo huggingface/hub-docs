@@ -158,10 +158,10 @@ model = from_pretrained_keras("${model.id}")
 `;
 
 const paddlenlp = (model: ModelData) => {
-	const architecture = model.config.architectures[0];
-	if (!architecture) {
+	if (!model.config) {
 		return `# ⚠️ Type of model unknown`;
 	} else {
+		const architecture = model.config.architectures[0];
 		return [
 			`from paddlenlp.transformers import AutoTokenizer, ${architecture}`,
 			"",
