@@ -158,7 +158,7 @@ model = from_pretrained_keras("${model.id}")
 `;
 
 const paddlenlp = (model: ModelData) => {
-	if (!model.config) {
+	if (!(model.config && model.config.architectures)) {
 		return `# ⚠️ Type of model unknown`;
 	} else {
 		const architecture = model.config.architectures[0];
