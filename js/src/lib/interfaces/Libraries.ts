@@ -158,7 +158,7 @@ model = from_pretrained_keras("${model.id}")
 `;
 
 const paddlenlp = (model: ModelData) => {
-	if (model.config && model.config.architectures && model.config.architectures[0]) {
+	if (model.config?.architectures?.[0]) {
 		const architecture = model.config.architectures[0];
 		return [
 			`from paddlenlp.transformers import AutoTokenizer, ${architecture}`,
