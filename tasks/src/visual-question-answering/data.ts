@@ -69,6 +69,10 @@ const taskData: TaskDataCustom = {
 			description: "An application that can caption images and answer questions about a given image. ",
 			id:          "Salesforce/BLIP",
 		},
+		{
+			description: "An application that can caption images and answer questions about a given image. ",
+			id:          "vumichien/Img2Prompt",
+		},
 	],
 	summary:      "Visual Question Answering is the task of answering open-ended questions based on an image. They output natural language responses to natural language questions.",
 	widgetModels: ["dandelin/vilt-b32-finetuned-vqa"],
