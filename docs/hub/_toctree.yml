@@ -12,6 +12,8 @@
     title: Pull Requests & Discussions
   - local: notifications
     title: Notifications
+  - local: webhooks
+    title: Webhooks
   - local: repositories-next-steps
     title: Next Steps
   - local: repositories-licenses
