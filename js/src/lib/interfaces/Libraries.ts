@@ -167,7 +167,13 @@ const paddlenlp = (model: ModelData) => {
 			`model = ${architecture}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
 		].join("\n");
 	} else {
-		return `# ⚠️ Type of model unknown`;
+		return [
+			`# ⚠️ Type of model unknown`,
+			`from paddlenlp.transformers import AutoTokenizer, AutoModel`,
+			"",
+			`tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
+			`model = AutoModel.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
+		].join("\n");
 	}
 };
 
