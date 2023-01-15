@@ -62,6 +62,10 @@ const taskData: TaskDataCustom = {
 			description: "An application that can caption images and answer questions about a given image.",
 			id:          "Salesforce/BLIP",
 		},
+		{
+			description: "An image captioning application that demonstrates the effect of noise injections on captions.",
+			id:          "johko/capdec-image-captioning",
+		},
 	],
 	summary:      "",
 	widgetModels: ["nlpconnect/vit-gpt2-image-captioning"],
