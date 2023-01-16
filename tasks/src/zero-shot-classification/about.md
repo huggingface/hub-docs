@@ -19,6 +19,19 @@ Sentiment: positive
 
 One great example of this task with a nice off-the-shelf model is available at the widget of this page, where the user can input a sequence of text and candidate labels to the model. This is a *word level* example of zero shot classification, more elaborate and lengthy generations are available with larger models. Testing these models out and getting a feel for prompt engineering is the best way to learn how to use them. 
 
+## Inference
+You can use the 🤗 Transformers library zero-shot-classification pipeline to infer with zero shot text classification models.
+
+```python
+from transformers import pipeline
+
+pipe = pipeline(model="facebook/bart-large-mnli")
+pipe("I have a problem with my iphone that needs to be resolved asap!",
+    candidate_labels=["urgent", "not urgent", "phone", "tablet", "computer"],
+)
+# output
+>>> {'sequence': 'I have a problem with my iphone that needs to be resolved asap!!', 'labels': ['urgent', 'phone', 'computer', 'not urgent', 'tablet'], 'scores': [0.504, 0.479, 0.013, 0.003, 0.002]}
+```
 
 ## Useful Resources
 - [Zero Shot Learning](https://joeddav.github.io/blog/2020/05/29/ZSL.html)
