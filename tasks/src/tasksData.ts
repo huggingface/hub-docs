@@ -46,7 +46,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"document-question-answering":    getData("document-question-answering", documentQuestionAnswering),
 	"feature-extraction":             getData("feature-extraction"),
 	"fill-mask":                      getData("fill-mask", fillMask),
-	"graph-ml": 					  undefined,
+	"graph-ml": 			  undefined,
 	"image-classification":           getData("image-classification", imageClassification),
 	"image-segmentation":             getData("image-segmentation", imageSegmentation),
 	"image-to-image":                 getData("image-to-image", imageToImage),
