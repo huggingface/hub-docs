@@ -63,7 +63,7 @@ const taskData: TaskDataCustom = {
 			id:          "Salesforce/BLIP",
 		},
 		{
-			description: "An image captioning application that demonstrates the effect of noise injections on captions.",
+			description: "An image captioning application that demonstrates the effect of noise on captions.",
 			id:          "johko/capdec-image-captioning",
 		},
 	],
