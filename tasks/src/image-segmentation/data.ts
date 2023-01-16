@@ -60,7 +60,7 @@ const taskData: TaskDataCustom = {
 			id:          "keras-io/Human-Part-Segmentation",
 		},
 		{
-			description: "Cell Instance Segmentation - Sartorius Kaggle Competition",
+			description: "An instance segmentation application to predict neuronal cell types from microscopy images.",
 			id:          "rashmi/sartorius-cell-instance-segmentation",
 		},
 	],
