@@ -602,6 +602,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		modality: "cv",
 		color:    "yellow",
 	},
+	"graph-ml": {
+		name:     "Graph Machine Learning",
+		modality: "other",
+		color:    "green",
+	},
 	"other": {
 		name:         "Other",
 		modality:     "other",
@@ -658,6 +663,7 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"image-to-text",
 	"reinforcement-learning",
 	"robotics",
+	"graph-ml",
 	"voice-activity-detection",
 	"time-series-forecasting",
 	"document-question-answering",
