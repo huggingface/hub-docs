@@ -13,7 +13,7 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, ModelLibraryKey[]> = {
 	"document-question-answering":    ["transformers"],
 	"feature-extraction":             ["sentence-transformers", "transformers"],
 	"fill-mask":                      ["transformers"],
-	"graph-ml": 					  ["transformers"]
+	"graph-ml": 					  ["transformers"],
 	"image-classification":           ["keras", "timm", "transformers"],
 	"image-segmentation":             ["transformers"],
 	"image-to-image":                 [],
