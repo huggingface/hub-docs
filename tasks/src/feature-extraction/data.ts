@@ -3,7 +3,7 @@ import type { TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
 	datasets: [
 		{
-			description: "Wikipedia dataset containing cleaned articles of all languages. The datasets are built from the Wikipedia dump (https://dumps.wikimedia.org/) with one split per language. Each example contains the content of one full Wikipedia article with cleaning to strip markdown and unwanted sections (references, etc.).",
+			description: "Wikipedia dataset containing cleaned articles of all languages. Can be used to train `feature-extraction` models.",
 			id:"wikipedia",
 		}
 	],
@@ -33,7 +33,7 @@ const taskData: TaskDataCustom = {
 	],
 	models: [
 		{
-			description: "BART model pre-trained on English language. It was introduced in the paper BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension",
+			description: "A powerful feature extraction model for natural language processing tasks.",
 			id:          "facebook/bart-base",
 		},
 		{
@@ -44,7 +44,7 @@ const taskData: TaskDataCustom = {
 	spaces:       [
 
 	],
-	summary:      "Feature-Extraction starts from initial set of measured data and builds derived values (features) intended to be informative and non-redundant, facilitating the subsequent learning and generalization steps in text, image & audio processing.",
+	summary:      "Feature extraction refers to the process of transforming raw data into numerical features that can be processed while preserving the information in the original dataset.",
 	widgetModels: ["facebook/bart-base"]
 };
 
