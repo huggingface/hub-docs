@@ -15,7 +15,9 @@ from huggingface_hub import notebook_login
 notebook_login()
 ```
 
-Then, ensure that your library uses the token. For example, if using 🤗 Transformers [you'll need to pass `use_auth_token=True`](https://huggingface.co/docs/transformers/main/en/main_classes/model#transformers.PreTrainedModel.from_pretrained) when calling `.from_pretrained()`.  
+Then, ensure that your library uses the token. This is now the case by default in huggingface-maintained libraries.
+
+However, on older versions of libraries, for example if using 🤗 Transformers with a version of `huggingface_hub` older than `v0.10` [you'll need to pass `use_auth_token=True`](https://huggingface.co/docs/transformers/main/en/main_classes/model#transformers.PreTrainedModel.from_pretrained) when calling `.from_pretrained()`.  
 
 ## Modifying the prompt 
 
@@ -37,3 +39,14 @@ extra_gated_fields:
 </div>
 
 The `README.md` file for a model is called a [model Card](./model-cards). Visit the documentation to learn more about how to use it and to see the properties that you can configure.
+
+## Additional Customization
+
+In some cases, you might also want to modify the text in the heading of the gate as well as the text in the button. For those use cases you can modify `extra_gated_heading` and `extra_gated_button_content`.
+
+```
+---
+extra_gated_heading: "Acknowledge license to accept the repository"
+extra_gated_button_content: "Acknowledge license"
+---
+```

@@ -12,6 +12,8 @@
     title: Pull Requests & Discussions
   - local: notifications
     title: Notifications
+  - local: webhooks
+    title: Webhooks
   - local: repositories-next-steps
     title: Next Steps
   - local: repositories-licenses
@@ -25,10 +27,16 @@
   - local: model-cards
     title: Model Cards
     sections:
+    - local: model-card-annotated
+      title: Annotated Model Card
     - local: model-cards-co2
       title: Carbon Emissions
-    - local: models-gated
-      title: Gated models
+    - local: model-card-guidebook
+      title: Model Card Guidebook
+    - local: model-card-landscape-analysis
+      title: Landscape Analysis 
+  - local: models-gated
+    title: Gated Models
   - local: models-uploading
     title: Uploading Models
   - local: models-downloading
@@ -52,8 +60,12 @@
         title: Keras
       - local: ml-agents
         title: ML-Agents
+      - local: paddlenlp
+        title: PaddleNLP
       - local: rl-baselines3-zoo
         title: RL-Baselines3-Zoo
+      - local: sample-factory
+        title: Sample Factory
       - local: sentence-transformers
         title: Sentence Transformers
       - local: spacy
@@ -121,8 +133,17 @@
     title: Streamlit Spaces
   - local: spaces-sdks-static
     title: Static HTML Spaces
-  - local: spaces-sdks-python
-    title: Custom Python Spaces
+  - local: spaces-sdks-docker
+    title: Docker Spaces
+    sections:
+      - local: spaces-sdks-docker-first-demo
+        title: Your first Docker Spaces
+      - local: spaces-sdks-docker-examples
+        title: Example Docker Spaces
+      - local: spaces-sdks-docker-argilla
+        title: Argilla on Spaces
+  - local: spaces-embed
+    title: Embed your Space
   - local: spaces-config-reference
     title: Spaces Configuration Reference
   - local: spaces-changelog
@@ -135,7 +156,11 @@
     - local: spaces-more-ways-to-create
       title: More ways to create Spaces
     - local: spaces-github-actions
-      title: Managing Spaces with Github Actions      
+      title: Managing Spaces with Github Actions 
+    - local: spaces-sdks-python
+      title: Custom Python Spaces
+    - local: spaces-add-to-arxiv
+      title: How to Add a Space to ArXiv
 - local: other
   title: Other
   isExpanded: true

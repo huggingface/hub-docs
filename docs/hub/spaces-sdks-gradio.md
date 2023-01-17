@@ -55,3 +55,7 @@ This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/do
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-hot-dog-gradio.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-hot-dog-gradio-dark.png"/>
 </div>
+
+## Embed Gradio Spaces on other webpages
+
+You can embed a Gradio Space on other webpages by using either Web Components or the HTML `<iframe>` tag. Check out [our documentation](./spaces-embed) or the [Gradio documentation](https://gradio.app/sharing_your_app/#embedding-hosted-spaces) for more details.

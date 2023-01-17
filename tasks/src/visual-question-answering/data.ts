@@ -1,4 +1,4 @@
-import { type TaskDataCustom } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
 	datasets: [
@@ -6,6 +6,10 @@ const taskData: TaskDataCustom = {
 			description: "A widely used dataset containing questions (with answers) about images.",
 			id:          "Graphcore/vqa",
 		},
+		{
+			description: "A dataset to benchmark visual reasoning based on text in images.",
+			id: "textvqa",
+		}
 	],
 	demo: {
 		inputs: [
@@ -54,6 +58,20 @@ const taskData: TaskDataCustom = {
 		{
 			description: "Robust Visual Question Answering model trained on the VQAv2 dataset.",
 			id:          "dandelin/vilt-b32-finetuned-vqa",
+		},
+	],
+	spaces:       [
+		{
+			description: "An application that can answer questions based on images.",
+			id:          "nielsr/vilt-vqa",
+		},
+		{
+			description: "An application that can caption images and answer questions about a given image. ",
+			id:          "Salesforce/BLIP",
+		},
+		{
+			description: "An application that can caption images and answer questions about a given image. ",
+			id:          "vumichien/Img2Prompt",
 		},
 	],
 	summary:      "Visual Question Answering is the task of answering open-ended questions based on an image. They output natural language responses to natural language questions.",

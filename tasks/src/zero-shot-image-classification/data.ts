@@ -5,12 +5,40 @@ const taskData: TaskDataCustom = {
 		{
 			// TODO write proper description
 			description: "",
-			id: "",
+			id:          "",
 		},
 	],
 	demo: {
-		inputs: [],
-		outputs: [],
+		inputs: [
+			{
+				filename: "image-classification-input.jpeg",
+				type:     "img",
+			},
+			{
+				label:   "Classes",
+				content: "cat, dog, bird",
+				type:    "text",
+			},
+		],
+		outputs: [
+			{
+				type: "chart",
+				data: [
+					{
+						label: "Cat",
+						score: 0.664,
+					},
+					{
+						label: "Dog",
+						score: 0.329,
+					},
+					{
+						label: "Bird",
+						score: 0.008,
+					},
+				],
+			},
+		],
 	},
 	metrics: [
 		{
@@ -31,10 +59,16 @@ const taskData: TaskDataCustom = {
 			id: "openai/clip-vit-large-patch14-336",
 		},
 	],
+	spaces:  [
+		{
+			description: "An application that leverages zero shot image classification to find best captions to generate an image. ",
+			id:          "pharma/CLIP-Interrogator",
+		},
+	],
 	summary:
 		"Zero shot image classification is the task of classifying previously unseen classes during training of a model.",
 	widgetModels: ["openai/clip-vit-large-patch14-336"],
-	youtubeId: "",
+	youtubeId:    "",
 };
 
 export default taskData;

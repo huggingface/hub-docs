@@ -71,6 +71,13 @@ const taskData: TaskDataCustom = {
 			id:          "facebook/deit-base-distilled-patch16-224",
 		},
 	],
+	spaces:       [
+		{
+			// TO DO: write description
+			description: "An application that classifies what a given image is about.",
+			id:          "nielsr/perceiver-image-classification",
+		},
+	],
 	summary:      "Image classification is the task of assigning a label or class to an entire image. Images are expected to have only one class for each image. Image classification models take an image as input and return a prediction about which class the image belongs to.",
 	widgetModels: ["google/vit-base-patch16-224"],
 	youtubeId:    "tjAIM7BOYhw",
