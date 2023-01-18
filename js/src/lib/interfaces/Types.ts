@@ -603,10 +603,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		color:    "yellow",
 	},
 	"other": {
-		name:         "Other",
-		modality:     "other",
-		color:        "blue",
-		hideInModels: true,
+		name:           "Other",
+		modality:       "other",
+		color:          "blue",
+		hideInModels:   true,
+		hideInDatasets: true,
 	},
 });
 
