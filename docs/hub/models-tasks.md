@@ -72,7 +72,7 @@ The Hub allows users to filter models by a given task. To do this, you need to a
 In [interfaces/Types.ts](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Types.ts), you need to do a couple of things
 
 * Add the type to `PIPELINE_DATA`. Note that pipeline types are sorted into different categories (NLP, Audio, Computer Vision, and others).
-* Specify the display order in `PIPELINE_TAGS_DISPLAY_ORDER`. It also needs minor changes in the following files:
+* You will also need to fill minor changes in the following files:
     1. [tasks/src/const.ts](https://github.com/huggingface/hub-docs/blob/main/tasks/src/const.ts)
     2. [tasks/src/tasksData.ts](https://github.com/huggingface/hub-docs/blob/main/tasks/src/tasksData.ts)
 
