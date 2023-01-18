@@ -65,16 +65,8 @@ const taskData: TaskDataCustom = {
 			id:          "kadirnar/yolov8",
 		},
 		{
-			description: "Yolov7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors.",
-			id:          "kadirnar/yolov7",
-		},
-		{
 			description: "YOLOv6: a single-stage object detection framework dedicated to industrial applications.",
 			id:          "kadirnar/yolov6",
-		},
-		{
-			description: "YOLOX is a high-performance anchor-free YOLO.",
-			id:          "kadirnar/yolox",
 		},
 	],
 	summary:      "Object Detection models allow users to identify objects of certain defined classes. Object detection models receive an image as input and output the images with bounding boxes and labels on detected objects.",
