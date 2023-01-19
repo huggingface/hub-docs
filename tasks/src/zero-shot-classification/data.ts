@@ -3,9 +3,39 @@ import type { TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
 
 	datasets:     [],
-	demo:     {
-		inputs:  [],
-		outputs: [],
+	demo: {
+		inputs: [
+			{
+				label:   "Text Input",
+				content: "Dune is the best movie ever.",
+				type:    "text",
+			},
+			{
+				label:   "Candidate Labels",
+				content: "CINEMA, ART, MUSIC",
+				type:    "text",
+			},
+			
+		],
+		outputs: [
+			{
+				type: "chart",
+				data: [
+					{
+						label: "CINEMA",
+						score: 0.90,
+					},
+					{
+						label: "ART",
+						score: 0.10,
+					},
+					{
+						label: "MUSIC",
+						score: 0.00,
+					},
+				],
+			},
+		],
 	},
 	metrics:      [],
 	models:       [

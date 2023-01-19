@@ -603,10 +603,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		color:    "yellow",
 	},
 	"other": {
-		name:         "Other",
-		modality:     "other",
-		color:        "blue",
-		hideInModels: true,
+		name:           "Other",
+		modality:       "other",
+		color:          "blue",
+		hideInModels:   true,
+		hideInDatasets: true,
 	},
 });
 
@@ -663,6 +664,27 @@ export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
 	"document-question-answering",
 	"depth-estimation",
 ];
+
+/**
+ * Tags that are suggested inside the metadata GUI
+ * (above model card or dataset card editor)
+ * 
+ * Usually tags for domains or industries.
+ * 
+ * Let's keep their number not too high to not spread out models/datasets too much.
+ */
+export const OTHER_TAGS_SUGGESTIONS = [
+	"chemistry",
+	"biology",
+	"finance",
+	"legal",
+	"music",
+	"art",
+	"code",
+	"climate",
+	"medical",
+];
+
 
 export type WidgetInputSample = Record<string | "example_title" | "group", string>;
 

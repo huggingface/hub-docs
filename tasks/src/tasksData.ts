@@ -29,6 +29,7 @@ import textGeneration from "./text-generation/data";
 import unconditionalImageGeneration from "./unconditional-image-generation/data";
 import videoClassification from "./video-classification/data";
 import visualQuestionAnswering from "./visual-question-answering/data";
+import zeroShotClassification from "./zero-shot-classification/data";
 import zeroShotImageClassification from "./zero-shot-image-classification/data";
 import { TASKS_MODEL_LIBRARIES } from "./const";
 
@@ -55,7 +56,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"other":                          undefined,
 	"question-answering":             getData("question-answering", questionAnswering),
 	"reinforcement-learning":         getData("reinforcement-learning", reinforcementLearning),
-	"robotics":                       getData("robotics"),
+	"robotics":                       undefined,
 	"sentence-similarity":            getData("sentence-similarity", sentenceSimilarity),
 	"summarization":                  getData("summarization", summarization),
 	"table-question-answering":       getData("table-question-answering", tableQuestionAnswering),
@@ -68,14 +69,14 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"text-retrieval":                 undefined,
 	"text-to-image":                  getData("text-to-image", textToImage),
 	"text-to-speech":                 getData("text-to-speech", textToSpeech),
-	"text2text-generation":           getData("text2text-generation"),
+	"text2text-generation":           undefined,
 	"time-series-forecasting":        undefined,
 	"token-classification":           getData("token-classification", tokenClassification),
 	"translation":                    getData("translation", translation),
 	"unconditional-image-generation": getData("unconditional-image-generation", unconditionalImageGeneration),
 	"visual-question-answering":      getData("visual-question-answering", visualQuestionAnswering),
-	"voice-activity-detection":       getData("voice-activity-detection"),
-	"zero-shot-classification":       getData("zero-shot-classification"),
+	"voice-activity-detection":       undefined,
+	"zero-shot-classification":       getData("zero-shot-classification", zeroShotClassification),
 	"zero-shot-image-classification": getData("zero-shot-image-classification", zeroShotImageClassification),
 } as const;
 
