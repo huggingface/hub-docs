@@ -32,6 +32,7 @@ export enum ModelLibrary {
 	"stable-baselines3"      = "Stable-Baselines3",
 	"ml-agents"              = "ML-Agents",
 	"pythae"                 = "Pythae",
+	"xpmir"                  = "Experimaestro IR"
 }
 
 export type ModelLibraryKey = keyof typeof ModelLibrary;
@@ -416,6 +417,21 @@ const pythae = (model: ModelData) =>
 
 model = AutoModel.load_from_hf_hub("${model.id}")`;
 
+const xpmir = (model: ModelData) => {
+	if (model.config?.variants?.length > 0) {
+		return `from xpmir.models import AutoModel
+
+// Use a variant among:
+// ${model.config.variants.join(", ")}
+model = AutoModel.load_from_hf_hub("${model.id}", variant)`;
+	}
+
+	return `from xpmir.models import AutoModel
+
+model = AutoModel.load_from_hf_hub("${model.id}")`;
+
+}
+
 //#endregion
 
 
@@ -572,5 +588,11 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoUrl:  "https://github.com/clementchadebec/benchmark_VAE",
 		snippet:  pythae,
 	},
+	"xpmir": {
+		btnLabel: "xpmir",
+		repoName: "xpmir",
+		repoUrl:  "https://github.com/experimaestro/experimaestro-ir",
+		snippet:  xpmir,
+	}
 } as const;
 
