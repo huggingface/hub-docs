@@ -92,9 +92,12 @@ We selected people from a variety of different backgrounds relevant to machine l
 * When ranking the sections of the model card by ease/quickness of writing, consensus was that the sections on uses and limitations and risks were the most difficult.
 * When reading model cards, respondents said they looked at the cards’ sections in an order that was close to – but not perfectly aligned with – the order in which the sections were listed in the survey question.
 
-![user studies results 1](https://huggingface.co/datasets/huggingface/documentation-images/blob/main/hub/usaer-studes-responses(1).png) 
-
-![user studies results 2](https://huggingface.co/datasets/huggingface/documentation-images/blob/main/hub/user-studies-responses(2).png) 
+<div class="flex justify-center">
+<img class="block dark:hidden" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/user-studies-responses(1).png"/>
+   
+   
+<img class="block dark:hidden" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/user-studies-responses(2).png"/>
+</div>
 
 
 <Tip>
