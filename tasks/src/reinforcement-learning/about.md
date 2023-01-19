@@ -2,6 +2,8 @@
 
 ### Gaming
 
+Reinforcement learning is a type of machine learning that allows a computer or artificial intelligence (AI) to learn how to play a game by receiving rewards or punishments for certain actions. The AI uses this feedback to improve its strategy over time. In a game, the AI learns to make decisions by choosing actions that will lead to the most rewards, such as winning the game or achieving a high score. This is done by trying different actions and seeing which ones lead to the best results. Over time, the AI's strategy improves as it learns from its mistakes and successes.
+
 Reinforcement learning is known for its application to video games. Since the games provide a safe environment for the agent to be trained in the sense that it is perfectly defined and controllable, this makes them perfect candidates for experimentation and will help a lot to learn about the capabilities and limitations of various RL algorithms. 
 
 
