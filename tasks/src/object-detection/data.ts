@@ -60,6 +60,14 @@ const taskData: TaskDataCustom = {
 			description: "An application that contains various object detection models to try from.",
 			id:          "Gradio-Blocks/Object-Detection-With-DETR-and-YOLOS",
 		},
+		{
+			description: "Ultralytics YOLOv8: State-of-the-Art YOLO Models.",
+			id:          "kadirnar/yolov8",
+		},
+		{
+			description: "YOLOv6: a single-stage object detection framework dedicated to industrial applications.",
+			id:          "kadirnar/yolov6",
+		},
 	],
 	summary:      "Object Detection models allow users to identify objects of certain defined classes. Object detection models receive an image as input and output the images with bounding boxes and labels on detected objects.",
 	widgetModels: ["facebook/detr-resnet-50"],
