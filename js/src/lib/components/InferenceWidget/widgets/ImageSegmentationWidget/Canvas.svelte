@@ -5,11 +5,8 @@
 	export let classNames = "";
 	export let highlightIndex: number;
 	export let imgSrc = "";
-	export let mousemove: (
-		e: Event,
-		canvasW: number,
-		canvasH: number
-	) => void = () => {};
+	export let mousemove: (e: Event, canvasW: number, canvasH: number) => void =
+		() => {};
 	export let mouseout: () => void = () => {};
 	export let output: ImageSegment[] = [];
 
