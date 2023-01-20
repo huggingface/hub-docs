@@ -100,6 +100,10 @@
 					outputJson = "";
 					return;
 				}
+				// tabular-data backend expects value `NaN` for "null value"
+				if(/(null|nan)/i.test(String(cell))){
+					table[i][j] = "NaN";
+				}
 			}
 		}
 
