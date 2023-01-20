@@ -165,7 +165,7 @@ const MAPPING_ZH: PerLanguageMapping = new Map([
 	[ "zero-shot-classification", [
 		{
 			text: "房间干净明亮，非常不错",
-			candidate_labels: ["这是一条差评", "这是一条好评"],
+			candidate_labels: "这是一条差评, 这是一条好评",
 		}
 	] ],
 	[ "summarization", [
