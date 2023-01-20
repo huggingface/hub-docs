@@ -32,6 +32,7 @@ export enum ModelLibrary {
 	"stable-baselines3"      = "Stable-Baselines3",
 	"ml-agents"              = "ML-Agents",
 	"pythae"                 = "Pythae",
+	"tdc"			 = "TDC"
 }
 
 export type ModelLibraryKey = keyof typeof ModelLibrary;
@@ -416,6 +417,16 @@ const pythae = (model: ModelData) =>
 
 model = AutoModel.load_from_hf_hub("${model.id}")`;
 
+const tdc = (model: ModelData) =>
+	`from tdc import tdc_hf_interface
+	 # initialize an interface object with HF repo name
+         tdc_hf_herg = tdc_hf_interface("${model.id}")
+         # upload folder/files to this repo
+         tdc_hf_herg.upload('./XXX')
+         # load deeppurpose model from this repo
+         dp_model = tdc_hf_herg.load_deeppurpose('./data')
+         dp_model.predict(XXX)`;
+
 //#endregion
 
 
@@ -571,6 +582,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoName: "pythae",
 		repoUrl:  "https://github.com/clementchadebec/benchmark_VAE",
 		snippet:  pythae,
+	},
+	"tdc": {
+		btnLabel: "tdc",
+		repoName: "tdc",
+		repoUrl:  "https://github.com/mims-harvard/TDC",
+		snippet:  tdc,
 	},
 } as const;
 
