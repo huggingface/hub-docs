@@ -199,3 +199,13 @@ You can easily find recently generated events for your webhooks. Open the activi
 Here you can review the HTTP status code and the payload of the generated events. Additionally, you can replay these events by clicking on the `replay` button! 
 
 Note: When changing the target URL or secret of a webhook, replaying an event will send the payload to the updated URL.
+
+## FAQ
+
+##### Can I define webhooks on my organization vs. on my user account?
+
+No, this is not currently supported.
+
+##### How can I subscribe to events on all repos (or across a whole repo type, like on all models)
+
+This is not currently exposed to end users but we can toggle this for you if you send an email to website@huggingface.co.
