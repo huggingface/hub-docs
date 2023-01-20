@@ -420,12 +420,12 @@ model = AutoModel.load_from_hf_hub("${model.id}")`;
 const tdc = (model: ModelData) =>
 	`from tdc import tdc_hf_interface
 	 # initialize an interface object with HF repo name
-         tdc_hf_herg = tdc_hf_interface("${model.id}")
+         tdc_hf = tdc_hf_interface("${model.id}")
          # upload folder/files to this repo
-         tdc_hf_herg.upload('./XXX')
+         tdc_hf.upload('UPLOAD FOLDER PATH')
          # load deeppurpose model from this repo
-         dp_model = tdc_hf_herg.load_deeppurpose('./data')
-         dp_model.predict(XXX)`;
+         dp_model = tdc_hf.load_deeppurpose('SAVED FOLDER PATH')
+         dp_model.predict('YOUR SMILES STRING')`;
 
 //#endregion
 
