@@ -184,12 +184,16 @@ Each webhook is limited to 1,000 triggers per 24 hours. You can view your usage 
 
 If you need to increase the number of triggers for your webhook, contact us at website@huggingface.co.
 
+## Testing webhooks
+
+In case you do not have an HTTPS endpoint/URL to use, you can try out public tools for webhook testing. These tools act as catch-all (captures all requests) sent to them and gives 20 OK. [Beeceptor](https://beeceptor.com/) is one such tool that you can use to create a temporary HTTP endpoint and review the incoming payload. Another such tool is [Webhook.site](https://webhook.site/).
+
 ## Debugging webhooks
 
-Go in the activity tab for your webhook, there you will see the list of recent events.
+You can easily find recently generated events for your webhooks. Open the activity tab for your webhook, there you will see the list of recent events.
 
  ![image.png](https://s3.amazonaws.com/moonup/production/uploads/1671035382840-61d2f90c3c2083e1c08af22d.png)
  
-You will see the HTTP status code and the payload of past events. You can replay those events by clicking on the `replay` button!
+Here you can review the HTTP status code and the payload of the generated events. Additionally, you can replay these events by clicking on the `replay` button! 
 
-When changing the target URL or secret of a webhook, replaying an event will send the payload to the updated URL.
+Note: When changing the target URL or secret of a webhook, replaying an event will send the payload to the updated URL.
