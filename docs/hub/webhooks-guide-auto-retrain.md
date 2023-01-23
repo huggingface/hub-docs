@@ -32,7 +32,7 @@ Your webhook will look like this:
 
 We now need a way to react to your webhook events. An easy way to do this is to use a [Space](https://huggingface.co/docs/hub/spaces-overview)!
 
-You can find an example Space here: https://huggingface.co/spaces/huggingface-projects/auto-retrain/tree/main.
+You can find an example Space [here](https://huggingface.co/spaces/huggingface-projects/auto-retrain/tree/main).
 
 This Space uses Docker, Python, [FastAPI](https://fastapi.tiangolo.com/) and [uvicorn](https://www.uvicorn.org) to run a simple HTTP server. Read more about Docker Spaces [here](https://huggingface.co/docs/hub/spaces-sdks-docker).
 
@@ -52,7 +52,7 @@ async def post_webhook(
 	# ...
 ```
 
-2. This route checks that the `X-Webhook-Secret` header is present, and that its value is the same as the one you set in your webhook's settings:
+2. This route checks that the `X-Webhook-Secret` header is present, and that its value is the same as the one you set in your webhook's settings. The `WEBHOOK_SECRET` secret must be set in the Space's settings, and be the same as the secret set in your webhook.
 
 ```python
 # [...]
