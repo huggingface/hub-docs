@@ -20,13 +20,12 @@ language_details:
 license_details: {license_details}  # Example: content or link to a license not present in https://hf.co/docs/hub/repositories-licenses
 pretty_name: {pretty_name}  # Example: SQuAD
 size_categories:
-- {size_0}  # Example: n<1K
-- {size_0}  # Example: 100K<n<1M
+- {number_of_elements_in_dataset}  # Example: n<1K, 100K<n<1M, …
 source_datasets:
 - {source_dataset_0}  # Example: wikipedia
 - {source_dataset_1}  # Example: laion/laion-2b
 task_categories:  # Full list at https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Types.ts
-- {task_0}  # Example: question-ansering
+- {task_0}  # Example: question-answering
 - {task_1}  # Example: image-classification
 task_ids:
 - {subtask_0}  # Example: extractive-qa
