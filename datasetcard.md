@@ -5,6 +5,7 @@ language:
 - {lang_0}  # Example: fr
 - {lang_1}  # Example: en
 license: {license}  # Example: apache-2.0 or any license from https://hf.co/docs/hub/repositories-licenses
+license_details: {license_details}  # Example: content or link to a license not present in https://hf.co/docs/hub/repositories-licenses
 tags:
 - {tag_0}  # Example: audio
 - {tag_1}  # Example: bio
@@ -17,7 +18,6 @@ language_creators:
 language_details:
 - {bcp47_lang_0}  # Example: fr-FR
 - {bcp47_lang_1}  # Example: en-US
-license_details: {license_details}  # Example: content or link to a license not present in https://hf.co/docs/hub/repositories-licenses
 pretty_name: {pretty_name}  # Example: SQuAD
 size_categories:
 - {number_of_elements_in_dataset}  # Example: n<1K, 100K<n<1M, …
