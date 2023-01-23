@@ -10,34 +10,34 @@ of [microsoft/resnet-50](https://huggingface.co/microsoft/resnet-50) using [Auto
 
 ## Prerequisite: Upload your dataset to the Hub
 
-We will use a [simple image classification dataset](https://huggingface.co/datasets/sbrandeis-test-org/input-dataset) for the sake
+We will use a [simple image classification dataset](https://huggingface.co/datasets/huggingface-projects/auto-retrain-input-dataset) for the sake
 of the example. Learn more about uploading your data to the Hub here: https://huggingface.co/docs/datasets/upload_dataset.
 
-![dataset](../assets/auto-retrain/dataset.png)
+![dataset](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/002-auto-retrain/dataset.png)
 
 ## Create a webhook to react to the dataset's changes
 
 First, let's create a webhook from your settings: https://huggingface.co/settings/webhooks.
 
-- Select your dataset as the target repository. We will target [sbrandeis-test-org/input-dataset](https://huggingface.co/datasets/sbrandeis-test-org/input-dataset) in this example.
+- Select your dataset as the target repository. We will target [huggingface-projects/input-dataset](https://huggingface.co/datasets/huggingface-projects/input-dataset) in this example.
 - You can put a dummy Webhook URL for now. Defining your webhook will let you take a look at the events that are going to be sent to it. You can also replay them, which will be useful for debugging!
 - Input a secret to make it more secure.
 - Subscribe to "Repo update" events as we want to react to data changes
 
 Your webhook will look like this:
 
-![webhook-creation](../assets/auto-retrain/webhook-creation.png)
+![webhook-creation](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/002-auto-retrain/webhook-creation.png)
 
 ## Create a Space to react to your webhook
 
 We now need a way to react to your webhook events. An easy way to do this is to use a [Space](https://huggingface.co/docs/hub/spaces-overview)!
 
-You can find an example Space here: https://huggingface.co/spaces/sbrandeis-test-org/active-learning-webhook/tree/main.
+You can find an example Space here: https://huggingface.co/spaces/huggingface-projects/auto-retrain/tree/main.
 
 This Space uses Docker, Python, [FastAPI](https://fastapi.tiangolo.com/) and [uvicorn](https://www.uvicorn.org) to run a simple HTTP server. Read more about Docker Spaces [here](https://huggingface.co/docs/hub/spaces-sdks-docker).
 
 
-The entry point is [src/main.py](https://huggingface.co/spaces/sbrandeis-test-org/auto-retrain/blob/main/src/main.py). Let's walk through this file and detail what it does:
+The entry point is [src/main.py](https://huggingface.co/spaces/huggingface-projects/auto-retrain/blob/main/src/main.py). Let's walk through this file and detail what it does:
 
 1. It spawns a FastAPI app that will listen to HTTP `POST` requests on `/webhook`:
 
@@ -136,7 +136,7 @@ def schedule_retrain(payload: WebhookPayload):
 
 Visit the link inside the comment to review the training cost estimate, and start fine-tuning the model!
 
-![community tab notification](../assets/auto-retrain/notification.png)
+![community tab notification](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/002-auto-retrain/notification.png)
 
 
 In this example, we used HuggingFace AutoTrain to quickly fine-tune our model, but you can of course plug in your own training infrastructure!
@@ -146,7 +146,7 @@ You will need to provide two secrets:
 - `WEBHOOK_SECRET` : the secret from your webhook.
 - `HF_ACCESS_TOKEN` : a User Access Token with `write` rights. You can create one [from your settings](https://huggingface.co/settings/tokens).
 
-You will also need to tweak the [`config.json` file](https://huggingface.co/spaces/sbrandeis-test-org/active-learning-webhook/blob/main/config.json) to use the dataset and model of you choice:
+You will also need to tweak the [`config.json` file](https://huggingface.co/spaces/huggingface-projects/auto-retrain/blob/main/config.json) to use the dataset and model of you choice:
 
 ```json
 {
@@ -157,7 +157,7 @@ You will also need to tweak the [`config.json` file](https://huggingface.co/spac
 }
 ```
 
-![duplicate-space](../assets/auto-retrain/duplicate-space.png)
+![duplicate-space](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/002-auto-retrain/duplicate-space.png)
 
 
 ## Configure your webhook to send events to your Space
@@ -166,11 +166,11 @@ Last but not least, you'll need to configure your webhook to send POST requests 
 
 Let's first grab our Space's "direct URL" from the contextual menu. Click on "Embed this Space" and copy the "Direct URL".
 
-![embed this Space](../assets/auto-retrain/embed.png)
-![direct URL](../assets/auto-retrain/direct-url.png)
+![embed this Space](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/002-auto-retrain/duplicate-space.png)
+![direct URL](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/002-auto-retrain/direct-url.png)
 
 Update your webhook to send requests to that URL:
 
-![webhook settings](../assets/auto-retrain/update-webhook.png)
+![webhook settings](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/002-auto-retrain/update-webhook.png)
 
 And that's it! Now every commit to the input dataset will trigger a fine-tuning of ResNet-50 with AutoTrain 🎉
