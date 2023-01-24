@@ -1,7 +1,7 @@
 # Webhook guide: Setup an automatic system to re-train a model when a dataset changes
 
 This guide will help walk you through the set up of an automatic training pipeline on the HuggingFace platform
-using HF Webhooks, Spaces and AutoTrain.
+using HF Datasets, Webhooks, Spaces and AutoTrain.
 
 We will build a Webhook that listens to changes on an image classification dataset and triggers a fine-tuning
 of [microsoft/resnet-50](https://huggingface.co/microsoft/resnet-50) using [AutoTrain](https://huggingface.co/autotrain).
