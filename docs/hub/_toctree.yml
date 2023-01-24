@@ -14,6 +14,9 @@
     title: Notifications
   - local: webhooks
     title: Webhooks
+    sections:
+      - local: webhooks-guide-auto-retrain
+        title: "How-to: Automatic fine-tuning with Auto-Train"
   - local: repositories-next-steps
     title: Next Steps
   - local: repositories-licenses
