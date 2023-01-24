@@ -10,5 +10,6 @@ In these pages, you will go over the basics of getting started with Git and inte
 - [Settings](./repositories-settings)
 - [Pull Requests & Discussions](./repositories-pull-requests-discussions)
   - [Pull Requests advanced usage](./repositories-pull-requests-advanced)
+- [Webhooks](./webhooks)
 - [Next Steps](./repositories-next-steps)
 - [Licenses](./repositories-licenses)

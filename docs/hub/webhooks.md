@@ -1,18 +1,27 @@
 # Webhooks
 
+<Tip warning={true}>
+
 **Join the [webhooks-explorers](https://huggingface.co/webhooks-explorers) organization to beta-test webhooks!**
+
+</Tip>
 
 Webhooks are a foundation for MLOps related features. You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces.
 
 They allow you to listen for new changes on specific repos or to all repos belonging to particular users/organizations (not just your repos, but any repo).
+
+The documentation for webhooks is below – or you can also browse our **guides** showcasing a few possible use cases of Webhooks:
+- [to automatically fine-tune a new model whenever a dataset gets updated](./webhooks-guide-auto-retrain)
+- [to create a discussion bot on the Hub, using a LLM API](./webhooks-guide-discussion-bot)
+- and more to come…
+
+## Create your webhook
 
 You can create new webhooks and edit existing ones in your webhooks [settings](https://huggingface.co/settings/webhooks):
 
 ![Settings of an individual webhook](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-settings.png)
 
 Webhooks can watch for repos updates, Pull requests, discussions, and new comments. It's even possible to create a Space to react to your webhooks!
-
-<!-- Todo: add a link to a guide with a real example -->
 
 ## Webhook Payloads
 
@@ -199,3 +208,13 @@ You can easily find recently generated events for your webhooks. Open the activi
 Here you can review the HTTP status code and the payload of the generated events. Additionally, you can replay these events by clicking on the `replay` button! 
 
 Note: When changing the target URL or secret of a webhook, replaying an event will send the payload to the updated URL.
+
+## FAQ
+
+##### Can I define webhooks on my organization vs my user account?
+
+No, this is not currently supported.
+
+##### How can I subscribe to events on all repos (or across a whole repo type, like on all models)?
+
+This is not currently exposed to end users but we can toggle this for you if you send an email to website@huggingface.co.
