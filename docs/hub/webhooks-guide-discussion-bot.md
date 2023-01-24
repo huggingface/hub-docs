@@ -6,20 +6,20 @@ Here's a short guide on how to use HF Webhooks to build a bot that replies to Di
 
 First, create your webhook by going to https://huggingface.co/settings/webhooks.
 
-- Input a few target repositories that your webhook will run on.
+- Input a few target repositories that your webhook will listen to.
 - You can put a dummy Webhook URL for now, but defining your webhook will let you take a look at the events that are going to be sent to it (and you can replay them, which will be useful for debugging).
 - Input a secret as it will be more secure.
 - Subscribe to Community (PR & discussions) events, as we are building a Discussion bot.
 
 Your webhook will look like this:
 
-![webhook-creation](../assets/webhook-creation.png)
+![webhook-creation](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/001-discussion-bot/webhook-creation.png)
 
 ## Create a new "Bot" user profile
 
 In this guide, we create a separate user account to host a Space and to post comments:
 
-![discussion-bot-profile](../assets/discussion-bot-profile.png)
+![discussion-bot-profile](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/001-discussion-bot/discussion-bot-profile.png)
 
 <Tip>
 	When creating a bot that will interact with other users on the Hub, we ask that you clearly label the account as a "Bot" (see profile screenshot).
@@ -33,7 +33,7 @@ An easy way is just to use a Space for this. We use the user account we just cre
 
 The Space's code is here: https://huggingface.co/spaces/discussion-bot/webhook/tree/main
 
-We used NodeJS and Typescript to implement it, but any language or framework would work equally well.
+We used NodeJS and Typescript to implement it, but any language or framework would work equally well. Read more about Docker Spaces [here](https://huggingface.co/docs/hub/spaces-sdks-docker).
 
 **The main `server.ts` file is [here](https://huggingface.co/spaces/discussion-bot/webhook/blob/main/server.ts)**
 
@@ -48,7 +48,7 @@ app.post("/", async (req, res) => {
 	...
 ```
 
-Here, we listen to POST requests made to `/` and then we check that the `X-Webhook-Secret` header is equal to the secret we had previously defined.
+Here, we listen to POST requests made to `/` and then we check that the `X-Webhook-Secret` header is equal to the secret we had previously defined (you need to also set the `WEBHOOK_SECRET` secret in your Space's settings to be able to verify it).
 
 
 ```ts
@@ -107,6 +107,21 @@ Finally, we will post it as a reply in the same discussion thread:
 	const apiOutput = await commentApiResponse.json();
 ```
 
+
+## Configure your webhook to send events to your Space
+
+Last but not least, you'll need to configure your webhook to send POST requests to your Space.
+
+Let's first grab our Space's "direct URL" from the contextual menu. Click on "Embed this Space" and copy the "Direct URL".
+
+![embed this Space](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/001-discussion-bot/embed-space.png)
+![direct URL](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/001-discussion-bot/direct-url.png)
+
+Update your webhook to send requests to that URL:
+
+![webhook settings](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/001-discussion-bot/webhook-creation.png)
+
+
 ## Result
 
-![discussion-result](../assets/discussion-result.png)
+![discussion-result](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/001-discussion-bot/discussion-result.png)
