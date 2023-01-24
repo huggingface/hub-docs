@@ -10,7 +10,7 @@ You can create new webhooks and edit existing ones in your webhooks [settings](h
 
 ![Settings of an individual webhook](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-settings.png)
 
-Webhooks can watch for repos updates, Pull requests, discussions, and new comments. If you need to host your webhook, it's of course possible to use a Space to host it.
+Webhooks can watch for repos updates, Pull requests, discussions, and new comments. It's even possible to create a Space to react to your webhooks!
 
 <!-- Todo: add a link to a guide with a real example -->
 
