@@ -184,9 +184,11 @@ Each webhook is limited to 1,000 triggers per 24 hours. You can view your usage 
 
 If you need to increase the number of triggers for your webhook, contact us at website@huggingface.co.
 
-## Testing webhooks
+## Developing your webhooks
 
 In case you do not have an HTTPS endpoint/URL to use, you can try out public tools for webhook testing. These tools act as catch-all (captures all requests) sent to them and gives 20 OK. [Beeceptor](https://beeceptor.com/) is one such tool that you can use to create a temporary HTTP endpoint and review the incoming payload. Another such tool is [Webhook.site](https://webhook.site/).
+
+Additionally, if you have your webhook code running locally on your machine but you need to expose it to the Internet to be able to use it, you can use [ngrok](https://ngrok.com/) or [localtunnel](https://theboroer.github.io/localtunnel-www/).
 
 ## Debugging webhooks
 
