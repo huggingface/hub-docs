@@ -17,6 +17,8 @@
     sections:
       - local: webhooks-guide-auto-retrain
         title: "How-to: Automatic fine-tuning with Auto-Train"
+      - local: webhooks-guide-discussion-bot
+        title: "How-to: Build a Discussion bot based on BLOOM"
   - local: repositories-next-steps
     title: Next Steps
   - local: repositories-licenses
