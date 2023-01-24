@@ -202,10 +202,10 @@ Note: When changing the target URL or secret of a webhook, replaying an event wi
 
 ## FAQ
 
-##### Can I define webhooks on my organization vs. on my user account?
+##### Can I define webhooks on my organization vs my user account?
 
 No, this is not currently supported.
 
-##### How can I subscribe to events on all repos (or across a whole repo type, like on all models)
+##### How can I subscribe to events on all repos (or across a whole repo type, like on all models)?
 
 This is not currently exposed to end users but we can toggle this for you if you send an email to website@huggingface.co.
