@@ -161,7 +161,9 @@ model = from_pretrained_keras("${model.id}")
 const openclip = (model: ModelData) =>
 	`import open_clip
 
-model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms('hf-hub:${model.id}')`;
+model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms('hf-hub:${model.id}')
+tokenizer = open_clip.get_tokenizer('hf-hub:${model.id}')`;
+
 
 
 const paddlenlp = (model: ModelData) => {
