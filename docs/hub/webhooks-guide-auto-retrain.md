@@ -45,7 +45,7 @@ The entry point is [src/main.py](https://huggingface.co/spaces/huggingface-proje
 from fastapi import FastAPI
 
 # [...]
-@app.post("/webhook)
+@app.post("/webhook")
 async def post_webhook(
 	# ...
 ):
@@ -98,7 +98,7 @@ class WebhookPayload(BaseModel):
 
 # [...]
 
-@app.post("/webhook)
+@app.post("/webhook")
 async def post_webhook(
 	# [...]
 	payload: WebhookPayload,
