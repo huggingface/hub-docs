@@ -4,9 +4,9 @@
 
 Webhooks are a foundation for MLOps related features. You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces.
 
-They allow you to listen for new changes on specific repos or repos belonging to particular users/organizations (not just your repos, but any repo!).
+They allow you to listen for new changes on specific repos or to all repos belonging to particular users/organizations (not just your repos, but any repo).
 
-You can create new webhooks and edit exiting ones in your webhooks [settings](https://huggingface.co/settings/webhooks):
+You can create new webhooks and edit existing ones in your webhooks [settings](https://huggingface.co/settings/webhooks):
 
 ![Settings of an individual webhook](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-settings.png)
 
@@ -108,8 +108,8 @@ In the current version of webhooks, the top level property `repo` is always spec
 	"id": "6366c000a2abcdf2fd69a080",
 	"private": false,
 	"url": {
-		"web": "http://huggingface.co/some-user/some-repo",
-		"api": "http://huggingface.co/api/models/some-user/some-repo"
+		"web": "https://huggingface.co/some-user/some-repo",
+		"api": "https://huggingface.co/api/models/some-user/some-repo"
 	},
 	"headSha": "c379e821c9c95d613899e8c4343e4bfee2b0c600",
 	"tags": [
@@ -161,14 +161,14 @@ The top level property `comment` is specified when a comment is created (includi
 	"content": "This adds an env key",
 	"hidden": false,
 	"url": {
-		"web": "http://huggingface.co/some-user/some-repo/discussions/4#6398872887bfcfb93a306f18"
+		"web": "https://huggingface.co/some-user/some-repo/discussions/4#6398872887bfcfb93a306f18"
 	}
 }
 ```
 
 ## Webhook secret
 
-Setting a webhook secret is useful to make sure payloads sent to your webhook handler URL are from Hugging Face.
+Setting a webhook secret is useful to make sure payloads sent to your webhook handler URL are actually from Hugging Face.
 
 If you set a secret for your webhook, it will be sent along as an `X-Webhook-Secret` HTTP header on every request. Only ASCII characters are supported.
 
