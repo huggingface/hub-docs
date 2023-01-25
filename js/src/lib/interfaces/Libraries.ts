@@ -16,7 +16,7 @@ export enum ModelLibrary {
 	"keras"                  = "Keras",
 	"k2"                     = "K2",
 	"nemo"                   = "NeMo",
-	"open_clip"               = "OpenCLIP",
+	"open_clip"              = "OpenCLIP",
 	"paddlenlp"              = "PaddleNLP",
 	"pyannote-audio"         = "pyannote.audio",
 	"sample-factory"         = "Sample Factory",
