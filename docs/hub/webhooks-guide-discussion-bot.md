@@ -15,7 +15,7 @@ Your webhook will look like this:
 
 ![webhook-creation](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/001-discussion-bot/webhook-creation.png)
 
-## Create a new "Bot" user profile
+## Create a new `Bot` user profile
 
 In this guide, we create a separate user account to host a Space and to post comments:
 
