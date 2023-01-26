@@ -197,7 +197,7 @@ If you need to increase the number of triggers for your webhook, contact us at w
 
 In case you do not have an HTTPS endpoint/URL to use, you can try out public tools for webhook testing. These tools act as catch-all (captures all requests) sent to them and gives 200 OK status code. [Beeceptor](https://beeceptor.com/) is one such tool that you can use to create a temporary HTTP endpoint and review the incoming payload. Another such tool is [Webhook.site](https://webhook.site/).
 
-Additionally, you can route a real webhook payload to the code running locally on your machine during development. This is a great way to test and debug for faster integrations. You can do this by exposing your localhost port to the Internet. To be able to go this path, you can use [Beeceptor's Local Tunneling](https://docs.beeceptor.com/docs/features-local-tunneling/), [ngrok](https://ngrok.com/) or [localtunnel](https://theboroer.github.io/localtunnel-www/). All these tools provide you free plans to get your integrations completed. 
+Additionally, you can route a real webhook payload to the code running locally on your machine during development. This is a great way to test and debug for faster integrations. You can do this by exposing your localhost port to the Internet. To be able to go this path, you can use [ngrok](https://ngrok.com/) or [localtunnel](https://theboroer.github.io/localtunnel-www/).
 
 ## Debugging webhooks
 
