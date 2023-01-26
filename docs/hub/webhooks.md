@@ -30,7 +30,7 @@ After registering a webhook, you will be notified of new events via an `HTTP POS
 You can view the history of payloads sent in the activity tab of the webhook settings page, it's also possible to replay past webhooks for easier debugging:
 
 
-![image.png](https://s3.amazonaws.com/moonup/production/uploads/1671034300077-61d2f90c3c2083e1c08af22d.png)
+![image.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-activity.png)
 
 As an example, here is the full payload when a Pull request is opened:
 
@@ -203,7 +203,7 @@ Additionally, you can route a real webhook payload to the code running locally o
 
 You can easily find recently generated events for your webhooks. Open the activity tab for your webhook, there you will see the list of recent events.
 
- ![image.png](https://s3.amazonaws.com/moonup/production/uploads/1671035382840-61d2f90c3c2083e1c08af22d.png)
+ ![image.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-payload.png)
  
 Here you can review the HTTP status code and the payload of the generated events. Additionally, you can replay these events by clicking on the `replay` button! 
 
