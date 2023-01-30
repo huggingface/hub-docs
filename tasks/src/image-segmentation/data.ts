@@ -59,6 +59,10 @@ const taskData: TaskDataCustom = {
 			description: "A semantic segmentation application that predicts human silhouettes.",
 			id:          "keras-io/Human-Part-Segmentation",
 		},
+		{
+			description: "An instance segmentation application to predict neuronal cell types from microscopy images.",
+			id:          "rashmi/sartorius-cell-instance-segmentation",
+		},
 	],
 	summary:      "Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.",
 	widgetModels: ["facebook/detr-resnet-50-panoptic"],

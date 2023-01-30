@@ -1,18 +1,27 @@
 # Webhooks
 
+<Tip warning={true}>
+
 **Join the [webhooks-explorers](https://huggingface.co/webhooks-explorers) organization to beta-test webhooks!**
+
+</Tip>
 
 Webhooks are a foundation for MLOps related features. You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces.
 
-They allow you to listen for new changes on specific repos or repos belonging to particular users/organizations (not just your repos, but any repo!).
+They allow you to listen for new changes on specific repos or to all repos belonging to particular users/organizations (not just your repos, but any repo).
 
-You can create new webhooks and edit exiting ones in your webhooks [settings](https://huggingface.co/settings/webhooks):
+The documentation for webhooks is below – or you can also browse our **guides** showcasing a few possible use cases of Webhooks:
+- [to automatically fine-tune a new model whenever a dataset gets updated](./webhooks-guide-auto-retrain)
+- [to create a discussion bot on the Hub, using a LLM API](./webhooks-guide-discussion-bot)
+- and more to come…
+
+## Create your webhook
+
+You can create new webhooks and edit existing ones in your webhooks [settings](https://huggingface.co/settings/webhooks):
 
 ![Settings of an individual webhook](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-settings.png)
 
 Webhooks can watch for repos updates, Pull requests, discussions, and new comments. It's even possible to create a Space to react to your webhooks!
-
-<!-- Todo: add a link to a guide with a real example -->
 
 ## Webhook Payloads
 
@@ -21,7 +30,7 @@ After registering a webhook, you will be notified of new events via an `HTTP POS
 You can view the history of payloads sent in the activity tab of the webhook settings page, it's also possible to replay past webhooks for easier debugging:
 
 
-![image.png](https://s3.amazonaws.com/moonup/production/uploads/1671034300077-61d2f90c3c2083e1c08af22d.png)
+![image.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-activity.png)
 
 As an example, here is the full payload when a Pull request is opened:
 
@@ -108,8 +117,8 @@ In the current version of webhooks, the top level property `repo` is always spec
 	"id": "6366c000a2abcdf2fd69a080",
 	"private": false,
 	"url": {
-		"web": "http://huggingface.co/some-user/some-repo",
-		"api": "http://huggingface.co/api/models/some-user/some-repo"
+		"web": "https://huggingface.co/some-user/some-repo",
+		"api": "https://huggingface.co/api/models/some-user/some-repo"
 	},
 	"headSha": "c379e821c9c95d613899e8c4343e4bfee2b0c600",
 	"tags": [
@@ -161,14 +170,14 @@ The top level property `comment` is specified when a comment is created (includi
 	"content": "This adds an env key",
 	"hidden": false,
 	"url": {
-		"web": "http://huggingface.co/some-user/some-repo/discussions/4#6398872887bfcfb93a306f18"
+		"web": "https://huggingface.co/some-user/some-repo/discussions/4#6398872887bfcfb93a306f18"
 	}
 }
 ```
 
 ## Webhook secret
 
-Setting a webhook secret is useful to make sure payloads sent to your webhook handler URL are from Hugging Face.
+Setting a webhook secret is useful to make sure payloads sent to your webhook handler URL are actually from Hugging Face.
 
 If you set a secret for your webhook, it will be sent along as an `X-Webhook-Secret` HTTP header on every request. Only ASCII characters are supported.
 
@@ -184,12 +193,28 @@ Each webhook is limited to 1,000 triggers per 24 hours. You can view your usage 
 
 If you need to increase the number of triggers for your webhook, contact us at website@huggingface.co.
 
+## Developing your webhooks
+
+In case you do not have an HTTPS endpoint/URL to use, you can try out public tools for webhook testing. These tools act as catch-all (captures all requests) sent to them and gives 200 OK status code. [Beeceptor](https://beeceptor.com/) is one such tool that you can use to create a temporary HTTP endpoint and review the incoming payload. Another such tool is [Webhook.site](https://webhook.site/).
+
+Additionally, you can route a real webhook payload to the code running locally on your machine during development. This is a great way to test and debug for faster integrations. You can do this by exposing your localhost port to the Internet. To be able to go this path, you can use [ngrok](https://ngrok.com/) or [localtunnel](https://theboroer.github.io/localtunnel-www/).
+
 ## Debugging webhooks
 
-Go in the activity tab for your webhook, there you will see the list of recent events.
+You can easily find recently generated events for your webhooks. Open the activity tab for your webhook, there you will see the list of recent events.
 
- ![image.png](https://s3.amazonaws.com/moonup/production/uploads/1671035382840-61d2f90c3c2083e1c08af22d.png)
+ ![image.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-payload.png)
  
-You will see the HTTP status code and the payload of past events. You can replay those events by clicking on the `replay` button!
+Here you can review the HTTP status code and the payload of the generated events. Additionally, you can replay these events by clicking on the `replay` button! 
 
-When changing the target URL or secret of a webhook, replaying an event will send the payload to the updated URL.
+Note: When changing the target URL or secret of a webhook, replaying an event will send the payload to the updated URL.
+
+## FAQ
+
+##### Can I define webhooks on my organization vs my user account?
+
+No, this is not currently supported.
+
+##### How can I subscribe to events on all repos (or across a whole repo type, like on all models)?
+
+This is not currently exposed to end users but we can toggle this for you if you send an email to website@huggingface.co.
