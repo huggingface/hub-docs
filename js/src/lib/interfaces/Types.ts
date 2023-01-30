@@ -604,7 +604,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 	},
 	"graph-ml": {
 		name:     "Graph Machine Learning",
-		modality: "other",
+		modality: "multimodal",
 		color:    "green",
 	},
 	"other": {
