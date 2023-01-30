@@ -65,7 +65,7 @@ const taskData: TaskDataCustom = {
 			id:          "kadirnar/yolov8",
 		},
 		{
-			description: "TorchYolo: YOLO Series Object Detection and Track Algorithm Library.",
+			description: "An application that shows multiple cutting edge techniques for object detection and tracking",
 			id:          "kadirnar/torchyolo",
 		},
 	],
