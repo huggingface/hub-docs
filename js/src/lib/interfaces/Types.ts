@@ -602,6 +602,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		modality: "cv",
 		color:    "yellow",
 	},
+	"graph-ml": {
+		name:     "Graph Machine Learning",
+		modality: "multimodal",
+		color:    "green",
+	},
 	"other": {
 		name:           "Other",
 		modality:       "other",
@@ -618,7 +623,6 @@ export const ALL_PIPELINE_TYPES_SET = new Set(ALL_PIPELINE_TYPES);
 export const ALL_SUBTASKS = Object.values(PIPELINE_DATA).flatMap(data => data.subtasks ?? []);
 export const ALL_SUBTASK_TYPES = ALL_SUBTASKS.map(s => s.type);
 export const ALL_SUBTASK_TYPES_SET = new Set(ALL_SUBTASK_TYPES);
-
 
 
 /**
