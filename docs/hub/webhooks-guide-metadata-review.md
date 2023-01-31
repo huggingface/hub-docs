@@ -206,5 +206,6 @@ We now have an automatic metadata review bot! Here are some ideas for how you co
 - The metadata review done by our bot was relatively crude; you could add more complex rules for reviewing metadata.
 - You could use the full `README.md` file for doing the review.
 - You may want to define 'rules' which are particularly important for your organization and use a webook to check these are followed.
- 
+
+If you build a metadata quality app using webhooks, please tag me @davanstrien; I would love to know about it! 
 
