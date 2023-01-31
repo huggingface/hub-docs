@@ -37,7 +37,7 @@ The `huggingface_hub` is a Python library that allows you to interact with the H
 from huggingface_hub import DatasetCard, ModelCard
 from huggingface_hub.utils import EntryNotFoundError 
 
-def load_repo_card(repo_type, repo_name):
+def load_repo_card_metadata(repo_type, repo_name):
     if repo_type == "dataset":
         try:
             return DatasetCard.load(repo_name).data.to_dict()
