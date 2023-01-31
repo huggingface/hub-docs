@@ -152,6 +152,8 @@ Your webhook will look like this:
 
 TODO add screenshot
 
+You can also find an example review [here](https://huggingface.co/datasets/davanstrien/test_webook/discussions/1#63d932fe19aa7b8ed2718b3f). 
+
 ## Create a new "Bot" user profile
 
 This guide creates a separate user account that will post the metadata reviews. 
