@@ -160,7 +160,7 @@ Your webhook will look like this:
 
 This guide creates a separate user account that will post the metadata reviews. 
 
-TODO bot profile screenshot
+![Bot user account](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/003-metadata-review/librarian-bot-profile.png)
 
 <Tip>
 	When creating a bot that will interact with other users on the Hub, we ask that you clearly label the account as a "Bot" (see profile screenshot).
