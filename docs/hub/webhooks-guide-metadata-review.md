@@ -9,7 +9,6 @@ Before we dive into the technical details involved in this particular workflow, 
 [Model cards](https://huggingface.co/docs/hub/model-cards) and [dataset cards](https://huggingface.co/docs/hub/datasets-cards) are essential tools for documenting machine learning models and datasets. The Hub uses a `README.md` file containing a [YAML](https://en.wikipedia.org/wiki/YAML) header block to generate model and dataset cards. This `YAML` section defines metadata relating to the model or dataset. For example: 
 
 ```yaml
----
 language: 
   - "List of ISO 639-1 code for your language"
   - lang1
@@ -20,7 +19,6 @@ tags:
 license: "any valid license identifier"
 datasets:
 - dataset1
----
 ```
 
 This metadata contains essential information about your model or dataset for potential users. The license, for example, defines the terms under which a model or dataset can be used. Hub users can also use the fields defined in the `YAML` metadata as filters for identifying models or datasets that fit specific criteria. 
