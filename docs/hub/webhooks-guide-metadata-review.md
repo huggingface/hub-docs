@@ -25,7 +25,7 @@ datasets:
 
 This metadata contains essential information about your model or dataset for potential users. The license, for example, defines the terms under which a model or dataset can be used. Hub users can also use the fields defined in the `YAML` metadata as filters for identifying models or datasets that fit specific criteria. 
 
-Since the metadata defined in this block is essential for potential users of our models and datasets, it is important that we complete this section. In a team or organization setting, users pushing models and datasets to the Hub may have differing familiarity with the importance of this YAML metadata block. While someone in a team could take on the responsibility of reviewing this metadata, there may instead be some automation we can do to help us with this problem. The result will be a metadata review report automatically posted or updated when a repository on the Hub changes. 
+Since the metadata defined in this block is essential for potential users of our models and datasets, it is important that we complete this section. In a team or organization setting, users pushing models and datasets to the Hub may have differing familiarity with the importance of this YAML metadata block. While someone in a team could take on the responsibility of reviewing this metadata, there may instead be some automation we can do to help us with this problem. The result will be a metadata review report automatically posted or updated when a repository on the Hub changes. For our metadata quality, this system works similarly to [CI](https://en.wikipedia.org/wiki/CI/CD)/CD](https://en.wikipedia.org/wiki/CI/CD). 
 
 TODO screenshot of the report.
 
