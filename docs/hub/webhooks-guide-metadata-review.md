@@ -132,6 +132,10 @@ def create_or_update_report(data):
     return True
 ```
 
+<Tip>
+    `:=` is the Python Syntax for an assignment expression operator added to the Python language in version 3.8 (colloquially known as the walrus operator). People have mixed opinions on this syntax, and it doesn't change how Python evaluates the code if you don't use this. You can read more about this operator in this [Real Python article](https://realpython.com/python-walrus-operator/).
+</Tip>
+
 ## Creating a webook to respond to changes on the Hub
 
 We've now got the core functionality for creating a metadata review report for a model or dataset. The next step is to use webhooks to respond to changes automatically. 
