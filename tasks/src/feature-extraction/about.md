@@ -1,7 +1,7 @@
 ## About the Task
 
 Feature extraction is the task of building features intended to be informative from a given dataset,
-and non-redundant, facilitating the subsequent learning and generalization steps in text, image & audio processing.
+facilitating the subsequent learning and generalization steps in various domains of machine learning.
 
 ## Use Cases
 Feature extraction can be used to do transfer learning in natural language processing, computer vision and audio models.
