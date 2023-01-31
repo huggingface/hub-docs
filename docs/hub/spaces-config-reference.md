@@ -32,7 +32,7 @@ Streamlit versions are supported from `0.79.0` to `1.15.2`.
 Path to your main application file (which contains either `gradio` or `streamlit` Python code, or `static` html code).  
 Path is relative to the root of the repository.  
 
-**`app_port`** : _int_
+**`app_port`** : _int_  
 Port on which your application is running. Used only if `sdk` is `docker`. Default port is `7860`.
 
 **`fullWidth`**: _boolean_  
