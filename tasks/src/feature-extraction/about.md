@@ -1,6 +1,6 @@
 ## About the Task
 
-`Feature extraction` task is to start from initial set of measured data, and build features intended to be informative 
+Feature extraction is the task of building features intended to be informative from a given dataset,
 and non-redundant, facilitating the subsequent learning and generalization steps in text, image & audio processing.
 
 ## Use Cases
