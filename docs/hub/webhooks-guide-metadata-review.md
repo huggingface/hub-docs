@@ -29,6 +29,9 @@ Since the metadata defined in this block is essential for potential users of our
 
 TODO screenshot of the report.
 
+You can also find an example review [here](https://huggingface.co/datasets/davanstrien/test_webook/discussions/1#63d932fe19aa7b8ed2718b3f). 
+
+
 ## Using the Hub Client Library to create a model review card 
 
 The `huggingface_hub` is a Python library that allows you to interact with the Hugging Face Hub. We can use this library to download model and dataset cards from the Hugging Face hub using the `DatasetCard.load` or `ModelCard.load` methods. In particular, we'll use these methods to load a Python Dictionary, which contains the metadata defined in the `YAML` of our model or dataset card. We'll create a small Python function to wrap these methods and do some exception handling. 
@@ -152,7 +155,6 @@ Your webhook will look like this:
 
 TODO add screenshot
 
-You can also find an example review [here](https://huggingface.co/datasets/davanstrien/test_webook/discussions/1#63d932fe19aa7b8ed2718b3f). 
 
 ## Create a new "Bot" user profile
 
