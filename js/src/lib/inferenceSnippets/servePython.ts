@@ -24,7 +24,7 @@ export const snippetFile = (model: ModelData): string =>
 	`def query(filename):
     with open(filename, "rb") as f:
         data = f.read()
-    response = requests.request("POST", API_URL, headers=headers, data=data)
+    response = requests.post(API_URL, headers=headers, data=data)
     return response.json()
 
 output = query(${getModelInputSnippet(model)})`;
@@ -33,26 +33,26 @@ export const pythonSnippets:
 	Partial<Record<PipelineType, (model: ModelData) => string>> =
 {
 	// Same order as in js/src/lib/interfaces/Types.ts
-	"text-classification":          snippetBasic,
-	"token-classification":         snippetBasic,
-	"table-question-answering":     snippetBasic,
-	"question-answering":           snippetBasic,
-	"zero-shot-classification":     snippetZeroShotClassification,
-	"translation":                  snippetBasic,
-	"summarization":                snippetBasic,
-	"conversational":               snippetBasic,
-	"feature-extraction":           snippetBasic,
-	"text-generation":              snippetBasic,
-	"text2text-generation":         snippetBasic,
-	"fill-mask":                    snippetBasic,
-	"sentence-similarity":          snippetBasic,
+	"text-classification": snippetBasic,
+	"token-classification": snippetBasic,
+	"table-question-answering": snippetBasic,
+	"question-answering": snippetBasic,
+	"zero-shot-classification": snippetZeroShotClassification,
+	"translation": snippetBasic,
+	"summarization": snippetBasic,
+	"conversational": snippetBasic,
+	"feature-extraction": snippetBasic,
+	"text-generation": snippetBasic,
+	"text2text-generation": snippetBasic,
+	"fill-mask": snippetBasic,
+	"sentence-similarity": snippetBasic,
 	"automatic-speech-recognition": snippetFile,
-	"text-to-speech":               snippetBasic,
-	"audio-to-audio":               snippetFile,
-	"audio-classification":         snippetFile,
-	"image-classification":         snippetFile,
-	"object-detection":             snippetFile,
-	"image-segmentation":           snippetFile,
+	"text-to-speech": snippetBasic,
+	"audio-to-audio": snippetFile,
+	"audio-classification": snippetFile,
+	"image-classification": snippetFile,
+	"object-detection": snippetFile,
+	"image-segmentation": snippetFile,
 };
 
 export function getPythonInferenceSnippet(model: ModelData, accessToken: string): string {
