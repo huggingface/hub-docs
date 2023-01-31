@@ -27,7 +27,7 @@ This metadata contains essential information about your model or dataset for pot
 
 Since the metadata defined in this block is essential for potential users of our models and datasets, it is important that we complete this section. In a team or organization setting, users pushing models and datasets to the Hub may have differing familiarity with the importance of this YAML metadata block. While someone in a team could take on the responsibility of reviewing this metadata, there may instead be some automation we can do to help us with this problem. The result will be a metadata review report automatically posted or updated when a repository on the Hub changes. For our metadata quality, this system works similarly to [CI/CD](https://en.wikipedia.org/wiki/CI/CD).
 
-TODO screenshot of the report.
+![Metadata review](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/003-metadata-review/metadata-report-screenshot.png)
 
 You can also find an example review [here](https://huggingface.co/datasets/davanstrien/test_webook/discussions/1#63d932fe19aa7b8ed2718b3f). 
 
@@ -153,7 +153,7 @@ First, create your webhook by going to https://huggingface.co/settings/webhooks.
 
 Your webhook will look like this:
 
-TODO add screenshot
+![webhook settings](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/003-metadata-review/webhook-settings.png)
 
 
 ## Create a new "Bot" user profile
@@ -189,7 +189,7 @@ async def webhook(request: Request):
 
 The above function will receive webhook events and creates or updates the metadata review report for the changed repository.
 
-## Use Spaces to deploy our webook app 
+## Use Spaces to deploy our webhook app 
 
 Our [main.py](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/main.py) file contains all the code we need for our webook app. To deploy it, we'll use a [Space](ttps://huggingface.co/docs/hub/spaces-overview). 
 
@@ -197,9 +197,8 @@ For our Space, we'll use Docker to run our app. The [Dockerfile](https://hugging
 
 Finally, we need to update the URL in our webhook settings to the URL of our space. We can get our Space’s “direct URL” from the contextual menu. Click on “Embed this Space” and copy the “Direct URL”.
 
-![Webook settings](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/002-auto-retrain/duplicate-space.png)
+![direct url](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/003-metadata-review/direct-url.png)
 
-TODO screenshot of direct url. 
 
 Once we have this URL, we can pass this to the `Webhook URL` parameter in our webhook settings. Our bot should now start posting reviews when monitored repositories change! 
 
