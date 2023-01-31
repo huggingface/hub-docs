@@ -174,8 +174,7 @@ async def webhook(request: Request):
     if request.method == "POST":
         if request.headers.get("X-Webhook-Secret") != KEY:
             return Response("Invalid secret", status_code=401)
-        payload = await request.body()
-        data = json.loads(payload)
+        data = await request.json()
         result = create_or_update_report(data)
         return "Webhook received!" if result else result
 ```
