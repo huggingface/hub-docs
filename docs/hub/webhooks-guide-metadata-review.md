@@ -27,9 +27,10 @@ This metadata contains essential information about your model or dataset for pot
 
 Since the metadata defined in this block is essential for potential users of our models and datasets, it is important that we complete this section. In a team or organization setting, users pushing models and datasets to the Hub may have differing familiarity with the importance of this YAML metadata block. While someone in a team could take on the responsibility of reviewing this metadata, there may instead be some automation we can do to help us with this problem. The result will be a metadata review report automatically posted or updated when a repository on the Hub changes. For our metadata quality, this system works similarly to [CI/CD](https://en.wikipedia.org/wiki/CI/CD).
 
-![Metadata review](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/003-metadata-review/metadata-report-screenshot.png)
+![Metadata review](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/
+hooks-guides/003-metadata-review/metadata-report-screenshot.png)
 
-You can also find an example review [here](https://huggingface.co/datasets/davanstrien/test_webook/discussions/1#63d932fe19aa7b8ed2718b3f). 
+You can also find an example review [here](https://huggingface.co/datasets/davanstrien/test_webhook/discussions/1#63d932fe19aa7b8ed2718b3f). 
 
 
 ## Using the Hub Client Library to create a model review card 
@@ -139,11 +140,11 @@ def create_or_update_report(data):
     `:=` is the Python Syntax for an assignment expression operator added to the Python language in version 3.8 (colloquially known as the walrus operator). People have mixed opinions on this syntax, and it doesn't change how Python evaluates the code if you don't use this. You can read more about this operator in this [Real Python article](https://realpython.com/python-walrus-operator/).
 </Tip>
 
-## Creating a webook to respond to changes on the Hub
+## Creating a webhook to respond to changes on the Hub
 
 We've now got the core functionality for creating a metadata review report for a model or dataset. The next step is to use webhooks to respond to changes automatically. 
 
-## Create a webook in your user profile
+## Create a webhook in your user profile
 
 First, create your webhook by going to https://huggingface.co/settings/webhooks.
 
@@ -167,7 +168,7 @@ This guide creates a separate user account that will post the metadata reviews.
 </Tip>
 
 
-## Create a webook listener
+## Create a webhook listener
 
 We now need some way of listening to webhook events. There are many possible tools you can use to listen to webhook events. Many existing services, such as [Zapier](https://zapier.com/) and [IFTTT](https://ifttt.com), can use webhooks to trigger actions (for example, they could post a tweet every time a model is updated). In this case, we'll implement our webhook listener using  [FastAPI](https://fastapi.tiangolo.com/). 
 
@@ -191,7 +192,7 @@ The above function will receive webhook events and creates or updates the metada
 
 ## Use Spaces to deploy our webhook app 
 
-Our [main.py](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/main.py) file contains all the code we need for our webook app. To deploy it, we'll use a [Space](ttps://huggingface.co/docs/hub/spaces-overview). 
+Our [main.py](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/main.py) file contains all the code we need for our webhook app. To deploy it, we'll use a [Space](ttps://huggingface.co/docs/hub/spaces-overview). 
 
 For our Space, we'll use Docker to run our app. The [Dockerfile](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/Dockerfile) copies our app file, installs the required dependencies, and runs the application. You can read more about Docker Spaces [here](https://huggingface.co/docs/hub/spaces-sdks-docker).
 
