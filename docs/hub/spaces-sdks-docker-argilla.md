@@ -1,6 +1,6 @@
 # Argilla on Spaces
 
-**Argilla** is an open-source, data labelling and curation tool, for highly efficient human-in-the-loop and MLOps workflows. Argilla is composed of (1) a webapp for data exploration, labelling, and curation, and (2) a Python library for building data annotation and monitoring workflows in Python. Argilla nicely integrates with the Hugging Face stack (`datasets`, `transformers`, `hub`, and `setfit`), and now it can also be deployed using the Hub's Docker Spaces. 
+**Argilla** is an open-source, data labelling and curation tool, for highly efficient human-in-the-loop and MLOps workflows. Argilla is composed of (1) a server and webapp for data exploration, labelling, and curation, and (2) a Python library for building data annotation workflows in Python. Argilla nicely integrates with the Hugging Face stack (`datasets`, `transformers`, `hub`, and `setfit`), and now it can also be deployed using the Hub's Docker Spaces. 
 
 Visit the [Argilla documentation](https://docs.argilla.io) to learn about its features and check out the [Deep Dive Guides](https://docs.argilla.io/en/latest/guides/guides.html) and [Tutorials](https://docs.argilla.io/en/latest/tutorials/tutorials.html).
 
@@ -28,7 +28,7 @@ If you want to customize the title, emojis, and colors of your space, go to "Fil
 
 ### Create your first dataset
 
-Once Argilla is running, you can use the UI with the Direct URL you'll find in the "Embed this Space" option (top right). You'll see a URL like this: `https://dvilasuero-argilla-setfit.hf.space`. This URL gives you access to a full-screen, stable Argilla instance, and is the `api_url` for interacting with Argilla Python library. 
+Once Argilla is running, you can use the UI with the Direct URL you'll find in the "Embed this Space" option (top right). You'll see a URL like this: `https://dvilasuero-argilla-setfit.hf.space`. This URL gives you access to a full-screen, stable Argilla instance, and is the `api_url` for reading and writing datasets using the Argilla Python library.
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-embed-space.png"/>
