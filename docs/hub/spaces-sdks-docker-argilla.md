@@ -125,10 +125,6 @@ If you have improvement suggestions or need specific support, please join [Argil
 
 The Space template provides a way to set up different **optional settings** focusing on securing your Argilla Space.
 
-<Tip>
-For quick experiments and usage, you can completely skip this step. If you do this, the default values from the [basic Argilla setup](https://docs.argilla.io/en/latest/getting_started/installation/installation.html) will be kept.
-</Tip>
-
 In order to set up these secrets, you need to go to the Settings tab on your newly created Space and make sure to remember these values for later use.
 
 By default the Argilla Space has two users: `team` and `argilla`. The username `team` corresponds to the root user, who can upload datasets and access any workspace on your Argilla Space. The username `argilla` corresponds to a normal user, who has access to the `team` workspace and its own workspace called `argilla`. 
