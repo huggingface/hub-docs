@@ -36,7 +36,8 @@ The `huggingface_hub` is a Python library that allows you to interact with the H
 
 ```python
 from huggingface_hub import DatasetCard, ModelCard
-from huggingface_hub.utils import EntryNotFoundError 
+from huggingface_hub.utils import EntryNotFoundError
+
 
 def load_repo_card_metadata(repo_type, repo_name):
     if repo_type == "dataset":
@@ -54,7 +55,7 @@ def load_repo_card_metadata(repo_type, repo_name):
 This function will return a Python Dictionary containing the metadata associated with the repository (or an empty dictionary if there is no metadata).
 
 ```python
-{'license': 'afl-3.0'}
+{"license": "afl-3.0"}
 ```
 
 ## Creating our metadata review report
@@ -78,13 +79,15 @@ def create_metadata_key_dict(card_data, repo_type: str):
 This function will return a dictionary containing keys representing the metadata fields we require for our model or dataset. The dictionary values will either include the metadata entered for that field or `None` if that metadata field is missing in the `YAML`. 
 
 ```python
-{'tags': None,
- 'license': 'afl-3.0',
- 'library_name': None,
- 'datasets': None,
- 'metrics': None,
- 'co2': None,
- 'pipeline_tag': None}
+{
+    "tags": None,
+    "license": "afl-3.0",
+    "library_name": None,
+    "datasets": None,
+    "metrics": None,
+    "co2": None,
+    "pipeline_tag": None,
+}
 ```
 
 Once we have this dictionary, we can create our metadata report. In the interest of brevity, we won't include the complete code here, but the Hugging Face Spaces [repository](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/main.py) for this webhook contains the full code.
@@ -174,6 +177,7 @@ We now need some way of listening to webhook events. There are many possible too
 
 ```python
 from fastapi import FastAPI
+
 
 @app.post("/webhook")
 async def webhook(request: Request):
