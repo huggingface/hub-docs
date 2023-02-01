@@ -16,6 +16,7 @@ export enum ModelLibrary {
 	"keras"                  = "Keras",
 	"k2"                     = "K2",
 	"nemo"                   = "NeMo",
+	"open_clip"              = "OpenCLIP",
 	"paddlenlp"              = "PaddleNLP",
 	"pyannote-audio"         = "pyannote.audio",
 	"sample-factory"         = "Sample Factory",
@@ -157,13 +158,32 @@ const keras = (model: ModelData) =>
 model = from_pretrained_keras("${model.id}")
 `;
 
+const open_clip = (model: ModelData) =>
+	`import open_clip
+
+model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms('hf-hub:${model.id}')
+tokenizer = open_clip.get_tokenizer('hf-hub:${model.id}')`;
+
+
+
 const paddlenlp = (model: ModelData) => {
-	return [
-	  `from paddlenlp.transformers import AutoModel, AutoTokenizer`,
-	  "",
-	  `tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`, 
-	  `model = AutoModel.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
-        ].join("\n");
+	if (model.config?.architectures?.[0]) {
+		const architecture = model.config.architectures[0];
+		return [
+			`from paddlenlp.transformers import AutoTokenizer, ${architecture}`,
+			"",
+			`tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
+			`model = ${architecture}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
+		].join("\n");
+	} else {
+		return [
+			`# ⚠️ Type of model unknown`,
+			`from paddlenlp.transformers import AutoTokenizer, AutoModel`,
+			"",
+			`tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
+			`model = AutoModel.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
+		].join("\n");
+	}
 };
 
 const pyannote_audio_pipeline = (model: ModelData) =>
@@ -240,20 +260,32 @@ model = timm.create_model("hf_hub:${model.id}", pretrained=True)`;
 const sklearn = (model: ModelData) => {
 	if (model.tags?.includes("skops")) {
 		const skopsmodelFile = model.config?.sklearn?.filename;
-		return `from skops.hub_utils import download
+		const skopssaveFormat = model.config?.sklearn?.model_format;
+		if (skopssaveFormat === "pickle") {
+			return `import joblib
+from skops.hub_utils import download
+download("${model.id}", "path_to_folder")
+model = joblib.load(
+	"${skopsmodelFile}"
+)
+# only load pickle files from sources you trust
+# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
+		} else {
+			return `from skops.hub_utils import download
 from skops.io import load
-
 download("${model.id}", "path_to_folder")
 # make sure model file is in skops format
 # if model is a pickle file, make sure it's from a source you trust
 model = load("path_to_folder/${skopsmodelFile}")`;
+		}
 	} else {
 		return `from huggingface_hub import hf_hub_download
 import joblib
-
 model = joblib.load(
 	hf_hub_download("${model.id}", "sklearn_model.joblib")
-	)`;
+)
+# only load pickle files from sources you trust
+# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
 	}
 };
 
@@ -452,6 +484,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoName: "NeMo",
 		repoUrl:  "https://github.com/NVIDIA/NeMo",
 		snippet:  nemo,
+	},
+	"open_clip": {
+		btnLabel: "OpenCLIP",
+		repoName: "OpenCLIP",
+		repoUrl:  "https://github.com/mlfoundations/open_clip",
+		snippet:  open_clip,
 	},
 	"paddlenlp": {
 		btnLabel: "paddlenlp",

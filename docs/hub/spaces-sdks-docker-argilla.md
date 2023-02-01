@@ -26,7 +26,6 @@ You'll see a mention to the need of setting up environment variables (`API_KEY`)
 
 Once you have duplicated the template space, the space will have the `Building` status, once the status says `Running` your space is ready to be used. If you don't see the Argilla login UI refresh the page.
 
-
 For quick experimentation, you can jump directly into the "Create your first dataset" section. If you want to add some access restricitions keep reading the "Create your first dataset" section.
 
 <Tip>
@@ -82,11 +81,7 @@ Let's see how to create our first dataset for labelling. From this point on, you
 If you don't want to use Colab or install anything on your local machine, you can [duplicate the Jupyter Lab Space]() and run all your code there.
 </Tip>
 
-<div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-embed-space.png"/>
-</div>
-
-First, we need to pip install `datasets` and `argilla` on Colab or your local machine:
+First we need to pip install `datasets` and `argilla` on Colab or your local machine:
 
 ```bash
 pip install datasets argilla

@@ -56,7 +56,16 @@ const taskData: TaskData = {
 			id:          "scikit-learn/cancer-prediction-trees",
 		},
 	],
-	spaces:  [],
+	spaces:  [
+		{
+			description: "An application that can predict defective products on a production line.",
+			id:          "scikit-learn/tabular-playground",
+		},
+		{
+			description: "An application that compares various tabular classification techniques on different datasets.",
+			id:          "scikit-learn/classification",
+		},
+	],
 	summary:
 		"Tabular classification is the task of classifying a target category (a group) based on set of attributes.",
 	widgetModels: ["scikit-learn/tabular-playground"],

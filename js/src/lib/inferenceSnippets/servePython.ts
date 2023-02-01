@@ -24,8 +24,8 @@ export const snippetFile = (model: ModelData): string =>
 	`def query(filename):
     with open(filename, "rb") as f:
         data = f.read()
-    response = requests.request("POST", API_URL, headers=headers, data=data)
-    return json.loads(response.content.decode("utf-8"))
+    response = requests.post(API_URL, headers=headers, data=data)
+    return response.json()
 
 output = query(${getModelInputSnippet(model)})`;
 

@@ -41,7 +41,16 @@ const taskData: TaskDataCustom = {
 			id:          "speechbrain/metricgan-plus-voicebank",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "An application that can separate speech.",
+			id:          "akhaliq/speechbrain-speech-seperation",
+		},
+		{
+			description: "An application that can translate from speech to speech between Hokkien and English.",
+			id:          "facebook/Hokkien_Translation",
+		},
+	],
 	summary:      "Audio-to-Audio is a family of tasks in which the input is an audio and the output is one or multiple generated audios. Some example tasks are speech enhancement and source separation.",
 	widgetModels: ["speechbrain/sepformer-wham"],
 	youtubeId:    "iohj7nCCYoM",

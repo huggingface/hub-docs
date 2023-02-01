@@ -50,7 +50,20 @@ const taskData: TaskDataCustom = {
 			id:          "microsoft/beit-large-finetuned-ade-640-640",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "A semantic segmentation application that can predict unseen instances out of the box.",
+			id:          "facebook/ov-seg",
+		},
+		{
+			description: "A semantic segmentation application that predicts human silhouettes.",
+			id:          "keras-io/Human-Part-Segmentation",
+		},
+		{
+			description: "An instance segmentation application to predict neuronal cell types from microscopy images.",
+			id:          "rashmi/sartorius-cell-instance-segmentation",
+		},
+	],
 	summary:      "Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.",
 	widgetModels: ["facebook/detr-resnet-50-panoptic"],
 	youtubeId:    "dKE8SIt9C-w",
