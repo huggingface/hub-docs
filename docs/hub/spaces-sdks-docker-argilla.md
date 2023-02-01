@@ -41,7 +41,7 @@ You'll see the login screen where you need to use either argilla or team with th
 
 If this is working, you are ready to start using the Argilla Python client from a Python IDE such as Colab, Jupyter, or VS Code, to upload your own datasets.
 
-Let's see how to create our first dataset for labelling. From this point on, you can follow the tutorial using this end-to-end [tutorial using Colab or Jupyter](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
+Let's see how to create our first dataset for labelling. From this point on, you can also follow this end-to-end [tutorial with Colab or downloading the Jupyter Notebook](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
 
 First we need to pip install `datasets` and `argilla` on Colab or your local machine:
 
