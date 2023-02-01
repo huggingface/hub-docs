@@ -156,7 +156,7 @@ Your webhook will look like this:
 ![webhook settings](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/003-metadata-review/webhook-settings.png)
 
 
-## Create a new "Bot" user profile
+## Create a new Bot user profile
 
 This guide creates a separate user account that will post the metadata reviews. 
 
