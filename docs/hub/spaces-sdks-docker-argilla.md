@@ -1,4 +1,4 @@
-# Argilla on Spaces
+a# Argilla on Spaces
 
 **Argilla** is an open-source, data labelling and curation tool, for highly efficient human-in-the-loop and MLOps workflows. Argilla is composed of (1) a webapp for data exploration, labelling, and curation, and (2) a Python library for building data annotation and monitoring workflows in Python. Argilla nicely integrates with the Hugging Face stack (`datasets`, `transformers`, `hub`, and `setfit`), and now it can also be deployed using the Hub's Docker Spaces. 
 
@@ -18,18 +18,12 @@ The easiest way to get started is by [duplicating the Argilla Docker Template](h
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-duplicate-space.png"/>
 </div>
 
-<Tip>
-Although you can duplicate other existing Argilla Spaces, we recommend starting from the official [Argilla Docker Template](https://huggingface.co/spaces/argilla/template-space-docker?duplicate=true).
-
-You'll see a mention to the need of setting up environment variables (`API_KEY`) by adding a secret to your Space but will see this in a second.
-</Tip>
-
 Once you have duplicated the template space, the space will have the `Building` status, once the status says `Running` your space is ready to be used. If you don't see the Argilla login UI refresh the page.
 
 For quick experimentation, you can jump directly into the "Create your first dataset" section. If you want to add some access restricitions keep reading the "Setting up secret environment variables" at the end of this document.
 
 <Tip>
-If you want to customize the title, emojis, and colors of your Space, go to "Files and Versions" and modify the `README.md` file and edit the metadata section.
+If you want to customize the title, emojis, and colors of your Space, go to "Files and Versions" and modify the README.md file and edit the metadata section.
 </Tip>
 
 ### Create your first dataset
@@ -37,16 +31,12 @@ If you want to customize the title, emojis, and colors of your Space, go to "Fil
 Once your Argilla Space is running, you can start interacting with the it using the Direct URL you'll find in the "Embed this Space" option (top right). Let's say it's `https://dvilasuero-argilla-setfit.hf.space`. This URL will give you access to a full-screen, stable Argilla app, but will also serve as an endpoint for interacting with Argilla Python library. 
 
 <Tip>
-You'll see the login screen where you need to use either `argilla` or `team` with the default passwords or the ones you've set up using secrets. If you get a `500` error when introducing the credentials, make sure you have correctly hashed the password before adding it to the secret environment variable.
+You'll see the login screen where you need to use either argilla or team with the default passwords or the ones you've set up using secrets. If you get a `500` error when introducing the credentials, make sure you have correctly introduce the password.
 </Tip>
 
 If this is working, you are ready to start using the Argilla Python client from a Python IDE such as Colab, Jupyter, or VS Code, to upload your own datasets.
 
 Let's see how to create our first dataset for labelling. From this point on, you can follow the tutorial using this end-to-end [tutorial using Colab or Jupyter](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
-
-<Tip>
-If you don't want to use Colab or install anything on your local machine, you can [duplicate the Jupyter Lab Space]() and run all your code there.
-</Tip>
 
 First we need to pip install `datasets` and `argilla` on Colab or your local machine:
 
@@ -146,7 +136,7 @@ Currently, these user names cannot be configured, but their passwords and API ke
 
 - `TEAM_API_KEY`: This sets the root user's API key. The API key you choose can be any string of your choice and you can check an online generator if you like.
 
-- `TEAM_PASSWORD`: This sets a custom password for login into the app with the `argilla` username. The default password is `1234`. By setting up a custom password you can use your own password to login into the app.
+- `TEAM_PASSWORD`: This sets a custom password for login into the app with the `team` username. The default password is `1234`. By setting up a custom password you can use your own password to login into the app.
 
 The combination of these secret variables gives you the following setup options:
 
