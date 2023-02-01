@@ -1,4 +1,4 @@
-a# Argilla on Spaces
+# Argilla on Spaces
 
 **Argilla** is an open-source, data labelling and curation tool, for highly efficient human-in-the-loop and MLOps workflows. Argilla is composed of (1) a webapp for data exploration, labelling, and curation, and (2) a Python library for building data annotation and monitoring workflows in Python. Argilla nicely integrates with the Hugging Face stack (`datasets`, `transformers`, `hub`, and `setfit`), and now it can also be deployed using the Hub's Docker Spaces. 
 
