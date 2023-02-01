@@ -30,8 +30,13 @@ If you want to customize the title, emojis, and colors of your Space, go to "Fil
 
 Once your Argilla Space is running, you can start interacting with the it using the Direct URL you'll find in the "Embed this Space" option (top right). Let's say it's `https://dvilasuero-argilla-setfit.hf.space`. This URL will give you access to a full-screen, stable Argilla app, but will also serve as an endpoint for interacting with Argilla Python library. 
 
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-embed-space.png"/>
+</div>
+
+
 <Tip>
-You'll see the login screen where you need to use either argilla or team with the default passwords or the ones you've set up using secrets. If you get a `500` error when introducing the credentials, make sure you have correctly introduce the password.
+You'll see the login screen where you need to use either argilla or team with the default passwords (`1234`) or the ones you've set up using secrets. If you get a `500` error when introducing the credentials, make sure you have correctly introduce the password.
 </Tip>
 
 If this is working, you are ready to start using the Argilla Python client from a Python IDE such as Colab, Jupyter, or VS Code, to upload your own datasets.
