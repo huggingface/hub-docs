@@ -26,7 +26,13 @@ You'll see a mention to the need of setting up environment variables (`API_KEY`)
 
 Once you have duplicated the template space, the space will have the `Building` status, once the status says `Running` your space is ready to be used. If you don't see the Argilla login UI refresh the page.
 
+
 For quick experimentation, you can jump directly into the "Create your first dataset" section. If you want to add some access restricitions keep reading the "Create your first dataset" section.
+
+<Tip>
+If you want to customize the title, emojis, and colors of your Space, go to "Files and Versions" and modify the `README.md` file and edit the metadata section.
+</Tip>
+
 ### Setting up secret environment variables
 
 The Space template provides a way to set up different **optional settings** focusing on securing your Argilla Space.
