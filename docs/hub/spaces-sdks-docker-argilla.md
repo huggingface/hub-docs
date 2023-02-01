@@ -8,27 +8,27 @@ In the next sections, you'll learn to deploy your own Argilla app and use it for
 
 ## Your first Argilla Space
 
-In this section, you'll learn to deploy an Argilla Docker Space and use it for data annotation and training a sentiment classifier with [SetFit](https://github.com/huggingface/setfit/), a few-shot learning library.
+In this section, you'll learn to deploy an Argilla Space and use it for data annotation and training a sentiment classifier with [SetFit](https://github.com/huggingface/setfit/), an amazing few-shot learning library.
 
 ### Duplicate the Argilla Space Template and create your Space
 
-The easiest way to get started is by [duplicating the Argilla Docker Template](https://huggingface.co/spaces/argilla/argilla-template-space?duplicate=true). You need to define the **Owner** (your personal account or an organization you are part of), a **Space name**, and the **Visibility**, which we recommend to set up to Public if you want to interact with the Argilla app from the outside. Once you are all set, click "Duplicate Space". 
+The easiest way to get started is by [duplicating the Argilla Docker Template](https://huggingface.co/spaces/argilla/argilla-template-space?duplicate=true). You need to define the **Owner** (your personal account or an organization), a **Space name**, and the **Visibility**. To interact with the Argilla app with Python, you need to setup the visibility to `Public`. Once you are all set, click "Duplicate Space". 
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-duplicate-space.png"/>
 </div>
 
-Once you have duplicated the template space, the space will have the `Building` status, once the status says `Running` your space is ready to be used. If you don't see the Argilla login UI refresh the page.
+Once you have duplicated the space, you'll see the `Building` status and once it becomes `Running` your space is ready to go. If you don't see the Argilla login UI refresh the page.
 
-For quick experimentation, you can jump directly into the "Create your first dataset" section. If you want to add some access restricitions keep reading the "Setting up secret environment variables" at the end of this document.
+For quick experimentation, you can jump directly into the next section. If you want to add access restrictions, go to the "Setting up secret environment variables" at the end of this document. Setting up secret variables is recommended for longer-term usage.
 
 <Tip>
-If you want to customize the title, emojis, and colors of your Space, go to "Files and Versions" and modify the README.md file and edit the metadata section.
+If you want to customize the title, emojis, and colors of your space, go to "Files and Versions" and edit the metadata of your README.md file.
 </Tip>
 
 ### Create your first dataset
 
-Once your Argilla Space is running, you can start interacting with the it using the Direct URL you'll find in the "Embed this Space" option (top right). Let's say it's `https://dvilasuero-argilla-setfit.hf.space`. This URL will give you access to a full-screen, stable Argilla app, but will also serve as an endpoint for interacting with Argilla Python library. 
+Once Argilla is running, you can use the UI with the Direct URL you'll find in the "Embed this Space" option (top right). You'll see a URL like this: `https://dvilasuero-argilla-setfit.hf.space`. This URL gives you access to a full-screen, stable Argilla instance, and is the `api_url` for interacting with Argilla Python library. 
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-embed-space.png"/>
@@ -36,12 +36,14 @@ Once your Argilla Space is running, you can start interacting with the it using 
 
 
 <Tip>
-You'll see the login screen where you need to use either argilla or team with the default passwords (`1234`) or the ones you've set up using secrets. If you get a `500` error when introducing the credentials, make sure you have correctly introduce the password.
+You'll see the login screen where you need to use either argilla or team with the default passwords (1234). Remember you can change the passwords using secret variables. If you get a 500 error when introducing the credentials, make sure you have correctly introduce the password.
 </Tip>
 
-If this is working, you are ready to start using the Argilla Python client from a Python IDE such as Colab, Jupyter, or VS Code, to upload your own datasets.
+If everything went well, you are ready to use the Argilla Python client from an IDE such as Colab, Jupyter, or VS Code.
 
-Let's see how to create our first dataset for labelling. From this point on, you can also follow this end-to-end [tutorial with Colab or downloading the Jupyter Notebook](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
+If you want to a quick step-by-step example, keep reading. If you want an end-to-end tutorial, go to this [tutorial and use Colab or Jupyter](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
+
+Let's create our first dataset for labelling! 
 
 First we need to pip install `datasets` and `argilla` on Colab or your local machine:
 
@@ -49,7 +51,7 @@ First we need to pip install `datasets` and `argilla` on Colab or your local mac
 pip install datasets argilla
 ```
 
-Then, you can read the example dataset using the `datasets` library (this dataset is just a CSV file uploaded to the Hub using the drag and drop feature).
+Then, you can read the example dataset using the `datasets` library. This dataset is a CSV file uploaded to the Hub using the drag and drop feature.
 
 ```python
 from datasets import load_dataset
@@ -57,19 +59,19 @@ from datasets import load_dataset
 dataset = load_dataset("dvilasuero/banking_app", split="train").shuffle()
 ```
 
-Now you can create your first dataset by logging it into Argilla using your endpoint URL and (optionally) `API_KEY`:
+You can create your first dataset by logging it into Argilla using your endpoint URL:
 
 ```python
 import argilla as rg
 
 # connect to your app endpoint (uses default team API key)
-rg.init(api_url="https://dvilasuero-argilla-setfit.hf.space", api_key="team.apikey")
+rg.init(api_url="[your_space_url]", api_key="team.apikey")
 
 # transform dataset into Argilla's format and log it
 rg.log(rg.read_datasets(dataset, task="TextClassification"), name="bankingapp_sentiment")
 ```
 
-If everything went well, you now have a dataset available from the Argilla UI to start browsing and labelling. In the code above, we've used one of the many integrations with Hugging Face libraries, which let you [read hundreds of datasets](https://docs.argilla.io/en/latest/guides/features/datasets.html#Importing-a-Dataset) available on the Hub.
+Congrats! You now have a dataset available from the Argilla UI to start browsing and labelling. In the code above, we've used one of the many integrations with Hugging Face libraries, which let you [read hundreds of datasets](https://docs.argilla.io/en/latest/guides/features/datasets.html#Importing-a-Dataset) available on the Hub.
 
 ### Data labelling and model training
 
@@ -125,11 +127,11 @@ If you have improvement suggestions or need specific support, please join [Argil
 
 The Space template provides a way to set up different **optional settings** focusing on securing your Argilla Space.
 
-In order to set up these secrets, you need to go to the Settings tab on your newly created Space and make sure to remember these values for later use.
+To set up these secrets, you can go to the Settings tab on your created Space. Make sure to save these values somewhere for later use.
 
-By default the Argilla Space has two users: `team` and `argilla`. The username `team` corresponds to the root user, who can upload datasets and access any workspace on your Argilla Space. The username `argilla` corresponds to a normal user, who has access to the `team` workspace and its own workspace called `argilla`. 
+The template space has two users: `team` and `argilla`. The username `team` corresponds to the root user, who can upload datasets and access any workspace within your Argilla Space. The username `argilla` is a normal user with access to the `team` workspace and its own workspace called `argilla`. 
 
-Currently, these user names cannot be configured, but their passwords and API keys to upload, read, update, and delete datasets can be configured. The available secrets are following:
+Currently, these user names can't be configured. The passwords and API keys to upload, read, update, and delete datasets can be configured using the following secrets:
 
 - `ARGILLA_API_KEY`: Argilla provides a Python library to interact with the app (read, write, and update data, log model predictions, etc.). If you don't set this variable, the library and your app will use the default API key. If you want to secure your Space for reading and writing data, we recommend you to set up this variable. The API key you choose can be any string of your choice and you can check an online generator if you like.
 
