@@ -5,7 +5,7 @@ const taskData: TaskDataCustom = {
 		{
 			description: "Wikipedia dataset containing cleaned articles of all languages. Can be used to train `feature-extraction` models.",
 			id:"wikipedia",
-		}
+		},
 	],
 	demo: {
 		inputs: [
@@ -52,7 +52,7 @@ const taskData: TaskDataCustom = {
 
 	],
 	summary:      "Feature extraction refers to the process of transforming raw data into numerical features that can be processed while preserving the information in the original dataset.",
-	widgetModels: ["facebook/bart-base"]
+	widgetModels: ["facebook/bart-base"],
 };
 
 export default taskData;
