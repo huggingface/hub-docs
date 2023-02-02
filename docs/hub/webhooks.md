@@ -6,33 +6,35 @@
 
 </Tip>
 
-Webhooks are a foundation for MLOps related features. You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces.
+Webhooks are a foundation for MLOps-related features. They allow you to listen for new changes on specific repos or to all repos belonging to particular set of users/organizations (not just your repos, but any repo).
 
-They allow you to listen for new changes on specific repos or to all repos belonging to particular users/organizations (not just your repos, but any repo).
+You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces (and much more!).
 
-The documentation for webhooks is below – or you can also browse our **guides** showcasing a few possible use cases of Webhooks:
-- [to automatically fine-tune a new model whenever a dataset gets updated](./webhooks-guide-auto-retrain)
-- [to create a discussion bot on the Hub, using a LLM API](./webhooks-guide-discussion-bot)
+
+The documentation for Webhooks is below – or you can also browse our **guides** showcasing a few possible use cases of Webhooks:
+- [Fine-tune a new model whenever a dataset gets updated (Python)](./webhooks-guide-auto-retrain)
+- [Create a discussion bot on the Hub, using a LLM API (NodeJS)](./webhooks-guide-discussion-bot)
+- [Create metadata quality reports (Python)](./webhooks-guide-metadata-review.md)
 - and more to come…
 
-## Create your webhook
+## Create your Webhook
 
-You can create new webhooks and edit existing ones in your webhooks [settings](https://huggingface.co/settings/webhooks):
+You can create new Webhooks and edit existing ones in your Webhooks [settings](https://huggingface.co/settings/webhooks):
 
 ![Settings of an individual webhook](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-settings.png)
 
-Webhooks can watch for repos updates, Pull requests, discussions, and new comments. It's even possible to create a Space to react to your webhooks!
+Webhooks can watch for repos updates, Pull Requests, discussions, and new comments. It's even possible to create a Space to react to your Webhooks!
 
 ## Webhook Payloads
 
-After registering a webhook, you will be notified of new events via an `HTTP POST` call on the specified target URL. The payload is encoded in JSON.
+After registering a Webhook, you will be notified of new events via an `HTTP POST` call on the specified target URL. The payload is encoded in JSON.
 
 You can view the history of payloads sent in the activity tab of the webhook settings page, it's also possible to replay past webhooks for easier debugging:
 
 
 ![image.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-activity.png)
 
-As an example, here is the full payload when a Pull request is opened:
+As an example, here is the full payload when a Pull Request is opened:
 
 ```json
 {
@@ -97,9 +99,9 @@ It has two sub-properties: `event.action` and `event.scope`.
 `event.scope` will be one of the following values:
 
 - `"repo"` - Global events on repos. Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`, `"move"`.
-- `"repo.content"` - Events on the repo's content, such as new commits or tags. It triggers on new Pull requests as well due to the newly created reference/commit. The associated `action` is always `"update"`.
+- `"repo.content"` - Events on the repo's content, such as new commits or tags. It triggers on new Pull Requests as well due to the newly created reference/commit. The associated `action` is always `"update"`.
 - `"repo.config"` - Events on the config: update Space secrets, update settings, update DOIs, disabled or not, etc. The associated `action` is always `"update"`.
-- `"discussion"` - Creating a discussion or Pull request, updating the title or status, and merging.  Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`.
+- `"discussion"` - Creating a discussion or Pull Request, updating the title or status, and merging. Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`.
 - `"discussion.comment"` - Creating, updating, and hiding a comment. Possible values for the associated `action`: `"create"`, `"update"`.
 
 More scopes can be added in the future. To handle unknown events, your webhook handler can consider any action on a narrowed scope to be an `"update"` action on the broader scope.
@@ -108,7 +110,7 @@ For example, if the `"repo.config.dois"` scope is added in the future, any event
 
 ### Repo
 
-In the current version of webhooks, the top level property `repo` is always specified, as events can always be associated to a repo. For example, consider the following value:
+In the current version of webhooks, the top-level property `repo` is always specified, as events can always be associated with a repo. For example, consider the following value:
 
 ```json
 "repo": {
@@ -133,9 +135,9 @@ In the current version of webhooks, the top level property `repo` is always spec
 
 `repo.headSha` is the sha of the latest commit on the repo's `main` branch. It is only sent when `event.scope` starts with `"repo"`, not on community events like discussions and comments.
 
-### Discussion and Pull Requests
+### Discussions and Pull Requests
 
-The top-level property `discussion` is specified on community events (discussions and Pull requests). The `discussion.isPullRequest` property is a boolean indicating if the discussion is also a Pull request (on the Hub, a PR is a special type of discussion). Here is an example value:
+The top-level property `discussion` is specified on community events (discussions and Pull Requests). The `discussion.isPullRequest` property is a boolean indicating if the discussion is also a Pull Request (on the Hub, a PR is a special type of discussion). Here is an example value:
 
 ```json
 "discussion": {
@@ -177,37 +179,37 @@ The top level property `comment` is specified when a comment is created (includi
 
 ## Webhook secret
 
-Setting a webhook secret is useful to make sure payloads sent to your webhook handler URL are actually from Hugging Face.
+Setting a Webhook secret is useful to make sure payloads sent to your Webhook handler URL are actually from Hugging Face.
 
-If you set a secret for your webhook, it will be sent along as an `X-Webhook-Secret` HTTP header on every request. Only ASCII characters are supported.
+If you set a secret for your Webhook, it will be sent along as an `X-Webhook-Secret` HTTP header on every request. Only ASCII characters are supported.
 
 <Tip>
 It's also possible to add the secret directly in the handler URL. For example, setting it as a query parameter: https://example.com/webhook?secret=XXX.
 
-This can be helpful if accessing the HTTP headers of the request is complicated for your webhook handler.
+This can be helpful if accessing the HTTP headers of the request is complicated for your Webhook handler.
 </Tip>
 
 ## Rate limiting
 
-Each webhook is limited to 1,000 triggers per 24 hours. You can view your usage in the Webhook settings page in the "Activity" tab.
+Each Webhook is limited to 1,000 triggers per 24 hours. You can view your usage in the Webhook settings page in the "Activity" tab.
 
-If you need to increase the number of triggers for your webhook, contact us at website@huggingface.co.
+If you need to increase the number of triggers for your Webhook, contact us at website@huggingface.co.
 
-## Developing your webhooks
+## Developing your Webhooks
 
-In case you do not have an HTTPS endpoint/URL to use, you can try out public tools for webhook testing. These tools act as catch-all (captures all requests) sent to them and gives 200 OK status code. [Beeceptor](https://beeceptor.com/) is one such tool that you can use to create a temporary HTTP endpoint and review the incoming payload. Another such tool is [Webhook.site](https://webhook.site/).
+If you do not have an HTTPS endpoint/URL, you can try out public tools for webhook testing. These tools act as catch-all (capture all requests) sent to them and give 200 OK status code. [Beeceptor](https://beeceptor.com/) is one tool you can use to create a temporary HTTP endpoint and review the incoming payload. Another such tool is [Webhook.site](https://webhook.site/).
 
-Additionally, you can route a real webhook payload to the code running locally on your machine during development. This is a great way to test and debug for faster integrations. You can do this by exposing your localhost port to the Internet. To be able to go this path, you can use [ngrok](https://ngrok.com/) or [localtunnel](https://theboroer.github.io/localtunnel-www/).
+Additionally, you can route a real Webhook payload to the code running locally on your machine during development. This is a great way to test and debug for faster integrations. You can do this by exposing your localhost port to the Internet. To be able to go this path, you can use [ngrok](https://ngrok.com/) or [localtunnel](https://theboroer.github.io/localtunnel-www/).
 
-## Debugging webhooks
+## Debugging Webhooks
 
-You can easily find recently generated events for your webhooks. Open the activity tab for your webhook, there you will see the list of recent events.
+You can easily find recently generated events for your webhooks. Open the activity tab for your webhook. There you will see the list of recent events.
 
- ![image.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-payload.png)
+![image.png](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-payload.png)
  
-Here you can review the HTTP status code and the payload of the generated events. Additionally, you can replay these events by clicking on the `replay` button! 
+Here you can review the HTTP status code and the payload of the generated events. Additionally, you can replay these events by clicking on the `Replay` button! 
 
-Note: When changing the target URL or secret of a webhook, replaying an event will send the payload to the updated URL.
+Note: When changing the target URL or secret of a Webhook, replaying an event will send the payload to the updated URL.
 
 ## FAQ
 
