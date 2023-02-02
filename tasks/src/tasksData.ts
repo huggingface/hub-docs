@@ -6,6 +6,7 @@ import audioToAudio from "./audio-to-audio/data";
 import automaticSpeechRecognition from "./automatic-speech-recognition/data";
 import conversational from "./conversational/data";
 import documentQuestionAnswering from "./document-question-answering/data";
+import featureExtraction from "./feature-extraction/data";
 import fillMask from "./fill-mask/data";
 import imageClassification from "./image-classification/data";
 import imageToImage from "./image-to-image/data";
@@ -44,7 +45,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"conversational":                 getData("conversational", conversational),
 	"depth-estimation":               getData("depth-estimation", depthEstimation),
 	"document-question-answering":    getData("document-question-answering", documentQuestionAnswering),
-	"feature-extraction":             getData("feature-extraction"),
+	"feature-extraction":             getData("feature-extraction", featureExtraction),
 	"fill-mask":                      getData("fill-mask", fillMask),
 	"graph-ml": 			  undefined,
 	"image-classification":           getData("image-classification", imageClassification),

@@ -19,7 +19,6 @@ export type TaskDemoEntry = {
 	filename: string;
 	type: "img";
 } | {
-	label : string,
 	table: string[][];
 	type: "tabular";
 } | {
