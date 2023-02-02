@@ -13,6 +13,7 @@ const taskData: TaskData = {
 	demo: {
 		inputs: [
 			{
+				label: "Dataset",
 				table: [
 					["Car Name", "Horsepower", "Weight"],
 					["ford torino", "140", "3,449"],
