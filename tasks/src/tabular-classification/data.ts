@@ -13,7 +13,6 @@ const taskData: TaskData = {
 	demo: {
 		inputs: [
 			{
-				label: "Dataset",
 				table: [
 					["Glucose", "Blood Pressure ", "Skin Thickness", "Insulin", "BMI"],
 					["148", "72", "35", "0", "33.6"],

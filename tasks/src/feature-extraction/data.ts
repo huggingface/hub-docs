@@ -19,7 +19,6 @@ const taskData: TaskDataCustom = {
 		],
 		outputs: [
 			{	
-				label: "Embeddings",
 				table: [
 					["Dimension 1", "Dimension 2", "Dimension 3"],
 					["2.583383083343506", "2.757075071334839", "0.9023529887199402"],
