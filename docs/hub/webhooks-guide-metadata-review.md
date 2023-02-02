@@ -27,8 +27,7 @@ This metadata contains essential information about your model or dataset for pot
 
 Since the metadata defined in this block is essential for potential users of our models and datasets, it is important that we complete this section. In a team or organization setting, users pushing models and datasets to the Hub may have differing familiarity with the importance of this YAML metadata block. While someone in a team could take on the responsibility of reviewing this metadata, there may instead be some automation we can do to help us with this problem. The result will be a metadata review report automatically posted or updated when a repository on the Hub changes. For our metadata quality, this system works similarly to [CI/CD](https://en.wikipedia.org/wiki/CI/CD).
 
-![Metadata review](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/
-hooks-guides/003-metadata-review/metadata-report-screenshot.png)
+![Metadata review](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/003-metadata-review/metadata-report-screenshot.png)
 
 You can also find an example review [here](https://huggingface.co/datasets/davanstrien/test_webhook/discussions/1#63d932fe19aa7b8ed2718b3f). 
 
