@@ -241,10 +241,13 @@
 			{/if}
 			{#if isBloomLoginRequired}
 				<div class="alert alert-warning mt-2">
-					Please <span class="underline cursor-pointer" on:click={redirectLogin}
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
+					Please
+					<span class="underline cursor-pointer" on:click={redirectLogin}
 						>login</span
 					>
 					or
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<span class="underline cursor-pointer" on:click={redirectJoin}
 						>register</span
 					> to try BLOOM 🌸
