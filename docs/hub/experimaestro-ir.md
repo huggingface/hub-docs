@@ -35,7 +35,7 @@ for more details.
 from xpmir.models import AutoModel
 
 # Model that can be re-used in experiments
-model = AutoModel.load_from_hf_hub("xpmir/monobert-test")
+model = AutoModel.load_from_hf_hub("xpmir/monobert")
 ```
 
 ### Pure inference mode
@@ -46,7 +46,7 @@ In this mode, the model can be used right away to score documents
 from xpmir.models import AutoModel
 
 # Use this if you want to actually use the model
-model = AutoModel.load_from_hf_hub("xpmir/monobert-test", as_instance=True)
+model = AutoModel.load_from_hf_hub("xpmir/monobert", as_instance=True)
 model.initialize(None)
 model.rsv("walgreens store sales average", "The average Walgreens salary ranges...")
 ```
