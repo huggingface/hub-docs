@@ -52,15 +52,15 @@ st.title("Hot Dog? Or Not?")
 file_name = st.file_uploader("Upload a hot dog candidate image")
 
 if file_name is not None:
-  col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-  image = Image.open(file_name)
-  col1.image(image, use_column_width=True)
-  predictions = pipeline(image)
+    image = Image.open(file_name)
+    col1.image(image, use_column_width=True)
+    predictions = pipeline(image)
 
-  col2.header("Probabilities")
-  for p in predictions:
-    col2.subheader(f"{ p['label'] }: { round(p['score'] * 100, 1)}%")
+    col2.header("Probabilities")
+    for p in predictions:
+        col2.subheader(f"{ p['label'] }: { round(p['score'] * 100, 1)}%")
 ```
 
 This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/docs/transformers/pipeline_tutorial) to load the [julien-c/hotdog-not-hotdog](https://huggingface.co/julien-c/hotdog-not-hotdog) model, which is used by the Streamlit interface. The Streamlit app will expect you to upload an image, which it'll then classify as *hot dog* or *not hot dog*. Once you've saved the code to the **app.py** file, visit the **App** tab to see your app in action!

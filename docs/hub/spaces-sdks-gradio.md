@@ -38,8 +38,8 @@ from transformers import pipeline
 pipeline = pipeline(task="image-classification", model="julien-c/hotdog-not-hotdog")
 
 def predict(image):
-  predictions = pipeline(image)
-  return {p["label"]: p["score"] for p in predictions}
+    predictions = pipeline(image)
+    return {p["label"]: p["score"] for p in predictions}
 
 gr.Interface(
     predict,

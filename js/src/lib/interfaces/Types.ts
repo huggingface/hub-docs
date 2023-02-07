@@ -602,6 +602,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		modality: "cv",
 		color:    "yellow",
 	},
+	"graph-ml": {
+		name:     "Graph Machine Learning",
+		modality: "multimodal",
+		color:    "green",
+	},
 	"other": {
 		name:           "Other",
 		modality:       "other",
@@ -619,51 +624,6 @@ export const ALL_SUBTASKS = Object.values(PIPELINE_DATA).flatMap(data => data.su
 export const ALL_SUBTASK_TYPES = ALL_SUBTASKS.map(s => s.type);
 export const ALL_SUBTASK_TYPES_SET = new Set(ALL_SUBTASK_TYPES);
 
-/*
- * Specification of pipeline tag display order.
- */
-export const PIPELINE_TAGS_DISPLAY_ORDER: Array<PipelineType> = [
-	"image-classification",
-	"translation",
-	"image-segmentation",
-	"fill-mask",
-	"automatic-speech-recognition",
-	"token-classification",
-	"sentence-similarity",
-	"audio-classification",
-	"question-answering",
-	"summarization",
-	"zero-shot-classification",
-	"table-to-text",
-	"feature-extraction",
-	"other",
-	"multiple-choice",
-	"text-classification",
-	"text-to-image",
-	"text2text-generation",
-	"zero-shot-image-classification",
-	"tabular-classification",
-	"tabular-regression",
-	"image-to-image",
-	"tabular-to-text",
-	"unconditional-image-generation",
-	"text-retrieval",
-	"text-to-speech",
-	"object-detection",
-	"video-classification",
-	"audio-to-audio",
-	"text-generation",
-	"conversational",
-	"table-question-answering",
-	"visual-question-answering",
-	"image-to-text",
-	"reinforcement-learning",
-	"robotics",
-	"voice-activity-detection",
-	"time-series-forecasting",
-	"document-question-answering",
-	"depth-estimation",
-];
 
 /**
  * Tags that are suggested inside the metadata GUI
