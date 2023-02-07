@@ -24,16 +24,20 @@ You need to define the **Owner** (your personal account or an organization), a *
 If you want to customize the title, emojis, and colors of your space, go to "Files and Versions" and edit the metadata of your README.md file.
 </Tip>
 
+
+Once you have created the space, you'll see the `Building` status and once it becomes `Running` your space is ready to go. If you don't see the Argilla login UI refresh the page.
+
+<Tip>
+You'll see the login screen where you need to use either argilla or team with the default passwords (1234). Remember you can change the passwords using secret variables. If you get a 500 error when introducing the credentials, make sure you have correctly introduce the password.
+</Tip>
+
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-duplicate-space.png"/>
 </div>
 
-Once you have duplicated the space, you'll see the `Building` status and once it becomes `Running` your space is ready to go. If you don't see the Argilla login UI refresh the page.
-
 <Tip>
 For quick experimentation, you can jump directly into the next section. If you want to add access restrictions, go to the "Setting up secret environment variables" at the end of this document. Setting up secret variables is recommended for longer-term usage.
 </Tip>
-
 
 ### Create your first dataset
 
@@ -43,12 +47,7 @@ Once Argilla is running, you can use the UI with the Direct URL you'll find in t
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-embed-space.png"/>
 </div>
 
-
-<Tip>
-You'll see the login screen where you need to use either argilla or team with the default passwords (1234). Remember you can change the passwords using secret variables. If you get a 500 error when introducing the credentials, make sure you have correctly introduce the password.
-</Tip>
-
-If everything went well, you are ready to use the Argilla Python client from an IDE such as Colab, Jupyter, or VS Code.
+You are now ready to use the Argilla Python client from an IDE such as Colab, Jupyter, or VS Code.
 
 If you want to a quick step-by-step example, keep reading. If you want an end-to-end tutorial, go to this [tutorial and use Colab or Jupyter](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
 
