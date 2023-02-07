@@ -48,7 +48,12 @@ const taskData: TaskDataCustom = {
 			id:          "microsoft/DialoGPT-large",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "A chatbot based on Blender model.",
+			id:          "EXFINITE/BlenderBot-UI",
+		},
+	],
 	summary:      "Conversational response modelling is the task of generating conversational text that is relevant, coherent and knowledgable given a prompt. These models have applications in chatbots, and as a part of voice assistants",
 	widgetModels: ["facebook/blenderbot-400M-distill"],
 	youtubeId:    "",

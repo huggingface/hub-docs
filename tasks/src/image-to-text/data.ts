@@ -49,7 +49,24 @@ const taskData: TaskDataCustom = {
 			id:          "nlpconnect/vit-gpt2-image-captioning",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "A robust image captioning application.",
+			id:          "flax-community/image-captioning",
+		},
+		{
+			description: "An application that transcribes handwritings into text.",
+			id:          "nielsr/TrOCR-handwritten",
+		},
+		{
+			description: "An application that can caption images and answer questions about a given image.",
+			id:          "Salesforce/BLIP",
+		},
+		{
+			description: "An image captioning application that demonstrates the effect of noise on captions.",
+			id:          "johko/capdec-image-captioning",
+		},
+	],
 	summary:      "",
 	widgetModels: ["nlpconnect/vit-gpt2-image-captioning"],
 	youtubeId:    "",

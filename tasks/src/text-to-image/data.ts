@@ -29,15 +29,20 @@ const taskData: TaskDataCustom = {
 	metrics: [],
 	models:  [
 		{
-			description: "A model that can be used to generate images based on text prompts. The DALL·E Mega model is the largest version of DALLE Mini.",
-			id:          "dalle-mini/dalle-mega",
-		},
-		{
 			description: "A latent text-to-image diffusion model capable of generating photo-realistic images given any text input.",
 			id:          "CompVis/stable-diffusion-v1-4",
 		},
+		{
+			description: "A model that can be used to generate images based on text prompts. The DALL·E Mega model is the largest version of DALLE Mini.",
+			id:          "dalle-mini/dalle-mega",
+		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "A powerful text-to-image application",
+			id:          "stabilityai/stable-diffusion",
+		},
+	],
 	summary:      "Generates images from input text. These models can be used to generate and modify images based on text prompts.",
 	widgetModels: ["CompVis/stable-diffusion-v1-4"],
 	youtubeId:    "",

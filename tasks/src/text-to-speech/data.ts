@@ -40,7 +40,16 @@ const taskData: TaskDataCustom = {
 			id:          "espnet/kan-bayashi_ljspeech_vits",
 		},
 	],
-	spaces:       [],
+	spaces:       [
+		{
+			description: "An application for end-to-end text-to-speech.",
+			id:          "rendchevi/nix-tts",
+		},
+		{
+			description: "An application that contains multiple speech recognition models for various languages and datasets.",
+			id:          "coqui/CoquiTTS",
+		},
+	],
 	summary:      "Text-to-Speech (TTS) is the task of generating natural sounding speech given text input. TTS models can be extended to have a single model that generates speech for multiple speakers and multiple languages.",
 	widgetModels: ["espnet/kan-bayashi_ljspeech_vits"],
 	youtubeId:    "NW62DpzJ274",
