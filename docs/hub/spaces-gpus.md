@@ -134,3 +134,7 @@ The following options are available:
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time-options.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time-options-dark.png"/>
 </div>
+
+## Pausing a Space[[pause]]
+
+You can `pause` a Space from the repo settings. A Pause Space is shutdown until manually restarted, and only the owner of a Paused Space can restart it. Paused time is not billed.
