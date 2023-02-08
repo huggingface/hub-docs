@@ -85,13 +85,14 @@ print(tf.config.list_physical_devices('GPU'))
 
 ## Billing
 
-Billing on Spaces is based on hardware usage and is computed by the minute.
+Billing on Spaces is based on hardware usage and is computed by the minute: you get charged for every minute the Space is running on the requested hardware,
+regardless of whether the Space is used or not.
 
 During a Space's lifecycle, it is only billed when the Space is actually `Running`. This means that there is no cost during either build or startup.
 
 If a running Space starts to fail, it will be automatically suspended, hence the billing will stop.
 
-Spaces running on free hardware are suspended automatically if they are not used for an extended period of time (e.g. two days). Upgraded Spaces will run indefinitely, even if there is no usage. To interrupt the billing on your Space, you can change the Hardware to CPU basic.
+Spaces running on free hardware are suspended automatically if they are not used for an extended period of time (e.g. two days). Upgraded Spaces run indefinitely by default, even if there is no usage. You can change this behavior by [setting a custom "sleep time"](#sleep-time) in the Space's settings. To interrupt the billing on your Space, you can change the Hardware to CPU basic.
 <Tip>
 Additional lifecycle control over Spaces with upgraded hardware will soon be provided such as configuration of an automated suspension of the Space after a custom delay.
 </Tip>
