@@ -20,8 +20,8 @@ Any feedback or support request related to billing is welcome at **billing at hu
 
 ## Invoicing
 
-HuggingFace paid services are billed in arrears, meaning you get charged for monthly usage at the end of each month.
+Hugging Face paid services are billed in arrears, meaning you get charged for monthly usage at the end of each month.
 
-We usually send invoices for a month around the 5th of the month after.
+We send invoices on the 5th of each month for the usage accrued the month before.
 
 You can change the billing address and name appearing on your invoice by updating your payment method from your [billing settings](https://huggingface.co/settings/billing).
