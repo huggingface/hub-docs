@@ -58,6 +58,11 @@ If your app requires secret keys or tokens, don't hard-code them inside your app
 
 If your Space needs to make any network requests, you can make requests through the standard HTTP and HTTPS ports (80 and 443) along with port 8080. Any requests going to other ports will be blocked.
 
+## Lifecycle management
+
+On free hardware, your Space will "go to sleep" and stop executing after some time being unused. If you wish your Space to run indefinitely, consider [upgrading to a paid hardware](./spaces-gpus). You can also manually pause your Space from the **Settings** tab. A paused Space stops executing until manually restarted by its owner.
+Paused time is not billed.
+
 ## Helper environment variables
 
 In some cases, you might be interested in having programmatic access to the Space author or repository name. This feature is particularly useful when you expect users to duplicate your Space. To help with this, Spaces exposes different environment variables at runtime. Given a Space [`osanseviero/i-like-flan`](https://huggingface.co/spaces/osanseviero/i-like-flan):
