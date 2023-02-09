@@ -42,10 +42,6 @@
       title: Model Card Guidebook
     - local: model-card-landscape-analysis
       title: Landscape Analysis 
-    - local: model-cards-user-studies
-      title: User studies 
-    - local: model-card-appendix
-      title: Appendix
   - local: models-gated
     title: Gated Models
   - local: models-uploading
