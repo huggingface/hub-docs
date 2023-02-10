@@ -16,4 +16,12 @@ From the [Settings > Billing](https://huggingface.co/settings/billing) page, you
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing-dark.png"/>
 </div>
 
-Any feedback or support request related to billing is welcome at **website at huggingface.co**.
+Any feedback or support request related to billing is welcome at **billing at huggingface.co**.
+
+## Invoicing
+
+Hugging Face paid services are billed in arrears, meaning you get charged for monthly usage at the end of each month.
+
+We send invoices on the 5th of each month for the usage accrued the month before.
+
+You can change the billing address and name appearing on your invoice by updating your payment method from your [billing settings](https://huggingface.co/settings/billing).
