@@ -49,7 +49,7 @@ Livebook has an [official integration with Hugging Face models](https://livebook
 
 Here's a quick video showing how to do that:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IcR60pVKeGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<Youtube id="IcR60pVKeGY"/>
 
 ## How to configure Livebook to use the GPU
 
