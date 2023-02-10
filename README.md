@@ -10,7 +10,7 @@ In the different folders, you will find:
 ### How to contribute to the docs
 
 Just add/edit the Markdown files, commit them, and create a PR.
-Then the CI bot will build the preview page.
+Then the CI bot will build the preview page and provide a url for you to look at the result!
 
 For simple edits, you don't need a local build environment.
 
