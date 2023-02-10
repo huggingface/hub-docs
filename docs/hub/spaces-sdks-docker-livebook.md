@@ -2,7 +2,13 @@
 
 **Livebook** is an open-source tool for writing interactive code notebooks in [Elixir](https://elixir-lang.org/). It's part of a growing collection of Elixir tools for [numerical computing](https://github.com/elixir-nx/nx), [data science](https://github.com/elixir-nx/explorer), and [Machine Learning](https://github.com/elixir-nx/bumblebee).
 
-To learn more about it, visit [Livebook's website](https://livebook.dev/). Or you can follow its [Twitter](https://twitter.com/livebookdev) and [blog](https://news.livebook.dev/) to keep up with new features and updates.
+Some of Livebook's most exciting features are:
+
+- **Reproducible workflows**: Livebook runs your code in a predictable order, all the way down to package management
+- **Smart cells**: perform complex tasks, such as data manipulation and running machine learning models, with a few clicks using Livebook's extensible notebook cells
+- **Elixir powered**: use the power of the Elixir programming language to write concurrent and distributed notebooks that scale beyond your machine
+
+To learn more about it, watch this [15-minute video](https://www.youtube.com/watch?v=EhSNXWkji6o). Or visit [Livebook's website](https://livebook.dev/). Or follow its [Twitter](https://twitter.com/livebookdev) and [blog](https://news.livebook.dev/) to keep up with new features and updates.
 
 ## Your first Livebook Space
 
