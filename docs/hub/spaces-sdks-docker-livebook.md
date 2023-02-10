@@ -36,7 +36,7 @@ Once the app build is finished, go to the "App" tab in your Space and log in to 
 
 ![](https://i.imgur.com/vFHjcVG.png)
 
-That's it. Now you can start using Livebook inside your Space.
+That's it! Now you can start using Livebook inside your Space.
 
 If this is your first time using Livebook, you can learn how to use it with its interactive notebooks within Livebook itself:
 
