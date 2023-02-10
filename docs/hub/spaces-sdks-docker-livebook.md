@@ -59,6 +59,12 @@ Go to the Settings page of your Space and create a secret called `XLA_TARGET` wi
 
 Restart your Space and start using Livebook with a GPU.
 
+## How to update Livebook's version
+
+To update Livebook to its latest version, go to the Settings page of your Space and click on "Factory reboot this Space":
+
+![](https://i.imgur.com/4vzqekK.png)
+
 ## Feedback and support
 
 If you have improvement suggestions or need specific support, please join the [Livebook community on GitHub](https://github.com/livebook-dev/livebook/discussions).
