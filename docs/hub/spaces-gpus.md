@@ -137,4 +137,4 @@ The following options are available:
 
 ## Pausing a Space[[pause]]
 
-You can `pause` a Space from the repo settings. A Pause Space is shutdown until manually restarted, and only the owner of a Paused Space can restart it. Paused time is not billed.
+You can `pause` a Space from the repo settings. A "paused" Space means that the Space is on hold and will not use resources until manually restarted, and only the owner of a paused Space can restart it. Paused time is not billed.
