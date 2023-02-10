@@ -75,6 +75,13 @@ To update Livebook to its latest version, go to the Settings page of your Space 
 
 ![](https://i.imgur.com/4vzqekK.png)
 
+## Caveats
+
+The following caveats apply to running Livebook inside a Space:
+
+- The Space's visibility setting must be public. Otherwise, Smart cells won't work. That said, your Livebook instance will still be behind Livebook authentication since you've set the `LIVEBOOK_PASSWORD` secret.
+- Livebook global configurations will be lost once the Space restarts. Consider using the [desktop app](https://livebook.dev/#install) if you find yourself in need of persisting configuration across deployments.
+
 ## Feedback and support
 
 If you have improvement suggestions or need specific support, please join the [Livebook community on GitHub](https://github.com/livebook-dev/livebook/discussions).
