@@ -18,6 +18,6 @@ The default Spaces environment comes with several pre-installed dependencies:
 
 ## Adding your own dependencies
 
-If you need other Python packages to run your app, add them to a **requirements.txt** file at the root of the repository. The Spaces runtime engine will create a custom environment on-the-fly (you can also add a **pre-requirements.txt** file describing dependencies that will be installed before your main dependencies. It can be useful if you need to update pip itself).
+If you need other Python packages to run your app, add them to a **requirements.txt** file at the root of the repository. The Spaces runtime engine will create a custom environment on-the-fly. You can also add a **pre-requirements.txt** file describing dependencies that will be installed before your main dependencies. It can be useful if you need to update pip itself.
 
 Debian dependencies are also supported. Add a **packages.txt** file at the root of your repository, and list all your dependencies in it. Each dependency should be on a separate line, and each line will be read and installed by `apt-get install`.
