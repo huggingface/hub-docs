@@ -28,7 +28,6 @@ You need to define the **Owner** (your personal account or an organization), a *
 If you want to customize the title, emojis, and colors of your space, go to "Files and Versions" and edit the metadata of your README.md file.
 </Tip>
 
-
 Once you have created the space, you'll see the `Building` status and once it becomes `Running` your space is ready to go. If you don't see the Argilla login UI refresh the page.
 
 You'll see the login screen where you need to use either argilla or team with the default passwords (1234). Remember you can change the passwords using secret variables. If you get a 500 error when introducing the credentials, make sure you have correctly introduce the password.
@@ -72,7 +71,7 @@ from datasets import load_dataset
 
 # You can find your Space URL behind the Embed this space button
 rg.init(
-    api_url="https://dvilasuero-argilla-template-space.hf.space", 
+    api_url="<https://your-direct-space-url.hf.space>", 
     api_key="team.apikey"
 )
 
