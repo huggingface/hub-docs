@@ -10,11 +10,7 @@ In the next sections, you'll learn to deploy your own Argilla app and use it for
     <img src="https://www.argilla.io/blog/hf_space/how.svg"/>
 </div>
 
-## Your first Argilla Space
-
-In this section, you'll learn to deploy an Argilla Space and use it for data annotation and training a sentiment classifier with [SetFit](https://github.com/huggingface/setfit/), an amazing few-shot learning library.
-
-### Deploy Argilla on Spaces
+## Deploy Argilla on Spaces
 
 You can deploy Argilla on Spaces with just a few clicks:
 
@@ -40,7 +36,7 @@ You'll see the login screen where you need to use either argilla or team with th
 For quick experimentation, you can jump directly into the next section. If you want to add access restrictions, go to the "Setting up secret environment variables" at the end of this document. Setting up secret variables is recommended for longer-term usage.
 </Tip>
 
-### How to upload data
+## How to upload data
 
 Once your Argilla Space is running:
 
@@ -106,7 +102,7 @@ rg.log(argilla_ds, "bankingapp_sentiment")
 
 Congrats! You now have a dataset available from the Argilla UI to start browsing and labelling. Once you have labelled some data, you can train your first model.
 
-### How to train a model with labelled data
+## How to train a model with labelled data
 
 To train a model using your labeled data, you need to read the labelled dataset and prepare it for training:
 
