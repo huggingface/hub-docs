@@ -24,7 +24,7 @@ Then:
 2. Set its visibility to public
 3. Create your Space
 
-![](https://i.imgur.com/s4E9yDD.png)
+![Creating a Livebok Space ](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-livebook-new-space.png)
 
 This will start building your Space using Livebook's Docker image.
 
@@ -36,21 +36,21 @@ The visibility of the Space must be set to public for the Smart cells feature in
 
 To set the password of your Livebook, go to the Settings page of your Space and create a secret called `LIVEBOOK_PASSWORD` with the desired password as its value:
 
-![](https://i.imgur.com/J1y3Mv0.png)
+![Configuring your Livebook's password](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-livebook-password.png)
 
 Inside the Settings page, restart your Space:
 
-![](https://i.imgur.com/ulRcsSU.png)
+![Restart Space](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-livebook-restart-space.png)
 
 Once the app build is finished, go to the "App" tab in your Space and log in to your Livebook using the password you previously set:
 
-![](https://i.imgur.com/vFHjcVG.png)
+![Livebook authentication](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-livebook-authentication.png)
 
 That's it! Now you can start using Livebook inside your Space.
 
 If this is your first time using Livebook, you can learn how to use it with its interactive notebooks within Livebook itself:
 
-![](https://i.imgur.com/kdZjTj8.png)
+![Livebook's learn notebooks](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-livebook-learn-section.png)
 
 
 ## Livebook integration with Hugging Face Models
@@ -73,7 +73,7 @@ Restart your Space and start using Livebook with a GPU.
 
 To update Livebook to its latest version, go to the Settings page of your Space and click on "Factory reboot this Space":
 
-![](https://i.imgur.com/4vzqekK.png)
+![Factory reboot a Space](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-livebook-factory-reboot.png)
 
 ## Caveats
 
