@@ -102,12 +102,10 @@ Congrats! You now have a dataset available from the Argilla UI to start browsing
 
 ### How to train a model with labelled data
 
-At this point, you can label your data using your Argilla Space and read the annotated to train your model of choice. The demo dataset already contains labels but you can check the Argilla UI and review or change the labels.
-
-To read the annotated data and prepare it for training a SetFit model:
+To train a model using your labeled data, you need to read the labelled dataset and prepare it for training:
 
 ```python
-# this will read our current dataset and turn it into a clean dataset for training
+# this will read the dataset and turn it into a clean dataset for training
 dataset = rg.load("bankingapp_sentiment").prepare_for_training()
 ```
 
