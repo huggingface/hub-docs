@@ -33,6 +33,7 @@ export enum ModelLibrary {
 	"stable-baselines3"      = "Stable-Baselines3",
 	"ml-agents"              = "ML-Agents",
 	"pythae"                 = "Pythae",
+	"mindspore"              = "MindSpore",
 }
 
 export type ModelLibraryKey = keyof typeof ModelLibrary;
@@ -294,6 +295,18 @@ const fastai = (model: ModelData) =>
 
 learn = from_pretrained_fastai("${model.id}")`;
 
+const mindspore = (model: ModelData) => {
+	const architecture = model.config.architectures[0].toLowerCase();
+	if (model.tags?.includes("image-classification")){
+		const class_num = model.config.class_num[0];
+		return `from tinyms.model import Model, ${architecture}
+from huggingface_hub import hf_hub_download
+net = ${architecture}(class_num=${class_num}, is_training=False)
+ms_model = Model(net)
+ms_model.load_checkpoint(hf_hub_download("${model.id}", "mindspore_model.ckpt"))`
+	}
+};
+
 const sampleFactory = (model: ModelData) =>
 	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d ./train_dir`;
 
@@ -520,6 +533,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoName: "fastai",
 		repoUrl:  "https://github.com/fastai/fastai",
 		snippet:  fastai,
+	},
+	"mindspore": {
+		btnLabel: "MindSpore",
+		repoName: "mindspore",
+		repoUrl:  "https://github.com/mindspore-ai/mindspore",
+		snippet:  mindspore,
 	},
 	"spacy": {
 		btnLabel: "spaCy",
