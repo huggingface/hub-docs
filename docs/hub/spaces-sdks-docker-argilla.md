@@ -54,20 +54,20 @@ Argilla Datasets cannot be uploaded directly from the Argilla UI. Most Argilla u
 
 For uploading Argilla datasets, there are two options:
 
-1. You can use the ***`argilla` Python library** inside Jupyter, Colab, VS Code, or other Python IDE. In this case, you will use `pandas`, `datasets` or other library to read your source file (`csv`, `json`, etc.) and transform it into Argilla records to log them into Argilla. We recommend to read the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html). 
+1. You can use the **argilla Python library** inside Jupyter, Colab, VS Code, or other Python IDE. In this case, you will read read your source file (`csv`, `json`, etc.) and transform it into Argilla records. We recommend to read the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html). 
 2. You can use the **[no-code data manager app](https://huggingface.co/spaces/argilla/data-manager)** to upload a file and log it into Argilla. If you need to transform your dataset before uploading it into Argilla, we recommend the first option.
 
-If you want to follow a complete tutorial with Colab or Jupyter, [check this tutorial](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html). If you want a quick step-by-step example using the `argilla` Python library, keep reading.
+To follow a complete tutorial with Colab or Jupyter, [check this tutorial](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html). For a quick step-by-step example using the `argilla` Python library, keep reading.
 
 First, you need to open a Python IDE, we highly recommend using Jupyter notebooks or Colab.
 
-Second, you need to pip install `datasets` and `argilla` on Colab or your local machine:
+Second, you need to `pip` install `datasets` and `argilla` on Colab or your local machine:
 
 ```bash
 pip install datasets argilla
 ```
 
-Third, you can read the example dataset using the `datasets` library. This dataset is a CSV file uploaded to the Hub using the drag and drop feature. For reading other file types, check the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html).
+Third, you need to read the dataset using the `datasets` library. For reading other file types, check the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html).
 
 ```python
 from datasets import load_dataset
@@ -75,7 +75,7 @@ from datasets import load_dataset
 dataset = load_dataset("dvilasuero/banking_app", split="train").shuffle()
 ```
 
-Fourth, you can upload your first dataset by logging it into Argilla using your Space Direct URL:
+Fourth, you need to init the `argilla` client with your Space URL and API key and upload the records into Argilla:
 
 ```python
 import argilla as rg
@@ -100,9 +100,11 @@ argilla_ds = rg.read_datasets(banking_ds, task="TextClassification")
 rg.log(argilla_ds, "bankingapp_sentiment")
 ```
 
-Congrats! You now have a dataset available from the Argilla UI to start browsing and labelling. Once you have labelled some data, you can train your first model.
+Congrats! Your dataset is available in the Argilla UI for data labeling. Once you have labelled some data, you can train your first model.
 
 ## How to train a model with labelled data
+
+In this example, we use SetFit, but you can use any other model for training.
 
 To train a model using your labeled data, you need to read the labelled dataset and prepare it for training:
 
@@ -139,18 +141,18 @@ trainer.train()
 metrics = trainer.evaluate()
 ```
 
-Optionally, you can push the full dataset to the Hub for later use:
+Optionally, you can push the dataset to the Hub for later use:
 
 ```python
 # save full argilla dataset for reproducibility
 rg.load("bankingapp_sentiment").to_datasets().push_to_hub("bankingapp_sentiment") 
 ```
 
-As a next step, check out the [Argilla Tutorials](https://docs.argilla.io/en/latest/tutorials/tutorials.html) section. All the tutorials can be run using Colab or local Jupyter Notebooks, so you can start building datasets with Argilla and Spaces!
+As a next step, check out the [Argilla Tutorials](https://docs.argilla.io/en/latest/tutorials/tutorials.html) section. All the tutorials can be run using Colab or local Jupyter Notebooks.
 
 ## Feedback and support
 
-If you have improvement suggestions or need specific support, please join [Argilla Slack community](https://join.slack.com/t/rubrixworkspace/shared_invite/zt-whigkyjn-a3IUJLD7gDbTZ0rKlvcJ5g) or reach out on [Argilla's GitHub repository](https://github.com/argilla-io/argilla).
+If you have suggestions or need specific support, please join [Argilla Slack community](https://join.slack.com/t/rubrixworkspace/shared_invite/zt-whigkyjn-a3IUJLD7gDbTZ0rKlvcJ5g) or reach out on [Argilla's GitHub repository](https://github.com/argilla-io/argilla).
 
 ## Setting up secret environment variables
 
