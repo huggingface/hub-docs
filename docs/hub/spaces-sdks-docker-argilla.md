@@ -58,8 +58,8 @@ Argilla Datasets cannot be uploaded directly from the Argilla UI. Most Argilla u
 
 For uploading Argilla datasets, there are two options:
 
-1. Using `argilla` Python library inside Jupyter, Colab, VS Code, or other Python IDE. You can use `pandas` or `datasets` to read a file (`csv`, `json`, etc.), transform it into Argilla records and log them into Argilla. To do this, we recommend to read the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html). 
-2. For quick experiments, you can use the [no-code data manager app](https://huggingface.co/spaces/argilla/data-manager) to upload your file and log it into Argilla. If you need to transform your dataset before uploading it into Argilla, we recommend the first option.
+1. You can use the ***`argilla` Python library** inside Jupyter, Colab, VS Code, or other Python IDE. In this case, you will use `pandas`, `datasets` or other library to read your source file (`csv`, `json`, etc.) and transform it into Argilla records to log them into Argilla. We recommend to read the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html). 
+2. You can use the **[no-code data manager app](https://huggingface.co/spaces/argilla/data-manager)** to upload a file and log it into Argilla. If you need to transform your dataset before uploading it into Argilla, we recommend the first option.
 
 If you want to follow a complete tutorial with Colab or Jupyter, [check this tutorial](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html). If you want a quick step-by-step example using the `argilla` Python library, keep reading.
 
@@ -79,7 +79,7 @@ from datasets import load_dataset
 dataset = load_dataset("dvilasuero/banking_app", split="train").shuffle()
 ```
 
-Forth, you can upload your first dataset by logging it into Argilla using your Space Direct URL:
+Fourth, you can upload your first dataset by logging it into Argilla using your Space Direct URL:
 
 ```python
 import argilla as rg
@@ -104,7 +104,7 @@ argilla_ds = rg.read_datasets(banking_ds, task="TextClassification")
 rg.log(argilla_ds, "bankingapp_sentiment")
 ```
 
-Congrats! You now have a dataset available from the Argilla UI to start browsing and labelling. In the code above, we've used one of the many integrations with Hugging Face libraries, which let you [read hundreds of datasets](https://docs.argilla.io/en/latest/guides/features/datasets.html#Importing-a-Dataset) available on the Hub.
+Congrats! You now have a dataset available from the Argilla UI to start browsing and labelling. Once you have labelled some data, you can train your first model.
 
 ### How to train a model with labelled data
 
