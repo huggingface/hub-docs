@@ -57,15 +57,17 @@ For uploading Argilla datasets, there are two options:
 1. Using the `argilla` Python library with your Python IDE of choice (Jupyter, Colab, VS Code, etc.). You can use `pandas` or `datasets` to read a file (`csv`, `json`, etc.) and transform this into Argilla records that can be logged into Argilla. To do this, we recommend to read the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html). 
 2. For quick experiments, you can use the [no-code data manager app](https://huggingface.co/spaces/argilla/data-manager) to upload your file and log it into Argilla. If you need to transform your dataset before uploading it into Argilla, we recommend the first option.
 
-If you want a quick step-by-step example using the `argilla` Python library, keep reading. If you want to follow a complete tutorial with Colab or Jupyter, [check this tutorial](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
+If you want to follow a complete tutorial with Colab or Jupyter, [check this tutorial](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html). If you want a quick step-by-step example using the `argilla` Python library, keep reading.
 
-First, we need to pip install `datasets` and `argilla` on Colab or your local machine:
+First, you need to open a Python IDE, we highly recommend using Jupyter notebooks or Colab.
+
+Second, you need to pip install `datasets` and `argilla` on Colab or your local machine:
 
 ```bash
 pip install datasets argilla
 ```
 
-Then, you can read the example dataset using the `datasets` library. This dataset is a CSV file uploaded to the Hub using the drag and drop feature. For reading other file types, check the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html).
+Third, you can read the example dataset using the `datasets` library. This dataset is a CSV file uploaded to the Hub using the drag and drop feature. For reading other file types, check the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html).
 
 ```python
 from datasets import load_dataset
@@ -73,7 +75,7 @@ from datasets import load_dataset
 dataset = load_dataset("dvilasuero/banking_app", split="train").shuffle()
 ```
 
-You can create your first dataset by logging it into Argilla using your endpoint URL:
+Forth, you can upload your first dataset by logging it into Argilla using your Space Direct URL:
 
 ```python
 import argilla as rg
