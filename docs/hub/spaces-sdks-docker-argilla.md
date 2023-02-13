@@ -38,16 +38,24 @@ For quick experimentation, you can jump directly into the next section. If you w
 
 ### Create your first dataset
 
-Once Argilla is running, you can use the UI with the Direct URL you'll find in the "Embed this Space" option (top right). You'll see a URL like this: `https://dvilasuero-argilla-setfit.hf.space`. This URL gives you access to a full-screen, stable Argilla instance, and is the `api_url` for reading and writing datasets using the Argilla Python library.
+Once your Argilla Space is running:
+
+1. You need to find the Space Direct URL under the "Embed this Space" option (top right, see screenshot below).
+2. This URL gives you access to a full-screen Argilla UI for data labelling. You will use this URL as the `api_url` parameter for connecting the argilla Python client.
+3. You are now ready to upload your first dataset into Argilla.
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-embed-space.png"/>
 </div>
 
-You are now ready to upload your first dataset into Argilla. There are two ways of doing this:
+<Tip>
+Argilla Datasets cannot be uploaded directly from the Argilla UI. Most Argilla users upload datasets programmatically using the argilla Python library but you can also use Argilla Data Manager, a simple Streamlit app.
+</Tip>
+
+For uploading Argilla datasets, there are two options:
 
 1. Using the `argilla` Python library with your Python IDE of choice (Jupyter, Colab, VS Code, etc.). You can use `pandas` or `datasets` to read a file (`csv`, `json`, etc.) and transform this into Argilla records that can be logged into Argilla. To do this, we recommend to read the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html). 
-2. If you have a `csv` file, you can use the [no-code data manager](https://huggingface.co/spaces/argilla/data-manager) to upload your file and log it into Argilla. If you need to transform your dataset before uploading it into Argilla, we recommend the first option.
+2. For quick experiments, you can use the [no-code data manager](https://huggingface.co/spaces/argilla/data-manager) to upload your file and log it into Argilla. If you need to transform your dataset before uploading it into Argilla, we recommend the first option.
 
 If you want to follow a quick step-by-step example using the `argilla` Python library, keep reading. If you want to follow a complete tutorial with Colab or Jupyter, [check this tutorial](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
 
@@ -57,7 +65,7 @@ First, we need to pip install `datasets` and `argilla` on Colab or your local ma
 pip install datasets argilla
 ```
 
-Then, you can read the example dataset using the `datasets` library. This dataset is a CSV file uploaded to the Hub using the drag and drop feature.
+Then, you can read the example dataset using the `datasets` library. This dataset is a CSV file uploaded to the Hub using the drag and drop feature. For reading other file types, check the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html).
 
 ```python
 from datasets import load_dataset
