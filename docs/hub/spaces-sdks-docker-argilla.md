@@ -4,7 +4,13 @@
 
 Visit the [Argilla documentation](https://docs.argilla.io) to learn about its features and check out the [Deep Dive Guides](https://docs.argilla.io/en/latest/guides/guides.html) and [Tutorials](https://docs.argilla.io/en/latest/tutorials/tutorials.html).
 
-In the next sections, you'll learn to deploy your own Argilla app and use it for data labelling workflows right from the Hub. 
+In the next sections, you'll learn to deploy your own Argilla app and use it for data labelling workflows right from the Hub. The diagram below illustrates the complete process.
+
+<div class="flex justify-center">
+    <img src="https://www.argilla.io/blog/hf_space/how.svg"/>
+</div>
+
+
 
 ## Your first Argilla Space
 
