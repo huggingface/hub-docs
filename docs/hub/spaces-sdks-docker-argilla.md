@@ -55,7 +55,7 @@ Argilla Datasets cannot be uploaded directly from the Argilla UI. Most Argilla u
 For uploading Argilla datasets, there are two options:
 
 1. Using the `argilla` Python library with your Python IDE of choice (Jupyter, Colab, VS Code, etc.). You can use `pandas` or `datasets` to read a file (`csv`, `json`, etc.) and transform this into Argilla records that can be logged into Argilla. To do this, we recommend to read the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html). 
-2. For quick experiments, you can use the [no-code data manager](https://huggingface.co/spaces/argilla/data-manager) to upload your file and log it into Argilla. If you need to transform your dataset before uploading it into Argilla, we recommend the first option.
+2. For quick experiments, you can use the [no-code data manager app](https://huggingface.co/spaces/argilla/data-manager) to upload your file and log it into Argilla. If you need to transform your dataset before uploading it into Argilla, we recommend the first option.
 
 If you want a quick step-by-step example using the `argilla` Python library, keep reading. If you want to follow a complete tutorial with Colab or Jupyter, [check this tutorial](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
 
@@ -102,21 +102,16 @@ Congrats! You now have a dataset available from the Argilla UI to start browsing
 
 ### How to train a model with labelled data
 
-At this point, you can label your data directly using your Argilla Space and read the training data to train your model of choice. The demo dataset already contains labels but you can check the Argilla UI and review or change the labels.
+At this point, you can label your data using your Argilla Space and read the annotated to train your model of choice. The demo dataset already contains labels but you can check the Argilla UI and review or change the labels.
+
+To read the annotated data and prepare it for training a SetFit model:
 
 ```python
 # this will read our current dataset and turn it into a clean dataset for training
 dataset = rg.load("bankingapp_sentiment").prepare_for_training()
 ```
 
-You can also get the full dataset and push it to the Hub for reproducibility and versioning:
-
-```python
-# save full argilla dataset for reproducibility
-rg.load("bankingapp_sentiment").to_datasets().push_to_hub("bankingapp_sentiment") 
-```
-
-Finally, this is how you can train a SetFit model using data from your Argilla Space:
+To train a SetFit model with this dataset:
 
 ```python
 from sentence_transformers.losses import CosineSimilarityLoss
@@ -144,7 +139,14 @@ trainer.train()
 metrics = trainer.evaluate()
 ```
 
-As a next step, you can check the [Argilla Tutorials](https://docs.argilla.io/en/latest/tutorials/tutorials.html) section. All the tutorials can be run using Colab or local Jupyter Notebooks, so you can start building datasets with Argilla and Spaces!
+Optionally, you can push the full dataset to the Hub for later use:
+
+```python
+# save full argilla dataset for reproducibility
+rg.load("bankingapp_sentiment").to_datasets().push_to_hub("bankingapp_sentiment") 
+```
+
+As a next step, check out the [Argilla Tutorials](https://docs.argilla.io/en/latest/tutorials/tutorials.html) section. All the tutorials can be run using Colab or local Jupyter Notebooks, so you can start building datasets with Argilla and Spaces!
 
 ## Feedback and support
 
