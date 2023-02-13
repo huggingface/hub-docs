@@ -36,7 +36,7 @@ You'll see the login screen where you need to use either argilla or team with th
 For quick experimentation, you can jump directly into the next section. If you want to add access restrictions, go to the "Setting up secret environment variables" at the end of this document. Setting up secret variables is recommended for longer-term usage.
 </Tip>
 
-### Create your first dataset
+### How to upload data
 
 Once your Argilla Space is running:
 
@@ -57,7 +57,7 @@ For uploading Argilla datasets, there are two options:
 1. Using the `argilla` Python library with your Python IDE of choice (Jupyter, Colab, VS Code, etc.). You can use `pandas` or `datasets` to read a file (`csv`, `json`, etc.) and transform this into Argilla records that can be logged into Argilla. To do this, we recommend to read the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html). 
 2. For quick experiments, you can use the [no-code data manager](https://huggingface.co/spaces/argilla/data-manager) to upload your file and log it into Argilla. If you need to transform your dataset before uploading it into Argilla, we recommend the first option.
 
-If you want to follow a quick step-by-step example using the `argilla` Python library, keep reading. If you want to follow a complete tutorial with Colab or Jupyter, [check this tutorial](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
+If you want a quick step-by-step example using the `argilla` Python library, keep reading. If you want to follow a complete tutorial with Colab or Jupyter, [check this tutorial](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
 
 First, we need to pip install `datasets` and `argilla` on Colab or your local machine:
 
@@ -100,9 +100,9 @@ rg.log(argilla_ds, "bankingapp_sentiment")
 
 Congrats! You now have a dataset available from the Argilla UI to start browsing and labelling. In the code above, we've used one of the many integrations with Hugging Face libraries, which let you [read hundreds of datasets](https://docs.argilla.io/en/latest/guides/features/datasets.html#Importing-a-Dataset) available on the Hub.
 
-### Data labelling and model training
+### How to train a model with labelled data
 
-At this point, you can label your data directly using your Argilla Space and read the training data to train your model of choice. This demo dataset already contains labels but you can check the UI using the Space URL and review or change the labels.
+At this point, you can label your data directly using your Argilla Space and read the training data to train your model of choice. The demo dataset already contains labels but you can check the Argilla UI and review or change the labels.
 
 ```python
 # this will read our current dataset and turn it into a clean dataset for training
