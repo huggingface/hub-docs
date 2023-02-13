@@ -44,10 +44,12 @@ Once Argilla is running, you can use the UI with the Direct URL you'll find in t
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-embed-space.png"/>
 </div>
 
-You are now ready to use the Argilla Python client from an IDE such as Colab, Jupyter, or VS Code.
+You are now ready to upload your first dataset into Argilla. There are two ways of doing this:
 
-If you want to a quick step-by-step example, keep reading. We recommend to [run this end-to-end tutorial using Colab or Jupyter](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html), but let's see the main steps.
+1. Using the `argilla` Python library with your Python IDE of choice (Jupyter, Colab, VS Code, etc.). You can use `pandas` or `datasets` to read a file (`csv`, `json`, etc.) and transform this into Argilla records that can be logged into Argilla. To do this, we recommend to read the [basics guide](https://docs.argilla.io/en/latest/guides/how_to.html). 
+2. If you have a `csv` file, you can use the [no-code data manager](https://huggingface.co/spaces/argilla/data-manager) to upload your file and log it into Argilla. If you need to transform your dataset before uploading it into Argilla, we recommend the first option.
 
+If you want to follow a quick step-by-step example using the `argilla` Python library, keep reading. If you want to follow a complete tutorial with Colab or Jupyter, [check this tutorial](https://docs.argilla.io/en/latest/tutorials/notebooks/training-textclassification-setfit-fewshot.html).
 
 First, we need to pip install `datasets` and `argilla` on Colab or your local machine:
 
