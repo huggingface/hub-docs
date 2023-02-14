@@ -4,7 +4,7 @@
 
 Visit the [Argilla documentation](https://docs.argilla.io) to learn about its features and check out the [Deep Dive Guides](https://docs.argilla.io/en/latest/guides/guides.html) and [Tutorials](https://docs.argilla.io/en/latest/tutorials/tutorials.html).
 
-In the next sections, you'll learn to deploy your own Argilla app and use it for data labelling workflows right from the Hub. The diagram below illustrates the complete process.
+In the next sections, you'll learn to deploy your own Argilla app and use it for data labelling workflows right from the Hub. This Argilla app is a **self-contained application completely hosted on the Hub using Docker**. The diagram below illustrates the complete process.
 
 <div class="flex justify-center">
     <img src="https://www.argilla.io/blog/hf_space/how.svg"/>
@@ -30,7 +30,7 @@ If you want to customize the title, emojis, and colors of your space, go to "Fil
 
 Once you have created the space, you'll see the `Building` status and once it becomes `Running` your space is ready to go. If you don't see the Argilla login UI refresh the page.
 
-You'll see the login screen. The Space is configured with two users: `argilla` and `team` with the same default password: `1234`. If you get a 500 error after login, make sure you have correctly introduce the user and password. To secure your Space, you can change the passwords and API keys using secret variables as explained in the next section. 
+The Space is configured with **two users**: **argilla** and **team** with the same default password: **1234**. If you get a 500 error after login, make sure you have correctly introduce the user and password. To secure your Space, you can change the passwords and API keys using secret variables as explained in the next section. 
 
 
 ## Set up passwords and API keys using secrets (optional)
@@ -43,9 +43,9 @@ The Space template provides a way to set up different **optional settings** focu
 
 To set up these secrets, you can go to the Settings tab on your created Space. Make sure to save these values somewhere for later use.
 
-The template space has two users: `team` and `argilla`. The username `team` corresponds to the root user, who can upload datasets and access any workspace within your Argilla Space. The username `argilla` is a normal user with access to the `team` workspace and its own workspace called `argilla`. 
+The template space has two users: **team** and **argilla**. The username **team is the root user**, who can upload datasets and access any workspace within your Argilla Space. The username `argilla` is a normal user with access to the `team` workspace and its own workspace called `argilla`. 
 
-Currently, these user names can't be configured. The passwords and API keys to upload, read, update, and delete datasets can be configured using the following secrets:
+Currently, **the user names can't be configured**. The **passwords and API keys** to upload, read, update, and delete datasets **can be configured** using the following secrets:
 
 - `ARGILLA_API_KEY`: Argilla provides a Python library to interact with the app (read, write, and update data, log model predictions, etc.). If you don't set this variable, the library and your app will use the default API key. If you want to secure your Space for reading and writing data, we recommend you to set up this variable. The API key you choose can be any string of your choice and you can check an online generator if you like.
 
@@ -70,16 +70,16 @@ Additionally, the `LOAD_DATASETS` will let you configure the sample datasets tha
 
 Once your Argilla Space is running:
 
-1. You need to find the Space Direct URL under the "Embed this Space" option (top right, see screenshot below).
-2. This URL gives you access to a full-screen Argilla UI for data labelling. This is the URL you will use as the `api_url` parameter for connecting the argilla Python client in order to read and write data programmatically.
-3. You are now ready to upload your first dataset into Argilla.
+1. You need to find the **Space Direct URL under the "Embed this Space"** option (top right, see screenshot below).
+2. This URL gives you access to a full-screen Argilla UI for data labelling. The **Direct URL is the api_url parameter** for connecting the argilla Python client in order to read and write data programmatically.
+3. You are now ready to **upload your first dataset into Argilla**.
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-embed-space.png"/>
 </div>
 
 <Tip>
-Argilla Datasets cannot be uploaded directly from the Argilla UI. Most Argilla users upload datasets programmatically using the argilla Python library but you can also use Argilla Data Manager, a simple Streamlit app.
+Argilla Datasets cannot be uploaded directly from the UI. Most Argilla users upload datasets programmatically using the argilla Python library but you can also use Argilla Data Manager, a simple Streamlit app.
 </Tip>
 
 For uploading Argilla datasets, there are two options:
@@ -130,7 +130,7 @@ argilla_ds = rg.read_datasets(banking_ds, task="TextClassification")
 rg.log(argilla_ds, "bankingapp_sentiment")
 ```
 
-Congrats! Your dataset is available in the Argilla UI for data labeling. Once you have labelled some data, you can train your first model.
+Congrats! Your dataset is available in the Argilla UI for data labeling. Once you have labelled some data, you can train your first model by reading the dataset using Python.
 
 ## How to train a model with labelled data
 
