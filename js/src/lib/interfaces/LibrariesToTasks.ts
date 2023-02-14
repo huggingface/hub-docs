@@ -90,4 +90,7 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 	"timm": [
 		"image-classification",
 	],
+	"mindspore": [
+		"image-classification",
+	],
 };
