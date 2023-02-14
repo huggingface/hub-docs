@@ -48,7 +48,7 @@ Currently, **the user names can't be configured**. The **passwords and API keys*
 
 - `TEAM_API_KEY`: This sets the API key for the root user: `team`. You can use this API key for uploading data if you want to prevent the user `argilla` from deleting datasets in the UI. The API key can be any string of your choice.
 
-- `ARGILLA_API_KEY`: This sets the API key for the standard user: argilla. If you don't set this variable, the library and your app will use the default API key. If you want to secure your Space for reading and writing data, we recommend you to set up this variable. The API key can be any string of your choice.
+- `ARGILLA_API_KEY`: This sets the API key for the standard user: `argilla`. If you don't set this variable, the library and your app will use the default API key. If you want to secure your Space for reading and writing data, we recommend you to set up this variable. The API key can be any string of your choice.
 
 - `TEAM_PASSWORD`: This sets a custom password for login into the app with the `team` username. The default password is `1234`. By setting up a custom password you can use your own password to login into the app.
 
