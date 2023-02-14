@@ -32,28 +32,27 @@ Once you have created the space, you'll see the `Building` status and once it be
 
 The Space is configured with **two users**: **argilla** and **team** with the same default password: **1234**. If you get a 500 error after login, make sure you have correctly introduce the user and password. To secure your Space, you can change the passwords and API keys using secret variables as explained in the next section. 
 
-
 ## Set up passwords and API keys using secrets (optional)
 
 <Tip>
 For quick experimentation, you can jump directly into the next section. If you want to secure your space and for longer-term usage, setting up secret variables is recommended.
 </Tip>
 
-The Space template provides a way to set up different **optional settings** focusing on securing your Argilla Space.
+The Space template can be configured with **optional settings** to secure your Argilla Space.
 
-To set up these secrets, you can go to the Settings tab on your created Space. Make sure to save these values somewhere for later use.
+You can configure secret variables in the Settings tab of your Space. Make sure to save these values somewhere for later use.
 
-The template space has two users: **team** and **argilla**. The username **team is the root user**, who can upload datasets and access any workspace within your Argilla Space. The username `argilla` is a normal user with access to the `team` workspace and its own workspace called `argilla`. 
+The template space has two users: **team** and **argilla**. The **username team is the root user**, who can upload datasets and access any workspace within your Argilla Space. The **username argilla is a standard user** with access to the `team` workspace and its own workspace called `argilla`. 
 
 Currently, **the user names can't be configured**. The **passwords and API keys** to upload, read, update, and delete datasets **can be configured** using the following secrets:
 
-- `ARGILLA_API_KEY`: Argilla provides a Python library to interact with the app (read, write, and update data, log model predictions, etc.). If you don't set this variable, the library and your app will use the default API key. If you want to secure your Space for reading and writing data, we recommend you to set up this variable. The API key you choose can be any string of your choice and you can check an online generator if you like.
+- `TEAM_API_KEY`: This sets the API key for the root user: team. You can use this API key for uploading data if you want to prevent the user argilla from deleting datasets in the UI. The API key can be any string of your choice.
 
-- `ARGILLA_PASSWORD`: This sets a custom password for login into the app with the `argilla` username. The default password is `1234`. By setting up a custom password you can use your own password to login into the app.
-
-- `TEAM_API_KEY`: This sets the root user's API key. The API key you choose can be any string of your choice and you can check an online generator if you like.
+- `ARGILLA_API_KEY`: This sets the API key for the standard user: argilla. If you don't set this variable, the library and your app will use the default API key. If you want to secure your Space for reading and writing data, we recommend you to set up this variable. The API key can be any string of your choice.
 
 - `TEAM_PASSWORD`: This sets a custom password for login into the app with the `team` username. The default password is `1234`. By setting up a custom password you can use your own password to login into the app.
+
+- `ARGILLA_PASSWORD`: This sets a custom password for login into the app with the `argilla` username. The default password is `1234`. By setting up a custom password you can use your own password to login into the app.
 
 The combination of these secret variables gives you the following setup options:
 
