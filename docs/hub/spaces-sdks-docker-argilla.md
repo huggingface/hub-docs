@@ -46,7 +46,7 @@ The template space has two users: **team** and **argilla**. The **username team 
 
 Currently, **the user names can't be configured**. The **passwords and API keys** to upload, read, update, and delete datasets **can be configured** using the following secrets:
 
-- `TEAM_API_KEY`: This sets the API key for the root user: team. You can use this API key for uploading data if you want to prevent the user argilla from deleting datasets in the UI. The API key can be any string of your choice.
+- `TEAM_API_KEY`: This sets the API key for the root user: `team`. You can use this API key for uploading data if you want to prevent the user `argilla` from deleting datasets in the UI. The API key can be any string of your choice.
 
 - `ARGILLA_API_KEY`: This sets the API key for the standard user: argilla. If you don't set this variable, the library and your app will use the default API key. If you want to secure your Space for reading and writing data, we recommend you to set up this variable. The API key can be any string of your choice.
 
