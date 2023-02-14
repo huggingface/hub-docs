@@ -11,4 +11,3 @@ We gathered some example demos in the [Docker Templates](https://huggingface.co/
 * Argilla app for data labelling and curation: https://huggingface.co/spaces/argilla/live-demo and [write-up about hosting Argilla on Spaces](./spaces-sdks-docker-argilla) by [@dvilasuero](https://huggingface.co/dvilasuero) 🎉
 * JupyterLab: https://huggingface.co/spaces/camenduru/jupyter
 * Gradio App: https://huggingface.co/spaces/sayakpaul/demo-docker-gradio
-
