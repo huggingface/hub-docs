@@ -1,1 +1,17 @@
+# This first_section was backported from nginx
+adding-a-model: models-uploading
+model-repos: models
+endpoints: api
+adding-a-library: models-adding-libraries
+libraries: models-libraries
+inference: models-inference
+org-cards: organizations-cards
+adding-a-task: models-tasks
+models-cards: model-cards
+models-cards-co2: model-cards-co
+how-to-downstream: /docs/huggingface_hub/how-to-downstream
+how-to-upstream: /docs/huggingface_hub/how-to-upstream
+how-to-inference: /docs/huggingface_hub/how-to-inference
+searching-the-hub: /docs/huggingface_hub/searching-the-hub
+# end of first_section
 api-webhook: webhooks
