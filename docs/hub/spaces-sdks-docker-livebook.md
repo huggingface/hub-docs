@@ -31,7 +31,9 @@ This will start building your Space using Livebook's Docker image.
 The visibility of the Space must be set to public for the Smart cells feature in Livebook to function properly. However, your Livebook instance will still be protected by Livebook authentication, which we will set up now.
 
 <Tip>
+ 
 [Smart cell](https://news.livebook.dev/v0.6-automate-and-learn-with-smart-cells-mxJJe) is a type of Livebook cell that provides a UI component for accomplishing a specific task. The code for the task is generated automatically based on the user's interactions with the UI, allowing for faster completion of high-level tasks without writing code from scratch.
+
 </Tip>
 
 To set the password of your Livebook, go to the Settings page of your Space and create a secret called `LIVEBOOK_PASSWORD` with the desired password as its value:
