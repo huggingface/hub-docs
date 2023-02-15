@@ -305,7 +305,11 @@ net = ${architecture}(class_num=${class_num}, is_training=False)
 ms_model = Model(net)
 ms_model.load_checkpoint(hf_hub_download("${model.id}", "mindspore_model.ckpt"))`
 	}
+	return mindsporeUnknown();
 };
+
+const mindsporeUnknown = () =>
+	`unknown model task (must be image-classification)`;
 
 const sampleFactory = (model: ModelData) =>
 	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d ./train_dir`;
