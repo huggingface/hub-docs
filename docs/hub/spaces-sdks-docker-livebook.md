@@ -32,7 +32,7 @@ The visibility of the Space must be set to public for the Smart cells feature in
 
 <Tip>
  
-[Smart cell](https://news.livebook.dev/v0.6-automate-and-learn-with-smart-cells-mxJJe) is a type of Livebook cell that provides a UI component for accomplishing a specific task. The code for the task is generated automatically based on the user's interactions with the UI, allowing for faster completion of high-level tasks without writing code from scratch.
+<a href="https://news.livebook.dev/v0.6-automate-and-learn-with-smart-cells-mxJJe" target="_blank">Smart cell</a> is a type of Livebook cell that provides a UI component for accomplishing a specific task. The code for the task is generated automatically based on the user's interactions with the UI, allowing for faster completion of high-level tasks without writing code from scratch.
 
 </Tip>
 
