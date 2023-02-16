@@ -295,13 +295,6 @@ const fastai = (model: ModelData) =>
 
 learn = from_pretrained_fastai("${model.id}")`;
 
-const mindspore = (model: ModelData) => {
-	return mindsporeUnknown();
-};
-
-const mindsporeUnknown = () =>
-	`Not supported`;
-
 const sampleFactory = (model: ModelData) =>
 	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d ./train_dir`;
 
@@ -528,12 +521,6 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoName: "fastai",
 		repoUrl:  "https://github.com/fastai/fastai",
 		snippet:  fastai,
-	},
-	"mindspore": {
-		btnLabel: "MindSpore",
-		repoName: "mindspore",
-		repoUrl:  "https://github.com/mindspore-ai/mindspore",
-		snippet:  mindspore,
 	},
 	"spacy": {
 		btnLabel: "spaCy",
