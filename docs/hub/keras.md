@@ -71,4 +71,5 @@ The repository will host your TensorBoard traces like below.
 * Keras Developer [Guides](https://keras.io/guides/).
 * Keras [examples](https://keras.io/examples/).
 * Keras [examples on 🤗 Hub](https://huggingface.co/keras-io).
+* Keras [learning resources](https://keras.io/getting_started/learning_resources/#moocs)
 * For more capabilities of the Keras integration, check out [Putting Keras on 🤗 Hub for Collaborative Training and Reproducibility](https://merveenoyan.medium.com/putting-keras-on-hub-for-collaborative-training-and-reproducibility-9018301de877) tutorial.

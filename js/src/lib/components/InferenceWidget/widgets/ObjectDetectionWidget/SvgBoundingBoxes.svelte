@@ -14,7 +14,12 @@ text-lime-400
 
 	import { afterUpdate } from "svelte";
 
-	type Rect = { x: number; y: number; width: number; height: number };
+	interface Rect {
+		x: number;
+		y: number;
+		width: number;
+		height: number;
+	}
 
 	let containerEl: HTMLElement;
 	let imgEl: HTMLImageElement;
@@ -81,6 +86,7 @@ text-lime-400
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		{#each boxes as { rect, color, index }}
+			<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 			<rect
 				class="transition duration-200 ease-in-out text-{color}-400 stroke-current fill-current"
 				fill-opacity={highlightIndex === -1 || highlightIndex === index

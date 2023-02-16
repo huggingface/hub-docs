@@ -6,6 +6,7 @@ import audioToAudio from "./audio-to-audio/data";
 import automaticSpeechRecognition from "./automatic-speech-recognition/data";
 import conversational from "./conversational/data";
 import documentQuestionAnswering from "./document-question-answering/data";
+import featureExtraction from "./feature-extraction/data";
 import fillMask from "./fill-mask/data";
 import imageClassification from "./image-classification/data";
 import imageToImage from "./image-to-image/data";
@@ -44,8 +45,9 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"conversational":                 getData("conversational", conversational),
 	"depth-estimation":               getData("depth-estimation", depthEstimation),
 	"document-question-answering":    getData("document-question-answering", documentQuestionAnswering),
-	"feature-extraction":             getData("feature-extraction"),
+	"feature-extraction":             getData("feature-extraction", featureExtraction),
 	"fill-mask":                      getData("fill-mask", fillMask),
+	"graph-ml": 			  undefined,
 	"image-classification":           getData("image-classification", imageClassification),
 	"image-segmentation":             getData("image-segmentation", imageSegmentation),
 	"image-to-image":                 getData("image-to-image", imageToImage),
@@ -56,7 +58,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"other":                          undefined,
 	"question-answering":             getData("question-answering", questionAnswering),
 	"reinforcement-learning":         getData("reinforcement-learning", reinforcementLearning),
-	"robotics":                       getData("robotics"),
+	"robotics":                       undefined,
 	"sentence-similarity":            getData("sentence-similarity", sentenceSimilarity),
 	"summarization":                  getData("summarization", summarization),
 	"table-question-answering":       getData("table-question-answering", tableQuestionAnswering),
@@ -69,13 +71,13 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"text-retrieval":                 undefined,
 	"text-to-image":                  getData("text-to-image", textToImage),
 	"text-to-speech":                 getData("text-to-speech", textToSpeech),
-	"text2text-generation":           getData("text2text-generation"),
+	"text2text-generation":           undefined,
 	"time-series-forecasting":        undefined,
 	"token-classification":           getData("token-classification", tokenClassification),
 	"translation":                    getData("translation", translation),
 	"unconditional-image-generation": getData("unconditional-image-generation", unconditionalImageGeneration),
 	"visual-question-answering":      getData("visual-question-answering", visualQuestionAnswering),
-	"voice-activity-detection":       getData("voice-activity-detection"),
+	"voice-activity-detection":       undefined,
 	"zero-shot-classification":       getData("zero-shot-classification", zeroShotClassification),
 	"zero-shot-image-classification": getData("zero-shot-image-classification", zeroShotImageClassification),
 } as const;

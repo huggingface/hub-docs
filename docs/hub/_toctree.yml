@@ -14,6 +14,13 @@
     title: Notifications
   - local: webhooks
     title: Webhooks
+    sections:
+      - local: webhooks-guide-auto-retrain
+        title: "How-to: Automatic fine-tuning with Auto-Train"
+      - local: webhooks-guide-discussion-bot
+        title: "How-to: Build a Discussion bot based on BLOOM"
+      - local: webhooks-guide-metadata-review
+        title: "How-to: Create automatic metadata quality reports"
   - local: repositories-next-steps
     title: Next Steps
   - local: repositories-licenses
@@ -142,6 +149,8 @@
         title: Example Docker Spaces
       - local: spaces-sdks-docker-argilla
         title: Argilla on Spaces
+      - local: spaces-sdks-docker-livebook
+        title: Livebook on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-config-reference
@@ -191,6 +200,3 @@
       title: Pickle Scanning
   - local: api
     title: Hub API Endpoints
-    sections:
-    - local: api-webhook
-      title: Webhook

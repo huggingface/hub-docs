@@ -58,6 +58,7 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 		"conversational",
 		"fill-mask",
 		"summarization",
+		"zero-shot-classification",
 	],
 	"pyannote-audio": [
 		"automatic-speech-recognition",
@@ -87,6 +88,9 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 		"token-classification",
 	],
 	"timm": [
+		"image-classification",
+	],
+	"mindspore": [
 		"image-classification",
 	],
 };

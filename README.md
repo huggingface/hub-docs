@@ -7,6 +7,13 @@ In the different folders, you will find:
 - The tasks as visible on the following page: [hf.co/tasks](https://hf.co/tasks) in the `tasks` folder.
 - In the `docs` folder, the Hugging Face Hub documentation as visible here: [hf.co/docs/hub](https://hf.co/docs/hub)
 
+### How to contribute to the docs
+
+Just add/edit the Markdown files, commit them, and create a PR.
+Then the CI bot will build the preview page and provide a url for you to look at the result!
+
+For simple edits, you don't need a local build environment.
+
 ### Previewing locally
 
 ```bash

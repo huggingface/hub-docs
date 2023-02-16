@@ -24,7 +24,17 @@ For step-by-step tutorials to creating your first Space, see the guides below:
 
 ## Hardware resources
 
-Each Spaces environment is limited to 16GB RAM and 2 CPU cores by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
+Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50Gb of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
+
+| **Hardware**        	| **CPU** 	| **Memory** 	| **Disk** 	| **Hourly Price** 	|
+|---------------------	|---------	|------------	|----------	|------------------	|
+| CPU Basic           	| 2 vCPU  	| 16 GB      	| 50 GB    	| Free!            	|
+| CPU Upgrade         	| 8 vCPU  	| 32 GB      	| 50 GB    	| $0.03            	|
+| Nvidia T4 - small   	| 4 vCPU  	| 15 GB      	| 50 GB    	| $0.06            	|
+| Nvidia T4 - medium  	| 8 vCPU  	| 30 GB      	| 100 GB   	| $0.09            	|
+| Nvidia A10G - small 	| 4 vCPU  	| 15 GB      	| 110 GB   	| $1.05            	|
+| Nvidia A10G - large 	| 12 vCPU 	| 46 GB      	| 200 GB   	| $3.15            	|
+| Nvidia A100 - large 	| 12 vCPU 	| 142 GB     	| 1000 GB  	| $4.13            	|
 
 You can also request a community GPU grant if you are building something cool as a side project. Drop us a note using the link in the _Settings_ tab of your Space!
 
@@ -47,6 +57,11 @@ If your app requires secret keys or tokens, don't hard-code them inside your app
 ## Networking
 
 If your Space needs to make any network requests, you can make requests through the standard HTTP and HTTPS ports (80 and 443) along with port 8080. Any requests going to other ports will be blocked.
+
+## Lifecycle management
+
+On free hardware, your Space will "go to sleep" and stop executing after a period of time if unused. If you wish for your Space to run indefinitely, consider [upgrading to a paid hardware](./spaces-gpus). You can also manually pause your Space from the **Settings** tab. A paused Space stops executing until manually restarted by its owner.
+Paused time is not billed.
 
 ## Helper environment variables
 

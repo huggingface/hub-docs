@@ -33,6 +33,7 @@ from-yellow-400 to-yellow-200 dark:from-yellow-400 dark:to-yellow-600
 	<div class="space-y-3.5 {classNames}">
 		<!-- NB: We sadly can't do color = defaultBarColor as the Svelte compiler will throw an unused-export-let warning (bug  on their side) ... -->
 		{#each output as { score, color }, index}
+			<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 			<div
 				class="flex items-start justify-between font-mono text-xs leading-none
 					animate__animated animate__fadeIn transition duration-200 ease-in-out

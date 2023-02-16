@@ -70,6 +70,7 @@
 		/>
 	</div>
 	{#if output.length}
+		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 		<canvas
 			class="absolute top-0 left-0"
 			{width}

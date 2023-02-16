@@ -16,6 +16,7 @@ export enum ModelLibrary {
 	"keras"                  = "Keras",
 	"k2"                     = "K2",
 	"nemo"                   = "NeMo",
+	"open_clip"              = "OpenCLIP",
 	"paddlenlp"              = "PaddleNLP",
 	"pyannote-audio"         = "pyannote.audio",
 	"sample-factory"         = "Sample Factory",
@@ -32,12 +33,13 @@ export enum ModelLibrary {
 	"stable-baselines3"      = "Stable-Baselines3",
 	"ml-agents"              = "ML-Agents",
 	"pythae"                 = "Pythae",
+	"mindspore"              = "MindSpore",
 }
 
 export type ModelLibraryKey = keyof typeof ModelLibrary;
 export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as ModelLibraryKey[];
 
-const EXCLUDE_THOSE_LIBRARIES_FROM_DISPLAY: ModelLibraryKey[] = ["doctr", "k2"];
+const EXCLUDE_THOSE_LIBRARIES_FROM_DISPLAY: ModelLibraryKey[] = ["doctr", "k2", "mindspore"];
 
 export const ALL_DISPLAY_MODEL_LIBRARY_KEYS = ALL_MODEL_LIBRARY_KEYS.filter(k => !EXCLUDE_THOSE_LIBRARIES_FROM_DISPLAY.includes(k));
 
@@ -156,6 +158,14 @@ const keras = (model: ModelData) =>
 
 model = from_pretrained_keras("${model.id}")
 `;
+
+const open_clip = (model: ModelData) =>
+	`import open_clip
+
+model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms('hf-hub:${model.id}')
+tokenizer = open_clip.get_tokenizer('hf-hub:${model.id}')`;
+
+
 
 const paddlenlp = (model: ModelData) => {
 	if (model.config?.architectures?.[0]) {
@@ -284,6 +294,22 @@ const fastai = (model: ModelData) =>
 	`from huggingface_hub import from_pretrained_fastai
 
 learn = from_pretrained_fastai("${model.id}")`;
+
+const mindspore = (model: ModelData) => {
+	const architecture = model.config.architectures[0].toLowerCase();
+	if (model.tags?.includes("image-classification")){
+		const class_num = model.config.class_num[0];
+		return `from tinyms.model import Model, ${architecture}
+from huggingface_hub import hf_hub_download
+net = ${architecture}(class_num=${class_num}, is_training=False)
+ms_model = Model(net)
+ms_model.load_checkpoint(hf_hub_download("${model.id}", "mindspore_model.ckpt"))`
+	}
+	return mindsporeUnknown();
+};
+
+const mindsporeUnknown = () =>
+	`unknown model task (must be image-classification)`;
 
 const sampleFactory = (model: ModelData) =>
 	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d ./train_dir`;
@@ -476,6 +502,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoUrl:  "https://github.com/NVIDIA/NeMo",
 		snippet:  nemo,
 	},
+	"open_clip": {
+		btnLabel: "OpenCLIP",
+		repoName: "OpenCLIP",
+		repoUrl:  "https://github.com/mlfoundations/open_clip",
+		snippet:  open_clip,
+	},
 	"paddlenlp": {
 		btnLabel: "paddlenlp",
 		repoName: "PaddleNLP",
@@ -505,6 +537,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoName: "fastai",
 		repoUrl:  "https://github.com/fastai/fastai",
 		snippet:  fastai,
+	},
+	"mindspore": {
+		btnLabel: "MindSpore",
+		repoName: "mindspore",
+		repoUrl:  "https://github.com/mindspore-ai/mindspore",
+		snippet:  mindspore,
 	},
 	"spacy": {
 		btnLabel: "spaCy",
