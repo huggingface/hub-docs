@@ -296,20 +296,11 @@ const fastai = (model: ModelData) =>
 learn = from_pretrained_fastai("${model.id}")`;
 
 const mindspore = (model: ModelData) => {
-	const architecture = model.config.architectures[0].toLowerCase();
-	if (model.tags?.includes("image-classification")){
-		const class_num = model.config.class_num[0];
-		return `from tinyms.model import Model, ${architecture}
-from huggingface_hub import hf_hub_download
-net = ${architecture}(class_num=${class_num}, is_training=False)
-ms_model = Model(net)
-ms_model.load_checkpoint(hf_hub_download("${model.id}", "mindspore_model.ckpt"))`
-	}
 	return mindsporeUnknown();
 };
 
 const mindsporeUnknown = () =>
-	`unknown model task (must be image-classification)`;
+	`Not supported`;
 
 const sampleFactory = (model: ModelData) =>
 	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d ./train_dir`;
