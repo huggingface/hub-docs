@@ -30,5 +30,9 @@ You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/
 - [Text-to-Image Generation](https://huggingface.co/docs/diffusers/using-diffusers/conditional_image_generation)
 - [MinImagen - Build Your Own Imagen Text-to-Image Model](https://www.assemblyai.com/blog/minimagen-build-your-own-imagen-text-to-image-model/)
 - [OpenAI Blog - Dall E](https://openai.com/blog/dall-e/)
+- [Using LoRA for Efficient Stable Diffusion Fine-Tuning](https://huggingface.co/blog/lora)
+- [Using Stable Diffusion with Core ML on Apple Silicon](https://huggingface.co/blog/diffusers-coreml)
+- [A guide on Vector Quantized Diffusion](https://huggingface.co/blog/vq-diffusion)
+- [🧨 Stable Diffusion in JAX/Flax](https://huggingface.co/blog/stable_diffusion_jax)
 
 This page was made possible thanks to the efforts of [Ishan Dutta](https://huggingface.co/ishandutta), [Enrique Elias Ubaldo](https://huggingface.co/herrius) and [Oğuz Akif](https://huggingface.co/oguzakif).

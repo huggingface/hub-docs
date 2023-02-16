@@ -33,5 +33,6 @@ converse([conversation_1, conversation_2])
 
 - Learn how ChatGPT and InstructGPT work in this blog: [Illustrating Reinforcement Learning from Human Feedback (RLHF)](https://huggingface.co/blog/rlhf)
 - [Reinforcement Learning from Human Feedback From Zero to ChatGPT](https://www.youtube.com/watch?v=EAd4oQtEJOM)
+- [A guide on Dialog Agents](https://huggingface.co/blog/dialog-agents)
 
 This page was made possible thanks to the efforts of [Viraat Aryabumi](https://huggingface.co/viraat).
