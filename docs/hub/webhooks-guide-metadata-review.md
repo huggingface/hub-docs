@@ -1,11 +1,5 @@
 # Webhook guide: Setup an automatic metadata quality review for models and datasets 
 
-<Tip warning={true}>
-
-**Join the [webhooks-explorers](https://huggingface.co/webhooks-explorers) organization to beta-test webhooks!**
-
-</Tip>
-
 This guide will walk you through creating a system that reacts to changes to a user's or organization's models or datasets on the Hub and creates a 'metadata review' for the changed repository. 
 
 ## What are we building and why?
