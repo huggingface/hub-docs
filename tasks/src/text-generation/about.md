@@ -26,6 +26,14 @@ The most popular models for this task are GPT-based models (such as [GPT-2](http
 
 These models are trained to learn the mapping between a pair of texts (e.g. translation from one language to another). The most popular variants of these models are [T5](https://huggingface.co/docs/transformers/model_doc/t5), [T0](https://huggingface.co/bigscience/T0pp) and [BART](https://huggingface.co/docs/transformers/model_doc/bart). Text-to-Text models are trained with multi-tasking capabilities, they can accomplish a wide range of tasks, including summarization, translation, and text classification.
 
+## Language Model Variants
+
+When it comes to text generation, the underlying language model can come in several types:
+
+- **Base models:** this refers plain language models like [T5](https://huggingface.co/t5-base), [OPT](https://huggingface.co/facebook/opt-30b), and [BLOOM](https://huggingface.co/bigscience/bloom). These models are good for fine-tuning and few-shot prompting, with [GPT-J](https://huggingface.co/EleutherAI/gpt-j-6B) and [GPT-NeoX](https://huggingface.co/EleutherAI/gpt-neox-20b) being among the best choices for domains involving English and code.
+- **Instruction-trained models:** these models are trained in a multi-task manner to follow a broad range of instructions like "Write me a recipe for chocolate cake". Models like [Flan-T5}(https://huggingface.co/google/flan-t5-xl), [OPT-IML](https://huggingface.co/facebook/opt-iml-max-30b), and [BLOOMZ](https://huggingface.co/bigscience/bloomz) are examples of instruction-trained models. In general, instruction-trained models will produce better responses to instructions than base models.
+- **Human feedback models:** these models extend base and instruction-trained models by incorporating human feedback that rates the quality of the generated text according to  criteria like [helpfulness, honesty, and harmlessness](https://arxiv.org/abs/2112.00861). The human feedback is then combined with an optimization technique like reinforcement learning to align the original model to be closer with human preferences. The overall methodology is often called [Reinforcement Learning from Human Feedback](https://huggingface.co/blog/rlhf) or RLHF for short. Currently, there are no open source models of this type, but stay tuned since this field is moving very fast!
+
 ## Inference
 
 You can use the 🤗 Transformers library `text-generation` pipeline to do inference with Text Generation models. It takes an incomplete text and returns multiple outputs with which the text can be completed.
