@@ -91,6 +91,8 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [🌸 Introducing The World's Largest Open Multilingual Language Model: BLOOM 🌸](https://huggingface.co/blog/bloom)
 - [The Technology Behind BLOOM Training](https://huggingface.co/blog/bloom-megatron-deepspeed)
 - [Faster Text Generation with TensorFlow and XLA](https://huggingface.co/blog/tf-xla-generate)
+- [What Makes a Dialog Agent Useful?](https://huggingface.co/blog/dialog-agents)
+- [Illustrating Reinforcement Learning from Human Feedback](https://huggingface.co/blog/rlhf)
 
 ### Notebooks
 
