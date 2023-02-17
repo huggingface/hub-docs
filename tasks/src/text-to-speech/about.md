@@ -40,3 +40,5 @@ speech, *_ = model("text to generate speech from")
 
 ## Useful Resources
 - [ML for Audio Study Group - Text to Speech Deep Dive](https://www.youtube.com/watch?v=aLBedWj-5CQ)
+- [An introduction to SpeechT5, a multi-purpose speech recognition and synthesis model](https://huggingface.co/blog/speecht5).
+- [A guide on Fine-tuning Whisper For Multilingual ASR with 🤗Transformers](https://huggingface.co/blog/fine-tune-whisper)
