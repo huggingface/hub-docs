@@ -1,8 +1,8 @@
 # Webhook guide: build a Discussion bot based on BLOOM
 
-<Tip warning={true}>
+<Tip>
 
-**Join the [webhooks-explorers](https://huggingface.co/webhooks-explorers) organization to beta-test webhooks!**
+Webhooks are now publicly available!
 
 </Tip>
 
