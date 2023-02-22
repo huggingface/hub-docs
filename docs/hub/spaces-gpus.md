@@ -113,6 +113,10 @@ Additional lifecycle control over Spaces with upgraded hardware will soon be pro
 
 Additional information about billing can be found in the [dedicated Hub-wide section](./billing).
 
+### Community GPU Grants 
+
+Do you have an awesome Space but need help covering the GPU hardware upgrade costs? We love helping out those with an innovative Space so please feel free to apply for a community GPU grant and see if yours makes the cut! This application can be found in your Space hardware repo settings in the lower left corner under "sleep time settings".
+
 ## Set a custom sleep time[[sleep-time]]
 
 If your Space runs on the default `cpu-basic` hardware, it will go to sleep if inactive for more than a set time (currently, 72 hours). Anyone visiting your Space will restart it automatically.
