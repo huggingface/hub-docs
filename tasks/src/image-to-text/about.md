@@ -11,7 +11,7 @@ This can help the visually impaired to understand what's happening in their surr
 
 ### Optical Character Recognition (OCR)
 
-OCR converts the text present in an image(Ex: Scanned document) to machine readable formats.
+OCR models convert the text present in an image, e.g. a scanned document, to text.
 
 Try it on [🤗 Spaces](https://huggingface.co/microsoft/trocr-base-handwritten)
 
