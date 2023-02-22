@@ -83,10 +83,11 @@ For example, the demo above can be embedded in these docs with the following tag
 ></iframe>
 ```
 
+<!-- The height of this iframe has been calculated as 236 + 64 * 2. 236 is the inner content height measured with Chrome 108. 64 is padding-top of its container element. -->
 <iframe
   src="https://NimaBoscarino-hotdog-streamlit.hf.space?embed=true"
   frameborder="0"
-  height="364"  <!-- This height is calculated as 236 + 64 * 2. 236 is the inner content height measured with Chrome 108. 64 is padding-top of its container element. -->
+  height="364"
   title="Streamlit app"
   class="container p-0 flex-grow space-iframe"
   allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
