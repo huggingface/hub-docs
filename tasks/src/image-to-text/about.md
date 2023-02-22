@@ -7,7 +7,6 @@ This can help the visually impaired to understand what's happening in their surr
  
 
 ### Optical Character Recognition (OCR)
-
 OCR models convert the text present in an image, e.g. a scanned document, to text.
 
 Try it on [🤗 Spaces](https://huggingface.co/microsoft/trocr-base-handwritten)
