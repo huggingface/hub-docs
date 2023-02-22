@@ -19,7 +19,6 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 
 
 ## Inference
-
 ### Image Captioning
 ```python
 from transformers import pipeline
