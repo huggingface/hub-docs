@@ -3,7 +3,6 @@
 ### Image Captioning
 
 Image Captioning is the process of generating textual description of an image. 
-
 This can help the visually impaired to understand what's happening in their surroundings.
 
  
