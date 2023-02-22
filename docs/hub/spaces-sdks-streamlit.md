@@ -82,4 +82,30 @@ For example, the demo above can be embedded in these docs with the following tag
 
 <iframe src="https://NimaBoscarino-hotdog-streamlit.hf.space" frameBorder="0" height="600" title="Streamlit app" class="container p-0 flex-grow space-iframe" allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"></iframe>
 
+## Embed Streamlit Spaces with auto-resizing IFrames
+
+Streamlit has supported automatic iframe resizing since [1.17.0](https://docs.streamlit.io/library/changelog#version-1170) so that the size of the parent iframe is automatically adjusted to fit the content volume of the embedded Streamlit application.
+
+It relies on the [`iFrame Resizer`](https://github.com/davidjbradshaw/iframe-resizer) library, which you need to add a few lines of code to use, as in the following example where
+
+- `id` is set to `<iframe />` that is used to specify the auto-resize target.
+- The `iFrame Resizer` is loaded via the `script` tag.
+- The `iFrameResize()` function is called with the ID of the target `iframe` element, so that its size changes automatically.
+
+We can pass options to the first argument of `iFrameResize()`. See [the document](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/options.md) for the details.
+
+```html
+<iframe
+	id="your-iframe-id"
+	src="https://<space-subdomain>.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
+></iframe>
+<script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.4/js/iframeResizer.min.js"></script>
+<script>
+  iFrameResize({}, "#your-iframe-id")
+</script>
+```
+
 Additionally, you can checkout [our documentation](./spaces-embed).
