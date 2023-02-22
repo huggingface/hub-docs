@@ -77,9 +77,23 @@ You can use the HTML `<iframe>` tag to embed a Streamlit Space as an inline fram
 For example, the demo above can be embedded in these docs with the following tag:
 
 ```
-<iframe src="https://NimaBoscarino-hotdog-streamlit.hf.space" title="My awesome Streamlit Space"></iframe>
+<iframe
+  src="https://NimaBoscarino-hotdog-streamlit.hf.space?embed=true"
+  title="My awesome Streamlit Space"
+></iframe>
 ```
 
-<iframe src="https://NimaBoscarino-hotdog-streamlit.hf.space" frameBorder="0" height="600" title="Streamlit app" class="container p-0 flex-grow space-iframe" allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"></iframe>
+<iframe
+  src="https://NimaBoscarino-hotdog-streamlit.hf.space?embed=true"
+  frameborder="0"
+  height="364"  <!-- This height is calculated as 236 + 64 * 2. 236 is the inner content height measured with Chrome 108. 64 is padding-top of its container element. -->
+  title="Streamlit app"
+  class="container p-0 flex-grow space-iframe"
+  allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
+></iframe>
+
+Please note that we have added `?embed=true` to the URL, which makes the Streamlit app rendered in embed mode, removing some non-essential parts such as the footer.
+
 
 Additionally, you can checkout [our documentation](./spaces-embed).
