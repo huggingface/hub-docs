@@ -90,3 +90,5 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Train a Deep Reinforcement Learning lander agent to land correctly on the Moon 🌕 using Stable-Baselines3](https://github.com/huggingface/deep-rl-class/blob/main/unit1/unit1.ipynb)
 - [Introduction to Unity MLAgents](https://colab.research.google.com/github/huggingface/deep-rl-class/blob/main/unit4/unit4.ipynb)
 - [Training Decision Transformers with 🤗 transformers](https://github.com/huggingface/blog/blob/main/notebooks/101_train-decision-transformers.ipynb)
+
+This page was made possible thanks to the efforts of [Ram Ananth](https://huggingface.co/RamAnanth1), [Emilio Lehoucq](https://huggingface.co/emiliol) and [Osman Alenbey](https://huggingface.co/osman93).
