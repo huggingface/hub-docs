@@ -85,7 +85,7 @@
 			return;
 		}
 
-		if (shouldUpdateUrl) {
+		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
 				candidateLabels: trimmedCandidateLabels,
 				multiClass: multiClass ? "true" : "false",

@@ -64,6 +64,7 @@
 		{isOptionsVisible && 'z-10'}"
 	bind:this={containerEl}
 >
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<div
 		class="no-hover:hidden inline-flex justify-between w-32 rounded-md border border-gray-100 px-4 py-1"
 		on:click={toggleOptionsVisibility}
@@ -74,6 +75,7 @@
 				'-rotate-180'}"
 		/>
 	</div>
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<div
 		class="with-hover:hidden inline-flex justify-between w-32 rounded-md border border-gray-100 px-4 py-1"
 		on:click={toggleOptionsVisibility}
@@ -92,6 +94,7 @@
 		>
 			<div class="py-1 bg-white rounded-md" role="none">
 				{#each inputSamples as { example_title }, i}
+					<!-- svelte-ignore a11y-click-events-have-key-events a11y-mouse-events-have-key-events -->
 					<div
 						class="no-hover:hidden px-4 py-2 text-sm truncate hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-200"
 						on:mouseover={() => _previewInputSample(i)}
@@ -100,6 +103,7 @@
 						{example_title}
 					</div>
 					<!-- Better UX for mobile/table through CSS breakpoints -->
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<div
 						class="with-hover:hidden px-4 py-2 text-sm truncate hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-200"
 						on:click={() => _previewInputSample(i, true)}

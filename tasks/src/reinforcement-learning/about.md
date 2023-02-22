@@ -9,13 +9,20 @@
 **Environment:** The part of the world the agent interacts, comprising everything outside the agent.
 
 
-**State:** Information the agent receives from the environment. In the case of a video game it can be a frame (a screenshot), in the case of a chess playing agent it can be the board position, in the case of a trading agent it can be the price of a certain stock.
+Observations and states are the information our agent gets from the environment. In the case of a video game, it can be a frame (a screenshot). In the case of the trading agent, it can be the value of a certain stock.
+
+
+**State:** Complete description of the state of the environment with no hidden information.
+
+
+**Observation:** Partial description of the state, in a partially observed environment.
+
 
 
 **Action:** The decision taken by the agent.
 
+**Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action.
 
-**Reward:** The numerical feedback signal that the agent receives from the environment based on the chosen action
 
 **Return:** Cumulative Reward.  In the simplest case, the return is the sum of the rewards.
 
@@ -76,6 +83,8 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [HuggingFace Deep Reinforcement Learning Class](https://github.com/huggingface/deep-rl-class)
 - [Introduction to Deep Reinforcement Learning](https://huggingface.co/blog/deep-rl-intro)
 - [Stable Baselines Integration with HuggingFace](https://huggingface.co/blog/sb3)
+- Learn how reinforcement learning is used in conversational agents in this blog: [Illustrating Reinforcement Learning from Human Feedback (RLHF)](https://huggingface.co/blog/rlhf)
+- [Reinforcement Learning from Human Feedback From Zero to ChatGPT](https://www.youtube.com/watch?v=EAd4oQtEJOM)
 
 ### Notebooks
 - [Train a Deep Reinforcement Learning lander agent to land correctly on the Moon 🌕 using Stable-Baselines3](https://github.com/huggingface/deep-rl-class/blob/main/unit1/unit1.ipynb)

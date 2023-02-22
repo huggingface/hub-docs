@@ -48,6 +48,13 @@ const taskData: TaskDataCustom = {
 
 			},
 		],
+	spaces:       [
+		{
+			description: "An application that answers questions based on table CSV files.",
+			id:          "katanaml/table-query",
+
+		},
+	],
 	summary:      "Table Question Answering (Table QA) is the answering a question about an information on a given table.",
 	widgetModels: ["google/tapas-base-finetuned-wtq"],
 };

@@ -44,6 +44,7 @@
 	}
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	bind:this={element}
 	class="absolute top-full mt-1 min-w-full bg-white rounded-xl overflow-hidden shadow-lg z-10 border border-gray-100

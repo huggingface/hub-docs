@@ -12,4 +12,4 @@
   - [Signing commits with GPG](./security-gpg)
   - [Malware Scanning](./security-malware)
 - [Hub API Endpoints](./api)
-  - [Webhook](./api-webhook)
+  - [Webhooks](./webhooks)

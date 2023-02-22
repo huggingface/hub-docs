@@ -18,6 +18,25 @@ As soon as your Space is running on GPU you can see which hardware it’s runnin
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-running-badge-dark.png"/>
 </div>
 
+## Hardware Specs
+
+In the following table, you can see the Specs for the different upgrade options.
+
+| **Hardware**        	| **CPU** 	| **Memory** 	| **Disk** 	| **Hourly Price** 	|
+|---------------------	|---------	|------------	|----------	|------------------	|
+| CPU Basic           	| 2 vCPU  	| 16 GB      	| 50 GB    	| Free!            	|
+| CPU Upgrade         	| 8 vCPU  	| 32 GB      	| 50 GB    	| $0.03            	|
+| Nvidia T4 - small   	| 4 vCPU  	| 15 GB      	| 50 GB    	| $0.06            	|
+| Nvidia T4 - medium  	| 8 vCPU  	| 30 GB      	| 100 GB   	| $0.09            	|
+| Nvidia A10G - small 	| 4 vCPU  	| 15 GB      	| 110 GB   	| $1.05            	|
+| Nvidia A10G - large 	| 12 vCPU 	| 46 GB      	| 200 GB   	| $3.15            	|
+| Nvidia A100 - large 	| 12 vCPU 	| 142 GB     	| 1000 GB  	| $4.13            	|
+
+## Configure hardware programmatically
+
+You can programmatically configure your Space hardware using `huggingface_hub`. This allows for a wide range of use cases where you need to dynamically assign GPUs.
+Check out [this guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/manage_spaces) for more details.
+
 ## Framework specific requirements[[frameworks]]
 
 Most Spaces should run out of the box after a GPU upgrade, but sometimes you'll need to install CUDA versions of the machine learning frameworks you use. Please, follow this guide to ensure your Space takes advantage of the improved hardware.
@@ -77,3 +96,45 @@ import tensorflow as tf
 print(tf.config.list_physical_devices('GPU'))
 # [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
 ```
+
+## Billing
+
+Billing on Spaces is based on hardware usage and is computed by the minute: you get charged for every minute the Space runs on the requested hardware, 
+regardless of whether the Space is used.
+
+During a Space's lifecycle, it is only billed when the Space is actually `Running`. This means that there is no cost during build or startup.
+
+If a running Space starts to fail, it will be automatically suspended and the billing will stop.
+
+Spaces running on free hardware are suspended automatically if they are not used for an extended period of time (e.g. two days). Upgraded Spaces run indefinitely by default, even if there is no usage. You can change this behavior by [setting a custom "sleep time"](#sleep-time) in the Space's settings. To interrupt the billing on your Space, you can change the Hardware to CPU basic.
+<Tip>
+Additional lifecycle control over Spaces with upgraded hardware will soon be provided, such as configuration of an automated suspension of the Space after a custom delay.
+</Tip>
+
+Additional information about billing can be found in the [dedicated Hub-wide section](./billing).
+
+## Set a custom sleep time[[sleep-time]]
+
+If your Space runs on the default `cpu-basic` hardware, it will go to sleep if inactive for more than a set time (currently, 72 hours). Anyone visiting your Space will restart it automatically.
+
+If you want your Space never to deactivate or if you want to set a custom sleep time, you need to upgrade to a paid Hardware.
+
+By default, an upgraded Space will never go to sleep. However, you can use this setting for your upgraded Space to become idle (`stopped` stage) when it's unused 😴. You are not going to be charged for the upgraded hardware while it is asleep. The Space will 'wake up' or get restarted once it receives a new visitor.
+
+The following interface will then be available in your Spaces hardware settings:
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time-dark.png"/>
+</div>
+
+The following options are available:
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time-options.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time-options-dark.png"/>
+</div>
+
+## Pausing a Space[[pause]]
+
+You can `pause` a Space from the repo settings. A "paused" Space means that the Space is on hold and will not use resources until manually restarted, and only the owner of a paused Space can restart it. Paused time is not billed.

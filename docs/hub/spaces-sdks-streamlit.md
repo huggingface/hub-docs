@@ -1,6 +1,6 @@
 # Streamlit Spaces
 
-**Streamlit** gives users more freedom to build a full-featured web app with Python in a *reactive* way. Your code is rerun each time the state of the app changes. Streamlit is also great for data visualization and supports several charting libraries such as Bokeh, Plotly, and Altair. Read this [blog post](https://huggingface.co/blog/streamlit-spaces) about building and hosting Streamlit apps in Spaces.
+**Streamlit** gives users freedom to build a full-featured web app with Python in a *reactive* way. Your code is rerun each time the state of the app changes. Streamlit is also great for data visualization and supports several charting libraries such as Bokeh, Plotly, and Altair. Read this [blog post](https://huggingface.co/blog/streamlit-spaces) about building and hosting Streamlit apps in Spaces.
 
 Selecting **Streamlit** as the SDK when [creating a new Space](https://huggingface.co/new-space) will initialize your Space with the latest version of Streamlit by setting the `sdk` property to `streamlit` in your `README.md` file's YAML block. If you'd like to change the Streamlit version, you can edit the `sdk_version` property.
 
@@ -52,15 +52,15 @@ st.title("Hot Dog? Or Not?")
 file_name = st.file_uploader("Upload a hot dog candidate image")
 
 if file_name is not None:
-  col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-  image = Image.open(file_name)
-  col1.image(image, use_column_width=True)
-  predictions = pipeline(image)
+    image = Image.open(file_name)
+    col1.image(image, use_column_width=True)
+    predictions = pipeline(image)
 
-  col2.header("Probabilities")
-  for p in predictions:
-    col2.subheader(f"{ p['label'] }: { round(p['score'] * 100, 1)}%")
+    col2.header("Probabilities")
+    for p in predictions:
+        col2.subheader(f"{ p['label'] }: { round(p['score'] * 100, 1)}%")
 ```
 
 This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/docs/transformers/pipeline_tutorial) to load the [julien-c/hotdog-not-hotdog](https://huggingface.co/julien-c/hotdog-not-hotdog) model, which is used by the Streamlit interface. The Streamlit app will expect you to upload an image, which it'll then classify as *hot dog* or *not hot dog*. Once you've saved the code to the **app.py** file, visit the **App** tab to see your app in action!
@@ -70,9 +70,9 @@ This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/do
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-hot-dog-streamlit-dark.png"/>
 </div>
 
-## Embed Steamlit Spaces on other webpages
+## Embed Streamlit Spaces on other webpages
 
-You can use the HTML `<iframe>` tag to embed a Streamlit Space as an inline frame on other webpages. Simply include the URL of your Space, ending with the `.hf.space` suffix. To find the URL of your Space, you can use "Inspect element" in your browser, or use the "How to embed" button we'll ship shortly on all Spaces pages.
+You can use the HTML `<iframe>` tag to embed a Streamlit Space as an inline frame on other webpages. Simply include the URL of your Space, ending with the `.hf.space` suffix. To find the URL of your Space, you can use the "Embed this Space" button from the Spaces options.
 
 For example, the demo above can be embedded in these docs with the following tag:
 
@@ -81,3 +81,5 @@ For example, the demo above can be embedded in these docs with the following tag
 ```
 
 <iframe src="https://NimaBoscarino-hotdog-streamlit.hf.space" frameBorder="0" height="600" title="Streamlit app" class="container p-0 flex-grow space-iframe" allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"></iframe>
+
+Additionally, you can checkout [our documentation](./spaces-embed).

@@ -58,7 +58,7 @@
 			return;
 		}
 
-		if (shouldUpdateUrl) {
+		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({ text: trimmedText });
 		}
 
@@ -144,7 +144,7 @@
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
 		{#if output.length}
-			<div class="flex justify-center mt-4 bg-gray-50">
+			<div class="flex justify-center mt-4 bg-gray-50 dark:bg-gray-925">
 				<img class="max-w-sm object-contain" src={output} alt="" />
 			</div>
 		{/if}

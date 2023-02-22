@@ -69,6 +69,20 @@ const taskData: TaskDataCustom = {
 			id:          "roberta-large-mnli",
 		},
 	],
+	spaces:       [
+		{
+			description: "An application that can classify financial sentiment.",
+			id:          "IoannisTr/Tech_Stocks_Trading_Assistant",
+		},
+		{
+			description: "A dashboard that contains various text classification tasks.",
+			id:          "miesnerjacob/Multi-task-NLP",
+		},
+		{
+			description: "An application that analyzes user reviews in healthcare.",
+			id:          "spacy/healthsea-demo",
+		},
+	],
 	summary:      "Text Classification is the task of assigning a label or class to a given text. Some use cases are sentiment analysis, natural language inference, and assessing grammatical correctness.",
 	widgetModels: ["distilbert-base-uncased-finetuned-sst-2-english"],
 	youtubeId:    "leNG9fN9FQU",

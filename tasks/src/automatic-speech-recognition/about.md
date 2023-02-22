@@ -69,3 +69,5 @@ These events help democratize ASR for all languages, including low-resource lang
 - [ML for Audio Study Group - Intro to Audio and ASR Deep Dive](https://www.youtube.com/watch?v=D-MH6YjuIlE)
 - [Massively Multilingual ASR: 50 Languages, 1 Model, 1 Billion Parameters](https://arxiv.org/pdf/2007.03001.pdf)
 - An ASR toolkit made by [NVIDIA: NeMo](https://github.com/NVIDIA/NeMo) with code and pretrained models useful for new ASR models. Watch the [introductory video](https://www.youtube.com/embed/wBgpMf_KQVw) for an overview.
+- [An introduction to SpeechT5, a multi-purpose speech recognition and synthesis model](https://huggingface.co/blog/speecht5).
+- [A guide on Fine-tuning Whisper For Multilingual ASR with 🤗Transformers](https://huggingface.co/blog/fine-tune-whisper)

@@ -34,6 +34,7 @@
 	import IconImageToImage from "../Icons/IconImageToImage.svelte";
 	import IconUnconditionalImageGeneration from "../Icons/IconUnconditionalImageGeneration.svelte";
 	import IconDocumentQuestionAnswering from "../Icons/IconDocumentQuestionAnswering.svelte";
+	import IconGraphML from "../Icons/IconGraphML.svelte";
 
 	export let classNames = "";
 	export let pipeline = "";
@@ -72,6 +73,7 @@
 		"unconditional-image-generation": IconUnconditionalImageGeneration,
 		"reinforcement-learning": IconReinforcementLearning,
 		robotics: IconRobotics,
+		"graph-ml": IconGraphML,
 		"tabular-classification": IconTabularClassification,
 		"tabular-regression": IconTabularRegression,
 		"document-question-answering": IconDocumentQuestionAnswering,

@@ -30,9 +30,17 @@
 			modelLoadInfo.status === "loaded" &&
 			!isAzure
 		) {
-			return `The model is loaded and running on <a href="https://huggingface.co/intel" target="_blank">Intel Xeon Ice Lake</a> CPU.`;
+			return `The model is loaded and running on <a class="hover:underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon 3rd Gen Scalable CPU</a>`;
 		}
 		return statuses[modelLoadInfo.status];
+	}
+
+	function getComputeTypeMsg(): string {
+		let compute_type = modelLoadInfo?.compute_type ?? "cpu";
+		if (compute_type === "cpu") {
+			return "Intel Xeon 3rd Gen Scalable cpu";
+		}
+		return compute_type;
 	}
 </script>
 
@@ -56,7 +64,7 @@
 				</div>
 			</div>
 		{:else if computeTime}
-			Computation time on {modelLoadInfo?.compute_type ?? "cpu"}: {computeTime}
+			Computation time on {getComputeTypeMsg()}: {computeTime}
 		{:else}
 			{@html getStatusReport(modelLoadInfo, status)}
 		{/if}

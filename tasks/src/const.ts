@@ -1,10 +1,10 @@
-import type { ModelLibrary } from "../../js/src/lib/interfaces/Libraries";
+import type { ModelLibraryKey } from "../../js/src/lib/interfaces/Libraries";
 import type { PipelineType } from "../../js/src/lib/interfaces/Types";
 
 /*
  * Model libraries compatible with each ML task
  */
-export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof ModelLibrary>> = {
+export const TASKS_MODEL_LIBRARIES: Record<PipelineType, ModelLibraryKey[]> = {
 	"audio-classification":           ["speechbrain", "transformers"],
 	"audio-to-audio":                 ["asteroid", "speechbrain"],
 	"automatic-speech-recognition":   ["espnet", "nemo", "speechbrain", "transformers"],
@@ -13,6 +13,7 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof Mode
 	"document-question-answering":    ["transformers"],
 	"feature-extraction":             ["sentence-transformers", "transformers"],
 	"fill-mask":                      ["transformers"],
+	"graph-ml": 			  ["transformers"],
 	"image-classification":           ["keras", "timm", "transformers"],
 	"image-segmentation":             ["transformers"],
 	"image-to-image":                 [],
@@ -23,7 +24,7 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, Array<keyof typeof Mode
 	"other":                          [],
 	"question-answering":             ["adapter-transformers", "allennlp", "transformers"],
 	"robotics":                       [],
-	"reinforcement-learning":         ["transformers", "stable-baselines3", "ml-agents"],
+	"reinforcement-learning":         ["transformers", "stable-baselines3", "ml-agents", "sample-factory"],
 	"sentence-similarity":            ["sentence-transformers", "spacy"],
 	"summarization":                  ["transformers"],
 	"table-question-answering":       ["transformers"],

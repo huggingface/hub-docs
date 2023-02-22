@@ -1,5 +1,17 @@
 # Spaces Changelog
 
+## [2022-12-15] - Spaces supports Docker Containers
+
+- Read more doc about: [Docker Spaces](./spaces-sdks-docker)
+
+## [2022-12-14] - Ability to set a custom `sleep` time
+
+- Read more doc here: [Spaces sleep time](./spaces-gpus#sleep-time)
+
+## [2022-12-07] - Add support for Streamlit 1.15
+
+- Announcement : https://twitter.com/osanseviero/status/1600881584214638592.
+
 ## [2022-06-07] - Add support for Streamlit 1.10.0
 
 - The new multipage apps feature is working out-of-the-box on Spaces.

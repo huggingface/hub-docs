@@ -21,6 +21,7 @@
 				class="transition-opacity {isSampling ? 'opacity-80' : 'opacity-40'}"
 				>sampling</span
 			>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div class="cursor-pointer" on:click={toggleState}>
 				<div
 					class="w-8 h-2 border-2 border-blue-200 dark:border-blue-800 rounded-full relative"
@@ -38,6 +39,7 @@
 			>
 		</div>
 		<div class="relative">
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<span
 				class="cursor-pointer text-xs"
 				on:click|stopPropagation={() => (isPromptTipOpen = true)}

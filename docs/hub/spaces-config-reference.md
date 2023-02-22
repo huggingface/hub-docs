@@ -17,7 +17,7 @@ Color for Thumbnail gradient (red, yellow, green, blue, indigo, purple, pink, gr
 Color for Thumbnail gradient (red, yellow, green, blue, indigo, purple, pink, gray).  
 
 **`sdk`** : _string_  
-Can be either `gradio`, `streamlit` or `static`.  
+Can be either `gradio`, `streamlit`, `docker`, or `static`.  
 
 **`python_version`**: _string_  
 Any valid Python `3.x` or `3.x.x` version.  
@@ -26,11 +26,18 @@ Defaults to `3.8.9`.
 **`sdk_version`** : _string_  
 Specify the version of the selected SDK (Streamlit or Gradio).  
 All versions of Gradio are supported.  
-Streamlit versions are supported from `0.79.0` to `1.10.0`.  
+Streamlit versions are supported from `0.79.0` to `1.15.2`.  
 
 **`app_file`** : _string_  
 Path to your main application file (which contains either `gradio` or `streamlit` Python code, or `static` html code).  
 Path is relative to the root of the repository.  
+
+**`app_port`** : _int_  
+Port on which your application is running. Used only if `sdk` is `docker`. Default port is `7860`.
+
+**`fullWidth`**: _boolean_  
+Whether your Space is rendered inside a full-width (when `true`) or fixed-width column (ie. "container" CSS) inside the iframe.
+Defaults to false in `gradio` and `streamlit`, and to true for other sdks.
 
 **`models`** : _List[string]_  
 HF model IDs (like `gpt2` or `deepset/roberta-base-squad2`) used in the Space.  

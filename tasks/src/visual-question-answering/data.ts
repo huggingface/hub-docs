@@ -60,6 +60,20 @@ const taskData: TaskDataCustom = {
 			id:          "dandelin/vilt-b32-finetuned-vqa",
 		},
 	],
+	spaces:       [
+		{
+			description: "An application that can answer questions based on images.",
+			id:          "nielsr/vilt-vqa",
+		},
+		{
+			description: "An application that can caption images and answer questions about a given image. ",
+			id:          "Salesforce/BLIP",
+		},
+		{
+			description: "An application that can caption images and answer questions about a given image. ",
+			id:          "vumichien/Img2Prompt",
+		},
+	],
 	summary:      "Visual Question Answering is the task of answering open-ended questions based on an image. They output natural language responses to natural language questions.",
 	widgetModels: ["dandelin/vilt-b32-finetuned-vqa"],
 	youtubeId:    "",

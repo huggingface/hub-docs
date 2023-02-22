@@ -25,7 +25,14 @@ You can contribute variants of this task [here](https://github.com/huggingface/h
 You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/text-to-image/about.md) that shows how to infer with `text-to-image` models.
   
 ## Useful Resources
+- [Hugging Face Diffusion Models Course](https://github.com/huggingface/diffusion-models-class)
+- [Getting Started with Diffusers](https://huggingface.co/docs/diffusers/index)
+- [Text-to-Image Generation](https://huggingface.co/docs/diffusers/using-diffusers/conditional_image_generation)
 - [MinImagen - Build Your Own Imagen Text-to-Image Model](https://www.assemblyai.com/blog/minimagen-build-your-own-imagen-text-to-image-model/)
 - [OpenAI Blog - Dall E](https://openai.com/blog/dall-e/)
+- [Using LoRA for Efficient Stable Diffusion Fine-Tuning](https://huggingface.co/blog/lora)
+- [Using Stable Diffusion with Core ML on Apple Silicon](https://huggingface.co/blog/diffusers-coreml)
+- [A guide on Vector Quantized Diffusion](https://huggingface.co/blog/vq-diffusion)
+- [🧨 Stable Diffusion in JAX/Flax](https://huggingface.co/blog/stable_diffusion_jax)
 
-This page was made possible thanks to efforts of [Ishan Dutta](https://huggingface.co/ishandutta) and [Oğuz Akif](https://huggingface.co/oguzakif).
+This page was made possible thanks to the efforts of [Ishan Dutta](https://huggingface.co/ishandutta), [Enrique Elias Ubaldo](https://huggingface.co/herrius) and [Oğuz Akif](https://huggingface.co/oguzakif).
