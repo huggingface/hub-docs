@@ -94,7 +94,7 @@ For example, the demo above can be embedded in these docs with the following tag
   sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
 ></iframe>
 
-Please note that we have added `?embed=true` to the URL, which makes the Streamlit app rendered in embed mode, removing some non-essential parts such as the footer.
+Please note that we have added `?embed=true` to the URL, which activates the embed mode of the Streamlit app, removing some spacers and the footer for slim embeds.
 
 
 Additionally, you can checkout [our documentation](./spaces-embed).
