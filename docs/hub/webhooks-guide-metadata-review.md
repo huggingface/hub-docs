@@ -204,7 +204,7 @@ The above function will receive Webhook events and creates or updates the metada
 
 Our [main.py](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/main.py) file contains all the code we need for our Webhook app. To deploy it, we'll use a [Space](./spaces-overview). 
 
-For our Space, we'll use Docker to run our app. The [Dockerfile](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/Dockerfile) copies our app file, installs the required dependencies, and runs the application. To populate the `KEY` variable, we also set a `WEBHOOK_SECRET` secret for our Space with the secret we generated before. You can read more about Docker Spaces [here](./spaces-sdks-docker).
+For our Space, we'll use Docker to run our app. The [Dockerfile](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/Dockerfile) copies our app file, installs the required dependencies, and runs the application. To populate the `KEY` variable, we'll also set a `WEBHOOK_SECRET` secret for our Space with the secret we generated earlier. You can read more about Docker Spaces [here](./spaces-sdks-docker).
 
 Finally, we need to update the URL in our Webhook settings to the URL of our Space. We can get our Space’s “direct URL” from the contextual menu. Click on “Embed this Space” and copy the “Direct URL”.
 
