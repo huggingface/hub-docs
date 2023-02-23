@@ -177,11 +177,16 @@ This guide creates a separate user account that will post the metadata reviews.
 
 We now need some way of listening to Webhook events. There are many possible tools you can use to listen to Webhook events. Many existing services, such as [Zapier](https://zapier.com/) and [IFTTT](https://ifttt.com), can use Webhooks to trigger actions (for example, they could post a tweet every time a model is updated). In this case, we'll implement our Webhook listener using  [FastAPI](https://fastapi.tiangolo.com/). 
 
-[FastAPI](https://fastapi.tiangolo.com/) is a Python web framework. We'll use FastAPI to create a Webhook listener. In particular, we need to implement a route that accepts `POST` requests on `/webhook`.
+[FastAPI](https://fastapi.tiangolo.com/) is a Python web framework. We'll use FastAPI to create a Webhook listener. In particular, we need to implement a route that accepts `POST` requests on `/webhook`. For authentication, we'll compare the `X-Webhook-Secret` header with a `WEBHOOK_SECRET` secret that can be passed to our [Docker container at runtime](./spaces-sdks-docker#runtime).
 
 
 ```python
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, Response
+import os
+
+KEY = os.environ.get("WEBHOOK_SECRET")
+
+app = FastAPI()
 
 @app.post("/webhook")
 async def webhook(request: Request):
@@ -197,9 +202,9 @@ The above function will receive Webhook events and creates or updates the metada
 
 ## Use Spaces to deploy our Webhook app 
 
-Our [main.py](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/main.py) file contains all the code we need for our Webhook app. To deploy it, we'll use a [Space](ttps://huggingface.co/docs/hub/spaces-overview). 
+Our [main.py](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/main.py) file contains all the code we need for our Webhook app. To deploy it, we'll use a [Space](./spaces-overview). 
 
-For our Space, we'll use Docker to run our app. The [Dockerfile](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/Dockerfile) copies our app file, installs the required dependencies, and runs the application. You can read more about Docker Spaces [here](https://huggingface.co/docs/hub/spaces-sdks-docker).
+For our Space, we'll use Docker to run our app. The [Dockerfile](https://huggingface.co/spaces/librarian-bot/webhook_metadata_reviewer/blob/main/Dockerfile) copies our app file, installs the required dependencies, and runs the application. To populate the `KEY` variable, we also set a `WEBHOOK_SECRET` secret for our Space with the secret we generated before. You can read more about Docker Spaces [here](./spaces-sdks-docker).
 
 Finally, we need to update the URL in our Webhook settings to the URL of our Space. We can get our Space’s “direct URL” from the contextual menu. Click on “Embed this Space” and copy the “Direct URL”.
 
