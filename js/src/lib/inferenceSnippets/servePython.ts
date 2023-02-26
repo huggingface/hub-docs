@@ -29,6 +29,18 @@ export const snippetFile = (model: ModelData): string =>
 
 output = query(${getModelInputSnippet(model)})`;
 
+export const snippetTextToImage = (model: ModelData): string =>
+	`def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.content
+image_bytes = query({
+	"inputs": ${getModelInputSnippet(model)},
+})
+# You can access the image with PIL.Image for example
+import io
+from PIL import Image
+image = Image.open(io.BytesIO(image_bytes))`;
+
 export const pythonSnippets:
 	Partial<Record<PipelineType, (model: ModelData) => string>> =
 {
@@ -47,6 +59,7 @@ export const pythonSnippets:
 	"fill-mask":                    snippetBasic,
 	"sentence-similarity":          snippetBasic,
 	"automatic-speech-recognition": snippetFile,
+	"text-to-image":                snippetTextToImage,
 	"text-to-speech":               snippetBasic,
 	"audio-to-audio":               snippetFile,
 	"audio-classification":         snippetFile,

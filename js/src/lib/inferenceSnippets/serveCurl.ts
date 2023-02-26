@@ -40,6 +40,7 @@ export const curlSnippets:
 	"fill-mask":                    snippetBasic,
 	"sentence-similarity":          snippetBasic,
 	"automatic-speech-recognition": snippetFile,
+	"text-to-image":                snippetBasic,
 	"text-to-speech":               snippetBasic,
 	"audio-to-audio":               snippetFile,
 	"audio-classification":         snippetFile,
