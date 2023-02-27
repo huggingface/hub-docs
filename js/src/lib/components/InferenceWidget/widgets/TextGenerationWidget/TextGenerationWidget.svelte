@@ -194,7 +194,6 @@
 			window.location.href
 		)}`;
 	}
-
 </script>
 
 <WidgetWrapper
