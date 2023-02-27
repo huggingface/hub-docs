@@ -75,8 +75,11 @@ const inputsAudioToAudio = () => `"sample1.flac"`;
 
 const inputsAudioClassification = () => `"sample1.flac"`;
 
+const inputsTextToImage = () =>
+	`"Astronaut riding a horse"`;
+
 const inputsTextToSpeech = () =>
-`"The answer to the universe is 42"`;
+	`"The answer to the universe is 42"`;
 
 const inputsAutomaticSpeechRecognition = () => `"sample1.flac"`;
 
@@ -98,6 +101,7 @@ const modelInputSnippets: {
 	"table-question-answering":     inputsTableQuestionAnswering,
 	"text-classification":          inputsTextClassification,
 	"text-generation":              inputsTextGeneration,
+	"text-to-image":                inputsTextToImage,
 	"text-to-speech":               inputsTextToSpeech,
 	"text2text-generation":         inputsText2TextGeneration,
 	"token-classification":         inputsTokenClassification,

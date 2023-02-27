@@ -37,6 +37,23 @@ query({"inputs": ${getModelInputSnippet(model)}, "parameters": {"candidate_label
 	console.log(JSON.stringify(response));
 });`;
 
+export const snippetTextToImage = (model: ModelData, accessToken: string): string =>
+	`async function query(data) {
+	const response = await fetch(
+		"https://api-inference.huggingface.co/models/${model.id}",
+		{
+			headers: { Authorization: "Bearer ${accessToken || `{API_TOKEN}`}" },
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.blob();
+	return result;
+}
+query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
+	// Use image
+});`;
+
 export const snippetFile = (model: ModelData, accessToken: string): string =>
 	`async function query(filename) {
 	const data = fs.readFileSync(filename);
@@ -74,6 +91,7 @@ export const jsSnippets:
 	"fill-mask":                    snippetBasic,
 	"sentence-similarity":          snippetBasic,
 	"automatic-speech-recognition": snippetFile,
+	"text-to-image":                snippetTextToImage,
 	"text-to-speech":               snippetBasic,
 	"audio-to-audio":               snippetFile,
 	"audio-classification":         snippetFile,
