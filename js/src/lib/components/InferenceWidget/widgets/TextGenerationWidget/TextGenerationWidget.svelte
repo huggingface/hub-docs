@@ -91,22 +91,27 @@
 		const requestBody = { inputs: trimmedValue };
 		addInferenceParameters(requestBody, model);
 
+        const parameters = {};
+		if (model?.pipeline_tag === "text-generation") {
+            // we force return_full_text to false as we want to exclude the prompt
+			parameters["return_full_text"] = false;
+		}
+
 		if (model.id === "bigscience/bloom") {
 			// see https://huggingface.co/docs/api-inference/detailed_parameters#text-generation-task
-			const parameters = {
-				seed: Date.now() % 100,
-				early_stopping: false,
-				length_penalty: 0.0,
-				max_new_tokens: 20,
-			};
+            parameters["seed"] = Date.now() % 100;
+            parameters["max_new_tokens"] = 20;
+
 			if (decodingStrategy === "sampling") {
 				parameters["do_sample"] = true;
 				parameters["top_p"] = 0.9;
 			} else {
 				parameters["do_sample"] = false;
 			}
-			requestBody["parameters"] = parameters;
 		}
+
+        // add parameters to the request
+		requestBody["parameters"] = parameters;
 
 		isLoading = true;
 		inferenceTimer.start();
@@ -138,13 +143,8 @@
 			if (output.length === 0) {
 				warning = "No text was generated";
 			} else if (model?.pipeline_tag === "text-generation") {
-				const outputWithoutInput = output.slice(text.length);
 				inferenceTimer.stop();
-				if (outputWithoutInput.length === 0) {
-					warning = "No text was generated";
-				} else {
-					await renderTypingEffect(outputWithoutInput);
-				}
+                await renderTypingEffect(output);
 			}
 		} else if (res.status === "loading-model") {
 			modelLoading = {
