@@ -46,3 +46,5 @@ generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)
 - [Image captioning use case](https://blog.google/outreach-initiatives/accessibility/get-image-descriptions/)
 - [Train Image Captioning model on your dataset](https://github.com/NielsRogge/Transformers-Tutorials/blob/master/GIT/Fine_tune_GIT_on_an_image_captioning_dataset.ipynb)
 - [Train OCR model on your dataset ](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/TrOCR)
+
+This page was made possible thanks to efforts of [Sukesh Perla](https://huggingface.co/hitchhiker3010) and [Johannes Kolbe](https://huggingface.co/johko).
