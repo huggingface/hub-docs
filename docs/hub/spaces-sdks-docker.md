@@ -66,14 +66,14 @@ ENV HOME=/home/user \
 WORKDIR $HOME/app
 
 # Try and run pip command after setting the user with `USER user` to avoid permission issues with Python
-RUN pip install --upgrade pip
+RUN pip install --no-cache-dir --upgrade pip
 
 # Copy the current directory contents into the container at $HOME/app setting the owner to the user
 COPY --chown=user . $HOME/app
 
 # Download a checkpoint
 RUN mkdir content
-ADD --chown=user https://huggingface.co/<ORG>/<MODEL>/resolve/main/<CHECKPOINT>.ckpt content/<ORG>/<MODEL>/<CHECKPOINT>.ckpt
+ADD --chown=user https://<SOME_ASSET_URL> content/<SOME_ASSET_NAME>
 ```
 
 <Tip warning="{true}">
