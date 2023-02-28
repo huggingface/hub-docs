@@ -115,7 +115,9 @@ Additional information about billing can be found in the [dedicated Hub-wide sec
 
 ### Community GPU Grants 
 
-Do you have an awesome Space but need help covering the GPU hardware upgrade costs? We love helping out those with an innovative Space so please feel free to apply for a community GPU grant and see if yours makes the cut! This application can be found in your Space hardware repo settings in the lower left corner under "sleep time settings".
+Do you have an awesome Space but need help covering the GPU hardware upgrade costs? We love helping out those with an innovative Space so please feel free to apply for a community GPU grant and see if yours makes the cut! This application can be found in your Space hardware repo settings in the lower left corner under "sleep time settings":
+
+![Community GPU Grant](https://user-images.githubusercontent.com/83347449/221907262-2260ecc6-c116-4757-a098-a8568f63e373.png)
 
 ## Set a custom sleep time[[sleep-time]]
 
