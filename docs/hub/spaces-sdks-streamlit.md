@@ -15,6 +15,10 @@ You can edit the `sdk_version`, but note that issues may occur when you use an u
 
 For in-depth information about Streamlit, refer to the [Streamlit documentation](https://docs.streamlit.io/).
 
+<Tip warning={true}>
+Only port 8501 is allowed for Streamlit Spaces (default port). As a result if you provide a `config.toml` file for your Space make sure the default port is not overriden.
+</Tip>
+
 ## Your First Streamlit Space: Hot Dog Classifier
 
 In the following sections, you'll learn the basics of creating a Space, configuring it, and deploying your code to it. We'll create a **Hot Dog Classifier** Space with Streamlit that'll be used to demo the [julien-c/hotdog-not-hotdog](https://huggingface.co/julien-c/hotdog-not-hotdog) model, which can detect whether a given picture contains a hot dog 🌭
