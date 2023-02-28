@@ -10,6 +10,7 @@ import featureExtraction from "./feature-extraction/data";
 import fillMask from "./fill-mask/data";
 import imageClassification from "./image-classification/data";
 import imageToImage from "./image-to-image/data";
+import imageToText from "./image-to-text/data";
 import imageSegmentation from "./image-segmentation/data";
 import objectDetection from "./object-detection/data";
 import depthEstimation from "./depth-estimation/data";
@@ -51,7 +52,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"image-classification":           getData("image-classification", imageClassification),
 	"image-segmentation":             getData("image-segmentation", imageSegmentation),
 	"image-to-image":                 getData("image-to-image", imageToImage),
-	"image-to-text":                  getData("image-to-text"),
+	"image-to-text":                  getData("image-to-text", imageToText),
 	"multiple-choice":                undefined,
 	"object-detection":               getData("object-detection", objectDetection),
 	"video-classification":           getData("video-classification", videoClassification),
