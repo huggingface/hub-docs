@@ -67,7 +67,7 @@ const taskData: TaskDataCustom = {
 			id:          "johko/capdec-image-captioning",
 		},
 	],
-	summary:      "",
+	summary:      "Image to text models output a text from a given input. Image captioning or optical character recognition can be considered as most common applications of image to text.",
 	widgetModels: ["nlpconnect/vit-gpt2-image-captioning"],
 	youtubeId:    "",
 };
