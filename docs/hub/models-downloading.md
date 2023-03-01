@@ -19,15 +19,15 @@ If a model on the Hub is tied to a [supported library](./models-libraries), load
 You can use the [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) library to create, delete, update and retrieve information from repos. You can also download files from repos or integrate them into your library! For example, you can quickly load a Scikit-learn model with a few lines.
 
 ```py
-from huggingface_hub import hf_hub_url, cached_download
+from huggingface_hub import hf_hub_download
 import joblib
 
 REPO_ID = "YOUR_REPO_ID"
 FILENAME = "sklearn_model.joblib"
 
-model = joblib.load(cached_download(
-    hf_hub_url(REPO_ID, FILENAME)
-))
+model = joblib.load(
+    hf_hub_download(repo_id=REPO_ID, filename=FILENAME)
+)
 ```
 
 ## Using Git
