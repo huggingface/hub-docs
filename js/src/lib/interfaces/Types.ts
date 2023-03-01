@@ -625,7 +625,7 @@ export const ALL_SUBTASK_TYPES = ALL_SUBTASKS.map(s => s.type);
 export const ALL_SUBTASK_TYPES_SET = new Set(ALL_SUBTASK_TYPES);
 
 
-export const TAG_SENSITIVE_CONTENT = "sensitive";
+export const TAG_NFAE_CONTENT = "nfae";
 
 /**
  * Tags that are suggested inside the metadata GUI
@@ -645,7 +645,7 @@ export const OTHER_TAGS_SUGGESTIONS = [
 	"code",
 	"climate",
 	"medical",
-	TAG_SENSITIVE_CONTENT,
+	TAG_NFAE_CONTENT,
 ];
 
 
