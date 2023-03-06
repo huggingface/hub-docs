@@ -649,6 +649,7 @@ export const OTHER_TAGS_SUGGESTIONS = [
 	"code",
 	"climate",
 	"medical",
+	TAG_NFAE_CONTENT,
 ];
 
 
