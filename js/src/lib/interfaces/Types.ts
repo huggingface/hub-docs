@@ -629,7 +629,7 @@ export const ALL_SUBTASK_TYPES = ALL_SUBTASKS.map(s => s.type);
 export const ALL_SUBTASK_TYPES_SET = new Set(ALL_SUBTASK_TYPES);
 
 
-export const TAG_NFAE_CONTENT = "nfae";
+export const TAG_NFAE_CONTENT = "not_for_all_eyes";
 
 /**
  * Tags that are suggested inside the metadata GUI
