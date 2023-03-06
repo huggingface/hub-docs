@@ -103,6 +103,10 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Intent Classification",
 			},
 			{
+				type: "language-identification",
+				name: "Language Identification",
+			},
+			{
 				type: "multi-class-classification",
 				name: "Multi Class Classification",
 			},
