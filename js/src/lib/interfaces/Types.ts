@@ -630,6 +630,7 @@ export const ALL_SUBTASK_TYPES_SET = new Set(ALL_SUBTASK_TYPES);
 
 
 export const TAG_NFAE_CONTENT = "not_for_all_eyes";
+export const TAG_TEXT_GENERATION_INFERENCE = "text-generation-inference";
 
 /**
  * Tags that are suggested inside the metadata GUI
