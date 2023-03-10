@@ -27,10 +27,10 @@ The `README.md` file for a dataset is called a [Dataset Card](./datasets-cards).
 
 ## Manual approval
 
-By default, users request to accept the dataset are accepted automatically.
+By default, users requests to access the dataset are accepted automatically.
 Dataset authors can set the approval mode to "Manual reviews" from the dataset's **Settings** tab.
 Doing so enforces that each access request is manually reviewed and approved by the dataset authors.
-Only users which access request have been approved will be able to access the dataset's content.
+Only users whose access requests have been approved will be able to access the dataset's content.
 
 
 <div class="flex justify-center">
