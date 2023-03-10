@@ -44,9 +44,9 @@ The `README.md` file for a model is called a [model Card](./model-cards). Visit 
 
 ## Manual approval
 
-By default, users requests to access the model are accepted automatically.
+By default, requests to access the model are automatically accepted.
 Model authors can set the approval mode to "Manual reviews" from the model's **Settings** tab.
-Doing so enforces that each access request is manually reviewed and approved by the model authors.
+Doing so enforces that each access request will be manually reviewed and approved by the model authors.
 Only users whose access requests have been approved will be able to access the model's content.
 
 <div class="flex justify-center">
