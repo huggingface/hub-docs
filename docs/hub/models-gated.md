@@ -31,7 +31,7 @@ extra_gated_prompt: "You agree to not use the model to conduct experiments that 
 extra_gated_fields:
  Company: text
  Country: text
- I agree to use this model for non-commerical use ONLY: checkbox
+ I agree to use this model for non-commercial use ONLY: checkbox
 ---
 ```
 

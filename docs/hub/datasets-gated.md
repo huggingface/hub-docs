@@ -14,7 +14,7 @@ extra_gated_prompt: "You agree to not attempt to determine the identity of indiv
 extra_gated_fields:
  Company: text
  Country: text
- I agree to use this model for non-commerical use ONLY: checkbox
+ I agree to use this model for non-commercial use ONLY: checkbox
 ---
 ```
 
