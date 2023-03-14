@@ -6,28 +6,6 @@ Visit the [Aim docs](https://aimstack.readthedocs.io/en/latest/) to learn more a
 
 In the following sections, you'll learn how to deploy your own Aim app to the Hub that will allow you to store detailed logs of model training alongside the actual models, all shown in an intuitive UI. This Aim app is a **self-contained application completely hosted on the Hub using Docker**.
 
-## Track your Transformers runs with Aim
-
-Tracking your Transformers experiments with Aim is very easy. 
-All you need to do is include the appropriate AimCallback in your training arguments and Aim will handle all the rest! Here's a code snippet showcasing just that:
-
-```python
-from aim.hugging_face import AimCallback
-from transformers import Trainer
-
-aim_callback = AimCallback(repo='/log/dir/path', experiment='your_experiment_name')
-
-trainer = Trainer(
-       model=model,
-       args=training_args,
-       callbacks=[aim_callback]
-    )
-```
-
-The Aim callback will automatically open an Aim Session and close it when the trainer is done. When trainer.train(), trainer.evaluate() or trainer.predict() is called, aim_callback will automatically log the hyper-params and respective metrics.
-
-Find a full example [here](https://github.com/aimhubio/aim/blob/main/examples/hugging_face_track.py).
-
 ## Deploy Aim on Spaces
 
 You can deploy Aim on Spaces with just a few clicks:
@@ -51,10 +29,59 @@ Now, when you navigate to the **App** section of your space, you'll be able to u
 
 Note that even if your logs are in tensorboard format, the Aim template will automatically convert them, no extra work needed on your end!
 
-## Uploading logs to your Aim Space
+## Demo your experiments with Aim on Spaces
+Let’s use Aim on Spaces to demo a simple CNN built with Pytorch and trained on the MNIST dataset. We’ll use the example notebook found in the Aim repo, [check it out](https://github.com/aimhubio/aim/blob/main/examples/pytorch_track.py) for the end-to-end example.
 
-When you use Aim to track experiments, the logs will be stored in an .aim directory. When using an Aim Space for your model, you need to compress said directory to a tar.gz file and upload it alongside the other files. The Dockerfile will automatically extract the archive and use the logs from there.  
+```python
+from aim import Run
+from aim.pytorch import track_gradients_dists, track_params_dists
 
+# Initialize a new Run
+aim_run = Run()
+...
+items = {'accuracy': acc, 'loss': loss}
+aim_run.track(items, epoch=epoch, context={'subset': 'train'})
+
+# Track weights and gradients distributions
+track_params_dists(model, aim_run)
+track_gradients_dists(model, aim_run)
+```
+
+When you track an experiment with Aim, the logs will be stored in an .aim folder. To display the logs with the Aim UI in your HF space, you need to compress this folder to a tar.gz file and upload it to your Space either using git or the Files and Versions sections of your space. All that’s left then is to specify the compressed file name in the space’s Dockerfile. For this example, we use the Dockerfile from the Aim [text2speech](https://huggingface.co/spaces/aimstack/text2speech/tree/main) demo space. 
+
+```Dockerfile
+...
+# Change the name from fastspeech_logs.tar.gz to your filename
+COPY fastspeech_logs.tar.gz .
+RUN tar xvzf fastspeech_logs.tar.gz
+```
+That’s it! Now when you go to the App section of your space, you’ll see the Aim UI with your logs.
+<img src="https://www.notion.so/aimstack/Introducing-Aim-on-Huggingface-Spaces-29136c75a88f4516a8be308a89ce7f71?pvs=4#94cb49e59ede4a738fb589b00a615b47" />
+
+You can also use Aim’s Pythonic search functionality to easily filter your runs based on metrics and hyparparameters. This allows for much more in-depth demos of model experiments. In the screenshot below, we filter to only include runs where the accuracy on the last epoch was ≥ 90.
+
+<img src="https://www.notion.so/aimstack/Introducing-Aim-on-Huggingface-Spaces-29136c75a88f4516a8be308a89ce7f71?pvs=4#186d754741da4f6eb532995a32ac5638" />
+
+## Track your Transformers runs with Aim
+
+As we saw in the previous section, tracking Pytorch experiments with Aim and displaying the results on Spaces is very straightforward. To make your life even easier, Aim has explicit integration with Transformers since v2.2.0! 
+To get started with Aim for your Transformers experiments, all you need to do is include the appropriate AimCallback in your training arguments and Aim will handle all the rest! Here's a code snippet showcasing just that:
+
+```python
+from aim.hugging_face import AimCallback
+from transformers import Trainer
+
+aim_callback = AimCallback(repo='/log/dir/path', experiment='your_experiment_name')
+
+trainer = Trainer(
+       model=model,
+       args=training_args,
+       callbacks=[aim_callback]
+    )
+```
+
+The Aim callback will automatically open an Aim Session and close it when the trainer is done. When trainer.train(), trainer.evaluate() or trainer.predict() is called, aim_callback will automatically log the hyper-params and respective metrics. The rest of the process is exactly the same as in the MNIST example above!
+While getting started with Aim with Transformers is as simple as that, you can also find a much more in-depth example on fine-tuning Transformers models on the GLUE benchmark [here](https://github.com/aimhubio/aim/blob/main/examples/hugging_face_track.py). You can also check out this [blogpost](https://medium.com/aimstack/aim-v2-2-0-hugging-face-integration-57efa2eec104) for a detailed look at using Aim and Aim UI with Transformers.
 ## More on HF Spaces
 
 - [HF Docker spaces](https://github.com/huggingface/hub-docs/blob/main/docs/hub/spaces-sdks-docker.md)
