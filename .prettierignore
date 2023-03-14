@@ -1,0 +1,7 @@
+.vscode
+assets
+build
+node_modules
+thumbnails
+package.json
+package-lock.json
