@@ -78,8 +78,31 @@ For example, the demo above can be embedded in these docs with the following tag
 
 ```
 <iframe
+  src="https://NimaBoscarino-hotdog-streamlit.hf.space"
+  title="My awesome Streamlit Space"
+></iframe>
+```
+
+<iframe
+  src="https://NimaBoscarino-hotdog-streamlit.hf.space"
+  frameborder="0"
+  height="600"
+  title="Streamlit app"
+  class="container p-0 flex-grow space-iframe"
+  allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
+></iframe>
+
+## Embed mode
+
+You can use the `embed=true` query parameter in the URL to activate the embed mode of the Streamlit app, removing some spacers and the footer for slim embeds.
+Please note that this parameter disables scrolling in the iframe, so you'll need to set the height of the iframe enough to fit the embedded Streamlit app's content.
+
+```
+<iframe
   src="https://NimaBoscarino-hotdog-streamlit.hf.space?embed=true"
   title="My awesome Streamlit Space"
+  height="364"
 ></iframe>
 ```
 
@@ -93,8 +116,6 @@ For example, the demo above can be embedded in these docs with the following tag
   allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
 ></iframe>
-
-Please note that we have added `?embed=true` to the URL, which activates the embed mode of the Streamlit app, removing some spacers and the footer for slim embeds.
 
 
 ## Embed Streamlit Spaces with auto-resizing IFrames
