@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
 
-	import { onMount } from "svelte";
+	import { getContext, onMount, setContext } from "svelte";
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
@@ -21,6 +21,8 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
 
+	const widgetInput: WidgetInputStore = getContext("widgetInput");
+
 	let computeTime = "";
 	let error: string = "";
 	let file: Blob | File | null = null;
@@ -36,6 +38,8 @@
 	let outputJson: string;
 	let selectedSampleUrl = "";
 	let warning: string = "";
+
+	setContext('getOutput', getOutput);
 
 	function onRecordStart() {
 		file = null;
@@ -67,8 +71,9 @@
 	async function getOutput({
 		withModelLoading = false,
 		isOnLoadCall = false,
+		onlySetInput = false
 	} = {}) {
-		if (!file && !selectedSampleUrl) {
+		if (!onlySetInput && !file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			output = [];
 			outputJson = "";
@@ -80,6 +85,15 @@
 		}
 
 		const requestBody = { file };
+
+		if (onlySetInput) {
+			$widgetInput = {
+				body: requestBody,
+				type: 'file',
+			};
+
+			return;
+		};
 
 		isLoading = true;
 

@@ -3,6 +3,10 @@
 	import type { PipelineType } from "../../interfaces/Types";
 	import type { WidgetProps } from "./shared/types";
 
+	// Endpoints modification:
+	import { setContext } from "svelte";
+	import { writable } from "svelte/store";
+
 	import AudioClassificationWidget from "./widgets/AudioClassificationWidget/AudioClassificationWidget.svelte";
 	import AudioToAudioWidget from "./widgets/AudioToAudioWidget/AudioToAudioWidget.svelte";
 	import AutomaticSpeechRecognitionWidget from "./widgets/AutomaticSpeechRecognitionWidget/AutomaticSpeechRecognitionWidget.svelte";
@@ -26,6 +30,7 @@
 	import ReinforcementLearningWidget from "./widgets/ReinforcementLearningWidget/ReinforcementLearningWidget.svelte";
 	import ZeroShotClassificationWidget from "./widgets/ZeroShowClassificationWidget/ZeroShotClassificationWidget.svelte";
 	import ZeroShotImageClassificationWidget from "./widgets/ZeroShotImageClassificationWidget/ZeroShotImageClassificationWidget.svelte";
+	import CustomTaskWidget from "./widgets/CustomTask/CustomTaskWidget.svelte"; // Endpoints modification
 
 	export let apiToken: WidgetProps["apiToken"] = undefined;
 	export let callApiOnMount = false;
@@ -72,9 +77,17 @@
 		"zero-shot-classification": ZeroShotClassificationWidget,
 		"document-question-answering": VisualQuestionAnsweringWidget,
 		"zero-shot-image-classification": ZeroShotImageClassificationWidget,
+		// Endpoints modification:
+		"sentence-ranking": CustomTaskWidget,
+		"sentence-embeddings": CustomTaskWidget,
+		"custom": CustomTaskWidget,
 	};
 
-	$: widgetComponent = WIDGET_COMPONENTS[model.pipeline_tag ?? ""];
+	// Endpoints modification:
+	const widgetInput: WidgetInputStore = writable({ body: { inputs: "" } });
+	setContext("widgetInput", widgetInput);
+
+	$: widgetComponent = model && WIDGET_COMPONENTS[model.pipeline_tag ?? ""];
 
 	// prettier-ignore
 	$: widgetProps = ({
@@ -87,11 +100,43 @@
 		includeCredentials,
 		isLoggedIn,
 	}) as WidgetProps;
+
+	// Endpoints modification
+	$: isVisionFeatureExtraction =
+		model.pipeline_tag === "feature-extraction" &&
+		(model.tags?.some((t: string) =>
+			[
+				"vision",
+				"vit",
+				"clip",
+				"vision-encoder-decoder",
+				"image-classification",
+				"image-segmentation",
+				"image-to-image",
+				"object-detection",
+			].includes(t)
+		) ||
+			model.config?.architectures.some((a: string) =>
+				["ViTModel", "VisionEncoderDecoderModel"].includes(a)
+			) ||
+			model.config?.model_type === "vit" ||
+			model.config?.model_type === "vision-encoder-decoder");
 </script>
 
-{#if widgetComponent}
+// Endpoints modification:
+{#if widgetComponent && !isVisionFeatureExtraction}
 	<svelte:component
 		this={WIDGET_COMPONENTS[model.pipeline_tag ?? ""]}
 		{...widgetProps}
 	/>
+{:else}
+	<div class="text-gray-500 italic text-lg text-center my-4">
+		{isVisionFeatureExtraction ? "Feature extraction on images" : "Task"} not supported
+		for inference widget. <br />
+		<a
+			class="underline text-sm"
+			href="mailto:api-enterprise@huggingface.co?subject=Inference%20Endpoints%20widget"
+			target="_blank">Contact us for an update</a
+		>
+	</div>
 {/if}

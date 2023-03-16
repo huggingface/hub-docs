@@ -23,6 +23,7 @@
 	};
 	export let noTitle = false;
 	export let outputJson: string;
+	export let jsonButton = true; // Endpoints modification
 	export let applyInputSample: (sample: Record<string, any>) => void =
 		({}) => {};
 	export let previewInputSample: (sample: Record<string, any>) => void =
@@ -111,5 +112,5 @@
 		<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
 	{/if}
 	<slot name="bottom" />
-	<WidgetFooter {onClickMaximizeBtn} {outputJson} />
+	<WidgetFooter {onClickMaximizeBtn} {outputJson} {jsonButton} {model} {apiUrl} />
 </div>
