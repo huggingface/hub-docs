@@ -5,6 +5,7 @@
 [New! Try our experimental Model Card Creator App](https://huggingface.co/spaces/huggingface/Model_Cards_Writing_Tool)
 
 </Tip>
+
 ## What are Model Cards?
 
 Model cards are files that accompany the models and provide handy information. Under the hood, model cards are simple Markdown files with additional metadata. Model cards are essential for discoverability, reproducibility, and sharing! You can find a model card as the `README.md` file in any model repo.
@@ -105,6 +106,20 @@ If a model includes valid eval results, they will be displayed like this:
 ### CO<sub>2</sub> Emissions
 
 The model card is also a great place to show information about the CO<sub>2</sub> impact of your model. Visit our [guide on tracking and reporting CO<sub>2</sub> emissions](./model-cards-co2) to learn more.
+
+### Linking a Paper
+
+If the model card includes a link to a paper on arXiv, the Hugging Face Hub will extract the arXiv ID  and include it in the model tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you:
+
+* Visit the paper page
+* Filter for other models on the Hub that cite the same paper.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv.png"/>
+<img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv-dark.png"/>
+</div>
+
+Read more about paper pages [here](.paper-pages).
 
 ## FAQ
 

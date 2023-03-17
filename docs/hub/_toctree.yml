@@ -182,21 +182,23 @@
     - local: organizations-cards
       title: Organization Cards
     - local: organizations-security
-      title: Access control in organizations
+      title: Access Control in Organizations
   - local: billing
     title: Billing
-  - local: doi
-    title: Digital Object Identifier (DOI)
   - local: security
     title: Security
     sections:
     - local: security-tokens
       title: User Access Tokens
     - local: security-gpg
-      title: Signing commits with GPG
+      title: Signing Commits with GPG
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle
       title: Pickle Scanning
+  - local: paper-pages
+    title: Paper Pages
+  - local: doi
+    title: Digital Object Identifier (DOI)
   - local: api
     title: Hub API Endpoints
