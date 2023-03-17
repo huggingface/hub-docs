@@ -61,11 +61,12 @@ COPY fastspeech_logs.tar.gz .
 RUN tar xvzf fastspeech_logs.tar.gz
 ```
 That’s it! Now when you go to the App section of your space, you’ll see the Aim UI with your logs.
-<img src="https://www.notion.so/aimstack/Introducing-Aim-on-Huggingface-Spaces-29136c75a88f4516a8be308a89ce7f71?pvs=4#94cb49e59ede4a738fb589b00a615b47" />
+
+![image](https://user-images.githubusercontent.com/67782184/224995208-692afbea-dfe0-4d2a-89ac-4ba552e49a98.png)
 
 You can also use Aim’s Pythonic search functionality to easily filter your runs based on metrics and hyparparameters. This allows for much more in-depth demos of model experiments. In the screenshot below, we filter to only include runs where the accuracy on the last epoch was ≥ 90.
 
-<img src="https://www.notion.so/aimstack/Introducing-Aim-on-Huggingface-Spaces-29136c75a88f4516a8be308a89ce7f71?pvs=4#186d754741da4f6eb532995a32ac5638" />
+![image](https://user-images.githubusercontent.com/67782184/224995427-db0d8a2b-1d48-46d1-b519-78a2d4d5d0aa.png)
 
 ## Track your Transformers runs with Aim
 
