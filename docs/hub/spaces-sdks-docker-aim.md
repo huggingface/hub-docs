@@ -47,7 +47,12 @@ track_params_dists(model, aim_run)
 track_gradients_dists(model, aim_run)
 ```
 
-When you track an experiment with Aim, the logs will be stored in an .aim folder. To display the logs with the Aim UI in your HF space, you need to compress this folder to a tar.gz file and upload it to your Space either using git or the Files and Versions sections of your space. All that’s left then is to specify the compressed file name in the space’s Dockerfile. For this example, we use the Dockerfile from the Aim [text2speech](https://huggingface.co/spaces/aimstack/text2speech/tree/main) demo space. 
+When you track an experiment with Aim, the logs will be stored in an .aim folder. To display the logs with the Aim UI in your HF space, you need to compress this folder to a tar.gz file and upload it to your Space either using git or the Files and Versions sections of your space. Here's a bash command for that:
+
+```bash
+tar -czf fastspeech_logs.tar.gz .aim
+```
+This will compress the .aim directory to fastspeech_logs.tar.gz. All that’s left then is to specify the compressed file name in the space’s Dockerfile. For this example, we use the Dockerfile from the Aim [text2speech](https://huggingface.co/spaces/aimstack/text2speech/tree/main) demo space. 
 
 ```Dockerfile
 ...
