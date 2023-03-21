@@ -47,6 +47,7 @@ versions for GPU.
 | 4.12.3                  | 1.15.1              | TensorFlow 2.5.1           | training | GPU    | 3.7            |
 | 4.17.0                  | 1.18.4              | PyTorch 1.10.2             | training | GPU    | 3.8            |
 | 4.17.0                  | 1.18.4              | TensorFlow 2.6.3           | training | GPU    | 3.8            |
+| 4.26.0                  |  2.9.0              | PyTorch 1.13.1             | training | GPU    | 3.9            |
 
 ## Inference DLC Overview
 
@@ -81,6 +82,8 @@ versions for CPU, GPU & AWS Inferentia.
 | 4.17.0                  | TensorFlow 2.6.3           | inference | GPU    | 3.8            |
 | 4.17.0                  | PyTorch 1.10.2              | inference | CPU    | 3.8            |
 | 4.17.0                  | TensorFlow 2.6.3           | inference | CPU    | 3.8            |
+| 4.26.0                  | PyTorch 1.13.1              | inference | CPU    | 3.9            |
+| 4.26.0                  | PyTorch 1.13.1              | inference | GPU    | 3.9            |
 
 
 

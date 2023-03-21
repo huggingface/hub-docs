@@ -130,9 +130,9 @@ huggingface_estimator = HuggingFace(
         instance_type='ml.p3.2xlarge',
         instance_count=1,
         role=role,
-        transformers_version='4.4',
-        pytorch_version='1.6',
-        py_version='py36',
+        transformers_version='4.26',
+        pytorch_version='1.13',
+        py_version='py39',
         hyperparameters = hyperparameters
 )
 ```
@@ -194,9 +194,9 @@ huggingface_estimator = HuggingFace(
         instance_type='ml.p3dn.24xlarge',
         instance_count=2,
         role=role,
-        transformers_version='4.4.2',
-        pytorch_version='1.6.0',
-        py_version='py36',
+        transformers_version='4.26.0',
+        pytorch_version='1.13.1',
+        py_version='py39',
         hyperparameters = hyperparameters,
         distribution = distribution
 )
@@ -239,9 +239,9 @@ huggingface_estimator = HuggingFace(
         instance_type='ml.p3dn.24xlarge',
         instance_count=2,
         role=role,
-        transformers_version='4.4.2',
-        pytorch_version='1.6.0',
-        py_version='py36',
+        transformers_version='4.26.0',
+        pytorch_version='1.13.1',
+        py_version='py39',
         hyperparameters = hyperparameters,
         distribution = distribution
 )
@@ -277,9 +277,9 @@ huggingface_estimator = HuggingFace(
         max_wait=3600,
         max_run=1000,
         role=role,
-        transformers_version='4.4',
-        pytorch_version='1.6',
-        py_version='py36',
+        transformers_version='4.26',
+        pytorch_version='1.13',
+        py_version='py39',
         hyperparameters = hyperparameters
 )
 
@@ -310,9 +310,9 @@ huggingface_estimator = HuggingFace(
         instance_type='ml.p3.2xlarge',
         instance_count=1,
         role=role,
-        transformers_version='4.4',
-        pytorch_version='1.6',
-        py_version='py36',
+        transformers_version='4.26',
+        pytorch_version='1.13',
+        py_version='py39',
         hyperparameters=hyperparameters
 )
 ```
@@ -336,9 +336,9 @@ huggingface_estimator = HuggingFace(
         instance_type='ml.p3.2xlarge',
         instance_count=1,
         role=role,
-        transformers_version='4.4',
-        pytorch_version='1.6',
-        py_version='py36',
+        transformers_version='4.26',
+        pytorch_version='1.13',
+        py_version='py39',
         metric_definitions=metric_definitions,
         hyperparameters = hyperparameters)
 ```
