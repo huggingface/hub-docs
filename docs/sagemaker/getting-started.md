@@ -13,7 +13,7 @@ The get started guide will show you how to quickly use Hugging Face on Amazon Sa
 Get started by installing the necessary Hugging Face libraries and SageMaker. You will also need to install [PyTorch](https://pytorch.org/get-started/locally/) and [TensorFlow](https://www.tensorflow.org/install/pip#tensorflow-2-packages-are-available) if you don't already have it installed.
 
 ```python
-pip install "sagemaker>=2.48.0" "transformers==4.6.1" "datasets[s3]==1.6.2" --upgrade
+pip install "sagemaker>=2.140.0" "transformers==4.26.1" "datasets[s3]==2.10.1" --upgrade
 ```
 
 If you want to run this example in [SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio.html), upgrade [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/) for the 🤗 Datasets library and restart the kernel:
@@ -77,19 +77,13 @@ test_dataset.set_format("torch", columns=["input_ids", "attention_mask", "labels
 Next, upload the preprocessed dataset to your S3 session bucket with 🤗 Datasets S3 [filesystem](https://huggingface.co/docs/datasets/filesystems.html) implementation:
 
 ```python
-import botocore
-from datasets.filesystems import S3FileSystem
-
-s3_prefix = 'samples/datasets/imdb'
-s3 = S3FileSystem()
-
-# save train_dataset to S3
+# save train_dataset to s3
 training_input_path = f's3://{sess.default_bucket()}/{s3_prefix}/train'
-train_dataset.save_to_disk(training_input_path,fs=s3)
+train_dataset.save_to_disk(training_input_path)
 
-# save test_dataset to S3
+# save test_dataset to s3
 test_input_path = f's3://{sess.default_bucket()}/{s3_prefix}/test'
-test_dataset.save_to_disk(test_input_path,fs=s3)
+test_dataset.save_to_disk(test_input_path)
 ```
 
 ## Start a training job
@@ -115,9 +109,9 @@ huggingface_estimator = HuggingFace(
     instance_type="ml.p3.2xlarge",          # instance type
     instance_count=1,                       # number of instances
     role=role,                              # IAM role used in training job to acccess AWS resources (S3)
-    transformers_version="4.6",             # Transformers version
-    pytorch_version="1.7",                  # PyTorch version
-    py_version="py36",                      # Python version
+    transformers_version="4.26",             # Transformers version
+    pytorch_version="1.13",                  # PyTorch version
+    py_version="py39",                      # Python version
     hyperparameters=hyperparameters         # hyperparameters to use in training job
 )
 ```
