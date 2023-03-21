@@ -120,9 +120,9 @@ from sagemaker.huggingface.model import HuggingFaceModel
 huggingface_model = HuggingFaceModel(
    model_data="s3://models/my-bert-model/model.tar.gz",  # path to your trained SageMaker model
    role=role,                                            # IAM role with permissions to create an endpoint
-   transformers_version="4.6",                           # Transformers version used
-   pytorch_version="1.7",                                # PyTorch version used
-   py_version='py36',                                    # Python version used
+   transformers_version="4.26",                           # Transformers version used
+   pytorch_version="1.13",                                # PyTorch version used
+   py_version='py39',                                    # Python version used
 )
 
 # deploy model to SageMaker Inference
@@ -213,9 +213,9 @@ hub = {
 huggingface_model = HuggingFaceModel(
    env=hub,                                                # configuration for loading model from Hub
    role=role,                                              # IAM role with permissions to create an endpoint
-   transformers_version="4.6",                             # Transformers version used
-   pytorch_version="1.7",                                  # PyTorch version used
-   py_version='py36',                                      # Python version used
+   transformers_version="4.26",                             # Transformers version used
+   pytorch_version="1.13",                                  # PyTorch version used
+   py_version='py39',                                      # Python version used
 )
 
 # deploy model to SageMaker Inference
@@ -285,9 +285,9 @@ hub = {
 huggingface_model = HuggingFaceModel(
    env=hub,                                                # configuration for loading model from Hub
    role=role,                                              # IAM role with permissions to create an endpoint
-   transformers_version="4.6",                             # Transformers version used
-   pytorch_version="1.7",                                  # PyTorch version used
-   py_version='py36',                                      # Python version used
+   transformers_version="4.26",                             # Transformers version used
+   pytorch_version="1.13",                                  # PyTorch version used
+   py_version='py39',                                      # Python version used
 )
 
 # create transformer to run a batch job
