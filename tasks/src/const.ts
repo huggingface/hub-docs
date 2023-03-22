@@ -37,6 +37,7 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, ModelLibraryKey[]> = {
 	"text-retrieval":                 [],
 	"text-to-image":                  [],
 	"text-to-speech":                 ["espnet", "tensorflowtts"],
+	"text-to-video":                  [],
 	"text2text-generation":           ["transformers"],
 	"time-series-forecasting":        [],
 	"token-classification":           ["adapter-transformers", "flair", "spacy", "stanza", "transformers"],
