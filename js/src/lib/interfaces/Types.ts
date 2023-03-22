@@ -578,6 +578,11 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		color:        "blue",
 		hideInModels: true,
 	},
+	"text-to-video": {
+		name:     "Text to Video",
+		modality: "multimodal",
+		color:    "green",
+	},
 	"visual-question-answering": {
 		name:     "Visual Question Answering",
 		subtasks: [
