@@ -77,7 +77,7 @@
 		"graph-ml": IconGraphML,
 		"tabular-classification": IconTabularClassification,
 		"tabular-regression": IconTabularRegression,
-		"text-to-video": IconTextToVideo
+		"text-to-video": IconTextToVideo,
 		"document-question-answering": IconDocumentQuestionAnswering,
 	};
 </script>
