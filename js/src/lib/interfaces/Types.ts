@@ -579,7 +579,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		hideInModels: true,
 	},
 	"text-to-video": {
-		name:     "Text to Video",
+		name:     "Text-to-Video",
 		modality: "multimodal",
 		color:    "green",
 	},
