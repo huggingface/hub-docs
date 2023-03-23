@@ -32,9 +32,14 @@ By convention, each model repo should contain a single checkpoint trained on a p
 
 ## Can I link my model to a paper on arXiv?
 
-If the model card includes a link to a paper on arXiv, the Hugging Face Hub will extract the arXiv ID  and include it in the model tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you visit the paper on arXiv, as well as filter for other models on the Hub that cite the same paper.
+If the model card includes a link to a paper on arXiv, the Hugging Face Hub will extract the arXiv ID  and include it in the model tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you:
+
+* Visit the paper page
+* Filter for other models on the Hub that cite the same paper.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv.png"/>
 <img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv-dark.png"/>
 </div>
+
+Read more about paper pages [here](.paper-pages).

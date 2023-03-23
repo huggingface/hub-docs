@@ -30,8 +30,22 @@ The metadata that you add to the dataset card enables certain interactions on th
 * Allow users to filter and discover datasets at https://huggingface.co/datasets.
 * If you choose a license using the keywords listed in the right column of [this table](./repositories-licenses), the license will be displayed on the dataset page.
 
-See the detailed dataset card metadata specification [here]((https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1)).
+See the detailed dataset card metadata specification [here](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1).
 
 Use the [Dataset Metadata Creator](https://huggingface.co/spaces/huggingface/datasets-tagging) to help you generate the appropriate metadata. For a step-by-step guide on creating a dataset card, check out the [Create a dataset card](https://huggingface.co/docs/datasets/dataset_card) guide.
 
 Reading through existing dataset cards, such as the [ELI5 dataset card](https://huggingface.co/datasets/eli5/blob/main/README.md), is a great way to familiarize yourself with the common conventions.
+
+### Linking a Paper
+
+If the dataset card includes a link to a paper on arXiv, the Hub will extract the arXiv ID and include it in the dataset tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you:
+
+* Visit the paper page
+* Filter for other models on the Hub that cite the same paper.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv.png"/>
+<img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv-dark.png"/>
+</div>
+
+Read more about paper pages [here](.paper-pages).
