@@ -115,8 +115,8 @@ If the model card includes a link to a paper on arXiv, the Hugging Face Hub will
 * Filter for other models on the Hub that cite the same paper.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv.png"/>
-<img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv-dark.png"/>
+<img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv.png"/>
+<img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv-dark.png"/>
 </div>
 
 Read more about paper pages [here](.paper-pages).
