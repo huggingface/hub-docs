@@ -72,7 +72,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"text-retrieval":                 undefined,
 	"text-to-image":                  getData("text-to-image", textToImage),
 	"text-to-speech":                 getData("text-to-speech", textToSpeech),
-	"text-to-video ":                 undefined,
+	"text-to-video":                  undefined,
 	"text2text-generation":           undefined,
 	"time-series-forecasting":        undefined,
 	"token-classification":           getData("token-classification", tokenClassification),
