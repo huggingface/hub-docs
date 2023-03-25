@@ -7,7 +7,7 @@ interfaces/abstractions catered toward ML workflows. With ZenML you'll have all
 your favorite tools in one place, so you can tailor a workflow that caters to
 your specific needs.
 
-This Huggingface Space allows you to get up and running with a deployed version
+The ZenML Huggingface Space allows you to get up and running with a deployed version
 of ZenML with just a few clicks. Within a few minutes, you'll have this default
 ZenML dashboard deployed and ready for you to connect to from your local
 machine.
