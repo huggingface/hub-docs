@@ -99,7 +99,7 @@ By default the ZenML application will be configured to use a SQLite
 non-persistent database. If you want to use a persistent database, you can
 configure this by amending the `Dockerfile` in your Space's root directory. For
 full details on the various parameters you can change, see [our reference
-documentation](./docker.md#zenml-server-configuration-options) on configuring
+documentation](https://docs.zenml.io/getting-started/deploying-zenml/docker#zenml-server-configuration-options) on configuring
 ZenML when deployed with Docker.
 
 {% hint style="info" %}
@@ -109,7 +109,7 @@ to make any changes to the configuration. Everything will work out of the box.
 
 You can also use an external secrets backend together with your HuggingFace
 Spaces as described in [our
-documentation](./docker.md#zenml-server-configuration-options). You should be
+documentation](https://docs.zenml.io/getting-started/deploying-zenml/docker#zenml-server-configuration-options). You should be
 sure to use HuggingFace's inbuilt 'Repository secrets' functionality to
 configure any secrets you need to use in your`Dockerfile` configuration. [See the
 documentation](https://huggingface.co/docs/hub/spaces-sdks-docker#secret-management)
