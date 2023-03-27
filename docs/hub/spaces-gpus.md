@@ -121,7 +121,7 @@ Do you have an awesome Space but need help covering the GPU hardware upgrade cos
 
 ## Set a custom sleep time[[sleep-time]]
 
-If your Space runs on the default `cpu-basic` hardware, it will go to sleep if inactive for more than a set time (currently, 72 hours). Anyone visiting your Space will restart it automatically.
+If your Space runs on the default `cpu-basic` hardware, it will go to sleep if inactive for more than a set time (currently, 48 hours). Anyone visiting your Space will restart it automatically.
 
 If you want your Space never to deactivate or if you want to set a custom sleep time, you need to upgrade to a paid Hardware.
 
