@@ -69,10 +69,10 @@ Use our default login to access the dashboard (username: 'default', password:
 Once you have your ZenML server up and running, you can connect to it from your
 local machine. To do this, you'll need to get your Space's URL.
 
-{% hint style="warning" %}
+<Tip warning={true}>
 Your Space's URL will only be available and usable for connecting from your
 local machine if the visibility of the space is set to 'Public'.
-{% endhint %}
+</Tip>
 
 In the upper-right hand corner of your space you'll see a button with three dots
 which, when you click on it, will offer you a menu option to "Embed this Space".
@@ -102,10 +102,10 @@ full details on the various parameters you can change, see [our reference
 documentation](https://docs.zenml.io/getting-started/deploying-zenml/docker#zenml-server-configuration-options) on configuring
 ZenML when deployed with Docker.
 
-{% hint style="info" %}
+<Tip>
 If you are using the space just for testing and experimentation, you don't need
 to make any changes to the configuration. Everything will work out of the box.
-{% endhint %}
+</Tip>
 
 You can also use an external secrets backend together with your HuggingFace
 Spaces as described in [our
@@ -115,7 +115,7 @@ configure any secrets you need to use in your`Dockerfile` configuration. [See th
 documentation](https://huggingface.co/docs/hub/spaces-sdks-docker#secret-management)
 for more details how to set this up.
 
-{% hint style="warning" %}
+<Tip warning={true}>
 If you wish to use a cloud secrets backend together with ZenML for secrets
 management, **you must take the following minimal security precautions** on your ZenML Server on the
 Dashboard:
@@ -133,7 +133,7 @@ Space is publicly accessible (since the Space is public) *potentially anyone
 could access your secrets without this extra step*. To change your password
 navigate to the Settings page by clicking the button in the upper right hand
 corner of the Dashboard and then click 'Update Password'.
-{% endhint %}
+</Tip>
 
 
 ## Upgrading your ZenML Server on HF Spaces
