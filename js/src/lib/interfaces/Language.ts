@@ -1228,5 +1228,15 @@ export const LANGUAGES: Record<string, Language> = {
 		name: "Yakut",
 		nativeName: "саха тыла",
 	},
+	mhr: {
+		code: "mhr",
+		name: "Eastern Mari",
+		nativeName: "олык марий",
+	},
+	myv: {
+		code: "myv",
+		name: "Erzya",
+		nativeName: "эрзянь кель",
+	},
 };
 
