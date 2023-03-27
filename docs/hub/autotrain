@@ -1,0 +1,17 @@
+# AutoTrain
+
+[Hugging Face AutoTrain](https://huggingface.co/autotrain) offers an automatic way to train and deploy state-of-the-art Machine Learning models, seamlessly integrated with the Hugging Face ecosystem.
+
+We currently support text classification, text regression, entity recognition, summarization, question answering, translation and tabular.
+
+## Contents
+
+- [Autotrain Overview](./autotrain-overview)
+
+## Contact
+
+Feel free to contact us via chat on our [support page](https://ui.autotrain.huggingface.co/support) if you run into issues with training or ask any questions on the [forum](https://discuss.huggingface.co/c/autotrain/16)! 
+
+If you're interested in competitions, custom training, or something else, please reach out to us by sending an email to **autotrain@huggingface.co**.
+
+You can also tag us [on Twitter](https://twitter.com/huggingface)! 🤗
