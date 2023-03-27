@@ -17,7 +17,7 @@ it to view and manage your machine learning pipelines right from the Hub. ZenML
 on Huggingface Spaces is a **self-contained application completely hosted on the
 Hub using Docker**. The diagram below illustrates the complete process.
 
-![ZenML on HuggingFace Spaces -- default deployment](../assets/zenml/hf_spaces_chart.png)
+![ZenML on HuggingFace Spaces -- default deployment](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/zenml/hf_spaces_chart.png)
 
 Visit [the ZenML documentation](https://docs.zenml.io/) to learn more about its
 features and how to get started with running your machine learning pipelines
@@ -44,7 +44,7 @@ Visibility (a bit lower down the page). Note that the space visibility needs to
 be set to 'Public' if you wish to connect to the ZenML server from your local
 machine.
 
-![Choose the ZenML Docker template](../assets/zenml/choose_space.png)
+![Choose the ZenML Docker template](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/zenml/choose_space.png)
 
 You have the option here to select a higher tier machine to use for your server.
 The advantage of selecting a paid CPU instance is that it is not subject to
