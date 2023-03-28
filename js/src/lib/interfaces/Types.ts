@@ -634,7 +634,7 @@ export const ALL_SUBTASK_TYPES = ALL_SUBTASKS.map(s => s.type);
 export const ALL_SUBTASK_TYPES_SET = new Set(ALL_SUBTASK_TYPES);
 
 
-export const TAG_NFAE_CONTENT = "not_for_all_eyes";
+export const TAG_NFAE_CONTENT = "not-for-all-eyes";
 export const TAG_TEXT_GENERATION_INFERENCE = "text-generation-inference";
 
 /**
