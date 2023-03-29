@@ -151,6 +151,8 @@
         title: Argilla on Spaces
       - local: spaces-sdks-docker-livebook
         title: Livebook on Spaces
+      - local: spaces-sdks-docker-zenml
+        title: ZenML on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-config-reference
