@@ -81,7 +81,7 @@ Check out a [text2speech example ](https://huggingface.co/spaces/aimstack/text2s
 ## Track your Transformers runs with Aim
 
 As we saw in the previous section, tracking Pytorch experiments with Aim and displaying the results on Spaces is straightforward. To make your life even easier, Aim has out-of-the-box integration with Transformers! 
-To get started with Aim for your Transformers experiments, include the appropriate AimCallback in your training arguments and Aim will handle all the rest! Here's a code snippet showcasing just that:
+To get started with Aim for your Transformers experiments, include the appropriate `AimCallback` in your training arguments and Aim will handle all the rest! Here's a code snippet showcasing just that:
 
 ```python
 from aim.hugging_face import AimCallback
