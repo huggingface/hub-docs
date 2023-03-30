@@ -1,6 +1,6 @@
 # Aim on Spaces
 
-**Aim** is an easy-to-use & supercharged open-source experiment tracker. Aim logs your training runs, enables a beautiful UI to compare them and an API to query them programmatically.
+**Aim** is an easy-to-use & supercharged open-source experiment tracker. Aim logs your training runs and enables a beautiful UI to compare them and an API to query them programmatically.
 ML engineers and researchers use Aim explorers to compare 1000s of training runs in a few clicks.
 
 Check out the [Aim docs](https://aimstack.readthedocs.io/en/latest/) to learn more about Aim. 
