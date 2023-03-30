@@ -22,7 +22,7 @@ export function getDemoInputs(model: ModelData, keys: (number | string)[]): any[
 }
 
 // Update current url search params, keeping existing keys intact.
-export function updateUrl(obj: Record<string, string>) {
+export function updateUrl(obj: Record<string, string | undefined>) {
 	if (!window) {
 		return;
 	}
