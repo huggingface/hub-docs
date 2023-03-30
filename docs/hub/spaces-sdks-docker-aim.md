@@ -22,7 +22,7 @@ All you need to do is:
 3. Choose the **Aim** Docker template
 4. Set the visibility
 
-Once you have created the space, you'll see the `Building` status and once it becomes `Running` your space is ready to go!
+Once you have created the Space, you'll see the `Building` status, and once it becomes `Running,` your Space is ready to go!
 
 ### TODO: change screenshot once the Aim template is available
 ![Creating an Aim Space ](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-livebook-new-space.png)
