@@ -18,7 +18,7 @@ You can deploy Aim on Spaces with just a few clicks:
 
 All you need to do is:
 1. Define the owner (your personal account or organization)
-2. Name your space
+2. Name your Space
 3. Choose the **Aim** Docker template
 4. Set the visibility
 
