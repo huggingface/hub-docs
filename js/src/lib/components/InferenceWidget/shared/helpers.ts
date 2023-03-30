@@ -27,16 +27,15 @@ export function updateUrl(obj: Record<string, string | undefined>) {
 		return;
 	}
 
-	const sp = new URL(window.location.href).searchParams;
+	const url = new URL(window.location.href);
 	for (const [k, v] of Object.entries(obj)) {
 		if (v === undefined) {
-			sp.delete(k);
+			url.searchParams.delete(k);
 		} else {
-			sp.set(k, v);
+			url.searchParams.set(k, v);
 		}
 	}
-	const path = `${window.location.pathname}?${sp.toString()}`;
-	window.history.replaceState(null, "", path);
+	window.history.replaceState(null, "", url.href);
 }
 
 // Run through our own proxy to bypass CORS:
