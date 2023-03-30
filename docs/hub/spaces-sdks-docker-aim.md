@@ -76,7 +76,7 @@ In the screenshot below, we query all the `accuracy` metrics where the last trac
 
 Check out a [text2speech example ](https://huggingface.co/spaces/aimstack/text2speech/tree/main) on HF Hub Spaces.
 
-**_Note_** that if your logs are in tensorboard format, you can easily convert [them to Aim with one command](https://aimstack.readthedocs.io/en/latest/quick_start/convert_data.html#show-tensorboard-logs-in-aim) and use the many advanced and high-performant training run comparison features available.
+**_Note_** that if your logs are in TensorBoard format, you can easily convert [them to Aim with one command](https://aimstack.readthedocs.io/en/latest/quick_start/convert_data.html#show-tensorboard-logs-in-aim) and use the many advanced and high-performant training run comparison features available.
 
 ## Track your Transformers runs with Aim
 
