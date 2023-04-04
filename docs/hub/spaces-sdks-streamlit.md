@@ -86,7 +86,7 @@ For example, the demo above can be embedded in these docs with the following tag
 
 Streamlit has supported automatic iframe resizing since [1.17.0](https://docs.streamlit.io/library/changelog#version-1170) so that the size of the parent iframe is automatically adjusted to fit the content volume of the embedded Streamlit application.
 
-It relies on the [`iFrame Resizer`](https://github.com/davidjbradshaw/iframe-resizer) library, which you need to add a few lines of code to use, as in the following example where
+It relies on the [`iFrame Resizer`](https://github.com/davidjbradshaw/iframe-resizer) library, for which you need to add a few lines of code, as in the following example where
 
 - `id` is set to `<iframe />` that is used to specify the auto-resize target.
 - The `iFrame Resizer` is loaded via the `script` tag.
