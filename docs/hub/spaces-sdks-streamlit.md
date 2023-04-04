@@ -97,4 +97,30 @@ For example, the demo above can be embedded in these docs with the following tag
 Please note that we have added `?embed=true` to the URL, which activates the embed mode of the Streamlit app, removing some spacers and the footer for slim embeds.
 
 
+## Embed Streamlit Spaces with auto-resizing IFrames
+
+Streamlit has supported automatic iframe resizing since [1.17.0](https://docs.streamlit.io/library/changelog#version-1170) so that the size of the parent iframe is automatically adjusted to fit the content volume of the embedded Streamlit application.
+
+It relies on the [`iFrame Resizer`](https://github.com/davidjbradshaw/iframe-resizer) library, for which you need to add a few lines of code, as in the following example where
+
+- `id` is set to `<iframe />` that is used to specify the auto-resize target.
+- The `iFrame Resizer` is loaded via the `script` tag.
+- The `iFrameResize()` function is called with the ID of the target `iframe` element, so that its size changes automatically.
+
+We can pass options to the first argument of `iFrameResize()`. See [the document](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/options.md) for the details.
+
+```html
+<iframe
+	id="your-iframe-id"
+	src="https://<space-subdomain>.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
+></iframe>
+<script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.4/js/iframeResizer.min.js"></script>
+<script>
+  iFrameResize({}, "#your-iframe-id")
+</script>
+```
+
 Additionally, you can checkout [our documentation](./spaces-embed).
