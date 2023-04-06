@@ -23,6 +23,7 @@ export enum ModelLibrary {
 	"sentence-transformers"  = "Sentence Transformers",
 	"sklearn"                = "Scikit-learn",
 	"spacy"                  = "spaCy",
+	"span_marker"            = "SpanMarker",
 	"speechbrain"            = "speechbrain",
 	"tensorflowtts"          = "TensorFlowTTS",
 	"timm"                   = "Timm",
@@ -314,6 +315,11 @@ nlp = spacy.load("${nameWithoutNamespace(model.id)}")
 import ${nameWithoutNamespace(model.id)}
 nlp = ${nameWithoutNamespace(model.id)}.load()`;
 
+const span_marker = (model: ModelData) =>
+	`from span_marker import SpanMarkerModel
+
+	model = SpanMarkerModel.from_pretrained("${model.id}")`;
+
 const stanza = (model: ModelData) =>
 	`import stanza
 
@@ -527,6 +533,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoName: "spaCy",
 		repoUrl:  "https://github.com/explosion/spaCy",
 		snippet:  spacy,
+	},
+	"span_marker": {
+		btnLabel: "SpanMarker",
+		repoName: "SpanMarkerNER",
+		repoUrl:  "https://github.com/tomaarsen/SpanMarkerNER",
+		snippet:  span_marker,
 	},
 	"speechbrain": {
 		btnLabel: "speechbrain",
