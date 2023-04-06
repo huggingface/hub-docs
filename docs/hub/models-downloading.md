@@ -36,7 +36,9 @@ Since all models on the Model Hub are Git repositories, you can clone the models
 
 ```bash
 git lfs install
-git clone <MODEL URL>
+git clone git@hf.co:<MODEL ID> # example: git clone git@hf.co:bigscience/bloom
 ```
 
 If you have write-access to the particular model repo, you'll also have the ability to commit and push revisions to the model.
+
+Add your SSH public key to [your user settings](https://huggingface.co/settings/keys) to push changes and/or access private repos.

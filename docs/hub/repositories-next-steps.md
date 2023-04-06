@@ -45,7 +45,7 @@ For example, say you have an upstream repository, **upstream**, and you just cre
 2. Clone your fork repository:
 
 ```
-git lfs clone https://huggingface.co/me/myfork.git
+git clone git@hf.co:me/myfork
 ```
 
 3. Fetch non-LFS files:
@@ -53,7 +53,7 @@ git lfs clone https://huggingface.co/me/myfork.git
 ```
 cd myfork
 git lfs install --skip-smudge --local # affects only this clone
-git remote add upstream https://huggingface.co/friend/upstream.git
+git remote add upstream git@hf.co:friend/upstream
 git fetch upstream
 ```
 

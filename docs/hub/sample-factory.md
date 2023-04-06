@@ -40,7 +40,7 @@ The command line arguments are:
 Hugging Face repositories can be downloaded directly using `git clone`:
 
 ```
-git clone <URL of HuggingFace Repo>
+git clone git@hf.co:<Name of HuggingFace Repo> # example: git clone git@hf.co:bigscience/bloom
 ```
 
 ## Using Downloaded Models with Sample-Factory
