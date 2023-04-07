@@ -9,6 +9,7 @@ Hugging Face is also [SOC2 Type 1 certified](https://us.aicpa.org/interestareas/
 ## Contents
 
 - [User Access Tokens](./security-tokens)
+- [Git over SSH](./security-git-ssh)
 - [Signing commits with GPG](./security-gpg)
 - [Malware Scanning](./security-malware)
 - [Pickle Scanning](./security-pickle)
