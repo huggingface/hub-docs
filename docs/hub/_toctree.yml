@@ -192,6 +192,8 @@
     sections:
     - local: security-tokens
       title: User Access Tokens
+    - local: security-git-ssh
+      title: Git over SSH
     - local: security-gpg
       title: Signing Commits with GPG
     - local: security-malware
