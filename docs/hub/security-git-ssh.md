@@ -42,7 +42,7 @@ If you chose a different location than the default to store your SSH key, you wo
 
 To access private repositories with SSH, or to push changes via SSH, you will need to add your SSH public key to your huggingface.co account. You can manage your SSH keys [in your user settings](https://huggingface.co/settings/keys).
 
-To add a SSH key to your account, click on the "Add SSH key" button.s
+To add a SSH key to your account, click on the "Add SSH key" button.
 
 Then, enter a name for this key (for example, "Personal computer"), and copy and paste the content of your **public** SSH key in the area below. The public key is located in the `~/.ssh/id_XXXX.pub` file you found or generated in the previous steps.
 
