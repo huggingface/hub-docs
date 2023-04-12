@@ -29,16 +29,7 @@ const taskData: TaskDataCustom = {
 			},
 		],
 	},
-	metrics: [
-		{
-			description: "",
-			id:          "",
-		},
-		{
-			description: "",
-			id:          "",
-		},
-	],
+	metrics: [],
 	models: [
 		{
 			description: "The model gets information in text of an image with text",
