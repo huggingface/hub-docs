@@ -69,11 +69,12 @@ model = model.to("cuda")
 
 ### JAX
 
-If you use JAX, you need to specify the binary that is compatible with the CUDA and cuDNN versions installed in your GPU Space. Please, add the following two lines to your `requirements.txt` file:
+If you use JAX, you need to specify the URL that contains CUDA compatible packages. Please, add the following lines to your `requirements.txt` file:
 
 ```
 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-jax[cuda11_cudnn805]
+jax[cuda11_pip]
+jaxlib
 ```
 
 After that, you can verify the installation by printing the output from the following code and checking it in your Space logs.
