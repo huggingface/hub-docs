@@ -77,6 +77,8 @@
         title: Sentence Transformers
       - local: spacy
         title: spaCy
+      - local: span_marker
+        title: SpanMarker
       - local: speechbrain
         title: SpeechBrain
       - local: stable-baselines3
