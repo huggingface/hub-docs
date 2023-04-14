@@ -11,7 +11,6 @@ At a high level, the aim is to build a simpler version of other git hosts' (like
 
 By going to the community tab in any repository, you can see all Discussions and Pull requests. You can also filter to only see the ones that are open.
 
-[TODO: Update images]
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-list.png"/>
