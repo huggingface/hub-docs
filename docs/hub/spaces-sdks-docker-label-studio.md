@@ -85,8 +85,8 @@ by adding the following configuration secrets to your Space **Settings**.
   use as the first user in your Label Studio Space. It should be a valid email
   address.
 
-* `LABEL_STUDIO_PASSWORD`: This is the password that will be associated with
-  the first user account.
+* `LABEL_STUDIO_PASSWORD`: The password that will be associated with the first
+   user account.
 
 Restart the Space to apply these settings. The ability to create new accounts
 from the login screen will be disabled. To create new accounts, you will need
