@@ -106,10 +106,40 @@ const asteroid = (model: ModelData) =>
 
 model = BaseModel.from_pretrained("${model.id}")`;
 
-const diffusers = (model: ModelData) =>
-	`from diffusers import DiffusionPipeline
+const diffusers_default = (model: ModelData) =>
+  `from diffusers import DiffusionPipeline
 
 pipeline = DiffusionPipeline.from_pretrained("${model.id}")`;
+
+const diffusers_controlnet = (model: ModelData) =>
+  `from diffusers import StableDiffusionControlNetPipeline, ControlNetModel
+
+controlnet = ControlNetModel.from_pretrained("${model.id}")
+pipeline = StableDiffusionControlNetPipeline.from_pretrained("${model.tags.base_model}", controlnet=controlnet)`;
+
+const diffusers_lora = (model: ModelData) =>
+  `from diffusers import DiffusionPipeline
+
+pipeline = DiffusionPipeline.from_pretrained("${model.tags.base_model}")
+pipeline.load_lora_weights("${model.id}")`;
+
+const diffusers_textual_inversion = (model: ModelData) =>
+  `from diffusers import DiffusionPipeline
+
+pipeline = DiffusionPipeline.from_pretrained("${model.tags.base_model}")
+pipeline.load_textual_inversioload_textual_inversionn("${model.id}")`;
+
+const diffusers = (model: ModelData) => {
+  if (model.tags?.includes("controlnet")) {
+    return diffusers_controlnet(model);
+  } else if (model.tags?.includes("lora")) {
+    return diffusers_lora(model);
+  } else if (model.tags?.includes("textual_inversion")) {
+    return diffusers_textual_inversion(model);
+  } else {
+    return diffusers_lora(model);
+  }
+}
 
 const espnetTTS = (model: ModelData) =>
 	`from espnet2.bin.tts_inference import Text2Speech
