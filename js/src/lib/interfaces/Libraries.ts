@@ -127,7 +127,7 @@ const diffusers_textual_inversion = (model: ModelData) =>
   `from diffusers import DiffusionPipeline
 
 pipeline = DiffusionPipeline.from_pretrained("${model.tags.base_model}")
-pipeline.load_textual_inversioload_textual_inversionn("${model.id}")`;
+pipeline.load_textual_inversion("${model.id}")`;
 
 const diffusers = (model: ModelData) => {
   if (model.tags?.includes("controlnet")) {
@@ -137,7 +137,7 @@ const diffusers = (model: ModelData) => {
   } else if (model.tags?.includes("textual_inversion")) {
     return diffusers_textual_inversion(model);
   } else {
-    return diffusers_lora(model);
+    return diffusers_default(model);
   }
 }
 
