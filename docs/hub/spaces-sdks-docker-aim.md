@@ -63,8 +63,8 @@ Note that if your logs are in TensorBoard format, you can easily convert <a href
 
 ## More on HF Spaces
 
-- [HF Docker spaces](https://github.com/huggingface/hub-docs/blob/main/docs/hub/spaces-sdks-docker.md)
-- [HF Docker space examples](https://github.com/huggingface/hub-docs/blob/main/docs/hub/spaces-sdks-docker.md)
+- [HF Docker spaces](https://huggingface.co/docs/hub/spaces-sdks-docker)
+- [HF Docker space examples](https://huggingface.co/docs/hub/spaces-sdks-docker-examples)
 
 ## Feedback and Support
 
