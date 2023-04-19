@@ -148,6 +148,8 @@
       - local: spaces-sdks-docker-examples
         title: Example Docker Spaces
       - local: spaces-sdks-docker-argilla
+        title: Aim on Spaces
+      - local: spaces-sdks-docker-aim
         title: Argilla on Spaces
       - local: spaces-sdks-docker-livebook
         title: Livebook on Spaces
