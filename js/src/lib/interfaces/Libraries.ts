@@ -115,18 +115,18 @@ const diffusers_controlnet = (model: ModelData) =>
   `from diffusers import StableDiffusionControlNetPipeline, ControlNetModel
 
 controlnet = ControlNetModel.from_pretrained("${model.id}")
-pipeline = StableDiffusionControlNetPipeline.from_pretrained("${model.tags.base_model}", controlnet=controlnet)`;
+pipeline = StableDiffusionControlNetPipeline.from_pretrained("${model.cardData?.base_model}", controlnet=controlnet)`;
 
 const diffusers_lora = (model: ModelData) =>
   `from diffusers import DiffusionPipeline
 
-pipeline = DiffusionPipeline.from_pretrained("${model.tags.base_model}")
+pipeline = DiffusionPipeline.from_pretrained("${model.cardData?.base_model}")
 pipeline.load_lora_weights("${model.id}")`;
 
 const diffusers_textual_inversion = (model: ModelData) =>
   `from diffusers import DiffusionPipeline
 
-pipeline = DiffusionPipeline.from_pretrained("${model.tags.base_model}")
+pipeline = DiffusionPipeline.from_pretrained("${model.cardData?.base_model}")
 pipeline.load_textual_inversion("${model.id}")`;
 
 const diffusers = (model: ModelData) => {
