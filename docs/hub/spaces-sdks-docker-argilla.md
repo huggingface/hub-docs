@@ -1,6 +1,6 @@
 # Argilla on Spaces
 
-**Argilla** is an open-source, data labelling tool, for highly efficient human-in-the-loop and MLOps workflows. Argilla is composed of (1) a server and webapp for data labelling, and curation, and (2) a Python library for building data annotation workflows in Python. Argilla nicely integrates with the Hugging Face stack (`datasets`, `transformers`, `hub`, and `setfit`), and now it can also be deployed using the Hub's Docker Spaces. 
+**Argilla** is an open-source, data labelling tool, for highly efficient human-in-the-loop and MLOps workflows. Argilla is composed of (1) a server and webapp for data labelling, and curation, and (2) a Python SDK for building data annotation workflows in Python. Argilla nicely integrates with the Hugging Face stack (`datasets`, `transformers`, `hub`, and `setfit`), and now it can also be deployed using the Hub's Docker Spaces. 
 
 Visit the [Argilla documentation](https://docs.argilla.io) to learn about its features and check out the [Deep Dive Guides](https://docs.argilla.io/en/latest/guides/guides.html) and [Tutorials](https://docs.argilla.io/en/latest/tutorials/tutorials.html).
 
@@ -33,7 +33,7 @@ Once you have created the space, you'll see the `Building` status and once it be
 The Space is configured with **two users**: **argilla** and **admin** with the same default password: **12345678**. If you get a 500 error after login, make sure you have correctly introduce the user and password. To secure your Space, you can change the passwords and API keys using secret variables as explained in the next section. 
 
 <Tip>
-IMPORTANT NOTE: Currently, it's not possible to persist data to disk with Docker Spaces. This means that, if your Space gets restarted or rebooted you will loose your datasets inside the Argilla Space. As default Spaces get restarted every 24 hours of inactivity or due to other reasons, we highly recommend using the Argilla Python SDK to read the datasets and save them somewhere (e.g., your local machine or the Hugging Face Hub using the `to_datasets().push_to_hub` method. 
+**IMPORTANT NOTE**: Currently, it's not possible to persist data to disk with Docker Spaces. This means that, if your Space gets restarted or rebooted you will loose your datasets inside the Argilla Space. As default Spaces get restarted every 24 hours of inactivity or due to other reasons, we highly recommend using the Argilla Python SDK to read the datasets and save them somewhere (e.g., your local machine or the Hugging Face Hub using the `to_datasets().push_to_hub` method. 
 </Tip>
 
 ## Set up passwords and API keys using secrets (optional)
