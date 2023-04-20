@@ -47,7 +47,7 @@ The Space template provides a way to set up different **optional settings** focu
 
 To set up these secrets, you can go to the Settings tab on your created Space. Make sure to save these values somewhere for later use.
 
-The template space has two users: `admin` and `argilla`. The username `admin` corresponds to the root user, who can upload datasets and access any workspace within your Argilla Space. The username `argilla` is a normal user with access to the `argilla` workspace.
+The template Space has two users: `admin` and `argilla`. The username `admin` corresponds to the root user, who can upload datasets and access any workspace within your Argilla Space. The username `argilla` is a normal user with access to the `argilla` workspace.
 
 The usernames, passwords, and API keys to upload, read, update, and delete datasets can be configured using the following secrets:
 
