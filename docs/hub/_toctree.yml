@@ -149,6 +149,8 @@
         title: Example Docker Spaces
       - local: spaces-sdks-docker-argilla
         title: Argilla on Spaces
+      - local: spaces-sdks-docker-label-studio
+        title: Label Studio on Spaces
       - local: spaces-sdks-docker-aim
         title: Aim on Spaces
       - local: spaces-sdks-docker-livebook
