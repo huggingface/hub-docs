@@ -151,6 +151,8 @@
         title: Argilla on Spaces
       - local: spaces-sdks-docker-label-studio
         title: Label Studio on Spaces
+      - local: spaces-sdks-docker-aim
+        title: Aim on Spaces
       - local: spaces-sdks-docker-livebook
         title: Livebook on Spaces
       - local: spaces-sdks-docker-zenml
