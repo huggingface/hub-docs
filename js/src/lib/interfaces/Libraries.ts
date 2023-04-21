@@ -54,7 +54,7 @@ export interface LibraryUiElement {
 	 * Name displayed on the main
 	 * call-to-action button on the model page.
 	 */
-	btnLabel:  string;
+	btnLabel: string;
 	/**
 	 * Repo name
 	 */
@@ -62,11 +62,11 @@ export interface LibraryUiElement {
 	/**
 	 * URL to library's repo
 	 */
-	repoUrl:   string;
+	repoUrl:  string;
 	/**
 	 * Code snippet displayed on model page
 	 */
-	snippet:   (model: ModelData) => string;
+	snippet:  (model: ModelData) => string;
 }
 
 function nameWithoutNamespace(modelId: string): string {
@@ -293,7 +293,7 @@ model = joblib.load(
 	hf_hub_download("${model.id}", "sklearn_model.joblib")
 )
 # only load pickle files from sources you trust
-# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
+# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
 	}
 };
 
@@ -372,23 +372,25 @@ const transformers = (model: ModelData) => {
 	if (!info) {
 		return `# ⚠️ Type of model unknown`;
 	}
+	const remote_code_snippet = model.config?.transformers?.remote_code === true ? ", trust_remote_code=True" : "";
+	const model_type = model.config?.transformers?.custom_class === undefined ? info.auto_model  : model.config?.transformers?.custom_class;
 	if (info.processor) {
 		const varName = info.processor === "AutoTokenizer" ? "tokenizer"
 			: info.processor === "AutoFeatureExtractor" ? "extractor"
 				: "processor"
 		;
 		return [
-			`from transformers import ${info.processor}, ${info.auto_model}`,
+			`from transformers import ${info.processor}, ${model_type}`,
 			"",
-			`${varName} = ${info.processor}.from_pretrained("${model.id}")`,
+			`${varName} = ${info.processor}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 			"",
-			`model = ${info.auto_model}.from_pretrained("${model.id}")`,
+			`model = ${model_type}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 		].join("\n");
 	} else {
 		return [
-			`from transformers import ${info.auto_model}`,
+			`from transformers import ${model_type}`,
 			"",
-			`model = ${info.auto_model}.from_pretrained("${model.id}")`,
+			`model = ${model_type}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 		].join("\n");
 	}
 };
