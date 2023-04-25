@@ -22,6 +22,7 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 		"audio-to-audio",
 	],
 	"diffusers": [
+		"image-to-image",
 		"text-to-image",
 	],
 	"doctr": [
