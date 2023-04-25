@@ -68,6 +68,7 @@ The Unlicense | `unlicense`
 zLib License | `zlib`
 Open Data Commons Public Domain Dedication and License | `pddl`
 Lesser General Public License For Linguistic Resources | `lgpl-lr`
+DeepFloyd IF Research License Agreement | `deepfloyd-if-license`
 Unknown | `unknown`
 Other | `other`
 <!-- endregion -->
