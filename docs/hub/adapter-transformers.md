@@ -62,6 +62,6 @@ This command creates a repository with an automatically generated model card and
 
 ## Additional resources
 
-* Adapter Transformers [library]((https://github.com/adapter-hub/adapter-transformers).
+* Adapter Transformers [library](https://github.com/adapter-hub/adapter-transformers).
 * Adapter Transformers [docs](https://docs.adapterhub.ml/index.html).
 * Integration with Hub [docs](https://docs.adapterhub.ml/huggingface_hub.html).
