@@ -35,6 +35,9 @@ Path is relative to the root of the repository.
 **`app_port`** : _int_  
 Port on which your application is running. Used only if `sdk` is `docker`. Default port is `7860`.
 
+**`base_path`**: _string_
+For non-static spaces, initial url to render. Needs to start with `/`. For static spaces, use `app_file` instead.
+
 **`fullWidth`**: _boolean_  
 Whether your Space is rendered inside a full-width (when `true`) or fixed-width column (ie. "container" CSS) inside the iframe.
 Defaults to false in `gradio` and `streamlit`, and to true for other sdks.
