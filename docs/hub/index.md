@@ -57,6 +57,7 @@ The Hugging Face Hub is a platform with over 120k models, 20k datasets, and 50k 
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-sdks-static">Static HTML Spaces</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-sdks-docker">Docker Spaces</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-embed">Embed your Space</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-run-with-docker">Run with Docker</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-config-reference">Reference</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-changelog">Changelog</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-advanced">Advanced Topics</a>
