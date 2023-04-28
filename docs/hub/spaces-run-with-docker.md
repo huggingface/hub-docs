@@ -3,7 +3,10 @@
 You can use Docker to run most Spaces locally.
 To view instructions to download and run Spaces' Docker images, click on the "Run with Docker" button on the top-right corner of your Space page:
 
-![Run with Docker button](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-run-with-docker.png)
+<div class="flex justify-center">
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-run-with-docker.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-run-with-docker-dark.png"/>
+</div>
 
 ## Login to the Docker registry
 
