@@ -159,6 +159,8 @@
         title: ZenML on Spaces
   - local: spaces-embed
     title: Embed your Space
+  - local: spaces-run-with-docker
+    title: Run Spaces with Docker
   - local: spaces-config-reference
     title: Spaces Configuration Reference
   - local: spaces-changelog
