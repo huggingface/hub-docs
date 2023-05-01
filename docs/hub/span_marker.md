@@ -1,6 +1,6 @@
 # Using SpanMarker at Hugging Face
 
-SpanMarker is a framework for training powerful Named Entity Recognition models using familiar encoders such as BERT, RoBERTa and DeBERTa. Tightly implemented on top of the 🤗 Transformers library, SpanMarker can take good advantage of its valuable functionality.
+[SpanMarker](https://github.com/tomaarsen/SpanMarkerNER) is a framework for training powerful Named Entity Recognition models using familiar encoders such as BERT, RoBERTa and DeBERTa. Tightly implemented on top of the 🤗 Transformers library, SpanMarker can take good advantage of it. As a result, SpanMarker will be intuitive to use for anyone familiar with Transformers.
 
 ## Exploring SpanMarker in the Hub
 
@@ -59,5 +59,5 @@ TODO: Add this, but then with SpanMarker
 
 ## Additional resources
 
-* SpanMarker [repository](https://github.com/tomaarsen/SpanMarkerNER).
-* SpanMarker [docs](https://tomaarsen.github.io/SpanMarkerNER).
+* SpanMarker [repository](https://github.com/tomaarsen/SpanMarkerNER)
+* SpanMarker [docs](https://tomaarsen.github.io/SpanMarkerNER)
