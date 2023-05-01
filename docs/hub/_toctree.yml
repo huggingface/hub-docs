@@ -151,12 +151,18 @@
         title: Example Docker Spaces
       - local: spaces-sdks-docker-argilla
         title: Argilla on Spaces
+      - local: spaces-sdks-docker-label-studio
+        title: Label Studio on Spaces
+      - local: spaces-sdks-docker-aim
+        title: Aim on Spaces
       - local: spaces-sdks-docker-livebook
         title: Livebook on Spaces
       - local: spaces-sdks-docker-zenml
         title: ZenML on Spaces
   - local: spaces-embed
     title: Embed your Space
+  - local: spaces-run-with-docker
+    title: Run Spaces with Docker
   - local: spaces-config-reference
     title: Spaces Configuration Reference
   - local: spaces-changelog
@@ -194,6 +200,8 @@
     sections:
     - local: security-tokens
       title: User Access Tokens
+    - local: security-git-ssh
+      title: Git over SSH
     - local: security-gpg
       title: Signing Commits with GPG
     - local: security-malware

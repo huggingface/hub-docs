@@ -1,5 +1,11 @@
 # Spaces Changelog
 
+## [2023-04-12] - Add support for Streamlit up to 1.19.0
+- Support for `1.16.0`, `1.17.0`, `1.18.1`, and `1.19.0` is added and the default SDK version is set as `1.19.0`.
+
+## [2023-03-28] - Bug fix
+- Fixed a bug causing inability to scroll on iframe-embedded or directly accessed Streamlit apps, which was reported at https://discuss.huggingface.co/t/how-to-add-scroll-bars-to-a-streamlit-app-using-space-direct-embed-url/34101. The patch has been applied to Streamlit>=1.18.1.
+
 ## [2022-12-15] - Spaces supports Docker Containers
 
 - Read more doc about: [Docker Spaces](./spaces-sdks-docker)

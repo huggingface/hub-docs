@@ -84,8 +84,17 @@ Downloading repositories to your local machine is called *cloning*. You can use 
 
 ```bash
 git clone https://huggingface.co/<your-username>/<your-model-name>
-cd <your-model-id>
+cd <your-model-name>
 ```
+
+You can clone over SSH with the following command:
+```bash
+git clone git@hf.co:<your-username>/<your-model-name>
+cd <your-model-name>
+```
+
+You'll need to add your SSH public key to [your user settings](https://huggingface.co/settings/keys) to push changes or access private repositories.
+
 
 ### Set up
 

@@ -22,6 +22,7 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 		"audio-to-audio",
 	],
 	"diffusers": [
+		"image-to-image",
 		"text-to-image",
 	],
 	"doctr": [
@@ -53,6 +54,10 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 	],
 	"nemo": [
 		"automatic-speech-recognition",
+	],
+	"open_clip": [
+		"zero-shot-classification",
+		"zero-shot-image-classification",
 	],
 	"paddlenlp": [
 		"conversational",

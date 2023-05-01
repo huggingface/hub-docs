@@ -173,7 +173,7 @@ Create your own `model.tar.gz` from a model from the 🤗 Hub:
 
 ```bash
 git lfs install
-git clone https://huggingface.co/{repository}
+git clone git@hf.co:{repository}
 ```
 
 2. Create a `tar` file:

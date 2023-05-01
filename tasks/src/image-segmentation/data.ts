@@ -63,6 +63,10 @@ const taskData: TaskDataCustom = {
 			description: "An instance segmentation application to predict neuronal cell types from microscopy images.",
 			id:          "rashmi/sartorius-cell-instance-segmentation",
 		},
+		{
+			description: "Model trained on 11M+ images and 1.1B+ masks, producing high-quality object masks.",
+			id:          "https://huggingface.co/spaces/ArtGAN/Segment-Anything-Video",
+		},
 	],
 	summary:      "Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.",
 	widgetModels: ["facebook/detr-resnet-50-panoptic"],
