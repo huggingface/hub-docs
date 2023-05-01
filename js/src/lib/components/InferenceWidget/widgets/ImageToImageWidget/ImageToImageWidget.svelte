@@ -97,7 +97,7 @@
 			image: imageBase64,
 			parameters: {
 				inputs: trimmedPrompt,
-			}
+			},
 		};
 		addInferenceParameters(requestBody, model);
 
