@@ -23,6 +23,7 @@ You'll also be able to upgrade your Space to run [on a GPU or other accelerated 
 - [Static HTML Spaces](./spaces-sdks-static)
 - [Custom Python Spaces](./spaces-sdks-python)
 - [Embed your Space](./spaces-embed)
+- [Run your Space with Docker](./spaces-run-with-docker)
 - [Reference](./spaces-config-reference)
 - [Changelog](./spaces-changelog)
 
