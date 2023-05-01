@@ -10,6 +10,7 @@
 	import FeatureExtractionWidget from "./widgets/FeatureExtractionWidget/FeatureExtractionWidget.svelte";
 	import FillMaskWidget from "./widgets/FillMaskWidget/FillMaskWidget.svelte";
 	import ImageClassificationWidget from "./widgets/ImageClassificationWidget/ImageClassificationWidget.svelte";
+	import ImageToImageWidget from "./widgets/ImageToImageWidget/ImageToImageWidget.svelte";
 	import ImageToTextWidget from "./widgets/ImageToTextWidget/ImageToTextWidget.svelte";
 	import ImageSegmentationWidget from "./widgets/ImageSegmentationWidget/ImageSegmentationWidget.svelte";
 	import ObjectDetectionWidget from "./widgets/ObjectDetectionWidget/ObjectDetectionWidget.svelte";
@@ -51,6 +52,7 @@
 		"feature-extraction": FeatureExtractionWidget,
 		"fill-mask": FillMaskWidget,
 		"image-classification": ImageClassificationWidget,
+		"image-to-image": ImageToImageWidget,
 		"image-to-text": ImageToTextWidget,
 		"image-segmentation": ImageSegmentationWidget,
 		"object-detection": ObjectDetectionWidget,
