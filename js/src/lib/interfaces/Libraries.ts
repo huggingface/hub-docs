@@ -23,7 +23,7 @@ export enum ModelLibrary {
 	"sentence-transformers"  = "Sentence Transformers",
 	"sklearn"                = "Scikit-learn",
 	"spacy"                  = "spaCy",
-	"span_marker"            = "SpanMarker",
+	"span-marker"            = "SpanMarker",
 	"speechbrain"            = "speechbrain",
 	"tensorflowtts"          = "TensorFlowTTS",
 	"timm"                   = "Timm",
@@ -534,7 +534,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoUrl:  "https://github.com/explosion/spaCy",
 		snippet:  spacy,
 	},
-	"span_marker": {
+	"span-marker": {
 		btnLabel: "SpanMarker",
 		repoName: "SpanMarkerNER",
 		repoUrl:  "https://github.com/tomaarsen/SpanMarkerNER",

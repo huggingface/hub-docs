@@ -40,7 +40,7 @@ export const TASKS_MODEL_LIBRARIES: Record<PipelineType, ModelLibraryKey[]> = {
 	"text-to-video":                  [],
 	"text2text-generation":           ["transformers"],
 	"time-series-forecasting":        [],
-	"token-classification":           ["adapter-transformers", "flair", "spacy", "span_marker", "stanza", "transformers"],
+	"token-classification":           ["adapter-transformers", "flair", "spacy", "span-marker", "stanza", "transformers"],
 	"translation":                    ["transformers"],
 	"unconditional-image-generation": [],
 	"visual-question-answering":      [],
