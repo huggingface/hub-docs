@@ -4,7 +4,7 @@
 
 ## Exploring SpanMarker in the Hub
 
-You can find `span_marker` models by filtering at the left of the [models page](https://huggingface.co/models?library=span_marker).
+You can find `span_marker` models by filtering at the left of the [models page](https://huggingface.co/models?library=span-marker).
 
 All models on the Hub come with these useful features:
 1. An automatically generated model card with a brief description.
