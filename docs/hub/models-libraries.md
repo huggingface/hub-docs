@@ -26,6 +26,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [Sample Factory](https://github.com/alex-petrenko/sample-factory)    | Codebase for high throughput asynchronous reinforcement learning.          | ❌ | ✅ | ✅ | ✅ |
 | [Sentence Transformers](https://github.com/UKPLab/sentence-transformers)    | Compute dense vector representations for sentences, paragraphs, and images.          | ✅ | ✅ | ✅ | ✅ |
 | [spaCy](https://github.com/explosion/spaCy)                                 | Advanced Natural Language Processing in Python and Cython.                           | ✅ | ✅ | ✅ | ✅ |
+| [SpanMarker](https://github.com/tomaarsen/SpanMarkerNER)                    | Familiar, simple and state-of-the-art Named Entity Recognition.                      | ✅ | ✅ | ✅ | ✅ |
 | [Scikit Learn (using skops)](https://skops.readthedocs.io/en/stable/)                          | Machine Learning in Python.                           | ✅ | ✅ | ✅ | ✅ |
 | [Speechbrain](https://speechbrain.github.io/)                               | A PyTorch Powered Speech Toolkit.                                                    | ✅ | ✅ | ✅ | ❌ |
 | [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3)            | Set of reliable implementations of deep reinforcement learning algorithms in PyTorch | ❌ | ✅ | ✅ | ✅ |

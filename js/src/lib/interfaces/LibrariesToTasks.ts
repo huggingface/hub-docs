@@ -82,6 +82,9 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 		"text-classification",
 		"sentence-similarity",
 	],
+	"span-marker": [
+		"token-classification",
+	],
 	"speechbrain": [
 		"audio-classification",
 		"audio-to-audio",
