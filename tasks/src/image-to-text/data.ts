@@ -32,8 +32,8 @@ const taskData: TaskDataCustom = {
 	metrics: [],
 	models: [
 		{
-			description: "The model gets information in text of an image with text",
-			id:          "naver-clova-ix/donut-base-finetuned-docvqa",
+			description: "A robust image captioning model.",
+			id:          "Salesforce/blip-image-captioning-large",
 		},
 		{
 			description: "A strong image captioning model.",
