@@ -41,7 +41,7 @@ Note that you must include shiny in this file.
 To integrate Hugging Face tools into an R app, you can either use [httr2](https://httr2.r-lib.org/) to call Hugging Face APIs, or [reticulate](https://rstudio.github.io/reticulate/) to call one of the Hugging Face Python SDKs.
 
 To deploy an R Shiny Space, click this button and fill out the space metadata. 
-This will populate the space with all the files you need to get started.
+This will populate the Space with all the files you need to get started.
 
 <a  href="https://huggingface.co/new-space?template=posit/shiny-for-r-template"> <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg"/> </a>
 
