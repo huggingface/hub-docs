@@ -75,7 +75,7 @@
 							data-entity="${spanTag.span.type}" data-hash="${hash}" data-index="${
 						spanTag.span.index ?? ""
 					}"
-							class="bg-${color}-100 text-${color}-800 rounded px-1 py-0.5 dark:text-${color}-100 dark:bg-${color}-700"
+							class="bg-${color}-100 text-${color}-800 rounded px-1 py-0.5"
 						>`;
 				} else {
 					out += `<span
