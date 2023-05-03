@@ -38,8 +38,7 @@ Note that you must include shiny in this file.
 ## **Shiny for R**
 
 [Shiny for R](https://shiny.rstudio.com/) is a popular and well established application framework in the R community, and is a great choice if you want to host an R app on Hugging Face infrastructure, or make use of some of the great [Shiny R extensions](https://github.com/nanxstats/awesome-shiny-extensions). 
-To integrate Hugging Face tools into an R app. 
-You can either use [httr2](https://httr2.r-lib.org/) to call Hugging Face APIs, or [reticulate](https://rstudio.github.io/reticulate/) to call one of the Hugging Face Python SDKs.
+To integrate Hugging Face tools into an R app, you can either use [httr2](https://httr2.r-lib.org/) to call Hugging Face APIs, or [reticulate](https://rstudio.github.io/reticulate/) to call one of the Hugging Face Python SDKs.
 
 To deploy an R Shiny space, just click this button and fill out the space metadata. 
 This will populate the space with all the files you need to get started.
