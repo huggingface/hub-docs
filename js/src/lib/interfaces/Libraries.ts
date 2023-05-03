@@ -106,6 +106,11 @@ const asteroid = (model: ModelData) =>
 
 model = BaseModel.from_pretrained("${model.id}")`;
 
+
+function get_base_diffusers_model(model: ModelData): string {
+  return model.cardData?.base_model ? model.cardData?.base_model : 'fill-in-base-model'
+}
+
 const diffusers_default = (model: ModelData) =>
   `from diffusers import DiffusionPipeline
 
@@ -114,13 +119,13 @@ pipeline = DiffusionPipeline.from_pretrained("${model.id}")`;
 const diffusers_controlnet = (model: ModelData) =>
   `from diffusers import StableDiffusionControlNetPipeline, ControlNetModel
 
-controlnet = ControlNetModel.from_pretrained("${model.id}")
-pipeline = StableDiffusionControlNetPipeline.from_pretrained("${model.cardData?.base_model}", controlnet=controlnet)`;
+controlnet = ControlNetModel.from_pretrained("${get_base_diffusers_model(model)}")
+pipeline = StableDiffusionControlNetPipeline.from_pretrained("${get_base_diffusers_model(model)}", controlnet=controlnet)`;
 
 const diffusers_lora = (model: ModelData) =>
   `from diffusers import DiffusionPipeline
 
-pipeline = DiffusionPipeline.from_pretrained("${model.cardData?.base_model}")
+pipeline = DiffusionPipeline.from_pretrained("${get_base_diffusers_model(model)}")
 pipeline.load_lora_weights("${model.id}")`;
 
 const diffusers_textual_inversion = (model: ModelData) =>
