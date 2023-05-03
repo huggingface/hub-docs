@@ -47,7 +47,7 @@ This will populate the Space with all the files you need to get started.
 
 
 _app.R_
-This file contains all of your application logic, if you prefer you can break this file up into `ui.R` and `server.R`.
+This file contains all of your application logic. If you prefer, you can break this file up into `ui.R` and `server.R`.
 
 _Dockerfile_
 
