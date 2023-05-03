@@ -37,3 +37,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/summarization)
 - [TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/summarization)
 - [Flax](https://github.com/huggingface/transformers/tree/main/examples/flax/summarization)
+
+### Documentation
+
+- [Summarization task guide](https://huggingface.co/docs/transformers/tasks/summarization)

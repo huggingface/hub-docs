@@ -1,4 +1,4 @@
-## Use Cases
+## Use Cases
 Video classification models can be used to categorize what a video is all about.
 
 ### Activity Recognition
@@ -47,6 +47,7 @@ print(model.config.id2label[predicted_label])
 - [Developing a simple video classification model](https://keras.io/examples/vision/video_classification)
 - [Video classification with Transformers](https://keras.io/examples/vision/video_transformers)
 - [Building a video archive](https://www.youtube.com/watch?v=_IeS1m8r6SY)
+- [Video classification task guide](https://huggingface.co/docs/transformers/tasks/video_classification)
 
 ### Creating your own video classifier in minutes
 - [Fine-tuning tutorial notebook (PyTorch)](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/video_classification.ipynb)

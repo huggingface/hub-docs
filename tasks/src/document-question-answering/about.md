@@ -47,4 +47,8 @@ Would you like to learn more about Document QA? Awesome! Here are some curated r
 - [Fine-tuning LayoutLMv2 on DocVQA dataset](https://github.com/NielsRogge/Transformers-Tutorials/tree/1b4bad710c41017d07a8f63b46a12523bfd2e835/LayoutLMv2/DocVQA)
 - [Accelerating Document AI](https://huggingface.co/blog/document-ai)
 
+### Documentation
+
+- [Document question answering task guide](https://huggingface.co/docs/transformers/tasks/document_question_answering)
+
 The contents of this page are contributed by [Eliott Zemour](https://huggingface.co/eliolio) and reviewed by [Kwadwo Agyapon-Ntra](https://huggingface.co/KayO) and [Ankur Goyal](https://huggingface.co/ankrgyl).
