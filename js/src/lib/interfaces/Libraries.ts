@@ -318,7 +318,7 @@ nlp = ${nameWithoutNamespace(model.id)}.load()`;
 const span_marker = (model: ModelData) =>
 	`from span_marker import SpanMarkerModel
 
-	model = SpanMarkerModel.from_pretrained("${model.id}")`;
+model = SpanMarkerModel.from_pretrained("${model.id}")`;
 
 const stanza = (model: ModelData) =>
 	`import stanza
