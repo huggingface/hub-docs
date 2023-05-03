@@ -30,7 +30,7 @@ _Dockerfile_
 The Dockerfile for a Shiny for Python app is very minimal because the library doesn't have many system dependencies, but you may need to modify this file if your application has additional system dependencies. 
 The one essential feature of this file is that it exposes and runs the app on the port specified in the space README file (which is 7860 by default).
 
-Requirements.txt
+__requirements.txt__
 
 The Space will automatically install dependencies listed in the requirements.txt file. 
 Note that you must include shiny in this file.
