@@ -1,7 +1,7 @@
 # Shiny on Spaces
 
 [Shiny](https://shiny.posit.co/) is an open-source framework for building simple, beautiful, and performant data applications. 
-Our goal when developing Shiny was to build something simple enough to teach someone in an afternoon, but extensible enough to power large, mission-critical applications. 
+The goal when developing Shiny was to build something simple enough to teach someone in an afternoon but extensible enough to power large, mission-critical applications. 
 You can create a useful Shiny app in a few minutes, but if the scope of your project grows, you can be sure that Shiny can accommodate that application.
 
 The main feature that differentiates Shiny from other frameworks is its reactive execution model. 
