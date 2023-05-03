@@ -51,7 +51,7 @@ This file contains all of your application logic. If you prefer, you can break t
 
 _Dockerfile_
 
-The Dockerfile builds off of the the [rocker shiny](https://hub.docker.com/r/rocker/shiny) image. And you\'ll need to modify this file to use additional packages. 
+The Dockerfile builds off of the the [rocker shiny](https://hub.docker.com/r/rocker/shiny) image. You'll need to modify this file to use additional packages. 
 If you are using a lot of tidyverse packages we recommend switching the base image to [rocker/shinyverse](https://hub.docker.com/r/rocker/shiny-verse).
 You can install additional R packages by adding them under the `RUN install2.r` section of the dockerfile, and github packages can be installed by adding the repository under `RUN installGithub.r`.
 
