@@ -22,7 +22,7 @@ The Space template will populate a few files to get your app started.
 
 _app.py_
 
-This file defines your app's logic. To learn more about how to modify this file see [the Shiny for Python documentation](https://shiny.rstudio.com/py/docs/overview.html). 
+This file defines your app's logic. To learn more about how to modify this file, see [the Shiny for Python documentation](https://shiny.rstudio.com/py/docs/overview.html). 
 As your app gets more complex it\'s a good idea to break your application logic up into [modules](https://shiny.rstudio.com/py/docs/workflow-modules.html).
 
 _Dockerfile_
