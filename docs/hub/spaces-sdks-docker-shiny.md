@@ -15,7 +15,7 @@ This gives you access to all of the great features of Shiny like reactivity, com
 Shiny for Python is ideal for Hugging Face applications because it integrates smoothly with other Hugging Face tools.
 
 To get started deploying a Space, click this button to select your hardware and specify if you want a public or private Space.
-The space template will populate a few files to get your app started.
+The Space template will populate a few files to get your app started.
 
 <a  href="https://huggingface.co/new-space?template=posit/shiny-for-python-template"> <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg"/> </a>
 
