@@ -718,7 +718,7 @@ export interface ModelData {
 		inference?: boolean | {
 			parameters?: Record<string, any>;
 		};
-		[key: string]?: unknown;
+		[key: string]: unknown;
 	};
 	/**
 	 * Library name
