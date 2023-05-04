@@ -13,6 +13,7 @@ OpenRAIL license family | `openrail`
 BigScience OpenRAIL-M | `bigscience-openrail-m`
 CreativeML OpenRAIL-M | `creativeml-openrail-m`
 BigScience BLOOM RAIL 1.0 | `bigscience-bloom-rail-1.0`
+BigCode Open RAIL-M v1 | `bigcode-openrail-m`
 Academic Free License v3.0 | `afl-3.0`
 Apache license 2.0 | `apache-2.0`
 Artistic license 2.0 | `artistic-2.0`
