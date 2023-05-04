@@ -70,3 +70,7 @@ Would you like to learn more about token classification? Great! Here you can fin
 - [PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/token-classification)
 - [TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow)
 - [Flax](https://github.com/huggingface/transformers/tree/main/examples/flax/token-classification)
+
+### Documentation
+
+- [Token classification task guide](https://huggingface.co/docs/transformers/tasks/token_classification)

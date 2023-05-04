@@ -95,3 +95,8 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Training a CLM in PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling)
 - [Training a CLM in TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling)
 - [Text Generation in PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/text-generation)
+
+### Documentation
+
+- [Causal language modeling task guide](https://huggingface.co/docs/transformers/tasks/language_modeling)
+- [Text generation strategies](https://huggingface.co/docs/transformers/generation_strategies)

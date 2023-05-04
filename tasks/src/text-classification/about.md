@@ -6,7 +6,7 @@ You can track the sentiments of your customers from the product reviews using se
 
 ## Task Variants
 
-### Natural Language Infenrence (NLI)
+### Natural Language Inference (NLI)
 
 In NLI the model determines the relationship between two given texts. Concretely, the model takes a premise and a hypothesis and returns a class that can either be:
 
@@ -153,3 +153,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/text-classification)
 - [TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/text-classification)
 - [Flax](https://github.com/huggingface/transformers/tree/main/examples/flax/text-classification)
+
+### Documentation
+
+- [Text classification task guide](https://huggingface.co/docs/transformers/tasks/sequence_classification)

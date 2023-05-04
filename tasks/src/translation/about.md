@@ -47,3 +47,7 @@ Would you like to learn more about Translation? Great! Here you can find some cu
 
 - [PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/translation)
 - [TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/translation)
+
+### Documentation
+
+- [Translation task guide](https://huggingface.co/docs/transformers/tasks/translation)
