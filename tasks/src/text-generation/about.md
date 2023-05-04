@@ -99,3 +99,4 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 ### Documentation
 
 - [Causal language modeling task guide](https://huggingface.co/docs/transformers/tasks/language_modeling)
+- [Text generation strategies](https://huggingface.co/docs/transformers/generation_strategies)
