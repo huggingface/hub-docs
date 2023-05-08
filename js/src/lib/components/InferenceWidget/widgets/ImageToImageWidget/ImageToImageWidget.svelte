@@ -94,9 +94,9 @@
 		}
 
 		const requestBody = {
-			image: imageBase64,
+			inputs: imageBase64,
 			parameters: {
-				inputs: trimmedPrompt,
+				prompt: trimmedPrompt,
 			},
 		};
 		addInferenceParameters(requestBody, model);
