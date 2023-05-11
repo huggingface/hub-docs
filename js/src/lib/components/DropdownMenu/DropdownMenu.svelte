@@ -50,7 +50,7 @@
 	bind:this={element}
 	class="z-10 mt-1 overflow-hidden rounded-xl border border-gray-100 bg-white shadow-lg
 		{centerOnMobile
-		? 'fixed left-1/2 w-auto -translate-x-1/2 sm:absolute sm:w-auto sm:min-w-full sm:translate-x-0'
+		? 'fixed left-1/2 w-auto max-w-xs -translate-x-1/2 sm:absolute sm:w-auto sm:min-w-full sm:translate-x-0'
 		: 'absolute top-full min-w-full'}
 		{alignement === 'right' ? 'right-0 sm:left-auto' : 'left-0'}
 		{classNames}"
