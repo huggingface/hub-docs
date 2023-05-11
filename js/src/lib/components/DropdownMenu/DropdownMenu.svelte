@@ -23,9 +23,7 @@
 			const domRect = element?.getBoundingClientRect() || {};
 			const left = domRect["left"] ?? 0;
 			const width = domRect["width"] ?? 0;
-			console.log(left, width, docWidth);
 			alignement = left + width > docWidth ? "right" : "left";
-			console.log(alignement);
 		}
 
 		return () => {
