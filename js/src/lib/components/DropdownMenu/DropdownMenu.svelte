@@ -3,6 +3,7 @@
 
 	type Alignement = "left" | "right";
 
+	export let centerOnMobile = false;
 	export let classNames = "";
 	export let dropdownElement: HTMLElement | undefined = undefined;
 	export let forceAlignement: Alignement | undefined = undefined;
@@ -22,7 +23,9 @@
 			const domRect = element?.getBoundingClientRect() || {};
 			const left = domRect["left"] ?? 0;
 			const width = domRect["width"] ?? 0;
+			console.log(left, width, docWidth);
 			alignement = left + width > docWidth ? "right" : "left";
+			console.log(alignement);
 		}
 
 		return () => {
@@ -47,10 +50,18 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	bind:this={element}
-	class="absolute top-full mt-1 min-w-full bg-white rounded-xl overflow-hidden shadow-lg z-10 border border-gray-100
-		{alignement === 'right' ? 'right-0' : 'left-0'}
+	class="z-10 mt-1 overflow-hidden rounded-xl border border-gray-100 bg-white shadow-lg
+		{centerOnMobile
+		? 'fixed left-1/2 w-auto -translate-x-1/2 sm:absolute sm:w-auto sm:min-w-full sm:translate-x-0'
+		: 'absolute top-full min-w-full'}
+		{alignement === 'right' ? 'right-0 sm:left-auto' : 'left-0'}
 		{classNames}"
 	on:click|stopPropagation={onClose}
+	on:touchmove={(e) => {
+		if (centerOnMobile) {
+			e.preventDefault();
+		}
+	}}
 >
 	<ul class="min-w-full">
 		<slot />
