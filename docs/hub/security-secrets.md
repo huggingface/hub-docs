@@ -18,6 +18,6 @@ def call_inference(prompt: str) -> str:
 To prevent this issue, we run an automated bot (Spaces Secrets Scanner) that scans for hard-coded secrets and opens a discussion (in case hard-coded secrets are found) about the exposed secrets & how to handle this problem.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/token-scanner-light.png"/>
-<img class="hidden dark:block" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/token-scanner-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/token-scanner-light.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/token-scanner-dark.png"/>
 </div>
