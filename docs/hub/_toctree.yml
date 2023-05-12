@@ -210,6 +210,8 @@
       title: Malware Scanning
     - local: security-pickle
       title: Pickle Scanning
+    - local: security-secrets
+      title: Secrets Scanning
   - local: paper-pages
     title: Paper Pages
   - local: doi
