@@ -15,8 +15,8 @@
 	let docWidth: number | undefined;
 
 	onMount(() => {
-		// document.addEventListener("click", handleClickDocument);
-		// screen?.orientation?.addEventListener("change", onClose);
+		document.addEventListener("click", handleClickDocument);
+		screen?.orientation?.addEventListener("change", onClose);
 
 		docWidth = document.documentElement.clientWidth;
 		const bbox = element?.getBoundingClientRect();
