@@ -182,6 +182,8 @@
       title: Custom Python Spaces
     - local: spaces-add-to-arxiv
       title: How to Add a Space to ArXiv
+    - local: spaces-secrets-scanner
+      title: Secrets Scanner
 - local: other
   title: Other
   isExpanded: true
