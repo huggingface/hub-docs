@@ -10,7 +10,6 @@
 	export let btnIcon: typeof SvelteComponent | undefined = undefined;
 	export let btnIconClassNames = "";
 	export let btnLabel = "";
-	export let centerMenuOnMobile = false;
 	export let disabled = false;
 	export let entries: Array<{
 		classNames?: string;
@@ -23,7 +22,11 @@
 		underline?: boolean;
 		targetBlank?: boolean;
 	}> = [];
-	export let forceMenuAlignement: "left" | "right" | undefined = undefined;
+	export let forceMenuAlignement:
+		| "left"
+		| "right"
+		| "screen-center"
+		| undefined = undefined;
 	export let menuClassNames = "";
 	export let noBtnClass: boolean | undefined = undefined;
 	export let withBtnCaret = false;
@@ -61,7 +64,6 @@
 	{#if isOpen}
 		<DropdownMenu
 			classNames={menuClassNames}
-			centerOnMobile={centerMenuOnMobile}
 			dropdownElement={element}
 			forceAlignement={forceMenuAlignement}
 			onClose={() => (isOpen = false)}
