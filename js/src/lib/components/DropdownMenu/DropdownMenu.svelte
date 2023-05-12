@@ -15,8 +15,8 @@
 	let docWidth: number | undefined;
 
 	onMount(() => {
-		document.addEventListener("click", handleClickDocument);
-		screen?.orientation?.addEventListener("change", onClose);
+		// document.addEventListener("click", handleClickDocument);
+		// screen?.orientation?.addEventListener("change", onClose);
 
 		docWidth = document.documentElement.clientWidth;
 		const bbox = element?.getBoundingClientRect();
@@ -56,12 +56,12 @@
 	}
 </script>
 
-<svelte:window on:blur={onClose} on:resize={handleResize} />
+<svelte:window on:resize={handleResize} />
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	bind:this={element}
-	class="absolute top-full z-10 mt-1 min-w-full max-w-xs overflow-hidden rounded-xl border border-gray-100 bg-white shadow-lg
+	class="absolute top-full z-10 mt-1 w-auto min-w-0 max-w-xs overflow-hidden rounded-xl border border-gray-100 bg-white shadow-lg
 		{alignement === 'right' ? 'right-0' : 'left-0'}
 		{classNames}"
 	on:click|stopPropagation={onClose}
