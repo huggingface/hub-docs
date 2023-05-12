@@ -15,7 +15,7 @@ def call_inference(prompt: str) -> str:
     return result
 ```
 
-To prevent this isse, there is `Spaces Secrets Scanner` that scans for hard-coded secrets and opens a discussion (in case hard-coded secrets are found) about the exposed secrets & how to handle this problem.
+To prevent this issue, we run an automated bot (Spaces Secrets Scanner) that scans for hard-coded secrets and opens a discussion (in case hard-coded secrets are found) about the exposed secrets & how to handle this problem.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/token-scanner-light.png"/>
