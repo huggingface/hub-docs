@@ -17,4 +17,5 @@ For any other security questions, please feel free to send us an email at securi
 - [Signing commits with GPG](./security-gpg)
 - [Malware Scanning](./security-malware)
 - [Pickle Scanning](./security-pickle)
+- [Secrets Scanning](./security-secrets)
 
