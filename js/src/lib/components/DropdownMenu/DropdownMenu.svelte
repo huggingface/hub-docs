@@ -12,11 +12,13 @@
 	// the browser won't be able to properly compute x and width
 	let alignement: Alignement = forceAlignement ?? "left";
 	let element: HTMLElement | undefined;
+	let docWidth: number | undefined;
 
 	onMount(() => {
 		document.addEventListener("click", handleClickDocument);
+		screen?.orientation?.addEventListener("change", onClose);
 
-		const docWidth = document.documentElement.clientWidth;
+		docWidth = document.documentElement.clientWidth;
 		const bbox = element?.getBoundingClientRect();
 		const left = bbox.left ?? 0;
 		const width = bbox.width ?? 0;
@@ -28,8 +30,10 @@
 				docWidth / 2 - width / 2 - bbox.left
 			}px)`;
 		}
+
 		return () => {
 			document.removeEventListener("click", handleClickDocument);
+			screen?.orientation?.removeEventListener("change", onClose);
 		};
 	});
 
@@ -44,9 +48,15 @@
 			onClose();
 		}
 	}
+
+	function handleResize() {
+		if (docWidth !== document.documentElement.clientWidth) {
+			onClose();
+		}
+	}
 </script>
 
-<svelte:window on:blur={onClose} on:resize|once={onClose} />
+<svelte:window on:blur={onClose} on:resize={handleResize} />
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
