@@ -56,7 +56,7 @@
 	}
 </script>
 
-<svelte:window on:resize={handleResize} />
+<svelte:window on:resize={handleResize} on:blur={onClose} />
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
