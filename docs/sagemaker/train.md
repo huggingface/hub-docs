@@ -137,7 +137,7 @@ huggingface_estimator = HuggingFace(
 )
 ```
 
-If you are running a `TrainingJob` locally, define `instance_type='local'` or `instance_type='local-gpu'` for GPU usage. Note that this will not work with SageMaker Studio.
+If you are running a `TrainingJob` locally, define `instance_type='local'` or `instance_type='local_gpu'` for GPU usage. Note that this will not work with SageMaker Studio.
 
 ## Execute training
 
