@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { SvelteComponent } from "svelte";
+
 	import DropdownEntry from "../DropdownEntry/DropdownEntry.svelte";
 	import DropdownMenu from "../DropdownMenu/DropdownMenu.svelte";
 	import IconCaretDown from "../Icons/IconCaretDown.svelte";
@@ -21,7 +22,11 @@
 		underline?: boolean;
 		targetBlank?: boolean;
 	}> = [];
-	export let forceMenuAlignement: "left" | "right" | undefined = undefined;
+	export let forceMenuAlignement:
+		| "left"
+		| "right"
+		| "screen-center"
+		| undefined = undefined;
 	export let menuClassNames = "";
 	export let noBtnClass: boolean | undefined = undefined;
 	export let withBtnCaret = false;
@@ -34,7 +39,7 @@
 	<!-- Button -->
 	<button
 		class="{btnClassNames}
-			{!noBtnClass ? 'cursor-pointer w-full btn text-sm' : ''}"
+			{!noBtnClass ? 'btn w-full cursor-pointer text-sm' : ''}"
 		on:click={() => (isOpen = !disabled && !isOpen)}
 		type="button"
 	>
