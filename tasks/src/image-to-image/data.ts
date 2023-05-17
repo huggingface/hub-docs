@@ -64,13 +64,14 @@ const taskData: TaskDataCustom = {
 			id:          "keras-io/neural-style-transfer",
 		},
 		{
-			description: "An application that prettifies your drawings.",
-			id:          "huggingface-projects/diffuse-the-rest",
+			description: "An application that generates photorealistic images based on segment control.",
+			id:          "mfidabel/controlnet-segment-anything",
 		},
 		{
-			description: "Image colorization application for anime drawings.",
-			id:          "Gradio-Blocks/anime-colorization",
+			description: "Image generation application that takes image control and text prompt.",
+			id:          "hysts/ControlNet",
 		},
+
 	],
 	summary:      "Image to image is the task of transforming a source image to match the characteristics of a target image or a target image domain. Any image manipulation and enhancement is possible with image to image models.",
 	widgetModels: [""],
