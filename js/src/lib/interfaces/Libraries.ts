@@ -8,6 +8,7 @@ export enum ModelLibrary {
 	"adapter-transformers"   = "Adapter Transformers",
 	"allennlp"               = "allenNLP",
 	"asteroid"               = "Asteroid",
+	"bertopic"               = "BERTopic",
 	"diffusers"              = "Diffusers",
 	"doctr"                  = "docTR",
 	"espnet"                 = "ESPnet",
@@ -104,6 +105,11 @@ const asteroid = (model: ModelData) =>
 	`from asteroid.models import BaseModel
 
 model = BaseModel.from_pretrained("${model.id}")`;
+
+const bertopic = (model: ModelData) =>
+	`from bertopic import BERTopic
+
+model = BERTopic.load("${model.id}")`;
 
 const diffusers = (model: ModelData) =>
 	`from diffusers import DiffusionPipeline
