@@ -39,6 +39,10 @@ const taskData: TaskDataCustom = {
 			description: "A strong image captioning model.",
 			id:          "nlpconnect/vit-gpt2-image-captioning",
 		},
+		{
+			description: "A strong optical character recognition model.",
+			id:          "microsoft/trocr-base-printed",
+		},
 	],
 	spaces:       [
 		{

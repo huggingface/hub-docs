@@ -72,3 +72,4 @@ These events help democratize ASR for all languages, including low-resource lang
 - [An introduction to SpeechT5, a multi-purpose speech recognition and synthesis model](https://huggingface.co/blog/speecht5)
 - [A guide on Fine-tuning Whisper For Multilingual ASR with 🤗Transformers](https://huggingface.co/blog/fine-tune-whisper)
 - [Automatic speech recognition task guide](https://huggingface.co/docs/transformers/tasks/asr)
+- [Speech Synthesis, Recognition, and More With SpeechT5](https://huggingface.co/blog/speecht5)

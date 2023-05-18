@@ -89,6 +89,11 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [🌸 Introducing The World's Largest Open Multilingual Language Model: BLOOM 🌸](https://huggingface.co/blog/bloom)
 - [The Technology Behind BLOOM Training](https://huggingface.co/blog/bloom-megatron-deepspeed)
 - [Faster Text Generation with TensorFlow and XLA](https://huggingface.co/blog/tf-xla-generate)
+- [Assisted Generation: a new direction toward low-latency text generation](https://huggingface.co/blog/assisted-generation)
+- [Introducing RWKV - An RNN with the advantages of a transformer](https://huggingface.co/blog/rwkv)
+- [Creating a Coding Assistant with StarCoder](https://huggingface.co/blog/starchat-alpha)
+- [StarCoder: A State-of-the-Art LLM for Code](https://huggingface.co/blog/starcoder)
+- 
 
 ### Notebooks
 

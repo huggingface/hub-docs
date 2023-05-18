@@ -56,7 +56,8 @@ Below images show some of the examples shared in the paper that can be obtained 
 
 ## Useful Resources
 
-You can contribute useful resources about this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/image-to-image/about.md).
+- [Train your ControlNet with diffusers 🧨](https://huggingface.co/blog/train-your-controlnet)
+- [Ultra fast ControlNet with 🧨 Diffusers](https://huggingface.co/blog/controlnet)
 
 ## References 
 
