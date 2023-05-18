@@ -85,6 +85,10 @@ const taskData: TaskDataCustom = {
 			description: "A large language model trained to follow instructions in English.",
 			id:          "togethercomputer/RedPajama-INCITE-Instruct-7B-v0.1",
 		},
+		{
+			description: "A large text-to-text model trained to follow instructions.",
+			id:          "google/flan-ul2",
+		},
 	],
 	spaces:       [
 		{

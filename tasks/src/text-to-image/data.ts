@@ -36,11 +36,31 @@ const taskData: TaskDataCustom = {
 			description: "A model that can be used to generate images based on text prompts. The DALL·E Mega model is the largest version of DALLE Mini.",
 			id:          "dalle-mini/dalle-mega",
 		},
+		{
+			description: "A text-to-image model that can generate coherent text inside image.",
+			id:          "DeepFloyd/IF-I-XL-v1.0",
+		},
+		{
+			description: "A powerful text-to-image model.",
+			id:          "kakaobrain/karlo-v1-alpha",
+		},
 	],
 	spaces:       [
 		{
-			description: "A powerful text-to-image application",
+			description: "A powerful text-to-image application.",
 			id:          "stabilityai/stable-diffusion",
+		},
+		{
+			description: "An text-to-image application that can generate coherent text inside the image.",
+			id:          "DeepFloyd/IF",
+		},
+		{
+			description: "An powerful text-to-image application that can generate images.",
+			id:          "kakaobrain/karlo",
+		},
+		{
+			description: "An powerful text-to-image application that can generates 3D representations.",
+			id:          "hysts/Shap-E",
 		},
 	],
 	summary:      "Generates images from input text. These models can be used to generate and modify images based on text prompts.",

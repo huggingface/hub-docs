@@ -54,6 +54,10 @@ const taskData: TaskDataCustom = {
 			id:          "Salesforce/BLIP",
 		},
 		{
+			description: "An application that can caption images and answer questions with a conversational agent.",
+			id:          "Salesforce/BLIP2",
+		},
+		{
 			description: "An image captioning application that demonstrates the effect of noise on captions.",
 			id:          "johko/capdec-image-captioning",
 		},

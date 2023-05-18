@@ -61,14 +61,16 @@ const taskData: TaskDataCustom = {
 	],
 	models: [
 		{
-			// TO DO: write description
-			description: "Strong Image Classification model trained on the ImageNet dataset.",
+			description: "A strong image classification model.",
 			id:          "google/vit-base-patch16-224",
 		},
 		{
-			// TO DO: write description
-			description: "Strong Image Classification model trained on the ImageNet dataset.",
+			description: "A robust image classification model.",
 			id:          "facebook/deit-base-distilled-patch16-224",
+		},
+		{
+			description: "A strong image classification model.",
+			id:          "facebook/convnext-large-224",
 		},
 	],
 	spaces:       [
