@@ -1,4 +1,4 @@
-# hub-docs
+# hub-docstest
 
 This repository regroups frontend components, documentation and information that is hosted on the Hugging Face website.
 
