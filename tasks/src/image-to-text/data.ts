@@ -43,6 +43,26 @@ const taskData: TaskDataCustom = {
 			description: "A strong optical character recognition model.",
 			id:          "microsoft/trocr-base-printed",
 		},
+		{
+			description: "A strong visual question answering model for scientific diagrams.",
+			id:          "google/pix2struct-ai2d-base",
+		},
+		{
+			description: "A strong captioning model for UI components.",
+			id:          "google/pix2struct-widget-captioning-base",
+		},
+		{
+			description: "A visual question answering model for book covers.",
+			id:          "google/pix2struct-ocrvqa-large",
+		},
+		{
+			description: "A visual question answering model for charts.",
+			id:          "google/pix2struct-chartqa-base",
+		},
+		{
+			description: "A captioning model for images that contain text.",
+			id:          "google/pix2struct-textcaps-base",
+		},
 	],
 	spaces:       [
 		{

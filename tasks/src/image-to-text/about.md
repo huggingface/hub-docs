@@ -10,6 +10,11 @@ OCR models convert the text present in an image, e.g. a scanned document, to tex
 
 You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/image-to-text/about.md).
 
+
+## Pix2Struct
+
+Pix2Struct is a state-of-the-art model built and released by Google AI. The model itself has to be trained on a downstream task to be used. These tasks include, captioning UI components, images including text, visual questioning infographics, charts, scientific diagrams and more. You can find these models on recommended models of this page.
+
 ## Inference
 ### Image Captioning
 You can use the 🤗 Transformers library's `image-to-text` pipeline to generate caption for the Image input.
