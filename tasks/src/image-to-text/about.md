@@ -6,9 +6,6 @@ This can help the visually impaired people to understand what's happening in the
 ### Optical Character Recognition (OCR)
 OCR models convert the text present in an image, e.g. a scanned document, to text.
 
-## Task Variants
-
-You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/image-to-text/about.md).
 
 
 ## Pix2Struct
@@ -21,7 +18,7 @@ You can use the 🤗 Transformers library's `image-to-text` pipeline to generate
 ```python
 from transformers import pipeline
 
-captioner = pipeline("image-to-text",model="ydshieh/vit-gpt2-coco-en")
+captioner = pipeline("image-to-text",model="Salesforce/blip-image-captioning-base")
 captioner("https://huggingface.co/datasets/Narsil/image_dummy/raw/main/parrots.png")
 ## [{'generated_text': 'two birds are standing next to each other '}]
 ```
