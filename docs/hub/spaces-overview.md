@@ -26,15 +26,15 @@ For step-by-step tutorials to creating your first Space, see the guides below:
 
 Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50Gb of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
 
-| **Hardware**        	| **CPU** 	| **Memory** 	| **Disk** 	| **Hourly Price** 	|
-|---------------------	|---------	|------------	|----------	|------------------	|
-| CPU Basic           	| 2 vCPU  	| 16 GB      	| 50 GB    	| Free!            	|
-| CPU Upgrade         	| 8 vCPU  	| 32 GB      	| 50 GB    	| $0.03            	|
-| Nvidia T4 - small   	| 4 vCPU  	| 15 GB      	| 50 GB    	| $0.06            	|
-| Nvidia T4 - medium  	| 8 vCPU  	| 30 GB      	| 100 GB   	| $0.09            	|
-| Nvidia A10G - small 	| 4 vCPU  	| 15 GB      	| 110 GB   	| $1.05            	|
-| Nvidia A10G - large 	| 12 vCPU 	| 46 GB      	| 200 GB   	| $3.15            	|
-| Nvidia A100 - large 	| 12 vCPU 	| 142 GB     	| 1000 GB  	| $4.13            	|
+| **Hardware**        	| **GPU Memory** 	| **CPU** 	| **Memory** 	| **Disk** 	| **Hourly Price** 	|
+|---------------------	|-----------------	|----------	|--------------	|----------	| ----------------	|
+| CPU Basic           	| -             	| 2 vCPU  	| 16 GB     	| 50 GB    	| Free!            	|
+| CPU Upgrade         	| -             	| 8 vCPU  	| 32 GB      	| 50 GB    	| $0.03            	|
+| Nvidia T4 - small   	| 16GB          	| 4 vCPU  	| 15 GB      	| 50 GB    	| $0.60            	|
+| Nvidia T4 - medium  	| 16GB          	| 8 vCPU  	| 30 GB      	| 100 GB   	| $0.90            	|
+| Nvidia A10G - small 	| 24GB          	| 4 vCPU  	| 15 GB      	| 110 GB   	| $1.05            	|
+| Nvidia A10G - large 	| 24GB          	| 12 vCPU 	| 46 GB      	| 200 GB   	| $3.15            	|
+| Nvidia A100 - large 	| 40GB          	| 12 vCPU 	| 142 GB     	| 1000 GB  	| $4.13            	|
  
 Do you have an awesome Space but need help covering the GPU hardware upgrade costs? We love helping out those with an innovative Space so please feel free to apply for a community GPU grant using the link in the _Settings_ tab of your Space and see if yours makes the cut!
 
