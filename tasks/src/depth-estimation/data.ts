@@ -1,7 +1,12 @@
 import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
-	datasets: [],
+	datasets: [
+		{
+			decription: "NYU Depth Dataset"
+			id: "sayakpaul/nyu_depth_v2"
+		},
+	],
 	demo:     {
 		inputs: [
 			{
