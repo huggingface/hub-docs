@@ -8,7 +8,7 @@ A model trained for text generation can be later adapted to follow instructions.
 
 ### Code Generation
 
-A Text Generation model, also known as causal language model, can be trained on code from scratch to help the programmers in their repetitive coding tasks. One of the most used open-source models for code generation is StarCoder, can generate code in 80+ languages. You can try it [here](https://huggingface.co/spaces/bigcode/bigcode-playground).
+A Text Generation model, also known as a causal language model, can be trained on code from scratch to help the programmers in their repetitive coding tasks. One of the most popular open-source models for code generation is StarCoder, which can generate code in 80+ languages. You can try it [here](https://huggingface.co/spaces/bigcode/bigcode-playground).
 
 ### Stories Generation
 
