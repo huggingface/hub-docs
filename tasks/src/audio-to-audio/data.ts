@@ -44,7 +44,7 @@ const taskData: TaskDataCustom = {
 	spaces:       [
 		{
 			description: "An application that can separate speech.",
-			id:          "akhaliq/speechbrain-speech-seperation",
+			id:          "younver/speechbrain-speech-separation",
 		},
 		{
 			description: "An application that can translate from speech to speech between Hokkien and English.",
