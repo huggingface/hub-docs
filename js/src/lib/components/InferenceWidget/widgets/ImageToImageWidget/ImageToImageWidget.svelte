@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
 
+	import { onMount } from "svelte";
+
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
@@ -11,7 +13,6 @@
 		getDemoInputs,
 		getResponse,
 	} from "../../shared/helpers";
-	import { onMount } from "svelte";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -40,7 +41,7 @@
 
 	function updateImageBase64(file: File | Blob): Promise<void> {
 		return new Promise((resolve, reject) => {
-			let fileReader: FileReader = new FileReader();
+			const fileReader: FileReader = new FileReader();
 			fileReader.onload = async () => {
 				try {
 					const imageBase64WithPrefix: string = fileReader.result as string;
@@ -167,7 +168,7 @@
 	<svelte:fragment slot="top">
 		<form class="space-y-2">
 			<WidgetDropzone
-				classNames="no-hover:hidden"
+				classNames="hidden md:block"
 				{isLoading}
 				{imgSrc}
 				{onSelectFile}
@@ -176,7 +177,7 @@
 				{#if imgSrc}
 					<img
 						src={imgSrc}
-						class="pointer-events-none shadow mx-auto max-h-44"
+						class="pointer-events-none mx-auto max-h-44 shadow"
 						alt=""
 					/>
 				{/if}
@@ -185,7 +186,7 @@
 			{#if imgSrc}
 				{#if imgSrc}
 					<div
-						class="mb-2 flex justify-center bg-gray-50 dark:bg-gray-900 with-hover:hidden"
+						class="mb-2 flex justify-center bg-gray-50 dark:bg-gray-900 md:hidden"
 					>
 						<img src={imgSrc} class="pointer-events-none max-h-44" alt="" />
 					</div>
@@ -193,7 +194,7 @@
 			{/if}
 			<WidgetFileInput
 				accept="image/*"
-				classNames="mr-2 with-hover:hidden"
+				classNames="mr-2 md:hidden"
 				{isLoading}
 				label="Browse for image"
 				{onSelectFile}
@@ -213,7 +214,7 @@
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
 		{#if output.length}
-			<div class="flex justify-center mt-4 bg-gray-50 dark:bg-gray-925">
+			<div class="dark:bg-gray-925 mt-4 flex justify-center bg-gray-50">
 				<img class="max-w-sm object-contain" src={output} alt="" />
 			</div>
 		{/if}
