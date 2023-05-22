@@ -49,6 +49,10 @@ const taskData: TaskDataCustom = {
 			description: "An application that contains multiple speech recognition models for various languages and datasets.",
 			id:          "coqui/CoquiTTS",
 		},
+		{
+			description: "An application that synthesizes speech for various speaker types.",
+			id:          "Matthijs/speecht5-tts-demo",
+		},
 	],
 	summary:      "Text-to-Speech (TTS) is the task of generating natural sounding speech given text input. TTS models can be extended to have a single model that generates speech for multiple speakers and multiple languages.",
 	widgetModels: ["espnet/kan-bayashi_ljspeech_vits"],
