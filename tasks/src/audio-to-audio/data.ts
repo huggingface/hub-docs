@@ -2,6 +2,10 @@ import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
 	datasets: [
+		{
+			description: "512-element X-vector embeddings of speakers from CMU ARCTIC dataset.",
+			id:          "Matthijs/cmu-arctic-xvectors",
+		},
 	],
 	demo: {
 		inputs: [
