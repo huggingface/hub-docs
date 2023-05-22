@@ -46,10 +46,6 @@ const taskData: TaskDataCustom = {
 			description: "A strong feature extraction model for coding tasks.",
 			id:          "microsoft/codebert-base",
 		},
-		{
-			description: "A feature extraction model for images.",
-			id:          "facebook/dino-vitb16",
-		},
 	],
 	spaces:       [
 

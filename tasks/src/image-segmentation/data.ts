@@ -87,10 +87,6 @@ const taskData: TaskDataCustom = {
 			description: "An panoptic segmentation application built for outdoor environments.",
 			id:          "segments/panoptic-segment-anything",
 		},
-		{
-			description: "An panoptic segmentation application built for outdoor environments.",
-			id:          "segments/panoptic-segment-anything",
-		},
 	],
 	summary:      "Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.",
 	widgetModels: ["facebook/detr-resnet-50-panoptic"],

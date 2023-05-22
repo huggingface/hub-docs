@@ -52,14 +52,6 @@ const taskData: TaskDataCustom = {
 			id:          "google/pix2struct-widget-captioning-base",
 		},
 		{
-			description: "A visual question answering model for book covers.",
-			id:          "google/pix2struct-ocrvqa-large",
-		},
-		{
-			description: "A visual question answering model for charts.",
-			id:          "google/pix2struct-chartqa-base",
-		},
-		{
 			description: "A captioning model for images that contain text.",
 			id:          "google/pix2struct-textcaps-base",
 		},

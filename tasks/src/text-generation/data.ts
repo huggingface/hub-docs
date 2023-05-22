@@ -42,20 +42,12 @@ const taskData: TaskDataCustom = {
 	],
 	models: [
 		{
-			description: "The model from OpenAI that helped usher in the Transformer revolution.",
-			id:          "gpt2",
-		},
-		{
 			description: "A large language model trained for text generation.",
 			id:          "bigscience/bloom-560m",
 		},
 		{
 			description: "A large code generation model that can generate code in 80+ languages.",
 			id:          "bigcode/starcoder",
-		},
-		{
-			description: "A large language model that can generate coherent text in English language.",
-			id:          "facebook/opt-1.3b",
 		},
 		{
 			description: "A model trained to follow instructions, uses Pythia-12b as base model.",
@@ -70,20 +62,12 @@ const taskData: TaskDataCustom = {
 			id:          "stabilityai/stablelm-tuned-alpha-7b",
 		},
 		{
-			description: "A large language model trained to generate text and code in English, available with commercial license.",
-			id:          "mosaicml/mpt-7b",
-		},
-		{
 			description: "A model trained to follow instructions, based on mosaicml/mpt-7b.",
 			id:          "mosaicml/mpt-7b-instruct",
 		},
 		{
 			description: "A large language model trained to generate text in English.",
 			id:          "EleutherAI/pythia-12b",
-		},
-		{
-			description: "A large language model trained to follow instructions in English.",
-			id:          "togethercomputer/RedPajama-INCITE-Instruct-7B-v0.1",
 		},
 		{
 			description: "A large text-to-text model trained to follow instructions.",
