@@ -51,8 +51,8 @@ const taskData: TaskDataCustom = {
 			id:          "younver/speechbrain-speech-separation",
 		},
 		{
-			description: "An application that can translate from speech to speech between Hokkien and English.",
-			id:          "facebook/Hokkien_Translation",
+			description: "An application that built to style transfer to audio using Huggingface diffusers.",
+			id:          "nakas/audio-diffusion_style_transfer",
 		},
 	],
 	summary:      "Audio-to-Audio is a family of tasks in which the input is an audio and the output is one or multiple generated audios. Some example tasks are speech enhancement and source separation.",
