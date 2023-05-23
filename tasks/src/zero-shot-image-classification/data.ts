@@ -3,9 +3,15 @@ import type { TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
 	datasets: [
 		{
-			// TODO write proper description
-			description: "",
-			id:          "",
+			description: "The STL-10 dataset is an image recognition dataset for developing unsupervised feature learning, deep learning, self-taught learning algorithms. It is similar to CIFAR-10 but with much more unlabeled examples.",
+			id:          "STL-10",
+		},{
+			description: "ICinW is a benchmark dataset that consists of 20 image classification examples, each of which is augmented with external knowledge.",
+			id:          "ICinW",
+		},
+		{
+			description: "OCinW  is a benchmark dataset that consists of 35 object detection examples, each of which is augmented with external knowledge.",
+			id:          "OCinW",
 		},
 	],
 	demo: {
