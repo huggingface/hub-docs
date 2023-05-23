@@ -33,6 +33,10 @@ pipe("I have a problem with my iphone that needs to be resolved asap!",
 >>> {'sequence': 'I have a problem with my iphone that needs to be resolved asap!!', 'labels': ['urgent', 'phone', 'computer', 'not urgent', 'tablet'], 'scores': [0.504, 0.479, 0.013, 0.003, 0.002]}
 ```
 
+## Subtasks / Use cases
+The general task of zero shot classification has a few subtasks that fall within it for different cases like image and language.  In natural language one subtasks is that as used above of sentiment analysis, cases where a model wasn't necessarily trained on what it is being used for, but through what it has learned during training and what it can infer through similarity, it can be applied to new cases of analyzing sentiment.  During natural language conversation, a model not have been directly trained on a concept, but with what it was trained on and its ability to infer through similarities it can have conversations on new concepts.  
+
+
 ## Useful Resources
 - [Zero Shot Learning](https://joeddav.github.io/blog/2020/05/29/ZSL.html)
 - [Hugging Face on Transfer Learning](https://huggingface.co/course/en/chapter1/4?fw=pt#transfer-learning)
