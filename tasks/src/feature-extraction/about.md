@@ -4,7 +4,11 @@ Feature extraction is the task of building features intended to be informative f
 facilitating the subsequent learning and generalization steps in various domains of machine learning.
 
 ## Use Cases
-Feature extraction can be used to do transfer learning in natural language processing, computer vision and audio models.
+Feature extraction has uses across all data types including tabular, image, text, and audio.  Some of the benefits of using feature extraction are accuracy improvements, reducing overfitting, speeding up training time, and improved computational efficiency.  
+- Tabluar data benefits from feature extraction by dimensionality reduction and redundant data reduction.  Dimensions are reduced through a number of methods that can combine multiple input features or columns into single features or columns.  When two columns provide the same information, it is not necessary to include them seperately as it only increases the amount of data needed to be processed during training.
+- Image processing uses feature extraction to detect features such as shapes, edges, or motion.  Turning raw data into informative features.
+- Textual data methods of feature extraction enclude autoencoders that handle noisy or sparse data.  Projecting data from high dimensional space to a lower one.
+- Audio data can be processed with feature extraction to remove unwanted noise and balance time frequency ranges by converting digital and analog signals.
 
 ## Inference
 
