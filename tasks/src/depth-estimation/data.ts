@@ -1,7 +1,12 @@
 import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
-	datasets: [],
+	datasets: [
+		{
+			description: "NYU Depth V2 Dataset: Video dataset containing both RGB and depth sensor data",
+			id: "sayakpaul/nyu_depth_v2",
+		},
+	],
 	demo:     {
 		inputs: [
 			{
