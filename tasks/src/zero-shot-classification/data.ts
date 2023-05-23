@@ -2,7 +2,20 @@ import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
 
-	datasets:     [],
+	datasets: [
+		{
+			description: "A widely used dataset used to benchmark multiple variants of text classification.",
+			id:          "glue",
+		},
+		{
+			description: "The Multi-Genre Natural Language Inference (MultiNLI) corpus is a crowd-sourced collection of 433k sentence pairs annotated with textual entailment information.",
+			id:          "MultiNLI",
+		},
+		{
+			description: "FEVER is a publicly available dataset for fact extraction and verification against textual sources.",
+			id:          "FEVER",
+		},
+	],
 	demo: {
 		inputs: [
 			{
