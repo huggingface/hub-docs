@@ -50,8 +50,16 @@ const taskData: TaskDataCustom = {
 			id:          "keras-io/super-resolution",
 		},
 		{
-			description: "A model that creates a set of variations of the imput image in the style of DALL-E using Stable Diffusion.",
+			description: "A model that creates a set of variations of the input image in the style of DALL-E using Stable Diffusion.",
 			id:          "lambdalabs/sd-image-variations-diffusers",
+		},
+		{
+			description: "A model that generates images based on segments in the input image and the text prompt.",
+			id:          "mfidabel/controlnet-segment-anything",
+		},
+		{
+			description: "A model that takes an image and an instruction to edit the image.",
+			id:          "timbrooks/instruct-pix2pix",
 		},
 	],
 	spaces:       [
@@ -64,16 +72,25 @@ const taskData: TaskDataCustom = {
 			id:          "keras-io/neural-style-transfer",
 		},
 		{
-			description: "An application that prettifies your drawings.",
-			id:          "huggingface-projects/diffuse-the-rest",
+			description: "An application that generates images based on segment control.",
+			id:          "mfidabel/controlnet-segment-anything",
 		},
 		{
-			description: "Image colorization application for anime drawings.",
-			id:          "Gradio-Blocks/anime-colorization",
+			description: "Image generation application that takes image control and text prompt.",
+			id:          "hysts/ControlNet",
 		},
+		{
+			description: "Colorize any image using this app.",
+			id:          "ioclab/brightness-controlnet",
+		},
+		{
+			description: "Edit images with instructions.",
+			id:          "timbrooks/instruct-pix2pix",
+		},
+
 	],
-	summary:      "Image to image is the task of transforming a source image to match the characteristics of a target image or a target image domain. Any image manipulation and enhancement is possible with image to image models.",
-	widgetModels: [""],
+	summary:      "Image-to-image is the task of transforming a source image to match the characteristics of a target image or a target image domain. Any image manipulation and enhancement is possible with image to image models.",
+	widgetModels: ["lllyasviel/sd-controlnet-canny"],
 	youtubeId:    "",
 };
 

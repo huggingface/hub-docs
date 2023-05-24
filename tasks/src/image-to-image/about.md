@@ -21,11 +21,28 @@ Super resolution models increase the resolution of an image, allowing for higher
 
 ## Inference
 
-You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/image-to-image/about.md) that shows how to infer with `image-to-image` models.
+You can use pipelines for image-to-image in 🧨diffusers library to easily use image-to-image models. See an example for `StableDiffusionImg2ImgPipeline` below.
 
-## Useful Resources
+```python
+from PIL import Image
+from diffusers import StableDiffusionImg2ImgPipeline
 
-You can contribute useful resources about this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/image-to-image/about.md).
+model_id_or_path = "runwayml/stable-diffusion-v1-5"
+pipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id_or_path, torch_dtype=torch.float16)
+pipe = pipe.to(cuda)
+
+init_image = Image.open("mountains_image.jpeg").convert("RGB").resize((768, 512))
+prompt = "A fantasy landscape, trending on artstation"
+
+images = pipe(prompt=prompt, image=init_image, strength=0.75, guidance_scale=7.5).images
+images[0].save("fantasy_landscape.png")
+```
+
+## ControlNet
+
+Controlling outputs of diffusion models only with a text prompt is a challenging problem. ControlNet is a neural network type that provides an image based control to diffusion models. These controls can be edges or landmarks in an image.
+
+Many ControlNet models were trained in our community event, JAX Diffusers sprint. You can see the full list of the ControlNet models available [here](https://huggingface.co/spaces/jax-diffusers-event/leaderboard). 
 
 ## Most Used Model for the Task
 
@@ -35,6 +52,12 @@ Pix2Pix is a popular model used for image to image translation tasks. It is base
 Below images show some of the examples shared in the paper that can be obtained using Pix2Pix. There are various cases this model can be applied on. It is capable of relatively simpler things, e.g. converting a grayscale image to its colored version. But more importantly, it can generate realistic pictures from rough sketches (can be seen in the purse example) or from painting-like images (can be seen in the street and facade examples below).
 
 <img src="/tasks/assets/image-to-image/pix2pix_examples.jpg" alt="Alt text" title="Optional title">
+
+
+## Useful Resources
+
+- [Train your ControlNet with diffusers 🧨](https://huggingface.co/blog/train-your-controlnet)
+- [Ultra fast ControlNet with 🧨 Diffusers](https://huggingface.co/blog/controlnet)
 
 ## References 
 

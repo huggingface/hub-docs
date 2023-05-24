@@ -57,6 +57,10 @@ const taskData: TaskDataCustom = {
 			id:          "openai/whisper",
 		},
 		{
+			description: "Fastest speech recognition application.",
+			id:          "sanchit-gandhi/whisper-jax",
+		},
+		{
 			description: "An application that transcribes speeches in YouTube videos.",
 			id:          "jeffistyping/Youtube-Whisperer",
 		},

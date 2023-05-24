@@ -141,6 +141,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Course Chapter on Fine-tuning a Text Classification Model](https://huggingface.co/course/chapter3/1?fw=pt)
 - [Getting Started with Sentiment Analysis using Python](https://huggingface.co/blog/sentiment-analysis-python)
 - [Sentiment Analysis on Encrypted Data with Homomorphic Encryption](https://huggingface.co/blog/sentiment-analysis-fhe)
+- [Leveraging Hugging Face for complex text classification use cases](https://huggingface.co/blog/classification-use-cases)
 
 ### Notebooks
 
