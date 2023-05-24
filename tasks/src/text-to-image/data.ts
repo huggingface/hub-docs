@@ -26,7 +26,13 @@ const taskData: TaskDataCustom = {
 			},
 		],
 	},
-	metrics: [],
+	metrics: [
+		{	description: "The intuition behind Inception Score (IS) as a metric is that a good model should generate diverse but meaningful images. The way to meansure this diversity and meaningfullness is by first using one generated image sample x to predict
+					label y by the Inception model. Then, calculating KL divergence between marginal distribution p(y) and the conditional distribution p(y|x). The larger the divergence, the higher the IS, consequently a better model."
+			id: "IS",
+		},
+		
+		],
 	models:  [
 		{
 			description: "A latent text-to-image diffusion model capable of generating photo-realistic images given any text input.",
