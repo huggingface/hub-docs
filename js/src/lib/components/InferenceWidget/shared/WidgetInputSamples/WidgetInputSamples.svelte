@@ -28,12 +28,9 @@
 		applyInputSample(sample);
 	}
 
-	function _previewInputSample(idx: number, isTouch = false) {
+	function _previewInputSample(idx: number) {
 		const sample = inputSamples[idx];
 		previewInputSample(sample);
-		if (isTouch) {
-			_applyInputSample(idx);
-		}
 	}
 
 	function toggleOptionsVisibility() {
@@ -87,17 +84,9 @@
 				{#each inputSamples as { example_title }, i}
 					<!-- svelte-ignore a11y-click-events-have-key-events a11y-mouse-events-have-key-events -->
 					<div
-						class="hidden truncate px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-200 md:block"
+						class="cursor-pointer truncate px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-200"
 						on:mouseover={() => _previewInputSample(i)}
 						on:click={() => _applyInputSample(i)}
-					>
-						{example_title}
-					</div>
-					<!-- Better UX for mobile/table through CSS breakpoints -->
-					<!-- svelte-ignore a11y-click-events-have-key-events -->
-					<div
-						class="truncate px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-200 md:hidden"
-						on:click={() => _previewInputSample(i, true)}
 					>
 						{example_title}
 					</div>
