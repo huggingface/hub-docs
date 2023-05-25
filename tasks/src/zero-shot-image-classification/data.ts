@@ -58,6 +58,11 @@ const taskData: TaskDataCustom = {
 				"Robust image classification model trained on publicly available image-caption data trained on additional high pixel data for better performance.",
 			id: "openai/clip-vit-large-patch14-336",
 		},
+		{
+			description:
+				"Strong image classification model for biomedical domain.",
+			id: "microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224",
+		},
 	],
 	spaces:  [
 		{

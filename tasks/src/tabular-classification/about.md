@@ -59,6 +59,8 @@ gr.Interface.load("huggingface/username/my-awesome-model").launch()
 - [Skops documentation](https://skops.readthedocs.io/en/latest/)
 - [Skops announcement blog](https://huggingface.co/blog/skops)
 - [Notebook: Persisting your scikit-learn model using skops](https://www.kaggle.com/code/unofficialmerve/persisting-your-scikit-learn-model-using-skops)
+- Check out [interactive sklearn examples](https://huggingface.co/sklearn-docs) built with ❤️ using Gradio.
+
 
 ### Training your own model in just a few seconds
 

@@ -40,6 +40,9 @@ Creative Commons Attribution Non Commercial No Derivatives 4.0 | `cc-by-nc-nd-4.
 Creative Commons Attribution Non Commercial Share Alike 2.0 | `cc-by-nc-sa-2.0`
 Creative Commons Attribution Non Commercial Share Alike 3.0 | `cc-by-nc-sa-3.0`
 Creative Commons Attribution Non Commercial Share Alike 4.0 | `cc-by-nc-sa-4.0`
+Community Data License Agreement – Sharing, Version 1.0 | `cdla-sharing-1.0`
+Community Data License Agreement – Permissive, Version 1.0 | `cdla-permissive-1.0`
+Community Data License Agreement – Permissive, Version 2.0 | `cdla-permissive-2.0`
 Do What The F*ck You Want To Public License | `wtfpl`
 Educational Community License v2.0 | `ecl-2.0`
 Eclipse Public License 1.0 | `epl-1.0`
