@@ -16,7 +16,8 @@ Reinforcement learning is the science to train computers to make decisions and t
 ## Task Variants 
 
 ### Model Based RL
-In Model based Reinforcement Learning, we try to create a model of the environment (learn the state transition probabilities and the reward function) for finding optimal actions for the agent. Some typical examples for Model Based RL algorithms are Dynamic Programming, Value Iteration & Policy Iteration
+In model based reinforcement learning techniques intend to create a model of the environment, learn the state transition probabilities and the reward function, to find the optimal action. Some typical examples for model based reinforcement learning algorithms are dynamic programming, value iteration and policy iteration.
+
 
 
 ### Model Free RL
