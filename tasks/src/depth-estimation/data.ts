@@ -21,7 +21,25 @@ const taskData: TaskDataCustom = {
 			},
 		],
 	},
-	metrics: [],
+	metrics: [
+		// Reference: https://openaccess.thecvf.com/content_CVPR_2019/papers/Lee_Monocular_Depth_Estimation_Using_Relative_Depth_Maps_CVPR_2019_paper.pdf
+		{
+			description: "Estimate Root Mean Sqaure Error (RMSE) between depth-estimate and ground-truth",
+			id: "RMSE_Linear",
+		},
+		{
+			description: "Estimate Root Mean Sqaure Error (RMSE) between logarithmic depth-estimate and logarithmic ground-truth",
+			id: "RMSE_Log",
+		},
+		{
+			description: "Estimate Absolute Relative distance (ARD) between depth-estimate and ground-truth",
+			id: "ARD",
+		},
+		{
+			description: "Estimate Squared Relative distance (ARD) between depth-estimate and ground-truth",
+			id: "SRD",
+		},
+	],
 	models:  [
 		{
 			// TO DO: write description
