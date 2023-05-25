@@ -39,7 +39,7 @@ const taskData: TaskDataCustom = {
 		},	
 		{	description: "  R-precision serves as a metric to assess the extent to which the generated image aligns with the provided text description. Originating from ranking retrieval tasks in information retrieval, R-precision is used in the context of text-to-image task by
 					utilizing the generated images as queries to retrieve their associated candidate text descriptions. These text descriptions are then ranked for each image in descending cosine similarity and top 'r' relevant descriptions are fetched. R-precision is finally computed 
-					as r/R where 'R' is number of ground truth text descriptions for which image was generated in the first place."
+					as r/R where 'R' is number of ground truth text descriptions for which image was generated in the first place.",
 			id: "R-Precision",
 		},	
 		],
