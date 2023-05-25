@@ -77,7 +77,9 @@ for _ in range(20):
 	observation, reward, terminated, truncated, info = env.step(action)
 
 
-if terminated or truncated: # if the agent reaches terminal state, we reset the environment
+# if the agent reaches terminal state, we reset the environment
+if terminated or truncated: 
+
 	print("Environment is reset")
 	observation = env.reset()
 
