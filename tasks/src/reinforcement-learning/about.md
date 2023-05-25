@@ -72,7 +72,6 @@ observation, info = env.reset()
 
 for _ in range(20):
 	action = env.action_space.sample() # samples random action from action sample space
-	print("Action Take:",action)
 
 	observation, reward, terminated, truncated, info = env.step(action) # takes the action in the env
 
