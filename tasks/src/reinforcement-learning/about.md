@@ -111,7 +111,7 @@ model.learn(total_timesteps = 1000)
 model_name = "PPO-LunarLander-v2"
 model.save(model_name)
 ```
-
+Below code shows how to make inference with an agent trained using `stable-baselines3`
 ```python
 # Loading a saved model and evaluating the model for 10 episodes
 from stable_baselines3.common.evaluation import evaluate_policy
