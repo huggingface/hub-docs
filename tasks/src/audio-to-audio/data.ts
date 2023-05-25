@@ -51,7 +51,7 @@ const taskData: TaskDataCustom = {
 			id:          "younver/speechbrain-speech-separation",
 		},
 		{
-			description: "An application that built to style transfer to audio using Huggingface diffusers.",
+			description: "An application for audio style transfer.",
 			id:          "nakas/audio-diffusion_style_transfer",
 		},
 	],
