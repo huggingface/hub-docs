@@ -62,7 +62,7 @@ Observations and states are the information our agent gets from the environment.
 Inference in reinforcement learning differs from other modalities, in which there's a model and test data. In reinforcement learning, once you have trained an agent in an environment, you try to run the trained agent for additional steps to get the average reward. 
 
 
-A typical training cycle consists of gathering experience from the environment, training the model, and running the model on a test environment to obtain average reward. Below there's a snippet on how you can interact with the environment using the `gymnasium` library, train a model using `stable-baselines3` and run the agent on test environment.
+A typical training cycle consists of gathering experience from the environment, training the agent, and running the agent on a test environment to obtain average reward. Below there's a snippet on how you can interact with the environment using the `gymnasium` library, train an agent using `stable-baselines3`, evalute the agent on test environment and infer actions from the trained agent.
 
   
 ```python
@@ -113,7 +113,7 @@ model.learn(total_timesteps = 1000)
 model_name = "PPO-LunarLander-v2"
 model.save(model_name)
 ```
-Below code shows how to make inference with an agent trained using `stable-baselines3`
+Below code shows how to evaluate an agent trained using `stable-baselines3`
 ```python
 # Loading a saved model and evaluating the model for 10 episodes
 from stable_baselines3.common.evaluation import evaluate_policy
@@ -132,6 +132,28 @@ mean_reward, std_reward = evaluate_policy(model, eval_env, n_eval_episodes = 10,
 										  deterministic=True)
 
 print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
+```
+
+Below code snippet shows how to infer actions from an agent trained using `stable-baselines3`
+
+```python
+from stable_baselines3.common.evaluation import evaluate_policy
+from stable_baselines3 import PPO
+
+# Loading the saved model
+model = PPO.load("PPO-LunarLander-v2",env=env)
+
+# Getting the environment from the trained agent
+env = model.get_env()
+
+obs = env.reset()
+for i in range(1000):
+	# getting action predictions from the trained agent
+	action, _states = model.predict(obs, deterministic=True)
+	
+	# taking the predicted action in the environment to observe next state and rewards
+    obs, rewards, dones, info = env.step(action)
+
 ```
 
 For more information, you can check out the documentations of the respective libraries.
