@@ -21,7 +21,8 @@ In model based reinforcement learning techniques intend to create a model of the
 
 
 ### Model Free RL
-In Model Free RL, agent decides on optimal actions, solely based on its experience in the environment and the reward it collects during that journey. This is one of the most commonly used algorithms specially beneficial in complex environments where modelling of state transition probabilities and reward functions are quite difficult. Some of the examples will be SARSA, Q-Learning, Actor-Critic, Proximal Policy Optimization (PPO) algorithms.
+In model free reinforcement learning, agent decides on optimal actions based on its experience in the environment and the reward it collects from it. This is one of the most commonly used algorithms beneficial in complex environments, where modeling of state transition probabilities and reward functions are difficult. Some of the examples of model free reinforcement learning are SARSA, Q-Learning, actor-critic and proximal policy optimization (PPO) algorithms.
+
 
 ## Glossary
 
