@@ -34,7 +34,7 @@ const taskData: TaskDataCustom = {
 		},
 		{	description: "The Fréchet Inception Distance (FID) metric was introduced as a solution to the limitation of the Inception Score (IS) metric, which did not consider the statistics of real-world samples when comparing them to synthetic samples.
 					FID addresses this limitation by calculating the Fréchet distance, a measure of distance between two Gaussians. It calculates the distance between a Gaussian distribution obtained from the p(.) distribution of model samples and
-					a Gaussian distribution obtained from the pw(.) distribution of real-world samples. A lower FID score indicates better similarity between the distributions of real and generated images."
+					a Gaussian distribution obtained from the pw(.) distribution of real-world samples. A lower FID score indicates better similarity between the distributions of real and generated images.",
 			id: "FID",
 		},	
 		{	description: "  R-precision serves as a metric to assess the extent to which the generated image aligns with the provided text description. Originating from ranking retrieval tasks in information retrieval, R-precision is used in the context of text-to-image task by
