@@ -29,7 +29,7 @@ const taskData: TaskDataCustom = {
 	metrics: [
 		{	description: " The underlying concept of the Inception Score (IS) as a metric is to assess the quality of a model based on its ability to generate diverse and meaningful images. This is achieved by using a generated image sample x to predict its label y using the Inception model. 
 					The IS is then calculated by measuring the Kullback-Leibler (KL) divergence between the marginal distribution p(y) and the conditional distribution p(y|x). A higher divergence indicates greater diversity and meaningfulness in the generated images, 
-					leading to a higher IS score."
+					leading to a higher IS score.",
 			id: "IS",
 		},
 		{	description: "The Fréchet Inception Distance (FID) metric was introduced as a solution to the limitation of the Inception Score (IS) metric, which did not consider the statistics of real-world samples when comparing them to synthetic samples.
