@@ -15,7 +15,12 @@ Reinforcement learning is the science to train computers to make decisions and t
 
 ## Task Variants 
 
-You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/reinforcement-learning/about.md).
+### Model Based RL
+In Model based Reinforcement Learning, we try to create a model of the environment (learn the state transition probabilities and the reward function) for finding optimal actions for the agent. Some typical examples for Model Based RL algorithms are Dynamic Programming, Value Iteration & Policy Iteration
+
+
+### Model Free RL
+In Model Free RL, agent decides on optimal actions, solely based on its experience in the environment and the reward it collects during that journey. This is one of the most commonly used algorithms specially beneficial in complex environments where modelling of state transition probabilities and reward functions are quite difficult. Some of the examples will be SARSA, Q-Learning, Actor-Critic, Proximal Policy Optimization (PPO) algorithms.
 
 ## Glossary
 
@@ -52,7 +57,77 @@ Observations and states are the information our agent gets from the environment.
 
 ## Inference
 
-You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/reinforcement-learning/about.md) that shows how to infer with `reinforcement-learning` models.
+Inference in Reinforcement learning, differs a bit from traditional supervised learning where you just deal with model and test data. In RL, once you have trained an agent in an env, you try to run the trained agent for specific no of steps to get the average reward its able to get. 
+
+A typical training cycle comprises of gathering experience from env, training the model and running the model on test env to get average reward. Below we have showcased, how you can interact with the env using gymnasium library, train a model using stable-baselines3 and run it on test environment.
+  
+```python
+# Here we are running 20 episodes of CartPole-v1 environment, taking random actions
+import gymnasium as gym
+
+env = gym.make("CartPole-v1")
+observation, info = env.reset()
+
+for _ in range(20):
+	action = env.action_space.sample() # samples random action from action sample space
+	print("Action Take:",action)
+
+	observation, reward, terminated, truncated, info = env.step(action) # takes the action in the env
+
+if terminated or truncated: # if the agent reaches terminal state, we reset the environment
+	print("Environment is reset")
+	observation = env.reset()
+
+env.close()
+```
+
+```python
+# Training a PPO model on LunarLander-v2 environment using stable-baselines3 library and saving the model
+from stable_baselines3 import PPO
+
+# Environment Initialization
+env = gym.make("LunarLander-v2")
+
+# Model Initialization
+model = PPO(policy = "MlpPolicy",
+			env = env,
+			n_steps = 1024,
+			batch_size = 64,
+			n_epochs = 4,
+			verbose = 1)
+
+# trains the model for 1000 time steps
+model.learn(total_timesteps = 1000)
+
+# Saving the model in desired directory
+model_name = "PPO-LunarLander-v2"
+model.save(model_name)
+```
+
+```python
+# Loading a saved model and evaluating the model for 10 episodes
+from stable_baselines3.common.evaluation import evaluate_policy
+from stable_baselines3 import PPO
+
+
+env = gym.make("LunarLander-v2")
+# Loading the saved model
+model = PPO.load("PPO-LunarLander-v2",env=env)
+
+# Initializating the evaluation environment
+eval_env = gym.make("LunarLander-v2")
+
+# Running the trained agent on eval_env for 10 time steps and getting the mean reward
+mean_reward, std_reward = evaluate_policy(model, eval_env, n_eval_episodes = 10,
+										  deterministic=True)
+
+print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
+```
+
+For more information, you can check out the documentations of the respective libraries.
+
+[Gymnasium Documentation](https://gymnasium.farama.org/)
+[Stable Baselines Documentation](https://stable-baselines3.readthedocs.io/en/master/)
 
 ## Useful Resources
 
