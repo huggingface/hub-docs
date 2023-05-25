@@ -27,19 +27,17 @@ const taskData: TaskDataCustom = {
 		],
 	},
 	metrics: [
-		{	description: " The underlying concept of the Inception Score (IS) as a metric is to assess the quality of a model based on its ability to generate diverse and meaningful images. This is achieved by using a generated image sample x to predict its label y using the Inception model. 
-					The IS is then calculated by measuring the Kullback-Leibler (KL) divergence between the marginal distribution p(y) and the conditional distribution p(y|x). A higher divergence indicates greater diversity and meaningfulness in the generated images, 
-					leading to a higher IS score.",
+		{	description: " The Inception Score (IS) measures the quality of a model's image generation by assessing diversity and meaningfulness. It uses a generated image sample x to predict its label y using the Inception model. 
+					The IS is then calculated by measuring the KL divergence between the marginal distribution p(y) and the conditional distribution p(y|x). A higher divergence signifies more diverse and meaningful images, resulting in a higher IS score.",
 			id: "IS",
 		},
-		{	description: "The Fréchet Inception Distance (FID) metric was introduced as a solution to the limitation of the Inception Score (IS) metric, which did not consider the statistics of real-world samples when comparing them to synthetic samples.
-					FID addresses this limitation by calculating the Fréchet distance, a measure of distance between two Gaussians. It calculates the distance between a Gaussian distribution obtained from the p(.) distribution of model samples and
-					a Gaussian distribution obtained from the pw(.) distribution of real-world samples. A lower FID score indicates better similarity between the distributions of real and generated images.",
+		{	description: " The Fréchet Inception Distance (FID) overcomes the limitation of the Inception Score (IS) by considering the statistics of real-world samples when comparing them to synthetic samples.
+					 It calculates the Fréchet distance between Gaussian distributions derived from model and real-world samples. A lower FID score indicates better similarity between the distributions of real and generated images.",
 			id: "FID",
 		},	
 		{	description: "  R-precision serves as a metric to assess the extent to which the generated image aligns with the provided text description. Originating from ranking retrieval tasks in information retrieval, R-precision is used in the context of text-to-image task by
-					utilizing the generated images as queries to retrieve their associated candidate text descriptions. These text descriptions are then ranked for each image in descending cosine similarity and top 'r' relevant descriptions are fetched. R-precision is finally computed 
-					as r/R where 'R' is number of ground truth text descriptions for which image was generated in the first place.",
+					using the generated images as queries to retrieve relevant text descriptions. The top 'r' relevant descriptions are selected based on cosine similarity. R-precision is calculated as r/R, where 'R' is the number of ground truth descriptions associated 
+					with the generated images.",
 			id: "R-Precision",
 		},	
 		],
