@@ -94,7 +94,8 @@ from stable_baselines3 import PPO
 
 env = gym.make("LunarLander-v2")
 
-# Model Initialization
+# initialize the model
+
 model = PPO(policy = "MlpPolicy",
 			env = env,
 			n_steps = 1024,
