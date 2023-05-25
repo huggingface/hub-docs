@@ -47,7 +47,7 @@ const taskData: TaskDataCustom = {
 	],
 	spaces:       [
 		{
-			description: "An application that can separate speech.",
+			description: "An application for speech separation.",
 			id:          "younver/speechbrain-speech-separation",
 		},
 		{
