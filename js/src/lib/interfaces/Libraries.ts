@@ -455,6 +455,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoUrl:  "https://github.com/asteroid-team/asteroid",
 		snippet:  asteroid,
 	},
+	"bertopic": {
+		btnLabel: "BERTopic",
+		repoName: "BERTopic",
+		repoUrl:  "https://github.com/MaartenGr/BERTopic",
+		snippet:  bertopic,
+	},
 	"diffusers": {
 		btnLabel: "Diffusers",
 		repoName: "🤗/diffusers",
