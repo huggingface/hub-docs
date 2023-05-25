@@ -90,7 +90,8 @@ env.close()
 # Training a PPO model on LunarLander-v2 environment using stable-baselines3 library and saving the model
 from stable_baselines3 import PPO
 
-# Environment Initialization
+# initialize the environment
+
 env = gym.make("LunarLander-v2")
 
 # Model Initialization
