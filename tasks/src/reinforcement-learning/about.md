@@ -61,7 +61,8 @@ Observations and states are the information our agent gets from the environment.
 
 Inference in Reinforcement learning, differs a bit from traditional supervised learning where you just deal with model and test data. In RL, once you have trained an agent in an env, you try to run the trained agent for specific no of steps to get the average reward its able to get. 
 
-A typical training cycle comprises of gathering experience from env, training the model and running the model on test env to get average reward. Below we have showcased, how you can interact with the env using gymnasium library, train a model using stable-baselines3 and run it on test environment.
+A typical training cycle consists of gathering experience from the environment, training the model, and running the model on a test environment to obtain average reward. Below there's a snippet on how you can interact with the environment using the `gymnasium` library, train a model using `stable-baselines3` and run the agent on test environment.
+
   
 ```python
 # Here we are running 20 episodes of CartPole-v1 environment, taking random actions
