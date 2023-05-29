@@ -1,13 +1,17 @@
 import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
-	datasets: [
-		{
-			// TODO write proper description
-			description: "Widely used benchmark dataset for multiple Vision tasks.",
-			id:          "merve/coco2017",
-		},
+		datasets: [
+	  {
+		description: "Widely used benchmark dataset for multiple Vision tasks.",
+		id: "merve/coco2017",
+	  },
+	  {
+		description: "Car Object Detection dataset with annotated bounding boxes around cars.",
+		id: "nihany/car-object-detection",
+	  },
 	],
+
 	demo: {
 		inputs: [
 			{
