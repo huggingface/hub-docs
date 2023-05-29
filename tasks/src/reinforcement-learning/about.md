@@ -86,6 +86,7 @@ if terminated or truncated:
 env.close()
 ```
 
+Below snippet shows how to train a PPO model on LunarLander-v2 environment using `stable-baselines3` library and saving the model
 ```python
 # Training a PPO model on LunarLander-v2 environment using stable-baselines3 library and saving the model
 from stable_baselines3 import PPO
