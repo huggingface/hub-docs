@@ -150,7 +150,6 @@ for i in range(1000):
 	
 	# taking the predicted action in the environment to observe next state and rewards
     obs, rewards, dones, info = env.step(action)
-
 ```
 
 For more information, you can check out the documentations of the respective libraries.
