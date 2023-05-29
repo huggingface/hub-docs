@@ -60,7 +60,6 @@ Observations and states are the information our agent gets from the environment.
 
 Inference in reinforcement learning differs from other modalities, in which there's a model and test data. In reinforcement learning, once you have trained an agent in an environment, you try to run the trained agent for additional steps to get the average reward. 
 
-
 A typical training cycle consists of gathering experience from the environment, training the agent, and running the agent on a test environment to obtain average reward. Below there's a snippet on how you can interact with the environment using the `gymnasium` library, train an agent using `stable-baselines3`, evalute the agent on test environment and infer actions from the trained agent.
 
   
