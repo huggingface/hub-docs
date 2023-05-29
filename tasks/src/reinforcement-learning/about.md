@@ -19,7 +19,6 @@ Reinforcement learning is the science to train computers to make decisions and t
 In model based reinforcement learning techniques intend to create a model of the environment, learn the state transition probabilities and the reward function, to find the optimal action. Some typical examples for model based reinforcement learning algorithms are dynamic programming, value iteration and policy iteration.
 
 
-
 ### Model Free RL
 In model free reinforcement learning, agent decides on optimal actions based on its experience in the environment and the reward it collects from it. This is one of the most commonly used algorithms beneficial in complex environments, where modeling of state transition probabilities and reward functions are difficult. Some of the examples of model free reinforcement learning are SARSA, Q-Learning, actor-critic and proximal policy optimization (PPO) algorithms.
 
