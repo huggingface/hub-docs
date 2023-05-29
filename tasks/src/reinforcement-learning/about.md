@@ -104,7 +104,6 @@ model = PPO(policy = "MlpPolicy",
 			verbose = 1)
 
 # train the model for 1000 time steps
-
 model.learn(total_timesteps = 1000)
 
 # Saving the model in desired directory
