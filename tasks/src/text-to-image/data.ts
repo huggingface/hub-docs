@@ -28,16 +28,15 @@ const taskData: TaskDataCustom = {
 	},
 	metrics: [
 		{	description: " The Inception Score (IS) measures the quality of a model's image generation by assessing diversity and meaningfulness. It uses a generated image sample to predict its label. 
-					The IS is then calculated by measuring the KL divergence between the marginal distribution p(y) and the conditional distribution p(y|x). A higher divergence signifies more diverse and meaningful images, resulting in a higher IS score.",
+					A higher score signifies more diverse and meaningful images.",
 			id: "IS",
 		},
 		{	description: " The Fréchet Inception Distance (FID) overcomes the limitation of the Inception Score (IS) by considering the statistics of real-world samples when comparing them to synthetic samples.
-					 It calculates the Fréchet distance between Gaussian distributions derived from model and real-world samples. A lower FID score indicates better similarity between the distributions of real and generated images.",
+					 It calculates the distance between distributions derived from model and real-world samples. A lower FID score indicates better similarity between the distributions of real and generated images.",
 			id: "FID",
 		},	
-		{	description: "  R-precision serves as a metric to assess the extent to which the generated image aligns with the provided text description. Originating from ranking retrieval tasks in information retrieval, R-precision is used in the context of text-to-image task by
-					using the generated images as queries to retrieve relevant text descriptions. The top 'r' relevant descriptions are selected based on cosine similarity. R-precision is calculated as r/R, where 'R' is the number of ground truth descriptions associated 
-					with the generated images.",
+		{	description: "  R-precision serves as a metric to assess the extent to which the generated image aligns with the provided text description. It uses the generated images as queries to retrieve relevant text descriptions. 
+		 			The top 'r' relevant descriptions are selected and used to calculate R-precision as r/R, where 'R' is the number of ground truth descriptions associated with the generated images. A higher R-precision value indicates a better model.",
 			id: "R-Precision",
 		},	
 		],
