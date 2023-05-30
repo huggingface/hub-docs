@@ -67,7 +67,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 
 ### Notebooks
 - [Train a Deep Reinforcement Learning lander agent to land correctly on the Moon 🌕 using Stable-Baselines3](https://github.com/huggingface/deep-rl-class/blob/main/notebooks/unit1/unit1.ipynb)
-- [Introduction to Unity MLAgents](https:/github.com/huggingface/deep-rl-class/blob/main/notebooks/unit5/unit5.ipynb)
+- [Introduction to Unity MLAgents](https://github.com/huggingface/deep-rl-class/blob/main/notebooks/unit5/unit5.ipynb)
 - [Training Decision Transformers with 🤗 transformers](https://github.com/huggingface/blog/blob/main/notebooks/101_train-decision-transformers.ipynb)
 
 This page was made possible thanks to the efforts of [Ram Ananth](https://huggingface.co/RamAnanth1), [Emilio Lehoucq](https://huggingface.co/emiliol), [Sagar Mathpal](https://huggingface.co/sagarmathpal) and [Osman Alenbey](https://huggingface.co/osman93).
