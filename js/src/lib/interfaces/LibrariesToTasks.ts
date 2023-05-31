@@ -21,6 +21,9 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 		// "audio-source-separation",
 		"audio-to-audio",
 	],
+	"bertopic": [
+		"text-classification",
+	],
 	"diffusers": [
 		"image-to-image",
 		"text-to-image",
