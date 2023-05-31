@@ -20,4 +20,4 @@ jobs:
       path_to_docs: hub-docs/docs/hub/
       additional_args: --not_python_module
     secrets:
-      token: ${{ secrets.HF_DOC_BUILD_PUSH }}
+      hf_token: ${{ secrets.HF_DOC_BUILD_PUSH }}
