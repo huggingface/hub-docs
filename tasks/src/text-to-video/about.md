@@ -61,7 +61,8 @@ Generating text-editable and pose-controllable character videos have a rising de
 Text-to-video models have different variants based on inputs and outputs.
 
 
-### Text to Video Retrieval
+### Text-to-video Retrieval
+
 
 This is a task that involves finding videos that are relevant to a given text query. This task is challenging because it requires the model to understand the meaning of the text query and to match it to the visual content of the videos. The best approach to text-to-video retrieval depends on the specific application. For example, if the application is to find videos that are relevant to a given text query, then a text-based model may be the best approach. However, if the application is to find text queries that are relevant to a given video, then a video-based model may be the best approach.
 
