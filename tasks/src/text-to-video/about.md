@@ -38,7 +38,8 @@ Text-to-video models can be used to create an AI newscaster to deliver daily new
 T2V models can be used to summarize long videos into shorter, more concise videos. This can be useful for people who want to quickly get the gist of a video without having to watch the entire thing.
 
 
-### Visual storytelling
+### Visual Storytelling
+
 
 Text to video models can be used to create visual stories that can be used to communicate ideas and emotions. For example, the model could be used to create a video that tells the story of a refugee family or that shows the beauty of a natural landscape that might be difficult to capture under normal circumstances.
 
