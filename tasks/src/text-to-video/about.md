@@ -1,6 +1,7 @@
 ## Use Cases
 
-Text-to-Video (T2V) models can be used in any application that requires generating a sequence of images from text descriptions, that are both temporally and spatially consistent. Text-to-video AI models are a powerful tool that can be used for a variety of purposes across different domains. As the technology continues to develop, T2V models will become even more powerful and versatile
+Text-to-video models can be used in any application that requires generating temporally and spatially consistent sequence of images from text.  
+
 
 
 ### Script based video generation
