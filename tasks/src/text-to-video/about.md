@@ -25,7 +25,8 @@ Text-to-video models can be used to generate videos that show people how to stay
 
 
 
-### Voice overs and Speech
+### Voice-overs and Speech
+
 
 Text-to-video models can be used to create an AI newscaster to deliver daily news, or for a film-maker to create a short film or a music video.
 
