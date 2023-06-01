@@ -6,7 +6,8 @@ Text-to-video models can be used in any application that requires generating tem
 
 ### Script based video generation
 
-Creating shortform video content from the provided text script. T2V models can be used to create marketing videos that are more engaging and informative. For example, a company could use a text-to-video AI model to create a video that explains how their product works or that shows how their product can solve a customer's problem.
+Text-to-video models can be used to create short-form video content from a provided text script. These models can be used to create engaging and informative marketing videos. For example, a company could use a text-to-video model to create a video that explains how their product works or that shows how their product can solve a customer's problem.
+
 
 
 ### Content format conversion
