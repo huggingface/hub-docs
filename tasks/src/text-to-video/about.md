@@ -64,7 +64,8 @@ There are different variants based on the inputs and outputs:
 This is a task that involves finding videos that are relevant to a given text query. This task is challenging because it requires the model to understand the meaning of the text query and to match it to the visual content of the videos. The best approach to text-to-video retrieval depends on the specific application. For example, if the application is to find videos that are relevant to a given text query, then a text-based model may be the best approach. However, if the application is to find text queries that are relevant to a given video, then a video-based model may be the best approach.
 
 
-### Text-to-Video Editing
+### Text-to-video Editing
+
 
 One T2V model variant is text-based video style and local attribute editing from the trained text-to-image model. Text to video editing models can make it easier to perform tasks like cropping, stabilization, color correction,resising and audio editing etc.,  and they can also help to ensure that the tasks are performed consistently
 
