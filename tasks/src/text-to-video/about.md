@@ -72,7 +72,8 @@ One T2V model variant is text-based video style and local attribute editing from
 
 ### Text to Video Search
 
-Text to video search is a task of retrieving videos that are relevant to a given text query. This can be challenging, as videos are a complex medium that can contain a lot of information. By using semantic analysis to extract the meaning of the text query, visual analysis to extract features from the videos, such as the objects and actions that are present in the video, and temporal analysis to categorize  relationships between the objects and actions in the video, we can determine which videos are most likely to be relevant to the text query.
+Text-to-video search is the task of retrieving videos that are relevant to a given text query. This can be challenging, as videos are a complex medium that can contain a lot of information. By using semantic analysis to extract the meaning of the text query, visual analysis to extract features from the videos, such as the objects and actions that are present in the video, and temporal analysis to categorize relationships between the objects and actions in the video, we can determine which videos are most likely to be relevant to the text query.
+
 
 ### Text-driven Video Prediction
 
