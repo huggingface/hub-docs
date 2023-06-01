@@ -19,7 +19,8 @@ Text-to-video models can be used to generate videos from long-form text, includi
 ### Disaster Relief and Safety Protocols
 
 
-T2V can be used to generate videos that can be used to help with disaster relief efforts. For example, a text to video model could be used to generate videos that show people how to stay safe during a hurricane or how to find food and water after a natural disaster.
+Text-to-video models can be used to generate videos that show people how to stay safe during a hurricane or how to find food and water after a natural disaster.
+
 
 ### Medical research
 
