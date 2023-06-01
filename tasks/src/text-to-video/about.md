@@ -47,7 +47,7 @@ Text-to-video models can be used to create visual stories to communicate ideas a
 
 ### Music Visualization
 
-Creating music visualization is a complex, time-consuming, and resource-intensive process. Users define start and end prompts of music to parameterize the visualization and these prompts are warped between and generated according to the beat of the music for audioreactive video. Commonly used design patterns for improving generated videos are : "transitions", which express shifts in color, time, subject, or style, and "holds", which encourage visual emphasis and consistency. 
+Creating music visualization is a complex, time-consuming, and resource-intensive process. Users define start and end prompts of music to parameterize the visualization and these prompts are warped between and generated according to the beat of the music for audio-reactive video. Commonly used design patterns for improving generated videos are "transitions", which express shifts in color, time, subject, or style, and "holds", which encourage visual emphasis and consistency. 
 
 
 ### Pose-Control
