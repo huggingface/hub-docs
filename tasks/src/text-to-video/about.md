@@ -52,7 +52,8 @@ Creating music visualization is a complex, time-consuming, and resource-intensiv
 
 ### Pose-Control
 
-Generating text-editable and pose-controllable character videos have a rising demand in creating digital humans/avatars. By utilizing easily obtained datasets (i.e.,image pose pair and pose-free video) and the pre-trained text-to-image (T2I) model to obtain the pose-controllable character videos, this learn a zero-initialized convolutional encoder to encode the pose information and then finetune the motion of the network via a pose-free video dataset.
+Generating text-editable and pose-controllable character videos have a rising demand for creating avatars. By utilizing easily obtained datasets (i.e., image pose pair and pose-free video) and a text-to-image model to obtain the pose-controllable character videos, this learns a zero-initialized convolutional encoder to encode the pose information and then fine-tune the motion of the network via a pose-free video dataset.
+
 
 
 
