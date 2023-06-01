@@ -153,6 +153,8 @@ Lastly, it is important to add a model card so users understand how to use your 
 
 Our Inference API powers models uploaded to the Hub through your library.
 
+### Create an Inference API Docker image 
+
 All third-party libraries are Dockerized, so you can install the dependencies you'll need for your library to work correctly. Add your library to the existing Docker images by navigating to the [Docker images folder](https://github.com/huggingface/api-inference-community/tree/main/docker_images).
 
 1. Copy the `common` folder and rename it with the name of your library (e.g. `docker/common` to `docker/your-awesome-library`).
@@ -179,5 +181,9 @@ All third-party libraries are Dockerized, so you can install the dependencies yo
     ```bash
     pytest -sv --rootdir docker_images/your-awesome-library/docker_images/your-awesome-library/
     ```
+
+### Register your libraries supported tasks on the hub
+
+To register the tasks supported by your library on the hub you'll need to add a mapping from your library name to its supported tasks in this [file](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/LibrariesToTasks.ts). This will ensure the inference API is registered for tasks supported by your model. 
 
 With these simple but powerful methods, you brought the full functionality of the Hub into your library. Users can download files stored on the Hub from your library with `hf_hub_download`, create repositories with `create_repo`, and upload files with `upload_file`. You also set up Inference API with your library, allowing users to interact with your models on the Hub from inside a browser.
