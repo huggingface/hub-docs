@@ -3,12 +3,9 @@
 Text-to-video models can be used in any application that requires generating temporally and spatially consistent sequence of images from text.  
 
 
-
 ### Script-based Video Generation
 
-
 Text-to-video models can be used to create short-form video content from a provided text script. These models can be used to create engaging and informative marketing videos. For example, a company could use a text-to-video model to create a video that explains how their product works or that shows how their product can solve a customer's problem.
-
 
 
 ### Content format conversion
@@ -18,18 +15,12 @@ Text-to-video models can be used to generate videos from long-form text, includi
 
 ### Disaster Relief and Safety Protocols
 
-
 Text-to-video models can be used to generate videos that show people how to stay safe during a hurricane or how to find food and water after a natural disaster.
-
-
-
 
 
 ### Voice-overs and Speech
 
-
 Text-to-video models can be used to create an AI newscaster to deliver daily news, or for a film-maker to create a short film or a music video.
-
 
 
 ### Video Summarization
@@ -53,7 +44,6 @@ Creating music visualization is a complex, time-consuming, and resource-intensiv
 ### Pose-Control
 
 Generating text-editable and pose-controllable character videos have a rising demand for creating avatars. By utilizing easily obtained datasets (i.e., image pose pair and pose-free video) and a text-to-image model to obtain the pose-controllable character videos, this learns a zero-initialized convolutional encoder to encode the pose information and then fine-tune the motion of the network via a pose-free video dataset.
-
 
 
 
