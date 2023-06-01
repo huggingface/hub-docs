@@ -57,7 +57,7 @@ You can also hide a comment. Hiding a comment is irreversible, and nobody will b
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-hidden-dark.png"/>
 </div>
 
-
+Read also [moderation](./moderation) to see how to report an abusive comment.
 
 ## How do I manage Pull requests locally?
 
