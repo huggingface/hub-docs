@@ -66,7 +66,6 @@ If you want to duplicate a Space, you can click the three dots at the top right 
 
 Some Spaces might have environment variables that you might need to setup up. In those cases, the duplicate workflow will give you a warning about them. The duplicated Space will use a free CPU by default, but you can later upgrade it if needed.
 
-
 ## Networking
 
 If your Space needs to make any network requests, you can make requests through the standard HTTP and HTTPS ports (80 and 443) along with port 8080. Any requests going to other ports will be blocked.
@@ -84,3 +83,15 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `SPACE_REPO_NAME`: i-like-flan
 * `SPACE_TITLE`: I Like Flan (specified in the README file)
 * `SPACE_ID`: `osanseviero/i-like-flan`
+
+## Clone the Repository
+
+You can easily clone the repo in your Space. Start cloning by clicking on the bullet list dropdown in the top right of your Space page. Select "Clone repository" and then you'll be able to follow the instructions to clone the Space repo to your local machine using HTTPS or SSH. 
+
+![Spaces Clone Repo](https://github.com/huggingface/hub-docs/assets/83347449/dba41adb-134f-48ef-8de3-36a811c9c883)
+
+![HTTPS Clone](https://github.com/huggingface/hub-docs/assets/83347449/7ff40900-3fef-4bc7-aeb5-8437eba61934)
+
+![SSH Clone](https://github.com/huggingface/hub-docs/assets/83347449/29b089e5-7750-4343-b11e-c7860736f24d)
+
+
