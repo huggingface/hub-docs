@@ -68,7 +68,8 @@ This is a task that involves finding videos that are relevant to a given text qu
 ### Text-to-video Editing
 
 
-One T2V model variant is text-based video style and local attribute editing from the trained text-to-image model. Text to video editing models can make it easier to perform tasks like cropping, stabilization, color correction,resising and audio editing etc.,  and they can also help to ensure that the tasks are performed consistently
+One text-to-video task is generating text-based video style and local attribute editing. Text-to-video editing models can make it easier to perform tasks like cropping, stabilization, color correction, resizing and audio editing consistently.
+
 
 
 ### Text-to-video Search
