@@ -4,7 +4,8 @@ Text-to-video models can be used in any application that requires generating tem
 
 
 
-### Script based video generation
+### Script-based Video Generation
+
 
 Text-to-video models can be used to create short-form video content from a provided text script. These models can be used to create engaging and informative marketing videos. For example, a company could use a text-to-video model to create a video that explains how their product works or that shows how their product can solve a customer's problem.
 
