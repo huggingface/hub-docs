@@ -58,7 +58,8 @@ Generating text-editable and pose-controllable character videos have a rising de
 
 ## Task Variants
 
-There are different variants based on the inputs and outputs:
+Text-to-video models have different variants based on inputs and outputs.
+
 
 ### Text to Video Retrieval
 
