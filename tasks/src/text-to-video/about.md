@@ -78,7 +78,8 @@ Text-to-video search is the task of retrieving videos that are relevant to a giv
 
 ### Text-driven Video Prediction
 
-Video Prediction is the task of predicting future frames given past video frames. Text-driven video prediction (TVP) is a task that involves generating a video sequence from a text description. The text description can be anything from a simple sentence to a detailed story. The goal of TVP is to generate a video that is both visually realistic and semantically consistent with the text description.
+Text-driven video prediction is the task of generating a video sequence from a text description. Text description can be anything from a simple sentence to a detailed story. The goal of this task is to generate a video that is both visually realistic and semantically consistent with the text description.
+
 
 
 ### Video Translation
