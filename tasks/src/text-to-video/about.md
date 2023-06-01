@@ -22,7 +22,6 @@ Text-to-video models can be used to generate videos from long-form text, includi
 Text-to-video models can be used to generate videos that show people how to stay safe during a hurricane or how to find food and water after a natural disaster.
 
 
-### Medical research
 
 
 
