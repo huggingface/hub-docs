@@ -32,7 +32,8 @@ Text-to-video models can be used to create an AI newscaster to deliver daily new
 
 
 
-### Video summarization: 
+### Video Summarization
+
 
 T2V models can be used to summarize long videos into shorter, more concise videos. This can be useful for people who want to quickly get the gist of a video without having to watch the entire thing.
 
