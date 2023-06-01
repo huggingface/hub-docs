@@ -27,7 +27,8 @@ Text-to-video models can be used to generate videos that show people how to stay
 
 ### Voice overs and Speech
 
-T2V models can be used on digital humans or avatars for entertainment purposes. For example an AI newscaster to deliver daily news or for a filmmaker to create a short film or a music video.
+Text-to-video models can be used to create an AI newscaster to deliver daily news, or for a film-maker to create a short film or a music video.
+
 
 
 ### Video summarization: 
