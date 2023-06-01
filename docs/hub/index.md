@@ -134,3 +134,5 @@ The Hugging Face Hub supports security and access control features to give you t
 * Access Control for Organizations
 * Signing commits with GPG
 * Malware scanning
+
+<img width="150" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-soc-1.jpg">
