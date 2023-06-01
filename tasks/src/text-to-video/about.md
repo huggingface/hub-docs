@@ -41,7 +41,8 @@ T2V models can be used to summarize long videos into shorter, more concise video
 ### Visual Storytelling
 
 
-Text to video models can be used to create visual stories that can be used to communicate ideas and emotions. For example, the model could be used to create a video that tells the story of a refugee family or that shows the beauty of a natural landscape that might be difficult to capture under normal circumstances.
+Text-to-video models can be used to create visual stories to communicate ideas and emotions. For example, the model could be used to create a video that tells the story of a refugee family, or a natural landscape that might be difficult to capture under normal circumstances.
+
 
 
 ### Music Visualization
