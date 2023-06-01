@@ -24,7 +24,6 @@ Text-to-video models can be used to generate videos that show people how to stay
 
 ### Medical research
 
-T2V models can also be used to generate videos that can be used to help with medical research. For example, generate videos that show how the human body works or how to perform a medical procedure.
 
 
 ### Voice overs and Speech
