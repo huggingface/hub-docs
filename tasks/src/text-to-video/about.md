@@ -13,7 +13,8 @@ Text-to-video models can be used to create short-form video content from a provi
 
 ### Content format conversion
 
-Converting long form text like blog posts, articles, and text files to engaging customizable video. T2V models can be used to create educational videos that are more engaging and interactive. For instance, creating a video that explains a complex concept from an article or that shows how to solve a math problem.
+Text-to-video models can be used to generate videos from long-form text, including blog posts, articles, and text files. Text-to-video models can be used to create educational videos that are more engaging and interactive. An example of this is creating a video that explains a complex concept from an article.
+
 
 ### Disaster relief and Safety protocols
 
