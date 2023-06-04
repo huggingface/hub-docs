@@ -62,6 +62,10 @@ const taskData: TaskDataCustom = {
 			description: "An powerful text-to-image application that can generates 3D representations.",
 			id:          "hysts/Shap-E",
 		},
+		{
+			description: "Stable diffusion and controlnet based text2image, image2image and inpainting application.",
+			id:          "ArtGAN/Stable-Diffusion-ControlNet-WebUI",
+		}
 	],
 	summary:      "Generates images from input text. These models can be used to generate and modify images based on text prompts.",
 	widgetModels: ["CompVis/stable-diffusion-v1-4"],
