@@ -30,10 +30,6 @@ module.exports = {
 					// 950: '#000511',
 				},
 			},
-			screens: {
-				'with-hover': { raw: '(hover: hover)' },
-				'no-hover': { raw: '(hover: none)' },
-			},
 			gridTemplateRows: {
 				full: '100%',
 			},
