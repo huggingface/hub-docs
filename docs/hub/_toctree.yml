@@ -212,6 +212,8 @@
       title: Pickle Scanning
     - local: security-secrets
       title: Secrets Scanning
+  - local: moderation
+    title: Moderation
   - local: paper-pages
     title: Paper Pages
   - local: doi
