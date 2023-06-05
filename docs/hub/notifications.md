@@ -30,3 +30,17 @@ _Note that clicking the unsubscribe link in an email will unsubscribe you for th
 
 You can quickly add any user/organization to your watch list by searching them by name using the dedicated search bar.
 Unsubscribe from a specific user/organization simply by unticking the corresponding checkbox.
+
+## Mute notifications for a specific repository
+
+It's possible to mute notifications for a specific repository. A contextual menu to is available from the repository main page to "Mute notifications".
+This will prevent any notifications related to that specific repository from being sent to you. 
+You can unmute the repository at any time by clicking the "Unmute notifications" menu at the same location.
+
+![mute notification menu](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/notifications-mute-menu.png)
+
+_Note, if a repository is muted, you won't receive any new notification unless you're directly mentioned or participating to a discussion._ 
+
+The list of muted repositories is available from the notifications settings pages:
+
+![Notifications settings page muted repositories](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/notifications-settings-muted.png)
