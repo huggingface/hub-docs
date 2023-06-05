@@ -1,5 +1,9 @@
 # Spaces Changelog
 
+## [2023-05-30] - Add support for Streamlit 1.22.0
+
+- Added support for Streamlit `1.22.0`.
+
 ## [2023-05-15] - The default Streamlit version
 - The default Streamlit version is set as `1.21.0`.
 
