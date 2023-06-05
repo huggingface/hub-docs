@@ -107,10 +107,7 @@ During a Space's lifecycle, it is only billed when the Space is actually `Runnin
 
 If a running Space starts to fail, it will be automatically suspended and the billing will stop.
 
-Spaces running on free hardware are suspended automatically if they are not used for an extended period of time (e.g. two days). Upgraded Spaces run indefinitely by default, even if there is no usage. You can change this behavior by [setting a custom "sleep time"](#sleep-time) in the Space's settings. To interrupt the billing on your Space, you can change the Hardware to CPU basic.
-<Tip>
-Additional lifecycle control over Spaces with upgraded hardware will soon be provided, such as configuration of an automated suspension of the Space after a custom delay.
-</Tip>
+Spaces running on free hardware are suspended automatically if they are not used for an extended period of time (e.g. two days). Upgraded Spaces run indefinitely by default, even if there is no usage. You can change this behavior by [setting a custom "sleep time"](#sleep-time) in the Space's settings. To interrupt the billing on your Space, you can change the Hardware to CPU basic, or [pause](#pause) it.
 
 Additional information about billing can be found in the [dedicated Hub-wide section](./billing).
 
