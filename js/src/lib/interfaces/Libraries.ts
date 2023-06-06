@@ -372,25 +372,25 @@ const transformers = (model: ModelData) => {
 	if (!info) {
 		return `# ⚠️ Type of model unknown`;
 	}
-	const remote_code_snippet = model.config?.transformers?.remote_code === true ? ", trust_remote_code=True" : "";
-	const model_type = model.config?.transformers?.custom_class === undefined ? info.auto_model  : model.config?.transformers?.custom_class;
+	const remote_code_snippet = info.custom_class ? ", trust_remote_code=True" : "";
+	const model_class = info.custom_class ?? info.auto_model;
 	if (info.processor) {
 		const varName = info.processor === "AutoTokenizer" ? "tokenizer"
 			: info.processor === "AutoFeatureExtractor" ? "extractor"
 				: "processor"
 		;
 		return [
-			`from transformers import ${info.processor}, ${model_type}`,
+			`from transformers import ${info.processor}, ${model_class}`,
 			"",
 			`${varName} = ${info.processor}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 			"",
-			`model = ${model_type}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
+			`model = ${model_class}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 		].join("\n");
 	} else {
 		return [
-			`from transformers import ${model_type}`,
+			`from transformers import ${model_class}`,
 			"",
-			`model = ${model_type}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
+			`model = ${model_class}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 		].join("\n");
 	}
 };
