@@ -48,7 +48,7 @@ const taskData: TaskDataCustom = {
 
 			},
 		],
-	spaces:       [
+	spaces: [
 		{
 			description: "An application that answers questions based on table CSV files.",
 			id:          "katanaml/table-query",

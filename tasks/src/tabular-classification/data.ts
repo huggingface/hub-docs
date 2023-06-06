@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "A comprehensive curation of datasets covering all benchmarks.",
@@ -29,10 +26,7 @@ const taskData: TaskData = {
 			},
 		],
 	},
-	id:        "tabular-classification",
-	label:     PIPELINE_DATA["tabular-classification"].name,
-	libraries: TASKS_MODEL_LIBRARIES["tabular-classification"],
-	metrics:   [
+	metrics: [
 		{
 			description: "",
 			id:          "accuracy",
@@ -56,7 +50,7 @@ const taskData: TaskData = {
 			id:          "scikit-learn/cancer-prediction-trees",
 		},
 	],
-	spaces:  [
+	spaces: [
 		{
 			description: "An application that can predict defective products on a production line.",
 			id:          "scikit-learn/tabular-playground",
