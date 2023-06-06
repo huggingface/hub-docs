@@ -58,7 +58,7 @@ const taskData: TaskDataCustom = {
 			id:          "superb/hubert-large-superb-er",
 		},
 	],
-	spaces:  [
+	spaces: [
 		{
 			description: "An application that can predict the language spoken in a given audio.",
 			id:          "akhaliq/Speechbrain-audio-classification",
