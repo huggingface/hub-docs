@@ -23,27 +23,9 @@ Text-to-video models can be used to generate videos that show people how to stay
 Text-to-video models can be used to create an AI newscaster to deliver daily news, or for a film-maker to create a short film or a music video.
 
 
-### Video Summarization
-
-
-T2V models can be used to summarize long videos into shorter, more concise videos. This can be useful for people who want to quickly get the gist of a video without having to watch the entire thing.
-
-
 ### Visual Storytelling
 
-
 Text-to-video models can be used to create visual stories to communicate ideas and emotions. For example, the model could be used to create a video that tells the story of a refugee family, or a natural landscape that might be difficult to capture under normal circumstances.
-
-
-
-### Music Visualization
-
-Creating music visualization is a complex, time-consuming, and resource-intensive process. Users define start and end prompts of music to parameterize the visualization and these prompts are warped between and generated according to the beat of the music for audio-reactive video. Commonly used design patterns for improving generated videos are "transitions", which express shifts in color, time, subject, or style, and "holds", which encourage visual emphasis and consistency. 
-
-
-### Pose-Control
-
-Generating text-editable and pose-controllable character videos have a rising demand for creating avatars. By utilizing easily obtained datasets (i.e., image pose pair and pose-free video) and a text-to-image model to obtain the pose-controllable character videos, this learns a zero-initialized convolutional encoder to encode the pose information and then fine-tune the motion of the network via a pose-free video dataset.
 
 
 
