@@ -132,6 +132,9 @@ And you're done! You can check your repository on Hugging Face with all the rece
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files-dark.png"/>
 </div>
 
+<Tip>
+You might find it useful to setup a [git credential helper](https://git-scm.com/docs/gitcredentials) to avoid filling your username and password on every push operation.
+</Tip>
 
 ## Viewing a repo's history
 
