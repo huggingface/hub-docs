@@ -33,9 +33,8 @@ Unsubscribe from a specific user/organization simply by unticking the correspond
 
 ## Mute notifications for a specific repository
 
-It's possible to mute notifications for a specific repository. A contextual menu is available from the repository main page to "Mute notifications".
-This will prevent any new notification related to that specific repository from being sent to you. 
-You can unmute the repository at any time by clicking the "Unmute notifications" menu at the same location.
+It's possible to mute notifications for a particular repository by using the "Mute notifications" action in the repository's contextual menu.
+This will prevent you from receiving any new notifications for that particular repository. You can unmute the repository at any time by clicking the "Unmute notifications" action in the same repository menu.
 
 ![mute notification menu](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/notifications-mute-menu.png)
 
