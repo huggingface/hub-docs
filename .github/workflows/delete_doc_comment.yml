@@ -2,7 +2,7 @@ name: Delete doc comment
 
 on:
   workflow_run:
-    workflows: ["Delete doc comment trigger", "Delete sagemaker doc comment"]
+    workflows: ["Delete doc comment trigger", "Delete sagemaker doc comment trigger"]
     types:
       - completed
 
