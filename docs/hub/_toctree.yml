@@ -182,7 +182,7 @@
       title: Custom Python Spaces
     - local: spaces-add-to-arxiv
       title: How to Add a Space to ArXiv
-    - local: spaces-cookie-limitations.md
+    - local: spaces-cookie-limitations
       title: Cookie limitations in Spaces
 - local: other
   title: Other
