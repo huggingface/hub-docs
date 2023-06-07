@@ -9,17 +9,15 @@ One instance where these cookie restrictions can become problematic is when host
 To work around this issue, you would need to set the `server.enableXsrfProtection` option in Streamlit to `false`. There are two ways to do this:
 
 1. Command line argument: The option can be specified as a command line argument when running the Streamlit application. Here is the example command:
-
-```shell
-streamlit run app.py --server.enableXsrfProtection false
-```
+   ```shell
+   streamlit run app.py --server.enableXsrfProtection false
+   ```
 
 2. Configuration file: Alternatively, you can specify the option in the Streamlit configuration file `.streamlit/config.toml`. You would write it like this:
-
-```toml
-[server]
-enableXsrfProtection = false
-```
+   ```toml
+   [server]
+   enableXsrfProtection = false
+   ```
 
 <Tip>
 When you are using the [Streamlit SDK](https://huggingface.co/docs/hub/spaces-sdks-streamlit), you don't need to worry about this because the SDK does it for you.
