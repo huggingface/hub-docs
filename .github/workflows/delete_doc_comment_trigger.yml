@@ -1,4 +1,4 @@
-name: Delete sagemaker doc comment
+name: Delete doc comment trigger
 
 on:
   pull_request:
