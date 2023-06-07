@@ -736,6 +736,10 @@ export interface TransformersInfo {
 	 */
 	auto_model: string;
 	/**
+	 * if set in config.json's auto_map
+	 */
+	custom_class?: string;
+	/**
 	 * e.g. text-classification
 	 */
 	pipeline_tag?: PipelineType;
