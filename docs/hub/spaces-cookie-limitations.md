@@ -20,5 +20,5 @@ To work around this issue, you would need to set the `server.enableXsrfProtectio
    ```
 
 <Tip>
-When you are using the <a href="https://huggingface.co/docs/hub/spaces-sdks-streamlit" target="_blank" rel="noopener noreferrer">Streamlit SDK</a>, you don't need to worry about this because the SDK does it for you.
+When you are using the Streamlit SDK, you don't need to worry about this because the SDK does it for you.
 </Tip>
