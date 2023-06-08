@@ -44,7 +44,7 @@ You need to define two parameters:
 
 ## Visualize an agent playing
 
-You can easily watch any `ml-agent` playing directly in your browser:
+You can easily watch any model playing directly in your browser:
 
 1. Go to your model repo.
 2. In the `Watch Your Agent Play` section, click on the link.
