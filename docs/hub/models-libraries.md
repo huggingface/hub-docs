@@ -17,7 +17,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [fastai](https://github.com/fastai/fastai)                                  | Library to train fast and accurate models with state-of-the-art outputs.             | ✅ | ✅ | ✅ | ✅ |
 | [Keras](https://huggingface.co/docs/hub/keras)                              | Library that uses a consistent and simple API to build models leveraging TensorFlow and its ecosystem. | ❌ | ❌ | ✅ | ✅ |
 | [Flair](https://github.com/flairNLP/flair)                                  | Very simple framework for state-of-the-art NLP.                                      | ✅ | ✅ | ✅ | ❌ |
-| [MBRL-Lib]([https://github.com/huggingface/ml-agents](https://github.com/facebookresearch/mbrl-lib)) | PyTorch implementations of MBRL Algorithms. | ❌ | ❌ | ✅ | ✅ |
+| [MBRL-Lib](https://github.com/facebookresearch/mbrl-lib) | PyTorch implementations of MBRL Algorithms. | ❌ | ❌ | ✅ | ✅ |
 | [ML-Agents](https://github.com/huggingface/ml-agents) | Enables games and simulations made with Unity to serve as environments for training intelligent agents. | ❌ | ❌ | ✅ | ✅ |
 | [NeMo](https://github.com/NVIDIA/NeMo)                                      | Conversational AI toolkit built for researchers                                      | ✅ | ✅ | ✅ | ❌ |
 | [PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP)                      | Easy-to-use and powerful NLP library built on PaddlePaddle                           | ✅ | ✅ | ✅ | ✅ |
