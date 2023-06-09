@@ -4,7 +4,7 @@
 
 	export let onClickMaximizeBtn: () => void;
 	export let outputJson: string;
-
+	export let isMaximized: boolean;
 	let isOutputJsonVisible = false;
 </script>
 
@@ -26,7 +26,7 @@
 		on:click|preventDefault={onClickMaximizeBtn}
 	>
 		<IconMaximize classNames="mr-1" />
-		Maximize
+		{isMaximized ? 'Minimize' : 'Maximize'}
 	</button>
 </div>
 {#if outputJson && isOutputJsonVisible}
