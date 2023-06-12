@@ -1238,5 +1238,9 @@ export const LANGUAGES: Record<string, Language> = {
 		name: "Erzya",
 		nativeName: "эрзянь кель",
 	},
+	lzh: {
+		code: "lzh",
+		name: "Literary Chinese",
+	},
 };
 
