@@ -1,6 +1,6 @@
 # Search
 
-You can now easily search anything on the Hub with **Full-text search**. We index all model cards, dataset cards, and Spaces app.py files.
+You can now easily search anything on the Hub with **Full-text search**. We index model cards, dataset cards, and Spaces app.py files.
 
 Using the search bar at the top of https://huggingface.co, you can select "Try Full-text search" to find what you seek on the Hub across models, datasets, and Spaces:
 
