@@ -412,8 +412,8 @@ const peftTask = (peftTaskType: string) => {
 };
 
 const peft = (model: ModelData) => {
-	const peftBaseModel = model.config?.base_model_name;
-	const peftTaskType = model.config?.task_type;
+	const peftBaseModel = model.config?.peft.base_model_name;
+	const peftTaskType = model.config?.peft.task_type;
 	const pefttask = peftTask(peftTaskType);
 	return `from peft import PeftModel, PeftConfig
 from transformers import AutoModelFor${pefttask}
