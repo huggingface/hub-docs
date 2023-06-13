@@ -19,6 +19,7 @@ export enum ModelLibrary {
 	"nemo"                   = "NeMo",
 	"open_clip"              = "OpenCLIP",
 	"paddlenlp"              = "PaddleNLP",
+	"peft"					 = "PEFT",
 	"pyannote-audio"         = "pyannote.audio",
 	"sample-factory"         = "Sample Factory",
 	"sentence-transformers"  = "Sentence Transformers",
@@ -395,6 +396,36 @@ const transformers = (model: ModelData) => {
 	}
 };
 
+const peftTask = (peftTaskType: string) => {
+	switch (peftTaskType) {
+		case "CausalLM":
+			return "CausalLM";
+		case "SEQ_2_SEQ_LM":
+			return "Seq2SeqLM";
+		case "TOKEN_CLS":
+			return "TokenClassification";
+		case "SEQ_CLS":
+			return "SequenceClassification";
+		default:
+			return undefined;	
+	}
+};
+
+const peft = (model: ModelData) => {
+	const peftBaseModel = model.config?.base_model_name;
+	const peftTaskType = model.config?.task_type;
+	const pefttask = peftTask(peftTaskType);
+	if (pefttask === undefined) {
+		return `Task type in adapter_config.json is invalid`;
+	}
+	return `from peft import PeftModel, PeftConfig
+	from transformers import AutoModelFor${pefttask}
+	
+	config = PeftConfig.from_pretrained(${model.id})
+	model = AutoModelFor${pefttask}.from_pretrained(${peftBaseModel})
+	model = PeftModel.from_pretrained(model, ${model.id})`
+};
+
 const fasttext = (model: ModelData) =>
 	`from huggingface_hub import hf_hub_download
 import fasttext
@@ -517,6 +548,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoName: "PaddleNLP",
 		repoUrl:  "https://github.com/PaddlePaddle/PaddleNLP",
 		snippet:  paddlenlp,
+	},
+	"peft": {
+		btnLabel: "PEFT",
+		repoName: "PEFT",
+		repoUrl:  "https://github.com/huggingface/peft",
+		snippet:  peft,
 	},
 	"pyannote-audio": {
 		btnLabel: "pyannote.audio",
