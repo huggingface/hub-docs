@@ -398,7 +398,7 @@ const transformers = (model: ModelData) => {
 
 const peftTask = (peftTaskType: string) => {
 	switch (peftTaskType) {
-		case "CausalLM":
+		case "CAUSAL_LM":
 			return "CausalLM";
 		case "SEQ_2_SEQ_LM":
 			return "Seq2SeqLM";
@@ -415,15 +415,12 @@ const peft = (model: ModelData) => {
 	const peftBaseModel = model.config?.base_model_name;
 	const peftTaskType = model.config?.task_type;
 	const pefttask = peftTask(peftTaskType);
-	if (pefttask === undefined) {
-		return `Task type in adapter_config.json is invalid`;
-	}
 	return `from peft import PeftModel, PeftConfig
-	from transformers import AutoModelFor${pefttask}
+from transformers import AutoModelFor${pefttask}
 	
-	config = PeftConfig.from_pretrained(${model.id})
-	model = AutoModelFor${pefttask}.from_pretrained(${peftBaseModel})
-	model = PeftModel.from_pretrained(model, ${model.id})`
+config = PeftConfig.from_pretrained(${model.id})
+model = AutoModelFor${pefttask}.from_pretrained(${peftBaseModel})
+model = PeftModel.from_pretrained(model, ${model.id})`
 };
 
 const fasttext = (model: ModelData) =>
