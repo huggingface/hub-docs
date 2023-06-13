@@ -35,6 +35,33 @@ If you opened a PR or discussion, are the author of the repository, or have writ
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-edit-title-dark.PNG"/>
 </div>
 
+## Pin a Discussion / Pull Request
+
+If you have write access to a repository, you can pin discussions and pull requests. Pinned discussions appears on the top of all the discussions.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pin.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pin.png"/>
+</div>
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pinned.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pinned-dark.png"/>
+</div>
+
+## Lock a Discussion / Pull Request
+
+If you have write access to a repository, you can lock discussions or pull requests. Once a discussion is locked, previous comments are still visible but users can't add new comments.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pin.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pin.png"/>
+</div>
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pinned.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pinned-dark.png"/>
+</div>
 
 ## Comment edition and moderation
 
@@ -50,6 +77,18 @@ If you wrote a comment or have write access to the repository, you can edit the 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-menu-edit-dark.png"/>
 </div>
 
+Once the comment has been edited, a new link appears above the comment. This link shows the edits history. 
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-edit-link.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-edit-link-dark.png"/>
+</div>
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-edit-history.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-edit-history-dark.png"/>
+</div>
+
 You can also hide a comment. Hiding a comment is irreversible, and nobody will be able to see its content nor edit it anymore.
 
 <div class="flex justify-center">
@@ -58,6 +97,17 @@ You can also hide a comment. Hiding a comment is irreversible, and nobody will b
 </div>
 
 Read also [moderation](./moderation) to see how to report an abusive comment.
+
+## Disabling Discussions / Pull Requests
+
+From the repository settings, you can disable all discussions and pull requests. Once disabled, all community and contribution features won't be available anymore. This action can be reverted without loosing any previous discussions or pull request.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-settings-disable.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-settings-disable-dark.png"/>
+</div>
+
+
 
 ## How do I manage Pull requests locally?
 
