@@ -19,7 +19,7 @@ export enum ModelLibrary {
 	"nemo"                   = "NeMo",
 	"open_clip"              = "OpenCLIP",
 	"paddlenlp"              = "PaddleNLP",
-	"peft"					 = "PEFT",
+	"peft"                   = "PEFT",
 	"pyannote-audio"         = "pyannote.audio",
 	"sample-factory"         = "Sample Factory",
 	"sentence-transformers"  = "Sentence Transformers",
