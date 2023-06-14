@@ -423,11 +423,11 @@ const peft = (model: ModelData) => {
 	}
 
 	return `from peft import PeftModel, PeftConfig
-	from transformers import AutoModelFor${pefttask}
-		
-	config = PeftConfig.from_pretrained("${model.id}")
-	model = AutoModelFor${pefttask}.from_pretrained("${peftBaseModel}")
-	model = PeftModel.from_pretrained(model, "${model.id}")`
+from transformers import AutoModelFor${pefttask}
+	
+config = PeftConfig.from_pretrained("${model.id}")
+model = AutoModelFor${pefttask}.from_pretrained("${peftBaseModel}")
+model = PeftModel.from_pretrained(model, "${model.id}")`
 };
 
 const fasttext = (model: ModelData) =>
