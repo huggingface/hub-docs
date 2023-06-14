@@ -412,7 +412,7 @@ const peftTask = (peftTaskType: string) => {
 };
 
 const peft = (model: ModelData) => {
-	const peftBaseModel = model.config?.peft.base_model_name;
+	const peftBaseModel = model.config?.peft?.base_model_name;
 	const peftTaskType = model.config?.peft?.task_type;
 	const pefttask = peftTask(peftTaskType);
 	if (pefttask === undefined) {
