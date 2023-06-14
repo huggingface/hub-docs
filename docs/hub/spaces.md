@@ -17,6 +17,7 @@ You'll also be able to upgrade your Space to run [on a GPU or other accelerated 
   - [Managing Spaces with Github Actions](./spaces-github-actions)
   - [How to Add a Space to ArXiv](./spaces-add-to-arxiv)
 - [Spaces GPU Upgrades](./spaces-gpus)
+- [Spaces Persistent Storage](./spaces-storage)
 - [Gradio Spaces](./spaces-sdks-gradio)
 - [Streamlit Spaces](./spaces-sdks-streamlit)
 - [Docker Spaces](./spaces-sdks-docker)
