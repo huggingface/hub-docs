@@ -5,38 +5,38 @@ import type { ModelData } from "./Types";
  * Add your new library here.
  */
 export enum ModelLibrary {
-	"adapter-transformers" = "Adapter Transformers",
-	"allennlp" = "allenNLP",
-	"asteroid" = "Asteroid",
-	"bertopic" = "BERTopic",
-	"diffusers" = "Diffusers",
-	"doctr" = "docTR",
-	"espnet" = "ESPnet",
-	"fairseq" = "Fairseq",
-	"flair" = "Flair",
-	"keras" = "Keras",
-	"k2" = "K2",
-	"nemo" = "NeMo",
-	"open_clip" = "OpenCLIP",
-	"paddlenlp" = "PaddleNLP",
-	"peft" = "PEFT",
-	"pyannote-audio" = "pyannote.audio",
-	"sample-factory" = "Sample Factory",
+	"adapter-transformers"  = "Adapter Transformers",
+	"allennlp"              = "allenNLP",
+	"asteroid"              = "Asteroid",
+	"bertopic"              = "BERTopic",
+	"diffusers"             = "Diffusers",
+	"doctr"                 = "docTR",
+	"espnet"                = "ESPnet",
+	"fairseq"               = "Fairseq",
+	"flair"                 = "Flair",
+	"keras"                 = "Keras",
+	"k2"                    = "K2",
+	"nemo"                  = "NeMo",
+	"open_clip"             = "OpenCLIP",
+	"paddlenlp"             = "PaddleNLP",
+	"peft"                  = "PEFT",
+	"pyannote-audio"        = "pyannote.audio",
+	"sample-factory"        = "Sample Factory",
 	"sentence-transformers" = "Sentence Transformers",
-	"sklearn" = "Scikit-learn",
-	"spacy" = "spaCy",
-	"span-marker" = "SpanMarker",
-	"speechbrain" = "speechbrain",
-	"tensorflowtts" = "TensorFlowTTS",
-	"timm" = "Timm",
-	"fastai" = "fastai",
-	"transformers" = "Transformers",
-	"stanza" = "Stanza",
-	"fasttext" = "fastText",
-	"stable-baselines3" = "Stable-Baselines3",
-	"ml-agents" = "ML-Agents",
-	"pythae" = "Pythae",
-	"mindspore" = "MindSpore",
+	"sklearn"               = "Scikit-learn",
+	"spacy"                 = "spaCy",
+	"span-marker"           = "SpanMarker",
+	"speechbrain"           = "speechbrain",
+	"tensorflowtts"         = "TensorFlowTTS",
+	"timm"                  = "Timm",
+	"fastai"                = "fastai",
+	"transformers"          = "Transformers",
+	"stanza"                = "Stanza",
+	"fasttext"              = "fastText",
+	"stable-baselines3"     = "Stable-Baselines3",
+	"ml-agents"             = "ML-Agents",
+	"pythae"                = "Pythae",
+	"mindspore"             = "MindSpore",
 }
 
 export type ModelLibraryKey = keyof typeof ModelLibrary;
@@ -395,7 +395,7 @@ const transformers = (model: ModelData) => {
 	}
 };
 
-const peftTask = (peftTaskType: string) => {
+const peftTask = (peftTaskType?: string) => {
 	switch (peftTaskType) {
 		case "CAUSAL_LM":
 			return "CausalLM";
@@ -411,8 +411,7 @@ const peftTask = (peftTaskType: string) => {
 };
 
 const peft = (model: ModelData) => {
-
-	const { base_model_name: peftBaseModel, task_type: peftTaskType } = model.config.peft
+	const { base_model_name: peftBaseModel, task_type: peftTaskType } = model.config?.peft ?? {};
 	const pefttask = peftTask(peftTaskType);
 	if (!pefttask) {
 		return `Task type is invalid.`;
@@ -423,10 +422,10 @@ const peft = (model: ModelData) => {
 
 	return `from peft import PeftModel, PeftConfig
 from transformers import AutoModelFor${pefttask}
-	
+
 config = PeftConfig.from_pretrained("${model.id}")
 model = AutoModelFor${pefttask}.from_pretrained("${peftBaseModel}")
-model = PeftModel.from_pretrained(model, "${model.id}")`
+model = PeftModel.from_pretrained(model, "${model.id}")`;
 };
 
 const fasttext = (model: ModelData) =>
