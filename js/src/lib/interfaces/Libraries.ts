@@ -373,24 +373,23 @@ const transformers = (model: ModelData) => {
 		return `# ⚠️ Type of model unknown`;
 	}
 	const remote_code_snippet = info.custom_class ? ", trust_remote_code=True" : "";
-	const model_class = info.custom_class ?? info.auto_model;
 	if (info.processor) {
 		const varName = info.processor === "AutoTokenizer" ? "tokenizer"
 			: info.processor === "AutoFeatureExtractor" ? "extractor"
 				: "processor"
 		;
 		return [
-			`from transformers import ${info.processor}, ${model_class}`,
+			`from transformers import ${info.processor}, ${info.auto_model}`,
 			"",
 			`${varName} = ${info.processor}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 			"",
-			`model = ${model_class}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
+			`model = ${info.auto_model}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 		].join("\n");
 	} else {
 		return [
-			`from transformers import ${model_class}`,
+			`from transformers import ${info.auto_model}`,
 			"",
-			`model = ${model_class}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
+			`model = ${info.auto_model}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 		].join("\n");
 	}
 };
