@@ -15,7 +15,7 @@ You can upgrade your Space to have access to a persistent disk space from the **
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-storage-settings-dark.png"/>
 </div>
 
-By upgrading your Space, you get access to a some disk space that persists across restarts of your Space.
+By upgrading your Space, you get access to some disk space that persists across restarts of your Space.
 
 Persistent storage acts like a traditional disk storage, mounted on `/data`.
 
