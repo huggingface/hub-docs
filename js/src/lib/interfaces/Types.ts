@@ -636,6 +636,7 @@ export const ALL_SUBTASK_TYPES_SET = new Set(ALL_SUBTASK_TYPES);
 
 export const TAG_NFAA_CONTENT = "not-for-all-audiences";
 export const TAG_TEXT_GENERATION_INFERENCE = "text-generation-inference";
+export const TAG_CUSTOM_CODE = "custom_code";
 
 /**
  * Tags that are suggested inside the metadata GUI
