@@ -413,17 +413,21 @@ const peftTask = (peftTaskType: string) => {
 
 const peft = (model: ModelData) => {
 
-	const { base_model_name: peftBaseModel, task_type: peftTaskType } = model.config?.peft
+	const { base_model_name: peftBaseModel, task_type: peftTaskType } = model.config.peft
 	const pefttask = peftTask(peftTaskType);
-	if (!pefttask) return `Task type is invalid.`;
-	if (!peftBaseModel) return `Base model is not found.`;
+	if (!pefttask) {
+		return `Task type is invalid.`;
+	}
+	if (!peftBaseModel) {
+		return `Base model is not found.`;
+	}
 
 	return `from peft import PeftModel, PeftConfig
 	from transformers import AutoModelFor${pefttask}
 		
-	config = PeftConfig.from_pretrained(${model.id})
-	model = AutoModelFor${pefttask}.from_pretrained(${peftBaseModel})
-	model = PeftModel.from_pretrained(model, ${model.id})`
+	config = PeftConfig.from_pretrained("${model.id}")
+	model = AutoModelFor${pefttask}.from_pretrained("${peftBaseModel}")
+	model = PeftModel.from_pretrained(model, "${model.id}")`
 };
 
 const fasttext = (model: ModelData) =>
