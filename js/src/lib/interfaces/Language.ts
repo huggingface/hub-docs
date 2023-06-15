@@ -1241,6 +1241,7 @@ export const LANGUAGES: Record<string, Language> = {
 	lzh: {
 		code: "lzh",
 		name: "Literary Chinese",
+		nativeName: "文言",
 	},
 };
 
