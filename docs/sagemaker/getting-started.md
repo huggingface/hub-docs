@@ -2,7 +2,7 @@
 
 The get started guide will show you how to quickly use Hugging Face on Amazon SageMaker. Learn how to fine-tune and deploy a pretrained 🤗 Transformers model on SageMaker for a binary text classification task.
 
-💡 If you are new to Hugging Face, we recommend first reading the 🤗 Transformers [quick tour](https://huggingface.co/transformers/quicktour.html).
+💡 If you are new to Hugging Face, we recommend first reading the 🤗 Transformers [quick tour](https://huggingface.co/docs/transformers/quicktour).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pYqjCzoyWyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
