@@ -8,7 +8,7 @@ Thanks to this integration, users can now find the most popular demos for a pape
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/layout-lm-space-arxiv.gif)
 
-We'll cover two different ways on how to add your Space to ArXiv and have it show up in the Demos tab. 
+We'll cover two different ways to add your Space to ArXiv and have it show up in the Demos tab. 
 
 **Prerequisites**
 
