@@ -115,7 +115,7 @@ Example Jupyter notebooks that demonstrate how to build, train, and deploy [Hugg
 
 ## Inference Toolkit API
 
-The Inference Toolkit accepts inputs in the `inputs` key, and supports additional [`pipelines`](https://huggingface.co/transformers/main_classes/pipelines.html) parameters in the `parameters` key. You can provide any of the supported `kwargs` from `pipelines` as `parameters`.
+The Inference Toolkit accepts inputs in the `inputs` key, and supports additional [`pipelines`](https://huggingface.co/docs/transformers/main_classes/pipelines) parameters in the `parameters` key. You can provide any of the supported `kwargs` from `pipelines` as `parameters`.
 
 Tasks supported by the Inference Toolkit API include:
 
@@ -223,7 +223,7 @@ The Inference Toolkit implements various additional environment variables to sim
 
 **`HF_TASK`**
 
-`HF_TASK` defines the task for the 🤗 Transformers pipeline used . See [here](https://huggingface.co/transformers/main_classes/pipelines.html) for a complete list of tasks.
+`HF_TASK` defines the task for the 🤗 Transformers pipeline used . See [here](https://huggingface.co/docs/transformers/main_classes/pipelines) for a complete list of tasks.
 
 ```bash
 HF_TASK="question-answering"
