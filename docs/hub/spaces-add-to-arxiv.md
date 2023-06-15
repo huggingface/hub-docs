@@ -8,15 +8,22 @@ Thanks to this integration, users can now find the most popular demos for a pape
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/layout-lm-space-arxiv.gif)
 
-We'll cover the steps on how to add your Space to ArXiv and have it show up in  the Demos tab. There are a few prerequisites for this:
+We'll cover the steps on how to add your Space to ArXiv and have it show up in  the Demos tab. There are two different ways  prerequisites in order to get started:
 
 **Prerequisites**
 
 * There's an existing paper on ArXiv that you'd like to create a demo for
-* The paper is **associated with a model** that is on the Hugging Face Hub (or can be uploaded there)
 * You have built or (can build) a demo for the model on Spaces
 
-**Steps to Add Your Space to ArXiv**
+**Method 1 (Recommended): Linking from the Space Readme**
+
+The simplest way to add a Space to an ArXiv preprint to include the link to the preprint in the Space readme (README.md). It's good practice to include a full citation as well. You can see an example of a link and a citation on this [Echocardiogram Segmentation Space README](https://huggingface.co/spaces/abidlabs/echocardiogram-arxiv/blob/main/README.md). 
+
+And that's it! Your Space should appear in the Demo tab next to the paper on ArXiv in a few minutes 🤗
+
+**Method 2: Linking a Related Model**
+
+An alternative approach can be used to link Spaces to papers by linking an intermediate model to the Space. 
 
 1. First, upload the model associated with the ArXiv paper onto the Hugging Face Hub if it is not already there. ([Detailed instructions are here](./models-uploading))
 
@@ -45,4 +52,4 @@ We'll cover the steps on how to add your Space to ArXiv and have it show up in  
     *Note*:  You can also add linked models manually by explicitly updating them in the [README metadata for the Space, as described here](https://huggingface.co/docs/hub/spaces-config-reference).
 
 
-That's it! Your Space should appear in the Demo tab next to the paper on ArXiv in a few minutes 🤗
+Your Space should appear in the Demo tab next to the paper on ArXiv in a few minutes 🤗
