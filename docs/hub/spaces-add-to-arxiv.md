@@ -17,7 +17,7 @@ We'll cover two different ways to add your Space to ArXiv and have it show up in
 
 **Method 1 (Recommended): Linking from the Space README**
 
-The simplest way to add a Space to an ArXiv paper to include the link to the paper in the Space readme (README.md). It's good practice to include a full citation as well. You can see an example of a link and a citation on this [Echocardiogram Segmentation Space README](https://huggingface.co/spaces/abidlabs/echocardiogram-arxiv/blob/main/README.md). 
+The simplest way to add a Space to an ArXiv paper is to include the link to the paper in the Space README file (`README.md`). It's good practice to include a full citation as well. You can see an example of a link and a citation on this [Echocardiogram Segmentation Space README](https://huggingface.co/spaces/abidlabs/echocardiogram-arxiv/blob/main/README.md). 
 
 And that's it! Your Space should appear in the Demo tab next to the paper on ArXiv in a few minutes 🤗
 
