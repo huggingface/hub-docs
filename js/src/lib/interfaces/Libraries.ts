@@ -31,6 +31,7 @@ export enum ModelLibrary {
 	"timm"                  = "Timm",
 	"fastai"                = "fastai",
 	"transformers"          = "Transformers",
+	"transformers.js"       = "Transformers.js",
 	"stanza"                = "Stanza",
 	"fasttext"              = "fastText",
 	"stable-baselines3"     = "Stable-Baselines3",
@@ -395,6 +396,20 @@ const transformers = (model: ModelData) => {
 	}
 };
 
+const transformersJS = (model: ModelData) => {
+	if (!model.pipeline_tag) {
+		return `// ⚠️ Unknown pipeline tag`;
+	}
+
+	const libName = '@xenova/transformers';
+
+	return `// npm i ${libName}
+import { pipeline } from '${libName}';
+
+// Allocate pipeline
+let pipe = await pipeline('${model.pipeline_tag}', '${model.id}');`;
+};
+
 const peftTask = (peftTaskType?: string) => {
 	switch (peftTaskType) {
 		case "CAUSAL_LM":
@@ -622,6 +637,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoName: "🤗/transformers",
 		repoUrl: "https://github.com/huggingface/transformers",
 		snippet: transformers,
+	},
+	"transformers.js": {
+		btnLabel: "Transformers.js",
+		repoName: "transformers.js",
+		repoUrl: "https://github.com/xenova/transformers.js",
+		snippet: transformersJS,
 	},
 	"fasttext": {
 		btnLabel: "fastText",
