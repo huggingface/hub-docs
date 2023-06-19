@@ -28,7 +28,7 @@ const taskData: TaskDataCustom = {
 	},
 	metrics: [
 		{	description: " The Inception Score (IS) measures the quality of a model's image generation by assessing diversity and meaningfulness. It uses a generated image sample to predict its label. 
-					A higher score signifies more diverse and meaningful images.",
+A higher score signifies more diverse and meaningful images.",
 			id: "IS",
 		},
 		{	description: " The Fréchet Inception Distance (FID) overcomes the limitation of the Inception Score (IS) by considering the statistics of real-world samples when comparing them to synthetic samples.
