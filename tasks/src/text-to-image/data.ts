@@ -32,7 +32,7 @@ A higher score signifies more diverse and meaningful images.",
 			id: "IS",
 		},
 		{	description: " The Fréchet Inception Distance (FID) overcomes the limitation of the Inception Score (IS) by considering the statistics of real-world samples when comparing them to synthetic samples.
-					 It calculates the distance between distributions derived from model and real-world samples. A lower FID score indicates better similarity between the distributions of real and generated images.",
+calculates the distance between distributions between synthetic and real samples. A lower FID score indicates better similarity between the distributions of real and generated images.",
 			id: "FID",
 		},	
 		{
