@@ -29,7 +29,7 @@ const taskData: TaskDataCustom = {
 		},
 		{
 			description: "Estimate Root Mean Sqaure Error (RMSE) between logarithmic depth-estimate and logarithmic ground-truth",
-			id: "RMSE_Log",
+			id: "Logarithmic RMSE",
 		},
 		{
 			description: "Estimate Absolute Relative distance (ARD) between depth-estimate and ground-truth",
