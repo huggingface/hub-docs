@@ -27,7 +27,8 @@ const taskData: TaskDataCustom = {
 		],
 	},
 	metrics: [
-		{	description: " The Inception Score (IS) measures the quality of a model's image generation by assessing diversity and meaningfulness. It uses a generated image sample to predict its label. 
+		{
+			description: "The Inception Score (IS) measures assesses diversity and meaningfulness. It uses a generated image sample to predict its label. 
 A higher score signifies more diverse and meaningful images.",
 			id: "IS",
 		},
