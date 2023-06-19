@@ -35,7 +35,8 @@ const taskData: TaskDataCustom = {
 					 It calculates the distance between distributions derived from model and real-world samples. A lower FID score indicates better similarity between the distributions of real and generated images.",
 			id: "FID",
 		},	
-		{	description: "  R-precision serves as a metric to assess the extent to which the generated image aligns with the provided text description. It uses the generated images as queries to retrieve relevant text descriptions. 
+		{
+			description: "R-precision serves as a metric to assess how much the generated image aligns with the provided text description. It uses the generated images as queries to retrieve relevant text descriptions. 
 The top 'r' relevant descriptions are selected and used to calculate R-precision as r/R, where 'R' is the number of ground truth descriptions associated with the generated images. A higher R-precision value indicates a better model.",
 			id: "R-Precision",
 		},	
