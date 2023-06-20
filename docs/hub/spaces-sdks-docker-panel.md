@@ -12,20 +12,20 @@ You can deploy Panel on Spaces with just a few clicks:
 
 There are a few key parameters you need to define: the Owner (either your personal account or an organization), a Space name, and Visibility. In case you intend to execute computationally intensive deep learning models, consider upgrading to a GPU to boost performance. 
 
-<img src="https://raw.githubusercontent.com/holoviz/panel/main/doc/_static/images/hugging_face_space.png" style="width:90%"></img>
+<img src="https://raw.githubusercontent.com/holoviz/panel/main/doc/_static/images/hugging_face_space.png" style="width:70%"></img>
 
 Once you have created the space, it will start out in “Building” status, which will change to “Running” once your space is ready to go. 
 
 ## ⚡️ What will you see?
 When your space is built and ready, you will see this image classification Panel app which will let you fetch a random image and run the OpenAI CLIP classifier model on it. Check out our [blog post](https://blog.holoviz.org/building_an_interactive_ml_dashboard_in_panel.html) for a walkthrough of this app. 
 
-<img src="https://assets.holoviz.org/panel/gifs/hugging_face_template.gif" style="width:90%"></img>
+<img src="https://assets.holoviz.org/panel/gifs/hugging_face_template.gif" style="width:70%"></img>
 
 ## 🛠️ How to customize and make your own app?
 
 The Space template will populate a few files to get your app started: 
 
-<img src="https://raw.githubusercontent.com/holoviz/panel/main/doc/_static/images/hugging_face_space_files.png" style="width:90%"></img>
+<img src="https://raw.githubusercontent.com/holoviz/panel/main/doc/_static/images/hugging_face_space_files.png" style="width:70%"></img>
 
 Three files are important:
 
@@ -42,7 +42,7 @@ The Dockerfile contains a sequence of commands that Docker will execute to const
 
 This file defines the required packages for our Panel app. When using Space, dependencies listed in the requirements.txt file will be automatically installed. You have the freedom to modify this file by removing unnecessary packages or adding additional ones that are required for your application. Feel free to make the necessary changes to ensure your app has the appropriate packages installed.
 
-# 🌐Join Our Community
+## 🌐 Join Our Community
 The Panel community is vibrant and supportive, with experienced developers and data scientists eager to help and share their knowledge. Join us and connect with us:
 - [Discord](https://discord.gg/aRFhC3Dz9w)
 - [Discourse](https://discourse.holoviz.org/)
