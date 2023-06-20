@@ -89,6 +89,8 @@
         title: TensorBoard
       - local: timm
         title: timm
+      - local: transformers-js
+        title: Transformers.js
   - local: models-widgets
     title: Model Widgets
     sections:

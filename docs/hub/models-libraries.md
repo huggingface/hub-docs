@@ -34,6 +34,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3)            | Set of reliable implementations of deep reinforcement learning algorithms in PyTorch | ❌ | ✅ | ✅ | ✅ |
 | [TensorFlowTTS](https://github.com/TensorSpeech/TensorFlowTTS)              | Real-time state-of-the-art speech synthesis architectures.                           | ❌ | ❌ | ✅ | ❌ |
 | [Timm](https://github.com/rwightman/pytorch-image-models)                   | Collection of image models, scripts, pretrained weights, etc.                        | ✅ | ✅ | ✅ | ✅ |
+| [Transformers.js](https://github.com/xenova/transformers.js)                | State-of-the-art Machine Learning for the web. Run 🤗 Transformers directly in your browser, with no need for a server! | ❌ | ❌ | ✅ | ❌ |
 
 ### How can I add a new library to the Inference API?
 
