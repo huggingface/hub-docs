@@ -2,7 +2,7 @@
 
 Transformers.js is a JavaScript library for running 🤗 Transformers directly in your browser, with no need for a server! It is designed to be functionally equivalent to the [python library](https://github.com/huggingface/transformers), meaning you can run the same pretrained models using a very similar API.
 
-## Exploring transformers.js in the Hub
+## Exploring `transformers.js` in the Hub
 
 You can find `transformers.js` models by filtering at the left of the [models page](https://huggingface.co/models?library=transformers.js).
 
