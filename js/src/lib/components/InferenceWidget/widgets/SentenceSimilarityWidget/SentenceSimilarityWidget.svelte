@@ -141,7 +141,11 @@
 			"source_sentence",
 			"sentences",
 		]);
-		if (callApiOnMount && demoSourcesentence && demoComparisonSentence?.length) {
+		if (
+			callApiOnMount &&
+			demoSourcesentence &&
+			demoComparisonSentence?.length
+		) {
 			sourceSentence = (demoSourcesentence as string) ?? "";
 			comparisonSentences = demoComparisonSentence ?? [""];
 			nComparisonSentences = comparisonSentences.length;
