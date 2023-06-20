@@ -11,7 +11,7 @@ You can find `transformers.js` models by filtering at the left of the [models pa
 ## Quick tour
 
 
-It's super simple to translate from existing code! Just like the python library, we support the `pipeline` API. Pipelines group together a pretrained model with preprocessing of inputs and postprocessing of outputs, making it the easiest way to run models with the library.
+It's super simple to translate from existing code! Just like the Python library, we support the `pipeline` API. Pipelines group together a pretrained model with preprocessing of inputs and postprocessing of outputs, making it the easiest way to run models with the library.
 
 <table>
 <tr>
