@@ -4,7 +4,7 @@ Transformers.js is a JavaScript library for running 🤗 Transformers directly i
 
 ## Exploring `transformers.js` in the Hub
 
-You can find `transformers.js` models by filtering at the left of the [models page](https://huggingface.co/models?library=transformers.js).
+You can find `transformers.js` models by filtering by library in the [models page](https://huggingface.co/models?library=transformers.js).
 
 
 
