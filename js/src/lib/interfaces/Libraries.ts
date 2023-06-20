@@ -407,7 +407,7 @@ const transformersJS = (model: ModelData) => {
 import { pipeline } from '${libName}';
 
 // Allocate pipeline
-let pipe = await pipeline('${model.pipeline_tag}', '${model.id}');`;
+const pipe = await pipeline('${model.pipeline_tag}', '${model.id}');`;
 };
 
 const peftTask = (peftTaskType?: string) => {
