@@ -7,6 +7,8 @@ At a high level, the aim is to build a simpler version of other git hosts' (like
 - there's no hard distinction between discussions and PRs: they are essentially the same so they are displayed in the same lists.
 - they are streamlined for ML (i.e. models/datasets/spaces repos), not arbitrary repos.
 
+_Note, Pull Requests and discussions can be enabled or disabled from the [repository settings](./repositories-settings#disabling-discussions-pull-requests)_
+
 ## List
 
 By going to the community tab in any repository, you can see all Discussions and Pull requests. You can also filter to only see the ones that are open.
@@ -35,6 +37,33 @@ If you opened a PR or discussion, are the author of the repository, or have writ
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-edit-title-dark.PNG"/>
 </div>
 
+## Pin a Discussion / Pull Request
+
+If you have write access to a repository, you can pin discussions and Pull Requests. Pinned discussions appear at the top of all the discussions.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pin.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pin-dark.png"/>
+</div>
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pinned.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-pinned-dark.png"/>
+</div>
+
+## Lock a Discussion / Pull Request
+
+If you have write access to a repository, you can lock discussions or Pull Requests. Once a discussion is locked, previous comments are still visible and users won't be able to add new comments.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-lock.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-lock-dark.png"/>
+</div>
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-locked.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-locked-dark.png"/>
+</div>
 
 ## Comment edition and moderation
 
@@ -50,6 +79,18 @@ If you wrote a comment or have write access to the repository, you can edit the 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-menu-edit-dark.png"/>
 </div>
 
+Once the comment has been edited, a new link will appear above the comment. This link shows the edit history. 
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-edit-link.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-edit-link-dark.png"/>
+</div>
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-edit-history.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-comment-edit-history-dark.png"/>
+</div>
+
 You can also hide a comment. Hiding a comment is irreversible, and nobody will be able to see its content nor edit it anymore.
 
 <div class="flex justify-center">
@@ -58,6 +99,8 @@ You can also hide a comment. Hiding a comment is irreversible, and nobody will b
 </div>
 
 Read also [moderation](./moderation) to see how to report an abusive comment.
+
+
 
 ## How do I manage Pull requests locally?
 
