@@ -1,62 +1,51 @@
-# Shiny on Spaces
+# Panel on Spaces
 
-[Shiny](https://shiny.posit.co/) is an open-source framework for building simple, beautiful, and performant data applications. 
-The goal when developing Shiny was to build something simple enough to teach someone in an afternoon but extensible enough to power large, mission-critical applications. 
-You can create a useful Shiny app in a few minutes, but if the scope of your project grows, you can be sure that Shiny can accommodate that application.
+[Panel](https://panel.holoviz.org/) is an open-source Python library that lets you easily build powerful tools, dashboards and complex applications entirely in Python. It has a batteries-included philosophy, putting the PyData ecosystem, powerful data tables and much more at your fingertips. High-level reactive APIs and lower-level callback based APIs ensure you can quickly build exploratory applications, but you aren’t limited if you build complex, multi-page apps with rich interactivity. Panel is a member of the [HoloViz](https://holoviz.org/) ecosystem, your gateway into a connected ecosystem of data exploration tools.
 
-The main feature that differentiates Shiny from other frameworks is its reactive execution model. 
-When you write a Shiny app, the framework infers the relationship between inputs, outputs, and intermediary calculations and uses those relationships to render only the things that need to change as a result of a user's action. 
-The result is that users can easily develop efficient, extensible applications without explicitly caching data or writing callback functions.
+Visit [Panel documentation](https://panel.holoviz.org/) to learn more about making powerful applications. 
 
-## Shiny for Python
+## 🚀 Deploy Panel on Spaces
 
-[Shiny for Python](https://shiny.rstudio.com/py/) is a pure Python implementation of Shiny. 
-This gives you access to all of the great features of Shiny like reactivity, complex layouts, and modules without needing to use R. 
-Shiny for Python is ideal for Hugging Face applications because it integrates smoothly with other Hugging Face tools.
+You can deploy Panel on Spaces with just a few clicks:
 
-To get started deploying a Space, click this button to select your hardware and specify if you want a public or private Space.
-The Space template will populate a few files to get your app started.
+<a href="https://huggingface.co/new-space?template=Panel-Org/panel-template"> <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg"/> </a>
 
-<a  href="https://huggingface.co/new-space?template=posit/shiny-for-python-template"> <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg"/> </a>
+There are a few key parameters you need to define: the Owner (either your personal account or an organization), a Space name, and Visibility. In case you intend to execute computationally intensive deep learning models, consider upgrading to a GPU to boost performance. 
 
+<img src="https://raw.githubusercontent.com/holoviz/panel/main/doc/_static/images/hugging_face_space.png" style="width:90%"></img>
 
-_app.py_
+Once you have created the space, it will start out in “Building” status, which will change to “Running” once your space is ready to go. 
 
-This file defines your app's logic. To learn more about how to modify this file, see [the Shiny for Python documentation](https://shiny.rstudio.com/py/docs/overview.html). 
-As your app gets more complex, it's a good idea to break your application logic up into [modules](https://shiny.rstudio.com/py/docs/workflow-modules.html).
+## ⚡️ What will you see?
+When your space is built and ready, you will see this image classification Panel app which will let you fetch a random image and run the OpenAI CLIP classifier model on it. Check out our [blog post](https://blog.holoviz.org/building_an_interactive_ml_dashboard_in_panel.html) for a walkthrough of this app. 
 
-_Dockerfile_
+<img src="https://assets.holoviz.org/panel/gifs/hugging_face_template.gif" style="width:90%"></img>
 
-The Dockerfile for a Shiny for Python app is very minimal because the library doesn't have many system dependencies, but you may need to modify this file if your application has additional system dependencies. 
-The one essential feature of this file is that it exposes and runs the app on the port specified in the space README file (which is 7860 by default).
+## 🛠️ How to customize and make your own app?
 
-__requirements.txt__
+The Space template will populate a few files to get your app started: 
 
-The Space will automatically install dependencies listed in the requirements.txt file. 
-Note that you must include shiny in this file.
+<img src="https://raw.githubusercontent.com/holoviz/panel/main/doc/_static/images/hugging_face_space_files.png" style="width:90%"></img>
 
-## Shiny for R
+Three files are important:
 
-[Shiny for R](https://shiny.rstudio.com/) is a popular and well-established application framework in the R community and is a great choice if you want to host an R app on Hugging Face infrastructure or make use of some of the great [Shiny R extensions](https://github.com/nanxstats/awesome-shiny-extensions). 
-To integrate Hugging Face tools into an R app, you can either use [httr2](https://httr2.r-lib.org/) to call Hugging Face APIs, or [reticulate](https://rstudio.github.io/reticulate/) to call one of the Hugging Face Python SDKs.
+### 1. app.py
 
-To deploy an R Shiny Space, click this button and fill out the space metadata. 
-This will populate the Space with all the files you need to get started.
+This file defines your Panel application code. You can start by modifying the existing application or replace it entirely to build your own application. To learn more about writing your own Panel app, refer to the [Panel documentation](https://panel.holoviz.org/).
 
-<a  href="https://huggingface.co/new-space?template=posit/shiny-for-r-template"> <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg"/> </a>
+### 2. Dockerfile
+
+The Dockerfile contains a sequence of commands that Docker will execute to construct and launch an image as a container that your Panel app will run in. Typically, to serve a Panel app, we use the command "panel serve app.py". In this specific file, we divide the command into a list of strings. Furthermore, we must define the address and port because Hugging Face will expects to serve your application on port 7860. Additionally, we need to specify the "allow-websocket-origin" flag to enable the connection to the server's websocket. 
 
 
-_app.R_
-This file contains all of your application logic. If you prefer, you can break this file up into `ui.R` and `server.R`.
+### 3. requirements.txt
 
-_Dockerfile_
+This file defines the required packages for our Panel app. When using Space, dependencies listed in the requirements.txt file will be automatically installed. You have the freedom to modify this file by removing unnecessary packages or adding additional ones that are required for your application. Feel free to make the necessary changes to ensure your app has the appropriate packages installed.
 
-The Dockerfile builds off of the the [rocker shiny](https://hub.docker.com/r/rocker/shiny) image. You'll need to modify this file to use additional packages. 
-If you are using a lot of tidyverse packages we recommend switching the base image to [rocker/shinyverse](https://hub.docker.com/r/rocker/shiny-verse).
-You can install additional R packages by adding them under the `RUN install2.r` section of the dockerfile, and github packages can be installed by adding the repository under `RUN installGithub.r`.
-
-There are two main requirements for this Dockerfile:
-
--   First, the file must expose the port that you have listed in the README. The default is 7860 and we recommend not changing this port unless you have a reason to.
-
--   Second, for the moment you must use the development version of [httpuv](https://github.com/rstudio/httpuv) which resolves an issue with app timeouts on Hugging Face.
+# 🌐Join Our Community
+The Panel community is vibrant and supportive, with experienced developers and data scientists eager to help and share their knowledge. Join us and connect with us:
+- [Discord](https://discord.gg/aRFhC3Dz9w)
+- [Discourse](https://discourse.holoviz.org/)
+- [Twitter](https://twitter.com/Panel_Org)
+- [LinkedIn](https://www.linkedin.com/company/panel-org)
+- [Github](https://github.com/holoviz/panel)
