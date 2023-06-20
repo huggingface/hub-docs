@@ -7,6 +7,8 @@ At a high level, the aim is to build a simpler version of other git hosts' (like
 - there's no hard distinction between discussions and PRs: they are essentially the same so they are displayed in the same lists.
 - they are streamlined for ML (i.e. models/datasets/spaces repos), not arbitrary repos.
 
+> Pull Requests and discussions can be enabled or disabled from the [repository settings](./repositories-settings)
+
 ## List
 
 By going to the community tab in any repository, you can see all Discussions and Pull requests. You can also filter to only see the ones that are open.
@@ -97,15 +99,6 @@ You can also hide a comment. Hiding a comment is irreversible, and nobody will b
 </div>
 
 Read also [moderation](./moderation) to see how to report an abusive comment.
-
-## Disabling Discussions / Pull Requests
-
-From the repository settings, you can disable all discussions and Pull Requests. Once disabled, all community and contribution features won't be available anymore. This action can be reverted without losing any previous discussions or Pull Requests.
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-settings-disable.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-settings-disable-dark.png"/>
-</div>
 
 
 
