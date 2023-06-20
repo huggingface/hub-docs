@@ -163,6 +163,8 @@
         title: Shiny on Spaces
       - local: spaces-sdks-docker-zenml
         title: ZenML on Spaces
+      - local: spaces-sdks-docker-panel
+        title: Panel on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-run-with-docker
