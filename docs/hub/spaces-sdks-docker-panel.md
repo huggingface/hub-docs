@@ -45,12 +45,9 @@ This file defines the required packages for our Panel app. When using Space, dep
 
 ## 🌐 Join Our Community
 The Panel community is vibrant and supportive, with experienced developers and data scientists eager to help and share their knowledge. Join us and connect with us:
+
 - [Discord](https://discord.gg/aRFhC3Dz9w)
-
 - [Discourse](https://discourse.holoviz.org/)
-
 - [Twitter](https://twitter.com/Panel_Org)
-
 - [LinkedIn](https://www.linkedin.com/company/panel-org)
-
 - [Github](https://github.com/holoviz/panel)
