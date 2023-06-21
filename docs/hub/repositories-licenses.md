@@ -1,6 +1,6 @@
 # Licenses
 
-You are able to add a license to any repo that you create on the Hugging Face Hub to let other users know about the permissions that you want to attribute to your code. The license can also be added to your repository's `README.md` file, known as a *card* on the Hub, in the card's metadata section. Remember to seek out and respect a project's license if you're considering using their code.
+You are able to add a license to any repo that you create on the Hugging Face Hub to let other users know about the permissions that you want to attribute to your code. The license can be specified in your repository's `README.md` file, known as a *card* on the Hub, in the card's metadata section. Remember to seek out and respect a project's license if you're considering using their code.
 
 A full list of the available licenses is available here:
 
@@ -67,6 +67,7 @@ Open Rail++-M License | `openrail++`
 Open Software License 3.0 | `osl-3.0`
 PostgreSQL License | `postgresql`
 SIL Open Font License 1.1 | `ofl-1.1`
+TII Falcon LLM License | `tii-falcon-llm`
 University of Illinois/NCSA Open Source License | `ncsa`
 The Unlicense | `unlicense`
 zLib License | `zlib`

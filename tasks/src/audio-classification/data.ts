@@ -55,10 +55,14 @@ const taskData: TaskDataCustom = {
 		},
 		{
 			description: "An Emotion Recognition model.",
-			id:          "superb/hubert-large-superb-er",
+			id:          "ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition",
+		},
+		{
+			description: "A language identification model.",
+			id:          "facebook/mms-lid-126",
 		},
 	],
-	spaces:  [
+	spaces: [
 		{
 			description: "An application that can predict the language spoken in a given audio.",
 			id:          "akhaliq/Speechbrain-audio-classification",
@@ -66,7 +70,7 @@ const taskData: TaskDataCustom = {
 	],
 	summary:
 		"Audio classification is the task of assigning a label or class to a given audio. It can be used for recognizing which command a user is giving or the emotion of a statement, as well as identifying a speaker.",
-	widgetModels: ["speechbrain/google_speech_command_xvector"],
+	widgetModels: ["facebook/mms-lid-126"],
 	youtubeId:    "KWwzcmG98Ds",
 };
 

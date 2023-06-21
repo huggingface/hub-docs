@@ -49,14 +49,7 @@ At runtime, you can access the secrets as environment variables. For example, in
 
 ## Permissions
 
-The container runs with user ID 1000. If you face permission issues, you might need to use `chmod` in your `Dockerfile` to grant the right permissions. For example, if you want to use the directory `/data`, you can do:
-
-```Dockerfile
-RUN mkdir -p /data
-RUN chmod 777 /data
-```
-
-Alternatively, you can create a user and set the `WORKDIR` to the user's home directory. This way, you can avoid user permission issues.
+The container runs with user ID 1000. To avoid permission issues you should create a user and set its `WORKDIR` before any `COPY` or download.
 
 ```Dockerfile
 # Set up a new user named "user" with user ID 1000
@@ -72,9 +65,44 @@ ENV HOME=/home/user \
 # Set the working directory to the user's home directory
 WORKDIR $HOME/app
 
+# Try and run pip command after setting the user with `USER user` to avoid permission issues with Python
+RUN pip install --no-cache-dir --upgrade pip
+
 # Copy the current directory contents into the container at $HOME/app setting the owner to the user
 COPY --chown=user . $HOME/app
+
+# Download a checkpoint
+RUN mkdir content
+ADD --chown=user https://<SOME_ASSET_URL> content/<SOME_ASSET_NAME>
 ```
+
+<Tip warning="{true}">
+Always specify the `--chown=user` with `ADD` and `COPY` to ensure the new files are owned by your user.
+</Tip>
+
+If you still face permission issues, you might need to use `chmod` or `chown` in your `Dockerfile` to grant the right permissions. For example, if you want to use the directory `/data`, you can do:
+
+```Dockerfile
+RUN mkdir -p /data
+RUN chmod 777 /data
+```
+
+You should always avoid superfluous chowns.
+<Tip warning={true}>
+Updating metadata for a file creates a new copy stored in the new layer. Therefore, a recursive chown can result in a very large image due to the duplication of all affected files.
+</Tip>
+
+Rather than fixing permission by running `chown`:
+```
+COPY checkpoint .
+RUN chown -R user checkpoint
+```
+you should always do:
+```
+COPY --chown=user checkpoint .
+```
+(same goes for `ADD` command)
+
 
 ## Data Persistence
 

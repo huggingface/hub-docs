@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { WidgetProps, ImageSegment } from "../../shared/types";
+
 	import { onMount } from "svelte";
+
 	import { COLORS } from "../../shared/consts";
 	import { clamp, mod, hexToRgb } from "../../../../utils/ViewUtils";
 	import {
@@ -8,12 +10,12 @@
 		getBlobFromUrl,
 		getDemoInputs,
 	} from "../../shared/helpers";
-
-	import Canvas from "./Canvas.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
+
+	import Canvas from "./Canvas.svelte";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -263,7 +265,7 @@
 	<svelte:fragment slot="top">
 		<form>
 			<WidgetDropzone
-				classNames="no-hover:hidden"
+				classNames="hidden md:block"
 				{isLoading}
 				{imgSrc}
 				{onSelectFile}
@@ -276,7 +278,7 @@
 			<!-- Better UX for mobile/table through CSS breakpoints -->
 			{#if imgSrc}
 				<Canvas
-					classNames="mr-2 with-hover:hidden"
+					classNames="mr-2 md:hidden"
 					{imgSrc}
 					{highlightIndex}
 					{mousemove}
@@ -286,7 +288,7 @@
 			{/if}
 			<WidgetFileInput
 				accept="image/*"
-				classNames="mr-2 with-hover:hidden"
+				classNames="mr-2 md:hidden"
 				{isLoading}
 				label="Browse for image"
 				{onSelectFile}

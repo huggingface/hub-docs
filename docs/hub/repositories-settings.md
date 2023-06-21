@@ -25,3 +25,12 @@ Moving does not work for ❌
 - Transferring a repository from user A to user B.
 
 If these are use cases you need help with, please send us an email at **website at huggingface.co**.
+
+## Disabling Discussions / Pull Requests
+
+You can disable all discussions and Pull Requests. Once disabled, all community and contribution features won't be available anymore. This action can be reverted without losing any previous discussions or Pull Requests.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-settings-disable.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-settings-disable-dark.png"/>
+</div>

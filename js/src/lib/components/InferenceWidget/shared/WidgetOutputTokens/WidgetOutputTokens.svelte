@@ -93,14 +93,14 @@
 {#if text && output.length}
 	<!-- 
 		For Tailwind:
-		bg-teal-100 text-teal-800 bg-teal-500 text-teal-100
-		bg-indigo-100 text-indigo-800 bg-indigo-500 text-indigo-100
-		bg-orange-100 text-orange-800 bg-orange-500 text-orange-100
-		bg-sky-100 text-sky-800 bg-sky-500 text-sky-100
-		bg-violet-100 text-violet-800 bg-violet-500 text-violet-100
-		bg-purple-100 text-purple-800 bg-purple-500 text-purple-100
-		bg-fuchsia-100 text-fuchsia-800 bg-fuchsia-500 text-fuchsia-100
-		bg-pink-100 text-pink-800 bg-pink-500 text-pink-100 
+		bg-teal-100 text-teal-800 bg-teal-500 text-teal-100 dark:text-teal-100 dark:bg-teal-700
+		bg-indigo-100 text-indigo-800 bg-indigo-500 text-indigo-100 dark:text-indigo-100 dark:bg-indigo-700
+		bg-orange-100 text-orange-800 bg-orange-500 text-orange-100 dark:text-orange-100 dark:bg-orange-700
+		bg-sky-100 text-sky-800 bg-sky-500 text-sky-100 dark:text-sky-100 dark:bg-sky-700
+		bg-violet-100 text-violet-800 bg-violet-500 text-violet-100 dark:text-violet-100 dark:bg-violet-700
+		bg-purple-100 text-purple-800 bg-purple-500 text-purple-100 dark:text-purple-100 dark:bg-purple-700
+		bg-fuchsia-100 text-fuchsia-800 bg-fuchsia-500 text-fuchsia-100 dark:text-fuchsia-100 dark:bg-fuchsia-700
+		bg-pink-100 text-pink-800 bg-pink-500 text-pink-100 dark:text-pink-100 dark:bg-pink-700
 	-->
 	<div class="text-gray-800 leading-8 {classNames}">
 		{@html render(text, output)}

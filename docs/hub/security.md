@@ -4,7 +4,7 @@ The Hugging Face Hub offers several security features to ensure that your code a
 
 Hugging Face is GDPR compliant. If a contract or specific data storage is something you'll need, we recommend taking a look at our [Expert Acceleration Program](https://huggingface.co/support). Hugging Face can also offer Business Associate Addendums or GDPR data processing agreements through an [Enterprise Plan](https://huggingface.co/pricing). 
 
-Hugging Face is also [SOC2 Type 1 certified](https://us.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc1report.html), meaning we provide security certification to our customers and actively monitor and patch any security weaknesses.
+Hugging Face is also [SOC2 Type 2 certified](https://us.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html), meaning we provide security certification to our customers and actively monitor and patch any security weaknesses.
 
 <img width="150" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-soc-1.jpg">
 

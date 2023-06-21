@@ -17,11 +17,12 @@ All models on the Hub come up with useful features:
 </div>
 
 ## Install the library
+
 To install the `ml-agents` library, you need to clone the repo:
 
 ```
 # Clone the repository
-git clone https://github.com/huggingface/ml-agents/
+git clone https://github.com/Unity-Technologies/ml-agents
 
 # Go inside the repository and install the package
 cd ml-agents
@@ -30,6 +31,7 @@ pip3 install -e ./ml-agents
 ```
 
 ## Using existing models
+
 You can simply download a model from the Hub using `mlagents-load-from-hf`.
 
 ```
@@ -41,7 +43,8 @@ You need to define two parameters:
 - `--local-dir`: the path to download the model.
 
 ## Visualize an agent playing
-You can easily watch any `ml-agent` playing directly in your browser:
+
+You can easily watch any model playing directly in your browser:
 
 1. Go to your model repo.
 2. In the `Watch Your Agent Play` section, click on the link.
@@ -49,6 +52,7 @@ You can easily watch any `ml-agent` playing directly in your browser:
 4. In step 2, choose what model you want to replay.
 
 ## Sharing your models
+
 You can easily upload your models using `mlagents-push-to-hf`:
 
 ```
@@ -64,5 +68,5 @@ You need to define four parameters:
 
 ## Additional resources
 
-* Hugging Face ML-Agents [documentation](https://github.com/huggingface/ml-agents)
+* ML-Agents [documentation](https://github.com/Unity-Technologies/ml-agents/blob/develop/docs/Hugging-Face-Integration.md)
 * Official Unity ML-Agents Spaces [demos](https://huggingface.co/unity)
