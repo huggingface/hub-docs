@@ -105,7 +105,7 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	summary:      "Generating text is the task of producing new text. These models can, for example, fill in incomplete text or paraphrase.",
-	widgetModels: ["bigscience/bloom-560m"],
+	widgetModels: ["tiiuae/falcon-7b-instruct"],
 	youtubeId:    "Vpjb1lu0MDk",
 };
 
