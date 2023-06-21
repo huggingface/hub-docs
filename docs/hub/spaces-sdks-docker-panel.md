@@ -17,7 +17,8 @@ There are a few key parameters you need to define: the Owner (either your person
 Once you have created the Space, it will start out in “Building” status, which will change to “Running” once your Space is ready to go. 
 
 ## ⚡️ What will you see?
-When your space is built and ready, you will see this image classification Panel app which will let you fetch a random image and run the OpenAI CLIP classifier model on it. Check out our [blog post](https://blog.holoviz.org/building_an_interactive_ml_dashboard_in_panel.html) for a walkthrough of this app. 
+
+When your Space is built and ready, you will see this image classification Panel app which will let you fetch a random image and run the OpenAI CLIP classifier model on it. Check out our [blog post](https://blog.holoviz.org/building_an_interactive_ml_dashboard_in_panel.html) for a walkthrough of this app. 
 
 <img src="https://assets.holoviz.org/panel/gifs/hugging_face_template.gif" style="width:70%"></img>
 
