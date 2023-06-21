@@ -27,7 +27,7 @@ Persistent disk Space can be upgraded to a larger tier at will, though cannot be
 	WARNING: all data stored in the storage is lost when you delete it.
 </Tip>
 
-### Persitent storage specs
+### Persistent storage specs
 
 Here are the specifications for each of the different upgrade options:
 
