@@ -12,7 +12,7 @@ You can deploy Panel on Spaces with just a few clicks:
 
 There are a few key parameters you need to define: the Owner (either your personal account or an organization), a Space name, and Visibility. In case you intend to execute computationally intensive deep learning models, consider upgrading to a GPU to boost performance. 
 
-<img src="https://raw.githubusercontent.com/holoviz/panel/main/doc/_static/images/hugging_face_space.png" style="width:70%"></img>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-panel.png" style="width:70%">
 
 Once you have created the Space, it will start out in “Building” status, which will change to “Running” once your Space is ready to go. 
 
@@ -20,13 +20,13 @@ Once you have created the Space, it will start out in “Building” status, whi
 
 When your Space is built and ready, you will see this image classification Panel app which will let you fetch a random image and run the OpenAI CLIP classifier model on it. Check out our [blog post](https://blog.holoviz.org/building_an_interactive_ml_dashboard_in_panel.html) for a walkthrough of this app. 
 
-<img src="https://assets.holoviz.org/panel/gifs/hugging_face_template.gif" style="width:70%"></img>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-panel-demo.gif" style="width:70%">
 
 ## 🛠️ How to customize and make your own app?
 
 The Space template will populate a few files to get your app started: 
 
-<img src="https://raw.githubusercontent.com/holoviz/panel/main/doc/_static/images/hugging_face_space_files.png" style="width:70%"></img>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-panel-files.png" style="width:70%">
 
 Three files are important:
 
@@ -46,7 +46,11 @@ This file defines the required packages for our Panel app. When using Space, dep
 ## 🌐 Join Our Community
 The Panel community is vibrant and supportive, with experienced developers and data scientists eager to help and share their knowledge. Join us and connect with us:
 - [Discord](https://discord.gg/aRFhC3Dz9w)
+
 - [Discourse](https://discourse.holoviz.org/)
+
 - [Twitter](https://twitter.com/Panel_Org)
+
 - [LinkedIn](https://www.linkedin.com/company/panel-org)
+
 - [Github](https://github.com/holoviz/panel)
