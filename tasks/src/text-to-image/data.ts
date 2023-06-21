@@ -38,7 +38,7 @@ calculates the distance between distributions between synthetic and real samples
 			id: "FID",
 		},	
 		{
-			description: "R-precision serves as a metric to assess how much the generated image aligns with the provided text description. It uses the generated images as queries to retrieve relevant text descriptions. 
+			description: "R-precision assesses how the generated image aligns with the provided text description. It uses the generated images as queries to retrieve relevant text descriptions. 
 The top 'r' relevant descriptions are selected and used to calculate R-precision as r/R, where 'R' is the number of ground truth descriptions associated with the generated images. A higher R-precision value indicates a better model.",
 			id: "R-Precision",
 		},	
