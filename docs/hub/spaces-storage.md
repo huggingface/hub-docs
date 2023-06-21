@@ -15,13 +15,13 @@ You can upgrade your Space to have access to persistent disk space from the **Se
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-storage-settings-dark.png"/>
 </div>
 
-You can choose the storage tier of your choice to get access to disk space that persists across restarts of your Space.
+You can choose the storage tier of your choice access disk space that persists across restarts of your Space.
 
-Persistent storage acts like a traditional disk storage, mounted on `/data`.
+Persistent storage acts like traditional disk storage mounted on `/data`.
 
-That means you can `read` and `write to` this storage from your Space as you would with a traditional hard-drive or SSD.
+That means you can `read` and `write to` this storage from your Space as you would with a traditional hard drive or SSD.
 
-Persistent disk Space can be upgraded to a larger tier at will, though cannot be downgraded to a smaller tier. If you wish to use a smaller persistent storage tier, you must delete your current (larger) storage first.
+Persistent disk space can be upgraded to a larger tier at will, though it cannot be downgraded to a smaller tier. If you wish to use a smaller persistent storage tier, you must delete your current (larger) storage first.
 
 <Tip warning={true}>
 	WARNING: all data stored in the storage is lost when you delete it.
