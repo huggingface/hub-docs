@@ -36,7 +36,7 @@ This file defines your Panel application code. You can start by modifying the ex
 
 ### 2. Dockerfile
 
-The Dockerfile contains a sequence of commands that Docker will execute to construct and launch an image as a container that your Panel app will run in. Typically, to serve a Panel app, we use the command "panel serve app.py". In this specific file, we divide the command into a list of strings. Furthermore, we must define the address and port because Hugging Face will expects to serve your application on port 7860. Additionally, we need to specify the "allow-websocket-origin" flag to enable the connection to the server's websocket. 
+The Dockerfile contains a sequence of commands that Docker will execute to construct and launch an image as a container that your Panel app will run in. Typically, to serve a Panel app, we use the command `panel serve app.py`. In this specific file, we divide the command into a list of strings. Furthermore, we must define the address and port because Hugging Face will expect to serve your application on port 7860. Additionally, we need to specify the `allow-websocket-origin` flag to enable the connection to the server's websocket. 
 
 
 ### 3. requirements.txt
