@@ -73,6 +73,10 @@ const taskData: TaskDataCustom = {
 			description: "A large text-to-text model trained to follow instructions.",
 			id:          "google/flan-ul2",
 		},
+		{
+			description: "A large and powerful text generation model.",
+			id:          "tiiuae/falcon-40b",
+		},
 	],
 	spaces:       [
 		{
@@ -101,7 +105,7 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	summary:      "Generating text is the task of producing new text. These models can, for example, fill in incomplete text or paraphrase.",
-	widgetModels: ["gpt2"],
+	widgetModels: ["tiiuae/falcon-7b-instruct"],
 	youtubeId:    "Vpjb1lu0MDk",
 };
 
