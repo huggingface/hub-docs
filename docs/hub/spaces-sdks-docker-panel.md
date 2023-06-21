@@ -14,7 +14,7 @@ There are a few key parameters you need to define: the Owner (either your person
 
 <img src="https://raw.githubusercontent.com/holoviz/panel/main/doc/_static/images/hugging_face_space.png" style="width:70%"></img>
 
-Once you have created the space, it will start out in “Building” status, which will change to “Running” once your space is ready to go. 
+Once you have created the Space, it will start out in “Building” status, which will change to “Running” once your Space is ready to go. 
 
 ## ⚡️ What will you see?
 When your space is built and ready, you will see this image classification Panel app which will let you fetch a random image and run the OpenAI CLIP classifier model on it. Check out our [blog post](https://blog.holoviz.org/building_an_interactive_ml_dashboard_in_panel.html) for a walkthrough of this app. 
