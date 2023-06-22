@@ -23,6 +23,9 @@ That means you can `read` and `write to` this storage from your Space as you wou
 
 Persistent disk space can be upgraded to a larger tier at will, though it cannot be downgraded to a smaller tier. If you wish to use a smaller persistent storage tier, you must delete your current (larger) storage first.
 
+If you are using Hugging Face open source libraries, you can make your Space restart faster by setting the environment variable `HF_HOME` to `/data/.huggingface`.
+`transformers`, `diffusers`, `datasets` and others use that path to cache any assets downloaded from the Hugging Face hub. Visit the libraries' documentations for more details.
+
 <Tip warning={true}>
 	WARNING: all data stored in the storage is lost when you delete it.
 </Tip>
@@ -49,8 +52,9 @@ Additional information about billing can be found in the [dedicated Hub-wide sec
 
 ## Dataset storage
 
-If you need to persist data that lives longer than your Space, you could 
-use a [dataset repo](./datasets).
+If you need to persist data that lives longer than your Space, you could use a [dataset repo](./datasets).
+
+You can find an example of persistence [here](https://huggingface.co/spaces/julien-c/persistent-data), which uses the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index) for programmatically uploading files to a dataset repository.
 
 Visit the [`datasets` library](https://huggingface.co/docs/datasets/index) documentation and the [`huggingface_hub` client library](https://huggingface.co/docs/huggingface_hub/index) 
 documentation for more information on how to programmatically interact with dataset repos.

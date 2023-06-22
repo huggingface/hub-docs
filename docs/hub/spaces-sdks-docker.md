@@ -78,9 +78,11 @@ COPY --chown=user . $HOME/app
 
 ## Data Persistence
 
-We don't yet provide a built-in way to persist data in the Docker Spaces. However, we suggest using our Datasets Hub for specific cases, where you can store state and data in a git LFS repository. You can find an example of persistence [here](https://huggingface.co/spaces/julien-c/persistent-data), which uses the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index) for programmatically uploading files to a dataset repository.
+The data written on disk is lost whenever your Docker Space restarts, unless you opt-in for a [persistent storage](./spaces-storage) upgrade.
 
-In other cases, you might want to use an external storage solution from your Space's code like an external hosted DB, S3, etc.
+You can also use our Datasets Hub for specific cases, where you can store state and data in a git LFS repository. You can find an example of persistence [here](https://huggingface.co/spaces/julien-c/persistent-data), which uses the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index) for programmatically uploading files to a dataset repository.
+
+In some cases, you might want to use an external storage solution from your Space's code like an external hosted DB, S3, etc.
 
 ## Read More
 
