@@ -18,7 +18,13 @@ You can deploy Argilla on Spaces with just a few clicks:
     <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg" />
 </a>
 
-You need to define the **Owner** (your personal account or an organization), a **Space name**, and the **Visibility**. To interact with the Argilla app with Python, you need to setup the visibility to `Public`. If you plan to use the Space frequently or handle large datasets for data labeling and feedback collection, upgrading the hardware with a more powerful CPU and increased RAM can enhance performance.
+
+<Tip>
+**IMPORTANT NOTE ABOUT DATA PERSISTENCE:**
+You can use the Argilla Quickstart Space as is for initial exploration and experimentation. For **longer use in small-scale projects, activate the paid persistent storage option**. This prevents data loss during Space restarts every 24 hours. If not using persistent storage, safeguard your data with Argilla Python SDK by storing it elsewhere. In this case, we gently remind you that the responsibility for maintaining your data's safety becomes yours.
+</Tip>
+
+You need to define the **Owner** (your personal account or an organization), a **Space name**, and the **Visibility**. To interact with the Argilla app with Python, you need to set up the visibility to `Public`.
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-argilla-new-space.png"/>
@@ -28,13 +34,10 @@ You need to define the **Owner** (your personal account or an organization), a *
 If you want to customize the title, emojis, and colors of your space, go to "Files and Versions" and edit the metadata of your README.md file.
 </Tip>
 
-Once you have created the space, you'll see the `Building` status and once it becomes `Running` your space is ready to go. If you don't see the Argilla login UI refresh the page.
+Once you have created the Space, you'll see the `Building` status and once it becomes `Running` your space is ready to go if you don't see the Argilla login UI refresh the page.
 
-The Space is configured with **two users**: **argilla** and **admin** with the same default password: **12345678**. If you get a 500 error after login, make sure you have correctly introduce the user and password. To secure your Space, you can change the passwords and API keys using secret variables as explained in the next section. 
+The Space is configured with **two users**: **argilla** and **admin** with the same default password: **12345678**. If you get a 500 error after login, make sure you have correctly introduced the user and password. To secure your Space, you can change the passwords and API keys using secret variables as explained in the next section. 
 
-<Tip>
-**IMPORTANT NOTE**: Currently, it's not possible to persist data to disk with Docker Spaces. This means that, if your Space gets restarted or rebooted you will loose your datasets inside the Argilla Space. As default Spaces get restarted every 24 hours of inactivity or due to other reasons, we highly recommend using the Argilla Python SDK to read the datasets and save them somewhere (e.g., your local machine or the Hugging Face Hub using the `to_datasets().push_to_hub` method. 
-</Tip>
 
 ## Set up passwords and API keys using secrets (optional)
 
@@ -193,4 +196,3 @@ As a next step, check out the [Argilla Tutorials](https://docs.argilla.io/en/lat
 ## Feedback and support
 
 If you have suggestions or need specific support, please join [Argilla Slack community](https://join.slack.com/t/rubrixworkspace/shared_invite/zt-whigkyjn-a3IUJLD7gDbTZ0rKlvcJ5g) or reach out on [Argilla's GitHub repository](https://github.com/argilla-io/argilla).
-
