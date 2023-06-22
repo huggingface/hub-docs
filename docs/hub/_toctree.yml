@@ -138,6 +138,8 @@
       title: Using Spaces for Organization Cards
   - local: spaces-gpus
     title: Spaces GPU Upgrades
+  - local: spaces-storage
+    title: Spaces Persistent Storage
   - local: spaces-sdks-gradio
     title: Gradio Spaces
   - local: spaces-sdks-streamlit
