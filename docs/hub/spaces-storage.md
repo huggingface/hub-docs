@@ -1,6 +1,6 @@
 # Disk usage on Spaces
 
-Every Space comes with a small amount of disk storage. This disk space is ephemeral, meaning its content will be lost if your Space restarts.
+Every Space comes with a small amount of disk storage. This disk space is ephemeral, meaning its content will be lost if your Space restarts or is stopped.
 If you need to persist data with a longer lifetime than the Space itself, you can:
 - [Subscribe to a persistent storage upgrade](#persistent-storage)
 - [Use a dataset as a data store](#dataset-storage)
@@ -15,7 +15,7 @@ You can upgrade your Space to have access to persistent disk space from the **Se
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-storage-settings-dark.png"/>
 </div>
 
-You can choose the storage tier of your choice access disk space that persists across restarts of your Space.
+You can choose the storage tier of your choice to access disk space that persists across restarts of your Space.
 
 Persistent storage acts like traditional disk storage mounted on `/data`.
 
