@@ -24,7 +24,7 @@ For step-by-step tutorials to creating your first Space, see the guides below:
 
 ## Hardware resources
 
-Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50Gb of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators and persistent storage, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
+Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators and persistent storage, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
 
 | **Hardware**        	| **GPU Memory** 	| **CPU** 	| **Memory** 	| **Disk** 	| **Hourly Price** 	|
 |---------------------	|-----------------	|----------	|--------------	|----------	| ----------------	|
@@ -43,7 +43,7 @@ Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50Gb of (not per
 | Medium              	| Ephemeral + 150GB   	| Yes              	| $25                  	|
 | Large               	| Ephemeral + 1TB     	| yes              	| $100                 	|
 
-Note: those prices might not be up-to-date, check [our pricing page](https://huggingface.co/pricing) for latest prices.
+Note: Find more detailed and comprehensive pricing information on [our pricing page](https://huggingface.co/pricing).
 
 Do you have an awesome Space but need help covering the hardware upgrade costs? We love helping out those with an innovative Space so please feel free to apply for a community GPU grant using the link in the _Settings_ tab of your Space and see if yours makes the cut!
 
