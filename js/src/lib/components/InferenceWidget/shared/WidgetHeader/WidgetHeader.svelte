@@ -25,7 +25,7 @@
 				<IconLightning classNames="-ml-1 mr-1 text-yellow-500" />
 				Hosted inference API
 			</div>
-			<a target="_blank" href="https://api-inference.huggingface.co/">
+			<a target="_blank" href="https://huggingface.co/docs/api-inference">
 				<IconInfo classNames="ml-1.5 text-sm text-gray-400 hover:text-black" />
 			</a>
 		{/if}
