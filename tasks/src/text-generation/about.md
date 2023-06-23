@@ -44,6 +44,7 @@ generator("Hello, I'm a language model", max_length = 30, num_return_sequences=3
 ##  {'generated_text': "Hello, I'm a language modeler. I write and maintain software in Python. I love to code, and that includes coding things that require writing"}, ...
 ```
 
+
 [Text-to-Text generation models](https://huggingface.co/models?pipeline_tag=text2text-generation&sort=downloads) have a separate pipeline called `text2text-generation`. This pipeline takes an input containing the sentence including the task and returns the output of the accomplished task.
 
 ```python
@@ -57,23 +58,20 @@ text2text_generator("translate from English to French: I'm very happy")
 [{'generated_text': 'Je suis très heureux'}]
 ```
 
-The [T0 model](https://huggingface.co/bigscience/T0) is even more robust and flexible on task prompts.
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to infer text classification models on Hugging Face Hub.
 
-```python
-text2text_generator = pipeline("text2text-generation", model = "bigscience/T0")
+```javascript
+import { HfInference } from "@huggingface/inference";
 
-text2text_generator("Is the word 'table' used in the same meaning in the two previous sentences? Sentence A: you can leave the books on the table over there. Sentence B: the tables in this book are very hard to read." )
-## [{"generated_text": "No"}]
-
-text2text_generator("A is the son's of B's brother. What is the family relationship between A and B?")
-## [{"generated_text": "brother"}]
-
-text2text_generator("Is this review positive or negative? Review: this is the best cast iron skillet you will ever buy")
-## [{"generated_text": "positive"}]
-
-text2text_generator("Reorder the words in this sentence: justin and name bieber years is my am I 27 old.")
-##  [{"generated_text": "Justin Bieber is my name and I am 27 years old"}]
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.conversational({
+  model: 'distilbert-base-uncased-finetuned-sst-2-english',
+  inputs: "I love this movie!"
+})
 ```
+
+
+
 
 ## Useful Resources
 

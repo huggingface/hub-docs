@@ -38,6 +38,21 @@ images = pipe(prompt=prompt, image=init_image, strength=0.75, guidance_scale=7.5
 images[0].save("fantasy_landscape.png")
 ```
 
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to infer image-to-image models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.imageToImage({
+  data: await (await fetch('image')).blob(),
+  model: "timbrooks/instruct-pix2pix", 
+  parameters: {
+    prompt: "Deblur this image"
+  }
+})
+
+
 ## ControlNet
 
 Controlling outputs of diffusion models only with a text prompt is a challenging problem. ControlNet is a neural network type that provides an image based control to diffusion models. These controls can be edges or landmarks in an image.

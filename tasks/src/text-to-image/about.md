@@ -1,5 +1,4 @@
 ## Use Cases
-
 ### Data Generation
   
 Businesses can generate data for their their use cases by inputting text and getting image outputs. 
@@ -20,9 +19,36 @@ Architects can utilise the models to construct an environment based out on the r
 
 You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/text-to-image/about.md).
 
+
 ## Inference
 
-You can add a small snippet [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/text-to-image/about.md) that shows how to infer with `text-to-image` models.
+You can use diffusers pipelines to infer with `text-to-image` models.
+```python
+from diffusers import StableDiffusionPipeline, EulerDiscreteScheduler
+
+model_id = "stabilityai/stable-diffusion-2"
+scheduler = EulerDiscreteScheduler.from_pretrained(model_id, subfolder="scheduler")
+pipe = StableDiffusionPipeline.from_pretrained(model_id, scheduler=scheduler, torch_dtype=torch.float16)
+pipe = pipe.to("cuda")
+
+prompt = "a photo of an astronaut riding a horse on mars"
+image = pipe(prompt).images[0]
+```
+
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to infer text-to-image models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.textToImage({
+  model: 'stabilityai/stable-diffusion-2',
+  inputs: 'award winning high resolution photo of a giant tortoise/((ladybird)) hybrid, [trending on artstation]',
+  parameters: {
+    negative_prompt: 'blurry',
+  }
+})
+```
   
 ## Useful Resources
 - [Hugging Face Diffusion Models Course](https://github.com/huggingface/diffusion-models-class)

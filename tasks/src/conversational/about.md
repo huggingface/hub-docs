@@ -29,6 +29,18 @@ converse([conversation_1, conversation_2])
 ## bot >> The Last Question
 ```
 
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to infer with conversational models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.conversational({
+  model: 'facebook/blenderbot-400M-distill',
+  inputs: "Going to the movies tonight - any suggestions?"
+})
+```
+
 ## Useful Resources
 
 - Learn how ChatGPT and InstructGPT work in this blog: [Illustrating Reinforcement Learning from Human Feedback (RLHF)](https://huggingface.co/blog/rlhf)
