@@ -14,14 +14,14 @@
 	$: task = pipeline ? getPipelineTask(pipeline) : undefined;
 </script>
 
-<div class="font-semibold flex items-center mb-2">
+<div class="mb-2 flex items-center font-semibold">
 	{#if !noTitle}
 		{#if title}
-			<div class="text-lg flex items-center">
+			<div class="flex items-center text-lg">
 				{title}
 			</div>
 		{:else}
-			<div class="text-lg flex items-center">
+			<div class="flex items-center text-lg">
 				<IconLightning classNames="-ml-1 mr-1 text-yellow-500" />
 				Hosted inference API
 			</div>
@@ -32,7 +32,7 @@
 	{/if}
 </div>
 <div
-	class="flex items-center justify-between flex-wrap w-full max-w-full text-sm text-gray-500 mb-0.5"
+	class="mb-0.5 flex w-full max-w-full flex-wrap items-center justify-between text-sm text-gray-500"
 >
 	{#if pipeline}
 		<a
