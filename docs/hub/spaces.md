@@ -2,7 +2,7 @@
 
 [Hugging Face Spaces](https://huggingface.co/spaces) offer a simple way to host ML demo apps directly on your profile or your organization's  profile. This allows you to create your ML portfolio, showcase your projects at conferences or to stakeholders, and work collaboratively with other people in the ML ecosystem.
 
-We support two awesome SDKs that let you build cool apps in Python in a matter of minutes: **[Streamlit](https://streamlit.io/)** and **[Gradio](https://gradio.app/)**. For more custom demos, you can create static Spaces using JavaScript and HTML, or you can unlock the whole power of Docker and host an arbritary Dockerfile.
+We have built-in support for two awesome SDKs that let you build cool apps in Python in a matter of minutes: **[Streamlit](https://streamlit.io/)** and **[Gradio](https://gradio.app/)**, but you can also unlock the whole power of Docker and host an arbritary Dockerfile. Finally, you can create static Spaces using JavaScript and HTML.
 
 You'll also be able to upgrade your Space to run [on a GPU or other accelerated hardware](./spaces-gpus). ⚡️
 
@@ -17,6 +17,7 @@ You'll also be able to upgrade your Space to run [on a GPU or other accelerated 
   - [Managing Spaces with Github Actions](./spaces-github-actions)
   - [How to Add a Space to ArXiv](./spaces-add-to-arxiv)
 - [Spaces GPU Upgrades](./spaces-gpus)
+- [Spaces Persistent Storage](./spaces-storage)
 - [Gradio Spaces](./spaces-sdks-gradio)
 - [Streamlit Spaces](./spaces-sdks-streamlit)
 - [Docker Spaces](./spaces-sdks-docker)
