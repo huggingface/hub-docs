@@ -62,7 +62,8 @@ Text-driven video prediction is the task of generating a video sequence from a t
 ### Video Translation
 
 
-Text-to-video models can be used to translate videos from one language to another or allow to query the multilingual text-video model with non-English sentences. This can be useful for people who want to watch videos in a language that they don't understand, especailly when multi-lingual captions are available for training.
+Text-to-video translation models can translate videos from one language to another or allow to query the multilingual text-video model with non-English sentences. This can be useful for people who want to watch videos in a language that they don't understand, especially when multi-lingual captions are available for training.
+
 
 
 ## Inference
