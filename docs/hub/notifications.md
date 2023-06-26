@@ -14,10 +14,10 @@ You'll get new notifications by email and [directly on the website](https://hugg
 
 ## Filtering and managing notifications
 
-On the [notifications page](https://huggingface.co/notifications), ou have several options for filtering and managing your notifications more effectively:
+On the [notifications page](https://huggingface.co/notifications), you have several options for filtering and managing your notifications more effectively:
  - Filter by Repository: Choose to display notifications from a specific repository only.
  - Filter by Read Status: Display only unread notifications or all notifications.
- - Filter by Participation: Show notifications you have participated in or those where you have been directly mentioned.
+ - Filter by Participation: Show notifications you have participated in or those which you have been directly mentioned.
 
 Additionally, you can take the following actions to manage your notifications:
 
