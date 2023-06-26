@@ -28,6 +28,18 @@ Specify the version of the selected SDK (Streamlit or Gradio).
 All versions of Gradio are supported.  
 Streamlit versions are supported from `0.79.0` to `1.22.0`.
 
+**`suggested_hardware`** : _string_  
+Specify the suggested [hardware](https://huggingface.co/docs/hub/spaces-gpus) on which this Space must be run.  
+Useful for Spaces that are meant to be duplicated by other users.  
+Setting this value will not automatically assign an hardware to this Space.  
+Value must be a valid hardware flavor (e.g. `"cpu-upgrade"`, `"t4-small"`, `"t4-medium"`, `"a10g-small"`, `"a10g-large"` or `"a100-large"`).  
+
+**`suggested_storage`** : _string_  
+Specify the suggested [permanent storage](https://huggingface.co/docs/hub/spaces-storage) on which this Space must be run.  
+Useful for Spaces that are meant to be duplicated by other users.  
+Setting this value will not automatically assign a permanent storage to this Space.  
+Value must be one of `"small"`, `"medium"` or `"large"`.  
+
 **`app_file`** : _string_  
 Path to your main application file (which contains either `gradio` or `streamlit` Python code, or `static` html code).  
 Path is relative to the root of the repository.  
