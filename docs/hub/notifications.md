@@ -12,6 +12,25 @@ By default, you'll receive a notification if:
 
 You'll get new notifications by email and [directly on the website](https://huggingface.co/notifications), you can change this in your [notifications settings](#notifications-settings).
 
+## Filtering and managing notifications
+
+On the [notifications page](https://huggingface.co/notifications), ou have several options for filtering and managing your notifications more effectively:
+ - Filter by Repository: Choose to display notifications from a specific repository only.
+ - Filter by Read Status: Display only unread notifications or all notifications.
+ - Filter by Participation: Show notifications you have participated in or those where you have been directly mentioned.
+
+Additionally, you can take the following actions to manage your notifications:
+
+ - Mark as Read/Unread: Change the status of notifications to mark them as read or unread.
+ - Mark as Done: Once marked as done, notifications will no longer appear in the notification center.
+ 
+By default, changes made to notifications will only apply to the selected notifications on the screen. However, you can also apply changes to all matching notifications for greater convenience.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/notifications-select-all.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/notifications-select-all-dark.png"/>
+</div>
+
 ## Watching users and organizations
 
 By default, you'll be watching all the organizations you are a member of and will be notified of any new activity on those.
