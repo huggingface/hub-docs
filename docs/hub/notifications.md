@@ -22,9 +22,9 @@ On the [notifications page](https://huggingface.co/notifications), you have seve
 Additionally, you can take the following actions to manage your notifications:
 
  - Mark as Read/Unread: Change the status of notifications to mark them as read or unread.
- - Mark as Done: Once marked as done, notifications will no longer appear in the notification center.
+ - Mark as Done: Once marked as done, notifications will no longer appear in the notification center (they are deleted).
  
-By default, changes made to notifications will only apply to the selected notifications on the screen. However, you can also apply changes to all matching notifications for greater convenience.
+By default, changes made to notifications will only apply to the selected notifications on the screen. However, you can also apply changes to all matching notifications (like in Gmail for instance) for greater convenience.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/notifications-select-all.png"/>
