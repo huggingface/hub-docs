@@ -54,7 +54,16 @@ Only users whose access requests have been approved will be able to access the m
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-manual-approval-dark.png"/>
 </div>
 
+You can automate the approval of access requests with the following API:
 
+| Method | URI | Description | Payload |
+| ------ | --- | ----------- | -------  |
+| `GET` | `/api/models/{repo_id}/user-access-request/pending` | Retrieve the list of pending access requests for the given model | ```headers = { "authorization" :  "Bearer $token" }``` |
+| `GET` | `/api/models/{repo_id}/user-access-request/accepted` | Retrieve the list of accepted access requests for the given model | ```headers = { "authorization" :  "Bearer $token" }``` |
+| `GET` | `/api/models/{repo_id}/user-access-request/rejected` | Retrieve the list of rejected access requests for the given model | ```headers = { "authorization" :  "Bearer $token" }``` |
+| `POST` | `/api/models/{repo_id}/user-access-request/handle` | Change the status of a given access request from `expectedStatus` to `status`. `expectedStatus` is optional, and defaults to `"pending"`. | ```headers = { "authorization" :  "Bearer $token" }``` ```json = { "status": "accepted" | "rejected" | "pending", "userId": "abcdef1234", "expectedStatus": "pending" | "accepted" | "rejected" } ``` |
+
+The base URL for the HTTP endpoints above is `https://huggingface.co`. The `$token` to pass as a bearer token can be generated from [your user settings](https://huggingface.co/settings/tokens). It must have `write` access to the gated repository.
 
 ## Additional Customization
 
