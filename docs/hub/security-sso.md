@@ -13,7 +13,11 @@ Once SSO is enabled for the plan, the following rules apply to the end users:
 
 - Your members will see a banner prompting them to authenticate through your chosen IdP to access your organization.
 
-[Screenshot]
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-sso-prompt.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-sso-prompt-dark.png"/>
+</div>
 
 - If an end-user is a member of any organization outside yours, they are still required to log in via SSO as soon as the feature is enabled to access public content of your organization. However, they will be able to access other teams.
 - If you activate the role mapping feature, the admin from your organization won't be able to change their role it'll be determined by your IdP and your settings
