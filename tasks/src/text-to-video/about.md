@@ -1,7 +1,7 @@
+Text-to-video models can generate videos from a given text prompt. They can be used in any application that requires generating temporally and spatially consistent sequence of images from text.  
+
+
 ## Use Cases
-
-Text-to-video models can be used in any application that requires generating temporally and spatially consistent sequence of images from text.  
-
 
 ### Script-based Video Generation
 
@@ -22,10 +22,6 @@ Text-to-video models can be used to generate videos that show people how to stay
 
 Text-to-video models can be used to create an AI newscaster to deliver daily news, or for a film-maker to create a short film or a music video.
 
-
-### Visual Storytelling
-
-Text-to-video models can be used to create visual stories to communicate ideas and emotions. For example, the model could be used to create a video that tells the story of a refugee family, or a natural landscape that might be difficult to capture under normal circumstances.
 
 
 
