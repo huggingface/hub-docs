@@ -7,22 +7,24 @@ This feature is available for Enterprise Hub. <a href="mailto:sales@huggingface.
 </Tip>
 
 
-## Requirements
+## Rules
 
-To successfully activate Single Sign-On (SSO) in Hugging Face Hub, we will need to set up an OIDC application in your IdP. We will give you a callback URL pointing to the `huggingface.co` domain. After the creation of the app, we will need these informations in order to make your SSO implementation work:
+Once SSO is enabled for the plan, the following rules apply to the end users:
+
+- Your members will see a banner prompting them to authenticate through your chosen IdP to access your organization.
+
+[Screenshot]
+
+- If an end-user is a member of any organization outside yours, they are still required to log in via SSO as soon as the feature is enabled to access public content of your organization. However, they will be able to access other teams.
+- If you activate the role mapping feature, the admin from your organization won't be able to change their role; it'll be determined by our IdP.
+
+## Configuring SSO
+
+To successfully activate Single Sign-On (SSO) in Hugging Face Hub, we will need to set up an OIDC application in your IdP. We will give you a callback URL pointing to the `huggingface.co` domain. After the creation of the app, we will need this information in order to make your SSO implementation work:
 
 - Client ID
 - Client Secret
 - Issuer URL
-
-
-## How it works?
-
-Once SSO is setup up for your organization, your members will see a banner prompting them to authenticate through your chosen IdP to access your org's content.
-
-[Screenshot]
-
-
 
 ## Supported SSO Partners
 You can easily integrate Hugging Face Hub with a variety of SSO providers, and we have listed a few examples below:
@@ -31,4 +33,4 @@ You can easily integrate Hugging Face Hub with a variety of SSO providers, and w
 2. OneLogin
 3. Azure Active Directory (Azure AD)
 
-These are just some of the popular examples, but Hugging Face Hub can work with any OIDC-compliant SSO system, giving you the freedom to choose the SSO partner that best suits your organization's needs and existing infrastructure.
+These are just some of the popular examples, but Hugging Face Hub can work with any OIDC-compliant SSO system.
