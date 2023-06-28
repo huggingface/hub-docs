@@ -16,7 +16,7 @@ Once SSO is enabled for the plan, the following rules apply to the end users:
 [Screenshot]
 
 - If an end-user is a member of any organization outside yours, they are still required to log in via SSO as soon as the feature is enabled to access public content of your organization. However, they will be able to access other teams.
-- If you activate the role mapping feature, the admin from your organization won't be able to change their role; it'll be determined by our IdP.
+- If you activate the role mapping feature, the admin from your organization won't be able to change their role it'll be determined by your IdP and your settings
 
 ## Configuring SSO
 
