@@ -42,9 +42,9 @@ You can automate the approval of access requests with the following API:
 
 | Method | URI | Description | Payload |
 | ------ | --- | ----------- | -------  |
-| `GET` | `/api/datasets/{repo_id}/user-access-request/pending` | Retrieve the list of pending access requests for the given model | ```headers = { "authorization" :  "Bearer $token" }``` |
-| `GET` | `/api/datasets/{repo_id}/user-access-request/accepted` | Retrieve the list of accepted access requests for the given model | ```headers = { "authorization" :  "Bearer $token" }``` |
-| `GET` | `/api/datasets/{repo_id}/user-access-request/rejected` | Retrieve the list of rejected access requests for the given model | ```headers = { "authorization" :  "Bearer $token" }``` |
+| `GET` | `/api/datasets/{repo_id}/user-access-request/pending` | Retrieve the list of pending access requests for the given dataset. | ```headers = { "authorization" :  "Bearer $token" }``` |
+| `GET` | `/api/datasets/{repo_id}/user-access-request/accepted` | Retrieve the list of accepted access requests for the given dataset. | ```headers = { "authorization" :  "Bearer $token" }``` |
+| `GET` | `/api/datasets/{repo_id}/user-access-request/rejected` | Retrieve the list of rejected access requests for the given dataset. | ```headers = { "authorization" :  "Bearer $token" }``` |
 | `POST` | `/api/datasets/{repo_id}/user-access-request/handle` | Change the status of a given access request from `expectedStatus` to `status`. `expectedStatus` is optional, and defaults to `"pending"`. | ```headers = { "authorization" :  "Bearer $token" }``` ```json = { "status": "accepted" | "rejected" | "pending", "userId": "abcdef1234", "expectedStatus": "pending" | "accepted" | "rejected" } ``` |
 | `POST` | `/api/datasets/{repo_id}/user-access-request/grant` | Allow a specific user to access your repository. | ```headers = { "authorization" :  "Bearer $token" }``` ```json = { "userId": "abcdef1234" } ``` |
 
