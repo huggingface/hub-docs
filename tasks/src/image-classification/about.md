@@ -29,6 +29,7 @@ clf("path_to_a_cat_image")
 - [Walkthrough of Computer Vision Ecosystem in Hugging Face - CV Study Group](https://www.youtube.com/watch?v=oL-xmufhZM8)
 - [Computer Vision Study Group: Swin Transformer](https://www.youtube.com/watch?v=Ngikt-K1Ecc)
 - [Computer Vision Study Group: Masked Autoencoders Paper Walkthrough](https://www.youtube.com/watch?v=Ngikt-K1Ecc)
+- [Image classification task guide](https://huggingface.co/docs/transformers/tasks/image_classification)
 
 ### Creating your own image classifier in just a few minutes
 

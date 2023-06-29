@@ -48,7 +48,7 @@ const taskData: TaskDataCustom = {
 			id:          "microsoft/DialoGPT-large",
 		},
 	],
-	spaces:       [
+	spaces: [
 		{
 			description: "A chatbot based on Blender model.",
 			id:          "EXFINITE/BlenderBot-UI",

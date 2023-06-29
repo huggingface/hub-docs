@@ -41,7 +41,7 @@
     - local: model-card-guidebook
       title: Model Card Guidebook
     - local: model-card-landscape-analysis
-      title: Landscape Analysis 
+      title: Landscape Analysis
   - local: models-gated
     title: Gated Models
   - local: models-uploading
@@ -77,6 +77,8 @@
         title: Sentence Transformers
       - local: spacy
         title: spaCy
+      - local: span_marker
+        title: SpanMarker
       - local: speechbrain
         title: SpeechBrain
       - local: stable-baselines3
@@ -87,6 +89,8 @@
         title: TensorBoard
       - local: timm
         title: timm
+      - local: transformers-js
+        title: Transformers.js
   - local: models-widgets
     title: Model Widgets
     sections:
@@ -134,6 +138,8 @@
       title: Using Spaces for Organization Cards
   - local: spaces-gpus
     title: Spaces GPU Upgrades
+  - local: spaces-storage
+    title: Spaces Persistent Storage
   - local: spaces-sdks-gradio
     title: Gradio Spaces
   - local: spaces-sdks-streamlit
@@ -149,12 +155,22 @@
         title: Example Docker Spaces
       - local: spaces-sdks-docker-argilla
         title: Argilla on Spaces
+      - local: spaces-sdks-docker-label-studio
+        title: Label Studio on Spaces
+      - local: spaces-sdks-docker-aim
+        title: Aim on Spaces
       - local: spaces-sdks-docker-livebook
         title: Livebook on Spaces
+      - local: spaces-sdks-docker-shiny
+        title: Shiny on Spaces
       - local: spaces-sdks-docker-zenml
         title: ZenML on Spaces
+      - local: spaces-sdks-docker-panel
+        title: Panel on Spaces
   - local: spaces-embed
     title: Embed your Space
+  - local: spaces-run-with-docker
+    title: Run Spaces with Docker
   - local: spaces-config-reference
     title: Spaces Configuration Reference
   - local: spaces-changelog
@@ -167,11 +183,13 @@
     - local: spaces-more-ways-to-create
       title: More ways to create Spaces
     - local: spaces-github-actions
-      title: Managing Spaces with Github Actions 
+      title: Managing Spaces with Github Actions
     - local: spaces-sdks-python
       title: Custom Python Spaces
     - local: spaces-add-to-arxiv
       title: How to Add a Space to ArXiv
+    - local: spaces-cookie-limitations
+      title: Cookie limitations in Spaces
 - local: other
   title: Other
   isExpanded: true
@@ -200,6 +218,10 @@
       title: Malware Scanning
     - local: security-pickle
       title: Pickle Scanning
+    - local: security-secrets
+      title: Secrets Scanning
+  - local: moderation
+    title: Moderation
   - local: paper-pages
     title: Paper Pages
   - local: doi

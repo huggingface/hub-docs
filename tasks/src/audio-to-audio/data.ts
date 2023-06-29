@@ -2,6 +2,10 @@ import type { TaskDataCustom } from "../Types";
 
 const taskData: TaskDataCustom = {
 	datasets: [
+		{
+			description: "512-element X-vector embeddings of speakers from CMU ARCTIC dataset.",
+			id:          "Matthijs/cmu-arctic-xvectors",
+		},
 	],
 	demo: {
 		inputs: [
@@ -43,12 +47,12 @@ const taskData: TaskDataCustom = {
 	],
 	spaces:       [
 		{
-			description: "An application that can separate speech.",
-			id:          "akhaliq/speechbrain-speech-seperation",
+			description: "An application for speech separation.",
+			id:          "younver/speechbrain-speech-separation",
 		},
 		{
-			description: "An application that can translate from speech to speech between Hokkien and English.",
-			id:          "facebook/Hokkien_Translation",
+			description: "An application for audio style transfer.",
+			id:          "nakas/audio-diffusion_style_transfer",
 		},
 	],
 	summary:      "Audio-to-Audio is a family of tasks in which the input is an audio and the output is one or multiple generated audios. Some example tasks are speech enhancement and source separation.",

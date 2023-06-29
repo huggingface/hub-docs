@@ -48,7 +48,6 @@ const taskData: TaskDataCustom = {
 		{
 			description: "",
 			id:          "recall",
-            
 		},
 		{
 			description: "",
@@ -69,7 +68,7 @@ const taskData: TaskDataCustom = {
 			id:          "roberta-large-mnli",
 		},
 	],
-	spaces:       [
+	spaces: [
 		{
 			description: "An application that can classify financial sentiment.",
 			id:          "IoannisTr/Tech_Stocks_Trading_Assistant",

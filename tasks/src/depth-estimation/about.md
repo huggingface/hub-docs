@@ -33,5 +33,5 @@ result
 
 ## Useful Resources
 
-In this area, you can insert useful resources about how to train or use a model for this task.
+- [Monocular depth estimation task guide](https://huggingface.co/docs/transformers/tasks/monocular_depth_estimation)
 

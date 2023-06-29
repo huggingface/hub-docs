@@ -11,11 +11,13 @@ The table below summarizes the supported libraries and their level of integratio
 | [Adapter Transformers](https://github.com/Adapter-Hub/adapter-transformers) | Extends 🤗Transformers with Adapters.                                                | ❌ | ❌ | ✅ | ✅ |
 | [AllenNLP](https://github.com/allenai/allennlp)                             | An open-source NLP research library, built on PyTorch.                               | ✅ | ✅ | ✅ | ❌ |
 | [Asteroid](https://github.com/asteroid-team/asteroid)                       | Pytorch-based audio source separation toolkit                                        | ✅ | ✅ | ✅ | ❌ |
+| [BERTopic](https://github.com/MaartenGr/BERTopic)                           | BERTopic is a topic modeling library for text and images                             | ✅ | ✅ | ✅ | ✅ | 
 | [docTR](https://github.com/mindee/doctr)                                    | Models and datasets for OCR-related tasks in PyTorch & TensorFlow                    | ✅ | ✅ | ✅ | ❌ |
 | [ESPnet](https://github.com/espnet/espnet)                                  | End-to-end speech processing toolkit (e.g. TTS)                                      | ✅ | ✅ | ✅ | ❌ |
 | [fastai](https://github.com/fastai/fastai)                                  | Library to train fast and accurate models with state-of-the-art outputs.             | ✅ | ✅ | ✅ | ✅ |
 | [Keras](https://huggingface.co/docs/hub/keras)                              | Library that uses a consistent and simple API to build models leveraging TensorFlow and its ecosystem. | ❌ | ❌ | ✅ | ✅ |
 | [Flair](https://github.com/flairNLP/flair)                                  | Very simple framework for state-of-the-art NLP.                                      | ✅ | ✅ | ✅ | ❌ |
+| [MBRL-Lib](https://github.com/facebookresearch/mbrl-lib) | PyTorch implementations of MBRL Algorithms. | ❌ | ❌ | ✅ | ✅ |
 | [ML-Agents](https://github.com/huggingface/ml-agents) | Enables games and simulations made with Unity to serve as environments for training intelligent agents. | ❌ | ❌ | ✅ | ✅ |
 | [NeMo](https://github.com/NVIDIA/NeMo)                                      | Conversational AI toolkit built for researchers                                      | ✅ | ✅ | ✅ | ❌ |
 | [PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP)                      | Easy-to-use and powerful NLP library built on PaddlePaddle                           | ✅ | ✅ | ✅ | ✅ |
@@ -26,11 +28,13 @@ The table below summarizes the supported libraries and their level of integratio
 | [Sample Factory](https://github.com/alex-petrenko/sample-factory)    | Codebase for high throughput asynchronous reinforcement learning.          | ❌ | ✅ | ✅ | ✅ |
 | [Sentence Transformers](https://github.com/UKPLab/sentence-transformers)    | Compute dense vector representations for sentences, paragraphs, and images.          | ✅ | ✅ | ✅ | ✅ |
 | [spaCy](https://github.com/explosion/spaCy)                                 | Advanced Natural Language Processing in Python and Cython.                           | ✅ | ✅ | ✅ | ✅ |
+| [SpanMarker](https://github.com/tomaarsen/SpanMarkerNER)                    | Familiar, simple and state-of-the-art Named Entity Recognition.                      | ✅ | ✅ | ✅ | ✅ |
 | [Scikit Learn (using skops)](https://skops.readthedocs.io/en/stable/)                          | Machine Learning in Python.                           | ✅ | ✅ | ✅ | ✅ |
 | [Speechbrain](https://speechbrain.github.io/)                               | A PyTorch Powered Speech Toolkit.                                                    | ✅ | ✅ | ✅ | ❌ |
 | [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3)            | Set of reliable implementations of deep reinforcement learning algorithms in PyTorch | ❌ | ✅ | ✅ | ✅ |
 | [TensorFlowTTS](https://github.com/TensorSpeech/TensorFlowTTS)              | Real-time state-of-the-art speech synthesis architectures.                           | ❌ | ❌ | ✅ | ❌ |
 | [Timm](https://github.com/rwightman/pytorch-image-models)                   | Collection of image models, scripts, pretrained weights, etc.                        | ✅ | ✅ | ✅ | ✅ |
+| [Transformers.js](https://github.com/xenova/transformers.js)                | State-of-the-art Machine Learning for the web. Run 🤗 Transformers directly in your browser, with no need for a server! | ❌ | ❌ | ✅ | ❌ |
 
 ### How can I add a new library to the Inference API?
 

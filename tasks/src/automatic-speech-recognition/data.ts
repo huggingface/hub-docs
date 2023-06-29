@@ -47,6 +47,10 @@ const taskData: TaskDataCustom = {
 			id:          "facebook/wav2vec2-base-960h",
 		},
 		{
+			description: "A powerful ASR model.",
+			id:          "openai/whisper-large-v2",
+		},
+		{
 			description: "An end-to-end model that performs Automatic Speech Recognition and Speech Translation.",
 			id:          "facebook/s2t-small-mustc-en-fr-st",
 		},
@@ -57,12 +61,16 @@ const taskData: TaskDataCustom = {
 			id:          "openai/whisper",
 		},
 		{
+			description: "Fastest speech recognition application.",
+			id:          "sanchit-gandhi/whisper-jax",
+		},
+		{
 			description: "An application that transcribes speeches in YouTube videos.",
 			id:          "jeffistyping/Youtube-Whisperer",
 		},
 	],
 	summary:      "Automatic Speech Recognition (ASR), also known as Speech to Text (STT), is the task of transcribing a given audio to text. It has many applications, such as voice user interfaces.",
-	widgetModels: ["facebook/wav2vec2-base-960h"],
+	widgetModels: ["openai/whisper-large-v2"],
 	youtubeId:    "TksaY_FDgnk",
 };
 

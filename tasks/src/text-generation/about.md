@@ -1,12 +1,18 @@
+This task covers guides on both [text-generation](https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads) and [text-to-text generation](https://huggingface.co/models?pipeline_tag=text2text-generation&sort=downloads) models. Popular large language models that are used for chats or following instructions are also covered in this task. You can find the list of selected open-source large language models [here](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard), ranked by their performance scores.
+
 ## Use Cases
+
+### Instruction Models
+
+A model trained for text generation can be later adapted to follow instructions. One of the most used open-source models for instruction is OpenAssistant, which you can try [at Hugging Chat](https://huggingface.co/chat).
 
 ### Code Generation
 
-A Text Generation model, also known as causal language model, can be trained on code from scratch to help the programmers in their repetitive coding tasks.
+A Text Generation model, also known as a causal language model, can be trained on code from scratch to help the programmers in their repetitive coding tasks. One of the most popular open-source models for code generation is StarCoder, which can generate code in 80+ languages. You can try it [here](https://huggingface.co/spaces/bigcode/bigcode-playground).
 
 ### Stories Generation
 
-A Story Generation model, trained for example in a [GPT-2 model](https://huggingface.co/gpt2), could receive an input like "Once upon a time" and proceed to create a story-like text based on those first words (as an example, look at [this model inside the Hub](https://huggingface.co/pranavpsv/gpt2-genre-story-generator)).
+A story generation model can receive an input like "Once upon a time" and proceed to create a story-like text based on those first words. You can try [this application](https://huggingface.co/spaces/mosaicml/mpt-7b-storywriter) which contains a model trained on story generation, by MosaicML.
 
 If your generative model training data is different than your use case, you can train a causal language model from scratch. Learn how to do it in the free transformers [course](https://huggingface.co/course/chapter7/6?fw=pt)!
 
@@ -38,7 +44,7 @@ generator("Hello, I'm a language model", max_length = 30, num_return_sequences=3
 ##  {'generated_text': "Hello, I'm a language modeler. I write and maintain software in Python. I love to code, and that includes coding things that require writing"}, ...
 ```
 
-Text-to-Text generation models have a separate pipeline called `text2text-generation`. This pipeline takes an input containing the sentence including the task and returns the output of the accomplished task.
+[Text-to-Text generation models](https://huggingface.co/models?pipeline_tag=text2text-generation&sort=downloads) have a separate pipeline called `text2text-generation`. This pipeline takes an input containing the sentence including the task and returns the output of the accomplished task.
 
 ```python
 from transformers import pipeline
@@ -83,6 +89,11 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [🌸 Introducing The World's Largest Open Multilingual Language Model: BLOOM 🌸](https://huggingface.co/blog/bloom)
 - [The Technology Behind BLOOM Training](https://huggingface.co/blog/bloom-megatron-deepspeed)
 - [Faster Text Generation with TensorFlow and XLA](https://huggingface.co/blog/tf-xla-generate)
+- [Assisted Generation: a new direction toward low-latency text generation](https://huggingface.co/blog/assisted-generation)
+- [Introducing RWKV - An RNN with the advantages of a transformer](https://huggingface.co/blog/rwkv)
+- [Creating a Coding Assistant with StarCoder](https://huggingface.co/blog/starchat-alpha)
+- [StarCoder: A State-of-the-Art LLM for Code](https://huggingface.co/blog/starcoder)
+- 
 
 ### Notebooks
 
@@ -95,3 +106,8 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Training a CLM in PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling)
 - [Training a CLM in TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling)
 - [Text Generation in PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/text-generation)
+
+### Documentation
+
+- [Causal language modeling task guide](https://huggingface.co/docs/transformers/tasks/language_modeling)
+- [Text generation strategies](https://huggingface.co/docs/transformers/generation_strategies)

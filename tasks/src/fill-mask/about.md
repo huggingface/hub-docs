@@ -45,3 +45,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling)
 - [Flax](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling)
 - [TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling)
+
+### Documentation
+
+- [Masked language modeling task guide](https://huggingface.co/docs/transformers/tasks/masked_language_modeling)

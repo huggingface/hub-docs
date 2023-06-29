@@ -24,21 +24,30 @@ For step-by-step tutorials to creating your first Space, see the guides below:
 
 ## Hardware resources
 
-Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50Gb of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
+Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators and persistent storage, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
 
-| **Hardware**        	| **CPU** 	| **Memory** 	| **Disk** 	| **Hourly Price** 	|
-|---------------------	|---------	|------------	|----------	|------------------	|
-| CPU Basic           	| 2 vCPU  	| 16 GB      	| 50 GB    	| Free!            	|
-| CPU Upgrade         	| 8 vCPU  	| 32 GB      	| 50 GB    	| $0.03            	|
-| Nvidia T4 - small   	| 4 vCPU  	| 15 GB      	| 50 GB    	| $0.06            	|
-| Nvidia T4 - medium  	| 8 vCPU  	| 30 GB      	| 100 GB   	| $0.09            	|
-| Nvidia A10G - small 	| 4 vCPU  	| 15 GB      	| 110 GB   	| $1.05            	|
-| Nvidia A10G - large 	| 12 vCPU 	| 46 GB      	| 200 GB   	| $3.15            	|
-| Nvidia A100 - large 	| 12 vCPU 	| 142 GB     	| 1000 GB  	| $4.13            	|
+| **Hardware**        	| **GPU Memory** 	| **CPU** 	| **Memory** 	| **Disk** 	| **Hourly Price** 	|
+|---------------------	|-----------------	|----------	|--------------	|----------	| ----------------	|
+| CPU Basic           	| -             	| 2 vCPU  	| 16 GB     	| 50 GB    	| Free!            	|
+| CPU Upgrade         	| -             	| 8 vCPU  	| 32 GB      	| 50 GB    	| $0.03            	|
+| Nvidia T4 - small   	| 16GB          	| 4 vCPU  	| 15 GB      	| 50 GB    	| $0.60            	|
+| Nvidia T4 - medium  	| 16GB          	| 8 vCPU  	| 30 GB      	| 100 GB   	| $0.90            	|
+| Nvidia A10G - small 	| 24GB          	| 4 vCPU  	| 15 GB      	| 110 GB   	| $1.05            	|
+| Nvidia A10G - large 	| 24GB          	| 12 vCPU 	| 46 GB      	| 200 GB   	| $3.15            	|
+| Nvidia A100 - large 	| 40GB          	| 12 vCPU 	| 142 GB     	| 1000 GB  	| $4.13            	|
  
-Do you have an awesome Space but need help covering the GPU hardware upgrade costs? We love helping out those with an innovative Space so please feel free to apply for a community GPU grant using the link in the _Settings_ tab of your Space and see if yours makes the cut!
+| **Storage tier**     	| **Size**             	| **Persistent** 	| **Monthly price** 	|
+|---------------------	|----------------------	|------------------	| ---------------------	|
+| Ephemeral (default) 	| 50GB                	| No               	| Free!                	|
+| Small               	| Ephemeral + 20GB    	| Yes              	| $5                   	|
+| Medium              	| Ephemeral + 150GB   	| Yes              	| $25                  	|
+| Large               	| Ephemeral + 1TB     	| yes              	| $100                 	|
 
-Read more in [Spaces GPU Upgrades](./spaces-gpus).
+Note: Find more detailed and comprehensive pricing information on [our pricing page](https://huggingface.co/pricing).
+
+Do you have an awesome Space but need help covering the hardware upgrade costs? We love helping out those with an innovative Space so please feel free to apply for a community GPU grant using the link in the _Settings_ tab of your Space and see if yours makes the cut!
+
+Read more in our dedicated sections on [Spaces GPU Upgrades](./spaces-gpus) and [Spaces Storage Upgrades](./spaces-storage).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-gpu-settings.png"/>
@@ -47,7 +56,7 @@ Read more in [Spaces GPU Upgrades](./spaces-gpus).
 
 ## Managing secrets
 
-If your app requires secret keys or tokens, don't hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and enter your secrets there. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [secret management with Docker](./spaces-sdks-docker#secret-management).
+If your app requires secret keys or tokens, don't hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and enter your secrets there. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [secret management with Docker](./spaces-sdks-docker#secret-management). Users are warned when `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets.png"/>

@@ -56,8 +56,16 @@ const taskData: TaskDataCustom = {
 	],
 	models: [
 		{
-			description: "Robust Visual Question Answering model trained on the VQAv2 dataset.",
-			id:          "dandelin/vilt-b32-finetuned-vqa",
+			description: "A visual question answering model trained to convert charts and plots to text.",
+			id:          "google/deplot",
+		},
+		{
+			description: "A visual question answering model trained for mathematical reasoning and chart derendering from images.",
+			id:          "google/matcha-base ",
+		},
+		{
+			description: "A strong visual question answering that answers questions from book covers.",
+			id:          "google/pix2struct-ocrvqa-large",
 		},
 	],
 	spaces:       [

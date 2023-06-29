@@ -42,12 +42,40 @@ const taskData: TaskDataCustom = {
 	],
 	models: [
 		{
-			description: "The model from OpenAI that helped usher in the Transformer revolution.",
-			id:          "gpt2",
+			description: "A large language model trained for text generation.",
+			id:          "bigscience/bloom-560m",
 		},
 		{
-			description: "A special Transformer model that can generate high-quality text for various tasks.",
-			id:          "bigscience/T0pp",
+			description: "A large code generation model that can generate code in 80+ languages.",
+			id:          "bigcode/starcoder",
+		},
+		{
+			description: "A model trained to follow instructions, uses Pythia-12b as base model.",
+			id:          "databricks/dolly-v2-12b",
+		},
+		{
+			description: "A model trained to follow instructions curated by community, uses Pythia-12b as base model.",
+			id:          "OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5",
+		},
+		{
+			description: "A large language model trained to generate text in English.",
+			id:          "stabilityai/stablelm-tuned-alpha-7b",
+		},
+		{
+			description: "A model trained to follow instructions, based on mosaicml/mpt-7b.",
+			id:          "mosaicml/mpt-7b-instruct",
+		},
+		{
+			description: "A large language model trained to generate text in English.",
+			id:          "EleutherAI/pythia-12b",
+		},
+		{
+			description: "A large text-to-text model trained to follow instructions.",
+			id:          "google/flan-ul2",
+		},
+		{
+			description: "A large and powerful text generation model.",
+			id:          "tiiuae/falcon-40b",
 		},
 	],
 	spaces:       [
@@ -56,12 +84,28 @@ const taskData: TaskDataCustom = {
 			id:          "huggingface/bloom_demo",
 		},
 		{
-			description: "An text generation based application that can write code for Python, Java & JavaScript.",
-			id:          "bigcode/santacoder-demo",
+			description: "An text generation based application that can write code for 80+ languages.",
+			id:          "bigcode/bigcode-playground",
+		},
+		{
+			description: "An text generation based application for conversations.",
+			id:          "h2oai/h2ogpt-chatbot",
+		},
+		{
+			description: "An text generation application that combines OpenAI and Hugging Face models.",
+			id:          "microsoft/HuggingGPT",
+		},
+		{
+			description: "An text generation application that uses StableLM-tuned-alpha-7b.",
+			id:          "stabilityai/stablelm-tuned-alpha-chat",
+		},
+		{
+			description: "An UI that uses StableLM-tuned-alpha-7b.",
+			id:          "togethercomputer/OpenChatKit",
 		},
 	],
 	summary:      "Generating text is the task of producing new text. These models can, for example, fill in incomplete text or paraphrase.",
-	widgetModels: ["gpt2"],
+	widgetModels: ["tiiuae/falcon-7b-instruct"],
 	youtubeId:    "Vpjb1lu0MDk",
 };
 

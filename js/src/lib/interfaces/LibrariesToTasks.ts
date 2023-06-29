@@ -21,7 +21,11 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 		// "audio-source-separation",
 		"audio-to-audio",
 	],
+	"bertopic": [
+		"text-classification",
+	],
 	"diffusers": [
+		"image-to-image",
 		"text-to-image",
 	],
 	"doctr": [
@@ -54,11 +58,18 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 	"nemo": [
 		"automatic-speech-recognition",
 	],
+	"open_clip": [
+		"zero-shot-classification",
+		"zero-shot-image-classification",
+	],
 	"paddlenlp": [
 		"conversational",
 		"fill-mask",
 		"summarization",
 		"zero-shot-classification",
+	],
+	"peft": [
+		"text-generation",
 	],
 	"pyannote-audio": [
 		"automatic-speech-recognition",
@@ -76,6 +87,9 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 		"token-classification",
 		"text-classification",
 		"sentence-similarity",
+	],
+	"span-marker": [
+		"token-classification",
 	],
 	"speechbrain": [
 		"audio-classification",

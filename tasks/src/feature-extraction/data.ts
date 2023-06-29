@@ -43,7 +43,7 @@ const taskData: TaskDataCustom = {
 			id:          "facebook/bart-base",
 		},
 		{
-			description: "Pretrained weights for CodeBERT: A Pre-Trained Model for Programming and Natural Languages.",
+			description: "A strong feature extraction model for coding tasks.",
 			id:          "microsoft/codebert-base",
 		},
 	],

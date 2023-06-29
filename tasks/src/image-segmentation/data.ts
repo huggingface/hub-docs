@@ -49,11 +49,27 @@ const taskData: TaskDataCustom = {
 			description: "Semantic segmentation model trained on ADE20k benchmark dataset.",
 			id:          "microsoft/beit-large-finetuned-ade-640-640",
 		},
+		{
+			description: "Semantic segmentation model trained on ADE20k benchmark dataset with 512x512 resolution.",
+			id:          "nvidia/segformer-b0-finetuned-ade-512-512",
+		},
+		{
+			description: "Semantic segmentation model trained Cityscapes dataset.",
+			id:          "facebook/mask2former-swin-large-cityscapes-semantic",
+		},
+		{
+			description: "Panoptic segmentation model trained COCO (common objects) dataset.",
+			id:          "facebook/mask2former-swin-large-coco-panoptic",
+		},
 	],
 	spaces:       [
 		{
 			description: "A semantic segmentation application that can predict unseen instances out of the box.",
 			id:          "facebook/ov-seg",
+		},
+		{
+			description: "One of the strongest segmentation applications.",
+			id:          "jbrinkma/segment-anything",
 		},
 		{
 			description: "A semantic segmentation application that predicts human silhouettes.",
@@ -62,6 +78,14 @@ const taskData: TaskDataCustom = {
 		{
 			description: "An instance segmentation application to predict neuronal cell types from microscopy images.",
 			id:          "rashmi/sartorius-cell-instance-segmentation",
+		},
+		{
+			description: "An application that segments videos.",
+			id:          "ArtGAN/Segment-Anything-Video",
+		},
+		{
+			description: "An panoptic segmentation application built for outdoor environments.",
+			id:          "segments/panoptic-segment-anything",
 		},
 	],
 	summary:      "Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.",

@@ -67,6 +67,8 @@ gr.Interface.load("huggingface/username/my-awesome-model").launch()
 ## Useful Resources
 
 - [Skops documentation](https://skops.readthedocs.io/en/stable/index.html)
+
+- Check out [interactive sklearn examples](https://huggingface.co/sklearn-docs) built with ❤️ using Gradio.
 - [Notebook: Persisting your scikit-learn model using skops](https://www.kaggle.com/code/unofficialmerve/persisting-your-scikit-learn-model-using-skops)
 
 
@@ -80,8 +82,10 @@ gr.Interface.load("huggingface/username/my-awesome-model").launch()
     - [A Short Chronology of Deep Learning for Tabular Data](https://sebastianraschka.com/blog/2022/deep-learning-for-tabular-data.html) by Sebastian Raschka.
 
 
+
 ### Training your own model in just a few seconds
 
 We have built a [baseline trainer](https://huggingface.co/spaces/scikit-learn/baseline-trainer) application to which you can drag and drop your dataset. It will train a baseline and push it to your Hugging Face Hub profile with a model card containing information about the model.
 
 This page was made possible thanks to efforts of [Brenden Connors](https://huggingface.co/brendenc) and [Ayush Bihani](https://huggingface.co/hsuyab).
+

@@ -48,3 +48,4 @@ Would you like to learn more about image segmentation? Great! Here you can find 
 - [Walkthrough of Computer Vision Ecosystem in Hugging Face - CV Study Group](https://www.youtube.com/watch?v=oL-xmufhZM8)
 - [A Guide on Universal Image Segmentation with Mask2Former and OneFormer](https://huggingface.co/blog/mask2former)
 - [Zero-shot image segmentation with CLIPSeg](https://huggingface.co/blog/clipseg-zero-shot)
+- [Semantic segmentation task guide](https://huggingface.co/docs/transformers/tasks/semantic_segmentation)

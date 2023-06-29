@@ -5,35 +5,39 @@ import type { ModelData } from "./Types";
  * Add your new library here.
  */
 export enum ModelLibrary {
-	"adapter-transformers"   = "Adapter Transformers",
-	"allennlp"               = "allenNLP",
-	"asteroid"               = "Asteroid",
-	"diffusers"              = "Diffusers",
-	"doctr"                  = "docTR",
-	"espnet"                 = "ESPnet",
-	"fairseq"                = "Fairseq",
-	"flair"                  = "Flair",
-	"keras"                  = "Keras",
-	"k2"                     = "K2",
-	"nemo"                   = "NeMo",
-	"open_clip"              = "OpenCLIP",
-	"paddlenlp"              = "PaddleNLP",
-	"pyannote-audio"         = "pyannote.audio",
-	"sample-factory"         = "Sample Factory",
-	"sentence-transformers"  = "Sentence Transformers",
-	"sklearn"                = "Scikit-learn",
-	"spacy"                  = "spaCy",
-	"speechbrain"            = "speechbrain",
-	"tensorflowtts"          = "TensorFlowTTS",
-	"timm"                   = "Timm",
-	"fastai"                 = "fastai",
-	"transformers"           = "Transformers",
-	"stanza"                 = "Stanza",
-	"fasttext"               = "fastText",
-	"stable-baselines3"      = "Stable-Baselines3",
-	"ml-agents"              = "ML-Agents",
-	"pythae"                 = "Pythae",
-	"mindspore"              = "MindSpore",
+	"adapter-transformers"  = "Adapter Transformers",
+	"allennlp"              = "allenNLP",
+	"asteroid"              = "Asteroid",
+	"bertopic"              = "BERTopic",
+	"diffusers"             = "Diffusers",
+	"doctr"                 = "docTR",
+	"espnet"                = "ESPnet",
+	"fairseq"               = "Fairseq",
+	"flair"                 = "Flair",
+	"keras"                 = "Keras",
+	"k2"                    = "K2",
+	"nemo"                  = "NeMo",
+	"open_clip"             = "OpenCLIP",
+	"paddlenlp"             = "PaddleNLP",
+	"peft"                  = "PEFT",
+	"pyannote-audio"        = "pyannote.audio",
+	"sample-factory"        = "Sample Factory",
+	"sentence-transformers" = "Sentence Transformers",
+	"sklearn"               = "Scikit-learn",
+	"spacy"                 = "spaCy",
+	"span-marker"           = "SpanMarker",
+	"speechbrain"           = "speechbrain",
+	"tensorflowtts"         = "TensorFlowTTS",
+	"timm"                  = "Timm",
+	"fastai"                = "fastai",
+	"transformers"          = "Transformers",
+	"transformers.js"       = "Transformers.js",
+	"stanza"                = "Stanza",
+	"fasttext"              = "fastText",
+	"stable-baselines3"     = "Stable-Baselines3",
+	"ml-agents"             = "ML-Agents",
+	"pythae"                = "Pythae",
+	"mindspore"             = "MindSpore",
 }
 
 export type ModelLibraryKey = keyof typeof ModelLibrary;
@@ -52,7 +56,7 @@ export interface LibraryUiElement {
 	 * Name displayed on the main
 	 * call-to-action button on the model page.
 	 */
-	btnLabel:  string;
+	btnLabel: string;
 	/**
 	 * Repo name
 	 */
@@ -60,11 +64,11 @@ export interface LibraryUiElement {
 	/**
 	 * URL to library's repo
 	 */
-	repoUrl:   string;
+	repoUrl:  string;
 	/**
 	 * Code snippet displayed on model page
 	 */
-	snippet:   (model: ModelData) => string;
+	snippet:  (model: ModelData) => string;
 }
 
 function nameWithoutNamespace(modelId: string): string {
@@ -106,44 +110,49 @@ const asteroid = (model: ModelData) =>
 
 model = BaseModel.from_pretrained("${model.id}")`;
 
-
 function get_base_diffusers_model(model: ModelData): string {
-  return model.cardData?.base_model ?? 'fill-in-base-model'
+	return model.cardData?.base_model ?? 'fill-in-base-model'
 }
 
 const diffusers_default = (model: ModelData) =>
-  `from diffusers import DiffusionPipeline
+	`from diffusers import DiffusionPipeline
 
-pipeline = DiffusionPipeline.from_pretrained("${model.id}")`;
+  pipeline = DiffusionPipeline.from_pretrained("${model.id}")`;
+
+const bertopic = (model: ModelData) =>
+	`from bertopic import BERTopic
+
+model = BERTopic.load("${model.id}")`;
+
 
 const diffusers_controlnet = (model: ModelData) =>
-  `from diffusers import StableDiffusionControlNetPipeline, ControlNetModel
+	`from diffusers import StableDiffusionControlNetPipeline, ControlNetModel
 
 controlnet = ControlNetModel.from_pretrained("${get_base_diffusers_model(model)}")
 pipeline = StableDiffusionControlNetPipeline.from_pretrained("${get_base_diffusers_model(model)}", controlnet=controlnet)`;
 
 const diffusers_lora = (model: ModelData) =>
-  `from diffusers import DiffusionPipeline
+	`from diffusers import DiffusionPipeline
 
 pipeline = DiffusionPipeline.from_pretrained("${get_base_diffusers_model(model)}")
 pipeline.load_lora_weights("${model.id}")`;
 
 const diffusers_textual_inversion = (model: ModelData) =>
-  `from diffusers import DiffusionPipeline
+	`from diffusers import DiffusionPipeline
 
 pipeline = DiffusionPipeline.from_pretrained("${model.cardData?.base_model}")
 pipeline.load_textual_inversion("${model.id}")`;
 
 const diffusers = (model: ModelData) => {
-  if (model.tags?.includes("controlnet")) {
-    return diffusers_controlnet(model);
-  } else if (model.tags?.includes("lora")) {
-    return diffusers_lora(model);
-  } else if (model.tags?.includes("textual_inversion")) {
-    return diffusers_textual_inversion(model);
-  } else {
-    return diffusers_default(model);
-  }
+	if (model.tags?.includes("controlnet")) {
+		return diffusers_controlnet(model);
+	} else if (model.tags?.includes("lora")) {
+		return diffusers_lora(model);
+	} else if (model.tags?.includes("textual_inversion")) {
+		return diffusers_textual_inversion(model);
+	} else {
+		return diffusers_default(model);
+	}
 }
 
 const espnetTTS = (model: ModelData) =>
@@ -321,7 +330,7 @@ model = joblib.load(
 	hf_hub_download("${model.id}", "sklearn_model.joblib")
 )
 # only load pickle files from sources you trust
-# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
+# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
 	}
 };
 
@@ -349,6 +358,11 @@ nlp = spacy.load("${nameWithoutNamespace(model.id)}")
 import ${nameWithoutNamespace(model.id)}
 nlp = ${nameWithoutNamespace(model.id)}.load()`;
 
+const span_marker = (model: ModelData) =>
+	`from span_marker import SpanMarkerModel
+
+model = SpanMarkerModel.from_pretrained("${model.id}")`;
+
 const stanza = (model: ModelData) =>
 	`import stanza
 
@@ -359,7 +373,7 @@ nlp = stanza.Pipeline("${nameWithoutNamespace(model.id).replace("stanza-", "")}"
 const speechBrainMethod = (speechbrainInterface: string) => {
 	switch (speechbrainInterface) {
 		case "EncoderClassifier":
-		   return "classify_file";
+			return "classify_file";
 		case "EncoderDecoderASR":
 		case "EncoderASR":
 			return "transcribe_file";
@@ -395,25 +409,73 @@ const transformers = (model: ModelData) => {
 	if (!info) {
 		return `# ⚠️ Type of model unknown`;
 	}
+	const remote_code_snippet = info.custom_class ? ", trust_remote_code=True" : "";
 	if (info.processor) {
 		const varName = info.processor === "AutoTokenizer" ? "tokenizer"
 			: info.processor === "AutoFeatureExtractor" ? "extractor"
 				: "processor"
-		;
+			;
 		return [
 			`from transformers import ${info.processor}, ${info.auto_model}`,
 			"",
-			`${varName} = ${info.processor}.from_pretrained("${model.id}")`,
+			`${varName} = ${info.processor}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 			"",
-			`model = ${info.auto_model}.from_pretrained("${model.id}")`,
+			`model = ${info.auto_model}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 		].join("\n");
 	} else {
 		return [
 			`from transformers import ${info.auto_model}`,
 			"",
-			`model = ${info.auto_model}.from_pretrained("${model.id}")`,
+			`model = ${info.auto_model}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 		].join("\n");
 	}
+};
+
+const transformersJS = (model: ModelData) => {
+	if (!model.pipeline_tag) {
+		return `// ⚠️ Unknown pipeline tag`;
+	}
+
+	const libName = '@xenova/transformers';
+
+	return `// npm i ${libName}
+import { pipeline } from '${libName}';
+
+// Allocate pipeline
+const pipe = await pipeline('${model.pipeline_tag}', '${model.id}');`;
+};
+
+const peftTask = (peftTaskType?: string) => {
+	switch (peftTaskType) {
+		case "CAUSAL_LM":
+			return "CausalLM";
+		case "SEQ_2_SEQ_LM":
+			return "Seq2SeqLM";
+		case "TOKEN_CLS":
+			return "TokenClassification";
+		case "SEQ_CLS":
+			return "SequenceClassification";
+		default:
+			return undefined;
+	}
+};
+
+const peft = (model: ModelData) => {
+	const { base_model_name: peftBaseModel, task_type: peftTaskType } = model.config?.peft ?? {};
+	const pefttask = peftTask(peftTaskType);
+	if (!pefttask) {
+		return `Task type is invalid.`;
+	}
+	if (!peftBaseModel) {
+		return `Base model is not found.`;
+	}
+
+	return `from peft import PeftModel, PeftConfig
+from transformers import AutoModelFor${pefttask}
+
+config = PeftConfig.from_pretrained("${model.id}")
+model = AutoModelFor${pefttask}.from_pretrained("${peftBaseModel}")
+model = PeftModel.from_pretrained(model, "${model.id}")`;
 };
 
 const fasttext = (model: ModelData) =>
@@ -445,14 +507,14 @@ transcriptions = asr_model.transcribe(["file.wav"])`;
 
 const mlAgents = (model: ModelData) =>
 	`mlagents-load-from-hf --repo-id="${model.id}" --local-dir="./downloads"`;
-	
+
 const nemo = (model: ModelData) => {
 	let command: string | undefined = undefined;
 	// Resolve the tag to a nemo domain/sub-domain 
 	if (model.tags?.includes("automatic-speech-recognition")) {
 		command = nemoDomainResolver("ASR", model);
 	}
-	
+
 	return command ?? `# tag did not correspond to a valid NeMo domain.`;
 };
 
@@ -484,6 +546,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoName: "Asteroid",
 		repoUrl:  "https://github.com/asteroid-team/asteroid",
 		snippet:  asteroid,
+	},
+	"bertopic": {
+		btnLabel: "BERTopic",
+		repoName: "BERTopic",
+		repoUrl:  "https://github.com/MaartenGr/BERTopic",
+		snippet:  bertopic,
 	},
 	"diffusers": {
 		btnLabel: "Diffusers",
@@ -533,6 +601,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoUrl:  "https://github.com/PaddlePaddle/PaddleNLP",
 		snippet:  paddlenlp,
 	},
+	"peft": {
+		btnLabel: "PEFT",
+		repoName: "PEFT",
+		repoUrl:  "https://github.com/huggingface/peft",
+		snippet:  peft,
+	},
 	"pyannote-audio": {
 		btnLabel: "pyannote.audio",
 		repoName: "pyannote-audio",
@@ -563,6 +637,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoUrl:  "https://github.com/explosion/spaCy",
 		snippet:  spacy,
 	},
+	"span-marker": {
+		btnLabel: "SpanMarker",
+		repoName: "SpanMarkerNER",
+		repoUrl:  "https://github.com/tomaarsen/SpanMarkerNER",
+		snippet:  span_marker,
+	},
 	"speechbrain": {
 		btnLabel: "speechbrain",
 		repoName: "speechbrain",
@@ -592,6 +672,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoName: "🤗/transformers",
 		repoUrl:  "https://github.com/huggingface/transformers",
 		snippet:  transformers,
+	},
+	"transformers.js": {
+		btnLabel: "Transformers.js",
+		repoName: "transformers.js",
+		repoUrl:  "https://github.com/xenova/transformers.js",
+		snippet:  transformersJS,
 	},
 	"fasttext": {
 		btnLabel: "fastText",

@@ -9,6 +9,10 @@
 			pipeline_tag: "zero-shot-image-classification",
 		},
 		{
+			id: "lllyasviel/sd-controlnet-canny",
+			pipeline_tag: "image-to-image",
+		},
+		{
 			id: "ydshieh/vit-gpt2-coco-en",
 			pipeline_tag: "image-to-text",
 		},

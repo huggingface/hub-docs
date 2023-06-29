@@ -33,3 +33,4 @@ model("path_to_cat_image")
 
 # Useful Resources
 - [Walkthrough of Computer Vision Ecosystem in Hugging Face - CV Study Group](https://www.youtube.com/watch?v=oL-xmufhZM8)
+- [Object detection task guide](https://huggingface.co/docs/transformers/tasks/object_detection)
