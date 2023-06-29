@@ -63,7 +63,7 @@ const taskData: TaskDataCustom = {
 			id:          "hysts/Shap-E",
 		},
 		{
-			description: "Stable diffusion and controlnet based text2image, image2image and inpainting application.",
+			description: "A strong application for `text-to-image`, `image-to-image` and image inpainting.",
 			id:          "ArtGAN/Stable-Diffusion-ControlNet-WebUI",
 		}
 	],
