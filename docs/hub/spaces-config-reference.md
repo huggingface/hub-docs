@@ -67,3 +67,7 @@ List of terms that describe your Space task or scope.
 
 **`pinned`** : _boolean_  
 Whether the Space stays on top of your profile. Can be useful if you have a lot of Spaces so you and others can quickly see your best Space.  
+
+**`custom_headers`** : _Dict[string, string]_  
+Set custom HTTP headers that will be added to all HTTP responses when serving your Space.  
+For now, only the COOP/COEP headers (`Cross-Origin-Embedder-Policy` and `Cross-Origin-Opener-Policy`) are allowed, and they can be used for your JS code to support `SharedArrayBuffer`.  
