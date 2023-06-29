@@ -23,7 +23,7 @@ That means you can `read` and `write to` this storage from your Space as you wou
 
 Persistent disk space can be upgraded to a larger tier at will, though it cannot be downgraded to a smaller tier. If you wish to use a smaller persistent storage tier, you must delete your current (larger) storage first.
 
-If you are using Hugging Face open source libraries, you can make your Space restart faster by setting the environment variable `HF_HOME` to `/data/.huggingface`. Libraries like `transformers`, `diffusers`, `datasets` and others use that environment variable to cache any assets downloaded from the Hugging Face hub. Setting this variable to the persistent storage path will make sure that cached models, datasets, ... do not need to be re-downloaded when the Space is restarted. 
+If you are using Hugging Face open source libraries, you can make your Space restart faster by setting the environment variable `HF_HOME` to `/data/.huggingface`. Libraries like `transformers`, `diffusers`, `datasets` and others use that environment variable to cache any assets downloaded from the Hugging Face Hub. Setting this variable to the persistent storage path will make sure that cached resources do not need to be re-downloaded when the Space is restarted. 
 
 <Tip warning={true}>
 	WARNING: all data stored in the storage is lost when you delete it.
