@@ -125,7 +125,7 @@ const diffusers_default = (model: ModelData) =>
 pipeline = DiffusionPipeline.from_pretrained("${model.id}")`;
 
 const diffusers_controlnet = (model: ModelData) =>
-	`from diffusers import StableDiffusionControlNetPipeline, ControlNetModel
+	`from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
 
 controlnet = ControlNetModel.from_pretrained("${model.id}")
 pipeline = StableDiffusionControlNetPipeline.from_pretrained(
