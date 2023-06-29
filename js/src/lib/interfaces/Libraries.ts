@@ -64,11 +64,11 @@ export interface LibraryUiElement {
 	/**
 	 * URL to library's repo
 	 */
-	repoUrl: string;
+	repoUrl:  string;
 	/**
 	 * Code snippet displayed on model page
 	 */
-	snippet: (model: ModelData) => string;
+	snippet:  (model: ModelData) => string;
 }
 
 function nameWithoutNamespace(modelId: string): string {
@@ -110,15 +110,51 @@ const asteroid = (model: ModelData) =>
 
 model = BaseModel.from_pretrained("${model.id}")`;
 
+function get_base_diffusers_model(model: ModelData): string {
+	return model.cardData?.base_model ?? 'fill-in-base-model'
+}
+
 const bertopic = (model: ModelData) =>
 	`from bertopic import BERTopic
 
 model = BERTopic.load("${model.id}")`;
 
-const diffusers = (model: ModelData) =>
+const diffusers_default = (model: ModelData) =>
 	`from diffusers import DiffusionPipeline
 
 pipeline = DiffusionPipeline.from_pretrained("${model.id}")`;
+
+const diffusers_controlnet = (model: ModelData) =>
+	`from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
+
+controlnet = ControlNetModel.from_pretrained("${model.id}")
+pipeline = StableDiffusionControlNetPipeline.from_pretrained(
+	"${get_base_diffusers_model(model)}", controlnet=controlnet
+)`;
+
+const diffusers_lora = (model: ModelData) =>
+	`from diffusers import DiffusionPipeline
+
+pipeline = DiffusionPipeline.from_pretrained("${get_base_diffusers_model(model)}")
+pipeline.load_lora_weights("${model.id}")`;
+
+const diffusers_textual_inversion = (model: ModelData) =>
+	`from diffusers import DiffusionPipeline
+
+pipeline = DiffusionPipeline.from_pretrained("${get_base_diffusers_model(model)}")
+pipeline.load_textual_inversion("${model.id}")`;
+
+const diffusers = (model: ModelData) => {
+	if (model.tags?.includes("controlnet")) {
+		return diffusers_controlnet(model);
+	} else if (model.tags?.includes("lora")) {
+		return diffusers_lora(model);
+	} else if (model.tags?.includes("textual_inversion")) {
+		return diffusers_textual_inversion(model);
+	} else {
+		return diffusers_default(model);
+	}
+}
 
 const espnetTTS = (model: ModelData) =>
 	`from espnet2.bin.tts_inference import Text2Speech
@@ -279,7 +315,7 @@ model = joblib.load(
 	"${skopsmodelFile}"
 )
 # only load pickle files from sources you trust
-# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
+# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
 		} else {
 			return `from skops.hub_utils import download
 from skops.io import load
@@ -457,8 +493,6 @@ checkpoint = load_from_hub(
 )`;
 
 const nemoDomainResolver = (domain: string, model: ModelData): string | undefined => {
-	const modelName = `${nameWithoutNamespace(model.id)}.nemo`;
-
 	switch (domain) {
 		case "ASR":
 			return `import nemo.collections.asr as nemo_asr
@@ -497,182 +531,182 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 	"adapter-transformers": {
 		btnLabel: "Adapter Transformers",
 		repoName: "adapter-transformers",
-		repoUrl: "https://github.com/Adapter-Hub/adapter-transformers",
-		snippet: adapter_transformers,
+		repoUrl:  "https://github.com/Adapter-Hub/adapter-transformers",
+		snippet:  adapter_transformers,
 	},
 	"allennlp": {
 		btnLabel: "AllenNLP",
 		repoName: "AllenNLP",
-		repoUrl: "https://github.com/allenai/allennlp",
-		snippet: allennlp,
+		repoUrl:  "https://github.com/allenai/allennlp",
+		snippet:  allennlp,
 	},
 	"asteroid": {
 		btnLabel: "Asteroid",
 		repoName: "Asteroid",
-		repoUrl: "https://github.com/asteroid-team/asteroid",
-		snippet: asteroid,
+		repoUrl:  "https://github.com/asteroid-team/asteroid",
+		snippet:  asteroid,
 	},
 	"bertopic": {
 		btnLabel: "BERTopic",
 		repoName: "BERTopic",
-		repoUrl: "https://github.com/MaartenGr/BERTopic",
-		snippet: bertopic,
+		repoUrl:  "https://github.com/MaartenGr/BERTopic",
+		snippet:  bertopic,
 	},
 	"diffusers": {
 		btnLabel: "Diffusers",
 		repoName: "🤗/diffusers",
-		repoUrl: "https://github.com/huggingface/diffusers",
-		snippet: diffusers,
+		repoUrl:  "https://github.com/huggingface/diffusers",
+		snippet:  diffusers,
 	},
 	"espnet": {
 		btnLabel: "ESPnet",
 		repoName: "ESPnet",
-		repoUrl: "https://github.com/espnet/espnet",
-		snippet: espnet,
+		repoUrl:  "https://github.com/espnet/espnet",
+		snippet:  espnet,
 	},
 	"fairseq": {
 		btnLabel: "Fairseq",
 		repoName: "fairseq",
-		repoUrl: "https://github.com/pytorch/fairseq",
-		snippet: fairseq,
+		repoUrl:  "https://github.com/pytorch/fairseq",
+		snippet:  fairseq,
 	},
 	"flair": {
 		btnLabel: "Flair",
 		repoName: "Flair",
-		repoUrl: "https://github.com/flairNLP/flair",
-		snippet: flair,
+		repoUrl:  "https://github.com/flairNLP/flair",
+		snippet:  flair,
 	},
 	"keras": {
 		btnLabel: "Keras",
 		repoName: "Keras",
-		repoUrl: "https://github.com/keras-team/keras",
-		snippet: keras,
+		repoUrl:  "https://github.com/keras-team/keras",
+		snippet:  keras,
 	},
 	"nemo": {
 		btnLabel: "NeMo",
 		repoName: "NeMo",
-		repoUrl: "https://github.com/NVIDIA/NeMo",
-		snippet: nemo,
+		repoUrl:  "https://github.com/NVIDIA/NeMo",
+		snippet:  nemo,
 	},
 	"open_clip": {
 		btnLabel: "OpenCLIP",
 		repoName: "OpenCLIP",
-		repoUrl: "https://github.com/mlfoundations/open_clip",
-		snippet: open_clip,
+		repoUrl:  "https://github.com/mlfoundations/open_clip",
+		snippet:  open_clip,
 	},
 	"paddlenlp": {
 		btnLabel: "paddlenlp",
 		repoName: "PaddleNLP",
-		repoUrl: "https://github.com/PaddlePaddle/PaddleNLP",
-		snippet: paddlenlp,
+		repoUrl:  "https://github.com/PaddlePaddle/PaddleNLP",
+		snippet:  paddlenlp,
 	},
 	"peft": {
 		btnLabel: "PEFT",
 		repoName: "PEFT",
-		repoUrl: "https://github.com/huggingface/peft",
-		snippet: peft,
+		repoUrl:  "https://github.com/huggingface/peft",
+		snippet:  peft,
 	},
 	"pyannote-audio": {
 		btnLabel: "pyannote.audio",
 		repoName: "pyannote-audio",
-		repoUrl: "https://github.com/pyannote/pyannote-audio",
-		snippet: pyannote_audio,
+		repoUrl:  "https://github.com/pyannote/pyannote-audio",
+		snippet:  pyannote_audio,
 	},
 	"sentence-transformers": {
 		btnLabel: "sentence-transformers",
 		repoName: "sentence-transformers",
-		repoUrl: "https://github.com/UKPLab/sentence-transformers",
-		snippet: sentenceTransformers,
+		repoUrl:  "https://github.com/UKPLab/sentence-transformers",
+		snippet:  sentenceTransformers,
 	},
 	"sklearn": {
 		btnLabel: "Scikit-learn",
 		repoName: "Scikit-learn",
-		repoUrl: "https://github.com/scikit-learn/scikit-learn",
-		snippet: sklearn,
+		repoUrl:  "https://github.com/scikit-learn/scikit-learn",
+		snippet:  sklearn,
 	},
 	"fastai": {
 		btnLabel: "fastai",
 		repoName: "fastai",
-		repoUrl: "https://github.com/fastai/fastai",
-		snippet: fastai,
+		repoUrl:  "https://github.com/fastai/fastai",
+		snippet:  fastai,
 	},
 	"spacy": {
 		btnLabel: "spaCy",
 		repoName: "spaCy",
-		repoUrl: "https://github.com/explosion/spaCy",
-		snippet: spacy,
+		repoUrl:  "https://github.com/explosion/spaCy",
+		snippet:  spacy,
 	},
 	"span-marker": {
 		btnLabel: "SpanMarker",
 		repoName: "SpanMarkerNER",
-		repoUrl: "https://github.com/tomaarsen/SpanMarkerNER",
-		snippet: span_marker,
+		repoUrl:  "https://github.com/tomaarsen/SpanMarkerNER",
+		snippet:  span_marker,
 	},
 	"speechbrain": {
 		btnLabel: "speechbrain",
 		repoName: "speechbrain",
-		repoUrl: "https://github.com/speechbrain/speechbrain",
-		snippet: speechbrain,
+		repoUrl:  "https://github.com/speechbrain/speechbrain",
+		snippet:  speechbrain,
 	},
 	"stanza": {
 		btnLabel: "Stanza",
 		repoName: "stanza",
-		repoUrl: "https://github.com/stanfordnlp/stanza",
-		snippet: stanza,
+		repoUrl:  "https://github.com/stanfordnlp/stanza",
+		snippet:  stanza,
 	},
 	"tensorflowtts": {
 		btnLabel: "TensorFlowTTS",
 		repoName: "TensorFlowTTS",
-		repoUrl: "https://github.com/TensorSpeech/TensorFlowTTS",
-		snippet: tensorflowtts,
+		repoUrl:  "https://github.com/TensorSpeech/TensorFlowTTS",
+		snippet:  tensorflowtts,
 	},
 	"timm": {
 		btnLabel: "timm",
 		repoName: "pytorch-image-models",
-		repoUrl: "https://github.com/rwightman/pytorch-image-models",
-		snippet: timm,
+		repoUrl:  "https://github.com/rwightman/pytorch-image-models",
+		snippet:  timm,
 	},
 	"transformers": {
 		btnLabel: "Transformers",
 		repoName: "🤗/transformers",
-		repoUrl: "https://github.com/huggingface/transformers",
-		snippet: transformers,
+		repoUrl:  "https://github.com/huggingface/transformers",
+		snippet:  transformers,
 	},
 	"transformers.js": {
 		btnLabel: "Transformers.js",
 		repoName: "transformers.js",
-		repoUrl: "https://github.com/xenova/transformers.js",
-		snippet: transformersJS,
+		repoUrl:  "https://github.com/xenova/transformers.js",
+		snippet:  transformersJS,
 	},
 	"fasttext": {
 		btnLabel: "fastText",
 		repoName: "fastText",
-		repoUrl: "https://fasttext.cc/",
-		snippet: fasttext,
+		repoUrl:  "https://fasttext.cc/",
+		snippet:  fasttext,
 	},
 	"sample-factory": {
 		btnLabel: "sample-factory",
 		repoName: "sample-factory",
-		repoUrl: "https://github.com/alex-petrenko/sample-factory",
-		snippet: sampleFactory,
+		repoUrl:  "https://github.com/alex-petrenko/sample-factory",
+		snippet:  sampleFactory,
 	},
 	"stable-baselines3": {
 		btnLabel: "stable-baselines3",
 		repoName: "stable-baselines3",
-		repoUrl: "https://github.com/huggingface/huggingface_sb3",
-		snippet: stableBaselines3,
+		repoUrl:  "https://github.com/huggingface/huggingface_sb3",
+		snippet:  stableBaselines3,
 	},
 	"ml-agents": {
 		btnLabel: "ml-agents",
 		repoName: "ml-agents",
-		repoUrl: "https://github.com/huggingface/ml-agents",
-		snippet: mlAgents,
+		repoUrl:  "https://github.com/huggingface/ml-agents",
+		snippet:  mlAgents,
 	},
 	"pythae": {
 		btnLabel: "pythae",
 		repoName: "pythae",
-		repoUrl: "https://github.com/clementchadebec/benchmark_VAE",
-		snippet: pythae,
+		repoUrl:  "https://github.com/clementchadebec/benchmark_VAE",
+		snippet:  pythae,
 	},
 } as const;
 
