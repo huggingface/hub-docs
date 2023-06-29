@@ -17,7 +17,7 @@ Every dataset is auto-converted to the Parquet format. Click on [_"Auto-converte
 
 ## Dataset preview
 
-For the biggest datasets, the page shows a preview of the first 100 rows instead of a full-featured viewer. This restriction only applies for datasets over 5GB that are not in Parquet format.
+For the biggest datasets, the page shows a preview of the first 100 rows instead of a full-featured viewer. This restriction only applies for datasets over 5GB that are not natively in Parquet format.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-preview.png"/>
