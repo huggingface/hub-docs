@@ -114,22 +114,23 @@ function get_base_diffusers_model(model: ModelData): string {
 	return model.cardData?.base_model ?? 'fill-in-base-model'
 }
 
-const diffusers_default = (model: ModelData) =>
-	`from diffusers import DiffusionPipeline
-
-  pipeline = DiffusionPipeline.from_pretrained("${model.id}")`;
-
 const bertopic = (model: ModelData) =>
 	`from bertopic import BERTopic
 
 model = BERTopic.load("${model.id}")`;
 
+const diffusers_default = (model: ModelData) =>
+	`from diffusers import DiffusionPipeline
+
+pipeline = DiffusionPipeline.from_pretrained("${model.id}")`;
 
 const diffusers_controlnet = (model: ModelData) =>
 	`from diffusers import StableDiffusionControlNetPipeline, ControlNetModel
 
-controlnet = ControlNetModel.from_pretrained("${get_base_diffusers_model(model)}")
-pipeline = StableDiffusionControlNetPipeline.from_pretrained("${get_base_diffusers_model(model)}", controlnet=controlnet)`;
+controlnet = ControlNetModel.from_pretrained("${model.id}")
+pipeline = StableDiffusionControlNetPipeline.from_pretrained(
+	"${get_base_diffusers_model(model)}", controlnet=controlnet
+)`;
 
 const diffusers_lora = (model: ModelData) =>
 	`from diffusers import DiffusionPipeline
@@ -140,7 +141,7 @@ pipeline.load_lora_weights("${model.id}")`;
 const diffusers_textual_inversion = (model: ModelData) =>
 	`from diffusers import DiffusionPipeline
 
-pipeline = DiffusionPipeline.from_pretrained("${model.cardData?.base_model}")
+pipeline = DiffusionPipeline.from_pretrained("${get_base_diffusers_model(model)}")
 pipeline.load_textual_inversion("${model.id}")`;
 
 const diffusers = (model: ModelData) => {
@@ -314,7 +315,7 @@ model = joblib.load(
 	"${skopsmodelFile}"
 )
 # only load pickle files from sources you trust
-# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
+# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`;
 		} else {
 			return `from skops.hub_utils import download
 from skops.io import load
@@ -492,8 +493,6 @@ checkpoint = load_from_hub(
 )`;
 
 const nemoDomainResolver = (domain: string, model: ModelData): string | undefined => {
-	const modelName = `${nameWithoutNamespace(model.id)}.nemo`;
-
 	switch (domain) {
 		case "ASR":
 			return `import nemo.collections.asr as nemo_asr
