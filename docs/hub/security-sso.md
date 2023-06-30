@@ -1,6 +1,6 @@
 # Single sign-on (SSO)
 
-With Hugging Face Hub, you have the option to implement mandatory Single Sign-On (SSO) for members of your organization. You can activate your SSO provider for a particular email domain (e.g., @example.com). Users with an email address that matches the domain must log in on huggingface.co using your SSO provider to access your organization.
+The Hugging Face Hub gives you the ability to implement mandatory Single Sign-On (SSO) for members of your organization. You can enable your SSO provider for a specific email domain (for example, @example.com). When enabled, users with an email address that matches the domain must log in to huggingface.co using your SSO provider to access your organization.
 
 <Tip warning={true}>
 This feature is available for Enterprise Hub. <a href="mailto:sales@huggingface.co" target="_blank">For more information, please contact our sales team</a>.
@@ -19,12 +19,12 @@ Once SSO is enabled for the plan, the following rules apply to the end users:
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-sso-prompt-dark.png"/>
 </div>
 
-- If an end-user is a member of any organization outside yours, they are still required to log in via SSO as soon as the feature is enabled to access public content of your organization. However, they will be able to access other teams.
-- If you activate the role mapping feature, the admin from your organization won't be able to change their role it'll be determined by your IdP and your settings
+- If an end user is a member of another organization, they will still need to log in via SSO as soon as the feature is enabled to access your organization's public content. However, they will still have access to their other organizations.
+- If you enable the role mapping feature, the admin from your organization won't be able to change their role. It will be determined by your IdP and your settings.
 
 ## Configuring SSO
 
-To successfully activate Single Sign-On (SSO) in Hugging Face Hub, we will need to set up an OIDC application in your IdP. We will give you a callback URL pointing to the `huggingface.co` domain. After the creation of the app, we will need this information in order to make your SSO implementation work:
+To successfully enable Single Sign-On (SSO) on the Hugging Face Hub for your organization, we will need to set up an OIDC application in your IdP. We will provide you with a callback URL pointing to the `huggingface.co` domain. After creating the application, we will need this information to make your SSO implementation work:
 
 - Client ID
 - Client Secret
