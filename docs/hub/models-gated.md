@@ -61,8 +61,8 @@ You can automate the approval of access requests with the following API:
 | `GET` | `/api/models/{repo_id}/user-access-request/pending` | Retrieve the list of pending access requests for the given model. | ```headers = { "authorization" :  "Bearer $token" }``` |
 | `GET` | `/api/models/{repo_id}/user-access-request/accepted` | Retrieve the list of accepted access requests for the given model. | ```headers = { "authorization" :  "Bearer $token" }``` |
 | `GET` | `/api/models/{repo_id}/user-access-request/rejected` | Retrieve the list of rejected access requests for the given model | ```headers = { "authorization" :  "Bearer $token" }``` |
-| `POST` | `/api/models/{repo_id}/user-access-request/handle` | Change the status of a given access request to `status`. | ```headers = { "authorization" :  "Bearer $token" }``` ```json = { "status": "accepted" &#124; "rejected" &#124; "pending", "userId": "abcdef1234" }``` |
-| `POST` | `/api/models/{repo_id}/user-access-request/grant` | Allow a specific user to access your repo. | ```headers = { "authorization" :  "Bearer $token" }``` ```json = { "userId": "abcdef1234" } ``` |
+| `POST` | `/api/models/{repo_id}/user-access-request/handle` | Change the status of a given access request to `status`. | ```headers = { "authorization" :  "Bearer $token" }``` ```json = { "status": "accepted" &#124; "rejected" &#124; "pending", "user": "username" }``` |
+| `POST` | `/api/models/{repo_id}/user-access-request/grant` | Allow a specific user to access your repo. | ```headers = { "authorization" :  "Bearer $token" }``` ```json = { "user": "username" } ``` |
 
 
 The base URL for the HTTP endpoints above is `https://huggingface.co`. The `$token` to pass as a bearer token can be generated from [your user settings](https://huggingface.co/settings/tokens). It must have `write` access to the gated repository.
