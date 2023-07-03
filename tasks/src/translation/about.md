@@ -32,6 +32,18 @@ translator("How are you?")
 # [{'translation_text': 'Comment allez-vous ?'}]
 ```
 
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to infer translation models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.translation({
+  model: 't5-base',
+  inputs: 'My name is Wolfgang and I live in Berlin'
+})
+```
+
 ## Useful Resources
 
 Would you like to learn more about Translation? Great! Here you can find some curated resources that you may find helpful!

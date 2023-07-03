@@ -38,6 +38,19 @@ model = Text2Speech.from_pretrained("espnet/kan-bayashi_ljspeech_vits")
 speech, *_ = model("text to generate speech from")
 ```
 
+
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to infer summarization models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.textToSpeech({
+  model: 'facebook/mms-tts',
+  inputs: "text to generate speech from"
+})
+```
+
 ## Useful Resources
 - [ML for Audio Study Group - Text to Speech Deep Dive](https://www.youtube.com/watch?v=aLBedWj-5CQ)
 - [An introduction to SpeechT5, a multi-purpose speech recognition and synthesis model](https://huggingface.co/blog/speecht5).

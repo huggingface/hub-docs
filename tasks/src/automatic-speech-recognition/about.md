@@ -49,6 +49,18 @@ pipe("sample.flac")
 # {'text': "GOING ALONG SLUSHY COUNTRY ROADS AND SPEAKING TO DAMP AUDIENCES IN DRAUGHTY SCHOOL ROOMS DAY AFTER DAY FOR A FORTNIGHT HE'LL HAVE TO PUT IN AN APPEARANCE AT SOME PLACE OF WORSHIP ON SUNDAY MORNING AND HE CAN COME TO US IMMEDIATELY AFTERWARDS"}
 ```
 
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to transcribe text with javascript using models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.automaticSpeechRecognition({
+  data: await (await fetch("sample.flac")).blob(),
+  model: "facebook/wav2vec2-base-960h",  
+})
+```
+
 ## Solving ASR for your own data
 
 We have some great news! You can do fine-tuning (transfer learning) to train a well-performing model without requiring as much data. Pretrained models such as Wav2Vec2 and HuBERT exist. [Facebook's Wav2Vec2 XLS-R model](https://ai.facebook.com/blog/wav2vec-20-learning-the-structure-of-speech-from-raw-audio/) is a large multilingual model trained on 128 languages and with 436K hours of speech.
