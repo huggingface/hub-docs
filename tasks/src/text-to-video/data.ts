@@ -15,7 +15,7 @@ const taskData: TaskDataCustom = {
 			id:          "nateraw/kinetics",
 		},
         {
-			description: "The 20BN-SOMETHING-SOMETHING V2 dataset of labeled(174) video clips that show humans performing pre-defined basic actions with everyday objects.",
+			description: "A dataset consisting of labeled video clips that show humans performing pre-defined basic actions with everyday objects.",
 			id:          "HuggingFaceM4/something_something_v2",
 		},
         {
