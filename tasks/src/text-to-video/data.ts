@@ -43,7 +43,7 @@ const taskData: TaskDataCustom = {
 			id:          "PAIR/text2video-zero-controlnet-canny-arcane",
 		},
 		{
-			description: "Large-scale Pretraining for Text-to-Video Generation via Transformers",
+			description: "A robust model for text-to-video generation.",
 			id:          "THUDM/CogVideo",
 		},
         
