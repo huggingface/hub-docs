@@ -39,7 +39,7 @@ const taskData: TaskDataCustom = {
 	metrics:       [],
 	models:        [
 		{
-			description: "Text-to-Image Diffusion Models are Zero-Shot Video Generators",
+			description: "A strong model for video generation.",
 			id:          "PAIR/text2video-zero-controlnet-canny-arcane",
 		},
 		{
