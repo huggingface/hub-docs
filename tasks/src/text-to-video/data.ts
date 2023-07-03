@@ -19,7 +19,7 @@ const taskData: TaskDataCustom = {
 			id:          "HuggingFaceM4/something_something_v2",
 		},
         {
-			description: "This dataset consists of text-video pairs and contains a fair amount of noisy samples with irrelevant video descriptions",
+			description: "This dataset consists of text-video pairs and contains noisy samples with irrelevant video descriptions",
 			id:          "HuggingFaceM4/webvid",
 		},
         {
