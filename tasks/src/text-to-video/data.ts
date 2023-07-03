@@ -23,7 +23,7 @@ const taskData: TaskDataCustom = {
 			id:          "HuggingFaceM4/webvid",
 		},
         {
-			description: "136M video clips with captions sourced from 1.2M Youtube videos (15 years of video) that describe complex tasks with step-by-step information",
+			description: "Large dataset of video clips with captions sourced from Youtube videos on complex tasks with step-by-step information.",
 			id:          "totuta/youtube_subs_howto100M",
 		},
         {
