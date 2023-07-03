@@ -27,7 +27,7 @@ const taskData: TaskDataCustom = {
 			id:          "totuta/youtube_subs_howto100M",
 		},
         {
-			description: "The Distinct Describable Moments (DiDeMo) has 30 sec Flickr videos for the temporal localization of events in videos given descriptions.",
+			description: "A dataset of short Flickr videos for the temporal localization of events with descriptions.",
 			id:          "iejMac/CLIP-DiDeMo",
 		},
     ],
