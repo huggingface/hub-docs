@@ -45,6 +45,7 @@ export const curlSnippets:
 	"audio-to-audio":               snippetFile,
 	"audio-classification":         snippetFile,
 	"image-classification":         snippetFile,
+	"image-to-text":                snippetFile,
 	"object-detection":             snippetFile,
 	"image-segmentation":           snippetFile,
 };
