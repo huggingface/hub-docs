@@ -7,7 +7,7 @@ const taskData: TaskDataCustom = {
 			id:          "iejMac/CLIP-MSR-VTT",
 		},
         {
-			description: "(UCF101 Human Actions dataset) consists of 13,320 video clips from youtube, which are classified into 101 categories.",
+			description: "UCF101 Human Actions dataset consists of 13,320 video clips from YouTube, with 101 classes.",
 			id:          "quchenyuan/UCF101-ZIP",
 		},
         {
