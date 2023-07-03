@@ -11,7 +11,7 @@ const taskData: TaskDataCustom = {
 			id:          "quchenyuan/UCF101-ZIP",
 		},
         {
-			description: "Kinetics Human Action Video Dataset is a large-scale, high-quality dataset for human action recognition in Youtube videos.",
+			description: "A high-quality dataset for human action recognition in YouTube videos.",
 			id:          "nateraw/kinetics",
 		},
         {
