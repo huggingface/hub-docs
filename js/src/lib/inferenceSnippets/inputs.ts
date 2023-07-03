@@ -67,6 +67,8 @@ const inputsFeatureExtraction = () =>
 
 const inputsImageClassification = () => `"cats.jpg"`;
 
+const inputsImageToText = () => `"cats.jpg"`;
+
 const inputsImageSegmentation = () => `"cats.jpg"`;
 
 const inputsObjectDetection = () => `"cats.jpg"`;
@@ -93,6 +95,7 @@ const modelInputSnippets: {
 	"feature-extraction":           inputsFeatureExtraction,
 	"fill-mask":                    inputsFillMask,
 	"image-classification":         inputsImageClassification,
+	"image-to-text":                inputsImageToText,
 	"image-segmentation":           inputsImageSegmentation,
 	"object-detection":             inputsObjectDetection,
 	"question-answering":           inputsQuestionAnswering,
