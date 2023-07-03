@@ -3,7 +3,7 @@ import type { TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
 	datasets: [
         {
-			description: "(Microsoft Research Video to Text) is a large-scale dataset for the open domain video captioning",
+			description: "Microsoft Research Video to Text is a large-scale dataset for open domain video captioning",
 			id:          "iejMac/CLIP-MSR-VTT",
 		},
         {
