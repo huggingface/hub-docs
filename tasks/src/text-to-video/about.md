@@ -60,6 +60,30 @@ Text-driven video prediction is the task of generating a video sequence from a t
 
 Text-to-video translation models can translate videos from one language to another or allow to query the multilingual text-video model with non-English sentences. This can be useful for people who want to watch videos in a language that they don't understand, especially when multi-lingual captions are available for training.
 
+## Metrics    
+
+Both automatic and manual metrics are used to evaluate performance of text-to-video models. Below are some widely used automatic metrics that are calculated on benchmark datasets.
+
+### Inception Score (IS) 
+
+One of early metrics to automatically assess the quality of generated images. Uses a separate image classification model (Inception-V3, C3D) to predict class labels and evaluates how distinct (entropy of distribution of predicted labels is minimized) and diverse (predictions are evenly distributed across labels) they are. Based on KL Divergence; the score is non-negative and higher scores are better.
+https://en.wikipedia.org/wiki/Inception_score
+
+
+### Frechet Inception Distance (FID)    
+ 
+A development over IS, it compares the distribution of generated images with the distribution of a set of real images. I also uses a separate model, but as an embedder, rather than a classifier, using the last activation vectors before classifier layers as image representations. The metric compares the mean and standard deviation of the embeddings of real and generated images. Based on 2-Wasserstein distance; smaller scores are better.
+https://en.wikipedia.org/wiki/Fr%C3%A9chet_inception_distance
+
+### Frechet Video Distance (FVD)    
+Adaptation of FID score for video data, taking into account temporal coherence as well. Differently to FID, it requires a model, such as I3D, that captures temporal coherence of a sequence of frames, as well as the quality of each frame. Smaller scores are better.
+https://openreview.net/pdf?id=rylgEULtdN
+
+### CLIPSIM    
+Average similarity between video frames and text based on CLIP.
+https://arxiv.org/pdf/2104.14806.pdf 
+
+Additionally, model evaluation can be done with human annotations. It is done by curating a set of prompts, generating videos from them and having annotators rate the generated videos on a set of qualities, such as video quality (only video shown), video realism and text-video faithfulness (video and prompt shown).
 
 
 ## Inference
