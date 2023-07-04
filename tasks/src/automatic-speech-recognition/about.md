@@ -63,9 +63,9 @@ await inference.automaticSpeechRecognition({
 
 ## Solving ASR for your own data
 
-We have some great news! You can do fine-tuning (transfer learning) to train a well-performing model without requiring as much data. Pretrained models such as Wav2Vec2 and HuBERT exist. [Facebook's Wav2Vec2 XLS-R model](https://ai.facebook.com/blog/wav2vec-20-learning-the-structure-of-speech-from-raw-audio/) is a large multilingual model trained on 128 languages and with 436K hours of speech.
+We have some great news! You can fine-tune (transfer learning) a foundational speech model on a specific language without tonnes of data. Pretrained models such as Whisper, Wav2Vec2-MMS and HuBERT exist. [OpenAI's Whisper model](https://huggingface.co/openai/whisper-large-v2) is a large multilingual model trained on 100+ languages and with 680K hours of speech.
 
-The following detailed [blog post](https://huggingface.co/blog/fine-tune-xlsr-wav2vec2) shows how to fine-tune a pre-trained network on labeled data for ASR. This is easily done by adding a single layer on top of the pretrained network. We suggest to read the article for more info!
+The following detailed [blog post](https://huggingface.co/blog/fine-tune-whisper) shows how to fine-tune a pre-trained Whisper checkpoint on labeled data for ASR. With the right data and strategy you can fine-tune a high-performant model even on a Google Colab. We suggest to read the article for more info!
 
 ## Hugging Face XLSR-Wav2Vec2 Sprint
 
