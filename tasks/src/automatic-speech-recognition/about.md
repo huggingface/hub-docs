@@ -65,15 +65,13 @@ await inference.automaticSpeechRecognition({
 
 We have some great news! You can fine-tune (transfer learning) a foundational speech model on a specific language without tonnes of data. Pretrained models such as Whisper, Wav2Vec2-MMS and HuBERT exist. [OpenAI's Whisper model](https://huggingface.co/openai/whisper-large-v2) is a large multilingual model trained on 100+ languages and with 680K hours of speech.
 
-The following detailed [blog post](https://huggingface.co/blog/fine-tune-whisper) shows how to fine-tune a pre-trained Whisper checkpoint on labeled data for ASR. With the right data and strategy you can fine-tune a high-performant model even on a Google Colab. We suggest to read the blog post for more info!
+The following detailed [blog post](https://huggingface.co/blog/fine-tune-whisper) shows how to fine-tune a pre-trained Whisper checkpoint on labeled data for ASR. With the right data and strategy you can fine-tune a high-performant model on a free Google Colab instance too. We suggest to read the blog post for more info!
 
-## Hugging Face XLSR-Wav2Vec2 Sprint
+## Hugging Face Whisper Event
 
-On March 2020, over 300 participants collaborated, trained and shared 236 ASR models in dozens of different languages. You can compare these models thanks to the [PapersWithCode](https://paperswithcode.com/dataset/common-voice) integration (see [Portuguese models](https://paperswithcode.com/sota/speech-recognition-on-common-voice-portuguese) for example).
+On December 2022, over 450 participants collaborated, fine-tuned and shared 600+ ASR Whisper models in 100+ different languages. You can compare these models on the event's speech recognition [leaderboard](https://huggingface.co/spaces/whisper-event/leaderboard?dataset=mozilla-foundation%2Fcommon_voice_11_0&config=ar&split=test).
 
-![Leaderboard of ASR Models](/tasks/assets/automatic-speech-recognition/wav2vec2.png)
-
-These events help democratize ASR for all languages, including low-resource languages. In addition to the trained models, the event helps to build practical collaborative knowledge.
+These events help democratize ASR for all languages, including low-resource languages. In addition to the trained models, the [event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event) helps to build practical collaborative knowledge.
 
 ## Useful Resources
 - [Fine-tuning MetaAI's MMS Adapter Models for Multi-Lingual ASR](https://huggingface.co/blog/mms_adapters)
