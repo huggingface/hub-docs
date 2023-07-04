@@ -14,18 +14,18 @@ A caption generation model takes audio as input from sources to generate automat
 
 Multilingual ASR models can convert audio inputs with multiple languages into transcripts. Some multilingual ASR models include [language identification](https://huggingface.co/tasks/audio-classification) blocks to improve the performance.
 
-The use of Multilingual ASR has become popular, the idea of maintaining just a single model for all language can simplify the production pipeline. Take a look at this [model](https://huggingface.co/voidful/wav2vec2-xlsr-multilingual-56) to get an idea on how 56 languages can be processed by a single model. 
+The use of Multilingual ASR has become popular, the idea of maintaining just a single model for all language can simplify the production pipeline. Take a look at [Whisper](https://huggingface.co/openai/whisper-large-v2) to get an idea on how 100+ languages can be processed by a single model. 
 
 ## Inference
 
-The Hub contains over [500 ASR models](https://huggingface.co/models?pipeline_tag=automatic-speech-recognition&sort=downloads) that you can use right away by trying out the widgets directly in the browser or calling the models as a service using the Inference API. Here is a simple code snippet to do exactly this:
+The Hub contains over [~9,000 ASR models](https://huggingface.co/models?pipeline_tag=automatic-speech-recognition&sort=downloads) that you can use right away by trying out the widgets directly in the browser or calling the models as a service using the Inference API. Here is a simple code snippet to do exactly this:
 
 ```python
 import json
 import requests
 
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
-API_URL = "https://api-inference.huggingface.co/models/facebook/wav2vec2-base-960h"
+API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v2"
 
 def query(filename):
     with open(filename, "rb") as f:
@@ -36,7 +36,7 @@ def query(filename):
 data = query("sample1.flac")
 ```
 
-You can also use libraries such as [transformers](https://huggingface.co/models?library=transformers&pipeline_tag=automatic-speech-recognition&sort=downloads), [speechbrain](https://huggingface.co/models?library=speechbrain&pipeline_tag=automatic-speech-recognition&sort=downloads) and [espnet](https://huggingface.co/models?library=espnet&pipeline_tag=automatic-speech-recognition&sort=downloads) if you want to handle the Inference directly.
+You can also use libraries such as [transformers](https://huggingface.co/models?library=transformers&pipeline_tag=automatic-speech-recognition&sort=downloads), [speechbrain](https://huggingface.co/models?library=speechbrain&pipeline_tag=automatic-speech-recognition&sort=downloads), [NeMo](https://huggingface.co/models?pipeline_tag=automatic-speech-recognition&library=nemo&sort=downloads) and [espnet](https://huggingface.co/models?library=espnet&pipeline_tag=automatic-speech-recognition&sort=downloads) if you want one-click managed Inference without any hassle.
 
 ```python
 from transformers import pipeline
@@ -44,7 +44,7 @@ from transformers import pipeline
 with open("sample.flac", "rb") as f:
   data = f.read()
 
-pipe = pipeline("automatic-speech-recognition", "facebook/wav2vec2-base-960h")
+pipe = pipeline("automatic-speech-recognition", "openai/whisper-large-v2")
 pipe("sample.flac")
 # {'text': "GOING ALONG SLUSHY COUNTRY ROADS AND SPEAKING TO DAMP AUDIENCES IN DRAUGHTY SCHOOL ROOMS DAY AFTER DAY FOR A FORTNIGHT HE'LL HAVE TO PUT IN AN APPEARANCE AT SOME PLACE OF WORSHIP ON SUNDAY MORNING AND HE CAN COME TO US IMMEDIATELY AFTERWARDS"}
 ```
@@ -57,7 +57,7 @@ import { HfInference } from "@huggingface/inference";
 const inference = new HfInference(HF_ACCESS_TOKEN);
 await inference.automaticSpeechRecognition({
   data: await (await fetch("sample.flac")).blob(),
-  model: "facebook/wav2vec2-base-960h",  
+  model: "openai/whisper-large-v2",  
 })
 ```
 
