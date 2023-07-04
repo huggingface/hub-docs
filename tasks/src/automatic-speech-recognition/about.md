@@ -65,7 +65,7 @@ await inference.automaticSpeechRecognition({
 
 We have some great news! You can fine-tune (transfer learning) a foundational speech model on a specific language without tonnes of data. Pretrained models such as Whisper, Wav2Vec2-MMS and HuBERT exist. [OpenAI's Whisper model](https://huggingface.co/openai/whisper-large-v2) is a large multilingual model trained on 100+ languages and with 680K hours of speech.
 
-The following detailed [blog post](https://huggingface.co/blog/fine-tune-whisper) shows how to fine-tune a pre-trained Whisper checkpoint on labeled data for ASR. With the right data and strategy you can fine-tune a high-performant model even on a Google Colab. We suggest to read the article for more info!
+The following detailed [blog post](https://huggingface.co/blog/fine-tune-whisper) shows how to fine-tune a pre-trained Whisper checkpoint on labeled data for ASR. With the right data and strategy you can fine-tune a high-performant model even on a Google Colab. We suggest to read the blog post for more info!
 
 ## Hugging Face XLSR-Wav2Vec2 Sprint
 
@@ -76,6 +76,7 @@ On March 2020, over 300 participants collaborated, trained and shared 236 ASR mo
 These events help democratize ASR for all languages, including low-resource languages. In addition to the trained models, the event helps to build practical collaborative knowledge.
 
 ## Useful Resources
+- [Fine-tuning MetaAI's MMS Adapter Models for Multi-Lingual ASR](https://huggingface.co/blog/mms_adapters)
 - [Making automatic speech recognition work on large files with Wav2Vec2 in 🤗 Transformers](https://huggingface.co/blog/asr-chunking)
 - [Boosting Wav2Vec2 with n-grams in 🤗 Transformers](https://huggingface.co/blog/wav2vec2-with-ngram)
 - [ML for Audio Study Group - Intro to Audio and ASR Deep Dive](https://www.youtube.com/watch?v=D-MH6YjuIlE)
