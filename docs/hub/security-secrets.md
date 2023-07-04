@@ -1,6 +1,6 @@
 # Secrets Scanning
 
-It is important to manage [your secrets (env variables) properly](./spaces-overview#managing-secrets). The most common way people expose their secrets to outside world is hard-coding their secrets in their `app.py` files directly, which makes it possible for a malicious user to utilise your secrets and services your secrets have access to. 
+It is important to manage [your secrets (env variables) properly](./spaces-overview#managing-the-environment). The most common way people expose their secrets to outside world is hard-coding their secrets in their `app.py` files directly, which makes it possible for a malicious user to utilize your secrets and services your secrets have access to. 
 
 For example, here is how example `app.py` described above might look like:
 
