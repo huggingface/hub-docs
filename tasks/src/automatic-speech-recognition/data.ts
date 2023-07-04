@@ -51,7 +51,7 @@ const taskData: TaskDataCustom = {
 			id:          "facebook/wav2vec2-base-960h",
 		},
 		{
-			description: "An end-to-end model that performs ASR and Speech Translation.",
+			description: "An end-to-end model that performs ASR and Speech Translation by MetaAI.",
 			id:          "facebook/s2t-small-mustc-en-fr-st",
 		},
 	],
