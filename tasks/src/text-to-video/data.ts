@@ -23,19 +23,26 @@ const taskData: TaskDataCustom = {
 			id:          "HuggingFaceM4/webvid",
 		},
         {
-			description: "Large dataset of video clips with captions sourced from Youtube videos on complex tasks with step-by-step information.",
-			id:          "totuta/youtube_subs_howto100M",
-		},
-        {
 			description: "A dataset of short Flickr videos for the temporal localization of events with descriptions.",
 			id:          "iejMac/CLIP-DiDeMo",
 		},
     ],
 	demo:     {
-		inputs:  [],
-		outputs: [],
+		inputs:  [
+			{
+				label:   "Input",
+				content:
+						"Darth Vader is surfing on the waves.",
+				type: "text",
+			},
+		],
+		outputs: [
+			{
+				filename: "text-to-video-output.gif",
+				type:     "img",
+			},
+		],
 	},
-	isPlaceholder: true,
 	metrics:       [],
 	models:        [
 		{
@@ -44,12 +51,24 @@ const taskData: TaskDataCustom = {
 		},
 		{
 			description: "A robust model for text-to-video generation.",
-			id:          "THUDM/CogVideo",
+			id:          "damo-vilab/text-to-video-ms-1.7b",
 		},
-        
+		{
+			description: "A text-to-video generation model with high quality and smooth outputs.",
+			id:          "cerspense/zeroscope_v2_576w",
+		},         
     ],
-	spaces:        [],
-	summary:       "Text-to-video is the task of generating videos from text. ",
+	spaces:        [	
+		{
+			description: "An application that generates video from text.",
+			id:          "fffiloni/zeroscope",
+		},
+		{
+			description: "An application that generates video from image and text.",
+			id:          "TempoFunk/makeavid-sd-jax",
+		},
+	],
+	summary:       "Text-to-video is the task of generating videos from text. Text-to-video models can be used in any application that requires generating temporally and spatially consistent sequence of images from text. ",
 	widgetModels:  [],
 	youtubeId:     undefined,
 };
