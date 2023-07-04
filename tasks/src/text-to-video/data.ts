@@ -49,7 +49,7 @@ const taskData: TaskDataCustom = {
         
     ],
 	spaces:        [],
-	summary:       "Generates videos from input text. These models can be used to generate temporally and spatially consistent sequence of images based on text prompts.",
+	summary:       "Text-to-video is the task of generating videos from text. ",
 	widgetModels:  [],
 	youtubeId:     undefined,
 };
