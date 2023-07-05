@@ -56,7 +56,7 @@ Read more in our dedicated sections on [Spaces GPU Upgrades](./spaces-gpus) and 
 
 ## Managing secrets and environment variables
 
-If your app requires some environment variables (for instance, some secret keys or tokens), don't hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and add a new variable or secret. Use variables if you need to store non-sensitive configuration values, and secrets for storing access tokens, API keys, or any sensitive value or credentials.
+If your app requires environment variables (for instance, secret keys or tokens), do not hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and add a new variable or secret. Use variables if you need to store non-sensitive configuration values, and secrets for storing access tokens, API keys, or any sensitive value or credentials.
 
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets-and-variables.png"/>
@@ -66,7 +66,7 @@ If your app requires some environment variables (for instance, some secret keys 
 
 Variables are publicly accessible and viewable, and will be automatically added to Spaces duplicated from your repository. They are exposed to your app as environment variables. For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management).
 
-Secrets are private, and their value cannot be retrieved once set. They won't be added to Spaces duplicated from your repository. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management). Users are warned when `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
+Secrets are private and their value cannot be retrieved once set. They won't be added to Spaces duplicated from your repository. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management). Users are warned when our `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
 
 ## Duplicating a Space
 
@@ -78,10 +78,10 @@ If you want to duplicate a Space, you can click the three dots at the top right 
 * Space name
 * Visiblity: The Space is private by default. Read more about private repositories [here](./repositories-settings#private-repositories). 
 * Hardware: You can choose the hardware on which the Space will be running. Read more about hardware upgrades [here](./spaces-gpus.md).
-* Storage: If the original repo uses some persistent storage, you will be prompted to choose a storage tier. Read more about persistent storage [here](./spaces-storage.md).
+* Storage: If the original repo uses persistent storage, you will be prompted to choose a storage tier. Read more about persistent storage [here](./spaces-storage.md).
 * Secrets and variables: If the original repo has set some secrets and variables, you'll be able to set them while duplicating the repo.
 
-Some Spaces might have environment variables that you might need to setup up. In those cases, the duplicate workflow will give you a warning about them. The duplicated Space will use a free CPU by default, but you can later upgrade it if needed.
+Some Spaces might have environment variables that you may need to set up. In these cases, the duplicate workflow will give you a warning about them. The duplicated Space will use a free CPU hardware by default, but you can later upgrade if needed.
 
 
 ## Networking
