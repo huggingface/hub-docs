@@ -21,7 +21,7 @@ Internally you could have as many open ports as you want. For instance, you can 
 
 If you want to expose apps served on multiple ports to the outside world, a workaround is to use a reverse proxy like Nginx to dispatch requests from the broader internet (on a single port) to different internal ports.
 
-## Environment Management
+## Secrets and Variables Management
 
 You can manage the Space's environment variables from its Settings. Read more [here](./spaces-overview.md#managing-the-environment).
 
@@ -50,7 +50,7 @@ Variables are injected in the container's environment at runtime.
 
 #### Buildtime
 
-In Docker Spaces, the secrets management is different for security reasons. Once you create a secret in the [Settings tab](./spaces-overview#managing-the-environment), you can expose the secret by adding the following line in your Dockerfile.
+In Docker Spaces, the secrets management is different for security reasons. Once you create a secret in the [Settings tab](./spaces-overview#managing-secrets-and-environment-variables), you can expose the secret by adding the following line in your Dockerfile.
 
 For example, if `SECRET_EXAMPLE` is the name of the secret you created in the Settings tab, you can read it at build time by mounting it to a file, then reading it with `$(cat /run/secrets/SECRET_EXAMPLE)`.
 
