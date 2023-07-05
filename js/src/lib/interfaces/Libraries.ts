@@ -443,7 +443,7 @@ const transformers = (model: ModelData) => {
 		].join("\n");
 	}
 
-	if(info.pipeline_tag) {
+	if (model.pipeline_tag) {
 		const pipelineSnippet = [
 			"# Use a pipeline as a high-level helper",
 			"from transformers import pipeline",
@@ -452,7 +452,7 @@ const transformers = (model: ModelData) => {
 		].join("\n")
 		return [pipelineSnippet, autoSnippet];
 	}
-	return [autoSnippet]
+	return [autoSnippet];
 };
 
 const transformersJS = (model: ModelData) => {
