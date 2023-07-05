@@ -86,7 +86,7 @@ In some cases, you might be interested in having programmatic access to the Spac
 
 ## Clone the Repository
 
-You can easily clone the repo in your Space. Start cloning by clicking on the bullet list dropdown in the top right of your Space page. Select "Clone repository" and then you'll be able to follow the instructions to clone the Space repo to your local machine using HTTPS or SSH. 
+You can easily clone the repo in your Space. Start cloning by clicking on the dropdown menu in the top right of your Space page. Select "Clone repository", and then you'll be able to follow the instructions to clone the Space repo to your local machine using HTTPS or SSH. 
 
 ![Spaces Clone Repo](https://github.com/huggingface/hub-docs/assets/83347449/dba41adb-134f-48ef-8de3-36a811c9c883)
 
