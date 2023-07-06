@@ -7,9 +7,6 @@ Text-to-video models can be used to create short-form video content from a provi
 ### Content format conversion
 Text-to-video models can be used to generate videos from long-form text, including blog posts, articles, and text files. Text-to-video models can be used to create educational videos that are more engaging and interactive. An example of this is creating a video that explains a complex concept from an article.
 
-### Disaster Relief and Safety Protocols
-Text-to-video models can be used to generate videos that show people how to stay safe during a hurricane or how to find food and water after a natural disaster.
-
 ### Voice-overs and Speech
 Text-to-video models can be used to create an AI newscaster to deliver daily news, or for a film-maker to create a short film or a music video.
 
