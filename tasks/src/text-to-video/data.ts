@@ -68,7 +68,7 @@ const taskData: TaskDataCustom = {
 			id:          "TempoFunk/makeavid-sd-jax",
 		},
 	],
-	summary:       "Text-to-video is the task of generating videos from text. Text-to-video models can be used in any application that requires generating temporally and spatially consistent sequence of images from text. ",
+	summary:       "Text-to-video models can be used in any application that requires generating consistent sequence of images from text. ",
 	widgetModels:  [],
 	youtubeId:     undefined,
 };
