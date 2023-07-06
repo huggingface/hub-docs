@@ -21,7 +21,7 @@ Internally you could have as many open ports as you want. For instance, you can 
 
 If you want to expose apps served on multiple ports to the outside world, a workaround is to use a reverse proxy like Nginx to dispatch requests from the broader internet (on a single port) to different internal ports.
 
-## Secrets and Variables Management
+## Secrets and Variables Management <a name="secret-management"></a>
 
 You can manage a Space's environment variables in the Space Settings. Read more [here](./spaces-overview.md#managing-the-environment).
 
