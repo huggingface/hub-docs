@@ -14,9 +14,6 @@ Text-to-video models can be used to create an AI newscaster to deliver daily new
 ## Task Variants
 Text-to-video models have different variants based on inputs and outputs.
 
-### Text-to-video Retrieval
-Text-to-video retrieval involves finding videos that are relevant to a given text query. This task is challenging because it requires the model to understand the meaning of the text query and to match it to the visual content of the videos. The best approach to text-to-video retrieval depends on the specific application. For example, if the application is to find videos that are relevant to a given text query, then a text-based model may be the best approach. However, if the application is to find text queries that are relevant to a given video, then a video-based model may be the best approach.
-
 ### Text-to-video Editing
 One text-to-video task is generating text-based video style and local attribute editing. Text-to-video editing models can make it easier to perform tasks like cropping, stabilization, color correction, resizing and audio editing consistently.
 
