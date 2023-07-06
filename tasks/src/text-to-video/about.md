@@ -1,7 +1,8 @@
 ## Use Cases
 
 ### Script-based Video Generation
-Text-to-video models can be used to create short-form video content from a provided text script. These models can be used to create engaging and informative marketing videos. For example, a company could use a text-to-video model to create a video that explains how their product works or that shows how their product can solve a customer's problem.
+Text-to-video models can be used to create short-form video content from a provided text script. These models can be used to create engaging and informative marketing videos. For example, a company could use a text-to-video model to create a video that explains how their product works.
+
 
 ### Content format conversion
 Text-to-video models can be used to generate videos from long-form text, including blog posts, articles, and text files. Text-to-video models can be used to create educational videos that are more engaging and interactive. An example of this is creating a video that explains a complex concept from an article.
