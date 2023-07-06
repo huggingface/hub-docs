@@ -64,7 +64,7 @@ If your app requires environment variables (for instance, secret keys or tokens)
 </div>
 
 
-Variables are publicly accessible and viewable, and will be automatically added to Spaces duplicated from your repository. They are exposed to your app as environment variables. For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management).
+Variables are publicly accessible and viewable and will be automatically added to Spaces duplicated from your repository. They are exposed to your app as environment variables. For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management).
 
 Secrets are private and their value cannot be retrieved once set. They won't be added to Spaces duplicated from your repository. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management). Users are warned when our `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
 
@@ -81,7 +81,7 @@ If you want to duplicate a Space, you can click the three dots at the top right 
 * Storage: If the original repo uses persistent storage, you will be prompted to choose a storage tier. Read more about persistent storage [here](./spaces-storage.md).
 * Secrets and variables: If the original repo has set some secrets and variables, you'll be able to set them while duplicating the repo.
 
-Some Spaces might have environment variables that you may need to set up. In these cases, the duplicate workflow will give you a warning about them. The duplicated Space will use a free CPU hardware by default, but you can later upgrade if needed.
+Some Spaces might have environment variables that you may need to set up. In these cases, the duplicate workflow will auto-populate the public Variables from the source Space, and give you a warning about setting up the Secrets. The duplicated Space will use a free CPU hardware by default, but you can later upgrade if needed.
 
 
 ## Networking
