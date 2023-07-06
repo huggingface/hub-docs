@@ -54,8 +54,8 @@ Read more in our dedicated sections on [Spaces GPU Upgrades](./spaces-gpus) and 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-gpu-settings-dark.png"/>
 </div>
 
-## Managing secrets and environment variables <a name="managing-secrets"></a>
-
+## Managing secrets and environment variables 
+<a name="managing-secrets"></a>
 If your app requires environment variables (for instance, secret keys or tokens), do not hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and add a new variable or secret. Use variables if you need to store non-sensitive configuration values and secrets for storing access tokens, API keys, or any sensitive value or credentials.
 
 <div class="flex justify-center">
