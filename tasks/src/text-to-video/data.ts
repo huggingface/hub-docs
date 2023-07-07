@@ -67,6 +67,10 @@ const taskData: TaskDataCustom = {
 			description: "An application that generates video from image and text.",
 			id:          "TempoFunk/makeavid-sd-jax",
 		},
+		{
+			description: "An application that generates videos from text and provides multi-model support.",
+			id:          "ArtGAN/Video-Diffusion-WebUI",
+		}
 	],
 	summary:       "Text-to-video models can be used in any application that requires generating consistent sequence of images from text. ",
 	widgetModels:  [],
