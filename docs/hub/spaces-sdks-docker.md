@@ -21,11 +21,36 @@ Internally you could have as many open ports as you want. For instance, you can 
 
 If you want to expose apps served on multiple ports to the outside world, a workaround is to use a reverse proxy like Nginx to dispatch requests from the broader internet (on a single port) to different internal ports.
 
-## Secret Management
+## Secrets and Variables Management
+ <a id="secret-management"></a>
+You can manage a Space's environment variables in the Space Settings. Read more [here](./spaces-overview.md#managing-the-environment).
 
-### Buildtime
+### Variables
 
-In Docker Spaces, the secrets management is different for security reasons. Once you create a secret in the [Settings tab](./spaces-overview#managing-secrets), you can expose the secret by adding the following line in your Dockerfile.
+#### Buildtime
+
+Variables are passed as `build-arg`s when building your Docker Space. Read [Docker's dedicated documentation](https://docs.docker.com/engine/reference/builder/#arg) for a complete guide on how to use this in the Dockerfile.
+
+```Dockerfile
+	# Declare your environment variables with the ARG directive
+	ARG MODEL_REPO_NAME
+
+	FROM python:latest
+	# [...]
+	# You can use them like environment variables
+	RUN predict.py $MODEL_REPO_NAME
+```
+
+#### Runtime
+
+Variables are injected in the container's environment at runtime. 
+
+### Secrets
+
+
+#### Buildtime
+
+In Docker Spaces, the secrets management is different for security reasons. Once you create a secret in the [Settings tab](./spaces-overview#managing-secrets-and-environment-variables), you can expose the secret by adding the following line in your Dockerfile:
 
 For example, if `SECRET_EXAMPLE` is the name of the secret you created in the Settings tab, you can read it at build time by mounting it to a file, then reading it with `$(cat /run/secrets/SECRET_EXAMPLE)`.
 
@@ -43,9 +68,9 @@ RUN --mount=type=secret,id=SECRET_EXAMPLE,mode=0444,required=true \
 	curl test -H 'Authorization: Bearer $(cat /run/secrets/SECRET_EXAMPLE)'
 ```
 
-### Runtime
+#### Runtime
 
-At runtime, you can access the secrets as environment variables. For example, in Python you would do `os.environ.get("SECRET_EXAMPLE")`. Check out this [example](https://huggingface.co/spaces/DockerTemplates/secret-example) of a Docker Space that uses secrets.
+Same as for public Variables, at runtime, you can access the secrets as environment variables. For example, in Python you would use `os.environ.get("SECRET_EXAMPLE")`. Check out this [example](https://huggingface.co/spaces/DockerTemplates/secret-example) of a Docker Space that uses secrets.
 
 ## Permissions
 
