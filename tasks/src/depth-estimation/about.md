@@ -10,13 +10,13 @@ Depth estimation models can also be used to develop a 3D representation from a 2
 
 ## Inference
 
-With the `transformers` library, you can use the `depth-estimation` pipeline to infer with image classification models. You can initialize the pipeline with a model id from the Hub. If you do not provide a model id it will initialize with [Intel/dpt-large](https://huggingface.co/Intel/dpt-large) by default. When calling the pipeline you just need to specify a path, http link or an image loaded in PIL. 
+With the `transformers` library, you can use the `depth-estimation` pipeline to infer with image classification models. You can initialize the pipeline with a model id from the Hub. If you do not provide a model id it will initialize with [Intel/dpt-large](https://huggingface.co/Intel/dpt-large) by default. When calling the pipeline you just need to specify a path, http link or an image loaded in PIL. Additionally, you can find a comprehensive list of various depth estimation models at [this link](https://huggingface.co/models?pipeline_tag=depth-estimation).
 
 ```python
 from transformers import pipeline
 
-estimator = pipeline("depth-estimation")
-result = estimator("http://images.cocodataset.org/val2017/000000039769.jpg")
+estimator = pipeline(task="depth-estimation", model="Intel/dpt-large")
+result = estimator(images="http://images.cocodataset.org/val2017/000000039769.jpg")
 result
 
 # {'predicted_depth': tensor([[[ 6.3199,  6.3629,  6.4148,  ..., 10.4104, 10.5109, 10.3847],
@@ -30,6 +30,8 @@ result
 
 # You can visualize the result just by calling `result["depth"]`.
 ```
+<img src="https://huggingface.co/datasets/kadirnar/diffusers_readme_images/resolve/main/depth.png" width="500" alt="Depth Estimation Example" />
+
 
 ## Useful Resources
 
