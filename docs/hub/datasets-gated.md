@@ -52,11 +52,11 @@ The base URL for the HTTP endpoints above is `https://huggingface.co`. The `$tok
 
 ### Notifications settings
 
-By default, notifications for new pending access requests are sent once a day, via email.
-When the repo lives in an organization, those emails are send to the first 5 admins of the organization.
+By default, notifications for new pending access requests are sent once a day via email.
+When the repo lives in an organization, those emails are sent to the first 5 admins of the organization.
 
 You can customize the way you receive those notifications from the gated dataset's settings page.
-You can choose whether to receive notifications for new pending access requests in bulk once a day, or in real-time.
+You can choose whether to receive notifications for new pending access requests in bulk once a day or in real-time.
 You can also set a custom email to send those notifications to.
 
 <div class="flex justify-center">
