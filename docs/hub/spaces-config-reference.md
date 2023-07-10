@@ -21,7 +21,7 @@ Can be either `gradio`, `streamlit`, `docker`, or `static`.
 
 **`python_version`**: _string_  
 Any valid Python `3.x` or `3.x.x` version.  
-Defaults to `3.8.9`.  
+Defaults to `3.10`.  
 
 **`sdk_version`** : _string_  
 Specify the version of the selected SDK (Streamlit or Gradio).  
