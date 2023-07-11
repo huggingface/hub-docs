@@ -30,7 +30,6 @@ result
 
 # You can visualize the result just by calling `result["depth"]`.
 ```
-<img src="https://huggingface.co/datasets/kadirnar/diffusers_readme_images/resolve/main/depth.png" width="500" alt="Depth Estimation Example" />
 
 
 ## Useful Resources
