@@ -4,7 +4,7 @@
 
 ## Deploy your own Chat UI
 
-To get started, simply head [here](https://huggingface.co/new-space?template=huggingchat/chat-ui-template). You can select the hardware to serve the model of your choice.
+To get started, simply head [here](https://huggingface.co/new-space?template=huggingchat/chat-ui-template). You can select the hardware of your choice (GPU) which will serve the model inference.
 
 <a href="https://huggingface.co/new-space?template=huggingchat/chat-ui-template">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_chatui_landing.png" />
