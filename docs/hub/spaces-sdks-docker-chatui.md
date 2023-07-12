@@ -30,4 +30,4 @@ Start chatting!
 
 ## More on HF Spaces
 
-- [HF Docker spaces](https://huggingface.co/docs/hub/spaces-sdks-docker)
+- [HF Docker Spaces](https://huggingface.co/docs/hub/spaces-sdks-docker)
