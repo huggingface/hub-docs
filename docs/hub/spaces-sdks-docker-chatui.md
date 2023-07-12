@@ -1,4 +1,4 @@
-## Chat UI on Spaces
+# Chat UI on Spaces
 
 **Hugging Chat** is the interface of Hugging Face enabling everyone to try open-source large language models using Hugging Face's infrastructure. This Docker template enables everyone to deploy their own Hugging Chat based on a model of their choice with a few clicks.
 
