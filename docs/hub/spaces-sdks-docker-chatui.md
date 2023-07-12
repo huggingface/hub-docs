@@ -16,7 +16,7 @@ You should provide a MongoDB endpoint where your chats will be written. Note tha
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_chatui_params.png" />
 </a>
 
-Once the creation is complete, you will see `Building` on your Space. After that, you can try your own HuggingChat.
+Once the creation is complete, you will see `Building` on your Space. Once built, you can try your own HuggingChat!
 
 <a href="Hugging Chat Landing UI">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_chatui_ui.png" />
