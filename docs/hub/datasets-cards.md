@@ -30,9 +30,18 @@ The metadata that you add to the dataset card enables certain interactions on th
 * Allow users to filter and discover datasets at https://huggingface.co/datasets.
 * If you choose a license using the keywords listed in the right column of [this table](./repositories-licenses), the license will be displayed on the dataset page.
 
-See the detailed dataset card metadata specification [here](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1).
+When creating a README.md file in a dataset repository on the Hub, use Metadata UI to fill the main metadata:
 
-Use the [Dataset Metadata Creator](https://huggingface.co/spaces/huggingface/datasets-tagging) to help you generate the appropriate metadata. For a step-by-step guide on creating a dataset card, check out the [Create a dataset card](https://huggingface.co/docs/datasets/dataset_card) guide.
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-metadata-ui.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-metadata-ui-dark.png"/>
+</div>
+
+To see metadata fields, see the detailed dataset card metadata specification [here](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1).
+
+### Dataset card creation guide
+
+For a step-by-step guide on creating a dataset card, check out the [Create a dataset card](https://huggingface.co/docs/datasets/dataset_card) guide.
 
 Reading through existing dataset cards, such as the [ELI5 dataset card](https://huggingface.co/datasets/eli5/blob/main/README.md), is a great way to familiarize yourself with the common conventions.
 
