@@ -10,7 +10,7 @@ To get started, simply head [here](https://huggingface.co/new-space?template=hug
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_chatui_landing.png" />
 </a>
 
-You should provide a MongoDB endpoint where your chats will be written. Note that Hugging Face does not have access to your chats. Below this, you can select the Hugging Face Hub ID of the model you wish to serve. To provide a database You can also change the generation hyperparameters in the dictionary below. 
+You should provide a MongoDB endpoint where your chats will be written. Note that Hugging Face does not have access to your chats. Below this, you can select the Hugging Face Hub ID of the model you wish to serve. To provide a database You can also change the generation hyperparameters in the dictionary below, in JSON format. 
 
 <a href="Parameters">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_chatui_params.png" />
