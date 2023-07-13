@@ -1,4 +1,4 @@
-# Chat UI on Spaces
+# Your own Hugging Chat on Spaces
 
 **Hugging Chat** is an open-source interface enabling everyone to try open-source large language models such as Falcon, StarCoder, and BLOOM. Thanks to an official Docker template, you can deploy your own Hugging Chat based on a model of your choice with a few clicks using Hugging Face's infrastructure.
 
