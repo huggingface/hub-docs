@@ -448,7 +448,7 @@ const transformers = (model: ModelData) => {
 			"# Use a pipeline as a high-level helper",
 			"from transformers import pipeline",
 			"",
-			`pipe = pipeline("${info.pipeline_tag}", model="${model.id}"` + remote_code_snippet + ")"
+			`pipe = pipeline("${model.pipeline_tag}", model="${model.id}"` + remote_code_snippet + ")"
 		].join("\n")
 		return [pipelineSnippet, autoSnippet];
 	}
