@@ -42,15 +42,15 @@ const taskData: TaskDataCustom = {
 			id: "is",
 		},
 		{
-			description: "Frechet Inception Distance uses a separate model to embed images and compares the distribution of generated image representations with the distribution of real image representations; smaller scores are better.",
+			description: "Frechet Inception Distance uses last activations before the classifier layer of an image classification model as embeddings. The metric compares mean and standard deviation of the embeddings of real and generated images. A smaller score indicates better video generation.",
 			id: "fid",
 		},
 		{
-			description: "Frechet Video Distance adapts the FID score to video data by using as encoder a model like I3D that captures temporal coherence of a sequence of frames, as well as quality of each frame; smaller scores are better.",
+			description: "Frechet Video Distance uses a model that captures coherence for changes in frames and the quality of each frame. A smaller score indicates better video generation.",
 			id: "fvd",
 		},
 		{
-			description: "CLIPSIM measures similarity between video frames and text based on CLIP; higher scores are better.",
+			description: "CLIPSIM measures similarity between video frames and text using an image-text similarity model. A higher score indicates better video generation.",
 			id: "clipsim",
 		},
 	],
