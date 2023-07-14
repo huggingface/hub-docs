@@ -38,7 +38,7 @@ const taskData: TaskDataCustom = {
 	isPlaceholder: true,
 	metrics:       [
 		{
-			description: "Inception Score uses separate image classification model (Inception-V3, C3D) predict class labels and evaluates how distinct and diverse they are; higher scores are better.",
+			description: "Inception Score uses an image classification model that predicts class labels and evaluates how distinct and diverse the images are. A higher score indicates better video generation.",
 			id: "is",
 		},
 		{
