@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ModelLoadInfo } from "../../shared/types";
 
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
@@ -21,6 +21,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let modelLoadInfo: ModelLoadInfo;
 
 	let computeTime = "";
 	let error: string = "";
@@ -169,6 +170,7 @@
 	{isLoading}
 	{model}
 	{modelLoading}
+	{modelLoadInfo}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

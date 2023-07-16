@@ -9,16 +9,19 @@ export interface WidgetProps {
 	shouldUpdateUrl: boolean;
 	includeCredentials: boolean;
 	isLoggedIn?: boolean;
+	modelLoadInfo?: ModelLoadInfo;
 }
 
 
-export type LoadingStatus = "error" | "loaded" | "unknown";
+export type LoadingStatus = "Loaded" | "Loadable" | "TooBig";
 
 export type ComputeType = "cpu" | "gpu";
 
 export type ModelLoadInfo = {
-	status: LoadingStatus;
-	compute_type?: ComputeType;
+	loaded:       boolean;
+	state:        "Loaded" | "Loadable" | "TooBig";
+	compute_type: "cpu" | "ppu";
+	framework:    string;
 }
 
 export type TableData = Record<string, (string | number)[]>;

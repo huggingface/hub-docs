@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ModelLoadInfo } from "../../shared/types";
 
 	import { onMount } from "svelte";
 	import WidgetOutputConvo from "../../shared/WidgetOutputConvo/WidgetOutputConvo.svelte";
@@ -20,6 +20,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let modelLoadInfo: ModelLoadInfo;
 
 	interface Conversation {
 		generated_responses: string[];
@@ -178,6 +179,7 @@
 	{isLoading}
 	{model}
 	{modelLoading}
+	{modelLoadInfo}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

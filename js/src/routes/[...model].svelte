@@ -37,23 +37,22 @@
 	export let message: string | undefined;
 </script>
 
-<a href="/" class="pt-3 ml-3 block underline">← Back to index</a>
+<a href="/" class="ml-3 block pt-3 underline">← Back to index</a>
 <ModeSwitcher />
 
 <div class="container py-24">
 	{#if model}
 		<div>
-			<a class="text-xs block mb-3 text-gray-300" href="/{model.id}">
+			<a class="mb-3 block text-xs text-gray-300" href="/{model.id}">
 				<code>{model.id}</code>
 			</a>
-			<div class="p-5 shadow-sm rounded-xl bg-white max-w-3xl">
+			<div class="max-w-3xl rounded-xl bg-white p-5 shadow-sm">
 				<InferenceWidget {model} />
 			</div>
 		</div>
 
-		<pre
-			class="text-xs text-gray-900 px-3 py-4 mt-16">
-			{ JSON.stringify(model, null, 2) }
+		<pre class="mt-16 px-3 py-4 text-xs text-gray-900">
+			{JSON.stringify(model, null, 2)}
 		</pre>
 	{:else}
 		<div>Error. Probably non existent model. {message}</div>

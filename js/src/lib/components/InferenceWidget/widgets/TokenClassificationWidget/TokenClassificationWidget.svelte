@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ModelLoadInfo } from "../../shared/types";
 
 	import { onMount } from "svelte";
 	import WidgetOuputTokens from "../../shared/WidgetOutputTokens/WidgetOutputTokens.svelte";
@@ -36,6 +36,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let modelLoadInfo: ModelLoadInfo;
 
 	let computeTime = "";
 	let error: string = "";
@@ -260,6 +261,7 @@
 	{isLoading}
 	{model}
 	{modelLoading}
+	{modelLoadInfo}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

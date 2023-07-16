@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SvelteComponent } from "svelte";
 	import type { PipelineType } from "../../interfaces/Types";
-	import type { WidgetProps } from "./shared/types";
+	import type { WidgetProps, ModelLoadInfo } from "./shared/types";
 
 	import AudioClassificationWidget from "./widgets/AudioClassificationWidget/AudioClassificationWidget.svelte";
 	import AudioToAudioWidget from "./widgets/AudioToAudioWidget/AudioToAudioWidget.svelte";
@@ -36,7 +36,8 @@
 	export let shouldUpdateUrl = false;
 	export let includeCredentials = false;
 	export let isLoggedIn = false;
-
+	export let modelLoadInfo: ModelLoadInfo | undefined = undefined;
+	
 	// Note: text2text-generation, text-generation and translation all
 	// uses the TextGenerationWidget as they work almost the same.
 	// Same goes for fill-mask and text-classification.
@@ -88,6 +89,7 @@
 		shouldUpdateUrl,
 		includeCredentials,
 		isLoggedIn,
+		modelLoadInfo
 	}) as WidgetProps;
 </script>
 

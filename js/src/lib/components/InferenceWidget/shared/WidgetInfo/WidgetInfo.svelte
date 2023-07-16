@@ -6,18 +6,18 @@
 	export let model: WidgetProps["model"];
 	export let computeTime: string;
 	export let error: string;
-	export let modelLoadInfo: ModelLoadInfo = { status: "unknown" };
+	export let modelLoadInfo: ModelLoadInfo;
 
 	const status = {
-		error: "⚠️ This model could not be loaded by the inference API. ⚠️",
-		loaded: "This model is currently loaded and running on the Inference API.",
-		unknown: "This model can be loaded on the Inference API on-demand.",
+		TooBig: "⚠️ This model is too large to be loaded by the inference API. ⚠️",
+		Loaded: "This model is currently loaded and running on the Inference API.",
+		Loadable: "This model can be loaded on the Inference API on-demand.",
 	} as const;
 
 	const azureStatus = {
-		error: "⚠️ This model could not be loaded.",
-		loaded: "This model is loaded and running on AzureML Managed Endpoint",
-		unknown: "This model can be loaded loaded on AzureML Managed Endpoint",
+		TooBig: "⚠️ This model is too large to be loaded by the inference API.",
+		Loaded: "This model is loaded and running on AzureML Managed Endpoint",
+		Loadable: "This model can be loaded loaded on AzureML Managed Endpoint",
 	} as const;
 
 	function getStatusReport(
@@ -27,12 +27,12 @@
 	): string {
 		if (
 			modelLoadInfo.compute_type === "cpu" &&
-			modelLoadInfo.status === "loaded" &&
+			modelLoadInfo.state === "Loaded" &&
 			!isAzure
 		) {
 			return `The model is loaded and running on <a class="hover:underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon 3rd Gen Scalable CPU</a>`;
 		}
-		return statuses[modelLoadInfo.status];
+		return statuses[modelLoadInfo.state];
 	}
 
 	function getComputeTypeMsg(): string {

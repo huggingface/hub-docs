@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, DetectedObject } from "../../shared/types";
+	import type { WidgetProps, ModelLoadInfo, DetectedObject } from "../../shared/types";
 
 	import { onMount } from "svelte";
 
@@ -23,6 +23,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let modelLoadInfo: ModelLoadInfo;
 
 	let computeTime = "";
 	let error: string = "";
@@ -165,6 +166,7 @@
 	{isLoading}
 	{model}
 	{modelLoading}
+	{modelLoadInfo}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

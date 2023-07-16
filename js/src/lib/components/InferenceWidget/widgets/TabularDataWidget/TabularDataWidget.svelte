@@ -27,6 +27,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let modelLoadInfo: ModelLoadInfo;
 
 	const columns: string[] = Object.keys(
 		model?.widgetData?.[0]?.structuredData ?? {}
@@ -214,6 +215,7 @@
 	{isLoading}
 	{model}
 	{modelLoading}
+	{modelLoadInfo}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

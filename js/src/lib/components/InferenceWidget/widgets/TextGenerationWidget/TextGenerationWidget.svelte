@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ModelLoadInfo } from "../../shared/types";
 	import type { PipelineType } from "../../../../interfaces/Types";
 
 	import { onMount } from "svelte";
@@ -25,6 +25,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let modelLoadInfo: ModelLoadInfo;
 	export let isLoggedIn: WidgetProps["includeCredentials"];
 
 	const isBloomLoginRequired =
@@ -205,6 +206,7 @@
 	{isLoading}
 	{model}
 	{modelLoading}
+	{modelLoadInfo}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

@@ -24,13 +24,15 @@
 	};
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (sample: Record<string, any>) => void =
-		({}) => {};
-	export let previewInputSample: (sample: Record<string, any>) => void =
-		({}) => {};
+	export let applyInputSample: (
+		sample: Record<string, any>
+	) => void = ({}) => {};
+	export let previewInputSample: (
+		sample: Record<string, any>
+	) => void = ({}) => {};
+	export let modelLoadInfo: ModelLoadInfo | undefined;
 
 	let isMaximized = false;
-	let modelLoadInfo: ModelLoadInfo = { status: "unknown" };
 	let selectedInputGroup: string;
 
 	const inputSamples: WidgetInputSample[] = (model?.widgetData ?? [])
@@ -64,6 +66,7 @@
 			: inputGroups.find(({ group }) => group === selectedInputGroup);
 
 	onMount(() => {
+		if (modelLoadInfo) return;
 		getModelLoadInfo(apiUrl, model.id, includeCredentials).then((info) => {
 			modelLoadInfo = info;
 		});
@@ -75,11 +78,11 @@
 </script>
 
 <div
-	class="flex flex-col w-full max-w-full
-	{isMaximized ? 'fixed inset-0 bg-white p-12 z-20' : ''}"
+	class="flex w-full max-w-full flex-col
+	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}"
 >
 	{#if isMaximized}
-		<button class="absolute top-6 right-12" on:click={onClickMaximizeBtn}>
+		<button class="absolute right-12 top-6" on:click={onClickMaximizeBtn}>
 			<IconCross classNames="text-xl text-gray-500 hover:text-black" />
 		</button>
 	{/if}

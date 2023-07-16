@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ImageSegment } from "../../shared/types";
+	import type { WidgetProps, ImageSegment, ModelLoadInfo } from "../../shared/types";
 
 	import { onMount } from "svelte";
 
@@ -23,6 +23,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let modelLoadInfo: ModelLoadInfo;
 
 	const maskOpacity = Math.floor(255 * 0.6);
 	const colorToRgb = COLORS.reduce((acc, clr) => {
@@ -259,6 +260,7 @@
 	{isLoading}
 	{model}
 	{modelLoading}
+	{modelLoadInfo}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

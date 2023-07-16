@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ModelLoadInfo } from "../../shared/types";
 	import { onMount } from "svelte";
 	import IconSpin from "../../../Icons/IconSpin.svelte";
 	import IconCross from "../../../Icons/IconCross.svelte";
