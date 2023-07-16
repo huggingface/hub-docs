@@ -24,12 +24,10 @@
 	};
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (
-		sample: Record<string, any>
-	) => void = ({}) => {};
-	export let previewInputSample: (
-		sample: Record<string, any>
-	) => void = ({}) => {};
+	export let applyInputSample: (sample: Record<string, any>) => void =
+		({}) => {};
+	export let previewInputSample: (sample: Record<string, any>) => void =
+		({}) => {};
 	export let modelLoadInfo: ModelLoadInfo | undefined;
 
 	let isMaximized = false;

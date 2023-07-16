@@ -51,7 +51,8 @@
 			</div>
 		</div>
 
-		<pre class="mt-16 px-3 py-4 text-xs text-gray-900">
+		<pre
+			class="mt-16 px-3 py-4 text-xs text-gray-900">
 			{JSON.stringify(model, null, 2)}
 		</pre>
 	{:else}

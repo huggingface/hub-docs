@@ -1,5 +1,9 @@
 <script lang="ts">
-	import type { WidgetProps, ModelLoadInfo, DetectedObject } from "../../shared/types";
+	import type {
+		WidgetProps,
+		ModelLoadInfo,
+		DetectedObject,
+	} from "../../shared/types";
 
 	import { onMount } from "svelte";
 

@@ -37,7 +37,7 @@
 	export let includeCredentials = false;
 	export let isLoggedIn = false;
 	export let modelLoadInfo: ModelLoadInfo | undefined = undefined;
-	
+
 	// Note: text2text-generation, text-generation and translation all
 	// uses the TextGenerationWidget as they work almost the same.
 	// Same goes for fill-mask and text-classification.

@@ -1,5 +1,9 @@
 <script lang="ts">
-	import type { WidgetProps, ImageSegment, ModelLoadInfo } from "../../shared/types";
+	import type {
+		WidgetProps,
+		ImageSegment,
+		ModelLoadInfo,
+	} from "../../shared/types";
 
 	import { onMount } from "svelte";
 
