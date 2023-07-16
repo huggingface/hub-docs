@@ -180,16 +180,14 @@ export async function getResponse<T>(
 }
 
 
-export async function getModelLoadInfo(url: string, repoId: string, includeCredentials = false): Promise<ModelLoadInfo> {
+export async function getModelLoadInfo(url: string, repoId: string, includeCredentials = false): Promise<ModelLoadInfo | undefined> {
 	const response = await fetch(`${url}/status/${repoId}`, {credentials: includeCredentials ? "include" : "same-origin"});
 	const output = await response.json();
-	if (response.ok && typeof output === 'object' && output.loaded !== undefined) {
-		const status = output.loaded ? 'loaded' : 'unknown';
-		const compute_type = output.compute_type;
-		return {status, compute_type}
+	if (response.ok) {
+		return output as ModelLoadInfo;
 	} else {
 		console.warn(response.status, output.error);
-		return {status: 'error'};
+		return undefined;
 	}
 }
 

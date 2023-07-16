@@ -6,7 +6,7 @@
 	export let model: WidgetProps["model"];
 	export let computeTime: string;
 	export let error: string;
-	export let modelLoadInfo: ModelLoadInfo;
+	export let modelLoadInfo: ModelLoadInfo | undefined;
 
 	const status = {
 		TooBig: "⚠️ This model is too large to be loaded by the inference API. ⚠️",
@@ -21,10 +21,13 @@
 	} as const;
 
 	function getStatusReport(
-		modelLoadInfo: ModelLoadInfo,
+		modelLoadInfo: ModelLoadInfo | undefined,
 		statuses: Record<LoadingStatus, string>,
 		isAzure = false
 	): string {
+		if (!modelLoadInfo) {
+			return "Unable to get model status.";
+		}
 		if (
 			modelLoadInfo.compute_type === "cpu" &&
 			modelLoadInfo.state === "Loaded" &&
@@ -36,6 +39,9 @@
 	}
 
 	function getComputeTypeMsg(): string {
+		if (!modelLoadInfo) {
+			return "Unknown compute type";
+		}
 		let compute_type = modelLoadInfo?.compute_type ?? "cpu";
 		if (compute_type === "cpu") {
 			return "Intel Xeon 3rd Gen Scalable cpu";
