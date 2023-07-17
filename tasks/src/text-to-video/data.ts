@@ -42,7 +42,7 @@ const taskData: TaskDataCustom = {
 			id: "is",
 		},
 		{
-			description: "Frechet Inception Distance uses last activations before the classifier layer of an image classification model as embeddings. The metric compares mean and standard deviation of the embeddings of real and generated images. A smaller score indicates better video generation.",
+			description: "Frechet Inception Distance uses an image classification model to obtain image embeddings. The metric compares mean and standard deviation of the embeddings of real and generated images. A smaller score indicates better video generation.",
 			id: "fid",
 		},
 		{
