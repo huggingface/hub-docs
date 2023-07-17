@@ -20,7 +20,7 @@ export type ComputeType = "cpu" | "gpu";
 export type ModelLoadInfo = {
 	loaded:       boolean;
 	state:        "Loaded" | "Loadable" | "TooBig";
-	compute_type: "cpu" | "ppu";
+	compute_type: "cpu" | "gpu";
 	framework:    string;
 }
 
