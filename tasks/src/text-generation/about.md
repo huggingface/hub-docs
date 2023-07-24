@@ -72,7 +72,7 @@ await inference.conversational({
 
 ## Text Generation Inference
 
-[Text Generation Inference (TGI)](https://github.com/huggingface/text-generation-inference) is a toolkit developed by Hugging Face to address challenges on response time and latency for concurrent users in serving large language models. It's an open-source serving solution that powers inference solutions of Hugging Face, [Inference Endpoints](https://huggingface.co/inference-endpoints), and [Inference API](https://huggingface.co/docs/api-inference/index) and [Hugging Chat](https://huggingface.co/chat/). You can use it to deploy any open-source large language model of your choice.
+[Text Generation Inference (TGI)](https://github.com/huggingface/text-generation-inference) is an open-source toolkit for serving LLMs tackling challenges such as response time. TGI powers inference solutions like [Inference Endpoints](https://huggingface.co/inference-endpoints) and [Hugging Chat](https://huggingface.co/chat/), as well as multiple community projects. You can use it to deploy any supported open-source large language model of your choice.
 
 ## ChatUI Docker Spaces
 
