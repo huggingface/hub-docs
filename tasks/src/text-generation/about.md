@@ -26,11 +26,11 @@ A popular variant of Text Generation models predicts the next word given a bunch
 - Continue a story given the first sentences.
 - Provided a code description, generate the code.
 
-The most popular models for this task are GPT-based models (such as [GPT-2](https://huggingface.co/gpt2)). These models are trained on data that has no labels, so you just need plain text to train your own model. You can train GPT models to generate a wide variety of documents, from code to stories.
+The most popular models for this task are GPT-based models or [LLaMA series](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf). These models are trained on data that has no labels, so you just need plain text to train your own model. You can train text generation models to generate a wide variety of documents, from code to stories. 
 
 ### Text-to-Text Generation Models
 
-These models are trained to learn the mapping between a pair of texts (e.g. translation from one language to another). The most popular variants of these models are [T5](https://huggingface.co/docs/transformers/model_doc/t5), [T0](https://huggingface.co/bigscience/T0pp) and [BART](https://huggingface.co/docs/transformers/model_doc/bart). Text-to-Text models are trained with multi-tasking capabilities, they can accomplish a wide range of tasks, including summarization, translation, and text classification.
+These models are trained to learn the mapping between a pair of texts (e.g. translation from one language to another). The most popular variants of these models are [FLAN-T5](https://huggingface.co/google/flan-t5-xxl), and [BART](https://huggingface.co/docs/transformers/model_doc/bart). Text-to-Text models are trained with multi-tasking capabilities, they can accomplish a wide range of tasks, including summarization, translation, and text classification.
 
 ## Inference
 
@@ -74,9 +74,9 @@ await inference.conversational({
 
 [Text Generation Inference (TGI)](https://github.com/huggingface/text-generation-inference) is an open-source toolkit for serving LLMs tackling challenges such as response time. TGI powers inference solutions like [Inference Endpoints](https://huggingface.co/inference-endpoints) and [Hugging Chat](https://huggingface.co/chat/), as well as multiple community projects. You can use it to deploy any supported open-source large language model of your choice.
 
-## ChatUI Docker Spaces
+## ChatUI Spaces
 
-Hugging Face Spaces includes Docker templates to easily deploy your own instance of a specific application. [ChatUI](https://github.com/huggingface/chat-ui), is an open-source interface that enables serving conversational interface for large language models, and is currently available for Docker Spaces. The Docker template for ChatUI is powered by TGI for faster inference. Thanks to the template, you can deploy own instance based on a large language model with only a few clicks and customize it. Learn more about it [here](https://huggingface.co/docs/hub/spaces-sdks-docker-chatui) and create your large language model instance [here](https://huggingface.co/new-space?template=huggingchat/chat-ui-template).
+Hugging Face Spaces includes templates to easily deploy your own instance of a specific application. [ChatUI](https://github.com/huggingface/chat-ui), is an open-source interface that enables serving conversational interface for large language models, and can be deployed with few clicks at Spaces. TGI powers these Spaces under the hood for faster inference. Thanks to the template, you can deploy your own instance based on a large language model with only a few clicks and customize it. Learn more about it [here](https://huggingface.co/docs/hub/spaces-sdks-docker-chatui) and create your large language model instance [here](https://huggingface.co/new-space?template=huggingchat/chat-ui-template).
 
 ![ChatUI](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/os_llms/docker_chat.png)
 
