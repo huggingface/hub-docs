@@ -26,7 +26,7 @@ A popular variant of Text Generation models predicts the next word given a bunch
 - Continue a story given the first sentences.
 - Provided a code description, generate the code.
 
-The most popular models for this task are GPT-based models or [LLaMA series](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf). These models are trained on data that has no labels, so you just need plain text to train your own model. You can train text generation models to generate a wide variety of documents, from code to stories. 
+The most popular models for this task are GPT-based models or [Llama series](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf). These models are trained on data that has no labels, so you just need plain text to train your own model. You can train text generation models to generate a wide variety of documents, from code to stories. 
 
 ### Text-to-Text Generation Models
 
@@ -89,7 +89,7 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - You can use [PEFT](https://github.com/huggingface/peft) to adapt large language models in efficient way.
 - [ChatUI](https://github.com/huggingface/chat-ui) is the open-source interface to conversate with Large Language Models.
 - [text-generation-inferface](https://github.com/huggingface/text-generation-inference)
-- [HuggingChat](https://huggingface.co/chat/) is a chat interface powered by Hugging Face to chat with powerful models like LLaMA 2 70B.
+- [HuggingChat](https://huggingface.co/chat/) is a chat interface powered by Hugging Face to chat with powerful models like Llama 2 70B.
 
 ### Documentation
 - [PEFT documentation](https://huggingface.co/docs/peft/index)
