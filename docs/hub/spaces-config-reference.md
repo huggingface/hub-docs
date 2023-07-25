@@ -52,7 +52,7 @@ For non-static spaces, initial url to render. Needs to start with `/`. For stati
 
 **`fullWidth`**: _boolean_  
 Whether your Space is rendered inside a full-width (when `true`) or fixed-width column (ie. "container" CSS) inside the iframe.
-Defaults to false in `gradio` and `streamlit`, and to true for other sdks.
+Defaults to false in `gradio`, and to true for other sdks.
 
 **`models`** : _List[string]_  
 HF model IDs (like `gpt2` or `deepset/roberta-base-squad2`) used in the Space.  
