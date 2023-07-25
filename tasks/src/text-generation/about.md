@@ -26,11 +26,11 @@ A popular variant of Text Generation models predicts the next word given a bunch
 - Continue a story given the first sentences.
 - Provided a code description, generate the code.
 
-The most popular models for this task are GPT-based models (such as [GPT-2](https://huggingface.co/gpt2)). These models are trained on data that has no labels, so you just need plain text to train your own model. You can train GPT models to generate a wide variety of documents, from code to stories.
+The most popular models for this task are GPT-based models or [Llama series](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf). These models are trained on data that has no labels, so you just need plain text to train your own model. You can train text generation models to generate a wide variety of documents, from code to stories. 
 
 ### Text-to-Text Generation Models
 
-These models are trained to learn the mapping between a pair of texts (e.g. translation from one language to another). The most popular variants of these models are [T5](https://huggingface.co/docs/transformers/model_doc/t5), [T0](https://huggingface.co/bigscience/T0pp) and [BART](https://huggingface.co/docs/transformers/model_doc/bart). Text-to-Text models are trained with multi-tasking capabilities, they can accomplish a wide range of tasks, including summarization, translation, and text classification.
+These models are trained to learn the mapping between a pair of texts (e.g. translation from one language to another). The most popular variants of these models are [FLAN-T5](https://huggingface.co/google/flan-t5-xxl), and [BART](https://huggingface.co/docs/transformers/model_doc/bart). Text-to-Text models are trained with multi-tasking capabilities, they can accomplish a wide range of tasks, including summarization, translation, and text classification.
 
 ## Inference
 
@@ -70,13 +70,34 @@ await inference.conversational({
 })
 ```
 
+## Text Generation Inference
 
+[Text Generation Inference (TGI)](https://github.com/huggingface/text-generation-inference) is an open-source toolkit for serving LLMs tackling challenges such as response time. TGI powers inference solutions like [Inference Endpoints](https://huggingface.co/inference-endpoints) and [Hugging Chat](https://huggingface.co/chat/), as well as multiple community projects. You can use it to deploy any supported open-source large language model of your choice.
+
+## ChatUI Spaces
+
+Hugging Face Spaces includes templates to easily deploy your own instance of a specific application. [ChatUI](https://github.com/huggingface/chat-ui) is an open-source interface that enables serving conversational interface for large language models and can be deployed with few clicks at Spaces. TGI powers these Spaces under the hood for faster inference. Thanks to the template, you can deploy your own instance based on a large language model with only a few clicks and customize it. Learn more about it [here](https://huggingface.co/docs/hub/spaces-sdks-docker-chatui) and create your large language model instance [here](https://huggingface.co/new-space?template=huggingchat/chat-ui-template).
+
+![ChatUI](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/os_llms/docker_chat.png)
 
 
 ## Useful Resources
 
 Would you like to learn more about the topic? Awesome! Here you can find some curated resources that you may find helpful!
 
+### Tools within Hugging Face Ecosystem
+- You can use [PEFT](https://github.com/huggingface/peft) to adapt large language models in efficient way.
+- [ChatUI](https://github.com/huggingface/chat-ui) is the open-source interface to conversate with Large Language Models.
+- [text-generation-inferface](https://github.com/huggingface/text-generation-inference)
+- [HuggingChat](https://huggingface.co/chat/) is a chat interface powered by Hugging Face to chat with powerful models like Llama 2 70B.
+
+### Documentation
+- [PEFT documentation](https://huggingface.co/docs/peft/index)
+- [ChatUI Docker Spaces](https://huggingface.co/docs/hub/spaces-sdks-docker-chatui)
+- [Causal language modeling task guide](https://huggingface.co/docs/transformers/tasks/language_modeling)
+- [Text generation strategies](https://huggingface.co/docs/transformers/generation_strategies)
+
+### Course and Blogs
 - [Course Chapter on Training a causal language model from scratch](https://huggingface.co/course/chapter7/6?fw=pt)
 - [TO Discussion with Victor Sanh](https://www.youtube.com/watch?v=Oy49SCW_Xpw&ab_channel=HuggingFace)
 - [Hugging Face Course Workshops: Pretraining Language Models & CodeParrot](https://www.youtube.com/watch?v=ExUR7w6xe94&ab_channel=HuggingFace)
@@ -91,7 +112,8 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Introducing RWKV - An RNN with the advantages of a transformer](https://huggingface.co/blog/rwkv)
 - [Creating a Coding Assistant with StarCoder](https://huggingface.co/blog/starchat-alpha)
 - [StarCoder: A State-of-the-Art LLM for Code](https://huggingface.co/blog/starcoder)
-- 
+- [Open-Source Text Generation & LLM Ecosystem at Hugging Face](https://huggingface.co/blog/os-llms)
+- [Llama 2 is at Hugging Face](https://huggingface.co/blog/llama2)
 
 ### Notebooks
 
@@ -104,8 +126,3 @@ Would you like to learn more about the topic? Awesome! Here you can find some cu
 - [Training a CLM in PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling)
 - [Training a CLM in TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling)
 - [Text Generation in PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/text-generation)
-
-### Documentation
-
-- [Causal language modeling task guide](https://huggingface.co/docs/transformers/tasks/language_modeling)
-- [Text generation strategies](https://huggingface.co/docs/transformers/generation_strategies)
