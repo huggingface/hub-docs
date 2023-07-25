@@ -64,7 +64,7 @@ Basically, you need to:
 - Handle the callback on `/auth/callback` or `/login/callback` (depending on the type of app you created) and verify the `state` parameter.
 - Use the `code` query parameter to get an access token and id token from `https://huggingface.co/oauth/token` (POST request with `client_id`, `code`, `grant_type=authorization_code` and `redirect_uri` as form data, and with `Authorization: Basic {base64(client_id:client_secret)}` as a header)
 
-<Tip>
+<Tip warning={true}>
 
 If the space is running inside an iframe, you should use `target=_blank` on the button to open the sign-in page in a new tab. Otherwise, you might encounter issues with the cookies on some browsers.
 
