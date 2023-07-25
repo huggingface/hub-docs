@@ -176,7 +176,7 @@
   - local: spaces-config-reference
     title: Spaces Configuration Reference
   - local: spaces-oauth
-    title: Adding a Sign-In with HF button to your space
+    title: Sign-In with HF button
   - local: spaces-changelog
     title: Spaces Changelog
   - local: spaces-advanced
