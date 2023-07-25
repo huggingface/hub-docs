@@ -76,7 +76,7 @@ await inference.conversational({
 
 ## ChatUI Spaces
 
-Hugging Face Spaces includes templates to easily deploy your own instance of a specific application. [ChatUI](https://github.com/huggingface/chat-ui), is an open-source interface that enables serving conversational interface for large language models, and can be deployed with few clicks at Spaces. TGI powers these Spaces under the hood for faster inference. Thanks to the template, you can deploy your own instance based on a large language model with only a few clicks and customize it. Learn more about it [here](https://huggingface.co/docs/hub/spaces-sdks-docker-chatui) and create your large language model instance [here](https://huggingface.co/new-space?template=huggingchat/chat-ui-template).
+Hugging Face Spaces includes templates to easily deploy your own instance of a specific application. [ChatUI](https://github.com/huggingface/chat-ui) is an open-source interface that enables serving conversational interface for large language models and can be deployed with few clicks at Spaces. TGI powers these Spaces under the hood for faster inference. Thanks to the template, you can deploy your own instance based on a large language model with only a few clicks and customize it. Learn more about it [here](https://huggingface.co/docs/hub/spaces-sdks-docker-chatui) and create your large language model instance [here](https://huggingface.co/new-space?template=huggingchat/chat-ui-template).
 
 ![ChatUI](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/os_llms/docker_chat.png)
 
