@@ -175,6 +175,8 @@
     title: Run Spaces with Docker
   - local: spaces-config-reference
     title: Spaces Configuration Reference
+  - local: spaces-oauth
+    title: Adding a Sign-In with HF button to your space
   - local: spaces-changelog
     title: Spaces Changelog
   - local: spaces-advanced
