@@ -232,3 +232,5 @@
     title: Digital Object Identifier (DOI)
   - local: api
     title: Hub API Endpoints
+  - local: oauth
+    title: Sign in with Hugging Face

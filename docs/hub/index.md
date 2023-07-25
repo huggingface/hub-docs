@@ -74,6 +74,7 @@ The Hugging Face Hub is a platform with over 120k models, 20k datasets, and 50k 
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./paper-pages">Paper Pages</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./doi">Digital Object Identifier (DOI)</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./api">Hub API Endpoints</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./oauth">Sign in with HF</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="https://huggingface.co/code-of-conduct">Contributor Code of Conduct</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="https://huggingface.co/content-guidelines">Content Guidelines</a>
 </div>
