@@ -47,7 +47,7 @@ from transformers import AutoModel
 
 access_token = "hf_..."
 
-model = AutoModel.from_pretrained("private/model", use_auth_token=access_token)
+model = AutoModel.from_pretrained("private/model", token=access_token)
 ```
 
 <Tip warning={true}>

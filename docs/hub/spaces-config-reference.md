@@ -21,12 +21,12 @@ Can be either `gradio`, `streamlit`, `docker`, or `static`.
 
 **`python_version`**: _string_  
 Any valid Python `3.x` or `3.x.x` version.  
-Defaults to `3.8.9`.  
+Defaults to `3.10`.  
 
 **`sdk_version`** : _string_  
 Specify the version of the selected SDK (Streamlit or Gradio).  
 All versions of Gradio are supported.  
-Streamlit versions are supported from `0.79.0` to `1.22.0`.
+Streamlit versions are supported from `0.79.0` to `1.24.0`.
 
 **`suggested_hardware`** : _string_  
 Specify the suggested [hardware](https://huggingface.co/docs/hub/spaces-gpus) on which this Space must be run.  
@@ -52,7 +52,7 @@ For non-static spaces, initial url to render. Needs to start with `/`. For stati
 
 **`fullWidth`**: _boolean_  
 Whether your Space is rendered inside a full-width (when `true`) or fixed-width column (ie. "container" CSS) inside the iframe.
-Defaults to false in `gradio` and `streamlit`, and to true for other sdks.
+Defaults to false in `gradio`, and to true for other sdks.
 
 **`models`** : _List[string]_  
 HF model IDs (like `gpt2` or `deepset/roberta-base-squad2`) used in the Space.  

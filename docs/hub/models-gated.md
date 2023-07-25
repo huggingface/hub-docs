@@ -67,6 +67,21 @@ You can automate the approval of access requests with the following API:
 
 The base URL for the HTTP endpoints above is `https://huggingface.co`. The `$token` to pass as a bearer token can be generated from [your user settings](https://huggingface.co/settings/tokens). It must have `write` access to the gated repository.
 
+### Notifications settings
+
+By default, notifications for new pending access requests are sent once a day via email.
+When the repo lives in an organization, those emails are sent to the first 5 admins of the organization.
+
+You can customize the way you receive those notifications from the gated model's settings page.
+You can choose whether to receive notifications for new pending access requests in bulk once a day or in real-time.
+You can also set a custom email to send those notifications to.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-notifications.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-notifications-dark.png"/>
+</div>
+
+
 ## Additional Customization
 
 In some cases, you might also want to modify the text in the heading of the gate as well as the text in the button. For those use cases you can modify `extra_gated_heading` and `extra_gated_button_content`.

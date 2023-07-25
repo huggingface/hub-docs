@@ -156,6 +156,7 @@
 
 <WidgetWrapper
 	{apiUrl}
+	{includeCredentials}
 	{applyInputSample}
 	{computeTime}
 	{error}

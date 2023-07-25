@@ -17,6 +17,7 @@
 	export let error: string;
 	export let isLoading = false;
 	export let model: WidgetProps["model"];
+	export let includeCredentials: WidgetProps["includeCredentials"];
 	export let modelLoading = {
 		isLoading: false,
 		estimatedTime: 0,
@@ -63,7 +64,7 @@
 			: inputGroups.find(({ group }) => group === selectedInputGroup);
 
 	onMount(() => {
-		getModelLoadInfo(apiUrl, model.id).then((info) => {
+		getModelLoadInfo(apiUrl, model.id, includeCredentials).then((info) => {
 			modelLoadInfo = info;
 		});
 	});
