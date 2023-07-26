@@ -2,7 +2,11 @@
 
 Besides [spaces](https://huggingface.co/docs/hub/spaces-oauth), it's also possible to create an OAuth / OpenID connect app for your website. This will allow users to sign-in to your website using their HF account.
 
-It's also possible to have the additional `email` scope.
+The currently supported scopes are:
+
+- `openid`: Get the ID token in addition to the access token.
+- `profile`: Get the user's profile information (username, avatar, etc.)
+- `email`: Get the user's email address.
 
 Contact us at [website@huggingface.co](mailto:website@huggingface.co) with the desired name, logo url, scope and redirect urls for the OAuth app. We will provide you with the client ID and client secret.
 
