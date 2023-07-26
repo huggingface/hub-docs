@@ -1,6 +1,6 @@
 # Adding a Sign-In with HF button to your Space
 
-You can enable a built-in sign-in flow to your Space so users can log in with their HF account. To do this, you can create an OAuth/OpenID connect app associated to your Space.
+You can enable a built-in sign-in flow to your Space so users can log in with their HF account. To do this, you can create an [OAuth/OpenID connect](https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc) app associated to your Space.
 
 ## Create an OAuth app
 
@@ -28,7 +28,7 @@ This will add the following [environment variables](https://huggingface.co/docs/
 
 - `OAUTH_CLIENT_ID`: the client ID of your OAuth app (public)
 - `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app
-- `OPENID_PROVIDER_URL`: The URL of the OpenID provider (Hugging Face), eg [https://huggingface.co](https://huggingface.co). The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration)
+- `OPENID_PROVIDER_URL`: The URL of the OpenID provider. The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration).
 
 As for any other environment variable, you can use them in your code by using `os.getenv("OAUTH_CLIENT_ID")` for example.
 

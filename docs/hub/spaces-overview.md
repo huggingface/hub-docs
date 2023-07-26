@@ -105,9 +105,9 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `SPACE_ID`: `osanseviero/i-like-flan`
 * `SPACE_SUBDOMAIN`: `osanviero-i-like-flan` (the space's embed url is https://osanviero-i-like-flan.hf.space)
 
-In case you [enabled OAuth](./spaces-oauth) for your Space, the following variables will also be available:
+In case [OAuth](./spaces-oauth) is enabled for your Space, the following variables will also be available:
 
 * `OAUTH_CLIENT_ID`: the client ID of your OAuth app (public)
 * `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app
-* `OPENID_PROVIDER_URL`: The URL of the OpenID provider (Hugging Face), eg [https://huggingface.co](https://huggingface.co). The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration)
+* `OPENID_PROVIDER_URL`: The URL of the OpenID provider. The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration).
 
