@@ -47,3 +47,5 @@ Here's an example button in HTML+CSS:
   Hugging Face
 </button>
 ```
+
+![example](https://cdn-uploads.huggingface.co/production/uploads/61d2f90c3c2083e1c08af22d/d4IAxpxgkuHiI1yufuSlz.png)
