@@ -24,11 +24,11 @@ hf_oauth: true
 You can check the full configuration in the [configuration reference docs](./spaces-config-reference).
 ```
 
-This will add the following environment variables to your space:
+This will add the following [environment variables](https://huggingface.co/docs/hub/spaces-overview#helper-environment-variables) to your space:
 
 - `OAUTH_CLIENT_ID`: the client ID of your OAuth app (public)
 - `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app
-- `OPENID_PROVIDER_URL`: The URL of the OpenID provider (Hugging Face), eg <a href="https://huggingface.co">https://huggingface.co</a>. The OpenID metadata will be available at `/.well-known/openid-configuration` (eg <a href="https://huggingface.co/.well-known/openid-configuration">https://huggingface.co/.well-known/openid-configuration</a>)
+- `OPENID_PROVIDER_URL`: The URL of the OpenID provider (Hugging Face), eg [https://huggingface.co](https://huggingface.co). The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration)
 
 As for any other environment variable, you can use them in your code by using `os.getenv("OAUTH_CLIENT_ID")` for example.
 
@@ -47,12 +47,10 @@ You can add `hf_oauth_redirect_path: /oauth/callback` to your space metadata to 
 
 The following scopes are available:
 
-- `openid`
-- `profile`
+- `openid`: Get the ID token in addition to the access token.
+- `profile`: Get the user's profile information (username, avatar, etc.)
 
 You should use `"openid profile"` as the scope for your OAuth app.
-
-More scopes will be added in the future, included the ability to access to the user's private repos.
 
 ## Adding the button to your space
 
