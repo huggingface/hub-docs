@@ -64,7 +64,7 @@ Basically, you need to:
 
 <Tip warning={true}>
 
-If the space is running inside an iframe, you should use `target=_blank` on the button to open the sign-in page in a new tab. Otherwise, you might encounter issues with the cookies on some browsers.
+You should use `target=_blank` on the button to open the sign-in page in a new tab, unless you run the space outside its `iframe`. Otherwise, you might encounter issues with cookies on some browsers.
 
 </Tip>
 
