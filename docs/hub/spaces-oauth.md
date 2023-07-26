@@ -1,6 +1,6 @@
-# Adding a Sign-In with HF button to your space
+# Adding a Sign-In with HF button to your Space
 
-It's possible to create an OAuth / OpenID connect app associated to your space. This will allow users to sign-in to your space using their HF account.
+You can enable a built-in sign-in flow to your Space so users can log in with their HF account. To do this, you can create an OAuth/OpenID connect app associated to your Space.
 
 ## Create an OAuth app
 
@@ -21,7 +21,7 @@ app_file: app.py
 hf_oauth: true
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+You can check the full configuration in the [configuration reference docs](./spaces-config-reference).
 ```
 
 This will add the following environment variables to your space:
