@@ -133,7 +133,7 @@ Yes! The Hub uses the [KaTeX](https://katex.org/) math typesetting library to re
 
 You have to use the following delimiters:
 - `$$ ... $$` for display mode
-- `&#92;&#92;(---)\\` for inline mode (no space between the slashes and the parenthesis).
+- `&#92;&#92;(...)\\` for inline mode (no space between the slashes and the parenthesis).
 
 Then you'll be able to write:
 
