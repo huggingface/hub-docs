@@ -133,7 +133,7 @@ Yes! The Hub uses the [KaTeX](https://katex.org/) math typesetting library to re
 
 You have to use the following delimiters:
 - `$$ ... $$` for display mode
-- `\\` `(` `...` `\\` `)` for inline mode (no space between the slashes and the parenthesis).
+- `\\(...\\)` for inline mode (no space between the slashes and the parenthesis). Example: `\\(o_m = y_m = f_m(net_m)\\)`
 
 Then you'll be able to write:
 
