@@ -26,7 +26,7 @@ Defaults to `3.10`.
 **`sdk_version`** : _string_  
 Specify the version of the selected SDK (Streamlit or Gradio).  
 All versions of Gradio are supported.  
-Streamlit versions are supported from `0.79.0` to `1.24.0`.
+All versions of Streamlit from `0.79.0` are supported.
 
 **`suggested_hardware`** : _string_  
 Specify the suggested [hardware](https://huggingface.co/docs/hub/spaces-gpus) on which this Space must be run.  

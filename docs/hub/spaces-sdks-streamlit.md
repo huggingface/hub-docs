@@ -8,7 +8,7 @@ To use Streamlit in a Space, select **Streamlit** as the SDK when you create a S
 
 ```yaml
 sdk: streamlit
-sdk_version: 1.24.0 # The latest supported version
+sdk_version: 1.25.0 # The latest supported version
 ```
 
 You can edit the `sdk_version`, but note that issues may occur when you use an unsupported Streamlit version. Not all Streamlit versions are supported, so please refer to the [reference section](./spaces-config-reference) to see which versions are available.
