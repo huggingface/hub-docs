@@ -1,5 +1,5 @@
 # THE LANDSCAPE OF ML DOCUMENTATION TOOLS
-The development of the model cards framework in 2018 was inspired by the major documentation framework efforts of Data Statements for Natural Language Processing ([Bender & Friedman, 2018](https://aclanthology.org/Q18-1041/)) and Datasheets for Datasets ([Gebru et al., 2018](https://www.fatml.org/media/documents/datasheets_for_datasets.pdf)). Since model cards were proposed, a number of other tools have been proposed for documenting and evaluating various aspects of the machine learning development cycle. These tools, including model cards and related documentation efforts proposed prior to model cards, can be contextualised with regard to their focus (e.g., on which part of the ML system lifecycle does the tool focus?) and their intended audiences (e.g., who is the tool designed for?). In Figures 1-2 below, we summarise several prominent documentation tools along these dimensions, provide contextual descriptions of each tool, and link to examples. We broadly classify the documentation tools as belong to the following groups: 
+The development of the model cards framework in 2018 was inspired by the major documentation framework efforts of Data Statements for Natural Language Processing [(Bender & Friedman, 2018)](https://aclanthology.org/Q18-1041/) and Datasheets for Datasets [(Gebru et al., 2018)](https://www.fatml.org/media/documents/datasheets_for_datasets.pdf). Since model cards were proposed, a number of other tools have been proposed for documenting and evaluating various aspects of the machine learning development cycle. These tools, including model cards and related documentation efforts proposed prior to model cards, can be contextualised with regard to their focus (e.g., on which part of the ML system lifecycle does the tool focus?) and their intended audiences (e.g., who is the tool designed for?). In Figures 1-2 below, we summarise several prominent documentation tools along these dimensions, provide contextual descriptions of each tool, and link to examples. We broadly classify the documentation tools as belong to the following groups: 
 
 * **Data-focused**, including documentation tools focused on datasets used in the machine learning system lifecycle
 * **Models-and-methods-focused**, including documentation tools focused on machine learning models and methods; and 
@@ -99,8 +99,9 @@ We began by analysing language model, model cards, in order to identify patterns
 
 From our analysis of all the models on the hub, we noticed that the most downloads come from top 200 models.
 
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/mc-downloads.png"/>
 
-![number of mc downloads](https://huggingface.co/datasets/huggingface/documentation-images/blob/main/hub/mc-downloads.png)
 
 With a continued focus on large language models, ordered by most downloaded and only models with model cards to begin with, we noted the most recurring sections within their respective model cards. 
 
