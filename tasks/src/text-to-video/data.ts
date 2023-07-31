@@ -43,7 +43,24 @@ const taskData: TaskDataCustom = {
 			},
 		],
 	},
-	metrics:       [],
+	metrics:       [
+		{
+			description: "Inception Score uses an image classification model that predicts class labels and evaluates how distinct and diverse the images are. A higher score indicates better video generation.",
+			id: "is",
+		},
+		{
+			description: "Frechet Inception Distance uses an image classification model to obtain image embeddings. The metric compares mean and standard deviation of the embeddings of real and generated images. A smaller score indicates better video generation.",
+			id: "fid",
+		},
+		{
+			description: "Frechet Video Distance uses a model that captures coherence for changes in frames and the quality of each frame. A smaller score indicates better video generation.",
+			id: "fvd",
+		},
+		{
+			description: "CLIPSIM measures similarity between video frames and text using an image-text similarity model. A higher score indicates better video generation.",
+			id: "clipsim",
+		},
+	],
 	models:        [
 		{
 			description: "A strong model for video generation.",

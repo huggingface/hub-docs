@@ -29,5 +29,8 @@ Text-to-video translation models can translate videos from one language to anoth
 ## Inference
 Contribute an inference snippet for text-to-video here!
 
-## Useful Resources
-- [Text-to-Video: The Task, Challenges and the Current State](https://huggingface.co/blog/text-to-video)
+## Useful Resources  
+
+In this area, you can insert useful resources about how to train or use a model for this task.  
+
+- [Text-to-Video: The Task, Challenges and the Current State](https://huggingface.co/blog/text-to-video)  
