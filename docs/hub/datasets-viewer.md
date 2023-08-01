@@ -15,6 +15,8 @@ You can share a specific row by clicking on it, and then copying the URL in the 
 
 Every dataset is auto-converted to the Parquet format. Click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset with libraries such as Polars, Pandas or DuckDB.
 
+You can also access the list of Parquet files programmatically using the [API](./api#endpoints-table): https://huggingface.co/api/datasets/glue/parquet.
+
 ## Very large datasets
 
 For datasets >5GB, we only auto-convert to Parquet the first ~5GB of the dataset. 
