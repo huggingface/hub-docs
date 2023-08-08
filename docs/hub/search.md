@@ -20,5 +20,3 @@ Filter with ease:
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/Filter%20search%201.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/Filter%20search%202.png"/>
 </div>
-
-Available in both light and dark themes.
