@@ -86,12 +86,23 @@ In some cases, you might be interested in having programmatic access to the Spac
 
 ## Clone the Repository
 
-You can easily clone the repo in your Space. Start cloning by clicking on the dropdown menu in the top right of your Space page. Select "Clone repository", and then you'll be able to follow the instructions to clone the Space repo to your local machine using HTTPS or SSH. 
+You can easily clone the repo in your Space. Start cloning by clicking on the dropdown menu in the top right of your Space page: 
 
-![Spaces Clone Repo](https://github.com/huggingface/hub-docs/assets/83347449/dba41adb-134f-48ef-8de3-36a811c9c883)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SpacesCloneRepo2.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SpacesCloneRepo1.png"/>
+</div>
 
-![HTTPS Clone](https://github.com/huggingface/hub-docs/assets/83347449/7ff40900-3fef-4bc7-aeb5-8437eba61934)
+Select "Clone repository", and then you'll be able to follow the instructions to clone the Space repo to your local machine using HTTPS or SSH. 
 
-![SSH Clone](https://github.com/huggingface/hub-docs/assets/83347449/29b089e5-7750-4343-b11e-c7860736f24d)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/HttpsClone2.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/HttpsClone1.png"/>
+</div>
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SSHClone2.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SSHClone1.png"/>
+</div>
 
 
