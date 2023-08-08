@@ -22,6 +22,18 @@ clf("path_to_a_cat_image")
 ]
 ```
 
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to classify images using models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.imageClassification({
+  data: await (await fetch('https://picsum.photos/300/300')).blob(),
+  model: 'microsoft/resnet-50',  
+})
+```
+
 ## Useful Resources
 
 - [Let's Play Pictionary with Machine Learning!](https://www.youtube.com/watch?v=LS9Y2wDVI0k)

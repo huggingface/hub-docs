@@ -112,6 +112,17 @@ classifier("Which city is the capital of France?, Where is the capital of France
 ## [{'label': 'paraphrase', 'score': 0.998}]
 ```
 
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to infer text classification models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.conversational({
+  model: 'distilbert-base-uncased-finetuned-sst-2-english',
+  inputs: "I love this movie!"
+})
+```
 ### Grammatical Correctness
 
 Linguistic Acceptability is the task of assessing the grammatical acceptability of a sentence. The classes in this task are “acceptable” and “unacceptable”. The benchmark dataset used for this task is [Corpus of Linguistic Acceptability (CoLA)](https://huggingface.co/datasets/glue/viewer/cola/test). The dataset consists of texts and their labels.

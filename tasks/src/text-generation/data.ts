@@ -10,6 +10,14 @@ const taskData: TaskDataCustom = {
 			description: "Diverse open-source data consisting of 22 smaller high-quality datasets. It was used to train GPT-Neo.",
 			id:          "the_pile",
 		},
+		{
+			description: "A crowd-sourced instruction dataset to develop an AI assistant.",
+			id:          "OpenAssistant/oasst1",
+		},
+		{
+			description: "A crowd-sourced instruction dataset created by Databricks employees.",
+			id:          "databricks/databricks-dolly-15k",
+		},
 	],
 	demo: {
 		inputs: [
@@ -73,6 +81,14 @@ const taskData: TaskDataCustom = {
 			description: "A large text-to-text model trained to follow instructions.",
 			id:          "google/flan-ul2",
 		},
+		{
+			description: "A large and powerful text generation model.",
+			id:          "tiiuae/falcon-40b",
+		},
+		{
+			description: "State-of-the-art open-source large language model.",
+			id:          "meta-llama/Llama-2-70b-hf",
+		},
 	],
 	spaces:       [
 		{
@@ -101,7 +117,7 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	summary:      "Generating text is the task of producing new text. These models can, for example, fill in incomplete text or paraphrase.",
-	widgetModels: ["gpt2"],
+	widgetModels: ["tiiuae/falcon-7b-instruct"],
 	youtubeId:    "Vpjb1lu0MDk",
 };
 

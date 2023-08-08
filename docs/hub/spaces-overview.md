@@ -24,7 +24,7 @@ For step-by-step tutorials to creating your first Space, see the guides below:
 
 ## Hardware resources
 
-Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50Gb of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
+Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators and persistent storage, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
 
 | **Hardware**        	| **GPU Memory** 	| **CPU** 	| **Memory** 	| **Disk** 	| **Hourly Price** 	|
 |---------------------	|-----------------	|----------	|--------------	|----------	| ----------------	|
@@ -36,23 +36,37 @@ Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50Gb of (not per
 | Nvidia A10G - large 	| 24GB          	| 12 vCPU 	| 46 GB      	| 200 GB   	| $3.15            	|
 | Nvidia A100 - large 	| 40GB          	| 12 vCPU 	| 142 GB     	| 1000 GB  	| $4.13            	|
  
-Do you have an awesome Space but need help covering the GPU hardware upgrade costs? We love helping out those with an innovative Space so please feel free to apply for a community GPU grant using the link in the _Settings_ tab of your Space and see if yours makes the cut!
+| **Storage tier**     	| **Size**             	| **Persistent** 	| **Monthly price** 	|
+|---------------------	|----------------------	|------------------	| ---------------------	|
+| Ephemeral (default) 	| 50GB                	| No               	| Free!                	|
+| Small               	| Ephemeral + 20GB    	| Yes              	| $5                   	|
+| Medium              	| Ephemeral + 150GB   	| Yes              	| $25                  	|
+| Large               	| Ephemeral + 1TB     	| yes              	| $100                 	|
 
-Read more in [Spaces GPU Upgrades](./spaces-gpus).
+Note: Find more detailed and comprehensive pricing information on [our pricing page](https://huggingface.co/pricing).
+
+Do you have an awesome Space but need help covering the hardware upgrade costs? We love helping out those with an innovative Space so please feel free to apply for a community GPU grant using the link in the _Settings_ tab of your Space and see if yours makes the cut!
+
+Read more in our dedicated sections on [Spaces GPU Upgrades](./spaces-gpus) and [Spaces Storage Upgrades](./spaces-storage).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-gpu-settings.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-gpu-settings-dark.png"/>
 </div>
 
-## Managing secrets
-
-If your app requires secret keys or tokens, don't hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and enter your secrets there. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [secret management with Docker](./spaces-sdks-docker#secret-management). Users are warned when `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
+## Managing secrets and environment variables 
+<a id="managing-secrets"></a>
+If your app requires environment variables (for instance, secret keys or tokens), do not hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and add a new variable or secret. Use variables if you need to store non-sensitive configuration values and secrets for storing access tokens, API keys, or any sensitive value or credentials.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets-dark.png"/>
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets-and-variables.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets-and-variables-dark.png"/>
 </div>
+
+
+Variables are publicly accessible and viewable and will be automatically added to Spaces duplicated from your repository. They are exposed to your app as environment variables. For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management).
+
+Secrets are private and their value cannot be retrieved once set. They won't be added to Spaces duplicated from your repository. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management). Users are warned when our `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
 
 ## Duplicating a Space
 
@@ -63,8 +77,11 @@ If you want to duplicate a Space, you can click the three dots at the top right 
 * Owner: The duplicated Space can be under your account or any organization in which you have write access
 * Space name
 * Visiblity: The Space is private by default. Read more about private repositories [here](./repositories-settings#private-repositories). 
+* Hardware: You can choose the hardware on which the Space will be running. Read more about hardware upgrades [here](./spaces-gpus.md).
+* Storage: If the original repo uses persistent storage, you will be prompted to choose a storage tier. Read more about persistent storage [here](./spaces-storage.md).
+* Secrets and variables: If the original repo has set some secrets and variables, you'll be able to set them while duplicating the repo.
 
-Some Spaces might have environment variables that you might need to setup up. In those cases, the duplicate workflow will give you a warning about them. The duplicated Space will use a free CPU by default, but you can later upgrade it if needed.
+Some Spaces might have environment variables that you may need to set up. In these cases, the duplicate workflow will auto-populate the public Variables from the source Space, and give you a warning about setting up the Secrets. The duplicated Space will use a free CPU hardware by default, but you can later upgrade if needed.
 
 ## Networking
 
@@ -79,10 +96,14 @@ Paused time is not billed.
 
 In some cases, you might be interested in having programmatic access to the Space author or repository name. This feature is particularly useful when you expect users to duplicate your Space. To help with this, Spaces exposes different environment variables at runtime. Given a Space [`osanseviero/i-like-flan`](https://huggingface.co/spaces/osanseviero/i-like-flan):
 
+* `CPU_CORES`: 4
+* `MEMORY`: 15Gi 
 * `SPACE_AUTHOR_NAME`: osanseviero
 * `SPACE_REPO_NAME`: i-like-flan
 * `SPACE_TITLE`: I Like Flan (specified in the README file)
 * `SPACE_ID`: `osanseviero/i-like-flan`
+* `SPACE_SUBDOMAIN`: `osanviero-i-like-flan` (the space's embed url is https://osanviero-i-like-flan.hf.space)
+
 
 ## Clone the Repository
 
@@ -104,5 +125,3 @@ Select "Clone repository", and then you'll be able to follow the instructions to
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SSHClone2.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SSHClone1.png"/>
 </div>
-
-

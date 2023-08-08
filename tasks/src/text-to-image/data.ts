@@ -26,7 +26,20 @@ const taskData: TaskDataCustom = {
 			},
 		],
 	},
-	metrics: [],
+	metrics: [
+		{
+			description: "The Inception Score (IS) measure assesses diversity and meaningfulness. It uses a generated image sample to predict its label. A higher score signifies more diverse and meaningful images.",
+			id: "IS",
+		},
+		{
+			description: "The Fréchet Inception Distance (FID) calculates the distance between distributions between synthetic and real samples. A lower FID score indicates better similarity between the distributions of real and generated images.",
+			id: "FID",
+		},	
+		{
+			description: "R-precision assesses how the generated image aligns with the provided text description. It uses the generated images as queries to retrieve relevant text descriptions. The top 'r' relevant descriptions are selected and used to calculate R-precision as r/R, where 'R' is the number of ground truth descriptions associated with the generated images. A higher R-precision value indicates a better model.",
+			id: "R-Precision",
+		},	
+		],
 	models:  [
 		{
 			description: "A latent text-to-image diffusion model capable of generating photo-realistic images given any text input.",
@@ -61,6 +74,10 @@ const taskData: TaskDataCustom = {
 		{
 			description: "An powerful text-to-image application that can generates 3D representations.",
 			id:          "hysts/Shap-E",
+		},
+		{
+			description: "A strong application for `text-to-image`, `image-to-image` and image inpainting.",
+			id:          "ArtGAN/Stable-Diffusion-ControlNet-WebUI",
 		},
 	],
 	summary:      "Generates images from input text. These models can be used to generate and modify images based on text prompts.",

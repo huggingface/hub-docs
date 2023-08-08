@@ -1,9 +1,6 @@
-import type { TaskData } from "../Types";
+import type { TaskDataCustom } from "../Types";
 
-import { PIPELINE_DATA } from "../../../js/src/lib/interfaces/Types";
-import { TASKS_MODEL_LIBRARIES } from "../const";
-
-const taskData: TaskData = {
+const taskData: TaskDataCustom = {
 	datasets: [
 		{
 			description: "A comprehensive curation of datasets covering all benchmarks.",
@@ -30,10 +27,7 @@ const taskData: TaskData = {
 			},
 		],
 	},
-	id:        "tabular-regression",
-	label:     PIPELINE_DATA["tabular-regression"].name,
-	libraries: TASKS_MODEL_LIBRARIES["tabular-regression"],
-	metrics:   [
+	metrics: [
 		{
 			description: "",
 			id:          "mse",
@@ -49,7 +43,7 @@ const taskData: TaskData = {
 			id:          "scikit-learn/Fish-Weight",
 		},
 	],
-	spaces:  [
+	spaces: [
 		{
 			description: "An application that can predict weight of a fish based on set of attributes.",
 			id:          "scikit-learn/fish-weight-prediction",

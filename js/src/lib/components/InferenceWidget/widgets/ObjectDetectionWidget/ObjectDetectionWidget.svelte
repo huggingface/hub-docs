@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { WidgetProps, DetectedObject } from "../../shared/types";
-	import { COLORS } from "../../shared/consts";
-	import { mod } from "../../../../utils/ViewUtils";
 
 	import { onMount } from "svelte";
-	import BoundingBoxes from "./SvgBoundingBoxes.svelte";
+
+	import { mod } from "../../../../utils/ViewUtils";
+	import { COLORS } from "../../shared/consts";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
@@ -14,6 +14,8 @@
 		getBlobFromUrl,
 		getDemoInputs,
 	} from "../../shared/helpers";
+
+	import BoundingBoxes from "./SvgBoundingBoxes.svelte";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -156,6 +158,7 @@
 
 <WidgetWrapper
 	{apiUrl}
+	{includeCredentials}
 	{applyInputSample}
 	{computeTime}
 	{error}
@@ -169,7 +172,7 @@
 	<svelte:fragment slot="top">
 		<form>
 			<WidgetDropzone
-				classNames="no-hover:hidden"
+				classNames="hidden md:block"
 				{isLoading}
 				{imgSrc}
 				{onSelectFile}
@@ -188,7 +191,7 @@
 			<!-- Better UX for mobile/table through CSS breakpoints -->
 			{#if imgSrc}
 				<BoundingBoxes
-					classNames="mb-2 with-hover:hidden"
+					classNames="mb-2 md:hidden"
 					{imgSrc}
 					{mouseover}
 					{mouseout}
@@ -198,7 +201,7 @@
 			{/if}
 			<WidgetFileInput
 				accept="image/*"
-				classNames="mr-2 with-hover:hidden"
+				classNames="mr-2 md:hidden"
 				{isLoading}
 				label="Browse for image"
 				{onSelectFile}

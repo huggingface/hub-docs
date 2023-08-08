@@ -68,6 +68,9 @@ export const LIBRARY_TASK_MAPPING_EXCLUDING_TRANSFORMERS: Partial<Record<ModelLi
 		"summarization",
 		"zero-shot-classification",
 	],
+	"peft": [
+		"text-generation",
+	],
 	"pyannote-audio": [
 		"automatic-speech-recognition",
 	],

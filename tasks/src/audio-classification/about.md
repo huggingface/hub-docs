@@ -48,6 +48,18 @@ data = query("sample1.flac")
 # {'label': 'sad', 'score': 0.07}]
 ```
 
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to infer with audio classification models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.audioClassification({
+  data: await (await fetch("sample.flac")).blob(),
+  model: "facebook/mms-lid-126",  
+})
+```
+
 ### Speaker Identification
 
 Speaker Identification is classifying the audio of the person speaking. Speakers are usually predefined. You can try out this task with [this model](https://huggingface.co/superb/wav2vec2-base-superb-sid). A useful dataset for this task is VoxCeleb1.

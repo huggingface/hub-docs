@@ -67,13 +67,13 @@ Open Rail++-M License | `openrail++`
 Open Software License 3.0 | `osl-3.0`
 PostgreSQL License | `postgresql`
 SIL Open Font License 1.1 | `ofl-1.1`
-TII Falcon LLM License | `tii-falcon-llm`
 University of Illinois/NCSA Open Source License | `ncsa`
 The Unlicense | `unlicense`
 zLib License | `zlib`
 Open Data Commons Public Domain Dedication and License | `pddl`
 Lesser General Public License For Linguistic Resources | `lgpl-lr`
 DeepFloyd IF Research License Agreement | `deepfloyd-if-license`
+Llama 2 Community License Agreement | `llama2`
 Unknown | `unknown`
 Other | `other`
 <!-- endregion -->

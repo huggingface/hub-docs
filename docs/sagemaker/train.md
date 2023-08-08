@@ -181,7 +181,7 @@ SageMaker provides two strategies for distributed training: data parallelism and
 
 ### Data parallelism
 
-The Hugging Face [Trainer](https://huggingface.co/transformers/main_classes/trainer.html) supports SageMaker's data parallelism library. If your training script uses the Trainer API, you only need to define the distribution parameter in the Hugging Face Estimator:
+The Hugging Face [Trainer](https://huggingface.co/docs/transformers/main_classes/trainer) supports SageMaker's data parallelism library. If your training script uses the Trainer API, you only need to define the distribution parameter in the Hugging Face Estimator:
 
 ```python
 # configuration for running training on smdistributed data parallel

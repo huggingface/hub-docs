@@ -3,15 +3,15 @@ import type { TaskDataCustom } from "../Types";
 const taskData: TaskDataCustom = {
 	datasets: [
 		{
+			description: "18,000 hours of multilingual audio-text dataset in 108 languages.",
+			id:          "mozilla-foundation/common_voice_13_0",
+		},
+		{
 			description: "An English dataset with 1,000 hours of data.",
 			id:          "librispeech_asr",
 		},
 		{
-			description: "Dataset in 60 languages including demographic information.",
-			id:          "common_voice",
-		},
-		{
-			description: "High quality, multi-speaker audio data and their transcriptions  in various languages.",
+			description: "High quality, multi-speaker audio data and their transcriptions in various languages.",
 			id:          "openslr",
 		},
 	],
@@ -43,11 +43,15 @@ const taskData: TaskDataCustom = {
 	],
 	models: [
 		{
-			description: "A good generic ASR model.",
+			description: "A powerful ASR model by OpenAI.",
+			id:          "openai/whisper-large-v2",
+		},
+		{
+			description: "A good generic ASR model by MetaAI.",
 			id:          "facebook/wav2vec2-base-960h",
 		},
 		{
-			description: "An end-to-end model that performs Automatic Speech Recognition and Speech Translation.",
+			description: "An end-to-end model that performs ASR and Speech Translation by MetaAI.",
 			id:          "facebook/s2t-small-mustc-en-fr-st",
 		},
 	],
@@ -66,7 +70,7 @@ const taskData: TaskDataCustom = {
 		},
 	],
 	summary:      "Automatic Speech Recognition (ASR), also known as Speech to Text (STT), is the task of transcribing a given audio to text. It has many applications, such as voice user interfaces.",
-	widgetModels: ["facebook/wav2vec2-base-960h"],
+	widgetModels: ["openai/whisper-large-v2"],
 	youtubeId:    "TksaY_FDgnk",
 };
 

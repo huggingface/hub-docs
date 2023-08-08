@@ -49,17 +49,17 @@ export interface PipelineData {
 	/**
 	 * displayed name of the task (e.g. Text Classification)
 	 */
-	name: string;
-	subtasks?: SubTask[];
-	modality: Modality;
+	name:            string;
+	subtasks?:       SubTask[];
+	modality:        Modality;
 	/**
 	 * color for the tag icon.
 	 */
-	color: "blue" | "green" | "indigo" | "orange" | "red" | "yellow";
+	color:           "blue" | "green" | "indigo" | "orange" | "red" | "yellow";
 	/**
 	 * whether to hide in /models filters
 	 */
-	hideInModels?: boolean;
+	hideInModels?:   boolean;
 	/**
 	 * whether to hide in /datasets filters
 	 */
@@ -636,6 +636,7 @@ export const ALL_SUBTASK_TYPES_SET = new Set(ALL_SUBTASK_TYPES);
 
 export const TAG_NFAA_CONTENT = "not-for-all-audiences";
 export const TAG_TEXT_GENERATION_INFERENCE = "text-generation-inference";
+export const TAG_CUSTOM_CODE = "custom_code";
 
 /**
  * Tags that are suggested inside the metadata GUI
@@ -668,23 +669,23 @@ export interface ModelData {
 	/**
 	 * id of model (e.g. 'user/repo_name')
 	 */
-	id: string;
+	id:                string;
 	/**
 	 * Kept for backward compatibility
 	 */
-	modelId?: string;
+	modelId?:          string;
 	/**
 	 * is this model private?
 	 */
-	private?: boolean;
+	private?:          boolean;
 	/**
 	 * this dictionary has useful information about the model configuration
 	 */
-	config?: Record<string, any>;
+	config?:           Record<string, any>;
 	/**
 	 * all the model tags
 	 */
-	tags?: string[];
+	tags?:             string[];
 	/**
 	 * transformers-specific info to display in the code sample.
 	 */
@@ -692,18 +693,18 @@ export interface ModelData {
 	/**
 	 * Pipeline type
 	 */
-	pipeline_tag?: PipelineType | undefined;
+	pipeline_tag?:     PipelineType | undefined;
 	/**
 	 * for relevant models, get mask token
 	 */
-	mask_token?: string | undefined;
+	mask_token?:       string | undefined;
 	/**
 	 * Example data that will be fed into the widget.
 	 *
 	 * can be set in the model card metadata (under `widget`),
 	 * or by default in `DefaultWidget.ts`
 	 */
-	widgetData?: WidgetInputSample[] | undefined;
+	widgetData?:       WidgetInputSample[] | undefined;
 	/**
 	 * Parameters that will be used by the widget when calling Inference API
 	 * https://huggingface.co/docs/api-inference/detailed_parameters
@@ -718,6 +719,7 @@ export interface ModelData {
 		inference?: boolean | {
 			parameters?: Record<string, any>;
 		};
+		base_model?: string;
 	};
 	/**
 	 * Library name
@@ -734,7 +736,11 @@ export interface TransformersInfo {
 	/**
 	 * e.g. AutoModelForSequenceClassification
 	 */
-	auto_model: string;
+	auto_model:    string;
+	/**
+	 * if set in config.json's auto_map
+	 */
+	custom_class?: string;
 	/**
 	 * e.g. text-classification
 	 */
@@ -742,5 +748,5 @@ export interface TransformersInfo {
 	/**
 	 * e.g. "AutoTokenizer" | "AutoFeatureExtractor" | "AutoProcessor"
 	 */
-	processor?: string;
+	processor?:    string;
 }

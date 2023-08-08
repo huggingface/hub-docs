@@ -29,6 +29,17 @@ def query(filename):
 
 data = query("sample1.flac")
 ```
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to infer with audio-to-audio models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.audioToAudio({
+  data: await (await fetch("sample.flac")).blob(),
+  model: "speechbrain/sepformer-wham",  
+})
+```
 
 ### Audio Source Separation
 
