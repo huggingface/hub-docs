@@ -226,6 +226,8 @@
     title: Moderation
   - local: paper-pages
     title: Paper Pages
+  - local: search
+    title: Search
   - local: doi
     title: Digital Object Identifier (DOI)
   - local: api
