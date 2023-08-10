@@ -2,7 +2,7 @@
 
 You can now easily search anything on the Hub with **Full-text search**. We index model cards, dataset cards, and Spaces app.py files.
 
-Using the search bar at the top of https://huggingface.co, you can select "Try Full-text search" to help find what you seek on the Hub across models, datasets, and Spaces:
+Go directly to https://huggingface.co/search or, using the search bar at the top of https://huggingface.co, you can select "Try Full-text search" to help find what you seek on the Hub across models, datasets, and Spaces:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/fulltextsearch1.png"/>
