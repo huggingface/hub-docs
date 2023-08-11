@@ -72,4 +72,4 @@ We recommend you create one access token per app or usage. For instance, you cou
  
  This way, you can invalidate one token without impacting your other usages.
 
-We also recommend only giving the appropriate role to each token you create. If you only need read access (i.e., loading a dataset with the `datasets` library or retrieving the weights of a model), only give your access token the `read` role.
+We also recommend only giving the appropriate role to each token you create. If you only need read access (e.g., loading a dataset with the `datasets` library or retrieving the weights of a model), only give your access token the `read` role.
