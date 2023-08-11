@@ -5,8 +5,8 @@
 User Access Tokens are the preferred way to authenticate an application or notebook to Hugging Face services. You can manage your access tokens in your [settings](https://huggingface.co/settings/tokens).
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/access-tokens.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/access-tokens-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/User-Access-Token.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/User-Access-Token-dark.png"/>
 </div>
 
 Access tokens allow applications and notebooks to perform specific actions specified by the scope of the roles shown in the following:
@@ -14,6 +14,15 @@ Access tokens allow applications and notebooks to perform specific actions speci
 - `read`: tokens with this role can only be used to provide read access to repositories you could read. That includes public and private repositories that you, or an organization you're a member of, own. Use this role if you only need to read content from the Hugging Face Hub (e.g. when downloading private models or doing inference).
 
 - `write`: tokens with this role additionally grant write access to the repositories you have write access to. Use this token if you need to create or push content to a repository (e.g., when training a model or modifying a model card).
+
+Note that Organization API Tokens have been deprecated: 
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/API-token.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/API-token_dark.png"/>
+</div>
+
+If you are a member of an organization with read/write/admin role, then your User Access Tokens will be able to read/write the resources according to the token permission (read/write) and organization membership (read/write/admin).
 
 ## How to manage User Access Tokens?
 
@@ -63,4 +72,4 @@ We recommend you create one access token per app or usage. For instance, you cou
  
  This way, you can invalidate one token without impacting your other usages.
 
-We also recommend only giving the appropriate role to each token you create. If you only need read access (i.e., loading a dataset with the `datasets` library or retrieving the weights of a model), only give your access token the `read` role.
+We also recommend only giving the appropriate role to each token you create. If you only need read access (e.g., loading a dataset with the `datasets` library or retrieving the weights of a model), only give your access token the `read` role.
