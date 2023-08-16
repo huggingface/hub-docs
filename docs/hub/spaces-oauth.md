@@ -4,6 +4,12 @@ You can enable a built-in sign-in flow in your Space by seamlessly creating and 
 
 This enables new use cases for your Space. For instance, when combined with [Persistent Storage](https://huggingface.co/docs/hub/spaces-storage), a generative AI Space could allow users to log in to access their previous generations, only accessible to them.
 
+<Tip>
+
+This guide will take you through the process of integrating a *Sign-In with HF* button into any Space. If you're seeking a fast and simple method to implement this in a Gradio Space, take a look at its [built-in integration](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face).
+
+</Tip>
+
 ## Create an OAuth app
 
 All you need to do is add `hf_oauth: true` to your Space's metadata inside your `README.md` file.
@@ -16,7 +22,7 @@ emoji: 🏆
 colorFrom: pink
 colorTo: pink
 sdk: gradio
-sdk_version: 3.36.1
+sdk_version: 3.40.0
 python_version: 3.10.6
 app_file: app.py
 
@@ -57,7 +63,7 @@ You should use `"openid profile"` as the scope for your OAuth app.
 
 ## Adding the button to your Space
 
-You now have all the information to add a "Sign-in with HF" button to your Space. Libraries in [various](https://github.com/lepture/authlib) [languages](https://github.com/panva/node-openid-client) can help you implement the OpenID/OAuth protocol. Gradio also provides **built-in support**, making implementing the Sign-in with HF button a breeze; you can [check out the associated doc](TODO).
+You now have all the information to add a "Sign-in with HF" button to your Space. Some libraries ([Python](https://github.com/lepture/authlib), [NodeJS](https://github.com/panva/node-openid-client)) can help you implement the OpenID/OAuth protocol. Gradio also provides **built-in support**, making implementing the Sign-in with HF button a breeze; you can [check out the associated guide](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face).
 
 Basically, you need to:
 
