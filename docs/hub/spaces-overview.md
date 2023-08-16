@@ -109,5 +109,6 @@ In case [OAuth](./spaces-oauth) is enabled for your Space, the following variabl
 
 * `OAUTH_CLIENT_ID`: the client ID of your OAuth app (public)
 * `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app
+* `OAUTH_SCOPES`: scopes accessible by your OAuth app. Currently, this is always `"openid profile"`.
 * `OPENID_PROVIDER_URL`: The URL of the OpenID provider. The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration).
 
