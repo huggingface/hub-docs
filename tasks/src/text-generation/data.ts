@@ -10,6 +10,14 @@ const taskData: TaskDataCustom = {
 			description: "Diverse open-source data consisting of 22 smaller high-quality datasets. It was used to train GPT-Neo.",
 			id:          "the_pile",
 		},
+		{
+			description: "A crowd-sourced instruction dataset to develop an AI assistant.",
+			id:          "OpenAssistant/oasst1",
+		},
+		{
+			description: "A crowd-sourced instruction dataset created by Databricks employees.",
+			id:          "databricks/databricks-dolly-15k",
+		},
 	],
 	demo: {
 		inputs: [
@@ -76,6 +84,10 @@ const taskData: TaskDataCustom = {
 		{
 			description: "A large and powerful text generation model.",
 			id:          "tiiuae/falcon-40b",
+		},
+		{
+			description: "State-of-the-art open-source large language model.",
+			id:          "meta-llama/Llama-2-70b-hf",
 		},
 	],
 	spaces:       [
