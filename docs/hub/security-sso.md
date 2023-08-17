@@ -1,4 +1,4 @@
-# Single sign-on (SSO)
+# Single Sign-On (SSO)
 
 The Hugging Face Hub gives you the ability to implement mandatory Single Sign-On (SSO) for members of your organization. You can enable your SSO provider for a specific email domain (for example, @example.com). When enabled, users with an email address that matches the domain must log in to huggingface.co using your SSO provider to access your organization.
 
@@ -7,11 +7,11 @@ This feature is available for Enterprise Hub. <a href="mailto:sales@huggingface.
 </Tip>
 
 
-## Rules
+## How does it work?
 
-Once SSO is enabled for the plan, the following rules apply to the end users:
+When SSO is enabled, the following applies:
 
-- Your members will see a banner prompting them to authenticate through your chosen IdP to access your organization.
+- A banner prompting your org members to authenticate through your chosen Identity Provider (IdP) is shown if they're not authenticated already. Through your IdP settings, you have control over the session duration.
 
 
 <div class="flex justify-center">
