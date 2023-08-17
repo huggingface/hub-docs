@@ -19,22 +19,17 @@ Once SSO is enabled for the plan, the following rules apply to the end users:
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-sso-prompt-dark.png"/>
 </div>
 
-- If an end user is a member of another organization, they will still need to log in via SSO as soon as the feature is enabled to access your organization's public content. However, they will still have access to their other organizations.
-- If you enable the role mapping feature, the admin from your organization won't be able to change their role. It will be determined by your IdP and your settings.
+- Org members logged in on hf.co must authenticate through SSO even to access public content from your org. Such content will still be accessible to anyone outside the org. SSO only applies to your org, meaning your org members can still belong to other orgs on hf.co.
+- Role mapping is supported and determined by your IdP and your settings. Enabling role mapping means you can't assign roles manually in the org.
 
 ## Configuring SSO
 
-To successfully enable Single Sign-On (SSO) on the Hugging Face Hub for your organization, we will need to set up an OIDC application in your IdP. We will provide you with a callback URL pointing to the `huggingface.co` domain. After creating the application, we will need this information to make your SSO implementation work:
+To successfully enable SSO on the Hugging Face Hub for your organization, you need to set up an OIDC application in your IdP. We will provide a callback URL pointing to the `huggingface.co` domain. Once you create the application, you will need to provide us with the following information:
 
 - Client ID
 - Client Secret
 - Issuer URL
 
-## Supported SSO Partners
-You can easily integrate Hugging Face Hub with a variety of SSO providers, and we have listed a few examples below:
+## Supported Identity Providers
 
-1. Okta
-2. OneLogin
-3. Azure Active Directory (Azure AD)
-
-These are just some of the popular examples, but Hugging Face Hub can work with any OIDC-compliant SSO system.
+You can easily integrate Hugging Face Hub with a variety of Identity Providers, such as Okta, OneLogin or Azure Active Directory (Azure AD). Hugging Face Hub can work with any OIDC-compliant Identity Provider.
