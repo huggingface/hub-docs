@@ -104,10 +104,16 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `SPACE_ID`: `osanseviero/i-like-flan`
 * `SPACE_SUBDOMAIN`: `osanviero-i-like-flan` (the space's embed url is https://osanviero-i-like-flan.hf.space)
 
+In case [OAuth](./spaces-oauth) is enabled for your Space, the following variables will also be available:
+
+* `OAUTH_CLIENT_ID`: the client ID of your OAuth app (public)
+* `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app
+* `OAUTH_SCOPES`: scopes accessible by your OAuth app. Currently, this is always `"openid profile"`.
+* `OPENID_PROVIDER_URL`: The URL of the OpenID provider. The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration).
 
 ## Clone the Repository
 
-You can easily clone the repo in your Space. Start cloning by clicking on the dropdown menu in the top right of your Space page: 
+You can easily clone your Space repo. Start by clicking on the dropdown menu in the top right of your Space page: 
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SpacesCloneRepo2.png"/>

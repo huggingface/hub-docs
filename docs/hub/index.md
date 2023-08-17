@@ -61,6 +61,7 @@ The Hugging Face Hub is a platform with over 120k models, 20k datasets, and 50k 
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-config-reference">Reference</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-changelog">Changelog</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-advanced">Advanced Topics</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./spaces-oauth">Sign in with HF</a>
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-green-100 bg-gradient-to-br from-green-50 dark:bg-none px-6 py-4 transition-all hover:shadow-xl dark:border-green-700">
@@ -74,6 +75,7 @@ The Hugging Face Hub is a platform with over 120k models, 20k datasets, and 50k 
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./search">Search</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./doi">Digital Object Identifier (DOI)</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./api">Hub API Endpoints</a>
+<a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="./oauth">Sign in with HF</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="https://huggingface.co/code-of-conduct">Contributor Code of Conduct</a>
 <a class="!no-underline hover:opacity-60 transform transition-all hover:translate-x-px" href="https://huggingface.co/content-guidelines">Content Guidelines</a>
 </div>
