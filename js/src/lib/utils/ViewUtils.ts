@@ -19,7 +19,7 @@ const ESCAPED = {
  * HTML escapes the passed string
  */
 export function escape(html: unknown): string {
-	return String(html).replace(/["'&<>]/g, match => ESCAPED[match]);
+	return String(html).replace(/["'&<>]/g, match => ESCAPED[match as keyof typeof ESCAPED]);
 }
 
 /**
@@ -49,7 +49,7 @@ export function sum(arr: number[]): number {
 /**
  * Return a random item from an array
  */
-export function randomItem<T>(arr: T[]): T {
+export function randomItem<T>(arr: T[]): T | undefined {
 	return arr[Math.floor(Math.random() * arr.length)];
 }
 
@@ -65,7 +65,7 @@ export function parseJSON<T>(x: unknown): T | undefined {
 	} catch (e) {
 		if (e instanceof SyntaxError) {
 			console.error(e.name);
-		} else {
+		} else if (e instanceof Error) {
 			console.error(e.message);
 		}
 		return undefined;
