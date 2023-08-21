@@ -125,7 +125,7 @@ export function getModelInputSnippet(model: ModelData, noWrap = false, noQuotes 
 			if (noQuotes) {
 				const REGEX_QUOTES = /^"(.+)"$/s;
 				const match = result.match(REGEX_QUOTES);
-				result = match ? match[1] : result;
+				result = match?.[1] ? match[1] : result;
 			}
 			return result;
 		}
