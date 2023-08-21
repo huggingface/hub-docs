@@ -3,6 +3,7 @@
 	import { delay } from "../../../../utils/ViewUtils";
 	import WidgetLabel from "../WidgetLabel/WidgetLabel.svelte";
 
+	export let classNames = "";
 	export let label: string = "";
 	export let placeholder: string = "Your sentence here...";
 	export let value: string;
@@ -80,7 +81,7 @@
 	<svelte:fragment slot="after">
 		<!-- `whitespace-pre-wrap inline-block` are needed to get correct newlines from `el.textContent` on Chrome -->
 		<span
-			class="{isLoading ? 'pointer-events-none' : ''} {label
+			class="{isLoading ? 'pointer-events-none' : ''} {classNames} {label
 				? 'mt-1.5'
 				: ''} block overflow-auto resize-y py-2 px-3 w-full {size === 'small'
 				? 'min-h-[42px]'

@@ -37,7 +37,7 @@
 	{#if pipeline}
 		<a
 			class={TASKS_DATA[task] ? "hover:underline" : undefined}
-			href={TASKS_DATA[task] ? `/tasks/${task}` : undefined}
+			href={TASKS_DATA[task] ? `https://huggingface.co/tasks/${task}` : undefined}
 			target="_blank"
 			title={TASKS_DATA[task] ? `Learn more about ${task}` : undefined}
 		>

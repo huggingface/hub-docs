@@ -20,8 +20,10 @@
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
+	export let appendRepoPath: WidgetProps["appendRepoPath"];
 	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
+	export let noModelLoading: WidgetProps["noModelLoading"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -120,7 +122,8 @@
 			withModelLoading,
 			includeCredentials,
 			isOnLoadCall,
-			useCache
+			useCache,
+			appendRepoPath,
 		);
 
 		// Reset values
@@ -138,7 +141,7 @@
 			if (output.length === 0) {
 				warning = "No text was generated";
 			} else if (model?.pipeline_tag === "text-generation") {
-				const outputWithoutInput = output.slice(text.length);
+				const outputWithoutInput = noModelLoading ? output : output.slice(text.length);
 				inferenceTimer.stop();
 				if (outputWithoutInput.length === 0) {
 					warning = "No text was generated";
@@ -162,7 +165,7 @@
 
 	function parseOutput(body: unknown): string {
 		if (Array.isArray(body) && body.length) {
-			const firstEntry = body[0];
+			const firstEntry = body[0] ?? {};
 			return (
 				firstEntry["generated_text"] ?? // text-generation + text2text-generation
 				firstEntry["translation_text"] ?? // translation
@@ -198,13 +201,13 @@
 
 <WidgetWrapper
 	{apiUrl}
-	{includeCredentials}
 	{applyInputSample}
 	{computeTime}
 	{error}
 	{isLoading}
 	{model}
 	{modelLoading}
+	{noModelLoading}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

@@ -64,6 +64,7 @@ async function callApi(
 	useCache = true,
 	includeCredentials = false,
 	isOnLoadCall = false,
+	appendRepoPath = true,
 ): Promise<Response> {	
 	const contentType = 'file' in requestBody && 'type' in requestBody['file']
 		? requestBody['file']['type']  
@@ -87,9 +88,9 @@ async function callApi(
 	const body: File | string = 'file' in requestBody
 		? requestBody.file
 		: JSON.stringify(requestBody);
-	
+
 	return await fetch(
-		`${url}/models/${repoId}`,
+		`${url}${appendRepoPath ? `/models/${repoId}` : ''}`,
 		{
 			method: "POST",
 			body,
@@ -109,6 +110,7 @@ export async function getResponse<T>(
 	includeCredentials = false,
 	isOnLoadCall = false, // If true, the server will try to answer from cache and not do anything if not
 	useCache = true,
+	appendRepoPath = true,
 ): Promise<{
 	computeTime: string,
 	output: T,
@@ -134,6 +136,7 @@ export async function getResponse<T>(
 		useCache,
 		includeCredentials,
 		isOnLoadCall,
+		appendRepoPath,
 	);
 
 	if (response.ok) {
@@ -156,7 +159,7 @@ export async function getResponse<T>(
 				return { status: 'cache not found' }
 			}
 			// Invalid output
-			const error = `API Implementation Error: ${e.message}`;
+			const error = `API Implementation Error: ${e instanceof Error ? e.message : 'unknown error'}`;
 			return { error, status: 'error' }
 		}
 	} else {
@@ -180,8 +183,8 @@ export async function getResponse<T>(
 }
 
 
-export async function getModelLoadInfo(url: string, repoId: string, includeCredentials = false): Promise<ModelLoadInfo> {
-	const response = await fetch(`${url}/status/${repoId}`, {credentials: includeCredentials ? "include" : "same-origin"});
+export async function getModelLoadInfo(url: string, repoId: string): Promise<ModelLoadInfo> {
+	const response = await fetch(`${url}/status/${repoId}`);
 	const output = await response.json();
 	if (response.ok && typeof output === 'object' && output.loaded !== undefined) {
 		const status = output.loaded ? 'loaded' : 'unknown';
@@ -213,17 +216,18 @@ export function addInferenceParameters(requestBody: Record<string, any>, model: 
 * to {Header0: [ColumnVal0, ...], Header1: [Column1Val0, ...], Header2: [Column2Val0, ...]}
 */
 export function convertTableToData(table: (string | number)[][]): TableData {
+	const firstEntry = table[0] ?? [];
 	return Object.fromEntries(
-		table[0].map((cell, x) => {
+		firstEntry.map((cell, x) => {
 			return [
 				cell,
 				table
 					.slice(1)
 					.flat()
-					.filter((_, i) => i % table[0].length === x)
+					.filter((_, i) => i % firstEntry.length === x)
 					.map((x) => String(x)), // some models can only handle strings (no numbers)
 			];
-		})
+		}) ?? []
 	);
 }
 
@@ -240,6 +244,8 @@ export function convertDataToTable(data: TableData): (string | number)[][] {
 		.map((_, y) =>
 			Array(nbCols)
 				.fill("")
-				.map((_, x) => (y === 0 ? dataArray[x][0] : dataArray[x][1][y - 1]))
+				.map((_, x) => {
+					return (y === 0 ? dataArray[x]?.[0] : dataArray[x]?.[1]?.[y - 1]) ?? "";
+				})
 		);
 }

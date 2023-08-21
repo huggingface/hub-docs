@@ -16,8 +16,10 @@
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
+	export let appendRepoPath: WidgetProps["appendRepoPath"];
 	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
+	export let noModelLoading: WidgetProps["noModelLoading"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -78,7 +80,9 @@
 			parseOutput,
 			withModelLoading,
 			includeCredentials,
-			isOnLoadCall
+			isOnLoadCall,
+			true,
+			appendRepoPath,
 		);
 
 		isLoading = false;
@@ -109,7 +113,7 @@
 			// entries = body -> text-classificartion
 			// entries = body[0] -> summarization
 			const entries = (
-				model.pipeline_tag === "text-classification" ? body[0] ?? [] : body
+				body?.[0] && Array.isArray(body[0]) ? body[0] : body
 			) as Record<string, unknown>[];
 			return entries
 				.filter((x) => !!x)
@@ -134,13 +138,13 @@
 
 <WidgetWrapper
 	{apiUrl}
-	{includeCredentials}
 	{applyInputSample}
 	{computeTime}
 	{error}
 	{isLoading}
 	{model}
 	{modelLoading}
+	{noModelLoading}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

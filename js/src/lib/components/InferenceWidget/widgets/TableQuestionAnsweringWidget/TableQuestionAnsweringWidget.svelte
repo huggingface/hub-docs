@@ -29,8 +29,10 @@
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
+	export let appendRepoPath: WidgetProps["appendRepoPath"];
 	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
+	export let noModelLoading: WidgetProps["noModelLoading"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -115,7 +117,9 @@
 			parseOutput,
 			withModelLoading,
 			includeCredentials,
-			isOnLoadCall
+			isOnLoadCall,
+			true,
+			appendRepoPath,
 		);
 
 		isLoading = false;
@@ -180,13 +184,13 @@
 
 <WidgetWrapper
 	{apiUrl}
-	{includeCredentials}
 	{applyInputSample}
 	{computeTime}
 	{error}
 	{isLoading}
 	{model}
 	{modelLoading}
+	{noModelLoading}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

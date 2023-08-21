@@ -80,9 +80,11 @@
 		"text-to-video": IconTextToVideo,
 		"document-question-answering": IconDocumentQuestionAnswering,
 	};
+
+	$: component = pipeline in ICON_COMPONENTS ? ICON_COMPONENTS[<PipelineType>pipeline] : IconFillMask;
 </script>
 
 <svelte:component
-	this={ICON_COMPONENTS[pipeline] ?? IconFillMask}
+	this={component ?? IconFillMask}
 	{classNames}
 />

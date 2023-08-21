@@ -3,8 +3,10 @@ import type { ModelData } from '../../../interfaces/Types';
 export interface WidgetProps {
 	apiToken?: string;
 	apiUrl: string;
+	appendRepoPath?: boolean;
 	callApiOnMount: boolean;
 	model: ModelData;
+	noModelLoading?: boolean;
 	noTitle: boolean;
 	shouldUpdateUrl: boolean;
 	includeCredentials: boolean;
@@ -12,7 +14,7 @@ export interface WidgetProps {
 }
 
 
-export type LoadingStatus = "error" | "loaded" | "unknown";
+export type LoadingStatus = "error" | "loaded" | "unknown" | "ignored";
 
 export type ComputeType = "cpu" | "gpu";
 

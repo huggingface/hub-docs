@@ -17,8 +17,10 @@
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
+	export let appendRepoPath: WidgetProps["appendRepoPath"];
 	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
+	export let noModelLoading: WidgetProps["noModelLoading"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
 
@@ -46,7 +48,7 @@
 			fileReader.onload = async () => {
 				try {
 					const imageBase64WithPrefix: string = fileReader.result as string;
-					imageBase64 = imageBase64WithPrefix.split(",")[1]; // remove prefix
+					imageBase64 = imageBase64WithPrefix.split(",")[1] ?? ""; // remove prefix
 					isLoading = false;
 					resolve();
 				} catch (err) {
@@ -129,7 +131,9 @@
 			parseOutput,
 			withModelLoading,
 			includeCredentials,
-			isOnLoadCall
+			isOnLoadCall,
+			true,
+			appendRepoPath,
 		);
 
 		isLoading = false;
@@ -175,13 +179,13 @@
 
 <WidgetWrapper
 	{apiUrl}
-	{includeCredentials}
 	{applyInputSample}
 	{computeTime}
 	{error}
 	{isLoading}
 	{model}
 	{modelLoading}
+	{noModelLoading}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
