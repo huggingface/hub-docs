@@ -131,3 +131,19 @@ Select "Clone repository", and then you'll be able to follow the instructions to
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SSHClone2.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SSHClone1.png"/>
 </div>
+
+## Linking Models on the Hub
+
+You can showcase all the models that your space links to by adding their model identifier in your Space's README. To do so you can define them under the `models` key. For example:
+
+```
+title: My lovely space
+emoji: 🤗
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+models:
+- reach-vb/musicgen-large-fp16-endpoint
+```
+
