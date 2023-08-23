@@ -1,53 +1,57 @@
 <script lang="ts">
-import type { WidgetProps, ModelLoadInfo, LoadingStatus } from '../types';
+	import type { WidgetProps, ModelLoadInfo, LoadingStatus } from "../types";
 
-import IconAzureML from '../../../Icons/IconAzureML.svelte';
+	import IconAzureML from "../../../Icons/IconAzureML.svelte";
 
-export let model: WidgetProps['model'];
-export let computeTime: string;
-export let error: string;
-export let modelLoadInfo: ModelLoadInfo = { status: 'unknown' };
+	export let model: WidgetProps["model"];
+	export let computeTime: string;
+	export let error: string;
+	export let modelLoadInfo: ModelLoadInfo = { status: "unknown" };
 
-const status = {
-	ignored: '',
-	error: '⚠️ This model could not be loaded by the inference API. ⚠️',
-	loaded: 'This model is currently loaded and running on the Inference API.',
-	unknown: 'This model can be loaded on the Inference API on-demand.',
-} as const;
+	const status = {
+		ignored: "",
+		error: "⚠️ This model could not be loaded by the inference API. ⚠️",
+		loaded: "This model is currently loaded and running on the Inference API.",
+		unknown: "This model can be loaded on the Inference API on-demand.",
+	} as const;
 
-const azureStatus = {
-	ignored: '',
-	error: '⚠️ This model could not be loaded.',
-	loaded: 'This model is loaded and running on AzureML Managed Endpoint',
-	unknown: 'This model can be loaded loaded on AzureML Managed Endpoint',
-} as const;
+	const azureStatus = {
+		ignored: "",
+		error: "⚠️ This model could not be loaded.",
+		loaded: "This model is loaded and running on AzureML Managed Endpoint",
+		unknown: "This model can be loaded loaded on AzureML Managed Endpoint",
+	} as const;
 
-function getStatusReport(
-	modelLoadInfo: ModelLoadInfo,
-	statuses: Record<LoadingStatus, string>,
-	isAzure = false
-): string {
-	if (modelLoadInfo.status === 'ignored') {
-		return '';
-	} else if (modelLoadInfo.compute_type === 'cpu' && modelLoadInfo.status === 'loaded' && !isAzure) {
-		return `The model is loaded and running on <a class="hover:underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon 3rd Gen Scalable CPU</a>`;
+	function getStatusReport(
+		modelLoadInfo: ModelLoadInfo,
+		statuses: Record<LoadingStatus, string>,
+		isAzure = false
+	): string {
+		if (modelLoadInfo.status === "ignored") {
+			return "";
+		} else if (
+			modelLoadInfo.compute_type === "cpu" &&
+			modelLoadInfo.status === "loaded" &&
+			!isAzure
+		) {
+			return `The model is loaded and running on <a class="hover:underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon 3rd Gen Scalable CPU</a>`;
+		}
+		return statuses[modelLoadInfo.status];
 	}
-	return statuses[modelLoadInfo.status];
-}
 
-function getComputeTypeMsg(): string {
-	let compute_type = modelLoadInfo?.compute_type ?? 'cpu';
-	if (compute_type === 'cpu') {
-		return 'Intel Xeon 3rd Gen Scalable cpu';
+	function getComputeTypeMsg(): string {
+		let compute_type = modelLoadInfo?.compute_type ?? "cpu";
+		if (compute_type === "cpu") {
+			return "Intel Xeon 3rd Gen Scalable cpu";
+		}
+		return compute_type;
 	}
-	return compute_type;
-}
 </script>
 
 <div class="mt-2">
-	{#if modelLoadInfo.status !== 'ignored'}
-		<div class="text-gray-400 text-xs">
-			{#if model.id === 'bigscience/bloom'}
+	{#if modelLoadInfo.status !== "ignored"}
+		<div class="text-xs text-gray-400">
+			{#if model.id === "bigscience/bloom"}
 				<div class="flex items-baseline">
 					<div class="flex items-center whitespace-nowrap text-gray-700">
 						<IconAzureML classNames="mr-1 flex-none" /> Powered by&nbsp;
@@ -57,7 +61,9 @@ function getComputeTypeMsg(): string {
 							target="_blank">AzureML</a
 						>
 					</div>
-					<div class="flex border-dotter border-b border-gray-100 flex-1 mx-2 -translate-y-px" />
+					<div
+						class="border-dotter mx-2 flex flex-1 -translate-y-px border-b border-gray-100"
+					/>
 					<div>
 						{@html getStatusReport(modelLoadInfo, azureStatus, true)}
 					</div>
