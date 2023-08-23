@@ -20,7 +20,7 @@
 <li>
 	<svelte:element 
 		this={element}
-		class="flex items-center w-full hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer px-3 py-1.5 truncate
+		class="flex items-center w-full hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer px-3 py-1.5 whitespace-nowrap
 		{classNames} {underline ? 'hover:underline' : ''}"
 		{href}
 		rel={element === "a" && noFollow ? "nofollow" : undefined}
@@ -38,9 +38,9 @@
 		<slot />
 	{:else}
 		{#if icon}
-			<svelte:component this={icon} classNames="mr-1.5 {iconClassNames}" />
+			<svelte:component this={icon} classNames="mr-1.5 flex-none {iconClassNames}" />
 		{/if}
-		{label}
+		<span class="truncate">{label}</span>
 	{/if}
 	</svelte:element>
 </li>
