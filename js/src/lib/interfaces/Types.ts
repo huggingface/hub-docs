@@ -460,7 +460,6 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		name:           "Reinforcement Learning",
 		modality:       "rl",
 		color:          "red",
-		hideInDatasets: true,
 	},
 	"robotics": {
 		name:     "Robotics",
@@ -476,7 +475,6 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 			},
 		],
 		color:          "blue",
-		hideInDatasets: true,
 	},
 	"tabular-classification": {
 		name:     "Tabular Classification",
