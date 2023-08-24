@@ -48,7 +48,7 @@ Path is relative to the root of the repository.
 Port on which your application is running. Used only if `sdk` is `docker`. Default port is `7860`.
 
 **`base_path`**: _string_
-For non-static spaces, initial url to render. Needs to start with `/`. For static spaces, use `app_file` instead.
+For non-static Spaces, initial url to render. Needs to start with `/`. For static Spaces, use `app_file` instead.
 
 **`fullWidth`**: _boolean_  
 Whether your Space is rendered inside a full-width (when `true`) or fixed-width column (ie. "container" CSS) inside the iframe.
@@ -69,7 +69,11 @@ List of terms that describe your Space task or scope.
 Whether the Space stays on top of your profile. Can be useful if you have a lot of Spaces so you and others can quickly see your best Space.  
 
 **`hf_oauth`** : _boolean_
-Whether a connected OAuth app is associated to this Space. See [Adding a Sign-In with HF button to your space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
+Whether a connected OAuth app is associated to this Space. See [Adding a Sign-In with HF button to your Space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
 
 **`hf_oauth_redirect_path`** : _string_
 Authorized relative redirect path of the connected OAuth app. `/login/callback` and `/auth/callback` are authorized by default and do not need this parameter. See [Adding a Sign-In with HF button to your space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
+
+**`disable_embedding`** : _boolean_  
+Whether the Space iframe can be embedded in other websites.
+Defaults to false, i.e. Spaces *can* be embedded.
