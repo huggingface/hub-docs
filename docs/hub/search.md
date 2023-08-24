@@ -16,11 +16,11 @@ Go directly to https://huggingface.co/search or, using the search bar at the top
 
 ## Filter with ease
 
-Be default, models, datastes, & spaces are being searched when a user enters a query. If one prefers, one can filter to search only models, datastes, or spaces.
+By default, models, datasets, & spaces are being searched when a user enters a query. If one prefers, one can filter to search only models, datasets, or spaces.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/Filter%20search%201.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/Filter%20search%202.png"/>
 </div>
 
-Moreover, one can copy & share the URL from one's browser's address bar, which should contain the filter information as URL query. For example, when one search for a query `llama` with a filter to show `Spaces` only, one get URL https://huggingface.co/search/full-text?q=llama&type=space
+Moreover, one can copy & share the URL from one's browser's address bar, which should contain the filter information as URL query. For example, when one searches for a query `llama` with a filter to show `Spaces` only, one gets URL https://huggingface.co/search/full-text?q=llama&type=space

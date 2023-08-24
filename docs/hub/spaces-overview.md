@@ -113,7 +113,7 @@ In case [OAuth](./spaces-oauth) is enabled for your Space, the following variabl
 
 ## Clone the Repository
 
-You can easily clone your Space repo. Start by clicking on the dropdown menu in the top right of your Space page: 
+You can easily clone your Space repo locally. Start by clicking on the dropdown menu in the top right of your Space page: 
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SpacesCloneRepo2.png"/>
