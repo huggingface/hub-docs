@@ -76,3 +76,4 @@ Authorized relative redirect path of the connected OAuth app. `/login/callback` 
 
 **`disable_embedding`** : _boolean_  
 Whether the Space iframe can be embedded in other websites.
+Defaults to false, i.e. Spaces *can* be embedded.
