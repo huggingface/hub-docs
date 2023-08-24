@@ -99,7 +99,7 @@ We began by analysing language model, model cards, in order to identify patterns
 
 From our analysis of all the models on the hub, we noticed that the most downloads come from top 200 models.
 
-<div class="flex justify-center">
+
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/mc-downloads.png"/>
 
 
