@@ -1,3 +1,4 @@
 {
-	"useTabs": true
+	"useTabs": true,
+	"plugins": ["prettier-plugin-svelte"]
 }
