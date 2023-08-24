@@ -24,7 +24,6 @@
 
 <li>
 	<svelte:element
-		this={element}
 		class="flex items-center w-full hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer px-3 py-1.5 whitespace-nowrap
 		{classNames} {underline ? 'hover:underline' : ''}"
 		{href}
