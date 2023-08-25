@@ -17,7 +17,9 @@ export enum ModelLibrary {
 	"keras"                 = "Keras",
 	"k2"                    = "K2",
 	"nemo"                  = "NeMo",
+	"onnx"                  = "ONNX",
 	"open_clip"             = "OpenCLIP",
+	"openvino"              = "OpenVINO",
 	"paddlenlp"             = "PaddleNLP",
 	"peft"                  = "PEFT",
 	"pyannote-audio"        = "pyannote.audio",
@@ -204,11 +206,41 @@ const keras = (model: ModelData) =>
 model = from_pretrained_keras("${model.id}")
 `];
 
+const onnx = (model: ModelData) => {
+	const info = model.transformersInfo;
+
+	if (!info) {
+		return [`# ⚠️ Type of model unknown`];
+	}
+	const class_model = info.auto_model.replace(/^(Auto)/, 'ORT');
+
+	return [[
+		`from optimum.onnxruntime import ${class_model}`,
+		"",
+		`model = ${class_model}.from_pretrained("${model.id}")`,
+		].join("\n")];
+};
+
 const open_clip = (model: ModelData) =>
 	[`import open_clip
 
 model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms('hf-hub:${model.id}')
 tokenizer = open_clip.get_tokenizer('hf-hub:${model.id}')`];
+
+const openvino = (model: ModelData) => {
+	const info = model.transformersInfo;
+
+	if (!info) {
+		return [`# ⚠️ Type of model unknown`];
+	}
+	const class_model = info.auto_model.replace(/^(Auto)/, 'ORT');
+
+	return [[
+		`from optimum.intel import ${class_model}`,
+		"",
+		`model = ${class_model}.from_pretrained("${model.id}")`,
+		].join("\n")];
+};
 
 const paddlenlp = (model: ModelData) => {
 	if (model.config?.architectures?.[0]) {
@@ -610,11 +642,23 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoUrl:  "https://github.com/NVIDIA/NeMo",
 		snippets: nemo,
 	},
+	"onnx": {
+		btnLabel: "ONNX",
+		repoName: "Optimum",
+		repoUrl:  "https://github.com/huggingface/optimum",
+		snippets: onnx,
+	},
 	"open_clip": {
 		btnLabel: "OpenCLIP",
 		repoName: "OpenCLIP",
 		repoUrl:  "https://github.com/mlfoundations/open_clip",
 		snippets: open_clip,
+	},
+	"openvino": {
+		btnLabel: "OpenVINO",
+		repoName: "Optimum",
+		repoUrl:  "https://github.com/huggingface/optimum-intel",
+		snippets: openvino,
 	},
 	"paddlenlp": {
 		btnLabel: "paddlenlp",
