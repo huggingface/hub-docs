@@ -1,13 +1,15 @@
 <script lang="ts">
-import type { PipelineType } from '../../interfaces/Types';
+	import type { PipelineType } from "../../interfaces/Types";
 
-import { PIPELINE_DATA } from '../../interfaces/Types';
-import PipelineIcon from '../PipelineIcon/PipelineIcon.svelte';
+	import { PIPELINE_DATA } from "../../interfaces/Types";
+	import PipelineIcon from "../PipelineIcon/PipelineIcon.svelte";
 
-export let classNames = '';
-export let pipeline = '';
+	export let classNames = "";
+	export let pipeline = "";
 
-$: pipelineName = pipeline ? PIPELINE_DATA[<PipelineType>pipeline]?.name ?? pipeline : pipeline;
+	$: pipelineName = pipeline
+		? PIPELINE_DATA[<PipelineType>pipeline]?.name ?? pipeline
+		: pipeline;
 </script>
 
 <div class="inline-flex items-center {classNames}">
