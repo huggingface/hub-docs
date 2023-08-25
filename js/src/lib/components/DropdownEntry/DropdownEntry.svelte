@@ -12,14 +12,9 @@
 	export let targetBlank = false;
 	export let type: "link" | "button" | "submit" | undefined = undefined;
 
-	const element =
-		type === undefined
-			? href !== undefined
-				? "a"
-				: "button"
-			: type === "link"
-			? "a"
-			: "button";
+	const element = type === undefined
+		? href !== undefined ? "a" : "button"
+		: type === "link" ? "a" : "button";
 </script>
 
 <li>
