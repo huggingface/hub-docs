@@ -183,8 +183,8 @@ export async function getResponse<T>(
 }
 
 
-export async function getModelLoadInfo(url: string, repoId: string): Promise<ModelLoadInfo> {
-	const response = await fetch(`${url}/status/${repoId}`);
+export async function getModelLoadInfo(url: string, repoId: string, includeCredentials = false): Promise<ModelLoadInfo> {
+	const response = await fetch(`${url}/status/${repoId}`, {credentials: includeCredentials ? "include" : "same-origin"});
 	const output = await response.json();
 	if (response.ok && typeof output === 'object' && output.loaded !== undefined) {
 		const status = output.loaded ? 'loaded' : 'unknown';

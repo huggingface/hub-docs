@@ -17,6 +17,7 @@
 	export let error: string;
 	export let isLoading = false;
 	export let model: WidgetProps["model"];
+	export let includeCredentials: WidgetProps["includeCredentials"];
 	export let modelLoading: {
 		isLoading: boolean;
 		estimatedTime: number;
@@ -24,12 +25,10 @@
 	export let noModelLoading = false;
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (
-		sample: Record<string, any>
-	) => void = ({}) => {};
-	export let previewInputSample: (
-		sample: Record<string, any>
-	) => void = ({}) => {};
+	export let applyInputSample: (sample: Record<string, any>) => void =
+		({}) => {};
+	export let previewInputSample: (sample: Record<string, any>) => void =
+		({}) => {};
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo = { status: true ? "ignored" : "unknown" };
@@ -70,7 +69,7 @@
 			modelLoadInfo = { status: "ignored" };
 			return;
 		}
-		getModelLoadInfo(apiUrl, model.id).then((info) => {
+		getModelLoadInfo(apiUrl, model.id, includeCredentials).then((info) => {
 			modelLoadInfo = info;
 		});
 	});
