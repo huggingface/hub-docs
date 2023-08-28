@@ -28,9 +28,6 @@ Specify the version of the selected SDK (Streamlit or Gradio).
 All versions of Gradio are supported.  
 All versions of Streamlit from `0.79.0` are supported.
 
-**`models`**: _string_
-List of all the model identifiers associated with the space (for e.g. `reach-vb/musicgen-large-fp16-endpoint`). 
-
 **`suggested_hardware`** : _string_  
 Specify the suggested [hardware](https://huggingface.co/docs/hub/spaces-gpus) on which this Space must be run.  
 Useful for Spaces that are meant to be duplicated by other users.  
