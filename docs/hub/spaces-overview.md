@@ -134,7 +134,9 @@ Select "Clone repository", and then you'll be able to follow the instructions to
 
 ## Linking Models on the Hub
 
-You can showcase all the models and datasets that your Space links to by adding their identifier in your Space's README metadata. To do so, you can define them under the `models` and `datasets` keys. For example:
+You can showcase all the models and datasets that your Space links to by adding their identifier in your Space's README metadata. To do so, you can define them under the `models` and `datasets` keys. In addition to listing the aretefacts in the README file, you can also record them in any `.py`, `.ini` or `.html` file as well. We'll parse it auto-magically! 
+
+Here's an example linking two models with a space:
 
 ```
 title: My lovely space
@@ -145,5 +147,6 @@ sdk: docker
 pinned: false
 models:
 - reach-vb/musicgen-large-fp16-endpoint
+- reach-vb/wav2vec2-large-xls-r-1B-common_voice7-lt-ft
 ```
 
