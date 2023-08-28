@@ -37,6 +37,18 @@ generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)
 
 ```
 
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to infer image-to-text models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.imageToText({
+  data: await (await fetch('https://picsum.photos/300/300')).blob(),
+  model: 'Salesforce/blip-image-captioning-base',  
+})
+```
+
 ## Useful Resources
 - [Image Captioning](https://huggingface.co/docs/transformers/main/en/tasks/image_captioning)
 - [Image captioning use case](https://blog.google/outreach-initiatives/accessibility/get-image-descriptions/)

@@ -14,18 +14,18 @@ A caption generation model takes audio as input from sources to generate automat
 
 Multilingual ASR models can convert audio inputs with multiple languages into transcripts. Some multilingual ASR models include [language identification](https://huggingface.co/tasks/audio-classification) blocks to improve the performance.
 
-The use of Multilingual ASR has become popular, the idea of maintaining just a single model for all language can simplify the production pipeline. Take a look at this [model](https://huggingface.co/voidful/wav2vec2-xlsr-multilingual-56) to get an idea on how 56 languages can be processed by a single model. 
+The use of Multilingual ASR has become popular, the idea of maintaining just a single model for all language can simplify the production pipeline. Take a look at [Whisper](https://huggingface.co/openai/whisper-large-v2) to get an idea on how 100+ languages can be processed by a single model. 
 
 ## Inference
 
-The Hub contains over [500 ASR models](https://huggingface.co/models?pipeline_tag=automatic-speech-recognition&sort=downloads) that you can use right away by trying out the widgets directly in the browser or calling the models as a service using the Inference API. Here is a simple code snippet to do exactly this:
+The Hub contains over [~9,000 ASR models](https://huggingface.co/models?pipeline_tag=automatic-speech-recognition&sort=downloads) that you can use right away by trying out the widgets directly in the browser or calling the models as a service using the Inference API. Here is a simple code snippet to do exactly this:
 
 ```python
 import json
 import requests
 
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
-API_URL = "https://api-inference.huggingface.co/models/facebook/wav2vec2-base-960h"
+API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v2"
 
 def query(filename):
     with open(filename, "rb") as f:
@@ -36,7 +36,7 @@ def query(filename):
 data = query("sample1.flac")
 ```
 
-You can also use libraries such as [transformers](https://huggingface.co/models?library=transformers&pipeline_tag=automatic-speech-recognition&sort=downloads), [speechbrain](https://huggingface.co/models?library=speechbrain&pipeline_tag=automatic-speech-recognition&sort=downloads) and [espnet](https://huggingface.co/models?library=espnet&pipeline_tag=automatic-speech-recognition&sort=downloads) if you want to handle the Inference directly.
+You can also use libraries such as [transformers](https://huggingface.co/models?library=transformers&pipeline_tag=automatic-speech-recognition&sort=downloads), [speechbrain](https://huggingface.co/models?library=speechbrain&pipeline_tag=automatic-speech-recognition&sort=downloads), [NeMo](https://huggingface.co/models?pipeline_tag=automatic-speech-recognition&library=nemo&sort=downloads) and [espnet](https://huggingface.co/models?library=espnet&pipeline_tag=automatic-speech-recognition&sort=downloads) if you want one-click managed Inference without any hassle.
 
 ```python
 from transformers import pipeline
@@ -44,26 +44,37 @@ from transformers import pipeline
 with open("sample.flac", "rb") as f:
   data = f.read()
 
-pipe = pipeline("automatic-speech-recognition", "facebook/wav2vec2-base-960h")
+pipe = pipeline("automatic-speech-recognition", "openai/whisper-large-v2")
 pipe("sample.flac")
 # {'text': "GOING ALONG SLUSHY COUNTRY ROADS AND SPEAKING TO DAMP AUDIENCES IN DRAUGHTY SCHOOL ROOMS DAY AFTER DAY FOR A FORTNIGHT HE'LL HAVE TO PUT IN AN APPEARANCE AT SOME PLACE OF WORSHIP ON SUNDAY MORNING AND HE CAN COME TO US IMMEDIATELY AFTERWARDS"}
 ```
 
+You can use [huggingface.js](https://github.com/huggingface/huggingface.js) to transcribe text with javascript using models on Hugging Face Hub.
+
+```javascript
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference(HF_ACCESS_TOKEN);
+await inference.automaticSpeechRecognition({
+  data: await (await fetch("sample.flac")).blob(),
+  model: "openai/whisper-large-v2",  
+})
+```
+
 ## Solving ASR for your own data
 
-We have some great news! You can do fine-tuning (transfer learning) to train a well-performing model without requiring as much data. Pretrained models such as Wav2Vec2 and HuBERT exist. [Facebook's Wav2Vec2 XLS-R model](https://ai.facebook.com/blog/wav2vec-20-learning-the-structure-of-speech-from-raw-audio/) is a large multilingual model trained on 128 languages and with 436K hours of speech.
+We have some great news! You can fine-tune (transfer learning) a foundational speech model on a specific language without tonnes of data. Pretrained models such as Whisper, Wav2Vec2-MMS and HuBERT exist. [OpenAI's Whisper model](https://huggingface.co/openai/whisper-large-v2) is a large multilingual model trained on 100+ languages and with 680K hours of speech.
 
-The following detailed [blog post](https://huggingface.co/blog/fine-tune-xlsr-wav2vec2) shows how to fine-tune a pre-trained network on labeled data for ASR. This is easily done by adding a single layer on top of the pretrained network. We suggest to read the article for more info!
+The following detailed [blog post](https://huggingface.co/blog/fine-tune-whisper) shows how to fine-tune a pre-trained Whisper checkpoint on labeled data for ASR. With the right data and strategy you can fine-tune a high-performant model on a free Google Colab instance too. We suggest to read the blog post for more info!
 
-## Hugging Face XLSR-Wav2Vec2 Sprint
+## Hugging Face Whisper Event
 
-On March 2020, over 300 participants collaborated, trained and shared 236 ASR models in dozens of different languages. You can compare these models thanks to the [PapersWithCode](https://paperswithcode.com/dataset/common-voice) integration (see [Portuguese models](https://paperswithcode.com/sota/speech-recognition-on-common-voice-portuguese) for example).
+On December 2022, over 450 participants collaborated, fine-tuned and shared 600+ ASR Whisper models in 100+ different languages. You can compare these models on the event's speech recognition [leaderboard](https://huggingface.co/spaces/whisper-event/leaderboard?dataset=mozilla-foundation%2Fcommon_voice_11_0&config=ar&split=test).
 
-![Leaderboard of ASR Models](/tasks/assets/automatic-speech-recognition/wav2vec2.png)
-
-These events help democratize ASR for all languages, including low-resource languages. In addition to the trained models, the event helps to build practical collaborative knowledge.
+These events help democratize ASR for all languages, including low-resource languages. In addition to the trained models, the [event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event) helps to build practical collaborative knowledge.
 
 ## Useful Resources
+- [Fine-tuning MetaAI's MMS Adapter Models for Multi-Lingual ASR](https://huggingface.co/blog/mms_adapters)
 - [Making automatic speech recognition work on large files with Wav2Vec2 in 🤗 Transformers](https://huggingface.co/blog/asr-chunking)
 - [Boosting Wav2Vec2 with n-grams in 🤗 Transformers](https://huggingface.co/blog/wav2vec2-with-ngram)
 - [ML for Audio Study Group - Intro to Audio and ASR Deep Dive](https://www.youtube.com/watch?v=D-MH6YjuIlE)

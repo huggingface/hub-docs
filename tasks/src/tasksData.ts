@@ -28,6 +28,7 @@ import tokenClassification from "./token-classification/data";
 import translation from "./translation/data";
 import textClassification from "./text-classification/data";
 import textGeneration from "./text-generation/data";
+import textToVideo from "./text-to-video/data";
 import unconditionalImageGeneration from "./unconditional-image-generation/data";
 import videoClassification from "./video-classification/data";
 import visualQuestionAnswering from "./visual-question-answering/data";
@@ -72,7 +73,7 @@ export const TASKS_DATA: Record<PipelineType, TaskData | undefined> = {
 	"text-retrieval":                 undefined,
 	"text-to-image":                  getData("text-to-image", textToImage),
 	"text-to-speech":                 getData("text-to-speech", textToSpeech),
-	"text-to-video":                  getData("text-to-video", placeholder),
+	"text-to-video":                  getData("text-to-video", textToVideo),
 	"text2text-generation":           undefined,
 	"time-series-forecasting":        undefined,
 	"token-classification":           getData("token-classification", tokenClassification),

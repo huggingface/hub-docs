@@ -167,12 +167,16 @@
         title: ZenML on Spaces
       - local: spaces-sdks-docker-panel
         title: Panel on Spaces
+      - local: spaces-sdks-docker-chatui
+        title: ChatUI on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-run-with-docker
     title: Run Spaces with Docker
   - local: spaces-config-reference
     title: Spaces Configuration Reference
+  - local: spaces-oauth
+    title: Sign-In with HF button
   - local: spaces-changelog
     title: Spaces Changelog
   - local: spaces-advanced
@@ -224,7 +228,11 @@
     title: Moderation
   - local: paper-pages
     title: Paper Pages
+  - local: search
+    title: Search
   - local: doi
     title: Digital Object Identifier (DOI)
   - local: api
     title: Hub API Endpoints
+  - local: oauth
+    title: Sign in with Hugging Face

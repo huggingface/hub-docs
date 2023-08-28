@@ -54,6 +54,32 @@ Only users whose access requests have been approved will be able to access the m
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-manual-approval-dark.png"/>
 </div>
 
+You can automate the approval of access requests with the following API:
+
+| Method | URI | Description | Payload |
+| ------ | --- | ----------- | -------  |
+| `GET` | `/api/models/{repo_id}/user-access-request/pending` | Retrieve the list of pending access requests for the given model. | ```headers = { "authorization" :  "Bearer $token" }``` |
+| `GET` | `/api/models/{repo_id}/user-access-request/accepted` | Retrieve the list of accepted access requests for the given model. | ```headers = { "authorization" :  "Bearer $token" }``` |
+| `GET` | `/api/models/{repo_id}/user-access-request/rejected` | Retrieve the list of rejected access requests for the given model | ```headers = { "authorization" :  "Bearer $token" }``` |
+| `POST` | `/api/models/{repo_id}/user-access-request/handle` | Change the status of a given access request to `status`. | ```headers = { "authorization" :  "Bearer $token" }``` ```json = { "status": "accepted" &#124; "rejected" &#124; "pending", "user": "username" }``` |
+| `POST` | `/api/models/{repo_id}/user-access-request/grant` | Allow a specific user to access your repo. | ```headers = { "authorization" :  "Bearer $token" }``` ```json = { "user": "username" } ``` |
+
+
+The base URL for the HTTP endpoints above is `https://huggingface.co`. The `$token` to pass as a bearer token can be generated from [your user settings](https://huggingface.co/settings/tokens). It must have `write` access to the gated repository.
+
+### Notifications settings
+
+By default, notifications for new pending access requests are sent once a day via email.
+When the repo lives in an organization, those emails are sent to the first 5 admins of the organization.
+
+You can customize the way you receive those notifications from the gated model's settings page.
+You can choose whether to receive notifications for new pending access requests in bulk once a day or in real-time.
+You can also set a custom email to send those notifications to.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-notifications.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-notifications-dark.png"/>
+</div>
 
 
 ## Additional Customization

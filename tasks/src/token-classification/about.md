@@ -21,6 +21,8 @@ classifier = pipeline("ner")
 classifier("Hello I'm Omar and I live in Zürich.")
 ```
 
+
+
 ### Part-of-Speech (PoS) Tagging
 In PoS tagging, the model recognizes parts of speech, such as nouns, pronouns, adjectives, or verbs, in a given text. The task is formulated as labeling each word with a part of the speech.
 

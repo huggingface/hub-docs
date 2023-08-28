@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
 	import type { Load } from "@sveltejs/kit";
 	import type { ModelData } from "../lib/interfaces/Types";
 

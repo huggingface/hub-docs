@@ -1,5 +1,14 @@
 # Spaces Changelog
 
+## [2023-07-28] - Upstream Streamlit frontend for `>=1.23.0`
+
+- Streamlit SDK uses the upstream packages published on PyPI for `>=1.23.0`, so the newly released versions are available from the day of release.
+
+## [2023-05-30] - Add support for Streamlit 1.23.x and 1.24.0
+
+- Added support for Streamlit `1.23.0`, `1.23.1`, and `1.24.0`.
+- Since `1.23.0`, the Streamlit frontend has been changed to the upstream version from the HF-customized one.
+
 ## [2023-05-30] - Add support for Streamlit 1.22.0
 
 - Added support for Streamlit `1.22.0`.
