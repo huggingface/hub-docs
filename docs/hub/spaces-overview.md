@@ -134,7 +134,7 @@ Select "Clone repository", and then you'll be able to follow the instructions to
 
 ## Linking Models on the Hub
 
-You can showcase all the models that your space links to by adding their model identifier in your Space's README. To do so you can define them under the `models` key. For example:
+You can showcase all the models and datasets that your Space links to by adding their identifier in your Space's README metadata. To do so, you can define them under the `models` and `datasets` keys. For example:
 
 ```
 title: My lovely space
