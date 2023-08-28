@@ -643,7 +643,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		snippets: nemo,
 	},
 	"onnx": {
-		btnLabel: "ONNX",
+		btnLabel: "Optimum",
 		repoName: "Optimum",
 		repoUrl:  "https://github.com/huggingface/optimum",
 		snippets: onnx,
@@ -655,7 +655,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		snippets: open_clip,
 	},
 	"openvino": {
-		btnLabel: "OpenVINO",
+		btnLabel: "Optimum",
 		repoName: "Optimum",
 		repoUrl:  "https://github.com/huggingface/optimum-intel",
 		snippets: openvino,
