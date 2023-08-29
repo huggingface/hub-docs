@@ -79,7 +79,7 @@ git rebase upstream/main
 
 ```
 git lfs install --force --local # this reinstalls the LFS hooks
-huggingface-cli lfs-enable-largefiles . # needed if some files are bigger than 5Gb
+huggingface-cli lfs-enable-largefiles . # needed if some files are bigger than 5GB
 ```
 
 6. And finally push:
