@@ -83,6 +83,15 @@ If you want to duplicate a Space, you can click the three dots at the top right 
 
 Some Spaces might have environment variables that you may need to set up. In these cases, the duplicate workflow will auto-populate the public Variables from the source Space, and give you a warning about setting up the Secrets. The duplicated Space will use a free CPU hardware by default, but you can later upgrade if needed.
 
+## Deploy a Space from model
+
+It's never been easier to create a Space directly from the model itself. Simply use the Deploy button at the top of the model page and select "Spaces". You'll be able to deploy as a Gradio Space in one quick click, using Gradio's [Load from Inference API](https://www.gradio.app/guides/using-hugging-face-integrations#using-hugging-face-inference-api) feature. 
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/DeploySpaces-light.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/DeploySpaces-dark.png"/>
+</div>
+
 ## Networking
 
 If your Space needs to make any network requests, you can make requests through the standard HTTP and HTTPS ports (80 and 443) along with port 8080. Any requests going to other ports will be blocked.
