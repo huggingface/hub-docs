@@ -7,8 +7,11 @@
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check src && eslint --ext .js,.mjs,.ts,.svelte src",
-		"format:all": "prettier --write src && eslint --quiet --fix --ext .js,.mjs,.ts,.svelte src",
+		"lint": "eslint --quiet --fix --ext .js,.mjs,.ts,.svelte",
+		"lint:all": "npm run lint src",
+		"prettier": "prettier --write",
+		"prettier:all": "prettier --write src",
+		"format:all": "npm run prettier src && npm run lint:all",
 		"export-task": "tsm src/scripts/export-tasks.ts"
 	},
 	"devDependencies": {
