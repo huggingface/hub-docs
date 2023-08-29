@@ -77,3 +77,16 @@ Authorized relative redirect path of the connected OAuth app. `/login/callback` 
 **`disable_embedding`** : _boolean_  
 Whether the Space iframe can be embedded in other websites.
 Defaults to false, i.e. Spaces *can* be embedded.
+
+**`custom_headers`** : _Dict[string, string]_  
+Set custom HTTP headers that will be added to all HTTP responses when serving your Space.  
+For now, only the [cross-origin-embedder-policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy) (COEP), [cross-origin-opener-policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy) (COOP), and [cross-origin-resource-policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy) (CORP) headers are allowed. These headers can be used to set up a cross-origin isolated environment and enable powerful features like `SharedArrayBuffer`, for example:
+
+```yaml
+custom_headers:
+  cross-origin-embedder-policy: require-corp
+  cross-origin-opener-policy: same-origin
+  cross-origin-resource-policy: cross-origin
+```
+
+*Note:* all headers and values must be lowercase.
