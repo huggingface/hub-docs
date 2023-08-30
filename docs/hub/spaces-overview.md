@@ -132,7 +132,7 @@ Select "Clone repository", and then you'll be able to follow the instructions to
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SSHClone1.png"/>
 </div>
 
-## Linking Models and datasets on the Hub
+## Linking Models and Datasets on the Hub
 
 You can showcase all the models and datasets that your Space links to by adding their identifier in your Space's README metadata. To do so, you can define them under the `models` and `datasets` keys. In addition to listing the artefacts in the README file, you can also record them in any `.py`, `.ini` or `.html` file as well. We'll parse it auto-magically! 
 
