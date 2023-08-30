@@ -10,25 +10,40 @@
 	export let underline = false;
 	export let onClick: (e: MouseEvent) => void = () => {};
 	export let targetBlank = false;
+	export let type: "link" | "button" | "submit" | undefined = undefined;
+
+	const element = type === undefined
+		? href !== undefined ? "a" : "button"
+		: type === "link" ? "a" : "button";
 </script>
 
 <li>
-	<a
-		class="flex items-center hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer px-3 py-1.5 whitespace-nowrap 
-			{classNames} {underline ? 'hover:underline' : ''}"
+	<svelte:element
+		this={element}
+		class="flex items-center w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer px-3 py-1.5 whitespace-nowrap
+		{classNames} {underline ? 'hover:underline' : ''}"
 		{href}
-		on:click={onClick}
-		rel={noFollow ? "nofollow" : undefined}
-		target={targetBlank ? "_blank" : undefined}
+		rel={element === "a" && noFollow ? "nofollow" : undefined}
+		target={element === "a" && targetBlank ? "_blank" : undefined}
+		on:click={(e) => {
+			if (type === "submit") {
+				e.stopPropagation();
+			}
+			onClick(e);
+		}}
+		type={element === "button" ? type : undefined}
 	>
 		<!-- Adding children to the DropdownEntry element overwrite the default label/icon stuff -->
 		{#if $$slots.default}
 			<slot />
 		{:else}
 			{#if icon}
-				<svelte:component this={icon} classNames="mr-1.5 {iconClassNames}" />
+				<svelte:component
+					this={icon}
+					classNames="mr-1.5 flex-none {iconClassNames}"
+				/>
 			{/if}
-			{label}
+			<span class="truncate">{label}</span>
 		{/if}
-	</a>
+	</svelte:element>
 </li>
