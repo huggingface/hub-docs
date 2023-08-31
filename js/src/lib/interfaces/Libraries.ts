@@ -12,6 +12,7 @@ export enum ModelLibrary {
 	"allennlp"              = "allenNLP",
 	"asteroid"              = "Asteroid",
 	"bertopic"              = "BERTopic",
+	"ctransformers"         = "CTransformers",
 	"diffusers"             = "Diffusers",
 	"doctr"                 = "docTR",
 	"espnet"                = "ESPnet",
@@ -121,6 +122,19 @@ const bertopic = (model: ModelData) =>
 	[`from bertopic import BERTopic
 
 model = BERTopic.load("${model.id}")`];
+
+const ctransformers = (model: ModelData) =>
+	[
+		`# Load model directly
+from ctransformers import AutoModelForCausalLM, AutoTokenizer
+
+model = AutoModelForCausalLM.from_pretrained("${model.id}", hf=True)
+tokenizer = AutoTokenizer.from_pretrained(model)`,
+		`# Use a pipeline as a high-level helper
+from transformers import pipeline
+
+pipe = pipeline("text-generation", model=model, tokenizer=tokenizer)`,
+	];
 
 const diffusers_default = (model: ModelData) =>
 	[`from diffusers import DiffusionPipeline
@@ -577,6 +591,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		repoUrl:  "https://github.com/MaartenGr/BERTopic",
 		snippets: bertopic,
 	},
+	"ctransformers": {
+		btnLabel: "CTransformers",
+		repoName: "ctransformers",
+		repoUrl:  "https://github.com/marella/ctransformers",
+		snippets: ctransformers,
+	},
 	"diffusers": {
 		btnLabel: "Diffusers",
 		repoName: "🤗/diffusers",
@@ -734,4 +754,3 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		snippets: pythae,
 	},
 } as const;
-

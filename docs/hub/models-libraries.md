@@ -12,6 +12,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [AllenNLP](https://github.com/allenai/allennlp)                             | An open-source NLP research library, built on PyTorch.                               | ✅ | ✅ | ✅ | ❌ |
 | [Asteroid](https://github.com/asteroid-team/asteroid)                       | Pytorch-based audio source separation toolkit                                        | ✅ | ✅ | ✅ | ❌ |
 | [BERTopic](https://github.com/MaartenGr/BERTopic)                           | BERTopic is a topic modeling library for text and images                             | ✅ | ✅ | ✅ | ✅ | 
+| [CTransformers](https://github.com/marella/ctransformers)                   | Python bindings for the Transformer models implemented in C/C++ using GGML library   | ❌ | ❌ | ✅ | ❌ |
 | [docTR](https://github.com/mindee/doctr)                                    | Models and datasets for OCR-related tasks in PyTorch & TensorFlow                    | ✅ | ✅ | ✅ | ❌ |
 | [ESPnet](https://github.com/espnet/espnet)                                  | End-to-end speech processing toolkit (e.g. TTS)                                      | ✅ | ✅ | ✅ | ❌ |
 | [fastai](https://github.com/fastai/fastai)                                  | Library to train fast and accurate models with state-of-the-art outputs.             | ✅ | ✅ | ✅ | ✅ |
