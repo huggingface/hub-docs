@@ -3,6 +3,9 @@ import type { ModelData } from "./Types";
 
 /**
  * Add your new library here.
+ * 
+ * This is for modeling (= architectures) libraries, not for file formats (like ONNX, etc).
+ * File formats live in an enum inside the internal codebase.
  */
 export enum ModelLibrary {
 	"adapter-transformers"  = "Adapter Transformers",
