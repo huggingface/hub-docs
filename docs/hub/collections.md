@@ -8,9 +8,9 @@ Collections have many use cases:
 - Separate key repositories from others for your profile visitors.
 - Showcase and share a complete project with its paper(s), dataset(s), model(s) and Space(s).
 - Bookmark things you find on the Hub in categories.
-- Have a dedicated page of relevant things to share with others.
+- Have a dedicated page of curated things to share with others.
 
-This is just a list of possible uses, but remember that collections are just a way of grouping things together, so use them however you like.
+This is just a list of possible uses, but remember that collections are just a way of grouping things together, so use them in the way that best fits your use case.
 
 ## Creating a new collection
 
@@ -33,19 +33,19 @@ It's possible to add external repositories to your collections, not just your ow
 
 ## Collaborating on collections
 
-organization collections are a great way to build collections together. Any member of the organization can add, edit and remove items from the collection.
+Organization collections are a great way to build collections together. Any member of the organization can add, edit and remove items from the collection.
 Use the **history feature** to keep track of who has edited the collection.
 
 ## Collection options
 
 ### Collection visibility
 
-**Public collections appear at the top of your profile or organization page and can be viewed by anyone. The first 3 items in each collection are visible directly in the collection preview, to see more the user must click to go to the collection page.
-Set your collection to **private\*\* if you don't want it to be accessible via its URL (it will not be displayed on your profile/organization page). For organizations, private collections are only available to members of the organization.
+**Public collections appear at the top of your profile or organization page and can be viewed by anyone. The first 3 items in each collection are visible directly in the collection preview. To see more, the user must click to go to the collection page.
+Set your collection to **private** if you don't want it to be accessible via its URL (it will not be displayed on your profile/organization page). For organizations, private collections are only available to members of the organization.
 
-### Sorting your collection(s) and theirs items
+### Sorting your collection(s) and their items
 
-You can use the sort handles in the collections list (on the left side of your collections page) to change the order of your collections, the first 2 collections will be directly visible on your profile/organization pages.
+You can use the sort handles in the collections list (on the left side of your collections page) to change the order of your collections. The first two collections will be directly visible on your profile/organization pages.
 
 You can also sort repositories within a collection by dragging the handles next to each item.
 
