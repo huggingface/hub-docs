@@ -48,7 +48,10 @@ Use the **history feature** to keep track of who has edited the collection.
 
 ### Collection visibility
 
-**Public** collections appear at the top of your profile or organization page and can be viewed by anyone. The first 3 items in each collection are visible directly in the collection preview. To see more, the user must click to go to the collection page.  
+![Collections on profiles](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collection-profile.webp)
+
+**Public** collections appear at the top of your profile or organization page and can be viewed by anyone. The first 3 items in each collection are visible directly in the collection preview (1). To see more, the user must click to go to the collection page.
+
 Set your collection to **private** if you don't want it to be accessible via its URL (it will not be displayed on your profile/organization page). For organizations, private collections are only available to members of the organization.
 
 ### Ordering your collection(s) and their items
