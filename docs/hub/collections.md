@@ -51,9 +51,9 @@ Use the **history feature** to keep track of who has edited the collection.
 **Public** collections appear at the top of your profile or organization page and can be viewed by anyone. The first 3 items in each collection are visible directly in the collection preview. To see more, the user must click to go to the collection page.  
 Set your collection to **private** if you don't want it to be accessible via its URL (it will not be displayed on your profile/organization page). For organizations, private collections are only available to members of the organization.
 
-### Sorting your collection(s) and their items
+### Ordering your collection(s) and their items
 
-You can use the sort handles in the collections list (on the left side of your collections page) to change the order of your collections (1). The first two collections will be directly visible on your profile/organization pages.
+You can use the drag and drop handles in the collections list (on the left side of your collections page) to change the order of your collections (1). The first two collections will be directly visible on your profile/organization pages.
 
 You can also sort repositories within a collection by dragging the handles next to each item (2).
 
@@ -62,7 +62,7 @@ You can also sort repositories within a collection by dragging the handles next 
 ### Deleting items from the collection
 
 To delete an item from a collection, click the trash icon on the right in the when you hover over an item with your mouse (1).
-To delete a whole collection, click delete on the right-hand menu (2) - you'll need to confirm this action.
+To delete the whole collection, click delete on the right-hand menu (2) - you'll need to confirm this action.
 
 ![Collection delete](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collection-delete.webp)
 
