@@ -23,7 +23,7 @@ There are several ways to create a collection:
 
 ![New collection](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collection-new.webp)
 
-It's also possible to create a collection on the fly at the moment adding the first item from a repository page, select **+ Create new collection** from the dropdown menu.
+It's also possible to create a collection on the fly when adding the first item from a repository page, select **+ Create new collection** from the dropdown menu.
 You'll need to enter a title and short description for your collection to be created.
 
 ## Adding items to a collection
