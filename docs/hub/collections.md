@@ -67,7 +67,7 @@ To delete an item from a collection, click the trash icon on the right in the wh
 
 ### Adding notes to collection's items
 
-It's possible to add a note to any item in a collection to give it more context (for others, or as a reminder to yourself). You can add notes by clicking the pencil icon when you hover over an item with your mouse. Notes are plain text and don't support markdown, to keep things clean and simple. URLs in notes are converted to clickable links.
+It's possible to add a note to any item in a collection to give it more context (for others, or as a reminder to yourself). You can add notes by clicking the pencil icon when you hover over an item with your mouse. Notes are plain text and don't support markdown, to keep things clean and simple. URLs in notes are converted into clickable links.
 
 ![Collection note](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collection-note.webp)
 
