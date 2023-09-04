@@ -74,4 +74,4 @@ It's possible to add a note to any item in a collection to give it more context 
 
 ## Your feedback on collections
 
-We're working on improving the collections, so if you have any bugs, questions, or new features you'd like to see added, don't hesitate to post a message in the dedicated discussion.
+We're working on improving the collections, so if you have any bugs, questions, or new features you'd like to see added, please post a message in the [dedicated discussion](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/12).
