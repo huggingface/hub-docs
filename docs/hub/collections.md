@@ -28,7 +28,7 @@ You'll need to enter a title and short description for your collection to be cre
 
 ## Adding items to a collection
 
-There are 2 ways to add items to a collection.
+There are 2 ways to add items to a collection:
 
 - From any repository page: Use the context menu available on any repository page then select **Add to collection** to add it to a collection (1).
 - From the collection page: If you know the name of the repository you want to add, use the **+ add to collection** option in the right-hand menu (2).
@@ -53,9 +53,9 @@ Set your collection to **private** if you don't want it to be accessible via its
 
 ### Sorting your collection(s) and their items
 
-You can use the sort handles in the collections list (on the left side of your collections page) to change the order of your collections. The first two collections will be directly visible on your profile/organization pages.
+You can use the sort handles in the collections list (on the left side of your collections page) to change the order of your collections (1). The first two collections will be directly visible on your profile/organization pages.
 
-You can also sort repositories within a collection by dragging the handles next to each item.
+You can also sort repositories within a collection by dragging the handles next to each item (2).
 
 ![Collections sort](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collection-sort.webp)
 
