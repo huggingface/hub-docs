@@ -26,7 +26,8 @@ jobs:
       - name: Check style
         working-directory: js
         run: |
-          npm run lint
+          npx prettier --check src
+          npx eslint --quiet --ext .js,.mjs,.ts,.svelte src
       - name: Check svelte
         working-directory: js
         run: |
