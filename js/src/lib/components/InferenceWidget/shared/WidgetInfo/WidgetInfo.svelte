@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ModelLoadInfo, LoadingStatus } from "../types";
+	import type { WidgetProps, ModelLoadInfo, LoadState } from "../types";
 
 	import IconAzureML from "../../../Icons/IconAzureML.svelte";
 
@@ -8,31 +8,33 @@
 	export let error: string;
 	export let modelLoadInfo: ModelLoadInfo = { status: "unknown" };
 
-	const status = {
+	const state = {
+		Loadable: "This model can be loaded on the Inference API on-demand.",
+		Loaded: "This model is currently loaded and running on the Inference API.",
+		TooBig: "Model is too large to load onto the free Inference API. To try the model, launch it on Inference Endpoints instead.",
 		error: "⚠️ This model could not be loaded by the inference API. ⚠️",
-		loaded: "This model is currently loaded and running on the Inference API.",
-		unknown: "This model can be loaded on the Inference API on-demand.",
 	} as const;
 
-	const azureStatus = {
+	const azureState = {
+		Loadable: "This model can be loaded loaded on AzureML Managed Endpoint",
+		Loaded: "This model is loaded and running on AzureML Managed Endpoint",
+		TooBig: "Model is too large to load onto the free Inference API. To try the model, launch it on Inference Endpoints instead.",
 		error: "⚠️ This model could not be loaded.",
-		loaded: "This model is loaded and running on AzureML Managed Endpoint",
-		unknown: "This model can be loaded loaded on AzureML Managed Endpoint",
 	} as const;
 
 	function getStatusReport(
 		modelLoadInfo: ModelLoadInfo,
-		statuses: Record<LoadingStatus, string>,
+		statuses: Record<LoadState, string>,
 		isAzure = false
 	): string {
 		if (
 			modelLoadInfo.compute_type === "cpu" &&
-			modelLoadInfo.status === "loaded" &&
+			modelLoadInfo.state === "Loaded" &&
 			!isAzure
 		) {
 			return `The model is loaded and running on <a class="hover:underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon 3rd Gen Scalable CPU</a>`;
 		}
-		return statuses[modelLoadInfo.status];
+		return statuses[modelLoadInfo.state];
 	}
 
 	function getComputeTypeMsg(): string {
@@ -60,13 +62,13 @@
 					class="flex border-dotter border-b border-gray-100 flex-1 mx-2 -translate-y-px"
 				/>
 				<div>
-					{@html getStatusReport(modelLoadInfo, azureStatus, true)}
+					{@html getStatusReport(modelLoadInfo, azureState, true)}
 				</div>
 			</div>
 		{:else if computeTime}
 			Computation time on {getComputeTypeMsg()}: {computeTime}
 		{:else}
-			{@html getStatusReport(modelLoadInfo, status)}
+			{@html getStatusReport(modelLoadInfo, state)}
 		{/if}
 	</div>
 	{#if error}

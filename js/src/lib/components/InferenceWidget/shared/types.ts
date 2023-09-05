@@ -12,15 +12,12 @@ export interface WidgetProps {
 }
 
 
-export type LoadingStatus = "error" | "loaded" | "unknown";
-
-export type LoadState = "Loadable" | "Loaded" | "TooBig";
+export type LoadState = "Loadable" | "Loaded" | "TooBig" | "error";
 
 export type ComputeType = "cpu" | "gpu";
 
 export type ModelLoadInfo = {
-	status: LoadingStatus;
-	state?: LoadState;
+	state: LoadState;
 	compute_type?: ComputeType;
 }
 

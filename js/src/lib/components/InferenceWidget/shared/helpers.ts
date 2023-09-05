@@ -184,12 +184,11 @@ export async function getModelLoadInfo(url: string, repoId: string, includeCrede
 	const response = await fetch(`${url}/status/${repoId}`, {credentials: includeCredentials ? "include" : "same-origin"});
 	const output = await response.json();
 	if (response.ok && typeof output === 'object' && output.loaded !== undefined) {
-		const {state, loaded, compute_type} = output;
-		const status = loaded ? 'loaded' : 'unknown';
-		return {status, compute_type, state}
+		const {state, compute_type} = output;
+		return {compute_type, state}
 	} else {
 		console.warn(response.status, output.error);
-		return {status: 'error'};
+		return {state: 'error'};
 	}
 }
 
