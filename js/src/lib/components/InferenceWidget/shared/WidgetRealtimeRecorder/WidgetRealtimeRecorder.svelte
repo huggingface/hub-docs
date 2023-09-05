@@ -2,16 +2,15 @@
 	import type { WidgetProps } from "../../shared/types";
 
 	import { onDestroy, onMount } from "svelte";
+
 	import IconMagicWand from "../../../Icons/IconMagicWand.svelte";
+
 	import Recorder from "./Recorder";
 
-	export let apiToken: WidgetProps["apiUrl"];
+	export let apiToken: WidgetProps["apiUrl"] | undefined = undefined;
 	export let classNames = "";
 	export let model: WidgetProps["model"];
-	export let updateModelLoading: (
-		isLoading: boolean,
-		estimatedTime?: number
-	) => void;
+	export let updateModelLoading: (isLoading: boolean, estimatedTime?: number) => void;
 	export let onRecordStart: () => void = () => null;
 	export let onRecordStop: () => void = () => null;
 	export let onError: (err: string) => void = () => null;
@@ -68,14 +67,7 @@
 	}
 
 	onMount(() => {
-		recorder = new Recorder(
-			model.id,
-			apiToken,
-			renderText,
-			renderWarning,
-			onError,
-			updateModelLoading
-		);
+		recorder = new Recorder(model.id, apiToken, renderText, renderWarning, onError, updateModelLoading);
 	});
 
 	onDestroy(() => {
@@ -86,9 +78,7 @@
 </script>
 
 <button class="btn-widget {classNames}" on:click={onClick} type="button">
-	<div
-		class="flex items-center {isRecording ? 'text-red-500 animate-pulse' : ''}"
-	>
+	<div class="flex items-center {isRecording ? 'animate-pulse text-red-500' : ''}">
 		<IconMagicWand classNames="-ml-1 mr-1.5" />
 		<span>
 			{isRecording ? "Stop speech recognition" : "Realtime speech recognition"}
@@ -97,14 +87,11 @@
 </button>
 
 {#if isRecording}
-	<div
-		class="relative top-0 left-0 inline-flex w-full my-2 items-center justify-center {!!warning &&
-			'animate-pulse'}"
-	>
+	<div class="relative top-0 left-0 my-2 inline-flex w-full items-center justify-center {!!warning && 'animate-pulse'}">
 		{#if warning}
 			<p class="opacity-50">{warning}</p>
 		{:else}
-			<p class="lowercase font-mono">{txt}</p>
+			<p class="font-mono lowercase">{txt}</p>
 		{/if}
 	</div>
 {/if}

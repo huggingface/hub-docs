@@ -2,6 +2,6 @@
 	import "../tailwind.css";
 </script>
 
-<div class="min-h-screen bg-gray-50 dark:bg-gray-950 text-black">
+<div class="min-h-screen bg-gray-50 text-black dark:bg-gray-950">
 	<slot />
 </div>

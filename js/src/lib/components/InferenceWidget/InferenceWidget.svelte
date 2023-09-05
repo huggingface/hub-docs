@@ -48,7 +48,7 @@
 		"audio-to-audio": AudioToAudioWidget,
 		"audio-classification": AudioClassificationWidget,
 		"automatic-speech-recognition": AutomaticSpeechRecognitionWidget,
-		conversational: ConversationalWidget,
+		"conversational": ConversationalWidget,
 		"feature-extraction": FeatureExtractionWidget,
 		"fill-mask": FillMaskWidget,
 		"image-classification": ImageClassificationWidget,
@@ -58,7 +58,7 @@
 		"object-detection": ObjectDetectionWidget,
 		"question-answering": QuestionAnsweringWidget,
 		"sentence-similarity": SentenceSimilarityWidget,
-		summarization: SummarizationWidget,
+		"summarization": SummarizationWidget,
 		"table-question-answering": TableQuestionAnsweringWidget,
 		"text2text-generation": TextGenerationWidget,
 		"text-classification": FillMaskWidget,
@@ -66,7 +66,7 @@
 		"token-classification": TokenClassificationWidget,
 		"text-to-image": TextToImageWidget,
 		"text-to-speech": TextToSpeechWidget,
-		translation: TextGenerationWidget,
+		"translation": TextGenerationWidget,
 		"tabular-classification": TabularDataWidget,
 		"tabular-regression": TabularDataWidget,
 		"visual-question-answering": VisualQuestionAnsweringWidget,
@@ -92,8 +92,5 @@
 </script>
 
 {#if widgetComponent}
-	<svelte:component
-		this={WIDGET_COMPONENTS[model.pipeline_tag ?? ""]}
-		{...widgetProps}
-	/>
+	<svelte:component this={WIDGET_COMPONENTS[model.pipeline_tag ?? ""]} {...widgetProps} />
 {/if}

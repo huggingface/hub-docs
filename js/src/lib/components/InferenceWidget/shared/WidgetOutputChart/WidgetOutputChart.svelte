@@ -16,17 +16,13 @@ from-yellow-400 to-yellow-200 dark:from-yellow-400 dark:to-yellow-600
 	type LabelField = "label" | "answer";
 	export let labelField: LabelField = "label";
 	export let output: Array<
-		| { label: string; score: number; color?: string }
-		| { answer: string; score: number; color?: string }
+		{ label: string; score: number; color?: string } | { answer: string; score: number; color?: string }
 	> = [];
 	export let highlightIndex = -1;
 	export let mouseover: (index: number) => void = () => {};
 	export let mouseout: () => void = () => {};
 
-	$: scoreMax = output.reduce(
-		(acc, entry) => (entry.score > acc ? entry.score : acc),
-		0
-	);
+	$: scoreMax = output.reduce((acc, entry) => (entry.score > acc ? entry.score : acc), 0);
 </script>
 
 {#if output.length}
@@ -35,11 +31,9 @@ from-yellow-400 to-yellow-200 dark:from-yellow-400 dark:to-yellow-600
 		{#each output as { score, color }, index}
 			<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 			<div
-				class="flex items-start justify-between font-mono text-xs leading-none
-					animate__animated animate__fadeIn transition duration-200 ease-in-out
-					{highlightIndex !== -1 &&
-					highlightIndex !== index &&
-					'opacity-30 filter grayscale'}
+				class="animate__animated animate__fadeIn flex items-start justify-between font-mono
+					text-xs leading-none transition duration-200 ease-in-out
+					{highlightIndex !== -1 && highlightIndex !== index && 'opacity-30 grayscale filter'}
 				"
 				style="animation-delay: {0.04 * index}s"
 				on:mouseover={() => mouseover(index)}
@@ -47,10 +41,10 @@ from-yellow-400 to-yellow-200 dark:from-yellow-400 dark:to-yellow-600
 			>
 				<div class="flex-1">
 					<div
-						class="h-1 mb-1 rounded bg-gradient-to-r 
-							from-{color ?? defaultBarColor}-400 
-							to-{color ?? defaultBarColor}-200 
-							dark:from-{color ?? defaultBarColor}-400 
+						class="mb-1 h-1 rounded bg-gradient-to-r
+							from-{color ?? defaultBarColor}-400
+							to-{color ?? defaultBarColor}-200
+							dark:from-{color ?? defaultBarColor}-400
 							dark:to-{color ?? defaultBarColor}-600"
 						style={`width: ${Math.ceil((score / scoreMax) * 100 * 0.8)}%;`}
 					/>

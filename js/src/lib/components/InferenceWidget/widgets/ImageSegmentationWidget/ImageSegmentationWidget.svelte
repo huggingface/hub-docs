@@ -5,11 +5,7 @@
 
 	import { COLORS } from "../../shared/consts";
 	import { clamp, mod, hexToRgb } from "../../../../utils/ViewUtils";
-	import {
-		getResponse,
-		getBlobFromUrl,
-		getDemoInputs,
-	} from "../../shared/helpers";
+	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
@@ -52,10 +48,7 @@
 		getOutput(file);
 	}
 
-	async function getOutput(
-		file: File | Blob,
-		{ withModelLoading = false, isOnLoadCall = false } = {}
-	) {
+	async function getOutput(file: File | Blob, { withModelLoading = false, isOnLoadCall = false } = {}) {
 		if (!file) {
 			return;
 		}
@@ -94,11 +87,7 @@
 				imgW = imgEl.naturalWidth;
 				imgH = imgEl.naturalHeight;
 				isLoading = true;
-				output = await Promise.all(
-					output_
-						.map((o, idx) => addOutputColor(o, idx))
-						.map((o) => addOutputCanvasData(o))
-				);
+				output = await Promise.all(output_.map((o, idx) => addOutputColor(o, idx)).map(o => addOutputCanvasData(o)));
 				isLoading = false;
 			}
 			outputJson = res.outputJson;
@@ -116,21 +105,14 @@
 	function isValidOutput(arg: any): arg is ImageSegment[] {
 		return (
 			Array.isArray(arg) &&
-			arg.every(
-				(x) =>
-					typeof x.label === "string" &&
-					typeof x.score === "number" &&
-					typeof x.mask === "string"
-			)
+			arg.every(x => typeof x.label === "string" && typeof x.score === "number" && typeof x.mask === "string")
 		);
 	}
 	function parseOutput(body: unknown): ImageSegment[] {
 		if (isValidOutput(body)) {
 			return body;
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type Array<{label:string; score:number; mask: string}>"
-		);
+		throw new TypeError("Invalid output: output must be of type Array<{label:string; score:number; mask: string}>");
 	}
 
 	function mouseout() {
@@ -150,8 +132,8 @@
 		highlightIndex = -1;
 		const index = (imgW * col + row) * 4;
 		for (const [i, o] of output.entries()) {
-			const pixel = o.imgData.data[index];
-			if (pixel > 0) {
+			const pixel = o?.imgData?.data[index];
+			if (pixel && pixel > 0) {
 				highlightIndex = i;
 			}
 		}
@@ -163,9 +145,7 @@
 		return { ...imgSegment, color };
 	}
 
-	async function addOutputCanvasData(
-		imgSegment: ImageSegment
-	): Promise<ImageSegment> {
+	async function addOutputCanvasData(imgSegment: ImageSegment): Promise<ImageSegment> {
 		const { mask, color } = imgSegment;
 
 		const maskImg = new Image();
@@ -196,22 +176,20 @@
 		tmpCanvas.width = imgW;
 		tmpCanvas.height = imgH;
 		const tmpCtx = tmpCanvas.getContext("2d");
-		tmpCtx.drawImage(maskImg, 0, 0, imgW, imgH);
-		const segmentData = tmpCtx.getImageData(0, 0, imgW, imgH);
+		tmpCtx?.drawImage(maskImg, 0, 0, imgW, imgH);
+		const segmentData = tmpCtx?.getImageData(0, 0, imgW, imgH);
 		return segmentData;
 	}
 
 	// original: https://gist.github.com/MonsieurV/fb640c29084c171b4444184858a91bc7
 	function polyfillCreateImageBitmap() {
-		window.createImageBitmap = async function (
-			data: ImageData
-		): Promise<ImageBitmap> {
+		window.createImageBitmap = async function (data: ImageData): Promise<ImageBitmap> {
 			return new Promise((resolve, _) => {
 				const canvas = document.createElement("canvas");
 				const ctx = canvas.getContext("2d");
 				canvas.width = data.width;
 				canvas.height = data.height;
-				ctx.putImageData(data, 0, 0);
+				ctx?.putImageData(data, 0, 0);
 				const dataURL = canvas.toDataURL();
 				const img = document.createElement("img");
 				img.addEventListener("load", () => {
@@ -265,27 +243,14 @@
 >
 	<svelte:fragment slot="top">
 		<form>
-			<WidgetDropzone
-				classNames="hidden md:block"
-				{isLoading}
-				{imgSrc}
-				{onSelectFile}
-				onError={(e) => (error = e)}
-			>
+			<WidgetDropzone classNames="hidden md:block" {isLoading} {imgSrc} {onSelectFile} onError={e => (error = e)}>
 				{#if imgSrc}
 					<Canvas {imgSrc} {highlightIndex} {mousemove} {mouseout} {output} />
 				{/if}
 			</WidgetDropzone>
 			<!-- Better UX for mobile/table through CSS breakpoints -->
 			{#if imgSrc}
-				<Canvas
-					classNames="mr-2 md:hidden"
-					{imgSrc}
-					{highlightIndex}
-					{mousemove}
-					{mouseout}
-					{output}
-				/>
+				<Canvas classNames="mr-2 md:hidden" {imgSrc} {highlightIndex} {mousemove} {mouseout} {output} />
 			{/if}
 			<WidgetFileInput
 				accept="image/*"
@@ -301,12 +266,6 @@
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
-		<WidgetOutputChart
-			classNames="pt-4"
-			{output}
-			{highlightIndex}
-			{mouseover}
-			{mouseout}
-		/>
+		<WidgetOutputChart classNames="pt-4" {output} {highlightIndex} {mouseover} {mouseout} />
 	</svelte:fragment>
 </WidgetWrapper>

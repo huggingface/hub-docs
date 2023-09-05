@@ -12,7 +12,7 @@
 	<svelte:fragment slot="before">
 		<input
 			bind:group
-			class="border-gray-300 dark:border-gray-700 focus:border-gray-300 hover:border-gray-300 focus:ring-1 focus:ring-offset-2 focus:ring-blue-200 dark:focus:ring-gray-500 dark:focus:ring-offset-gray-925 cursor-pointer checked:text-blue-500 mr-2"
+			class="mr-2 cursor-pointer border-gray-300 checked:text-blue-500 hover:border-gray-300 focus:border-gray-300 focus:ring-1 focus:ring-blue-200 focus:ring-offset-2 dark:border-gray-700 dark:focus:ring-gray-500 dark:focus:ring-offset-gray-925"
 			on:change={onChange}
 			type="radio"
 			{value}

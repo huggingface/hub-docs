@@ -40,7 +40,7 @@
 	function onClick(e: MouseEvent | TouchEvent) {
 		let targetElement = e.target;
 		do {
-			if (targetElement == containerEl) {
+			if (targetElement === containerEl) {
 				// This is a click inside. Do nothing, just return.
 				return;
 			}
@@ -70,8 +70,7 @@
 	>
 		<div class="truncate text-sm">{title}</div>
 		<IconCaretDownV2
-			classNames="-mr-1 ml-2 h-5 w-5 transition ease-in-out transform {isOptionsVisible &&
-				'-rotate-180'}"
+			classNames="-mr-1 ml-2 h-5 w-5 transition ease-in-out transform {isOptionsVisible && '-rotate-180'}"
 		/>
 	</div>
 

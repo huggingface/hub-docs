@@ -2,17 +2,12 @@
 	import type { WidgetProps } from "../../shared/types";
 
 	import { onMount } from "svelte";
+
 	import WidgetOuputTokens from "../../shared/WidgetOutputTokens/WidgetOutputTokens.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
 
 	interface EntityGroup {
 		entity_group: string;
@@ -65,10 +60,7 @@
 		}
 	});
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -129,12 +121,8 @@
 	function isValidOutput(arg: any): arg is EntityGroup[] {
 		return (
 			Array.isArray(arg) &&
-			arg.every((x) => {
-				return (
-					typeof x.word === "string" &&
-					typeof x.entity_group === "string" &&
-					typeof x.score === "number"
-				);
+			arg.every(x => {
+				return typeof x.word === "string" && typeof x.entity_group === "string" && typeof x.score === "number";
 			})
 		);
 	}
@@ -143,9 +131,7 @@
 		if (isValidOutput(body)) {
 			// Filter out duplicates
 			const filteredEntries = body.reduce<EntityGroup[]>((acc, entry) => {
-				const exists = acc.some((accEntry) =>
-					Object.keys(entry).every((k) => entry[k] === accEntry[k])
-				);
+				const exists = acc.some(accEntry => Object.keys(entry).every(k => entry[k] === accEntry[k]));
 				return exists ? acc : [...acc, entry];
 			}, []);
 
@@ -162,27 +148,22 @@
 			});
 
 			// Check existence of **strict overlapping**
-			spans.forEach((s, i) => {
+			for (let i = 0; i < spans.length; i++) {
 				if (i < spans.length - 1) {
+					const s = spans[i];
 					const sNext = spans[i + 1];
 					if (s.start < sNext.start && s.end > sNext.start) {
 						console.warn("ERROR", "Spans: strict overlapping");
 					}
 				}
-			});
+			}
 
 			return spans;
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type Array<word:string; entity_group:string; score:number>"
-		);
+		throw new TypeError("Invalid output: output must be of type Array<word:string; entity_group:string; score:number>");
 	}
 
-	function getSpanData(
-		entityGroup: EntityGroup,
-		spans: Span[],
-		text: string
-	): Span | null {
+	function getSpanData(entityGroup: EntityGroup, spans: Span[], text: string): Span | null {
 		// When the API returns start/end information
 		if (entityGroup.start && entityGroup.end) {
 			const span = {
@@ -190,7 +171,7 @@
 				start: entityGroup.start,
 				end: entityGroup.end,
 			};
-			return !spans.some((x) => equals(x, span)) ? span : null;
+			return !spans.some(x => equals(x, span)) ? span : null;
 		}
 
 		// This is a fallback when the API doesn't return
@@ -209,7 +190,7 @@
 				start: idx,
 				end: idx + needle.length,
 			};
-			if (!spans.some((x) => equals(x, span))) {
+			if (!spans.some(x => equals(x, span))) {
 				return span;
 			}
 			idx++;
@@ -230,7 +211,7 @@
 				start: idx,
 				end: idx + needle.length,
 			};
-			if (!spans.some((x) => equals(x, span))) {
+			if (!spans.some(x => equals(x, span))) {
 				return span;
 			}
 		}

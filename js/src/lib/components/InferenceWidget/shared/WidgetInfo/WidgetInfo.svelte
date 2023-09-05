@@ -25,27 +25,23 @@
 		statuses: Record<LoadingStatus, string>,
 		isAzure = false
 	): string {
-		if (
-			modelLoadInfo.compute_type === "cpu" &&
-			modelLoadInfo.status === "loaded" &&
-			!isAzure
-		) {
+		if (modelLoadInfo.compute_type === "cpu" && modelLoadInfo.status === "loaded" && !isAzure) {
 			return `The model is loaded and running on <a class="hover:underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon 3rd Gen Scalable CPU</a>`;
 		}
 		return statuses[modelLoadInfo.status];
 	}
 
 	function getComputeTypeMsg(): string {
-		let compute_type = modelLoadInfo?.compute_type ?? "cpu";
-		if (compute_type === "cpu") {
+		const computeType = modelLoadInfo?.compute_type ?? "cpu";
+		if (computeType === "cpu") {
 			return "Intel Xeon 3rd Gen Scalable cpu";
 		}
-		return compute_type;
+		return computeType;
 	}
 </script>
 
 <div class="mt-2">
-	<div class="text-gray-400 text-xs">
+	<div class="text-xs text-gray-400">
 		{#if model.id === "bigscience/bloom"}
 			<div class="flex items-baseline">
 				<div class="flex items-center whitespace-nowrap text-gray-700">
@@ -56,9 +52,7 @@
 						target="_blank">AzureML</a
 					>
 				</div>
-				<div
-					class="flex border-dotter border-b border-gray-100 flex-1 mx-2 -translate-y-px"
-				/>
+				<div class="border-dotter mx-2 flex flex-1 -translate-y-px border-b border-gray-100" />
 				<div>
 					{@html getStatusReport(modelLoadInfo, azureStatus, true)}
 				</div>

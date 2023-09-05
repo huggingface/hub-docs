@@ -1,12 +1,12 @@
 <script lang="ts">
 	import type { ImageSegment } from "../../shared/types";
+
 	import { afterUpdate } from "svelte";
 
 	export let classNames = "";
 	export let highlightIndex: number;
 	export let imgSrc = "";
-	export let mousemove: (e: Event, canvasW: number, canvasH: number) => void =
-		() => {};
+	export let mousemove: (e: Event, canvasW: number, canvasH: number) => void = () => {};
 	export let mouseout: () => void = () => {};
 	export let output: ImageSegment[] = [];
 
@@ -27,7 +27,7 @@
 	}
 
 	function darwHelper() {
-		const maskToDraw = output.reduce((arr, o, i) => {
+		const maskToDraw = output.reduce((arr: any[], o, i) => {
 			const mask = o?.bitmap;
 			if (mask && (i === highlightIndex || highlightIndex === -1)) {
 				arr.push(mask);
@@ -57,17 +57,9 @@
 
 <svelte:window on:resize={draw} />
 
-<div
-	class="relative top-0 left-0 inline-flex {classNames}"
-	bind:this={containerEl}
->
-	<div class="flex justify-center max-w-sm">
-		<img
-			alt=""
-			class="relative top-0 left-0 object-contain"
-			src={imgSrc}
-			bind:this={imgEl}
-		/>
+<div class="relative top-0 left-0 inline-flex {classNames}" bind:this={containerEl}>
+	<div class="flex max-w-sm justify-center">
+		<img alt="" class="relative top-0 left-0 object-contain" src={imgSrc} bind:this={imgEl} />
 	</div>
 	{#if output.length}
 		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
@@ -76,7 +68,7 @@
 			{width}
 			{height}
 			bind:this={canvas}
-			on:mousemove={(e) => mousemove(e, width, height)}
+			on:mousemove={e => mousemove(e, width, height)}
 			on:mouseout={mouseout}
 		/>
 	{/if}
