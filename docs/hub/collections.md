@@ -54,7 +54,7 @@ Use the **history feature** to keep track of who has edited the collection.
 
 Set your collection to **private** if you don't want it to be accessible via its URL (it will not be displayed on your profile/organization page). For organizations, private collections are only available to members of the organization.
 
-### Ordering your collection(s) and their items
+### Ordering your collections and their items
 
 You can use the drag and drop handles in the collections list (on the left side of your collections page) to change the order of your collections (1). The first two collections will be directly visible on your profile/organization pages.
 
@@ -62,9 +62,9 @@ You can also sort repositories within a collection by dragging the handles next 
 
 ![Collections sort](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collection-sort.webp)
 
-### Deleting items from the collection
+### Deleting items from a collection
 
-To delete an item from a collection, click the trash icon on the right in the when you hover over an item with your mouse (1).
+To delete an item from a collection, click the trash icon in the menu that shows up on the right when you hover over an item (1).
 To delete the whole collection, click delete on the right-hand menu (2) - you'll need to confirm this action.
 
 ![Collection delete](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collection-delete.webp)
@@ -77,4 +77,4 @@ It's possible to add a note to any item in a collection to give it more context 
 
 ## Your feedback on collections
 
-We're working on improving the collections, so if you have any bugs, questions, or new features you'd like to see added, please post a message in the [dedicated discussion](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/12).
+We're working on improving collections, so if you have any bugs, questions, or new features you'd like to see added, please post a message in the [dedicated discussion](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/12).
