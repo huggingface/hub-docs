@@ -87,7 +87,9 @@
 				imgW = imgEl.naturalWidth;
 				imgH = imgEl.naturalHeight;
 				isLoading = true;
-				output = await Promise.all(output_.map((o, idx) => addOutputColor(o, idx)).map(o => addOutputCanvasData(o)));
+				output = (
+					await Promise.all(output_.map((o, idx) => addOutputColor(o, idx)).map(o => addOutputCanvasData(o)))
+				).filter(o => o !== undefined) as ImageSegment[];
 				isLoading = false;
 			}
 			outputJson = res.outputJson;
@@ -145,7 +147,7 @@
 		return { ...imgSegment, color };
 	}
 
-	async function addOutputCanvasData(imgSegment: ImageSegment): Promise<ImageSegment> {
+	async function addOutputCanvasData(imgSegment: ImageSegment): Promise<ImageSegment | undefined> {
 		const { mask, color } = imgSegment;
 
 		const maskImg = new Image();
@@ -155,23 +157,25 @@
 			maskImg.onload = () => resolve(maskImg);
 		});
 		const imgData = getImageData(maskImg);
-		const { r, g, b } = colorToRgb[color];
-		const maskColored = [r, g, b, maskOpacity];
-		const background = Array(4).fill(0);
+		if (imgData && color) {
+			const { r, g, b } = colorToRgb[color];
+			const maskColored = [r, g, b, maskOpacity];
+			const background = Array(4).fill(0);
 
-		for (let i = 0; i < imgData.data.length; i += 4) {
-			const [r, g, b, a] = imgData.data[i] === 255 ? maskColored : background;
-			imgData.data[i] = r;
-			imgData.data[i + 1] = g;
-			imgData.data[i + 2] = b;
-			imgData.data[i + 3] = a;
+			for (let i = 0; i < imgData.data.length; i += 4) {
+				const [r, g, b, a] = imgData.data[i] === 255 ? maskColored : background;
+				imgData.data[i] = r;
+				imgData.data[i + 1] = g;
+				imgData.data[i + 2] = b;
+				imgData.data[i + 3] = a;
+			}
+
+			const bitmap = await createImageBitmap(imgData);
+			return { ...imgSegment, imgData, bitmap };
 		}
-
-		const bitmap = await createImageBitmap(imgData);
-		return { ...imgSegment, imgData, bitmap };
 	}
 
-	function getImageData(maskImg: CanvasImageSource): ImageData {
+	function getImageData(maskImg: CanvasImageSource): ImageData | undefined {
 		const tmpCanvas = document.createElement("canvas");
 		tmpCanvas.width = imgW;
 		tmpCanvas.height = imgH;
@@ -183,7 +187,7 @@
 
 	// original: https://gist.github.com/MonsieurV/fb640c29084c171b4444184858a91bc7
 	function polyfillCreateImageBitmap() {
-		window.createImageBitmap = async function (data: ImageData): Promise<ImageBitmap> {
+		(window as any).createImageBitmap = async function (data: ImageData): Promise<ImageBitmap> {
 			return new Promise((resolve, _) => {
 				const canvas = document.createElement("canvas");
 				const ctx = canvas.getContext("2d");
