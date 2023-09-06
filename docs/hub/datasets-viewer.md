@@ -7,6 +7,10 @@ The dataset page includes a table with the contents of the dataset, arranged by 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-dark.png"/>
 </div>
 
+## Search a word in the dataset
+
+You can search a word in the dataset by typing it in the search bar at the top of the table. The search is case-insensitive and will match any row containing the word. The text is searched in the columns of type `string` or `ClassLabel`, even if the values are nested in a dictionary.
+
 ## Share a specific row
 
 You can share a specific row by clicking on it, and then copying the URL in the address bar of your browser. For example https://huggingface.co/datasets/glue/viewer/mrpc/test?row=241 will open the dataset viewer on the MRPC dataset, on the test split, and on the 241st row.
