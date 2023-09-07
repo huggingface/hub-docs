@@ -12,6 +12,8 @@
     title: Pull Requests & Discussions
   - local: notifications
     title: Notifications
+  - local: collections
+    title: Collections
   - local: webhooks
     title: Webhooks
     sections:
