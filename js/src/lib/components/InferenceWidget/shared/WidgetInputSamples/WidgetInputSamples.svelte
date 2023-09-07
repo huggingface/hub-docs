@@ -24,7 +24,7 @@
 	function _applyInputSample(idx: number) {
 		hideOptions();
 		const sample = inputSamples[idx];
-		title = sample.example_title;
+		title = sample.example_title as string;
 		applyInputSample(sample);
 	}
 
