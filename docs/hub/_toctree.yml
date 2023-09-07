@@ -61,6 +61,8 @@
         title: AllenNLP
       - local: asteroid
         title: Asteroid
+      - local: ctransformers
+        title: CTransformers
       - local: espnet
         title: ESPnet
       - local: fastai
