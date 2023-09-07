@@ -648,7 +648,14 @@ export const OTHER_TAGS_SUGGESTIONS = [
 	TAG_NFAA_CONTENT,
 ];
 
-export type WidgetInputSample = Record<string | "example_title" | "group", any>;
+export type WidgetInputSampleValue =
+	| string
+	| string[]
+	| boolean
+	| number
+	| number[]
+	| Record<string, string | string[] | number[]>;
+export type WidgetInputSample = Record<string | "example_title" | "group", WidgetInputSampleValue>;
 
 /**
  * Public interface for model metadata

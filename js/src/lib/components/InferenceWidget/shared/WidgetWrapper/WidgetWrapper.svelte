@@ -44,7 +44,7 @@
 	for (const inputSample of inputSamples) {
 		const isExist = inputGroups.find(({ group }) => group === inputSample.group);
 		if (!isExist) {
-			inputGroups.push({ group: inputSample.group, inputSamples: [] });
+			inputGroups.push({ group: inputSample.group as string, inputSamples: [] });
 		}
 		inputGroups.find(({ group }) => group === inputSample.group)?.inputSamples.push(inputSample);
 	}
