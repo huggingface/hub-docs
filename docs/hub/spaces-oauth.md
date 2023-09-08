@@ -6,7 +6,13 @@ This enables new use cases for your Space. For instance, when combined with [Per
 
 <Tip>
 
-This guide will take you through the process of integrating a *Sign-In with HF* button into any Space. If you're seeking a fast and simple method to implement this in a Gradio Space, take a look at its [built-in integration](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face).
+This guide will take you through the process of integrating a *Sign-In with HF* button into any Space. If you're seeking a fast and simple method to implement this in a **Gradio** Space, take a look at its [built-in integration](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face).
+
+</Tip>
+
+<Tip>
+
+You can also use the HF OAuth flow to create a "Sign in with HF" flow in any website or App, outside of Spaces. [Read our general OAuth page](./oauth).
 
 </Tip>
 

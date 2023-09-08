@@ -237,4 +237,4 @@
   - local: api
     title: Hub API Endpoints
   - local: oauth
-    title: Sign in with Hugging Face
+    title: Sign-In with HF
