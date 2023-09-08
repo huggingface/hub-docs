@@ -9,7 +9,7 @@ The dataset page includes a table with the contents of the dataset, arranged by 
 
 ## Search a word in the dataset
 
-You can search for a word in the dataset by typing it in the search bar at the top of the table. The search is case-insensitive and will match any row containing the word. The text is searched in the columns of type `string` or `ClassLabel`, even if the values are nested in a dictionary.
+You can search for a word in the dataset by typing it in the search bar at the top of the table. The search is case-insensitive and will match any row containing the word. The text is searched in the columns of type `string`, even if the values are nested in a dictionary.
 
 ## Share a specific row
 
