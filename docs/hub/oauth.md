@@ -4,7 +4,7 @@ You can use the HF OAuth / OpenID connect flow to create a **"Sign in with HF"**
 
 This will allow users to sign in to your website or app using their HF account, by clicking a button similar to this one:
 
-![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/raw/main/sign-in-with-huggingface-xl-dark.svg)
+![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-xl-dark.svg)
 
 After clicking this button your users will be presented with a permissions modal to authorize your app:
 
@@ -41,14 +41,14 @@ You are free to use your own design for the button. Below are some SVG images he
 
 Check out [our badges](https://huggingface.co/datasets/huggingface/badges#sign-in-with-hugging-face) with explanations for integrating them in markdown or HTML.
 
-[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/raw/main/sign-in-with-huggingface-sm.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
-[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/raw/main/sign-in-with-huggingface-sm-dark.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
+[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-sm.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
+[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-sm-dark.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
 
-[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/raw/main/sign-in-with-huggingface-md.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
-[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/raw/main/sign-in-with-huggingface-md-dark.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
+[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-md.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
+[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-md-dark.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
 
-[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/raw/main/sign-in-with-huggingface-lg.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
-[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/raw/main/sign-in-with-huggingface-lg-dark.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
+[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-lg.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
+[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-lg-dark.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
 
-[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/raw/main/sign-in-with-huggingface-xl.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
-[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/raw/main/sign-in-with-huggingface-xl-dark.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
+[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-xl.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})
+[![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-xl-dark.svg)](https://huggingface.co/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile&state={STATE})

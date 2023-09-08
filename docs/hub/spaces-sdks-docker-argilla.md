@@ -15,7 +15,7 @@ In the next sections, you'll learn to deploy your own Argilla app and use it for
 You can deploy Argilla on Spaces with just a few clicks:
 
 <a  href="https://huggingface.co/new-space?template=argilla/argilla-template-space">
-    <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg" />
+    <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
 </a>
 
 
