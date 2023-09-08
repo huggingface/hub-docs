@@ -22,9 +22,7 @@ export const snippetFile = (model: ModelData, accessToken: string): string =>
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
-export const curlSnippets:
-	Partial<Record<PipelineType, (model: ModelData, accessToken: string) => string>> =
-{
+export const curlSnippets: Partial<Record<PipelineType, (model: ModelData, accessToken: string) => string>> = {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":          snippetBasic,
 	"token-classification":         snippetBasic,

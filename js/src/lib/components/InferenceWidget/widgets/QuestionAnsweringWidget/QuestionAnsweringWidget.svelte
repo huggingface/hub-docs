@@ -2,16 +2,11 @@
 	import type { WidgetProps } from "../../shared/types";
 
 	import { onMount } from "svelte";
+
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -35,19 +30,13 @@
 	let setTextAreaValue: (text: string) => void;
 
 	onMount(() => {
-		const [contextParam, questionParam] = getSearchParams([
-			"context",
-			"question",
-		]);
+		const [contextParam, questionParam] = getSearchParams(["context", "question"]);
 		if (contextParam && questionParam) {
 			question = questionParam;
 			setTextAreaValue(contextParam);
 			getOutput();
 		} else {
-			const [demoContext, demoQuestion] = getDemoInputs(model, [
-				"context",
-				"text",
-			]);
+			const [demoContext, demoQuestion] = getDemoInputs(model, ["context", "text"]);
 			question = (demoQuestion as string) ?? "";
 			setTextAreaValue(demoContext ?? "");
 			if (context && question && callApiOnMount) {
@@ -56,10 +45,7 @@
 		}
 	});
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedQuestion = question.trim();
 		const trimmedContext = context.trim();
 
@@ -122,18 +108,11 @@
 		}
 	}
 
-	function parseOutput(body: unknown): { answer: string; score: number } {
-		if (
-			body &&
-			typeof body === "object" &&
-			"answer" in body &&
-			"score" in body
-		) {
+	function parseOutput(body: any): { answer: string; score: number } {
+		if (body && typeof body === "object" && "answer" in body && "score" in body) {
 			return { answer: body["answer"], score: body["score"] };
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type <answer:string; score:number>"
-		);
+		throw new TypeError("Invalid output: output must be of type <answer:string; score:number>");
 	}
 
 	function previewInputSample(sample: Record<string, any>) {
@@ -180,9 +159,9 @@
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
 		{#if output}
-			<div class="mt-4 alert alert-success flex items-baseline">
+			<div class="alert alert-success mt-4 flex items-baseline">
 				<span>{output.answer}</span>
-				<span class="font-mono text-xs ml-auto">{output.score.toFixed(3)}</span>
+				<span class="ml-auto font-mono text-xs">{output.score.toFixed(3)}</span>
 			</div>
 		{/if}
 	</svelte:fragment>

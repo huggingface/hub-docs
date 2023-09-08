@@ -17,16 +17,7 @@
 	export let output: Span[] = [];
 	export let text = "";
 
-	const COLORS = [
-		"teal",
-		"indigo",
-		"orange",
-		"sky",
-		"violet",
-		"purple",
-		"fuchsia",
-		"pink",
-	] as const;
+	const COLORS = ["teal", "indigo", "orange", "sky", "violet", "purple", "fuchsia", "pink"] as const;
 
 	/**
 	 * Render a text string and its entity spans
@@ -54,7 +45,7 @@
 		let offset = 0;
 
 		const indexes = Object.keys(tags)
-			.map((k) => parseInt(k, 10))
+			.map(k => parseInt(k, 10))
 			.sort((a, b) => a - b); /// CAUTION
 		for (const i of indexes) {
 			const spanTags = tags[i];
@@ -65,16 +56,11 @@
 			offset = i;
 
 			for (const spanTag of spanTags) {
-				const hash = mod(
-					sum(Array.from(spanTag.span.type).map((x) => x.charCodeAt(0))),
-					COLORS.length
-				);
+				const hash = mod(sum(Array.from(spanTag.span.type).map(x => x.charCodeAt(0))), COLORS.length);
 				const color = COLORS[hash];
 				if (spanTag.tag === "start") {
 					out += `<span
-							data-entity="${spanTag.span.type}" data-hash="${hash}" data-index="${
-						spanTag.span.index ?? ""
-					}"
+							data-entity="${spanTag.span.type}" data-hash="${hash}" data-index="${spanTag.span.index ?? ""}"
 							class="bg-${color}-100 text-${color}-800 rounded px-1 py-0.5 dark:text-${color}-100 dark:bg-${color}-700"
 						>`;
 				} else {
@@ -102,7 +88,7 @@
 		bg-fuchsia-100 text-fuchsia-800 bg-fuchsia-500 text-fuchsia-100 dark:text-fuchsia-100 dark:bg-fuchsia-700
 		bg-pink-100 text-pink-800 bg-pink-500 text-pink-100 dark:text-pink-100 dark:bg-pink-700
 	-->
-	<div class="text-gray-800 leading-8 {classNames}">
+	<div class="leading-8 text-gray-800 {classNames}">
 		{@html render(text, output)}
 	</div>
 {/if}

@@ -3,6 +3,7 @@
 	import type { PipelineType } from "../../../../interfaces/Types";
 
 	import { onMount } from "svelte";
+
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetShortcutRunLabel from "../../shared/WidgetShortcutRunLabel/WidgetShortcutRunLabel.svelte";
 	import WidgetBloomDecoding from "../../shared/WidgetBloomDecoding/WidgetBloomDecoding.svelte";
@@ -10,13 +11,7 @@
 	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -27,8 +22,7 @@
 	export let includeCredentials: WidgetProps["includeCredentials"];
 	export let isLoggedIn: WidgetProps["includeCredentials"];
 
-	const isBloomLoginRequired =
-		isLoggedIn === false && model.id === "bigscience/bloom";
+	const isBloomLoginRequired = isLoggedIn === false && model.id === "bigscience/bloom";
 
 	let computeTime = "";
 	let error: string = "";
@@ -48,9 +42,9 @@
 
 	// Deactivate server caching for these two pipeline types
 	// (translation uses this widget too and still needs caching)
-	const useCache = !(
-		["text-generation", "text2text-generation"] as Array<PipelineType>
-	).includes(model.pipeline_tag);
+	const useCache = !(["text-generation", "text2text-generation"] as Array<PipelineType>).includes(
+		model.pipeline_tag as PipelineType
+	);
 
 	onMount(() => {
 		const [textParam] = getSearchParams(["text"]);
@@ -66,11 +60,7 @@
 		}
 	});
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-		useCache = true,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = true } = {}) {
 		if (isBloomLoginRequired) {
 			return;
 		}
@@ -169,9 +159,7 @@
 				""
 			);
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type Array & non-empty"
-		);
+		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
 	function previewInputSample(sample: Record<string, any>) {
@@ -184,15 +172,11 @@
 	}
 
 	function redirectLogin() {
-		window.location.href = `/login?next=${encodeURIComponent(
-			window.location.href
-		)}`;
+		window.location.href = `/login?next=${encodeURIComponent(window.location.href)}`;
 	}
 
 	function redirectJoin() {
-		window.location.href = `/join?next=${encodeURIComponent(
-			window.location.href
-		)}`;
+		window.location.href = `/join?next=${encodeURIComponent(window.location.href)}`;
 	}
 </script>
 
@@ -221,11 +205,7 @@
 			{#if model.id === "bigscience/bloom"}
 				<WidgetBloomDecoding bind:decodingStrategy />
 			{/if}
-			<div
-				class="flex items-center gap-x-2 {isBloomLoginRequired
-					? 'opacity-50 pointer-events-none'
-					: ''}"
-			>
+			<div class="flex items-center gap-x-2 {isBloomLoginRequired ? 'pointer-events-none opacity-50' : ''}">
 				<WidgetSubmitBtn
 					{isLoading}
 					onClick={() => {
@@ -244,14 +224,10 @@
 				<div class="alert alert-warning mt-2">
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					Please
-					<span class="underline cursor-pointer" on:click={redirectLogin}
-						>login</span
-					>
+					<span class="cursor-pointer underline" on:click={redirectLogin}>login</span>
 					or
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
-					<span class="underline cursor-pointer" on:click={redirectJoin}
-						>register</span
-					> to try BLOOM 🌸
+					<span class="cursor-pointer underline" on:click={redirectJoin}>register</span> to try BLOOM 🌸
 				</div>
 			{/if}
 		</form>

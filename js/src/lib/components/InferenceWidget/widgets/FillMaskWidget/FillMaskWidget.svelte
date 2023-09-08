@@ -2,17 +2,12 @@
 	import type { WidgetProps } from "../../shared/types";
 
 	import { onMount } from "svelte";
+
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -48,10 +43,7 @@
 		}
 	});
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -108,12 +100,13 @@
 		if (Array.isArray(body)) {
 			// entries = body -> text-classificartion
 			// entries = body[0] -> summarization
-			const entries = (
-				model.pipeline_tag === "text-classification" ? body[0] ?? [] : body
-			) as Record<string, unknown>[];
+			const entries = (model.pipeline_tag === "text-classification" ? body[0] ?? [] : body) as Record<
+				string,
+				unknown
+			>[];
 			return entries
-				.filter((x) => !!x)
-				.map((x) => ({
+				.filter(x => !!x)
+				.map(x => ({
 					// label = x.label -> text-classificartion
 					label: x.label ? String(x.label) : String(x.token_str),
 					score: x.score ? Number(x.score) : 0,
@@ -148,7 +141,7 @@
 	<svelte:fragment slot="top">
 		<form>
 			{#if model.pipeline_tag === "fill-mask"}
-				<div class="text-sm text-gray-500 mb-1.5">
+				<div class="mb-1.5 text-sm text-gray-500">
 					Mask token: <code>{model.mask_token}</code>
 				</div>
 			{/if}

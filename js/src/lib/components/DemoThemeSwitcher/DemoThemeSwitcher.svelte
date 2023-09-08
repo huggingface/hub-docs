@@ -17,19 +17,14 @@
 		const theme = window.localStorage.getItem(THEME_KEY);
 		if (theme === "dark") {
 			setDarkTheme(true);
-		} else if (
-			theme == null &&
-			window.matchMedia("(prefers-color-scheme: dark)").matches
-		) {
+		} else if (theme === null && window.matchMedia("(prefers-color-scheme: dark)").matches) {
 			setDarkTheme(true);
 		}
 	});
 </script>
 
-<div
-	class="absolute top-0 right-0 w-8 h-8 p-2 cursor-pointer"
-	on:click={toggleMode}
->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class="absolute top-0 right-0 h-8 w-8 cursor-pointer p-2" on:click={toggleMode}>
 	{#if darkMode}
 		<svg
 			aria-hidden="true"

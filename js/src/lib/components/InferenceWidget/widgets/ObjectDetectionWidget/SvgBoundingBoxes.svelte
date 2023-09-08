@@ -26,7 +26,7 @@ text-lime-400
 	let wrapperHeight = 0;
 	let wrapperWidth = 0;
 	let boxes: Array<{
-		color: string;
+		color?: string;
 		index: number;
 		rect: Rect;
 	}> = [];
@@ -67,17 +67,9 @@ text-lime-400
 	});
 </script>
 
-<div
-	class="relative top-0 left-0 inline-flex {classNames}"
-	bind:this={containerEl}
->
-	<div class="flex justify-center max-w-sm">
-		<img
-			alt=""
-			class="relative top-0 left-0 object-contain"
-			src={imgSrc}
-			bind:this={imgEl}
-		/>
+<div class="relative top-0 left-0 inline-flex {classNames}" bind:this={containerEl}>
+	<div class="flex max-w-sm justify-center">
+		<img alt="" class="relative top-0 left-0 object-contain" src={imgSrc} bind:this={imgEl} />
 	</div>
 
 	<svg
@@ -88,13 +80,9 @@ text-lime-400
 		{#each boxes as { rect, color, index }}
 			<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 			<rect
-				class="transition duration-200 ease-in-out text-{color}-400 stroke-current fill-current"
-				fill-opacity={highlightIndex === -1 || highlightIndex === index
-					? "0.1"
-					: "0.0"}
-				opacity={highlightIndex === -1 || highlightIndex === index
-					? "1"
-					: "0.0"}
+				class="transition duration-200 ease-in-out text-{color}-400 fill-current stroke-current"
+				fill-opacity={highlightIndex === -1 || highlightIndex === index ? "0.1" : "0.0"}
+				opacity={highlightIndex === -1 || highlightIndex === index ? "1" : "0.0"}
 				{...rect}
 				stroke-width="2"
 				on:mouseover={() => mouseover(index)}
