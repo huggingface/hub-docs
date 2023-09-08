@@ -15,7 +15,7 @@ To learn more about it, watch this [15-minute video](https://www.youtube.com/wat
 You can get Livebook up and running in a Space with just a few clicks. Click the button below to start creating a new Space using Livebook's Docker template:
 
 <a href="http://huggingface.co/new-space?template=livebook-dev/livebook" target="_blank">
-    <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg" alt="">
+    <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" alt="">
 </a>
 
 Then:
