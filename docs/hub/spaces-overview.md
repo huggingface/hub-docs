@@ -102,7 +102,7 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `SPACE_REPO_NAME`: i-like-flan
 * `SPACE_TITLE`: I Like Flan (specified in the README file)
 * `SPACE_ID`: `osanseviero/i-like-flan`
-* `SPACE_HOST`: `osanviero-i-like-flan.hf.space`
+* `SPACE_HOST`: `osanseviero-i-like-flan.hf.space`
 
 In case [OAuth](./spaces-oauth) is enabled for your Space, the following variables will also be available:
 
