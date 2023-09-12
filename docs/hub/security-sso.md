@@ -24,12 +24,20 @@ When SSO is enabled, the following applies:
 
 ## Configuring SSO
 
-To successfully enable SSO on the Hugging Face Hub for your organization, you need to set up an OIDC application in your IdP. We will provide a callback URL pointing to the `huggingface.co` domain. Once you create the application, you will need to provide us with the following information:
+To successfully enable SSO on the Hugging Face Hub for your organization, you need to set up an OIDC/SAML application in your IdP. We will provide a callback URL pointing to the `huggingface.co` domain. Once you create the application, you will need to provide us with the following information:
+
+### OIDC
 
 - Client ID
 - Client Secret
 - Issuer URL
 
+### SAML
+
+- Issuer
+- x509 public certificate
+- SSO URL
+
 ## Supported Identity Providers
 
-You can easily integrate Hugging Face Hub with a variety of Identity Providers, such as Okta, OneLogin or Azure Active Directory (Azure AD). Hugging Face Hub can work with any OIDC-compliant Identity Provider.
+You can easily integrate Hugging Face Hub with a variety of Identity Providers, such as Okta, OneLogin or Azure Active Directory (Azure AD). Hugging Face Hub can work with any OIDC-compliant or SAML (SP Initiated) Identity Provider.
