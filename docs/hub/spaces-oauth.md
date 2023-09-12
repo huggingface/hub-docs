@@ -51,10 +51,10 @@ As for any other environment variable, you can use them in your code by using `o
 
 The allowed redirect URIs for your OAuth app are:
 
-- `https://{SPACE_SUBDOMAIN}.hf.space/auth/callback`
-- `https://{SPACE_SUBDOMAIN}.hf.space/login/callback`
+- `https://{SPACE_HOST}/auth/callback`
+- `https://{SPACE_HOST}/login/callback`
 
-Note that `SPACE_SUBDOMAIN` is also [available](https://huggingface.co/docs/hub/spaces-overview#helper-environment-variables) as an environment variable.
+Note that `SPACE_HOST` is also [available](https://huggingface.co/docs/hub/spaces-overview#helper-environment-variables) as an environment variable.
 
 You can add a custom relative redirect path by setting `hf_oauth_redirect_path` in your Space's metadata.
 

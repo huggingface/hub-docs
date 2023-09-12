@@ -102,7 +102,7 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `SPACE_REPO_NAME`: i-like-flan
 * `SPACE_TITLE`: I Like Flan (specified in the README file)
 * `SPACE_ID`: `osanseviero/i-like-flan`
-* `SPACE_SUBDOMAIN`: `osanviero-i-like-flan` (the space's embed url is https://osanviero-i-like-flan.hf.space)
+* `SPACE_HOST`: `osanseviero-i-like-flan.hf.space`
 
 In case [OAuth](./spaces-oauth) is enabled for your Space, the following variables will also be available:
 
@@ -149,4 +149,3 @@ models:
 - reach-vb/musicgen-large-fp16-endpoint
 - reach-vb/wav2vec2-large-xls-r-1B-common_voice7-lt-ft
 ```
-
