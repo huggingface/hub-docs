@@ -1,6 +1,6 @@
 ## Use Cases
 
-Text-to-Speech (TTS) models can be used in any speech-enabled application that requires converting text to speech.
+Text-to-Speech (TTS) models can be used in any speech-enabled application that requires converting text to speech imitatting human voice.
 
 ### Voice Assistants
 
