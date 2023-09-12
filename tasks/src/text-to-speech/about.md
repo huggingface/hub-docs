@@ -12,30 +12,32 @@ TTS models are widely used in airport and public transportation announcement sys
 
 ## Inference
 
-The Hub contains over [100 TTS models](https://huggingface.co/models?pipeline_tag=text-to-speech&sort=downloads) that you can use right away by trying out the widgets directly in the browser or calling the models as a service using the Inference API. Here is a simple code snippet to do exactly this:
+The Hub contains over [1500 TTS models](https://huggingface.co/models?pipeline_tag=text-to-speech&sort=downloads) that you can use right away by trying out the widgets directly in the browser or calling the models as a service using the Inference API. Here is a simple code snippet to do exactly this:
 
 ```python
 import json
 import requests
 
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
-API_URL = "https://api-inference.huggingface.co/models/facebook/wav2vec2-base-960h"
+API_URL = "https://api-inference.huggingface.co/models/microsoft/speecht5_tts"
 
 def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response
 
-output = query({"inputs": "This is a test"})
+output = query({"text_inputs": "This is a test"})
 ```
 
-You can also use libraries such as [espnet](https://huggingface.co/models?library=espnet&pipeline_tag=automatic-speech-recognition&sort=downloads) if you want to handle the Inference directly.
+You can also use libraries such as [espnet](https://huggingface.co/models?library=espnet&pipeline_tag=text-to-speech&sort=downloads) if you want to handle the Inference directly.
+
+Now, you can also use the Text-to-Speech pipeline in Transformers to synthesise high quality voice.
 
 ```python
-from espnet2.bin.tts_inference import Text2Speech
+from transformers import pipeline
 
-model = Text2Speech.from_pretrained("espnet/kan-bayashi_ljspeech_vits")
+synthesizer = pipeline("text-to-speech", "suno/bark")
 
-speech, *_ = model("text to generate speech from")
+synthesizer("Look I am generating speech in three lines of code!")
 ```
 
 
