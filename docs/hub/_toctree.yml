@@ -222,6 +222,8 @@
       title: Git over SSH
     - local: security-gpg
       title: Signing Commits with GPG
+    - local: security-sso
+      title: Single Sign-On (SSO)
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle
