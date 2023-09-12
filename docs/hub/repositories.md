@@ -8,6 +8,7 @@ In these pages, you will go over the basics of getting started with Git and inte
 
 - [Getting Started with Repositories](./repositories-getting-started)
 - [Settings](./repositories-settings)
+- [Repository size recommendations](./repositories-recommendations)
 - [Pull Requests & Discussions](./repositories-pull-requests-discussions)
   - [Pull Requests advanced usage](./repositories-pull-requests-discussions#pull-requests-advanced-usage)
 - [Webhooks](./webhooks)

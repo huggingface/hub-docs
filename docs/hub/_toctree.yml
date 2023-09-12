@@ -6,6 +6,8 @@
   sections:
   - local: repositories-getting-started
     title: Getting Started with Repositories
+  - local: repositories-recommendations
+    title: Repository size recommendations
   - local: repositories-settings
     title: Repository Settings
   - local: repositories-pull-requests-discussions
