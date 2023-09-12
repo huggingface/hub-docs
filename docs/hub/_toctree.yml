@@ -6,8 +6,6 @@
   sections:
   - local: repositories-getting-started
     title: Getting Started with Repositories
-  - local: repositories-recommendations
-    title: Repository size recommendations
   - local: repositories-settings
     title: Repository Settings
   - local: repositories-pull-requests-discussions
@@ -25,6 +23,8 @@
         title: "How-to: Build a Discussion bot based on BLOOM"
       - local: webhooks-guide-metadata-review
         title: "How-to: Create automatic metadata quality reports"
+  - local: repositories-recommendations
+    title: Repository size recommendations
   - local: repositories-next-steps
     title: Next Steps
   - local: repositories-licenses
