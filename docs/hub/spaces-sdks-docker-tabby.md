@@ -1,6 +1,6 @@
 # Tabby on Spaces
 
-Tabby is an open-source, self-hosted AI coding assistant. With Tabby, every team can set up its own LLM-powered code completion server with ease.
+[Tabby](https://tabby.tabbyml.com) is an open-source, self-hosted AI coding assistant. With Tabby, every team can set up its own LLM-powered code completion server with ease.
 
 In this guide, you will learn how to deploy your own Tabby instance and use it for development directly from the Huggingface website.
 
