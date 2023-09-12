@@ -19,7 +19,9 @@ You need to define the Owner (your personal account or an organization), a Space
 ![image](https://github.com/huggingface/hub-docs/assets/388154/b00eb7ea-7de6-4832-b3ff-512859bfa92e)
 
 <Tip>
+
 If you want to customize the title, emojis, and colors of your space, go to "Files and Versions" and edit the metadata of your README.md file.
+
 </Tip>
 
 You’ll see the Building status and once it becomes Running your space is ready to go. If you don’t see the Tabby swagger UI, try refreshing the page.
@@ -27,10 +29,12 @@ You’ll see the Building status and once it becomes Running your space is ready
 ![image](https://github.com/huggingface/hub-docs/assets/388154/f2320e55-7aad-42ed-8b1c-aec4e42e05f0)
 
 ### Your Tabby Space URL
+
 Once Tabby is running, you can use the UI with the <u>Direct URL</u> in the **Embed this Space** option (top right).
 You’ll see a URL like this: https://tabbyml-tabby.hf.space. This URL gives you access to a full-screen, stable Tabby instance, and is the API Endpoint for IDE / Editor Extensions to talk with.
 
 ### Connect VSCode Extension to Space backend
+
 1. Install the [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=TabbyML.vscode-tabby).
 2. Open the file located at `~/.tabby-client/agent/config.toml`. Uncomment both the `[server]` section and the `[server.requestHeaders]` section.
    * Set the endpoint to the Direct URL you found in the previous step, which should look something like `https://UserName-SpaceName.hf.space`.
@@ -57,4 +61,5 @@ You can also utilize Tabby extensions in other IDEs, such as [JetBrains](https:/
 
 
 ## Feedback and support
+
 If you have improvement suggestions or need specific support, please join [Tabby Slack community](https://join.slack.com/t/tabbycommunity/shared_invite/zt-1xeiddizp-bciR2RtFTaJ37RBxr8VxpA) or reach out on [Tabby’s GitHub repository](https://github.com/TabbyML/tabby).
