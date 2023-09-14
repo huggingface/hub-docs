@@ -5,16 +5,16 @@ export const snippetBasic = (model: ModelData, accessToken: string): string =>
 	`curl https://api-inference.huggingface.co/models/${model.id} \\
 	-X POST \\
 	-d '{"inputs": ${getModelInputSnippet(model, true)}}' \\
+	-H 'Content-Type: application/json'
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}
-	-H 'Content-Type: application/json'"
 `;
 
 export const snippetZeroShotClassification = (model: ModelData, accessToken: string): string =>
 	`curl https://api-inference.huggingface.co/models/${model.id} \\
 	-X POST \\
 	-d '{"inputs": ${getModelInputSnippet(model, true)}, "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}' \\
+	-H 'Content-Type: application/json'
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}
-	-H 'Content-Type: application/json'"
 `;
 
 export const snippetFile = (model: ModelData, accessToken: string): string =>
