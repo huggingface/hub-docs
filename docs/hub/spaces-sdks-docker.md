@@ -133,7 +133,7 @@ COPY --chown=user checkpoint .
 
 The data written on disk is lost whenever your Docker Space restarts, unless you opt-in for a [persistent storage](./spaces-storage) upgrade.
 
-You can also use our Datasets Hub for specific cases, where you can store state and data in a git LFS repository. You can find an example of persistence [here](https://huggingface.co/spaces/julien-c/persistent-data), which uses the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index) for programmatically uploading files to a dataset repository.
+You can also use our Datasets Hub for specific cases, where you can store state and data in a git LFS repository. You can find an example of persistence [here](https://huggingface.co/spaces/Wauplin/space_to_dataset_saver), which uses the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index) for programmatically uploading files to a dataset repository. This Space example along with [this guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/upload#scheduled-uploads) will help you define which solution fits best depending on your data type.
 
 Finally, in some cases, you might want to use an external storage solution from your Space's code like an external hosted DB, S3, etc.
 
