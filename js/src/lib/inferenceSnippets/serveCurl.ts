@@ -6,7 +6,7 @@ export const snippetBasic = (model: ModelData, accessToken: string): string =>
 	-X POST \\
 	-d '{"inputs": ${getModelInputSnippet(model, true)}}' \\
 	-H 'Content-Type: application/json'
-	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}
+	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
 export const snippetZeroShotClassification = (model: ModelData, accessToken: string): string =>
@@ -14,7 +14,7 @@ export const snippetZeroShotClassification = (model: ModelData, accessToken: str
 	-X POST \\
 	-d '{"inputs": ${getModelInputSnippet(model, true)}, "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}' \\
 	-H 'Content-Type: application/json'
-	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}
+	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
 export const snippetFile = (model: ModelData, accessToken: string): string =>
