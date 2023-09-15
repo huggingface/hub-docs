@@ -106,7 +106,7 @@ Yes! You can use Markdown to add formatting to your comments. Additionally, you 
 
 For LaTeX equations, you have to use the following delimiters:
 - `$$ ... $$` for display mode
-- `&#92;&#92;(...)\\` for inline mode (no space between the slashes and the parenthesis).
+- `&#92;&#92;(...\\)` for inline mode (no space between the slashes and the parenthesis).
 
 ## How do I manage Pull requests locally?
 
