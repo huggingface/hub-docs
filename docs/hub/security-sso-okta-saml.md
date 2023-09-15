@@ -1,4 +1,4 @@
-# How to configure OIDC Okta in the Hub
+# How to configure Okta with SAML in the Hub
 
 For this guide, we will take Okta as SSO provider using the SAML protocol as our preferred identity protocol. 
 We only support SAML SP-initiated, it means we can't connect to the Hub from your IdP dashboard.

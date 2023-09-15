@@ -1,4 +1,4 @@
-# How to configure OIDC Okta in the Hub
+# How to configure Okta with OIDC in the Hub
 
 For this guide, we will take Okta as SSO provider using the OpenID Connect protocol as our preferred identity protocol. 
 
