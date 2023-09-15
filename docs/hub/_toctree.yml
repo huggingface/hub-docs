@@ -226,7 +226,9 @@
       title: Single Sign-On (SSO)
       sections:
       - local: security-sso-okta-oidc
-        title: OIDC SSO with Okta
+        title: How to configure OIDC Okta in the Hub
+      - local: security-sso-okta-saml
+        title: How to configure SAML Okta in the Hub
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle
