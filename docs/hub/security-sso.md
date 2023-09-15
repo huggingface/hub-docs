@@ -28,14 +28,14 @@ You can easily integrate Hugging Face Hub with a variety of Identity Providers, 
 
 ## How to configure OIDC/SAML provider in the Hub
 
-You can check your different guides to configure your SSO provider, if yours is not available you can consult one of them to give you an idea of how to do it.
+We have some guides available to help with configuring based on your chosen SSO provider, or to take inspiration from, though contact us if there's any questions.
 
 - [How to configure OIDC with Okta in the Hub](./security-sso-okta-oidc)
 - [How to configure SAML with Okta in the Hub](./security-sso-okta-saml)
 
 ## Users Management
 
-This section enables you to configure some aspects of your organization's SSO
+This section enables you to configure some aspects of your organization's SSO.
 
 
 <div class="flex justify-center">
@@ -45,15 +45,15 @@ This section enables you to configure some aspects of your organization's SSO
 
 ### Session Timeout
 
-It represents the delay when your organization members will be re-asked to complete the SSO flow, by default it is 7 days.
+It represents the delay when organization members will be asked to re-complete the SSO flow; default is 7 days.
 
 ### IdP Role Mapping
 
 * IdP Role Attribute Mapping
 
-It represents a JSON path from your IdP response from which to read the groups to which the user belongs.
+It represents a JSON path from your IdP response to read the groups to which the user belongs.
 
 * Role Mapping
 
-It's mapping table, the first input is the group value of your IdP and the dropdown corresponds to available roles in your organization.
-You must at least specify one admin role, because we perform role syncing of the users when they log in
+It represents a mapping table, the first input is the group value of your IdP and the dropdown corresponds to available roles in your organization.
+You must specify at least one admin role. We'll perform role syncing of users when they log in.
