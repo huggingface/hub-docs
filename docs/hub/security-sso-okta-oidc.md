@@ -67,6 +67,6 @@ After clicking, you should have been redirected to our SSO provider login prompt
 
 ### Enable SSO to your organization members
 
-After this step, SSO is not globally enabled in your organization, you need to click on "Enable" to force other organization members to complete the SSO flow described in [How does it work?](#how-does-it-work)
+After this step, SSO is not globally enabled in your organization, you need to click on "Enable" to force other organization members to complete the SSO flow described in [How does it work?](./security-sso.md#how-does-it-work)
 
 
