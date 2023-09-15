@@ -105,6 +105,9 @@ Save your new application and you will get the required details you need to conf
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-4.png"/>
 </div>
 
+
+### Configure SSO Organization settings
+
 Navigate to your organizaton settings then to SSO configuration section and insert the details (Issuer URL, Client Id, Client Secret) in the SSO configuration form then click on "Save and Test OIDC Configuration". For Okta, Issuer URL is generally a URL like this `https://tenantId.okta.com`, you can refer to their [guide](https://support.okta.com/help/s/article/What-is-theIssuerlocated-under-the-OpenID-Connect-ID-Token-app-settings-used-for?language=en_US).
 
 <div class="flex justify-center">
@@ -119,6 +122,8 @@ After clicking, you should have been redirected to our SSO provider login prompt
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-6.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-6-dark.png"/>
 </div>
+
+### Enable SSO to your organization members
 
 After this step, SSO is not globally enabled in your organization, you need to click on "Enable" to force other organization members to complete the SSO flow described in [How does it work?](#how-does-it-work)
 
