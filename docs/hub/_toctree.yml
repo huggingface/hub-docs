@@ -224,6 +224,9 @@
       title: Signing Commits with GPG
     - local: security-sso
       title: Single Sign-On (SSO)
+      sections:
+      - local: security-sso-okta-oidc
+        title: OIDC SSO with Okta
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle
