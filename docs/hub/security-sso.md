@@ -30,8 +30,8 @@ You can easily integrate Hugging Face Hub with a variety of Identity Providers, 
 
 You can check your different guides to configure your SSO provider, if yours is not available you can consult one of them to give you an idea of how to do it.
 
-- [How to configure OIDC Okta in the Hub](./security-sso-okta-oidc)
-- [How to configure SAML Okta in the Hub](./security-sso-okta-saml)
+- [How to configure OIDC with Okta in the Hubb](./security-sso-okta-oidc)
+- [How to configure SAML with Okta in the Hub](./security-sso-okta-saml)
 
 ## Users Management
 
