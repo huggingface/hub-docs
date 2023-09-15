@@ -89,7 +89,7 @@ Then choose an “OIDC - OpenID Connect” application, select the application t
 
 After that, you need to configure your new OIDC app, and set the Sign-in redirect URI to:
 
-https://huggingface.co/organizations/[organizationIdentifier]/sso/oidc/consume (this URI is available )
+https://huggingface.co/organizations/[organizationIdentifier]/oidc/consume (this URI is available in SSO settings page)
 
 You can leave the optional Sign-out redirect URIs to blank.
 
