@@ -21,14 +21,14 @@ Open a new tab/window in your browser and sign in to your Okta account. We will 
 Navigate to "Admin/Applications" and click the "Create App Integration" button.
 
 <div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-1.png"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-1.png"/>
 </div>
 
 Then choose an "SAML 2.0" application and click "Create".
 
 
 <div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-2.png"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-1.png"/>
 </div>
 
 After that, you need to configure your new SAML app:
@@ -40,7 +40,7 @@ After that, you need to configure your new SAML app:
 
 
 <div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-3.png"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-2.png"/>
 </div>
 
 
