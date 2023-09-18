@@ -1,9 +1,31 @@
-# How to configure Okta with OIDC in the Hub
+# How to configure OIDC SSO with Okta
 
-In this guide, we will use Okta as the SSO provider and with the OpenID Connect protocol (OIDC) as our preferred identity protocol. 
+In this guide, we will use Okta as the SSO provider and with the Open ID Connect (OIDC) protocol as our preferred identity protocol. 
 
-### Create an application in your provider
-To configure SSO with OIDC, you should navigate to the SSO configuration section in your organization settings.
+<Tip warning={true}>
+	This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+</Tip>
+
+### Step 1: Create a new application in your Identity Provider
+
+Open a new tab/window in your browser and sign in to your Okta account.
+
+Navigate to "Admin/Applications" and click the "Create App Integration" button.
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-1.png"/>
+</div>
+
+Then choose an “OIDC - OpenID Connect” application, select the application type "Web Application" and click "Create".
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-2.png"/>
+</div>
+
+### Step 2: Configure your application in Okta
+
+Open a new tab/window in your browser and Navigate to the SSO section of your organization's settings. Select the OIDC protocol.
+
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-navigation-settings.png"/>
@@ -15,24 +37,8 @@ To configure SSO with OIDC, you should navigate to the SSO configuration section
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-settings-dark.png"/>
 </div>
 
-Open a new tab/window in your browser and sign in to your Okta account. You will need to create an Application that will hold the settings we need.
-
-Navigate to "Admin/Applications" and click the "Create App Integration" button.
-
-<div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-1.png"/>
-</div>
-
-Then choose an “OIDC - OpenID Connect” application, select the application type "Web Application" and click "Create".
-
-
-<div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-2.png"/>
-</div>
-
-Now you're ready to configure your new OIDC app. Set the Sign-in redirect URI to:
-* https://huggingface.co/organizations/[organizationIdentifier]/oidc/consume (this URI is also available in your org's SSO settings page)
-
+Copy the "Rediraction URI" from the organization's settings on Hugging Face, and paste it in the "Sign-in redirect URI" field on Okta.
+The URL looks like this: `https://huggingface.co/organizations/[organizationIdentifier]/saml/consume`.
 
 You can leave the optional Sign-out redirect URIs blank.
 
@@ -41,23 +47,40 @@ You can leave the optional Sign-out redirect URIs blank.
 </div>
 
 
-Save your new application and you will get the required details we need to configure SSO:
+Save your new application.
+
+### Step 3: Finalize configuration on Hugging Face
+
+In your Okta application,  under "General", find the following fields. You will need them to finalize the SSO setup on Hugging Face.
+
+- Client ID
+- Client secret
+- Issuer URL
+
+The Okta Issuer URL is generally a URL like `https://tenantId.okta.com`; you can refer to their [guide](https://support.okta.com/help/s/article/What-is-theIssuerlocated-under-the-OpenID-Connect-ID-Token-app-settings-used-for?language=en_US) for more details.
 
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-4.png"/>
 </div>
 
-### Configure SSO Organization settings
 
-Navigate to your organization settings and select SSO. In the SSO configuration form, insert the following details: Issuer URL, Client Id, Client Secret. Click "Save and Test OIDC Configuration". The Okta Issuer URL is generally a URL like `https://tenantId.okta.com`; you can refer to their [guide](https://support.okta.com/help/s/article/What-is-theIssuerlocated-under-the-OpenID-Connect-ID-Token-app-settings-used-for?language=en_US) for more details.
+In the SSO section of your organization's settings on Hugging Face, copy-paste the values from Okta:
+
+- Sign-on URL
+- SP Entity ID
+- Public certificate
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-5.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-5-dark.png"/>
 </div>
 
-After clicking, you should be redirected to our SSO provider login prompt after completing the login from your SSO provider. Then you'll be redirected to the settings page confirming that the test is successful.
+You can now click on "Update and Test OIDC configuration" to save the settings.
+
+You should be redirected to your SSO provider (IdP) login prompt. Once logged in, you'll be redirected to your organization's settings page.
+
+A green mark near the SAML selector will attest that the test was successful.
 
 
 <div class="flex justify-center">
@@ -65,8 +88,8 @@ After clicking, you should be redirected to our SSO provider login prompt after 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-6-dark.png"/>
 </div>
 
-### Enable SSO to organization members
+### Step 4: Enable SSO in your organization
 
-After this step, SSO is not globally enabled in your organization, you need to click on "Enable" to force other organization members to complete the SSO flow described in [How does it work?](./security-sso.md#how-does-it-work)
+Now that Single Sign-On is configured and tested, you can enable it for members of your organization by clicking on the "Enable" button.
 
-
+Once enabled, members of your organization must complete the SSO authentication flow described in the [How does it work?](./security-sso.md#how-does-it-work) section.
