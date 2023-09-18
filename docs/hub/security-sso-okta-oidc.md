@@ -24,7 +24,7 @@ Then choose an “OIDC - OpenID Connect” application, select the application t
 
 ### Step 2: Configure your application in Okta
 
-Open a new tab/window in your browser and Navigate to the SSO section of your organization's settings. Select the OIDC protocol.
+Open a new tab/window in your browser and navigate to the SSO section of your organization's settings. Select the OIDC protocol.
 
 
 <div class="flex justify-center">
@@ -37,7 +37,7 @@ Open a new tab/window in your browser and Navigate to the SSO section of your or
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-settings-dark.png"/>
 </div>
 
-Copy the "Rediraction URI" from the organization's settings on Hugging Face, and paste it in the "Sign-in redirect URI" field on Okta.
+Copy the "Redirection URI" from the organization's settings on Hugging Face, and paste it in the "Sign-in redirect URI" field on Okta.
 The URL looks like this: `https://huggingface.co/organizations/[organizationIdentifier]/saml/consume`.
 
 You can leave the optional Sign-out redirect URIs blank.
@@ -51,11 +51,12 @@ Save your new application.
 
 ### Step 3: Finalize configuration on Hugging Face
 
-In your Okta application,  under "General", find the following fields. You will need them to finalize the SSO setup on Hugging Face.
-
+In your Okta application, under "General", find the following fields:
 - Client ID
 - Client secret
 - Issuer URL
+You will need these to finalize the SSO setup on Hugging Face.
+
 
 The Okta Issuer URL is generally a URL like `https://tenantId.okta.com`; you can refer to their [guide](https://support.okta.com/help/s/article/What-is-theIssuerlocated-under-the-OpenID-Connect-ID-Token-app-settings-used-for?language=en_US) for more details.
 
@@ -65,7 +66,7 @@ The Okta Issuer URL is generally a URL like `https://tenantId.okta.com`; you can
 </div>
 
 
-In the SSO section of your organization's settings on Hugging Face, copy-paste the values from Okta:
+In the SSO section of your organization's settings on Hugging Face, copy-paste these values from Okta:
 
 - Sign-on URL
 - SP Entity ID
@@ -80,7 +81,7 @@ You can now click on "Update and Test OIDC configuration" to save the settings.
 
 You should be redirected to your SSO provider (IdP) login prompt. Once logged in, you'll be redirected to your organization's settings page.
 
-A green mark near the SAML selector will attest that the test was successful.
+A green check mark near the SAML selector will attest that the test was successful.
 
 
 <div class="flex justify-center">

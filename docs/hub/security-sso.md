@@ -11,7 +11,7 @@ This feature is part of the <a href="https://huggingface.co/enterprise" target="
 
 ## How does it work?
 
-When Single Sign-On is enabled, the members of your organization must authenticate through your Identity Provider (IdP) to access any content under the organization's namespace. Public content is still be available to users who are not members of the organization.
+When Single Sign-On is enabled, the members of your organization must authenticate through your Identity Provider (IdP) to access any content under the organization's namespace. Public content will still be available to users who are not members of the organization.
 
 When users log in, they will be prompted to complete the Single Sign-On authentication flow with a banner similar to the following:
 
@@ -46,9 +46,9 @@ We have some guides available to help with configuring based on your chosen SSO 
 
 #### Session Timeout
 
-This value sets the duration of the session for members of your organisation.
+This value sets the duration of the session for members of your organization.
 
-After this time, members will be prompted to re-authenticate with your Identity Provider to access the organisation's resources.
+After this time, members will be prompted to re-authenticate with your Identity Provider to access the organization's resources.
 
 The default value is 7 days.
 

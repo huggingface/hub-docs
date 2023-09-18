@@ -28,7 +28,7 @@ Then choose an "SAML 2.0" application and click "Create".
 
 ### Step 2: Configure your application on Okta
 
-Open a new tab/window in your browser and Navigate to the SSO section of your organization's settings. Select the SAML protocol.
+Open a new tab/window in your browser and navigate to the SSO section of your organization's settings. Select the SAML protocol.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-navigation-settings.png"/>
@@ -51,24 +51,25 @@ On Okta, set the following settings:
 
 * Set Audience URI (SP Entity Id) to match the "SP Entity ID" value on Hugging Face.
 * Set Name ID format to EmailAddress.
-* Under "Show Advanced Settings", verify that Response and Assertion Signature are set to: Signed
+* Under "Show Advanced Settings", verify that Response and Assertion Signature are set to: Signed.
 
 
 Save your new application.
 
 ### Step 3: Finalize configuration on Hugging Face
 
-In your Okta application, under "Sign On/Settings/More details", find the following fields. You will need them to finalize the SSO setup on Hugging Face.
-
+In your Okta application, under "Sign On/Settings/More details", find the following fields:
 - Sign-on URL
 - Public certificate
 - SP Entity ID
+You will need them to finalize the SSO setup on Hugging Face.
+
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-4.png"/>
 </div>
 
-In the SSO section of your organization's settings, copy-paste the values from Okta:
+In the SSO section of your organization's settings, copy-paste these values from Okta:
 
 - Sign-on URL
 - SP Entity ID
@@ -91,7 +92,7 @@ You can now click on "Update and Test SAML configuration" to save the settings.
 
 You should be redirected to your SSO provider (IdP) login prompt. Once logged in, you'll be redirected to your organization's settings page.
 
-A green mark near the SAML selector will attest that the test was successful.
+A green check mark near the SAML selector will attest that the test was successful.
 
 
 <div class="flex justify-center">
