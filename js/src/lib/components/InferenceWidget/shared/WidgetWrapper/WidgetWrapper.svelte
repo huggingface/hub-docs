@@ -67,7 +67,7 @@
 	class="flex w-full max-w-full flex-col
 	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}"
 >
-	{#if modelLoadInfo.state == "TooBig"}
+	{#if modelLoadInfo.state === "TooBig"}
 		<p class="text-sm text-gray-500">
 			Model is too large to load onto the free Inference API. To try the model,
 			launch it on <a
