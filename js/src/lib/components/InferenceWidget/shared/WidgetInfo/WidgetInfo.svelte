@@ -11,14 +11,16 @@
 	const state = {
 		Loadable: "This model can be loaded on the Inference API on-demand.",
 		Loaded: "This model is currently loaded and running on the Inference API.",
-		TooBig: "Model is too large to load onto the free Inference API. To try the model, launch it on Inference Endpoints instead.",
+		TooBig:
+			"Model is too large to load onto the free Inference API. To try the model, launch it on Inference Endpoints instead.",
 		error: "⚠️ This model could not be loaded by the inference API. ⚠️",
 	} as const;
 
 	const azureState = {
 		Loadable: "This model can be loaded loaded on AzureML Managed Endpoint",
 		Loaded: "This model is loaded and running on AzureML Managed Endpoint",
-		TooBig: "Model is too large to load onto the free Inference API. To try the model, launch it on Inference Endpoints instead.",
+		TooBig:
+			"Model is too large to load onto the free Inference API. To try the model, launch it on Inference Endpoints instead.",
 		error: "⚠️ This model could not be loaded.",
 	} as const;
 
@@ -27,7 +29,7 @@
 		statuses: Record<LoadState, string>,
 		isAzure = false
 	): string {
-		if(!modelLoadInfo){
+		if (!modelLoadInfo) {
 			return "Model state unknown";
 		}
 		if (modelLoadInfo.compute_type === "cpu" && modelLoadInfo.state === "Loaded" && !isAzure) {
