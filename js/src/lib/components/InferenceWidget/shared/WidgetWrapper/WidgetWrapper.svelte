@@ -53,9 +53,9 @@
 		inputGroups.length === 1 ? inputGroups[0] : inputGroups.find(({ group }) => group === selectedInputGroup);
 
 	onMount(() => {
-		getModelLoadInfo(apiUrl, model.id, includeCredentials).then(info => {
-			modelLoadInfo = info;
-		});
+		(async () => {
+			modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
+		})();
 	});
 
 	function onClickMaximizeBtn() {
