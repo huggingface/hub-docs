@@ -6,7 +6,7 @@
 	export let model: WidgetProps["model"];
 	export let computeTime: string;
 	export let error: string;
-	export let modelLoadInfo: ModelLoadInfo = { status: "unknown" };
+	export let modelLoadInfo: ModelLoadInfo = { state: "unknown" };
 
 	const state = {
 		Loadable: "This model can be loaded on the Inference API on-demand.",
@@ -27,7 +27,7 @@
 		statuses: Record<LoadState, string>,
 		isAzure = false
 	): string {
-		if (modelLoadInfo.compute_type === "cpu" && modelLoadInfo.state === "loaded" && !isAzure) {
+		if (modelLoadInfo.compute_type === "cpu" && modelLoadInfo.state === "Loaded" && !isAzure) {
 			return `The model is loaded and running on <a class="hover:underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon 3rd Gen Scalable CPU</a>`;
 		}
 		return statuses[modelLoadInfo.state];

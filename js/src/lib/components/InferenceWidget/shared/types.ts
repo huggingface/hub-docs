@@ -12,7 +12,7 @@ export interface WidgetProps {
 }
 
 
-export type LoadState = "Loadable" | "Loaded" | "TooBig" | "error";
+export type LoadState = "Loadable" | "Loaded" | "TooBig" | "unknown" | "error";
 
 export type ComputeType = "cpu" | "gpu";
 
