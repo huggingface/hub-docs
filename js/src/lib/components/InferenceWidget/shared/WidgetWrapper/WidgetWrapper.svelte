@@ -96,23 +96,19 @@
 						/>
 					{/if}
 					<WidgetInputSamples
-						classNames={!selectedInputSamples
-							? "opacity-50 pointer-events-none"
-							: ""}
+						classNames={!selectedInputSamples ? "opacity-50 pointer-events-none" : ""}
 						{isLoading}
 						inputSamples={selectedInputSamples?.inputSamples ?? []}
 						{applyInputSample}
 						{previewInputSample}
 					/>
-				{/if}
-				<WidgetInputSamples
-					classNames={!selectedInputSamples ? "opacity-50 pointer-events-none" : ""}
-					{isLoading}
-					inputSamples={selectedInputSamples?.inputSamples ?? []}
-					{applyInputSample}
-					{previewInputSample}
-				/>
-			</div>
+				</div>
+			{/if}
+		</WidgetHeader>
+		<slot name="top" />
+		<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} />
+		{#if modelLoading.isLoading}
+			<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
 		{/if}
 		<slot name="bottom" />
 		<WidgetFooter {onClickMaximizeBtn} {outputJson} />
