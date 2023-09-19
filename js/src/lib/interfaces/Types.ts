@@ -1,13 +1,5 @@
 // Warning: order of modalities here determine how they are listed on the /tasks page
-export const MODALITIES = [
-	"cv",
-	"nlp",
-	"audio",
-	"tabular",
-	"multimodal",
-	"rl",
-	"other",
-] as const;
+export const MODALITIES = ["cv", "nlp", "audio", "tabular", "multimodal", "rl", "other"] as const;
 
 export type Modality = typeof MODALITIES[number];
 
@@ -23,7 +15,7 @@ export const MODALITY_LABELS: Record<Modality, string> = {
 
 /**
  * Public interface for a sub task.
- * 
+ *
  * This can be used in a model card's `model-index` metadata.
  * and is more granular classification that can grow significantly
  * over time as new tasks are added.
@@ -41,7 +33,7 @@ export interface SubTask {
 
 /**
  * Public interface for a PipelineData.
- * 
+ *
  * This information corresponds to a pipeline type (aka task)
  * in the Hub.
  */
@@ -79,9 +71,9 @@ function ensureRecordOfPipelines<Keys extends string>(record: Record<Keys, Pipel
 ///  - As filters at the left of models and datasets page.
 ///
 /// Note that this is sensitive to order.
-/// For each domain, the order should be of decreasing specificity. 
+/// For each domain, the order should be of decreasing specificity.
 /// This will impact the default pipeline tag of a model when not
-/// specified. 
+/// specified.
 export const PIPELINE_DATA = ensureRecordOfPipelines({
 	"text-classification": {
 		name:     "Text Classification",
@@ -457,9 +449,9 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		color:    "blue",
 	},
 	"reinforcement-learning": {
-		name:           "Reinforcement Learning",
-		modality:       "rl",
-		color:          "red",
+		name:     "Reinforcement Learning",
+		modality: "rl",
+		color:    "red",
 	},
 	"robotics": {
 		name:     "Robotics",
@@ -474,7 +466,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 				name: "Task Planning",
 			},
 		],
-		color:          "blue",
+		color: "blue",
 	},
 	"tabular-classification": {
 		name:     "Tabular Classification",
@@ -631,7 +623,6 @@ export const ALL_SUBTASKS = Object.values(PIPELINE_DATA).flatMap(data => data.su
 export const ALL_SUBTASK_TYPES = ALL_SUBTASKS.map(s => s.type);
 export const ALL_SUBTASK_TYPES_SET = new Set(ALL_SUBTASK_TYPES);
 
-
 export const TAG_NFAA_CONTENT = "not-for-all-audiences";
 export const TAG_TEXT_GENERATION_INFERENCE = "text-generation-inference";
 export const TAG_CUSTOM_CODE = "custom_code";
@@ -639,9 +630,9 @@ export const TAG_CUSTOM_CODE = "custom_code";
 /**
  * Tags that are suggested inside the metadata GUI
  * (above model card or dataset card editor)
- * 
+ *
  * Usually tags for domains or industries.
- * 
+ *
  * Let's keep their number not too high to not spread out models/datasets too much.
  */
 export const OTHER_TAGS_SUGGESTIONS = [
@@ -657,8 +648,14 @@ export const OTHER_TAGS_SUGGESTIONS = [
 	TAG_NFAA_CONTENT,
 ];
 
-
-export type WidgetInputSample = Record<string | "example_title" | "group", string>;
+export type WidgetInputSampleValue =
+	| string
+	| string[]
+	| boolean
+	| number
+	| number[]
+	| Record<string, string | string[] | number[]>;
+export type WidgetInputSample = Record<string | "example_title" | "group", WidgetInputSampleValue>;
 
 /**
  * Public interface for model metadata
@@ -714,9 +711,11 @@ export interface ModelData {
 	 *         key: val
 	 */
 	cardData?: {
-		inference?: boolean | {
-			parameters?: Record<string, any>;
-		};
+		inference?:
+			| boolean
+			| {
+					parameters?: Record<string, any>;
+			  };
 		base_model?: string;
 	};
 	/**
@@ -725,7 +724,6 @@ export interface ModelData {
 	 */
 	library_name?: string;
 }
-
 
 /**
  * transformers-specific info to display in the code sample.

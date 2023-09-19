@@ -12,6 +12,8 @@
     title: Pull Requests & Discussions
   - local: notifications
     title: Notifications
+  - local: collections
+    title: Collections
   - local: webhooks
     title: Webhooks
     sections:
@@ -21,6 +23,8 @@
         title: "How-to: Build a Discussion bot based on BLOOM"
       - local: webhooks-guide-metadata-review
         title: "How-to: Create automatic metadata quality reports"
+  - local: repositories-recommendations
+    title: Repository size recommendations
   - local: repositories-next-steps
     title: Next Steps
   - local: repositories-licenses
@@ -218,6 +222,13 @@
       title: Git over SSH
     - local: security-gpg
       title: Signing Commits with GPG
+    - local: security-sso
+      title: Single Sign-On (SSO)
+      sections:
+      - local: security-sso-okta-oidc
+        title: How to configure OIDC with Okta in the Hub
+      - local: security-sso-okta-saml
+        title: How to configure SAML with Okta in the Hub
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle
@@ -235,4 +246,4 @@
   - local: api
     title: Hub API Endpoints
   - local: oauth
-    title: Sign in with Hugging Face
+    title: Sign-In with HF

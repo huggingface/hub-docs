@@ -11,7 +11,7 @@ const ESCAPED = {
 /**
  *  Returns a function that clamps input value to range [min <= x <= max].
  */
- export function clamp(x: number, min: number, max: number): number {
+export function clamp(x: number, min: number, max: number): number {
 	return Math.max(min, Math.min(x, max));
 }
 
@@ -27,7 +27,7 @@ export function escape(html: unknown): string {
  * @param ms Number of ms to wait
  */
 export function delay(ms: number): Promise<void> {
-	return new Promise((resolve) => {
+	return new Promise(resolve => {
 		setTimeout(() => resolve(), ms);
 	});
 }
@@ -75,37 +75,38 @@ export function parseJSON<T>(x: unknown): T | undefined {
 /*
  * Return true if an HTML element is scrolled all the way
  */
-export function isFullyScrolled(elt: HTMLElement) {
+export function isFullyScrolled(elt: HTMLElement): boolean {
 	return elt.scrollHeight - Math.abs(elt.scrollTop) === elt.clientHeight;
 }
 
 /*
  * Smoothly scroll an element all the way
  */
-export function scrollToMax(elt: HTMLElement, axis: "x" | "y" = "y") {
+export function scrollToMax(elt: HTMLElement, axis: "x" | "y" = "y"): void {
 	elt.scroll({
 		behavior: "smooth",
-		left: axis === "x" ? elt.scrollWidth : undefined,
-		top: axis === "y" ? elt.scrollHeight : undefined,
+		left:     axis === "x" ? elt.scrollWidth : undefined,
+		top:      axis === "y" ? elt.scrollHeight : undefined,
 	});
 }
 
 /*
-* Converts hex string to rgb array (i.e. [r,g,b])
-* original from https://stackoverflow.com/a/39077686/6558628
-*/
-export function hexToRgb(hex: string): number[]{
-	return hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i
-			   ,(_, r, g, b) => '#' + r + r + g + g + b + b)
-	  .substring(1).match(/.{2}/g)
-	  ?.map(x => parseInt(x, 16)) || [0, 0, 0];
+ * Converts hex string to rgb array (i.e. [r,g,b])
+ * original from https://stackoverflow.com/a/39077686/6558628
+ */
+export function hexToRgb(hex: string): number[] {
+	return (
+		hex
+			.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (_, r, g, b) => "#" + r + r + g + g + b + b)
+			.substring(1)
+			.match(/.{2}/g)
+			?.map(x => parseInt(x, 16)) || [0, 0, 0]
+	);
 }
 
 // Get the Task id corresponding to the modelPipeline (should be === in 99% cases)
 export function getPipelineTask(modelPipeline: PipelineType): string {
-	return modelPipeline === "text2text-generation"
-		? "text-generation"
-		: modelPipeline;
+	return modelPipeline === "text2text-generation" ? "text-generation" : modelPipeline;
 }
 
 /*

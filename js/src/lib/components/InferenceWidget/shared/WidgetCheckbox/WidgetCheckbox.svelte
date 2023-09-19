@@ -10,7 +10,7 @@
 	<svelte:fragment slot="before">
 		<input
 			bind:checked
-			class="rounded bg-gray-200 dark:bg-gray-700 border-transparent text-blue-500 focus:ring-1 focus:ring-offset-2 focus:ring-blue-200 dark:focus:ring-gray-500 dark:focus:ring-offset-gray-925 cursor-pointer checked:bg-blue-500 dark:checked:bg-blue-500 mr-2"
+			class="mr-2 cursor-pointer rounded border-transparent bg-gray-200 text-blue-500 checked:bg-blue-500 focus:ring-1 focus:ring-blue-200 focus:ring-offset-2 dark:bg-gray-700 dark:checked:bg-blue-500 dark:focus:ring-gray-500 dark:focus:ring-offset-gray-925"
 			type="checkbox"
 		/>
 	</svelte:fragment>

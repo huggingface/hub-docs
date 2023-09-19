@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from "svelte";
+
 	import IconSpin from "../../../Icons/IconSpin.svelte";
 
 	export let estimatedTime: number;
@@ -25,15 +26,13 @@
 
 <div class="mt-3 flex h-10">
 	<div
-		class="z-0 flex flex-1 items-center justify-center rounded-lg bg-gray-50 relative text-gray-600 shadow-inner dark:bg-gray-950"
+		class="relative z-0 flex flex-1 items-center justify-center rounded-lg bg-gray-50 text-gray-600 shadow-inner dark:bg-gray-950"
 	>
 		<div
-			class="transition-all absolute inset-y-0 left-0 bg-gradient-to-r from-purple-200 to-purple-100 rounded-lg dark:from-purple-800 dark:to-purple-900"
+			class="absolute inset-y-0 left-0 rounded-lg bg-gradient-to-r from-purple-200 to-purple-100 transition-all dark:from-purple-800 dark:to-purple-900"
 			style="width: {progressRatio * 100}%;"
 		/>
-		<IconSpin
-			classNames="text-purple-400 dark:text-purple-200 animate-spin mr-2 z-10"
-		/>
+		<IconSpin classNames="text-purple-400 dark:text-purple-200 animate-spin mr-2 z-10" />
 		<span class="z-10">Model is loading</span>
 	</div>
 </div>

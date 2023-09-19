@@ -15,6 +15,7 @@ For any other security questions, please feel free to send us an email at securi
 - [User Access Tokens](./security-tokens)
 - [Git over SSH](./security-git-ssh)
 - [Signing commits with GPG](./security-gpg)
+- [Single Sign-On (SSO)](./security-sso)
 - [Malware Scanning](./security-malware)
 - [Pickle Scanning](./security-pickle)
 - [Secrets Scanning](./security-secrets)

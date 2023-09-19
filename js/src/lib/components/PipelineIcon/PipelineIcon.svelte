@@ -50,9 +50,9 @@
 		"table-question-answering": IconTableQuestionAnswering,
 		"question-answering": IconQuestionAnswering,
 		"zero-shot-classification": IconZeroShotClassification,
-		translation: IconTranslation,
-		summarization: IconSummarization,
-		conversational: IconConversational,
+		"translation": IconTranslation,
+		"summarization": IconSummarization,
+		"conversational": IconConversational,
 		"feature-extraction": IconFeatureExtraction,
 		"text-generation": IconTextGeneration,
 		"text2text-generation": IconText2textGeneration,
@@ -73,7 +73,7 @@
 		"image-to-image": IconImageToImage,
 		"unconditional-image-generation": IconUnconditionalImageGeneration,
 		"reinforcement-learning": IconReinforcementLearning,
-		robotics: IconRobotics,
+		"robotics": IconRobotics,
 		"graph-ml": IconGraphML,
 		"tabular-classification": IconTabularClassification,
 		"tabular-regression": IconTabularRegression,
@@ -82,7 +82,4 @@
 	};
 </script>
 
-<svelte:component
-	this={ICON_COMPONENTS[pipeline] ?? IconFillMask}
-	{classNames}
-/>
+<svelte:component this={ICON_COMPONENTS[pipeline] ?? IconFillMask} {classNames} />

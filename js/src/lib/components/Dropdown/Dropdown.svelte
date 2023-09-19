@@ -22,11 +22,7 @@
 		underline?: boolean;
 		targetBlank?: boolean;
 	}> = [];
-	export let forceMenuAlignement:
-		| "left"
-		| "right"
-		| "screen-center"
-		| undefined = undefined;
+	export let forceMenuAlignement: "left" | "right" | "screen-center" | undefined = undefined;
 	export let menuClassNames = "";
 	export let noBtnClass: boolean | undefined = undefined;
 	export let withBtnCaret = false;
@@ -48,10 +44,7 @@
 			<slot name="button" />
 		{:else}
 			{#if btnIcon}
-				<svelte:component
-					this={btnIcon}
-					classNames="mr-1.5 {btnIconClassNames}"
-				/>
+				<svelte:component this={btnIcon} classNames="mr-1.5 {btnIconClassNames}" />
 			{/if}
 			{btnLabel}
 		{/if}

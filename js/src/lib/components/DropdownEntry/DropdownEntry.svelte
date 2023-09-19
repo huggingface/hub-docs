@@ -12,20 +12,18 @@
 	export let targetBlank = false;
 	export let type: "link" | "button" | "submit" | undefined = undefined;
 
-	const element = type === undefined
-		? href !== undefined ? "a" : "button"
-		: type === "link" ? "a" : "button";
+	const element = type === undefined ? (href !== undefined ? "a" : "button") : type === "link" ? "a" : "button";
 </script>
 
 <li>
 	<svelte:element
 		this={element}
-		class="flex items-center w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer px-3 py-1.5 whitespace-nowrap
+		class="flex w-full cursor-pointer items-center whitespace-nowrap px-3 py-1.5 text-left hover:bg-gray-50 dark:hover:bg-gray-800
 		{classNames} {underline ? 'hover:underline' : ''}"
 		{href}
 		rel={element === "a" && noFollow ? "nofollow" : undefined}
 		target={element === "a" && targetBlank ? "_blank" : undefined}
-		on:click={(e) => {
+		on:click={e => {
 			if (type === "submit") {
 				e.stopPropagation();
 			}
@@ -38,10 +36,7 @@
 			<slot />
 		{:else}
 			{#if icon}
-				<svelte:component
-					this={icon}
-					classNames="mr-1.5 flex-none {iconClassNames}"
-				/>
+				<svelte:component this={icon} classNames="mr-1.5 flex-none {iconClassNames}" />
 			{/if}
 			<span class="truncate">{label}</span>
 		{/if}

@@ -9,11 +9,7 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
-	import {
-		addInferenceParameters,
-		getResponse,
-		getDemoInputs,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getResponse, getDemoInputs } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -53,28 +49,21 @@
 					reject(err);
 				}
 			};
-			fileReader.onerror = (e) => reject(e);
+			fileReader.onerror = e => reject(e);
 			isLoading = true;
 			fileReader.readAsDataURL(file);
 		});
 	}
 
 	function isValidOutput(arg: any): arg is { label: string; score: number }[] {
-		return (
-			Array.isArray(arg) &&
-			arg.every(
-				(x) => typeof x.label === "string" && typeof x.score === "number"
-			)
-		);
+		return Array.isArray(arg) && arg.every(x => typeof x.label === "string" && typeof x.score === "number");
 	}
 
 	function parseOutput(body: unknown): Array<{ label: string; score: number }> {
 		if (isValidOutput(body)) {
 			return body;
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type <labels:Array; scores:Array>"
-		);
+		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
 	function previewInputSample(sample: Record<string, any>) {
@@ -91,10 +80,7 @@
 		getOutput();
 	}
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedCandidateLabels = candidateLabels.trim().split(",").join(",");
 
 		if (!trimmedCandidateLabels) {
@@ -157,12 +143,9 @@
 
 	onMount(() => {
 		(async () => {
-			const [src, candidate_labels] = getDemoInputs(model, [
-				"src",
-				"candidate_labels",
-			]);
-			if (callApiOnMount && src && candidate_labels) {
-				candidateLabels = candidate_labels;
+			const [src, candidateLabelsInput] = getDemoInputs(model, ["src", "candidate_labels"]);
+			if (callApiOnMount && src && candidateLabels) {
+				candidateLabels = candidateLabelsInput;
 				imgSrc = src;
 				const res = await fetch(imgSrc);
 				const blob = await res.blob();
@@ -188,27 +171,15 @@
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">
-			<WidgetDropzone
-				classNames="hidden md:block"
-				{isLoading}
-				{imgSrc}
-				{onSelectFile}
-				onError={(e) => (error = e)}
-			>
+			<WidgetDropzone classNames="hidden md:block" {isLoading} {imgSrc} {onSelectFile} onError={e => (error = e)}>
 				{#if imgSrc}
-					<img
-						src={imgSrc}
-						class="pointer-events-none mx-auto max-h-44 shadow"
-						alt=""
-					/>
+					<img src={imgSrc} class="pointer-events-none mx-auto max-h-44 shadow" alt="" />
 				{/if}
 			</WidgetDropzone>
 			<!-- Better UX for mobile/table through CSS breakpoints -->
 			{#if imgSrc}
 				{#if imgSrc}
-					<div
-						class="mb-2 flex justify-center bg-gray-50 dark:bg-gray-900 md:hidden"
-					>
+					<div class="mb-2 flex justify-center bg-gray-50 dark:bg-gray-900 md:hidden">
 						<img src={imgSrc} class="pointer-events-none max-h-44" alt="" />
 					</div>
 				{/if}

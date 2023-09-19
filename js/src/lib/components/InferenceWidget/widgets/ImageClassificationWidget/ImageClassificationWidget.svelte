@@ -7,11 +7,7 @@
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		getResponse,
-		getBlobFromUrl,
-		getDemoInputs,
-	} from "../../shared/helpers";
+	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -37,10 +33,7 @@
 		getOutput(file);
 	}
 
-	async function getOutput(
-		file: File | Blob,
-		{ withModelLoading = false, isOnLoadCall = false } = {}
-	) {
+	async function getOutput(file: File | Blob, { withModelLoading = false, isOnLoadCall = false } = {}) {
 		if (!file) {
 			return;
 		}
@@ -89,21 +82,14 @@
 	}
 
 	function isValidOutput(arg: any): arg is { label: string; score: number }[] {
-		return (
-			Array.isArray(arg) &&
-			arg.every(
-				(x) => typeof x.label === "string" && typeof x.score === "number"
-			)
-		);
+		return Array.isArray(arg) && arg.every(x => typeof x.label === "string" && typeof x.score === "number");
 	}
 
 	function parseOutput(body: unknown): Array<{ label: string; score: number }> {
 		if (isValidOutput(body)) {
 			return body;
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type Array<label: string, score:number>"
-		);
+		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
 	async function applyInputSample(sample: Record<string, any>) {
@@ -145,27 +131,15 @@
 >
 	<svelte:fragment slot="top">
 		<form>
-			<WidgetDropzone
-				classNames="no-hover:hidden"
-				{isLoading}
-				{imgSrc}
-				{onSelectFile}
-				onError={(e) => (error = e)}
-			>
+			<WidgetDropzone classNames="no-hover:hidden" {isLoading} {imgSrc} {onSelectFile} onError={e => (error = e)}>
 				{#if imgSrc}
-					<img
-						src={imgSrc}
-						class="pointer-events-none mx-auto max-h-44 shadow"
-						alt=""
-					/>
+					<img src={imgSrc} class="pointer-events-none mx-auto max-h-44 shadow" alt="" />
 				{/if}
 			</WidgetDropzone>
 			<!-- Better UX for mobile/table through CSS breakpoints -->
 			{#if imgSrc}
 				{#if imgSrc}
-					<div
-						class="mb-2 flex justify-center bg-gray-50 dark:bg-gray-900 md:hidden"
-					>
+					<div class="mb-2 flex justify-center bg-gray-50 dark:bg-gray-900 md:hidden">
 						<img src={imgSrc} class="pointer-events-none max-h-44" alt="" />
 					</div>
 				{/if}

@@ -8,11 +8,6 @@
 
 <WidgetLabel {label}>
 	<svelte:fragment slot="after">
-		<input
-			bind:value
-			class="{label ? 'mt-1.5' : ''} form-input-alt block w-full "
-			{placeholder}
-			type="text"
-		/>
+		<input bind:value class="{label ? 'mt-1.5' : ''} form-input-alt block w-full" {placeholder} type="text" />
 	</svelte:fragment>
 </WidgetLabel>

@@ -17,7 +17,7 @@ Shiny for Python is ideal for Hugging Face applications because it integrates sm
 To get started deploying a Space, click this button to select your hardware and specify if you want a public or private Space.
 The Space template will populate a few files to get your app started.
 
-<a  href="https://huggingface.co/new-space?template=posit/shiny-for-python-template"> <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg"/> </a>
+<a  href="https://huggingface.co/new-space?template=posit/shiny-for-python-template"> <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg"/> </a>
 
 
 _app.py_
@@ -43,7 +43,7 @@ To integrate Hugging Face tools into an R app, you can either use [httr2](https:
 To deploy an R Shiny Space, click this button and fill out the space metadata. 
 This will populate the Space with all the files you need to get started.
 
-<a  href="https://huggingface.co/new-space?template=posit/shiny-for-r-template"> <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg"/> </a>
+<a  href="https://huggingface.co/new-space?template=posit/shiny-for-r-template"> <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg"/> </a>
 
 
 _app.R_

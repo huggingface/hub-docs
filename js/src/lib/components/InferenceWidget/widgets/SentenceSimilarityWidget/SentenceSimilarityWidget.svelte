@@ -2,16 +2,13 @@
 	import type { WidgetProps } from "../../shared/types";
 
 	import { onMount } from "svelte";
+
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetAddSentenceBtn from "../../shared/WidgetAddSentenceBtn/WidgetAddSentenceBtn.svelte";
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -23,7 +20,7 @@
 	let sourceSentence = "";
 	let comparisonSentences: Array<string> = [];
 	let nComparisonSentences = 2;
-	let maxComparisonSentences = 5;
+	const maxComparisonSentences = 5;
 	let computeTime = "";
 	let error: string = "";
 	let isLoading = false;
@@ -34,10 +31,7 @@
 	let output: Array<{ label: string; score: number }> = [];
 	let outputJson: string;
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedSourceSentence = sourceSentence.trim();
 		if (!trimmedSourceSentence) {
 			error = "You need to input some text";
@@ -46,15 +40,15 @@
 			return;
 		}
 
-		let trimmedComparisonSentences: Array<string> = [];
+		const trimmedComparisonSentences: Array<string> = [];
 		let emptySentence = false;
-		comparisonSentences.forEach(function (sentence) {
+		for (const sentence of comparisonSentences) {
 			const trimmedSentence = sentence.trim();
 			if (!trimmedSentence) {
 				emptySentence = true;
 			}
 			trimmedComparisonSentences.push(trimmedSentence);
-		});
+		}
 		if (emptySentence) {
 			error = "You need to specify the comparison sentences";
 			output = [];
@@ -137,15 +131,8 @@
 	}
 
 	onMount(() => {
-		const [demoSourcesentence, demoComparisonSentence] = getDemoInputs(model, [
-			"source_sentence",
-			"sentences",
-		]);
-		if (
-			callApiOnMount &&
-			demoSourcesentence &&
-			demoComparisonSentence?.length
-		) {
+		const [demoSourcesentence, demoComparisonSentence] = getDemoInputs(model, ["source_sentence", "sentences"]);
+		if (callApiOnMount && demoSourcesentence && demoComparisonSentence?.length) {
 			sourceSentence = (demoSourcesentence as string) ?? "";
 			comparisonSentences = demoComparisonSentence ?? [""];
 			nComparisonSentences = comparisonSentences.length;
@@ -169,24 +156,17 @@
 >
 	<svelte:fragment slot="top">
 		<form class="flex flex-col space-y-2">
-			<WidgetTextInput
-				bind:value={sourceSentence}
-				label="Source Sentence"
-				placeholder="Your sentence here..."
-			/>
+			<WidgetTextInput bind:value={sourceSentence} label="Source Sentence" placeholder="Your sentence here..." />
 			<WidgetTextInput
 				bind:value={comparisonSentences[0]}
 				label="Sentences to compare to"
 				placeholder="Your sentence here..."
 			/>
 			{#each Array(nComparisonSentences - 1) as _, idx}
-				<WidgetTextInput
-					bind:value={comparisonSentences[idx + 1]}
-					placeholder="Your sentence here..."
-				/>
+				<WidgetTextInput bind:value={comparisonSentences[idx + 1]} placeholder="Your sentence here..." />
 			{/each}
 			<WidgetAddSentenceBtn
-				isDisabled={nComparisonSentences == maxComparisonSentences}
+				isDisabled={nComparisonSentences === maxComparisonSentences}
 				onClick={() => {
 					nComparisonSentences++;
 				}}

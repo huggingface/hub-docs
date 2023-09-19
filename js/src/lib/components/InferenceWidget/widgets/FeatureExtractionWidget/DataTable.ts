@@ -5,9 +5,9 @@ export class DataTable {
 
 	constructor(public body: number[] | number[][]) {
 		const all = this.body.flat();
-		this.max  = Math.max(...all);
-		this.min  = Math.min(...all);
-		this.std  = this.max - this.min;
+		this.max = Math.max(...all);
+		this.min = Math.min(...all);
+		this.std = this.max - this.min;
 	}
 
 	get isArrLevel0(): boolean {

@@ -9,11 +9,7 @@
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		getResponse,
-		getBlobFromUrl,
-		getDemoInputs,
-	} from "../../shared/helpers";
+	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
 
 	import BoundingBoxes from "./SvgBoundingBoxes.svelte";
 
@@ -42,10 +38,7 @@
 		getOutput(file);
 	}
 
-	async function getOutput(
-		file: File | Blob,
-		{ withModelLoading = false, isOnLoadCall = false } = {}
-	) {
+	async function getOutput(file: File | Blob, { withModelLoading = false, isOnLoadCall = false } = {}) {
 		if (!file) {
 			return;
 		}
@@ -104,7 +97,7 @@
 		return (
 			Array.isArray(arg) &&
 			arg.every(
-				(x) =>
+				x =>
 					typeof x.label === "string" &&
 					typeof x.score === "number" &&
 					typeof x.box.xmin === "number" &&
@@ -171,33 +164,14 @@
 >
 	<svelte:fragment slot="top">
 		<form>
-			<WidgetDropzone
-				classNames="hidden md:block"
-				{isLoading}
-				{imgSrc}
-				{onSelectFile}
-				onError={(e) => (error = e)}
-			>
+			<WidgetDropzone classNames="hidden md:block" {isLoading} {imgSrc} {onSelectFile} onError={e => (error = e)}>
 				{#if imgSrc}
-					<BoundingBoxes
-						{imgSrc}
-						{mouseover}
-						{mouseout}
-						{output}
-						{highlightIndex}
-					/>
+					<BoundingBoxes {imgSrc} {mouseover} {mouseout} {output} {highlightIndex} />
 				{/if}
 			</WidgetDropzone>
 			<!-- Better UX for mobile/table through CSS breakpoints -->
 			{#if imgSrc}
-				<BoundingBoxes
-					classNames="mb-2 md:hidden"
-					{imgSrc}
-					{mouseover}
-					{mouseout}
-					{output}
-					{highlightIndex}
-				/>
+				<BoundingBoxes classNames="mb-2 md:hidden" {imgSrc} {mouseover} {mouseout} {output} {highlightIndex} />
 			{/if}
 			<WidgetFileInput
 				accept="image/*"
@@ -212,12 +186,6 @@
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
-		<WidgetOutputChart
-			classNames="pt-4"
-			{output}
-			{highlightIndex}
-			{mouseover}
-			{mouseout}
-		/>
+		<WidgetOutputChart classNames="pt-4" {output} {highlightIndex} {mouseover} {mouseout} />
 	</svelte:fragment>
 </WidgetWrapper>

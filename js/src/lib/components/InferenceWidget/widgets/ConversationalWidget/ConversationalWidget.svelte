@@ -2,16 +2,11 @@
 	import type { WidgetProps } from "../../shared/types";
 
 	import { onMount } from "svelte";
+
 	import WidgetOutputConvo from "../../shared/WidgetOutputConvo/WidgetOutputConvo.svelte";
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -67,10 +62,7 @@
 		}
 	});
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -132,9 +124,7 @@
 
 	function isValidOutput(arg: any): arg is Response {
 		return (
-			arg &&
-			Array.isArray(arg?.conversation?.generated_responses) &&
-			Array.isArray(arg?.conversation?.past_user_inputs)
+			arg && Array.isArray(arg?.conversation?.generated_responses) && Array.isArray(arg?.conversation?.past_user_inputs)
 		);
 	}
 
@@ -147,7 +137,10 @@
 			const pastUserInputs = conversation.past_user_inputs;
 			const generatedResponses = conversation.generated_responses;
 			const output = pastUserInputs
-				.filter((x, i) => x != null && generatedResponses[i] != null) // != null -> not null OR undefined
+				.filter(
+					(x, i) =>
+						x !== null && x !== undefined && generatedResponses[i] !== null && generatedResponses[i] !== undefined
+				)
 				.map((x, i) => ({
 					input: x ?? "",
 					response: generatedResponses[i] ?? "",
