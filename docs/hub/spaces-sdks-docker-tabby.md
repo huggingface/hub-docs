@@ -2,7 +2,7 @@
 
 [Tabby](https://tabby.tabbyml.com) is an open-source, self-hosted AI coding assistant. With Tabby, every team can set up its own LLM-powered code completion server with ease.
 
-In this guide, you will learn how to deploy your own Tabby instance and use it for development directly from the Huggingface website.
+In this guide, you will learn how to deploy your own Tabby instance and use it for development directly from the Hugging Face website.
 
 ## Your first Tabby Space
 
@@ -18,15 +18,17 @@ You need to define the Owner (your personal account or an organization), a Space
 
 ![image](https://github.com/huggingface/hub-docs/assets/388154/b00eb7ea-7de6-4832-b3ff-512859bfa92e)
 
+
+
+You’ll see the *Building status*. Once it becomes *Running*, your Space is ready to go. If you don’t see the Tabby Swagger UI, try refreshing the page.
+
+![image](https://github.com/huggingface/hub-docs/assets/388154/f2320e55-7aad-42ed-8b1c-aec4e42e05f0)
+
 <Tip>
 
 If you want to customize the title, emojis, and colors of your space, go to "Files and Versions" and edit the metadata of your README.md file.
 
 </Tip>
-
-You’ll see the Building status and once it becomes Running your space is ready to go. If you don’t see the Tabby swagger UI, try refreshing the page.
-
-![image](https://github.com/huggingface/hub-docs/assets/388154/f2320e55-7aad-42ed-8b1c-aec4e42e05f0)
 
 ### Your Tabby Space URL
 
@@ -38,7 +40,7 @@ You’ll see a URL like this: https://tabbyml-tabby.hf.space. This URL gives you
 1. Install the [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=TabbyML.vscode-tabby).
 2. Open the file located at `~/.tabby-client/agent/config.toml`. Uncomment both the `[server]` section and the `[server.requestHeaders]` section.
    * Set the endpoint to the Direct URL you found in the previous step, which should look something like `https://UserName-SpaceName.hf.space`.
-   * As the space is set to **Private**, it is essential to configure the authorization header for accessing the endpoint. You can obtain a token from the [Access Tokens](https://huggingface.co/settings/tokens) page.
+   * As the Space is set to **Private**, it is essential to configure the authorization header for accessing the endpoint. You can obtain a token from the [Access Tokens](https://huggingface.co/settings/tokens) page.
 
 <center>
 
