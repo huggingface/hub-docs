@@ -32,8 +32,8 @@ If you want to customize the title, emojis, and colors of your space, go to "Fil
 
 ### Your Tabby Space URL
 
-Once Tabby is running, you can use the UI with the <u>Direct URL</u> in the **Embed this Space** option (top right).
-You’ll see a URL like this: https://tabbyml-tabby.hf.space. This URL gives you access to a full-screen, stable Tabby instance, and is the API Endpoint for IDE / Editor Extensions to talk with.
+Once Tabby is up and running, for a space link such as https://huggingface.com/spaces/TabbyML/tabby, the direct URL will be https://tabbyml-tabby.hf.space.
+This URL provides access to a stable Tabby instance in full-screen mode and serves as the API endpoint for IDE/Editor Extensions to talk with.
 
 ### Connect VSCode Extension to Space backend
 
