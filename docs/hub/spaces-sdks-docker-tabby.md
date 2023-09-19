@@ -16,13 +16,13 @@ You can deploy Tabby on Spaces with just a few clicks:
 
 You need to define the Owner (your personal account or an organization), a Space name, and the Visibility. To secure the api endpoint, we're configuring the visibility as Private.
 
-![image](https://github.com/huggingface/hub-docs/assets/388154/b00eb7ea-7de6-4832-b3ff-512859bfa92e)
+![Duplicate Space](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tabby/duplicate-space.png)
 
 
 
 You’ll see the *Building status*. Once it becomes *Running*, your Space is ready to go. If you don’t see the Tabby Swagger UI, try refreshing the page.
 
-![image](https://github.com/huggingface/hub-docs/assets/388154/f2320e55-7aad-42ed-8b1c-aec4e42e05f0)
+![Swagger UI](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tabby/swagger-ui.png)
 
 <Tip>
 
@@ -44,18 +44,18 @@ This URL provides access to a stable Tabby instance in full-screen mode and serv
 
 <center>
 
-![image](https://github.com/huggingface/hub-docs/assets/388154/1f24a977-6d47-4819-923e-b2c17b747fb0)
+![Agent Config](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tabby/agent-config.png)
 
 </center>
 
 3. You'll notice a ✓ icon indicating a successful connection.
-![Tabby Connected](https://github.com/huggingface/hub-docs/assets/388154/8657bce4-6e08-4eab-bb26-a48974d5fd8d)
+![Tabby Connected](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tabby/tabby-connected.png)
 
 4. You've complete the setup, now enjoy tabing!
 
 <center>
 
-![image](https://github.com/huggingface/hub-docs/assets/388154/c186aafc-36bf-415e-bfe5-946de2686d54)
+![Code Completion](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tabby/code-completion.png)
 
 </center>
 
