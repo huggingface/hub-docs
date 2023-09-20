@@ -13,7 +13,7 @@ This feature is part of the <a href="https://huggingface.co/enterprise" target="
 
 When Single Sign-On is enabled, the members of your organization must authenticate through your Identity Provider (IdP) to access any content under the organization's namespace. Public content will still be available to users who are not members of the organization.
 
-**We use email addresses to identify SSO users. Make sure that your organizational email address has been added to [your user account](https://huggingface.co/settings/account).**
+**We use email addresses to identify SSO users. Make sure that your organizational email address (e.g. your company email) has been added to [your user account](https://huggingface.co/settings/account).**
 
 When users log in, they will be prompted to complete the Single Sign-On authentication flow with a banner similar to the following:
 
