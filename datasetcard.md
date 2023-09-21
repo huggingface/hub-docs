@@ -5,7 +5,8 @@ language:
 - {lang_0}  # Example: fr
 - {lang_1}  # Example: en
 license: {license}  # Example: apache-2.0 or any license from https://hf.co/docs/hub/repositories-licenses
-license_details: {license_details}  # Example: content or link to a license not present in https://hf.co/docs/hub/repositories-licenses
+license_details: {license_details}  # If license = other (license not in https://hf.co/docs/hub/repositories-licenses), specify an id here.
+license_link: {license_link}  # If license = other, specify a URL to a remote file or a local filename inside the same repo.
 tags:
 - {tag_0}  # Example: audio
 - {tag_1}  # Example: bio
