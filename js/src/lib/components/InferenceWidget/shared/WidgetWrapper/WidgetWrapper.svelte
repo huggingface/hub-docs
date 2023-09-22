@@ -76,7 +76,7 @@
 			>
 			instead.
 		</p>
-	{:else if modelLoadInfo?.state === "Loadable" || modelLoadInfo?.state === "Loaded"}
+	{:else if modelLoadInfo}
 		{#if isMaximized}
 			<button class="absolute top-6 right-12" on:click={onClickMaximizeBtn}>
 				<IconCross classNames="text-xl text-gray-500 hover:text-black" />
