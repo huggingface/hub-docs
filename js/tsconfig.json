@@ -9,6 +9,7 @@
 		"strictFunctionTypes": true,
 		"strictNullChecks": true,
 		"strictBindCallApply": true,
-		"experimentalDecorators": true
+		"experimentalDecorators": true,
+		"moduleResolution": "node",
 	}
 }

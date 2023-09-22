@@ -12,7 +12,7 @@
 	import WidgetInfo from "../WidgetInfo/WidgetInfo.svelte";
 	import WidgetModelLoading from "../WidgetModelLoading/WidgetModelLoading.svelte";
 	import { getModelLoadInfo } from "../../shared/helpers";
-	import { modelLoadStates } from "../../InferenceWidget.svelte";
+	import { modelLoadStates } from "../../stores";
 
 	export let apiUrl: string;
 	export let computeTime: string;
