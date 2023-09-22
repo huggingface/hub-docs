@@ -1,3 +1,10 @@
+<script context="module" lang="ts">
+	import type { ModelLoadInfo } from "./shared/types";
+	import { writable } from "svelte/store";
+
+	export const modelLoadStates = writable<Record<string, ModelLoadInfo>>({});
+</script>
+
 <script lang="ts">
 	import type { SvelteComponent } from "svelte";
 	import type { PipelineType } from "../../interfaces/Types";
