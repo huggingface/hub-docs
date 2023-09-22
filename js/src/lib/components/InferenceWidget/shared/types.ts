@@ -11,12 +11,13 @@ export interface WidgetProps {
 	isLoggedIn?:        boolean;
 }
 
-export type LoadingStatus = "error" | "loaded" | "unknown";
+
+export type LoadState = "Loadable" | "Loaded" | "TooBig" | "error";
 
 export type ComputeType = "cpu" | "gpu";
 
 export interface ModelLoadInfo {
-	status:        LoadingStatus;
+	state:         LoadState;
 	compute_type?: ComputeType;
 }
 

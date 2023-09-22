@@ -29,7 +29,7 @@
 	export let previewInputSample: (sample: Record<string, any>) => void = () => {};
 
 	let isMaximized = false;
-	let modelLoadInfo: ModelLoadInfo = { status: "unknown" };
+	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
 
 	const inputSamples: WidgetInputSample[] = (model?.widgetData ?? [])
@@ -53,9 +53,9 @@
 		inputGroups.length === 1 ? inputGroups[0] : inputGroups.find(({ group }) => group === selectedInputGroup);
 
 	onMount(() => {
-		getModelLoadInfo(apiUrl, model.id, includeCredentials).then(info => {
-			modelLoadInfo = info;
-		});
+		(async () => {
+			modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
+		})();
 	});
 
 	function onClickMaximizeBtn() {
@@ -65,8 +65,19 @@
 
 <div
 	class="flex w-full max-w-full flex-col
-	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}"
+	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}
+	{!modelLoadInfo ? 'hidden' : ''}"
 >
+	{#if modelLoadInfo?.state === "TooBig"}
+		<p class="text-sm text-gray-500">
+			Model is too large to load onto the free Inference API. To try the model, launch it on <a
+				class="underline"
+				href="https://ui.endpoints.huggingface.co/mishig/new?repository={encodeURIComponent(model.id)}"
+				>Inference Endpoints</a
+			>
+			instead.
+		</p>
+	{/if}
 	{#if isMaximized}
 		<button class="absolute top-6 right-12" on:click={onClickMaximizeBtn}>
 			<IconCross classNames="text-xl text-gray-500 hover:text-black" />
