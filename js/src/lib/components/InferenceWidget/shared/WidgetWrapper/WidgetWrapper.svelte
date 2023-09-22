@@ -12,6 +12,7 @@
 	import WidgetInfo from "../WidgetInfo/WidgetInfo.svelte";
 	import WidgetModelLoading from "../WidgetModelLoading/WidgetModelLoading.svelte";
 	import { getModelLoadInfo } from "../../shared/helpers";
+	import { modelLoadStates } from "../../InferenceWidget.svelte";
 
 	export let apiUrl: string;
 	export let computeTime: string;
@@ -55,6 +56,7 @@
 	onMount(() => {
 		(async () => {
 			modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
+			$modelLoadStates[model.id] = modelLoadInfo;
 		})();
 	});
 
