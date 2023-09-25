@@ -33,7 +33,7 @@ params = {
 
 This is equivalent to `huggingface_hub.list_models()`.
 
-## GET /api/models/{repo_id} or /api/models/{repo_id}/revision/{revision}
+## GET /api/models/(repo_id) or /api/models/(repo_id)/revision/(revision)
 
 Get all information for a specific model.
 
@@ -73,7 +73,7 @@ params = {
 
 This is equivalent to `huggingface_hub.list_datasets()`.
 
-## GET /api/datasets/{repo_id} or /api/datasets/{repo_id}/revision/{revision}
+## GET /api/datasets/(repo_id) or /api/datasets/(repo_id)/revision/(revision)
 
 Get all information for a specific dataset.
 
@@ -87,11 +87,11 @@ params = {"full": "full"}
 
 This is equivalent to `huggingface_hub.dataset_info(repo_id, revision)`.
 
-## GET /api/datasets/{repo_id}/parquet
+## GET /api/datasets/(repo_id)/parquet
 
 Get the list of auto-converted parquet files.
 
-## GET /api/datasets/{repo_id}/parquet/{config}/{split}/{n}.parquet
+## GET /api/datasets/(repo_id)/parquet/(config)/(split)/(n).parquet
 
 Get the nth shard of the auto-converted parquet files.
 
@@ -130,7 +130,7 @@ params = {
 
 This is equivalent to `huggingface_hub.list_spaces()`.
 
-## GET /api/spaces/{repo_id} or /api/spaces/{repo_id}/revision/{revision}
+## GET /api/spaces/(repo_id) or /api/spaces/(repo_id)/revision/(revision)
 Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.space_info(repo_id, revision)`.
@@ -185,7 +185,7 @@ payload = {
 
 This is equivalent to `huggingface_hub.delete_repo()`.
 
-## PUT /api/repos/{type}/{repo_id}/settings
+## PUT /api/repos/(type)/(repo_id)/settings
 
 Update repo visibility.
 
