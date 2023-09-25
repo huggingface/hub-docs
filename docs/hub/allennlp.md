@@ -1,7 +1,5 @@
 # Using AllenNLP at Hugging Face
 
-
-
 `allennlp` is a NLP library for developing state-of-the-art models on different linguistic tasks. It provides high-level abstractions and APIs for common components and models in modern NLP. It also provides an extensible framework that makes it easy to run and manage NLP experiments.
 
 ## Exploring allennlp in the Hub
