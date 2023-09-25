@@ -184,12 +184,12 @@ export async function getModelLoadInfo(
 	});
 	const output = await response.json();
 	if (response.ok && typeof output === "object" && output.loaded !== undefined) {
-		const status = output.loaded ? "loaded" : "unknown";
-		const computeType = output.compute_type;
-		return { status, compute_type: computeType };
+		// eslint-disable-next-line @typescript-eslint/naming-convention
+		const {state, compute_type} = output;
+		return {compute_type, state}
 	} else {
 		console.warn(response.status, output.error);
-		return { status: "error" };
+		return {state: "error" };
 	}
 }
 

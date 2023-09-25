@@ -6,6 +6,10 @@
 
 	const models: ModelData[] = [
 		{
+			id: "WizardLM/WizardLM-70B-V1.0",
+			pipeline_tag: "text-generation",
+		},
+		{
 			id: "openai/clip-vit-base-patch16",
 			pipeline_tag: "zero-shot-image-classification",
 		},

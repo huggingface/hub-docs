@@ -12,6 +12,7 @@
 	import WidgetInfo from "../WidgetInfo/WidgetInfo.svelte";
 	import WidgetModelLoading from "../WidgetModelLoading/WidgetModelLoading.svelte";
 	import { getModelLoadInfo } from "../../shared/helpers";
+	import { modelLoadStates } from "../../stores";
 
 	export let apiUrl: string;
 	export let computeTime: string;
@@ -29,7 +30,7 @@
 	export let previewInputSample: (sample: Record<string, any>) => void = () => {};
 
 	let isMaximized = false;
-	let modelLoadInfo: ModelLoadInfo = { status: "unknown" };
+	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
 
 	const inputSamples: WidgetInputSample[] = (model?.widgetData ?? [])
@@ -53,9 +54,10 @@
 		inputGroups.length === 1 ? inputGroups[0] : inputGroups.find(({ group }) => group === selectedInputGroup);
 
 	onMount(() => {
-		getModelLoadInfo(apiUrl, model.id, includeCredentials).then(info => {
-			modelLoadInfo = info;
-		});
+		(async () => {
+			modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
+			$modelLoadStates[model.id] = modelLoadInfo;
+		})();
 	});
 
 	function onClickMaximizeBtn() {
@@ -65,39 +67,50 @@
 
 <div
 	class="flex w-full max-w-full flex-col
-	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}"
+	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}
+	{!modelLoadInfo ? 'hidden' : ''}"
 >
-	{#if isMaximized}
-		<button class="absolute top-6 right-12" on:click={onClickMaximizeBtn}>
-			<IconCross classNames="text-xl text-gray-500 hover:text-black" />
-		</button>
-	{/if}
-	<WidgetHeader {noTitle} pipeline={model.pipeline_tag}>
-		{#if !!inputGroups.length}
-			<div class="ml-auto flex gap-x-1">
-				<!-- Show samples selector when there are more than one sample -->
-				{#if inputGroups.length > 1}
-					<WidgetInputSamplesGroup
-						bind:selectedInputGroup
-						{isLoading}
-						inputGroups={inputGroups.map(({ group }) => group)}
-					/>
-				{/if}
-				<WidgetInputSamples
-					classNames={!selectedInputSamples ? "opacity-50 pointer-events-none" : ""}
-					{isLoading}
-					inputSamples={selectedInputSamples?.inputSamples ?? []}
-					{applyInputSample}
-					{previewInputSample}
-				/>
-			</div>
+	{#if modelLoadInfo?.state === "TooBig"}
+		<p class="text-sm text-gray-500">
+			Model is too large to load onto the free Inference API. To try the model, launch it on <a
+				class="underline"
+				href="https://ui.endpoints.huggingface.co/new?repository={encodeURIComponent(model.id)}">Inference Endpoints</a
+			>
+			instead.
+		</p>
+	{:else}
+		{#if isMaximized}
+			<button class="absolute top-6 right-12" on:click={onClickMaximizeBtn}>
+				<IconCross classNames="text-xl text-gray-500 hover:text-black" />
+			</button>
 		{/if}
-	</WidgetHeader>
-	<slot name="top" />
-	<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} />
-	{#if modelLoading.isLoading}
-		<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
+		<WidgetHeader {noTitle} pipeline={model.pipeline_tag}>
+			{#if !!inputGroups.length}
+				<div class="ml-auto flex gap-x-1">
+					<!-- Show samples selector when there are more than one sample -->
+					{#if inputGroups.length > 1}
+						<WidgetInputSamplesGroup
+							bind:selectedInputGroup
+							{isLoading}
+							inputGroups={inputGroups.map(({ group }) => group)}
+						/>
+					{/if}
+					<WidgetInputSamples
+						classNames={!selectedInputSamples ? "opacity-50 pointer-events-none" : ""}
+						{isLoading}
+						inputSamples={selectedInputSamples?.inputSamples ?? []}
+						{applyInputSample}
+						{previewInputSample}
+					/>
+				</div>
+			{/if}
+		</WidgetHeader>
+		<slot name="top" />
+		<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} />
+		{#if modelLoading.isLoading}
+			<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
+		{/if}
+		<slot name="bottom" />
+		<WidgetFooter {onClickMaximizeBtn} {outputJson} />
 	{/if}
-	<slot name="bottom" />
-	<WidgetFooter {onClickMaximizeBtn} {outputJson} />
 </div>
