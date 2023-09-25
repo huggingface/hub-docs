@@ -4,7 +4,7 @@ We have open endpoints that you can use to retrieve information from the Hub as 
 
 The base URL for those endpoints below is `https://huggingface.co`. For example, to construct the `/api/models` call below, one can call the URL [https://huggingface.co/api/models](https://huggingface.co/api/models)
 
-## GET `/api/models`
+## GET /api/models
 
 Get information from all models in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `resnet` or `microsoft`
@@ -33,19 +33,19 @@ params = {
 
 This is equivalent to `huggingface_hub.list_models()`.
 
-## GET `/api/models/{repo_id}` or `/api/models/{repo_id}/revision/{revision}`
+## GET /api/models/{repo_id} or /api/models/{repo_id}/revision/{revision}
 
 Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.model_info(repo_id, revision)`.
 
-## GET `/api/models-tags-by-type`
+## GET /api/models-tags-by-type
 
 Gets all the available model tags hosted in the Hub.
 
 This is equivalent to `huggingface_hub.get_model_tags()`.
 
-## GET `/api/datasets`
+## GET /api/datasets
 
 Get information from all datasets in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `pets` or `microsoft`
@@ -73,7 +73,7 @@ params = {
 
 This is equivalent to `huggingface_hub.list_datasets()`.
 
-## GET `/api/datasets/{repo_id}` or `/api/datasets/{repo_id}/revision/{revision}`
+## GET /api/datasets/{repo_id} or /api/datasets/{repo_id}/revision/{revision}
 
 Get all information for a specific dataset.
 
@@ -87,21 +87,21 @@ params = {"full": "full"}
 
 This is equivalent to `huggingface_hub.dataset_info(repo_id, revision)`.
 
-## GET `/api/datasets/{repo_id}/parquet`
+## GET /api/datasets/{repo_id}/parquet
 
 Get the list of auto-converted parquet files.
 
-## GET `/api/datasets/{repo_id}/parquet/{config}/{split}/{n}.parquet`
+## GET /api/datasets/{repo_id}/parquet/{config}/{split}/{n}.parquet
 
 Get the nth shard of the auto-converted parquet files.
 
-## GET `/api/datasets-tags-by-type `
+## GET /api/datasets-tags-by-type
 
 Gets all the available dataset tags hosted in the Hub
 
 This is equivalent to `huggingface_hub.get_dataset_tags()`.
 
-## GET `/api/spaces`
+## GET /api/spaces
 
 Get information from all Spaces in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `resnet` or `microsoft`
@@ -130,18 +130,18 @@ params = {
 
 This is equivalent to `huggingface_hub.list_spaces()`.
 
-## GET `/api/spaces/{repo_id}` or `/api/spaces/{repo_id}/revision/{revision}`
+## GET /api/spaces/{repo_id} or /api/spaces/{repo_id}/revision/{revision}
 Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.space_info(repo_id, revision)`.
 
-## GET `/api/metrics`
+## GET /api/metrics
 
 Get information from all metrics in the Hub.
 
 This is equivalent to `huggingface_hub.list_metrics()`.
 
-## POST `/api/repos/create`
+## POST /api/repos/create
 
 Create a repository. It's a model repo by default.
 
@@ -164,7 +164,7 @@ payload = {
 
 This is equivalent to `huggingface_hub.create_repo()`.
 
-## DELETE `/api/repos/delete`
+## DELETE /api/repos/delete
 
 Delete a repository. It's a model repo by default.
 
@@ -185,7 +185,7 @@ payload = {
 
 This is equivalent to `huggingface_hub.delete_repo()`.
 
-## PUT `/api/repos/{type}/{repo_id}/settings`
+## PUT /api/repos/{type}/{repo_id}/settings
 
 Update repo visibility.
 
@@ -199,7 +199,7 @@ payload = {
 
 This is equivalent to `huggingface_hub.update_repo_visibility()`.
 
-## POST `/api/repos/move`
+## POST /api/repos/move
 
 Move a repository (rename within the same namespace or transfer from user to organization).
 
@@ -214,7 +214,7 @@ payload = {
 
 This is equivalent to `huggingface_hub.move_repo()`.
 
-## GET `/api/whoami-v2`
+## GET /api/whoami-v2
 
 Get username and organizations the user belongs to.
 
