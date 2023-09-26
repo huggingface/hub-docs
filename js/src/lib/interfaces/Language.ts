@@ -1241,4 +1241,9 @@ export const LANGUAGES: Record<string, Language> = {
 		name:       "Literary Chinese",
 		nativeName: "文言",
 	},
+	udm: {
+		code:       "udm",
+		name:       "Udmurt",
+		nativeName: "удмурт кыл",
+	},
 };
