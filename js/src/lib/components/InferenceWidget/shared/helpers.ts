@@ -186,7 +186,7 @@ export async function getModelLoadInfo(
 	if (response.ok && typeof output === "object" && output.loaded !== undefined) {
 		// eslint-disable-next-line @typescript-eslint/naming-convention
 		const {state, compute_type} = output;
-		return {compute_type, state}
+		return {compute_type, state};
 	} else {
 		console.warn(response.status, output.error);
 		return {state: "error" };

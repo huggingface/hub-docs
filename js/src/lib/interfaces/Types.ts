@@ -655,6 +655,7 @@ export type WidgetInputSampleValue =
 	| number
 	| number[]
 	| Record<string, string | string[] | number[]>;
+
 export type WidgetInputSample = Record<string | "example_title" | "group", WidgetInputSampleValue>;
 
 /**
