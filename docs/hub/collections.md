@@ -6,13 +6,13 @@ Use Collections to group repositories from the Hub (Models, Datasets, Spaces and
 
 Collections have many use cases:
 
-- Highlight specific repositories on your personal or organization profile.
+- Highlight specific repositories on your personal or organizational profile.
 - Separate key repositories from others for your profile visitors.
 - Showcase and share a complete project with its paper(s), dataset(s), model(s) and Space(s).
 - Bookmark things you find on the Hub in categories.
 - Have a dedicated page of curated things to share with others.
 
-This is just a list of possible uses, but remember that collections are just a way of grouping things together, so use them in the way that best fits your use case.
+This is just a list of possible uses, but remember that collections are just a way of grouping things, so use them in the way that best fits your use case.
 
 ## Creating a new collection
 
