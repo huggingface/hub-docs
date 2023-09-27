@@ -11,7 +11,7 @@ _Full text responses to key questions_
 * Documents describing the essential features of a model in order for the reader/user to understand the artifact he/she has in front, the background/training, how it can be used, and its technical/ethical limitations.
 * They serve as a living artifact of models to document them. Model cards contain information that goes from a high-level description of what the specific model can be used to, to limitations, biases, metrics, and much more. They are used primarily to understand what the model does.
 * Model cards are to model what GitHub READMEs are to GitHub projects. It tells people all the information they need to know about the model. If you don't write one, nobody will use your model.
-* From what I understand, a model card uses certain benchmarks (geography, culture, sex, etc.) to define both a model's usability and limitations. It's essentially a model's 'nutrition facts label' that can show how a model was created and educate others on its reusability.
+* From what I understand, a model card uses certain benchmarks (geography, culture, sex, etc.) to define both a model's usability and limitations. It's essentially a model's 'nutrition facts label' that can show how a model was created and educates others on its reusability.
 * Model cards are the metadata and documentation about the model, everything I need to know to use the model properly: info about the model, what paper introduced it, what dataset was it trained on or fine-tuned on, whom it belongs to, are there known risks and limitations with this model, any useful technical info.
 * IMO model cards are a brief presentation of a model which includes:
   *  short summary of the architectural particularities of the model
