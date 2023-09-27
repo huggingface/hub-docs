@@ -97,7 +97,7 @@ Get the nth shard of the auto-converted parquet files.
 
 ## GET /api/datasets-tags-by-type
 
-Gets all the available dataset tags hosted in the Hub
+Gets all the available dataset tags hosted in the Hub.
 
 This is equivalent to `huggingface_hub.get_dataset_tags()`.
 
