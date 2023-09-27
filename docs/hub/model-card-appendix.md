@@ -8,7 +8,7 @@ _Full text responses to key questions_
 ***Insight: Respondents had generally similar views of what model cards are: documentation focused on issues like training, use cases, and bias/limitations***
 
 * Model cards are model descriptions, both of how they were trained, their use cases, and potential biases and limitations
-* Documents describing the essential features of a model in order for the reader/user to understand the artifact he/she has in front, the background/training, how it can be used, and its technical/ethical limitations.
+* Documents describing the essential features of a model in order for the reader/user to understand the artifact they have in front, the background/training, how it can be used, and its technical/ethical limitations.
 * They serve as a living artifact of models to document them. Model cards contain information that goes from a high-level description of what the specific model can be used to, to limitations, biases, metrics, and much more. They are used primarily to understand what the model does.
 * Model cards are to model what GitHub READMEs are to GitHub projects. It tells people all the information they need to know about the model. If you don't write one, nobody will use your model.
 * From what I understand, a model card uses certain benchmarks (geography, culture, sex, etc.) to define both a model's usability and limitations. It's essentially a model's 'nutrition facts label' that can show how a model was created and educates others on its reusability.
