@@ -325,7 +325,7 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		name:     "Text-to-Audio",
 		modality: "audio",
 		color:    "yellow",
-	},	
+	},
 	"automatic-speech-recognition": {
 		name:     "Automatic Speech Recognition",
 		modality: "audio",

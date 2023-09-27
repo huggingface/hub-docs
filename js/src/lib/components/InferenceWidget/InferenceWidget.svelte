@@ -22,7 +22,7 @@
 	import TextGenerationWidget from "./widgets/TextGenerationWidget/TextGenerationWidget.svelte";
 	import TextToImageWidget from "./widgets/TextToImageWidget/TextToImageWidget.svelte";
 	import TextToSpeechWidget from "./widgets/TextToSpeechWidget/TextToSpeechWidget.svelte";
-	import TextToAudioWidget from "./widgets/TextToAudioWidget/TextToAudioWidget.svelte";	
+	import TextToAudioWidget from "./widgets/TextToAudioWidget/TextToAudioWidget.svelte";
 	import TokenClassificationWidget from "./widgets/TokenClassificationWidget/TokenClassificationWidget.svelte";
 	import TabularDataWidget from "./widgets/TabularDataWidget/TabularDataWidget.svelte";
 	import ReinforcementLearningWidget from "./widgets/ReinforcementLearningWidget/ReinforcementLearningWidget.svelte";
@@ -67,7 +67,7 @@
 		"token-classification": TokenClassificationWidget,
 		"text-to-image": TextToImageWidget,
 		"text-to-speech": TextToSpeechWidget,
-		"text-to-audio": TextToAudioWidget,		
+		"text-to-audio": TextToAudioWidget,
 		"translation": TextGenerationWidget,
 		"tabular-classification": TabularDataWidget,
 		"tabular-regression": TabularDataWidget,

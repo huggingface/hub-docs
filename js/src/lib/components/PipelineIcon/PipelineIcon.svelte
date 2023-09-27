@@ -25,7 +25,7 @@
 	import IconTextToImage from "../Icons/IconTextToImage.svelte";
 	import IconImageToText from "../Icons/IconImageToText.svelte";
 	import IconTextToSpeech from "../Icons/IconTextToSpeech.svelte";
-	import IconTextToAudio from "../Icons/IconTextToAudio.svelte";	
+	import IconTextToAudio from "../Icons/IconTextToAudio.svelte";
 	import IconTextToVideo from "../Icons/IconTextToVideo.svelte";
 	import IconTokenClassification from "../Icons/IconTokenClassification.svelte";
 	import IconTranslation from "../Icons/IconTranslation.svelte";
@@ -60,7 +60,7 @@
 		"fill-mask": IconFillMask,
 		"sentence-similarity": IconSentenceSimilarity,
 		"text-to-speech": IconTextToSpeech,
-		"text-to-audio": IconTextToAudio,		
+		"text-to-audio": IconTextToAudio,
 		"automatic-speech-recognition": IconAutomaticSpeechRecognition,
 		"audio-to-audio": IconAudioToAudio,
 		"audio-classification": IconAudioClassification,
