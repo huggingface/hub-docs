@@ -240,7 +240,7 @@ Find out more about collections [in this guide](./collections.md). Collections c
 
 ### POST /api/collections
 
-Create a new collection on the Hub with a title, a description (optional) and a first item in it (optional). An item is defined by a type (`model`, `dataset`, `space` or `paper`) and an id (repo_id or paper_id on the Hub).
+Create a new collection on the Hub with a title, a description (optional) and a first item (optional). An item is defined by a type (`model`, `dataset`, `space` or `paper`) and an id (repo_id or paper_id on the Hub).
 
 Payload:
 
