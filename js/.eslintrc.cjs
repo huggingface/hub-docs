@@ -50,6 +50,7 @@ module.exports = {
 					"error",
 					{
 						"newlines-between": "always",
+						"alphabetize": { order: 'asc' },
 						"groups": ["type", "builtin", "external", "parent", "sibling", "index"],
 					},
 				],
