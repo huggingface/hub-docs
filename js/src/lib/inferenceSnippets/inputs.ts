@@ -11,7 +11,7 @@ const inputsSummarization = () =>
 const inputsConversational = () =>
 	`{
 		"past_user_inputs": ["Which movie is the best ?"],
-		"generated_responses": ["It's Die Hard for sure."],
+		"generated_responses": ["It is Die Hard for sure."],
 		"text": "Can you explain why ?"
 	}`;
 
@@ -32,7 +32,7 @@ const inputsTableQuestionAnswering = () =>
 
 const inputsQuestionAnswering = () =>
 	`{
-		"question": "What's my name?",
+		"question": "What is my name?",
 		"context": "My name is Clara and I live in Berkeley."
 	}`;
 
@@ -56,7 +56,7 @@ const inputsSentenceSimilarity = () =>
 		]
 	}`;
 
-const inputsFeatureExtraction = () => `"Today is a sunny day and I'll get some ice cream."`;
+const inputsFeatureExtraction = () => `"Today is a sunny day and I will get some ice cream."`;
 
 const inputsImageClassification = () => `"cats.jpg"`;
 
