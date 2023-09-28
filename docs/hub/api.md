@@ -4,7 +4,11 @@ We have open endpoints that you can use to retrieve information from the Hub as 
 
 The base URL for those endpoints below is `https://huggingface.co`. For example, to construct the `/api/models` call below, one can call the URL [https://huggingface.co/api/models](https://huggingface.co/api/models)
 
-## GET /api/models
+## Search API
+
+The following endpoints help get information about models, datasets, Spaces, and metrics stored on the Hub.
+
+### GET /api/models
 
 Get information from all models in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `resnet` or `microsoft`
@@ -33,19 +37,19 @@ params = {
 
 This is equivalent to `huggingface_hub.list_models()`.
 
-## GET /api/models/(repo_id) or /api/models/(repo_id)/revision/(revision)
+### GET /api/models/(repo_id) or /api/models/(repo_id)/revision/(revision)
 
 Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.model_info(repo_id, revision)`.
 
-## GET /api/models-tags-by-type
+### GET /api/models-tags-by-type
 
 Gets all the available model tags hosted in the Hub.
 
 This is equivalent to `huggingface_hub.get_model_tags()`.
 
-## GET /api/datasets
+### GET /api/datasets
 
 Get information from all datasets in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `pets` or `microsoft`
@@ -73,7 +77,7 @@ params = {
 
 This is equivalent to `huggingface_hub.list_datasets()`.
 
-## GET /api/datasets/(repo_id) or /api/datasets/(repo_id)/revision/(revision)
+### GET /api/datasets/(repo_id) or /api/datasets/(repo_id)/revision/(revision)
 
 Get all information for a specific dataset.
 
@@ -87,21 +91,21 @@ params = {"full": "full"}
 
 This is equivalent to `huggingface_hub.dataset_info(repo_id, revision)`.
 
-## GET /api/datasets/(repo_id)/parquet
+### GET /api/datasets/(repo_id)/parquet
 
 Get the list of auto-converted parquet files.
 
-## GET /api/datasets/(repo_id)/parquet/(config)/(split)/(n).parquet
+### GET /api/datasets/(repo_id)/parquet/(config)/(split)/(n).parquet
 
 Get the nth shard of the auto-converted parquet files.
 
-## GET /api/datasets-tags-by-type
+### GET /api/datasets-tags-by-type
 
 Gets all the available dataset tags hosted in the Hub.
 
 This is equivalent to `huggingface_hub.get_dataset_tags()`.
 
-## GET /api/spaces
+### GET /api/spaces
 
 Get information from all Spaces in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `resnet` or `microsoft`
@@ -130,18 +134,21 @@ params = {
 
 This is equivalent to `huggingface_hub.list_spaces()`.
 
-## GET /api/spaces/(repo_id) or /api/spaces/(repo_id)/revision/(revision)
+### GET /api/spaces/(repo_id) or /api/spaces/(repo_id)/revision/(revision)
 Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.space_info(repo_id, revision)`.
 
-## GET /api/metrics
+### GET /api/metrics
 
 Get information from all metrics in the Hub.
 
 This is equivalent to `huggingface_hub.list_metrics()`.
 
-## POST /api/repos/create
+## Repo API
+
+The following endpoints manage repository settings like creating and deleting a repository.
+### POST /api/repos/create
 
 Create a repository. It's a model repo by default.
 
@@ -164,7 +171,7 @@ payload = {
 
 This is equivalent to `huggingface_hub.create_repo()`.
 
-## DELETE /api/repos/delete
+### DELETE /api/repos/delete
 
 Delete a repository. It's a model repo by default.
 
@@ -185,7 +192,7 @@ payload = {
 
 This is equivalent to `huggingface_hub.delete_repo()`.
 
-## PUT /api/repos/(type)/(repo_id)/settings
+### PUT /api/repos/(repo_type)/(repo_id)/settings
 
 Update repo visibility.
 
@@ -199,7 +206,7 @@ payload = {
 
 This is equivalent to `huggingface_hub.update_repo_visibility()`.
 
-## POST /api/repos/move
+### POST /api/repos/move
 
 Move a repository (rename within the same namespace or transfer from user to organization).
 
@@ -214,7 +221,11 @@ payload = {
 
 This is equivalent to `huggingface_hub.move_repo()`.
 
-## GET /api/whoami-v2
+## User API
+
+The following endpoint gets information about a user.
+
+### GET /api/whoami-v2
 
 Get username and organizations the user belongs to.
 
@@ -225,3 +236,100 @@ headers = { "authorization" :  "Bearer $token" }
 ```
 
 This is equivalent to `huggingface_hub.whoami()`.
+
+## Collection API
+
+Use Collections to group repositories from the Hub (Models, Datasets, Spaces and Papers) on a dedicated page.
+
+You can learn more about it in the Collections [guide](./collections.md). Collections can also be managed using the Python client (see [guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/collections)).
+
+### POST /api/collections
+
+Create a new collection on the Hub with a title, a description (optional) and a first item (optional). An item is defined by a type (`model`, `dataset`, `space` or `paper`) and an id (repo_id or paper_id on the Hub).
+
+Payload:
+
+```js
+payload = {
+    "title": "My cool models",
+    "namespace": "username_or_org",
+    "description": "Here is a shortlist of models I've trained.",
+    "item" : {
+        "type": "model",
+        "id": "username/cool-model",
+    }
+    "private": false,
+
+}
+```
+
+This is equivalent to `huggingface_hub.create_collection()`.
+
+### GET /api/collections/(namespace)/(slug)-(id)
+
+Return information about a collection.
+
+This is equivalent to `huggingface_hub.get_collection()`.
+
+### PATCH /api/collections/(namespace)/(slug)-(id)
+
+Update the metadata of a collection on the Hub. You can't add or modify the items of the collection with this method. All fields of the payload are optional.
+
+Payload:
+
+```js
+payload = {
+    "title": "My cool models",
+    "description": "Here is a shortlist of models I've trained.",
+    "private": false,
+    "position": 0, // position of the collection on your profile
+    "theme": "green",
+}
+```
+
+This is equivalent to `huggingface_hub.update_collection_metadata()`.
+
+### DELETE /api/collections/(namespace)/(slug)-(id)
+
+Return a collection. This is a non-revertible operation. A deleted collection cannot be restored.
+
+This is equivalent to `huggingface_hub.delete_collection()`.
+
+### POST /api/collections/(namespace)/(slug)-(id)/item)
+
+Add an item to a collection. An item is defined by a type (`model`, `dataset`, `space` or `paper`) and an id (repo_id or paper_id on the Hub). A note can also be attached to the item (optional).
+
+Payload:
+
+```js
+payload = {
+    "item" : {
+        "type": "model",
+        "id": "username/cool-model",
+    }
+    "note": "Here is the model I trained on ...",
+}
+```
+
+This is equivalent to `huggingface_hub.add_collection_item()`.
+
+### PATCH /api/collections/(namespace)/(slug)-(id)/items/(item_id)
+
+Update an item in a collection. You must know the item object id which is different from the repo_id/paper_id provided when adding the item to the collection. The `item_id` can be retrieved by fetching the collection.
+
+You can update the note attached to the item or the position of the item in the collection. Both fields are optional.
+
+```js
+payload = {
+    "position": 0,
+    "note": "Here is the model I trained on ...",
+}
+```
+
+This is equivalent to `huggingface_hub.update_collection_item()`.
+
+### DELETE /api/collections/(namespace)/(slug)-(id)/items/(item_id)
+
+Remove an item from a collection. You must know the item object id which is different from the repo_id/paper_id provided when adding the item to the collection. The `item_id` can be retrieved by fetching the collection.
+
+This is equivalent to `huggingface_hub.delete_collection_item()`.
