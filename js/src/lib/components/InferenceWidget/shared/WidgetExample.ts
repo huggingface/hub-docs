@@ -1,5 +1,6 @@
 import type { TableData } from "./types";
 
+//#region outputs
 export type WidgetExampleOutputLabels = Array<{ label: string; score: number; }>;
 export interface WidgetExampleOutputAnswerScore {
 	answer: string;
@@ -11,6 +12,7 @@ export interface WidgetExampleOutputText {
 export interface WidgetExampleOutputUrl {
 	url: string;
 }
+//#endregion
 
 export interface WidgetExampleBase {
 	example_title?: string;
