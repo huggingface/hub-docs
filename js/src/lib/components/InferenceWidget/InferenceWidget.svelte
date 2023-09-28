@@ -10,21 +10,21 @@
 	import FeatureExtractionWidget from "./widgets/FeatureExtractionWidget/FeatureExtractionWidget.svelte";
 	import FillMaskWidget from "./widgets/FillMaskWidget/FillMaskWidget.svelte";
 	import ImageClassificationWidget from "./widgets/ImageClassificationWidget/ImageClassificationWidget.svelte";
+	import ImageSegmentationWidget from "./widgets/ImageSegmentationWidget/ImageSegmentationWidget.svelte";
 	import ImageToImageWidget from "./widgets/ImageToImageWidget/ImageToImageWidget.svelte";
 	import ImageToTextWidget from "./widgets/ImageToTextWidget/ImageToTextWidget.svelte";
-	import ImageSegmentationWidget from "./widgets/ImageSegmentationWidget/ImageSegmentationWidget.svelte";
 	import ObjectDetectionWidget from "./widgets/ObjectDetectionWidget/ObjectDetectionWidget.svelte";
 	import QuestionAnsweringWidget from "./widgets/QuestionAnsweringWidget/QuestionAnsweringWidget.svelte";
-	import VisualQuestionAnsweringWidget from "./widgets/VisualQuestionAnsweringWidget/VisualQuestionAnsweringWidget.svelte";
+	import ReinforcementLearningWidget from "./widgets/ReinforcementLearningWidget/ReinforcementLearningWidget.svelte";
 	import SentenceSimilarityWidget from "./widgets/SentenceSimilarityWidget/SentenceSimilarityWidget.svelte";
 	import SummarizationWidget from "./widgets/SummarizationWidget/SummarizationWidget.svelte";
 	import TableQuestionAnsweringWidget from "./widgets/TableQuestionAnsweringWidget/TableQuestionAnsweringWidget.svelte";
+	import TabularDataWidget from "./widgets/TabularDataWidget/TabularDataWidget.svelte";
 	import TextGenerationWidget from "./widgets/TextGenerationWidget/TextGenerationWidget.svelte";
 	import TextToImageWidget from "./widgets/TextToImageWidget/TextToImageWidget.svelte";
 	import TextToSpeechWidget from "./widgets/TextToSpeechWidget/TextToSpeechWidget.svelte";
 	import TokenClassificationWidget from "./widgets/TokenClassificationWidget/TokenClassificationWidget.svelte";
-	import TabularDataWidget from "./widgets/TabularDataWidget/TabularDataWidget.svelte";
-	import ReinforcementLearningWidget from "./widgets/ReinforcementLearningWidget/ReinforcementLearningWidget.svelte";
+	import VisualQuestionAnsweringWidget from "./widgets/VisualQuestionAnsweringWidget/VisualQuestionAnsweringWidget.svelte";
 	import ZeroShotClassificationWidget from "./widgets/ZeroShowClassificationWidget/ZeroShotClassificationWidget.svelte";
 	import ZeroShotImageClassificationWidget from "./widgets/ZeroShotImageClassificationWidget/ZeroShotImageClassificationWidget.svelte";
 

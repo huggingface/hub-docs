@@ -169,7 +169,7 @@
 	}
 </script>
 
-s<WidgetWrapper
+<WidgetWrapper
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
