@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleTextInputLabelsOutput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -8,6 +9,7 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import { isValidOutputLabels } from "../../shared/outputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -36,6 +38,7 @@
 			getOutput();
 		} else {
 			const [demoText] = getDemoInputs(model, ["text"]);
+			/// TODO(get rid of useless getDemoInputs)
 			setTextAreaValue(demoText ?? "");
 			if (text && callApiOnMount) {
 				getOutput({ isOnLoadCall: true });
@@ -115,11 +118,16 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleTextInputLabelsOutput) {
 		setTextAreaValue(sample.text);
+		if (isValidOutputLabels(sample.output)) {
+			output = sample.output;
+		} else {
+			output = [];
+		}
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextInputLabelsOutput) {
 		setTextAreaValue(sample.text);
 		getOutput();
 	}

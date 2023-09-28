@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
 	import type { PipelineType } from "../../../../interfaces/Types";
+	import type { WidgetExampleTextInputTextOutput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -12,6 +13,7 @@
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import { isValidOutputText } from "../../shared/outputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -162,11 +164,19 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleTextInputTextOutput) {
 		setTextAreaValue(sample.text);
+		if (isValidOutputText(sample.output)) {
+			output = sample.output.text;
+			outputJson = "";
+			renderTypingEffect(output);
+		} else {
+			output = "";
+			outputJson = "";
+		}
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextInputTextOutput) {
 		setTextAreaValue(sample.text);
 		getOutput({ useCache });
 	}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetInputSample } from "../../../../interfaces/Types";
+	import type { WidgetExample } from "../WidgetExample";
 
 	import { slide } from "svelte/transition";
 
@@ -7,9 +7,9 @@
 
 	export let classNames = "";
 	export let isLoading = false;
-	export let inputSamples: WidgetInputSample[];
-	export let applyInputSample: (sample: Record<string, any>) => void;
-	export let previewInputSample: (sample: Record<string, any>) => void;
+	export let inputSamples: WidgetExample[];
+	export let applyInputSample: (sample: WidgetExample) => void;
+	export let previewInputSample: (sample: WidgetExample) => void;
 
 	let containerEl: HTMLElement;
 	let isOptionsVisible = false;

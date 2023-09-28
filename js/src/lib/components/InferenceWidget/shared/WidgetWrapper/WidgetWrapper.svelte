@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps, ModelLoadInfo } from "../types";
-	import type { WidgetInputSample } from "../../../../interfaces/Types";
+	import type { WidgetExample } from "../WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -26,14 +26,14 @@
 	};
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (sample: Record<string, any>) => void = () => {};
-	export let previewInputSample: (sample: Record<string, any>) => void = () => {};
+	export let applyInputSample: (sample: WidgetExample) => void = () => {};
+	export let previewInputSample: (sample: WidgetExample) => void = () => {};
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
 
-	const inputSamples: WidgetInputSample[] = (model?.widgetData ?? [])
+	const inputSamples: WidgetExample[] = (model.widgetData ?? [])
 		.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
 		.map((sample, idx) => ({
 			example_title: `Example ${++idx}`,
@@ -41,7 +41,7 @@
 			...sample,
 		}));
 
-	const inputGroups: { group: string; inputSamples: WidgetInputSample[] }[] = [];
+	const inputGroups: { group: string; inputSamples: WidgetExample[] }[] = [];
 	for (const inputSample of inputSamples) {
 		const isExist = inputGroups.find(({ group }) => group === inputSample.group);
 		if (!isExist) {

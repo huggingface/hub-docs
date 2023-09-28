@@ -7,6 +7,7 @@
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import { isValidOutputAnswerScore } from "../../shared/outputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -109,8 +110,8 @@
 	}
 
 	function parseOutput(body: any): { answer: string; score: number } {
-		if (body && typeof body === "object" && "answer" in body && "score" in body) {
-			return { answer: body["answer"], score: body["score"] };
+		if (isValidOutputAnswerScore(body)) {
+			return body;
 		}
 		throw new TypeError("Invalid output: output must be of type <answer:string; score:number>");
 	}

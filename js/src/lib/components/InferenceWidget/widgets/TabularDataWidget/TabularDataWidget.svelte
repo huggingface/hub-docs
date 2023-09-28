@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
+	import type { WidgetExampleStructuredDataInputLabelsOutput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -11,7 +12,6 @@
 		addInferenceParameters,
 		convertDataToTable,
 		convertTableToData,
-		getDemoInputs,
 		getResponse,
 		getSearchParams,
 		updateUrl,
@@ -25,7 +25,8 @@
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
 
-	const columns: string[] = Object.keys(model?.widgetData?.[0]?.structuredData ?? {});
+	const widgetData = model?.widgetData?.[0] as WidgetExampleStructuredDataInputLabelsOutput | undefined;
+	const columns: string[] = Object.keys(widgetData?.structuredData ?? {});
 
 	let computeTime = "";
 	let error: string = "";
@@ -68,8 +69,8 @@
 			table = convertDataToTable((parseJSON(dataParam) as TableData) ?? {});
 			getOutput();
 		} else {
-			const [demoTable] = getDemoInputs(model, ["structuredData"]);
-			table = convertDataToTable((demoTable as TableData) ?? {});
+			const demoTable = widgetData?.structuredData ?? {};
+			table = convertDataToTable(demoTable);
 			if (table && callApiOnMount) {
 				getOutput({ isOnLoadCall: true });
 			}

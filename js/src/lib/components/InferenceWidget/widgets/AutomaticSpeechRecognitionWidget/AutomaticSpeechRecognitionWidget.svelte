@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleAssetInputTextOutput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -11,6 +12,7 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { isValidOutputText } from "../../shared/outputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -115,25 +117,30 @@
 	}
 
 	function parseOutput(body: unknown): string {
-		if (body && typeof body === "object" && typeof body["text"] === "string") {
-			return body["text"];
+		if (isValidOutputText(body)) {
+			return body.text;
 		}
 		throw new TypeError("Invalid output: output must be of type <text:string>");
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleAssetInputTextOutput) {
 		file = null;
-		filename = sample.example_title;
+		filename = sample.example_title!;
 		fileUrl = sample.src;
 		selectedSampleUrl = sample.src;
 		getOutput();
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
-		filename = sample.example_title;
+	function previewInputSample(sample: WidgetExampleAssetInputTextOutput) {
+		filename = sample.example_title!;
 		fileUrl = sample.src;
-		output = "";
-		outputJson = "";
+		if (isValidOutputText(sample.output)) {
+			output = sample.output.text;
+			outputJson = "";
+		} else {
+			output = "";
+			outputJson = "";
+		}
 	}
 
 	function updateModelLoading(isLoading: boolean, estimatedTime: number = 0) {

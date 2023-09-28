@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleAssetInputLabelsOutput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -10,6 +11,7 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { isValidOutputLabels } from "../../shared/outputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -112,30 +114,31 @@
 		}
 	}
 
-	function isValidOutput(arg: any): arg is { label: string; score: number }[] {
-		return Array.isArray(arg) && arg.every(x => typeof x.label === "string" && typeof x.score === "number");
-	}
-
 	function parseOutput(body: unknown): Array<{ label: string; score: number }> {
-		if (isValidOutput(body)) {
+		if (isValidOutputLabels(body)) {
 			return body;
 		}
 		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
 		file = null;
-		filename = sample.example_title;
+		filename = sample.example_title!;
 		fileUrl = sample.src;
 		selectedSampleUrl = sample.src;
 		getOutput();
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
-		filename = sample.example_title;
+	function previewInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
+		filename = sample.example_title!;
 		fileUrl = sample.src;
-		output = [];
-		outputJson = "";
+		if (isValidOutputLabels(sample.output)) {
+			output = sample.output;
+			outputJson = "";
+		} else {
+			output = [];
+			outputJson = "";
+		}
 	}
 
 	onMount(() => {

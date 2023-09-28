@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleAssetInputLabelsOutput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -8,6 +9,7 @@
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { isValidOutputLabels } from "../../shared/outputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -81,27 +83,28 @@
 		}
 	}
 
-	function isValidOutput(arg: any): arg is { label: string; score: number }[] {
-		return Array.isArray(arg) && arg.every(x => typeof x.label === "string" && typeof x.score === "number");
-	}
-
 	function parseOutput(body: unknown): Array<{ label: string; score: number }> {
-		if (isValidOutput(body)) {
+		if (isValidOutputLabels(body)) {
 			return body;
 		}
 		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
-	async function applyInputSample(sample: Record<string, any>) {
+	async function applyInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
 		imgSrc = sample.src;
 		const blob = await getBlobFromUrl(imgSrc);
 		getOutput(blob);
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
 		imgSrc = sample.src;
-		output = [];
-		outputJson = "";
+		if (isValidOutputLabels(sample.output)) {
+			output = sample.output;
+			outputJson = "";
+		} else {
+			output = [];
+			outputJson = "";
+		}
 	}
 
 	onMount(() => {
