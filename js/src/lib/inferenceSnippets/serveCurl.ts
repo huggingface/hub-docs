@@ -5,7 +5,7 @@ export const snippetBasic = (model: ModelData, accessToken: string): string =>
 	`curl https://api-inference.huggingface.co/models/${model.id} \\
 	-X POST \\
 	-d '{"inputs": ${getModelInputSnippet(model, true)}}' \\
-	-H 'Content-Type: application/json'
+	-H 'Content-Type: application/json' \\
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
@@ -13,7 +13,7 @@ export const snippetZeroShotClassification = (model: ModelData, accessToken: str
 	`curl https://api-inference.huggingface.co/models/${model.id} \\
 	-X POST \\
 	-d '{"inputs": ${getModelInputSnippet(model, true)}, "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}' \\
-	-H 'Content-Type: application/json'
+	-H 'Content-Type: application/json' \\
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
