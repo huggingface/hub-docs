@@ -94,7 +94,7 @@ We encourage you to read the [Code of Conduct](https://huggingface.co/code-of-co
 
 ## What can you find on the Hub?
 
-The Hugging Face Hub hosts Git-based repositories, which are version-controlled places that can contain all your files. 💾
+The Hugging Face Hub hosts Git-based repositories, which are version-controlled buckets that can contain all your files. 💾
 
 On it, you'll be able to upload and discover...
 
