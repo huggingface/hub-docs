@@ -7,6 +7,7 @@ The base URL for those endpoints below is `https://huggingface.co`. For example,
 ## Search API
 
 The following endpoints help get information about models, datasets, Spaces, and metrics stored on the Hub.
+
 ### GET /api/models
 
 Get information from all models in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
@@ -223,6 +224,7 @@ This is equivalent to `huggingface_hub.move_repo()`.
 ## User API
 
 The following endpoint gets information about a user.
+
 ### GET /api/whoami-v2
 
 Get username and organizations the user belongs to.
