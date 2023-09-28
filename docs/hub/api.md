@@ -6,6 +6,7 @@ The base URL for those endpoints below is `https://huggingface.co`. For example,
 
 ## Search API
 
+The following endpoints help get information about models, datasets, Spaces, and metrics stored on the Hub.
 ### GET /api/models
 
 Get information from all models in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
@@ -145,6 +146,7 @@ This is equivalent to `huggingface_hub.list_metrics()`.
 
 ## Repo API
 
+The following endpoints manage repository settings like creating and deleting a repository.
 ### POST /api/repos/create
 
 Create a repository. It's a model repo by default.
@@ -220,6 +222,7 @@ This is equivalent to `huggingface_hub.move_repo()`.
 
 ## User API
 
+The following endpoint gets information about a user.
 ### GET /api/whoami-v2
 
 Get username and organizations the user belongs to.
@@ -236,7 +239,7 @@ This is equivalent to `huggingface_hub.whoami()`.
 
 Use Collections to group repositories from the Hub (Models, Datasets, Spaces and Papers) on a dedicated page.
 
-Find out more about collections [in this guide](./collections.md). Collections can also be managed using the Python client (see [guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/collections)).
+You can learn more about it in the Collections [guide](./collections.md). Collections can also be managed using the Python client (see [guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/collections)).
 
 ### POST /api/collections
 
@@ -283,6 +286,7 @@ payload = {
 ```
 
 This is equivalent to `huggingface_hub.update_collection_metadata()`.
+
 ### DELETE /api/collections/{namespace}/{slug}-{id}
 
 Return a collection. This is a non-revertible operation. A deleted collection cannot be restored.
