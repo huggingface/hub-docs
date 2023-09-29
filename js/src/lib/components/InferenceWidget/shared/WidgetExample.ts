@@ -1,4 +1,4 @@
-import type { TableData } from "./types";
+type TableData = Record<string, (string | number)[]>;
 
 //#region outputs
 export type WidgetExampleOutputLabels = Array<{ label: string; score: number; }>;
