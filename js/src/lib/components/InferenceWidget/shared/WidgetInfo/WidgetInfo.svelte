@@ -31,11 +31,8 @@
 		statuses: Record<LoadState, string>,
 		isAzure = false
 	): string {
-		if (modelLoadInfo?.state === "ignored") {
-			return "";
-		} 
 		if (!modelLoadInfo) {
-			return "Model state unknown";
+			return "";
 		}
 		if (modelLoadInfo.compute_type === "cpu" && modelLoadInfo.state === "Loaded" && !isAzure) {
 			return `The model is loaded and running on <a class="hover:underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon 3rd Gen Scalable CPU</a>`;
@@ -52,32 +49,34 @@
 	}
 </script>
 
-<div class="mt-2">
-	{#if modelLoadInfo?.state !== "ignored"}
-		<div class="text-xs text-gray-400">
-			{#if model.id === "bigscience/bloom"}
-				<div class="flex items-baseline">
-					<div class="flex items-center whitespace-nowrap text-gray-700">
-						<IconAzureML classNames="mr-1 flex-none" /> Powered by&nbsp;
-						<a
-							class="underline hover:text-gray-800"
-							href="https://azure.microsoft.com/products/machine-learning"
-							target="_blank">AzureML</a
-						>
+{#if modelLoadInfo || error}
+	<div class="mt-2">
+		{#if modelLoadInfo}
+			<div class="text-xs text-gray-400">
+				{#if model.id === "bigscience/bloom"}
+					<div class="flex items-baseline">
+						<div class="flex items-center whitespace-nowrap text-gray-700">
+							<IconAzureML classNames="mr-1 flex-none" /> Powered by&nbsp;
+							<a
+								class="underline hover:text-gray-800"
+								href="https://azure.microsoft.com/products/machine-learning"
+								target="_blank">AzureML</a
+							>
+						</div>
+						<div class="border-dotter mx-2 flex flex-1 -translate-y-px border-b border-gray-100" />
+						<div>
+							{@html getStatusReport(modelLoadInfo, azureState, true)}
+						</div>
 					</div>
-					<div class="border-dotter mx-2 flex flex-1 -translate-y-px border-b border-gray-100" />
-					<div>
-						{@html getStatusReport(modelLoadInfo, azureState, true)}
-					</div>
-				</div>
-			{:else if computeTime}
-				Computation time on {getComputeTypeMsg()}: {computeTime}
-			{:else}
-				{@html getStatusReport(modelLoadInfo, state)}
-			{/if}
-		</div>
-	{/if}
-	{#if error}
-		<div class="alert alert-error mt-3">{error}</div>
-	{/if}
-</div>
+				{:else if computeTime}
+					Computation time on {getComputeTypeMsg()}: {computeTime}
+				{:else}
+					{@html getStatusReport(modelLoadInfo, state)}
+				{/if}
+			</div>
+		{/if}
+		{#if error}
+			<div class="alert alert-error mt-3">{error}</div>
+		{/if}
+	</div>
+{/if}

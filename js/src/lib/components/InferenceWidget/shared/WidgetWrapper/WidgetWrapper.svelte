@@ -55,15 +55,12 @@
 		inputGroups.length === 1 ? inputGroups[0] : inputGroups.find(({ group }) => group === selectedInputGroup);
 
 	onMount(() => {
-		if (noModelLoading) {
-			modelLoadInfo = { state: "ignored" };
-			return;
+		if (!noModelLoading) {
+			(async () => {
+				modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
+				$modelLoadStates[model.id] = modelLoadInfo;
+			})();
 		}
-
-		(async () => {
-			modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
-			$modelLoadStates[model.id] = modelLoadInfo;
-		})();
 	});
 
 	function onClickMaximizeBtn() {
@@ -74,7 +71,7 @@
 <div
 	class="flex w-full max-w-full flex-col
 	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}
-	{!modelLoadInfo ? 'hidden' : ''}"
+	{!modelLoadInfo ? 'invisible' : ''}"
 >
 	{#if modelLoadInfo?.state === "TooBig"}
 		<p class="text-sm text-gray-500">
