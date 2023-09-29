@@ -1,9 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
-	import type {
-		WidgetExampleStructuredDataInput,
-		WidgetExampleOutputLabels,
-	} from "../../shared/WidgetExample";
+	import type { WidgetExampleStructuredDataInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
