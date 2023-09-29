@@ -62,7 +62,10 @@
 		}
 	});
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput(
+		{ withModelLoading = false, isOnLoadCall = false } = {},
+		parameters?: WidgetExampleTextInput["parameters"]
+	) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -76,9 +79,11 @@
 			updateUrl({ text: trimmedText });
 		}
 
-		const requestBody = { inputs: trimmedText };
+		const requestBody: { inputs: string; parameters?: Record<string, any> } = { inputs: trimmedText };
 		addInferenceParameters(requestBody, model);
-
+		if (parameters) {
+			requestBody.parameters = { ...requestBody.parameters, ...parameters };
+		}
 		isLoading = true;
 
 		const res = await getResponse(
@@ -114,7 +119,7 @@
 				isLoading: true,
 				estimatedTime: res.estimatedTime,
 			};
-			getOutput({ withModelLoading: true });
+			getOutput({ withModelLoading: true }, parameters);
 		} else if (res.status === "error") {
 			error = res.error;
 		}
@@ -230,7 +235,7 @@
 
 	function applyInputSample(sample: WidgetExampleTextInput) {
 		setTextAreaValue(sample.text);
-		getOutput();
+		getOutput({}, sample.parameters);
 	}
 </script>
 
