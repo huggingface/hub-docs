@@ -14,7 +14,7 @@
 	let title = "Examples";
 
 	$: {
-		// reset title on inputSamples change (i.e. input group change)s
+		// reset title on inputSamples change (i.e. input group change)
 		inputSamples;
 		title = "Examples";
 	}
