@@ -70,8 +70,7 @@
 
 <div
 	class="flex w-full max-w-full flex-col
-	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}
-	{!modelLoadInfo ? 'invisible' : ''}"
+	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}"
 >
 	{#if modelLoadInfo?.state === "TooBig"}
 		<p class="text-sm text-gray-500">
