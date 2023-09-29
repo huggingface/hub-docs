@@ -67,15 +67,23 @@ them as:
 
 ```yaml
 widget:
-- src: https://huggingface.co/username/model_repo/resolve/main/sample1.flac
-  example_title: Custom Speech Sample 1
+  - src: https://huggingface.co/username/model_repo/resolve/main/sample1.flac
+    example_title: Custom Speech Sample 1
 ```
 
 But even more convenient, if the file lives in the corresponding model repo, you can just use the filename or file path inside the repo:
+
 ```yaml
 widget:
-- src: sample1.flac
-  example_title: Custom Speech Sample 1
+  - src: sample1.flac
+    example_title: Custom Speech Sample 1
+```
+
+or if it was nested inside the repo:
+
+```yaml
+widget:
+  - src: nested/directory/sample1.flac
 ```
 
 We provide example inputs for some languages and most widget types in [the DefaultWidget.ts file](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/DefaultWidget.ts). If some examples are missing, we welcome PRs from the community to add them!
@@ -90,15 +98,35 @@ For instance, for an automatic-speech-recognition model:
 
 ```yaml
 widget:
-- src: sample1.flac
-  output: "Hello my name is Julien"
+  - src: sample1.flac
+    output:
+      text: "Hello my name is Julien"
 ```
 
-The `output` property supports:
-- a JSON-encoded string that represents the full Inference API output
-- a YAML dictionary that represents the full Inference API output
-- (not sure) as a special case, for models that output text, a string of text
-- (not sure) as a special case, for models that output an image, a src filename to a file inside the repo.
+The `output` property should be a YAML dictionary that represents the Inference API output.
+
+For a model that outputs text, see the example above.
+
+For a model that outputs labels (like a text-classification model for instance), output should look like this:
+
+```yaml
+widget:
+  - text: "I liked this movie"
+    output:
+      - label: POSITIVE
+        score: 0.8
+      - label: NEGATIVE
+        score: 0.2
+```
+
+Finally, for a model that outputs an image, audio, or any other kind of asset, output should include a `url` property linking to either a file name or path inside the repo, or a remote URL. For example for a text-to-image model:
+
+```yaml
+widget:
+  - text: "picture of a futuristic tiger, artstation"
+    output:
+      url: images/tiger.jpg
+```
 
 <!-- todo(add a screenshot) -->
 
