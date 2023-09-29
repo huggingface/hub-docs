@@ -20,22 +20,22 @@ which display on the Hub as
 
 ![](./assets/license_other_example.png)
 
-The goal of this challenge is to improvement the compleness of this metadata on the Hub which will ultimately benefit to all users.                                                                     
+This challenge aims to improve the completeness of this metadata on the Hub, which will ultimately benefit all users.                                                                     
 
 ## How to contribute?
 
-How to do it in practice? That's simple! We have listed below models that have `license:other` in their metadata and that contains a LICENSE file in the repo. Those models require an update in their metadata to describe which license is attached to it.
+How to do it in practice? That's simple! We have listed models below that have `license:other` in their metadata and contain a LICENSE file in the repo. Those models require an update in their metadata to describe which license is attached.
 
 For each model, the workflow looks like this:
 1. Choose a model in the list below. For maximum impact, let's focus on the most downloaded or liked models first.
 2. Check that the model doesn't already have a PR to update the license. Maybe another contributor already checked it!
 3. Find the corresponding license. URLs to the LICENSE file(s) in the repo is provided to ease the search.
-   1. Note: the table provides a suggestion of name/url for Llama models. It doesn't mean that the suggestion is accurate. It is to be double-checked correctly.
-4. Check which license apply to the model. Attributes are:
+   1. Note: the table suggests the name/URL for Llama models. It doesn't mean that the suggestion is accurate. It is to be double-checked correctly.
+4. Check which license applies to the model. Attributes are:
    1. `license_name` (short, lowercase, without spaces). Example: `"coqui-public-model-license"`
-   2. `license_link`. If possible a URL owned by the author is better (example: `"https://ai.meta.com/llama/license"` for the Llama2 license). Otherwise, linking to the LICENSE file in the repo is fine a well.
+   2. `license_link`. If possible, a URL owned by the author is better (for example: `"https://ai.meta.com/llama/license"` for the Llama2 license). Otherwise, linking to the LICENSE file in the repo is also fine.
 5. Open a PR on the Hub, describing the intent and suggesting a modification to the repo author. Here are 2 example for [XTTS-v1](https://huggingface.co/coqui/XTTS-v1/discussions/10/files) and [stable-diffusion-xl-base-0.9](https://huggingface.co/stabilityai/stable-diffusion-xl-base-0.9/discussions/58) models.
-6. Once done, open a PR on Github to update the table below. Once merged, this will count as an Hacktoberfest contribution! In the PR, add the `pr_url` (the one on the Hub) and a status (opened, merged, closed).
+6. Once done, open a PR on GitHub to update the table below. Once merged, this will count as a Hacktoberfest contribution! In the PR, add the `pr_url` (the one on the Hub) and a status (opened, merged, closed).
 
 ## F.A.Q.
 
