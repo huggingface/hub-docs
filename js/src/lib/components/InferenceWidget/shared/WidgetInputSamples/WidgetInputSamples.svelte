@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" generics="T extends WidgetExample">
 	import type { WidgetExample } from "../WidgetExample";
 
 	import { slide } from "svelte/transition";
@@ -8,8 +8,8 @@
 	export let classNames = "";
 	export let isLoading = false;
 	export let inputSamples: WidgetExample[];
-	export let applyInputSample: (sample: WidgetExample) => void;
-	export let previewInputSample: (sample: WidgetExample) => void;
+	export let applyInputSample: (sample: T) => void;
+	export let previewInputSample: (sample: T) => void;
 
 	let containerEl: HTMLElement;
 	let isOptionsVisible = false;
@@ -25,12 +25,12 @@
 		hideOptions();
 		const sample = inputSamples[idx];
 		title = sample.example_title as string;
-		applyInputSample(sample);
+		applyInputSample(sample as T);
 	}
 
 	function _previewInputSample(idx: number) {
 		const sample = inputSamples[idx];
-		previewInputSample(sample);
+		previewInputSample(sample as T);
 	}
 
 	function toggleOptionsVisibility() {

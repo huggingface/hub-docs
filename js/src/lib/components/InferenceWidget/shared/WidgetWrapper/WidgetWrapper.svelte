@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" generics="T extends WidgetExample">
 	import type { WidgetProps, ModelLoadInfo } from "../types";
 	import type { WidgetExample } from "../WidgetExample";
 
@@ -26,8 +26,8 @@
 	};
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (sample: WidgetExample) => void = () => {};
-	export let previewInputSample: (sample: WidgetExample) => void = () => {};
+	export let applyInputSample: (sample: T) => void = () => {};
+	export let previewInputSample: (sample: T) => void = () => {};
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
