@@ -1,5 +1,5 @@
 <script lang="ts" generics="TWidgetExample extends WidgetExample">
-	import { WidgetExample } from "../WidgetExample";
+	import type { WidgetExample } from "../WidgetExample";
 
 	import { slide } from "svelte/transition";
 
