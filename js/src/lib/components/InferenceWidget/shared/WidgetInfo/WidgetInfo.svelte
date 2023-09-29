@@ -9,7 +9,6 @@
 	export let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 
 	const state = {
-		ignored: "",
 		Loadable: "This model can be loaded on the Inference API on-demand.",
 		Loaded: "This model is currently loaded and running on the Inference API.",
 		TooBig:
@@ -18,7 +17,6 @@
 	} as const;
 
 	const azureState = {
-		ignored: "",
 		Loadable: "This model can be loaded loaded on AzureML Managed Endpoint",
 		Loaded: "This model is loaded and running on AzureML Managed Endpoint",
 		TooBig:
