@@ -7,7 +7,7 @@
 
 	export let classNames = "";
 	export let isLoading = false;
-	export let inputSamples: WidgetExample[];
+	export let inputSamples: T[];
 	export let applyInputSample: (sample: T) => void;
 	export let previewInputSample: (sample: T) => void;
 
@@ -16,7 +16,7 @@
 	let title = "Examples";
 
 	$: {
-		// reset title on inputSamples change (i.e. input group change)
+		// reset title on inputSamples change (i.e. input group change)s
 		inputSamples;
 		title = "Examples";
 	}
@@ -25,12 +25,12 @@
 		hideOptions();
 		const sample = inputSamples[idx];
 		title = sample.example_title as string;
-		applyInputSample(sample as T);
+		applyInputSample(sample);
 	}
 
 	function _previewInputSample(idx: number) {
 		const sample = inputSamples[idx];
-		previewInputSample(sample as T);
+		previewInputSample(sample);
 	}
 
 	function toggleOptionsVisibility() {

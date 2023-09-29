@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleAssetInputTextOutput } from "../../shared/WidgetExample";
+	import type { WidgetExampleAssetInput, WidgetExampleOutputText } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -123,7 +123,7 @@
 		throw new TypeError("Invalid output: output must be of type <text:string>");
 	}
 
-	function applyInputSample(sample: WidgetExampleAssetInputTextOutput) {
+	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputText>) {
 		file = null;
 		filename = sample.example_title!;
 		fileUrl = sample.src;
@@ -131,7 +131,7 @@
 		getOutput();
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetInputTextOutput) {
+	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputText>) {
 		filename = sample.example_title!;
 		fileUrl = sample.src;
 		if (isValidOutputText(sample.output)) {

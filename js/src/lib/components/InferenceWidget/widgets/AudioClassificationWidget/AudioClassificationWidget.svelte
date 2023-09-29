@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleAssetInputLabelsOutput } from "../../shared/WidgetExample";
+	import type { WidgetExampleAssetInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -121,7 +121,7 @@
 		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
-	function applyInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
+	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
 		file = null;
 		filename = sample.example_title!;
 		fileUrl = sample.src;
@@ -129,7 +129,7 @@
 		getOutput();
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
+	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
 		filename = sample.example_title!;
 		fileUrl = sample.src;
 		if (isValidOutputLabels(sample.output)) {
@@ -169,7 +169,7 @@
 		<form>
 			<div class="flex flex-wrap items-center">
 				<WidgetFileInput accept="audio/*" classNames="mt-1.5 mr-2" {onSelectFile} />
-				<span class="mt-1.5 mr-2">or</span>
+				<span class="mr-2 mt-1.5">or</span>
 				<WidgetRecorder classNames="mt-1.5" {onRecordStart} onRecordStop={onSelectFile} onError={onRecordError} />
 			</div>
 			{#if fileUrl}
