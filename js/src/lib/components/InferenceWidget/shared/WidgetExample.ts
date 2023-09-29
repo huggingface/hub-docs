@@ -20,7 +20,6 @@ export type WidgetExampleOutput =
 	| WidgetExampleOutputUrl;
 //#endregion
 
-
 export interface WidgetExampleBase<TOutput> {
 	example_title?: string;
 	group?:         string;
@@ -32,36 +31,36 @@ export interface WidgetExampleTextInput<TOutput = WidgetExampleOutput> extends W
 }
 
 export interface WidgetExampleTextAndContextInput<TOutput> extends WidgetExampleBase<TOutput> {
-	text:     string;
- 	context: string;
+	text:    string;
+	context: string;
 }
 
-export interface WidgetExampleAssetInput<TOutput > extends WidgetExampleBase<TOutput> {
+export interface WidgetExampleAssetInput<TOutput> extends WidgetExampleBase<TOutput> {
 	src: string;
 }
 
-export interface WidgetExampleStructuredDataInput<TOutput > extends WidgetExampleBase<TOutput> {
+export interface WidgetExampleStructuredDataInput<TOutput> extends WidgetExampleBase<TOutput> {
 	structuredData: TableData;
 }
 
-export interface WidgetExampleTableDataInput<TOutput > extends WidgetExampleBase<TOutput> {
+export interface WidgetExampleTableDataInput<TOutput> extends WidgetExampleBase<TOutput> {
 	table: TableData;
 }
 
-export interface WidgetExampleZeroShotTextInput<TOutput > extends WidgetExampleBase<TOutput> {
+export interface WidgetExampleZeroShotTextInput<TOutput> extends WidgetExampleBase<TOutput> {
 	text:             string;
 	candidate_labels: string;
 	multi_class:      boolean;
 }
 
-export interface WidgetExampleSentenceSimilarityInput<TOutput > extends WidgetExampleBase<TOutput> {
+export interface WidgetExampleSentenceSimilarityInput<TOutput> extends WidgetExampleBase<TOutput> {
 	source_sentence: string;
 	sentences:       string[];
 }
 
 //#endregion
 
-export type WidgetExample  =
+export type WidgetExample =
 	| WidgetExampleTextInput<WidgetExampleOutput>
 	| WidgetExampleTextAndContextInput<WidgetExampleOutput>
 	| WidgetExampleTextInput<WidgetExampleOutput>
