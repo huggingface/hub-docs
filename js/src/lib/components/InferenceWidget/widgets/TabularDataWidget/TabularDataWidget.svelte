@@ -3,7 +3,6 @@
 	import type {
 		WidgetExampleStructuredDataInput,
 		WidgetExampleOutputLabels,
-		WidgetExampleOutput,
 	} from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -184,11 +183,11 @@
 		}, {});
 	}
 
-	function previewInputSample(sample: WidgetExampleStructuredDataInput<WidgetExampleOutput>) {
+	function previewInputSample(sample: WidgetExampleStructuredDataInput) {
 		table = convertDataToTable(sample.structuredData);
 	}
 
-	function applyInputSample(sample: WidgetExampleStructuredDataInput<WidgetExampleOutput>) {
+	function applyInputSample(sample: WidgetExampleStructuredDataInput) {
 		table = convertDataToTable(sample.structuredData);
 		getOutput();
 	}

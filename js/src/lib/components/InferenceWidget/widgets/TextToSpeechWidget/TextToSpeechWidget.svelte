@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleOutput, WidgetExampleTextInput } from "../../shared/WidgetExample";
+	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -9,7 +9,7 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
-import { isTextInput } from "../../shared/inputValidation";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -104,11 +104,11 @@ import { isTextInput } from "../../shared/inputValidation";
 		throw new TypeError("Invalid output: output must be of type object & instance of Blob");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutput>) {
+	function previewInputSample(sample: WidgetExampleTextInput) {
 		setTextAreaValue(sample.text);
 	}
 
-	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutput>) {
+	function applyInputSample(sample: WidgetExampleTextInput) {
 		setTextAreaValue(sample.text);
 		getOutput();
 	}

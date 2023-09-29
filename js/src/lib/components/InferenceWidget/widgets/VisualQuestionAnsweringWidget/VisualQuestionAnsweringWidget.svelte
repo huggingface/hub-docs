@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type {
-		WidgetExampleAssetAndTextInput,
-		WidgetExampleOutput} from "../../shared/WidgetExample";
+	import type { WidgetExampleAssetAndTextInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -12,7 +10,7 @@
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse } from "../../shared/helpers";
-import { isAssetAndTextInput } from "../../shared/inputValidation";
+	import { isAssetAndTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -69,12 +67,12 @@ import { isAssetAndTextInput } from "../../shared/inputValidation";
 		throw new TypeError("Invalid output: output must be of type Array<answer: string, score:number>");
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetAndTextInput<WidgetExampleOutput>) {
+	function previewInputSample(sample: WidgetExampleAssetAndTextInput) {
 		question = sample.text;
 		imgSrc = sample.src;
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetAndTextInput<WidgetExampleOutput>) {
+	async function applyInputSample(sample: WidgetExampleAssetAndTextInput) {
 		question = sample.text;
 		imgSrc = sample.src;
 		const res = await fetch(imgSrc);

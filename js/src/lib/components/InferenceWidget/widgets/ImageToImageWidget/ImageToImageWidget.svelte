@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type {
-		WidgetExampleAssetAndPromptInput,
-		WidgetExampleOutput} from "../../shared/WidgetExample";
+	import type { WidgetExampleAssetAndPromptInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -12,7 +10,7 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse } from "../../shared/helpers";
-import { isAssetAndPromptInput } from "../../shared/inputValidation";
+	import { isAssetAndPromptInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -65,12 +63,12 @@ import { isAssetAndPromptInput } from "../../shared/inputValidation";
 		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetAndPromptInput<WidgetExampleOutput>) {
+	function previewInputSample(sample: WidgetExampleAssetAndPromptInput) {
 		prompt = sample.prompt;
 		imgSrc = sample.src;
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetAndPromptInput<WidgetExampleOutput>) {
+	async function applyInputSample(sample: WidgetExampleAssetAndPromptInput) {
 		prompt = sample.prompt;
 		imgSrc = sample.src;
 		const res = await fetch(imgSrc);

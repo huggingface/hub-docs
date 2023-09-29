@@ -121,7 +121,7 @@
 
 	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputLabels>) {
 		setTextAreaValue(sample.text);
-		if (isValidOutputLabels(sample.output)) {
+		if (sample.output) {
 			output = sample.output;
 		} else {
 			output = [];

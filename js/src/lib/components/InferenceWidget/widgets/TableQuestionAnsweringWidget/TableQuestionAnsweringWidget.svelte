@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
-	import type {
-		WidgetExampleOutput,
-		WidgetExampleTextAndTableInput} from "../../shared/WidgetExample";
+	import type { WidgetExampleTextAndTableInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -20,7 +18,7 @@
 		getSearchParams,
 		updateUrl,
 	} from "../../shared/helpers";
-import { isTextAndTableInput } from "../../shared/inputValidation";
+	import { isTextAndTableInput } from "../../shared/inputValidation";
 	interface Output {
 		aggregator?: string;
 		answer: string;
@@ -161,12 +159,12 @@ import { isTextAndTableInput } from "../../shared/inputValidation";
 		);
 	}
 
-	function previewInputSample(sample: WidgetExampleTextAndTableInput<WidgetExampleOutput>) {
+	function previewInputSample(sample: WidgetExampleTextAndTableInput) {
 		query = sample.text;
 		table = sample.table;
 	}
 
-	function applyInputSample(sample: WidgetExampleTextAndTableInput<WidgetExampleOutput>) {
+	function applyInputSample(sample: WidgetExampleTextAndTableInput) {
 		query = sample.text;
 		table = sample.table;
 		getOutput();

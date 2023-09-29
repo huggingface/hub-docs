@@ -1,13 +1,13 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleOutput, WidgetExampleTextInput } from "../../shared/WidgetExample";
+	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
-import { isTextInput } from "../../shared/inputValidation";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	import { DataTable } from "./DataTable";
 
@@ -122,11 +122,11 @@ import { isTextInput } from "../../shared/inputValidation";
 		return Math.ceil(total_elems / SINGLE_DIM_COLS);
 	};
 
-	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutput>) {
+	function previewInputSample(sample: WidgetExampleTextInput) {
 		text = sample.text;
 	}
 
-	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutput>) {
+	function applyInputSample(sample: WidgetExampleTextInput) {
 		text = sample.text;
 		getOutput();
 	}

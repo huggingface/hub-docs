@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleAssetInput, WidgetExampleOutput } from "../../shared/WidgetExample";
+	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -9,7 +9,7 @@
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
-import { isAssetInput } from "../../shared/inputValidation";
+	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -91,13 +91,13 @@ import { isAssetInput } from "../../shared/inputValidation";
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutput>) {
+	async function applyInputSample(sample: WidgetExampleAssetInput) {
 		imgSrc = sample.src;
 		const blob = await getBlobFromUrl(imgSrc);
 		getOutput(blob);
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutput>) {
+	function previewInputSample(sample: WidgetExampleAssetInput) {
 		imgSrc = sample.src;
 		output = "";
 		outputJson = "";

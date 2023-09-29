@@ -1,7 +1,6 @@
 <script lang="ts" generics="TWidgetExample extends WidgetExample">
-	import type { WidgetExample } from "../WidgetExample";
-
-	import { slide } from "svelte/transition";
+	
+import { slide } from "svelte/transition";
 
 	import IconCaretDownV2 from "../../../Icons/IconCaretDownV2.svelte";
 

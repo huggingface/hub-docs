@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleAssetInput, WidgetExampleOutput } from "../../shared/WidgetExample";
+	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -10,7 +10,7 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
-import { isAssetInput } from "../../shared/inputValidation";
+	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -126,7 +126,7 @@ import { isAssetInput } from "../../shared/inputValidation";
 		throw new TypeError("Invalid output: output must be of type Array<blob:string, label:string, content-type:string>");
 	}
 
-	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutput>) {
+	function applyInputSample(sample: WidgetExampleAssetInput) {
 		file = null;
 		filename = sample.example_title ?? "";
 		fileUrl = sample.src;
@@ -134,7 +134,7 @@ import { isAssetInput } from "../../shared/inputValidation";
 		getOutput();
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutput>) {
+	function previewInputSample(sample: WidgetExampleAssetInput) {
 		filename = sample.example_title ?? "";
 		fileUrl = sample.src;
 		output = [];

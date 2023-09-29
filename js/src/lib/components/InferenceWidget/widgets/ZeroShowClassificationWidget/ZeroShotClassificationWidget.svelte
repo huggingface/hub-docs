@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleOutput, WidgetExampleZeroShotTextInput } from "../../shared/WidgetExample";
+	import type { WidgetExampleZeroShotTextInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -149,13 +149,13 @@
 		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
-	function previewInputSample(sample: WidgetExampleZeroShotTextInput<WidgetExampleOutput>) {
+	function previewInputSample(sample: WidgetExampleZeroShotTextInput) {
 		candidateLabels = sample.candidate_labels;
 		multiClass = sample.multi_class;
 		setTextAreaValue(sample.text);
 	}
 
-	function applyInputSample(sample: WidgetExampleZeroShotTextInput<WidgetExampleOutput>) {
+	function applyInputSample(sample: WidgetExampleZeroShotTextInput) {
 		candidateLabels = sample.candidate_labels;
 		multiClass = sample.multi_class;
 		setTextAreaValue(sample.text);

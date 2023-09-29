@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleOutput, WidgetExampleSentenceSimilarityInput } from "../../shared/WidgetExample";
+	import type { WidgetExampleSentenceSimilarityInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -10,7 +10,7 @@
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse } from "../../shared/helpers";
-import { isSentenceSimilarityInput } from "../../shared/inputValidation";
+	import { isSentenceSimilarityInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -119,13 +119,13 @@ import { isSentenceSimilarityInput } from "../../shared/inputValidation";
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function previewInputSample(sample: WidgetExampleSentenceSimilarityInput<WidgetExampleOutput>) {
+	function previewInputSample(sample: WidgetExampleSentenceSimilarityInput) {
 		sourceSentence = sample.source_sentence;
 		comparisonSentences = sample.sentences;
 		nComparisonSentences = comparisonSentences.length;
 	}
 
-	function applyInputSample(sample: WidgetExampleSentenceSimilarityInput<WidgetExampleOutput>) {
+	function applyInputSample(sample: WidgetExampleSentenceSimilarityInput) {
 		sourceSentence = sample.source_sentence;
 		comparisonSentences = sample.sentences;
 		nComparisonSentences = comparisonSentences.length;
