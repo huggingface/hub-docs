@@ -68,7 +68,7 @@ export interface WidgetExampleTableDataInputLabelsOutput extends WidgetExampleBa
 
 export interface WidgetExampleZeroShotTextInputLabelsOutput extends WidgetExampleBase {
 	text:             string;
-	candidate_labels: string;
+	candidate_labels: string[];
 	multi_class:      boolean;
 	output?:          WidgetExampleOutputLabels;
 }
