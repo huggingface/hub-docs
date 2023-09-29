@@ -6,10 +6,10 @@ export interface WidgetExampleOutputAnswerScore {
 	answer: string;
 	score:  number;
 }
-export interface WidgetExampleOutputText  {
+export interface WidgetExampleOutputText {
 	text: string;
 }
-export interface WidgetExampleOutputUrl  {
+export interface WidgetExampleOutputUrl {
 	url: string;
 }
 
@@ -27,7 +27,7 @@ export interface WidgetExampleBase<TOutput> {
 	output?:        TOutput;
 }
 
-export interface WidgetExampleTextInput<TOutput> extends WidgetExampleBase<TOutput> {
+export interface WidgetExampleTextInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
 	text: string;
 }
 
