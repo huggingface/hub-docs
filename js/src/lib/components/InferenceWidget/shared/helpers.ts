@@ -62,6 +62,7 @@ async function callApi(
 	includeCredentials = false,
 	isOnLoadCall = false,
 	appendRepoPath = true,
+	accept?: string,
 ): Promise<Response> {
 	const contentType =
 		"file" in requestBody && "type" in requestBody["file"] ? requestBody["file"]["type"] : "application/json";
@@ -79,6 +80,9 @@ async function callApi(
 	}
 	if (isOnLoadCall) {
 		headers.set("X-Load-Model", "0");
+	}
+	if (accept) {
+		headers.set("Accept", accept);
 	}
 
 	const body: File | string = "file" in requestBody ? requestBody.file : JSON.stringify(requestBody);
@@ -102,6 +106,7 @@ export async function getResponse<T>(
 	isOnLoadCall = false, // If true, the server will try to answer from cache and not do anything if not
 	useCache = true,
 	appendRepoPath = true,
+	accept?: string,
 ): Promise<
 	| {
 			computeTime: string;
@@ -133,6 +138,7 @@ export async function getResponse<T>(
 		includeCredentials,
 		isOnLoadCall,
 		appendRepoPath,
+		accept,
 	);
 
 	if (response.ok) {

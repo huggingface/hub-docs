@@ -1,6 +1,7 @@
 import type { ModelData } from "../../../interfaces/Types";
 
 export interface WidgetProps {
+	accept?:            string;
 	apiToken?:          string;
 	apiUrl:             string;
 	callApiOnMount:     boolean;
