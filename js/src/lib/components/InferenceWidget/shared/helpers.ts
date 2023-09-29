@@ -244,7 +244,7 @@ export function convertDataToTable(data: TableData): (string | number)[][] {
 		.map((_, y) =>
 			Array(nbCols)
 				.fill("")
-				.map((_, x) => {
+				.map((__, x) => {
 					return (y === 0 ? dataArray[x]?.[0] : dataArray[x]?.[1]?.[y - 1]) ?? "";
 				})
 		);
