@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
 	import type { PipelineType } from "../../../../interfaces/Types";
-	import type { WidgetExampleTextInputTextOutput } from "../../shared/WidgetExample";
+	import type { WidgetExampleTextInput, WidgetExampleOutputText } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -164,7 +164,7 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextInputTextOutput) {
+	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
 		setTextAreaValue(sample.text);
 		if (isValidOutputText(sample.output)) {
 			output = sample.output.text;
@@ -176,7 +176,7 @@
 		}
 	}
 
-	function applyInputSample(sample: WidgetExampleTextInputTextOutput) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
 		setTextAreaValue(sample.text);
 		getOutput({ useCache });
 	}

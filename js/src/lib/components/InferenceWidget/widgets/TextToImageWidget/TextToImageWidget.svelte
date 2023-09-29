@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleTextInputUrlOutput } from "../../shared/WidgetExample";
+	import type { WidgetExampleTextInput, WidgetExampleOutputUrl } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -102,7 +102,7 @@
 		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextInputUrlOutput) {
+	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputUrl>) {
 		text = sample.text;
 		if (isValidOutputUrl(sample.output)) {
 			output = sample.output.url;
@@ -111,7 +111,7 @@
 		}
 	}
 
-	function applyInputSample(sample: WidgetExampleTextInputUrlOutput) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputUrl>) {
 		text = sample.text;
 		getOutput();
 	}

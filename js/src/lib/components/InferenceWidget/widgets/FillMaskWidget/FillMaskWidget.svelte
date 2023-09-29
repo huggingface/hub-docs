@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleTextInputLabelsOutput } from "../../shared/WidgetExample";
+	import type { WidgetExampleTextInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -118,7 +118,7 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextInputLabelsOutput) {
+	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputLabels>) {
 		setTextAreaValue(sample.text);
 		if (isValidOutputLabels(sample.output)) {
 			output = sample.output;
@@ -127,7 +127,7 @@
 		}
 	}
 
-	function applyInputSample(sample: WidgetExampleTextInputLabelsOutput) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputLabels>) {
 		setTextAreaValue(sample.text);
 		getOutput();
 	}

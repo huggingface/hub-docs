@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
-	import type { WidgetExampleStructuredDataInputLabelsOutput } from "../../shared/WidgetExample";
+	import type { WidgetExampleStructuredDataInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -25,7 +25,7 @@
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
 
-	const widgetData = model?.widgetData?.[0] as WidgetExampleStructuredDataInputLabelsOutput | undefined;
+	const widgetData = model?.widgetData?.[0] as WidgetExampleStructuredDataInput<WidgetExampleOutputLabels> | undefined;
 	const columns: string[] = Object.keys(widgetData?.structuredData ?? {});
 
 	let computeTime = "";

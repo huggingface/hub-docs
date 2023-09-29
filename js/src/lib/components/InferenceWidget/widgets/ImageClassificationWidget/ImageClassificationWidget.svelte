@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleAssetInputLabelsOutput } from "../../shared/WidgetExample";
+	import type { WidgetExampleAssetInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -90,13 +90,13 @@
 		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
+	async function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
 		imgSrc = sample.src;
 		const blob = await getBlobFromUrl(imgSrc);
 		getOutput(blob);
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
+	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
 		imgSrc = sample.src;
 		if (isValidOutputLabels(sample.output)) {
 			output = sample.output;
