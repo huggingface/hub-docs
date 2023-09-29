@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleAssetInput, WidgetExampleOutputText } from "../../shared/WidgetExample";
+	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputText } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -147,6 +147,10 @@
 		modelLoading = { isLoading, estimatedTime };
 	}
 
+	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputText> {
+		return "src" in sample;
+	}
+
 	onMount(() => {
 		const [exampleTitle, src] = getDemoInputs(model, ["example_title", "src"]);
 		if (callApiOnMount && src) {
@@ -170,6 +174,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	{validateExample}
 >
 	<svelte:fragment slot="top">
 		<form>

@@ -1,6 +1,7 @@
-<script lang="ts" generics="T extends WidgetExample">
+<script lang="ts">
 	import type { WidgetProps, ModelLoadInfo } from "../types";
 	import type { WidgetExample } from "../WidgetExample";
+	type T = $$Generic<WidgetExample>;
 
 	import { onMount } from "svelte";
 
@@ -28,12 +29,14 @@
 	export let outputJson: string;
 	export let applyInputSample: (sample: T) => void = () => {};
 	export let previewInputSample: (sample: T) => void = () => {};
+	export let validateExample: (sample: WidgetExample) => sample is T;
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
 
-	const inputSamples: WidgetExample[] = (model.widgetData ?? [])
+	const inputSamples = (model.widgetData ?? [])
+		.filter(validateExample)
 		.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
 		.map((sample, idx) => ({
 			example_title: `Example ${++idx}`,
@@ -41,7 +44,10 @@
 			...sample,
 		}));
 
-	const inputGroups: { group: string; inputSamples: WidgetExample[] }[] = [];
+	const inputGroups: {
+		group: string;
+		inputSamples: T[];
+	}[] = [];
 	for (const inputSample of inputSamples) {
 		const isExist = inputGroups.find(({ group }) => group === inputSample.group);
 		if (!isExist) {
@@ -80,7 +86,7 @@
 		</p>
 	{:else}
 		{#if isMaximized}
-			<button class="absolute top-6 right-12" on:click={onClickMaximizeBtn}>
+			<button class="absolute right-12 top-6" on:click={onClickMaximizeBtn}>
 				<IconCross classNames="text-xl text-gray-500 hover:text-black" />
 			</button>
 		{/if}

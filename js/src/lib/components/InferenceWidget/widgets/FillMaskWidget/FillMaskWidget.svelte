@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleTextInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
+	import type { WidgetExampleTextInput, WidgetExampleOutputLabels, WidgetExample } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -131,6 +131,10 @@
 		setTextAreaValue(sample.text);
 		getOutput();
 	}
+
+	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputLabels> {
+		return "text" in sample;
+	}
 </script>
 
 <WidgetWrapper
@@ -145,6 +149,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	{validateExample}
 >
 	<svelte:fragment slot="top">
 		<form>

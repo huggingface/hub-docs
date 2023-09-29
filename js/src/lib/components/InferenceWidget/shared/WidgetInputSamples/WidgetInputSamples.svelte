@@ -1,4 +1,7 @@
-<script lang="ts" generics="T extends WidgetExample">
+<script lang="ts">
+	import type { WidgetExample } from "../WidgetExample";
+	type T = $$Generic<WidgetExample>;
+
 	import { slide } from "svelte/transition";
 
 	import IconCaretDownV2 from "../../../Icons/IconCaretDownV2.svelte";

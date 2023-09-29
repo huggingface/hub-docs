@@ -60,12 +60,12 @@ export interface WidgetExampleSentenceSimilarityInput<TOutput> extends WidgetExa
 
 //#endregion
 
-export type WidgetExample =
-	| WidgetExampleTextInput<WidgetExampleOutput>
-	| WidgetExampleTextAndContextInput<WidgetExampleOutput>
-	| WidgetExampleTextInput<WidgetExampleOutput>
-	| WidgetExampleAssetInput<WidgetExampleOutput>
-	| WidgetExampleStructuredDataInput<WidgetExampleOutput>
-	| WidgetExampleTableDataInput<WidgetExampleOutput>
-	| WidgetExampleZeroShotTextInput<WidgetExampleOutput>
-	| WidgetExampleSentenceSimilarityInput<WidgetExampleOutput>;
+export type WidgetExample<TOutput = WidgetExampleOutput> =
+	| WidgetExampleTextInput<TOutput>
+	| WidgetExampleTextAndContextInput<TOutput>
+	| WidgetExampleTextInput<TOutput>
+	| WidgetExampleAssetInput<TOutput>
+	| WidgetExampleStructuredDataInput<TOutput>
+	| WidgetExampleTableDataInput<TOutput>
+	| WidgetExampleZeroShotTextInput<TOutput>
+	| WidgetExampleSentenceSimilarityInput<TOutput>;
