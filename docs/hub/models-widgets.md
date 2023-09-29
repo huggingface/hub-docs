@@ -92,9 +92,10 @@ We provide example inputs for some languages and most widget types in [the Defau
 
 As an extension to example inputs, for each widget example, you can also optionally describe the corresponding model output, direcly in the `output` property.
 
-This is useful when the model is not yet supported by the Inference API (for instance, the model library is not yet supported, or the model is too large), so that the model page can still showcase how the model works and what results it gives.
+This is useful when the model is not yet supported by the Inference API (for instance, the model library is not yet supported or the model is too large) so that the model page can still showcase how the model works and what results it gives.
 
-For instance, for an automatic-speech-recognition model:
+
+For instance, for an [automatic-speech-recognition](./models-widgets-examples#automatic-speech-recognition) model:
 
 ```yaml
 widget:
@@ -107,7 +108,7 @@ The `output` property should be a YAML dictionary that represents the Inference 
 
 For a model that outputs text, see the example above.
 
-For a model that outputs labels (like a text-classification model for instance), output should look like this:
+For a model that outputs labels (like a [text-classification](./models-widgets-examples#text-classification) model for instance), output should look like this:
 
 ```yaml
 widget:
