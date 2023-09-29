@@ -1,5 +1,5 @@
 
-# License improvement challence
+# Model `license:other` challenge
 
 ## Context
 
@@ -50,6 +50,8 @@ There is no clear answer for that. You can either check other related models, di
 ### Can I use a script to automate the process?
 
 Yes it's perfectly possible to use a script to automate things! But don't forget that in this end only **some of the process** can be automated. The PRs you open will be manually reviewed. It's important to not pollute the repo owners with unchecked information.
+
+To help with the programmatic approach, we've also exported the list [as CSV](./model_license_other.csv). This CSV will not be updated with the latest information on this page.
 
 ## Model list
 
