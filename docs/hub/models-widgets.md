@@ -86,7 +86,7 @@ As an extension to example inputs, for each widget example, you can also optiona
 
 This is useful when the model is not yet supported by the Inference API (for instance, the model library is not yet supported, or the model is too large), so that the model page can still showcase how the model works and what results it gives.
 
-For instance, for an automatic-speec-recognition model:
+For instance, for an automatic-speech-recognition model:
 
 ```yaml
 widget:
