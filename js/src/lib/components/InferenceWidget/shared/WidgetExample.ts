@@ -12,83 +12,78 @@ export interface WidgetExampleOutputText {
 export interface WidgetExampleOutputUrl {
 	url: string;
 }
+
+export type WidgetExampleOutput =
+	| WidgetExampleOutputLabels
+	| WidgetExampleOutputAnswerScore
+	| WidgetExampleOutputText
+	| WidgetExampleOutputUrl;
 //#endregion
 
-export interface WidgetExampleBase {
+export interface WidgetExampleBase<TOutput> {
 	example_title?: string;
 	group?:         string;
+	output?:        TOutput;
 }
 
-export interface WidgetExampleTextInputLabelsOutput extends WidgetExampleBase {
-	text:    string;
-	output?: WidgetExampleOutputLabels;
+export interface WidgetExampleTextInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
+	text: string;
 }
 
-export interface WidgetExampleTextAndContextInputAnswerScoreOutput extends WidgetExampleBase {
-	text:    string;
+export interface WidgetExampleTextAndContextInput<TOutput = WidgetExampleOutput>
+	extends WidgetExampleTextInput<TOutput> {
 	context: string;
-	output?: WidgetExampleOutputAnswerScore;
 }
 
-export interface WidgetExampleTextInputTextOutput extends WidgetExampleBase {
-	text:    string;
-	output?: WidgetExampleOutputText;
+export interface WidgetExampleTextAndTableInput<TOutput = WidgetExampleOutput> extends WidgetExampleTextInput<TOutput> {
+	table: (string | number)[][];
 }
 
-export interface WidgetExampleTextInputUrlOutput extends WidgetExampleBase {
-	text:    string;
-	output?: WidgetExampleOutputUrl;
+export interface WidgetExampleAssetInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
+	src: string;
+}
+export interface WidgetExampleAssetAndPromptInput<TOutput = WidgetExampleOutput>
+	extends WidgetExampleAssetInput<TOutput> {
+	prompt: string;
 }
 
-export interface WidgetExampleAssetInputLabelsOutput extends WidgetExampleBase {
-	src:     string;
-	output?: WidgetExampleOutputLabels;
-}
+export type WidgetExampleAssetAndTextInput<TOutput = WidgetExampleOutput> = WidgetExampleAssetInput<TOutput> &
+	WidgetExampleTextInput<TOutput>;
 
-export interface WidgetExampleAssetInputTextOutput extends WidgetExampleBase {
-	src:     string;
-	output?: WidgetExampleOutputText;
-}
+export type WidgetExampleAssetAndZeroShotInput<TOutput = WidgetExampleOutput> = WidgetExampleAssetInput<TOutput> &
+	WidgetExampleZeroShotTextInput<TOutput>;
 
-export interface WidgetExampleAssetInputUrlOutput extends WidgetExampleBase {
-	src:     string;
-	output?: WidgetExampleOutputUrl;
-}
-
-//#region more exotic stuff
-export interface WidgetExampleStructuredDataInputLabelsOutput extends WidgetExampleBase {
+export interface WidgetExampleStructuredDataInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
 	structuredData: TableData;
-	output?:        WidgetExampleOutputLabels;
 }
 
-export interface WidgetExampleTableDataInputLabelsOutput extends WidgetExampleBase {
-	table:   TableData;
-	output?: WidgetExampleOutputLabels;
+export interface WidgetExampleTableDataInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
+	table: TableData;
 }
 
-export interface WidgetExampleZeroShotTextInputLabelsOutput extends WidgetExampleBase {
+export interface WidgetExampleZeroShotTextInput<TOutput = WidgetExampleOutput> extends WidgetExampleTextInput<TOutput> {
 	text:             string;
 	candidate_labels: string;
 	multi_class:      boolean;
-	output?:          WidgetExampleOutputLabels;
 }
 
-export interface WidgetExampleSentenceSimilarityInputLabelsOutput extends WidgetExampleBase {
+export interface WidgetExampleSentenceSimilarityInput<TOutput = WidgetExampleOutput>
+	extends WidgetExampleBase<TOutput> {
 	source_sentence: string;
 	sentences:       string[];
-	output?:         WidgetExampleOutputLabels;
 }
+
 //#endregion
 
-export type WidgetExample =
-	| WidgetExampleTextInputLabelsOutput
-	| WidgetExampleTextAndContextInputAnswerScoreOutput
-	| WidgetExampleTextInputTextOutput
-	| WidgetExampleTextInputUrlOutput
-	| WidgetExampleAssetInputLabelsOutput
-	| WidgetExampleAssetInputTextOutput
-	| WidgetExampleAssetInputUrlOutput
-	| WidgetExampleStructuredDataInputLabelsOutput
-	| WidgetExampleTableDataInputLabelsOutput
-	| WidgetExampleZeroShotTextInputLabelsOutput
-	| WidgetExampleSentenceSimilarityInputLabelsOutput;
+export type WidgetExample<TOutput = WidgetExampleOutput> =
+	| WidgetExampleTextInput<TOutput>
+	| WidgetExampleTextAndContextInput<TOutput>
+	| WidgetExampleTextAndTableInput<TOutput>
+	| WidgetExampleAssetInput<TOutput>
+	| WidgetExampleAssetAndPromptInput<TOutput>
+	| WidgetExampleAssetAndTextInput<TOutput>
+	| WidgetExampleAssetAndZeroShotInput<TOutput>
+	| WidgetExampleStructuredDataInput<TOutput>
+	| WidgetExampleTableDataInput<TOutput>
+	| WidgetExampleZeroShotTextInput<TOutput>
+	| WidgetExampleSentenceSimilarityInput<TOutput>;

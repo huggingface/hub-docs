@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleAssetInputLabelsOutput } from "../../shared/WidgetExample";
+	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -12,6 +12,7 @@
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
+	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -121,7 +122,7 @@
 		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
-	function applyInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
+	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
 		file = null;
 		filename = sample.example_title!;
 		fileUrl = sample.src;
@@ -129,7 +130,7 @@
 		getOutput();
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
+	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
 		filename = sample.example_title!;
 		fileUrl = sample.src;
 		if (isValidOutputLabels(sample.output)) {
@@ -139,6 +140,10 @@
 			output = [];
 			outputJson = "";
 		}
+	}
+
+	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {
+		return isAssetInput(sample) && (!sample.output || isValidOutputLabels(sample.output));
 	}
 
 	onMount(() => {
@@ -164,12 +169,13 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	{validateExample}
 >
 	<svelte:fragment slot="top">
 		<form>
 			<div class="flex flex-wrap items-center">
 				<WidgetFileInput accept="audio/*" classNames="mt-1.5 mr-2" {onSelectFile} />
-				<span class="mt-1.5 mr-2">or</span>
+				<span class="mr-2 mt-1.5">or</span>
 				<WidgetRecorder classNames="mt-1.5" {onRecordStart} onRecordStop={onSelectFile} onError={onRecordError} />
 			</div>
 			{#if fileUrl}

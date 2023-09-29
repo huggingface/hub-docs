@@ -1,15 +1,17 @@
-<script lang="ts" generics="T extends WidgetExample">
+<script lang="ts">
 	import type { WidgetExample } from "../WidgetExample";
 
 	import { slide } from "svelte/transition";
 
 	import IconCaretDownV2 from "../../../Icons/IconCaretDownV2.svelte";
 
+	type TWidgetExample = $$Generic<WidgetExample>;
+
 	export let classNames = "";
 	export let isLoading = false;
-	export let inputSamples: WidgetExample[];
-	export let applyInputSample: (sample: T) => void;
-	export let previewInputSample: (sample: T) => void;
+	export let inputSamples: TWidgetExample[];
+	export let applyInputSample: (sample: TWidgetExample) => void;
+	export let previewInputSample: (sample: TWidgetExample) => void;
 
 	let containerEl: HTMLElement;
 	let isOptionsVisible = false;
@@ -25,12 +27,12 @@
 		hideOptions();
 		const sample = inputSamples[idx];
 		title = sample.example_title as string;
-		applyInputSample(sample as T);
+		applyInputSample(sample);
 	}
 
 	function _previewInputSample(idx: number) {
 		const sample = inputSamples[idx];
-		previewInputSample(sample as T);
+		previewInputSample(sample);
 	}
 
 	function toggleOptionsVisibility() {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleAssetInputLabelsOutput } from "../../shared/WidgetExample";
+	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -10,6 +10,7 @@
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -90,13 +91,13 @@
 		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
+	async function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
 		imgSrc = sample.src;
 		const blob = await getBlobFromUrl(imgSrc);
 		getOutput(blob);
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetInputLabelsOutput) {
+	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
 		imgSrc = sample.src;
 		if (isValidOutputLabels(sample.output)) {
 			output = sample.output;
@@ -105,6 +106,10 @@
 			output = [];
 			outputJson = "";
 		}
+	}
+
+	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {
+		return isTextInput(sample) && (!sample.output || isValidOutputLabels(sample.output));
 	}
 
 	onMount(() => {
@@ -131,6 +136,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	{validateExample}
 >
 	<svelte:fragment slot="top">
 		<form>

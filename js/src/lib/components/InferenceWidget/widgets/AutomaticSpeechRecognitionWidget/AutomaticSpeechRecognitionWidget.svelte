@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetExampleAssetInputTextOutput } from "../../shared/WidgetExample";
+	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputText } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -13,6 +13,7 @@
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
 	import { isValidOutputText } from "../../shared/outputValidation";
+	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -123,7 +124,7 @@
 		throw new TypeError("Invalid output: output must be of type <text:string>");
 	}
 
-	function applyInputSample(sample: WidgetExampleAssetInputTextOutput) {
+	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputText>) {
 		file = null;
 		filename = sample.example_title!;
 		fileUrl = sample.src;
@@ -131,7 +132,7 @@
 		getOutput();
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetInputTextOutput) {
+	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputText>) {
 		filename = sample.example_title!;
 		fileUrl = sample.src;
 		if (isValidOutputText(sample.output)) {
@@ -145,6 +146,10 @@
 
 	function updateModelLoading(isLoading: boolean, estimatedTime: number = 0) {
 		modelLoading = { isLoading, estimatedTime };
+	}
+
+	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputText> {
+		return isAssetInput(sample) && (!sample.output || isValidOutputText(sample.output));
 	}
 
 	onMount(() => {
@@ -170,6 +175,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	{validateExample}
 >
 	<svelte:fragment slot="top">
 		<form>
