@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { WidgetExample } from "../WidgetExample";
 
+	type TWidgetExample = $$Generic<WidgetExample>;
+
 	import { slide } from "svelte/transition";
 
 	import IconCaretDownV2 from "../../../Icons/IconCaretDownV2.svelte";
-
-	type TWidgetExample = $$Generic<WidgetExample>;
 
 	export let classNames = "";
 	export let isLoading = false;

@@ -1,6 +1,8 @@
-<script lang="ts" generics="TWidgetExample extends WidgetExample">
+<script lang="ts">
 	import type { WidgetProps, ModelLoadInfo } from "../types";
 	import type { WidgetExample } from "../WidgetExample";
+
+	type TWidgetExample = $$Generic<WidgetExample>;
 
 	import { onMount } from "svelte";
 
