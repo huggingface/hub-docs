@@ -7,6 +7,7 @@
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
 
+	export let accept: WidgetProps["accept"];
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
 	export let appendRepoPath: WidgetProps["appendRepoPath"];
@@ -71,6 +72,7 @@
 			isOnLoadCall,
 			useCache,
 			appendRepoPath,
+			accept,
 		);
 
 		isLoading = false;

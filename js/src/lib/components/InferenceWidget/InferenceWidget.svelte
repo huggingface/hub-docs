@@ -28,6 +28,7 @@
 	import ZeroShotClassificationWidget from "./widgets/ZeroShowClassificationWidget/ZeroShotClassificationWidget.svelte";
 	import ZeroShotImageClassificationWidget from "./widgets/ZeroShotImageClassificationWidget/ZeroShotImageClassificationWidget.svelte";
 
+	export let accept: WidgetProps['accept'] = undefined;
 	export let apiToken: WidgetProps["apiToken"] = undefined;
 	export let appendRepoPath: WidgetProps["appendRepoPath"] = true;
 	export let callApiOnMount = false;
@@ -82,6 +83,7 @@
 
 	// prettier-ignore
 	$: widgetProps = ({
+		accept,
 		apiToken,
 		apiUrl,
 		appendRepoPath,
