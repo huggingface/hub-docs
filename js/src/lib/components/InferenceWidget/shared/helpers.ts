@@ -225,7 +225,7 @@ export function convertTableToData(table: (string | number)[][]): TableData {
 					.slice(1)
 					.flat()
 					.filter((_, i) => i % firstEntry.length === x)
-					.map((x) => String(x)), // some models can only handle strings (no numbers)
+					.map((v) => String(v)), // some models can only handle strings (no numbers)
 			];
 		}) ?? []
 	);
