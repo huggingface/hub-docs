@@ -139,7 +139,7 @@
 			id: "dbmdz/bert-large-cased-finetuned-conll03-english",
 			pipeline_tag: "token-classification",
 			widgetData: [
-				{ text: "My name is Wolfgang and I live in Berlin", parameters: { aggregation_strategy: "none" } },
+				{ text: "My name is Wolfgang and I live in Berlin" },
 				{ text: "My name is Sarah and I live in London" },
 				{ text: "My name is Clara and I live in Berkeley, California." },
 			],
