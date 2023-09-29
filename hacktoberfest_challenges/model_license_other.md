@@ -41,15 +41,15 @@ For each model, the workflow looks like this:
 
 ### What if the model has 2 licenses?
 
-This use case can happen when a model is finetuned from another model. Usually this is manually described in the model card. As we don't have a good way to classify multi-license models, it's best to simply keep `license:other`. If that's the case, you can open a PR to add a status `"multi-license"` to the table below.
+This use case can happen when a model is finetuned from another model. Usually this is manually described in the model card. As we don't have a good way to classify multi-license models, it's best to simply keep `license:other`. If that's the case, you can open a PR to add a "multi-license" status to the table below.
 
-### How do I chose `license_name` ?
+### How do I choose `license_name`?
 
-There is no clear answer for that. You can either check other related models, discuss with the repo owner or suggest a name that make sense in your opinion. The name should be short, lowercased and without spaces (example `"coqui-public-model-license"`).
+There is no clear answer for that. You can either check other related models, discuss with the repo owner or suggest a name that make sense in your opinion. The name should be short, lowercase and without spaces (for example `"coqui-public-model-license"`).
 
 ### Can I use a script to automate the process?
 
-Yes it's perfectly possible to use a script to automate things! But don't forget that in this end only **some of the process** can be automated. The PRs you open will be manually reviewed. It's important to not pollute the repo owners with unchecked information.
+Yes, it's perfectly possible to use a script to automate things! But don't forget that in the end, only **some of the process** can be automated. The PRs you open will be manually reviewed. It's important to refrain from polluting the repo owners with unchecked information.
 
 To help with the programmatic approach, we've also exported the list [as CSV](./model_license_other.csv). This CSV will not be updated with the latest information on this page.
 
