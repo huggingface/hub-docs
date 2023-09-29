@@ -13,15 +13,15 @@
 </script>
 
 <div
-	class="col-span-12 overflow-x-auto px-3 h-10 border border-b-0 flex items-center bg-gradient-to-r to-white dark:to-gray-950 rounded-t-lg {!!output
+	class="col-span-12 flex h-10 items-center overflow-x-auto rounded-t-lg border border-b-0 bg-gradient-to-r to-white px-3 dark:to-gray-950 {!!output
 		?.cells?.length || isAnswerOnlyOutput
-		? 'border-green-50 from-green-50 via-green dark:border-green-800 dark:from-green-800'
-		: 'border-red-50 from-red-50 via-red dark:border-red-800 dark:from-red-800'}"
+		? 'via-green border-green-50 from-green-50 dark:border-green-800 dark:from-green-800'
+		: 'via-red border-red-50 from-red-50 dark:border-red-800 dark:from-red-800'}"
 	in:fly
 >
 	{#if isAnswerOnlyOutput}
 		<span
-			class="whitespace-nowrap bg-green-100 border border-green-200 text-green-800 dark:bg-green-800 dark:border-green-700 dark:text-green-100 px-1 leading-tight rounded ml-2"
+			class="ml-2 whitespace-nowrap rounded border border-green-200 bg-green-100 px-1 leading-tight text-green-800 dark:border-green-700 dark:bg-green-800 dark:text-green-100"
 			>{output.answer}</span
 		>
 	{:else}
@@ -37,13 +37,13 @@
 		{#if output.cells.length}
 			{#each output.cells as answer}
 				<span
-					class="whitespace-nowrap bg-green-100 border border-green-200 text-green-800 dark:bg-green-800 dark:border-green-700 dark:text-green-100 px-1 leading-tight rounded ml-2"
+					class="ml-2 whitespace-nowrap rounded border border-green-200 bg-green-100 px-1 leading-tight text-green-800 dark:border-green-700 dark:bg-green-800 dark:text-green-100"
 					>{answer}</span
 				>
 			{/each}
 			{#if output.aggregator !== "NONE"}
 				<span
-					class="whitespace-nowrap ml-auto bg-blue-100 border border-blue-200 text-blue-800 dark:bg-blue-800 dark:border-blue-700 dark:text-blue-100 px-1 leading-tight rounded"
+					class="ml-auto whitespace-nowrap rounded border border-blue-200 bg-blue-100 px-1 leading-tight text-blue-800 dark:border-blue-700 dark:bg-blue-800 dark:text-blue-100"
 					>{output.aggregator}</span
 				>
 			{/if}

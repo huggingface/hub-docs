@@ -2,7 +2,6 @@
 	export let classNames = "";
 </script>
 
-​
 <svg
 	class={classNames}
 	xmlns="http://www.w3.org/2000/svg"

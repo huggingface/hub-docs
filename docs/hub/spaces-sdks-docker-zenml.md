@@ -35,7 +35,7 @@ make it work with whatever your custom tool or workflow is.
 You can deploy ZenML on Spaces with just a few clicks:
 
 <a  href="https://huggingface.co/new-space?template=zenml/zenml-template-space">
-    <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg" />
+    <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
 </a>
 
 To set up your ZenML app, you need to specify three main components: the Owner

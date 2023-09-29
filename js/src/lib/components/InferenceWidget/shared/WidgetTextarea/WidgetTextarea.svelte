@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { tick } from "svelte";
+
 	import { delay } from "../../../../utils/ViewUtils";
 	import WidgetLabel from "../WidgetLabel/WidgetLabel.svelte";
 
@@ -12,19 +13,20 @@
 
 	let containerSpanEl: HTMLSpanElement;
 	const typingEffectSpeedMs = 12;
-	const classNamesInput =
-		"whitespace-pre-wrap inline font-normal text-black dark:text-white";
-	const classNamesOutput =
-		"whitespace-pre-wrap inline text-blue-600 dark:text-blue-400";
+	const classNamesInput = "whitespace-pre-wrap inline font-normal text-black dark:text-white";
+	const classNamesOutput = "whitespace-pre-wrap inline text-blue-600 dark:text-blue-400";
 
-	export async function renderTypingEffect(outputTxt: string) {
+	export async function renderTypingEffect(outputTxt: string): Promise<void> {
 		const spanEl = document.createElement("span");
 		spanEl.contentEditable = "true";
 		spanEl.className = classNamesOutput;
 		containerSpanEl?.appendChild(spanEl);
 		await tick();
 		// fix Chrome bug that adds `<br>` els on contentedtiable el
-		containerSpanEl?.querySelectorAll("br").forEach((brEl) => brEl.remove());
+		const brElts = containerSpanEl?.querySelectorAll("br");
+		for (const brEl of brElts) {
+			brEl.remove();
+		}
 		await tick();
 		// split on whitespace or any other character to correctly render newlines \n
 		for (const char of outputTxt.split(/(\s|.)/g)) {
@@ -42,8 +44,8 @@
 			range.selectNodeContents(containerSpanEl);
 			range.collapse(false);
 			const selection = window.getSelection();
-			selection.removeAllRanges();
-			selection.addRange(range);
+			selection?.removeAllRanges();
+			selection?.addRange(range);
 		}
 	}
 
@@ -52,9 +54,9 @@
 		if (isLoading) {
 			return e.preventDefault();
 		}
-		const copiedTxt = e.clipboardData.getData("text/plain");
+		const copiedTxt = e.clipboardData?.getData("text/plain");
 		const selection = window.getSelection();
-		if (selection.rangeCount && !!copiedTxt.length) {
+		if (selection?.rangeCount && !!copiedTxt?.length) {
 			const range = selection.getRangeAt(0);
 			range.deleteContents();
 			const spanEl = document.createElement("span");
@@ -63,7 +65,7 @@
 			spanEl.textContent = copiedTxt;
 			range.insertNode(spanEl);
 		}
-		window.getSelection().collapseToEnd();
+		window.getSelection()?.collapseToEnd();
 		updateInnerTextValue();
 	}
 
@@ -71,7 +73,7 @@
 		value = containerSpanEl?.textContent ?? "";
 	}
 
-	export function setValue(text: string) {
+	export function setValue(text: string): void {
 		containerSpanEl.textContent = text;
 		updateInnerTextValue();
 	}
@@ -83,9 +85,9 @@
 		<span
 			class="{isLoading ? 'pointer-events-none' : ''} {classNames} {label
 				? 'mt-1.5'
-				: ''} block overflow-auto resize-y py-2 px-3 w-full {size === 'small'
+				: ''} block w-full resize-y overflow-auto py-2 px-3 {size === 'small'
 				? 'min-h-[42px]'
-				: 'min-h-[144px]'} max-h-[500px] whitespace-pre-wrap inline-block border border-gray-200 rounded-lg shadow-inner outline-none focus:ring focus:ring-blue-200 focus:shadow-inner dark:bg-gray-925"
+				: 'min-h-[144px]'} inline-block max-h-[500px] whitespace-pre-wrap rounded-lg border border-gray-200 shadow-inner outline-none focus:shadow-inner focus:ring focus:ring-blue-200 dark:bg-gray-925"
 			role="textbox"
 			contenteditable
 			style="--placeholder: '{placeholder}'"

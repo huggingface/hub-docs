@@ -2,17 +2,12 @@
 	import type { WidgetProps } from "../../shared/types";
 
 	import { onMount } from "svelte";
+
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -50,10 +45,7 @@
 		}
 	});
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedValue = text.trim();
 
 		if (!trimmedValue) {
@@ -112,9 +104,7 @@
 		if (Array.isArray(body) && body.length) {
 			return body[0]?.["summary_text"] ?? "";
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type Array & non-empty"
-		);
+		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
 	function previewInputSample(sample: Record<string, any>) {

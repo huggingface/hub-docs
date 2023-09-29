@@ -36,25 +36,25 @@ const taskData: TaskDataCustom = {
 	],
 	models: [
 		{
-			description: "An end-to-end speech synthesis model.",
-			id:          "microsoft/speecht5_tts",
+			description: "A powerful TTS model.",
+			id:          "suno/bark",
 		},
 		{
-			description: "An multi-lingual TTS model.",
+			description: "A massively multi-lingual TTS model.",
 			id:          "facebook/mms-tts",
 		},
 		{
-			description: "A powerful TTS model.",
-			id:          "suno/bark",
+			description: "An end-to-end speech synthesis model.",
+			id:          "microsoft/speecht5_tts",
 		},
 	],
 	spaces:       [
 		{
-			description: "An application for end-to-end text-to-speech.",
-			id:          "rendchevi/nix-tts",
+			description: "An application for generate highly realistic, multilingual speech.",
+			id:          "suno/bark",
 		},
 		{
-			description: "An application that contains multiple speech recognition models for various languages and datasets.",
+			description: "An application that contains multiple speech synthesis models for various languages and accents.",
 			id:          "coqui/CoquiTTS",
 		},
 		{

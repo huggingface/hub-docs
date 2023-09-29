@@ -2,19 +2,14 @@
 	import type { WidgetProps } from "../../shared/types";
 
 	import { onMount } from "svelte";
+
 	import WidgetCheckbox from "../../shared/WidgetCheckbox/WidgetCheckbox.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -53,10 +48,11 @@
 			setTextAreaValue(textParam);
 			getOutput();
 		} else {
-			const [demoCandidateLabels, demoMultiClass, demoText] = getDemoInputs(
-				model,
-				["candidate_labels", "multi_class", "text"]
-			);
+			const [demoCandidateLabels, demoMultiClass, demoText] = getDemoInputs(model, [
+				"candidate_labels",
+				"multi_class",
+				"text",
+			]);
 			candidateLabels = (demoCandidateLabels as string) ?? "";
 			multiClass = demoMultiClass === "true";
 			setTextAreaValue(demoText ?? "");
@@ -66,10 +62,7 @@
 		}
 	});
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedText = text.trim();
 		const trimmedCandidateLabels = candidateLabels.trim().split(",").join(",");
 
@@ -147,22 +140,15 @@
 	}
 
 	function parseOutput(body: unknown): Array<{ label: string; score: number }> {
-		if (
-			body &&
-			typeof body === "object" &&
-			Array.isArray(body["labels"]) &&
-			Array.isArray(body["scores"])
-		) {
+		if (body && typeof body === "object" && Array.isArray(body["labels"]) && Array.isArray(body["scores"])) {
 			return body["labels"]
-				.filter((_, i) => body["scores"][i] != null) // != null -> not null OR undefined
+				.filter((_, i) => body["scores"][i] !== null || body["scores"][i] !== undefined)
 				.map((x, i) => ({
 					label: x ?? "",
 					score: body["scores"][i] ?? 0,
 				}));
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type <labels:Array; scores:Array>"
-		);
+		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
 	function previewInputSample(sample: Record<string, any>) {
@@ -195,20 +181,13 @@
 >
 	<svelte:fragment slot="top">
 		<form class="flex flex-col space-y-2">
-			<WidgetTextarea
-				bind:value={text}
-				bind:setValue={setTextAreaValue}
-				placeholder="Text to classify..."
-			/>
+			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} placeholder="Text to classify..." />
 			<WidgetTextInput
 				bind:value={candidateLabels}
 				label="Possible class names (comma-separated)"
 				placeholder="Possible class names..."
 			/>
-			<WidgetCheckbox
-				bind:checked={multiClass}
-				label="Allow multiple true classes"
-			/>
+			<WidgetCheckbox bind:checked={multiClass} label="Allow multiple true classes" />
 			<WidgetSubmitBtn
 				{isLoading}
 				onClick={() => {

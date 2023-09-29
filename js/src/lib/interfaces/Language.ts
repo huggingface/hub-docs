@@ -1,12 +1,11 @@
-
 export interface Language {
-	code: string;
-	name: string;
-	nativeName?: string;
+	code:         string;
+	name:         string;
+	nativeName?:  string;
 	/**
 	 * Hydrated
 	 */
-	numModels?: number;
+	numModels?:   number;
 	numDatasets?: number;
 }
 
@@ -14,13 +13,12 @@ export function wikiLink(l: Language): string {
 	return `https://en.wikipedia.org/wiki/ISO_639:${l.code}`;
 }
 
-
 /**
  * List of languages used in huggingface.co/languages
- * 
+ *
  * This dictionary is exported from
  * github.com/huggingface/widgets-server
- * 
+ *
  * Please do not modify it directly here,
  * but open a PR upstream instead.
  */
@@ -1214,34 +1212,38 @@ export const LANGUAGES: Record<string, Language> = {
 		name: "Fon",
 	},
 	ady: {
-		code: "ady",
-		name: "Circassian Adyghean",
+		code:       "ady",
+		name:       "Circassian Adyghean",
 		nativeName: "Адыгэбзэ Къэбэрдей",
 	},
 	kbd: {
-		code: "kbd",
-		name: "Circassian Kabardian",
+		code:       "kbd",
+		name:       "Circassian Kabardian",
 		nativeName: "Адыгэбзэ КIахэ",
 	},
 	sah: {
-		code: "sah",
-		name: "Yakut",
+		code:       "sah",
+		name:       "Yakut",
 		nativeName: "саха тыла",
 	},
 	mhr: {
-		code: "mhr",
-		name: "Eastern Mari",
+		code:       "mhr",
+		name:       "Eastern Mari",
 		nativeName: "олык марий",
 	},
 	myv: {
-		code: "myv",
-		name: "Erzya",
+		code:       "myv",
+		name:       "Erzya",
 		nativeName: "эрзянь кель",
 	},
 	lzh: {
-		code: "lzh",
-		name: "Literary Chinese",
+		code:       "lzh",
+		name:       "Literary Chinese",
 		nativeName: "文言",
 	},
+	udm: {
+		code:       "udm",
+		name:       "Udmurt",
+		nativeName: "удмурт кыл",
+	},
 };
-

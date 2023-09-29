@@ -10,7 +10,7 @@
 		minimumFractionDigits: 1,
 	});
 
-	export function start() {
+	export function start(): void {
 		// reset timer for new run
 		stop();
 		counterSeconds = 0.0;
@@ -19,7 +19,7 @@
 		interval = setInterval(() => (counterSeconds += 0.1), 100);
 	}
 
-	export function stop() {
+	export function stop(): void {
 		if (interval) {
 			clearInterval(interval);
 		}
@@ -29,5 +29,5 @@
 </script>
 
 {#if shouldDisplay}
-	<span class="text-gray-500 font-mono text-xs">{counterHuman}</span>
+	<span class="font-mono text-xs text-gray-500">{counterHuman}</span>
 {/if}

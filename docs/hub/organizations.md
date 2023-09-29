@@ -9,3 +9,4 @@ If an organization needs to track user access to a dataset due to licensing or p
 - [Managing Organizations](./organizations-managing)
 - [Organization Cards](./organizations-cards)
 - [Access Control in Organizations](./organizations-security)
+- [SSO in Organizations](./security-sso)

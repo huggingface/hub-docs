@@ -2,15 +2,10 @@
 	import type { WidgetProps } from "../../shared/types";
 
 	import { onMount } from "svelte";
+
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -47,11 +42,7 @@
 		}
 	});
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-		useCache = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = false } = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -109,9 +100,7 @@
 		if (body && typeof body === "object" && body instanceof Blob) {
 			return URL.createObjectURL(body);
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type object & of instance Blob"
-		);
+		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
 	function previewInputSample(sample: Record<string, any>) {
@@ -140,16 +129,12 @@
 >
 	<svelte:fragment slot="top">
 		<form>
-			<WidgetQuickInput
-				bind:value={text}
-				{isLoading}
-				onClickSubmitBtn={() => getOutput()}
-			/>
+			<WidgetQuickInput bind:value={text} {isLoading} onClickSubmitBtn={() => getOutput()} />
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
 		{#if output.length}
-			<div class="flex justify-center mt-4 bg-gray-50 dark:bg-gray-925">
+			<div class="mt-4 flex justify-center bg-gray-50 dark:bg-gray-925">
 				<img class="max-w-sm object-contain" src={output} alt="" />
 			</div>
 		{/if}

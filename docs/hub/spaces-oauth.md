@@ -6,7 +6,13 @@ This enables new use cases for your Space. For instance, when combined with [Per
 
 <Tip>
 
-This guide will take you through the process of integrating a *Sign-In with HF* button into any Space. If you're seeking a fast and simple method to implement this in a Gradio Space, take a look at its [built-in integration](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face).
+This guide will take you through the process of integrating a *Sign-In with HF* button into any Space. If you're seeking a fast and simple method to implement this in a **Gradio** Space, take a look at its [built-in integration](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face).
+
+</Tip>
+
+<Tip>
+
+You can also use the HF OAuth flow to create a "Sign in with HF" flow in any website or App, outside of Spaces. [Read our general OAuth page](./oauth).
 
 </Tip>
 
@@ -45,10 +51,10 @@ As for any other environment variable, you can use them in your code by using `o
 
 The allowed redirect URIs for your OAuth app are:
 
-- `https://{SPACE_SUBDOMAIN}.hf.space/auth/callback`
-- `https://{SPACE_SUBDOMAIN}.hf.space/login/callback`
+- `https://{SPACE_HOST}/auth/callback`
+- `https://{SPACE_HOST}/login/callback`
 
-Note that `SPACE_SUBDOMAIN` is also [available](https://huggingface.co/docs/hub/spaces-overview#helper-environment-variables) as an environment variable.
+Note that `SPACE_HOST` is also [available](https://huggingface.co/docs/hub/spaces-overview#helper-environment-variables) as an environment variable.
 
 You can add a custom relative redirect path by setting `hf_oauth_redirect_path` in your Space's metadata.
 

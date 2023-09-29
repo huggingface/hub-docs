@@ -8,11 +8,7 @@
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -54,7 +50,7 @@
 					reject(err);
 				}
 			};
-			fileReader.onerror = (e) => reject(e);
+			fileReader.onerror = e => reject(e);
 			isLoading = true;
 			fileReader.readAsDataURL(file);
 		});
@@ -64,9 +60,7 @@
 		if (body && typeof body === "object" && body instanceof Blob) {
 			return URL.createObjectURL(body);
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type object & of instance Blob"
-		);
+		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
 	function previewInputSample(sample: Record<string, any>) {
@@ -83,10 +77,7 @@
 		getOutput();
 	}
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedPrompt = prompt.trim();
 
 		if (!imageBase64) {
@@ -173,27 +164,15 @@
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">
-			<WidgetDropzone
-				classNames="hidden md:block"
-				{isLoading}
-				{imgSrc}
-				{onSelectFile}
-				onError={(e) => (error = e)}
-			>
+			<WidgetDropzone classNames="hidden md:block" {isLoading} {imgSrc} {onSelectFile} onError={e => (error = e)}>
 				{#if imgSrc}
-					<img
-						src={imgSrc}
-						class="pointer-events-none mx-auto max-h-44 shadow"
-						alt=""
-					/>
+					<img src={imgSrc} class="pointer-events-none mx-auto max-h-44 shadow" alt="" />
 				{/if}
 			</WidgetDropzone>
 			<!-- Better UX for mobile/table through CSS breakpoints -->
 			{#if imgSrc}
 				{#if imgSrc}
-					<div
-						class="mb-2 flex justify-center bg-gray-50 dark:bg-gray-900 md:hidden"
-					>
+					<div class="mb-2 flex justify-center bg-gray-50 dark:bg-gray-900 md:hidden">
 						<img src={imgSrc} class="pointer-events-none max-h-44" alt="" />
 					</div>
 				{/if}
@@ -220,7 +199,7 @@
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
 		{#if output.length}
-			<div class="dark:bg-gray-925 mt-4 flex justify-center bg-gray-50">
+			<div class="mt-4 flex justify-center bg-gray-50 dark:bg-gray-925">
 				<img class="max-w-sm object-contain" src={output} alt="" />
 			</div>
 		{/if}

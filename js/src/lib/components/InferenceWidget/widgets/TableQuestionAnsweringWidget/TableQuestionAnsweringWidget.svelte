@@ -1,11 +1,8 @@
 <script lang="ts">
-	import type {
-		WidgetProps,
-		TableData,
-		HighlightCoordinates,
-	} from "../../shared/types";
+	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
 
 	import { onMount } from "svelte";
+
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetOutputTableQA from "../../shared/WidgetOutputTableQA/WidgetOutputTableQA.svelte";
 	import WidgetTableInput from "../../shared/WidgetTableInput/WidgetTableInput.svelte";
@@ -54,8 +51,7 @@
 	$: highlighted =
 		output?.coordinates?.reduce((acc, [yCor, xCor]) => {
 			acc[`${yCor}`] = "bg-green-50 dark:bg-green-900";
-			acc[`${yCor}-${xCor}`] =
-				"bg-green-100 border-green-100 dark:bg-green-700 dark:border-green-700";
+			acc[`${yCor}-${xCor}`] = "bg-green-100 border-green-100 dark:bg-green-700 dark:border-green-700";
 			return acc;
 		}, {}) ?? {};
 
@@ -75,14 +71,11 @@
 		}
 	});
 
-	function onChangeTable(updatedTable: string[][]) {
+	function onChangeTable(updatedTable: (string | number)[][]) {
 		table = updatedTable;
 	}
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedQuery = query.trim();
 
 		if (!trimmedQuery) {
@@ -150,15 +143,13 @@
 			arg &&
 			typeof arg === "object" &&
 			typeof arg["answer"] === "string" &&
-			(arg["aggregator"] === undefined
-				? true
-				: typeof arg["aggregator"] === "string") &&
+			(arg["aggregator"] === undefined ? true : typeof arg["aggregator"] === "string") &&
 			(Array.isArray(arg["coordinates"]) || isAnswerOnlyOutput) &&
 			(Array.isArray(arg["cells"]) || isAnswerOnlyOutput)
 		);
 	}
 
-	function parseOutput(body: unknown): Output {
+	function parseOutput(body: any): Output {
 		if (body["coordinates"] === undefined && body["cells"] === undefined) {
 			isAnswerOnlyOutput = true;
 		}

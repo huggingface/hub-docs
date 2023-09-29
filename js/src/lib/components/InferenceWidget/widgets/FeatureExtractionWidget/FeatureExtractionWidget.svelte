@@ -2,15 +2,11 @@
 	import type { WidgetProps } from "../../shared/types";
 
 	import { onMount } from "svelte";
+
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+
 	import { DataTable } from "./DataTable";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -48,10 +44,7 @@
 		}
 	});
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -169,23 +162,17 @@
 	<svelte:fragment slot="bottom">
 		{#if output}
 			{#if output.isArrLevel0}
-				<div class="mt-3 overflow-auto h-96">
-					<table class="text-xs font-mono text-right border table-auto w-full">
+				<div class="mt-3 h-96 overflow-auto">
+					<table class="w-full table-auto border text-right font-mono text-xs">
 						{#each range(numOfRows(output.oneDim.length)) as i}
 							<tr>
 								{#each range(SINGLE_DIM_COLS) as j}
 									{#if j * numOfRows(output.oneDim.length) + i < output.oneDim.length}
-										<td class="bg-gray-100 dark:bg-gray-900 text-gray-400 px-1">
+										<td class="bg-gray-100 px-1 text-gray-400 dark:bg-gray-900">
 											{j * numOfRows(output.oneDim.length) + i}
 										</td>
-										<td
-											class="py-0.5 px-1 {output.bg(
-												output.oneDim[j * numOfRows(output.oneDim.length) + i]
-											)}"
-										>
-											{output.oneDim[
-												j * numOfRows(output.oneDim.length) + i
-											].toFixed(3)}
+										<td class="py-0.5 px-1 {output.bg(output.oneDim[j * numOfRows(output.oneDim.length) + i])}">
+											{output.oneDim[j * numOfRows(output.oneDim.length) + i].toFixed(3)}
 										</td>
 									{/if}
 								{/each}
@@ -195,20 +182,16 @@
 				</div>
 			{:else}
 				<div class="mt-3 overflow-auto">
-					<table class="text-xs font-mono text-right border">
+					<table class="border text-right font-mono text-xs">
 						<tr>
 							<td class="bg-gray-100 dark:bg-gray-900" />
 							{#each range(output.twoDim[0].length) as j}
-								<td class="bg-gray-100 dark:bg-gray-900 text-gray-400 pt-1 px-1"
-									>{j}</td
-								>
+								<td class="bg-gray-100 px-1 pt-1 text-gray-400 dark:bg-gray-900">{j}</td>
 							{/each}
 						</tr>
 						{#each output.twoDim as column, i}
 							<tr>
-								<td class="bg-gray-100 dark:bg-gray-900 text-gray-400 pl-4 pr-1"
-									>{i}</td
-								>
+								<td class="bg-gray-100 pl-4 pr-1 text-gray-400 dark:bg-gray-900">{i}</td>
 								{#each column as x}
 									<td class="py-1 px-1 {output.bg(x)}">
 										{x.toFixed(3)}

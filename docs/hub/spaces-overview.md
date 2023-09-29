@@ -54,7 +54,7 @@ Read more in our dedicated sections on [Spaces GPU Upgrades](./spaces-gpus) and 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-gpu-settings-dark.png"/>
 </div>
 
-## Managing secrets and environment variables 
+## Managing secrets and environment variables[[managing-secrets]]
 <a id="managing-secrets"></a>
 If your app requires environment variables (for instance, secret keys or tokens), do not hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and add a new variable or secret. Use variables if you need to store non-sensitive configuration values and secrets for storing access tokens, API keys, or any sensitive value or credentials.
 
@@ -102,7 +102,7 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `SPACE_REPO_NAME`: i-like-flan
 * `SPACE_TITLE`: I Like Flan (specified in the README file)
 * `SPACE_ID`: `osanseviero/i-like-flan`
-* `SPACE_SUBDOMAIN`: `osanviero-i-like-flan` (the space's embed url is https://osanviero-i-like-flan.hf.space)
+* `SPACE_HOST`: `osanseviero-i-like-flan.hf.space`
 
 In case [OAuth](./spaces-oauth) is enabled for your Space, the following variables will also be available:
 
@@ -113,7 +113,7 @@ In case [OAuth](./spaces-oauth) is enabled for your Space, the following variabl
 
 ## Clone the Repository
 
-You can easily clone your Space repo. Start by clicking on the dropdown menu in the top right of your Space page: 
+You can easily clone your Space repo locally. Start by clicking on the dropdown menu in the top right of your Space page: 
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SpacesCloneRepo2.png"/>
@@ -131,3 +131,21 @@ Select "Clone repository", and then you'll be able to follow the instructions to
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SSHClone2.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SSHClone1.png"/>
 </div>
+
+## Linking Models and Datasets on the Hub
+
+You can showcase all the models and datasets that your Space links to by adding their identifier in your Space's README metadata. To do so, you can define them under the `models` and `datasets` keys. In addition to listing the artefacts in the README file, you can also record them in any `.py`, `.ini` or `.html` file as well. We'll parse it auto-magically! 
+
+Here's an example linking two models from a space:
+
+```
+title: My lovely space
+emoji: 🤗
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+models:
+- reach-vb/musicgen-large-fp16-endpoint
+- reach-vb/wav2vec2-large-xls-r-1B-common_voice7-lt-ft
+```

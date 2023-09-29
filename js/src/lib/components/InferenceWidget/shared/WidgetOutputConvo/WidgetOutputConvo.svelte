@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { afterUpdate } from "svelte";
+
 	import { isFullyScrolled, scrollToMax } from "../../../../utils/ViewUtils";
 	import WidgetOutputConvoBubble from "../WidgetOuputConvoBubble/WidgetOutputConvoBubble.svelte";
 
@@ -18,11 +19,8 @@
 	});
 </script>
 
-<div
-	bind:this={wrapperEl}
-	class="overflow-y-auto h-64 border border-b-0 rounded-t-lg leading-tight"
->
-	<div class="text-center text-sm text-gray-400 p-3 pt-6">
+<div bind:this={wrapperEl} class="h-64 overflow-y-auto rounded-t-lg border border-b-0 leading-tight">
+	<div class="p-3 pt-6 text-center text-sm text-gray-400">
 		Input a message to start chatting with
 		<strong>{modelId}</strong>.
 	</div>

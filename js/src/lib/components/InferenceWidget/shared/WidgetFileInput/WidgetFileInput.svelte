@@ -28,17 +28,13 @@
 	on:dragleave={() => {
 		isDragging = false;
 	}}
-	on:drop|preventDefault={(e) => {
+	on:drop|preventDefault={e => {
 		isDragging = false;
 		fileInput.files = e.dataTransfer?.files ?? null;
 		onChange();
 	}}
 >
-	<label
-		class="btn-widget {isDragging ? 'ring' : ''} {isLoading
-			? 'text-gray-600'
-			: ''}"
-	>
+	<label class="btn-widget {isDragging ? 'ring' : ''} {isLoading ? 'text-gray-600' : ''}">
 		{#if isLoading}
 			<IconSpin classNames="-ml-1 mr-1.5 text-gray-600 animate-spin" />
 		{:else}

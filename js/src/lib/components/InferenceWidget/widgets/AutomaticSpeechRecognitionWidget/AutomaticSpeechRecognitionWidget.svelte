@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
 
+	import { onMount } from "svelte";
+
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
@@ -8,12 +10,7 @@
 	import WidgetRealtimeRecorder from "../../shared/WidgetRealtimeRecorder/WidgetRealtimeRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		getResponse,
-		getBlobFromUrl,
-		getDemoInputs,
-	} from "../../shared/helpers";
-	import { onMount } from "svelte";
+	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -59,19 +56,13 @@
 		if (updatedFile.size !== 0) {
 			const date = new Date();
 			const time = date.toLocaleTimeString("en-US");
-			filename =
-				"name" in updatedFile
-					? updatedFile.name
-					: `Audio recorded from browser [${time}]`;
+			filename = "name" in updatedFile ? updatedFile.name : `Audio recorded from browser [${time}]`;
 			file = updatedFile;
 			fileUrl = URL.createObjectURL(file);
 		}
 	}
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			output = "";
@@ -154,9 +145,9 @@
 	}
 
 	onMount(() => {
-		const [example_title, src] = getDemoInputs(model, ["example_title", "src"]);
+		const [exampleTitle, src] = getDemoInputs(model, ["example_title", "src"]);
 		if (callApiOnMount && src) {
-			filename = example_title ?? "";
+			filename = exampleTitle ?? "";
 			fileUrl = src;
 			selectedSampleUrl = src;
 			getOutput({ isOnLoadCall: true });
@@ -180,24 +171,15 @@
 >
 	<svelte:fragment slot="top">
 		<form>
-			<div class="flex items-center flex-wrap">
+			<div class="flex flex-wrap items-center">
 				{#if !isRealtimeRecording}
-					<WidgetFileInput
-						accept="audio/*"
-						classNames="mt-1.5"
-						{onSelectFile}
-					/>
-					<span class="mt-1.5 mx-2">or</span>
-					<WidgetRecorder
-						classNames="mt-1.5"
-						{onRecordStart}
-						onRecordStop={onSelectFile}
-						onError={onRecordError}
-					/>
+					<WidgetFileInput accept="audio/*" classNames="mt-1.5" {onSelectFile} />
+					<span class="mx-2 mt-1.5">or</span>
+					<WidgetRecorder classNames="mt-1.5" {onRecordStart} onRecordStop={onSelectFile} onError={onRecordError} />
 				{/if}
 				{#if model?.library_name === "transformers"}
 					{#if !isRealtimeRecording}
-						<span class="mt-1.5 mx-2">or</span>
+						<span class="mx-2 mt-1.5">or</span>
 					{/if}
 					<WidgetRealtimeRecorder
 						classNames="mt-1.5"

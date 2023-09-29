@@ -27,14 +27,10 @@
 			return;
 		}
 		const items = Array.from(itemList);
-		const uriItem = items.find(
-			(x) => x.kind === "string" && x.type === "text/uri-list"
-		);
-		const fileItem = items.find((x) => x.kind === "file");
+		const uriItem = items.find(x => x.kind === "string" && x.type === "text/uri-list");
+		const fileItem = items.find(x => x.kind === "file");
 		if (uriItem) {
-			const url = await new Promise<string>((resolve) =>
-				uriItem.getAsString((s) => resolve(s))
-			);
+			const url = await new Promise<string>(resolve => uriItem.getAsString(s => resolve(s)));
 			const file = await getBlobFromUrl(url);
 
 			onSelectFile(file);
@@ -49,17 +45,10 @@
 	}
 </script>
 
-<input
-	{accept}
-	bind:this={fileInput}
-	on:change={onChange}
-	disabled={isLoading}
-	style="display: none;"
-	type="file"
-/>
+<input {accept} bind:this={fileInput} on:change={onChange} disabled={isLoading} style="display: none;" type="file" />
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-	class="relative border-2 border-dashed rounded px-3 py-7 text-center cursor-pointer 
+	class="relative cursor-pointer rounded border-2 border-dashed px-3 py-7 text-center
 		{isDragging ? 'border-green-300 bg-green-50 text-green-500' : 'text-gray-500'} 
 		{classNames}"
 	on:click={() => {
@@ -83,7 +72,7 @@
 	{/if}
 	{#if isLoading}
 		<div
-			class="absolute flex items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-12 w-12 bg-white border border-gray-100 rounded-full shadow"
+			class="absolute top-1/2 left-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full border border-gray-100 bg-white shadow"
 		>
 			<IconSpin classNames="text-purple-500 animate-spin h-6 w-6" />
 		</div>

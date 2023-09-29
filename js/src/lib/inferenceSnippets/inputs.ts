@@ -3,8 +3,7 @@ import type { PipelineType, ModelData } from "../interfaces/Types";
 const inputsZeroShotClassification = () =>
 	`"Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!"`;
 
-const inputsTranslation = () =>
-	`"Меня зовут Вольфганг и я живу в Берлине"`;
+const inputsTranslation = () => `"Меня зовут Вольфганг и я живу в Берлине"`;
 
 const inputsSummarization = () =>
 	`"The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct."`;
@@ -12,7 +11,7 @@ const inputsSummarization = () =>
 const inputsConversational = () =>
 	`{
 		"past_user_inputs": ["Which movie is the best ?"],
-		"generated_responses": ["It's Die Hard for sure."],
+		"generated_responses": ["It is Die Hard for sure."],
 		"text": "Can you explain why ?"
 	}`;
 
@@ -33,24 +32,19 @@ const inputsTableQuestionAnswering = () =>
 
 const inputsQuestionAnswering = () =>
 	`{
-		"question": "What's my name?",
+		"question": "What is my name?",
 		"context": "My name is Clara and I live in Berkeley."
 	}`;
 
-const inputsTextClassification = () =>
-	`"I like you. I love you"`;
+const inputsTextClassification = () => `"I like you. I love you"`;
 
-const inputsTokenClassification = () =>
-	`"My name is Sarah Jessica Parker but you can call me Jessica"`;
+const inputsTokenClassification = () => `"My name is Sarah Jessica Parker but you can call me Jessica"`;
 
-const inputsTextGeneration = () =>
-	`"Can you please let us know more details about your "`;
+const inputsTextGeneration = () => `"Can you please let us know more details about your "`;
 
-const inputsText2TextGeneration = () =>
-	`"The answer to the universe is"`;
+const inputsText2TextGeneration = () => `"The answer to the universe is"`;
 
-const inputsFillMask = (model: ModelData) =>
-	`"The answer to the universe is ${model.mask_token}."`;
+const inputsFillMask = (model: ModelData) => `"The answer to the universe is ${model.mask_token}."`;
 
 const inputsSentenceSimilarity = () =>
 	`{
@@ -62,8 +56,7 @@ const inputsSentenceSimilarity = () =>
 		]
 	}`;
 
-const inputsFeatureExtraction = () =>
-	`"Today is a sunny day and I'll get some ice cream."`;
+const inputsFeatureExtraction = () => `"Today is a sunny day and I will get some ice cream."`;
 
 const inputsImageClassification = () => `"cats.jpg"`;
 
@@ -77,11 +70,9 @@ const inputsAudioToAudio = () => `"sample1.flac"`;
 
 const inputsAudioClassification = () => `"sample1.flac"`;
 
-const inputsTextToImage = () =>
-	`"Astronaut riding a horse"`;
+const inputsTextToImage = () => `"Astronaut riding a horse"`;
 
-const inputsTextToSpeech = () =>
-	`"The answer to the universe is 42"`;
+const inputsTextToSpeech = () => `"The answer to the universe is 42"`;
 
 const inputsAutomaticSpeechRecognition = () => `"sample1.flac"`;
 

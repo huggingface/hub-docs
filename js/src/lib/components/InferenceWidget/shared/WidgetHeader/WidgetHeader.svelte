@@ -31,10 +31,8 @@
 		{/if}
 	{/if}
 </div>
-<div
-	class="mb-0.5 flex w-full max-w-full flex-wrap items-center justify-between text-sm text-gray-500"
->
-	{#if pipeline}
+<div class="mb-0.5 flex w-full max-w-full flex-wrap items-center justify-between text-sm text-gray-500">
+	{#if pipeline && task}
 		<a
 			class={TASKS_DATA[task] ? "hover:underline" : undefined}
 			href={TASKS_DATA[task] ? `https://huggingface.co/tasks/${task}` : undefined}

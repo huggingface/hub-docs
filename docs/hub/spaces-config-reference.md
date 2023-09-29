@@ -48,7 +48,7 @@ Path is relative to the root of the repository.
 Port on which your application is running. Used only if `sdk` is `docker`. Default port is `7860`.
 
 **`base_path`**: _string_
-For non-static spaces, initial url to render. Needs to start with `/`. For static spaces, use `app_file` instead.
+For non-static Spaces, initial url to render. Needs to start with `/`. For static Spaces, use `app_file` instead.
 
 **`fullWidth`**: _boolean_  
 Whether your Space is rendered inside a full-width (when `true`) or fixed-width column (ie. "container" CSS) inside the iframe.
@@ -68,8 +68,25 @@ List of terms that describe your Space task or scope.
 **`pinned`** : _boolean_  
 Whether the Space stays on top of your profile. Can be useful if you have a lot of Spaces so you and others can quickly see your best Space.  
 
-**`hf_oauth`** : _boolean_
-Whether a connected OAuth app is associated to this Space. See [Adding a Sign-In with HF button to your space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
+**`hf_oauth`** : _boolean_  
+Whether a connected OAuth app is associated to this Space. See [Adding a Sign-In with HF button to your Space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
 
-**`hf_oauth_redirect_path`** : _string_
+**`hf_oauth_redirect_path`** : _string_  
 Authorized relative redirect path of the connected OAuth app. `/login/callback` and `/auth/callback` are authorized by default and do not need this parameter. See [Adding a Sign-In with HF button to your space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
+
+**`disable_embedding`** : _boolean_  
+Whether the Space iframe can be embedded in other websites.
+Defaults to false, i.e. Spaces *can* be embedded.
+
+**`custom_headers`** : _Dict[string, string]_  
+Set custom HTTP headers that will be added to all HTTP responses when serving your Space.  
+For now, only the [cross-origin-embedder-policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy) (COEP), [cross-origin-opener-policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy) (COOP), and [cross-origin-resource-policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy) (CORP) headers are allowed. These headers can be used to set up a cross-origin isolated environment and enable powerful features like `SharedArrayBuffer`, for example:
+
+```yaml
+custom_headers:
+  cross-origin-embedder-policy: require-corp
+  cross-origin-opener-policy: same-origin
+  cross-origin-resource-policy: cross-origin
+```
+
+*Note:* all headers and values must be lowercase.

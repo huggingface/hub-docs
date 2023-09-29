@@ -41,9 +41,7 @@ import io
 from PIL import Image
 image = Image.open(io.BytesIO(image_bytes))`;
 
-export const pythonSnippets:
-	Partial<Record<PipelineType, (model: ModelData) => string>> =
-{
+export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => string>> = {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":          snippetBasic,
 	"token-classification":         snippetBasic,
@@ -70,9 +68,8 @@ export const pythonSnippets:
 };
 
 export function getPythonInferenceSnippet(model: ModelData, accessToken: string): string {
-	const body = model.pipeline_tag && model.pipeline_tag in pythonSnippets
-		? pythonSnippets[model.pipeline_tag]?.(model) ?? ""
-		: "";
+	const body =
+		model.pipeline_tag && model.pipeline_tag in pythonSnippets ? pythonSnippets[model.pipeline_tag]?.(model) ?? "" : "";
 
 	return `import requests
 

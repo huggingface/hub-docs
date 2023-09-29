@@ -1,9 +1,14 @@
 <script lang="ts">
-	import InferenceWidget from "../lib/components/InferenceWidget/InferenceWidget.svelte";
-	import ModeSwitcher from "../lib/components/DemoThemeSwitcher/DemoThemeSwitcher.svelte";
 	import type { ModelData } from "../lib/interfaces/Types";
 
+	import InferenceWidget from "../lib/components/InferenceWidget/InferenceWidget.svelte";
+	import ModeSwitcher from "../lib/components/DemoThemeSwitcher/DemoThemeSwitcher.svelte";
+
 	const models: ModelData[] = [
+		{
+			id: "WizardLM/WizardLM-70B-V1.0",
+			pipeline_tag: "text-generation",
+		},
 		{
 			id: "openai/clip-vit-base-patch16",
 			pipeline_tag: "zero-shot-image-classification",
@@ -145,10 +150,7 @@
 			id: "distilroberta-base",
 			pipeline_tag: "fill-mask",
 			mask_token: "<mask>",
-			widgetData: [
-				{ text: "Paris is the <mask> of France." },
-				{ text: "The goal of life is <mask>." },
-			],
+			widgetData: [{ text: "Paris is the <mask> of France." }, { text: "The goal of life is <mask>." }],
 		},
 		{
 			id: "facebook/bart-large-mnli",
@@ -168,14 +170,10 @@
 				{
 					text: "How many stars does the transformers repository have?",
 					table: {
-						Repository: ["Transformers", "Datasets", "Tokenizers"],
-						Stars: [36542, 4512, 3934],
-						Contributors: [651, 77, 34],
-						"Programming language": [
-							"Python",
-							"Python",
-							"Rust, Python and NodeJS",
-						],
+						"Repository": ["Transformers", "Datasets", "Tokenizers"],
+						"Stars": [36542, 4512, 3934],
+						"Contributors": [651, 77, 34],
+						"Programming language": ["Python", "Python", "Rust, Python and NodeJS"],
 					},
 				},
 			],
@@ -187,14 +185,10 @@
 				{
 					text: "How many stars does the transformers repository have?",
 					table: {
-						Repository: ["Transformers", "Datasets", "Tokenizers"],
-						Stars: [36542, 4512, 3934],
-						Contributors: [651, 77, 34],
-						"Programming language": [
-							"Python",
-							"Python",
-							"Rust, Python and NodeJS",
-						],
+						"Repository": ["Transformers", "Datasets", "Tokenizers"],
+						"Stars": [36542, 4512, 3934],
+						"Contributors": [651, 77, 34],
+						"Programming language": ["Python", "Python", "Rust, Python and NodeJS"],
 					},
 				},
 			],
@@ -288,11 +282,7 @@
 			widgetData: [
 				{
 					source_sentence: "That is a happy person",
-					sentences: [
-						"That is a happy dog",
-						"That is a very happy person",
-						"Today is a sunny day",
-					],
+					sentences: ["That is a happy dog", "That is a very happy person", "Today is a sunny day"],
 				},
 			],
 		},
@@ -323,15 +313,13 @@
 <div class="py-24">
 	<ModeSwitcher />
 
-	<div
-		class="mx-4 space-y-4 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-4 xl:grid-cols-3"
-	>
+	<div class="mx-4 space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0 xl:grid-cols-3">
 		{#each models as model}
 			<div>
-				<a class="text-xs block mb-3 text-gray-300" href="/{model.id}">
+				<a class="mb-3 block text-xs text-gray-300" href="/{model.id}">
 					<code>{model.id}</code>
 				</a>
-				<div class="p-5 shadow-sm rounded-xl bg-white max-w-md">
+				<div class="max-w-md rounded-xl bg-white p-5 shadow-sm">
 					<InferenceWidget {model} />
 				</div>
 			</div>

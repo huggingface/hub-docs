@@ -20,17 +20,16 @@
 
 		docWidth = document.documentElement.clientWidth;
 		const bbox = element?.getBoundingClientRect();
-		const left = bbox.left ?? 0;
-		const width = bbox.width ?? 0;
-		if (!forceAlignement) {
-			alignement = left + width > docWidth ? "right" : "left";
+		if (bbox) {
+			const left = bbox.left ?? 0;
+			const width = bbox.width ?? 0;
+			if (!forceAlignement) {
+				alignement = left + width > docWidth ? "right" : "left";
+			}
+			if (element && alignement === "screen-center") {
+				element.style.transform = `translateX(${docWidth / 2 - width / 2 - bbox.left}px)`;
+			}
 		}
-		if (alignement === "screen-center") {
-			element.style.transform = `translateX(${
-				docWidth / 2 - width / 2 - bbox.left
-			}px)`;
-		}
-
 		return () => {
 			document.removeEventListener("click", handleClickDocument);
 			screen?.orientation?.removeEventListener("change", onClose);
@@ -41,10 +40,7 @@
 		// We ignore clicks that happens inside the Dropdown itself
 		// (prevent race condition  with other click handlers)
 		const targetElement = e.target as HTMLElement;
-		if (
-			targetElement !== dropdownElement &&
-			!dropdownElement?.contains(targetElement)
-		) {
+		if (targetElement !== dropdownElement && !dropdownElement?.contains(targetElement)) {
 			onClose();
 		}
 	}

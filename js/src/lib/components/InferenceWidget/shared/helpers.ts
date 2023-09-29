@@ -1,28 +1,26 @@
-import type { ModelData } from '../../../interfaces/Types';
-import { randomItem, parseJSON } from '../../../utils/ViewUtils';
-import type { ModelLoadInfo, TableData } from './types';
+import type { ModelData } from "../../../interfaces/Types";
+import { randomItem, parseJSON } from "../../../utils/ViewUtils";
+import type { ModelLoadInfo, TableData } from "./types";
 
 export function getSearchParams(keys: string[]): string[] {
 	const searchParams = new URL(window.location.href).searchParams;
-	return keys.map((key) => {
+	return keys.map(key => {
 		const value = searchParams.get(key);
-		return value ? value : '';
+		return value || "";
 	});
 }
 
 export function getDemoInputs(model: ModelData, keys: (number | string)[]): any[] {
 	const widgetData = Array.isArray(model.widgetData) ? model.widgetData : [];
 	const randomEntry = (randomItem(widgetData) ?? {}) as any;
-	return keys.map((key) => {
-		const value = (randomEntry[key])
-			? randomEntry[key]
-			: null;
+	return keys.map(key => {
+		const value = randomEntry[key] ? randomEntry[key] : null;
 		return value ? randomEntry[key] : null;
 	});
 }
 
 // Update current url search params, keeping existing keys intact.
-export function updateUrl(obj: Record<string, string | undefined>) {
+export function updateUrl(obj: Record<string, string | undefined>): void {
 	if (!window) {
 		return;
 	}
@@ -41,14 +39,13 @@ export function updateUrl(obj: Record<string, string | undefined>) {
 
 // Run through our own proxy to bypass CORS:
 function proxify(url: string): string {
-	return url.startsWith(`http://localhost`)
-		|| new URL(url).host === window.location.host
+	return url.startsWith(`http://localhost`) || new URL(url).host === window.location.host
 		? url
 		: `https://widgets.hf.co/proxy?url=${url}`;
 }
 
 // Get BLOB from a given URL after proxifying the URL
-export async function getBlobFromUrl(url: string): Promise<Blob>{
+export async function getBlobFromUrl(url: string): Promise<Blob> {
 	const proxiedUrl = proxify(url);
 	const res = await fetch(proxiedUrl);
 	const blob = await res.blob();
@@ -56,22 +53,21 @@ export async function getBlobFromUrl(url: string): Promise<Blob>{
 }
 
 async function callApi(
-	url: string, 
-	repoId: string, 
-	requestBody: Record<string, any>, 
-	apiToken = '',
+	url: string,
+	repoId: string,
+	requestBody: Record<string, any>,
+	apiToken = "",
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
 	useCache = true,
 	includeCredentials = false,
 	isOnLoadCall = false,
 	appendRepoPath = true,
-): Promise<Response> {	
-	const contentType = 'file' in requestBody && 'type' in requestBody['file']
-		? requestBody['file']['type']  
-		: 'application/json';
-	
+): Promise<Response> {
+	const contentType =
+		"file" in requestBody && "type" in requestBody["file"] ? requestBody["file"]["type"] : "application/json";
+
 	const headers = new Headers();
-	headers.set('Content-Type', contentType);
+	headers.set("Content-Type", contentType);
 	if (apiToken) {
 		headers.set("Authorization", `Bearer ${apiToken}`);
 	}
@@ -79,54 +75,54 @@ async function callApi(
 		headers.set("X-Wait-For-Model", "true");
 	}
 	if (useCache === false) {
-		headers.set('X-Use-Cache', "false");
+		headers.set("X-Use-Cache", "false");
 	}
 	if (isOnLoadCall) {
-		headers.set('X-Load-Model', "0");
+		headers.set("X-Load-Model", "0");
 	}
-	
-	const body: File | string = 'file' in requestBody
-		? requestBody.file
-		: JSON.stringify(requestBody);
 
-	return await fetch(
-		`${url}${appendRepoPath ? `/models/${repoId}` : ''}`,
-		{
-			method: "POST",
-			body,
-			headers,
-			credentials: includeCredentials ? "include" : "same-origin",
-		}
-	);
+	const body: File | string = "file" in requestBody ? requestBody.file : JSON.stringify(requestBody);
+
+	return await fetch(`${url}${appendRepoPath ? `/models/${repoId}` : ''}`, {
+		method:      "POST",
+		body,
+		headers,
+		credentials: includeCredentials ? "include" : "same-origin",
+	});
 }
 
 export async function getResponse<T>(
-	url: string, 
-	repoId: string, 
-	requestBody: Record<string, any>, 
-	apiToken = '',
-	outputParsingFn: (x: unknown) =>  T,
+	url: string,
+	repoId: string,
+	requestBody: Record<string, any>,
+	apiToken = "",
+	outputParsingFn: (x: unknown) => T,
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
 	includeCredentials = false,
 	isOnLoadCall = false, // If true, the server will try to answer from cache and not do anything if not
 	useCache = true,
 	appendRepoPath = true,
-): Promise<{
-	computeTime: string,
-	output: T,
-	outputJson: string,
-	response: Response,
-	status: 'success'
-} | {
-	error: string,
-	estimatedTime: number,
-	status: 'loading-model'
-} | {
-	error: string,
-	status: 'error'
-} | {
-	status: 'cache not found'
-}>  {
+): Promise<
+	| {
+			computeTime: string;
+			output:      T;
+			outputJson:  string;
+			response:    Response;
+			status:      "success";
+	  }
+	| {
+			error:         string;
+			estimatedTime: number;
+			status:        "loading-model";
+	  }
+	| {
+			error:  string;
+			status: "error";
+	  }
+	| {
+			status: "cache not found";
+	  }
+> {
 	const response = await callApi(
 		url,
 		repoId,
@@ -144,23 +140,21 @@ export async function getResponse<T>(
 		const computeTime = response.headers.has("x-compute-time")
 			? `${response.headers.get("x-compute-time")} s`
 			: `cached`;
-		const isMediaContent = (response.headers.get('content-type')?.search(/^(?:audio|image)/i) ?? -1) !== -1;
-		
-		const body = !isMediaContent 
-			? await response.json()
-			: await response.blob();
+		const isMediaContent = (response.headers.get("content-type")?.search(/^(?:audio|image)/i) ?? -1) !== -1;
 
-		try{
+		const body = !isMediaContent ? await response.json() : await response.blob();
+
+		try {
 			const output = outputParsingFn(body);
-			const outputJson = !isMediaContent ? JSON.stringify(body, null, 2) : '';
-			return { computeTime, output, outputJson, response, status: 'success' }
-		}catch(e){
-			if(isOnLoadCall && body.error === "not loaded yet"){
-				return { status: 'cache not found' }
+			const outputJson = !isMediaContent ? JSON.stringify(body, null, 2) : "";
+			return { computeTime, output, outputJson, response, status: "success" };
+		} catch (e) {
+			if (isOnLoadCall && body.error === "not loaded yet") {
+				return { status: "cache not found" };
 			}
 			// Invalid output
 			const error = `API Implementation Error: ${e instanceof Error ? e.message : 'unknown error'}`;
-			return { error, status: 'error' }
+			return { error, status: "error" };
 		}
 	} else {
 		// Error
@@ -168,36 +162,42 @@ export async function getResponse<T>(
 		const body = parseJSON<Record<string, any>>(bodyText) ?? {};
 
 		if (
-			body["error"] &&
-			response.status === 503 &&
-			body["estimated_time"] != null // != null -> check for null AND undefined
+			body["error"]
+			&& response.status === 503
+			&& body["estimated_time"] !== null
+			&& body["estimated_time"] !== undefined
 		) {
 			// Model needs loading
-			return { error: body["error"], estimatedTime: body["estimated_time"], status: 'loading-model' };
+			return { error: body["error"], estimatedTime: body["estimated_time"], status: "loading-model" };
 		} else {
 			// Other errors
 			const { status, statusText } = response;
-			return { error: body["error"] ?? body["traceback"] ?? `${status} ${statusText}`, status: 'error' };
+			return { error: body["error"] ?? body["traceback"] ?? `${status} ${statusText}`, status: "error" };
 		}
 	}
 }
 
-
-export async function getModelLoadInfo(url: string, repoId: string, includeCredentials = false): Promise<ModelLoadInfo> {
-	const response = await fetch(`${url}/status/${repoId}`, {credentials: includeCredentials ? "include" : "same-origin"});
+export async function getModelLoadInfo(
+	url: string,
+	repoId: string,
+	includeCredentials = false
+): Promise<ModelLoadInfo> {
+	const response = await fetch(`${url}/status/${repoId}`, {
+		credentials: includeCredentials ? "include" : "same-origin",
+	});
 	const output = await response.json();
-	if (response.ok && typeof output === 'object' && output.loaded !== undefined) {
-		const status = output.loaded ? 'loaded' : 'unknown';
-		const compute_type = output.compute_type;
-		return {status, compute_type}
+	if (response.ok && typeof output === "object" && output.loaded !== undefined) {
+		// eslint-disable-next-line @typescript-eslint/naming-convention
+		const { state, compute_type } = output;
+		return { compute_type, state };
 	} else {
 		console.warn(response.status, output.error);
-		return {status: 'error'};
+		return { state: "error" };
 	}
 }
 
 // Extend Inference API requestBody with user supplied Inference API parameters
-export function addInferenceParameters(requestBody: Record<string, any>, model: ModelData) {
+export function addInferenceParameters(requestBody: Record<string, any>, model: ModelData): void {
 	const inference = model?.cardData?.inference;
 	if (typeof inference === "object") {
 		const inferenceParameters = inference?.parameters;
@@ -212,9 +212,9 @@ export function addInferenceParameters(requestBody: Record<string, any>, model: 
 }
 
 /*
-* Converts table from [[Header0, Header1, Header2], [Column0Val0, Column1Val0, Column2Val0], ...]
-* to {Header0: [ColumnVal0, ...], Header1: [Column1Val0, ...], Header2: [Column2Val0, ...]}
-*/
+ * Converts table from [[Header0, Header1, Header2], [Column0Val0, Column1Val0, Column2Val0], ...]
+ * to {Header0: [ColumnVal0, ...], Header1: [Column1Val0, ...], Header2: [Column2Val0, ...]}
+ */
 export function convertTableToData(table: (string | number)[][]): TableData {
 	const firstEntry = table[0] ?? [];
 	return Object.fromEntries(
@@ -232,9 +232,9 @@ export function convertTableToData(table: (string | number)[][]): TableData {
 }
 
 /*
-* Converts data from {Header0: [ColumnVal0, ...], Header1: [Column1Val0, ...], Header2: [Column2Val0, ...]}
-* to [[Header0, Header1, Header2], [Column0Val0, Column1Val0, Column2Val0], ...]
-*/
+ * Converts data from {Header0: [ColumnVal0, ...], Header1: [Column1Val0, ...], Header2: [Column2Val0, ...]}
+ * to [[Header0, Header1, Header2], [Column0Val0, Column1Val0, Column2Val0], ...]
+ */
 export function convertDataToTable(data: TableData): (string | number)[][] {
 	const dataArray = Object.entries(data); // [header, cell[]][]
 	const nbCols = dataArray.length;

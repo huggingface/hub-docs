@@ -1,17 +1,14 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
 
+	import { onMount } from "svelte";
+
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetRecorder from "../../shared/WidgetRecorder/WidgetRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		getResponse,
-		getBlobFromUrl,
-		getDemoInputs,
-	} from "../../shared/helpers";
-	import { onMount } from "svelte";
+	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -38,9 +35,9 @@
 	let selectedSampleUrl = "";
 
 	interface AudioItem {
-		blob: string;
-		label: string;
-		src?: string;
+		"blob": string;
+		"label": string;
+		"src"?: string;
 		"content-type": string;
 	}
 
@@ -61,19 +58,13 @@
 		if (updatedFile.size !== 0) {
 			const date = new Date();
 			const time = date.toLocaleTimeString("en-US");
-			filename =
-				"name" in updatedFile
-					? updatedFile.name
-					: `Audio recorded from browser [${time}]`;
+			filename = "name" in updatedFile ? updatedFile.name : `Audio recorded from browser [${time}]`;
 			file = updatedFile;
 			fileUrl = URL.createObjectURL(file);
 		}
 	}
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			return;
@@ -123,12 +114,7 @@
 	function isValidOutput(arg: any): arg is AudioItem[] {
 		return (
 			Array.isArray(arg) &&
-			arg.every(
-				(x) =>
-					typeof x.blob === "string" &&
-					typeof x.label === "string" &&
-					typeof x["content-type"] === "string"
-			)
+			arg.every(x => typeof x.blob === "string" && typeof x.label === "string" && typeof x["content-type"] === "string")
 		);
 	}
 
@@ -139,9 +125,7 @@
 			}
 			return body;
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type Array<blob:string, label:string, content-type:string>"
-		);
+		throw new TypeError("Invalid output: output must be of type Array<blob:string, label:string, content-type:string>");
 	}
 
 	function applyInputSample(sample: Record<string, any>) {
@@ -160,9 +144,9 @@
 	}
 
 	onMount(() => {
-		const [example_title, src] = getDemoInputs(model, ["example_title", "src"]);
+		const [exampleTitle, src] = getDemoInputs(model, ["example_title", "src"]);
 		if (callApiOnMount && src) {
-			filename = example_title ?? "";
+			filename = exampleTitle ?? "";
 			fileUrl = src;
 			selectedSampleUrl = src;
 			getOutput({ isOnLoadCall: true });
@@ -186,19 +170,10 @@
 >
 	<svelte:fragment slot="top">
 		<form>
-			<div class="flex items-center flex-wrap">
-				<WidgetFileInput
-					accept="audio/*"
-					classNames="mt-1.5 mr-2"
-					{onSelectFile}
-				/>
+			<div class="flex flex-wrap items-center">
+				<WidgetFileInput accept="audio/*" classNames="mt-1.5 mr-2" {onSelectFile} />
 				<span class="mt-1.5 mr-2">or</span>
-				<WidgetRecorder
-					classNames="mt-1.5"
-					{onRecordStart}
-					onRecordStop={onSelectFile}
-					onError={onRecordError}
-				/>
+				<WidgetRecorder classNames="mt-1.5" {onRecordStart} onRecordStop={onSelectFile} onError={onRecordError} />
 			</div>
 			{#if fileUrl}
 				<WidgetAudioTrack classNames="mt-3" label={filename} src={fileUrl} />
@@ -215,7 +190,7 @@
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">
 		{#each output as item}
-			<div class="flex items-center mt-2">
+			<div class="mt-2 flex items-center">
 				<span class="mr-2">{item.label}:</span>
 				<WidgetAudioTrack classNames="" src={item.src} />
 			</div>

@@ -33,7 +33,9 @@ export const snippetZeroShotClassification = (model: ModelData, accessToken: str
 	return result;
 }
 
-query({"inputs": ${getModelInputSnippet(model)}, "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}).then((response) => {
+query({"inputs": ${getModelInputSnippet(
+		model
+	)}, "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}).then((response) => {
 	console.log(JSON.stringify(response));
 });`;
 
@@ -73,9 +75,7 @@ query(${getModelInputSnippet(model)}).then((response) => {
 	console.log(JSON.stringify(response));
 });`;
 
-export const jsSnippets:
-	Partial<Record<PipelineType, (model: ModelData, accessToken: string) => string>> =
-{
+export const jsSnippets: Partial<Record<PipelineType, (model: ModelData, accessToken: string) => string>> = {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":          snippetBasic,
 	"token-classification":         snippetBasic,

@@ -51,7 +51,7 @@ await inference.imageToImage({
     prompt: "Deblur this image"
   }
 })
-
+```
 
 ## ControlNet
 

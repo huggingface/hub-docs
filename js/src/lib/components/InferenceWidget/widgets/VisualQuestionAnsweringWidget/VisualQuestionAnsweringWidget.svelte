@@ -8,11 +8,7 @@
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		getResponse,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, getResponse } from "../../shared/helpers";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -30,7 +26,7 @@
 		isLoading: false,
 		estimatedTime: 0,
 	};
-	let output: Array<{ answer: string; score: number }> = [];
+	let output: Array<{ answer: string; score: number }> | null = [];
 	let outputJson: string;
 	let question = "";
 	let imgSrc = "";
@@ -54,30 +50,21 @@
 					reject(err);
 				}
 			};
-			fileReader.onerror = (e) => reject(e);
+			fileReader.onerror = e => reject(e);
 			isLoading = true;
 			fileReader.readAsDataURL(file);
 		});
 	}
 
 	function isValidOutput(arg: any): arg is { answer: string; score: number }[] {
-		return (
-			Array.isArray(arg) &&
-			arg.every(
-				(x) => typeof x.answer === "string" && typeof x.score === "number"
-			)
-		);
+		return Array.isArray(arg) && arg.every(x => typeof x.answer === "string" && typeof x.score === "number");
 	}
 
-	function parseOutput(
-		body: unknown
-	): Array<{ answer: string; score: number }> {
+	function parseOutput(body: unknown): Array<{ answer: string; score: number }> {
 		if (isValidOutput(body)) {
 			return body;
 		}
-		throw new TypeError(
-			"Invalid output: output must be of type Array<answer: string, score:number>"
-		);
+		throw new TypeError("Invalid output: output must be of type Array<answer: string, score:number>");
 	}
 
 	function previewInputSample(sample: Record<string, any>) {
@@ -94,10 +81,7 @@
 		getOutput();
 	}
 
-	async function getOutput({
-		withModelLoading = false,
-		isOnLoadCall = false,
-	} = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedQuestion = question.trim();
 
 		if (!trimmedQuestion) {
@@ -188,27 +172,15 @@
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">
-			<WidgetDropzone
-				classNames="hidden md:block"
-				{isLoading}
-				{imgSrc}
-				{onSelectFile}
-				onError={(e) => (error = e)}
-			>
+			<WidgetDropzone classNames="hidden md:block" {isLoading} {imgSrc} {onSelectFile} onError={e => (error = e)}>
 				{#if imgSrc}
-					<img
-						src={imgSrc}
-						class="pointer-events-none mx-auto max-h-44 shadow"
-						alt=""
-					/>
+					<img src={imgSrc} class="pointer-events-none mx-auto max-h-44 shadow" alt="" />
 				{/if}
 			</WidgetDropzone>
 			<!-- Better UX for mobile/table through CSS breakpoints -->
 			{#if imgSrc}
 				{#if imgSrc}
-					<div
-						class="mb-2 flex justify-center bg-gray-50 dark:bg-gray-900 md:hidden"
-					>
+					<div class="mb-2 flex justify-center bg-gray-50 dark:bg-gray-900 md:hidden">
 						<img src={imgSrc} class="pointer-events-none max-h-44" alt="" />
 					</div>
 				{/if}

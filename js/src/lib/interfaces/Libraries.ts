@@ -3,41 +3,44 @@ import type { ModelData } from "./Types";
 
 /**
  * Add your new library here.
+ *
+ * This is for modeling (= architectures) libraries, not for file formats (like ONNX, etc).
+ * File formats live in an enum inside the internal codebase.
  */
 export enum ModelLibrary {
-	"adapter-transformers"  = "Adapter Transformers",
-	"allennlp"              = "allenNLP",
-	"asteroid"              = "Asteroid",
-	"bertopic"              = "BERTopic",
-	"diffusers"             = "Diffusers",
-	"doctr"                 = "docTR",
-	"espnet"                = "ESPnet",
-	"fairseq"               = "Fairseq",
-	"flair"                 = "Flair",
-	"keras"                 = "Keras",
-	"k2"                    = "K2",
-	"nemo"                  = "NeMo",
-	"open_clip"             = "OpenCLIP",
-	"paddlenlp"             = "PaddleNLP",
-	"peft"                  = "PEFT",
-	"pyannote-audio"        = "pyannote.audio",
-	"sample-factory"        = "Sample Factory",
+	"adapter-transformers" = "Adapter Transformers",
+	"allennlp" = "allenNLP",
+	"asteroid" = "Asteroid",
+	"bertopic" = "BERTopic",
+	"diffusers" = "Diffusers",
+	"doctr" = "docTR",
+	"espnet" = "ESPnet",
+	"fairseq" = "Fairseq",
+	"flair" = "Flair",
+	"keras" = "Keras",
+	"k2" = "K2",
+	"nemo" = "NeMo",
+	"open_clip" = "OpenCLIP",
+	"paddlenlp" = "PaddleNLP",
+	"peft" = "PEFT",
+	"pyannote-audio" = "pyannote.audio",
+	"sample-factory" = "Sample Factory",
 	"sentence-transformers" = "Sentence Transformers",
-	"sklearn"               = "Scikit-learn",
-	"spacy"                 = "spaCy",
-	"span-marker"           = "SpanMarker",
-	"speechbrain"           = "speechbrain",
-	"tensorflowtts"         = "TensorFlowTTS",
-	"timm"                  = "Timm",
-	"fastai"                = "fastai",
-	"transformers"          = "Transformers",
-	"transformers.js"       = "Transformers.js",
-	"stanza"                = "Stanza",
-	"fasttext"              = "fastText",
-	"stable-baselines3"     = "Stable-Baselines3",
-	"ml-agents"             = "ML-Agents",
-	"pythae"                = "Pythae",
-	"mindspore"             = "MindSpore",
+	"sklearn" = "Scikit-learn",
+	"spacy" = "spaCy",
+	"span-marker" = "SpanMarker",
+	"speechbrain" = "speechbrain",
+	"tensorflowtts" = "TensorFlowTTS",
+	"timm" = "Timm",
+	"fastai" = "fastai",
+	"transformers" = "Transformers",
+	"transformers.js" = "Transformers.js",
+	"stanza" = "Stanza",
+	"fasttext" = "fastText",
+	"stable-baselines3" = "Stable-Baselines3",
+	"ml-agents" = "ML-Agents",
+	"pythae" = "Pythae",
+	"mindspore" = "MindSpore",
 }
 
 export type ModelLibraryKey = keyof typeof ModelLibrary;
@@ -45,8 +48,9 @@ export const ALL_MODEL_LIBRARY_KEYS = Object.keys(ModelLibrary) as ModelLibraryK
 
 const EXCLUDE_THOSE_LIBRARIES_FROM_DISPLAY: ModelLibraryKey[] = ["doctr", "k2", "mindspore"];
 
-export const ALL_DISPLAY_MODEL_LIBRARY_KEYS = ALL_MODEL_LIBRARY_KEYS.filter(k => !EXCLUDE_THOSE_LIBRARIES_FROM_DISPLAY.includes(k));
-
+export const ALL_DISPLAY_MODEL_LIBRARY_KEYS = ALL_MODEL_LIBRARY_KEYS.filter(
+	k => !EXCLUDE_THOSE_LIBRARIES_FROM_DISPLAY.includes(k)
+);
 
 /**
  * Elements configurable by a model library.
@@ -78,25 +82,28 @@ function nameWithoutNamespace(modelId: string): string {
 
 //#region snippets
 
-const adapter_transformers = (model: ModelData) =>
-	[`from transformers import ${model.config?.adapter_transformers?.model_class}
+const adapter_transformers = (model: ModelData) => [
+	`from transformers import ${model.config?.adapter_transformers?.model_class}
 
 model = ${model.config?.adapter_transformers?.model_class}.from_pretrained("${model.config?.adapter_transformers?.model_name}")
-model.load_adapter("${model.id}", source="hf")`];
+model.load_adapter("${model.id}", source="hf")`,
+];
 
-const allennlpUnknown = (model: ModelData) =>
-	[`import allennlp_models
+const allennlpUnknown = (model: ModelData) => [
+	`import allennlp_models
 from allennlp.predictors.predictor import Predictor
 
-predictor = Predictor.from_path("hf://${model.id}")`];
+predictor = Predictor.from_path("hf://${model.id}")`,
+];
 
-const allennlpQuestionAnswering = (model: ModelData) =>
-	[`import allennlp_models
+const allennlpQuestionAnswering = (model: ModelData) => [
+	`import allennlp_models
 from allennlp.predictors.predictor import Predictor
 
 predictor = Predictor.from_path("hf://${model.id}")
 predictor_input = {"passage": "My name is Wolfgang and I live in Berlin", "question": "Where do I live?"}
-predictions = predictor.predict_json(predictor_input)`];
+predictions = predictor.predict_json(predictor_input)`,
+];
 
 const allennlp = (model: ModelData) => {
 	if (model.tags?.includes("question-answering")) {
@@ -105,44 +112,50 @@ const allennlp = (model: ModelData) => {
 	return allennlpUnknown(model);
 };
 
-const asteroid = (model: ModelData) =>
-	[`from asteroid.models import BaseModel
+const asteroid = (model: ModelData) => [
+	`from asteroid.models import BaseModel
 
-model = BaseModel.from_pretrained("${model.id}")`];
+model = BaseModel.from_pretrained("${model.id}")`,
+];
 
 function get_base_diffusers_model(model: ModelData): string {
-	return model.cardData?.base_model ?? 'fill-in-base-model'
+	return model.cardData?.base_model ?? "fill-in-base-model";
 }
 
-const bertopic = (model: ModelData) =>
-	[`from bertopic import BERTopic
+const bertopic = (model: ModelData) => [
+	`from bertopic import BERTopic
 
-model = BERTopic.load("${model.id}")`];
+model = BERTopic.load("${model.id}")`,
+];
 
-const diffusers_default = (model: ModelData) =>
-	[`from diffusers import DiffusionPipeline
+const diffusers_default = (model: ModelData) => [
+	`from diffusers import DiffusionPipeline
 
-pipeline = DiffusionPipeline.from_pretrained("${model.id}")`];
+pipeline = DiffusionPipeline.from_pretrained("${model.id}")`,
+];
 
-const diffusers_controlnet = (model: ModelData) =>
-	[`from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
+const diffusers_controlnet = (model: ModelData) => [
+	`from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
 
 controlnet = ControlNetModel.from_pretrained("${model.id}")
 pipeline = StableDiffusionControlNetPipeline.from_pretrained(
 	"${get_base_diffusers_model(model)}", controlnet=controlnet
-)`];
+)`,
+];
 
-const diffusers_lora = (model: ModelData) =>
-	[`from diffusers import DiffusionPipeline
-
-pipeline = DiffusionPipeline.from_pretrained("${get_base_diffusers_model(model)}")
-pipeline.load_lora_weights("${model.id}")`];
-
-const diffusers_textual_inversion = (model: ModelData) =>
-	[`from diffusers import DiffusionPipeline
+const diffusers_lora = (model: ModelData) => [
+	`from diffusers import DiffusionPipeline
 
 pipeline = DiffusionPipeline.from_pretrained("${get_base_diffusers_model(model)}")
-pipeline.load_textual_inversion("${model.id}")`];
+pipeline.load_lora_weights("${model.id}")`,
+];
+
+const diffusers_textual_inversion = (model: ModelData) => [
+	`from diffusers import DiffusionPipeline
+
+pipeline = DiffusionPipeline.from_pretrained("${get_base_diffusers_model(model)}")
+pipeline.load_textual_inversion("${model.id}")`,
+];
 
 const diffusers = (model: ModelData) => {
 	if (model.tags?.includes("controlnet")) {
@@ -154,27 +167,28 @@ const diffusers = (model: ModelData) => {
 	} else {
 		return diffusers_default(model);
 	}
-}
+};
 
-const espnetTTS = (model: ModelData) =>
-	[`from espnet2.bin.tts_inference import Text2Speech
+const espnetTTS = (model: ModelData) => [
+	`from espnet2.bin.tts_inference import Text2Speech
 
 model = Text2Speech.from_pretrained("${model.id}")
 
-speech, *_ = model("text to generate speech from")`];
+speech, *_ = model("text to generate speech from")`,
+];
 
-const espnetASR = (model: ModelData) =>
-	[`from espnet2.bin.asr_inference import Speech2Text
+const espnetASR = (model: ModelData) => [
+	`from espnet2.bin.asr_inference import Speech2Text
 
 model = Speech2Text.from_pretrained(
   "${model.id}"
 )
 
 speech, rate = soundfile.read("speech.wav")
-text, *_ = model(speech)[0]`];
+text, *_ = model(speech)[0]`,
+];
 
-const espnetUnknown = () =>
-	[`unknown model type (must be text-to-speech or automatic-speech-recognition)`];
+const espnetUnknown = () => [`unknown model type (must be text-to-speech or automatic-speech-recognition)`];
 
 const espnet = (model: ModelData) => {
 	if (model.tags?.includes("text-to-speech")) {
@@ -185,53 +199,68 @@ const espnet = (model: ModelData) => {
 	return espnetUnknown();
 };
 
-const fairseq = (model: ModelData) =>
-	[`from fairseq.checkpoint_utils import load_model_ensemble_and_task_from_hf_hub
+const fairseq = (model: ModelData) => [
+	`from fairseq.checkpoint_utils import load_model_ensemble_and_task_from_hf_hub
 
 models, cfg, task = load_model_ensemble_and_task_from_hf_hub(
     "${model.id}"
-)`];
+)`,
+];
 
+const flair = (model: ModelData) => [
+	`from flair.models import SequenceTagger
 
-const flair = (model: ModelData) =>
-	[`from flair.models import SequenceTagger
+tagger = SequenceTagger.load("${model.id}")`,
+];
 
-tagger = SequenceTagger.load("${model.id}")`];
-
-const keras = (model: ModelData) =>
-	[`from huggingface_hub import from_pretrained_keras
+const keras = (model: ModelData) => [
+	`from huggingface_hub import from_pretrained_keras
 
 model = from_pretrained_keras("${model.id}")
-`];
+`,
+];
 
-const open_clip = (model: ModelData) =>
-	[`import open_clip
+const open_clip = (model: ModelData) => [
+	`import open_clip
 
 model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms('hf-hub:${model.id}')
-tokenizer = open_clip.get_tokenizer('hf-hub:${model.id}')`];
+tokenizer = open_clip.get_tokenizer('hf-hub:${model.id}')`,
+];
 
 const paddlenlp = (model: ModelData) => {
 	if (model.config?.architectures?.[0]) {
 		const architecture = model.config.architectures[0];
-		return [[
-			`from paddlenlp.transformers import AutoTokenizer, ${architecture}`,
-			"",
-			`tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
-			`model = ${architecture}.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
-		].join("\n")];
+		return [
+			[
+				`from paddlenlp.transformers import AutoTokenizer, ${architecture}`,
+				"",
+				`tokenizer = AutoTokenizer.from_pretrained("${model.id}"${
+					model.private ? ", use_auth_token=True" : ""
+				}, from_hf_hub=True)`,
+				`model = ${architecture}.from_pretrained("${model.id}"${
+					model.private ? ", use_auth_token=True" : ""
+				}, from_hf_hub=True)`,
+			].join("\n"),
+		];
 	} else {
-		return [[
-			`# ⚠️ Type of model unknown`,
-			`from paddlenlp.transformers import AutoTokenizer, AutoModel`,
-			"",
-			`tokenizer = AutoTokenizer.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
-			`model = AutoModel.from_pretrained("${model.id}"${model.private ? ", use_auth_token=True" : ""}, from_hf_hub=True)`,
-		].join("\n")];
+		return [
+			[
+				`# ⚠️ Type of model unknown`,
+				`from paddlenlp.transformers import AutoTokenizer, AutoModel`,
+				"",
+				`tokenizer = AutoTokenizer.from_pretrained("${model.id}"${
+					model.private ? ", use_auth_token=True" : ""
+				}, from_hf_hub=True)`,
+				`model = AutoModel.from_pretrained("${model.id}"${
+					model.private ? ", use_auth_token=True" : ""
+				}, from_hf_hub=True)`,
+			].join("\n"),
+		];
 	}
 };
 
-const pyannote_audio_pipeline = (model: ModelData) =>
-	[`from pyannote.audio import Pipeline
+const pyannote_audio_pipeline = (model: ModelData) => [
+	`from pyannote.audio import Pipeline
   
 pipeline = Pipeline.from_pretrained("${model.id}")
 
@@ -244,10 +273,11 @@ excerpt = Segment(start=2.0, end=5.0)
 
 from pyannote.audio import Audio
 waveform, sample_rate = Audio().crop("file.wav", excerpt)
-pipeline({"waveform": waveform, "sample_rate": sample_rate})`];
+pipeline({"waveform": waveform, "sample_rate": sample_rate})`,
+];
 
-const pyannote_audio_model = (model: ModelData) =>
-	[`from pyannote.audio import Model, Inference
+const pyannote_audio_model = (model: ModelData) => [
+	`from pyannote.audio import Model, Inference
 
 model = Model.from_pretrained("${model.id}")
 inference = Inference(model)
@@ -258,7 +288,8 @@ inference("file.wav")
 # inference on an excerpt
 from pyannote.core import Segment
 excerpt = Segment(start=2.0, end=5.0)
-inference.crop("file.wav", excerpt)`];
+inference.crop("file.wav", excerpt)`,
+];
 
 const pyannote_audio = (model: ModelData) => {
 	if (model.tags?.includes("pyannote-audio-pipeline")) {
@@ -267,25 +298,28 @@ const pyannote_audio = (model: ModelData) => {
 	return pyannote_audio_model(model);
 };
 
-const tensorflowttsTextToMel = (model: ModelData) =>
-	[`from tensorflow_tts.inference import AutoProcessor, TFAutoModel
+const tensorflowttsTextToMel = (model: ModelData) => [
+	`from tensorflow_tts.inference import AutoProcessor, TFAutoModel
 
 processor = AutoProcessor.from_pretrained("${model.id}")
 model = TFAutoModel.from_pretrained("${model.id}")
-`];
+`,
+];
 
-const tensorflowttsMelToWav = (model: ModelData) =>
-	[`from tensorflow_tts.inference import TFAutoModel
+const tensorflowttsMelToWav = (model: ModelData) => [
+	`from tensorflow_tts.inference import TFAutoModel
 
 model = TFAutoModel.from_pretrained("${model.id}")
 audios = model.inference(mels)
-`];
+`,
+];
 
-const tensorflowttsUnknown = (model: ModelData) =>
-	[`from tensorflow_tts.inference import TFAutoModel
+const tensorflowttsUnknown = (model: ModelData) => [
+	`from tensorflow_tts.inference import TFAutoModel
 
 model = TFAutoModel.from_pretrained("${model.id}")
-`];
+`,
+];
 
 const tensorflowtts = (model: ModelData) => {
 	if (model.tags?.includes("text-to-mel")) {
@@ -296,70 +330,80 @@ const tensorflowtts = (model: ModelData) => {
 	return tensorflowttsUnknown(model);
 };
 
-const timm = (model: ModelData) =>
-	[`import timm
+const timm = (model: ModelData) => [
+	`import timm
 
-model = timm.create_model("hf_hub:${model.id}", pretrained=True)`];
+model = timm.create_model("hf_hub:${model.id}", pretrained=True)`,
+];
 
 const skopsPickle = (model: ModelData, modelFile: string) => {
-	return [`import joblib
+	return [
+		`import joblib
 from skops.hub_utils import download
 download("${model.id}", "path_to_folder")
 model = joblib.load(
 	"${modelFile}"
 )
 # only load pickle files from sources you trust
-# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`];
-}
+# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`,
+	];
+};
 
 const skopsFormat = (model: ModelData, modelFile: string) => {
-	return [`from skops.hub_utils import download
+	return [
+		`from skops.hub_utils import download
 from skops.io import load
 download("${model.id}", "path_to_folder")
 # make sure model file is in skops format
 # if model is a pickle file, make sure it's from a source you trust
-model = load("path_to_folder/${modelFile}")`];
-}
+model = load("path_to_folder/${modelFile}")`,
+	];
+};
 
 const skopsJobLib = (model: ModelData) => {
-	return [`from huggingface_hub import hf_hub_download
+	return [
+		`from huggingface_hub import hf_hub_download
 import joblib
 model = joblib.load(
 	hf_hub_download("${model.id}", "sklearn_model.joblib")
 )
 # only load pickle files from sources you trust
-# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`];
-}
+# read more about it here https://skops.readthedocs.io/en/stable/persistence.html`,
+	];
+};
 
 const sklearn = (model: ModelData) => {
 	if (model.tags?.includes("skops")) {
 		const skopsmodelFile = model.config?.sklearn?.filename;
 		const skopssaveFormat = model.config?.sklearn?.model_format;
 		if (skopssaveFormat === "pickle") {
-			return skopsPickle(model, skopsmodelFile)
+			return skopsPickle(model, skopsmodelFile);
 		} else {
-			return skopsFormat(model, skopsmodelFile)
+			return skopsFormat(model, skopsmodelFile);
 		}
 	} else {
 		return skopsJobLib(model);
 	}
 };
 
-const fastai = (model: ModelData) =>
-	[`from huggingface_hub import from_pretrained_fastai
+const fastai = (model: ModelData) => [
+	`from huggingface_hub import from_pretrained_fastai
 
-learn = from_pretrained_fastai("${model.id}")`];
+learn = from_pretrained_fastai("${model.id}")`,
+];
 
-const sampleFactory = (model: ModelData) =>
-	[`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d ./train_dir`];
+const sampleFactory = (model: ModelData) => [
+	`python -m sample_factory.huggingface.load_from_hub -r ${model.id} -d ./train_dir`,
+];
 
-const sentenceTransformers = (model: ModelData) =>
-	[`from sentence_transformers import SentenceTransformer
+const sentenceTransformers = (model: ModelData) => [
+	`from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer("${model.id}")`];
+model = SentenceTransformer("${model.id}")`,
+];
 
-const spacy = (model: ModelData) =>
-	[`!pip install https://huggingface.co/${model.id}/resolve/main/${nameWithoutNamespace(model.id)}-any-py3-none-any.whl
+const spacy = (model: ModelData) => [
+	`!pip install https://huggingface.co/${model.id}/resolve/main/${nameWithoutNamespace(model.id)}-any-py3-none-any.whl
 
 # Using spacy.load().
 import spacy
@@ -367,19 +411,21 @@ nlp = spacy.load("${nameWithoutNamespace(model.id)}")
 
 # Importing as module.
 import ${nameWithoutNamespace(model.id)}
-nlp = ${nameWithoutNamespace(model.id)}.load()`];
+nlp = ${nameWithoutNamespace(model.id)}.load()`,
+];
 
-const span_marker = (model: ModelData) =>
-	[`from span_marker import SpanMarkerModel
+const span_marker = (model: ModelData) => [
+	`from span_marker import SpanMarkerModel
 
-model = SpanMarkerModel.from_pretrained("${model.id}")`];
+model = SpanMarkerModel.from_pretrained("${model.id}")`,
+];
 
-const stanza = (model: ModelData) =>
-	[`import stanza
+const stanza = (model: ModelData) => [
+	`import stanza
 
 stanza.download("${nameWithoutNamespace(model.id).replace("stanza-", "")}")
-nlp = stanza.Pipeline("${nameWithoutNamespace(model.id).replace("stanza-", "")}")`];
-
+nlp = stanza.Pipeline("${nameWithoutNamespace(model.id).replace("stanza-", "")}")`,
+];
 
 const speechBrainMethod = (speechbrainInterface: string) => {
 	switch (speechbrainInterface) {
@@ -408,11 +454,13 @@ const speechbrain = (model: ModelData) => {
 		return [`# interface in config.json invalid`];
 	}
 
-	return [`from speechbrain.pretrained import ${speechbrainInterface}
+	return [
+		`from speechbrain.pretrained import ${speechbrainInterface}
 model = ${speechbrainInterface}.from_hparams(
   "${model.id}"
 )
-model.${speechbrainMethod}("file.wav")`];
+model.${speechbrainMethod}("file.wav")`,
+	];
 };
 
 const transformers = (model: ModelData) => {
@@ -424,16 +472,18 @@ const transformers = (model: ModelData) => {
 
 	let autoSnippet: string;
 	if (info.processor) {
-		const varName = info.processor === "AutoTokenizer" ? "tokenizer"
-			: info.processor === "AutoFeatureExtractor" ? "extractor"
-				: "processor"
-			;
+		const varName =
+			info.processor === "AutoTokenizer"
+				? "tokenizer"
+				: info.processor === "AutoFeatureExtractor"
+					? "extractor"
+					: "processor";
 		autoSnippet = [
 			"# Load model directly",
 			`from transformers import ${info.processor}, ${info.auto_model}`,
 			"",
 			`${varName} = ${info.processor}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
-			`model = ${info.auto_model}.from_pretrained("${model.id}"` + remote_code_snippet + ")"
+			`model = ${info.auto_model}.from_pretrained("${model.id}"` + remote_code_snippet + ")",
 		].join("\n");
 	} else {
 		autoSnippet = [
@@ -448,8 +498,8 @@ const transformers = (model: ModelData) => {
 			"# Use a pipeline as a high-level helper",
 			"from transformers import pipeline",
 			"",
-			`pipe = pipeline("${model.pipeline_tag}", model="${model.id}"` + remote_code_snippet + ")"
-		].join("\n")
+			`pipe = pipeline("${model.pipeline_tag}", model="${model.id}"` + remote_code_snippet + ")",
+		].join("\n");
 		return [pipelineSnippet, autoSnippet];
 	}
 	return [autoSnippet];
@@ -460,13 +510,15 @@ const transformersJS = (model: ModelData) => {
 		return [`// ⚠️ Unknown pipeline tag`];
 	}
 
-	const libName = '@xenova/transformers';
+	const libName = "@xenova/transformers";
 
-	return [`// npm i ${libName}
+	return [
+		`// npm i ${libName}
 import { pipeline } from '${libName}';
 
 // Allocate pipeline
-const pipe = await pipeline('${model.pipeline_tag}', '${model.id}');`];
+const pipe = await pipeline('${model.pipeline_tag}', '${model.id}');`,
+	];
 };
 
 const peftTask = (peftTaskType?: string) => {
@@ -494,45 +546,50 @@ const peft = (model: ModelData) => {
 		return [`Base model is not found.`];
 	}
 
-	return [`from peft import PeftModel, PeftConfig
+	return [
+		`from peft import PeftModel, PeftConfig
 from transformers import AutoModelFor${pefttask}
 
 config = PeftConfig.from_pretrained("${model.id}")
 model = AutoModelFor${pefttask}.from_pretrained("${peftBaseModel}")
-model = PeftModel.from_pretrained(model, "${model.id}")`];
+model = PeftModel.from_pretrained(model, "${model.id}")`,
+	];
 };
 
-const fasttext = (model: ModelData) =>
-	[`from huggingface_hub import hf_hub_download
+const fasttext = (model: ModelData) => [
+	`from huggingface_hub import hf_hub_download
 import fasttext
 
-model = fasttext.load_model(hf_hub_download("${model.id}", "model.bin"))`];
+model = fasttext.load_model(hf_hub_download("${model.id}", "model.bin"))`,
+];
 
-const stableBaselines3 = (model: ModelData) =>
-	[`from huggingface_sb3 import load_from_hub
+const stableBaselines3 = (model: ModelData) => [
+	`from huggingface_sb3 import load_from_hub
 checkpoint = load_from_hub(
 	repo_id="${model.id}",
 	filename="{MODEL FILENAME}.zip",
-)`];
+)`,
+];
 
 const nemoDomainResolver = (domain: string, model: ModelData): string[] | undefined => {
 	switch (domain) {
 		case "ASR":
-			return [`import nemo.collections.asr as nemo_asr
+			return [
+				`import nemo.collections.asr as nemo_asr
 asr_model = nemo_asr.models.ASRModel.from_pretrained("${model.id}")
 
-transcriptions = asr_model.transcribe(["file.wav"])`];
+transcriptions = asr_model.transcribe(["file.wav"])`,
+			];
 		default:
 			return undefined;
 	}
 };
 
-const mlAgents = (model: ModelData) =>
-	[`mlagents-load-from-hf --repo-id="${model.id}" --local-dir="./downloads"`];
+const mlAgents = (model: ModelData) => [`mlagents-load-from-hf --repo-id="${model.id}" --local-dir="./downloads"`];
 
 const nemo = (model: ModelData) => {
 	let command: string[] | undefined = undefined;
-	// Resolve the tag to a nemo domain/sub-domain 
+	// Resolve the tag to a nemo domain/sub-domain
 	if (model.tags?.includes("automatic-speech-recognition")) {
 		command = nemoDomainResolver("ASR", model);
 	}
@@ -540,14 +597,13 @@ const nemo = (model: ModelData) => {
 	return command ?? [`# tag did not correspond to a valid NeMo domain.`];
 };
 
-const pythae = (model: ModelData) =>
-	[`from pythae.models import AutoModel
+const pythae = (model: ModelData) => [
+	`from pythae.models import AutoModel
 
-model = AutoModel.load_from_hf_hub("${model.id}")`];
+model = AutoModel.load_from_hf_hub("${model.id}")`,
+];
 
 //#endregion
-
-
 
 export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, LibraryUiElement>> = {
 	"adapter-transformers": {
@@ -731,4 +787,3 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		snippets: pythae,
 	},
 } as const;
-

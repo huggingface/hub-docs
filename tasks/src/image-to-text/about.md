@@ -19,7 +19,7 @@ You can use the 🤗 Transformers library's `image-to-text` pipeline to generate
 from transformers import pipeline
 
 captioner = pipeline("image-to-text",model="Salesforce/blip-image-captioning-base")
-captioner("https://huggingface.co/datasets/Narsil/image_dummy/raw/main/parrots.png")
+captioner("https://huggingface.co/datasets/Narsil/image_dummy/resolve/main/parrots.png")
 ## [{'generated_text': 'two birds are standing next to each other '}]
 ```
 

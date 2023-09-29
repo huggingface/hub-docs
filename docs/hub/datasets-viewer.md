@@ -7,15 +7,19 @@ The dataset page includes a table with the contents of the dataset, arranged by 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-dark.png"/>
 </div>
 
+## Search a word in the dataset
+
+You can search for a word in the dataset by typing it in the search bar at the top of the table. The search is case-insensitive and will match any row containing the word. The text is searched in the columns of type `string`, even if the values are nested in a dictionary.
+
 ## Share a specific row
 
-You can share a specific row by clicking on it, and then copying the URL in the address bar of your browser. For example https://huggingface.co/datasets/glue/viewer/mrpc/test?row=241 will open the dataset viewer on the MRPC dataset, on the test split, and on the 241th row.
+You can share a specific row by clicking on it, and then copying the URL in the address bar of your browser. For example https://huggingface.co/datasets/glue/viewer/mrpc/test?row=241 will open the dataset viewer on the MRPC dataset, on the test split, and on the 241st row.
 
 ## Access the parquet files
 
 Every dataset is auto-converted to the Parquet format. Click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset with libraries such as Polars, Pandas or DuckDB.
 
-You can also access the list of Parquet files programmatically using the [API](./api#endpoints-table): https://huggingface.co/api/datasets/glue/parquet.
+You can also access the list of Parquet files programmatically using the [Hub API](./api#endpoints-table): https://huggingface.co/api/datasets/glue/parquet.
 
 ## Very large datasets
 
