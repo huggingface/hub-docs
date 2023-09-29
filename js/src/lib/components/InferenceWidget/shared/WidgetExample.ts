@@ -26,7 +26,7 @@ export interface WidgetExampleBase<TOutput> {
 	output?:        TOutput;
 }
 
-export interface WidgetExampleTextInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
+export interface WidgetExampleTextInput<TOutput> extends WidgetExampleBase<TOutput> {
 	text: string;
 }
 
