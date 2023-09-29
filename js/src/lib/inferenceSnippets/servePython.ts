@@ -1,8 +1,10 @@
 import type { PipelineType, ModelData } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
-export const snippetZeroShotClassification = (model: ModelData): string =>
-	`def query(payload):
+export const snippetZeroShotClassification = (model: ModelData, accessToken?: string): string =>
+	`headers = {"Authorization": ${accessToken ? `"Bearer ${accessToken}"` : `f"Bearer {API_TOKEN}"`}}
+
+def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.json()
 
@@ -11,8 +13,10 @@ output = query({
     "parameters": {"candidate_labels": ["refund", "legal", "faq"]},
 })`;
 
-export const snippetBasic = (model: ModelData): string =>
-	`def query(payload):
+export const snippetBasic = (model: ModelData, accessToken?: string): string =>
+	`headers = {"Authorization": ${accessToken ? `"Bearer ${accessToken}"` : `f"Bearer {API_TOKEN}"`}}
+
+def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.json()
 	
@@ -20,8 +24,10 @@ output = query({
 	"inputs": ${getModelInputSnippet(model)},
 })`;
 
-export const snippetFile = (model: ModelData): string =>
-	`def query(filename):
+export const snippetFile = (model: ModelData, accessToken?: string): string =>
+	`headers = {"Authorization": ${accessToken ? `"Bearer ${accessToken}"` : `f"Bearer {API_TOKEN}"`}}
+
+	def query(filename):
     with open(filename, "rb") as f:
         data = f.read()
     response = requests.post(API_URL, headers=headers, data=data)
@@ -29,8 +35,13 @@ export const snippetFile = (model: ModelData): string =>
 
 output = query(${getModelInputSnippet(model)})`;
 
-export const snippetTextToImage = (model: ModelData): string =>
-	`def query(payload):
+export const snippetTextToImage = (model: ModelData, accessToken?: string): string =>
+	`headers = {
+		"Accept": "image/png",
+		"Authorization": ${accessToken ? `"Bearer ${accessToken}"` : `f"Bearer {API_TOKEN}"`}
+	}
+
+def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.content
 image_bytes = query({
@@ -74,7 +85,6 @@ export function getPythonInferenceSnippet(model: ModelData, accessToken: string)
 	return `import requests
 
 API_URL = "https://api-inference.huggingface.co/models/${model.id}"
-headers = {"Authorization": ${accessToken ? `"Bearer ${accessToken}"` : `f"Bearer {API_TOKEN}"`}}
 
 ${body}`;
 }

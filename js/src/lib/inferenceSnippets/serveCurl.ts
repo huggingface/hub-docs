@@ -9,6 +9,15 @@ export const snippetBasic = (model: ModelData, accessToken: string): string =>
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
+export const snippetImage = (model: ModelData, accessToken: string): string =>
+	`curl https://api-inference.huggingface.co/models/${model.id} \\
+	-X POST \\
+	-d '{"inputs": ${getModelInputSnippet(model, true)}}' \\
+	-H 'Accept: image/png' \\
+	-H 'Content-Type: application/json' \\
+	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
+`;
+
 export const snippetZeroShotClassification = (model: ModelData, accessToken: string): string =>
 	`curl https://api-inference.huggingface.co/models/${model.id} \\
 	-X POST \\
@@ -40,7 +49,7 @@ export const curlSnippets: Partial<Record<PipelineType, (model: ModelData, acces
 	"fill-mask":                    snippetBasic,
 	"sentence-similarity":          snippetBasic,
 	"automatic-speech-recognition": snippetFile,
-	"text-to-image":                snippetBasic,
+	"text-to-image":                snippetImage,
 	"text-to-speech":               snippetBasic,
 	"audio-to-audio":               snippetFile,
 	"audio-classification":         snippetFile,

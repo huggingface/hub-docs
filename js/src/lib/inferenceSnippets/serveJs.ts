@@ -44,7 +44,10 @@ export const snippetTextToImage = (model: ModelData, accessToken: string): strin
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/${model.id}",
 		{
-			headers: { Authorization: "Bearer ${accessToken || `{API_TOKEN}`}" },
+			headers: { 
+				Accept: "image/png",
+				Authorization: "Bearer ${accessToken || `{API_TOKEN}`}" 
+			},
 			method: "POST",
 			body: JSON.stringify(data),
 		}
