@@ -4,6 +4,7 @@ export interface WidgetProps {
 	accept?:            string;
 	apiToken?:          string;
 	apiUrl:             string;
+	appendRepoPath?:    boolean;
 	callApiOnMount:     boolean;
 	model:              ModelData;
 	noModelLoading?:    boolean;
