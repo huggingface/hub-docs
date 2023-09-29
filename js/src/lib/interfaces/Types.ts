@@ -1,3 +1,5 @@
+import type { WidgetExample } from "../components/InferenceWidget/shared/WidgetExample";
+
 // Warning: order of modalities here determine how they are listed on the /tasks page
 export const MODALITIES = ["cv", "nlp", "audio", "tabular", "multimodal", "rl", "other"] as const;
 
@@ -648,16 +650,6 @@ export const OTHER_TAGS_SUGGESTIONS = [
 	TAG_NFAA_CONTENT,
 ];
 
-export type WidgetInputSampleValue =
-	| string
-	| string[]
-	| boolean
-	| number
-	| number[]
-	| Record<string, string | string[] | number[]>;
-
-export type WidgetInputSample = Record<string | "example_title" | "group", WidgetInputSampleValue>;
-
 /**
  * Public interface for model metadata
  */
@@ -700,7 +692,7 @@ export interface ModelData {
 	 * can be set in the model card metadata (under `widget`),
 	 * or by default in `DefaultWidget.ts`
 	 */
-	widgetData?:       WidgetInputSample[] | undefined;
+	widgetData?:       WidgetExample[] | undefined;
 	/**
 	 * Parameters that will be used by the widget when calling Inference API
 	 * https://huggingface.co/docs/api-inference/detailed_parameters

@@ -1,11 +1,13 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	import { DataTable } from "./DataTable";
 
@@ -120,11 +122,11 @@
 		return Math.ceil(total_elems / SINGLE_DIM_COLS);
 	};
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleTextInput) {
 		text = sample.text;
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextInput) {
 		text = sample.text;
 		getOutput();
 	}
@@ -142,6 +144,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	validateExample={isTextInput}
 >
 	<svelte:fragment slot="top">
 		<form>
@@ -166,7 +169,7 @@
 										<td class="bg-gray-100 px-1 text-gray-400 dark:bg-gray-900">
 											{j * numOfRows(output.oneDim.length) + i}
 										</td>
-										<td class="py-0.5 px-1 {output.bg(output.oneDim[j * numOfRows(output.oneDim.length) + i])}">
+										<td class="px-1 py-0.5 {output.bg(output.oneDim[j * numOfRows(output.oneDim.length) + i])}">
 											{output.oneDim[j * numOfRows(output.oneDim.length) + i].toFixed(3)}
 										</td>
 									{/if}
@@ -188,7 +191,7 @@
 							<tr>
 								<td class="bg-gray-100 pl-4 pr-1 text-gray-400 dark:bg-gray-900">{i}</td>
 								{#each column as x}
-									<td class="py-1 px-1 {output.bg(x)}">
+									<td class="px-1 py-1 {output.bg(x)}">
 										{x.toFixed(3)}
 									</td>
 								{/each}

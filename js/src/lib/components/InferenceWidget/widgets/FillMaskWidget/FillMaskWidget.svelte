@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleTextInput, WidgetExampleOutputLabels, WidgetExample } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -8,6 +9,8 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import { isValidOutputLabels } from "../../shared/outputValidation";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -36,6 +39,7 @@
 			getOutput();
 		} else {
 			const [demoText] = getDemoInputs(model, ["text"]);
+			/// TODO(get rid of useless getDemoInputs)
 			setTextAreaValue(demoText ?? "");
 			if (text && callApiOnMount) {
 				getOutput({ isOnLoadCall: true });
@@ -115,13 +119,22 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputLabels>) {
 		setTextAreaValue(sample.text);
+		if (sample.output) {
+			output = sample.output;
+		} else {
+			output = [];
+		}
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputLabels>) {
 		setTextAreaValue(sample.text);
 		getOutput();
+	}
+
+	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputLabels> {
+		return isTextInput(sample) && (!output || isValidOutputLabels(sample.output));
 	}
 </script>
 
@@ -137,6 +150,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	{validateExample}
 >
 	<svelte:fragment slot="top">
 		<form>

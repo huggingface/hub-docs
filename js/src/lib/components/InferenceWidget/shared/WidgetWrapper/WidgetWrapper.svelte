@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { WidgetProps, ModelLoadInfo } from "../types";
-	import type { WidgetInputSample } from "../../../../interfaces/Types";
+	import type { WidgetExample } from "../WidgetExample";
+
+	type TWidgetExample = $$Generic<WidgetExample>;
 
 	import { onMount } from "svelte";
 
@@ -26,14 +28,16 @@
 	};
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (sample: Record<string, any>) => void = () => {};
-	export let previewInputSample: (sample: Record<string, any>) => void = () => {};
+	export let applyInputSample: (sample: TWidgetExample) => void = () => {};
+	export let previewInputSample: (sample: TWidgetExample) => void = () => {};
+	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
 
-	const inputSamples: WidgetInputSample[] = (model?.widgetData ?? [])
+	const inputSamples = (model.widgetData ?? [])
+		.filter(validateExample)
 		.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
 		.map((sample, idx) => ({
 			example_title: `Example ${++idx}`,
@@ -41,7 +45,10 @@
 			...sample,
 		}));
 
-	const inputGroups: { group: string; inputSamples: WidgetInputSample[] }[] = [];
+	const inputGroups: {
+		group: string;
+		inputSamples: TWidgetExample[];
+	}[] = [];
 	for (const inputSample of inputSamples) {
 		const isExist = inputGroups.find(({ group }) => group === inputSample.group);
 		if (!isExist) {
@@ -80,7 +87,7 @@
 		</p>
 	{:else}
 		{#if isMaximized}
-			<button class="absolute top-6 right-12" on:click={onClickMaximizeBtn}>
+			<button class="absolute right-12 top-6" on:click={onClickMaximizeBtn}>
 				<IconCross classNames="text-xl text-gray-500 hover:text-black" />
 			</button>
 		{/if}

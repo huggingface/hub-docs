@@ -57,7 +57,15 @@
 			id: "roberta-large-mnli",
 			pipeline_tag: "text-classification",
 			widgetData: [
-				{ text: "I like you. I love you.", group: "Contradiction" },
+				{
+					text: "I like you. I love you.",
+					group: "Contradiction",
+					example_title: "Foobar",
+					output: [
+						{ label: "Hello", score: 0.8 },
+						{ label: "Bye", score: 0.2 },
+					],
+				},
 				{ text: "This is good. This is bad.", group: "Contradiction" },
 				{ text: "He runs fast. He runs slow", group: "Contradiction" },
 				{ text: "I like you", group: "Neutral" },
@@ -72,6 +80,42 @@
 		{
 			id: "sgugger/resnet50d",
 			pipeline_tag: "image-classification",
+			widgetData: [
+				{
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg",
+					example_title: "Tiger",
+				},
+				{
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/teapot.jpg",
+					example_title: "Teapot",
+					output: [
+						{
+							label: "teapot: pot for brewing tea; usually has a spout and handle",
+							score: 0.8853782415390015,
+						},
+						{
+							label: "coffeepot: tall pot in which coffee is brewed",
+							score: 0.016733085736632347,
+						},
+						{
+							label: "water jug: a jug that holds water",
+							score: 0.0019129429711028934,
+						},
+						{
+							label: "cup: a punch served in a pitcher instead of a punch bowl",
+							score: 0.0009115593857131898,
+						},
+						{
+							label: "strainer: a filter to retain larger pieces while smaller pieces and liquids pass through",
+							score: 0.0007022042409516871,
+						},
+					],
+				},
+				{
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/palace.jpg",
+					example_title: "Palace",
+				},
+			],
 		},
 		{
 			id: "facebook/detr-resnet-50",
@@ -128,7 +172,7 @@
 			id: "gpt2",
 			pipeline_tag: "text-generation",
 			widgetData: [
-				{ text: "My name is Julien and I like to" },
+				{ text: "My name is Julien and I like to", output: { text: " code cool products with my friends." } },
 				{ text: "My name is Thomas and my main" },
 				{ text: "My name is Mariama, my favorite" },
 				{ text: "My name is Clara and I am" },
@@ -226,6 +270,14 @@
 		{
 			id: "osanseviero/BigGAN-deep-128",
 			pipeline_tag: "text-to-image",
+			widgetData: [
+				{
+					text: "a tiger",
+					output: {
+						url: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg",
+					},
+				},
+			],
 		},
 		{
 			id: "julien-c/kan-bayashi_csmsc_tacotron2",
@@ -237,8 +289,30 @@
 			pipeline_tag: "audio-classification",
 			widgetData: [
 				{
-					label: "Librispeech sample 1",
+					example_title: "Librispeech sample 1",
 					src: "https://cdn-media.huggingface.co/speech_samples/sample1.flac",
+					output: [
+						{
+							score: 1,
+							label: "id10003",
+						},
+						{
+							score: 3.958137817505758e-9,
+							label: "id10912",
+						},
+						{
+							score: 2.8285052078302897e-9,
+							label: "id11089",
+						},
+						{
+							score: 2.4077480009765395e-9,
+							label: "id10017",
+						},
+						{
+							score: 1.3356071804082603e-9,
+							label: "id10045",
+						},
+					],
 				},
 			],
 		},
@@ -251,8 +325,11 @@
 			pipeline_tag: "automatic-speech-recognition",
 			widgetData: [
 				{
-					label: "Librispeech sample 1",
+					example_title: "Librispeech sample 1",
 					src: "https://cdn-media.huggingface.co/speech_samples/sample1.flac",
+					output: {
+						text: "GOING ALONG SLUSHY COUNTRY ROADS AND SPEAKING TO DAMP AUDIENCES IN DRAUGHTY SCHOOL ROOMS DAY AFTER DAY FOR A FORTNIGHT HE'LL HAVE TO PUT IN AN APPEARANCE AT SOME PLACE OF WORSHIP ON SUNDAY MORNING AND HE CAN COME TO US IMMEDIATELY AFTERWARDS",
+					},
 				},
 			],
 		},
@@ -261,7 +338,7 @@
 			pipeline_tag: "automatic-speech-recognition",
 			widgetData: [
 				{
-					label: "Librispeech sample 1",
+					example_title: "Librispeech sample 1",
 					src: "https://cdn-media.huggingface.co/speech_samples/sample1.flac",
 				},
 			],
@@ -271,7 +348,7 @@
 			pipeline_tag: "automatic-speech-recognition",
 			widgetData: [
 				{
-					label: "Librispeech sample 1",
+					example_title: "Librispeech sample 1",
 					src: "https://cdn-media.huggingface.co/speech_samples/sample1.flac",
 				},
 			],
