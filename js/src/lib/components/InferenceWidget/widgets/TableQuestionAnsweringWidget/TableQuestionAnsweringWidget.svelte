@@ -161,12 +161,12 @@
 
 	function previewInputSample(sample: WidgetExampleTextAndTableInput) {
 		query = sample.text;
-		table = sample.table;
+		table = convertDataToTable(sample.table);
 	}
 
 	function applyInputSample(sample: WidgetExampleTextAndTableInput) {
 		query = sample.text;
-		table = sample.table;
+		table = convertDataToTable(sample.table);
 		getOutput();
 	}
 </script>

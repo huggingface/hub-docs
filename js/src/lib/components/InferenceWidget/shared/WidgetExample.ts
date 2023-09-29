@@ -23,7 +23,28 @@ export type WidgetExampleOutput =
 export interface WidgetExampleBase<TOutput> {
 	example_title?: string;
 	group?:         string;
-	output?:        TOutput;
+	/**
+	 * Potential overrides to API parameters for this specific example
+	 * (takes precedences over the model card metadata's inference.parameters)
+	 */
+	parameters?: {
+		/// token-classification
+		aggregation_strategy?: string;
+		/// text-generation
+		top_k?:                number;
+		top_p?:                number;
+		temperature?:          number;
+		max_new_tokens?:       number;
+		do_sample?:            boolean;
+		/// text-to-image
+		negative_prompt?:      string;
+		guidance_scale?:       number;
+		num_inference_steps?:  number;
+	};
+	/**
+	 * Optional output
+	 */
+	output?: TOutput;
 }
 
 export interface WidgetExampleTextInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
@@ -36,7 +57,7 @@ export interface WidgetExampleTextAndContextInput<TOutput = WidgetExampleOutput>
 }
 
 export interface WidgetExampleTextAndTableInput<TOutput = WidgetExampleOutput> extends WidgetExampleTextInput<TOutput> {
-	table: (string | number)[][];
+	table: TableData;
 }
 
 export interface WidgetExampleAssetInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
