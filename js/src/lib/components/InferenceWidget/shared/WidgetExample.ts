@@ -57,7 +57,7 @@ export interface WidgetExampleTextAndContextInput<TOutput = WidgetExampleOutput>
 }
 
 export interface WidgetExampleTextAndTableInput<TOutput = WidgetExampleOutput> extends WidgetExampleTextInput<TOutput> {
-	table: (string | number)[][];
+	table: TableData;
 }
 
 export interface WidgetExampleAssetInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
