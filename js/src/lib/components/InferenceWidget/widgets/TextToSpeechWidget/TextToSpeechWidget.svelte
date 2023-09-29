@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleOutput, WidgetExampleTextInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -8,6 +9,7 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -102,11 +104,11 @@
 		throw new TypeError("Invalid output: output must be of type object & instance of Blob");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutput>) {
 		setTextAreaValue(sample.text);
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutput>) {
 		setTextAreaValue(sample.text);
 		getOutput();
 	}
@@ -124,6 +126,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	validateExample={isTextInput}
 >
 	<svelte:fragment slot="top">
 		<form>

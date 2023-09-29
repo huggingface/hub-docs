@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
 	import type { PipelineType } from "../../../../interfaces/Types";
-	import type { WidgetExampleTextInput, WidgetExampleOutputText } from "../../shared/WidgetExample";
+	import type { WidgetExampleTextInput, WidgetExampleOutputText, WidgetExample } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -14,6 +14,7 @@
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
 	import { isValidOutputText } from "../../shared/outputValidation";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -166,7 +167,7 @@
 
 	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
 		setTextAreaValue(sample.text);
-		if (isValidOutputText(sample.output)) {
+		if (sample.output) {
 			output = sample.output.text;
 			outputJson = "";
 			renderTypingEffect(output);
@@ -179,6 +180,10 @@
 	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
 		setTextAreaValue(sample.text);
 		getOutput({ useCache });
+	}
+
+	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputText> {
+		return isTextInput(sample) && (!sample.output || isValidOutputText(sample.output));
 	}
 
 	function redirectLogin() {
@@ -202,6 +207,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	{validateExample}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">

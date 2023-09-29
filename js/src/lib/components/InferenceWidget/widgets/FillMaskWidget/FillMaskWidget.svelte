@@ -10,6 +10,7 @@
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -133,7 +134,7 @@
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputLabels> {
-		return "text" in sample;
+		return isTextInput(sample) && (!output || isValidOutputLabels(sample.output));
 	}
 </script>
 

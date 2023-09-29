@@ -1,5 +1,8 @@
 <script lang="ts">
 	import type { WidgetProps, ImageSegment } from "../../shared/types";
+	import type {
+		WidgetExampleAssetInput,
+		WidgetExampleOutput} from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -10,6 +13,7 @@
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
+import { isAssetInput } from "../../shared/inputValidation";
 
 	import Canvas from "./Canvas.svelte";
 
@@ -204,13 +208,13 @@
 		};
 	}
 
-	async function applyInputSample(sample: Record<string, any>) {
+	async function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutput>) {
 		imgSrc = sample.src;
 		const blob = await getBlobFromUrl(imgSrc);
 		getOutput(blob);
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutput>) {
 		imgSrc = sample.src;
 		output = [];
 		outputJson = "";
@@ -244,6 +248,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	validateExample={isAssetInput}
 >
 	<svelte:fragment slot="top">
 		<form>

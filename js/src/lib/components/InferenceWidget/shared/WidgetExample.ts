@@ -30,14 +30,26 @@ export interface WidgetExampleTextInput<TOutput> extends WidgetExampleBase<TOutp
 	text: string;
 }
 
-export interface WidgetExampleTextAndContextInput<TOutput> extends WidgetExampleBase<TOutput> {
-	text:    string;
+export interface WidgetExampleTextAndContextInput<TOutput> extends WidgetExampleTextInput<TOutput> {
 	context: string;
+}
+
+export interface WidgetExampleTextAndTableInput<TOutput> extends WidgetExampleTextInput<TOutput> {
+	table: (string | number)[][];
 }
 
 export interface WidgetExampleAssetInput<TOutput> extends WidgetExampleBase<TOutput> {
 	src: string;
 }
+export interface WidgetExampleAssetAndPromptInput<TOutput> extends WidgetExampleAssetInput<TOutput> {
+	prompt: string;
+}
+
+export type WidgetExampleAssetAndTextInput<TOutput> = WidgetExampleAssetInput<TOutput> &
+	WidgetExampleTextInput<TOutput>;
+
+export type WidgetExampleAssetAndZeroShotInput<TOutput> = WidgetExampleAssetInput<TOutput> &
+	WidgetExampleZeroShotTextInput<TOutput>;
 
 export interface WidgetExampleStructuredDataInput<TOutput> extends WidgetExampleBase<TOutput> {
 	structuredData: TableData;
@@ -47,7 +59,7 @@ export interface WidgetExampleTableDataInput<TOutput> extends WidgetExampleBase<
 	table: TableData;
 }
 
-export interface WidgetExampleZeroShotTextInput<TOutput> extends WidgetExampleBase<TOutput> {
+export interface WidgetExampleZeroShotTextInput<TOutput> extends WidgetExampleTextInput<TOutput> {
 	text:             string;
 	candidate_labels: string;
 	multi_class:      boolean;
@@ -63,8 +75,11 @@ export interface WidgetExampleSentenceSimilarityInput<TOutput> extends WidgetExa
 export type WidgetExample<TOutput = WidgetExampleOutput> =
 	| WidgetExampleTextInput<TOutput>
 	| WidgetExampleTextAndContextInput<TOutput>
-	| WidgetExampleTextInput<TOutput>
+	| WidgetExampleTextAndTableInput<TOutput>
 	| WidgetExampleAssetInput<TOutput>
+	| WidgetExampleAssetAndPromptInput<TOutput>
+	| WidgetExampleAssetAndTextInput<TOutput>
+	| WidgetExampleAssetAndZeroShotInput<TOutput>
 	| WidgetExampleStructuredDataInput<TOutput>
 	| WidgetExampleTableDataInput<TOutput>
 	| WidgetExampleZeroShotTextInput<TOutput>

@@ -1,7 +1,6 @@
-<script lang="ts">
+<script lang="ts" generics="TWidgetExample extends WidgetExample">
 	import type { WidgetProps, ModelLoadInfo } from "../types";
 	import type { WidgetExample } from "../WidgetExample";
-	type T = $$Generic<WidgetExample>;
 
 	import { onMount } from "svelte";
 
@@ -27,9 +26,9 @@
 	};
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (sample: T) => void = () => {};
-	export let previewInputSample: (sample: T) => void = () => {};
-	export let validateExample: (sample: WidgetExample) => sample is T;
+	export let applyInputSample: (sample: TWidgetExample) => void = () => {};
+	export let previewInputSample: (sample: TWidgetExample) => void = () => {};
+	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
@@ -46,7 +45,7 @@
 
 	const inputGroups: {
 		group: string;
-		inputSamples: T[];
+		inputSamples: TWidgetExample[];
 	}[] = [];
 	for (const inputSample of inputSamples) {
 		const isExist = inputGroups.find(({ group }) => group === inputSample.group);

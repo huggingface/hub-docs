@@ -1,6 +1,10 @@
 <script lang="ts">
 	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
-	import type { WidgetExampleStructuredDataInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
+	import type {
+		WidgetExampleStructuredDataInput,
+		WidgetExampleOutputLabels,
+		WidgetExampleOutput,
+	} from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -16,6 +20,7 @@
 		getSearchParams,
 		updateUrl,
 	} from "../../shared/helpers";
+	import { isStructuredDataInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -179,11 +184,11 @@
 		}, {});
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleStructuredDataInput<WidgetExampleOutput>) {
 		table = convertDataToTable(sample.structuredData);
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleStructuredDataInput<WidgetExampleOutput>) {
 		table = convertDataToTable(sample.structuredData);
 		getOutput();
 	}
@@ -201,6 +206,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	validateExample={isStructuredDataInput}
 >
 	<svelte:fragment slot="top">
 		<form>

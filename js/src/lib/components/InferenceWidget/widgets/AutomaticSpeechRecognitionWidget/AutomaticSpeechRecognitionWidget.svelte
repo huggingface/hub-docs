@@ -13,6 +13,7 @@
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
 	import { isValidOutputText } from "../../shared/outputValidation";
+	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -148,7 +149,7 @@
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputText> {
-		return "src" in sample;
+		return isAssetInput(sample) && (!sample.output || isValidOutputText(sample.output));
 	}
 
 	onMount(() => {

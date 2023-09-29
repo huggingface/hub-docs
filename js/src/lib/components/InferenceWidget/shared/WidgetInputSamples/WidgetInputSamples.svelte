@@ -1,6 +1,5 @@
-<script lang="ts">
+<script lang="ts" generics="TWidgetExample extends WidgetExample">
 	import type { WidgetExample } from "../WidgetExample";
-	type T = $$Generic<WidgetExample>;
 
 	import { slide } from "svelte/transition";
 
@@ -8,9 +7,9 @@
 
 	export let classNames = "";
 	export let isLoading = false;
-	export let inputSamples: T[];
-	export let applyInputSample: (sample: T) => void;
-	export let previewInputSample: (sample: T) => void;
+	export let inputSamples: TWidgetExample[];
+	export let applyInputSample: (sample: TWidgetExample) => void;
+	export let previewInputSample: (sample: TWidgetExample) => void;
 
 	let containerEl: HTMLElement;
 	let isOptionsVisible = false;

@@ -12,6 +12,7 @@
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
+	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -142,7 +143,7 @@
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {
-		return "src" in sample;
+		return isAssetInput(sample) && (!sample.output || isValidOutputLabels(sample.output));
 	}
 
 	onMount(() => {
