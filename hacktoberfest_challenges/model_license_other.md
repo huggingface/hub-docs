@@ -1,6 +1,8 @@
 
 # Model `license:other` challenge
 
+Related to https://github.com/huggingface/hub-docs/issues/985.
+
 ## Context
 
 The Hugging Face Hub hosts hundreds of thousands of public models and datasets. Public doesn't necessarily mean open-source without any limitations. Authors can define which license applies to the work they share (e.g. [MIT](https://opensource.org/license/mit/), [Apache2.0](https://www.apache.org/licenses/LICENSE-2.0), [OpenRAIL](https://huggingface.co/blog/open_rail), etc.). All users must be able to quickly know which license applies to which model and even to list models with a specific license (e.g. [Apache2.0](https://huggingface.co/models?license=license:apache-2.0&sort=trending)). The Hub relies on the [Model Card](https://huggingface.co/docs/hub/model-cards) to do so. A Model Card is a file attached to a model providing handy information. They are essential for discoverability, reproducibility and sharing. In our case, we will focus on the [metadata](https://huggingface.co/docs/hub/model-cards#model-card-metadata) section of the Model Card. This metadata contains valuable information, including a `license` tag.
