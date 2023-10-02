@@ -27,7 +27,7 @@ This challenge aims to improve the completeness of this metadata on the Hub, whi
 How to do it in practice? That's simple! We have listed models below that have `license:other` in their metadata and contain a LICENSE file in the repo. Those models require an update in their metadata to describe which license is attached.
 
 For each model, the workflow looks like this:
-1. Choose a model in the list below. For maximum impact, let's focus on the most downloaded or liked models first.
+1. Choose a model in the list below. We suggest focusing on the most downloaded or liked models first.
 2. **Check that the model doesn't already have a PR to update the license**. Maybe another contributor already checked it!
 3. Find the corresponding license. URLs to the LICENSE file(s) in the repo is provided to ease the search.
    1. Note: the table suggests the name/URL for Llama models. It doesn't mean that the suggestion is accurate. It is to be double-checked correctly.
