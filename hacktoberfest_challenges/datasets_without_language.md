@@ -1,5 +1,7 @@
 # Datasets without language challenge
 
+Related to https://github.com/huggingface/hub-docs/issues/986.
+
 ## Context
 
 The Hugging Face Hub hosts hundreds of thousands of public models and datasets. These datasets and models cover a wide range of languages. One of the main ways in which it's possible to know what language a dataset is in is by looking at the `language` field in the dataset's [metadata](https://huggingface.co/docs/hub/datasets-cards#dataset-card-metadata)  section of the dataset card. 
