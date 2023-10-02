@@ -18,7 +18,8 @@ license_link: https://coqui.ai/cpml
 
 which display on the Hub as
 
-![](./assets/license_other_example.png)
+![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/license_other_example.png)
+
 
 This challenge aims to improve the completeness of this metadata on the Hub, which will ultimately benefit all users.                                                                     
 
