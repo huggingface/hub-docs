@@ -113,3 +113,4 @@ Currently, you can add a language tag for `code`. You will need to do this direc
 |          |          | [irds/nyt](https://huggingface.co/datasets/irds/nyt)                                                                                                       |          15 |       0 |
 |          |          | [generative-newsai/news-unmasked](https://huggingface.co/datasets/generative-newsai/news-unmasked)                                                         |          12 |       0 |
 |          |          | [irds/dpr-w100](https://huggingface.co/datasets/irds/dpr-w100)                                                                                             |          12 |       0 |
+|          |          | [Suchinthana/databricks-dolly-15k-sinhala](https://huggingface.co/datasets/Suchinthana/databricks-dolly-15k-sinhala)                                                                                             |          31 |       0 |
