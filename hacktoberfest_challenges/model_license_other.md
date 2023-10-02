@@ -5,7 +5,8 @@
 
 The Hugging Face Hub hosts hundreds of thousands of public models and datasets. Public doesn't necessarily mean open-source without any limitations. Authors can define which license applies to the work they share (e.g. [MIT](https://opensource.org/license/mit/), [Apache2.0](https://www.apache.org/licenses/LICENSE-2.0), [OpenRAIL](https://huggingface.co/blog/open_rail), etc.). All users must be able to quickly know which license applies to which model and even to list models with a specific license (e.g. [Apache2.0](https://huggingface.co/models?license=license:apache-2.0&sort=trending)). The Hub relies on the [Model Card](https://huggingface.co/docs/hub/model-cards) to do so. A Model Card is a file attached to a model providing handy information. They are essential for discoverability, reproducibility and sharing. In our case, we will focus on the [metadata](https://huggingface.co/docs/hub/model-cards#model-card-metadata) section of the Model Card. This metadata contains valuable information, including a `license` tag.
 
-In this challenge, we will focus on models that as the license `"other"`. This means that the model has a custom license defined by the author. For example, LLama2 models have their own license [llama-2-community-license](https://ai.meta.com/llama/license). Historically, this information was not available in the model card metadata. This is now possible by adding the license name and a URL to it:
+In this challenge, we will focus on models that as the license `"other"`. This means that the model has a custom license defined by the author. For example, models from Coqui have their own [coqui-public-model-license](https://coqui.ai/cpml). Historically, this information was not available in the model card metadata. This is now possible by adding the license name and a URL to it:
+
 
 ```yaml
 # Example from https://huggingface.co/coqui/XTTS-v1
@@ -21,7 +22,16 @@ which display on the Hub as
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/license_other_example.png)
 
 
-This challenge aims to improve the completeness of this metadata on the Hub, which will ultimately benefit all users.                                                                     
+This challenge aims to improve the completeness of this metadata on the Hub, which will ultimately benefit all users.
+
+In other cases, the license was previously set as `other` but given the popularity of the models, the Hugging Face Hub started to support the license officially. This is especially the case of Llama 2 models for which the `license:llama2` is now a supported license. In this case, it's best to set it directly in the Model Card metadata:
+
+```yaml
+# Example from https://huggingface.co/codellama/CodeLlama-34b-hf
+---
+license: llama2
+---
+```
 
 ## How to contribute?
 
@@ -34,7 +44,8 @@ For each model, the workflow looks like this:
    1. Note: the table suggests the name/URL for Llama models. It doesn't mean that the suggestion is accurate. It is to be double-checked correctly.
 4. Check which license applies to the model. Attributes are:
    1. `license_name` (short, lowercase, without spaces). Example: `"coqui-public-model-license"`
-   2. `license_link`. If possible, a URL owned by the author is better (for example: `"https://ai.meta.com/llama/license"` for the Llama2 license). Otherwise, linking to the LICENSE file in the repo is also fine.
+   2. `license_link`. If possible, a URL owned by the author is better (for example: `"https://coqui.ai/cpml"`). Otherwise, linking to the LICENSE file in the repo is also fine.
+   3. **NOTE:** special case if it's a Llama 2 model. In this case, the card metadata should be `license: llama2` instead of `license: other` and `license_name`/`license_link` are not needed.
 5. Open a PR on the Hub, describing the intent and suggesting a modification to the repo author. Here are 2 example for [XTTS-v1](https://huggingface.co/coqui/XTTS-v1/discussions/10/files) and [stable-diffusion-xl-base-0.9](https://huggingface.co/stabilityai/stable-diffusion-xl-base-0.9/discussions/58) models.
 6. Once done, open a PR on GitHub to update the table below. Once merged, this will count as a Hacktoberfest contribution! In the PR, add the `pr_url` (the one on the Hub) and a status (opened, merged, closed).
 
