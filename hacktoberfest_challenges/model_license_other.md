@@ -28,7 +28,7 @@ How to do it in practice? That's simple! We have listed models below that have `
 
 For each model, the workflow looks like this:
 1. Choose a model in the list below. For maximum impact, let's focus on the most downloaded or liked models first.
-2. Check that the model doesn't already have a PR to update the license. Maybe another contributor already checked it!
+2. **Check that the model doesn't already have a PR to update the license**. Maybe another contributor already checked it!
 3. Find the corresponding license. URLs to the LICENSE file(s) in the repo is provided to ease the search.
    1. Note: the table suggests the name/URL for Llama models. It doesn't mean that the suggestion is accurate. It is to be double-checked correctly.
 4. Check which license applies to the model. Attributes are:
