@@ -34,7 +34,7 @@ For each dataset, the workflow is the following:
    3. Many datasets will have an active [dataset viewer](https://huggingface.co/docs/hub/datasets-viewer) for the dataset. This will allow you to see examples from the dataset. You may identify the language by looking at the text examples. 
    4. Sometimes, the dataset will have a column specifying the language of the text. You can use this column to fill in the language tag(s).
    5. If the dataset viewer is available for the dataset, but you don't recognize the language, you can use the [facebook/fasttext-language-identification](https://huggingface.co/facebook/fasttext-language-identification) model or [Google Translate](https://translate.google.com/) to try to identify the language. 
-4. Once you've identified the language(s) of the dataset, you can add the language tag(s) to the dataset card. You can do this by clicking the `Edit` button on the dataset card. This will open a PR to the dataset repo. You can add the language tag(s) to the `language` field in the dataset card.
+4. Once you've identified the language(s) of the dataset, you can add the language tag(s) to the dataset card. You can do this by clicking the `Edit` button on the dataset card. This will open a PR to the dataset repo. You can add the language tag(s) to the `language` field in the dataset card. Some datasets may have multiple languages. Try and add all of the languages you have identified. 
 5. Once done, open a PR on GitHub to update the table below. Once merged, this will count as a Hacktoberfest contribution! Add the `pr_url` (the one on the Hub) and a status (opened, merged, closed) in the PR. 
 6. Adding a language tag to some of the datasets below may not make sense. If so, add `not relevant` as the link in the `pr_url`. There may also be datasets where you need help with the language. In these cases, you can open a discussion to suggest a language tag(s) is added to the dataset. 
 
@@ -47,6 +47,14 @@ No! This is why we have focused on datasets with a `task_categories` field indic
 ### Can I use a script to automate the process?
 
 While it is possible to use machine learning to help assist this process, see [this blog](https://huggingface.co/blog/huggy-lingo) as an example; checking the accuracy of the PRs you are making is still important. 
+
+## What about datasets with multiple languages?
+
+Some datasets may have more than one language. Do your best to add all the languages you can identify in the datasets. If there is a vast number, this may be tricky. In this case, do your best. 
+
+## What about code? 
+
+Currently, you can add a language tag for `code`. You will need to do this directly in the `YAML` rather than the visual editor since using the visual editor will lead to an auto-completion for the `co` language code (Corsican). 
 
 ## Datasets without language field filled in
 
