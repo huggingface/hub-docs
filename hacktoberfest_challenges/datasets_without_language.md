@@ -27,7 +27,7 @@ How can you help improve the coverage of language metadata on the Hub?
 For each dataset, the workflow is the following:
 
 1. Find a dataset that doesn't have the `language` field filled in. You can find a list of datasets without the `language` field filled in [here](#datasets-without-language-field-filled-in). We start with datasets that have the most downloads and likes.
-2. Check that the dataset doesn't already have a PR to add a language tag(s). Someone else may have already started working on it. You can check this by looking in the discussion section of the dataset page. 
+2. **Check that the dataset doesn't already have a PR to add a language tag(s).** Someone else may have already started working on it. You can check this by looking in the discussion section of the dataset page. 
 3. If there is no PR to add language metadata already open, your next step is to identify the language (if possible for the dataset). There are a few main ways you can often identify the language
    1. The dataset's name. Often, the name of the dataset will include the language. Sometimes as a full name, i.e. `imdb_german` or sometimes as a language code, i.e. `imdb_de`. You can use that as the language tag if the dataset name includes the language.
    2. The dataset card will sometimes mention the language(s) of the dataset explicitly. 
