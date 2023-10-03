@@ -66,11 +66,7 @@
 		"token-classification": TokenClassificationWidget,
 		"text-to-image": TextToImageWidget,
 		"text-to-speech": TextToSpeechWidget,
-<<<<<<< HEAD
-		"text-to-audio": TextToSpeechWidget,		
-=======
-		"text-to-audio": TextToAudioWidget,
->>>>>>> 425251c97dfdc18b8fe67dae13d0166e32f649c7
+		"text-to-audio": TextToSpeechWidget,
 		"translation": TextGenerationWidget,
 		"tabular-classification": TabularDataWidget,
 		"tabular-regression": TabularDataWidget,
