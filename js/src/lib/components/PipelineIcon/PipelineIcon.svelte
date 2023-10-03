@@ -60,7 +60,7 @@
 		"fill-mask": IconFillMask,
 		"sentence-similarity": IconSentenceSimilarity,
 		"text-to-speech": IconTextToSpeech,
-		"text-to-audio": IconTextToAudio,		
+		"text-to-audio": IconTextToAudio,
 		"automatic-speech-recognition": IconAutomaticSpeechRecognition,
 		"audio-to-audio": IconAudioToAudio,
 		"audio-classification": IconAudioClassification,

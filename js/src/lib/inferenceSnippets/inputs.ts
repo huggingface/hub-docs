@@ -99,7 +99,7 @@ const modelInputSnippets: {
 	"text-generation":              inputsTextGeneration,
 	"text-to-image":                inputsTextToImage,
 	"text-to-speech":               inputsTextToSpeech,
-	"text-to-audio":                inputsTextToAudio,	
+	"text-to-audio":                inputsTextToAudio,
 	"text2text-generation":         inputsText2TextGeneration,
 	"token-classification":         inputsTokenClassification,
 	"translation":                  inputsTranslation,
