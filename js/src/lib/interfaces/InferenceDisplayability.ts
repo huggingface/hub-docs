@@ -10,5 +10,5 @@ export enum InferenceDisplayability {
 	CustomCode = "CustomCode",
 	LibraryNotDetected = "LibraryNotDetected",
 	PipelineNotDetected = "PipelineNotDetected",
-	PipelineLibraryPairNotSupported = "PipelineNotSupportedInLibrary",
+	PipelineLibraryPairNotSupported = "PipelineLibraryPairNotSupported",
 }
