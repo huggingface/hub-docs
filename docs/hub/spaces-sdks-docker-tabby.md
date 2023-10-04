@@ -42,22 +42,14 @@ This URL provides access to a stable Tabby instance in full-screen mode and serv
    * Set the endpoint to the Direct URL you found in the previous step, which should look something like `https://UserName-SpaceName.hf.space`.
    * As the Space is set to **Private**, it is essential to configure the authorization header for accessing the endpoint. You can obtain a token from the [Access Tokens](https://huggingface.co/settings/tokens) page.
 
-<center>
-
 ![Agent Config](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tabby/agent-config.png)
-
-</center>
 
 3. You'll notice a ✓ icon indicating a successful connection.
 ![Tabby Connected](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tabby/tabby-connected.png)
 
 4. You've complete the setup, now enjoy tabing!
 
-<center>
-
 ![Code Completion](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tabby/code-completion.png)
-
-</center>
 
 You can also utilize Tabby extensions in other IDEs, such as [JetBrains](https://plugins.jetbrains.com/plugin/22379-tabby).
 
