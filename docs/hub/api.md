@@ -37,7 +37,7 @@ params = {
 
 This is equivalent to `huggingface_hub.list_models()`.
 
-### GET /api/models/(repo_id) or /api/models/(repo_id)/revision/(revision)
+### GET /api/models/{repo_id} or /api/models/{repo_id}/revision/{revision}
 
 Get all information for a specific model.
 
@@ -77,7 +77,7 @@ params = {
 
 This is equivalent to `huggingface_hub.list_datasets()`.
 
-### GET /api/datasets/(repo_id) or /api/datasets/(repo_id)/revision/(revision)
+### GET /api/datasets/{repo_id} or /api/datasets/{repo_id}/revision/{revision}
 
 Get all information for a specific dataset.
 
@@ -91,11 +91,11 @@ params = {"full": "full"}
 
 This is equivalent to `huggingface_hub.dataset_info(repo_id, revision)`.
 
-### GET /api/datasets/(repo_id)/parquet
+### GET /api/datasets/{repo_id}/parquet
 
 Get the list of auto-converted parquet files.
 
-### GET /api/datasets/(repo_id)/parquet/(config)/(split)/(n).parquet
+### GET /api/datasets/{repo_id}/parquet/{config}/{split}/{n}.parquet
 
 Get the nth shard of the auto-converted parquet files.
 
@@ -134,7 +134,7 @@ params = {
 
 This is equivalent to `huggingface_hub.list_spaces()`.
 
-### GET /api/spaces/(repo_id) or /api/spaces/(repo_id)/revision/(revision)
+### GET /api/spaces/{repo_id} or /api/spaces/{repo_id}/revision/{revision}
 Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.space_info(repo_id, revision)`.
@@ -192,7 +192,7 @@ payload = {
 
 This is equivalent to `huggingface_hub.delete_repo()`.
 
-### PUT /api/repos/(repo_type)/(repo_id)/settings
+### PUT /api/repos/{repo_type}/{repo_id}/settings
 
 Update repo visibility.
 
@@ -265,13 +265,13 @@ payload = {
 
 This is equivalent to `huggingface_hub.create_collection()`.
 
-### GET /api/collections/(namespace)/(slug)-(id)
+### GET /api/collections/{namespace}/{slug}-{id}
 
 Return information about a collection.
 
 This is equivalent to `huggingface_hub.get_collection()`.
 
-### PATCH /api/collections/(namespace)/(slug)-(id)
+### PATCH /api/collections/{namespace}/{slug}-{id}
 
 Update the metadata of a collection on the Hub. You can't add or modify the items of the collection with this method. All fields of the payload are optional.
 
@@ -289,13 +289,13 @@ payload = {
 
 This is equivalent to `huggingface_hub.update_collection_metadata()`.
 
-### DELETE /api/collections/(namespace)/(slug)-(id)
+### DELETE /api/collections/{namespace}/{slug}-{id}
 
 Return a collection. This is a non-revertible operation. A deleted collection cannot be restored.
 
 This is equivalent to `huggingface_hub.delete_collection()`.
 
-### POST /api/collections/(namespace)/(slug)-(id)/item)
+### POST /api/collections/{namespace}/{slug}-{id}/item
 
 Add an item to a collection. An item is defined by a type (`model`, `dataset`, `space` or `paper`) and an id (repo_id or paper_id on the Hub). A note can also be attached to the item (optional).
 
@@ -313,7 +313,7 @@ payload = {
 
 This is equivalent to `huggingface_hub.add_collection_item()`.
 
-### PATCH /api/collections/(namespace)/(slug)-(id)/items/(item_id)
+### PATCH /api/collections/{namespace}/{slug}-{id}/items/{item_id}
 
 Update an item in a collection. You must know the item object id which is different from the repo_id/paper_id provided when adding the item to the collection. The `item_id` can be retrieved by fetching the collection.
 
@@ -328,7 +328,7 @@ payload = {
 
 This is equivalent to `huggingface_hub.update_collection_item()`.
 
-### DELETE /api/collections/(namespace)/(slug)-(id)/items/(item_id)
+### DELETE /api/collections/{namespace}/{slug}-{id}/items/{item_id}
 
 Remove an item from a collection. You must know the item object id which is different from the repo_id/paper_id provided when adding the item to the collection. The `item_id` can be retrieved by fetching the collection.
 
