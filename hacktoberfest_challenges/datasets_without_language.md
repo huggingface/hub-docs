@@ -58,6 +58,17 @@ Some datasets may have more than one language. Do your best to add all the langu
 
 Currently, you can add a language tag for `code`. You will need to do this directly in the `YAML` rather than the visual editor since using the visual editor will lead to an auto-completion for the `co` language code (Corsican). 
 
+## Can I update the table with new datasets?
+
+Yes, it's fine to add new rows if there are other datasets where it makes sense to have language metadata. However, we'll focus only on datasets with at least ten downloads in the past 30 days to have the most impact. You can see download information alongside the dataset on the Hub website or access this information via the API. For example, to filter datasets to have at least 20 downloads you could do the following 
+
+```python
+from huggingface_hub import list_datasets
+
+datasets = list_datasets(full=True)
+datasets_with_at_least_20_downloads = [dataset for dataset in datasets if dataset.downloads >20]
+```
+
 ## Datasets without language field filled in
 
 
