@@ -1,8 +1,8 @@
 # Using 🧨 `diffusers` at Hugging Face
 
-🧨 `diffusers` is the go-to library for state-of-the-art pretrained diffusion models for generating images, audio, and even 3D structures of molecules. Whether you’re looking for a simple inference solution or want to train your own diffusion model, 🤗 Diffusers is a modular toolbox that supports both. The library is designed with a focus on usability over performance, simple over easy, and customizability over abstractions.
+Diffusers is the go-to library for state-of-the-art pretrained diffusion models for generating images, audio, and even 3D structures of molecules. Whether you’re looking for a simple inference solution or want to train your own diffusion model, Diffusers is a modular toolbox that supports both. The library is designed with a focus on usability over performance, simple over easy, and customizability over abstractions.
 
-## Exploring 🧨 diffusers in the Hub
+## Exploring Diffusers in the Hub
 
 There are over 10,000 `diffusers` compatible pipelines on the Hub which you can find by filtering at the left of [the models page](https://huggingface.co/models?library=diffusers&sort=downloads). Diffusion systems are typically composed of multiple components such as text encoder, UNet, VAE, and scheduler. Even though they are not standalone models, the pipeline abstraction makes it easy to use them for inference or training.
 
