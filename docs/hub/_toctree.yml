@@ -57,6 +57,8 @@
     sections:
       - local: transformers
         title: 🤗 transformers
+      - local: diffusers
+        title: Diffusers
       - local: adapter-transformers
         title: Adapter Transformers
       - local: allennlp
