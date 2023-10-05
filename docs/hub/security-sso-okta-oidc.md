@@ -38,7 +38,7 @@ Open a new tab/window in your browser and navigate to the SSO section of your or
 </div>
 
 Copy the "Redirection URI" from the organization's settings on Hugging Face, and paste it in the "Sign-in redirect URI" field on Okta.
-The URL looks like this: `https://huggingface.co/organizations/[organizationIdentifier]/saml/consume`.
+The URL looks like this: `https://huggingface.co/organizations/[organizationIdentifier]/oidc/consume`.
 
 You can leave the optional Sign-out redirect URIs blank.
 
@@ -81,7 +81,7 @@ You can now click on "Update and Test OIDC configuration" to save the settings.
 
 You should be redirected to your SSO provider (IdP) login prompt. Once logged in, you'll be redirected to your organization's settings page.
 
-A green check mark near the SAML selector will attest that the test was successful.
+A green check mark near the OIDC selector will attest that the test was successful.
 
 
 <div class="flex justify-center">
@@ -93,4 +93,4 @@ A green check mark near the SAML selector will attest that the test was successf
 
 Now that Single Sign-On is configured and tested, you can enable it for members of your organization by clicking on the "Enable" button.
 
-Once enabled, members of your organization must complete the SSO authentication flow described in the [How does it work?](./security-sso.md#how-does-it-work) section.
+Once enabled, members of your organization must complete the SSO authentication flow described in the [How does it work?](./security-sso#how-does-it-work) section.
