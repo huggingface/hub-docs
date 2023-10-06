@@ -57,6 +57,8 @@
     sections:
       - local: transformers
         title: 🤗 transformers
+      - local: diffusers
+        title: Diffusers
       - local: adapter-transformers
         title: Adapter Transformers
       - local: allennlp
@@ -173,6 +175,8 @@
         title: Panel on Spaces
       - local: spaces-sdks-docker-chatui
         title: ChatUI on Spaces
+      - local: spaces-sdks-docker-tabby
+        title: Tabby on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-run-with-docker
