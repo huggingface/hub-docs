@@ -78,6 +78,10 @@ Authorized relative redirect path of the connected OAuth app. `/login/callback` 
 Whether the Space iframe can be embedded in other websites.
 Defaults to false, i.e. Spaces *can* be embedded.
 
+**`startup_duration_timeout`**: _string_  
+Set a custom startup duration timeout for your Space. This is the maximum time your Space is allowed to start before it times out and is flagged as unhealthy.
+Defaults to 30 minutes, but any valid duration (like `1h`, `30m`) is acceptable.
+
 **`custom_headers`** : _Dict[string, string]_  
 Set custom HTTP headers that will be added to all HTTP responses when serving your Space.  
 For now, only the [cross-origin-embedder-policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy) (COEP), [cross-origin-opener-policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy) (COOP), and [cross-origin-resource-policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy) (CORP) headers are allowed. These headers can be used to set up a cross-origin isolated environment and enable powerful features like `SharedArrayBuffer`, for example:
