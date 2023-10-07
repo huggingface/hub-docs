@@ -78,4 +78,4 @@ Unknown | `unknown`
 Other | `other`
 <!-- endregion -->
 
-In case of `license: other` please add the license's text to a `LICENSE` file inside your repo (or contact us to add the license you use to this list).
+In case of `license: other` please add the license's text to a `LICENSE` file inside your repo (or contact us to add the license you use to this list), and set a name for it in `license_name`.

@@ -11,7 +11,6 @@ export interface WidgetProps {
 	isLoggedIn?:        boolean;
 }
 
-
 export type LoadState = "Loadable" | "Loaded" | "TooBig" | "error";
 
 export type ComputeType = "cpu" | "gpu";

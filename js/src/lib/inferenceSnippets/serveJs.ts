@@ -93,6 +93,7 @@ export const jsSnippets: Partial<Record<PipelineType, (model: ModelData, accessT
 	"automatic-speech-recognition": snippetFile,
 	"text-to-image":                snippetTextToImage,
 	"text-to-speech":               snippetBasic,
+	"text-to-audio":                snippetBasic,
 	"audio-to-audio":               snippetFile,
 	"audio-classification":         snippetFile,
 	"image-classification":         snippetFile,

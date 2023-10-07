@@ -8,7 +8,7 @@ You can find `asteroid` models by filtering at the left of the [models page](htt
 
 All models on the Hub come up with the following features:
 1. An automatically generated model card with a description, training configuration, metrics, and more.
-2. Metadata tags that help for discoverability and contain information such as the license and datasets.
+2. Metadata tags that help for discoverability and contain information such as licenses and datasets.
 3. An interactive widget you can use to play out with the model directly in the browser.
 4. An Inference API that allows to make inference requests.
 

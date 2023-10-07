@@ -1,11 +1,14 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleTextInput, WidgetExampleOutputUrl, WidgetExample } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import { isValidOutputUrl } from "../../shared/outputValidation";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -100,13 +103,22 @@
 		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputUrl>) {
 		text = sample.text;
+		if (sample.output) {
+			output = sample.output.url;
+		} else {
+			output = "";
+		}
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputUrl>) {
 		text = sample.text;
 		getOutput();
+	}
+
+	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputUrl> {
+		return isTextInput(sample) && (!sample.output || isValidOutputUrl(sample.output));
 	}
 </script>
 
@@ -122,6 +134,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	{validateExample}
 >
 	<svelte:fragment slot="top">
 		<form>

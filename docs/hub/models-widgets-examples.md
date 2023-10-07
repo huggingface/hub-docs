@@ -1,5 +1,7 @@
 # Widget Examples
 
+Note that each widget example can also optionally describe the corresponding model output, direcly in the `output` property. See [the spec](./models-widgets#example-outputs) for more details.
+
 ## Natural Language Processing
 
 ### Fill-Mask
@@ -291,7 +293,7 @@ widget:
 
 ```yaml
 widget:
-  structuredData:
+- structuredData:
     fixed_acidity:
       - 7.4
       - 7.8
