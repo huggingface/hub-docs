@@ -1,17 +1,17 @@
 # Libraries
 
-The Hub has support for dozens of libraries in the Open Source ecosystem. Thanks to the `huggingface_hub` Python library, it's easy to enable sharing your models in the Hub. The Hub supports many libraries, and we're working on expanding this support! We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
+The Hub has support for dozens of libraries in the Open Source ecosystem. Thanks to the `huggingface_hub` Python library, it's easy to enable sharing your models on the Hub. The Hub supports many libraries, and we're working on expanding this support! We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
 
 The table below summarizes the supported libraries and their level of integration. Find all our supported libraries [here](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Libraries.ts)! 
 
 | Library                                                                     | Description                                                                          | Inference API | Widgets | Download from Hub | Push to Hub |
 |-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------|---|---:|---|---|
 | [🤗 Transformers](https://github.com/huggingface/transformers)              | State-of-the-art Natural Language Processing for Pytorch, TensorFlow, and JAX        | ✅ | ✅ | ✅ | ✅ |
-| [🤗 Diffusers](https://github.com/huggingface/diffusers)                    | A modular toolbox for inference and training of diffusion models                     | ❌ | ❌ | ✅ | ✅ |
 | [Adapter Transformers](https://github.com/Adapter-Hub/adapter-transformers) | Extends 🤗Transformers with Adapters.                                                | ❌ | ❌ | ✅ | ✅ |
 | [AllenNLP](https://github.com/allenai/allennlp)                             | An open-source NLP research library, built on PyTorch.                               | ✅ | ✅ | ✅ | ❌ |
 | [Asteroid](https://github.com/asteroid-team/asteroid)                       | Pytorch-based audio source separation toolkit                                        | ✅ | ✅ | ✅ | ❌ |
 | [BERTopic](https://github.com/MaartenGr/BERTopic)                           | BERTopic is a topic modeling library for text and images                             | ✅ | ✅ | ✅ | ✅ | 
+| [Diffusers](https://github.com/huggingface/diffusers)                       | A modular toolbox for inference and training of diffusion models                     | ❌ | ❌ | ✅ | ✅ |
 | [docTR](https://github.com/mindee/doctr)                                    | Models and datasets for OCR-related tasks in PyTorch & TensorFlow                    | ✅ | ✅ | ✅ | ❌ |
 | [ESPnet](https://github.com/espnet/espnet)                                  | End-to-end speech processing toolkit (e.g. TTS)                                      | ✅ | ✅ | ✅ | ❌ |
 | [fastai](https://github.com/fastai/fastai)                                  | Library to train fast and accurate models with state-of-the-art outputs.             | ✅ | ✅ | ✅ | ✅ |
