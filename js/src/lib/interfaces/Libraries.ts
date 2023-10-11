@@ -72,7 +72,7 @@ export interface LibraryUiElement {
 	/**
 	 * URL to library's docs
 	 */
-	docsUrl:  string;
+	docsUrl?: string;
 	/**
 	 * Code snippet displayed on model page
 	 */
@@ -635,7 +635,6 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "BERTopic",
 		repoName: "BERTopic",
 		repoUrl:  "https://github.com/MaartenGr/BERTopic",
-		docsUrl:  "https://huggingface.co/docs/hub/BERTopic",
 		snippets: bertopic,
 	},
 	"diffusers": {
@@ -656,14 +655,12 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "Fairseq",
 		repoName: "fairseq",
 		repoUrl:  "https://github.com/pytorch/fairseq",
-		docsUrl:  "https://huggingface.co/docs/hub/fairseq",
 		snippets: fairseq,
 	},
 	"flair": {
 		btnLabel: "Flair",
 		repoName: "Flair",
 		repoUrl:  "https://github.com/flairNLP/flair",
-		docsUrl:  "https://huggingface.co/docs/hub/flair",
 		snippets: flair,
 	},
 	"keras": {
@@ -677,35 +674,31 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "NeMo",
 		repoName: "NeMo",
 		repoUrl:  "https://github.com/NVIDIA/NeMo",
-		docsUrl:  "https://huggingface.co/docs/hub/NeMo",
 		snippets: nemo,
 	},
 	"open_clip": {
 		btnLabel: "OpenCLIP",
 		repoName: "OpenCLIP",
 		repoUrl:  "https://github.com/mlfoundations/open_clip",
-		docsUrl:  "https://huggingface.co/docs/hub/open_clip",
 		snippets: open_clip,
 	},
 	"paddlenlp": {
 		btnLabel: "paddlenlp",
 		repoName: "PaddleNLP",
 		repoUrl:  "https://github.com/PaddlePaddle/PaddleNLP",
-		docsUrl:  "https://huggingface.co/docs/hub/PaddleNLP",
+		docsUrl:  "https://huggingface.co/docs/hub/paddlenlp",
 		snippets: paddlenlp,
 	},
 	"peft": {
 		btnLabel: "PEFT",
 		repoName: "PEFT",
 		repoUrl:  "https://github.com/huggingface/peft",
-		docsUrl:  "https://huggingface.co/docs/hub/peft",
 		snippets: peft,
 	},
 	"pyannote-audio": {
 		btnLabel: "pyannote.audio",
 		repoName: "pyannote-audio",
 		repoUrl:  "https://github.com/pyannote/pyannote-audio",
-		docsUrl:  "https://huggingface.co/docs/hub/pyannote-audio",
 		snippets: pyannote_audio,
 	},
 	"sentence-transformers": {
@@ -719,7 +712,6 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "Scikit-learn",
 		repoName: "Scikit-learn",
 		repoUrl:  "https://github.com/scikit-learn/scikit-learn",
-		docsUrl:  "https://huggingface.co/docs/hub/scikit-learn",
 		snippets: sklearn,
 	},
 	"fastai": {
@@ -733,14 +725,14 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "spaCy",
 		repoName: "spaCy",
 		repoUrl:  "https://github.com/explosion/spaCy",
-		docsUrl:  "https://huggingface.co/docs/hub/spaCy",
+		docsUrl:  "https://huggingface.co/docs/hub/spacy",
 		snippets: spacy,
 	},
 	"span-marker": {
 		btnLabel: "SpanMarker",
 		repoName: "SpanMarkerNER",
 		repoUrl:  "https://github.com/tomaarsen/SpanMarkerNER",
-		docsUrl:  "https://huggingface.co/docs/hub/SpanMarkerNER",
+		docsUrl:  "https://huggingface.co/docs/hub/span_marker",
 		snippets: span_marker,
 	},
 	"speechbrain": {
@@ -761,14 +753,13 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "TensorFlowTTS",
 		repoName: "TensorFlowTTS",
 		repoUrl:  "https://github.com/TensorSpeech/TensorFlowTTS",
-		docsUrl:  "https://huggingface.co/docs/hub/TensorFlowTTS",
 		snippets: tensorflowtts,
 	},
 	"timm": {
 		btnLabel: "timm",
 		repoName: "pytorch-image-models",
 		repoUrl:  "https://github.com/rwightman/pytorch-image-models",
-		docsUrl:  "https://huggingface.co/docs/hub/pytorch-image-models",
+		docsUrl:  "https://huggingface.co/docs/hub/timm",
 		snippets: timm,
 	},
 	"transformers": {
@@ -782,14 +773,13 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "Transformers.js",
 		repoName: "transformers.js",
 		repoUrl:  "https://github.com/xenova/transformers.js",
-		docsUrl:  "https://huggingface.co/docs/hub/transformers.js",
+		docsUrl:  "https://huggingface.co/docs/hub/transformers-js",
 		snippets: transformersJS,
 	},
 	"fasttext": {
 		btnLabel: "fastText",
 		repoName: "fastText",
 		repoUrl:  "https://fasttext.cc/",
-		docsUrl:  "https://huggingface.co/docs/hub/fasttext",
 		snippets: fasttext,
 	},
 	"sample-factory": {
@@ -803,7 +793,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "stable-baselines3",
 		repoName: "stable-baselines3",
 		repoUrl:  "https://github.com/huggingface/huggingface_sb3",
-		docsUrl:  "https://huggingface.co/docs/hub/huggingface_sb3",
+		docsUrl:  "https://huggingface.co/docs/hub/stable-baselines3",
 		snippets: stableBaselines3,
 	},
 	"ml-agents": {
@@ -817,7 +807,6 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "pythae",
 		repoName: "pythae",
 		repoUrl:  "https://github.com/clementchadebec/benchmark_VAE",
-		docsUrl:  "https://huggingface.co/docs/hub/benchmark_VAE",
 		snippets: pythae,
 	},
 } as const;
