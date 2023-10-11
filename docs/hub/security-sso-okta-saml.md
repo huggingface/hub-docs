@@ -2,7 +2,7 @@
 
 In this guide, we will use Okta as the SSO provider and with the Security Assertion Markup Language (SAML) protocol as our preferred identity protocol. 
 
-We currently only support SP-initiated authentication. IdP-initiated login and user provisioning is not supported at this time.
+We currently support SP-initiated and IdP-initiated authentication. User provisioning is not yet supported at this time.
 
 <Tip warning={true}>
 	This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
