@@ -97,46 +97,36 @@
 	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}
 	{!modelLoadInfo ? 'hidden' : ''}"
 >
-	{#if modelLoadInfo?.state === "TooBig"}
-		<p class="text-sm text-gray-500">
-			Model is supported, but too large to load onto the free Inference API. To try the model, launch it on <a
-				class="underline"
-				href="https://ui.endpoints.huggingface.co/new?repository={encodeURIComponent(model.id)}">Inference Endpoints</a
-			>
-			instead.
-		</p>
-	{:else}
-		{#if isMaximized}
-			<button class="absolute right-12 top-6" on:click={onClickMaximizeBtn}>
-				<IconCross classNames="text-xl text-gray-500 hover:text-black" />
-			</button>
-		{/if}
-		<WidgetHeader {noTitle} pipeline={model.pipeline_tag}>
-			{#if !!inputGroups.length}
-				<div class="ml-auto flex gap-x-1">
-					<!-- Show samples selector when there are more than one sample -->
-					{#if inputGroups.length > 1}
-						<WidgetInputSamplesGroup
-							bind:selectedInputGroup
-							{isLoading}
-							inputGroups={inputGroups.map(({ group }) => group)}
-						/>
-					{/if}
-					<WidgetInputSamples
-						classNames={!selectedInputSamples ? "opacity-50 pointer-events-none" : ""}
-						{isLoading}
-						inputSamples={selectedInputSamples?.inputSamples ?? []}
-						{applyInputSample}
-					/>
-				</div>
-			{/if}
-		</WidgetHeader>
-		<slot name="top" />
-		<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} />
-		{#if modelLoading.isLoading}
-			<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
-		{/if}
-		<slot name="bottom" />
-		<WidgetFooter {onClickMaximizeBtn} {outputJson} />
+	{#if isMaximized}
+		<button class="absolute right-12 top-6" on:click={onClickMaximizeBtn}>
+			<IconCross classNames="text-xl text-gray-500 hover:text-black" />
+		</button>
 	{/if}
+	<WidgetHeader {noTitle} pipeline={model.pipeline_tag}>
+		{#if !!inputGroups.length}
+			<div class="ml-auto flex gap-x-1">
+				<!-- Show samples selector when there are more than one sample -->
+				{#if inputGroups.length > 1}
+					<WidgetInputSamplesGroup
+						bind:selectedInputGroup
+						{isLoading}
+						inputGroups={inputGroups.map(({ group }) => group)}
+					/>
+				{/if}
+				<WidgetInputSamples
+					classNames={!selectedInputSamples ? "opacity-50 pointer-events-none" : ""}
+					{isLoading}
+					inputSamples={selectedInputSamples?.inputSamples ?? []}
+					{applyInputSample}
+				/>
+			</div>
+		{/if}
+	</WidgetHeader>
+	<slot name="top" />
+	<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} />
+	{#if modelLoading.isLoading}
+		<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
+	{/if}
+	<slot name="bottom" />
+	<WidgetFooter {onClickMaximizeBtn} {outputJson} />
 </div>

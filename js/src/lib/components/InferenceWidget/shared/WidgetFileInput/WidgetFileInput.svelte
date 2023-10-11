@@ -5,6 +5,7 @@
 	export let accept: string | undefined;
 	export let classNames = "";
 	export let isLoading = false;
+	export let isDisabled = false;
 	export let label = "Browse for file";
 	export let onSelectFile: (file: File | Blob) => void;
 
@@ -44,7 +45,7 @@
 			{accept}
 			bind:this={fileInput}
 			on:change={onChange}
-			disabled={isLoading}
+			disabled={isLoading || isDisabled}
 			style="display: none;"
 			type="file"
 		/>

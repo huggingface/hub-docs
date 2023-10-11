@@ -5,6 +5,7 @@
 	export let accept = "image/*";
 	export let classNames = "";
 	export let isLoading = false;
+	export let isDisabled = false;
 	export let imgSrc = "";
 	export let label = "Drag image file here or click to browse from your device";
 	export let onSelectFile: (file: File | Blob) => void;
@@ -45,7 +46,14 @@
 	}
 </script>
 
-<input {accept} bind:this={fileInput} on:change={onChange} disabled={isLoading} style="display: none;" type="file" />
+<input
+	{accept}
+	bind:this={fileInput}
+	on:change={onChange}
+	disabled={isLoading || isDisabled}
+	style="display: none;"
+	type="file"
+/>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	class="relative cursor-pointer rounded border-2 border-dashed px-3 py-7 text-center

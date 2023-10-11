@@ -3,6 +3,7 @@
 
 	export let flatTop = false;
 	export let isLoading: boolean;
+	export let isDisabled = false;
 	export let onClickSubmitBtn: (e?: MouseEvent) => void;
 	export let placeholder = "Your sentence here...";
 	export let submitButtonLabel: string | undefined = undefined;
@@ -16,11 +17,12 @@
 		{placeholder}
 		required={true}
 		type="text"
-		disabled={isLoading}
+		disabled={isLoading || isDisabled}
 	/>
 	<WidgetSubmitBtn
 		classNames="rounded-l-none border-l-0 {flatTop ? 'rounded-t-none' : ''}"
 		{isLoading}
+		{isDisabled}
 		label={submitButtonLabel}
 		onClick={onClickSubmitBtn}
 	/>

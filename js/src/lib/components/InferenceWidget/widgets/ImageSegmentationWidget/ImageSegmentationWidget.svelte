@@ -21,6 +21,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let isDisabled: WidgetProps["isDisabled"] = false;
 
 	const maskOpacity = Math.floor(255 * 0.6);
 	const colorToRgb = COLORS.reduce((acc, clr) => {
@@ -236,6 +237,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
+	{isDisabled}
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -244,7 +246,14 @@
 >
 	<svelte:fragment slot="top">
 		<form>
-			<WidgetDropzone classNames="hidden md:block" {isLoading} {imgSrc} {onSelectFile} onError={e => (error = e)}>
+			<WidgetDropzone
+				classNames="hidden md:block"
+				{isLoading}
+				{isDisabled}
+				{imgSrc}
+				{onSelectFile}
+				onError={e => (error = e)}
+			>
 				{#if imgSrc}
 					<Canvas {imgSrc} {highlightIndex} {mousemove} {mouseout} {output} />
 				{/if}
@@ -257,6 +266,7 @@
 				accept="image/*"
 				classNames="mr-2 md:hidden"
 				{isLoading}
+				{isDisabled}
 				label="Browse for image"
 				{onSelectFile}
 			/>

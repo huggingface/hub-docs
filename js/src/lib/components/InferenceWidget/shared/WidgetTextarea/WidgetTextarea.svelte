@@ -8,6 +8,7 @@
 	export let placeholder: string = "Your sentence here...";
 	export let value: string;
 	export let isLoading = false;
+	export let isDisabled = false;
 	export let size: "small" | "big" = "small";
 
 	let containerSpanEl: HTMLSpanElement;
@@ -82,13 +83,11 @@
 	<svelte:fragment slot="after">
 		<!-- `whitespace-pre-wrap inline-block` are needed to get correct newlines from `el.textContent` on Chrome -->
 		<span
-			class="{isLoading ? 'pointer-events-none' : ''} {label
-				? 'mt-1.5'
-				: ''} block w-full resize-y overflow-auto py-2 px-3 {size === 'small'
+			class="{label ? 'mt-1.5' : ''} block w-full resize-y overflow-auto py-2 px-3 {size === 'small'
 				? 'min-h-[42px]'
 				: 'min-h-[144px]'} inline-block max-h-[500px] whitespace-pre-wrap rounded-lg border border-gray-200 shadow-inner outline-none focus:shadow-inner focus:ring focus:ring-blue-200 dark:bg-gray-925"
 			role="textbox"
-			contenteditable
+			contenteditable={!isLoading && !isDisabled}
 			style="--placeholder: '{placeholder}'"
 			spellcheck="false"
 			dir="auto"

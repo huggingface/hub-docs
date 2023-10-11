@@ -16,6 +16,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let isDisabled: WidgetProps["isDisabled"] = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -125,6 +126,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
+	{isDisabled}
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -133,7 +135,14 @@
 >
 	<svelte:fragment slot="top">
 		<form>
-			<WidgetDropzone classNames="no-hover:hidden" {isLoading} {imgSrc} {onSelectFile} onError={e => (error = e)}>
+			<WidgetDropzone
+				classNames="no-hover:hidden"
+				{isLoading}
+				{isDisabled}
+				{imgSrc}
+				{onSelectFile}
+				onError={e => (error = e)}
+			>
 				{#if imgSrc}
 					<img src={imgSrc} class="pointer-events-none mx-auto max-h-44 shadow" alt="" />
 				{/if}
@@ -150,6 +159,7 @@
 				accept="image/*"
 				classNames="mr-2 md:hidden"
 				{isLoading}
+				{isDisabled}
 				label="Browse for image"
 				{onSelectFile}
 			/>

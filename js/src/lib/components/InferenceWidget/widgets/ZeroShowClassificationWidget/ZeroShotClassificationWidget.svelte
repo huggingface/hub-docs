@@ -18,6 +18,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let isDisabled: WidgetProps["isDisabled"] = false;
 
 	let candidateLabels = "";
 	let computeTime = "";
@@ -145,6 +146,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
+	{isDisabled}
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -154,15 +156,22 @@
 >
 	<svelte:fragment slot="top">
 		<form class="flex flex-col space-y-2">
-			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} placeholder="Text to classify..." />
+			<WidgetTextarea
+				bind:value={text}
+				bind:setValue={setTextAreaValue}
+				{isDisabled}
+				placeholder="Text to classify..."
+			/>
 			<WidgetTextInput
 				bind:value={candidateLabels}
+				{isDisabled}
 				label="Possible class names (comma-separated)"
 				placeholder="Possible class names..."
 			/>
 			<WidgetCheckbox bind:checked={multiClass} label="Allow multiple true classes" />
 			<WidgetSubmitBtn
 				{isLoading}
+				{isDisabled}
 				onClick={() => {
 					getOutput();
 				}}

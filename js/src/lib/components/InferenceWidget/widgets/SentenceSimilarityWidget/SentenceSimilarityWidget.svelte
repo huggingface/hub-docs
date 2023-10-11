@@ -16,6 +16,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let isDisabled: WidgetProps["isDisabled"] = false;
 
 	let sourceSentence = "";
 	let comparisonSentences: Array<string> = [];
@@ -141,6 +142,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
+	{isDisabled}
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -149,23 +151,30 @@
 >
 	<svelte:fragment slot="top">
 		<form class="flex flex-col space-y-2">
-			<WidgetTextInput bind:value={sourceSentence} label="Source Sentence" placeholder="Your sentence here..." />
+			<WidgetTextInput
+				bind:value={sourceSentence}
+				{isDisabled}
+				label="Source Sentence"
+				placeholder="Your sentence here..."
+			/>
 			<WidgetTextInput
 				bind:value={comparisonSentences[0]}
+				{isDisabled}
 				label="Sentences to compare to"
 				placeholder="Your sentence here..."
 			/>
 			{#each Array(nComparisonSentences - 1) as _, idx}
-				<WidgetTextInput bind:value={comparisonSentences[idx + 1]} placeholder="Your sentence here..." />
+				<WidgetTextInput bind:value={comparisonSentences[idx + 1]} {isDisabled} placeholder="Your sentence here..." />
 			{/each}
 			<WidgetAddSentenceBtn
-				isDisabled={nComparisonSentences === maxComparisonSentences}
+				isDisabled={nComparisonSentences === maxComparisonSentences || isDisabled}
 				onClick={() => {
 					nComparisonSentences++;
 				}}
 			/>
 			<WidgetSubmitBtn
 				{isLoading}
+				{isDisabled}
 				onClick={() => {
 					getOutput();
 				}}

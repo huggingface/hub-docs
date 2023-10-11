@@ -31,6 +31,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let isDisabled: WidgetProps["isDisabled"] = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -230,6 +231,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
+	{isDisabled}
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -239,10 +241,11 @@
 >
 	<svelte:fragment slot="top">
 		<form>
-			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} />
+			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} {isDisabled} />
 			<WidgetSubmitBtn
 				classNames="mt-2"
 				{isLoading}
+				{isDisabled}
 				onClick={() => {
 					getOutput();
 				}}

@@ -22,6 +22,7 @@
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
 	export let isLoggedIn: WidgetProps["includeCredentials"];
+	export let isDisabled: WidgetProps["isDisabled"] = false;
 
 	const isBloomLoginRequired = isLoggedIn === false && model.id === "bigscience/bloom";
 
@@ -199,6 +200,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
+	{isDisabled}
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -212,6 +214,7 @@
 				bind:value={text}
 				bind:setValue={setTextAreaValue}
 				{isLoading}
+				{isDisabled}
 				size="big"
 				bind:renderTypingEffect
 			/>
@@ -221,6 +224,7 @@
 			<div class="flex items-center gap-x-2 {isBloomLoginRequired ? 'pointer-events-none opacity-50' : ''}">
 				<WidgetSubmitBtn
 					{isLoading}
+					{isDisabled}
 					onClick={() => {
 						getOutput({ useCache });
 					}}

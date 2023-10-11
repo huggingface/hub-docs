@@ -15,6 +15,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let isDisabled: WidgetProps["isDisabled"] = false;
 
 	interface Conversation {
 		generated_responses: string[];
@@ -160,6 +161,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
+	{isDisabled}
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -174,6 +176,7 @@
 				bind:value={text}
 				flatTop={true}
 				{isLoading}
+				{isDisabled}
 				onClickSubmitBtn={() => {
 					getOutput();
 				}}

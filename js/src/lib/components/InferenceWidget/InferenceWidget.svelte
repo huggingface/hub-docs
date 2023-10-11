@@ -3,6 +3,9 @@
 	import type { PipelineType } from "../../interfaces/Types";
 	import type { WidgetProps } from "./shared/types";
 
+	import { InferenceDisplayability } from "../../interfaces/InferenceDisplayability";
+	import IconInfo from "../Icons/IconInfo.svelte";
+
 	import AudioClassificationWidget from "./widgets/AudioClassificationWidget/AudioClassificationWidget.svelte";
 	import AudioToAudioWidget from "./widgets/AudioToAudioWidget/AudioToAudioWidget.svelte";
 	import AutomaticSpeechRecognitionWidget from "./widgets/AutomaticSpeechRecognitionWidget/AutomaticSpeechRecognitionWidget.svelte";
@@ -27,6 +30,8 @@
 	import VisualQuestionAnsweringWidget from "./widgets/VisualQuestionAnsweringWidget/VisualQuestionAnsweringWidget.svelte";
 	import ZeroShotClassificationWidget from "./widgets/ZeroShowClassificationWidget/ZeroShotClassificationWidget.svelte";
 	import ZeroShotImageClassificationWidget from "./widgets/ZeroShotImageClassificationWidget/ZeroShotImageClassificationWidget.svelte";
+	import WidgetHeader from "./shared/WidgetHeader/WidgetHeader.svelte";
+	import { modelLoadStates } from "./stores";
 
 	export let apiToken: WidgetProps["apiToken"] = undefined;
 	export let callApiOnMount = false;
@@ -77,6 +82,9 @@
 		"zero-shot-image-classification": ZeroShotImageClassificationWidget,
 	};
 
+	const hasExampleWithOutput = model.widgetData?.some(sample => !!sample.output);
+	$: modelTooBig = $modelLoadStates[model.id]?.state === "TooBig";
+
 	$: widgetComponent = WIDGET_COMPONENTS[model.pipeline_tag ?? ""];
 
 	// prettier-ignore
@@ -93,5 +101,62 @@
 </script>
 
 {#if widgetComponent}
-	<svelte:component this={WIDGET_COMPONENTS[model.pipeline_tag ?? ""]} {...widgetProps} />
+	{#if (model.inference === InferenceDisplayability.Yes || model.pipeline_tag === "reinforcement-learning") && !modelTooBig}
+		<svelte:component this={WIDGET_COMPONENTS[model.pipeline_tag ?? ""]} {...widgetProps} />
+	{:else}
+		<!-- All the cases why inference widget is disabled -->
+		{#if !hasExampleWithOutput}
+			<WidgetHeader pipeline={model.pipeline_tag} noTitle={true} />
+		{/if}
+		{#if model.inference === InferenceDisplayability.ExplicitOptOut}
+			<span class="text-sm text-gray-500">Inference API has been turned off for this model.</span>
+		{:else if model.inference === InferenceDisplayability.CustomCode}
+			<span class="text-sm text-gray-500">Inference API does not yet support model repos that contain custom code.</span
+			>
+		{:else if model.inference === InferenceDisplayability.LibraryNotDetected}
+			<span class="text-sm text-gray-500">
+				Unable to determine this model's library. Check the
+				<a class="color-inherit" href="/docs/hub/model-cards#specifying-a-library">
+					docs <IconInfo classNames="inline" />
+				</a>.
+			</span>
+		{:else if model.inference === InferenceDisplayability.PipelineNotDetected}
+			<span class="text-sm text-gray-500">
+				Unable to determine this model’s pipeline type. Check the
+				<a class="color-inherit" href="/docs/hub/models-widgets#enabling-a-widget">
+					docs <IconInfo classNames="inline" />
+				</a>.
+			</span>
+		{:else if model.inference === InferenceDisplayability.PipelineLibraryPairNotSupported}
+			<span class="text-sm text-gray-500">
+				Inference API does not yet support {model.library_name} models for this pipeline type.
+			</span>
+		{:else if modelTooBig}
+			<span class="text-sm text-gray-500">
+				Model is too large to load onto the free Inference API. To try the model, launch it on <a
+					class="underline"
+					href="https://ui.endpoints.huggingface.co/new?repository={encodeURIComponent(model.id)}"
+					>Inference Endpoints</a
+				>
+				instead.
+			</span>
+		{:else}
+			<!-- added as a failsafe but this case cannot currently happen -->
+			<span class="text-sm text-gray-500">
+				Inference API is disabled for an unknown reason. Please open a
+				<a class="color-inherit underline" href="/{model.id}/discussions/new">Discussion in the Community tab</a>.
+			</span>
+		{/if}
+
+		<!-- If there is an example with output, then show the widget with disabled interaction -->
+		{#if hasExampleWithOutput}
+			<span class="text-sm text-gray-500">
+				However, you can still play with
+				<a class="color-inherit underline" href="/docs/hub/models-widgets#example-outputs"
+					>examples that have an output</a
+				>.
+			</span>
+			<svelte:component this={WIDGET_COMPONENTS[model.pipeline_tag ?? ""]} {...widgetProps} isDisabled={true} />
+		{/if}
+	{/if}
 {/if}

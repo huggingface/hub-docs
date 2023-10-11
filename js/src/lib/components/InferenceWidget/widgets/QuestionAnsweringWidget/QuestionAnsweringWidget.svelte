@@ -20,6 +20,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	export let isDisabled: WidgetProps["isDisabled"] = false;
 
 	let context = "";
 	let computeTime = "";
@@ -136,6 +137,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
+	{isDisabled}
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -148,6 +150,7 @@
 			<WidgetQuickInput
 				bind:value={question}
 				{isLoading}
+				{isDisabled}
 				onClickSubmitBtn={() => {
 					getOutput();
 				}}
@@ -155,6 +158,7 @@
 			<WidgetTextarea
 				bind:value={context}
 				bind:setValue={setTextAreaValue}
+				{isDisabled}
 				placeholder="Please input some context..."
 				label="Context"
 			/>
