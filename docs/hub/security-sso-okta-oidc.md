@@ -68,9 +68,8 @@ The Okta Issuer URL is generally a URL like `https://tenantId.okta.com`; you can
 
 In the SSO section of your organization's settings on Hugging Face, copy-paste these values from Okta:
 
-- Sign-on URL
-- SP Entity ID
-- Public certificate
+- Client ID
+- Client Secret
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-5.png"/>
