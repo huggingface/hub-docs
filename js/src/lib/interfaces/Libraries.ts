@@ -789,6 +789,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "fastText",
 		repoName: "fastText",
 		repoUrl:  "https://fasttext.cc/",
+		docsUrl:  "https://huggingface.co/docs/hub/fasttext",
 		snippets: fasttext,
 	},
 	"sample-factory": {
