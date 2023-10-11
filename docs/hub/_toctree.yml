@@ -69,6 +69,8 @@
         title: ESPnet
       - local: fastai
         title: fastai
+      - local: flair
+        title: Flair
       - local: keras
         title: Keras
       - local: ml-agents
