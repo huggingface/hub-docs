@@ -24,7 +24,7 @@
 		isLoading: boolean;
 		estimatedTime: number;
 	};
-	export let noModelLoading = false;
+	export let isInferenceEndpoints = false;
 	export let noTitle = false;
 	export let outputJson: string;
 	export let applyInputSample: (sample: Record<string, any>) => void = () => {};
@@ -55,7 +55,7 @@
 		inputGroups.length === 1 ? inputGroups[0] : inputGroups.find(({ group }) => group === selectedInputGroup);
 
 	onMount(() => {
-		if (!noModelLoading) {
+		if (!isInferenceEndpoints) {
 			(async () => {
 				modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
 				$modelLoadStates[model.id] = modelLoadInfo;

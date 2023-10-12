@@ -1,17 +1,16 @@
 import type { ModelData } from "../../../interfaces/Types";
 
 export interface WidgetProps {
-	accept?:            string;
-	apiToken?:          string;
-	apiUrl:             string;
-	appendRepoPath?:    boolean;
-	callApiOnMount:     boolean;
-	model:              ModelData;
-	noModelLoading?:    boolean;
-	noTitle:            boolean;
-	shouldUpdateUrl:    boolean;
-	includeCredentials: boolean;
-	isLoggedIn?:        boolean;
+	accept?:               string;
+	apiToken?:             string;
+	apiUrl:                string;
+	callApiOnMount:        boolean;
+	isInferenceEndpoints?: boolean;
+	model:                 ModelData;
+	noTitle:               boolean;
+	shouldUpdateUrl:       boolean;
+	includeCredentials:    boolean;
+	isLoggedIn?:           boolean;
 }
 
 export type LoadState = "Loadable" | "Loaded" | "TooBig" | "error";

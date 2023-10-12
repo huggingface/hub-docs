@@ -15,10 +15,9 @@
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
-	export let appendRepoPath: WidgetProps["appendRepoPath"];
 	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
-	export let noModelLoading: WidgetProps["noModelLoading"];
+	export let isInferenceEndpoints: WidgetProps["isInferenceEndpoints"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -113,7 +112,7 @@
 			includeCredentials,
 			isOnLoadCall,
 			useCache,
-			appendRepoPath,
+			!isInferenceEndpoints,
 		);
 
 		// Reset values
@@ -131,7 +130,7 @@
 			if (output.length === 0) {
 				warning = "No text was generated";
 			} else if (model?.pipeline_tag === "text-generation") {
-				const outputWithoutInput = noModelLoading ? output : output.slice(text.length);
+				const outputWithoutInput = isInferenceEndpoints ? output : output.slice(text.length);
 				inferenceTimer.stop();
 				if (outputWithoutInput.length === 0) {
 					warning = "No text was generated";
@@ -192,7 +191,7 @@
 	{isLoading}
 	{model}
 	{modelLoading}
-	{noModelLoading}
+	{isInferenceEndpoints}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

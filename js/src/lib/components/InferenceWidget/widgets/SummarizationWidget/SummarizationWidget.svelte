@@ -11,10 +11,9 @@
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
-	export let appendRepoPath: WidgetProps["appendRepoPath"];
 	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let model: WidgetProps["model"];
-	export let noModelLoading: WidgetProps["noModelLoading"];
+	export let isInferenceEndpoints: WidgetProps["isInferenceEndpoints"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
@@ -74,7 +73,7 @@
 			includeCredentials,
 			isOnLoadCall,
 			true,
-			appendRepoPath,
+			!isInferenceEndpoints,
 		);
 
 		isLoading = false;
@@ -126,7 +125,7 @@
 	{isLoading}
 	{model}
 	{modelLoading}
-	{noModelLoading}
+	{isInferenceEndpoints}
 	{noTitle}
 	{outputJson}
 	{previewInputSample}

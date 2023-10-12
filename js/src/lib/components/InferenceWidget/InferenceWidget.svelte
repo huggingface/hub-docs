@@ -30,11 +30,10 @@
 
 	export let accept: WidgetProps['accept'] = undefined;
 	export let apiToken: WidgetProps["apiToken"] = undefined;
-	export let appendRepoPath: WidgetProps["appendRepoPath"] = true;
 	export let callApiOnMount = false;
 	export let apiUrl = "https://api-inference.huggingface.co";
+	export let isInferenceEndpoints: WidgetProps["isInferenceEndpoints"] = false;
 	export let model: WidgetProps["model"];
-	export let noModelLoading: WidgetProps["noModelLoading"] = false;
 	export let noTitle = false;
 	export let shouldUpdateUrl = false;
 	export let includeCredentials = false;
@@ -86,10 +85,9 @@
 		accept,
 		apiToken,
 		apiUrl,
-		appendRepoPath,
 		callApiOnMount,
+		isInferenceEndpoints,
 		model,
-		noModelLoading,
 		noTitle,
 		shouldUpdateUrl,
 		includeCredentials,
