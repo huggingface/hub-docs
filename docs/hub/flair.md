@@ -52,7 +52,7 @@ It outputs the following:
 Sentence[6]: "George Washington ging nach Washington." → ["George Washington"/PER, "Washington"/LOC]
 ```
 
-If you want to load a specific Flair model, you can click `Use in Flair` and you will be given a working snippet!
+If you want to load a specific Flair model, you can click `Use in Flair` in the model card and you will be given a working snippet!
 
 
 ## Additional resources
