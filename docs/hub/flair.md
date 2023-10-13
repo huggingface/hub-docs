@@ -2,19 +2,7 @@
 
 # Using Flair at Hugging Face
 
-[Flair](https://github.com/flairNLP/flair) is:
-
-* **A powerful NLP library.** Flair allows you to apply our state-of-the-art natural language processing (NLP)
-models to your text, such as named entity recognition (NER), sentiment analysis, part-of-speech tagging (PoS),
-  special support for [biomedical data](/resources/docs/HUNFLAIR.md),
- sense disambiguation and classification, with support for a rapidly growing number of languages.
-
-* **A text embedding library.** Flair has simple interfaces that allow you to use and combine different word and
-document embeddings, including our proposed [Flair embeddings](https://www.aclweb.org/anthology/C18-1139/) and various transformers.
-
-* **A PyTorch NLP framework.** Our framework builds directly on [PyTorch](https://pytorch.org/), making it easy to
-train your own models and experiment with new approaches using Flair embeddings and classes.
-
+[Flair](https://github.com/flairNLP/flair) is a very simple framework for state-of-the-art NLP.
 Developed by [Humboldt University of Berlin](https://www.informatik.hu-berlin.de/en/forschung-en/gebiete/ml-en/) and friends.
 
 ## Exploring Flair in the Hub
