@@ -165,20 +165,19 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>, { isPreview = false } = {}) {
 		setTextAreaValue(sample.text);
-		if (sample.output) {
-			output = sample.output.text;
-			outputJson = "";
-			renderTypingEffect(output);
-		} else {
-			output = "";
-			outputJson = "";
+		if (isPreview) {
+			if (sample.output) {
+				output = sample.output.text;
+				outputJson = "";
+				renderTypingEffect(output);
+			} else {
+				output = "";
+				outputJson = "";
+			}
+			return;
 		}
-	}
-
-	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
-		setTextAreaValue(sample.text);
 		getOutput({ useCache });
 	}
 
@@ -206,7 +205,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	{validateExample}
 >
 	<svelte:fragment slot="top">

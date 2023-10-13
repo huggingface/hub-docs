@@ -126,19 +126,17 @@
 		throw new TypeError("Invalid output: output must be of type Array<blob:string, label:string, content-type:string>");
 	}
 
-	function applyInputSample(sample: WidgetExampleAssetInput) {
-		file = null;
+	function applyInputSample(sample: WidgetExampleAssetInput, { isPreview = false } = {}) {
 		filename = sample.example_title ?? "";
 		fileUrl = sample.src;
+		if (isPreview) {
+			output = [];
+			outputJson = "";
+			return;
+		}
+		file = null;
 		selectedSampleUrl = sample.src;
 		getOutput();
-	}
-
-	function previewInputSample(sample: WidgetExampleAssetInput) {
-		filename = sample.example_title ?? "";
-		fileUrl = sample.src;
-		output = [];
-		outputJson = "";
 	}
 
 	onMount(() => {
@@ -163,7 +161,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isAssetInput}
 >
 	<svelte:fragment slot="top">

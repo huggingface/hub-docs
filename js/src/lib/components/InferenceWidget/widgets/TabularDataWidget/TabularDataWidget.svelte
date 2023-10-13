@@ -180,12 +180,11 @@
 		}, {});
 	}
 
-	function previewInputSample(sample: WidgetExampleStructuredDataInput) {
+	function applyInputSample(sample: WidgetExampleStructuredDataInput, { isPreview = false } = {}) {
 		table = convertDataToTable(sample.structuredData);
-	}
-
-	function applyInputSample(sample: WidgetExampleStructuredDataInput) {
-		table = convertDataToTable(sample.structuredData);
+		if (isPreview) {
+			return;
+		}
 		getOutput();
 	}
 </script>
@@ -201,7 +200,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isStructuredDataInput}
 >
 	<svelte:fragment slot="top">

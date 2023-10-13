@@ -68,14 +68,12 @@
 		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetAndZeroShotInput) {
+	async function applyInputSample(sample: WidgetExampleAssetAndZeroShotInput, { isPreview = false } = {}) {
 		candidateLabels = sample.candidate_labels;
 		imgSrc = sample.src;
-	}
-
-	async function applyInputSample(sample: WidgetExampleAssetAndZeroShotInput) {
-		candidateLabels = sample.candidate_labels;
-		imgSrc = sample.src;
+		if (isPreview) {
+			return;
+		}
 		const res = await fetch(imgSrc);
 		const blob = await res.blob();
 		await updateImageBase64(blob);
@@ -169,7 +167,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isAssetAndZeroShotInput}
 >
 	<svelte:fragment slot="top">

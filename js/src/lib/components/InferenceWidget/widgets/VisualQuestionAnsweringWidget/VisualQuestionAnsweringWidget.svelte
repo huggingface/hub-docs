@@ -67,14 +67,12 @@
 		throw new TypeError("Invalid output: output must be of type Array<answer: string, score:number>");
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetAndTextInput) {
+	async function applyInputSample(sample: WidgetExampleAssetAndTextInput, { isPreview = false } = {}) {
 		question = sample.text;
 		imgSrc = sample.src;
-	}
-
-	async function applyInputSample(sample: WidgetExampleAssetAndTextInput) {
-		question = sample.text;
-		imgSrc = sample.src;
+		if (isPreview) {
+			return;
+		}
 		const res = await fetch(imgSrc);
 		const blob = await res.blob();
 		await updateImageBase64(blob);
@@ -165,7 +163,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isAssetAndTextInput}
 >
 	<svelte:fragment slot="top">

@@ -122,14 +122,15 @@
 		throw new TypeError("Invalid output: output must be of type <answer:string; score:number>");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>) {
+	function applyInputSample(
+		sample: WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>,
+		{ isPreview = false } = {}
+	) {
 		question = sample.text;
 		setTextAreaValue(sample.context);
-	}
-
-	function applyInputSample(sample: WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>) {
-		question = sample.text;
-		setTextAreaValue(sample.context);
+		if (isPreview) {
+			return;
+		}
 		getOutput();
 	}
 
@@ -151,7 +152,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	{validateExample}
 >
 	<svelte:fragment slot="top">

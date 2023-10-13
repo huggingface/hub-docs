@@ -119,16 +119,13 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function previewInputSample(sample: WidgetExampleSentenceSimilarityInput) {
+	function applyInputSample(sample: WidgetExampleSentenceSimilarityInput, { isPreview = false } = {}) {
 		sourceSentence = sample.source_sentence;
 		comparisonSentences = sample.sentences;
 		nComparisonSentences = comparisonSentences.length;
-	}
-
-	function applyInputSample(sample: WidgetExampleSentenceSimilarityInput) {
-		sourceSentence = sample.source_sentence;
-		comparisonSentences = sample.sentences;
-		nComparisonSentences = comparisonSentences.length;
+		if (isPreview) {
+			return;
+		}
 		getOutput();
 	}
 
@@ -154,7 +151,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isSentenceSimilarityInput}
 >
 	<svelte:fragment slot="top">

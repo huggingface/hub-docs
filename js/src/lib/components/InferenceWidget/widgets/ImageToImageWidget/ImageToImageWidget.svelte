@@ -63,14 +63,12 @@
 		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetAndPromptInput) {
+	async function applyInputSample(sample: WidgetExampleAssetAndPromptInput, { isPreview = false } = {}) {
 		prompt = sample.prompt;
 		imgSrc = sample.src;
-	}
-
-	async function applyInputSample(sample: WidgetExampleAssetAndPromptInput) {
-		prompt = sample.prompt;
-		imgSrc = sample.src;
+		if (isPreview) {
+			return;
+		}
 		const res = await fetch(imgSrc);
 		const blob = await res.blob();
 		await updateImageBase64(blob);
@@ -157,7 +155,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isAssetAndPromptInput}
 >
 	<svelte:fragment slot="top">
