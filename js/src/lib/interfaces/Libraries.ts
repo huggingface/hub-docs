@@ -70,6 +70,10 @@ export interface LibraryUiElement {
 	 */
 	repoUrl:  string;
 	/**
+	 * URL to library's docs
+	 */
+	docsUrl?: string;
+	/**
 	 * Code snippet displayed on model page
 	 */
 	snippets: (model: ModelData) => string[];
@@ -610,18 +614,21 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "Adapter Transformers",
 		repoName: "adapter-transformers",
 		repoUrl:  "https://github.com/Adapter-Hub/adapter-transformers",
+		docsUrl:  "https://huggingface.co/docs/hub/adapter-transformers",
 		snippets: adapter_transformers,
 	},
 	"allennlp": {
 		btnLabel: "AllenNLP",
 		repoName: "AllenNLP",
 		repoUrl:  "https://github.com/allenai/allennlp",
+		docsUrl:  "https://huggingface.co/docs/hub/allennlp",
 		snippets: allennlp,
 	},
 	"asteroid": {
 		btnLabel: "Asteroid",
 		repoName: "Asteroid",
 		repoUrl:  "https://github.com/asteroid-team/asteroid",
+		docsUrl:  "https://huggingface.co/docs/hub/asteroid",
 		snippets: asteroid,
 	},
 	"bertopic": {
@@ -634,12 +641,14 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "Diffusers",
 		repoName: "🤗/diffusers",
 		repoUrl:  "https://github.com/huggingface/diffusers",
+		docsUrl:  "https://huggingface.co/docs/hub/diffusers",
 		snippets: diffusers,
 	},
 	"espnet": {
 		btnLabel: "ESPnet",
 		repoName: "ESPnet",
 		repoUrl:  "https://github.com/espnet/espnet",
+		docsUrl:  "https://huggingface.co/docs/hub/espnet",
 		snippets: espnet,
 	},
 	"fairseq": {
@@ -658,6 +667,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "Keras",
 		repoName: "Keras",
 		repoUrl:  "https://github.com/keras-team/keras",
+		docsUrl:  "https://huggingface.co/docs/hub/keras",
 		snippets: keras,
 	},
 	"nemo": {
@@ -676,6 +686,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "paddlenlp",
 		repoName: "PaddleNLP",
 		repoUrl:  "https://github.com/PaddlePaddle/PaddleNLP",
+		docsUrl:  "https://huggingface.co/docs/hub/paddlenlp",
 		snippets: paddlenlp,
 	},
 	"peft": {
@@ -694,6 +705,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "sentence-transformers",
 		repoName: "sentence-transformers",
 		repoUrl:  "https://github.com/UKPLab/sentence-transformers",
+		docsUrl:  "https://huggingface.co/docs/hub/sentence-transformers",
 		snippets: sentenceTransformers,
 	},
 	"sklearn": {
@@ -706,30 +718,35 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "fastai",
 		repoName: "fastai",
 		repoUrl:  "https://github.com/fastai/fastai",
+		docsUrl:  "https://huggingface.co/docs/hub/fastai",
 		snippets: fastai,
 	},
 	"spacy": {
 		btnLabel: "spaCy",
 		repoName: "spaCy",
 		repoUrl:  "https://github.com/explosion/spaCy",
+		docsUrl:  "https://huggingface.co/docs/hub/spacy",
 		snippets: spacy,
 	},
 	"span-marker": {
 		btnLabel: "SpanMarker",
 		repoName: "SpanMarkerNER",
 		repoUrl:  "https://github.com/tomaarsen/SpanMarkerNER",
+		docsUrl:  "https://huggingface.co/docs/hub/span_marker",
 		snippets: span_marker,
 	},
 	"speechbrain": {
 		btnLabel: "speechbrain",
 		repoName: "speechbrain",
 		repoUrl:  "https://github.com/speechbrain/speechbrain",
+		docsUrl:  "https://huggingface.co/docs/hub/speechbrain",
 		snippets: speechbrain,
 	},
 	"stanza": {
 		btnLabel: "Stanza",
 		repoName: "stanza",
 		repoUrl:  "https://github.com/stanfordnlp/stanza",
+		docsUrl:  "https://huggingface.co/docs/hub/stanza",
 		snippets: stanza,
 	},
 	"tensorflowtts": {
@@ -742,18 +759,21 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "timm",
 		repoName: "pytorch-image-models",
 		repoUrl:  "https://github.com/rwightman/pytorch-image-models",
+		docsUrl:  "https://huggingface.co/docs/hub/timm",
 		snippets: timm,
 	},
 	"transformers": {
 		btnLabel: "Transformers",
 		repoName: "🤗/transformers",
 		repoUrl:  "https://github.com/huggingface/transformers",
+		docsUrl:  "https://huggingface.co/docs/hub/transformers",
 		snippets: transformers,
 	},
 	"transformers.js": {
 		btnLabel: "Transformers.js",
 		repoName: "transformers.js",
 		repoUrl:  "https://github.com/xenova/transformers.js",
+		docsUrl:  "https://huggingface.co/docs/hub/transformers-js",
 		snippets: transformersJS,
 	},
 	"fasttext": {
@@ -766,18 +786,21 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "sample-factory",
 		repoName: "sample-factory",
 		repoUrl:  "https://github.com/alex-petrenko/sample-factory",
+		docsUrl:  "https://huggingface.co/docs/hub/sample-factory",
 		snippets: sampleFactory,
 	},
 	"stable-baselines3": {
 		btnLabel: "stable-baselines3",
 		repoName: "stable-baselines3",
 		repoUrl:  "https://github.com/huggingface/huggingface_sb3",
+		docsUrl:  "https://huggingface.co/docs/hub/stable-baselines3",
 		snippets: stableBaselines3,
 	},
 	"ml-agents": {
 		btnLabel: "ml-agents",
 		repoName: "ml-agents",
 		repoUrl:  "https://github.com/huggingface/ml-agents",
+		docsUrl:  "https://huggingface.co/docs/hub/ml-agents",
 		snippets: mlAgents,
 	},
 	"pythae": {
