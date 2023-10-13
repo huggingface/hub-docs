@@ -1,5 +1,6 @@
 import type { ModelData } from "../../../interfaces/Types";
 import { randomItem, parseJSON } from "../../../utils/ViewUtils";
+import type { WidgetExample } from "./WidgetExample";
 import type { ModelLoadInfo, TableData } from "./types";
 
 export function getSearchParams(keys: string[]): string[] {
@@ -17,6 +18,14 @@ export function getDemoInputs(model: ModelData, keys: (number | string)[]): any[
 		const value = randomEntry[key] ? randomEntry[key] : null;
 		return value ? randomEntry[key] : null;
 	});
+}
+
+export function getWidgetExample<TWidgetExample extends WidgetExample>(
+	model: ModelData,
+	validateExample: (sample: WidgetExample) => sample is TWidgetExample
+): TWidgetExample | undefined {
+	const sample = model.widgetData?.length ? randomItem(model.widgetData) : undefined;
+	return sample && validateExample(sample) ? sample : undefined;
 }
 
 // Update current url search params, keeping existing keys intact.

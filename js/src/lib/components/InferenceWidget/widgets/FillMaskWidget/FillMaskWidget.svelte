@@ -8,7 +8,13 @@
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import {
+		addInferenceParameters,
+		getResponse,
+		getSearchParams,
+		getWidgetExample,
+		updateUrl,
+	} from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -38,9 +44,8 @@
 			setTextAreaValue(textParam);
 			getOutput();
 		} else {
-			const [demoText] = getDemoInputs(model, ["text"]);
-			/// TODO(get rid of useless getDemoInputs)
-			setTextAreaValue(demoText ?? "");
+			const sample = getWidgetExample(model, validateExample);
+			setTextAreaValue(sample?.text ?? "");
 			if (text && callApiOnMount) {
 				getOutput({ isOnLoadCall: true });
 			}
