@@ -7,7 +7,7 @@ The table below summarizes the supported libraries and their level of integratio
 | Library                                                                     | Description                                                                          | Inference API | Widgets | Download from Hub | Push to Hub |
 |-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------|---|---:|---|---|
 | [🤗 Transformers](https://github.com/huggingface/transformers)              | State-of-the-art Natural Language Processing for Pytorch, TensorFlow, and JAX        | ✅ | ✅ | ✅ | ✅ |
-| [🤗 Diffusers](https://github.com/huggingface/diffusers)                    | A modular toolbox for inference and training of diffusion models                     | ❌ | ❌ | ✅ | ✅ |
+| [🤗 Diffusers](https://github.com/huggingface/diffusers)                    | A modular toolbox for inference and training of diffusion models                     | ✅ | ✅ | ✅ | ✅ |
 | [Adapter Transformers](https://github.com/Adapter-Hub/adapter-transformers) | Extends 🤗Transformers with Adapters.                                                | ❌ | ❌ | ✅ | ✅ |
 | [AllenNLP](https://github.com/allenai/allennlp)                             | An open-source NLP research library, built on PyTorch.                               | ✅ | ✅ | ✅ | ❌ |
 | [Asteroid](https://github.com/asteroid-team/asteroid)                       | Pytorch-based audio source separation toolkit                                        | ✅ | ✅ | ✅ | ❌ |
