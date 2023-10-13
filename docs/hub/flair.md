@@ -61,7 +61,7 @@ print(sentence)
 It outputs the following:
 
 ```text
-Sentence[6]: "George Washington ging nach Washington ." → ["George Washington"/PER, "Washington"/LOC]
+Sentence[6]: "George Washington ging nach Washington." → ["George Washington"/PER, "Washington"/LOC]
 ```
 
 If you want to load a specific Flair model, you can click `Use in Flair` and you will be given a working snippet!
