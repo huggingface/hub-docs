@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleAssetAndTextInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -9,7 +9,7 @@
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
-	import { addInferenceParameters, getDemoInputs, callInferenceApi } from "../../shared/helpers";
+	import { addInferenceParameters, getWidgetExample, callInferenceApi } from "../../shared/helpers";
 	import { isAssetAndTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -67,7 +67,10 @@
 		throw new TypeError("Invalid output: output must be of type Array<answer: string, score:number>");
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetAndTextInput, { isPreview = false } = {}) {
+	async function applyInputSample(
+		sample: WidgetExampleAssetAndTextInput,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		question = sample.text;
 		imgSrc = sample.src;
 		if (isPreview) {
@@ -76,10 +79,10 @@
 		const res = await fetch(imgSrc);
 		const blob = await res.blob();
 		await updateImageBase64(blob);
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedQuestion = question.trim();
 
 		if (!trimmedQuestion) {
@@ -139,14 +142,9 @@
 
 	onMount(() => {
 		(async () => {
-			const [text, src] = getDemoInputs(model, ["text", "src"]);
-			if (callApiOnMount && text && src) {
-				question = text;
-				imgSrc = src;
-				const res = await fetch(imgSrc);
-				const blob = await res.blob();
-				await updateImageBase64(blob);
-				getOutput({ isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleAssetAndTextInput>(model, isAssetAndTextInput);
+			if (callApiOnMount && example) {
+				await applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		})();
 	});

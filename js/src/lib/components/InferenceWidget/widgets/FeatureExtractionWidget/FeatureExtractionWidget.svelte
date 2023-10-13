@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -8,7 +8,7 @@
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
 		addInferenceParameters,
-		getDemoInputs,
+		getWidgetExample,
 		callInferenceApi,
 		getSearchParams,
 		updateUrl,
@@ -42,15 +42,14 @@
 			text = textParam;
 			getOutput();
 		} else {
-			const [demoText] = getDemoInputs(model, ["text"]);
-			text = (demoText as string) ?? "";
-			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleTextInput>(model, isTextInput);
+			if (callApiOnMount && example) {
+				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		}
 	});
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -128,12 +127,15 @@
 		return Math.ceil(total_elems / SINGLE_DIM_COLS);
 	};
 
-	function applyInputSample(sample: WidgetExampleTextInput, { isPreview = false } = {}) {
+	function applyInputSample(
+		sample: WidgetExampleTextInput,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		text = sample.text;
 		if (isPreview) {
 			return;
 		}
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 </script>
 

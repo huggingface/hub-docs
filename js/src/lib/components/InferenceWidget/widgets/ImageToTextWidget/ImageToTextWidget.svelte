@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -8,7 +8,7 @@
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { callInferenceApi, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl, getWidgetExample } from "../../shared/helpers";
 	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -35,7 +35,10 @@
 		getOutput(file);
 	}
 
-	async function getOutput(file: File | Blob, { withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput(
+		file: File | Blob,
+		{ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}
+	) {
 		if (!file) {
 			return;
 		}
@@ -91,7 +94,10 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetInput, { isPreview = false } = {}) {
+	async function applyInputSample(
+		sample: WidgetExampleAssetInput,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		imgSrc = sample.src;
 		if (isPreview) {
 			output = "";
@@ -104,11 +110,9 @@
 
 	onMount(() => {
 		(async () => {
-			const [src] = getDemoInputs(model, ["src"]);
-			if (callApiOnMount && src) {
-				imgSrc = src;
-				const blob = await getBlobFromUrl(imgSrc);
-				getOutput(blob, { isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleAssetInput>(model, isAssetInput);
+			if (callApiOnMount && example) {
+				await applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		})();
 	});

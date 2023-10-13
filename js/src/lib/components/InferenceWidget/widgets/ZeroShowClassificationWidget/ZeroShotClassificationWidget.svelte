@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleZeroShotTextInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -12,7 +12,7 @@
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import {
 		addInferenceParameters,
-		getDemoInputs,
+		getWidgetExample,
 		callInferenceApi,
 		getSearchParams,
 		updateUrl,
@@ -54,21 +54,14 @@
 			setTextAreaValue(textParam);
 			getOutput();
 		} else {
-			const [demoCandidateLabels, demoMultiClass, demoText] = getDemoInputs(model, [
-				"candidate_labels",
-				"multi_class",
-				"text",
-			]);
-			candidateLabels = (demoCandidateLabels as string) ?? "";
-			multiClass = demoMultiClass === "true";
-			setTextAreaValue(demoText ?? "");
-			if (candidateLabels && text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleZeroShotTextInput>(model, isZeroShotTextInput);
+			if (example && callApiOnMount) {
+				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		}
 	});
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedText = text.trim();
 		const trimmedCandidateLabels = candidateLabels.trim().split(",").join(",");
 
@@ -155,14 +148,17 @@
 		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
-	function applyInputSample(sample: WidgetExampleZeroShotTextInput, { isPreview = false } = {}) {
+	function applyInputSample(
+		sample: WidgetExampleZeroShotTextInput,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		candidateLabels = sample.candidate_labels;
 		multiClass = sample.multi_class;
 		setTextAreaValue(sample.text);
 		if (isPreview) {
 			return;
 		}
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 </script>
 

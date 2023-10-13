@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { WidgetProps, ImageSegment } from "../../shared/types";
+	import type { WidgetProps, ImageSegment, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
 	import { COLORS } from "../../shared/consts";
 	import { clamp, mod, hexToRgb } from "../../../../utils/ViewUtils";
-	import { callInferenceApi, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl, getWidgetExample } from "../../shared/helpers";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
@@ -50,7 +50,10 @@
 		getOutput(file);
 	}
 
-	async function getOutput(file: File | Blob, { withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput(
+		file: File | Blob,
+		{ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}
+	) {
 		if (!file) {
 			return;
 		}
@@ -206,7 +209,10 @@
 		};
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetInput, { isPreview = false } = {}) {
+	async function applyInputSample(
+		sample: WidgetExampleAssetInput,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		imgSrc = sample.src;
 		if (isPreview) {
 			output = [];
@@ -214,7 +220,7 @@
 			return;
 		}
 		const blob = await getBlobFromUrl(imgSrc);
-		getOutput(blob);
+		getOutput(blob, inferenceOpts);
 	}
 
 	onMount(() => {
@@ -223,11 +229,9 @@
 		}
 
 		(async () => {
-			const [src] = getDemoInputs(model, ["src"]);
-			if (callApiOnMount && src) {
-				imgSrc = src;
-				const blob = await getBlobFromUrl(imgSrc);
-				getOutput(blob, { isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleAssetInput>(model, isAssetInput);
+			if (callApiOnMount && example) {
+				await applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		})();
 	});

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, InferenceRunOpts, ExampleRunOpts } from "../../shared/types";
 	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -8,7 +8,7 @@
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { callInferenceApi, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl, getWidgetExample } from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -36,7 +36,10 @@
 		getOutput(file);
 	}
 
-	async function getOutput(file: File | Blob, { withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput(
+		file: File | Blob,
+		{ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}
+	) {
 		if (!file) {
 			return;
 		}
@@ -93,7 +96,7 @@
 
 	async function applyInputSample(
 		sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>,
-		{ isPreview = false } = {}
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
 	) {
 		imgSrc = sample.src;
 		if (isPreview) {
@@ -107,7 +110,7 @@
 			return;
 		}
 		const blob = await getBlobFromUrl(imgSrc);
-		getOutput(blob);
+		getOutput(blob, inferenceOpts);
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {
@@ -116,11 +119,9 @@
 
 	onMount(() => {
 		(async () => {
-			const [src] = getDemoInputs(model, ["src"]);
-			if (callApiOnMount && src) {
-				imgSrc = src;
-				const blob = await getBlobFromUrl(imgSrc);
-				getOutput(blob, { isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleAssetInput<WidgetExampleOutputLabels>>(model, validateExample);
+			if (example && callApiOnMount) {
+				await applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		})();
 	});
