@@ -52,6 +52,14 @@ Sentence[6]: "George Washington ging nach Washington." → ["George Washington"/
 
 If you want to load a specific Flair model, you can click `Use in Flair` in the model card and you will be given a working snippet!
 
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-flair_snippet1.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-flair_snippet1-dark.png"/>
+</div>
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-flair_snippet2.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-flair_snippet2-dark.png"/>
+</div>
 
 ## Additional resources
 
