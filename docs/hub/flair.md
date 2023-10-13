@@ -59,3 +59,4 @@ If you want to load a specific Flair model, you can click `Use in Flair` and you
 
 * Flair [repository](https://github.com/flairNLP/flair)
 * Flair [docs](https://flairnlp.github.io/docs/intro)
+* Official Flair [models](https://huggingface.co/flair) on the Hub (mainly trained by [@alanakbik](https://huggingface.co/alanakbik) and [@stefan-it](https://huggingface.co/stefan-it))
