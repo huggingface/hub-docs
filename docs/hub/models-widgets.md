@@ -90,7 +90,7 @@ We provide example inputs for some languages and most widget types in [the Defau
 
 ## Example outputs
 
-As an extension to example inputs, for each widget example, you can also optionally describe the corresponding model output, direcly in the `output` property.
+As an extension to example inputs, for each widget example, you can also optionally describe the corresponding model output, directly in the `output` property.
 
 This is useful when the model is not yet supported by the Inference API (for instance, the model library is not yet supported or the model is too large) so that the model page can still showcase how the model works and what results it gives.
 
