@@ -7,6 +7,7 @@ The table below summarizes the supported libraries and their level of integratio
 | Library                                                                     | Description                                                                          | Inference API | Widgets | Download from Hub | Push to Hub |
 |-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------|---|---:|---|---|
 | [🤗 Transformers](https://github.com/huggingface/transformers)              | State-of-the-art Natural Language Processing for Pytorch, TensorFlow, and JAX        | ✅ | ✅ | ✅ | ✅ |
+| [🤗 Diffusers](https://github.com/huggingface/diffusers)                    | A modular toolbox for inference and training of diffusion models                     | ✅ | ✅ | ✅ | ✅ |
 | [Adapter Transformers](https://github.com/Adapter-Hub/adapter-transformers) | Extends 🤗Transformers with Adapters.                                                | ❌ | ❌ | ✅ | ✅ |
 | [AllenNLP](https://github.com/allenai/allennlp)                             | An open-source NLP research library, built on PyTorch.                               | ✅ | ✅ | ✅ | ❌ |
 | [Asteroid](https://github.com/asteroid-team/asteroid)                       | Pytorch-based audio source separation toolkit                                        | ✅ | ✅ | ✅ | ❌ |
@@ -16,7 +17,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [ESPnet](https://github.com/espnet/espnet)                                  | End-to-end speech processing toolkit (e.g. TTS)                                      | ✅ | ✅ | ✅ | ❌ |
 | [fastai](https://github.com/fastai/fastai)                                  | Library to train fast and accurate models with state-of-the-art outputs.             | ✅ | ✅ | ✅ | ✅ |
 | [Keras](https://huggingface.co/docs/hub/keras)                              | Library that uses a consistent and simple API to build models leveraging TensorFlow and its ecosystem. | ❌ | ❌ | ✅ | ✅ |
-| [Flair](https://github.com/flairNLP/flair)                                  | Very simple framework for state-of-the-art NLP.                                      | ✅ | ✅ | ✅ | ❌ |
+| [Flair](https://github.com/flairNLP/flair)                                  | Very simple framework for state-of-the-art NLP.                                      | ✅ | ✅ | ✅ | ✅ |
 | [MBRL-Lib](https://github.com/facebookresearch/mbrl-lib) | PyTorch implementations of MBRL Algorithms. | ❌ | ❌ | ✅ | ✅ |
 | [ML-Agents](https://github.com/huggingface/ml-agents) | Enables games and simulations made with Unity to serve as environments for training intelligent agents. | ❌ | ❌ | ✅ | ✅ |
 | [NeMo](https://github.com/NVIDIA/NeMo)                                      | Conversational AI toolkit built for researchers                                      | ✅ | ✅ | ✅ | ❌ |

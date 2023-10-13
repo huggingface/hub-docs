@@ -29,7 +29,7 @@ We support [role mapping](#role-mapping): you can automatically assign [roles](.
 
 ### Supported Identity Providers
 
-You can easily integrate Hugging Face Hub with a variety of Identity Providers, such as Okta, OneLogin or Azure Active Directory (Azure AD). Hugging Face Hub can work with any OIDC-compliant or SAML (*SP Initiated*) Identity Provider.
+You can easily integrate Hugging Face Hub with a variety of Identity Providers, such as Okta, OneLogin or Azure Active Directory (Azure AD). Hugging Face Hub can work with any OIDC-compliant or SAML Identity Provider.
 
 ## How to configure OIDC/SAML provider in the Hub
 
