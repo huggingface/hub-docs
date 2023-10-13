@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { PipelineType } from "../../../../interfaces/Types";
 	import type { WidgetExampleTextInput, WidgetExampleOutputText, WidgetExample } from "../../shared/WidgetExample";
 
@@ -12,7 +12,13 @@
 	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import {
+		addInferenceParameters,
+		getWidgetExample,
+		getResponse,
+		getSearchParams,
+		updateUrl,
+	} from "../../shared/helpers";
 	import { isValidOutputText } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -55,15 +61,14 @@
 			setTextAreaValue(textParam);
 			getOutput({ useCache: true });
 		} else {
-			const [demoText] = getDemoInputs(model, ["text"]);
-			setTextAreaValue(demoText ?? "");
-			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true, useCache: true });
+			const example = getWidgetExample<WidgetExampleTextInput<WidgetExampleOutputText>>(model, validateExample);
+			if (example && callApiOnMount) {
+				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true, useCache: true } });
 			}
 		}
 	});
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = true } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = true }: InferenceRunOpts = {}) {
 		if (isBloomLoginRequired) {
 			return;
 		}
@@ -165,7 +170,10 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>, { isPreview = false } = {}) {
+	function applyInputSample(
+		sample: WidgetExampleTextInput<WidgetExampleOutputText>,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		setTextAreaValue(sample.text);
 		if (isPreview) {
 			if (sample.output) {
@@ -178,7 +186,7 @@
 			}
 			return;
 		}
-		getOutput({ useCache });
+		getOutput({ useCache, ...inferenceOpts });
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputText> {

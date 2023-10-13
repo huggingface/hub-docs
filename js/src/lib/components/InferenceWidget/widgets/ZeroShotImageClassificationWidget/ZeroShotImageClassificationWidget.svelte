@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleAssetAndZeroShotInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -10,7 +10,7 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
-	import { addInferenceParameters, getResponse, getDemoInputs } from "../../shared/helpers";
+	import { addInferenceParameters, getResponse, getWidgetExample } from "../../shared/helpers";
 	import { isAssetAndZeroShotInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -68,7 +68,10 @@
 		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetAndZeroShotInput, { isPreview = false } = {}) {
+	async function applyInputSample(
+		sample: WidgetExampleAssetAndZeroShotInput,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		candidateLabels = sample.candidate_labels;
 		imgSrc = sample.src;
 		if (isPreview) {
@@ -77,10 +80,10 @@
 		const res = await fetch(imgSrc);
 		const blob = await res.blob();
 		await updateImageBase64(blob);
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedCandidateLabels = candidateLabels.trim().split(",").join(",");
 
 		if (!trimmedCandidateLabels) {
@@ -143,14 +146,9 @@
 
 	onMount(() => {
 		(async () => {
-			const [src, candidateLabelsInput] = getDemoInputs(model, ["src", "candidate_labels"]);
-			if (callApiOnMount && src && candidateLabels) {
-				candidateLabels = candidateLabelsInput;
-				imgSrc = src;
-				const res = await fetch(imgSrc);
-				const blob = await res.blob();
-				await updateImageBase64(blob);
-				getOutput({ isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleAssetAndZeroShotInput>(model, isAssetAndZeroShotInput);
+			if (callApiOnMount && example) {
+				await applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		})();
 	});

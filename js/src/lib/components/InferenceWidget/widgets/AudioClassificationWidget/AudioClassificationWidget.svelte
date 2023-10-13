@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -10,7 +10,7 @@
 	import WidgetRecorder from "../../shared/WidgetRecorder/WidgetRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { getResponse, getBlobFromUrl, getWidgetExample } from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
 	import { isAssetInput } from "../../shared/inputValidation";
 
@@ -61,7 +61,7 @@
 		}
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			output = [];
@@ -122,7 +122,10 @@
 		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
-	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>, { isPreview = false } = {}) {
+	function applyInputSample(
+		sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		filename = sample.example_title!;
 		fileUrl = sample.src;
 
@@ -138,7 +141,7 @@
 		}
 		file = null;
 		selectedSampleUrl = sample.src;
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {
@@ -146,12 +149,9 @@
 	}
 
 	onMount(() => {
-		const [exampleTitle, src] = getDemoInputs(model, ["example_title", "src"]);
-		if (callApiOnMount && src) {
-			filename = exampleTitle ?? "";
-			fileUrl = src;
-			selectedSampleUrl = src;
-			getOutput({ isOnLoadCall: true });
+		const example = getWidgetExample<WidgetExampleAssetInput<WidgetExampleOutputLabels>>(model, validateExample);
+		if (callApiOnMount && example) {
+			applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 		}
 	});
 </script>

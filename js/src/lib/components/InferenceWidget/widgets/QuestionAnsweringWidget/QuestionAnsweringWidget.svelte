@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type {
 		WidgetExample,
 		WidgetExampleOutputAnswerScore,
@@ -11,7 +11,13 @@
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import {
+		addInferenceParameters,
+		getWidgetExample,
+		getResponse,
+		getSearchParams,
+		updateUrl,
+	} from "../../shared/helpers";
 	import { isValidOutputAnswerScore } from "../../shared/outputValidation";
 	import { isTextAndContextInput } from "../../shared/inputValidation";
 
@@ -43,16 +49,17 @@
 			setTextAreaValue(contextParam);
 			getOutput();
 		} else {
-			const [demoContext, demoQuestion] = getDemoInputs(model, ["context", "text"]);
-			question = (demoQuestion as string) ?? "";
-			setTextAreaValue(demoContext ?? "");
-			if (context && question && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>>(
+				model,
+				validateExample
+			);
+			if (example && callApiOnMount) {
+				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		}
 	});
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedQuestion = question.trim();
 		const trimmedContext = context.trim();
 
@@ -124,14 +131,14 @@
 
 	function applyInputSample(
 		sample: WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>,
-		{ isPreview = false } = {}
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
 	) {
 		question = sample.text;
 		setTextAreaValue(sample.context);
 		if (isPreview) {
 			return;
 		}
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 
 	function validateExample(

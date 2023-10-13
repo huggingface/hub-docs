@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -9,7 +9,7 @@
 	import WidgetRecorder from "../../shared/WidgetRecorder/WidgetRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { getResponse, getBlobFromUrl, getWidgetExample } from "../../shared/helpers";
 	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -64,7 +64,7 @@
 		}
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			return;
@@ -126,7 +126,10 @@
 		throw new TypeError("Invalid output: output must be of type Array<blob:string, label:string, content-type:string>");
 	}
 
-	function applyInputSample(sample: WidgetExampleAssetInput, { isPreview = false } = {}) {
+	function applyInputSample(
+		sample: WidgetExampleAssetInput,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		filename = sample.example_title ?? "";
 		fileUrl = sample.src;
 		if (isPreview) {
@@ -136,16 +139,13 @@
 		}
 		file = null;
 		selectedSampleUrl = sample.src;
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 
 	onMount(() => {
-		const [exampleTitle, src] = getDemoInputs(model, ["example_title", "src"]);
-		if (callApiOnMount && src) {
-			filename = exampleTitle ?? "";
-			fileUrl = src;
-			selectedSampleUrl = src;
-			getOutput({ isOnLoadCall: true });
+		const example = getWidgetExample<WidgetExampleAssetInput>(model, isAssetInput);
+		if (callApiOnMount && example) {
+			applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 		}
 	});
 </script>

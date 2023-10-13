@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleSentenceSimilarityInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -9,7 +9,7 @@
 	import WidgetAddSentenceBtn from "../../shared/WidgetAddSentenceBtn/WidgetAddSentenceBtn.svelte";
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse } from "../../shared/helpers";
+	import { addInferenceParameters, getWidgetExample, getResponse } from "../../shared/helpers";
 	import { isSentenceSimilarityInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -33,7 +33,7 @@
 	let output: Array<{ label: string; score: number }> = [];
 	let outputJson: string;
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedSourceSentence = sourceSentence.trim();
 		if (!trimmedSourceSentence) {
 			error = "You need to input some text";
@@ -119,23 +119,23 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function applyInputSample(sample: WidgetExampleSentenceSimilarityInput, { isPreview = false } = {}) {
+	function applyInputSample(
+		sample: WidgetExampleSentenceSimilarityInput,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		sourceSentence = sample.source_sentence;
 		comparisonSentences = sample.sentences;
 		nComparisonSentences = comparisonSentences.length;
 		if (isPreview) {
 			return;
 		}
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 
 	onMount(() => {
-		const [demoSourcesentence, demoComparisonSentence] = getDemoInputs(model, ["source_sentence", "sentences"]);
-		if (callApiOnMount && demoSourcesentence && demoComparisonSentence?.length) {
-			sourceSentence = (demoSourcesentence as string) ?? "";
-			comparisonSentences = demoComparisonSentence ?? [""];
-			nComparisonSentences = comparisonSentences.length;
-			getOutput({ isOnLoadCall: true });
+		const example = getWidgetExample<WidgetExampleSentenceSimilarityInput>(model, isSentenceSimilarityInput);
+		if (callApiOnMount && example) {
+			applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 		}
 	});
 </script>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleTextInput, WidgetExampleOutputLabels, WidgetExample } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -8,7 +8,13 @@
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import {
+		addInferenceParameters,
+		getWidgetExample,
+		getResponse,
+		getSearchParams,
+		updateUrl,
+	} from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -38,16 +44,16 @@
 			setTextAreaValue(textParam);
 			getOutput();
 		} else {
-			const [demoText] = getDemoInputs(model, ["text"]);
-			/// TODO(get rid of useless getDemoInputs)
-			setTextAreaValue(demoText ?? "");
-			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleTextInput<WidgetExampleOutputLabels>>(model, validateExample);
+			/// TODO(get rid of useless getWidgetExample)
+			setTextAreaValue(example?.text ?? "");
+			if (example && callApiOnMount) {
+				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		}
 	});
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -119,7 +125,10 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputLabels>, { isPreview = false } = {}) {
+	function applyInputSample(
+		sample: WidgetExampleTextInput<WidgetExampleOutputLabels>,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		setTextAreaValue(sample.text);
 		if (isPreview) {
 			if (sample.output) {
@@ -129,7 +138,7 @@
 			}
 			return;
 		}
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputLabels> {

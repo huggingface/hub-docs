@@ -1,5 +1,11 @@
 <script lang="ts">
-	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
+	import type {
+		WidgetProps,
+		TableData,
+		HighlightCoordinates,
+		InferenceRunOpts,
+		ExampleRunOpts,
+	} from "../../shared/types";
 	import type { WidgetExampleStructuredDataInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -14,6 +20,7 @@
 		convertTableToData,
 		getResponse,
 		getSearchParams,
+		getWidgetExample,
 		updateUrl,
 	} from "../../shared/helpers";
 	import { isStructuredDataInput } from "../../shared/inputValidation";
@@ -70,10 +77,9 @@
 			table = convertDataToTable((parseJSON(dataParam) as TableData) ?? {});
 			getOutput();
 		} else {
-			const demoTable = widgetData?.structuredData ?? {};
-			table = convertDataToTable(demoTable);
-			if (table && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleStructuredDataInput>(model, isStructuredDataInput);
+			if (example && callApiOnMount) {
+				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		}
 	});
@@ -83,7 +89,7 @@
 		output = [];
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		for (let [i, row] of table.entries()) {
 			for (const [j, cell] of row.entries()) {
 				if (!String(cell)) {
@@ -180,12 +186,15 @@
 		}, {});
 	}
 
-	function applyInputSample(sample: WidgetExampleStructuredDataInput, { isPreview = false } = {}) {
+	function applyInputSample(
+		sample: WidgetExampleStructuredDataInput,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		table = convertDataToTable(sample.structuredData);
 		if (isPreview) {
 			return;
 		}
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 </script>
 

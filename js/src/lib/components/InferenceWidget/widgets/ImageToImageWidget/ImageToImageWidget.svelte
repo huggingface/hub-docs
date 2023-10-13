@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleAssetAndPromptInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -9,7 +9,7 @@
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse } from "../../shared/helpers";
+	import { addInferenceParameters, getWidgetExample, getResponse } from "../../shared/helpers";
 	import { isAssetAndPromptInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -63,7 +63,10 @@
 		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetAndPromptInput, { isPreview = false } = {}) {
+	async function applyInputSample(
+		sample: WidgetExampleAssetAndPromptInput,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		prompt = sample.prompt;
 		imgSrc = sample.src;
 		if (isPreview) {
@@ -72,10 +75,10 @@
 		const res = await fetch(imgSrc);
 		const blob = await res.blob();
 		await updateImageBase64(blob);
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedPrompt = prompt.trim();
 
 		if (!imageBase64) {
@@ -131,14 +134,9 @@
 
 	onMount(() => {
 		(async () => {
-			const [prompt_, src] = getDemoInputs(model, ["prompt", "src"]);
-			if (callApiOnMount && prompt_ && src) {
-				prompt = prompt_;
-				imgSrc = src;
-				const res = await fetch(imgSrc);
-				const blob = await res.blob();
-				await updateImageBase64(blob);
-				getOutput({ isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleAssetAndPromptInput>(model, isAssetAndPromptInput);
+			if (callApiOnMount && example) {
+				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		})();
 	});

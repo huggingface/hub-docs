@@ -1,5 +1,11 @@
 <script lang="ts">
-	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
+	import type {
+		WidgetProps,
+		TableData,
+		HighlightCoordinates,
+		ExampleRunOpts,
+		InferenceRunOpts,
+	} from "../../shared/types";
 	import type { WidgetExampleTextAndTableInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -13,7 +19,7 @@
 		addInferenceParameters,
 		convertDataToTable,
 		convertTableToData,
-		getDemoInputs,
+		getWidgetExample,
 		getResponse,
 		getSearchParams,
 		updateUrl,
@@ -62,11 +68,9 @@
 			table = convertDataToTable((parseJSON(tableParam) as TableData) ?? {});
 			getOutput();
 		} else {
-			const [demoQuery, demoTable] = getDemoInputs(model, ["text", "table"]);
-			query = (demoQuery as string) ?? "";
-			table = convertDataToTable(demoTable as TableData);
-			if (query && table && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
+			const example = getWidgetExample<WidgetExampleTextAndTableInput>(model, isTextAndTableInput);
+			if (example && callApiOnMount) {
+				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		}
 	});
@@ -75,7 +79,7 @@
 		table = updatedTable;
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedQuery = query.trim();
 
 		if (!trimmedQuery) {
@@ -159,13 +163,16 @@
 		);
 	}
 
-	function applyInputSample(sample: WidgetExampleTextAndTableInput, { isPreview = false } = {}) {
+	function applyInputSample(
+		sample: WidgetExampleTextAndTableInput,
+		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+	) {
 		query = sample.text;
 		table = convertDataToTable(sample.table);
 		if (isPreview) {
 			return;
 		}
-		getOutput();
+		getOutput(inferenceOpts);
 	}
 </script>
 
