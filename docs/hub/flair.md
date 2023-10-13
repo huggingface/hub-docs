@@ -1,5 +1,3 @@
-![alt text](https://raw.githubusercontent.com/flairNLP/flair/master/resources/docs/flair_logo_2020_FINAL_day_dpi72.png)
-
 # Using Flair at Hugging Face
 
 [Flair](https://github.com/flairNLP/flair) is a very simple framework for state-of-the-art NLP.
