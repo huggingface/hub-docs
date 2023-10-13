@@ -51,7 +51,7 @@ tagger = SequenceTagger.load("flair/ner-multi")
 Once loaded, you can use `predict()` to perform inference:
 
 ```py
-sentence = Sentence("George Washington ging nach Washington .")
+sentence = Sentence("George Washington ging nach Washington.")
 tagger.predict(sentence)
 
 # print sentence
