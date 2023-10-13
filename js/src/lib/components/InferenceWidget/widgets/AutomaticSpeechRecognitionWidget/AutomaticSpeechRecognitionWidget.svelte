@@ -124,24 +124,22 @@
 		throw new TypeError("Invalid output: output must be of type <text:string>");
 	}
 
-	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputText>) {
-		file = null;
+	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputText>, { isPreview = false } = {}) {
 		filename = sample.example_title!;
 		fileUrl = sample.src;
+		if (isPreview) {
+			if (isValidOutputText(sample.output)) {
+				output = sample.output.text;
+				outputJson = "";
+			} else {
+				output = "";
+				outputJson = "";
+			}
+			return;
+		}
+		file = null;
 		selectedSampleUrl = sample.src;
 		getOutput();
-	}
-
-	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputText>) {
-		filename = sample.example_title!;
-		fileUrl = sample.src;
-		if (isValidOutputText(sample.output)) {
-			output = sample.output.text;
-			outputJson = "";
-		} else {
-			output = "";
-			outputJson = "";
-		}
 	}
 
 	function updateModelLoading(isLoading: boolean, estimatedTime: number = 0) {
@@ -174,7 +172,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	{validateExample}
 >
 	<svelte:fragment slot="top">

@@ -125,17 +125,16 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputLabels>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputLabels>, { isPreview = false } = {}) {
 		setTextAreaValue(sample.text);
-		if (sample.output) {
-			output = sample.output;
-		} else {
-			output = [];
+		if (isPreview) {
+			if (sample.output) {
+				output = sample.output;
+			} else {
+				output = [];
+			}
+			return;
 		}
-	}
-
-	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputLabels>) {
-		setTextAreaValue(sample.text);
 		getOutput();
 	}
 
@@ -155,7 +154,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	{validateExample}
 >
 	<svelte:fragment slot="top">

@@ -206,16 +206,15 @@
 		};
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetInput) {
+	async function applyInputSample(sample: WidgetExampleAssetInput, { isPreview = false } = {}) {
 		imgSrc = sample.src;
+		if (isPreview) {
+			output = [];
+			outputJson = "";
+			return;
+		}
 		const blob = await getBlobFromUrl(imgSrc);
 		getOutput(blob);
-	}
-
-	function previewInputSample(sample: WidgetExampleAssetInput) {
-		imgSrc = sample.src;
-		output = [];
-		outputJson = "";
 	}
 
 	onMount(() => {
@@ -245,7 +244,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isAssetInput}
 >
 	<svelte:fragment slot="top">

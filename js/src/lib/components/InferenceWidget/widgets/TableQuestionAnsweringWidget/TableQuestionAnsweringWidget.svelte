@@ -159,14 +159,12 @@
 		);
 	}
 
-	function previewInputSample(sample: WidgetExampleTextAndTableInput) {
+	function applyInputSample(sample: WidgetExampleTextAndTableInput, { isPreview = false } = {}) {
 		query = sample.text;
 		table = convertDataToTable(sample.table);
-	}
-
-	function applyInputSample(sample: WidgetExampleTextAndTableInput) {
-		query = sample.text;
-		table = convertDataToTable(sample.table);
+		if (isPreview) {
+			return;
+		}
 		getOutput();
 	}
 </script>
@@ -182,7 +180,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isTextAndTableInput}
 >
 	<svelte:fragment slot="top">

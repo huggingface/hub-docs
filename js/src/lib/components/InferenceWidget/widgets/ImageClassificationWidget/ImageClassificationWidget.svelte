@@ -91,21 +91,23 @@
 		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
+	async function applyInputSample(
+		sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>,
+		{ isPreview = false } = {}
+	) {
 		imgSrc = sample.src;
+		if (isPreview) {
+			if (isValidOutputLabels(sample.output)) {
+				output = sample.output;
+				outputJson = "";
+			} else {
+				output = [];
+				outputJson = "";
+			}
+			return;
+		}
 		const blob = await getBlobFromUrl(imgSrc);
 		getOutput(blob);
-	}
-
-	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
-		imgSrc = sample.src;
-		if (isValidOutputLabels(sample.output)) {
-			output = sample.output;
-			outputJson = "";
-		} else {
-			output = [];
-			outputJson = "";
-		}
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {
@@ -135,7 +137,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	{validateExample}
 >
 	<svelte:fragment slot="top">

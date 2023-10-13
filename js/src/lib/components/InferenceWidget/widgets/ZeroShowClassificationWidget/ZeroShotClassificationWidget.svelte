@@ -155,16 +155,13 @@
 		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
-	function previewInputSample(sample: WidgetExampleZeroShotTextInput) {
+	function applyInputSample(sample: WidgetExampleZeroShotTextInput, { isPreview = false } = {}) {
 		candidateLabels = sample.candidate_labels;
 		multiClass = sample.multi_class;
 		setTextAreaValue(sample.text);
-	}
-
-	function applyInputSample(sample: WidgetExampleZeroShotTextInput) {
-		candidateLabels = sample.candidate_labels;
-		multiClass = sample.multi_class;
-		setTextAreaValue(sample.text);
+		if (isPreview) {
+			return;
+		}
 		getOutput();
 	}
 </script>
@@ -180,7 +177,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isZeroShotTextInput}
 >
 	<svelte:fragment slot="top">

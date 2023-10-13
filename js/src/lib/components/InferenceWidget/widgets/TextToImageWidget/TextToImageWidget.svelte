@@ -109,17 +109,16 @@
 		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputUrl>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputUrl>, { isPreview = false } = {}) {
 		text = sample.text;
-		if (sample.output) {
-			output = sample.output.url;
-		} else {
-			output = "";
+		if (isPreview) {
+			if (sample.output) {
+				output = sample.output.url;
+			} else {
+				output = "";
+			}
+			return;
 		}
-	}
-
-	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputUrl>) {
-		text = sample.text;
 		getOutput();
 	}
 
@@ -139,7 +138,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	{validateExample}
 >
 	<svelte:fragment slot="top">

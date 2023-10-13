@@ -230,12 +230,11 @@
 		return a.type === b.type && a.start === b.start && a.end === b.end;
 	}
 
-	function previewInputSample(sample: WidgetExampleTextInput) {
+	function applyInputSample(sample: WidgetExampleTextInput, { isPreview = false } = {}) {
 		setTextAreaValue(sample.text);
-	}
-
-	function applyInputSample(sample: WidgetExampleTextInput) {
-		setTextAreaValue(sample.text);
+		if (isPreview) {
+			return;
+		}
 		getOutput();
 	}
 </script>
@@ -251,7 +250,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isTextInput}
 >
 	<svelte:fragment slot="top">

@@ -28,8 +28,7 @@
 	};
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (sample: TWidgetExample) => void = () => {};
-	export let previewInputSample: (sample: TWidgetExample) => void = () => {};
+	export let applyInputSample: (sample: TWidgetExample, opts?: { isPreview?: boolean }) => void = () => {};
 	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
 
 	let isMaximized = false;
@@ -107,7 +106,6 @@
 						{isLoading}
 						inputSamples={selectedInputSamples?.inputSamples ?? []}
 						{applyInputSample}
-						{previewInputSample}
 					/>
 				</div>
 			{/if}
