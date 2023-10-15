@@ -42,4 +42,4 @@ If the model card includes a link to a paper on arXiv, the Hugging Face Hub will
 <img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv-dark.png"/>
 </div>
 
-Read more about paper pages [here](.paper-pages).
+Read more about paper pages [here](./paper-pages).
