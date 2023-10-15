@@ -4,7 +4,10 @@ The get started guide will show you how to quickly use Hugging Face on Amazon Sa
 
 💡 If you are new to Hugging Face, we recommend first reading the 🤗 Transformers [quick tour](https://huggingface.co/docs/transformers/quicktour).
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pYqjCzoyWyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+📹 Below 👇 is the YouTube video link regarding the Workshop 'Getting Started with Amazon Sagemaker: Train a Huggingface Transformer and Deploy it'
+
+[![YouTube video player](https://i.ytimg.com/vi/pYqjCzoyWyo/maxresdefault.jpg)](https://www.youtube.com/watch?v=pYqjCzoyWyo)
+
 
 📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/sagemaker-notebook.ipynb) to follow along!
 
