@@ -661,6 +661,7 @@ export const MODEL_LIBRARIES_UI_ELEMENTS: Partial<Record<ModelLibraryKey, Librar
 		btnLabel: "Flair",
 		repoName: "Flair",
 		repoUrl:  "https://github.com/flairNLP/flair",
+		docsUrl:  "https://huggingface.co/docs/hub/flair",
 		snippets: flair,
 	},
 	"keras": {
