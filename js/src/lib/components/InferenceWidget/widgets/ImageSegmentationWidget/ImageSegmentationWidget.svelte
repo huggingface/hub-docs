@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ImageSegment, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetProps, ImageSegment, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -52,7 +52,7 @@
 
 	async function getOutput(
 		file: File | Blob,
-		{ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}
+		{ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}
 	) {
 		if (!file) {
 			return;

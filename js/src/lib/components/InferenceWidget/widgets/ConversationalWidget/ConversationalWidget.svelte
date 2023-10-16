@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -69,7 +69,7 @@
 		}
 	});
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
