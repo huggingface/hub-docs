@@ -109,15 +109,12 @@
 		throw new TypeError("Invalid output: output must be of type object & instance of Blob");
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleTextInput,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleTextInput, opts: ExampleRunOpts = {}) {
 		setTextAreaValue(sample.text);
-		if (isPreview) {
+		if (opts.isPreview) {
 			return;
 		}
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 </script>
 

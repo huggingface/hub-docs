@@ -94,12 +94,9 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	async function applyInputSample(
-		sample: WidgetExampleAssetInput,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	async function applyInputSample(sample: WidgetExampleAssetInput, opts: ExampleRunOpts = {}) {
 		imgSrc = sample.src;
-		if (isPreview) {
+		if (opts.isPreview) {
 			output = "";
 			outputJson = "";
 			return;

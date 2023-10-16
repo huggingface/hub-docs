@@ -186,15 +186,12 @@
 		}, {});
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleStructuredDataInput,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleStructuredDataInput, opts: ExampleRunOpts = {}) {
 		table = convertDataToTable(sample.structuredData);
-		if (isPreview) {
+		if (opts.isPreview) {
 			return;
 		}
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 </script>
 

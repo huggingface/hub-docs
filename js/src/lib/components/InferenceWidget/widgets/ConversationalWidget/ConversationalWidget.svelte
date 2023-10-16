@@ -159,15 +159,12 @@
 		);
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleTextInput,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleTextInput, opts: ExampleRunOpts = {}) {
 		text = sample.text;
-		if (isPreview) {
+		if (opts.isPreview) {
 			return;
 		}
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 </script>
 

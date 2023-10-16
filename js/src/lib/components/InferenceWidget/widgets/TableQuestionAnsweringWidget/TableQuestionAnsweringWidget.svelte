@@ -163,16 +163,13 @@
 		);
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleTextAndTableInput,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleTextAndTableInput, opts: ExampleRunOpts = {}) {
 		query = sample.text;
 		table = convertDataToTable(sample.table);
-		if (isPreview) {
+		if (opts.isPreview) {
 			return;
 		}
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 </script>
 

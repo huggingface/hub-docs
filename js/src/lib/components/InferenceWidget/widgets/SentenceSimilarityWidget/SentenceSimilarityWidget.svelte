@@ -119,17 +119,14 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleSentenceSimilarityInput,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleSentenceSimilarityInput, opts: ExampleRunOpts = {}) {
 		sourceSentence = sample.source_sentence;
 		comparisonSentences = sample.sentences;
 		nComparisonSentences = comparisonSentences.length;
-		if (isPreview) {
+		if (opts.isPreview) {
 			return;
 		}
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 
 	onMount(() => {

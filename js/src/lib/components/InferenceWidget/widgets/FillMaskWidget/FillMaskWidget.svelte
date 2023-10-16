@@ -125,12 +125,9 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleTextInput<WidgetExampleOutputLabels>,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputLabels>, opts: ExampleRunOpts = {}) {
 		setTextAreaValue(sample.text);
-		if (isPreview) {
+		if (opts.isPreview) {
 			if (sample.output) {
 				output = sample.output;
 			} else {
@@ -138,7 +135,7 @@
 			}
 			return;
 		}
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputLabels> {

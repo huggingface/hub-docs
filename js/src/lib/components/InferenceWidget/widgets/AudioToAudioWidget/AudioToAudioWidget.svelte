@@ -126,20 +126,17 @@
 		throw new TypeError("Invalid output: output must be of type Array<blob:string, label:string, content-type:string>");
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleAssetInput,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleAssetInput, opts: ExampleRunOpts = {}) {
 		filename = sample.example_title ?? "";
 		fileUrl = sample.src;
-		if (isPreview) {
+		if (opts.isPreview) {
 			output = [];
 			outputJson = "";
 			return;
 		}
 		file = null;
 		selectedSampleUrl = sample.src;
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 
 	onMount(() => {

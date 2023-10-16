@@ -96,10 +96,10 @@
 
 	async function applyInputSample(
 		sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+		opts: ExampleRunOpts = {}
 	) {
 		imgSrc = sample.src;
-		if (isPreview) {
+		if (opts.isPreview) {
 			if (isValidOutputLabels(sample.output)) {
 				output = sample.output;
 				outputJson = "";
@@ -110,7 +110,7 @@
 			return;
 		}
 		const blob = await getBlobFromUrl(imgSrc);
-		getOutput(blob, inferenceOpts);
+		getOutput(blob, opts.inferenceOpts);
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {
