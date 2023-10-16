@@ -56,6 +56,23 @@ query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
 	// Use image
 });`;
 
+export const snippetTextToAudio = (model: ModelData, accessToken: string): string =>
+	`async function query(data) {
+	const response = await fetch(
+		"https://api-inference.huggingface.co/models/${model.id}",
+		{
+			headers: { Authorization: "Bearer ${accessToken || `{API_TOKEN}`}" },
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.blob();
+	return result;
+}
+query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
+	// Use Audio
+});`;
+
 export const snippetFile = (model: ModelData, accessToken: string): string =>
 	`async function query(filename) {
 	const data = fs.readFileSync(filename);
