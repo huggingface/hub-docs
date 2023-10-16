@@ -41,6 +41,18 @@ import io
 from PIL import Image
 image = Image.open(io.BytesIO(image_bytes))`;
 
+export const snippetTextToAudio = (model: ModelData): string =>
+	`def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.content
+audio_bytes = query({
+	"inputs": ${getModelInputSnippet(model)},
+})
+# You can access the audio with IPython.display for example
+from IPython.display import Audio
+
+Audio(audio_bytes)`;
+
 export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => string>> = {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":          snippetBasic,
@@ -58,8 +70,8 @@ export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => 
 	"sentence-similarity":          snippetBasic,
 	"automatic-speech-recognition": snippetFile,
 	"text-to-image":                snippetTextToImage,
-	"text-to-speech":               snippetBasic,
-	"audio-to-audio":               snippetFile,
+	"text-to-speech":               snippetTextToAudio,
+	"audio-to-audio":               snippetTextToAudio,
 	"audio-classification":         snippetFile,
 	"image-classification":         snippetFile,
 	"image-to-text":                snippetFile,
