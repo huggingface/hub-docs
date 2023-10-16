@@ -15,7 +15,9 @@ export function getWidgetExample<TWidgetExample extends WidgetExample>(
 	model: ModelData,
 	validateExample: (sample: WidgetExample) => sample is TWidgetExample
 ): TWidgetExample | undefined {
-	const validExamples = model.widgetData?.filter((sample): sample is TWidgetExample => sample && validateExample(sample));
+	const validExamples = model.widgetData?.filter(
+		(sample): sample is TWidgetExample => sample && validateExample(sample)
+	);
 	return validExamples?.length ? randomItem(validExamples) : undefined;
 }
 
