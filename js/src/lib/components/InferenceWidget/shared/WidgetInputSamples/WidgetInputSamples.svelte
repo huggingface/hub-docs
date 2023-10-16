@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { ExampleRunOpts } from "../types";
 	import type { WidgetExample } from "../WidgetExample";
 
 	type TWidgetExample = $$Generic<WidgetExample>;
@@ -10,7 +11,7 @@
 	export let classNames = "";
 	export let isLoading = false;
 	export let inputSamples: TWidgetExample[];
-	export let applyInputSample: (sample: TWidgetExample, opts?: { isPreview?: boolean }) => void;
+	export let applyInputSample: (sample: TWidgetExample, opts?: ExampleRunOpts) => void;
 
 	let containerEl: HTMLElement;
 	let isOptionsVisible = false;

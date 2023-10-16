@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ModelLoadInfo } from "../types";
+	import type { WidgetProps, ModelLoadInfo, ExampleRunOpts } from "../types";
 	import type { WidgetExample } from "../WidgetExample";
 
 	type TWidgetExample = $$Generic<WidgetExample>;
@@ -28,7 +28,7 @@
 	};
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (sample: TWidgetExample, opts?: { isPreview?: boolean }) => void = () => {};
+	export let applyInputSample: (sample: TWidgetExample, opts?: ExampleRunOpts) => void = () => {};
 	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
 
 	let isMaximized = false;
