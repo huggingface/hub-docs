@@ -43,8 +43,8 @@ from PIL import Image
 image = Image.open(io.BytesIO(image_bytes))`;
 
 export const snippetTextToAudio = (model: ModelData): string => {
-    if (ModelData.library_name === "transformers") {
-        return `def query(payload):
+	if (ModelData.library_name === "transformers") {
+		return `def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.content
 audio_bytes = query({
@@ -53,17 +53,17 @@ audio_bytes = query({
 # You can access the audio with IPython.display for example
 from IPython.display import Audio
 
-Audio(audio_bytes)`
-    }else{
-        return `def query(payload):
+Audio(audio_bytes)`;
+	} else {
+		return `def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.json()
 	
 output = query({
 	"inputs": ${getModelInputSnippet(model)},
-})`
-    }
-}
+})`;
+	}
+};
 export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => string>> = {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":          snippetBasic,
@@ -83,7 +83,7 @@ export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => 
 	"text-to-image":                snippetTextToImage,
 	"text-to-speech":               snippetTextToAudio,
 	"text-to-audio":                snippetTextToAudio,
-	"audio-to-audio":               snippetFile,	
+	"audio-to-audio":               snippetFile,
 	"audio-classification":         snippetFile,
 	"image-classification":         snippetFile,
 	"image-to-text":                snippetFile,
