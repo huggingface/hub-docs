@@ -11,7 +11,7 @@ export interface WidgetProps {
 	isLoggedIn?:        boolean;
 }
 
-export interface InferenceRunOpts {
+export interface InferenceRunFlags {
 	withModelLoading?: boolean;
 	isOnLoadCall?:     boolean;
 	useCache?:         boolean;
@@ -19,7 +19,7 @@ export interface InferenceRunOpts {
 
 export interface ExampleRunOpts {
 	isPreview?:     boolean;
-	inferenceOpts?: InferenceRunOpts;
+	inferenceOpts?: InferenceRunFlags;
 }
 
 export type LoadState = "Loadable" | "Loaded" | "TooBig" | "error";

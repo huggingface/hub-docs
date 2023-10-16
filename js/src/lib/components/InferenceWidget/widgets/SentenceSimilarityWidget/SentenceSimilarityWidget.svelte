@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleSentenceSimilarityInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -33,7 +33,7 @@
 	let output: Array<{ label: string; score: number }> = [];
 	let outputJson: string;
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		const trimmedSourceSentence = sourceSentence.trim();
 		if (!trimmedSourceSentence) {
 			error = "You need to input some text";

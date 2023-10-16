@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputText } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -63,7 +63,7 @@
 		}
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			output = "";

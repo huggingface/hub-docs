@@ -3,7 +3,7 @@
 		WidgetProps,
 		TableData,
 		HighlightCoordinates,
-		InferenceRunOpts,
+		InferenceRunFlags,
 		ExampleRunOpts,
 	} from "../../shared/types";
 	import type { WidgetExampleStructuredDataInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
@@ -89,7 +89,7 @@
 		output = [];
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		for (let [i, row] of table.entries()) {
 			for (const [j, cell] of row.entries()) {
 				if (!String(cell)) {

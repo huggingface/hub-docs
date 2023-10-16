@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { PipelineType } from "../../../../interfaces/Types";
 	import type { WidgetExampleTextInput, WidgetExampleOutputText, WidgetExample } from "../../shared/WidgetExample";
 
@@ -68,7 +68,7 @@
 		}
 	});
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = true }: InferenceRunOpts = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = true }: InferenceRunFlags = {}) {
 		if (isBloomLoginRequired) {
 			return;
 		}

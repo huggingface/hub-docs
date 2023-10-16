@@ -4,7 +4,7 @@
 		TableData,
 		HighlightCoordinates,
 		ExampleRunOpts,
-		InferenceRunOpts,
+		InferenceRunFlags,
 	} from "../../shared/types";
 	import type { WidgetExampleTextAndTableInput } from "../../shared/WidgetExample";
 
@@ -79,7 +79,7 @@
 		table = updatedTable;
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		const trimmedQuery = query.trim();
 
 		if (!trimmedQuery) {
