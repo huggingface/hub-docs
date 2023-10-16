@@ -1,4 +1,4 @@
-import { ModelData } from "../interfaces/Types";
+import type { ModelData } from "../interfaces/Types";
 import type { PipelineType } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
