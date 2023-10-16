@@ -1,4 +1,5 @@
-import type { PipelineType, ModelData } from "../interfaces/Types";
+import { ModelData } from "../interfaces/Types";
+import type { PipelineType } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
 export const snippetZeroShotClassification = (model: ModelData): string =>
@@ -41,8 +42,9 @@ import io
 from PIL import Image
 image = Image.open(io.BytesIO(image_bytes))`;
 
-export const snippetTextToAudio = (model: ModelData): string =>
-	`def query(payload):
+if (ModelData.library_name === "transformers") {
+	export const snippetTextToAudio = (model: ModelData): string =>
+		`def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.content
 audio_bytes = query({
@@ -52,6 +54,16 @@ audio_bytes = query({
 from IPython.display import Audio
 
 Audio(audio_bytes)`;
+} else {
+	export const snippetTextToAudio = (model: ModelData): string =>
+		`def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
+	
+output = query({
+	"inputs": ${getModelInputSnippet(model)},
+})`;
+}
 
 export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => string>> = {
 	// Same order as in js/src/lib/interfaces/Types.ts
@@ -71,7 +83,7 @@ export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => 
 	"automatic-speech-recognition": snippetFile,
 	"text-to-image":                snippetTextToImage,
 	"text-to-speech":               snippetTextToAudio,
-	"audio-to-audio":               snippetTextToAudio,
+	"text-to-audio":                snippetTextToAudio,
 	"audio-classification":         snippetFile,
 	"image-classification":         snippetFile,
 	"image-to-text":                snippetFile,
