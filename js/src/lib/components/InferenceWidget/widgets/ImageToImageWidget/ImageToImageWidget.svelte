@@ -136,7 +136,7 @@
 		(async () => {
 			const example = getWidgetExample<WidgetExampleAssetAndPromptInput>(model, isAssetAndPromptInput);
 			if (callApiOnMount && example) {
-				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
+				await applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
 		})();
 	});
