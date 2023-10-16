@@ -15,8 +15,8 @@ export function getWidgetExample<TWidgetExample extends WidgetExample>(
 	model: ModelData,
 	validateExample: (sample: WidgetExample) => sample is TWidgetExample
 ): TWidgetExample | undefined {
-	const sample = model.widgetData?.length ? randomItem(model.widgetData) : undefined;
-	return sample && validateExample(sample) ? sample : undefined;
+	const validExamples = model.widgetData?.filter((sample): sample is TWidgetExample => sample && validateExample(sample));
+	return validExamples?.length ? randomItem(validExamples) : undefined;
 }
 
 // Update current url search params, keeping existing keys intact.
