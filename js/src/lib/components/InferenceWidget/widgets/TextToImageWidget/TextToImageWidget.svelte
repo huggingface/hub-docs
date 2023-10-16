@@ -108,12 +108,9 @@
 		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleTextInput<WidgetExampleOutputUrl>,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputUrl>, opts: ExampleRunOpts = {}) {
 		text = sample.text;
-		if (isPreview) {
+		if (opts.isPreview) {
 			if (sample.output) {
 				output = sample.output.url;
 			} else {
@@ -121,7 +118,7 @@
 			}
 			return;
 		}
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputUrl> {

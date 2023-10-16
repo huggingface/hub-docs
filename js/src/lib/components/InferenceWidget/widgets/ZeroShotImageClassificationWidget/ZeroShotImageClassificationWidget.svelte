@@ -68,19 +68,16 @@
 		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
-	async function applyInputSample(
-		sample: WidgetExampleAssetAndZeroShotInput,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	async function applyInputSample(sample: WidgetExampleAssetAndZeroShotInput, opts: ExampleRunOpts = {}) {
 		candidateLabels = sample.candidate_labels;
 		imgSrc = sample.src;
-		if (isPreview) {
+		if (opts.isPreview) {
 			return;
 		}
 		const res = await fetch(imgSrc);
 		const blob = await res.blob();
 		await updateImageBase64(blob);
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 
 	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {

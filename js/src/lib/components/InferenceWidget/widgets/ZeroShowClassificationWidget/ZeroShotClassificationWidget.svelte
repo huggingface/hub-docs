@@ -148,17 +148,14 @@
 		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleZeroShotTextInput,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleZeroShotTextInput, opts: ExampleRunOpts = {}) {
 		candidateLabels = sample.candidate_labels;
 		multiClass = sample.multi_class;
 		setTextAreaValue(sample.text);
-		if (isPreview) {
+		if (opts.isPreview) {
 			return;
 		}
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 </script>
 

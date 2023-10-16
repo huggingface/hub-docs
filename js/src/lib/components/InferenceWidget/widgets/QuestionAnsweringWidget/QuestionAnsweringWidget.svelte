@@ -131,14 +131,14 @@
 
 	function applyInputSample(
 		sample: WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
+		opts: ExampleRunOpts = {}
 	) {
 		question = sample.text;
 		setTextAreaValue(sample.context);
-		if (isPreview) {
+		if (opts.isPreview) {
 			return;
 		}
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 
 	function validateExample(

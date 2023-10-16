@@ -174,12 +174,9 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleTextInput<WidgetExampleOutputText>,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>, opts: ExampleRunOpts = {}) {
 		setTextAreaValue(sample.text);
-		if (isPreview) {
+		if (opts.isPreview) {
 			if (sample.output) {
 				output = sample.output.text;
 				outputJson = "";
@@ -190,7 +187,7 @@
 			}
 			return;
 		}
-		getOutput({ useCache, ...inferenceOpts });
+		getOutput({ useCache, ...opts.inferenceOpts });
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputText> {

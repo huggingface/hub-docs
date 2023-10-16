@@ -122,14 +122,11 @@
 		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>, opts: ExampleRunOpts = {}) {
 		filename = sample.example_title!;
 		fileUrl = sample.src;
 
-		if (isPreview) {
+		if (opts.isPreview) {
 			if (isValidOutputLabels(sample.output)) {
 				output = sample.output;
 				outputJson = "";
@@ -141,7 +138,7 @@
 		}
 		file = null;
 		selectedSampleUrl = sample.src;
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {

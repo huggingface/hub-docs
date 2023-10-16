@@ -229,15 +229,12 @@
 		return a.type === b.type && a.start === b.start && a.end === b.end;
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleTextInput,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleTextInput, opts: ExampleRunOpts = {}) {
 		setTextAreaValue(sample.text);
-		if (isPreview) {
+		if (opts.isPreview) {
 			return;
 		}
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 </script>
 

@@ -130,18 +130,15 @@
 		highlightIndex = index;
 	}
 
-	async function applyInputSample(
-		sample: WidgetExampleAssetInput,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	async function applyInputSample(sample: WidgetExampleAssetInput, opts: ExampleRunOpts = {}) {
 		imgSrc = sample.src;
-		if (isPreview) {
+		if (opts.isPreview) {
 			output = [];
 			outputJson = "";
 			return;
 		}
 		const blob = await getBlobFromUrl(imgSrc);
-		getOutput(blob, inferenceOpts);
+		getOutput(blob, opts.inferenceOpts);
 	}
 
 	onMount(() => {

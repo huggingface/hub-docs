@@ -124,13 +124,10 @@
 		throw new TypeError("Invalid output: output must be of type <text:string>");
 	}
 
-	function applyInputSample(
-		sample: WidgetExampleAssetInput<WidgetExampleOutputText>,
-		{ isPreview = false, inferenceOpts = {} }: ExampleRunOpts = {}
-	) {
+	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputText>, opts: ExampleRunOpts = {}) {
 		filename = sample.example_title!;
 		fileUrl = sample.src;
-		if (isPreview) {
+		if (opts.isPreview) {
 			if (isValidOutputText(sample.output)) {
 				output = sample.output.text;
 				outputJson = "";
@@ -142,7 +139,7 @@
 		}
 		file = null;
 		selectedSampleUrl = sample.src;
-		getOutput(inferenceOpts);
+		getOutput(opts.inferenceOpts);
 	}
 
 	function updateModelLoading(isLoading: boolean, estimatedTime: number = 0) {
