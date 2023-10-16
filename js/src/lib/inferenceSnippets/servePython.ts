@@ -84,6 +84,7 @@ export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => 
 	"text-to-image":                snippetTextToImage,
 	"text-to-speech":               snippetTextToAudio,
 	"text-to-audio":                snippetTextToAudio,
+	"audio-to-audio":               snippetFile,	
 	"audio-classification":         snippetFile,
 	"image-classification":         snippetFile,
 	"image-to-text":                snippetFile,
