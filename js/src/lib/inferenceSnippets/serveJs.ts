@@ -56,7 +56,7 @@ query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
 	// Use image
 });`;
 
-export const snippetTextToAudio = (model: ModelData): string => {
+export const snippetTextToAudio = (model: ModelData, accessToken: string): string => {
 	if (model.library_name === "transformers") {
 		return `async function query(data) {
 			const response = await fetch(
