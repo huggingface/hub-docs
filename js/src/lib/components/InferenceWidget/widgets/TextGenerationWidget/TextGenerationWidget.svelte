@@ -68,7 +68,11 @@
 		}
 	});
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = true }: InferenceRunFlags = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		useCache = true,
+	}: InferenceRunFlags = {}) {
 		if (isBloomLoginRequired) {
 			return;
 		}
