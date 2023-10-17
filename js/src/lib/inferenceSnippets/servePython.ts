@@ -1,7 +1,9 @@
 import type { PipelineType, ModelData } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
-export const snippetZeroShotClassification = (model: ModelData): string =>
+type ModelPartial = Pick<ModelData, 'id' | 'pipeline_tag' | 'widgetData'>;
+
+export const snippetZeroShotClassification = (model: ModelPartial): string =>
 	`def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.json()
@@ -11,7 +13,7 @@ output = query({
     "parameters": {"candidate_labels": ["refund", "legal", "faq"]},
 })`;
 
-export const snippetBasic = (model: ModelData): string =>
+export const snippetBasic = (model: ModelPartial): string =>
 	`def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.json()
@@ -20,7 +22,7 @@ output = query({
 	"inputs": ${getModelInputSnippet(model)},
 })`;
 
-export const snippetFile = (model: ModelData): string =>
+export const snippetFile = (model: ModelPartial): string =>
 	`def query(filename):
     with open(filename, "rb") as f:
         data = f.read()
@@ -29,7 +31,7 @@ export const snippetFile = (model: ModelData): string =>
 
 output = query(${getModelInputSnippet(model)})`;
 
-export const snippetTextToImage = (model: ModelData): string =>
+export const snippetTextToImage = (model: ModelPartial): string =>
 	`def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.content
@@ -41,7 +43,7 @@ import io
 from PIL import Image
 image = Image.open(io.BytesIO(image_bytes))`;
 
-export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => string>> = {
+export const pythonSnippets: Partial<Record<PipelineType, (model: ModelPartial) => string>> = {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":          snippetBasic,
 	"token-classification":         snippetBasic,
@@ -67,7 +69,7 @@ export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => 
 	"image-segmentation":           snippetFile,
 };
 
-export function getPythonInferenceSnippet(model: ModelData, accessToken: string): string {
+export function getPythonInferenceSnippet(model: ModelPartial, accessToken: string): string {
 	const body =
 		model.pipeline_tag && model.pipeline_tag in pythonSnippets ? pythonSnippets[model.pipeline_tag]?.(model) ?? "" : "";
 
@@ -79,6 +81,6 @@ headers = {"Authorization": ${accessToken ? `"Bearer ${accessToken}"` : `f"Beare
 ${body}`;
 }
 
-export function hasPythonInferenceSnippet(model: ModelData): boolean {
+export function hasPythonInferenceSnippet(model: ModelPartial): boolean {
 	return !!model.pipeline_tag && model.pipeline_tag in pythonSnippets;
 }

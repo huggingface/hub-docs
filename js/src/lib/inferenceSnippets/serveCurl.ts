@@ -1,7 +1,9 @@
 import type { PipelineType, ModelData } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
-export const snippetBasic = (model: ModelData, accessToken: string): string =>
+type ModelPartial = Pick<ModelData, 'id' | 'pipeline_tag' | 'widgetData'>;
+
+export const snippetBasic = (model: ModelPartial, accessToken: string): string =>
 	`curl https://api-inference.huggingface.co/models/${model.id} \\
 	-X POST \\
 	-d '{"inputs": ${getModelInputSnippet(model, true)}}' \\
@@ -9,7 +11,7 @@ export const snippetBasic = (model: ModelData, accessToken: string): string =>
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
-export const snippetZeroShotClassification = (model: ModelData, accessToken: string): string =>
+export const snippetZeroShotClassification = (model: ModelPartial, accessToken: string): string =>
 	`curl https://api-inference.huggingface.co/models/${model.id} \\
 	-X POST \\
 	-d '{"inputs": ${getModelInputSnippet(model, true)}, "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}' \\
@@ -17,14 +19,14 @@ export const snippetZeroShotClassification = (model: ModelData, accessToken: str
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
-export const snippetFile = (model: ModelData, accessToken: string): string =>
+export const snippetFile = (model: ModelPartial, accessToken: string): string =>
 	`curl https://api-inference.huggingface.co/models/${model.id} \\
 	-X POST \\
 	--data-binary '@${getModelInputSnippet(model, true, true)}' \\
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
-export const curlSnippets: Partial<Record<PipelineType, (model: ModelData, accessToken: string) => string>> = {
+export const curlSnippets: Partial<Record<PipelineType, (model: ModelPartial, accessToken: string) => string>> = {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":          snippetBasic,
 	"token-classification":         snippetBasic,
@@ -50,12 +52,12 @@ export const curlSnippets: Partial<Record<PipelineType, (model: ModelData, acces
 	"image-segmentation":           snippetFile,
 };
 
-export function getCurlInferenceSnippet(model: ModelData, accessToken: string): string {
+export function getCurlInferenceSnippet(model: ModelPartial, accessToken: string): string {
 	return model.pipeline_tag && model.pipeline_tag in curlSnippets
 		? curlSnippets[model.pipeline_tag]?.(model, accessToken) ?? ""
 		: "";
 }
 
-export function hasCurlInferenceSnippet(model: ModelData): boolean {
+export function hasCurlInferenceSnippet(model: ModelPartial): boolean {
 	return !!model.pipeline_tag && model.pipeline_tag in curlSnippets;
 }

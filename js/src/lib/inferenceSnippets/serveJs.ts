@@ -1,7 +1,9 @@
 import type { PipelineType, ModelData } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
-export const snippetBasic = (model: ModelData, accessToken: string): string =>
+type ModelPartial = Pick<ModelData, 'id' | 'pipeline_tag' | 'widgetData'>;
+
+export const snippetBasic = (model: ModelPartial, accessToken: string): string =>
 	`async function query(data) {
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/${model.id}",
@@ -19,7 +21,7 @@ query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
 	console.log(JSON.stringify(response));
 });`;
 
-export const snippetZeroShotClassification = (model: ModelData, accessToken: string): string =>
+export const snippetZeroShotClassification = (model: ModelPartial, accessToken: string): string =>
 	`async function query(data) {
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/${model.id}",
@@ -39,7 +41,7 @@ query({"inputs": ${getModelInputSnippet(
 	console.log(JSON.stringify(response));
 });`;
 
-export const snippetTextToImage = (model: ModelData, accessToken: string): string =>
+export const snippetTextToImage = (model: ModelPartial, accessToken: string): string =>
 	`async function query(data) {
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/${model.id}",
@@ -56,7 +58,7 @@ query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
 	// Use image
 });`;
 
-export const snippetFile = (model: ModelData, accessToken: string): string =>
+export const snippetFile = (model: ModelPartial, accessToken: string): string =>
 	`async function query(filename) {
 	const data = fs.readFileSync(filename);
 	const response = await fetch(
@@ -75,7 +77,7 @@ query(${getModelInputSnippet(model)}).then((response) => {
 	console.log(JSON.stringify(response));
 });`;
 
-export const jsSnippets: Partial<Record<PipelineType, (model: ModelData, accessToken: string) => string>> = {
+export const jsSnippets: Partial<Record<PipelineType, (model: ModelPartial, accessToken: string) => string>> = {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":          snippetBasic,
 	"token-classification":         snippetBasic,
@@ -101,12 +103,12 @@ export const jsSnippets: Partial<Record<PipelineType, (model: ModelData, accessT
 	"image-segmentation":           snippetFile,
 };
 
-export function getJsInferenceSnippet(model: ModelData, accessToken: string): string {
+export function getJsInferenceSnippet(model: ModelPartial, accessToken: string): string {
 	return model.pipeline_tag && model.pipeline_tag in jsSnippets
 		? jsSnippets[model.pipeline_tag]?.(model, accessToken) ?? ""
 		: "";
 }
 
-export function hasJsInferenceSnippet(model: ModelData): boolean {
+export function hasJsInferenceSnippet(model: ModelPartial): boolean {
 	return !!model.pipeline_tag && model.pipeline_tag in jsSnippets;
 }

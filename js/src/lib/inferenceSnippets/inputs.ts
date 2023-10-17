@@ -1,5 +1,7 @@
 import type { PipelineType, ModelData } from "../interfaces/Types";
 
+type ModelPartial = Pick<ModelData, 'id' | 'pipeline_tag' | 'widgetData'>;
+
 const inputsZeroShotClassification = () =>
 	`"Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!"`;
 
@@ -44,7 +46,7 @@ const inputsTextGeneration = () => `"Can you please let us know more details abo
 
 const inputsText2TextGeneration = () => `"The answer to the universe is"`;
 
-const inputsFillMask = (model: ModelData) => `"The answer to the universe is ${model.mask_token}."`;
+const inputsFillMask = (model: ModelPartial) => `"The answer to the universe is ${model.mask_token}."`;
 
 const inputsSentenceSimilarity = () =>
 	`{
@@ -77,7 +79,7 @@ const inputsTextToSpeech = () => `"The answer to the universe is 42"`;
 const inputsAutomaticSpeechRecognition = () => `"sample1.flac"`;
 
 const modelInputSnippets: {
-	[key in PipelineType]?: (model: ModelData) => string;
+	[key in PipelineType]?: (model: ModelPartial) => string;
 } = {
 	"audio-to-audio":               inputsAudioToAudio,
 	"audio-classification":         inputsAudioClassification,
@@ -105,7 +107,7 @@ const modelInputSnippets: {
 
 // Use noWrap to put the whole snippet on a single line (removing new lines and tabulations)
 // Use noQuotes to strip quotes from start & end (example: "abc" -> abc)
-export function getModelInputSnippet(model: ModelData, noWrap = false, noQuotes = false): string {
+export function getModelInputSnippet(model: ModelPartial, noWrap = false, noQuotes = false): string {
 	if (model.pipeline_tag) {
 		const inputs = modelInputSnippets[model.pipeline_tag];
 		if (inputs) {
