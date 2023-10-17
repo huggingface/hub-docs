@@ -75,6 +75,24 @@ It's possible to add a note to any item in a collection to give it more context 
 
 ![Collection note](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collection-note.webp)
 
+### Adding images to a collection item
+
+Similarily, you can attach images to a collection item. This is useful for showcasing the output of a model, the content of a dataset, attaching an infographic for context, etc.
+
+To start adding images to your collection, you can click on the image icon in the contextual menu of an item. The menu shows up when you hover over an item with your mouse.
+
+![Collection image icon](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-button.webp)
+
+Then, add images by dragging and dropping images from your computer. You can also click on the gray zone to select image files from your computer's file system.
+
+![Collection image drop zone](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-dropzone.webp)
+
+![Collection image drop zone with images](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-gallery.webp)
+
+You can re-order images by drag-and-dropping them. Clicking on an image will open it in full-screen mode.
+
+![Collection image viewer](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-viewer.webp)
+
 ## Your feedback on collections
 
 We're working on improving collections, so if you have any bugs, questions, or new features you'd like to see added, please post a message in the [dedicated discussion](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/12).
