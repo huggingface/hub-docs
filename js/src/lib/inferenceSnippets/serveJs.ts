@@ -74,7 +74,7 @@ export const snippetTextToAudio = (model: ModelData, accessToken: string): strin
 			return result;
 		}
 		query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
-			// Use Audio
+			// Returns a byte object of the Audio wavform. Use it directly!
 		});`
 		);
 	} else {

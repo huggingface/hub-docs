@@ -43,10 +43,14 @@ from PIL import Image
 image = Image.open(io.BytesIO(image_bytes))`;
 
 export const snippetTextToAudio = (model: ModelData): string => {
+	// Transformers TTS pipeline and api-inference-community (AIC) pipeline outputs are diverged
+	// with the latest update to inference-api (IA).
+	// Transformers IA returns a byte object (wav file), whereas AIC returns wav and sampling_rate.
 	if (model.library_name === "transformers") {
 		return `def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.content
+
 audio_bytes = query({
 	"inputs": ${getModelInputSnippet(model)},
 })
