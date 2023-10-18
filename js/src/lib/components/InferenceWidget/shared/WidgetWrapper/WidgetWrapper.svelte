@@ -35,8 +35,7 @@
 	let selectedInputGroup: string;
 
 	let inputSamples: WidgetInputSample[] = [];
-	type InputGroup = { group: string; inputSamples: WidgetInputSample[] };
-	let inputGroups: InputGroup[] = [];
+	let inputGroups: { group: string; inputSamples: WidgetInputSample[] }[] = [];
 	$: {
 		inputSamples = (model?.widgetData ?? [])
 			.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
