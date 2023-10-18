@@ -52,16 +52,18 @@ audio_bytes = query({
 })
 # You can access the audio with IPython.display for example
 from IPython.display import Audio
-
 Audio(audio_bytes)`;
 	} else {
 		return `def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.json()
 	
-output = query({
+audio, sampling_rate = query({
 	"inputs": ${getModelInputSnippet(model)},
-})`;
+})
+# You can access the audio with IPython.display for example
+from IPython.display import Audio
+Audio(audio, rate=sampling_rate)`;
 	}
 };
 export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => string>> = {
