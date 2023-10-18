@@ -81,23 +81,16 @@ Similarily, you can attach images to a collection item. This is useful for showc
 
 To start adding images to your collection, you can click on the image icon in the contextual menu of an item. The menu shows up when you hover over an item with your mouse.
 
-<div class="flex justify-center">
-	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-button.webp"/>
-	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-button-dark.webp"/>
-</div>
+![Collection image icon](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-button.webp)
 
 Then, add images by dragging and dropping images from your computer. You can also click on the gray zone to select image files from your computer's file system.
 
-<div class="flex justify-center">
-	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-gallery.webp"/>
-	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-gallery-dark.webp"/>
-</div>
+
+![Collection image drop zone with images](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-gallery.webp)
 
 You can re-order images by drag-and-dropping them. Clicking on an image will open it in full-screen mode.
 
-<div class="flex justify-center">
-	<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-viewer.webp"/>
-</div>
+![Collection image viewer](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-viewer.webp)
 
 ## Your feedback on collections
 
