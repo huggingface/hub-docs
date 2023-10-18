@@ -34,7 +34,8 @@
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
 
-	const inputSamples: WidgetInputSample[] = (model?.widgetData ?? [])
+	let inputSamples: WidgetInputSample[] = [];
+	$: inputSamples = (model?.widgetData ?? [])
 		.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
 		.map((sample, idx) => ({
 			example_title: `Example ${++idx}`,
@@ -42,13 +43,15 @@
 			...sample,
 		}));
 
-	const inputGroups: { group: string; inputSamples: WidgetInputSample[] }[] = [];
-	for (const inputSample of inputSamples) {
-		const isExist = inputGroups.find(({ group }) => group === inputSample.group);
-		if (!isExist) {
-			inputGroups.push({ group: inputSample.group as string, inputSamples: [] });
+	let inputGroups: { group: string; inputSamples: WidgetInputSample[] }[] = [];
+	$: {
+		for (const inputSample of inputSamples) {
+			const isExist = inputGroups.find(({ group }) => group === inputSample.group);
+			if (!isExist) {
+				inputGroups.push({ group: inputSample.group as string, inputSamples: [] });
+			}
+			inputGroups.find(({ group }) => group === inputSample.group)?.inputSamples.push(inputSample);
 		}
-		inputGroups.find(({ group }) => group === inputSample.group)?.inputSamples.push(inputSample);
 	}
 
 	$: selectedInputSamples =
