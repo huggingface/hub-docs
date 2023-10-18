@@ -35,7 +35,8 @@
 	let selectedInputGroup: string;
 
 	let inputSamples: WidgetInputSample[] = [];
-	let inputGroups: { group: string; inputSamples: WidgetInputSample[] }[] = [];
+	type InputGroup = { group: string; inputSamples: WidgetInputSample[] };
+	let inputGroups: InputGroup[] = [];
 	$: {
 		inputSamples = (model?.widgetData ?? [])
 			.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
@@ -45,6 +46,7 @@
 				...sample,
 			}));
 
+		inputGroups = [];
 		for (const inputSample of inputSamples) {
 			const isExist = inputGroups.find(({ group }) => group === inputSample.group);
 			if (!isExist) {
