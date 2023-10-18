@@ -77,7 +77,7 @@ interface CacheNotFound {
 
 type Result<T> = Success<T> | LoadingModel | Error | CacheNotFound;
 
-export async function getResponse<T>(
+export async function callInferenceApi<T>(
 	url: string,
 	repoId: string,
 	requestBody: Record<string, any>,

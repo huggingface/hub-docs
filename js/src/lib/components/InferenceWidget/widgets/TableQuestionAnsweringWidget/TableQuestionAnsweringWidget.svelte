@@ -14,7 +14,7 @@
 		convertDataToTable,
 		convertTableToData,
 		getDemoInputs,
-		getResponse,
+		callInferenceApi,
 		getSearchParams,
 		updateUrl,
 	} from "../../shared/helpers";
@@ -102,7 +102,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
