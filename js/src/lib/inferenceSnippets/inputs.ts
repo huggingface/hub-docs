@@ -1,6 +1,6 @@
 import type { PipelineType, ModelData } from "../interfaces/Types";
 
-type ModelPartial = Pick<ModelData, 'id' | 'pipeline_tag' | 'widgetData'>;
+type ModelPartial = Pick<ModelData, 'id' | 'pipeline_tag' | 'mask_token' | 'widgetData'>;
 
 const inputsZeroShotClassification = () =>
 	`"Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!"`;
@@ -46,7 +46,7 @@ const inputsTextGeneration = () => `"Can you please let us know more details abo
 
 const inputsText2TextGeneration = () => `"The answer to the universe is"`;
 
-const inputsFillMask = (model: ModelPartial) => `"The answer to the universe is ${model.mask_token}."`;
+const inputsFillMask = (model: ModelPartial) => `"The answer to the universe is ${model.mask_token ?? "[unknown_mask_token]"}."`;
 
 const inputsSentenceSimilarity = () =>
 	`{

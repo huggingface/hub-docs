@@ -1,7 +1,7 @@
 import type { PipelineType, ModelData } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
-type ModelPartial = Pick<ModelData, 'id' | 'pipeline_tag' | 'widgetData'>;
+type ModelPartial =  Pick<ModelData, 'id' | 'pipeline_tag' | 'mask_token' | 'widgetData'>;
 
 export const snippetBasic = (model: ModelPartial, accessToken: string): string =>
 	`async function query(data) {

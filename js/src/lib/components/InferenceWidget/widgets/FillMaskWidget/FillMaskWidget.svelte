@@ -145,7 +145,7 @@
 		<form>
 			{#if model.pipeline_tag === "fill-mask"}
 				<div class="mb-1.5 text-sm text-gray-500">
-					Mask token: <code>{model.mask_token}</code>
+					Mask token: <code>{model.mask_token ?? "unknown"}</code>
 				</div>
 			{/if}
 			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} />

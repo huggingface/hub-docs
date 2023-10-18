@@ -1,7 +1,7 @@
 import type { PipelineType, ModelData } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
-type ModelPartial = Pick<ModelData, 'id' | 'pipeline_tag' | 'widgetData'>;
+type ModelPartial = Pick<ModelData, 'id' | 'pipeline_tag' | 'mask_token' | 'widgetData'>;
 
 export const snippetZeroShotClassification = (model: ModelPartial): string =>
 	`def query(payload):
