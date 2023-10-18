@@ -57,39 +57,38 @@ query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
 });`;
 
 export const snippetTextToAudio = (model: ModelData, accessToken: string): string => {
+	const commonSnippet = `async function query(data) {
+		const response = await fetch(
+			"https://api-inference.huggingface.co/models/${model.id}",
+			{
+				headers: { Authorization: "Bearer ${accessToken || `{API_TOKEN}`}" },
+				method: "POST",
+				body: JSON.stringify(data),
+			}
+		);`;
 	if (model.library_name === "transformers") {
-		return `async function query(data) {
-			const response = await fetch(
-				"https://api-inference.huggingface.co/models/${model.id}",
-				{
-					headers: { Authorization: "Bearer ${accessToken || `{API_TOKEN}`}" },
-					method: "POST",
-					body: JSON.stringify(data),
-				}
-			);
+		return (
+			commonSnippet
+			+ `
 			const result = await response.blob();
 			return result;
 		}
 		query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
 			// Use Audio
-		});`;
+		});`
+		);
 	} else {
-		return `async function query(data) {
-			const response = await fetch(
-				"https://api-inference.huggingface.co/models/${model.id}",
-				{
-					headers: { Authorization: "Bearer ${accessToken || `{API_TOKEN}`}" },
-					method: "POST",
-					body: JSON.stringify(data),
-				}
-			);
+		return (
+			commonSnippet
+			+ `
 			const result = await response.json();
 			return result;
 		}
 		
 		query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
 			console.log(JSON.stringify(response));
-		});`;
+		});`
+		);
 	}
 };
 
