@@ -35,16 +35,16 @@
 	let selectedInputGroup: string;
 
 	let inputSamples: WidgetInputSample[] = [];
-	$: inputSamples = (model?.widgetData ?? [])
-		.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
-		.map((sample, idx) => ({
-			example_title: `Example ${++idx}`,
-			group: "Group 1",
-			...sample,
-		}));
-
 	let inputGroups: { group: string; inputSamples: WidgetInputSample[] }[] = [];
 	$: {
+		inputSamples = (model?.widgetData ?? [])
+			.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
+			.map((sample, idx) => ({
+				example_title: `Example ${++idx}`,
+				group: "Group 1",
+				...sample,
+			}));
+
 		for (const inputSample of inputSamples) {
 			const isExist = inputGroups.find(({ group }) => group === inputSample.group);
 			if (!isExist) {
@@ -85,7 +85,7 @@
 		</p>
 	{:else}
 		{#if isMaximized}
-			<button class="absolute top-6 right-12" on:click={onClickMaximizeBtn}>
+			<button class="absolute right-12 top-6" on:click={onClickMaximizeBtn}>
 				<IconCross classNames="text-xl text-gray-500 hover:text-black" />
 			</button>
 		{/if}
