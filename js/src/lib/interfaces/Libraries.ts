@@ -77,7 +77,7 @@ export interface LibraryUiElement {
 
 function nameWithoutNamespace(modelId: string): string {
 	const splitted = modelId.split("/");
-	return splitted[1] ?? splitted[0] ?? "";
+	return splitted[1] ?? splitted[0];
 }
 
 //#region snippets
