@@ -113,7 +113,7 @@ export async function callInferenceApi<T>(
 
 	const reqBody: File | string = "file" in requestBody ? requestBody.file : JSON.stringify(requestBody);
 
-const response = await fetch(`${url}${appendRepoPath ? `/models/${repoId}` : ''}`, {
+	const response = await fetch(`${url}${appendRepoPath ? `/models/${repoId}` : ''}`, {
 		method:      "POST",
 		body:        reqBody,
 		headers,
