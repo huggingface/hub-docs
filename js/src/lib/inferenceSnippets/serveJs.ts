@@ -1,7 +1,7 @@
 import type { PipelineType, ModelData } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
-type ModelPartial =  Pick<ModelData, 'id' | 'pipeline_tag' | 'mask_token' | 'widgetData'>;
+type ModelPartial =  Pick<ModelData, 'id' | 'library_name' |  'mask_token' | 'pipeline_tag' |'widgetData'>;
 
 export const snippetBasic = (model: ModelPartial, accessToken: string): string =>
 	`async function query(data) {
@@ -58,7 +58,43 @@ query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
 	// Use image
 });`;
 
-export const snippetFile = (model: ModelPartial, accessToken: string): string =>
+export const snippetTextToAudio = (model: ModelPartial, accessToken: string): string => {
+	const commonSnippet = `async function query(data) {
+		const response = await fetch(
+			"https://api-inference.huggingface.co/models/${model.id}",
+			{
+				headers: { Authorization: "Bearer ${accessToken || `{API_TOKEN}`}" },
+				method: "POST",
+				body: JSON.stringify(data),
+			}
+		);`;
+	if (model.library_name === "transformers") {
+		return (
+			commonSnippet
+			+ `
+			const result = await response.blob();
+			return result;
+		}
+		query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
+			// Returns a byte object of the Audio wavform. Use it directly!
+		});`
+		);
+	} else {
+		return (
+			commonSnippet
+			+ `
+			const result = await response.json();
+			return result;
+		}
+		
+		query({"inputs": ${getModelInputSnippet(model)}}).then((response) => {
+			console.log(JSON.stringify(response));
+		});`
+		);
+	}
+};
+
+export const snippetFile = (model: ModelData, accessToken: string): string =>
 	`async function query(filename) {
 	const data = fs.readFileSync(filename);
 	const response = await fetch(
@@ -94,7 +130,8 @@ export const jsSnippets: Partial<Record<PipelineType, (model: ModelPartial, acce
 	"sentence-similarity":          snippetBasic,
 	"automatic-speech-recognition": snippetFile,
 	"text-to-image":                snippetTextToImage,
-	"text-to-speech":               snippetBasic,
+	"text-to-speech":               snippetTextToAudio,
+	"text-to-audio":                snippetTextToAudio,
 	"audio-to-audio":               snippetFile,
 	"audio-classification":         snippetFile,
 	"image-classification":         snippetFile,

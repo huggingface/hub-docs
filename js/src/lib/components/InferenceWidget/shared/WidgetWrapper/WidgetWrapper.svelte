@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { WidgetProps, ModelLoadInfo } from "../types";
-	import type { WidgetInputSample } from "../../../../interfaces/Types";
+	import type { WidgetExample } from "../WidgetExample";
+
+	type TWidgetExample = $$Generic<WidgetExample>;
 
 	import { onMount } from "svelte";
 
@@ -27,17 +29,22 @@
 	export let isInferenceEndpoints = false;
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (sample: Record<string, any>) => void = () => {};
-	export let previewInputSample: (sample: Record<string, any>) => void = () => {};
+	export let applyInputSample: (sample: TWidgetExample) => void = () => {};
+	export let previewInputSample: (sample: TWidgetExample) => void = () => {};
+	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
 
-	let inputSamples: WidgetInputSample[] = [];
-	let inputGroups: { group: string; inputSamples: WidgetInputSample[] }[] = [];
+	let inputSamples: TWidgetExample[] = [];
+	let inputGroups: {
+		group: string;
+		inputSamples: TWidgetExample[];
+	}[] = [];
 	$: {
 		inputSamples = (model?.widgetData ?? [])
+			.filter(validateExample)
 			.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
 			.map((sample, idx) => ({
 				example_title: `Example ${++idx}`,
@@ -78,7 +85,7 @@
 >
 	{#if modelLoadInfo?.state === "TooBig"}
 		<p class="text-sm text-gray-500">
-			Model is too large to load onto the free Inference API. To try the model, launch it on <a
+			Model is supported, but too large to load onto the free Inference API. To try the model, launch it on <a
 				class="underline"
 				href="https://ui.endpoints.huggingface.co/new?repository={encodeURIComponent(model.id)}">Inference Endpoints</a
 			>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
+	import type { WidgetExampleTextAndTableInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -13,10 +14,11 @@
 		convertDataToTable,
 		convertTableToData,
 		getDemoInputs,
-		getResponse,
+		callInferenceApi,
 		getSearchParams,
 		updateUrl,
 	} from "../../shared/helpers";
+	import { isTextAndTableInput } from "../../shared/inputValidation";
 	interface Output {
 		aggregator?: string;
 		answer: string;
@@ -101,7 +103,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -160,14 +162,14 @@
 		);
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleTextAndTableInput) {
 		query = sample.text;
-		table = sample.table;
+		table = convertDataToTable(sample.table);
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextAndTableInput) {
 		query = sample.text;
-		table = sample.table;
+		table = convertDataToTable(sample.table);
 		getOutput();
 	}
 </script>
@@ -185,6 +187,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	validateExample={isTextAndTableInput}
 >
 	<svelte:fragment slot="top">
 		<form>

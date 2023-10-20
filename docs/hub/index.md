@@ -94,7 +94,7 @@ We encourage you to read the [Code of Conduct](https://huggingface.co/code-of-co
 
 ## What can you find on the Hub?
 
-The Hugging Face Hub hosts Git-based repositories, which are version-controlled places that can contain all your files. 💾
+The Hugging Face Hub hosts Git-based repositories, which are version-controlled buckets that can contain all your files. 💾
 
 On it, you'll be able to upload and discover...
 
@@ -106,7 +106,7 @@ The Hub offers **versioning, commit history, diffs, branches, and over a dozen l
 
 ## Models
 
-You can discover and use dozens of thousands of open-source ML models shared by the community. To promote responsible model usage and development, model repos are equipped with [Model Cards](./model-cards) to inform users of each model's limitations and biases. Additional [metadata](./model-cards#model-card-metadata) about info such as their tasks, languages, and metrics can be included, with training metrics charts even added if the repository contains [TensorBoard traces](./tensorboard). It's also easy to add an [**inference widget**](./models-widgets) to your model, allowing anyone to play with the model directly in the browser! For production settings, an API is provided to [**instantly serve your model**](./models-inference).
+You can discover and use dozens of thousands of open-source ML models shared by the community. To promote responsible model usage and development, model repos are equipped with [Model Cards](./model-cards) to inform users of each model's limitations and biases. Additional [metadata](./model-cards#model-card-metadata) about info such as their tasks, languages, and metrics can be included, with training metrics charts even added if the repository contains [TensorBoard traces](./tensorboard). It's also easy to add an [**inference widget**](./models-widgets) to your model, allowing anyone to play with the model directly in the browser! For programmatic access, an API is provided to [**instantly serve your model**](./models-inference).
 
 To upload models to the Hub, or download models and integrate them into your work, explore the [**Models documentation**](./models). You can also choose from [**over a dozen libraries**](./models-libraries) such as 🤗 Transformers, Asteroid, and ESPnet that support the Hub.
 

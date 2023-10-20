@@ -2,7 +2,7 @@
 
 In this guide, we will use Okta as the SSO provider and with the Security Assertion Markup Language (SAML) protocol as our preferred identity protocol. 
 
-We currently only support SP-initiated authentication. IdP-initiated login and user provisioning is not supported at this time.
+We currently support SP-initiated and IdP-initiated authentication. User provisioning is not yet supported at this time.
 
 <Tip warning={true}>
 	This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
@@ -104,4 +104,4 @@ A green check mark near the SAML selector will attest that the test was successf
 
 Now that Single Sign-On is configured and tested, you can enable it for members of your organization by clicking on the "Enable" button.
 
-Once enabled, members of your organization must complete the SSO authentication flow described in the [How does it work?](./security-sso.md#how-does-it-work) section.
+Once enabled, members of your organization must complete the SSO authentication flow described in the [How does it work?](./security-sso#how-does-it-work) section.

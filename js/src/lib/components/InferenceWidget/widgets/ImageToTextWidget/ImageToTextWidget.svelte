@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -7,7 +8,8 @@
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -50,7 +52,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -92,13 +94,13 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	async function applyInputSample(sample: Record<string, any>) {
+	async function applyInputSample(sample: WidgetExampleAssetInput) {
 		imgSrc = sample.src;
 		const blob = await getBlobFromUrl(imgSrc);
 		getOutput(blob);
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleAssetInput) {
 		imgSrc = sample.src;
 		output = "";
 		outputJson = "";
@@ -129,6 +131,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	validateExample={isAssetInput}
 >
 	<svelte:fragment slot="top">
 		<form>

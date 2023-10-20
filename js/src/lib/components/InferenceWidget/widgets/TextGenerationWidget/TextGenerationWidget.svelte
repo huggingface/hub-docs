@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
 	import type { PipelineType } from "../../../../interfaces/Types";
+	import type { WidgetExampleTextInput, WidgetExampleOutputText, WidgetExample } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -11,7 +12,15 @@
 	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import {
+		addInferenceParameters,
+		getDemoInputs,
+		callInferenceApi,
+		getSearchParams,
+		updateUrl,
+	} from "../../shared/helpers";
+	import { isValidOutputText } from "../../shared/outputValidation";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -102,7 +111,7 @@
 		isLoading = true;
 		inferenceTimer.start();
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -164,13 +173,25 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
 		setTextAreaValue(sample.text);
+		if (sample.output) {
+			output = sample.output.text;
+			outputJson = "";
+			renderTypingEffect(output);
+		} else {
+			output = "";
+			outputJson = "";
+		}
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
 		setTextAreaValue(sample.text);
 		getOutput({ useCache });
+	}
+
+	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputText> {
+		return isTextInput(sample) && (!sample.output || isValidOutputText(sample.output));
 	}
 
 	function redirectLogin() {
@@ -195,6 +216,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	{validateExample}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">

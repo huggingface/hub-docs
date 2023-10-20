@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleAssetAndPromptInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -8,7 +9,8 @@
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse } from "../../shared/helpers";
+	import { addInferenceParameters, getDemoInputs, callInferenceApi } from "../../shared/helpers";
+	import { isAssetAndPromptInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -62,12 +64,12 @@
 		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleAssetAndPromptInput) {
 		prompt = sample.prompt;
 		imgSrc = sample.src;
 	}
 
-	async function applyInputSample(sample: Record<string, any>) {
+	async function applyInputSample(sample: WidgetExampleAssetAndPromptInput) {
 		prompt = sample.prompt;
 		imgSrc = sample.src;
 		const res = await fetch(imgSrc);
@@ -96,7 +98,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -160,6 +162,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	validateExample={isAssetAndPromptInput}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">

@@ -1,12 +1,25 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type {
+		WidgetExample,
+		WidgetExampleOutputAnswerScore,
+		WidgetExampleTextAndContextInput,
+	} from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import {
+		addInferenceParameters,
+		getDemoInputs,
+		callInferenceApi,
+		getSearchParams,
+		updateUrl,
+	} from "../../shared/helpers";
+	import { isValidOutputAnswerScore } from "../../shared/outputValidation";
+	import { isTextAndContextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -75,7 +88,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -112,21 +125,27 @@
 	}
 
 	function parseOutput(body: any): { answer: string; score: number } {
-		if (body && typeof body === "object" && "answer" in body && "score" in body) {
-			return { answer: body["answer"], score: body["score"] };
+		if (isValidOutputAnswerScore(body)) {
+			return body;
 		}
 		throw new TypeError("Invalid output: output must be of type <answer:string; score:number>");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>) {
 		question = sample.text;
 		setTextAreaValue(sample.context);
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>) {
 		question = sample.text;
 		setTextAreaValue(sample.context);
 		getOutput();
+	}
+
+	function validateExample(
+		sample: WidgetExample
+	): sample is WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore> {
+		return isTextAndContextInput(sample) && (!sample.output || isValidOutputAnswerScore(sample.output));
 	}
 </script>
 
@@ -143,6 +162,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	{validateExample}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">

@@ -44,6 +44,7 @@ export const curlSnippets: Partial<Record<PipelineType, (model: ModelPartial, ac
 	"automatic-speech-recognition": snippetFile,
 	"text-to-image":                snippetBasic,
 	"text-to-speech":               snippetBasic,
+	"text-to-audio":                snippetBasic,
 	"audio-to-audio":               snippetFile,
 	"audio-classification":         snippetFile,
 	"image-classification":         snippetFile,

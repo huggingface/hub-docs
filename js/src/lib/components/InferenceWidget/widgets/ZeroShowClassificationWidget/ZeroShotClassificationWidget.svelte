@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleZeroShotTextInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -9,7 +10,14 @@
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import {
+		addInferenceParameters,
+		getDemoInputs,
+		callInferenceApi,
+		getSearchParams,
+		updateUrl,
+	} from "../../shared/helpers";
+	import { isZeroShotTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -98,7 +106,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -150,13 +158,13 @@
 		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleZeroShotTextInput) {
 		candidateLabels = sample.candidate_labels;
 		multiClass = sample.multi_class;
 		setTextAreaValue(sample.text);
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleZeroShotTextInput) {
 		candidateLabels = sample.candidate_labels;
 		multiClass = sample.multi_class;
 		setTextAreaValue(sample.text);
@@ -177,6 +185,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	validateExample={isZeroShotTextInput}
 >
 	<svelte:fragment slot="top">
 		<form class="flex flex-col space-y-2">

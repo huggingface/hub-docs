@@ -52,18 +52,44 @@ export async function getBlobFromUrl(url: string): Promise<Blob> {
 	return blob;
 }
 
-async function callApi(
+interface Success<T> {
+	computeTime: string;
+	output:      T;
+	outputJson:  string;
+	response:    Response;
+	status:      "success";
+}
+
+interface LoadingModel {
+	error:         string;
+	estimatedTime: number;
+	status:        "loading-model";
+}
+
+interface Error {
+	error:  string;
+	status: "error";
+}
+
+interface CacheNotFound {
+	status: "cache not found";
+}
+
+type Result<T> = Success<T> | LoadingModel | Error | CacheNotFound;
+
+export async function callInferenceApi<T>(
 	url: string,
 	repoId: string,
 	requestBody: Record<string, any>,
 	apiToken = "",
+	outputParsingFn: (x: unknown) => T,
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
-	useCache = true,
 	includeCredentials = false,
-	isOnLoadCall = false,
+	isOnLoadCall = false, // If true, the server will try to answer from cache and not do anything if not
+	useCache = true,
 	appendRepoPath = true,
 	accept?: string,
-): Promise<Response> {
+): Promise<Result<T>> {
 	const contentType =
 		"file" in requestBody && "type" in requestBody["file"] ? requestBody["file"]["type"] : "application/json";
 
@@ -85,61 +111,14 @@ async function callApi(
 		headers.set("Accept", accept);
 	}
 
-	const body: File | string = "file" in requestBody ? requestBody.file : JSON.stringify(requestBody);
+	const reqBody: File | string = "file" in requestBody ? requestBody.file : JSON.stringify(requestBody);
 
-	return await fetch(`${url}${appendRepoPath ? `/models/${repoId}` : ''}`, {
+const response = await fetch(`${url}${appendRepoPath ? `/models/${repoId}` : ''}`, {
 		method:      "POST",
-		body,
+		body:        reqBody,
 		headers,
 		credentials: includeCredentials ? "include" : "same-origin",
 	});
-}
-
-export async function getResponse<T>(
-	url: string,
-	repoId: string,
-	requestBody: Record<string, any>,
-	apiToken = "",
-	outputParsingFn: (x: unknown) => T,
-	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
-	includeCredentials = false,
-	isOnLoadCall = false, // If true, the server will try to answer from cache and not do anything if not
-	useCache = true,
-	appendRepoPath = true,
-	accept?: string,
-): Promise<
-	| {
-			computeTime: string;
-			output:      T;
-			outputJson:  string;
-			response:    Response;
-			status:      "success";
-	  }
-	| {
-			error:         string;
-			estimatedTime: number;
-			status:        "loading-model";
-	  }
-	| {
-			error:  string;
-			status: "error";
-	  }
-	| {
-			status: "cache not found";
-	  }
-> {
-	const response = await callApi(
-		url,
-		repoId,
-		requestBody,
-		apiToken,
-		waitForModel,
-		useCache,
-		includeCredentials,
-		isOnLoadCall,
-		appendRepoPath,
-		accept,
-	);
 
 	if (response.ok) {
 		// Success

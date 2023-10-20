@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetExampleAssetAndZeroShotInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -9,7 +10,8 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
-	import { addInferenceParameters, getResponse, getDemoInputs } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, getDemoInputs } from "../../shared/helpers";
+	import { isAssetAndZeroShotInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -67,12 +69,12 @@
 		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleAssetAndZeroShotInput) {
 		candidateLabels = sample.candidate_labels;
 		imgSrc = sample.src;
 	}
 
-	async function applyInputSample(sample: Record<string, any>) {
+	async function applyInputSample(sample: WidgetExampleAssetAndZeroShotInput) {
 		candidateLabels = sample.candidate_labels;
 		imgSrc = sample.src;
 		const res = await fetch(imgSrc);
@@ -108,7 +110,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -172,6 +174,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	validateExample={isAssetAndZeroShotInput}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">

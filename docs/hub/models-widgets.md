@@ -20,7 +20,7 @@ For most use cases, we determine the model type from the tags. For example, if t
 
 For some libraries, such as 🤗  `Transformers`, the model type should be inferred automatically based from configuration files (`config.json`). The architecture can determine the type: for example, `AutoModelForTokenClassification` corresponds to `token-classification`. If you're interested in this, you can see pseudo-code in [this gist](https://gist.github.com/julien-c/857ba86a6c6a895ecd90e7f7cab48046).
 
-**You can always manually override your pipeline type with `pipeline_tag: xxx` in your [model card metadata](./model-cards#model-card-metadata).**
+**You can always manually override your pipeline type with `pipeline_tag: xxx` in your [model card metadata](./model-cards#model-card-metadata).** (You can also use the metadata GUI editor to do this).
 
 ### How can I control my model's widget example input?
 
@@ -67,12 +67,73 @@ them as:
 
 ```yaml
 widget:
-- src: https://huggingface.co/username/model_repo/resolve/main/sample1.flac
-  example_title: Custom Speech Sample 1
+  - src: https://huggingface.co/username/model_repo/resolve/main/sample1.flac
+    example_title: Custom Speech Sample 1
+```
+
+But even more convenient, if the file lives in the corresponding model repo, you can just use the filename or file path inside the repo:
+
+```yaml
+widget:
+  - src: sample1.flac
+    example_title: Custom Speech Sample 1
+```
+
+or if it was nested inside the repo:
+
+```yaml
+widget:
+  - src: nested/directory/sample1.flac
 ```
 
 We provide example inputs for some languages and most widget types in [the DefaultWidget.ts file](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/DefaultWidget.ts). If some examples are missing, we welcome PRs from the community to add them!
 
+## Example outputs
+
+As an extension to example inputs, for each widget example, you can also optionally describe the corresponding model output, directly in the `output` property.
+
+This is useful when the model is not yet supported by the Inference API (for instance, the model library is not yet supported or the model is too large) so that the model page can still showcase how the model works and what results it gives.
+
+
+For instance, for an [automatic-speech-recognition](./models-widgets-examples#automatic-speech-recognition) model:
+
+```yaml
+widget:
+  - src: sample1.flac
+    output:
+      text: "Hello my name is Julien"
+```
+
+The `output` property should be a YAML dictionary that represents the Inference API output.
+
+For a model that outputs text, see the example above.
+
+For a model that outputs labels (like a [text-classification](./models-widgets-examples#text-classification) model for instance), output should look like this:
+
+```yaml
+widget:
+  - text: "I liked this movie"
+    output:
+      - label: POSITIVE
+        score: 0.8
+      - label: NEGATIVE
+        score: 0.2
+```
+
+Finally, for a model that outputs an image, audio, or any other kind of asset, the output should include a `url` property linking to either a file name or path inside the repo or a remote URL. For example, for a text-to-image model:
+
+```yaml
+widget:
+  - text: "picture of a futuristic tiger, artstation"
+    output:
+      url: images/tiger.jpg
+```
+
+<!-- todo(add a screenshot) -->
+
+We can also surface the example outputs in the Hugging Face UI, for instance, for a text-to-image model to display a gallery of cool image generations.
+
+<!-- todo(add a screenshot) -->
 
 ## What are all the possible task/widget types?
 
@@ -112,4 +173,4 @@ inference:
     temperature: 0.7
 ``` 
 
-The Inference API allows you to send HTTP requests to models in the Hugging Face Hub, and it's 2x to 10x faster than the widgets! ⚡⚡ Learn more about it by reading the [Inference API documentation](./models-inference).
+The Inference API allows you to send HTTP requests to models in the Hugging Face Hub, and it's 2x to 10x faster than the widgets! ⚡⚡ Learn more about it by reading the [Inference API documentation](./models-inference). Finally, you can also deploy all those models to dedicated [Inference Endpoints](https://huggingface.co/docs/inference-endpoints).

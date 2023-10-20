@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
+	import type { WidgetExampleStructuredDataInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
@@ -11,11 +12,11 @@
 		addInferenceParameters,
 		convertDataToTable,
 		convertTableToData,
-		getDemoInputs,
-		getResponse,
+		callInferenceApi,
 		getSearchParams,
 		updateUrl,
 	} from "../../shared/helpers";
+	import { isStructuredDataInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -26,7 +27,8 @@
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
 
-	const columns: string[] = Object.keys(model?.widgetData?.[0]?.structuredData ?? {});
+	const widgetData = model?.widgetData?.[0] as WidgetExampleStructuredDataInput<WidgetExampleOutputLabels> | undefined;
+	const columns: string[] = Object.keys(widgetData?.structuredData ?? {});
 
 	let computeTime = "";
 	let error: string = "";
@@ -69,8 +71,8 @@
 			table = convertDataToTable((parseJSON(dataParam) as TableData) ?? {});
 			getOutput();
 		} else {
-			const [demoTable] = getDemoInputs(model, ["structuredData"]);
-			table = convertDataToTable((demoTable as TableData) ?? {});
+			const demoTable = widgetData?.structuredData ?? {};
+			table = convertDataToTable(demoTable);
 			if (table && callApiOnMount) {
 				getOutput({ isOnLoadCall: true });
 			}
@@ -118,7 +120,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -181,11 +183,11 @@
 		}, {});
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function previewInputSample(sample: WidgetExampleStructuredDataInput) {
 		table = convertDataToTable(sample.structuredData);
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleStructuredDataInput) {
 		table = convertDataToTable(sample.structuredData);
 		getOutput();
 	}
@@ -204,6 +206,7 @@
 	{noTitle}
 	{outputJson}
 	{previewInputSample}
+	validateExample={isStructuredDataInput}
 >
 	<svelte:fragment slot="top">
 		<form>
