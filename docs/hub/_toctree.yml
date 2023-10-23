@@ -55,16 +55,14 @@
   - local: models-libraries
     title: Integrated Libraries
     sections:
-      - local: transformers
-        title: 🤗 transformers
-      - local: diffusers
-        title: Diffusers
       - local: adapter-transformers
         title: Adapter Transformers
       - local: allennlp
         title: AllenNLP
       - local: asteroid
         title: Asteroid
+      - local: diffusers
+        title: Diffusers
       - local: espnet
         title: ESPnet
       - local: fastai
@@ -97,6 +95,8 @@
         title: TensorBoard
       - local: timm
         title: timm
+      - local: transformers
+        title: Transformers
       - local: transformers-js
         title: Transformers.js
   - local: models-widgets
