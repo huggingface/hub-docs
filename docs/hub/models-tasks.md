@@ -78,7 +78,7 @@ In [interfaces/Types.ts](https://github.com/huggingface/hub-docs/blob/main/js/sr
 
 2. Choose an icon
 
-You can add an icon in the [lib/Icons](https://github.com/huggingface/hub-docs/tree/main/js/src/lib/components/Icons) directory. We usually choose carbon icons from https://icones.js.org/collection/carbon. Also add the icon to [PipelineIcon](https://github.com/huggingface/hub-docs/blob/main/tasks/src/lib/components/PipelineIcon/PipelineIcon.svelte).
+You can add an icon in the [lib/Icons](https://github.com/huggingface/hub-docs/tree/main/js/src/lib/components/Icons) directory. We usually choose carbon icons from https://icones.js.org/collection/carbon. Also add the icon to [PipelineIcon](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/components/PipelineIcon/PipelineIcon.svelte).
 
 
 ### Widget
