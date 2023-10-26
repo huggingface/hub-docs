@@ -13,10 +13,11 @@
 	import WidgetHeader from "../WidgetHeader/WidgetHeader.svelte";
 	import WidgetInfo from "../WidgetInfo/WidgetInfo.svelte";
 	import WidgetModelLoading from "../WidgetModelLoading/WidgetModelLoading.svelte";
-	import { getModelLoadInfo } from "../../shared/helpers";
+	import { getModelLoadInfo, getWidgetExample } from "../../shared/helpers";
 	import { modelLoadStates } from "../../stores";
 
 	export let apiUrl: string;
+	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let computeTime: string;
 	export let error: string;
 	export let isLoading = false;
@@ -30,6 +31,7 @@
 	export let outputJson: string;
 	export let applyInputSample: (sample: TWidgetExample, opts?: ExampleRunOpts) => void = () => {};
 	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
+	export let runExampleOnMount = true;
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
@@ -63,6 +65,15 @@
 		(async () => {
 			modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
 			$modelLoadStates[model.id] = modelLoadInfo;
+
+			// run widget example
+			if (!runExampleOnMount) {
+				return;
+			}
+			const example = getWidgetExample<TWidgetExample>(model, validateExample);
+			if (callApiOnMount && example) {
+				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
+			}
 		})();
 	});
 

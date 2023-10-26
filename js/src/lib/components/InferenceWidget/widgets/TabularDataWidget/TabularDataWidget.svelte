@@ -196,6 +196,7 @@
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -207,6 +208,7 @@
 	{noTitle}
 	{outputJson}
 	validateExample={isStructuredDataInput}
+	runExampleOnMount={false}
 >
 	<svelte:fragment slot="top">
 		<form>

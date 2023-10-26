@@ -160,6 +160,7 @@
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -171,6 +172,7 @@
 	{noTitle}
 	{outputJson}
 	validateExample={isZeroShotTextInput}
+	runExampleOnMount={false}
 >
 	<svelte:fragment slot="top">
 		<form class="flex flex-col space-y-2">
