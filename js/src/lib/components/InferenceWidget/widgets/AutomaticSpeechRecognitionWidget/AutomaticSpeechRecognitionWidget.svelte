@@ -2,8 +2,6 @@
 	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputText } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
@@ -11,7 +9,7 @@
 	import WidgetRealtimeRecorder from "../../shared/WidgetRealtimeRecorder/WidgetRealtimeRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { callInferenceApi, getBlobFromUrl, getWidgetExample } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import { isValidOutputText } from "../../shared/outputValidation";
 	import { isAssetInput } from "../../shared/inputValidation";
 
@@ -149,16 +147,10 @@
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputText> {
 		return isAssetInput(sample) && (!sample.output || isValidOutputText(sample.output));
 	}
-
-	onMount(() => {
-		const example = getWidgetExample<WidgetExampleAssetInput<WidgetExampleOutputText>>(model, validateExample);
-		if (callApiOnMount && example) {
-			applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-		}
-	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}

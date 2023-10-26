@@ -204,6 +204,7 @@
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -215,6 +216,7 @@
 	{noTitle}
 	{outputJson}
 	{validateExample}
+	runExampleOnMount={false}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">

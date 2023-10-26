@@ -45,8 +45,6 @@
 			getOutput();
 		} else {
 			const example = getWidgetExample<WidgetExampleTextInput<WidgetExampleOutputLabels>>(model, validateExample);
-			/// TODO(get rid of useless getWidgetExample)
-			setTextAreaValue(example?.text ?? "");
 			if (example && callApiOnMount) {
 				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
 			}
@@ -144,6 +142,7 @@
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -155,6 +154,7 @@
 	{noTitle}
 	{outputJson}
 	{validateExample}
+	runExampleOnMount={false}
 >
 	<svelte:fragment slot="top">
 		<form>

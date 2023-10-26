@@ -2,13 +2,11 @@
 	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { callInferenceApi, getBlobFromUrl, getWidgetExample } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -104,18 +102,10 @@
 		const blob = await getBlobFromUrl(imgSrc);
 		getOutput(blob);
 	}
-
-	onMount(() => {
-		(async () => {
-			const example = getWidgetExample<WidgetExampleAssetInput>(model, isAssetInput);
-			if (callApiOnMount && example) {
-				await applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-			}
-		})();
-	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}

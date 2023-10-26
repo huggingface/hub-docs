@@ -6,7 +6,7 @@
 
 	import { COLORS } from "../../shared/consts";
 	import { clamp, mod, hexToRgb } from "../../../../utils/ViewUtils";
-	import { callInferenceApi, getBlobFromUrl, getWidgetExample } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
@@ -224,17 +224,11 @@
 		if (typeof createImageBitmap === "undefined") {
 			polyfillCreateImageBitmap();
 		}
-
-		(async () => {
-			const example = getWidgetExample<WidgetExampleAssetInput>(model, isAssetInput);
-			if (callApiOnMount && example) {
-				await applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-			}
-		})();
 	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}

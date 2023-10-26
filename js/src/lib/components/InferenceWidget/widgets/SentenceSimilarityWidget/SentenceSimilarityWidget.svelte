@@ -2,14 +2,12 @@
 	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleSentenceSimilarityInput } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetAddSentenceBtn from "../../shared/WidgetAddSentenceBtn/WidgetAddSentenceBtn.svelte";
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getWidgetExample, callInferenceApi } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi } from "../../shared/helpers";
 	import { isSentenceSimilarityInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -128,16 +126,10 @@
 		}
 		getOutput(opts.inferenceOpts);
 	}
-
-	onMount(() => {
-		const example = getWidgetExample<WidgetExampleSentenceSimilarityInput>(model, isSentenceSimilarityInput);
-		if (callApiOnMount && example) {
-			applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-		}
-	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}

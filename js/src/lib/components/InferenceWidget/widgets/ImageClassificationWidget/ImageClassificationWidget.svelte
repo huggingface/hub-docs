@@ -2,13 +2,11 @@
 	import type { WidgetProps, InferenceRunFlags, ExampleRunOpts } from "../../shared/types";
 	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { callInferenceApi, getBlobFromUrl, getWidgetExample } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -116,18 +114,10 @@
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {
 		return isTextInput(sample) && (!sample.output || isValidOutputLabels(sample.output));
 	}
-
-	onMount(() => {
-		(async () => {
-			const example = getWidgetExample<WidgetExampleAssetInput<WidgetExampleOutputLabels>>(model, validateExample);
-			if (example && callApiOnMount) {
-				await applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-			}
-		})();
-	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}

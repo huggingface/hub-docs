@@ -137,6 +137,7 @@
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -148,6 +149,7 @@
 	{noTitle}
 	{outputJson}
 	validateExample={isTextInput}
+	runExampleOnMount={false}
 >
 	<svelte:fragment slot="top">
 		<form>
