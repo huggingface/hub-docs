@@ -2,17 +2,9 @@
 	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getWidgetExample,
-		callInferenceApi,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
 	import { isTextInput } from "../../shared/inputValidation";
 
 	import { DataTable } from "./DataTable";
@@ -35,19 +27,6 @@
 	let output: DataTable | undefined;
 	let outputJson: string;
 	let text = "";
-
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			text = textParam;
-			getOutput();
-		} else {
-			const example = getWidgetExample<WidgetExampleTextInput>(model, isTextInput);
-			if (callApiOnMount && example) {
-				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-			}
-		}
-	});
 
 	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		const trimmedText = text.trim();
@@ -149,7 +128,7 @@
 	{noTitle}
 	{outputJson}
 	validateExample={isTextInput}
-	runExampleOnMount={false}
+	exampleQueryParams={["text"]}
 >
 	<svelte:fragment slot="top">
 		<form>

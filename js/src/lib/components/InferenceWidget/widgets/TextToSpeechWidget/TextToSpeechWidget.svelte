@@ -2,19 +2,11 @@
 	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getWidgetExample,
-		callInferenceApi,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
 	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -36,19 +28,6 @@
 	let outputJson = "";
 	let text = "";
 	let setTextAreaValue: (text: string) => void;
-
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			setTextAreaValue(textParam);
-			getOutput();
-		} else {
-			const example = getWidgetExample<WidgetExampleTextInput>(model, isTextInput);
-			if (example && callApiOnMount) {
-				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-			}
-		}
-	});
 
 	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		const trimmedText = text.trim();
@@ -131,7 +110,7 @@
 	{noTitle}
 	{outputJson}
 	validateExample={isTextInput}
-	runExampleOnMount={false}
+	exampleQueryParams={["text"]}
 >
 	<svelte:fragment slot="top">
 		<form>

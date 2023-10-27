@@ -2,15 +2,13 @@
 	import type { WidgetProps, DetectedObject, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import { mod } from "../../../../utils/ViewUtils";
 	import { COLORS } from "../../shared/consts";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { callInferenceApi, getBlobFromUrl, getWidgetExample } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import { isAssetInput } from "../../shared/inputValidation";
 
 	import BoundingBoxes from "./SvgBoundingBoxes.svelte";
@@ -140,15 +138,6 @@
 		const blob = await getBlobFromUrl(imgSrc);
 		getOutput(blob, opts.inferenceOpts);
 	}
-
-	onMount(() => {
-		(async () => {
-			const example = getWidgetExample<WidgetExampleAssetInput>(model, isAssetInput);
-			if (callApiOnMount && example) {
-				await applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-			}
-		})();
-	});
 </script>
 
 <WidgetWrapper

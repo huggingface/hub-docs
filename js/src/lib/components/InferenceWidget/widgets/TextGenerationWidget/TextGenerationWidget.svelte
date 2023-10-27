@@ -3,8 +3,6 @@
 	import type { PipelineType } from "../../../../interfaces/Types";
 	import type { WidgetExampleTextInput, WidgetExampleOutputText, WidgetExample } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetShortcutRunLabel from "../../shared/WidgetShortcutRunLabel/WidgetShortcutRunLabel.svelte";
 	import WidgetBloomDecoding from "../../shared/WidgetBloomDecoding/WidgetBloomDecoding.svelte";
@@ -12,13 +10,7 @@
 	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getWidgetExample,
-		callInferenceApi,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
 	import { isValidOutputText } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -54,19 +46,6 @@
 	const useCache = !(["text-generation", "text2text-generation"] as Array<PipelineType>).includes(
 		model.pipeline_tag as PipelineType
 	);
-
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			setTextAreaValue(textParam);
-			getOutput({ useCache: true });
-		} else {
-			const example = getWidgetExample<WidgetExampleTextInput<WidgetExampleOutputText>>(model, validateExample);
-			if (example && callApiOnMount) {
-				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true, useCache: true } });
-			}
-		}
-	});
 
 	async function getOutput({
 		withModelLoading = false,
@@ -216,7 +195,7 @@
 	{noTitle}
 	{outputJson}
 	{validateExample}
-	runExampleOnMount={false}
+	exampleQueryParams={["text"]}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">

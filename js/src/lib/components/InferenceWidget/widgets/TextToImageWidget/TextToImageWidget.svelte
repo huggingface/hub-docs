@@ -2,17 +2,9 @@
 	import type { WidgetProps, ExampleRunOpts } from "../../shared/types";
 	import type { WidgetExampleTextInput, WidgetExampleOutputUrl, WidgetExample } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getWidgetExample,
-		callInferenceApi,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
 	import { isValidOutputUrl } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -34,19 +26,6 @@
 	let output = "";
 	let outputJson = "";
 	let text = "";
-
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			text = textParam;
-			getOutput({ useCache: true });
-		} else {
-			const example = getWidgetExample<WidgetExampleTextInput<WidgetExampleOutputUrl>>(model, validateExample);
-			if (example && callApiOnMount) {
-				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true, useCache: true } });
-			}
-		}
-	});
 
 	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = false } = {}) {
 		const trimmedText = text.trim();
@@ -139,7 +118,7 @@
 	{noTitle}
 	{outputJson}
 	{validateExample}
-	runExampleOnMount={false}
+	exampleQueryParams={["text"]}
 >
 	<svelte:fragment slot="top">
 		<form>

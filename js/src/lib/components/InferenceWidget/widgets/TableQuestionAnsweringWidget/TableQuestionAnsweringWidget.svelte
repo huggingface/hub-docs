@@ -1,27 +1,16 @@
 <script lang="ts">
-	import type {
-		WidgetProps,
-		TableData,
-		HighlightCoordinates,
-		ExampleRunOpts,
-		InferenceRunFlags,
-	} from "../../shared/types";
+	import type { WidgetProps, HighlightCoordinates, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleTextAndTableInput } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetOutputTableQA from "../../shared/WidgetOutputTableQA/WidgetOutputTableQA.svelte";
 	import WidgetTableInput from "../../shared/WidgetTableInput/WidgetTableInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { parseJSON } from "../../../../utils/ViewUtils";
 	import {
 		addInferenceParameters,
 		convertDataToTable,
 		convertTableToData,
-		getWidgetExample,
 		callInferenceApi,
-		getSearchParams,
 		updateUrl,
 	} from "../../shared/helpers";
 	import { isTextAndTableInput } from "../../shared/inputValidation";
@@ -60,20 +49,6 @@
 			acc[`${yCor}-${xCor}`] = "bg-green-100 border-green-100 dark:bg-green-700 dark:border-green-700";
 			return acc;
 		}, {}) ?? {};
-
-	onMount(() => {
-		const [queryParam, tableParam] = getSearchParams(["query", "table"]);
-		if (queryParam && tableParam) {
-			query = queryParam;
-			table = convertDataToTable((parseJSON(tableParam) as TableData) ?? {});
-			getOutput();
-		} else {
-			const example = getWidgetExample<WidgetExampleTextAndTableInput>(model, isTextAndTableInput);
-			if (example && callApiOnMount) {
-				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-			}
-		}
-	});
 
 	function onChangeTable(updatedTable: (string | number)[][]) {
 		table = updatedTable;
@@ -186,7 +161,7 @@
 	{noTitle}
 	{outputJson}
 	validateExample={isTextAndTableInput}
-	runExampleOnMount={false}
+	exampleQueryParams={["query", "table"]}
 >
 	<svelte:fragment slot="top">
 		<form>

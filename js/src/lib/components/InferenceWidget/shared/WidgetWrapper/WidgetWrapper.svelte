@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { WidgetProps, ModelLoadInfo, ExampleRunOpts } from "../types";
 	import type { WidgetExample } from "../WidgetExample";
+	import type { QueryParam } from "../../shared/helpers";
 
 	type TWidgetExample = $$Generic<WidgetExample>;
 
@@ -13,7 +14,7 @@
 	import WidgetHeader from "../WidgetHeader/WidgetHeader.svelte";
 	import WidgetInfo from "../WidgetInfo/WidgetInfo.svelte";
 	import WidgetModelLoading from "../WidgetModelLoading/WidgetModelLoading.svelte";
-	import { getModelLoadInfo, getWidgetExample } from "../../shared/helpers";
+	import { getModelLoadInfo, getQueryParamVal, getWidgetExample } from "../../shared/helpers";
 	import { modelLoadStates } from "../../stores";
 
 	export let apiUrl: string;
@@ -31,7 +32,7 @@
 	export let outputJson: string;
 	export let applyInputSample: (sample: TWidgetExample, opts?: ExampleRunOpts) => void = () => {};
 	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
-	export let runExampleOnMount = true;
+	export let exampleQueryParams: QueryParam[] = [];
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
@@ -67,12 +68,18 @@
 			$modelLoadStates[model.id] = modelLoadInfo;
 
 			// run widget example
-			if (!runExampleOnMount) {
-				return;
-			}
-			const example = getWidgetExample<TWidgetExample>(model, validateExample);
-			if (callApiOnMount && example) {
-				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
+			if (exampleQueryParams.length) {
+				const example = {} as TWidgetExample;
+				for (const key of exampleQueryParams) {
+					const val = getQueryParamVal(key);
+					example[key] = val;
+				}
+				applyInputSample(example);
+			} else {
+				const example = getWidgetExample<TWidgetExample>(model, validateExample);
+				if (callApiOnMount && example) {
+					applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
+				}
 			}
 		})();
 	});
