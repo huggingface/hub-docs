@@ -6,18 +6,10 @@
 		WidgetExampleTextAndContextInput,
 	} from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getWidgetExample,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getResponse, updateUrl } from "../../shared/helpers";
 	import { isValidOutputAnswerScore } from "../../shared/outputValidation";
 	import { isTextAndContextInput } from "../../shared/inputValidation";
 
@@ -41,23 +33,6 @@
 	let outputJson: string;
 	let question = "";
 	let setTextAreaValue: (text: string) => void;
-
-	onMount(() => {
-		const [contextParam, questionParam] = getSearchParams(["context", "question"]);
-		if (contextParam && questionParam) {
-			question = questionParam;
-			setTextAreaValue(contextParam);
-			getOutput();
-		} else {
-			const example = getWidgetExample<WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>>(
-				model,
-				validateExample
-			);
-			if (example && callApiOnMount) {
-				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-			}
-		}
-	});
 
 	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		const trimmedQuestion = question.trim();
@@ -161,6 +136,7 @@
 	{noTitle}
 	{outputJson}
 	{validateExample}
+	exampleQueryParams={["context", "question"]}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">

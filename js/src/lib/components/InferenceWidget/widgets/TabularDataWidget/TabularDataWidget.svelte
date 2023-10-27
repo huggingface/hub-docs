@@ -1,26 +1,16 @@
 <script lang="ts">
-	import type {
-		WidgetProps,
-		TableData,
-		HighlightCoordinates,
-		InferenceRunFlags,
-		ExampleRunOpts,
-	} from "../../shared/types";
+	import type { WidgetProps, HighlightCoordinates, InferenceRunFlags, ExampleRunOpts } from "../../shared/types";
 	import type { WidgetExampleStructuredDataInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetTableInput from "../../shared/WidgetTableInput/WidgetTableInput.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { mod, parseJSON } from "../../../../utils/ViewUtils";
+	import { mod } from "../../../../utils/ViewUtils";
 	import {
 		addInferenceParameters,
 		convertDataToTable,
 		convertTableToData,
 		getResponse,
-		getSearchParams,
-		getWidgetExample,
 		updateUrl,
 	} from "../../shared/helpers";
 	import { isStructuredDataInput } from "../../shared/inputValidation";
@@ -70,19 +60,6 @@
 	}
 
 	const COLORS = ["blue", "green", "yellow", "purple", "red"] as const;
-
-	onMount(() => {
-		const [dataParam] = getSearchParams(["structuredData"]);
-		if (dataParam) {
-			table = convertDataToTable((parseJSON(dataParam) as TableData) ?? {});
-			getOutput();
-		} else {
-			const example = getWidgetExample<WidgetExampleStructuredDataInput>(model, isStructuredDataInput);
-			if (example && callApiOnMount) {
-				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-			}
-		}
-	});
 
 	function onChangeTable(updatedTable: (string | number)[][]) {
 		table = updatedTable;
@@ -208,7 +185,7 @@
 	{noTitle}
 	{outputJson}
 	validateExample={isStructuredDataInput}
-	runExampleOnMount={false}
+	exampleQueryParams={["structuredData"]}
 >
 	<svelte:fragment slot="top">
 		<form>

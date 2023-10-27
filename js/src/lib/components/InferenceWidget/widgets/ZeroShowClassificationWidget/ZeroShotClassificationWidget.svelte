@@ -2,21 +2,13 @@
 	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleZeroShotTextInput } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetCheckbox from "../../shared/WidgetCheckbox/WidgetCheckbox.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getWidgetExample,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getResponse, updateUrl } from "../../shared/helpers";
 	import { isZeroShotTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -41,25 +33,6 @@
 	let text = "";
 	let warning: string = "";
 	let setTextAreaValue: (text: string) => void;
-
-	onMount(() => {
-		const [candidateLabelsParam, multiClassParam, textParam] = getSearchParams([
-			"candidateLabels",
-			"multiClass",
-			"text",
-		]);
-		if (candidateLabelsParam && !!multiClassParam && textParam) {
-			candidateLabels = candidateLabelsParam;
-			multiClass = multiClassParam === "true";
-			setTextAreaValue(textParam);
-			getOutput();
-		} else {
-			const example = getWidgetExample<WidgetExampleZeroShotTextInput>(model, isZeroShotTextInput);
-			if (example && callApiOnMount) {
-				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-			}
-		}
-	});
 
 	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		const trimmedText = text.trim();
@@ -172,7 +145,7 @@
 	{noTitle}
 	{outputJson}
 	validateExample={isZeroShotTextInput}
-	runExampleOnMount={false}
+	exampleQueryParams={["candidateLabels", "multiClass", "text"]}
 >
 	<svelte:fragment slot="top">
 		<form class="flex flex-col space-y-2">

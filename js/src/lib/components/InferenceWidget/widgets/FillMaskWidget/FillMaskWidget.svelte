@@ -2,19 +2,11 @@
 	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleTextInput, WidgetExampleOutputLabels, WidgetExample } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getWidgetExample,
-		getResponse,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, getResponse, updateUrl } from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -37,19 +29,6 @@
 	let outputJson: string;
 	let text = "";
 	let setTextAreaValue: (text: string) => void;
-
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			setTextAreaValue(textParam);
-			getOutput();
-		} else {
-			const example = getWidgetExample<WidgetExampleTextInput<WidgetExampleOutputLabels>>(model, validateExample);
-			if (example && callApiOnMount) {
-				applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-			}
-		}
-	});
 
 	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		const trimmedText = text.trim();
@@ -154,7 +133,7 @@
 	{noTitle}
 	{outputJson}
 	{validateExample}
-	runExampleOnMount={false}
+	exampleQueryParams={["text"]}
 >
 	<svelte:fragment slot="top">
 		<form>

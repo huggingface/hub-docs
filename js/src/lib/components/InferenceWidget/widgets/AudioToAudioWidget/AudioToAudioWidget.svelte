@@ -2,14 +2,12 @@
 	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetRecorder from "../../shared/WidgetRecorder/WidgetRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, getBlobFromUrl, getWidgetExample } from "../../shared/helpers";
+	import { getResponse, getBlobFromUrl } from "../../shared/helpers";
 	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -138,13 +136,6 @@
 		selectedSampleUrl = sample.src;
 		getOutput(opts.inferenceOpts);
 	}
-
-	onMount(() => {
-		const example = getWidgetExample<WidgetExampleAssetInput>(model, isAssetInput);
-		if (callApiOnMount && example) {
-			applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
-		}
-	});
 </script>
 
 <WidgetWrapper
