@@ -3,16 +3,16 @@ import { delay } from "../../../../utils/ViewUtils";
 export default class Recorder {
 	// see developers.google.com/web/updates/2016/01/mediarecorder
 	type:                  "audio" | "video" = "audio";
-	private stream:        MediaStream;
-	private mediaRecorder: MediaRecorder;
+	private stream:        MediaStream | undefined;
+	private mediaRecorder: MediaRecorder | undefined;
 	private recordedBlobs: Blob[] = [];
 	public outputBlob?:    Blob;
 
 	get desiredMimeType(): string {
 		return this.type === "video" ? "video/webm" : "audio/webm";
 	}
-	get mimeType(): string {
-		return this.mediaRecorder.mimeType;
+	get mimeType(): string | undefined {
+		return this.mediaRecorder?.mimeType;
 	}
 	async start(): Promise<void> {
 		this.recordedBlobs = [];
@@ -22,6 +22,10 @@ export default class Recorder {
 		this.startRecording();
 	}
 	private startRecording() {
+		if (!this.stream) {
+			return;
+		}
+
 		this.outputBlob = undefined;
 		this.mediaRecorder = new MediaRecorder(this.stream, {
 			mimeType: this.desiredMimeType,

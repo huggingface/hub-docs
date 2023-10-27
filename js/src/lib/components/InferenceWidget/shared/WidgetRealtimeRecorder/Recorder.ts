@@ -2,7 +2,7 @@ export default class Recorder {
 	// see developers.google.com/web/updates/2016/01/mediarecorder
 	type:                       "audio" | "video" = "audio";
 	private apiToken:           string | undefined;
-	private audioContext:       AudioContext;
+	private audioContext:       AudioContext | undefined;
 	private isLoggedIn = false;
 	private isModelLoaded = false;
 	private isEmptyBuffer = false;
@@ -11,8 +11,8 @@ export default class Recorder {
 	private updateModelLoading: (isLoading: boolean, estimatedTime?: number) => void;
 	private renderText:         (txt: string) => void;
 	private renderWarning:      (warning: string) => void;
-	private socket:             WebSocket;
-	private stream:             MediaStream;
+	private socket:             WebSocket | undefined;
+	private stream:             MediaStream | undefined;
 
 	constructor(
 		modelId: string,
@@ -41,7 +41,7 @@ export default class Recorder {
 		};
 
 		this.socket.onopen = _ => {
-			this.socket.send(`Bearer ${this.apiToken}`);
+			this.socket?.send(`Bearer ${this.apiToken}`);
 		};
 
 		this.updateModelLoading(true);
@@ -80,7 +80,7 @@ export default class Recorder {
 				raw:           base64,
 				sampling_rate: samplingRate,
 			};
-			if (this.isLoggedIn) {
+			if (this.isLoggedIn && this.socket) {
 				try {
 					this.socket.send(JSON.stringify(message));
 				} catch (e) {
