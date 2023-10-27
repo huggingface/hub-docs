@@ -6,7 +6,7 @@
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, getBlobFromUrl } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -53,7 +53,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,

@@ -6,7 +6,7 @@
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getResponse, updateUrl } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
 	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -47,7 +47,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,

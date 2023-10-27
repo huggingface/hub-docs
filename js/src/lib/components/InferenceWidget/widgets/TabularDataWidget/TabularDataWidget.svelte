@@ -10,7 +10,7 @@
 		addInferenceParameters,
 		convertDataToTable,
 		convertTableToData,
-		getResponse,
+		callInferenceApi,
 		updateUrl,
 	} from "../../shared/helpers";
 	import { isStructuredDataInput } from "../../shared/inputValidation";
@@ -102,7 +102,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,

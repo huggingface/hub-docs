@@ -7,7 +7,7 @@
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
-	import { addInferenceParameters, getResponse } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi } from "../../shared/helpers";
 	import { isAssetAndTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -101,7 +101,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,

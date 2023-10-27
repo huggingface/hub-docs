@@ -96,7 +96,7 @@
 >
 	{#if modelLoadInfo?.state === "TooBig"}
 		<p class="text-sm text-gray-500">
-			Model is too large to load onto the free Inference API. To try the model, launch it on <a
+			Model is supported, but too large to load onto the free Inference API. To try the model, launch it on <a
 				class="underline"
 				href="https://ui.endpoints.huggingface.co/new?repository={encodeURIComponent(model.id)}">Inference Endpoints</a
 			>

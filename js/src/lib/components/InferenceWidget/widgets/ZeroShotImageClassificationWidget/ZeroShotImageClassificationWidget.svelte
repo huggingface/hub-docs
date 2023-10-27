@@ -10,7 +10,7 @@
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
-	import { addInferenceParameters, getResponse, getWidgetExample } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, getWidgetExample } from "../../shared/helpers";
 	import { isAssetAndZeroShotInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -107,7 +107,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,

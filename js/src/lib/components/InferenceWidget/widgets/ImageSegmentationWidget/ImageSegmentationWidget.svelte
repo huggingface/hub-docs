@@ -6,7 +6,7 @@
 
 	import { COLORS } from "../../shared/consts";
 	import { clamp, mod, hexToRgb } from "../../../../utils/ViewUtils";
-	import { getResponse, getBlobFromUrl } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
@@ -69,7 +69,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,

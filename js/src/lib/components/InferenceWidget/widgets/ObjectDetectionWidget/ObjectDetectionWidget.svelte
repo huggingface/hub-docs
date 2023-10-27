@@ -8,7 +8,7 @@
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, getBlobFromUrl } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import { isAssetInput } from "../../shared/inputValidation";
 
 	import BoundingBoxes from "./SvgBoundingBoxes.svelte";
@@ -57,7 +57,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,

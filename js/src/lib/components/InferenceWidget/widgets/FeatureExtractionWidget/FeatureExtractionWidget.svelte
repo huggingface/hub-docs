@@ -4,7 +4,7 @@
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getResponse, updateUrl } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
 	import { isTextInput } from "../../shared/inputValidation";
 
 	import { DataTable } from "./DataTable";
@@ -47,7 +47,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
