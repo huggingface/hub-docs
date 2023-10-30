@@ -106,14 +106,20 @@
 		}
 	}
 
-	function parseOutput(body: any): DataTable {
-		if (Array.isArray(body)) {
-			if (body.length === 1) {
-				body = body[0];
+	function parseOutput(body: unknown): DataTable {
+		if (isInferenceEndpoints) {
+			if (body && typeof body === "object" && "embeddings" in body && Array.isArray(body.embeddings) ) {
+				const arr = body.embeddings;
+				return new DataTable(arr.length === 1 ? arr[0] : arr);
 			}
-			return new DataTable(body);
+			throw new TypeError("Invalid output: output must be of type <embeddings: Array>");
+		} else {
+			if (Array.isArray(body)) {
+				return new DataTable(body.length === 1 ? body[0] : body);
+			}
+			throw new TypeError("Invalid output: output must be of type Array");
 		}
-		throw new TypeError("Invalid output: output must be of type Array");
+
 	}
 
 	const SINGLE_DIM_COLS = 4;
