@@ -1,16 +1,14 @@
 import type { ModelData } from "../../../interfaces/Types";
 import { randomItem, parseJSON } from "../../../utils/ViewUtils";
-import type { WidgetExample } from "./WidgetExample";
+import type { WidgetExample, WidgetExampleAttribute } from "./WidgetExample";
 import type { ModelLoadInfo, TableData } from "./types";
 import { LoadState } from "./types";
 
-type KeysOfUnion<T> = T extends any ? keyof T : never;
-export type QueryParam = KeysOfUnion<WidgetExample>;
+const KEYS_TEXT: WidgetExampleAttribute[] = ["text", "context", "candidate_labels"];
+const KEYS_TABLE: WidgetExampleAttribute[] = ["table", "structured_data"];
 type QueryParamVal = string | null | boolean | (string | number)[][];
-const KEYS_TEXT: QueryParam[] = ["text", "context", "candidate_labels"];
-const KEYS_TABLE: QueryParam[] = ["table", "structured_data"];
 
-export function getQueryParamVal(key: QueryParam): QueryParamVal {
+export function getQueryParamVal(key: WidgetExampleAttribute): QueryParamVal {
 	const searchParams = new URL(window.location.href).searchParams;
 	const value = searchParams.get(key);
 	if (KEYS_TEXT.includes(key)) {
@@ -35,7 +33,7 @@ export function getWidgetExample<TWidgetExample extends WidgetExample>(
 }
 
 // Update current url search params, keeping existing keys intact.
-export function updateUrl(obj: Partial<Record<QueryParam, string | undefined>>): void {
+export function updateUrl(obj: Partial<Record<WidgetExampleAttribute, string | undefined>>): void {
 	if (!window) {
 		return;
 	}
