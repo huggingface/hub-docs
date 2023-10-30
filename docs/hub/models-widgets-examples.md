@@ -293,7 +293,7 @@ widget:
 
 ```yaml
 widget:
-- structuredData:
+- structured_data:
     fixed_acidity:
       - 7.4
       - 7.8
