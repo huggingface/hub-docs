@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
 
 	import WidgetOutputConvo from "../../shared/WidgetOutputConvo/WidgetOutputConvo.svelte";
@@ -48,7 +48,7 @@
 	let outputJson: string;
 	let text = "";
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {

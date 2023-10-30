@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, DetectedObject, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
+	import type { WidgetProps, DetectedObject, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
 	import { mod } from "../../../../utils/ViewUtils";
@@ -40,7 +40,7 @@
 
 	async function getOutput(
 		file: File | Blob,
-		{ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}
+		{ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}
 	) {
 		if (!file) {
 			return;

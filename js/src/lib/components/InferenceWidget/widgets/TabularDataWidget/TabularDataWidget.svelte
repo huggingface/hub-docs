@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, HighlightCoordinates, InferenceRunFlags, ExampleRunOpts } from "../../shared/types";
+	import type { WidgetProps, HighlightCoordinates, InferenceRunOpts, ExampleRunOpts } from "../../shared/types";
 	import type { WidgetExampleStructuredDataInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import WidgetTableInput from "../../shared/WidgetTableInput/WidgetTableInput.svelte";
@@ -66,7 +66,7 @@
 		output = [];
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		for (let [i, row] of table.entries()) {
 			for (const [j, cell] of row.entries()) {
 				if (!String(cell)) {

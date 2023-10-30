@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleAssetAndZeroShotInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
@@ -80,7 +80,7 @@
 		getOutput(opts.inferenceOpts);
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedCandidateLabels = candidateLabels.trim().split(",").join(",");
 
 		if (!trimmedCandidateLabels) {

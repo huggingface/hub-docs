@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
 
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
@@ -29,7 +29,7 @@
 	let text = "";
 	let setTextAreaValue: (text: string) => void;
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
 		const trimmedValue = text.trim();
 
 		if (!trimmedValue) {
