@@ -36,7 +36,7 @@
 
 	async function getOutput(
 		file: File | Blob,
-		{ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}
+		{ withModelLoading = false, isOnLoadCall = false, exampleOutput = undefined }: InferenceRunOpts = {}
 	) {
 		if (!file) {
 			return;
@@ -108,7 +108,8 @@
 			return;
 		}
 		const blob = await getBlobFromUrl(imgSrc);
-		getOutput(blob, opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput(blob, { ...opts.inferenceOpts, exampleOutput });
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {

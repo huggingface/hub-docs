@@ -66,7 +66,11 @@
 		output = [];
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		for (let [i, row] of table.entries()) {
 			for (const [j, cell] of row.entries()) {
 				if (!String(cell)) {
@@ -168,7 +172,8 @@
 		if (opts.isPreview) {
 			return;
 		}
-		getOutput(opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 </script>
 

@@ -48,7 +48,11 @@
 	let outputJson: string;
 	let text = "";
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -143,7 +147,8 @@
 		if (opts.isPreview) {
 			return;
 		}
-		getOutput(opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 </script>
 

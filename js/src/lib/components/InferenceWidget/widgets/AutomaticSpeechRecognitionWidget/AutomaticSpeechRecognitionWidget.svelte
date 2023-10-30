@@ -61,7 +61,17 @@
 		}
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts<WidgetExampleOutputText> = {}) {
+		if (exampleOutput) {
+			output = exampleOutput.text;
+			outputJson = "";
+			return;
+		}
+
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			output = "";
@@ -137,7 +147,8 @@
 		}
 		file = null;
 		selectedSampleUrl = sample.src;
-		getOutput(opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 
 	function updateModelLoading(isLoading: boolean, estimatedTime: number = 0) {

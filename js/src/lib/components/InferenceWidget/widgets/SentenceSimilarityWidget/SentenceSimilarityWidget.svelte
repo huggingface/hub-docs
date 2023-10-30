@@ -31,7 +31,11 @@
 	let output: Array<{ label: string; score: number }> = [];
 	let outputJson: string;
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedSourceSentence = sourceSentence.trim();
 		if (!trimmedSourceSentence) {
 			error = "You need to input some text";
@@ -124,7 +128,8 @@
 		if (opts.isPreview) {
 			return;
 		}
-		getOutput(opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 </script>
 

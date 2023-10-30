@@ -47,8 +47,20 @@
 		model.pipeline_tag as PipelineType
 	);
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = true }: InferenceRunOpts = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		useCache = true,
+		exampleOutput = undefined,
+	}: InferenceRunOpts<WidgetExampleOutputText> = {}) {
 		if (isBloomLoginRequired) {
+			return;
+		}
+
+		if (exampleOutput) {
+			output = exampleOutput.text;
+			outputJson = "";
+			renderTypingEffect(output);
 			return;
 		}
 
@@ -162,7 +174,8 @@
 			}
 			return;
 		}
-		getOutput({ useCache, ...opts.inferenceOpts });
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, useCache, exampleOutput });
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputText> {

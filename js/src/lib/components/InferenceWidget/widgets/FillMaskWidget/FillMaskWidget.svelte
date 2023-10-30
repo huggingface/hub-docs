@@ -30,7 +30,17 @@
 	let text = "";
 	let setTextAreaValue: (text: string) => void;
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts<WidgetExampleOutputLabels> = {}) {
+		if (exampleOutput) {
+			output = exampleOutput;
+			outputJson = "";
+			return;
+		}
+
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -112,7 +122,8 @@
 			}
 			return;
 		}
-		getOutput(opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputLabels> {

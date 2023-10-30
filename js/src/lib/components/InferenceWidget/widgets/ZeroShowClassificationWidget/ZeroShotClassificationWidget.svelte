@@ -34,7 +34,11 @@
 	let warning: string = "";
 	let setTextAreaValue: (text: string) => void;
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedText = text.trim();
 		const trimmedCandidateLabels = candidateLabels.trim().split(",").join(",");
 
@@ -128,7 +132,8 @@
 		if (opts.isPreview) {
 			return;
 		}
-		getOutput(opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 </script>
 

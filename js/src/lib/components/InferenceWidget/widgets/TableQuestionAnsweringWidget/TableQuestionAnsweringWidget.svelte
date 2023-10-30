@@ -54,7 +54,11 @@
 		table = updatedTable;
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunOpts = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedQuery = query.trim();
 
 		if (!trimmedQuery) {
@@ -144,7 +148,8 @@
 		if (opts.isPreview) {
 			return;
 		}
-		getOutput(opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 </script>
 
