@@ -1,26 +1,40 @@
 import type { ModelData } from "../../../interfaces/Types";
 import { randomItem, parseJSON } from "../../../utils/ViewUtils";
+import type { WidgetExample } from "./WidgetExample";
 import type { ModelLoadInfo, TableData } from "./types";
 
-export function getSearchParams(keys: string[]): string[] {
+type KeysOfUnion<T> = T extends any ? keyof T : never;
+export type QueryParam = KeysOfUnion<WidgetExample>;
+type QueryParamVal = string | null | boolean | (string | number)[][];
+const KEYS_TEXT: QueryParam[] = ["text", "context", "candidate_labels"];
+const KEYS_TABLE: QueryParam[] = ["table", "structured_data"];
+
+export function getQueryParamVal(key: QueryParam): QueryParamVal {
 	const searchParams = new URL(window.location.href).searchParams;
-	return keys.map(key => {
-		const value = searchParams.get(key);
-		return value || "";
-	});
+	const value = searchParams.get(key);
+	if (KEYS_TEXT.includes(key)) {
+		return value;
+	} else if (KEYS_TABLE.includes(key)) {
+		const table = convertDataToTable((parseJSON(value) as TableData) ?? {});
+		return table;
+	} else if (key === "multi_class") {
+		return value === "true";
+	}
+	return value;
 }
 
-export function getDemoInputs(model: ModelData, keys: (number | string)[]): any[] {
-	const widgetData = Array.isArray(model.widgetData) ? model.widgetData : [];
-	const randomEntry = (randomItem(widgetData) ?? {}) as any;
-	return keys.map(key => {
-		const value = randomEntry[key] ? randomEntry[key] : null;
-		return value ? randomEntry[key] : null;
-	});
+export function getWidgetExample<TWidgetExample extends WidgetExample>(
+	model: ModelData,
+	validateExample: (sample: WidgetExample) => sample is TWidgetExample
+): TWidgetExample | undefined {
+	const validExamples = model.widgetData?.filter(
+		(sample): sample is TWidgetExample => sample && validateExample(sample)
+	);
+	return validExamples?.length ? randomItem(validExamples) : undefined;
 }
 
 // Update current url search params, keeping existing keys intact.
-export function updateUrl(obj: Record<string, string | undefined>): void {
+export function updateUrl(obj: Partial<Record<QueryParam, string | undefined>>): void {
 	if (!window) {
 		return;
 	}

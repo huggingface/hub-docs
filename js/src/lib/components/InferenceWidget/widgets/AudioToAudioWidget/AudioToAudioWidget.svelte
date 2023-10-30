@@ -1,15 +1,13 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetRecorder from "../../shared/WidgetRecorder/WidgetRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { callInferenceApi, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -64,7 +62,7 @@
 		}
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			return;
@@ -126,33 +124,22 @@
 		throw new TypeError("Invalid output: output must be of type Array<blob:string, label:string, content-type:string>");
 	}
 
-	function applyInputSample(sample: WidgetExampleAssetInput) {
-		file = null;
+	function applyInputSample(sample: WidgetExampleAssetInput, opts: ExampleRunOpts = {}) {
 		filename = sample.example_title ?? "";
 		fileUrl = sample.src;
-		selectedSampleUrl = sample.src;
-		getOutput();
-	}
-
-	function previewInputSample(sample: WidgetExampleAssetInput) {
-		filename = sample.example_title ?? "";
-		fileUrl = sample.src;
-		output = [];
-		outputJson = "";
-	}
-
-	onMount(() => {
-		const [exampleTitle, src] = getDemoInputs(model, ["example_title", "src"]);
-		if (callApiOnMount && src) {
-			filename = exampleTitle ?? "";
-			fileUrl = src;
-			selectedSampleUrl = src;
-			getOutput({ isOnLoadCall: true });
+		if (opts.isPreview) {
+			output = [];
+			outputJson = "";
+			return;
 		}
-	});
+		file = null;
+		selectedSampleUrl = sample.src;
+		getOutput(opts.inferenceOpts);
+	}
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -163,7 +150,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isAssetInput}
 >
 	<svelte:fragment slot="top">

@@ -1,15 +1,13 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleAssetAndPromptInput } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, callInferenceApi } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi } from "../../shared/helpers";
 	import { isAssetAndPromptInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -63,21 +61,19 @@
 		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetAndPromptInput) {
+	async function applyInputSample(sample: WidgetExampleAssetAndPromptInput, opts: ExampleRunOpts = {}) {
 		prompt = sample.prompt;
 		imgSrc = sample.src;
-	}
-
-	async function applyInputSample(sample: WidgetExampleAssetAndPromptInput) {
-		prompt = sample.prompt;
-		imgSrc = sample.src;
+		if (opts.isPreview) {
+			return;
+		}
 		const res = await fetch(imgSrc);
 		const blob = await res.blob();
 		await updateImageBase64(blob);
-		getOutput();
+		getOutput(opts.inferenceOpts);
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		const trimmedPrompt = prompt.trim();
 
 		if (!imageBase64) {
@@ -130,23 +126,10 @@
 			error = res.error;
 		}
 	}
-
-	onMount(() => {
-		(async () => {
-			const [prompt_, src] = getDemoInputs(model, ["prompt", "src"]);
-			if (callApiOnMount && prompt_ && src) {
-				prompt = prompt_;
-				imgSrc = src;
-				const res = await fetch(imgSrc);
-				const blob = await res.blob();
-				await updateImageBase64(blob);
-				getOutput({ isOnLoadCall: true });
-			}
-		})();
-	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -157,7 +140,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isAssetAndPromptInput}
 >
 	<svelte:fragment slot="top">

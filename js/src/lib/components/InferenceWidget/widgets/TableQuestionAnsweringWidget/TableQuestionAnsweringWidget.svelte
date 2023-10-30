@@ -1,21 +1,16 @@
 <script lang="ts">
-	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
+	import type { WidgetProps, HighlightCoordinates, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleTextAndTableInput } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetOutputTableQA from "../../shared/WidgetOutputTableQA/WidgetOutputTableQA.svelte";
 	import WidgetTableInput from "../../shared/WidgetTableInput/WidgetTableInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { parseJSON } from "../../../../utils/ViewUtils";
 	import {
 		addInferenceParameters,
 		convertDataToTable,
 		convertTableToData,
-		getDemoInputs,
 		callInferenceApi,
-		getSearchParams,
 		updateUrl,
 	} from "../../shared/helpers";
 	import { isTextAndTableInput } from "../../shared/inputValidation";
@@ -55,27 +50,11 @@
 			return acc;
 		}, {}) ?? {};
 
-	onMount(() => {
-		const [queryParam, tableParam] = getSearchParams(["query", "table"]);
-		if (queryParam && tableParam) {
-			query = queryParam;
-			table = convertDataToTable((parseJSON(tableParam) as TableData) ?? {});
-			getOutput();
-		} else {
-			const [demoQuery, demoTable] = getDemoInputs(model, ["text", "table"]);
-			query = (demoQuery as string) ?? "";
-			table = convertDataToTable(demoTable as TableData);
-			if (query && table && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
-			}
-		}
-	});
-
 	function onChangeTable(updatedTable: (string | number)[][]) {
 		table = updatedTable;
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		const trimmedQuery = query.trim();
 
 		if (!trimmedQuery) {
@@ -87,7 +66,7 @@
 
 		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
-				query: trimmedQuery,
+				text: trimmedQuery,
 				table: JSON.stringify(convertTableToData(table)),
 			});
 		}
@@ -159,19 +138,18 @@
 		);
 	}
 
-	function previewInputSample(sample: WidgetExampleTextAndTableInput) {
+	function applyInputSample(sample: WidgetExampleTextAndTableInput, opts: ExampleRunOpts = {}) {
 		query = sample.text;
 		table = convertDataToTable(sample.table);
-	}
-
-	function applyInputSample(sample: WidgetExampleTextAndTableInput) {
-		query = sample.text;
-		table = convertDataToTable(sample.table);
-		getOutput();
+		if (opts.isPreview) {
+			return;
+		}
+		getOutput(opts.inferenceOpts);
 	}
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -182,8 +160,8 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isTextAndTableInput}
+	exampleQueryParams={["text", "table"]}
 >
 	<svelte:fragment slot="top">
 		<form>
