@@ -1,14 +1,12 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, InferenceRunFlags, ExampleRunOpts } from "../../shared/types";
 	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { callInferenceApi, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import { isValidOutputLabels } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -36,7 +34,10 @@
 		getOutput(file);
 	}
 
-	async function getOutput(file: File | Blob, { withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput(
+		file: File | Blob,
+		{ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}
+	) {
 		if (!file) {
 			return;
 		}
@@ -91,40 +92,32 @@
 		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
+	async function applyInputSample(
+		sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>,
+		opts: ExampleRunOpts = {}
+	) {
 		imgSrc = sample.src;
-		const blob = await getBlobFromUrl(imgSrc);
-		getOutput(blob);
-	}
-
-	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>) {
-		imgSrc = sample.src;
-		if (isValidOutputLabels(sample.output)) {
-			output = sample.output;
-			outputJson = "";
-		} else {
-			output = [];
-			outputJson = "";
+		if (opts.isPreview) {
+			if (isValidOutputLabels(sample.output)) {
+				output = sample.output;
+				outputJson = "";
+			} else {
+				output = [];
+				outputJson = "";
+			}
+			return;
 		}
+		const blob = await getBlobFromUrl(imgSrc);
+		getOutput(blob, opts.inferenceOpts);
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {
 		return isTextInput(sample) && (!sample.output || isValidOutputLabels(sample.output));
 	}
-
-	onMount(() => {
-		(async () => {
-			const [src] = getDemoInputs(model, ["src"]);
-			if (callApiOnMount && src) {
-				imgSrc = src;
-				const blob = await getBlobFromUrl(imgSrc);
-				getOutput(blob, { isOnLoadCall: true });
-			}
-		})();
-	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -135,7 +128,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	{validateExample}
 >
 	<svelte:fragment slot="top">

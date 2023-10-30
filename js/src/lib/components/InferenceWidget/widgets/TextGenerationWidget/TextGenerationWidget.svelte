@@ -1,9 +1,7 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { PipelineType } from "../../../../interfaces/Types";
 	import type { WidgetExampleTextInput, WidgetExampleOutputText, WidgetExample } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetShortcutRunLabel from "../../shared/WidgetShortcutRunLabel/WidgetShortcutRunLabel.svelte";
@@ -12,13 +10,7 @@
 	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		callInferenceApi,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
 	import { isValidOutputText } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -55,21 +47,11 @@
 		model.pipeline_tag as PipelineType
 	);
 
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			setTextAreaValue(textParam);
-			getOutput({ useCache: true });
-		} else {
-			const [demoText] = getDemoInputs(model, ["text"]);
-			setTextAreaValue(demoText ?? "");
-			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true, useCache: true });
-			}
-		}
-	});
-
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = true } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		useCache = true,
+	}: InferenceRunFlags = {}) {
 		if (isBloomLoginRequired) {
 			return;
 		}
@@ -171,21 +153,20 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>, opts: ExampleRunOpts = {}) {
 		setTextAreaValue(sample.text);
-		if (sample.output) {
-			output = sample.output.text;
-			outputJson = "";
-			renderTypingEffect(output);
-		} else {
-			output = "";
-			outputJson = "";
+		if (opts.isPreview) {
+			if (sample.output) {
+				output = sample.output.text;
+				outputJson = "";
+				renderTypingEffect(output);
+			} else {
+				output = "";
+				outputJson = "";
+			}
+			return;
 		}
-	}
-
-	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
-		setTextAreaValue(sample.text);
-		getOutput({ useCache });
+		getOutput({ useCache, ...opts.inferenceOpts });
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputText> {
@@ -202,6 +183,7 @@
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -212,8 +194,8 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	{validateExample}
+	exampleQueryParams={["text"]}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">

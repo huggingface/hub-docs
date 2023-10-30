@@ -11,6 +11,17 @@ export interface WidgetProps {
 	isLoggedIn?:        boolean;
 }
 
+export interface InferenceRunFlags {
+	withModelLoading?: boolean;
+	isOnLoadCall?:     boolean;
+	useCache?:         boolean;
+}
+
+export interface ExampleRunOpts {
+	isPreview?:     boolean;
+	inferenceOpts?: InferenceRunFlags;
+}
+
 export type LoadState = "Loadable" | "Loaded" | "TooBig" | "error";
 
 export type ComputeType = "cpu" | "gpu";

@@ -1,23 +1,15 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type {
 		WidgetExample,
 		WidgetExampleOutputAnswerScore,
 		WidgetExampleTextAndContextInput,
 	} from "../../shared/WidgetExample";
 
-	import { onMount } from "svelte";
-
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		callInferenceApi,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
 	import { isValidOutputAnswerScore } from "../../shared/outputValidation";
 	import { isTextAndContextInput } from "../../shared/inputValidation";
 
@@ -42,23 +34,7 @@
 	let question = "";
 	let setTextAreaValue: (text: string) => void;
 
-	onMount(() => {
-		const [contextParam, questionParam] = getSearchParams(["context", "question"]);
-		if (contextParam && questionParam) {
-			question = questionParam;
-			setTextAreaValue(contextParam);
-			getOutput();
-		} else {
-			const [demoContext, demoQuestion] = getDemoInputs(model, ["context", "text"]);
-			question = (demoQuestion as string) ?? "";
-			setTextAreaValue(demoContext ?? "");
-			if (context && question && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
-			}
-		}
-	});
-
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		const trimmedQuestion = question.trim();
 		const trimmedContext = context.trim();
 
@@ -77,7 +53,7 @@
 		}
 
 		if (shouldUpdateUrl && !isOnLoadCall) {
-			updateUrl({ context: trimmedContext, question: trimmedQuestion });
+			updateUrl({ context: trimmedContext, text: trimmedQuestion });
 		}
 
 		const requestBody = {
@@ -128,15 +104,16 @@
 		throw new TypeError("Invalid output: output must be of type <answer:string; score:number>");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>) {
+	function applyInputSample(
+		sample: WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>,
+		opts: ExampleRunOpts = {}
+	) {
 		question = sample.text;
 		setTextAreaValue(sample.context);
-	}
-
-	function applyInputSample(sample: WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>) {
-		question = sample.text;
-		setTextAreaValue(sample.context);
-		getOutput();
+		if (opts.isPreview) {
+			return;
+		}
+		getOutput(opts.inferenceOpts);
 	}
 
 	function validateExample(
@@ -147,6 +124,7 @@
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -157,8 +135,8 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	{validateExample}
+	exampleQueryParams={["context", "text"]}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">

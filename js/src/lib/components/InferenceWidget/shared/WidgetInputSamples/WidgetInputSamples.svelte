@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { ExampleRunOpts } from "../types";
 	import type { WidgetExample } from "../WidgetExample";
 
 	type TWidgetExample = $$Generic<WidgetExample>;
@@ -10,8 +11,7 @@
 	export let classNames = "";
 	export let isLoading = false;
 	export let inputSamples: TWidgetExample[];
-	export let applyInputSample: (sample: TWidgetExample) => void;
-	export let previewInputSample: (sample: TWidgetExample) => void;
+	export let applyInputSample: (sample: TWidgetExample, opts?: ExampleRunOpts) => void;
 
 	let containerEl: HTMLElement;
 	let isOptionsVisible = false;
@@ -32,7 +32,7 @@
 
 	function _previewInputSample(idx: number) {
 		const sample = inputSamples[idx];
-		previewInputSample(sample);
+		applyInputSample(sample, { isPreview: true });
 	}
 
 	function toggleOptionsVisibility() {

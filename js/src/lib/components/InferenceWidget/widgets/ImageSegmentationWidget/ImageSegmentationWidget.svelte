@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { WidgetProps, ImageSegment } from "../../shared/types";
+	import type { WidgetProps, ImageSegment, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
 	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
 	import { COLORS } from "../../shared/consts";
 	import { clamp, mod, hexToRgb } from "../../../../utils/ViewUtils";
-	import { callInferenceApi, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
@@ -50,7 +50,10 @@
 		getOutput(file);
 	}
 
-	async function getOutput(file: File | Blob, { withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput(
+		file: File | Blob,
+		{ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}
+	) {
 		if (!file) {
 			return;
 		}
@@ -206,35 +209,26 @@
 		};
 	}
 
-	async function applyInputSample(sample: WidgetExampleAssetInput) {
+	async function applyInputSample(sample: WidgetExampleAssetInput, opts: ExampleRunOpts = {}) {
 		imgSrc = sample.src;
+		if (opts.isPreview) {
+			output = [];
+			outputJson = "";
+			return;
+		}
 		const blob = await getBlobFromUrl(imgSrc);
-		getOutput(blob);
-	}
-
-	function previewInputSample(sample: WidgetExampleAssetInput) {
-		imgSrc = sample.src;
-		output = [];
-		outputJson = "";
+		getOutput(blob, opts.inferenceOpts);
 	}
 
 	onMount(() => {
 		if (typeof createImageBitmap === "undefined") {
 			polyfillCreateImageBitmap();
 		}
-
-		(async () => {
-			const [src] = getDemoInputs(model, ["src"]);
-			if (callApiOnMount && src) {
-				imgSrc = src;
-				const blob = await getBlobFromUrl(imgSrc);
-				getOutput(blob, { isOnLoadCall: true });
-			}
-		})();
 	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -245,7 +239,6 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isAssetInput}
 >
 	<svelte:fragment slot="top">
