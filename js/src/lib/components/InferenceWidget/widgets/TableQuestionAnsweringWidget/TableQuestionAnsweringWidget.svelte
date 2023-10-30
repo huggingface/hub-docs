@@ -66,7 +66,7 @@
 
 		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
-				query: trimmedQuery,
+				text: trimmedQuery,
 				table: JSON.stringify(convertTableToData(table)),
 			});
 		}
@@ -161,7 +161,7 @@
 	{noTitle}
 	{outputJson}
 	validateExample={isTextAndTableInput}
-	exampleQueryParams={["query", "table"]}
+	exampleQueryParams={["text", "table"]}
 >
 	<svelte:fragment slot="top">
 		<form>

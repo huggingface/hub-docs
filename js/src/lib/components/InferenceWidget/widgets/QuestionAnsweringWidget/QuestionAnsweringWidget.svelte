@@ -53,7 +53,7 @@
 		}
 
 		if (shouldUpdateUrl && !isOnLoadCall) {
-			updateUrl({ context: trimmedContext, question: trimmedQuestion });
+			updateUrl({ context: trimmedContext, text: trimmedQuestion });
 		}
 
 		const requestBody = {
@@ -136,7 +136,7 @@
 	{noTitle}
 	{outputJson}
 	{validateExample}
-	exampleQueryParams={["context", "question"]}
+	exampleQueryParams={["context", "text"]}
 >
 	<svelte:fragment slot="top">
 		<form class="space-y-2">

@@ -3,30 +3,18 @@ import { randomItem, parseJSON } from "../../../utils/ViewUtils";
 import type { WidgetExample } from "./WidgetExample";
 import type { ModelLoadInfo, TableData } from "./types";
 
-const VALID_QUERY_PARAMS = [
-	// string vals
-	"text",
-	"context",
-	"question",
-	"query",
-	"candidateLabels",
-	// table vals
-	"multiClass",
-	"table",
-	// boolean vals
-	"structuredData",
-];
-export type QueryParam = typeof VALID_QUERY_PARAMS[number];
+type KeysOfUnion<T> = T extends any ? keyof T : never;
+export type QueryParam = KeysOfUnion<WidgetExample>;
 type QueryParamVal = string | null | boolean | (string | number)[][];
 export function getQueryParamVal(key: QueryParam): QueryParamVal {
 	const searchParams = new URL(window.location.href).searchParams;
 	const value = searchParams.get(key);
-	if (["text", "context", "question", "query", "candidateLabels"].includes(key)) {
+	if (["text", "context", "question", "query", "candidate_labels"].includes(key)) {
 		return value;
-	} else if (["table", "structuredData"].includes(key)) {
+	} else if (["table", "structured_data"].includes(key)) {
 		const table = convertDataToTable((parseJSON(value) as TableData) ?? {});
 		return table;
-	} else if (key === "multiClass") {
+	} else if (key === "multi_class") {
 		return value === "true";
 	}
 	return value;
@@ -43,7 +31,7 @@ export function getWidgetExample<TWidgetExample extends WidgetExample>(
 }
 
 // Update current url search params, keeping existing keys intact.
-export function updateUrl(obj: Record<QueryParam, string | undefined>): void {
+export function updateUrl(obj: Partial<Record<QueryParam, string | undefined>>): void {
 	if (!window) {
 		return;
 	}

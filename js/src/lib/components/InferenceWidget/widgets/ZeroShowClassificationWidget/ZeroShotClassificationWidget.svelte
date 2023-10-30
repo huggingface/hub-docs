@@ -54,8 +54,8 @@
 
 		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
-				candidateLabels: trimmedCandidateLabels,
-				multiClass: multiClass ? "true" : "false",
+				candidate_labels: trimmedCandidateLabels,
+				multi_class: multiClass ? "true" : "false",
 				text: trimmedText,
 			});
 		}
@@ -145,7 +145,7 @@
 	{noTitle}
 	{outputJson}
 	validateExample={isZeroShotTextInput}
-	exampleQueryParams={["candidateLabels", "multiClass", "text"]}
+	exampleQueryParams={["candidate_labels", "multi_class", "text"]}
 >
 	<svelte:fragment slot="top">
 		<form class="flex flex-col space-y-2">

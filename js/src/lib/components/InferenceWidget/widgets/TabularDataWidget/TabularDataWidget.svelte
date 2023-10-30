@@ -24,7 +24,7 @@
 	export let includeCredentials: WidgetProps["includeCredentials"];
 
 	const widgetData = model?.widgetData?.[0] as WidgetExampleStructuredDataInput<WidgetExampleOutputLabels> | undefined;
-	const columns: string[] = Object.keys(widgetData?.structuredData ?? {});
+	const columns: string[] = Object.keys(widgetData?.structured_data ?? {});
 
 	let computeTime = "";
 	let error: string = "";
@@ -89,7 +89,7 @@
 
 		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
-				data: JSON.stringify(tableWithoutOutput),
+				structured_data: JSON.stringify(tableWithoutOutput),
 			});
 		}
 
@@ -164,7 +164,7 @@
 	}
 
 	function applyInputSample(sample: WidgetExampleStructuredDataInput, opts: ExampleRunOpts = {}) {
-		table = convertDataToTable(sample.structuredData);
+		table = convertDataToTable(sample.structured_data);
 		if (opts.isPreview) {
 			return;
 		}
@@ -185,7 +185,7 @@
 	{noTitle}
 	{outputJson}
 	validateExample={isStructuredDataInput}
-	exampleQueryParams={["structuredData"]}
+	exampleQueryParams={["structured_data"]}
 >
 	<svelte:fragment slot="top">
 		<form>
