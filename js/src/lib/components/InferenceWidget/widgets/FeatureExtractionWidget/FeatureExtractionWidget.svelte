@@ -107,11 +107,8 @@
 	}
 
 	function parseOutput(body: unknown): DataTable {
-		if (isInferenceEndpoints) {
-			if (body && typeof body === "object" && "embeddings" in body) {
-				body = body.embeddings;
-			}
-			throw new TypeError("Invalid output: output must be of type <embeddings: Array>");
+		if (body && typeof body === "object" && "embeddings" in body) {
+			body = body.embeddings;
 		}
 
 		if (Array.isArray(body)) {
