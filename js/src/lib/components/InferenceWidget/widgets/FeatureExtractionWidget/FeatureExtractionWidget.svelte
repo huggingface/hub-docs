@@ -80,7 +80,7 @@
 			includeCredentials,
 			isOnLoadCall,
 			true,
-			!isInferenceEndpoints,
+			!isInferenceEndpoints
 		);
 
 		isLoading = false;
@@ -108,18 +108,16 @@
 
 	function parseOutput(body: unknown): DataTable {
 		if (isInferenceEndpoints) {
-			if (body && typeof body === "object" && "embeddings" in body && Array.isArray(body.embeddings) ) {
-				const arr = body.embeddings;
-				return new DataTable(arr.length === 1 ? arr[0] : arr);
+			if (body && typeof body === "object" && "embeddings" in body) {
+				body = body.embeddings;
 			}
 			throw new TypeError("Invalid output: output must be of type <embeddings: Array>");
-		} else {
-			if (Array.isArray(body)) {
-				return new DataTable(body.length === 1 ? body[0] : body);
-			}
-			throw new TypeError("Invalid output: output must be of type Array");
 		}
 
+		if (Array.isArray(body)) {
+			return new DataTable(body.length === 1 ? body[0] : body);
+		}
+		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
 	const SINGLE_DIM_COLS = 4;
