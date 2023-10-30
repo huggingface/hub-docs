@@ -42,7 +42,7 @@ export function isAssetAndTextInput<TOutput>(
 export function isStructuredDataInput<TOutput>(
 	sample: WidgetExample<TOutput>
 ): sample is WidgetExampleStructuredDataInput<TOutput> {
-	return "structuredData" in sample;
+	return "structured_data" in sample;
 }
 
 export function isTableDataInput<TOutput>(

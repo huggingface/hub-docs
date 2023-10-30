@@ -1,6 +1,7 @@
 <script lang="ts">
-	import type { WidgetProps, ModelLoadInfo } from "../types";
+	import type { WidgetProps, ModelLoadInfo, ExampleRunOpts } from "../types";
 	import type { WidgetExample } from "../WidgetExample";
+	import type { QueryParam } from "../../shared/helpers";
 
 	type TWidgetExample = $$Generic<WidgetExample>;
 
@@ -13,10 +14,11 @@
 	import WidgetHeader from "../WidgetHeader/WidgetHeader.svelte";
 	import WidgetInfo from "../WidgetInfo/WidgetInfo.svelte";
 	import WidgetModelLoading from "../WidgetModelLoading/WidgetModelLoading.svelte";
-	import { getModelLoadInfo } from "../../shared/helpers";
+	import { getModelLoadInfo, getQueryParamVal, getWidgetExample } from "../../shared/helpers";
 	import { modelLoadStates } from "../../stores";
 
 	export let apiUrl: string;
+	export let callApiOnMount: WidgetProps["callApiOnMount"];
 	export let computeTime: string;
 	export let error: string;
 	export let isLoading = false;
@@ -28,9 +30,9 @@
 	};
 	export let noTitle = false;
 	export let outputJson: string;
-	export let applyInputSample: (sample: TWidgetExample) => void = () => {};
-	export let previewInputSample: (sample: TWidgetExample) => void = () => {};
+	export let applyInputSample: (sample: TWidgetExample, opts?: ExampleRunOpts) => void = () => {};
 	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
+	export let exampleQueryParams: QueryParam[] = [];
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
@@ -64,6 +66,24 @@
 		(async () => {
 			modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
 			$modelLoadStates[model.id] = modelLoadInfo;
+
+			const exampleFromQueryParams = {} as TWidgetExample;
+			for (const key of exampleQueryParams) {
+				const val = getQueryParamVal(key);
+				if (val) {
+					exampleFromQueryParams[key] = val;
+				}
+			}
+			if (Object.keys(exampleFromQueryParams).length) {
+				// run widget example from query params
+				applyInputSample(exampleFromQueryParams);
+			} else {
+				// run random widget example
+				const example = getWidgetExample<TWidgetExample>(model, validateExample);
+				if (callApiOnMount && example) {
+					applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
+				}
+			}
 		})();
 	});
 
@@ -107,7 +127,6 @@
 						{isLoading}
 						inputSamples={selectedInputSamples?.inputSamples ?? []}
 						{applyInputSample}
-						{previewInputSample}
 					/>
 				</div>
 			{/if}

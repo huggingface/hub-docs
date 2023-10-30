@@ -242,7 +242,7 @@
 			pipeline_tag: "tabular-classification",
 			widgetData: [
 				{
-					structuredData: {
+					structured_data: {
 						fixed_acidity: [7.4, 7.8, 10.3],
 						volatile_acidity: [0.7, 0.88, 0.32],
 						citric_acid: [0.0, 0.0, 0.45],

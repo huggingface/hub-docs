@@ -75,7 +75,7 @@ export type WidgetExampleAssetAndZeroShotInput<TOutput = WidgetExampleOutput> = 
 	WidgetExampleZeroShotTextInput<TOutput>;
 
 export interface WidgetExampleStructuredDataInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
-	structuredData: TableData;
+	structured_data: TableData;
 }
 
 export interface WidgetExampleTableDataInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {

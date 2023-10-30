@@ -1,19 +1,16 @@
 <script lang="ts">
-	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
+	import type { WidgetProps, HighlightCoordinates, InferenceRunFlags, ExampleRunOpts } from "../../shared/types";
 	import type { WidgetExampleStructuredDataInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetTableInput from "../../shared/WidgetTableInput/WidgetTableInput.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { mod, parseJSON } from "../../../../utils/ViewUtils";
+	import { mod } from "../../../../utils/ViewUtils";
 	import {
 		addInferenceParameters,
 		convertDataToTable,
 		convertTableToData,
 		callInferenceApi,
-		getSearchParams,
 		updateUrl,
 	} from "../../shared/helpers";
 	import { isStructuredDataInput } from "../../shared/inputValidation";
@@ -27,7 +24,7 @@
 	export let includeCredentials: WidgetProps["includeCredentials"];
 
 	const widgetData = model?.widgetData?.[0] as WidgetExampleStructuredDataInput<WidgetExampleOutputLabels> | undefined;
-	const columns: string[] = Object.keys(widgetData?.structuredData ?? {});
+	const columns: string[] = Object.keys(widgetData?.structured_data ?? {});
 
 	let computeTime = "";
 	let error: string = "";
@@ -64,26 +61,12 @@
 
 	const COLORS = ["blue", "green", "yellow", "purple", "red"] as const;
 
-	onMount(() => {
-		const [dataParam] = getSearchParams(["structuredData"]);
-		if (dataParam) {
-			table = convertDataToTable((parseJSON(dataParam) as TableData) ?? {});
-			getOutput();
-		} else {
-			const demoTable = widgetData?.structuredData ?? {};
-			table = convertDataToTable(demoTable);
-			if (table && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
-			}
-		}
-	});
-
 	function onChangeTable(updatedTable: (string | number)[][]) {
 		table = updatedTable;
 		output = [];
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
 		for (let [i, row] of table.entries()) {
 			for (const [j, cell] of row.entries()) {
 				if (!String(cell)) {
@@ -106,7 +89,7 @@
 
 		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
-				data: JSON.stringify(tableWithoutOutput),
+				structured_data: JSON.stringify(tableWithoutOutput),
 			});
 		}
 
@@ -180,17 +163,17 @@
 		}, {});
 	}
 
-	function previewInputSample(sample: WidgetExampleStructuredDataInput) {
-		table = convertDataToTable(sample.structuredData);
-	}
-
-	function applyInputSample(sample: WidgetExampleStructuredDataInput) {
-		table = convertDataToTable(sample.structuredData);
-		getOutput();
+	function applyInputSample(sample: WidgetExampleStructuredDataInput, opts: ExampleRunOpts = {}) {
+		table = convertDataToTable(sample.structured_data);
+		if (opts.isPreview) {
+			return;
+		}
+		getOutput(opts.inferenceOpts);
 	}
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -201,8 +184,8 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isStructuredDataInput}
+	exampleQueryParams={["structured_data"]}
 >
 	<svelte:fragment slot="top">
 		<form>
