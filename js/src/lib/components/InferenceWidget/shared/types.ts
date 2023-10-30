@@ -24,9 +24,17 @@ export interface ExampleRunOpts {
 	inferenceOpts?: InferenceRunOpts;
 }
 
-export type LoadState = "Loadable" | "Loaded" | "TooBig" | "error";
+export enum LoadState {
+	Loadable = "Loadable",
+	Loaded = "Loaded",
+	TooBig = "TooBig",
+	Error = "error",
+}
 
-export type ComputeType = "cpu" | "gpu";
+export enum ComputeType {
+	CPU = "cpu",
+	GPU = "gpu",
+}
 
 export interface ModelLoadInfo {
 	state:         LoadState;
