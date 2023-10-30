@@ -70,7 +70,7 @@
 			const exampleFromQueryParams = {} as TWidgetExample;
 			for (const key of exampleQueryParams) {
 				const val = getQueryParamVal(key);
-				if(val){
+				if (val) {
 					exampleFromQueryParams[key] = val;
 				}
 			}
