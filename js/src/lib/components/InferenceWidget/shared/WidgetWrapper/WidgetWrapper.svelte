@@ -67,15 +67,18 @@
 			modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
 			$modelLoadStates[model.id] = modelLoadInfo;
 
-			// run widget example
-			if (exampleQueryParams.length) {
-				const example = {} as TWidgetExample;
-				for (const key of exampleQueryParams) {
-					const val = getQueryParamVal(key);
-					example[key] = val;
+			const exampleFromQueryParams = {} as TWidgetExample;
+			for (const key of exampleQueryParams) {
+				const val = getQueryParamVal(key);
+				if(val){
+					exampleFromQueryParams[key] = val;
 				}
-				applyInputSample(example);
+			}
+			if (Object.keys(exampleFromQueryParams).length) {
+				// run widget example from query params
+				applyInputSample(exampleFromQueryParams);
 			} else {
+				// run random widget example
 				const example = getWidgetExample<TWidgetExample>(model, validateExample);
 				if (callApiOnMount && example) {
 					applyInputSample(example, { inferenceOpts: { isOnLoadCall: true } });
