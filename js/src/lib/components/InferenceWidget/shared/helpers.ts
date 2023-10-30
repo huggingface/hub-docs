@@ -6,12 +6,15 @@ import type { ModelLoadInfo, TableData } from "./types";
 type KeysOfUnion<T> = T extends any ? keyof T : never;
 export type QueryParam = KeysOfUnion<WidgetExample>;
 type QueryParamVal = string | null | boolean | (string | number)[][];
+const KEYS_TEXT: QueryParam[] = ["text", "context", "candidate_labels"];
+const KEYS_TABLE: QueryParam[] = ["table", "structured_data"];
+
 export function getQueryParamVal(key: QueryParam): QueryParamVal {
 	const searchParams = new URL(window.location.href).searchParams;
 	const value = searchParams.get(key);
-	if (["text", "context", "question", "query", "candidate_labels"].includes(key)) {
+	if (KEYS_TEXT.includes(key)) {
 		return value;
-	} else if (["table", "structured_data"].includes(key)) {
+	} else if (KEYS_TABLE.includes(key)) {
 		const table = convertDataToTable((parseJSON(value) as TableData) ?? {});
 		return table;
 	} else if (key === "multi_class") {
