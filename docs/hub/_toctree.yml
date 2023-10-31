@@ -129,6 +129,9 @@
     title: Adding a new Dataset
   - local: datasets-viewer
     title: Dataset Viewer
+    sections:
+      - local: datasets-viewer-configure
+        title: Configure the Dataset Viewer
   - local: datasets-libraries
     title: Libraries
     sections:
