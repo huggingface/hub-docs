@@ -126,7 +126,7 @@
   - local: datasets-gated
     title: Gated Datasets
   - local: datasets-adding
-    title: Adding New Datasets
+    title: Adding a new Dataset
   - local: datasets-viewer
     title: Dataset Viewer
   - local: datasets-libraries
