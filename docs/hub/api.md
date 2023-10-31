@@ -157,7 +157,7 @@ Parameters:
 - `name`: Name of repo.
 - `organization`: Name of organization (optional).
 - `private`: Whether the repo is private.
-- `sdk`: Whether the type is `space` (streamlit, gradio, docker or static)
+- `sdk`: When the type is `space` (streamlit, gradio, docker or static)
 
 Payload:
 
