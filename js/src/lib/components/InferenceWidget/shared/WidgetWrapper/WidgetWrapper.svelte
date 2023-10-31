@@ -115,7 +115,7 @@
 				<IconCross classNames="text-xl text-gray-500 hover:text-black" />
 			</button>
 		{/if}
-		<WidgetHeader {noTitle} pipeline={model.pipeline_tag}>
+		<WidgetHeader {noTitle} pipeline={model.pipeline_tag} {isDisabled}>
 			{#if !!inputGroups.length}
 				<div class="ml-auto flex gap-x-1">
 					<!-- Show samples selector when there are more than one sample -->

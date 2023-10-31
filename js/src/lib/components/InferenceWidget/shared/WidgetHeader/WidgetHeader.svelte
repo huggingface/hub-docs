@@ -10,6 +10,7 @@
 	export let noTitle = false;
 	export let title: string | null = null;
 	export let pipeline: PipelineType | undefined;
+	export let isDisabled = false;
 
 	$: task = pipeline ? getPipelineTask(pipeline) : undefined;
 </script>
@@ -22,10 +23,14 @@
 			</div>
 		{:else}
 			<div class="flex items-center text-lg">
-				<IconLightning classNames="-ml-1 mr-1 text-yellow-500" />
-				Hosted inference API
+				{#if !isDisabled}
+					<IconLightning classNames="-ml-1 mr-1 text-yellow-500" />
+					Inference API
+				{:else}
+					Inference Examples
+				{/if}
 			</div>
-			<a target="_blank" href="https://huggingface.co/docs/api-inference">
+			<a target="_blank" href="https://huggingface.co/docs/hub/models-widgets#example-outputs">
 				<IconInfo classNames="ml-1.5 text-sm text-gray-400 hover:text-black" />
 			</a>
 		{/if}
