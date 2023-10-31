@@ -231,7 +231,7 @@
 				/>
 				<WidgetShortcutRunLabel {isLoading} {isDisabled} />
 				<div class="ml-auto self-start">
-					<WidgetTimer bind:this={inferenceTimer} />
+					<WidgetTimer bind:this={inferenceTimer} {isDisabled} />
 				</div>
 			</div>
 			{#if warning}
