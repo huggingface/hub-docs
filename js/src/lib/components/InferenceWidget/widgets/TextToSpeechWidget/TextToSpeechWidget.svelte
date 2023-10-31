@@ -16,7 +16,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
-	export let isDisabled: WidgetProps["isDisabled"] = false;
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -111,7 +111,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	{isDisabled}
+	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}

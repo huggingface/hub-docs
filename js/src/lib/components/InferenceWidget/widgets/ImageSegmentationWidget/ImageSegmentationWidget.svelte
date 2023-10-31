@@ -21,7 +21,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
-	export let isDisabled: WidgetProps["isDisabled"] = false;
+	let isDisabled = false;
 
 	const maskOpacity = Math.floor(255 * 0.6);
 	const colorToRgb = COLORS.reduce((acc, clr) => {
@@ -237,7 +237,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	{isDisabled}
+	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}

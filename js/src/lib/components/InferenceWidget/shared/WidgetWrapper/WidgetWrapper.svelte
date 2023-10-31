@@ -16,6 +16,7 @@
 	import WidgetModelLoading from "../WidgetModelLoading/WidgetModelLoading.svelte";
 	import { getModelLoadInfo, getQueryParamVal, getWidgetExample } from "../../shared/helpers";
 	import { modelLoadStates } from "../../stores";
+	import { InferenceDisplayability } from "../../../../interfaces/InferenceDisplayability";
 
 	export let apiUrl: string;
 	export let callApiOnMount: WidgetProps["callApiOnMount"];
@@ -39,6 +40,10 @@
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
 
+	$: modelTooBig = $modelLoadStates[model.id]?.state === "TooBig";
+	$: isDisabled =
+		(model.inference !== InferenceDisplayability.Yes && model.pipeline_tag !== "reinforcement-learning") || modelTooBig;
+
 	const inputSamples = (model.widgetData ?? [])
 		.filter(validateExample)
 		.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
@@ -47,6 +52,9 @@
 			group: "Group 1",
 			...sample,
 		}));
+
+	// todo: here
+	const hasExampleWithOutput = !!inputSamples.length;
 
 	const inputGroups: {
 		group: string;
@@ -93,41 +101,46 @@
 	}
 </script>
 
-<div
-	class="flex w-full max-w-full flex-col
-	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}
-	{!modelLoadInfo ? 'hidden' : ''}"
->
-	{#if isMaximized}
-		<button class="absolute right-12 top-6" on:click={onClickMaximizeBtn}>
-			<IconCross classNames="text-xl text-gray-500 hover:text-black" />
-		</button>
-	{/if}
-	<WidgetHeader {noTitle} pipeline={model.pipeline_tag}>
-		{#if !!inputGroups.length}
-			<div class="ml-auto flex gap-x-1">
-				<!-- Show samples selector when there are more than one sample -->
-				{#if inputGroups.length > 1}
-					<WidgetInputSamplesGroup
-						bind:selectedInputGroup
-						{isLoading}
-						inputGroups={inputGroups.map(({ group }) => group)}
-					/>
-				{/if}
-				<WidgetInputSamples
-					classNames={!selectedInputSamples ? "opacity-50 pointer-events-none" : ""}
-					{isLoading}
-					inputSamples={selectedInputSamples?.inputSamples ?? []}
-					{applyInputSample}
-				/>
-			</div>
-		{/if}
-	</WidgetHeader>
-	<slot name="top" />
+{#if isDisabled && !hasExampleWithOutput}
+	<WidgetHeader pipeline={model.pipeline_tag} noTitle={true} />
 	<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} />
-	{#if modelLoading.isLoading}
-		<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
-	{/if}
-	<slot name="bottom" />
-	<WidgetFooter {onClickMaximizeBtn} {outputJson} {isDisabled} />
-</div>
+{:else}
+	<div
+		class="flex w-full max-w-full flex-col
+		 {isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}
+		 {!modelLoadInfo ? 'hidden' : ''}"
+	>
+		{#if isMaximized}
+			<button class="absolute right-12 top-6" on:click={onClickMaximizeBtn}>
+				<IconCross classNames="text-xl text-gray-500 hover:text-black" />
+			</button>
+		{/if}
+		<WidgetHeader {noTitle} pipeline={model.pipeline_tag}>
+			{#if !!inputGroups.length}
+				<div class="ml-auto flex gap-x-1">
+					<!-- Show samples selector when there are more than one sample -->
+					{#if inputGroups.length > 1}
+						<WidgetInputSamplesGroup
+							bind:selectedInputGroup
+							{isLoading}
+							inputGroups={inputGroups.map(({ group }) => group)}
+						/>
+					{/if}
+					<WidgetInputSamples
+						classNames={!selectedInputSamples ? "opacity-50 pointer-events-none" : ""}
+						{isLoading}
+						inputSamples={selectedInputSamples?.inputSamples ?? []}
+						{applyInputSample}
+					/>
+				</div>
+			{/if}
+		</WidgetHeader>
+		<slot name="top" />
+		<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} />
+		{#if modelLoading.isLoading}
+			<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
+		{/if}
+		<slot name="bottom" />
+		<WidgetFooter {onClickMaximizeBtn} {outputJson} {isDisabled} />
+	</div>
+{/if}

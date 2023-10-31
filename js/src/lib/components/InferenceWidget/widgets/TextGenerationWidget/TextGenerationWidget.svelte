@@ -22,7 +22,7 @@
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
 	export let isLoggedIn: WidgetProps["includeCredentials"];
-	export let isDisabled: WidgetProps["isDisabled"] = false;
+	let isDisabled = false;
 
 	const isBloomLoginRequired = isLoggedIn === false && model.id === "bigscience/bloom";
 
@@ -200,7 +200,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	{isDisabled}
+	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}

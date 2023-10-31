@@ -10,7 +10,6 @@ export interface WidgetProps {
 	shouldUpdateUrl:    boolean;
 	includeCredentials: boolean;
 	isLoggedIn?:        boolean;
-	isDisabled?:        boolean;
 }
 
 export interface InferenceRunOpts<TOutput = WidgetExampleOutput> {

@@ -15,7 +15,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
-	export let isDisabled: WidgetProps["isDisabled"] = false;
+	let isDisabled = false;
 
 	interface Conversation {
 		generated_responses: string[];
@@ -161,7 +161,7 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	{isDisabled}
+	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}
