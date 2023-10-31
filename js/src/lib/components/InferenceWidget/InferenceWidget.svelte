@@ -78,9 +78,6 @@
 		"zero-shot-image-classification": ZeroShotImageClassificationWidget,
 	};
 
-	const hasExampleWithOutput = model.widgetData?.some(sample => !!sample.output);
-	$: modelTooBig = $modelLoadStates[model.id]?.state === "TooBig";
-
 	$: widgetComponent = WIDGET_COMPONENTS[model.pipeline_tag ?? ""];
 
 	// prettier-ignore
