@@ -26,22 +26,34 @@ Parquet key features are:
 
 The dataset viewer also supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
 
-## Supported dataset structures
+## Define the dataset splits
 
-You can name the data files or their folder after their split names train/validation/test.
+You can name the data files or their folder after their split names (train/validation/test).
 If there are no split names, all the data files are considered part of the train split.
 
-For image and audio classification datasets, you can also use directories to name the image and audio classes.
-And if your images/audio files have metadata (e.g. captions, bounding boxes, transcriptions, etc.), you can have metadata files next to them.
+For more information, feel free to check out the documentation on  on [Automatic splits detection](https://huggingface.co/docs/datasets/repository_structure#automatic-splits-detection)
+
+## Configure the dataset
 
 It is also possible to customize your splits manually.
 Indeed, you can use YAML to:
 
 - List the data files per split
-- Define multiple datasets configurations (e.g. if you dataset has multiple subsets or languages)
+- Use custom split names
 - Pass dataset building parameters (e.g. the separator used in your CSV files).
+- Define multiple datasets configurations (e.g. if you dataset has multiple subsets or languages)
 
-For more information, feel free to check out the guide on [How to structure your dataset repository](https://huggingface.co/docs/datasets/repository_structure)
+Check out the guide on [How to structure your dataset repository](https://huggingface.co/docs/datasets/repository_structure) for more details.
+
+## Image and audio datasets
+
+For image and audio classification datasets, you can also use directories to name the image and audio classes.
+And if your images/audio files have metadata (e.g. captions, bounding boxes, transcriptions, etc.), you can have metadata files next to them.
+
+Those two guides can be useful:
+
+- [How to create an image dataset](https://huggingface.co/docs/datasets/image_dataset)
+- [How to create an audio dataset](https://huggingface.co/docs/datasets/audio_dataset)
 
 ## Disable the viewer
 
