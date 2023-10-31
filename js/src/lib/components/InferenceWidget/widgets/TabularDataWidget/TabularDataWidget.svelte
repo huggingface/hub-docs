@@ -42,21 +42,21 @@
 	let scrollTableToRight: () => Promise<void>;
 	let tableWithOutput: (string | number)[][];
 	$: {
-		const strucuredData = convertTableToData(table);
+		const structuredData = convertTableToData(table);
 		if (output?.length) {
-			strucuredData.Prediction = output;
-			const lastColIndex = Object.keys(strucuredData).length - 1;
+			structuredData.Prediction = output;
+			const lastColIndex = Object.keys(structuredData).length - 1;
 			highlighted = highlightOutput(output, lastColIndex);
 			scrollTableToRight();
 		} else {
-			delete strucuredData.Prediction;
+			delete structuredData.Prediction;
 			highlighted = {};
 			if (highlightErrorKey) {
 				highlighted[highlightErrorKey] = "bg-red-100 border-red-100 dark:bg-red-800 dark:border-red-800";
 				highlightErrorKey = "";
 			}
 		}
-		tableWithOutput = convertDataToTable(strucuredData);
+		tableWithOutput = convertDataToTable(structuredData);
 	}
 
 	const COLORS = ["blue", "green", "yellow", "purple", "red"] as const;
