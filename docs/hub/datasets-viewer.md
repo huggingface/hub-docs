@@ -7,9 +7,19 @@ The dataset page includes a table with the contents of the dataset, arranged by 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-dark.png"/>
 </div>
 
+## Inspect data distributions
+
+At the top of each column you can see histograms representing the distributions of numerical values and text lengths.
+For categorical data there is also the number of rows from each class.
+
+## Filter by value
+
+If you click on a bar of a histogram from a numerical column, the dataset viewer will filter the data and show only the rows with values that fall in the selected range.
+Similarly, if you select one class from a categorical column, it will show only the rows from the selected category.
+
 ## Search a word in the dataset
 
-You can search for a word in the dataset by typing it in the search bar at the top of the table. The search is case-insensitive and will match any row containing the word. The text is searched in the columns of type `string`, even if the values are nested in a dictionary.
+You can search for a word in the dataset by typing it in the search bar at the top of the table. The search is case-insensitive and will match any row containing the word. The text is searched in the columns of `string`, even if the values are nested in a dictionary or a list.
 
 ## Share a specific row
 
@@ -17,7 +27,7 @@ You can share a specific row by clicking on it, and then copying the URL in the 
 
 ## Access the parquet files
 
-Every dataset is auto-converted to the Parquet format. Click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset with libraries such as Polars, Pandas or DuckDB.
+To power the dataset viewer, every dataset is auto-converted to the Parquet format. Click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset with libraries such as Polars, Pandas or DuckDB.
 
 You can also access the list of Parquet files programmatically using the [Hub API](./api#endpoints-table): https://huggingface.co/api/datasets/glue/parquet.
 
@@ -35,14 +45,9 @@ For the biggest datasets, the page shows a preview of the first 100 rows instead
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-preview-dark.png"/>
 </div>
 
-## Disable the viewer
+## Configure the Dataset Viewer
 
-The dataset viewer can be disabled. To do this, add a YAML section to the dataset's `README.md` file (create one if it does not already exist) and add a `viewer` property with the value `false`.
+To have a nice and working Dataset Viewer for your dataset, make sure your dataset is in a supported format and structure.
+There is also an option to configure the Dataset Viewer using YAML.
 
-```
----
-viewer: false
----
-```
-
-Note that the viewer is always disabled on the private datasets.
+For more information see our guide on [How to configure the Dataset Viewer](./datasets-viewer-configure)

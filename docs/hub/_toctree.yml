@@ -125,12 +125,23 @@
     title: Dataset Cards
   - local: datasets-gated
     title: Gated Datasets
-  - local: datasets-viewer
-    title: Dataset Viewer
-  - local: datasets-usage
-    title: Using Datasets
   - local: datasets-adding
     title: Adding New Datasets
+  - local: datasets-viewer
+    title: Dataset Viewer
+  - local: datasets-libraries
+    title: Libraries
+    sections:
+      - local: datasets-dask
+        title: Dask
+      - local: datasets-usage
+        title: Datasets
+      - local: datasets-duckdb
+        title: DuckDB
+      - local: datasets-pandas
+        title: Pandas
+      - local: datasets-webdataset
+        title: WebDataset
 - local: spaces
   title: Spaces
   isExpanded: true
