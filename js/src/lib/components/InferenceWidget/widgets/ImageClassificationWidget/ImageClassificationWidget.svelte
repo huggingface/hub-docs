@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, InferenceRunFlags, ExampleRunOpts } from "../../shared/types";
+	import type { WidgetProps, InferenceRunOpts, ExampleRunOpts } from "../../shared/types";
 	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
@@ -36,7 +36,7 @@
 
 	async function getOutput(
 		file: File | Blob,
-		{ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}
+		{ withModelLoading = false, isOnLoadCall = false, exampleOutput = undefined }: InferenceRunOpts = {}
 	) {
 		if (!file) {
 			return;
@@ -108,7 +108,8 @@
 			return;
 		}
 		const blob = await getBlobFromUrl(imgSrc);
-		getOutput(blob, opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput(blob, { ...opts.inferenceOpts, exampleOutput });
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {

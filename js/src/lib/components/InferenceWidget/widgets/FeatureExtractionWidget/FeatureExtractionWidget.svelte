@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
@@ -28,12 +28,16 @@
 	let outputJson: string;
 	let text = "";
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
 			error = "You need to input some text";
-			output = undefined;
+			exampleOutput = undefined;
 			outputJson = "";
 			return;
 		}
@@ -63,7 +67,7 @@
 		computeTime = "";
 		error = "";
 		modelLoading = { isLoading: false, estimatedTime: 0 };
-		output = undefined;
+		exampleOutput = undefined;
 		outputJson = "";
 
 		if (res.status === "success") {
@@ -111,7 +115,8 @@
 		if (opts.isPreview) {
 			return;
 		}
-		getOutput(opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 </script>
 

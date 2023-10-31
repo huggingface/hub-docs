@@ -1,4 +1,5 @@
 import type { ModelData } from "../../../interfaces/Types";
+import type { WidgetExampleOutput } from "./WidgetExample";
 
 export interface WidgetProps {
 	apiToken?:          string;
@@ -11,15 +12,16 @@ export interface WidgetProps {
 	isLoggedIn?:        boolean;
 }
 
-export interface InferenceRunFlags {
+export interface InferenceRunOpts<TOutput = WidgetExampleOutput> {
 	withModelLoading?: boolean;
 	isOnLoadCall?:     boolean;
 	useCache?:         boolean;
+	exampleOutput?:    TOutput;
 }
 
 export interface ExampleRunOpts {
 	isPreview?:     boolean;
-	inferenceOpts?: InferenceRunFlags;
+	inferenceOpts?: InferenceRunOpts;
 }
 
 export type LoadState = "Loadable" | "Loaded" | "TooBig" | "error";

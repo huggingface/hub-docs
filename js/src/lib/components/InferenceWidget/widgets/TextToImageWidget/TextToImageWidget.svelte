@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ExampleRunOpts } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleTextInput, WidgetExampleOutputUrl, WidgetExample } from "../../shared/WidgetExample";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
@@ -27,7 +27,17 @@
 	let outputJson = "";
 	let text = "";
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = false } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		useCache = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts<WidgetExampleOutputUrl> = {}) {
+		if (exampleOutput) {
+			output = exampleOutput.url;
+			return;
+		}
+
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -97,7 +107,8 @@
 			}
 			return;
 		}
-		getOutput(opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputUrl> {

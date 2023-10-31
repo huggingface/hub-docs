@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { PipelineType } from "../../../../interfaces/Types";
 	import type { WidgetExampleTextInput, WidgetExampleOutputText, WidgetExample } from "../../shared/WidgetExample";
 
@@ -51,8 +51,16 @@
 		withModelLoading = false,
 		isOnLoadCall = false,
 		useCache = true,
-	}: InferenceRunFlags = {}) {
+		exampleOutput = undefined,
+	}: InferenceRunOpts<WidgetExampleOutputText> = {}) {
 		if (isBloomLoginRequired) {
+			return;
+		}
+
+		if (exampleOutput) {
+			output = exampleOutput.text;
+			outputJson = "";
+			renderTypingEffect(output);
 			return;
 		}
 
@@ -166,7 +174,8 @@
 			}
 			return;
 		}
-		getOutput({ useCache, ...opts.inferenceOpts });
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, useCache, exampleOutput });
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputText> {

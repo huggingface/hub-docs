@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, HighlightCoordinates, ExampleRunOpts, InferenceRunFlags } from "../../shared/types";
+	import type { WidgetProps, HighlightCoordinates, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleTextAndTableInput } from "../../shared/WidgetExample";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
@@ -54,7 +54,11 @@
 		table = updatedTable;
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false }: InferenceRunFlags = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedQuery = query.trim();
 
 		if (!trimmedQuery) {
@@ -144,7 +148,8 @@
 		if (opts.isPreview) {
 			return;
 		}
-		getOutput(opts.inferenceOpts);
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 </script>
 
