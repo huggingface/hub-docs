@@ -7,6 +7,13 @@ The dataset page includes a table with the contents of the dataset, arranged by 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-dark.png"/>
 </div>
 
+## Configure the Dataset Viewer
+
+To have a nice and working Dataset Viewer for your dataset, make sure your dataset is in a supported format and structure.
+There is also an option to configure the Dataset Viewer using YAML.
+
+For more information see our guide on [How to configure the Dataset Viewer](./datasets-viewer-configure).
+
 ## Inspect data distributions
 
 At the top of each column you can see histograms representing the distributions of numerical values and text lengths.
@@ -44,10 +51,3 @@ For the biggest datasets, the page shows a preview of the first 100 rows instead
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-preview.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-preview-dark.png"/>
 </div>
-
-## Configure the Dataset Viewer
-
-To have a nice and working Dataset Viewer for your dataset, make sure your dataset is in a supported format and structure.
-There is also an option to configure the Dataset Viewer using YAML.
-
-For more information see our guide on [How to configure the Dataset Viewer](./datasets-viewer-configure)
