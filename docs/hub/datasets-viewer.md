@@ -10,7 +10,7 @@ The dataset page includes a table with the contents of the dataset, arranged by 
 ## Configure the Dataset Viewer
 
 To have a nice and working Dataset Viewer for your dataset, make sure your dataset is in a supported format and structure.
-There is also an option to configure the Dataset Viewer using YAML.
+There is also an option to configure your dataset using YAML.
 
 For more information see our guide on [How to configure the Dataset Viewer](./datasets-viewer-configure).
 

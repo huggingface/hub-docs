@@ -64,7 +64,9 @@ Adding a Dataset card is super valuable for helping users find your dataset and 
 ### Dataset Viewer
 
 The [Dataset Viewer](./datasets-viewer) is crucial to know what the data actually look like.
-You can [configure it](./datasets-viewer-configure) and specify which files to show and how they should be shown.
+It is generally enabled by default for any dataset, depending on the dataset structure.
+
+Please refer to the documentation on [Dataset Structure](./datasets-structure).
 
 ## Using Git
 
