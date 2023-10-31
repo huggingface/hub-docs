@@ -9,8 +9,7 @@
 	export let computeTime: string;
 	export let error: string;
 	export let modelLoadInfo: ModelLoadInfo | undefined = undefined;
-
-	$: modelTooBig = false; // TODO
+	export let modelTooBig = false;
 
 	const state = {
 		Loadable: "This model can be loaded on the Inference API on-demand.",

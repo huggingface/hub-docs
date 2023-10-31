@@ -39,8 +39,8 @@
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
+	let modelTooBig = false;
 
-	$: modelTooBig = $modelLoadStates[model.id]?.state === "TooBig";
 	$: isDisabled =
 		(model.inference !== InferenceDisplayability.Yes && model.pipeline_tag !== "reinforcement-learning") || modelTooBig;
 
@@ -53,8 +53,7 @@
 			...sample,
 		}));
 
-	// todo: here
-	const hasExampleWithOutput = !!inputSamples.length;
+	const hasExampleWithOutput = inputSamples.some(sample => !!sample.output);
 
 	const inputGroups: {
 		group: string;
@@ -74,6 +73,7 @@
 	onMount(() => {
 		(async () => {
 			modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
+			modelTooBig = modelLoadInfo?.state === "TooBig";
 			$modelLoadStates[model.id] = modelLoadInfo;
 
 			const exampleFromQueryParams = {} as TWidgetExample;
@@ -103,7 +103,7 @@
 
 {#if isDisabled && !hasExampleWithOutput}
 	<WidgetHeader pipeline={model.pipeline_tag} noTitle={true} />
-	<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} />
+	<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} {modelTooBig} />
 {:else}
 	<div
 		class="flex w-full max-w-full flex-col
@@ -136,7 +136,7 @@
 			{/if}
 		</WidgetHeader>
 		<slot name="top" />
-		<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} />
+		<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} {modelTooBig} />
 		{#if modelLoading.isLoading}
 			<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
 		{/if}
