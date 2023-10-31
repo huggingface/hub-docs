@@ -88,7 +88,7 @@
 				: 'min-h-[144px]'} inline-block max-h-[500px] whitespace-pre-wrap rounded-lg border border-gray-200 shadow-inner outline-none focus:shadow-inner focus:ring focus:ring-blue-200 dark:bg-gray-925"
 			role="textbox"
 			contenteditable={!isLoading && !isDisabled}
-			style="--placeholder: '{placeholder}'"
+			style="--placeholder: '{isDisabled ? '' : placeholder}'"
 			spellcheck="false"
 			dir="auto"
 			bind:this={containerSpanEl}

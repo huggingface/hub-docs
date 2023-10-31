@@ -155,13 +155,13 @@
 				bind:value={sourceSentence}
 				{isDisabled}
 				label="Source Sentence"
-				placeholder="Your sentence here..."
+				placeholder={isDisabled ? "" : "Your sentence here..."}
 			/>
 			<WidgetTextInput
 				bind:value={comparisonSentences[0]}
 				{isDisabled}
 				label="Sentences to compare to"
-				placeholder="Your sentence here..."
+				placeholder={isDisabled ? "" : "Your sentence here..."}
 			/>
 			{#each Array(nComparisonSentences - 1) as _, idx}
 				<WidgetTextInput bind:value={comparisonSentences[idx + 1]} {isDisabled} placeholder="Your sentence here..." />

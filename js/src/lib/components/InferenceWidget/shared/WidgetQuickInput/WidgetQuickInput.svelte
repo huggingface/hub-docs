@@ -14,7 +14,7 @@
 	<input
 		bind:value
 		class="form-input-alt min-w-0 flex-1 rounded-r-none {flatTop ? 'rounded-t-none' : ''}"
-		{placeholder}
+		placeholder={isDisabled ? "" : placeholder}
 		required={true}
 		type="text"
 		disabled={isLoading || isDisabled}

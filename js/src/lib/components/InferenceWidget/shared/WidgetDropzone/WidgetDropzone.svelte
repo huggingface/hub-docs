@@ -57,7 +57,8 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	class="relative cursor-pointer rounded border-2 border-dashed px-3 py-7 text-center
-		{isDragging ? 'border-green-300 bg-green-50 text-green-500' : 'text-gray-500'} 
+		{isDisabled ? 'pointer-events-none' : ''}
+		{isDragging ? 'border-green-300 bg-green-50 text-green-500' : 'text-gray-500'}
 		{classNames}"
 	on:click={() => {
 		fileInput.click();
@@ -71,7 +72,7 @@
 	on:dragover|preventDefault
 	on:drop|preventDefault={onDrop}
 >
-	{#if !imgSrc}
+	{#if !imgSrc && !isDisabled}
 		<span class="pointer-events-none text-sm">{label}</span>
 	{:else}
 		<div class={isDragging ? "pointer-events-none" : ""}>

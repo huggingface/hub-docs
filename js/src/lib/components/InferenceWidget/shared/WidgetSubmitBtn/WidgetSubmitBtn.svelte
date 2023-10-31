@@ -8,7 +8,7 @@
 	export let onClick: () => void;
 
 	function onKeyDown(e: KeyboardEvent) {
-		if (isLoading) {
+		if (isLoading || isDisabled) {
 			return;
 		}
 		// run inference on cmd+Enter
@@ -21,15 +21,17 @@
 
 <svelte:window on:keydown={onKeyDown} />
 
-<button
-	class="btn-widget h-10 w-24 px-5 {classNames}"
-	disabled={isDisabled || isLoading}
-	on:click|preventDefault={onClick}
-	type="submit"
->
-	{#if isLoading}
-		<IconSpin classNames="text-gray-600 animate-spin" />
-	{:else}
-		{label}
-	{/if}
-</button>
+{#if !isDisabled}
+	<button
+		class="btn-widget h-10 w-24 px-5 {classNames}"
+		disabled={isDisabled || isLoading}
+		on:click|preventDefault={onClick}
+		type="submit"
+	>
+		{#if isLoading}
+			<IconSpin classNames="text-gray-600 animate-spin" />
+		{:else}
+			{label}
+		{/if}
+	</button>
+{/if}

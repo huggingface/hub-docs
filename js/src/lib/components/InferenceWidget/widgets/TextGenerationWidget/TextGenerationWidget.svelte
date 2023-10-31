@@ -229,7 +229,7 @@
 						getOutput({ useCache });
 					}}
 				/>
-				<WidgetShortcutRunLabel {isLoading} />
+				<WidgetShortcutRunLabel {isLoading} {isDisabled} />
 				<div class="ml-auto self-start">
 					<WidgetTimer bind:this={inferenceTimer} />
 				</div>

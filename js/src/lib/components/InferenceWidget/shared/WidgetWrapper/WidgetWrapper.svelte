@@ -33,6 +33,7 @@
 	export let applyInputSample: (sample: TWidgetExample, opts?: ExampleRunOpts) => void = () => {};
 	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
 	export let exampleQueryParams: QueryParam[] = [];
+	export let isDisabled = false;
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
@@ -128,5 +129,5 @@
 		<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
 	{/if}
 	<slot name="bottom" />
-	<WidgetFooter {onClickMaximizeBtn} {outputJson} />
+	<WidgetFooter {onClickMaximizeBtn} {outputJson} {isDisabled} />
 </div>

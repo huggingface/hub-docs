@@ -173,7 +173,7 @@
 >
 	<svelte:fragment slot="top">
 		<form>
-			<div class="flex flex-wrap items-center {isDisabled ? 'pointer-events-none opacity-50' : ''}">
+			<div class="flex flex-wrap items-center {isDisabled ? 'pointer-events-none hidden opacity-50' : ''}">
 				<WidgetFileInput accept="audio/*" classNames="mt-1.5 mr-2" {onSelectFile} />
 				<span class="mr-2 mt-1.5">or</span>
 				<WidgetRecorder classNames="mt-1.5" {onRecordStart} onRecordStop={onSelectFile} onError={onRecordError} />

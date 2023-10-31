@@ -12,7 +12,7 @@
 		<input
 			bind:value
 			class="{label ? 'mt-1.5' : ''} form-input-alt block w-full"
-			{placeholder}
+			placeholder={isDisabled ? "" : placeholder}
 			disabled={isDisabled}
 			type="text"
 		/>
