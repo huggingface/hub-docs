@@ -1,4 +1,3 @@
-import { InferenceDisplayability } from "../../../interfaces/InferenceDisplayability";
 import type { ModelData } from "../../../interfaces/Types";
 import { randomItem, parseJSON } from "../../../utils/ViewUtils";
 import type { WidgetExample } from "./WidgetExample";
