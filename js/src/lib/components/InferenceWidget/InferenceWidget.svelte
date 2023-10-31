@@ -27,8 +27,7 @@
 	import VisualQuestionAnsweringWidget from "./widgets/VisualQuestionAnsweringWidget/VisualQuestionAnsweringWidget.svelte";
 	import ZeroShotClassificationWidget from "./widgets/ZeroShowClassificationWidget/ZeroShotClassificationWidget.svelte";
 	import ZeroShotImageClassificationWidget from "./widgets/ZeroShotImageClassificationWidget/ZeroShotImageClassificationWidget.svelte";
-	import { modelLoadStates } from "./stores";
-
+	
 	export let apiToken: WidgetProps["apiToken"] = undefined;
 	export let callApiOnMount = false;
 	export let apiUrl = "https://api-inference.huggingface.co";
