@@ -35,16 +35,19 @@
 	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
 	export let exampleQueryParams: QueryParam[] = [];
 	export let isDisabled = false;
+	isDisabled = model.inference !== InferenceDisplayability.Yes && model.pipeline_tag !== "reinforcement-learning";
 
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
 	let modelTooBig = false;
 
-	$: isDisabled =
-		(model.inference !== InferenceDisplayability.Yes && model.pipeline_tag !== "reinforcement-learning") || modelTooBig;
+	interface ExamplesGroup {
+		group: string;
+		inputSamples: TWidgetExample[];
+	}
 
-	const inputSamples = (model.widgetData ?? [])
+	const inputSamplesAll = (model.widgetData ?? [])
 		.filter(validateExample)
 		.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
 		.map((sample, idx) => ({
@@ -52,29 +55,36 @@
 			group: "Group 1",
 			...sample,
 		}));
-
-	const hasExampleWithOutput = inputSamples.some(sample => !!sample.output);
-
-	const inputGroups: {
-		group: string;
-		inputSamples: TWidgetExample[];
-	}[] = [];
-	for (const inputSample of inputSamples) {
-		const isExist = inputGroups.find(({ group }) => group === inputSample.group);
-		if (!isExist) {
-			inputGroups.push({ group: inputSample.group as string, inputSamples: [] });
-		}
-		inputGroups.find(({ group }) => group === inputSample.group)?.inputSamples.push(inputSample);
-	}
+	let inputSamples = !isDisabled ? inputSamplesAll : inputSamplesAll.filter(sample => sample.output !== undefined);
+	let inputGroups = getExamplesGroups();
 
 	$: selectedInputSamples =
 		inputGroups.length === 1 ? inputGroups[0] : inputGroups.find(({ group }) => group === selectedInputGroup);
 
+	function getExamplesGroups(): ExamplesGroup[] {
+		const inputGroups: ExamplesGroup[] = [];
+		for (const inputSample of inputSamples) {
+			const isExist = inputGroups.find(({ group }) => group === inputSample.group);
+			if (!isExist) {
+				inputGroups.push({ group: inputSample.group as string, inputSamples: [] });
+			}
+			inputGroups.find(({ group }) => group === inputSample.group)?.inputSamples.push(inputSample);
+		}
+		return inputGroups;
+	}
+
 	onMount(() => {
 		(async () => {
 			modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
-			modelTooBig = modelLoadInfo?.state === "TooBig";
 			$modelLoadStates[model.id] = modelLoadInfo;
+			modelTooBig = modelLoadInfo?.state === "TooBig";
+
+			if (modelTooBig) {
+				// disable the widget
+				isDisabled = true;
+				inputSamples = inputSamplesAll.filter(sample => sample.output !== undefined);
+				inputGroups = getExamplesGroups();
+			}
 
 			const exampleFromQueryParams = {} as TWidgetExample;
 			for (const key of exampleQueryParams) {
@@ -101,7 +111,7 @@
 	}
 </script>
 
-{#if isDisabled && !hasExampleWithOutput}
+{#if isDisabled && !inputSamples.length}
 	<WidgetHeader pipeline={model.pipeline_tag} noTitle={true} />
 	<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} {modelTooBig} />
 {:else}
