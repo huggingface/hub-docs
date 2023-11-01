@@ -64,8 +64,8 @@
 	function getExamplesGroups(): ExamplesGroup[] {
 		const inputGroups: ExamplesGroup[] = [];
 		for (const inputSample of inputSamples) {
-			const isExist = inputGroups.find(({ group }) => group === inputSample.group);
-			if (!isExist) {
+			const groupExists = inputGroups.find(({ group }) => group === inputSample.group);
+			if (!groupExists) {
 				inputGroups.push({ group: inputSample.group as string, inputSamples: [] });
 			}
 			inputGroups.find(({ group }) => group === inputSample.group)?.inputSamples.push(inputSample);
