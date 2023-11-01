@@ -142,14 +142,13 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}
 	{outputJson}
 	validateExample={isSentenceSimilarityInput}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="flex flex-col space-y-2">
 			<WidgetTextInput
 				bind:value={sourceSentence}

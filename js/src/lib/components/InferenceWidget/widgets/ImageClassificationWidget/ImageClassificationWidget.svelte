@@ -126,14 +126,13 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}
 	{outputJson}
 	{validateExample}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
 			<WidgetDropzone
 				classNames="no-hover:hidden"

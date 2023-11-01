@@ -137,7 +137,6 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -145,7 +144,7 @@
 	{validateExample}
 	exampleQueryParams={["context", "text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="space-y-2">
 			<WidgetQuickInput
 				bind:value={question}

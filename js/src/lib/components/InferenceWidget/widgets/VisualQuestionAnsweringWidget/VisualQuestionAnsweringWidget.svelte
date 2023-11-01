@@ -150,14 +150,13 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}
 	{outputJson}
 	validateExample={isAssetAndTextInput}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="space-y-2">
 			<WidgetDropzone
 				classNames="hidden md:block"

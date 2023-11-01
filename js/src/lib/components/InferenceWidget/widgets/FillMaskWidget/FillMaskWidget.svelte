@@ -140,7 +140,6 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -148,7 +147,7 @@
 	{validateExample}
 	exampleQueryParams={["text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
 			{#if model.pipeline_tag === "fill-mask"}
 				<div class="mb-1.5 text-sm text-gray-500">

@@ -186,7 +186,6 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -194,7 +193,7 @@
 	validateExample={isStructuredDataInput}
 	exampleQueryParams={["structured_data"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
 			<div class="mt-4">
 				{#if table.length > 1 || table[1]?.length > 1}

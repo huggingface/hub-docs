@@ -34,9 +34,8 @@
 	export let applyInputSample: (sample: TWidgetExample, opts?: ExampleRunOpts) => void = () => {};
 	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
 	export let exampleQueryParams: QueryParam[] = [];
-	export let isDisabled = false;
-	isDisabled = model.inference !== InferenceDisplayability.Yes && model.pipeline_tag !== "reinforcement-learning";
 
+	let isDisabled = model.inference !== InferenceDisplayability.Yes && model.pipeline_tag !== "reinforcement-learning";
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
@@ -145,7 +144,7 @@
 				</div>
 			{/if}
 		</WidgetHeader>
-		<slot name="top" />
+		<slot name="top" {isDisabled} />
 		<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} {modelTooBig} />
 		{#if modelLoading.isLoading}
 			<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />

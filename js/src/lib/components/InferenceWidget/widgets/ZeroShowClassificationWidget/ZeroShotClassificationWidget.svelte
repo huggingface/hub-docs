@@ -146,7 +146,6 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -154,7 +153,7 @@
 	validateExample={isZeroShotTextInput}
 	exampleQueryParams={["candidate_labels", "multi_class", "text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="flex flex-col space-y-2">
 			<WidgetTextarea
 				bind:value={text}

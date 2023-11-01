@@ -112,7 +112,6 @@
 	{computeTime}
 	{error}
 	{isLoading}
-	bind:isDisabled
 	{model}
 	{modelLoading}
 	{noTitle}
@@ -120,7 +119,7 @@
 	validateExample={isTextInput}
 	exampleQueryParams={["text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="space-y-2">
 			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} {isDisabled} />
 			<WidgetSubmitBtn
