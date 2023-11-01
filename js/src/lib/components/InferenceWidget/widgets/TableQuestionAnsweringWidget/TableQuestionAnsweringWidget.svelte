@@ -28,6 +28,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -168,11 +169,12 @@
 	validateExample={isTextAndTableInput}
 	exampleQueryParams={["text", "table"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
 			<WidgetQuickInput
 				bind:value={query}
 				{isLoading}
+				{isDisabled}
 				onClickSubmitBtn={() => {
 					getOutput();
 				}}
@@ -183,7 +185,7 @@
 				<WidgetOutputTableQA {output} {isAnswerOnlyOutput} />
 			{/if}
 			{#if table.length > 1 || table[0].length > 1}
-				<WidgetTableInput {highlighted} onChange={onChangeTable} {table} />
+				<WidgetTableInput {highlighted} onChange={onChangeTable} {table} {isDisabled} />
 			{/if}
 		</div>
 	</svelte:fragment>

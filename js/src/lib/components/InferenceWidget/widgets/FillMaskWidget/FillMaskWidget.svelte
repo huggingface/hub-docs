@@ -17,6 +17,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -146,17 +147,18 @@
 	{validateExample}
 	exampleQueryParams={["text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
 			{#if model.pipeline_tag === "fill-mask"}
 				<div class="mb-1.5 text-sm text-gray-500">
 					Mask token: <code>{model.mask_token}</code>
 				</div>
 			{/if}
-			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} />
+			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} {isDisabled} />
 			<WidgetSubmitBtn
 				classNames="mt-2"
 				{isLoading}
+				{isDisabled}
 				onClick={() => {
 					getOutput();
 				}}

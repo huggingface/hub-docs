@@ -20,6 +20,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let context = "";
 	let computeTime = "";
@@ -143,11 +144,12 @@
 	{validateExample}
 	exampleQueryParams={["context", "text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="space-y-2">
 			<WidgetQuickInput
 				bind:value={question}
 				{isLoading}
+				{isDisabled}
 				onClickSubmitBtn={() => {
 					getOutput();
 				}}
@@ -155,6 +157,7 @@
 			<WidgetTextarea
 				bind:value={context}
 				bind:setValue={setTextAreaValue}
+				{isDisabled}
 				placeholder="Please input some context..."
 				label="Context"
 			/>

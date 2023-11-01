@@ -16,6 +16,7 @@
 	import WidgetModelLoading from "../WidgetModelLoading/WidgetModelLoading.svelte";
 	import { getModelLoadInfo, getQueryParamVal, getWidgetExample } from "../../shared/helpers";
 	import { modelLoadStates } from "../../stores";
+	import { InferenceDisplayability } from "../../../../interfaces/InferenceDisplayability";
 
 	export let apiUrl: string;
 	export let callApiOnMount: WidgetProps["callApiOnMount"];
@@ -34,11 +35,18 @@
 	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
 	export let exampleQueryParams: QueryParam[] = [];
 
+	let isDisabled = model.inference !== InferenceDisplayability.Yes && model.pipeline_tag !== "reinforcement-learning";
 	let isMaximized = false;
 	let modelLoadInfo: ModelLoadInfo | undefined = undefined;
 	let selectedInputGroup: string;
+	let modelTooBig = false;
 
-	const inputSamples = (model.widgetData ?? [])
+	interface ExamplesGroup {
+		group: string;
+		inputSamples: TWidgetExample[];
+	}
+
+	const allInputSamples = (model.widgetData ?? [])
 		.filter(validateExample)
 		.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
 		.map((sample, idx) => ({
@@ -46,26 +54,36 @@
 			group: "Group 1",
 			...sample,
 		}));
-
-	const inputGroups: {
-		group: string;
-		inputSamples: TWidgetExample[];
-	}[] = [];
-	for (const inputSample of inputSamples) {
-		const isExist = inputGroups.find(({ group }) => group === inputSample.group);
-		if (!isExist) {
-			inputGroups.push({ group: inputSample.group as string, inputSamples: [] });
-		}
-		inputGroups.find(({ group }) => group === inputSample.group)?.inputSamples.push(inputSample);
-	}
+	let inputSamples = !isDisabled ? allInputSamples : allInputSamples.filter(sample => sample.output !== undefined);
+	let inputGroups = getExamplesGroups();
 
 	$: selectedInputSamples =
 		inputGroups.length === 1 ? inputGroups[0] : inputGroups.find(({ group }) => group === selectedInputGroup);
+
+	function getExamplesGroups(): ExamplesGroup[] {
+		const inputGroups: ExamplesGroup[] = [];
+		for (const inputSample of inputSamples) {
+			const groupExists = inputGroups.find(({ group }) => group === inputSample.group);
+			if (!groupExists) {
+				inputGroups.push({ group: inputSample.group as string, inputSamples: [] });
+			}
+			inputGroups.find(({ group }) => group === inputSample.group)?.inputSamples.push(inputSample);
+		}
+		return inputGroups;
+	}
 
 	onMount(() => {
 		(async () => {
 			modelLoadInfo = await getModelLoadInfo(apiUrl, model.id, includeCredentials);
 			$modelLoadStates[model.id] = modelLoadInfo;
+			modelTooBig = modelLoadInfo?.state === "TooBig";
+
+			if (modelTooBig) {
+				// disable the widget
+				isDisabled = true;
+				inputSamples = allInputSamples.filter(sample => sample.output !== undefined);
+				inputGroups = getExamplesGroups();
+			}
 
 			const exampleFromQueryParams = {} as TWidgetExample;
 			for (const key of exampleQueryParams) {
@@ -92,26 +110,21 @@
 	}
 </script>
 
-<div
-	class="flex w-full max-w-full flex-col
-	{isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}
-	{!modelLoadInfo ? 'hidden' : ''}"
->
-	{#if modelLoadInfo?.state === "TooBig"}
-		<p class="text-sm text-gray-500">
-			Model is supported, but too large to load onto the free Inference API. To try the model, launch it on <a
-				class="underline"
-				href="https://ui.endpoints.huggingface.co/new?repository={encodeURIComponent(model.id)}">Inference Endpoints</a
-			>
-			instead.
-		</p>
-	{:else}
+{#if isDisabled && !inputSamples.length}
+	<WidgetHeader pipeline={model.pipeline_tag} noTitle={true} />
+	<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} {modelTooBig} />
+{:else}
+	<div
+		class="flex w-full max-w-full flex-col
+		 {isMaximized ? 'fixed inset-0 z-20 bg-white p-12' : ''}
+		 {!modelLoadInfo ? 'hidden' : ''}"
+	>
 		{#if isMaximized}
 			<button class="absolute right-12 top-6" on:click={onClickMaximizeBtn}>
 				<IconCross classNames="text-xl text-gray-500 hover:text-black" />
 			</button>
 		{/if}
-		<WidgetHeader {noTitle} pipeline={model.pipeline_tag}>
+		<WidgetHeader {noTitle} pipeline={model.pipeline_tag} {isDisabled}>
 			{#if !!inputGroups.length}
 				<div class="ml-auto flex gap-x-1">
 					<!-- Show samples selector when there are more than one sample -->
@@ -131,12 +144,12 @@
 				</div>
 			{/if}
 		</WidgetHeader>
-		<slot name="top" />
-		<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} />
+		<slot name="top" {isDisabled} />
+		<WidgetInfo {model} {computeTime} {error} {modelLoadInfo} {modelTooBig} />
 		{#if modelLoading.isLoading}
 			<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
 		{/if}
 		<slot name="bottom" />
-		<WidgetFooter {onClickMaximizeBtn} {outputJson} />
-	{/if}
-</div>
+		<WidgetFooter {onClickMaximizeBtn} {outputJson} {isDisabled} />
+	</div>
+{/if}

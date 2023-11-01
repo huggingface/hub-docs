@@ -31,6 +31,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -237,12 +238,13 @@
 	validateExample={isTextInput}
 	exampleQueryParams={["text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
-			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} />
+			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} {isDisabled} />
 			<WidgetSubmitBtn
 				classNames="mt-2"
 				{isLoading}
+				{isDisabled}
 				onClick={() => {
 					getOutput();
 				}}

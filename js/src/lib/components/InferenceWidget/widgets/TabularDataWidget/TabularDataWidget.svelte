@@ -22,6 +22,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	const widgetData = model?.widgetData?.[0] as WidgetExampleStructuredDataInput<WidgetExampleOutputLabels> | undefined;
 	const columns: string[] = Object.keys(widgetData?.structured_data ?? {});
@@ -192,13 +193,14 @@
 	validateExample={isStructuredDataInput}
 	exampleQueryParams={["structured_data"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
 			<div class="mt-4">
 				{#if table.length > 1 || table[1]?.length > 1}
 					<WidgetTableInput
 						{highlighted}
 						{isLoading}
+						{isDisabled}
 						onChange={onChangeTable}
 						table={tableWithOutput}
 						canAddCol={false}
@@ -208,6 +210,7 @@
 			</div>
 			<WidgetSubmitBtn
 				{isLoading}
+				{isDisabled}
 				onClick={() => {
 					getOutput();
 				}}

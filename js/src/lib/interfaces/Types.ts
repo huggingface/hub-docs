@@ -1,4 +1,5 @@
 import type { WidgetExample } from "../components/InferenceWidget/shared/WidgetExample";
+import type { InferenceDisplayability } from "./InferenceDisplayability";
 
 // Warning: order of modalities here determine how they are listed on the /tasks page
 export const MODALITIES = ["cv", "nlp", "audio", "tabular", "multimodal", "rl", "other"] as const;
@@ -667,6 +668,10 @@ export interface ModelData {
 	 * Kept for backward compatibility
 	 */
 	modelId?:          string;
+	/**
+	 * Whether or not to enable inference widget for this model
+	 */
+	inference:         InferenceDisplayability;
 	/**
 	 * is this model private?
 	 */

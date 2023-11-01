@@ -16,6 +16,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -157,9 +158,9 @@
 	{outputJson}
 	validateExample={isAssetInput}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
-			<div class="flex flex-wrap items-center">
+			<div class="flex flex-wrap items-center {isDisabled ? 'pointer-events-none hidden opacity-50' : ''}">
 				<WidgetFileInput accept="audio/*" classNames="mt-1.5 mr-2" {onSelectFile} />
 				<span class="mr-2 mt-1.5">or</span>
 				<WidgetRecorder classNames="mt-1.5" {onRecordStart} onRecordStop={onSelectFile} onError={onRecordError} />
@@ -169,7 +170,7 @@
 			{/if}
 			<WidgetSubmitBtn
 				classNames="mt-2"
-				isDisabled={isRecording}
+				isDisabled={isRecording || isDisabled}
 				{isLoading}
 				onClick={() => {
 					getOutput();

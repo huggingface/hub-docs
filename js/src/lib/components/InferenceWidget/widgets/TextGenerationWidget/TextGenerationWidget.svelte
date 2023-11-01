@@ -22,6 +22,7 @@
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
 	export let isLoggedIn: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	const isBloomLoginRequired = isLoggedIn === false && model.id === "bigscience/bloom";
 
@@ -206,12 +207,13 @@
 	{validateExample}
 	exampleQueryParams={["text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="space-y-2">
 			<WidgetTextarea
 				bind:value={text}
 				bind:setValue={setTextAreaValue}
 				{isLoading}
+				{isDisabled}
 				size="big"
 				bind:renderTypingEffect
 			/>
@@ -221,13 +223,14 @@
 			<div class="flex items-center gap-x-2 {isBloomLoginRequired ? 'pointer-events-none opacity-50' : ''}">
 				<WidgetSubmitBtn
 					{isLoading}
+					{isDisabled}
 					onClick={() => {
 						getOutput({ useCache });
 					}}
 				/>
-				<WidgetShortcutRunLabel {isLoading} />
+				<WidgetShortcutRunLabel {isLoading} {isDisabled} />
 				<div class="ml-auto self-start">
-					<WidgetTimer bind:this={inferenceTimer} />
+					<WidgetTimer bind:this={inferenceTimer} {isDisabled} />
 				</div>
 			</div>
 			{#if warning}
