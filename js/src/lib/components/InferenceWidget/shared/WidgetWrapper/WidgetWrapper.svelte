@@ -47,7 +47,7 @@
 		inputSamples: TWidgetExample[];
 	}
 
-	const inputSamplesAll = (model.widgetData ?? [])
+	const allInputSamples = (model.widgetData ?? [])
 		.filter(validateExample)
 		.sort((sample1, sample2) => (sample2.example_title ? 1 : 0) - (sample1.example_title ? 1 : 0))
 		.map((sample, idx) => ({
@@ -55,7 +55,7 @@
 			group: "Group 1",
 			...sample,
 		}));
-	let inputSamples = !isDisabled ? inputSamplesAll : inputSamplesAll.filter(sample => sample.output !== undefined);
+	let inputSamples = !isDisabled ? allInputSamples : allInputSamples.filter(sample => sample.output !== undefined);
 	let inputGroups = getExamplesGroups();
 
 	$: selectedInputSamples =
@@ -82,7 +82,7 @@
 			if (modelTooBig) {
 				// disable the widget
 				isDisabled = true;
-				inputSamples = inputSamplesAll.filter(sample => sample.output !== undefined);
+				inputSamples = allInputSamples.filter(sample => sample.output !== undefined);
 				inputGroups = getExamplesGroups();
 			}
 
