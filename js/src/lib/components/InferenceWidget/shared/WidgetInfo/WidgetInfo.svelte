@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps, ModelLoadInfo, LoadState } from "../types";
-
+	import { type WidgetProps, type ModelLoadInfo, LoadState, ComputeType } from "../types";
 	import IconAzureML from "../../../Icons/IconAzureML.svelte";
 	import { InferenceDisplayability } from "../../../../interfaces/InferenceDisplayability";
 	import IconInfo from "../../../Icons/IconInfo.svelte";
@@ -12,19 +11,19 @@
 	export let modelTooBig = false;
 
 	const state = {
-		Loadable: "This model can be loaded on the Inference API on-demand.",
-		Loaded: "This model is currently loaded and running on the Inference API.",
-		TooBig:
+		[LoadState.Loadable]: "This model can be loaded on the Inference API on-demand.",
+		[LoadState.Loaded]: "This model is currently loaded and running on the Inference API.",
+		[LoadState.TooBig]:
 			"Model is too large to load onto the free Inference API. To try the model, launch it on Inference Endpoints instead.",
-		error: "⚠️ This model could not be loaded by the inference API. ⚠️",
+		[LoadState.Error]: "⚠️ This model could not be loaded by the inference API. ⚠️",
 	} as const;
 
 	const azureState = {
-		Loadable: "This model can be loaded loaded on AzureML Managed Endpoint",
-		Loaded: "This model is loaded and running on AzureML Managed Endpoint",
-		TooBig:
+		[LoadState.Loadable]: "This model can be loaded loaded on AzureML Managed Endpoint",
+		[LoadState.Loaded]: "This model is loaded and running on AzureML Managed Endpoint",
+		[LoadState.TooBig]:
 			"Model is too large to load onto the free Inference API. To try the model, launch it on Inference Endpoints instead.",
-		error: "⚠️ This model could not be loaded.",
+		[LoadState.Error]: "⚠️ This model could not be loaded.",
 	} as const;
 
 	function getStatusReport(
@@ -35,15 +34,15 @@
 		if (!modelLoadInfo) {
 			return "Model state unknown";
 		}
-		if (modelLoadInfo.compute_type === "cpu" && modelLoadInfo.state === "Loaded" && !isAzure) {
+		if (modelLoadInfo.compute_type === ComputeType.CPU && modelLoadInfo.state === LoadState.Loaded && !isAzure) {
 			return `The model is loaded and running on <a class="hover:underline" href="https://huggingface.co/intel" target="_blank">Intel Xeon 3rd Gen Scalable CPU</a>`;
 		}
 		return statuses[modelLoadInfo.state];
 	}
 
 	function getComputeTypeMsg(): string {
-		const computeType = modelLoadInfo?.compute_type ?? "cpu";
-		if (computeType === "cpu") {
+		const computeType = modelLoadInfo?.compute_type ?? ComputeType.CPU;
+		if (computeType === ComputeType.CPU) {
 			return "Intel Xeon 3rd Gen Scalable cpu";
 		}
 		return computeType;

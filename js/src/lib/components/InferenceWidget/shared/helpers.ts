@@ -2,6 +2,7 @@ import type { ModelData } from "../../../interfaces/Types";
 import { randomItem, parseJSON } from "../../../utils/ViewUtils";
 import type { WidgetExample } from "./WidgetExample";
 import type { ModelLoadInfo, TableData } from "./types";
+import { LoadState } from "./types";
 
 type KeysOfUnion<T> = T extends any ? keyof T : never;
 export type QueryParam = KeysOfUnion<WidgetExample>;
@@ -186,7 +187,7 @@ export async function getModelLoadInfo(
 		return { compute_type, state };
 	} else {
 		console.warn(response.status, output.error);
-		return { state: "error" };
+		return { state: LoadState.Error };
 	}
 }
 
