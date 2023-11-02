@@ -105,7 +105,8 @@ Read also [moderation](./moderation) to see how to report an abusive comment.
 Yes! You can use Markdown to add formatting to your comments. Additionally, you can utilize LaTeX for mathematical typesetting, your formulas will be rendered with [KaTeX](https://katex.org/) before being parsed in Markdown.
 
 For LaTeX equations, you have to use the following delimiters:
-- `$$ ... $$` for display mode
+
+- `&dollar;&dollar; ... &dollar;&dollar;` for display mode
 - `&#92;&#92;(...\\)` for inline mode (no space between the slashes and the parenthesis).
 
 ## How do I manage Pull requests locally?
