@@ -115,7 +115,6 @@ Get information from all Spaces in the Hub. The response is paginated, use the [
 - `direction`: Direction in which to sort, such as `-1` for descending, and anything else for ascending.
 - `limit`: Limit the number of models fetched.
 - `full`: Whether to fetch most model data, such as all tags, the files, etc.
-- `config`: Whether to also fetch the repo config.
 
 Payload:
 
