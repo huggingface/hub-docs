@@ -21,7 +21,7 @@ If the repository card (`README.md`) includes a link to a paper on arXiv, the Hu
 
 ## Claiming authorship to a Paper
 
-The Hub will automatically match paper to users based on their email. 
+The Hub will attempt to automatically match paper to users based on their email. 
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/papers-authors.png"/>
@@ -40,7 +40,7 @@ If your paper is not linked to your account, you can click in your name in the c
 
 ### Can I control which Paper pages show in my profile?
 
-Yes! You can visit your Papers in [settings](https://huggingface.co/settings/papers), where you will see a list of verified paper. There, you can click the "Show on profile" checkbox to hide/show it in your profile. 
+Yes! You can visit your Papers in [settings](https://huggingface.co/settings/papers), where you will see a list of verified papers. There, you can click the "Show on profile" checkbox to hide/show it in your profile. 
 
 ### Do you support ACL anthology?
 
