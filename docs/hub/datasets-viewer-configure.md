@@ -18,19 +18,14 @@ The dataset viewer supports multiple file formats:
 
 The dataset viewer also supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
 
-## Configure dropdowns for split or subsets
+## Configure dropdowns for splits or subsets
 
 In the Dataset Viewer you can view the train/validation/test splits of datasets, and sometimes additionally choose between multiple subsets (e.g. one per language).
 
 To define those dropdowns, you can name the data files or their folder after their split names (train/validation/test).
-It is also possible to customize your splits manually using YAML, which allows to:
+It is also possible to customize your splits manually using YAML.
 
-- Use custom split names
-- List the data files per split
-- Pass dataset building parameters (e.g. the separator used in your CSV files).
-- Define multiple dataset configurations (e.g. if you dataset has multiple subsets or languages)
-
-For more information, feel free to check out the documentation on [Dataset Repository Structure](./datasets-repository-structure.md).
+For more information, feel free to check out the documentation on [Data files Configuration](./datasets-data-files-configuration.md).
 
 ## Disable the viewer
 

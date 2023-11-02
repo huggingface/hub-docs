@@ -132,14 +132,14 @@
     sections:
       - local: datasets-viewer-configure
         title: Configure the Dataset Viewer
-  - local: datasets-repository-structure
-    title: Dataset Repository Structure
+  - local: datasets-data-files-configuration
+    title: Data files Configuration
     sections:
-      - local: datasets-basic-structure
-        title: Basic Structure
+      - local: datasets-file-names-and-splits
+        title: File names and splits
     sections:
-      - local: datasets-custom-structure
-        title: Custom Structure
+      - local: datasets-manual-configuration
+        title: Manual Configuration
   - local: datasets-libraries
     title: Libraries
     sections:

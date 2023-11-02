@@ -1,4 +1,4 @@
-# Custom Structure
+# Manual Configuration
 
 To host and share your dataset, create a dataset repository on the Hugging Face Hub and upload your data files.
 

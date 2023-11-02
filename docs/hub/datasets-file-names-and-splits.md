@@ -1,11 +1,11 @@
-# Basic Repository Structure
+# File names and splits
 
 To host and share your dataset, create a dataset repository on the Hugging Face Hub and upload your data files.
 
-This guide will show you how to structure your dataset repository when you upload it and enable all the Dataset Hub features like the Dataset Viewer.
+This guide will show you how to name your fiels and directories in your dataset repository when you upload it and enable all the Dataset Hub features like the Dataset Viewer.
 A dataset with a supported structure and file format (`.txt`, `.csv`, `.parquet`, `.jsonl`, `.mp3`, `.jpg`, `.zip` etc.) automatically has a dataset viewer on its dataset page on the Hub.
 
-Note that you can also define your own custom structure, see the documentation on [Custom Structure](./datasets-custom-structure) for more information
+Note that you can also define your own custom structure, see the documentation on [Manual Configuration](./datasets-manual-configuration) for more information
 
 ## Main use-case
 
@@ -21,6 +21,8 @@ my_dataset_repository/
 ```
 
 In this simple case, you'll get a dataset with two splits: `train` (containing examples from `train.csv`) and `test` (containing examples from `test.csv`).
+
+If your dataset doesn't have any train/validation/test splits, feel free to use whatever file names you want.
 
 ## Splits
 

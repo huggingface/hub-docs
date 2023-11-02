@@ -44,7 +44,7 @@ The Hugging Face Hub is a platform with over 120k models, 20k datasets, and 50k 
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-gated">Gated Datasets</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-adding">Adding a new Dataset</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-viewer">Dataset Viewer</a>
-<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-repository-structure">Dataset Repository Structure</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-repository-structure">Data files Configuration</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-libraries">Libraries</a>
 </div>
 
