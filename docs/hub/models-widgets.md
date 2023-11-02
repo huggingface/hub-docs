@@ -105,8 +105,8 @@ widget:
 ```
 
 <div class="flex justify-center">
-<img class="block dark:hidden" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-textgen-light.png"/>
-<img class="hidden dark:block" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-textgen-dark.png"/>
+<img class="block dark:hidden" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-asr-light.png"/>
+<img class="hidden dark:block" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-asr-dark.png"/>
 </div>
 
 The `output` property should be a YAML dictionary that represents the Inference API output.
@@ -126,8 +126,8 @@ widget:
 ```
 
 <div class="flex justify-center">
-<img class="block dark:hidden" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-audiocls-light.png"/>
-<img class="hidden dark:block" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-audiocls-dark.png"/>
+<img class="block dark:hidden" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-textcls-light.png"/>
+<img class="hidden dark:block" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-textcls-dark.png"/>
 </div>
 
 Finally, for a model that outputs an image, audio, or any other kind of asset, the output should include a `url` property linking to either a file name or path inside the repo or a remote URL. For example, for a text-to-image model:
