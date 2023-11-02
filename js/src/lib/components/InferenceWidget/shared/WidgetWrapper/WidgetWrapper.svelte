@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { WidgetProps, ModelLoadInfo, ExampleRunOpts } from "../types";
-	import type { WidgetExample } from "../WidgetExample";
-	import type { QueryParam } from "../../shared/helpers";
+	import type { WidgetExample, WidgetExampleAttribute } from "../WidgetExample";
 
 	type TWidgetExample = $$Generic<WidgetExample>;
 
@@ -33,7 +32,7 @@
 	export let outputJson: string;
 	export let applyInputSample: (sample: TWidgetExample, opts?: ExampleRunOpts) => void = () => {};
 	export let validateExample: (sample: WidgetExample) => sample is TWidgetExample;
-	export let exampleQueryParams: QueryParam[] = [];
+	export let exampleQueryParams: WidgetExampleAttribute[] = [];
 
 	let isDisabled = model.inference !== InferenceDisplayability.Yes && model.pipeline_tag !== "reinforcement-learning";
 	let isMaximized = false;

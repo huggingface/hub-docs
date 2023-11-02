@@ -13,13 +13,13 @@ Try it out now on our [Playground](https://huggingface.co/spaces/enzostvs/hub-ap
 <img class="w-full object-contain" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/hub-api-playground.png"/>
 </div>
 
-## Search API
+## Repo listing API
 
 The following endpoints help get information about models, datasets, Spaces, and metrics stored on the Hub.
 
 ### GET /api/models
 
-Get information from all models in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
+Get information from all models in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the next pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `resnet` or `microsoft`
 - `author`: Filter models by an author or organization, such as `huggingface` or `microsoft`
 - `filter`: Filter based on tags, such as `text-classification` or `spacy`.
@@ -60,7 +60,7 @@ This is equivalent to `huggingface_hub.get_model_tags()`.
 
 ### GET /api/datasets
 
-Get information from all datasets in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
+Get information from all datasets in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the next pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `pets` or `microsoft`
 - `author`: Filter datasets by an author or organization, such as `huggingface` or `microsoft`
 - `filter`: Filter based on tags, such as `task_categories:text-classification` or `languages:en`.
@@ -116,7 +116,7 @@ This is equivalent to `huggingface_hub.get_dataset_tags()`.
 
 ### GET /api/spaces
 
-Get information from all Spaces in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
+Get information from all Spaces in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the next pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `resnet` or `microsoft`
 - `author`: Filter models by an author or organization, such as `huggingface` or `microsoft`
 - `filter`: Filter based on tags, such as `text-classification` or `spacy`.
@@ -124,7 +124,6 @@ Get information from all Spaces in the Hub. The response is paginated, use the [
 - `direction`: Direction in which to sort, such as `-1` for descending, and anything else for ascending.
 - `limit`: Limit the number of models fetched.
 - `full`: Whether to fetch most model data, such as all tags, the files, etc.
-- `config`: Whether to also fetch the repo config.
 
 Payload:
 
@@ -148,11 +147,6 @@ Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.space_info(repo_id, revision)`.
 
-### GET /api/metrics
-
-Get information from all metrics in the Hub.
-
-This is equivalent to `huggingface_hub.list_metrics()`.
 
 ## Repo API
 
@@ -246,7 +240,7 @@ headers = { "authorization" :  "Bearer $token" }
 
 This is equivalent to `huggingface_hub.whoami()`.
 
-## Collection API
+## Collections API
 
 Use Collections to group repositories from the Hub (Models, Datasets, Spaces and Papers) on a dedicated page.
 
