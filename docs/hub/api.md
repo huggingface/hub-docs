@@ -10,7 +10,7 @@ Want to try out our API?
 Try it out now on our [Playground](https://huggingface.co/spaces/enzostvs/hub-api-playground)!
 
 <div class="flex justify-center">
-<img class="w-full object-contain" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing.png"/>
+<img class="w-full object-contain" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/hub-api-playground.png"/>
 </div>
 
 ## Search API
