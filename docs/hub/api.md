@@ -4,6 +4,15 @@ We have open endpoints that you can use to retrieve information from the Hub as 
 
 The base URL for those endpoints below is `https://huggingface.co`. For example, to construct the `/api/models` call below, one can call the URL [https://huggingface.co/api/models](https://huggingface.co/api/models)
 
+## The Hub API Playground
+
+Want to try out our API?
+Try it out now on our [Playground](https://huggingface.co/spaces/enzostvs/hub-api-playground)!
+
+<div class="flex justify-center">
+<img class="w-full object-contain" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/hub-api-playground.png"/>
+</div>
+
 ## Repo listing API
 
 The following endpoints help get information about models, datasets, Spaces, and metrics stored on the Hub.
