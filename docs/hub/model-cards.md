@@ -132,7 +132,8 @@ Each model page lists all the model's tags in the page header, below the model n
 Yes! The Hub uses the [KaTeX](https://katex.org/) math typesetting library to render math formulas server-side before parsing the Markdown.
 
 You have to use the following delimiters:
-- `$$ ... $$` for display mode
+
+- `&dollar;&dollar; ... &dollar;&dollar;` for display mode
 - `&#92;&#92;(...\\)` for inline mode (no space between the slashes and the parenthesis).
 
 Then you'll be able to write:
