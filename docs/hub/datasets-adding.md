@@ -12,7 +12,7 @@ The Hub's web-based interface allows users without any developer experience to u
 
 A repository hosts all your dataset files, including the revision history, making storing more than one dataset version possible.
 
-1. Click on your profile and select **New Dataset** to create a new dataset repository. 
+1. Click on your profile and select **New Dataset** to create a [new dataset repository](https://huggingface.co/new-dataset). 
 2. Pick a name for your dataset, and choose whether it is a public or private dataset. A public dataset is visible to anyone, whereas a private dataset can only be viewed by you or members of your organization.
 
 <div class="flex justify-center">
@@ -51,7 +51,7 @@ Adding a Dataset card is super valuable for helping users find your dataset and 
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/datasets/dataset_card.png"/>
 </div>
 
-2. At the top, you'll see the **Metadata UI** with several fields to select from like license, language, and task categories. These are the most important tags for helping users discover your dataset on the Hub. When you select an option from each field, they'll be automatically added to the top of the dataset card.
+2. At the top, you'll see the **Metadata UI** with several fields to select from such as license, language, and task categories. These are the most important tags for helping users discover your dataset on the Hub (when applicable). When you select an option for a field, it will be automatically added to the top of the dataset card.
 
     You can also look at the [Dataset Card specifications](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1), which has a complete set of (but not required) tag options like `annotations_creators`, to help you choose the appropriate tags.
 
@@ -74,7 +74,7 @@ Since model repos are just Git repositories, you can use Git to push your model 
 
 ## Using the `huggingface_hub` client library
 
-The rich feature set in the `huggingface_hub` library allows you to manage repositories, including creating repos and uploading models to the Model Hub. Visit [the client library's documentation](https://huggingface.co/docs/huggingface_hub/index) to learn more.
+The rich features set in the `huggingface_hub` library allows you to manage repositories, including creating repos and uploading datasets to the Model Hub. Visit [the client library's documentation](https://huggingface.co/docs/huggingface_hub/index) to learn more.
 
 ## Using other libraries
 
