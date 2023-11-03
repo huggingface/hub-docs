@@ -17,15 +17,16 @@ The dataset viewer supports multiple file formats:
 - Audio (.wav, .mp3, etc.)
 
 The dataset viewer also supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
+Image and audio resources can also have additional metadata files, see the [Data files Configuration](./datasets-data-files-configuration) on image and audio datasets.
 
 ## Configure dropdowns for splits or subsets
 
-In the Dataset Viewer you can view the train/validation/test splits of datasets, and sometimes additionally choose between multiple subsets (e.g. one per language).
+In the Dataset Viewer you can view the [train/validation/test](https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets) splits of datasets, and sometimes additionally choose between multiple subsets (e.g. one per language).
 
 To define those dropdowns, you can name the data files or their folder after their split names (train/validation/test).
 It is also possible to customize your splits manually using YAML.
 
-For more information, feel free to check out the documentation on [Data files Configuration](./datasets-data-files-configuration.md).
+For more information, feel free to check out the documentation on [Data files Configuration](./datasets-data-files-configuration).
 
 ## Disable the viewer
 
