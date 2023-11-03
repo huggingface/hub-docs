@@ -217,6 +217,15 @@
       title: Organization Cards
     - local: organizations-security
       title: Access Control in Organizations
+    - local: entreprise-hub
+      title: Enterprise Hub
+      sections:
+      - local: entreprise-sso
+        title: Single Sign-On (SSO)
+      - local: audit-logs
+        title: Audit Logs
+      - local: storage-regions
+        title: Storage Regions
   - local: billing
     title: Billing
   - local: security
