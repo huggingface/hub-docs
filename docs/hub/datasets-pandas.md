@@ -3,7 +3,7 @@
 [Pandas](https://github.com/pandas-dev/pandas) is widely used Python data analysis toolkit.
 Since it uses [fsspec](https://filesystem-spec.readthedocs.io) to read and write remote data, you can use the Hugging Face paths (`hf://`) to read and write data on the Hub:
 
-First login using 
+First you need to [Login with your Hugging Face account](../huggingface_hub/quick-start#login), for example using:
 
 ```
 huggingface-cli login

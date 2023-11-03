@@ -3,7 +3,7 @@
 [WebDataset](https://github.com/webdataset/webdataset) is a library to write I/O pipelines for large datasets. 
 Since it supports streaming data using HTTP, you can use the Hugging Face data files URLs to stream a dataset in WebDataset format:
 
-First login using 
+First you need to [Login with your Hugging Face account](../huggingface_hub/quick-start#login), for example using:
 
 ```
 huggingface-cli login
