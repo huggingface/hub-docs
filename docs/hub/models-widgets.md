@@ -147,7 +147,7 @@ widget:
 We can also surface the example outputs in the Hugging Face UI, for instance, for a text-to-image model to display a gallery of cool image generations.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" width="650" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
+<img width="650" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
 </div>
 
 ## What are all the possible task/widget types?
