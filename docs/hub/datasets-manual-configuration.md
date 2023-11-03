@@ -1,15 +1,16 @@
 # Manual Configuration
 
-To host and share your dataset, create a dataset repository on the Hugging Face Hub and upload your data files.
-
 This guide will show you how to configure a custom structure for your dataset repository.
-A dataset with a supported structure and file format (`.txt`, `.csv`, `.parquet`, `.jsonl`, `.mp3`, `.jpg`, `.zip` etc.) automatically has a dataset viewer on its dataset page on the Hub.
+
+A dataset with a supported structure and file format (`.txt`, `.csv`, `.parquet`, `.jsonl`, `.mp3`, `.jpg`, `.zip` etc.) automatically has a Dataset Viewer on its dataset page on the Hub. You can use YAML to configure the splits and builder parameters that are used by the Viewer.
+
+It is even possible to define multiple configurations for the same dataset (e.g. if the dataset has various independant files).
 
 ## Define your splits and subsets in YAML
 
 ## Splits
 
-If you have multiple files and want to define which file goes into which split, you can use the YAML `configs` field at the top of your README.md.
+If you have multiple files and want to define which file goes into which split, you can use YAML at the top of your README.md.
 
 For example, given a repository like this one:
 
@@ -20,7 +21,7 @@ my_dataset_repository/
 └── holdout.csv
 ```
 
-You can define your splits by adding the `configs` field in the YAML block at the top of your README.md:
+You can define a configuration for your splits by adding the `configs` field in the YAML block at the top of your README.md:
 
 ```yaml
 ---
@@ -33,7 +34,6 @@ configs:
     path: "holdout.csv"
 ---
 ```
-
 
 You can select multiple files per split using a list of paths:
 
@@ -81,9 +81,12 @@ Note that `config_name` field is required even if you have a single configuratio
 
 </Tip>
 
-## Configurations
+## Multiple Configurations
 
-Your dataset might have several subsets of data that you want to be able to load separately. In that case you can define a list of configurations inside the `configs` field in YAML:
+Your dataset might have several subsets of data that you want to be able to use separately.
+For example each configuration has its own dropdown in the Dataset Viewer the Hugging Face Hub.
+
+In that case you can define a list of configurations inside the `configs` field in YAML:
 
 ```
 my_dataset_repository/
@@ -102,15 +105,6 @@ configs:
 ---
 ```
 
-Each configuration is shown separately on the Hugging Face Hub, and can be loaded by passing its name as a second parameter:
-
-```python
-from datasets import load_dataset
-
-main_data = load_dataset("my_dataset_repository", "main_data")
-additional_data = load_dataset("my_dataset_repository", "additional_data")
-```
-
 ## Builder parameters
 
 Not only `data_files`, but other builder-specific parameters can be passed via YAML, allowing for more flexibility on how to load the data while not requiring any custom code. For example, define which separator to use in which configuration to load your `csv` files:
@@ -127,11 +121,11 @@ configs:
 ---
 ```
 
-Refer to [specific builders' documentation](./package_reference/builder_classes) to see what configuration parameters they have.
+Refer to the [specific builders' documentation](../datasets/package_reference/builder_classes) to see what configuration parameters they have.
 
 <Tip>
 
-You can set a default configuration using `default: true`, e.g. you can run `main_data = load_dataset("my_dataset_repository")` if you set 
+You can set a default configuration using `default: true`
 
 ```yaml
 - config_name: main_data
