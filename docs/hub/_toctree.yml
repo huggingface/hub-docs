@@ -217,10 +217,10 @@
       title: Organization Cards
     - local: organizations-security
       title: Access Control in Organizations
-    - local: entreprise-hub
+    - local: enterprise-hub
       title: Enterprise Hub
       sections:
-      - local: entreprise-sso
+      - local: enterprise-sso
         title: Single Sign-On (SSO)
       - local: audit-logs
         title: Audit Logs
