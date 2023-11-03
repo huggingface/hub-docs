@@ -21,15 +21,13 @@ A repository hosts all your dataset files, including the revision history, makin
 
 ### Upload dataset
 
-1. Once you've created a repository, navigate to the **Files and versions** tab to add a file. Select **Add file** to upload your dataset files. We support many text, audio, and image data extensions such as `.csv`, `.mp3`, and `.jpg` among many others. For text data extensions like `.csv`, `.json`, `.jsonl`, and `.txt`, we recommend compressing them before uploading to the Hub (to `.zip` or `.gz` file extension for example).
-
-    Text file extensions are not tracked by Git LFS by default, and if they're greater than 10MB, they will not be committed and uploaded. Take a look at the `.gitattributes` file in your repository for a complete list of tracked file extensions. For this tutorial, you can use the following sample `.csv` files since they're small: <a href="https://huggingface.co/datasets/stevhliu/demo/raw/main/train.csv" download>train.csv</a>, <a href="https://huggingface.co/datasets/stevhliu/demo/raw/main/test.csv" download>test.csv</a>.
+1. Once you've created a repository, navigate to the **Files and versions** tab to add a file. Select **Add file** to upload your dataset files. We support many text, audio, and image data extensions such as `.csv`, `.mp3`, and `.jpg` among many others.
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/datasets/upload_files.png"/>
 </div>
 
-2. Drag and drop your dataset files and add a brief descriptive commit message.
+2. Drag and drop your dataset files.
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/datasets/commit_files.png"/>
@@ -59,18 +57,16 @@ Adding a Dataset card is super valuable for helping users find your dataset and 
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/datasets/metadata_ui.png"/>
 </div>
 
-3. Click on the **Import dataset card template** link at the top of the editor to automatically create a dataset card template. Filling out the template is a great way to introduce your dataset to the community and help users understand how to use it. For a detailed example of what a good Dataset card should look like, take a look at the [CNN DailyMail Dataset card](https://huggingface.co/datasets/cnn_dailymail).
+3. Write your dataset documentation in the Dataset Card to introduce your dataset to the community and help users understand how to use it.
+
+    You can click on the **Import dataset card template** link at the top of the editor to automatically create a dataset card template. For a detailed example of what a good Dataset card should look like, take a look at the [CNN DailyMail Dataset card](https://huggingface.co/datasets/cnn_dailymail).
 
 ### Dataset Viewer
 
 The [Dataset Viewer](./datasets-viewer) is crucial to know what the data actually look like.
 It is generally enabled by default for any dataset, depending on the dataset structure.
 
-Please refer to the documentation on [Dataset Structure](./datasets-structure).
-
-## Using Git
-
-Since model repos are just Git repositories, you can use Git to push your model files to the Hub. Follow the guide on [Getting Started with Repositories](repositories-getting-started) to learn about using the `git` CLI to commit and push your models.
+Make sure the Dataset Viewer correctly shows your data, or [Configure the Dataset Viewer](./datasets-viewer-configure).
 
 ## Using the `huggingface_hub` client library
 
