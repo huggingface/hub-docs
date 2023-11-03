@@ -9,7 +9,15 @@ First you need to [Login with your Hugging Face account](../huggingface_hub/quic
 huggingface-cli login
 ```
 
-And then you can use Hugging Face paths in Pandas:
+Then you can [Create a dataset repository](../huggingface_hub/quick-start#create-a-repository), for example using:
+
+```python
+from huggingface_hub import HfApi
+
+HfApi().create_repo(repo_id="username/my_dataset", repo_type="dataset")
+```
+
+Finally you can use Hugging Face paths in Pandas:
 
 ```python
 import pandas as pd
