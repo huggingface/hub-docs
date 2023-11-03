@@ -7,9 +7,12 @@ We also partner with cloud providers, like [AWS](https://huggingface.co/blog/aws
 All users and organizations accounts have a billing system set up. You can submit your payment info and then access "pay-as-you-go" services.
 
 From the [Settings > Billing](https://huggingface.co/settings/billing) page, you can see a real time view of your usage across different HF services:
+
 - [Spaces](./spaces),
 - [AutoTrain](https://huggingface.co/docs/autotrain/index),
 - [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index)
+- [PRO subscriptions](https://huggingface.co/pricing) (for users)
+- [Enterprise Hub subscriptions](https://huggingface.co/enterprise) (for orgs)
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing.png"/>
