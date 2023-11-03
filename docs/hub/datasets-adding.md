@@ -43,7 +43,7 @@ A repository hosts all your dataset files, including the revision history, makin
 
 Adding a Dataset card is super valuable for helping users find your dataset and understand how to use it responsibly.
 
-1. Click on **Create Dataset Card** to create a Dataset card. This button creates a `README.md` file in your repository.
+1. Click on **Create Dataset Card** to create a [Dataset card](./datasets-cards). This button creates a `README.md` file in your repository.
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/datasets/dataset_card.png"/>
