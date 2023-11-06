@@ -81,7 +81,7 @@ _Name and link to the license being used._
 
 
 
-* **Finetuned From Model [optional]:** `finetuned_from`
+* **Finetuned From Model [optional]:** `base_model`
 
 _If this model has another model as its base, link to that model here._
 
