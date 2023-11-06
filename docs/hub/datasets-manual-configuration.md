@@ -4,7 +4,7 @@ This guide will show you how to configure a custom structure for your dataset re
 
 A dataset with a supported structure and file format (`.txt`, `.csv`, `.parquet`, `.jsonl`, `.mp3`, `.jpg`, `.zip` etc.) automatically has a Dataset Viewer on its dataset page on the Hub. You can use YAML to configure the splits and builder parameters that are used by the Viewer.
 
-It is even possible to define multiple configurations for the same dataset (e.g. if the dataset has various independant files).
+It is even possible to define multiple configurations for the same dataset (e.g. if the dataset has various independent files).
 
 ## Define your splits and subsets in YAML
 
