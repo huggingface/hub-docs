@@ -128,7 +128,7 @@
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputLabels> {
-		return isTextInput(sample) && (!output || isValidOutputLabels(sample.output));
+		return isTextInput(sample) && (!sample.output || isValidOutputLabels(sample.output));
 	}
 </script>
 
