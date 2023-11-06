@@ -1,10 +1,10 @@
 # Adding a new dataset
 
-The [Hub](https://huggingface.co/datasets) is home to an extensive collection of community-curated and popular research datasets. We encourage you to share your dataset to the Hub to help grow the ML community and accelerate progress for everyone. All contributions are welcome; adding a dataset is just a drag and drop away!
+The [Hub](https://huggingface.co/datasets) is home to an extensive collection of community-curated and research datasets. We encourage you to share your dataset to the Hub to help grow the ML community and accelerate progress for everyone. All contributions are welcome; adding a dataset is just a drag and drop away!
 
 Start by [creating a Hugging Face Hub account](https://huggingface.co/join) if you don't have one yet.
 
-## Upload with the Hub UI
+## Upload using the Hub UI
 
 The Hub's web-based interface allows users without any developer experience to upload a dataset.
 

@@ -2,7 +2,7 @@
 
 There are no constraints in how to structure dataset repositories.
 
-But if you want the Dataset Viewer to show certain data files, or to separate your dataset in train/validation/test splits, you need to structure your dataset accordingly.
+However, if you want the Dataset Viewer to show certain data files, or to separate your dataset in train/validation/test splits, you need to structure your dataset accordingly.
 Often it is as simple as naming your data files according to their split names, e.g. `train.csv` and `test.csv`.
 
 ## File names and splits

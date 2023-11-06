@@ -1,6 +1,6 @@
 # DuckDB
 
-[DuckDB](https://github.com/duckdb/duckdb) is an in-process SQL OLAP database management system.
+[DuckDB](https://github.com/duckdb/duckdb) is an in-process SQL [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) database management system.
 Since it supports [fsspec](https://filesystem-spec.readthedocs.io) to read and write remote data, you can use the Hugging Face paths (`hf://`) to read and write data on the Hub:
 
 First you need to [Login with your Hugging Face account](../huggingface_hub/quick-start#login), for example using:

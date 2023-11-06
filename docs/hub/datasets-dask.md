@@ -44,4 +44,4 @@ df_valid = dd.read_parquet("hf://datasets/username/my_dataset/validation")
 df_test  = dd.read_parquet("hf://datasets/username/my_dataset/test")
 ```
 
-To have more information on the Hugging Face paths and how they are implemented, please refer to the [the client library's documentation on the HfFileSystem](https://huggingface.co/docs/huggingface_hub/guides/hf_file_system).
+For more information on the Hugging Face paths and how they are implemented, please refer to the [the client library's documentation on the HfFileSystem](https://huggingface.co/docs/huggingface_hub/guides/hf_file_system).
