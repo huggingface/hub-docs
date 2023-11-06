@@ -137,7 +137,6 @@
     sections:
       - local: datasets-file-names-and-splits
         title: File names and splits
-    sections:
       - local: datasets-manual-configuration
         title: Manual Configuration
   - local: datasets-libraries
