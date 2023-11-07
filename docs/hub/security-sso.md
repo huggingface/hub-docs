@@ -1,4 +1,7 @@
-# Single Sign-On (SSO)
+<h1 class="flex items-center gap-3">
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 33 27"><path fill="currentColor" fill-rule="evenodd" d="M13.5.7a8.7 8.7 0 0 0-7.7 5.7L1 20.6c-1 3.1.9 5.7 4.1 5.7h15c3.3 0 6.8-2.6 7.8-5.7l4.6-14.2c1-3.1-.8-5.7-4-5.7h-15Zm1.1 5.7L9.8 20.3h9.8l1-3.1h-5.8l.8-2.5h4.8l1.1-3h-4.8l.8-2.3H23l1-3h-9.5Z" clip-rule="evenodd"></path></svg>
+	Single Sign-On (SSO)
+</h1>
 
 The Hugging Face Hub gives you the ability to implement mandatory Single Sign-On (SSO) for your organization.
 
@@ -7,7 +10,6 @@ We support both SAML 2.0 and OpenID Connect (OIDC) protocols.
 <Tip warning={true}>
 This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
 </Tip>
-
 
 ## How does it work?
 
@@ -21,7 +23,6 @@ When users log in, they will be prompted to complete the Single Sign-On authenti
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-sso-prompt.png"/>
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-sso-prompt-dark.png"/>
 </div>
-
 
 Single Sign-On only applies to your organization. Members may belong to other organizations on Hugging Face.
 
@@ -39,7 +40,6 @@ We have some guides available to help with configuring based on your chosen SSO 
 - [How to configure SAML with Okta in the Hub](./security-sso-okta-saml)
 
 ### Users Management
-
 
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-settings-users.png"/>
@@ -60,14 +60,14 @@ When enabled, Role Mapping allows you to dynamically assign [roles](./organizati
 
 This section allows you to define a mapping from your IdP's user profile data from your IdP to the assigned role in Hugging Face.
 
-* IdP Role Attribute Mapping
+- IdP Role Attribute Mapping
 
-	A JSON path to an attribute in your user's IdP profile data.
+  A JSON path to an attribute in your user's IdP profile data.
 
-* Role Mapping
+- Role Mapping
 
-	A mapping from the IdP attribute value to the assigned role in the Hugging Face organization.
-	
+  A mapping from the IdP attribute value to the assigned role in the Hugging Face organization.
+
 You must map at least one admin role.
 
 If there is no match, a user will be assigned the default role for your organization. The default role can be customized in the `Members` section of the organization's settings.
