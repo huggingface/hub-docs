@@ -1,5 +1,5 @@
 import type { ModelData } from "../../../interfaces/Types";
-import type { WidgetExampleOutput } from "./WidgetExample";
+import type { WidgetExample, WidgetExampleOutput } from "./WidgetExample";
 
 export interface WidgetProps {
 	apiToken?:          string;
@@ -65,4 +65,21 @@ export interface ImageSegment {
 	color?:   string;
 	imgData?: ImageData;
 	bitmap?:  ImageBitmap;
+}
+
+export interface WidgetInput {
+	// example functions
+	validateExample:   <TOutput>(sample: WidgetExample<TOutput>) => sample is WidgetExample<TOutput>;
+	applyExample:      (sample: any, opts: ExampleRunOpts) => void;
+	// ingerence api functions
+	getInferenceInput: () => Promise<any>;
+}
+
+export interface WidgetOutput {
+	// example functions
+	validateExample:         (arg: unknown) => boolean;
+	applyExample:            (sample: any, opts: ExampleRunOpts) => void;
+	// ingerence api functions
+	validateInferenceOutput: (arg: unknown) => boolean;
+	showInferenceOutput:     (res: any) => Promise<any>;
 }
