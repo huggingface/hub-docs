@@ -1,7 +1,5 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
-	import type { WidgetOutput } from "../../wigdetsOutput/Types";
-	import type { WidgetInput } from "../../widgetsInput/Types";
+	import type { WidgetProps, WidgetOutput, WidgetInput } from "../../shared/types";
 
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapperV2.svelte";
 	import WidgetInputAudio from "../../widgetsInput/WidgetInputAudio/WidgetInputAudio.svelte";
