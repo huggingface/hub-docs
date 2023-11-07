@@ -32,7 +32,9 @@ On that page you can see:
 
 Any repo (model or dataset) stored in a non-default location will display its Region directly as a tag. That way your organization's members can see at a glance where repos are located.
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-regions/tag-on-repo.png)
+<div class="flex justify-center">
+<img class="block" width="400" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-regions/tag-on-repo.png"/>
+</div>
 
 ## Regulatory and legal compliance
 
