@@ -8,6 +8,6 @@ This feature is part of the <a href="https://huggingface.co/enterprise" target="
 
 Audit Logs enable organization admins to easily review actions taken by members, including organization membership, repository settings and billing changes.
 
-The resulting view is populated and accessible through your organization admin settings.
+Audit Logs are accessible through your organization admin settings.
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-regions/audit-logs.png)

@@ -19,13 +19,13 @@ Currently we support the following regions:
 
 ## How to set up
 
-If your organization is an Enterprise Hub org, you will be able to see the Regions settings page:
+If your organization is subscribed to Enterprise Hub, you will be able to see the Regions settings page:
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-regions/feature-annotated.png)
 
 On that page you can see:
 
-- an audit of where your orgs' repos are currently located
+- an audit of where your organization repos are currently located
 - dropdowns to select where your repos will be created
 
 ## Repository Tag
@@ -36,7 +36,7 @@ Any repo (model or dataset) stored in a non-default location will display its Re
 
 ## Regulatory and legal compliance
 
-In many regulated industries, you may have a requirement to store your data in a specific area.
+In regulated industries, companies may be required to store data in a specific region.
 
 For companies in the EU, that means you can use the Hub to build ML in a GDPR compliant way: with datasets, models and inference endpoints all stored within EU data centers.
 
