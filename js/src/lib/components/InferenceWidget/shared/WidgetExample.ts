@@ -75,7 +75,7 @@ export type WidgetExampleAssetAndZeroShotInput<TOutput = WidgetExampleOutput> = 
 	WidgetExampleZeroShotTextInput<TOutput>;
 
 export interface WidgetExampleStructuredDataInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
-	structuredData: TableData;
+	structured_data: TableData;
 }
 
 export interface WidgetExampleTableDataInput<TOutput = WidgetExampleOutput> extends WidgetExampleBase<TOutput> {
@@ -108,3 +108,7 @@ export type WidgetExample<TOutput = WidgetExampleOutput> =
 	| WidgetExampleTableDataInput<TOutput>
 	| WidgetExampleZeroShotTextInput<TOutput>
 	| WidgetExampleSentenceSimilarityInput<TOutput>;
+
+type KeysOfUnion<T> = T extends any ? keyof T : never;
+
+export type WidgetExampleAttribute = KeysOfUnion<WidgetExample>;

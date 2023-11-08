@@ -1,18 +1,10 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		callInferenceApi,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
 	import { isTextInput } from "../../shared/inputValidation";
 
 	import { DataTable } from "./DataTable";
@@ -24,6 +16,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -36,26 +29,16 @@
 	let outputJson: string;
 	let text = "";
 
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			text = textParam;
-			getOutput();
-		} else {
-			const [demoText] = getDemoInputs(model, ["text"]);
-			text = (demoText as string) ?? "";
-			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
-			}
-		}
-	});
-
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
 			error = "You need to input some text";
-			output = undefined;
+			exampleOutput = undefined;
 			outputJson = "";
 			return;
 		}
@@ -85,7 +68,7 @@
 		computeTime = "";
 		error = "";
 		modelLoading = { isLoading: false, estimatedTime: 0 };
-		output = undefined;
+		exampleOutput = undefined;
 		outputJson = "";
 
 		if (res.status === "success") {
@@ -128,17 +111,18 @@
 		return Math.ceil(total_elems / SINGLE_DIM_COLS);
 	};
 
-	function previewInputSample(sample: WidgetExampleTextInput) {
+	function applyInputSample(sample: WidgetExampleTextInput, opts: ExampleRunOpts = {}) {
 		text = sample.text;
-	}
-
-	function applyInputSample(sample: WidgetExampleTextInput) {
-		text = sample.text;
-		getOutput();
+		if (opts.isPreview) {
+			return;
+		}
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -149,14 +133,15 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isTextInput}
+	exampleQueryParams={["text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
 			<WidgetQuickInput
 				bind:value={text}
 				{isLoading}
+				{isDisabled}
 				onClickSubmitBtn={() => {
 					getOutput();
 				}}

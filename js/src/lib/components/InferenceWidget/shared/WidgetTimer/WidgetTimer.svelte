@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onDestroy } from "svelte";
 
+	export let isDisabled = false;
+
 	let counterSeconds = 0.0;
 	let interval: ReturnType<typeof setInterval>;
 	let shouldDisplay = false;
@@ -28,6 +30,6 @@
 	onDestroy(() => stop());
 </script>
 
-{#if shouldDisplay}
+{#if shouldDisplay && !isDisabled}
 	<span class="font-mono text-xs text-gray-500">{counterHuman}</span>
 {/if}

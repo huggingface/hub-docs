@@ -1,8 +1,6 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputText } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
@@ -11,7 +9,7 @@
 	import WidgetRealtimeRecorder from "../../shared/WidgetRealtimeRecorder/WidgetRealtimeRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { callInferenceApi, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import { isValidOutputText } from "../../shared/outputValidation";
 	import { isAssetInput } from "../../shared/inputValidation";
 
@@ -21,6 +19,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -63,7 +62,17 @@
 		}
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts<WidgetExampleOutputText> = {}) {
+		if (exampleOutput) {
+			output = exampleOutput.text;
+			outputJson = "";
+			return;
+		}
+
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			output = "";
@@ -124,24 +133,23 @@
 		throw new TypeError("Invalid output: output must be of type <text:string>");
 	}
 
-	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputText>) {
-		file = null;
+	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputText>, opts: ExampleRunOpts = {}) {
 		filename = sample.example_title!;
 		fileUrl = sample.src;
-		selectedSampleUrl = sample.src;
-		getOutput();
-	}
-
-	function previewInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputText>) {
-		filename = sample.example_title!;
-		fileUrl = sample.src;
-		if (isValidOutputText(sample.output)) {
-			output = sample.output.text;
-			outputJson = "";
-		} else {
-			output = "";
-			outputJson = "";
+		if (opts.isPreview) {
+			if (isValidOutputText(sample.output)) {
+				output = sample.output.text;
+				outputJson = "";
+			} else {
+				output = "";
+				outputJson = "";
+			}
+			return;
 		}
+		file = null;
+		selectedSampleUrl = sample.src;
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 
 	function updateModelLoading(isLoading: boolean, estimatedTime: number = 0) {
@@ -151,19 +159,10 @@
 	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputText> {
 		return isAssetInput(sample) && (!sample.output || isValidOutputText(sample.output));
 	}
-
-	onMount(() => {
-		const [exampleTitle, src] = getDemoInputs(model, ["example_title", "src"]);
-		if (callApiOnMount && src) {
-			filename = exampleTitle ?? "";
-			fileUrl = src;
-			selectedSampleUrl = src;
-			getOutput({ isOnLoadCall: true });
-		}
-	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -174,12 +173,11 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	{validateExample}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
-			<div class="flex flex-wrap items-center">
+			<div class="flex flex-wrap items-center {isDisabled ? 'pointer-events-none hidden opacity-50' : ''}">
 				{#if !isRealtimeRecording}
 					<WidgetFileInput accept="audio/*" classNames="mt-1.5" {onSelectFile} />
 					<span class="mx-2 mt-1.5">or</span>
@@ -206,7 +204,7 @@
 				{/if}
 				<WidgetSubmitBtn
 					classNames="mt-2"
-					isDisabled={isRecording}
+					isDisabled={isRecording || isDisabled}
 					{isLoading}
 					onClick={() => {
 						getOutput();

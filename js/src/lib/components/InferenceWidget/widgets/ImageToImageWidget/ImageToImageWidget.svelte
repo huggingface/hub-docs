@@ -1,15 +1,13 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleAssetAndPromptInput } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, callInferenceApi } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi } from "../../shared/helpers";
 	import { isAssetAndPromptInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -18,6 +16,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -63,21 +62,24 @@
 		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
-	function previewInputSample(sample: WidgetExampleAssetAndPromptInput) {
+	async function applyInputSample(sample: WidgetExampleAssetAndPromptInput, opts: ExampleRunOpts = {}) {
 		prompt = sample.prompt;
 		imgSrc = sample.src;
-	}
-
-	async function applyInputSample(sample: WidgetExampleAssetAndPromptInput) {
-		prompt = sample.prompt;
-		imgSrc = sample.src;
+		if (opts.isPreview) {
+			return;
+		}
 		const res = await fetch(imgSrc);
 		const blob = await res.blob();
 		await updateImageBase64(blob);
-		getOutput();
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedPrompt = prompt.trim();
 
 		if (!imageBase64) {
@@ -130,23 +132,10 @@
 			error = res.error;
 		}
 	}
-
-	onMount(() => {
-		(async () => {
-			const [prompt_, src] = getDemoInputs(model, ["prompt", "src"]);
-			if (callApiOnMount && prompt_ && src) {
-				prompt = prompt_;
-				imgSrc = src;
-				const res = await fetch(imgSrc);
-				const blob = await res.blob();
-				await updateImageBase64(blob);
-				getOutput({ isOnLoadCall: true });
-			}
-		})();
-	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -157,12 +146,18 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isAssetAndPromptInput}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="space-y-2">
-			<WidgetDropzone classNames="hidden md:block" {isLoading} {imgSrc} {onSelectFile} onError={e => (error = e)}>
+			<WidgetDropzone
+				classNames="hidden md:block"
+				{isLoading}
+				{isDisabled}
+				{imgSrc}
+				{onSelectFile}
+				onError={e => (error = e)}
+			>
 				{#if imgSrc}
 					<img src={imgSrc} class="pointer-events-none mx-auto max-h-44 shadow" alt="" />
 				{/if}
@@ -179,16 +174,19 @@
 				accept="image/*"
 				classNames="mr-2 md:hidden"
 				{isLoading}
+				{isDisabled}
 				label="Browse for image"
 				{onSelectFile}
 			/>
 			<WidgetTextInput
 				bind:value={prompt}
+				{isDisabled}
 				label="(Optional) Text-guidance if the model has support for it"
 				placeholder="Your prompt here..."
 			/>
 			<WidgetSubmitBtn
 				{isLoading}
+				{isDisabled}
 				onClick={() => {
 					getOutput();
 				}}

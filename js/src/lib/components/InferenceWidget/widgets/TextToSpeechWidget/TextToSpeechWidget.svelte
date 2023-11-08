@@ -1,20 +1,12 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { WidgetExampleTextInput } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		callInferenceApi,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
 	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
@@ -24,6 +16,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -37,21 +30,11 @@
 	let text = "";
 	let setTextAreaValue: (text: string) => void;
 
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			setTextAreaValue(textParam);
-			getOutput();
-		} else {
-			const [demoText] = getDemoInputs(model, ["text"]);
-			setTextAreaValue(demoText ?? "");
-			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
-			}
-		}
-	});
-
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -110,17 +93,18 @@
 		throw new TypeError("Invalid output: output must be of type object & instance of Blob");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextInput) {
+	function applyInputSample(sample: WidgetExampleTextInput, opts: ExampleRunOpts = {}) {
 		setTextAreaValue(sample.text);
-	}
-
-	function applyInputSample(sample: WidgetExampleTextInput) {
-		setTextAreaValue(sample.text);
-		getOutput();
+		if (opts.isPreview) {
+			return;
+		}
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -131,15 +115,16 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	validateExample={isTextInput}
+	exampleQueryParams={["text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
-			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} />
+			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} {isDisabled} />
 			<WidgetSubmitBtn
 				classNames="mt-2"
 				{isLoading}
+				{isDisabled}
 				onClick={() => {
 					getOutput();
 				}}

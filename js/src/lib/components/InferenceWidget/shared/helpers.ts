@@ -1,26 +1,39 @@
 import type { ModelData } from "../../../interfaces/Types";
 import { randomItem, parseJSON } from "../../../utils/ViewUtils";
+import type { WidgetExample, WidgetExampleAttribute } from "./WidgetExample";
 import type { ModelLoadInfo, TableData } from "./types";
+import { LoadState } from "./types";
 
-export function getSearchParams(keys: string[]): string[] {
+const KEYS_TEXT: WidgetExampleAttribute[] = ["text", "context", "candidate_labels"];
+const KEYS_TABLE: WidgetExampleAttribute[] = ["table", "structured_data"];
+type QueryParamVal = string | null | boolean | (string | number)[][];
+
+export function getQueryParamVal(key: WidgetExampleAttribute): QueryParamVal {
 	const searchParams = new URL(window.location.href).searchParams;
-	return keys.map(key => {
-		const value = searchParams.get(key);
-		return value || "";
-	});
+	const value = searchParams.get(key);
+	if (KEYS_TEXT.includes(key)) {
+		return value;
+	} else if (KEYS_TABLE.includes(key)) {
+		const table = convertDataToTable((parseJSON(value) as TableData) ?? {});
+		return table;
+	} else if (key === "multi_class") {
+		return value === "true";
+	}
+	return value;
 }
 
-export function getDemoInputs(model: ModelData, keys: (number | string)[]): any[] {
-	const widgetData = Array.isArray(model.widgetData) ? model.widgetData : [];
-	const randomEntry = (randomItem(widgetData) ?? {}) as any;
-	return keys.map(key => {
-		const value = randomEntry[key] ? randomEntry[key] : null;
-		return value ? randomEntry[key] : null;
-	});
+export function getWidgetExample<TWidgetExample extends WidgetExample>(
+	model: ModelData,
+	validateExample: (sample: WidgetExample) => sample is TWidgetExample
+): TWidgetExample | undefined {
+	const validExamples = model.widgetData?.filter(
+		(sample): sample is TWidgetExample => sample && validateExample(sample)
+	);
+	return validExamples?.length ? randomItem(validExamples) : undefined;
 }
 
 // Update current url search params, keeping existing keys intact.
-export function updateUrl(obj: Record<string, string | undefined>): void {
+export function updateUrl(obj: Partial<Record<WidgetExampleAttribute, string | undefined>>): void {
 	if (!window) {
 		return;
 	}
@@ -172,7 +185,7 @@ export async function getModelLoadInfo(
 		return { compute_type, state };
 	} else {
 		console.warn(response.status, output.error);
-		return { state: "error" };
+		return { state: LoadState.Error };
 	}
 }
 

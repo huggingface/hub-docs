@@ -1,9 +1,7 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { PipelineType } from "../../../../interfaces/Types";
 	import type { WidgetExampleTextInput, WidgetExampleOutputText, WidgetExample } from "../../shared/WidgetExample";
-
-	import { onMount } from "svelte";
 
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetShortcutRunLabel from "../../shared/WidgetShortcutRunLabel/WidgetShortcutRunLabel.svelte";
@@ -12,13 +10,7 @@
 	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import {
-		addInferenceParameters,
-		getDemoInputs,
-		callInferenceApi,
-		getSearchParams,
-		updateUrl,
-	} from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
 	import { isValidOutputText } from "../../shared/outputValidation";
 	import { isTextInput } from "../../shared/inputValidation";
 
@@ -30,6 +22,7 @@
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
 	export let isLoggedIn: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	const isBloomLoginRequired = isLoggedIn === false && model.id === "bigscience/bloom";
 
@@ -55,22 +48,20 @@
 		model.pipeline_tag as PipelineType
 	);
 
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			setTextAreaValue(textParam);
-			getOutput({ useCache: true });
-		} else {
-			const [demoText] = getDemoInputs(model, ["text"]);
-			setTextAreaValue(demoText ?? "");
-			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true, useCache: true });
-			}
-		}
-	});
-
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = true } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		useCache = true,
+		exampleOutput = undefined,
+	}: InferenceRunOpts<WidgetExampleOutputText> = {}) {
 		if (isBloomLoginRequired) {
+			return;
+		}
+
+		if (exampleOutput) {
+			output = exampleOutput.text;
+			outputJson = "";
+			renderTypingEffect(output);
 			return;
 		}
 
@@ -171,21 +162,21 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	function previewInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>, opts: ExampleRunOpts = {}) {
 		setTextAreaValue(sample.text);
-		if (sample.output) {
-			output = sample.output.text;
-			outputJson = "";
-			renderTypingEffect(output);
-		} else {
-			output = "";
-			outputJson = "";
+		if (opts.isPreview) {
+			if (sample.output) {
+				output = sample.output.text;
+				outputJson = "";
+				renderTypingEffect(output);
+			} else {
+				output = "";
+				outputJson = "";
+			}
+			return;
 		}
-	}
-
-	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>) {
-		setTextAreaValue(sample.text);
-		getOutput({ useCache });
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, useCache, exampleOutput });
 	}
 
 	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputText> {
@@ -202,6 +193,7 @@
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -212,15 +204,16 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
 	{validateExample}
+	exampleQueryParams={["text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="space-y-2">
 			<WidgetTextarea
 				bind:value={text}
 				bind:setValue={setTextAreaValue}
 				{isLoading}
+				{isDisabled}
 				size="big"
 				bind:renderTypingEffect
 			/>
@@ -230,13 +223,14 @@
 			<div class="flex items-center gap-x-2 {isBloomLoginRequired ? 'pointer-events-none opacity-50' : ''}">
 				<WidgetSubmitBtn
 					{isLoading}
+					{isDisabled}
 					onClick={() => {
 						getOutput({ useCache });
 					}}
 				/>
-				<WidgetShortcutRunLabel {isLoading} />
+				<WidgetShortcutRunLabel {isLoading} {isDisabled} />
 				<div class="ml-auto self-start">
-					<WidgetTimer bind:this={inferenceTimer} />
+					<WidgetTimer bind:this={inferenceTimer} {isDisabled} />
 				</div>
 			</div>
 			{#if warning}
