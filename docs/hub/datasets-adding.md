@@ -1,4 +1,4 @@
-# Adding a new dataset
+# Uploading datasets
 
 The [Hub](https://huggingface.co/datasets) is home to an extensive collection of community-curated and research datasets. We encourage you to share your dataset to the Hub to help grow the ML community and accelerate progress for everyone. All contributions are welcome; adding a dataset is just a drag and drop away!
 
@@ -21,7 +21,7 @@ A repository hosts all your dataset files, including the revision history, makin
 
 ### Upload dataset
 
-1. Once you've created a repository, navigate to the **Files and versions** tab to add a file. Select **Add file** to upload your dataset files. We support many text, audio, and image data extensions such as `.csv`, `.mp3`, and `.jpg` among many others.
+1. Once you've created a repository, navigate to the **Files and versions** tab to add a file. Select **Add file** to upload your dataset files. We support many text, audio, and image data extensions such as `.csv`, `.mp3`, and `.jpg` among many others (see full list [here](./datasets-viewer-configure.md)).
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/datasets/upload_files.png"/>
