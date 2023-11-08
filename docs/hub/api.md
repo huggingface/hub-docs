@@ -160,6 +160,7 @@ Parameters:
 - `name`: Name of repo.
 - `organization`: Name of organization (optional).
 - `private`: Whether the repo is private.
+- `sdk`: When the type is `space` (streamlit, gradio, docker or static)
 
 Payload:
 
@@ -168,7 +169,8 @@ payload = {
     "type":"type",
     "name":"name",
     "organization": "organization",
-    "private":"private"
+    "private":"private",
+    "sdk": "sdk"
 }
 ```
 
