@@ -46,11 +46,15 @@ params = {
 
 This is equivalent to `huggingface_hub.list_models()`.
 
+The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
+
 ### GET /api/models/{repo_id} or /api/models/{repo_id}/revision/{revision}
 
 Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.model_info(repo_id, revision)`.
+
+The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
 
 ### GET /api/models-tags-by-type
 
@@ -86,6 +90,8 @@ params = {
 
 This is equivalent to `huggingface_hub.list_datasets()`.
 
+The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
+
 ### GET /api/datasets/{repo_id} or /api/datasets/{repo_id}/revision/{revision}
 
 Get all information for a specific dataset.
@@ -99,6 +105,8 @@ params = {"full": "full"}
 ```
 
 This is equivalent to `huggingface_hub.dataset_info(repo_id, revision)`.
+
+The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
 
 ### GET /api/datasets/{repo_id}/parquet
 
@@ -142,11 +150,20 @@ params = {
 
 This is equivalent to `huggingface_hub.list_spaces()`.
 
+The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
+
 ### GET /api/spaces/{repo_id} or /api/spaces/{repo_id}/revision/{revision}
 Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.space_info(repo_id, revision)`.
 
+The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
+
+### GET /api/metrics
+
+Get information from all metrics in the Hub.
+
+This is equivalent to `huggingface_hub.list_metrics()`.
 
 ## Repo API
 
