@@ -16042,10 +16042,6 @@ export const LANGUAGES: Record<string, Language> = {
 		code: "lyn",
 		name: "Luyana"
 	},
-	lzh: {
-		code: "lzh",
-		name: "Literary Chinese"
-	},
 	lzl: {
 		code: "lzl",
 		name: "Litzlitz"
@@ -27389,10 +27385,6 @@ export const LANGUAGES: Record<string, Language> = {
 	udl: {
 		code: "udl",
 		name: "Wuzlam"
-	},
-	udm: {
-		code: "udm",
-		name: "Udmurt"
 	},
 	udu: {
 		code: "udu",
