@@ -69,7 +69,7 @@ These other split names are also supported, and the following keywords are equiv
 - validation, valid, val, dev
 - test, testing, eval, evaluation
 
-Therefore the structure below is a valid repository:
+Therefore, the structure below is a valid repository:
 
 ```
 my_dataset_repository/

@@ -51,19 +51,19 @@ Adding a Dataset card is super valuable for helping users find your dataset and 
 
 2. At the top, you'll see the **Metadata UI** with several fields to select from such as license, language, and task categories. These are the most important tags for helping users discover your dataset on the Hub (when applicable). When you select an option for a field, it will be automatically added to the top of the dataset card.
 
-    You can also look at the [Dataset Card specifications](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1), which has a complete set of (but not required) tag options like `annotations_creators`, to help you choose the appropriate tags.
+    You can also look at the [Dataset Card specifications](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1), which has a complete set of allowed tags, including optional like `annotations_creators`, to help you choose the ones that are useful for your dataset.
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/datasets/metadata_ui.png"/>
 </div>
 
-3. Write your dataset documentation in the Dataset Card to introduce your dataset to the community and help users understand how to use it.
+3. Write your dataset documentation in the Dataset Card to introduce your dataset to the community and help users understand what is inside: what are the use cases and limitations, where the data comes from, what are important ethical considerations, and any other relevant details.
 
     You can click on the **Import dataset card template** link at the top of the editor to automatically create a dataset card template. For a detailed example of what a good Dataset card should look like, take a look at the [CNN DailyMail Dataset card](https://huggingface.co/datasets/cnn_dailymail).
 
 ### Dataset Viewer
 
-The [Dataset Viewer](./datasets-viewer) is crucial to know what the data actually look like.
+The [Dataset Viewer](./datasets-viewer) is useful to know how the data actually looks like before you download it.
 It is generally enabled by default for any dataset, depending on the dataset structure.
 
 Make sure the Dataset Viewer correctly shows your data, or [Configure the Dataset Viewer](./datasets-viewer-configure).

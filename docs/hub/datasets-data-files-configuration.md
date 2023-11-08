@@ -1,6 +1,6 @@
 # Data files Configuration
 
-There are no constraints in how to structure dataset repositories.
+There are no constraints on how to structure dataset repositories.
 
 However, if you want the Dataset Viewer to show certain data files, or to separate your dataset in train/validation/test splits, you need to structure your dataset accordingly.
 Often it is as simple as naming your data files according to their split names, e.g. `train.csv` and `test.csv`.
@@ -12,7 +12,7 @@ To structure your dataset by naming your data files or directories according to 
 ## Manual configuration
 
 You can choose the data files to show in the Dataset Viewer for your dataset using YAML.
-It is useful if you want to specify which file goes in which split manually for example
+It is useful if you want to specify which file goes into which split manually.
 
 You can also define multiple configurations (or subsets) for your dataset, and pass dataset building parameters (e.g. the separator to use for CSV files).
 

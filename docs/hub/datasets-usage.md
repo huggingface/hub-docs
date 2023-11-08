@@ -21,7 +21,7 @@ valid_dataset = load_dataset("username/my_dataset", split="validation")
 test_dataset  = load_dataset("username/my_dataset", split="test")
 ```
 
-You can also upload datasets on Hugging Face:
+You can also upload datasets to the Hugging Face Hub:
 
 ```python
 my_new_dataset.push_to_hub("username/my_new_dataset")

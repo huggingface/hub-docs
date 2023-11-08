@@ -37,5 +37,5 @@ You can reload it later:
 
 >>> fs = HfFileSystem()
 >>> duckdb.register_filesystem(fs)
->>> df = duckdb.query(f"SELECT * FROM 'hf://datasets/username/my_dataset/data.parquet' LIMIT 10").df()
+>>> df = duckdb.query("SELECT * FROM 'hf://datasets/username/my_dataset/data.parquet' LIMIT 10;").df()
 ```

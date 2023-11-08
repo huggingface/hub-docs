@@ -9,15 +9,14 @@ The dataset page includes a table with the contents of the dataset, arranged by 
 
 ## Configure the Dataset Viewer
 
-To have a nice and working Dataset Viewer for your dataset, make sure your dataset is in a supported format and structure.
+To have a properly working Dataset Viewer for your dataset, make sure your dataset is in a supported format and structure.
 There is also an option to configure your dataset using YAML.
 
 For more information see our guide on [How to configure the Dataset Viewer](./datasets-viewer-configure).
 
 ## Inspect data distributions
 
-At the top of each column you can see histograms representing the distributions of numerical values and text lengths.
-For categorical data there is also the number of rows from each class.
+At the top of the columns you can see the graphs representing the distribution of their data. This gives you a quick insight on how balanced your classes are, what are the range and distribution of numerical data and lengths of texts, and what portion of the column data is missing.
 
 ## Filter by value
 
@@ -34,7 +33,7 @@ You can share a specific row by clicking on it, and then copying the URL in the 
 
 ## Access the parquet files
 
-To power the dataset viewer, every dataset is auto-converted to the Parquet format. Click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset with libraries such as Polars, Pandas or DuckDB.
+To power the dataset viewer, every dataset is auto-converted to the Parquet format. Click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
 
 You can also access the list of Parquet files programmatically using the [Hub API](./api#endpoints-table): https://huggingface.co/api/datasets/glue/parquet.
 
