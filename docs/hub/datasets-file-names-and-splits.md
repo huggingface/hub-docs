@@ -3,13 +3,13 @@
 To host and share your dataset, create a dataset repository on the Hugging Face Hub and upload your data files.
 
 This guide will show you how to name your files and directories in your dataset repository when you upload it and enable all the Dataset Hub features like the Dataset Viewer.
-A dataset with a supported structure and file format (`.txt`, `.csv`, `.parquet`, `.jsonl`, `.mp3`, `.jpg`, `.zip` etc.) automatically has a dataset viewer on its dataset page on the Hub.
+A dataset with a [supported structure and file format]((./datasets-viewer-configure#supported-data-formats)) automatically has a dataset viewer on its dataset page on the Hub.
 
 Note that you can also define your own custom structure, see the documentation on [Manual Configuration](./datasets-manual-configuration) for more information
 
 ## Basic use-case
 
-If your dataset isn't split into [train/validation/test splits](https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets), the simplest dataset structure is to have one file: `data.csv` (this works with any supported file format and any file name).
+If your dataset isn't split into [train/validation/test splits](https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets), the simplest dataset structure is to have one file: `data.csv` (this works with any [supported file format](./datasets-viewer-configure#supported-data-formats) and any file name).
 
 Your repository will also contain a `README.md` file, the [dataset card](./dataset-cards) displayed on your dataset page.
 
