@@ -64,7 +64,7 @@ Adding a Dataset card is super valuable for helping users find your dataset and 
 ### Dataset Viewer
 
 The [Dataset Viewer](./datasets-viewer) is useful to know how the data actually looks like before you download it.
-It is generally enabled by default for any dataset, depending on the dataset structure.
+It is enabled by default for all public datasets.
 
 Make sure the Dataset Viewer correctly shows your data, or [Configure the Dataset Viewer](./datasets-viewer-configure).
 
@@ -80,3 +80,21 @@ See the list of [Libraries supported by the Datasets Hub](./datasets-libraries) 
 ## Using Git
 
 Since dataset repos are just Git repositories, you can use Git to push your data files to the Hub. Follow the guide on [Getting Started with Repositories](repositories-getting-started) to learn about using the `git` CLI to commit and push your datasets.
+
+## File formats
+
+The Hub natively supports multiple file formats:
+
+- CSV (.csv, .tsv)
+- JSON Lines, JSON (.jsonl, .json)
+- Parquet (.parquet)
+- Text (.txt)
+- Images (.png, .jpg, etc.)
+- Audio (.wav, .mp3, etc.)
+
+It also supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
+
+Image and audio resources can also have additional metadata files, see the [Data files Configuration](./datasets-data-files-configuration) on image and audio datasets.
+
+You may want to convert your files to these formats to benefit from all the Hub features.
+Other formats and structures may not be recognized by the Hub.

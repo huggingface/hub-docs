@@ -3,21 +3,7 @@
 The Dataset Viewer supports many data files formats, from text to tabular and from image to audio formats.
 It also separates the train/validation/test splits based on file and folder names.
 
-To configure the Dataset Viewer for your dataset, make sure your dataset is in a supported data format and structured the right way.
-
-## Supported data formats
-
-The dataset viewer supports multiple file formats:
-
-- CSV (.csv, .tsv)
-- JSON Lines, JSON (.jsonl, .json)
-- Parquet (.parquet)
-- Text (.txt)
-- Images (.png, .jpg, etc.)
-- Audio (.wav, .mp3, etc.)
-
-The dataset viewer also supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
-Image and audio resources can also have additional metadata files, see the [Data files Configuration](./datasets-data-files-configuration) on image and audio datasets.
+To configure the Dataset Viewer for your dataset, first make sure your dataset is in a [supported data format](./datasets-adding#files-formats).
 
 ## Configure dropdowns for splits or subsets
 
