@@ -29,7 +29,7 @@ You can search for a word in the dataset by typing it in the search bar at the t
 
 ## Share a specific row
 
-You can share a specific row by clicking on it, and then copying the URL in the address bar of your browser. For example https://huggingface.co/datasets/glue/viewer/mrpc/test?row=241 will open the dataset viewer on the MRPC dataset, on the test split, and on the 241st row.
+You can share a specific row by clicking on it, and then copying the URL in the address bar of your browser. For example https://huggingface.co/datasets/glue/viewer/mrpc/test?p=2&row=241 will open the dataset viewer on the MRPC dataset, on the test split, and on the 241st row.
 
 ## Access the parquet files
 
