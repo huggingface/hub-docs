@@ -63,7 +63,7 @@
 			outputJson = "";
 			// if output doesn't start with space, add space in front of output
 			const prefix = /^\s/.test(output) ? "" : " ";
-			renderTypingEffect(prefix+output);
+			renderTypingEffect(prefix + output);
 			return;
 		}
 
