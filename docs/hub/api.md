@@ -18,7 +18,7 @@ Try it out now on our [Playground](https://huggingface.co/spaces/enzostvs/hub-ap
 The following endpoints help get information about models, datasets, Spaces, and metrics stored on the Hub.
 
 <Tip>
-When making API calls to retrieve information about repositories, the `createdAt` attribute indicates the time when the respective repository was created. It's important to note that there is a unique value, '2022-03-02T23:29:04.000Z,' assigned to all repositories that were created before we began storing creation dates.
+When making API calls to retrieve information about repositories, the <code>createdAt</code> attribute indicates the time when the respective repository was created. It's important to note that there is a unique value, <code>2022-03-02T23:29:04.000Z</code> assigned to all repositories that were created before we began storing creation dates.
 </Tip>
 
 ### GET /api/models
