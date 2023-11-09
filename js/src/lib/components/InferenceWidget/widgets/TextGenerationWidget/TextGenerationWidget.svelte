@@ -61,7 +61,8 @@
 		if (exampleOutput) {
 			output = exampleOutput.text;
 			outputJson = "";
-			renderTypingEffect(output);
+			const outputWithSpace = /^\s/.test(output) ? output : ` ${output}`;
+			renderTypingEffect(outputWithSpace);
 			return;
 		}
 
