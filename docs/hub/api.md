@@ -17,6 +17,10 @@ Try it out now on our [Playground](https://huggingface.co/spaces/enzostvs/hub-ap
 
 The following endpoints help get information about models, datasets, Spaces, and metrics stored on the Hub.
 
+<Tip>
+When making API calls to retrieve information about repositories, the <code>createdAt</code> attribute indicates the time when the respective repository was created. It's important to note that there is a unique value, <code>2022-03-02T23:29:04.000Z</code> assigned to all repositories that were created before we began storing creation dates.
+</Tip>
+
 ### GET /api/models
 
 Get information from all models in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the next pages. You can specify additional parameters to have more specific results.
