@@ -13,9 +13,14 @@ Try it out now on our [Playground](https://huggingface.co/spaces/enzostvs/hub-ap
 <img class="w-full object-contain" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/hub-api-playground.png"/>
 </div>
 
+
 ## Repo listing API
 
 The following endpoints help get information about models, datasets, Spaces, and metrics stored on the Hub.
+
+<Tip>
+When making API calls to retrieve information about repositories, the `createdAt` attribute indicates the time when the respective repository was created. It's important to note that there is a unique value, '2022-03-02T23:29:04.000Z,' assigned to all repositories that were created before we began storing creation dates.
+</Tip>
 
 ### GET /api/models
 
@@ -46,15 +51,11 @@ params = {
 
 This is equivalent to `huggingface_hub.list_models()`.
 
-The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
-
 ### GET /api/models/{repo_id} or /api/models/{repo_id}/revision/{revision}
 
 Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.model_info(repo_id, revision)`.
-
-The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
 
 ### GET /api/models-tags-by-type
 
@@ -90,8 +91,6 @@ params = {
 
 This is equivalent to `huggingface_hub.list_datasets()`.
 
-The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
-
 ### GET /api/datasets/{repo_id} or /api/datasets/{repo_id}/revision/{revision}
 
 Get all information for a specific dataset.
@@ -105,8 +104,6 @@ params = {"full": "full"}
 ```
 
 This is equivalent to `huggingface_hub.dataset_info(repo_id, revision)`.
-
-The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
 
 ### GET /api/datasets/{repo_id}/parquet
 
@@ -150,14 +147,10 @@ params = {
 
 This is equivalent to `huggingface_hub.list_spaces()`.
 
-The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
-
 ### GET /api/spaces/{repo_id} or /api/spaces/{repo_id}/revision/{revision}
 Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.space_info(repo_id, revision)`.
-
-The key `createdAt` in the response begins on `2022-03-02T23:29:04.000Z` as a result of a special migration.
 
 ### GET /api/metrics
 
