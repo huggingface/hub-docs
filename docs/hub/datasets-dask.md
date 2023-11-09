@@ -22,12 +22,12 @@ Finally you can use Hugging Face paths in Dask:
 ```python
 import dask.dataframe as dd
 
-df.write_parquet("hf://datasets/username/my_dataset")
+df.to_parquet("hf://datasets/username/my_dataset")
 
 # or write in separate directories if the dataset has train/validation/test splits
-df_train.write_parquet("hf://datasets/username/my_dataset/train")
-df_valid.write_parquet("hf://datasets/username/my_dataset/validation")
-df_test .write_parquet("hf://datasets/username/my_dataset/test")
+df_train.to_parquet("hf://datasets/username/my_dataset/train")
+df_valid.to_parquet("hf://datasets/username/my_dataset/validation")
+df_test .to_parquet("hf://datasets/username/my_dataset/test")
 ```
 
 This creates a dataset repository `username/my_dataset` containing your Dask dataset in Parquet format.

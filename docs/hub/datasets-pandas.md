@@ -22,12 +22,12 @@ Finally you can use Hugging Face paths in Pandas:
 ```python
 import pandas as pd
 
-df.write_parquet("hf://datasets/username/my_dataset/data.parquet")
+df.to_parquet("hf://datasets/username/my_dataset/data.parquet")
 
 # or write in separate files if the dataset has train/validation/test splits
-df_train.write_parquet("hf://datasets/username/my_dataset/train.parquet")
-df_valid.write_parquet("hf://datasets/username/my_dataset/validation.parquet")
-df_test .write_parquet("hf://datasets/username/my_dataset/test.parquet")
+df_train.to_parquet("hf://datasets/username/my_dataset/train.parquet")
+df_valid.to_parquet("hf://datasets/username/my_dataset/validation.parquet")
+df_test .to_parquet("hf://datasets/username/my_dataset/test.parquet")
 ```
 
 This creates a dataset repository `username/my_dataset` containing your Pandas dataset in Parquet format.
