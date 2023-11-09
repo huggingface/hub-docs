@@ -13,7 +13,6 @@ Try it out now on our [Playground](https://huggingface.co/spaces/enzostvs/hub-ap
 <img class="w-full object-contain" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/hub-api-playground.png"/>
 </div>
 
-
 ## Repo listing API
 
 The following endpoints help get information about models, datasets, Spaces, and metrics stored on the Hub.
