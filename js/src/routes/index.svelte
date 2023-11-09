@@ -499,7 +499,7 @@
 			inference: InferenceDisplayability.PipelineNotDetected,
 			widgetData: [
 				// the widget should only show sample with output here
-				{ text: "My name is Julien and I like to", output: { text: " code cool products with my friends." } },
+				{ text: "My name is Julien and I like to", output: { text: "code cool products with my friends." } },
 				{ text: "My name is Thomas and my main" },
 				{ text: "My name is Mariama, my favorite" },
 				{ text: "My name is Clara and I am" },
