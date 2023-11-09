@@ -152,11 +152,6 @@ Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.space_info(repo_id, revision)`.
 
-### GET /api/metrics
-
-Get information from all metrics in the Hub.
-
-This is equivalent to `huggingface_hub.list_metrics()`.
 
 ## Repo API
 
