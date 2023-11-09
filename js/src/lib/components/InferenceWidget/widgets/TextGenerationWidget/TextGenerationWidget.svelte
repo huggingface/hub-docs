@@ -61,9 +61,7 @@
 		if (exampleOutput) {
 			output = exampleOutput.text;
 			outputJson = "";
-			// if output doesn't start with space, add space in front of output
-			const prefix = /^\s/.test(output) ? "" : " ";
-			renderTypingEffect(prefix + output);
+			renderExampleOutput(output);
 			return;
 		}
 
@@ -164,15 +162,19 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
+	function renderExampleOutput(output: string) {
+		// if output doesn't start with space, add space in front of output
+		const prefix = /^\s/.test(output) ? "" : " ";
+		renderTypingEffect(prefix + output);
+	}
+
 	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>, opts: ExampleRunOpts = {}) {
 		setTextAreaValue(sample.text);
 		if (opts.isPreview) {
 			if (sample.output) {
 				outputJson = "";
 				output = sample.output.text;
-				// if output doesn't start with space, add space in front of output
-				const prefix = /^\s/.test(output) ? "" : " ";
-				renderTypingEffect(prefix + output);
+				renderExampleOutput(output);
 			} else {
 				output = "";
 				outputJson = "";
