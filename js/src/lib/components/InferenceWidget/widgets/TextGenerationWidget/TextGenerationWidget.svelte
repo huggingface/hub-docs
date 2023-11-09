@@ -168,9 +168,11 @@
 		setTextAreaValue(sample.text);
 		if (opts.isPreview) {
 			if (sample.output) {
-				output = sample.output.text;
 				outputJson = "";
-				renderTypingEffect(output);
+				output = sample.output.text;
+				// if output doesn't start with space, add space in front of output
+				const prefix = /^\s/.test(output) ? "" : " ";
+				renderTypingEffect(prefix + output);
 			} else {
 				output = "";
 				outputJson = "";
