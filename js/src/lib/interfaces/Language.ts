@@ -1,27 +1,13 @@
 export interface Language {
-	code:         string;
-	name:         string;
-	nativeName?:  string;
-	/**
-	 * Hydrated
-	 */
-	numModels?:   number;
-	numDatasets?: number;
+	code:        string;
+	name:        string;
+	nativeName?: string;
 }
 
 export function wikiLink(l: Language): string {
 	return `https://en.wikipedia.org/wiki/ISO_639:${l.code}`;
 }
 
-/**
- * List of languages used in huggingface.co/languages
- *
- * This dictionary is exported from
- * github.com/huggingface/widgets-server
- *
- * Please do not modify it directly here,
- * but open a PR upstream instead.
- */
 export const LANGUAGES: Record<string, Language> = {
 	aa: {
 		code:       "aa",
@@ -1246,30752 +1232,31671 @@ export const LANGUAGES: Record<string, Language> = {
 		name:       "Udmurt",
 		nativeName: "удмурт кыл",
 	},
-		aaa: {
+};
+
+export const LANGUAGES_ISO_639_3: Record<string, Language> = {
+	aaa: {
 		code: "aaa",
-		name: "Ghotuo"
+		name: "Ghotuo",
 	},
 	aab: {
 		code: "aab",
-		name: "Alumu-Tesu"
+		name: "Alumu-Tesu",
 	},
 	aac: {
 		code: "aac",
-		name: "Ari"
+		name: "Ari",
 	},
 	aad: {
 		code: "aad",
-		name: "Amal"
+		name: "Amal",
 	},
 	aae: {
 		code: "aae",
-		name: "Arbëreshë Albanian"
+		name: "Arbëreshë Albanian",
 	},
 	aaf: {
 		code: "aaf",
-		name: "Aranadan"
+		name: "Aranadan",
 	},
 	aag: {
 		code: "aag",
-		name: "Ambrak"
+		name: "Ambrak",
 	},
 	aah: {
 		code: "aah",
-		name: "Abu' Arapesh"
+		name: "Abu' Arapesh",
 	},
 	aai: {
 		code: "aai",
-		name: "Arifama-Miniafia"
+		name: "Arifama-Miniafia",
 	},
 	aak: {
 		code: "aak",
-		name: "Ankave"
+		name: "Ankave",
 	},
 	aal: {
 		code: "aal",
-		name: "Afade"
+		name: "Afade",
 	},
 	aan: {
 		code: "aan",
-		name: "Anambé"
+		name: "Anambé",
 	},
 	aao: {
 		code: "aao",
-		name: "Algerian Saharan Arabic"
+		name: "Algerian Saharan Arabic",
 	},
 	aap: {
 		code: "aap",
-		name: "Pará Arára"
+		name: "Pará Arára",
 	},
 	aaq: {
 		code: "aaq",
-		name: "Eastern Abnaki"
+		name: "Eastern Abnaki",
+	},
+	aar: {
+		code: "aar",
+		name: "Afar",
 	},
 	aas: {
 		code: "aas",
-		name: "Aasáx"
+		name: "Aasáx",
 	},
 	aat: {
 		code: "aat",
-		name: "Arvanitika Albanian"
+		name: "Arvanitika Albanian",
 	},
 	aau: {
 		code: "aau",
-		name: "Abau"
+		name: "Abau",
 	},
 	aaw: {
 		code: "aaw",
-		name: "Solong"
+		name: "Solong",
 	},
 	aax: {
 		code: "aax",
-		name: "Mandobo Atas"
+		name: "Mandobo Atas",
 	},
 	aaz: {
 		code: "aaz",
-		name: "Amarasi"
+		name: "Amarasi",
 	},
 	aba: {
 		code: "aba",
-		name: "Abé"
+		name: "Abé",
 	},
 	abb: {
 		code: "abb",
-		name: "Bankon"
+		name: "Bankon",
 	},
 	abc: {
 		code: "abc",
-		name: "Ambala Ayta"
+		name: "Ambala Ayta",
 	},
 	abd: {
 		code: "abd",
-		name: "Manide"
+		name: "Manide",
 	},
 	abe: {
 		code: "abe",
-		name: "Western Abnaki"
+		name: "Western Abnaki",
 	},
 	abf: {
 		code: "abf",
-		name: "Abai Sungai"
+		name: "Abai Sungai",
 	},
 	abg: {
 		code: "abg",
-		name: "Abaga"
+		name: "Abaga",
 	},
 	abh: {
 		code: "abh",
-		name: "Tajiki Arabic"
+		name: "Tajiki Arabic",
 	},
 	abi: {
 		code: "abi",
-		name: "Abidji"
+		name: "Abidji",
 	},
 	abj: {
 		code: "abj",
-		name: "Aka-Bea"
+		name: "Aka-Bea",
+	},
+	abk: {
+		code: "abk",
+		name: "Abkhazian",
 	},
 	abl: {
 		code: "abl",
-		name: "Lampung Nyo"
+		name: "Lampung Nyo",
 	},
 	abm: {
 		code: "abm",
-		name: "Abanyom"
+		name: "Abanyom",
 	},
 	abn: {
 		code: "abn",
-		name: "Abua"
+		name: "Abua",
 	},
 	abo: {
 		code: "abo",
-		name: "Abon"
+		name: "Abon",
 	},
 	abp: {
 		code: "abp",
-		name: "Abellen Ayta"
+		name: "Abellen Ayta",
 	},
 	abq: {
 		code: "abq",
-		name: "Abaza"
+		name: "Abaza",
 	},
 	abr: {
 		code: "abr",
-		name: "Abron"
+		name: "Abron",
 	},
 	abs: {
 		code: "abs",
-		name: "Ambonese Malay"
+		name: "Ambonese Malay",
 	},
 	abt: {
 		code: "abt",
-		name: "Ambulas"
+		name: "Ambulas",
 	},
 	abu: {
 		code: "abu",
-		name: "Abure"
+		name: "Abure",
 	},
 	abv: {
 		code: "abv",
-		name: "Baharna Arabic"
+		name: "Baharna Arabic",
 	},
 	abw: {
 		code: "abw",
-		name: "Pal"
+		name: "Pal",
 	},
 	abx: {
 		code: "abx",
-		name: "Inabaknon"
+		name: "Inabaknon",
 	},
 	aby: {
 		code: "aby",
-		name: "Aneme Wake"
+		name: "Aneme Wake",
 	},
 	abz: {
 		code: "abz",
-		name: "Abui"
+		name: "Abui",
 	},
 	aca: {
 		code: "aca",
-		name: "Achagua"
+		name: "Achagua",
 	},
 	acb: {
 		code: "acb",
-		name: "Áncá"
+		name: "Áncá",
 	},
 	acd: {
 		code: "acd",
-		name: "Gikyode"
+		name: "Gikyode",
 	},
 	ace: {
 		code: "ace",
-		name: "Achinese"
+		name: "Achinese",
 	},
 	acf: {
 		code: "acf",
-		name: "Saint Lucian Creole French"
+		name: "Saint Lucian Creole French",
+	},
+	ach: {
+		code: "ach",
+		name: "Acoli",
 	},
 	aci: {
 		code: "aci",
-		name: "Aka-Cari"
+		name: "Aka-Cari",
 	},
 	ack: {
 		code: "ack",
-		name: "Aka-Kora"
+		name: "Aka-Kora",
 	},
 	acl: {
 		code: "acl",
-		name: "Akar-Bale"
+		name: "Akar-Bale",
 	},
 	acm: {
 		code: "acm",
-		name: "Mesopotamian Arabic"
+		name: "Mesopotamian Arabic",
 	},
 	acn: {
 		code: "acn",
-		name: "Achang"
+		name: "Achang",
 	},
 	acp: {
 		code: "acp",
-		name: "Eastern Acipa"
+		name: "Eastern Acipa",
 	},
 	acq: {
 		code: "acq",
-		name: "Ta'izzi-Adeni Arabic"
+		name: "Ta'izzi-Adeni Arabic",
 	},
 	acr: {
 		code: "acr",
-		name: "Achi"
+		name: "Achi",
 	},
 	acs: {
 		code: "acs",
-		name: "Acroá"
+		name: "Acroá",
 	},
 	act: {
 		code: "act",
-		name: "Achterhoeks"
+		name: "Achterhoeks",
 	},
 	acu: {
 		code: "acu",
-		name: "Achuar-Shiwiar"
+		name: "Achuar-Shiwiar",
 	},
 	acv: {
 		code: "acv",
-		name: "Achumawi"
+		name: "Achumawi",
 	},
 	acw: {
 		code: "acw",
-		name: "Hijazi Arabic"
+		name: "Hijazi Arabic",
 	},
 	acx: {
 		code: "acx",
-		name: "Omani Arabic"
+		name: "Omani Arabic",
 	},
 	acy: {
 		code: "acy",
-		name: "Cypriot Arabic"
+		name: "Cypriot Arabic",
 	},
 	acz: {
 		code: "acz",
-		name: "Acheron"
+		name: "Acheron",
 	},
 	ada: {
 		code: "ada",
-		name: "Adangme"
+		name: "Adangme",
 	},
 	adb: {
 		code: "adb",
-		name: "Atauran"
+		name: "Atauran",
 	},
 	add: {
 		code: "add",
-		name: "Lidzonka"
+		name: "Lidzonka",
 	},
 	ade: {
 		code: "ade",
-		name: "Adele"
+		name: "Adele",
 	},
 	adf: {
 		code: "adf",
-		name: "Dhofari Arabic"
+		name: "Dhofari Arabic",
 	},
 	adg: {
 		code: "adg",
-		name: "Andegerebinha"
+		name: "Andegerebinha",
 	},
 	adh: {
 		code: "adh",
-		name: "Adhola"
+		name: "Adhola",
 	},
 	adi: {
 		code: "adi",
-		name: "Adi"
+		name: "Adi",
 	},
 	adj: {
 		code: "adj",
-		name: "Adioukrou"
+		name: "Adioukrou",
 	},
 	adl: {
 		code: "adl",
-		name: "Galo"
+		name: "Galo",
 	},
 	adn: {
 		code: "adn",
-		name: "Adang"
+		name: "Adang",
 	},
 	ado: {
 		code: "ado",
-		name: "Abu"
+		name: "Abu",
 	},
 	adq: {
 		code: "adq",
-		name: "Adangbe"
+		name: "Adangbe",
 	},
 	adr: {
 		code: "adr",
-		name: "Adonara"
+		name: "Adonara",
 	},
 	ads: {
 		code: "ads",
-		name: "Adamorobe Sign Language"
+		name: "Adamorobe Sign Language",
 	},
 	adt: {
 		code: "adt",
-		name: "Adnyamathanha"
+		name: "Adnyamathanha",
 	},
 	adu: {
 		code: "adu",
-		name: "Aduge"
+		name: "Aduge",
 	},
 	adw: {
 		code: "adw",
-		name: "Amundava"
+		name: "Amundava",
 	},
 	adx: {
 		code: "adx",
-		name: "Amdo Tibetan"
+		name: "Amdo Tibetan",
+	},
+	ady: {
+		code: "ady",
+		name: "Adyghe",
 	},
 	adz: {
 		code: "adz",
-		name: "Adzera"
+		name: "Adzera",
 	},
 	aea: {
 		code: "aea",
-		name: "Areba"
+		name: "Areba",
 	},
 	aeb: {
 		code: "aeb",
-		name: "Tunisian Arabic"
+		name: "Tunisian Arabic",
 	},
 	aec: {
 		code: "aec",
-		name: "Saidi Arabic"
+		name: "Saidi Arabic",
+	},
+	aed: {
+		code: "aed",
+		name: "Argentine Sign Language",
 	},
 	aee: {
 		code: "aee",
-		name: "Northeast Pashai"
+		name: "Northeast Pashai",
 	},
 	aek: {
 		code: "aek",
-		name: "Haeke"
+		name: "Haeke",
 	},
 	ael: {
 		code: "ael",
-		name: "Ambele"
+		name: "Ambele",
 	},
 	aem: {
 		code: "aem",
-		name: "Arem"
+		name: "Arem",
 	},
 	aen: {
 		code: "aen",
-		name: "Armenian Sign Language"
+		name: "Armenian Sign Language",
 	},
 	aeq: {
 		code: "aeq",
-		name: "Aer"
+		name: "Aer",
 	},
 	aer: {
 		code: "aer",
-		name: "Eastern Arrernte"
+		name: "Eastern Arrernte",
 	},
 	aes: {
 		code: "aes",
-		name: "Alsea"
+		name: "Alsea",
 	},
 	aeu: {
 		code: "aeu",
-		name: "Akeu"
+		name: "Akeu",
 	},
 	aew: {
 		code: "aew",
-		name: "Ambakich"
+		name: "Ambakich",
 	},
 	aey: {
 		code: "aey",
-		name: "Amele"
+		name: "Amele",
 	},
 	aez: {
 		code: "aez",
-		name: "Aeka"
+		name: "Aeka",
 	},
 	afb: {
 		code: "afb",
-		name: "Gulf Arabic"
+		name: "Gulf Arabic",
 	},
 	afd: {
 		code: "afd",
-		name: "Andai"
+		name: "Andai",
 	},
 	afe: {
 		code: "afe",
-		name: "Putukwam"
+		name: "Putukwam",
 	},
 	afg: {
 		code: "afg",
-		name: "Afghan Sign Language"
+		name: "Afghan Sign Language",
 	},
 	afh: {
 		code: "afh",
-		name: "Afrihili"
+		name: "Afrihili",
 	},
 	afi: {
 		code: "afi",
-		name: "Akrukay"
+		name: "Akrukay",
 	},
 	afk: {
 		code: "afk",
-		name: "Nanubae"
+		name: "Nanubae",
 	},
 	afn: {
 		code: "afn",
-		name: "Defaka"
+		name: "Defaka",
 	},
 	afo: {
 		code: "afo",
-		name: "Eloyi"
+		name: "Eloyi",
 	},
 	afp: {
 		code: "afp",
-		name: "Tapei"
+		name: "Tapei",
+	},
+	afr: {
+		code: "afr",
+		name: "Afrikaans",
 	},
 	afs: {
 		code: "afs",
-		name: "Afro-Seminole Creole"
+		name: "Afro-Seminole Creole",
 	},
 	aft: {
 		code: "aft",
-		name: "Afitti"
+		name: "Afitti",
 	},
 	afu: {
 		code: "afu",
-		name: "Awutu"
+		name: "Awutu",
 	},
 	afz: {
 		code: "afz",
-		name: "Obokuitai"
+		name: "Obokuitai",
 	},
 	aga: {
 		code: "aga",
-		name: "Aguano"
+		name: "Aguano",
 	},
 	agb: {
 		code: "agb",
-		name: "Legbo"
+		name: "Legbo",
 	},
 	agc: {
 		code: "agc",
-		name: "Agatu"
+		name: "Agatu",
 	},
 	agd: {
 		code: "agd",
-		name: "Agarabi"
+		name: "Agarabi",
 	},
 	age: {
 		code: "age",
-		name: "Angal"
+		name: "Angal",
 	},
 	agf: {
 		code: "agf",
-		name: "Arguni"
+		name: "Arguni",
 	},
 	agg: {
 		code: "agg",
-		name: "Angor"
+		name: "Angor",
 	},
 	agh: {
 		code: "agh",
-		name: "Ngelima"
+		name: "Ngelima",
 	},
 	agi: {
 		code: "agi",
-		name: "Agariya"
+		name: "Agariya",
 	},
 	agj: {
 		code: "agj",
-		name: "Argobba"
+		name: "Argobba",
 	},
 	agk: {
 		code: "agk",
-		name: "Isarog Agta"
+		name: "Isarog Agta",
 	},
 	agl: {
 		code: "agl",
-		name: "Fembe"
+		name: "Fembe",
 	},
 	agm: {
 		code: "agm",
-		name: "Angaataha"
+		name: "Angaataha",
 	},
 	agn: {
 		code: "agn",
-		name: "Agutaynen"
+		name: "Agutaynen",
 	},
 	ago: {
 		code: "ago",
-		name: "Tainae"
+		name: "Tainae",
 	},
 	agq: {
 		code: "agq",
-		name: "Aghem"
+		name: "Aghem",
 	},
 	agr: {
 		code: "agr",
-		name: "Aguaruna"
+		name: "Aguaruna",
 	},
 	ags: {
 		code: "ags",
-		name: "Esimbi"
+		name: "Esimbi",
 	},
 	agt: {
 		code: "agt",
-		name: "Central Cagayan Agta"
+		name: "Central Cagayan Agta",
 	},
 	agu: {
 		code: "agu",
-		name: "Aguacateco"
+		name: "Aguacateco",
 	},
 	agv: {
 		code: "agv",
-		name: "Remontado Dumagat"
+		name: "Remontado Dumagat",
 	},
 	agw: {
 		code: "agw",
-		name: "Kahua"
+		name: "Kahua",
 	},
 	agx: {
 		code: "agx",
-		name: "Aghul"
+		name: "Aghul",
 	},
 	agy: {
 		code: "agy",
-		name: "Southern Alta"
+		name: "Southern Alta",
 	},
 	agz: {
 		code: "agz",
-		name: "Mt. Iriga Agta"
+		name: "Mt. Iriga Agta",
 	},
 	aha: {
 		code: "aha",
-		name: "Ahanta"
+		name: "Ahanta",
 	},
 	ahb: {
 		code: "ahb",
-		name: "Axamb"
+		name: "Axamb",
 	},
 	ahg: {
 		code: "ahg",
-		name: "Qimant"
+		name: "Qimant",
 	},
 	ahh: {
 		code: "ahh",
-		name: "Aghu"
+		name: "Aghu",
 	},
 	ahi: {
 		code: "ahi",
-		name: "Tiagbamrin Aizi"
+		name: "Tiagbamrin Aizi",
 	},
 	ahk: {
 		code: "ahk",
-		name: "Akha"
+		name: "Akha",
 	},
 	ahl: {
 		code: "ahl",
-		name: "Igo"
+		name: "Igo",
 	},
 	ahm: {
 		code: "ahm",
-		name: "Mobumrin Aizi"
+		name: "Mobumrin Aizi",
 	},
 	ahn: {
 		code: "ahn",
-		name: "Àhàn"
+		name: "Àhàn",
 	},
 	aho: {
 		code: "aho",
-		name: "Ahom"
+		name: "Ahom",
 	},
 	ahp: {
 		code: "ahp",
-		name: "Aproumu Aizi"
+		name: "Aproumu Aizi",
 	},
 	ahr: {
 		code: "ahr",
-		name: "Ahirani"
+		name: "Ahirani",
 	},
 	ahs: {
 		code: "ahs",
-		name: "Ashe"
+		name: "Ashe",
 	},
 	aht: {
 		code: "aht",
-		name: "Ahtena"
+		name: "Ahtena",
 	},
 	aia: {
 		code: "aia",
-		name: "Arosi"
+		name: "Arosi",
 	},
 	aib: {
 		code: "aib",
-		name: "Ainu (China)"
+		name: "Ainu (China)",
 	},
 	aic: {
 		code: "aic",
-		name: "Ainbai"
+		name: "Ainbai",
 	},
 	aid: {
 		code: "aid",
-		name: "Alngith"
+		name: "Alngith",
 	},
 	aie: {
 		code: "aie",
-		name: "Amara"
+		name: "Amara",
 	},
 	aif: {
 		code: "aif",
-		name: "Agi"
+		name: "Agi",
 	},
 	aig: {
 		code: "aig",
-		name: "Antigua and Barbuda Creole English"
+		name: "Antigua and Barbuda Creole English",
 	},
 	aih: {
 		code: "aih",
-		name: "Ai-Cham"
+		name: "Ai-Cham",
 	},
 	aii: {
 		code: "aii",
-		name: "Assyrian Neo-Aramaic"
+		name: "Assyrian Neo-Aramaic",
 	},
 	aij: {
 		code: "aij",
-		name: "Lishanid Noshan"
+		name: "Lishanid Noshan",
 	},
 	aik: {
 		code: "aik",
-		name: "Ake"
+		name: "Ake",
 	},
 	ail: {
 		code: "ail",
-		name: "Aimele"
+		name: "Aimele",
 	},
 	aim: {
 		code: "aim",
-		name: "Aimol"
+		name: "Aimol",
 	},
 	ain: {
 		code: "ain",
-		name: "Ainu (Japan)"
+		name: "Ainu (Japan)",
 	},
 	aio: {
 		code: "aio",
-		name: "Aiton"
+		name: "Aiton",
 	},
 	aip: {
 		code: "aip",
-		name: "Burumakok"
+		name: "Burumakok",
 	},
 	aiq: {
 		code: "aiq",
-		name: "Aimaq"
+		name: "Aimaq",
 	},
 	air: {
 		code: "air",
-		name: "Airoran"
+		name: "Airoran",
 	},
 	ait: {
 		code: "ait",
-		name: "Arikem"
+		name: "Arikem",
 	},
 	aiw: {
 		code: "aiw",
-		name: "Aari"
+		name: "Aari",
 	},
 	aix: {
 		code: "aix",
-		name: "Aighon"
+		name: "Aighon",
 	},
 	aiy: {
 		code: "aiy",
-		name: "Ali"
+		name: "Ali",
 	},
 	aja: {
 		code: "aja",
-		name: "Aja (South Sudan)"
+		name: "Aja (South Sudan)",
 	},
 	ajg: {
 		code: "ajg",
-		name: "Aja (Benin)"
+		name: "Aja (Benin)",
 	},
 	aji: {
 		code: "aji",
-		name: "Ajië"
+		name: "Ajië",
 	},
 	ajn: {
 		code: "ajn",
-		name: "Andajin"
+		name: "Andajin",
 	},
 	ajs: {
 		code: "ajs",
-		name: "Algerian Jewish Sign Language"
+		name: "Algerian Jewish Sign Language",
 	},
 	aju: {
 		code: "aju",
-		name: "Judeo-Moroccan Arabic"
+		name: "Judeo-Moroccan Arabic",
 	},
 	ajw: {
 		code: "ajw",
-		name: "Ajawa"
+		name: "Ajawa",
 	},
 	ajz: {
 		code: "ajz",
-		name: "Amri Karbi"
+		name: "Amri Karbi",
+	},
+	aka: {
+		code: "aka",
+		name: "Akan",
 	},
 	akb: {
 		code: "akb",
-		name: "Batak Angkola"
+		name: "Batak Angkola",
 	},
 	akc: {
 		code: "akc",
-		name: "Mpur"
+		name: "Mpur",
 	},
 	akd: {
 		code: "akd",
-		name: "Ukpet-Ehom"
+		name: "Ukpet-Ehom",
 	},
 	ake: {
 		code: "ake",
-		name: "Akawaio"
+		name: "Akawaio",
 	},
 	akf: {
 		code: "akf",
-		name: "Akpa"
+		name: "Akpa",
 	},
 	akg: {
 		code: "akg",
-		name: "Anakalangu"
+		name: "Anakalangu",
 	},
 	akh: {
 		code: "akh",
-		name: "Angal Heneng"
+		name: "Angal Heneng",
 	},
 	aki: {
 		code: "aki",
-		name: "Aiome"
+		name: "Aiome",
 	},
 	akj: {
 		code: "akj",
-		name: "Aka-Jeru"
+		name: "Aka-Jeru",
 	},
 	akk: {
 		code: "akk",
-		name: "Akkadian"
+		name: "Akkadian",
 	},
 	akl: {
 		code: "akl",
-		name: "Aklanon"
+		name: "Aklanon",
 	},
 	akm: {
 		code: "akm",
-		name: "Aka-Bo"
+		name: "Aka-Bo",
 	},
 	ako: {
 		code: "ako",
-		name: "Akurio"
+		name: "Akurio",
 	},
 	akp: {
 		code: "akp",
-		name: "Siwu"
+		name: "Siwu",
 	},
 	akq: {
 		code: "akq",
-		name: "Ak"
+		name: "Ak",
 	},
 	akr: {
 		code: "akr",
-		name: "Araki"
+		name: "Araki",
 	},
 	aks: {
 		code: "aks",
-		name: "Akaselem"
+		name: "Akaselem",
 	},
 	akt: {
 		code: "akt",
-		name: "Akolet"
+		name: "Akolet",
 	},
 	aku: {
 		code: "aku",
-		name: "Akum"
+		name: "Akum",
 	},
 	akv: {
 		code: "akv",
-		name: "Akhvakh"
+		name: "Akhvakh",
 	},
 	akw: {
 		code: "akw",
-		name: "Akwa"
+		name: "Akwa",
 	},
 	akx: {
 		code: "akx",
-		name: "Aka-Kede"
+		name: "Aka-Kede",
 	},
 	aky: {
 		code: "aky",
-		name: "Aka-Kol"
+		name: "Aka-Kol",
 	},
 	akz: {
 		code: "akz",
-		name: "Alabama"
+		name: "Alabama",
 	},
 	ala: {
 		code: "ala",
-		name: "Alago"
+		name: "Alago",
 	},
 	alc: {
 		code: "alc",
-		name: "Qawasqar"
+		name: "Qawasqar",
 	},
 	ald: {
 		code: "ald",
-		name: "Alladian"
+		name: "Alladian",
 	},
 	ale: {
 		code: "ale",
-		name: "Aleut"
+		name: "Aleut",
 	},
 	alf: {
 		code: "alf",
-		name: "Alege"
+		name: "Alege",
 	},
 	alh: {
 		code: "alh",
-		name: "Alawa"
+		name: "Alawa",
 	},
 	ali: {
 		code: "ali",
-		name: "Amaimon"
+		name: "Amaimon",
 	},
 	alj: {
 		code: "alj",
-		name: "Alangan"
+		name: "Alangan",
 	},
 	alk: {
 		code: "alk",
-		name: "Alak"
+		name: "Alak",
 	},
 	all: {
 		code: "all",
-		name: "Allar"
+		name: "Allar",
 	},
 	alm: {
 		code: "alm",
-		name: "Amblong"
+		name: "Amblong",
 	},
 	aln: {
 		code: "aln",
-		name: "Gheg Albanian"
+		name: "Gheg Albanian",
 	},
 	alo: {
 		code: "alo",
-		name: "Larike-Wakasihu"
+		name: "Larike-Wakasihu",
 	},
 	alp: {
 		code: "alp",
-		name: "Alune"
+		name: "Alune",
 	},
 	alq: {
 		code: "alq",
-		name: "Algonquin"
+		name: "Algonquin",
 	},
 	alr: {
 		code: "alr",
-		name: "Alutor"
+		name: "Alutor",
 	},
 	als: {
 		code: "als",
-		name: "Tosk Albanian"
+		name: "Tosk Albanian",
 	},
 	alt: {
 		code: "alt",
-		name: "Southern Altai"
+		name: "Southern Altai",
 	},
 	alu: {
 		code: "alu",
-		name: "'Are'are"
+		name: "'Are'are",
 	},
 	alw: {
 		code: "alw",
-		name: "Alaba-K’abeena"
+		name: "Alaba-K’abeena",
 	},
 	alx: {
 		code: "alx",
-		name: "Amol"
+		name: "Amol",
 	},
 	aly: {
 		code: "aly",
-		name: "Alyawarr"
+		name: "Alyawarr",
 	},
 	alz: {
 		code: "alz",
-		name: "Alur"
+		name: "Alur",
 	},
 	ama: {
 		code: "ama",
-		name: "Amanayé"
+		name: "Amanayé",
 	},
 	amb: {
 		code: "amb",
-		name: "Ambo"
+		name: "Ambo",
 	},
 	amc: {
 		code: "amc",
-		name: "Amahuaca"
+		name: "Amahuaca",
 	},
 	ame: {
 		code: "ame",
-		name: "Yanesha'"
+		name: "Yanesha'",
 	},
 	amf: {
 		code: "amf",
-		name: "Hamer-Banna"
+		name: "Hamer-Banna",
 	},
 	amg: {
 		code: "amg",
-		name: "Amurdak"
+		name: "Amurdak",
+	},
+	amh: {
+		code: "amh",
+		name: "Amharic",
 	},
 	ami: {
 		code: "ami",
-		name: "Amis"
+		name: "Amis",
 	},
 	amj: {
 		code: "amj",
-		name: "Amdang"
+		name: "Amdang",
 	},
 	amk: {
 		code: "amk",
-		name: "Ambai"
+		name: "Ambai",
 	},
 	aml: {
 		code: "aml",
-		name: "War-Jaintia"
+		name: "War-Jaintia",
 	},
 	amm: {
 		code: "amm",
-		name: "Ama (Papua New Guinea)"
+		name: "Ama (Papua New Guinea)",
 	},
 	amn: {
 		code: "amn",
-		name: "Amanab"
+		name: "Amanab",
 	},
 	amo: {
 		code: "amo",
-		name: "Amo"
+		name: "Amo",
 	},
 	amp: {
 		code: "amp",
-		name: "Alamblak"
+		name: "Alamblak",
 	},
 	amq: {
 		code: "amq",
-		name: "Amahai"
+		name: "Amahai",
 	},
 	amr: {
 		code: "amr",
-		name: "Amarakaeri"
+		name: "Amarakaeri",
 	},
 	ams: {
 		code: "ams",
-		name: "Southern Amami-Oshima"
+		name: "Southern Amami-Oshima",
 	},
 	amt: {
 		code: "amt",
-		name: "Amto"
+		name: "Amto",
 	},
 	amu: {
 		code: "amu",
-		name: "Guerrero Amuzgo"
+		name: "Guerrero Amuzgo",
 	},
 	amv: {
 		code: "amv",
-		name: "Ambelau"
+		name: "Ambelau",
 	},
 	amw: {
 		code: "amw",
-		name: "Western Neo-Aramaic"
+		name: "Western Neo-Aramaic",
 	},
 	amx: {
 		code: "amx",
-		name: "Anmatyerre"
+		name: "Anmatyerre",
 	},
 	amy: {
 		code: "amy",
-		name: "Ami"
+		name: "Ami",
 	},
 	amz: {
 		code: "amz",
-		name: "Atampaya"
+		name: "Atampaya",
 	},
 	ana: {
 		code: "ana",
-		name: "Andaqui"
+		name: "Andaqui",
 	},
 	anb: {
 		code: "anb",
-		name: "Andoa"
+		name: "Andoa",
 	},
 	anc: {
 		code: "anc",
-		name: "Ngas"
+		name: "Ngas",
 	},
 	and: {
 		code: "and",
-		name: "Ansus"
+		name: "Ansus",
 	},
 	ane: {
 		code: "ane",
-		name: "Xârâcùù"
+		name: "Xârâcùù",
 	},
 	anf: {
 		code: "anf",
-		name: "Animere"
+		name: "Animere",
 	},
 	ang: {
 		code: "ang",
-		name: "Old English (ca. 450-1100)"
+		name: "Old English (ca. 450-1100)",
 	},
 	anh: {
 		code: "anh",
-		name: "Nend"
+		name: "Nend",
 	},
 	ani: {
 		code: "ani",
-		name: "Andi"
+		name: "Andi",
 	},
 	anj: {
 		code: "anj",
-		name: "Anor"
+		name: "Anor",
 	},
 	ank: {
 		code: "ank",
-		name: "Goemai"
+		name: "Goemai",
 	},
 	anl: {
 		code: "anl",
-		name: "Anu-Hkongso Chin"
+		name: "Anu-Hkongso Chin",
 	},
 	anm: {
 		code: "anm",
-		name: "Anal"
+		name: "Anal",
 	},
 	ann: {
 		code: "ann",
-		name: "Obolo"
+		name: "Obolo",
 	},
 	ano: {
 		code: "ano",
-		name: "Andoque"
+		name: "Andoque",
 	},
 	anp: {
 		code: "anp",
-		name: "Angika"
+		name: "Angika",
 	},
 	anq: {
 		code: "anq",
-		name: "Jarawa (India)"
+		name: "Jarawa (India)",
 	},
 	anr: {
 		code: "anr",
-		name: "Andh"
+		name: "Andh",
 	},
 	ans: {
 		code: "ans",
-		name: "Anserma"
+		name: "Anserma",
 	},
 	ant: {
 		code: "ant",
-		name: "Antakarinya"
+		name: "Antakarinya",
 	},
 	anu: {
 		code: "anu",
-		name: "Anuak"
+		name: "Anuak",
 	},
 	anv: {
 		code: "anv",
-		name: "Denya"
+		name: "Denya",
 	},
 	anw: {
 		code: "anw",
-		name: "Anaang"
+		name: "Anaang",
 	},
 	anx: {
 		code: "anx",
-		name: "Andra-Hus"
+		name: "Andra-Hus",
 	},
 	any: {
 		code: "any",
-		name: "Anyin"
+		name: "Anyin",
 	},
 	anz: {
 		code: "anz",
-		name: "Anem"
+		name: "Anem",
 	},
 	aoa: {
 		code: "aoa",
-		name: "Angolar"
+		name: "Angolar",
 	},
 	aob: {
 		code: "aob",
-		name: "Abom"
+		name: "Abom",
 	},
 	aoc: {
 		code: "aoc",
-		name: "Pemon"
+		name: "Pemon",
 	},
 	aod: {
 		code: "aod",
-		name: "Andarum"
+		name: "Andarum",
 	},
 	aoe: {
 		code: "aoe",
-		name: "Angal Enen"
+		name: "Angal Enen",
 	},
 	aof: {
 		code: "aof",
-		name: "Bragat"
+		name: "Bragat",
 	},
 	aog: {
 		code: "aog",
-		name: "Angoram"
+		name: "Angoram",
 	},
 	aoi: {
 		code: "aoi",
-		name: "Anindilyakwa"
+		name: "Anindilyakwa",
 	},
 	aoj: {
 		code: "aoj",
-		name: "Mufian"
+		name: "Mufian",
 	},
 	aok: {
 		code: "aok",
-		name: "Arhö"
+		name: "Arhö",
 	},
 	aol: {
 		code: "aol",
-		name: "Alor"
+		name: "Alor",
 	},
 	aom: {
 		code: "aom",
-		name: "Ömie"
+		name: "Ömie",
 	},
 	aon: {
 		code: "aon",
-		name: "Bumbita Arapesh"
+		name: "Bumbita Arapesh",
 	},
 	aor: {
 		code: "aor",
-		name: "Aore"
+		name: "Aore",
 	},
 	aos: {
 		code: "aos",
-		name: "Taikat"
+		name: "Taikat",
 	},
 	aot: {
 		code: "aot",
-		name: "Atong (India)"
+		name: "Atong (India)",
 	},
 	aou: {
 		code: "aou",
-		name: "A'ou"
+		name: "A'ou",
 	},
 	aox: {
 		code: "aox",
-		name: "Atorada"
+		name: "Atorada",
 	},
 	aoz: {
 		code: "aoz",
-		name: "Uab Meto"
+		name: "Uab Meto",
 	},
 	apb: {
 		code: "apb",
-		name: "Sa'a"
+		name: "Sa'a",
 	},
 	apc: {
 		code: "apc",
-		name: "Levantine Arabic"
+		name: "Levantine Arabic",
 	},
 	apd: {
 		code: "apd",
-		name: "Sudanese Arabic"
+		name: "Sudanese Arabic",
 	},
 	ape: {
 		code: "ape",
-		name: "Bukiyip"
+		name: "Bukiyip",
 	},
 	apf: {
 		code: "apf",
-		name: "Pahanan Agta"
+		name: "Pahanan Agta",
 	},
 	apg: {
 		code: "apg",
-		name: "Ampanang"
+		name: "Ampanang",
 	},
 	aph: {
 		code: "aph",
-		name: "Athpariya"
+		name: "Athpariya",
 	},
 	api: {
 		code: "api",
-		name: "Apiaká"
+		name: "Apiaká",
 	},
 	apj: {
 		code: "apj",
-		name: "Jicarilla Apache"
+		name: "Jicarilla Apache",
 	},
 	apk: {
 		code: "apk",
-		name: "Kiowa Apache"
+		name: "Kiowa Apache",
 	},
 	apl: {
 		code: "apl",
-		name: "Lipan Apache"
+		name: "Lipan Apache",
 	},
 	apm: {
 		code: "apm",
-		name: "Mescalero-Chiricahua Apache"
+		name: "Mescalero-Chiricahua Apache",
 	},
 	apn: {
 		code: "apn",
-		name: "Apinayé"
+		name: "Apinayé",
 	},
 	apo: {
 		code: "apo",
-		name: "Ambul"
+		name: "Ambul",
 	},
 	app: {
 		code: "app",
-		name: "Apma"
+		name: "Apma",
 	},
 	apq: {
 		code: "apq",
-		name: "A-Pucikwar"
+		name: "A-Pucikwar",
 	},
 	apr: {
 		code: "apr",
-		name: "Arop-Lokep"
+		name: "Arop-Lokep",
 	},
 	aps: {
 		code: "aps",
-		name: "Arop-Sissano"
+		name: "Arop-Sissano",
 	},
 	apt: {
 		code: "apt",
-		name: "Apatani"
+		name: "Apatani",
 	},
 	apu: {
 		code: "apu",
-		name: "Apurinã"
+		name: "Apurinã",
 	},
 	apv: {
 		code: "apv",
-		name: "Alapmunte"
+		name: "Alapmunte",
 	},
 	apw: {
 		code: "apw",
-		name: "Western Apache"
+		name: "Western Apache",
 	},
 	apx: {
 		code: "apx",
-		name: "Aputai"
+		name: "Aputai",
 	},
 	apy: {
 		code: "apy",
-		name: "Apalaí"
+		name: "Apalaí",
 	},
 	apz: {
 		code: "apz",
-		name: "Safeyoka"
+		name: "Safeyoka",
 	},
 	aqc: {
 		code: "aqc",
-		name: "Archi"
+		name: "Archi",
 	},
 	aqd: {
 		code: "aqd",
-		name: "Ampari Dogon"
+		name: "Ampari Dogon",
 	},
 	aqg: {
 		code: "aqg",
-		name: "Arigidi"
+		name: "Arigidi",
 	},
 	aqk: {
 		code: "aqk",
-		name: "Aninka"
+		name: "Aninka",
 	},
 	aqm: {
 		code: "aqm",
-		name: "Atohwaim"
+		name: "Atohwaim",
 	},
 	aqn: {
 		code: "aqn",
-		name: "Northern Alta"
+		name: "Northern Alta",
 	},
 	aqp: {
 		code: "aqp",
-		name: "Atakapa"
+		name: "Atakapa",
 	},
 	aqr: {
 		code: "aqr",
-		name: "Arhâ"
+		name: "Arhâ",
 	},
 	aqt: {
 		code: "aqt",
-		name: "Angaité"
+		name: "Angaité",
 	},
 	aqz: {
 		code: "aqz",
-		name: "Akuntsu"
+		name: "Akuntsu",
+	},
+	ara: {
+		code: "ara",
+		name: "Arabic",
 	},
 	arb: {
 		code: "arb",
-		name: "Standard Arabic"
+		name: "Standard Arabic",
 	},
 	arc: {
 		code: "arc",
-		name: "Official Aramaic (700-300 BCE)"
+		name: "Official Aramaic (700-300 BCE)",
 	},
 	ard: {
 		code: "ard",
-		name: "Arabana"
+		name: "Arabana",
 	},
 	are: {
 		code: "are",
-		name: "Western Arrarnta"
+		name: "Western Arrarnta",
+	},
+	arg: {
+		code: "arg",
+		name: "Aragonese",
 	},
 	arh: {
 		code: "arh",
-		name: "Arhuaco"
+		name: "Arhuaco",
 	},
 	ari: {
 		code: "ari",
-		name: "Arikara"
+		name: "Arikara",
 	},
 	arj: {
 		code: "arj",
-		name: "Arapaso"
+		name: "Arapaso",
 	},
 	ark: {
 		code: "ark",
-		name: "Arikapú"
+		name: "Arikapú",
 	},
 	arl: {
 		code: "arl",
-		name: "Arabela"
+		name: "Arabela",
 	},
 	arn: {
 		code: "arn",
-		name: "Mapudungun"
+		name: "Mapudungun",
 	},
 	aro: {
 		code: "aro",
-		name: "Araona"
+		name: "Araona",
 	},
 	arp: {
 		code: "arp",
-		name: "Arapaho"
+		name: "Arapaho",
 	},
 	arq: {
 		code: "arq",
-		name: "Algerian Arabic"
+		name: "Algerian Arabic",
 	},
 	arr: {
 		code: "arr",
-		name: "Karo (Brazil)"
+		name: "Karo (Brazil)",
 	},
 	ars: {
 		code: "ars",
-		name: "Najdi Arabic"
+		name: "Najdi Arabic",
 	},
 	aru: {
 		code: "aru",
-		name: "Aruá (Amazonas State)"
+		name: "Aruá (Amazonas State)",
 	},
 	arv: {
 		code: "arv",
-		name: "Arbore"
+		name: "Arbore",
 	},
 	arw: {
 		code: "arw",
-		name: "Arawak"
+		name: "Arawak",
 	},
 	arx: {
 		code: "arx",
-		name: "Aruá (Rodonia State)"
+		name: "Aruá (Rodonia State)",
 	},
 	ary: {
 		code: "ary",
-		name: "Moroccan Arabic"
+		name: "Moroccan Arabic",
 	},
 	arz: {
 		code: "arz",
-		name: "Egyptian Arabic"
+		name: "Egyptian Arabic",
 	},
 	asa: {
 		code: "asa",
-		name: "Asu (Tanzania)"
+		name: "Asu (Tanzania)",
 	},
 	asb: {
 		code: "asb",
-		name: "Assiniboine"
+		name: "Assiniboine",
 	},
 	asc: {
 		code: "asc",
-		name: "Casuarina Coast Asmat"
+		name: "Casuarina Coast Asmat",
+	},
+	ase: {
+		code: "ase",
+		name: "American Sign Language",
 	},
 	asf: {
 		code: "asf",
-		name: "Auslan"
+		name: "Auslan",
 	},
 	asg: {
 		code: "asg",
-		name: "Cishingini"
+		name: "Cishingini",
 	},
 	ash: {
 		code: "ash",
-		name: "Abishira"
+		name: "Abishira",
 	},
 	asi: {
 		code: "asi",
-		name: "Buruwai"
+		name: "Buruwai",
 	},
 	asj: {
 		code: "asj",
-		name: "Sari"
+		name: "Sari",
 	},
 	ask: {
 		code: "ask",
-		name: "Ashkun"
+		name: "Ashkun",
 	},
 	asl: {
 		code: "asl",
-		name: "Asilulu"
+		name: "Asilulu",
+	},
+	asm: {
+		code: "asm",
+		name: "Assamese",
 	},
 	asn: {
 		code: "asn",
-		name: "Xingú Asuriní"
+		name: "Xingú Asuriní",
 	},
 	aso: {
 		code: "aso",
-		name: "Dano"
+		name: "Dano",
 	},
 	asp: {
 		code: "asp",
-		name: "Algerian Sign Language"
+		name: "Algerian Sign Language",
 	},
 	asq: {
 		code: "asq",
-		name: "Austrian Sign Language"
+		name: "Austrian Sign Language",
 	},
 	asr: {
 		code: "asr",
-		name: "Asuri"
+		name: "Asuri",
 	},
 	ass: {
 		code: "ass",
-		name: "Ipulo"
+		name: "Ipulo",
 	},
 	ast: {
 		code: "ast",
-		name: "Asturian"
+		name: "Asturian",
 	},
 	asu: {
 		code: "asu",
-		name: "Tocantins Asurini"
+		name: "Tocantins Asurini",
 	},
 	asv: {
 		code: "asv",
-		name: "Asoa"
+		name: "Asoa",
 	},
 	asw: {
 		code: "asw",
-		name: "Australian Aborigines Sign Language"
+		name: "Australian Aborigines Sign Language",
 	},
 	asx: {
 		code: "asx",
-		name: "Muratayak"
+		name: "Muratayak",
 	},
 	asy: {
 		code: "asy",
-		name: "Yaosakor Asmat"
+		name: "Yaosakor Asmat",
 	},
 	asz: {
 		code: "asz",
-		name: "As"
+		name: "As",
 	},
 	ata: {
 		code: "ata",
-		name: "Pele-Ata"
+		name: "Pele-Ata",
 	},
 	atb: {
 		code: "atb",
-		name: "Zaiwa"
+		name: "Zaiwa",
 	},
 	atc: {
 		code: "atc",
-		name: "Atsahuaca"
+		name: "Atsahuaca",
 	},
 	atd: {
 		code: "atd",
-		name: "Ata Manobo"
+		name: "Ata Manobo",
 	},
 	ate: {
 		code: "ate",
-		name: "Atemble"
+		name: "Atemble",
 	},
 	atg: {
 		code: "atg",
-		name: "Ivbie North-Okpela-Arhe"
+		name: "Ivbie North-Okpela-Arhe",
 	},
 	ati: {
 		code: "ati",
-		name: "Attié"
+		name: "Attié",
 	},
 	atj: {
 		code: "atj",
-		name: "Atikamekw"
+		name: "Atikamekw",
 	},
 	atk: {
 		code: "atk",
-		name: "Ati"
+		name: "Ati",
 	},
 	atl: {
 		code: "atl",
-		name: "Mt. Iraya Agta"
+		name: "Mt. Iraya Agta",
 	},
 	atm: {
 		code: "atm",
-		name: "Ata"
+		name: "Ata",
 	},
 	atn: {
 		code: "atn",
-		name: "Ashtiani"
+		name: "Ashtiani",
 	},
 	ato: {
 		code: "ato",
-		name: "Atong (Cameroon)"
+		name: "Atong (Cameroon)",
 	},
 	atp: {
 		code: "atp",
-		name: "Pudtol Atta"
+		name: "Pudtol Atta",
 	},
 	atq: {
 		code: "atq",
-		name: "Aralle-Tabulahan"
+		name: "Aralle-Tabulahan",
 	},
 	atr: {
 		code: "atr",
-		name: "Waimiri-Atroari"
+		name: "Waimiri-Atroari",
 	},
 	ats: {
 		code: "ats",
-		name: "Gros Ventre"
+		name: "Gros Ventre",
 	},
 	att: {
 		code: "att",
-		name: "Pamplona Atta"
+		name: "Pamplona Atta",
 	},
 	atu: {
 		code: "atu",
-		name: "Reel"
+		name: "Reel",
 	},
 	atv: {
 		code: "atv",
-		name: "Northern Altai"
+		name: "Northern Altai",
 	},
 	atw: {
 		code: "atw",
-		name: "Atsugewi"
+		name: "Atsugewi",
 	},
 	atx: {
 		code: "atx",
-		name: "Arutani"
+		name: "Arutani",
 	},
 	aty: {
 		code: "aty",
-		name: "Aneityum"
+		name: "Aneityum",
 	},
 	atz: {
 		code: "atz",
-		name: "Arta"
+		name: "Arta",
 	},
 	aua: {
 		code: "aua",
-		name: "Asumboa"
+		name: "Asumboa",
 	},
 	aub: {
 		code: "aub",
-		name: "Alugu"
+		name: "Alugu",
 	},
 	auc: {
 		code: "auc",
-		name: "Waorani"
+		name: "Waorani",
 	},
 	aud: {
 		code: "aud",
-		name: "Anuta"
+		name: "Anuta",
 	},
 	aug: {
 		code: "aug",
-		name: "Aguna"
+		name: "Aguna",
 	},
 	auh: {
 		code: "auh",
-		name: "Aushi"
+		name: "Aushi",
 	},
 	aui: {
 		code: "aui",
-		name: "Anuki"
+		name: "Anuki",
 	},
 	auj: {
 		code: "auj",
-		name: "Awjilah"
+		name: "Awjilah",
 	},
 	auk: {
 		code: "auk",
-		name: "Heyo"
+		name: "Heyo",
 	},
 	aul: {
 		code: "aul",
-		name: "Aulua"
+		name: "Aulua",
 	},
 	aum: {
 		code: "aum",
-		name: "Asu (Nigeria)"
+		name: "Asu (Nigeria)",
 	},
 	aun: {
 		code: "aun",
-		name: "Molmo One"
+		name: "Molmo One",
 	},
 	auo: {
 		code: "auo",
-		name: "Auyokawa"
+		name: "Auyokawa",
 	},
 	aup: {
 		code: "aup",
-		name: "Makayam"
+		name: "Makayam",
 	},
 	auq: {
 		code: "auq",
-		name: "Anus"
+		name: "Anus",
 	},
 	aur: {
 		code: "aur",
-		name: "Aruek"
+		name: "Aruek",
 	},
 	aut: {
 		code: "aut",
-		name: "Austral"
+		name: "Austral",
 	},
 	auu: {
 		code: "auu",
-		name: "Auye"
+		name: "Auye",
 	},
 	auw: {
 		code: "auw",
-		name: "Awyi"
+		name: "Awyi",
 	},
 	aux: {
 		code: "aux",
-		name: "Aurá"
+		name: "Aurá",
 	},
 	auy: {
 		code: "auy",
-		name: "Awiyaana"
+		name: "Awiyaana",
 	},
 	auz: {
 		code: "auz",
-		name: "Uzbeki Arabic"
+		name: "Uzbeki Arabic",
+	},
+	ava: {
+		code: "ava",
+		name: "Avaric",
 	},
 	avb: {
 		code: "avb",
-		name: "Avau"
+		name: "Avau",
 	},
 	avd: {
 		code: "avd",
-		name: "Alviri-Vidari"
+		name: "Alviri-Vidari",
+	},
+	ave: {
+		code: "ave",
+		name: "Avestan",
 	},
 	avi: {
 		code: "avi",
-		name: "Avikam"
+		name: "Avikam",
 	},
 	avk: {
 		code: "avk",
-		name: "Kotava"
+		name: "Kotava",
 	},
 	avl: {
 		code: "avl",
-		name: "Eastern Egyptian Bedawi Arabic"
+		name: "Eastern Egyptian Bedawi Arabic",
 	},
 	avm: {
 		code: "avm",
-		name: "Angkamuthi"
+		name: "Angkamuthi",
 	},
 	avn: {
 		code: "avn",
-		name: "Avatime"
+		name: "Avatime",
 	},
 	avo: {
 		code: "avo",
-		name: "Agavotaguerra"
+		name: "Agavotaguerra",
 	},
 	avs: {
 		code: "avs",
-		name: "Aushiri"
+		name: "Aushiri",
 	},
 	avt: {
 		code: "avt",
-		name: "Au"
+		name: "Au",
 	},
 	avu: {
 		code: "avu",
-		name: "Avokaya"
+		name: "Avokaya",
 	},
 	avv: {
 		code: "avv",
-		name: "Avá-Canoeiro"
+		name: "Avá-Canoeiro",
 	},
 	awa: {
 		code: "awa",
-		name: "Awadhi"
+		name: "Awadhi",
 	},
 	awb: {
 		code: "awb",
-		name: "Awa (Papua New Guinea)"
+		name: "Awa (Papua New Guinea)",
 	},
 	awc: {
 		code: "awc",
-		name: "Cicipu"
+		name: "Cicipu",
 	},
 	awe: {
 		code: "awe",
-		name: "Awetí"
+		name: "Awetí",
 	},
 	awg: {
 		code: "awg",
-		name: "Anguthimri"
+		name: "Anguthimri",
 	},
 	awh: {
 		code: "awh",
-		name: "Awbono"
+		name: "Awbono",
 	},
 	awi: {
 		code: "awi",
-		name: "Aekyom"
+		name: "Aekyom",
 	},
 	awk: {
 		code: "awk",
-		name: "Awabakal"
+		name: "Awabakal",
 	},
 	awm: {
 		code: "awm",
-		name: "Arawum"
+		name: "Arawum",
 	},
 	awn: {
 		code: "awn",
-		name: "Awngi"
+		name: "Awngi",
 	},
 	awo: {
 		code: "awo",
-		name: "Awak"
+		name: "Awak",
 	},
 	awr: {
 		code: "awr",
-		name: "Awera"
+		name: "Awera",
 	},
 	aws: {
 		code: "aws",
-		name: "South Awyu"
+		name: "South Awyu",
 	},
 	awt: {
 		code: "awt",
-		name: "Araweté"
+		name: "Araweté",
 	},
 	awu: {
 		code: "awu",
-		name: "Central Awyu"
+		name: "Central Awyu",
 	},
 	awv: {
 		code: "awv",
-		name: "Jair Awyu"
+		name: "Jair Awyu",
 	},
 	aww: {
 		code: "aww",
-		name: "Awun"
+		name: "Awun",
 	},
 	awx: {
 		code: "awx",
-		name: "Awara"
+		name: "Awara",
 	},
 	awy: {
 		code: "awy",
-		name: "Edera Awyu"
+		name: "Edera Awyu",
 	},
 	axb: {
 		code: "axb",
-		name: "Abipon"
+		name: "Abipon",
 	},
 	axe: {
 		code: "axe",
-		name: "Ayerrerenge"
+		name: "Ayerrerenge",
 	},
 	axg: {
 		code: "axg",
-		name: "Mato Grosso Arára"
+		name: "Mato Grosso Arára",
 	},
 	axk: {
 		code: "axk",
-		name: "Yaka (Central African Republic)"
+		name: "Yaka (Central African Republic)",
 	},
 	axl: {
 		code: "axl",
-		name: "Lower Southern Aranda"
+		name: "Lower Southern Aranda",
 	},
 	axm: {
 		code: "axm",
-		name: "Middle Armenian"
+		name: "Middle Armenian",
 	},
 	axx: {
 		code: "axx",
-		name: "Xârâgurè"
+		name: "Xârâgurè",
 	},
 	aya: {
 		code: "aya",
-		name: "Awar"
+		name: "Awar",
 	},
 	ayb: {
 		code: "ayb",
-		name: "Ayizo Gbe"
+		name: "Ayizo Gbe",
 	},
 	ayc: {
 		code: "ayc",
-		name: "Southern Aymara"
+		name: "Southern Aymara",
 	},
 	ayd: {
 		code: "ayd",
-		name: "Ayabadhu"
+		name: "Ayabadhu",
 	},
 	aye: {
 		code: "aye",
-		name: "Ayere"
+		name: "Ayere",
 	},
 	ayg: {
 		code: "ayg",
-		name: "Ginyanga"
+		name: "Ginyanga",
 	},
 	ayh: {
 		code: "ayh",
-		name: "Hadrami Arabic"
+		name: "Hadrami Arabic",
 	},
 	ayi: {
 		code: "ayi",
-		name: "Leyigha"
+		name: "Leyigha",
 	},
 	ayk: {
 		code: "ayk",
-		name: "Akuku"
+		name: "Akuku",
 	},
 	ayl: {
 		code: "ayl",
-		name: "Libyan Arabic"
+		name: "Libyan Arabic",
+	},
+	aym: {
+		code: "aym",
+		name: "Aymara",
 	},
 	ayn: {
 		code: "ayn",
-		name: "Sanaani Arabic"
+		name: "Sanaani Arabic",
 	},
 	ayo: {
 		code: "ayo",
-		name: "Ayoreo"
+		name: "Ayoreo",
 	},
 	ayp: {
 		code: "ayp",
-		name: "North Mesopotamian Arabic"
+		name: "North Mesopotamian Arabic",
 	},
 	ayq: {
 		code: "ayq",
-		name: "Ayi (Papua New Guinea)"
+		name: "Ayi (Papua New Guinea)",
 	},
 	ayr: {
 		code: "ayr",
-		name: "Central Aymara"
+		name: "Central Aymara",
 	},
 	ays: {
 		code: "ays",
-		name: "Sorsogon Ayta"
+		name: "Sorsogon Ayta",
 	},
 	ayt: {
 		code: "ayt",
-		name: "Magbukun Ayta"
+		name: "Magbukun Ayta",
 	},
 	ayu: {
 		code: "ayu",
-		name: "Ayu"
+		name: "Ayu",
 	},
 	ayz: {
 		code: "ayz",
-		name: "Mai Brat"
+		name: "Mai Brat",
 	},
 	aza: {
 		code: "aza",
-		name: "Azha"
+		name: "Azha",
 	},
 	azb: {
 		code: "azb",
-		name: "South Azerbaijani"
+		name: "South Azerbaijani",
 	},
 	azd: {
 		code: "azd",
-		name: "Eastern Durango Nahuatl"
+		name: "Eastern Durango Nahuatl",
+	},
+	aze: {
+		code: "aze",
+		name: "Azerbaijani",
 	},
 	azg: {
 		code: "azg",
-		name: "San Pedro Amuzgos Amuzgo"
+		name: "San Pedro Amuzgos Amuzgo",
 	},
 	azj: {
 		code: "azj",
-		name: "North Azerbaijani"
+		name: "North Azerbaijani",
 	},
 	azm: {
 		code: "azm",
-		name: "Ipalapa Amuzgo"
+		name: "Ipalapa Amuzgo",
 	},
 	azn: {
 		code: "azn",
-		name: "Western Durango Nahuatl"
+		name: "Western Durango Nahuatl",
 	},
 	azo: {
 		code: "azo",
-		name: "Awing"
+		name: "Awing",
 	},
 	azt: {
 		code: "azt",
-		name: "Faire Atta"
+		name: "Faire Atta",
 	},
 	azz: {
 		code: "azz",
-		name: "Highland Puebla Nahuatl"
+		name: "Highland Puebla Nahuatl",
 	},
 	baa: {
 		code: "baa",
-		name: "Babatana"
+		name: "Babatana",
 	},
 	bab: {
 		code: "bab",
-		name: "Bainouk-Gunyuño"
+		name: "Bainouk-Gunyuño",
 	},
 	bac: {
 		code: "bac",
-		name: "Badui"
+		name: "Badui",
 	},
 	bae: {
 		code: "bae",
-		name: "Baré"
+		name: "Baré",
 	},
 	baf: {
 		code: "baf",
-		name: "Nubaca"
+		name: "Nubaca",
 	},
 	bag: {
 		code: "bag",
-		name: "Tuki"
+		name: "Tuki",
 	},
 	bah: {
 		code: "bah",
-		name: "Bahamas Creole English"
+		name: "Bahamas Creole English",
 	},
 	baj: {
 		code: "baj",
-		name: "Barakai"
+		name: "Barakai",
+	},
+	bak: {
+		code: "bak",
+		name: "Bashkir",
 	},
 	bal: {
 		code: "bal",
-		name: "Baluchi"
+		name: "Baluchi",
+	},
+	bam: {
+		code: "bam",
+		name: "Bambara",
 	},
 	ban: {
 		code: "ban",
-		name: "Balinese"
+		name: "Balinese",
 	},
 	bao: {
 		code: "bao",
-		name: "Waimaha"
+		name: "Waimaha",
 	},
 	bap: {
 		code: "bap",
-		name: "Bantawa"
+		name: "Bantawa",
 	},
 	bar: {
 		code: "bar",
-		name: "Bavarian"
+		name: "Bavarian",
 	},
 	bas: {
 		code: "bas",
-		name: "Basa (Cameroon)"
+		name: "Basa (Cameroon)",
 	},
 	bau: {
 		code: "bau",
-		name: "Bada (Nigeria)"
+		name: "Bada (Nigeria)",
 	},
 	bav: {
 		code: "bav",
-		name: "Vengo"
+		name: "Vengo",
 	},
 	baw: {
 		code: "baw",
-		name: "Bambili-Bambui"
+		name: "Bambili-Bambui",
 	},
 	bax: {
 		code: "bax",
-		name: "Bamun"
+		name: "Bamun",
 	},
 	bay: {
 		code: "bay",
-		name: "Batuley"
+		name: "Batuley",
 	},
 	bba: {
 		code: "bba",
-		name: "Baatonum"
+		name: "Baatonum",
 	},
 	bbb: {
 		code: "bbb",
-		name: "Barai"
+		name: "Barai",
 	},
 	bbc: {
 		code: "bbc",
-		name: "Batak Toba"
+		name: "Batak Toba",
 	},
 	bbd: {
 		code: "bbd",
-		name: "Bau"
+		name: "Bau",
 	},
 	bbe: {
 		code: "bbe",
-		name: "Bangba"
+		name: "Bangba",
 	},
 	bbf: {
 		code: "bbf",
-		name: "Baibai"
+		name: "Baibai",
 	},
 	bbg: {
 		code: "bbg",
-		name: "Barama"
+		name: "Barama",
 	},
 	bbh: {
 		code: "bbh",
-		name: "Bugan"
+		name: "Bugan",
 	},
 	bbi: {
 		code: "bbi",
-		name: "Barombi"
+		name: "Barombi",
 	},
 	bbj: {
 		code: "bbj",
-		name: "Ghomálá'"
+		name: "Ghomálá'",
 	},
 	bbk: {
 		code: "bbk",
-		name: "Babanki"
+		name: "Babanki",
 	},
 	bbl: {
 		code: "bbl",
-		name: "Bats"
+		name: "Bats",
 	},
 	bbm: {
 		code: "bbm",
-		name: "Babango"
+		name: "Babango",
 	},
 	bbn: {
 		code: "bbn",
-		name: "Uneapa"
+		name: "Uneapa",
 	},
 	bbo: {
 		code: "bbo",
-		name: "Northern Bobo Madaré"
+		name: "Northern Bobo Madaré",
 	},
 	bbp: {
 		code: "bbp",
-		name: "West Central Banda"
+		name: "West Central Banda",
 	},
 	bbq: {
 		code: "bbq",
-		name: "Bamali"
+		name: "Bamali",
 	},
 	bbr: {
 		code: "bbr",
-		name: "Girawa"
+		name: "Girawa",
 	},
 	bbs: {
 		code: "bbs",
-		name: "Bakpinka"
+		name: "Bakpinka",
 	},
 	bbt: {
 		code: "bbt",
-		name: "Mburku"
+		name: "Mburku",
 	},
 	bbu: {
 		code: "bbu",
-		name: "Kulung (Nigeria)"
+		name: "Kulung (Nigeria)",
 	},
 	bbv: {
 		code: "bbv",
-		name: "Karnai"
+		name: "Karnai",
 	},
 	bbw: {
 		code: "bbw",
-		name: "Baba"
+		name: "Baba",
 	},
 	bbx: {
 		code: "bbx",
-		name: "Bubia"
+		name: "Bubia",
 	},
 	bby: {
 		code: "bby",
-		name: "Befang"
+		name: "Befang",
 	},
 	bca: {
 		code: "bca",
-		name: "Central Bai"
+		name: "Central Bai",
 	},
 	bcb: {
 		code: "bcb",
-		name: "Bainouk-Samik"
+		name: "Bainouk-Samik",
 	},
 	bcc: {
 		code: "bcc",
-		name: "Southern Balochi"
+		name: "Southern Balochi",
 	},
 	bcd: {
 		code: "bcd",
-		name: "North Babar"
+		name: "North Babar",
 	},
 	bce: {
 		code: "bce",
-		name: "Bamenyam"
+		name: "Bamenyam",
 	},
 	bcf: {
 		code: "bcf",
-		name: "Bamu"
+		name: "Bamu",
 	},
 	bcg: {
 		code: "bcg",
-		name: "Baga Pokur"
+		name: "Baga Pokur",
 	},
 	bch: {
 		code: "bch",
-		name: "Bariai"
+		name: "Bariai",
 	},
 	bci: {
 		code: "bci",
-		name: "Baoulé"
+		name: "Baoulé",
 	},
 	bcj: {
 		code: "bcj",
-		name: "Bardi"
+		name: "Bardi",
 	},
 	bck: {
 		code: "bck",
-		name: "Bunuba"
+		name: "Bunuba",
+	},
+	bcl: {
+		code: "bcl",
+		name: "Central Bikol",
 	},
 	bcm: {
 		code: "bcm",
-		name: "Bannoni"
+		name: "Bannoni",
 	},
 	bcn: {
 		code: "bcn",
-		name: "Bali (Nigeria)"
+		name: "Bali (Nigeria)",
 	},
 	bco: {
 		code: "bco",
-		name: "Kaluli"
+		name: "Kaluli",
 	},
 	bcp: {
 		code: "bcp",
-		name: "Bali (Democratic Republic of Congo)"
+		name: "Bali (Democratic Republic of Congo)",
 	},
 	bcq: {
 		code: "bcq",
-		name: "Bench"
+		name: "Bench",
 	},
 	bcr: {
 		code: "bcr",
-		name: "Babine"
+		name: "Babine",
 	},
 	bcs: {
 		code: "bcs",
-		name: "Kohumono"
+		name: "Kohumono",
 	},
 	bct: {
 		code: "bct",
-		name: "Bendi"
+		name: "Bendi",
 	},
 	bcu: {
 		code: "bcu",
-		name: "Awad Bing"
+		name: "Awad Bing",
 	},
 	bcv: {
 		code: "bcv",
-		name: "Shoo-Minda-Nye"
+		name: "Shoo-Minda-Nye",
 	},
 	bcw: {
 		code: "bcw",
-		name: "Bana"
+		name: "Bana",
 	},
 	bcy: {
 		code: "bcy",
-		name: "Bacama"
+		name: "Bacama",
 	},
 	bcz: {
 		code: "bcz",
-		name: "Bainouk-Gunyaamolo"
+		name: "Bainouk-Gunyaamolo",
 	},
 	bda: {
 		code: "bda",
-		name: "Bayot"
+		name: "Bayot",
 	},
 	bdb: {
 		code: "bdb",
-		name: "Basap"
+		name: "Basap",
 	},
 	bdc: {
 		code: "bdc",
-		name: "Emberá-Baudó"
+		name: "Emberá-Baudó",
 	},
 	bdd: {
 		code: "bdd",
-		name: "Bunama"
+		name: "Bunama",
 	},
 	bde: {
 		code: "bde",
-		name: "Bade"
+		name: "Bade",
 	},
 	bdf: {
 		code: "bdf",
-		name: "Biage"
+		name: "Biage",
 	},
 	bdg: {
 		code: "bdg",
-		name: "Bonggi"
+		name: "Bonggi",
 	},
 	bdh: {
 		code: "bdh",
-		name: "Baka (South Sudan)"
+		name: "Baka (South Sudan)",
 	},
 	bdi: {
 		code: "bdi",
-		name: "Burun"
+		name: "Burun",
 	},
 	bdj: {
 		code: "bdj",
-		name: "Bai (South Sudan)"
+		name: "Bai (South Sudan)",
 	},
 	bdk: {
 		code: "bdk",
-		name: "Budukh"
+		name: "Budukh",
 	},
 	bdl: {
 		code: "bdl",
-		name: "Indonesian Bajau"
+		name: "Indonesian Bajau",
 	},
 	bdm: {
 		code: "bdm",
-		name: "Buduma"
+		name: "Buduma",
 	},
 	bdn: {
 		code: "bdn",
-		name: "Baldemu"
+		name: "Baldemu",
 	},
 	bdo: {
 		code: "bdo",
-		name: "Morom"
+		name: "Morom",
 	},
 	bdp: {
 		code: "bdp",
-		name: "Bende"
+		name: "Bende",
 	},
 	bdq: {
 		code: "bdq",
-		name: "Bahnar"
+		name: "Bahnar",
 	},
 	bdr: {
 		code: "bdr",
-		name: "West Coast Bajau"
+		name: "West Coast Bajau",
 	},
 	bds: {
 		code: "bds",
-		name: "Burunge"
+		name: "Burunge",
 	},
 	bdt: {
 		code: "bdt",
-		name: "Bokoto"
+		name: "Bokoto",
 	},
 	bdu: {
 		code: "bdu",
-		name: "Oroko"
+		name: "Oroko",
 	},
 	bdv: {
 		code: "bdv",
-		name: "Bodo Parja"
+		name: "Bodo Parja",
 	},
 	bdw: {
 		code: "bdw",
-		name: "Baham"
+		name: "Baham",
 	},
 	bdx: {
 		code: "bdx",
-		name: "Budong-Budong"
+		name: "Budong-Budong",
 	},
 	bdy: {
 		code: "bdy",
-		name: "Bandjalang"
+		name: "Bandjalang",
 	},
 	bdz: {
 		code: "bdz",
-		name: "Badeshi"
+		name: "Badeshi",
 	},
 	bea: {
 		code: "bea",
-		name: "Beaver"
+		name: "Beaver",
 	},
 	beb: {
 		code: "beb",
-		name: "Bebele"
+		name: "Bebele",
 	},
 	bec: {
 		code: "bec",
-		name: "Iceve-Maci"
+		name: "Iceve-Maci",
 	},
 	bed: {
 		code: "bed",
-		name: "Bedoanas"
+		name: "Bedoanas",
 	},
 	bee: {
 		code: "bee",
-		name: "Byangsi"
+		name: "Byangsi",
 	},
 	bef: {
 		code: "bef",
-		name: "Benabena"
+		name: "Benabena",
 	},
 	beg: {
 		code: "beg",
-		name: "Belait"
+		name: "Belait",
 	},
 	beh: {
 		code: "beh",
-		name: "Biali"
+		name: "Biali",
 	},
 	bei: {
 		code: "bei",
-		name: "Bekati'"
+		name: "Bekati'",
 	},
 	bej: {
 		code: "bej",
-		name: "Beja"
+		name: "Beja",
 	},
 	bek: {
 		code: "bek",
-		name: "Bebeli"
+		name: "Bebeli",
+	},
+	bel: {
+		code: "bel",
+		name: "Belarusian",
+	},
+	bem: {
+		code: "bem",
+		name: "Bemba (Zambia)",
+	},
+	ben: {
+		code: "ben",
+		name: "Bengali",
 	},
 	beo: {
 		code: "beo",
-		name: "Beami"
+		name: "Beami",
 	},
 	bep: {
 		code: "bep",
-		name: "Besoa"
+		name: "Besoa",
 	},
 	beq: {
 		code: "beq",
-		name: "Beembe"
+		name: "Beembe",
 	},
 	bes: {
 		code: "bes",
-		name: "Besme"
+		name: "Besme",
 	},
 	bet: {
 		code: "bet",
-		name: "Guiberoua Béte"
+		name: "Guiberoua Béte",
 	},
 	beu: {
 		code: "beu",
-		name: "Blagar"
+		name: "Blagar",
 	},
 	bev: {
 		code: "bev",
-		name: "Daloa Bété"
+		name: "Daloa Bété",
 	},
 	bew: {
 		code: "bew",
-		name: "Betawi"
+		name: "Betawi",
 	},
 	bex: {
 		code: "bex",
-		name: "Jur Modo"
+		name: "Jur Modo",
 	},
 	bey: {
 		code: "bey",
-		name: "Beli (Papua New Guinea)"
+		name: "Beli (Papua New Guinea)",
 	},
 	bez: {
 		code: "bez",
-		name: "Bena (Tanzania)"
+		name: "Bena (Tanzania)",
 	},
 	bfa: {
 		code: "bfa",
-		name: "Bari"
+		name: "Bari",
 	},
 	bfb: {
 		code: "bfb",
-		name: "Pauri Bareli"
+		name: "Pauri Bareli",
 	},
 	bfc: {
 		code: "bfc",
-		name: "Panyi Bai"
+		name: "Panyi Bai",
 	},
 	bfd: {
 		code: "bfd",
-		name: "Bafut"
+		name: "Bafut",
 	},
 	bfe: {
 		code: "bfe",
-		name: "Betaf"
+		name: "Betaf",
 	},
 	bff: {
 		code: "bff",
-		name: "Bofi"
+		name: "Bofi",
 	},
 	bfg: {
 		code: "bfg",
-		name: "Busang Kayan"
+		name: "Busang Kayan",
 	},
 	bfh: {
 		code: "bfh",
-		name: "Blafe"
+		name: "Blafe",
 	},
 	bfi: {
 		code: "bfi",
-		name: "British Sign Language"
+		name: "British Sign Language",
 	},
 	bfj: {
 		code: "bfj",
-		name: "Bafanji"
+		name: "Bafanji",
 	},
 	bfk: {
 		code: "bfk",
-		name: "Ban Khor Sign Language"
+		name: "Ban Khor Sign Language",
 	},
 	bfl: {
 		code: "bfl",
-		name: "Banda-Ndélé"
+		name: "Banda-Ndélé",
 	},
 	bfm: {
 		code: "bfm",
-		name: "Mmen"
+		name: "Mmen",
 	},
 	bfn: {
 		code: "bfn",
-		name: "Bunak"
+		name: "Bunak",
 	},
 	bfo: {
 		code: "bfo",
-		name: "Malba Birifor"
+		name: "Malba Birifor",
 	},
 	bfp: {
 		code: "bfp",
-		name: "Beba"
+		name: "Beba",
 	},
 	bfq: {
 		code: "bfq",
-		name: "Badaga"
+		name: "Badaga",
 	},
 	bfr: {
 		code: "bfr",
-		name: "Bazigar"
+		name: "Bazigar",
 	},
 	bfs: {
 		code: "bfs",
-		name: "Southern Bai"
+		name: "Southern Bai",
 	},
 	bft: {
 		code: "bft",
-		name: "Balti"
+		name: "Balti",
 	},
 	bfu: {
 		code: "bfu",
-		name: "Gahri"
+		name: "Gahri",
 	},
 	bfw: {
 		code: "bfw",
-		name: "Bondo"
+		name: "Bondo",
 	},
 	bfx: {
 		code: "bfx",
-		name: "Bantayanon"
+		name: "Bantayanon",
 	},
 	bfy: {
 		code: "bfy",
-		name: "Bagheli"
+		name: "Bagheli",
 	},
 	bfz: {
 		code: "bfz",
-		name: "Mahasu Pahari"
+		name: "Mahasu Pahari",
 	},
 	bga: {
 		code: "bga",
-		name: "Gwamhi-Wuri"
+		name: "Gwamhi-Wuri",
 	},
 	bgb: {
 		code: "bgb",
-		name: "Bobongko"
+		name: "Bobongko",
 	},
 	bgc: {
 		code: "bgc",
-		name: "Haryanvi"
+		name: "Haryanvi",
 	},
 	bgd: {
 		code: "bgd",
-		name: "Rathwi Bareli"
+		name: "Rathwi Bareli",
 	},
 	bge: {
 		code: "bge",
-		name: "Bauria"
+		name: "Bauria",
 	},
 	bgf: {
 		code: "bgf",
-		name: "Bangandu"
+		name: "Bangandu",
 	},
 	bgg: {
 		code: "bgg",
-		name: "Bugun"
+		name: "Bugun",
 	},
 	bgi: {
 		code: "bgi",
-		name: "Giangan"
+		name: "Giangan",
 	},
 	bgj: {
 		code: "bgj",
-		name: "Bangolan"
+		name: "Bangolan",
 	},
 	bgk: {
 		code: "bgk",
-		name: "Bit"
+		name: "Bit",
 	},
 	bgl: {
 		code: "bgl",
-		name: "Bo (Laos)"
+		name: "Bo (Laos)",
 	},
 	bgn: {
 		code: "bgn",
-		name: "Western Balochi"
+		name: "Western Balochi",
 	},
 	bgo: {
 		code: "bgo",
-		name: "Baga Koga"
+		name: "Baga Koga",
 	},
 	bgp: {
 		code: "bgp",
-		name: "Eastern Balochi"
+		name: "Eastern Balochi",
 	},
 	bgq: {
 		code: "bgq",
-		name: "Bagri"
+		name: "Bagri",
 	},
 	bgr: {
 		code: "bgr",
-		name: "Bawm Chin"
+		name: "Bawm Chin",
 	},
 	bgs: {
 		code: "bgs",
-		name: "Tagabawa"
+		name: "Tagabawa",
 	},
 	bgt: {
 		code: "bgt",
-		name: "Bughotu"
+		name: "Bughotu",
 	},
 	bgu: {
 		code: "bgu",
-		name: "Mbongno"
+		name: "Mbongno",
 	},
 	bgv: {
 		code: "bgv",
-		name: "Warkay-Bipim"
+		name: "Warkay-Bipim",
 	},
 	bgw: {
 		code: "bgw",
-		name: "Bhatri"
+		name: "Bhatri",
 	},
 	bgx: {
 		code: "bgx",
-		name: "Balkan Gagauz Turkish"
+		name: "Balkan Gagauz Turkish",
 	},
 	bgy: {
 		code: "bgy",
-		name: "Benggoi"
+		name: "Benggoi",
 	},
 	bgz: {
 		code: "bgz",
-		name: "Banggai"
+		name: "Banggai",
 	},
 	bha: {
 		code: "bha",
-		name: "Bharia"
+		name: "Bharia",
 	},
 	bhb: {
 		code: "bhb",
-		name: "Bhili"
+		name: "Bhili",
 	},
 	bhc: {
 		code: "bhc",
-		name: "Biga"
+		name: "Biga",
 	},
 	bhd: {
 		code: "bhd",
-		name: "Bhadrawahi"
+		name: "Bhadrawahi",
 	},
 	bhe: {
 		code: "bhe",
-		name: "Bhaya"
+		name: "Bhaya",
 	},
 	bhf: {
 		code: "bhf",
-		name: "Odiai"
+		name: "Odiai",
 	},
 	bhg: {
 		code: "bhg",
-		name: "Binandere"
+		name: "Binandere",
 	},
 	bhh: {
 		code: "bhh",
-		name: "Bukharic"
+		name: "Bukharic",
 	},
 	bhi: {
 		code: "bhi",
-		name: "Bhilali"
+		name: "Bhilali",
 	},
 	bhj: {
 		code: "bhj",
-		name: "Bahing"
+		name: "Bahing",
 	},
 	bhl: {
 		code: "bhl",
-		name: "Bimin"
+		name: "Bimin",
 	},
 	bhm: {
 		code: "bhm",
-		name: "Bathari"
+		name: "Bathari",
 	},
 	bhn: {
 		code: "bhn",
-		name: "Bohtan Neo-Aramaic"
+		name: "Bohtan Neo-Aramaic",
 	},
 	bho: {
 		code: "bho",
-		name: "Bhojpuri"
+		name: "Bhojpuri",
 	},
 	bhp: {
 		code: "bhp",
-		name: "Bima"
+		name: "Bima",
 	},
 	bhq: {
 		code: "bhq",
-		name: "Tukang Besi South"
+		name: "Tukang Besi South",
 	},
 	bhr: {
 		code: "bhr",
-		name: "Bara Malagasy"
+		name: "Bara Malagasy",
 	},
 	bhs: {
 		code: "bhs",
-		name: "Buwal"
+		name: "Buwal",
 	},
 	bht: {
 		code: "bht",
-		name: "Bhattiyali"
+		name: "Bhattiyali",
 	},
 	bhu: {
 		code: "bhu",
-		name: "Bhunjia"
+		name: "Bhunjia",
 	},
 	bhv: {
 		code: "bhv",
-		name: "Bahau"
+		name: "Bahau",
 	},
 	bhw: {
 		code: "bhw",
-		name: "Biak"
+		name: "Biak",
 	},
 	bhx: {
 		code: "bhx",
-		name: "Bhalay"
+		name: "Bhalay",
 	},
 	bhy: {
 		code: "bhy",
-		name: "Bhele"
+		name: "Bhele",
 	},
 	bhz: {
 		code: "bhz",
-		name: "Bada (Indonesia)"
+		name: "Bada (Indonesia)",
 	},
 	bia: {
 		code: "bia",
-		name: "Badimaya"
+		name: "Badimaya",
 	},
 	bib: {
 		code: "bib",
-		name: "Bissa"
+		name: "Bissa",
 	},
 	bid: {
 		code: "bid",
-		name: "Bidiyo"
+		name: "Bidiyo",
 	},
 	bie: {
 		code: "bie",
-		name: "Bepour"
+		name: "Bepour",
 	},
 	bif: {
 		code: "bif",
-		name: "Biafada"
+		name: "Biafada",
 	},
 	big: {
 		code: "big",
-		name: "Biangai"
+		name: "Biangai",
 	},
 	bik: {
 		code: "bik",
-		name: "Bikol"
+		name: "Bikol",
 	},
 	bil: {
 		code: "bil",
-		name: "Bile"
+		name: "Bile",
 	},
 	bim: {
 		code: "bim",
-		name: "Bimoba"
+		name: "Bimoba",
 	},
 	bin: {
 		code: "bin",
-		name: "Bini"
+		name: "Bini",
 	},
 	bio: {
 		code: "bio",
-		name: "Nai"
+		name: "Nai",
 	},
 	bip: {
 		code: "bip",
-		name: "Bila"
+		name: "Bila",
 	},
 	biq: {
 		code: "biq",
-		name: "Bipi"
+		name: "Bipi",
 	},
 	bir: {
 		code: "bir",
-		name: "Bisorio"
+		name: "Bisorio",
+	},
+	bis: {
+		code: "bis",
+		name: "Bislama",
 	},
 	bit: {
 		code: "bit",
-		name: "Berinomo"
+		name: "Berinomo",
 	},
 	biu: {
 		code: "biu",
-		name: "Biete"
+		name: "Biete",
 	},
 	biv: {
 		code: "biv",
-		name: "Southern Birifor"
+		name: "Southern Birifor",
 	},
 	biw: {
 		code: "biw",
-		name: "Kol (Cameroon)"
+		name: "Kol (Cameroon)",
 	},
 	bix: {
 		code: "bix",
-		name: "Bijori"
+		name: "Bijori",
 	},
 	biy: {
 		code: "biy",
-		name: "Birhor"
+		name: "Birhor",
 	},
 	biz: {
 		code: "biz",
-		name: "Baloi"
+		name: "Baloi",
 	},
 	bja: {
 		code: "bja",
-		name: "Budza"
+		name: "Budza",
 	},
 	bjb: {
 		code: "bjb",
-		name: "Banggarla"
+		name: "Banggarla",
 	},
 	bjc: {
 		code: "bjc",
-		name: "Bariji"
+		name: "Bariji",
 	},
 	bje: {
 		code: "bje",
-		name: "Biao-Jiao Mien"
+		name: "Biao-Jiao Mien",
 	},
 	bjf: {
 		code: "bjf",
-		name: "Barzani Jewish Neo-Aramaic"
+		name: "Barzani Jewish Neo-Aramaic",
 	},
 	bjg: {
 		code: "bjg",
-		name: "Bidyogo"
+		name: "Bidyogo",
 	},
 	bjh: {
 		code: "bjh",
-		name: "Bahinemo"
+		name: "Bahinemo",
 	},
 	bji: {
 		code: "bji",
-		name: "Burji"
+		name: "Burji",
 	},
 	bjj: {
 		code: "bjj",
-		name: "Kanauji"
+		name: "Kanauji",
 	},
 	bjk: {
 		code: "bjk",
-		name: "Barok"
+		name: "Barok",
 	},
 	bjl: {
 		code: "bjl",
-		name: "Bulu (Papua New Guinea)"
+		name: "Bulu (Papua New Guinea)",
 	},
 	bjm: {
 		code: "bjm",
-		name: "Bajelani"
+		name: "Bajelani",
 	},
 	bjn: {
 		code: "bjn",
-		name: "Banjar"
+		name: "Banjar",
 	},
 	bjo: {
 		code: "bjo",
-		name: "Mid-Southern Banda"
+		name: "Mid-Southern Banda",
 	},
 	bjp: {
 		code: "bjp",
-		name: "Fanamaket"
+		name: "Fanamaket",
 	},
 	bjr: {
 		code: "bjr",
-		name: "Binumarien"
+		name: "Binumarien",
 	},
 	bjs: {
 		code: "bjs",
-		name: "Bajan"
+		name: "Bajan",
 	},
 	bjt: {
 		code: "bjt",
-		name: "Balanta-Ganja"
+		name: "Balanta-Ganja",
 	},
 	bju: {
 		code: "bju",
-		name: "Busuu"
+		name: "Busuu",
 	},
 	bjv: {
 		code: "bjv",
-		name: "Bedjond"
+		name: "Bedjond",
 	},
 	bjw: {
 		code: "bjw",
-		name: "Bakwé"
+		name: "Bakwé",
 	},
 	bjx: {
 		code: "bjx",
-		name: "Banao Itneg"
+		name: "Banao Itneg",
 	},
 	bjy: {
 		code: "bjy",
-		name: "Bayali"
+		name: "Bayali",
 	},
 	bjz: {
 		code: "bjz",
-		name: "Baruga"
+		name: "Baruga",
 	},
 	bka: {
 		code: "bka",
-		name: "Kyak"
+		name: "Kyak",
 	},
 	bkc: {
 		code: "bkc",
-		name: "Baka (Cameroon)"
+		name: "Baka (Cameroon)",
 	},
 	bkd: {
 		code: "bkd",
-		name: "Binukid"
+		name: "Binukid",
 	},
 	bkf: {
 		code: "bkf",
-		name: "Beeke"
+		name: "Beeke",
 	},
 	bkg: {
 		code: "bkg",
-		name: "Buraka"
+		name: "Buraka",
 	},
 	bkh: {
 		code: "bkh",
-		name: "Bakoko"
+		name: "Bakoko",
 	},
 	bki: {
 		code: "bki",
-		name: "Baki"
+		name: "Baki",
 	},
 	bkj: {
 		code: "bkj",
-		name: "Pande"
+		name: "Pande",
 	},
 	bkk: {
 		code: "bkk",
-		name: "Brokskat"
+		name: "Brokskat",
 	},
 	bkl: {
 		code: "bkl",
-		name: "Berik"
+		name: "Berik",
 	},
 	bkm: {
 		code: "bkm",
-		name: "Kom (Cameroon)"
+		name: "Kom (Cameroon)",
 	},
 	bkn: {
 		code: "bkn",
-		name: "Bukitan"
+		name: "Bukitan",
 	},
 	bko: {
 		code: "bko",
-		name: "Kwa'"
+		name: "Kwa'",
 	},
 	bkp: {
 		code: "bkp",
-		name: "Boko (Democratic Republic of Congo)"
+		name: "Boko (Democratic Republic of Congo)",
 	},
 	bkq: {
 		code: "bkq",
-		name: "Bakairí"
+		name: "Bakairí",
 	},
 	bkr: {
 		code: "bkr",
-		name: "Bakumpai"
+		name: "Bakumpai",
 	},
 	bks: {
 		code: "bks",
-		name: "Northern Sorsoganon"
+		name: "Northern Sorsoganon",
 	},
 	bkt: {
 		code: "bkt",
-		name: "Boloki"
+		name: "Boloki",
 	},
 	bku: {
 		code: "bku",
-		name: "Buhid"
+		name: "Buhid",
 	},
 	bkv: {
 		code: "bkv",
-		name: "Bekwarra"
+		name: "Bekwarra",
 	},
 	bkw: {
 		code: "bkw",
-		name: "Bekwel"
+		name: "Bekwel",
 	},
 	bkx: {
 		code: "bkx",
-		name: "Baikeno"
+		name: "Baikeno",
 	},
 	bky: {
 		code: "bky",
-		name: "Bokyi"
+		name: "Bokyi",
 	},
 	bkz: {
 		code: "bkz",
-		name: "Bungku"
+		name: "Bungku",
 	},
 	bla: {
 		code: "bla",
-		name: "Siksika"
+		name: "Siksika",
 	},
 	blb: {
 		code: "blb",
-		name: "Bilua"
+		name: "Bilua",
 	},
 	blc: {
 		code: "blc",
-		name: "Bella Coola"
+		name: "Bella Coola",
 	},
 	bld: {
 		code: "bld",
-		name: "Bolango"
+		name: "Bolango",
 	},
 	ble: {
 		code: "ble",
-		name: "Balanta-Kentohe"
+		name: "Balanta-Kentohe",
 	},
 	blf: {
 		code: "blf",
-		name: "Buol"
+		name: "Buol",
 	},
 	blh: {
 		code: "blh",
-		name: "Kuwaa"
+		name: "Kuwaa",
 	},
 	bli: {
 		code: "bli",
-		name: "Bolia"
+		name: "Bolia",
 	},
 	blj: {
 		code: "blj",
-		name: "Bolongan"
+		name: "Bolongan",
 	},
 	blk: {
 		code: "blk",
-		name: "Pa'o Karen"
+		name: "Pa'o Karen",
 	},
 	bll: {
 		code: "bll",
-		name: "Biloxi"
+		name: "Biloxi",
 	},
 	blm: {
 		code: "blm",
-		name: "Beli (South Sudan)"
+		name: "Beli (South Sudan)",
 	},
 	bln: {
 		code: "bln",
-		name: "Southern Catanduanes Bikol"
+		name: "Southern Catanduanes Bikol",
 	},
 	blo: {
 		code: "blo",
-		name: "Anii"
+		name: "Anii",
 	},
 	blp: {
 		code: "blp",
-		name: "Blablanga"
+		name: "Blablanga",
 	},
 	blq: {
 		code: "blq",
-		name: "Baluan-Pam"
+		name: "Baluan-Pam",
 	},
 	blr: {
 		code: "blr",
-		name: "Blang"
+		name: "Blang",
 	},
 	bls: {
 		code: "bls",
-		name: "Balaesang"
+		name: "Balaesang",
 	},
 	blt: {
 		code: "blt",
-		name: "Tai Dam"
+		name: "Tai Dam",
 	},
 	blv: {
 		code: "blv",
-		name: "Kibala"
+		name: "Kibala",
 	},
 	blw: {
 		code: "blw",
-		name: "Balangao"
+		name: "Balangao",
 	},
 	blx: {
 		code: "blx",
-		name: "Mag-Indi Ayta"
+		name: "Mag-Indi Ayta",
 	},
 	bly: {
 		code: "bly",
-		name: "Notre"
+		name: "Notre",
 	},
 	blz: {
 		code: "blz",
-		name: "Balantak"
+		name: "Balantak",
 	},
 	bma: {
 		code: "bma",
-		name: "Lame"
+		name: "Lame",
 	},
 	bmb: {
 		code: "bmb",
-		name: "Bembe"
+		name: "Bembe",
 	},
 	bmc: {
 		code: "bmc",
-		name: "Biem"
+		name: "Biem",
 	},
 	bmd: {
 		code: "bmd",
-		name: "Baga Manduri"
+		name: "Baga Manduri",
 	},
 	bme: {
 		code: "bme",
-		name: "Limassa"
+		name: "Limassa",
 	},
 	bmf: {
 		code: "bmf",
-		name: "Bom-Kim"
+		name: "Bom-Kim",
 	},
 	bmg: {
 		code: "bmg",
-		name: "Bamwe"
+		name: "Bamwe",
 	},
 	bmh: {
 		code: "bmh",
-		name: "Kein"
+		name: "Kein",
 	},
 	bmi: {
 		code: "bmi",
-		name: "Bagirmi"
+		name: "Bagirmi",
 	},
 	bmj: {
 		code: "bmj",
-		name: "Bote-Majhi"
+		name: "Bote-Majhi",
 	},
 	bmk: {
 		code: "bmk",
-		name: "Ghayavi"
+		name: "Ghayavi",
 	},
 	bml: {
 		code: "bml",
-		name: "Bomboli"
+		name: "Bomboli",
 	},
 	bmm: {
 		code: "bmm",
-		name: "Northern Betsimisaraka Malagasy"
+		name: "Northern Betsimisaraka Malagasy",
 	},
 	bmn: {
 		code: "bmn",
-		name: "Bina (Papua New Guinea)"
+		name: "Bina (Papua New Guinea)",
 	},
 	bmo: {
 		code: "bmo",
-		name: "Bambalang"
+		name: "Bambalang",
 	},
 	bmp: {
 		code: "bmp",
-		name: "Bulgebi"
+		name: "Bulgebi",
 	},
 	bmq: {
 		code: "bmq",
-		name: "Bomu"
+		name: "Bomu",
 	},
 	bmr: {
 		code: "bmr",
-		name: "Muinane"
+		name: "Muinane",
 	},
 	bms: {
 		code: "bms",
-		name: "Bilma Kanuri"
+		name: "Bilma Kanuri",
 	},
 	bmt: {
 		code: "bmt",
-		name: "Biao Mon"
+		name: "Biao Mon",
 	},
 	bmu: {
 		code: "bmu",
-		name: "Somba-Siawari"
+		name: "Somba-Siawari",
 	},
 	bmv: {
 		code: "bmv",
-		name: "Bum"
+		name: "Bum",
 	},
 	bmw: {
 		code: "bmw",
-		name: "Bomwali"
+		name: "Bomwali",
 	},
 	bmx: {
 		code: "bmx",
-		name: "Baimak"
+		name: "Baimak",
 	},
 	bmz: {
 		code: "bmz",
-		name: "Baramu"
+		name: "Baramu",
 	},
 	bna: {
 		code: "bna",
-		name: "Bonerate"
+		name: "Bonerate",
 	},
 	bnb: {
 		code: "bnb",
-		name: "Bookan"
+		name: "Bookan",
 	},
 	bnc: {
 		code: "bnc",
-		name: "Bontok"
+		name: "Bontok",
 	},
 	bnd: {
 		code: "bnd",
-		name: "Banda (Indonesia)"
+		name: "Banda (Indonesia)",
 	},
 	bne: {
 		code: "bne",
-		name: "Bintauna"
+		name: "Bintauna",
 	},
 	bnf: {
 		code: "bnf",
-		name: "Masiwang"
+		name: "Masiwang",
 	},
 	bng: {
 		code: "bng",
-		name: "Benga"
+		name: "Benga",
 	},
 	bni: {
 		code: "bni",
-		name: "Bangi"
+		name: "Bangi",
 	},
 	bnj: {
 		code: "bnj",
-		name: "Eastern Tawbuid"
+		name: "Eastern Tawbuid",
 	},
 	bnk: {
 		code: "bnk",
-		name: "Bierebo"
+		name: "Bierebo",
 	},
 	bnl: {
 		code: "bnl",
-		name: "Boon"
+		name: "Boon",
 	},
 	bnm: {
 		code: "bnm",
-		name: "Batanga"
+		name: "Batanga",
 	},
 	bnn: {
 		code: "bnn",
-		name: "Bunun"
+		name: "Bunun",
 	},
 	bno: {
 		code: "bno",
-		name: "Bantoanon"
+		name: "Bantoanon",
 	},
 	bnp: {
 		code: "bnp",
-		name: "Bola"
+		name: "Bola",
 	},
 	bnq: {
 		code: "bnq",
-		name: "Bantik"
+		name: "Bantik",
 	},
 	bnr: {
 		code: "bnr",
-		name: "Butmas-Tur"
+		name: "Butmas-Tur",
 	},
 	bns: {
 		code: "bns",
-		name: "Bundeli"
+		name: "Bundeli",
 	},
 	bnu: {
 		code: "bnu",
-		name: "Bentong"
+		name: "Bentong",
 	},
 	bnv: {
 		code: "bnv",
-		name: "Bonerif"
+		name: "Bonerif",
 	},
 	bnw: {
 		code: "bnw",
-		name: "Bisis"
+		name: "Bisis",
 	},
 	bnx: {
 		code: "bnx",
-		name: "Bangubangu"
+		name: "Bangubangu",
 	},
 	bny: {
 		code: "bny",
-		name: "Bintulu"
+		name: "Bintulu",
 	},
 	bnz: {
 		code: "bnz",
-		name: "Beezen"
+		name: "Beezen",
 	},
 	boa: {
 		code: "boa",
-		name: "Bora"
+		name: "Bora",
 	},
 	bob: {
 		code: "bob",
-		name: "Aweer"
+		name: "Aweer",
+	},
+	bod: {
+		code: "bod",
+		name: "Tibetan",
 	},
 	boe: {
 		code: "boe",
-		name: "Mundabli"
+		name: "Mundabli",
 	},
 	bof: {
 		code: "bof",
-		name: "Bolon"
+		name: "Bolon",
 	},
 	bog: {
 		code: "bog",
-		name: "Bamako Sign Language"
+		name: "Bamako Sign Language",
 	},
 	boh: {
 		code: "boh",
-		name: "Boma"
+		name: "Boma",
 	},
 	boi: {
 		code: "boi",
-		name: "Barbareño"
+		name: "Barbareño",
 	},
 	boj: {
 		code: "boj",
-		name: "Anjam"
+		name: "Anjam",
 	},
 	bok: {
 		code: "bok",
-		name: "Bonjo"
+		name: "Bonjo",
 	},
 	bol: {
 		code: "bol",
-		name: "Bole"
+		name: "Bole",
 	},
 	bom: {
 		code: "bom",
-		name: "Berom"
+		name: "Berom",
 	},
 	bon: {
 		code: "bon",
-		name: "Bine"
+		name: "Bine",
 	},
 	boo: {
 		code: "boo",
-		name: "Tiemacèwè Bozo"
+		name: "Tiemacèwè Bozo",
 	},
 	bop: {
 		code: "bop",
-		name: "Bonkiman"
+		name: "Bonkiman",
 	},
 	boq: {
 		code: "boq",
-		name: "Bogaya"
+		name: "Bogaya",
 	},
 	bor: {
 		code: "bor",
-		name: "Borôro"
+		name: "Borôro",
+	},
+	bos: {
+		code: "bos",
+		name: "Bosnian",
 	},
 	bot: {
 		code: "bot",
-		name: "Bongo"
+		name: "Bongo",
 	},
 	bou: {
 		code: "bou",
-		name: "Bondei"
+		name: "Bondei",
 	},
 	bov: {
 		code: "bov",
-		name: "Tuwuli"
+		name: "Tuwuli",
 	},
 	bow: {
 		code: "bow",
-		name: "Rema"
+		name: "Rema",
 	},
 	box: {
 		code: "box",
-		name: "Buamu"
+		name: "Buamu",
 	},
 	boy: {
 		code: "boy",
-		name: "Bodo (Central African Republic)"
+		name: "Bodo (Central African Republic)",
 	},
 	boz: {
 		code: "boz",
-		name: "Tiéyaxo Bozo"
+		name: "Tiéyaxo Bozo",
 	},
 	bpa: {
 		code: "bpa",
-		name: "Daakaka"
+		name: "Daakaka",
 	},
 	bpc: {
 		code: "bpc",
-		name: "Mbuk"
+		name: "Mbuk",
 	},
 	bpd: {
 		code: "bpd",
-		name: "Banda-Banda"
+		name: "Banda-Banda",
 	},
 	bpe: {
 		code: "bpe",
-		name: "Bauni"
+		name: "Bauni",
 	},
 	bpg: {
 		code: "bpg",
-		name: "Bonggo"
+		name: "Bonggo",
 	},
 	bph: {
 		code: "bph",
-		name: "Botlikh"
+		name: "Botlikh",
 	},
 	bpi: {
 		code: "bpi",
-		name: "Bagupi"
+		name: "Bagupi",
 	},
 	bpj: {
 		code: "bpj",
-		name: "Binji"
+		name: "Binji",
 	},
 	bpk: {
 		code: "bpk",
-		name: "Orowe"
+		name: "Orowe",
 	},
 	bpl: {
 		code: "bpl",
-		name: "Broome Pearling Lugger Pidgin"
+		name: "Broome Pearling Lugger Pidgin",
 	},
 	bpm: {
 		code: "bpm",
-		name: "Biyom"
+		name: "Biyom",
 	},
 	bpn: {
 		code: "bpn",
-		name: "Dzao Min"
+		name: "Dzao Min",
 	},
 	bpo: {
 		code: "bpo",
-		name: "Anasi"
+		name: "Anasi",
 	},
 	bpp: {
 		code: "bpp",
-		name: "Kaure"
+		name: "Kaure",
 	},
 	bpq: {
 		code: "bpq",
-		name: "Banda Malay"
+		name: "Banda Malay",
 	},
 	bpr: {
 		code: "bpr",
-		name: "Koronadal Blaan"
+		name: "Koronadal Blaan",
 	},
 	bps: {
 		code: "bps",
-		name: "Sarangani Blaan"
+		name: "Sarangani Blaan",
 	},
 	bpt: {
 		code: "bpt",
-		name: "Barrow Point"
+		name: "Barrow Point",
 	},
 	bpu: {
 		code: "bpu",
-		name: "Bongu"
+		name: "Bongu",
 	},
 	bpv: {
 		code: "bpv",
-		name: "Bian Marind"
+		name: "Bian Marind",
 	},
 	bpw: {
 		code: "bpw",
-		name: "Bo (Papua New Guinea)"
+		name: "Bo (Papua New Guinea)",
 	},
 	bpx: {
 		code: "bpx",
-		name: "Palya Bareli"
+		name: "Palya Bareli",
 	},
 	bpy: {
 		code: "bpy",
-		name: "Bishnupriya"
+		name: "Bishnupriya",
 	},
 	bpz: {
 		code: "bpz",
-		name: "Bilba"
+		name: "Bilba",
 	},
 	bqa: {
 		code: "bqa",
-		name: "Tchumbuli"
+		name: "Tchumbuli",
 	},
 	bqb: {
 		code: "bqb",
-		name: "Bagusa"
+		name: "Bagusa",
 	},
 	bqc: {
 		code: "bqc",
-		name: "Boko (Benin)"
+		name: "Boko (Benin)",
 	},
 	bqd: {
 		code: "bqd",
-		name: "Bung"
+		name: "Bung",
 	},
 	bqf: {
 		code: "bqf",
-		name: "Baga Kaloum"
+		name: "Baga Kaloum",
 	},
 	bqg: {
 		code: "bqg",
-		name: "Bago-Kusuntu"
+		name: "Bago-Kusuntu",
 	},
 	bqh: {
 		code: "bqh",
-		name: "Baima"
+		name: "Baima",
 	},
 	bqi: {
 		code: "bqi",
-		name: "Bakhtiari"
+		name: "Bakhtiari",
 	},
 	bqj: {
 		code: "bqj",
-		name: "Bandial"
+		name: "Bandial",
 	},
 	bqk: {
 		code: "bqk",
-		name: "Banda-Mbrès"
+		name: "Banda-Mbrès",
 	},
 	bql: {
 		code: "bql",
-		name: "Bilakura"
+		name: "Bilakura",
 	},
 	bqm: {
 		code: "bqm",
-		name: "Wumboko"
+		name: "Wumboko",
 	},
 	bqn: {
 		code: "bqn",
-		name: "Bulgarian Sign Language"
+		name: "Bulgarian Sign Language",
 	},
 	bqo: {
 		code: "bqo",
-		name: "Balo"
+		name: "Balo",
 	},
 	bqp: {
 		code: "bqp",
-		name: "Busa"
+		name: "Busa",
 	},
 	bqq: {
 		code: "bqq",
-		name: "Biritai"
+		name: "Biritai",
 	},
 	bqr: {
 		code: "bqr",
-		name: "Burusu"
+		name: "Burusu",
 	},
 	bqs: {
 		code: "bqs",
-		name: "Bosngun"
+		name: "Bosngun",
 	},
 	bqt: {
 		code: "bqt",
-		name: "Bamukumbit"
+		name: "Bamukumbit",
 	},
 	bqu: {
 		code: "bqu",
-		name: "Boguru"
+		name: "Boguru",
 	},
 	bqv: {
 		code: "bqv",
-		name: "Koro Wachi"
+		name: "Koro Wachi",
 	},
 	bqw: {
 		code: "bqw",
-		name: "Buru (Nigeria)"
+		name: "Buru (Nigeria)",
 	},
 	bqx: {
 		code: "bqx",
-		name: "Baangi"
+		name: "Baangi",
 	},
 	bqy: {
 		code: "bqy",
-		name: "Bengkala Sign Language"
+		name: "Bengkala Sign Language",
 	},
 	bqz: {
 		code: "bqz",
-		name: "Bakaka"
+		name: "Bakaka",
 	},
 	bra: {
 		code: "bra",
-		name: "Braj"
+		name: "Braj",
 	},
 	brb: {
 		code: "brb",
-		name: "Brao"
+		name: "Brao",
 	},
 	brc: {
 		code: "brc",
-		name: "Berbice Creole Dutch"
+		name: "Berbice Creole Dutch",
 	},
 	brd: {
 		code: "brd",
-		name: "Baraamu"
+		name: "Baraamu",
+	},
+	bre: {
+		code: "bre",
+		name: "Breton",
 	},
 	brf: {
 		code: "brf",
-		name: "Bira"
+		name: "Bira",
 	},
 	brg: {
 		code: "brg",
-		name: "Baure"
+		name: "Baure",
 	},
 	brh: {
 		code: "brh",
-		name: "Brahui"
+		name: "Brahui",
 	},
 	bri: {
 		code: "bri",
-		name: "Mokpwe"
+		name: "Mokpwe",
 	},
 	brj: {
 		code: "brj",
-		name: "Bieria"
+		name: "Bieria",
 	},
 	brk: {
 		code: "brk",
-		name: "Birked"
+		name: "Birked",
 	},
 	brl: {
 		code: "brl",
-		name: "Birwa"
+		name: "Birwa",
 	},
 	brm: {
 		code: "brm",
-		name: "Barambu"
+		name: "Barambu",
 	},
 	brn: {
 		code: "brn",
-		name: "Boruca"
+		name: "Boruca",
 	},
 	bro: {
 		code: "bro",
-		name: "Brokkat"
+		name: "Brokkat",
 	},
 	brp: {
 		code: "brp",
-		name: "Barapasi"
+		name: "Barapasi",
 	},
 	brq: {
 		code: "brq",
-		name: "Breri"
+		name: "Breri",
 	},
 	brr: {
 		code: "brr",
-		name: "Birao"
+		name: "Birao",
 	},
 	brs: {
 		code: "brs",
-		name: "Baras"
+		name: "Baras",
 	},
 	brt: {
 		code: "brt",
-		name: "Bitare"
+		name: "Bitare",
 	},
 	bru: {
 		code: "bru",
-		name: "Eastern Bru"
+		name: "Eastern Bru",
 	},
 	brv: {
 		code: "brv",
-		name: "Western Bru"
+		name: "Western Bru",
 	},
 	brw: {
 		code: "brw",
-		name: "Bellari"
+		name: "Bellari",
 	},
 	brx: {
 		code: "brx",
-		name: "Bodo (India)"
+		name: "Bodo (India)",
 	},
 	bry: {
 		code: "bry",
-		name: "Burui"
+		name: "Burui",
 	},
 	brz: {
 		code: "brz",
-		name: "Bilbil"
+		name: "Bilbil",
 	},
 	bsa: {
 		code: "bsa",
-		name: "Abinomn"
+		name: "Abinomn",
 	},
 	bsb: {
 		code: "bsb",
-		name: "Brunei Bisaya"
+		name: "Brunei Bisaya",
 	},
 	bsc: {
 		code: "bsc",
-		name: "Bassari"
+		name: "Bassari",
 	},
 	bse: {
 		code: "bse",
-		name: "Wushi"
+		name: "Wushi",
 	},
 	bsf: {
 		code: "bsf",
-		name: "Bauchi"
+		name: "Bauchi",
 	},
 	bsg: {
 		code: "bsg",
-		name: "Bashkardi"
+		name: "Bashkardi",
 	},
 	bsh: {
 		code: "bsh",
-		name: "Kati"
+		name: "Kati",
 	},
 	bsi: {
 		code: "bsi",
-		name: "Bassossi"
+		name: "Bassossi",
 	},
 	bsj: {
 		code: "bsj",
-		name: "Bangwinji"
+		name: "Bangwinji",
 	},
 	bsk: {
 		code: "bsk",
-		name: "Burushaski"
+		name: "Burushaski",
 	},
 	bsl: {
 		code: "bsl",
-		name: "Basa-Gumna"
+		name: "Basa-Gumna",
 	},
 	bsm: {
 		code: "bsm",
-		name: "Busami"
+		name: "Busami",
 	},
 	bsn: {
 		code: "bsn",
-		name: "Barasana-Eduria"
+		name: "Barasana-Eduria",
 	},
 	bso: {
 		code: "bso",
-		name: "Buso"
+		name: "Buso",
 	},
 	bsp: {
 		code: "bsp",
-		name: "Baga Sitemu"
+		name: "Baga Sitemu",
 	},
 	bsq: {
 		code: "bsq",
-		name: "Bassa"
+		name: "Bassa",
 	},
 	bsr: {
 		code: "bsr",
-		name: "Bassa-Kontagora"
+		name: "Bassa-Kontagora",
 	},
 	bss: {
 		code: "bss",
-		name: "Akoose"
+		name: "Akoose",
 	},
 	bst: {
 		code: "bst",
-		name: "Basketo"
+		name: "Basketo",
 	},
 	bsu: {
 		code: "bsu",
-		name: "Bahonsuai"
+		name: "Bahonsuai",
 	},
 	bsv: {
 		code: "bsv",
-		name: "Baga Sobané"
+		name: "Baga Sobané",
 	},
 	bsw: {
 		code: "bsw",
-		name: "Baiso"
+		name: "Baiso",
 	},
 	bsx: {
 		code: "bsx",
-		name: "Yangkam"
+		name: "Yangkam",
 	},
 	bsy: {
 		code: "bsy",
-		name: "Sabah Bisaya"
+		name: "Sabah Bisaya",
 	},
 	bta: {
 		code: "bta",
-		name: "Bata"
+		name: "Bata",
 	},
 	btc: {
 		code: "btc",
-		name: "Bati (Cameroon)"
+		name: "Bati (Cameroon)",
 	},
 	btd: {
 		code: "btd",
-		name: "Batak Dairi"
+		name: "Batak Dairi",
 	},
 	bte: {
 		code: "bte",
-		name: "Gamo-Ningi"
+		name: "Gamo-Ningi",
 	},
 	btf: {
 		code: "btf",
-		name: "Birgit"
+		name: "Birgit",
 	},
 	btg: {
 		code: "btg",
-		name: "Gagnoa Bété"
+		name: "Gagnoa Bété",
 	},
 	bth: {
 		code: "bth",
-		name: "Biatah Bidayuh"
+		name: "Biatah Bidayuh",
 	},
 	bti: {
 		code: "bti",
-		name: "Burate"
+		name: "Burate",
 	},
 	btj: {
 		code: "btj",
-		name: "Bacanese Malay"
+		name: "Bacanese Malay",
 	},
 	btm: {
 		code: "btm",
-		name: "Batak Mandailing"
+		name: "Batak Mandailing",
 	},
 	btn: {
 		code: "btn",
-		name: "Ratagnon"
+		name: "Ratagnon",
 	},
 	bto: {
 		code: "bto",
-		name: "Rinconada Bikol"
+		name: "Rinconada Bikol",
 	},
 	btp: {
 		code: "btp",
-		name: "Budibud"
+		name: "Budibud",
 	},
 	btq: {
 		code: "btq",
-		name: "Batek"
+		name: "Batek",
 	},
 	btr: {
 		code: "btr",
-		name: "Baetora"
+		name: "Baetora",
 	},
 	bts: {
 		code: "bts",
-		name: "Batak Simalungun"
+		name: "Batak Simalungun",
 	},
 	btt: {
 		code: "btt",
-		name: "Bete-Bendi"
+		name: "Bete-Bendi",
 	},
 	btu: {
 		code: "btu",
-		name: "Batu"
+		name: "Batu",
 	},
 	btv: {
 		code: "btv",
-		name: "Bateri"
+		name: "Bateri",
 	},
 	btw: {
 		code: "btw",
-		name: "Butuanon"
+		name: "Butuanon",
 	},
 	btx: {
 		code: "btx",
-		name: "Batak Karo"
+		name: "Batak Karo",
 	},
 	bty: {
 		code: "bty",
-		name: "Bobot"
+		name: "Bobot",
 	},
 	btz: {
 		code: "btz",
-		name: "Batak Alas-Kluet"
+		name: "Batak Alas-Kluet",
 	},
 	bua: {
 		code: "bua",
-		name: "Buriat"
+		name: "Buriat",
 	},
 	bub: {
 		code: "bub",
-		name: "Bua"
+		name: "Bua",
 	},
 	buc: {
 		code: "buc",
-		name: "Bushi"
+		name: "Bushi",
 	},
 	bud: {
 		code: "bud",
-		name: "Ntcham"
+		name: "Ntcham",
 	},
 	bue: {
 		code: "bue",
-		name: "Beothuk"
+		name: "Beothuk",
 	},
 	buf: {
 		code: "buf",
-		name: "Bushoong"
+		name: "Bushoong",
 	},
 	bug: {
 		code: "bug",
-		name: "Buginese"
+		name: "Buginese",
 	},
 	buh: {
 		code: "buh",
-		name: "Younuo Bunu"
+		name: "Younuo Bunu",
 	},
 	bui: {
 		code: "bui",
-		name: "Bongili"
+		name: "Bongili",
 	},
 	buj: {
 		code: "buj",
-		name: "Basa-Gurmana"
+		name: "Basa-Gurmana",
 	},
 	buk: {
 		code: "buk",
-		name: "Bugawac"
+		name: "Bugawac",
+	},
+	bul: {
+		code: "bul",
+		name: "Bulgarian",
 	},
 	bum: {
 		code: "bum",
-		name: "Bulu (Cameroon)"
+		name: "Bulu (Cameroon)",
 	},
 	bun: {
 		code: "bun",
-		name: "Sherbro"
+		name: "Sherbro",
 	},
 	buo: {
 		code: "buo",
-		name: "Terei"
+		name: "Terei",
 	},
 	bup: {
 		code: "bup",
-		name: "Busoa"
+		name: "Busoa",
 	},
 	buq: {
 		code: "buq",
-		name: "Brem"
+		name: "Brem",
 	},
 	bus: {
 		code: "bus",
-		name: "Bokobaru"
+		name: "Bokobaru",
 	},
 	but: {
 		code: "but",
-		name: "Bungain"
+		name: "Bungain",
 	},
 	buu: {
 		code: "buu",
-		name: "Budu"
+		name: "Budu",
 	},
 	buv: {
 		code: "buv",
-		name: "Bun"
+		name: "Bun",
 	},
 	buw: {
 		code: "buw",
-		name: "Bubi"
+		name: "Bubi",
 	},
 	bux: {
 		code: "bux",
-		name: "Boghom"
+		name: "Boghom",
 	},
 	buy: {
 		code: "buy",
-		name: "Bullom So"
+		name: "Bullom So",
 	},
 	buz: {
 		code: "buz",
-		name: "Bukwen"
+		name: "Bukwen",
 	},
 	bva: {
 		code: "bva",
-		name: "Barein"
+		name: "Barein",
 	},
 	bvb: {
 		code: "bvb",
-		name: "Bube"
+		name: "Bube",
 	},
 	bvc: {
 		code: "bvc",
-		name: "Baelelea"
+		name: "Baelelea",
 	},
 	bvd: {
 		code: "bvd",
-		name: "Baeggu"
+		name: "Baeggu",
 	},
 	bve: {
 		code: "bve",
-		name: "Berau Malay"
+		name: "Berau Malay",
 	},
 	bvf: {
 		code: "bvf",
-		name: "Boor"
+		name: "Boor",
 	},
 	bvg: {
 		code: "bvg",
-		name: "Bonkeng"
+		name: "Bonkeng",
 	},
 	bvh: {
 		code: "bvh",
-		name: "Bure"
+		name: "Bure",
 	},
 	bvi: {
 		code: "bvi",
-		name: "Belanda Viri"
+		name: "Belanda Viri",
 	},
 	bvj: {
 		code: "bvj",
-		name: "Baan"
+		name: "Baan",
 	},
 	bvk: {
 		code: "bvk",
-		name: "Bukat"
+		name: "Bukat",
 	},
 	bvl: {
 		code: "bvl",
-		name: "Bolivian Sign Language"
+		name: "Bolivian Sign Language",
 	},
 	bvm: {
 		code: "bvm",
-		name: "Bamunka"
+		name: "Bamunka",
 	},
 	bvn: {
 		code: "bvn",
-		name: "Buna"
+		name: "Buna",
 	},
 	bvo: {
 		code: "bvo",
-		name: "Bolgo"
+		name: "Bolgo",
 	},
 	bvp: {
 		code: "bvp",
-		name: "Bumang"
+		name: "Bumang",
 	},
 	bvq: {
 		code: "bvq",
-		name: "Birri"
+		name: "Birri",
 	},
 	bvr: {
 		code: "bvr",
-		name: "Burarra"
+		name: "Burarra",
 	},
 	bvt: {
 		code: "bvt",
-		name: "Bati (Indonesia)"
+		name: "Bati (Indonesia)",
 	},
 	bvu: {
 		code: "bvu",
-		name: "Bukit Malay"
+		name: "Bukit Malay",
 	},
 	bvv: {
 		code: "bvv",
-		name: "Baniva"
+		name: "Baniva",
 	},
 	bvw: {
 		code: "bvw",
-		name: "Boga"
+		name: "Boga",
 	},
 	bvx: {
 		code: "bvx",
-		name: "Dibole"
+		name: "Dibole",
 	},
 	bvy: {
 		code: "bvy",
-		name: "Baybayanon"
+		name: "Baybayanon",
 	},
 	bvz: {
 		code: "bvz",
-		name: "Bauzi"
+		name: "Bauzi",
 	},
 	bwa: {
 		code: "bwa",
-		name: "Bwatoo"
+		name: "Bwatoo",
 	},
 	bwb: {
 		code: "bwb",
-		name: "Namosi-Naitasiri-Serua"
+		name: "Namosi-Naitasiri-Serua",
 	},
 	bwc: {
 		code: "bwc",
-		name: "Bwile"
+		name: "Bwile",
 	},
 	bwd: {
 		code: "bwd",
-		name: "Bwaidoka"
+		name: "Bwaidoka",
 	},
 	bwe: {
 		code: "bwe",
-		name: "Bwe Karen"
+		name: "Bwe Karen",
 	},
 	bwf: {
 		code: "bwf",
-		name: "Boselewa"
+		name: "Boselewa",
 	},
 	bwg: {
 		code: "bwg",
-		name: "Barwe"
+		name: "Barwe",
 	},
 	bwh: {
 		code: "bwh",
-		name: "Bishuo"
+		name: "Bishuo",
 	},
 	bwi: {
 		code: "bwi",
-		name: "Baniwa"
+		name: "Baniwa",
 	},
 	bwj: {
 		code: "bwj",
-		name: "Láá Láá Bwamu"
+		name: "Láá Láá Bwamu",
 	},
 	bwk: {
 		code: "bwk",
-		name: "Bauwaki"
+		name: "Bauwaki",
 	},
 	bwl: {
 		code: "bwl",
-		name: "Bwela"
+		name: "Bwela",
 	},
 	bwm: {
 		code: "bwm",
-		name: "Biwat"
+		name: "Biwat",
 	},
 	bwn: {
 		code: "bwn",
-		name: "Wunai Bunu"
+		name: "Wunai Bunu",
 	},
 	bwo: {
 		code: "bwo",
-		name: "Boro (Ethiopia)"
+		name: "Boro (Ethiopia)",
 	},
 	bwp: {
 		code: "bwp",
-		name: "Mandobo Bawah"
+		name: "Mandobo Bawah",
 	},
 	bwq: {
 		code: "bwq",
-		name: "Southern Bobo Madaré"
+		name: "Southern Bobo Madaré",
 	},
 	bwr: {
 		code: "bwr",
-		name: "Bura-Pabir"
+		name: "Bura-Pabir",
 	},
 	bws: {
 		code: "bws",
-		name: "Bomboma"
+		name: "Bomboma",
 	},
 	bwt: {
 		code: "bwt",
-		name: "Bafaw-Balong"
+		name: "Bafaw-Balong",
 	},
 	bwu: {
 		code: "bwu",
-		name: "Buli (Ghana)"
+		name: "Buli (Ghana)",
 	},
 	bww: {
 		code: "bww",
-		name: "Bwa"
+		name: "Bwa",
 	},
 	bwx: {
 		code: "bwx",
-		name: "Bu-Nao Bunu"
+		name: "Bu-Nao Bunu",
 	},
 	bwy: {
 		code: "bwy",
-		name: "Cwi Bwamu"
+		name: "Cwi Bwamu",
 	},
 	bwz: {
 		code: "bwz",
-		name: "Bwisi"
+		name: "Bwisi",
 	},
 	bxa: {
 		code: "bxa",
-		name: "Tairaha"
+		name: "Tairaha",
 	},
 	bxb: {
 		code: "bxb",
-		name: "Belanda Bor"
+		name: "Belanda Bor",
 	},
 	bxc: {
 		code: "bxc",
-		name: "Molengue"
+		name: "Molengue",
 	},
 	bxd: {
 		code: "bxd",
-		name: "Pela"
+		name: "Pela",
 	},
 	bxe: {
 		code: "bxe",
-		name: "Birale"
+		name: "Birale",
 	},
 	bxf: {
 		code: "bxf",
-		name: "Bilur"
+		name: "Bilur",
 	},
 	bxg: {
 		code: "bxg",
-		name: "Bangala"
+		name: "Bangala",
 	},
 	bxh: {
 		code: "bxh",
-		name: "Buhutu"
+		name: "Buhutu",
 	},
 	bxi: {
 		code: "bxi",
-		name: "Pirlatapa"
+		name: "Pirlatapa",
 	},
 	bxj: {
 		code: "bxj",
-		name: "Bayungu"
+		name: "Bayungu",
 	},
 	bxk: {
 		code: "bxk",
-		name: "Bukusu"
+		name: "Bukusu",
 	},
 	bxl: {
 		code: "bxl",
-		name: "Jalkunan"
+		name: "Jalkunan",
 	},
 	bxm: {
 		code: "bxm",
-		name: "Mongolia Buriat"
+		name: "Mongolia Buriat",
 	},
 	bxn: {
 		code: "bxn",
-		name: "Burduna"
+		name: "Burduna",
 	},
 	bxo: {
 		code: "bxo",
-		name: "Barikanchi"
+		name: "Barikanchi",
 	},
 	bxp: {
 		code: "bxp",
-		name: "Bebil"
+		name: "Bebil",
 	},
 	bxq: {
 		code: "bxq",
-		name: "Beele"
+		name: "Beele",
 	},
 	bxr: {
 		code: "bxr",
-		name: "Russia Buriat"
+		name: "Russia Buriat",
 	},
 	bxs: {
 		code: "bxs",
-		name: "Busam"
+		name: "Busam",
 	},
 	bxu: {
 		code: "bxu",
-		name: "China Buriat"
+		name: "China Buriat",
 	},
 	bxv: {
 		code: "bxv",
-		name: "Berakou"
+		name: "Berakou",
 	},
 	bxw: {
 		code: "bxw",
-		name: "Bankagooma"
+		name: "Bankagooma",
 	},
 	bxz: {
 		code: "bxz",
-		name: "Binahari"
+		name: "Binahari",
 	},
 	bya: {
 		code: "bya",
-		name: "Batak"
+		name: "Batak",
 	},
 	byb: {
 		code: "byb",
-		name: "Bikya"
+		name: "Bikya",
 	},
 	byc: {
 		code: "byc",
-		name: "Ubaghara"
+		name: "Ubaghara",
 	},
 	byd: {
 		code: "byd",
-		name: "Benyadu'"
+		name: "Benyadu'",
 	},
 	bye: {
 		code: "bye",
-		name: "Pouye"
+		name: "Pouye",
 	},
 	byf: {
 		code: "byf",
-		name: "Bete"
+		name: "Bete",
 	},
 	byg: {
 		code: "byg",
-		name: "Baygo"
+		name: "Baygo",
 	},
 	byh: {
 		code: "byh",
-		name: "Bhujel"
+		name: "Bhujel",
 	},
 	byi: {
 		code: "byi",
-		name: "Buyu"
+		name: "Buyu",
 	},
 	byj: {
 		code: "byj",
-		name: "Bina (Nigeria)"
+		name: "Bina (Nigeria)",
 	},
 	byk: {
 		code: "byk",
-		name: "Biao"
+		name: "Biao",
 	},
 	byl: {
 		code: "byl",
-		name: "Bayono"
+		name: "Bayono",
 	},
 	bym: {
 		code: "bym",
-		name: "Bidjara"
+		name: "Bidjara",
 	},
 	byn: {
 		code: "byn",
-		name: "Bilin"
+		name: "Bilin",
 	},
 	byo: {
 		code: "byo",
-		name: "Biyo"
+		name: "Biyo",
 	},
 	byp: {
 		code: "byp",
-		name: "Bumaji"
+		name: "Bumaji",
 	},
 	byq: {
 		code: "byq",
-		name: "Basay"
+		name: "Basay",
 	},
 	byr: {
 		code: "byr",
-		name: "Baruya"
+		name: "Baruya",
 	},
 	bys: {
 		code: "bys",
-		name: "Burak"
+		name: "Burak",
 	},
 	byt: {
 		code: "byt",
-		name: "Berti"
+		name: "Berti",
 	},
 	byv: {
 		code: "byv",
-		name: "Medumba"
+		name: "Medumba",
 	},
 	byw: {
 		code: "byw",
-		name: "Belhariya"
+		name: "Belhariya",
 	},
 	byx: {
 		code: "byx",
-		name: "Qaqet"
+		name: "Qaqet",
 	},
 	byz: {
 		code: "byz",
-		name: "Banaro"
+		name: "Banaro",
 	},
 	bza: {
 		code: "bza",
-		name: "Bandi"
+		name: "Bandi",
 	},
 	bzb: {
 		code: "bzb",
-		name: "Andio"
+		name: "Andio",
 	},
 	bzc: {
 		code: "bzc",
-		name: "Southern Betsimisaraka Malagasy"
+		name: "Southern Betsimisaraka Malagasy",
 	},
 	bzd: {
 		code: "bzd",
-		name: "Bribri"
+		name: "Bribri",
 	},
 	bze: {
 		code: "bze",
-		name: "Jenaama Bozo"
+		name: "Jenaama Bozo",
 	},
 	bzf: {
 		code: "bzf",
-		name: "Boikin"
+		name: "Boikin",
 	},
 	bzg: {
 		code: "bzg",
-		name: "Babuza"
+		name: "Babuza",
 	},
 	bzh: {
 		code: "bzh",
-		name: "Mapos Buang"
+		name: "Mapos Buang",
 	},
 	bzi: {
 		code: "bzi",
-		name: "Bisu"
+		name: "Bisu",
 	},
 	bzj: {
 		code: "bzj",
-		name: "Belize Kriol English"
+		name: "Belize Kriol English",
 	},
 	bzk: {
 		code: "bzk",
-		name: "Nicaragua Creole English"
+		name: "Nicaragua Creole English",
 	},
 	bzl: {
 		code: "bzl",
-		name: "Boano (Sulawesi)"
+		name: "Boano (Sulawesi)",
 	},
 	bzm: {
 		code: "bzm",
-		name: "Bolondo"
+		name: "Bolondo",
 	},
 	bzn: {
 		code: "bzn",
-		name: "Boano (Maluku)"
+		name: "Boano (Maluku)",
 	},
 	bzo: {
 		code: "bzo",
-		name: "Bozaba"
+		name: "Bozaba",
 	},
 	bzp: {
 		code: "bzp",
-		name: "Kemberano"
+		name: "Kemberano",
 	},
 	bzq: {
 		code: "bzq",
-		name: "Buli (Indonesia)"
+		name: "Buli (Indonesia)",
 	},
 	bzr: {
 		code: "bzr",
-		name: "Biri"
+		name: "Biri",
+	},
+	bzs: {
+		code: "bzs",
+		name: "Brazilian Sign Language",
 	},
 	bzt: {
 		code: "bzt",
-		name: "Brithenig"
+		name: "Brithenig",
 	},
 	bzu: {
 		code: "bzu",
-		name: "Burmeso"
+		name: "Burmeso",
 	},
 	bzv: {
 		code: "bzv",
-		name: "Naami"
+		name: "Naami",
 	},
 	bzw: {
 		code: "bzw",
-		name: "Basa (Nigeria)"
+		name: "Basa (Nigeria)",
 	},
 	bzx: {
 		code: "bzx",
-		name: "Kɛlɛngaxo Bozo"
+		name: "Kɛlɛngaxo Bozo",
 	},
 	bzy: {
 		code: "bzy",
-		name: "Obanliku"
+		name: "Obanliku",
 	},
 	bzz: {
 		code: "bzz",
-		name: "Evant"
+		name: "Evant",
 	},
 	caa: {
 		code: "caa",
-		name: "Chortí"
+		name: "Chortí",
 	},
 	cab: {
 		code: "cab",
-		name: "Garifuna"
+		name: "Garifuna",
 	},
 	cac: {
 		code: "cac",
-		name: "Chuj"
+		name: "Chuj",
 	},
 	cad: {
 		code: "cad",
-		name: "Caddo"
+		name: "Caddo",
 	},
 	cae: {
 		code: "cae",
-		name: "Lehar"
+		name: "Lehar",
 	},
 	caf: {
 		code: "caf",
-		name: "Southern Carrier"
+		name: "Southern Carrier",
 	},
 	cag: {
 		code: "cag",
-		name: "Nivaclé"
+		name: "Nivaclé",
 	},
 	cah: {
 		code: "cah",
-		name: "Cahuarano"
+		name: "Cahuarano",
 	},
 	caj: {
 		code: "caj",
-		name: "Chané"
+		name: "Chané",
 	},
 	cak: {
 		code: "cak",
-		name: "Kaqchikel"
+		name: "Kaqchikel",
 	},
 	cal: {
 		code: "cal",
-		name: "Carolinian"
+		name: "Carolinian",
 	},
 	cam: {
 		code: "cam",
-		name: "Cemuhî"
+		name: "Cemuhî",
 	},
 	can: {
 		code: "can",
-		name: "Chambri"
+		name: "Chambri",
 	},
 	cao: {
 		code: "cao",
-		name: "Chácobo"
+		name: "Chácobo",
 	},
 	cap: {
 		code: "cap",
-		name: "Chipaya"
+		name: "Chipaya",
 	},
 	caq: {
 		code: "caq",
-		name: "Car Nicobarese"
+		name: "Car Nicobarese",
 	},
 	car: {
 		code: "car",
-		name: "Galibi Carib"
+		name: "Galibi Carib",
 	},
 	cas: {
 		code: "cas",
-		name: "Tsimané"
+		name: "Tsimané",
+	},
+	cat: {
+		code: "cat",
+		name: "Catalan",
 	},
 	cav: {
 		code: "cav",
-		name: "Cavineña"
+		name: "Cavineña",
 	},
 	caw: {
 		code: "caw",
-		name: "Callawalla"
+		name: "Callawalla",
 	},
 	cax: {
 		code: "cax",
-		name: "Chiquitano"
+		name: "Chiquitano",
 	},
 	cay: {
 		code: "cay",
-		name: "Cayuga"
+		name: "Cayuga",
 	},
 	caz: {
 		code: "caz",
-		name: "Canichana"
+		name: "Canichana",
 	},
 	cbb: {
 		code: "cbb",
-		name: "Cabiyarí"
+		name: "Cabiyarí",
 	},
 	cbc: {
 		code: "cbc",
-		name: "Carapana"
+		name: "Carapana",
 	},
 	cbd: {
 		code: "cbd",
-		name: "Carijona"
+		name: "Carijona",
 	},
 	cbg: {
 		code: "cbg",
-		name: "Chimila"
+		name: "Chimila",
 	},
 	cbi: {
 		code: "cbi",
-		name: "Chachi"
+		name: "Chachi",
 	},
 	cbj: {
 		code: "cbj",
-		name: "Ede Cabe"
+		name: "Ede Cabe",
 	},
 	cbk: {
 		code: "cbk",
-		name: "Chavacano"
+		name: "Chavacano",
 	},
 	cbl: {
 		code: "cbl",
-		name: "Bualkhaw Chin"
+		name: "Bualkhaw Chin",
 	},
 	cbn: {
 		code: "cbn",
-		name: "Nyahkur"
+		name: "Nyahkur",
 	},
 	cbo: {
 		code: "cbo",
-		name: "Izora"
+		name: "Izora",
 	},
 	cbq: {
 		code: "cbq",
-		name: "Tsucuba"
+		name: "Tsucuba",
 	},
 	cbr: {
 		code: "cbr",
-		name: "Cashibo-Cacataibo"
+		name: "Cashibo-Cacataibo",
 	},
 	cbs: {
 		code: "cbs",
-		name: "Cashinahua"
+		name: "Cashinahua",
 	},
 	cbt: {
 		code: "cbt",
-		name: "Chayahuita"
+		name: "Chayahuita",
 	},
 	cbu: {
 		code: "cbu",
-		name: "Candoshi-Shapra"
+		name: "Candoshi-Shapra",
 	},
 	cbv: {
 		code: "cbv",
-		name: "Cacua"
+		name: "Cacua",
 	},
 	cbw: {
 		code: "cbw",
-		name: "Kinabalian"
+		name: "Kinabalian",
 	},
 	cby: {
 		code: "cby",
-		name: "Carabayo"
+		name: "Carabayo",
 	},
 	ccc: {
 		code: "ccc",
-		name: "Chamicuro"
+		name: "Chamicuro",
 	},
 	ccd: {
 		code: "ccd",
-		name: "Cafundo Creole"
+		name: "Cafundo Creole",
 	},
 	cce: {
 		code: "cce",
-		name: "Chopi"
+		name: "Chopi",
 	},
 	ccg: {
 		code: "ccg",
-		name: "Samba Daka"
+		name: "Samba Daka",
 	},
 	cch: {
 		code: "cch",
-		name: "Atsam"
+		name: "Atsam",
 	},
 	ccj: {
 		code: "ccj",
-		name: "Kasanga"
+		name: "Kasanga",
 	},
 	ccl: {
 		code: "ccl",
-		name: "Cutchi-Swahili"
+		name: "Cutchi-Swahili",
 	},
 	ccm: {
 		code: "ccm",
-		name: "Malaccan Creole Malay"
+		name: "Malaccan Creole Malay",
 	},
 	cco: {
 		code: "cco",
-		name: "Comaltepec Chinantec"
+		name: "Comaltepec Chinantec",
 	},
 	ccp: {
 		code: "ccp",
-		name: "Chakma"
+		name: "Chakma",
 	},
 	ccr: {
 		code: "ccr",
-		name: "Cacaopera"
+		name: "Cacaopera",
 	},
 	cda: {
 		code: "cda",
-		name: "Choni"
+		name: "Choni",
 	},
 	cde: {
 		code: "cde",
-		name: "Chenchu"
+		name: "Chenchu",
 	},
 	cdf: {
 		code: "cdf",
-		name: "Chiru"
+		name: "Chiru",
 	},
 	cdh: {
 		code: "cdh",
-		name: "Chambeali"
+		name: "Chambeali",
 	},
 	cdi: {
 		code: "cdi",
-		name: "Chodri"
+		name: "Chodri",
 	},
 	cdj: {
 		code: "cdj",
-		name: "Churahi"
+		name: "Churahi",
 	},
 	cdm: {
 		code: "cdm",
-		name: "Chepang"
+		name: "Chepang",
 	},
 	cdn: {
 		code: "cdn",
-		name: "Chaudangsi"
+		name: "Chaudangsi",
 	},
 	cdo: {
 		code: "cdo",
-		name: "Min Dong Chinese"
+		name: "Min Dong Chinese",
 	},
 	cdr: {
 		code: "cdr",
-		name: "Cinda-Regi-Tiyal"
+		name: "Cinda-Regi-Tiyal",
 	},
 	cds: {
 		code: "cds",
-		name: "Chadian Sign Language"
+		name: "Chadian Sign Language",
 	},
 	cdy: {
 		code: "cdy",
-		name: "Chadong"
+		name: "Chadong",
 	},
 	cdz: {
 		code: "cdz",
-		name: "Koda"
+		name: "Koda",
 	},
 	cea: {
 		code: "cea",
-		name: "Lower Chehalis"
+		name: "Lower Chehalis",
+	},
+	ceb: {
+		code: "ceb",
+		name: "Cebuano",
 	},
 	ceg: {
 		code: "ceg",
-		name: "Chamacoco"
+		name: "Chamacoco",
 	},
 	cek: {
 		code: "cek",
-		name: "Eastern Khumi Chin"
+		name: "Eastern Khumi Chin",
 	},
 	cen: {
 		code: "cen",
-		name: "Cen"
+		name: "Cen",
+	},
+	ces: {
+		code: "ces",
+		name: "Czech",
 	},
 	cet: {
 		code: "cet",
-		name: "Centúúm"
+		name: "Centúúm",
 	},
 	cey: {
 		code: "cey",
-		name: "Ekai Chin"
+		name: "Ekai Chin",
 	},
 	cfa: {
 		code: "cfa",
-		name: "Dijim-Bwilim"
+		name: "Dijim-Bwilim",
 	},
 	cfd: {
 		code: "cfd",
-		name: "Cara"
+		name: "Cara",
 	},
 	cfg: {
 		code: "cfg",
-		name: "Como Karim"
+		name: "Como Karim",
 	},
 	cfm: {
 		code: "cfm",
-		name: "Falam Chin"
+		name: "Falam Chin",
 	},
 	cga: {
 		code: "cga",
-		name: "Changriwa"
+		name: "Changriwa",
 	},
 	cgc: {
 		code: "cgc",
-		name: "Kagayanen"
+		name: "Kagayanen",
 	},
 	cgg: {
 		code: "cgg",
-		name: "Chiga"
+		name: "Chiga",
 	},
 	cgk: {
 		code: "cgk",
-		name: "Chocangacakha"
+		name: "Chocangacakha",
+	},
+	cha: {
+		code: "cha",
+		name: "Chamorro",
 	},
 	chb: {
 		code: "chb",
-		name: "Chibcha"
+		name: "Chibcha",
 	},
 	chc: {
 		code: "chc",
-		name: "Catawba"
+		name: "Catawba",
 	},
 	chd: {
 		code: "chd",
-		name: "Highland Oaxaca Chontal"
+		name: "Highland Oaxaca Chontal",
+	},
+	che: {
+		code: "che",
+		name: "Chechen",
 	},
 	chf: {
 		code: "chf",
-		name: "Tabasco Chontal"
+		name: "Tabasco Chontal",
 	},
 	chg: {
 		code: "chg",
-		name: "Chagatai"
+		name: "Chagatai",
 	},
 	chh: {
 		code: "chh",
-		name: "Chinook"
+		name: "Chinook",
 	},
 	chj: {
 		code: "chj",
-		name: "Ojitlán Chinantec"
+		name: "Ojitlán Chinantec",
+	},
+	chk: {
+		code: "chk",
+		name: "Chuukese",
 	},
 	chl: {
 		code: "chl",
-		name: "Cahuilla"
+		name: "Cahuilla",
 	},
 	chm: {
 		code: "chm",
-		name: "Mari (Russia)"
+		name: "Mari (Russia)",
 	},
 	chn: {
 		code: "chn",
-		name: "Chinook jargon"
+		name: "Chinook jargon",
 	},
 	cho: {
 		code: "cho",
-		name: "Choctaw"
+		name: "Choctaw",
 	},
 	chp: {
 		code: "chp",
-		name: "Chipewyan"
+		name: "Chipewyan",
 	},
 	chq: {
 		code: "chq",
-		name: "Quiotepec Chinantec"
+		name: "Quiotepec Chinantec",
 	},
 	chr: {
 		code: "chr",
-		name: "Cherokee"
+		name: "Cherokee",
 	},
 	cht: {
 		code: "cht",
-		name: "Cholón"
+		name: "Cholón",
 	},
 	chu: {
 		code: "chu",
-		name: "Church Slavic"
+		name: "Church Slavic",
+	},
+	chv: {
+		code: "chv",
+		name: "Chuvash",
 	},
 	chw: {
 		code: "chw",
-		name: "Chuwabu"
+		name: "Chuwabu",
 	},
 	chx: {
 		code: "chx",
-		name: "Chantyal"
+		name: "Chantyal",
 	},
 	chy: {
 		code: "chy",
-		name: "Cheyenne"
+		name: "Cheyenne",
 	},
 	chz: {
 		code: "chz",
-		name: "Ozumacín Chinantec"
+		name: "Ozumacín Chinantec",
 	},
 	cia: {
 		code: "cia",
-		name: "Cia-Cia"
+		name: "Cia-Cia",
 	},
 	cib: {
 		code: "cib",
-		name: "Ci Gbe"
+		name: "Ci Gbe",
 	},
 	cic: {
 		code: "cic",
-		name: "Chickasaw"
+		name: "Chickasaw",
 	},
 	cid: {
 		code: "cid",
-		name: "Chimariko"
+		name: "Chimariko",
 	},
 	cie: {
 		code: "cie",
-		name: "Cineni"
+		name: "Cineni",
 	},
 	cih: {
 		code: "cih",
-		name: "Chinali"
+		name: "Chinali",
 	},
 	cik: {
 		code: "cik",
-		name: "Chitkuli Kinnauri"
+		name: "Chitkuli Kinnauri",
 	},
 	cim: {
 		code: "cim",
-		name: "Cimbrian"
+		name: "Cimbrian",
 	},
 	cin: {
 		code: "cin",
-		name: "Cinta Larga"
+		name: "Cinta Larga",
 	},
 	cip: {
 		code: "cip",
-		name: "Chiapanec"
+		name: "Chiapanec",
 	},
 	cir: {
 		code: "cir",
-		name: "Tiri"
+		name: "Tiri",
 	},
 	ciw: {
 		code: "ciw",
-		name: "Chippewa"
+		name: "Chippewa",
 	},
 	ciy: {
 		code: "ciy",
-		name: "Chaima"
+		name: "Chaima",
 	},
 	cja: {
 		code: "cja",
-		name: "Western Cham"
+		name: "Western Cham",
 	},
 	cje: {
 		code: "cje",
-		name: "Chru"
+		name: "Chru",
 	},
 	cjh: {
 		code: "cjh",
-		name: "Upper Chehalis"
+		name: "Upper Chehalis",
 	},
 	cji: {
 		code: "cji",
-		name: "Chamalal"
+		name: "Chamalal",
 	},
 	cjk: {
 		code: "cjk",
-		name: "Chokwe"
+		name: "Chokwe",
 	},
 	cjm: {
 		code: "cjm",
-		name: "Eastern Cham"
+		name: "Eastern Cham",
 	},
 	cjn: {
 		code: "cjn",
-		name: "Chenapian"
+		name: "Chenapian",
 	},
 	cjo: {
 		code: "cjo",
-		name: "Ashéninka Pajonal"
+		name: "Ashéninka Pajonal",
 	},
 	cjp: {
 		code: "cjp",
-		name: "Cabécar"
+		name: "Cabécar",
 	},
 	cjs: {
 		code: "cjs",
-		name: "Shor"
+		name: "Shor",
 	},
 	cjv: {
 		code: "cjv",
-		name: "Chuave"
+		name: "Chuave",
 	},
 	cjy: {
 		code: "cjy",
-		name: "Jinyu Chinese"
+		name: "Jinyu Chinese",
 	},
 	ckb: {
 		code: "ckb",
-		name: "Central Kurdish"
+		name: "Central Kurdish",
 	},
 	ckh: {
 		code: "ckh",
-		name: "Chak"
+		name: "Chak",
 	},
 	ckl: {
 		code: "ckl",
-		name: "Cibak"
+		name: "Cibak",
 	},
 	ckm: {
 		code: "ckm",
-		name: "Chakavian"
+		name: "Chakavian",
 	},
 	ckn: {
 		code: "ckn",
-		name: "Kaang Chin"
+		name: "Kaang Chin",
 	},
 	cko: {
 		code: "cko",
-		name: "Anufo"
+		name: "Anufo",
 	},
 	ckq: {
 		code: "ckq",
-		name: "Kajakse"
+		name: "Kajakse",
 	},
 	ckr: {
 		code: "ckr",
-		name: "Kairak"
+		name: "Kairak",
 	},
 	cks: {
 		code: "cks",
-		name: "Tayo"
+		name: "Tayo",
 	},
 	ckt: {
 		code: "ckt",
-		name: "Chukot"
+		name: "Chukot",
 	},
 	cku: {
 		code: "cku",
-		name: "Koasati"
+		name: "Koasati",
 	},
 	ckv: {
 		code: "ckv",
-		name: "Kavalan"
+		name: "Kavalan",
 	},
 	ckx: {
 		code: "ckx",
-		name: "Caka"
+		name: "Caka",
 	},
 	cky: {
 		code: "cky",
-		name: "Cakfem-Mushere"
+		name: "Cakfem-Mushere",
 	},
 	ckz: {
 		code: "ckz",
-		name: "Cakchiquel-Quiché Mixed Language"
+		name: "Cakchiquel-Quiché Mixed Language",
 	},
 	cla: {
 		code: "cla",
-		name: "Ron"
+		name: "Ron",
 	},
 	clc: {
 		code: "clc",
-		name: "Chilcotin"
+		name: "Chilcotin",
 	},
 	cld: {
 		code: "cld",
-		name: "Chaldean Neo-Aramaic"
+		name: "Chaldean Neo-Aramaic",
 	},
 	cle: {
 		code: "cle",
-		name: "Lealao Chinantec"
+		name: "Lealao Chinantec",
 	},
 	clh: {
 		code: "clh",
-		name: "Chilisso"
+		name: "Chilisso",
 	},
 	cli: {
 		code: "cli",
-		name: "Chakali"
+		name: "Chakali",
 	},
 	clj: {
 		code: "clj",
-		name: "Laitu Chin"
+		name: "Laitu Chin",
 	},
 	clk: {
 		code: "clk",
-		name: "Idu-Mishmi"
+		name: "Idu-Mishmi",
 	},
 	cll: {
 		code: "cll",
-		name: "Chala"
+		name: "Chala",
 	},
 	clm: {
 		code: "clm",
-		name: "Clallam"
+		name: "Clallam",
 	},
 	clo: {
 		code: "clo",
-		name: "Lowland Oaxaca Chontal"
+		name: "Lowland Oaxaca Chontal",
 	},
 	clt: {
 		code: "clt",
-		name: "Lautu Chin"
+		name: "Lautu Chin",
 	},
 	clu: {
 		code: "clu",
-		name: "Caluyanun"
+		name: "Caluyanun",
 	},
 	clw: {
 		code: "clw",
-		name: "Chulym"
+		name: "Chulym",
 	},
 	cly: {
 		code: "cly",
-		name: "Eastern Highland Chatino"
+		name: "Eastern Highland Chatino",
 	},
 	cma: {
 		code: "cma",
-		name: "Maa"
+		name: "Maa",
 	},
 	cme: {
 		code: "cme",
-		name: "Cerma"
+		name: "Cerma",
 	},
 	cmg: {
 		code: "cmg",
-		name: "Classical Mongolian"
+		name: "Classical Mongolian",
 	},
 	cmi: {
 		code: "cmi",
-		name: "Emberá-Chamí"
+		name: "Emberá-Chamí",
 	},
 	cml: {
 		code: "cml",
-		name: "Campalagian"
+		name: "Campalagian",
 	},
 	cmm: {
 		code: "cmm",
-		name: "Michigamea"
+		name: "Michigamea",
 	},
 	cmn: {
 		code: "cmn",
-		name: "Mandarin Chinese"
+		name: "Mandarin Chinese",
 	},
 	cmo: {
 		code: "cmo",
-		name: "Central Mnong"
+		name: "Central Mnong",
 	},
 	cmr: {
 		code: "cmr",
-		name: "Mro-Khimi Chin"
+		name: "Mro-Khimi Chin",
 	},
 	cms: {
 		code: "cms",
-		name: "Messapic"
+		name: "Messapic",
 	},
 	cmt: {
 		code: "cmt",
-		name: "Camtho"
+		name: "Camtho",
 	},
 	cna: {
 		code: "cna",
-		name: "Changthang"
+		name: "Changthang",
 	},
 	cnb: {
 		code: "cnb",
-		name: "Chinbon Chin"
+		name: "Chinbon Chin",
 	},
 	cnc: {
 		code: "cnc",
-		name: "Côông"
+		name: "Côông",
 	},
 	cng: {
 		code: "cng",
-		name: "Northern Qiang"
+		name: "Northern Qiang",
 	},
 	cnh: {
 		code: "cnh",
-		name: "Hakha Chin"
+		name: "Hakha Chin",
 	},
 	cni: {
 		code: "cni",
-		name: "Asháninka"
+		name: "Asháninka",
 	},
 	cnk: {
 		code: "cnk",
-		name: "Khumi Chin"
+		name: "Khumi Chin",
 	},
 	cnl: {
 		code: "cnl",
-		name: "Lalana Chinantec"
+		name: "Lalana Chinantec",
 	},
 	cno: {
 		code: "cno",
-		name: "Con"
+		name: "Con",
 	},
 	cnp: {
 		code: "cnp",
-		name: "Northern Ping Chinese"
+		name: "Northern Ping Chinese",
 	},
 	cnq: {
 		code: "cnq",
-		name: "Chung"
+		name: "Chung",
 	},
 	cnr: {
 		code: "cnr",
-		name: "Montenegrin"
+		name: "Montenegrin",
 	},
 	cns: {
 		code: "cns",
-		name: "Central Asmat"
+		name: "Central Asmat",
 	},
 	cnt: {
 		code: "cnt",
-		name: "Tepetotutla Chinantec"
+		name: "Tepetotutla Chinantec",
 	},
 	cnu: {
 		code: "cnu",
-		name: "Chenoua"
+		name: "Chenoua",
 	},
 	cnw: {
 		code: "cnw",
-		name: "Ngawn Chin"
+		name: "Ngawn Chin",
 	},
 	cnx: {
 		code: "cnx",
-		name: "Middle Cornish"
+		name: "Middle Cornish",
 	},
 	coa: {
 		code: "coa",
-		name: "Cocos Islands Malay"
+		name: "Cocos Islands Malay",
 	},
 	cob: {
 		code: "cob",
-		name: "Chicomuceltec"
+		name: "Chicomuceltec",
 	},
 	coc: {
 		code: "coc",
-		name: "Cocopa"
+		name: "Cocopa",
 	},
 	cod: {
 		code: "cod",
-		name: "Cocama-Cocamilla"
+		name: "Cocama-Cocamilla",
 	},
 	coe: {
 		code: "coe",
-		name: "Koreguaje"
+		name: "Koreguaje",
 	},
 	cof: {
 		code: "cof",
-		name: "Colorado"
+		name: "Colorado",
 	},
 	cog: {
 		code: "cog",
-		name: "Chong"
+		name: "Chong",
 	},
 	coh: {
 		code: "coh",
-		name: "Chonyi-Dzihana-Kauma"
+		name: "Chonyi-Dzihana-Kauma",
 	},
 	coj: {
 		code: "coj",
-		name: "Cochimi"
+		name: "Cochimi",
 	},
 	cok: {
 		code: "cok",
-		name: "Santa Teresa Cora"
+		name: "Santa Teresa Cora",
 	},
 	col: {
 		code: "col",
-		name: "Columbia-Wenatchi"
+		name: "Columbia-Wenatchi",
 	},
 	com: {
 		code: "com",
-		name: "Comanche"
+		name: "Comanche",
 	},
 	con: {
 		code: "con",
-		name: "Cofán"
+		name: "Cofán",
 	},
 	coo: {
 		code: "coo",
-		name: "Comox"
+		name: "Comox",
 	},
 	cop: {
 		code: "cop",
-		name: "Coptic"
+		name: "Coptic",
 	},
 	coq: {
 		code: "coq",
-		name: "Coquille"
+		name: "Coquille",
+	},
+	cor: {
+		code: "cor",
+		name: "Cornish",
+	},
+	cos: {
+		code: "cos",
+		name: "Corsican",
 	},
 	cot: {
 		code: "cot",
-		name: "Caquinte"
+		name: "Caquinte",
 	},
 	cou: {
 		code: "cou",
-		name: "Wamey"
+		name: "Wamey",
 	},
 	cov: {
 		code: "cov",
-		name: "Cao Miao"
+		name: "Cao Miao",
 	},
 	cow: {
 		code: "cow",
-		name: "Cowlitz"
+		name: "Cowlitz",
 	},
 	cox: {
 		code: "cox",
-		name: "Nanti"
+		name: "Nanti",
 	},
 	coz: {
 		code: "coz",
-		name: "Chochotec"
+		name: "Chochotec",
 	},
 	cpa: {
 		code: "cpa",
-		name: "Palantla Chinantec"
+		name: "Palantla Chinantec",
 	},
 	cpb: {
 		code: "cpb",
-		name: "Ucayali-Yurúa Ashéninka"
+		name: "Ucayali-Yurúa Ashéninka",
 	},
 	cpc: {
 		code: "cpc",
-		name: "Ajyíninka Apurucayali"
+		name: "Ajyíninka Apurucayali",
 	},
 	cpg: {
 		code: "cpg",
-		name: "Cappadocian Greek"
+		name: "Cappadocian Greek",
 	},
 	cpi: {
 		code: "cpi",
-		name: "Chinese Pidgin English"
+		name: "Chinese Pidgin English",
 	},
 	cpn: {
 		code: "cpn",
-		name: "Cherepon"
+		name: "Cherepon",
 	},
 	cpo: {
 		code: "cpo",
-		name: "Kpeego"
+		name: "Kpeego",
 	},
 	cps: {
 		code: "cps",
-		name: "Capiznon"
+		name: "Capiznon",
 	},
 	cpu: {
 		code: "cpu",
-		name: "Pichis Ashéninka"
+		name: "Pichis Ashéninka",
 	},
 	cpx: {
 		code: "cpx",
-		name: "Pu-Xian Chinese"
+		name: "Pu-Xian Chinese",
 	},
 	cpy: {
 		code: "cpy",
-		name: "South Ucayali Ashéninka"
+		name: "South Ucayali Ashéninka",
 	},
 	cqd: {
 		code: "cqd",
-		name: "Chuanqiandian Cluster Miao"
+		name: "Chuanqiandian Cluster Miao",
 	},
 	cra: {
 		code: "cra",
-		name: "Chara"
+		name: "Chara",
 	},
 	crb: {
 		code: "crb",
-		name: "Island Carib"
+		name: "Island Carib",
 	},
 	crc: {
 		code: "crc",
-		name: "Lonwolwol"
+		name: "Lonwolwol",
 	},
 	crd: {
 		code: "crd",
-		name: "Coeur d'Alene"
+		name: "Coeur d'Alene",
+	},
+	cre: {
+		code: "cre",
+		name: "Cree",
 	},
 	crf: {
 		code: "crf",
-		name: "Caramanta"
+		name: "Caramanta",
 	},
 	crg: {
 		code: "crg",
-		name: "Michif"
+		name: "Michif",
 	},
 	crh: {
 		code: "crh",
-		name: "Crimean Tatar"
+		name: "Crimean Tatar",
 	},
 	cri: {
 		code: "cri",
-		name: "Sãotomense"
+		name: "Sãotomense",
 	},
 	crj: {
 		code: "crj",
-		name: "Southern East Cree"
+		name: "Southern East Cree",
 	},
 	crk: {
 		code: "crk",
-		name: "Plains Cree"
+		name: "Plains Cree",
 	},
 	crl: {
 		code: "crl",
-		name: "Northern East Cree"
+		name: "Northern East Cree",
 	},
 	crm: {
 		code: "crm",
-		name: "Moose Cree"
+		name: "Moose Cree",
 	},
 	crn: {
 		code: "crn",
-		name: "El Nayar Cora"
+		name: "El Nayar Cora",
 	},
 	cro: {
 		code: "cro",
-		name: "Crow"
+		name: "Crow",
 	},
 	crq: {
 		code: "crq",
-		name: "Iyo'wujwa Chorote"
+		name: "Iyo'wujwa Chorote",
 	},
 	crr: {
 		code: "crr",
-		name: "Carolina Algonquian"
+		name: "Carolina Algonquian",
+	},
+	crs: {
+		code: "crs",
+		name: "Seselwa Creole French",
 	},
 	crt: {
 		code: "crt",
-		name: "Iyojwa'ja Chorote"
+		name: "Iyojwa'ja Chorote",
 	},
 	crv: {
 		code: "crv",
-		name: "Chaura"
+		name: "Chaura",
 	},
 	crw: {
 		code: "crw",
-		name: "Chrau"
+		name: "Chrau",
 	},
 	crx: {
 		code: "crx",
-		name: "Carrier"
+		name: "Carrier",
 	},
 	cry: {
 		code: "cry",
-		name: "Cori"
+		name: "Cori",
 	},
 	crz: {
 		code: "crz",
-		name: "Cruzeño"
+		name: "Cruzeño",
 	},
 	csa: {
 		code: "csa",
-		name: "Chiltepec Chinantec"
+		name: "Chiltepec Chinantec",
 	},
 	csb: {
 		code: "csb",
-		name: "Kashubian"
+		name: "Kashubian",
 	},
 	csc: {
 		code: "csc",
-		name: "Catalan Sign Language"
+		name: "Catalan Sign Language",
 	},
 	csd: {
 		code: "csd",
-		name: "Chiangmai Sign Language"
+		name: "Chiangmai Sign Language",
 	},
 	cse: {
 		code: "cse",
-		name: "Czech Sign Language"
+		name: "Czech Sign Language",
 	},
 	csf: {
 		code: "csf",
-		name: "Cuba Sign Language"
+		name: "Cuba Sign Language",
+	},
+	csg: {
+		code: "csg",
+		name: "Chilean Sign Language",
 	},
 	csh: {
 		code: "csh",
-		name: "Asho Chin"
+		name: "Asho Chin",
 	},
 	csi: {
 		code: "csi",
-		name: "Coast Miwok"
+		name: "Coast Miwok",
 	},
 	csj: {
 		code: "csj",
-		name: "Songlai Chin"
+		name: "Songlai Chin",
 	},
 	csk: {
 		code: "csk",
-		name: "Jola-Kasa"
+		name: "Jola-Kasa",
 	},
 	csl: {
 		code: "csl",
-		name: "Chinese Sign Language"
+		name: "Chinese Sign Language",
 	},
 	csm: {
 		code: "csm",
-		name: "Central Sierra Miwok"
+		name: "Central Sierra Miwok",
+	},
+	csn: {
+		code: "csn",
+		name: "Colombian Sign Language",
 	},
 	cso: {
 		code: "cso",
-		name: "Sochiapam Chinantec"
+		name: "Sochiapam Chinantec",
 	},
 	csp: {
 		code: "csp",
-		name: "Southern Ping Chinese"
+		name: "Southern Ping Chinese",
 	},
 	csq: {
 		code: "csq",
-		name: "Croatia Sign Language"
+		name: "Croatia Sign Language",
 	},
 	csr: {
 		code: "csr",
-		name: "Costa Rican Sign Language"
+		name: "Costa Rican Sign Language",
 	},
 	css: {
 		code: "css",
-		name: "Southern Ohlone"
+		name: "Southern Ohlone",
 	},
 	cst: {
 		code: "cst",
-		name: "Northern Ohlone"
+		name: "Northern Ohlone",
 	},
 	csv: {
 		code: "csv",
-		name: "Sumtu Chin"
+		name: "Sumtu Chin",
 	},
 	csw: {
 		code: "csw",
-		name: "Swampy Cree"
+		name: "Swampy Cree",
 	},
 	csx: {
 		code: "csx",
-		name: "Cambodian Sign Language"
+		name: "Cambodian Sign Language",
 	},
 	csy: {
 		code: "csy",
-		name: "Siyin Chin"
+		name: "Siyin Chin",
 	},
 	csz: {
 		code: "csz",
-		name: "Coos"
+		name: "Coos",
 	},
 	cta: {
 		code: "cta",
-		name: "Tataltepec Chatino"
+		name: "Tataltepec Chatino",
 	},
 	ctc: {
 		code: "ctc",
-		name: "Chetco"
+		name: "Chetco",
 	},
 	ctd: {
 		code: "ctd",
-		name: "Tedim Chin"
+		name: "Tedim Chin",
 	},
 	cte: {
 		code: "cte",
-		name: "Tepinapa Chinantec"
+		name: "Tepinapa Chinantec",
 	},
 	ctg: {
 		code: "ctg",
-		name: "Chittagonian"
+		name: "Chittagonian",
 	},
 	cth: {
 		code: "cth",
-		name: "Thaiphum Chin"
+		name: "Thaiphum Chin",
 	},
 	ctl: {
 		code: "ctl",
-		name: "Tlacoatzintepec Chinantec"
+		name: "Tlacoatzintepec Chinantec",
 	},
 	ctm: {
 		code: "ctm",
-		name: "Chitimacha"
+		name: "Chitimacha",
 	},
 	ctn: {
 		code: "ctn",
-		name: "Chhintange"
+		name: "Chhintange",
 	},
 	cto: {
 		code: "cto",
-		name: "Emberá-Catío"
+		name: "Emberá-Catío",
 	},
 	ctp: {
 		code: "ctp",
-		name: "Western Highland Chatino"
+		name: "Western Highland Chatino",
 	},
 	cts: {
 		code: "cts",
-		name: "Northern Catanduanes Bikol"
+		name: "Northern Catanduanes Bikol",
 	},
 	ctt: {
 		code: "ctt",
-		name: "Wayanad Chetti"
+		name: "Wayanad Chetti",
 	},
 	ctu: {
 		code: "ctu",
-		name: "Chol"
+		name: "Chol",
 	},
 	cty: {
 		code: "cty",
-		name: "Moundadan Chetty"
+		name: "Moundadan Chetty",
 	},
 	ctz: {
 		code: "ctz",
-		name: "Zacatepec Chatino"
+		name: "Zacatepec Chatino",
 	},
 	cua: {
 		code: "cua",
-		name: "Cua"
+		name: "Cua",
 	},
 	cub: {
 		code: "cub",
-		name: "Cubeo"
+		name: "Cubeo",
 	},
 	cuc: {
 		code: "cuc",
-		name: "Usila Chinantec"
+		name: "Usila Chinantec",
 	},
 	cuh: {
 		code: "cuh",
-		name: "Chuka"
+		name: "Chuka",
 	},
 	cui: {
 		code: "cui",
-		name: "Cuiba"
+		name: "Cuiba",
 	},
 	cuj: {
 		code: "cuj",
-		name: "Mashco Piro"
+		name: "Mashco Piro",
 	},
 	cuk: {
 		code: "cuk",
-		name: "San Blas Kuna"
+		name: "San Blas Kuna",
 	},
 	cul: {
 		code: "cul",
-		name: "Culina"
+		name: "Culina",
 	},
 	cuo: {
 		code: "cuo",
-		name: "Cumanagoto"
+		name: "Cumanagoto",
 	},
 	cup: {
 		code: "cup",
-		name: "Cupeño"
+		name: "Cupeño",
 	},
 	cuq: {
 		code: "cuq",
-		name: "Cun"
+		name: "Cun",
 	},
 	cur: {
 		code: "cur",
-		name: "Chhulung"
+		name: "Chhulung",
 	},
 	cut: {
 		code: "cut",
-		name: "Teutila Cuicatec"
+		name: "Teutila Cuicatec",
 	},
 	cuu: {
 		code: "cuu",
-		name: "Tai Ya"
+		name: "Tai Ya",
 	},
 	cuv: {
 		code: "cuv",
-		name: "Cuvok"
+		name: "Cuvok",
 	},
 	cuw: {
 		code: "cuw",
-		name: "Chukwa"
+		name: "Chukwa",
 	},
 	cux: {
 		code: "cux",
-		name: "Tepeuxila Cuicatec"
+		name: "Tepeuxila Cuicatec",
 	},
 	cuy: {
 		code: "cuy",
-		name: "Cuitlatec"
+		name: "Cuitlatec",
 	},
 	cvg: {
 		code: "cvg",
-		name: "Chug"
+		name: "Chug",
 	},
 	cvn: {
 		code: "cvn",
-		name: "Valle Nacional Chinantec"
+		name: "Valle Nacional Chinantec",
 	},
 	cwa: {
 		code: "cwa",
-		name: "Kabwa"
+		name: "Kabwa",
 	},
 	cwb: {
 		code: "cwb",
-		name: "Maindo"
+		name: "Maindo",
 	},
 	cwd: {
 		code: "cwd",
-		name: "Woods Cree"
+		name: "Woods Cree",
 	},
 	cwe: {
 		code: "cwe",
-		name: "Kwere"
+		name: "Kwere",
 	},
 	cwg: {
 		code: "cwg",
-		name: "Chewong"
+		name: "Chewong",
 	},
 	cwt: {
 		code: "cwt",
-		name: "Kuwaataay"
+		name: "Kuwaataay",
 	},
 	cxh: {
 		code: "cxh",
-		name: "Cha'ari"
+		name: "Cha'ari",
 	},
 	cya: {
 		code: "cya",
-		name: "Nopala Chatino"
+		name: "Nopala Chatino",
 	},
 	cyb: {
 		code: "cyb",
-		name: "Cayubaba"
+		name: "Cayubaba",
+	},
+	cym: {
+		code: "cym",
+		name: "Welsh",
 	},
 	cyo: {
 		code: "cyo",
-		name: "Cuyonon"
+		name: "Cuyonon",
 	},
 	czh: {
 		code: "czh",
-		name: "Huizhou Chinese"
+		name: "Huizhou Chinese",
 	},
 	czk: {
 		code: "czk",
-		name: "Knaanic"
+		name: "Knaanic",
 	},
 	czn: {
 		code: "czn",
-		name: "Zenzontepec Chatino"
+		name: "Zenzontepec Chatino",
 	},
 	czo: {
 		code: "czo",
-		name: "Min Zhong Chinese"
+		name: "Min Zhong Chinese",
 	},
 	czt: {
 		code: "czt",
-		name: "Zotung Chin"
+		name: "Zotung Chin",
 	},
 	daa: {
 		code: "daa",
-		name: "Dangaléat"
+		name: "Dangaléat",
 	},
 	dac: {
 		code: "dac",
-		name: "Dambi"
+		name: "Dambi",
 	},
 	dad: {
 		code: "dad",
-		name: "Marik"
+		name: "Marik",
 	},
 	dae: {
 		code: "dae",
-		name: "Duupa"
+		name: "Duupa",
 	},
 	dag: {
 		code: "dag",
-		name: "Dagbani"
+		name: "Dagbani",
 	},
 	dah: {
 		code: "dah",
-		name: "Gwahatike"
+		name: "Gwahatike",
 	},
 	dai: {
 		code: "dai",
-		name: "Day"
+		name: "Day",
 	},
 	daj: {
 		code: "daj",
-		name: "Dar Fur Daju"
+		name: "Dar Fur Daju",
 	},
 	dak: {
 		code: "dak",
-		name: "Dakota"
+		name: "Dakota",
 	},
 	dal: {
 		code: "dal",
-		name: "Dahalo"
+		name: "Dahalo",
 	},
 	dam: {
 		code: "dam",
-		name: "Damakawa"
+		name: "Damakawa",
+	},
+	dan: {
+		code: "dan",
+		name: "Danish",
 	},
 	dao: {
 		code: "dao",
-		name: "Daai Chin"
+		name: "Daai Chin",
 	},
 	daq: {
 		code: "daq",
-		name: "Dandami Maria"
+		name: "Dandami Maria",
 	},
 	dar: {
 		code: "dar",
-		name: "Dargwa"
+		name: "Dargwa",
 	},
 	das: {
 		code: "das",
-		name: "Daho-Doo"
+		name: "Daho-Doo",
 	},
 	dau: {
 		code: "dau",
-		name: "Dar Sila Daju"
+		name: "Dar Sila Daju",
 	},
 	dav: {
 		code: "dav",
-		name: "Taita"
+		name: "Taita",
 	},
 	daw: {
 		code: "daw",
-		name: "Davawenyo"
+		name: "Davawenyo",
 	},
 	dax: {
 		code: "dax",
-		name: "Dayi"
+		name: "Dayi",
 	},
 	daz: {
 		code: "daz",
-		name: "Dao"
+		name: "Dao",
 	},
 	dba: {
 		code: "dba",
-		name: "Bangime"
+		name: "Bangime",
 	},
 	dbb: {
 		code: "dbb",
-		name: "Deno"
+		name: "Deno",
 	},
 	dbd: {
 		code: "dbd",
-		name: "Dadiya"
+		name: "Dadiya",
 	},
 	dbe: {
 		code: "dbe",
-		name: "Dabe"
+		name: "Dabe",
 	},
 	dbf: {
 		code: "dbf",
-		name: "Edopi"
+		name: "Edopi",
 	},
 	dbg: {
 		code: "dbg",
-		name: "Dogul Dom Dogon"
+		name: "Dogul Dom Dogon",
 	},
 	dbi: {
 		code: "dbi",
-		name: "Doka"
+		name: "Doka",
 	},
 	dbj: {
 		code: "dbj",
-		name: "Ida'an"
+		name: "Ida'an",
 	},
 	dbl: {
 		code: "dbl",
-		name: "Dyirbal"
+		name: "Dyirbal",
 	},
 	dbm: {
 		code: "dbm",
-		name: "Duguri"
+		name: "Duguri",
 	},
 	dbn: {
 		code: "dbn",
-		name: "Duriankere"
+		name: "Duriankere",
 	},
 	dbo: {
 		code: "dbo",
-		name: "Dulbu"
+		name: "Dulbu",
 	},
 	dbp: {
 		code: "dbp",
-		name: "Duwai"
+		name: "Duwai",
 	},
 	dbq: {
 		code: "dbq",
-		name: "Daba"
+		name: "Daba",
 	},
 	dbr: {
 		code: "dbr",
-		name: "Dabarre"
+		name: "Dabarre",
 	},
 	dbt: {
 		code: "dbt",
-		name: "Ben Tey Dogon"
+		name: "Ben Tey Dogon",
 	},
 	dbu: {
 		code: "dbu",
-		name: "Bondum Dom Dogon"
+		name: "Bondum Dom Dogon",
 	},
 	dbv: {
 		code: "dbv",
-		name: "Dungu"
+		name: "Dungu",
 	},
 	dbw: {
 		code: "dbw",
-		name: "Bankan Tey Dogon"
+		name: "Bankan Tey Dogon",
 	},
 	dby: {
 		code: "dby",
-		name: "Dibiyaso"
+		name: "Dibiyaso",
 	},
 	dcc: {
 		code: "dcc",
-		name: "Deccan"
+		name: "Deccan",
 	},
 	dcr: {
 		code: "dcr",
-		name: "Negerhollands"
+		name: "Negerhollands",
 	},
 	dda: {
 		code: "dda",
-		name: "Dadi Dadi"
+		name: "Dadi Dadi",
 	},
 	ddd: {
 		code: "ddd",
-		name: "Dongotono"
+		name: "Dongotono",
 	},
 	dde: {
 		code: "dde",
-		name: "Doondo"
+		name: "Doondo",
 	},
 	ddg: {
 		code: "ddg",
-		name: "Fataluku"
+		name: "Fataluku",
 	},
 	ddi: {
 		code: "ddi",
-		name: "West Goodenough"
+		name: "West Goodenough",
 	},
 	ddj: {
 		code: "ddj",
-		name: "Jaru"
+		name: "Jaru",
 	},
 	ddn: {
 		code: "ddn",
-		name: "Dendi (Benin)"
+		name: "Dendi (Benin)",
 	},
 	ddo: {
 		code: "ddo",
-		name: "Dido"
+		name: "Dido",
 	},
 	ddr: {
 		code: "ddr",
-		name: "Dhudhuroa"
+		name: "Dhudhuroa",
 	},
 	dds: {
 		code: "dds",
-		name: "Donno So Dogon"
+		name: "Donno So Dogon",
 	},
 	ddw: {
 		code: "ddw",
-		name: "Dawera-Daweloor"
+		name: "Dawera-Daweloor",
 	},
 	dec: {
 		code: "dec",
-		name: "Dagik"
+		name: "Dagik",
 	},
 	ded: {
 		code: "ded",
-		name: "Dedua"
+		name: "Dedua",
 	},
 	dee: {
 		code: "dee",
-		name: "Dewoin"
+		name: "Dewoin",
 	},
 	def: {
 		code: "def",
-		name: "Dezfuli"
+		name: "Dezfuli",
 	},
 	deg: {
 		code: "deg",
-		name: "Degema"
+		name: "Degema",
 	},
 	deh: {
 		code: "deh",
-		name: "Dehwari"
+		name: "Dehwari",
 	},
 	dei: {
 		code: "dei",
-		name: "Demisa"
+		name: "Demisa",
 	},
 	dek: {
 		code: "dek",
-		name: "Dek"
+		name: "Dek",
 	},
 	del: {
 		code: "del",
-		name: "Delaware"
+		name: "Delaware",
 	},
 	dem: {
 		code: "dem",
-		name: "Dem"
+		name: "Dem",
 	},
 	den: {
 		code: "den",
-		name: "Slave (Athapascan)"
+		name: "Slave (Athapascan)",
 	},
 	dep: {
 		code: "dep",
-		name: "Pidgin Delaware"
+		name: "Pidgin Delaware",
 	},
 	deq: {
 		code: "deq",
-		name: "Dendi (Central African Republic)"
+		name: "Dendi (Central African Republic)",
 	},
 	der: {
 		code: "der",
-		name: "Deori"
+		name: "Deori",
 	},
 	des: {
 		code: "des",
-		name: "Desano"
+		name: "Desano",
+	},
+	deu: {
+		code: "deu",
+		name: "German",
 	},
 	dev: {
 		code: "dev",
-		name: "Domung"
+		name: "Domung",
 	},
 	dez: {
 		code: "dez",
-		name: "Dengese"
+		name: "Dengese",
 	},
 	dga: {
 		code: "dga",
-		name: "Southern Dagaare"
+		name: "Southern Dagaare",
 	},
 	dgb: {
 		code: "dgb",
-		name: "Bunoge Dogon"
+		name: "Bunoge Dogon",
 	},
 	dgc: {
 		code: "dgc",
-		name: "Casiguran Dumagat Agta"
+		name: "Casiguran Dumagat Agta",
 	},
 	dgd: {
 		code: "dgd",
-		name: "Dagaari Dioula"
+		name: "Dagaari Dioula",
 	},
 	dge: {
 		code: "dge",
-		name: "Degenan"
+		name: "Degenan",
 	},
 	dgg: {
 		code: "dgg",
-		name: "Doga"
+		name: "Doga",
 	},
 	dgh: {
 		code: "dgh",
-		name: "Dghwede"
+		name: "Dghwede",
 	},
 	dgi: {
 		code: "dgi",
-		name: "Northern Dagara"
+		name: "Northern Dagara",
 	},
 	dgk: {
 		code: "dgk",
-		name: "Dagba"
+		name: "Dagba",
 	},
 	dgl: {
 		code: "dgl",
-		name: "Andaandi"
+		name: "Andaandi",
 	},
 	dgn: {
 		code: "dgn",
-		name: "Dagoman"
+		name: "Dagoman",
 	},
 	dgo: {
 		code: "dgo",
-		name: "Dogri (individual language)"
+		name: "Dogri (individual language)",
 	},
 	dgr: {
 		code: "dgr",
-		name: "Dogrib"
+		name: "Dogrib",
 	},
 	dgs: {
 		code: "dgs",
-		name: "Dogoso"
+		name: "Dogoso",
 	},
 	dgt: {
 		code: "dgt",
-		name: "Ndra'ngith"
+		name: "Ndra'ngith",
 	},
 	dgw: {
 		code: "dgw",
-		name: "Daungwurrung"
+		name: "Daungwurrung",
 	},
 	dgx: {
 		code: "dgx",
-		name: "Doghoro"
+		name: "Doghoro",
 	},
 	dgz: {
 		code: "dgz",
-		name: "Daga"
+		name: "Daga",
 	},
 	dhd: {
 		code: "dhd",
-		name: "Dhundari"
+		name: "Dhundari",
 	},
 	dhg: {
 		code: "dhg",
-		name: "Dhangu-Djangu"
+		name: "Dhangu-Djangu",
 	},
 	dhi: {
 		code: "dhi",
-		name: "Dhimal"
+		name: "Dhimal",
 	},
 	dhl: {
 		code: "dhl",
-		name: "Dhalandji"
+		name: "Dhalandji",
 	},
 	dhm: {
 		code: "dhm",
-		name: "Zemba"
+		name: "Zemba",
 	},
 	dhn: {
 		code: "dhn",
-		name: "Dhanki"
+		name: "Dhanki",
 	},
 	dho: {
 		code: "dho",
-		name: "Dhodia"
+		name: "Dhodia",
 	},
 	dhr: {
 		code: "dhr",
-		name: "Dhargari"
+		name: "Dhargari",
 	},
 	dhs: {
 		code: "dhs",
-		name: "Dhaiso"
+		name: "Dhaiso",
 	},
 	dhu: {
 		code: "dhu",
-		name: "Dhurga"
+		name: "Dhurga",
 	},
 	dhv: {
 		code: "dhv",
-		name: "Dehu"
+		name: "Dehu",
 	},
 	dhw: {
 		code: "dhw",
-		name: "Dhanwar (Nepal)"
+		name: "Dhanwar (Nepal)",
 	},
 	dhx: {
 		code: "dhx",
-		name: "Dhungaloo"
+		name: "Dhungaloo",
 	},
 	dia: {
 		code: "dia",
-		name: "Dia"
+		name: "Dia",
 	},
 	dib: {
 		code: "dib",
-		name: "South Central Dinka"
+		name: "South Central Dinka",
 	},
 	dic: {
 		code: "dic",
-		name: "Lakota Dida"
+		name: "Lakota Dida",
 	},
 	did: {
 		code: "did",
-		name: "Didinga"
+		name: "Didinga",
 	},
 	dif: {
 		code: "dif",
-		name: "Dieri"
+		name: "Dieri",
 	},
 	dig: {
 		code: "dig",
-		name: "Digo"
+		name: "Digo",
 	},
 	dih: {
 		code: "dih",
-		name: "Kumiai"
+		name: "Kumiai",
 	},
 	dii: {
 		code: "dii",
-		name: "Dimbong"
+		name: "Dimbong",
 	},
 	dij: {
 		code: "dij",
-		name: "Dai"
+		name: "Dai",
 	},
 	dik: {
 		code: "dik",
-		name: "Southwestern Dinka"
+		name: "Southwestern Dinka",
 	},
 	dil: {
 		code: "dil",
-		name: "Dilling"
+		name: "Dilling",
 	},
 	dim: {
 		code: "dim",
-		name: "Dime"
+		name: "Dime",
 	},
 	din: {
 		code: "din",
-		name: "Dinka"
+		name: "Dinka",
 	},
 	dio: {
 		code: "dio",
-		name: "Dibo"
+		name: "Dibo",
 	},
 	dip: {
 		code: "dip",
-		name: "Northeastern Dinka"
+		name: "Northeastern Dinka",
 	},
 	diq: {
 		code: "diq",
-		name: "Dimli (individual language)"
+		name: "Dimli (individual language)",
 	},
 	dir: {
 		code: "dir",
-		name: "Dirim"
+		name: "Dirim",
 	},
 	dis: {
 		code: "dis",
-		name: "Dimasa"
+		name: "Dimasa",
 	},
 	diu: {
 		code: "diu",
-		name: "Diriku"
+		name: "Diriku",
 	},
 	div: {
 		code: "div",
-		name: "Dhivehi"
+		name: "Dhivehi",
 	},
 	diw: {
 		code: "diw",
-		name: "Northwestern Dinka"
+		name: "Northwestern Dinka",
 	},
 	dix: {
 		code: "dix",
-		name: "Dixon Reef"
+		name: "Dixon Reef",
 	},
 	diy: {
 		code: "diy",
-		name: "Diuwe"
+		name: "Diuwe",
 	},
 	diz: {
 		code: "diz",
-		name: "Ding"
+		name: "Ding",
 	},
 	dja: {
 		code: "dja",
-		name: "Djadjawurrung"
+		name: "Djadjawurrung",
 	},
 	djb: {
 		code: "djb",
-		name: "Djinba"
+		name: "Djinba",
 	},
 	djc: {
 		code: "djc",
-		name: "Dar Daju Daju"
+		name: "Dar Daju Daju",
 	},
 	djd: {
 		code: "djd",
-		name: "Djamindjung"
+		name: "Djamindjung",
 	},
 	dje: {
 		code: "dje",
-		name: "Zarma"
+		name: "Zarma",
 	},
 	djf: {
 		code: "djf",
-		name: "Djangun"
+		name: "Djangun",
 	},
 	dji: {
 		code: "dji",
-		name: "Djinang"
+		name: "Djinang",
 	},
 	djj: {
 		code: "djj",
-		name: "Djeebbana"
+		name: "Djeebbana",
 	},
 	djk: {
 		code: "djk",
-		name: "Eastern Maroon Creole"
+		name: "Eastern Maroon Creole",
 	},
 	djm: {
 		code: "djm",
-		name: "Jamsay Dogon"
+		name: "Jamsay Dogon",
 	},
 	djn: {
 		code: "djn",
-		name: "Jawoyn"
+		name: "Jawoyn",
 	},
 	djo: {
 		code: "djo",
-		name: "Jangkang"
+		name: "Jangkang",
 	},
 	djr: {
 		code: "djr",
-		name: "Djambarrpuyngu"
+		name: "Djambarrpuyngu",
 	},
 	dju: {
 		code: "dju",
-		name: "Kapriman"
+		name: "Kapriman",
 	},
 	djw: {
 		code: "djw",
-		name: "Djawi"
+		name: "Djawi",
 	},
 	dka: {
 		code: "dka",
-		name: "Dakpakha"
+		name: "Dakpakha",
 	},
 	dkg: {
 		code: "dkg",
-		name: "Kadung"
+		name: "Kadung",
 	},
 	dkk: {
 		code: "dkk",
-		name: "Dakka"
+		name: "Dakka",
 	},
 	dkr: {
 		code: "dkr",
-		name: "Kuijau"
+		name: "Kuijau",
 	},
 	dks: {
 		code: "dks",
-		name: "Southeastern Dinka"
+		name: "Southeastern Dinka",
 	},
 	dkx: {
 		code: "dkx",
-		name: "Mazagway"
+		name: "Mazagway",
 	},
 	dlg: {
 		code: "dlg",
-		name: "Dolgan"
+		name: "Dolgan",
 	},
 	dlk: {
 		code: "dlk",
-		name: "Dahalik"
+		name: "Dahalik",
 	},
 	dlm: {
 		code: "dlm",
-		name: "Dalmatian"
+		name: "Dalmatian",
 	},
 	dln: {
 		code: "dln",
-		name: "Darlong"
+		name: "Darlong",
 	},
 	dma: {
 		code: "dma",
-		name: "Duma"
+		name: "Duma",
 	},
 	dmb: {
 		code: "dmb",
-		name: "Mombo Dogon"
+		name: "Mombo Dogon",
 	},
 	dmc: {
 		code: "dmc",
-		name: "Gavak"
+		name: "Gavak",
 	},
 	dmd: {
 		code: "dmd",
-		name: "Madhi Madhi"
+		name: "Madhi Madhi",
 	},
 	dme: {
 		code: "dme",
-		name: "Dugwor"
+		name: "Dugwor",
 	},
 	dmf: {
 		code: "dmf",
-		name: "Medefaidrin"
+		name: "Medefaidrin",
 	},
 	dmg: {
 		code: "dmg",
-		name: "Upper Kinabatangan"
+		name: "Upper Kinabatangan",
 	},
 	dmk: {
 		code: "dmk",
-		name: "Domaaki"
+		name: "Domaaki",
 	},
 	dml: {
 		code: "dml",
-		name: "Dameli"
+		name: "Dameli",
 	},
 	dmm: {
 		code: "dmm",
-		name: "Dama"
+		name: "Dama",
 	},
 	dmo: {
 		code: "dmo",
-		name: "Kemedzung"
+		name: "Kemedzung",
 	},
 	dmr: {
 		code: "dmr",
-		name: "East Damar"
+		name: "East Damar",
 	},
 	dms: {
 		code: "dms",
-		name: "Dampelas"
+		name: "Dampelas",
 	},
 	dmu: {
 		code: "dmu",
-		name: "Dubu"
+		name: "Dubu",
 	},
 	dmv: {
 		code: "dmv",
-		name: "Dumpas"
+		name: "Dumpas",
 	},
 	dmw: {
 		code: "dmw",
-		name: "Mudburra"
+		name: "Mudburra",
 	},
 	dmx: {
 		code: "dmx",
-		name: "Dema"
+		name: "Dema",
 	},
 	dmy: {
 		code: "dmy",
-		name: "Demta"
+		name: "Demta",
 	},
 	dna: {
 		code: "dna",
-		name: "Upper Grand Valley Dani"
+		name: "Upper Grand Valley Dani",
 	},
 	dnd: {
 		code: "dnd",
-		name: "Daonda"
+		name: "Daonda",
 	},
 	dne: {
 		code: "dne",
-		name: "Ndendeule"
+		name: "Ndendeule",
 	},
 	dng: {
 		code: "dng",
-		name: "Dungan"
+		name: "Dungan",
 	},
 	dni: {
 		code: "dni",
-		name: "Lower Grand Valley Dani"
+		name: "Lower Grand Valley Dani",
 	},
 	dnj: {
 		code: "dnj",
-		name: "Dan"
+		name: "Dan",
 	},
 	dnk: {
 		code: "dnk",
-		name: "Dengka"
+		name: "Dengka",
 	},
 	dnn: {
 		code: "dnn",
-		name: "Dzùùngoo"
+		name: "Dzùùngoo",
 	},
 	dno: {
 		code: "dno",
-		name: "Ndrulo"
+		name: "Ndrulo",
 	},
 	dnr: {
 		code: "dnr",
-		name: "Danaru"
+		name: "Danaru",
 	},
 	dnt: {
 		code: "dnt",
-		name: "Mid Grand Valley Dani"
+		name: "Mid Grand Valley Dani",
 	},
 	dnu: {
 		code: "dnu",
-		name: "Danau"
+		name: "Danau",
 	},
 	dnv: {
 		code: "dnv",
-		name: "Danu"
+		name: "Danu",
 	},
 	dnw: {
 		code: "dnw",
-		name: "Western Dani"
+		name: "Western Dani",
 	},
 	dny: {
 		code: "dny",
-		name: "Dení"
+		name: "Dení",
 	},
 	doa: {
 		code: "doa",
-		name: "Dom"
+		name: "Dom",
 	},
 	dob: {
 		code: "dob",
-		name: "Dobu"
+		name: "Dobu",
 	},
 	doc: {
 		code: "doc",
-		name: "Northern Dong"
+		name: "Northern Dong",
 	},
 	doe: {
 		code: "doe",
-		name: "Doe"
+		name: "Doe",
 	},
 	dof: {
 		code: "dof",
-		name: "Domu"
+		name: "Domu",
 	},
 	doh: {
 		code: "doh",
-		name: "Dong"
+		name: "Dong",
 	},
 	doi: {
 		code: "doi",
-		name: "Dogri (macrolanguage)"
+		name: "Dogri (macrolanguage)",
 	},
 	dok: {
 		code: "dok",
-		name: "Dondo"
+		name: "Dondo",
 	},
 	dol: {
 		code: "dol",
-		name: "Doso"
+		name: "Doso",
 	},
 	don: {
 		code: "don",
-		name: "Toura (Papua New Guinea)"
+		name: "Toura (Papua New Guinea)",
 	},
 	doo: {
 		code: "doo",
-		name: "Dongo"
+		name: "Dongo",
 	},
 	dop: {
 		code: "dop",
-		name: "Lukpa"
+		name: "Lukpa",
 	},
 	doq: {
 		code: "doq",
-		name: "Dominican Sign Language"
+		name: "Dominican Sign Language",
 	},
 	dor: {
 		code: "dor",
-		name: "Dori'o"
+		name: "Dori'o",
 	},
 	dos: {
 		code: "dos",
-		name: "Dogosé"
+		name: "Dogosé",
 	},
 	dot: {
 		code: "dot",
-		name: "Dass"
+		name: "Dass",
 	},
 	dov: {
 		code: "dov",
-		name: "Dombe"
+		name: "Dombe",
 	},
 	dow: {
 		code: "dow",
-		name: "Doyayo"
+		name: "Doyayo",
 	},
 	dox: {
 		code: "dox",
-		name: "Bussa"
+		name: "Bussa",
 	},
 	doy: {
 		code: "doy",
-		name: "Dompo"
+		name: "Dompo",
 	},
 	doz: {
 		code: "doz",
-		name: "Dorze"
+		name: "Dorze",
 	},
 	dpp: {
 		code: "dpp",
-		name: "Papar"
+		name: "Papar",
 	},
 	drb: {
 		code: "drb",
-		name: "Dair"
+		name: "Dair",
 	},
 	drc: {
 		code: "drc",
-		name: "Minderico"
+		name: "Minderico",
 	},
 	drd: {
 		code: "drd",
-		name: "Darmiya"
+		name: "Darmiya",
 	},
 	dre: {
 		code: "dre",
-		name: "Dolpo"
+		name: "Dolpo",
 	},
 	drg: {
 		code: "drg",
-		name: "Rungus"
+		name: "Rungus",
 	},
 	dri: {
 		code: "dri",
-		name: "C'Lela"
+		name: "C'Lela",
 	},
 	drl: {
 		code: "drl",
-		name: "Paakantyi"
+		name: "Paakantyi",
 	},
 	drn: {
 		code: "drn",
-		name: "West Damar"
+		name: "West Damar",
 	},
 	dro: {
 		code: "dro",
-		name: "Daro-Matu Melanau"
+		name: "Daro-Matu Melanau",
 	},
 	drq: {
 		code: "drq",
-		name: "Dura"
+		name: "Dura",
 	},
 	drs: {
 		code: "drs",
-		name: "Gedeo"
+		name: "Gedeo",
 	},
 	drt: {
 		code: "drt",
-		name: "Drents"
+		name: "Drents",
 	},
 	dru: {
 		code: "dru",
-		name: "Rukai"
+		name: "Rukai",
 	},
 	dry: {
 		code: "dry",
-		name: "Darai"
+		name: "Darai",
 	},
 	dsb: {
 		code: "dsb",
-		name: "Lower Sorbian"
+		name: "Lower Sorbian",
 	},
 	dse: {
 		code: "dse",
-		name: "Dutch Sign Language"
+		name: "Dutch Sign Language",
 	},
 	dsh: {
 		code: "dsh",
-		name: "Daasanach"
+		name: "Daasanach",
 	},
 	dsi: {
 		code: "dsi",
-		name: "Disa"
+		name: "Disa",
 	},
 	dsk: {
 		code: "dsk",
-		name: "Dokshi"
+		name: "Dokshi",
 	},
 	dsl: {
 		code: "dsl",
-		name: "Danish Sign Language"
+		name: "Danish Sign Language",
 	},
 	dsn: {
 		code: "dsn",
-		name: "Dusner"
+		name: "Dusner",
 	},
 	dso: {
 		code: "dso",
-		name: "Desiya"
+		name: "Desiya",
 	},
 	dsq: {
 		code: "dsq",
-		name: "Tadaksahak"
+		name: "Tadaksahak",
 	},
 	dsz: {
 		code: "dsz",
-		name: "Mardin Sign Language"
+		name: "Mardin Sign Language",
 	},
 	dta: {
 		code: "dta",
-		name: "Daur"
+		name: "Daur",
 	},
 	dtb: {
 		code: "dtb",
-		name: "Labuk-Kinabatangan Kadazan"
+		name: "Labuk-Kinabatangan Kadazan",
 	},
 	dtd: {
 		code: "dtd",
-		name: "Ditidaht"
+		name: "Ditidaht",
 	},
 	dth: {
 		code: "dth",
-		name: "Adithinngithigh"
+		name: "Adithinngithigh",
 	},
 	dti: {
 		code: "dti",
-		name: "Ana Tinga Dogon"
+		name: "Ana Tinga Dogon",
 	},
 	dtk: {
 		code: "dtk",
-		name: "Tene Kan Dogon"
+		name: "Tene Kan Dogon",
 	},
 	dtm: {
 		code: "dtm",
-		name: "Tomo Kan Dogon"
+		name: "Tomo Kan Dogon",
 	},
 	dtn: {
 		code: "dtn",
-		name: "Daatsʼíin"
+		name: "Daatsʼíin",
 	},
 	dto: {
 		code: "dto",
-		name: "Tommo So Dogon"
+		name: "Tommo So Dogon",
 	},
 	dtp: {
 		code: "dtp",
-		name: "Kadazan Dusun"
+		name: "Kadazan Dusun",
 	},
 	dtr: {
 		code: "dtr",
-		name: "Lotud"
+		name: "Lotud",
 	},
 	dts: {
 		code: "dts",
-		name: "Toro So Dogon"
+		name: "Toro So Dogon",
 	},
 	dtt: {
 		code: "dtt",
-		name: "Toro Tegu Dogon"
+		name: "Toro Tegu Dogon",
 	},
 	dtu: {
 		code: "dtu",
-		name: "Tebul Ure Dogon"
+		name: "Tebul Ure Dogon",
 	},
 	dty: {
 		code: "dty",
-		name: "Dotyali"
+		name: "Dotyali",
 	},
 	dua: {
 		code: "dua",
-		name: "Duala"
+		name: "Duala",
 	},
 	dub: {
 		code: "dub",
-		name: "Dubli"
+		name: "Dubli",
 	},
 	duc: {
 		code: "duc",
-		name: "Duna"
+		name: "Duna",
 	},
 	due: {
 		code: "due",
-		name: "Umiray Dumaget Agta"
+		name: "Umiray Dumaget Agta",
 	},
 	duf: {
 		code: "duf",
-		name: "Dumbea"
+		name: "Dumbea",
 	},
 	dug: {
 		code: "dug",
-		name: "Duruma"
+		name: "Duruma",
 	},
 	duh: {
 		code: "duh",
-		name: "Dungra Bhil"
+		name: "Dungra Bhil",
 	},
 	dui: {
 		code: "dui",
-		name: "Dumun"
+		name: "Dumun",
 	},
 	duk: {
 		code: "duk",
-		name: "Uyajitaya"
+		name: "Uyajitaya",
 	},
 	dul: {
 		code: "dul",
-		name: "Alabat Island Agta"
+		name: "Alabat Island Agta",
 	},
 	dum: {
 		code: "dum",
-		name: "Middle Dutch (ca. 1050-1350)"
+		name: "Middle Dutch (ca. 1050-1350)",
 	},
 	dun: {
 		code: "dun",
-		name: "Dusun Deyah"
+		name: "Dusun Deyah",
 	},
 	duo: {
 		code: "duo",
-		name: "Dupaninan Agta"
+		name: "Dupaninan Agta",
 	},
 	dup: {
 		code: "dup",
-		name: "Duano"
+		name: "Duano",
 	},
 	duq: {
 		code: "duq",
-		name: "Dusun Malang"
+		name: "Dusun Malang",
 	},
 	dur: {
 		code: "dur",
-		name: "Dii"
+		name: "Dii",
 	},
 	dus: {
 		code: "dus",
-		name: "Dumi"
+		name: "Dumi",
 	},
 	duu: {
 		code: "duu",
-		name: "Drung"
+		name: "Drung",
 	},
 	duv: {
 		code: "duv",
-		name: "Duvle"
+		name: "Duvle",
 	},
 	duw: {
 		code: "duw",
-		name: "Dusun Witu"
+		name: "Dusun Witu",
 	},
 	dux: {
 		code: "dux",
-		name: "Duungooma"
+		name: "Duungooma",
 	},
 	duy: {
 		code: "duy",
-		name: "Dicamay Agta"
+		name: "Dicamay Agta",
 	},
 	duz: {
 		code: "duz",
-		name: "Duli-Gey"
+		name: "Duli-Gey",
 	},
 	dva: {
 		code: "dva",
-		name: "Duau"
+		name: "Duau",
 	},
 	dwa: {
 		code: "dwa",
-		name: "Diri"
+		name: "Diri",
 	},
 	dwk: {
 		code: "dwk",
-		name: "Dawik Kui"
+		name: "Dawik Kui",
 	},
 	dwr: {
 		code: "dwr",
-		name: "Dawro"
+		name: "Dawro",
 	},
 	dws: {
 		code: "dws",
-		name: "Dutton World Speedwords"
+		name: "Dutton World Speedwords",
 	},
 	dwu: {
 		code: "dwu",
-		name: "Dhuwal"
+		name: "Dhuwal",
 	},
 	dww: {
 		code: "dww",
-		name: "Dawawa"
+		name: "Dawawa",
 	},
 	dwy: {
 		code: "dwy",
-		name: "Dhuwaya"
+		name: "Dhuwaya",
 	},
 	dwz: {
 		code: "dwz",
-		name: "Dewas Rai"
+		name: "Dewas Rai",
 	},
 	dya: {
 		code: "dya",
-		name: "Dyan"
+		name: "Dyan",
 	},
 	dyb: {
 		code: "dyb",
-		name: "Dyaberdyaber"
+		name: "Dyaberdyaber",
 	},
 	dyd: {
 		code: "dyd",
-		name: "Dyugun"
+		name: "Dyugun",
 	},
 	dyg: {
 		code: "dyg",
-		name: "Villa Viciosa Agta"
+		name: "Villa Viciosa Agta",
 	},
 	dyi: {
 		code: "dyi",
-		name: "Djimini Senoufo"
+		name: "Djimini Senoufo",
 	},
 	dym: {
 		code: "dym",
-		name: "Yanda Dom Dogon"
+		name: "Yanda Dom Dogon",
 	},
 	dyn: {
 		code: "dyn",
-		name: "Dyangadi"
+		name: "Dyangadi",
 	},
 	dyo: {
 		code: "dyo",
-		name: "Jola-Fonyi"
+		name: "Jola-Fonyi",
 	},
 	dyr: {
 		code: "dyr",
-		name: "Dyarim"
+		name: "Dyarim",
 	},
 	dyu: {
 		code: "dyu",
-		name: "Dyula"
+		name: "Dyula",
 	},
 	dyy: {
 		code: "dyy",
-		name: "Djabugay"
+		name: "Djabugay",
 	},
 	dza: {
 		code: "dza",
-		name: "Tunzu"
+		name: "Tunzu",
 	},
 	dzd: {
 		code: "dzd",
-		name: "Daza"
+		name: "Daza",
 	},
 	dze: {
 		code: "dze",
-		name: "Djiwarli"
+		name: "Djiwarli",
 	},
 	dzg: {
 		code: "dzg",
-		name: "Dazaga"
+		name: "Dazaga",
 	},
 	dzl: {
 		code: "dzl",
-		name: "Dzalakha"
+		name: "Dzalakha",
 	},
 	dzn: {
 		code: "dzn",
-		name: "Dzando"
+		name: "Dzando",
+	},
+	dzo: {
+		code: "dzo",
+		name: "Dzongkha",
 	},
 	eaa: {
 		code: "eaa",
-		name: "Karenggapa"
+		name: "Karenggapa",
 	},
 	ebc: {
 		code: "ebc",
-		name: "Beginci"
+		name: "Beginci",
 	},
 	ebg: {
 		code: "ebg",
-		name: "Ebughu"
+		name: "Ebughu",
 	},
 	ebk: {
 		code: "ebk",
-		name: "Eastern Bontok"
+		name: "Eastern Bontok",
 	},
 	ebo: {
 		code: "ebo",
-		name: "Teke-Ebo"
+		name: "Teke-Ebo",
 	},
 	ebr: {
 		code: "ebr",
-		name: "Ebrié"
+		name: "Ebrié",
 	},
 	ebu: {
 		code: "ebu",
-		name: "Embu"
+		name: "Embu",
 	},
 	ecr: {
 		code: "ecr",
-		name: "Eteocretan"
+		name: "Eteocretan",
 	},
 	ecs: {
 		code: "ecs",
-		name: "Ecuadorian Sign Language"
+		name: "Ecuadorian Sign Language",
 	},
 	ecy: {
 		code: "ecy",
-		name: "Eteocypriot"
+		name: "Eteocypriot",
 	},
 	eee: {
 		code: "eee",
-		name: "E"
+		name: "E",
 	},
 	efa: {
 		code: "efa",
-		name: "Efai"
+		name: "Efai",
 	},
 	efe: {
 		code: "efe",
-		name: "Efe"
+		name: "Efe",
+	},
+	efi: {
+		code: "efi",
+		name: "Efik",
 	},
 	ega: {
 		code: "ega",
-		name: "Ega"
+		name: "Ega",
 	},
 	egl: {
 		code: "egl",
-		name: "Emilian"
+		name: "Emilian",
 	},
 	egm: {
 		code: "egm",
-		name: "Benamanga"
+		name: "Benamanga",
 	},
 	ego: {
 		code: "ego",
-		name: "Eggon"
+		name: "Eggon",
 	},
 	egy: {
 		code: "egy",
-		name: "Egyptian (Ancient)"
+		name: "Egyptian (Ancient)",
 	},
 	ehs: {
 		code: "ehs",
-		name: "Miyakubo Sign Language"
+		name: "Miyakubo Sign Language",
 	},
 	ehu: {
 		code: "ehu",
-		name: "Ehueun"
+		name: "Ehueun",
 	},
 	eip: {
 		code: "eip",
-		name: "Eipomek"
+		name: "Eipomek",
 	},
 	eit: {
 		code: "eit",
-		name: "Eitiep"
+		name: "Eitiep",
 	},
 	eiv: {
 		code: "eiv",
-		name: "Askopan"
+		name: "Askopan",
 	},
 	eja: {
 		code: "eja",
-		name: "Ejamat"
+		name: "Ejamat",
 	},
 	eka: {
 		code: "eka",
-		name: "Ekajuk"
+		name: "Ekajuk",
 	},
 	eke: {
 		code: "eke",
-		name: "Ekit"
+		name: "Ekit",
 	},
 	ekg: {
 		code: "ekg",
-		name: "Ekari"
+		name: "Ekari",
 	},
 	eki: {
 		code: "eki",
-		name: "Eki"
+		name: "Eki",
 	},
 	ekk: {
 		code: "ekk",
-		name: "Standard Estonian"
+		name: "Standard Estonian",
 	},
 	ekl: {
 		code: "ekl",
-		name: "Kol (Bangladesh)"
+		name: "Kol (Bangladesh)",
 	},
 	ekm: {
 		code: "ekm",
-		name: "Elip"
+		name: "Elip",
 	},
 	eko: {
 		code: "eko",
-		name: "Koti"
+		name: "Koti",
 	},
 	ekp: {
 		code: "ekp",
-		name: "Ekpeye"
+		name: "Ekpeye",
 	},
 	ekr: {
 		code: "ekr",
-		name: "Yace"
+		name: "Yace",
 	},
 	eky: {
 		code: "eky",
-		name: "Eastern Kayah"
+		name: "Eastern Kayah",
 	},
 	ele: {
 		code: "ele",
-		name: "Elepi"
+		name: "Elepi",
 	},
 	elh: {
 		code: "elh",
-		name: "El Hugeirat"
+		name: "El Hugeirat",
 	},
 	eli: {
 		code: "eli",
-		name: "Nding"
+		name: "Nding",
 	},
 	elk: {
 		code: "elk",
-		name: "Elkei"
+		name: "Elkei",
 	},
 	ell: {
 		code: "ell",
-		name: "Modern Greek (1453-)"
+		name: "Modern Greek (1453-)",
 	},
 	elm: {
 		code: "elm",
-		name: "Eleme"
+		name: "Eleme",
 	},
 	elo: {
 		code: "elo",
-		name: "El Molo"
+		name: "El Molo",
 	},
 	elu: {
 		code: "elu",
-		name: "Elu"
+		name: "Elu",
 	},
 	elx: {
 		code: "elx",
-		name: "Elamite"
+		name: "Elamite",
 	},
 	ema: {
 		code: "ema",
-		name: "Emai-Iuleha-Ora"
+		name: "Emai-Iuleha-Ora",
 	},
 	emb: {
 		code: "emb",
-		name: "Embaloh"
+		name: "Embaloh",
 	},
 	eme: {
 		code: "eme",
-		name: "Emerillon"
+		name: "Emerillon",
 	},
 	emg: {
 		code: "emg",
-		name: "Eastern Meohang"
+		name: "Eastern Meohang",
 	},
 	emi: {
 		code: "emi",
-		name: "Mussau-Emira"
+		name: "Mussau-Emira",
 	},
 	emk: {
 		code: "emk",
-		name: "Eastern Maninkakan"
+		name: "Eastern Maninkakan",
 	},
 	emm: {
 		code: "emm",
-		name: "Mamulique"
+		name: "Mamulique",
 	},
 	emn: {
 		code: "emn",
-		name: "Eman"
+		name: "Eman",
 	},
 	emp: {
 		code: "emp",
-		name: "Northern Emberá"
+		name: "Northern Emberá",
 	},
 	emq: {
 		code: "emq",
-		name: "Eastern Minyag"
+		name: "Eastern Minyag",
 	},
 	ems: {
 		code: "ems",
-		name: "Pacific Gulf Yupik"
+		name: "Pacific Gulf Yupik",
 	},
 	emu: {
 		code: "emu",
-		name: "Eastern Muria"
+		name: "Eastern Muria",
 	},
 	emw: {
 		code: "emw",
-		name: "Emplawas"
+		name: "Emplawas",
 	},
 	emx: {
 		code: "emx",
-		name: "Erromintxela"
+		name: "Erromintxela",
 	},
 	emy: {
 		code: "emy",
-		name: "Epigraphic Mayan"
+		name: "Epigraphic Mayan",
 	},
 	emz: {
 		code: "emz",
-		name: "Mbessa"
+		name: "Mbessa",
 	},
 	ena: {
 		code: "ena",
-		name: "Apali"
+		name: "Apali",
 	},
 	enb: {
 		code: "enb",
-		name: "Markweeta"
+		name: "Markweeta",
 	},
 	enc: {
 		code: "enc",
-		name: "En"
+		name: "En",
 	},
 	end: {
 		code: "end",
-		name: "Ende"
+		name: "Ende",
 	},
 	enf: {
 		code: "enf",
-		name: "Forest Enets"
+		name: "Forest Enets",
+	},
+	eng: {
+		code: "eng",
+		name: "English",
 	},
 	enh: {
 		code: "enh",
-		name: "Tundra Enets"
+		name: "Tundra Enets",
 	},
 	enl: {
 		code: "enl",
-		name: "Enlhet"
+		name: "Enlhet",
 	},
 	enm: {
 		code: "enm",
-		name: "Middle English (1100-1500)"
+		name: "Middle English (1100-1500)",
 	},
 	enn: {
 		code: "enn",
-		name: "Engenni"
+		name: "Engenni",
 	},
 	eno: {
 		code: "eno",
-		name: "Enggano"
+		name: "Enggano",
 	},
 	enq: {
 		code: "enq",
-		name: "Enga"
+		name: "Enga",
 	},
 	enr: {
 		code: "enr",
-		name: "Emumu"
+		name: "Emumu",
 	},
 	enu: {
 		code: "enu",
-		name: "Enu"
+		name: "Enu",
 	},
 	env: {
 		code: "env",
-		name: "Enwan (Edo State)"
+		name: "Enwan (Edo State)",
 	},
 	enw: {
 		code: "enw",
-		name: "Enwan (Akwa Ibom State)"
+		name: "Enwan (Akwa Ibom State)",
 	},
 	enx: {
 		code: "enx",
-		name: "Enxet"
+		name: "Enxet",
 	},
 	eot: {
 		code: "eot",
-		name: "Beti (Côte d'Ivoire)"
+		name: "Beti (Côte d'Ivoire)",
 	},
 	epi: {
 		code: "epi",
-		name: "Epie"
+		name: "Epie",
+	},
+	epo: {
+		code: "epo",
+		name: "Esperanto",
 	},
 	era: {
 		code: "era",
-		name: "Eravallan"
+		name: "Eravallan",
 	},
 	erg: {
 		code: "erg",
-		name: "Sie"
+		name: "Sie",
 	},
 	erh: {
 		code: "erh",
-		name: "Eruwa"
+		name: "Eruwa",
 	},
 	eri: {
 		code: "eri",
-		name: "Ogea"
+		name: "Ogea",
 	},
 	erk: {
 		code: "erk",
-		name: "South Efate"
+		name: "South Efate",
 	},
 	ero: {
 		code: "ero",
-		name: "Horpa"
+		name: "Horpa",
 	},
 	err: {
 		code: "err",
-		name: "Erre"
+		name: "Erre",
 	},
 	ers: {
 		code: "ers",
-		name: "Ersu"
+		name: "Ersu",
 	},
 	ert: {
 		code: "ert",
-		name: "Eritai"
+		name: "Eritai",
 	},
 	erw: {
 		code: "erw",
-		name: "Erokwanas"
+		name: "Erokwanas",
 	},
 	ese: {
 		code: "ese",
-		name: "Ese Ejja"
+		name: "Ese Ejja",
 	},
 	esg: {
 		code: "esg",
-		name: "Aheri Gondi"
+		name: "Aheri Gondi",
 	},
 	esh: {
 		code: "esh",
-		name: "Eshtehardi"
+		name: "Eshtehardi",
 	},
 	esi: {
 		code: "esi",
-		name: "North Alaskan Inupiatun"
+		name: "North Alaskan Inupiatun",
 	},
 	esk: {
 		code: "esk",
-		name: "Northwest Alaska Inupiatun"
+		name: "Northwest Alaska Inupiatun",
 	},
 	esl: {
 		code: "esl",
-		name: "Egypt Sign Language"
+		name: "Egypt Sign Language",
 	},
 	esm: {
 		code: "esm",
-		name: "Esuma"
+		name: "Esuma",
 	},
 	esn: {
 		code: "esn",
-		name: "Salvadoran Sign Language"
+		name: "Salvadoran Sign Language",
 	},
 	eso: {
 		code: "eso",
-		name: "Estonian Sign Language"
+		name: "Estonian Sign Language",
 	},
 	esq: {
 		code: "esq",
-		name: "Esselen"
+		name: "Esselen",
 	},
 	ess: {
 		code: "ess",
-		name: "Central Siberian Yupik"
+		name: "Central Siberian Yupik",
+	},
+	est: {
+		code: "est",
+		name: "Estonian",
 	},
 	esu: {
 		code: "esu",
-		name: "Central Yupik"
+		name: "Central Yupik",
 	},
 	esy: {
 		code: "esy",
-		name: "Eskayan"
+		name: "Eskayan",
 	},
 	etb: {
 		code: "etb",
-		name: "Etebi"
+		name: "Etebi",
 	},
 	etc: {
 		code: "etc",
-		name: "Etchemin"
+		name: "Etchemin",
 	},
 	eth: {
 		code: "eth",
-		name: "Ethiopian Sign Language"
+		name: "Ethiopian Sign Language",
 	},
 	etn: {
 		code: "etn",
-		name: "Eton (Vanuatu)"
+		name: "Eton (Vanuatu)",
 	},
 	eto: {
 		code: "eto",
-		name: "Eton (Cameroon)"
+		name: "Eton (Cameroon)",
 	},
 	etr: {
 		code: "etr",
-		name: "Edolo"
+		name: "Edolo",
 	},
 	ets: {
 		code: "ets",
-		name: "Yekhee"
+		name: "Yekhee",
 	},
 	ett: {
 		code: "ett",
-		name: "Etruscan"
+		name: "Etruscan",
 	},
 	etu: {
 		code: "etu",
-		name: "Ejagham"
+		name: "Ejagham",
 	},
 	etx: {
 		code: "etx",
-		name: "Eten"
+		name: "Eten",
 	},
 	etz: {
 		code: "etz",
-		name: "Semimi"
+		name: "Semimi",
 	},
 	eud: {
 		code: "eud",
-		name: "Eudeve"
+		name: "Eudeve",
+	},
+	eus: {
+		code: "eus",
+		name: "Basque",
 	},
 	eve: {
 		code: "eve",
-		name: "Even"
+		name: "Even",
 	},
 	evh: {
 		code: "evh",
-		name: "Uvbie"
+		name: "Uvbie",
 	},
 	evn: {
 		code: "evn",
-		name: "Evenki"
+		name: "Evenki",
+	},
+	ewe: {
+		code: "ewe",
+		name: "Ewe",
 	},
 	ewo: {
 		code: "ewo",
-		name: "Ewondo"
+		name: "Ewondo",
 	},
 	ext: {
 		code: "ext",
-		name: "Extremaduran"
+		name: "Extremaduran",
 	},
 	eya: {
 		code: "eya",
-		name: "Eyak"
+		name: "Eyak",
 	},
 	eyo: {
 		code: "eyo",
-		name: "Keiyo"
+		name: "Keiyo",
 	},
 	eza: {
 		code: "eza",
-		name: "Ezaa"
+		name: "Ezaa",
 	},
 	eze: {
 		code: "eze",
-		name: "Uzekwe"
+		name: "Uzekwe",
 	},
 	faa: {
 		code: "faa",
-		name: "Fasu"
+		name: "Fasu",
 	},
 	fab: {
 		code: "fab",
-		name: "Fa d'Ambu"
+		name: "Fa d'Ambu",
 	},
 	fad: {
 		code: "fad",
-		name: "Wagi"
+		name: "Wagi",
 	},
 	faf: {
 		code: "faf",
-		name: "Fagani"
+		name: "Fagani",
 	},
 	fag: {
 		code: "fag",
-		name: "Finongan"
+		name: "Finongan",
 	},
 	fah: {
 		code: "fah",
-		name: "Baissa Fali"
+		name: "Baissa Fali",
 	},
 	fai: {
 		code: "fai",
-		name: "Faiwol"
+		name: "Faiwol",
 	},
 	faj: {
 		code: "faj",
-		name: "Faita"
+		name: "Faita",
 	},
 	fak: {
 		code: "fak",
-		name: "Fang (Cameroon)"
+		name: "Fang (Cameroon)",
 	},
 	fal: {
 		code: "fal",
-		name: "South Fali"
+		name: "South Fali",
 	},
 	fam: {
 		code: "fam",
-		name: "Fam"
+		name: "Fam",
 	},
 	fan: {
 		code: "fan",
-		name: "Fang (Equatorial Guinea)"
+		name: "Fang (Equatorial Guinea)",
+	},
+	fao: {
+		code: "fao",
+		name: "Faroese",
 	},
 	fap: {
 		code: "fap",
-		name: "Paloor"
+		name: "Paloor",
 	},
 	far: {
 		code: "far",
-		name: "Fataleka"
+		name: "Fataleka",
+	},
+	fas: {
+		code: "fas",
+		name: "Persian",
 	},
 	fat: {
 		code: "fat",
-		name: "Fanti"
+		name: "Fanti",
 	},
 	fau: {
 		code: "fau",
-		name: "Fayu"
+		name: "Fayu",
 	},
 	fax: {
 		code: "fax",
-		name: "Fala"
+		name: "Fala",
 	},
 	fay: {
 		code: "fay",
-		name: "Southwestern Fars"
+		name: "Southwestern Fars",
 	},
 	faz: {
 		code: "faz",
-		name: "Northwestern Fars"
+		name: "Northwestern Fars",
 	},
 	fbl: {
 		code: "fbl",
-		name: "West Albay Bikol"
+		name: "West Albay Bikol",
 	},
 	fcs: {
 		code: "fcs",
-		name: "Quebec Sign Language"
+		name: "Quebec Sign Language",
 	},
 	fer: {
 		code: "fer",
-		name: "Feroge"
+		name: "Feroge",
 	},
 	ffi: {
 		code: "ffi",
-		name: "Foia Foia"
+		name: "Foia Foia",
 	},
 	ffm: {
 		code: "ffm",
-		name: "Maasina Fulfulde"
+		name: "Maasina Fulfulde",
 	},
 	fgr: {
 		code: "fgr",
-		name: "Fongoro"
+		name: "Fongoro",
 	},
 	fia: {
 		code: "fia",
-		name: "Nobiin"
+		name: "Nobiin",
 	},
 	fie: {
 		code: "fie",
-		name: "Fyer"
+		name: "Fyer",
 	},
 	fif: {
 		code: "fif",
-		name: "Faifi"
+		name: "Faifi",
+	},
+	fij: {
+		code: "fij",
+		name: "Fijian",
 	},
 	fil: {
 		code: "fil",
-		name: "Filipino"
+		name: "Filipino",
+	},
+	fin: {
+		code: "fin",
+		name: "Finnish",
 	},
 	fip: {
 		code: "fip",
-		name: "Fipa"
+		name: "Fipa",
 	},
 	fir: {
 		code: "fir",
-		name: "Firan"
+		name: "Firan",
 	},
 	fit: {
 		code: "fit",
-		name: "Tornedalen Finnish"
+		name: "Tornedalen Finnish",
 	},
 	fiw: {
 		code: "fiw",
-		name: "Fiwaga"
+		name: "Fiwaga",
 	},
 	fkk: {
 		code: "fkk",
-		name: "Kirya-Konzəl"
+		name: "Kirya-Konzəl",
 	},
 	fkv: {
 		code: "fkv",
-		name: "Kven Finnish"
+		name: "Kven Finnish",
 	},
 	fla: {
 		code: "fla",
-		name: "Kalispel-Pend d'Oreille"
+		name: "Kalispel-Pend d'Oreille",
 	},
 	flh: {
 		code: "flh",
-		name: "Foau"
+		name: "Foau",
 	},
 	fli: {
 		code: "fli",
-		name: "Fali"
+		name: "Fali",
 	},
 	fll: {
 		code: "fll",
-		name: "North Fali"
+		name: "North Fali",
 	},
 	fln: {
 		code: "fln",
-		name: "Flinders Island"
+		name: "Flinders Island",
 	},
 	flr: {
 		code: "flr",
-		name: "Fuliiru"
+		name: "Fuliiru",
 	},
 	fly: {
 		code: "fly",
-		name: "Flaaitaal"
+		name: "Flaaitaal",
 	},
 	fmp: {
 		code: "fmp",
-		name: "Fe'fe'"
+		name: "Fe'fe'",
 	},
 	fmu: {
 		code: "fmu",
-		name: "Far Western Muria"
+		name: "Far Western Muria",
 	},
 	fnb: {
 		code: "fnb",
-		name: "Fanbak"
+		name: "Fanbak",
 	},
 	fng: {
 		code: "fng",
-		name: "Fanagalo"
+		name: "Fanagalo",
 	},
 	fni: {
 		code: "fni",
-		name: "Fania"
+		name: "Fania",
 	},
 	fod: {
 		code: "fod",
-		name: "Foodo"
+		name: "Foodo",
 	},
 	foi: {
 		code: "foi",
-		name: "Foi"
+		name: "Foi",
 	},
 	fom: {
 		code: "fom",
-		name: "Foma"
+		name: "Foma",
+	},
+	fon: {
+		code: "fon",
+		name: "Fon",
 	},
 	for: {
 		code: "for",
-		name: "Fore"
+		name: "Fore",
 	},
 	fos: {
 		code: "fos",
-		name: "Siraya"
+		name: "Siraya",
 	},
 	fpe: {
 		code: "fpe",
-		name: "Fernando Po Creole English"
+		name: "Fernando Po Creole English",
 	},
 	fqs: {
 		code: "fqs",
-		name: "Fas"
+		name: "Fas",
+	},
+	fra: {
+		code: "fra",
+		name: "French",
 	},
 	frc: {
 		code: "frc",
-		name: "Cajun French"
+		name: "Cajun French",
 	},
 	frd: {
 		code: "frd",
-		name: "Fordata"
+		name: "Fordata",
 	},
 	frk: {
 		code: "frk",
-		name: "Frankish"
+		name: "Frankish",
 	},
 	frm: {
 		code: "frm",
-		name: "Middle French (ca. 1400-1600)"
+		name: "Middle French (ca. 1400-1600)",
 	},
 	fro: {
 		code: "fro",
-		name: "Old French (842-ca. 1400)"
+		name: "Old French (842-ca. 1400)",
 	},
 	frp: {
 		code: "frp",
-		name: "Arpitan"
+		name: "Arpitan",
 	},
 	frq: {
 		code: "frq",
-		name: "Forak"
+		name: "Forak",
 	},
 	frr: {
 		code: "frr",
-		name: "Northern Frisian"
+		name: "Northern Frisian",
 	},
 	frs: {
 		code: "frs",
-		name: "Eastern Frisian"
+		name: "Eastern Frisian",
 	},
 	frt: {
 		code: "frt",
-		name: "Fortsenal"
+		name: "Fortsenal",
+	},
+	fry: {
+		code: "fry",
+		name: "Western Frisian",
+	},
+	fse: {
+		code: "fse",
+		name: "Finnish Sign Language",
 	},
 	fsl: {
 		code: "fsl",
-		name: "French Sign Language"
+		name: "French Sign Language",
 	},
 	fss: {
 		code: "fss",
-		name: "Finland-Swedish Sign Language"
+		name: "Finland-Swedish Sign Language",
 	},
 	fub: {
 		code: "fub",
-		name: "Adamawa Fulfulde"
+		name: "Adamawa Fulfulde",
 	},
 	fuc: {
 		code: "fuc",
-		name: "Pulaar"
+		name: "Pulaar",
 	},
 	fud: {
 		code: "fud",
-		name: "East Futuna"
+		name: "East Futuna",
 	},
 	fue: {
 		code: "fue",
-		name: "Borgu Fulfulde"
+		name: "Borgu Fulfulde",
 	},
 	fuf: {
 		code: "fuf",
-		name: "Pular"
+		name: "Pular",
 	},
 	fuh: {
 		code: "fuh",
-		name: "Western Niger Fulfulde"
+		name: "Western Niger Fulfulde",
 	},
 	fui: {
 		code: "fui",
-		name: "Bagirmi Fulfulde"
+		name: "Bagirmi Fulfulde",
 	},
 	fuj: {
 		code: "fuj",
-		name: "Ko"
+		name: "Ko",
 	},
 	ful: {
 		code: "ful",
-		name: "Fulah"
+		name: "Fulah",
 	},
 	fum: {
 		code: "fum",
-		name: "Fum"
+		name: "Fum",
 	},
 	fun: {
 		code: "fun",
-		name: "Fulniô"
+		name: "Fulniô",
 	},
 	fuq: {
 		code: "fuq",
-		name: "Central-Eastern Niger Fulfulde"
+		name: "Central-Eastern Niger Fulfulde",
 	},
 	fur: {
 		code: "fur",
-		name: "Friulian"
+		name: "Friulian",
 	},
 	fut: {
 		code: "fut",
-		name: "Futuna-Aniwa"
+		name: "Futuna-Aniwa",
 	},
 	fuu: {
 		code: "fuu",
-		name: "Furu"
+		name: "Furu",
 	},
 	fuv: {
 		code: "fuv",
-		name: "Nigerian Fulfulde"
+		name: "Nigerian Fulfulde",
 	},
 	fuy: {
 		code: "fuy",
-		name: "Fuyug"
+		name: "Fuyug",
 	},
 	fvr: {
 		code: "fvr",
-		name: "Fur"
+		name: "Fur",
 	},
 	fwa: {
 		code: "fwa",
-		name: "Fwâi"
+		name: "Fwâi",
 	},
 	fwe: {
 		code: "fwe",
-		name: "Fwe"
+		name: "Fwe",
+	},
+	gaa: {
+		code: "gaa",
+		name: "Ga",
 	},
 	gab: {
 		code: "gab",
-		name: "Gabri"
+		name: "Gabri",
 	},
 	gac: {
 		code: "gac",
-		name: "Mixed Great Andamanese"
+		name: "Mixed Great Andamanese",
 	},
 	gad: {
 		code: "gad",
-		name: "Gaddang"
+		name: "Gaddang",
 	},
 	gae: {
 		code: "gae",
-		name: "Guarequena"
+		name: "Guarequena",
 	},
 	gaf: {
 		code: "gaf",
-		name: "Gende"
+		name: "Gende",
 	},
 	gag: {
 		code: "gag",
-		name: "Gagauz"
+		name: "Gagauz",
 	},
 	gah: {
 		code: "gah",
-		name: "Alekano"
+		name: "Alekano",
 	},
 	gai: {
 		code: "gai",
-		name: "Borei"
+		name: "Borei",
 	},
 	gaj: {
 		code: "gaj",
-		name: "Gadsup"
+		name: "Gadsup",
 	},
 	gak: {
 		code: "gak",
-		name: "Gamkonora"
+		name: "Gamkonora",
 	},
 	gal: {
 		code: "gal",
-		name: "Galolen"
+		name: "Galolen",
 	},
 	gam: {
 		code: "gam",
-		name: "Kandawo"
+		name: "Kandawo",
 	},
 	gan: {
 		code: "gan",
-		name: "Gan Chinese"
+		name: "Gan Chinese",
 	},
 	gao: {
 		code: "gao",
-		name: "Gants"
+		name: "Gants",
 	},
 	gap: {
 		code: "gap",
-		name: "Gal"
+		name: "Gal",
 	},
 	gaq: {
 		code: "gaq",
-		name: "Gata'"
+		name: "Gata'",
 	},
 	gar: {
 		code: "gar",
-		name: "Galeya"
+		name: "Galeya",
 	},
 	gas: {
 		code: "gas",
-		name: "Adiwasi Garasia"
+		name: "Adiwasi Garasia",
 	},
 	gat: {
 		code: "gat",
-		name: "Kenati"
+		name: "Kenati",
 	},
 	gau: {
 		code: "gau",
-		name: "Mudhili Gadaba"
+		name: "Mudhili Gadaba",
 	},
 	gaw: {
 		code: "gaw",
-		name: "Nobonob"
+		name: "Nobonob",
 	},
 	gax: {
 		code: "gax",
-		name: "Borana-Arsi-Guji Oromo"
+		name: "Borana-Arsi-Guji Oromo",
 	},
 	gay: {
 		code: "gay",
-		name: "Gayo"
+		name: "Gayo",
 	},
 	gaz: {
 		code: "gaz",
-		name: "West Central Oromo"
+		name: "West Central Oromo",
 	},
 	gba: {
 		code: "gba",
-		name: "Gbaya (Central African Republic)"
+		name: "Gbaya (Central African Republic)",
 	},
 	gbb: {
 		code: "gbb",
-		name: "Kaytetye"
+		name: "Kaytetye",
 	},
 	gbd: {
 		code: "gbd",
-		name: "Karajarri"
+		name: "Karajarri",
 	},
 	gbe: {
 		code: "gbe",
-		name: "Niksek"
+		name: "Niksek",
 	},
 	gbf: {
 		code: "gbf",
-		name: "Gaikundi"
+		name: "Gaikundi",
 	},
 	gbg: {
 		code: "gbg",
-		name: "Gbanziri"
+		name: "Gbanziri",
 	},
 	gbh: {
 		code: "gbh",
-		name: "Defi Gbe"
+		name: "Defi Gbe",
 	},
 	gbi: {
 		code: "gbi",
-		name: "Galela"
+		name: "Galela",
 	},
 	gbj: {
 		code: "gbj",
-		name: "Bodo Gadaba"
+		name: "Bodo Gadaba",
 	},
 	gbk: {
 		code: "gbk",
-		name: "Gaddi"
+		name: "Gaddi",
 	},
 	gbl: {
 		code: "gbl",
-		name: "Gamit"
+		name: "Gamit",
 	},
 	gbm: {
 		code: "gbm",
-		name: "Garhwali"
+		name: "Garhwali",
 	},
 	gbn: {
 		code: "gbn",
-		name: "Mo'da"
+		name: "Mo'da",
 	},
 	gbo: {
 		code: "gbo",
-		name: "Northern Grebo"
+		name: "Northern Grebo",
 	},
 	gbp: {
 		code: "gbp",
-		name: "Gbaya-Bossangoa"
+		name: "Gbaya-Bossangoa",
 	},
 	gbq: {
 		code: "gbq",
-		name: "Gbaya-Bozoum"
+		name: "Gbaya-Bozoum",
 	},
 	gbr: {
 		code: "gbr",
-		name: "Gbagyi"
+		name: "Gbagyi",
 	},
 	gbs: {
 		code: "gbs",
-		name: "Gbesi Gbe"
+		name: "Gbesi Gbe",
 	},
 	gbu: {
 		code: "gbu",
-		name: "Gagadu"
+		name: "Gagadu",
 	},
 	gbv: {
 		code: "gbv",
-		name: "Gbanu"
+		name: "Gbanu",
 	},
 	gbw: {
 		code: "gbw",
-		name: "Gabi-Gabi"
+		name: "Gabi-Gabi",
 	},
 	gbx: {
 		code: "gbx",
-		name: "Eastern Xwla Gbe"
+		name: "Eastern Xwla Gbe",
 	},
 	gby: {
 		code: "gby",
-		name: "Gbari"
+		name: "Gbari",
 	},
 	gbz: {
 		code: "gbz",
-		name: "Zoroastrian Dari"
+		name: "Zoroastrian Dari",
 	},
 	gcc: {
 		code: "gcc",
-		name: "Mali"
+		name: "Mali",
 	},
 	gcd: {
 		code: "gcd",
-		name: "Ganggalida"
+		name: "Ganggalida",
 	},
 	gce: {
 		code: "gce",
-		name: "Galice"
+		name: "Galice",
 	},
 	gcf: {
 		code: "gcf",
-		name: "Guadeloupean Creole French"
+		name: "Guadeloupean Creole French",
 	},
 	gcl: {
 		code: "gcl",
-		name: "Grenadian Creole English"
+		name: "Grenadian Creole English",
 	},
 	gcn: {
 		code: "gcn",
-		name: "Gaina"
+		name: "Gaina",
 	},
 	gcr: {
 		code: "gcr",
-		name: "Guianese Creole French"
+		name: "Guianese Creole French",
 	},
 	gct: {
 		code: "gct",
-		name: "Colonia Tovar German"
+		name: "Colonia Tovar German",
 	},
 	gda: {
 		code: "gda",
-		name: "Gade Lohar"
+		name: "Gade Lohar",
 	},
 	gdb: {
 		code: "gdb",
-		name: "Pottangi Ollar Gadaba"
+		name: "Pottangi Ollar Gadaba",
 	},
 	gdc: {
 		code: "gdc",
-		name: "Gugu Badhun"
+		name: "Gugu Badhun",
 	},
 	gdd: {
 		code: "gdd",
-		name: "Gedaged"
+		name: "Gedaged",
 	},
 	gde: {
 		code: "gde",
-		name: "Gude"
+		name: "Gude",
 	},
 	gdf: {
 		code: "gdf",
-		name: "Guduf-Gava"
+		name: "Guduf-Gava",
 	},
 	gdg: {
 		code: "gdg",
-		name: "Ga'dang"
+		name: "Ga'dang",
 	},
 	gdh: {
 		code: "gdh",
-		name: "Gadjerawang"
+		name: "Gadjerawang",
 	},
 	gdi: {
 		code: "gdi",
-		name: "Gundi"
+		name: "Gundi",
 	},
 	gdj: {
 		code: "gdj",
-		name: "Gurdjar"
+		name: "Gurdjar",
 	},
 	gdk: {
 		code: "gdk",
-		name: "Gadang"
+		name: "Gadang",
 	},
 	gdl: {
 		code: "gdl",
-		name: "Dirasha"
+		name: "Dirasha",
 	},
 	gdm: {
 		code: "gdm",
-		name: "Laal"
+		name: "Laal",
 	},
 	gdn: {
 		code: "gdn",
-		name: "Umanakaina"
+		name: "Umanakaina",
 	},
 	gdo: {
 		code: "gdo",
-		name: "Ghodoberi"
+		name: "Ghodoberi",
 	},
 	gdq: {
 		code: "gdq",
-		name: "Mehri"
+		name: "Mehri",
 	},
 	gdr: {
 		code: "gdr",
-		name: "Wipi"
+		name: "Wipi",
 	},
 	gds: {
 		code: "gds",
-		name: "Ghandruk Sign Language"
+		name: "Ghandruk Sign Language",
 	},
 	gdt: {
 		code: "gdt",
-		name: "Kungardutyi"
+		name: "Kungardutyi",
 	},
 	gdu: {
 		code: "gdu",
-		name: "Gudu"
+		name: "Gudu",
 	},
 	gdx: {
 		code: "gdx",
-		name: "Godwari"
+		name: "Godwari",
 	},
 	gea: {
 		code: "gea",
-		name: "Geruma"
+		name: "Geruma",
 	},
 	geb: {
 		code: "geb",
-		name: "Kire"
+		name: "Kire",
 	},
 	gec: {
 		code: "gec",
-		name: "Gboloo Grebo"
+		name: "Gboloo Grebo",
 	},
 	ged: {
 		code: "ged",
-		name: "Gade"
+		name: "Gade",
 	},
 	gef: {
 		code: "gef",
-		name: "Gerai"
+		name: "Gerai",
 	},
 	geg: {
 		code: "geg",
-		name: "Gengle"
+		name: "Gengle",
 	},
 	geh: {
 		code: "geh",
-		name: "Hutterite German"
+		name: "Hutterite German",
 	},
 	gei: {
 		code: "gei",
-		name: "Gebe"
+		name: "Gebe",
 	},
 	gej: {
 		code: "gej",
-		name: "Gen"
+		name: "Gen",
 	},
 	gek: {
 		code: "gek",
-		name: "Ywom"
+		name: "Ywom",
 	},
 	gel: {
 		code: "gel",
-		name: "ut-Ma'in"
+		name: "ut-Ma'in",
 	},
 	geq: {
 		code: "geq",
-		name: "Geme"
+		name: "Geme",
 	},
 	ges: {
 		code: "ges",
-		name: "Geser-Gorom"
+		name: "Geser-Gorom",
 	},
 	gev: {
 		code: "gev",
-		name: "Eviya"
+		name: "Eviya",
 	},
 	gew: {
 		code: "gew",
-		name: "Gera"
+		name: "Gera",
 	},
 	gex: {
 		code: "gex",
-		name: "Garre"
+		name: "Garre",
 	},
 	gey: {
 		code: "gey",
-		name: "Enya"
+		name: "Enya",
 	},
 	gez: {
 		code: "gez",
-		name: "Geez"
+		name: "Geez",
 	},
 	gfk: {
 		code: "gfk",
-		name: "Patpatar"
+		name: "Patpatar",
 	},
 	gft: {
 		code: "gft",
-		name: "Gafat"
+		name: "Gafat",
 	},
 	gga: {
 		code: "gga",
-		name: "Gao"
+		name: "Gao",
 	},
 	ggb: {
 		code: "ggb",
-		name: "Gbii"
+		name: "Gbii",
 	},
 	ggd: {
 		code: "ggd",
-		name: "Gugadj"
+		name: "Gugadj",
 	},
 	gge: {
 		code: "gge",
-		name: "Gurr-goni"
+		name: "Gurr-goni",
 	},
 	ggg: {
 		code: "ggg",
-		name: "Gurgula"
+		name: "Gurgula",
 	},
 	ggk: {
 		code: "ggk",
-		name: "Kungarakany"
+		name: "Kungarakany",
 	},
 	ggl: {
 		code: "ggl",
-		name: "Ganglau"
+		name: "Ganglau",
 	},
 	ggt: {
 		code: "ggt",
-		name: "Gitua"
+		name: "Gitua",
 	},
 	ggu: {
 		code: "ggu",
-		name: "Gagu"
+		name: "Gagu",
 	},
 	ggw: {
 		code: "ggw",
-		name: "Gogodala"
+		name: "Gogodala",
 	},
 	gha: {
 		code: "gha",
-		name: "Ghadamès"
+		name: "Ghadamès",
 	},
 	ghc: {
 		code: "ghc",
-		name: "Hiberno-Scottish Gaelic"
+		name: "Hiberno-Scottish Gaelic",
 	},
 	ghe: {
 		code: "ghe",
-		name: "Southern Ghale"
+		name: "Southern Ghale",
 	},
 	ghh: {
 		code: "ghh",
-		name: "Northern Ghale"
+		name: "Northern Ghale",
 	},
 	ghk: {
 		code: "ghk",
-		name: "Geko Karen"
+		name: "Geko Karen",
 	},
 	ghl: {
 		code: "ghl",
-		name: "Ghulfan"
+		name: "Ghulfan",
 	},
 	ghn: {
 		code: "ghn",
-		name: "Ghanongga"
+		name: "Ghanongga",
 	},
 	gho: {
 		code: "gho",
-		name: "Ghomara"
+		name: "Ghomara",
 	},
 	ghr: {
 		code: "ghr",
-		name: "Ghera"
+		name: "Ghera",
 	},
 	ghs: {
 		code: "ghs",
-		name: "Guhu-Samane"
+		name: "Guhu-Samane",
 	},
 	ght: {
 		code: "ght",
-		name: "Kuke"
+		name: "Kuke",
 	},
 	gia: {
 		code: "gia",
-		name: "Kija"
+		name: "Kija",
 	},
 	gib: {
 		code: "gib",
-		name: "Gibanawa"
+		name: "Gibanawa",
 	},
 	gic: {
 		code: "gic",
-		name: "Gail"
+		name: "Gail",
 	},
 	gid: {
 		code: "gid",
-		name: "Gidar"
+		name: "Gidar",
 	},
 	gie: {
 		code: "gie",
-		name: "Gaɓogbo"
+		name: "Gaɓogbo",
 	},
 	gig: {
 		code: "gig",
-		name: "Goaria"
+		name: "Goaria",
 	},
 	gih: {
 		code: "gih",
-		name: "Githabul"
+		name: "Githabul",
 	},
 	gii: {
 		code: "gii",
-		name: "Girirra"
+		name: "Girirra",
+	},
+	gil: {
+		code: "gil",
+		name: "Gilbertese",
 	},
 	gim: {
 		code: "gim",
-		name: "Gimi (Eastern Highlands)"
+		name: "Gimi (Eastern Highlands)",
 	},
 	gin: {
 		code: "gin",
-		name: "Hinukh"
+		name: "Hinukh",
 	},
 	gip: {
 		code: "gip",
-		name: "Gimi (West New Britain)"
+		name: "Gimi (West New Britain)",
 	},
 	giq: {
 		code: "giq",
-		name: "Green Gelao"
+		name: "Green Gelao",
 	},
 	gir: {
 		code: "gir",
-		name: "Red Gelao"
+		name: "Red Gelao",
 	},
 	gis: {
 		code: "gis",
-		name: "North Giziga"
+		name: "North Giziga",
 	},
 	git: {
 		code: "git",
-		name: "Gitxsan"
+		name: "Gitxsan",
 	},
 	giu: {
 		code: "giu",
-		name: "Mulao"
+		name: "Mulao",
 	},
 	giw: {
 		code: "giw",
-		name: "White Gelao"
+		name: "White Gelao",
 	},
 	gix: {
 		code: "gix",
-		name: "Gilima"
+		name: "Gilima",
 	},
 	giy: {
 		code: "giy",
-		name: "Giyug"
+		name: "Giyug",
 	},
 	giz: {
 		code: "giz",
-		name: "South Giziga"
+		name: "South Giziga",
 	},
 	gjk: {
 		code: "gjk",
-		name: "Kachi Koli"
+		name: "Kachi Koli",
 	},
 	gjm: {
 		code: "gjm",
-		name: "Gunditjmara"
+		name: "Gunditjmara",
 	},
 	gjn: {
 		code: "gjn",
-		name: "Gonja"
+		name: "Gonja",
 	},
 	gjr: {
 		code: "gjr",
-		name: "Gurindji Kriol"
+		name: "Gurindji Kriol",
 	},
 	gju: {
 		code: "gju",
-		name: "Gujari"
+		name: "Gujari",
 	},
 	gka: {
 		code: "gka",
-		name: "Guya"
+		name: "Guya",
 	},
 	gkd: {
 		code: "gkd",
-		name: "Magɨ (Madang Province)"
+		name: "Magɨ (Madang Province)",
 	},
 	gke: {
 		code: "gke",
-		name: "Ndai"
+		name: "Ndai",
 	},
 	gkn: {
 		code: "gkn",
-		name: "Gokana"
+		name: "Gokana",
 	},
 	gko: {
 		code: "gko",
-		name: "Kok-Nar"
+		name: "Kok-Nar",
 	},
 	gkp: {
 		code: "gkp",
-		name: "Guinea Kpelle"
+		name: "Guinea Kpelle",
 	},
 	gku: {
 		code: "gku",
-		name: "ǂUngkue"
+		name: "ǂUngkue",
+	},
+	gla: {
+		code: "gla",
+		name: "Scottish Gaelic",
 	},
 	glb: {
 		code: "glb",
-		name: "Belning"
+		name: "Belning",
 	},
 	glc: {
 		code: "glc",
-		name: "Bon Gula"
+		name: "Bon Gula",
 	},
 	gld: {
 		code: "gld",
-		name: "Nanai"
+		name: "Nanai",
+	},
+	gle: {
+		code: "gle",
+		name: "Irish",
+	},
+	glg: {
+		code: "glg",
+		name: "Galician",
 	},
 	glh: {
 		code: "glh",
-		name: "Northwest Pashai"
+		name: "Northwest Pashai",
 	},
 	glj: {
 		code: "glj",
-		name: "Gula Iro"
+		name: "Gula Iro",
 	},
 	glk: {
 		code: "glk",
-		name: "Gilaki"
+		name: "Gilaki",
 	},
 	gll: {
 		code: "gll",
-		name: "Garlali"
+		name: "Garlali",
 	},
 	glo: {
 		code: "glo",
-		name: "Galambu"
+		name: "Galambu",
 	},
 	glr: {
 		code: "glr",
-		name: "Glaro-Twabo"
+		name: "Glaro-Twabo",
 	},
 	glu: {
 		code: "glu",
-		name: "Gula (Chad)"
+		name: "Gula (Chad)",
+	},
+	glv: {
+		code: "glv",
+		name: "Manx",
 	},
 	glw: {
 		code: "glw",
-		name: "Glavda"
+		name: "Glavda",
 	},
 	gly: {
 		code: "gly",
-		name: "Gule"
+		name: "Gule",
 	},
 	gma: {
 		code: "gma",
-		name: "Gambera"
+		name: "Gambera",
 	},
 	gmb: {
 		code: "gmb",
-		name: "Gula'alaa"
+		name: "Gula'alaa",
 	},
 	gmd: {
 		code: "gmd",
-		name: "Mághdì"
+		name: "Mághdì",
 	},
 	gmg: {
 		code: "gmg",
-		name: "Magɨyi"
+		name: "Magɨyi",
 	},
 	gmh: {
 		code: "gmh",
-		name: "Middle High German (ca. 1050-1500)"
+		name: "Middle High German (ca. 1050-1500)",
 	},
 	gml: {
 		code: "gml",
-		name: "Middle Low German"
+		name: "Middle Low German",
 	},
 	gmm: {
 		code: "gmm",
-		name: "Gbaya-Mbodomo"
+		name: "Gbaya-Mbodomo",
 	},
 	gmn: {
 		code: "gmn",
-		name: "Gimnime"
+		name: "Gimnime",
 	},
 	gmr: {
 		code: "gmr",
-		name: "Mirning"
+		name: "Mirning",
 	},
 	gmu: {
 		code: "gmu",
-		name: "Gumalu"
+		name: "Gumalu",
 	},
 	gmv: {
 		code: "gmv",
-		name: "Gamo"
+		name: "Gamo",
 	},
 	gmx: {
 		code: "gmx",
-		name: "Magoma"
+		name: "Magoma",
 	},
 	gmy: {
 		code: "gmy",
-		name: "Mycenaean Greek"
+		name: "Mycenaean Greek",
 	},
 	gmz: {
 		code: "gmz",
-		name: "Mgbolizhia"
+		name: "Mgbolizhia",
 	},
 	gna: {
 		code: "gna",
-		name: "Kaansa"
+		name: "Kaansa",
 	},
 	gnb: {
 		code: "gnb",
-		name: "Gangte"
+		name: "Gangte",
 	},
 	gnc: {
 		code: "gnc",
-		name: "Guanche"
+		name: "Guanche",
 	},
 	gnd: {
 		code: "gnd",
-		name: "Zulgo-Gemzek"
+		name: "Zulgo-Gemzek",
 	},
 	gne: {
 		code: "gne",
-		name: "Ganang"
+		name: "Ganang",
 	},
 	gng: {
 		code: "gng",
-		name: "Ngangam"
+		name: "Ngangam",
 	},
 	gnh: {
 		code: "gnh",
-		name: "Lere"
+		name: "Lere",
 	},
 	gni: {
 		code: "gni",
-		name: "Gooniyandi"
+		name: "Gooniyandi",
 	},
 	gnj: {
 		code: "gnj",
-		name: "Ngen"
+		name: "Ngen",
 	},
 	gnk: {
 		code: "gnk",
-		name: "ǁGana"
+		name: "ǁGana",
 	},
 	gnl: {
 		code: "gnl",
-		name: "Gangulu"
+		name: "Gangulu",
 	},
 	gnm: {
 		code: "gnm",
-		name: "Ginuman"
+		name: "Ginuman",
 	},
 	gnn: {
 		code: "gnn",
-		name: "Gumatj"
+		name: "Gumatj",
 	},
 	gno: {
 		code: "gno",
-		name: "Northern Gondi"
+		name: "Northern Gondi",
 	},
 	gnq: {
 		code: "gnq",
-		name: "Gana"
+		name: "Gana",
 	},
 	gnr: {
 		code: "gnr",
-		name: "Gureng Gureng"
+		name: "Gureng Gureng",
 	},
 	gnt: {
 		code: "gnt",
-		name: "Guntai"
+		name: "Guntai",
 	},
 	gnu: {
 		code: "gnu",
-		name: "Gnau"
+		name: "Gnau",
 	},
 	gnw: {
 		code: "gnw",
-		name: "Western Bolivian Guaraní"
+		name: "Western Bolivian Guaraní",
 	},
 	gnz: {
 		code: "gnz",
-		name: "Ganzi"
+		name: "Ganzi",
 	},
 	goa: {
 		code: "goa",
-		name: "Guro"
+		name: "Guro",
 	},
 	gob: {
 		code: "gob",
-		name: "Playero"
+		name: "Playero",
 	},
 	goc: {
 		code: "goc",
-		name: "Gorakor"
+		name: "Gorakor",
 	},
 	god: {
 		code: "god",
-		name: "Godié"
+		name: "Godié",
 	},
 	goe: {
 		code: "goe",
-		name: "Gongduk"
+		name: "Gongduk",
 	},
 	gof: {
 		code: "gof",
-		name: "Gofa"
+		name: "Gofa",
 	},
 	gog: {
 		code: "gog",
-		name: "Gogo"
+		name: "Gogo",
 	},
 	goh: {
 		code: "goh",
-		name: "Old High German (ca. 750-1050)"
+		name: "Old High German (ca. 750-1050)",
 	},
 	goi: {
 		code: "goi",
-		name: "Gobasi"
+		name: "Gobasi",
 	},
 	goj: {
 		code: "goj",
-		name: "Gowlan"
+		name: "Gowlan",
 	},
 	gok: {
 		code: "gok",
-		name: "Gowli"
+		name: "Gowli",
 	},
 	gol: {
 		code: "gol",
-		name: "Gola"
+		name: "Gola",
 	},
 	gom: {
 		code: "gom",
-		name: "Goan Konkani"
+		name: "Goan Konkani",
 	},
 	gon: {
 		code: "gon",
-		name: "Gondi"
+		name: "Gondi",
 	},
 	goo: {
 		code: "goo",
-		name: "Gone Dau"
+		name: "Gone Dau",
 	},
 	gop: {
 		code: "gop",
-		name: "Yeretuar"
+		name: "Yeretuar",
 	},
 	goq: {
 		code: "goq",
-		name: "Gorap"
+		name: "Gorap",
 	},
 	gor: {
 		code: "gor",
-		name: "Gorontalo"
+		name: "Gorontalo",
 	},
 	gos: {
 		code: "gos",
-		name: "Gronings"
+		name: "Gronings",
 	},
 	got: {
 		code: "got",
-		name: "Gothic"
+		name: "Gothic",
 	},
 	gou: {
 		code: "gou",
-		name: "Gavar"
+		name: "Gavar",
 	},
 	gov: {
 		code: "gov",
-		name: "Goo"
+		name: "Goo",
 	},
 	gow: {
 		code: "gow",
-		name: "Gorowa"
+		name: "Gorowa",
 	},
 	gox: {
 		code: "gox",
-		name: "Gobu"
+		name: "Gobu",
 	},
 	goy: {
 		code: "goy",
-		name: "Goundo"
+		name: "Goundo",
 	},
 	goz: {
 		code: "goz",
-		name: "Gozarkhani"
+		name: "Gozarkhani",
 	},
 	gpa: {
 		code: "gpa",
-		name: "Gupa-Abawa"
+		name: "Gupa-Abawa",
 	},
 	gpe: {
 		code: "gpe",
-		name: "Ghanaian Pidgin English"
+		name: "Ghanaian Pidgin English",
 	},
 	gpn: {
 		code: "gpn",
-		name: "Taiap"
+		name: "Taiap",
 	},
 	gqa: {
 		code: "gqa",
-		name: "Ga'anda"
+		name: "Ga'anda",
 	},
 	gqi: {
 		code: "gqi",
-		name: "Guiqiong"
+		name: "Guiqiong",
 	},
 	gqn: {
 		code: "gqn",
-		name: "Guana (Brazil)"
+		name: "Guana (Brazil)",
 	},
 	gqr: {
 		code: "gqr",
-		name: "Gor"
+		name: "Gor",
 	},
 	gqu: {
 		code: "gqu",
-		name: "Qau"
+		name: "Qau",
 	},
 	gra: {
 		code: "gra",
-		name: "Rajput Garasia"
+		name: "Rajput Garasia",
 	},
 	grb: {
 		code: "grb",
-		name: "Grebo"
+		name: "Grebo",
 	},
 	grc: {
 		code: "grc",
-		name: "Ancient Greek (to 1453)"
+		name: "Ancient Greek (to 1453)",
 	},
 	grd: {
 		code: "grd",
-		name: "Guruntum-Mbaaru"
+		name: "Guruntum-Mbaaru",
 	},
 	grg: {
 		code: "grg",
-		name: "Madi"
+		name: "Madi",
 	},
 	grh: {
 		code: "grh",
-		name: "Gbiri-Niragu"
+		name: "Gbiri-Niragu",
 	},
 	gri: {
 		code: "gri",
-		name: "Ghari"
+		name: "Ghari",
 	},
 	grj: {
 		code: "grj",
-		name: "Southern Grebo"
+		name: "Southern Grebo",
 	},
 	grm: {
 		code: "grm",
-		name: "Kota Marudu Talantang"
+		name: "Kota Marudu Talantang",
 	},
 	grn: {
 		code: "grn",
-		name: "Guarani"
+		name: "Guarani",
 	},
 	gro: {
 		code: "gro",
-		name: "Groma"
+		name: "Groma",
 	},
 	grq: {
 		code: "grq",
-		name: "Gorovu"
+		name: "Gorovu",
 	},
 	grr: {
 		code: "grr",
-		name: "Taznatit"
+		name: "Taznatit",
 	},
 	grs: {
 		code: "grs",
-		name: "Gresi"
+		name: "Gresi",
 	},
 	grt: {
 		code: "grt",
-		name: "Garo"
+		name: "Garo",
 	},
 	gru: {
 		code: "gru",
-		name: "Kistane"
+		name: "Kistane",
 	},
 	grv: {
 		code: "grv",
-		name: "Central Grebo"
+		name: "Central Grebo",
 	},
 	grw: {
 		code: "grw",
-		name: "Gweda"
+		name: "Gweda",
 	},
 	grx: {
 		code: "grx",
-		name: "Guriaso"
+		name: "Guriaso",
 	},
 	gry: {
 		code: "gry",
-		name: "Barclayville Grebo"
+		name: "Barclayville Grebo",
 	},
 	grz: {
 		code: "grz",
-		name: "Guramalum"
+		name: "Guramalum",
 	},
 	gse: {
 		code: "gse",
-		name: "Ghanaian Sign Language"
+		name: "Ghanaian Sign Language",
 	},
 	gsg: {
 		code: "gsg",
-		name: "German Sign Language"
+		name: "German Sign Language",
 	},
 	gsl: {
 		code: "gsl",
-		name: "Gusilay"
+		name: "Gusilay",
 	},
 	gsm: {
 		code: "gsm",
-		name: "Guatemalan Sign Language"
+		name: "Guatemalan Sign Language",
 	},
 	gsn: {
 		code: "gsn",
-		name: "Nema"
+		name: "Nema",
 	},
 	gso: {
 		code: "gso",
-		name: "Southwest Gbaya"
+		name: "Southwest Gbaya",
 	},
 	gsp: {
 		code: "gsp",
-		name: "Wasembo"
+		name: "Wasembo",
 	},
 	gss: {
 		code: "gss",
-		name: "Greek Sign Language"
+		name: "Greek Sign Language",
 	},
 	gsw: {
 		code: "gsw",
-		name: "Swiss German"
+		name: "Swiss German",
 	},
 	gta: {
 		code: "gta",
-		name: "Guató"
+		name: "Guató",
 	},
 	gtu: {
 		code: "gtu",
-		name: "Aghu-Tharnggala"
+		name: "Aghu-Tharnggala",
 	},
 	gua: {
 		code: "gua",
-		name: "Shiki"
+		name: "Shiki",
 	},
 	gub: {
 		code: "gub",
-		name: "Guajajára"
+		name: "Guajajára",
 	},
 	guc: {
 		code: "guc",
-		name: "Wayuu"
+		name: "Wayuu",
 	},
 	gud: {
 		code: "gud",
-		name: "Yocoboué Dida"
+		name: "Yocoboué Dida",
 	},
 	gue: {
 		code: "gue",
-		name: "Gurindji"
+		name: "Gurindji",
 	},
 	guf: {
 		code: "guf",
-		name: "Gupapuyngu"
+		name: "Gupapuyngu",
 	},
 	gug: {
 		code: "gug",
-		name: "Paraguayan Guaraní"
+		name: "Paraguayan Guaraní",
 	},
 	guh: {
 		code: "guh",
-		name: "Guahibo"
+		name: "Guahibo",
 	},
 	gui: {
 		code: "gui",
-		name: "Eastern Bolivian Guaraní"
+		name: "Eastern Bolivian Guaraní",
+	},
+	guj: {
+		code: "guj",
+		name: "Gujarati",
 	},
 	guk: {
 		code: "guk",
-		name: "Gumuz"
+		name: "Gumuz",
 	},
 	gul: {
 		code: "gul",
-		name: "Sea Island Creole English"
+		name: "Sea Island Creole English",
 	},
 	gum: {
 		code: "gum",
-		name: "Guambiano"
+		name: "Guambiano",
 	},
 	gun: {
 		code: "gun",
-		name: "Mbyá Guaraní"
+		name: "Mbyá Guaraní",
 	},
 	guo: {
 		code: "guo",
-		name: "Guayabero"
+		name: "Guayabero",
 	},
 	gup: {
 		code: "gup",
-		name: "Gunwinggu"
+		name: "Gunwinggu",
 	},
 	guq: {
 		code: "guq",
-		name: "Aché"
+		name: "Aché",
 	},
 	gur: {
 		code: "gur",
-		name: "Farefare"
+		name: "Farefare",
 	},
 	gus: {
 		code: "gus",
-		name: "Guinean Sign Language"
+		name: "Guinean Sign Language",
 	},
 	gut: {
 		code: "gut",
-		name: "Maléku Jaíka"
+		name: "Maléku Jaíka",
 	},
 	guu: {
 		code: "guu",
-		name: "Yanomamö"
+		name: "Yanomamö",
+	},
+	guw: {
+		code: "guw",
+		name: "Gun",
 	},
 	gux: {
 		code: "gux",
-		name: "Gourmanchéma"
+		name: "Gourmanchéma",
 	},
 	guz: {
 		code: "guz",
-		name: "Gusii"
+		name: "Gusii",
 	},
 	gva: {
 		code: "gva",
-		name: "Guana (Paraguay)"
+		name: "Guana (Paraguay)",
 	},
 	gvc: {
 		code: "gvc",
-		name: "Guanano"
+		name: "Guanano",
 	},
 	gve: {
 		code: "gve",
-		name: "Duwet"
+		name: "Duwet",
 	},
 	gvf: {
 		code: "gvf",
-		name: "Golin"
+		name: "Golin",
 	},
 	gvj: {
 		code: "gvj",
-		name: "Guajá"
+		name: "Guajá",
 	},
 	gvl: {
 		code: "gvl",
-		name: "Gulay"
+		name: "Gulay",
 	},
 	gvm: {
 		code: "gvm",
-		name: "Gurmana"
+		name: "Gurmana",
 	},
 	gvn: {
 		code: "gvn",
-		name: "Kuku-Yalanji"
+		name: "Kuku-Yalanji",
 	},
 	gvo: {
 		code: "gvo",
-		name: "Gavião Do Jiparaná"
+		name: "Gavião Do Jiparaná",
 	},
 	gvp: {
 		code: "gvp",
-		name: "Pará Gavião"
+		name: "Pará Gavião",
 	},
 	gvr: {
 		code: "gvr",
-		name: "Gurung"
+		name: "Gurung",
 	},
 	gvs: {
 		code: "gvs",
-		name: "Gumawana"
+		name: "Gumawana",
 	},
 	gvy: {
 		code: "gvy",
-		name: "Guyani"
+		name: "Guyani",
 	},
 	gwa: {
 		code: "gwa",
-		name: "Mbato"
+		name: "Mbato",
 	},
 	gwb: {
 		code: "gwb",
-		name: "Gwa"
+		name: "Gwa",
 	},
 	gwc: {
 		code: "gwc",
-		name: "Gawri"
+		name: "Gawri",
 	},
 	gwd: {
 		code: "gwd",
-		name: "Gawwada"
+		name: "Gawwada",
 	},
 	gwe: {
 		code: "gwe",
-		name: "Gweno"
+		name: "Gweno",
 	},
 	gwf: {
 		code: "gwf",
-		name: "Gowro"
+		name: "Gowro",
 	},
 	gwg: {
 		code: "gwg",
-		name: "Moo"
+		name: "Moo",
 	},
 	gwi: {
 		code: "gwi",
-		name: "Gwichʼin"
+		name: "Gwichʼin",
 	},
 	gwj: {
 		code: "gwj",
-		name: "ǀGwi"
+		name: "ǀGwi",
 	},
 	gwm: {
 		code: "gwm",
-		name: "Awngthim"
+		name: "Awngthim",
 	},
 	gwn: {
 		code: "gwn",
-		name: "Gwandara"
+		name: "Gwandara",
 	},
 	gwr: {
 		code: "gwr",
-		name: "Gwere"
+		name: "Gwere",
 	},
 	gwt: {
 		code: "gwt",
-		name: "Gawar-Bati"
+		name: "Gawar-Bati",
 	},
 	gwu: {
 		code: "gwu",
-		name: "Guwamu"
+		name: "Guwamu",
 	},
 	gww: {
 		code: "gww",
-		name: "Kwini"
+		name: "Kwini",
 	},
 	gwx: {
 		code: "gwx",
-		name: "Gua"
+		name: "Gua",
 	},
 	gxx: {
 		code: "gxx",
-		name: "Wè Southern"
+		name: "Wè Southern",
 	},
 	gya: {
 		code: "gya",
-		name: "Northwest Gbaya"
+		name: "Northwest Gbaya",
 	},
 	gyb: {
 		code: "gyb",
-		name: "Garus"
+		name: "Garus",
 	},
 	gyd: {
 		code: "gyd",
-		name: "Kayardild"
+		name: "Kayardild",
 	},
 	gye: {
 		code: "gye",
-		name: "Gyem"
+		name: "Gyem",
 	},
 	gyf: {
 		code: "gyf",
-		name: "Gungabula"
+		name: "Gungabula",
 	},
 	gyg: {
 		code: "gyg",
-		name: "Gbayi"
+		name: "Gbayi",
 	},
 	gyi: {
 		code: "gyi",
-		name: "Gyele"
+		name: "Gyele",
 	},
 	gyl: {
 		code: "gyl",
-		name: "Gayil"
+		name: "Gayil",
 	},
 	gym: {
 		code: "gym",
-		name: "Ngäbere"
+		name: "Ngäbere",
 	},
 	gyn: {
 		code: "gyn",
-		name: "Guyanese Creole English"
+		name: "Guyanese Creole English",
 	},
 	gyo: {
 		code: "gyo",
-		name: "Gyalsumdo"
+		name: "Gyalsumdo",
 	},
 	gyr: {
 		code: "gyr",
-		name: "Guarayu"
+		name: "Guarayu",
 	},
 	gyy: {
 		code: "gyy",
-		name: "Gunya"
+		name: "Gunya",
 	},
 	gyz: {
 		code: "gyz",
-		name: "Geji"
+		name: "Geji",
 	},
 	gza: {
 		code: "gza",
-		name: "Ganza"
+		name: "Ganza",
 	},
 	gzi: {
 		code: "gzi",
-		name: "Gazi"
+		name: "Gazi",
 	},
 	gzn: {
 		code: "gzn",
-		name: "Gane"
+		name: "Gane",
 	},
 	haa: {
 		code: "haa",
-		name: "Han"
+		name: "Han",
 	},
 	hab: {
 		code: "hab",
-		name: "Hanoi Sign Language"
+		name: "Hanoi Sign Language",
 	},
 	hac: {
 		code: "hac",
-		name: "Gurani"
+		name: "Gurani",
 	},
 	had: {
 		code: "had",
-		name: "Hatam"
+		name: "Hatam",
 	},
 	hae: {
 		code: "hae",
-		name: "Eastern Oromo"
+		name: "Eastern Oromo",
 	},
 	haf: {
 		code: "haf",
-		name: "Haiphong Sign Language"
+		name: "Haiphong Sign Language",
 	},
 	hag: {
 		code: "hag",
-		name: "Hanga"
+		name: "Hanga",
 	},
 	hah: {
 		code: "hah",
-		name: "Hahon"
+		name: "Hahon",
 	},
 	hai: {
 		code: "hai",
-		name: "Haida"
+		name: "Haida",
 	},
 	haj: {
 		code: "haj",
-		name: "Hajong"
+		name: "Hajong",
 	},
 	hak: {
 		code: "hak",
-		name: "Hakka Chinese"
+		name: "Hakka Chinese",
 	},
 	hal: {
 		code: "hal",
-		name: "Halang"
+		name: "Halang",
 	},
 	ham: {
 		code: "ham",
-		name: "Hewa"
+		name: "Hewa",
 	},
 	han: {
 		code: "han",
-		name: "Hangaza"
+		name: "Hangaza",
 	},
 	hao: {
 		code: "hao",
-		name: "Hakö"
+		name: "Hakö",
 	},
 	hap: {
 		code: "hap",
-		name: "Hupla"
+		name: "Hupla",
 	},
 	haq: {
 		code: "haq",
-		name: "Ha"
+		name: "Ha",
 	},
 	har: {
 		code: "har",
-		name: "Harari"
+		name: "Harari",
 	},
 	has: {
 		code: "has",
-		name: "Haisla"
+		name: "Haisla",
+	},
+	hat: {
+		code: "hat",
+		name: "Haitian",
+	},
+	hau: {
+		code: "hau",
+		name: "Hausa",
 	},
 	hav: {
 		code: "hav",
-		name: "Havu"
+		name: "Havu",
 	},
 	haw: {
 		code: "haw",
-		name: "Hawaiian"
+		name: "Hawaiian",
 	},
 	hax: {
 		code: "hax",
-		name: "Southern Haida"
+		name: "Southern Haida",
 	},
 	hay: {
 		code: "hay",
-		name: "Haya"
+		name: "Haya",
 	},
 	haz: {
 		code: "haz",
-		name: "Hazaragi"
+		name: "Hazaragi",
 	},
 	hba: {
 		code: "hba",
-		name: "Hamba"
+		name: "Hamba",
 	},
 	hbb: {
 		code: "hbb",
-		name: "Huba"
+		name: "Huba",
 	},
 	hbn: {
 		code: "hbn",
-		name: "Heiban"
+		name: "Heiban",
 	},
 	hbo: {
 		code: "hbo",
-		name: "Ancient Hebrew"
+		name: "Ancient Hebrew",
 	},
 	hbs: {
 		code: "hbs",
-		name: "Serbo-Croatian"
+		name: "Serbo-Croatian",
 	},
 	hbu: {
 		code: "hbu",
-		name: "Habu"
+		name: "Habu",
 	},
 	hca: {
 		code: "hca",
-		name: "Andaman Creole Hindi"
+		name: "Andaman Creole Hindi",
 	},
 	hch: {
 		code: "hch",
-		name: "Huichol"
+		name: "Huichol",
 	},
 	hdn: {
 		code: "hdn",
-		name: "Northern Haida"
+		name: "Northern Haida",
 	},
 	hds: {
 		code: "hds",
-		name: "Honduras Sign Language"
+		name: "Honduras Sign Language",
 	},
 	hdy: {
 		code: "hdy",
-		name: "Hadiyya"
+		name: "Hadiyya",
 	},
 	hea: {
 		code: "hea",
-		name: "Northern Qiandong Miao"
+		name: "Northern Qiandong Miao",
+	},
+	heb: {
+		code: "heb",
+		name: "Hebrew",
 	},
 	hed: {
 		code: "hed",
-		name: "Herdé"
+		name: "Herdé",
 	},
 	heg: {
 		code: "heg",
-		name: "Helong"
+		name: "Helong",
 	},
 	heh: {
 		code: "heh",
-		name: "Hehe"
+		name: "Hehe",
 	},
 	hei: {
 		code: "hei",
-		name: "Heiltsuk"
+		name: "Heiltsuk",
 	},
 	hem: {
 		code: "hem",
-		name: "Hemba"
+		name: "Hemba",
+	},
+	her: {
+		code: "her",
+		name: "Herero",
 	},
 	hgm: {
 		code: "hgm",
-		name: "Haiǁom"
+		name: "Haiǁom",
 	},
 	hgw: {
 		code: "hgw",
-		name: "Haigwai"
+		name: "Haigwai",
 	},
 	hhi: {
 		code: "hhi",
-		name: "Hoia Hoia"
+		name: "Hoia Hoia",
 	},
 	hhr: {
 		code: "hhr",
-		name: "Kerak"
+		name: "Kerak",
 	},
 	hhy: {
 		code: "hhy",
-		name: "Hoyahoya"
+		name: "Hoyahoya",
 	},
 	hia: {
 		code: "hia",
-		name: "Lamang"
+		name: "Lamang",
 	},
 	hib: {
 		code: "hib",
-		name: "Hibito"
+		name: "Hibito",
 	},
 	hid: {
 		code: "hid",
-		name: "Hidatsa"
+		name: "Hidatsa",
 	},
 	hif: {
 		code: "hif",
-		name: "Fiji Hindi"
+		name: "Fiji Hindi",
 	},
 	hig: {
 		code: "hig",
-		name: "Kamwe"
+		name: "Kamwe",
 	},
 	hih: {
 		code: "hih",
-		name: "Pamosu"
+		name: "Pamosu",
 	},
 	hii: {
 		code: "hii",
-		name: "Hinduri"
+		name: "Hinduri",
 	},
 	hij: {
 		code: "hij",
-		name: "Hijuk"
+		name: "Hijuk",
 	},
 	hik: {
 		code: "hik",
-		name: "Seit-Kaitetu"
+		name: "Seit-Kaitetu",
+	},
+	hil: {
+		code: "hil",
+		name: "Hiligaynon",
+	},
+	hin: {
+		code: "hin",
+		name: "Hindi",
 	},
 	hio: {
 		code: "hio",
-		name: "Tsoa"
+		name: "Tsoa",
 	},
 	hir: {
 		code: "hir",
-		name: "Himarimã"
+		name: "Himarimã",
 	},
 	hit: {
 		code: "hit",
-		name: "Hittite"
+		name: "Hittite",
 	},
 	hiw: {
 		code: "hiw",
-		name: "Hiw"
+		name: "Hiw",
 	},
 	hix: {
 		code: "hix",
-		name: "Hixkaryána"
+		name: "Hixkaryána",
 	},
 	hji: {
 		code: "hji",
-		name: "Haji"
+		name: "Haji",
 	},
 	hka: {
 		code: "hka",
-		name: "Kahe"
+		name: "Kahe",
 	},
 	hke: {
 		code: "hke",
-		name: "Hunde"
+		name: "Hunde",
 	},
 	hkh: {
 		code: "hkh",
-		name: "Khah"
+		name: "Khah",
 	},
 	hkk: {
 		code: "hkk",
-		name: "Hunjara-Kaina Ke"
+		name: "Hunjara-Kaina Ke",
 	},
 	hkn: {
 		code: "hkn",
-		name: "Mel-Khaonh"
+		name: "Mel-Khaonh",
 	},
 	hks: {
 		code: "hks",
-		name: "Hong Kong Sign Language"
+		name: "Hong Kong Sign Language",
 	},
 	hla: {
 		code: "hla",
-		name: "Halia"
+		name: "Halia",
 	},
 	hlb: {
 		code: "hlb",
-		name: "Halbi"
+		name: "Halbi",
 	},
 	hld: {
 		code: "hld",
-		name: "Halang Doan"
+		name: "Halang Doan",
 	},
 	hle: {
 		code: "hle",
-		name: "Hlersu"
+		name: "Hlersu",
 	},
 	hlt: {
 		code: "hlt",
-		name: "Matu Chin"
+		name: "Matu Chin",
 	},
 	hlu: {
 		code: "hlu",
-		name: "Hieroglyphic Luwian"
+		name: "Hieroglyphic Luwian",
 	},
 	hma: {
 		code: "hma",
-		name: "Southern Mashan Hmong"
+		name: "Southern Mashan Hmong",
 	},
 	hmb: {
 		code: "hmb",
-		name: "Humburi Senni Songhay"
+		name: "Humburi Senni Songhay",
 	},
 	hmc: {
 		code: "hmc",
-		name: "Central Huishui Hmong"
+		name: "Central Huishui Hmong",
 	},
 	hmd: {
 		code: "hmd",
-		name: "Large Flowery Miao"
+		name: "Large Flowery Miao",
 	},
 	hme: {
 		code: "hme",
-		name: "Eastern Huishui Hmong"
+		name: "Eastern Huishui Hmong",
 	},
 	hmf: {
 		code: "hmf",
-		name: "Hmong Don"
+		name: "Hmong Don",
 	},
 	hmg: {
 		code: "hmg",
-		name: "Southwestern Guiyang Hmong"
+		name: "Southwestern Guiyang Hmong",
 	},
 	hmh: {
 		code: "hmh",
-		name: "Southwestern Huishui Hmong"
+		name: "Southwestern Huishui Hmong",
 	},
 	hmi: {
 		code: "hmi",
-		name: "Northern Huishui Hmong"
+		name: "Northern Huishui Hmong",
 	},
 	hmj: {
 		code: "hmj",
-		name: "Ge"
+		name: "Ge",
 	},
 	hmk: {
 		code: "hmk",
-		name: "Maek"
+		name: "Maek",
 	},
 	hml: {
 		code: "hml",
-		name: "Luopohe Hmong"
+		name: "Luopohe Hmong",
 	},
 	hmm: {
 		code: "hmm",
-		name: "Central Mashan Hmong"
+		name: "Central Mashan Hmong",
 	},
 	hmn: {
 		code: "hmn",
-		name: "Hmong"
+		name: "Hmong",
+	},
+	hmo: {
+		code: "hmo",
+		name: "Hiri Motu",
 	},
 	hmp: {
 		code: "hmp",
-		name: "Northern Mashan Hmong"
+		name: "Northern Mashan Hmong",
 	},
 	hmq: {
 		code: "hmq",
-		name: "Eastern Qiandong Miao"
+		name: "Eastern Qiandong Miao",
 	},
 	hmr: {
 		code: "hmr",
-		name: "Hmar"
+		name: "Hmar",
 	},
 	hms: {
 		code: "hms",
-		name: "Southern Qiandong Miao"
+		name: "Southern Qiandong Miao",
 	},
 	hmt: {
 		code: "hmt",
-		name: "Hamtai"
+		name: "Hamtai",
 	},
 	hmu: {
 		code: "hmu",
-		name: "Hamap"
+		name: "Hamap",
 	},
 	hmv: {
 		code: "hmv",
-		name: "Hmong Dô"
+		name: "Hmong Dô",
 	},
 	hmw: {
 		code: "hmw",
-		name: "Western Mashan Hmong"
+		name: "Western Mashan Hmong",
 	},
 	hmy: {
 		code: "hmy",
-		name: "Southern Guiyang Hmong"
+		name: "Southern Guiyang Hmong",
 	},
 	hmz: {
 		code: "hmz",
-		name: "Hmong Shua"
+		name: "Hmong Shua",
 	},
 	hna: {
 		code: "hna",
-		name: "Mina (Cameroon)"
+		name: "Mina (Cameroon)",
 	},
 	hnd: {
 		code: "hnd",
-		name: "Southern Hindko"
+		name: "Southern Hindko",
 	},
 	hne: {
 		code: "hne",
-		name: "Chhattisgarhi"
+		name: "Chhattisgarhi",
 	},
 	hng: {
 		code: "hng",
-		name: "Hungu"
+		name: "Hungu",
 	},
 	hnh: {
 		code: "hnh",
-		name: "ǁAni"
+		name: "ǁAni",
 	},
 	hni: {
 		code: "hni",
-		name: "Hani"
+		name: "Hani",
 	},
 	hnj: {
 		code: "hnj",
-		name: "Hmong Njua"
+		name: "Hmong Njua",
 	},
 	hnn: {
 		code: "hnn",
-		name: "Hanunoo"
+		name: "Hanunoo",
 	},
 	hno: {
 		code: "hno",
-		name: "Northern Hindko"
+		name: "Northern Hindko",
 	},
 	hns: {
 		code: "hns",
-		name: "Caribbean Hindustani"
+		name: "Caribbean Hindustani",
 	},
 	hnu: {
 		code: "hnu",
-		name: "Hung"
+		name: "Hung",
 	},
 	hoa: {
 		code: "hoa",
-		name: "Hoava"
+		name: "Hoava",
 	},
 	hob: {
 		code: "hob",
-		name: "Mari (Madang Province)"
+		name: "Mari (Madang Province)",
 	},
 	hoc: {
 		code: "hoc",
-		name: "Ho"
+		name: "Ho",
 	},
 	hod: {
 		code: "hod",
-		name: "Holma"
+		name: "Holma",
 	},
 	hoe: {
 		code: "hoe",
-		name: "Horom"
+		name: "Horom",
 	},
 	hoh: {
 		code: "hoh",
-		name: "Hobyót"
+		name: "Hobyót",
 	},
 	hoi: {
 		code: "hoi",
-		name: "Holikachuk"
+		name: "Holikachuk",
 	},
 	hoj: {
 		code: "hoj",
-		name: "Hadothi"
+		name: "Hadothi",
 	},
 	hol: {
 		code: "hol",
-		name: "Holu"
+		name: "Holu",
 	},
 	hom: {
 		code: "hom",
-		name: "Homa"
+		name: "Homa",
 	},
 	hoo: {
 		code: "hoo",
-		name: "Holoholo"
+		name: "Holoholo",
 	},
 	hop: {
 		code: "hop",
-		name: "Hopi"
+		name: "Hopi",
 	},
 	hor: {
 		code: "hor",
-		name: "Horo"
+		name: "Horo",
 	},
 	hos: {
 		code: "hos",
-		name: "Ho Chi Minh City Sign Language"
+		name: "Ho Chi Minh City Sign Language",
 	},
 	hot: {
 		code: "hot",
-		name: "Hote"
+		name: "Hote",
 	},
 	hov: {
 		code: "hov",
-		name: "Hovongan"
+		name: "Hovongan",
 	},
 	how: {
 		code: "how",
-		name: "Honi"
+		name: "Honi",
 	},
 	hoy: {
 		code: "hoy",
-		name: "Holiya"
+		name: "Holiya",
 	},
 	hoz: {
 		code: "hoz",
-		name: "Hozo"
+		name: "Hozo",
 	},
 	hpo: {
 		code: "hpo",
-		name: "Hpon"
+		name: "Hpon",
 	},
 	hps: {
 		code: "hps",
-		name: "Hawai'i Sign Language (HSL)"
+		name: "Hawai'i Sign Language (HSL)",
 	},
 	hra: {
 		code: "hra",
-		name: "Hrangkhol"
+		name: "Hrangkhol",
 	},
 	hrc: {
 		code: "hrc",
-		name: "Niwer Mil"
+		name: "Niwer Mil",
 	},
 	hre: {
 		code: "hre",
-		name: "Hre"
+		name: "Hre",
 	},
 	hrk: {
 		code: "hrk",
-		name: "Haruku"
+		name: "Haruku",
 	},
 	hrm: {
 		code: "hrm",
-		name: "Horned Miao"
+		name: "Horned Miao",
 	},
 	hro: {
 		code: "hro",
-		name: "Haroi"
+		name: "Haroi",
 	},
 	hrp: {
 		code: "hrp",
-		name: "Nhirrpi"
+		name: "Nhirrpi",
 	},
 	hrt: {
 		code: "hrt",
-		name: "Hértevin"
+		name: "Hértevin",
 	},
 	hru: {
 		code: "hru",
-		name: "Hruso"
+		name: "Hruso",
+	},
+	hrv: {
+		code: "hrv",
+		name: "Croatian",
 	},
 	hrw: {
 		code: "hrw",
-		name: "Warwar Feni"
+		name: "Warwar Feni",
 	},
 	hrx: {
 		code: "hrx",
-		name: "Hunsrik"
+		name: "Hunsrik",
 	},
 	hrz: {
 		code: "hrz",
-		name: "Harzani"
+		name: "Harzani",
 	},
 	hsb: {
 		code: "hsb",
-		name: "Upper Sorbian"
+		name: "Upper Sorbian",
 	},
 	hsh: {
 		code: "hsh",
-		name: "Hungarian Sign Language"
+		name: "Hungarian Sign Language",
 	},
 	hsl: {
 		code: "hsl",
-		name: "Hausa Sign Language"
+		name: "Hausa Sign Language",
 	},
 	hsn: {
 		code: "hsn",
-		name: "Xiang Chinese"
+		name: "Xiang Chinese",
 	},
 	hss: {
 		code: "hss",
-		name: "Harsusi"
+		name: "Harsusi",
 	},
 	hti: {
 		code: "hti",
-		name: "Hoti"
+		name: "Hoti",
 	},
 	hto: {
 		code: "hto",
-		name: "Minica Huitoto"
+		name: "Minica Huitoto",
 	},
 	hts: {
 		code: "hts",
-		name: "Hadza"
+		name: "Hadza",
 	},
 	htu: {
 		code: "htu",
-		name: "Hitu"
+		name: "Hitu",
 	},
 	htx: {
 		code: "htx",
-		name: "Middle Hittite"
+		name: "Middle Hittite",
 	},
 	hub: {
 		code: "hub",
-		name: "Huambisa"
+		name: "Huambisa",
 	},
 	huc: {
 		code: "huc",
-		name: "ǂHua"
+		name: "ǂHua",
 	},
 	hud: {
 		code: "hud",
-		name: "Huaulu"
+		name: "Huaulu",
 	},
 	hue: {
 		code: "hue",
-		name: "San Francisco Del Mar Huave"
+		name: "San Francisco Del Mar Huave",
 	},
 	huf: {
 		code: "huf",
-		name: "Humene"
+		name: "Humene",
 	},
 	hug: {
 		code: "hug",
-		name: "Huachipaeri"
+		name: "Huachipaeri",
 	},
 	huh: {
 		code: "huh",
-		name: "Huilliche"
+		name: "Huilliche",
 	},
 	hui: {
 		code: "hui",
-		name: "Huli"
+		name: "Huli",
 	},
 	huj: {
 		code: "huj",
-		name: "Northern Guiyang Hmong"
+		name: "Northern Guiyang Hmong",
 	},
 	huk: {
 		code: "huk",
-		name: "Hulung"
+		name: "Hulung",
 	},
 	hul: {
 		code: "hul",
-		name: "Hula"
+		name: "Hula",
 	},
 	hum: {
 		code: "hum",
-		name: "Hungana"
+		name: "Hungana",
+	},
+	hun: {
+		code: "hun",
+		name: "Hungarian",
 	},
 	huo: {
 		code: "huo",
-		name: "Hu"
+		name: "Hu",
 	},
 	hup: {
 		code: "hup",
-		name: "Hupa"
+		name: "Hupa",
 	},
 	huq: {
 		code: "huq",
-		name: "Tsat"
+		name: "Tsat",
 	},
 	hur: {
 		code: "hur",
-		name: "Halkomelem"
+		name: "Halkomelem",
 	},
 	hus: {
 		code: "hus",
-		name: "Huastec"
+		name: "Huastec",
 	},
 	hut: {
 		code: "hut",
-		name: "Humla"
+		name: "Humla",
 	},
 	huu: {
 		code: "huu",
-		name: "Murui Huitoto"
+		name: "Murui Huitoto",
 	},
 	huv: {
 		code: "huv",
-		name: "San Mateo Del Mar Huave"
+		name: "San Mateo Del Mar Huave",
 	},
 	huw: {
 		code: "huw",
-		name: "Hukumina"
+		name: "Hukumina",
 	},
 	hux: {
 		code: "hux",
-		name: "Nüpode Huitoto"
+		name: "Nüpode Huitoto",
 	},
 	huy: {
 		code: "huy",
-		name: "Hulaulá"
+		name: "Hulaulá",
 	},
 	huz: {
 		code: "huz",
-		name: "Hunzib"
+		name: "Hunzib",
 	},
 	hvc: {
 		code: "hvc",
-		name: "Haitian Vodoun Culture Language"
+		name: "Haitian Vodoun Culture Language",
 	},
 	hve: {
 		code: "hve",
-		name: "San Dionisio Del Mar Huave"
+		name: "San Dionisio Del Mar Huave",
 	},
 	hvk: {
 		code: "hvk",
-		name: "Haveke"
+		name: "Haveke",
 	},
 	hvn: {
 		code: "hvn",
-		name: "Sabu"
+		name: "Sabu",
 	},
 	hvv: {
 		code: "hvv",
-		name: "Santa María Del Mar Huave"
+		name: "Santa María Del Mar Huave",
 	},
 	hwa: {
 		code: "hwa",
-		name: "Wané"
+		name: "Wané",
 	},
 	hwc: {
 		code: "hwc",
-		name: "Hawai'i Creole English"
+		name: "Hawai'i Creole English",
 	},
 	hwo: {
 		code: "hwo",
-		name: "Hwana"
+		name: "Hwana",
 	},
 	hya: {
 		code: "hya",
-		name: "Hya"
+		name: "Hya",
+	},
+	hye: {
+		code: "hye",
+		name: "Armenian",
 	},
 	hyw: {
 		code: "hyw",
-		name: "Western Armenian"
+		name: "Western Armenian",
 	},
 	iai: {
 		code: "iai",
-		name: "Iaai"
+		name: "Iaai",
 	},
 	ian: {
 		code: "ian",
-		name: "Iatmul"
+		name: "Iatmul",
 	},
 	iar: {
 		code: "iar",
-		name: "Purari"
+		name: "Purari",
 	},
 	iba: {
 		code: "iba",
-		name: "Iban"
+		name: "Iban",
 	},
 	ibb: {
 		code: "ibb",
-		name: "Ibibio"
+		name: "Ibibio",
 	},
 	ibd: {
 		code: "ibd",
-		name: "Iwaidja"
+		name: "Iwaidja",
 	},
 	ibe: {
 		code: "ibe",
-		name: "Akpes"
+		name: "Akpes",
 	},
 	ibg: {
 		code: "ibg",
-		name: "Ibanag"
+		name: "Ibanag",
 	},
 	ibh: {
 		code: "ibh",
-		name: "Bih"
+		name: "Bih",
 	},
 	ibl: {
 		code: "ibl",
-		name: "Ibaloi"
+		name: "Ibaloi",
 	},
 	ibm: {
 		code: "ibm",
-		name: "Agoi"
+		name: "Agoi",
 	},
 	ibn: {
 		code: "ibn",
-		name: "Ibino"
+		name: "Ibino",
+	},
+	ibo: {
+		code: "ibo",
+		name: "Igbo",
 	},
 	ibr: {
 		code: "ibr",
-		name: "Ibuoro"
+		name: "Ibuoro",
 	},
 	ibu: {
 		code: "ibu",
-		name: "Ibu"
+		name: "Ibu",
 	},
 	iby: {
 		code: "iby",
-		name: "Ibani"
+		name: "Ibani",
 	},
 	ica: {
 		code: "ica",
-		name: "Ede Ica"
+		name: "Ede Ica",
 	},
 	ich: {
 		code: "ich",
-		name: "Etkywan"
+		name: "Etkywan",
 	},
 	icl: {
 		code: "icl",
-		name: "Icelandic Sign Language"
+		name: "Icelandic Sign Language",
 	},
 	icr: {
 		code: "icr",
-		name: "Islander Creole English"
+		name: "Islander Creole English",
 	},
 	ida: {
 		code: "ida",
-		name: "Idakho-Isukha-Tiriki"
+		name: "Idakho-Isukha-Tiriki",
 	},
 	idb: {
 		code: "idb",
-		name: "Indo-Portuguese"
+		name: "Indo-Portuguese",
 	},
 	idc: {
 		code: "idc",
-		name: "Idon"
+		name: "Idon",
 	},
 	idd: {
 		code: "idd",
-		name: "Ede Idaca"
+		name: "Ede Idaca",
 	},
 	ide: {
 		code: "ide",
-		name: "Idere"
+		name: "Idere",
 	},
 	idi: {
 		code: "idi",
-		name: "Idi"
+		name: "Idi",
+	},
+	ido: {
+		code: "ido",
+		name: "Ido",
 	},
 	idr: {
 		code: "idr",
-		name: "Indri"
+		name: "Indri",
 	},
 	ids: {
 		code: "ids",
-		name: "Idesa"
+		name: "Idesa",
 	},
 	idt: {
 		code: "idt",
-		name: "Idaté"
+		name: "Idaté",
 	},
 	idu: {
 		code: "idu",
-		name: "Idoma"
+		name: "Idoma",
 	},
 	ifa: {
 		code: "ifa",
-		name: "Amganad Ifugao"
+		name: "Amganad Ifugao",
 	},
 	ifb: {
 		code: "ifb",
-		name: "Batad Ifugao"
+		name: "Batad Ifugao",
 	},
 	ife: {
 		code: "ife",
-		name: "Ifè"
+		name: "Ifè",
 	},
 	iff: {
 		code: "iff",
-		name: "Ifo"
+		name: "Ifo",
 	},
 	ifk: {
 		code: "ifk",
-		name: "Tuwali Ifugao"
+		name: "Tuwali Ifugao",
 	},
 	ifm: {
 		code: "ifm",
-		name: "Teke-Fuumu"
+		name: "Teke-Fuumu",
 	},
 	ifu: {
 		code: "ifu",
-		name: "Mayoyao Ifugao"
+		name: "Mayoyao Ifugao",
 	},
 	ify: {
 		code: "ify",
-		name: "Keley-I Kallahan"
+		name: "Keley-I Kallahan",
 	},
 	igb: {
 		code: "igb",
-		name: "Ebira"
+		name: "Ebira",
 	},
 	ige: {
 		code: "ige",
-		name: "Igede"
+		name: "Igede",
 	},
 	igg: {
 		code: "igg",
-		name: "Igana"
+		name: "Igana",
 	},
 	igl: {
 		code: "igl",
-		name: "Igala"
+		name: "Igala",
 	},
 	igm: {
 		code: "igm",
-		name: "Kanggape"
+		name: "Kanggape",
 	},
 	ign: {
 		code: "ign",
-		name: "Ignaciano"
+		name: "Ignaciano",
 	},
 	igo: {
 		code: "igo",
-		name: "Isebe"
+		name: "Isebe",
 	},
 	igs: {
 		code: "igs",
-		name: "Interglossa"
+		name: "Interglossa",
 	},
 	igw: {
 		code: "igw",
-		name: "Igwe"
+		name: "Igwe",
 	},
 	ihb: {
 		code: "ihb",
-		name: "Iha Based Pidgin"
+		name: "Iha Based Pidgin",
 	},
 	ihi: {
 		code: "ihi",
-		name: "Ihievbe"
+		name: "Ihievbe",
 	},
 	ihp: {
 		code: "ihp",
-		name: "Iha"
+		name: "Iha",
 	},
 	ihw: {
 		code: "ihw",
-		name: "Bidhawal"
+		name: "Bidhawal",
 	},
 	iii: {
 		code: "iii",
-		name: "Sichuan Yi"
+		name: "Sichuan Yi",
 	},
 	iin: {
 		code: "iin",
-		name: "Thiin"
+		name: "Thiin",
 	},
 	ijc: {
 		code: "ijc",
-		name: "Izon"
+		name: "Izon",
 	},
 	ije: {
 		code: "ije",
-		name: "Biseni"
+		name: "Biseni",
 	},
 	ijj: {
 		code: "ijj",
-		name: "Ede Ije"
+		name: "Ede Ije",
 	},
 	ijn: {
 		code: "ijn",
-		name: "Kalabari"
+		name: "Kalabari",
 	},
 	ijs: {
 		code: "ijs",
-		name: "Southeast Ijo"
+		name: "Southeast Ijo",
 	},
 	ike: {
 		code: "ike",
-		name: "Eastern Canadian Inuktitut"
+		name: "Eastern Canadian Inuktitut",
 	},
 	ikh: {
 		code: "ikh",
-		name: "Ikhin-Arokho"
+		name: "Ikhin-Arokho",
 	},
 	iki: {
 		code: "iki",
-		name: "Iko"
+		name: "Iko",
 	},
 	ikk: {
 		code: "ikk",
-		name: "Ika"
+		name: "Ika",
 	},
 	ikl: {
 		code: "ikl",
-		name: "Ikulu"
+		name: "Ikulu",
 	},
 	iko: {
 		code: "iko",
-		name: "Olulumo-Ikom"
+		name: "Olulumo-Ikom",
 	},
 	ikp: {
 		code: "ikp",
-		name: "Ikpeshi"
+		name: "Ikpeshi",
 	},
 	ikr: {
 		code: "ikr",
-		name: "Ikaranggal"
+		name: "Ikaranggal",
 	},
 	iks: {
 		code: "iks",
-		name: "Inuit Sign Language"
+		name: "Inuit Sign Language",
 	},
 	ikt: {
 		code: "ikt",
-		name: "Inuinnaqtun"
+		name: "Inuinnaqtun",
+	},
+	iku: {
+		code: "iku",
+		name: "Inuktitut",
 	},
 	ikv: {
 		code: "ikv",
-		name: "Iku-Gora-Ankwa"
+		name: "Iku-Gora-Ankwa",
 	},
 	ikw: {
 		code: "ikw",
-		name: "Ikwere"
+		name: "Ikwere",
 	},
 	ikx: {
 		code: "ikx",
-		name: "Ik"
+		name: "Ik",
 	},
 	ikz: {
 		code: "ikz",
-		name: "Ikizu"
+		name: "Ikizu",
 	},
 	ila: {
 		code: "ila",
-		name: "Ile Ape"
+		name: "Ile Ape",
 	},
 	ilb: {
 		code: "ilb",
-		name: "Ila"
+		name: "Ila",
+	},
+	ile: {
+		code: "ile",
+		name: "Interlingue",
 	},
 	ilg: {
 		code: "ilg",
-		name: "Garig-Ilgar"
+		name: "Garig-Ilgar",
 	},
 	ili: {
 		code: "ili",
-		name: "Ili Turki"
+		name: "Ili Turki",
 	},
 	ilk: {
 		code: "ilk",
-		name: "Ilongot"
+		name: "Ilongot",
 	},
 	ilm: {
 		code: "ilm",
-		name: "Iranun (Malaysia)"
+		name: "Iranun (Malaysia)",
+	},
+	ilo: {
+		code: "ilo",
+		name: "Iloko",
 	},
 	ilp: {
 		code: "ilp",
-		name: "Iranun (Philippines)"
+		name: "Iranun (Philippines)",
 	},
 	ils: {
 		code: "ils",
-		name: "International Sign"
+		name: "International Sign",
 	},
 	ilu: {
 		code: "ilu",
-		name: "Ili'uun"
+		name: "Ili'uun",
 	},
 	ilv: {
 		code: "ilv",
-		name: "Ilue"
+		name: "Ilue",
 	},
 	ima: {
 		code: "ima",
-		name: "Mala Malasar"
+		name: "Mala Malasar",
 	},
 	imi: {
 		code: "imi",
-		name: "Anamgura"
+		name: "Anamgura",
 	},
 	iml: {
 		code: "iml",
-		name: "Miluk"
+		name: "Miluk",
 	},
 	imn: {
 		code: "imn",
-		name: "Imonda"
+		name: "Imonda",
 	},
 	imo: {
 		code: "imo",
-		name: "Imbongu"
+		name: "Imbongu",
 	},
 	imr: {
 		code: "imr",
-		name: "Imroing"
+		name: "Imroing",
 	},
 	ims: {
 		code: "ims",
-		name: "Marsian"
+		name: "Marsian",
 	},
 	imt: {
 		code: "imt",
-		name: "Imotong"
+		name: "Imotong",
 	},
 	imy: {
 		code: "imy",
-		name: "Milyan"
+		name: "Milyan",
 	},
 	ina: {
 		code: "ina",
-		name: "Interlingua (International Auxiliary Language Association)"
+		name: "Interlingua (International Auxiliary Language Association)",
 	},
 	inb: {
 		code: "inb",
-		name: "Inga"
+		name: "Inga",
+	},
+	ind: {
+		code: "ind",
+		name: "Indonesian",
 	},
 	ing: {
 		code: "ing",
-		name: "Degexit'an"
+		name: "Degexit'an",
 	},
 	inh: {
 		code: "inh",
-		name: "Ingush"
+		name: "Ingush",
 	},
 	inj: {
 		code: "inj",
-		name: "Jungle Inga"
+		name: "Jungle Inga",
 	},
 	inl: {
 		code: "inl",
-		name: "Indonesian Sign Language"
+		name: "Indonesian Sign Language",
 	},
 	inm: {
 		code: "inm",
-		name: "Minaean"
+		name: "Minaean",
 	},
 	inn: {
 		code: "inn",
-		name: "Isinai"
+		name: "Isinai",
 	},
 	ino: {
 		code: "ino",
-		name: "Inoke-Yate"
+		name: "Inoke-Yate",
 	},
 	inp: {
 		code: "inp",
-		name: "Iñapari"
+		name: "Iñapari",
 	},
 	ins: {
 		code: "ins",
-		name: "Indian Sign Language"
+		name: "Indian Sign Language",
 	},
 	int: {
 		code: "int",
-		name: "Intha"
+		name: "Intha",
 	},
 	inz: {
 		code: "inz",
-		name: "Ineseño"
+		name: "Ineseño",
 	},
 	ior: {
 		code: "ior",
-		name: "Inor"
+		name: "Inor",
 	},
 	iou: {
 		code: "iou",
-		name: "Tuma-Irumu"
+		name: "Tuma-Irumu",
 	},
 	iow: {
 		code: "iow",
-		name: "Iowa-Oto"
+		name: "Iowa-Oto",
 	},
 	ipi: {
 		code: "ipi",
-		name: "Ipili"
+		name: "Ipili",
+	},
+	ipk: {
+		code: "ipk",
+		name: "Inupiaq",
 	},
 	ipo: {
 		code: "ipo",
-		name: "Ipiko"
+		name: "Ipiko",
 	},
 	iqu: {
 		code: "iqu",
-		name: "Iquito"
+		name: "Iquito",
 	},
 	iqw: {
 		code: "iqw",
-		name: "Ikwo"
+		name: "Ikwo",
 	},
 	ire: {
 		code: "ire",
-		name: "Iresim"
+		name: "Iresim",
 	},
 	irh: {
 		code: "irh",
-		name: "Irarutu"
+		name: "Irarutu",
 	},
 	iri: {
 		code: "iri",
-		name: "Rigwe"
+		name: "Rigwe",
 	},
 	irk: {
 		code: "irk",
-		name: "Iraqw"
+		name: "Iraqw",
 	},
 	irn: {
 		code: "irn",
-		name: "Irántxe"
+		name: "Irántxe",
 	},
 	irr: {
 		code: "irr",
-		name: "Ir"
+		name: "Ir",
 	},
 	iru: {
 		code: "iru",
-		name: "Irula"
+		name: "Irula",
 	},
 	irx: {
 		code: "irx",
-		name: "Kamberau"
+		name: "Kamberau",
 	},
 	iry: {
 		code: "iry",
-		name: "Iraya"
+		name: "Iraya",
 	},
 	isa: {
 		code: "isa",
-		name: "Isabi"
+		name: "Isabi",
 	},
 	isc: {
 		code: "isc",
-		name: "Isconahua"
+		name: "Isconahua",
 	},
 	isd: {
 		code: "isd",
-		name: "Isnag"
+		name: "Isnag",
 	},
 	ise: {
 		code: "ise",
-		name: "Italian Sign Language"
+		name: "Italian Sign Language",
 	},
 	isg: {
 		code: "isg",
-		name: "Irish Sign Language"
+		name: "Irish Sign Language",
 	},
 	ish: {
 		code: "ish",
-		name: "Esan"
+		name: "Esan",
 	},
 	isi: {
 		code: "isi",
-		name: "Nkem-Nkum"
+		name: "Nkem-Nkum",
 	},
 	isk: {
 		code: "isk",
-		name: "Ishkashimi"
+		name: "Ishkashimi",
+	},
+	isl: {
+		code: "isl",
+		name: "Icelandic",
 	},
 	ism: {
 		code: "ism",
-		name: "Masimasi"
+		name: "Masimasi",
 	},
 	isn: {
 		code: "isn",
-		name: "Isanzu"
+		name: "Isanzu",
+	},
+	iso: {
+		code: "iso",
+		name: "Isoko",
 	},
 	isr: {
 		code: "isr",
-		name: "Israeli Sign Language"
+		name: "Israeli Sign Language",
 	},
 	ist: {
 		code: "ist",
-		name: "Istriot"
+		name: "Istriot",
 	},
 	isu: {
 		code: "isu",
-		name: "Isu (Menchum Division)"
+		name: "Isu (Menchum Division)",
+	},
+	ita: {
+		code: "ita",
+		name: "Italian",
 	},
 	itb: {
 		code: "itb",
-		name: "Binongan Itneg"
+		name: "Binongan Itneg",
 	},
 	itd: {
 		code: "itd",
-		name: "Southern Tidung"
+		name: "Southern Tidung",
 	},
 	ite: {
 		code: "ite",
-		name: "Itene"
+		name: "Itene",
 	},
 	iti: {
 		code: "iti",
-		name: "Inlaod Itneg"
+		name: "Inlaod Itneg",
 	},
 	itk: {
 		code: "itk",
-		name: "Judeo-Italian"
+		name: "Judeo-Italian",
 	},
 	itl: {
 		code: "itl",
-		name: "Itelmen"
+		name: "Itelmen",
 	},
 	itm: {
 		code: "itm",
-		name: "Itu Mbon Uzo"
+		name: "Itu Mbon Uzo",
 	},
 	ito: {
 		code: "ito",
-		name: "Itonama"
+		name: "Itonama",
 	},
 	itr: {
 		code: "itr",
-		name: "Iteri"
+		name: "Iteri",
 	},
 	its: {
 		code: "its",
-		name: "Isekiri"
+		name: "Isekiri",
 	},
 	itt: {
 		code: "itt",
-		name: "Maeng Itneg"
+		name: "Maeng Itneg",
 	},
 	itv: {
 		code: "itv",
-		name: "Itawit"
+		name: "Itawit",
 	},
 	itw: {
 		code: "itw",
-		name: "Ito"
+		name: "Ito",
 	},
 	itx: {
 		code: "itx",
-		name: "Itik"
+		name: "Itik",
 	},
 	ity: {
 		code: "ity",
-		name: "Moyadan Itneg"
+		name: "Moyadan Itneg",
 	},
 	itz: {
 		code: "itz",
-		name: "Itzá"
+		name: "Itzá",
 	},
 	ium: {
 		code: "ium",
-		name: "Iu Mien"
+		name: "Iu Mien",
 	},
 	ivb: {
 		code: "ivb",
-		name: "Ibatan"
+		name: "Ibatan",
 	},
 	ivv: {
 		code: "ivv",
-		name: "Ivatan"
+		name: "Ivatan",
 	},
 	iwk: {
 		code: "iwk",
-		name: "I-Wak"
+		name: "I-Wak",
 	},
 	iwm: {
 		code: "iwm",
-		name: "Iwam"
+		name: "Iwam",
 	},
 	iwo: {
 		code: "iwo",
-		name: "Iwur"
+		name: "Iwur",
 	},
 	iws: {
 		code: "iws",
-		name: "Sepik Iwam"
+		name: "Sepik Iwam",
 	},
 	ixc: {
 		code: "ixc",
-		name: "Ixcatec"
+		name: "Ixcatec",
 	},
 	ixl: {
 		code: "ixl",
-		name: "Ixil"
+		name: "Ixil",
 	},
 	iya: {
 		code: "iya",
-		name: "Iyayu"
+		name: "Iyayu",
 	},
 	iyo: {
 		code: "iyo",
-		name: "Mesaka"
+		name: "Mesaka",
 	},
 	iyx: {
 		code: "iyx",
-		name: "Yaka (Congo)"
+		name: "Yaka (Congo)",
 	},
 	izh: {
 		code: "izh",
-		name: "Ingrian"
+		name: "Ingrian",
 	},
 	izm: {
 		code: "izm",
-		name: "Kizamani"
+		name: "Kizamani",
 	},
 	izr: {
 		code: "izr",
-		name: "Izere"
+		name: "Izere",
 	},
 	izz: {
 		code: "izz",
-		name: "Izii"
+		name: "Izii",
 	},
 	jaa: {
 		code: "jaa",
-		name: "Jamamadí"
+		name: "Jamamadí",
 	},
 	jab: {
 		code: "jab",
-		name: "Hyam"
+		name: "Hyam",
 	},
 	jac: {
 		code: "jac",
-		name: "Popti'"
+		name: "Popti'",
 	},
 	jad: {
 		code: "jad",
-		name: "Jahanka"
+		name: "Jahanka",
 	},
 	jae: {
 		code: "jae",
-		name: "Yabem"
+		name: "Yabem",
 	},
 	jaf: {
 		code: "jaf",
-		name: "Jara"
+		name: "Jara",
 	},
 	jah: {
 		code: "jah",
-		name: "Jah Hut"
+		name: "Jah Hut",
 	},
 	jaj: {
 		code: "jaj",
-		name: "Zazao"
+		name: "Zazao",
 	},
 	jak: {
 		code: "jak",
-		name: "Jakun"
+		name: "Jakun",
 	},
 	jal: {
 		code: "jal",
-		name: "Yalahatan"
+		name: "Yalahatan",
 	},
 	jam: {
 		code: "jam",
-		name: "Jamaican Creole English"
+		name: "Jamaican Creole English",
 	},
 	jan: {
 		code: "jan",
-		name: "Jandai"
+		name: "Jandai",
 	},
 	jao: {
 		code: "jao",
-		name: "Yanyuwa"
+		name: "Yanyuwa",
 	},
 	jaq: {
 		code: "jaq",
-		name: "Yaqay"
+		name: "Yaqay",
 	},
 	jas: {
 		code: "jas",
-		name: "New Caledonian Javanese"
+		name: "New Caledonian Javanese",
 	},
 	jat: {
 		code: "jat",
-		name: "Jakati"
+		name: "Jakati",
 	},
 	jau: {
 		code: "jau",
-		name: "Yaur"
+		name: "Yaur",
+	},
+	jav: {
+		code: "jav",
+		name: "Javanese",
 	},
 	jax: {
 		code: "jax",
-		name: "Jambi Malay"
+		name: "Jambi Malay",
 	},
 	jay: {
 		code: "jay",
-		name: "Yan-nhangu"
+		name: "Yan-nhangu",
 	},
 	jaz: {
 		code: "jaz",
-		name: "Jawe"
+		name: "Jawe",
 	},
 	jbe: {
 		code: "jbe",
-		name: "Judeo-Berber"
+		name: "Judeo-Berber",
 	},
 	jbi: {
 		code: "jbi",
-		name: "Badjiri"
+		name: "Badjiri",
 	},
 	jbj: {
 		code: "jbj",
-		name: "Arandai"
+		name: "Arandai",
 	},
 	jbk: {
 		code: "jbk",
-		name: "Barikewa"
+		name: "Barikewa",
 	},
 	jbm: {
 		code: "jbm",
-		name: "Bijim"
+		name: "Bijim",
 	},
 	jbn: {
 		code: "jbn",
-		name: "Nafusi"
+		name: "Nafusi",
 	},
 	jbo: {
 		code: "jbo",
-		name: "Lojban"
+		name: "Lojban",
 	},
 	jbr: {
 		code: "jbr",
-		name: "Jofotek-Bromnya"
+		name: "Jofotek-Bromnya",
 	},
 	jbt: {
 		code: "jbt",
-		name: "Jabutí"
+		name: "Jabutí",
 	},
 	jbu: {
 		code: "jbu",
-		name: "Jukun Takum"
+		name: "Jukun Takum",
 	},
 	jbw: {
 		code: "jbw",
-		name: "Yawijibaya"
+		name: "Yawijibaya",
 	},
 	jcs: {
 		code: "jcs",
-		name: "Jamaican Country Sign Language"
+		name: "Jamaican Country Sign Language",
 	},
 	jct: {
 		code: "jct",
-		name: "Krymchak"
+		name: "Krymchak",
 	},
 	jda: {
 		code: "jda",
-		name: "Jad"
+		name: "Jad",
 	},
 	jdg: {
 		code: "jdg",
-		name: "Jadgali"
+		name: "Jadgali",
 	},
 	jdt: {
 		code: "jdt",
-		name: "Judeo-Tat"
+		name: "Judeo-Tat",
 	},
 	jeb: {
 		code: "jeb",
-		name: "Jebero"
+		name: "Jebero",
 	},
 	jee: {
 		code: "jee",
-		name: "Jerung"
+		name: "Jerung",
 	},
 	jeh: {
 		code: "jeh",
-		name: "Jeh"
+		name: "Jeh",
 	},
 	jei: {
 		code: "jei",
-		name: "Yei"
+		name: "Yei",
 	},
 	jek: {
 		code: "jek",
-		name: "Jeri Kuo"
+		name: "Jeri Kuo",
 	},
 	jel: {
 		code: "jel",
-		name: "Yelmek"
+		name: "Yelmek",
 	},
 	jen: {
 		code: "jen",
-		name: "Dza"
+		name: "Dza",
 	},
 	jer: {
 		code: "jer",
-		name: "Jere"
+		name: "Jere",
 	},
 	jet: {
 		code: "jet",
-		name: "Manem"
+		name: "Manem",
 	},
 	jeu: {
 		code: "jeu",
-		name: "Jonkor Bourmataguil"
+		name: "Jonkor Bourmataguil",
 	},
 	jgb: {
 		code: "jgb",
-		name: "Ngbee"
+		name: "Ngbee",
 	},
 	jge: {
 		code: "jge",
-		name: "Judeo-Georgian"
+		name: "Judeo-Georgian",
 	},
 	jgk: {
 		code: "jgk",
-		name: "Gwak"
+		name: "Gwak",
 	},
 	jgo: {
 		code: "jgo",
-		name: "Ngomba"
+		name: "Ngomba",
 	},
 	jhi: {
 		code: "jhi",
-		name: "Jehai"
+		name: "Jehai",
 	},
 	jhs: {
 		code: "jhs",
-		name: "Jhankot Sign Language"
+		name: "Jhankot Sign Language",
 	},
 	jia: {
 		code: "jia",
-		name: "Jina"
+		name: "Jina",
 	},
 	jib: {
 		code: "jib",
-		name: "Jibu"
+		name: "Jibu",
 	},
 	jic: {
 		code: "jic",
-		name: "Tol"
+		name: "Tol",
 	},
 	jid: {
 		code: "jid",
-		name: "Bu (Kaduna State)"
+		name: "Bu (Kaduna State)",
 	},
 	jie: {
 		code: "jie",
-		name: "Jilbe"
+		name: "Jilbe",
 	},
 	jig: {
 		code: "jig",
-		name: "Jingulu"
+		name: "Jingulu",
 	},
 	jih: {
 		code: "jih",
-		name: "sTodsde"
+		name: "sTodsde",
 	},
 	jii: {
 		code: "jii",
-		name: "Jiiddu"
+		name: "Jiiddu",
 	},
 	jil: {
 		code: "jil",
-		name: "Jilim"
+		name: "Jilim",
 	},
 	jim: {
 		code: "jim",
-		name: "Jimi (Cameroon)"
+		name: "Jimi (Cameroon)",
 	},
 	jio: {
 		code: "jio",
-		name: "Jiamao"
+		name: "Jiamao",
 	},
 	jiq: {
 		code: "jiq",
-		name: "Guanyinqiao"
+		name: "Guanyinqiao",
 	},
 	jit: {
 		code: "jit",
-		name: "Jita"
+		name: "Jita",
 	},
 	jiu: {
 		code: "jiu",
-		name: "Youle Jinuo"
+		name: "Youle Jinuo",
 	},
 	jiv: {
 		code: "jiv",
-		name: "Shuar"
+		name: "Shuar",
 	},
 	jiy: {
 		code: "jiy",
-		name: "Buyuan Jinuo"
+		name: "Buyuan Jinuo",
 	},
 	jje: {
 		code: "jje",
-		name: "Jejueo"
+		name: "Jejueo",
 	},
 	jjr: {
 		code: "jjr",
-		name: "Bankal"
+		name: "Bankal",
 	},
 	jka: {
 		code: "jka",
-		name: "Kaera"
+		name: "Kaera",
 	},
 	jkm: {
 		code: "jkm",
-		name: "Mobwa Karen"
+		name: "Mobwa Karen",
 	},
 	jko: {
 		code: "jko",
-		name: "Kubo"
+		name: "Kubo",
 	},
 	jkp: {
 		code: "jkp",
-		name: "Paku Karen"
+		name: "Paku Karen",
 	},
 	jkr: {
 		code: "jkr",
-		name: "Koro (India)"
+		name: "Koro (India)",
 	},
 	jks: {
 		code: "jks",
-		name: "Amami Koniya Sign Language"
+		name: "Amami Koniya Sign Language",
 	},
 	jku: {
 		code: "jku",
-		name: "Labir"
+		name: "Labir",
 	},
 	jle: {
 		code: "jle",
-		name: "Ngile"
+		name: "Ngile",
 	},
 	jls: {
 		code: "jls",
-		name: "Jamaican Sign Language"
+		name: "Jamaican Sign Language",
 	},
 	jma: {
 		code: "jma",
-		name: "Dima"
+		name: "Dima",
 	},
 	jmb: {
 		code: "jmb",
-		name: "Zumbun"
+		name: "Zumbun",
 	},
 	jmc: {
 		code: "jmc",
-		name: "Machame"
+		name: "Machame",
 	},
 	jmd: {
 		code: "jmd",
-		name: "Yamdena"
+		name: "Yamdena",
 	},
 	jmi: {
 		code: "jmi",
-		name: "Jimi (Nigeria)"
+		name: "Jimi (Nigeria)",
 	},
 	jml: {
 		code: "jml",
-		name: "Jumli"
+		name: "Jumli",
 	},
 	jmn: {
 		code: "jmn",
-		name: "Makuri Naga"
+		name: "Makuri Naga",
 	},
 	jmr: {
 		code: "jmr",
-		name: "Kamara"
+		name: "Kamara",
 	},
 	jms: {
 		code: "jms",
-		name: "Mashi (Nigeria)"
+		name: "Mashi (Nigeria)",
 	},
 	jmw: {
 		code: "jmw",
-		name: "Mouwase"
+		name: "Mouwase",
 	},
 	jmx: {
 		code: "jmx",
-		name: "Western Juxtlahuaca Mixtec"
+		name: "Western Juxtlahuaca Mixtec",
 	},
 	jna: {
 		code: "jna",
-		name: "Jangshung"
+		name: "Jangshung",
 	},
 	jnd: {
 		code: "jnd",
-		name: "Jandavra"
+		name: "Jandavra",
 	},
 	jng: {
 		code: "jng",
-		name: "Yangman"
+		name: "Yangman",
 	},
 	jni: {
 		code: "jni",
-		name: "Janji"
+		name: "Janji",
 	},
 	jnj: {
 		code: "jnj",
-		name: "Yemsa"
+		name: "Yemsa",
 	},
 	jnl: {
 		code: "jnl",
-		name: "Rawat"
+		name: "Rawat",
 	},
 	jns: {
 		code: "jns",
-		name: "Jaunsari"
+		name: "Jaunsari",
 	},
 	job: {
 		code: "job",
-		name: "Joba"
+		name: "Joba",
 	},
 	jod: {
 		code: "jod",
-		name: "Wojenaka"
+		name: "Wojenaka",
 	},
 	jog: {
 		code: "jog",
-		name: "Jogi"
+		name: "Jogi",
 	},
 	jor: {
 		code: "jor",
-		name: "Jorá"
+		name: "Jorá",
 	},
 	jos: {
 		code: "jos",
-		name: "Jordanian Sign Language"
+		name: "Jordanian Sign Language",
 	},
 	jow: {
 		code: "jow",
-		name: "Jowulu"
+		name: "Jowulu",
 	},
 	jpa: {
 		code: "jpa",
-		name: "Jewish Palestinian Aramaic"
+		name: "Jewish Palestinian Aramaic",
+	},
+	jpn: {
+		code: "jpn",
+		name: "Japanese",
 	},
 	jpr: {
 		code: "jpr",
-		name: "Judeo-Persian"
+		name: "Judeo-Persian",
 	},
 	jqr: {
 		code: "jqr",
-		name: "Jaqaru"
+		name: "Jaqaru",
 	},
 	jra: {
 		code: "jra",
-		name: "Jarai"
+		name: "Jarai",
 	},
 	jrb: {
 		code: "jrb",
-		name: "Judeo-Arabic"
+		name: "Judeo-Arabic",
 	},
 	jrr: {
 		code: "jrr",
-		name: "Jiru"
+		name: "Jiru",
 	},
 	jrt: {
 		code: "jrt",
-		name: "Jakattoe"
+		name: "Jakattoe",
 	},
 	jru: {
 		code: "jru",
-		name: "Japrería"
+		name: "Japrería",
 	},
 	jsl: {
 		code: "jsl",
-		name: "Japanese Sign Language"
+		name: "Japanese Sign Language",
 	},
 	jua: {
 		code: "jua",
-		name: "Júma"
+		name: "Júma",
 	},
 	jub: {
 		code: "jub",
-		name: "Wannu"
+		name: "Wannu",
 	},
 	juc: {
 		code: "juc",
-		name: "Jurchen"
+		name: "Jurchen",
 	},
 	jud: {
 		code: "jud",
-		name: "Worodougou"
+		name: "Worodougou",
 	},
 	juh: {
 		code: "juh",
-		name: "Hõne"
+		name: "Hõne",
 	},
 	jui: {
 		code: "jui",
-		name: "Ngadjuri"
+		name: "Ngadjuri",
 	},
 	juk: {
 		code: "juk",
-		name: "Wapan"
+		name: "Wapan",
 	},
 	jul: {
 		code: "jul",
-		name: "Jirel"
+		name: "Jirel",
 	},
 	jum: {
 		code: "jum",
-		name: "Jumjum"
+		name: "Jumjum",
 	},
 	jun: {
 		code: "jun",
-		name: "Juang"
+		name: "Juang",
 	},
 	juo: {
 		code: "juo",
-		name: "Jiba"
+		name: "Jiba",
 	},
 	jup: {
 		code: "jup",
-		name: "Hupdë"
+		name: "Hupdë",
 	},
 	jur: {
 		code: "jur",
-		name: "Jurúna"
+		name: "Jurúna",
 	},
 	jus: {
 		code: "jus",
-		name: "Jumla Sign Language"
+		name: "Jumla Sign Language",
 	},
 	jut: {
 		code: "jut",
-		name: "Jutish"
+		name: "Jutish",
 	},
 	juu: {
 		code: "juu",
-		name: "Ju"
+		name: "Ju",
 	},
 	juw: {
 		code: "juw",
-		name: "Wãpha"
+		name: "Wãpha",
 	},
 	juy: {
 		code: "juy",
-		name: "Juray"
+		name: "Juray",
 	},
 	jvd: {
 		code: "jvd",
-		name: "Javindo"
+		name: "Javindo",
 	},
 	jvn: {
 		code: "jvn",
-		name: "Caribbean Javanese"
+		name: "Caribbean Javanese",
 	},
 	jwi: {
 		code: "jwi",
-		name: "Jwira-Pepesa"
+		name: "Jwira-Pepesa",
 	},
 	jya: {
 		code: "jya",
-		name: "Jiarong"
+		name: "Jiarong",
 	},
 	jye: {
 		code: "jye",
-		name: "Judeo-Yemeni Arabic"
+		name: "Judeo-Yemeni Arabic",
 	},
 	jyy: {
 		code: "jyy",
-		name: "Jaya"
+		name: "Jaya",
 	},
 	kaa: {
 		code: "kaa",
-		name: "Kara-Kalpak"
+		name: "Kara-Kalpak",
+	},
+	kab: {
+		code: "kab",
+		name: "Kabyle",
 	},
 	kac: {
 		code: "kac",
-		name: "Kachin"
+		name: "Kachin",
 	},
 	kad: {
 		code: "kad",
-		name: "Adara"
+		name: "Adara",
 	},
 	kae: {
 		code: "kae",
-		name: "Ketangalan"
+		name: "Ketangalan",
 	},
 	kaf: {
 		code: "kaf",
-		name: "Katso"
+		name: "Katso",
 	},
 	kag: {
 		code: "kag",
-		name: "Kajaman"
+		name: "Kajaman",
 	},
 	kah: {
 		code: "kah",
-		name: "Kara (Central African Republic)"
+		name: "Kara (Central African Republic)",
 	},
 	kai: {
 		code: "kai",
-		name: "Karekare"
+		name: "Karekare",
 	},
 	kaj: {
 		code: "kaj",
-		name: "Jju"
+		name: "Jju",
 	},
 	kak: {
 		code: "kak",
-		name: "Kalanguya"
+		name: "Kalanguya",
+	},
+	kal: {
+		code: "kal",
+		name: "Kalaallisut",
 	},
 	kam: {
 		code: "kam",
-		name: "Kamba (Kenya)"
+		name: "Kamba (Kenya)",
+	},
+	kan: {
+		code: "kan",
+		name: "Kannada",
 	},
 	kao: {
 		code: "kao",
-		name: "Xaasongaxango"
+		name: "Xaasongaxango",
 	},
 	kap: {
 		code: "kap",
-		name: "Bezhta"
+		name: "Bezhta",
 	},
 	kaq: {
 		code: "kaq",
-		name: "Capanahua"
+		name: "Capanahua",
+	},
+	kas: {
+		code: "kas",
+		name: "Kashmiri",
+	},
+	kat: {
+		code: "kat",
+		name: "Georgian",
+	},
+	kau: {
+		code: "kau",
+		name: "Kanuri",
 	},
 	kav: {
 		code: "kav",
-		name: "Katukína"
+		name: "Katukína",
 	},
 	kaw: {
 		code: "kaw",
-		name: "Kawi"
+		name: "Kawi",
 	},
 	kax: {
 		code: "kax",
-		name: "Kao"
+		name: "Kao",
 	},
 	kay: {
 		code: "kay",
-		name: "Kamayurá"
+		name: "Kamayurá",
+	},
+	kaz: {
+		code: "kaz",
+		name: "Kazakh",
 	},
 	kba: {
 		code: "kba",
-		name: "Kalarko"
+		name: "Kalarko",
 	},
 	kbb: {
 		code: "kbb",
-		name: "Kaxuiâna"
+		name: "Kaxuiâna",
 	},
 	kbc: {
 		code: "kbc",
-		name: "Kadiwéu"
+		name: "Kadiwéu",
+	},
+	kbd: {
+		code: "kbd",
+		name: "Kabardian",
 	},
 	kbe: {
 		code: "kbe",
-		name: "Kanju"
+		name: "Kanju",
 	},
 	kbg: {
 		code: "kbg",
-		name: "Khamba"
+		name: "Khamba",
 	},
 	kbh: {
 		code: "kbh",
-		name: "Camsá"
+		name: "Camsá",
 	},
 	kbi: {
 		code: "kbi",
-		name: "Kaptiau"
+		name: "Kaptiau",
 	},
 	kbj: {
 		code: "kbj",
-		name: "Kari"
+		name: "Kari",
 	},
 	kbk: {
 		code: "kbk",
-		name: "Grass Koiari"
+		name: "Grass Koiari",
 	},
 	kbl: {
 		code: "kbl",
-		name: "Kanembu"
+		name: "Kanembu",
 	},
 	kbm: {
 		code: "kbm",
-		name: "Iwal"
+		name: "Iwal",
 	},
 	kbn: {
 		code: "kbn",
-		name: "Kare (Central African Republic)"
+		name: "Kare (Central African Republic)",
 	},
 	kbo: {
 		code: "kbo",
-		name: "Keliko"
+		name: "Keliko",
 	},
 	kbp: {
 		code: "kbp",
-		name: "Kabiyè"
+		name: "Kabiyè",
 	},
 	kbq: {
 		code: "kbq",
-		name: "Kamano"
+		name: "Kamano",
 	},
 	kbr: {
 		code: "kbr",
-		name: "Kafa"
+		name: "Kafa",
 	},
 	kbs: {
 		code: "kbs",
-		name: "Kande"
+		name: "Kande",
 	},
 	kbt: {
 		code: "kbt",
-		name: "Abadi"
+		name: "Abadi",
 	},
 	kbu: {
 		code: "kbu",
-		name: "Kabutra"
+		name: "Kabutra",
 	},
 	kbv: {
 		code: "kbv",
-		name: "Dera (Indonesia)"
+		name: "Dera (Indonesia)",
 	},
 	kbw: {
 		code: "kbw",
-		name: "Kaiep"
+		name: "Kaiep",
 	},
 	kbx: {
 		code: "kbx",
-		name: "Ap Ma"
+		name: "Ap Ma",
 	},
 	kby: {
 		code: "kby",
-		name: "Manga Kanuri"
+		name: "Manga Kanuri",
 	},
 	kbz: {
 		code: "kbz",
-		name: "Duhwa"
+		name: "Duhwa",
 	},
 	kca: {
 		code: "kca",
-		name: "Khanty"
+		name: "Khanty",
 	},
 	kcb: {
 		code: "kcb",
-		name: "Kawacha"
+		name: "Kawacha",
 	},
 	kcc: {
 		code: "kcc",
-		name: "Lubila"
+		name: "Lubila",
 	},
 	kcd: {
 		code: "kcd",
-		name: "Ngkâlmpw Kanum"
+		name: "Ngkâlmpw Kanum",
 	},
 	kce: {
 		code: "kce",
-		name: "Kaivi"
+		name: "Kaivi",
 	},
 	kcf: {
 		code: "kcf",
-		name: "Ukaan"
+		name: "Ukaan",
 	},
 	kcg: {
 		code: "kcg",
-		name: "Tyap"
+		name: "Tyap",
 	},
 	kch: {
 		code: "kch",
-		name: "Vono"
+		name: "Vono",
 	},
 	kci: {
 		code: "kci",
-		name: "Kamantan"
+		name: "Kamantan",
 	},
 	kcj: {
 		code: "kcj",
-		name: "Kobiana"
+		name: "Kobiana",
 	},
 	kck: {
 		code: "kck",
-		name: "Kalanga"
+		name: "Kalanga",
 	},
 	kcl: {
 		code: "kcl",
-		name: "Kela (Papua New Guinea)"
+		name: "Kela (Papua New Guinea)",
 	},
 	kcm: {
 		code: "kcm",
-		name: "Gula (Central African Republic)"
+		name: "Gula (Central African Republic)",
 	},
 	kcn: {
 		code: "kcn",
-		name: "Nubi"
+		name: "Nubi",
 	},
 	kco: {
 		code: "kco",
-		name: "Kinalakna"
+		name: "Kinalakna",
 	},
 	kcp: {
 		code: "kcp",
-		name: "Kanga"
+		name: "Kanga",
 	},
 	kcq: {
 		code: "kcq",
-		name: "Kamo"
+		name: "Kamo",
 	},
 	kcr: {
 		code: "kcr",
-		name: "Katla"
+		name: "Katla",
 	},
 	kcs: {
 		code: "kcs",
-		name: "Koenoem"
+		name: "Koenoem",
 	},
 	kct: {
 		code: "kct",
-		name: "Kaian"
+		name: "Kaian",
 	},
 	kcu: {
 		code: "kcu",
-		name: "Kami (Tanzania)"
+		name: "Kami (Tanzania)",
 	},
 	kcv: {
 		code: "kcv",
-		name: "Kete"
+		name: "Kete",
 	},
 	kcw: {
 		code: "kcw",
-		name: "Kabwari"
+		name: "Kabwari",
 	},
 	kcx: {
 		code: "kcx",
-		name: "Kachama-Ganjule"
+		name: "Kachama-Ganjule",
 	},
 	kcy: {
 		code: "kcy",
-		name: "Korandje"
+		name: "Korandje",
 	},
 	kcz: {
 		code: "kcz",
-		name: "Konongo"
+		name: "Konongo",
 	},
 	kda: {
 		code: "kda",
-		name: "Worimi"
+		name: "Worimi",
 	},
 	kdc: {
 		code: "kdc",
-		name: "Kutu"
+		name: "Kutu",
 	},
 	kdd: {
 		code: "kdd",
-		name: "Yankunytjatjara"
+		name: "Yankunytjatjara",
 	},
 	kde: {
 		code: "kde",
-		name: "Makonde"
+		name: "Makonde",
 	},
 	kdf: {
 		code: "kdf",
-		name: "Mamusi"
+		name: "Mamusi",
 	},
 	kdg: {
 		code: "kdg",
-		name: "Seba"
+		name: "Seba",
 	},
 	kdh: {
 		code: "kdh",
-		name: "Tem"
+		name: "Tem",
 	},
 	kdi: {
 		code: "kdi",
-		name: "Kumam"
+		name: "Kumam",
 	},
 	kdj: {
 		code: "kdj",
-		name: "Karamojong"
+		name: "Karamojong",
 	},
 	kdk: {
 		code: "kdk",
-		name: "Numèè"
+		name: "Numèè",
 	},
 	kdl: {
 		code: "kdl",
-		name: "Tsikimba"
+		name: "Tsikimba",
 	},
 	kdm: {
 		code: "kdm",
-		name: "Kagoma"
+		name: "Kagoma",
 	},
 	kdn: {
 		code: "kdn",
-		name: "Kunda"
+		name: "Kunda",
 	},
 	kdp: {
 		code: "kdp",
-		name: "Kaningdon-Nindem"
+		name: "Kaningdon-Nindem",
 	},
 	kdq: {
 		code: "kdq",
-		name: "Koch"
+		name: "Koch",
 	},
 	kdr: {
 		code: "kdr",
-		name: "Karaim"
+		name: "Karaim",
 	},
 	kdt: {
 		code: "kdt",
-		name: "Kuy"
+		name: "Kuy",
 	},
 	kdu: {
 		code: "kdu",
-		name: "Kadaru"
+		name: "Kadaru",
 	},
 	kdw: {
 		code: "kdw",
-		name: "Koneraw"
+		name: "Koneraw",
 	},
 	kdx: {
 		code: "kdx",
-		name: "Kam"
+		name: "Kam",
 	},
 	kdy: {
 		code: "kdy",
-		name: "Keder"
+		name: "Keder",
 	},
 	kdz: {
 		code: "kdz",
-		name: "Kwaja"
+		name: "Kwaja",
 	},
 	kea: {
 		code: "kea",
-		name: "Kabuverdianu"
+		name: "Kabuverdianu",
 	},
 	keb: {
 		code: "keb",
-		name: "Kélé"
+		name: "Kélé",
 	},
 	kec: {
 		code: "kec",
-		name: "Keiga"
+		name: "Keiga",
 	},
 	ked: {
 		code: "ked",
-		name: "Kerewe"
+		name: "Kerewe",
 	},
 	kee: {
 		code: "kee",
-		name: "Eastern Keres"
+		name: "Eastern Keres",
 	},
 	kef: {
 		code: "kef",
-		name: "Kpessi"
+		name: "Kpessi",
 	},
 	keg: {
 		code: "keg",
-		name: "Tese"
+		name: "Tese",
 	},
 	keh: {
 		code: "keh",
-		name: "Keak"
+		name: "Keak",
 	},
 	kei: {
 		code: "kei",
-		name: "Kei"
+		name: "Kei",
 	},
 	kej: {
 		code: "kej",
-		name: "Kadar"
+		name: "Kadar",
 	},
 	kek: {
 		code: "kek",
-		name: "Kekchí"
+		name: "Kekchí",
 	},
 	kel: {
 		code: "kel",
-		name: "Kela (Democratic Republic of Congo)"
+		name: "Kela (Democratic Republic of Congo)",
 	},
 	kem: {
 		code: "kem",
-		name: "Kemak"
+		name: "Kemak",
 	},
 	ken: {
 		code: "ken",
-		name: "Kenyang"
+		name: "Kenyang",
 	},
 	keo: {
 		code: "keo",
-		name: "Kakwa"
+		name: "Kakwa",
 	},
 	kep: {
 		code: "kep",
-		name: "Kaikadi"
+		name: "Kaikadi",
 	},
 	keq: {
 		code: "keq",
-		name: "Kamar"
+		name: "Kamar",
 	},
 	ker: {
 		code: "ker",
-		name: "Kera"
+		name: "Kera",
 	},
 	kes: {
 		code: "kes",
-		name: "Kugbo"
+		name: "Kugbo",
 	},
 	ket: {
 		code: "ket",
-		name: "Ket"
+		name: "Ket",
 	},
 	keu: {
 		code: "keu",
-		name: "Akebu"
+		name: "Akebu",
 	},
 	kev: {
 		code: "kev",
-		name: "Kanikkaran"
+		name: "Kanikkaran",
 	},
 	kew: {
 		code: "kew",
-		name: "West Kewa"
+		name: "West Kewa",
 	},
 	kex: {
 		code: "kex",
-		name: "Kukna"
+		name: "Kukna",
 	},
 	key: {
 		code: "key",
-		name: "Kupia"
+		name: "Kupia",
 	},
 	kez: {
 		code: "kez",
-		name: "Kukele"
+		name: "Kukele",
 	},
 	kfa: {
 		code: "kfa",
-		name: "Kodava"
+		name: "Kodava",
 	},
 	kfb: {
 		code: "kfb",
-		name: "Northwestern Kolami"
+		name: "Northwestern Kolami",
 	},
 	kfc: {
 		code: "kfc",
-		name: "Konda-Dora"
+		name: "Konda-Dora",
 	},
 	kfd: {
 		code: "kfd",
-		name: "Korra Koraga"
+		name: "Korra Koraga",
 	},
 	kfe: {
 		code: "kfe",
-		name: "Kota (India)"
+		name: "Kota (India)",
 	},
 	kff: {
 		code: "kff",
-		name: "Koya"
+		name: "Koya",
 	},
 	kfg: {
 		code: "kfg",
-		name: "Kudiya"
+		name: "Kudiya",
 	},
 	kfh: {
 		code: "kfh",
-		name: "Kurichiya"
+		name: "Kurichiya",
 	},
 	kfi: {
 		code: "kfi",
-		name: "Kannada Kurumba"
+		name: "Kannada Kurumba",
 	},
 	kfj: {
 		code: "kfj",
-		name: "Kemiehua"
+		name: "Kemiehua",
 	},
 	kfk: {
 		code: "kfk",
-		name: "Kinnauri"
+		name: "Kinnauri",
 	},
 	kfl: {
 		code: "kfl",
-		name: "Kung"
+		name: "Kung",
 	},
 	kfm: {
 		code: "kfm",
-		name: "Khunsari"
+		name: "Khunsari",
 	},
 	kfn: {
 		code: "kfn",
-		name: "Kuk"
+		name: "Kuk",
 	},
 	kfo: {
 		code: "kfo",
-		name: "Koro (Côte d'Ivoire)"
+		name: "Koro (Côte d'Ivoire)",
 	},
 	kfp: {
 		code: "kfp",
-		name: "Korwa"
+		name: "Korwa",
 	},
 	kfq: {
 		code: "kfq",
-		name: "Korku"
+		name: "Korku",
 	},
 	kfr: {
 		code: "kfr",
-		name: "Kachhi"
+		name: "Kachhi",
 	},
 	kfs: {
 		code: "kfs",
-		name: "Bilaspuri"
+		name: "Bilaspuri",
 	},
 	kft: {
 		code: "kft",
-		name: "Kanjari"
+		name: "Kanjari",
 	},
 	kfu: {
 		code: "kfu",
-		name: "Katkari"
+		name: "Katkari",
 	},
 	kfv: {
 		code: "kfv",
-		name: "Kurmukar"
+		name: "Kurmukar",
 	},
 	kfw: {
 		code: "kfw",
-		name: "Kharam Naga"
+		name: "Kharam Naga",
 	},
 	kfx: {
 		code: "kfx",
-		name: "Kullu Pahari"
+		name: "Kullu Pahari",
 	},
 	kfy: {
 		code: "kfy",
-		name: "Kumaoni"
+		name: "Kumaoni",
 	},
 	kfz: {
 		code: "kfz",
-		name: "Koromfé"
+		name: "Koromfé",
 	},
 	kga: {
 		code: "kga",
-		name: "Koyaga"
+		name: "Koyaga",
 	},
 	kgb: {
 		code: "kgb",
-		name: "Kawe"
+		name: "Kawe",
 	},
 	kge: {
 		code: "kge",
-		name: "Komering"
+		name: "Komering",
 	},
 	kgf: {
 		code: "kgf",
-		name: "Kube"
+		name: "Kube",
 	},
 	kgg: {
 		code: "kgg",
-		name: "Kusunda"
+		name: "Kusunda",
 	},
 	kgi: {
 		code: "kgi",
-		name: "Selangor Sign Language"
+		name: "Selangor Sign Language",
 	},
 	kgj: {
 		code: "kgj",
-		name: "Gamale Kham"
+		name: "Gamale Kham",
 	},
 	kgk: {
 		code: "kgk",
-		name: "Kaiwá"
+		name: "Kaiwá",
 	},
 	kgl: {
 		code: "kgl",
-		name: "Kunggari"
+		name: "Kunggari",
 	},
 	kgn: {
 		code: "kgn",
-		name: "Karingani"
+		name: "Karingani",
 	},
 	kgo: {
 		code: "kgo",
-		name: "Krongo"
+		name: "Krongo",
 	},
 	kgp: {
 		code: "kgp",
-		name: "Kaingang"
+		name: "Kaingang",
 	},
 	kgq: {
 		code: "kgq",
-		name: "Kamoro"
+		name: "Kamoro",
 	},
 	kgr: {
 		code: "kgr",
-		name: "Abun"
+		name: "Abun",
 	},
 	kgs: {
 		code: "kgs",
-		name: "Kumbainggar"
+		name: "Kumbainggar",
 	},
 	kgt: {
 		code: "kgt",
-		name: "Somyev"
+		name: "Somyev",
 	},
 	kgu: {
 		code: "kgu",
-		name: "Kobol"
+		name: "Kobol",
 	},
 	kgv: {
 		code: "kgv",
-		name: "Karas"
+		name: "Karas",
 	},
 	kgw: {
 		code: "kgw",
-		name: "Karon Dori"
+		name: "Karon Dori",
 	},
 	kgx: {
 		code: "kgx",
-		name: "Kamaru"
+		name: "Kamaru",
 	},
 	kgy: {
 		code: "kgy",
-		name: "Kyerung"
+		name: "Kyerung",
 	},
 	kha: {
 		code: "kha",
-		name: "Khasi"
+		name: "Khasi",
 	},
 	khb: {
 		code: "khb",
-		name: "Lü"
+		name: "Lü",
 	},
 	khc: {
 		code: "khc",
-		name: "Tukang Besi North"
+		name: "Tukang Besi North",
 	},
 	khd: {
 		code: "khd",
-		name: "Bädi Kanum"
+		name: "Bädi Kanum",
 	},
 	khe: {
 		code: "khe",
-		name: "Korowai"
+		name: "Korowai",
 	},
 	khf: {
 		code: "khf",
-		name: "Khuen"
+		name: "Khuen",
 	},
 	khg: {
 		code: "khg",
-		name: "Khams Tibetan"
+		name: "Khams Tibetan",
 	},
 	khh: {
 		code: "khh",
-		name: "Kehu"
+		name: "Kehu",
 	},
 	khj: {
 		code: "khj",
-		name: "Kuturmi"
+		name: "Kuturmi",
 	},
 	khk: {
 		code: "khk",
-		name: "Halh Mongolian"
+		name: "Halh Mongolian",
 	},
 	khl: {
 		code: "khl",
-		name: "Lusi"
+		name: "Lusi",
+	},
+	khm: {
+		code: "khm",
+		name: "Khmer",
 	},
 	khn: {
 		code: "khn",
-		name: "Khandesi"
+		name: "Khandesi",
 	},
 	kho: {
 		code: "kho",
-		name: "Khotanese"
+		name: "Khotanese",
 	},
 	khp: {
 		code: "khp",
-		name: "Kapori"
+		name: "Kapori",
 	},
 	khq: {
 		code: "khq",
-		name: "Koyra Chiini Songhay"
+		name: "Koyra Chiini Songhay",
 	},
 	khr: {
 		code: "khr",
-		name: "Kharia"
+		name: "Kharia",
 	},
 	khs: {
 		code: "khs",
-		name: "Kasua"
+		name: "Kasua",
 	},
 	kht: {
 		code: "kht",
-		name: "Khamti"
+		name: "Khamti",
 	},
 	khu: {
 		code: "khu",
-		name: "Nkhumbi"
+		name: "Nkhumbi",
 	},
 	khv: {
 		code: "khv",
-		name: "Khvarshi"
+		name: "Khvarshi",
 	},
 	khw: {
 		code: "khw",
-		name: "Khowar"
+		name: "Khowar",
 	},
 	khx: {
 		code: "khx",
-		name: "Kanu"
+		name: "Kanu",
 	},
 	khy: {
 		code: "khy",
-		name: "Kele (Democratic Republic of Congo)"
+		name: "Kele (Democratic Republic of Congo)",
 	},
 	khz: {
 		code: "khz",
-		name: "Keapara"
+		name: "Keapara",
 	},
 	kia: {
 		code: "kia",
-		name: "Kim"
+		name: "Kim",
 	},
 	kib: {
 		code: "kib",
-		name: "Koalib"
+		name: "Koalib",
 	},
 	kic: {
 		code: "kic",
-		name: "Kickapoo"
+		name: "Kickapoo",
 	},
 	kid: {
 		code: "kid",
-		name: "Koshin"
+		name: "Koshin",
 	},
 	kie: {
 		code: "kie",
-		name: "Kibet"
+		name: "Kibet",
 	},
 	kif: {
 		code: "kif",
-		name: "Eastern Parbate Kham"
+		name: "Eastern Parbate Kham",
 	},
 	kig: {
 		code: "kig",
-		name: "Kimaama"
+		name: "Kimaama",
 	},
 	kih: {
 		code: "kih",
-		name: "Kilmeri"
+		name: "Kilmeri",
 	},
 	kii: {
 		code: "kii",
-		name: "Kitsai"
+		name: "Kitsai",
 	},
 	kij: {
 		code: "kij",
-		name: "Kilivila"
+		name: "Kilivila",
+	},
+	kik: {
+		code: "kik",
+		name: "Kikuyu",
 	},
 	kil: {
 		code: "kil",
-		name: "Kariya"
+		name: "Kariya",
 	},
 	kim: {
 		code: "kim",
-		name: "Karagas"
+		name: "Karagas",
+	},
+	kin: {
+		code: "kin",
+		name: "Kinyarwanda",
 	},
 	kio: {
 		code: "kio",
-		name: "Kiowa"
+		name: "Kiowa",
 	},
 	kip: {
 		code: "kip",
-		name: "Sheshi Kham"
+		name: "Sheshi Kham",
 	},
 	kiq: {
 		code: "kiq",
-		name: "Kosadle"
+		name: "Kosadle",
 	},
 	kir: {
 		code: "kir",
-		name: "Kirghiz"
+		name: "Kirghiz",
 	},
 	kis: {
 		code: "kis",
-		name: "Kis"
+		name: "Kis",
 	},
 	kit: {
 		code: "kit",
-		name: "Agob"
+		name: "Agob",
 	},
 	kiu: {
 		code: "kiu",
-		name: "Kirmanjki (individual language)"
+		name: "Kirmanjki (individual language)",
 	},
 	kiv: {
 		code: "kiv",
-		name: "Kimbu"
+		name: "Kimbu",
 	},
 	kiw: {
 		code: "kiw",
-		name: "Northeast Kiwai"
+		name: "Northeast Kiwai",
 	},
 	kix: {
 		code: "kix",
-		name: "Khiamniungan Naga"
+		name: "Khiamniungan Naga",
 	},
 	kiy: {
 		code: "kiy",
-		name: "Kirikiri"
+		name: "Kirikiri",
 	},
 	kiz: {
 		code: "kiz",
-		name: "Kisi"
+		name: "Kisi",
 	},
 	kja: {
 		code: "kja",
-		name: "Mlap"
+		name: "Mlap",
 	},
 	kjb: {
 		code: "kjb",
-		name: "Q'anjob'al"
+		name: "Q'anjob'al",
 	},
 	kjc: {
 		code: "kjc",
-		name: "Coastal Konjo"
+		name: "Coastal Konjo",
 	},
 	kjd: {
 		code: "kjd",
-		name: "Southern Kiwai"
+		name: "Southern Kiwai",
 	},
 	kje: {
 		code: "kje",
-		name: "Kisar"
+		name: "Kisar",
 	},
 	kjg: {
 		code: "kjg",
-		name: "Khmu"
+		name: "Khmu",
 	},
 	kjh: {
 		code: "kjh",
-		name: "Khakas"
+		name: "Khakas",
 	},
 	kji: {
 		code: "kji",
-		name: "Zabana"
+		name: "Zabana",
 	},
 	kjj: {
 		code: "kjj",
-		name: "Khinalugh"
+		name: "Khinalugh",
 	},
 	kjk: {
 		code: "kjk",
-		name: "Highland Konjo"
+		name: "Highland Konjo",
 	},
 	kjl: {
 		code: "kjl",
-		name: "Western Parbate Kham"
+		name: "Western Parbate Kham",
 	},
 	kjm: {
 		code: "kjm",
-		name: "Kháng"
+		name: "Kháng",
 	},
 	kjn: {
 		code: "kjn",
-		name: "Kunjen"
+		name: "Kunjen",
 	},
 	kjo: {
 		code: "kjo",
-		name: "Harijan Kinnauri"
+		name: "Harijan Kinnauri",
 	},
 	kjp: {
 		code: "kjp",
-		name: "Pwo Eastern Karen"
+		name: "Pwo Eastern Karen",
 	},
 	kjq: {
 		code: "kjq",
-		name: "Western Keres"
+		name: "Western Keres",
 	},
 	kjr: {
 		code: "kjr",
-		name: "Kurudu"
+		name: "Kurudu",
 	},
 	kjs: {
 		code: "kjs",
-		name: "East Kewa"
+		name: "East Kewa",
 	},
 	kjt: {
 		code: "kjt",
-		name: "Phrae Pwo Karen"
+		name: "Phrae Pwo Karen",
 	},
 	kju: {
 		code: "kju",
-		name: "Kashaya"
+		name: "Kashaya",
 	},
 	kjv: {
 		code: "kjv",
-		name: "Kaikavian Literary Language"
+		name: "Kaikavian Literary Language",
 	},
 	kjx: {
 		code: "kjx",
-		name: "Ramopa"
+		name: "Ramopa",
 	},
 	kjy: {
 		code: "kjy",
-		name: "Erave"
+		name: "Erave",
 	},
 	kjz: {
 		code: "kjz",
-		name: "Bumthangkha"
+		name: "Bumthangkha",
 	},
 	kka: {
 		code: "kka",
-		name: "Kakanda"
+		name: "Kakanda",
 	},
 	kkb: {
 		code: "kkb",
-		name: "Kwerisa"
+		name: "Kwerisa",
 	},
 	kkc: {
 		code: "kkc",
-		name: "Odoodee"
+		name: "Odoodee",
 	},
 	kkd: {
 		code: "kkd",
-		name: "Kinuku"
+		name: "Kinuku",
 	},
 	kke: {
 		code: "kke",
-		name: "Kakabe"
+		name: "Kakabe",
 	},
 	kkf: {
 		code: "kkf",
-		name: "Kalaktang Monpa"
+		name: "Kalaktang Monpa",
 	},
 	kkg: {
 		code: "kkg",
-		name: "Mabaka Valley Kalinga"
+		name: "Mabaka Valley Kalinga",
 	},
 	kkh: {
 		code: "kkh",
-		name: "Khün"
+		name: "Khün",
 	},
 	kki: {
 		code: "kki",
-		name: "Kagulu"
+		name: "Kagulu",
 	},
 	kkj: {
 		code: "kkj",
-		name: "Kako"
+		name: "Kako",
 	},
 	kkk: {
 		code: "kkk",
-		name: "Kokota"
+		name: "Kokota",
 	},
 	kkl: {
 		code: "kkl",
-		name: "Kosarek Yale"
+		name: "Kosarek Yale",
 	},
 	kkm: {
 		code: "kkm",
-		name: "Kiong"
+		name: "Kiong",
 	},
 	kkn: {
 		code: "kkn",
-		name: "Kon Keu"
+		name: "Kon Keu",
 	},
 	kko: {
 		code: "kko",
-		name: "Karko"
+		name: "Karko",
 	},
 	kkp: {
 		code: "kkp",
-		name: "Gugubera"
+		name: "Gugubera",
 	},
 	kkq: {
 		code: "kkq",
-		name: "Kaeku"
+		name: "Kaeku",
 	},
 	kkr: {
 		code: "kkr",
-		name: "Kir-Balar"
+		name: "Kir-Balar",
 	},
 	kks: {
 		code: "kks",
-		name: "Giiwo"
+		name: "Giiwo",
 	},
 	kkt: {
 		code: "kkt",
-		name: "Koi"
+		name: "Koi",
 	},
 	kku: {
 		code: "kku",
-		name: "Tumi"
+		name: "Tumi",
 	},
 	kkv: {
 		code: "kkv",
-		name: "Kangean"
+		name: "Kangean",
 	},
 	kkw: {
 		code: "kkw",
-		name: "Teke-Kukuya"
+		name: "Teke-Kukuya",
 	},
 	kkx: {
 		code: "kkx",
-		name: "Kohin"
+		name: "Kohin",
 	},
 	kky: {
 		code: "kky",
-		name: "Guugu Yimidhirr"
+		name: "Guugu Yimidhirr",
 	},
 	kkz: {
 		code: "kkz",
-		name: "Kaska"
+		name: "Kaska",
 	},
 	kla: {
 		code: "kla",
-		name: "Klamath-Modoc"
+		name: "Klamath-Modoc",
 	},
 	klb: {
 		code: "klb",
-		name: "Kiliwa"
+		name: "Kiliwa",
 	},
 	klc: {
 		code: "klc",
-		name: "Kolbila"
+		name: "Kolbila",
 	},
 	kld: {
 		code: "kld",
-		name: "Gamilaraay"
+		name: "Gamilaraay",
 	},
 	kle: {
 		code: "kle",
-		name: "Kulung (Nepal)"
+		name: "Kulung (Nepal)",
 	},
 	klf: {
 		code: "klf",
-		name: "Kendeje"
+		name: "Kendeje",
 	},
 	klg: {
 		code: "klg",
-		name: "Tagakaulo"
+		name: "Tagakaulo",
 	},
 	klh: {
 		code: "klh",
-		name: "Weliki"
+		name: "Weliki",
 	},
 	kli: {
 		code: "kli",
-		name: "Kalumpang"
+		name: "Kalumpang",
 	},
 	klj: {
 		code: "klj",
-		name: "Khalaj"
+		name: "Khalaj",
 	},
 	klk: {
 		code: "klk",
-		name: "Kono (Nigeria)"
+		name: "Kono (Nigeria)",
 	},
 	kll: {
 		code: "kll",
-		name: "Kagan Kalagan"
+		name: "Kagan Kalagan",
 	},
 	klm: {
 		code: "klm",
-		name: "Migum"
+		name: "Migum",
 	},
 	kln: {
 		code: "kln",
-		name: "Kalenjin"
+		name: "Kalenjin",
 	},
 	klo: {
 		code: "klo",
-		name: "Kapya"
+		name: "Kapya",
 	},
 	klp: {
 		code: "klp",
-		name: "Kamasa"
+		name: "Kamasa",
 	},
 	klq: {
 		code: "klq",
-		name: "Rumu"
+		name: "Rumu",
 	},
 	klr: {
 		code: "klr",
-		name: "Khaling"
+		name: "Khaling",
 	},
 	kls: {
 		code: "kls",
-		name: "Kalasha"
+		name: "Kalasha",
 	},
 	klt: {
 		code: "klt",
-		name: "Nukna"
+		name: "Nukna",
 	},
 	klu: {
 		code: "klu",
-		name: "Klao"
+		name: "Klao",
 	},
 	klv: {
 		code: "klv",
-		name: "Maskelynes"
+		name: "Maskelynes",
 	},
 	klw: {
 		code: "klw",
-		name: "Tado"
+		name: "Tado",
 	},
 	klx: {
 		code: "klx",
-		name: "Koluwawa"
+		name: "Koluwawa",
 	},
 	kly: {
 		code: "kly",
-		name: "Kalao"
+		name: "Kalao",
 	},
 	klz: {
 		code: "klz",
-		name: "Kabola"
+		name: "Kabola",
 	},
 	kma: {
 		code: "kma",
-		name: "Konni"
+		name: "Konni",
 	},
 	kmb: {
 		code: "kmb",
-		name: "Kimbundu"
+		name: "Kimbundu",
 	},
 	kmc: {
 		code: "kmc",
-		name: "Southern Dong"
+		name: "Southern Dong",
 	},
 	kmd: {
 		code: "kmd",
-		name: "Majukayang Kalinga"
+		name: "Majukayang Kalinga",
 	},
 	kme: {
 		code: "kme",
-		name: "Bakole"
+		name: "Bakole",
 	},
 	kmf: {
 		code: "kmf",
-		name: "Kare (Papua New Guinea)"
+		name: "Kare (Papua New Guinea)",
 	},
 	kmg: {
 		code: "kmg",
-		name: "Kâte"
+		name: "Kâte",
 	},
 	kmh: {
 		code: "kmh",
-		name: "Kalam"
+		name: "Kalam",
 	},
 	kmi: {
 		code: "kmi",
-		name: "Kami (Nigeria)"
+		name: "Kami (Nigeria)",
 	},
 	kmj: {
 		code: "kmj",
-		name: "Kumarbhag Paharia"
+		name: "Kumarbhag Paharia",
 	},
 	kmk: {
 		code: "kmk",
-		name: "Limos Kalinga"
+		name: "Limos Kalinga",
 	},
 	kml: {
 		code: "kml",
-		name: "Tanudan Kalinga"
+		name: "Tanudan Kalinga",
 	},
 	kmm: {
 		code: "kmm",
-		name: "Kom (India)"
+		name: "Kom (India)",
 	},
 	kmn: {
 		code: "kmn",
-		name: "Awtuw"
+		name: "Awtuw",
 	},
 	kmo: {
 		code: "kmo",
-		name: "Kwoma"
+		name: "Kwoma",
 	},
 	kmp: {
 		code: "kmp",
-		name: "Gimme"
+		name: "Gimme",
 	},
 	kmq: {
 		code: "kmq",
-		name: "Kwama"
+		name: "Kwama",
 	},
 	kmr: {
 		code: "kmr",
-		name: "Northern Kurdish"
+		name: "Northern Kurdish",
 	},
 	kms: {
 		code: "kms",
-		name: "Kamasau"
+		name: "Kamasau",
 	},
 	kmt: {
 		code: "kmt",
-		name: "Kemtuik"
+		name: "Kemtuik",
 	},
 	kmu: {
 		code: "kmu",
-		name: "Kanite"
+		name: "Kanite",
 	},
 	kmv: {
 		code: "kmv",
-		name: "Karipúna Creole French"
+		name: "Karipúna Creole French",
 	},
 	kmw: {
 		code: "kmw",
-		name: "Komo (Democratic Republic of Congo)"
+		name: "Komo (Democratic Republic of Congo)",
 	},
 	kmx: {
 		code: "kmx",
-		name: "Waboda"
+		name: "Waboda",
 	},
 	kmy: {
 		code: "kmy",
-		name: "Koma"
+		name: "Koma",
 	},
 	kmz: {
 		code: "kmz",
-		name: "Khorasani Turkish"
+		name: "Khorasani Turkish",
 	},
 	kna: {
 		code: "kna",
-		name: "Dera (Nigeria)"
+		name: "Dera (Nigeria)",
 	},
 	knb: {
 		code: "knb",
-		name: "Lubuagan Kalinga"
+		name: "Lubuagan Kalinga",
 	},
 	knc: {
 		code: "knc",
-		name: "Central Kanuri"
+		name: "Central Kanuri",
 	},
 	knd: {
 		code: "knd",
-		name: "Konda"
+		name: "Konda",
 	},
 	kne: {
 		code: "kne",
-		name: "Kankanaey"
+		name: "Kankanaey",
 	},
 	knf: {
 		code: "knf",
-		name: "Mankanya"
+		name: "Mankanya",
 	},
 	kng: {
 		code: "kng",
-		name: "Koongo"
+		name: "Koongo",
 	},
 	kni: {
 		code: "kni",
-		name: "Kanufi"
+		name: "Kanufi",
 	},
 	knj: {
 		code: "knj",
-		name: "Western Kanjobal"
+		name: "Western Kanjobal",
 	},
 	knk: {
 		code: "knk",
-		name: "Kuranko"
+		name: "Kuranko",
 	},
 	knl: {
 		code: "knl",
-		name: "Keninjal"
+		name: "Keninjal",
 	},
 	knm: {
 		code: "knm",
-		name: "Kanamarí"
+		name: "Kanamarí",
 	},
 	knn: {
 		code: "knn",
-		name: "Konkani (individual language)"
+		name: "Konkani (individual language)",
 	},
 	kno: {
 		code: "kno",
-		name: "Kono (Sierra Leone)"
+		name: "Kono (Sierra Leone)",
 	},
 	knp: {
 		code: "knp",
-		name: "Kwanja"
+		name: "Kwanja",
 	},
 	knq: {
 		code: "knq",
-		name: "Kintaq"
+		name: "Kintaq",
 	},
 	knr: {
 		code: "knr",
-		name: "Kaningra"
+		name: "Kaningra",
 	},
 	kns: {
 		code: "kns",
-		name: "Kensiu"
+		name: "Kensiu",
 	},
 	knt: {
 		code: "knt",
-		name: "Panoan Katukína"
+		name: "Panoan Katukína",
 	},
 	knu: {
 		code: "knu",
-		name: "Kono (Guinea)"
+		name: "Kono (Guinea)",
 	},
 	knv: {
 		code: "knv",
-		name: "Tabo"
+		name: "Tabo",
 	},
 	knw: {
 		code: "knw",
-		name: "Kung-Ekoka"
+		name: "Kung-Ekoka",
 	},
 	knx: {
 		code: "knx",
-		name: "Kendayan"
+		name: "Kendayan",
 	},
 	kny: {
 		code: "kny",
-		name: "Kanyok"
+		name: "Kanyok",
 	},
 	knz: {
 		code: "knz",
-		name: "Kalamsé"
+		name: "Kalamsé",
 	},
 	koa: {
 		code: "koa",
-		name: "Konomala"
+		name: "Konomala",
 	},
 	koc: {
 		code: "koc",
-		name: "Kpati"
+		name: "Kpati",
 	},
 	kod: {
 		code: "kod",
-		name: "Kodi"
+		name: "Kodi",
 	},
 	koe: {
 		code: "koe",
-		name: "Kacipo-Bale Suri"
+		name: "Kacipo-Bale Suri",
 	},
 	kof: {
 		code: "kof",
-		name: "Kubi"
+		name: "Kubi",
 	},
 	kog: {
 		code: "kog",
-		name: "Cogui"
+		name: "Cogui",
 	},
 	koh: {
 		code: "koh",
-		name: "Koyo"
+		name: "Koyo",
 	},
 	koi: {
 		code: "koi",
-		name: "Komi-Permyak"
+		name: "Komi-Permyak",
 	},
 	kok: {
 		code: "kok",
-		name: "Konkani (macrolanguage)"
+		name: "Konkani (macrolanguage)",
 	},
 	kol: {
 		code: "kol",
-		name: "Kol (Papua New Guinea)"
+		name: "Kol (Papua New Guinea)",
+	},
+	kom: {
+		code: "kom",
+		name: "Komi",
+	},
+	kon: {
+		code: "kon",
+		name: "Kongo",
 	},
 	koo: {
 		code: "koo",
-		name: "Konzo"
+		name: "Konzo",
 	},
 	kop: {
 		code: "kop",
-		name: "Waube"
+		name: "Waube",
 	},
 	koq: {
 		code: "koq",
-		name: "Kota (Gabon)"
+		name: "Kota (Gabon)",
+	},
+	kor: {
+		code: "kor",
+		name: "Korean",
 	},
 	kos: {
 		code: "kos",
-		name: "Kosraean"
+		name: "Kosraean",
 	},
 	kot: {
 		code: "kot",
-		name: "Lagwan"
+		name: "Lagwan",
 	},
 	kou: {
 		code: "kou",
-		name: "Koke"
+		name: "Koke",
 	},
 	kov: {
 		code: "kov",
-		name: "Kudu-Camo"
+		name: "Kudu-Camo",
 	},
 	kow: {
 		code: "kow",
-		name: "Kugama"
+		name: "Kugama",
 	},
 	koy: {
 		code: "koy",
-		name: "Koyukon"
+		name: "Koyukon",
 	},
 	koz: {
 		code: "koz",
-		name: "Korak"
+		name: "Korak",
 	},
 	kpa: {
 		code: "kpa",
-		name: "Kutto"
+		name: "Kutto",
 	},
 	kpb: {
 		code: "kpb",
-		name: "Mullu Kurumba"
+		name: "Mullu Kurumba",
 	},
 	kpc: {
 		code: "kpc",
-		name: "Curripaco"
+		name: "Curripaco",
 	},
 	kpd: {
 		code: "kpd",
-		name: "Koba"
+		name: "Koba",
 	},
 	kpe: {
 		code: "kpe",
-		name: "Kpelle"
+		name: "Kpelle",
 	},
 	kpf: {
 		code: "kpf",
-		name: "Komba"
+		name: "Komba",
 	},
 	kpg: {
 		code: "kpg",
-		name: "Kapingamarangi"
+		name: "Kapingamarangi",
 	},
 	kph: {
 		code: "kph",
-		name: "Kplang"
+		name: "Kplang",
 	},
 	kpi: {
 		code: "kpi",
-		name: "Kofei"
+		name: "Kofei",
 	},
 	kpj: {
 		code: "kpj",
-		name: "Karajá"
+		name: "Karajá",
 	},
 	kpk: {
 		code: "kpk",
-		name: "Kpan"
+		name: "Kpan",
 	},
 	kpl: {
 		code: "kpl",
-		name: "Kpala"
+		name: "Kpala",
 	},
 	kpm: {
 		code: "kpm",
-		name: "Koho"
+		name: "Koho",
 	},
 	kpn: {
 		code: "kpn",
-		name: "Kepkiriwát"
+		name: "Kepkiriwát",
 	},
 	kpo: {
 		code: "kpo",
-		name: "Ikposo"
+		name: "Ikposo",
 	},
 	kpq: {
 		code: "kpq",
-		name: "Korupun-Sela"
+		name: "Korupun-Sela",
 	},
 	kpr: {
 		code: "kpr",
-		name: "Korafe-Yegha"
+		name: "Korafe-Yegha",
 	},
 	kps: {
 		code: "kps",
-		name: "Tehit"
+		name: "Tehit",
 	},
 	kpt: {
 		code: "kpt",
-		name: "Karata"
+		name: "Karata",
 	},
 	kpu: {
 		code: "kpu",
-		name: "Kafoa"
+		name: "Kafoa",
 	},
 	kpv: {
 		code: "kpv",
-		name: "Komi-Zyrian"
+		name: "Komi-Zyrian",
 	},
 	kpw: {
 		code: "kpw",
-		name: "Kobon"
+		name: "Kobon",
 	},
 	kpx: {
 		code: "kpx",
-		name: "Mountain Koiali"
+		name: "Mountain Koiali",
 	},
 	kpy: {
 		code: "kpy",
-		name: "Koryak"
+		name: "Koryak",
 	},
 	kpz: {
 		code: "kpz",
-		name: "Kupsabiny"
+		name: "Kupsabiny",
 	},
 	kqa: {
 		code: "kqa",
-		name: "Mum"
+		name: "Mum",
 	},
 	kqb: {
 		code: "kqb",
-		name: "Kovai"
+		name: "Kovai",
 	},
 	kqc: {
 		code: "kqc",
-		name: "Doromu-Koki"
+		name: "Doromu-Koki",
 	},
 	kqd: {
 		code: "kqd",
-		name: "Koy Sanjaq Surat"
+		name: "Koy Sanjaq Surat",
 	},
 	kqe: {
 		code: "kqe",
-		name: "Kalagan"
+		name: "Kalagan",
 	},
 	kqf: {
 		code: "kqf",
-		name: "Kakabai"
+		name: "Kakabai",
 	},
 	kqg: {
 		code: "kqg",
-		name: "Khe"
+		name: "Khe",
 	},
 	kqh: {
 		code: "kqh",
-		name: "Kisankasa"
+		name: "Kisankasa",
 	},
 	kqi: {
 		code: "kqi",
-		name: "Koitabu"
+		name: "Koitabu",
 	},
 	kqj: {
 		code: "kqj",
-		name: "Koromira"
+		name: "Koromira",
 	},
 	kqk: {
 		code: "kqk",
-		name: "Kotafon Gbe"
+		name: "Kotafon Gbe",
 	},
 	kql: {
 		code: "kql",
-		name: "Kyenele"
+		name: "Kyenele",
 	},
 	kqm: {
 		code: "kqm",
-		name: "Khisa"
+		name: "Khisa",
+	},
+	kqn: {
+		code: "kqn",
+		name: "Kaonde",
 	},
 	kqo: {
 		code: "kqo",
-		name: "Eastern Krahn"
+		name: "Eastern Krahn",
 	},
 	kqp: {
 		code: "kqp",
-		name: "Kimré"
+		name: "Kimré",
 	},
 	kqq: {
 		code: "kqq",
-		name: "Krenak"
+		name: "Krenak",
 	},
 	kqr: {
 		code: "kqr",
-		name: "Kimaragang"
+		name: "Kimaragang",
 	},
 	kqs: {
 		code: "kqs",
-		name: "Northern Kissi"
+		name: "Northern Kissi",
 	},
 	kqt: {
 		code: "kqt",
-		name: "Klias River Kadazan"
+		name: "Klias River Kadazan",
 	},
 	kqu: {
 		code: "kqu",
-		name: "Seroa"
+		name: "Seroa",
 	},
 	kqv: {
 		code: "kqv",
-		name: "Okolod"
+		name: "Okolod",
 	},
 	kqw: {
 		code: "kqw",
-		name: "Kandas"
+		name: "Kandas",
 	},
 	kqx: {
 		code: "kqx",
-		name: "Mser"
+		name: "Mser",
 	},
 	kqy: {
 		code: "kqy",
-		name: "Koorete"
+		name: "Koorete",
 	},
 	kqz: {
 		code: "kqz",
-		name: "Korana"
+		name: "Korana",
 	},
 	kra: {
 		code: "kra",
-		name: "Kumhali"
+		name: "Kumhali",
 	},
 	krb: {
 		code: "krb",
-		name: "Karkin"
+		name: "Karkin",
 	},
 	krc: {
 		code: "krc",
-		name: "Karachay-Balkar"
+		name: "Karachay-Balkar",
 	},
 	krd: {
 		code: "krd",
-		name: "Kairui-Midiki"
+		name: "Kairui-Midiki",
 	},
 	kre: {
 		code: "kre",
-		name: "Panará"
+		name: "Panará",
 	},
 	krf: {
 		code: "krf",
-		name: "Koro (Vanuatu)"
+		name: "Koro (Vanuatu)",
 	},
 	krh: {
 		code: "krh",
-		name: "Kurama"
+		name: "Kurama",
 	},
 	kri: {
 		code: "kri",
-		name: "Krio"
+		name: "Krio",
 	},
 	krj: {
 		code: "krj",
-		name: "Kinaray-A"
+		name: "Kinaray-A",
 	},
 	krk: {
 		code: "krk",
-		name: "Kerek"
+		name: "Kerek",
 	},
 	krl: {
 		code: "krl",
-		name: "Karelian"
+		name: "Karelian",
 	},
 	krn: {
 		code: "krn",
-		name: "Sapo"
+		name: "Sapo",
 	},
 	krp: {
 		code: "krp",
-		name: "Durop"
+		name: "Durop",
 	},
 	krr: {
 		code: "krr",
-		name: "Krung"
+		name: "Krung",
 	},
 	krs: {
 		code: "krs",
-		name: "Gbaya (Sudan)"
+		name: "Gbaya (Sudan)",
 	},
 	krt: {
 		code: "krt",
-		name: "Tumari Kanuri"
+		name: "Tumari Kanuri",
 	},
 	kru: {
 		code: "kru",
-		name: "Kurukh"
+		name: "Kurukh",
 	},
 	krv: {
 		code: "krv",
-		name: "Kavet"
+		name: "Kavet",
 	},
 	krw: {
 		code: "krw",
-		name: "Western Krahn"
+		name: "Western Krahn",
 	},
 	krx: {
 		code: "krx",
-		name: "Karon"
+		name: "Karon",
 	},
 	kry: {
 		code: "kry",
-		name: "Kryts"
+		name: "Kryts",
 	},
 	krz: {
 		code: "krz",
-		name: "Sota Kanum"
+		name: "Sota Kanum",
 	},
 	ksb: {
 		code: "ksb",
-		name: "Shambala"
+		name: "Shambala",
 	},
 	ksc: {
 		code: "ksc",
-		name: "Southern Kalinga"
+		name: "Southern Kalinga",
 	},
 	ksd: {
 		code: "ksd",
-		name: "Kuanua"
+		name: "Kuanua",
 	},
 	kse: {
 		code: "kse",
-		name: "Kuni"
+		name: "Kuni",
 	},
 	ksf: {
 		code: "ksf",
-		name: "Bafia"
+		name: "Bafia",
 	},
 	ksg: {
 		code: "ksg",
-		name: "Kusaghe"
+		name: "Kusaghe",
 	},
 	ksh: {
 		code: "ksh",
-		name: "Kölsch"
+		name: "Kölsch",
 	},
 	ksi: {
 		code: "ksi",
-		name: "Krisa"
+		name: "Krisa",
 	},
 	ksj: {
 		code: "ksj",
-		name: "Uare"
+		name: "Uare",
 	},
 	ksk: {
 		code: "ksk",
-		name: "Kansa"
+		name: "Kansa",
 	},
 	ksl: {
 		code: "ksl",
-		name: "Kumalu"
+		name: "Kumalu",
 	},
 	ksm: {
 		code: "ksm",
-		name: "Kumba"
+		name: "Kumba",
 	},
 	ksn: {
 		code: "ksn",
-		name: "Kasiguranin"
+		name: "Kasiguranin",
 	},
 	kso: {
 		code: "kso",
-		name: "Kofa"
+		name: "Kofa",
 	},
 	ksp: {
 		code: "ksp",
-		name: "Kaba"
+		name: "Kaba",
 	},
 	ksq: {
 		code: "ksq",
-		name: "Kwaami"
+		name: "Kwaami",
 	},
 	ksr: {
 		code: "ksr",
-		name: "Borong"
+		name: "Borong",
 	},
 	kss: {
 		code: "kss",
-		name: "Southern Kisi"
+		name: "Southern Kisi",
 	},
 	kst: {
 		code: "kst",
-		name: "Winyé"
+		name: "Winyé",
 	},
 	ksu: {
 		code: "ksu",
-		name: "Khamyang"
+		name: "Khamyang",
 	},
 	ksv: {
 		code: "ksv",
-		name: "Kusu"
+		name: "Kusu",
 	},
 	ksw: {
 		code: "ksw",
-		name: "S'gaw Karen"
+		name: "S'gaw Karen",
 	},
 	ksx: {
 		code: "ksx",
-		name: "Kedang"
+		name: "Kedang",
 	},
 	ksy: {
 		code: "ksy",
-		name: "Kharia Thar"
+		name: "Kharia Thar",
 	},
 	ksz: {
 		code: "ksz",
-		name: "Kodaku"
+		name: "Kodaku",
 	},
 	kta: {
 		code: "kta",
-		name: "Katua"
+		name: "Katua",
 	},
 	ktb: {
 		code: "ktb",
-		name: "Kambaata"
+		name: "Kambaata",
 	},
 	ktc: {
 		code: "ktc",
-		name: "Kholok"
+		name: "Kholok",
 	},
 	ktd: {
 		code: "ktd",
-		name: "Kokata"
+		name: "Kokata",
 	},
 	kte: {
 		code: "kte",
-		name: "Nubri"
+		name: "Nubri",
 	},
 	ktf: {
 		code: "ktf",
-		name: "Kwami"
+		name: "Kwami",
 	},
 	ktg: {
 		code: "ktg",
-		name: "Kalkutung"
+		name: "Kalkutung",
 	},
 	kth: {
 		code: "kth",
-		name: "Karanga"
+		name: "Karanga",
 	},
 	kti: {
 		code: "kti",
-		name: "North Muyu"
+		name: "North Muyu",
 	},
 	ktj: {
 		code: "ktj",
-		name: "Plapo Krumen"
+		name: "Plapo Krumen",
 	},
 	ktk: {
 		code: "ktk",
-		name: "Kaniet"
+		name: "Kaniet",
 	},
 	ktl: {
 		code: "ktl",
-		name: "Koroshi"
+		name: "Koroshi",
 	},
 	ktm: {
 		code: "ktm",
-		name: "Kurti"
+		name: "Kurti",
 	},
 	ktn: {
 		code: "ktn",
-		name: "Karitiâna"
+		name: "Karitiâna",
 	},
 	kto: {
 		code: "kto",
-		name: "Kuot"
+		name: "Kuot",
 	},
 	ktp: {
 		code: "ktp",
-		name: "Kaduo"
+		name: "Kaduo",
 	},
 	ktq: {
 		code: "ktq",
-		name: "Katabaga"
+		name: "Katabaga",
 	},
 	kts: {
 		code: "kts",
-		name: "South Muyu"
+		name: "South Muyu",
 	},
 	ktt: {
 		code: "ktt",
-		name: "Ketum"
+		name: "Ketum",
 	},
 	ktu: {
 		code: "ktu",
-		name: "Kituba (Democratic Republic of Congo)"
+		name: "Kituba (Democratic Republic of Congo)",
 	},
 	ktv: {
 		code: "ktv",
-		name: "Eastern Katu"
+		name: "Eastern Katu",
 	},
 	ktw: {
 		code: "ktw",
-		name: "Kato"
+		name: "Kato",
 	},
 	ktx: {
 		code: "ktx",
-		name: "Kaxararí"
+		name: "Kaxararí",
 	},
 	kty: {
 		code: "kty",
-		name: "Kango (Bas-Uélé District)"
+		name: "Kango (Bas-Uélé District)",
 	},
 	ktz: {
 		code: "ktz",
-		name: "Juǀʼhoan"
+		name: "Juǀʼhoan",
 	},
 	kua: {
 		code: "kua",
-		name: "Kuanyama"
+		name: "Kuanyama",
 	},
 	kub: {
 		code: "kub",
-		name: "Kutep"
+		name: "Kutep",
 	},
 	kuc: {
 		code: "kuc",
-		name: "Kwinsu"
+		name: "Kwinsu",
 	},
 	kud: {
 		code: "kud",
-		name: "'Auhelawa"
+		name: "'Auhelawa",
 	},
 	kue: {
 		code: "kue",
-		name: "Kuman (Papua New Guinea)"
+		name: "Kuman (Papua New Guinea)",
 	},
 	kuf: {
 		code: "kuf",
-		name: "Western Katu"
+		name: "Western Katu",
 	},
 	kug: {
 		code: "kug",
-		name: "Kupa"
+		name: "Kupa",
 	},
 	kuh: {
 		code: "kuh",
-		name: "Kushi"
+		name: "Kushi",
 	},
 	kui: {
 		code: "kui",
-		name: "Kuikúro-Kalapálo"
+		name: "Kuikúro-Kalapálo",
 	},
 	kuj: {
 		code: "kuj",
-		name: "Kuria"
+		name: "Kuria",
 	},
 	kuk: {
 		code: "kuk",
-		name: "Kepo'"
+		name: "Kepo'",
 	},
 	kul: {
 		code: "kul",
-		name: "Kulere"
+		name: "Kulere",
 	},
 	kum: {
 		code: "kum",
-		name: "Kumyk"
+		name: "Kumyk",
 	},
 	kun: {
 		code: "kun",
-		name: "Kunama"
+		name: "Kunama",
 	},
 	kuo: {
 		code: "kuo",
-		name: "Kumukio"
+		name: "Kumukio",
 	},
 	kup: {
 		code: "kup",
-		name: "Kunimaipa"
+		name: "Kunimaipa",
 	},
 	kuq: {
 		code: "kuq",
-		name: "Karipuna"
+		name: "Karipuna",
+	},
+	kur: {
+		code: "kur",
+		name: "Kurdish",
 	},
 	kus: {
 		code: "kus",
-		name: "Kusaal"
+		name: "Kusaal",
 	},
 	kut: {
 		code: "kut",
-		name: "Kutenai"
+		name: "Kutenai",
 	},
 	kuu: {
 		code: "kuu",
-		name: "Upper Kuskokwim"
+		name: "Upper Kuskokwim",
 	},
 	kuv: {
 		code: "kuv",
-		name: "Kur"
+		name: "Kur",
 	},
 	kuw: {
 		code: "kuw",
-		name: "Kpagua"
+		name: "Kpagua",
 	},
 	kux: {
 		code: "kux",
-		name: "Kukatja"
+		name: "Kukatja",
 	},
 	kuy: {
 		code: "kuy",
-		name: "Kuuku-Ya'u"
+		name: "Kuuku-Ya'u",
 	},
 	kuz: {
 		code: "kuz",
-		name: "Kunza"
+		name: "Kunza",
 	},
 	kva: {
 		code: "kva",
-		name: "Bagvalal"
+		name: "Bagvalal",
 	},
 	kvb: {
 		code: "kvb",
-		name: "Kubu"
+		name: "Kubu",
 	},
 	kvc: {
 		code: "kvc",
-		name: "Kove"
+		name: "Kove",
 	},
 	kvd: {
 		code: "kvd",
-		name: "Kui (Indonesia)"
+		name: "Kui (Indonesia)",
 	},
 	kve: {
 		code: "kve",
-		name: "Kalabakan"
+		name: "Kalabakan",
 	},
 	kvf: {
 		code: "kvf",
-		name: "Kabalai"
+		name: "Kabalai",
 	},
 	kvg: {
 		code: "kvg",
-		name: "Kuni-Boazi"
+		name: "Kuni-Boazi",
 	},
 	kvh: {
 		code: "kvh",
-		name: "Komodo"
+		name: "Komodo",
 	},
 	kvi: {
 		code: "kvi",
-		name: "Kwang"
+		name: "Kwang",
 	},
 	kvj: {
 		code: "kvj",
-		name: "Psikye"
+		name: "Psikye",
 	},
 	kvk: {
 		code: "kvk",
-		name: "Korean Sign Language"
+		name: "Korean Sign Language",
 	},
 	kvl: {
 		code: "kvl",
-		name: "Kayaw"
+		name: "Kayaw",
 	},
 	kvm: {
 		code: "kvm",
-		name: "Kendem"
+		name: "Kendem",
 	},
 	kvn: {
 		code: "kvn",
-		name: "Border Kuna"
+		name: "Border Kuna",
 	},
 	kvo: {
 		code: "kvo",
-		name: "Dobel"
+		name: "Dobel",
 	},
 	kvp: {
 		code: "kvp",
-		name: "Kompane"
+		name: "Kompane",
 	},
 	kvq: {
 		code: "kvq",
-		name: "Geba Karen"
+		name: "Geba Karen",
 	},
 	kvr: {
 		code: "kvr",
-		name: "Kerinci"
+		name: "Kerinci",
 	},
 	kvt: {
 		code: "kvt",
-		name: "Lahta Karen"
+		name: "Lahta Karen",
 	},
 	kvu: {
 		code: "kvu",
-		name: "Yinbaw Karen"
+		name: "Yinbaw Karen",
 	},
 	kvv: {
 		code: "kvv",
-		name: "Kola"
+		name: "Kola",
 	},
 	kvw: {
 		code: "kvw",
-		name: "Wersing"
+		name: "Wersing",
 	},
 	kvx: {
 		code: "kvx",
-		name: "Parkari Koli"
+		name: "Parkari Koli",
 	},
 	kvy: {
 		code: "kvy",
-		name: "Yintale Karen"
+		name: "Yintale Karen",
 	},
 	kvz: {
 		code: "kvz",
-		name: "Tsakwambo"
+		name: "Tsakwambo",
 	},
 	kwa: {
 		code: "kwa",
-		name: "Dâw"
+		name: "Dâw",
 	},
 	kwb: {
 		code: "kwb",
-		name: "Kwa"
+		name: "Kwa",
 	},
 	kwc: {
 		code: "kwc",
-		name: "Likwala"
+		name: "Likwala",
 	},
 	kwd: {
 		code: "kwd",
-		name: "Kwaio"
+		name: "Kwaio",
 	},
 	kwe: {
 		code: "kwe",
-		name: "Kwerba"
+		name: "Kwerba",
 	},
 	kwf: {
 		code: "kwf",
-		name: "Kwara'ae"
+		name: "Kwara'ae",
 	},
 	kwg: {
 		code: "kwg",
-		name: "Sara Kaba Deme"
+		name: "Sara Kaba Deme",
 	},
 	kwh: {
 		code: "kwh",
-		name: "Kowiai"
+		name: "Kowiai",
 	},
 	kwi: {
 		code: "kwi",
-		name: "Awa-Cuaiquer"
+		name: "Awa-Cuaiquer",
 	},
 	kwj: {
 		code: "kwj",
-		name: "Kwanga"
+		name: "Kwanga",
 	},
 	kwk: {
 		code: "kwk",
-		name: "Kwakiutl"
+		name: "Kwakiutl",
 	},
 	kwl: {
 		code: "kwl",
-		name: "Kofyar"
+		name: "Kofyar",
 	},
 	kwm: {
 		code: "kwm",
-		name: "Kwambi"
+		name: "Kwambi",
+	},
+	kwn: {
+		code: "kwn",
+		name: "Kwangali",
 	},
 	kwo: {
 		code: "kwo",
-		name: "Kwomtari"
+		name: "Kwomtari",
 	},
 	kwp: {
 		code: "kwp",
-		name: "Kodia"
+		name: "Kodia",
 	},
 	kwr: {
 		code: "kwr",
-		name: "Kwer"
+		name: "Kwer",
 	},
 	kws: {
 		code: "kws",
-		name: "Kwese"
+		name: "Kwese",
 	},
 	kwt: {
 		code: "kwt",
-		name: "Kwesten"
+		name: "Kwesten",
 	},
 	kwu: {
 		code: "kwu",
-		name: "Kwakum"
+		name: "Kwakum",
 	},
 	kwv: {
 		code: "kwv",
-		name: "Sara Kaba Náà"
+		name: "Sara Kaba Náà",
 	},
 	kww: {
 		code: "kww",
-		name: "Kwinti"
+		name: "Kwinti",
 	},
 	kwx: {
 		code: "kwx",
-		name: "Khirwar"
+		name: "Khirwar",
+	},
+	kwy: {
+		code: "kwy",
+		name: "San Salvador Kongo",
 	},
 	kwz: {
 		code: "kwz",
-		name: "Kwadi"
+		name: "Kwadi",
 	},
 	kxa: {
 		code: "kxa",
-		name: "Kairiru"
+		name: "Kairiru",
 	},
 	kxb: {
 		code: "kxb",
-		name: "Krobu"
+		name: "Krobu",
 	},
 	kxc: {
 		code: "kxc",
-		name: "Konso"
+		name: "Konso",
 	},
 	kxd: {
 		code: "kxd",
-		name: "Brunei"
+		name: "Brunei",
 	},
 	kxf: {
 		code: "kxf",
-		name: "Manumanaw Karen"
+		name: "Manumanaw Karen",
 	},
 	kxh: {
 		code: "kxh",
-		name: "Karo (Ethiopia)"
+		name: "Karo (Ethiopia)",
 	},
 	kxi: {
 		code: "kxi",
-		name: "Keningau Murut"
+		name: "Keningau Murut",
 	},
 	kxj: {
 		code: "kxj",
-		name: "Kulfa"
+		name: "Kulfa",
 	},
 	kxk: {
 		code: "kxk",
-		name: "Zayein Karen"
+		name: "Zayein Karen",
 	},
 	kxm: {
 		code: "kxm",
-		name: "Northern Khmer"
+		name: "Northern Khmer",
 	},
 	kxn: {
 		code: "kxn",
-		name: "Kanowit-Tanjong Melanau"
+		name: "Kanowit-Tanjong Melanau",
 	},
 	kxo: {
 		code: "kxo",
-		name: "Kanoé"
+		name: "Kanoé",
 	},
 	kxp: {
 		code: "kxp",
-		name: "Wadiyara Koli"
+		name: "Wadiyara Koli",
 	},
 	kxq: {
 		code: "kxq",
-		name: "Smärky Kanum"
+		name: "Smärky Kanum",
 	},
 	kxr: {
 		code: "kxr",
-		name: "Koro (Papua New Guinea)"
+		name: "Koro (Papua New Guinea)",
 	},
 	kxs: {
 		code: "kxs",
-		name: "Kangjia"
+		name: "Kangjia",
 	},
 	kxt: {
 		code: "kxt",
-		name: "Koiwat"
+		name: "Koiwat",
 	},
 	kxv: {
 		code: "kxv",
-		name: "Kuvi"
+		name: "Kuvi",
 	},
 	kxw: {
 		code: "kxw",
-		name: "Konai"
+		name: "Konai",
 	},
 	kxx: {
 		code: "kxx",
-		name: "Likuba"
+		name: "Likuba",
 	},
 	kxy: {
 		code: "kxy",
-		name: "Kayong"
+		name: "Kayong",
 	},
 	kxz: {
 		code: "kxz",
-		name: "Kerewo"
+		name: "Kerewo",
 	},
 	kya: {
 		code: "kya",
-		name: "Kwaya"
+		name: "Kwaya",
 	},
 	kyb: {
 		code: "kyb",
-		name: "Butbut Kalinga"
+		name: "Butbut Kalinga",
 	},
 	kyc: {
 		code: "kyc",
-		name: "Kyaka"
+		name: "Kyaka",
 	},
 	kyd: {
 		code: "kyd",
-		name: "Karey"
+		name: "Karey",
 	},
 	kye: {
 		code: "kye",
-		name: "Krache"
+		name: "Krache",
 	},
 	kyf: {
 		code: "kyf",
-		name: "Kouya"
+		name: "Kouya",
 	},
 	kyg: {
 		code: "kyg",
-		name: "Keyagana"
+		name: "Keyagana",
 	},
 	kyh: {
 		code: "kyh",
-		name: "Karok"
+		name: "Karok",
 	},
 	kyi: {
 		code: "kyi",
-		name: "Kiput"
+		name: "Kiput",
 	},
 	kyj: {
 		code: "kyj",
-		name: "Karao"
+		name: "Karao",
 	},
 	kyk: {
 		code: "kyk",
-		name: "Kamayo"
+		name: "Kamayo",
 	},
 	kyl: {
 		code: "kyl",
-		name: "Kalapuya"
+		name: "Kalapuya",
 	},
 	kym: {
 		code: "kym",
-		name: "Kpatili"
+		name: "Kpatili",
 	},
 	kyn: {
 		code: "kyn",
-		name: "Northern Binukidnon"
+		name: "Northern Binukidnon",
 	},
 	kyo: {
 		code: "kyo",
-		name: "Kelon"
+		name: "Kelon",
 	},
 	kyp: {
 		code: "kyp",
-		name: "Kang"
+		name: "Kang",
 	},
 	kyq: {
 		code: "kyq",
-		name: "Kenga"
+		name: "Kenga",
 	},
 	kyr: {
 		code: "kyr",
-		name: "Kuruáya"
+		name: "Kuruáya",
 	},
 	kys: {
 		code: "kys",
-		name: "Baram Kayan"
+		name: "Baram Kayan",
 	},
 	kyt: {
 		code: "kyt",
-		name: "Kayagar"
+		name: "Kayagar",
 	},
 	kyu: {
 		code: "kyu",
-		name: "Western Kayah"
+		name: "Western Kayah",
 	},
 	kyv: {
 		code: "kyv",
-		name: "Kayort"
+		name: "Kayort",
 	},
 	kyw: {
 		code: "kyw",
-		name: "Kudmali"
+		name: "Kudmali",
 	},
 	kyx: {
 		code: "kyx",
-		name: "Rapoisi"
+		name: "Rapoisi",
 	},
 	kyy: {
 		code: "kyy",
-		name: "Kambaira"
+		name: "Kambaira",
 	},
 	kyz: {
 		code: "kyz",
-		name: "Kayabí"
+		name: "Kayabí",
 	},
 	kza: {
 		code: "kza",
-		name: "Western Karaboro"
+		name: "Western Karaboro",
 	},
 	kzb: {
 		code: "kzb",
-		name: "Kaibobo"
+		name: "Kaibobo",
 	},
 	kzc: {
 		code: "kzc",
-		name: "Bondoukou Kulango"
+		name: "Bondoukou Kulango",
 	},
 	kzd: {
 		code: "kzd",
-		name: "Kadai"
+		name: "Kadai",
 	},
 	kze: {
 		code: "kze",
-		name: "Kosena"
+		name: "Kosena",
 	},
 	kzf: {
 		code: "kzf",
-		name: "Da'a Kaili"
+		name: "Da'a Kaili",
 	},
 	kzg: {
 		code: "kzg",
-		name: "Kikai"
+		name: "Kikai",
 	},
 	kzi: {
 		code: "kzi",
-		name: "Kelabit"
+		name: "Kelabit",
 	},
 	kzk: {
 		code: "kzk",
-		name: "Kazukuru"
+		name: "Kazukuru",
 	},
 	kzl: {
 		code: "kzl",
-		name: "Kayeli"
+		name: "Kayeli",
 	},
 	kzm: {
 		code: "kzm",
-		name: "Kais"
+		name: "Kais",
 	},
 	kzn: {
 		code: "kzn",
-		name: "Kokola"
+		name: "Kokola",
 	},
 	kzo: {
 		code: "kzo",
-		name: "Kaningi"
+		name: "Kaningi",
 	},
 	kzp: {
 		code: "kzp",
-		name: "Kaidipang"
+		name: "Kaidipang",
 	},
 	kzq: {
 		code: "kzq",
-		name: "Kaike"
+		name: "Kaike",
 	},
 	kzr: {
 		code: "kzr",
-		name: "Karang"
+		name: "Karang",
 	},
 	kzs: {
 		code: "kzs",
-		name: "Sugut Dusun"
+		name: "Sugut Dusun",
 	},
 	kzu: {
 		code: "kzu",
-		name: "Kayupulau"
+		name: "Kayupulau",
 	},
 	kzv: {
 		code: "kzv",
-		name: "Komyandaret"
+		name: "Komyandaret",
 	},
 	kzw: {
 		code: "kzw",
-		name: "Karirí-Xocó"
+		name: "Karirí-Xocó",
 	},
 	kzx: {
 		code: "kzx",
-		name: "Kamarian"
+		name: "Kamarian",
 	},
 	kzy: {
 		code: "kzy",
-		name: "Kango (Tshopo District)"
+		name: "Kango (Tshopo District)",
 	},
 	kzz: {
 		code: "kzz",
-		name: "Kalabra"
+		name: "Kalabra",
 	},
 	laa: {
 		code: "laa",
-		name: "Southern Subanen"
+		name: "Southern Subanen",
 	},
 	lab: {
 		code: "lab",
-		name: "Linear A"
+		name: "Linear A",
 	},
 	lac: {
 		code: "lac",
-		name: "Lacandon"
+		name: "Lacandon",
 	},
 	lad: {
 		code: "lad",
-		name: "Ladino"
+		name: "Ladino",
 	},
 	lae: {
 		code: "lae",
-		name: "Pattani"
+		name: "Pattani",
 	},
 	laf: {
 		code: "laf",
-		name: "Lafofa"
+		name: "Lafofa",
 	},
 	lag: {
 		code: "lag",
-		name: "Rangi"
+		name: "Rangi",
 	},
 	lah: {
 		code: "lah",
-		name: "Lahnda"
+		name: "Lahnda",
 	},
 	lai: {
 		code: "lai",
-		name: "Lambya"
+		name: "Lambya",
 	},
 	laj: {
 		code: "laj",
-		name: "Lango (Uganda)"
+		name: "Lango (Uganda)",
 	},
 	lal: {
 		code: "lal",
-		name: "Lalia"
+		name: "Lalia",
 	},
 	lam: {
 		code: "lam",
-		name: "Lamba"
+		name: "Lamba",
 	},
 	lan: {
 		code: "lan",
-		name: "Laru"
+		name: "Laru",
+	},
+	lao: {
+		code: "lao",
+		name: "Lao",
 	},
 	lap: {
 		code: "lap",
-		name: "Laka (Chad)"
+		name: "Laka (Chad)",
 	},
 	laq: {
 		code: "laq",
-		name: "Qabiao"
+		name: "Qabiao",
 	},
 	lar: {
 		code: "lar",
-		name: "Larteh"
+		name: "Larteh",
 	},
 	las: {
 		code: "las",
-		name: "Lama (Togo)"
+		name: "Lama (Togo)",
+	},
+	lat: {
+		code: "lat",
+		name: "Latin",
 	},
 	lau: {
 		code: "lau",
-		name: "Laba"
+		name: "Laba",
+	},
+	lav: {
+		code: "lav",
+		name: "Latvian",
 	},
 	law: {
 		code: "law",
-		name: "Lauje"
+		name: "Lauje",
 	},
 	lax: {
 		code: "lax",
-		name: "Tiwa"
+		name: "Tiwa",
 	},
 	lay: {
 		code: "lay",
-		name: "Lama Bai"
+		name: "Lama Bai",
 	},
 	laz: {
 		code: "laz",
-		name: "Aribwatsa"
+		name: "Aribwatsa",
 	},
 	lbb: {
 		code: "lbb",
-		name: "Label"
+		name: "Label",
 	},
 	lbc: {
 		code: "lbc",
-		name: "Lakkia"
+		name: "Lakkia",
 	},
 	lbe: {
 		code: "lbe",
-		name: "Lak"
+		name: "Lak",
 	},
 	lbf: {
 		code: "lbf",
-		name: "Tinani"
+		name: "Tinani",
 	},
 	lbg: {
 		code: "lbg",
-		name: "Laopang"
+		name: "Laopang",
 	},
 	lbi: {
 		code: "lbi",
-		name: "La'bi"
+		name: "La'bi",
 	},
 	lbj: {
 		code: "lbj",
-		name: "Ladakhi"
+		name: "Ladakhi",
 	},
 	lbk: {
 		code: "lbk",
-		name: "Central Bontok"
+		name: "Central Bontok",
 	},
 	lbl: {
 		code: "lbl",
-		name: "Libon Bikol"
+		name: "Libon Bikol",
 	},
 	lbm: {
 		code: "lbm",
-		name: "Lodhi"
+		name: "Lodhi",
 	},
 	lbn: {
 		code: "lbn",
-		name: "Rmeet"
+		name: "Rmeet",
 	},
 	lbo: {
 		code: "lbo",
-		name: "Laven"
+		name: "Laven",
 	},
 	lbq: {
 		code: "lbq",
-		name: "Wampar"
+		name: "Wampar",
 	},
 	lbr: {
 		code: "lbr",
-		name: "Lohorung"
+		name: "Lohorung",
 	},
 	lbs: {
 		code: "lbs",
-		name: "Libyan Sign Language"
+		name: "Libyan Sign Language",
 	},
 	lbt: {
 		code: "lbt",
-		name: "Lachi"
+		name: "Lachi",
 	},
 	lbu: {
 		code: "lbu",
-		name: "Labu"
+		name: "Labu",
 	},
 	lbv: {
 		code: "lbv",
-		name: "Lavatbura-Lamusong"
+		name: "Lavatbura-Lamusong",
 	},
 	lbw: {
 		code: "lbw",
-		name: "Tolaki"
+		name: "Tolaki",
 	},
 	lbx: {
 		code: "lbx",
-		name: "Lawangan"
+		name: "Lawangan",
 	},
 	lby: {
 		code: "lby",
-		name: "Lamalama"
+		name: "Lamalama",
 	},
 	lbz: {
 		code: "lbz",
-		name: "Lardil"
+		name: "Lardil",
 	},
 	lcc: {
 		code: "lcc",
-		name: "Legenyem"
+		name: "Legenyem",
 	},
 	lcd: {
 		code: "lcd",
-		name: "Lola"
+		name: "Lola",
 	},
 	lce: {
 		code: "lce",
-		name: "Loncong"
+		name: "Loncong",
 	},
 	lcf: {
 		code: "lcf",
-		name: "Lubu"
+		name: "Lubu",
 	},
 	lch: {
 		code: "lch",
-		name: "Luchazi"
+		name: "Luchazi",
 	},
 	lcl: {
 		code: "lcl",
-		name: "Lisela"
+		name: "Lisela",
 	},
 	lcm: {
 		code: "lcm",
-		name: "Tungag"
+		name: "Tungag",
 	},
 	lcp: {
 		code: "lcp",
-		name: "Western Lawa"
+		name: "Western Lawa",
 	},
 	lcq: {
 		code: "lcq",
-		name: "Luhu"
+		name: "Luhu",
 	},
 	lcs: {
 		code: "lcs",
-		name: "Lisabata-Nuniali"
+		name: "Lisabata-Nuniali",
 	},
 	lda: {
 		code: "lda",
-		name: "Kla-Dan"
+		name: "Kla-Dan",
 	},
 	ldb: {
 		code: "ldb",
-		name: "Dũya"
+		name: "Dũya",
 	},
 	ldd: {
 		code: "ldd",
-		name: "Luri"
+		name: "Luri",
 	},
 	ldg: {
 		code: "ldg",
-		name: "Lenyima"
+		name: "Lenyima",
 	},
 	ldh: {
 		code: "ldh",
-		name: "Lamja-Dengsa-Tola"
+		name: "Lamja-Dengsa-Tola",
 	},
 	ldi: {
 		code: "ldi",
-		name: "Laari"
+		name: "Laari",
 	},
 	ldj: {
 		code: "ldj",
-		name: "Lemoro"
+		name: "Lemoro",
 	},
 	ldk: {
 		code: "ldk",
-		name: "Leelau"
+		name: "Leelau",
 	},
 	ldl: {
 		code: "ldl",
-		name: "Kaan"
+		name: "Kaan",
 	},
 	ldm: {
 		code: "ldm",
-		name: "Landoma"
+		name: "Landoma",
 	},
 	ldn: {
 		code: "ldn",
-		name: "Láadan"
+		name: "Láadan",
 	},
 	ldo: {
 		code: "ldo",
-		name: "Loo"
+		name: "Loo",
 	},
 	ldp: {
 		code: "ldp",
-		name: "Tso"
+		name: "Tso",
 	},
 	ldq: {
 		code: "ldq",
-		name: "Lufu"
+		name: "Lufu",
 	},
 	lea: {
 		code: "lea",
-		name: "Lega-Shabunda"
+		name: "Lega-Shabunda",
 	},
 	leb: {
 		code: "leb",
-		name: "Lala-Bisa"
+		name: "Lala-Bisa",
 	},
 	lec: {
 		code: "lec",
-		name: "Leco"
+		name: "Leco",
 	},
 	led: {
 		code: "led",
-		name: "Lendu"
+		name: "Lendu",
 	},
 	lee: {
 		code: "lee",
-		name: "Lyélé"
+		name: "Lyélé",
 	},
 	lef: {
 		code: "lef",
-		name: "Lelemi"
+		name: "Lelemi",
 	},
 	leh: {
 		code: "leh",
-		name: "Lenje"
+		name: "Lenje",
 	},
 	lei: {
 		code: "lei",
-		name: "Lemio"
+		name: "Lemio",
 	},
 	lej: {
 		code: "lej",
-		name: "Lengola"
+		name: "Lengola",
 	},
 	lek: {
 		code: "lek",
-		name: "Leipon"
+		name: "Leipon",
 	},
 	lel: {
 		code: "lel",
-		name: "Lele (Democratic Republic of Congo)"
+		name: "Lele (Democratic Republic of Congo)",
 	},
 	lem: {
 		code: "lem",
-		name: "Nomaande"
+		name: "Nomaande",
 	},
 	len: {
 		code: "len",
-		name: "Lenca"
+		name: "Lenca",
 	},
 	leo: {
 		code: "leo",
-		name: "Leti (Cameroon)"
+		name: "Leti (Cameroon)",
 	},
 	lep: {
 		code: "lep",
-		name: "Lepcha"
+		name: "Lepcha",
 	},
 	leq: {
 		code: "leq",
-		name: "Lembena"
+		name: "Lembena",
 	},
 	ler: {
 		code: "ler",
-		name: "Lenkau"
+		name: "Lenkau",
 	},
 	les: {
 		code: "les",
-		name: "Lese"
+		name: "Lese",
 	},
 	let: {
 		code: "let",
-		name: "Lesing-Gelimi"
+		name: "Lesing-Gelimi",
 	},
 	leu: {
 		code: "leu",
-		name: "Kara (Papua New Guinea)"
+		name: "Kara (Papua New Guinea)",
 	},
 	lev: {
 		code: "lev",
-		name: "Lamma"
+		name: "Lamma",
 	},
 	lew: {
 		code: "lew",
-		name: "Ledo Kaili"
+		name: "Ledo Kaili",
 	},
 	lex: {
 		code: "lex",
-		name: "Luang"
+		name: "Luang",
 	},
 	ley: {
 		code: "ley",
-		name: "Lemolang"
+		name: "Lemolang",
 	},
 	lez: {
 		code: "lez",
-		name: "Lezghian"
+		name: "Lezghian",
 	},
 	lfa: {
 		code: "lfa",
-		name: "Lefa"
+		name: "Lefa",
 	},
 	lfn: {
 		code: "lfn",
-		name: "Lingua Franca Nova"
+		name: "Lingua Franca Nova",
 	},
 	lga: {
 		code: "lga",
-		name: "Lungga"
+		name: "Lungga",
 	},
 	lgb: {
 		code: "lgb",
-		name: "Laghu"
+		name: "Laghu",
 	},
 	lgg: {
 		code: "lgg",
-		name: "Lugbara"
+		name: "Lugbara",
 	},
 	lgh: {
 		code: "lgh",
-		name: "Laghuu"
+		name: "Laghuu",
 	},
 	lgi: {
 		code: "lgi",
-		name: "Lengilu"
+		name: "Lengilu",
 	},
 	lgk: {
 		code: "lgk",
-		name: "Lingarak"
+		name: "Lingarak",
 	},
 	lgl: {
 		code: "lgl",
-		name: "Wala"
+		name: "Wala",
 	},
 	lgm: {
 		code: "lgm",
-		name: "Lega-Mwenga"
+		name: "Lega-Mwenga",
 	},
 	lgn: {
 		code: "lgn",
-		name: "T'apo"
+		name: "T'apo",
 	},
 	lgo: {
 		code: "lgo",
-		name: "Lango (South Sudan)"
+		name: "Lango (South Sudan)",
 	},
 	lgq: {
 		code: "lgq",
-		name: "Logba"
+		name: "Logba",
 	},
 	lgr: {
 		code: "lgr",
-		name: "Lengo"
+		name: "Lengo",
 	},
 	lgs: {
 		code: "lgs",
-		name: "Guinea-Bissau Sign Language"
+		name: "Guinea-Bissau Sign Language",
 	},
 	lgt: {
 		code: "lgt",
-		name: "Pahi"
+		name: "Pahi",
 	},
 	lgu: {
 		code: "lgu",
-		name: "Longgu"
+		name: "Longgu",
 	},
 	lgz: {
 		code: "lgz",
-		name: "Ligenza"
+		name: "Ligenza",
 	},
 	lha: {
 		code: "lha",
-		name: "Laha (Viet Nam)"
+		name: "Laha (Viet Nam)",
 	},
 	lhh: {
 		code: "lhh",
-		name: "Laha (Indonesia)"
+		name: "Laha (Indonesia)",
 	},
 	lhi: {
 		code: "lhi",
-		name: "Lahu Shi"
+		name: "Lahu Shi",
 	},
 	lhl: {
 		code: "lhl",
-		name: "Lahul Lohar"
+		name: "Lahul Lohar",
 	},
 	lhm: {
 		code: "lhm",
-		name: "Lhomi"
+		name: "Lhomi",
 	},
 	lhn: {
 		code: "lhn",
-		name: "Lahanan"
+		name: "Lahanan",
 	},
 	lhp: {
 		code: "lhp",
-		name: "Lhokpu"
+		name: "Lhokpu",
 	},
 	lhs: {
 		code: "lhs",
-		name: "Mlahsö"
+		name: "Mlahsö",
 	},
 	lht: {
 		code: "lht",
-		name: "Lo-Toga"
+		name: "Lo-Toga",
 	},
 	lhu: {
 		code: "lhu",
-		name: "Lahu"
+		name: "Lahu",
 	},
 	lia: {
 		code: "lia",
-		name: "West-Central Limba"
+		name: "West-Central Limba",
 	},
 	lib: {
 		code: "lib",
-		name: "Likum"
+		name: "Likum",
 	},
 	lic: {
 		code: "lic",
-		name: "Hlai"
+		name: "Hlai",
 	},
 	lid: {
 		code: "lid",
-		name: "Nyindrou"
+		name: "Nyindrou",
 	},
 	lie: {
 		code: "lie",
-		name: "Likila"
+		name: "Likila",
 	},
 	lif: {
 		code: "lif",
-		name: "Limbu"
+		name: "Limbu",
 	},
 	lig: {
 		code: "lig",
-		name: "Ligbi"
+		name: "Ligbi",
 	},
 	lih: {
 		code: "lih",
-		name: "Lihir"
+		name: "Lihir",
 	},
 	lij: {
 		code: "lij",
-		name: "Ligurian"
+		name: "Ligurian",
 	},
 	lik: {
 		code: "lik",
-		name: "Lika"
+		name: "Lika",
 	},
 	lil: {
 		code: "lil",
-		name: "Lillooet"
+		name: "Lillooet",
 	},
 	lim: {
 		code: "lim",
-		name: "Limburgan"
+		name: "Limburgan",
+	},
+	lin: {
+		code: "lin",
+		name: "Lingala",
 	},
 	lio: {
 		code: "lio",
-		name: "Liki"
+		name: "Liki",
 	},
 	lip: {
 		code: "lip",
-		name: "Sekpele"
+		name: "Sekpele",
 	},
 	liq: {
 		code: "liq",
-		name: "Libido"
+		name: "Libido",
 	},
 	lir: {
 		code: "lir",
-		name: "Liberian English"
+		name: "Liberian English",
 	},
 	lis: {
 		code: "lis",
-		name: "Lisu"
+		name: "Lisu",
+	},
+	lit: {
+		code: "lit",
+		name: "Lithuanian",
 	},
 	liu: {
 		code: "liu",
-		name: "Logorik"
+		name: "Logorik",
 	},
 	liv: {
 		code: "liv",
-		name: "Liv"
+		name: "Liv",
 	},
 	liw: {
 		code: "liw",
-		name: "Col"
+		name: "Col",
 	},
 	lix: {
 		code: "lix",
-		name: "Liabuku"
+		name: "Liabuku",
 	},
 	liy: {
 		code: "liy",
-		name: "Banda-Bambari"
+		name: "Banda-Bambari",
 	},
 	liz: {
 		code: "liz",
-		name: "Libinza"
+		name: "Libinza",
 	},
 	lja: {
 		code: "lja",
-		name: "Golpa"
+		name: "Golpa",
 	},
 	lje: {
 		code: "lje",
-		name: "Rampi"
+		name: "Rampi",
 	},
 	lji: {
 		code: "lji",
-		name: "Laiyolo"
+		name: "Laiyolo",
 	},
 	ljl: {
 		code: "ljl",
-		name: "Li'o"
+		name: "Li'o",
 	},
 	ljp: {
 		code: "ljp",
-		name: "Lampung Api"
+		name: "Lampung Api",
 	},
 	ljw: {
 		code: "ljw",
-		name: "Yirandali"
+		name: "Yirandali",
 	},
 	ljx: {
 		code: "ljx",
-		name: "Yuru"
+		name: "Yuru",
 	},
 	lka: {
 		code: "lka",
-		name: "Lakalei"
+		name: "Lakalei",
 	},
 	lkb: {
 		code: "lkb",
-		name: "Kabras"
+		name: "Kabras",
 	},
 	lkc: {
 		code: "lkc",
-		name: "Kucong"
+		name: "Kucong",
 	},
 	lkd: {
 		code: "lkd",
-		name: "Lakondê"
+		name: "Lakondê",
 	},
 	lke: {
 		code: "lke",
-		name: "Kenyi"
+		name: "Kenyi",
 	},
 	lkh: {
 		code: "lkh",
-		name: "Lakha"
+		name: "Lakha",
 	},
 	lki: {
 		code: "lki",
-		name: "Laki"
+		name: "Laki",
 	},
 	lkj: {
 		code: "lkj",
-		name: "Remun"
+		name: "Remun",
 	},
 	lkl: {
 		code: "lkl",
-		name: "Laeko-Libuat"
+		name: "Laeko-Libuat",
 	},
 	lkm: {
 		code: "lkm",
-		name: "Kalaamaya"
+		name: "Kalaamaya",
 	},
 	lkn: {
 		code: "lkn",
-		name: "Lakon"
+		name: "Lakon",
 	},
 	lko: {
 		code: "lko",
-		name: "Khayo"
+		name: "Khayo",
 	},
 	lkr: {
 		code: "lkr",
-		name: "Päri"
+		name: "Päri",
 	},
 	lks: {
 		code: "lks",
-		name: "Kisa"
+		name: "Kisa",
 	},
 	lkt: {
 		code: "lkt",
-		name: "Lakota"
+		name: "Lakota",
 	},
 	lku: {
 		code: "lku",
-		name: "Kungkari"
+		name: "Kungkari",
 	},
 	lky: {
 		code: "lky",
-		name: "Lokoya"
+		name: "Lokoya",
 	},
 	lla: {
 		code: "lla",
-		name: "Lala-Roba"
+		name: "Lala-Roba",
 	},
 	llb: {
 		code: "llb",
-		name: "Lolo"
+		name: "Lolo",
 	},
 	llc: {
 		code: "llc",
-		name: "Lele (Guinea)"
+		name: "Lele (Guinea)",
 	},
 	lld: {
 		code: "lld",
-		name: "Ladin"
+		name: "Ladin",
 	},
 	lle: {
 		code: "lle",
-		name: "Lele (Papua New Guinea)"
+		name: "Lele (Papua New Guinea)",
 	},
 	llf: {
 		code: "llf",
-		name: "Hermit"
+		name: "Hermit",
 	},
 	llg: {
 		code: "llg",
-		name: "Lole"
+		name: "Lole",
 	},
 	llh: {
 		code: "llh",
-		name: "Lamu"
+		name: "Lamu",
 	},
 	lli: {
 		code: "lli",
-		name: "Teke-Laali"
+		name: "Teke-Laali",
 	},
 	llj: {
 		code: "llj",
-		name: "Ladji Ladji"
+		name: "Ladji Ladji",
 	},
 	llk: {
 		code: "llk",
-		name: "Lelak"
+		name: "Lelak",
 	},
 	lll: {
 		code: "lll",
-		name: "Lilau"
+		name: "Lilau",
 	},
 	llm: {
 		code: "llm",
-		name: "Lasalimu"
+		name: "Lasalimu",
 	},
 	lln: {
 		code: "lln",
-		name: "Lele (Chad)"
+		name: "Lele (Chad)",
 	},
 	llp: {
 		code: "llp",
-		name: "North Efate"
+		name: "North Efate",
 	},
 	llq: {
 		code: "llq",
-		name: "Lolak"
+		name: "Lolak",
 	},
 	lls: {
 		code: "lls",
-		name: "Lithuanian Sign Language"
+		name: "Lithuanian Sign Language",
 	},
 	llu: {
 		code: "llu",
-		name: "Lau"
+		name: "Lau",
 	},
 	llx: {
 		code: "llx",
-		name: "Lauan"
+		name: "Lauan",
 	},
 	lma: {
 		code: "lma",
-		name: "East Limba"
+		name: "East Limba",
 	},
 	lmb: {
 		code: "lmb",
-		name: "Merei"
+		name: "Merei",
 	},
 	lmc: {
 		code: "lmc",
-		name: "Limilngan"
+		name: "Limilngan",
 	},
 	lmd: {
 		code: "lmd",
-		name: "Lumun"
+		name: "Lumun",
 	},
 	lme: {
 		code: "lme",
-		name: "Pévé"
+		name: "Pévé",
 	},
 	lmf: {
 		code: "lmf",
-		name: "South Lembata"
+		name: "South Lembata",
 	},
 	lmg: {
 		code: "lmg",
-		name: "Lamogai"
+		name: "Lamogai",
 	},
 	lmh: {
 		code: "lmh",
-		name: "Lambichhong"
+		name: "Lambichhong",
 	},
 	lmi: {
 		code: "lmi",
-		name: "Lombi"
+		name: "Lombi",
 	},
 	lmj: {
 		code: "lmj",
-		name: "West Lembata"
+		name: "West Lembata",
 	},
 	lmk: {
 		code: "lmk",
-		name: "Lamkang"
+		name: "Lamkang",
 	},
 	lml: {
 		code: "lml",
-		name: "Hano"
+		name: "Hano",
 	},
 	lmn: {
 		code: "lmn",
-		name: "Lambadi"
+		name: "Lambadi",
 	},
 	lmo: {
 		code: "lmo",
-		name: "Lombard"
+		name: "Lombard",
 	},
 	lmp: {
 		code: "lmp",
-		name: "Limbum"
+		name: "Limbum",
 	},
 	lmq: {
 		code: "lmq",
-		name: "Lamatuka"
+		name: "Lamatuka",
 	},
 	lmr: {
 		code: "lmr",
-		name: "Lamalera"
+		name: "Lamalera",
 	},
 	lmu: {
 		code: "lmu",
-		name: "Lamenu"
+		name: "Lamenu",
 	},
 	lmv: {
 		code: "lmv",
-		name: "Lomaiviti"
+		name: "Lomaiviti",
 	},
 	lmw: {
 		code: "lmw",
-		name: "Lake Miwok"
+		name: "Lake Miwok",
 	},
 	lmx: {
 		code: "lmx",
-		name: "Laimbue"
+		name: "Laimbue",
 	},
 	lmy: {
 		code: "lmy",
-		name: "Lamboya"
+		name: "Lamboya",
 	},
 	lna: {
 		code: "lna",
-		name: "Langbashe"
+		name: "Langbashe",
 	},
 	lnb: {
 		code: "lnb",
-		name: "Mbalanhu"
+		name: "Mbalanhu",
 	},
 	lnd: {
 		code: "lnd",
-		name: "Lundayeh"
+		name: "Lundayeh",
 	},
 	lng: {
 		code: "lng",
-		name: "Langobardic"
+		name: "Langobardic",
 	},
 	lnh: {
 		code: "lnh",
-		name: "Lanoh"
+		name: "Lanoh",
 	},
 	lni: {
 		code: "lni",
-		name: "Daantanai'"
+		name: "Daantanai'",
 	},
 	lnj: {
 		code: "lnj",
-		name: "Leningitij"
+		name: "Leningitij",
 	},
 	lnl: {
 		code: "lnl",
-		name: "South Central Banda"
+		name: "South Central Banda",
 	},
 	lnm: {
 		code: "lnm",
-		name: "Langam"
+		name: "Langam",
 	},
 	lnn: {
 		code: "lnn",
-		name: "Lorediakarkar"
+		name: "Lorediakarkar",
 	},
 	lns: {
 		code: "lns",
-		name: "Lamnso'"
+		name: "Lamnso'",
 	},
 	lnu: {
 		code: "lnu",
-		name: "Longuda"
+		name: "Longuda",
 	},
 	lnw: {
 		code: "lnw",
-		name: "Lanima"
+		name: "Lanima",
 	},
 	lnz: {
 		code: "lnz",
-		name: "Lonzo"
+		name: "Lonzo",
 	},
 	loa: {
 		code: "loa",
-		name: "Loloda"
+		name: "Loloda",
 	},
 	lob: {
 		code: "lob",
-		name: "Lobi"
+		name: "Lobi",
 	},
 	loc: {
 		code: "loc",
-		name: "Inonhan"
+		name: "Inonhan",
 	},
 	loe: {
 		code: "loe",
-		name: "Saluan"
+		name: "Saluan",
 	},
 	lof: {
 		code: "lof",
-		name: "Logol"
+		name: "Logol",
 	},
 	log: {
 		code: "log",
-		name: "Logo"
+		name: "Logo",
 	},
 	loh: {
 		code: "loh",
-		name: "Laarim"
+		name: "Laarim",
 	},
 	loi: {
 		code: "loi",
-		name: "Loma (Côte d'Ivoire)"
+		name: "Loma (Côte d'Ivoire)",
 	},
 	loj: {
 		code: "loj",
-		name: "Lou"
+		name: "Lou",
 	},
 	lok: {
 		code: "lok",
-		name: "Loko"
+		name: "Loko",
 	},
 	lol: {
 		code: "lol",
-		name: "Mongo"
+		name: "Mongo",
 	},
 	lom: {
 		code: "lom",
-		name: "Loma (Liberia)"
+		name: "Loma (Liberia)",
 	},
 	lon: {
 		code: "lon",
-		name: "Malawi Lomwe"
+		name: "Malawi Lomwe",
 	},
 	loo: {
 		code: "loo",
-		name: "Lombo"
+		name: "Lombo",
 	},
 	lop: {
 		code: "lop",
-		name: "Lopa"
+		name: "Lopa",
 	},
 	loq: {
 		code: "loq",
-		name: "Lobala"
+		name: "Lobala",
 	},
 	lor: {
 		code: "lor",
-		name: "Téén"
+		name: "Téén",
 	},
 	los: {
 		code: "los",
-		name: "Loniu"
+		name: "Loniu",
 	},
 	lot: {
 		code: "lot",
-		name: "Otuho"
+		name: "Otuho",
 	},
 	lou: {
 		code: "lou",
-		name: "Louisiana Creole"
+		name: "Louisiana Creole",
 	},
 	lov: {
 		code: "lov",
-		name: "Lopi"
+		name: "Lopi",
 	},
 	low: {
 		code: "low",
-		name: "Tampias Lobu"
+		name: "Tampias Lobu",
 	},
 	lox: {
 		code: "lox",
-		name: "Loun"
+		name: "Loun",
 	},
 	loy: {
 		code: "loy",
-		name: "Loke"
+		name: "Loke",
+	},
+	loz: {
+		code: "loz",
+		name: "Lozi",
 	},
 	lpa: {
 		code: "lpa",
-		name: "Lelepa"
+		name: "Lelepa",
 	},
 	lpe: {
 		code: "lpe",
-		name: "Lepki"
+		name: "Lepki",
 	},
 	lpn: {
 		code: "lpn",
-		name: "Long Phuri Naga"
+		name: "Long Phuri Naga",
 	},
 	lpo: {
 		code: "lpo",
-		name: "Lipo"
+		name: "Lipo",
 	},
 	lpx: {
 		code: "lpx",
-		name: "Lopit"
+		name: "Lopit",
 	},
 	lqr: {
 		code: "lqr",
-		name: "Logir"
+		name: "Logir",
 	},
 	lra: {
 		code: "lra",
-		name: "Rara Bakati'"
+		name: "Rara Bakati'",
 	},
 	lrc: {
 		code: "lrc",
-		name: "Northern Luri"
+		name: "Northern Luri",
 	},
 	lre: {
 		code: "lre",
-		name: "Laurentian"
+		name: "Laurentian",
 	},
 	lrg: {
 		code: "lrg",
-		name: "Laragia"
+		name: "Laragia",
 	},
 	lri: {
 		code: "lri",
-		name: "Marachi"
+		name: "Marachi",
 	},
 	lrk: {
 		code: "lrk",
-		name: "Loarki"
+		name: "Loarki",
 	},
 	lrl: {
 		code: "lrl",
-		name: "Lari"
+		name: "Lari",
 	},
 	lrm: {
 		code: "lrm",
-		name: "Marama"
+		name: "Marama",
 	},
 	lrn: {
 		code: "lrn",
-		name: "Lorang"
+		name: "Lorang",
 	},
 	lro: {
 		code: "lro",
-		name: "Laro"
+		name: "Laro",
 	},
 	lrr: {
 		code: "lrr",
-		name: "Southern Yamphu"
+		name: "Southern Yamphu",
 	},
 	lrt: {
 		code: "lrt",
-		name: "Larantuka Malay"
+		name: "Larantuka Malay",
 	},
 	lrv: {
 		code: "lrv",
-		name: "Larevat"
+		name: "Larevat",
 	},
 	lrz: {
 		code: "lrz",
-		name: "Lemerig"
+		name: "Lemerig",
 	},
 	lsa: {
 		code: "lsa",
-		name: "Lasgerdi"
+		name: "Lasgerdi",
 	},
 	lsb: {
 		code: "lsb",
-		name: "Burundian Sign Language"
+		name: "Burundian Sign Language",
 	},
 	lsc: {
 		code: "lsc",
-		name: "Albarradas Sign Language"
+		name: "Albarradas Sign Language",
 	},
 	lsd: {
 		code: "lsd",
-		name: "Lishana Deni"
+		name: "Lishana Deni",
 	},
 	lse: {
 		code: "lse",
-		name: "Lusengo"
+		name: "Lusengo",
 	},
 	lsh: {
 		code: "lsh",
-		name: "Lish"
+		name: "Lish",
 	},
 	lsi: {
 		code: "lsi",
-		name: "Lashi"
+		name: "Lashi",
 	},
 	lsl: {
 		code: "lsl",
-		name: "Latvian Sign Language"
+		name: "Latvian Sign Language",
 	},
 	lsm: {
 		code: "lsm",
-		name: "Saamia"
+		name: "Saamia",
 	},
 	lsn: {
 		code: "lsn",
-		name: "Tibetan Sign Language"
+		name: "Tibetan Sign Language",
 	},
 	lso: {
 		code: "lso",
-		name: "Laos Sign Language"
+		name: "Laos Sign Language",
 	},
 	lsp: {
 		code: "lsp",
-		name: "Panamanian Sign Language"
+		name: "Panamanian Sign Language",
 	},
 	lsr: {
 		code: "lsr",
-		name: "Aruop"
+		name: "Aruop",
 	},
 	lss: {
 		code: "lss",
-		name: "Lasi"
+		name: "Lasi",
 	},
 	lst: {
 		code: "lst",
-		name: "Trinidad and Tobago Sign Language"
+		name: "Trinidad and Tobago Sign Language",
 	},
 	lsv: {
 		code: "lsv",
-		name: "Sivia Sign Language"
+		name: "Sivia Sign Language",
 	},
 	lsw: {
 		code: "lsw",
-		name: "Seychelles Sign Language"
+		name: "Seychelles Sign Language",
 	},
 	lsy: {
 		code: "lsy",
-		name: "Mauritian Sign Language"
+		name: "Mauritian Sign Language",
 	},
 	ltc: {
 		code: "ltc",
-		name: "Late Middle Chinese"
+		name: "Late Middle Chinese",
 	},
 	ltg: {
 		code: "ltg",
-		name: "Latgalian"
+		name: "Latgalian",
 	},
 	lth: {
 		code: "lth",
-		name: "Thur"
+		name: "Thur",
 	},
 	lti: {
 		code: "lti",
-		name: "Leti (Indonesia)"
+		name: "Leti (Indonesia)",
 	},
 	ltn: {
 		code: "ltn",
-		name: "Latundê"
+		name: "Latundê",
 	},
 	lto: {
 		code: "lto",
-		name: "Tsotso"
+		name: "Tsotso",
 	},
 	lts: {
 		code: "lts",
-		name: "Tachoni"
+		name: "Tachoni",
 	},
 	ltu: {
 		code: "ltu",
-		name: "Latu"
+		name: "Latu",
+	},
+	ltz: {
+		code: "ltz",
+		name: "Luxembourgish",
+	},
+	lua: {
+		code: "lua",
+		name: "Luba-Lulua",
+	},
+	lub: {
+		code: "lub",
+		name: "Luba-Katanga",
 	},
 	luc: {
 		code: "luc",
-		name: "Aringa"
+		name: "Aringa",
 	},
 	lud: {
 		code: "lud",
-		name: "Ludian"
+		name: "Ludian",
+	},
+	lue: {
+		code: "lue",
+		name: "Luvale",
 	},
 	luf: {
 		code: "luf",
-		name: "Laua"
+		name: "Laua",
+	},
+	lug: {
+		code: "lug",
+		name: "Ganda",
 	},
 	lui: {
 		code: "lui",
-		name: "Luiseno"
+		name: "Luiseno",
 	},
 	luj: {
 		code: "luj",
-		name: "Luna"
+		name: "Luna",
 	},
 	luk: {
 		code: "luk",
-		name: "Lunanakha"
+		name: "Lunanakha",
 	},
 	lul: {
 		code: "lul",
-		name: "Olu'bo"
+		name: "Olu'bo",
 	},
 	lum: {
 		code: "lum",
-		name: "Luimbi"
+		name: "Luimbi",
+	},
+	lun: {
+		code: "lun",
+		name: "Lunda",
+	},
+	luo: {
+		code: "luo",
+		name: "Luo (Kenya and Tanzania)",
 	},
 	lup: {
 		code: "lup",
-		name: "Lumbu"
+		name: "Lumbu",
 	},
 	luq: {
 		code: "luq",
-		name: "Lucumi"
+		name: "Lucumi",
 	},
 	lur: {
 		code: "lur",
-		name: "Laura"
+		name: "Laura",
+	},
+	lus: {
+		code: "lus",
+		name: "Lushai",
 	},
 	lut: {
 		code: "lut",
-		name: "Lushootseed"
+		name: "Lushootseed",
 	},
 	luu: {
 		code: "luu",
-		name: "Lumba-Yakkha"
+		name: "Lumba-Yakkha",
 	},
 	luv: {
 		code: "luv",
-		name: "Luwati"
+		name: "Luwati",
 	},
 	luw: {
 		code: "luw",
-		name: "Luo (Cameroon)"
+		name: "Luo (Cameroon)",
 	},
 	luy: {
 		code: "luy",
-		name: "Luyia"
+		name: "Luyia",
 	},
 	luz: {
 		code: "luz",
-		name: "Southern Luri"
+		name: "Southern Luri",
 	},
 	lva: {
 		code: "lva",
-		name: "Maku'a"
+		name: "Maku'a",
 	},
 	lvi: {
 		code: "lvi",
-		name: "Lavi"
+		name: "Lavi",
 	},
 	lvk: {
 		code: "lvk",
-		name: "Lavukaleve"
+		name: "Lavukaleve",
 	},
 	lvl: {
 		code: "lvl",
-		name: "Lwel"
+		name: "Lwel",
 	},
 	lvs: {
 		code: "lvs",
-		name: "Standard Latvian"
+		name: "Standard Latvian",
 	},
 	lvu: {
 		code: "lvu",
-		name: "Levuka"
+		name: "Levuka",
 	},
 	lwa: {
 		code: "lwa",
-		name: "Lwalu"
+		name: "Lwalu",
 	},
 	lwe: {
 		code: "lwe",
-		name: "Lewo Eleng"
+		name: "Lewo Eleng",
 	},
 	lwg: {
 		code: "lwg",
-		name: "Wanga"
+		name: "Wanga",
 	},
 	lwh: {
 		code: "lwh",
-		name: "White Lachi"
+		name: "White Lachi",
 	},
 	lwl: {
 		code: "lwl",
-		name: "Eastern Lawa"
+		name: "Eastern Lawa",
 	},
 	lwm: {
 		code: "lwm",
-		name: "Laomian"
+		name: "Laomian",
 	},
 	lwo: {
 		code: "lwo",
-		name: "Luwo"
+		name: "Luwo",
 	},
 	lws: {
 		code: "lws",
-		name: "Malawian Sign Language"
+		name: "Malawian Sign Language",
 	},
 	lwt: {
 		code: "lwt",
-		name: "Lewotobi"
+		name: "Lewotobi",
 	},
 	lwu: {
 		code: "lwu",
-		name: "Lawu"
+		name: "Lawu",
 	},
 	lww: {
 		code: "lww",
-		name: "Lewo"
+		name: "Lewo",
 	},
 	lxm: {
 		code: "lxm",
-		name: "Lakurumau"
+		name: "Lakurumau",
 	},
 	lya: {
 		code: "lya",
-		name: "Layakha"
+		name: "Layakha",
 	},
 	lyg: {
 		code: "lyg",
-		name: "Lyngngam"
+		name: "Lyngngam",
 	},
 	lyn: {
 		code: "lyn",
-		name: "Luyana"
+		name: "Luyana",
+	},
+	lzh: {
+		code: "lzh",
+		name: "Literary Chinese",
 	},
 	lzl: {
 		code: "lzl",
-		name: "Litzlitz"
+		name: "Litzlitz",
 	},
 	lzn: {
 		code: "lzn",
-		name: "Leinong Naga"
+		name: "Leinong Naga",
 	},
 	lzz: {
 		code: "lzz",
-		name: "Laz"
+		name: "Laz",
 	},
 	maa: {
 		code: "maa",
-		name: "San Jerónimo Tecóatl Mazatec"
+		name: "San Jerónimo Tecóatl Mazatec",
 	},
 	mab: {
 		code: "mab",
-		name: "Yutanduchi Mixtec"
+		name: "Yutanduchi Mixtec",
 	},
 	mad: {
 		code: "mad",
-		name: "Madurese"
+		name: "Madurese",
 	},
 	mae: {
 		code: "mae",
-		name: "Bo-Rukul"
+		name: "Bo-Rukul",
 	},
 	maf: {
 		code: "maf",
-		name: "Mafa"
+		name: "Mafa",
 	},
 	mag: {
 		code: "mag",
-		name: "Magahi"
+		name: "Magahi",
+	},
+	mah: {
+		code: "mah",
+		name: "Marshallese",
 	},
 	mai: {
 		code: "mai",
-		name: "Maithili"
+		name: "Maithili",
 	},
 	maj: {
 		code: "maj",
-		name: "Jalapa De Díaz Mazatec"
+		name: "Jalapa De Díaz Mazatec",
 	},
 	mak: {
 		code: "mak",
-		name: "Makasar"
+		name: "Makasar",
+	},
+	mal: {
+		code: "mal",
+		name: "Malayalam",
 	},
 	mam: {
 		code: "mam",
-		name: "Mam"
+		name: "Mam",
 	},
 	man: {
 		code: "man",
-		name: "Mandingo"
+		name: "Mandingo",
 	},
 	maq: {
 		code: "maq",
-		name: "Chiquihuitlán Mazatec"
+		name: "Chiquihuitlán Mazatec",
+	},
+	mar: {
+		code: "mar",
+		name: "Marathi",
 	},
 	mas: {
 		code: "mas",
-		name: "Masai"
+		name: "Masai",
 	},
 	mat: {
 		code: "mat",
-		name: "San Francisco Matlatzinca"
+		name: "San Francisco Matlatzinca",
 	},
 	mau: {
 		code: "mau",
-		name: "Huautla Mazatec"
+		name: "Huautla Mazatec",
 	},
 	mav: {
 		code: "mav",
-		name: "Sateré-Mawé"
+		name: "Sateré-Mawé",
 	},
 	maw: {
 		code: "maw",
-		name: "Mampruli"
+		name: "Mampruli",
 	},
 	max: {
 		code: "max",
-		name: "North Moluccan Malay"
+		name: "North Moluccan Malay",
 	},
 	maz: {
 		code: "maz",
-		name: "Central Mazahua"
+		name: "Central Mazahua",
 	},
 	mba: {
 		code: "mba",
-		name: "Higaonon"
+		name: "Higaonon",
 	},
 	mbb: {
 		code: "mbb",
-		name: "Western Bukidnon Manobo"
+		name: "Western Bukidnon Manobo",
 	},
 	mbc: {
 		code: "mbc",
-		name: "Macushi"
+		name: "Macushi",
 	},
 	mbd: {
 		code: "mbd",
-		name: "Dibabawon Manobo"
+		name: "Dibabawon Manobo",
 	},
 	mbe: {
 		code: "mbe",
-		name: "Molale"
+		name: "Molale",
 	},
 	mbf: {
 		code: "mbf",
-		name: "Baba Malay"
+		name: "Baba Malay",
 	},
 	mbh: {
 		code: "mbh",
-		name: "Mangseng"
+		name: "Mangseng",
 	},
 	mbi: {
 		code: "mbi",
-		name: "Ilianen Manobo"
+		name: "Ilianen Manobo",
 	},
 	mbj: {
 		code: "mbj",
-		name: "Nadëb"
+		name: "Nadëb",
 	},
 	mbk: {
 		code: "mbk",
-		name: "Malol"
+		name: "Malol",
 	},
 	mbl: {
 		code: "mbl",
-		name: "Maxakalí"
+		name: "Maxakalí",
 	},
 	mbm: {
 		code: "mbm",
-		name: "Ombamba"
+		name: "Ombamba",
 	},
 	mbn: {
 		code: "mbn",
-		name: "Macaguán"
+		name: "Macaguán",
 	},
 	mbo: {
 		code: "mbo",
-		name: "Mbo (Cameroon)"
+		name: "Mbo (Cameroon)",
 	},
 	mbp: {
 		code: "mbp",
-		name: "Malayo"
+		name: "Malayo",
 	},
 	mbq: {
 		code: "mbq",
-		name: "Maisin"
+		name: "Maisin",
 	},
 	mbr: {
 		code: "mbr",
-		name: "Nukak Makú"
+		name: "Nukak Makú",
 	},
 	mbs: {
 		code: "mbs",
-		name: "Sarangani Manobo"
+		name: "Sarangani Manobo",
 	},
 	mbt: {
 		code: "mbt",
-		name: "Matigsalug Manobo"
+		name: "Matigsalug Manobo",
 	},
 	mbu: {
 		code: "mbu",
-		name: "Mbula-Bwazza"
+		name: "Mbula-Bwazza",
 	},
 	mbv: {
 		code: "mbv",
-		name: "Mbulungish"
+		name: "Mbulungish",
 	},
 	mbw: {
 		code: "mbw",
-		name: "Maring"
+		name: "Maring",
 	},
 	mbx: {
 		code: "mbx",
-		name: "Mari (East Sepik Province)"
+		name: "Mari (East Sepik Province)",
 	},
 	mby: {
 		code: "mby",
-		name: "Memoni"
+		name: "Memoni",
 	},
 	mbz: {
 		code: "mbz",
-		name: "Amoltepec Mixtec"
+		name: "Amoltepec Mixtec",
 	},
 	mca: {
 		code: "mca",
-		name: "Maca"
+		name: "Maca",
 	},
 	mcb: {
 		code: "mcb",
-		name: "Machiguenga"
+		name: "Machiguenga",
 	},
 	mcc: {
 		code: "mcc",
-		name: "Bitur"
+		name: "Bitur",
 	},
 	mcd: {
 		code: "mcd",
-		name: "Sharanahua"
+		name: "Sharanahua",
 	},
 	mce: {
 		code: "mce",
-		name: "Itundujia Mixtec"
+		name: "Itundujia Mixtec",
 	},
 	mcf: {
 		code: "mcf",
-		name: "Matsés"
+		name: "Matsés",
 	},
 	mcg: {
 		code: "mcg",
-		name: "Mapoyo"
+		name: "Mapoyo",
 	},
 	mch: {
 		code: "mch",
-		name: "Maquiritari"
+		name: "Maquiritari",
 	},
 	mci: {
 		code: "mci",
-		name: "Mese"
+		name: "Mese",
 	},
 	mcj: {
 		code: "mcj",
-		name: "Mvanip"
+		name: "Mvanip",
 	},
 	mck: {
 		code: "mck",
-		name: "Mbunda"
+		name: "Mbunda",
 	},
 	mcl: {
 		code: "mcl",
-		name: "Macaguaje"
+		name: "Macaguaje",
 	},
 	mcm: {
 		code: "mcm",
-		name: "Malaccan Creole Portuguese"
+		name: "Malaccan Creole Portuguese",
 	},
 	mcn: {
 		code: "mcn",
-		name: "Masana"
+		name: "Masana",
 	},
 	mco: {
 		code: "mco",
-		name: "Coatlán Mixe"
+		name: "Coatlán Mixe",
 	},
 	mcp: {
 		code: "mcp",
-		name: "Makaa"
+		name: "Makaa",
 	},
 	mcq: {
 		code: "mcq",
-		name: "Ese"
+		name: "Ese",
 	},
 	mcr: {
 		code: "mcr",
-		name: "Menya"
+		name: "Menya",
 	},
 	mcs: {
 		code: "mcs",
-		name: "Mambai"
+		name: "Mambai",
 	},
 	mct: {
 		code: "mct",
-		name: "Mengisa"
+		name: "Mengisa",
 	},
 	mcu: {
 		code: "mcu",
-		name: "Cameroon Mambila"
+		name: "Cameroon Mambila",
 	},
 	mcv: {
 		code: "mcv",
-		name: "Minanibai"
+		name: "Minanibai",
 	},
 	mcw: {
 		code: "mcw",
-		name: "Mawa (Chad)"
+		name: "Mawa (Chad)",
 	},
 	mcx: {
 		code: "mcx",
-		name: "Mpiemo"
+		name: "Mpiemo",
 	},
 	mcy: {
 		code: "mcy",
-		name: "South Watut"
+		name: "South Watut",
 	},
 	mcz: {
 		code: "mcz",
-		name: "Mawan"
+		name: "Mawan",
 	},
 	mda: {
 		code: "mda",
-		name: "Mada (Nigeria)"
+		name: "Mada (Nigeria)",
 	},
 	mdb: {
 		code: "mdb",
-		name: "Morigi"
+		name: "Morigi",
 	},
 	mdc: {
 		code: "mdc",
-		name: "Male (Papua New Guinea)"
+		name: "Male (Papua New Guinea)",
 	},
 	mdd: {
 		code: "mdd",
-		name: "Mbum"
+		name: "Mbum",
 	},
 	mde: {
 		code: "mde",
-		name: "Maba (Chad)"
+		name: "Maba (Chad)",
 	},
 	mdf: {
 		code: "mdf",
-		name: "Moksha"
+		name: "Moksha",
 	},
 	mdg: {
 		code: "mdg",
-		name: "Massalat"
+		name: "Massalat",
 	},
 	mdh: {
 		code: "mdh",
-		name: "Maguindanaon"
+		name: "Maguindanaon",
 	},
 	mdi: {
 		code: "mdi",
-		name: "Mamvu"
+		name: "Mamvu",
 	},
 	mdj: {
 		code: "mdj",
-		name: "Mangbetu"
+		name: "Mangbetu",
 	},
 	mdk: {
 		code: "mdk",
-		name: "Mangbutu"
+		name: "Mangbutu",
 	},
 	mdl: {
 		code: "mdl",
-		name: "Maltese Sign Language"
+		name: "Maltese Sign Language",
 	},
 	mdm: {
 		code: "mdm",
-		name: "Mayogo"
+		name: "Mayogo",
 	},
 	mdn: {
 		code: "mdn",
-		name: "Mbati"
+		name: "Mbati",
 	},
 	mdp: {
 		code: "mdp",
-		name: "Mbala"
+		name: "Mbala",
 	},
 	mdq: {
 		code: "mdq",
-		name: "Mbole"
+		name: "Mbole",
 	},
 	mdr: {
 		code: "mdr",
-		name: "Mandar"
+		name: "Mandar",
 	},
 	mds: {
 		code: "mds",
-		name: "Maria (Papua New Guinea)"
+		name: "Maria (Papua New Guinea)",
 	},
 	mdt: {
 		code: "mdt",
-		name: "Mbere"
+		name: "Mbere",
 	},
 	mdu: {
 		code: "mdu",
-		name: "Mboko"
+		name: "Mboko",
 	},
 	mdv: {
 		code: "mdv",
-		name: "Santa Lucía Monteverde Mixtec"
+		name: "Santa Lucía Monteverde Mixtec",
 	},
 	mdw: {
 		code: "mdw",
-		name: "Mbosi"
+		name: "Mbosi",
 	},
 	mdx: {
 		code: "mdx",
-		name: "Dizin"
+		name: "Dizin",
 	},
 	mdy: {
 		code: "mdy",
-		name: "Male (Ethiopia)"
+		name: "Male (Ethiopia)",
 	},
 	mdz: {
 		code: "mdz",
-		name: "Suruí Do Pará"
+		name: "Suruí Do Pará",
 	},
 	mea: {
 		code: "mea",
-		name: "Menka"
+		name: "Menka",
 	},
 	meb: {
 		code: "meb",
-		name: "Ikobi"
+		name: "Ikobi",
 	},
 	mec: {
 		code: "mec",
-		name: "Marra"
+		name: "Marra",
 	},
 	med: {
 		code: "med",
-		name: "Melpa"
+		name: "Melpa",
 	},
 	mee: {
 		code: "mee",
-		name: "Mengen"
+		name: "Mengen",
 	},
 	mef: {
 		code: "mef",
-		name: "Megam"
+		name: "Megam",
 	},
 	meh: {
 		code: "meh",
-		name: "Southwestern Tlaxiaco Mixtec"
+		name: "Southwestern Tlaxiaco Mixtec",
 	},
 	mei: {
 		code: "mei",
-		name: "Midob"
+		name: "Midob",
 	},
 	mej: {
 		code: "mej",
-		name: "Meyah"
+		name: "Meyah",
 	},
 	mek: {
 		code: "mek",
-		name: "Mekeo"
+		name: "Mekeo",
 	},
 	mel: {
 		code: "mel",
-		name: "Central Melanau"
+		name: "Central Melanau",
 	},
 	mem: {
 		code: "mem",
-		name: "Mangala"
+		name: "Mangala",
 	},
 	men: {
 		code: "men",
-		name: "Mende (Sierra Leone)"
+		name: "Mende (Sierra Leone)",
 	},
 	meo: {
 		code: "meo",
-		name: "Kedah Malay"
+		name: "Kedah Malay",
 	},
 	mep: {
 		code: "mep",
-		name: "Miriwoong"
+		name: "Miriwoong",
 	},
 	meq: {
 		code: "meq",
-		name: "Merey"
+		name: "Merey",
 	},
 	mer: {
 		code: "mer",
-		name: "Meru"
+		name: "Meru",
 	},
 	mes: {
 		code: "mes",
-		name: "Masmaje"
+		name: "Masmaje",
 	},
 	met: {
 		code: "met",
-		name: "Mato"
+		name: "Mato",
 	},
 	meu: {
 		code: "meu",
-		name: "Motu"
+		name: "Motu",
 	},
 	mev: {
 		code: "mev",
-		name: "Mano"
+		name: "Mano",
 	},
 	mew: {
 		code: "mew",
-		name: "Maaka"
+		name: "Maaka",
 	},
 	mey: {
 		code: "mey",
-		name: "Hassaniyya"
+		name: "Hassaniyya",
 	},
 	mez: {
 		code: "mez",
-		name: "Menominee"
+		name: "Menominee",
 	},
 	mfa: {
 		code: "mfa",
-		name: "Pattani Malay"
+		name: "Pattani Malay",
 	},
 	mfb: {
 		code: "mfb",
-		name: "Bangka"
+		name: "Bangka",
 	},
 	mfc: {
 		code: "mfc",
-		name: "Mba"
+		name: "Mba",
 	},
 	mfd: {
 		code: "mfd",
-		name: "Mendankwe-Nkwen"
+		name: "Mendankwe-Nkwen",
+	},
+	mfe: {
+		code: "mfe",
+		name: "Morisyen",
 	},
 	mff: {
 		code: "mff",
-		name: "Naki"
+		name: "Naki",
 	},
 	mfg: {
 		code: "mfg",
-		name: "Mogofin"
+		name: "Mogofin",
 	},
 	mfh: {
 		code: "mfh",
-		name: "Matal"
+		name: "Matal",
 	},
 	mfi: {
 		code: "mfi",
-		name: "Wandala"
+		name: "Wandala",
 	},
 	mfj: {
 		code: "mfj",
-		name: "Mefele"
+		name: "Mefele",
 	},
 	mfk: {
 		code: "mfk",
-		name: "North Mofu"
+		name: "North Mofu",
 	},
 	mfl: {
 		code: "mfl",
-		name: "Putai"
+		name: "Putai",
 	},
 	mfm: {
 		code: "mfm",
-		name: "Marghi South"
+		name: "Marghi South",
 	},
 	mfn: {
 		code: "mfn",
-		name: "Cross River Mbembe"
+		name: "Cross River Mbembe",
 	},
 	mfo: {
 		code: "mfo",
-		name: "Mbe"
+		name: "Mbe",
 	},
 	mfp: {
 		code: "mfp",
-		name: "Makassar Malay"
+		name: "Makassar Malay",
 	},
 	mfq: {
 		code: "mfq",
-		name: "Moba"
+		name: "Moba",
 	},
 	mfr: {
 		code: "mfr",
-		name: "Marrithiyel"
+		name: "Marrithiyel",
+	},
+	mfs: {
+		code: "mfs",
+		name: "Mexican Sign Language",
 	},
 	mft: {
 		code: "mft",
-		name: "Mokerang"
+		name: "Mokerang",
 	},
 	mfu: {
 		code: "mfu",
-		name: "Mbwela"
+		name: "Mbwela",
 	},
 	mfv: {
 		code: "mfv",
-		name: "Mandjak"
+		name: "Mandjak",
 	},
 	mfw: {
 		code: "mfw",
-		name: "Mulaha"
+		name: "Mulaha",
 	},
 	mfx: {
 		code: "mfx",
-		name: "Melo"
+		name: "Melo",
 	},
 	mfy: {
 		code: "mfy",
-		name: "Mayo"
+		name: "Mayo",
 	},
 	mfz: {
 		code: "mfz",
-		name: "Mabaan"
+		name: "Mabaan",
 	},
 	mga: {
 		code: "mga",
-		name: "Middle Irish (900-1200)"
+		name: "Middle Irish (900-1200)",
 	},
 	mgb: {
 		code: "mgb",
-		name: "Mararit"
+		name: "Mararit",
 	},
 	mgc: {
 		code: "mgc",
-		name: "Morokodo"
+		name: "Morokodo",
 	},
 	mgd: {
 		code: "mgd",
-		name: "Moru"
+		name: "Moru",
 	},
 	mge: {
 		code: "mge",
-		name: "Mango"
+		name: "Mango",
 	},
 	mgf: {
 		code: "mgf",
-		name: "Maklew"
+		name: "Maklew",
 	},
 	mgg: {
 		code: "mgg",
-		name: "Mpumpong"
+		name: "Mpumpong",
 	},
 	mgh: {
 		code: "mgh",
-		name: "Makhuwa-Meetto"
+		name: "Makhuwa-Meetto",
 	},
 	mgi: {
 		code: "mgi",
-		name: "Lijili"
+		name: "Lijili",
 	},
 	mgj: {
 		code: "mgj",
-		name: "Abureni"
+		name: "Abureni",
 	},
 	mgk: {
 		code: "mgk",
-		name: "Mawes"
+		name: "Mawes",
 	},
 	mgl: {
 		code: "mgl",
-		name: "Maleu-Kilenge"
+		name: "Maleu-Kilenge",
 	},
 	mgm: {
 		code: "mgm",
-		name: "Mambae"
+		name: "Mambae",
 	},
 	mgn: {
 		code: "mgn",
-		name: "Mbangi"
+		name: "Mbangi",
 	},
 	mgo: {
 		code: "mgo",
-		name: "Meta'"
+		name: "Meta'",
 	},
 	mgp: {
 		code: "mgp",
-		name: "Eastern Magar"
+		name: "Eastern Magar",
 	},
 	mgq: {
 		code: "mgq",
-		name: "Malila"
+		name: "Malila",
 	},
 	mgr: {
 		code: "mgr",
-		name: "Mambwe-Lungu"
+		name: "Mambwe-Lungu",
 	},
 	mgs: {
 		code: "mgs",
-		name: "Manda (Tanzania)"
+		name: "Manda (Tanzania)",
 	},
 	mgt: {
 		code: "mgt",
-		name: "Mongol"
+		name: "Mongol",
 	},
 	mgu: {
 		code: "mgu",
-		name: "Mailu"
+		name: "Mailu",
 	},
 	mgv: {
 		code: "mgv",
-		name: "Matengo"
+		name: "Matengo",
 	},
 	mgw: {
 		code: "mgw",
-		name: "Matumbi"
+		name: "Matumbi",
 	},
 	mgy: {
 		code: "mgy",
-		name: "Mbunga"
+		name: "Mbunga",
 	},
 	mgz: {
 		code: "mgz",
-		name: "Mbugwe"
+		name: "Mbugwe",
 	},
 	mha: {
 		code: "mha",
-		name: "Manda (India)"
+		name: "Manda (India)",
 	},
 	mhb: {
 		code: "mhb",
-		name: "Mahongwe"
+		name: "Mahongwe",
 	},
 	mhc: {
 		code: "mhc",
-		name: "Mocho"
+		name: "Mocho",
 	},
 	mhd: {
 		code: "mhd",
-		name: "Mbugu"
+		name: "Mbugu",
 	},
 	mhe: {
 		code: "mhe",
-		name: "Besisi"
+		name: "Besisi",
 	},
 	mhf: {
 		code: "mhf",
-		name: "Mamaa"
+		name: "Mamaa",
 	},
 	mhg: {
 		code: "mhg",
-		name: "Margu"
+		name: "Margu",
 	},
 	mhi: {
 		code: "mhi",
-		name: "Ma'di"
+		name: "Ma'di",
 	},
 	mhj: {
 		code: "mhj",
-		name: "Mogholi"
+		name: "Mogholi",
 	},
 	mhk: {
 		code: "mhk",
-		name: "Mungaka"
+		name: "Mungaka",
 	},
 	mhl: {
 		code: "mhl",
-		name: "Mauwake"
+		name: "Mauwake",
 	},
 	mhm: {
 		code: "mhm",
-		name: "Makhuwa-Moniga"
+		name: "Makhuwa-Moniga",
 	},
 	mhn: {
 		code: "mhn",
-		name: "Mócheno"
+		name: "Mócheno",
 	},
 	mho: {
 		code: "mho",
-		name: "Mashi (Zambia)"
+		name: "Mashi (Zambia)",
 	},
 	mhp: {
 		code: "mhp",
-		name: "Balinese Malay"
+		name: "Balinese Malay",
 	},
 	mhq: {
 		code: "mhq",
-		name: "Mandan"
+		name: "Mandan",
+	},
+	mhr: {
+		code: "mhr",
+		name: "Eastern Mari",
 	},
 	mhs: {
 		code: "mhs",
-		name: "Buru (Indonesia)"
+		name: "Buru (Indonesia)",
 	},
 	mht: {
 		code: "mht",
-		name: "Mandahuaca"
+		name: "Mandahuaca",
 	},
 	mhu: {
 		code: "mhu",
-		name: "Digaro-Mishmi"
+		name: "Digaro-Mishmi",
 	},
 	mhw: {
 		code: "mhw",
-		name: "Mbukushu"
+		name: "Mbukushu",
 	},
 	mhx: {
 		code: "mhx",
-		name: "Maru"
+		name: "Maru",
 	},
 	mhy: {
 		code: "mhy",
-		name: "Ma'anyan"
+		name: "Ma'anyan",
 	},
 	mhz: {
 		code: "mhz",
-		name: "Mor (Mor Islands)"
+		name: "Mor (Mor Islands)",
 	},
 	mia: {
 		code: "mia",
-		name: "Miami"
+		name: "Miami",
 	},
 	mib: {
 		code: "mib",
-		name: "Atatláhuca Mixtec"
+		name: "Atatláhuca Mixtec",
 	},
 	mic: {
 		code: "mic",
-		name: "Mi'kmaq"
+		name: "Mi'kmaq",
 	},
 	mid: {
 		code: "mid",
-		name: "Mandaic"
+		name: "Mandaic",
 	},
 	mie: {
 		code: "mie",
-		name: "Ocotepec Mixtec"
+		name: "Ocotepec Mixtec",
 	},
 	mif: {
 		code: "mif",
-		name: "Mofu-Gudur"
+		name: "Mofu-Gudur",
 	},
 	mig: {
 		code: "mig",
-		name: "San Miguel El Grande Mixtec"
+		name: "San Miguel El Grande Mixtec",
 	},
 	mih: {
 		code: "mih",
-		name: "Chayuco Mixtec"
+		name: "Chayuco Mixtec",
 	},
 	mii: {
 		code: "mii",
-		name: "Chigmecatitlán Mixtec"
+		name: "Chigmecatitlán Mixtec",
 	},
 	mij: {
 		code: "mij",
-		name: "Abar"
+		name: "Abar",
 	},
 	mik: {
 		code: "mik",
-		name: "Mikasuki"
+		name: "Mikasuki",
 	},
 	mil: {
 		code: "mil",
-		name: "Peñoles Mixtec"
+		name: "Peñoles Mixtec",
 	},
 	mim: {
 		code: "mim",
-		name: "Alacatlatzala Mixtec"
+		name: "Alacatlatzala Mixtec",
 	},
 	min: {
 		code: "min",
-		name: "Minangkabau"
+		name: "Minangkabau",
 	},
 	mio: {
 		code: "mio",
-		name: "Pinotepa Nacional Mixtec"
+		name: "Pinotepa Nacional Mixtec",
 	},
 	mip: {
 		code: "mip",
-		name: "Apasco-Apoala Mixtec"
+		name: "Apasco-Apoala Mixtec",
 	},
 	miq: {
 		code: "miq",
-		name: "Mískito"
+		name: "Mískito",
 	},
 	mir: {
 		code: "mir",
-		name: "Isthmus Mixe"
+		name: "Isthmus Mixe",
 	},
 	mis: {
 		code: "mis",
-		name: "Uncoded languages"
+		name: "Uncoded languages",
 	},
 	mit: {
 		code: "mit",
-		name: "Southern Puebla Mixtec"
+		name: "Southern Puebla Mixtec",
 	},
 	miu: {
 		code: "miu",
-		name: "Cacaloxtepec Mixtec"
+		name: "Cacaloxtepec Mixtec",
 	},
 	miw: {
 		code: "miw",
-		name: "Akoye"
+		name: "Akoye",
 	},
 	mix: {
 		code: "mix",
-		name: "Mixtepec Mixtec"
+		name: "Mixtepec Mixtec",
 	},
 	miy: {
 		code: "miy",
-		name: "Ayutla Mixtec"
+		name: "Ayutla Mixtec",
 	},
 	miz: {
 		code: "miz",
-		name: "Coatzospan Mixtec"
+		name: "Coatzospan Mixtec",
 	},
 	mjb: {
 		code: "mjb",
-		name: "Makalero"
+		name: "Makalero",
 	},
 	mjc: {
 		code: "mjc",
-		name: "San Juan Colorado Mixtec"
+		name: "San Juan Colorado Mixtec",
 	},
 	mjd: {
 		code: "mjd",
-		name: "Northwest Maidu"
+		name: "Northwest Maidu",
 	},
 	mje: {
 		code: "mje",
-		name: "Muskum"
+		name: "Muskum",
 	},
 	mjg: {
 		code: "mjg",
-		name: "Tu"
+		name: "Tu",
 	},
 	mjh: {
 		code: "mjh",
-		name: "Mwera (Nyasa)"
+		name: "Mwera (Nyasa)",
 	},
 	mji: {
 		code: "mji",
-		name: "Kim Mun"
+		name: "Kim Mun",
 	},
 	mjj: {
 		code: "mjj",
-		name: "Mawak"
+		name: "Mawak",
 	},
 	mjk: {
 		code: "mjk",
-		name: "Matukar"
+		name: "Matukar",
 	},
 	mjl: {
 		code: "mjl",
-		name: "Mandeali"
+		name: "Mandeali",
 	},
 	mjm: {
 		code: "mjm",
-		name: "Medebur"
+		name: "Medebur",
 	},
 	mjn: {
 		code: "mjn",
-		name: "Ma (Papua New Guinea)"
+		name: "Ma (Papua New Guinea)",
 	},
 	mjo: {
 		code: "mjo",
-		name: "Malankuravan"
+		name: "Malankuravan",
 	},
 	mjp: {
 		code: "mjp",
-		name: "Malapandaram"
+		name: "Malapandaram",
 	},
 	mjq: {
 		code: "mjq",
-		name: "Malaryan"
+		name: "Malaryan",
 	},
 	mjr: {
 		code: "mjr",
-		name: "Malavedan"
+		name: "Malavedan",
 	},
 	mjs: {
 		code: "mjs",
-		name: "Miship"
+		name: "Miship",
 	},
 	mjt: {
 		code: "mjt",
-		name: "Sauria Paharia"
+		name: "Sauria Paharia",
 	},
 	mju: {
 		code: "mju",
-		name: "Manna-Dora"
+		name: "Manna-Dora",
 	},
 	mjv: {
 		code: "mjv",
-		name: "Mannan"
+		name: "Mannan",
 	},
 	mjw: {
 		code: "mjw",
-		name: "Karbi"
+		name: "Karbi",
 	},
 	mjx: {
 		code: "mjx",
-		name: "Mahali"
+		name: "Mahali",
 	},
 	mjy: {
 		code: "mjy",
-		name: "Mahican"
+		name: "Mahican",
 	},
 	mjz: {
 		code: "mjz",
-		name: "Majhi"
+		name: "Majhi",
 	},
 	mka: {
 		code: "mka",
-		name: "Mbre"
+		name: "Mbre",
 	},
 	mkb: {
 		code: "mkb",
-		name: "Mal Paharia"
+		name: "Mal Paharia",
 	},
 	mkc: {
 		code: "mkc",
-		name: "Siliput"
+		name: "Siliput",
+	},
+	mkd: {
+		code: "mkd",
+		name: "Macedonian",
 	},
 	mke: {
 		code: "mke",
-		name: "Mawchi"
+		name: "Mawchi",
 	},
 	mkf: {
 		code: "mkf",
-		name: "Miya"
+		name: "Miya",
 	},
 	mkg: {
 		code: "mkg",
-		name: "Mak (China)"
+		name: "Mak (China)",
 	},
 	mki: {
 		code: "mki",
-		name: "Dhatki"
+		name: "Dhatki",
 	},
 	mkj: {
 		code: "mkj",
-		name: "Mokilese"
+		name: "Mokilese",
 	},
 	mkk: {
 		code: "mkk",
-		name: "Byep"
+		name: "Byep",
 	},
 	mkl: {
 		code: "mkl",
-		name: "Mokole"
+		name: "Mokole",
 	},
 	mkm: {
 		code: "mkm",
-		name: "Moklen"
+		name: "Moklen",
 	},
 	mkn: {
 		code: "mkn",
-		name: "Kupang Malay"
+		name: "Kupang Malay",
 	},
 	mko: {
 		code: "mko",
-		name: "Mingang Doso"
+		name: "Mingang Doso",
 	},
 	mkp: {
 		code: "mkp",
-		name: "Moikodi"
+		name: "Moikodi",
 	},
 	mkq: {
 		code: "mkq",
-		name: "Bay Miwok"
+		name: "Bay Miwok",
 	},
 	mkr: {
 		code: "mkr",
-		name: "Malas"
+		name: "Malas",
 	},
 	mks: {
 		code: "mks",
-		name: "Silacayoapan Mixtec"
+		name: "Silacayoapan Mixtec",
 	},
 	mkt: {
 		code: "mkt",
-		name: "Vamale"
+		name: "Vamale",
 	},
 	mku: {
 		code: "mku",
-		name: "Konyanka Maninka"
+		name: "Konyanka Maninka",
 	},
 	mkv: {
 		code: "mkv",
-		name: "Mafea"
+		name: "Mafea",
 	},
 	mkw: {
 		code: "mkw",
-		name: "Kituba (Congo)"
+		name: "Kituba (Congo)",
 	},
 	mkx: {
 		code: "mkx",
-		name: "Kinamiging Manobo"
+		name: "Kinamiging Manobo",
 	},
 	mky: {
 		code: "mky",
-		name: "East Makian"
+		name: "East Makian",
 	},
 	mkz: {
 		code: "mkz",
-		name: "Makasae"
+		name: "Makasae",
 	},
 	mla: {
 		code: "mla",
-		name: "Malo"
+		name: "Malo",
 	},
 	mlb: {
 		code: "mlb",
-		name: "Mbule"
+		name: "Mbule",
 	},
 	mlc: {
 		code: "mlc",
-		name: "Cao Lan"
+		name: "Cao Lan",
 	},
 	mle: {
 		code: "mle",
-		name: "Manambu"
+		name: "Manambu",
 	},
 	mlf: {
 		code: "mlf",
-		name: "Mal"
+		name: "Mal",
+	},
+	mlg: {
+		code: "mlg",
+		name: "Malagasy",
 	},
 	mlh: {
 		code: "mlh",
-		name: "Mape"
+		name: "Mape",
 	},
 	mli: {
 		code: "mli",
-		name: "Malimpung"
+		name: "Malimpung",
 	},
 	mlj: {
 		code: "mlj",
-		name: "Miltu"
+		name: "Miltu",
 	},
 	mlk: {
 		code: "mlk",
-		name: "Ilwana"
+		name: "Ilwana",
 	},
 	mll: {
 		code: "mll",
-		name: "Malua Bay"
+		name: "Malua Bay",
 	},
 	mlm: {
 		code: "mlm",
-		name: "Mulam"
+		name: "Mulam",
 	},
 	mln: {
 		code: "mln",
-		name: "Malango"
+		name: "Malango",
 	},
 	mlo: {
 		code: "mlo",
-		name: "Mlomp"
+		name: "Mlomp",
 	},
 	mlp: {
 		code: "mlp",
-		name: "Bargam"
+		name: "Bargam",
 	},
 	mlq: {
 		code: "mlq",
-		name: "Western Maninkakan"
+		name: "Western Maninkakan",
 	},
 	mlr: {
 		code: "mlr",
-		name: "Vame"
+		name: "Vame",
 	},
 	mls: {
 		code: "mls",
-		name: "Masalit"
+		name: "Masalit",
+	},
+	mlt: {
+		code: "mlt",
+		name: "Maltese",
 	},
 	mlu: {
 		code: "mlu",
-		name: "To'abaita"
+		name: "To'abaita",
 	},
 	mlv: {
 		code: "mlv",
-		name: "Motlav"
+		name: "Motlav",
 	},
 	mlw: {
 		code: "mlw",
-		name: "Moloko"
+		name: "Moloko",
 	},
 	mlx: {
 		code: "mlx",
-		name: "Malfaxal"
+		name: "Malfaxal",
 	},
 	mlz: {
 		code: "mlz",
-		name: "Malaynon"
+		name: "Malaynon",
 	},
 	mma: {
 		code: "mma",
-		name: "Mama"
+		name: "Mama",
 	},
 	mmb: {
 		code: "mmb",
-		name: "Momina"
+		name: "Momina",
 	},
 	mmc: {
 		code: "mmc",
-		name: "Michoacán Mazahua"
+		name: "Michoacán Mazahua",
 	},
 	mmd: {
 		code: "mmd",
-		name: "Maonan"
+		name: "Maonan",
 	},
 	mme: {
 		code: "mme",
-		name: "Mae"
+		name: "Mae",
 	},
 	mmf: {
 		code: "mmf",
-		name: "Mundat"
+		name: "Mundat",
 	},
 	mmg: {
 		code: "mmg",
-		name: "North Ambrym"
+		name: "North Ambrym",
 	},
 	mmh: {
 		code: "mmh",
-		name: "Mehináku"
+		name: "Mehináku",
 	},
 	mmi: {
 		code: "mmi",
-		name: "Musar"
+		name: "Musar",
 	},
 	mmj: {
 		code: "mmj",
-		name: "Majhwar"
+		name: "Majhwar",
 	},
 	mmk: {
 		code: "mmk",
-		name: "Mukha-Dora"
+		name: "Mukha-Dora",
 	},
 	mml: {
 		code: "mml",
-		name: "Man Met"
+		name: "Man Met",
 	},
 	mmm: {
 		code: "mmm",
-		name: "Maii"
+		name: "Maii",
 	},
 	mmn: {
 		code: "mmn",
-		name: "Mamanwa"
+		name: "Mamanwa",
 	},
 	mmo: {
 		code: "mmo",
-		name: "Mangga Buang"
+		name: "Mangga Buang",
 	},
 	mmp: {
 		code: "mmp",
-		name: "Siawi"
+		name: "Siawi",
 	},
 	mmq: {
 		code: "mmq",
-		name: "Musak"
+		name: "Musak",
 	},
 	mmr: {
 		code: "mmr",
-		name: "Western Xiangxi Miao"
+		name: "Western Xiangxi Miao",
 	},
 	mmt: {
 		code: "mmt",
-		name: "Malalamai"
+		name: "Malalamai",
 	},
 	mmu: {
 		code: "mmu",
-		name: "Mmaala"
+		name: "Mmaala",
 	},
 	mmv: {
 		code: "mmv",
-		name: "Miriti"
+		name: "Miriti",
 	},
 	mmw: {
 		code: "mmw",
-		name: "Emae"
+		name: "Emae",
 	},
 	mmx: {
 		code: "mmx",
-		name: "Madak"
+		name: "Madak",
 	},
 	mmy: {
 		code: "mmy",
-		name: "Migaama"
+		name: "Migaama",
 	},
 	mmz: {
 		code: "mmz",
-		name: "Mabaale"
+		name: "Mabaale",
 	},
 	mna: {
 		code: "mna",
-		name: "Mbula"
+		name: "Mbula",
 	},
 	mnb: {
 		code: "mnb",
-		name: "Muna"
+		name: "Muna",
 	},
 	mnc: {
 		code: "mnc",
-		name: "Manchu"
+		name: "Manchu",
 	},
 	mnd: {
 		code: "mnd",
-		name: "Mondé"
+		name: "Mondé",
 	},
 	mne: {
 		code: "mne",
-		name: "Naba"
+		name: "Naba",
 	},
 	mnf: {
 		code: "mnf",
-		name: "Mundani"
+		name: "Mundani",
 	},
 	mng: {
 		code: "mng",
-		name: "Eastern Mnong"
+		name: "Eastern Mnong",
 	},
 	mnh: {
 		code: "mnh",
-		name: "Mono (Democratic Republic of Congo)"
+		name: "Mono (Democratic Republic of Congo)",
 	},
 	mni: {
 		code: "mni",
-		name: "Manipuri"
+		name: "Manipuri",
 	},
 	mnj: {
 		code: "mnj",
-		name: "Munji"
+		name: "Munji",
 	},
 	mnk: {
 		code: "mnk",
-		name: "Mandinka"
+		name: "Mandinka",
 	},
 	mnl: {
 		code: "mnl",
-		name: "Tiale"
+		name: "Tiale",
 	},
 	mnm: {
 		code: "mnm",
-		name: "Mapena"
+		name: "Mapena",
 	},
 	mnn: {
 		code: "mnn",
-		name: "Southern Mnong"
+		name: "Southern Mnong",
 	},
 	mnp: {
 		code: "mnp",
-		name: "Min Bei Chinese"
+		name: "Min Bei Chinese",
 	},
 	mnq: {
 		code: "mnq",
-		name: "Minriq"
+		name: "Minriq",
 	},
 	mnr: {
 		code: "mnr",
-		name: "Mono (USA)"
+		name: "Mono (USA)",
 	},
 	mns: {
 		code: "mns",
-		name: "Mansi"
+		name: "Mansi",
 	},
 	mnu: {
 		code: "mnu",
-		name: "Mer"
+		name: "Mer",
 	},
 	mnv: {
 		code: "mnv",
-		name: "Rennell-Bellona"
+		name: "Rennell-Bellona",
 	},
 	mnw: {
 		code: "mnw",
-		name: "Mon"
+		name: "Mon",
 	},
 	mnx: {
 		code: "mnx",
-		name: "Manikion"
+		name: "Manikion",
 	},
 	mny: {
 		code: "mny",
-		name: "Manyawa"
+		name: "Manyawa",
 	},
 	mnz: {
 		code: "mnz",
-		name: "Moni"
+		name: "Moni",
 	},
 	moa: {
 		code: "moa",
-		name: "Mwan"
+		name: "Mwan",
 	},
 	moc: {
 		code: "moc",
-		name: "Mocoví"
+		name: "Mocoví",
 	},
 	mod: {
 		code: "mod",
-		name: "Mobilian"
+		name: "Mobilian",
 	},
 	moe: {
 		code: "moe",
-		name: "Innu"
+		name: "Innu",
 	},
 	mog: {
 		code: "mog",
-		name: "Mongondow"
+		name: "Mongondow",
 	},
 	moh: {
 		code: "moh",
-		name: "Mohawk"
+		name: "Mohawk",
 	},
 	moi: {
 		code: "moi",
-		name: "Mboi"
+		name: "Mboi",
 	},
 	moj: {
 		code: "moj",
-		name: "Monzombo"
+		name: "Monzombo",
 	},
 	mok: {
 		code: "mok",
-		name: "Morori"
+		name: "Morori",
 	},
 	mom: {
 		code: "mom",
-		name: "Mangue"
+		name: "Mangue",
+	},
+	mon: {
+		code: "mon",
+		name: "Mongolian",
 	},
 	moo: {
 		code: "moo",
-		name: "Monom"
+		name: "Monom",
 	},
 	mop: {
 		code: "mop",
-		name: "Mopán Maya"
+		name: "Mopán Maya",
 	},
 	moq: {
 		code: "moq",
-		name: "Mor (Bomberai Peninsula)"
+		name: "Mor (Bomberai Peninsula)",
 	},
 	mor: {
 		code: "mor",
-		name: "Moro"
+		name: "Moro",
+	},
+	mos: {
+		code: "mos",
+		name: "Mossi",
 	},
 	mot: {
 		code: "mot",
-		name: "Barí"
+		name: "Barí",
 	},
 	mou: {
 		code: "mou",
-		name: "Mogum"
+		name: "Mogum",
 	},
 	mov: {
 		code: "mov",
-		name: "Mohave"
+		name: "Mohave",
 	},
 	mow: {
 		code: "mow",
-		name: "Moi (Congo)"
+		name: "Moi (Congo)",
 	},
 	mox: {
 		code: "mox",
-		name: "Molima"
+		name: "Molima",
 	},
 	moy: {
 		code: "moy",
-		name: "Shekkacho"
+		name: "Shekkacho",
 	},
 	moz: {
 		code: "moz",
-		name: "Mukulu"
+		name: "Mukulu",
 	},
 	mpa: {
 		code: "mpa",
-		name: "Mpoto"
+		name: "Mpoto",
 	},
 	mpb: {
 		code: "mpb",
-		name: "Malak Malak"
+		name: "Malak Malak",
 	},
 	mpc: {
 		code: "mpc",
-		name: "Mangarrayi"
+		name: "Mangarrayi",
 	},
 	mpd: {
 		code: "mpd",
-		name: "Machinere"
+		name: "Machinere",
 	},
 	mpe: {
 		code: "mpe",
-		name: "Majang"
+		name: "Majang",
 	},
 	mpg: {
 		code: "mpg",
-		name: "Marba"
+		name: "Marba",
 	},
 	mph: {
 		code: "mph",
-		name: "Maung"
+		name: "Maung",
 	},
 	mpi: {
 		code: "mpi",
-		name: "Mpade"
+		name: "Mpade",
 	},
 	mpj: {
 		code: "mpj",
-		name: "Martu Wangka"
+		name: "Martu Wangka",
 	},
 	mpk: {
 		code: "mpk",
-		name: "Mbara (Chad)"
+		name: "Mbara (Chad)",
 	},
 	mpl: {
 		code: "mpl",
-		name: "Middle Watut"
+		name: "Middle Watut",
 	},
 	mpm: {
 		code: "mpm",
-		name: "Yosondúa Mixtec"
+		name: "Yosondúa Mixtec",
 	},
 	mpn: {
 		code: "mpn",
-		name: "Mindiri"
+		name: "Mindiri",
 	},
 	mpo: {
 		code: "mpo",
-		name: "Miu"
+		name: "Miu",
 	},
 	mpp: {
 		code: "mpp",
-		name: "Migabac"
+		name: "Migabac",
 	},
 	mpq: {
 		code: "mpq",
-		name: "Matís"
+		name: "Matís",
 	},
 	mpr: {
 		code: "mpr",
-		name: "Vangunu"
+		name: "Vangunu",
 	},
 	mps: {
 		code: "mps",
-		name: "Dadibi"
+		name: "Dadibi",
 	},
 	mpt: {
 		code: "mpt",
-		name: "Mian"
+		name: "Mian",
 	},
 	mpu: {
 		code: "mpu",
-		name: "Makuráp"
+		name: "Makuráp",
 	},
 	mpv: {
 		code: "mpv",
-		name: "Mungkip"
+		name: "Mungkip",
 	},
 	mpw: {
 		code: "mpw",
-		name: "Mapidian"
+		name: "Mapidian",
 	},
 	mpx: {
 		code: "mpx",
-		name: "Misima-Panaeati"
+		name: "Misima-Panaeati",
 	},
 	mpy: {
 		code: "mpy",
-		name: "Mapia"
+		name: "Mapia",
 	},
 	mpz: {
 		code: "mpz",
-		name: "Mpi"
+		name: "Mpi",
 	},
 	mqa: {
 		code: "mqa",
-		name: "Maba (Indonesia)"
+		name: "Maba (Indonesia)",
 	},
 	mqb: {
 		code: "mqb",
-		name: "Mbuko"
+		name: "Mbuko",
 	},
 	mqc: {
 		code: "mqc",
-		name: "Mangole"
+		name: "Mangole",
 	},
 	mqe: {
 		code: "mqe",
-		name: "Matepi"
+		name: "Matepi",
 	},
 	mqf: {
 		code: "mqf",
-		name: "Momuna"
+		name: "Momuna",
 	},
 	mqg: {
 		code: "mqg",
-		name: "Kota Bangun Kutai Malay"
+		name: "Kota Bangun Kutai Malay",
 	},
 	mqh: {
 		code: "mqh",
-		name: "Tlazoyaltepec Mixtec"
+		name: "Tlazoyaltepec Mixtec",
 	},
 	mqi: {
 		code: "mqi",
-		name: "Mariri"
+		name: "Mariri",
 	},
 	mqj: {
 		code: "mqj",
-		name: "Mamasa"
+		name: "Mamasa",
 	},
 	mqk: {
 		code: "mqk",
-		name: "Rajah Kabunsuwan Manobo"
+		name: "Rajah Kabunsuwan Manobo",
 	},
 	mql: {
 		code: "mql",
-		name: "Mbelime"
+		name: "Mbelime",
 	},
 	mqm: {
 		code: "mqm",
-		name: "South Marquesan"
+		name: "South Marquesan",
 	},
 	mqn: {
 		code: "mqn",
-		name: "Moronene"
+		name: "Moronene",
 	},
 	mqo: {
 		code: "mqo",
-		name: "Modole"
+		name: "Modole",
 	},
 	mqp: {
 		code: "mqp",
-		name: "Manipa"
+		name: "Manipa",
 	},
 	mqq: {
 		code: "mqq",
-		name: "Minokok"
+		name: "Minokok",
 	},
 	mqr: {
 		code: "mqr",
-		name: "Mander"
+		name: "Mander",
 	},
 	mqs: {
 		code: "mqs",
-		name: "West Makian"
+		name: "West Makian",
 	},
 	mqt: {
 		code: "mqt",
-		name: "Mok"
+		name: "Mok",
 	},
 	mqu: {
 		code: "mqu",
-		name: "Mandari"
+		name: "Mandari",
 	},
 	mqv: {
 		code: "mqv",
-		name: "Mosimo"
+		name: "Mosimo",
 	},
 	mqw: {
 		code: "mqw",
-		name: "Murupi"
+		name: "Murupi",
 	},
 	mqx: {
 		code: "mqx",
-		name: "Mamuju"
+		name: "Mamuju",
 	},
 	mqy: {
 		code: "mqy",
-		name: "Manggarai"
+		name: "Manggarai",
 	},
 	mqz: {
 		code: "mqz",
-		name: "Pano"
+		name: "Pano",
 	},
 	mra: {
 		code: "mra",
-		name: "Mlabri"
+		name: "Mlabri",
 	},
 	mrb: {
 		code: "mrb",
-		name: "Marino"
+		name: "Marino",
 	},
 	mrc: {
 		code: "mrc",
-		name: "Maricopa"
+		name: "Maricopa",
 	},
 	mrd: {
 		code: "mrd",
-		name: "Western Magar"
+		name: "Western Magar",
 	},
 	mre: {
 		code: "mre",
-		name: "Martha's Vineyard Sign Language"
+		name: "Martha's Vineyard Sign Language",
 	},
 	mrf: {
 		code: "mrf",
-		name: "Elseng"
+		name: "Elseng",
 	},
 	mrg: {
 		code: "mrg",
-		name: "Mising"
+		name: "Mising",
 	},
 	mrh: {
 		code: "mrh",
-		name: "Mara Chin"
+		name: "Mara Chin",
 	},
 	mri: {
 		code: "mri",
-		name: "Maori"
+		name: "Maori",
 	},
 	mrj: {
 		code: "mrj",
-		name: "Western Mari"
+		name: "Western Mari",
 	},
 	mrk: {
 		code: "mrk",
-		name: "Hmwaveke"
+		name: "Hmwaveke",
 	},
 	mrl: {
 		code: "mrl",
-		name: "Mortlockese"
+		name: "Mortlockese",
 	},
 	mrm: {
 		code: "mrm",
-		name: "Merlav"
+		name: "Merlav",
 	},
 	mrn: {
 		code: "mrn",
-		name: "Cheke Holo"
+		name: "Cheke Holo",
 	},
 	mro: {
 		code: "mro",
-		name: "Mru"
+		name: "Mru",
 	},
 	mrp: {
 		code: "mrp",
-		name: "Morouas"
+		name: "Morouas",
 	},
 	mrq: {
 		code: "mrq",
-		name: "North Marquesan"
+		name: "North Marquesan",
 	},
 	mrr: {
 		code: "mrr",
-		name: "Maria (India)"
+		name: "Maria (India)",
 	},
 	mrs: {
 		code: "mrs",
-		name: "Maragus"
+		name: "Maragus",
 	},
 	mrt: {
 		code: "mrt",
-		name: "Marghi Central"
+		name: "Marghi Central",
 	},
 	mru: {
 		code: "mru",
-		name: "Mono (Cameroon)"
+		name: "Mono (Cameroon)",
 	},
 	mrv: {
 		code: "mrv",
-		name: "Mangareva"
+		name: "Mangareva",
 	},
 	mrw: {
 		code: "mrw",
-		name: "Maranao"
+		name: "Maranao",
 	},
 	mrx: {
 		code: "mrx",
-		name: "Maremgi"
+		name: "Maremgi",
 	},
 	mry: {
 		code: "mry",
-		name: "Mandaya"
+		name: "Mandaya",
 	},
 	mrz: {
 		code: "mrz",
-		name: "Marind"
+		name: "Marind",
 	},
 	msa: {
 		code: "msa",
-		name: "Malay (macrolanguage)"
+		name: "Malay (macrolanguage)",
 	},
 	msb: {
 		code: "msb",
-		name: "Masbatenyo"
+		name: "Masbatenyo",
 	},
 	msc: {
 		code: "msc",
-		name: "Sankaran Maninka"
+		name: "Sankaran Maninka",
 	},
 	msd: {
 		code: "msd",
-		name: "Yucatec Maya Sign Language"
+		name: "Yucatec Maya Sign Language",
 	},
 	mse: {
 		code: "mse",
-		name: "Musey"
+		name: "Musey",
 	},
 	msf: {
 		code: "msf",
-		name: "Mekwei"
+		name: "Mekwei",
 	},
 	msg: {
 		code: "msg",
-		name: "Moraid"
+		name: "Moraid",
 	},
 	msh: {
 		code: "msh",
-		name: "Masikoro Malagasy"
+		name: "Masikoro Malagasy",
 	},
 	msi: {
 		code: "msi",
-		name: "Sabah Malay"
+		name: "Sabah Malay",
 	},
 	msj: {
 		code: "msj",
-		name: "Ma (Democratic Republic of Congo)"
+		name: "Ma (Democratic Republic of Congo)",
 	},
 	msk: {
 		code: "msk",
-		name: "Mansaka"
+		name: "Mansaka",
 	},
 	msl: {
 		code: "msl",
-		name: "Molof"
+		name: "Molof",
 	},
 	msm: {
 		code: "msm",
-		name: "Agusan Manobo"
+		name: "Agusan Manobo",
 	},
 	msn: {
 		code: "msn",
-		name: "Vurës"
+		name: "Vurës",
 	},
 	mso: {
 		code: "mso",
-		name: "Mombum"
+		name: "Mombum",
 	},
 	msp: {
 		code: "msp",
-		name: "Maritsauá"
+		name: "Maritsauá",
 	},
 	msq: {
 		code: "msq",
-		name: "Caac"
+		name: "Caac",
 	},
 	msr: {
 		code: "msr",
-		name: "Mongolian Sign Language"
+		name: "Mongolian Sign Language",
 	},
 	mss: {
 		code: "mss",
-		name: "West Masela"
+		name: "West Masela",
 	},
 	msu: {
 		code: "msu",
-		name: "Musom"
+		name: "Musom",
 	},
 	msv: {
 		code: "msv",
-		name: "Maslam"
+		name: "Maslam",
 	},
 	msw: {
 		code: "msw",
-		name: "Mansoanka"
+		name: "Mansoanka",
 	},
 	msx: {
 		code: "msx",
-		name: "Moresada"
+		name: "Moresada",
 	},
 	msy: {
 		code: "msy",
-		name: "Aruamu"
+		name: "Aruamu",
 	},
 	msz: {
 		code: "msz",
-		name: "Momare"
+		name: "Momare",
 	},
 	mta: {
 		code: "mta",
-		name: "Cotabato Manobo"
+		name: "Cotabato Manobo",
 	},
 	mtb: {
 		code: "mtb",
-		name: "Anyin Morofo"
+		name: "Anyin Morofo",
 	},
 	mtc: {
 		code: "mtc",
-		name: "Munit"
+		name: "Munit",
 	},
 	mtd: {
 		code: "mtd",
-		name: "Mualang"
+		name: "Mualang",
 	},
 	mte: {
 		code: "mte",
-		name: "Mono (Solomon Islands)"
+		name: "Mono (Solomon Islands)",
 	},
 	mtf: {
 		code: "mtf",
-		name: "Murik (Papua New Guinea)"
+		name: "Murik (Papua New Guinea)",
 	},
 	mtg: {
 		code: "mtg",
-		name: "Una"
+		name: "Una",
 	},
 	mth: {
 		code: "mth",
-		name: "Munggui"
+		name: "Munggui",
 	},
 	mti: {
 		code: "mti",
-		name: "Maiwa (Papua New Guinea)"
+		name: "Maiwa (Papua New Guinea)",
 	},
 	mtj: {
 		code: "mtj",
-		name: "Moskona"
+		name: "Moskona",
 	},
 	mtk: {
 		code: "mtk",
-		name: "Mbe'"
+		name: "Mbe'",
 	},
 	mtl: {
 		code: "mtl",
-		name: "Montol"
+		name: "Montol",
 	},
 	mtm: {
 		code: "mtm",
-		name: "Mator"
+		name: "Mator",
 	},
 	mtn: {
 		code: "mtn",
-		name: "Matagalpa"
+		name: "Matagalpa",
 	},
 	mto: {
 		code: "mto",
-		name: "Totontepec Mixe"
+		name: "Totontepec Mixe",
 	},
 	mtp: {
 		code: "mtp",
-		name: "Wichí Lhamtés Nocten"
+		name: "Wichí Lhamtés Nocten",
 	},
 	mtq: {
 		code: "mtq",
-		name: "Muong"
+		name: "Muong",
 	},
 	mtr: {
 		code: "mtr",
-		name: "Mewari"
+		name: "Mewari",
 	},
 	mts: {
 		code: "mts",
-		name: "Yora"
+		name: "Yora",
 	},
 	mtt: {
 		code: "mtt",
-		name: "Mota"
+		name: "Mota",
 	},
 	mtu: {
 		code: "mtu",
-		name: "Tututepec Mixtec"
+		name: "Tututepec Mixtec",
 	},
 	mtv: {
 		code: "mtv",
-		name: "Asaro'o"
+		name: "Asaro'o",
 	},
 	mtw: {
 		code: "mtw",
-		name: "Southern Binukidnon"
+		name: "Southern Binukidnon",
 	},
 	mtx: {
 		code: "mtx",
-		name: "Tidaá Mixtec"
+		name: "Tidaá Mixtec",
 	},
 	mty: {
 		code: "mty",
-		name: "Nabi"
+		name: "Nabi",
 	},
 	mua: {
 		code: "mua",
-		name: "Mundang"
+		name: "Mundang",
 	},
 	mub: {
 		code: "mub",
-		name: "Mubi"
+		name: "Mubi",
 	},
 	muc: {
 		code: "muc",
-		name: "Ajumbu"
+		name: "Ajumbu",
 	},
 	mud: {
 		code: "mud",
-		name: "Mednyj Aleut"
+		name: "Mednyj Aleut",
 	},
 	mue: {
 		code: "mue",
-		name: "Media Lengua"
+		name: "Media Lengua",
 	},
 	mug: {
 		code: "mug",
-		name: "Musgu"
+		name: "Musgu",
 	},
 	muh: {
 		code: "muh",
-		name: "Mündü"
+		name: "Mündü",
 	},
 	mui: {
 		code: "mui",
-		name: "Musi"
+		name: "Musi",
 	},
 	muj: {
 		code: "muj",
-		name: "Mabire"
+		name: "Mabire",
 	},
 	muk: {
 		code: "muk",
-		name: "Mugom"
+		name: "Mugom",
 	},
 	mul: {
 		code: "mul",
-		name: "Multiple languages"
+		name: "Multiple languages",
 	},
 	mum: {
 		code: "mum",
-		name: "Maiwala"
+		name: "Maiwala",
 	},
 	muo: {
 		code: "muo",
-		name: "Nyong"
+		name: "Nyong",
 	},
 	mup: {
 		code: "mup",
-		name: "Malvi"
+		name: "Malvi",
 	},
 	muq: {
 		code: "muq",
-		name: "Eastern Xiangxi Miao"
+		name: "Eastern Xiangxi Miao",
 	},
 	mur: {
 		code: "mur",
-		name: "Murle"
+		name: "Murle",
 	},
 	mus: {
 		code: "mus",
-		name: "Creek"
+		name: "Creek",
 	},
 	mut: {
 		code: "mut",
-		name: "Western Muria"
+		name: "Western Muria",
 	},
 	muu: {
 		code: "muu",
-		name: "Yaaku"
+		name: "Yaaku",
 	},
 	muv: {
 		code: "muv",
-		name: "Muthuvan"
+		name: "Muthuvan",
 	},
 	mux: {
 		code: "mux",
-		name: "Bo-Ung"
+		name: "Bo-Ung",
 	},
 	muy: {
 		code: "muy",
-		name: "Muyang"
+		name: "Muyang",
 	},
 	muz: {
 		code: "muz",
-		name: "Mursi"
+		name: "Mursi",
 	},
 	mva: {
 		code: "mva",
-		name: "Manam"
+		name: "Manam",
 	},
 	mvb: {
 		code: "mvb",
-		name: "Mattole"
+		name: "Mattole",
 	},
 	mvd: {
 		code: "mvd",
-		name: "Mamboru"
+		name: "Mamboru",
 	},
 	mve: {
 		code: "mve",
-		name: "Marwari (Pakistan)"
+		name: "Marwari (Pakistan)",
 	},
 	mvf: {
 		code: "mvf",
-		name: "Peripheral Mongolian"
+		name: "Peripheral Mongolian",
 	},
 	mvg: {
 		code: "mvg",
-		name: "Yucuañe Mixtec"
+		name: "Yucuañe Mixtec",
 	},
 	mvh: {
 		code: "mvh",
-		name: "Mulgi"
+		name: "Mulgi",
 	},
 	mvi: {
 		code: "mvi",
-		name: "Miyako"
+		name: "Miyako",
 	},
 	mvk: {
 		code: "mvk",
-		name: "Mekmek"
+		name: "Mekmek",
 	},
 	mvl: {
 		code: "mvl",
-		name: "Mbara (Australia)"
+		name: "Mbara (Australia)",
 	},
 	mvn: {
 		code: "mvn",
-		name: "Minaveha"
+		name: "Minaveha",
 	},
 	mvo: {
 		code: "mvo",
-		name: "Marovo"
+		name: "Marovo",
 	},
 	mvp: {
 		code: "mvp",
-		name: "Duri"
+		name: "Duri",
 	},
 	mvq: {
 		code: "mvq",
-		name: "Moere"
+		name: "Moere",
 	},
 	mvr: {
 		code: "mvr",
-		name: "Marau"
+		name: "Marau",
 	},
 	mvs: {
 		code: "mvs",
-		name: "Massep"
+		name: "Massep",
 	},
 	mvt: {
 		code: "mvt",
-		name: "Mpotovoro"
+		name: "Mpotovoro",
 	},
 	mvu: {
 		code: "mvu",
-		name: "Marfa"
+		name: "Marfa",
 	},
 	mvv: {
 		code: "mvv",
-		name: "Tagal Murut"
+		name: "Tagal Murut",
 	},
 	mvw: {
 		code: "mvw",
-		name: "Machinga"
+		name: "Machinga",
 	},
 	mvx: {
 		code: "mvx",
-		name: "Meoswar"
+		name: "Meoswar",
 	},
 	mvy: {
 		code: "mvy",
-		name: "Indus Kohistani"
+		name: "Indus Kohistani",
 	},
 	mvz: {
 		code: "mvz",
-		name: "Mesqan"
+		name: "Mesqan",
 	},
 	mwa: {
 		code: "mwa",
-		name: "Mwatebu"
+		name: "Mwatebu",
 	},
 	mwb: {
 		code: "mwb",
-		name: "Juwal"
+		name: "Juwal",
 	},
 	mwc: {
 		code: "mwc",
-		name: "Are"
+		name: "Are",
 	},
 	mwe: {
 		code: "mwe",
-		name: "Mwera (Chimwera)"
+		name: "Mwera (Chimwera)",
 	},
 	mwf: {
 		code: "mwf",
-		name: "Murrinh-Patha"
+		name: "Murrinh-Patha",
 	},
 	mwg: {
 		code: "mwg",
-		name: "Aiklep"
+		name: "Aiklep",
 	},
 	mwh: {
 		code: "mwh",
-		name: "Mouk-Aria"
+		name: "Mouk-Aria",
 	},
 	mwi: {
 		code: "mwi",
-		name: "Labo"
+		name: "Labo",
 	},
 	mwk: {
 		code: "mwk",
-		name: "Kita Maninkakan"
+		name: "Kita Maninkakan",
 	},
 	mwl: {
 		code: "mwl",
-		name: "Mirandese"
+		name: "Mirandese",
 	},
 	mwm: {
 		code: "mwm",
-		name: "Sar"
+		name: "Sar",
 	},
 	mwn: {
 		code: "mwn",
-		name: "Nyamwanga"
+		name: "Nyamwanga",
 	},
 	mwo: {
 		code: "mwo",
-		name: "Central Maewo"
+		name: "Central Maewo",
 	},
 	mwp: {
 		code: "mwp",
-		name: "Kala Lagaw Ya"
+		name: "Kala Lagaw Ya",
 	},
 	mwq: {
 		code: "mwq",
-		name: "Mün Chin"
+		name: "Mün Chin",
 	},
 	mwr: {
 		code: "mwr",
-		name: "Marwari"
+		name: "Marwari",
 	},
 	mws: {
 		code: "mws",
-		name: "Mwimbi-Muthambi"
+		name: "Mwimbi-Muthambi",
 	},
 	mwt: {
 		code: "mwt",
-		name: "Moken"
+		name: "Moken",
 	},
 	mwu: {
 		code: "mwu",
-		name: "Mittu"
+		name: "Mittu",
 	},
 	mwv: {
 		code: "mwv",
-		name: "Mentawai"
+		name: "Mentawai",
 	},
 	mww: {
 		code: "mww",
-		name: "Hmong Daw"
+		name: "Hmong Daw",
 	},
 	mwz: {
 		code: "mwz",
-		name: "Moingi"
+		name: "Moingi",
 	},
 	mxa: {
 		code: "mxa",
-		name: "Northwest Oaxaca Mixtec"
+		name: "Northwest Oaxaca Mixtec",
 	},
 	mxb: {
 		code: "mxb",
-		name: "Tezoatlán Mixtec"
+		name: "Tezoatlán Mixtec",
 	},
 	mxc: {
 		code: "mxc",
-		name: "Manyika"
+		name: "Manyika",
 	},
 	mxd: {
 		code: "mxd",
-		name: "Modang"
+		name: "Modang",
 	},
 	mxe: {
 		code: "mxe",
-		name: "Mele-Fila"
+		name: "Mele-Fila",
 	},
 	mxf: {
 		code: "mxf",
-		name: "Malgbe"
+		name: "Malgbe",
 	},
 	mxg: {
 		code: "mxg",
-		name: "Mbangala"
+		name: "Mbangala",
 	},
 	mxh: {
 		code: "mxh",
-		name: "Mvuba"
+		name: "Mvuba",
 	},
 	mxi: {
 		code: "mxi",
-		name: "Mozarabic"
+		name: "Mozarabic",
 	},
 	mxj: {
 		code: "mxj",
-		name: "Miju-Mishmi"
+		name: "Miju-Mishmi",
 	},
 	mxk: {
 		code: "mxk",
-		name: "Monumbo"
+		name: "Monumbo",
 	},
 	mxl: {
 		code: "mxl",
-		name: "Maxi Gbe"
+		name: "Maxi Gbe",
 	},
 	mxm: {
 		code: "mxm",
-		name: "Meramera"
+		name: "Meramera",
 	},
 	mxn: {
 		code: "mxn",
-		name: "Moi (Indonesia)"
+		name: "Moi (Indonesia)",
 	},
 	mxo: {
 		code: "mxo",
-		name: "Mbowe"
+		name: "Mbowe",
 	},
 	mxp: {
 		code: "mxp",
-		name: "Tlahuitoltepec Mixe"
+		name: "Tlahuitoltepec Mixe",
 	},
 	mxq: {
 		code: "mxq",
-		name: "Juquila Mixe"
+		name: "Juquila Mixe",
 	},
 	mxr: {
 		code: "mxr",
-		name: "Murik (Malaysia)"
+		name: "Murik (Malaysia)",
 	},
 	mxs: {
 		code: "mxs",
-		name: "Huitepec Mixtec"
+		name: "Huitepec Mixtec",
 	},
 	mxt: {
 		code: "mxt",
-		name: "Jamiltepec Mixtec"
+		name: "Jamiltepec Mixtec",
 	},
 	mxu: {
 		code: "mxu",
-		name: "Mada (Cameroon)"
+		name: "Mada (Cameroon)",
 	},
 	mxv: {
 		code: "mxv",
-		name: "Metlatónoc Mixtec"
+		name: "Metlatónoc Mixtec",
 	},
 	mxw: {
 		code: "mxw",
-		name: "Namo"
+		name: "Namo",
 	},
 	mxx: {
 		code: "mxx",
-		name: "Mahou"
+		name: "Mahou",
 	},
 	mxy: {
 		code: "mxy",
-		name: "Southeastern Nochixtlán Mixtec"
+		name: "Southeastern Nochixtlán Mixtec",
 	},
 	mxz: {
 		code: "mxz",
-		name: "Central Masela"
+		name: "Central Masela",
+	},
+	mya: {
+		code: "mya",
+		name: "Burmese",
 	},
 	myb: {
 		code: "myb",
-		name: "Mbay"
+		name: "Mbay",
 	},
 	myc: {
 		code: "myc",
-		name: "Mayeka"
+		name: "Mayeka",
 	},
 	mye: {
 		code: "mye",
-		name: "Myene"
+		name: "Myene",
 	},
 	myf: {
 		code: "myf",
-		name: "Bambassi"
+		name: "Bambassi",
 	},
 	myg: {
 		code: "myg",
-		name: "Manta"
+		name: "Manta",
 	},
 	myh: {
 		code: "myh",
-		name: "Makah"
+		name: "Makah",
 	},
 	myj: {
 		code: "myj",
-		name: "Mangayat"
+		name: "Mangayat",
 	},
 	myk: {
 		code: "myk",
-		name: "Mamara Senoufo"
+		name: "Mamara Senoufo",
 	},
 	myl: {
 		code: "myl",
-		name: "Moma"
+		name: "Moma",
 	},
 	mym: {
 		code: "mym",
-		name: "Me'en"
+		name: "Me'en",
 	},
 	myo: {
 		code: "myo",
-		name: "Anfillo"
+		name: "Anfillo",
 	},
 	myp: {
 		code: "myp",
-		name: "Pirahã"
+		name: "Pirahã",
 	},
 	myr: {
 		code: "myr",
-		name: "Muniche"
+		name: "Muniche",
 	},
 	mys: {
 		code: "mys",
-		name: "Mesmes"
+		name: "Mesmes",
 	},
 	myu: {
 		code: "myu",
-		name: "Mundurukú"
+		name: "Mundurukú",
+	},
+	myv: {
+		code: "myv",
+		name: "Erzya",
 	},
 	myw: {
 		code: "myw",
-		name: "Muyuw"
+		name: "Muyuw",
 	},
 	myx: {
 		code: "myx",
-		name: "Masaaba"
+		name: "Masaaba",
 	},
 	myy: {
 		code: "myy",
-		name: "Macuna"
+		name: "Macuna",
 	},
 	myz: {
 		code: "myz",
-		name: "Classical Mandaic"
+		name: "Classical Mandaic",
 	},
 	mza: {
 		code: "mza",
-		name: "Santa María Zacatepec Mixtec"
+		name: "Santa María Zacatepec Mixtec",
 	},
 	mzb: {
 		code: "mzb",
-		name: "Tumzabt"
+		name: "Tumzabt",
 	},
 	mzc: {
 		code: "mzc",
-		name: "Madagascar Sign Language"
+		name: "Madagascar Sign Language",
 	},
 	mzd: {
 		code: "mzd",
-		name: "Malimba"
+		name: "Malimba",
 	},
 	mze: {
 		code: "mze",
-		name: "Morawa"
+		name: "Morawa",
 	},
 	mzg: {
 		code: "mzg",
-		name: "Monastic Sign Language"
+		name: "Monastic Sign Language",
 	},
 	mzh: {
 		code: "mzh",
-		name: "Wichí Lhamtés Güisnay"
+		name: "Wichí Lhamtés Güisnay",
 	},
 	mzi: {
 		code: "mzi",
-		name: "Ixcatlán Mazatec"
+		name: "Ixcatlán Mazatec",
 	},
 	mzj: {
 		code: "mzj",
-		name: "Manya"
+		name: "Manya",
 	},
 	mzk: {
 		code: "mzk",
-		name: "Nigeria Mambila"
+		name: "Nigeria Mambila",
 	},
 	mzl: {
 		code: "mzl",
-		name: "Mazatlán Mixe"
+		name: "Mazatlán Mixe",
 	},
 	mzm: {
 		code: "mzm",
-		name: "Mumuye"
+		name: "Mumuye",
 	},
 	mzn: {
 		code: "mzn",
-		name: "Mazanderani"
+		name: "Mazanderani",
 	},
 	mzo: {
 		code: "mzo",
-		name: "Matipuhy"
+		name: "Matipuhy",
 	},
 	mzp: {
 		code: "mzp",
-		name: "Movima"
+		name: "Movima",
 	},
 	mzq: {
 		code: "mzq",
-		name: "Mori Atas"
+		name: "Mori Atas",
 	},
 	mzr: {
 		code: "mzr",
-		name: "Marúbo"
+		name: "Marúbo",
 	},
 	mzs: {
 		code: "mzs",
-		name: "Macanese"
+		name: "Macanese",
 	},
 	mzt: {
 		code: "mzt",
-		name: "Mintil"
+		name: "Mintil",
 	},
 	mzu: {
 		code: "mzu",
-		name: "Inapang"
+		name: "Inapang",
 	},
 	mzv: {
 		code: "mzv",
-		name: "Manza"
+		name: "Manza",
 	},
 	mzw: {
 		code: "mzw",
-		name: "Deg"
+		name: "Deg",
 	},
 	mzx: {
 		code: "mzx",
-		name: "Mawayana"
+		name: "Mawayana",
 	},
 	mzy: {
 		code: "mzy",
-		name: "Mozambican Sign Language"
+		name: "Mozambican Sign Language",
 	},
 	mzz: {
 		code: "mzz",
-		name: "Maiadomu"
+		name: "Maiadomu",
 	},
 	naa: {
 		code: "naa",
-		name: "Namla"
+		name: "Namla",
 	},
 	nab: {
 		code: "nab",
-		name: "Southern Nambikuára"
+		name: "Southern Nambikuára",
 	},
 	nac: {
 		code: "nac",
-		name: "Narak"
+		name: "Narak",
 	},
 	nae: {
 		code: "nae",
-		name: "Naka'ela"
+		name: "Naka'ela",
 	},
 	naf: {
 		code: "naf",
-		name: "Nabak"
+		name: "Nabak",
 	},
 	nag: {
 		code: "nag",
-		name: "Naga Pidgin"
+		name: "Naga Pidgin",
 	},
 	naj: {
 		code: "naj",
-		name: "Nalu"
+		name: "Nalu",
 	},
 	nak: {
 		code: "nak",
-		name: "Nakanai"
+		name: "Nakanai",
 	},
 	nal: {
 		code: "nal",
-		name: "Nalik"
+		name: "Nalik",
 	},
 	nam: {
 		code: "nam",
-		name: "Ngan'gityemerri"
+		name: "Ngan'gityemerri",
 	},
 	nan: {
 		code: "nan",
-		name: "Min Nan Chinese"
+		name: "Min Nan Chinese",
 	},
 	nao: {
 		code: "nao",
-		name: "Naaba"
+		name: "Naaba",
 	},
 	nap: {
 		code: "nap",
-		name: "Neapolitan"
+		name: "Neapolitan",
 	},
 	naq: {
 		code: "naq",
-		name: "Khoekhoe"
+		name: "Khoekhoe",
 	},
 	nar: {
 		code: "nar",
-		name: "Iguta"
+		name: "Iguta",
 	},
 	nas: {
 		code: "nas",
-		name: "Naasioi"
+		name: "Naasioi",
 	},
 	nat: {
 		code: "nat",
-		name: "Ca̱hungwa̱rya̱"
+		name: "Ca̱hungwa̱rya̱",
+	},
+	nau: {
+		code: "nau",
+		name: "Nauru",
+	},
+	nav: {
+		code: "nav",
+		name: "Navajo",
 	},
 	naw: {
 		code: "naw",
-		name: "Nawuri"
+		name: "Nawuri",
 	},
 	nax: {
 		code: "nax",
-		name: "Nakwi"
+		name: "Nakwi",
 	},
 	nay: {
 		code: "nay",
-		name: "Ngarrindjeri"
+		name: "Ngarrindjeri",
 	},
 	naz: {
 		code: "naz",
-		name: "Coatepec Nahuatl"
+		name: "Coatepec Nahuatl",
 	},
 	nba: {
 		code: "nba",
-		name: "Nyemba"
+		name: "Nyemba",
 	},
 	nbb: {
 		code: "nbb",
-		name: "Ndoe"
+		name: "Ndoe",
 	},
 	nbc: {
 		code: "nbc",
-		name: "Chang Naga"
+		name: "Chang Naga",
 	},
 	nbd: {
 		code: "nbd",
-		name: "Ngbinda"
+		name: "Ngbinda",
 	},
 	nbe: {
 		code: "nbe",
-		name: "Konyak Naga"
+		name: "Konyak Naga",
 	},
 	nbg: {
 		code: "nbg",
-		name: "Nagarchal"
+		name: "Nagarchal",
 	},
 	nbh: {
 		code: "nbh",
-		name: "Ngamo"
+		name: "Ngamo",
 	},
 	nbi: {
 		code: "nbi",
-		name: "Mao Naga"
+		name: "Mao Naga",
 	},
 	nbj: {
 		code: "nbj",
-		name: "Ngarinyman"
+		name: "Ngarinyman",
 	},
 	nbk: {
 		code: "nbk",
-		name: "Nake"
+		name: "Nake",
 	},
 	nbl: {
 		code: "nbl",
-		name: "South Ndebele"
+		name: "South Ndebele",
 	},
 	nbm: {
 		code: "nbm",
-		name: "Ngbaka Ma'bo"
+		name: "Ngbaka Ma'bo",
 	},
 	nbn: {
 		code: "nbn",
-		name: "Kuri"
+		name: "Kuri",
 	},
 	nbo: {
 		code: "nbo",
-		name: "Nkukoli"
+		name: "Nkukoli",
 	},
 	nbp: {
 		code: "nbp",
-		name: "Nnam"
+		name: "Nnam",
 	},
 	nbq: {
 		code: "nbq",
-		name: "Nggem"
+		name: "Nggem",
 	},
 	nbr: {
 		code: "nbr",
-		name: "Numana"
+		name: "Numana",
 	},
 	nbs: {
 		code: "nbs",
-		name: "Namibian Sign Language"
+		name: "Namibian Sign Language",
 	},
 	nbt: {
 		code: "nbt",
-		name: "Na"
+		name: "Na",
 	},
 	nbu: {
 		code: "nbu",
-		name: "Rongmei Naga"
+		name: "Rongmei Naga",
 	},
 	nbv: {
 		code: "nbv",
-		name: "Ngamambo"
+		name: "Ngamambo",
 	},
 	nbw: {
 		code: "nbw",
-		name: "Southern Ngbandi"
+		name: "Southern Ngbandi",
 	},
 	nby: {
 		code: "nby",
-		name: "Ningera"
+		name: "Ningera",
 	},
 	nca: {
 		code: "nca",
-		name: "Iyo"
+		name: "Iyo",
 	},
 	ncb: {
 		code: "ncb",
-		name: "Central Nicobarese"
+		name: "Central Nicobarese",
 	},
 	ncc: {
 		code: "ncc",
-		name: "Ponam"
+		name: "Ponam",
 	},
 	ncd: {
 		code: "ncd",
-		name: "Nachering"
+		name: "Nachering",
 	},
 	nce: {
 		code: "nce",
-		name: "Yale"
+		name: "Yale",
 	},
 	ncf: {
 		code: "ncf",
-		name: "Notsi"
+		name: "Notsi",
 	},
 	ncg: {
 		code: "ncg",
-		name: "Nisga'a"
+		name: "Nisga'a",
 	},
 	nch: {
 		code: "nch",
-		name: "Central Huasteca Nahuatl"
+		name: "Central Huasteca Nahuatl",
 	},
 	nci: {
 		code: "nci",
-		name: "Classical Nahuatl"
+		name: "Classical Nahuatl",
 	},
 	ncj: {
 		code: "ncj",
-		name: "Northern Puebla Nahuatl"
+		name: "Northern Puebla Nahuatl",
 	},
 	nck: {
 		code: "nck",
-		name: "Na-kara"
+		name: "Na-kara",
 	},
 	ncl: {
 		code: "ncl",
-		name: "Michoacán Nahuatl"
+		name: "Michoacán Nahuatl",
 	},
 	ncm: {
 		code: "ncm",
-		name: "Nambo"
+		name: "Nambo",
 	},
 	ncn: {
 		code: "ncn",
-		name: "Nauna"
+		name: "Nauna",
 	},
 	nco: {
 		code: "nco",
-		name: "Sibe"
+		name: "Sibe",
 	},
 	ncq: {
 		code: "ncq",
-		name: "Northern Katang"
+		name: "Northern Katang",
 	},
 	ncr: {
 		code: "ncr",
-		name: "Ncane"
+		name: "Ncane",
 	},
 	ncs: {
 		code: "ncs",
-		name: "Nicaraguan Sign Language"
+		name: "Nicaraguan Sign Language",
 	},
 	nct: {
 		code: "nct",
-		name: "Chothe Naga"
+		name: "Chothe Naga",
 	},
 	ncu: {
 		code: "ncu",
-		name: "Chumburung"
+		name: "Chumburung",
 	},
 	ncx: {
 		code: "ncx",
-		name: "Central Puebla Nahuatl"
+		name: "Central Puebla Nahuatl",
 	},
 	ncz: {
 		code: "ncz",
-		name: "Natchez"
+		name: "Natchez",
 	},
 	nda: {
 		code: "nda",
-		name: "Ndasa"
+		name: "Ndasa",
 	},
 	ndb: {
 		code: "ndb",
-		name: "Kenswei Nsei"
+		name: "Kenswei Nsei",
 	},
 	ndc: {
 		code: "ndc",
-		name: "Ndau"
+		name: "Ndau",
 	},
 	ndd: {
 		code: "ndd",
-		name: "Nde-Nsele-Nta"
+		name: "Nde-Nsele-Nta",
 	},
 	nde: {
 		code: "nde",
-		name: "North Ndebele"
+		name: "North Ndebele",
 	},
 	ndf: {
 		code: "ndf",
-		name: "Nadruvian"
+		name: "Nadruvian",
 	},
 	ndg: {
 		code: "ndg",
-		name: "Ndengereko"
+		name: "Ndengereko",
 	},
 	ndh: {
 		code: "ndh",
-		name: "Ndali"
+		name: "Ndali",
 	},
 	ndi: {
 		code: "ndi",
-		name: "Samba Leko"
+		name: "Samba Leko",
 	},
 	ndj: {
 		code: "ndj",
-		name: "Ndamba"
+		name: "Ndamba",
 	},
 	ndk: {
 		code: "ndk",
-		name: "Ndaka"
+		name: "Ndaka",
 	},
 	ndl: {
 		code: "ndl",
-		name: "Ndolo"
+		name: "Ndolo",
 	},
 	ndm: {
 		code: "ndm",
-		name: "Ndam"
+		name: "Ndam",
 	},
 	ndn: {
 		code: "ndn",
-		name: "Ngundi"
+		name: "Ngundi",
+	},
+	ndo: {
+		code: "ndo",
+		name: "Ndonga",
 	},
 	ndp: {
 		code: "ndp",
-		name: "Ndo"
+		name: "Ndo",
 	},
 	ndq: {
 		code: "ndq",
-		name: "Ndombe"
+		name: "Ndombe",
 	},
 	ndr: {
 		code: "ndr",
-		name: "Ndoola"
+		name: "Ndoola",
 	},
 	nds: {
 		code: "nds",
-		name: "Low German"
+		name: "Low German",
 	},
 	ndt: {
 		code: "ndt",
-		name: "Ndunga"
+		name: "Ndunga",
 	},
 	ndu: {
 		code: "ndu",
-		name: "Dugun"
+		name: "Dugun",
 	},
 	ndv: {
 		code: "ndv",
-		name: "Ndut"
+		name: "Ndut",
 	},
 	ndw: {
 		code: "ndw",
-		name: "Ndobo"
+		name: "Ndobo",
 	},
 	ndx: {
 		code: "ndx",
-		name: "Nduga"
+		name: "Nduga",
 	},
 	ndy: {
 		code: "ndy",
-		name: "Lutos"
+		name: "Lutos",
 	},
 	ndz: {
 		code: "ndz",
-		name: "Ndogo"
+		name: "Ndogo",
 	},
 	nea: {
 		code: "nea",
-		name: "Eastern Ngad'a"
+		name: "Eastern Ngad'a",
 	},
 	neb: {
 		code: "neb",
-		name: "Toura (Côte d'Ivoire)"
+		name: "Toura (Côte d'Ivoire)",
 	},
 	nec: {
 		code: "nec",
-		name: "Nedebang"
+		name: "Nedebang",
 	},
 	ned: {
 		code: "ned",
-		name: "Nde-Gbite"
+		name: "Nde-Gbite",
 	},
 	nee: {
 		code: "nee",
-		name: "Nêlêmwa-Nixumwak"
+		name: "Nêlêmwa-Nixumwak",
 	},
 	nef: {
 		code: "nef",
-		name: "Nefamese"
+		name: "Nefamese",
 	},
 	neg: {
 		code: "neg",
-		name: "Negidal"
+		name: "Negidal",
 	},
 	neh: {
 		code: "neh",
-		name: "Nyenkha"
+		name: "Nyenkha",
 	},
 	nei: {
 		code: "nei",
-		name: "Neo-Hittite"
+		name: "Neo-Hittite",
 	},
 	nej: {
 		code: "nej",
-		name: "Neko"
+		name: "Neko",
 	},
 	nek: {
 		code: "nek",
-		name: "Neku"
+		name: "Neku",
 	},
 	nem: {
 		code: "nem",
-		name: "Nemi"
+		name: "Nemi",
 	},
 	nen: {
 		code: "nen",
-		name: "Nengone"
+		name: "Nengone",
 	},
 	neo: {
 		code: "neo",
-		name: "Ná-Meo"
+		name: "Ná-Meo",
 	},
 	nep: {
 		code: "nep",
-		name: "Nepali (macrolanguage)"
+		name: "Nepali (macrolanguage)",
 	},
 	neq: {
 		code: "neq",
-		name: "North Central Mixe"
+		name: "North Central Mixe",
 	},
 	ner: {
 		code: "ner",
-		name: "Yahadian"
+		name: "Yahadian",
 	},
 	nes: {
 		code: "nes",
-		name: "Bhoti Kinnauri"
+		name: "Bhoti Kinnauri",
 	},
 	net: {
 		code: "net",
-		name: "Nete"
+		name: "Nete",
 	},
 	neu: {
 		code: "neu",
-		name: "Neo"
+		name: "Neo",
 	},
 	nev: {
 		code: "nev",
-		name: "Nyaheun"
+		name: "Nyaheun",
 	},
 	new: {
 		code: "new",
-		name: "Newari"
+		name: "Newari",
 	},
 	nex: {
 		code: "nex",
-		name: "Neme"
+		name: "Neme",
 	},
 	ney: {
 		code: "ney",
-		name: "Neyo"
+		name: "Neyo",
 	},
 	nez: {
 		code: "nez",
-		name: "Nez Perce"
+		name: "Nez Perce",
 	},
 	nfa: {
 		code: "nfa",
-		name: "Dhao"
+		name: "Dhao",
 	},
 	nfd: {
 		code: "nfd",
-		name: "Ahwai"
+		name: "Ahwai",
 	},
 	nfl: {
 		code: "nfl",
-		name: "Ayiwo"
+		name: "Ayiwo",
 	},
 	nfr: {
 		code: "nfr",
-		name: "Nafaanra"
+		name: "Nafaanra",
 	},
 	nfu: {
 		code: "nfu",
-		name: "Mfumte"
+		name: "Mfumte",
 	},
 	nga: {
 		code: "nga",
-		name: "Ngbaka"
+		name: "Ngbaka",
 	},
 	ngb: {
 		code: "ngb",
-		name: "Northern Ngbandi"
+		name: "Northern Ngbandi",
 	},
 	ngc: {
 		code: "ngc",
-		name: "Ngombe (Democratic Republic of Congo)"
+		name: "Ngombe (Democratic Republic of Congo)",
 	},
 	ngd: {
 		code: "ngd",
-		name: "Ngando (Central African Republic)"
+		name: "Ngando (Central African Republic)",
 	},
 	nge: {
 		code: "nge",
-		name: "Ngemba"
+		name: "Ngemba",
 	},
 	ngg: {
 		code: "ngg",
-		name: "Ngbaka Manza"
+		name: "Ngbaka Manza",
 	},
 	ngh: {
 		code: "ngh",
-		name: "Nǁng"
+		name: "Nǁng",
 	},
 	ngi: {
 		code: "ngi",
-		name: "Ngizim"
+		name: "Ngizim",
 	},
 	ngj: {
 		code: "ngj",
-		name: "Ngie"
+		name: "Ngie",
 	},
 	ngk: {
 		code: "ngk",
-		name: "Dalabon"
+		name: "Dalabon",
 	},
 	ngl: {
 		code: "ngl",
-		name: "Lomwe"
+		name: "Lomwe",
 	},
 	ngm: {
 		code: "ngm",
-		name: "Ngatik Men's Creole"
+		name: "Ngatik Men's Creole",
 	},
 	ngn: {
 		code: "ngn",
-		name: "Ngwo"
+		name: "Ngwo",
 	},
 	ngp: {
 		code: "ngp",
-		name: "Ngulu"
+		name: "Ngulu",
 	},
 	ngq: {
 		code: "ngq",
-		name: "Ngurimi"
+		name: "Ngurimi",
 	},
 	ngr: {
 		code: "ngr",
-		name: "Engdewu"
+		name: "Engdewu",
 	},
 	ngs: {
 		code: "ngs",
-		name: "Gvoko"
+		name: "Gvoko",
 	},
 	ngt: {
 		code: "ngt",
-		name: "Kriang"
+		name: "Kriang",
 	},
 	ngu: {
 		code: "ngu",
-		name: "Guerrero Nahuatl"
+		name: "Guerrero Nahuatl",
 	},
 	ngv: {
 		code: "ngv",
-		name: "Nagumi"
+		name: "Nagumi",
 	},
 	ngw: {
 		code: "ngw",
-		name: "Ngwaba"
+		name: "Ngwaba",
 	},
 	ngx: {
 		code: "ngx",
-		name: "Nggwahyi"
+		name: "Nggwahyi",
 	},
 	ngy: {
 		code: "ngy",
-		name: "Tibea"
+		name: "Tibea",
 	},
 	ngz: {
 		code: "ngz",
-		name: "Ngungwel"
+		name: "Ngungwel",
 	},
 	nha: {
 		code: "nha",
-		name: "Nhanda"
+		name: "Nhanda",
 	},
 	nhb: {
 		code: "nhb",
-		name: "Beng"
+		name: "Beng",
 	},
 	nhc: {
 		code: "nhc",
-		name: "Tabasco Nahuatl"
+		name: "Tabasco Nahuatl",
 	},
 	nhd: {
 		code: "nhd",
-		name: "Chiripá"
+		name: "Chiripá",
 	},
 	nhe: {
 		code: "nhe",
-		name: "Eastern Huasteca Nahuatl"
+		name: "Eastern Huasteca Nahuatl",
 	},
 	nhf: {
 		code: "nhf",
-		name: "Nhuwala"
+		name: "Nhuwala",
 	},
 	nhg: {
 		code: "nhg",
-		name: "Tetelcingo Nahuatl"
+		name: "Tetelcingo Nahuatl",
 	},
 	nhh: {
 		code: "nhh",
-		name: "Nahari"
+		name: "Nahari",
 	},
 	nhi: {
 		code: "nhi",
-		name: "Zacatlán-Ahuacatlán-Tepetzintla Nahuatl"
+		name: "Zacatlán-Ahuacatlán-Tepetzintla Nahuatl",
 	},
 	nhk: {
 		code: "nhk",
-		name: "Isthmus-Cosoleacaque Nahuatl"
+		name: "Isthmus-Cosoleacaque Nahuatl",
 	},
 	nhm: {
 		code: "nhm",
-		name: "Morelos Nahuatl"
+		name: "Morelos Nahuatl",
 	},
 	nhn: {
 		code: "nhn",
-		name: "Central Nahuatl"
+		name: "Central Nahuatl",
 	},
 	nho: {
 		code: "nho",
-		name: "Takuu"
+		name: "Takuu",
 	},
 	nhp: {
 		code: "nhp",
-		name: "Isthmus-Pajapan Nahuatl"
+		name: "Isthmus-Pajapan Nahuatl",
 	},
 	nhq: {
 		code: "nhq",
-		name: "Huaxcaleca Nahuatl"
+		name: "Huaxcaleca Nahuatl",
 	},
 	nhr: {
 		code: "nhr",
-		name: "Naro"
+		name: "Naro",
 	},
 	nht: {
 		code: "nht",
-		name: "Ometepec Nahuatl"
+		name: "Ometepec Nahuatl",
 	},
 	nhu: {
 		code: "nhu",
-		name: "Noone"
+		name: "Noone",
 	},
 	nhv: {
 		code: "nhv",
-		name: "Temascaltepec Nahuatl"
+		name: "Temascaltepec Nahuatl",
 	},
 	nhw: {
 		code: "nhw",
-		name: "Western Huasteca Nahuatl"
+		name: "Western Huasteca Nahuatl",
 	},
 	nhx: {
 		code: "nhx",
-		name: "Isthmus-Mecayapan Nahuatl"
+		name: "Isthmus-Mecayapan Nahuatl",
 	},
 	nhy: {
 		code: "nhy",
-		name: "Northern Oaxaca Nahuatl"
+		name: "Northern Oaxaca Nahuatl",
 	},
 	nhz: {
 		code: "nhz",
-		name: "Santa María La Alta Nahuatl"
+		name: "Santa María La Alta Nahuatl",
 	},
 	nia: {
 		code: "nia",
-		name: "Nias"
+		name: "Nias",
 	},
 	nib: {
 		code: "nib",
-		name: "Nakame"
+		name: "Nakame",
 	},
 	nid: {
 		code: "nid",
-		name: "Ngandi"
+		name: "Ngandi",
 	},
 	nie: {
 		code: "nie",
-		name: "Niellim"
+		name: "Niellim",
 	},
 	nif: {
 		code: "nif",
-		name: "Nek"
+		name: "Nek",
 	},
 	nig: {
 		code: "nig",
-		name: "Ngalakgan"
+		name: "Ngalakgan",
 	},
 	nih: {
 		code: "nih",
-		name: "Nyiha (Tanzania)"
+		name: "Nyiha (Tanzania)",
 	},
 	nii: {
 		code: "nii",
-		name: "Nii"
+		name: "Nii",
 	},
 	nij: {
 		code: "nij",
-		name: "Ngaju"
+		name: "Ngaju",
 	},
 	nik: {
 		code: "nik",
-		name: "Southern Nicobarese"
+		name: "Southern Nicobarese",
 	},
 	nil: {
 		code: "nil",
-		name: "Nila"
+		name: "Nila",
 	},
 	nim: {
 		code: "nim",
-		name: "Nilamba"
+		name: "Nilamba",
 	},
 	nin: {
 		code: "nin",
-		name: "Ninzo"
+		name: "Ninzo",
 	},
 	nio: {
 		code: "nio",
-		name: "Nganasan"
+		name: "Nganasan",
 	},
 	niq: {
 		code: "niq",
-		name: "Nandi"
+		name: "Nandi",
 	},
 	nir: {
 		code: "nir",
-		name: "Nimboran"
+		name: "Nimboran",
 	},
 	nis: {
 		code: "nis",
-		name: "Nimi"
+		name: "Nimi",
 	},
 	nit: {
 		code: "nit",
-		name: "Southeastern Kolami"
+		name: "Southeastern Kolami",
+	},
+	niu: {
+		code: "niu",
+		name: "Niuean",
 	},
 	niv: {
 		code: "niv",
-		name: "Gilyak"
+		name: "Gilyak",
 	},
 	niw: {
 		code: "niw",
-		name: "Nimo"
+		name: "Nimo",
 	},
 	nix: {
 		code: "nix",
-		name: "Hema"
+		name: "Hema",
 	},
 	niy: {
 		code: "niy",
-		name: "Ngiti"
+		name: "Ngiti",
 	},
 	niz: {
 		code: "niz",
-		name: "Ningil"
+		name: "Ningil",
 	},
 	nja: {
 		code: "nja",
-		name: "Nzanyi"
+		name: "Nzanyi",
 	},
 	njb: {
 		code: "njb",
-		name: "Nocte Naga"
+		name: "Nocte Naga",
 	},
 	njd: {
 		code: "njd",
-		name: "Ndonde Hamba"
+		name: "Ndonde Hamba",
 	},
 	njh: {
 		code: "njh",
-		name: "Lotha Naga"
+		name: "Lotha Naga",
 	},
 	nji: {
 		code: "nji",
-		name: "Gudanji"
+		name: "Gudanji",
 	},
 	njj: {
 		code: "njj",
-		name: "Njen"
+		name: "Njen",
 	},
 	njl: {
 		code: "njl",
-		name: "Njalgulgule"
+		name: "Njalgulgule",
 	},
 	njm: {
 		code: "njm",
-		name: "Angami Naga"
+		name: "Angami Naga",
 	},
 	njn: {
 		code: "njn",
-		name: "Liangmai Naga"
+		name: "Liangmai Naga",
 	},
 	njo: {
 		code: "njo",
-		name: "Ao Naga"
+		name: "Ao Naga",
 	},
 	njr: {
 		code: "njr",
-		name: "Njerep"
+		name: "Njerep",
 	},
 	njs: {
 		code: "njs",
-		name: "Nisa"
+		name: "Nisa",
 	},
 	njt: {
 		code: "njt",
-		name: "Ndyuka-Trio Pidgin"
+		name: "Ndyuka-Trio Pidgin",
 	},
 	nju: {
 		code: "nju",
-		name: "Ngadjunmaya"
+		name: "Ngadjunmaya",
 	},
 	njx: {
 		code: "njx",
-		name: "Kunyi"
+		name: "Kunyi",
 	},
 	njy: {
 		code: "njy",
-		name: "Njyem"
+		name: "Njyem",
 	},
 	njz: {
 		code: "njz",
-		name: "Nyishi"
+		name: "Nyishi",
 	},
 	nka: {
 		code: "nka",
-		name: "Nkoya"
+		name: "Nkoya",
 	},
 	nkb: {
 		code: "nkb",
-		name: "Khoibu Naga"
+		name: "Khoibu Naga",
 	},
 	nkc: {
 		code: "nkc",
-		name: "Nkongho"
+		name: "Nkongho",
 	},
 	nkd: {
 		code: "nkd",
-		name: "Koireng"
+		name: "Koireng",
 	},
 	nke: {
 		code: "nke",
-		name: "Duke"
+		name: "Duke",
 	},
 	nkf: {
 		code: "nkf",
-		name: "Inpui Naga"
+		name: "Inpui Naga",
 	},
 	nkg: {
 		code: "nkg",
-		name: "Nekgini"
+		name: "Nekgini",
 	},
 	nkh: {
 		code: "nkh",
-		name: "Khezha Naga"
+		name: "Khezha Naga",
 	},
 	nki: {
 		code: "nki",
-		name: "Thangal Naga"
+		name: "Thangal Naga",
 	},
 	nkj: {
 		code: "nkj",
-		name: "Nakai"
+		name: "Nakai",
 	},
 	nkk: {
 		code: "nkk",
-		name: "Nokuku"
+		name: "Nokuku",
 	},
 	nkm: {
 		code: "nkm",
-		name: "Namat"
+		name: "Namat",
 	},
 	nkn: {
 		code: "nkn",
-		name: "Nkangala"
+		name: "Nkangala",
 	},
 	nko: {
 		code: "nko",
-		name: "Nkonya"
+		name: "Nkonya",
 	},
 	nkp: {
 		code: "nkp",
-		name: "Niuatoputapu"
+		name: "Niuatoputapu",
 	},
 	nkq: {
 		code: "nkq",
-		name: "Nkami"
+		name: "Nkami",
 	},
 	nkr: {
 		code: "nkr",
-		name: "Nukuoro"
+		name: "Nukuoro",
 	},
 	nks: {
 		code: "nks",
-		name: "North Asmat"
+		name: "North Asmat",
 	},
 	nkt: {
 		code: "nkt",
-		name: "Nyika (Tanzania)"
+		name: "Nyika (Tanzania)",
 	},
 	nku: {
 		code: "nku",
-		name: "Bouna Kulango"
+		name: "Bouna Kulango",
 	},
 	nkv: {
 		code: "nkv",
-		name: "Nyika (Malawi and Zambia)"
+		name: "Nyika (Malawi and Zambia)",
 	},
 	nkw: {
 		code: "nkw",
-		name: "Nkutu"
+		name: "Nkutu",
 	},
 	nkx: {
 		code: "nkx",
-		name: "Nkoroo"
+		name: "Nkoroo",
 	},
 	nkz: {
 		code: "nkz",
-		name: "Nkari"
+		name: "Nkari",
 	},
 	nla: {
 		code: "nla",
-		name: "Ngombale"
+		name: "Ngombale",
 	},
 	nlc: {
 		code: "nlc",
-		name: "Nalca"
+		name: "Nalca",
+	},
+	nld: {
+		code: "nld",
+		name: "Dutch",
 	},
 	nle: {
 		code: "nle",
-		name: "East Nyala"
+		name: "East Nyala",
 	},
 	nlg: {
 		code: "nlg",
-		name: "Gela"
+		name: "Gela",
 	},
 	nli: {
 		code: "nli",
-		name: "Grangali"
+		name: "Grangali",
 	},
 	nlj: {
 		code: "nlj",
-		name: "Nyali"
+		name: "Nyali",
 	},
 	nlk: {
 		code: "nlk",
-		name: "Ninia Yali"
+		name: "Ninia Yali",
 	},
 	nll: {
 		code: "nll",
-		name: "Nihali"
+		name: "Nihali",
 	},
 	nlm: {
 		code: "nlm",
-		name: "Mankiyali"
+		name: "Mankiyali",
 	},
 	nlo: {
 		code: "nlo",
-		name: "Ngul"
+		name: "Ngul",
 	},
 	nlq: {
 		code: "nlq",
-		name: "Lao Naga"
+		name: "Lao Naga",
 	},
 	nlu: {
 		code: "nlu",
-		name: "Nchumbulu"
+		name: "Nchumbulu",
 	},
 	nlv: {
 		code: "nlv",
-		name: "Orizaba Nahuatl"
+		name: "Orizaba Nahuatl",
 	},
 	nlw: {
 		code: "nlw",
-		name: "Walangama"
+		name: "Walangama",
 	},
 	nlx: {
 		code: "nlx",
-		name: "Nahali"
+		name: "Nahali",
 	},
 	nly: {
 		code: "nly",
-		name: "Nyamal"
+		name: "Nyamal",
 	},
 	nlz: {
 		code: "nlz",
-		name: "Nalögo"
+		name: "Nalögo",
 	},
 	nma: {
 		code: "nma",
-		name: "Maram Naga"
+		name: "Maram Naga",
 	},
 	nmb: {
 		code: "nmb",
-		name: "Big Nambas"
+		name: "Big Nambas",
 	},
 	nmc: {
 		code: "nmc",
-		name: "Ngam"
+		name: "Ngam",
 	},
 	nmd: {
 		code: "nmd",
-		name: "Ndumu"
+		name: "Ndumu",
 	},
 	nme: {
 		code: "nme",
-		name: "Mzieme Naga"
+		name: "Mzieme Naga",
 	},
 	nmf: {
 		code: "nmf",
-		name: "Tangkhul Naga (India)"
+		name: "Tangkhul Naga (India)",
 	},
 	nmg: {
 		code: "nmg",
-		name: "Kwasio"
+		name: "Kwasio",
 	},
 	nmh: {
 		code: "nmh",
-		name: "Monsang Naga"
+		name: "Monsang Naga",
 	},
 	nmi: {
 		code: "nmi",
-		name: "Nyam"
+		name: "Nyam",
 	},
 	nmj: {
 		code: "nmj",
-		name: "Ngombe (Central African Republic)"
+		name: "Ngombe (Central African Republic)",
 	},
 	nmk: {
 		code: "nmk",
-		name: "Namakura"
+		name: "Namakura",
 	},
 	nml: {
 		code: "nml",
-		name: "Ndemli"
+		name: "Ndemli",
 	},
 	nmm: {
 		code: "nmm",
-		name: "Manangba"
+		name: "Manangba",
 	},
 	nmn: {
 		code: "nmn",
-		name: "ǃXóõ"
+		name: "ǃXóõ",
 	},
 	nmo: {
 		code: "nmo",
-		name: "Moyon Naga"
+		name: "Moyon Naga",
 	},
 	nmp: {
 		code: "nmp",
-		name: "Nimanbur"
+		name: "Nimanbur",
 	},
 	nmq: {
 		code: "nmq",
-		name: "Nambya"
+		name: "Nambya",
 	},
 	nmr: {
 		code: "nmr",
-		name: "Nimbari"
+		name: "Nimbari",
 	},
 	nms: {
 		code: "nms",
-		name: "Letemboi"
+		name: "Letemboi",
 	},
 	nmt: {
 		code: "nmt",
-		name: "Namonuito"
+		name: "Namonuito",
 	},
 	nmu: {
 		code: "nmu",
-		name: "Northeast Maidu"
+		name: "Northeast Maidu",
 	},
 	nmv: {
 		code: "nmv",
-		name: "Ngamini"
+		name: "Ngamini",
 	},
 	nmw: {
 		code: "nmw",
-		name: "Nimoa"
+		name: "Nimoa",
 	},
 	nmx: {
 		code: "nmx",
-		name: "Nama (Papua New Guinea)"
+		name: "Nama (Papua New Guinea)",
 	},
 	nmy: {
 		code: "nmy",
-		name: "Namuyi"
+		name: "Namuyi",
 	},
 	nmz: {
 		code: "nmz",
-		name: "Nawdm"
+		name: "Nawdm",
 	},
 	nna: {
 		code: "nna",
-		name: "Nyangumarta"
+		name: "Nyangumarta",
 	},
 	nnb: {
 		code: "nnb",
-		name: "Nande"
+		name: "Nande",
 	},
 	nnc: {
 		code: "nnc",
-		name: "Nancere"
+		name: "Nancere",
 	},
 	nnd: {
 		code: "nnd",
-		name: "West Ambae"
+		name: "West Ambae",
 	},
 	nne: {
 		code: "nne",
-		name: "Ngandyera"
+		name: "Ngandyera",
 	},
 	nnf: {
 		code: "nnf",
-		name: "Ngaing"
+		name: "Ngaing",
 	},
 	nng: {
 		code: "nng",
-		name: "Maring Naga"
+		name: "Maring Naga",
 	},
 	nnh: {
 		code: "nnh",
-		name: "Ngiemboon"
+		name: "Ngiemboon",
 	},
 	nni: {
 		code: "nni",
-		name: "North Nuaulu"
+		name: "North Nuaulu",
 	},
 	nnj: {
 		code: "nnj",
-		name: "Nyangatom"
+		name: "Nyangatom",
 	},
 	nnk: {
 		code: "nnk",
-		name: "Nankina"
+		name: "Nankina",
 	},
 	nnl: {
 		code: "nnl",
-		name: "Northern Rengma Naga"
+		name: "Northern Rengma Naga",
 	},
 	nnm: {
 		code: "nnm",
-		name: "Namia"
+		name: "Namia",
 	},
 	nnn: {
 		code: "nnn",
-		name: "Ngete"
+		name: "Ngete",
+	},
+	nno: {
+		code: "nno",
+		name: "Norwegian Nynorsk",
 	},
 	nnp: {
 		code: "nnp",
-		name: "Wancho Naga"
+		name: "Wancho Naga",
 	},
 	nnq: {
 		code: "nnq",
-		name: "Ngindo"
+		name: "Ngindo",
 	},
 	nnr: {
 		code: "nnr",
-		name: "Narungga"
+		name: "Narungga",
 	},
 	nnt: {
 		code: "nnt",
-		name: "Nanticoke"
+		name: "Nanticoke",
 	},
 	nnu: {
 		code: "nnu",
-		name: "Dwang"
+		name: "Dwang",
 	},
 	nnv: {
 		code: "nnv",
-		name: "Nugunu (Australia)"
+		name: "Nugunu (Australia)",
 	},
 	nnw: {
 		code: "nnw",
-		name: "Southern Nuni"
+		name: "Southern Nuni",
 	},
 	nny: {
 		code: "nny",
-		name: "Nyangga"
+		name: "Nyangga",
 	},
 	nnz: {
 		code: "nnz",
-		name: "Nda'nda'"
+		name: "Nda'nda'",
 	},
 	noa: {
 		code: "noa",
-		name: "Woun Meu"
+		name: "Woun Meu",
+	},
+	nob: {
+		code: "nob",
+		name: "Norwegian Bokmål",
 	},
 	noc: {
 		code: "noc",
-		name: "Nuk"
+		name: "Nuk",
 	},
 	nod: {
 		code: "nod",
-		name: "Northern Thai"
+		name: "Northern Thai",
 	},
 	noe: {
 		code: "noe",
-		name: "Nimadi"
+		name: "Nimadi",
 	},
 	nof: {
 		code: "nof",
-		name: "Nomane"
+		name: "Nomane",
 	},
 	nog: {
 		code: "nog",
-		name: "Nogai"
+		name: "Nogai",
 	},
 	noh: {
 		code: "noh",
-		name: "Nomu"
+		name: "Nomu",
 	},
 	noi: {
 		code: "noi",
-		name: "Noiri"
+		name: "Noiri",
 	},
 	noj: {
 		code: "noj",
-		name: "Nonuya"
+		name: "Nonuya",
 	},
 	nok: {
 		code: "nok",
-		name: "Nooksack"
+		name: "Nooksack",
 	},
 	nol: {
 		code: "nol",
-		name: "Nomlaki"
+		name: "Nomlaki",
 	},
 	non: {
 		code: "non",
-		name: "Old Norse"
+		name: "Old Norse",
 	},
 	nop: {
 		code: "nop",
-		name: "Numanggang"
+		name: "Numanggang",
 	},
 	noq: {
 		code: "noq",
-		name: "Ngongo"
+		name: "Ngongo",
+	},
+	nor: {
+		code: "nor",
+		name: "Norwegian",
 	},
 	nos: {
 		code: "nos",
-		name: "Eastern Nisu"
+		name: "Eastern Nisu",
 	},
 	not: {
 		code: "not",
-		name: "Nomatsiguenga"
+		name: "Nomatsiguenga",
 	},
 	nou: {
 		code: "nou",
-		name: "Ewage-Notu"
+		name: "Ewage-Notu",
 	},
 	nov: {
 		code: "nov",
-		name: "Novial"
+		name: "Novial",
 	},
 	now: {
 		code: "now",
-		name: "Nyambo"
+		name: "Nyambo",
 	},
 	noy: {
 		code: "noy",
-		name: "Noy"
+		name: "Noy",
 	},
 	noz: {
 		code: "noz",
-		name: "Nayi"
+		name: "Nayi",
 	},
 	npa: {
 		code: "npa",
-		name: "Nar Phu"
+		name: "Nar Phu",
 	},
 	npb: {
 		code: "npb",
-		name: "Nupbikha"
+		name: "Nupbikha",
 	},
 	npg: {
 		code: "npg",
-		name: "Ponyo-Gongwang Naga"
+		name: "Ponyo-Gongwang Naga",
 	},
 	nph: {
 		code: "nph",
-		name: "Phom Naga"
+		name: "Phom Naga",
 	},
 	npi: {
 		code: "npi",
-		name: "Nepali (individual language)"
+		name: "Nepali (individual language)",
 	},
 	npl: {
 		code: "npl",
-		name: "Southeastern Puebla Nahuatl"
+		name: "Southeastern Puebla Nahuatl",
 	},
 	npn: {
 		code: "npn",
-		name: "Mondropolon"
+		name: "Mondropolon",
 	},
 	npo: {
 		code: "npo",
-		name: "Pochuri Naga"
+		name: "Pochuri Naga",
 	},
 	nps: {
 		code: "nps",
-		name: "Nipsan"
+		name: "Nipsan",
 	},
 	npu: {
 		code: "npu",
-		name: "Puimei Naga"
+		name: "Puimei Naga",
 	},
 	npx: {
 		code: "npx",
-		name: "Noipx"
+		name: "Noipx",
 	},
 	npy: {
 		code: "npy",
-		name: "Napu"
+		name: "Napu",
 	},
 	nqg: {
 		code: "nqg",
-		name: "Southern Nago"
+		name: "Southern Nago",
 	},
 	nqk: {
 		code: "nqk",
-		name: "Kura Ede Nago"
+		name: "Kura Ede Nago",
 	},
 	nql: {
 		code: "nql",
-		name: "Ngendelengo"
+		name: "Ngendelengo",
 	},
 	nqm: {
 		code: "nqm",
-		name: "Ndom"
+		name: "Ndom",
 	},
 	nqn: {
 		code: "nqn",
-		name: "Nen"
+		name: "Nen",
 	},
 	nqo: {
 		code: "nqo",
-		name: "N'Ko"
+		name: "N'Ko",
 	},
 	nqq: {
 		code: "nqq",
-		name: "Kyan-Karyaw Naga"
+		name: "Kyan-Karyaw Naga",
 	},
 	nqt: {
 		code: "nqt",
-		name: "Nteng"
+		name: "Nteng",
 	},
 	nqy: {
 		code: "nqy",
-		name: "Akyaung Ari Naga"
+		name: "Akyaung Ari Naga",
 	},
 	nra: {
 		code: "nra",
-		name: "Ngom"
+		name: "Ngom",
 	},
 	nrb: {
 		code: "nrb",
-		name: "Nara"
+		name: "Nara",
 	},
 	nrc: {
 		code: "nrc",
-		name: "Noric"
+		name: "Noric",
 	},
 	nre: {
 		code: "nre",
-		name: "Southern Rengma Naga"
+		name: "Southern Rengma Naga",
 	},
 	nrf: {
 		code: "nrf",
-		name: "Jèrriais"
+		name: "Jèrriais",
 	},
 	nrg: {
 		code: "nrg",
-		name: "Narango"
+		name: "Narango",
 	},
 	nri: {
 		code: "nri",
-		name: "Chokri Naga"
+		name: "Chokri Naga",
 	},
 	nrk: {
 		code: "nrk",
-		name: "Ngarla"
+		name: "Ngarla",
 	},
 	nrl: {
 		code: "nrl",
-		name: "Ngarluma"
+		name: "Ngarluma",
 	},
 	nrm: {
 		code: "nrm",
-		name: "Narom"
+		name: "Narom",
 	},
 	nrn: {
 		code: "nrn",
-		name: "Norn"
+		name: "Norn",
 	},
 	nrp: {
 		code: "nrp",
-		name: "North Picene"
+		name: "North Picene",
 	},
 	nrr: {
 		code: "nrr",
-		name: "Norra"
+		name: "Norra",
 	},
 	nrt: {
 		code: "nrt",
-		name: "Northern Kalapuya"
+		name: "Northern Kalapuya",
 	},
 	nru: {
 		code: "nru",
-		name: "Narua"
+		name: "Narua",
 	},
 	nrx: {
 		code: "nrx",
-		name: "Ngurmbur"
+		name: "Ngurmbur",
 	},
 	nrz: {
 		code: "nrz",
-		name: "Lala"
+		name: "Lala",
 	},
 	nsa: {
 		code: "nsa",
-		name: "Sangtam Naga"
+		name: "Sangtam Naga",
 	},
 	nsb: {
 		code: "nsb",
-		name: "Lower Nossob"
+		name: "Lower Nossob",
 	},
 	nsc: {
 		code: "nsc",
-		name: "Nshi"
+		name: "Nshi",
 	},
 	nsd: {
 		code: "nsd",
-		name: "Southern Nisu"
+		name: "Southern Nisu",
 	},
 	nse: {
 		code: "nse",
-		name: "Nsenga"
+		name: "Nsenga",
 	},
 	nsf: {
 		code: "nsf",
-		name: "Northwestern Nisu"
+		name: "Northwestern Nisu",
 	},
 	nsg: {
 		code: "nsg",
-		name: "Ngasa"
+		name: "Ngasa",
 	},
 	nsh: {
 		code: "nsh",
-		name: "Ngoshie"
+		name: "Ngoshie",
 	},
 	nsi: {
 		code: "nsi",
-		name: "Nigerian Sign Language"
+		name: "Nigerian Sign Language",
 	},
 	nsk: {
 		code: "nsk",
-		name: "Naskapi"
+		name: "Naskapi",
 	},
 	nsl: {
 		code: "nsl",
-		name: "Norwegian Sign Language"
+		name: "Norwegian Sign Language",
 	},
 	nsm: {
 		code: "nsm",
-		name: "Sumi Naga"
+		name: "Sumi Naga",
 	},
 	nsn: {
 		code: "nsn",
-		name: "Nehan"
+		name: "Nehan",
+	},
+	nso: {
+		code: "nso",
+		name: "Pedi",
 	},
 	nsp: {
 		code: "nsp",
-		name: "Nepalese Sign Language"
+		name: "Nepalese Sign Language",
 	},
 	nsq: {
 		code: "nsq",
-		name: "Northern Sierra Miwok"
+		name: "Northern Sierra Miwok",
 	},
 	nsr: {
 		code: "nsr",
-		name: "Maritime Sign Language"
+		name: "Maritime Sign Language",
 	},
 	nss: {
 		code: "nss",
-		name: "Nali"
+		name: "Nali",
 	},
 	nst: {
 		code: "nst",
-		name: "Tase Naga"
+		name: "Tase Naga",
 	},
 	nsu: {
 		code: "nsu",
-		name: "Sierra Negra Nahuatl"
+		name: "Sierra Negra Nahuatl",
 	},
 	nsv: {
 		code: "nsv",
-		name: "Southwestern Nisu"
+		name: "Southwestern Nisu",
 	},
 	nsw: {
 		code: "nsw",
-		name: "Navut"
+		name: "Navut",
 	},
 	nsx: {
 		code: "nsx",
-		name: "Nsongo"
+		name: "Nsongo",
 	},
 	nsy: {
 		code: "nsy",
-		name: "Nasal"
+		name: "Nasal",
 	},
 	nsz: {
 		code: "nsz",
-		name: "Nisenan"
+		name: "Nisenan",
 	},
 	ntd: {
 		code: "ntd",
-		name: "Northern Tidung"
+		name: "Northern Tidung",
 	},
 	nte: {
 		code: "nte",
-		name: "Nathembo"
+		name: "Nathembo",
 	},
 	ntg: {
 		code: "ntg",
-		name: "Ngantangarra"
+		name: "Ngantangarra",
 	},
 	nti: {
 		code: "nti",
-		name: "Natioro"
+		name: "Natioro",
 	},
 	ntj: {
 		code: "ntj",
-		name: "Ngaanyatjarra"
+		name: "Ngaanyatjarra",
 	},
 	ntk: {
 		code: "ntk",
-		name: "Ikoma-Nata-Isenye"
+		name: "Ikoma-Nata-Isenye",
 	},
 	ntm: {
 		code: "ntm",
-		name: "Nateni"
+		name: "Nateni",
 	},
 	nto: {
 		code: "nto",
-		name: "Ntomba"
+		name: "Ntomba",
 	},
 	ntp: {
 		code: "ntp",
-		name: "Northern Tepehuan"
+		name: "Northern Tepehuan",
 	},
 	ntr: {
 		code: "ntr",
-		name: "Delo"
+		name: "Delo",
 	},
 	ntu: {
 		code: "ntu",
-		name: "Natügu"
+		name: "Natügu",
 	},
 	ntw: {
 		code: "ntw",
-		name: "Nottoway"
+		name: "Nottoway",
 	},
 	ntx: {
 		code: "ntx",
-		name: "Tangkhul Naga (Myanmar)"
+		name: "Tangkhul Naga (Myanmar)",
 	},
 	nty: {
 		code: "nty",
-		name: "Mantsi"
+		name: "Mantsi",
 	},
 	ntz: {
 		code: "ntz",
-		name: "Natanzi"
+		name: "Natanzi",
 	},
 	nua: {
 		code: "nua",
-		name: "Yuanga"
+		name: "Yuanga",
 	},
 	nuc: {
 		code: "nuc",
-		name: "Nukuini"
+		name: "Nukuini",
 	},
 	nud: {
 		code: "nud",
-		name: "Ngala"
+		name: "Ngala",
 	},
 	nue: {
 		code: "nue",
-		name: "Ngundu"
+		name: "Ngundu",
 	},
 	nuf: {
 		code: "nuf",
-		name: "Nusu"
+		name: "Nusu",
 	},
 	nug: {
 		code: "nug",
-		name: "Nungali"
+		name: "Nungali",
 	},
 	nuh: {
 		code: "nuh",
-		name: "Ndunda"
+		name: "Ndunda",
 	},
 	nui: {
 		code: "nui",
-		name: "Ngumbi"
+		name: "Ngumbi",
 	},
 	nuj: {
 		code: "nuj",
-		name: "Nyole"
+		name: "Nyole",
 	},
 	nuk: {
 		code: "nuk",
-		name: "Nuu-chah-nulth"
+		name: "Nuu-chah-nulth",
 	},
 	nul: {
 		code: "nul",
-		name: "Nusa Laut"
+		name: "Nusa Laut",
 	},
 	num: {
 		code: "num",
-		name: "Niuafo'ou"
+		name: "Niuafo'ou",
 	},
 	nun: {
 		code: "nun",
-		name: "Anong"
+		name: "Anong",
 	},
 	nuo: {
 		code: "nuo",
-		name: "Nguôn"
+		name: "Nguôn",
 	},
 	nup: {
 		code: "nup",
-		name: "Nupe-Nupe-Tako"
+		name: "Nupe-Nupe-Tako",
 	},
 	nuq: {
 		code: "nuq",
-		name: "Nukumanu"
+		name: "Nukumanu",
 	},
 	nur: {
 		code: "nur",
-		name: "Nukuria"
+		name: "Nukuria",
 	},
 	nus: {
 		code: "nus",
-		name: "Nuer"
+		name: "Nuer",
 	},
 	nut: {
 		code: "nut",
-		name: "Nung (Viet Nam)"
+		name: "Nung (Viet Nam)",
 	},
 	nuu: {
 		code: "nuu",
-		name: "Ngbundu"
+		name: "Ngbundu",
 	},
 	nuv: {
 		code: "nuv",
-		name: "Northern Nuni"
+		name: "Northern Nuni",
 	},
 	nuw: {
 		code: "nuw",
-		name: "Nguluwan"
+		name: "Nguluwan",
 	},
 	nux: {
 		code: "nux",
-		name: "Mehek"
+		name: "Mehek",
 	},
 	nuy: {
 		code: "nuy",
-		name: "Nunggubuyu"
+		name: "Nunggubuyu",
 	},
 	nuz: {
 		code: "nuz",
-		name: "Tlamacazapa Nahuatl"
+		name: "Tlamacazapa Nahuatl",
 	},
 	nvh: {
 		code: "nvh",
-		name: "Nasarian"
+		name: "Nasarian",
 	},
 	nvm: {
 		code: "nvm",
-		name: "Namiae"
+		name: "Namiae",
 	},
 	nvo: {
 		code: "nvo",
-		name: "Nyokon"
+		name: "Nyokon",
 	},
 	nwa: {
 		code: "nwa",
-		name: "Nawathinehena"
+		name: "Nawathinehena",
 	},
 	nwb: {
 		code: "nwb",
-		name: "Nyabwa"
+		name: "Nyabwa",
 	},
 	nwc: {
 		code: "nwc",
-		name: "Classical Newari"
+		name: "Classical Newari",
 	},
 	nwe: {
 		code: "nwe",
-		name: "Ngwe"
+		name: "Ngwe",
 	},
 	nwg: {
 		code: "nwg",
-		name: "Ngayawung"
+		name: "Ngayawung",
 	},
 	nwi: {
 		code: "nwi",
-		name: "Southwest Tanna"
+		name: "Southwest Tanna",
 	},
 	nwm: {
 		code: "nwm",
-		name: "Nyamusa-Molo"
+		name: "Nyamusa-Molo",
 	},
 	nwo: {
 		code: "nwo",
-		name: "Nauo"
+		name: "Nauo",
 	},
 	nwr: {
 		code: "nwr",
-		name: "Nawaru"
+		name: "Nawaru",
 	},
 	nww: {
 		code: "nww",
-		name: "Ndwewe"
+		name: "Ndwewe",
 	},
 	nwx: {
 		code: "nwx",
-		name: "Middle Newar"
+		name: "Middle Newar",
 	},
 	nwy: {
 		code: "nwy",
-		name: "Nottoway-Meherrin"
+		name: "Nottoway-Meherrin",
 	},
 	nxa: {
 		code: "nxa",
-		name: "Nauete"
+		name: "Nauete",
 	},
 	nxd: {
 		code: "nxd",
-		name: "Ngando (Democratic Republic of Congo)"
+		name: "Ngando (Democratic Republic of Congo)",
 	},
 	nxe: {
 		code: "nxe",
-		name: "Nage"
+		name: "Nage",
 	},
 	nxg: {
 		code: "nxg",
-		name: "Ngad'a"
+		name: "Ngad'a",
 	},
 	nxi: {
 		code: "nxi",
-		name: "Nindi"
+		name: "Nindi",
 	},
 	nxk: {
 		code: "nxk",
-		name: "Koki Naga"
+		name: "Koki Naga",
 	},
 	nxl: {
 		code: "nxl",
-		name: "South Nuaulu"
+		name: "South Nuaulu",
 	},
 	nxm: {
 		code: "nxm",
-		name: "Numidian"
+		name: "Numidian",
 	},
 	nxn: {
 		code: "nxn",
-		name: "Ngawun"
+		name: "Ngawun",
 	},
 	nxo: {
 		code: "nxo",
-		name: "Ndambomo"
+		name: "Ndambomo",
 	},
 	nxq: {
 		code: "nxq",
-		name: "Naxi"
+		name: "Naxi",
 	},
 	nxr: {
 		code: "nxr",
-		name: "Ninggerum"
+		name: "Ninggerum",
 	},
 	nxx: {
 		code: "nxx",
-		name: "Nafri"
+		name: "Nafri",
 	},
 	nya: {
 		code: "nya",
-		name: "Nyanja"
+		name: "Nyanja",
 	},
 	nyb: {
 		code: "nyb",
-		name: "Nyangbo"
+		name: "Nyangbo",
 	},
 	nyc: {
 		code: "nyc",
-		name: "Nyanga-li"
+		name: "Nyanga-li",
 	},
 	nyd: {
 		code: "nyd",
-		name: "Nyore"
+		name: "Nyore",
 	},
 	nye: {
 		code: "nye",
-		name: "Nyengo"
+		name: "Nyengo",
 	},
 	nyf: {
 		code: "nyf",
-		name: "Giryama"
+		name: "Giryama",
 	},
 	nyg: {
 		code: "nyg",
-		name: "Nyindu"
+		name: "Nyindu",
 	},
 	nyh: {
 		code: "nyh",
-		name: "Nyikina"
+		name: "Nyikina",
 	},
 	nyi: {
 		code: "nyi",
-		name: "Ama (Sudan)"
+		name: "Ama (Sudan)",
 	},
 	nyj: {
 		code: "nyj",
-		name: "Nyanga"
+		name: "Nyanga",
+	},
+	nyk: {
+		code: "nyk",
+		name: "Nyaneka",
 	},
 	nyl: {
 		code: "nyl",
-		name: "Nyeu"
+		name: "Nyeu",
 	},
 	nym: {
 		code: "nym",
-		name: "Nyamwezi"
+		name: "Nyamwezi",
 	},
 	nyn: {
 		code: "nyn",
-		name: "Nyankole"
+		name: "Nyankole",
 	},
 	nyo: {
 		code: "nyo",
-		name: "Nyoro"
+		name: "Nyoro",
 	},
 	nyp: {
 		code: "nyp",
-		name: "Nyang'i"
+		name: "Nyang'i",
 	},
 	nyq: {
 		code: "nyq",
-		name: "Nayini"
+		name: "Nayini",
 	},
 	nyr: {
 		code: "nyr",
-		name: "Nyiha (Malawi)"
+		name: "Nyiha (Malawi)",
 	},
 	nys: {
 		code: "nys",
-		name: "Nyungar"
+		name: "Nyungar",
 	},
 	nyt: {
 		code: "nyt",
-		name: "Nyawaygi"
+		name: "Nyawaygi",
 	},
 	nyu: {
 		code: "nyu",
-		name: "Nyungwe"
+		name: "Nyungwe",
 	},
 	nyv: {
 		code: "nyv",
-		name: "Nyulnyul"
+		name: "Nyulnyul",
 	},
 	nyw: {
 		code: "nyw",
-		name: "Nyaw"
+		name: "Nyaw",
 	},
 	nyx: {
 		code: "nyx",
-		name: "Nganyaywana"
+		name: "Nganyaywana",
 	},
 	nyy: {
 		code: "nyy",
-		name: "Nyakyusa-Ngonde"
+		name: "Nyakyusa-Ngonde",
 	},
 	nza: {
 		code: "nza",
-		name: "Tigon Mbembe"
+		name: "Tigon Mbembe",
 	},
 	nzb: {
 		code: "nzb",
-		name: "Njebi"
+		name: "Njebi",
 	},
 	nzd: {
 		code: "nzd",
-		name: "Nzadi"
+		name: "Nzadi",
 	},
 	nzi: {
 		code: "nzi",
-		name: "Nzima"
+		name: "Nzima",
 	},
 	nzk: {
 		code: "nzk",
-		name: "Nzakara"
+		name: "Nzakara",
 	},
 	nzm: {
 		code: "nzm",
-		name: "Zeme Naga"
+		name: "Zeme Naga",
 	},
 	nzr: {
 		code: "nzr",
-		name: "Dir-Nyamzak-Mbarimi"
+		name: "Dir-Nyamzak-Mbarimi",
 	},
 	nzs: {
 		code: "nzs",
-		name: "New Zealand Sign Language"
+		name: "New Zealand Sign Language",
 	},
 	nzu: {
 		code: "nzu",
-		name: "Teke-Nzikou"
+		name: "Teke-Nzikou",
 	},
 	nzy: {
 		code: "nzy",
-		name: "Nzakambay"
+		name: "Nzakambay",
 	},
 	nzz: {
 		code: "nzz",
-		name: "Nanga Dama Dogon"
+		name: "Nanga Dama Dogon",
 	},
 	oaa: {
 		code: "oaa",
-		name: "Orok"
+		name: "Orok",
 	},
 	oac: {
 		code: "oac",
-		name: "Oroch"
+		name: "Oroch",
 	},
 	oar: {
 		code: "oar",
-		name: "Old Aramaic (up to 700 BCE)"
+		name: "Old Aramaic (up to 700 BCE)",
 	},
 	oav: {
 		code: "oav",
-		name: "Old Avar"
+		name: "Old Avar",
 	},
 	obi: {
 		code: "obi",
-		name: "Obispeño"
+		name: "Obispeño",
 	},
 	obk: {
 		code: "obk",
-		name: "Southern Bontok"
+		name: "Southern Bontok",
 	},
 	obl: {
 		code: "obl",
-		name: "Oblo"
+		name: "Oblo",
 	},
 	obm: {
 		code: "obm",
-		name: "Moabite"
+		name: "Moabite",
 	},
 	obo: {
 		code: "obo",
-		name: "Obo Manobo"
+		name: "Obo Manobo",
 	},
 	obr: {
 		code: "obr",
-		name: "Old Burmese"
+		name: "Old Burmese",
 	},
 	obt: {
 		code: "obt",
-		name: "Old Breton"
+		name: "Old Breton",
 	},
 	obu: {
 		code: "obu",
-		name: "Obulom"
+		name: "Obulom",
 	},
 	oca: {
 		code: "oca",
-		name: "Ocaina"
+		name: "Ocaina",
 	},
 	och: {
 		code: "och",
-		name: "Old Chinese"
+		name: "Old Chinese",
 	},
 	oci: {
 		code: "oci",
-		name: "Occitan (post 1500)"
+		name: "Occitan (post 1500)",
 	},
 	ocm: {
 		code: "ocm",
-		name: "Old Cham"
+		name: "Old Cham",
 	},
 	oco: {
 		code: "oco",
-		name: "Old Cornish"
+		name: "Old Cornish",
 	},
 	ocu: {
 		code: "ocu",
-		name: "Atzingo Matlatzinca"
+		name: "Atzingo Matlatzinca",
 	},
 	oda: {
 		code: "oda",
-		name: "Odut"
+		name: "Odut",
 	},
 	odk: {
 		code: "odk",
-		name: "Od"
+		name: "Od",
 	},
 	odt: {
 		code: "odt",
-		name: "Old Dutch"
+		name: "Old Dutch",
 	},
 	odu: {
 		code: "odu",
-		name: "Odual"
+		name: "Odual",
 	},
 	ofo: {
 		code: "ofo",
-		name: "Ofo"
+		name: "Ofo",
 	},
 	ofs: {
 		code: "ofs",
-		name: "Old Frisian"
+		name: "Old Frisian",
 	},
 	ofu: {
 		code: "ofu",
-		name: "Efutop"
+		name: "Efutop",
 	},
 	ogb: {
 		code: "ogb",
-		name: "Ogbia"
+		name: "Ogbia",
 	},
 	ogc: {
 		code: "ogc",
-		name: "Ogbah"
+		name: "Ogbah",
 	},
 	oge: {
 		code: "oge",
-		name: "Old Georgian"
+		name: "Old Georgian",
 	},
 	ogg: {
 		code: "ogg",
-		name: "Ogbogolo"
+		name: "Ogbogolo",
 	},
 	ogo: {
 		code: "ogo",
-		name: "Khana"
+		name: "Khana",
 	},
 	ogu: {
 		code: "ogu",
-		name: "Ogbronuagum"
+		name: "Ogbronuagum",
 	},
 	oht: {
 		code: "oht",
-		name: "Old Hittite"
+		name: "Old Hittite",
 	},
 	ohu: {
 		code: "ohu",
-		name: "Old Hungarian"
+		name: "Old Hungarian",
 	},
 	oia: {
 		code: "oia",
-		name: "Oirata"
+		name: "Oirata",
 	},
 	oie: {
 		code: "oie",
-		name: "Okolie"
+		name: "Okolie",
 	},
 	oin: {
 		code: "oin",
-		name: "Inebu One"
+		name: "Inebu One",
 	},
 	ojb: {
 		code: "ojb",
-		name: "Northwestern Ojibwa"
+		name: "Northwestern Ojibwa",
 	},
 	ojc: {
 		code: "ojc",
-		name: "Central Ojibwa"
+		name: "Central Ojibwa",
 	},
 	ojg: {
 		code: "ojg",
-		name: "Eastern Ojibwa"
+		name: "Eastern Ojibwa",
 	},
 	oji: {
 		code: "oji",
-		name: "Ojibwa"
+		name: "Ojibwa",
 	},
 	ojp: {
 		code: "ojp",
-		name: "Old Japanese"
+		name: "Old Japanese",
 	},
 	ojs: {
 		code: "ojs",
-		name: "Severn Ojibwa"
+		name: "Severn Ojibwa",
 	},
 	ojv: {
 		code: "ojv",
-		name: "Ontong Java"
+		name: "Ontong Java",
 	},
 	ojw: {
 		code: "ojw",
-		name: "Western Ojibwa"
+		name: "Western Ojibwa",
 	},
 	oka: {
 		code: "oka",
-		name: "Okanagan"
+		name: "Okanagan",
 	},
 	okb: {
 		code: "okb",
-		name: "Okobo"
+		name: "Okobo",
 	},
 	okc: {
 		code: "okc",
-		name: "Kobo"
+		name: "Kobo",
 	},
 	okd: {
 		code: "okd",
-		name: "Okodia"
+		name: "Okodia",
 	},
 	oke: {
 		code: "oke",
-		name: "Okpe (Southwestern Edo)"
+		name: "Okpe (Southwestern Edo)",
 	},
 	okg: {
 		code: "okg",
-		name: "Koko Babangk"
+		name: "Koko Babangk",
 	},
 	okh: {
 		code: "okh",
-		name: "Koresh-e Rostam"
+		name: "Koresh-e Rostam",
 	},
 	oki: {
 		code: "oki",
-		name: "Okiek"
+		name: "Okiek",
 	},
 	okj: {
 		code: "okj",
-		name: "Oko-Juwoi"
+		name: "Oko-Juwoi",
 	},
 	okk: {
 		code: "okk",
-		name: "Kwamtim One"
+		name: "Kwamtim One",
 	},
 	okl: {
 		code: "okl",
-		name: "Old Kentish Sign Language"
+		name: "Old Kentish Sign Language",
 	},
 	okm: {
 		code: "okm",
-		name: "Middle Korean (10th-16th cent.)"
+		name: "Middle Korean (10th-16th cent.)",
 	},
 	okn: {
 		code: "okn",
-		name: "Oki-No-Erabu"
+		name: "Oki-No-Erabu",
 	},
 	oko: {
 		code: "oko",
-		name: "Old Korean (3rd-9th cent.)"
+		name: "Old Korean (3rd-9th cent.)",
 	},
 	okr: {
 		code: "okr",
-		name: "Kirike"
+		name: "Kirike",
 	},
 	oks: {
 		code: "oks",
-		name: "Oko-Eni-Osayen"
+		name: "Oko-Eni-Osayen",
 	},
 	oku: {
 		code: "oku",
-		name: "Oku"
+		name: "Oku",
 	},
 	okv: {
 		code: "okv",
-		name: "Orokaiva"
+		name: "Orokaiva",
 	},
 	okx: {
 		code: "okx",
-		name: "Okpe (Northwestern Edo)"
+		name: "Okpe (Northwestern Edo)",
 	},
 	okz: {
 		code: "okz",
-		name: "Old Khmer"
+		name: "Old Khmer",
 	},
 	ola: {
 		code: "ola",
-		name: "Walungge"
+		name: "Walungge",
 	},
 	old: {
 		code: "old",
-		name: "Mochi"
+		name: "Mochi",
 	},
 	ole: {
 		code: "ole",
-		name: "Olekha"
+		name: "Olekha",
 	},
 	olk: {
 		code: "olk",
-		name: "Olkol"
+		name: "Olkol",
 	},
 	olm: {
 		code: "olm",
-		name: "Oloma"
+		name: "Oloma",
 	},
 	olo: {
 		code: "olo",
-		name: "Livvi"
+		name: "Livvi",
 	},
 	olr: {
 		code: "olr",
-		name: "Olrat"
+		name: "Olrat",
 	},
 	olt: {
 		code: "olt",
-		name: "Old Lithuanian"
+		name: "Old Lithuanian",
 	},
 	olu: {
 		code: "olu",
-		name: "Kuvale"
+		name: "Kuvale",
 	},
 	oma: {
 		code: "oma",
-		name: "Omaha-Ponca"
+		name: "Omaha-Ponca",
 	},
 	omb: {
 		code: "omb",
-		name: "East Ambae"
+		name: "East Ambae",
 	},
 	omc: {
 		code: "omc",
-		name: "Mochica"
+		name: "Mochica",
 	},
 	omg: {
 		code: "omg",
-		name: "Omagua"
+		name: "Omagua",
 	},
 	omi: {
 		code: "omi",
-		name: "Omi"
+		name: "Omi",
 	},
 	omk: {
 		code: "omk",
-		name: "Omok"
+		name: "Omok",
 	},
 	oml: {
 		code: "oml",
-		name: "Ombo"
+		name: "Ombo",
 	},
 	omn: {
 		code: "omn",
-		name: "Minoan"
+		name: "Minoan",
 	},
 	omo: {
 		code: "omo",
-		name: "Utarmbung"
+		name: "Utarmbung",
 	},
 	omp: {
 		code: "omp",
-		name: "Old Manipuri"
+		name: "Old Manipuri",
 	},
 	omr: {
 		code: "omr",
-		name: "Old Marathi"
+		name: "Old Marathi",
 	},
 	omt: {
 		code: "omt",
-		name: "Omotik"
+		name: "Omotik",
 	},
 	omu: {
 		code: "omu",
-		name: "Omurano"
+		name: "Omurano",
 	},
 	omw: {
 		code: "omw",
-		name: "South Tairora"
+		name: "South Tairora",
 	},
 	omx: {
 		code: "omx",
-		name: "Old Mon"
+		name: "Old Mon",
 	},
 	omy: {
 		code: "omy",
-		name: "Old Malay"
+		name: "Old Malay",
 	},
 	ona: {
 		code: "ona",
-		name: "Ona"
+		name: "Ona",
 	},
 	onb: {
 		code: "onb",
-		name: "Lingao"
+		name: "Lingao",
 	},
 	one: {
 		code: "one",
-		name: "Oneida"
+		name: "Oneida",
 	},
 	ong: {
 		code: "ong",
-		name: "Olo"
+		name: "Olo",
 	},
 	oni: {
 		code: "oni",
-		name: "Onin"
+		name: "Onin",
 	},
 	onj: {
 		code: "onj",
-		name: "Onjob"
+		name: "Onjob",
 	},
 	onk: {
 		code: "onk",
-		name: "Kabore One"
+		name: "Kabore One",
 	},
 	onn: {
 		code: "onn",
-		name: "Onobasulu"
+		name: "Onobasulu",
 	},
 	ono: {
 		code: "ono",
-		name: "Onondaga"
+		name: "Onondaga",
 	},
 	onp: {
 		code: "onp",
-		name: "Sartang"
+		name: "Sartang",
 	},
 	onr: {
 		code: "onr",
-		name: "Northern One"
+		name: "Northern One",
 	},
 	ons: {
 		code: "ons",
-		name: "Ono"
+		name: "Ono",
 	},
 	ont: {
 		code: "ont",
-		name: "Ontenu"
+		name: "Ontenu",
 	},
 	onu: {
 		code: "onu",
-		name: "Unua"
+		name: "Unua",
 	},
 	onw: {
 		code: "onw",
-		name: "Old Nubian"
+		name: "Old Nubian",
 	},
 	onx: {
 		code: "onx",
-		name: "Onin Based Pidgin"
+		name: "Onin Based Pidgin",
 	},
 	ood: {
 		code: "ood",
-		name: "Tohono O'odham"
+		name: "Tohono O'odham",
 	},
 	oog: {
 		code: "oog",
-		name: "Ong"
+		name: "Ong",
 	},
 	oon: {
 		code: "oon",
-		name: "Önge"
+		name: "Önge",
 	},
 	oor: {
 		code: "oor",
-		name: "Oorlams"
+		name: "Oorlams",
 	},
 	oos: {
 		code: "oos",
-		name: "Old Ossetic"
+		name: "Old Ossetic",
 	},
 	opa: {
 		code: "opa",
-		name: "Okpamheri"
+		name: "Okpamheri",
 	},
 	opk: {
 		code: "opk",
-		name: "Kopkaka"
+		name: "Kopkaka",
 	},
 	opm: {
 		code: "opm",
-		name: "Oksapmin"
+		name: "Oksapmin",
 	},
 	opo: {
 		code: "opo",
-		name: "Opao"
+		name: "Opao",
 	},
 	opt: {
 		code: "opt",
-		name: "Opata"
+		name: "Opata",
 	},
 	opy: {
 		code: "opy",
-		name: "Ofayé"
+		name: "Ofayé",
 	},
 	ora: {
 		code: "ora",
-		name: "Oroha"
+		name: "Oroha",
 	},
 	orc: {
 		code: "orc",
-		name: "Orma"
+		name: "Orma",
 	},
 	ore: {
 		code: "ore",
-		name: "Orejón"
+		name: "Orejón",
 	},
 	org: {
 		code: "org",
-		name: "Oring"
+		name: "Oring",
 	},
 	orh: {
 		code: "orh",
-		name: "Oroqen"
+		name: "Oroqen",
 	},
 	ori: {
 		code: "ori",
-		name: "Oriya (macrolanguage)"
+		name: "Oriya (macrolanguage)",
+	},
+	orm: {
+		code: "orm",
+		name: "Oromo",
 	},
 	orn: {
 		code: "orn",
-		name: "Orang Kanaq"
+		name: "Orang Kanaq",
 	},
 	oro: {
 		code: "oro",
-		name: "Orokolo"
+		name: "Orokolo",
 	},
 	orr: {
 		code: "orr",
-		name: "Oruma"
+		name: "Oruma",
 	},
 	ors: {
 		code: "ors",
-		name: "Orang Seletar"
+		name: "Orang Seletar",
 	},
 	ort: {
 		code: "ort",
-		name: "Adivasi Oriya"
+		name: "Adivasi Oriya",
 	},
 	oru: {
 		code: "oru",
-		name: "Ormuri"
+		name: "Ormuri",
 	},
 	orv: {
 		code: "orv",
-		name: "Old Russian"
+		name: "Old Russian",
 	},
 	orw: {
 		code: "orw",
-		name: "Oro Win"
+		name: "Oro Win",
 	},
 	orx: {
 		code: "orx",
-		name: "Oro"
+		name: "Oro",
 	},
 	ory: {
 		code: "ory",
-		name: "Odia"
+		name: "Odia",
 	},
 	orz: {
 		code: "orz",
-		name: "Ormu"
+		name: "Ormu",
 	},
 	osa: {
 		code: "osa",
-		name: "Osage"
+		name: "Osage",
 	},
 	osc: {
 		code: "osc",
-		name: "Oscan"
+		name: "Oscan",
 	},
 	osi: {
 		code: "osi",
-		name: "Osing"
+		name: "Osing",
 	},
 	osn: {
 		code: "osn",
-		name: "Old Sundanese"
+		name: "Old Sundanese",
 	},
 	oso: {
 		code: "oso",
-		name: "Ososo"
+		name: "Ososo",
 	},
 	osp: {
 		code: "osp",
-		name: "Old Spanish"
+		name: "Old Spanish",
+	},
+	oss: {
+		code: "oss",
+		name: "Ossetian",
 	},
 	ost: {
 		code: "ost",
-		name: "Osatu"
+		name: "Osatu",
 	},
 	osu: {
 		code: "osu",
-		name: "Southern One"
+		name: "Southern One",
 	},
 	osx: {
 		code: "osx",
-		name: "Old Saxon"
+		name: "Old Saxon",
 	},
 	ota: {
 		code: "ota",
-		name: "Ottoman Turkish (1500-1928)"
+		name: "Ottoman Turkish (1500-1928)",
 	},
 	otb: {
 		code: "otb",
-		name: "Old Tibetan"
+		name: "Old Tibetan",
 	},
 	otd: {
 		code: "otd",
-		name: "Ot Danum"
+		name: "Ot Danum",
 	},
 	ote: {
 		code: "ote",
-		name: "Mezquital Otomi"
+		name: "Mezquital Otomi",
 	},
 	oti: {
 		code: "oti",
-		name: "Oti"
+		name: "Oti",
 	},
 	otk: {
 		code: "otk",
-		name: "Old Turkish"
+		name: "Old Turkish",
 	},
 	otl: {
 		code: "otl",
-		name: "Tilapa Otomi"
+		name: "Tilapa Otomi",
 	},
 	otm: {
 		code: "otm",
-		name: "Eastern Highland Otomi"
+		name: "Eastern Highland Otomi",
 	},
 	otn: {
 		code: "otn",
-		name: "Tenango Otomi"
+		name: "Tenango Otomi",
 	},
 	otq: {
 		code: "otq",
-		name: "Querétaro Otomi"
+		name: "Querétaro Otomi",
 	},
 	otr: {
 		code: "otr",
-		name: "Otoro"
+		name: "Otoro",
 	},
 	ots: {
 		code: "ots",
-		name: "Estado de México Otomi"
+		name: "Estado de México Otomi",
 	},
 	ott: {
 		code: "ott",
-		name: "Temoaya Otomi"
+		name: "Temoaya Otomi",
 	},
 	otu: {
 		code: "otu",
-		name: "Otuke"
+		name: "Otuke",
 	},
 	otw: {
 		code: "otw",
-		name: "Ottawa"
+		name: "Ottawa",
 	},
 	otx: {
 		code: "otx",
-		name: "Texcatepec Otomi"
+		name: "Texcatepec Otomi",
 	},
 	oty: {
 		code: "oty",
-		name: "Old Tamil"
+		name: "Old Tamil",
 	},
 	otz: {
 		code: "otz",
-		name: "Ixtenco Otomi"
+		name: "Ixtenco Otomi",
 	},
 	oua: {
 		code: "oua",
-		name: "Tagargrent"
+		name: "Tagargrent",
 	},
 	oub: {
 		code: "oub",
-		name: "Glio-Oubi"
+		name: "Glio-Oubi",
 	},
 	oue: {
 		code: "oue",
-		name: "Oune"
+		name: "Oune",
 	},
 	oui: {
 		code: "oui",
-		name: "Old Uighur"
+		name: "Old Uighur",
 	},
 	oum: {
 		code: "oum",
-		name: "Ouma"
+		name: "Ouma",
 	},
 	ovd: {
 		code: "ovd",
-		name: "Elfdalian"
+		name: "Elfdalian",
 	},
 	owi: {
 		code: "owi",
-		name: "Owiniga"
+		name: "Owiniga",
 	},
 	owl: {
 		code: "owl",
-		name: "Old Welsh"
+		name: "Old Welsh",
 	},
 	oyb: {
 		code: "oyb",
-		name: "Oy"
+		name: "Oy",
 	},
 	oyd: {
 		code: "oyd",
-		name: "Oyda"
+		name: "Oyda",
 	},
 	oym: {
 		code: "oym",
-		name: "Wayampi"
+		name: "Wayampi",
 	},
 	oyy: {
 		code: "oyy",
-		name: "Oya'oya"
+		name: "Oya'oya",
 	},
 	ozm: {
 		code: "ozm",
-		name: "Koonzime"
+		name: "Koonzime",
 	},
 	pab: {
 		code: "pab",
-		name: "Parecís"
+		name: "Parecís",
 	},
 	pac: {
 		code: "pac",
-		name: "Pacoh"
+		name: "Pacoh",
 	},
 	pad: {
 		code: "pad",
-		name: "Paumarí"
+		name: "Paumarí",
 	},
 	pae: {
 		code: "pae",
-		name: "Pagibete"
+		name: "Pagibete",
 	},
 	paf: {
 		code: "paf",
-		name: "Paranawát"
+		name: "Paranawát",
+	},
+	pag: {
+		code: "pag",
+		name: "Pangasinan",
 	},
 	pah: {
 		code: "pah",
-		name: "Tenharim"
+		name: "Tenharim",
 	},
 	pai: {
 		code: "pai",
-		name: "Pe"
+		name: "Pe",
 	},
 	pak: {
 		code: "pak",
-		name: "Parakanã"
+		name: "Parakanã",
 	},
 	pal: {
 		code: "pal",
-		name: "Pahlavi"
+		name: "Pahlavi",
 	},
 	pam: {
 		code: "pam",
-		name: "Pampanga"
+		name: "Pampanga",
+	},
+	pan: {
+		code: "pan",
+		name: "Panjabi",
 	},
 	pao: {
 		code: "pao",
-		name: "Northern Paiute"
+		name: "Northern Paiute",
+	},
+	pap: {
+		code: "pap",
+		name: "Papiamento",
 	},
 	paq: {
 		code: "paq",
-		name: "Parya"
+		name: "Parya",
 	},
 	par: {
 		code: "par",
-		name: "Panamint"
+		name: "Panamint",
 	},
 	pas: {
 		code: "pas",
-		name: "Papasena"
+		name: "Papasena",
 	},
 	pau: {
 		code: "pau",
-		name: "Palauan"
+		name: "Palauan",
 	},
 	pav: {
 		code: "pav",
-		name: "Pakaásnovos"
+		name: "Pakaásnovos",
 	},
 	paw: {
 		code: "paw",
-		name: "Pawnee"
+		name: "Pawnee",
 	},
 	pax: {
 		code: "pax",
-		name: "Pankararé"
+		name: "Pankararé",
 	},
 	pay: {
 		code: "pay",
-		name: "Pech"
+		name: "Pech",
 	},
 	paz: {
 		code: "paz",
-		name: "Pankararú"
+		name: "Pankararú",
 	},
 	pbb: {
 		code: "pbb",
-		name: "Páez"
+		name: "Páez",
 	},
 	pbc: {
 		code: "pbc",
-		name: "Patamona"
+		name: "Patamona",
 	},
 	pbe: {
 		code: "pbe",
-		name: "Mezontla Popoloca"
+		name: "Mezontla Popoloca",
 	},
 	pbf: {
 		code: "pbf",
-		name: "Coyotepec Popoloca"
+		name: "Coyotepec Popoloca",
 	},
 	pbg: {
 		code: "pbg",
-		name: "Paraujano"
+		name: "Paraujano",
 	},
 	pbh: {
 		code: "pbh",
-		name: "E'ñapa Woromaipu"
+		name: "E'ñapa Woromaipu",
 	},
 	pbi: {
 		code: "pbi",
-		name: "Parkwa"
+		name: "Parkwa",
 	},
 	pbl: {
 		code: "pbl",
-		name: "Mak (Nigeria)"
+		name: "Mak (Nigeria)",
 	},
 	pbm: {
 		code: "pbm",
-		name: "Puebla Mazatec"
+		name: "Puebla Mazatec",
 	},
 	pbn: {
 		code: "pbn",
-		name: "Kpasam"
+		name: "Kpasam",
 	},
 	pbo: {
 		code: "pbo",
-		name: "Papel"
+		name: "Papel",
 	},
 	pbp: {
 		code: "pbp",
-		name: "Badyara"
+		name: "Badyara",
 	},
 	pbr: {
 		code: "pbr",
-		name: "Pangwa"
+		name: "Pangwa",
 	},
 	pbs: {
 		code: "pbs",
-		name: "Central Pame"
+		name: "Central Pame",
 	},
 	pbt: {
 		code: "pbt",
-		name: "Southern Pashto"
+		name: "Southern Pashto",
 	},
 	pbu: {
 		code: "pbu",
-		name: "Northern Pashto"
+		name: "Northern Pashto",
 	},
 	pbv: {
 		code: "pbv",
-		name: "Pnar"
+		name: "Pnar",
 	},
 	pby: {
 		code: "pby",
-		name: "Pyu (Papua New Guinea)"
+		name: "Pyu (Papua New Guinea)",
 	},
 	pca: {
 		code: "pca",
-		name: "Santa Inés Ahuatempan Popoloca"
+		name: "Santa Inés Ahuatempan Popoloca",
 	},
 	pcb: {
 		code: "pcb",
-		name: "Pear"
+		name: "Pear",
 	},
 	pcc: {
 		code: "pcc",
-		name: "Bouyei"
+		name: "Bouyei",
 	},
 	pcd: {
 		code: "pcd",
-		name: "Picard"
+		name: "Picard",
 	},
 	pce: {
 		code: "pce",
-		name: "Ruching Palaung"
+		name: "Ruching Palaung",
 	},
 	pcf: {
 		code: "pcf",
-		name: "Paliyan"
+		name: "Paliyan",
 	},
 	pcg: {
 		code: "pcg",
-		name: "Paniya"
+		name: "Paniya",
 	},
 	pch: {
 		code: "pch",
-		name: "Pardhan"
+		name: "Pardhan",
 	},
 	pci: {
 		code: "pci",
-		name: "Duruwa"
+		name: "Duruwa",
 	},
 	pcj: {
 		code: "pcj",
-		name: "Parenga"
+		name: "Parenga",
 	},
 	pck: {
 		code: "pck",
-		name: "Paite Chin"
+		name: "Paite Chin",
 	},
 	pcl: {
 		code: "pcl",
-		name: "Pardhi"
+		name: "Pardhi",
 	},
 	pcm: {
 		code: "pcm",
-		name: "Nigerian Pidgin"
+		name: "Nigerian Pidgin",
 	},
 	pcn: {
 		code: "pcn",
-		name: "Piti"
+		name: "Piti",
 	},
 	pcp: {
 		code: "pcp",
-		name: "Pacahuara"
+		name: "Pacahuara",
 	},
 	pcw: {
 		code: "pcw",
-		name: "Pyapun"
+		name: "Pyapun",
 	},
 	pda: {
 		code: "pda",
-		name: "Anam"
+		name: "Anam",
 	},
 	pdc: {
 		code: "pdc",
-		name: "Pennsylvania German"
+		name: "Pennsylvania German",
 	},
 	pdi: {
 		code: "pdi",
-		name: "Pa Di"
+		name: "Pa Di",
 	},
 	pdn: {
 		code: "pdn",
-		name: "Podena"
+		name: "Podena",
 	},
 	pdo: {
 		code: "pdo",
-		name: "Padoe"
+		name: "Padoe",
 	},
 	pdt: {
 		code: "pdt",
-		name: "Plautdietsch"
+		name: "Plautdietsch",
 	},
 	pdu: {
 		code: "pdu",
-		name: "Kayan"
+		name: "Kayan",
 	},
 	pea: {
 		code: "pea",
-		name: "Peranakan Indonesian"
+		name: "Peranakan Indonesian",
 	},
 	peb: {
 		code: "peb",
-		name: "Eastern Pomo"
+		name: "Eastern Pomo",
 	},
 	ped: {
 		code: "ped",
-		name: "Mala (Papua New Guinea)"
+		name: "Mala (Papua New Guinea)",
 	},
 	pee: {
 		code: "pee",
-		name: "Taje"
+		name: "Taje",
 	},
 	pef: {
 		code: "pef",
-		name: "Northeastern Pomo"
+		name: "Northeastern Pomo",
 	},
 	peg: {
 		code: "peg",
-		name: "Pengo"
+		name: "Pengo",
 	},
 	peh: {
 		code: "peh",
-		name: "Bonan"
+		name: "Bonan",
 	},
 	pei: {
 		code: "pei",
-		name: "Chichimeca-Jonaz"
+		name: "Chichimeca-Jonaz",
 	},
 	pej: {
 		code: "pej",
-		name: "Northern Pomo"
+		name: "Northern Pomo",
 	},
 	pek: {
 		code: "pek",
-		name: "Penchal"
+		name: "Penchal",
 	},
 	pel: {
 		code: "pel",
-		name: "Pekal"
+		name: "Pekal",
 	},
 	pem: {
 		code: "pem",
-		name: "Phende"
+		name: "Phende",
 	},
 	peo: {
 		code: "peo",
-		name: "Old Persian (ca. 600-400 B.C.)"
+		name: "Old Persian (ca. 600-400 B.C.)",
 	},
 	pep: {
 		code: "pep",
-		name: "Kunja"
+		name: "Kunja",
 	},
 	peq: {
 		code: "peq",
-		name: "Southern Pomo"
+		name: "Southern Pomo",
 	},
 	pes: {
 		code: "pes",
-		name: "Iranian Persian"
+		name: "Iranian Persian",
 	},
 	pev: {
 		code: "pev",
-		name: "Pémono"
+		name: "Pémono",
 	},
 	pex: {
 		code: "pex",
-		name: "Petats"
+		name: "Petats",
 	},
 	pey: {
 		code: "pey",
-		name: "Petjo"
+		name: "Petjo",
 	},
 	pez: {
 		code: "pez",
-		name: "Eastern Penan"
+		name: "Eastern Penan",
 	},
 	pfa: {
 		code: "pfa",
-		name: "Pááfang"
+		name: "Pááfang",
 	},
 	pfe: {
 		code: "pfe",
-		name: "Pere"
+		name: "Pere",
 	},
 	pfl: {
 		code: "pfl",
-		name: "Pfaelzisch"
+		name: "Pfaelzisch",
 	},
 	pga: {
 		code: "pga",
-		name: "Sudanese Creole Arabic"
+		name: "Sudanese Creole Arabic",
 	},
 	pgd: {
 		code: "pgd",
-		name: "Gāndhārī"
+		name: "Gāndhārī",
 	},
 	pgg: {
 		code: "pgg",
-		name: "Pangwali"
+		name: "Pangwali",
 	},
 	pgi: {
 		code: "pgi",
-		name: "Pagi"
+		name: "Pagi",
 	},
 	pgk: {
 		code: "pgk",
-		name: "Rerep"
+		name: "Rerep",
 	},
 	pgl: {
 		code: "pgl",
-		name: "Primitive Irish"
+		name: "Primitive Irish",
 	},
 	pgn: {
 		code: "pgn",
-		name: "Paelignian"
+		name: "Paelignian",
 	},
 	pgs: {
 		code: "pgs",
-		name: "Pangseng"
+		name: "Pangseng",
 	},
 	pgu: {
 		code: "pgu",
-		name: "Pagu"
+		name: "Pagu",
 	},
 	pgz: {
 		code: "pgz",
-		name: "Papua New Guinean Sign Language"
+		name: "Papua New Guinean Sign Language",
 	},
 	pha: {
 		code: "pha",
-		name: "Pa-Hng"
+		name: "Pa-Hng",
 	},
 	phd: {
 		code: "phd",
-		name: "Phudagi"
+		name: "Phudagi",
 	},
 	phg: {
 		code: "phg",
-		name: "Phuong"
+		name: "Phuong",
 	},
 	phh: {
 		code: "phh",
-		name: "Phukha"
+		name: "Phukha",
 	},
 	phj: {
 		code: "phj",
-		name: "Pahari"
+		name: "Pahari",
 	},
 	phk: {
 		code: "phk",
-		name: "Phake"
+		name: "Phake",
 	},
 	phl: {
 		code: "phl",
-		name: "Phalura"
+		name: "Phalura",
 	},
 	phm: {
 		code: "phm",
-		name: "Phimbi"
+		name: "Phimbi",
 	},
 	phn: {
 		code: "phn",
-		name: "Phoenician"
+		name: "Phoenician",
 	},
 	pho: {
 		code: "pho",
-		name: "Phunoi"
+		name: "Phunoi",
 	},
 	phq: {
 		code: "phq",
-		name: "Phana'"
+		name: "Phana'",
 	},
 	phr: {
 		code: "phr",
-		name: "Pahari-Potwari"
+		name: "Pahari-Potwari",
 	},
 	pht: {
 		code: "pht",
-		name: "Phu Thai"
+		name: "Phu Thai",
 	},
 	phu: {
 		code: "phu",
-		name: "Phuan"
+		name: "Phuan",
 	},
 	phv: {
 		code: "phv",
-		name: "Pahlavani"
+		name: "Pahlavani",
 	},
 	phw: {
 		code: "phw",
-		name: "Phangduwali"
+		name: "Phangduwali",
 	},
 	pia: {
 		code: "pia",
-		name: "Pima Bajo"
+		name: "Pima Bajo",
 	},
 	pib: {
 		code: "pib",
-		name: "Yine"
+		name: "Yine",
 	},
 	pic: {
 		code: "pic",
-		name: "Pinji"
+		name: "Pinji",
 	},
 	pid: {
 		code: "pid",
-		name: "Piaroa"
+		name: "Piaroa",
 	},
 	pie: {
 		code: "pie",
-		name: "Piro"
+		name: "Piro",
 	},
 	pif: {
 		code: "pif",
-		name: "Pingelapese"
+		name: "Pingelapese",
 	},
 	pig: {
 		code: "pig",
-		name: "Pisabo"
+		name: "Pisabo",
 	},
 	pih: {
 		code: "pih",
-		name: "Pitcairn-Norfolk"
+		name: "Pitcairn-Norfolk",
 	},
 	pij: {
 		code: "pij",
-		name: "Pijao"
+		name: "Pijao",
 	},
 	pil: {
 		code: "pil",
-		name: "Yom"
+		name: "Yom",
 	},
 	pim: {
 		code: "pim",
-		name: "Powhatan"
+		name: "Powhatan",
 	},
 	pin: {
 		code: "pin",
-		name: "Piame"
+		name: "Piame",
 	},
 	pio: {
 		code: "pio",
-		name: "Piapoco"
+		name: "Piapoco",
 	},
 	pip: {
 		code: "pip",
-		name: "Pero"
+		name: "Pero",
 	},
 	pir: {
 		code: "pir",
-		name: "Piratapuyo"
+		name: "Piratapuyo",
+	},
+	pis: {
+		code: "pis",
+		name: "Pijin",
 	},
 	pit: {
 		code: "pit",
-		name: "Pitta Pitta"
+		name: "Pitta Pitta",
 	},
 	piu: {
 		code: "piu",
-		name: "Pintupi-Luritja"
+		name: "Pintupi-Luritja",
 	},
 	piv: {
 		code: "piv",
-		name: "Pileni"
+		name: "Pileni",
 	},
 	piw: {
 		code: "piw",
-		name: "Pimbwe"
+		name: "Pimbwe",
 	},
 	pix: {
 		code: "pix",
-		name: "Piu"
+		name: "Piu",
 	},
 	piy: {
 		code: "piy",
-		name: "Piya-Kwonci"
+		name: "Piya-Kwonci",
 	},
 	piz: {
 		code: "piz",
-		name: "Pije"
+		name: "Pije",
 	},
 	pjt: {
 		code: "pjt",
-		name: "Pitjantjatjara"
+		name: "Pitjantjatjara",
 	},
 	pka: {
 		code: "pka",
-		name: "Ardhamāgadhī Prākrit"
+		name: "Ardhamāgadhī Prākrit",
 	},
 	pkb: {
 		code: "pkb",
-		name: "Pokomo"
+		name: "Pokomo",
 	},
 	pkc: {
 		code: "pkc",
-		name: "Paekche"
+		name: "Paekche",
 	},
 	pkg: {
 		code: "pkg",
-		name: "Pak-Tong"
+		name: "Pak-Tong",
 	},
 	pkh: {
 		code: "pkh",
-		name: "Pankhu"
+		name: "Pankhu",
 	},
 	pkn: {
 		code: "pkn",
-		name: "Pakanha"
+		name: "Pakanha",
 	},
 	pko: {
 		code: "pko",
-		name: "Pökoot"
+		name: "Pökoot",
 	},
 	pkp: {
 		code: "pkp",
-		name: "Pukapuka"
+		name: "Pukapuka",
 	},
 	pkr: {
 		code: "pkr",
-		name: "Attapady Kurumba"
+		name: "Attapady Kurumba",
 	},
 	pks: {
 		code: "pks",
-		name: "Pakistan Sign Language"
+		name: "Pakistan Sign Language",
 	},
 	pkt: {
 		code: "pkt",
-		name: "Maleng"
+		name: "Maleng",
 	},
 	pku: {
 		code: "pku",
-		name: "Paku"
+		name: "Paku",
 	},
 	pla: {
 		code: "pla",
-		name: "Miani"
+		name: "Miani",
 	},
 	plb: {
 		code: "plb",
-		name: "Polonombauk"
+		name: "Polonombauk",
 	},
 	plc: {
 		code: "plc",
-		name: "Central Palawano"
+		name: "Central Palawano",
 	},
 	pld: {
 		code: "pld",
-		name: "Polari"
+		name: "Polari",
 	},
 	ple: {
 		code: "ple",
-		name: "Palu'e"
+		name: "Palu'e",
 	},
 	plg: {
 		code: "plg",
-		name: "Pilagá"
+		name: "Pilagá",
 	},
 	plh: {
 		code: "plh",
-		name: "Paulohi"
+		name: "Paulohi",
 	},
 	pli: {
 		code: "pli",
-		name: "Pali"
+		name: "Pali",
 	},
 	plk: {
 		code: "plk",
-		name: "Kohistani Shina"
+		name: "Kohistani Shina",
 	},
 	pll: {
 		code: "pll",
-		name: "Shwe Palaung"
+		name: "Shwe Palaung",
 	},
 	pln: {
 		code: "pln",
-		name: "Palenquero"
+		name: "Palenquero",
 	},
 	plo: {
 		code: "plo",
-		name: "Oluta Popoluca"
+		name: "Oluta Popoluca",
 	},
 	plq: {
 		code: "plq",
-		name: "Palaic"
+		name: "Palaic",
 	},
 	plr: {
 		code: "plr",
-		name: "Palaka Senoufo"
+		name: "Palaka Senoufo",
 	},
 	pls: {
 		code: "pls",
-		name: "San Marcos Tlacoyalco Popoloca"
+		name: "San Marcos Tlacoyalco Popoloca",
 	},
 	plt: {
 		code: "plt",
-		name: "Plateau Malagasy"
+		name: "Plateau Malagasy",
 	},
 	plu: {
 		code: "plu",
-		name: "Palikúr"
+		name: "Palikúr",
 	},
 	plv: {
 		code: "plv",
-		name: "Southwest Palawano"
+		name: "Southwest Palawano",
 	},
 	plw: {
 		code: "plw",
-		name: "Brooke's Point Palawano"
+		name: "Brooke's Point Palawano",
 	},
 	ply: {
 		code: "ply",
-		name: "Bolyu"
+		name: "Bolyu",
 	},
 	plz: {
 		code: "plz",
-		name: "Paluan"
+		name: "Paluan",
 	},
 	pma: {
 		code: "pma",
-		name: "Paama"
+		name: "Paama",
 	},
 	pmb: {
 		code: "pmb",
-		name: "Pambia"
+		name: "Pambia",
 	},
 	pmd: {
 		code: "pmd",
-		name: "Pallanganmiddang"
+		name: "Pallanganmiddang",
 	},
 	pme: {
 		code: "pme",
-		name: "Pwaamei"
+		name: "Pwaamei",
 	},
 	pmf: {
 		code: "pmf",
-		name: "Pamona"
+		name: "Pamona",
 	},
 	pmh: {
 		code: "pmh",
-		name: "Māhārāṣṭri Prākrit"
+		name: "Māhārāṣṭri Prākrit",
 	},
 	pmi: {
 		code: "pmi",
-		name: "Northern Pumi"
+		name: "Northern Pumi",
 	},
 	pmj: {
 		code: "pmj",
-		name: "Southern Pumi"
+		name: "Southern Pumi",
 	},
 	pml: {
 		code: "pml",
-		name: "Lingua Franca"
+		name: "Lingua Franca",
 	},
 	pmm: {
 		code: "pmm",
-		name: "Pomo"
+		name: "Pomo",
 	},
 	pmn: {
 		code: "pmn",
-		name: "Pam"
+		name: "Pam",
 	},
 	pmo: {
 		code: "pmo",
-		name: "Pom"
+		name: "Pom",
 	},
 	pmq: {
 		code: "pmq",
-		name: "Northern Pame"
+		name: "Northern Pame",
 	},
 	pmr: {
 		code: "pmr",
-		name: "Paynamar"
+		name: "Paynamar",
 	},
 	pms: {
 		code: "pms",
-		name: "Piemontese"
+		name: "Piemontese",
 	},
 	pmt: {
 		code: "pmt",
-		name: "Tuamotuan"
+		name: "Tuamotuan",
 	},
 	pmw: {
 		code: "pmw",
-		name: "Plains Miwok"
+		name: "Plains Miwok",
 	},
 	pmx: {
 		code: "pmx",
-		name: "Poumei Naga"
+		name: "Poumei Naga",
 	},
 	pmy: {
 		code: "pmy",
-		name: "Papuan Malay"
+		name: "Papuan Malay",
 	},
 	pmz: {
 		code: "pmz",
-		name: "Southern Pame"
+		name: "Southern Pame",
 	},
 	pna: {
 		code: "pna",
-		name: "Punan Bah-Biau"
+		name: "Punan Bah-Biau",
 	},
 	pnb: {
 		code: "pnb",
-		name: "Western Panjabi"
+		name: "Western Panjabi",
 	},
 	pnc: {
 		code: "pnc",
-		name: "Pannei"
+		name: "Pannei",
 	},
 	pnd: {
 		code: "pnd",
-		name: "Mpinda"
+		name: "Mpinda",
 	},
 	pne: {
 		code: "pne",
-		name: "Western Penan"
+		name: "Western Penan",
 	},
 	png: {
 		code: "png",
-		name: "Pangu"
+		name: "Pangu",
 	},
 	pnh: {
 		code: "pnh",
-		name: "Penrhyn"
+		name: "Penrhyn",
 	},
 	pni: {
 		code: "pni",
-		name: "Aoheng"
+		name: "Aoheng",
 	},
 	pnj: {
 		code: "pnj",
-		name: "Pinjarup"
+		name: "Pinjarup",
 	},
 	pnk: {
 		code: "pnk",
-		name: "Paunaka"
+		name: "Paunaka",
 	},
 	pnl: {
 		code: "pnl",
-		name: "Paleni"
+		name: "Paleni",
 	},
 	pnm: {
 		code: "pnm",
-		name: "Punan Batu 1"
+		name: "Punan Batu 1",
 	},
 	pnn: {
 		code: "pnn",
-		name: "Pinai-Hagahai"
+		name: "Pinai-Hagahai",
 	},
 	pno: {
 		code: "pno",
-		name: "Panobo"
+		name: "Panobo",
 	},
 	pnp: {
 		code: "pnp",
-		name: "Pancana"
+		name: "Pancana",
 	},
 	pnq: {
 		code: "pnq",
-		name: "Pana (Burkina Faso)"
+		name: "Pana (Burkina Faso)",
 	},
 	pnr: {
 		code: "pnr",
-		name: "Panim"
+		name: "Panim",
 	},
 	pns: {
 		code: "pns",
-		name: "Ponosakan"
+		name: "Ponosakan",
 	},
 	pnt: {
 		code: "pnt",
-		name: "Pontic"
+		name: "Pontic",
 	},
 	pnu: {
 		code: "pnu",
-		name: "Jiongnai Bunu"
+		name: "Jiongnai Bunu",
 	},
 	pnv: {
 		code: "pnv",
-		name: "Pinigura"
+		name: "Pinigura",
 	},
 	pnw: {
 		code: "pnw",
-		name: "Banyjima"
+		name: "Banyjima",
 	},
 	pnx: {
 		code: "pnx",
-		name: "Phong-Kniang"
+		name: "Phong-Kniang",
 	},
 	pny: {
 		code: "pny",
-		name: "Pinyin"
+		name: "Pinyin",
 	},
 	pnz: {
 		code: "pnz",
-		name: "Pana (Central African Republic)"
+		name: "Pana (Central African Republic)",
 	},
 	poc: {
 		code: "poc",
-		name: "Poqomam"
+		name: "Poqomam",
 	},
 	poe: {
 		code: "poe",
-		name: "San Juan Atzingo Popoloca"
+		name: "San Juan Atzingo Popoloca",
 	},
 	pof: {
 		code: "pof",
-		name: "Poke"
+		name: "Poke",
 	},
 	pog: {
 		code: "pog",
-		name: "Potiguára"
+		name: "Potiguára",
 	},
 	poh: {
 		code: "poh",
-		name: "Poqomchi'"
+		name: "Poqomchi'",
 	},
 	poi: {
 		code: "poi",
-		name: "Highland Popoluca"
+		name: "Highland Popoluca",
 	},
 	pok: {
 		code: "pok",
-		name: "Pokangá"
+		name: "Pokangá",
+	},
+	pol: {
+		code: "pol",
+		name: "Polish",
 	},
 	pom: {
 		code: "pom",
-		name: "Southeastern Pomo"
+		name: "Southeastern Pomo",
+	},
+	pon: {
+		code: "pon",
+		name: "Pohnpeian",
 	},
 	poo: {
 		code: "poo",
-		name: "Central Pomo"
+		name: "Central Pomo",
 	},
 	pop: {
 		code: "pop",
-		name: "Pwapwâ"
+		name: "Pwapwâ",
 	},
 	poq: {
 		code: "poq",
-		name: "Texistepec Popoluca"
+		name: "Texistepec Popoluca",
+	},
+	por: {
+		code: "por",
+		name: "Portuguese",
 	},
 	pos: {
 		code: "pos",
-		name: "Sayula Popoluca"
+		name: "Sayula Popoluca",
 	},
 	pot: {
 		code: "pot",
-		name: "Potawatomi"
+		name: "Potawatomi",
 	},
 	pov: {
 		code: "pov",
-		name: "Upper Guinea Crioulo"
+		name: "Upper Guinea Crioulo",
 	},
 	pow: {
 		code: "pow",
-		name: "San Felipe Otlaltepec Popoloca"
+		name: "San Felipe Otlaltepec Popoloca",
 	},
 	pox: {
 		code: "pox",
-		name: "Polabian"
+		name: "Polabian",
 	},
 	poy: {
 		code: "poy",
-		name: "Pogolo"
+		name: "Pogolo",
 	},
 	ppe: {
 		code: "ppe",
-		name: "Papi"
+		name: "Papi",
 	},
 	ppi: {
 		code: "ppi",
-		name: "Paipai"
+		name: "Paipai",
 	},
 	ppk: {
 		code: "ppk",
-		name: "Uma"
+		name: "Uma",
 	},
 	ppl: {
 		code: "ppl",
-		name: "Pipil"
+		name: "Pipil",
 	},
 	ppm: {
 		code: "ppm",
-		name: "Papuma"
+		name: "Papuma",
 	},
 	ppn: {
 		code: "ppn",
-		name: "Papapana"
+		name: "Papapana",
 	},
 	ppo: {
 		code: "ppo",
-		name: "Folopa"
+		name: "Folopa",
 	},
 	ppp: {
 		code: "ppp",
-		name: "Pelende"
+		name: "Pelende",
 	},
 	ppq: {
 		code: "ppq",
-		name: "Pei"
+		name: "Pei",
 	},
 	pps: {
 		code: "pps",
-		name: "San Luís Temalacayuca Popoloca"
+		name: "San Luís Temalacayuca Popoloca",
 	},
 	ppt: {
 		code: "ppt",
-		name: "Pare"
+		name: "Pare",
 	},
 	ppu: {
 		code: "ppu",
-		name: "Papora"
+		name: "Papora",
 	},
 	pqa: {
 		code: "pqa",
-		name: "Pa'a"
+		name: "Pa'a",
 	},
 	pqm: {
 		code: "pqm",
-		name: "Malecite-Passamaquoddy"
+		name: "Malecite-Passamaquoddy",
 	},
 	prc: {
 		code: "prc",
-		name: "Parachi"
+		name: "Parachi",
 	},
 	prd: {
 		code: "prd",
-		name: "Parsi-Dari"
+		name: "Parsi-Dari",
 	},
 	pre: {
 		code: "pre",
-		name: "Principense"
+		name: "Principense",
 	},
 	prf: {
 		code: "prf",
-		name: "Paranan"
+		name: "Paranan",
 	},
 	prg: {
 		code: "prg",
-		name: "Prussian"
+		name: "Prussian",
 	},
 	prh: {
 		code: "prh",
-		name: "Porohanon"
+		name: "Porohanon",
 	},
 	pri: {
 		code: "pri",
-		name: "Paicî"
+		name: "Paicî",
 	},
 	prk: {
 		code: "prk",
-		name: "Parauk"
+		name: "Parauk",
+	},
+	prl: {
+		code: "prl",
+		name: "Peruvian Sign Language",
 	},
 	prm: {
 		code: "prm",
-		name: "Kibiri"
+		name: "Kibiri",
 	},
 	prn: {
 		code: "prn",
-		name: "Prasuni"
+		name: "Prasuni",
 	},
 	pro: {
 		code: "pro",
-		name: "Old Provençal (to 1500)"
+		name: "Old Provençal (to 1500)",
 	},
 	prq: {
 		code: "prq",
-		name: "Ashéninka Perené"
+		name: "Ashéninka Perené",
 	},
 	prr: {
 		code: "prr",
-		name: "Puri"
+		name: "Puri",
 	},
 	prs: {
 		code: "prs",
-		name: "Dari"
+		name: "Dari",
 	},
 	prt: {
 		code: "prt",
-		name: "Phai"
+		name: "Phai",
 	},
 	pru: {
 		code: "pru",
-		name: "Puragi"
+		name: "Puragi",
 	},
 	prw: {
 		code: "prw",
-		name: "Parawen"
+		name: "Parawen",
 	},
 	prx: {
 		code: "prx",
-		name: "Purik"
+		name: "Purik",
 	},
 	prz: {
 		code: "prz",
-		name: "Providencia Sign Language"
+		name: "Providencia Sign Language",
 	},
 	psa: {
 		code: "psa",
-		name: "Asue Awyu"
+		name: "Asue Awyu",
 	},
 	psc: {
 		code: "psc",
-		name: "Iranian Sign Language"
+		name: "Iranian Sign Language",
 	},
 	psd: {
 		code: "psd",
-		name: "Plains Indian Sign Language"
+		name: "Plains Indian Sign Language",
 	},
 	pse: {
 		code: "pse",
-		name: "Central Malay"
+		name: "Central Malay",
 	},
 	psg: {
 		code: "psg",
-		name: "Penang Sign Language"
+		name: "Penang Sign Language",
 	},
 	psh: {
 		code: "psh",
-		name: "Southwest Pashai"
+		name: "Southwest Pashai",
 	},
 	psi: {
 		code: "psi",
-		name: "Southeast Pashai"
+		name: "Southeast Pashai",
 	},
 	psl: {
 		code: "psl",
-		name: "Puerto Rican Sign Language"
+		name: "Puerto Rican Sign Language",
 	},
 	psm: {
 		code: "psm",
-		name: "Pauserna"
+		name: "Pauserna",
 	},
 	psn: {
 		code: "psn",
-		name: "Panasuan"
+		name: "Panasuan",
 	},
 	pso: {
 		code: "pso",
-		name: "Polish Sign Language"
+		name: "Polish Sign Language",
 	},
 	psp: {
 		code: "psp",
-		name: "Philippine Sign Language"
+		name: "Philippine Sign Language",
 	},
 	psq: {
 		code: "psq",
-		name: "Pasi"
+		name: "Pasi",
 	},
 	psr: {
 		code: "psr",
-		name: "Portuguese Sign Language"
+		name: "Portuguese Sign Language",
 	},
 	pss: {
 		code: "pss",
-		name: "Kaulong"
+		name: "Kaulong",
 	},
 	pst: {
 		code: "pst",
-		name: "Central Pashto"
+		name: "Central Pashto",
 	},
 	psu: {
 		code: "psu",
-		name: "Sauraseni Prākrit"
+		name: "Sauraseni Prākrit",
 	},
 	psw: {
 		code: "psw",
-		name: "Port Sandwich"
+		name: "Port Sandwich",
 	},
 	psy: {
 		code: "psy",
-		name: "Piscataway"
+		name: "Piscataway",
 	},
 	pta: {
 		code: "pta",
-		name: "Pai Tavytera"
+		name: "Pai Tavytera",
 	},
 	pth: {
 		code: "pth",
-		name: "Pataxó Hã-Ha-Hãe"
+		name: "Pataxó Hã-Ha-Hãe",
 	},
 	pti: {
 		code: "pti",
-		name: "Pindiini"
+		name: "Pindiini",
 	},
 	ptn: {
 		code: "ptn",
-		name: "Patani"
+		name: "Patani",
 	},
 	pto: {
 		code: "pto",
-		name: "Zo'é"
+		name: "Zo'é",
 	},
 	ptp: {
 		code: "ptp",
-		name: "Patep"
+		name: "Patep",
 	},
 	ptq: {
 		code: "ptq",
-		name: "Pattapu"
+		name: "Pattapu",
 	},
 	ptr: {
 		code: "ptr",
-		name: "Piamatsina"
+		name: "Piamatsina",
 	},
 	ptt: {
 		code: "ptt",
-		name: "Enrekang"
+		name: "Enrekang",
 	},
 	ptu: {
 		code: "ptu",
-		name: "Bambam"
+		name: "Bambam",
 	},
 	ptv: {
 		code: "ptv",
-		name: "Port Vato"
+		name: "Port Vato",
 	},
 	ptw: {
 		code: "ptw",
-		name: "Pentlatch"
+		name: "Pentlatch",
 	},
 	pty: {
 		code: "pty",
-		name: "Pathiya"
+		name: "Pathiya",
 	},
 	pua: {
 		code: "pua",
-		name: "Western Highland Purepecha"
+		name: "Western Highland Purepecha",
 	},
 	pub: {
 		code: "pub",
-		name: "Purum"
+		name: "Purum",
 	},
 	puc: {
 		code: "puc",
-		name: "Punan Merap"
+		name: "Punan Merap",
 	},
 	pud: {
 		code: "pud",
-		name: "Punan Aput"
+		name: "Punan Aput",
 	},
 	pue: {
 		code: "pue",
-		name: "Puelche"
+		name: "Puelche",
 	},
 	puf: {
 		code: "puf",
-		name: "Punan Merah"
+		name: "Punan Merah",
 	},
 	pug: {
 		code: "pug",
-		name: "Phuie"
+		name: "Phuie",
 	},
 	pui: {
 		code: "pui",
-		name: "Puinave"
+		name: "Puinave",
 	},
 	puj: {
 		code: "puj",
-		name: "Punan Tubu"
+		name: "Punan Tubu",
 	},
 	pum: {
 		code: "pum",
-		name: "Puma"
+		name: "Puma",
 	},
 	puo: {
 		code: "puo",
-		name: "Puoc"
+		name: "Puoc",
 	},
 	pup: {
 		code: "pup",
-		name: "Pulabu"
+		name: "Pulabu",
 	},
 	puq: {
 		code: "puq",
-		name: "Puquina"
+		name: "Puquina",
 	},
 	pur: {
 		code: "pur",
-		name: "Puruborá"
+		name: "Puruborá",
 	},
 	pus: {
 		code: "pus",
-		name: "Pushto"
+		name: "Pushto",
 	},
 	put: {
 		code: "put",
-		name: "Putoh"
+		name: "Putoh",
 	},
 	puu: {
 		code: "puu",
-		name: "Punu"
+		name: "Punu",
 	},
 	puw: {
 		code: "puw",
-		name: "Puluwatese"
+		name: "Puluwatese",
 	},
 	pux: {
 		code: "pux",
-		name: "Puare"
+		name: "Puare",
 	},
 	puy: {
 		code: "puy",
-		name: "Purisimeño"
+		name: "Purisimeño",
 	},
 	pwa: {
 		code: "pwa",
-		name: "Pawaia"
+		name: "Pawaia",
 	},
 	pwb: {
 		code: "pwb",
-		name: "Panawa"
+		name: "Panawa",
 	},
 	pwg: {
 		code: "pwg",
-		name: "Gapapaiwa"
+		name: "Gapapaiwa",
 	},
 	pwi: {
 		code: "pwi",
-		name: "Patwin"
+		name: "Patwin",
 	},
 	pwm: {
 		code: "pwm",
-		name: "Molbog"
+		name: "Molbog",
 	},
 	pwn: {
 		code: "pwn",
-		name: "Paiwan"
+		name: "Paiwan",
 	},
 	pwo: {
 		code: "pwo",
-		name: "Pwo Western Karen"
+		name: "Pwo Western Karen",
 	},
 	pwr: {
 		code: "pwr",
-		name: "Powari"
+		name: "Powari",
 	},
 	pww: {
 		code: "pww",
-		name: "Pwo Northern Karen"
+		name: "Pwo Northern Karen",
 	},
 	pxm: {
 		code: "pxm",
-		name: "Quetzaltepec Mixe"
+		name: "Quetzaltepec Mixe",
 	},
 	pye: {
 		code: "pye",
-		name: "Pye Krumen"
+		name: "Pye Krumen",
 	},
 	pym: {
 		code: "pym",
-		name: "Fyam"
+		name: "Fyam",
 	},
 	pyn: {
 		code: "pyn",
-		name: "Poyanáwa"
+		name: "Poyanáwa",
 	},
 	pys: {
 		code: "pys",
-		name: "Paraguayan Sign Language"
+		name: "Paraguayan Sign Language",
 	},
 	pyu: {
 		code: "pyu",
-		name: "Puyuma"
+		name: "Puyuma",
 	},
 	pyx: {
 		code: "pyx",
-		name: "Pyu (Myanmar)"
+		name: "Pyu (Myanmar)",
 	},
 	pyy: {
 		code: "pyy",
-		name: "Pyen"
+		name: "Pyen",
 	},
 	pze: {
 		code: "pze",
-		name: "Pesse"
+		name: "Pesse",
 	},
 	pzh: {
 		code: "pzh",
-		name: "Pazeh"
+		name: "Pazeh",
 	},
 	pzn: {
 		code: "pzn",
-		name: "Jejara Naga"
+		name: "Jejara Naga",
 	},
 	qua: {
 		code: "qua",
-		name: "Quapaw"
+		name: "Quapaw",
 	},
 	qub: {
 		code: "qub",
-		name: "Huallaga Huánuco Quechua"
+		name: "Huallaga Huánuco Quechua",
 	},
 	quc: {
 		code: "quc",
-		name: "K'iche'"
+		name: "K'iche'",
 	},
 	qud: {
 		code: "qud",
-		name: "Calderón Highland Quichua"
+		name: "Calderón Highland Quichua",
+	},
+	que: {
+		code: "que",
+		name: "Quechua",
 	},
 	quf: {
 		code: "quf",
-		name: "Lambayeque Quechua"
+		name: "Lambayeque Quechua",
 	},
 	qug: {
 		code: "qug",
-		name: "Chimborazo Highland Quichua"
+		name: "Chimborazo Highland Quichua",
 	},
 	quh: {
 		code: "quh",
-		name: "South Bolivian Quechua"
+		name: "South Bolivian Quechua",
 	},
 	qui: {
 		code: "qui",
-		name: "Quileute"
+		name: "Quileute",
 	},
 	quk: {
 		code: "quk",
-		name: "Chachapoyas Quechua"
+		name: "Chachapoyas Quechua",
 	},
 	qul: {
 		code: "qul",
-		name: "North Bolivian Quechua"
+		name: "North Bolivian Quechua",
 	},
 	qum: {
 		code: "qum",
-		name: "Sipacapense"
+		name: "Sipacapense",
 	},
 	qun: {
 		code: "qun",
-		name: "Quinault"
+		name: "Quinault",
 	},
 	qup: {
 		code: "qup",
-		name: "Southern Pastaza Quechua"
+		name: "Southern Pastaza Quechua",
 	},
 	quq: {
 		code: "quq",
-		name: "Quinqui"
+		name: "Quinqui",
 	},
 	qur: {
 		code: "qur",
-		name: "Yanahuanca Pasco Quechua"
+		name: "Yanahuanca Pasco Quechua",
 	},
 	qus: {
 		code: "qus",
-		name: "Santiago del Estero Quichua"
+		name: "Santiago del Estero Quichua",
 	},
 	quv: {
 		code: "quv",
-		name: "Sacapulteco"
+		name: "Sacapulteco",
 	},
 	quw: {
 		code: "quw",
-		name: "Tena Lowland Quichua"
+		name: "Tena Lowland Quichua",
 	},
 	qux: {
 		code: "qux",
-		name: "Yauyos Quechua"
+		name: "Yauyos Quechua",
 	},
 	quy: {
 		code: "quy",
-		name: "Ayacucho Quechua"
+		name: "Ayacucho Quechua",
 	},
 	quz: {
 		code: "quz",
-		name: "Cusco Quechua"
+		name: "Cusco Quechua",
 	},
 	qva: {
 		code: "qva",
-		name: "Ambo-Pasco Quechua"
+		name: "Ambo-Pasco Quechua",
 	},
 	qvc: {
 		code: "qvc",
-		name: "Cajamarca Quechua"
+		name: "Cajamarca Quechua",
 	},
 	qve: {
 		code: "qve",
-		name: "Eastern Apurímac Quechua"
+		name: "Eastern Apurímac Quechua",
 	},
 	qvh: {
 		code: "qvh",
-		name: "Huamalíes-Dos de Mayo Huánuco Quechua"
+		name: "Huamalíes-Dos de Mayo Huánuco Quechua",
 	},
 	qvi: {
 		code: "qvi",
-		name: "Imbabura Highland Quichua"
+		name: "Imbabura Highland Quichua",
 	},
 	qvj: {
 		code: "qvj",
-		name: "Loja Highland Quichua"
+		name: "Loja Highland Quichua",
 	},
 	qvl: {
 		code: "qvl",
-		name: "Cajatambo North Lima Quechua"
+		name: "Cajatambo North Lima Quechua",
 	},
 	qvm: {
 		code: "qvm",
-		name: "Margos-Yarowilca-Lauricocha Quechua"
+		name: "Margos-Yarowilca-Lauricocha Quechua",
 	},
 	qvn: {
 		code: "qvn",
-		name: "North Junín Quechua"
+		name: "North Junín Quechua",
 	},
 	qvo: {
 		code: "qvo",
-		name: "Napo Lowland Quechua"
+		name: "Napo Lowland Quechua",
 	},
 	qvp: {
 		code: "qvp",
-		name: "Pacaraos Quechua"
+		name: "Pacaraos Quechua",
 	},
 	qvs: {
 		code: "qvs",
-		name: "San Martín Quechua"
+		name: "San Martín Quechua",
 	},
 	qvw: {
 		code: "qvw",
-		name: "Huaylla Wanca Quechua"
+		name: "Huaylla Wanca Quechua",
 	},
 	qvy: {
 		code: "qvy",
-		name: "Queyu"
+		name: "Queyu",
 	},
 	qvz: {
 		code: "qvz",
-		name: "Northern Pastaza Quichua"
+		name: "Northern Pastaza Quichua",
 	},
 	qwa: {
 		code: "qwa",
-		name: "Corongo Ancash Quechua"
+		name: "Corongo Ancash Quechua",
 	},
 	qwc: {
 		code: "qwc",
-		name: "Classical Quechua"
+		name: "Classical Quechua",
 	},
 	qwh: {
 		code: "qwh",
-		name: "Huaylas Ancash Quechua"
+		name: "Huaylas Ancash Quechua",
 	},
 	qwm: {
 		code: "qwm",
-		name: "Kuman (Russia)"
+		name: "Kuman (Russia)",
 	},
 	qws: {
 		code: "qws",
-		name: "Sihuas Ancash Quechua"
+		name: "Sihuas Ancash Quechua",
 	},
 	qwt: {
 		code: "qwt",
-		name: "Kwalhioqua-Tlatskanai"
+		name: "Kwalhioqua-Tlatskanai",
 	},
 	qxa: {
 		code: "qxa",
-		name: "Chiquián Ancash Quechua"
+		name: "Chiquián Ancash Quechua",
 	},
 	qxc: {
 		code: "qxc",
-		name: "Chincha Quechua"
+		name: "Chincha Quechua",
 	},
 	qxh: {
 		code: "qxh",
-		name: "Panao Huánuco Quechua"
+		name: "Panao Huánuco Quechua",
 	},
 	qxl: {
 		code: "qxl",
-		name: "Salasaca Highland Quichua"
+		name: "Salasaca Highland Quichua",
 	},
 	qxn: {
 		code: "qxn",
-		name: "Northern Conchucos Ancash Quechua"
+		name: "Northern Conchucos Ancash Quechua",
 	},
 	qxo: {
 		code: "qxo",
-		name: "Southern Conchucos Ancash Quechua"
+		name: "Southern Conchucos Ancash Quechua",
 	},
 	qxp: {
 		code: "qxp",
-		name: "Puno Quechua"
+		name: "Puno Quechua",
 	},
 	qxq: {
 		code: "qxq",
-		name: "Qashqa'i"
+		name: "Qashqa'i",
 	},
 	qxr: {
 		code: "qxr",
-		name: "Cañar Highland Quichua"
+		name: "Cañar Highland Quichua",
 	},
 	qxs: {
 		code: "qxs",
-		name: "Southern Qiang"
+		name: "Southern Qiang",
 	},
 	qxt: {
 		code: "qxt",
-		name: "Santa Ana de Tusi Pasco Quechua"
+		name: "Santa Ana de Tusi Pasco Quechua",
 	},
 	qxu: {
 		code: "qxu",
-		name: "Arequipa-La Unión Quechua"
+		name: "Arequipa-La Unión Quechua",
 	},
 	qxw: {
 		code: "qxw",
-		name: "Jauja Wanca Quechua"
+		name: "Jauja Wanca Quechua",
 	},
 	qya: {
 		code: "qya",
-		name: "Quenya"
+		name: "Quenya",
 	},
 	qyp: {
 		code: "qyp",
-		name: "Quiripi"
+		name: "Quiripi",
 	},
 	raa: {
 		code: "raa",
-		name: "Dungmali"
+		name: "Dungmali",
 	},
 	rab: {
 		code: "rab",
-		name: "Camling"
+		name: "Camling",
 	},
 	rac: {
 		code: "rac",
-		name: "Rasawa"
+		name: "Rasawa",
 	},
 	rad: {
 		code: "rad",
-		name: "Rade"
+		name: "Rade",
 	},
 	raf: {
 		code: "raf",
-		name: "Western Meohang"
+		name: "Western Meohang",
 	},
 	rag: {
 		code: "rag",
-		name: "Logooli"
+		name: "Logooli",
 	},
 	rah: {
 		code: "rah",
-		name: "Rabha"
+		name: "Rabha",
 	},
 	rai: {
 		code: "rai",
-		name: "Ramoaaina"
+		name: "Ramoaaina",
 	},
 	raj: {
 		code: "raj",
-		name: "Rajasthani"
+		name: "Rajasthani",
 	},
 	rak: {
 		code: "rak",
-		name: "Tulu-Bohuai"
+		name: "Tulu-Bohuai",
 	},
 	ral: {
 		code: "ral",
-		name: "Ralte"
+		name: "Ralte",
 	},
 	ram: {
 		code: "ram",
-		name: "Canela"
+		name: "Canela",
 	},
 	ran: {
 		code: "ran",
-		name: "Riantana"
+		name: "Riantana",
 	},
 	rao: {
 		code: "rao",
-		name: "Rao"
+		name: "Rao",
 	},
 	rap: {
 		code: "rap",
-		name: "Rapanui"
+		name: "Rapanui",
 	},
 	raq: {
 		code: "raq",
-		name: "Saam"
+		name: "Saam",
 	},
 	rar: {
 		code: "rar",
-		name: "Rarotongan"
+		name: "Rarotongan",
 	},
 	ras: {
 		code: "ras",
-		name: "Tegali"
+		name: "Tegali",
 	},
 	rat: {
 		code: "rat",
-		name: "Razajerdi"
+		name: "Razajerdi",
 	},
 	rau: {
 		code: "rau",
-		name: "Raute"
+		name: "Raute",
 	},
 	rav: {
 		code: "rav",
-		name: "Sampang"
+		name: "Sampang",
 	},
 	raw: {
 		code: "raw",
-		name: "Rawang"
+		name: "Rawang",
 	},
 	rax: {
 		code: "rax",
-		name: "Rang"
+		name: "Rang",
 	},
 	ray: {
 		code: "ray",
-		name: "Rapa"
+		name: "Rapa",
 	},
 	raz: {
 		code: "raz",
-		name: "Rahambuu"
+		name: "Rahambuu",
 	},
 	rbb: {
 		code: "rbb",
-		name: "Rumai Palaung"
+		name: "Rumai Palaung",
 	},
 	rbk: {
 		code: "rbk",
-		name: "Northern Bontok"
+		name: "Northern Bontok",
 	},
 	rbl: {
 		code: "rbl",
-		name: "Miraya Bikol"
+		name: "Miraya Bikol",
 	},
 	rbp: {
 		code: "rbp",
-		name: "Barababaraba"
+		name: "Barababaraba",
 	},
 	rcf: {
 		code: "rcf",
-		name: "Réunion Creole French"
+		name: "Réunion Creole French",
 	},
 	rdb: {
 		code: "rdb",
-		name: "Rudbari"
+		name: "Rudbari",
 	},
 	rea: {
 		code: "rea",
-		name: "Rerau"
+		name: "Rerau",
 	},
 	reb: {
 		code: "reb",
-		name: "Rembong"
+		name: "Rembong",
 	},
 	ree: {
 		code: "ree",
-		name: "Rejang Kayan"
+		name: "Rejang Kayan",
 	},
 	reg: {
 		code: "reg",
-		name: "Kara (Tanzania)"
+		name: "Kara (Tanzania)",
 	},
 	rei: {
 		code: "rei",
-		name: "Reli"
+		name: "Reli",
 	},
 	rej: {
 		code: "rej",
-		name: "Rejang"
+		name: "Rejang",
 	},
 	rel: {
 		code: "rel",
-		name: "Rendille"
+		name: "Rendille",
 	},
 	rem: {
 		code: "rem",
-		name: "Remo"
+		name: "Remo",
 	},
 	ren: {
 		code: "ren",
-		name: "Rengao"
+		name: "Rengao",
 	},
 	rer: {
 		code: "rer",
-		name: "Rer Bare"
+		name: "Rer Bare",
 	},
 	res: {
 		code: "res",
-		name: "Reshe"
+		name: "Reshe",
 	},
 	ret: {
 		code: "ret",
-		name: "Retta"
+		name: "Retta",
 	},
 	rey: {
 		code: "rey",
-		name: "Reyesano"
+		name: "Reyesano",
 	},
 	rga: {
 		code: "rga",
-		name: "Roria"
+		name: "Roria",
 	},
 	rge: {
 		code: "rge",
-		name: "Romano-Greek"
+		name: "Romano-Greek",
 	},
 	rgk: {
 		code: "rgk",
-		name: "Rangkas"
+		name: "Rangkas",
 	},
 	rgn: {
 		code: "rgn",
-		name: "Romagnol"
+		name: "Romagnol",
 	},
 	rgr: {
 		code: "rgr",
-		name: "Resígaro"
+		name: "Resígaro",
 	},
 	rgs: {
 		code: "rgs",
-		name: "Southern Roglai"
+		name: "Southern Roglai",
 	},
 	rgu: {
 		code: "rgu",
-		name: "Ringgou"
+		name: "Ringgou",
 	},
 	rhg: {
 		code: "rhg",
-		name: "Rohingya"
+		name: "Rohingya",
 	},
 	rhp: {
 		code: "rhp",
-		name: "Yahang"
+		name: "Yahang",
 	},
 	ria: {
 		code: "ria",
-		name: "Riang (India)"
+		name: "Riang (India)",
 	},
 	rib: {
 		code: "rib",
-		name: "Bribri Sign Language"
+		name: "Bribri Sign Language",
 	},
 	rif: {
 		code: "rif",
-		name: "Tarifit"
+		name: "Tarifit",
 	},
 	ril: {
 		code: "ril",
-		name: "Riang Lang"
+		name: "Riang Lang",
 	},
 	rim: {
 		code: "rim",
-		name: "Nyaturu"
+		name: "Nyaturu",
 	},
 	rin: {
 		code: "rin",
-		name: "Nungu"
+		name: "Nungu",
 	},
 	rir: {
 		code: "rir",
-		name: "Ribun"
+		name: "Ribun",
 	},
 	rit: {
 		code: "rit",
-		name: "Ritharrngu"
+		name: "Ritharrngu",
 	},
 	riu: {
 		code: "riu",
-		name: "Riung"
+		name: "Riung",
 	},
 	rjg: {
 		code: "rjg",
-		name: "Rajong"
+		name: "Rajong",
 	},
 	rji: {
 		code: "rji",
-		name: "Raji"
+		name: "Raji",
 	},
 	rjs: {
 		code: "rjs",
-		name: "Rajbanshi"
+		name: "Rajbanshi",
 	},
 	rka: {
 		code: "rka",
-		name: "Kraol"
+		name: "Kraol",
 	},
 	rkb: {
 		code: "rkb",
-		name: "Rikbaktsa"
+		name: "Rikbaktsa",
 	},
 	rkh: {
 		code: "rkh",
-		name: "Rakahanga-Manihiki"
+		name: "Rakahanga-Manihiki",
 	},
 	rki: {
 		code: "rki",
-		name: "Rakhine"
+		name: "Rakhine",
 	},
 	rkm: {
 		code: "rkm",
-		name: "Marka"
+		name: "Marka",
 	},
 	rkt: {
 		code: "rkt",
-		name: "Rangpuri"
+		name: "Rangpuri",
 	},
 	rkw: {
 		code: "rkw",
-		name: "Arakwal"
+		name: "Arakwal",
 	},
 	rma: {
 		code: "rma",
-		name: "Rama"
+		name: "Rama",
 	},
 	rmb: {
 		code: "rmb",
-		name: "Rembarrnga"
+		name: "Rembarrnga",
 	},
 	rmc: {
 		code: "rmc",
-		name: "Carpathian Romani"
+		name: "Carpathian Romani",
 	},
 	rmd: {
 		code: "rmd",
-		name: "Traveller Danish"
+		name: "Traveller Danish",
 	},
 	rme: {
 		code: "rme",
-		name: "Angloromani"
+		name: "Angloromani",
 	},
 	rmf: {
 		code: "rmf",
-		name: "Kalo Finnish Romani"
+		name: "Kalo Finnish Romani",
 	},
 	rmg: {
 		code: "rmg",
-		name: "Traveller Norwegian"
+		name: "Traveller Norwegian",
 	},
 	rmh: {
 		code: "rmh",
-		name: "Murkim"
+		name: "Murkim",
 	},
 	rmi: {
 		code: "rmi",
-		name: "Lomavren"
+		name: "Lomavren",
 	},
 	rmk: {
 		code: "rmk",
-		name: "Romkun"
+		name: "Romkun",
 	},
 	rml: {
 		code: "rml",
-		name: "Baltic Romani"
+		name: "Baltic Romani",
 	},
 	rmm: {
 		code: "rmm",
-		name: "Roma"
+		name: "Roma",
 	},
 	rmn: {
 		code: "rmn",
-		name: "Balkan Romani"
+		name: "Balkan Romani",
 	},
 	rmo: {
 		code: "rmo",
-		name: "Sinte Romani"
+		name: "Sinte Romani",
 	},
 	rmp: {
 		code: "rmp",
-		name: "Rempi"
+		name: "Rempi",
 	},
 	rmq: {
 		code: "rmq",
-		name: "Caló"
+		name: "Caló",
 	},
 	rms: {
 		code: "rms",
-		name: "Romanian Sign Language"
+		name: "Romanian Sign Language",
 	},
 	rmt: {
 		code: "rmt",
-		name: "Domari"
+		name: "Domari",
 	},
 	rmu: {
 		code: "rmu",
-		name: "Tavringer Romani"
+		name: "Tavringer Romani",
 	},
 	rmv: {
 		code: "rmv",
-		name: "Romanova"
+		name: "Romanova",
 	},
 	rmw: {
 		code: "rmw",
-		name: "Welsh Romani"
+		name: "Welsh Romani",
 	},
 	rmx: {
 		code: "rmx",
-		name: "Romam"
+		name: "Romam",
 	},
 	rmy: {
 		code: "rmy",
-		name: "Vlax Romani"
+		name: "Vlax Romani",
 	},
 	rmz: {
 		code: "rmz",
-		name: "Marma"
+		name: "Marma",
 	},
 	rnb: {
 		code: "rnb",
-		name: "Brunca Sign Language"
+		name: "Brunca Sign Language",
+	},
+	rnd: {
+		code: "rnd",
+		name: "Ruund",
 	},
 	rng: {
 		code: "rng",
-		name: "Ronga"
+		name: "Ronga",
 	},
 	rnl: {
 		code: "rnl",
-		name: "Ranglong"
+		name: "Ranglong",
 	},
 	rnn: {
 		code: "rnn",
-		name: "Roon"
+		name: "Roon",
 	},
 	rnp: {
 		code: "rnp",
-		name: "Rongpo"
+		name: "Rongpo",
 	},
 	rnr: {
 		code: "rnr",
-		name: "Nari Nari"
+		name: "Nari Nari",
 	},
 	rnw: {
 		code: "rnw",
-		name: "Rungwa"
+		name: "Rungwa",
 	},
 	rob: {
 		code: "rob",
-		name: "Tae'"
+		name: "Tae'",
 	},
 	roc: {
 		code: "roc",
-		name: "Cacgia Roglai"
+		name: "Cacgia Roglai",
 	},
 	rod: {
 		code: "rod",
-		name: "Rogo"
+		name: "Rogo",
 	},
 	roe: {
 		code: "roe",
-		name: "Ronji"
+		name: "Ronji",
 	},
 	rof: {
 		code: "rof",
-		name: "Rombo"
+		name: "Rombo",
 	},
 	rog: {
 		code: "rog",
-		name: "Northern Roglai"
+		name: "Northern Roglai",
+	},
+	roh: {
+		code: "roh",
+		name: "Romansh",
 	},
 	rol: {
 		code: "rol",
-		name: "Romblomanon"
+		name: "Romblomanon",
 	},
 	rom: {
 		code: "rom",
-		name: "Romany"
+		name: "Romany",
+	},
+	ron: {
+		code: "ron",
+		name: "Romanian",
 	},
 	roo: {
 		code: "roo",
-		name: "Rotokas"
+		name: "Rotokas",
 	},
 	rop: {
 		code: "rop",
-		name: "Kriol"
+		name: "Kriol",
 	},
 	ror: {
 		code: "ror",
-		name: "Rongga"
+		name: "Rongga",
 	},
 	rou: {
 		code: "rou",
-		name: "Runga"
+		name: "Runga",
 	},
 	row: {
 		code: "row",
-		name: "Dela-Oenale"
+		name: "Dela-Oenale",
 	},
 	rpn: {
 		code: "rpn",
-		name: "Repanbitip"
+		name: "Repanbitip",
 	},
 	rpt: {
 		code: "rpt",
-		name: "Rapting"
+		name: "Rapting",
 	},
 	rri: {
 		code: "rri",
-		name: "Ririo"
+		name: "Ririo",
 	},
 	rro: {
 		code: "rro",
-		name: "Waima"
+		name: "Waima",
 	},
 	rrt: {
 		code: "rrt",
-		name: "Arritinngithigh"
+		name: "Arritinngithigh",
 	},
 	rsb: {
 		code: "rsb",
-		name: "Romano-Serbian"
+		name: "Romano-Serbian",
 	},
 	rsk: {
 		code: "rsk",
-		name: "Ruthenian"
+		name: "Ruthenian",
 	},
 	rsl: {
 		code: "rsl",
-		name: "Russian Sign Language"
+		name: "Russian Sign Language",
 	},
 	rsm: {
 		code: "rsm",
-		name: "Miriwoong Sign Language"
+		name: "Miriwoong Sign Language",
 	},
 	rsn: {
 		code: "rsn",
-		name: "Rwandan Sign Language"
+		name: "Rwandan Sign Language",
 	},
 	rsw: {
 		code: "rsw",
-		name: "Rishiwa"
+		name: "Rishiwa",
 	},
 	rtc: {
 		code: "rtc",
-		name: "Rungtu Chin"
+		name: "Rungtu Chin",
 	},
 	rth: {
 		code: "rth",
-		name: "Ratahan"
+		name: "Ratahan",
 	},
 	rtm: {
 		code: "rtm",
-		name: "Rotuman"
+		name: "Rotuman",
 	},
 	rts: {
 		code: "rts",
-		name: "Yurats"
+		name: "Yurats",
 	},
 	rtw: {
 		code: "rtw",
-		name: "Rathawi"
+		name: "Rathawi",
 	},
 	rub: {
 		code: "rub",
-		name: "Gungu"
+		name: "Gungu",
 	},
 	ruc: {
 		code: "ruc",
-		name: "Ruuli"
+		name: "Ruuli",
 	},
 	rue: {
 		code: "rue",
-		name: "Rusyn"
+		name: "Rusyn",
 	},
 	ruf: {
 		code: "ruf",
-		name: "Luguru"
+		name: "Luguru",
 	},
 	rug: {
 		code: "rug",
-		name: "Roviana"
+		name: "Roviana",
 	},
 	ruh: {
 		code: "ruh",
-		name: "Ruga"
+		name: "Ruga",
 	},
 	rui: {
 		code: "rui",
-		name: "Rufiji"
+		name: "Rufiji",
 	},
 	ruk: {
 		code: "ruk",
-		name: "Che"
+		name: "Che",
+	},
+	run: {
+		code: "run",
+		name: "Rundi",
 	},
 	ruo: {
 		code: "ruo",
-		name: "Istro Romanian"
+		name: "Istro Romanian",
 	},
 	rup: {
 		code: "rup",
-		name: "Macedo-Romanian"
+		name: "Macedo-Romanian",
 	},
 	ruq: {
 		code: "ruq",
-		name: "Megleno Romanian"
+		name: "Megleno Romanian",
+	},
+	rus: {
+		code: "rus",
+		name: "Russian",
 	},
 	rut: {
 		code: "rut",
-		name: "Rutul"
+		name: "Rutul",
 	},
 	ruu: {
 		code: "ruu",
-		name: "Lanas Lobu"
+		name: "Lanas Lobu",
 	},
 	ruy: {
 		code: "ruy",
-		name: "Mala (Nigeria)"
+		name: "Mala (Nigeria)",
 	},
 	ruz: {
 		code: "ruz",
-		name: "Ruma"
+		name: "Ruma",
 	},
 	rwa: {
 		code: "rwa",
-		name: "Rawo"
+		name: "Rawo",
 	},
 	rwk: {
 		code: "rwk",
-		name: "Rwa"
+		name: "Rwa",
 	},
 	rwl: {
 		code: "rwl",
-		name: "Ruwila"
+		name: "Ruwila",
 	},
 	rwm: {
 		code: "rwm",
-		name: "Amba (Uganda)"
+		name: "Amba (Uganda)",
 	},
 	rwo: {
 		code: "rwo",
-		name: "Rawa"
+		name: "Rawa",
 	},
 	rwr: {
 		code: "rwr",
-		name: "Marwari (India)"
+		name: "Marwari (India)",
 	},
 	rxd: {
 		code: "rxd",
-		name: "Ngardi"
+		name: "Ngardi",
 	},
 	rxw: {
 		code: "rxw",
-		name: "Karuwali"
+		name: "Karuwali",
 	},
 	ryn: {
 		code: "ryn",
-		name: "Northern Amami-Oshima"
+		name: "Northern Amami-Oshima",
 	},
 	rys: {
 		code: "rys",
-		name: "Yaeyama"
+		name: "Yaeyama",
 	},
 	ryu: {
 		code: "ryu",
-		name: "Central Okinawan"
+		name: "Central Okinawan",
 	},
 	rzh: {
 		code: "rzh",
-		name: "Rāziḥī"
+		name: "Rāziḥī",
 	},
 	saa: {
 		code: "saa",
-		name: "Saba"
+		name: "Saba",
 	},
 	sab: {
 		code: "sab",
-		name: "Buglere"
+		name: "Buglere",
 	},
 	sac: {
 		code: "sac",
-		name: "Meskwaki"
+		name: "Meskwaki",
 	},
 	sad: {
 		code: "sad",
-		name: "Sandawe"
+		name: "Sandawe",
 	},
 	sae: {
 		code: "sae",
-		name: "Sabanê"
+		name: "Sabanê",
 	},
 	saf: {
 		code: "saf",
-		name: "Safaliba"
+		name: "Safaliba",
+	},
+	sag: {
+		code: "sag",
+		name: "Sango",
+	},
+	sah: {
+		code: "sah",
+		name: "Yakut",
 	},
 	saj: {
 		code: "saj",
-		name: "Sahu"
+		name: "Sahu",
 	},
 	sak: {
 		code: "sak",
-		name: "Sake"
+		name: "Sake",
 	},
 	sam: {
 		code: "sam",
-		name: "Samaritan Aramaic"
+		name: "Samaritan Aramaic",
+	},
+	san: {
+		code: "san",
+		name: "Sanskrit",
 	},
 	sao: {
 		code: "sao",
-		name: "Sause"
+		name: "Sause",
 	},
 	saq: {
 		code: "saq",
-		name: "Samburu"
+		name: "Samburu",
 	},
 	sar: {
 		code: "sar",
-		name: "Saraveca"
+		name: "Saraveca",
 	},
 	sas: {
 		code: "sas",
-		name: "Sasak"
+		name: "Sasak",
 	},
 	sat: {
 		code: "sat",
-		name: "Santali"
+		name: "Santali",
 	},
 	sau: {
 		code: "sau",
-		name: "Saleman"
+		name: "Saleman",
 	},
 	sav: {
 		code: "sav",
-		name: "Saafi-Saafi"
+		name: "Saafi-Saafi",
 	},
 	saw: {
 		code: "saw",
-		name: "Sawi"
+		name: "Sawi",
 	},
 	sax: {
 		code: "sax",
-		name: "Sa"
+		name: "Sa",
 	},
 	say: {
 		code: "say",
-		name: "Saya"
+		name: "Saya",
 	},
 	saz: {
 		code: "saz",
-		name: "Saurashtra"
+		name: "Saurashtra",
 	},
 	sba: {
 		code: "sba",
-		name: "Ngambay"
+		name: "Ngambay",
 	},
 	sbb: {
 		code: "sbb",
-		name: "Simbo"
+		name: "Simbo",
 	},
 	sbc: {
 		code: "sbc",
-		name: "Kele (Papua New Guinea)"
+		name: "Kele (Papua New Guinea)",
 	},
 	sbd: {
 		code: "sbd",
-		name: "Southern Samo"
+		name: "Southern Samo",
 	},
 	sbe: {
 		code: "sbe",
-		name: "Saliba"
+		name: "Saliba",
 	},
 	sbf: {
 		code: "sbf",
-		name: "Chabu"
+		name: "Chabu",
 	},
 	sbg: {
 		code: "sbg",
-		name: "Seget"
+		name: "Seget",
 	},
 	sbh: {
 		code: "sbh",
-		name: "Sori-Harengan"
+		name: "Sori-Harengan",
 	},
 	sbi: {
 		code: "sbi",
-		name: "Seti"
+		name: "Seti",
 	},
 	sbj: {
 		code: "sbj",
-		name: "Surbakhal"
+		name: "Surbakhal",
 	},
 	sbk: {
 		code: "sbk",
-		name: "Safwa"
+		name: "Safwa",
 	},
 	sbl: {
 		code: "sbl",
-		name: "Botolan Sambal"
+		name: "Botolan Sambal",
 	},
 	sbm: {
 		code: "sbm",
-		name: "Sagala"
+		name: "Sagala",
 	},
 	sbn: {
 		code: "sbn",
-		name: "Sindhi Bhil"
+		name: "Sindhi Bhil",
 	},
 	sbo: {
 		code: "sbo",
-		name: "Sabüm"
+		name: "Sabüm",
 	},
 	sbp: {
 		code: "sbp",
-		name: "Sangu (Tanzania)"
+		name: "Sangu (Tanzania)",
 	},
 	sbq: {
 		code: "sbq",
-		name: "Sileibi"
+		name: "Sileibi",
 	},
 	sbr: {
 		code: "sbr",
-		name: "Sembakung Murut"
+		name: "Sembakung Murut",
 	},
 	sbs: {
 		code: "sbs",
-		name: "Subiya"
+		name: "Subiya",
 	},
 	sbt: {
 		code: "sbt",
-		name: "Kimki"
+		name: "Kimki",
 	},
 	sbu: {
 		code: "sbu",
-		name: "Stod Bhoti"
+		name: "Stod Bhoti",
 	},
 	sbv: {
 		code: "sbv",
-		name: "Sabine"
+		name: "Sabine",
 	},
 	sbw: {
 		code: "sbw",
-		name: "Simba"
+		name: "Simba",
 	},
 	sbx: {
 		code: "sbx",
-		name: "Seberuang"
+		name: "Seberuang",
 	},
 	sby: {
 		code: "sby",
-		name: "Soli"
+		name: "Soli",
 	},
 	sbz: {
 		code: "sbz",
-		name: "Sara Kaba"
+		name: "Sara Kaba",
 	},
 	scb: {
 		code: "scb",
-		name: "Chut"
+		name: "Chut",
 	},
 	sce: {
 		code: "sce",
-		name: "Dongxiang"
+		name: "Dongxiang",
 	},
 	scf: {
 		code: "scf",
-		name: "San Miguel Creole French"
+		name: "San Miguel Creole French",
 	},
 	scg: {
 		code: "scg",
-		name: "Sanggau"
+		name: "Sanggau",
 	},
 	sch: {
 		code: "sch",
-		name: "Sakachep"
+		name: "Sakachep",
 	},
 	sci: {
 		code: "sci",
-		name: "Sri Lankan Creole Malay"
+		name: "Sri Lankan Creole Malay",
 	},
 	sck: {
 		code: "sck",
-		name: "Sadri"
+		name: "Sadri",
 	},
 	scl: {
 		code: "scl",
-		name: "Shina"
+		name: "Shina",
 	},
 	scn: {
 		code: "scn",
-		name: "Sicilian"
+		name: "Sicilian",
 	},
 	sco: {
 		code: "sco",
-		name: "Scots"
+		name: "Scots",
 	},
 	scp: {
 		code: "scp",
-		name: "Hyolmo"
+		name: "Hyolmo",
 	},
 	scq: {
 		code: "scq",
-		name: "Sa'och"
+		name: "Sa'och",
 	},
 	scs: {
 		code: "scs",
-		name: "North Slavey"
+		name: "North Slavey",
 	},
 	sct: {
 		code: "sct",
-		name: "Southern Katang"
+		name: "Southern Katang",
 	},
 	scu: {
 		code: "scu",
-		name: "Shumcho"
+		name: "Shumcho",
 	},
 	scv: {
 		code: "scv",
-		name: "Sheni"
+		name: "Sheni",
 	},
 	scw: {
 		code: "scw",
-		name: "Sha"
+		name: "Sha",
 	},
 	scx: {
 		code: "scx",
-		name: "Sicel"
+		name: "Sicel",
 	},
 	sda: {
 		code: "sda",
-		name: "Toraja-Sa'dan"
+		name: "Toraja-Sa'dan",
 	},
 	sdb: {
 		code: "sdb",
-		name: "Shabak"
+		name: "Shabak",
 	},
 	sdc: {
 		code: "sdc",
-		name: "Sassarese Sardinian"
+		name: "Sassarese Sardinian",
 	},
 	sde: {
 		code: "sde",
-		name: "Surubu"
+		name: "Surubu",
 	},
 	sdf: {
 		code: "sdf",
-		name: "Sarli"
+		name: "Sarli",
 	},
 	sdg: {
 		code: "sdg",
-		name: "Savi"
+		name: "Savi",
 	},
 	sdh: {
 		code: "sdh",
-		name: "Southern Kurdish"
+		name: "Southern Kurdish",
 	},
 	sdj: {
 		code: "sdj",
-		name: "Suundi"
+		name: "Suundi",
 	},
 	sdk: {
 		code: "sdk",
-		name: "Sos Kundi"
+		name: "Sos Kundi",
 	},
 	sdl: {
 		code: "sdl",
-		name: "Saudi Arabian Sign Language"
+		name: "Saudi Arabian Sign Language",
 	},
 	sdn: {
 		code: "sdn",
-		name: "Gallurese Sardinian"
+		name: "Gallurese Sardinian",
 	},
 	sdo: {
 		code: "sdo",
-		name: "Bukar-Sadung Bidayuh"
+		name: "Bukar-Sadung Bidayuh",
 	},
 	sdp: {
 		code: "sdp",
-		name: "Sherdukpen"
+		name: "Sherdukpen",
 	},
 	sdq: {
 		code: "sdq",
-		name: "Semandang"
+		name: "Semandang",
 	},
 	sdr: {
 		code: "sdr",
-		name: "Oraon Sadri"
+		name: "Oraon Sadri",
 	},
 	sds: {
 		code: "sds",
-		name: "Sened"
+		name: "Sened",
 	},
 	sdt: {
 		code: "sdt",
-		name: "Shuadit"
+		name: "Shuadit",
 	},
 	sdu: {
 		code: "sdu",
-		name: "Sarudu"
+		name: "Sarudu",
 	},
 	sdx: {
 		code: "sdx",
-		name: "Sibu Melanau"
+		name: "Sibu Melanau",
 	},
 	sdz: {
 		code: "sdz",
-		name: "Sallands"
+		name: "Sallands",
 	},
 	sea: {
 		code: "sea",
-		name: "Semai"
+		name: "Semai",
 	},
 	seb: {
 		code: "seb",
-		name: "Shempire Senoufo"
+		name: "Shempire Senoufo",
 	},
 	sec: {
 		code: "sec",
-		name: "Sechelt"
+		name: "Sechelt",
 	},
 	sed: {
 		code: "sed",
-		name: "Sedang"
+		name: "Sedang",
 	},
 	see: {
 		code: "see",
-		name: "Seneca"
+		name: "Seneca",
 	},
 	sef: {
 		code: "sef",
-		name: "Cebaara Senoufo"
+		name: "Cebaara Senoufo",
 	},
 	seg: {
 		code: "seg",
-		name: "Segeju"
+		name: "Segeju",
 	},
 	seh: {
 		code: "seh",
-		name: "Sena"
+		name: "Sena",
 	},
 	sei: {
 		code: "sei",
-		name: "Seri"
+		name: "Seri",
 	},
 	sej: {
 		code: "sej",
-		name: "Sene"
+		name: "Sene",
 	},
 	sek: {
 		code: "sek",
-		name: "Sekani"
+		name: "Sekani",
 	},
 	sel: {
 		code: "sel",
-		name: "Selkup"
+		name: "Selkup",
 	},
 	sen: {
 		code: "sen",
-		name: "Nanerigé Sénoufo"
+		name: "Nanerigé Sénoufo",
 	},
 	seo: {
 		code: "seo",
-		name: "Suarmin"
+		name: "Suarmin",
 	},
 	sep: {
 		code: "sep",
-		name: "Sìcìté Sénoufo"
+		name: "Sìcìté Sénoufo",
 	},
 	seq: {
 		code: "seq",
-		name: "Senara Sénoufo"
+		name: "Senara Sénoufo",
 	},
 	ser: {
 		code: "ser",
-		name: "Serrano"
+		name: "Serrano",
 	},
 	ses: {
 		code: "ses",
-		name: "Koyraboro Senni Songhai"
+		name: "Koyraboro Senni Songhai",
 	},
 	set: {
 		code: "set",
-		name: "Sentani"
+		name: "Sentani",
 	},
 	seu: {
 		code: "seu",
-		name: "Serui-Laut"
+		name: "Serui-Laut",
 	},
 	sev: {
 		code: "sev",
-		name: "Nyarafolo Senoufo"
+		name: "Nyarafolo Senoufo",
 	},
 	sew: {
 		code: "sew",
-		name: "Sewa Bay"
+		name: "Sewa Bay",
 	},
 	sey: {
 		code: "sey",
-		name: "Secoya"
+		name: "Secoya",
 	},
 	sez: {
 		code: "sez",
-		name: "Senthang Chin"
+		name: "Senthang Chin",
 	},
 	sfb: {
 		code: "sfb",
-		name: "Langue des signes de Belgique Francophone"
+		name: "Langue des signes de Belgique Francophone",
 	},
 	sfe: {
 		code: "sfe",
-		name: "Eastern Subanen"
+		name: "Eastern Subanen",
 	},
 	sfm: {
 		code: "sfm",
-		name: "Small Flowery Miao"
+		name: "Small Flowery Miao",
 	},
 	sfs: {
 		code: "sfs",
-		name: "South African Sign Language"
+		name: "South African Sign Language",
 	},
 	sfw: {
 		code: "sfw",
-		name: "Sehwi"
+		name: "Sehwi",
 	},
 	sga: {
 		code: "sga",
-		name: "Old Irish (to 900)"
+		name: "Old Irish (to 900)",
 	},
 	sgb: {
 		code: "sgb",
-		name: "Mag-antsi Ayta"
+		name: "Mag-antsi Ayta",
 	},
 	sgc: {
 		code: "sgc",
-		name: "Kipsigis"
+		name: "Kipsigis",
 	},
 	sgd: {
 		code: "sgd",
-		name: "Surigaonon"
+		name: "Surigaonon",
 	},
 	sge: {
 		code: "sge",
-		name: "Segai"
+		name: "Segai",
 	},
 	sgg: {
 		code: "sgg",
-		name: "Swiss-German Sign Language"
+		name: "Swiss-German Sign Language",
 	},
 	sgh: {
 		code: "sgh",
-		name: "Shughni"
+		name: "Shughni",
 	},
 	sgi: {
 		code: "sgi",
-		name: "Suga"
+		name: "Suga",
 	},
 	sgj: {
 		code: "sgj",
-		name: "Surgujia"
+		name: "Surgujia",
 	},
 	sgk: {
 		code: "sgk",
-		name: "Sangkong"
+		name: "Sangkong",
 	},
 	sgm: {
 		code: "sgm",
-		name: "Singa"
+		name: "Singa",
 	},
 	sgp: {
 		code: "sgp",
-		name: "Singpho"
+		name: "Singpho",
 	},
 	sgr: {
 		code: "sgr",
-		name: "Sangisari"
+		name: "Sangisari",
 	},
 	sgs: {
 		code: "sgs",
-		name: "Samogitian"
+		name: "Samogitian",
 	},
 	sgt: {
 		code: "sgt",
-		name: "Brokpake"
+		name: "Brokpake",
 	},
 	sgu: {
 		code: "sgu",
-		name: "Salas"
+		name: "Salas",
 	},
 	sgw: {
 		code: "sgw",
-		name: "Sebat Bet Gurage"
+		name: "Sebat Bet Gurage",
 	},
 	sgx: {
 		code: "sgx",
-		name: "Sierra Leone Sign Language"
+		name: "Sierra Leone Sign Language",
 	},
 	sgy: {
 		code: "sgy",
-		name: "Sanglechi"
+		name: "Sanglechi",
 	},
 	sgz: {
 		code: "sgz",
-		name: "Sursurunga"
+		name: "Sursurunga",
 	},
 	sha: {
 		code: "sha",
-		name: "Shall-Zwall"
+		name: "Shall-Zwall",
 	},
 	shb: {
 		code: "shb",
-		name: "Ninam"
+		name: "Ninam",
 	},
 	shc: {
 		code: "shc",
-		name: "Sonde"
+		name: "Sonde",
 	},
 	shd: {
 		code: "shd",
-		name: "Kundal Shahi"
+		name: "Kundal Shahi",
 	},
 	she: {
 		code: "she",
-		name: "Sheko"
+		name: "Sheko",
 	},
 	shg: {
 		code: "shg",
-		name: "Shua"
+		name: "Shua",
 	},
 	shh: {
 		code: "shh",
-		name: "Shoshoni"
+		name: "Shoshoni",
 	},
 	shi: {
 		code: "shi",
-		name: "Tachelhit"
+		name: "Tachelhit",
 	},
 	shj: {
 		code: "shj",
-		name: "Shatt"
+		name: "Shatt",
 	},
 	shk: {
 		code: "shk",
-		name: "Shilluk"
+		name: "Shilluk",
 	},
 	shl: {
 		code: "shl",
-		name: "Shendu"
+		name: "Shendu",
 	},
 	shm: {
 		code: "shm",
-		name: "Shahrudi"
+		name: "Shahrudi",
 	},
 	shn: {
 		code: "shn",
-		name: "Shan"
+		name: "Shan",
 	},
 	sho: {
 		code: "sho",
-		name: "Shanga"
+		name: "Shanga",
 	},
 	shp: {
 		code: "shp",
-		name: "Shipibo-Conibo"
+		name: "Shipibo-Conibo",
 	},
 	shq: {
 		code: "shq",
-		name: "Sala"
+		name: "Sala",
 	},
 	shr: {
 		code: "shr",
-		name: "Shi"
+		name: "Shi",
 	},
 	shs: {
 		code: "shs",
-		name: "Shuswap"
+		name: "Shuswap",
 	},
 	sht: {
 		code: "sht",
-		name: "Shasta"
+		name: "Shasta",
 	},
 	shu: {
 		code: "shu",
-		name: "Chadian Arabic"
+		name: "Chadian Arabic",
 	},
 	shv: {
 		code: "shv",
-		name: "Shehri"
+		name: "Shehri",
 	},
 	shw: {
 		code: "shw",
-		name: "Shwai"
+		name: "Shwai",
 	},
 	shx: {
 		code: "shx",
-		name: "She"
+		name: "She",
 	},
 	shy: {
 		code: "shy",
-		name: "Tachawit"
+		name: "Tachawit",
 	},
 	shz: {
 		code: "shz",
-		name: "Syenara Senoufo"
+		name: "Syenara Senoufo",
 	},
 	sia: {
 		code: "sia",
-		name: "Akkala Sami"
+		name: "Akkala Sami",
 	},
 	sib: {
 		code: "sib",
-		name: "Sebop"
+		name: "Sebop",
 	},
 	sid: {
 		code: "sid",
-		name: "Sidamo"
+		name: "Sidamo",
 	},
 	sie: {
 		code: "sie",
-		name: "Simaa"
+		name: "Simaa",
 	},
 	sif: {
 		code: "sif",
-		name: "Siamou"
+		name: "Siamou",
 	},
 	sig: {
 		code: "sig",
-		name: "Paasaal"
+		name: "Paasaal",
 	},
 	sih: {
 		code: "sih",
-		name: "Zire"
+		name: "Zire",
 	},
 	sii: {
 		code: "sii",
-		name: "Shom Peng"
+		name: "Shom Peng",
 	},
 	sij: {
 		code: "sij",
-		name: "Numbami"
+		name: "Numbami",
 	},
 	sik: {
 		code: "sik",
-		name: "Sikiana"
+		name: "Sikiana",
 	},
 	sil: {
 		code: "sil",
-		name: "Tumulung Sisaala"
+		name: "Tumulung Sisaala",
 	},
 	sim: {
 		code: "sim",
-		name: "Mende (Papua New Guinea)"
+		name: "Mende (Papua New Guinea)",
+	},
+	sin: {
+		code: "sin",
+		name: "Sinhala",
 	},
 	sip: {
 		code: "sip",
-		name: "Sikkimese"
+		name: "Sikkimese",
 	},
 	siq: {
 		code: "siq",
-		name: "Sonia"
+		name: "Sonia",
 	},
 	sir: {
 		code: "sir",
-		name: "Siri"
+		name: "Siri",
 	},
 	sis: {
 		code: "sis",
-		name: "Siuslaw"
+		name: "Siuslaw",
 	},
 	siu: {
 		code: "siu",
-		name: "Sinagen"
+		name: "Sinagen",
 	},
 	siv: {
 		code: "siv",
-		name: "Sumariup"
+		name: "Sumariup",
 	},
 	siw: {
 		code: "siw",
-		name: "Siwai"
+		name: "Siwai",
 	},
 	six: {
 		code: "six",
-		name: "Sumau"
+		name: "Sumau",
 	},
 	siy: {
 		code: "siy",
-		name: "Sivandi"
+		name: "Sivandi",
 	},
 	siz: {
 		code: "siz",
-		name: "Siwi"
+		name: "Siwi",
 	},
 	sja: {
 		code: "sja",
-		name: "Epena"
+		name: "Epena",
 	},
 	sjb: {
 		code: "sjb",
-		name: "Sajau Basap"
+		name: "Sajau Basap",
 	},
 	sjd: {
 		code: "sjd",
-		name: "Kildin Sami"
+		name: "Kildin Sami",
 	},
 	sje: {
 		code: "sje",
-		name: "Pite Sami"
+		name: "Pite Sami",
 	},
 	sjg: {
 		code: "sjg",
-		name: "Assangori"
+		name: "Assangori",
 	},
 	sjk: {
 		code: "sjk",
-		name: "Kemi Sami"
+		name: "Kemi Sami",
 	},
 	sjl: {
 		code: "sjl",
-		name: "Sajalong"
+		name: "Sajalong",
 	},
 	sjm: {
 		code: "sjm",
-		name: "Mapun"
+		name: "Mapun",
 	},
 	sjn: {
 		code: "sjn",
-		name: "Sindarin"
+		name: "Sindarin",
 	},
 	sjo: {
 		code: "sjo",
-		name: "Xibe"
+		name: "Xibe",
 	},
 	sjp: {
 		code: "sjp",
-		name: "Surjapuri"
+		name: "Surjapuri",
 	},
 	sjr: {
 		code: "sjr",
-		name: "Siar-Lak"
+		name: "Siar-Lak",
 	},
 	sjs: {
 		code: "sjs",
-		name: "Senhaja De Srair"
+		name: "Senhaja De Srair",
 	},
 	sjt: {
 		code: "sjt",
-		name: "Ter Sami"
+		name: "Ter Sami",
 	},
 	sju: {
 		code: "sju",
-		name: "Ume Sami"
+		name: "Ume Sami",
 	},
 	sjw: {
 		code: "sjw",
-		name: "Shawnee"
+		name: "Shawnee",
 	},
 	ska: {
 		code: "ska",
-		name: "Skagit"
+		name: "Skagit",
 	},
 	skb: {
 		code: "skb",
-		name: "Saek"
+		name: "Saek",
 	},
 	skc: {
 		code: "skc",
-		name: "Ma Manda"
+		name: "Ma Manda",
 	},
 	skd: {
 		code: "skd",
-		name: "Southern Sierra Miwok"
+		name: "Southern Sierra Miwok",
 	},
 	ske: {
 		code: "ske",
-		name: "Seke (Vanuatu)"
+		name: "Seke (Vanuatu)",
 	},
 	skf: {
 		code: "skf",
-		name: "Sakirabiá"
+		name: "Sakirabiá",
 	},
 	skg: {
 		code: "skg",
-		name: "Sakalava Malagasy"
+		name: "Sakalava Malagasy",
 	},
 	skh: {
 		code: "skh",
-		name: "Sikule"
+		name: "Sikule",
 	},
 	ski: {
 		code: "ski",
-		name: "Sika"
+		name: "Sika",
 	},
 	skj: {
 		code: "skj",
-		name: "Seke (Nepal)"
+		name: "Seke (Nepal)",
 	},
 	skm: {
 		code: "skm",
-		name: "Kutong"
+		name: "Kutong",
 	},
 	skn: {
 		code: "skn",
-		name: "Kolibugan Subanon"
+		name: "Kolibugan Subanon",
 	},
 	sko: {
 		code: "sko",
-		name: "Seko Tengah"
+		name: "Seko Tengah",
 	},
 	skp: {
 		code: "skp",
-		name: "Sekapan"
+		name: "Sekapan",
 	},
 	skq: {
 		code: "skq",
-		name: "Sininkere"
+		name: "Sininkere",
 	},
 	skr: {
 		code: "skr",
-		name: "Saraiki"
+		name: "Saraiki",
 	},
 	sks: {
 		code: "sks",
-		name: "Maia"
+		name: "Maia",
 	},
 	skt: {
 		code: "skt",
-		name: "Sakata"
+		name: "Sakata",
 	},
 	sku: {
 		code: "sku",
-		name: "Sakao"
+		name: "Sakao",
 	},
 	skv: {
 		code: "skv",
-		name: "Skou"
+		name: "Skou",
 	},
 	skw: {
 		code: "skw",
-		name: "Skepi Creole Dutch"
+		name: "Skepi Creole Dutch",
 	},
 	skx: {
 		code: "skx",
-		name: "Seko Padang"
+		name: "Seko Padang",
 	},
 	sky: {
 		code: "sky",
-		name: "Sikaiana"
+		name: "Sikaiana",
 	},
 	skz: {
 		code: "skz",
-		name: "Sekar"
+		name: "Sekar",
 	},
 	slc: {
 		code: "slc",
-		name: "Sáliba"
+		name: "Sáliba",
 	},
 	sld: {
 		code: "sld",
-		name: "Sissala"
+		name: "Sissala",
 	},
 	sle: {
 		code: "sle",
-		name: "Sholaga"
+		name: "Sholaga",
 	},
 	slf: {
 		code: "slf",
-		name: "Swiss-Italian Sign Language"
+		name: "Swiss-Italian Sign Language",
 	},
 	slg: {
 		code: "slg",
-		name: "Selungai Murut"
+		name: "Selungai Murut",
 	},
 	slh: {
 		code: "slh",
-		name: "Southern Puget Sound Salish"
+		name: "Southern Puget Sound Salish",
 	},
 	sli: {
 		code: "sli",
-		name: "Lower Silesian"
+		name: "Lower Silesian",
 	},
 	slj: {
 		code: "slj",
-		name: "Salumá"
+		name: "Salumá",
+	},
+	slk: {
+		code: "slk",
+		name: "Slovak",
 	},
 	sll: {
 		code: "sll",
-		name: "Salt-Yui"
+		name: "Salt-Yui",
 	},
 	slm: {
 		code: "slm",
-		name: "Pangutaran Sama"
+		name: "Pangutaran Sama",
 	},
 	sln: {
 		code: "sln",
-		name: "Salinan"
+		name: "Salinan",
 	},
 	slp: {
 		code: "slp",
-		name: "Lamaholot"
+		name: "Lamaholot",
 	},
 	slr: {
 		code: "slr",
-		name: "Salar"
+		name: "Salar",
 	},
 	sls: {
 		code: "sls",
-		name: "Singapore Sign Language"
+		name: "Singapore Sign Language",
 	},
 	slt: {
 		code: "slt",
-		name: "Sila"
+		name: "Sila",
 	},
 	slu: {
 		code: "slu",
-		name: "Selaru"
+		name: "Selaru",
+	},
+	slv: {
+		code: "slv",
+		name: "Slovenian",
 	},
 	slw: {
 		code: "slw",
-		name: "Sialum"
+		name: "Sialum",
 	},
 	slx: {
 		code: "slx",
-		name: "Salampasu"
+		name: "Salampasu",
 	},
 	sly: {
 		code: "sly",
-		name: "Selayar"
+		name: "Selayar",
 	},
 	slz: {
 		code: "slz",
-		name: "Ma'ya"
+		name: "Ma'ya",
 	},
 	sma: {
 		code: "sma",
-		name: "Southern Sami"
+		name: "Southern Sami",
 	},
 	smb: {
 		code: "smb",
-		name: "Simbari"
+		name: "Simbari",
 	},
 	smc: {
 		code: "smc",
-		name: "Som"
+		name: "Som",
+	},
+	sme: {
+		code: "sme",
+		name: "Northern Sami",
 	},
 	smf: {
 		code: "smf",
-		name: "Auwe"
+		name: "Auwe",
 	},
 	smg: {
 		code: "smg",
-		name: "Simbali"
+		name: "Simbali",
 	},
 	smh: {
 		code: "smh",
-		name: "Samei"
+		name: "Samei",
 	},
 	smj: {
 		code: "smj",
-		name: "Lule Sami"
+		name: "Lule Sami",
 	},
 	smk: {
 		code: "smk",
-		name: "Bolinao"
+		name: "Bolinao",
 	},
 	sml: {
 		code: "sml",
-		name: "Central Sama"
+		name: "Central Sama",
 	},
 	smm: {
 		code: "smm",
-		name: "Musasa"
+		name: "Musasa",
 	},
 	smn: {
 		code: "smn",
-		name: "Inari Sami"
+		name: "Inari Sami",
+	},
+	smo: {
+		code: "smo",
+		name: "Samoan",
 	},
 	smp: {
 		code: "smp",
-		name: "Samaritan"
+		name: "Samaritan",
 	},
 	smq: {
 		code: "smq",
-		name: "Samo"
+		name: "Samo",
 	},
 	smr: {
 		code: "smr",
-		name: "Simeulue"
+		name: "Simeulue",
 	},
 	sms: {
 		code: "sms",
-		name: "Skolt Sami"
+		name: "Skolt Sami",
 	},
 	smt: {
 		code: "smt",
-		name: "Simte"
+		name: "Simte",
 	},
 	smu: {
 		code: "smu",
-		name: "Somray"
+		name: "Somray",
 	},
 	smv: {
 		code: "smv",
-		name: "Samvedi"
+		name: "Samvedi",
 	},
 	smw: {
 		code: "smw",
-		name: "Sumbawa"
+		name: "Sumbawa",
 	},
 	smx: {
 		code: "smx",
-		name: "Samba"
+		name: "Samba",
 	},
 	smy: {
 		code: "smy",
-		name: "Semnani"
+		name: "Semnani",
 	},
 	smz: {
 		code: "smz",
-		name: "Simeku"
+		name: "Simeku",
+	},
+	sna: {
+		code: "sna",
+		name: "Shona",
 	},
 	snc: {
 		code: "snc",
-		name: "Sinaugoro"
+		name: "Sinaugoro",
+	},
+	snd: {
+		code: "snd",
+		name: "Sindhi",
 	},
 	sne: {
 		code: "sne",
-		name: "Bau Bidayuh"
+		name: "Bau Bidayuh",
 	},
 	snf: {
 		code: "snf",
-		name: "Noon"
+		name: "Noon",
 	},
 	sng: {
 		code: "sng",
-		name: "Sanga (Democratic Republic of Congo)"
+		name: "Sanga (Democratic Republic of Congo)",
 	},
 	sni: {
 		code: "sni",
-		name: "Sensi"
+		name: "Sensi",
 	},
 	snj: {
 		code: "snj",
-		name: "Riverain Sango"
+		name: "Riverain Sango",
 	},
 	snk: {
 		code: "snk",
-		name: "Soninke"
+		name: "Soninke",
 	},
 	snl: {
 		code: "snl",
-		name: "Sangil"
+		name: "Sangil",
 	},
 	snm: {
 		code: "snm",
-		name: "Southern Ma'di"
+		name: "Southern Ma'di",
 	},
 	snn: {
 		code: "snn",
-		name: "Siona"
+		name: "Siona",
 	},
 	sno: {
 		code: "sno",
-		name: "Snohomish"
+		name: "Snohomish",
 	},
 	snp: {
 		code: "snp",
-		name: "Siane"
+		name: "Siane",
 	},
 	snq: {
 		code: "snq",
-		name: "Sangu (Gabon)"
+		name: "Sangu (Gabon)",
 	},
 	snr: {
 		code: "snr",
-		name: "Sihan"
+		name: "Sihan",
 	},
 	sns: {
 		code: "sns",
-		name: "South West Bay"
+		name: "South West Bay",
 	},
 	snu: {
 		code: "snu",
-		name: "Senggi"
+		name: "Senggi",
 	},
 	snv: {
 		code: "snv",
-		name: "Sa'ban"
+		name: "Sa'ban",
 	},
 	snw: {
 		code: "snw",
-		name: "Selee"
+		name: "Selee",
 	},
 	snx: {
 		code: "snx",
-		name: "Sam"
+		name: "Sam",
 	},
 	sny: {
 		code: "sny",
-		name: "Saniyo-Hiyewe"
+		name: "Saniyo-Hiyewe",
 	},
 	snz: {
 		code: "snz",
-		name: "Kou"
+		name: "Kou",
 	},
 	soa: {
 		code: "soa",
-		name: "Thai Song"
+		name: "Thai Song",
 	},
 	sob: {
 		code: "sob",
-		name: "Sobei"
+		name: "Sobei",
 	},
 	soc: {
 		code: "soc",
-		name: "So (Democratic Republic of Congo)"
+		name: "So (Democratic Republic of Congo)",
 	},
 	sod: {
 		code: "sod",
-		name: "Songoora"
+		name: "Songoora",
 	},
 	soe: {
 		code: "soe",
-		name: "Songomeno"
+		name: "Songomeno",
 	},
 	sog: {
 		code: "sog",
-		name: "Sogdian"
+		name: "Sogdian",
 	},
 	soh: {
 		code: "soh",
-		name: "Aka"
+		name: "Aka",
 	},
 	soi: {
 		code: "soi",
-		name: "Sonha"
+		name: "Sonha",
 	},
 	soj: {
 		code: "soj",
-		name: "Soi"
+		name: "Soi",
 	},
 	sok: {
 		code: "sok",
-		name: "Sokoro"
+		name: "Sokoro",
 	},
 	sol: {
 		code: "sol",
-		name: "Solos"
+		name: "Solos",
+	},
+	som: {
+		code: "som",
+		name: "Somali",
 	},
 	soo: {
 		code: "soo",
-		name: "Songo"
+		name: "Songo",
 	},
 	sop: {
 		code: "sop",
-		name: "Songe"
+		name: "Songe",
 	},
 	soq: {
 		code: "soq",
-		name: "Kanasi"
+		name: "Kanasi",
 	},
 	sor: {
 		code: "sor",
-		name: "Somrai"
+		name: "Somrai",
 	},
 	sos: {
 		code: "sos",
-		name: "Seeku"
+		name: "Seeku",
+	},
+	sot: {
+		code: "sot",
+		name: "Southern Sotho",
 	},
 	sou: {
 		code: "sou",
-		name: "Southern Thai"
+		name: "Southern Thai",
 	},
 	sov: {
 		code: "sov",
-		name: "Sonsorol"
+		name: "Sonsorol",
 	},
 	sow: {
 		code: "sow",
-		name: "Sowanda"
+		name: "Sowanda",
 	},
 	sox: {
 		code: "sox",
-		name: "Swo"
+		name: "Swo",
 	},
 	soy: {
 		code: "soy",
-		name: "Miyobe"
+		name: "Miyobe",
 	},
 	soz: {
 		code: "soz",
-		name: "Temi"
+		name: "Temi",
+	},
+	spa: {
+		code: "spa",
+		name: "Spanish",
 	},
 	spb: {
 		code: "spb",
-		name: "Sepa (Indonesia)"
+		name: "Sepa (Indonesia)",
 	},
 	spc: {
 		code: "spc",
-		name: "Sapé"
+		name: "Sapé",
 	},
 	spd: {
 		code: "spd",
-		name: "Saep"
+		name: "Saep",
 	},
 	spe: {
 		code: "spe",
-		name: "Sepa (Papua New Guinea)"
+		name: "Sepa (Papua New Guinea)",
 	},
 	spg: {
 		code: "spg",
-		name: "Sian"
+		name: "Sian",
 	},
 	spi: {
 		code: "spi",
-		name: "Saponi"
+		name: "Saponi",
 	},
 	spk: {
 		code: "spk",
-		name: "Sengo"
+		name: "Sengo",
 	},
 	spl: {
 		code: "spl",
-		name: "Selepet"
+		name: "Selepet",
 	},
 	spm: {
 		code: "spm",
-		name: "Akukem"
+		name: "Akukem",
 	},
 	spn: {
 		code: "spn",
-		name: "Sanapaná"
+		name: "Sanapaná",
 	},
 	spo: {
 		code: "spo",
-		name: "Spokane"
+		name: "Spokane",
 	},
 	spp: {
 		code: "spp",
-		name: "Supyire Senoufo"
+		name: "Supyire Senoufo",
 	},
 	spq: {
 		code: "spq",
-		name: "Loreto-Ucayali Spanish"
+		name: "Loreto-Ucayali Spanish",
 	},
 	spr: {
 		code: "spr",
-		name: "Saparua"
+		name: "Saparua",
 	},
 	sps: {
 		code: "sps",
-		name: "Saposa"
+		name: "Saposa",
 	},
 	spt: {
 		code: "spt",
-		name: "Spiti Bhoti"
+		name: "Spiti Bhoti",
 	},
 	spu: {
 		code: "spu",
-		name: "Sapuan"
+		name: "Sapuan",
 	},
 	spv: {
 		code: "spv",
-		name: "Sambalpuri"
+		name: "Sambalpuri",
 	},
 	spx: {
 		code: "spx",
-		name: "South Picene"
+		name: "South Picene",
 	},
 	spy: {
 		code: "spy",
-		name: "Sabaot"
+		name: "Sabaot",
 	},
 	sqa: {
 		code: "sqa",
-		name: "Shama-Sambuga"
+		name: "Shama-Sambuga",
 	},
 	sqh: {
 		code: "sqh",
-		name: "Shau"
+		name: "Shau",
+	},
+	sqi: {
+		code: "sqi",
+		name: "Albanian",
 	},
 	sqk: {
 		code: "sqk",
-		name: "Albanian Sign Language"
+		name: "Albanian Sign Language",
 	},
 	sqm: {
 		code: "sqm",
-		name: "Suma"
+		name: "Suma",
 	},
 	sqn: {
 		code: "sqn",
-		name: "Susquehannock"
+		name: "Susquehannock",
 	},
 	sqo: {
 		code: "sqo",
-		name: "Sorkhei"
+		name: "Sorkhei",
 	},
 	sqq: {
 		code: "sqq",
-		name: "Sou"
+		name: "Sou",
 	},
 	sqr: {
 		code: "sqr",
-		name: "Siculo Arabic"
+		name: "Siculo Arabic",
 	},
 	sqs: {
 		code: "sqs",
-		name: "Sri Lankan Sign Language"
+		name: "Sri Lankan Sign Language",
 	},
 	sqt: {
 		code: "sqt",
-		name: "Soqotri"
+		name: "Soqotri",
 	},
 	squ: {
 		code: "squ",
-		name: "Squamish"
+		name: "Squamish",
 	},
 	sqx: {
 		code: "sqx",
-		name: "Kufr Qassem Sign Language (KQSL)"
+		name: "Kufr Qassem Sign Language (KQSL)",
 	},
 	sra: {
 		code: "sra",
-		name: "Saruga"
+		name: "Saruga",
 	},
 	srb: {
 		code: "srb",
-		name: "Sora"
+		name: "Sora",
 	},
 	src: {
 		code: "src",
-		name: "Logudorese Sardinian"
+		name: "Logudorese Sardinian",
+	},
+	srd: {
+		code: "srd",
+		name: "Sardinian",
 	},
 	sre: {
 		code: "sre",
-		name: "Sara"
+		name: "Sara",
 	},
 	srf: {
 		code: "srf",
-		name: "Nafi"
+		name: "Nafi",
 	},
 	srg: {
 		code: "srg",
-		name: "Sulod"
+		name: "Sulod",
 	},
 	srh: {
 		code: "srh",
-		name: "Sarikoli"
+		name: "Sarikoli",
 	},
 	sri: {
 		code: "sri",
-		name: "Siriano"
+		name: "Siriano",
 	},
 	srk: {
 		code: "srk",
-		name: "Serudung Murut"
+		name: "Serudung Murut",
 	},
 	srl: {
 		code: "srl",
-		name: "Isirawa"
+		name: "Isirawa",
 	},
 	srm: {
 		code: "srm",
-		name: "Saramaccan"
+		name: "Saramaccan",
+	},
+	srn: {
+		code: "srn",
+		name: "Sranan Tongo",
 	},
 	sro: {
 		code: "sro",
-		name: "Campidanese Sardinian"
+		name: "Campidanese Sardinian",
+	},
+	srp: {
+		code: "srp",
+		name: "Serbian",
 	},
 	srq: {
 		code: "srq",
-		name: "Sirionó"
+		name: "Sirionó",
 	},
 	srr: {
 		code: "srr",
-		name: "Serer"
+		name: "Serer",
 	},
 	srs: {
 		code: "srs",
-		name: "Sarsi"
+		name: "Sarsi",
 	},
 	srt: {
 		code: "srt",
-		name: "Sauri"
+		name: "Sauri",
 	},
 	sru: {
 		code: "sru",
-		name: "Suruí"
+		name: "Suruí",
 	},
 	srv: {
 		code: "srv",
-		name: "Southern Sorsoganon"
+		name: "Southern Sorsoganon",
 	},
 	srw: {
 		code: "srw",
-		name: "Serua"
+		name: "Serua",
 	},
 	srx: {
 		code: "srx",
-		name: "Sirmauri"
+		name: "Sirmauri",
 	},
 	sry: {
 		code: "sry",
-		name: "Sera"
+		name: "Sera",
 	},
 	srz: {
 		code: "srz",
-		name: "Shahmirzadi"
+		name: "Shahmirzadi",
 	},
 	ssb: {
 		code: "ssb",
-		name: "Southern Sama"
+		name: "Southern Sama",
 	},
 	ssc: {
 		code: "ssc",
-		name: "Suba-Simbiti"
+		name: "Suba-Simbiti",
 	},
 	ssd: {
 		code: "ssd",
-		name: "Siroi"
+		name: "Siroi",
 	},
 	sse: {
 		code: "sse",
-		name: "Balangingi"
+		name: "Balangingi",
 	},
 	ssf: {
 		code: "ssf",
-		name: "Thao"
+		name: "Thao",
 	},
 	ssg: {
 		code: "ssg",
-		name: "Seimat"
+		name: "Seimat",
 	},
 	ssh: {
 		code: "ssh",
-		name: "Shihhi Arabic"
+		name: "Shihhi Arabic",
 	},
 	ssi: {
 		code: "ssi",
-		name: "Sansi"
+		name: "Sansi",
 	},
 	ssj: {
 		code: "ssj",
-		name: "Sausi"
+		name: "Sausi",
 	},
 	ssk: {
 		code: "ssk",
-		name: "Sunam"
+		name: "Sunam",
 	},
 	ssl: {
 		code: "ssl",
-		name: "Western Sisaala"
+		name: "Western Sisaala",
 	},
 	ssm: {
 		code: "ssm",
-		name: "Semnam"
+		name: "Semnam",
 	},
 	ssn: {
 		code: "ssn",
-		name: "Waata"
+		name: "Waata",
 	},
 	sso: {
 		code: "sso",
-		name: "Sissano"
+		name: "Sissano",
+	},
+	ssp: {
+		code: "ssp",
+		name: "Spanish Sign Language",
 	},
 	ssq: {
 		code: "ssq",
-		name: "So'a"
+		name: "So'a",
 	},
 	ssr: {
 		code: "ssr",
-		name: "Swiss-French Sign Language"
+		name: "Swiss-French Sign Language",
 	},
 	sss: {
 		code: "sss",
-		name: "Sô"
+		name: "Sô",
 	},
 	sst: {
 		code: "sst",
-		name: "Sinasina"
+		name: "Sinasina",
 	},
 	ssu: {
 		code: "ssu",
-		name: "Susuami"
+		name: "Susuami",
 	},
 	ssv: {
 		code: "ssv",
-		name: "Shark Bay"
+		name: "Shark Bay",
+	},
+	ssw: {
+		code: "ssw",
+		name: "Swati",
 	},
 	ssx: {
 		code: "ssx",
-		name: "Samberigi"
+		name: "Samberigi",
 	},
 	ssy: {
 		code: "ssy",
-		name: "Saho"
+		name: "Saho",
 	},
 	ssz: {
 		code: "ssz",
-		name: "Sengseng"
+		name: "Sengseng",
 	},
 	sta: {
 		code: "sta",
-		name: "Settla"
+		name: "Settla",
 	},
 	stb: {
 		code: "stb",
-		name: "Northern Subanen"
+		name: "Northern Subanen",
 	},
 	std: {
 		code: "std",
-		name: "Sentinel"
+		name: "Sentinel",
 	},
 	ste: {
 		code: "ste",
-		name: "Liana-Seti"
+		name: "Liana-Seti",
 	},
 	stf: {
 		code: "stf",
-		name: "Seta"
+		name: "Seta",
 	},
 	stg: {
 		code: "stg",
-		name: "Trieng"
+		name: "Trieng",
 	},
 	sth: {
 		code: "sth",
-		name: "Shelta"
+		name: "Shelta",
 	},
 	sti: {
 		code: "sti",
-		name: "Bulo Stieng"
+		name: "Bulo Stieng",
 	},
 	stj: {
 		code: "stj",
-		name: "Matya Samo"
+		name: "Matya Samo",
 	},
 	stk: {
 		code: "stk",
-		name: "Arammba"
+		name: "Arammba",
 	},
 	stl: {
 		code: "stl",
-		name: "Stellingwerfs"
+		name: "Stellingwerfs",
 	},
 	stm: {
 		code: "stm",
-		name: "Setaman"
+		name: "Setaman",
 	},
 	stn: {
 		code: "stn",
-		name: "Owa"
+		name: "Owa",
 	},
 	sto: {
 		code: "sto",
-		name: "Stoney"
+		name: "Stoney",
 	},
 	stp: {
 		code: "stp",
-		name: "Southeastern Tepehuan"
+		name: "Southeastern Tepehuan",
 	},
 	stq: {
 		code: "stq",
-		name: "Saterfriesisch"
+		name: "Saterfriesisch",
 	},
 	str: {
 		code: "str",
-		name: "Straits Salish"
+		name: "Straits Salish",
 	},
 	sts: {
 		code: "sts",
-		name: "Shumashti"
+		name: "Shumashti",
 	},
 	stt: {
 		code: "stt",
-		name: "Budeh Stieng"
+		name: "Budeh Stieng",
 	},
 	stu: {
 		code: "stu",
-		name: "Samtao"
+		name: "Samtao",
 	},
 	stv: {
 		code: "stv",
-		name: "Silt'e"
+		name: "Silt'e",
 	},
 	stw: {
 		code: "stw",
-		name: "Satawalese"
+		name: "Satawalese",
 	},
 	sty: {
 		code: "sty",
-		name: "Siberian Tatar"
+		name: "Siberian Tatar",
 	},
 	sua: {
 		code: "sua",
-		name: "Sulka"
+		name: "Sulka",
 	},
 	sub: {
 		code: "sub",
-		name: "Suku"
+		name: "Suku",
 	},
 	suc: {
 		code: "suc",
-		name: "Western Subanon"
+		name: "Western Subanon",
 	},
 	sue: {
 		code: "sue",
-		name: "Suena"
+		name: "Suena",
 	},
 	sug: {
 		code: "sug",
-		name: "Suganga"
+		name: "Suganga",
 	},
 	sui: {
 		code: "sui",
-		name: "Suki"
+		name: "Suki",
 	},
 	suj: {
 		code: "suj",
-		name: "Shubi"
+		name: "Shubi",
 	},
 	suk: {
 		code: "suk",
-		name: "Sukuma"
+		name: "Sukuma",
+	},
+	sun: {
+		code: "sun",
+		name: "Sundanese",
 	},
 	suo: {
 		code: "suo",
-		name: "Bouni"
+		name: "Bouni",
 	},
 	suq: {
 		code: "suq",
-		name: "Tirmaga-Chai Suri"
+		name: "Tirmaga-Chai Suri",
 	},
 	sur: {
 		code: "sur",
-		name: "Mwaghavul"
+		name: "Mwaghavul",
 	},
 	sus: {
 		code: "sus",
-		name: "Susu"
+		name: "Susu",
 	},
 	sut: {
 		code: "sut",
-		name: "Subtiaba"
+		name: "Subtiaba",
 	},
 	suv: {
 		code: "suv",
-		name: "Puroik"
+		name: "Puroik",
 	},
 	suw: {
 		code: "suw",
-		name: "Sumbwa"
+		name: "Sumbwa",
 	},
 	sux: {
 		code: "sux",
-		name: "Sumerian"
+		name: "Sumerian",
 	},
 	suy: {
 		code: "suy",
-		name: "Suyá"
+		name: "Suyá",
 	},
 	suz: {
 		code: "suz",
-		name: "Sunwar"
+		name: "Sunwar",
 	},
 	sva: {
 		code: "sva",
-		name: "Svan"
+		name: "Svan",
 	},
 	svb: {
 		code: "svb",
-		name: "Ulau-Suain"
+		name: "Ulau-Suain",
 	},
 	svc: {
 		code: "svc",
-		name: "Vincentian Creole English"
+		name: "Vincentian Creole English",
 	},
 	sve: {
 		code: "sve",
-		name: "Serili"
+		name: "Serili",
 	},
 	svk: {
 		code: "svk",
-		name: "Slovakian Sign Language"
+		name: "Slovakian Sign Language",
 	},
 	svm: {
 		code: "svm",
-		name: "Slavomolisano"
+		name: "Slavomolisano",
 	},
 	svs: {
 		code: "svs",
-		name: "Savosavo"
+		name: "Savosavo",
 	},
 	svx: {
 		code: "svx",
-		name: "Skalvian"
+		name: "Skalvian",
 	},
 	swa: {
 		code: "swa",
-		name: "Swahili (macrolanguage)"
+		name: "Swahili (macrolanguage)",
 	},
 	swb: {
 		code: "swb",
-		name: "Maore Comorian"
+		name: "Maore Comorian",
+	},
+	swc: {
+		code: "swc",
+		name: "Congo Swahili",
+	},
+	swe: {
+		code: "swe",
+		name: "Swedish",
 	},
 	swf: {
 		code: "swf",
-		name: "Sere"
+		name: "Sere",
 	},
 	swg: {
 		code: "swg",
-		name: "Swabian"
+		name: "Swabian",
 	},
 	swh: {
 		code: "swh",
-		name: "Swahili (individual language)"
+		name: "Swahili (individual language)",
 	},
 	swi: {
 		code: "swi",
-		name: "Sui"
+		name: "Sui",
 	},
 	swj: {
 		code: "swj",
-		name: "Sira"
+		name: "Sira",
 	},
 	swk: {
 		code: "swk",
-		name: "Malawi Sena"
+		name: "Malawi Sena",
 	},
 	swl: {
 		code: "swl",
-		name: "Swedish Sign Language"
+		name: "Swedish Sign Language",
 	},
 	swm: {
 		code: "swm",
-		name: "Samosa"
+		name: "Samosa",
 	},
 	swn: {
 		code: "swn",
-		name: "Sawknah"
+		name: "Sawknah",
 	},
 	swo: {
 		code: "swo",
-		name: "Shanenawa"
+		name: "Shanenawa",
 	},
 	swp: {
 		code: "swp",
-		name: "Suau"
+		name: "Suau",
 	},
 	swq: {
 		code: "swq",
-		name: "Sharwa"
+		name: "Sharwa",
 	},
 	swr: {
 		code: "swr",
-		name: "Saweru"
+		name: "Saweru",
 	},
 	sws: {
 		code: "sws",
-		name: "Seluwasan"
+		name: "Seluwasan",
 	},
 	swt: {
 		code: "swt",
-		name: "Sawila"
+		name: "Sawila",
 	},
 	swu: {
 		code: "swu",
-		name: "Suwawa"
+		name: "Suwawa",
 	},
 	swv: {
 		code: "swv",
-		name: "Shekhawati"
+		name: "Shekhawati",
 	},
 	sww: {
 		code: "sww",
-		name: "Sowa"
+		name: "Sowa",
 	},
 	swx: {
 		code: "swx",
-		name: "Suruahá"
+		name: "Suruahá",
 	},
 	swy: {
 		code: "swy",
-		name: "Sarua"
+		name: "Sarua",
 	},
 	sxb: {
 		code: "sxb",
-		name: "Suba"
+		name: "Suba",
 	},
 	sxc: {
 		code: "sxc",
-		name: "Sicanian"
+		name: "Sicanian",
 	},
 	sxe: {
 		code: "sxe",
-		name: "Sighu"
+		name: "Sighu",
 	},
 	sxg: {
 		code: "sxg",
-		name: "Shuhi"
+		name: "Shuhi",
 	},
 	sxk: {
 		code: "sxk",
-		name: "Southern Kalapuya"
+		name: "Southern Kalapuya",
 	},
 	sxl: {
 		code: "sxl",
-		name: "Selian"
+		name: "Selian",
 	},
 	sxm: {
 		code: "sxm",
-		name: "Samre"
+		name: "Samre",
 	},
 	sxn: {
 		code: "sxn",
-		name: "Sangir"
+		name: "Sangir",
 	},
 	sxo: {
 		code: "sxo",
-		name: "Sorothaptic"
+		name: "Sorothaptic",
 	},
 	sxr: {
 		code: "sxr",
-		name: "Saaroa"
+		name: "Saaroa",
 	},
 	sxs: {
 		code: "sxs",
-		name: "Sasaru"
+		name: "Sasaru",
 	},
 	sxu: {
 		code: "sxu",
-		name: "Upper Saxon"
+		name: "Upper Saxon",
 	},
 	sxw: {
 		code: "sxw",
-		name: "Saxwe Gbe"
+		name: "Saxwe Gbe",
 	},
 	sya: {
 		code: "sya",
-		name: "Siang"
+		name: "Siang",
 	},
 	syb: {
 		code: "syb",
-		name: "Central Subanen"
+		name: "Central Subanen",
 	},
 	syc: {
 		code: "syc",
-		name: "Classical Syriac"
+		name: "Classical Syriac",
 	},
 	syi: {
 		code: "syi",
-		name: "Seki"
+		name: "Seki",
 	},
 	syk: {
 		code: "syk",
-		name: "Sukur"
+		name: "Sukur",
 	},
 	syl: {
 		code: "syl",
-		name: "Sylheti"
+		name: "Sylheti",
 	},
 	sym: {
 		code: "sym",
-		name: "Maya Samo"
+		name: "Maya Samo",
 	},
 	syn: {
 		code: "syn",
-		name: "Senaya"
+		name: "Senaya",
 	},
 	syo: {
 		code: "syo",
-		name: "Suoy"
+		name: "Suoy",
 	},
 	syr: {
 		code: "syr",
-		name: "Syriac"
+		name: "Syriac",
 	},
 	sys: {
 		code: "sys",
-		name: "Sinyar"
+		name: "Sinyar",
 	},
 	syw: {
 		code: "syw",
-		name: "Kagate"
+		name: "Kagate",
 	},
 	syx: {
 		code: "syx",
-		name: "Samay"
+		name: "Samay",
 	},
 	syy: {
 		code: "syy",
-		name: "Al-Sayyid Bedouin Sign Language"
+		name: "Al-Sayyid Bedouin Sign Language",
 	},
 	sza: {
 		code: "sza",
-		name: "Semelai"
+		name: "Semelai",
 	},
 	szb: {
 		code: "szb",
-		name: "Ngalum"
+		name: "Ngalum",
 	},
 	szc: {
 		code: "szc",
-		name: "Semaq Beri"
+		name: "Semaq Beri",
 	},
 	sze: {
 		code: "sze",
-		name: "Seze"
+		name: "Seze",
 	},
 	szg: {
 		code: "szg",
-		name: "Sengele"
+		name: "Sengele",
 	},
 	szl: {
 		code: "szl",
-		name: "Silesian"
+		name: "Silesian",
 	},
 	szn: {
 		code: "szn",
-		name: "Sula"
+		name: "Sula",
 	},
 	szp: {
 		code: "szp",
-		name: "Suabo"
+		name: "Suabo",
 	},
 	szs: {
 		code: "szs",
-		name: "Solomon Islands Sign Language"
+		name: "Solomon Islands Sign Language",
 	},
 	szv: {
 		code: "szv",
-		name: "Isu (Fako Division)"
+		name: "Isu (Fako Division)",
 	},
 	szw: {
 		code: "szw",
-		name: "Sawai"
+		name: "Sawai",
 	},
 	szy: {
 		code: "szy",
-		name: "Sakizaya"
+		name: "Sakizaya",
 	},
 	taa: {
 		code: "taa",
-		name: "Lower Tanana"
+		name: "Lower Tanana",
 	},
 	tab: {
 		code: "tab",
-		name: "Tabassaran"
+		name: "Tabassaran",
 	},
 	tac: {
 		code: "tac",
-		name: "Lowland Tarahumara"
+		name: "Lowland Tarahumara",
 	},
 	tad: {
 		code: "tad",
-		name: "Tause"
+		name: "Tause",
 	},
 	tae: {
 		code: "tae",
-		name: "Tariana"
+		name: "Tariana",
 	},
 	taf: {
 		code: "taf",
-		name: "Tapirapé"
+		name: "Tapirapé",
 	},
 	tag: {
 		code: "tag",
-		name: "Tagoi"
+		name: "Tagoi",
+	},
+	tah: {
+		code: "tah",
+		name: "Tahitian",
 	},
 	taj: {
 		code: "taj",
-		name: "Eastern Tamang"
+		name: "Eastern Tamang",
 	},
 	tak: {
 		code: "tak",
-		name: "Tala"
+		name: "Tala",
 	},
 	tal: {
 		code: "tal",
-		name: "Tal"
+		name: "Tal",
+	},
+	tam: {
+		code: "tam",
+		name: "Tamil",
 	},
 	tan: {
 		code: "tan",
-		name: "Tangale"
+		name: "Tangale",
 	},
 	tao: {
 		code: "tao",
-		name: "Yami"
+		name: "Yami",
 	},
 	tap: {
 		code: "tap",
-		name: "Taabwa"
+		name: "Taabwa",
 	},
 	taq: {
 		code: "taq",
-		name: "Tamasheq"
+		name: "Tamasheq",
 	},
 	tar: {
 		code: "tar",
-		name: "Central Tarahumara"
+		name: "Central Tarahumara",
 	},
 	tas: {
 		code: "tas",
-		name: "Tay Boi"
+		name: "Tay Boi",
+	},
+	tat: {
+		code: "tat",
+		name: "Tatar",
 	},
 	tau: {
 		code: "tau",
-		name: "Upper Tanana"
+		name: "Upper Tanana",
 	},
 	tav: {
 		code: "tav",
-		name: "Tatuyo"
+		name: "Tatuyo",
 	},
 	taw: {
 		code: "taw",
-		name: "Tai"
+		name: "Tai",
 	},
 	tax: {
 		code: "tax",
-		name: "Tamki"
+		name: "Tamki",
 	},
 	tay: {
 		code: "tay",
-		name: "Atayal"
+		name: "Atayal",
 	},
 	taz: {
 		code: "taz",
-		name: "Tocho"
+		name: "Tocho",
 	},
 	tba: {
 		code: "tba",
-		name: "Aikanã"
+		name: "Aikanã",
 	},
 	tbc: {
 		code: "tbc",
-		name: "Takia"
+		name: "Takia",
 	},
 	tbd: {
 		code: "tbd",
-		name: "Kaki Ae"
+		name: "Kaki Ae",
 	},
 	tbe: {
 		code: "tbe",
-		name: "Tanimbili"
+		name: "Tanimbili",
 	},
 	tbf: {
 		code: "tbf",
-		name: "Mandara"
+		name: "Mandara",
 	},
 	tbg: {
 		code: "tbg",
-		name: "North Tairora"
+		name: "North Tairora",
 	},
 	tbh: {
 		code: "tbh",
-		name: "Dharawal"
+		name: "Dharawal",
 	},
 	tbi: {
 		code: "tbi",
-		name: "Gaam"
+		name: "Gaam",
 	},
 	tbj: {
 		code: "tbj",
-		name: "Tiang"
+		name: "Tiang",
 	},
 	tbk: {
 		code: "tbk",
-		name: "Calamian Tagbanwa"
+		name: "Calamian Tagbanwa",
 	},
 	tbl: {
 		code: "tbl",
-		name: "Tboli"
+		name: "Tboli",
 	},
 	tbm: {
 		code: "tbm",
-		name: "Tagbu"
+		name: "Tagbu",
 	},
 	tbn: {
 		code: "tbn",
-		name: "Barro Negro Tunebo"
+		name: "Barro Negro Tunebo",
 	},
 	tbo: {
 		code: "tbo",
-		name: "Tawala"
+		name: "Tawala",
 	},
 	tbp: {
 		code: "tbp",
-		name: "Taworta"
+		name: "Taworta",
 	},
 	tbr: {
 		code: "tbr",
-		name: "Tumtum"
+		name: "Tumtum",
 	},
 	tbs: {
 		code: "tbs",
-		name: "Tanguat"
+		name: "Tanguat",
 	},
 	tbt: {
 		code: "tbt",
-		name: "Tembo (Kitembo)"
+		name: "Tembo (Kitembo)",
 	},
 	tbu: {
 		code: "tbu",
-		name: "Tubar"
+		name: "Tubar",
 	},
 	tbv: {
 		code: "tbv",
-		name: "Tobo"
+		name: "Tobo",
 	},
 	tbw: {
 		code: "tbw",
-		name: "Tagbanwa"
+		name: "Tagbanwa",
 	},
 	tbx: {
 		code: "tbx",
-		name: "Kapin"
+		name: "Kapin",
 	},
 	tby: {
 		code: "tby",
-		name: "Tabaru"
+		name: "Tabaru",
 	},
 	tbz: {
 		code: "tbz",
-		name: "Ditammari"
+		name: "Ditammari",
 	},
 	tca: {
 		code: "tca",
-		name: "Ticuna"
+		name: "Ticuna",
 	},
 	tcb: {
 		code: "tcb",
-		name: "Tanacross"
+		name: "Tanacross",
 	},
 	tcc: {
 		code: "tcc",
-		name: "Datooga"
+		name: "Datooga",
 	},
 	tcd: {
 		code: "tcd",
-		name: "Tafi"
+		name: "Tafi",
 	},
 	tce: {
 		code: "tce",
-		name: "Southern Tutchone"
+		name: "Southern Tutchone",
 	},
 	tcf: {
 		code: "tcf",
-		name: "Malinaltepec Me'phaa"
+		name: "Malinaltepec Me'phaa",
 	},
 	tcg: {
 		code: "tcg",
-		name: "Tamagario"
+		name: "Tamagario",
 	},
 	tch: {
 		code: "tch",
-		name: "Turks And Caicos Creole English"
+		name: "Turks And Caicos Creole English",
 	},
 	tci: {
 		code: "tci",
-		name: "Wára"
+		name: "Wára",
 	},
 	tck: {
 		code: "tck",
-		name: "Tchitchege"
+		name: "Tchitchege",
 	},
 	tcl: {
 		code: "tcl",
-		name: "Taman (Myanmar)"
+		name: "Taman (Myanmar)",
 	},
 	tcm: {
 		code: "tcm",
-		name: "Tanahmerah"
+		name: "Tanahmerah",
 	},
 	tcn: {
 		code: "tcn",
-		name: "Tichurong"
+		name: "Tichurong",
 	},
 	tco: {
 		code: "tco",
-		name: "Taungyo"
+		name: "Taungyo",
 	},
 	tcp: {
 		code: "tcp",
-		name: "Tawr Chin"
+		name: "Tawr Chin",
 	},
 	tcq: {
 		code: "tcq",
-		name: "Kaiy"
+		name: "Kaiy",
 	},
 	tcs: {
 		code: "tcs",
-		name: "Torres Strait Creole"
+		name: "Torres Strait Creole",
 	},
 	tct: {
 		code: "tct",
-		name: "T'en"
+		name: "T'en",
 	},
 	tcu: {
 		code: "tcu",
-		name: "Southeastern Tarahumara"
+		name: "Southeastern Tarahumara",
 	},
 	tcw: {
 		code: "tcw",
-		name: "Tecpatlán Totonac"
+		name: "Tecpatlán Totonac",
 	},
 	tcx: {
 		code: "tcx",
-		name: "Toda"
+		name: "Toda",
 	},
 	tcy: {
 		code: "tcy",
-		name: "Tulu"
+		name: "Tulu",
 	},
 	tcz: {
 		code: "tcz",
-		name: "Thado Chin"
+		name: "Thado Chin",
 	},
 	tda: {
 		code: "tda",
-		name: "Tagdal"
+		name: "Tagdal",
 	},
 	tdb: {
 		code: "tdb",
-		name: "Panchpargania"
+		name: "Panchpargania",
 	},
 	tdc: {
 		code: "tdc",
-		name: "Emberá-Tadó"
+		name: "Emberá-Tadó",
 	},
 	tdd: {
 		code: "tdd",
-		name: "Tai Nüa"
+		name: "Tai Nüa",
 	},
 	tde: {
 		code: "tde",
-		name: "Tiranige Diga Dogon"
+		name: "Tiranige Diga Dogon",
 	},
 	tdf: {
 		code: "tdf",
-		name: "Talieng"
+		name: "Talieng",
 	},
 	tdg: {
 		code: "tdg",
-		name: "Western Tamang"
+		name: "Western Tamang",
 	},
 	tdh: {
 		code: "tdh",
-		name: "Thulung"
+		name: "Thulung",
 	},
 	tdi: {
 		code: "tdi",
-		name: "Tomadino"
+		name: "Tomadino",
 	},
 	tdj: {
 		code: "tdj",
-		name: "Tajio"
+		name: "Tajio",
 	},
 	tdk: {
 		code: "tdk",
-		name: "Tambas"
+		name: "Tambas",
 	},
 	tdl: {
 		code: "tdl",
-		name: "Sur"
+		name: "Sur",
 	},
 	tdm: {
 		code: "tdm",
-		name: "Taruma"
+		name: "Taruma",
 	},
 	tdn: {
 		code: "tdn",
-		name: "Tondano"
+		name: "Tondano",
 	},
 	tdo: {
 		code: "tdo",
-		name: "Teme"
+		name: "Teme",
 	},
 	tdq: {
 		code: "tdq",
-		name: "Tita"
+		name: "Tita",
 	},
 	tdr: {
 		code: "tdr",
-		name: "Todrah"
+		name: "Todrah",
 	},
 	tds: {
 		code: "tds",
-		name: "Doutai"
+		name: "Doutai",
+	},
+	tdt: {
+		code: "tdt",
+		name: "Tetun Dili",
 	},
 	tdv: {
 		code: "tdv",
-		name: "Toro"
+		name: "Toro",
 	},
 	tdx: {
 		code: "tdx",
-		name: "Tandroy-Mahafaly Malagasy"
+		name: "Tandroy-Mahafaly Malagasy",
 	},
 	tdy: {
 		code: "tdy",
-		name: "Tadyawan"
+		name: "Tadyawan",
 	},
 	tea: {
 		code: "tea",
-		name: "Temiar"
+		name: "Temiar",
 	},
 	teb: {
 		code: "teb",
-		name: "Tetete"
+		name: "Tetete",
 	},
 	tec: {
 		code: "tec",
-		name: "Terik"
+		name: "Terik",
 	},
 	ted: {
 		code: "ted",
-		name: "Tepo Krumen"
+		name: "Tepo Krumen",
 	},
 	tee: {
 		code: "tee",
-		name: "Huehuetla Tepehua"
+		name: "Huehuetla Tepehua",
 	},
 	tef: {
 		code: "tef",
-		name: "Teressa"
+		name: "Teressa",
 	},
 	teg: {
 		code: "teg",
-		name: "Teke-Tege"
+		name: "Teke-Tege",
 	},
 	teh: {
 		code: "teh",
-		name: "Tehuelche"
+		name: "Tehuelche",
 	},
 	tei: {
 		code: "tei",
-		name: "Torricelli"
+		name: "Torricelli",
 	},
 	tek: {
 		code: "tek",
-		name: "Ibali Teke"
+		name: "Ibali Teke",
+	},
+	tel: {
+		code: "tel",
+		name: "Telugu",
 	},
 	tem: {
 		code: "tem",
-		name: "Timne"
+		name: "Timne",
 	},
 	ten: {
 		code: "ten",
-		name: "Tama (Colombia)"
+		name: "Tama (Colombia)",
 	},
 	teo: {
 		code: "teo",
-		name: "Teso"
+		name: "Teso",
 	},
 	tep: {
 		code: "tep",
-		name: "Tepecano"
+		name: "Tepecano",
 	},
 	teq: {
 		code: "teq",
-		name: "Temein"
+		name: "Temein",
 	},
 	ter: {
 		code: "ter",
-		name: "Tereno"
+		name: "Tereno",
 	},
 	tes: {
 		code: "tes",
-		name: "Tengger"
+		name: "Tengger",
 	},
 	tet: {
 		code: "tet",
-		name: "Tetum"
+		name: "Tetum",
 	},
 	teu: {
 		code: "teu",
-		name: "Soo"
+		name: "Soo",
 	},
 	tev: {
 		code: "tev",
-		name: "Teor"
+		name: "Teor",
 	},
 	tew: {
 		code: "tew",
-		name: "Tewa (USA)"
+		name: "Tewa (USA)",
 	},
 	tex: {
 		code: "tex",
-		name: "Tennet"
+		name: "Tennet",
 	},
 	tey: {
 		code: "tey",
-		name: "Tulishi"
+		name: "Tulishi",
 	},
 	tez: {
 		code: "tez",
-		name: "Tetserret"
+		name: "Tetserret",
 	},
 	tfi: {
 		code: "tfi",
-		name: "Tofin Gbe"
+		name: "Tofin Gbe",
 	},
 	tfn: {
 		code: "tfn",
-		name: "Tanaina"
+		name: "Tanaina",
 	},
 	tfo: {
 		code: "tfo",
-		name: "Tefaro"
+		name: "Tefaro",
 	},
 	tfr: {
 		code: "tfr",
-		name: "Teribe"
+		name: "Teribe",
 	},
 	tft: {
 		code: "tft",
-		name: "Ternate"
+		name: "Ternate",
 	},
 	tga: {
 		code: "tga",
-		name: "Sagalla"
+		name: "Sagalla",
 	},
 	tgb: {
 		code: "tgb",
-		name: "Tobilung"
+		name: "Tobilung",
 	},
 	tgc: {
 		code: "tgc",
-		name: "Tigak"
+		name: "Tigak",
 	},
 	tgd: {
 		code: "tgd",
-		name: "Ciwogai"
+		name: "Ciwogai",
 	},
 	tge: {
 		code: "tge",
-		name: "Eastern Gorkha Tamang"
+		name: "Eastern Gorkha Tamang",
 	},
 	tgf: {
 		code: "tgf",
-		name: "Chalikha"
+		name: "Chalikha",
 	},
 	tgh: {
 		code: "tgh",
-		name: "Tobagonian Creole English"
+		name: "Tobagonian Creole English",
 	},
 	tgi: {
 		code: "tgi",
-		name: "Lawunuia"
+		name: "Lawunuia",
 	},
 	tgj: {
 		code: "tgj",
-		name: "Tagin"
+		name: "Tagin",
+	},
+	tgk: {
+		code: "tgk",
+		name: "Tajik",
+	},
+	tgl: {
+		code: "tgl",
+		name: "Tagalog",
 	},
 	tgn: {
 		code: "tgn",
-		name: "Tandaganon"
+		name: "Tandaganon",
 	},
 	tgo: {
 		code: "tgo",
-		name: "Sudest"
+		name: "Sudest",
 	},
 	tgp: {
 		code: "tgp",
-		name: "Tangoa"
+		name: "Tangoa",
 	},
 	tgq: {
 		code: "tgq",
-		name: "Tring"
+		name: "Tring",
 	},
 	tgr: {
 		code: "tgr",
-		name: "Tareng"
+		name: "Tareng",
 	},
 	tgs: {
 		code: "tgs",
-		name: "Nume"
+		name: "Nume",
 	},
 	tgt: {
 		code: "tgt",
-		name: "Central Tagbanwa"
+		name: "Central Tagbanwa",
 	},
 	tgu: {
 		code: "tgu",
-		name: "Tanggu"
+		name: "Tanggu",
 	},
 	tgv: {
 		code: "tgv",
-		name: "Tingui-Boto"
+		name: "Tingui-Boto",
 	},
 	tgw: {
 		code: "tgw",
-		name: "Tagwana Senoufo"
+		name: "Tagwana Senoufo",
 	},
 	tgx: {
 		code: "tgx",
-		name: "Tagish"
+		name: "Tagish",
 	},
 	tgy: {
 		code: "tgy",
-		name: "Togoyo"
+		name: "Togoyo",
 	},
 	tgz: {
 		code: "tgz",
-		name: "Tagalaka"
+		name: "Tagalaka",
+	},
+	tha: {
+		code: "tha",
+		name: "Thai",
 	},
 	thd: {
 		code: "thd",
-		name: "Kuuk Thaayorre"
+		name: "Kuuk Thaayorre",
 	},
 	the: {
 		code: "the",
-		name: "Chitwania Tharu"
+		name: "Chitwania Tharu",
 	},
 	thf: {
 		code: "thf",
-		name: "Thangmi"
+		name: "Thangmi",
 	},
 	thh: {
 		code: "thh",
-		name: "Northern Tarahumara"
+		name: "Northern Tarahumara",
 	},
 	thi: {
 		code: "thi",
-		name: "Tai Long"
+		name: "Tai Long",
 	},
 	thk: {
 		code: "thk",
-		name: "Tharaka"
+		name: "Tharaka",
 	},
 	thl: {
 		code: "thl",
-		name: "Dangaura Tharu"
+		name: "Dangaura Tharu",
 	},
 	thm: {
 		code: "thm",
-		name: "Aheu"
+		name: "Aheu",
 	},
 	thn: {
 		code: "thn",
-		name: "Thachanadan"
+		name: "Thachanadan",
 	},
 	thp: {
 		code: "thp",
-		name: "Thompson"
+		name: "Thompson",
 	},
 	thq: {
 		code: "thq",
-		name: "Kochila Tharu"
+		name: "Kochila Tharu",
 	},
 	thr: {
 		code: "thr",
-		name: "Rana Tharu"
+		name: "Rana Tharu",
 	},
 	ths: {
 		code: "ths",
-		name: "Thakali"
+		name: "Thakali",
 	},
 	tht: {
 		code: "tht",
-		name: "Tahltan"
+		name: "Tahltan",
 	},
 	thu: {
 		code: "thu",
-		name: "Thuri"
+		name: "Thuri",
 	},
 	thv: {
 		code: "thv",
-		name: "Tahaggart Tamahaq"
+		name: "Tahaggart Tamahaq",
 	},
 	thy: {
 		code: "thy",
-		name: "Tha"
+		name: "Tha",
 	},
 	thz: {
 		code: "thz",
-		name: "Tayart Tamajeq"
+		name: "Tayart Tamajeq",
 	},
 	tia: {
 		code: "tia",
-		name: "Tidikelt Tamazight"
+		name: "Tidikelt Tamazight",
 	},
 	tic: {
 		code: "tic",
-		name: "Tira"
+		name: "Tira",
 	},
 	tif: {
 		code: "tif",
-		name: "Tifal"
+		name: "Tifal",
 	},
 	tig: {
 		code: "tig",
-		name: "Tigre"
+		name: "Tigre",
 	},
 	tih: {
 		code: "tih",
-		name: "Timugon Murut"
+		name: "Timugon Murut",
 	},
 	tii: {
 		code: "tii",
-		name: "Tiene"
+		name: "Tiene",
 	},
 	tij: {
 		code: "tij",
-		name: "Tilung"
+		name: "Tilung",
 	},
 	tik: {
 		code: "tik",
-		name: "Tikar"
+		name: "Tikar",
 	},
 	til: {
 		code: "til",
-		name: "Tillamook"
+		name: "Tillamook",
 	},
 	tim: {
 		code: "tim",
-		name: "Timbe"
+		name: "Timbe",
 	},
 	tin: {
 		code: "tin",
-		name: "Tindi"
+		name: "Tindi",
 	},
 	tio: {
 		code: "tio",
-		name: "Teop"
+		name: "Teop",
 	},
 	tip: {
 		code: "tip",
-		name: "Trimuris"
+		name: "Trimuris",
 	},
 	tiq: {
 		code: "tiq",
-		name: "Tiéfo"
+		name: "Tiéfo",
+	},
+	tir: {
+		code: "tir",
+		name: "Tigrinya",
 	},
 	tis: {
 		code: "tis",
-		name: "Masadiit Itneg"
+		name: "Masadiit Itneg",
 	},
 	tit: {
 		code: "tit",
-		name: "Tinigua"
+		name: "Tinigua",
 	},
 	tiu: {
 		code: "tiu",
-		name: "Adasen"
+		name: "Adasen",
+	},
+	tiv: {
+		code: "tiv",
+		name: "Tiv",
 	},
 	tiw: {
 		code: "tiw",
-		name: "Tiwi"
+		name: "Tiwi",
 	},
 	tix: {
 		code: "tix",
-		name: "Southern Tiwa"
+		name: "Southern Tiwa",
 	},
 	tiy: {
 		code: "tiy",
-		name: "Tiruray"
+		name: "Tiruray",
 	},
 	tiz: {
 		code: "tiz",
-		name: "Tai Hongjin"
+		name: "Tai Hongjin",
 	},
 	tja: {
 		code: "tja",
-		name: "Tajuasohn"
+		name: "Tajuasohn",
 	},
 	tjg: {
 		code: "tjg",
-		name: "Tunjung"
+		name: "Tunjung",
 	},
 	tji: {
 		code: "tji",
-		name: "Northern Tujia"
+		name: "Northern Tujia",
 	},
 	tjj: {
 		code: "tjj",
-		name: "Tjungundji"
+		name: "Tjungundji",
 	},
 	tjl: {
 		code: "tjl",
-		name: "Tai Laing"
+		name: "Tai Laing",
 	},
 	tjm: {
 		code: "tjm",
-		name: "Timucua"
+		name: "Timucua",
 	},
 	tjn: {
 		code: "tjn",
-		name: "Tonjon"
+		name: "Tonjon",
 	},
 	tjo: {
 		code: "tjo",
-		name: "Temacine Tamazight"
+		name: "Temacine Tamazight",
 	},
 	tjp: {
 		code: "tjp",
-		name: "Tjupany"
+		name: "Tjupany",
 	},
 	tjs: {
 		code: "tjs",
-		name: "Southern Tujia"
+		name: "Southern Tujia",
 	},
 	tju: {
 		code: "tju",
-		name: "Tjurruru"
+		name: "Tjurruru",
 	},
 	tjw: {
 		code: "tjw",
-		name: "Djabwurrung"
+		name: "Djabwurrung",
 	},
 	tka: {
 		code: "tka",
-		name: "Truká"
+		name: "Truká",
 	},
 	tkb: {
 		code: "tkb",
-		name: "Buksa"
+		name: "Buksa",
 	},
 	tkd: {
 		code: "tkd",
-		name: "Tukudede"
+		name: "Tukudede",
 	},
 	tke: {
 		code: "tke",
-		name: "Takwane"
+		name: "Takwane",
 	},
 	tkf: {
 		code: "tkf",
-		name: "Tukumanféd"
+		name: "Tukumanféd",
 	},
 	tkg: {
 		code: "tkg",
-		name: "Tesaka Malagasy"
+		name: "Tesaka Malagasy",
 	},
 	tkl: {
 		code: "tkl",
-		name: "Tokelau"
+		name: "Tokelau",
 	},
 	tkm: {
 		code: "tkm",
-		name: "Takelma"
+		name: "Takelma",
 	},
 	tkn: {
 		code: "tkn",
-		name: "Toku-No-Shima"
+		name: "Toku-No-Shima",
 	},
 	tkp: {
 		code: "tkp",
-		name: "Tikopia"
+		name: "Tikopia",
 	},
 	tkq: {
 		code: "tkq",
-		name: "Tee"
+		name: "Tee",
 	},
 	tkr: {
 		code: "tkr",
-		name: "Tsakhur"
+		name: "Tsakhur",
 	},
 	tks: {
 		code: "tks",
-		name: "Takestani"
+		name: "Takestani",
 	},
 	tkt: {
 		code: "tkt",
-		name: "Kathoriya Tharu"
+		name: "Kathoriya Tharu",
 	},
 	tku: {
 		code: "tku",
-		name: "Upper Necaxa Totonac"
+		name: "Upper Necaxa Totonac",
 	},
 	tkv: {
 		code: "tkv",
-		name: "Mur Pano"
+		name: "Mur Pano",
 	},
 	tkw: {
 		code: "tkw",
-		name: "Teanu"
+		name: "Teanu",
 	},
 	tkx: {
 		code: "tkx",
-		name: "Tangko"
+		name: "Tangko",
 	},
 	tkz: {
 		code: "tkz",
-		name: "Takua"
+		name: "Takua",
 	},
 	tla: {
 		code: "tla",
-		name: "Southwestern Tepehuan"
+		name: "Southwestern Tepehuan",
 	},
 	tlb: {
 		code: "tlb",
-		name: "Tobelo"
+		name: "Tobelo",
 	},
 	tlc: {
 		code: "tlc",
-		name: "Yecuatla Totonac"
+		name: "Yecuatla Totonac",
 	},
 	tld: {
 		code: "tld",
-		name: "Talaud"
+		name: "Talaud",
 	},
 	tlf: {
 		code: "tlf",
-		name: "Telefol"
+		name: "Telefol",
 	},
 	tlg: {
 		code: "tlg",
-		name: "Tofanma"
+		name: "Tofanma",
 	},
 	tlh: {
 		code: "tlh",
-		name: "Klingon"
+		name: "Klingon",
 	},
 	tli: {
 		code: "tli",
-		name: "Tlingit"
+		name: "Tlingit",
 	},
 	tlj: {
 		code: "tlj",
-		name: "Talinga-Bwisi"
+		name: "Talinga-Bwisi",
 	},
 	tlk: {
 		code: "tlk",
-		name: "Taloki"
+		name: "Taloki",
+	},
+	tll: {
+		code: "tll",
+		name: "Tetela",
 	},
 	tlm: {
 		code: "tlm",
-		name: "Tolomako"
+		name: "Tolomako",
 	},
 	tln: {
 		code: "tln",
-		name: "Talondo'"
+		name: "Talondo'",
 	},
 	tlo: {
 		code: "tlo",
-		name: "Talodi"
+		name: "Talodi",
 	},
 	tlp: {
 		code: "tlp",
-		name: "Filomena Mata-Coahuitlán Totonac"
+		name: "Filomena Mata-Coahuitlán Totonac",
 	},
 	tlq: {
 		code: "tlq",
-		name: "Tai Loi"
+		name: "Tai Loi",
 	},
 	tlr: {
 		code: "tlr",
-		name: "Talise"
+		name: "Talise",
 	},
 	tls: {
 		code: "tls",
-		name: "Tambotalo"
+		name: "Tambotalo",
 	},
 	tlt: {
 		code: "tlt",
-		name: "Sou Nama"
+		name: "Sou Nama",
 	},
 	tlu: {
 		code: "tlu",
-		name: "Tulehu"
+		name: "Tulehu",
 	},
 	tlv: {
 		code: "tlv",
-		name: "Taliabu"
+		name: "Taliabu",
 	},
 	tlx: {
 		code: "tlx",
-		name: "Khehek"
+		name: "Khehek",
 	},
 	tly: {
 		code: "tly",
-		name: "Talysh"
+		name: "Talysh",
 	},
 	tma: {
 		code: "tma",
-		name: "Tama (Chad)"
+		name: "Tama (Chad)",
 	},
 	tmb: {
 		code: "tmb",
-		name: "Katbol"
+		name: "Katbol",
 	},
 	tmc: {
 		code: "tmc",
-		name: "Tumak"
+		name: "Tumak",
 	},
 	tmd: {
 		code: "tmd",
-		name: "Haruai"
+		name: "Haruai",
 	},
 	tme: {
 		code: "tme",
-		name: "Tremembé"
+		name: "Tremembé",
 	},
 	tmf: {
 		code: "tmf",
-		name: "Toba-Maskoy"
+		name: "Toba-Maskoy",
 	},
 	tmg: {
 		code: "tmg",
-		name: "Ternateño"
+		name: "Ternateño",
 	},
 	tmh: {
 		code: "tmh",
-		name: "Tamashek"
+		name: "Tamashek",
 	},
 	tmi: {
 		code: "tmi",
-		name: "Tutuba"
+		name: "Tutuba",
 	},
 	tmj: {
 		code: "tmj",
-		name: "Samarokena"
+		name: "Samarokena",
 	},
 	tml: {
 		code: "tml",
-		name: "Tamnim Citak"
+		name: "Tamnim Citak",
 	},
 	tmm: {
 		code: "tmm",
-		name: "Tai Thanh"
+		name: "Tai Thanh",
 	},
 	tmn: {
 		code: "tmn",
-		name: "Taman (Indonesia)"
+		name: "Taman (Indonesia)",
 	},
 	tmo: {
 		code: "tmo",
-		name: "Temoq"
+		name: "Temoq",
 	},
 	tmq: {
 		code: "tmq",
-		name: "Tumleo"
+		name: "Tumleo",
 	},
 	tmr: {
 		code: "tmr",
-		name: "Jewish Babylonian Aramaic (ca. 200-1200 CE)"
+		name: "Jewish Babylonian Aramaic (ca. 200-1200 CE)",
 	},
 	tms: {
 		code: "tms",
-		name: "Tima"
+		name: "Tima",
 	},
 	tmt: {
 		code: "tmt",
-		name: "Tasmate"
+		name: "Tasmate",
 	},
 	tmu: {
 		code: "tmu",
-		name: "Iau"
+		name: "Iau",
 	},
 	tmv: {
 		code: "tmv",
-		name: "Tembo (Motembo)"
+		name: "Tembo (Motembo)",
 	},
 	tmw: {
 		code: "tmw",
-		name: "Temuan"
+		name: "Temuan",
 	},
 	tmy: {
 		code: "tmy",
-		name: "Tami"
+		name: "Tami",
 	},
 	tmz: {
 		code: "tmz",
-		name: "Tamanaku"
+		name: "Tamanaku",
 	},
 	tna: {
 		code: "tna",
-		name: "Tacana"
+		name: "Tacana",
 	},
 	tnb: {
 		code: "tnb",
-		name: "Western Tunebo"
+		name: "Western Tunebo",
 	},
 	tnc: {
 		code: "tnc",
-		name: "Tanimuca-Retuarã"
+		name: "Tanimuca-Retuarã",
 	},
 	tnd: {
 		code: "tnd",
-		name: "Angosturas Tunebo"
+		name: "Angosturas Tunebo",
 	},
 	tng: {
 		code: "tng",
-		name: "Tobanga"
+		name: "Tobanga",
 	},
 	tnh: {
 		code: "tnh",
-		name: "Maiani"
+		name: "Maiani",
 	},
 	tni: {
 		code: "tni",
-		name: "Tandia"
+		name: "Tandia",
 	},
 	tnk: {
 		code: "tnk",
-		name: "Kwamera"
+		name: "Kwamera",
 	},
 	tnl: {
 		code: "tnl",
-		name: "Lenakel"
+		name: "Lenakel",
 	},
 	tnm: {
 		code: "tnm",
-		name: "Tabla"
+		name: "Tabla",
 	},
 	tnn: {
 		code: "tnn",
-		name: "North Tanna"
+		name: "North Tanna",
 	},
 	tno: {
 		code: "tno",
-		name: "Toromono"
+		name: "Toromono",
 	},
 	tnp: {
 		code: "tnp",
-		name: "Whitesands"
+		name: "Whitesands",
 	},
 	tnq: {
 		code: "tnq",
-		name: "Taino"
+		name: "Taino",
 	},
 	tnr: {
 		code: "tnr",
-		name: "Ménik"
+		name: "Ménik",
 	},
 	tns: {
 		code: "tns",
-		name: "Tenis"
+		name: "Tenis",
 	},
 	tnt: {
 		code: "tnt",
-		name: "Tontemboan"
+		name: "Tontemboan",
 	},
 	tnu: {
 		code: "tnu",
-		name: "Tay Khang"
+		name: "Tay Khang",
 	},
 	tnv: {
 		code: "tnv",
-		name: "Tangchangya"
+		name: "Tangchangya",
 	},
 	tnw: {
 		code: "tnw",
-		name: "Tonsawang"
+		name: "Tonsawang",
 	},
 	tnx: {
 		code: "tnx",
-		name: "Tanema"
+		name: "Tanema",
 	},
 	tny: {
 		code: "tny",
-		name: "Tongwe"
+		name: "Tongwe",
 	},
 	tnz: {
 		code: "tnz",
-		name: "Ten'edn"
+		name: "Ten'edn",
 	},
 	tob: {
 		code: "tob",
-		name: "Toba"
+		name: "Toba",
 	},
 	toc: {
 		code: "toc",
-		name: "Coyutla Totonac"
+		name: "Coyutla Totonac",
 	},
 	tod: {
 		code: "tod",
-		name: "Toma"
+		name: "Toma",
 	},
 	tof: {
 		code: "tof",
-		name: "Gizrra"
+		name: "Gizrra",
 	},
 	tog: {
 		code: "tog",
-		name: "Tonga (Nyasa)"
+		name: "Tonga (Nyasa)",
 	},
 	toh: {
 		code: "toh",
-		name: "Gitonga"
+		name: "Gitonga",
+	},
+	toi: {
+		code: "toi",
+		name: "Tonga (Zambia)",
 	},
 	toj: {
 		code: "toj",
-		name: "Tojolabal"
+		name: "Tojolabal",
 	},
 	tok: {
 		code: "tok",
-		name: "Toki Pona"
+		name: "Toki Pona",
 	},
 	tol: {
 		code: "tol",
-		name: "Tolowa"
+		name: "Tolowa",
 	},
 	tom: {
 		code: "tom",
-		name: "Tombulu"
+		name: "Tombulu",
 	},
 	ton: {
 		code: "ton",
-		name: "Tonga (Tonga Islands)"
+		name: "Tonga (Tonga Islands)",
 	},
 	too: {
 		code: "too",
-		name: "Xicotepec De Juárez Totonac"
+		name: "Xicotepec De Juárez Totonac",
 	},
 	top: {
 		code: "top",
-		name: "Papantla Totonac"
+		name: "Papantla Totonac",
 	},
 	toq: {
 		code: "toq",
-		name: "Toposa"
+		name: "Toposa",
 	},
 	tor: {
 		code: "tor",
-		name: "Togbo-Vara Banda"
+		name: "Togbo-Vara Banda",
 	},
 	tos: {
 		code: "tos",
-		name: "Highland Totonac"
+		name: "Highland Totonac",
 	},
 	tou: {
 		code: "tou",
-		name: "Tho"
+		name: "Tho",
 	},
 	tov: {
 		code: "tov",
-		name: "Upper Taromi"
+		name: "Upper Taromi",
 	},
 	tow: {
 		code: "tow",
-		name: "Jemez"
+		name: "Jemez",
 	},
 	tox: {
 		code: "tox",
-		name: "Tobian"
+		name: "Tobian",
 	},
 	toy: {
 		code: "toy",
-		name: "Topoiyo"
+		name: "Topoiyo",
 	},
 	toz: {
 		code: "toz",
-		name: "To"
+		name: "To",
 	},
 	tpa: {
 		code: "tpa",
-		name: "Taupota"
+		name: "Taupota",
 	},
 	tpc: {
 		code: "tpc",
-		name: "Azoyú Me'phaa"
+		name: "Azoyú Me'phaa",
 	},
 	tpe: {
 		code: "tpe",
-		name: "Tippera"
+		name: "Tippera",
 	},
 	tpf: {
 		code: "tpf",
-		name: "Tarpia"
+		name: "Tarpia",
 	},
 	tpg: {
 		code: "tpg",
-		name: "Kula"
+		name: "Kula",
+	},
+	tpi: {
+		code: "tpi",
+		name: "Tok Pisin",
 	},
 	tpj: {
 		code: "tpj",
-		name: "Tapieté"
+		name: "Tapieté",
 	},
 	tpk: {
 		code: "tpk",
-		name: "Tupinikin"
+		name: "Tupinikin",
 	},
 	tpl: {
 		code: "tpl",
-		name: "Tlacoapa Me'phaa"
+		name: "Tlacoapa Me'phaa",
 	},
 	tpm: {
 		code: "tpm",
-		name: "Tampulma"
+		name: "Tampulma",
 	},
 	tpn: {
 		code: "tpn",
-		name: "Tupinambá"
+		name: "Tupinambá",
 	},
 	tpo: {
 		code: "tpo",
-		name: "Tai Pao"
+		name: "Tai Pao",
 	},
 	tpp: {
 		code: "tpp",
-		name: "Pisaflores Tepehua"
+		name: "Pisaflores Tepehua",
 	},
 	tpq: {
 		code: "tpq",
-		name: "Tukpa"
+		name: "Tukpa",
 	},
 	tpr: {
 		code: "tpr",
-		name: "Tuparí"
+		name: "Tuparí",
 	},
 	tpt: {
 		code: "tpt",
-		name: "Tlachichilco Tepehua"
+		name: "Tlachichilco Tepehua",
 	},
 	tpu: {
 		code: "tpu",
-		name: "Tampuan"
+		name: "Tampuan",
 	},
 	tpv: {
 		code: "tpv",
-		name: "Tanapag"
+		name: "Tanapag",
 	},
 	tpx: {
 		code: "tpx",
-		name: "Acatepec Me'phaa"
+		name: "Acatepec Me'phaa",
 	},
 	tpy: {
 		code: "tpy",
-		name: "Trumai"
+		name: "Trumai",
 	},
 	tpz: {
 		code: "tpz",
-		name: "Tinputz"
+		name: "Tinputz",
 	},
 	tqb: {
 		code: "tqb",
-		name: "Tembé"
+		name: "Tembé",
 	},
 	tql: {
 		code: "tql",
-		name: "Lehali"
+		name: "Lehali",
 	},
 	tqm: {
 		code: "tqm",
-		name: "Turumsa"
+		name: "Turumsa",
 	},
 	tqn: {
 		code: "tqn",
-		name: "Tenino"
+		name: "Tenino",
 	},
 	tqo: {
 		code: "tqo",
-		name: "Toaripi"
+		name: "Toaripi",
 	},
 	tqp: {
 		code: "tqp",
-		name: "Tomoip"
+		name: "Tomoip",
 	},
 	tqq: {
 		code: "tqq",
-		name: "Tunni"
+		name: "Tunni",
 	},
 	tqr: {
 		code: "tqr",
-		name: "Torona"
+		name: "Torona",
 	},
 	tqt: {
 		code: "tqt",
-		name: "Western Totonac"
+		name: "Western Totonac",
 	},
 	tqu: {
 		code: "tqu",
-		name: "Touo"
+		name: "Touo",
 	},
 	tqw: {
 		code: "tqw",
-		name: "Tonkawa"
+		name: "Tonkawa",
 	},
 	tra: {
 		code: "tra",
-		name: "Tirahi"
+		name: "Tirahi",
 	},
 	trb: {
 		code: "trb",
-		name: "Terebu"
+		name: "Terebu",
 	},
 	trc: {
 		code: "trc",
-		name: "Copala Triqui"
+		name: "Copala Triqui",
 	},
 	trd: {
 		code: "trd",
-		name: "Turi"
+		name: "Turi",
 	},
 	tre: {
 		code: "tre",
-		name: "East Tarangan"
+		name: "East Tarangan",
 	},
 	trf: {
 		code: "trf",
-		name: "Trinidadian Creole English"
+		name: "Trinidadian Creole English",
 	},
 	trg: {
 		code: "trg",
-		name: "Lishán Didán"
+		name: "Lishán Didán",
 	},
 	trh: {
 		code: "trh",
-		name: "Turaka"
+		name: "Turaka",
 	},
 	tri: {
 		code: "tri",
-		name: "Trió"
+		name: "Trió",
 	},
 	trj: {
 		code: "trj",
-		name: "Toram"
+		name: "Toram",
 	},
 	trl: {
 		code: "trl",
-		name: "Traveller Scottish"
+		name: "Traveller Scottish",
 	},
 	trm: {
 		code: "trm",
-		name: "Tregami"
+		name: "Tregami",
 	},
 	trn: {
 		code: "trn",
-		name: "Trinitario"
+		name: "Trinitario",
 	},
 	tro: {
 		code: "tro",
-		name: "Tarao Naga"
+		name: "Tarao Naga",
 	},
 	trp: {
 		code: "trp",
-		name: "Kok Borok"
+		name: "Kok Borok",
 	},
 	trq: {
 		code: "trq",
-		name: "San Martín Itunyoso Triqui"
+		name: "San Martín Itunyoso Triqui",
 	},
 	trr: {
 		code: "trr",
-		name: "Taushiro"
+		name: "Taushiro",
 	},
 	trs: {
 		code: "trs",
-		name: "Chicahuaxtla Triqui"
+		name: "Chicahuaxtla Triqui",
 	},
 	trt: {
 		code: "trt",
-		name: "Tunggare"
+		name: "Tunggare",
 	},
 	tru: {
 		code: "tru",
-		name: "Turoyo"
+		name: "Turoyo",
 	},
 	trv: {
 		code: "trv",
-		name: "Sediq"
+		name: "Sediq",
 	},
 	trw: {
 		code: "trw",
-		name: "Torwali"
+		name: "Torwali",
 	},
 	trx: {
 		code: "trx",
-		name: "Tringgus-Sembaan Bidayuh"
+		name: "Tringgus-Sembaan Bidayuh",
 	},
 	try: {
 		code: "try",
-		name: "Turung"
+		name: "Turung",
 	},
 	trz: {
 		code: "trz",
-		name: "Torá"
+		name: "Torá",
 	},
 	tsa: {
 		code: "tsa",
-		name: "Tsaangi"
+		name: "Tsaangi",
 	},
 	tsb: {
 		code: "tsb",
-		name: "Tsamai"
+		name: "Tsamai",
 	},
 	tsc: {
 		code: "tsc",
-		name: "Tswa"
+		name: "Tswa",
 	},
 	tsd: {
 		code: "tsd",
-		name: "Tsakonian"
+		name: "Tsakonian",
 	},
 	tse: {
 		code: "tse",
-		name: "Tunisian Sign Language"
+		name: "Tunisian Sign Language",
 	},
 	tsg: {
 		code: "tsg",
-		name: "Tausug"
+		name: "Tausug",
 	},
 	tsh: {
 		code: "tsh",
-		name: "Tsuvan"
+		name: "Tsuvan",
 	},
 	tsi: {
 		code: "tsi",
-		name: "Tsimshian"
+		name: "Tsimshian",
 	},
 	tsj: {
 		code: "tsj",
-		name: "Tshangla"
+		name: "Tshangla",
 	},
 	tsk: {
 		code: "tsk",
-		name: "Tseku"
+		name: "Tseku",
 	},
 	tsl: {
 		code: "tsl",
-		name: "Ts'ün-Lao"
+		name: "Ts'ün-Lao",
 	},
 	tsm: {
 		code: "tsm",
-		name: "Turkish Sign Language"
+		name: "Turkish Sign Language",
+	},
+	tsn: {
+		code: "tsn",
+		name: "Tswana",
+	},
+	tso: {
+		code: "tso",
+		name: "Tsonga",
 	},
 	tsp: {
 		code: "tsp",
-		name: "Northern Toussian"
+		name: "Northern Toussian",
 	},
 	tsq: {
 		code: "tsq",
-		name: "Thai Sign Language"
+		name: "Thai Sign Language",
 	},
 	tsr: {
 		code: "tsr",
-		name: "Akei"
+		name: "Akei",
 	},
 	tss: {
 		code: "tss",
-		name: "Taiwan Sign Language"
+		name: "Taiwan Sign Language",
 	},
 	tst: {
 		code: "tst",
-		name: "Tondi Songway Kiini"
+		name: "Tondi Songway Kiini",
 	},
 	tsu: {
 		code: "tsu",
-		name: "Tsou"
+		name: "Tsou",
 	},
 	tsv: {
 		code: "tsv",
-		name: "Tsogo"
+		name: "Tsogo",
 	},
 	tsw: {
 		code: "tsw",
-		name: "Tsishingini"
+		name: "Tsishingini",
 	},
 	tsx: {
 		code: "tsx",
-		name: "Mubami"
+		name: "Mubami",
 	},
 	tsy: {
 		code: "tsy",
-		name: "Tebul Sign Language"
+		name: "Tebul Sign Language",
 	},
 	tsz: {
 		code: "tsz",
-		name: "Purepecha"
+		name: "Purepecha",
 	},
 	tta: {
 		code: "tta",
-		name: "Tutelo"
+		name: "Tutelo",
 	},
 	ttb: {
 		code: "ttb",
-		name: "Gaa"
+		name: "Gaa",
 	},
 	ttc: {
 		code: "ttc",
-		name: "Tektiteko"
+		name: "Tektiteko",
 	},
 	ttd: {
 		code: "ttd",
-		name: "Tauade"
+		name: "Tauade",
 	},
 	tte: {
 		code: "tte",
-		name: "Bwanabwana"
+		name: "Bwanabwana",
 	},
 	ttf: {
 		code: "ttf",
-		name: "Tuotomb"
+		name: "Tuotomb",
 	},
 	ttg: {
 		code: "ttg",
-		name: "Tutong"
+		name: "Tutong",
 	},
 	tth: {
 		code: "tth",
-		name: "Upper Ta'oih"
+		name: "Upper Ta'oih",
 	},
 	tti: {
 		code: "tti",
-		name: "Tobati"
+		name: "Tobati",
 	},
 	ttj: {
 		code: "ttj",
-		name: "Tooro"
+		name: "Tooro",
 	},
 	ttk: {
 		code: "ttk",
-		name: "Totoro"
+		name: "Totoro",
 	},
 	ttl: {
 		code: "ttl",
-		name: "Totela"
+		name: "Totela",
 	},
 	ttm: {
 		code: "ttm",
-		name: "Northern Tutchone"
+		name: "Northern Tutchone",
 	},
 	ttn: {
 		code: "ttn",
-		name: "Towei"
+		name: "Towei",
 	},
 	tto: {
 		code: "tto",
-		name: "Lower Ta'oih"
+		name: "Lower Ta'oih",
 	},
 	ttp: {
 		code: "ttp",
-		name: "Tombelala"
+		name: "Tombelala",
 	},
 	ttq: {
 		code: "ttq",
-		name: "Tawallammat Tamajaq"
+		name: "Tawallammat Tamajaq",
 	},
 	ttr: {
 		code: "ttr",
-		name: "Tera"
+		name: "Tera",
 	},
 	tts: {
 		code: "tts",
-		name: "Northeastern Thai"
+		name: "Northeastern Thai",
 	},
 	ttt: {
 		code: "ttt",
-		name: "Muslim Tat"
+		name: "Muslim Tat",
 	},
 	ttu: {
 		code: "ttu",
-		name: "Torau"
+		name: "Torau",
 	},
 	ttv: {
 		code: "ttv",
-		name: "Titan"
+		name: "Titan",
 	},
 	ttw: {
 		code: "ttw",
-		name: "Long Wat"
+		name: "Long Wat",
 	},
 	tty: {
 		code: "tty",
-		name: "Sikaritai"
+		name: "Sikaritai",
 	},
 	ttz: {
 		code: "ttz",
-		name: "Tsum"
+		name: "Tsum",
 	},
 	tua: {
 		code: "tua",
-		name: "Wiarumus"
+		name: "Wiarumus",
 	},
 	tub: {
 		code: "tub",
-		name: "Tübatulabal"
+		name: "Tübatulabal",
 	},
 	tuc: {
 		code: "tuc",
-		name: "Mutu"
+		name: "Mutu",
 	},
 	tud: {
 		code: "tud",
-		name: "Tuxá"
+		name: "Tuxá",
 	},
 	tue: {
 		code: "tue",
-		name: "Tuyuca"
+		name: "Tuyuca",
 	},
 	tuf: {
 		code: "tuf",
-		name: "Central Tunebo"
+		name: "Central Tunebo",
 	},
 	tug: {
 		code: "tug",
-		name: "Tunia"
+		name: "Tunia",
 	},
 	tuh: {
 		code: "tuh",
-		name: "Taulil"
+		name: "Taulil",
 	},
 	tui: {
 		code: "tui",
-		name: "Tupuri"
+		name: "Tupuri",
 	},
 	tuj: {
 		code: "tuj",
-		name: "Tugutil"
+		name: "Tugutil",
+	},
+	tuk: {
+		code: "tuk",
+		name: "Turkmen",
 	},
 	tul: {
 		code: "tul",
-		name: "Tula"
+		name: "Tula",
+	},
+	tum: {
+		code: "tum",
+		name: "Tumbuka",
 	},
 	tun: {
 		code: "tun",
-		name: "Tunica"
+		name: "Tunica",
 	},
 	tuo: {
 		code: "tuo",
-		name: "Tucano"
+		name: "Tucano",
 	},
 	tuq: {
 		code: "tuq",
-		name: "Tedaga"
+		name: "Tedaga",
+	},
+	tur: {
+		code: "tur",
+		name: "Turkish",
 	},
 	tus: {
 		code: "tus",
-		name: "Tuscarora"
+		name: "Tuscarora",
 	},
 	tuu: {
 		code: "tuu",
-		name: "Tututni"
+		name: "Tututni",
 	},
 	tuv: {
 		code: "tuv",
-		name: "Turkana"
+		name: "Turkana",
 	},
 	tux: {
 		code: "tux",
-		name: "Tuxináwa"
+		name: "Tuxináwa",
 	},
 	tuy: {
 		code: "tuy",
-		name: "Tugen"
+		name: "Tugen",
 	},
 	tuz: {
 		code: "tuz",
-		name: "Turka"
+		name: "Turka",
 	},
 	tva: {
 		code: "tva",
-		name: "Vaghua"
+		name: "Vaghua",
 	},
 	tvd: {
 		code: "tvd",
-		name: "Tsuvadi"
+		name: "Tsuvadi",
 	},
 	tve: {
 		code: "tve",
-		name: "Te'un"
+		name: "Te'un",
 	},
 	tvi: {
 		code: "tvi",
-		name: "Tulai"
+		name: "Tulai",
 	},
 	tvk: {
 		code: "tvk",
-		name: "Southeast Ambrym"
+		name: "Southeast Ambrym",
+	},
+	tvl: {
+		code: "tvl",
+		name: "Tuvalu",
 	},
 	tvm: {
 		code: "tvm",
-		name: "Tela-Masbuar"
+		name: "Tela-Masbuar",
 	},
 	tvn: {
 		code: "tvn",
-		name: "Tavoyan"
+		name: "Tavoyan",
 	},
 	tvo: {
 		code: "tvo",
-		name: "Tidore"
+		name: "Tidore",
 	},
 	tvs: {
 		code: "tvs",
-		name: "Taveta"
+		name: "Taveta",
 	},
 	tvt: {
 		code: "tvt",
-		name: "Tutsa Naga"
+		name: "Tutsa Naga",
 	},
 	tvu: {
 		code: "tvu",
-		name: "Tunen"
+		name: "Tunen",
 	},
 	tvw: {
 		code: "tvw",
-		name: "Sedoa"
+		name: "Sedoa",
 	},
 	tvx: {
 		code: "tvx",
-		name: "Taivoan"
+		name: "Taivoan",
 	},
 	tvy: {
 		code: "tvy",
-		name: "Timor Pidgin"
+		name: "Timor Pidgin",
 	},
 	twa: {
 		code: "twa",
-		name: "Twana"
+		name: "Twana",
 	},
 	twb: {
 		code: "twb",
-		name: "Western Tawbuid"
+		name: "Western Tawbuid",
 	},
 	twc: {
 		code: "twc",
-		name: "Teshenawa"
+		name: "Teshenawa",
 	},
 	twd: {
 		code: "twd",
-		name: "Twents"
+		name: "Twents",
 	},
 	twe: {
 		code: "twe",
-		name: "Tewa (Indonesia)"
+		name: "Tewa (Indonesia)",
 	},
 	twf: {
 		code: "twf",
-		name: "Northern Tiwa"
+		name: "Northern Tiwa",
 	},
 	twg: {
 		code: "twg",
-		name: "Tereweng"
+		name: "Tereweng",
 	},
 	twh: {
 		code: "twh",
-		name: "Tai Dón"
+		name: "Tai Dón",
+	},
+	twi: {
+		code: "twi",
+		name: "Twi",
 	},
 	twl: {
 		code: "twl",
-		name: "Tawara"
+		name: "Tawara",
 	},
 	twm: {
 		code: "twm",
-		name: "Tawang Monpa"
+		name: "Tawang Monpa",
 	},
 	twn: {
 		code: "twn",
-		name: "Twendi"
+		name: "Twendi",
 	},
 	two: {
 		code: "two",
-		name: "Tswapong"
+		name: "Tswapong",
 	},
 	twp: {
 		code: "twp",
-		name: "Ere"
+		name: "Ere",
 	},
 	twq: {
 		code: "twq",
-		name: "Tasawaq"
+		name: "Tasawaq",
 	},
 	twr: {
 		code: "twr",
-		name: "Southwestern Tarahumara"
+		name: "Southwestern Tarahumara",
 	},
 	twt: {
 		code: "twt",
-		name: "Turiwára"
+		name: "Turiwára",
 	},
 	twu: {
 		code: "twu",
-		name: "Termanu"
+		name: "Termanu",
 	},
 	tww: {
 		code: "tww",
-		name: "Tuwari"
+		name: "Tuwari",
 	},
 	twx: {
 		code: "twx",
-		name: "Tewe"
+		name: "Tewe",
 	},
 	twy: {
 		code: "twy",
-		name: "Tawoyan"
+		name: "Tawoyan",
 	},
 	txa: {
 		code: "txa",
-		name: "Tombonuo"
+		name: "Tombonuo",
 	},
 	txb: {
 		code: "txb",
-		name: "Tokharian B"
+		name: "Tokharian B",
 	},
 	txc: {
 		code: "txc",
-		name: "Tsetsaut"
+		name: "Tsetsaut",
 	},
 	txe: {
 		code: "txe",
-		name: "Totoli"
+		name: "Totoli",
 	},
 	txg: {
 		code: "txg",
-		name: "Tangut"
+		name: "Tangut",
 	},
 	txh: {
 		code: "txh",
-		name: "Thracian"
+		name: "Thracian",
 	},
 	txi: {
 		code: "txi",
-		name: "Ikpeng"
+		name: "Ikpeng",
 	},
 	txj: {
 		code: "txj",
-		name: "Tarjumo"
+		name: "Tarjumo",
 	},
 	txm: {
 		code: "txm",
-		name: "Tomini"
+		name: "Tomini",
 	},
 	txn: {
 		code: "txn",
-		name: "West Tarangan"
+		name: "West Tarangan",
 	},
 	txo: {
 		code: "txo",
-		name: "Toto"
+		name: "Toto",
 	},
 	txq: {
 		code: "txq",
-		name: "Tii"
+		name: "Tii",
 	},
 	txr: {
 		code: "txr",
-		name: "Tartessian"
+		name: "Tartessian",
 	},
 	txs: {
 		code: "txs",
-		name: "Tonsea"
+		name: "Tonsea",
 	},
 	txt: {
 		code: "txt",
-		name: "Citak"
+		name: "Citak",
 	},
 	txu: {
 		code: "txu",
-		name: "Kayapó"
+		name: "Kayapó",
 	},
 	txx: {
 		code: "txx",
-		name: "Tatana"
+		name: "Tatana",
 	},
 	txy: {
 		code: "txy",
-		name: "Tanosy Malagasy"
+		name: "Tanosy Malagasy",
 	},
 	tya: {
 		code: "tya",
-		name: "Tauya"
+		name: "Tauya",
 	},
 	tye: {
 		code: "tye",
-		name: "Kyanga"
+		name: "Kyanga",
 	},
 	tyh: {
 		code: "tyh",
-		name: "O'du"
+		name: "O'du",
 	},
 	tyi: {
 		code: "tyi",
-		name: "Teke-Tsaayi"
+		name: "Teke-Tsaayi",
 	},
 	tyj: {
 		code: "tyj",
-		name: "Tai Do"
+		name: "Tai Do",
 	},
 	tyl: {
 		code: "tyl",
-		name: "Thu Lao"
+		name: "Thu Lao",
 	},
 	tyn: {
 		code: "tyn",
-		name: "Kombai"
+		name: "Kombai",
 	},
 	typ: {
 		code: "typ",
-		name: "Thaypan"
+		name: "Thaypan",
 	},
 	tyr: {
 		code: "tyr",
-		name: "Tai Daeng"
+		name: "Tai Daeng",
 	},
 	tys: {
 		code: "tys",
-		name: "Tày Sa Pa"
+		name: "Tày Sa Pa",
 	},
 	tyt: {
 		code: "tyt",
-		name: "Tày Tac"
+		name: "Tày Tac",
 	},
 	tyu: {
 		code: "tyu",
-		name: "Kua"
+		name: "Kua",
 	},
 	tyv: {
 		code: "tyv",
-		name: "Tuvinian"
+		name: "Tuvinian",
 	},
 	tyx: {
 		code: "tyx",
-		name: "Teke-Tyee"
+		name: "Teke-Tyee",
 	},
 	tyy: {
 		code: "tyy",
-		name: "Tiyaa"
+		name: "Tiyaa",
 	},
 	tyz: {
 		code: "tyz",
-		name: "Tày"
+		name: "Tày",
 	},
 	tza: {
 		code: "tza",
-		name: "Tanzanian Sign Language"
+		name: "Tanzanian Sign Language",
 	},
 	tzh: {
 		code: "tzh",
-		name: "Tzeltal"
+		name: "Tzeltal",
 	},
 	tzj: {
 		code: "tzj",
-		name: "Tz'utujil"
+		name: "Tz'utujil",
 	},
 	tzl: {
 		code: "tzl",
-		name: "Talossan"
+		name: "Talossan",
 	},
 	tzm: {
 		code: "tzm",
-		name: "Central Atlas Tamazight"
+		name: "Central Atlas Tamazight",
 	},
 	tzn: {
 		code: "tzn",
-		name: "Tugun"
+		name: "Tugun",
+	},
+	tzo: {
+		code: "tzo",
+		name: "Tzotzil",
 	},
 	tzx: {
 		code: "tzx",
-		name: "Tabriak"
+		name: "Tabriak",
 	},
 	uam: {
 		code: "uam",
-		name: "Uamué"
+		name: "Uamué",
 	},
 	uan: {
 		code: "uan",
-		name: "Kuan"
+		name: "Kuan",
 	},
 	uar: {
 		code: "uar",
-		name: "Tairuma"
+		name: "Tairuma",
 	},
 	uba: {
 		code: "uba",
-		name: "Ubang"
+		name: "Ubang",
 	},
 	ubi: {
 		code: "ubi",
-		name: "Ubi"
+		name: "Ubi",
 	},
 	ubl: {
 		code: "ubl",
-		name: "Buhi'non Bikol"
+		name: "Buhi'non Bikol",
 	},
 	ubr: {
 		code: "ubr",
-		name: "Ubir"
+		name: "Ubir",
 	},
 	ubu: {
 		code: "ubu",
-		name: "Umbu-Ungu"
+		name: "Umbu-Ungu",
 	},
 	uby: {
 		code: "uby",
-		name: "Ubykh"
+		name: "Ubykh",
 	},
 	uda: {
 		code: "uda",
-		name: "Uda"
+		name: "Uda",
 	},
 	ude: {
 		code: "ude",
-		name: "Udihe"
+		name: "Udihe",
 	},
 	udg: {
 		code: "udg",
-		name: "Muduga"
+		name: "Muduga",
 	},
 	udi: {
 		code: "udi",
-		name: "Udi"
+		name: "Udi",
 	},
 	udj: {
 		code: "udj",
-		name: "Ujir"
+		name: "Ujir",
 	},
 	udl: {
 		code: "udl",
-		name: "Wuzlam"
+		name: "Wuzlam",
+	},
+	udm: {
+		code: "udm",
+		name: "Udmurt",
 	},
 	udu: {
 		code: "udu",
-		name: "Uduk"
+		name: "Uduk",
 	},
 	ues: {
 		code: "ues",
-		name: "Kioko"
+		name: "Kioko",
 	},
 	ufi: {
 		code: "ufi",
-		name: "Ufim"
+		name: "Ufim",
 	},
 	uga: {
 		code: "uga",
-		name: "Ugaritic"
+		name: "Ugaritic",
 	},
 	ugb: {
 		code: "ugb",
-		name: "Kuku-Ugbanh"
+		name: "Kuku-Ugbanh",
 	},
 	uge: {
 		code: "uge",
-		name: "Ughele"
+		name: "Ughele",
 	},
 	ugh: {
 		code: "ugh",
-		name: "Kubachi"
+		name: "Kubachi",
 	},
 	ugn: {
 		code: "ugn",
-		name: "Ugandan Sign Language"
+		name: "Ugandan Sign Language",
 	},
 	ugo: {
 		code: "ugo",
-		name: "Ugong"
+		name: "Ugong",
 	},
 	ugy: {
 		code: "ugy",
-		name: "Uruguayan Sign Language"
+		name: "Uruguayan Sign Language",
 	},
 	uha: {
 		code: "uha",
-		name: "Uhami"
+		name: "Uhami",
 	},
 	uhn: {
 		code: "uhn",
-		name: "Damal"
+		name: "Damal",
 	},
 	uig: {
 		code: "uig",
-		name: "Uighur"
+		name: "Uighur",
 	},
 	uis: {
 		code: "uis",
-		name: "Uisai"
+		name: "Uisai",
 	},
 	uiv: {
 		code: "uiv",
-		name: "Iyive"
+		name: "Iyive",
 	},
 	uji: {
 		code: "uji",
-		name: "Tanjijili"
+		name: "Tanjijili",
 	},
 	uka: {
 		code: "uka",
-		name: "Kaburi"
+		name: "Kaburi",
 	},
 	ukg: {
 		code: "ukg",
-		name: "Ukuriguma"
+		name: "Ukuriguma",
 	},
 	ukh: {
 		code: "ukh",
-		name: "Ukhwejo"
+		name: "Ukhwejo",
 	},
 	uki: {
 		code: "uki",
-		name: "Kui (India)"
+		name: "Kui (India)",
 	},
 	ukk: {
 		code: "ukk",
-		name: "Muak Sa-aak"
+		name: "Muak Sa-aak",
 	},
 	ukl: {
 		code: "ukl",
-		name: "Ukrainian Sign Language"
+		name: "Ukrainian Sign Language",
 	},
 	ukp: {
 		code: "ukp",
-		name: "Ukpe-Bayobiri"
+		name: "Ukpe-Bayobiri",
 	},
 	ukq: {
 		code: "ukq",
-		name: "Ukwa"
+		name: "Ukwa",
+	},
+	ukr: {
+		code: "ukr",
+		name: "Ukrainian",
 	},
 	uks: {
 		code: "uks",
-		name: "Urubú-Kaapor Sign Language"
+		name: "Urubú-Kaapor Sign Language",
 	},
 	uku: {
 		code: "uku",
-		name: "Ukue"
+		name: "Ukue",
 	},
 	ukv: {
 		code: "ukv",
-		name: "Kuku"
+		name: "Kuku",
 	},
 	ukw: {
 		code: "ukw",
-		name: "Ukwuani-Aboh-Ndoni"
+		name: "Ukwuani-Aboh-Ndoni",
 	},
 	uky: {
 		code: "uky",
-		name: "Kuuk-Yak"
+		name: "Kuuk-Yak",
 	},
 	ula: {
 		code: "ula",
-		name: "Fungwa"
+		name: "Fungwa",
 	},
 	ulb: {
 		code: "ulb",
-		name: "Ulukwumi"
+		name: "Ulukwumi",
 	},
 	ulc: {
 		code: "ulc",
-		name: "Ulch"
+		name: "Ulch",
 	},
 	ule: {
 		code: "ule",
-		name: "Lule"
+		name: "Lule",
 	},
 	ulf: {
 		code: "ulf",
-		name: "Usku"
+		name: "Usku",
 	},
 	uli: {
 		code: "uli",
-		name: "Ulithian"
+		name: "Ulithian",
 	},
 	ulk: {
 		code: "ulk",
-		name: "Meriam Mir"
+		name: "Meriam Mir",
 	},
 	ull: {
 		code: "ull",
-		name: "Ullatan"
+		name: "Ullatan",
 	},
 	ulm: {
 		code: "ulm",
-		name: "Ulumanda'"
+		name: "Ulumanda'",
 	},
 	uln: {
 		code: "uln",
-		name: "Unserdeutsch"
+		name: "Unserdeutsch",
 	},
 	ulu: {
 		code: "ulu",
-		name: "Uma' Lung"
+		name: "Uma' Lung",
 	},
 	ulw: {
 		code: "ulw",
-		name: "Ulwa"
+		name: "Ulwa",
 	},
 	uly: {
 		code: "uly",
-		name: "Buli"
+		name: "Buli",
 	},
 	uma: {
 		code: "uma",
-		name: "Umatilla"
+		name: "Umatilla",
+	},
+	umb: {
+		code: "umb",
+		name: "Umbundu",
 	},
 	umc: {
 		code: "umc",
-		name: "Marrucinian"
+		name: "Marrucinian",
 	},
 	umd: {
 		code: "umd",
-		name: "Umbindhamu"
+		name: "Umbindhamu",
 	},
 	umg: {
 		code: "umg",
-		name: "Morrobalama"
+		name: "Morrobalama",
 	},
 	umi: {
 		code: "umi",
-		name: "Ukit"
+		name: "Ukit",
 	},
 	umm: {
 		code: "umm",
-		name: "Umon"
+		name: "Umon",
 	},
 	umn: {
 		code: "umn",
-		name: "Makyan Naga"
+		name: "Makyan Naga",
 	},
 	umo: {
 		code: "umo",
-		name: "Umotína"
+		name: "Umotína",
 	},
 	ump: {
 		code: "ump",
-		name: "Umpila"
+		name: "Umpila",
 	},
 	umr: {
 		code: "umr",
-		name: "Umbugarla"
+		name: "Umbugarla",
 	},
 	ums: {
 		code: "ums",
-		name: "Pendau"
+		name: "Pendau",
 	},
 	umu: {
 		code: "umu",
-		name: "Munsee"
+		name: "Munsee",
 	},
 	una: {
 		code: "una",
-		name: "North Watut"
+		name: "North Watut",
 	},
 	und: {
 		code: "und",
-		name: "Undetermined"
+		name: "Undetermined",
 	},
 	une: {
 		code: "une",
-		name: "Uneme"
+		name: "Uneme",
 	},
 	ung: {
 		code: "ung",
-		name: "Ngarinyin"
+		name: "Ngarinyin",
 	},
 	uni: {
 		code: "uni",
-		name: "Uni"
+		name: "Uni",
 	},
 	unk: {
 		code: "unk",
-		name: "Enawené-Nawé"
+		name: "Enawené-Nawé",
 	},
 	unm: {
 		code: "unm",
-		name: "Unami"
+		name: "Unami",
 	},
 	unn: {
 		code: "unn",
-		name: "Kurnai"
+		name: "Kurnai",
 	},
 	unr: {
 		code: "unr",
-		name: "Mundari"
+		name: "Mundari",
 	},
 	unu: {
 		code: "unu",
-		name: "Unubahe"
+		name: "Unubahe",
 	},
 	unx: {
 		code: "unx",
-		name: "Munda"
+		name: "Munda",
 	},
 	unz: {
 		code: "unz",
-		name: "Unde Kaili"
+		name: "Unde Kaili",
 	},
 	uon: {
 		code: "uon",
-		name: "Kulon"
+		name: "Kulon",
 	},
 	upi: {
 		code: "upi",
-		name: "Umeda"
+		name: "Umeda",
 	},
 	upv: {
 		code: "upv",
-		name: "Uripiv-Wala-Rano-Atchin"
+		name: "Uripiv-Wala-Rano-Atchin",
 	},
 	ura: {
 		code: "ura",
-		name: "Urarina"
+		name: "Urarina",
 	},
 	urb: {
 		code: "urb",
-		name: "Urubú-Kaapor"
+		name: "Urubú-Kaapor",
 	},
 	urc: {
 		code: "urc",
-		name: "Urningangg"
+		name: "Urningangg",
+	},
+	urd: {
+		code: "urd",
+		name: "Urdu",
 	},
 	ure: {
 		code: "ure",
-		name: "Uru"
+		name: "Uru",
 	},
 	urf: {
 		code: "urf",
-		name: "Uradhi"
+		name: "Uradhi",
 	},
 	urg: {
 		code: "urg",
-		name: "Urigina"
+		name: "Urigina",
 	},
 	urh: {
 		code: "urh",
-		name: "Urhobo"
+		name: "Urhobo",
 	},
 	uri: {
 		code: "uri",
-		name: "Urim"
+		name: "Urim",
 	},
 	urk: {
 		code: "urk",
-		name: "Urak Lawoi'"
+		name: "Urak Lawoi'",
 	},
 	url: {
 		code: "url",
-		name: "Urali"
+		name: "Urali",
 	},
 	urm: {
 		code: "urm",
-		name: "Urapmin"
+		name: "Urapmin",
 	},
 	urn: {
 		code: "urn",
-		name: "Uruangnirin"
+		name: "Uruangnirin",
 	},
 	uro: {
 		code: "uro",
-		name: "Ura (Papua New Guinea)"
+		name: "Ura (Papua New Guinea)",
 	},
 	urp: {
 		code: "urp",
-		name: "Uru-Pa-In"
+		name: "Uru-Pa-In",
 	},
 	urr: {
 		code: "urr",
-		name: "Lehalurup"
+		name: "Lehalurup",
 	},
 	urt: {
 		code: "urt",
-		name: "Urat"
+		name: "Urat",
 	},
 	uru: {
 		code: "uru",
-		name: "Urumi"
+		name: "Urumi",
 	},
 	urv: {
 		code: "urv",
-		name: "Uruava"
+		name: "Uruava",
 	},
 	urw: {
 		code: "urw",
-		name: "Sop"
+		name: "Sop",
 	},
 	urx: {
 		code: "urx",
-		name: "Urimo"
+		name: "Urimo",
 	},
 	ury: {
 		code: "ury",
-		name: "Orya"
+		name: "Orya",
 	},
 	urz: {
 		code: "urz",
-		name: "Uru-Eu-Wau-Wau"
+		name: "Uru-Eu-Wau-Wau",
 	},
 	usa: {
 		code: "usa",
-		name: "Usarufa"
+		name: "Usarufa",
 	},
 	ush: {
 		code: "ush",
-		name: "Ushojo"
+		name: "Ushojo",
 	},
 	usi: {
 		code: "usi",
-		name: "Usui"
+		name: "Usui",
 	},
 	usk: {
 		code: "usk",
-		name: "Usaghade"
+		name: "Usaghade",
 	},
 	usp: {
 		code: "usp",
-		name: "Uspanteco"
+		name: "Uspanteco",
 	},
 	uss: {
 		code: "uss",
-		name: "us-Saare"
+		name: "us-Saare",
 	},
 	usu: {
 		code: "usu",
-		name: "Uya"
+		name: "Uya",
 	},
 	uta: {
 		code: "uta",
-		name: "Otank"
+		name: "Otank",
 	},
 	ute: {
 		code: "ute",
-		name: "Ute-Southern Paiute"
+		name: "Ute-Southern Paiute",
 	},
 	uth: {
 		code: "uth",
-		name: "ut-Hun"
+		name: "ut-Hun",
 	},
 	utp: {
 		code: "utp",
-		name: "Amba (Solomon Islands)"
+		name: "Amba (Solomon Islands)",
 	},
 	utr: {
 		code: "utr",
-		name: "Etulo"
+		name: "Etulo",
 	},
 	utu: {
 		code: "utu",
-		name: "Utu"
+		name: "Utu",
 	},
 	uum: {
 		code: "uum",
-		name: "Urum"
+		name: "Urum",
 	},
 	uur: {
 		code: "uur",
-		name: "Ura (Vanuatu)"
+		name: "Ura (Vanuatu)",
 	},
 	uuu: {
 		code: "uuu",
-		name: "U"
+		name: "U",
 	},
 	uve: {
 		code: "uve",
-		name: "West Uvean"
+		name: "West Uvean",
 	},
 	uvh: {
 		code: "uvh",
-		name: "Uri"
+		name: "Uri",
 	},
 	uvl: {
 		code: "uvl",
-		name: "Lote"
+		name: "Lote",
 	},
 	uwa: {
 		code: "uwa",
-		name: "Kuku-Uwanh"
+		name: "Kuku-Uwanh",
 	},
 	uya: {
 		code: "uya",
-		name: "Doko-Uyanga"
+		name: "Doko-Uyanga",
+	},
+	uzb: {
+		code: "uzb",
+		name: "Uzbek",
 	},
 	uzn: {
 		code: "uzn",
-		name: "Northern Uzbek"
+		name: "Northern Uzbek",
 	},
 	uzs: {
 		code: "uzs",
-		name: "Southern Uzbek"
+		name: "Southern Uzbek",
 	},
 	vaa: {
 		code: "vaa",
-		name: "Vaagri Booli"
+		name: "Vaagri Booli",
 	},
 	vae: {
 		code: "vae",
-		name: "Vale"
+		name: "Vale",
 	},
 	vaf: {
 		code: "vaf",
-		name: "Vafsi"
+		name: "Vafsi",
 	},
 	vag: {
 		code: "vag",
-		name: "Vagla"
+		name: "Vagla",
 	},
 	vah: {
 		code: "vah",
-		name: "Varhadi-Nagpuri"
+		name: "Varhadi-Nagpuri",
 	},
 	vai: {
 		code: "vai",
-		name: "Vai"
+		name: "Vai",
 	},
 	vaj: {
 		code: "vaj",
-		name: "Sekele"
+		name: "Sekele",
 	},
 	val: {
 		code: "val",
-		name: "Vehes"
+		name: "Vehes",
 	},
 	vam: {
 		code: "vam",
-		name: "Vanimo"
+		name: "Vanimo",
 	},
 	van: {
 		code: "van",
-		name: "Valman"
+		name: "Valman",
 	},
 	vao: {
 		code: "vao",
-		name: "Vao"
+		name: "Vao",
 	},
 	vap: {
 		code: "vap",
-		name: "Vaiphei"
+		name: "Vaiphei",
 	},
 	var: {
 		code: "var",
-		name: "Huarijio"
+		name: "Huarijio",
 	},
 	vas: {
 		code: "vas",
-		name: "Vasavi"
+		name: "Vasavi",
 	},
 	vau: {
 		code: "vau",
-		name: "Vanuma"
+		name: "Vanuma",
 	},
 	vav: {
 		code: "vav",
-		name: "Varli"
+		name: "Varli",
 	},
 	vay: {
 		code: "vay",
-		name: "Wayu"
+		name: "Wayu",
 	},
 	vbb: {
 		code: "vbb",
-		name: "Southeast Babar"
+		name: "Southeast Babar",
 	},
 	vbk: {
 		code: "vbk",
-		name: "Southwestern Bontok"
+		name: "Southwestern Bontok",
 	},
 	vec: {
 		code: "vec",
-		name: "Venetian"
+		name: "Venetian",
 	},
 	ved: {
 		code: "ved",
-		name: "Veddah"
+		name: "Veddah",
 	},
 	vel: {
 		code: "vel",
-		name: "Veluws"
+		name: "Veluws",
 	},
 	vem: {
 		code: "vem",
-		name: "Vemgo-Mabas"
+		name: "Vemgo-Mabas",
+	},
+	ven: {
+		code: "ven",
+		name: "Venda",
 	},
 	veo: {
 		code: "veo",
-		name: "Ventureño"
+		name: "Ventureño",
 	},
 	vep: {
 		code: "vep",
-		name: "Veps"
+		name: "Veps",
 	},
 	ver: {
 		code: "ver",
-		name: "Mom Jango"
+		name: "Mom Jango",
 	},
 	vgr: {
 		code: "vgr",
-		name: "Vaghri"
+		name: "Vaghri",
 	},
 	vgt: {
 		code: "vgt",
-		name: "Vlaamse Gebarentaal"
+		name: "Vlaamse Gebarentaal",
 	},
 	vic: {
 		code: "vic",
-		name: "Virgin Islands Creole English"
+		name: "Virgin Islands Creole English",
 	},
 	vid: {
 		code: "vid",
-		name: "Vidunda"
+		name: "Vidunda",
+	},
+	vie: {
+		code: "vie",
+		name: "Vietnamese",
 	},
 	vif: {
 		code: "vif",
-		name: "Vili"
+		name: "Vili",
 	},
 	vig: {
 		code: "vig",
-		name: "Viemo"
+		name: "Viemo",
 	},
 	vil: {
 		code: "vil",
-		name: "Vilela"
+		name: "Vilela",
 	},
 	vin: {
 		code: "vin",
-		name: "Vinza"
+		name: "Vinza",
 	},
 	vis: {
 		code: "vis",
-		name: "Vishavan"
+		name: "Vishavan",
 	},
 	vit: {
 		code: "vit",
-		name: "Viti"
+		name: "Viti",
 	},
 	viv: {
 		code: "viv",
-		name: "Iduna"
+		name: "Iduna",
 	},
 	vjk: {
 		code: "vjk",
-		name: "Bajjika"
+		name: "Bajjika",
 	},
 	vka: {
 		code: "vka",
-		name: "Kariyarra"
+		name: "Kariyarra",
 	},
 	vkj: {
 		code: "vkj",
-		name: "Kujarge"
+		name: "Kujarge",
 	},
 	vkk: {
 		code: "vkk",
-		name: "Kaur"
+		name: "Kaur",
 	},
 	vkl: {
 		code: "vkl",
-		name: "Kulisusu"
+		name: "Kulisusu",
 	},
 	vkm: {
 		code: "vkm",
-		name: "Kamakan"
+		name: "Kamakan",
 	},
 	vkn: {
 		code: "vkn",
-		name: "Koro Nulu"
+		name: "Koro Nulu",
 	},
 	vko: {
 		code: "vko",
-		name: "Kodeoha"
+		name: "Kodeoha",
 	},
 	vkp: {
 		code: "vkp",
-		name: "Korlai Creole Portuguese"
+		name: "Korlai Creole Portuguese",
 	},
 	vkt: {
 		code: "vkt",
-		name: "Tenggarong Kutai Malay"
+		name: "Tenggarong Kutai Malay",
 	},
 	vku: {
 		code: "vku",
-		name: "Kurrama"
+		name: "Kurrama",
 	},
 	vkz: {
 		code: "vkz",
-		name: "Koro Zuba"
+		name: "Koro Zuba",
 	},
 	vlp: {
 		code: "vlp",
-		name: "Valpei"
+		name: "Valpei",
 	},
 	vls: {
 		code: "vls",
-		name: "Vlaams"
+		name: "Vlaams",
 	},
 	vma: {
 		code: "vma",
-		name: "Martuyhunira"
+		name: "Martuyhunira",
 	},
 	vmb: {
 		code: "vmb",
-		name: "Barbaram"
+		name: "Barbaram",
 	},
 	vmc: {
 		code: "vmc",
-		name: "Juxtlahuaca Mixtec"
+		name: "Juxtlahuaca Mixtec",
 	},
 	vmd: {
 		code: "vmd",
-		name: "Mudu Koraga"
+		name: "Mudu Koraga",
 	},
 	vme: {
 		code: "vme",
-		name: "East Masela"
+		name: "East Masela",
 	},
 	vmf: {
 		code: "vmf",
-		name: "Mainfränkisch"
+		name: "Mainfränkisch",
 	},
 	vmg: {
 		code: "vmg",
-		name: "Lungalunga"
+		name: "Lungalunga",
 	},
 	vmh: {
 		code: "vmh",
-		name: "Maraghei"
+		name: "Maraghei",
 	},
 	vmi: {
 		code: "vmi",
-		name: "Miwa"
+		name: "Miwa",
 	},
 	vmj: {
 		code: "vmj",
-		name: "Ixtayutla Mixtec"
+		name: "Ixtayutla Mixtec",
 	},
 	vmk: {
 		code: "vmk",
-		name: "Makhuwa-Shirima"
+		name: "Makhuwa-Shirima",
 	},
 	vml: {
 		code: "vml",
-		name: "Malgana"
+		name: "Malgana",
 	},
 	vmm: {
 		code: "vmm",
-		name: "Mitlatongo Mixtec"
+		name: "Mitlatongo Mixtec",
 	},
 	vmp: {
 		code: "vmp",
-		name: "Soyaltepec Mazatec"
+		name: "Soyaltepec Mazatec",
 	},
 	vmq: {
 		code: "vmq",
-		name: "Soyaltepec Mixtec"
+		name: "Soyaltepec Mixtec",
 	},
 	vmr: {
 		code: "vmr",
-		name: "Marenje"
+		name: "Marenje",
 	},
 	vms: {
 		code: "vms",
-		name: "Moksela"
+		name: "Moksela",
 	},
 	vmu: {
 		code: "vmu",
-		name: "Muluridyi"
+		name: "Muluridyi",
 	},
 	vmv: {
 		code: "vmv",
-		name: "Valley Maidu"
+		name: "Valley Maidu",
 	},
 	vmw: {
 		code: "vmw",
-		name: "Makhuwa"
+		name: "Makhuwa",
 	},
 	vmx: {
 		code: "vmx",
-		name: "Tamazola Mixtec"
+		name: "Tamazola Mixtec",
 	},
 	vmy: {
 		code: "vmy",
-		name: "Ayautla Mazatec"
+		name: "Ayautla Mazatec",
 	},
 	vmz: {
 		code: "vmz",
-		name: "Mazatlán Mazatec"
+		name: "Mazatlán Mazatec",
 	},
 	vnk: {
 		code: "vnk",
-		name: "Vano"
+		name: "Vano",
 	},
 	vnm: {
 		code: "vnm",
-		name: "Vinmavis"
+		name: "Vinmavis",
 	},
 	vnp: {
 		code: "vnp",
-		name: "Vunapu"
+		name: "Vunapu",
+	},
+	vol: {
+		code: "vol",
+		name: "Volapük",
 	},
 	vor: {
 		code: "vor",
-		name: "Voro"
+		name: "Voro",
 	},
 	vot: {
 		code: "vot",
-		name: "Votic"
+		name: "Votic",
 	},
 	vra: {
 		code: "vra",
-		name: "Vera'a"
+		name: "Vera'a",
 	},
 	vro: {
 		code: "vro",
-		name: "Võro"
+		name: "Võro",
 	},
 	vrs: {
 		code: "vrs",
-		name: "Varisi"
+		name: "Varisi",
 	},
 	vrt: {
 		code: "vrt",
-		name: "Burmbar"
+		name: "Burmbar",
 	},
 	vsi: {
 		code: "vsi",
-		name: "Moldova Sign Language"
+		name: "Moldova Sign Language",
+	},
+	vsl: {
+		code: "vsl",
+		name: "Venezuelan Sign Language",
 	},
 	vsv: {
 		code: "vsv",
-		name: "Valencian Sign Language"
+		name: "Valencian Sign Language",
 	},
 	vto: {
 		code: "vto",
-		name: "Vitou"
+		name: "Vitou",
 	},
 	vum: {
 		code: "vum",
-		name: "Vumbu"
+		name: "Vumbu",
 	},
 	vun: {
 		code: "vun",
-		name: "Vunjo"
+		name: "Vunjo",
 	},
 	vut: {
 		code: "vut",
-		name: "Vute"
+		name: "Vute",
 	},
 	vwa: {
 		code: "vwa",
-		name: "Awa (China)"
+		name: "Awa (China)",
 	},
 	waa: {
 		code: "waa",
-		name: "Walla Walla"
+		name: "Walla Walla",
 	},
 	wab: {
 		code: "wab",
-		name: "Wab"
+		name: "Wab",
 	},
 	wac: {
 		code: "wac",
-		name: "Wasco-Wishram"
+		name: "Wasco-Wishram",
 	},
 	wad: {
 		code: "wad",
-		name: "Wamesa"
+		name: "Wamesa",
 	},
 	wae: {
 		code: "wae",
-		name: "Walser"
+		name: "Walser",
 	},
 	waf: {
 		code: "waf",
-		name: "Wakoná"
+		name: "Wakoná",
 	},
 	wag: {
 		code: "wag",
-		name: "Wa'ema"
+		name: "Wa'ema",
 	},
 	wah: {
 		code: "wah",
-		name: "Watubela"
+		name: "Watubela",
 	},
 	wai: {
 		code: "wai",
-		name: "Wares"
+		name: "Wares",
 	},
 	waj: {
 		code: "waj",
-		name: "Waffa"
+		name: "Waffa",
+	},
+	wal: {
+		code: "wal",
+		name: "Wolaytta",
 	},
 	wam: {
 		code: "wam",
-		name: "Wampanoag"
+		name: "Wampanoag",
 	},
 	wan: {
 		code: "wan",
-		name: "Wan"
+		name: "Wan",
 	},
 	wao: {
 		code: "wao",
-		name: "Wappo"
+		name: "Wappo",
 	},
 	wap: {
 		code: "wap",
-		name: "Wapishana"
+		name: "Wapishana",
 	},
 	waq: {
 		code: "waq",
-		name: "Wagiman"
+		name: "Wagiman",
+	},
+	war: {
+		code: "war",
+		name: "Waray (Philippines)",
 	},
 	was: {
 		code: "was",
-		name: "Washo"
+		name: "Washo",
 	},
 	wat: {
 		code: "wat",
-		name: "Kaninuwa"
+		name: "Kaninuwa",
 	},
 	wau: {
 		code: "wau",
-		name: "Waurá"
+		name: "Waurá",
 	},
 	wav: {
 		code: "wav",
-		name: "Waka"
+		name: "Waka",
 	},
 	waw: {
 		code: "waw",
-		name: "Waiwai"
+		name: "Waiwai",
 	},
 	wax: {
 		code: "wax",
-		name: "Watam"
+		name: "Watam",
 	},
 	way: {
 		code: "way",
-		name: "Wayana"
+		name: "Wayana",
 	},
 	waz: {
 		code: "waz",
-		name: "Wampur"
+		name: "Wampur",
 	},
 	wba: {
 		code: "wba",
-		name: "Warao"
+		name: "Warao",
 	},
 	wbb: {
 		code: "wbb",
-		name: "Wabo"
+		name: "Wabo",
 	},
 	wbe: {
 		code: "wbe",
-		name: "Waritai"
+		name: "Waritai",
 	},
 	wbf: {
 		code: "wbf",
-		name: "Wara"
+		name: "Wara",
 	},
 	wbh: {
 		code: "wbh",
-		name: "Wanda"
+		name: "Wanda",
 	},
 	wbi: {
 		code: "wbi",
-		name: "Vwanji"
+		name: "Vwanji",
 	},
 	wbj: {
 		code: "wbj",
-		name: "Alagwa"
+		name: "Alagwa",
 	},
 	wbk: {
 		code: "wbk",
-		name: "Waigali"
+		name: "Waigali",
 	},
 	wbl: {
 		code: "wbl",
-		name: "Wakhi"
+		name: "Wakhi",
 	},
 	wbm: {
 		code: "wbm",
-		name: "Wa"
+		name: "Wa",
 	},
 	wbp: {
 		code: "wbp",
-		name: "Warlpiri"
+		name: "Warlpiri",
 	},
 	wbq: {
 		code: "wbq",
-		name: "Waddar"
+		name: "Waddar",
 	},
 	wbr: {
 		code: "wbr",
-		name: "Wagdi"
+		name: "Wagdi",
 	},
 	wbs: {
 		code: "wbs",
-		name: "West Bengal Sign Language"
+		name: "West Bengal Sign Language",
 	},
 	wbt: {
 		code: "wbt",
-		name: "Warnman"
+		name: "Warnman",
 	},
 	wbv: {
 		code: "wbv",
-		name: "Wajarri"
+		name: "Wajarri",
 	},
 	wbw: {
 		code: "wbw",
-		name: "Woi"
+		name: "Woi",
 	},
 	wca: {
 		code: "wca",
-		name: "Yanomámi"
+		name: "Yanomámi",
 	},
 	wci: {
 		code: "wci",
-		name: "Waci Gbe"
+		name: "Waci Gbe",
 	},
 	wdd: {
 		code: "wdd",
-		name: "Wandji"
+		name: "Wandji",
 	},
 	wdg: {
 		code: "wdg",
-		name: "Wadaginam"
+		name: "Wadaginam",
 	},
 	wdj: {
 		code: "wdj",
-		name: "Wadjiginy"
+		name: "Wadjiginy",
 	},
 	wdk: {
 		code: "wdk",
-		name: "Wadikali"
+		name: "Wadikali",
 	},
 	wdt: {
 		code: "wdt",
-		name: "Wendat"
+		name: "Wendat",
 	},
 	wdu: {
 		code: "wdu",
-		name: "Wadjigu"
+		name: "Wadjigu",
 	},
 	wdy: {
 		code: "wdy",
-		name: "Wadjabangayi"
+		name: "Wadjabangayi",
 	},
 	wea: {
 		code: "wea",
-		name: "Wewaw"
+		name: "Wewaw",
 	},
 	wec: {
 		code: "wec",
-		name: "Wè Western"
+		name: "Wè Western",
 	},
 	wed: {
 		code: "wed",
-		name: "Wedau"
+		name: "Wedau",
 	},
 	weg: {
 		code: "weg",
-		name: "Wergaia"
+		name: "Wergaia",
 	},
 	weh: {
 		code: "weh",
-		name: "Weh"
+		name: "Weh",
 	},
 	wei: {
 		code: "wei",
-		name: "Kiunum"
+		name: "Kiunum",
 	},
 	wem: {
 		code: "wem",
-		name: "Weme Gbe"
+		name: "Weme Gbe",
 	},
 	weo: {
 		code: "weo",
-		name: "Wemale"
+		name: "Wemale",
 	},
 	wep: {
 		code: "wep",
-		name: "Westphalien"
+		name: "Westphalien",
 	},
 	wer: {
 		code: "wer",
-		name: "Weri"
+		name: "Weri",
 	},
 	wes: {
 		code: "wes",
-		name: "Cameroon Pidgin"
+		name: "Cameroon Pidgin",
 	},
 	wet: {
 		code: "wet",
-		name: "Perai"
+		name: "Perai",
 	},
 	weu: {
 		code: "weu",
-		name: "Rawngtu Chin"
+		name: "Rawngtu Chin",
 	},
 	wew: {
 		code: "wew",
-		name: "Wejewa"
+		name: "Wejewa",
 	},
 	wfg: {
 		code: "wfg",
-		name: "Yafi"
+		name: "Yafi",
 	},
 	wga: {
 		code: "wga",
-		name: "Wagaya"
+		name: "Wagaya",
 	},
 	wgb: {
 		code: "wgb",
-		name: "Wagawaga"
+		name: "Wagawaga",
 	},
 	wgg: {
 		code: "wgg",
-		name: "Wangkangurru"
+		name: "Wangkangurru",
 	},
 	wgi: {
 		code: "wgi",
-		name: "Wahgi"
+		name: "Wahgi",
 	},
 	wgo: {
 		code: "wgo",
-		name: "Waigeo"
+		name: "Waigeo",
 	},
 	wgu: {
 		code: "wgu",
-		name: "Wirangu"
+		name: "Wirangu",
 	},
 	wgy: {
 		code: "wgy",
-		name: "Warrgamay"
+		name: "Warrgamay",
 	},
 	wha: {
 		code: "wha",
-		name: "Sou Upaa"
+		name: "Sou Upaa",
 	},
 	whg: {
 		code: "whg",
-		name: "North Wahgi"
+		name: "North Wahgi",
 	},
 	whk: {
 		code: "whk",
-		name: "Wahau Kenyah"
+		name: "Wahau Kenyah",
 	},
 	whu: {
 		code: "whu",
-		name: "Wahau Kayan"
+		name: "Wahau Kayan",
 	},
 	wib: {
 		code: "wib",
-		name: "Southern Toussian"
+		name: "Southern Toussian",
 	},
 	wic: {
 		code: "wic",
-		name: "Wichita"
+		name: "Wichita",
 	},
 	wie: {
 		code: "wie",
-		name: "Wik-Epa"
+		name: "Wik-Epa",
 	},
 	wif: {
 		code: "wif",
-		name: "Wik-Keyangan"
+		name: "Wik-Keyangan",
 	},
 	wig: {
 		code: "wig",
-		name: "Wik Ngathan"
+		name: "Wik Ngathan",
 	},
 	wih: {
 		code: "wih",
-		name: "Wik-Me'anha"
+		name: "Wik-Me'anha",
 	},
 	wii: {
 		code: "wii",
-		name: "Minidien"
+		name: "Minidien",
 	},
 	wij: {
 		code: "wij",
-		name: "Wik-Iiyanh"
+		name: "Wik-Iiyanh",
 	},
 	wik: {
 		code: "wik",
-		name: "Wikalkan"
+		name: "Wikalkan",
 	},
 	wil: {
 		code: "wil",
-		name: "Wilawila"
+		name: "Wilawila",
 	},
 	wim: {
 		code: "wim",
-		name: "Wik-Mungkan"
+		name: "Wik-Mungkan",
 	},
 	win: {
 		code: "win",
-		name: "Ho-Chunk"
+		name: "Ho-Chunk",
 	},
 	wir: {
 		code: "wir",
-		name: "Wiraféd"
+		name: "Wiraféd",
 	},
 	wiu: {
 		code: "wiu",
-		name: "Wiru"
+		name: "Wiru",
 	},
 	wiv: {
 		code: "wiv",
-		name: "Vitu"
+		name: "Vitu",
 	},
 	wiy: {
 		code: "wiy",
-		name: "Wiyot"
+		name: "Wiyot",
 	},
 	wja: {
 		code: "wja",
-		name: "Waja"
+		name: "Waja",
 	},
 	wji: {
 		code: "wji",
-		name: "Warji"
+		name: "Warji",
 	},
 	wka: {
 		code: "wka",
-		name: "Kw'adza"
+		name: "Kw'adza",
 	},
 	wkb: {
 		code: "wkb",
-		name: "Kumbaran"
+		name: "Kumbaran",
 	},
 	wkd: {
 		code: "wkd",
-		name: "Wakde"
+		name: "Wakde",
 	},
 	wkl: {
 		code: "wkl",
-		name: "Kalanadi"
+		name: "Kalanadi",
 	},
 	wkr: {
 		code: "wkr",
-		name: "Keerray-Woorroong"
+		name: "Keerray-Woorroong",
 	},
 	wku: {
 		code: "wku",
-		name: "Kunduvadi"
+		name: "Kunduvadi",
 	},
 	wkw: {
 		code: "wkw",
-		name: "Wakawaka"
+		name: "Wakawaka",
 	},
 	wky: {
 		code: "wky",
-		name: "Wangkayutyuru"
+		name: "Wangkayutyuru",
 	},
 	wla: {
 		code: "wla",
-		name: "Walio"
+		name: "Walio",
 	},
 	wlc: {
 		code: "wlc",
-		name: "Mwali Comorian"
+		name: "Mwali Comorian",
 	},
 	wle: {
 		code: "wle",
-		name: "Wolane"
+		name: "Wolane",
 	},
 	wlg: {
 		code: "wlg",
-		name: "Kunbarlang"
+		name: "Kunbarlang",
 	},
 	wlh: {
 		code: "wlh",
-		name: "Welaun"
+		name: "Welaun",
 	},
 	wli: {
 		code: "wli",
-		name: "Waioli"
+		name: "Waioli",
 	},
 	wlk: {
 		code: "wlk",
-		name: "Wailaki"
+		name: "Wailaki",
 	},
 	wll: {
 		code: "wll",
-		name: "Wali (Sudan)"
+		name: "Wali (Sudan)",
 	},
 	wlm: {
 		code: "wlm",
-		name: "Middle Welsh"
+		name: "Middle Welsh",
+	},
+	wln: {
+		code: "wln",
+		name: "Walloon",
 	},
 	wlo: {
 		code: "wlo",
-		name: "Wolio"
+		name: "Wolio",
 	},
 	wlr: {
 		code: "wlr",
-		name: "Wailapa"
+		name: "Wailapa",
+	},
+	wls: {
+		code: "wls",
+		name: "Wallisian",
 	},
 	wlu: {
 		code: "wlu",
-		name: "Wuliwuli"
+		name: "Wuliwuli",
 	},
 	wlv: {
 		code: "wlv",
-		name: "Wichí Lhamtés Vejoz"
+		name: "Wichí Lhamtés Vejoz",
 	},
 	wlw: {
 		code: "wlw",
-		name: "Walak"
+		name: "Walak",
 	},
 	wlx: {
 		code: "wlx",
-		name: "Wali (Ghana)"
+		name: "Wali (Ghana)",
 	},
 	wly: {
 		code: "wly",
-		name: "Waling"
+		name: "Waling",
 	},
 	wma: {
 		code: "wma",
-		name: "Mawa (Nigeria)"
+		name: "Mawa (Nigeria)",
 	},
 	wmb: {
 		code: "wmb",
-		name: "Wambaya"
+		name: "Wambaya",
 	},
 	wmc: {
 		code: "wmc",
-		name: "Wamas"
+		name: "Wamas",
 	},
 	wmd: {
 		code: "wmd",
-		name: "Mamaindé"
+		name: "Mamaindé",
 	},
 	wme: {
 		code: "wme",
-		name: "Wambule"
+		name: "Wambule",
 	},
 	wmg: {
 		code: "wmg",
-		name: "Western Minyag"
+		name: "Western Minyag",
 	},
 	wmh: {
 		code: "wmh",
-		name: "Waima'a"
+		name: "Waima'a",
 	},
 	wmi: {
 		code: "wmi",
-		name: "Wamin"
+		name: "Wamin",
 	},
 	wmm: {
 		code: "wmm",
-		name: "Maiwa (Indonesia)"
+		name: "Maiwa (Indonesia)",
 	},
 	wmn: {
 		code: "wmn",
-		name: "Waamwang"
+		name: "Waamwang",
 	},
 	wmo: {
 		code: "wmo",
-		name: "Wom (Papua New Guinea)"
+		name: "Wom (Papua New Guinea)",
 	},
 	wms: {
 		code: "wms",
-		name: "Wambon"
+		name: "Wambon",
 	},
 	wmt: {
 		code: "wmt",
-		name: "Walmajarri"
+		name: "Walmajarri",
 	},
 	wmw: {
 		code: "wmw",
-		name: "Mwani"
+		name: "Mwani",
 	},
 	wmx: {
 		code: "wmx",
-		name: "Womo"
+		name: "Womo",
 	},
 	wnb: {
 		code: "wnb",
-		name: "Mokati"
+		name: "Mokati",
 	},
 	wnc: {
 		code: "wnc",
-		name: "Wantoat"
+		name: "Wantoat",
 	},
 	wnd: {
 		code: "wnd",
-		name: "Wandarang"
+		name: "Wandarang",
 	},
 	wne: {
 		code: "wne",
-		name: "Waneci"
+		name: "Waneci",
 	},
 	wng: {
 		code: "wng",
-		name: "Wanggom"
+		name: "Wanggom",
 	},
 	wni: {
 		code: "wni",
-		name: "Ndzwani Comorian"
+		name: "Ndzwani Comorian",
 	},
 	wnk: {
 		code: "wnk",
-		name: "Wanukaka"
+		name: "Wanukaka",
 	},
 	wnm: {
 		code: "wnm",
-		name: "Wanggamala"
+		name: "Wanggamala",
 	},
 	wnn: {
 		code: "wnn",
-		name: "Wunumara"
+		name: "Wunumara",
 	},
 	wno: {
 		code: "wno",
-		name: "Wano"
+		name: "Wano",
 	},
 	wnp: {
 		code: "wnp",
-		name: "Wanap"
+		name: "Wanap",
 	},
 	wnu: {
 		code: "wnu",
-		name: "Usan"
+		name: "Usan",
 	},
 	wnw: {
 		code: "wnw",
-		name: "Wintu"
+		name: "Wintu",
 	},
 	wny: {
 		code: "wny",
-		name: "Wanyi"
+		name: "Wanyi",
 	},
 	woa: {
 		code: "woa",
-		name: "Kuwema"
+		name: "Kuwema",
 	},
 	wob: {
 		code: "wob",
-		name: "Wè Northern"
+		name: "Wè Northern",
 	},
 	woc: {
 		code: "woc",
-		name: "Wogeo"
+		name: "Wogeo",
 	},
 	wod: {
 		code: "wod",
-		name: "Wolani"
+		name: "Wolani",
 	},
 	woe: {
 		code: "woe",
-		name: "Woleaian"
+		name: "Woleaian",
 	},
 	wof: {
 		code: "wof",
-		name: "Gambian Wolof"
+		name: "Gambian Wolof",
 	},
 	wog: {
 		code: "wog",
-		name: "Wogamusin"
+		name: "Wogamusin",
 	},
 	woi: {
 		code: "woi",
-		name: "Kamang"
+		name: "Kamang",
 	},
 	wok: {
 		code: "wok",
-		name: "Longto"
+		name: "Longto",
+	},
+	wol: {
+		code: "wol",
+		name: "Wolof",
 	},
 	wom: {
 		code: "wom",
-		name: "Wom (Nigeria)"
+		name: "Wom (Nigeria)",
 	},
 	won: {
 		code: "won",
-		name: "Wongo"
+		name: "Wongo",
 	},
 	woo: {
 		code: "woo",
-		name: "Manombai"
+		name: "Manombai",
 	},
 	wor: {
 		code: "wor",
-		name: "Woria"
+		name: "Woria",
 	},
 	wos: {
 		code: "wos",
-		name: "Hanga Hundi"
+		name: "Hanga Hundi",
 	},
 	wow: {
 		code: "wow",
-		name: "Wawonii"
+		name: "Wawonii",
 	},
 	woy: {
 		code: "woy",
-		name: "Weyto"
+		name: "Weyto",
 	},
 	wpc: {
 		code: "wpc",
-		name: "Maco"
+		name: "Maco",
 	},
 	wrb: {
 		code: "wrb",
-		name: "Waluwarra"
+		name: "Waluwarra",
 	},
 	wrg: {
 		code: "wrg",
-		name: "Warungu"
+		name: "Warungu",
 	},
 	wrh: {
 		code: "wrh",
-		name: "Wiradjuri"
+		name: "Wiradjuri",
 	},
 	wri: {
 		code: "wri",
-		name: "Wariyangga"
+		name: "Wariyangga",
 	},
 	wrk: {
 		code: "wrk",
-		name: "Garrwa"
+		name: "Garrwa",
 	},
 	wrl: {
 		code: "wrl",
-		name: "Warlmanpa"
+		name: "Warlmanpa",
 	},
 	wrm: {
 		code: "wrm",
-		name: "Warumungu"
+		name: "Warumungu",
 	},
 	wrn: {
 		code: "wrn",
-		name: "Warnang"
+		name: "Warnang",
 	},
 	wro: {
 		code: "wro",
-		name: "Worrorra"
+		name: "Worrorra",
 	},
 	wrp: {
 		code: "wrp",
-		name: "Waropen"
+		name: "Waropen",
 	},
 	wrr: {
 		code: "wrr",
-		name: "Wardaman"
+		name: "Wardaman",
 	},
 	wrs: {
 		code: "wrs",
-		name: "Waris"
+		name: "Waris",
 	},
 	wru: {
 		code: "wru",
-		name: "Waru"
+		name: "Waru",
 	},
 	wrv: {
 		code: "wrv",
-		name: "Waruna"
+		name: "Waruna",
 	},
 	wrw: {
 		code: "wrw",
-		name: "Gugu Warra"
+		name: "Gugu Warra",
 	},
 	wrx: {
 		code: "wrx",
-		name: "Wae Rana"
+		name: "Wae Rana",
 	},
 	wry: {
 		code: "wry",
-		name: "Merwari"
+		name: "Merwari",
 	},
 	wrz: {
 		code: "wrz",
-		name: "Waray (Australia)"
+		name: "Waray (Australia)",
 	},
 	wsa: {
 		code: "wsa",
-		name: "Warembori"
+		name: "Warembori",
 	},
 	wsg: {
 		code: "wsg",
-		name: "Adilabad Gondi"
+		name: "Adilabad Gondi",
 	},
 	wsi: {
 		code: "wsi",
-		name: "Wusi"
+		name: "Wusi",
 	},
 	wsk: {
 		code: "wsk",
-		name: "Waskia"
+		name: "Waskia",
 	},
 	wsr: {
 		code: "wsr",
-		name: "Owenia"
+		name: "Owenia",
 	},
 	wss: {
 		code: "wss",
-		name: "Wasa"
+		name: "Wasa",
 	},
 	wsu: {
 		code: "wsu",
-		name: "Wasu"
+		name: "Wasu",
 	},
 	wsv: {
 		code: "wsv",
-		name: "Wotapuri-Katarqalai"
+		name: "Wotapuri-Katarqalai",
 	},
 	wtb: {
 		code: "wtb",
-		name: "Matambwe"
+		name: "Matambwe",
 	},
 	wtf: {
 		code: "wtf",
-		name: "Watiwa"
+		name: "Watiwa",
 	},
 	wth: {
 		code: "wth",
-		name: "Wathawurrung"
+		name: "Wathawurrung",
 	},
 	wti: {
 		code: "wti",
-		name: "Berta"
+		name: "Berta",
 	},
 	wtk: {
 		code: "wtk",
-		name: "Watakataui"
+		name: "Watakataui",
 	},
 	wtm: {
 		code: "wtm",
-		name: "Mewati"
+		name: "Mewati",
 	},
 	wtw: {
 		code: "wtw",
-		name: "Wotu"
+		name: "Wotu",
 	},
 	wua: {
 		code: "wua",
-		name: "Wikngenchera"
+		name: "Wikngenchera",
 	},
 	wub: {
 		code: "wub",
-		name: "Wunambal"
+		name: "Wunambal",
 	},
 	wud: {
 		code: "wud",
-		name: "Wudu"
+		name: "Wudu",
 	},
 	wuh: {
 		code: "wuh",
-		name: "Wutunhua"
+		name: "Wutunhua",
 	},
 	wul: {
 		code: "wul",
-		name: "Silimo"
+		name: "Silimo",
 	},
 	wum: {
 		code: "wum",
-		name: "Wumbvu"
+		name: "Wumbvu",
 	},
 	wun: {
 		code: "wun",
-		name: "Bungu"
+		name: "Bungu",
 	},
 	wur: {
 		code: "wur",
-		name: "Wurrugu"
+		name: "Wurrugu",
 	},
 	wut: {
 		code: "wut",
-		name: "Wutung"
+		name: "Wutung",
 	},
 	wuu: {
 		code: "wuu",
-		name: "Wu Chinese"
+		name: "Wu Chinese",
 	},
 	wuv: {
 		code: "wuv",
-		name: "Wuvulu-Aua"
+		name: "Wuvulu-Aua",
 	},
 	wux: {
 		code: "wux",
-		name: "Wulna"
+		name: "Wulna",
 	},
 	wuy: {
 		code: "wuy",
-		name: "Wauyai"
+		name: "Wauyai",
 	},
 	wwa: {
 		code: "wwa",
-		name: "Waama"
+		name: "Waama",
 	},
 	wwb: {
 		code: "wwb",
-		name: "Wakabunga"
+		name: "Wakabunga",
 	},
 	wwo: {
 		code: "wwo",
-		name: "Wetamut"
+		name: "Wetamut",
 	},
 	wwr: {
 		code: "wwr",
-		name: "Warrwa"
+		name: "Warrwa",
 	},
 	www: {
 		code: "www",
-		name: "Wawa"
+		name: "Wawa",
 	},
 	wxa: {
 		code: "wxa",
-		name: "Waxianghua"
+		name: "Waxianghua",
 	},
 	wxw: {
 		code: "wxw",
-		name: "Wardandi"
+		name: "Wardandi",
 	},
 	wyb: {
 		code: "wyb",
-		name: "Wangaaybuwan-Ngiyambaa"
+		name: "Wangaaybuwan-Ngiyambaa",
 	},
 	wyi: {
 		code: "wyi",
-		name: "Woiwurrung"
+		name: "Woiwurrung",
 	},
 	wym: {
 		code: "wym",
-		name: "Wymysorys"
+		name: "Wymysorys",
 	},
 	wyn: {
 		code: "wyn",
-		name: "Wyandot"
+		name: "Wyandot",
 	},
 	wyr: {
 		code: "wyr",
-		name: "Wayoró"
+		name: "Wayoró",
 	},
 	wyy: {
 		code: "wyy",
-		name: "Western Fijian"
+		name: "Western Fijian",
 	},
 	xaa: {
 		code: "xaa",
-		name: "Andalusian Arabic"
+		name: "Andalusian Arabic",
 	},
 	xab: {
 		code: "xab",
-		name: "Sambe"
+		name: "Sambe",
 	},
 	xac: {
 		code: "xac",
-		name: "Kachari"
+		name: "Kachari",
 	},
 	xad: {
 		code: "xad",
-		name: "Adai"
+		name: "Adai",
 	},
 	xae: {
 		code: "xae",
-		name: "Aequian"
+		name: "Aequian",
 	},
 	xag: {
 		code: "xag",
-		name: "Aghwan"
+		name: "Aghwan",
 	},
 	xai: {
 		code: "xai",
-		name: "Kaimbé"
+		name: "Kaimbé",
 	},
 	xaj: {
 		code: "xaj",
-		name: "Ararandewára"
+		name: "Ararandewára",
 	},
 	xak: {
 		code: "xak",
-		name: "Máku"
+		name: "Máku",
 	},
 	xal: {
 		code: "xal",
-		name: "Kalmyk"
+		name: "Kalmyk",
 	},
 	xam: {
 		code: "xam",
-		name: "ǀXam"
+		name: "ǀXam",
 	},
 	xan: {
 		code: "xan",
-		name: "Xamtanga"
+		name: "Xamtanga",
 	},
 	xao: {
 		code: "xao",
-		name: "Khao"
+		name: "Khao",
 	},
 	xap: {
 		code: "xap",
-		name: "Apalachee"
+		name: "Apalachee",
 	},
 	xaq: {
 		code: "xaq",
-		name: "Aquitanian"
+		name: "Aquitanian",
 	},
 	xar: {
 		code: "xar",
-		name: "Karami"
+		name: "Karami",
 	},
 	xas: {
 		code: "xas",
-		name: "Kamas"
+		name: "Kamas",
 	},
 	xat: {
 		code: "xat",
-		name: "Katawixi"
+		name: "Katawixi",
 	},
 	xau: {
 		code: "xau",
-		name: "Kauwera"
+		name: "Kauwera",
 	},
 	xav: {
 		code: "xav",
-		name: "Xavánte"
+		name: "Xavánte",
 	},
 	xaw: {
 		code: "xaw",
-		name: "Kawaiisu"
+		name: "Kawaiisu",
 	},
 	xay: {
 		code: "xay",
-		name: "Kayan Mahakam"
+		name: "Kayan Mahakam",
 	},
 	xbb: {
 		code: "xbb",
-		name: "Lower Burdekin"
+		name: "Lower Burdekin",
 	},
 	xbc: {
 		code: "xbc",
-		name: "Bactrian"
+		name: "Bactrian",
 	},
 	xbd: {
 		code: "xbd",
-		name: "Bindal"
+		name: "Bindal",
 	},
 	xbe: {
 		code: "xbe",
-		name: "Bigambal"
+		name: "Bigambal",
 	},
 	xbg: {
 		code: "xbg",
-		name: "Bunganditj"
+		name: "Bunganditj",
 	},
 	xbi: {
 		code: "xbi",
-		name: "Kombio"
+		name: "Kombio",
 	},
 	xbj: {
 		code: "xbj",
-		name: "Birrpayi"
+		name: "Birrpayi",
 	},
 	xbm: {
 		code: "xbm",
-		name: "Middle Breton"
+		name: "Middle Breton",
 	},
 	xbn: {
 		code: "xbn",
-		name: "Kenaboi"
+		name: "Kenaboi",
 	},
 	xbo: {
 		code: "xbo",
-		name: "Bolgarian"
+		name: "Bolgarian",
 	},
 	xbp: {
 		code: "xbp",
-		name: "Bibbulman"
+		name: "Bibbulman",
 	},
 	xbr: {
 		code: "xbr",
-		name: "Kambera"
+		name: "Kambera",
 	},
 	xbw: {
 		code: "xbw",
-		name: "Kambiwá"
+		name: "Kambiwá",
 	},
 	xby: {
 		code: "xby",
-		name: "Batjala"
+		name: "Batjala",
 	},
 	xcb: {
 		code: "xcb",
-		name: "Cumbric"
+		name: "Cumbric",
 	},
 	xcc: {
 		code: "xcc",
-		name: "Camunic"
+		name: "Camunic",
 	},
 	xce: {
 		code: "xce",
-		name: "Celtiberian"
+		name: "Celtiberian",
 	},
 	xcg: {
 		code: "xcg",
-		name: "Cisalpine Gaulish"
+		name: "Cisalpine Gaulish",
 	},
 	xch: {
 		code: "xch",
-		name: "Chemakum"
+		name: "Chemakum",
 	},
 	xcl: {
 		code: "xcl",
-		name: "Classical Armenian"
+		name: "Classical Armenian",
 	},
 	xcm: {
 		code: "xcm",
-		name: "Comecrudo"
+		name: "Comecrudo",
 	},
 	xcn: {
 		code: "xcn",
-		name: "Cotoname"
+		name: "Cotoname",
 	},
 	xco: {
 		code: "xco",
-		name: "Chorasmian"
+		name: "Chorasmian",
 	},
 	xcr: {
 		code: "xcr",
-		name: "Carian"
+		name: "Carian",
 	},
 	xct: {
 		code: "xct",
-		name: "Classical Tibetan"
+		name: "Classical Tibetan",
 	},
 	xcu: {
 		code: "xcu",
-		name: "Curonian"
+		name: "Curonian",
 	},
 	xcv: {
 		code: "xcv",
-		name: "Chuvantsy"
+		name: "Chuvantsy",
 	},
 	xcw: {
 		code: "xcw",
-		name: "Coahuilteco"
+		name: "Coahuilteco",
 	},
 	xcy: {
 		code: "xcy",
-		name: "Cayuse"
+		name: "Cayuse",
 	},
 	xda: {
 		code: "xda",
-		name: "Darkinyung"
+		name: "Darkinyung",
 	},
 	xdc: {
 		code: "xdc",
-		name: "Dacian"
+		name: "Dacian",
 	},
 	xdk: {
 		code: "xdk",
-		name: "Dharuk"
+		name: "Dharuk",
 	},
 	xdm: {
 		code: "xdm",
-		name: "Edomite"
+		name: "Edomite",
 	},
 	xdo: {
 		code: "xdo",
-		name: "Kwandu"
+		name: "Kwandu",
 	},
 	xdq: {
 		code: "xdq",
-		name: "Kaitag"
+		name: "Kaitag",
 	},
 	xdy: {
 		code: "xdy",
-		name: "Malayic Dayak"
+		name: "Malayic Dayak",
 	},
 	xeb: {
 		code: "xeb",
-		name: "Eblan"
+		name: "Eblan",
 	},
 	xed: {
 		code: "xed",
-		name: "Hdi"
+		name: "Hdi",
 	},
 	xeg: {
 		code: "xeg",
-		name: "ǁXegwi"
+		name: "ǁXegwi",
 	},
 	xel: {
 		code: "xel",
-		name: "Kelo"
+		name: "Kelo",
 	},
 	xem: {
 		code: "xem",
-		name: "Kembayan"
+		name: "Kembayan",
 	},
 	xep: {
 		code: "xep",
-		name: "Epi-Olmec"
+		name: "Epi-Olmec",
 	},
 	xer: {
 		code: "xer",
-		name: "Xerénte"
+		name: "Xerénte",
 	},
 	xes: {
 		code: "xes",
-		name: "Kesawai"
+		name: "Kesawai",
 	},
 	xet: {
 		code: "xet",
-		name: "Xetá"
+		name: "Xetá",
 	},
 	xeu: {
 		code: "xeu",
-		name: "Keoru-Ahia"
+		name: "Keoru-Ahia",
 	},
 	xfa: {
 		code: "xfa",
-		name: "Faliscan"
+		name: "Faliscan",
 	},
 	xga: {
 		code: "xga",
-		name: "Galatian"
+		name: "Galatian",
 	},
 	xgb: {
 		code: "xgb",
-		name: "Gbin"
+		name: "Gbin",
 	},
 	xgd: {
 		code: "xgd",
-		name: "Gudang"
+		name: "Gudang",
 	},
 	xgf: {
 		code: "xgf",
-		name: "Gabrielino-Fernandeño"
+		name: "Gabrielino-Fernandeño",
 	},
 	xgg: {
 		code: "xgg",
-		name: "Goreng"
+		name: "Goreng",
 	},
 	xgi: {
 		code: "xgi",
-		name: "Garingbal"
+		name: "Garingbal",
 	},
 	xgl: {
 		code: "xgl",
-		name: "Galindan"
+		name: "Galindan",
 	},
 	xgm: {
 		code: "xgm",
-		name: "Dharumbal"
+		name: "Dharumbal",
 	},
 	xgr: {
 		code: "xgr",
-		name: "Garza"
+		name: "Garza",
 	},
 	xgu: {
 		code: "xgu",
-		name: "Unggumi"
+		name: "Unggumi",
 	},
 	xgw: {
 		code: "xgw",
-		name: "Guwa"
+		name: "Guwa",
 	},
 	xha: {
 		code: "xha",
-		name: "Harami"
+		name: "Harami",
 	},
 	xhc: {
 		code: "xhc",
-		name: "Hunnic"
+		name: "Hunnic",
 	},
 	xhd: {
 		code: "xhd",
-		name: "Hadrami"
+		name: "Hadrami",
 	},
 	xhe: {
 		code: "xhe",
-		name: "Khetrani"
+		name: "Khetrani",
 	},
 	xhm: {
 		code: "xhm",
-		name: "Middle Khmer (1400 to 1850 CE)"
+		name: "Middle Khmer (1400 to 1850 CE)",
+	},
+	xho: {
+		code: "xho",
+		name: "Xhosa",
 	},
 	xhr: {
 		code: "xhr",
-		name: "Hernican"
+		name: "Hernican",
 	},
 	xht: {
 		code: "xht",
-		name: "Hattic"
+		name: "Hattic",
 	},
 	xhu: {
 		code: "xhu",
-		name: "Hurrian"
+		name: "Hurrian",
 	},
 	xhv: {
 		code: "xhv",
-		name: "Khua"
+		name: "Khua",
 	},
 	xib: {
 		code: "xib",
-		name: "Iberian"
+		name: "Iberian",
 	},
 	xii: {
 		code: "xii",
-		name: "Xiri"
+		name: "Xiri",
 	},
 	xil: {
 		code: "xil",
-		name: "Illyrian"
+		name: "Illyrian",
 	},
 	xin: {
 		code: "xin",
-		name: "Xinca"
+		name: "Xinca",
 	},
 	xir: {
 		code: "xir",
-		name: "Xiriâna"
+		name: "Xiriâna",
 	},
 	xis: {
 		code: "xis",
-		name: "Kisan"
+		name: "Kisan",
 	},
 	xiv: {
 		code: "xiv",
-		name: "Indus Valley Language"
+		name: "Indus Valley Language",
 	},
 	xiy: {
 		code: "xiy",
-		name: "Xipaya"
+		name: "Xipaya",
 	},
 	xjb: {
 		code: "xjb",
-		name: "Minjungbal"
+		name: "Minjungbal",
 	},
 	xjt: {
 		code: "xjt",
-		name: "Jaitmatang"
+		name: "Jaitmatang",
 	},
 	xka: {
 		code: "xka",
-		name: "Kalkoti"
+		name: "Kalkoti",
 	},
 	xkb: {
 		code: "xkb",
-		name: "Northern Nago"
+		name: "Northern Nago",
 	},
 	xkc: {
 		code: "xkc",
-		name: "Kho'ini"
+		name: "Kho'ini",
 	},
 	xkd: {
 		code: "xkd",
-		name: "Mendalam Kayan"
+		name: "Mendalam Kayan",
 	},
 	xke: {
 		code: "xke",
-		name: "Kereho"
+		name: "Kereho",
 	},
 	xkf: {
 		code: "xkf",
-		name: "Khengkha"
+		name: "Khengkha",
 	},
 	xkg: {
 		code: "xkg",
-		name: "Kagoro"
+		name: "Kagoro",
 	},
 	xki: {
 		code: "xki",
-		name: "Kenyan Sign Language"
+		name: "Kenyan Sign Language",
 	},
 	xkj: {
 		code: "xkj",
-		name: "Kajali"
+		name: "Kajali",
 	},
 	xkk: {
 		code: "xkk",
-		name: "Kachok"
+		name: "Kachok",
 	},
 	xkl: {
 		code: "xkl",
-		name: "Mainstream Kenyah"
+		name: "Mainstream Kenyah",
 	},
 	xkn: {
 		code: "xkn",
-		name: "Kayan River Kayan"
+		name: "Kayan River Kayan",
 	},
 	xko: {
 		code: "xko",
-		name: "Kiorr"
+		name: "Kiorr",
 	},
 	xkp: {
 		code: "xkp",
-		name: "Kabatei"
+		name: "Kabatei",
 	},
 	xkq: {
 		code: "xkq",
-		name: "Koroni"
+		name: "Koroni",
 	},
 	xkr: {
 		code: "xkr",
-		name: "Xakriabá"
+		name: "Xakriabá",
 	},
 	xks: {
 		code: "xks",
-		name: "Kumbewaha"
+		name: "Kumbewaha",
 	},
 	xkt: {
 		code: "xkt",
-		name: "Kantosi"
+		name: "Kantosi",
 	},
 	xku: {
 		code: "xku",
-		name: "Kaamba"
+		name: "Kaamba",
 	},
 	xkv: {
 		code: "xkv",
-		name: "Kgalagadi"
+		name: "Kgalagadi",
 	},
 	xkw: {
 		code: "xkw",
-		name: "Kembra"
+		name: "Kembra",
 	},
 	xkx: {
 		code: "xkx",
-		name: "Karore"
+		name: "Karore",
 	},
 	xky: {
 		code: "xky",
-		name: "Uma' Lasan"
+		name: "Uma' Lasan",
 	},
 	xkz: {
 		code: "xkz",
-		name: "Kurtokha"
+		name: "Kurtokha",
 	},
 	xla: {
 		code: "xla",
-		name: "Kamula"
+		name: "Kamula",
 	},
 	xlb: {
 		code: "xlb",
-		name: "Loup B"
+		name: "Loup B",
 	},
 	xlc: {
 		code: "xlc",
-		name: "Lycian"
+		name: "Lycian",
 	},
 	xld: {
 		code: "xld",
-		name: "Lydian"
+		name: "Lydian",
 	},
 	xle: {
 		code: "xle",
-		name: "Lemnian"
+		name: "Lemnian",
 	},
 	xlg: {
 		code: "xlg",
-		name: "Ligurian (Ancient)"
+		name: "Ligurian (Ancient)",
 	},
 	xli: {
 		code: "xli",
-		name: "Liburnian"
+		name: "Liburnian",
 	},
 	xln: {
 		code: "xln",
-		name: "Alanic"
+		name: "Alanic",
 	},
 	xlo: {
 		code: "xlo",
-		name: "Loup A"
+		name: "Loup A",
 	},
 	xlp: {
 		code: "xlp",
-		name: "Lepontic"
+		name: "Lepontic",
 	},
 	xls: {
 		code: "xls",
-		name: "Lusitanian"
+		name: "Lusitanian",
 	},
 	xlu: {
 		code: "xlu",
-		name: "Cuneiform Luwian"
+		name: "Cuneiform Luwian",
 	},
 	xly: {
 		code: "xly",
-		name: "Elymian"
+		name: "Elymian",
 	},
 	xma: {
 		code: "xma",
-		name: "Mushungulu"
+		name: "Mushungulu",
 	},
 	xmb: {
 		code: "xmb",
-		name: "Mbonga"
+		name: "Mbonga",
 	},
 	xmc: {
 		code: "xmc",
-		name: "Makhuwa-Marrevone"
+		name: "Makhuwa-Marrevone",
 	},
 	xmd: {
 		code: "xmd",
-		name: "Mbudum"
+		name: "Mbudum",
 	},
 	xme: {
 		code: "xme",
-		name: "Median"
+		name: "Median",
 	},
 	xmf: {
 		code: "xmf",
-		name: "Mingrelian"
+		name: "Mingrelian",
 	},
 	xmg: {
 		code: "xmg",
-		name: "Mengaka"
+		name: "Mengaka",
 	},
 	xmh: {
 		code: "xmh",
-		name: "Kugu-Muminh"
+		name: "Kugu-Muminh",
 	},
 	xmj: {
 		code: "xmj",
-		name: "Majera"
+		name: "Majera",
 	},
 	xmk: {
 		code: "xmk",
-		name: "Ancient Macedonian"
+		name: "Ancient Macedonian",
 	},
 	xml: {
 		code: "xml",
-		name: "Malaysian Sign Language"
+		name: "Malaysian Sign Language",
 	},
 	xmm: {
 		code: "xmm",
-		name: "Manado Malay"
+		name: "Manado Malay",
 	},
 	xmn: {
 		code: "xmn",
-		name: "Manichaean Middle Persian"
+		name: "Manichaean Middle Persian",
 	},
 	xmo: {
 		code: "xmo",
-		name: "Morerebi"
+		name: "Morerebi",
 	},
 	xmp: {
 		code: "xmp",
-		name: "Kuku-Mu'inh"
+		name: "Kuku-Mu'inh",
 	},
 	xmq: {
 		code: "xmq",
-		name: "Kuku-Mangk"
+		name: "Kuku-Mangk",
 	},
 	xmr: {
 		code: "xmr",
-		name: "Meroitic"
+		name: "Meroitic",
 	},
 	xms: {
 		code: "xms",
-		name: "Moroccan Sign Language"
+		name: "Moroccan Sign Language",
 	},
 	xmt: {
 		code: "xmt",
-		name: "Matbat"
+		name: "Matbat",
 	},
 	xmu: {
 		code: "xmu",
-		name: "Kamu"
+		name: "Kamu",
 	},
 	xmv: {
 		code: "xmv",
-		name: "Antankarana Malagasy"
+		name: "Antankarana Malagasy",
 	},
 	xmw: {
 		code: "xmw",
-		name: "Tsimihety Malagasy"
+		name: "Tsimihety Malagasy",
 	},
 	xmx: {
 		code: "xmx",
-		name: "Salawati"
+		name: "Salawati",
 	},
 	xmy: {
 		code: "xmy",
-		name: "Mayaguduna"
+		name: "Mayaguduna",
 	},
 	xmz: {
 		code: "xmz",
-		name: "Mori Bawah"
+		name: "Mori Bawah",
 	},
 	xna: {
 		code: "xna",
-		name: "Ancient North Arabian"
+		name: "Ancient North Arabian",
 	},
 	xnb: {
 		code: "xnb",
-		name: "Kanakanabu"
+		name: "Kanakanabu",
 	},
 	xng: {
 		code: "xng",
-		name: "Middle Mongolian"
+		name: "Middle Mongolian",
 	},
 	xnh: {
 		code: "xnh",
-		name: "Kuanhua"
+		name: "Kuanhua",
 	},
 	xni: {
 		code: "xni",
-		name: "Ngarigu"
+		name: "Ngarigu",
 	},
 	xnj: {
 		code: "xnj",
-		name: "Ngoni (Tanzania)"
+		name: "Ngoni (Tanzania)",
 	},
 	xnk: {
 		code: "xnk",
-		name: "Nganakarti"
+		name: "Nganakarti",
 	},
 	xnm: {
 		code: "xnm",
-		name: "Ngumbarl"
+		name: "Ngumbarl",
 	},
 	xnn: {
 		code: "xnn",
-		name: "Northern Kankanay"
+		name: "Northern Kankanay",
 	},
 	xno: {
 		code: "xno",
-		name: "Anglo-Norman"
+		name: "Anglo-Norman",
 	},
 	xnq: {
 		code: "xnq",
-		name: "Ngoni (Mozambique)"
+		name: "Ngoni (Mozambique)",
 	},
 	xnr: {
 		code: "xnr",
-		name: "Kangri"
+		name: "Kangri",
 	},
 	xns: {
 		code: "xns",
-		name: "Kanashi"
+		name: "Kanashi",
 	},
 	xnt: {
 		code: "xnt",
-		name: "Narragansett"
+		name: "Narragansett",
 	},
 	xnu: {
 		code: "xnu",
-		name: "Nukunul"
+		name: "Nukunul",
 	},
 	xny: {
 		code: "xny",
-		name: "Nyiyaparli"
+		name: "Nyiyaparli",
 	},
 	xnz: {
 		code: "xnz",
-		name: "Kenzi"
+		name: "Kenzi",
 	},
 	xoc: {
 		code: "xoc",
-		name: "O'chi'chi'"
+		name: "O'chi'chi'",
 	},
 	xod: {
 		code: "xod",
-		name: "Kokoda"
+		name: "Kokoda",
 	},
 	xog: {
 		code: "xog",
-		name: "Soga"
+		name: "Soga",
 	},
 	xoi: {
 		code: "xoi",
-		name: "Kominimung"
+		name: "Kominimung",
 	},
 	xok: {
 		code: "xok",
-		name: "Xokleng"
+		name: "Xokleng",
 	},
 	xom: {
 		code: "xom",
-		name: "Komo (Sudan)"
+		name: "Komo (Sudan)",
 	},
 	xon: {
 		code: "xon",
-		name: "Konkomba"
+		name: "Konkomba",
 	},
 	xoo: {
 		code: "xoo",
-		name: "Xukurú"
+		name: "Xukurú",
 	},
 	xop: {
 		code: "xop",
-		name: "Kopar"
+		name: "Kopar",
 	},
 	xor: {
 		code: "xor",
-		name: "Korubo"
+		name: "Korubo",
 	},
 	xow: {
 		code: "xow",
-		name: "Kowaki"
+		name: "Kowaki",
 	},
 	xpa: {
 		code: "xpa",
-		name: "Pirriya"
+		name: "Pirriya",
 	},
 	xpb: {
 		code: "xpb",
-		name: "Northeastern Tasmanian"
+		name: "Northeastern Tasmanian",
 	},
 	xpc: {
 		code: "xpc",
-		name: "Pecheneg"
+		name: "Pecheneg",
 	},
 	xpd: {
 		code: "xpd",
-		name: "Oyster Bay Tasmanian"
+		name: "Oyster Bay Tasmanian",
 	},
 	xpe: {
 		code: "xpe",
-		name: "Liberia Kpelle"
+		name: "Liberia Kpelle",
 	},
 	xpf: {
 		code: "xpf",
-		name: "Southeast Tasmanian"
+		name: "Southeast Tasmanian",
 	},
 	xpg: {
 		code: "xpg",
-		name: "Phrygian"
+		name: "Phrygian",
 	},
 	xph: {
 		code: "xph",
-		name: "North Midlands Tasmanian"
+		name: "North Midlands Tasmanian",
 	},
 	xpi: {
 		code: "xpi",
-		name: "Pictish"
+		name: "Pictish",
 	},
 	xpj: {
 		code: "xpj",
-		name: "Mpalitjanh"
+		name: "Mpalitjanh",
 	},
 	xpk: {
 		code: "xpk",
-		name: "Kulina Pano"
+		name: "Kulina Pano",
 	},
 	xpl: {
 		code: "xpl",
-		name: "Port Sorell Tasmanian"
+		name: "Port Sorell Tasmanian",
 	},
 	xpm: {
 		code: "xpm",
-		name: "Pumpokol"
+		name: "Pumpokol",
 	},
 	xpn: {
 		code: "xpn",
-		name: "Kapinawá"
+		name: "Kapinawá",
 	},
 	xpo: {
 		code: "xpo",
-		name: "Pochutec"
+		name: "Pochutec",
 	},
 	xpp: {
 		code: "xpp",
-		name: "Puyo-Paekche"
+		name: "Puyo-Paekche",
 	},
 	xpq: {
 		code: "xpq",
-		name: "Mohegan-Pequot"
+		name: "Mohegan-Pequot",
 	},
 	xpr: {
 		code: "xpr",
-		name: "Parthian"
+		name: "Parthian",
 	},
 	xps: {
 		code: "xps",
-		name: "Pisidian"
+		name: "Pisidian",
 	},
 	xpt: {
 		code: "xpt",
-		name: "Punthamara"
+		name: "Punthamara",
 	},
 	xpu: {
 		code: "xpu",
-		name: "Punic"
+		name: "Punic",
 	},
 	xpv: {
 		code: "xpv",
-		name: "Northern Tasmanian"
+		name: "Northern Tasmanian",
 	},
 	xpw: {
 		code: "xpw",
-		name: "Northwestern Tasmanian"
+		name: "Northwestern Tasmanian",
 	},
 	xpx: {
 		code: "xpx",
-		name: "Southwestern Tasmanian"
+		name: "Southwestern Tasmanian",
 	},
 	xpy: {
 		code: "xpy",
-		name: "Puyo"
+		name: "Puyo",
 	},
 	xpz: {
 		code: "xpz",
-		name: "Bruny Island Tasmanian"
+		name: "Bruny Island Tasmanian",
 	},
 	xqa: {
 		code: "xqa",
-		name: "Karakhanid"
+		name: "Karakhanid",
 	},
 	xqt: {
 		code: "xqt",
-		name: "Qatabanian"
+		name: "Qatabanian",
 	},
 	xra: {
 		code: "xra",
-		name: "Krahô"
+		name: "Krahô",
 	},
 	xrb: {
 		code: "xrb",
-		name: "Eastern Karaboro"
+		name: "Eastern Karaboro",
 	},
 	xrd: {
 		code: "xrd",
-		name: "Gundungurra"
+		name: "Gundungurra",
 	},
 	xre: {
 		code: "xre",
-		name: "Kreye"
+		name: "Kreye",
 	},
 	xrg: {
 		code: "xrg",
-		name: "Minang"
+		name: "Minang",
 	},
 	xri: {
 		code: "xri",
-		name: "Krikati-Timbira"
+		name: "Krikati-Timbira",
 	},
 	xrm: {
 		code: "xrm",
-		name: "Armazic"
+		name: "Armazic",
 	},
 	xrn: {
 		code: "xrn",
-		name: "Arin"
+		name: "Arin",
 	},
 	xrr: {
 		code: "xrr",
-		name: "Raetic"
+		name: "Raetic",
 	},
 	xrt: {
 		code: "xrt",
-		name: "Aranama-Tamique"
+		name: "Aranama-Tamique",
 	},
 	xru: {
 		code: "xru",
-		name: "Marriammu"
+		name: "Marriammu",
 	},
 	xrw: {
 		code: "xrw",
-		name: "Karawa"
+		name: "Karawa",
 	},
 	xsa: {
 		code: "xsa",
-		name: "Sabaean"
+		name: "Sabaean",
 	},
 	xsb: {
 		code: "xsb",
-		name: "Sambal"
+		name: "Sambal",
 	},
 	xsc: {
 		code: "xsc",
-		name: "Scythian"
+		name: "Scythian",
 	},
 	xsd: {
 		code: "xsd",
-		name: "Sidetic"
+		name: "Sidetic",
 	},
 	xse: {
 		code: "xse",
-		name: "Sempan"
+		name: "Sempan",
 	},
 	xsh: {
 		code: "xsh",
-		name: "Shamang"
+		name: "Shamang",
 	},
 	xsi: {
 		code: "xsi",
-		name: "Sio"
+		name: "Sio",
 	},
 	xsj: {
 		code: "xsj",
-		name: "Subi"
+		name: "Subi",
 	},
 	xsl: {
 		code: "xsl",
-		name: "South Slavey"
+		name: "South Slavey",
 	},
 	xsm: {
 		code: "xsm",
-		name: "Kasem"
+		name: "Kasem",
 	},
 	xsn: {
 		code: "xsn",
-		name: "Sanga (Nigeria)"
+		name: "Sanga (Nigeria)",
 	},
 	xso: {
 		code: "xso",
-		name: "Solano"
+		name: "Solano",
 	},
 	xsp: {
 		code: "xsp",
-		name: "Silopi"
+		name: "Silopi",
 	},
 	xsq: {
 		code: "xsq",
-		name: "Makhuwa-Saka"
+		name: "Makhuwa-Saka",
 	},
 	xsr: {
 		code: "xsr",
-		name: "Sherpa"
+		name: "Sherpa",
 	},
 	xsu: {
 		code: "xsu",
-		name: "Sanumá"
+		name: "Sanumá",
 	},
 	xsv: {
 		code: "xsv",
-		name: "Sudovian"
+		name: "Sudovian",
 	},
 	xsy: {
 		code: "xsy",
-		name: "Saisiyat"
+		name: "Saisiyat",
 	},
 	xta: {
 		code: "xta",
-		name: "Alcozauca Mixtec"
+		name: "Alcozauca Mixtec",
 	},
 	xtb: {
 		code: "xtb",
-		name: "Chazumba Mixtec"
+		name: "Chazumba Mixtec",
 	},
 	xtc: {
 		code: "xtc",
-		name: "Katcha-Kadugli-Miri"
+		name: "Katcha-Kadugli-Miri",
 	},
 	xtd: {
 		code: "xtd",
-		name: "Diuxi-Tilantongo Mixtec"
+		name: "Diuxi-Tilantongo Mixtec",
 	},
 	xte: {
 		code: "xte",
-		name: "Ketengban"
+		name: "Ketengban",
 	},
 	xtg: {
 		code: "xtg",
-		name: "Transalpine Gaulish"
+		name: "Transalpine Gaulish",
 	},
 	xth: {
 		code: "xth",
-		name: "Yitha Yitha"
+		name: "Yitha Yitha",
 	},
 	xti: {
 		code: "xti",
-		name: "Sinicahua Mixtec"
+		name: "Sinicahua Mixtec",
 	},
 	xtj: {
 		code: "xtj",
-		name: "San Juan Teita Mixtec"
+		name: "San Juan Teita Mixtec",
 	},
 	xtl: {
 		code: "xtl",
-		name: "Tijaltepec Mixtec"
+		name: "Tijaltepec Mixtec",
 	},
 	xtm: {
 		code: "xtm",
-		name: "Magdalena Peñasco Mixtec"
+		name: "Magdalena Peñasco Mixtec",
 	},
 	xtn: {
 		code: "xtn",
-		name: "Northern Tlaxiaco Mixtec"
+		name: "Northern Tlaxiaco Mixtec",
 	},
 	xto: {
 		code: "xto",
-		name: "Tokharian A"
+		name: "Tokharian A",
 	},
 	xtp: {
 		code: "xtp",
-		name: "San Miguel Piedras Mixtec"
+		name: "San Miguel Piedras Mixtec",
 	},
 	xtq: {
 		code: "xtq",
-		name: "Tumshuqese"
+		name: "Tumshuqese",
 	},
 	xtr: {
 		code: "xtr",
-		name: "Early Tripuri"
+		name: "Early Tripuri",
 	},
 	xts: {
 		code: "xts",
-		name: "Sindihui Mixtec"
+		name: "Sindihui Mixtec",
 	},
 	xtt: {
 		code: "xtt",
-		name: "Tacahua Mixtec"
+		name: "Tacahua Mixtec",
 	},
 	xtu: {
 		code: "xtu",
-		name: "Cuyamecalco Mixtec"
+		name: "Cuyamecalco Mixtec",
 	},
 	xtv: {
 		code: "xtv",
-		name: "Thawa"
+		name: "Thawa",
 	},
 	xtw: {
 		code: "xtw",
-		name: "Tawandê"
+		name: "Tawandê",
 	},
 	xty: {
 		code: "xty",
-		name: "Yoloxochitl Mixtec"
+		name: "Yoloxochitl Mixtec",
 	},
 	xua: {
 		code: "xua",
-		name: "Alu Kurumba"
+		name: "Alu Kurumba",
 	},
 	xub: {
 		code: "xub",
-		name: "Betta Kurumba"
+		name: "Betta Kurumba",
 	},
 	xud: {
 		code: "xud",
-		name: "Umiida"
+		name: "Umiida",
 	},
 	xug: {
 		code: "xug",
-		name: "Kunigami"
+		name: "Kunigami",
 	},
 	xuj: {
 		code: "xuj",
-		name: "Jennu Kurumba"
+		name: "Jennu Kurumba",
 	},
 	xul: {
 		code: "xul",
-		name: "Ngunawal"
+		name: "Ngunawal",
 	},
 	xum: {
 		code: "xum",
-		name: "Umbrian"
+		name: "Umbrian",
 	},
 	xun: {
 		code: "xun",
-		name: "Unggaranggu"
+		name: "Unggaranggu",
 	},
 	xuo: {
 		code: "xuo",
-		name: "Kuo"
+		name: "Kuo",
 	},
 	xup: {
 		code: "xup",
-		name: "Upper Umpqua"
+		name: "Upper Umpqua",
 	},
 	xur: {
 		code: "xur",
-		name: "Urartian"
+		name: "Urartian",
 	},
 	xut: {
 		code: "xut",
-		name: "Kuthant"
+		name: "Kuthant",
 	},
 	xuu: {
 		code: "xuu",
-		name: "Kxoe"
+		name: "Kxoe",
 	},
 	xve: {
 		code: "xve",
-		name: "Venetic"
+		name: "Venetic",
 	},
 	xvi: {
 		code: "xvi",
-		name: "Kamviri"
+		name: "Kamviri",
 	},
 	xvn: {
 		code: "xvn",
-		name: "Vandalic"
+		name: "Vandalic",
 	},
 	xvo: {
 		code: "xvo",
-		name: "Volscian"
+		name: "Volscian",
 	},
 	xvs: {
 		code: "xvs",
-		name: "Vestinian"
+		name: "Vestinian",
 	},
 	xwa: {
 		code: "xwa",
-		name: "Kwaza"
+		name: "Kwaza",
 	},
 	xwc: {
 		code: "xwc",
-		name: "Woccon"
+		name: "Woccon",
 	},
 	xwd: {
 		code: "xwd",
-		name: "Wadi Wadi"
+		name: "Wadi Wadi",
 	},
 	xwe: {
 		code: "xwe",
-		name: "Xwela Gbe"
+		name: "Xwela Gbe",
 	},
 	xwg: {
 		code: "xwg",
-		name: "Kwegu"
+		name: "Kwegu",
 	},
 	xwj: {
 		code: "xwj",
-		name: "Wajuk"
+		name: "Wajuk",
 	},
 	xwk: {
 		code: "xwk",
-		name: "Wangkumara"
+		name: "Wangkumara",
 	},
 	xwl: {
 		code: "xwl",
-		name: "Western Xwla Gbe"
+		name: "Western Xwla Gbe",
 	},
 	xwo: {
 		code: "xwo",
-		name: "Written Oirat"
+		name: "Written Oirat",
 	},
 	xwr: {
 		code: "xwr",
-		name: "Kwerba Mamberamo"
+		name: "Kwerba Mamberamo",
 	},
 	xwt: {
 		code: "xwt",
-		name: "Wotjobaluk"
+		name: "Wotjobaluk",
 	},
 	xww: {
 		code: "xww",
-		name: "Wemba Wemba"
+		name: "Wemba Wemba",
 	},
 	xxb: {
 		code: "xxb",
-		name: "Boro (Ghana)"
+		name: "Boro (Ghana)",
 	},
 	xxk: {
 		code: "xxk",
-		name: "Ke'o"
+		name: "Ke'o",
 	},
 	xxm: {
 		code: "xxm",
-		name: "Minkin"
+		name: "Minkin",
 	},
 	xxr: {
 		code: "xxr",
-		name: "Koropó"
+		name: "Koropó",
 	},
 	xxt: {
 		code: "xxt",
-		name: "Tambora"
+		name: "Tambora",
 	},
 	xya: {
 		code: "xya",
-		name: "Yaygir"
+		name: "Yaygir",
 	},
 	xyb: {
 		code: "xyb",
-		name: "Yandjibara"
+		name: "Yandjibara",
 	},
 	xyj: {
 		code: "xyj",
-		name: "Mayi-Yapi"
+		name: "Mayi-Yapi",
 	},
 	xyk: {
 		code: "xyk",
-		name: "Mayi-Kulan"
+		name: "Mayi-Kulan",
 	},
 	xyl: {
 		code: "xyl",
-		name: "Yalakalore"
+		name: "Yalakalore",
 	},
 	xyt: {
 		code: "xyt",
-		name: "Mayi-Thakurti"
+		name: "Mayi-Thakurti",
 	},
 	xyy: {
 		code: "xyy",
-		name: "Yorta Yorta"
+		name: "Yorta Yorta",
 	},
 	xzh: {
 		code: "xzh",
-		name: "Zhang-Zhung"
+		name: "Zhang-Zhung",
 	},
 	xzm: {
 		code: "xzm",
-		name: "Zemgalian"
+		name: "Zemgalian",
 	},
 	xzp: {
 		code: "xzp",
-		name: "Ancient Zapotec"
+		name: "Ancient Zapotec",
 	},
 	yaa: {
 		code: "yaa",
-		name: "Yaminahua"
+		name: "Yaminahua",
 	},
 	yab: {
 		code: "yab",
-		name: "Yuhup"
+		name: "Yuhup",
 	},
 	yac: {
 		code: "yac",
-		name: "Pass Valley Yali"
+		name: "Pass Valley Yali",
 	},
 	yad: {
 		code: "yad",
-		name: "Yagua"
+		name: "Yagua",
 	},
 	yae: {
 		code: "yae",
-		name: "Pumé"
+		name: "Pumé",
 	},
 	yaf: {
 		code: "yaf",
-		name: "Yaka (Democratic Republic of Congo)"
+		name: "Yaka (Democratic Republic of Congo)",
 	},
 	yag: {
 		code: "yag",
-		name: "Yámana"
+		name: "Yámana",
 	},
 	yah: {
 		code: "yah",
-		name: "Yazgulyam"
+		name: "Yazgulyam",
 	},
 	yai: {
 		code: "yai",
-		name: "Yagnobi"
+		name: "Yagnobi",
 	},
 	yaj: {
 		code: "yaj",
-		name: "Banda-Yangere"
+		name: "Banda-Yangere",
 	},
 	yak: {
 		code: "yak",
-		name: "Yakama"
+		name: "Yakama",
 	},
 	yal: {
 		code: "yal",
-		name: "Yalunka"
+		name: "Yalunka",
 	},
 	yam: {
 		code: "yam",
-		name: "Yamba"
+		name: "Yamba",
 	},
 	yan: {
 		code: "yan",
-		name: "Mayangna"
+		name: "Mayangna",
 	},
 	yao: {
 		code: "yao",
-		name: "Yao"
+		name: "Yao",
+	},
+	yap: {
+		code: "yap",
+		name: "Yapese",
 	},
 	yaq: {
 		code: "yaq",
-		name: "Yaqui"
+		name: "Yaqui",
 	},
 	yar: {
 		code: "yar",
-		name: "Yabarana"
+		name: "Yabarana",
 	},
 	yas: {
 		code: "yas",
-		name: "Nugunu (Cameroon)"
+		name: "Nugunu (Cameroon)",
 	},
 	yat: {
 		code: "yat",
-		name: "Yambeta"
+		name: "Yambeta",
 	},
 	yau: {
 		code: "yau",
-		name: "Yuwana"
+		name: "Yuwana",
 	},
 	yav: {
 		code: "yav",
-		name: "Yangben"
+		name: "Yangben",
 	},
 	yaw: {
 		code: "yaw",
-		name: "Yawalapití"
+		name: "Yawalapití",
 	},
 	yax: {
 		code: "yax",
-		name: "Yauma"
+		name: "Yauma",
 	},
 	yay: {
 		code: "yay",
-		name: "Agwagwune"
+		name: "Agwagwune",
 	},
 	yaz: {
 		code: "yaz",
-		name: "Lokaa"
+		name: "Lokaa",
 	},
 	yba: {
 		code: "yba",
-		name: "Yala"
+		name: "Yala",
 	},
 	ybb: {
 		code: "ybb",
-		name: "Yemba"
+		name: "Yemba",
 	},
 	ybe: {
 		code: "ybe",
-		name: "West Yugur"
+		name: "West Yugur",
 	},
 	ybh: {
 		code: "ybh",
-		name: "Yakha"
+		name: "Yakha",
 	},
 	ybi: {
 		code: "ybi",
-		name: "Yamphu"
+		name: "Yamphu",
 	},
 	ybj: {
 		code: "ybj",
-		name: "Hasha"
+		name: "Hasha",
 	},
 	ybk: {
 		code: "ybk",
-		name: "Bokha"
+		name: "Bokha",
 	},
 	ybl: {
 		code: "ybl",
-		name: "Yukuben"
+		name: "Yukuben",
 	},
 	ybm: {
 		code: "ybm",
-		name: "Yaben"
+		name: "Yaben",
 	},
 	ybn: {
 		code: "ybn",
-		name: "Yabaâna"
+		name: "Yabaâna",
 	},
 	ybo: {
 		code: "ybo",
-		name: "Yabong"
+		name: "Yabong",
 	},
 	ybx: {
 		code: "ybx",
-		name: "Yawiyo"
+		name: "Yawiyo",
 	},
 	yby: {
 		code: "yby",
-		name: "Yaweyuha"
+		name: "Yaweyuha",
 	},
 	ych: {
 		code: "ych",
-		name: "Chesu"
+		name: "Chesu",
 	},
 	ycl: {
 		code: "ycl",
-		name: "Lolopo"
+		name: "Lolopo",
 	},
 	ycn: {
 		code: "ycn",
-		name: "Yucuna"
+		name: "Yucuna",
 	},
 	ycp: {
 		code: "ycp",
-		name: "Chepya"
+		name: "Chepya",
 	},
 	ycr: {
 		code: "ycr",
-		name: "Yilan Creole"
+		name: "Yilan Creole",
 	},
 	yda: {
 		code: "yda",
-		name: "Yanda"
+		name: "Yanda",
 	},
 	ydd: {
 		code: "ydd",
-		name: "Eastern Yiddish"
+		name: "Eastern Yiddish",
 	},
 	yde: {
 		code: "yde",
-		name: "Yangum Dey"
+		name: "Yangum Dey",
 	},
 	ydg: {
 		code: "ydg",
-		name: "Yidgha"
+		name: "Yidgha",
 	},
 	ydk: {
 		code: "ydk",
-		name: "Yoidik"
+		name: "Yoidik",
 	},
 	yea: {
 		code: "yea",
-		name: "Ravula"
+		name: "Ravula",
 	},
 	yec: {
 		code: "yec",
-		name: "Yeniche"
+		name: "Yeniche",
 	},
 	yee: {
 		code: "yee",
-		name: "Yimas"
+		name: "Yimas",
 	},
 	yei: {
 		code: "yei",
-		name: "Yeni"
+		name: "Yeni",
 	},
 	yej: {
 		code: "yej",
-		name: "Yevanic"
+		name: "Yevanic",
 	},
 	yel: {
 		code: "yel",
-		name: "Yela"
+		name: "Yela",
 	},
 	yer: {
 		code: "yer",
-		name: "Tarok"
+		name: "Tarok",
 	},
 	yes: {
 		code: "yes",
-		name: "Nyankpa"
+		name: "Nyankpa",
 	},
 	yet: {
 		code: "yet",
-		name: "Yetfa"
+		name: "Yetfa",
 	},
 	yeu: {
 		code: "yeu",
-		name: "Yerukula"
+		name: "Yerukula",
 	},
 	yev: {
 		code: "yev",
-		name: "Yapunda"
+		name: "Yapunda",
 	},
 	yey: {
 		code: "yey",
-		name: "Yeyi"
+		name: "Yeyi",
 	},
 	yga: {
 		code: "yga",
-		name: "Malyangapa"
+		name: "Malyangapa",
 	},
 	ygi: {
 		code: "ygi",
-		name: "Yiningayi"
+		name: "Yiningayi",
 	},
 	ygl: {
 		code: "ygl",
-		name: "Yangum Gel"
+		name: "Yangum Gel",
 	},
 	ygm: {
 		code: "ygm",
-		name: "Yagomi"
+		name: "Yagomi",
 	},
 	ygp: {
 		code: "ygp",
-		name: "Gepo"
+		name: "Gepo",
 	},
 	ygr: {
 		code: "ygr",
-		name: "Yagaria"
+		name: "Yagaria",
 	},
 	ygs: {
 		code: "ygs",
-		name: "Yolŋu Sign Language"
+		name: "Yolŋu Sign Language",
 	},
 	ygu: {
 		code: "ygu",
-		name: "Yugul"
+		name: "Yugul",
 	},
 	ygw: {
 		code: "ygw",
-		name: "Yagwoia"
+		name: "Yagwoia",
 	},
 	yha: {
 		code: "yha",
-		name: "Baha Buyang"
+		name: "Baha Buyang",
 	},
 	yhd: {
 		code: "yhd",
-		name: "Judeo-Iraqi Arabic"
+		name: "Judeo-Iraqi Arabic",
 	},
 	yhl: {
 		code: "yhl",
-		name: "Hlepho Phowa"
+		name: "Hlepho Phowa",
 	},
 	yhs: {
 		code: "yhs",
-		name: "Yan-nhaŋu Sign Language"
+		name: "Yan-nhaŋu Sign Language",
 	},
 	yia: {
 		code: "yia",
-		name: "Yinggarda"
+		name: "Yinggarda",
+	},
+	yid: {
+		code: "yid",
+		name: "Yiddish",
 	},
 	yif: {
 		code: "yif",
-		name: "Ache"
+		name: "Ache",
 	},
 	yig: {
 		code: "yig",
-		name: "Wusa Nasu"
+		name: "Wusa Nasu",
 	},
 	yih: {
 		code: "yih",
-		name: "Western Yiddish"
+		name: "Western Yiddish",
 	},
 	yii: {
 		code: "yii",
-		name: "Yidiny"
+		name: "Yidiny",
 	},
 	yij: {
 		code: "yij",
-		name: "Yindjibarndi"
+		name: "Yindjibarndi",
 	},
 	yik: {
 		code: "yik",
-		name: "Dongshanba Lalo"
+		name: "Dongshanba Lalo",
 	},
 	yil: {
 		code: "yil",
-		name: "Yindjilandji"
+		name: "Yindjilandji",
 	},
 	yim: {
 		code: "yim",
-		name: "Yimchungru Naga"
+		name: "Yimchungru Naga",
 	},
 	yin: {
 		code: "yin",
-		name: "Riang Lai"
+		name: "Riang Lai",
 	},
 	yip: {
 		code: "yip",
-		name: "Pholo"
+		name: "Pholo",
 	},
 	yiq: {
 		code: "yiq",
-		name: "Miqie"
+		name: "Miqie",
 	},
 	yir: {
 		code: "yir",
-		name: "North Awyu"
+		name: "North Awyu",
 	},
 	yis: {
 		code: "yis",
-		name: "Yis"
+		name: "Yis",
 	},
 	yit: {
 		code: "yit",
-		name: "Eastern Lalu"
+		name: "Eastern Lalu",
 	},
 	yiu: {
 		code: "yiu",
-		name: "Awu"
+		name: "Awu",
 	},
 	yiv: {
 		code: "yiv",
-		name: "Northern Nisu"
+		name: "Northern Nisu",
 	},
 	yix: {
 		code: "yix",
-		name: "Axi Yi"
+		name: "Axi Yi",
 	},
 	yiz: {
 		code: "yiz",
-		name: "Azhe"
+		name: "Azhe",
 	},
 	yka: {
 		code: "yka",
-		name: "Yakan"
+		name: "Yakan",
 	},
 	ykg: {
 		code: "ykg",
-		name: "Northern Yukaghir"
+		name: "Northern Yukaghir",
 	},
 	ykh: {
 		code: "ykh",
-		name: "Khamnigan Mongol"
+		name: "Khamnigan Mongol",
 	},
 	yki: {
 		code: "yki",
-		name: "Yoke"
+		name: "Yoke",
 	},
 	ykk: {
 		code: "ykk",
-		name: "Yakaikeke"
+		name: "Yakaikeke",
 	},
 	ykl: {
 		code: "ykl",
-		name: "Khlula"
+		name: "Khlula",
 	},
 	ykm: {
 		code: "ykm",
-		name: "Kap"
+		name: "Kap",
 	},
 	ykn: {
 		code: "ykn",
-		name: "Kua-nsi"
+		name: "Kua-nsi",
 	},
 	yko: {
 		code: "yko",
-		name: "Yasa"
+		name: "Yasa",
 	},
 	ykr: {
 		code: "ykr",
-		name: "Yekora"
+		name: "Yekora",
 	},
 	ykt: {
 		code: "ykt",
-		name: "Kathu"
+		name: "Kathu",
 	},
 	yku: {
 		code: "yku",
-		name: "Kuamasi"
+		name: "Kuamasi",
 	},
 	yky: {
 		code: "yky",
-		name: "Yakoma"
+		name: "Yakoma",
 	},
 	yla: {
 		code: "yla",
-		name: "Yaul"
+		name: "Yaul",
 	},
 	ylb: {
 		code: "ylb",
-		name: "Yaleba"
+		name: "Yaleba",
 	},
 	yle: {
 		code: "yle",
-		name: "Yele"
+		name: "Yele",
 	},
 	ylg: {
 		code: "ylg",
-		name: "Yelogu"
+		name: "Yelogu",
 	},
 	yli: {
 		code: "yli",
-		name: "Angguruk Yali"
+		name: "Angguruk Yali",
 	},
 	yll: {
 		code: "yll",
-		name: "Yil"
+		name: "Yil",
 	},
 	ylm: {
 		code: "ylm",
-		name: "Limi"
+		name: "Limi",
 	},
 	yln: {
 		code: "yln",
-		name: "Langnian Buyang"
+		name: "Langnian Buyang",
 	},
 	ylo: {
 		code: "ylo",
-		name: "Naluo Yi"
+		name: "Naluo Yi",
 	},
 	ylr: {
 		code: "ylr",
-		name: "Yalarnnga"
+		name: "Yalarnnga",
 	},
 	ylu: {
 		code: "ylu",
-		name: "Aribwaung"
+		name: "Aribwaung",
 	},
 	yly: {
 		code: "yly",
-		name: "Nyâlayu"
+		name: "Nyâlayu",
 	},
 	ymb: {
 		code: "ymb",
-		name: "Yambes"
+		name: "Yambes",
 	},
 	ymc: {
 		code: "ymc",
-		name: "Southern Muji"
+		name: "Southern Muji",
 	},
 	ymd: {
 		code: "ymd",
-		name: "Muda"
+		name: "Muda",
 	},
 	yme: {
 		code: "yme",
-		name: "Yameo"
+		name: "Yameo",
 	},
 	ymg: {
 		code: "ymg",
-		name: "Yamongeri"
+		name: "Yamongeri",
 	},
 	ymh: {
 		code: "ymh",
-		name: "Mili"
+		name: "Mili",
 	},
 	ymi: {
 		code: "ymi",
-		name: "Moji"
+		name: "Moji",
 	},
 	ymk: {
 		code: "ymk",
-		name: "Makwe"
+		name: "Makwe",
 	},
 	yml: {
 		code: "yml",
-		name: "Iamalele"
+		name: "Iamalele",
 	},
 	ymm: {
 		code: "ymm",
-		name: "Maay"
+		name: "Maay",
 	},
 	ymn: {
 		code: "ymn",
-		name: "Yamna"
+		name: "Yamna",
 	},
 	ymo: {
 		code: "ymo",
-		name: "Yangum Mon"
+		name: "Yangum Mon",
 	},
 	ymp: {
 		code: "ymp",
-		name: "Yamap"
+		name: "Yamap",
 	},
 	ymq: {
 		code: "ymq",
-		name: "Qila Muji"
+		name: "Qila Muji",
 	},
 	ymr: {
 		code: "ymr",
-		name: "Malasar"
+		name: "Malasar",
 	},
 	yms: {
 		code: "yms",
-		name: "Mysian"
+		name: "Mysian",
 	},
 	ymx: {
 		code: "ymx",
-		name: "Northern Muji"
+		name: "Northern Muji",
 	},
 	ymz: {
 		code: "ymz",
-		name: "Muzi"
+		name: "Muzi",
 	},
 	yna: {
 		code: "yna",
-		name: "Aluo"
+		name: "Aluo",
 	},
 	ynd: {
 		code: "ynd",
-		name: "Yandruwandha"
+		name: "Yandruwandha",
 	},
 	yne: {
 		code: "yne",
-		name: "Lang'e"
+		name: "Lang'e",
 	},
 	yng: {
 		code: "yng",
-		name: "Yango"
+		name: "Yango",
 	},
 	ynk: {
 		code: "ynk",
-		name: "Naukan Yupik"
+		name: "Naukan Yupik",
 	},
 	ynl: {
 		code: "ynl",
-		name: "Yangulam"
+		name: "Yangulam",
 	},
 	ynn: {
 		code: "ynn",
-		name: "Yana"
+		name: "Yana",
 	},
 	yno: {
 		code: "yno",
-		name: "Yong"
+		name: "Yong",
 	},
 	ynq: {
 		code: "ynq",
-		name: "Yendang"
+		name: "Yendang",
 	},
 	yns: {
 		code: "yns",
-		name: "Yansi"
+		name: "Yansi",
 	},
 	ynu: {
 		code: "ynu",
-		name: "Yahuna"
+		name: "Yahuna",
 	},
 	yob: {
 		code: "yob",
-		name: "Yoba"
+		name: "Yoba",
 	},
 	yog: {
 		code: "yog",
-		name: "Yogad"
+		name: "Yogad",
 	},
 	yoi: {
 		code: "yoi",
-		name: "Yonaguni"
+		name: "Yonaguni",
 	},
 	yok: {
 		code: "yok",
-		name: "Yokuts"
+		name: "Yokuts",
 	},
 	yol: {
 		code: "yol",
-		name: "Yola"
+		name: "Yola",
 	},
 	yom: {
 		code: "yom",
-		name: "Yombe"
+		name: "Yombe",
 	},
 	yon: {
 		code: "yon",
-		name: "Yongkom"
+		name: "Yongkom",
+	},
+	yor: {
+		code: "yor",
+		name: "Yoruba",
 	},
 	yot: {
 		code: "yot",
-		name: "Yotti"
+		name: "Yotti",
 	},
 	yox: {
 		code: "yox",
-		name: "Yoron"
+		name: "Yoron",
 	},
 	yoy: {
 		code: "yoy",
-		name: "Yoy"
+		name: "Yoy",
 	},
 	ypa: {
 		code: "ypa",
-		name: "Phala"
+		name: "Phala",
 	},
 	ypb: {
 		code: "ypb",
-		name: "Labo Phowa"
+		name: "Labo Phowa",
 	},
 	ypg: {
 		code: "ypg",
-		name: "Phola"
+		name: "Phola",
 	},
 	yph: {
 		code: "yph",
-		name: "Phupha"
+		name: "Phupha",
 	},
 	ypm: {
 		code: "ypm",
-		name: "Phuma"
+		name: "Phuma",
 	},
 	ypn: {
 		code: "ypn",
-		name: "Ani Phowa"
+		name: "Ani Phowa",
 	},
 	ypo: {
 		code: "ypo",
-		name: "Alo Phola"
+		name: "Alo Phola",
 	},
 	ypp: {
 		code: "ypp",
-		name: "Phupa"
+		name: "Phupa",
 	},
 	ypz: {
 		code: "ypz",
-		name: "Phuza"
+		name: "Phuza",
 	},
 	yra: {
 		code: "yra",
-		name: "Yerakai"
+		name: "Yerakai",
 	},
 	yrb: {
 		code: "yrb",
-		name: "Yareba"
+		name: "Yareba",
 	},
 	yre: {
 		code: "yre",
-		name: "Yaouré"
+		name: "Yaouré",
 	},
 	yrk: {
 		code: "yrk",
-		name: "Nenets"
+		name: "Nenets",
 	},
 	yrl: {
 		code: "yrl",
-		name: "Nhengatu"
+		name: "Nhengatu",
 	},
 	yrm: {
 		code: "yrm",
-		name: "Yirrk-Mel"
+		name: "Yirrk-Mel",
 	},
 	yrn: {
 		code: "yrn",
-		name: "Yerong"
+		name: "Yerong",
 	},
 	yro: {
 		code: "yro",
-		name: "Yaroamë"
+		name: "Yaroamë",
 	},
 	yrs: {
 		code: "yrs",
-		name: "Yarsun"
+		name: "Yarsun",
 	},
 	yrw: {
 		code: "yrw",
-		name: "Yarawata"
+		name: "Yarawata",
 	},
 	yry: {
 		code: "yry",
-		name: "Yarluyandi"
+		name: "Yarluyandi",
 	},
 	ysc: {
 		code: "ysc",
-		name: "Yassic"
+		name: "Yassic",
 	},
 	ysd: {
 		code: "ysd",
-		name: "Samatao"
+		name: "Samatao",
 	},
 	ysg: {
 		code: "ysg",
-		name: "Sonaga"
+		name: "Sonaga",
 	},
 	ysl: {
 		code: "ysl",
-		name: "Yugoslavian Sign Language"
+		name: "Yugoslavian Sign Language",
 	},
 	ysm: {
 		code: "ysm",
-		name: "Myanmar Sign Language"
+		name: "Myanmar Sign Language",
 	},
 	ysn: {
 		code: "ysn",
-		name: "Sani"
+		name: "Sani",
 	},
 	yso: {
 		code: "yso",
-		name: "Nisi (China)"
+		name: "Nisi (China)",
 	},
 	ysp: {
 		code: "ysp",
-		name: "Southern Lolopo"
+		name: "Southern Lolopo",
 	},
 	ysr: {
 		code: "ysr",
-		name: "Sirenik Yupik"
+		name: "Sirenik Yupik",
 	},
 	yss: {
 		code: "yss",
-		name: "Yessan-Mayo"
+		name: "Yessan-Mayo",
 	},
 	ysy: {
 		code: "ysy",
-		name: "Sanie"
+		name: "Sanie",
 	},
 	yta: {
 		code: "yta",
-		name: "Talu"
+		name: "Talu",
 	},
 	ytl: {
 		code: "ytl",
-		name: "Tanglang"
+		name: "Tanglang",
 	},
 	ytp: {
 		code: "ytp",
-		name: "Thopho"
+		name: "Thopho",
 	},
 	ytw: {
 		code: "ytw",
-		name: "Yout Wam"
+		name: "Yout Wam",
 	},
 	yty: {
 		code: "yty",
-		name: "Yatay"
+		name: "Yatay",
+	},
+	yua: {
+		code: "yua",
+		name: "Yucateco",
 	},
 	yub: {
 		code: "yub",
-		name: "Yugambal"
+		name: "Yugambal",
 	},
 	yuc: {
 		code: "yuc",
-		name: "Yuchi"
+		name: "Yuchi",
 	},
 	yud: {
 		code: "yud",
-		name: "Judeo-Tripolitanian Arabic"
+		name: "Judeo-Tripolitanian Arabic",
+	},
+	yue: {
+		code: "yue",
+		name: "Yue Chinese",
 	},
 	yuf: {
 		code: "yuf",
-		name: "Havasupai-Walapai-Yavapai"
+		name: "Havasupai-Walapai-Yavapai",
 	},
 	yug: {
 		code: "yug",
-		name: "Yug"
+		name: "Yug",
 	},
 	yui: {
 		code: "yui",
-		name: "Yurutí"
+		name: "Yurutí",
 	},
 	yuj: {
 		code: "yuj",
-		name: "Karkar-Yuri"
+		name: "Karkar-Yuri",
 	},
 	yuk: {
 		code: "yuk",
-		name: "Yuki"
+		name: "Yuki",
 	},
 	yul: {
 		code: "yul",
-		name: "Yulu"
+		name: "Yulu",
 	},
 	yum: {
 		code: "yum",
-		name: "Quechan"
+		name: "Quechan",
 	},
 	yun: {
 		code: "yun",
-		name: "Bena (Nigeria)"
+		name: "Bena (Nigeria)",
 	},
 	yup: {
 		code: "yup",
-		name: "Yukpa"
+		name: "Yukpa",
 	},
 	yuq: {
 		code: "yuq",
-		name: "Yuqui"
+		name: "Yuqui",
 	},
 	yur: {
 		code: "yur",
-		name: "Yurok"
+		name: "Yurok",
 	},
 	yut: {
 		code: "yut",
-		name: "Yopno"
+		name: "Yopno",
 	},
 	yuw: {
 		code: "yuw",
-		name: "Yau (Morobe Province)"
+		name: "Yau (Morobe Province)",
 	},
 	yux: {
 		code: "yux",
-		name: "Southern Yukaghir"
+		name: "Southern Yukaghir",
 	},
 	yuy: {
 		code: "yuy",
-		name: "East Yugur"
+		name: "East Yugur",
 	},
 	yuz: {
 		code: "yuz",
-		name: "Yuracare"
+		name: "Yuracare",
 	},
 	yva: {
 		code: "yva",
-		name: "Yawa"
+		name: "Yawa",
 	},
 	yvt: {
 		code: "yvt",
-		name: "Yavitero"
+		name: "Yavitero",
 	},
 	ywa: {
 		code: "ywa",
-		name: "Kalou"
+		name: "Kalou",
 	},
 	ywg: {
 		code: "ywg",
-		name: "Yinhawangka"
+		name: "Yinhawangka",
 	},
 	ywl: {
 		code: "ywl",
-		name: "Western Lalu"
+		name: "Western Lalu",
 	},
 	ywn: {
 		code: "ywn",
-		name: "Yawanawa"
+		name: "Yawanawa",
 	},
 	ywq: {
 		code: "ywq",
-		name: "Wuding-Luquan Yi"
+		name: "Wuding-Luquan Yi",
 	},
 	ywr: {
 		code: "ywr",
-		name: "Yawuru"
+		name: "Yawuru",
 	},
 	ywt: {
 		code: "ywt",
-		name: "Xishanba Lalo"
+		name: "Xishanba Lalo",
 	},
 	ywu: {
 		code: "ywu",
-		name: "Wumeng Nasu"
+		name: "Wumeng Nasu",
 	},
 	yww: {
 		code: "yww",
-		name: "Yawarawarga"
+		name: "Yawarawarga",
 	},
 	yxa: {
 		code: "yxa",
-		name: "Mayawali"
+		name: "Mayawali",
 	},
 	yxg: {
 		code: "yxg",
-		name: "Yagara"
+		name: "Yagara",
 	},
 	yxl: {
 		code: "yxl",
-		name: "Yardliyawarra"
+		name: "Yardliyawarra",
 	},
 	yxm: {
 		code: "yxm",
-		name: "Yinwum"
+		name: "Yinwum",
 	},
 	yxu: {
 		code: "yxu",
-		name: "Yuyu"
+		name: "Yuyu",
 	},
 	yxy: {
 		code: "yxy",
-		name: "Yabula Yabula"
+		name: "Yabula Yabula",
 	},
 	yyr: {
 		code: "yyr",
-		name: "Yir Yoront"
+		name: "Yir Yoront",
 	},
 	yyu: {
 		code: "yyu",
-		name: "Yau (Sandaun Province)"
+		name: "Yau (Sandaun Province)",
 	},
 	yyz: {
 		code: "yyz",
-		name: "Ayizi"
+		name: "Ayizi",
 	},
 	yzg: {
 		code: "yzg",
-		name: "E'ma Buyang"
+		name: "E'ma Buyang",
 	},
 	yzk: {
 		code: "yzk",
-		name: "Zokhuo"
+		name: "Zokhuo",
 	},
 	zaa: {
 		code: "zaa",
-		name: "Sierra de Juárez Zapotec"
+		name: "Sierra de Juárez Zapotec",
 	},
 	zab: {
 		code: "zab",
-		name: "Western Tlacolula Valley Zapotec"
+		name: "Western Tlacolula Valley Zapotec",
 	},
 	zac: {
 		code: "zac",
-		name: "Ocotlán Zapotec"
+		name: "Ocotlán Zapotec",
 	},
 	zad: {
 		code: "zad",
-		name: "Cajonos Zapotec"
+		name: "Cajonos Zapotec",
 	},
 	zae: {
 		code: "zae",
-		name: "Yareni Zapotec"
+		name: "Yareni Zapotec",
 	},
 	zaf: {
 		code: "zaf",
-		name: "Ayoquesco Zapotec"
+		name: "Ayoquesco Zapotec",
 	},
 	zag: {
 		code: "zag",
-		name: "Zaghawa"
+		name: "Zaghawa",
 	},
 	zah: {
 		code: "zah",
-		name: "Zangwal"
+		name: "Zangwal",
+	},
+	zai: {
+		code: "zai",
+		name: "Isthmus Zapotec",
 	},
 	zaj: {
 		code: "zaj",
-		name: "Zaramo"
+		name: "Zaramo",
 	},
 	zak: {
 		code: "zak",
-		name: "Zanaki"
+		name: "Zanaki",
 	},
 	zal: {
 		code: "zal",
-		name: "Zauzou"
+		name: "Zauzou",
 	},
 	zam: {
 		code: "zam",
-		name: "Miahuatlán Zapotec"
+		name: "Miahuatlán Zapotec",
 	},
 	zao: {
 		code: "zao",
-		name: "Ozolotepec Zapotec"
+		name: "Ozolotepec Zapotec",
 	},
 	zap: {
 		code: "zap",
-		name: "Zapotec"
+		name: "Zapotec",
 	},
 	zaq: {
 		code: "zaq",
-		name: "Aloápam Zapotec"
+		name: "Aloápam Zapotec",
 	},
 	zar: {
 		code: "zar",
-		name: "Rincón Zapotec"
+		name: "Rincón Zapotec",
 	},
 	zas: {
 		code: "zas",
-		name: "Santo Domingo Albarradas Zapotec"
+		name: "Santo Domingo Albarradas Zapotec",
 	},
 	zat: {
 		code: "zat",
-		name: "Tabaa Zapotec"
+		name: "Tabaa Zapotec",
 	},
 	zau: {
 		code: "zau",
-		name: "Zangskari"
+		name: "Zangskari",
 	},
 	zav: {
 		code: "zav",
-		name: "Yatzachi Zapotec"
+		name: "Yatzachi Zapotec",
 	},
 	zaw: {
 		code: "zaw",
-		name: "Mitla Zapotec"
+		name: "Mitla Zapotec",
 	},
 	zax: {
 		code: "zax",
-		name: "Xadani Zapotec"
+		name: "Xadani Zapotec",
 	},
 	zay: {
 		code: "zay",
-		name: "Zayse-Zergulla"
+		name: "Zayse-Zergulla",
 	},
 	zaz: {
 		code: "zaz",
-		name: "Zari"
+		name: "Zari",
 	},
 	zba: {
 		code: "zba",
-		name: "Balaibalan"
+		name: "Balaibalan",
 	},
 	zbc: {
 		code: "zbc",
-		name: "Central Berawan"
+		name: "Central Berawan",
 	},
 	zbe: {
 		code: "zbe",
-		name: "East Berawan"
+		name: "East Berawan",
 	},
 	zbl: {
 		code: "zbl",
-		name: "Blissymbols"
+		name: "Blissymbols",
 	},
 	zbt: {
 		code: "zbt",
-		name: "Batui"
+		name: "Batui",
 	},
 	zbu: {
 		code: "zbu",
-		name: "Bu (Bauchi State)"
+		name: "Bu (Bauchi State)",
 	},
 	zbw: {
 		code: "zbw",
-		name: "West Berawan"
+		name: "West Berawan",
 	},
 	zca: {
 		code: "zca",
-		name: "Coatecas Altas Zapotec"
+		name: "Coatecas Altas Zapotec",
 	},
 	zcd: {
 		code: "zcd",
-		name: "Las Delicias Zapotec"
+		name: "Las Delicias Zapotec",
 	},
 	zch: {
 		code: "zch",
-		name: "Central Hongshuihe Zhuang"
+		name: "Central Hongshuihe Zhuang",
 	},
 	zdj: {
 		code: "zdj",
-		name: "Ngazidja Comorian"
+		name: "Ngazidja Comorian",
 	},
 	zea: {
 		code: "zea",
-		name: "Zeeuws"
+		name: "Zeeuws",
 	},
 	zeg: {
 		code: "zeg",
-		name: "Zenag"
+		name: "Zenag",
 	},
 	zeh: {
 		code: "zeh",
-		name: "Eastern Hongshuihe Zhuang"
+		name: "Eastern Hongshuihe Zhuang",
 	},
 	zem: {
 		code: "zem",
-		name: "Zeem"
+		name: "Zeem",
 	},
 	zen: {
 		code: "zen",
-		name: "Zenaga"
+		name: "Zenaga",
 	},
 	zga: {
 		code: "zga",
-		name: "Kinga"
+		name: "Kinga",
 	},
 	zgb: {
 		code: "zgb",
-		name: "Guibei Zhuang"
+		name: "Guibei Zhuang",
 	},
 	zgh: {
 		code: "zgh",
-		name: "Standard Moroccan Tamazight"
+		name: "Standard Moroccan Tamazight",
 	},
 	zgm: {
 		code: "zgm",
-		name: "Minz Zhuang"
+		name: "Minz Zhuang",
 	},
 	zgn: {
 		code: "zgn",
-		name: "Guibian Zhuang"
+		name: "Guibian Zhuang",
 	},
 	zgr: {
 		code: "zgr",
-		name: "Magori"
+		name: "Magori",
+	},
+	zha: {
+		code: "zha",
+		name: "Zhuang",
 	},
 	zhb: {
 		code: "zhb",
-		name: "Zhaba"
+		name: "Zhaba",
 	},
 	zhd: {
 		code: "zhd",
-		name: "Dai Zhuang"
+		name: "Dai Zhuang",
 	},
 	zhi: {
 		code: "zhi",
-		name: "Zhire"
+		name: "Zhire",
 	},
 	zhn: {
 		code: "zhn",
-		name: "Nong Zhuang"
+		name: "Nong Zhuang",
+	},
+	zho: {
+		code: "zho",
+		name: "Chinese",
 	},
 	zhw: {
 		code: "zhw",
-		name: "Zhoa"
+		name: "Zhoa",
 	},
 	zia: {
 		code: "zia",
-		name: "Zia"
+		name: "Zia",
 	},
 	zib: {
 		code: "zib",
-		name: "Zimbabwe Sign Language"
+		name: "Zimbabwe Sign Language",
 	},
 	zik: {
 		code: "zik",
-		name: "Zimakani"
+		name: "Zimakani",
 	},
 	zil: {
 		code: "zil",
-		name: "Zialo"
+		name: "Zialo",
 	},
 	zim: {
 		code: "zim",
-		name: "Mesme"
+		name: "Mesme",
 	},
 	zin: {
 		code: "zin",
-		name: "Zinza"
+		name: "Zinza",
 	},
 	ziw: {
 		code: "ziw",
-		name: "Zigula"
+		name: "Zigula",
 	},
 	ziz: {
 		code: "ziz",
-		name: "Zizilivakan"
+		name: "Zizilivakan",
 	},
 	zka: {
 		code: "zka",
-		name: "Kaimbulawa"
+		name: "Kaimbulawa",
 	},
 	zkd: {
 		code: "zkd",
-		name: "Kadu"
+		name: "Kadu",
 	},
 	zkg: {
 		code: "zkg",
-		name: "Koguryo"
+		name: "Koguryo",
 	},
 	zkh: {
 		code: "zkh",
-		name: "Khorezmian"
+		name: "Khorezmian",
 	},
 	zkk: {
 		code: "zkk",
-		name: "Karankawa"
+		name: "Karankawa",
 	},
 	zkn: {
 		code: "zkn",
-		name: "Kanan"
+		name: "Kanan",
 	},
 	zko: {
 		code: "zko",
-		name: "Kott"
+		name: "Kott",
 	},
 	zkp: {
 		code: "zkp",
-		name: "São Paulo Kaingáng"
+		name: "São Paulo Kaingáng",
 	},
 	zkr: {
 		code: "zkr",
-		name: "Zakhring"
+		name: "Zakhring",
 	},
 	zkt: {
 		code: "zkt",
-		name: "Kitan"
+		name: "Kitan",
 	},
 	zku: {
 		code: "zku",
-		name: "Kaurna"
+		name: "Kaurna",
 	},
 	zkv: {
 		code: "zkv",
-		name: "Krevinian"
+		name: "Krevinian",
 	},
 	zkz: {
 		code: "zkz",
-		name: "Khazar"
+		name: "Khazar",
 	},
 	zla: {
 		code: "zla",
-		name: "Zula"
+		name: "Zula",
 	},
 	zlj: {
 		code: "zlj",
-		name: "Liujiang Zhuang"
+		name: "Liujiang Zhuang",
 	},
 	zlm: {
 		code: "zlm",
-		name: "Malay (individual language)"
+		name: "Malay (individual language)",
 	},
 	zln: {
 		code: "zln",
-		name: "Lianshan Zhuang"
+		name: "Lianshan Zhuang",
 	},
 	zlq: {
 		code: "zlq",
-		name: "Liuqian Zhuang"
+		name: "Liuqian Zhuang",
 	},
 	zlu: {
 		code: "zlu",
-		name: "Zul"
+		name: "Zul",
 	},
 	zma: {
 		code: "zma",
-		name: "Manda (Australia)"
+		name: "Manda (Australia)",
 	},
 	zmb: {
 		code: "zmb",
-		name: "Zimba"
+		name: "Zimba",
 	},
 	zmc: {
 		code: "zmc",
-		name: "Margany"
+		name: "Margany",
 	},
 	zmd: {
 		code: "zmd",
-		name: "Maridan"
+		name: "Maridan",
 	},
 	zme: {
 		code: "zme",
-		name: "Mangerr"
+		name: "Mangerr",
 	},
 	zmf: {
 		code: "zmf",
-		name: "Mfinu"
+		name: "Mfinu",
 	},
 	zmg: {
 		code: "zmg",
-		name: "Marti Ke"
+		name: "Marti Ke",
 	},
 	zmh: {
 		code: "zmh",
-		name: "Makolkol"
+		name: "Makolkol",
 	},
 	zmi: {
 		code: "zmi",
-		name: "Negeri Sembilan Malay"
+		name: "Negeri Sembilan Malay",
 	},
 	zmj: {
 		code: "zmj",
-		name: "Maridjabin"
+		name: "Maridjabin",
 	},
 	zmk: {
 		code: "zmk",
-		name: "Mandandanyi"
+		name: "Mandandanyi",
 	},
 	zml: {
 		code: "zml",
-		name: "Matngala"
+		name: "Matngala",
 	},
 	zmm: {
 		code: "zmm",
-		name: "Marimanindji"
+		name: "Marimanindji",
 	},
 	zmn: {
 		code: "zmn",
-		name: "Mbangwe"
+		name: "Mbangwe",
 	},
 	zmo: {
 		code: "zmo",
-		name: "Molo"
+		name: "Molo",
 	},
 	zmp: {
 		code: "zmp",
-		name: "Mpuono"
+		name: "Mpuono",
 	},
 	zmq: {
 		code: "zmq",
-		name: "Mituku"
+		name: "Mituku",
 	},
 	zmr: {
 		code: "zmr",
-		name: "Maranunggu"
+		name: "Maranunggu",
 	},
 	zms: {
 		code: "zms",
-		name: "Mbesa"
+		name: "Mbesa",
 	},
 	zmt: {
 		code: "zmt",
-		name: "Maringarr"
+		name: "Maringarr",
 	},
 	zmu: {
 		code: "zmu",
-		name: "Muruwari"
+		name: "Muruwari",
 	},
 	zmv: {
 		code: "zmv",
-		name: "Mbariman-Gudhinma"
+		name: "Mbariman-Gudhinma",
 	},
 	zmw: {
 		code: "zmw",
-		name: "Mbo (Democratic Republic of Congo)"
+		name: "Mbo (Democratic Republic of Congo)",
 	},
 	zmx: {
 		code: "zmx",
-		name: "Bomitaba"
+		name: "Bomitaba",
 	},
 	zmy: {
 		code: "zmy",
-		name: "Mariyedi"
+		name: "Mariyedi",
 	},
 	zmz: {
 		code: "zmz",
-		name: "Mbandja"
+		name: "Mbandja",
 	},
 	zna: {
 		code: "zna",
-		name: "Zan Gula"
+		name: "Zan Gula",
+	},
+	zne: {
+		code: "zne",
+		name: "Zande (individual language)",
 	},
 	zng: {
 		code: "zng",
-		name: "Mang"
+		name: "Mang",
 	},
 	znk: {
 		code: "znk",
-		name: "Manangkari"
+		name: "Manangkari",
 	},
 	zns: {
 		code: "zns",
-		name: "Mangas"
+		name: "Mangas",
 	},
 	zoc: {
 		code: "zoc",
-		name: "Copainalá Zoque"
+		name: "Copainalá Zoque",
 	},
 	zoh: {
 		code: "zoh",
-		name: "Chimalapa Zoque"
+		name: "Chimalapa Zoque",
 	},
 	zom: {
 		code: "zom",
-		name: "Zou"
+		name: "Zou",
 	},
 	zoo: {
 		code: "zoo",
-		name: "Asunción Mixtepec Zapotec"
+		name: "Asunción Mixtepec Zapotec",
 	},
 	zoq: {
 		code: "zoq",
-		name: "Tabasco Zoque"
+		name: "Tabasco Zoque",
 	},
 	zor: {
 		code: "zor",
-		name: "Rayón Zoque"
+		name: "Rayón Zoque",
 	},
 	zos: {
 		code: "zos",
-		name: "Francisco León Zoque"
+		name: "Francisco León Zoque",
 	},
 	zpa: {
 		code: "zpa",
-		name: "Lachiguiri Zapotec"
+		name: "Lachiguiri Zapotec",
 	},
 	zpb: {
 		code: "zpb",
-		name: "Yautepec Zapotec"
+		name: "Yautepec Zapotec",
 	},
 	zpc: {
 		code: "zpc",
-		name: "Choapan Zapotec"
+		name: "Choapan Zapotec",
 	},
 	zpd: {
 		code: "zpd",
-		name: "Southeastern Ixtlán Zapotec"
+		name: "Southeastern Ixtlán Zapotec",
 	},
 	zpe: {
 		code: "zpe",
-		name: "Petapa Zapotec"
+		name: "Petapa Zapotec",
 	},
 	zpf: {
 		code: "zpf",
-		name: "San Pedro Quiatoni Zapotec"
+		name: "San Pedro Quiatoni Zapotec",
 	},
 	zpg: {
 		code: "zpg",
-		name: "Guevea De Humboldt Zapotec"
+		name: "Guevea De Humboldt Zapotec",
 	},
 	zph: {
 		code: "zph",
-		name: "Totomachapan Zapotec"
+		name: "Totomachapan Zapotec",
 	},
 	zpi: {
 		code: "zpi",
-		name: "Santa María Quiegolani Zapotec"
+		name: "Santa María Quiegolani Zapotec",
 	},
 	zpj: {
 		code: "zpj",
-		name: "Quiavicuzas Zapotec"
+		name: "Quiavicuzas Zapotec",
 	},
 	zpk: {
 		code: "zpk",
-		name: "Tlacolulita Zapotec"
+		name: "Tlacolulita Zapotec",
 	},
 	zpl: {
 		code: "zpl",
-		name: "Lachixío Zapotec"
+		name: "Lachixío Zapotec",
 	},
 	zpm: {
 		code: "zpm",
-		name: "Mixtepec Zapotec"
+		name: "Mixtepec Zapotec",
 	},
 	zpn: {
 		code: "zpn",
-		name: "Santa Inés Yatzechi Zapotec"
+		name: "Santa Inés Yatzechi Zapotec",
 	},
 	zpo: {
 		code: "zpo",
-		name: "Amatlán Zapotec"
+		name: "Amatlán Zapotec",
 	},
 	zpp: {
 		code: "zpp",
-		name: "El Alto Zapotec"
+		name: "El Alto Zapotec",
 	},
 	zpq: {
 		code: "zpq",
-		name: "Zoogocho Zapotec"
+		name: "Zoogocho Zapotec",
 	},
 	zpr: {
 		code: "zpr",
-		name: "Santiago Xanica Zapotec"
+		name: "Santiago Xanica Zapotec",
 	},
 	zps: {
 		code: "zps",
-		name: "Coatlán Zapotec"
+		name: "Coatlán Zapotec",
 	},
 	zpt: {
 		code: "zpt",
-		name: "San Vicente Coatlán Zapotec"
+		name: "San Vicente Coatlán Zapotec",
 	},
 	zpu: {
 		code: "zpu",
-		name: "Yalálag Zapotec"
+		name: "Yalálag Zapotec",
 	},
 	zpv: {
 		code: "zpv",
-		name: "Chichicapan Zapotec"
+		name: "Chichicapan Zapotec",
 	},
 	zpw: {
 		code: "zpw",
-		name: "Zaniza Zapotec"
+		name: "Zaniza Zapotec",
 	},
 	zpx: {
 		code: "zpx",
-		name: "San Baltazar Loxicha Zapotec"
+		name: "San Baltazar Loxicha Zapotec",
 	},
 	zpy: {
 		code: "zpy",
-		name: "Mazaltepec Zapotec"
+		name: "Mazaltepec Zapotec",
 	},
 	zpz: {
 		code: "zpz",
-		name: "Texmelucan Zapotec"
+		name: "Texmelucan Zapotec",
 	},
 	zqe: {
 		code: "zqe",
-		name: "Qiubei Zhuang"
+		name: "Qiubei Zhuang",
 	},
 	zra: {
 		code: "zra",
-		name: "Kara (Korea)"
+		name: "Kara (Korea)",
 	},
 	zrg: {
 		code: "zrg",
-		name: "Mirgan"
+		name: "Mirgan",
 	},
 	zrn: {
 		code: "zrn",
-		name: "Zerenkel"
+		name: "Zerenkel",
 	},
 	zro: {
 		code: "zro",
-		name: "Záparo"
+		name: "Záparo",
 	},
 	zrp: {
 		code: "zrp",
-		name: "Zarphatic"
+		name: "Zarphatic",
 	},
 	zrs: {
 		code: "zrs",
-		name: "Mairasi"
+		name: "Mairasi",
 	},
 	zsa: {
 		code: "zsa",
-		name: "Sarasira"
+		name: "Sarasira",
 	},
 	zsk: {
 		code: "zsk",
-		name: "Kaskean"
+		name: "Kaskean",
 	},
 	zsl: {
 		code: "zsl",
-		name: "Zambian Sign Language"
+		name: "Zambian Sign Language",
 	},
 	zsm: {
 		code: "zsm",
-		name: "Standard Malay"
+		name: "Standard Malay",
 	},
 	zsr: {
 		code: "zsr",
-		name: "Southern Rincon Zapotec"
+		name: "Southern Rincon Zapotec",
 	},
 	zsu: {
 		code: "zsu",
-		name: "Sukurum"
+		name: "Sukurum",
 	},
 	zte: {
 		code: "zte",
-		name: "Elotepec Zapotec"
+		name: "Elotepec Zapotec",
 	},
 	ztg: {
 		code: "ztg",
-		name: "Xanaguía Zapotec"
+		name: "Xanaguía Zapotec",
 	},
 	ztl: {
 		code: "ztl",
-		name: "Lapaguía-Guivini Zapotec"
+		name: "Lapaguía-Guivini Zapotec",
 	},
 	ztm: {
 		code: "ztm",
-		name: "San Agustín Mixtepec Zapotec"
+		name: "San Agustín Mixtepec Zapotec",
 	},
 	ztn: {
 		code: "ztn",
-		name: "Santa Catarina Albarradas Zapotec"
+		name: "Santa Catarina Albarradas Zapotec",
 	},
 	ztp: {
 		code: "ztp",
-		name: "Loxicha Zapotec"
+		name: "Loxicha Zapotec",
 	},
 	ztq: {
 		code: "ztq",
-		name: "Quioquitani-Quierí Zapotec"
+		name: "Quioquitani-Quierí Zapotec",
 	},
 	zts: {
 		code: "zts",
-		name: "Tilquiapan Zapotec"
+		name: "Tilquiapan Zapotec",
 	},
 	ztt: {
 		code: "ztt",
-		name: "Tejalapan Zapotec"
+		name: "Tejalapan Zapotec",
 	},
 	ztu: {
 		code: "ztu",
-		name: "Güilá Zapotec"
+		name: "Güilá Zapotec",
 	},
 	ztx: {
 		code: "ztx",
-		name: "Zaachila Zapotec"
+		name: "Zaachila Zapotec",
 	},
 	zty: {
 		code: "zty",
-		name: "Yatee Zapotec"
+		name: "Yatee Zapotec",
 	},
 	zuh: {
 		code: "zuh",
-		name: "Tokano"
+		name: "Tokano",
+	},
+	zul: {
+		code: "zul",
+		name: "Zulu",
 	},
 	zum: {
 		code: "zum",
-		name: "Kumzari"
+		name: "Kumzari",
 	},
 	zun: {
 		code: "zun",
-		name: "Zuni"
+		name: "Zuni",
 	},
 	zuy: {
 		code: "zuy",
-		name: "Zumaya"
+		name: "Zumaya",
 	},
 	zwa: {
 		code: "zwa",
-		name: "Zay"
+		name: "Zay",
 	},
 	zxx: {
 		code: "zxx",
-		name: "No linguistic content"
+		name: "No linguistic content",
 	},
 	zyb: {
 		code: "zyb",
-		name: "Yongbei Zhuang"
+		name: "Yongbei Zhuang",
 	},
 	zyg: {
 		code: "zyg",
-		name: "Yang Zhuang"
+		name: "Yang Zhuang",
 	},
 	zyj: {
 		code: "zyj",
-		name: "Youjiang Zhuang"
+		name: "Youjiang Zhuang",
 	},
 	zyn: {
 		code: "zyn",
-		name: "Yongnan Zhuang"
+		name: "Yongnan Zhuang",
 	},
 	zyp: {
 		code: "zyp",
-		name: "Zyphe Chin"
+		name: "Zyphe Chin",
 	},
 	zza: {
 		code: "zza",
-		name: "Zaza"
+		name: "Zaza",
 	},
 	zzj: {
 		code: "zzj",
-		name: "Zuojiang Zhuang"
+		name: "Zuojiang Zhuang",
 	},
 };
