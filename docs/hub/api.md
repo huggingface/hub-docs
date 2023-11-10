@@ -224,7 +224,8 @@ Payload:
 ```js
 payload = {
     "fromRepo" : "namespace/repo_name",
-    "toRepo" : "namespace2/repo_name2"
+    "toRepo" : "namespace2/repo_name2",
+    "type": "dataset",
 }
 ```
 
