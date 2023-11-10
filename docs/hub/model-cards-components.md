@@ -1,6 +1,6 @@
 # Model Card components
 
-Model cards supports additionnal components you can place in your markdown. 
+**Model Card Components** are special elements that you can inject directly into your Model Card markdown to display powerful custom components in your model page. These components are authored by us, feel free to share ideas about new Model Card component in [this discussion](https://huggingface.co/spaces/huggingchat/chat-ui/discussions/312).
 
 ## The Gallery component
 
@@ -21,7 +21,7 @@ TintinIA is fine-tuned version of Stable-Diffusion-xl trained on 125 comics pane
 <img width="650" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
 </div>
 
-The gallery uses the card's [widget metadata](/docs/hub/models-widgets-examples#text-to-image) to display the images and prompt.
+The `<Gallery/>` component will use your Model Card [widget metadata](/docs/hub/models-widgets-examples#text-to-image) to display the images with each associated prompt.
 
 ```yaml
 widget:
