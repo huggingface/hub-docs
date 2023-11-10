@@ -4,7 +4,7 @@ Model cards supports additionnal components you can place in your markdown.
 
 ## The Gallery component
 
-To display an image gallery in your model card, add the `<Gallery />` anywhere in your markdown. 
+Add the `<Gallery />` component to your text-to-image model card to showcase your images generation.
 
 For example, 
 ```md
