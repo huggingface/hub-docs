@@ -8,7 +8,7 @@ export function wikiLink(l: Language): string {
 	return `https://en.wikipedia.org/wiki/ISO_639:${l.code}`;
 }
 
-export const LANGUAGES: Record<string, Language> = {
+export const LANGUAGES_ISO_639_1: Record<string, Language> = {
 	aa: {
 		code:       "aa",
 		name:       "Afar",
@@ -929,310 +929,14 @@ export const LANGUAGES: Record<string, Language> = {
 		name:       "Zulu",
 		nativeName: "isiZulu",
 	},
-	ach: {
-		code: "ach",
-		name: "Acoli",
-	},
-	bcl: {
-		code: "bcl",
-		name: "Central Bikol",
-	},
-	crs: {
-		code: "crs",
-		name: "Seselwa Creole French",
-	},
-	gaa: {
-		code: "gaa",
-		name: "Ga",
-	},
-	guw: {
-		code: "guw",
-		name: "Gun",
-	},
-	niu: {
-		code: "niu",
-		name: "Niuean",
-	},
-	nso: {
-		code: "nso",
-		name: "Pedi",
-	},
-	bzs: {
-		code: "bzs",
-		name: "Brazilian Sign Language",
-	},
-	efi: {
-		code: "efi",
-		name: "Efik",
-	},
-	gil: {
-		code: "gil",
-		name: "Gilbertese",
-	},
-	ilo: {
-		code: "ilo",
-		name: "Iloko",
-	},
-	iso: {
-		code: "iso",
-		name: "Isoko",
-	},
-	lua: {
-		code: "lua",
-		name: "Luba-Lulua",
-	},
-	pag: {
-		code: "pag",
-		name: "Pangasinan",
-	},
-	pap: {
-		code: "pap",
-		name: "Papiamento",
-	},
-	pis: {
-		code: "pis",
-		name: "Pijin",
-	},
-	pon: {
-		code: "pon",
-		name: "Pohnpeian",
-	},
-	ceb: {
-		code: "ceb",
-		name: "Cebuano",
-	},
-	loz: {
-		code: "loz",
-		name: "Lozi",
-	},
-	lus: {
-		code: "lus",
-		name: "Lushai",
-	},
-	swc: {
-		code: "swc",
-		name: "Congo Swahili",
-	},
-	tll: {
-		code: "tll",
-		name: "Tetela",
-	},
-	tvl: {
-		code: "tvl",
-		name: "Tuvalua",
-	},
-	ase: {
-		code: "ase",
-		name: "American Sign Language",
-	},
-	bem: {
-		code: "bem",
-		name: "Bemba",
-	},
-	hil: {
-		code: "hil",
-		name: "Hiligaynon",
-	},
-	lue: {
-		code: "lue",
-		name: "Luvale",
-	},
-	kqn: {
-		code: "kqn",
-		name: "Kaonde",
-	},
-	toi: {
-		code: "toi",
-		name: "Tonga (Zambia)",
-	},
-	srn: {
-		code: "srn",
-		name: "Sranan Tongo",
-	},
-	war: {
-		code: "war",
-		name: "Waray",
-	},
-	run: {
-		code: "run",
-		name: "Rundi",
-	},
-	tiv: {
-		code: "tiv",
-		name: "Tiv",
-	},
-	tpi: {
-		code: "tpi",
-		name: "Tok Pisin",
-	},
-	wls: {
-		code: "wls",
-		name: "Wallisian",
-	},
-	zne: {
-		code: "zne",
-		name: "Zande (individual language)",
-	},
-	ber: {
-		code: "ber",
-		name: "Berber languages",
-	},
-	chk: {
-		code: "chk",
-		name: "Chuukese",
-	},
-	kwy: {
-		code: "kwy",
-		name: "San Salvador Kongo",
-	},
-	mfe: {
-		code: "mfe",
-		name: "Morisyen",
-	},
-	rnd: {
-		code: "rnd",
-		name: "Ruund",
-	},
-	yap: {
-		code: "yap",
-		name: "Yapese",
-	},
-	tum: {
-		code: "tum",
-		name: "Tumbuka",
-	},
-	mos: {
-		code: "mos",
-		name: "Mossi",
-	},
-	yue: {
-		code: "yue",
-		name: "Yue Chinese",
-	},
-	umb: {
-		code: "umb",
-		name: "Umbundu",
-	},
-	roa: {
-		code: "roa",
-		name: "Romance languages",
-	},
-	aed: {
-		code: "aed",
-		name: "Argentine Sign Language",
-	},
-	csg: {
-		code: "csg",
-		name: "Chilean Sign Language",
-	},
-	csn: {
-		code: "csn",
-		name: "Colombian Sign Language",
-	},
-	kwn: {
-		code: "kwn",
-		name: "Kwangali",
-	},
-	lun: {
-		code: "lun",
-		name: "Lunda",
-	},
-	luo: {
-		code: "luo",
-		name: "Luo",
-	},
-	nyk: {
-		code: "nyk",
-		name: "Nyaneka",
-	},
-	mfs: {
-		code: "mfs",
-		name: "Mexican Sign Language",
-	},
-	prl: {
-		code: "prl",
-		name: "Peruvian Sign Language",
-	},
-	tzo: {
-		code: "tzo",
-		name: "Tzotzil",
-	},
-	zai: {
-		code: "zai",
-		name: "Isthmus Zapotec",
-	},
-	fse: {
-		code: "fse",
-		name: "Finnish Sign Language",
-	},
-	cel: {
-		code: "cel",
-		name: "Celtic languages",
-	},
-	tdt: {
-		code: "tdt",
-		name: "Tetun Dili",
-	},
-	yua: {
-		code: "yua",
-		name: "Yucateco",
-	},
-	kab: {
-		code: "kab",
-		name: "Kabyle",
-	},
-	ssp: {
-		code: "ssp",
-		name: "Spanish Sign Language",
-	},
-	vsl: {
-		code: "vsl",
-		name: "Venezuelan Sign Language",
-	},
-	wal: {
-		code: "wal",
-		name: "Wolaitta",
-	},
-	fon: {
-		code: "fon",
-		name: "Fon",
-	},
-	ady: {
-		code:       "ady",
-		name:       "Circassian Adyghean",
-		nativeName: "Адыгэбзэ Къэбэрдей",
-	},
-	kbd: {
-		code:       "kbd",
-		name:       "Circassian Kabardian",
-		nativeName: "Адыгэбзэ КIахэ",
-	},
-	sah: {
-		code:       "sah",
-		name:       "Yakut",
-		nativeName: "саха тыла",
-	},
-	mhr: {
-		code:       "mhr",
-		name:       "Eastern Mari",
-		nativeName: "олык марий",
-	},
-	myv: {
-		code:       "myv",
-		name:       "Erzya",
-		nativeName: "эрзянь кель",
-	},
-	lzh: {
-		code:       "lzh",
-		name:       "Literary Chinese",
-		nativeName: "文言",
-	},
-	udm: {
-		code:       "udm",
-		name:       "Udmurt",
-		nativeName: "удмурт кыл",
-	},
 };
+
+/**
+ * Only codes in ISO_639_2 that were covered before and not anymore:
+ * ber
+ * cel
+ * roa
+ */
 
 export const LANGUAGES_ISO_639_3: Record<string, Language> = {
 	aaa: {
@@ -1592,8 +1296,9 @@ export const LANGUAGES_ISO_639_3: Record<string, Language> = {
 		name: "Amdo Tibetan",
 	},
 	ady: {
-		code: "ady",
-		name: "Adyghe",
+		code:       "ady",
+		name:       "Adyghe",
+		nativeName: "Адыгэбзэ Къэбэрдей",
 	},
 	adz: {
 		code: "adz",
@@ -12680,8 +12385,9 @@ export const LANGUAGES_ISO_639_3: Record<string, Language> = {
 		name: "Kadiwéu",
 	},
 	kbd: {
-		code: "kbd",
-		name: "Kabardian",
+		code:       "kbd",
+		name:       "Kabardian",
+		nativeName: "Адыгэбзэ КIахэ",
 	},
 	kbe: {
 		code: "kbe",
@@ -16516,8 +16222,9 @@ export const LANGUAGES_ISO_639_3: Record<string, Language> = {
 		name: "Luyana",
 	},
 	lzh: {
-		code: "lzh",
-		name: "Literary Chinese",
+		code:       "lzh",
+		name:       "Literary Chinese",
+		nativeName: "文言",
 	},
 	lzl: {
 		code: "lzl",
@@ -17288,8 +16995,9 @@ export const LANGUAGES_ISO_639_3: Record<string, Language> = {
 		name: "Mandan",
 	},
 	mhr: {
-		code: "mhr",
-		name: "Eastern Mari",
+		code:       "mhr",
+		name:       "Eastern Mari",
+		nativeName: "олык марий",
 	},
 	mhs: {
 		code: "mhs",
@@ -18944,8 +18652,9 @@ export const LANGUAGES_ISO_639_3: Record<string, Language> = {
 		name: "Mundurukú",
 	},
 	myv: {
-		code: "myv",
-		name: "Erzya",
+		code:       "myv",
+		name:       "Erzya",
+		nativeName: "эрзянь кель",
 	},
 	myw: {
 		code: "myw",
@@ -24020,8 +23729,9 @@ export const LANGUAGES_ISO_639_3: Record<string, Language> = {
 		name: "Sango",
 	},
 	sah: {
-		code: "sah",
-		name: "Yakut",
+		code:       "sah",
+		name:       "Yakut",
+		nativeName: "саха тыла",
 	},
 	saj: {
 		code: "saj",
@@ -28192,8 +27902,9 @@ export const LANGUAGES_ISO_639_3: Record<string, Language> = {
 		name: "Wuzlam",
 	},
 	udm: {
-		code: "udm",
-		name: "Udmurt",
+		code:       "udm",
+		name:       "Udmurt",
+		nativeName: "удмурт кыл",
 	},
 	udu: {
 		code: "udu",
