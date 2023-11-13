@@ -17,8 +17,10 @@ TintinIA is fine-tuned version of Stable-Diffusion-xl trained on 125 comics pane
 
 ```
 
+
 <div class="flex justify-center">
-<img width="650" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery-dark.png"/>
 </div>
 
 The `<Gallery/>` component will use your Model Card [widget metadata](/docs/hub/models-widgets-examples#text-to-image) to display the images with each associated prompt.
