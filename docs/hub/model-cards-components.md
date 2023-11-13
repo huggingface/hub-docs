@@ -1,6 +1,6 @@
-# Model Card components
+# Model Card components
 
-**Model Card Components** are special elements that you can inject directly into your Model Card markdown to display powerful custom components in your model page. These components are authored by us, feel free to share ideas about new Model Card component in [this discussion](https://huggingface.co/spaces/huggingchat/chat-ui/discussions/312).
+**Model Card Components** are special elements that you can inject directly into your Model Card markdown to display powerful custom components in your model page. These components are authored by us, feel free to share ideas about new Model Card component in [this discussion](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/17).
 
 ## The Gallery component
 
