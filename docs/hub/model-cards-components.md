@@ -23,7 +23,7 @@ TintinIA is fine-tuned version of Stable-Diffusion-xl trained on 125 comics pane
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery-dark.png"/>
 </div>
 
-The `<Gallery/>` component will use your Model Card [widget metadata](/docs/hub/models-widgets-examples#text-to-image) to display the images with each associated prompt.
+The `<Gallery/>` component will use your Model Card [widget metadata](/docs/hub/models-widgets-examples#text-to-image) to display the images with each associated prompt. 
 
 ```yaml
 widget:
@@ -39,3 +39,5 @@ widget:
   output:
     url: "images/office.png"
 ```
+
+> Hint: Support of Card Components through the GUI editor coming soon... 
