@@ -46,6 +46,8 @@
       title: Model Card Guidebook
     - local: model-card-landscape-analysis
       title: Landscape Analysis
+    - local: model-cards-components
+      title: Card Components
   - local: models-gated
     title: Gated Models
   - local: models-uploading
