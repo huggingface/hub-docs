@@ -21,7 +21,7 @@ my_dataset_repository/
 
 ## Splits
 
-Certain patterns in the dataset repository can be used to assign certain files to train/validation/test splits.
+Some patterns in the dataset repository can be used to assign certain files to train/validation/test splits.
 
 ### File name
 
