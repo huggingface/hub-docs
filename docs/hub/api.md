@@ -170,7 +170,7 @@ Payload:
 
 ```js
 payload = {
-    "type":"type",
+    "type":"model",
     "name":"name",
     "organization": "organization",
     "private":"private",
@@ -193,7 +193,7 @@ Payload:
 
 ```js
 payload = {
-    "type": "type",
+    "type": "model",
     "name": "name",
     "organization": "organization",
 }
@@ -219,12 +219,18 @@ This is equivalent to `huggingface_hub.update_repo_visibility()`.
 
 Move a repository (rename within the same namespace or transfer from user to organization).
 
+Parameters:
+- `fromRepo`: repo to rename.
+- `toRepo`: new name of the repo.
+- `type`: Type of repo (dataset or space; model by default).
+
 Payload:
 
 ```js
 payload = {
     "fromRepo" : "namespace/repo_name",
-    "toRepo" : "namespace2/repo_name2"
+    "toRepo" : "namespace2/repo_name2",
+    "type": "model",
 }
 ```
 
