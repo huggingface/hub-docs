@@ -40,9 +40,11 @@ The Hugging Face Hub is a platform with over 350k models, 75k datasets, and 150k
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-overview">Datasets Overview</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-cards">Dataset Cards</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-gated">Gated Datasets</a>
-<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-viewer">Dataset viewer</a>
-<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-usage">Using Datasets</a>
-<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-adding">Adding New Datasets</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-adding">Uploading Datasets</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-downloading">Downloading Datasets</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-libraries">Libraries</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-viewer">Dataset Viewer</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-repository-structure">Data files Configuration</a>
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 dark:bg-none px-6 py-4 transition-colors hover:shadow dark:border-blue-700">
