@@ -1,5 +1,6 @@
 <script lang="ts">
-	import type { WidgetProps, ModelLoadInfo, ExampleRunOpts, WidgetInput, WidgetOutput } from "../types";
+	import type { ComponentType, SvelteComponentTyped } from 'svelte';
+	import type { WidgetProps, ModelLoadInfo, ExampleRunOpts, WidgetOutput, WidgetInput } from "../types";
 	import type { WidgetExample, WidgetExampleAttribute } from "../WidgetExample";
 
 	type TWidgetExample = $$Generic<WidgetExample>;
@@ -26,8 +27,12 @@
 	export let noTitle = false;
 	export let exampleQueryParams: WidgetExampleAttribute[] = [];
 
-	export let widgetInput: WidgetInput;
-	export let widgetOutput: WidgetOutput;
+	type ComponentConstructor<T extends Record<string, any>> = new (...args: any[]) => SvelteComponentTyped<T>;
+	export let WidgetInputComponent: ComponentConstructor<{ widgetInput?: WidgetInput }>;
+	export let WidgetOutputComponent: ComponentConstructor<{ widgetOutput?: WidgetOutput }>;
+
+	let widgetInput: WidgetInput;
+	let widgetOutput: WidgetOutput;
 	
 	let modelLoading = {
 		isLoading: false,
@@ -98,7 +103,7 @@
 		const requestBody = _requestBody;
 
 		isLoading = true;
-
+	
 		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
@@ -207,12 +212,13 @@
 				</div>
 			{/if}
 		</WidgetHeader>
+		<svelte:component this={WidgetInputComponent} bind:widgetInput />
 		<slot name="input" {isDisabled} />
 		<WidgetInfo {model} {computeTime} {error} {warning} {modelLoadInfo} {modelTooBig} />
 		{#if modelLoading.isLoading}
 			<WidgetModelLoading estimatedTime={modelLoading.estimatedTime} />
 		{/if}
-		<slot name="output" />
+		<svelte:component this={WidgetOutputComponent} bind:widgetOutput />
 		<WidgetFooter {onClickMaximizeBtn} {outputJson} {isDisabled} />
 	</div>
 {/if}
