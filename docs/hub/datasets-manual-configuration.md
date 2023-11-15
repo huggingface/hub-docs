@@ -2,9 +2,9 @@
 
 This guide will show you how to configure a custom structure for your dataset repository.
 
-A dataset with a [supported structure and file format](./datasets-adding#files-formats) automatically has a Dataset Viewer on its dataset page on the Hub. You can use YAML to configure the splits and builder parameters that are used by the Viewer.
+A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its dataset page on the Hub. You can use YAML to define the splits, configurations and builder parameters that are used by the Viewer.
 
-It is even possible to define multiple configurations for the same dataset (e.g. if the dataset has various independent files).
+It is also possible to define multiple configurations for the same dataset (e.g. if the dataset has various independent files).
 
 ## Define your splits and subsets in YAML
 

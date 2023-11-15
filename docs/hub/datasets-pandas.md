@@ -17,7 +17,7 @@ from huggingface_hub import HfApi
 HfApi().create_repo(repo_id="username/my_dataset", repo_type="dataset")
 ```
 
-Finally you can use Hugging Face paths in Pandas:
+Finally, you can use Hugging Face paths in Pandas:
 
 ```python
 import pandas as pd
