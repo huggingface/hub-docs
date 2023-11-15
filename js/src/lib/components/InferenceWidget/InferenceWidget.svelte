@@ -3,7 +3,6 @@
 	import type { PipelineType } from "../../interfaces/Types";
 	import type { WidgetProps } from "./shared/types";
 
-	import AudioClassificationWidget from "./widgets/AudioClassificationWidget/AudioClassificationWidget.svelte";
 	import AudioToAudioWidget from "./widgets/AudioToAudioWidget/AudioToAudioWidget.svelte";
 	import AutomaticSpeechRecognitionWidget from "./widgets/AutomaticSpeechRecognitionWidget/AutomaticSpeechRecognitionWidget.svelte";
 	import ConversationalWidget from "./widgets/ConversationalWidget/ConversationalWidget.svelte";
@@ -27,6 +26,9 @@
 	import VisualQuestionAnsweringWidget from "./widgets/VisualQuestionAnsweringWidget/VisualQuestionAnsweringWidget.svelte";
 	import ZeroShotClassificationWidget from "./widgets/ZeroShowClassificationWidget/ZeroShotClassificationWidget.svelte";
 	import ZeroShotImageClassificationWidget from "./widgets/ZeroShotImageClassificationWidget/ZeroShotImageClassificationWidget.svelte";
+	import WidgetInputAudio from "./widgetsInput/WidgetInputAudio/WidgetInputAudio.svelte";
+	import WidgetOutputClassification from "./wigdetsOutput/WidgetOutputClassification/WidgetOutputClassification.svelte";
+	import WidgetWrapperV2 from "./shared/WidgetWrapperV2/WidgetWrapperV2.svelte";
 
 	export let apiToken: WidgetProps["apiToken"] = undefined;
 	export let callApiOnMount = false;
@@ -46,7 +48,10 @@
 		[key in PipelineType]?: typeof SvelteComponent;
 	} = {
 		"audio-to-audio": AudioToAudioWidget,
-		"audio-classification": AudioClassificationWidget,
+		"audio-classification": {
+			"inputComponent": WidgetInputAudio,
+			"outputComponent": WidgetOutputClassification,
+		},
 		"automatic-speech-recognition": AutomaticSpeechRecognitionWidget,
 		"conversational": ConversationalWidget,
 		"feature-extraction": FeatureExtractionWidget,
@@ -93,5 +98,9 @@
 </script>
 
 {#if widgetComponent}
-	<svelte:component this={WIDGET_COMPONENTS[model.pipeline_tag ?? ""]} {...widgetProps} />
+	<WidgetWrapperV2
+		{...widgetProps}
+		WidgetInputComponent={widgetComponent.inputComponent}
+		WidgetOutputComponent={widgetComponent.outputComponent}
+	/>
 {/if}
