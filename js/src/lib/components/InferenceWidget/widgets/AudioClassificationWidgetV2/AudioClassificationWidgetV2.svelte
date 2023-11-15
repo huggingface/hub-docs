@@ -13,6 +13,7 @@
 	export let includeCredentials: WidgetProps["includeCredentials"];
 </script>
 
+<!-- Name WidgetWrapperV2 should be renamed just to Widget -->
 <WidgetWrapperV2
 	{apiToken}
 	{callApiOnMount}
