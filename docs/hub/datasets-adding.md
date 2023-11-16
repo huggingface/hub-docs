@@ -12,7 +12,7 @@ The Hub's web-based interface allows users without any developer experience to u
 
 A repository hosts all your dataset files, including the revision history, making storing more than one dataset version possible.
 
-1. Click on your profile and select **New Dataset** to create a [new dataset repository](https://huggingface.co/new-dataset). 
+1. Click on your profile and select **New Dataset** to create a [new dataset repository](https://huggingface.co/new-dataset).
 2. Pick a name for your dataset, and choose whether it is a public or private dataset. A public dataset is visible to anyone, whereas a private dataset can only be viewed by you or members of your organization.
 
 <div class="flex justify-center">
@@ -21,7 +21,7 @@ A repository hosts all your dataset files, including the revision history, makin
 
 ### Upload dataset
 
-1. Once you've created a repository, navigate to the **Files and versions** tab to add a file. Select **Add file** to upload your dataset files. We support many text, audio, and image data extensions such as `.csv`, `.mp3`, and `.jpg` among many others (see full list [here](./datasets-viewer-configure.md)).
+1. Once you've created a repository, navigate to the **Files and versions** tab to add a file. Select **Add file** to upload your dataset files. We support many text, audio, image and other data extensions such as `.csv`, `.mp3`, and `.jpg` (see the full list of [File formats](#file-formats)).
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/datasets/upload_files.png"/>
@@ -70,7 +70,7 @@ Make sure the Dataset Viewer correctly shows your data, or [Configure the Datase
 
 ## Using the `huggingface_hub` client library
 
-The rich features set in the `huggingface_hub` library allows you to manage repositories, including creating repos and uploading datasets to the Model Hub. Visit [the client library's documentation](https://huggingface.co/docs/huggingface_hub/index) to learn more.
+The rich features set in the `huggingface_hub` library allows you to manage repositories, including creating repos and uploading datasets to the Hub. Visit [the client library's documentation](https://huggingface.co/docs/huggingface_hub/index) to learn more.
 
 ## Using other libraries
 
@@ -79,7 +79,7 @@ See the list of [Libraries supported by the Datasets Hub](./datasets-libraries) 
 
 ## Using Git
 
-Since dataset repos are just Git repositories, you can use Git to push your data files to the Hub. Follow the guide on [Getting Started with Repositories](repositories-getting-started) to learn about using the `git` CLI to commit and push your datasets.
+Since dataset repos are Git repositories, you can use Git to push your data files to the Hub. Follow the guide on [Getting Started with Repositories](repositories-getting-started) to learn about using the `git` CLI to commit and push your datasets.
 
 ## File formats
 
@@ -94,7 +94,7 @@ The Hub natively supports multiple file formats:
 
 It also supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
 
-Image and audio resources can also have additional metadata files, see the [Data files Configuration](./datasets-data-files-configuration) on image and audio datasets.
+Image and audio resources can also have additional metadata files, see the [Data files Configuration](./datasets-data-files-configuration#image-and-audio-datasets) on image and audio datasets.
 
 You may want to convert your files to these formats to benefit from all the Hub features.
 Other formats and structures may not be recognized by the Hub.

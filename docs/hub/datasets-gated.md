@@ -12,9 +12,10 @@ The User Access request dialog can be modified to include additional text and ch
 ---
 extra_gated_prompt: "You agree to not attempt to determine the identity of individuals in this dataset"
 extra_gated_fields:
- Company: text
- Country: text
- I agree to use this dataset for non-commercial use ONLY: checkbox
+ Name: text
+ Affiliation: text
+ Email: text
+ I agree to not attempt to determine the identity of speakers in this dataset: checkbox
 ---
 ```
 
