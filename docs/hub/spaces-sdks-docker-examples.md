@@ -1,6 +1,6 @@
 # Docker Spaces Examples
 
-We gathered some example demos in the [Docker Templates](https://huggingface.co/DockerTemplates) organization. Please check them out!
+We gathered some example demos in the [Spaces Examples](https://huggingface.co/SpacesExamples) organization. Please check them out!
 
 * Dummy FastAPI app: https://huggingface.co/spaces/DockerTemplates/fastapi_dummy 
 * FastAPI app serving a static site and using `transformers`: https://huggingface.co/spaces/DockerTemplates/fastapi_t5
