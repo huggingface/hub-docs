@@ -1,4 +1,4 @@
-# Datasets Frequently Asked Questions
+# Datasets Download Stats
 
 ## How are download stats generated for datasets?
 
