@@ -13,12 +13,11 @@
 			"import": "./dist/index.mjs"
 		}
 	},
-  "scripts": {
-    "prepublishOnly": "npm run build",
+	"scripts": {
+		"prepublishOnly": "npm run build",
 		"build": "tsup src/index.ts --format cjs,esm --clean --dts",
-		"test": "vitest run",
 		"type-check": "tsc"
-  },
+	},
 	"source": "src/index.ts",
 	"files": [
 		"assets",
@@ -29,7 +28,7 @@
 		"tsup": "^7.3.0",
 		"typescript": "^5.2.2"
 	},
-  "publishConfig": {
+	"publishConfig": {
 		"access": "public"
 	}
 }
