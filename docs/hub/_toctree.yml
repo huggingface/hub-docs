@@ -151,6 +151,8 @@
     sections:
       - local: datasets-viewer-configure
         title: Configure the Dataset Viewer
+  - local: datasets-download-stats
+    title: Datasets Download Stats
   - local: datasets-data-files-configuration
     title: Data files Configuration
     sections:
@@ -158,8 +160,6 @@
         title: File names and splits
       - local: datasets-manual-configuration
         title: Manual Configuration
-  - local: datasets-download-stats
-    title: Datasets Download Stats
 - local: spaces
   title: Spaces
   isExpanded: true
