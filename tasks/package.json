@@ -1,5 +1,32 @@
 {
-  "name": "huggingface-tasks",
-  "version": "1.0.0",
-	"type": "module"
+	"name": "@huggingface/tasks",
+	"version": "0.0.1",
+	"type": "module",
+	"description": "A library of tasks for the Hugging Face Hub",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"require": "./dist/index.js",
+			"import": "./dist/index.mjs"
+		}
+	},
+  "scripts": {
+    "prepublishOnly": "npm run build",
+		"build": "tsup src/index.ts --format cjs,esm --clean --dts",
+		"test": "vitest run",
+		"type-check": "tsc"
+  },
+	"source": "src/index.ts",
+	"files": [
+		"assets",
+		"src",
+		"dist"
+	],
+	"devDependencies": {
+		"tsup": "^7.3.0",
+		"typescript": "^5.2.2"
+	}
 }
