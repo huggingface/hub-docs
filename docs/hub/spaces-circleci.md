@@ -50,7 +50,5 @@ jobs:
           command: |
                   git config user.email "<your-email@here>" 
                   git config user.name "<your-identifier>" 
-                  git add -A 
-                  git commit -m "Automated push job ${CIRCLE_BRANCH} [skip ci]" --allow-empty 
                   git push -f https://HF_USERNAME:${HF_PERSONAL_TOKEN}@huggingface.co/spaces/HF_USERNAME/SPACE_NAME main
 ```
