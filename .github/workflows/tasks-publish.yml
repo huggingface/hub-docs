@@ -1,4 +1,4 @@
-name: Languages - Version and Release
+name: Tasks - Version and Release
 
 on:
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
           node-version: "18"
           # setting a registry enables the NODE_AUTH_TOKEN env variable where we can set an npm token.  REQUIRED
           registry-url: "https://registry.npmjs.org"
-      - run: npm install
+      - run: npm ci
       - run: git config --global user.name machineuser
       - run: git config --global user.email infra+machineuser@huggingface.co
       - run: |
@@ -34,7 +34,7 @@ jobs:
           node -e "const fs = require('fs'); const package = JSON.parse(fs.readFileSync('./package.json')); package.version = '$BUMPED_VERSION'; fs.writeFileSync('./package.json', JSON.stringify(package, null, '\t') + '\n');"
           git commit -m "🔖 @hugginface/languages $BUMPED_VERSION"
           git tag "tasks-v$BUMPED_VERSION"
-      - run: pnpm publish --no-git-checks .
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: git push --follow-tags
@@ -43,6 +43,6 @@ jobs:
         with:
           node-version: "18"
           registry-url: "https://npm.pkg.github.com"
-      - run: pnpm publish --no-git-checks .
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
