@@ -1,7 +1,7 @@
 # Dask
 
 [Dask](https://github.com/dask/dask) is a parallel and distributed computing library that scales the existing Python and PyData ecosystem.
-Since it uses [fsspec](https://filesystem-spec.readthedocs.io) to read and write remote data, you can use the Hugging Face paths (`hf://`) to read and write data on the Hub:
+Since it uses [fsspec](https://filesystem-spec.readthedocs.io) to read and write remote data, you can use the Hugging Face paths ([`hf://`](https://huggingface.co/docs/huggingface_hub/guides/hf_file_system#integrations)) to read and write data on the Hub:
 
 First you need to [Login with your Hugging Face account](../huggingface_hub/quick-start#login), for example using:
 
@@ -17,7 +17,7 @@ from huggingface_hub import HfApi
 HfApi().create_repo(repo_id="username/my_dataset", repo_type="dataset")
 ```
 
-Finally, you can use Hugging Face paths in Dask:
+Finally, you can use [Hugging Face paths](https://huggingface.co/docs/huggingface_hub/guides/hf_file_system#integrations) in Dask:
 
 ```python
 import dask.dataframe as dd

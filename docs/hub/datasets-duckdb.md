@@ -1,7 +1,7 @@
 # DuckDB
 
 [DuckDB](https://github.com/duckdb/duckdb) is an in-process SQL [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) database management system.
-Since it supports [fsspec](https://filesystem-spec.readthedocs.io) to read and write remote data, you can use the Hugging Face paths (`hf://`) to read and write data on the Hub:
+Since it supports [fsspec](https://filesystem-spec.readthedocs.io) to read and write remote data, you can use the Hugging Face paths ([`hf://`](https://huggingface.co/docs/huggingface_hub/guides/hf_file_system#integrations)) to read and write data on the Hub:
 
 First you need to [Login with your Hugging Face account](../huggingface_hub/quick-start#login), for example using:
 
@@ -17,7 +17,7 @@ from huggingface_hub import HfApi
 HfApi().create_repo(repo_id="username/my_dataset", repo_type="dataset")
 ```
 
-Finally, you can use Hugging Face paths in DuckDB:
+Finally, you can use [Hugging Face paths]([Hugging Face paths](https://huggingface.co/docs/huggingface_hub/guides/hf_file_system#integrations)) in DuckDB:
 
 ```python
 >>> from huggingface_hub import HfFileSystem
@@ -39,3 +39,5 @@ You can reload it later:
 >>> duckdb.register_filesystem(fs)
 >>> df = duckdb.query("SELECT * FROM 'hf://datasets/username/my_dataset/data.parquet' LIMIT 10;").df()
 ```
+
+To have more information on the Hugging Face paths and how they are implemented, please refer to the [the client library's documentation on the HfFileSystem](https://huggingface.co/docs/huggingface_hub/guides/hf_file_system).

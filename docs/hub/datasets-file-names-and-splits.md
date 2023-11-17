@@ -2,7 +2,7 @@
 
 To host and share your dataset, create a dataset repository on the Hugging Face Hub and upload your data files.
 
-This guide will show you how to name your files and directories in your dataset repository when you upload it and enable all the Dataset Hub features like the Dataset Viewer.
+This guide will show you how to name your files and directories in your dataset repository when you upload it and enable all the Datasets Hub features like the Dataset Viewer.
 A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a dataset viewer on its page on the Hub.
 
 Note that if none of the structures below suits your case, you can have more control over how you define splits and subsets with the [Manual Configuration](./datasets-manual-configuration).
