@@ -156,6 +156,8 @@
         title: File names and splits
       - local: datasets-manual-configuration
         title: Manual Configuration
+  - local: datasets-faq
+    title: Frequently Asked Questions
 - local: spaces
   title: Spaces
   isExpanded: true
