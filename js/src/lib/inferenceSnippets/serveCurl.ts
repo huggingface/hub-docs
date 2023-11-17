@@ -5,6 +5,7 @@ export const snippetBasic = (model: ModelData, accessToken: string): string =>
 	`curl https://api-inference.huggingface.co/models/${model.id} \\
 	-X POST \\
 	-d '{"inputs": ${getModelInputSnippet(model, true)}}' \\
+	-H 'Content-Type: application/json' \\
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
@@ -12,6 +13,7 @@ export const snippetZeroShotClassification = (model: ModelData, accessToken: str
 	`curl https://api-inference.huggingface.co/models/${model.id} \\
 	-X POST \\
 	-d '{"inputs": ${getModelInputSnippet(model, true)}, "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}' \\
+	-H 'Content-Type: application/json' \\
 	-H "Authorization: Bearer ${accessToken || `{API_TOKEN}`}"
 `;
 
@@ -40,6 +42,7 @@ export const curlSnippets: Partial<Record<PipelineType, (model: ModelData, acces
 	"automatic-speech-recognition": snippetFile,
 	"text-to-image":                snippetBasic,
 	"text-to-speech":               snippetBasic,
+	"text-to-audio":                snippetBasic,
 	"audio-to-audio":               snippetFile,
 	"audio-classification":         snippetFile,
 	"image-classification":         snippetFile,

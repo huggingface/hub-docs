@@ -1,5 +1,8 @@
 <script lang="ts">
-	import type { WidgetInputSample } from "../../../../interfaces/Types";
+	import type { ExampleRunOpts } from "../types";
+	import type { WidgetExample } from "../WidgetExample";
+
+	type TWidgetExample = $$Generic<WidgetExample>;
 
 	import { slide } from "svelte/transition";
 
@@ -7,9 +10,8 @@
 
 	export let classNames = "";
 	export let isLoading = false;
-	export let inputSamples: WidgetInputSample[];
-	export let applyInputSample: (sample: Record<string, any>) => void;
-	export let previewInputSample: (sample: Record<string, any>) => void;
+	export let inputSamples: TWidgetExample[];
+	export let applyInputSample: (sample: TWidgetExample, opts?: ExampleRunOpts) => void;
 
 	let containerEl: HTMLElement;
 	let isOptionsVisible = false;
@@ -30,7 +32,7 @@
 
 	function _previewInputSample(idx: number) {
 		const sample = inputSamples[idx];
-		previewInputSample(sample);
+		applyInputSample(sample, { isPreview: true });
 	}
 
 	function toggleOptionsVisibility() {

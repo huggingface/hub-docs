@@ -1,8 +1,7 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
 	import type { PipelineType } from "../../../../interfaces/Types";
-
-	import { onMount } from "svelte";
+	import type { WidgetExampleTextInput, WidgetExampleOutputText, WidgetExample } from "../../shared/WidgetExample";
 
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetShortcutRunLabel from "../../shared/WidgetShortcutRunLabel/WidgetShortcutRunLabel.svelte";
@@ -11,7 +10,9 @@
 	import WidgetTimer from "../../shared/WidgetTimer/WidgetTimer.svelte";
 	import WidgetOutputText from "../../shared/WidgetOutputText/WidgetOutputText.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
+	import { isValidOutputText } from "../../shared/outputValidation";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -21,6 +22,7 @@
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
 	export let isLoggedIn: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	const isBloomLoginRequired = isLoggedIn === false && model.id === "bigscience/bloom";
 
@@ -46,22 +48,20 @@
 		model.pipeline_tag as PipelineType
 	);
 
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			setTextAreaValue(textParam);
-			getOutput({ useCache: true });
-		} else {
-			const [demoText] = getDemoInputs(model, ["text"]);
-			setTextAreaValue(demoText ?? "");
-			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true, useCache: true });
-			}
-		}
-	});
-
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = true } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		useCache = true,
+		exampleOutput = undefined,
+	}: InferenceRunOpts<WidgetExampleOutputText> = {}) {
 		if (isBloomLoginRequired) {
+			return;
+		}
+
+		if (exampleOutput) {
+			output = exampleOutput.text;
+			outputJson = "";
+			renderExampleOutput(output);
 			return;
 		}
 
@@ -101,7 +101,7 @@
 		isLoading = true;
 		inferenceTimer.start();
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -162,13 +162,31 @@
 		throw new TypeError("Invalid output: output must be of type Array & non-empty");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
-		setTextAreaValue(sample.text);
+	function renderExampleOutput(output: string) {
+		// if output doesn't start with space, add space in front of output
+		const prefix = /^\s/.test(output) ? "" : " ";
+		renderTypingEffect(prefix + output);
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputText>, opts: ExampleRunOpts = {}) {
 		setTextAreaValue(sample.text);
-		getOutput({ useCache });
+		if (opts.isPreview) {
+			if (sample.output) {
+				outputJson = "";
+				output = sample.output.text;
+				renderExampleOutput(output);
+			} else {
+				output = "";
+				outputJson = "";
+			}
+			return;
+		}
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, useCache, exampleOutput });
+	}
+
+	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputText> {
+		return isTextInput(sample) && (!sample.output || isValidOutputText(sample.output));
 	}
 
 	function redirectLogin() {
@@ -181,6 +199,7 @@
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -191,14 +210,16 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
+	{validateExample}
+	exampleQueryParams={["text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="space-y-2">
 			<WidgetTextarea
 				bind:value={text}
 				bind:setValue={setTextAreaValue}
 				{isLoading}
+				{isDisabled}
 				size="big"
 				bind:renderTypingEffect
 			/>
@@ -208,13 +229,14 @@
 			<div class="flex items-center gap-x-2 {isBloomLoginRequired ? 'pointer-events-none opacity-50' : ''}">
 				<WidgetSubmitBtn
 					{isLoading}
+					{isDisabled}
 					onClick={() => {
 						getOutput({ useCache });
 					}}
 				/>
-				<WidgetShortcutRunLabel {isLoading} />
+				<WidgetShortcutRunLabel {isLoading} {isDisabled} />
 				<div class="ml-auto self-start">
-					<WidgetTimer bind:this={inferenceTimer} />
+					<WidgetTimer bind:this={inferenceTimer} {isDisabled} />
 				</div>
 			</div>
 			{#if warning}

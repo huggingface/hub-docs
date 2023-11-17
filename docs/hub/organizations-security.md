@@ -1,5 +1,11 @@
 # Access control in organizations
 
+<Tip>
+
+You can set up [Single Sign-On (SSO)](./security-sso) to be able to map access control rules from your organization's Identity Provider.
+
+</Tip>
+
 Members of organizations can have four different roles: `read`, `contributor`, `write` or `admin`:
 
 - `read`: read-only access to the Organization's repos and metadata/settings (eg, the Organization's profile, members list, API token, etc).

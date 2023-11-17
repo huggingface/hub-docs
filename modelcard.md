@@ -5,6 +5,8 @@ language:
 - {lang_0}  # Example: fr
 - {lang_1}  # Example: en
 license: {license}  # Example: apache-2.0 or any license from https://hf.co/docs/hub/repositories-licenses
+license_name: {license_name}  # If license = other (license not in https://hf.co/docs/hub/repositories-licenses), specify an id for it here, like `my-license-1.0`.
+license_link: {license_link}  # If license = other, specify "README" to link to that file inside the repo, or a URL to a remote file.
 library_name: {library_name}  # Optional. Example: keras or any library from https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Libraries.ts
 tags:
 - {tag_0}  # Example: audio

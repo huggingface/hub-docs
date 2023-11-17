@@ -1,14 +1,14 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
-
-	import { onMount } from "svelte";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetExampleSentenceSimilarityInput } from "../../shared/WidgetExample";
 
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetAddSentenceBtn from "../../shared/WidgetAddSentenceBtn/WidgetAddSentenceBtn.svelte";
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi } from "../../shared/helpers";
+	import { isSentenceSimilarityInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -16,6 +16,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let sourceSentence = "";
 	let comparisonSentences: Array<string> = [];
@@ -31,7 +32,11 @@
 	let output: Array<{ label: string; score: number }> = [];
 	let outputJson: string;
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedSourceSentence = sourceSentence.trim();
 		if (!trimmedSourceSentence) {
 			error = "You need to input some text";
@@ -72,7 +77,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -117,31 +122,20 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleSentenceSimilarityInput, opts: ExampleRunOpts = {}) {
 		sourceSentence = sample.source_sentence;
 		comparisonSentences = sample.sentences;
 		nComparisonSentences = comparisonSentences.length;
-	}
-
-	function applyInputSample(sample: Record<string, any>) {
-		sourceSentence = sample.source_sentence;
-		comparisonSentences = sample.sentences;
-		nComparisonSentences = comparisonSentences.length;
-		getOutput();
-	}
-
-	onMount(() => {
-		const [demoSourcesentence, demoComparisonSentence] = getDemoInputs(model, ["source_sentence", "sentences"]);
-		if (callApiOnMount && demoSourcesentence && demoComparisonSentence?.length) {
-			sourceSentence = (demoSourcesentence as string) ?? "";
-			comparisonSentences = demoComparisonSentence ?? [""];
-			nComparisonSentences = comparisonSentences.length;
-			getOutput({ isOnLoadCall: true });
+		if (opts.isPreview) {
+			return;
 		}
-	});
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
+	}
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -152,27 +146,34 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
+	validateExample={isSentenceSimilarityInput}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="flex flex-col space-y-2">
-			<WidgetTextInput bind:value={sourceSentence} label="Source Sentence" placeholder="Your sentence here..." />
+			<WidgetTextInput
+				bind:value={sourceSentence}
+				{isDisabled}
+				label="Source Sentence"
+				placeholder={isDisabled ? "" : "Your sentence here..."}
+			/>
 			<WidgetTextInput
 				bind:value={comparisonSentences[0]}
+				{isDisabled}
 				label="Sentences to compare to"
-				placeholder="Your sentence here..."
+				placeholder={isDisabled ? "" : "Your sentence here..."}
 			/>
 			{#each Array(nComparisonSentences - 1) as _, idx}
-				<WidgetTextInput bind:value={comparisonSentences[idx + 1]} placeholder="Your sentence here..." />
+				<WidgetTextInput bind:value={comparisonSentences[idx + 1]} {isDisabled} placeholder="Your sentence here..." />
 			{/each}
 			<WidgetAddSentenceBtn
-				isDisabled={nComparisonSentences === maxComparisonSentences}
+				isDisabled={nComparisonSentences === maxComparisonSentences || isDisabled}
 				onClick={() => {
 					nComparisonSentences++;
 				}}
 			/>
 			<WidgetSubmitBtn
 				{isLoading}
+				{isDisabled}
 				onClick={() => {
 					getOutput();
 				}}

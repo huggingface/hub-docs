@@ -1,15 +1,17 @@
 <script lang="ts">
-	import type { WidgetProps, ImageSegment } from "../../shared/types";
+	import type { WidgetProps, ImageSegment, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
 	import { onMount } from "svelte";
 
 	import { COLORS } from "../../shared/consts";
 	import { clamp, mod, hexToRgb } from "../../../../utils/ViewUtils";
-	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
+	import { isAssetInput } from "../../shared/inputValidation";
 
 	import Canvas from "./Canvas.svelte";
 
@@ -19,6 +21,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	const maskOpacity = Math.floor(255 * 0.6);
 	const colorToRgb = COLORS.reduce((acc, clr) => {
@@ -48,7 +51,10 @@
 		getOutput(file);
 	}
 
-	async function getOutput(file: File | Blob, { withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput(
+		file: File | Blob,
+		{ withModelLoading = false, isOnLoadCall = false, exampleOutput = undefined }: InferenceRunOpts = {}
+	) {
 		if (!file) {
 			return;
 		}
@@ -64,7 +70,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -204,35 +210,27 @@
 		};
 	}
 
-	async function applyInputSample(sample: Record<string, any>) {
+	async function applyInputSample(sample: WidgetExampleAssetInput, opts: ExampleRunOpts = {}) {
 		imgSrc = sample.src;
+		if (opts.isPreview) {
+			output = [];
+			outputJson = "";
+			return;
+		}
 		const blob = await getBlobFromUrl(imgSrc);
-		getOutput(blob);
-	}
-
-	function previewInputSample(sample: Record<string, any>) {
-		imgSrc = sample.src;
-		output = [];
-		outputJson = "";
+		const exampleOutput = sample.output;
+		getOutput(blob, { ...opts.inferenceOpts, exampleOutput });
 	}
 
 	onMount(() => {
 		if (typeof createImageBitmap === "undefined") {
 			polyfillCreateImageBitmap();
 		}
-
-		(async () => {
-			const [src] = getDemoInputs(model, ["src"]);
-			if (callApiOnMount && src) {
-				imgSrc = src;
-				const blob = await getBlobFromUrl(imgSrc);
-				getOutput(blob, { isOnLoadCall: true });
-			}
-		})();
 	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -243,11 +241,18 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
+	validateExample={isAssetInput}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
-			<WidgetDropzone classNames="hidden md:block" {isLoading} {imgSrc} {onSelectFile} onError={e => (error = e)}>
+			<WidgetDropzone
+				classNames="hidden md:block"
+				{isLoading}
+				{isDisabled}
+				{imgSrc}
+				{onSelectFile}
+				onError={e => (error = e)}
+			>
 				{#if imgSrc}
 					<Canvas {imgSrc} {highlightIndex} {mousemove} {mouseout} {output} />
 				{/if}
@@ -260,6 +265,7 @@
 				accept="image/*"
 				classNames="mr-2 md:hidden"
 				{isLoading}
+				{isDisabled}
 				label="Browse for image"
 				{onSelectFile}
 			/>

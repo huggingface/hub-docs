@@ -2,42 +2,71 @@
 
 The Hugging Face Hub gives you the ability to implement mandatory Single Sign-On (SSO) for your organization.
 
+We support both SAML 2.0 and OpenID Connect (OIDC) protocols.
+
 <Tip warning={true}>
 This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
 </Tip>
 
-
 ## How does it work?
 
-When SSO is enabled, the following applies:
+When Single Sign-On is enabled, the members of your organization must authenticate through your Identity Provider (IdP) to access any content under the organization's namespace. Public content will still be available to users who are not members of the organization.
 
-- A banner prompting your org members to authenticate through your chosen Identity Provider (IdP) is shown if they're not authenticated already. Through your IdP settings, you have control over the session duration.
+**We use email addresses to identify SSO users. Make sure that your organizational email address (e.g. your company email) has been added to [your user account](https://huggingface.co/settings/account).**
 
+When users log in, they will be prompted to complete the Single Sign-On authentication flow with a banner similar to the following:
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-sso-prompt.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-sso-prompt-dark.png"/>
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-sso-prompt.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-sso-prompt-dark.png"/>
 </div>
 
-- Org members logged in on hf.co must authenticate through SSO even to access public content from your org. Such content will still be accessible to anyone outside the org. SSO only applies to your org, meaning your org members can still belong to other orgs on hf.co.
-- Role mapping is supported and determined by your IdP and your settings. Enabling role mapping means you can't assign roles manually in the org.
+Single Sign-On only applies to your organization. Members may belong to other organizations on Hugging Face.
 
-## Configuring SSO
+We support [role mapping](#role-mapping): you can automatically assign [roles](./organizations-security#access-control-in-organizations) to organization members based on attributes provided by your Identity Provider.
 
-To successfully enable SSO on the Hugging Face Hub for your organization, you need to set up an OIDC/SAML application in your IdP. We will provide a callback URL pointing to the `huggingface.co` domain. Once you create the application, you will need to provide us with the following information:
+### Supported Identity Providers
 
-### OIDC
+You can easily integrate Hugging Face Hub with a variety of Identity Providers, such as Okta, OneLogin or Azure Active Directory (Azure AD). Hugging Face Hub can work with any OIDC-compliant or SAML Identity Provider.
 
-- Client ID
-- Client Secret
-- Issuer URL
+## How to configure OIDC/SAML provider in the Hub
 
-### SAML
+We have some guides available to help with configuring based on your chosen SSO provider, or to take inspiration from:
 
-- Issuer
-- x509 public certificate
-- SSO URL
+- [How to configure OIDC with Okta in the Hub](./security-sso-okta-oidc)
+- [How to configure SAML with Okta in the Hub](./security-sso-okta-saml)
 
-## Supported Identity Providers
+### Users Management
 
-You can easily integrate Hugging Face Hub with a variety of Identity Providers, such as Okta, OneLogin or Azure Active Directory (Azure AD). Hugging Face Hub can work with any OIDC-compliant or SAML (SP Initiated) Identity Provider.
+<div class="flex justify-center">
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-settings-users.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-settings-users-dark.png"/>
+</div>
+
+#### Session Timeout
+
+This value sets the duration of the session for members of your organization.
+
+After this time, members will be prompted to re-authenticate with your Identity Provider to access the organization's resources.
+
+The default value is 7 days.
+
+#### Role Mapping
+
+When enabled, Role Mapping allows you to dynamically assign [roles](./organizations-security#access-control-in-organizations) to organization members based on data provided by your Identity Provider.
+
+This section allows you to define a mapping from your IdP's user profile data from your IdP to the assigned role in Hugging Face.
+
+- IdP Role Attribute Mapping
+
+  A JSON path to an attribute in your user's IdP profile data.
+
+- Role Mapping
+
+  A mapping from the IdP attribute value to the assigned role in the Hugging Face organization.
+
+You must map at least one admin role.
+
+If there is no match, a user will be assigned the default role for your organization. The default role can be customized in the `Members` section of the organization's settings.
+
+Role synchronization is performed on login.

@@ -1,4 +1,5 @@
-import type { PipelineType, ModelData } from "../interfaces/Types";
+import type { ModelData } from "../interfaces/Types";
+import type { PipelineType } from "../interfaces/Types";
 import { getModelInputSnippet } from "./inputs";
 
 export const snippetZeroShotClassification = (model: ModelData): string =>
@@ -41,6 +42,34 @@ import io
 from PIL import Image
 image = Image.open(io.BytesIO(image_bytes))`;
 
+export const snippetTextToAudio = (model: ModelData): string => {
+	// Transformers TTS pipeline and api-inference-community (AIC) pipeline outputs are diverged
+	// with the latest update to inference-api (IA).
+	// Transformers IA returns a byte object (wav file), whereas AIC returns wav and sampling_rate.
+	if (model.library_name === "transformers") {
+		return `def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.content
+
+audio_bytes = query({
+	"inputs": ${getModelInputSnippet(model)},
+})
+# You can access the audio with IPython.display for example
+from IPython.display import Audio
+Audio(audio_bytes)`;
+	} else {
+		return `def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
+	
+audio, sampling_rate = query({
+	"inputs": ${getModelInputSnippet(model)},
+})
+# You can access the audio with IPython.display for example
+from IPython.display import Audio
+Audio(audio, rate=sampling_rate)`;
+	}
+};
 export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => string>> = {
 	// Same order as in js/src/lib/interfaces/Types.ts
 	"text-classification":          snippetBasic,
@@ -58,7 +87,8 @@ export const pythonSnippets: Partial<Record<PipelineType, (model: ModelData) => 
 	"sentence-similarity":          snippetBasic,
 	"automatic-speech-recognition": snippetFile,
 	"text-to-image":                snippetTextToImage,
-	"text-to-speech":               snippetBasic,
+	"text-to-speech":               snippetTextToAudio,
+	"text-to-audio":                snippetTextToAudio,
 	"audio-to-audio":               snippetFile,
 	"audio-classification":         snippetFile,
 	"image-classification":         snippetFile,

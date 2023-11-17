@@ -1,8 +1,9 @@
+import type { WidgetExample } from "../components/InferenceWidget/shared/WidgetExample";
 import type { PipelineType } from "./Types";
 
 type LanguageCode = string;
 
-type PerLanguageMapping = Map<PipelineType, (Record<string, any> | string)[]>;
+type PerLanguageMapping = Map<PipelineType, string[] | WidgetExample[]>;
 
 /// NOTE TO CONTRIBUTORS:
 ///

@@ -1,22 +1,19 @@
 <script lang="ts">
-	import type { WidgetProps, TableData, HighlightCoordinates } from "../../shared/types";
-
-	import { onMount } from "svelte";
+	import type { WidgetProps, HighlightCoordinates, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetExampleTextAndTableInput } from "../../shared/WidgetExample";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetOutputTableQA from "../../shared/WidgetOutputTableQA/WidgetOutputTableQA.svelte";
 	import WidgetTableInput from "../../shared/WidgetTableInput/WidgetTableInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { parseJSON } from "../../../../utils/ViewUtils";
 	import {
 		addInferenceParameters,
 		convertDataToTable,
 		convertTableToData,
-		getDemoInputs,
-		getResponse,
-		getSearchParams,
+		callInferenceApi,
 		updateUrl,
 	} from "../../shared/helpers";
+	import { isTextAndTableInput } from "../../shared/inputValidation";
 	interface Output {
 		aggregator?: string;
 		answer: string;
@@ -31,6 +28,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -53,27 +51,15 @@
 			return acc;
 		}, {}) ?? {};
 
-	onMount(() => {
-		const [queryParam, tableParam] = getSearchParams(["query", "table"]);
-		if (queryParam && tableParam) {
-			query = queryParam;
-			table = convertDataToTable((parseJSON(tableParam) as TableData) ?? {});
-			getOutput();
-		} else {
-			const [demoQuery, demoTable] = getDemoInputs(model, ["text", "table"]);
-			query = (demoQuery as string) ?? "";
-			table = convertDataToTable(demoTable as TableData);
-			if (query && table && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
-			}
-		}
-	});
-
 	function onChangeTable(updatedTable: (string | number)[][]) {
 		table = updatedTable;
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedQuery = query.trim();
 
 		if (!trimmedQuery) {
@@ -85,7 +71,7 @@
 
 		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
-				query: trimmedQuery,
+				text: trimmedQuery,
 				table: JSON.stringify(convertTableToData(table)),
 			});
 		}
@@ -100,7 +86,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -157,19 +143,19 @@
 		);
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextAndTableInput, opts: ExampleRunOpts = {}) {
 		query = sample.text;
-		table = sample.table;
-	}
-
-	function applyInputSample(sample: Record<string, any>) {
-		query = sample.text;
-		table = sample.table;
-		getOutput();
+		table = convertDataToTable(sample.table);
+		if (opts.isPreview) {
+			return;
+		}
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 </script>
 
-s<WidgetWrapper
+<WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -180,13 +166,15 @@ s<WidgetWrapper
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
+	validateExample={isTextAndTableInput}
+	exampleQueryParams={["text", "table"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
 			<WidgetQuickInput
 				bind:value={query}
 				{isLoading}
+				{isDisabled}
 				onClickSubmitBtn={() => {
 					getOutput();
 				}}
@@ -197,7 +185,7 @@ s<WidgetWrapper
 				<WidgetOutputTableQA {output} {isAnswerOnlyOutput} />
 			{/if}
 			{#if table.length > 1 || table[0].length > 1}
-				<WidgetTableInput {highlighted} onChange={onChangeTable} {table} />
+				<WidgetTableInput {highlighted} onChange={onChangeTable} {table} {isDisabled} />
 			{/if}
 		</div>
 	</svelte:fragment>

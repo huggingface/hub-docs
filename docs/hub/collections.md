@@ -6,13 +6,13 @@ Use Collections to group repositories from the Hub (Models, Datasets, Spaces and
 
 Collections have many use cases:
 
-- Highlight specific repositories on your personal or organization profile.
+- Highlight specific repositories on your personal or organizational profile.
 - Separate key repositories from others for your profile visitors.
 - Showcase and share a complete project with its paper(s), dataset(s), model(s) and Space(s).
 - Bookmark things you find on the Hub in categories.
 - Have a dedicated page of curated things to share with others.
 
-This is just a list of possible uses, but remember that collections are just a way of grouping things together, so use them in the way that best fits your use case.
+This is just a list of possible uses, but remember that collections are just a way of grouping things, so use them in the way that best fits your use case.
 
 ## Creating a new collection
 
@@ -74,6 +74,23 @@ To delete the whole collection, click delete on the right-hand menu (2) - you'll
 It's possible to add a note to any item in a collection to give it more context (for others, or as a reminder to yourself). You can add notes by clicking the pencil icon when you hover over an item with your mouse. Notes are plain text and don't support markdown, to keep things clean and simple. URLs in notes are converted into clickable links.
 
 ![Collection note](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collection-note.webp)
+
+### Adding images to a collection item
+
+Similarily, you can attach images to a collection item. This is useful for showcasing the output of a model, the content of a dataset, attaching an infographic for context, etc.
+
+To start adding images to your collection, you can click on the image icon in the contextual menu of an item. The menu shows up when you hover over an item with your mouse.
+
+![Collection image icon](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-button.webp)
+
+Then, add images by dragging and dropping images from your computer. You can also click on the gray zone to select image files from your computer's file system.
+
+
+![Collection image drop zone with images](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-gallery.webp)
+
+You can re-order images by drag-and-dropping them. Clicking on an image will open it in full-screen mode.
+
+![Collection image viewer](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-viewer.webp)
 
 ## Your feedback on collections
 

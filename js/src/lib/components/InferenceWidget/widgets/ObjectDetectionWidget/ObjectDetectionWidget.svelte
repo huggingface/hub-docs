@@ -1,7 +1,6 @@
 <script lang="ts">
-	import type { WidgetProps, DetectedObject } from "../../shared/types";
-
-	import { onMount } from "svelte";
+	import type { WidgetProps, DetectedObject, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetExampleAssetInput } from "../../shared/WidgetExample";
 
 	import { mod } from "../../../../utils/ViewUtils";
 	import { COLORS } from "../../shared/consts";
@@ -9,7 +8,8 @@
 	import WidgetDropzone from "../../shared/WidgetDropzone/WidgetDropzone.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
+	import { isAssetInput } from "../../shared/inputValidation";
 
 	import BoundingBoxes from "./SvgBoundingBoxes.svelte";
 
@@ -19,6 +19,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -38,7 +39,10 @@
 		getOutput(file);
 	}
 
-	async function getOutput(file: File | Blob, { withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput(
+		file: File | Blob,
+		{ withModelLoading = false, isOnLoadCall = false, exampleOutput = undefined }: InferenceRunOpts = {}
+	) {
 		if (!file) {
 			return;
 		}
@@ -54,7 +58,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -125,31 +129,21 @@
 		highlightIndex = index;
 	}
 
-	async function applyInputSample(sample: Record<string, any>) {
+	async function applyInputSample(sample: WidgetExampleAssetInput, opts: ExampleRunOpts = {}) {
 		imgSrc = sample.src;
+		if (opts.isPreview) {
+			output = [];
+			outputJson = "";
+			return;
+		}
 		const blob = await getBlobFromUrl(imgSrc);
-		getOutput(blob);
+		const exampleOutput = sample.output;
+		getOutput(blob, { ...opts.inferenceOpts, exampleOutput });
 	}
-
-	function previewInputSample(sample: Record<string, any>) {
-		imgSrc = sample.src;
-		output = [];
-		outputJson = "";
-	}
-
-	onMount(() => {
-		(async () => {
-			const [src] = getDemoInputs(model, ["src"]);
-			if (callApiOnMount && src) {
-				imgSrc = src;
-				const blob = await getBlobFromUrl(imgSrc);
-				getOutput(blob, { isOnLoadCall: true });
-			}
-		})();
-	});
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -160,11 +154,18 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
+	validateExample={isAssetInput}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
-			<WidgetDropzone classNames="hidden md:block" {isLoading} {imgSrc} {onSelectFile} onError={e => (error = e)}>
+			<WidgetDropzone
+				classNames="hidden md:block"
+				{isLoading}
+				{isDisabled}
+				{imgSrc}
+				{onSelectFile}
+				onError={e => (error = e)}
+			>
 				{#if imgSrc}
 					<BoundingBoxes {imgSrc} {mouseover} {mouseout} {output} {highlightIndex} />
 				{/if}
@@ -177,6 +178,7 @@
 				accept="image/*"
 				classNames="mr-2 md:hidden"
 				{isLoading}
+				{isDisabled}
 				label="Browse for image"
 				{onSelectFile}
 			/>

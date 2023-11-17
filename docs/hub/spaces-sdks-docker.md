@@ -133,11 +133,30 @@ COPY --chown=user checkpoint .
 
 The data written on disk is lost whenever your Docker Space restarts, unless you opt-in for a [persistent storage](./spaces-storage) upgrade.
 
+If you opt-in for a persistent storage upgrade, you can use the `/data` directory to store data. This directory is mounted on a persistent volume, which means that the data written in this directory will be persisted across restarts.
+
+<Tip warning="{true}">
+
+At the moment, `/data` volume is only available at runtime, i.e. you cannot use `/data` during the build step of your Dockerfile.
+
+</Tip>
+
 You can also use our Datasets Hub for specific cases, where you can store state and data in a git LFS repository. You can find an example of persistence [here](https://huggingface.co/spaces/Wauplin/space_to_dataset_saver), which uses the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index) for programmatically uploading files to a dataset repository. This Space example along with [this guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/upload#scheduled-uploads) will help you define which solution fits best your data type.
 
 Finally, in some cases, you might want to use an external storage solution from your Space's code like an external hosted DB, S3, etc.
+
+### Docker container with GPU
+
+You can run Docker containers with GPU support by using one of our GPU-flavored [Spaces Hardware](./spaces-gpus).
+
+We recommend using the [`nvidia/cuda`](https://hub.docker.com/r/nvidia/cuda) from Docker Hub as a base image, which comes with CUDA and cuDNN pre-installed.
+
+<Tip warning="{true}">
+During Docker buildtime, you don't have access to a GPU hardware. Therefore, you should not try to run any GPU-related command during the build step of your Dockerfile. For example, you can't run `nvidia-smi` or `torch.cuda.is_available()` building an image. Read more [here](https://github.com/NVIDIA/nvidia-docker/wiki/nvidia-docker#description).
+</Tip>
 
 ## Read More
 
 - [Full Docker demo example](spaces-sdks-docker-first-demo)
 - [List of Docker Spaces examples](spaces-sdks-docker-examples)
+- [Spaces Examples](https://huggingface.co/SpacesExamples)

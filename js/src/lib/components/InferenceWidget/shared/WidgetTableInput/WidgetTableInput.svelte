@@ -12,6 +12,7 @@
 	export let canAddRow = true;
 	export let canAddCol = true;
 	export let isLoading = false;
+	export let isDisabled = false;
 
 	let initialTable: (string | number)[][] = [[]];
 	let tableContainerEl: HTMLElement;
@@ -64,7 +65,7 @@
 				<tr>
 					{#each table[0] as header, x}
 						<th
-							contenteditable={canAddCol && !isLoading}
+							contenteditable={canAddCol && !isLoading && !isDisabled}
 							class="h-6 border-2 border-gray-100"
 							on:keydown={onKeyDown}
 							on:input={e => editCell(e, [x, 0])}
@@ -80,7 +81,7 @@
 						{#each row as cell, x}
 							<td
 								class={(highlighted[`${y}-${x}`] ?? "border-gray-100") + " h-6 border-2"}
-								contenteditable={!isLoading}
+								contenteditable={!isLoading && !isDisabled}
 								on:keydown={onKeyDown}
 								on:input={e => editCell(e, [x, y + 1])}>{cell}</td
 							>

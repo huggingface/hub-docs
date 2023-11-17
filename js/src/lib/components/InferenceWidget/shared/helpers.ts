@@ -1,26 +1,39 @@
 import type { ModelData } from "../../../interfaces/Types";
 import { randomItem, parseJSON } from "../../../utils/ViewUtils";
+import type { WidgetExample, WidgetExampleAttribute } from "./WidgetExample";
 import type { ModelLoadInfo, TableData } from "./types";
+import { LoadState } from "./types";
 
-export function getSearchParams(keys: string[]): string[] {
+const KEYS_TEXT: WidgetExampleAttribute[] = ["text", "context", "candidate_labels"];
+const KEYS_TABLE: WidgetExampleAttribute[] = ["table", "structured_data"];
+type QueryParamVal = string | null | boolean | (string | number)[][];
+
+export function getQueryParamVal(key: WidgetExampleAttribute): QueryParamVal {
 	const searchParams = new URL(window.location.href).searchParams;
-	return keys.map(key => {
-		const value = searchParams.get(key);
-		return value || "";
-	});
+	const value = searchParams.get(key);
+	if (KEYS_TEXT.includes(key)) {
+		return value;
+	} else if (KEYS_TABLE.includes(key)) {
+		const table = convertDataToTable((parseJSON(value) as TableData) ?? {});
+		return table;
+	} else if (key === "multi_class") {
+		return value === "true";
+	}
+	return value;
 }
 
-export function getDemoInputs(model: ModelData, keys: (number | string)[]): any[] {
-	const widgetData = Array.isArray(model.widgetData) ? model.widgetData : [];
-	const randomEntry = (randomItem(widgetData) ?? {}) as any;
-	return keys.map(key => {
-		const value = randomEntry[key] ? randomEntry[key] : null;
-		return value ? randomEntry[key] : null;
-	});
+export function getWidgetExample<TWidgetExample extends WidgetExample>(
+	model: ModelData,
+	validateExample: (sample: WidgetExample) => sample is TWidgetExample
+): TWidgetExample | undefined {
+	const validExamples = model.widgetData?.filter(
+		(sample): sample is TWidgetExample => sample && validateExample(sample)
+	);
+	return validExamples?.length ? randomItem(validExamples) : undefined;
 }
 
 // Update current url search params, keeping existing keys intact.
-export function updateUrl(obj: Record<string, string | undefined>): void {
+export function updateUrl(obj: Partial<Record<WidgetExampleAttribute, string | undefined>>): void {
 	if (!window) {
 		return;
 	}
@@ -52,16 +65,42 @@ export async function getBlobFromUrl(url: string): Promise<Blob> {
 	return blob;
 }
 
-async function callApi(
+interface Success<T> {
+	computeTime: string;
+	output:      T;
+	outputJson:  string;
+	response:    Response;
+	status:      "success";
+}
+
+interface LoadingModel {
+	error:         string;
+	estimatedTime: number;
+	status:        "loading-model";
+}
+
+interface Error {
+	error:  string;
+	status: "error";
+}
+
+interface CacheNotFound {
+	status: "cache not found";
+}
+
+type Result<T> = Success<T> | LoadingModel | Error | CacheNotFound;
+
+export async function callInferenceApi<T>(
 	url: string,
 	repoId: string,
 	requestBody: Record<string, any>,
 	apiToken = "",
+	outputParsingFn: (x: unknown) => T,
 	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
-	useCache = true,
 	includeCredentials = false,
-	isOnLoadCall = false
-): Promise<Response> {
+	isOnLoadCall = false, // If true, the server will try to answer from cache and not do anything if not
+	useCache = true
+): Promise<Result<T>> {
 	const contentType =
 		"file" in requestBody && "type" in requestBody["file"] ? requestBody["file"]["type"] : "application/json";
 
@@ -80,57 +119,14 @@ async function callApi(
 		headers.set("X-Load-Model", "0");
 	}
 
-	const body: File | string = "file" in requestBody ? requestBody.file : JSON.stringify(requestBody);
+	const reqBody: File | string = "file" in requestBody ? requestBody.file : JSON.stringify(requestBody);
 
-	return await fetch(`${url}/models/${repoId}`, {
+	const response = await fetch(`${url}/models/${repoId}`, {
 		method:      "POST",
-		body,
+		body:        reqBody,
 		headers,
 		credentials: includeCredentials ? "include" : "same-origin",
 	});
-}
-
-export async function getResponse<T>(
-	url: string,
-	repoId: string,
-	requestBody: Record<string, any>,
-	apiToken = "",
-	outputParsingFn: (x: unknown) => T,
-	waitForModel = false, // If true, the server will only respond once the model has been loaded on the inference API,
-	includeCredentials = false,
-	isOnLoadCall = false, // If true, the server will try to answer from cache and not do anything if not
-	useCache = true
-): Promise<
-	| {
-			computeTime: string;
-			output:      T;
-			outputJson:  string;
-			response:    Response;
-			status:      "success";
-	  }
-	| {
-			error:         string;
-			estimatedTime: number;
-			status:        "loading-model";
-	  }
-	| {
-			error:  string;
-			status: "error";
-	  }
-	| {
-			status: "cache not found";
-	  }
-> {
-	const response = await callApi(
-		url,
-		repoId,
-		requestBody,
-		apiToken,
-		waitForModel,
-		useCache,
-		includeCredentials,
-		isOnLoadCall
-	);
 
 	if (response.ok) {
 		// Success
@@ -184,12 +180,12 @@ export async function getModelLoadInfo(
 	});
 	const output = await response.json();
 	if (response.ok && typeof output === "object" && output.loaded !== undefined) {
-		const status = output.loaded ? "loaded" : "unknown";
-		const computeType = output.compute_type;
-		return { status, compute_type: computeType };
+		// eslint-disable-next-line @typescript-eslint/naming-convention
+		const { state, compute_type } = output;
+		return { compute_type, state };
 	} else {
 		console.warn(response.status, output.error);
-		return { status: "error" };
+		return { state: LoadState.Error };
 	}
 }
 

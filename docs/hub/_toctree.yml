@@ -46,6 +46,8 @@
       title: Model Card Guidebook
     - local: model-card-landscape-analysis
       title: Landscape Analysis
+    - local: model-cards-components
+      title: Card Components
   - local: models-gated
     title: Gated Models
   - local: models-uploading
@@ -55,18 +57,20 @@
   - local: models-libraries
     title: Integrated Libraries
     sections:
-      - local: transformers
-        title: 🤗 transformers
       - local: adapter-transformers
         title: Adapter Transformers
       - local: allennlp
         title: AllenNLP
       - local: asteroid
         title: Asteroid
+      - local: diffusers
+        title: Diffusers
       - local: espnet
         title: ESPnet
       - local: fastai
         title: fastai
+      - local: flair
+        title: Flair
       - local: keras
         title: Keras
       - local: ml-agents
@@ -93,6 +97,8 @@
         title: TensorBoard
       - local: timm
         title: timm
+      - local: transformers
+        title: Transformers
       - local: transformers-js
         title: Transformers.js
   - local: models-widgets
@@ -121,12 +127,35 @@
     title: Dataset Cards
   - local: datasets-gated
     title: Gated Datasets
+  - local: datasets-adding
+    title: Uploading Datasets
+  - local: datasets-downloading
+    title: Downloading Datasets
+  - local: datasets-libraries
+    title: Integrated Libraries
+    sections:
+      - local: datasets-dask
+        title: Dask
+      - local: datasets-usage
+        title: Datasets
+      - local: datasets-duckdb
+        title: DuckDB
+      - local: datasets-pandas
+        title: Pandas
+      - local: datasets-webdataset
+        title: WebDataset
   - local: datasets-viewer
     title: Dataset Viewer
-  - local: datasets-usage
-    title: Using Datasets
-  - local: datasets-adding
-    title: Adding New Datasets
+    sections:
+      - local: datasets-viewer-configure
+        title: Configure the Dataset Viewer
+  - local: datasets-data-files-configuration
+    title: Data files Configuration
+    sections:
+      - local: datasets-file-names-and-splits
+        title: File names and splits
+      - local: datasets-manual-configuration
+        title: Manual Configuration
 - local: spaces
   title: Spaces
   isExpanded: true
@@ -173,6 +202,8 @@
         title: Panel on Spaces
       - local: spaces-sdks-docker-chatui
         title: ChatUI on Spaces
+      - local: spaces-sdks-docker-tabby
+        title: Tabby on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-run-with-docker
@@ -211,6 +242,15 @@
       title: Organization Cards
     - local: organizations-security
       title: Access Control in Organizations
+    - local: enterprise-hub
+      title: Enterprise Hub
+      sections:
+      - local: enterprise-sso
+        title: Single Sign-On (SSO)
+      - local: audit-logs
+        title: Audit Logs
+      - local: storage-regions
+        title: Storage Regions
   - local: billing
     title: Billing
   - local: security
@@ -224,6 +264,11 @@
       title: Signing Commits with GPG
     - local: security-sso
       title: Single Sign-On (SSO)
+      sections:
+      - local: security-sso-okta-oidc
+        title: How to configure OIDC with Okta in the Hub
+      - local: security-sso-okta-saml
+        title: How to configure SAML with Okta in the Hub
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle

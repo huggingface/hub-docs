@@ -1,12 +1,17 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
-
-	import { onMount } from "svelte";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type {
+		WidgetExample,
+		WidgetExampleOutputAnswerScore,
+		WidgetExampleTextAndContextInput,
+	} from "../../shared/WidgetExample";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
+	import { isValidOutputAnswerScore } from "../../shared/outputValidation";
+	import { isTextAndContextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -15,6 +20,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let context = "";
 	let computeTime = "";
@@ -29,23 +35,11 @@
 	let question = "";
 	let setTextAreaValue: (text: string) => void;
 
-	onMount(() => {
-		const [contextParam, questionParam] = getSearchParams(["context", "question"]);
-		if (contextParam && questionParam) {
-			question = questionParam;
-			setTextAreaValue(contextParam);
-			getOutput();
-		} else {
-			const [demoContext, demoQuestion] = getDemoInputs(model, ["context", "text"]);
-			question = (demoQuestion as string) ?? "";
-			setTextAreaValue(demoContext ?? "");
-			if (context && question && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
-			}
-		}
-	});
-
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedQuestion = question.trim();
 		const trimmedContext = context.trim();
 
@@ -64,7 +58,7 @@
 		}
 
 		if (shouldUpdateUrl && !isOnLoadCall) {
-			updateUrl({ context: trimmedContext, question: trimmedQuestion });
+			updateUrl({ context: trimmedContext, text: trimmedQuestion });
 		}
 
 		const requestBody = {
@@ -74,7 +68,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -109,25 +103,34 @@
 	}
 
 	function parseOutput(body: any): { answer: string; score: number } {
-		if (body && typeof body === "object" && "answer" in body && "score" in body) {
-			return { answer: body["answer"], score: body["score"] };
+		if (isValidOutputAnswerScore(body)) {
+			return body;
 		}
 		throw new TypeError("Invalid output: output must be of type <answer:string; score:number>");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function applyInputSample(
+		sample: WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore>,
+		opts: ExampleRunOpts = {}
+	) {
 		question = sample.text;
 		setTextAreaValue(sample.context);
+		if (opts.isPreview) {
+			return;
+		}
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
-		question = sample.text;
-		setTextAreaValue(sample.context);
-		getOutput();
+	function validateExample(
+		sample: WidgetExample
+	): sample is WidgetExampleTextAndContextInput<WidgetExampleOutputAnswerScore> {
+		return isTextAndContextInput(sample) && (!sample.output || isValidOutputAnswerScore(sample.output));
 	}
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -138,13 +141,15 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
+	{validateExample}
+	exampleQueryParams={["context", "text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="space-y-2">
 			<WidgetQuickInput
 				bind:value={question}
 				{isLoading}
+				{isDisabled}
 				onClickSubmitBtn={() => {
 					getOutput();
 				}}
@@ -152,6 +157,7 @@
 			<WidgetTextarea
 				bind:value={context}
 				bind:setValue={setTextAreaValue}
+				{isDisabled}
 				placeholder="Please input some context..."
 				label="Context"
 			/>

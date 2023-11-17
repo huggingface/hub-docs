@@ -3,23 +3,33 @@
 
 	import InferenceWidget from "../lib/components/InferenceWidget/InferenceWidget.svelte";
 	import ModeSwitcher from "../lib/components/DemoThemeSwitcher/DemoThemeSwitcher.svelte";
+	import { InferenceDisplayability } from "../lib/interfaces/InferenceDisplayability";
 
 	const models: ModelData[] = [
 		{
+			id: "WizardLM/WizardLM-70B-V1.0",
+			pipeline_tag: "text-generation",
+			inference: InferenceDisplayability.Yes,
+		},
+		{
 			id: "openai/clip-vit-base-patch16",
 			pipeline_tag: "zero-shot-image-classification",
+			inference: InferenceDisplayability.Yes,
 		},
 		{
 			id: "lllyasviel/sd-controlnet-canny",
 			pipeline_tag: "image-to-image",
+			inference: InferenceDisplayability.Yes,
 		},
 		{
 			id: "ydshieh/vit-gpt2-coco-en",
 			pipeline_tag: "image-to-text",
+			inference: InferenceDisplayability.Yes,
 		},
 		{
 			id: "impira/layoutlm-document-qa",
 			pipeline_tag: "document-question-answering",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
 					text: "What is the invoice number?",
@@ -34,10 +44,12 @@
 		{
 			id: "skops/hf_hub_example-bdc26c1f-7e82-42eb-9657-0318315f2df0",
 			pipeline_tag: "tabular-classification",
+			inference: InferenceDisplayability.Yes,
 		},
 		{
 			id: "dandelin/vilt-b32-finetuned-vqa",
 			pipeline_tag: "visual-question-answering",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
 					text: "What animal is it?",
@@ -52,8 +64,17 @@
 		{
 			id: "roberta-large-mnli",
 			pipeline_tag: "text-classification",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
-				{ text: "I like you. I love you.", group: "Contradiction" },
+				{
+					text: "I like you. I love you.",
+					group: "Contradiction",
+					example_title: "Foobar",
+					output: [
+						{ label: "Hello", score: 0.8 },
+						{ label: "Bye", score: 0.2 },
+					],
+				},
 				{ text: "This is good. This is bad.", group: "Contradiction" },
 				{ text: "He runs fast. He runs slow", group: "Contradiction" },
 				{ text: "I like you", group: "Neutral" },
@@ -64,32 +85,75 @@
 		{
 			id: "edbeeching/decision-transformer-gym-hopper-medium-replay",
 			pipeline_tag: "reinforcement-learning",
+			inference: InferenceDisplayability.Yes,
 		},
 		{
 			id: "sgugger/resnet50d",
 			pipeline_tag: "image-classification",
+			inference: InferenceDisplayability.Yes,
+			widgetData: [
+				{
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg",
+					example_title: "Tiger",
+				},
+				{
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/teapot.jpg",
+					example_title: "Teapot",
+					output: [
+						{
+							label: "teapot: pot for brewing tea; usually has a spout and handle",
+							score: 0.8853782415390015,
+						},
+						{
+							label: "coffeepot: tall pot in which coffee is brewed",
+							score: 0.016733085736632347,
+						},
+						{
+							label: "water jug: a jug that holds water",
+							score: 0.0019129429711028934,
+						},
+						{
+							label: "cup: a punch served in a pitcher instead of a punch bowl",
+							score: 0.0009115593857131898,
+						},
+						{
+							label: "strainer: a filter to retain larger pieces while smaller pieces and liquids pass through",
+							score: 0.0007022042409516871,
+						},
+					],
+				},
+				{
+					src: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/palace.jpg",
+					example_title: "Palace",
+				},
+			],
 		},
 		{
 			id: "facebook/detr-resnet-50",
 			pipeline_tag: "object-detection",
+			inference: InferenceDisplayability.Yes,
 		},
 		{
 			id: "facebook/detr-resnet-50-panoptic",
 			pipeline_tag: "image-segmentation",
+			inference: InferenceDisplayability.Yes,
 		},
 		{
 			id: "julien-c/distilbert-feature-extraction",
 			pipeline_tag: "feature-extraction",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [{ text: "Hello world" }],
 		},
 		{
 			id: "sentence-transformers/distilbert-base-nli-stsb-mean-tokens",
 			pipeline_tag: "feature-extraction",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [{ text: "Hello, world" }],
 		},
 		{
 			id: "dbmdz/bert-large-cased-finetuned-conll03-english",
 			pipeline_tag: "token-classification",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{ text: "My name is Wolfgang and I live in Berlin" },
 				{ text: "My name is Sarah and I live in London" },
@@ -99,6 +163,7 @@
 		{
 			id: "distilbert-base-uncased-distilled-squad",
 			pipeline_tag: "question-answering",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
 					text: "Which name is also used to describe the Amazon rainforest in English?",
@@ -109,11 +174,13 @@
 		{
 			id: "t5-base",
 			pipeline_tag: "translation",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [{ text: "My name is Wolfgang and I live in Berlin" }],
 		},
 		{
 			id: "facebook/bart-large-cnn",
 			pipeline_tag: "summarization",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
 					text: "The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.",
@@ -123,8 +190,9 @@
 		{
 			id: "gpt2",
 			pipeline_tag: "text-generation",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
-				{ text: "My name is Julien and I like to" },
+				{ text: "My name is Julien and I like to", output: { text: " code cool products with my friends." } },
 				{ text: "My name is Thomas and my main" },
 				{ text: "My name is Mariama, my favorite" },
 				{ text: "My name is Clara and I am" },
@@ -134,6 +202,7 @@
 		{
 			id: "bigscience/bloom",
 			pipeline_tag: "text-generation",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{ text: "My name is Julien and I like to" },
 				{ text: "My name is Thomas and my main" },
@@ -146,11 +215,13 @@
 			id: "distilroberta-base",
 			pipeline_tag: "fill-mask",
 			mask_token: "<mask>",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [{ text: "Paris is the <mask> of France." }, { text: "The goal of life is <mask>." }],
 		},
 		{
 			id: "facebook/bart-large-mnli",
 			pipeline_tag: "zero-shot-classification",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
 					text: "I have a problem with my iphone that needs to be resolved asap!!",
@@ -162,6 +233,7 @@
 		{
 			id: "google/tapas-base-finetuned-wtq",
 			pipeline_tag: "table-question-answering",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
 					text: "How many stars does the transformers repository have?",
@@ -177,6 +249,7 @@
 		{
 			id: "microsoft/tapex-base-finetuned-wtq",
 			pipeline_tag: "table-question-answering",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
 					text: "How many stars does the transformers repository have?",
@@ -192,9 +265,10 @@
 		{
 			id: "julien-c/wine-quality",
 			pipeline_tag: "tabular-classification",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
-					structuredData: {
+					structured_data: {
 						fixed_acidity: [7.4, 7.8, 10.3],
 						volatile_acidity: [0.7, 0.88, 0.32],
 						citric_acid: [0.0, 0.0, 0.45],
@@ -213,51 +287,92 @@
 		{
 			id: "bigscience/T0pp",
 			pipeline_tag: "text2text-generation",
+			inference: InferenceDisplayability.Yes,
 		},
 		{
 			id: "facebook/blenderbot-400M-distill",
 			pipeline_tag: "conversational",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [{ text: "Hey my name is Julien! How are you?" }],
 		},
 		{
 			id: "osanseviero/BigGAN-deep-128",
 			pipeline_tag: "text-to-image",
+			inference: InferenceDisplayability.Yes,
+			widgetData: [
+				{
+					text: "a tiger",
+					output: {
+						url: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg",
+					},
+				},
+			],
 		},
 		{
 			id: "julien-c/kan-bayashi_csmsc_tacotron2",
 			pipeline_tag: "text-to-speech",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [{ text: "请您说得慢些好吗" }],
 		},
 		{
 			id: "superb/wav2vec2-base-superb-sid",
 			pipeline_tag: "audio-classification",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
-					label: "Librispeech sample 1",
+					example_title: "Librispeech sample 1",
 					src: "https://cdn-media.huggingface.co/speech_samples/sample1.flac",
+					output: [
+						{
+							score: 1,
+							label: "id10003",
+						},
+						{
+							score: 3.958137817505758e-9,
+							label: "id10912",
+						},
+						{
+							score: 2.8285052078302897e-9,
+							label: "id11089",
+						},
+						{
+							score: 2.4077480009765395e-9,
+							label: "id10017",
+						},
+						{
+							score: 1.3356071804082603e-9,
+							label: "id10045",
+						},
+					],
 				},
 			],
 		},
 		{
 			id: "julien-c/mini_an4_asr_train_raw_bpe_valid",
 			pipeline_tag: "automatic-speech-recognition",
+			inference: InferenceDisplayability.Yes,
 		},
 		{
 			id: "facebook/wav2vec2-base-960h",
 			pipeline_tag: "automatic-speech-recognition",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
-					label: "Librispeech sample 1",
+					example_title: "Librispeech sample 1",
 					src: "https://cdn-media.huggingface.co/speech_samples/sample1.flac",
+					output: {
+						text: "GOING ALONG SLUSHY COUNTRY ROADS AND SPEAKING TO DAMP AUDIENCES IN DRAUGHTY SCHOOL ROOMS DAY AFTER DAY FOR A FORTNIGHT HE'LL HAVE TO PUT IN AN APPEARANCE AT SOME PLACE OF WORSHIP ON SUNDAY MORNING AND HE CAN COME TO US IMMEDIATELY AFTERWARDS",
+					},
 				},
 			],
 		},
 		{
 			id: "facebook/wav2vec2-large-xlsr-53-french",
 			pipeline_tag: "automatic-speech-recognition",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
-					label: "Librispeech sample 1",
+					example_title: "Librispeech sample 1",
 					src: "https://cdn-media.huggingface.co/speech_samples/sample1.flac",
 				},
 			],
@@ -265,9 +380,10 @@
 		{
 			id: "manandey/wav2vec2-large-xlsr-mongolian",
 			pipeline_tag: "automatic-speech-recognition",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
-					label: "Librispeech sample 1",
+					example_title: "Librispeech sample 1",
 					src: "https://cdn-media.huggingface.co/speech_samples/sample1.flac",
 				},
 			],
@@ -275,6 +391,7 @@
 		{
 			id: "osanseviero/full-sentence-distillroberta2",
 			pipeline_tag: "sentence-similarity",
+			inference: InferenceDisplayability.Yes,
 			widgetData: [
 				{
 					source_sentence: "That is a happy person",
@@ -286,6 +403,7 @@
 			id: "speechbrain/mtl-mimic-voicebank",
 			private: false,
 			pipeline_tag: "audio-to-audio",
+			inference: InferenceDisplayability.Yes,
 			tags: ["speech-enhancement"],
 			widgetData: [],
 		},
@@ -293,6 +411,7 @@
 			id: "speechbrain/sepformer-wham",
 			private: false,
 			pipeline_tag: "audio-to-audio",
+			inference: InferenceDisplayability.Yes,
 			tags: ["audio-source-separation"],
 			widgetData: [],
 		},
@@ -300,25 +419,144 @@
 			id: "julien-c/DPRNNTasNet-ks16_WHAM_sepclean",
 			private: false,
 			pipeline_tag: "audio-to-audio",
+			inference: InferenceDisplayability.Yes,
 			tags: ["audio-source-separation"],
 			widgetData: [],
 		},
 	];
+
+	const modelsDisabled: ModelData[] = [
+		{
+			id: "gpt2",
+			pipeline_tag: "text-generation",
+			inference: InferenceDisplayability.CustomCode,
+		},
+		{
+			id: "gpt2",
+			pipeline_tag: "text-generation",
+			inference: InferenceDisplayability.ExplicitOptOut,
+		},
+		{
+			id: "gpt2",
+			pipeline_tag: "text-generation",
+			inference: InferenceDisplayability.LibraryNotDetected,
+		},
+		{
+			id: "gpt2",
+			pipeline_tag: "text-generation",
+			inference: InferenceDisplayability.PipelineLibraryPairNotSupported,
+		},
+		{
+			id: "gpt2",
+			pipeline_tag: "text-generation",
+			inference: InferenceDisplayability.PipelineNotDetected,
+		},
+		{
+			id: "Phind/Phind-CodeLlama-34B-v1",
+			pipeline_tag: "text-generation",
+			inference: InferenceDisplayability.Yes,
+		},
+	];
+
+	const modelsDisabledWithExamples: ModelData[] = [
+		{
+			id: "superb/wav2vec2-base-superb-sid",
+			pipeline_tag: "audio-classification",
+			inference: InferenceDisplayability.CustomCode,
+			widgetData: [
+				{
+					example_title: "Librispeech sample 1",
+					src: "https://cdn-media.huggingface.co/speech_samples/sample1.flac",
+					output: [
+						{
+							score: 1,
+							label: "id10003",
+						},
+						{
+							score: 3.958137817505758e-9,
+							label: "id10912",
+						},
+					],
+				},
+			],
+		},
+		{
+			id: "osanseviero/BigGAN-deep-128",
+			pipeline_tag: "text-to-image",
+			inference: InferenceDisplayability.LibraryNotDetected,
+			widgetData: [
+				{
+					text: "a tiger",
+					output: {
+						url: "https://huggingface.co/datasets/mishig/sample_images/resolve/main/tiger.jpg",
+					},
+				},
+			],
+		},
+		{
+			id: "gpt2",
+			pipeline_tag: "text-generation",
+			inference: InferenceDisplayability.PipelineNotDetected,
+			widgetData: [
+				// the widget should only show sample with output here
+				{ text: "My name is Julien and I like to", output: { text: "code cool products with my friends." } },
+				{ text: "My name is Thomas and my main" },
+				{ text: "My name is Mariama, my favorite" },
+				{ text: "My name is Clara and I am" },
+				{ text: "Once upon a time," },
+			],
+		},
+	];
 </script>
 
-<div class="py-24">
+<div class="space-y-12 py-24">
 	<ModeSwitcher />
 
-	<div class="mx-4 space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0 xl:grid-cols-3">
-		{#each models as model}
-			<div>
-				<a class="mb-3 block text-xs text-gray-300" href="/{model.id}">
-					<code>{model.id}</code>
-				</a>
-				<div class="max-w-md rounded-xl bg-white p-5 shadow-sm">
-					<InferenceWidget {model} />
+	<div class="mx-4">
+		<h1 class="mb-8 text-4xl font-semibold">Showcase of all types of disabled inference</h1>
+		<div class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0 xl:grid-cols-3">
+			{#each modelsDisabled as model}
+				<div>
+					<a class="mb-3 block text-xs text-gray-300" href="/{model.id}">
+						<code>{model.id}</code>
+					</a>
+					<div class="max-w-md rounded-xl bg-white p-5 shadow-sm">
+						<InferenceWidget {model} />
+					</div>
 				</div>
-			</div>
-		{/each}
+			{/each}
+		</div>
+	</div>
+
+	<div class="mx-4">
+		<h1 class="mb-8 text-4xl font-semibold">Showcase of all types of disabled inference with example outputs</h1>
+		<div class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0 xl:grid-cols-3">
+			{#each modelsDisabledWithExamples as model}
+				<div>
+					<a class="mb-3 block text-xs text-gray-300" href="/{model.id}">
+						<code>{model.id}</code>
+					</a>
+					<div class="max-w-md rounded-xl bg-white p-5 shadow-sm">
+						<InferenceWidget {model} />
+					</div>
+				</div>
+			{/each}
+		</div>
+	</div>
+
+	<div class="mx-4">
+		<h1 class="mb-8 text-4xl font-semibold">Showcase of all types of inference widgets running</h1>
+		<div class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0 xl:grid-cols-3">
+			{#each models as model}
+				<div>
+					<a class="mb-3 block text-xs text-gray-300" href="/{model.id}">
+						<code>{model.id}</code>
+					</a>
+					<div class="max-w-md rounded-xl bg-white p-5 shadow-sm">
+						<InferenceWidget {model} />
+					</div>
+				</div>
+			{/each}
+		</div>
 	</div>
 </div>

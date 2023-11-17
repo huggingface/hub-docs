@@ -1,7 +1,6 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
-
-	import { onMount } from "svelte";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetExample, WidgetExampleAssetInput, WidgetExampleOutputLabels } from "../../shared/WidgetExample";
 
 	import WidgetAudioTrack from "../../shared/WidgetAudioTrack/WidgetAudioTrack.svelte";
 	import WidgetFileInput from "../../shared/WidgetFileInput/WidgetFileInput.svelte";
@@ -9,7 +8,9 @@
 	import WidgetRecorder from "../../shared/WidgetRecorder/WidgetRecorder.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { getResponse, getBlobFromUrl, getDemoInputs } from "../../shared/helpers";
+	import { callInferenceApi, getBlobFromUrl } from "../../shared/helpers";
+	import { isValidOutputLabels } from "../../shared/outputValidation";
+	import { isAssetInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -17,6 +18,7 @@
 	export let model: WidgetProps["model"];
 	export let noTitle: WidgetProps["noTitle"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -58,7 +60,17 @@
 		}
 	}
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts<WidgetExampleOutputLabels> = {}) {
+		if (exampleOutput) {
+			output = exampleOutput;
+			outputJson = "";
+			return;
+		}
+
 		if (!file && !selectedSampleUrl) {
 			error = "You must select or record an audio file";
 			output = [];
@@ -74,7 +86,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -112,44 +124,40 @@
 		}
 	}
 
-	function isValidOutput(arg: any): arg is { label: string; score: number }[] {
-		return Array.isArray(arg) && arg.every(x => typeof x.label === "string" && typeof x.score === "number");
-	}
-
 	function parseOutput(body: unknown): Array<{ label: string; score: number }> {
-		if (isValidOutput(body)) {
+		if (isValidOutputLabels(body)) {
 			return body;
 		}
 		throw new TypeError("Invalid output: output must be of type Array<label: string, score:number>");
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
-		file = null;
-		filename = sample.example_title;
+	function applyInputSample(sample: WidgetExampleAssetInput<WidgetExampleOutputLabels>, opts: ExampleRunOpts = {}) {
+		filename = sample.example_title!;
 		fileUrl = sample.src;
-		selectedSampleUrl = sample.src;
-		getOutput();
-	}
 
-	function previewInputSample(sample: Record<string, any>) {
-		filename = sample.example_title;
-		fileUrl = sample.src;
-		output = [];
-		outputJson = "";
-	}
-
-	onMount(() => {
-		const [exampleTitle, src] = getDemoInputs(model, ["example_title", "src"]);
-		if (callApiOnMount && src) {
-			filename = exampleTitle ?? "";
-			fileUrl = src;
-			selectedSampleUrl = src;
-			getOutput({ isOnLoadCall: true });
+		if (opts.isPreview) {
+			if (isValidOutputLabels(sample.output)) {
+				output = sample.output;
+				outputJson = "";
+			} else {
+				output = [];
+				outputJson = "";
+			}
+			return;
 		}
-	});
+		file = null;
+		selectedSampleUrl = sample.src;
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
+	}
+
+	function validateExample(sample: WidgetExample): sample is WidgetExampleAssetInput<WidgetExampleOutputLabels> {
+		return isAssetInput(sample) && (!sample.output || isValidOutputLabels(sample.output));
+	}
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -160,13 +168,13 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
+	{validateExample}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
-			<div class="flex flex-wrap items-center">
+			<div class="flex flex-wrap items-center {isDisabled ? 'pointer-events-none hidden opacity-50' : ''}">
 				<WidgetFileInput accept="audio/*" classNames="mt-1.5 mr-2" {onSelectFile} />
-				<span class="mt-1.5 mr-2">or</span>
+				<span class="mr-2 mt-1.5">or</span>
 				<WidgetRecorder classNames="mt-1.5" {onRecordStart} onRecordStop={onSelectFile} onError={onRecordError} />
 			</div>
 			{#if fileUrl}
@@ -174,7 +182,7 @@
 			{/if}
 			<WidgetSubmitBtn
 				classNames="mt-2"
-				isDisabled={isRecording}
+				isDisabled={isRecording || isDisabled}
 				{isLoading}
 				onClick={() => {
 					getOutput();

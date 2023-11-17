@@ -1,7 +1,6 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
-
-	import { onMount } from "svelte";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetExampleZeroShotTextInput } from "../../shared/WidgetExample";
 
 	import WidgetCheckbox from "../../shared/WidgetCheckbox/WidgetCheckbox.svelte";
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
@@ -9,7 +8,8 @@
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetTextInput from "../../shared/WidgetTextInput/WidgetTextInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
+	import { isZeroShotTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -18,6 +18,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let candidateLabels = "";
 	let computeTime = "";
@@ -34,33 +35,11 @@
 	let warning: string = "";
 	let setTextAreaValue: (text: string) => void;
 
-	onMount(() => {
-		const [candidateLabelsParam, multiClassParam, textParam] = getSearchParams([
-			"candidateLabels",
-			"multiClass",
-			"text",
-		]);
-		if (candidateLabelsParam && !!multiClassParam && textParam) {
-			candidateLabels = candidateLabelsParam;
-			multiClass = multiClassParam === "true";
-			setTextAreaValue(textParam);
-			getOutput();
-		} else {
-			const [demoCandidateLabels, demoMultiClass, demoText] = getDemoInputs(model, [
-				"candidate_labels",
-				"multi_class",
-				"text",
-			]);
-			candidateLabels = (demoCandidateLabels as string) ?? "";
-			multiClass = demoMultiClass === "true";
-			setTextAreaValue(demoText ?? "");
-			if (candidateLabels && text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
-			}
-		}
-	});
-
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts = {}) {
 		const trimmedText = text.trim();
 		const trimmedCandidateLabels = candidateLabels.trim().split(",").join(",");
 
@@ -80,8 +59,8 @@
 
 		if (shouldUpdateUrl && !isOnLoadCall) {
 			updateUrl({
-				candidateLabels: trimmedCandidateLabels,
-				multiClass: multiClass ? "true" : "false",
+				candidate_labels: trimmedCandidateLabels,
+				multi_class: multiClass ? "true" : "false",
 				text: trimmedText,
 			});
 		}
@@ -97,7 +76,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -147,21 +126,20 @@
 		throw new TypeError("Invalid output: output must be of type <labels:Array; scores:Array>");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleZeroShotTextInput, opts: ExampleRunOpts = {}) {
 		candidateLabels = sample.candidate_labels;
 		multiClass = sample.multi_class;
 		setTextAreaValue(sample.text);
-	}
-
-	function applyInputSample(sample: Record<string, any>) {
-		candidateLabels = sample.candidate_labels;
-		multiClass = sample.multi_class;
-		setTextAreaValue(sample.text);
-		getOutput();
+		if (opts.isPreview) {
+			return;
+		}
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -172,19 +150,27 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
+	validateExample={isZeroShotTextInput}
+	exampleQueryParams={["candidate_labels", "multi_class", "text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form class="flex flex-col space-y-2">
-			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} placeholder="Text to classify..." />
+			<WidgetTextarea
+				bind:value={text}
+				bind:setValue={setTextAreaValue}
+				{isDisabled}
+				placeholder="Text to classify..."
+			/>
 			<WidgetTextInput
 				bind:value={candidateLabels}
+				{isDisabled}
 				label="Possible class names (comma-separated)"
 				placeholder="Possible class names..."
 			/>
 			<WidgetCheckbox bind:checked={multiClass} label="Allow multiple true classes" />
 			<WidgetSubmitBtn
 				{isLoading}
+				{isDisabled}
 				onClick={() => {
 					getOutput();
 				}}

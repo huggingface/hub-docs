@@ -1,11 +1,12 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
-
-	import { onMount } from "svelte";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetExampleTextInput, WidgetExampleOutputUrl, WidgetExample } from "../../shared/WidgetExample";
 
 	import WidgetQuickInput from "../../shared/WidgetQuickInput/WidgetQuickInput.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
+	import { isValidOutputUrl } from "../../shared/outputValidation";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -14,6 +15,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -26,21 +28,17 @@
 	let outputJson = "";
 	let text = "";
 
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			text = textParam;
-			getOutput({ useCache: true });
-		} else {
-			const [demoText] = getDemoInputs(model, ["text"]);
-			text = (demoText as string) ?? "";
-			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true, useCache: true });
-			}
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		useCache = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts<WidgetExampleOutputUrl> = {}) {
+		if (exampleOutput) {
+			output = exampleOutput.url;
+			return;
 		}
-	});
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false, useCache = false } = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -58,7 +56,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -100,17 +98,27 @@
 		throw new TypeError("Invalid output: output must be of type object & of instance Blob");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputUrl>, opts: ExampleRunOpts = {}) {
 		text = sample.text;
+		if (opts.isPreview) {
+			if (sample.output) {
+				output = sample.output.url;
+			} else {
+				output = "";
+			}
+			return;
+		}
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
-		text = sample.text;
-		getOutput();
+	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputUrl> {
+		return isTextInput(sample) && (!sample.output || isValidOutputUrl(sample.output));
 	}
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -121,11 +129,12 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
+	{validateExample}
+	exampleQueryParams={["text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
-			<WidgetQuickInput bind:value={text} {isLoading} onClickSubmitBtn={() => getOutput()} />
+			<WidgetQuickInput bind:value={text} {isLoading} {isDisabled} onClickSubmitBtn={() => getOutput()} />
 		</form>
 	</svelte:fragment>
 	<svelte:fragment slot="bottom">

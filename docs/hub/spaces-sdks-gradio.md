@@ -37,16 +37,19 @@ from transformers import pipeline
 
 pipeline = pipeline(task="image-classification", model="julien-c/hotdog-not-hotdog")
 
-def predict(image):
-    predictions = pipeline(image)
-    return {p["label"]: p["score"] for p in predictions}
+def predict(input_img):
+    predictions = pipeline(input_img)
+    return input_img, {p["label"]: p["score"] for p in predictions} 
 
-gr.Interface(
+gradio_app = gr.Interface(
     predict,
-    inputs=gr.inputs.Image(label="Upload hot dog candidate", type="filepath"),
-    outputs=gr.outputs.Label(num_top_classes=2),
+    inputs=gr.Image(label="Select hot dog candidate", sources=['upload', 'webcam'], type="pil"),
+    outputs=[gr.Image(label="Processed Image"), gr.Label(label="Result", num_top_classes=2)],
     title="Hot Dog? Or Not?",
-).launch()
+)
+
+if __name__ == "__main__":
+    gradio_app.launch()
 ```
 
 This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/docs/transformers/pipeline_tutorial) to load the [julien-c/hotdog-not-hotdog](https://huggingface.co/julien-c/hotdog-not-hotdog) model, which is used by the Gradio interface. The Gradio app will expect you to upload an image, which it'll then classify as *hot dog* or *not hot dog*. Once you've saved the code to the **app.py** file, visit the **App** tab to see your app in action!

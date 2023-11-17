@@ -1,13 +1,14 @@
 <script lang="ts">
-	import type { WidgetProps } from "../../shared/types";
-
-	import { onMount } from "svelte";
+	import type { WidgetProps, ExampleRunOpts, InferenceRunOpts } from "../../shared/types";
+	import type { WidgetExampleTextInput, WidgetExampleOutputLabels, WidgetExample } from "../../shared/WidgetExample";
 
 	import WidgetOutputChart from "../../shared/WidgetOutputChart/WidgetOutputChart.svelte";
 	import WidgetTextarea from "../../shared/WidgetTextarea/WidgetTextarea.svelte";
 	import WidgetSubmitBtn from "../../shared/WidgetSubmitBtn/WidgetSubmitBtn.svelte";
 	import WidgetWrapper from "../../shared/WidgetWrapper/WidgetWrapper.svelte";
-	import { addInferenceParameters, getDemoInputs, getResponse, getSearchParams, updateUrl } from "../../shared/helpers";
+	import { addInferenceParameters, callInferenceApi, updateUrl } from "../../shared/helpers";
+	import { isValidOutputLabels } from "../../shared/outputValidation";
+	import { isTextInput } from "../../shared/inputValidation";
 
 	export let apiToken: WidgetProps["apiToken"];
 	export let apiUrl: WidgetProps["apiUrl"];
@@ -16,6 +17,7 @@
 	export let noTitle: WidgetProps["noTitle"];
 	export let shouldUpdateUrl: WidgetProps["shouldUpdateUrl"];
 	export let includeCredentials: WidgetProps["includeCredentials"];
+	let isDisabled = false;
 
 	let computeTime = "";
 	let error: string = "";
@@ -29,21 +31,17 @@
 	let text = "";
 	let setTextAreaValue: (text: string) => void;
 
-	onMount(() => {
-		const [textParam] = getSearchParams(["text"]);
-		if (textParam) {
-			setTextAreaValue(textParam);
-			getOutput();
-		} else {
-			const [demoText] = getDemoInputs(model, ["text"]);
-			setTextAreaValue(demoText ?? "");
-			if (text && callApiOnMount) {
-				getOutput({ isOnLoadCall: true });
-			}
+	async function getOutput({
+		withModelLoading = false,
+		isOnLoadCall = false,
+		exampleOutput = undefined,
+	}: InferenceRunOpts<WidgetExampleOutputLabels> = {}) {
+		if (exampleOutput) {
+			output = exampleOutput;
+			outputJson = "";
+			return;
 		}
-	});
 
-	async function getOutput({ withModelLoading = false, isOnLoadCall = false } = {}) {
 		const trimmedText = text.trim();
 
 		if (!trimmedText) {
@@ -62,7 +60,7 @@
 
 		isLoading = true;
 
-		const res = await getResponse(
+		const res = await callInferenceApi(
 			apiUrl,
 			model.id,
 			requestBody,
@@ -115,17 +113,27 @@
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
 
-	function previewInputSample(sample: Record<string, any>) {
+	function applyInputSample(sample: WidgetExampleTextInput<WidgetExampleOutputLabels>, opts: ExampleRunOpts = {}) {
 		setTextAreaValue(sample.text);
+		if (opts.isPreview) {
+			if (sample.output) {
+				output = sample.output;
+			} else {
+				output = [];
+			}
+			return;
+		}
+		const exampleOutput = sample.output;
+		getOutput({ ...opts.inferenceOpts, exampleOutput });
 	}
 
-	function applyInputSample(sample: Record<string, any>) {
-		setTextAreaValue(sample.text);
-		getOutput();
+	function validateExample(sample: WidgetExample): sample is WidgetExampleTextInput<WidgetExampleOutputLabels> {
+		return isTextInput(sample) && (!sample.output || isValidOutputLabels(sample.output));
 	}
 </script>
 
 <WidgetWrapper
+	{callApiOnMount}
 	{apiUrl}
 	{includeCredentials}
 	{applyInputSample}
@@ -136,19 +144,21 @@
 	{modelLoading}
 	{noTitle}
 	{outputJson}
-	{previewInputSample}
+	{validateExample}
+	exampleQueryParams={["text"]}
 >
-	<svelte:fragment slot="top">
+	<svelte:fragment slot="top" let:isDisabled>
 		<form>
 			{#if model.pipeline_tag === "fill-mask"}
 				<div class="mb-1.5 text-sm text-gray-500">
 					Mask token: <code>{model.mask_token}</code>
 				</div>
 			{/if}
-			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} />
+			<WidgetTextarea bind:value={text} bind:setValue={setTextAreaValue} {isDisabled} />
 			<WidgetSubmitBtn
 				classNames="mt-2"
 				{isLoading}
+				{isDisabled}
 				onClick={() => {
 					getOutput();
 				}}

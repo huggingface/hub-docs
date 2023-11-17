@@ -9,13 +9,14 @@ A full list of the available licenses is available here:
 <!-- region licenses -->
 Fullname | License identifier (to use in model card)
 --- | ---
+Apache license 2.0 | `apache-2.0`
+MIT | `mit`
 OpenRAIL license family | `openrail`
 BigScience OpenRAIL-M | `bigscience-openrail-m`
 CreativeML OpenRAIL-M | `creativeml-openrail-m`
 BigScience BLOOM RAIL 1.0 | `bigscience-bloom-rail-1.0`
 BigCode Open RAIL-M v1 | `bigcode-openrail-m`
 Academic Free License v3.0 | `afl-3.0`
-Apache license 2.0 | `apache-2.0`
 Artistic license 2.0 | `artistic-2.0`
 Boost Software License 1.0 | `bsl-1.0`
 BSD license family | `bsd`
@@ -59,7 +60,6 @@ GNU Lesser General Public License v3.0 | `lgpl-3.0`
 ISC | `isc`
 LaTeX Project Public License v1.3c | `lppl-1.3c`
 Microsoft Public License | `ms-pl`
-MIT | `mit`
 Mozilla Public License 2.0 | `mpl-2.0`
 Open Data Commons License Attribution family | `odc-by`
 Open Database License family | `odbl`
@@ -78,4 +78,4 @@ Unknown | `unknown`
 Other | `other`
 <!-- endregion -->
 
-In case of `license: other` please add the license's text to a `LICENSE` file inside your repo (or contact us to add the license you use to this list).
+In case of `license: other` please add the license's text to a `LICENSE` file inside your repo (or contact us to add the license you use to this list), and set a name for it in `license_name`.
