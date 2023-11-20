@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# Models Frequently Asked Questions
 
 ## How can I see what dataset was used to train the model?
 

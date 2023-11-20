@@ -108,6 +108,8 @@
         title: Widget Examples
   - local: models-inference
     title: Inference API docs
+  - local: models-download-stats
+    title: Models Download Stats
   - local: models-faq
     title: Frequently Asked Questions
   - local: models-advanced
@@ -149,6 +151,8 @@
     sections:
       - local: datasets-viewer-configure
         title: Configure the Dataset Viewer
+  - local: datasets-download-stats
+    title: Datasets Download Stats
   - local: datasets-data-files-configuration
     title: Data files Configuration
     sections:

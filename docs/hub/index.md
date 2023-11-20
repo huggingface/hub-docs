@@ -31,6 +31,7 @@ The Hugging Face Hub is a platform with over 350k models, 75k datasets, and 150k
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-tasks">Tasks</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-widgets">Widgets</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-inference">Inference API</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-download-stats">Download Stats</a>
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-red-100 bg-gradient-to-br from-red-50 dark:bg-none px-6 py-4 transition-colors hover:shadow dark:border-red-700">
@@ -44,6 +45,7 @@ The Hugging Face Hub is a platform with over 350k models, 75k datasets, and 150k
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-downloading">Downloading Datasets</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-libraries">Libraries</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-viewer">Dataset Viewer</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-download-stats">Download Stats</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-data-files-configuration">Data files Configuration</a>
 </div>
 
