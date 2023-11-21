@@ -36,6 +36,8 @@
 	import IconUnconditionalImageGeneration from "../Icons/IconUnconditionalImageGeneration.svelte";
 	import IconDocumentQuestionAnswering from "../Icons/IconDocumentQuestionAnswering.svelte";
 	import IconGraphML from "../Icons/IconGraphML.svelte";
+	import IconZeroShotObjectDetection from "../Icons/IconZeroShotClassification.svelte";
+	import IconMaskGeneration from "../Icons/IconMaskGeneration.svelte";
 
 	export let classNames = "";
 	export let pipeline = "";
@@ -80,6 +82,8 @@
 		"tabular-regression": IconTabularRegression,
 		"text-to-video": IconTextToVideo,
 		"document-question-answering": IconDocumentQuestionAnswering,
+		"mask-generation": IconMaskGeneration,
+		"zero-shot-object-detection": IconZeroShotObjectDetection;
 	};
 </script>
 

@@ -614,6 +614,16 @@ export const PIPELINE_DATA = ensureRecordOfPipelines({
 		modality: "multimodal",
 		color:    "green",
 	},
+	"mask-generation": {
+		name:     "Mask Generation",
+		modality: "cv",
+		color:    "indigo",
+	},
+	"zero-shot-object-detection": {
+		name:     "Zero-Shot Object Detection",
+		modality: "cv",
+		color:    "yellow",
+	},
 	"other": {
 		name:           "Other",
 		modality:       "other",
