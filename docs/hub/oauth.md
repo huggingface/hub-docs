@@ -13,7 +13,7 @@ After clicking this button your users will be presented with a permissions modal
 ## Creating an oauth app
 
 
-You can create your applications at in your [settings](https://huggingface.co/settings/applications/new):
+You can create your applications in your [settings](https://huggingface.co/settings/applications/new):
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-create-application.png)
 
