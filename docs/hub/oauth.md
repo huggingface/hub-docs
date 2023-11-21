@@ -10,6 +10,13 @@ After clicking this button your users will be presented with a permissions modal
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-accept-application.png)
 
+## Creating an oauth app
+
+
+You can create your applications at in your [settings](https://huggingface.co/settings/applications/new):
+
+![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-create-application.png)
+
 ### If you are hosting in Spaces
 
 <Tip>
@@ -25,8 +32,6 @@ The currently supported scopes are:
 - `openid`: Get the ID token in addition to the access token.
 - `profile`: Get the user's profile information (username, avatar, etc.)
 - `email`: Get the user's email address.
-
-Contact us at [website@huggingface.co](mailto:website@huggingface.co) with the desired name, logo URL, scope, and redirect URLs for the OAuth app. We will provide you with the client ID and client secret.
 
 All other information is available in the [OpenID metadata](https://huggingface.co/.well-known/openid-configuration).
 
