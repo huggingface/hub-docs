@@ -82,9 +82,9 @@ You can find the detailed model card metadata specification [here](https://githu
 
 ### Specifying a library
 
-You can also specify the supported libraries in the model card metadata section. Find more about our supported libraries [here](./models-libraries). The library can be specified in the following order of priority
+You can specify the supported libraries in the model card metadata section. Find more about our supported libraries [here](./models-libraries). The library will be specified in the following order of priority:
 
-1. Specifying `library_name` in the model card (recommended if your model is not a `transformers` model)
+1. Specifying `library_name` in the model card (recommended if your model is not a `transformers` model). This information can be added via the metadata UI or directly in the model card YAML section:
 
 ```yaml
 library_name: flair
@@ -97,7 +97,7 @@ tags:
 - flair
 ```
 
-If it's not specified, the Hub will try to automatically detect the library type. Unless your model is from `transformers`, this approach is discouraged and repo creators should use the explicit `library_name` as much as possible.
+If it's not specified, the Hub will try to automatically detect the library type. Unless your model is from `transformers`, this approach is discouraged and repo creators should use the explicit `library_name` as much as possible. 
 
 1. By looking into the presence of files such as `*.nemo` or `*saved_model.pb*`, the Hub can determine if a model is from NeMo or Keras. 
 2. If nothing is detected and there is a `config.json` file, it's assumed the library is `transformers`.
@@ -117,6 +117,15 @@ This metadata will be used to display the base model on the model page. Users ca
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
 </div>
 
+### Specifying a dataset
+
+You can specify the datasets used to train your model in the model card metadata section. The datasets will be displayed on the model page and users will be able to filter models by dataset. You should use the Hub dataset identifier, which is the same as the dataset's repo name as the identifier:
+
+```yaml
+datasets:
+- imdb
+- HuggingFaceH4/no_robots
+```
 
 ### Evaluation Results
 
