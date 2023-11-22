@@ -82,7 +82,7 @@ If your model is a fine-tune or adapter of a base model, you can specify the bas
 base_model: HuggingFaceH4/zephyr-7b-beta
 ```
 
-This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model.
+This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model or find models that are fine-tuned from a specific base model.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/18f3ec67457320da0fa16b9b0bd4147739b6262d/hub/base-model-ui.png"/>
