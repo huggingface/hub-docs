@@ -86,7 +86,7 @@ This metadata will be used to display the base model on the model page. Users ca
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/cb60df56d98240045baf7c822771621000984ac0/hub/base-model-ui-dark.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
 </div>
 
 
