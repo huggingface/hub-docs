@@ -84,6 +84,14 @@ base_model: HuggingFaceH4/zephyr-7b-beta
 
 This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model.
 
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/18f3ec67457320da0fa16b9b0bd4147739b6262d/hub/base-model-ui.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/cb60df56d98240045baf7c822771621000984ac0/hub/base-model-ui-dark.png"/>
+</div>
+
+
+
+
 ### Evaluation Results
 
 You can even specify your **model's eval results** in a structured way, which will allow the Hub to parse, display, and even link them to Papers With Code leaderboards. See how to format this data [in the metadata spec](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
