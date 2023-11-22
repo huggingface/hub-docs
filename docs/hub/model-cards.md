@@ -85,7 +85,7 @@ base_model: HuggingFaceH4/zephyr-7b-beta
 This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model or find models that are fine-tuned from a specific base model.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/18f3ec67457320da0fa16b9b0bd4147739b6262d/hub/base-model-ui.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/cb60df56d98240045baf7c822771621000984ac0/hub/base-model-ui-dark.png"/>
 </div>
 
@@ -117,7 +117,7 @@ If a model includes valid eval results, they will be displayed like this:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results-dark.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
 </div>
 
 ### CO<sub>2</sub> Emissions
