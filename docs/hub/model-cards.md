@@ -21,7 +21,32 @@ The model card template is available [here](https://github.com/huggingface/huggi
 
 ## Model card metadata
 
-A model repo will render its `README.md` as a model card. To control how the Hub displays the card, you should create a YAML section in the README file to define some metadata. Start by adding three `---` at the top, then include all of the relevant metadata, and close the section with another group of `---` like the example below:
+A model repo will render its `README.md` as a model card. The model card is a [Markdown](https://en.wikipedia.org/wiki/Markdown) file, with a [YAML](https://en.wikipedia.org/wiki/YAML) section at the top that contains metadata about the model. 
+
+### Adding metadata to your model card
+
+There are a few different ways to add metadata to your model card:
+- Using the metadata UI
+- Directly editing the YAML section of the `README.md` file
+- Via the `huggingface_hub` Python library, see the [docs](https://huggingface.co/docs/huggingface_hub/guides/model-cards#update-metadata) for more details.
+
+Many libraries with Hub integration will automatically add metadata to the model card when you upload a model. 
+
+### Using the metadata UI
+
+You can add metadata to your model card using the metadata UI. To access the metadata UI, go to the model page and click on the `Edit model card` button in the top right corner of the model card. This will open an editor showing the model card `README.md` file, as well as a UI for editing the metadata.
+
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/548b926bfb572ec93b798548a64755e6e68a495a/hub/metadata-ui-editor.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/548b926bfb572ec93b798548a64755e6e68a495a/hub/metadata-ui-editor-dark.png"/>
+</div>
+
+This UI will allow you to add key metadata to your model card and many of the fields will autocomplete based on the information you provide. Using the UI is the easiest way to add metadata to your model card, but it doesn't support all of the metadata fields. If you want to add metadata that isn't supported by the UI, you can edit the YAML section of the `README.md` file directly.
+
+### Editing the YAML section of the `README.md` file
+
+You can also directly edit the YAML section of the `README.md` file. If the model card doesn't already have a YAML section, you can add one by adding three `---` at the top of the file, then include all of the relevant metadata, and close the section with another group of `---` like the example below:
 
 ```yaml
 ---
@@ -40,6 +65,7 @@ datasets:
 metrics:
 - metric1
 - metric2
+base_model: "base model Hub identifier"
 ---
 ```
 
@@ -50,7 +76,7 @@ The metadata that you add to the model card enables certain interactions on the 
 
 Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages and in the [`datasets`](https://github.com/huggingface/datasets) repository.
 
-See the detailed model card metadata specification [here](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
+You can find the detailed model card metadata specification [here](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
 
 ### Specifying a library
 
@@ -88,8 +114,6 @@ This metadata will be used to display the base model on the model page. Users ca
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
 </div>
-
-
 
 
 ### Evaluation Results
@@ -144,6 +168,10 @@ Read more about Paper pages [here](./paper-pages).
 
 Each model page lists all the model's tags in the page header, below the model name. These are primarily computed from the model card metadata, although some are added automatically, as described in [Creating a Widget](./models-widgets#creating-a-widget).
 
+### Can I add custom tags to my model?
+
+Yes, you can add custom tags to your model by adding them to the `tags` field in the model card metadata. The metadata UI will suggest some popular tags, but you can add any tag you want.
+
 ### Can I write LaTeX in my model card?
 
 Yes! The Hub uses the [KaTeX](https://katex.org/) math typesetting library to render math formulas server-side before parsing the Markdown.
@@ -163,3 +191,5 @@ $$
 $$
 
 $$ E=mc^2 $$
+
+
