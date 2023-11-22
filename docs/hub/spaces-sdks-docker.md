@@ -23,7 +23,7 @@ If you want to expose apps served on multiple ports to the outside world, a work
 
 ## Secrets and Variables Management
  <a id="secret-management"></a>
-You can manage a Space's environment variables in the Space Settings. Read more [here](./spaces-overview.md#managing-the-environment).
+You can manage a Space's environment variables in the Space Settings. Read more [here](./spaces-overview#managing-the-environment).
 
 ### Variables
 
@@ -50,7 +50,7 @@ Variables are injected in the container's environment at runtime.
 
 #### Buildtime
 
-In Docker Spaces, the secrets management is different for security reasons. Once you create a secret in the [Settings tab](./spaces-overview#managing-secrets-and-environment-variables), you can expose the secret by adding the following line in your Dockerfile:
+In Docker Spaces, the secrets management is different for security reasons. Once you create a secret in the [Settings tab](./spaces-overview#managing-secrets), you can expose the secret by adding the following line in your Dockerfile:
 
 For example, if `SECRET_EXAMPLE` is the name of the secret you created in the Settings tab, you can read it at build time by mounting it to a file, then reading it with `$(cat /run/secrets/SECRET_EXAMPLE)`.
 
