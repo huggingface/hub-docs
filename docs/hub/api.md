@@ -10,7 +10,9 @@ Want to try out our API?
 Try it out now on our [Playground](https://huggingface.co/spaces/enzostvs/hub-api-playground)!
 
 <div class="flex justify-center">
+<a href="https://huggingface.co/spaces/enzostvs/hub-api-playground" target="_blank">
 <img class="w-full object-contain" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/hub-api-playground.png"/>
+</a>
 </div>
 
 ## Repo listing API
