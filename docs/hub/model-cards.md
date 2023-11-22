@@ -74,6 +74,15 @@ If it's not specified, the Hub will try to automatically detect the library type
 1. By looking into the presence of files such as `*.nemo` or `*saved_model.pb*`, the Hub can determine if a model is from NeMo or Keras. 
 2. If nothing is detected and there is a `config.json` file, it's assumed the library is `transformers`.
 
+### Specifying a base model
+
+If your model is a fine-tuned version of a base model, you can specify the base model in the model card metadata section:
+
+```yaml
+base_model: HuggingFaceH4/zephyr-7b-beta
+```
+
+This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model.
 
 ### Evaluation Results
 
