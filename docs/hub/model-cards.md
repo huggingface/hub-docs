@@ -127,6 +127,12 @@ datasets:
 - HuggingFaceH4/no_robots
 ```
 
+### Specifying a pipeline_tag
+
+You can specify the pipeline tag in the model card metadata. The pipeline tag indicates the type of task the model is intended for. The pipeline tag will be displayed on the model page and users will be able to filter models by pipeline tag. This tag is also used to determine which [widget](./models-widgets.md#enabling-a-widget) to use for the model. 
+
+For Transformer models, the pipeline tag is automatically inferred from the model's `config.json` file but you can override it in the model card metadata if required. Editing this field in the metadata UI will ensure that the pipeline tag is valid. Some other libraries with Hub integration will also automatically add the pipeline tag to the model card metadata.
+
 ### Evaluation Results
 
 You can even specify your **model's eval results** in a structured way, which will allow the Hub to parse, display, and even link them to Papers With Code leaderboards. See how to format this data [in the metadata spec](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
