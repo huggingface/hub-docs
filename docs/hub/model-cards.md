@@ -25,10 +25,10 @@ A model repo will render its `README.md` as a model card. The model card is a [M
 
 ### Adding metadata to your model card
 
-There are a few different ways to add metadata to your model card:
+There are a few different ways to add metadata to your model card including:
 - Using the metadata UI
 - Directly editing the YAML section of the `README.md` file
-- Via the `huggingface_hub` Python library, see the [docs](https://huggingface.co/docs/huggingface_hub/guides/model-cards#update-metadata) for more details.
+- Via the [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub) Python library, see the [docs](https://huggingface.co/docs/huggingface_hub/guides/model-cards#update-metadata) for more details.
 
 Many libraries with Hub integration will automatically add metadata to the model card when you upload a model. 
 
