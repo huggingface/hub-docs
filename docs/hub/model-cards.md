@@ -54,7 +54,7 @@ See the detailed model card metadata specification [here](https://github.com/hug
 
 ### Specifying a library
 
-You can also specify the supported libraries in the model card metadata section. Find more about our supported libraries [here](./models-libraries). The library can be specified with the following order of priority
+You can also specify the supported libraries in the model card metadata section. Find more about our supported libraries [here](./models-libraries). The library can be specified in the following order of priority
 
 1. Specifying `library_name` in the model card (recommended if your model is not a `transformers` model)
 
@@ -73,6 +73,23 @@ If it's not specified, the Hub will try to automatically detect the library type
 
 1. By looking into the presence of files such as `*.nemo` or `*saved_model.pb*`, the Hub can determine if a model is from NeMo or Keras. 
 2. If nothing is detected and there is a `config.json` file, it's assumed the library is `transformers`.
+
+### Specifying a base model
+
+If your model is a fine-tune or adapter of a base model, you can specify the base model in the model card metadata section:
+
+```yaml
+base_model: HuggingFaceH4/zephyr-7b-beta
+```
+
+This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model or find models that are fine-tuned from a specific base model.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
+</div>
+
+
 
 
 ### Evaluation Results
@@ -100,7 +117,7 @@ If a model includes valid eval results, they will be displayed like this:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results-dark.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
 </div>
 
 ### CO<sub>2</sub> Emissions
