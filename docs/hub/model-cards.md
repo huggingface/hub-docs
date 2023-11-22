@@ -23,6 +23,15 @@ The model card template is available [here](https://github.com/huggingface/huggi
 
 A model repo will render its `README.md` as a model card. The model card is a [Markdown](https://en.wikipedia.org/wiki/Markdown) file, with a [YAML](https://en.wikipedia.org/wiki/YAML) section at the top that contains metadata about the model. 
 
+The metadata you add to the model card supports discovery and easier use of your model. For example:
+
+* Allowing users to filter models at https://huggingface.co/models.
+* Displaying the model's license.
+* Adding datasets to the metadata will add a message reading `Datasets used to train:` to your model card and link the relevant datasets, if they're available on the Hub.
+
+Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages.
+
+
 ### Adding metadata to your model card
 
 There are a few different ways to add metadata to your model card including:
@@ -68,13 +77,6 @@ metrics:
 base_model: "base model Hub identifier"
 ---
 ```
-
-The metadata that you add to the model card enables certain interactions on the Hub. For example:
-* Allow users to filter and discover models at https://huggingface.co/models.
-* If you choose a license using the keywords listed in the right column of [this table](./repositories-licenses), the license will be displayed on the model page.
-* Adding datasets to the metadata will add a message reading `Datasets used to train:` to your model card and link the relevant datasets, if they're available on the Hub.
-
-Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages and in the [`datasets`](https://github.com/huggingface/datasets) repository.
 
 You can find the detailed model card metadata specification [here](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
 
