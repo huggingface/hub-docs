@@ -76,7 +76,7 @@ If it's not specified, the Hub will try to automatically detect the library type
 
 ### Specifying a base model
 
-If your model is a fine-tuned version of a base model, you can specify the base model in the model card metadata section:
+If your model is a fine-tune or adapter of a base model, you can specify the base model in the model card metadata section:
 
 ```yaml
 base_model: HuggingFaceH4/zephyr-7b-beta
