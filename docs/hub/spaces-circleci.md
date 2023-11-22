@@ -23,7 +23,7 @@ Next, set up a [CircleCI workflow](https://circleci.com/docs/workflows/) to push
 In the example below:
 
 * Replace `HF_USERNAME` with your username and `SPACE_NAME` with your Space name. 
-* [Create a context in CircleCI](https://circleci.com/docs/contexts/) and add an env variable into it called *HF_PERSONAL_TOKEN* (you can give it any name, use the key you create in place of HF_PERSONAL_TOKEN) and the value as your Hugging Face API token. You can find your Hugging Face API token under **API Tokens** on your Hugging Face profile.
+* [Create a context in CircleCI](https://circleci.com/docs/contexts/) and add an env variable into it called *HF_PERSONAL_TOKEN* (you can give it any name, use the key you create in place of HF_PERSONAL_TOKEN) and the value as your Hugging Face API token. You can find your Hugging Face API token under **API Tokens** on [your Hugging Face profile](https://huggingface.co/settings/tokens).
 
 ```yaml
 version: 2.1
