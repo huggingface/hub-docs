@@ -54,7 +54,7 @@ See the detailed model card metadata specification [here](https://github.com/hug
 
 ### Specifying a library
 
-You can also specify the supported libraries in the model card metadata section. Find more about our supported libraries [here](./models-libraries). The library can be specified with the following order of priority
+You can also specify the supported libraries in the model card metadata section. Find more about our supported libraries [here](./models-libraries). The library can be specified in the following order of priority
 
 1. Specifying `library_name` in the model card (recommended if your model is not a `transformers` model)
 
