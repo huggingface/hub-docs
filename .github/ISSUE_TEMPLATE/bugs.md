@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-**This repository is focused on the Hub experience and documentation. If you're facing an issue with a specific library, please open an issue in the corresponding repo**
+**This repository is focused on the Hub experience and documentation. If you're facing an issue with a specific library, please open an issue in the corresponding GitHub repo. If you're facing an issue with a specific model or dataset, please open an issue in the corresponding HF repo.**
 
 
 **Bug description.**
