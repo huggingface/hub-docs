@@ -47,8 +47,8 @@ You can add metadata to your model card using the metadata UI. To access the met
 
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/548b926bfb572ec93b798548a64755e6e68a495a/hub/metadata-ui-editor.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/548b926bfb572ec93b798548a64755e6e68a495a/hub/metadata-ui-editor-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/metadata-ui-editor.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/metadata-ui-editor-dark.png"/>
 </div>
 
 This UI will allow you to add key metadata to your model card and many of the fields will autocomplete based on the information you provide. Using the UI is the easiest way to add metadata to your model card, but it doesn't support all of the metadata fields. If you want to add metadata that isn't supported by the UI, you can edit the YAML section of the `README.md` file directly.
