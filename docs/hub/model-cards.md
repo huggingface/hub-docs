@@ -204,7 +204,7 @@ Each model page lists all the model's tags in the page header, below the model n
 
 ### Can I add custom tags to my model?
 
-Yes, you can add custom tags to your model by adding them to the `tags` field in the model card metadata. The metadata UI will suggest some popular tags, but you can add any tag you want.
+Yes, you can add custom tags to your model by adding them to the `tags` field in the model card metadata. The metadata UI will suggest some popular tags, but you can add any tag you want. For example, you could indicate that your model is focused on finance by adding a `finance` tag.
 
 ### How can I indicate that my model is not suitable for all audiences
 
