@@ -52,6 +52,10 @@ _Provide basic details about the model. This includes the architecture, version,
 _List (and ideally link to) the people who built the model._
 
 
+* **Funded by:** `funded_by`
+  
+_List (and ideally link to)  the funding sources that financially, computationally, or otherwise supported  or enabled this model._
+
 
 * **Shared by [optional]:** `shared_by`
 
