@@ -206,6 +206,10 @@ Each model page lists all the model's tags in the page header, below the model n
 
 Yes, you can add custom tags to your model by adding them to the `tags` field in the model card metadata. The metadata UI will suggest some popular tags, but you can add any tag you want.
 
+### How can I indicate that my model is not suitable for all audiences
+
+You can add a `not-for-all-audience` tag to your model card metadata. When this tag is present, a message will be displayed on the model page indicating that the model is not for all audiences. Users can click through this message to view the model card. 
+
 ### Can I write LaTeX in my model card?
 
 Yes! The Hub uses the [KaTeX](https://katex.org/) math typesetting library to render math formulas server-side before parsing the Markdown.
