@@ -75,6 +75,8 @@
         title: Keras
       - local: ml-agents
         title: ML-Agents
+      - local: openclip
+        title: OpenCLIP
       - local: paddlenlp
         title: PaddleNLP
       - local: rl-baselines3-zoo
