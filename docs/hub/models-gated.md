@@ -25,8 +25,8 @@ By default, access to the model is automatically granted to the user when reques
 </div>
 
 If you want to manually approve which users can access your model, you must set it to **manual approval**. When this is the case, you will notice more options:
-- **Add access** allows you to search for a user and grant them access even if they did not requested it.
-- **Notification frequency** let you configure when to get notified if new users request access. It can be set to once a day or real-time. By default, an email is sent to your primary email address. You can set a different email address in the **Notifications email** field. For models hosted under an organization, emails are sent to the first 5 admins of the organization.
+- **Add access** allows you to search for a user and grant them access even if they did not request it.
+- **Notification frequency** lets you configure when to get notified if new users request access. It can be set to once a day or real-time. By default, an email is sent to your primary email address. You can set a different email address in the **Notifications email** field. For models hosted under an organization, emails are sent to the first 5 admins of the organization.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-manual-approval.png"/>
@@ -39,9 +39,9 @@ Once access requests are enabled, you have full control of who can have access t
 
 ### From the UI
 
-You can review who have access to your gated model from its setting page by clicking on the **Review access requests** button. This will open a modal with 3 lists of users:
+You can review who has access to your gated model from its settings page by clicking on the **Review access requests** button. This will open a modal with 3 lists of users:
 - **pending**: the list of users that are waiting for an approval to access your model. This list is empty unless you've selected **manual approval**. You can either "Accept" or "Reject" the demand. If the demand is rejected, the user cannot access your model and cannot request access again.
-- **accepted**: the complete list of users that have access to your model. You can chose to "Reject" the access at any time for any user, no matter if the approval mode is manual or automatic. You can also "Cancel" the approval which will move the user to the *pending* list.
+- **accepted**: the complete list of users that have access to your model. You can choose to "Reject" the access at any time for any user, no matter if the approval mode is manual or automatic. You can also "Cancel" the approval, which will move the user to the *pending* list.
 - **rejected**: the list of users that you've manually rejected. Those users cannot access your models. If they go to your model repository, they will see a message *Your request to access this repo has been rejected by the repo's authors.*.
 
 <div class="flex justify-center">
@@ -114,7 +114,7 @@ extra_gated_button_content: "Acknowledge license"
 
 ### Request access
 
-As a user, if you want to use a gated model, you will need to request access to it. This mean that only registered users can access gated models.
+As a user, if you want to use a gated model, you will need to request access to it. This means that only registered users can access gated models.
 
 Requesting access can only be done from your browser. Go to the model on the Hub and you will be prompted to share your information:
 
@@ -123,7 +123,7 @@ Requesting access can only be done from your browser. Go to the model on the Hub
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side-dark.png"/>
 </div>
 
-By clicking on `Agree`, you agree to share your username and email address to the model authors. In some cases, additional fields might be requested. Try to fill the form as accurately as possible to help the model authors decide on whether they grant you the access or not.
+By clicking on `Agree`, you agree to share your username and email address with the model authors. In some cases, additional fields might be requested. Try to fill the form as accurately as possible to help the model authors decide whether they grant you access or not.
 
 Once the access request is sent, there are two possibilities. If the approval mechanism is automatic, you immediately get access to the model files. Otherwise, the requests have to be approved manually by the authors, which can take more time. 
 
@@ -131,7 +131,7 @@ Once the access request is sent, there are two possibilities. If the approval me
 
 ### Download files
 
-To download files from a gated model you'll need to be authenticated. In the browser, this is automatic as long as you are logged in with your account. If you are using a script, you will need to provide a [user token](./security-tokens). In the Python ecosystem (`transformers`, `diffusers`, `datasets`, etc.), you can login your machine using the [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub/index) library and running in your terminal:
+To download files from a gated model you'll need to be authenticated. In the browser, this is automatic as long as you are logged in with your account. If you are using a script, you will need to provide a [user token](./security-tokens). In the Hugging Face Python ecosystem (`transformers`, `diffusers`, `datasets`, etc.), you can login your machine using the [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub/index) library and running in your terminal:
 
 ```bash
 huggingface-cli login
@@ -144,6 +144,6 @@ Alternatively, you can programmatically login using `login()` in a notebook or a
 >>> login()
 ```
 
-Finally, you can also provide the `token` parameter to any method of the Hugging Face ecosystem (`from_pretrained`, `hf_hub_download`, `load_dataset`, etc.) directly from your scripts.
+You can also provide the `token` parameter to most loading methods in the libraries (`from_pretrained`, `hf_hub_download`, `load_dataset`, etc.), directly from your scripts.
 
 For more details about how to login, check out the [login guide](https://huggingface.co/docs/huggingface_hub/quick-start#login).
