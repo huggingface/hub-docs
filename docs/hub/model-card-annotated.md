@@ -158,7 +158,7 @@ _Write 1-2 sentences on what the training data is. Ideally this links to a Datas
 
 ## Training Procedure [optional]
 
-_When you want to know what hardware you'll need to fine-tune a model, consider the following factors: the number of parameters in the model and the training regime you plan to use._
+_When you want to know what hardware you'll need to train or fine-tune a model, consider the following factors: the number of parameters in the model and the training regime you plan to use._
 
 _e.g A model with 3B parameters and fp32 precision format needs at least 48GB of GPU memory, while bf16 requires at least 24GB of memory with Amphere or higher hardware. Mixed pf16 requires at least 54GB of GPU memory._
 
