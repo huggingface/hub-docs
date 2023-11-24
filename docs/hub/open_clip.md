@@ -6,7 +6,7 @@
 
 You can find OpenCLIP models by filtering at the left of the [models page](https://huggingface.co/models?library=open_clip&sort=trending).
 
-OpenCLIP models hosted on the Hub have a model card with useful information about the models. Thanks to OpenCLIP Hugging Face Hub integration, you can load OpenCLIP models with few lines of code from the Hub. You can also launch these models using [Inference Endpoints](https://huggingface.co/inference-endpoints).
+OpenCLIP models hosted on the Hub have a model card with useful information about the models. Thanks to OpenCLIP Hugging Face Hub integration, you can load OpenCLIP models with a few lines of code. You can also deploy these models using [Inference Endpoints](https://huggingface.co/inference-endpoints).
 
 
 ## Installation
