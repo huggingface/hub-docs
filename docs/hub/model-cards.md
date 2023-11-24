@@ -78,7 +78,7 @@ base_model: "base model Hub identifier"
 ---
 ```
 
-You can find the detailed model card metadata specification [here](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
+You can find the detailed model card metadata specification <a href="https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1" target="_blank">here</a>.
 
 ### Specifying a library
 
