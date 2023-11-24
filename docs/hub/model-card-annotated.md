@@ -174,7 +174,7 @@ _Detail tokenization, resizing/rewriting (depending on the modality), etc._
 
 * **Training regime:** training_regime`
   
-_Detail the model training process, specifically the type of precision used - whether it is **fp32/fp16/bf16** - and whether it is **mixed or non-mixed precision**?_
+_Detail the model training process, specifically the type of precision used - whether it is **fp32/fp16/bf16** - and whether it is **mixed or non-mixed precision**_
 
 ### Speeds, Sizes, Times
 
