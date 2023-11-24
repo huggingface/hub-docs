@@ -29,7 +29,7 @@ model, preprocess = open_clip.create_model_from_pretrained('hf-hub:laion/CLIP-Vi
 tokenizer = open_clip.get_tokenizer('hf-hub:laion/CLIP-ViT-g-14-laion2B-s12B-b42K')
 ```
 
-Once loaded, you can encode the image and text to do zero-shot classification:
+Once loaded, you can encode the image and text to do [zero-shot image classification](https://huggingface.co/tasks/zero-shot-image-classification):
 
 ```py
 import torch
