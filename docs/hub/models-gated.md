@@ -1,12 +1,12 @@
 # Gated models
 
-To give more control over how models are used, the Hub allows model authors to enable **access requests** for their models. When enabled, users have to agree to share their contact information (username and email address) with the model authors to access the model files. Model authors can configure this request with additional fields. A model with Access requests enabled is called a **Gated model**. Access requests are always granted to individual users and not to entire organizations. A common use case of gated models is to provide access to early research models before the wider release.
+To give more control over how models are used, the Hub allows model authors to enable **access requests** for their models. When enabled, users have to agree to share their contact information (username and email address) with the model authors to access the model files. Model authors can configure this request with additional fields. A model with access requests enabled is called a **Gated model**. Access requests are always granted to individual users and not to entire organizations. A common use case of gated models is to provide access to early research models before the wider release.
 
 ## Manage gated models as a model author
 
 ### Configure access control
 
-To enable Access requests, go to the model settings page. By default the model is not gated. Click on "Enable Access request" on the top-right corner.
+To enable access requests, go to the model settings page. By default the model is not gated. Click on "Enable Access request" on the top-right corner.
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-disabled.png)
 
@@ -22,7 +22,7 @@ If you want to manually approve which users can access your model, you must set 
 
 ### Review access requests
 
-Once Access request is enabled, you have full control of who can have access to your model or not, no matter if the approval mode is set to manual or automatic. You can review and manage requests either from the UI or via the API.
+Once access requests are enabled, you have full control of who can have access to your model or not, no matter if the approval mode is set to manual or automatic. You can review and manage requests either from the UI or via the API.
 
 ### From the UI
 
@@ -51,7 +51,7 @@ Those endpoints are not officially supported in `huggingface_hub` or `huggingfac
 
 ### Download access report
 
-You can download a report of all Access requests for a gated model with the **download user access report** button. Click on it to download a json file with a list of users. For each entry, you have:
+You can download a report of all access requests for a gated model with the **download user access report** button. Click on it to download a json file with a list of users. For each entry, you have:
 - **user**: the user id. Example: *julien-c*.
 - **fullname**: name of the user on the Hub. Example: *Julien Chaumond*.
 - **status**: status of the request. Either `"pending"`, `"accepted"` or `"rejected"`.
