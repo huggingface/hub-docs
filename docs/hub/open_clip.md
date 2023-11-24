@@ -60,9 +60,14 @@ Label probs: tensor([[0.0020, 0.0034, 0.9946]])
 If you want to load a specific OpenCLIP model, you can click `Use in OpenCLIP` in the model card and you will be given a working snippet!
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/openclip_repo.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/openclip_repo_light.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/openclip_repo.png"/>
+</div>
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/openclip_snippet_light.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/openclip_snippet.png"/>
 </div>
+
 
 ## Additional resources
 
