@@ -1,6 +1,6 @@
 # Gated models
 
-To give more control over how models are used, the Hub allows model authors to enable **Access requests** for their models. When enabled, users have to agree to share their contact information (username and email address) with the model authors to access the model files. A model with Access requests enabled is called a **Gated model**. Access requests are always granted to individual users and not to entire organization.
+To give more control over how models are used, the Hub allows model authors to enable **access requests** for their models. When enabled, users have to agree to share their contact information (username and email address) with the model authors to access the model files. Model authors can configure this request with additional fields. A model with Access requests enabled is called a **Gated model**. Access requests are always granted to individual users and not to entire organizations. A common use case of gated models is to provide access to early research models before the wider release.
 
 ## Manage gated models as a model author
 
@@ -64,7 +64,7 @@ By default, users landing on your gated model will be asked to share their conta
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side.png)
 
-If you want to get more information, you can configure additional fields for the user to fill. These information will be accessible from the settings tab to take the decision on whether or not to grant access. To do so, you should add a `extra_gated_fields` property to your [modelcard metadata](./model-cards#model-card-metadata) containing a list of key/value pairs. The *key* is the name of the field and *value* its type. A field can be either `text` (free text area) or `checkbox`. Finally, you can also personalize the message displayed to the user with the `extra_gated_prompt` extra field.
+If you want users to provide more information, you can configure additional fields for the user to fill. This information will be accessible from the settings tab to make the decision on whether or not to grant access. To do so, you should add an `extra_gated_fields` property to your [model card metadata](./model-cards#model-card-metadata) containing a list of key/value pairs. The *key* is the name of the field and *value* its type. A field can be either `text` (free text area) or `checkbox`. Finally, you can also personalize the message displayed to the user with the `extra_gated_prompt` extra field.
 
 Here is an example of customized request form where the user is asked to provide their company name and country and acknowledge that the model is for non-commercial use only.
 
@@ -101,7 +101,7 @@ Requesting access can only be done from your browser. Go to the model on the Hub
 
 By clicking on `Agree`, you agree to share your username and email address to the model authors. In some cases, additional fields might be requested. Try to fill the form as accurately as possible to help the model authors decide on whether they grant you the access or not.
 
-Once the access request is sent, there are two possibilities. If the approval mechanism is automatic and you immediately get access to the model files. Otherwise, the requests have to be approved manually by the authors which can take more time. 
+Once the access request is sent, there are two possibilities. If the approval mechanism is automatic, you immediately get access to the model files. Otherwise, the requests have to be approved manually by the authors, which can take more time. 
 
 **Note:** the model authors have full control on their model. In particular, they can decide at any time to block your access to the model without prior notice, no matter the approval mechanism or if your request has already being approved.
 
