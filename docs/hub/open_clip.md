@@ -1,6 +1,6 @@
 # Using OpenCLIP at Hugging Face
 
-[OpenCLIP](https://github.com/mlfoundations/open_clip) is the open-source library built to reproduce OpenAI's CLIP.
+[OpenCLIP](https://github.com/mlfoundations/open_clip) is an open-source implementation of OpenAI's CLIP.
 
 ## Exploring OpenCLIP on the Hub
 
