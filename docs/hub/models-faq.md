@@ -2,7 +2,7 @@
 
 ## How can I see what dataset was used to train the model?
 
-It's up to the person who uploaded the model to include the training information! You may find the information about the datasets that the model was trained on in the model card. If the datasets used for the model are on the Hub, the uploader may have included them in the [model card's metadata](https://huggingface.co/Jiva/xlm-roberta-large-it-mnli/blob/main/README.md#L7-L9). In that case, the datasets would be linked with a handy card on the right side of the model page:
+It's up to the person who uploaded the model to include the training information! A user can [specify](./model-cards#specifying-a-dataset) the dataset used for training a model. If the datasets used for the model are on the Hub, the uploader may have included them in the [model card's metadata](https://huggingface.co/Jiva/xlm-roberta-large-it-mnli/blob/main/README.md#L7-L9). In that case, the datasets would be linked with a handy card on the right side of the model page:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-datasets.png"/>
