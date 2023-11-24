@@ -1,6 +1,6 @@
 # Using PEFT at Hugging Face
 
-🤗 [Parameter-Efficient Fine-Tuning (PEFT)](https://huggingface.co/docs/peft/index), is a library for efficiently adapting pre-trained language models to various downstream applications without fine-tuning all the model’s parameters. 
+🤗 [Parameter-Efficient Fine-Tuning (PEFT)](https://huggingface.co/docs/peft/index) is a library for efficiently adapting pre-trained language models to various downstream applications without fine-tuning all the model’s parameters. 
 
 ## Exploring PEFT on the Hub
 
