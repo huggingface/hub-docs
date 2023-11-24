@@ -8,17 +8,27 @@ To give more control over how models are used, the Hub allows model authors to e
 
 To enable access requests, go to the model settings page. By default the model is not gated. Click on "Enable Access request" on the top-right corner.
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-disabled.png)
+
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-disabled.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-disabled-dark.png"/>
+</div>
 
 By default, access to the model is automatically granted to the user when requesting it. This is referred to as **automatic approval**. In this mode, any user can access your model once they've shared their personal information with you.
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-enabled.png)
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-enabled.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-enabled-dark.png"/>
+</div>
 
 If you want to manually approve which users can access your model, you must set it to **manual approval**. When this is the case, you will notice more options:
 - **Add access** allows you to search for a user and grant them access even if they did not requested it.
 - **Notification frequency** let you configure when to get notified if new users request access. It can be set to once a day or real-time. By default, an email is sent to your primary email address. You can set a different email address in the **Notifications email** field. For models hosted under an organization, emails are sent to the first 5 admins of the organization.
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-manual-approval.png)
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-manual-approval.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-manual-approval-dark.png"/>
+</div>
 
 ### Review access requests
 
@@ -31,7 +41,10 @@ You can review who have access to your gated model from its setting page by clic
 - **accepted**: the complete list of users that have access to your model. You can chose to "Reject" the access at any time for any user, no matter if the approval mode is manual or automatic. You can also "Cancel" the approval which will move the user to the *pending* list.
 - **rejected**: the list of users that you've manually rejected. Those users cannot access your models. If they go to your model repository, they will see a message *Your request to access this repo has been rejected by the repo's authors.*.
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-enabled-pending-users.png)
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-enabled-pending-users.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-enabled-pending-users-dark.png"/>
+</div>
 
 #### Via the API
 
@@ -62,7 +75,10 @@ You can download a report of all access requests for a gated model with the **do
 
 By default, users landing on your gated model will be asked to share their contact information (email and username) by clicking on the `Agree and send request to access repo` button.
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side.png)
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side-dark.png"/>
+</div>
 
 If you want users to provide more information, you can configure additional fields for the user to fill. This information will be accessible from the settings tab to make the decision on whether or not to grant access. To do so, you should add an `extra_gated_fields` property to your [model card metadata](./model-cards#model-card-metadata) containing a list of key/value pairs. The *key* is the name of the field and *value* its type. A field can be either `text` (free text area) or `checkbox`. Finally, you can also personalize the message displayed to the user with the `extra_gated_prompt` extra field.
 
@@ -97,7 +113,10 @@ As a user, if you want to use a gated model, you will need to request access to 
 
 Requesting access can only be done from your browser. Go to the model on the Hub and you will be prompted to share your information:
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side.png)
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side-dark.png"/>
+</div>
 
 By clicking on `Agree`, you agree to share your username and email address to the model authors. In some cases, additional fields might be requested. Try to fill the form as accurately as possible to help the model authors decide on whether they grant you the access or not.
 
