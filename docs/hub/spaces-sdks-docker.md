@@ -23,7 +23,8 @@ If you want to expose apps served on multiple ports to the outside world, a work
 
 ## Secrets and Variables Management
  <a id="secret-management"></a>
-You can manage a Space's environment variables in the Space Settings. Read more [here](./spaces-overview#managing-the-environment).
+
+You can manage a Space's environment variables in the Space Settings. Read more [here](./spaces-overview#managing-secrets).
 
 ### Variables
 
