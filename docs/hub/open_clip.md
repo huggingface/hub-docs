@@ -37,7 +37,7 @@ from PIL import Image
 
 url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
 image = Image.open(requests.get(url, stream=True).raw)
-image = preprocess_train(image).unsqueeze(0)
+image = preprocess(image).unsqueeze(0)
 text = tokenizer(["a diagram", "a dog", "a cat"])
 
 with torch.no_grad(), torch.cuda.amp.autocast():
