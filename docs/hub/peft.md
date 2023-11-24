@@ -24,10 +24,12 @@ All PEFT models can be loaded from Hub. Loading PEFT models require loading base
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel, PeftConfig
 
-config = PeftConfig.from_pretrained("dfurman/Mistral-7B-Instruct-v0.2")
-model = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-v0.1")
-model = PeftModel.from_pretrained(model, "dfurman/Mistral-7B-Instruct-v0.2")
-tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
+base_model = "mistralai/Mistral-7B-v0.1"
+adapter_model = "dfurman/Mistral-7B-Instruct-v0.2"
+
+model = AutoModelForCausalLM.from_pretrained(base_model)
+model = PeftModel.from_pretrained(model, adapter_model)
+tokenizer = AutoTokenizer.from_pretrained(base_model)
 
 model = model.to("cuda")
 model.eval()
