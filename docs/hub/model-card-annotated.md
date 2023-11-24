@@ -223,7 +223,7 @@ _What do the results say? This can function as a kind of tl;dr for general audie
 
 **Section Overview:** Summarizes the information necessary to calculate environmental impacts such as electricity usage and carbon emissions.
 
-* **Hardware Type:** `hardware`
+* **Hardware Type:** `hardware_type`
 * **Hours used:** `hours_used`
 * **Cloud Provider:** `cloud_provider`
 * **Compute Region:** `cloud_region`
@@ -247,7 +247,9 @@ _Carbon emissions can be estimated using the [Machine Learning Impact calculator
 
 ### Hardware
 
-`hardware`
+`hardware_requirements`
+
+_What are the minimum hardware requirements, e.g. processing, storage, and memory requirements?_
 
 ### Software
 
