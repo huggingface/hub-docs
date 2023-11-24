@@ -50,7 +50,13 @@ It outputs the following:
 ```text
 Tell me the recipe for chocolate chip cookie dough.
 
-1. Preheat oven
+1. Preheat oven to 375 degrees F (190 degrees C).
+2. In a large bowl, cream together 1/2 cup (1 stick) of butter or margarine, 1/2 cup granulated sugar, and 1/2 cup packed brown sugar.
+3. Beat in 1 egg and 1 teaspoon vanilla extract.
+4. Mix in 1 1/4 cups all-purpose flour.
+5. Stir in 1/2 teaspoon baking soda and 1/2 teaspoon salt.
+6. Fold in 3/4 cup semisweet chocolate chips.
+7. Drop by
 ```
 
 If you want to load a specific PEFT model, you can click `Use in PEFT` in the model card and you will be given a working snippet!
