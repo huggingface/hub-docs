@@ -21,6 +21,9 @@ By default, access to the model is automatically granted to the user when reques
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-enabled-dark.png"/>
 </div>
 
+<a id="manual-approval"></a> <!-- backward compatible anchor -->
+<a id="notifications-settings"></a> <!-- backward compatible anchor -->
+
 If you want to manually approve which users can access your model, you must set it to **manual approval**. When this is the case, you will notice more options:
 - **Add access** allows you to search for a user and grant them access even if they did not requested it.
 - **Notification frequency** let you configure when to get notified if new users request access. It can be set to once a day or real-time. By default, an email is sent to your primary email address. You can set a different email address in the **Notifications email** field. For models hosted under an organization, emails are sent to the first 5 admins of the organization.
@@ -72,6 +75,8 @@ You can download a report of all access requests for a gated model with the **do
 - **time**: datetime when the user initially made the request.
 
 ### Customize requested information
+
+<a id="modifying-the-prompt"></a> <!-- backward compatible anchor -->
 
 By default, users landing on your gated model will be asked to share their contact information (email and username) by clicking on the `Agree and send request to access repo` button.
 
