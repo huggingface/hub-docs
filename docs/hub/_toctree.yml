@@ -77,6 +77,8 @@
         title: ML-Agents
       - local: paddlenlp
         title: PaddleNLP
+      - local: peft
+        title: peft
       - local: rl-baselines3-zoo
         title: RL-Baselines3-Zoo
       - local: sample-factory
