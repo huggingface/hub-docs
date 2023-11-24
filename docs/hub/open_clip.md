@@ -51,7 +51,7 @@ with torch.no_grad(), torch.cuda.amp.autocast():
 print("Label probs:", text_probs) 
 ```
 
-It outputs the following:
+It outputs the probability of each possible class:
 
 ```text
 Label probs: tensor([[0.0020, 0.0034, 0.9946]])
