@@ -4,6 +4,9 @@ To give more control over how models are used, the Hub allows model authors to e
 
 ## Manage gated models as a model author
 
+<a id="manual-approval"></a> <!-- backward compatible anchor -->
+<a id="notifications-settings"></a> <!-- backward compatible anchor -->
+
 ### Configure access control
 
 To enable access requests, go to the model settings page. By default the model is not gated. Click on "Enable Access request" on the top-right corner.
@@ -20,9 +23,6 @@ By default, access to the model is automatically granted to the user when reques
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-enabled.png"/>
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-enabled-dark.png"/>
 </div>
-
-<a id="manual-approval"></a> <!-- backward compatible anchor -->
-<a id="notifications-settings"></a> <!-- backward compatible anchor -->
 
 If you want to manually approve which users can access your model, you must set it to **manual approval**. When this is the case, you will notice more options:
 - **Add access** allows you to search for a user and grant them access even if they did not requested it.
@@ -74,9 +74,9 @@ You can download a report of all access requests for a gated model with the **do
 - **email**: email of the user.
 - **time**: datetime when the user initially made the request.
 
-### Customize requested information
-
 <a id="modifying-the-prompt"></a> <!-- backward compatible anchor -->
+
+### Customize requested information
 
 By default, users landing on your gated model will be asked to share their contact information (email and username) by clicking on the `Agree and send request to access repo` button.
 
