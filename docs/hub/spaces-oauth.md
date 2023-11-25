@@ -61,7 +61,7 @@ You can add a custom relative redirect path by setting `hf_oauth_redirect_path` 
 
 ## Scopes
 
-The following scopes are always in included for spaces:
+The following scopes are always in included for Spaces:
 
 - `openid`: Get the ID token in addition to the access token.
 - `profile`: Get the user's profile information (username, avatar, etc.)
