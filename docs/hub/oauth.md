@@ -34,7 +34,7 @@ The currently supported scopes are:
 - `read-repos`: Get read access to a user's personal repos.
 - `write-repos`: Get write access to a user's personal repos. Does not grant read access on its own, you need to include `read-repos` as well.
 - `manage-repos`: Get access to a repo's settings. Also grants repo creation and deletion.
-- `inference-api`: Get access to the inference API, you will be able to make inference requests on behalf of the user.
+- `inference-api`: Get access to the [Inference API](https://huggingface.co/docs/api-inference/index), you will be able to make inference requests on behalf of the user.
 
 All other information is available in the [OpenID metadata](https://huggingface.co/.well-known/openid-configuration).
 
