@@ -74,6 +74,9 @@ Whether a connected OAuth app is associated to this Space. See [Adding a Sign-In
 **`hf_oauth_redirect_path`** : _string_  
 Authorized relative redirect path of the connected OAuth app. `/login/callback` and `/auth/callback` are authorized by default and do not need this parameter. See [Adding a Sign-In with HF button to your space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
 
+**`hf_oauth_scopes`** : _string_
+Authorized scopes of the connected OAuth app. `openid profile` are authorized by default and do not need this parameter. See [Adding a Sign-In with HF button to your space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
+
 **`disable_embedding`** : _boolean_  
 Whether the Space iframe can be embedded in other websites.
 Defaults to false, i.e. Spaces *can* be embedded.
