@@ -86,7 +86,7 @@ widget:
   - src: nested/directory/sample1.flac
 ```
 
-We provide example inputs for some languages and most widget types in [the DefaultWidget.ts file](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/DefaultWidget.ts). If some examples are missing, we welcome PRs from the community to add them!
+We provide example inputs for some languages and most widget types in [the DefaultWidget.ts file](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/default-widget-inputs.ts). If some examples are missing, we welcome PRs from the community to add them!
 
 ## Example outputs
 
@@ -152,7 +152,7 @@ We can also surface the example outputs in the Hugging Face UI, for instance, fo
 
 ## What are all the possible task/widget types?
 
-You can find all the supported tasks [here](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Types.ts).
+You can find all the supported tasks [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/pipelines.ts).
 
 Here are some links to examples:
 

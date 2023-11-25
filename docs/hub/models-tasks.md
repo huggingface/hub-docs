@@ -69,20 +69,18 @@ The Hub allows users to filter models by a given task. To do this, you need to a
 
 1. Add the task type to `Types.ts`
 
-In [interfaces/Types.ts](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Types.ts), you need to do a couple of things
+In [huggingface.js/packages/tasks/src/pipelines.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/pipelines.ts), you need to do a couple of things
 
 * Add the type to `PIPELINE_DATA`. Note that pipeline types are sorted into different categories (NLP, Audio, Computer Vision, and others).
-* You will also need to fill minor changes in the following files:
-    1. [tasks/src/const.ts](https://github.com/huggingface/hub-docs/blob/main/tasks/src/const.ts)
-    2. [tasks/src/tasksData.ts](https://github.com/huggingface/hub-docs/blob/main/tasks/src/tasksData.ts)
+* You will also need to fill minor changes in [huggingface.js/packages/tasks/src/tasks/index.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/tasks/index.ts)
 
 2. Choose an icon
 
-You can add an icon in the [lib/Icons](https://github.com/huggingface/hub-docs/tree/main/js/src/lib/components/Icons) directory. We usually choose carbon icons from https://icones.js.org/collection/carbon. Also add the icon to [PipelineIcon](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/components/PipelineIcon/PipelineIcon.svelte).
+You can add an icon in the [lib/Icons](https://github.com/huggingface/huggingface.js/tree/main/packages/widgets/src/lib/components/Icons) directory. We usually choose carbon icons from https://icones.js.org/collection/carbon. Also add the icon to [PipelineIcon](https://github.com/huggingface/huggingface.js/blob/main/packages/widgets/src/lib/components/PipelineIcon/PipelineIcon.svelte).
 
 
 ### Widget
 
-Once the task is in production, what could be more exciting than implementing some way for users to play directly with the models in their browser? 🤩 You can find all the widgets [here](https://huggingface-widgets.netlify.app/). 
+Once the task is in production, what could be more exciting than implementing some way for users to play directly with the models in their browser? 🤩 You can find all the widgets [here](https://huggingface.co/spaces/huggingfacejs/inference-widgets). 
 
-If you would be interested in contributing with a widget, you can look at the [implementation](https://github.com/huggingface/hub-docs/tree/main/js/src/lib/components/InferenceWidget/widgets) of all the widgets. You can also find WIP documentation on implementing a widget in https://github.com/huggingface/hub-docs/tree/main/js. 
+If you would be interested in contributing with a widget, you can look at the [implementation](https://github.com/huggingface/huggingface.js/tree/main/packages/widgets/src/lib/components/InferenceWidget/widgets) of all the widgets.
