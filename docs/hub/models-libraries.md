@@ -2,7 +2,7 @@
 
 The Hub has support for dozens of libraries in the Open Source ecosystem. Thanks to the `huggingface_hub` Python library, it's easy to enable sharing your models on the Hub. The Hub supports many libraries, and we're working on expanding this support! We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
 
-The table below summarizes the supported libraries and their level of integration. Find all our supported libraries [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts)! 
+The table below summarizes the supported libraries and their level of integration. Find all our supported libraries [model-libraries.ts file](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts)! 
 
 | Library                                                                     | Description                                                                          | Inference API | Widgets | Download from Hub | Push to Hub |
 |-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------|---|---:|---|---|
