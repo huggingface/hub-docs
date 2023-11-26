@@ -109,7 +109,7 @@ Run 🤗 Transformers training scripts on SageMaker by creating a [Hugging Face 
 
 1. `entry_point` specifies which fine-tuning script to use.
 2. `instance_type` specifies an Amazon instance to launch. Refer [here](https://aws.amazon.com/sagemaker/pricing/) for a complete list of instance types.
-3. `hyperparameters` specifies training hyperparameters. View additional available hyperparameters [train.py file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py).
+3. `hyperparameters` specifies training hyperparameters. View additional available hyperparameters in [train.py file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py).
 
 The following code sample shows how to train with a custom script `train.py` with three hyperparameters (`epochs`, `per_device_train_batch_size`, and `model_name_or_path`):
 
