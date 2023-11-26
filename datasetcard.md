@@ -110,4 +110,4 @@ train-eval-index:
 
 Valid license identifiers can be found in [our docs](https://huggingface.co/docs/hub/repositories-licenses).
 
-For the full dataset card template, see: [datasetcard_template.md](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/datasetcard_template.md).
+For the full dataset card template, see: [datasetcard_template.md file](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/datasetcard_template.md).
