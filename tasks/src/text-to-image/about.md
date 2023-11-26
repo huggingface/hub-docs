@@ -17,7 +17,7 @@ Architects can utilise the models to construct an environment based out on the r
 
 ## Task Variants
 
-You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/text-to-image/about.md).
+You can contribute variants of this task [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/tasks/text-to-image/about.md).
 
 
 ## Inference

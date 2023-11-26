@@ -26,7 +26,7 @@ size_categories:
 source_datasets:
 - {source_dataset_0}  # Example: wikipedia
 - {source_dataset_1}  # Example: laion/laion-2b
-task_categories:  # Full list at https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Types.ts
+task_categories:  # Full list at https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/pipelines.ts
 - {task_0}  # Example: question-answering
 - {task_1}  # Example: image-classification
 task_ids:

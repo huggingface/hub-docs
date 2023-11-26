@@ -22,7 +22,7 @@ Action recognition is the task of identifying when a person in an image/video is
 
 ## Task Variants 
 
-You can contribute variants of this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/zero-shot-image-classification/about.md).
+You can contribute variants of this task [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/tasks/zero-shot-image-classification/about.md).
 
 ## Inference
 
@@ -59,7 +59,7 @@ The highest probability is 0.995 for the label cat and dog
 
 ## Useful Resources
 
-You can contribute useful resources about this task [here](https://github.com/huggingface/hub-docs/blob/main/tasks/src/zero-shot-image-classification/about.md).
+You can contribute useful resources about this task [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/tasks/zero-shot-image-classification/about.md).
 
 Check out [Zero-shot image classification task guide](https://huggingface.co/docs/transformers/tasks/zero_shot_image_classification).
 
