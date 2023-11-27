@@ -73,3 +73,4 @@ If you want to load a specific OpenCLIP model, you can click `Use in OpenCLIP` i
 
 * OpenCLIP [repository](https://github.com/mlfoundations/open_clip)
 * OpenCLIP [docs](https://github.com/mlfoundations/open_clip/tree/main/docs)
+* OpenCLIP [models in the Hub](https://huggingface.co/models?library=open_clip&sort=trending)
