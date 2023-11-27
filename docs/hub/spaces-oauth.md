@@ -69,8 +69,8 @@ The following scopes are always included for Spaces:
 Those scopes are optional and can be added by setting `hf_oauth_scopes` in your Space's metadata:
 
 - `email`: Get the user's email address.
-- `read-repos`: Get read access to a user's personal repos.
-- `write-repos`: Get write access to a user's personal repos. Does not grant read access on its own, you need to include `read-repos` as well.
+- `read-repos`: Get read access to the user's personal repos.
+- `write-repos`: Get write access to the user's personal repos. Does not grant read access on its own, you need to include `read-repos` as well.
 - `manage-repos`: Get access to a repo's settings. Also grants repo creation and deletion.
 - `inference-api`: Get access to the [Inference API](https://huggingface.co/docs/api-inference/index), you will be able to make inference requests on behalf of the user.
 
