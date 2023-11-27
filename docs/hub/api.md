@@ -295,7 +295,7 @@ List collections from the Hub, based on some criteria. The supported parameters 
 - `item` (string): filter collections containing a specific item. Value must be the item_type and item_id concatenated. Example: `"models/teknium/OpenHermes-2.5-Mistral-7B"`, `"datasets/squad"` or `"papers/2311.12983"`.
 - `sort` (string): sort the returned collections. Supported values are `"lastModified"`, `"trending"` (default) and `"upvotes"`.
 - `limit` (int): maximum number (100) of collections per page.
-- `q` (string): Filter based on substrings for titles & description
+- `q` (string): filter based on substrings for titles & descriptions
 
 If no parameter is set, all collections are returned.
 
