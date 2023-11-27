@@ -114,7 +114,7 @@ extra_gated_button_content: "Acknowledge license"
 
 ### Request access
 
-As a user, if you want to use a gated model, you will need to request access to it. This means that only registered users can access gated models.
+As a user, if you want to use a gated model, you will need to request access to it. This means that you must be logged in to a Hugging Face user account to access gated models.
 
 Requesting access can only be done from your browser. Go to the model on the Hub and you will be prompted to share your information:
 
