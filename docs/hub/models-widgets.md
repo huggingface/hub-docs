@@ -86,7 +86,7 @@ widget:
   - src: nested/directory/sample1.flac
 ```
 
-We provide example inputs for some languages and most widget types in [the DefaultWidget.ts file](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/default-widget-inputs.ts). If some examples are missing, we welcome PRs from the community to add them!
+We provide example inputs for some languages and most widget types in [the default-widget-inputs.ts file](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/default-widget-inputs.ts). If some examples are missing, we welcome PRs from the community to add them!
 
 ## Example outputs
 
