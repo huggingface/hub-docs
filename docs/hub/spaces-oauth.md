@@ -34,6 +34,7 @@ app_file: app.py
 
 hf_oauth: true
 hf_oauth_redirect_path: /custom_callback_route # optional, see "Redirect URLs" below
+hf_oauth_scopes: "read-repos write-repos manage-repos inference-api" # optional, see "Scopes" below. "openid profile" is always included.
 ```
 
 You can check out the [configuration reference docs](./spaces-config-reference) for more information.
@@ -42,7 +43,7 @@ This will add the following [environment variables](https://huggingface.co/docs/
 
 - `OAUTH_CLIENT_ID`: the client ID of your OAuth app (public)
 - `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app
-- `OAUTH_SCOPES`: scopes accessible by your OAuth app. Currently, this is always `"openid profile"`.
+- `OAUTH_SCOPES`: scopes accessible by your OAuth app.
 - `OPENID_PROVIDER_URL`: The URL of the OpenID provider. The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration).
 
 As for any other environment variable, you can use them in your code by using `os.getenv("OAUTH_CLIENT_ID")`, for example.
@@ -60,12 +61,18 @@ You can add a custom relative redirect path by setting `hf_oauth_redirect_path` 
 
 ## Scopes
 
-The following scopes are available:
+The following scopes are always included for Spaces:
 
 - `openid`: Get the ID token in addition to the access token.
 - `profile`: Get the user's profile information (username, avatar, etc.)
 
-You should use `"openid profile"` as the scope for your OAuth app.
+Those scopes are optional and can be added by setting `hf_oauth_scopes` in your Space's metadata:
+
+- `email`: Get the user's email address.
+- `read-repos`: Get read access to the user's personal repos.
+- `write-repos`: Get write access to the user's personal repos. Does not grant read access on its own, you need to include `read-repos` as well.
+- `manage-repos`: Get access to a repo's settings. Also grants repo creation and deletion.
+- `inference-api`: Get access to the [Inference API](https://huggingface.co/docs/api-inference/index), you will be able to make inference requests on behalf of the user.
 
 ## Adding the button to your Space
 
