@@ -17,13 +17,12 @@
 	} from "../../shared/helpers";
 	import { isTextInput } from "../../shared/inputValidation";
 
-	interface EntityGroup {
-		entity_group: string;
+type EntityGroup = {
 		score: number;
 		word: string;
 		start?: number;
 		end?: number;
-	}
+	} & ({ entity_group: string; } | { entity: string; })
 
 	interface Span {
 		end: number;
@@ -133,7 +132,7 @@
 		return (
 			Array.isArray(arg) &&
 			arg.every(x => {
-				return typeof x.word === "string" && typeof x.entity_group === "string" && typeof x.score === "number";
+				return typeof x.word === "string" && (typeof x.entity_group === "string" || typeof x.entity === "string") && typeof x.score === "number";
 			})
 		);
 	}
@@ -178,7 +177,7 @@
 		// When the API returns start/end information
 		if (entityGroup.start && entityGroup.end) {
 			const span = {
-				type: entityGroup.entity_group,
+				type: 'entity_group' in entityGroup ? entityGroup.entity_group : entityGroup.entity,
 				start: entityGroup.start,
 				end: entityGroup.end,
 			};
@@ -197,7 +196,7 @@
 				break;
 			}
 			const span: Span = {
-				type: entityGroup.entity_group,
+				type: 'entity_group' in entityGroup ? entityGroup.entity_group : entityGroup.entity,
 				start: idx,
 				end: idx + needle.length,
 			};
@@ -218,7 +217,7 @@
 				break;
 			}
 			const span: Span = {
-				type: entityGroup.entity_group,
+				type: 'entity_group' in entityGroup ? entityGroup.entity_group : entityGroup.entity,
 				start: idx,
 				end: idx + needle.length,
 			};
