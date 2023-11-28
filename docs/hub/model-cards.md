@@ -152,33 +152,40 @@ If the license is not available via a URL you can link to a LICENSE stored in th
 
 ### Evaluation Results
 
-You can even specify your **model's eval results** in a structured way, which will allow the Hub to parse, display, and even link them to Papers With Code leaderboards. See how to format this data [in the metadata spec](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
+You can specify your **model's evaluation results** in a structured way in the model card metadata. Results are parsed by the Hub and displayed in a widget on the model page. Here is an example on how it looks like for the [bigcode/starcoder](https://huggingface.co/bigcode/starcoder) model:
 
-Here is a partial example (omitting the eval results part):
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results-v2.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results-v2-dark.png"/>
+</div>
+
+The metadata spec is based on Papers with code's [model-index](https://github.com/paperswithcode/model-index). This allow us to directly link the results to Papers with code's leaderboards when appropriate. You can also link the source from where the eval results has been computed.
+
+Here is a partial example to describe [01-ai/Yi-34B](https://huggingface.co/01-ai/Yi-34B)'s score on the ARC benchmark. The result comes from the [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) which is defined as the `source`:
+
 ```yaml
 ---
-language:
-- ru
-- en
-tags:
-- translation
-license: apache-2.0
-datasets:
-- wmt19
-metrics:
-- bleu
-- sacrebleu
+model-index:
+  - name: Yi-34B
+    results:
+      - task:
+          type: text-generation
+        dataset:
+          name: ai2_arc
+          type: ai2_arc
+        metrics:
+          - name: AI2 Reasoning Challenge (25-Shot)
+            type: AI2 Reasoning Challenge (25-Shot)
+            value: 64.59
+        source:
+          name: Open LLM Leaderboard
+          url: https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard
 ---
 ```
 
-If a model includes valid eval results, they will be displayed like this:
+For more details on how to format this data, check out the [metadata spec](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
 
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
-</div>
-
-### CO<sub>2</sub> Emissions
+### CO2 Emissions
 
 The model card is also a great place to show information about the CO<sub>2</sub> impact of your model. Visit our [guide on tracking and reporting CO<sub>2</sub> emissions](./model-cards-co2) to learn more.
 
