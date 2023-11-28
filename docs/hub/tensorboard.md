@@ -13,7 +13,7 @@ Over 52k repositories have TensorBoard traces on the Hub. You can find them by f
 
 ## Adding your TensorBoard traces
 
-THe Hub automatically detects TensorBoard traces (such as `tfevents`). Once you push your TensorBoard files to the Hub, they will automatically start an instance.
+The Hub automatically detects TensorBoard traces (such as `tfevents`). Once you push your TensorBoard files to the Hub, they will automatically start an instance.
 
 
 ## Additional resources
