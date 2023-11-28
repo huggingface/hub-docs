@@ -128,6 +128,8 @@ Once the access request is sent, there are two possibilities. If the approval me
 
 The model authors have complete control over model access. In particular, they can decide at any time to block your access to the model without prior notice, regardless of approval mechanism or if your request has already been approved.
 
+</Tip>
+
 ### Download files
 
 To download files from a gated model you'll need to be authenticated. In the browser, this is automatic as long as you are logged in with your account. If you are using a script, you will need to provide a [user token](./security-tokens). In the Hugging Face Python ecosystem (`transformers`, `diffusers`, `datasets`, etc.), you can login your machine using the [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub/index) library and running in your terminal:
