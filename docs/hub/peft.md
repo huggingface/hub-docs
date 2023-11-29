@@ -18,7 +18,7 @@ $ pip install peft
 
 ## Using existing models
 
-All PEFT models can be loaded from Hub. Loading PEFT models require loading base models that were fine-tuned, so we need to load the transformers model as well.
+All PEFT models can be loaded from the Hub. To use a PEFT model you also need to load the base model that was fine-tuned, as shown below.
 
 ```py
 from transformers import AutoModelForCausalLM, AutoTokenizer
