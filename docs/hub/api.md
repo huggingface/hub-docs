@@ -303,7 +303,7 @@ The response is paginated. To get all collections, you must follow the [`Link` h
 
 <Tip warning={true}>
 
-When listing collections, the items list per collection is truncated to 4 items maximum. To retrieve all items from a collection, you need to make an additional call using its collection slug.
+When listing collections, the item list per collection is truncated to 4 items maximum. To retrieve all items from a collection, you need to make an additional call using its collection slug.
 
 </Tip>
 
