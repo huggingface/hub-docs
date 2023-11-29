@@ -35,7 +35,7 @@ model = model.to("cuda")
 model.eval()
 ```
 
-Once loaded, you can pass inputs to tokenizer to prepare them, and call `model.generate()` in regular PyTorch fashion.
+Once loaded, you can pass your inputs to the tokenizer to prepare them, and call `model.generate()` in regular `transformers` fashion.
 
 ```py
 inputs = tokenizer("Tell me the recipe for chocolate chip cookie", return_tensors="pt")
