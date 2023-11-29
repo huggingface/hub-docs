@@ -93,4 +93,5 @@ You should use `target=_blank` on the button to open the sign-in page in a new t
 ## Examples:
 
 - [Gradio test app](https://huggingface.co/spaces/Wauplin/gradio-oauth-test)
-- [Hugging Chat (NodeJS/SvelteKit)](https://huggingface.co/spaces/coyotte508/chat-ui)
+- [Hugging Chat (NodeJS/SvelteKit)](https://huggingface.co/spaces/huggingchat/chat-ui)
+- [Inference Widgets (Auth.js/SvelteKit)](https://huggingface.co/spaces/huggingfacejs/inference-widgets), uses the `inference-api` scope to make inference requests on behalf of the user.
