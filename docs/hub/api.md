@@ -299,8 +299,13 @@ List collections from the Hub, based on some criteria. The supported parameters 
 
 If no parameter is set, all collections are returned.
 
-The returned result is paginated. To get all collections, you must follow the
 The response is paginated. To get all collections, you must follow the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header).
+
+<Tip warning={true}>
+
+When listing collections, the item list per collection is truncated to 4 items maximum. To retrieve all items from a collection, you need to make an additional call using its collection slug.
+
+</Tip>
 
 Payload:
 
