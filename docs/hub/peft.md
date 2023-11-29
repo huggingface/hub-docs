@@ -9,7 +9,7 @@ You can find PEFT models by filtering at the left of the [models page](https://h
 
 ## Installation
 
-To get started, you can check out the [Quick Tour of PEFT docs](https://huggingface.co/docs/peft/main/en/quicktour#quicktour). To install, follow the [PEFT installation guide](https://huggingface.co/docs/peft/install).
+To get started, you can check out the [Quick Tour in the PEFT docs](https://huggingface.co/docs/peft/quicktour). To install, follow the [PEFT installation guide](https://huggingface.co/docs/peft/install).
 You can also use the following one-line install through pip:
 
 ```
