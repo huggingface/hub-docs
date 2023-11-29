@@ -74,3 +74,4 @@ If you want to load a specific PEFT model, you can click `Use in PEFT` in the mo
 
 * PEFT [repository](https://github.com/huggingface/peft)
 * PEFT [docs](https://huggingface.co/docs/peft/index)
+* PEFT [models](https://huggingface.co/models?library=peft&sort=trending)
