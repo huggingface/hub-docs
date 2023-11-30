@@ -152,7 +152,7 @@ If the license is not available via a URL you can link to a LICENSE stored in th
 
 ### Evaluation Results
 
-You can even specify your **model's eval results** in a structured way, which will allow the Hub to parse, display, and even link them to Papers With Code leaderboards. See how to format this data [in the metadata spec](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
+You can even specify your **model's eval results** in a structured way, which will allow the Hub to parse, display, and even link them to Papers With Code leaderboards. See how to format this data in [Model Card specifications](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
 
 Here is a partial example (omitting the eval results part):
 ```yaml

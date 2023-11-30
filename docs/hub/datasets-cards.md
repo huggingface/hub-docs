@@ -37,7 +37,7 @@ When creating a README.md file in a dataset repository on the Hub, use Metadata 
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-metadata-ui-dark.png"/>
 </div>
 
-To see metadata fields, see the detailed dataset card metadata specification [here](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1).
+To see metadata fields, see the detailed [Dataset Card specifications](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1).
 
 ### Dataset card creation guide
 
