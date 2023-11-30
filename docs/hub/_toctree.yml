@@ -164,6 +164,8 @@
         title: File names and splits
       - local: datasets-manual-configuration
         title: Manual Configuration
+      - local: datasets-image
+        title: Image Dataset
 - local: spaces
   title: Spaces
   isExpanded: true
