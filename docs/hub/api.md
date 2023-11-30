@@ -313,7 +313,7 @@ Payload:
 params = {
     "owner": "TheBloke",
     "item": "models/teknium/OpenHermes-2.5-Mistral-7B",
-    "sort": "lastUpdated",
+    "sort": "lastModified",
     "limit" : 1,
 }
 ```
