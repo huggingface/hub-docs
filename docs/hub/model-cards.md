@@ -183,7 +183,7 @@ model-index:
 ---
 ```
 
-For more details on how to format this data, check out the [metadata spec](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
+For more details on how to format this data, check out the [Model Card specifications](https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1).
 
 ### CO2 Emissions
 

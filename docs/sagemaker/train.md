@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
 _Note that SageMaker doesn’t support argparse actions. For example, if you want to use a boolean hyperparameter, specify `type` as `bool` in your script and provide an explicit `True` or `False` value._
 
-Look [here](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py) for a complete example of a 🤗 Transformers training script.
+Look [train.py file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py) for a complete example of a 🤗 Transformers training script.
 
 ## Training Output Management
 
@@ -109,7 +109,7 @@ Run 🤗 Transformers training scripts on SageMaker by creating a [Hugging Face 
 
 1. `entry_point` specifies which fine-tuning script to use.
 2. `instance_type` specifies an Amazon instance to launch. Refer [here](https://aws.amazon.com/sagemaker/pricing/) for a complete list of instance types.
-3. `hyperparameters` specifies training hyperparameters. View additional available hyperparameters [here](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py).
+3. `hyperparameters` specifies training hyperparameters. View additional available hyperparameters in [train.py file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py).
 
 The following code sample shows how to train with a custom script `train.py` with three hyperparameters (`epochs`, `per_device_train_batch_size`, and `model_name_or_path`):
 
@@ -202,7 +202,7 @@ huggingface_estimator = HuggingFace(
 )
 ```
 
-📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/07_tensorflow_distributed_training_data_parallelism/sagemaker-notebook.ipynb) for an example of how to run the data parallelism library with TensorFlow.
+📓 Open the [sagemaker-notebook.ipynb notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/07_tensorflow_distributed_training_data_parallelism/sagemaker-notebook.ipynb) for an example of how to run the data parallelism library with TensorFlow.
 
 ### Model parallelism
 
@@ -247,7 +247,7 @@ huggingface_estimator = HuggingFace(
 )
 ```
 
-📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/04_distributed_training_model_parallelism/sagemaker-notebook.ipynb) for an example of how to run the model parallelism library.
+📓 Open the [sagemaker-notebook.ipynb notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/04_distributed_training_model_parallelism/sagemaker-notebook.ipynb) for an example of how to run the model parallelism library.
 
 ## Spot instances
 
@@ -288,7 +288,7 @@ huggingface_estimator = HuggingFace(
 # Managed Spot Training savings: 70.0%
 ```
 
-📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/05_spot_instances/sagemaker-notebook.ipynb) for an example of how to use spot instances.
+📓 Open the [sagemaker-notebook.ipynb notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/05_spot_instances/sagemaker-notebook.ipynb) for an example of how to use spot instances.
 
 ## Git repository
 

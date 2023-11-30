@@ -50,4 +50,4 @@ model-index:
 This markdown file contains the spec for the modelcard metadata regarding evaluation parameters. When present, and only then, 'model-index', 'datasets' and 'license' contents will be verified when git pushing changes to your README.md file.
 Valid license identifiers can be found in [our docs](https://huggingface.co/docs/hub/repositories-licenses).
 
-For the full model card template, see: [https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md).
+For the full model card template, see: [modelcard_template.md file](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md).

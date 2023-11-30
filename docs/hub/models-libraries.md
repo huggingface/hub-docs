@@ -2,7 +2,7 @@
 
 The Hub has support for dozens of libraries in the Open Source ecosystem. Thanks to the `huggingface_hub` Python library, it's easy to enable sharing your models on the Hub. The Hub supports many libraries, and we're working on expanding this support! We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
 
-The table below summarizes the supported libraries and their level of integration. Find all our supported libraries [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts)! 
+The table below summarizes the supported libraries and their level of integration. Find all our supported libraries in [model-libraries.ts file](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts)! 
 
 | Library                                                                     | Description                                                                          | Inference API | Widgets | Download from Hub | Push to Hub |
 |-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------|---|---:|---|---|
@@ -22,6 +22,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [NeMo](https://github.com/NVIDIA/NeMo)                                      | Conversational AI toolkit built for researchers                                      | ✅ | ✅ | ✅ | ❌ |
 | [OpenCLIP](https://github.com/mlfoundations/open_clip)                      | Library for open-source implementation of OpenAI's CLIP                              | ❌ | ❌ | ✅ | ✅ |  
 | [PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP)                      | Easy-to-use and powerful NLP library built on PaddlePaddle                           | ✅ | ✅ | ✅ | ✅ |
+| [PEFT](https://github.com/huggingface/peft)                      | Cutting-edge Parameter Efficient Fine-tuning Library                           | ✅ | ✅ | ✅ | ✅ |
 | [Pyannote](https://github.com/pyannote/pyannote-audio)                      | Neural building blocks for speaker diarization.                                      | ❌ | ❌ | ✅ | ❌ |
 | [PyCTCDecode](https://github.com/kensho-technologies/pyctcdecode)           | Language model supported CTC decoding for speech recognition                         | ❌ | ❌ | ✅ | ❌ |
 | [Pythae](https://github.com/clementchadebec/benchmark_VAE)                  | Unified framework for Generative Autoencoders in Python                              | ❌ | ❌ | ✅ | ✅ |
