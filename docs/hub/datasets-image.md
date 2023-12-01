@@ -115,7 +115,7 @@ The dataset created with this structure contains two columns: `image` and `label
 You can also provide multiple splits. To do so, your dataset directory should have the following structure (see [File names and splits](./datasets-file-names-and-splits) for more information):
 
 ```
-.
+my_dataset_repository/
 ├── test
 │   ├── green
 │   │   └── 2.jpg
