@@ -4,7 +4,7 @@ SetFit is an efficient and prompt-free framework for few-shot fine-tuning of [Se
 
 Compared to other few-shot learning methods, SetFit has several unique features:
 
-* 🗣 **No prompts or verbalisers:** Current techniques for few-shot fine-tuning require handcrafted prompts or verbalisers to convert examples into a format that's suitable for the underlying language model. SetFit dispenses with prompts altogether by generating rich embeddings directly from text examples.
+* 🗣 **No prompts or verbalizers:** Current techniques for few-shot fine-tuning require handcrafted prompts or verbalizers to convert examples into a format suitable for the underlying language model. SetFit dispenses with prompts altogether by generating rich embeddings directly from text examples.
 * 🏎 **Fast to train:** SetFit doesn't require large-scale models like T0 or GPT-3 to achieve high accuracy. As a result, it is typically an order of magnitude (or more) faster to train and run inference with.
 * 🌎 **Multilingual support**: SetFit can be used with any [Sentence Transformer](https://huggingface.co/models?library=sentence-transformers&sort=downloads) on the Hub, which means you can classify text in multiple languages by simply fine-tuning a multilingual checkpoint.
 
@@ -40,14 +40,14 @@ Once loaded, you can use [`SetFitModel.predict`](https://huggingface.co/docs/set
 ```py
 model.predict("Amelia Earhart flew her single engine Lockheed Vega 5B across the Atlantic to Paris.")
 ```
-```py
+```bash
 ['positive', 'negative']
 ```
 
 If you want to load a specific SpanMarker model, you can click `Use in SetFit` and you will be given a working snippet!
 
 ## Additional resources
-
+* [All SetFit models available on Hub](https://huggingface.co/models?library=setfit)
 * SetFit [repository](https://github.com/huggingface/setfit)
 * SetFit [docs](https://huggingface.co/docs/setfit)
 * SetFit [paper](https://arxiv.org/abs/2209.11055)
