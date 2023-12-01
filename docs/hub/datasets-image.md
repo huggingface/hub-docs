@@ -9,7 +9,7 @@ A dataset with a supported structure and [file formats](./datasets-adding#file-f
 If your dataset only consists of one column with images, you can simply store your image files at the root:
 
 ```
-.
+my_dataset_repository/
 ├── 1.jpg
 ├── 2.jpg
 ├── 3.jpg
