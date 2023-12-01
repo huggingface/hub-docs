@@ -68,7 +68,7 @@ Note that the image files and the metadata file for each split must reside in th
 
 ## Relative paths
 
-You can also locate the images in a different location than the metadata file:
+You can also locate the images in a different subdirectory of the split:
 
 ```
 train/images/1.jpg
