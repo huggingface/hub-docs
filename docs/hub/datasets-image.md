@@ -55,7 +55,7 @@ file_name,text
 4.jpg,a cartoon ball with a smile on it's face
 ```
 
-You can also use a [JSONL](https://jsonlines.readthedocs.io/en/latest/) file `metadata.jsonl`:
+You can also use a [JSONL](https://jsonlines.org/) file `metadata.jsonl`:
 
 ```jsonl
 {"file_name": "1.jpg","text": "a drawing of a green pokemon with red eyes"}
