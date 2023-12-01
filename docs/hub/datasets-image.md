@@ -69,7 +69,7 @@ You can also use a [JSONL](https://jsonlines.org/) file `metadata.jsonl`:
 {"file_name": "4.jpg","text": "a cartoon ball with a smile on it's face"}
 ```
 
-Note that the image files and the metadata file for each split must reside in the same directory. The split name (e.g. `train` or `test`) will be taken from the directory name, see [File names and splits](./datasets-file-names-and-splits) for more information.
+Note that the metadata files must be stored inside directories that provide the split name (e.g. `train/` or `test/`). See [File names and splits](./datasets-file-names-and-splits) for more information.
 
 ## Relative paths
 
