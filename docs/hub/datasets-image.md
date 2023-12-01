@@ -64,7 +64,7 @@ You can also use a [JSONL](https://jsonlines.readthedocs.io/en/latest/) file `me
 {"file_name": "4.jpg","text": "a cartoon ball with a smile on it's face"}
 ```
 
-Note that all the files must be in a directory that gives the split name (e.g. `train` or `test`, see [File names and splits](./datasets-file-names-and-splits) for more information).
+Note that the image files and the metadata file for each split must reside in the same directory. The split name (e.g. `train` or `test`) will be taken from the directory name, see [File names and splits](./datasets-file-names-and-splits) for more information.
 
 ## Relative paths
 
