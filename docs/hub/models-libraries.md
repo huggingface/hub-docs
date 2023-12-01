@@ -29,6 +29,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [RL-Baselines3-Zoo](https://github.com/DLR-RM/rl-baselines3-zoo)            | Training framework for Reinforcement Learning, using [Stable Baselines3](https://github.com/DLR-RM/stable-baselines3).| ❌ | ✅ | ✅ | ✅ |
 | [Sample Factory](https://github.com/alex-petrenko/sample-factory)           | Codebase for high throughput asynchronous reinforcement learning.                    | ❌ | ✅ | ✅ | ✅ |
 | [Sentence Transformers](https://github.com/UKPLab/sentence-transformers)    | Compute dense vector representations for sentences, paragraphs, and images.          | ✅ | ✅ | ✅ | ✅ |
+| [SetFit](https://github.com/huggingface/setfit)                             | Efficient few-shot text classification with Sentence Transformers                    | ✅ | ✅ | ✅ | ✅ |
 | [spaCy](https://github.com/explosion/spaCy)                                 | Advanced Natural Language Processing in Python and Cython.                           | ✅ | ✅ | ✅ | ✅ |
 | [SpanMarker](https://github.com/tomaarsen/SpanMarkerNER)                    | Familiar, simple and state-of-the-art Named Entity Recognition.                      | ✅ | ✅ | ✅ | ✅ |
 | [Scikit Learn (using skops)](https://skops.readthedocs.io/en/stable/)       | Machine Learning in Python.                                                          | ✅ | ✅ | ✅ | ✅ |
