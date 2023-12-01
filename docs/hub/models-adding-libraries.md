@@ -190,3 +190,7 @@ To register the tasks supported by your library on the hub you'll need to add a 
 api-inference-community repository](https://github.com/huggingface/api-inference-community) repository. You can see an example of this [here](https://github.com/huggingface/api-inference-community/actions/runs/5126874210/jobs/9221890853#step:5:8).
 
 With these simple but powerful methods, you brought the full functionality of the Hub into your library. Users can download files stored on the Hub from your library with `hf_hub_download`, create repositories with `create_repo`, and upload files with `upload_file`. You also set up Inference API with your library, allowing users to interact with your models on the Hub from inside a browser.
+
+## Document your library
+
+If you want, you can add your library to this documentation! Check for example the [Setfit PR](https://github.com/huggingface/hub-docs/pull/1150) that added [SetFit](./setfit) to the documentation.
