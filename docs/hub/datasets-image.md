@@ -76,7 +76,7 @@ Note that the metadata files must be stored inside directories that provide the 
 You can also locate the images in a different subdirectory of the split:
 
 ```
-.
+my_dataset_repository/
 └── train
     ├── images
     │   ├── 1.jpg
