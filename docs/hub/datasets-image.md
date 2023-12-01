@@ -29,7 +29,7 @@ my_dataset_repository/
 Multiple [formats](./datasets-adding#file-formats) are supported at the same time, including PNG, JPEG, TIFF and WebP.
 
 ```
-.
+my_dataset_repository/
 ├── images/1.jpg
 ├── images/2.png
 ├── images/3.tiff
