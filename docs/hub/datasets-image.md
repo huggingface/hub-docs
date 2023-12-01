@@ -24,7 +24,7 @@ images/3.jpg
 images/4.jpg
 ```
 
-Multiple [formats](./datasets-adding#file-formats) are supported at the same time, including png, jpg, tiff and webp.
+Multiple [formats](./datasets-adding#file-formats) are supported at the same time, including PNG, JPEG, TIFF and WebP.
 
 ```
 images/1.jpg
