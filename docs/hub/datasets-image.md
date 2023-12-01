@@ -6,7 +6,7 @@ A dataset with a supported structure and [file formats](./datasets-adding#file-f
 
 ## Only images
 
-If your dataset only consists of one column with images, you can use a simple setup: store your image files at the root:
+If your dataset only consists of one column with images, you can simply store your image files at the root:
 
 ```
 1.jpg
@@ -15,7 +15,7 @@ If your dataset only consists of one column with images, you can use a simple se
 4.jpg
 ```
 
-or using subdirectories:
+or use subdirectories:
 
 ```
 images/1.jpg
