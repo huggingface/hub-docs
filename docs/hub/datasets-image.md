@@ -16,7 +16,7 @@ If your dataset only consists of one column with images, you can simply store yo
 └── 4.jpg
 ```
 
-or use subdirectories:
+or in a subdirectory:
 
 ```
 .
@@ -126,6 +126,14 @@ You can also provide multiple splits. To do so, your dataset directory should ha
     │   └── 1.jpg
     └── red
         └── 3.jpg
+```
+
+You can disable this automatic behavior in the [YAML configuration](./datasets-manual-configuration.md). If your directory names have no special meaning, set `drop_labels: true` in the README header:
+
+```yaml
+configs:
+  - config_name: default
+    drop_labels: true
 ```
 
 ## Parquet format
