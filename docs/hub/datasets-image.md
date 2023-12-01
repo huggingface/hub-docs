@@ -101,7 +101,7 @@ images/4.jpg,a cartoon ball with a smile on it's face
 For image classification datasets, you can also use a simple setup: use directories to name the image classes. Store your image files in a directory structure like:
 
 ```
-.
+my_dataset_repository/
 ├── green
 │   ├── 1.jpg
 │   └── 2.jpg
