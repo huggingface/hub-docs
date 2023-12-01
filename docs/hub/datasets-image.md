@@ -114,7 +114,7 @@ test/red/4.jpg
 
 ## Parquet format
 
-Instead of uploading the images and metadata as individual files, you can also embed everything inside a [Parquet](https://parquet.apache.org/) file. This is useful if you have a large number of images, if you want to embed multiple image columns, or if you want to store additional information about the images in the same file.
+Instead of uploading the images and metadata as individual files, you can embed everything inside a [Parquet](https://parquet.apache.org/) file. This is useful if you have a large number of images, if you want to embed multiple image columns, or if you want to store additional information about the images in the same file.
 
 ```
 train.parquet
