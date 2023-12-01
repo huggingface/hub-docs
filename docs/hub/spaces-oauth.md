@@ -33,8 +33,14 @@ python_version: 3.10.6
 app_file: app.py
 
 hf_oauth: true
-hf_oauth_redirect_path: /custom_callback_route # optional, see "Redirect URLs" below
-hf_oauth_scopes: "read-repos write-repos manage-repos inference-api" # optional, see "Scopes" below. "openid profile" is always included.
+# optional, see "Redirect URLs" below
+hf_oauth_redirect_path: /custom_callback_route
+# optional, see "Scopes" below. "openid profile" is always included.
+hf_oauth_scopes:
+ - read-repos
+ - write-repos
+ - manage-repos
+ - inference-api
 ```
 
 You can check out the [configuration reference docs](./spaces-config-reference) for more information.
