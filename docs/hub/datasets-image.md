@@ -41,7 +41,7 @@ my_dataset_repository/
 If there is additional information you'd like to include about your dataset, like text captions or bounding boxes, add it as a `metadata.csv` file in your repository. This lets you quickly create datasets for different computer vision tasks like text captioning or object detection.
 
 ```
-.
+my_dataset_repository/
 └── train
     ├── 1.jpg
     ├── 2.jpg
