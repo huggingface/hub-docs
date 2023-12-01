@@ -9,28 +9,31 @@ A dataset with a supported structure and [file formats](./datasets-adding#file-f
 If your dataset only consists of one column with images, you can simply store your image files at the root:
 
 ```
-1.jpg
-2.jpg
-3.jpg
-4.jpg
+.
+├── 1.jpg
+├── 2.jpg
+├── 3.jpg
+└── 4.jpg
 ```
 
 or use subdirectories:
 
 ```
-images/1.jpg
-images/2.jpg
-images/3.jpg
-images/4.jpg
+.
+├── images/1.jpg
+├── images/2.jpg
+├── images/3.jpg
+└── images/4.jpg
 ```
 
 Multiple [formats](./datasets-adding#file-formats) are supported at the same time, including PNG, JPEG, TIFF and WebP.
 
 ```
-images/1.jpg
-images/2.png
-images/3.tiff
-images/4.webp
+.
+├── images/1.jpg
+├── images/2.png
+├── images/3.tiff
+└── images/4.webp
 ```
 
 ## Additional columns
@@ -38,11 +41,13 @@ images/4.webp
 If there is additional information you'd like to include about your dataset, like text captions or bounding boxes, add it as a `metadata.csv` file in your repository. This lets you quickly create datasets for different computer vision tasks like text captioning or object detection.
 
 ```
-train/1.jpg
-train/2.jpg
-train/3.jpg
-train/4.jpg
-train/metadata.csv
+.
+└── train
+    ├── 1.jpg
+    ├── 2.jpg
+    ├── 3.jpg
+    ├── 4.jpg
+    └── metadata.csv
 ```
 
 Your `metadata.csv` file must have a `file_name` column which links image files with their metadata:
@@ -71,11 +76,14 @@ Note that the image files and the metadata file for each split must reside in th
 You can also locate the images in a different subdirectory of the split:
 
 ```
-train/images/1.jpg
-train/images/2.jpg
-train/images/3.jpg
-train/images/4.jpg
-train/metadata.csv
+.
+└── train
+    ├── images
+    │   ├── 1.jpg
+    │   ├── 2.jpg
+    │   ├── 3.jpg
+    │   └── 4.jpg
+    └── metadata.csv
 ```
 
 To access the image, the `file_name` column should be a full relative path to the file, not just the filename:
@@ -93,11 +101,13 @@ images/4.jpg,a cartoon ball with a smile on it's face
 For image classification datasets, you can also use a simple setup: use directories to name the image classes. Store your image files in a directory structure like:
 
 ```
-green/1.jpg
-green/2.jpg
-
-red/3.jpg
-red/4.jpg
+.
+├── green
+│   ├── 1.jpg
+│   └── 2.jpg
+└── red
+    ├── 3.jpg
+    └── 4.jpg
 ```
 
 The dataset created with this structure contains two columns: `image` and `label` (with values `green` and `red`).
@@ -105,11 +115,17 @@ The dataset created with this structure contains two columns: `image` and `label
 You can also provide multiple splits. To do so, your dataset directory should have the following structure (see [File names and splits](./datasets-file-names-and-splits) for more information):
 
 ```
-train/green/1.jpg
-train/red/3.jpg
-
-test/green/2.jpg
-test/red/4.jpg
+.
+├── test
+│   ├── green
+│   │   └── 2.jpg
+│   └── red
+│       └── 4.jpg
+└── train
+    ├── green
+    │   └── 1.jpg
+    └── red
+        └── 3.jpg
 ```
 
 ## Parquet format
@@ -117,7 +133,8 @@ test/red/4.jpg
 Instead of uploading the images and metadata as individual files, you can embed everything inside a [Parquet](https://parquet.apache.org/) file. This is useful if you have a large number of images, if you want to embed multiple image columns, or if you want to store additional information about the images in the same file.
 
 ```
-train.parquet
+.
+└── train.parquet
 ```
 
 Note that for the users convenience, every dataset hosted in the Hub is automatically converted to Parquet format. Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.
