@@ -55,7 +55,7 @@ file_name,text
 4.jpg,a cartoon ball with a smile on it's face
 ```
 
-You can also use a JSONL file `metadata.jsonl`:
+You can also use a [JSONL](https://jsonlines.readthedocs.io/en/latest/) file `metadata.jsonl`:
 
 ```jsonl
 {"file_name": "1.jpg","text": "a drawing of a green pokemon with red eyes"}
@@ -64,11 +64,11 @@ You can also use a JSONL file `metadata.jsonl`:
 {"file_name": "4.jpg","text": "a cartoon ball with a smile on it's face"}
 ```
 
-Note that all the files must be in a directory that gives the split name (e.g. `train` or `test`, see [File names and splits](./datasets-file-names-and-splits) for more information).
+Note that the image files and the metadata file for each split must reside in the same directory. The split name (e.g. `train` or `test`) will be taken from the directory name, see [File names and splits](./datasets-file-names-and-splits) for more information.
 
 ## Relative paths
 
-You can also locate the images in a different location than the metadata file:
+You can also locate the images in a different subdirectory of the split:
 
 ```
 train/images/1.jpg
@@ -102,7 +102,7 @@ red/4.jpg
 
 The dataset created with this structure contains two columns: `image` and `label` (with values `green` and `red`).
 
-You can also use provide multiple splits. To do so, your dataset directory should have the following structure (see [File names and splits](./datasets-file-names-and-splits) for more information):
+You can also provide multiple splits. To do so, your dataset directory should have the following structure (see [File names and splits](./datasets-file-names-and-splits) for more information):
 
 ```
 train/green/1.jpg
@@ -114,7 +114,7 @@ test/red/4.jpg
 
 ## Parquet format
 
-Instead of uploading the images as files, along with a metadata file for the other columns, you can also embed them inside a [Parquet](https://parquet.apache.org/) file. This case is useful if you have a large number of images, if you want to embed multiple image columns, or if you want to store additional information about the images in the same file.
+Instead of uploading the images and metadata as individual files, you can also embed everything inside a [Parquet](https://parquet.apache.org/) file. This is useful if you have a large number of images, if you want to embed multiple image columns, or if you want to store additional information about the images in the same file.
 
 ```
 train.parquet
