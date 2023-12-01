@@ -102,7 +102,7 @@ red/4.jpg
 
 The dataset created with this structure contains two columns: `image` and `label` (with values `green` and `red`).
 
-You can also use provide multiple splits. To do so, your dataset directory should have the following structure (see [File names and splits](./datasets-file-names-and-splits) for more information):
+You can also provide multiple splits. To do so, your dataset directory should have the following structure (see [File names and splits](./datasets-file-names-and-splits) for more information):
 
 ```
 train/green/1.jpg
