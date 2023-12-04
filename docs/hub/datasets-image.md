@@ -41,6 +41,7 @@ my_dataset_repository/
 If you have several splits, you can put your images into directories named accordingly: 
 
 ```
+my_dataset_repository/
 ├── train
 │   ├── 1.jpg
 │   └── 2.jpg
