@@ -2,7 +2,7 @@
 
 This guide will show you how to configure your dataset repository with image files. You can find accompanying examples of repositories in this [Image datasets examples collection](https://huggingface.co/collections/datasets-examples/image-dataset-6568e7cf28639db76eb92d65).
 
-A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its page on the Hub. Any additional information about your dataset - such as captioning or object detection - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`).
+A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its page on the Hub. Any additional information about your dataset - such as captions or bounding boxes for object detection - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`).
 
 ## Only images
 
@@ -20,20 +20,22 @@ or in a subdirectory:
 
 ```
 my_dataset_repository/
-├── images/1.jpg
-├── images/2.jpg
-├── images/3.jpg
-└── images/4.jpg
+└── images
+    ├── 1.jpg
+    ├── 2.jpg
+    ├── 3.jpg
+    └── 4.jpg
 ```
 
 Multiple [formats](./datasets-adding#file-formats) are supported at the same time, including PNG, JPEG, TIFF and WebP.
 
 ```
 my_dataset_repository/
-├── images/1.jpg
-├── images/2.png
-├── images/3.tiff
-└── images/4.webp
+└── images
+    ├── 1.jpg
+    ├── 2.png
+    ├── 3.tiff
+    └── 4.webp
 ```
 
 If you have several splits, you can put your images into directories named accordingly: 
@@ -107,7 +109,7 @@ images/3.jpg,a red and white ball with an angry look on its face
 images/4.jpg,a cartoon ball with a smile on it's face
 ```
 
-Metadata file cannot be put in subdirectories of a directory containing the images.
+Metadata file cannot be put in subdirectories of a directory with the images.
 
 ## Image classification
 
