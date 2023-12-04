@@ -48,6 +48,7 @@ Do What The F*ck You Want To Public License | `wtfpl`
 Educational Community License v2.0 | `ecl-2.0`
 Eclipse Public License 1.0 | `epl-1.0`
 Eclipse Public License 2.0 | `epl-2.0`
+Etalab Open License 2.0 | `etalab-2.0`
 European Union Public License 1.1 | `eupl-1.1`
 GNU Affero General Public License v3.0 | `agpl-3.0`
 GNU Free Documentation License family | `gfdl`
