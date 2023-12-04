@@ -110,4 +110,4 @@ preload_from_hub:
   - coqui/XTTS-v1
   - gpt2 config.json 11c5a3d5811f50298f278a704980280950aedb10
 ```
-In this example, the Space will preload specific .safetensors files from `warp-ai/wuerstchen-prior`, all of the `coqui/XTTS-v1` repository and the specific commit of the `config.json` file in the `gpt2` repository on the Hugging Face Hub during the build time.
+In this example, the Space will preload specific .safetensors files from `warp-ai/wuerstchen-prior`, the complete `coqui/XTTS-v1` repository, and a specific revision of the `config.json` file in the `gpt2` repository from the Hugging Face Hub during build time.
