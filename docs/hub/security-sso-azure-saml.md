@@ -70,7 +70,7 @@ Save your new application.
 In your Azure application, under "Set up", find the following field:
 - Login Url
 
-And under "Signin Option":
+And under "SAML Certificates":
 - Download the "Certificate (base64)"
 
 You will need them to finalize the SSO setup on Hugging Face.
@@ -82,9 +82,8 @@ You will need them to finalize the SSO setup on Hugging Face.
 
 In the SSO section of your organization's settings, copy-paste these values from Azure:
 
-- Sign-on URL
-- Public certificate
-- Tick "Signed Assertions"
+- Login Url -> Sign-on URL
+- Certificate -> Public certificate
 
 The public certificate must have the following format:
 
