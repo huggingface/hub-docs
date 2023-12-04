@@ -101,7 +101,7 @@ custom_headers:
 **`preload_from_hub`**: _List[string]_
 Specify a list of Hugging Face Hub models or other large files to be preloaded during the build time of your Space. This optimizes the startup time by having the files ready when your application starts. This is particularly useful for Spaces that rely on large models or datasets that would otherwise need to be downloaded at runtime.
 
-The format for each item is `"repository_name"` to download all files from a repository, or `repository_name file1,file2` for downloading specific files within that repository. You can also specify a specific commit to download as follows `repository_name file1,file2 commit_sha256`. 
+The format for each item is `"repository_name"` to download all files from a repository, or `"repository_name file1,file2"` for downloading specific files within that repository. You can also specify a specific commit to download using the format `"repository_name file1,file2 commit_sha256"`. 
 
 Example usage:
 ```yaml
