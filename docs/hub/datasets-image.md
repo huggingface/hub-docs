@@ -1,8 +1,8 @@
 # Image Dataset
 
-This guide will show you how to configure your dataset repository with image files. You can find accompanying examples of repositories in this [Image datasets examples collection](https://huggingface.co/collections/datasets-examples/image-dataset-6568e7cf28639db76eb92d65)
+This guide will show you how to configure your dataset repository with image files. You can find accompanying examples of repositories in this [Image datasets examples collection](https://huggingface.co/collections/datasets-examples/image-dataset-6568e7cf28639db76eb92d65).
 
-A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its dataset page on the Hub. Any additional information about your dataset - such as captioning or object detection - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`).
+A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its page on the Hub. Any additional information about your dataset - such as captioning or object detection - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`).
 
 ## Only images
 
@@ -35,6 +35,19 @@ my_dataset_repository/
 ├── images/3.tiff
 └── images/4.webp
 ```
+
+If you have several splits, you can put your images into directories named accordingly: 
+
+```
+├── train
+│   ├── 1.jpg
+│   └── 2.jpg
+└── test
+    ├── 3.jpg
+    └── 4.jpg
+```
+
+See [File names and splits](./datasets-file-names-and-splits) for more information and other ways to organize data by splits.
 
 ## Additional columns
 
@@ -69,11 +82,9 @@ You can also use a [JSONL](https://jsonlines.org/) file `metadata.jsonl`:
 {"file_name": "4.jpg","text": "a cartoon ball with a smile on it's face"}
 ```
 
-Note that the metadata files must be stored inside directories that provide the split name (e.g. `train/` or `test/`). See [File names and splits](./datasets-file-names-and-splits) for more information.
-
 ## Relative paths
 
-You can also locate the images in a different subdirectory of the split:
+Metadata file must be located either in the same directory with the images it is linked to, or in any parent directory, like in this example: 
 
 ```
 my_dataset_repository/
@@ -86,7 +97,7 @@ my_dataset_repository/
     └── metadata.csv
 ```
 
-To access the image, the `file_name` column should be a full relative path to the file, not just the filename:
+In this case, the `file_name` column must be a full relative path to the images, not just the filename:
 
 ```csv
 file_name,text
@@ -95,6 +106,8 @@ images/2.jpg,a green and yellow toy with a red nose
 images/3.jpg,a red and white ball with an angry look on its face
 images/4.jpg,a cartoon ball with a smile on it's face
 ```
+
+Metadata file cannot be put in subdirectories of a directory containing the images.
 
 ## Image classification
 
@@ -128,7 +141,7 @@ my_dataset_repository/
         └── 3.jpg
 ```
 
-You can disable this automatic behavior in the [YAML configuration](./datasets-manual-configuration.md). If your directory names have no special meaning, set `drop_labels: true` in the README header:
+You can disable this automatic addition of the `label` column in the [YAML configuration](./datasets-manual-configuration). If your directory names have no special meaning, set `drop_labels: true` in the README header:
 
 ```yaml
 configs:
@@ -145,4 +158,4 @@ my_dataset_repository/
 └── train.parquet
 ```
 
-Note that for the users convenience, every dataset hosted in the Hub is automatically converted to Parquet format. Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.
+Note that for the user convenience, every dataset hosted in the Hub is automatically converted to Parquet format. Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.
