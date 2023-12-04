@@ -45,8 +45,10 @@ Open a new tab/window in your browser and navigate to the SSO section of your or
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-settings-saml-dark.png"/>
 </div>
 
-Copy the "Assertion Consumer Service URL" from the organization's settings on Hugging Face, and paste it in the "Reply URL" field on Azure (1).
-Copy the "SP Entity Id" from the organization's settings on Hugging Face, and paste it in the "Identifier (Entity Id)" field on Azure (2).
+Copy the "SP Entity Id" from the organization's settings on Hugging Face, and paste it in the "Identifier (Entity Id)" field on Azure (1).
+
+Copy the "Assertion Consumer Service URL" from the organization's settings on Hugging Face, and paste it in the "Reply URL" field on Azure (2).
+
 
 The URL looks like this: `https://huggingface.co/organizations/[organizationIdentifier]/saml/consume`.
 
@@ -65,9 +67,12 @@ Save your new application.
 
 ### Step 3: Finalize configuration on Hugging Face
 
-In your Azure application, under "Set up", find the following fields:
+In your Azure application, under "Set up", find the following field:
 - Login Url
-- Public certificate (Certificate (base64))
+
+And under "Signin Option":
+- Download the "Certificate (base64)"
+
 You will need them to finalize the SSO setup on Hugging Face.
 
 
@@ -90,8 +95,8 @@ The public certificate must have the following format:
 ```
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-5.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-5-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-7.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-7-dark.png"/>
 </div>
 
 You can now click on "Update and Test SAML configuration" to save the settings.
@@ -102,8 +107,8 @@ A green check mark near the SAML selector will attest that the test was successf
 
 
 <div class="flex justify-center">
-	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-6.png"/>
-	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-6-dark.png"/>
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-8.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-8-dark.png"/>
 </div>
 
 ### Step 4: Enable SSO in your organization
