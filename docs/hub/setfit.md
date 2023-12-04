@@ -44,10 +44,10 @@ model.predict("Amelia Earhart flew her single engine Lockheed Vega 5B across the
 ['positive', 'negative']
 ```
 
-If you want to load a specific SpanMarker model, you can click `Use in SetFit` and you will be given a working snippet!
+If you want to load a specific SetFit model, you can click `Use in SetFit` and you will be given a working snippet!
 
 ## Additional resources
-* [All SetFit models available on Hub](https://huggingface.co/models?library=setfit)
+* [All SetFit models available on the Hub](https://huggingface.co/models?library=setfit)
 * SetFit [repository](https://github.com/huggingface/setfit)
 * SetFit [docs](https://huggingface.co/docs/setfit)
 * SetFit [paper](https://arxiv.org/abs/2209.11055)
