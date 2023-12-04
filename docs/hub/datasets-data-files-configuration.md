@@ -25,5 +25,5 @@ And if your images/audio files have metadata (e.g. captions, bounding boxes, tra
 
 We provide two guides that you can check out:
 
-- [How to create an image dataset](https://huggingface.co/docs/datasets/image_dataset)
+- [How to create an image dataset](./datasets-image)
 - [How to create an audio dataset](https://huggingface.co/docs/datasets/audio_dataset)
