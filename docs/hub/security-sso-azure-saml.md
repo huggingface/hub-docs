@@ -15,13 +15,19 @@ Open a new tab/window in your browser and sign in to the Azure portal of your or
 Navigate to "Enterprise applications" and click the "New application" button.
 
 <div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-1.png"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-1.png"/>
 </div>
 
 You'll be redirected to this page, click on "Create your own application", fill the name of your application, and then "Create" the application.
 
 <div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-1.png"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-2.png"/>
+</div>
+
+Then select "Single Sign-On", and select SAML
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-3.png"/>
 </div>
 
 
@@ -45,10 +51,15 @@ Copy the "SP Entity Id" from the organization's settings on Hugging Face, and pa
 The URL looks like this: `https://huggingface.co/organizations/[organizationIdentifier]/saml/consume`.
 
 <div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-2.png"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-4.png"/>
 </div>
 
 Then under "SAML Certificates", verify that "Signin Option" is set to: Sign SAML response and assertion.
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-5.png"/>
+</div>
+
 
 Save your new application.
 
@@ -61,7 +72,7 @@ You will need them to finalize the SSO setup on Hugging Face.
 
 
 <div class="flex justify-center">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-4.png"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-6.png"/>
 </div>
 
 In the SSO section of your organization's settings, copy-paste these values from Azure:
