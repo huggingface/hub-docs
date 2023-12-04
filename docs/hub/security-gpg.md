@@ -87,3 +87,7 @@ git commit -S -m "My first signed commit"
 ```
 
 Once pushed on the Hub, you should see the commit with a "Verified" badge.
+
+<Tip>
+To sign all commits by default in any local repository on your computer, you can run <code>git config --global commit.gpgsign true</code>.
+</Tip>
