@@ -1,6 +1,6 @@
 # Licenses
 
-You are able to add a license to any repo that you create on the Hugging Face Hub to let other users know about the permissions that you want to attribute to your code. The license can be specified in your repository's `README.md` file, known as a *card* on the Hub, in the card's metadata section. Remember to seek out and respect a project's license if you're considering using their code.
+You are able to add a license to any repo that you create on the Hugging Face Hub to let other users know about the permissions that you want to attribute to your model, dataset, or code. The license can be specified in your repository's `README.md` file, known as a *card* on the Hub, in the card's metadata section. Remember to seek out and respect a project's license if you're considering using their code or data.
 
 A full list of the available licenses is available here:
 
