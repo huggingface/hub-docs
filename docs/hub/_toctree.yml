@@ -87,6 +87,8 @@
         title: Sample Factory
       - local: sentence-transformers
         title: Sentence Transformers
+      - local: setfit
+        title: SetFit
       - local: spacy
         title: spaCy
       - local: span_marker
