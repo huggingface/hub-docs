@@ -111,3 +111,7 @@ preload_from_hub:
   - gpt2 config.json 11c5a3d5811f50298f278a704980280950aedb10
 ```
 In this example, the Space will preload specific .safetensors files from `warp-ai/wuerstchen-prior`, the complete `coqui/XTTS-v1` repository, and a specific revision of the `config.json` file in the `gpt2` repository from the Hugging Face Hub during build time.
+
+<Tip warning={true}>
+  Files are saved in the default `huggingface_hub` disk cache `~./cache/huggingface/hub`. If you application expects them elsewhere or you changed your `HF_HOME` variable, this pre-loading does not follow that at this time.
+</Tip>
