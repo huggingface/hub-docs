@@ -1,6 +1,6 @@
 # Licenses
 
-You are able to add a license to any repo that you create on the Hugging Face Hub to let other users know about the permissions that you want to attribute to your code. The license can be specified in your repository's `README.md` file, known as a *card* on the Hub, in the card's metadata section. Remember to seek out and respect a project's license if you're considering using their code.
+You are able to add a license to any repo that you create on the Hugging Face Hub to let other users know about the permissions that you want to attribute to your code or data. The license can be specified in your repository's `README.md` file, known as a *card* on the Hub, in the card's metadata section. Remember to seek out and respect a project's license if you're considering using their code or data.
 
 A full list of the available licenses is available here:
 
@@ -48,6 +48,7 @@ Do What The F*ck You Want To Public License | `wtfpl`
 Educational Community License v2.0 | `ecl-2.0`
 Eclipse Public License 1.0 | `epl-1.0`
 Eclipse Public License 2.0 | `epl-2.0`
+Etalab Open License 2.0 | `etalab-2.0`
 European Union Public License 1.1 | `eupl-1.1`
 GNU Affero General Public License v3.0 | `agpl-3.0`
 GNU Free Documentation License family | `gfdl`
