@@ -93,10 +93,11 @@ For example, the demo above can be embedded in these docs with the following tag
   sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
 ></iframe>
 
+Please note that, for the versions <1.19, scrolling is disabled and you'll need to set the height of the iframe enough to fit the embedded Streamlit app's content or use the auto-resizing technique described below.
+
 ## Embed mode
 
 You can use the `embed=true` query parameter in the URL to activate the embed mode of the Streamlit app, removing some spacers and the footer for slim embeds.
-Please note that this parameter disables scrolling in the iframe, so you'll need to set the height of the iframe enough to fit the embedded Streamlit app's content.
 
 ```
 <iframe
@@ -116,7 +117,6 @@ Please note that this parameter disables scrolling in the iframe, so you'll need
   allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
 ></iframe>
-
 
 ## Embed Streamlit Spaces with auto-resizing IFrames
 
