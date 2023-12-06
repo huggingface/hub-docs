@@ -8,7 +8,7 @@ To use Streamlit in a Space, select **Streamlit** as the SDK when you create a S
 
 ```yaml
 sdk: streamlit
-sdk_version: 1.25.0 # The latest supported version
+sdk_version: 1.29.0 # The latest supported version
 ```
 
 You can edit the `sdk_version`, but note that issues may occur when you use an unsupported Streamlit version. Not all Streamlit versions are supported, so please refer to the [reference section](./spaces-config-reference) to see which versions are available.
@@ -23,7 +23,7 @@ Only port 8501 is allowed for Streamlit Spaces (default port). As a result if yo
 
 In the following sections, you'll learn the basics of creating a Space, configuring it, and deploying your code to it. We'll create a **Hot Dog Classifier** Space with Streamlit that'll be used to demo the [julien-c/hotdog-not-hotdog](https://huggingface.co/julien-c/hotdog-not-hotdog) model, which can detect whether a given picture contains a hot dog 🌭
 
-You can find a completed version of this hosted at [NimaBoscarino/hotdog-streamlit](https://huggingface.co/spaces/NimaBoscarino/hotdog-streamlit).
+You can find a completed version of this hosted at [whitphx/hotdog-streamlit](https://huggingface.co/spaces/whitphx/hotdog-streamlit).
 
 ## Create a new Streamlit Space
 
@@ -82,13 +82,13 @@ For example, the demo above can be embedded in these docs with the following tag
 
 ```
 <iframe
-  src="https://NimaBoscarino-hotdog-streamlit.hf.space"
+  src="https://whitphx-hotdog-streamlit.hf.space"
   title="My awesome Streamlit Space"
 ></iframe>
 ```
 
 <iframe
-  src="https://NimaBoscarino-hotdog-streamlit.hf.space"
+  src="https://whitphx-hotdog-streamlit.hf.space"
   frameborder="0"
   height="600"
   title="Streamlit app"
@@ -105,7 +105,7 @@ You can use the `embed=true` query parameter in the URL to activate embed mode i
 
 ```
 <iframe
-  src="https://NimaBoscarino-hotdog-streamlit.hf.space?embed=true"
+  src="https://whitphx-hotdog-streamlit.hf.space?embed=true"
   title="My awesome Streamlit Space"
   height="364"
 ></iframe>
@@ -113,7 +113,7 @@ You can use the `embed=true` query parameter in the URL to activate embed mode i
 
 <!-- The height of this iframe has been calculated as 236 + 64 * 2. 236 is the inner content height measured with Chrome 108. 64 is padding-top of its container element. -->
 <iframe
-  src="https://NimaBoscarino-hotdog-streamlit.hf.space?embed=true"
+  src="https://whitphx-hotdog-streamlit.hf.space?embed=true"
   frameborder="0"
   height="364"
   title="Streamlit app"
