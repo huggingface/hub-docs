@@ -8,12 +8,16 @@ To use Streamlit in a Space, select **Streamlit** as the SDK when you create a S
 
 ```yaml
 sdk: streamlit
-sdk_version: 1.17.0 # The latest supported version
+sdk_version: 1.25.0 # The latest supported version
 ```
 
 You can edit the `sdk_version`, but note that issues may occur when you use an unsupported Streamlit version. Not all Streamlit versions are supported, so please refer to the [reference section](./spaces-config-reference) to see which versions are available.
 
 For in-depth information about Streamlit, refer to the [Streamlit documentation](https://docs.streamlit.io/).
+
+<Tip warning={true}>
+Only port 8501 is allowed for Streamlit Spaces (default port). As a result if you provide a `config.toml` file for your Space make sure the default port is not overriden.
+</Tip>
 
 ## Your First Streamlit Space: Hot Dog Classifier
 

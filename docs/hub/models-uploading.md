@@ -64,7 +64,7 @@ Any repository that contains TensorBoard traces (filenames that contain `tfevent
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tensorboard-dark.png"/>
 </div>
 
-Models trained with 🤗 Transformers will generate [TensorBoard traces](https://huggingface.co/transformers/main_classes/callback.html?highlight=tensorboard#transformers.integrations.TensorBoardCallback) by default if [`tensorboard`](https://pypi.org/project/tensorboard/) is installed.
+Models trained with 🤗 Transformers will generate [TensorBoard traces](https://huggingface.co/docs/transformers/main_classes/callback#transformers.integrations.TensorBoardCallback) by default if [`tensorboard`](https://pypi.org/project/tensorboard/) is installed.
 
 ## Using Git
 

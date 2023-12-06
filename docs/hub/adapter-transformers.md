@@ -4,7 +4,7 @@
 
 ## Exploring adapter-transformers in the Hub
 
-You can find over a hundred `adapter-transformer` models by filtering at the left of the [models page](https://huggingface.co/models?library=adapter-transformers&sort=download). Some adapter models can be found in the Adapter Hub [repository](https://github.com/adapter-hub/hub). Models from both sources are then aggregated in the [AdapterHub](https://adapterhub.ml/explore/).
+You can find over a hundred `adapter-transformer` models by filtering at the left of the [models page](https://huggingface.co/models?library=adapter-transformers&sort=downloads). Some adapter models can be found in the Adapter Hub [repository](https://github.com/adapter-hub/hub). Models from both sources are then aggregated in the [AdapterHub](https://adapterhub.ml/explore/).
 
 
 ## Using existing models
@@ -62,6 +62,6 @@ This command creates a repository with an automatically generated model card and
 
 ## Additional resources
 
-* Adapter Transformers [library]((https://github.com/adapter-hub/adapter-transformers).
+* Adapter Transformers [library](https://github.com/adapter-hub/adapter-transformers).
 * Adapter Transformers [docs](https://docs.adapterhub.ml/index.html).
 * Integration with Hub [docs](https://docs.adapterhub.ml/huggingface_hub.html).

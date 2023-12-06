@@ -30,7 +30,7 @@ All models on the Hub come up with the following features:
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/PaddleNLP-3.jpg"/>
 </div>
 
-4. Easiliy deploy your model as a Gradio app on Spaces.
+4. Easily deploy your model as a Gradio app on Spaces.
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/PaddleNLP-4.jpg"/>

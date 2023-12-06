@@ -1,5 +1,7 @@
 # Widget Examples
 
+Note that each widget example can also optionally describe the corresponding model output, directly in the `output` property. See [the spec](./models-widgets#example-outputs) for more details.
+
 ## Natural Language Processing
 
 ### Fill-Mask
@@ -238,6 +240,14 @@ widget:
   example_title: Airport
 ```
 
+### Image-to-Image
+
+```yaml
+widget:
+- src: https://huggingface.co/datasets/mishig/sample_images/resolve/main/canny-edge.jpg
+  prompt: Girl with Pearl Earring # `prompt` field is optional in case the underlying model supports text guidance
+```
+
 ### Text-to-Image
 
 ```yaml
@@ -283,7 +293,7 @@ widget:
 
 ```yaml
 widget:
-  structuredData:
+- structured_data:
     fixed_acidity:
       - 7.4
       - 7.8

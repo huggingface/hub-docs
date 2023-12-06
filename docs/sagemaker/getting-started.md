@@ -2,11 +2,11 @@
 
 The get started guide will show you how to quickly use Hugging Face on Amazon SageMaker. Learn how to fine-tune and deploy a pretrained 🤗 Transformers model on SageMaker for a binary text classification task.
 
-💡 If you are new to Hugging Face, we recommend first reading the 🤗 Transformers [quick tour](https://huggingface.co/transformers/quicktour.html).
+💡 If you are new to Hugging Face, we recommend first reading the 🤗 Transformers [quick tour](https://huggingface.co/docs/transformers/quicktour).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pYqjCzoyWyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/sagemaker-notebook.ipynb) to follow along!
+📓 Open the [agemaker-notebook.ipynb file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/sagemaker-notebook.ipynb) to follow along!
 
 ## Installation and setup
 
@@ -90,7 +90,7 @@ test_dataset.save_to_disk(test_input_path)
 
 Create a Hugging Face Estimator to handle end-to-end SageMaker training and deployment. The most important parameters to pay attention to are:
 
-* `entry_point` refers to the fine-tuning script which you can find [here](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py).
+* `entry_point` refers to the fine-tuning script which you can find in [train.py file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py).
 * `instance_type` refers to the SageMaker instance that will be launched. Take a look [here](https://aws.amazon.com/sagemaker/pricing/) for a complete list of instance types.
 * `hyperparameters` refers to the training hyperparameters the model will be fine-tuned with.
 

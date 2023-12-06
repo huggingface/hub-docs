@@ -9,10 +9,10 @@ Paper pages allow people to find artifacts related to a paper such as models, da
 
 ## Linking a Paper to a model, dataset or Space
 
-If the repository card (`README.md`) includes a link to a paper on arXiv, the Hugging Face Hub will extract the arXiv ID and include it in the model tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you:
+If the repository card (`README.md`) includes a link to a paper on arXiv, the Hugging Face Hub will extract the arXiv ID and include it in the repository's tags. Clicking on the arxiv tag will let you:
 
 * Visit the Paper page.
-* Filter for other models on the Hub that cite the same paper.
+* Filter for other models or datasets on the Hub that cite the same paper.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv.png"/>
@@ -21,7 +21,7 @@ If the repository card (`README.md`) includes a link to a paper on arXiv, the Hu
 
 ## Claiming authorship to a Paper
 
-The Hub will automatically match paper to users based on their email. 
+The Hub will attempt to automatically match paper to users based on their email. 
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/papers-authors.png"/>
@@ -40,7 +40,7 @@ If your paper is not linked to your account, you can click in your name in the c
 
 ### Can I control which Paper pages show in my profile?
 
-Yes! You can visit your Papers in [settings](https://huggingface.co/settings/papers), where you will see a list of verified paper. There, you can click the "Show on profile" checkbox to hide/show it in your profile. 
+Yes! You can visit your Papers in [settings](https://huggingface.co/settings/papers), where you will see a list of verified papers. There, you can click the "Show on profile" checkbox to hide/show it in your profile. 
 
 ### Do you support ACL anthology?
 
@@ -48,4 +48,4 @@ We're starting with Arxiv as it accounts for 95% of the paper URLs Hugging Face 
 
 ### Can I have a Paper page even if I have no model/dataset/Space?
 
-Not at the moment, but if you would like to have a paper page, please reach out to us by sending an email to **website at huggingface.co**.
+Yes. You can go to [the main Papers page](https://huggingface.co/papers), click search and write the name of the paper or the full Arxiv id. If the paper does not exist, you will get an option to index it. You can also just visit the page `hf.co/papers/xxxx.yyyyy` replacing with the arxiv id of the paper you wish to index.

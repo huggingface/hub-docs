@@ -3,7 +3,7 @@
 
 ## Template
 
-[https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md)
+[modelcard_template.md file](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md)
 
 
 ## Directions
@@ -52,6 +52,10 @@ _Provide basic details about the model. This includes the architecture, version,
 _List (and ideally link to) the people who built the model._
 
 
+* **Funded by:** `funded_by`
+  
+_List (and ideally link to)  the funding sources that financially, computationally, or otherwise supported  or enabled this model._
+
 
 * **Shared by [optional]:** `shared_by`
 
@@ -81,7 +85,7 @@ _Name and link to the license being used._
 
 
 
-* **Finetuned From Model [optional]:** `finetuned_from`
+* **Finetuned From Model [optional]:** `base_model`
 
 _If this model has another model as its base, link to that model here._
 
@@ -95,6 +99,7 @@ _If this model has another model as its base, link to that model here._
 _Provide sources for the user to directly see the model and its details. Additional kinds of resources – training logs, lessons learned, etc. – belong in the [More Information](#more-information-optional) section. If you include one thing for this section, link to the repository._
 
 # Uses
+
 **Section Overview:** This section addresses questions around how the model is intended to be used in different applied contexts, discusses the foreseeable users of the model (including those affected by the model), and describes uses that are considered out of scope or misuse of the model.  Note this section is not intended to include the license usage details. For that, link directly to the license.
 
 
@@ -218,7 +223,7 @@ _What do the results say? This can function as a kind of tl;dr for general audie
 
 **Section Overview:** Summarizes the information necessary to calculate environmental impacts such as electricity usage and carbon emissions.
 
-* **Hardware Type:** `hardware`
+* **Hardware Type:** `hardware_type`
 * **Hours used:** `hours_used`
 * **Cloud Provider:** `cloud_provider`
 * **Compute Region:** `cloud_region`
@@ -242,7 +247,9 @@ _Carbon emissions can be estimated using the [Machine Learning Impact calculator
 
 ### Hardware
 
-`hardware`
+`hardware_requirements`
+
+_What are the minimum hardware requirements, e.g. processing, storage, and memory requirements?_
 
 ### Software
 

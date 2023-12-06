@@ -69,11 +69,12 @@ model = model.to("cuda")
 
 ### JAX
 
-If you use JAX, you need to specify the binary that is compatible with the CUDA and cuDNN versions installed in your GPU Space. Please, add the following two lines to your `requirements.txt` file:
+If you use JAX, you need to specify the URL that contains CUDA compatible packages. Please, add the following lines to your `requirements.txt` file:
 
 ```
 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-jax[cuda11_cudnn805]
+jax[cuda11_pip]
+jaxlib
 ```
 
 After that, you can verify the installation by printing the output from the following code and checking it in your Space logs.
@@ -106,10 +107,7 @@ During a Space's lifecycle, it is only billed when the Space is actually `Runnin
 
 If a running Space starts to fail, it will be automatically suspended and the billing will stop.
 
-Spaces running on free hardware are suspended automatically if they are not used for an extended period of time (e.g. two days). Upgraded Spaces run indefinitely by default, even if there is no usage. You can change this behavior by [setting a custom "sleep time"](#sleep-time) in the Space's settings. To interrupt the billing on your Space, you can change the Hardware to CPU basic.
-<Tip>
-Additional lifecycle control over Spaces with upgraded hardware will soon be provided, such as configuration of an automated suspension of the Space after a custom delay.
-</Tip>
+Spaces running on free hardware are suspended automatically if they are not used for an extended period of time (e.g. two days). Upgraded Spaces run indefinitely by default, even if there is no usage. You can change this behavior by [setting a custom "sleep time"](#sleep-time) in the Space's settings. To interrupt the billing on your Space, you can change the Hardware to CPU basic, or [pause](#pause) it.
 
 Additional information about billing can be found in the [dedicated Hub-wide section](./billing).
 

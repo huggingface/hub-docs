@@ -1,8 +1,8 @@
-# Frequently Asked Questions
+# Models Frequently Asked Questions
 
 ## How can I see what dataset was used to train the model?
 
-It's up to the person who uploaded the model to include the training information! You may find the information about the datasets that the model was trained on in the model card. If the datasets used for the model are on the Hub, the uploader may have included them in the [model card's metadata](https://huggingface.co/Jiva/xlm-roberta-large-it-mnli/blob/main/README.md#L7-L9). In that case, the datasets would be linked with a handy card on the right side of the model page:
+It's up to the person who uploaded the model to include the training information! A user can [specify](./model-cards#specifying-a-dataset) the dataset used for training a model. If the datasets used for the model are on the Hub, the uploader may have included them in the [model card's metadata](https://huggingface.co/Jiva/xlm-roberta-large-it-mnli/blob/main/README.md#L7-L9). In that case, the datasets would be linked with a handy card on the right side of the model page:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-datasets.png"/>
@@ -28,7 +28,7 @@ Releasing an update to a model that you've already published can be done by push
 
 ## What if I have a different checkpoint of the model trained on a different dataset?
 
-By convention, each model repo should contain a single checkpoint trained on a particular dataset. You should upload any new checkpoints trained on different datasets to the Hub in a new model repo. You can link the models together by using a [tag in your model card's metadata](./modelcard) or by linking to them in the model cards. The [akiyamasho/AnimeBackgroundGAN-Shinkai](https://huggingface.co/akiyamasho/AnimeBackgroundGAN-Shinkai#other-pre-trained-model-versions) model, for example, references other checkpoints in the model card under *"Other pre-trained model versions"*.
+By convention, each model repo should contain a single checkpoint. You should upload any new checkpoints trained on different datasets to the Hub in a new model repo. You can link the models together by using a tag specified in the `tags` key in your [model card's metadata](./model-cards), by using [Collections](./collections) to group distinct related repositories together or by linking to them in the model cards. The [akiyamasho/AnimeBackgroundGAN-Shinkai](https://huggingface.co/akiyamasho/AnimeBackgroundGAN-Shinkai#other-pre-trained-model-versions) model, for example, references other checkpoints in the model card under *"Other pre-trained model versions"*.
 
 ## Can I link my model to a paper on arXiv?
 
@@ -42,4 +42,4 @@ If the model card includes a link to a paper on arXiv, the Hugging Face Hub will
 <img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv-dark.png"/>
 </div>
 
-Read more about paper pages [here](.paper-pages).
+Read more about paper pages [here](./paper-pages).
