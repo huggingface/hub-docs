@@ -97,7 +97,7 @@ Please note that, for the versions <1.19, scrolling is disabled and you'll need 
 
 ## Embed mode
 
-You can use the `embed=true` query parameter in the URL to activate the embed mode of the Streamlit app, removing some spacers and the footer for slim embeds.
+You can use the `embed=true` query parameter in the URL to activate embed mode in the Streamlit app, which removes some spacers and the footer for slim embeddings.
 
 ```
 <iframe
