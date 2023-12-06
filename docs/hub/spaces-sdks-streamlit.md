@@ -93,7 +93,7 @@ For example, the demo above can be embedded in these docs with the following tag
   sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
 ></iframe>
 
-Please note that, for the versions <1.19, scrolling is disabled and you'll need to set the height of the iframe enough to fit the embedded Streamlit app's content or use the auto-resizing technique described below.
+Please note that, for versions `< 1.19`, scrolling is disabled. You'll need to set the height of the iframe enough to fit the embedded Streamlit app's content, or use the auto-resizing technique described below.
 
 ## Embed mode
 
