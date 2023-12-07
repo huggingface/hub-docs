@@ -1,4 +1,4 @@
-# Set URL query and hash
+# How to handle URL parameters in Spaces
 
 On a Space page (`https://huggingface.co/spaces/<user>/<app>`), the actual application page (`https://*.hf.space/`) is embedded in an iframe. The query string and the hash attached to the parent page URL are propagated to the embedded app on initial load, so the embedded app can read these values without special consideration.
 
