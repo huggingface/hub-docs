@@ -97,3 +97,21 @@ custom_headers:
 ```
 
 *Note:* all headers and values must be lowercase.
+
+**`preload_from_hub`**: _List[string]_
+Specify a list of Hugging Face Hub models or other large files to be preloaded during the build time of your Space. This optimizes the startup time by having the files ready when your application starts. This is particularly useful for Spaces that rely on large models or datasets that would otherwise need to be downloaded at runtime.
+
+The format for each item is `"repository_name"` to download all files from a repository, or `"repository_name file1,file2"` for downloading specific files within that repository. You can also specify a specific commit to download using the format `"repository_name file1,file2 commit_sha256"`. 
+
+Example usage:
+```yaml
+preload_from_hub:
+  - warp-ai/wuerstchen-prior text_encoder/model.safetensors,prior/diffusion_pytorch_model.safetensors
+  - coqui/XTTS-v1
+  - gpt2 config.json 11c5a3d5811f50298f278a704980280950aedb10
+```
+In this example, the Space will preload specific .safetensors files from `warp-ai/wuerstchen-prior`, the complete `coqui/XTTS-v1` repository, and a specific revision of the `config.json` file in the `gpt2` repository from the Hugging Face Hub during build time.
+
+<Tip warning={true}>
+  Files are saved in the default `huggingface_hub` disk cache `~/.cache/huggingface/hub`. If you application expects them elsewhere or you changed your `HF_HOME` variable, this pre-loading does not follow that at this time.
+</Tip>
