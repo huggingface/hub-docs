@@ -17,3 +17,7 @@ window.parent.postMessage({
     hash,
 }, "https://huggingface.co");
 ```
+
+This is only for Docker or static Spaces.
+For Streamlit apps, Spaces automatically handle the URL parameters sync.
+Gradio is not supporting URL parameters updates/deep-links.
