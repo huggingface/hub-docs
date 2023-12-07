@@ -6,7 +6,7 @@ On a Space page (`https://huggingface.co/spaces/<user>/<app>`), the actual appli
 
 
 In contrast, updating the query string and the hash of the parent page URL from the embedded app is slightly more complex.
-If you want to do this in a Static or Docker Space, you need to write JS code like this that sends a message to the parent page that has a `queryString` and/or `hash` key.
+If you want to do this in a Static or Docker Space, you need to add the following JS code that sends a message to the parent page that has a `queryString` and/or `hash` key.
 
 ```js
 const queryString = "...";
