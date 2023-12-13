@@ -6,7 +6,7 @@ export interface WidgetProps {
 	apiUrl:                string;
 	callApiOnMount:        boolean;
 	isInferenceEndpoints?: boolean;
-	model:                 Pick<ModelData, 'id' | 'mask_token' | 'pipeline_tag' | 'widgetData'>;
+	model:                 Pick<ModelData, 'cardData' | 'id' | 'mask_token' | 'pipeline_tag' | 'widgetData'>;
 	noTitle:               boolean;
 	shouldUpdateUrl:       boolean;
 	includeCredentials:    boolean;
