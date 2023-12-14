@@ -114,4 +114,4 @@ A green check mark near the SAML selector will attest that the test was successf
 
 Now that Single Sign-On is configured and tested, you can enable it for members of your organization by clicking on the "Enable" button.
 
-Once enabled, members of your organization must complete the SSO authentication flow described in the [How does it work?](./security-sso#how-does-it-work) section.
+Once enabled, members of your organization must complete the SSO authentication flow described in [How does it work?](./security-sso#how-does-it-work).
