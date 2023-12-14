@@ -56,7 +56,7 @@ The URL looks like this: `https://huggingface.co/organizations/[organizationIden
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-4.png"/>
 </div>
 
-Then under "SAML Certificates", verify that "Signin Option" is set to: Sign SAML response and assertion.
+Then under "SAML Certificates", verify that "Signin Option" is set to "Sign SAML response and assertion".
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-5.png"/>
