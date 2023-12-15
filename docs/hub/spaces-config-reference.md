@@ -71,9 +71,6 @@ Whether the Space stays on top of your profile. Can be useful if you have a lot 
 **`hf_oauth`** : _boolean_  
 Whether a connected OAuth app is associated to this Space. See [Adding a Sign-In with HF button to your Space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
 
-**`hf_oauth_redirect_path`** : _string_  
-Authorized relative redirect path of the connected OAuth app. `/login/callback` and `/auth/callback` are authorized by default and do not need this parameter. See [Adding a Sign-In with HF button to your space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
-
 **`hf_oauth_scopes`** : _List[string]_
 Authorized scopes of the connected OAuth app. `openid` and `profile` are authorized by default and do not need this parameter. See [Adding a Sign-In with HF button to your space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
 

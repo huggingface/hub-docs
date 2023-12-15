@@ -33,8 +33,6 @@ python_version: 3.10.6
 app_file: app.py
 
 hf_oauth: true
-# optional, see "Redirect URLs" below
-hf_oauth_redirect_path: /custom_callback_route
 # optional, see "Scopes" below. "openid profile" is always included.
 hf_oauth_scopes:
  - read-repos
@@ -56,14 +54,11 @@ As for any other environment variable, you can use them in your code by using `o
 
 ## Redirect URLs 
 
-The allowed redirect URIs for your OAuth app are:
+You can use any redirect URL you want, as long as it targets your Space.
 
-- `https://{SPACE_HOST}/auth/callback`
-- `https://{SPACE_HOST}/login/callback`
+Note that `SPACE_HOST` is [available](https://huggingface.co/docs/hub/spaces-overview#helper-environment-variables) as an environment variable.
 
-Note that `SPACE_HOST` is also [available](https://huggingface.co/docs/hub/spaces-overview#helper-environment-variables) as an environment variable.
-
-You can add a custom relative redirect path by setting `hf_oauth_redirect_path` in your Space's metadata.
+For example, you can use `https://{SPACE_HOST}/login/callback` as a redirect URI.
 
 ## Scopes
 
