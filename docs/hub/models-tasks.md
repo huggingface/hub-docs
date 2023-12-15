@@ -58,9 +58,7 @@ The Hub also supports over 10 open-source libraries in the [Community Inference 
 
 **My model is not supported by any library. Am I doomed? 😱**
 
-No, you're not! The [generic Inference API](https://github.com/huggingface/api-inference-community/tree/main/docker_images/generic) is an experimental Docker image for quickly prototyping new tasks and introducing new libraries,  which should allow you to have a new task in production with very little development from your side.
-
-How does it work from the user's point of view? Users create a copy of a [template](https://huggingface.co/templates) repo for their given task. Users then need to define their `requirements.txt` and fill `pipeline.py`. Note that this is intended for quick experimentation and prototyping instead of fast production use-cases.
+We recommend using [Hugging Face Spaces](./spaces) for these use cases.
 
 
 ### UI elements
