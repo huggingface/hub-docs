@@ -36,7 +36,7 @@ If you want to manually approve which users can access your model, you must set 
 
 Once access requests are enabled, you have full control of who can access your model or not, whether the approval mode is manual or automatic. You can review and manage requests either from the UI or via the API.
 
-### From the UI
+#### From the UI
 
 You can review who has access to your gated model from its settings page by clicking on the **Review access requests** button. This will open a modal with 3 lists of users:
 - **pending**: the list of users waiting for approval to access your model. This list is empty unless you've selected **manual approval**. You can either **Accept** or **Reject** the demand. If the demand is rejected, the user cannot access your model and cannot request access again.
@@ -63,6 +63,7 @@ You can automate the approval of access requests by using the API. You must pass
 The base URL for the HTTP endpoints above is `https://huggingface.co`.
 
 Those endpoints are not officially supported in `huggingface_hub` or `huggingface.js` yet but [this code snippet](https://github.com/huggingface/huggingface_hub/issues/1535#issuecomment-1614693412) (in Python) might help you getting started.
+NEW! There's an [open PR](https://github.com/huggingface/huggingface_hub/pull/1905) in `huggingface_hub` to add official support from our Python library.
 
 ### Download access report
 
@@ -107,6 +108,19 @@ extra_gated_heading: "Acknowledge license to accept the repository"
 extra_gated_button_content: "Acknowledge license"
 ---
 ```
+
+### Example use cases of programmatically managing access requests
+
+Here are a few interesting use cases of programmatically managing access requests for gated repos we've seen organically emerge in the community.
+As a reminder, the model repo needs to be set to manual approval, otherwise users get access to it automatically.
+
+Possible use cases of programmatic management include:
+- If you have advanced user request screening requirements (for advanced compliance requirements, etc) or you wish to handle the user requests outside the Hub.
+    - An example for this was Meta's [Llama 2](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) initial release where users had to request access on a Meta website.
+    - You can ask users for their HF username in your access flow, and then use a script to programmatically accept user requests on the Hub based on your set of conditions.
+- If you want to condition access to a model based on completing a payment flow (note that the actual payment flow happens outside of the Hub).
+    - Here's an [example repo](https://huggingface.co/Trelis/openchat_3.5-function-calling-v3) from TrelisResearch that uses this use case.
+   - [@RonanMcGovern](https://huggingface.co/RonanMcGovern) has posted a [video about the flow](https://www.youtube.com/watch?v=2OT2SI5auQU) and tips on how to implement it.
 
 ## Access gated models as a user
 
