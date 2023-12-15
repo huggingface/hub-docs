@@ -120,7 +120,7 @@ Possible use cases of programmatic management include:
     - You can ask users for their HF username in your access flow, and then use a script to programmatically accept user requests on the Hub based on your set of conditions.
 - If you want to condition access to a model based on completing a payment flow (note that the actual payment flow happens outside of the Hub).
     - Here's an [example repo](https://huggingface.co/Trelis/openchat_3.5-function-calling-v3) from TrelisResearch that uses this use case.
-   - [@RonanMcGovern](https://huggingface.co/RonanMcGovern) has posted a [video about the flow](https://twitter.com/TrelisResearch/status/1729227883296522338) and tips on how to implement it.
+   - [@RonanMcGovern](https://huggingface.co/RonanMcGovern) has posted a [video about the flow](https://www.youtube.com/watch?v=2OT2SI5auQU) and tips on how to implement it.
 
 ## Access gated models as a user
 
