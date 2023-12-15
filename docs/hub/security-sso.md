@@ -35,6 +35,7 @@ We have some guides available to help with configuring based on your chosen SSO 
 
 - [How to configure OIDC with Okta in the Hub](./security-sso-okta-oidc)
 - [How to configure SAML with Okta in the Hub](./security-sso-okta-saml)
+- [How to configure SAML with Azure in the Hub](./security-sso-azure-saml)
 
 ### Users Management
 
