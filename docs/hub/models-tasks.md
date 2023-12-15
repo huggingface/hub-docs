@@ -58,7 +58,7 @@ The Hub also supports over 10 open-source libraries in the [Community Inference 
 
 **My model is not supported by any library. Am I doomed? 😱**
 
-We recommend to use [Hugging Face Spaces](./spaces) for these use cases.
+We recommend using [Hugging Face Spaces](./spaces) for these use cases.
 
 
 ### UI elements
