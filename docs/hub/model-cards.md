@@ -107,7 +107,7 @@ If it's not specified, the Hub will try to automatically detect the library type
 If your model is a fine-tune or adapter of a base model, you can specify the base model in the model card metadata section. This information can also be used to indicate if your model is a merge of multiple existing models. The `base_model` field can either be a single model ID or an array of one or more base_models (specified by their Hub identifier). 
 
 ```yaml
-base_model:  HuggingFaceH4/zephyr-7b-beta
+base_model: HuggingFaceH4/zephyr-7b-beta
 ```
 
 This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model or find models that are fine-tuned from a specific base model.
