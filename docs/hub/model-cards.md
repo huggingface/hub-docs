@@ -74,7 +74,8 @@ datasets:
 metrics:
 - metric1
 - metric2
-base_model: "base model Hub identifier"
+base_model: 
+- "base model Hub identifier"
 ---
 ```
 
