@@ -17,6 +17,7 @@ datasets:
 - {dataset_0}  # Example: common_voice. Use dataset id from https://hf.co/datasets
 metrics:
 - {metric_0}  # Example: wer. Use metric id from https://hf.co/metrics
+base_model: {base_model}  # Example: stabilityai/stable-diffusion-xl-base-1.0. Can also be a list (for merges)
 
 # Optional. Add this if you want to encode your eval results in a structured way.
 model-index:
