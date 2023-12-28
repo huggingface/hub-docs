@@ -26,7 +26,7 @@ HuggingFace Spaces. This Giskard app is a **self-contained application completel
 
 You can deploy Giskard on Spaces with just a few clicks:
 
-<a  href="https://huggingface.co/new-space?template=giskard/giskard-template-space">
+<a  href="https://huggingface.co/new-space?template=giskardai%2Fgiskard">
     <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
 </a>
 
