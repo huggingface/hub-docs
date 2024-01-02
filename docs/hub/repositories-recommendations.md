@@ -5,7 +5,7 @@ getting an upload/push to fail at the end of the process or encountering a degra
 
 ## Recommendations
 
-We gathered a list of tips and recommendations for structuring your repo. If you are looking for more practical tips, check out [this guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/upload#practical-tips) on how to upload large amount of data using the Python library.
+We gathered a list of tips and recommendations for structuring your repo. If you are looking for more practical tips, check out [this guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/upload#tips-and-tricks-for-large-uploads) on how to upload large amount of data using the Python library.
 
 
 | Characteristic     | Recommended        | Tips                                                   |
