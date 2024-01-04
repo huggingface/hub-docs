@@ -2,7 +2,12 @@
 
 This guide will show you how to configure your dataset repository with image files. You can find accompanying examples of repositories in this [Image datasets examples collection](https://huggingface.co/collections/datasets-examples/image-dataset-6568e7cf28639db76eb92d65).
 
-A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its page on the Hub. Any additional information about your dataset - such as captions or bounding boxes for object detection - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`).
+A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its page on the Hub.
+
+Additional information about your images - such as captions or bounding boxes for object detection - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`).
+
+Alternatively images can be in Parquet files or in TAR archives following the [WebDataset](https://github.com/webdataset/webdataset) format.
+
 
 ## Only images
 
@@ -161,4 +166,31 @@ my_dataset_repository/
 └── train.parquet
 ```
 
-Note that for the user convenience, every dataset hosted in the Hub is automatically converted to Parquet format. Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.
+Images columns are of type struct with a binary field "bytes" for the image data and a string field "path" for the image file name or path.
+Then you can specify the feature types of the columns directly in YAML in the README header, for example:
+
+```yaml
+dataset_info:
+  features:
+  - name: image
+    dtype: image
+  - name: caption
+    dtype: string
+```
+
+Alternatively, Parquet files with Image data can be created using the `datasets` library by setting the column type to `Image()` and using the `.to_parquet(...)` method or `.push_to_hub(...)`. You can find a guide on loading image datasets in `datasets` [here](../datasets/image_load).
+
+
+## WebDataset format
+
+The [WebDataset](https://github.com/webdataset/webdataset) format is well suited for large scale image datasets. It consists of TAR archives containing images and their metadata and is optimized for streaming. It is useful if you have a large number of images and to get streaming data loaders for large scale training.
+
+```
+my_dataset_repository/
+├── train-0000.tar
+├── train-0001.tar
+├── ...
+└── train-1023.tar
+```
+
+Note that for the user convenience, every dataset hosted in the Hub is automatically converted to Parquet format up to 5GB. Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.

@@ -92,9 +92,11 @@ The Hub natively supports multiple file formats:
 - Images (.png, .jpg, etc.)
 - Audio (.wav, .mp3, etc.)
 
-It also supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
+It supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
 
 Image and audio resources can also have additional metadata files, see the [Data files Configuration](./datasets-data-files-configuration#image-and-audio-datasets) on image and audio datasets.
+
+The Hub also supports large scale image datasets using the [WebDataset](https://github.com/webdataset/webdataset) format based on TAR archives.
 
 You may want to convert your files to these formats to benefit from all the Hub features.
 Other formats and structures may not be recognized by the Hub.
