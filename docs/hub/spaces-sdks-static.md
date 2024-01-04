@@ -12,3 +12,7 @@ Here are some examples of Spaces using custom HTML:
 Custom [environment variables](./spaces-overview#managing-secrets) can be passed to your Space. OAuth information such as the client ID and scope are also available as environment variables, if you have [enabled OAuth](./spaces-oauth) for your Space.
 
 To use these variables in JavaScript, you can use the `window.huggingface.variables` object. For example, to access the `OAUTH_CLIENT_ID` variable, you can use `window.huggingface.variables.OAUTH_CLIENT_ID`.
+
+Here is an example of a Space using custom environment variables and oauth enabled and displaying the variables in the HTML:
+
+* [Static Variables](https://huggingface.co/spaces/coyotte508/static-variables)
