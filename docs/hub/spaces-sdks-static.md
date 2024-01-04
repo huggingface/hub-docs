@@ -6,3 +6,9 @@ Here are some examples of Spaces using custom HTML:
 
 * [Smarter NPC](https://huggingface.co/spaces/mishig/smarter_npc): Display a PlayCanvas project with an iframe in Spaces.
 * [Huggingfab](https://huggingface.co/spaces/pierreant-p/huggingfab): Display a Sketchfab model in Spaces.
+
+## Space variables
+
+Custom [variables](./spaces-overview#managing-secrets) are available in your Space. OAuth information such as the client ID and scope are also available as environment variables, if you have [enabled OAuth](./spaces-oauth) for your Space.
+
+To use these variables in JavaScript, you can use the `window.huggingface.variables` object. For example, to access the `OAUTH_CLIENT_ID` variable, you can use `window.huggingface.variables.OAUTH_CLIENT_ID`.
