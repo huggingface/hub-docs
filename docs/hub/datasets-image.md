@@ -58,7 +58,7 @@ If there is additional information you'd like to include about your dataset, lik
 
 ```
 my_dataset_repository/
-└── train
+└── data
     ├── 1.jpg
     ├── 2.jpg
     ├── 3.jpg
@@ -91,7 +91,7 @@ Metadata file must be located either in the same directory with the images it is
 
 ```
 my_dataset_repository/
-└── train
+└── data
     ├── images
     │   ├── 1.jpg
     │   ├── 2.jpg
