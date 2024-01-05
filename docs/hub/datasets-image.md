@@ -157,7 +157,23 @@ configs:
     drop_labels: true
 ```
 
-## Parquet format
+## Large scale datasets
+
+### WebDataset format
+
+The [WebDataset](https://github.com/webdataset/webdataset) format is well suited for large scale image datasets (see [timm/imagenet-12k-wds](https://huggingface.co/datasets/timm/imagenet-12k-wds) for example). It consists of TAR archives containing images and their metadata and is optimized for streaming. It is useful if you have a large number of images and to get streaming data loaders for large scale training.
+
+```
+my_dataset_repository/
+├── train-0000.tar
+├── train-0001.tar
+├── ...
+└── train-1023.tar
+```
+
+Note that for the user convenience and to enable the [Dataset Viewer](./datasets-viewer), every dataset hosted in the Hub is automatically converted to Parquet format up to 5GB. Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.
+
+### Parquet format
 
 Instead of uploading the images and metadata as individual files, you can embed everything inside a [Parquet](https://parquet.apache.org/) file. This is useful if you have a large number of images, if you want to embed multiple image columns, or if you want to store additional information about the images in the same file. Parquet is also useful for storing data such as raw bytes, which is not supported by JSON/CSV.
 
@@ -179,18 +195,3 @@ dataset_info:
 ```
 
 Alternatively, Parquet files with Image data can be created using the `datasets` library by setting the column type to `Image()` and using the `.to_parquet(...)` method or `.push_to_hub(...)`. You can find a guide on loading image datasets in `datasets` [here](../datasets/image_load).
-
-
-## WebDataset format
-
-The [WebDataset](https://github.com/webdataset/webdataset) format is well suited for large scale image datasets. It consists of TAR archives containing images and their metadata and is optimized for streaming. It is useful if you have a large number of images and to get streaming data loaders for large scale training.
-
-```
-my_dataset_repository/
-├── train-0000.tar
-├── train-0001.tar
-├── ...
-└── train-1023.tar
-```
-
-Note that for the user convenience, every dataset hosted in the Hub is automatically converted to Parquet format up to 5GB. Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.

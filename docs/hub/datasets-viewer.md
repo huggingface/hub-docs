@@ -24,16 +24,20 @@ You can search for a word in the dataset by typing it in the search bar at the t
 
 You can share a specific row by clicking on it, and then copying the URL in the address bar of your browser. For example https://huggingface.co/datasets/glue/viewer/mrpc/test?p=2&row=241 will open the dataset viewer on the MRPC dataset, on the test split, and on the 241st row.
 
+## Large scale datasets
+
+The Dataset Viewer supports large scale datasets, but depending on the data format it may only show the first 5GB of the dataset:
+
+- For Parquet datasets: the Dataset Viewer shows the full dataset, however filtering and search are only enabled on the first 5GB.
+- For datasets >5GB in other formats (e.g. [WebDataset](https://github.com/webdataset/webdataset) or JSON Lines): the Dataset Viewer only shows the first 5GB, and filtering and search are enabled on these first 5GB.
+
+In this case, an informational message lets you know that the Viewer is partial. This should be a large enough sample to represent the full dataset accurately, let us know if you need a bigger sample.
+
 ## Access the parquet files
 
-To power the dataset viewer, every dataset is auto-converted to the Parquet format. Click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
+To power the dataset viewer, every dataset is auto-converted up to 5GB to the Parquet format (if the dataset is already in Parquet format we just link all the Parquet files). Click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
 
 You can also access the list of Parquet files programmatically using the [Hub API](./api#endpoints-table): https://huggingface.co/api/datasets/glue/parquet.
-
-## Very large datasets
-
-For datasets >5GB, we only auto-convert to Parquet the first ~5GB of the dataset. 
-In this case, an informational message lets you know that the Viewer is partial. This should be a large enough sample to represent the full dataset accurately, let us know if you need a bigger sample.
 
 ## Dataset preview
 

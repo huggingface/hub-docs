@@ -61,20 +61,13 @@ Adding a Dataset card is super valuable for helping users find your dataset and 
 
     You can click on the **Import dataset card template** link at the top of the editor to automatically create a dataset card template. For a detailed example of what a good Dataset card should look like, take a look at the [CNN DailyMail Dataset card](https://huggingface.co/datasets/cnn_dailymail).
 
-### Dataset Viewer
-
-The [Dataset Viewer](./datasets-viewer) is useful to know how the data actually looks like before you download it.
-It is enabled by default for all public datasets.
-
-Make sure the Dataset Viewer correctly shows your data, or [Configure the Dataset Viewer](./datasets-viewer-configure).
-
 ## Using the `huggingface_hub` client library
 
 The rich features set in the `huggingface_hub` library allows you to manage repositories, including creating repos and uploading datasets to the Hub. Visit [the client library's documentation](https://huggingface.co/docs/huggingface_hub/index) to learn more.
 
 ## Using other libraries
 
-Some libraries like [🤗 Datasets](https://huggingface.co/docs/datasets/index), [Pandas](https://pandas.pydata.org/), [Dask](https://www.dask.org/) or [DuckDB](https://duckdb.org/) can upload files to the Hub.
+Some libraries like [🤗 Datasets](../datasets/index), [Pandas](https://pandas.pydata.org/), [Dask](https://www.dask.org/) or [DuckDB](https://duckdb.org/) can upload files to the Hub.
 See the list of [Libraries supported by the Datasets Hub](./datasets-libraries) for more information.
 
 ## Using Git
@@ -91,12 +84,26 @@ The Hub natively supports multiple file formats:
 - Text (.txt)
 - Images (.png, .jpg, etc.)
 - Audio (.wav, .mp3, etc.)
+- [WebDataset](https://github.com/webdataset/webdataset) (.tar)
 
 It supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
 
-Image and audio resources can also have additional metadata files, see the [Data files Configuration](./datasets-data-files-configuration#image-and-audio-datasets) on image and audio datasets.
-
-The Hub also supports large scale image datasets using the [WebDataset](https://github.com/webdataset/webdataset) format based on TAR archives.
+Image and audio files can also have additional metadata files, see the [Data files Configuration](./datasets-data-files-configuration#image-and-audio-datasets) on image and audio datasets.
 
 You may want to convert your files to these formats to benefit from all the Hub features.
 Other formats and structures may not be recognized by the Hub.
+
+### Dataset Viewer
+
+The [Dataset Viewer](./datasets-viewer) is useful to know how the data actually looks like before you download it.
+It is enabled by default for all public datasets.
+
+After uploading your dataset, make sure the Dataset Viewer correctly shows your data, or [Configure the Dataset Viewer](./datasets-viewer-configure).
+
+## Large scale datasets
+
+The Hugging Face Hub supports large scale datasets, usually uploaded in Parquet (e.g. via `push_to_hub()` using [🤗 Datasets](../datasets/index)) or [WebDataset](https://github.com/webdataset/webdataset) format.
+
+You can upload large scale datasets at high speed using the `huggingface-hub` library.
+
+See [how to upload a folder by chunk](../huggingface_hub/guides/upload#upload-a-folder-by-chunks) and the [tips and tricks for large uploads](../huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads).
