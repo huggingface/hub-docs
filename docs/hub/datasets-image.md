@@ -6,7 +6,7 @@ A dataset with a supported structure and [file formats](./datasets-adding#file-f
 
 Additional information about your images - such as captions or bounding boxes for object detection - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`).
 
-Alternatively images can be in Parquet files or in TAR archives following the [WebDataset](https://github.com/webdataset/webdataset) format.
+Alternatively, images can be in Parquet files or in TAR archives following the [WebDataset](https://github.com/webdataset/webdataset) format.
 
 
 ## Only images
@@ -171,7 +171,7 @@ my_dataset_repository/
 └── train-1023.tar
 ```
 
-Note that for the user convenience and to enable the [Dataset Viewer](./datasets-viewer), every dataset hosted in the Hub is automatically converted to Parquet format up to 5GB. Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.
+Note that for user convenience and to enable the [Dataset Viewer](./datasets-viewer), every dataset hosted in the Hub is automatically converted to Parquet format up to 5GB. Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.
 
 ### Parquet format
 
@@ -182,8 +182,8 @@ my_dataset_repository/
 └── train.parquet
 ```
 
-Images columns are of type struct with a binary field "bytes" for the image data and a string field "path" for the image file name or path.
-Then you can specify the feature types of the columns directly in YAML in the README header, for example:
+Image columns are of type _struct_, with a binary field `"bytes"` for the image data and a string field `"path"` for the image file name or path.
+You can specify the feature types of the columns directly in YAML in the README header, for example:
 
 ```yaml
 dataset_info:
