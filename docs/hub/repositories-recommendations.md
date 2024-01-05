@@ -34,7 +34,7 @@ which has very detailed documentation about the different factors that will impa
 - **Repository size**: The total size of the data you're planning to upload. There is no hard limit on a Hub repository size. However, if you plan to upload hundreds of GBs or even TBs of data, we would appreciate it if you could let us know in advance so we can better help you if you have any questions during the process. You can contact us at datasets@huggingface.co or on [our Discord](http://hf.co/join/discord).
 - **Number of files**:
     - For optimal experience, we recommend keeping the total number of files under 100k. Try merging the data into fewer files if you have more.
-      For example, json files can be merged into a single jsonl file, or large datasets can be exported as Parquet files.
+      For example, json files can be merged into a single jsonl file, or large datasets can be exported as Parquet files or in [WebDataset](https://github.com/webdataset/webdataset) format.
     - The maximum number of files per folder cannot exceed 10k files per folder. A simple solution is to
       create a repository structure that uses subdirectories. For example, a repo with 1k folders from `000/` to `999/`, each containing at most 1000 files, is already enough.
 - **File size**: In the case of uploading large files (e.g. model weights), we strongly recommend splitting them **into chunks of around 5GB each**.
