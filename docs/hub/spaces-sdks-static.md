@@ -15,4 +15,4 @@ To use these variables in JavaScript, you can use the `window.huggingface.variab
 
 Here is an example of a Space using custom environment variables and oauth enabled and displaying the variables in the HTML:
 
-* [Static Variables](https://huggingface.co/spaces/coyotte508/static-variables)
+* [Static Variables](https://huggingface.co/spaces/huggingfacejs/static-variables)
