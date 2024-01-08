@@ -176,7 +176,7 @@ _Detail throughput, start/end time, checkpoint sizes, etc._
 
 # Evaluation
 
-**Section Overview:** This section describes the evaluation protocols, what is being measured in the evaluation, and provides the results.  Evaluation is ideally constructed with factors, such as domain and demographic subgroup, and metrics, such as accuracy, which are prioritized in light of foreseeable error contexts and groups. Target fairness metrics should be decided based on which errors are more likely to be problematic in light of the model use. 
+**Section Overview:** This section describes the evaluation protocols, what is being measured in the evaluation, and provides the results.  Evaluation is ideally constructed with factors, such as domain and demographic subgroup, and metrics, such as accuracy, which are prioritized in light of foreseeable error contexts and groups. Target fairness metrics should be decided based on which errors are more likely to be problematic in light of the model use. You can also specify your model's evaluation results in a structured way in the model card metadata. Results are parsed by the Hub and displayed in a widget on the model page. See https://huggingface.co/docs/hub/model-cards#evaluation-results.
 
 
 ## Testing Data, Factors & Metrics
@@ -221,7 +221,7 @@ _What do the results say? This can function as a kind of tl;dr for general audie
 
 # Environmental Impact
 
-**Section Overview:** Summarizes the information necessary to calculate environmental impacts such as electricity usage and carbon emissions.
+**Section Overview:** Summarizes the information necessary to calculate environmental impacts such as electricity usage and carbon emissions. 
 
 * **Hardware Type:** `hardware_type`
 * **Hours used:** `hours_used`
