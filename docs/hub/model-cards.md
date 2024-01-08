@@ -15,9 +15,15 @@ The model card should describe:
 - its intended uses & potential limitations, including biases and ethical considerations as detailed in [Mitchell, 2018](https://arxiv.org/abs/1810.03993)
 - the training params and experimental info (you can embed or link to an experiment tracking platform for reference)
 - which datasets were used to train your model
-- your evaluation results
+- the model's evaluation results
 
 The model card template is available [here](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md).
+
+How to fill out each section of the model card is described in [the Annotated Model Card](https://huggingface.co/docs/hub/model-card-annotated).
+
+Model Cards on the Hub have two key parts, with overlapping information:
+- [Metadata](#model-card-metadata)
+- [Long-form description](#model-card-text)
 
 ## Model card metadata
 
@@ -202,6 +208,10 @@ If the model card includes a link to a paper on arXiv, the Hugging Face Hub will
 </div>
 
 Read more about Paper pages [here](./paper-pages).
+
+## Model Card text
+
+Details on how to fill out a human-readable model card without Hub-specific metadata -- so that it may be printed out, cut + pasted, etc -- is available in the [Annotated Model Card](#model-card-annotated).
 
 ## FAQ
 
