@@ -211,7 +211,7 @@ Read more about Paper pages [here](./paper-pages).
 
 ## Model Card text
 
-Details on how to fill out a human-readable model card without Hub-specific metadata -- so that it may be printed out, cut + pasted, etc -- is available in the [Annotated Model Card](#model-card-annotated).
+Details on how to fill out a human-readable model card without Hub-specific metadata -- so that it may be printed out, cut + pasted, etc -- is available in the [Annotated Model Card](./model-card-annotated).
 
 ## FAQ
 
