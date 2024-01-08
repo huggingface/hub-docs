@@ -23,7 +23,7 @@ How to fill out each section of the model card is described in [the Annotated Mo
 
 Model Cards on the Hub have two key parts, with overlapping information:
 - [Metadata](#model-card-metadata)
-- [Long-form description](#model-card-text)
+- [Text descriptions](#model-card-text)
 
 ## Model card metadata
 
