@@ -221,7 +221,7 @@ _What do the results say? This can function as a kind of tl;dr for general audie
 
 # Environmental Impact
 
-**Section Overview:** Summarizes the information necessary to calculate environmental impacts such as electricity usage and carbon emissions. 
+**Section Overview:** Summarizes the information necessary to calculate environmental impacts such as electricity usage and carbon emissions.
 
 * **Hardware Type:** `hardware_type`
 * **Hours used:** `hours_used`
