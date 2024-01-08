@@ -122,17 +122,21 @@ _Explain how this model can be used when fine-tuned for a task or when plugged i
 
 `out_of_scope_use`
 
-_List how the model may foreseeably be misused and address what users ought not do with the model._
+_List how the model may foreseeably be misused (used in a way it will not work for) and address what users ought not do with the model._
 
 
 
 # Bias, Risks, and Limitations
 
-**Section Overview:** This section identifies foreseeable harms, misunderstandings, and technical and sociotechnical limitations. It also provides information on warnings and potential mitigations.
+**Section Overview:** This section identifies foreseeable harms, misunderstandings, and technical and sociotechnical limitations. It also provides information on warnings and potential mitigations. Bias, risks, and limitations can sometimes be inseparable/refer to the same issues. Generally, bias and risks are sociotechnical, while limitations are technical: 
+- A **bias** is a stereotype or disproportionate performance (skew) for some subpopulations. 
+- A **risk** is a socially-relevant issue that the model might cause. 
+- A **limitation** is a likely failure mode that can be addressed following the listed Recommendations.
 
 `bias_risks_limitations`
 
 _What are the known or foreseeable issues stemming from this model?_
+
 
 
 ## Recommendations
