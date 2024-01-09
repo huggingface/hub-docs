@@ -2,7 +2,6 @@
 
 In this guide, we will use Azure as the SSO provider and with the Open ID Connect (OIDC) protocol as our preferred identity protocol. 
 
-We currently support SP-initiated and IdP-initiated authentication. User provisioning is not yet supported at this time.
 
 <Tip warning={true}>
 	This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
