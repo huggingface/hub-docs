@@ -1,6 +1,6 @@
 # How to configure OIDC SSO with Azure
 
-In this guide, we will use Azure as the SSO provider and with the Open ID Connect (OIDC) protocol as our preferred identity protocol. 
+This guide will use Azure as the SSO provider and the Open ID Connect (OIDC) protocol as our preferred identity protocol. 
 
 
 <Tip warning={true}>
@@ -12,19 +12,19 @@ In this guide, we will use Azure as the SSO provider and with the Open ID Connec
 
 Open a new tab/window in your browser and sign in to the Azure portal of your organization.
 
-Navigate to the Microsoft Entra ID admin center, and click on "Enterprise applications"
+Navigate to the Microsoft Entra ID admin center and click on "Enterprise applications"
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-1.png"/>
 </div>
 
-You'll be redirected to this page, click on "New application" at the top, then "Create your own application".
+You'll be redirected to this page. Then click "New application" at the top and "Create your own application".
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-2.png"/>
 </div>
 
-Input a name for your application (for example, Hugging Face SSO), then select "Register an application to integrate with Microsoft Entra ID (App you're developping)".
+Input a name for your application (for example, Hugging Face SSO), then select "Register an application to integrate with Microsoft Entra ID (App you're developing)".
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-3.png"/>
@@ -45,7 +45,7 @@ Open a new tab/window in your browser and navigate to the SSO section of your or
 </div>
 
 
-Copy the "Redirection URI" from the organization's settings on Hugging Face, and paste it in the "Redirect URI" field on Azure Entra ID. Make sure you selected "Web" in the dropdown menu.
+Copy the "Redirection URI" from the organization's settings on Hugging Face and paste it into the "Redirect URI" field on Azure Entra ID. Make sure you select "Web" in the dropdown menu.
 The URL looks like this: `https://huggingface.co/organizations/[organizationIdentifier]/oidc/consume`.
 
 <div class="flex justify-center">
@@ -73,15 +73,15 @@ In the application overview, click on "Single sign-on", then "Go to application"
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-6.png"/>
 </div>
 
-In the OIDC app overview, you will fnd a copiable field named "Application (client) ID".
-Copy that ID to your clipboard and paste it in the "Client ID" field on Huggingface.
+In the OIDC app overview, you will find a copiable field named "Application (client) ID".
+Copy that ID to your clipboard and paste it into the "Client ID" field on Huggingface.
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-7.png"/>
 </div>
 
-Next, in Microsoft Entra, click on "Endpoints" in the top menu.
-Copy the value in the "OpenID connect metadata document" field, and paste it in the "Issue URL" field in Hugging Face.
+Next, click "Endpoints" in the top menu in Microsoft Entra.
+Copy the value in the "OpenID connect metadata document" field and paste it into the "Issue URL" field in Hugging Face.
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-8.png"/>
@@ -93,14 +93,14 @@ Back in Microsoft Entra, navigate to "Certificates & secrets", and generate a ne
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-9.png"/>
 </div>
 
-Once you have created the secret, copy the secret value and paste it in the "Client secret" field on Hugging Face.
+Once you have created the secret, copy the secret value and paste it into the "Client secret" field on Hugging Face.
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-10.png"/>
 </div>
 
 
-You can now click on "Update and Test OIDC configuration" to save the settings.
+You can now click "Update and Test OIDC configuration" to save the settings.
 
 You should be redirected to your SSO provider (IdP) login prompt. Once logged in, you'll be redirected to your organization's settings page.
 
