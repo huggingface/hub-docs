@@ -16,19 +16,19 @@ Open a new tab/window in your browser and sign in to the Azure portal of your or
 Navigate to the Microsoft Entra ID admin center, and click on "Enterprise applications"
 
 <div class="flex justify-center">
-<img src="TODO:Enterprise apps"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-1.png"/>
 </div>
 
 You'll be redirected to this page, click on "New application" at the top, then "Create your own application".
 
 <div class="flex justify-center">
-<img src="TODO:New Application"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-2.png"/>
 </div>
 
 Input a name for your application (for example, Hugging Face SSO), then select "Register an application to integrate with Microsoft Entra ID (App you're developping)".
 
 <div class="flex justify-center">
-<img src="TODO:Create app menu"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-3.png"/>
 </div>
 
 ### Step 2: Configure your application on Azure
@@ -50,7 +50,7 @@ Copy the "Redirection URI" from the organization's settings on Hugging Face, and
 The URL looks like this: `https://huggingface.co/organizations/[organizationIdentifier]/oidc/consume`.
 
 <div class="flex justify-center">
-<img src="TODO:Redirect URI"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-4.png"/>
 </div>
 
 Save your new application.
@@ -65,39 +65,39 @@ We will need to collect the following information to finalize the setup on Huggi
 In Microsoft Entra ID, navigate to Enterprise applications, and click on your newly created application in the list.
 
 <div class="flex justify-center">
-<img src="TODO:Application list"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-5.png"/>
 </div>
 
 In the application overview, click on "Single sign-on", then "Go to application"
 
 <div class="flex justify-center">
-<img src="TODO:Go to OIDC settings"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-6.png"/>
 </div>
 
 In the OIDC app overview, you will fnd a copiable field named "Application (client) ID".
 Copy that ID to your clipboard and paste it in the "Client ID" field on Huggingface.
 
 <div class="flex justify-center">
-<img src="TODO:Get Client ID"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-7.png"/>
 </div>
 
 Next, in Microsoft Entra, click on "Endpoints" in the top menu.
 Copy the value in the "OpenID connect metadata document" field, and paste it in the "Issue URL" field in Hugging Face.
 
 <div class="flex justify-center">
-<img src="TODO:Get Issuer URL"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-8.png"/>
 </div>
 
 Back in Microsoft Entra, navigate to "Certificates & secrets", and generate a new secret by clicking "New client secret".
 
 <div class="flex justify-center">
-<img src="TODO:Generate new secret"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-9.png"/>
 </div>
 
 Once you have created the secret, copy the secret value and paste it in the "Client secret" field on Hugging Face.
 
 <div class="flex justify-center">
-<img src="TODO:Get client secret"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-10.png"/>
 </div>
 
 
