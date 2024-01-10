@@ -1,5 +1,7 @@
 # Using _Adapters_ at Hugging Face
 
+> Note: _Adapters_ has replaced the `adapter-transformers` library and is largely compatible. See [here](https://docs.adapterhub.ml/transitioning.html) for more.
+
 [_Adapters_](https://github.com/adapter-hub/adapters) is an add-on library to 🤗 `transformers` for efficiently fine-tuning pre-trained language models using adapters and other parameter-efficient methods.
 _Adapters_ also provides various methods for composition of adapter modules during training and inference.
 You can learn more about this in the [_Adapters_ paper](https://arxiv.org/abs/2311.11077).
