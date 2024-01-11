@@ -1,0 +1,35 @@
+name: Model and Dataset Card consistency reminder
+
+on:
+  pull_request:
+    paths:
+      - docs/hub/datasets-cards.md.md
+      - docs/hub/model-cards.md
+      - docs/hub/model-card-annotated.md
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find doc comment
+        uses: peter-evans/find-comment@v2
+        id: find_comment
+        with:
+          issue-number: ${{ steps.github-context.outputs.pr_number }}
+          body-includes: docs for this PR
+
+      - name: Add doc comment if not present
+        uses: thollander/actions-comment-pull-request@v2
+        if: steps.find_comment.outputs.comment-id == ''
+
+        with:
+          message: |
+            It looks like you've updated documentation related to model or dataset cards in this PR.
+            Please make sure that the following files stay consistent between them:
+              - [datasets-cards.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/datasets-cards.md)
+              - [model-cards.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/model-cards.md)
+              - [model-card-annotated.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/model-card-annotated.md)
+              - [modelcard_template.md](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md) (`huggingface_hub` repo)
+              - [repocard.py](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/repocard.py) (`huggingface_hub` repo)
+          pr_number: ${{ steps.github-context.outputs.pr_number }}
+          GITHUB_TOKEN: ${{ secrets.comment_bot_token }}
