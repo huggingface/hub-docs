@@ -285,6 +285,8 @@
         title: How to configure SAML with Okta in the Hub
       - local: security-sso-azure-saml
         title: How to configure SAML with Azure in the Hub
+      - local: security-sso-azure-oidc
+        title: How to configure OIDC with Azure in the Hub
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle
