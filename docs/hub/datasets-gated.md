@@ -62,7 +62,7 @@ You can automate the approval of access requests by using the API. You must pass
 
 The base URL for the HTTP endpoints above is `https://huggingface.co`.
 
-Those endpoints are not officially supported in `huggingface_hub` or `huggingface.js` yet but [this code snippet](https://github.com/huggingface/huggingface_hub/issues/1535#issuecomment-1614693412) (in Python) might help you getting started.
+**NEW!** Those endpoints are now officially supported in our Python client `huggingface_hub`. List the access requests to your dataset with [`list_pending_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_pending_access_requests), [`list_accepted_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_accepted_access_requests) and [`list_rejected_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_rejected_access_requests). You can also accept, cancel and reject access requests with [`accept_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.accept_access_request), [`cancel_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.cancel_access_request), [`reject_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.reject_access_request). Finally, you can grant access to a user with [`grant_access`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.grant_access).
 
 ### Download access report
 
