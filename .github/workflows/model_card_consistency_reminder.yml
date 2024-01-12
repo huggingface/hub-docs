@@ -18,7 +18,8 @@ jobs:
         with:
           body: |
             It looks like you've updated documentation related to model or dataset cards in this PR.
-            Please make sure that the following files stay consistent:
+
+            Some content is duplicated among the following files. Please make sure that everything stays consistent.
               - [modelcard.md](https://github.com/huggingface/hub-docs/blob/main/modelcard.md)
               - [docs/hub/model-cards.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/model-cards.md)
               - [docs/hub/model-card-annotated.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/model-card-annotated.md)
