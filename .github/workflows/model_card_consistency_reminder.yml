@@ -1,7 +1,6 @@
 name: Model and Dataset Card consistency reminder
 
 on:
-  push: # temporary trigger for testing purposes
   pull_request:
     paths:
       - modelcard.md
@@ -28,5 +27,4 @@ jobs:
               - [datasetcard.md](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md)
               - [docs/hub/datasets-cards.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/datasets-cards.md)
           token: ${{ secrets.comment_bot_token }}
-          number: 1186
           body-include: '<!-- Created by actions-cool/maintain-one-comment -->'
