@@ -1,7 +1,7 @@
 name: Model and Dataset Card consistency reminder
 
 on:
-  push: // temporary trigger for testing purposes
+  push: # temporary trigger for testing purposes
   pull_request:
     paths:
       - modelcard.md
