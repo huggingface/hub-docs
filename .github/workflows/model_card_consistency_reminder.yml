@@ -30,4 +30,3 @@ jobs:
           token: ${{ secrets.comment_bot_token }}
           body-include: It looks like you've updated documentation related to model or dataset cards in this PR.
           number: 1186
-          #     # issue-number: ${{ steps.github-context.outputs.pr_number }}
