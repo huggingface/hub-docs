@@ -1,5 +1,7 @@
 # Annotated Model Card Template
 
+This is an update that should trigger a comment on the PR.
+DO NOT MERGE the PR!
 
 ## Template
 
