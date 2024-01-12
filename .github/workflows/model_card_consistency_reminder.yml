@@ -28,5 +28,5 @@ jobs:
               - [datasetcard.md](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md)
               - [docs/hub/datasets-cards.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/datasets-cards.md)
           token: ${{ secrets.comment_bot_token }}
-          body-include: It looks like you've updated documentation related to model or dataset cards in this PR.
+          body-include: '<!-- Created by actions-cool/maintain-one-comment -->'
           number: 1186
