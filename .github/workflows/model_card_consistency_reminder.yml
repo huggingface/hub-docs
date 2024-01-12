@@ -14,19 +14,11 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Find doc comment
-        uses: peter-evans/find-comment@v2
-        id: find_comment
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ steps.github-context.outputs.pr_number }}
-          body-includes: docs for this PR
-
-      - name: Add doc comment if not present
-        uses: thollander/actions-comment-pull-request@v2
-        if: steps.find_comment.outputs.comment-id == ''
-
-        with:
-          message: |
+          body: |
             It looks like you've updated documentation related to model or dataset cards in this PR.
             Please make sure that the following files stay consistent:
               - [modelcard.md](https://github.com/huggingface/hub-docs/blob/main/modelcard.md)
