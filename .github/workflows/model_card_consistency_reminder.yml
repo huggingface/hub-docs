@@ -1,6 +1,7 @@
 name: Model and Dataset Card consistency reminder
 
 on:
+  push: // temporary trigger for testing purposes
   pull_request:
     paths:
       - modelcard.md
@@ -27,7 +28,7 @@ jobs:
         with:
           message: |
             It looks like you've updated documentation related to model or dataset cards in this PR.
-            Please make sure that the following files stay consistent between them:
+            Please make sure that the following files stay consistent:
               - [modelcard.md](https://github.com/huggingface/hub-docs/blob/main/modelcard.md)
               - [docs/hub/model-cards.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/model-cards.md)
               - [docs/hub/model-card-annotated.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/model-card-annotated.md)
