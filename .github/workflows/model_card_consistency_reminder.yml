@@ -28,5 +28,4 @@ jobs:
               - [src/.../repocard.py](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/repocard.py) (`huggingface_hub` repo)
               - [datasetcard.md](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md)
               - [docs/hub/datasets-cards.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/datasets-cards.md)
-          pr_number: ${{ steps.github-context.outputs.pr_number }}
-          GITHUB_TOKEN: ${{ secrets.comment_bot_token }}
+          token: ${{ secrets.comment_bot_token }}
