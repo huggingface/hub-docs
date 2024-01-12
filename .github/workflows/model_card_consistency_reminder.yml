@@ -14,8 +14,8 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Create comment
-        uses: peter-evans/create-or-update-comment@v3
+      - name: maintain-comment
+        uses: actions-cool/maintain-one-comment@v3
         with:
           body: |
             It looks like you've updated documentation related to model or dataset cards in this PR.
@@ -28,6 +28,11 @@ jobs:
               - [datasetcard.md](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md)
               - [docs/hub/datasets-cards.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/datasets-cards.md)
           token: ${{ secrets.comment_bot_token }}
-          issue-number: 1186
+          body-include: It looks like you've updated documentation related to model or dataset cards in this PR.
+          number: 1186
+      # - name: Create comment
+      #   uses: peter-evans/create-or-update-comment@v3
+      #   with:
 
-          # issue-number: ${{ steps.github-context.outputs.pr_number }}
+      #     issue-number: 1186
+      #     # issue-number: ${{ steps.github-context.outputs.pr_number }}
