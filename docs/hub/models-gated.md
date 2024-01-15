@@ -103,7 +103,7 @@ extra_gated_prompt: "You agree to not use the model to conduct experiments that 
 extra_gated_fields:
   Company: text
   Country: country
-  Date of birth: date_picker
+  Specific date: date_picker
   I want to use this model for:
     type: select
     options: 

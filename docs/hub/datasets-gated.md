@@ -102,7 +102,7 @@ extra_gated_prompt: "You agree to not use the dataset to conduct experiments tha
 extra_gated_fields:
   Company: text
   Country: country
-  Date of birth: date_picker
+  Specific date: date_picker
   I want to use this dataset for:
     type: select
     options: 
