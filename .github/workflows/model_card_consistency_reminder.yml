@@ -24,6 +24,7 @@ jobs:
               - [docs/hub/model-cards.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/model-cards.md)
               - [docs/hub/model-card-annotated.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/model-card-annotated.md)
               - [src/.../modelcard_template.md](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md) (`huggingface_hub` repo)
+              - [src/.../datasetcard_template.md](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/datasetcard_template.md) (`huggingface_hub` repo)
               - [src/.../repocard.py](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/repocard.py) (`huggingface_hub` repo)
               - [datasetcard.md](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md)
               - [docs/hub/datasets-cards.md](https://github.com/huggingface/hub-docs/blob/main/docs/hub/datasets-cards.md)
