@@ -84,7 +84,7 @@ By default, users landing on your gated dataset will be asked to share their con
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-gated-user-side-dark.png"/>
 </div>
 
-If you want to collect more user information, you can configure additional fields. This information will be accessible from the **Settings** tab. To do so, add an `extra_gated_fields` property to your [dataset card metadata](./datasets-cards#dataset-card-metadata) containing a list of key/value pairs. The *key* is the name of the field and *value* its type or an object with a `type` field. The list of field types is:
+If you want to request more user information to provide access, you can configure additional fields. This information will be accessible from the **Settings** tab. To do so, add an `extra_gated_fields` property to your [dataset card metadata](./datasets-cards#dataset-card-metadata) containing a list of key/value pairs. The *key* is the name of the field and *value* its type or an object with a `type` field. The list of field types is:
 
 - `text`: a single-line text field.
 - `checkbox`: a checkbox field.
