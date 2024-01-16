@@ -84,7 +84,15 @@ By default, users landing on your gated dataset will be asked to share their con
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-gated-user-side-dark.png"/>
 </div>
 
-If you want to collect more user information, you can configure additional fields. This information will be accessible from the **Settings** tab. To do so, add an `extra_gated_fields` property to your [dataset card metadata](./datasets-cards#dataset-card-metadata) containing a list of key/value pairs. The *key* is the name of the field and *value* its type. A field can be either `text` (free text area) or `checkbox`. Finally, you can also personalize the message displayed to the user with the `extra_gated_prompt` extra field.
+If you want to request more user information to provide access, you can configure additional fields. This information will be accessible from the **Settings** tab. To do so, add an `extra_gated_fields` property to your [dataset card metadata](./datasets-cards#dataset-card-metadata) containing a list of key/value pairs. The *key* is the name of the field and *value* its type or an object with a `type` field. The list of field types is:
+
+- `text`: a single-line text field.
+- `checkbox`: a checkbox field.
+- `date_picker`: a date picker field.
+- `country`: a country dropdown. The list of countries is based on the [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) standard.
+- `select`: a dropdown with a list of options. The list of options is defined in the `options` field. Example: `options: ["option 1", "option 2", {label: "option3", value: "opt3"}]`.
+
+Finally, you can also personalize the message displayed to the user with the `extra_gated_prompt` extra field.
 
 Here is an example of customized request form where the user is asked to provide their company name and country and acknowledge that the dataset is for non-commercial use only.
 
@@ -92,9 +100,17 @@ Here is an example of customized request form where the user is asked to provide
 ---
 extra_gated_prompt: "You agree to not use the dataset to conduct experiments that cause harm to human subjects."
 extra_gated_fields:
- Company: text
- Country: text
- I agree to use this dataset for non-commercial use ONLY: checkbox
+  Company: text
+  Country: country
+  Specific date: date_picker
+  I want to use this dataset for:
+    type: select
+    options: 
+      - Research
+      - Education
+      - label: Other
+        value: other
+  I agree to use this dataset for non-commercial use ONLY: checkbox
 ---
 ```
 
