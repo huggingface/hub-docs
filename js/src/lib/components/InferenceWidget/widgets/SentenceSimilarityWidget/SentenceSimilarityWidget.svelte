@@ -118,6 +118,8 @@
 	function parseOutput(body: unknown): Array<number> {
 		if (Array.isArray(body)) {
 			return body;
+		} else if (body && typeof body === "object" && "similarities" in body && Array.isArray(body.similarities)) {
+			return body.similarities;
 		}
 		throw new TypeError("Invalid output: output must be of type Array");
 	}
