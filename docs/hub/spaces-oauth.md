@@ -79,7 +79,7 @@ Those scopes are optional and can be added by setting `hf_oauth_scopes` in your 
 
 You now have all the information to add a "Sign-in with HF" button to your Space. Some libraries ([Python](https://github.com/lepture/authlib), [NodeJS](https://github.com/panva/node-openid-client)) can help you implement the OpenID/OAuth protocol. 
 
-Gradio and hugginface.js also provides **built-in support**, making implementing the Sign-in with HF button a breeze; you can check out the associated guides with [gradio](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face) and with [hugginface.js](https://huggingface.co/docs/huggingface.js/hub/README#oauth-login). 
+Gradio and hugginface.js also provide **built-in support**, making implementing the Sign-in with HF button a breeze; you can check out the associated guides with [gradio](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face) and with [hugginface.js](https://huggingface.co/docs/huggingface.js/hub/README#oauth-login). 
 
 Basically, you need to:
 
