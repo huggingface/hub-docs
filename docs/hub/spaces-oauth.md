@@ -77,7 +77,9 @@ Those scopes are optional and can be added by setting `hf_oauth_scopes` in your 
 
 ## Adding the button to your Space
 
-You now have all the information to add a "Sign-in with HF" button to your Space. Some libraries ([Python](https://github.com/lepture/authlib), [NodeJS](https://github.com/panva/node-openid-client)) can help you implement the OpenID/OAuth protocol. Gradio also provides **built-in support**, making implementing the Sign-in with HF button a breeze; you can [check out the associated guide](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face).
+You now have all the information to add a "Sign-in with HF" button to your Space. Some libraries ([Python](https://github.com/lepture/authlib), [NodeJS](https://github.com/panva/node-openid-client)) can help you implement the OpenID/OAuth protocol. 
+
+Gradio and hugginface.js also provides **built-in support**, making implementing the Sign-in with HF button a breeze; you can check out the associated guides with [gradio](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face) and with [hugginface.js](https://huggingface.co/docs/huggingface.js/hub/README#oauth-login). 
 
 Basically, you need to:
 
@@ -96,3 +98,4 @@ You should use `target=_blank` on the button to open the sign-in page in a new t
 - [Gradio test app](https://huggingface.co/spaces/Wauplin/gradio-oauth-test)
 - [Hugging Chat (NodeJS/SvelteKit)](https://huggingface.co/spaces/huggingchat/chat-ui)
 - [Inference Widgets (Auth.js/SvelteKit)](https://huggingface.co/spaces/huggingfacejs/inference-widgets), uses the `inference-api` scope to make inference requests on behalf of the user.
+- [Client-Side in a Static Space (huggingface.js)](https://huggingface.co/spaces/huggingfacejs/client-side-oauth) - very simple JavaScript example.
