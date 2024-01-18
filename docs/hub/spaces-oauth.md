@@ -99,3 +99,19 @@ You should use `target=_blank` on the button to open the sign-in page in a new t
 - [Hugging Chat (NodeJS/SvelteKit)](https://huggingface.co/spaces/huggingchat/chat-ui)
 - [Inference Widgets (Auth.js/SvelteKit)](https://huggingface.co/spaces/huggingfacejs/inference-widgets), uses the `inference-api` scope to make inference requests on behalf of the user.
 - [Client-Side in a Static Space (huggingface.js)](https://huggingface.co/spaces/huggingfacejs/client-side-oauth) - very simple JavaScript example.
+
+JS Code example:
+
+```js
+import { oauthLoginUrl, oauthHandleRedirectIfPresent } from "@huggingface/hub";
+
+const oauthResult = await oauthHandleRedirectIfPresent();
+
+if (!oauthResult) {
+  // If the user is not logged in, redirect to the login page
+  window.location.href = await oauthLoginUrl();
+}
+
+// You can use oauthResult.accessToken, oauthResult.userInfo among other things
+console.log(oauthResult);
+```
