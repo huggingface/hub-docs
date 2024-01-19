@@ -33,7 +33,7 @@ You can deploy Giskard on Spaces with just a few clicks:
 
 <Tip>
 IMPORTANT NOTE ABOUT DATA PERSISTENCE:
-You can use the Giskard Quickstart Space as is for initial exploration and experimentation. For **longer use in 
+You can use the Giskard Space as is for initial exploration and experimentation. For **longer use in 
 small-scale projects, activate the paid persistent storage option**. This prevents data loss during Space restarts which 
 occur every 24 hours.
 </Tip>
@@ -65,11 +65,11 @@ Once inside the app, start by creating a new project from the welcome screen.
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-giskard-create-project.png"/>
 </div>
 
-## Generate a Giskard Space token
+## Generate a Giskard API key
 
-The Giskard Space token is used to establish communication between the environment where your AI models are running and 
-the Giskard HuggingFace Space. If you've set the **Visibility** of your Space to **Private**, you will need to provide a HuggingFace 
-access token to generate the Giskard Space Token and establish a communication. To do so, follow the instructions 
+The Giskard API key is used to establish communication between the environment where your AI models are running and 
+the Giskard app on HuggingFace Spaces. If you've set the **Visibility** of your Space to **Private**, you will need to provide a HuggingFace 
+user access token to generate the Giskard API key and establish a communication. To do so, follow the instructions 
 displayed in the settings page of the Giskard app.
 
 <div class="flex justify-center">
