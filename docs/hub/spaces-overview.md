@@ -58,7 +58,8 @@ Read more in our dedicated sections on [Spaces GPU Upgrades](./spaces-gpus) and 
 
 ## Managing secrets and environment variables[[managing-secrets]]
 <a id="managing-secrets"></a>
-If your app requires environment variables (for instance, secret keys or tokens), do not hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and add a new variable or secret. Use variables if you need to store non-sensitive configuration values and secrets for storing access tokens, API keys, or any sensitive value or credentials.
+
+If your app requires environment variables (for instance, secret keys or tokens), do not hard-code them inside your app! Instead, go to the Settings page of your Space repository and add a new **variable** or **secret**. Use variables if you need to store non-sensitive configuration values and secrets for storing access tokens, API keys, or any sensitive value or credentials.
 
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets-and-variables.png"/>
@@ -66,7 +67,11 @@ If your app requires environment variables (for instance, secret keys or tokens)
 </div>
 
 
-Variables are publicly accessible and viewable and will be automatically added to Spaces duplicated from your repository. They are exposed to your app as environment variables. For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management).
+Variables are publicly accessible and viewable and will be automatically added to Spaces duplicated from your repository. They are exposed to your app as environment variables.
+
+For Static Spaces, they are available through client-side JavaScript in `window.huggingface.variables`.
+
+For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management).
 
 Secrets are private and their value cannot be retrieved once set. They won't be added to Spaces duplicated from your repository. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management). Users are warned when our `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
 

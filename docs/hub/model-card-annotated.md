@@ -122,17 +122,21 @@ _Explain how this model can be used when fine-tuned for a task or when plugged i
 
 `out_of_scope_use`
 
-_List how the model may foreseeably be misused and address what users ought not do with the model._
+_List how the model may foreseeably be misused (used in a way it will not work for) and address what users ought not do with the model._
 
 
 
 # Bias, Risks, and Limitations
 
-**Section Overview:** This section identifies foreseeable harms, misunderstandings, and technical and sociotechnical limitations. It also provides information on warnings and potential mitigations.
+**Section Overview:** This section identifies foreseeable harms, misunderstandings, and technical and sociotechnical limitations. It also provides information on warnings and potential mitigations. Bias, risks, and limitations can sometimes be inseparable/refer to the same issues. Generally, bias and risks are sociotechnical, while limitations are technical: 
+- A **bias** is a stereotype or disproportionate performance (skew) for some subpopulations. 
+- A **risk** is a socially-relevant issue that the model might cause. 
+- A **limitation** is a likely failure mode that can be addressed following the listed Recommendations.
 
 `bias_risks_limitations`
 
 _What are the known or foreseeable issues stemming from this model?_
+
 
 
 ## Recommendations
@@ -176,7 +180,7 @@ _Detail throughput, start/end time, checkpoint sizes, etc._
 
 # Evaluation
 
-**Section Overview:** This section describes the evaluation protocols, what is being measured in the evaluation, and provides the results.  Evaluation is ideally constructed with factors, such as domain and demographic subgroup, and metrics, such as accuracy, which are prioritized in light of foreseeable error contexts and groups. Target fairness metrics should be decided based on which errors are more likely to be problematic in light of the model use. 
+**Section Overview:** This section describes the evaluation protocols, what is being measured in the evaluation, and provides the results.  Evaluation is ideally constructed with factors, such as domain and demographic subgroup, and metrics, such as accuracy, which are prioritized in light of foreseeable error contexts and groups. Target fairness metrics should be decided based on which errors are more likely to be problematic in light of the model use. You can also specify your model's evaluation results in a structured way in the model card metadata. Results are parsed by the Hub and displayed in a widget on the model page. See https://huggingface.co/docs/hub/model-cards#evaluation-results.
 
 
 ## Testing Data, Factors & Metrics

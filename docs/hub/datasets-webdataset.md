@@ -9,12 +9,12 @@ First you need to [Login with your Hugging Face account](../huggingface_hub/quic
 huggingface-cli login
 ```
 
-And then you can stream Hugging Face datasets in WebDataset:
+And then you can stream Hugging Face datasets in WebDataset. Here is an example of how to load [timm/imagenet-12k-wds](https://huggingface.co/datasets/timm/imagenet-12k-wds):
 
 ```python
 >>> import webdataset as wds
->>> from huggingface_hub import HfFolder
+>>> from huggingface_hub import get_token
 
->>> hf_token = HfFolder().get_token()
->>> dataset = wds.WebDataset(f"pipe:curl -s -L https://huggingface.co/datasets/username/my_wds_dataset/resolve/main/train-000000.tar -H 'Authorization:Bearer {hf_token}'")
+>>> hf_token = get_token()
+>>> dataset = wds.WebDataset(f"pipe:curl -s -L https://huggingface.co/datasets/timm/imagenet-12k-wds/resolve/main/imagenet12k-train-{{0000..1023}}.tar -H 'Authorization:Bearer {hf_token}'")
 ```
