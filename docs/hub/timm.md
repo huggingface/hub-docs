@@ -58,7 +58,7 @@ model.eval()
 transform = create_transform(**resolve_data_config(model.pretrained_cfg, model=model))
 
 # Get the labels from the model config
-labels = model.pretrained_cfg['labels']
+labels = model.pretrained_cfg['label_names']
 top_k = min(len(labels), 5)
 
 # Use your own image file here...
