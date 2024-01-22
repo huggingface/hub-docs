@@ -61,6 +61,8 @@
         title: Adapter Transformers
       - local: allennlp
         title: AllenNLP
+      - local: bertopic
+        title: BERTopic
       - local: asteroid
         title: Asteroid
       - local: diffusers
