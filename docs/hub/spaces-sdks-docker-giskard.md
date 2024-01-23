@@ -67,11 +67,11 @@ Once inside the app, start by creating a new project from the welcome screen.
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-giskard-create-project.png"/>
 </div>
 
-## Generate a Giskard API key
+## Generate a Hugging Face Giskard Space Token and Giskard API key
 
 The Giskard API key is used to establish communication between the environment where your AI models are running and 
 the Giskard app on Hugging Face Spaces. If you've set the **Visibility** of your Space to **Private**, you will need to provide a Hugging Face 
-user access token to generate the Giskard API key and establish a communication. To do so, follow the instructions 
+user access token to generate the Hugging Face Giskard Space Token and establish a communication for access to your private Space. To do so, follow the instructions 
 displayed in the settings page of the Giskard app.
 
 <div class="flex justify-center">
@@ -92,7 +92,7 @@ dependencies required by your model. You can either execute the ML worker:
 Simply run the following command within the Python environment that contains all the dependencies of your model:
 
 ```bash
-giskard worker start -d -k YOUR_KEY -u https://XXX.hf.space -t HF-TOKEN
+giskard worker start -d -k GISKARD-API-KEY -u https://XXX.hf.space --hf-token GISKARD-SPACE-TOKEN
 ```
 
 ## Upload your test suite, models and datasets
