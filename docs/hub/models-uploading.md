@@ -6,6 +6,46 @@ You can link repositories with an individual, such as [osanseviero/fashion_brand
 
 There are several ways to upload models to the Hub, described below. We suggest adding a [Model Card](./model-cards) to your repo to document your model.
 
+## Using the Mixin class
+
+In case your model is a (custom) PyTorch model, the recommended way is to leverage the [`PyTorchModelHubMixin` [class](https://huggingface.co/docs/huggingface_hub/package_reference/mixins#huggingface_hub.PyTorchModelHubMixin). It is a minimal class which adds `from_pretrained` and `push_to_hub` capabilities to any `nn.Module`. Here is how to use it:
+
+```
+import torch
+import torch.nn as nn
+from huggingface_hub import PyTorchModelHubMixin
+
+
+class MyModel(nn.Module, PyTorchModelHubMixin):
+    def __init__(self, config):
+        super().__init__()
+        self.param = nn.Parameter(torch.rand(config["num_channels"], config["hidden_size"]))
+        self.linear = nn.Linear(config["hidden_size"], config["num_classes])
+
+    def forward(self, x):
+        return self.linear(x + self.param)
+
+# create model
+config = {"num_channels": 3, "hidden_size": 32, "num_classes": 10}
+model = MyModel(config=config)
+
+# save locally
+model.save_pretrained("my-awesome-model", config=config)
+
+# push to the hub
+model.push_to_hub("my-awesome-model", config=config)
+
+# reload
+model = MyModel.from_pretrained("username/my-awesome-model")
+```
+
+This comes with automated download metrics, meaning that one will be able to see how many times the model is downloaded similar to models which are natively available in the Transformers, Diffusers or Timm libraries. With this mixin class, each separate checkpoint is stored in a single repository on the Hub. 2 files will be stored in each repository:
+
+- a `pytorch_model.bin` or `model.safetensors`file containing the weights
+- a `config.json` file which is a serialized version of the model configuration which contains hyperparameters regarding the model architecture, such as the number of classes.
+
+A similar class is available for [Keras](https://huggingface.co/docs/huggingface_hub/package_reference/mixins#huggingface_hub.KerasModelHubMixin).
+
 ## Using the web interface
 
 To create a brand new model repository, visit [huggingface.co/new](http://huggingface.co/new). Then follow these steps:
