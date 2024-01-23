@@ -99,8 +99,10 @@ In order to start building quality tests for a project, you will need to upload 
 upload a test suite from the Giskard Python library. 
 
 <Tip>
+
 For more information on how to create test suites from Giskard's Python library's automated model scanning tool, head 
 over to Giskard's [Quickstart Guides](https://docs.giskard.ai/en/latest/getting_started/quickstart/index.html).
+
 </Tip>
 
 These actions will all require a connection between your Python environment and 
