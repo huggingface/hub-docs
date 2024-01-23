@@ -10,7 +10,7 @@ There are several ways to upload models to the Hub, described below. We suggest 
 
 In case your model is a (custom) PyTorch model, the recommended way is to leverage the [`PyTorchModelHubMixin` [class](https://huggingface.co/docs/huggingface_hub/package_reference/mixins#huggingface_hub.PyTorchModelHubMixin). It is a minimal class which adds `from_pretrained` and `push_to_hub` capabilities to any `nn.Module`. Here is how to use it:
 
-```
+```python
 import torch
 import torch.nn as nn
 from huggingface_hub import PyTorchModelHubMixin
