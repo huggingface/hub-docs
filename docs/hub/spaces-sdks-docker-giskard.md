@@ -20,7 +20,7 @@ Visit [Giskard's documentation](https://docs.giskard.ai/) and [Quickstart Guides
 to learn how to use the full range of tools provided by Giskard.
 
 In the next sections, you'll learn to deploy your own Giskard AI Model Quality Testing app and use it right from 
-HuggingFace Spaces. This Giskard app is a **self-contained application completely hosted on Spaces using Docker**.
+Hugging Face Spaces. This Giskard app is a **self-contained application completely hosted on Spaces using Docker**.
 
 ## Deploy Giskard on Spaces
 
