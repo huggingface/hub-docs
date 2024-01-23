@@ -68,7 +68,7 @@ Once inside the app, start by creating a new project from the welcome screen.
 ## Generate a Giskard API key
 
 The Giskard API key is used to establish communication between the environment where your AI models are running and 
-the Giskard app on HuggingFace Spaces. If you've set the **Visibility** of your Space to **Private**, you will need to provide a HuggingFace 
+the Giskard app on Hugging Face Spaces. If you've set the **Visibility** of your Space to **Private**, you will need to provide a Hugging Face 
 user access token to generate the Giskard API key and establish a communication. To do so, follow the instructions 
 displayed in the settings page of the Giskard app.
 
