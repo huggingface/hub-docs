@@ -45,7 +45,7 @@ If you don’t want to publicly share your models and quality tests, set your Sp
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-giskard-new-space.png"/>
 </div>
 
-Once you have created the Space, you'll see the `Building` status and once it becomes `Running` your space is ready to go. 
+Once you have created the Space, you'll see the `Building` status. Once it becomes `Running`, your Space is ready to go. 
 If you don't see a change in the screen, refresh the page.
 
 ## Request a free license
