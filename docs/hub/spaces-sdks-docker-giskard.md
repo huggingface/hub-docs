@@ -1,7 +1,7 @@
 # Giskard on Spaces
 
-**Giskard** is an AI model quality testing toolkit for LLMs, tabular and NLP models. It consists of an open-source Python 
-library for scanning and testing AI models and a AI Model Quality Testing app, which can now be deployed using HuggingFace's 
+**Giskard** is an AI model quality testing toolkit for LLMs, tabular, and NLP models. It consists of an open-source Python 
+library for scanning and testing AI models and an AI Model Quality Testing app, which can now be deployed using Hugging Face's 
 Docker Spaces. Extending the features of the open-source library, the AI Model Quality Testing app enables you to:
 
 - Debug tests to diagnose your issues
