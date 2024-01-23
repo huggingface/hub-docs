@@ -31,7 +31,8 @@ You can deploy Giskard on Spaces with just a few clicks:
 </a>
 
 
-<Tip>
+<Tip  warning={true}>
+
 IMPORTANT NOTE ABOUT DATA PERSISTENCE:
 You can use the Giskard Space as is for initial exploration and experimentation. For **longer use in 
 small-scale projects, activate the paid persistent storage option**. This prevents data loss during Space restarts which 
