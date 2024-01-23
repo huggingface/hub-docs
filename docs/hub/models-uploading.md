@@ -8,7 +8,7 @@ There are several ways to upload models to the Hub, described below. We suggest 
 
 ## Using the Mixin class
 
-In case your model is a (custom) PyTorch model, the recommended way is to leverage the [`PyTorchModelHubMixin` [class](https://huggingface.co/docs/huggingface_hub/package_reference/mixins#huggingface_hub.PyTorchModelHubMixin). It is a minimal class which adds `from_pretrained` and `push_to_hub` capabilities to any `nn.Module`. Here is how to use it:
+In case your model is a (custom) PyTorch model, the recommended way is to leverage the [`PyTorchModelHubMixin` class](https://huggingface.co/docs/huggingface_hub/package_reference/mixins#huggingface_hub.PyTorchModelHubMixin). It is a minimal class which adds `from_pretrained` and `push_to_hub` capabilities to any `nn.Module`. Here is how to use it:
 
 ```python
 import torch
@@ -20,7 +20,7 @@ class MyModel(nn.Module, PyTorchModelHubMixin):
     def __init__(self, config):
         super().__init__()
         self.param = nn.Parameter(torch.rand(config["num_channels"], config["hidden_size"]))
-        self.linear = nn.Linear(config["hidden_size"], config["num_classes])
+        self.linear = nn.Linear(config["hidden_size"], config["num_classes"])
 
     def forward(self, x):
         return self.linear(x + self.param)
@@ -39,10 +39,10 @@ model.push_to_hub("my-awesome-model", config=config)
 model = MyModel.from_pretrained("username/my-awesome-model")
 ```
 
-This comes with automated download metrics, meaning that one will be able to see how many times the model is downloaded similar to models which are natively available in the Transformers, Diffusers or Timm libraries. With this mixin class, each separate checkpoint is stored in a single repository on the Hub. 2 files will be stored in each repository:
+This comes with automated download metrics, meaning that you'll be able to see how many times the model is downloaded, the same way they are available for models integrated natively in the Transformers, Diffusers or Timm libraries. With this mixin class, each separate checkpoint is stored on the Hub in a single repository consisting of 2 files:
 
-- a `pytorch_model.bin` or `model.safetensors`file containing the weights
-- a `config.json` file which is a serialized version of the model configuration which contains hyperparameters regarding the model architecture, such as the number of classes.
+- a `pytorch_model.bin` or `model.safetensors` file containing the weights
+- a `config.json` file which is a serialized version of the model configuration. It contains hyperparameters regarding the model architecture, such as the number of classes.
 
 A similar class is available for [Keras](https://huggingface.co/docs/huggingface_hub/package_reference/mixins#huggingface_hub.KerasModelHubMixin).
 
