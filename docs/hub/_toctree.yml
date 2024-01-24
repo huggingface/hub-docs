@@ -107,6 +107,8 @@
         title: Transformers
       - local: transformers-js
         title: Transformers.js
+      - local: unity-sentis
+        title: Unity Sentis
   - local: models-widgets
     title: Model Widgets
     sections:
