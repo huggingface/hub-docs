@@ -4,47 +4,9 @@ To upload models to the Hub, you'll need to create an account at [Hugging Face](
 
 You can link repositories with an individual, such as [osanseviero/fashion_brands_patterns](https://huggingface.co/osanseviero/fashion_brands_patterns), or with an organization, such as [facebook/bart-large-xsum](https://huggingface.co/facebook/bart-large-xsum). Organizations can collect models related to a company, community, or library! If you choose an organization, the model will be featured on the organization’s page, and every member of the organization will have the ability to contribute to the repository. You can create a new organization [here](https://huggingface.co/organizations/new).
 
-There are several ways to upload models to the Hub, described below. We suggest adding a [Model Card](./model-cards) to your repo to document your model.
+There are several ways to upload models to the Hub, described below. The recommended way is to leverage the [huggingface_hub Python library](#using-the-huggingface_hub-client-library) as it allows to have [automated download metrics](https://huggingface.co/docs/hub/models-download-stats) for your models, just like models in the Transformers, Diffusers and Timm libraries.
 
-## Using the Mixin class
-
-In case your model is a (custom) PyTorch model, the recommended way is to leverage the [`PyTorchModelHubMixin` [class](https://huggingface.co/docs/huggingface_hub/package_reference/mixins#huggingface_hub.PyTorchModelHubMixin). It is a minimal class which adds `from_pretrained` and `push_to_hub` capabilities to any `nn.Module`. Here is how to use it:
-
-```python
-import torch
-import torch.nn as nn
-from huggingface_hub import PyTorchModelHubMixin
-
-
-class MyModel(nn.Module, PyTorchModelHubMixin):
-    def __init__(self, config):
-        super().__init__()
-        self.param = nn.Parameter(torch.rand(config["num_channels"], config["hidden_size"]))
-        self.linear = nn.Linear(config["hidden_size"], config["num_classes])
-
-    def forward(self, x):
-        return self.linear(x + self.param)
-
-# create model
-config = {"num_channels": 3, "hidden_size": 32, "num_classes": 10}
-model = MyModel(config=config)
-
-# save locally
-model.save_pretrained("my-awesome-model", config=config)
-
-# push to the hub
-model.push_to_hub("my-awesome-model", config=config)
-
-# reload
-model = MyModel.from_pretrained("username/my-awesome-model")
-```
-
-This comes with automated download metrics, meaning that one will be able to see how many times the model is downloaded similar to models which are natively available in the Transformers, Diffusers or Timm libraries. With this mixin class, each separate checkpoint is stored in a single repository on the Hub. 2 files will be stored in each repository:
-
-- a `pytorch_model.bin` or `model.safetensors`file containing the weights
-- a `config.json` file which is a serialized version of the model configuration which contains hyperparameters regarding the model architecture, such as the number of classes.
-
-A similar class is available for [Keras](https://huggingface.co/docs/huggingface_hub/package_reference/mixins#huggingface_hub.KerasModelHubMixin).
+We'll start with the simplest approach, which is the web interface.
 
 ## Using the web interface
 
@@ -106,10 +68,50 @@ Any repository that contains TensorBoard traces (filenames that contain `tfevent
 
 Models trained with 🤗 Transformers will generate [TensorBoard traces](https://huggingface.co/docs/transformers/main_classes/callback#transformers.integrations.TensorBoardCallback) by default if [`tensorboard`](https://pypi.org/project/tensorboard/) is installed.
 
-## Using Git
-
-Since model repos are just Git repositories, you can use Git to push your model files to the Hub. Follow the guide on [Getting Started with Repositories](repositories-getting-started) to learn about using the `git` CLI to commit and push your models.
-
 ## Using the `huggingface_hub` client library
 
+In case your model is a (custom) PyTorch model, one can leverage the [`PyTorchModelHubMixin` [class](https://huggingface.co/docs/huggingface_hub/package_reference/mixins#huggingface_hub.PyTorchModelHubMixin). It is a minimal class which adds `from_pretrained` and `push_to_hub` capabilities to any `nn.Module`. 
+
+Here is how to use it:
+
+```python
+import torch
+import torch.nn as nn
+from huggingface_hub import PyTorchModelHubMixin
+
+
+class MyModel(nn.Module, PyTorchModelHubMixin):
+    def __init__(self, config):
+        super().__init__()
+        self.param = nn.Parameter(torch.rand(config["num_channels"], config["hidden_size"]))
+        self.linear = nn.Linear(config["hidden_size"], config["num_classes"])
+
+    def forward(self, x):
+        return self.linear(x + self.param)
+
+# create model
+config = {"num_channels": 3, "hidden_size": 32, "num_classes": 10}
+model = MyModel(config=config)
+
+# save locally
+model.save_pretrained("my-awesome-model", config=config)
+
+# push to the hub
+model.push_to_hub("my-awesome-model", config=config)
+
+# reload
+model = MyModel.from_pretrained("username/my-awesome-model")
+```
+
+This comes with automated download metrics, meaning that one will be able to see how many times the model is downloaded similar to models which are natively available in the Transformers, Diffusers or Timm libraries. With this mixin class, each separate checkpoint is stored in a single repository on the Hub. 2 files will be stored in each repository:
+
+- a `pytorch_model.bin` or `model.safetensors`file containing the weights
+- a `config.json` file which is a serialized version of the model configuration which contains hyperparameters regarding the model architecture, such as the number of classes.
+
+A similar class is available for [Keras](https://huggingface.co/docs/huggingface_hub/package_reference/mixins#huggingface_hub.KerasModelHubMixin).
+
 The rich feature set in the `huggingface_hub` library allows you to manage repositories, including creating repos and uploading models to the Model Hub. Visit [the client library's documentation](https://huggingface.co/docs/huggingface_hub/index) to learn more.
+
+## Using Git
+
+Finally, since model repos are just Git repositories, you can also use Git to push your model files to the Hub. Follow the guide on [Getting Started with Repositories](repositories-getting-started) to learn about using the `git` CLI to commit and push your models.
