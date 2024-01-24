@@ -1,12 +1,12 @@
 # WebDataset
 
-[WebDataset](https://github.com/webdataset/webdataset) is a library to write I/O pipelines for large datasets.
-It is especially useful to stream large scale datasets in WebDataset format to a DataLoader.
+[WebDataset](https://github.com/webdataset/webdataset) is a library for writing I/O pipelines for large datasets.
+Its sequential I/O and sharding features make it especially useful for streaming large-scale datasets to a DataLoader.
 
 ## The WebDataset format
 
 A WebDataset file is a TAR archive containing a series of data files.
-All the successive data files with the same prefix are considered to be part of the same example (e.g. an image/audio file and its label or metadata):
+All successive data files with the same prefix are considered to be part of the same example (e.g., an image/audio file and its label or metadata):
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-webdataset-format.png"/>
@@ -14,14 +14,14 @@ All the successive data files with the same prefix are considered to be part of 
 </div>
 
 A large scale WebDataset is made of many files called shards, where each shard is a TAR archive.
-Each shard is often ~1GB but the full dataset can be multiple terabytes !
+Each shard is often ~1GB but the full dataset can be multiple terabytes!
 
-## Stream using the WebDataset library
+## Streaming
 
 Streaming TAR archives is fast because it reads contiguous chunks of data.
 It can be orders of magnitude faster than reading separate data files one by one.
 
-Therefore WebDataset streaming achieves top speed performance both when reading from disk and from a cloud storage, which makes it an ideal solution to feed a DataLoader:
+WebDataset streaming offers high-speed performance both when reading from disk and from cloud storage, which makes it an ideal format to feed to a DataLoader:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-webdataset-stream.png"/>
@@ -36,7 +36,7 @@ First you need to [Login with your Hugging Face account](../huggingface_hub/quic
 huggingface-cli login
 ```
 
-And then you can stream the Hugging Face dataset in WebDataset:
+And then you can stream the dataset with WebDataset:
 
 ```python
 >>> import webdataset as wds
@@ -52,17 +52,17 @@ And then you can stream the Hugging Face dataset in WebDataset:
 
 ## Shuffle
 
-Generally, datasets in WebDataset formats are already shuffled and ready to feed a DataLoader.
-But it is still possible to re-shuffle the data using the WebDataset approximate shuffling.
+Generally, datasets in WebDataset formats are already shuffled and ready to feed to a DataLoader.
+But you can still reshuffle the data with WebDataset's approximate shuffling.
 
-In addition to shuffling the list of shards, WebDataset uses a buffer to shuffle a dataset without any speed cost:
+In addition to shuffling the list of shards, WebDataset uses a buffer to shuffle a dataset without any cost to speed:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-webdataset-shuffle.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-webdataset-shuffle-dark.png"/>
 </div>
 
-Here is how to shuffle the shards list and use a shuffle buffer to shuffle a WebDataset:
+To shuffle a list of sharded files and randomly sample from the shuffle buffer:
 
 ```python
 >>> buffer_size = 1000
