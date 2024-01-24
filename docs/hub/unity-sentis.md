@@ -33,7 +33,7 @@ Refer to the model card to see if there are any other objects you need to create
 In most cases, we only provide the basic implementation to get you up and running. It is up to you to find creative uses. For example, you may want to combine two or more models to do interesting things.
 
 ## Sharing your own Sentis models
-We encourage you to share your own Sentis models on Hugging Face. These may be models you trained yourself or models you have converted to the [Sentis format](https://docs.unity3d.com/Packages/com.unity.sentis@1.3/manual/serialize-a-model.html) and have tested them to run in Unity. 
+We encourage you to share your own Sentis models on Hugging Face. These may be models you trained yourself or models you have converted to the [Sentis format](https://docs.unity3d.com/Packages/com.unity.sentis@1.3/manual/serialize-a-model.html) and have tested to run in Unity. 
 
 Please provide the models in the Sentis format for each repository you upload. This provides an extra check that they will run in Unity and is also the preferred format for large models. You can also include the original ONNX versions of the model files.
 
