@@ -1,6 +1,6 @@
 # Using Sentis Models from Hugging Face
 
-[Unity Sentis](https://unity.com/products/sentis) is the inference engine which runs on Unity 2023 or above. 
+[Unity Sentis](https://unity.com/products/sentis) is the inference engine that runs on Unity 2023 or above. 
 
 ## Exploring Sentis Models in the Hub
 You will find `unity-sentis` models by filtering at the left of the [models page](https://huggingface.co/models?library=unity-sentis).
