@@ -37,7 +37,7 @@ We encourage you to share your own Sentis models on Hugging Face. These may be m
 
 Please provide the models in the Sentis format for each repository you upload. This provides an extra check that they will run in Unity and is also the preferred format for large models. You can also include the original ONNX versions of the model files.
 
-Provide a C# file with a minimal implementation. (For example, if it is an image processing model it should have code that shows how to prepare the image for the input and construct the image from the output). Alternatively, you can link to external sample code. This is so people can download the model and use it in Unity easily.
+Provide a C# file with a minimal implementation. (For example, an image processing model should have code that shows how to prepare the image for the input and construct the image from the output). Alternatively, you can link to an external sample code. This is so people can download and use the model in Unity easily.
 
 Provide any data files needed to run the model. For example, vocabulary files.
 
