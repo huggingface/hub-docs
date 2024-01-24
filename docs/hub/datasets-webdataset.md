@@ -13,6 +13,8 @@ All successive data files with the same prefix are considered to be part of the 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-webdataset-format-dark.png"/>
 </div>
 
+Labels and metadata can be in a `.json` file, in a `.txt` (for a caption, a description), or in a `.cls` (for a class index).
+
 A large scale WebDataset is made of many files called shards, where each shard is a TAR archive.
 Each shard is often ~1GB but the full dataset can be multiple terabytes!
 
