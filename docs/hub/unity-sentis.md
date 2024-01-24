@@ -35,7 +35,7 @@ In most cases we only provide the very basic implementation to get you up and ru
 ## Sharing your own Sentis models
 We encourage you to share your own Sentis models on Hugging Face. These may be models you trained yourself or models you have converted to the [Sentis format](https://docs.unity3d.com/Packages/com.unity.sentis@1.3/manual/serialize-a-model.html) and have tested them to run in Unity. 
 
-For each repository that you upload please provide the models in the Sentis format. (This provides an extra check that they will run in Unity and is also the preferred format for large models). You can also include the original ONNX versions of the model files.
+Please provide the models in the Sentis format for each repository you upload. This provides an extra check that they will run in Unity and is also the preferred format for large models. You can also include the original ONNX versions of the model files.
 
 Provide a C# file with a minimal implementation. (For example, if it is an image processing model it should have code that shows how to prepare the image for the input and construct the image from the output). Alternatively, you can link to external sample code. This is so people can download the model and use it in Unity easily.
 
