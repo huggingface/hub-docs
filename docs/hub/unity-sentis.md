@@ -1,6 +1,5 @@
-# Using Sentis Models from Hugging Face
-
-[Unity Sentis](https://unity.com/products/sentis) is the inference engine that runs on Unity 2023 or above. 
+# Using Unity Sentis Models from Hugging Face
+[Unity 3D](https://unity.com/) is one of the most popular game engines in the world. [Unity Sentis](https://unity.com/products/sentis) is the inference engine that runs on Unity 2023 or above. It is an API that allows you to easily integrate and run neural network models in your game or application making use of hardware acceleration. Because Unity can export to many different form factors including PC, mobile and consoles, it means that this is an easy way to run neural network models on many different types of hardware.
 
 ## Exploring Sentis Models in the Hub
 You will find `unity-sentis` models by filtering at the left of the [models page](https://huggingface.co/models?library=unity-sentis).
@@ -14,18 +13,18 @@ To get more details about using Sentis, you can read its [documentation](https:/
 Each repository will contain several types of files:
 
 * ``sentis`` files: These are the main model files that contain the neural networks that run on Unity.
-* ``ONNX`` files: This is an alternative format which you can include as well as, or instead of, the Sentis files.
-* ``cs`` file: These are C# files which contain the code to run the model on Unity.
+* ``ONNX`` files: This is an alternative format that you can include as well as, or instead of, the Sentis files.
+* ``cs`` file: These are C# files that contain the code to run the model on Unity.
 * ``info.json``: This file contains information about the files in the repository.
-* Data files. These are other files which are needed to run the model. They could include vocabulary files, lists of class names etc. Some typical files will have extensions ``json`` or ``txt``.
+* Data files. These are other files that are needed to run the model. They could include vocabulary files, lists of class names etc. Some typical files will have extensions ``json`` or ``txt``.
 * ``Readme.md``. This file contains instructions on how to use the model.
 
 ## Running the model
 Always refer to the instructions on the model card. It is expected that you have some knowledge of Unity and some basic knowledge of C#.
 
-First open Unity 2023 or above and create a new scene.
+First, open Unity 2023 or above and create a new scene.
 
-In general you will want to download your model files (``*.sentis``) and data files and put them in the StreamingAssets folder which is a subfolder inside the Assets folder. (If this folder does not exist you can create it).
+In general, you will want to download your model files (``*.sentis``) and data files and put them in the StreamingAssets folder which is a subfolder inside the Assets folder. (If this folder does not exist you can create it).
 
 Next place your C# file on an object in the scene such as the Main Camera. 
 
@@ -42,7 +41,7 @@ Provide a C# file with a minimal implementation. (For example, if it is an image
 
 Provide any data files needed to run the model. For example vocabulary files.
 
-Finally, please provide an ``info.json`` file which just lists the files in your project. This helps in counting the downloads. Some example for the contents of ``info.json`` are:
+Finally, please provide an ``info.json`` file which just lists the files in your project. This helps in counting the downloads. Some examples for the contents of ``info.json`` are:
 
 ```
 {
