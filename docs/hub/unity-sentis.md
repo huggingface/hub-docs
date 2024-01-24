@@ -39,7 +39,7 @@ Please provide the models in the Sentis format for each repository you upload. T
 
 Provide a C# file with a minimal implementation. (For example, if it is an image processing model it should have code that shows how to prepare the image for the input and construct the image from the output). Alternatively, you can link to external sample code. This is so people can download the model and use it in Unity easily.
 
-Provide any data files needed to run the model. For example vocabulary files.
+Provide any data files needed to run the model. For example, vocabulary files.
 
 Finally, please provide an ``info.json`` file which just lists the files in your project. This helps in counting the downloads. Some examples for the contents of ``info.json`` are:
 
