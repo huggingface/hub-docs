@@ -13,7 +13,7 @@ To get more details about using Sentis, you can read its [documentation](https:/
 ## Types of files
 Each repository will contain several types of files:
 
-* ``sentis`` files: These are the main model files which contain the neural networks which run on Unity.
+* ``sentis`` files: These are the main model files that contain the neural networks that run on Unity.
 * ``ONNX`` files: This is an alternative format which you can include as well as, or instead of, the Sentis files.
 * ``cs`` file: These are C# files which contain the code to run the model on Unity.
 * ``info.json``: This file contains information about the files in the repository.
