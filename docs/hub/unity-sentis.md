@@ -17,7 +17,7 @@ Each repository will contain several types of files:
 * ``cs`` file: These are C# files that contain the code to run the model on Unity.
 * ``info.json``: This file contains information about the files in the repository.
 * Data files. These are other files that are needed to run the model. They could include vocabulary files, lists of class names etc. Some typical files will have extensions ``json`` or ``txt``.
-* ``Readme.md``. This file contains instructions on how to use the model.
+* ``README``. This is the model card. It contains instructions on how to use the model and other relevant information.
 
 ## Running the model
 Always refer to the instructions on the model card. It is expected that you have some knowledge of Unity and some basic knowledge of C#.
