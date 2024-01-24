@@ -7,7 +7,7 @@ You will find `unity-sentis` models by filtering at the left of the [models page
 
 All the Sentis models in the Hub come with code and instructions to easily get you started using the model in Unity. All Sentis models have been validated to work, so you can be sure they will run in Unity.
 
-To get more details about using Sentis you can read our [documentation](https://docs.unity3d.com/Packages/com.unity.sentis@latest). To get help from others using Sentis you can ask in our [discussion forum](https://discussions.unity.com/c/ai-beta/sentis)
+To get more details about using Sentis, you can read its [documentation](https://docs.unity3d.com/Packages/com.unity.sentis@latest). To get help from others using Sentis, you can ask in its [discussion forum](https://discussions.unity.com/c/ai-beta/sentis)
 
 
 ## Types of files
