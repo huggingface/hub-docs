@@ -13,7 +13,7 @@ To get more details about using Sentis, you can read its [documentation](https:/
 Each repository will contain several types of files:
 
 * ``sentis`` files: These are the main model files that contain the neural networks that run on Unity.
-* ``ONNX`` files: This is an alternative format that you can include as well as, or instead of, the Sentis files.
+* ``ONNX`` files: This is an alternative format you can include in addition to, or instead of, the Sentis files. It can be useful for visualization with third party tools such as [Netron](https://github.com/lutzroeder/netron).
 * ``cs`` file: These are C# files that contain the code to run the model on Unity.
 * ``info.json``: This file contains information about the files in the repository.
 * Data files. These are other files that are needed to run the model. They could include vocabulary files, lists of class names etc. Some typical files will have extensions ``json`` or ``txt``.
@@ -37,11 +37,11 @@ We encourage you to share your own Sentis models on Hugging Face. These may be m
 
 Please provide the models in the Sentis format for each repository you upload. This provides an extra check that they will run in Unity and is also the preferred format for large models. You can also include the original ONNX versions of the model files.
 
-Provide a C# file with a minimal implementation. (For example, an image processing model should have code that shows how to prepare the image for the input and construct the image from the output). Alternatively, you can link to an external sample code. This is so people can download and use the model in Unity easily.
+Provide a C# file with a minimal implementation. For example, an image processing model should have code that shows how to prepare the image for the input and construct the image from the output. Alternatively, you can link to some external sample code. This will make it easy for others to download and use the model in Unity.
 
 Provide any data files needed to run the model. For example, vocabulary files.
 
-Finally, please provide an ``info.json`` file which just lists the files in your project. This helps in counting the downloads. Some examples for the contents of ``info.json`` are:
+Finally, please provide an ``info.json`` file, which lists your project's files. This helps in counting the downloads. Some examples of the contents of ``info.json`` are:
 
 ```
 {
