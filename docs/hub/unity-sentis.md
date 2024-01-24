@@ -22,13 +22,15 @@ Each repository will contain several types of files:
 ## Running the model
 Always refer to the instructions on the model card. It is expected that you have some knowledge of Unity and some basic knowledge of C#.
 
-First, open Unity 2023 or above and create a new scene.
+1. Open Unity 2023 or above and create a new scene.
 
-In general, you will want to download your model files (``*.sentis``) and data files and put them in the StreamingAssets folder which is a subfolder inside the Assets folder. (If this folder does not exist you can create it).
+2. Install the ``com.unity.sentis`` package from the [package manager](https://docs.unity3d.com/Manual/upm-ui-quick.html).
 
-Next place your C# file on an object in the scene such as the Main Camera. 
+3. Download your model files (``*.sentis``) and data files and put them in the StreamingAssets folder which is a subfolder inside the Assets folder. (If this folder does not exist you can create it).
 
-Refer to the model card to see if there are any other objects you need to create in the scene.
+4. Place your C# file on an object in the scene such as the Main Camera. 
+
+5. Refer to the model card to see if there are any other objects you need to create in the scene.
 
 In most cases, we only provide the basic implementation to get you up and running. It is up to you to find creative uses. For example, you may want to combine two or more models to do interesting things.
 
