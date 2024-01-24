@@ -39,7 +39,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [Timm](https://github.com/rwightman/pytorch-image-models)                   | Collection of image models, scripts, pretrained weights, etc.                        | ✅ | ✅ | ✅ | ✅ |
 | [Transformers](https://github.com/huggingface/transformers)                 | State-of-the-art Natural Language Processing for Pytorch, TensorFlow, and JAX        | ✅ | ✅ | ✅ | ✅ |
 | [Transformers.js](https://github.com/xenova/transformers.js)                | State-of-the-art Machine Learning for the web. Run 🤗 Transformers directly in your browser, with no need for a server! | ❌ | ❌ | ✅ | ❌ |
-| [Unity Sentis](https://unity.com/products/sentis)                | Inference engine for the Unity 3D game engine | ✅ | ❌ | ✅ | ✅ |
+| [Unity Sentis](https://unity.com/products/sentis)                | Inference engine for the Unity 3D game engine | ❌ | ❌ | ✅ | ✅ |
 
 ### How can I add a new library to the Inference API?
 
