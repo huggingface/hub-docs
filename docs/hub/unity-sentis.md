@@ -47,9 +47,9 @@ Finally, please provide an ``info.json`` file, which lists your project's files.
 
 ```
 {
-   code: [ “mycode.cs”], 
-   models: [ “model1.sentis”, “model2.sentis”],
-   data: [ “vocab.txt” ]
+   "code": [ "mycode.cs"], 
+   "models": [ "model1.sentis", "model2.sentis"],
+   "data": [ "vocab.txt" ]
 }
 ```
 
@@ -57,8 +57,8 @@ Or if your code sample is external:
 
 ```
 {
-   sampleURL: [ “http://sampleunityproject”], 
-   models: [ “model1.sentis”, “model2.sentis”]
+   "sampleURL": [ "http://sampleunityproject"], 
+   "models": [ "model1.sentis", "model2.sentis"]
 }
 ```
 
