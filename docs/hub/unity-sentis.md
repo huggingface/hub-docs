@@ -1,10 +1,11 @@
 # Using Unity Sentis Models from Hugging Face
+
 [Unity 3D](https://unity.com/) is one of the most popular game engines in the world. [Unity Sentis](https://unity.com/products/sentis) is the inference engine that runs on Unity 2023 or above. It is an API that allows you to easily integrate and run neural network models in your game or application making use of hardware acceleration. Because Unity can export to many different form factors including PC, mobile and consoles, it means that this is an easy way to run neural network models on many different types of hardware.
 
 ## Exploring Sentis Models in the Hub
 You will find `unity-sentis` models by filtering at the left of the [models page](https://huggingface.co/models?library=unity-sentis).
 
-All the Sentis models in the Hub come with code and instructions to easily get you started using the model in Unity. All Sentis models under the `unity` namespace (for example, [unity/sentis-yolotinyv7](https://huggingface.co/unity/sentis-yolotinyv7)` have been validated to work, so you can be sure they will run in Unity.
+All the Sentis models in the Hub come with code and instructions to easily get you started using the model in Unity. All Sentis models under the `unity` namespace (for example, [unity/sentis-yolotinyv7](https://huggingface.co/unity/sentis-yolotinyv7) have been validated to work, so you can be sure they will run in Unity.
 
 To get more details about using Sentis, you can read its [documentation](https://docs.unity3d.com/Packages/com.unity.sentis@latest). To get help from others using Sentis, you can ask in its [discussion forum](https://discussions.unity.com/c/ai-beta/sentis)
 
@@ -17,7 +18,7 @@ Each repository will contain several types of files:
 * ``cs`` file: These are C# files that contain the code to run the model on Unity.
 * ``info.json``: This file contains information about the files in the repository.
 * Data files. These are other files that are needed to run the model. They could include vocabulary files, lists of class names etc. Some typical files will have extensions ``json`` or ``txt``.
-* ``README``. This is the model card. It contains instructions on how to use the model and other relevant information.
+* ``README.md``. This is the model card. It contains instructions on how to use the model and other relevant information.
 
 ## Running the model
 Always refer to the instructions on the model card. It is expected that you have some knowledge of Unity and some basic knowledge of C#.
