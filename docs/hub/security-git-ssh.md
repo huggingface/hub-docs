@@ -64,3 +64,21 @@ Otherwise, if the message states something like the following, make sure your SS
 ```
 Hi anonymous, welcome to Hugging Face.
 ```
+
+## HuggingFace's SSH key fingerprints
+
+Public key fingerprints can be used to validate a connection to a remote server.
+
+These are HuggingFace's public key fingerprints:
+
+SHA256:aBG5R7IomF4BSsx/h6tNAUVLhEkkaNGB8Sluyh/Q/qY (ECDSA)
+SHA256:skgQjK2+RuzvdmHr24IIAJ6uLWQs0TGtEUt3FtzqirQ (DSA - deprecated)
+SHA256:dVjzGIdV7d6cwKIeZiCoRMa2gMvSKfGZAvHf4gMiMao (ED25519)
+SHA256:uqjYymysBGCXXiMVebB8L8RIuWbPSKGBxQQNhcT5a3Q (RSA)
+
+You can add the following ssh key entries to your ~/.ssh/known_hosts file to avoid manually verifying HuggingFace hosts:
+
+hf.co ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDtPB+snz63eZvTrbMY2Qt39a6HYile89JOum55z3lhIqAqUHxLtXFd+q+ED8izQvyORFPSmFIaPw05rtXo37bm+ixL6wDmvWrHN74oUUWmtrv2MNCLHE5VDb3+Q6MJjjDVIoK5QZIuTStlq0cUbGGxQk7vFZZ2VXdTPqgPjw4hMV7MGp3RFY/+Wy8rIMRv+kRCIwSAOeuaLPT7FzL0zUMDwj/VRjlzC08+srTQHqfoh0RguZiXZQneZKmM75AFhoMbP5x4AW2bVoZam864DSGiEwL8R2jMiyXxL3OuicZteZqll0qfRlNopKnzoxS29eBbXTr++ILqYz1QFqaruUgqSi3MIC9sDYEqh2Q8UxP5+Hh97AnlgWDZC0IhojVmEPNAc7Y2d+ctQl4Bt91Ik4hVf9bU+tqMXgaTrTMXeTURSXRxJEm2zfKQVkqn3vS/zGVnkDS+2b2qlVtrgbGdU/we8Fux5uOAn/dq5GygW/DUlHFw412GtKYDFdWjt3nJCY8=
+hf.co ssh-dss AAAAB3NzaC1kc3MAAACBAORXmoE8fn/UTweWy7tCYXZxigmODg71CIvs/haZQN6GYqg0scv8OFgeIQvBmIYMnKNJ7eoo5ZK+fk1yPv8aa9+8jfKXNJmMnObQVyObxFVzB51x8yvtHSSrL4J3z9EAGX9l9b+Fr2+VmVFZ7a90j2kYC+8WzQ9HaCYOlrALzz2VAAAAFQC0RGD5dE5Du2vKoyGsTaG/mO2E5QAAAIAHXRCMYdZij+BYGC9cYn5Oa6ZGW9rmGk98p1Xc4oW+O9E/kvu4pCimS9zZordLAwHHWwOUH6BBtPfdxZamYsBgO8KsXOWugqyXeFcFkEm3c1HK/ysllZ5kM36wI9CUWLedc2vj5JC+xb5CUzhVlGp+Xjn59rGSFiYzIGQC6pVkHgAAAIBve2DugKh3x8qq56sdOH4pVlEDe997ovEg3TUxPPIDMSCROSxSR85fa0aMpxqTndFMNPM81U/+ye4qQC/mr0dpFLBzGuum4u2dEpjQ7B2UyJL9qhs1Ubby5hJ8Z3bmHfOK9/hV8nhyN8gf5uGdrJw6yL0IXCOPr/VDWSUbFrsdeQ==
+hf.co ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBL0wtM52yIjm8gRecBy2wRyEMqr8ulG0uewT/IQOGz5K0ZPTIy6GIGHsTi8UXBiEzEIznV3asIz2sS7SiQ311tU=
+hf.co ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINJjhgtT9FOQrsVSarIoPVI1jFMh3VSHdKfdqp/O776s
