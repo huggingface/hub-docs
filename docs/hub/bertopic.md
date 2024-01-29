@@ -1,6 +1,6 @@
 # Using BERTopic at Hugging Face
 
-[BERTopic](https://github.com/MaartenGr/BERTopic) BERTopic is a topic modeling framework that leverages 🤗 transformers and c-TF-IDF to create dense clusters allowing for easily interpretable topics whilst keeping important words in the topic descriptions. 
+[BERTopic](https://github.com/MaartenGr/BERTopic) is a topic modeling framework that leverages 🤗 transformers and c-TF-IDF to create dense clusters allowing for easily interpretable topics whilst keeping important words in the topic descriptions. 
 
 BERTopic supports all kinds of topic modeling techniques:  
 <table>
@@ -67,6 +67,25 @@ Which gives us the following topic:
 ```text
 64_rating_rated_cinematography_film
 ```
+
+## Sharing Models
+
+When you have created a BERTopic model, you can easily share it with others through the Hugging Face Hub. To do so, we can make use of the `push_to_hf_hub` function that allows us to directly push the model to the Hugging Face Hub:
+
+```python
+from bertopic import BERTopic
+
+# Train model
+topic_model = BERTopic().fit(my_docs)
+
+# Push to HuggingFace Hub
+topic_model.push_to_hf_hub(
+    repo_id="MaartenGr/BERTopic_ArXiv",
+    save_ctfidf=True
+)
+```
+
+Note that the saved model does not include the dimensionality reduction and clustering algorithms. Those are removed since they are only necessary to train the model and find relevant topics. Inference is done through a straightforward cosine similarity between the topic and document embeddings. This not only speeds up the model but allows us to have a tiny BERTopic model that we can work with.
 
 ## Additional Resources
 
