@@ -77,6 +77,8 @@ alt="drawing" width="600"/>
 
 Visit [the huggingface_hub's documentation](https://huggingface.co/docs/huggingface_hub/guides/integrations) to learn more.
 
+Alternatively, one can also simply upload files or folders to the hub: https://huggingface.co/docs/huggingface_hub/guides/upload. Note that this approach doesn't guarantee working download metrics.
+
 ## Using the web interface
 
 To create a brand new model repository, visit [huggingface.co/new](http://huggingface.co/new). Then follow these steps:
