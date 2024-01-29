@@ -71,10 +71,10 @@ Public key fingerprints can be used to validate a connection to a remote server.
 
 These are HuggingFace's public key fingerprints:
 
-SHA256:aBG5R7IomF4BSsx/h6tNAUVLhEkkaNGB8Sluyh/Q/qY (ECDSA)
-SHA256:skgQjK2+RuzvdmHr24IIAJ6uLWQs0TGtEUt3FtzqirQ (DSA - deprecated)
-SHA256:dVjzGIdV7d6cwKIeZiCoRMa2gMvSKfGZAvHf4gMiMao (ED25519)
-SHA256:uqjYymysBGCXXiMVebB8L8RIuWbPSKGBxQQNhcT5a3Q (RSA)
+> SHA256:aBG5R7IomF4BSsx/h6tNAUVLhEkkaNGB8Sluyh/Q/qY (ECDSA)
+> SHA256:skgQjK2+RuzvdmHr24IIAJ6uLWQs0TGtEUt3FtzqirQ (DSA - deprecated)
+> SHA256:dVjzGIdV7d6cwKIeZiCoRMa2gMvSKfGZAvHf4gMiMao (ED25519)
+> SHA256:uqjYymysBGCXXiMVebB8L8RIuWbPSKGBxQQNhcT5a3Q (RSA)
 
 You can add the following ssh key entries to your ~/.ssh/known_hosts file to avoid manually verifying HuggingFace hosts:
 
