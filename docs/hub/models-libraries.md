@@ -33,8 +33,8 @@ The table below summarizes the supported libraries and their level of integratio
 | [spaCy](./spacy)                                 | Advanced Natural Language Processing in Python and Cython.                           | ✅ | ✅ | ✅ | ✅ |
 | [SpanMarker](./span_marker)                    | Familiar, simple and state-of-the-art Named Entity Recognition.                      | ✅ | ✅ | ✅ | ✅ |
 | [Scikit Learn (using skops)](https://skops.readthedocs.io/en/stable/)       | Machine Learning in Python.                                                          | ✅ | ✅ | ✅ | ✅ |
-| [Speechbrain](https://huggingface.co/docs/hub/speechbrain)                               | A PyTorch Powered Speech Toolkit.                                                    | ✅ | ✅ | ✅ | ❌ |
-| [Stable-Baselines3](https://huggingface.co/docs/hub/stable-baselines3)            | Set of reliable implementations of deep reinforcement learning algorithms in PyTorch | ❌ | ✅ | ✅ | ✅ |
+| [Speechbrain](./speechbrain)                               | A PyTorch Powered Speech Toolkit.                                                    | ✅ | ✅ | ✅ | ❌ |
+| [Stable-Baselines3](./stable-baselines3)            | Set of reliable implementations of deep reinforcement learning algorithms in PyTorch | ❌ | ✅ | ✅ | ✅ |
 | [TensorFlowTTS](https://github.com/TensorSpeech/TensorFlowTTS)              | Real-time state-of-the-art speech synthesis architectures.                           | ❌ | ❌ | ✅ | ❌ |
 | [Timm](./timm)                   | Collection of image models, scripts, pretrained weights, etc.                        | ✅ | ✅ | ✅ | ✅ |
 | [Transformers](./transformers)                 | State-of-the-art Natural Language Processing for PyTorch, TensorFlow, and JAX        | ✅ | ✅ | ✅ | ✅ |
