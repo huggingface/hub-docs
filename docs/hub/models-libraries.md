@@ -26,12 +26,12 @@ The table below summarizes the supported libraries and their level of integratio
 | [Pyannote](https://github.com/pyannote/pyannote-audio)                      | Neural building blocks for speaker diarization.                                      | ❌ | ❌ | ✅ | ❌ |
 | [PyCTCDecode](https://github.com/kensho-technologies/pyctcdecode)           | Language model supported CTC decoding for speech recognition                         | ❌ | ❌ | ✅ | ❌ |
 | [Pythae](https://github.com/clementchadebec/benchmark_VAE)                  | Unified framework for Generative Autoencoders in Python                              | ❌ | ❌ | ✅ | ✅ |
-| [RL-Baselines3-Zoo](https://huggingface.co/docs/hub/rl-baselines3-zoo)            | Training framework for Reinforcement Learning, using [Stable Baselines3](https://github.com/DLR-RM/stable-baselines3).| ❌ | ✅ | ✅ | ✅ |
-| [Sample Factory](https://huggingface.co/docs/hub/sample-factory)           | Codebase for high throughput asynchronous reinforcement learning.                    | ❌ | ✅ | ✅ | ✅ |
-| [Sentence Transformers](https://huggingface.co/docs/hub/sentence-transformers)    | Compute dense vector representations for sentences, paragraphs, and images.          | ✅ | ✅ | ✅ | ✅ |
-| [SetFit](https://huggingface.co/docs/hub/setfit)                             | Efficient few-shot text classification with Sentence Transformers                    | ✅ | ✅ | ✅ | ✅ |
-| [spaCy](https://huggingface.co/docs/hub/spacy)                                 | Advanced Natural Language Processing in Python and Cython.                           | ✅ | ✅ | ✅ | ✅ |
-| [SpanMarker](https://huggingface.co/docs/hub/span_marker)                    | Familiar, simple and state-of-the-art Named Entity Recognition.                      | ✅ | ✅ | ✅ | ✅ |
+| [RL-Baselines3-Zoo](./rl-baselines3-zoo)            | Training framework for Reinforcement Learning, using [Stable Baselines3](https://github.com/DLR-RM/stable-baselines3).| ❌ | ✅ | ✅ | ✅ |
+| [Sample Factory](./sample-factory)           | Codebase for high throughput asynchronous reinforcement learning.                    | ❌ | ✅ | ✅ | ✅ |
+| [Sentence Transformers](./sentence-transformers)    | Compute dense vector representations for sentences, paragraphs, and images.          | ✅ | ✅ | ✅ | ✅ |
+| [SetFit](./setfit)                             | Efficient few-shot text classification with Sentence Transformers                    | ✅ | ✅ | ✅ | ✅ |
+| [spaCy](./spacy)                                 | Advanced Natural Language Processing in Python and Cython.                           | ✅ | ✅ | ✅ | ✅ |
+| [SpanMarker](./span_marker)                    | Familiar, simple and state-of-the-art Named Entity Recognition.                      | ✅ | ✅ | ✅ | ✅ |
 | [Scikit Learn (using skops)](https://skops.readthedocs.io/en/stable/)       | Machine Learning in Python.                                                          | ✅ | ✅ | ✅ | ✅ |
 | [Speechbrain](https://huggingface.co/docs/hub/speechbrain)                               | A PyTorch Powered Speech Toolkit.                                                    | ✅ | ✅ | ✅ | ❌ |
 | [Stable-Baselines3](https://huggingface.co/docs/hub/stable-baselines3)            | Set of reliable implementations of deep reinforcement learning algorithms in PyTorch | ❌ | ✅ | ✅ | ✅ |
