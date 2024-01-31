@@ -20,9 +20,9 @@ The table below summarizes the supported libraries and their level of integratio
 | [MidiTok](https://github.com/Natooz/MidiTok)                                | Tokenizers for symbolic music / MIDI files.                                          | ❌ | ❌ | ✅ | ✅ |
 | [ML-Agents](https://huggingface.co/docs/hub/ml-agents)                       | Enables games and simulations made with Unity to serve as environments for training intelligent agents. | ❌ | ❌ | ✅ | ✅ |
 | [NeMo](https://github.com/NVIDIA/NeMo)                                      | Conversational AI toolkit built for researchers                                      | ✅ | ✅ | ✅ | ❌ |
-| [OpenCLIP](https://huggingface.co/docs/hub/open_clip)                      | Library for open-source implementation of OpenAI's CLIP                              | ❌ | ❌ | ✅ | ✅ |  
-| [PaddleNLP](https://huggingface.co/docs/hub/paddlenlp)                      | Easy-to-use and powerful NLP library built on PaddlePaddle                           | ✅ | ✅ | ✅ | ✅ |
-| [PEFT](https://huggingface.co/docs/hub/peft)                      | Cutting-edge Parameter Efficient Fine-tuning Library                           | ✅ | ✅ | ✅ | ✅ |
+| [OpenCLIP](./open_clip)                      | Library for open-source implementation of OpenAI's CLIP                              | ❌ | ❌ | ✅ | ✅ |  
+| [PaddleNLP](./paddlenlp)                      | Easy-to-use and powerful NLP library built on PaddlePaddle                           | ✅ | ✅ | ✅ | ✅ |
+| [PEFT](./peft)                      | Cutting-edge Parameter Efficient Fine-tuning Library                           | ✅ | ✅ | ✅ | ✅ |
 | [Pyannote](https://github.com/pyannote/pyannote-audio)                      | Neural building blocks for speaker diarization.                                      | ❌ | ❌ | ✅ | ❌ |
 | [PyCTCDecode](https://github.com/kensho-technologies/pyctcdecode)           | Language model supported CTC decoding for speech recognition                         | ❌ | ❌ | ✅ | ❌ |
 | [Pythae](https://github.com/clementchadebec/benchmark_VAE)                  | Unified framework for Generative Autoencoders in Python                              | ❌ | ❌ | ✅ | ✅ |
