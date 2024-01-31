@@ -11,6 +11,6 @@ The Dataset Viewer allows teams to understand their data and to help them build 
 See [Dataset Viewer](./datasets-viewer) for more information.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/private-dataset-viewer.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/private-dataset-viewer-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/private-dataset-viewer.png" alt="screenshot of the Dataset Viewer on a private dataset owned by an Enterprise Hub organization."/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/private-dataset-viewer-dark.png" alt="screenshot of the Dataset Viewer on a private dataset owned by an Enterprise Hub organization."/>
 </div>
