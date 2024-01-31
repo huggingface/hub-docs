@@ -62,8 +62,8 @@ You can automate the approval of access requests by using the API. You must pass
 
 The base URL for the HTTP endpoints above is `https://huggingface.co`.
 
-Those endpoints are not officially supported in `huggingface_hub` or `huggingface.js` yet but [this code snippet](https://github.com/huggingface/huggingface_hub/issues/1535#issuecomment-1614693412) (in Python) might help you getting started.
-NEW! There's an [open PR](https://github.com/huggingface/huggingface_hub/pull/1905) in `huggingface_hub` to add official support from our Python library.
+**NEW!** Those endpoints are now officially supported in our Python client `huggingface_hub`. List the access requests to your model with [`list_pending_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_pending_access_requests), [`list_accepted_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_accepted_access_requests) and [`list_rejected_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_rejected_access_requests). You can also accept, cancel and reject access requests with [`accept_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.accept_access_request), [`cancel_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.cancel_access_request), [`reject_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.reject_access_request). Finally, you can grant access to a user with [`grant_access`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.grant_access).
+
 
 ### Download access report
 
@@ -85,7 +85,15 @@ By default, users landing on your gated model will be asked to share their conta
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side-dark.png"/>
 </div>
 
-If you want to collect more user information, you can configure additional fields. This information will be accessible from the **Settings** tab. To do so, add an `extra_gated_fields` property to your [model card metadata](./model-cards#model-card-metadata) containing a list of key/value pairs. The *key* is the name of the field and *value* its type. A field can be either `text` (free text area) or `checkbox`. Finally, you can also personalize the message displayed to the user with the `extra_gated_prompt` extra field.
+If you want to collect more user information, you can configure additional fields. This information will be accessible from the **Settings** tab. To do so, add an `extra_gated_fields` property to your [model card metadata](./model-cards#model-card-metadata) containing a list of key/value pairs. The *key* is the name of the field and *value* its type or an object with a `type` field. The list of field types is:
+
+- `text`: a single-line text field.
+- `checkbox`: a checkbox field.
+- `date_picker`: a date picker field.
+- `country`: a country dropdown. The list of countries is based on the [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) standard.
+- `select`: a dropdown with a list of options. The list of options is defined in the `options` field. Example: `options: ["option 1", "option 2", {label: "option3", value: "opt3"}]`.
+
+Finally, you can also personalize the message displayed to the user with the `extra_gated_prompt` extra field.
 
 Here is an example of customized request form where the user is asked to provide their company name and country and acknowledge that the model is for non-commercial use only.
 
@@ -93,9 +101,17 @@ Here is an example of customized request form where the user is asked to provide
 ---
 extra_gated_prompt: "You agree to not use the model to conduct experiments that cause harm to human subjects."
 extra_gated_fields:
- Company: text
- Country: text
- I agree to use this model for non-commercial use ONLY: checkbox
+  Company: text
+  Country: country
+  Specific date: date_picker
+  I want to use this model for:
+    type: select
+    options: 
+      - Research
+      - Education
+      - label: Other
+        value: other
+  I agree to use this model for non-commercial use ONLY: checkbox
 ---
 ```
 

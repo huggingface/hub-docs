@@ -132,6 +132,11 @@ And you're done! You can check your repository on Hugging Face with all the rece
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files-dark.png"/>
 </div>
 
+<Tip>
+
+If you cloned the repository with HTTP, you might be asked to fill your username and password on every push operation. The simplest way to avoid repetition is to [switch to SSH](#cloning-repositories), instead of HTTP. Alternatively, if you have to use HTTP, you might find it helpful to setup a [git credential helper](https://git-scm.com/docs/gitcredentials#_avoiding_repetition) to autofill your username and password.
+
+</Tip>
 
 ## Viewing a repo's history
 

@@ -61,6 +61,8 @@
         title: Adapters
       - local: allennlp
         title: AllenNLP
+      - local: bertopic
+        title: BERTopic
       - local: asteroid
         title: Asteroid
       - local: diffusers
@@ -107,6 +109,8 @@
         title: Transformers
       - local: transformers-js
         title: Transformers.js
+      - local: unity-sentis
+        title: Unity Sentis
   - local: models-widgets
     title: Model Widgets
     sections:
@@ -216,6 +220,8 @@
         title: ChatUI on Spaces
       - local: spaces-sdks-docker-tabby
         title: Tabby on Spaces
+      - local: spaces-sdks-docker-giskard
+        title: Giskard on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-run-with-docker
@@ -265,6 +271,8 @@
         title: Audit Logs
       - local: storage-regions
         title: Storage Regions
+      - local: enterprise-hub-datasets
+        title: Dataset viewer for Private datasets
   - local: billing
     title: Billing
   - local: security
@@ -285,6 +293,8 @@
         title: How to configure SAML with Okta in the Hub
       - local: security-sso-azure-saml
         title: How to configure SAML with Azure in the Hub
+      - local: security-sso-azure-oidc
+        title: How to configure OIDC with Azure in the Hub
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle
