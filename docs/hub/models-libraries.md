@@ -9,7 +9,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [Adapter Transformers](./adapter-transformers) | Extends 🤗Transformers with Adapters.                                                | ❌ | ❌ | ✅ | ✅ |
 | [AllenNLP](./allennlp)                             | An open-source NLP research library, built on PyTorch.                               | ✅ | ✅ | ✅ | ❌ |
 | [Asteroid](./asteroid)                       | PyTorch-based audio source separation toolkit                                        | ✅ | ✅ | ✅ | ❌ |
-| [BERTopic](https://github.com/MaartenGr/BERTopic)                           | BERTopic is a topic modeling library for text and images                             | ✅ | ✅ | ✅ | ✅ | 
+| [BERTopic](./bertopic)                           | BERTopic is a topic modeling library for text and images                             | ✅ | ✅ | ✅ | ✅ | 
 | [Diffusers](./diffusers)                       | A modular toolbox for inference and training of diffusion models                     | ✅ | ✅ | ✅ | ✅ |
 | [docTR](https://github.com/mindee/doctr)                                    | Models and datasets for OCR-related tasks in PyTorch & TensorFlow                    | ✅ | ✅ | ✅ | ❌ |
 | [ESPnet](./espnet)                                  | End-to-end speech processing toolkit (e.g. TTS)                                      | ✅ | ✅ | ✅ | ❌ |
