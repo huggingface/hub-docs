@@ -23,9 +23,6 @@ The dataset viewer can be disabled. To do this, add a YAML section to the datase
 viewer: false
 ---
 ```
-
-Note that the viewer is always disabled on the private datasets.
-
 ## Private datasets
 
-The Dataset Viewer on private datasets is a feature available to [PRO users](https://huggingface.co/pricing) and [Enterprise organizations](https://huggingface.co/enterprise). With the Dataset Viewer, you can check the correctness of your private dataset before publishing it. You will also be able to share with your team benefits like searching, filtering, and conversion to Parquet for datasets that will remain private.
+The Dataset Viewer on private datasets is a feature available to [PRO users](https://huggingface.co/pricing) and [Enterprise organizations](https://huggingface.co/enterprise).
