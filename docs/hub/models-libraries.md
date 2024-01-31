@@ -36,10 +36,10 @@ The table below summarizes the supported libraries and their level of integratio
 | [Speechbrain](https://huggingface.co/docs/hub/speechbrain)                               | A PyTorch Powered Speech Toolkit.                                                    | ✅ | ✅ | ✅ | ❌ |
 | [Stable-Baselines3](https://huggingface.co/docs/hub/stable-baselines3)            | Set of reliable implementations of deep reinforcement learning algorithms in PyTorch | ❌ | ✅ | ✅ | ✅ |
 | [TensorFlowTTS](https://github.com/TensorSpeech/TensorFlowTTS)              | Real-time state-of-the-art speech synthesis architectures.                           | ❌ | ❌ | ✅ | ❌ |
-| [Timm](https://huggingface.co/docs/hub/timm)                   | Collection of image models, scripts, pretrained weights, etc.                        | ✅ | ✅ | ✅ | ✅ |
-| [Transformers](https://huggingface.co/docs/hub/transformers)                 | State-of-the-art Natural Language Processing for Pytorch, TensorFlow, and JAX        | ✅ | ✅ | ✅ | ✅ |
-| [Transformers.js](https://huggingface.co/docs/hub/transformers-js)                | State-of-the-art Machine Learning for the web. Run 🤗 Transformers directly in your browser, with no need for a server! | ❌ | ❌ | ✅ | ❌ |
-| [Unity Sentis](https://huggingface.co/docs/hub/unity-sentis)                | Inference engine for the Unity 3D game engine | ❌ | ❌ | ❌ | ❌ |
+| [Timm](./timm)                   | Collection of image models, scripts, pretrained weights, etc.                        | ✅ | ✅ | ✅ | ✅ |
+| [Transformers](./transformers)                 | State-of-the-art Natural Language Processing for PyTorch, TensorFlow, and JAX        | ✅ | ✅ | ✅ | ✅ |
+| [Transformers.js](./transformers-js)                | State-of-the-art Machine Learning for the web. Run 🤗 Transformers directly in your browser, with no need for a server! | ❌ | ❌ | ✅ | ❌ |
+| [Unity Sentis](./unity-sentis)                | Inference engine for the Unity 3D game engine | ❌ | ❌ | ❌ | ❌ |
 
 ### How can I add a new library to the Inference API?
 
