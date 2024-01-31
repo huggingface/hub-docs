@@ -96,7 +96,7 @@ Other formats and structures may not be recognized by the Hub.
 ### Dataset Viewer
 
 The [Dataset Viewer](./datasets-viewer) is useful to know how the data actually looks like before you download it.
-It is enabled by default for all public datasets.
+It is enabled by default for all public datasets. It is also available for private datasets owned by a [PRO user](https://huggingface.co/pricing) or an [Enterprise Hub organization](https://huggingface.co/enterprise).
 
 After uploading your dataset, make sure the Dataset Viewer correctly shows your data, or [Configure the Dataset Viewer](./datasets-viewer-configure).
 
