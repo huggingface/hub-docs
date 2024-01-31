@@ -6,7 +6,7 @@ The table below summarizes the supported libraries and their level of integratio
 
 | Library                                                                     | Description                                                                          | Inference API | Widgets | Download from Hub | Push to Hub |
 |-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------|---|---:|---|---|
-| [Adapter Transformers](https://huggingface.co/docs/hub/adapter-transformers) | Extends 🤗Transformers with Adapters.                                                | ❌ | ❌ | ✅ | ✅ |
+| [Adapter Transformers](./adapter-transformers) | Extends 🤗Transformers with Adapters.                                                | ❌ | ❌ | ✅ | ✅ |
 | [AllenNLP](https://huggingface.co/docs/hub/allennlp)                             | An open-source NLP research library, built on PyTorch.                               | ✅ | ✅ | ✅ | ❌ |
 | [Asteroid](https://huggingface.co/docs/hub/asteroid)                       | Pytorch-based audio source separation toolkit                                        | ✅ | ✅ | ✅ | ❌ |
 | [BERTopic](https://github.com/MaartenGr/BERTopic)                           | BERTopic is a topic modeling library for text and images                             | ✅ | ✅ | ✅ | ✅ | 
