@@ -15,7 +15,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [ESPnet](https://huggingface.co/docs/hub/espnet)                                  | End-to-end speech processing toolkit (e.g. TTS)                                      | ✅ | ✅ | ✅ | ❌ |
 | [fastai](https://huggingface.co/docs/hub/fastai)                                  | Library to train fast and accurate models with state-of-the-art outputs.             | ✅ | ✅ | ✅ | ✅ |
 | [Keras](https://huggingface.co/docs/hub/keras)                              | Library that uses a consistent and simple API to build models leveraging TensorFlow and its ecosystem. | ❌ | ❌ | ✅ | ✅ |
-| [Flair](https://huggingface.co/docs/hub/flair)                                  | Very simple framework for state-of-the-art NLP.                                      | ✅ | ✅ | ✅ | ✅ |
+| [Flair](./flair)                                  | Very simple framework for state-of-the-art NLP.                                      | ✅ | ✅ | ✅ | ✅ |
 | [MBRL-Lib](https://github.com/facebookresearch/mbrl-lib)                    | PyTorch implementations of MBRL Algorithms.                                          | ❌ | ❌ | ✅ | ✅ |
 | [MidiTok](https://github.com/Natooz/MidiTok)                                | Tokenizers for symbolic music / MIDI files.                                          | ❌ | ❌ | ✅ | ✅ |
 | [ML-Agents](https://huggingface.co/docs/hub/ml-agents)                       | Enables games and simulations made with Unity to serve as environments for training intelligent agents. | ❌ | ❌ | ✅ | ✅ |
