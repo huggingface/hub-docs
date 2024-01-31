@@ -271,8 +271,8 @@
         title: Audit Logs
       - local: storage-regions
         title: Storage Regions
-      - local: enterprise-datasets
-        title: Datasets
+      - local: enterprise-hub-datasets
+        title: Dataset viewer for Private datasets
   - local: billing
     title: Billing
   - local: security

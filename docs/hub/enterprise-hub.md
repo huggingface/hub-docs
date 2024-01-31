@@ -9,4 +9,4 @@ In this section we will document the following Enterprise Hub features:
 - [SSO](./enterprise-sso)
 - [Audit Logs](./audit-logs)
 - [Storage Regions](./storage-regions)
-- [Dataset viewer for Private datasets](./enterprise-datasets)
+- [Dataset viewer for Private datasets](./enterprise-hub-datasets)
