@@ -6,6 +6,8 @@
 
 You can find RL-Baselines3-Zoo models by filtering at the left of the [models page](https://huggingface.co/models?library=stable-baselines3).
 
+And the documentation [here](https://stable-baselines3.readthedocs.io/en/master/guide/rl_zoo.html).
+
 The Stable-Baselines3 team is hosting a collection of +150 trained Reinforcement Learning agents with tuned hyperparameters that you can find [here](https://huggingface.co/sb3).
 
 All models on the Hub come up with useful features:
