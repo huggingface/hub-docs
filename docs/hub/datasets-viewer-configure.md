@@ -23,6 +23,7 @@ The dataset viewer can be disabled. To do this, add a YAML section to the datase
 viewer: false
 ---
 ```
+
 ## Private datasets
 
-The Dataset Viewer on private datasets is a feature available to [PRO users](https://huggingface.co/pricing) and [Enterprise organizations](https://huggingface.co/enterprise).
+For **private** datasets, the Dataset Viewer is enabled for [PRO users](https://huggingface.co/pricing) and [Enterprise Hub organizations](https://huggingface.co/enterprise).
