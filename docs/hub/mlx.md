@@ -1,6 +1,6 @@
 # Using MLX at Hugging Face
 
-[MLX]([https://github.com/MaartenGr/BERTopic](https://github.com/ml-explore/mlx)) is a model training and serving framework on Apple Silicon made by Apple Research.
+[MLX](https://github.com/ml-explore/mlx) is a model training and serving framework on Apple Silicon made by Apple Research.
 
 It comes with variety of examples:
 
