@@ -78,7 +78,7 @@ huggingface-cli download --local-dir <LOCAL FOLDER PATH> <USER_ID>/<MODEL_NAME>
 
 ## Converting and Sharing Models
 
-You can convert LLMs from Hugging Face Hub as follows: 
+You can convert, and optionally quantize, LLMs from the Hugging Face Hub as follows: 
 
 ```bash
 python -m mlx_lm.convert --hf-path mistralai/Mistral-7B-v0.1 -q 
