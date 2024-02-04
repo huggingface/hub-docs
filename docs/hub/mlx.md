@@ -95,6 +95,6 @@ python -m mlx_lm.convert \
 
 ## Additional Resources
 
-* [MLX Repository](https://github.com/MaartenGr/BERTopic)
+* [MLX Repository](https://github.com/ml-explore/mlx)
 * [MLX Examples](https://github.com/ml-explore/mlx-examples/tree/main)
 * [MLX-LM](https://github.com/ml-explore/mlx-examples/tree/main/llms/mlx_lm)
