@@ -14,7 +14,7 @@ It comes with variety of examples:
 ## Exploring MLX on the Hub
 
 You can find MLX models by filtering at the left of the [models page](https://huggingface.co/models?library=mlx&sort=trending).
-There's also [MLX community](https://huggingface.co/mlx-community) converting and publishing weights for MLX format.
+There's also an open [MLX community](https://huggingface.co/mlx-community) of contributors converting and publishing weights for MLX format.
 
 Thanks to MLX Hugging Face Hub integration, you can load MLX models with a few lines of code. 
 
