@@ -1,10 +1,10 @@
 # Using MLX at Hugging Face
 
-[MLX](https://github.com/ml-explore/mlx) is a model training and serving framework on Apple Silicon made by Apple Research.
+[MLX](https://github.com/ml-explore/mlx) is a model training and serving framework for Apple silicon made by Apple Machine Learning Research.
 
 It comes with a variety of examples:
 
-- [Transformer language model](https://github.com/ml-explore/mlx-examples/tree/main/transformer_lm) training.
+- [Generate text with MLX-LM](https://github.com/ml-explore/mlx-examples/tree/main/llms/mlx_lm) and [generating text with MLX-LM for models in GGUF format](https://github.com/ml-explore/mlx-examples/tree/main/llms/gguf_llm).
 - Large-scale text generation with [LLaMA](https://github.com/ml-explore/mlx-examples/tree/main/llms/llama).
 - Fine-tuning with [LoRA](https://github.com/ml-explore/mlx-examples/tree/main/lora).
 - Generating images with [Stable Diffusion](https://github.com/ml-explore/mlx-examples/tree/main/stable_diffusion).
@@ -48,7 +48,7 @@ conda install -c conda-forge mlx
 MLX-LM has useful utilities to generate text. The following line directly downloads and loads the model and starts generating text.
 
 ```bash
-python -m mlx_lm.generate --model mistralai/Mistral-7B-v0.1 --prompt "hello"
+python -m mlx_lm.generate --model mistralai/Mistral-7B-Instruct-v0.2 --prompt "hello"
 ```
 
 For a full list of generation options, run
@@ -62,7 +62,7 @@ You can also load a model and start generating text through Python like below:
 ```python
 from mlx_lm import load, generate
 
-model, tokenizer = load("mistralai/Mistral-7B-v0.1")
+model, tokenizer = load("mistralai/Mistral-7B-Instruct-v0.2")
 
 response = generate(model, tokenizer, prompt="hello", verbose=True)
 ```
@@ -96,5 +96,7 @@ python -m mlx_lm.convert \
 ## Additional Resources
 
 * [MLX Repository](https://github.com/ml-explore/mlx)
+* [MLX Docs](https://ml-explore.github.io/mlx/)
 * [MLX Examples](https://github.com/ml-explore/mlx-examples/tree/main)
 * [MLX-LM](https://github.com/ml-explore/mlx-examples/tree/main/llms/mlx_lm)
+* [All MLX models on Hub](https://huggingface.co/models?library=mlx&sort=trending)
