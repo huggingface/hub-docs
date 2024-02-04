@@ -5,8 +5,8 @@
 It comes with variety of examples:
 
 - [Transformer language model](https://github.com/ml-explore/mlx-examples/tree/main/transformer_lm) training.
-- Large-scale text generation with [LLaMA](https://github.com/ml-explore/mlx-examples/tree/main/llms/llama) and
-- finetuning with [LoRA](https://github.com/ml-explore/mlx-examples/tree/main/lora).
+- Large-scale text generation with [LLaMA](https://github.com/ml-explore/mlx-examples/tree/main/llms/llama).
+- Fine-tuning with [LoRA](https://github.com/ml-explore/mlx-examples/tree/main/lora).
 - Generating images with [Stable Diffusion](https://github.com/ml-explore/mlx-examples/tree/main/stable_diffusion).
 - Speech recognition with [OpenAI's Whisper](https://github.com/ml-explore/mlx-examples/tree/main/whisper).
 
