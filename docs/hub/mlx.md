@@ -2,7 +2,7 @@
 
 [MLX](https://github.com/ml-explore/mlx) is a model training and serving framework on Apple Silicon made by Apple Research.
 
-It comes with variety of examples:
+It comes with a variety of examples:
 
 - [Transformer language model](https://github.com/ml-explore/mlx-examples/tree/main/transformer_lm) training.
 - Large-scale text generation with [LLaMA](https://github.com/ml-explore/mlx-examples/tree/main/llms/llama).
