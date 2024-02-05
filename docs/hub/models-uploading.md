@@ -8,7 +8,7 @@ There are several ways to upload models to the Hub, described below.
 
 - In case your model comes from a library that has [built-in support](#upload-from-a-library-with-built-in-support), one can use the existing methods.
 - In case your model is a custom PyTorch model, the recommended way is to leverage the [huggingface_hub](#using-the-huggingface_hub-client-library) Python library as it allows to add `from_pretrained`, `push_to_hub` and [automated download metrics](https://huggingface.co/docs/hub/models-download-stats) capabilities to your models, just like models in the Transformers, Diffusers and Timm libraries.
-- In case download metrics are not your thing, you can still use the [web interface](#using-the-web-interface).
+- In addition to programmatic uploads, you can always use the [web interface](#using-the-web-interface).
 
 ## Upload from a library with built-in support
 
@@ -77,7 +77,7 @@ alt="drawing" width="600"/>
 
 Visit [the huggingface_hub's documentation](https://huggingface.co/docs/huggingface_hub/guides/integrations) to learn more.
 
-Alternatively, one can also simply upload files or folders to the hub: https://huggingface.co/docs/huggingface_hub/guides/upload. Note that this approach doesn't guarantee working download metrics.
+Alternatively, one can also simply programmatically upload files or folders to the hub: https://huggingface.co/docs/huggingface_hub/guides/upload.
 
 ## Using the web interface
 
