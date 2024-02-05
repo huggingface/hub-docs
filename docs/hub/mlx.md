@@ -29,7 +29,7 @@ pip install mlx-lm
 
 You can get more information about it [here](https://github.com/ml-explore/mlx-examples/blob/main/llms/README.md#generate-text-with-llms-and-mlx). 
 
-You can install MLX itself as follows.
+If you install `mlx-lm`, you don't need to install `mlx`. If you don't want to use `mlx-lm` but only MLX, you can install MLX itself as follows.
 
 With `pip`:
 
@@ -67,7 +67,7 @@ model, tokenizer = load("mistralai/Mistral-7B-Instruct-v0.2")
 response = generate(model, tokenizer, prompt="hello", verbose=True)
 ```
 
-MLX models that are not supported by MLX-LM can easily be downloaded as follows:
+MLX-LM supports popular LLM architectures including LLaMA, Phi-2, Mistral, and Qwen. Models other than supported ones can easily be downloaded as follows:
 
 ```py
 pip install huggingface_hub hf_transfer
