@@ -86,10 +86,4 @@ After you use a recovery code, you cannot re-use it. You can still use the other
 
 ### Requesting help with two-factor authentication
 
-In case you've forgotten your password and lost access to your two-factor authentication credentials, you can reach out to support (website@huggingface.co) to regain access to your account. You'll be required to verify your identity using a recovery authentication factor, such as an SSH key.
-
-To complete your recovery request, you'll need to confirm an alternative authentication factor. Choose a recovery verification method:
-- If you've previously established an SSH key on this account, provide your public SSH key
-- If you've previously set up a personal access token, provide one of your personal access tokens
-
-A Hugging Face support member will review your request and send you an email. If your request is approved, your account's two-factor authentication will be reset. If your request is denied, the email will include a way to contact support with any additional questions.
+In case you've forgotten your password and lost access to your two-factor authentication credentials, you can reach out to support (website@huggingface.co) to regain access to your account. You'll be required to verify your identity using a recovery authentication factor, such as an SSH key or personal access token.

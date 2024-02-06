@@ -280,7 +280,7 @@
     sections:
     - local: security-tokens
       title: User Access Tokens
-    - local: security-two-factor-authentication
+    - local: security-two-fa
       title: Two-Factor Authentication
     - local: security-git-ssh
       title: Git over SSH
