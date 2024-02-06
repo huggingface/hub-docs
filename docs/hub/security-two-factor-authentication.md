@@ -2,27 +2,25 @@
 
 Implementing two-factor authentication is a method of verifying a user's identity by using two separate authentication methods. This extra layer of security ensures that only authorized individuals can access an account, even if the password has been compromised.
 
-The two current methods employed for two-factor authentication include:
+If you choose to enable two-factor authentication, at every login you will need to provide:
 - Username or email & password (normal login credentials)
 - One-time security code via app
 
-## Enable Two-factor Authentication
+## Enable Two-factor Authentication (2FA)
 
 To enable Two-factor Authentication with a one-time password:
 
 In the Hugging Face Hub:
-1. Access your Settings
-2. Select Authentication
-3. Select Add Two-Factor Authentication
+1. Go to your [Authentication settings](https://hf.co/settings/authentication)
+2. Select Add Two-Factor Authentication
 
 On your device (usually your phone):
-- Install a compatible application. For example:
+1. Install a compatible application. For example:
     - Authy
     - Google Authenticator
     - Microsoft Authenticator
     - FreeOTP
-
-- In the application, add a new entry in one of two ways:
+2. In the application, add a new entry in one of two ways:
   - Scan the code displayed by Hugging Face Hub with your device’s camera to add the entry automatically
   - Enter the details provided to add the entry manually
 
@@ -39,22 +37,21 @@ If you entered the correct pin, the Hub displays a list of recovery codes. Downl
 Right after you've successfully activated 2FA with a one-time password, you're requested to download a collection of generated recovery codes. If you ever lose access to your one-time password authenticator, you can utilize one of these recovery codes to log in to your account.
 
 - Each code can be used only **once** to sign in to your account
-- You should copy and print the codes, or use Download codes to download them for storage in a safe place. If you choose to download them, the file is called **huggingface-recovery-codes.txt**
+- You should copy and print the codes, or use "Download codes" to download them for storage in a safe place. If you choose to download them, the file is called **huggingface-recovery-codes.txt**
 
 <!-- blurred screenshot -->
 
-If you lose the recovery codes, or want to generate new ones, you can use the Authentication settings page.
+If you lose the recovery codes, or want to generate new ones, you can use the [Authentication settings](https://hf.co/settings/authentication) page.
 
 ## Regenerate two-factor authentication recovery codes
 
-To regenerate 2FA recovery codes, you need access to a desktop browser:
-1. Access your settings
-2. Select Authentication
-3. If you’ve already configured 2FA, select Recovery Code
-4. Click on Regenerate recovery codes
+To regenerate 2FA recovery codes:
+1. Access your [Authentication settings](https://hf.co/settings/authentication)
+2. If you’ve already configured 2FA, select Recovery Code
+3. Click on Regenerate recovery codes
 
 <Tip warning={true}>
-If you regenerate 2FA recovery codes, save them. You can’t use any previously created 2FA codes.
+If you regenerate 2FA recovery codes, save them. You can’t use any previously created recovery codes.
 </Tip>
 
 ## Sign in with two-factor authentication enabled
@@ -66,9 +63,8 @@ When you sign in with 2FA enabled, the process is only slightly different than t
 ## Disable two-factor authentication
 
 To disable 2FA:
-1. Access your User settings
-2. Select Authentication
-3. Click on Remove.
+1. Access your [Authentication settings](https://hf.co/settings/authentication)
+2. Click on "Remove".
 
 This clears all your 2FA registrations.
 
@@ -82,7 +78,7 @@ If you don’t have access to your code generation device, you can recover acces
 ### Use a recovery code
 
 To use a recovery code:
-1. Enter your username or email, and password, on the Hub sign-in page
+1. Enter your username or email, and password, on the [Hub sign-in page](https://hf.co/login)
 2. When prompted for a two-factor code, click on "Lost access to your two-factor authentication app? Use a recovery code"
 3. Enter one of your recovery code
 
