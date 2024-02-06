@@ -21,11 +21,11 @@ On your device (usually your phone):
     - Microsoft Authenticator
     - FreeOTP
 2. In the application, add a new entry in one of two ways:
-  - Scan the code displayed by Hugging Face Hub with your device’s camera to add the entry automatically
-  - Enter the details provided to add the entry manually
+    - Scan the code displayed on screen Hub with your device’s camera to add the entry automatically
+    - Enter the details provided to add the entry manually
 
 In Hugging Face Hub:
-1. Enter the six-digit pin number from the entry on your device into Pin code.
+1. Enter the six-digit pin number from your authentication device into "Code"
 2. Save
 
 <!-- screenshot -->
@@ -34,7 +34,7 @@ If you entered the correct pin, the Hub displays a list of recovery codes. Downl
 
 ## Recovery codes
 
-Right after you've successfully activated 2FA with a one-time password, you're requested to download a collection of generated recovery codes. If you ever lose access to your one-time password authenticator, you can utilize one of these recovery codes to log in to your account.
+Right after you've successfully activated 2FA with a one-time password, you're requested to download a collection of generated recovery codes. If you ever lose access to your one-time password authenticator, you can use one of these recovery codes to log in to your account.
 
 - Each code can be used only **once** to sign in to your account
 - You should copy and print the codes, or use "Download codes" to download them for storage in a safe place. If you choose to download them, the file is called **huggingface-recovery-codes.txt**
@@ -70,7 +70,7 @@ This clears all your 2FA registrations.
 
 ## Recovery options
 
-If you don’t have access to your code generation device, you can recover access to your account:
+If you no longer have access to your authentication device, you can still recover access to your account:
 
 - Use a saved recovery code, if you saved them when you enabled two-factor authentication
 - Requesting help with two-factor authentication
@@ -80,7 +80,7 @@ If you don’t have access to your code generation device, you can recover acces
 To use a recovery code:
 1. Enter your username or email, and password, on the [Hub sign-in page](https://hf.co/login)
 2. When prompted for a two-factor code, click on "Lost access to your two-factor authentication app? Use a recovery code"
-3. Enter one of your recovery code
+3. Enter one of your recovery codes
 
 After you use a recovery code, you cannot re-use it. You can still use the other recovery codes you saved.
 
