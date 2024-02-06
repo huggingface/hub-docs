@@ -19,6 +19,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [MBRL-Lib](https://github.com/facebookresearch/mbrl-lib)                    | PyTorch implementations of MBRL Algorithms.                                          | ❌ | ❌ | ✅ | ✅ |
 | [MidiTok](https://github.com/Natooz/MidiTok)                                | Tokenizers for symbolic music / MIDI files.                                          | ❌ | ❌ | ✅ | ✅ |
 | [ML-Agents](./ml-agents)                       | Enables games and simulations made with Unity to serve as environments for training intelligent agents. | ❌ | ❌ | ✅ | ✅ |
+| [MLX](./mlx)                       | Model training and serving framework on Apple silicon made by Apple. | ❌ | ❌ | ✅ | ✅ |
 | [NeMo](https://github.com/NVIDIA/NeMo)                                      | Conversational AI toolkit built for researchers                                      | ✅ | ✅ | ✅ | ❌ |
 | [OpenCLIP](./open_clip)                      | Library for open-source implementation of OpenAI's CLIP                              | ❌ | ❌ | ✅ | ✅ |  
 | [PaddleNLP](./paddlenlp)                      | Easy-to-use and powerful NLP library built on PaddlePaddle                           | ✅ | ✅ | ✅ | ✅ |
