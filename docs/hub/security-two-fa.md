@@ -28,7 +28,10 @@ In Hugging Face Hub:
 1. Enter the six-digit pin number from your authentication device into "Code"
 2. Save
 
-<!-- screenshot -->
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/two-fa/settings.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/two-fa/settings-dark.png" />
+</div>
 
 If you entered the correct pin, the Hub displays a list of recovery codes. Download them and keep them in a safe place.
 
@@ -39,7 +42,10 @@ Right after you've successfully activated 2FA with a one-time password, you're r
 - Each code can be used only **once** to sign in to your account
 - You should copy and print the codes, or use "Download codes" to download them for storage in a safe place. If you choose to download them, the file is called **huggingface-recovery-codes.txt**
 
-<!-- blurred screenshot -->
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/two-fa/recovery-codes.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/two-fa/recovery-codes-dark.png" />
+</div>
 
 If you lose the recovery codes, or want to generate new ones, you can use the [Authentication settings](https://hf.co/settings/authentication) page.
 
@@ -58,7 +64,10 @@ If you regenerate 2FA recovery codes, save them. You can’t use any previously 
 
 When you sign in with 2FA enabled, the process is only slightly different than the standard sign-in procedure. After entering your username and password, you'll encounter an additional prompt, depending on the type of 2FA you've set up. When prompted, provide the pin from your one-time password authenticator's app or a recovery code to complete the sign-in process.
 
-<!-- screenshot -->
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/two-fa/totp-confirm.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/two-fa/totp-confirm-dark.png" />
+</div>
 
 ## Disable two-factor authentication
 
