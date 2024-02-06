@@ -1,6 +1,6 @@
 # Two-Factor Authentication
 
-Implementing two-factor authentication is a method of verifying a user's identity by using two separate authentication methods. This extra layer of security ensures that only authorized individuals can access an account, even if the password has been compromised.
+Using two-factor authentication verifies a user's identity with two methods, adding extra security to ensure only authorized individuals can access an account, even if the password is compromised.
 
 If you choose to enable two-factor authentication, at every login you will need to provide:
 - Username or email & password (normal login credentials)
