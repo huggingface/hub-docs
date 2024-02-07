@@ -40,7 +40,7 @@ If you entered the correct pin, the Hub displays a list of recovery codes. Downl
 Right after you've successfully activated 2FA with a one-time password, you're requested to download a collection of generated recovery codes. If you ever lose access to your one-time password authenticator, you can use one of these recovery codes to log in to your account.
 
 - Each code can be used only **once** to sign in to your account
-- You should copy and print the codes, or use "Download codes" to download them for storage in a safe place. If you choose to download them, the file is called **huggingface-recovery-codes.txt**
+- You should copy and print the codes, or download them for storage in a safe place. If you choose to download them, the file is called **huggingface-recovery-codes.txt**
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/two-fa/recovery-codes.png"/>
