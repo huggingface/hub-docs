@@ -17,7 +17,8 @@ window.parent.postMessage({
 }, "https://huggingface.co");
 ```
 
-This is only for Docker or static Spaces.
+**This is only for Docker or static Spaces.**
+
 For Streamlit apps, Spaces automatically syncs the URL parameters. Gradio apps can read the query parameters from the Spaces page, but do not sync updated URL parameters with the parent page.
 
 Note that the URL parameters of the parent page are propagated to the embedded app *only* on the initial load. So `location.hash` in the embedded app will not change even if the parent URL hash is updated using this method.
