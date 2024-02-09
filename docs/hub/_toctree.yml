@@ -282,7 +282,7 @@
     sections:
     - local: security-tokens
       title: User Access Tokens
-    - local: security-two-fa
+    - local: security-2fa
       title: Two-Factor Authentication
     - local: security-git-ssh
       title: Git over SSH
