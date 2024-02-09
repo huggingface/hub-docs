@@ -15,4 +15,5 @@ how-to-inference: /docs/huggingface_hub/how-to-inference
 searching-the-hub: /docs/huggingface_hub/searching-the-hub
 # end of first_section
 api-webhook: webhooks
+adapter-transformers: adapters
 security-two-fa: security-2fa
