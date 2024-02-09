@@ -57,8 +57,8 @@
   - local: models-libraries
     title: Integrated Libraries
     sections:
-      - local: adapter-transformers
-        title: Adapter Transformers
+      - local: adapters
+        title: Adapters
       - local: allennlp
         title: AllenNLP
       - local: bertopic
