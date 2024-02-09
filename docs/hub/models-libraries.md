@@ -6,7 +6,7 @@ The table below summarizes the supported libraries and their level of integratio
 
 | Library                                                                     | Description                                                                          | Inference API | Widgets | Download from Hub | Push to Hub |
 |-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------|---|---:|---|---|
-| [Adapters](https://github.com/adapter-hub/adapters) | A unified Transformers add-on for parameter-efficient and modular fine-tuning.                                                | ❌ | ❌ | ✅ | ✅ |
+| [Adapters](./adapters) | A unified Transformers add-on for parameter-efficient and modular fine-tuning.                                                | ✅  | ✅  | ✅ | ✅ |
 | [AllenNLP](./allennlp)                             | An open-source NLP research library, built on PyTorch.                               | ✅ | ✅ | ✅ | ❌ |
 | [Asteroid](./asteroid)                       | PyTorch-based audio source separation toolkit                                        | ✅ | ✅ | ✅ | ❌ |
 | [BERTopic](./bertopic)                           | BERTopic is a topic modeling library for text and images                             | ✅ | ✅ | ✅ | ✅ | 
