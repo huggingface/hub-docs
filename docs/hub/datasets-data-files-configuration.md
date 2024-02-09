@@ -7,7 +7,7 @@ Often it is as simple as naming your data files according to their split names, 
 
 ## What are splits and configurations?
 
-Machine learning datasets typically have splits and may also have configurations. A _split_ is a subset of the dataset, like `train` and `test`, that are used during different stages of training and evaluating a model. A _configuration_ is a sub-dataset contained within a larger dataset. Configurations are especially common in multilingual speech datasets where there may be a different configuration for each language. If you're interested in learning more about splits and configurations, check out the [conceptual guide on "Splits and configurations"](https://huggingface.co/docs/datasets-server/configs_and_splits)!
+Machine learning datasets typically have splits and may also have configurations. A _split_ is a subset of the dataset, like `train` and `test`, that are used during different stages of training and evaluating a model. A _configuration_ is a sub-dataset contained within a larger dataset. Configurations are especially common in multilingual speech datasets where there may be a different configuration for each language. If you're interested in learning more about splits and configurations, check out the [Splits and configurations](https://huggingface.co/docs/datasets-server/configs_and_splits) guide!
 
 ![split-configs-server](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/split-configs-server.gif)
 
