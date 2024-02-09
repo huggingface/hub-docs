@@ -37,6 +37,21 @@ In this case, an informational message lets you know that the Viewer is partial.
 
 To power the dataset viewer, the first 5GB of every dataset are auto-converted to the Parquet format (unless it was already a Parquet dataset). In the dataset viewer (for example, see [`datasets/glue`](https://huggingface.co/datasets/glue)), you can click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Please, refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
 
+<Tip>
+
+Parquet is a columnar storage format optimized for querying and processing large datasets. Parquet is a popular choice for big data processing and analytics and is widely used for data processing and machine learning.
+
+Its structure allows for efficient data reading and querying:
+<ul>
+  <li>only the necessary columns are read from disk (projection pushdown); no need to read the entire file. This reduces the memory requirement for working with Parquet data.</li>
+  <li>entire row groups are skipped if the statistics stored in its metadata do not match the data of interest (automatic filtering).</li>
+  <li>the data is compressed, which reduces the amount of data that needs to be stored and transferred.</li>
+</ul>
+
+You can learn more about the advantages associated with this format in the <a href="https://huggingface.co/docs/datasets-server/parquet">documentation</a>.
+
+</Tip>
+
 You can also access the list of Parquet files programmatically using the [Hub API](./api#get-apidatasetsrepoidparquet); for example, endpoint [`https://huggingface.co/api/datasets/glue/parquet`](https://huggingface.co/api/datasets/glue/parquet) lists the parquet files of the glue dataset.
 
 ## Dataset preview
