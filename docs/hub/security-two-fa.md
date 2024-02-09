@@ -35,6 +35,10 @@ In Hugging Face Hub:
 
 If you entered the correct pin, the Hub displays a list of recovery codes. Download them and keep them in a safe place.
 
+<Tip>
+After configuring 2FA, your account enters a 30-day check-up period. To exit this period, successfully complete 2FA within those 30 days. If you do not complete 2FA during this time, you will be prompted to perform 2FA in an existing session on the 30th day.
+</Tip>
+
 ## Recovery codes
 
 Right after you've successfully activated 2FA with a one-time password, you're requested to download a collection of generated recovery codes. If you ever lose access to your one-time password authenticator, you can use one of these recovery codes to log in to your account.
