@@ -37,6 +37,23 @@ In this case, an informational message lets you know that the Viewer is partial.
 
 To power the dataset viewer, the first 5GB of every dataset are auto-converted to the Parquet format (unless it was already a Parquet dataset). In the dataset viewer (for example, see [`datasets/glue`](https://huggingface.co/datasets/glue)), you can click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Please, refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
 
+<Tip>
+
+Parquet is a columnar storage format optimized for querying and processing large datasets. Parquet is a popular choice for big data processing and analytics and is widely used for data processing and machine learning. You can learn more about the advantages associated with this format in the <a href="https://huggingface.co/docs/datasets-server/parquet">documentation</a>.
+
+</Tip>
+
+### Conversion bot
+
+When you create a new dataset, the [`parquet-converter` bot](https://huggingface.co/parquet-converter) notifies you once it converts the dataset to Parquet. The [discussion](./repositories-pull-requests-discussions) it opens in the repository provides details about the Parquet format and links to the Parquet files.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/parquet-converter-profile-light.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/parquet-converter-profile-dark.png"/>
+</div>
+
+### Programmatic access
+
 You can also access the list of Parquet files programmatically using the [Hub API](./api#get-apidatasetsrepoidparquet); for example, endpoint [`https://huggingface.co/api/datasets/glue/parquet`](https://huggingface.co/api/datasets/glue/parquet) lists the parquet files of the glue dataset.
 
 ## Dataset preview
