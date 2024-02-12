@@ -43,6 +43,17 @@ Parquet is a columnar storage format optimized for querying and processing large
 
 </Tip>
 
+### Conversion bot
+
+When you create a new dataset, the [`parquet-converter` bot](https://huggingface.co/parquet-converter) notifies you once it converts the dataset to Parquet. The [discussion](./repositories-pull-requests-discussions) it opens in the repository provides details about the Parquet format and links to the Parquet files.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/parquet-converter-profile-light.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/parquet-converter-profile-dark.png"/>
+</div>
+
+### Programmatic access
+
 You can also access the list of Parquet files programmatically using the [Hub API](./api#get-apidatasetsrepoidparquet); for example, endpoint [`https://huggingface.co/api/datasets/glue/parquet`](https://huggingface.co/api/datasets/glue/parquet) lists the parquet files of the glue dataset.
 
 ## Dataset preview
