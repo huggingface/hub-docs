@@ -39,16 +39,7 @@ To power the dataset viewer, the first 5GB of every dataset are auto-converted t
 
 <Tip>
 
-Parquet is a columnar storage format optimized for querying and processing large datasets. Parquet is a popular choice for big data processing and analytics and is widely used for data processing and machine learning.
-
-Its structure allows for efficient data reading and querying:
-<ul>
-  <li>only the necessary columns are read from disk (projection pushdown); no need to read the entire file. This reduces the memory requirement for working with Parquet data.</li>
-  <li>entire row groups are skipped if the statistics stored in its metadata do not match the data of interest (automatic filtering).</li>
-  <li>the data is compressed, which reduces the amount of data that needs to be stored and transferred.</li>
-</ul>
-
-You can learn more about the advantages associated with this format in the <a href="https://huggingface.co/docs/datasets-server/parquet">documentation</a>.
+Parquet is a columnar storage format optimized for querying and processing large datasets. Parquet is a popular choice for big data processing and analytics and is widely used for data processing and machine learning. You can learn more about the advantages associated with this format in the <a href="https://huggingface.co/docs/datasets-server/parquet">documentation</a>.
 
 </Tip>
 
