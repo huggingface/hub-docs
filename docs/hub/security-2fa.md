@@ -35,6 +35,10 @@ In Hugging Face Hub:
 
 If you entered the correct pin, the Hub displays a list of recovery codes. Download them and keep them in a safe place.
 
+<Tip>
+You will be prompted for 2FA every time you log in, and every 30 days
+</Tip>
+
 ## Recovery codes
 
 Right after you've successfully activated 2FA with a one-time password, you're requested to download a collection of generated recovery codes. If you ever lose access to your one-time password authenticator, you can use one of these recovery codes to log in to your account.
