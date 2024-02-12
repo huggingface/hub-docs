@@ -1,4 +1,4 @@
-# Two-Factor Authentication
+# Two-Factor Authentication (2FA)
 
 Using two-factor authentication verifies a user's identity with two methods, adding extra security to ensure only authorized individuals can access an account, even if the password is compromised.
 
@@ -10,7 +10,7 @@ If you choose to enable two-factor authentication, at every login you will need 
 
 To enable Two-factor Authentication with a one-time password:
 
-In the Hugging Face Hub:
+On the Hugging Face Hub:
 1. Go to your [Authentication settings](https://hf.co/settings/authentication)
 2. Select Add Two-Factor Authentication
 
@@ -34,6 +34,10 @@ In Hugging Face Hub:
 </div>
 
 If you entered the correct pin, the Hub displays a list of recovery codes. Download them and keep them in a safe place.
+
+<Tip>
+You will be prompted for 2FA every time you log in, and every 30 days
+</Tip>
 
 ## Recovery codes
 
