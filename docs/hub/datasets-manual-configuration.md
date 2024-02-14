@@ -6,8 +6,6 @@ A dataset with a supported structure and [file formats](./datasets-adding#file-f
 
 It is also possible to define multiple configurations for the same dataset (e.g. if the dataset has various independent files).
 
-## Define your splits and subsets in YAML
-
 ## Splits
 
 If you have multiple files and want to define which file goes into which split, you can use YAML at the top of your README.md.

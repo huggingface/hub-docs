@@ -57,10 +57,12 @@
   - local: models-libraries
     title: Integrated Libraries
     sections:
-      - local: adapter-transformers
-        title: Adapter Transformers
+      - local: adapters
+        title: Adapters
       - local: allennlp
         title: AllenNLP
+      - local: bertopic
+        title: BERTopic
       - local: asteroid
         title: Asteroid
       - local: diffusers
@@ -75,6 +77,8 @@
         title: Keras
       - local: ml-agents
         title: ML-Agents
+      - local: mlx
+        title: MLX
       - local: open_clip
         title: OpenCLIP
       - local: paddlenlp
@@ -107,6 +111,8 @@
         title: Transformers
       - local: transformers-js
         title: Transformers.js
+      - local: unity-sentis
+        title: Unity Sentis
   - local: models-widgets
     title: Model Widgets
     sections:
@@ -216,6 +222,8 @@
         title: ChatUI on Spaces
       - local: spaces-sdks-docker-tabby
         title: Tabby on Spaces
+      - local: spaces-sdks-docker-giskard
+        title: Giskard on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-run-with-docker
@@ -265,6 +273,8 @@
         title: Audit Logs
       - local: storage-regions
         title: Storage Regions
+      - local: enterprise-hub-datasets
+        title: Dataset viewer for Private datasets
   - local: billing
     title: Billing
   - local: security
@@ -272,6 +282,8 @@
     sections:
     - local: security-tokens
       title: User Access Tokens
+    - local: security-2fa
+      title: Two-Factor Authentication
     - local: security-git-ssh
       title: Git over SSH
     - local: security-gpg
