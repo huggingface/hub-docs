@@ -32,8 +32,8 @@ The currently supported scopes are:
 - `profile`: Get the user's profile information (username, avatar, etc.)
 - `email`: Get the user's email address.
 - `read-repos`: Get read access to the user's personal repos.
-- `write-repos`: Get write access to the user's personal repos. Does not grant read access on its own, you need to include `read-repos` as well.
-- `manage-repos`: Get access to a repo's settings. Also grants repo creation and deletion.
+- `write-repos`: Get write/read access to the user's personal repos.
+- `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion.
 - `inference-api`: Get access to the [Inference API](https://huggingface.co/docs/api-inference/index), you will be able to make inference requests on behalf of the user.
 
 All other information is available in the [OpenID metadata](https://huggingface.co/.well-known/openid-configuration).
