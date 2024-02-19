@@ -17,7 +17,7 @@ from huggingface_hub import HfApi
 HfApi().create_repo(repo_id="username/my_dataset", repo_type="dataset")
 ```
 
-Finally, you can use [Hugging Face paths]([Hugging Face paths](https://huggingface.co/docs/huggingface_hub/guides/hf_file_system#integrations)) in Pandas:
+Finally, you can use [Hugging Face paths](https://huggingface.co/docs/huggingface_hub/guides/hf_file_system#integrations) in Pandas:
 
 ```python
 import pandas as pd
