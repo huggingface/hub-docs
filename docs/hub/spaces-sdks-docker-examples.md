@@ -9,6 +9,6 @@ We gathered some example demos in the [Spaces Examples](https://huggingface.co/S
 * Shiny app written in Python https://huggingface.co/spaces/elonmuskceo/shiny-orbit-simulation
 * Genie.jl app in Julia https://huggingface.co/spaces/nooji/GenieOnHuggingFaceSpaces
 * Argilla app for data labelling and curation: https://huggingface.co/spaces/argilla/live-demo and [write-up about hosting Argilla on Spaces](./spaces-sdks-docker-argilla) by [@dvilasuero](https://huggingface.co/dvilasuero) 🎉
-* JupyterLab and VSCode: https://huggingface.co/spaces/DockerTemplates/docker-examples
+* JupyterLab and VSCode: https://huggingface.co/spaces/DockerTemplates/docker-examples by [@camenduru](https://huggingface.co/camenduru) and [@nateraw](https://hf.co/nateraw).
 * Zeno app for interactive model evaluation: https://huggingface.co/spaces/zeno-ml/diffusiondb and [instructions for setup](https://zenoml.com/docs/deployment#hugging-face-spaces)
 * Gradio App: https://huggingface.co/spaces/sayakpaul/demo-docker-gradio
