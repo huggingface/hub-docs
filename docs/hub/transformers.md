@@ -26,6 +26,8 @@ You can try out the models directly in the browser if you want to test them out 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-transformers_widget-dark.png"/>
 </div>
 
+If you prefer an interactive tutorial with an accompanying video, try [this code-along](https://www.datacamp.com/code-along/using-open-source-models-hugging-face) providing an overview of transformers and the Hugging Face ecosystem.
+
 ## Using existing models
 
 All `transformer` models are a line away from being used! Depending on how you want to use them, you can use the high-level API using the `pipeline` function or you can use `AutoModel` for more control.
