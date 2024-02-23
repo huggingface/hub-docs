@@ -40,7 +40,7 @@ model.active_adapters = adapter_name
 # or model.train_adapter(adapter_name)
 ```
 
-You can also use `list_adapters` to find all Adapter Models programmatically:
+You can also use `list_adapters` to find all adapter models programmatically:
 
 ```py
 from adapters import list_adapters
@@ -49,16 +49,16 @@ from adapters import list_adapters
 adapter_infos = list_adapters(source="hf", model_name="roberta-base")
 ```
 
-If you want to see how to load a specific model, you can click `Use in Adapter Transformers` and you will be given a working snippet that you can load it! 
+If you want to see how to load a specific model, you can click `Use in Adapters` and you will be given a working snippet that you can load it! 
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-adapter_transformers_snippet1.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-adapter_transformers-snippet1-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-adapters_snippet1.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-adapters_snippet1-dark.png"/>
 </div>
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-adapter_transformers_snippet2.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-adapter_transformers-snippet2-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-adapters_snippet2.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-adapters_snippet2-dark.png"/>
 </div>
 
 ## Sharing your models
