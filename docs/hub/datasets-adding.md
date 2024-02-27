@@ -81,6 +81,7 @@ The Hub natively supports multiple file formats:
 - CSV (.csv, .tsv)
 - JSON Lines, JSON (.jsonl, .json)
 - Parquet (.parquet)
+- Arrow streaming format (.arrow)
 - Text (.txt)
 - Images (.png, .jpg, etc.)
 - Audio (.wav, .mp3, etc.)
