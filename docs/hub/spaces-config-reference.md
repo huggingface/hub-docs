@@ -54,6 +54,9 @@ For non-static Spaces, initial url to render. Needs to start with `/`. For stati
 Whether your Space is rendered inside a full-width (when `true`) or fixed-width column (ie. "container" CSS) inside the iframe.
 Defaults to false in `gradio`, and to true for other sdks.
 
+**`header`**: _string_  
+Can be either `mini` or `default`. If `header` is set to `mini` the space will be displayed full-screen with a mini floating header .   
+
 **`models`** : _List[string]_  
 HF model IDs (like `gpt2` or `deepset/roberta-base-squad2`) used in the Space.  
 Will be parsed automatically from your code if not specified here.  
