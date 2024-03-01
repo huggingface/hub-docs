@@ -116,7 +116,7 @@ extra_gated_fields:
 ```
 
 
-In some cases, you might also want to modify the default text in the gate heading,content and the text in the button. For those use cases, you can modify `extra_gated_heading`, `extra_gated_description` and `extra_gated_button_content` like this:
+In some cases, you might also want to modify the default text in the gate heading, description and the text in the button. For those use cases, you can modify `extra_gated_heading`, `extra_gated_description` and `extra_gated_button_content` like this:
 
 ```yaml
 ---
