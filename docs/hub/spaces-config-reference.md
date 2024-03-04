@@ -57,6 +57,9 @@ Defaults to false in `gradio`, and to true for other sdks.
 **`header`**: _string_  
 Can be either `mini` or `default`. If `header` is set to `mini` the space will be displayed full-screen with a mini floating header .   
 
+**`short_description`**: _string_
+A short description of the Space. This will be displayed in the Space's thumbnail.
+
 **`models`** : _List[string]_  
 HF model IDs (like `gpt2` or `deepset/roberta-base-squad2`) used in the Space.  
 Will be parsed automatically from your code if not specified here.  
