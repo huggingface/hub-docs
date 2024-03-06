@@ -41,4 +41,4 @@ If you have any feedback or change requests, please don't hesitate to reach out 
 
 ## Acknowledgments
 
-This template was created by [camenduru](https://twitter.com/camenduru) and [nateraw](https://huggingface.co/nateraw), with contributions of [osanseviero](https://huggingface.co/osanseviero) and [azzr](https://huggingface.co/azzr).
+This template was created by [camenduru](https://twitter.com/camenduru) and [nateraw](https://huggingface.co/nateraw), with contributions from [osanseviero](https://huggingface.co/osanseviero) and [azzr](https://huggingface.co/azzr).
