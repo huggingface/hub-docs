@@ -31,6 +31,9 @@ Spaces requires you to define:
 Storage in Hugging Face Spaces is ephemeral, and the data you store in the default configuration can be lost in a reboot or reset of the Space. We recommend to save your work to a remote location or to use persistent storage for your data.
 
 </Tip>
+### Setting up persistent storage
+
+To set up persistent storage on the Space, you go to the Settings page of your Space and choose one of the options: `small`, `medium` and `large`. Once persistent storage is set up, the JupyterLab image gets mounted in `/data`.
 
 
 ## Read more
