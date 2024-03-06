@@ -32,9 +32,20 @@ Storage in Hugging Face Spaces is ephemeral, and the data you store in the defau
 
 </Tip>
 
+### Setting up persistent storage
+
+To set up persitent storage on the Space, you go to the Settings page of your Space and choose one of the options: `small`, `medium` and `large`. Once persisent storage is set up, it gets mounted in `/data`. In order to see the persistent folder in the JupyterLab UI, you can create a `symlink` for it in the JupyterLab Terminal.
+
+```shell
+ln -s /data persistent_folder
+```
 
 ## Read more
 
 - [HF Docker Spaces](https://huggingface.co/docs/hub/spaces-sdks-docker)
 
 If you have any feedback or change requests, please don't hesitate to reach out to the owners on the [Feedback Discussion](https://huggingface.co/spaces/SpacesExamples/jupyterlab/discussions/3).
+
+## Acknowledgments
+
+This template was created by [camenduru](https://twitter.com/camenduru) and [nateraw](https://huggingface.co/nateraw), with contributions of [osanseviero](https://huggingface.co/osanseviero) and [azzr](https://huggingface.co/azzr).
