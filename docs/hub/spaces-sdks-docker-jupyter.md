@@ -38,3 +38,7 @@ Storage in Hugging Face Spaces is ephemeral, and the data you store in the defau
 - [HF Docker Spaces](https://huggingface.co/docs/hub/spaces-sdks-docker)
 
 If you have any feedback or change requests, please don't hesitate to reach out to the owners on the [Feedback Discussion](https://huggingface.co/spaces/SpacesExamples/jupyterlab/discussions/3).
+
+## Acknowledgments
+
+This template was created by [camenduru](https://twitter.com/camenduru) and [nateraw](https://huggingface.co/nateraw), with contributions of [osanseviero](https://huggingface.co/osanseviero) and [azzr](https://huggingface.co/azzr).
