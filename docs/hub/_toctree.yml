@@ -214,8 +214,6 @@
         title: Livebook on Spaces
       - local: spaces-sdks-docker-shiny
         title: Shiny on Spaces
-      - local: spaces-sdks-docker-quarto
-        title: Quarto on Spaces
       - local: spaces-sdks-docker-zenml
         title: ZenML on Spaces
       - local: spaces-sdks-docker-panel
@@ -226,6 +224,8 @@
         title: Tabby on Spaces
       - local: spaces-sdks-docker-giskard
         title: Giskard on Spaces
+      - local: spaces-sdks-docker-quarto
+        title: Quarto on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-run-with-docker
