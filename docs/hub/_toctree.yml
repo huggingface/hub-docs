@@ -204,22 +204,24 @@
         title: Your first Docker Spaces
       - local: spaces-sdks-docker-examples
         title: Example Docker Spaces
+      - local: spaces-sdks-docker-jupyter
+        title: JupyterLab on Spaces
       - local: spaces-sdks-docker-argilla
         title: Argilla on Spaces
+      - local: spaces-sdks-docker-livebook
+        title: Livebook on Spaces
       - local: spaces-sdks-docker-label-studio
         title: Label Studio on Spaces
       - local: spaces-sdks-docker-aim
         title: Aim on Spaces
-      - local: spaces-sdks-docker-livebook
-        title: Livebook on Spaces
       - local: spaces-sdks-docker-shiny
         title: Shiny on Spaces
       - local: spaces-sdks-docker-zenml
         title: ZenML on Spaces
-      - local: spaces-sdks-docker-panel
-        title: Panel on Spaces
       - local: spaces-sdks-docker-chatui
         title: ChatUI on Spaces
+      - local: spaces-sdks-docker-panel
+        title: Panel on Spaces
       - local: spaces-sdks-docker-tabby
         title: Tabby on Spaces
       - local: spaces-sdks-docker-giskard
