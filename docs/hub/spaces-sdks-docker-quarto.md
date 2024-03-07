@@ -18,7 +18,7 @@ There are three main types of files which you will need to edit in order to make
 
 - The `src/_quarto.yml` file contains the site navigation, and is the best place to start if you want to change the structure of the site.
 - The notebook and `.qmd` files in the `src` directory contain the actual content of the web pages.
-- The `Dockerfile` contains the instructions for building the site. For example if you want to change the version of Quarto which the site uses, you should update the Dockerfile.
+- The `Dockerfile` contains the instructions for building the site. For example, if you want to change the version of Quarto which the site uses, you should update the Dockerfile.
 
 3. Commit your changes and build the site
 
@@ -31,7 +31,7 @@ This will allow you to view your changes more quickly, and to use the full power
 
 2. Clone the Repo
 
-To clone the space locally run the following command, make sure to replace `<YOUR_HF_USER>` with your Hugging Face username.
+To clone the space locally run the following command, making sure to replace `<YOUR_HF_USER>` with your Hugging Face username and `quarto-template` with the name you chose for your space.
 
 ```
 git clone https://huggingface.co/spaces/<YOUR_HF_USER>/quarto-template
@@ -49,7 +49,7 @@ The [Quarto VS Code Extention](https://quarto.org/docs/tools/vscode.html) includ
    The website files are contained in the `src` directory, and the site navigation is defined in `src/_quarto.yml`, try editing these files and either clicking the "Preview" button in VS Code or calling `quarto preview src` from the command line.
 
 5. Commit your changes and push
-   Your site will rebuild whenever you push new commits to main branch of the space repository
+   Your site will rebuild whenever you push new commits to the `main` branch of your space repository.
 
 ### Learn about Quarto
 
