@@ -9,6 +9,8 @@ With Quarto, you can interleave markdown and code chunks to generate pdfs, websi
 
 1. Create the Quarto space
 
+Quarto spaces have very minimal compute requirements, so a small CPU space will be sufficient for most sites. You can create a space by clicking this button:
+
 <a  href="https://huggingface.co/new-space?template=posit/quarto-template"> <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg"/> </a>
 
 2. Edit in the browser
@@ -43,7 +45,7 @@ In order to render your Quarto site without Docker, we recommend installing Quar
 
 3. Install Quarto VS Code extension
 
-The [Quarto VS Code Extention](https://quarto.org/docs/tools/vscode.html) includes a number of productivity tools, including YAML Autocomplete, a preview button, and a visual editor. Quarto works great with VS Code, but the extension does make it easier to get the most out of Quarto.
+The [Quarto VS Code Extention](https://quarto.org/docs/tools/vscode.html) includes a number of productivity tools, including YAML Autocomplete, a preview button, and a visual editor. Quarto works great without VS Code, but the extension does make it easier to get the most out of Quarto.
 
 4. Edit the site
    The website files are contained in the `src` directory, and the site navigation is defined in `src/_quarto.yml`, try editing these files and either clicking the "Preview" button in VS Code or calling `quarto preview src` from the command line.
