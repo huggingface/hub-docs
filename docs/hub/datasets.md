@@ -6,11 +6,11 @@ This documentation focuses on the datasets functionality in the Hugging Face Hub
 
 ## Contents
 
-- [Datasets Overview](./datasets-overview)
-- [Dataset Cards](./datasets-cards)
-- [Gated Datasets](./datasets-gated)
-- [Uploading Datasets](./datasets-adding)
-- [Downloading Datasets](./datasets-downloading)
-- [Libraries](./datasets-libraries)
-- [Dataset Viewer](./datasets-viewer)
-- [Data files Configuration](./datasets-data-files-configuration)
+- [Datasets Overview](./datasets-overview.md)
+- [Dataset Cards](./datasets-cards.md)
+- [Gated Datasets](./datasets-gated.md)
+- [Uploading Datasets](./datasets-adding.md)
+- [Downloading Datasets](./datasets-downloading.md)
+- [Libraries](./datasets-libraries.md)
+- [Dataset Viewer](./datasets-viewer.md)
+- [Data files Configuration](./datasets-data-files-configuration.md)
