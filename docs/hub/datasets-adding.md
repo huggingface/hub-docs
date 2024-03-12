@@ -94,6 +94,10 @@ Image and audio files can also have additional metadata files, see the [Data fil
 You may want to convert your files to these formats to benefit from all the Hub features.
 Other formats and structures may not be recognized by the Hub.
 
+### Which file format should I use?
+
+For most types of datasets, Parquet is the recommended format due to its efficient compression and fast read speed. Alternatively, CSV or JSON Lines/JSON can be used for non-nested tabular data. Although easy to parse, compared to Parquet, these formats require more space and are slower to read, so using them for data larger than several GBs is not recommended. Parquet is less efficient for storing images and audio, so uploading raw files is better in that case. For large scale image and audio datasets, [WebDataset](https://github.com/webdataset/webdataset) should be preferred over raw image and audio files to avoid the overhead of accessing individual files.
+
 ### Dataset Viewer
 
 The [Dataset Viewer](./datasets-viewer) is useful to know how the data actually looks like before you download it.
