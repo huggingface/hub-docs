@@ -41,6 +41,7 @@ list_models()
 > As of today (2024-03-08) mlx does not support `group` param for nn.Conv2d. Therefore, architectures such as `resnext`, `regnet` or `efficientnet` are not yet supported in `mlxim`.
 
 ## ImageNet-1K Results
+
 Go to [results-imagenet-1k.csv](https://github.com/riccardomusmeci/mlx-image/blob/main/results/results-imagenet-1k.csv) to check every model converted to `mlxim` and its performance on ImageNet-1K with different settings.
 
 > **TL;DR** performance is comparable to the original models from PyTorch implementations.
