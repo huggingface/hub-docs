@@ -279,6 +279,8 @@
         title: Storage Regions
       - local: enterprise-hub-datasets
         title: Dataset viewer for Private datasets
+      - local: enterprise-hub-resource-groups
+        title: Resource Groups (Advanced Access Control)
   - local: billing
     title: Billing
   - local: security
@@ -303,6 +305,8 @@
         title: How to configure SAML with Azure in the Hub
       - local: security-sso-azure-oidc
         title: How to configure OIDC with Azure in the Hub
+    - local: security-resource-groups
+      title: Advanced Access Control (Resource Groups)
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle

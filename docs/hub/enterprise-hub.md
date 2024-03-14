@@ -10,3 +10,4 @@ In this section we will document the following Enterprise Hub features:
 - [Audit Logs](./audit-logs)
 - [Storage Regions](./storage-regions)
 - [Dataset viewer for Private datasets](./enterprise-hub-datasets)
+- [Resource Groups](./security-resource-groups)

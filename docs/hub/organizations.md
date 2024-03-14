@@ -13,3 +13,4 @@ If an organization needs to track user access to a dataset due to licensing or p
   - [SSO in Organizations](./enterprise-sso)
   - [Audit Logs](./audit-logs)
   - [Storage Regions](./storage-regions)
+  - [Resource Groups](./security-resource-groups)
