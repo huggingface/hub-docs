@@ -4,26 +4,24 @@
 This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
 </Tip>
 
-You can define Resource Groups inside your Hugging Face organization to control which member has access to which repos.
+In your Hugging Face organization, you can use Resource Groups to control which members have access to specific repositories.
 
 ## How does it work?
 
-Resource Groups allow organizations administrators to group related repositories together, and manage access to those repos in a differentiated manner.
+Resource Groups allow organizations administrators to group related repositories together, and manage access to those repos.
 
-Resource Groups allow different teams to work on their own repositories within the same organization without interfering with the work of others.
+Resource Groups allow different teams to work on their respective repositories within the same organization.
 
 A repository can belong to only one Resource Group.
 
 Organizations members need to be added to the Resource Group to access its repositories. An Organization Member can belong to several Resource Groups.
 
-Organization members in a resource group are assigned a role that defines their permissions on the repositories of the Resource Group.
+ Members are assigned a role in each Resource Group that determines their permissions for the group's repositories. Four distinct roles exist for Resource Groups:
 
-There are 4 different roles in Resource Groups:
-
-- `read`: grants read access to repositories inside the Resource Group.
-- `contributor`: additional write rights to the subset of the Organization's repos that were created by the user. i.e., users can create repos and _then_ modify only those repos. This is similar to the `write` role, but scoped to repos _created_ by the user.
-- `write`: write rights to all repositories in the Resource Group. Users can create, delete or rename any repo in the Resource Group.
-- `admin`: in addition to write rights on repos, admin members can manage the Resource Group: add, remove and change the role of other members. They can also move repositories in and out of the Resource Groups they are admin of.
+- `read`: Grants read access to repositories within the Resource Group.
+- `contributor`: Provides extra write rights to the subset of the Organization's repositories created by the user (i.e., users can create repos and then modify only those repos). Similar to the 'Write' role, but limited to repos created by the user.
+- `write`: Offers write access to all repositories in the Resource Group. Users can create, delete, or rename any repository in the Resource Group.
+- `admin`: In addition to write permissions on repositories, admin members can administer the Resource Group — add, remove, and alter the roles of other members. They can also transfer repositories in and out of the Resource Group.
 
 In addition, Organization admins can manage all resource groups inside the organization.
 
