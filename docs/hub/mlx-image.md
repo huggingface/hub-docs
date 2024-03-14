@@ -5,7 +5,7 @@
 
 ## Exploring MLX on the Hub
 
-You can find `mlxim` models by filtering using the `mlxim` library name, like in [this query](https://huggingface.co/models?library=mlxim&sort=trending).
+You can find `mlxim` models by filtering using the `mlxim` library name, like in [this query](https://huggingface.co/models?library=mlx-image&sort=trending).
 There's also an open [mlx-vision](https://huggingface.co/mlx-vision) space for contributors converting and publishing weights for MLX format.
 
 Thanks to MLX Hugging Face Hub integration, you can load MLX models with a few lines of code. 
