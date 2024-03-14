@@ -22,7 +22,7 @@ For example, you can check out [TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF](https:
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-repo-dark.png"/>
 </div>
 
-> [!NOTE]  
+> [!tip]  
 > More features regarding GGUF support on Hugging Face Hub are coming soon 🚀
 
 ## Usage with @huggingface/gguf
