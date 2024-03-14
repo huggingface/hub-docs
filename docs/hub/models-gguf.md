@@ -22,3 +22,22 @@ For example, you can check out [TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF](https:
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-repo-dark.png"/>
 </div>
 
+> [!NOTE]  
+> More features regarding GGUF on Hugging Face Hub are coming soon 🚀
+
+## Usage with @huggingface/gguf
+
+We've also created javascript GGUF parser that works on remotely hosted files (e. Hugging Face Hub).
+
+```bash
+npm install @huggingface/gguf
+```
+
+```ts
+import { gguf } from "@huggingface/gguf";
+// remote GGUF file from https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF
+const URL_LLAMA = "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/191239b/llama-2-7b-chat.Q2_K.gguf";
+const { metadata, tensorInfos } = await gguf(URL_LLAMA);
+```
+
+Find more information [here](https://github.com/huggingface/huggingface.js/tree/main/packages/gguf).
