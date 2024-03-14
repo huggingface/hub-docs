@@ -277,7 +277,7 @@ from sagemaker.huggingface.model import HuggingFaceModel
 
 # Hub model configuration <https://huggingface.co/models>
 hub = {
-	'HF_MODEL_ID':'distilbert-base-uncased-finetuned-sst-2-english',
+	'HF_MODEL_ID':'distilbert/distilbert-base-uncased-finetuned-sst-2-english',
 	'HF_TASK':'text-classification'
 }
 

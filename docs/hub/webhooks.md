@@ -44,12 +44,12 @@ As an example, here is the full payload when a Pull Request is opened:
   },
   "repo": {
     "type": "model",
-    "name": "gpt2",
+    "name": "openai-community/gpt2",
     "id": "621ffdc036468d709f17434d",
     "private": false,
     "url": {
-      "web": "https://huggingface.co/gpt2",
-      "api": "https://huggingface.co/api/models/gpt2"
+      "web": "https://huggingface.co/openai-community/gpt2",
+      "api": "https://huggingface.co/api/models/openai-community/gpt2"
     },
     "owner": {
       "id": "628b753283ef59b5be89e937"
@@ -59,8 +59,8 @@ As an example, here is the full payload when a Pull Request is opened:
     "id": "6399f58518721fdd27fc9ca9",
     "title": "Update co2 emissions",
     "url": {
-      "web": "https://huggingface.co/gpt2/discussions/19",
-      "api": "https://huggingface.co/api/models/gpt2/discussions/19"
+      "web": "https://huggingface.co/openai-community/gpt2/discussions/19",
+      "api": "https://huggingface.co/api/models/openai-community/gpt2/discussions/19"
     },
     "status": "open",
     "author": {
@@ -80,7 +80,7 @@ As an example, here is the full payload when a Pull Request is opened:
     "content": "Add co2 emissions information to the model card",
     "hidden": false,
     "url": {
-      "web": "https://huggingface.co/gpt2/discussions/19#6399f58518721fdd27fc9caa"
+      "web": "https://huggingface.co/openai-community/gpt2/discussions/19#6399f58518721fdd27fc9caa"
     }
   },
   "webhook": {
