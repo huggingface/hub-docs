@@ -1,6 +1,6 @@
 # GGUF
 
-Hugging Face Hub supports [GGUF format](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md), which is specifically designed for use with GGML and its associated executors. The GGUF format, being a binary format, is optimized for quick loading and saving of models, making it highly efficient for inference purposes. Models initially developed in frameworks like PyTorch can be converted to GGUF format. GGUF was developed by [@ggerganov](https://huggingface.co/ggerganov) who is also the developer of [llama.cpp](https://github.com/ggerganov/llama.cpp), a popular C/C++ ML-inference framework.
+Hugging Face Hub supports [GGUF format](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md), a binary format that is optimized for quick loading and saving of models, making it highly efficient for inference purposes. Models initially developed in frameworks like PyTorch can be converted to GGUF format. GGUF is designed for use with GGML and other executors. GGUF was developed by [@ggerganov](https://huggingface.co/ggerganov) who is also the developer of [llama.cpp](https://github.com/ggerganov/llama.cpp), a popular C/C++ ML-inference framework.
 
 <div class="flex justify-center w-full">
 <img style="max-width: 50em;" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-spec.png"/>
@@ -23,11 +23,11 @@ For example, you can check out [TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF](https:
 </div>
 
 > [!NOTE]  
-> More features regarding GGUF on Hugging Face Hub are coming soon 🚀
+> More features regarding GGUF support on Hugging Face Hub are coming soon 🚀
 
 ## Usage with @huggingface/gguf
 
-We've also created javascript GGUF parser that works on remotely hosted files (e. Hugging Face Hub).
+We've also created a javascript GGUF parser that works on remotely hosted files (e. Hugging Face Hub).
 
 ```bash
 npm install @huggingface/gguf
