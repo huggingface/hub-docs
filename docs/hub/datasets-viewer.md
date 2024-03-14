@@ -22,7 +22,7 @@ You can search for a word in the dataset by typing it in the search bar at the t
 
 ## Share a specific row
 
-You can share a specific row by clicking on it, and then copying the URL in the address bar of your browser. For example https://huggingface.co/datasets/glue/viewer/mrpc/test?p=2&row=241 will open the dataset viewer on the MRPC dataset, on the test split, and on the 241st row.
+You can share a specific row by clicking on it, and then copying the URL in the address bar of your browser. For example https://huggingface.co/datasets/nyu-mll/glue/viewer/mrpc/test?p=2&row=241 will open the dataset viewer on the MRPC dataset, on the test split, and on the 241st row.
 
 ## Large scale datasets
 
@@ -35,7 +35,7 @@ In this case, an informational message lets you know that the Viewer is partial.
 
 ## Access the parquet files
 
-To power the dataset viewer, the first 5GB of every dataset are auto-converted to the Parquet format (unless it was already a Parquet dataset). In the dataset viewer (for example, see [`datasets/glue`](https://huggingface.co/datasets/glue)), you can click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Please, refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
+To power the dataset viewer, the first 5GB of every dataset are auto-converted to the Parquet format (unless it was already a Parquet dataset). In the dataset viewer (for example, see [GLUE](https://huggingface.co/datasets/nyu-mll/glue)), you can click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/nyu-mll/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Please, refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
 
 <Tip>
 
@@ -54,7 +54,7 @@ When you create a new dataset, the [`parquet-converter` bot](https://huggingface
 
 ### Programmatic access
 
-You can also access the list of Parquet files programmatically using the [Hub API](./api#get-apidatasetsrepoidparquet); for example, endpoint [`https://huggingface.co/api/datasets/glue/parquet`](https://huggingface.co/api/datasets/glue/parquet) lists the parquet files of the glue dataset.
+You can also access the list of Parquet files programmatically using the [Hub API](./api#get-apidatasetsrepoidparquet); for example, endpoint [`https://huggingface.co/api/datasets/nyu-mll/glue/parquet`](https://huggingface.co/api/datasets/nyu-mll/glue/parquet) lists the parquet files of the `nyu-mll/glue` dataset.
 
 ## Dataset preview
 
