@@ -16,7 +16,7 @@ A repository can belong to only one Resource Group.
 
 Organizations members need to be added to the Resource Group to access its repositories. An Organization Member can belong to several Resource Groups.
 
- Members are assigned a role in each Resource Group that determines their permissions for the group's repositories. Four distinct roles exist for Resource Groups:
+Members are assigned a role in each Resource Group that determines their permissions for the group's repositories. Four distinct roles exist for Resource Groups:
 
 - `read`: Grants read access to repositories within the Resource Group.
 - `contributor`: Provides extra write rights to the subset of the Organization's repositories created by the user (i.e., users can create repos and then modify only those repos). Similar to the 'Write' role, but limited to repos created by the user.
@@ -25,7 +25,7 @@ Organizations members need to be added to the Resource Group to access its repos
 
 In addition, Organization admins can manage all resource groups inside the organization.
 
-Resource Groups also affect the visibility of private repositories inside the organization. A private repository that is part of a Resource Group will only be visible to members of that Resource Group. Public repositories, on the other 
+Resource Groups also affect the visibility of private repositories inside the organization. A private repository that is part of a Resource Group will only be visible to members of that Resource Group. Public repositories, on the other hand, are visible to anyone, inside and outside the organization.
 
 ## Getting started
 
