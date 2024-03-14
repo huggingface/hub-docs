@@ -156,14 +156,14 @@ You can find all the supported tasks in [pipelines.ts file](https://github.com/h
 
 Here are some links to examples:
 
-- `text-classification`, for instance [`roberta-large-mnli`](https://huggingface.co/roberta-large-mnli)
+- `text-classification`, for instance [`FacebookAI/roberta-large-mnli`](https://huggingface.co/FacebookAI/roberta-large-mnli)
 - `token-classification`, for instance [`dbmdz/bert-large-cased-finetuned-conll03-english`](https://huggingface.co/dbmdz/bert-large-cased-finetuned-conll03-english)
-- `question-answering`, for instance [`distilbert-base-uncased-distilled-squad`](https://huggingface.co/distilbert-base-uncased-distilled-squad)
-- `translation`, for instance [`t5-base`](https://huggingface.co/t5-base)
+- `question-answering`, for instance [`distilbert/distilbert-base-uncased-distilled-squad`](https://huggingface.co/distilbert/distilbert-base-uncased-distilled-squad)
+- `translation`, for instance [`google-t5/t5-base`](https://huggingface.co/google-t5/t5-base)
 - `summarization`, for instance [`facebook/bart-large-cnn`](https://huggingface.co/facebook/bart-large-cnn)
 - `conversational`, for instance [`facebook/blenderbot-400M-distill`](https://huggingface.co/facebook/blenderbot-400M-distill)
-- `text-generation`, for instance [`gpt2`](https://huggingface.co/gpt2)
-- `fill-mask`, for instance [`distilroberta-base`](https://huggingface.co/distilroberta-base)
+- `text-generation`, for instance [`openai-community/gpt2`](https://huggingface.co/openai-community/gpt2)
+- `fill-mask`, for instance [`distilbert/distilroberta-base`](https://huggingface.co/distilbert/distilroberta-base)
 - `zero-shot-classification` (implemented on top of a nli `text-classification` model), for instance [`facebook/bart-large-mnli`](https://huggingface.co/facebook/bart-large-mnli)
 - `table-question-answering`, for instance [`google/tapas-base-finetuned-wtq`](https://huggingface.co/google/tapas-base-finetuned-wtq)
 - `sentence-similarity`, for instance [`osanseviero/full-sentence-distillroberta2`](/osanseviero/full-sentence-distillroberta2)
