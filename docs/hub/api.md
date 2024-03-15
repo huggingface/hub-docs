@@ -292,7 +292,7 @@ This is equivalent to `huggingface_hub.get_collection()`.
 
 List collections from the Hub, based on some criteria. The supported parameters are:
 - `owner` (string): filter collections created by a specific user or organization.
-- `item` (string): filter collections containing a specific item. Value must be the item_type and item_id concatenated. Example: `"models/teknium/OpenHermes-2.5-Mistral-7B"`, `"datasets/squad"` or `"papers/2311.12983"`.
+- `item` (string): filter collections containing a specific item. Value must be the item_type and item_id concatenated. Example: `"models/teknium/OpenHermes-2.5-Mistral-7B"`, `"datasets/rajpurkar/squad"` or `"papers/2311.12983"`.
 - `sort` (string): sort the returned collections. Supported values are `"lastModified"`, `"trending"` (default) and `"upvotes"`.
 - `limit` (int): maximum number (100) of collections per page.
 - `q` (string): filter based on substrings for titles & descriptions.

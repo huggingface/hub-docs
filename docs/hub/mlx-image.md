@@ -1,6 +1,6 @@
 # Using mlx-image at Hugging Face
 
-[`mlx-image`](https://github.com/riccardomusmeci/mlx-image) is an image models library developed by Riccardo Musmeci built on Apple [MLX](https://github.com/ml-explore/mlx). It tries to replicate the great [timm](https://github.com/huggingface/pytorch-image-models) from Ross Wightman, but for MLX models.
+[`mlx-image`](https://github.com/riccardomusmeci/mlx-image) is an image models library developed by [Riccardo Musmeci](https://github.com/riccardomusmeci) built on Apple [MLX](https://github.com/ml-explore/mlx). It tries to replicate the great [timm](https://github.com/huggingface/pytorch-image-models), but for MLX models.
 
 
 ## Exploring mlx-image on the Hub
@@ -36,7 +36,7 @@ from mlxim.model import list_models
 list_models()
 ```
 > [!WARNING]
-> As of today (2024-03-08) mlx does not support `group` param for nn.Conv2d. Therefore, architectures such as `resnext`, `regnet` or `efficientnet` are not yet supported in `mlx-image`.
+> As of today (2024-03-15) mlx does not support `group` param for nn.Conv2d. Therefore, architectures such as `resnext`, `regnet` or `efficientnet` are not yet supported in `mlx-image`.
 
 ## ImageNet-1K Results
 
@@ -50,6 +50,7 @@ Go to [results-imagenet-1k.csv](https://github.com/riccardomusmeci/mlx-image/blo
 `mlx-image` tries to be as close as possible to PyTorch:
 - `DataLoader` -> you can define your own `collate_fn` and also use `num_workers` to speed up data loading
 - `Dataset` -> `mlx-image` already supports `LabelFolderDataset` (the good and old PyTorch `ImageFolder`) and `FolderDataset` (a generic folder with images in it)
+
 - `ModelCheckpoint` -> keeps track of the best model and saves it to disk (similar to PyTorchLightning). It also suggests early stopping
 
 ## Training
@@ -98,3 +99,4 @@ for epoch in range(10):
 ## Contact
 
 If you have any questions, please email `riccardomusmeci92@gmail.com`.
+

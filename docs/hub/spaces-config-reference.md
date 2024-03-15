@@ -61,11 +61,11 @@ Can be either `mini` or `default`. If `header` is set to `mini` the space will b
 A short description of the Space. This will be displayed in the Space's thumbnail.
 
 **`models`** : _List[string]_  
-HF model IDs (like `gpt2` or `deepset/roberta-base-squad2`) used in the Space.  
+HF model IDs (like `openai-community/gpt2` or `deepset/roberta-base-squad2`) used in the Space.
 Will be parsed automatically from your code if not specified here.  
 
 **`datasets`** : _List[string]_  
-HF dataset IDs (like `common_voice` or `oscar-corpus/OSCAR-2109`) used in the Space.  
+HF dataset IDs (like `mozilla-foundation/common_voice_13_0` or `oscar-corpus/OSCAR-2109`) used in the Space.
 Will be parsed automatically from your code if not specified here.  
 
 **`tags`** : _List[string]_  
@@ -114,9 +114,9 @@ Example usage:
 preload_from_hub:
   - warp-ai/wuerstchen-prior text_encoder/model.safetensors,prior/diffusion_pytorch_model.safetensors
   - coqui/XTTS-v1
-  - gpt2 config.json 11c5a3d5811f50298f278a704980280950aedb10
+  - openai-community/gpt2 config.json 11c5a3d5811f50298f278a704980280950aedb10
 ```
-In this example, the Space will preload specific .safetensors files from `warp-ai/wuerstchen-prior`, the complete `coqui/XTTS-v1` repository, and a specific revision of the `config.json` file in the `gpt2` repository from the Hugging Face Hub during build time.
+In this example, the Space will preload specific .safetensors files from `warp-ai/wuerstchen-prior`, the complete `coqui/XTTS-v1` repository, and a specific revision of the `config.json` file in the `openai-community/gpt2` repository from the Hugging Face Hub during build time.
 
 <Tip warning={true}>
   Files are saved in the default `huggingface_hub` disk cache `~/.cache/huggingface/hub`. If you application expects them elsewhere or you changed your `HF_HOME` variable, this pre-loading does not follow that at this time.

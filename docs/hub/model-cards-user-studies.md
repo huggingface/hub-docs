@@ -60,7 +60,7 @@ We selected people from a variety of different backgrounds relevant to machine l
 ### Feedback on Specific Model Card Formats
 
 #### Format 1: 
-**Current [distilgpt2 model card](https://huggingface.co/distilgpt2) on the Hub**
+**Current [distilbert/distilgpt2 model card](https://huggingface.co/distilbert/distilgpt2) on the Hub**
 
 **Insights:**
 

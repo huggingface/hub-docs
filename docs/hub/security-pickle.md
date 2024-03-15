@@ -188,7 +188,7 @@ E.g.:
 ```python
 from transformers import AutoModel
 
-model = AutoModel.from_pretrained("bert-base-cased", from_flax=True)
+model = AutoModel.from_pretrained("google-bert/bert-base-cased", from_flax=True)
 ```
 
 ### Use your own serialization format

@@ -6,6 +6,14 @@ You can set up [Single Sign-On (SSO)](./security-sso) to be able to map access c
 
 </Tip>
 
+<Tip>
+
+Advanced and more fine-grained access control can be achieved with [Resource Groups](./security-resource-groups).
+
+The Resource Group feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+
+</Tip>
+
 Members of organizations can have four different roles: `read`, `contributor`, `write` or `admin`:
 
 - `read`: read-only access to the Organization's repos and metadata/settings (eg, the Organization's profile, members list, API token, etc).
@@ -22,3 +30,4 @@ As an organization `admin`, go to the **Members** section of the org settings to
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-members-page.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-members-page-dark.png"/>
 </div>
+

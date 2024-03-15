@@ -55,7 +55,7 @@ from transformers import AutoTokenizer
 train_dataset, test_dataset = load_dataset("imdb", split=["train", "test"])
 
 # load tokenizer
-tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+tokenizer = AutoTokenizer.from_pretrained("distilbert/distilbert-base-uncased")
 
 # create tokenization function
 def tokenize(batch):
@@ -98,9 +98,9 @@ Create a Hugging Face Estimator to handle end-to-end SageMaker training and depl
 from sagemaker.huggingface import HuggingFace
 
 hyperparameters={
-    "epochs": 1,                            # number of training epochs
-    "train_batch_size": 32,                 # training batch size
-    "model_name":"distilbert-base-uncased"  # name of pretrained model
+    "epochs": 1,                                       # number of training epochs
+    "train_batch_size": 32,                            # training batch size
+    "model_name":"distilbert/distilbert-base-uncased"  # name of pretrained model
 }
 
 huggingface_estimator = HuggingFace(

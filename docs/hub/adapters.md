@@ -32,7 +32,7 @@ As a brief summary, a full setup consists of three steps:
 from adapters import AutoAdapterModel
 
 # 1.
-model = AutoAdapterModel.from_pretrained("roberta-base")
+model = AutoAdapterModel.from_pretrained("FacebookAI/roberta-base")
 # 2.
 adapter_name = model.load_adapter("AdapterHub/roberta-base-pf-imdb")
 # 3.
@@ -46,7 +46,7 @@ You can also use `list_adapters` to find all adapter models programmatically:
 from adapters import list_adapters
 
 # source can be "ah" (AdapterHub), "hf" (hf.co) or None (for both, default)
-adapter_infos = list_adapters(source="hf", model_name="roberta-base")
+adapter_infos = list_adapters(source="hf", model_name="FacebookAI/roberta-base")
 ```
 
 If you want to see how to load a specific model, you can click `Use in Adapters` and you will be given a working snippet that you can load it! 
