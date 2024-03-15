@@ -30,7 +30,7 @@ More features regarding GGUF support on Hugging Face Hub are coming soon 🚀
 
 ## Usage with llama.cpp
 
-Llama.cpp has helper script `scripts/hf.sh` that makes it easy to download GGUF files from Hugging Face Hub.
+Llama.cpp has helper script [`scripts/hf.sh`](https://github.com/ggerganov/llama.cpp/blob/master/scripts/hf.sh) that makes it easy to download GGUF files from Hugging Face Hub.
 
 ```bash
 /main \
