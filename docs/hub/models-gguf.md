@@ -50,7 +50,7 @@ Find more information [here](https://github.com/ggerganov/llama.cpp/pull/5501).
 
 ## Usage with @huggingface/gguf
 
-We've also created a javascript GGUF parser that works on remotely hosted files (e. Hugging Face Hub).
+We've also created a javascript GGUF parser that works on remotely hosted files (e.g. Hugging Face Hub).
 
 ```bash
 npm install @huggingface/gguf
