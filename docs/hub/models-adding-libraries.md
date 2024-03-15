@@ -90,7 +90,7 @@ We recommend adding a code snippet to explain how to use a model in your downstr
 
 First, register your library by editing [model-libaries.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts).
 
-Then, add a code snippet by updating the [library-ui-elements](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/library-ui-elements.ts) file with instructions for your model. For example, the [Asteroid](https://huggingface.co/asteroid-team) integration includes a brief code snippet for how to load and use an Asteroid model:
+Then, add a code snippet by updating the [model-libraries-snippets.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries-snippets.ts) file with instructions for your model. For example, the [Asteroid](https://huggingface.co/asteroid-team) integration includes a brief code snippet for how to load and use an Asteroid model:
 
 ```typescript
 const asteroid = (model: ModelData) =>
