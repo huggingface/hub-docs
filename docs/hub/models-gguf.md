@@ -8,14 +8,14 @@ Hugging Face Hub supports [GGUF format](https://github.com/ggerganov/ggml/blob/m
 
 ## Finding GGUF files
 
-You can browse all models with GGUF weights thanks to GGUF tag: [hf.co/models?library=gguf](https://huggingface.co/models?library=gguf).
+You can browse all models with GGUF files thanks to GGUF tag: [hf.co/models?library=gguf](https://huggingface.co/models?library=gguf).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-filter-light.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-filter-dark.png"/>
 </div>
 
-For example, you can check out [TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF) for seeing GGUF weights in action. 
+For example, you can check out [TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF) for seeing GGUF files in action. 
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-repo-light.png"/>
@@ -28,7 +28,7 @@ More features regarding GGUF support on Hugging Face Hub are coming soon 🚀
 
 </Tip>
 
-## Inference with llama.cpp
+## Usage with llama.cpp
 
 Llama.cpp has helper script `scripts/hf.sh` that makes it easy to download GGUF files from Hugging Face Hub.
 
