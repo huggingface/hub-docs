@@ -24,11 +24,14 @@ For example, you can check out [TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF](https:
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-repo-dark.png"/>
 </div>
 
-<Tip>
+## Viewer for metadata & tensors info
 
-More features regarding GGUF support on Hugging Face Hub are coming soon 🚀
+The Hub has a viewer for GGUF files that lets a user check out metadata & tensors info (name, shape, precison).
 
-</Tip>
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-tensortable-light.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-tensortable-dark.png"/>
+</div>
 
 ## Usage with llama.cpp
 
