@@ -8,7 +8,7 @@ Hugging Face Hub supports [GGUF format](https://github.com/ggerganov/ggml/blob/m
 
 ## Finding GGUF files
 
-You can browse all models with GGUF files thanks to GGUF tag: [hf.co/models?library=gguf](https://huggingface.co/models?library=gguf).
+You can browse all models with GGUF files filtering by the GGUF tag: [hf.co/models?library=gguf](https://huggingface.co/models?library=gguf).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-filter-light.png"/>
