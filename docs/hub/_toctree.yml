@@ -78,7 +78,7 @@
       - local: ml-agents
         title: ML-Agents
       - local: mlx-image
-        title: mlxim
+        title: mlx-image
       - local: mlx
         title: MLX
       - local: open_clip

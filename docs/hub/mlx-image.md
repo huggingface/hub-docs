@@ -1,14 +1,12 @@
-# Using mlxim at Hugging Face
+# Using mlx-image at Hugging Face
 
-[`mlxim`](https://github.com/riccardomusmeci/mlx-image) is an image models library built on Apple [MLX](https://github.com/ml-explore/mlx). It tries to replicate the great [timm](https://github.com/huggingface/pytorch-image-models) library from Ross Wightman, but for MLX models.
+[`mlx-image`](https://github.com/riccardomusmeci/mlx-image) is an image models library developed by [Riccardo Musmeci](https://github.com/riccardomusmeci) built on Apple [MLX](https://github.com/ml-explore/mlx). It tries to replicate the great [timm](https://github.com/huggingface/pytorch-image-models), but for MLX models.
 
 
-## Exploring MLX on the Hub
+## Exploring mlx-image on the Hub
 
-You can find `mlxim` models by filtering using the `mlxim` library name, like in [this query](https://huggingface.co/models?library=mlx-image&sort=trending).
-There's also an open [mlx-vision](https://huggingface.co/mlx-vision) space for contributors converting and publishing weights for MLX format.
-
-Thanks to MLX Hugging Face Hub integration, you can load MLX models with a few lines of code. 
+You can find `mlx-image` models by filtering using the `mlx-image` library name, like in [this query](https://huggingface.co/models?library=mlx-image&sort=trending).
+There's also an open [mlx-vision](https://huggingface.co/mlx-vision) community for contributors converting and publishing weights for MLX format.
 
 ## Installation
 
@@ -38,20 +36,21 @@ from mlxim.model import list_models
 list_models()
 ```
 > [!WARNING]
-> As of today (2024-03-08) mlx does not support `group` param for nn.Conv2d. Therefore, architectures such as `resnext`, `regnet` or `efficientnet` are not yet supported in `mlxim`.
+> As of today (2024-03-15) mlx does not support `group` param for nn.Conv2d. Therefore, architectures such as `resnext`, `regnet` or `efficientnet` are not yet supported in `mlx-image`.
 
 ## ImageNet-1K Results
 
-Go to [results-imagenet-1k.csv](https://github.com/riccardomusmeci/mlx-image/blob/main/results/results-imagenet-1k.csv) to check every model converted to `mlxim` and its performance on ImageNet-1K with different settings.
+Go to [results-imagenet-1k.csv](https://github.com/riccardomusmeci/mlx-image/blob/main/results/results-imagenet-1k.csv) to check every model converted to `mlx-image` and its performance on ImageNet-1K with different settings.
 
 > **TL;DR** performance is comparable to the original models from PyTorch implementations.
 
 
 ## Similarity to PyTorch and other familiar tools
 
-`mlxim` tries to be as close as possible to PyTorch:
+`mlx-image` tries to be as close as possible to PyTorch:
 - `DataLoader` -> you can define your own `collate_fn` and also use `num_workers` to speed up data loading
-- `Dataset` -> `mlxim` already supports `LabelFolderDataset` (the good and old PyTorch `ImageFolder`) and `FolderDataset` (a generic folder with images in it)
+- `Dataset` -> `mlx-image` already supports `LabelFolderDataset` (the good and old PyTorch `ImageFolder`) and `FolderDataset` (a generic folder with images in it)
+
 - `ModelCheckpoint` -> keeps track of the best model and saves it to disk (similar to PyTorchLightning). It also suggests early stopping
 
 ## Training
@@ -94,5 +93,10 @@ for epoch in range(10):
 
 ## Additional Resources
 
-* [mlxim repository](https://github.com/riccardomusmeci/mlx-image)
-* [All mlxim models on Hub](https://huggingface.co/models?library=mlxim&sort=trending)
+* [mlx-image repository](https://github.com/riccardomusmeci/mlx-image)
+* [mlx-vision community](https://huggingface.co/mlx-vision)
+
+## Contact
+
+If you have any questions, please email `riccardomusmeci92@gmail.com`.
+
