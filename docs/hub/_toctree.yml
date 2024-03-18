@@ -133,6 +133,8 @@
         title: Integrate a library with the Hub
       - local: models-tasks
         title: Tasks
+      - local: gguf
+        title: GGUF
 - title: Datasets
   local: datasets
   isExpanded: true
