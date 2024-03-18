@@ -26,7 +26,7 @@ For example, you can check out [TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF](https:
 
 ## Viewer for metadata & tensors info
 
-The Hub has a viewer for GGUF files that lets a user check out metadata & tensors info (name, shape, precison).
+The Hub has a viewer for GGUF files that lets a user check out metadata & tensors info (name, shape, precison). The viewer is available on model page ([example](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF?show_tensors=mixtral-8x7b-instruct-v0.1.Q4_0.gguf)) & files page ([example](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF/tree/main?show_tensors=mixtral-8x7b-instruct-v0.1.Q5_K_M.gguf)).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-tensortable-light.png"/>
