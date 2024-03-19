@@ -135,6 +135,29 @@ In the current version of webhooks, the top-level property `repo` is always spec
 
 `repo.headSha` is the sha of the latest commit on the repo's `main` branch. It is only sent when `event.scope` starts with `"repo"`, not on community events like discussions and comments.
 
+### Code changes
+
+On code changes, the top-level property `updatedRefs` is specified on repo events. It is an array of references that have been updated. Here is an example value:
+
+```json
+"updatedRefs": [
+  {
+    "ref": "refs/heads/main",
+    "oldSha": "ce9a4674fa833a68d5a73ec355f0ea95eedd60b7",
+    "newSha": "575db8b7a51b6f85eb06eee540738584589f131c"
+  },
+  {
+    "ref": "refs/tags/test",
+    "oldSha": null,
+    "newSha": "575db8b7a51b6f85eb06eee540738584589f131c"
+  }
+]
+```
+
+Newly created references will have `oldSha` set to `null`. Deleted references will have `newSha` set to `null`.
+
+You can react to new commits on specific pull requests, new tags, or new branches.
+
 ### Discussions and Pull Requests
 
 The top-level property `discussion` is specified on community events (discussions and Pull Requests). The `discussion.isPullRequest` property is a boolean indicating if the discussion is also a Pull Request (on the Hub, a PR is a special type of discussion). Here is an example value:
