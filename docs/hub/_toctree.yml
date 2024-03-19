@@ -257,6 +257,8 @@
       title: How to Add a Space to ArXiv
     - local: spaces-cookie-limitations
       title: Cookie limitations in Spaces
+    - local: spaces-handle-url-parameters
+      title: Set URL query and hash
 - local: other
   title: Other
   isExpanded: true
