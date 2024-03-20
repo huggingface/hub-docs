@@ -17,7 +17,7 @@ You can browse all models with GGUF files filtering by the GGUF tag: [hf.co/mode
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-filter-dark.png"/>
 </div>
 
-For example, you can check out [TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF) for seeing GGUF files in action. 
+For example, you can check out [TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF) for seeing GGUF files in action.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-repo-light.png"/>
@@ -52,6 +52,31 @@ Llama.cpp has a helper script, [`scripts/hf.sh`](https://github.com/ggerganov/ll
 ```
 
 Find more information [here](https://github.com/ggerganov/llama.cpp/pull/5501).
+
+## Usage with GPT4All
+
+[GPT4All](https://gpt4all.io/) is an open-source LLM application developed by [Nomic](https://nomic.ai/). Version 2.7.2 introduces a brand new, experimental feature called Model Discovery.
+
+Model Discovery provides a built-in way to search for and download GGUF models from the Hub. To get started, open GPT4All and click "Download Models". From here, you can use the search bar to find a model.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-discovery-light.png" width="70%" height="auto"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-discovery-dark.png" width="70%" height="auto"/>
+</div>
+
+After you select and download a model, you can go to Settings and provide an appropriate prompt template in the GPT4All format (%1 and %2 placeholders).
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-template-light.png" width="70%" height="auto"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-template-dark.png" width="70%" height="auto"/>
+</div>
+
+Then from the main page, you can select the model from the list of installed models and start a conversation.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-chat-light.png" width="70%" height="auto"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-chat-dark.png" width="70%" height="auto"/>
+</div>
 
 ## Parsing the metadata with @huggingface/gguf
 
