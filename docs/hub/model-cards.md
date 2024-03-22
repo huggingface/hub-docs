@@ -33,7 +33,7 @@ The metadata you add to the model card supports discovery and easier use of your
 
 * Allowing users to filter models at https://huggingface.co/models.
 * Displaying the model's license.
-* Adding datasets to the metadata will add a message reading `Datasets used to train:` to your model card and link the relevant datasets, if they're available on the Hub.
+* Adding datasets to the metadata will add a message reading `Datasets used to train:` to your model page and link the relevant datasets, if they're available on the Hub.
 
 Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages.
 
@@ -110,7 +110,7 @@ If it's not specified, the Hub will try to automatically detect the library type
 
 ### Specifying a base model
 
-If your model is a fine-tune or adapter of a base model, you can specify the base model in the model card metadata section. This information can also be used to indicate if your model is a merge of multiple existing models. The `base_model` field can either be a single model ID, or a list of one or more base_models (specified by their Hub identifier). 
+If your model is a fine-tune, an adapter, or a quantized version of a base model, you can specify the base model in the model card metadata section. This information can also be used to indicate if your model is a merge of multiple existing models. The `base_model` field can either be a single model ID, or a list of one or more base_models (specified by their Hub identifier). 
 
 ```yaml
 base_model: HuggingFaceH4/zephyr-7b-beta
