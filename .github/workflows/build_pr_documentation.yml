@@ -19,4 +19,5 @@ jobs:
       package_name: hub
       path_to_docs: hub-docs/docs/hub/
       additional_args: --not_python_module
+      custom_container: "" # no need for transformer's docker image
 
