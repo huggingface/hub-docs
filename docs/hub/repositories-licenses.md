@@ -75,6 +75,7 @@ Open Data Commons Public Domain Dedication and License | `pddl`
 Lesser General Public License For Linguistic Resources | `lgpl-lr`
 DeepFloyd IF Research License Agreement | `deepfloyd-if-license`
 Llama 2 Community License Agreement | `llama2`
+Gemma Terms of Use | `gemma`
 Unknown | `unknown`
 Other | `other`
 <!-- endregion -->
