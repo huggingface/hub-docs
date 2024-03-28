@@ -114,6 +114,10 @@ Get the list of auto-converted parquet files.
 
 Get the nth shard of the auto-converted parquet files.
 
+### GET /api/datasets/{repo_id}/croissant
+
+Get the Croissant metadata. More details at https://huggingface.co/docs/datasets-server/croissant.
+
 ### GET /api/datasets-tags-by-type
 
 Gets all the available dataset tags hosted in the Hub.
