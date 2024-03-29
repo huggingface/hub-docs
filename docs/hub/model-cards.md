@@ -110,7 +110,7 @@ If it's not specified, the Hub will try to automatically detect the library type
 
 ### Specifying a base model
 
-If your model is a fine-tune, an adapter, or a quantized version of a base model, you can specify the base model in the model card metadata section. This information can also be used to indicate if your model is a merge of multiple existing models. The `base_model` field can either be a single model ID, or a list of one or more base_models (specified by their Hub identifier). 
+If your model is a fine-tune, an adapter, or a quantized version of a base model, you can specify the base model in the model card metadata section. This information can also be used to indicate if your model is a merge of multiple existing models. The `base_model` field can either be a single model ID, or a list of one or more base_models (specified by their Hub identifiers). 
 
 ```yaml
 base_model: HuggingFaceH4/zephyr-7b-beta
