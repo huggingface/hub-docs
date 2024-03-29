@@ -26,7 +26,6 @@ In the following table, you can see the Specs for the different upgrade options.
 |----------------------  |-----------------	|----------	|--------------	|----------	| ----------------	|
 | CPU Basic              | -             	| 2 vCPU  	| 16 GB     	|         	| Free!            	|
 | CPU Upgrade         	 | -             	| 8 vCPU  	| 32 GB      	|          	| $0.03            	|
-| CPU XL              	 | -             	| 16 vCPU  	| 124 GB     	|         	| coming soon      	|
 | Nvidia T4 - small   	 | 16GB          	| 4 vCPU  	| 15 GB      	| 50 GB    	| $0.40            	|
 | Nvidia T4 - medium  	 | 16GB          	| 8 vCPU  	| 30 GB      	| 100 GB   	| $0.60            	|
 | Nvidia A10G - small 	 | 24GB          	| 4 vCPU  	| 15 GB      	| 110 GB   	| $1              	|
