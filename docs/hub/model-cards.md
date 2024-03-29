@@ -110,24 +110,17 @@ If it's not specified, the Hub will try to automatically detect the library type
 
 ### Specifying a base model
 
-If your model is a fine-tune, an adapter, or a quantized version of a base model, you can specify the base model in the model card metadata section. This information can also be used to indicate if your model is a merge of multiple existing models. The `base_model` field can either be a single model ID, or a list of one or more base_models (specified by their Hub identifiers). 
+If your model is a fine-tune, an adapter, or a quantized version of a base model, you can specify the base model in the model card metadata section. This information can also be used to indicate if your model is a merge of multiple existing models. Hence, the `base_model` field can either be a single model ID, or a list of one or more base_models (specified by their Hub identifiers). 
 
 ```yaml
 base_model: HuggingFaceH4/zephyr-7b-beta
 ```
 
-This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model or find models that are fine-tuned from a specific base model.
+This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model or find models that are fine-tuned from a specific base model:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
-</div>
-
-For a merge of two or more models:
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_merge.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_merge-dark.png"/>
 </div>
 
 For an adapter (LoRA, PEFT, etc):
@@ -143,6 +136,21 @@ For a quantized version of another model:
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_quantized.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_quantized-dark.png"/>
 </div>
+
+Finally, for a merge of two or more models:
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_merge.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_merge-dark.png"/>
+</div>
+
+In the merge case, you specify a list of two or more base_models:
+
+```yaml
+base_model:
+- Endevor/InfinityRP-v1-7B
+- l3utterfly/mistral-7b-v0.1-layla-v4
+```
 
 ### Specifying a dataset
 
