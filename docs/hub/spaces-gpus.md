@@ -28,12 +28,12 @@ In the following table, you can see the Specs for the different upgrade options.
 | CPU Upgrade         	 | 8 vCPU         | 32 GB          	 |  - 	          | 50 GB      | $0.03            	|
 | Nvidia T4 - small   	 | 4 vCPU       	| 16GB 	        | 15 GB      	     | 50 GB    	| $0.40            	|
 | Nvidia T4 - medium  	 | 8 vCPU         | 16GB        	| 30 GB            | 100 GB   	| $0.60            	|
-| Nvidia A10G - small 	 | 4 vCPU        	| 24GB 	        | 15 GB      	     | 110 GB   	| $1              	|
-| Nvidia A10G - large 	 | 12 vCPU       	| 24GB 	        | 46 GB      	     | 200 GB   	| $1.5            	|
-| 2x Nvidia A10G - large | 24 vCPU       	| 48GB        	| 92 GB      	     | 1000 GB    | $3              	|
-| Nvidia A100 - large 	 | 12 vCPU       	| 40GB        	| 142 GB     	     | 1000 GB  	| $4              	|
-| 4x Nvidia A10G - large | 48 vCPU       	| 96GB        	| 184 GB           | 2000 GB  	| $5              	|
-| Nvidia H100            | 24 vCPU       	| 80GB        	| 250 GB           | 3000 GB  	| $10              	|
+| Nvidia A10G - small 	 | 4 vCPU        	| 24GB 	        | 15 GB      	     | 110 GB   	| $1.00              	|
+| Nvidia A10G - large 	 | 12 vCPU       	| 24GB 	        | 46 GB      	     | 200 GB   	| $1.50            	|
+| 2x Nvidia A10G - large | 24 vCPU       	| 48GB        	| 92 GB      	     | 1000 GB    | $3.00              	|
+| Nvidia A100 - large 	 | 12 vCPU       	| 40GB        	| 142 GB     	     | 1000 GB  	| $4.00              	|
+| 4x Nvidia A10G - large | 48 vCPU       	| 96GB        	| 184 GB           | 2000 GB  	| $5.00              	|
+| Nvidia H100            | 24 vCPU       	| 80GB        	| 250 GB           | 3000 GB  	| $10.00              	|
 | 8x Nvidia H100         | 192 vCPU      	| 80GB        	| 2   TB           | 3000 GB  	| coming soon      	|
 
 ## Configure hardware programmatically
