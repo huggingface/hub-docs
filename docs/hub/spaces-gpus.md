@@ -24,8 +24,8 @@ In the following table, you can see the Specs for the different upgrade options.
 
 | **Hardware**        	 | **CPU**        | **Memory** 	  | **GPU Memory**   | **Disk** 	| **Hourly Price** 	|
 |----------------------  |--------------	|-------------	|----------------  |----------	| ----------------	|
-| CPU Basic              | 2 vCPU         |  -    	      | 16 GB     	     | 50 GB      | Free!            	|
-| CPU Upgrade         	 | 8 vCPU         |  - 	          | 32 GB          	 | 50 GB      | $0.03            	|
+| CPU Basic              | 2 vCPU         | 16 GB     	     |  -    	      | 50 GB      | Free!            	|
+| CPU Upgrade         	 | 8 vCPU         | 32 GB          	 |  - 	          | 50 GB      | $0.03            	|
 | Nvidia T4 - small   	 | 4 vCPU       	| 16GB 	        | 15 GB      	     | 50 GB    	| $0.40            	|
 | Nvidia T4 - medium  	 | 8 vCPU         | 16GB        	| 30 GB            | 100 GB   	| $0.60            	|
 | Nvidia A10G - small 	 | 4 vCPU        	| 24GB 	        | 15 GB      	     | 110 GB   	| $1              	|
