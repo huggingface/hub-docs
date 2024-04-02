@@ -8,7 +8,11 @@ Every HTTP request to these files, including `GET` and `HEAD`, will be counted a
 
 ## Which are the query files for different libraries?
 
-By default, the Hub looks at `config.json`, `config.yaml`, `hyperparams.yaml`, and `meta.yaml`. Some libraries override these defaults by specifying their own filter (specifying `countDownloads`). The code that defines these overrides is open-source and can be found [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts). For example, for the `nemo` library, all files with `.nemo` extension are used to count downloads.
+By default, the Hub looks at `config.json`, `config.yaml`, `hyperparams.yaml`, and `meta.yaml`. Some libraries override these defaults by specifying their own filter (specifying `countDownloads`). The code that defines these overrides is open-source and can be found . For example, for the `nemo` library, all files with `.nemo` extension are used to count downloads.
+
+## Can I add my query files for my library? 
+
+Yes, you can open a Pull Request [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts). Here is a minimal [example](https://github.com/huggingface/huggingface.js/pull/561/files) adding download metrics for Grok-1.
 
 ## How are `GGUF` files handled?
 
