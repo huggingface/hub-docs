@@ -116,33 +116,42 @@ If your model is a fine-tune, an adapter, or a quantized version of a base model
 base_model: HuggingFaceH4/zephyr-7b-beta
 ```
 
-This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model or find models that are fine-tuned from a specific base model:
+This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model or find models that are derived from a specific base model:
 
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
+<div class="flex flex-col md:flex-row gap-x-2">
+   <div class="flex-1">
+      For a fine-tuned model:
+      <div class="flex justify-center">
+         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui.png"/>
+         <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
+      </div>
+   </div>
+   <div class="flex-1">
+      For an adapter (LoRA, PEFT, etc):
+      <div class="flex justify-center">
+         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_adapter.png"/>
+         <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_adapter-dark.png"/>
+      </div>
+   </div>
 </div>
 
-For an adapter (LoRA, PEFT, etc):
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_adapter.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_adapter-dark.png"/>
+<div class="flex flex-col md:flex-row gap-x-2">
+   <div class="flex-1">
+      For a quantized version of another model:
+      <div class="flex justify-center">
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_quantized.png"/>
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_quantized-dark.png"/>
+      </div>
+   </div>
+   <div class="flex-1">
+      For a merge of two or more models:
+      <div class="flex justify-center">
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_merge.png"/>
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_merge-dark.png"/>
+      </div>
+   </div>
 </div>
 
-For a quantized version of another model:
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_quantized.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_quantized-dark.png"/>
-</div>
-
-Finally, for a merge of two or more models:
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_merge.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_merge-dark.png"/>
-</div>
 
 In the merge case, you specify a list of two or more base_models:
 
