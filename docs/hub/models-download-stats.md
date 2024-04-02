@@ -4,11 +4,11 @@
 
 Counting the number of downloads for models is not a trivial task, as a single model repository might contain multiple files, including multiple model weight files (e.g., with sharded models) and different formats depending on the library (GGUF, PyTorch, TensorFlow, etc.). To avoid double counting downloads (e.g., counting a single download of a model as multiple downloads), the Hub uses a set of query files that are employed for download counting. No information is sent from the user, and no additional calls are made for this. The count is done server-side as the Hub serves files for downloads.
 
-Every HTTP request to these files, including `GET` and `HEAD`, will be counted as a download. By default, when no library is specified, the Hub uses `config.json` as the default query file. Otherwise, the query file depends on each library, and the Hub might examine files such as `pytorch_model.bin` and `adapter_config.json`. 
+Every HTTP request to these files, including `GET` and `HEAD`, will be counted as a download. By default, when no library is specified, the Hub uses `config.json` as the default query file. Otherwise, the query file depends on each library, and the Hub might examine files such as `pytorch_model.bin` or `adapter_config.json`. 
 
 ## Which are the query files for different libraries?
 
-By default, the Hub looks at `config.json`, `config.yaml`, `hyperparams.yaml`, and `meta.yaml`. Some libraries override these defaults by specifying their own filter (specifying `countDownloads`). The code that defines these overrides is open-source and can be found . For example, for the `nemo` library, all files with `.nemo` extension are used to count downloads.
+By default, the Hub looks at `config.json`, `config.yaml`, `hyperparams.yaml`, and `meta.yaml`. Some libraries override these defaults by specifying their own filter (specifying `countDownloads`). The code that defines these overrides is [open-source](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts). For example, for the `nemo` library, all files with `.nemo` extension are used to count downloads.
 
 ## Can I add my query files for my library? 
 
