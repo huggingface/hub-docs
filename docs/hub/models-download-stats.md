@@ -12,7 +12,7 @@ By default, the Hub looks at `config.json`, `config.yaml`, `hyperparams.yaml`, a
 
 ## How are `GGUF` files handled?
 
-GGUF files are not tied to a single library, so all of them are counted for downloads. This will double count downloads in the case a user performs cloning of a whole repository, but most users and interfaces download a single GGUF file for a given repo.
+GGUF files are self-contained and are not tied to a single library, so all of them are counted for downloads. This will double count downloads in the case a user performs cloning of a whole repository, but most users and interfaces download a single GGUF file for a given repo.
 
 ## How is `diffusers` handled?
 
