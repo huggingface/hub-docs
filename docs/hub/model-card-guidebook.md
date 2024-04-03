@@ -19,3 +19,8 @@ With the launch of this Guidebook, we introduce several new resources and connec
 5) A [Landscape Analysis and Literature Review](./model-card-landscape-analysis) of the state of the art in model documentation.
 
 We also include an [Appendix](./model-card-appendix) with further details from this work.
+
+
+Citation for the Model Card Guidebook: 
+
+Ozoani, Ezi and Gerchick, Marissa and Mitchell, Margaret. Model Card Guidebook. Hugging Face, 2022. https://huggingface.co/docs/hub/en/model-card-guidebook 
