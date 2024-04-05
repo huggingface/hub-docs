@@ -320,8 +320,8 @@ _Clearly define terms in order to be accessible across audiences._
 
 `get_started_code`
 
----
 
+---
 
 **Please cite as:**
 Ozoani, Ezi and Gerchick, Marissa and Mitchell, Margaret. Model Card Guidebook. Hugging Face, 2022. https://huggingface.co/docs/hub/en/model-card-guidebook 
