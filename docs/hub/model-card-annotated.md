@@ -22,6 +22,8 @@ _Instructions are provided below, in italics._
 
 Template variable names appear in `monospace`.
 
+--- 
+
 # Model Name
 
 **Section Overview:**  Provide the model name and a 1-2 sentence summary of what the model is. 
@@ -317,3 +319,10 @@ _Clearly define terms in order to be accessible across audiences._
 **Section Overview:** Provides a code snippet to show how to use the model.
 
 `get_started_code`
+
+---
+
+
+**Please cite as:**
+Ozoani, Ezi and Gerchick, Marissa and Mitchell, Margaret. Model Card Guidebook. Hugging Face, 2022. https://huggingface.co/docs/hub/en/model-card-guidebook 
+
