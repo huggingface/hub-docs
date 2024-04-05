@@ -105,6 +105,7 @@ Tools for understanding model cards and understanding how to create model cards 
 * [UNICEF](https://unicef.github.io/inventory/data/model-card/)
 
 ---
+
 **Please cite as:**
 Ozoani, Ezi and Gerchick, Marissa and Mitchell, Margaret. Model Card Guidebook. Hugging Face, 2022. https://huggingface.co/docs/hub/en/model-card-guidebook 
 
