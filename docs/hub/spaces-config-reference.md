@@ -71,6 +71,9 @@ Will be parsed automatically from your code if not specified here.
 **`tags`** : _List[string]_  
 List of terms that describe your Space task or scope.  
 
+**`thumbnail`**: _string_  
+URL for defining a custom thumbnail for social sharing.
+
 **`pinned`** : _boolean_  
 Whether the Space stays on top of your profile. Can be useful if you have a lot of Spaces so you and others can quickly see your best Space.  
 
