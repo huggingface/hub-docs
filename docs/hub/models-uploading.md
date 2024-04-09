@@ -7,10 +7,14 @@ You can link repositories with an individual user, such as [osanseviero/fashion_
 There are several ways to upload models to the Hub, described below.
 
 - In case your model comes from a library that has [built-in support](#upload-from-a-library-with-built-in-support), one can use the existing methods.
-- In case your model is a custom PyTorch model, the recommended way is to leverage the [huggingface_hub](#using-the-huggingface_hub-client-library) Python library as it allows to add `from_pretrained`, `push_to_hub` and [automated download metrics](https://huggingface.co/docs/hub/models-download-stats) capabilities to your models, just like models in the Transformers, Diffusers and Timm libraries.
+- In case your model is a custom PyTorch model, there are 2 ways:
+    - using the [custom code](https://huggingface.co/docs/transformers/custom_models) feature on the hub, which makes your model usable in the Transformers library
+    - leveraging the [huggingface_hub](#upload-a-pytorch-model-using-huggingface_hub) Python library as it allows to add `from_pretrained`, `push_to_hub` and [automated download metrics](https://huggingface.co/docs/hub/models-download-stats) capabilities to any `nn.Module`, just like models in the Transformers, Diffusers and Timm libraries.
 - In addition to programmatic uploads, you can always use the [web interface](#using-the-web-interface).
 
-Once your model is uploaded, we suggest adding a [Model Card](./model-cards) to your repo to document your model.
+Do note that only the first 2 ways will make sure that download metrics work for your model.
+
+Once your model is uploaded, we suggest adding a [Model Card](./model-cards) to your repo to document your model and make it easier discoverable.
 
 ## Using the web interface
 
@@ -102,29 +106,29 @@ from huggingface_hub import PyTorchModelHubMixin
 
 
 class MyModel(nn.Module, PyTorchModelHubMixin):
-    def __init__(self, config: dict):
+    def __init__(self, num_channels: int, hidden_size: int, num_classes: int):
         super().__init__()
-        self.param = nn.Parameter(torch.rand(config["num_channels"], config["hidden_size"]))
-        self.linear = nn.Linear(config["hidden_size"], config["num_classes"])
+        self.param = nn.Parameter(torch.rand(num_channels, hidden_size))
+        self.linear = nn.Linear(hidden_size, num_classes)
 
     def forward(self, x):
         return self.linear(x + self.param)
 
 # create model
 config = {"num_channels": 3, "hidden_size": 32, "num_classes": 10}
-model = MyModel(config=config)
+model = MyModel(**config)
 
 # save locally
-model.save_pretrained("my-awesome-model", config=config)
+model.save_pretrained("my-awesome-model")
 
 # push to the hub
-model.push_to_hub("my-awesome-model", config=config)
+model.push_to_hub("my-awesome-model")
 
 # reload
 model = MyModel.from_pretrained("username/my-awesome-model")
 ```
 
-As can be seen, the only thing required is to define all hyperparameters regarding the model architecture (such as hidden size, number of classes, dropout probability, etc.) in a Python dictionary often called the `config`. Next, you can define a class which takes the `config` as keyword argument in its init.
+As can be seen, the only thing required is to inherit from `PyTorchModelHubMixin`. All attributes will be automatically serialized as a `config.json`.
 
 This comes with automated download metrics, meaning that you'll be able to see how many times the model is downloaded, the same way they are available for models integrated natively in the Transformers, Diffusers or Timm libraries. With this mixin class, each separate checkpoint is stored on the Hub in a single repository consisting of 2 files:
 
