@@ -7,14 +7,14 @@ You can link repositories with an individual user, such as [osanseviero/fashion_
 There are several ways to upload models to the Hub, described below.
 
 - In case your model comes from a library that has [built-in support](#upload-from-a-library-with-built-in-support), one can use the existing methods.
-- In case your model is a custom PyTorch model, there are 2 ways:
-    - using the [custom code](https://huggingface.co/docs/transformers/custom_models) feature on the hub, which makes your model usable in the Transformers library
-    - leveraging the [huggingface_hub](#upload-a-pytorch-model-using-huggingface_hub) Python library as it allows to add `from_pretrained`, `push_to_hub` and [automated download metrics](https://huggingface.co/docs/hub/models-download-stats) capabilities to any `nn.Module`, just like models in the Transformers, Diffusers and Timm libraries.
+- In case your model is a custom PyTorch model, the two recommended ways to integrate with the ecosystem is to either:
+    - use the `transformers`'s [custom code](https://huggingface.co/docs/transformers/custom_models) feature, which makes your model directly usable in the Transformers library
+    - or leverage the [`huggingface_hub`'s `PyTorchModelHubMixin` class](#upload-a-pytorch-model-using-huggingface_hub) as it allows to add `from_pretrained`, `push_to_hub` and [automated download metrics](https://huggingface.co/docs/hub/models-download-stats) capabilities to any `nn.Module` class, just like models in the Transformers, Diffusers and Timm libraries.
 - In addition to programmatic uploads, you can always use the [web interface](#using-the-web-interface).
 
 Do note that only the first 2 ways will make sure that download metrics work for your model.
 
-Once your model is uploaded, we suggest adding a [Model Card](./model-cards) to your repo to document your model and make it easier discoverable.
+Once your model is uploaded, we suggest adding a [Model Card](./model-cards) to your repo to document your model and make it more discoverable.
 
 ## Using the web interface
 
@@ -128,7 +128,7 @@ model.push_to_hub("my-awesome-model")
 model = MyModel.from_pretrained("username/my-awesome-model")
 ```
 
-As can be seen, the only thing required is to inherit from `PyTorchModelHubMixin`. All attributes will be automatically serialized as a `config.json`.
+As can be seen, the only thing required is to inherit from `PyTorchModelHubMixin`. All attributes will be automatically serialized in a `config.json` file.
 
 This comes with automated download metrics, meaning that you'll be able to see how many times the model is downloaded, the same way they are available for models integrated natively in the Transformers, Diffusers or Timm libraries. With this mixin class, each separate checkpoint is stored on the Hub in a single repository consisting of 2 files:
 
