@@ -132,7 +132,7 @@ _List how the model may foreseeably be misused (used in a way it will not work f
 
 **Section Overview:** This section identifies foreseeable harms, misunderstandings, and technical and sociotechnical limitations. It also provides information on warnings and potential mitigations. Bias, risks, and limitations can sometimes be inseparable/refer to the same issues. Generally, bias and risks are sociotechnical, while limitations are technical: 
 - A **bias** is a stereotype or disproportionate performance (skew) for some subpopulations. 
-- A **risk** is a socially-relevant issue that the model might cause. 
+- A **risk** is a socially-relevant issue that the model might cause.
 - A **limitation** is a likely failure mode that can be addressed following the listed Recommendations.
 
 `bias_risks_limitations`
@@ -209,15 +209,27 @@ _What metrics will be used for evaluation in light of tradeoffs between differen
 
 `results`
 
-
 _Results should be based on the Factors and Metrics defined above._
 
 ### Summary
 
-
 `results_summary`
 
 _What do the results say? This can function as a kind of tl;dr for general audiences._
+
+## Redteaming
+
+### Child safety 
+`child_safety`
+_Is this model safe for kids to use? Why or why not?_
+
+### NCII
+`ncii`
+_Has this model been tested to see if it can be used for non-consensual intimage imagery (including CSEM)?_
+
+### Violence
+`violence`
+_Has this model been tested to see if it can be used for violent activities, or to depict violence? What were the results?_
 
 # Model Examination [optional]
 
