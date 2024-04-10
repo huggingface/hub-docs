@@ -217,7 +217,7 @@ _Results should be based on the Factors and Metrics defined above._
 
 _What do the results say? This can function as a kind of tl;dr for general audiences._
 
-## Redteaming
+## Safety Testing
 
 ### Child safety 
 `child_safety`
