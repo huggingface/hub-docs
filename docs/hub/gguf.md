@@ -10,7 +10,7 @@ As we can see in this graph, unlike tensor-only file formats like [safetensors](
 
 ## Finding GGUF files
 
-You can browse all models with GGUF files filtering by the GGUF tag: [hf.co/models?library=gguf](https://huggingface.co/models?library=gguf).
+You can browse all models with GGUF files filtering by the GGUF tag: [hf.co/models?library=gguf](https://huggingface.co/models?library=gguf). Moreover, you can use [ggml-org/gguf-my-repo](https://huggingface.co/spaces/ggml-org/gguf-my-repo) tool to convert/quantize your model weights into GGUF weights.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-filter-light.png"/>
