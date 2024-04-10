@@ -4,15 +4,17 @@ To upload models to the Hub, you'll need to create an account at [Hugging Face](
 
 You can link repositories with an individual user, such as [osanseviero/fashion_brands_patterns](https://huggingface.co/osanseviero/fashion_brands_patterns), or with an organization, such as [facebook/bart-large-xsum](https://huggingface.co/facebook/bart-large-xsum). Organizations can collect models related to a company, community, or library! If you choose an organization, the model will be featured on the organization’s page, and every member of the organization will have the ability to contribute to the repository. You can create a new organization [here](https://huggingface.co/organizations/new).
 
-There are several ways to upload models to the Hub, described below.
+> **_NOTE:_** Models do NOT need to be compatible with the Transformers/Diffusers libraries to get download metrics. Any custom PyTorch model is supported. Read more below!
+
+There are several ways to upload models to the Hub and get download metrics, described below.
 
 - In case your model comes from a library that has [built-in support](#upload-from-a-library-with-built-in-support), one can use the existing methods.
-- In case your model is a custom PyTorch model, there are 2 ways:
+- In case your model is a custom PyTorch model (`nn.Module`), there are 2 ways:
     - using the [custom code](https://huggingface.co/docs/transformers/custom_models) feature on the hub, which makes your model usable in the Transformers library
-    - leveraging the [huggingface_hub](#upload-a-pytorch-model-using-huggingface_hub) Python library as it allows to add `from_pretrained`, `push_to_hub` and [automated download metrics](https://huggingface.co/docs/hub/models-download-stats) capabilities to any `nn.Module`, just like models in the Transformers, Diffusers and Timm libraries.
+    - leveraging the [huggingface_hub](#upload-a-pytorch-model-using-huggingface_hub) Python library as it allows to add `from_pretrained`, `push_to_hub` and [automated download metrics](models-download-stats) capabilities to any `nn.Module`, just like models in the Transformers, Diffusers and Timm libraries.
 - In addition to programmatic uploads, you can always use the [web interface](#using-the-web-interface).
 
-Do note that only the first 2 ways will make sure that download metrics work for your model.
+Do note that only the first two ways will ensure [download metrics](models-download-stats) work for your model.
 
 Once your model is uploaded, we suggest adding a [Model Card](./model-cards) to your repo to document your model and make it easier discoverable.
 
