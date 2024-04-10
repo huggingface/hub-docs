@@ -135,6 +135,11 @@
         title: Tasks
       - local: gguf
         title: GGUF
+        sections:
+          - local: gguf-llamacpp
+            title: GGUF usage with llama.cpp
+          - local: gguf-gpt4all
+            title: GGUF usage with GPT4All
 - title: Datasets
   local: datasets
   isExpanded: true
