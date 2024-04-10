@@ -8,7 +8,7 @@ You can link repositories with an individual user, such as [osanseviero/fashion_
 
 There are several ways to upload models to the Hub and get download metrics, described below.
 
-- In case your model comes from a library that has [built-in support](#upload-from-a-library-with-built-in-support), one can use the existing methods, including `trust_remote_code=True`.
+- In case your model is designed for a library that has [built-in support](#upload-from-a-library-with-built-in-support), you can use the methods provided by the library. Custom models that use `trust_remote_code=True` can also leverage these methods.
 - In case your model is a custom PyTorch model, one can leverage the [`PyTorchModelHubMixin` class](#upload-a-pytorch-model-using-huggingface_hub) as it allows to add `from_pretrained`, `push_to_hub` and [automated download metrics](https://huggingface.co/docs/hub/models-download-stats) capabilities to any `nn.Module` class, just like models in the Transformers, Diffusers and Timm libraries.
 - In addition to programmatic uploads, you can always use the [web interface](#using-the-web-interface).
 
@@ -93,7 +93,7 @@ model.push_to_hub("nielsr/my-awesome-bert-model")
 model = BertModel.from_pretrained("nielsr/my-awesome-bert-model")
 ```
 
-Do note that libraries such as Transformers support the [code on the hub](https://huggingface.co/docs/transformers/custom_models) feature, which makes your model directly usable in the Transformers library using the `trust_remote_code=True` flag.
+Some libraries, like Transformers, support loading [code from the Hub](https://huggingface.co/docs/transformers/custom_models). This is a way to make your model work with Transformers using the `trust_remote_code=True` flag. You may want to consider this option instead of a full-fledged library integration.
 
 ## Upload a PyTorch model using `huggingface_hub`
 
@@ -130,7 +130,7 @@ model.push_to_hub("my-awesome-model")
 model = MyModel.from_pretrained("username/my-awesome-model")
 ```
 
-As can be seen, the only thing required is to inherit from `PyTorchModelHubMixin`. All attributes will be automatically serialized in a `config.json` file.
+As you can see, the only requirement is that your model inherits from `PyTorchModelHubMixin`. All instance attributes will be automatically serialized to a `config.json` file.
 
 This comes with automated download metrics, meaning that you'll be able to see how many times the model is downloaded, the same way they are available for models integrated natively in the Transformers, Diffusers or Timm libraries. With this mixin class, each separate checkpoint is stored on the Hub in a single repository consisting of 2 files:
 
