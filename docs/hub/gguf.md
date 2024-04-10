@@ -10,7 +10,7 @@ As we can see in this graph, unlike tensor-only file formats like [safetensors](
 
 ## Finding GGUF files
 
-You can browse all models with GGUF files filtering by the GGUF tag: [hf.co/models?library=gguf](https://huggingface.co/models?library=gguf).
+You can browse all models with GGUF files filtering by the GGUF tag: [hf.co/models?library=gguf](https://huggingface.co/models?library=gguf). Moreover, you can use [ggml-org/gguf-my-repo](https://huggingface.co/spaces/ggml-org/gguf-my-repo) tool to convert/quantize your model weights into GGUF weights.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-filter-light.png"/>
@@ -33,50 +33,14 @@ The Hub has a viewer for GGUF files that lets a user check out metadata & tensor
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-tensortable-dark.png"/>
 </div>
 
-## Usage with llama.cpp
+## Usage with open-source tools
 
-Llama.cpp has a helper script, [`scripts/hf.sh`](https://github.com/ggerganov/llama.cpp/blob/master/scripts/hf.sh), that makes it easy to download GGUF files from Hugging Face Hub. You can use it with a repo and file name, or with a URL to the GGUF file entry on the Hub:
+* [llama.cpp](./gguf-llamacpp)
+* [GPT4All](./gguf-gpt4all)
 
-```bash
-./main \
-  -m $(./scripts/hf.sh --repo TheBloke/Mixtral-8x7B-v0.1-GGUF --file mixtral-8x7b-v0.1.Q4_K_M.gguf) \
-  -p "I believe the meaning of life is" -n 64
-
-./main \
-  -m $(./scripts/hf.sh https://huggingface.co/TheBloke/Mixtral-8x7B-v0.1-GGUF/blob/main/mixtral-8x7b-v0.1.Q4_K_M.gguf) \
-  -p "I believe the meaning of life is" -n 64
-
-./main \
-  -m $(./scripts/hf.sh --url https://huggingface.co/TheBloke/Mixtral-8x7B-v0.1-GGUF/blob/main/mixtral-8x7b-v0.1.Q4_K_M.gguf) \
-  -p "I believe the meaning of life is" -n 64
-```
-
-Find more information [here](https://github.com/ggerganov/llama.cpp/pull/5501).
-
-## Usage with GPT4All
-
-[GPT4All](https://gpt4all.io/) is an open-source LLM application developed by [Nomic](https://nomic.ai/). Version 2.7.2 introduces a brand new, experimental feature called `Model Discovery`.
-
-`Model Discovery` provides a built-in way to search for and download GGUF models from the Hub. To get started, open GPT4All and click `Download Models`. From here, you can use the search bar to find a model.
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-discovery-light.png" width="70%" height="auto"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-discovery-dark.png" width="70%" height="auto"/>
-</div>
-
-After you have selected and downloaded a model, you can go to `Settings` and provide an appropriate prompt template in the GPT4All format (`%1` and `%2` placeholders).
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-template-light.png" width="70%" height="auto"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-template-dark.png" width="70%" height="auto"/>
-</div>
-
-Then from the main page, you can select the model from the list of installed models and start a conversation.
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-chat-light.png" width="70%" height="auto"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-gpt4all-chat-dark.png" width="70%" height="auto"/>
-</div>
+<!-- empty html divs with ids not to break previous hashlinks -->
+<div id="usage-with-llamacpp" />
+<div id="usage-with-gpt4all" />
 
 ## Parsing the metadata with @huggingface/gguf
 
@@ -94,3 +58,32 @@ const { metadata, tensorInfos } = await gguf(URL_LLAMA);
 ```
 
 Find more information [here](https://github.com/huggingface/huggingface.js/tree/main/packages/gguf).
+
+## Quantization Types
+
+| type         | source | description |
+|---------------------------|--------|-------------|
+| F32  | [Wikipedia](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) | 32-bit standard IEEE 754 single-precision floating-point number. |
+| F16  | [Wikipedia](https://en.wikipedia.org/wiki/Half-precision_floating-point_format) | 16-bit standard IEEE 754 half-precision floating-point number. |
+| Q4_0 | [GitHub Discussion](https://github.com/huggingface/huggingface.js/pull/615#discussion_r1557654249) | 4-bit round-to-nearest quantization (q). Each block has 32 weights. Weight formula: w = q * block_scale. Legacy quantization method (not used widely as of today) |
+| Q4_1 | [GitHub Discussion](https://github.com/huggingface/huggingface.js/pull/615#discussion_r1557682290) | 4-bit round-to-nearest quantization (q). Each block has 32 weights. Weight formula: w = q * block_scale + block_minimum. Legacy quantization method (not used widely as of today) |
+| Q5_0 | [GitHub Discussion](https://github.com/huggingface/huggingface.js/pull/615#discussion_r1557654249) | 5-bit round-to-nearest quantization (q). Each block has 32 weights. Weight formula: w = q * block_scale. Legacy quantization method (not used widely as of today) |
+| Q5_1 | [GitHub Discussion](https://github.com/huggingface/huggingface.js/pull/615#discussion_r1557682290) | 5-bit round-to-nearest quantization (q). Each block has 32 weights. Weight formula: w = q * block_scale + block_minimum. Legacy quantization method (not used widely as of today) |
+| Q8_0 | [GitHub Discussion](https://github.com/huggingface/huggingface.js/pull/615#discussion_r1557654249) | 8-bit round-to-nearest quantization (q). Each block has 32 weights. Weight formula: w = q * block_scale. Legacy quantization method (not used widely as of today) |
+| Q8_1 | [GitHub Discussion](https://github.com/huggingface/huggingface.js/pull/615#discussion_r1557682290) | 8-bit round-to-nearest quantization (q). Each block has 32 weights. Weight formula: w = q * block_scale + block_minimum. Legacy quantization method (not used widely as of today) |
+| Q2_K | [GitHub Pull Request](https://github.com/ggerganov/llama.cpp/pull/1684#issue-1739619305) | 2-bit quantization (q). Super-blocks with 16 blocks, each block has 16 weight. Weight formula: w = q * block_scale(4-bit) + block_min(4-bit), resulting in 2.5625 bits-per-weight. |
+| Q3_K | [GitHub Pull Request](https://github.com/ggerganov/llama.cpp/pull/1684#issue-1739619305) | 3-bit quantization (q). Super-blocks with 16 blocks, each block has 16 weights. Weight formula: w = q * block_scale(6-bit), resulting. 3.4375 bits-per-weight |
+| Q4_K | [GitHub Pull Request](https://github.com/ggerganov/llama.cpp/pull/1684#issue-1739619305) | 4-bit quantization (q). Super-blocks with 8 blocks, each block has 32 weights. Weight formula: w = q * block_scale(6-bit) + block_min(6-bit), resulting in 4.5 bits-per-weight. |
+| Q5_K | [GitHub Pull Request](https://github.com/ggerganov/llama.cpp/pull/1684#issue-1739619305) | 5-bit quantization (q). Super-blocks with 8 blocks, each block has 32 weights. Weight formula: w = q * block_scale(6-bit) + block_min(6-bit), resulting in 5.5 bits-per-weight. |
+| Q6_K | [GitHub Pull Request](https://github.com/ggerganov/llama.cpp/pull/1684#issue-1739619305) | 6-bit quantization (q). Super-blocks with 16 blocks, each block has 16 weights. Weight formula: w = q * block_scale(8-bit), resulting in 6.5625 bits-per-weight. |
+| Q8_K | [GitHub Pull Request](https://github.com/ggerganov/llama.cpp/pull/1684#issue-1739619305) | 8-bit quantization (q). Each block has 256 weights. Only used for quantizing intermediate results. All 2-6 bit dot products are implemented for this quantization type. Weight formula: w = q * block_scale. |
+| IQ2_XXS | [Hugging Face](https://huggingface.co/CISCai/OpenCodeInterpreter-DS-6.7B-SOTA-GGUF/blob/main/README.md?code=true#L59-L70) | 2-bit quantization (q). Super-blocks with 256 weights. Weight w is obtained using super_block_scale & importance matrix, resulting in 2.06 bits-per-weight. |
+| IQ2_XS | [Hugging Face](https://huggingface.co/CISCai/OpenCodeInterpreter-DS-6.7B-SOTA-GGUF/blob/main/README.md?code=true#L59-L70) | 2-bit quantization (q). Super-blocks with 256 weights. Weight w is obtained using super_block_scale & importance matrix, resulting in 2.31 bits-per-weight. |
+| IQ3_XXS | [Hugging Face](https://huggingface.co/CISCai/OpenCodeInterpreter-DS-6.7B-SOTA-GGUF/blob/main/README.md?code=true#L59-L70) | 3-bit quantization (q). Super-blocks with 256 weights. Weight w is obtained using super_block_scale & importance matrix, resulting in 3.06 bits-per-weight. |
+| IQ1_S | [Hugging Face](https://huggingface.co/CISCai/OpenCodeInterpreter-DS-6.7B-SOTA-GGUF/blob/main/README.md?code=true#L59-L70) | 1-bit quantization (q). Super-blocks with 256 weights. Weight w is obtained using super_block_scale & importance matrix, resulting in 1.56 bits-per-weight. |
+| IQ4_NL | | 4-bit quantization (q). Super-blocks with 256 weights. Weight w is obtained using super_block_scale & importance matrix |
+| IQ3_S | [Hugging Face](https://huggingface.co/CISCai/OpenCodeInterpreter-DS-6.7B-SOTA-GGUF/blob/main/README.md?code=true#L59-L70) | 3-bit quantization (q). Super-blocks with 256 weights. Weight w is obtained using super_block_scale & importance matrix, resulting in 3.44 bits-per-weight. |
+| IQ2_S | [Hugging Face](https://huggingface.co/CISCai/OpenCodeInterpreter-DS-6.7B-SOTA-GGUF/blob/main/README.md?code=true#L59-L70) | 2-bit quantization (q). Super-blocks with 256 weights. Weight w is obtained using super_block_scale & importance matrix, resulting in 2.5 bits-per-weight. |
+| IQ4_XS | [Hugging Face](https://huggingface.co/CISCai/OpenCodeInterpreter-DS-6.7B-SOTA-GGUF/blob/main/README.md?code=true#L59-L70) | 4-bit quantization (q). Super-blocks with 256 weights. Weight w is obtained using super_block_scale & importance matrix, resulting in 4.25 bits-per-weight. |
+
+*if there's any inaccuracy on the table above, please open a PR on [this file](https://github.com/huggingface/huggingface.js/blob/main/packages/gguf/src/quant-descriptions.ts).*
