@@ -9,9 +9,7 @@ You can link repositories with an individual user, such as [osanseviero/fashion_
 There are several ways to upload models to the Hub and get download metrics, described below.
 
 - In case your model comes from a library that has [built-in support](#upload-from-a-library-with-built-in-support), one can use the existing methods.
-- In case your model is a custom PyTorch model, the two recommended ways to integrate with the ecosystem is to either:
-    - use the `transformers`'s [custom code](https://huggingface.co/docs/transformers/custom_models) feature, which makes your model directly usable in the Transformers library
-    - or leverage the [`huggingface_hub`'s `PyTorchModelHubMixin` class](#upload-a-pytorch-model-using-huggingface_hub) as it allows to add `from_pretrained`, `push_to_hub` and [automated download metrics](https://huggingface.co/docs/hub/models-download-stats) capabilities to any `nn.Module` class, just like models in the Transformers, Diffusers and Timm libraries.
+- In case your model is a custom PyTorch model, one can leverage the [`PyTorchModelHubMixin` class](#upload-a-pytorch-model-using-huggingface_hub) as it allows to add `from_pretrained`, `push_to_hub` and [automated download metrics](https://huggingface.co/docs/hub/models-download-stats) capabilities to any `nn.Module` class, just like models in the Transformers, Diffusers and Timm libraries.
 - In addition to programmatic uploads, you can always use the [web interface](#using-the-web-interface).
 
 Do note that only the first two ways will ensure [download metrics](models-download-stats) work for your model.
@@ -94,6 +92,8 @@ model.push_to_hub("nielsr/my-awesome-bert-model")
 # reload
 model = BertModel.from_pretrained("nielsr/my-awesome-bert-model")
 ```
+
+Do note that libraries such as Transformers support the [custom code](https://huggingface.co/docs/transformers/custom_models) feature, which makes your model directly usable in the Transformers library using the `trust_remote_code=True` flag.
 
 ## Upload a PyTorch model using `huggingface_hub`
 
