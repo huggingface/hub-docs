@@ -4,15 +4,14 @@ To upload models to the Hub, you'll need to create an account at [Hugging Face](
 
 You can link repositories with an individual user, such as [osanseviero/fashion_brands_patterns](https://huggingface.co/osanseviero/fashion_brands_patterns), or with an organization, such as [facebook/bart-large-xsum](https://huggingface.co/facebook/bart-large-xsum). Organizations can collect models related to a company, community, or library! If you choose an organization, the model will be featured on the organization’s page, and every member of the organization will have the ability to contribute to the repository. You can create a new organization [here](https://huggingface.co/organizations/new).
 
-> **_NOTE:_** Models do NOT need to be compatible with the Transformers/Diffusers libraries to get download metrics. Any custom PyTorch model is supported. Read more below!
+> **_NOTE:_** Models do NOT need to be compatible with the Transformers/Diffusers libraries to get download metrics. Any custom model is supported. Read more below!
 
-There are several ways to upload models to the Hub and get download metrics, described below.
+There are several ways to upload models for them to be nicely integrated into the Hub and get download metrics, described below.
 
 - In case your model is designed for a library that has [built-in support](#upload-from-a-library-with-built-in-support), you can use the methods provided by the library. Custom models that use `trust_remote_code=True` can also leverage these methods.
 - In case your model is a custom PyTorch model, one can leverage the [`PyTorchModelHubMixin` class](#upload-a-pytorch-model-using-huggingface_hub) as it allows to add `from_pretrained`, `push_to_hub` and [automated download metrics](https://huggingface.co/docs/hub/models-download-stats) capabilities to any `nn.Module` class, just like models in the Transformers, Diffusers and Timm libraries.
 - In addition to programmatic uploads, you can always use the [web interface](#using-the-web-interface).
 
-Do note that only the first two ways will ensure [download metrics](models-download-stats) work for your model.
 
 Once your model is uploaded, we suggest adding a [Model Card](./model-cards) to your repo to document your model and make it more discoverable.
 
