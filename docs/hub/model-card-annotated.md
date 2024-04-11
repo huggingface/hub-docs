@@ -225,7 +225,7 @@ _Is this model safe for kids to use? Why or why not?_
 
 ### NCII
 `ncii`
-_Has this model been tested to see if it can be used for non-consensual intimage imagery (including CSEM)?_
+_Has this model been tested to see if it can be used for non-consensual intimate imagery (including CSEM)?_
 
 ### Violence
 `violence`
