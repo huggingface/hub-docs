@@ -6,13 +6,18 @@ You can link repositories with an individual user, such as [osanseviero/fashion_
 
 > **_NOTE:_** Models do NOT need to be compatible with the Transformers/Diffusers libraries to get download metrics. Any custom model is supported. Read more below!
 
-There are several ways to upload models for them to be nicely integrated into the Hub and get [download metrics]((https://huggingface.co/docs/hub/models-download-stats)), described below.
+There are several ways to upload models for them to be nicely integrated into the Hub and get [download metrics](models-download-stats), described below.
 
 - In case your model is designed for a library that has [built-in support](#upload-from-a-library-with-built-in-support), you can use the methods provided by the library. Custom models that use `trust_remote_code=True` can also leverage these methods.
 - In case your model is a custom PyTorch model, one can leverage the [`PyTorchModelHubMixin` class](#upload-a-pytorch-model-using-huggingface_hub) as it allows to add `from_pretrained`, `push_to_hub` to any `nn.Module` class, just like models in the Transformers, Diffusers and Timm libraries.
 - In addition to programmatic uploads, you can always use the [web interface](#using-the-web-interface).
 
 Once your model is uploaded, we suggest adding a [Model Card](./model-cards) to your repo to document your model and make it more discoverable.
+
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/example_repository.png"
+alt="drawing" width="600"/>
+
+<small> Example [repository](https://huggingface.co/LiheYoung/depth_anything_vitl14) that leverages [PyTorchModelHubMixin](#upload-a-pytorch-model-using-huggingface_hub). Downloads are shown on the right.</small>
 
 ## Using the web interface
 
@@ -136,11 +141,6 @@ This comes with automated download metrics, meaning that you'll be able to see h
 - a `config.json` file which is a serialized version of the model configuration. This class is used for counting download metrics: everytime a user calls `from_pretrained` to load a `config.json`, the count goes up by one. See [this guide](https://huggingface.co/docs/hub/models-download-stats) regarding automated download metrics.
 
 It's recommended to add a model card to each checkpoint so that people can read what the model is about, have a link to the paper, etc.
-
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/huggingface_hub/mixin_example_bis.png"
-alt="drawing" width="600"/>
-
-<small> Example [repository](https://huggingface.co/LiheYoung/depth_anything_vitl14) that leverages PyTorchModelHubMixin. Downloads are shown on the right.</small>
 
 Visit [the huggingface_hub's documentation](https://huggingface.co/docs/huggingface_hub/guides/integrations) to learn more.
 
