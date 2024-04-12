@@ -9,4 +9,4 @@
 - [Custom Python Spaces](./spaces-sdks-python)
 - [How to Add a Space to ArXiv](./spaces-add-to-arxiv)
 - [Cookie limitations in Spaces](./spaces-cookie-limitations)
-- [Set URL query and hash](./spaces-url-query-hash)
+- [How to handle URL parameters in Spaces](./spaces-handle-url-parameters)
