@@ -12,11 +12,11 @@ A full list of the available licenses is available here:
 | -------------------------------------------------------------- | ---------------------------------------- |
 | Apache license 2.0                                             | `apache-2.0`                             |
 | MIT                                                            | `mit`                                    |
-| OpenRAIL license family                                        | `openrail`                               |
-| BigScience OpenRAIL-M                                          | `bigscience-openrail-m`                  |
-| CreativeML OpenRAIL-M                                          | `creativeml-openrail-m`                  |
-| BigScience BLOOM RAIL 1.0                                      | `bigscience-bloom-rail-1.0`              |
-| BigCode Open RAIL-M v1                                         | `bigcode-openrail-m`                     |
+| OpenRAIL license family                                        | `openrail`                               | <!-- info: https://huggingface.co/blog/open_rail -->
+| BigScience OpenRAIL-M                                          | `bigscience-openrail-m`                  | <!-- info: https://bigscience.huggingface.co/blog/bigscience-openrail-m -->
+| CreativeML OpenRAIL-M                                          | `creativeml-openrail-m`                  | <!-- info: https://huggingface.co/spaces/CompVis/stable-diffusion-license -->
+| BigScience BLOOM RAIL 1.0                                      | `bigscience-bloom-rail-1.0`              | <!-- info: https://bigscience.huggingface.co/blog/the-bigscience-rail-license license: https://huggingface.co/spaces/bigscience/license -->
+| BigCode Open RAIL-M v1                                         | `bigcode-openrail-m`                     | <!-- info: https://www.bigcode-project.org/docs/pages/bigcode-openrail -->
 | Academic Free License v3.0                                     | `afl-3.0`                                |
 | Artistic license 2.0                                           | `artistic-2.0`                           |
 | Boost Software License 1.0                                     | `bsl-1.0`                                |
@@ -65,7 +65,7 @@ A full list of the available licenses is available here:
 | Mozilla Public License 2.0                                     | `mpl-2.0`                                |
 | Open Data Commons License Attribution family                   | `odc-by`                                 |
 | Open Database License family                                   | `odbl`                                   |
-| Open Rail++-M License                                          | `openrail++`                             |
+| Open Rail++-M License                                          | `openrail++`                             | <!-- license: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/LICENSE.md -->
 | Open Software License 3.0                                      | `osl-3.0`                                |
 | PostgreSQL License                                             | `postgresql`                             |
 | SIL Open Font License 1.1                                      | `ofl-1.1`                                |
