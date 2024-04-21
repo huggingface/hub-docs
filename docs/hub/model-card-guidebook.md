@@ -8,7 +8,7 @@ Our work presents a view of where we think model cards stand right now and where
 
 With the launch of this Guidebook, we introduce several new resources and connect previous work on Model Cards:
 
-1) An updated Model Card template, released in [the `huggingface_hub` library](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md), drawing together Model Card work in academia and throughout the industry.
+1) An updated Model Card template, released in the `huggingface_hub` library [modelcard_template.md file](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md), drawing together Model Card work in academia and throughout the industry.
 
 2) An [Annotated Model Card Template](./model-card-annotated), which details how to fill the card out.
 
@@ -19,3 +19,8 @@ With the launch of this Guidebook, we introduce several new resources and connec
 5) A [Landscape Analysis and Literature Review](./model-card-landscape-analysis) of the state of the art in model documentation.
 
 We also include an [Appendix](./model-card-appendix) with further details from this work.
+
+---
+
+**Please cite as:** 
+Ozoani, Ezi and Gerchick, Marissa and Mitchell, Margaret. Model Card Guidebook. Hugging Face, 2022. https://huggingface.co/docs/hub/en/model-card-guidebook 

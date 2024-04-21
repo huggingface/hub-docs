@@ -3,7 +3,7 @@
 
 ## Template
 
-[https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md)
+[modelcard_template.md file](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md)
 
 
 ## Directions
@@ -21,6 +21,8 @@ Fully filling out a model card requires input from a few different roles. (One p
 _Instructions are provided below, in italics._
 
 Template variable names appear in `monospace`.
+
+--- 
 
 # Model Name
 
@@ -52,6 +54,10 @@ _Provide basic details about the model. This includes the architecture, version,
 _List (and ideally link to) the people who built the model._
 
 
+* **Funded by:** `funded_by`
+  
+_List (and ideally link to)  the funding sources that financially, computationally, or otherwise supported  or enabled this model._
+
 
 * **Shared by [optional]:** `shared_by`
 
@@ -81,7 +87,7 @@ _Name and link to the license being used._
 
 
 
-* **Finetuned From Model [optional]:** `finetuned_from`
+* **Finetuned From Model [optional]:** `base_model`
 
 _If this model has another model as its base, link to that model here._
 
@@ -118,17 +124,21 @@ _Explain how this model can be used when fine-tuned for a task or when plugged i
 
 `out_of_scope_use`
 
-_List how the model may foreseeably be misused and address what users ought not do with the model._
+_List how the model may foreseeably be misused (used in a way it will not work for) and address what users ought not do with the model._
 
 
 
 # Bias, Risks, and Limitations
 
-**Section Overview:** This section identifies foreseeable harms, misunderstandings, and technical and sociotechnical limitations. It also provides information on warnings and potential mitigations.
+**Section Overview:** This section identifies foreseeable harms, misunderstandings, and technical and sociotechnical limitations. It also provides information on warnings and potential mitigations. Bias, risks, and limitations can sometimes be inseparable/refer to the same issues. Generally, bias and risks are sociotechnical, while limitations are technical: 
+- A **bias** is a stereotype or disproportionate performance (skew) for some subpopulations. 
+- A **risk** is a socially-relevant issue that the model might cause. 
+- A **limitation** is a likely failure mode that can be addressed following the listed Recommendations.
 
 `bias_risks_limitations`
 
 _What are the known or foreseeable issues stemming from this model?_
+
 
 
 ## Recommendations
@@ -172,7 +182,7 @@ _Detail throughput, start/end time, checkpoint sizes, etc._
 
 # Evaluation
 
-**Section Overview:** This section describes the evaluation protocols, what is being measured in the evaluation, and provides the results.  Evaluation is ideally constructed with factors, such as domain and demographic subgroup, and metrics, such as accuracy, which are prioritized in light of foreseeable error contexts and groups. Target fairness metrics should be decided based on which errors are more likely to be problematic in light of the model use. 
+**Section Overview:** This section describes the evaluation protocols, what is being measured in the evaluation, and provides the results.  Evaluation is ideally constructed with factors, such as domain and demographic subgroup, and metrics, such as accuracy, which are prioritized in light of foreseeable error contexts and groups. Target fairness metrics should be decided based on which errors are more likely to be problematic in light of the model use. You can also specify your model's evaluation results in a structured way in the model card metadata. Results are parsed by the Hub and displayed in a widget on the model page. See https://huggingface.co/docs/hub/model-cards#evaluation-results.
 
 
 ## Testing Data, Factors & Metrics
@@ -219,7 +229,7 @@ _What do the results say? This can function as a kind of tl;dr for general audie
 
 **Section Overview:** Summarizes the information necessary to calculate environmental impacts such as electricity usage and carbon emissions.
 
-* **Hardware Type:** `hardware`
+* **Hardware Type:** `hardware_type`
 * **Hours used:** `hours_used`
 * **Cloud Provider:** `cloud_provider`
 * **Compute Region:** `cloud_region`
@@ -243,7 +253,9 @@ _Carbon emissions can be estimated using the [Machine Learning Impact calculator
 
 ### Hardware
 
-`hardware`
+`hardware_requirements`
+
+_What are the minimum hardware requirements, e.g. processing, storage, and memory requirements?_
 
 ### Software
 
@@ -307,3 +319,10 @@ _Clearly define terms in order to be accessible across audiences._
 **Section Overview:** Provides a code snippet to show how to use the model.
 
 `get_started_code`
+
+
+---
+
+**Please cite as:**
+Ozoani, Ezi and Gerchick, Marissa and Mitchell, Margaret. Model Card Guidebook. Hugging Face, 2022. https://huggingface.co/docs/hub/en/model-card-guidebook 
+

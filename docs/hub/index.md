@@ -1,6 +1,6 @@
 # Hugging Face Hub documentation
 
-The Hugging Face Hub is a platform with over 120k models, 20k datasets, and 50k demo apps (Spaces), all open source and publicly available, in an online platform where people can easily collaborate and build ML together. The Hub works as a central place where anyone can explore, experiment, collaborate, and build technology with Machine Learning. Are you ready to join the path towards open source Machine Learning? 🤗
+The Hugging Face Hub is a platform with over 350k models, 75k datasets, and 150k demo apps (Spaces), all open source and publicly available, in an online platform where people can easily collaborate and build ML together. The Hub works as a central place where anyone can explore, experiment, collaborate, and build technology with Machine Learning. Are you ready to join the path towards open source Machine Learning? 🤗
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-10">
 
@@ -25,14 +25,13 @@ The Hugging Face Hub is a platform with over 120k models, 20k datasets, and 50k 
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-the-hub">The Model Hub</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./model-cards">Model Cards</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-gated">Gated Models</a>
-<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-libraries">Libraries</a>
-<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-tasks">Tasks</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-uploading">Uploading Models</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-downloading">Downloading Models</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-libraries">Libraries</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-tasks">Tasks</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-widgets">Widgets</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-inference">Inference API</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-download-stats">Download Stats</a>
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-red-100 bg-gradient-to-br from-red-50 dark:bg-none px-6 py-4 transition-colors hover:shadow dark:border-red-700">
@@ -42,9 +41,12 @@ The Hugging Face Hub is a platform with over 120k models, 20k datasets, and 50k 
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-overview">Datasets Overview</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-cards">Dataset Cards</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-gated">Gated Datasets</a>
-<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-viewer">Dataset viewer</a>
-<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-usage">Using Datasets</a>
-<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-adding">Adding New Datasets</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-adding">Uploading Datasets</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-downloading">Downloading Datasets</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-libraries">Libraries</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-viewer">Dataset Viewer</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-download-stats">Download Stats</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-data-files-configuration">Data files Configuration</a>
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 dark:bg-none px-6 py-4 transition-colors hover:shadow dark:border-blue-700">
@@ -68,6 +70,7 @@ The Hugging Face Hub is a platform with over 120k models, 20k datasets, and 50k 
 <div class="flex items-center py-0.5 text-lg font-semibold text-green-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-green-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" stroke="currentColor" d="M8.892 21.854a6.25 6.25 0 0 1-4.42-10.67l7.955-7.955a4.5 4.5 0 0 1 6.364 6.364l-6.895 6.894a2.816 2.816 0 0 1-3.89 0a2.75 2.75 0 0 1 .002-3.888l5.126-5.127a1 1 0 1 1 1.414 1.414l-5.126 5.127a.75.75 0 0 0 0 1.06a.768.768 0 0 0 1.06 0l6.895-6.894a2.503 2.503 0 0 0 0-3.535a2.56 2.56 0 0 0-3.536 0l-7.955 7.955a4.25 4.25 0 1 0 6.01 6.01l6.188-6.187a1 1 0 1 1 1.414 1.414l-6.187 6.186a6.206 6.206 0 0 1-4.42 1.832z"></path></svg> Other</div>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./organizations">Organizations</a>
+<a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub">Enterprise Hub</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./billing">Billing</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./security">Security</a>
 <a class="!no-underline hover:opacity-60 transform transition-colors hover:translate-x-px" href="./moderation">Moderation</a>

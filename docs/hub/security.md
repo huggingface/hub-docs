@@ -13,10 +13,11 @@ For any other security questions, please feel free to send us an email at securi
 ## Contents
 
 - [User Access Tokens](./security-tokens)
+- [Two-Factor Authentication (2FA)](./security-2fa)
 - [Git over SSH](./security-git-ssh)
 - [Signing commits with GPG](./security-gpg)
 - [Single Sign-On (SSO)](./security-sso)
 - [Malware Scanning](./security-malware)
 - [Pickle Scanning](./security-pickle)
 - [Secrets Scanning](./security-secrets)
-
+- [Resource Groups](./security-resource-groups)

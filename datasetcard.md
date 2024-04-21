@@ -6,7 +6,7 @@ language:
 - {lang_1}  # Example: en
 license: {license}  # Example: apache-2.0 or any license from https://hf.co/docs/hub/repositories-licenses
 license_name: {license_name}  # If license = other (license not in https://hf.co/docs/hub/repositories-licenses), specify an id for it here, like `my-license-1.0`.
-license_link: {license_link}  # If license = other, specify "README" to link to that file inside the repo, or a URL to a remote file.
+license_link: {license_link}  # If license = other, specify "LICENSE" or "LICENSE.md" to link to a file of that name inside the repo, or a URL to a remote file.
 license_details: {license_details}  # Legacy, textual description of a custom license.
 tags:
 - {tag_0}  # Example: audio
@@ -26,7 +26,7 @@ size_categories:
 source_datasets:
 - {source_dataset_0}  # Example: wikipedia
 - {source_dataset_1}  # Example: laion/laion-2b
-task_categories:  # Full list at https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Types.ts
+task_categories:  # Full list at https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/pipelines.ts
 - {task_0}  # Example: question-answering
 - {task_1}  # Example: image-classification
 task_ids:
@@ -110,4 +110,4 @@ train-eval-index:
 
 Valid license identifiers can be found in [our docs](https://huggingface.co/docs/hub/repositories-licenses).
 
-For the full dataset card template, see: [https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/datasetcard_template.md](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/datasetcard_template.md).
+For the full dataset card template, see: [datasetcard_template.md file](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/datasetcard_template.md).

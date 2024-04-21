@@ -61,28 +61,26 @@ After creating your Space, you'll notice a 'Building' status along with logs
 displayed on the screen. When this switches to 'Running', your Space is ready for use. If the
 ZenML login UI isn't visible, try refreshing the page.
 
-Use our default login to access the dashboard (username: 'default', password:
-(leave it empty)).
-
-## Connecting to your ZenML Server from your Local Machine
-
-Once you have your ZenML server up and running, you can connect to it from your
-local machine. To do this, you'll need to get your Space's URL.
-
-<Tip warning={true}>
-Your Space's URL will only be available and usable for connecting from your
-local machine if the visibility of the space is set to 'Public'.
-</Tip>
-
 In the upper-right hand corner of your space you'll see a button with three dots
 which, when you click on it, will offer you a menu option to "Embed this Space".
 (See [the HuggingFace
 documentation](https://huggingface.co/docs/hub/spaces-embed) for more details on
 this feature.) Copy the "Direct URL" shown in the box that you can now see on
 the screen. This should look something like this:
-`https://<YOUR_USERNAME>-<SPACE_NAME>.hf.space`.
+`https://<YOUR_USERNAME>-<SPACE_NAME>.hf.space`. Open that URL and use our default 
+login to access the dashboard (username: 'default', password: (leave it empty)).
 
-You can now use this URL to connect to your ZenML server from your local machine
+## Connecting to your ZenML Server from your Local Machine
+
+Once you have your ZenML server up and running, you can connect to it from your
+local machine. To do this, you'll need to get your Space's 'Direct URL' (see above).
+
+<Tip warning={true}>
+Your Space's URL will only be available and usable for connecting from your
+local machine if the visibility of the space is set to 'Public'.
+</Tip>
+
+You can use the 'Direct URL' to connect to your ZenML server from your local machine
 with the following CLI command (after installing ZenML, and using your custom
 URL instead of the placeholder):
 
@@ -92,6 +90,13 @@ zenml connect --url '<YOUR_HF_SPACES_DIRECT_URL>' --username='default' --passwor
 
 You can also use the Direct URL in your browser to use the ZenML dashboard as a
 fullscreen application (i.e. without the HuggingFace Spaces wrapper around it).
+
+<Tip warning={true}>
+The ZenML dashboard will currently not work when viewed from within the Huggingface 
+webpage (i.e. wrapped in the main `https://huggingface.co/...` website). This is on 
+account of a limitation in how cookies are handled between ZenML and Huggingface. 
+You **must** view the dashboard from the 'Direct URL' (see above).
+</Tip>
 
 ## Extra Configuration Options
 
@@ -134,7 +139,6 @@ could access your secrets without this extra step*. To change your password
 navigate to the Settings page by clicking the button in the upper right hand
 corner of the Dashboard and then click 'Update Password'.
 </Tip>
-
 
 ## Upgrading your ZenML Server on HF Spaces
 

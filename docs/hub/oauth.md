@@ -10,6 +10,12 @@ After clicking this button your users will be presented with a permissions modal
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-accept-application.png)
 
+## Creating an oauth app
+
+You can create your application in your [settings](https://huggingface.co/settings/applications/new):
+
+![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-create-application.png)
+
 ### If you are hosting in Spaces
 
 <Tip>
@@ -25,14 +31,16 @@ The currently supported scopes are:
 - `openid`: Get the ID token in addition to the access token.
 - `profile`: Get the user's profile information (username, avatar, etc.)
 - `email`: Get the user's email address.
-
-Contact us at [website@huggingface.co](mailto:website@huggingface.co) with the desired name, logo URL, scope, and redirect URLs for the OAuth app. We will provide you with the client ID and client secret.
+- `read-repos`: Get read access to the user's personal repos.
+- `write-repos`: Get write/read access to the user's personal repos.
+- `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion.
+- `inference-api`: Get access to the [Inference API](https://huggingface.co/docs/api-inference/index), you will be able to make inference requests on behalf of the user.
 
 All other information is available in the [OpenID metadata](https://huggingface.co/.well-known/openid-configuration).
 
 <Tip warning={true}>
 
-Please contact us if you need any extra scope. For example, we are thinking about how to provide access to a user access token, to read or write repos.
+Please contact us if you need any extra scopes.
 
 </Tip>
 

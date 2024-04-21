@@ -2,7 +2,7 @@
 
 ## Duplicating a Space
 
-You can duplicate a Space by clicking the three dots at the top right and selecting **Duplicate this Space**. Learn more about it [here]](./spaces-overview#duplicating-a-space).
+You can duplicate a Space by clicking the three dots at the top right and selecting **Duplicate this Space**. Learn more about it [here](./spaces-overview#duplicating-a-space).
 
 ## Creating a Space from a model
 

@@ -27,13 +27,15 @@ For step-by-step tutorials to creating your first Space, see the guides below:
 Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators and persistent storage, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
 
 | **Hardware**        	| **GPU Memory** 	| **CPU** 	| **Memory** 	| **Disk** 	| **Hourly Price** 	|
-|---------------------	|-----------------	|----------	|--------------	|----------	| ----------------	|
+|---------------------	|----------------	|----------	|------------	|----------	| ----------------	|
 | CPU Basic           	| -             	| 2 vCPU  	| 16 GB     	| 50 GB    	| Free!            	|
 | CPU Upgrade         	| -             	| 8 vCPU  	| 32 GB      	| 50 GB    	| $0.03            	|
 | Nvidia T4 - small   	| 16GB          	| 4 vCPU  	| 15 GB      	| 50 GB    	| $0.60            	|
 | Nvidia T4 - medium  	| 16GB          	| 8 vCPU  	| 30 GB      	| 100 GB   	| $0.90            	|
 | Nvidia A10G - small 	| 24GB          	| 4 vCPU  	| 15 GB      	| 110 GB   	| $1.05            	|
 | Nvidia A10G - large 	| 24GB          	| 12 vCPU 	| 46 GB      	| 200 GB   	| $3.15            	|
+| 2x Nvidia A10G - large| 48GB          	| 24 vCPU 	| 92 GB      	| 1000 GB  	| $5.70            	|
+| 4x Nvidia A10G - large| 96GB          	| 48 vCPU 	| 184 GB     	| 2000 GB  	| $10.80           	|
 | Nvidia A100 - large 	| 40GB          	| 12 vCPU 	| 142 GB     	| 1000 GB  	| $4.13            	|
  
 | **Storage tier**     	| **Size**             	| **Persistent** 	| **Monthly price** 	|
@@ -56,7 +58,8 @@ Read more in our dedicated sections on [Spaces GPU Upgrades](./spaces-gpus) and 
 
 ## Managing secrets and environment variables[[managing-secrets]]
 <a id="managing-secrets"></a>
-If your app requires environment variables (for instance, secret keys or tokens), do not hard-code them inside your app! Instead, go to the **Settings** page of your Space repository and add a new variable or secret. Use variables if you need to store non-sensitive configuration values and secrets for storing access tokens, API keys, or any sensitive value or credentials.
+
+If your app requires environment variables (for instance, secret keys or tokens), do not hard-code them inside your app! Instead, go to the Settings page of your Space repository and add a new **variable** or **secret**. Use variables if you need to store non-sensitive configuration values and secrets for storing access tokens, API keys, or any sensitive value or credentials.
 
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets-and-variables.png"/>
@@ -64,7 +67,11 @@ If your app requires environment variables (for instance, secret keys or tokens)
 </div>
 
 
-Variables are publicly accessible and viewable and will be automatically added to Spaces duplicated from your repository. They are exposed to your app as environment variables. For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management).
+Variables are publicly accessible and viewable and will be automatically added to Spaces duplicated from your repository. They are exposed to your app as environment variables.
+
+For Static Spaces, they are available through client-side JavaScript in `window.huggingface.variables`.
+
+For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management).
 
 Secrets are private and their value cannot be retrieved once set. They won't be added to Spaces duplicated from your repository. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management). Users are warned when our `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
 
@@ -76,9 +83,9 @@ If you want to duplicate a Space, you can click the three dots at the top right 
 
 * Owner: The duplicated Space can be under your account or any organization in which you have write access
 * Space name
-* Visiblity: The Space is private by default. Read more about private repositories [here](./repositories-settings#private-repositories). 
-* Hardware: You can choose the hardware on which the Space will be running. Read more about hardware upgrades [here](./spaces-gpus.md).
-* Storage: If the original repo uses persistent storage, you will be prompted to choose a storage tier. Read more about persistent storage [here](./spaces-storage.md).
+* Visibility: The Space is private by default. Read more about private repositories [here](./repositories-settings#private-repositories). 
+* Hardware: You can choose the hardware on which the Space will be running. Read more about hardware upgrades [here](./spaces-gpus).
+* Storage: If the original repo uses persistent storage, you will be prompted to choose a storage tier. Read more about persistent storage [here](./spaces-storage).
 * Secrets and variables: If the original repo has set some secrets and variables, you'll be able to set them while duplicating the repo.
 
 Some Spaces might have environment variables that you may need to set up. In these cases, the duplicate workflow will auto-populate the public Variables from the source Space, and give you a warning about setting up the Secrets. The duplicated Space will use a free CPU hardware by default, but you can later upgrade if needed.

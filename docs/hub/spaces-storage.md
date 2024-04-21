@@ -53,7 +53,7 @@ Additional information about billing can be found in the [dedicated Hub-wide sec
 
 If you need to persist data that lives longer than your Space, you could use a [dataset repo](./datasets).
 
-You can find an example of persistence [here](https://huggingface.co/spaces/julien-c/persistent-data), which uses the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index) for programmatically uploading files to a dataset repository.
+You can find an example of persistence [here](https://huggingface.co/spaces/Wauplin/space_to_dataset_saver), which uses the [`huggingface_hub` library](https://huggingface.co/docs/huggingface_hub/index) for programmatically uploading files to a dataset repository. This Space example along with [this guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/upload#scheduled-uploads) will help you define which solution fits best your data type.
 
 Visit the [`datasets` library](https://huggingface.co/docs/datasets/index) documentation and the [`huggingface_hub` client library](https://huggingface.co/docs/huggingface_hub/index) 
 documentation for more information on how to programmatically interact with dataset repos.

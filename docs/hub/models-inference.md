@@ -21,7 +21,7 @@ Specify `inference: false` in your model card's metadata.
 ## Why don't I see an inference widget or why can't I use the inference API?
 
 For some tasks, there might not be support in the inference API, and, hence, there is no widget.
-For all libraries (except 🤗 Transformers), there is a [mapping](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/LibrariesToTasks.ts) of library to supported tasks in the API. When a model repository has a task that is not supported by the repository library, the repository has `inference: false` by default.
+For all libraries (except 🤗 Transformers), there is a [library-to-tasks.ts file](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/library-to-tasks.ts) of supported tasks in the API. When a model repository has a task that is not supported by the repository library, the repository has `inference: false` by default.
 
 
 ## Can I send large volumes of requests? Can I get accelerated APIs?

@@ -4,13 +4,28 @@ We have open endpoints that you can use to retrieve information from the Hub as 
 
 The base URL for those endpoints below is `https://huggingface.co`. For example, to construct the `/api/models` call below, one can call the URL [https://huggingface.co/api/models](https://huggingface.co/api/models)
 
-## Search API
+## The Hub API Playground
+
+Want to try out our API?
+Try it out now on our [Playground](https://huggingface.co/spaces/enzostvs/hub-api-playground)!
+
+<div class="flex justify-center">
+<a href="https://huggingface.co/spaces/enzostvs/hub-api-playground" target="_blank">
+<img class="w-full object-contain" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/hub-api-playground.png"/>
+</a>
+</div>
+
+## Repo listing API
 
 The following endpoints help get information about models, datasets, Spaces, and metrics stored on the Hub.
 
+<Tip>
+When making API calls to retrieve information about repositories, the <code>createdAt</code> attribute indicates the time when the respective repository was created. It's important to note that there is a unique value, <code>2022-03-02T23:29:04.000Z</code> assigned to all repositories that were created before we began storing creation dates.
+</Tip>
+
 ### GET /api/models
 
-Get information from all models in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
+Get information from all models in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the next pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `resnet` or `microsoft`
 - `author`: Filter models by an author or organization, such as `huggingface` or `microsoft`
 - `filter`: Filter based on tags, such as `text-classification` or `spacy`.
@@ -51,7 +66,7 @@ This is equivalent to `huggingface_hub.get_model_tags()`.
 
 ### GET /api/datasets
 
-Get information from all datasets in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
+Get information from all datasets in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the next pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `pets` or `microsoft`
 - `author`: Filter datasets by an author or organization, such as `huggingface` or `microsoft`
 - `filter`: Filter based on tags, such as `task_categories:text-classification` or `languages:en`.
@@ -99,6 +114,10 @@ Get the list of auto-converted parquet files.
 
 Get the nth shard of the auto-converted parquet files.
 
+### GET /api/datasets/{repo_id}/croissant
+
+Get the Croissant metadata. More details at https://huggingface.co/docs/datasets-server/croissant.
+
 ### GET /api/datasets-tags-by-type
 
 Gets all the available dataset tags hosted in the Hub.
@@ -107,7 +126,7 @@ This is equivalent to `huggingface_hub.get_dataset_tags()`.
 
 ### GET /api/spaces
 
-Get information from all Spaces in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the following pages. You can specify additional parameters to have more specific results.
+Get information from all Spaces in the Hub. The response is paginated, use the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header) to get the next pages. You can specify additional parameters to have more specific results.
 - `search`: Filter based on substrings for repos and their usernames, such as `resnet` or `microsoft`
 - `author`: Filter models by an author or organization, such as `huggingface` or `microsoft`
 - `filter`: Filter based on tags, such as `text-classification` or `spacy`.
@@ -115,7 +134,6 @@ Get information from all Spaces in the Hub. The response is paginated, use the [
 - `direction`: Direction in which to sort, such as `-1` for descending, and anything else for ascending.
 - `limit`: Limit the number of models fetched.
 - `full`: Whether to fetch most model data, such as all tags, the files, etc.
-- `config`: Whether to also fetch the repo config.
 
 Payload:
 
@@ -139,11 +157,6 @@ Get all information for a specific model.
 
 This is equivalent to `huggingface_hub.space_info(repo_id, revision)`.
 
-### GET /api/metrics
-
-Get information from all metrics in the Hub.
-
-This is equivalent to `huggingface_hub.list_metrics()`.
 
 ## Repo API
 
@@ -157,15 +170,17 @@ Parameters:
 - `name`: Name of repo.
 - `organization`: Name of organization (optional).
 - `private`: Whether the repo is private.
+- `sdk`: When the type is `space` (streamlit, gradio, docker or static)
 
 Payload:
 
 ```js
 payload = {
-    "type":"type",
+    "type":"model",
     "name":"name",
     "organization": "organization",
-    "private":"private"
+    "private":"private",
+    "sdk": "sdk"
 }
 ```
 
@@ -184,7 +199,7 @@ Payload:
 
 ```js
 payload = {
-    "type": "type",
+    "type": "model",
     "name": "name",
     "organization": "organization",
 }
@@ -210,12 +225,18 @@ This is equivalent to `huggingface_hub.update_repo_visibility()`.
 
 Move a repository (rename within the same namespace or transfer from user to organization).
 
+Parameters:
+- `fromRepo`: repo to rename.
+- `toRepo`: new name of the repo.
+- `type`: Type of repo (dataset or space; model by default).
+
 Payload:
 
 ```js
 payload = {
     "fromRepo" : "namespace/repo_name",
-    "toRepo" : "namespace2/repo_name2"
+    "toRepo" : "namespace2/repo_name2",
+    "type": "model",
 }
 ```
 
@@ -237,11 +258,11 @@ headers = { "authorization" :  "Bearer $token" }
 
 This is equivalent to `huggingface_hub.whoami()`.
 
-## Collection API
+## Collections API
 
 Use Collections to group repositories from the Hub (Models, Datasets, Spaces and Papers) on a dedicated page.
 
-You can learn more about it in the Collections [guide](./collections.md). Collections can also be managed using the Python client (see [guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/collections)).
+You can learn more about it in the Collections [guide](./collections). Collections can also be managed using the Python client (see [guide](https://huggingface.co/docs/huggingface_hub/main/en/guides/collections)).
 
 ### POST /api/collections
 
@@ -270,6 +291,38 @@ This is equivalent to `huggingface_hub.create_collection()`.
 Return information about a collection.
 
 This is equivalent to `huggingface_hub.get_collection()`.
+
+### GET /api/collections
+
+List collections from the Hub, based on some criteria. The supported parameters are:
+- `owner` (string): filter collections created by a specific user or organization.
+- `item` (string): filter collections containing a specific item. Value must be the item_type and item_id concatenated. Example: `"models/teknium/OpenHermes-2.5-Mistral-7B"`, `"datasets/rajpurkar/squad"` or `"papers/2311.12983"`.
+- `sort` (string): sort the returned collections. Supported values are `"lastModified"`, `"trending"` (default) and `"upvotes"`.
+- `limit` (int): maximum number (100) of collections per page.
+- `q` (string): filter based on substrings for titles & descriptions.
+
+If no parameter is set, all collections are returned.
+
+The response is paginated. To get all collections, you must follow the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header).
+
+<Tip warning={true}>
+
+When listing collections, the item list per collection is truncated to 4 items maximum. To retrieve all items from a collection, you need to make an additional call using its collection slug.
+
+</Tip>
+
+Payload:
+
+```js
+params = {
+    "owner": "TheBloke",
+    "item": "models/teknium/OpenHermes-2.5-Mistral-7B",
+    "sort": "lastModified",
+    "limit" : 1,
+}
+```
+
+This is equivalent to `huggingface_hub.list_collections()`.
 
 ### PATCH /api/collections/{namespace}/{slug}-{id}
 

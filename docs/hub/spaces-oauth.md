@@ -33,7 +33,14 @@ python_version: 3.10.6
 app_file: app.py
 
 hf_oauth: true
-hf_oauth_redirect_path: /custom_callback_route # optional, see "Redirect URLs" below
+# optional, default duration is 8 hours/480 minutes. Max duration is 30 days/43200 minutes.
+hf_oauth_expiration_minutes: 480
+# optional, see "Scopes" below. "openid profile" is always included.
+hf_oauth_scopes:
+ - read-repos
+ - write-repos
+ - manage-repos
+ - inference-api
 ```
 
 You can check out the [configuration reference docs](./spaces-config-reference) for more information.
@@ -42,34 +49,39 @@ This will add the following [environment variables](https://huggingface.co/docs/
 
 - `OAUTH_CLIENT_ID`: the client ID of your OAuth app (public)
 - `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app
-- `OAUTH_SCOPES`: scopes accessible by your OAuth app. Currently, this is always `"openid profile"`.
+- `OAUTH_SCOPES`: scopes accessible by your OAuth app.
 - `OPENID_PROVIDER_URL`: The URL of the OpenID provider. The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration).
 
 As for any other environment variable, you can use them in your code by using `os.getenv("OAUTH_CLIENT_ID")`, for example.
 
 ## Redirect URLs 
 
-The allowed redirect URIs for your OAuth app are:
+You can use any redirect URL you want, as long as it targets your Space.
 
-- `https://{SPACE_HOST}/auth/callback`
-- `https://{SPACE_HOST}/login/callback`
+Note that `SPACE_HOST` is [available](https://huggingface.co/docs/hub/spaces-overview#helper-environment-variables) as an environment variable.
 
-Note that `SPACE_HOST` is also [available](https://huggingface.co/docs/hub/spaces-overview#helper-environment-variables) as an environment variable.
-
-You can add a custom relative redirect path by setting `hf_oauth_redirect_path` in your Space's metadata.
+For example, you can use `https://{SPACE_HOST}/login/callback` as a redirect URI.
 
 ## Scopes
 
-The following scopes are available:
+The following scopes are always included for Spaces:
 
 - `openid`: Get the ID token in addition to the access token.
 - `profile`: Get the user's profile information (username, avatar, etc.)
 
-You should use `"openid profile"` as the scope for your OAuth app.
+Those scopes are optional and can be added by setting `hf_oauth_scopes` in your Space's metadata:
+
+- `email`: Get the user's email address.
+- `read-repos`: Get read access to the user's personal repos.
+- `write-repos`: Get write/read access to the user's personal repos.
+- `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion.
+- `inference-api`: Get access to the [Inference API](https://huggingface.co/docs/api-inference/index), you will be able to make inference requests on behalf of the user.
 
 ## Adding the button to your Space
 
-You now have all the information to add a "Sign-in with HF" button to your Space. Some libraries ([Python](https://github.com/lepture/authlib), [NodeJS](https://github.com/panva/node-openid-client)) can help you implement the OpenID/OAuth protocol. Gradio also provides **built-in support**, making implementing the Sign-in with HF button a breeze; you can [check out the associated guide](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face).
+You now have all the information to add a "Sign-in with HF" button to your Space. Some libraries ([Python](https://github.com/lepture/authlib), [NodeJS](https://github.com/panva/node-openid-client)) can help you implement the OpenID/OAuth protocol. 
+
+Gradio and hugginface.js also provide **built-in support**, making implementing the Sign-in with HF button a breeze; you can check out the associated guides with [gradio](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face) and with [hugginface.js](https://huggingface.co/docs/huggingface.js/hub/README#oauth-login). 
 
 Basically, you need to:
 
@@ -86,4 +98,22 @@ You should use `target=_blank` on the button to open the sign-in page in a new t
 ## Examples:
 
 - [Gradio test app](https://huggingface.co/spaces/Wauplin/gradio-oauth-test)
-- [Hugging Chat (NodeJS/SvelteKit)](https://huggingface.co/spaces/coyotte508/chat-ui)
+- [Hugging Chat (NodeJS/SvelteKit)](https://huggingface.co/spaces/huggingchat/chat-ui)
+- [Inference Widgets (Auth.js/SvelteKit)](https://huggingface.co/spaces/huggingfacejs/inference-widgets), uses the `inference-api` scope to make inference requests on behalf of the user.
+- [Client-Side in a Static Space (huggingface.js)](https://huggingface.co/spaces/huggingfacejs/client-side-oauth) - very simple JavaScript example.
+
+JS Code example:
+
+```js
+import { oauthLoginUrl, oauthHandleRedirectIfPresent } from "@huggingface/hub";
+
+const oauthResult = await oauthHandleRedirectIfPresent();
+
+if (!oauthResult) {
+  // If the user is not logged in, redirect to the login page
+  window.location.href = await oauthLoginUrl();
+}
+
+// You can use oauthResult.accessToken, oauthResult.userInfo among other things
+console.log(oauthResult);
+```

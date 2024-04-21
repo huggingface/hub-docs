@@ -1,6 +1,6 @@
 # Using 🤗 `transformers` at Hugging Face
 
-🤗 `transformers` is a library with state-of-the-art Machine Learning for Pytorch, TensorFlow and JAX. It provides thousands of pretrained models to perform tasks on different modalities such as text, vision, and audio. We are a bit biased, but we really like 🤗 `transformers`!
+🤗 `transformers` is a library maintained by Hugging Face and the community, for state-of-the-art Machine Learning for Pytorch, TensorFlow and JAX. It provides thousands of pretrained models to perform tasks on different modalities such as text, vision, and audio. We are a bit biased, but we really like 🤗 `transformers`!
 
 ## Exploring 🤗 transformers in the Hub
 
@@ -33,12 +33,12 @@ All `transformer` models are a line away from being used! Depending on how you w
 ```py
 # With pipeline, just specify the task and the model id from the Hub.
 from transformers import pipeline
-pipe = pipeline("text-generation", model="distilgpt2")
+pipe = pipeline("text-generation", model="distilbert/distilgpt2")
 
 # If you want more control, you will need to define the tokenizer and model.
 from transformers import AutoTokenizer, AutoModelForCausalLM
-tokenizer = AutoTokenizer.from_pretrained("distilgpt2")
-model = AutoModelForCausalLM.from_pretrained("distilgpt2")
+tokenizer = AutoTokenizer.from_pretrained("distilbert/distilgpt2")
+model = AutoModelForCausalLM.from_pretrained("distilbert/distilgpt2")
 ```
 
 You can also load a model from a specific version (based on commit hash, tag name, or branch) as follows:

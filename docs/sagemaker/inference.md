@@ -69,7 +69,7 @@ There are two ways to deploy your Hugging Face model trained in SageMaker:
 - Deploy it after your training has finished. 
 - Deploy your saved model at a later time from S3 with the `model_data`.
 
-📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/10_deploy_model_from_s3/deploy_transformer_model_from_s3.ipynb) for an example of how to deploy a model from S3 to SageMaker for inference.
+📓 Open the [deploy_transformer_model_from_s3.ipynb notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/10_deploy_model_from_s3/deploy_transformer_model_from_s3.ipynb) for an example of how to deploy a model from S3 to SageMaker for inference.
 
 ### Deploy after training
 
@@ -243,7 +243,7 @@ After you run our request, you can delete the endpoint again with:
 predictor.delete_endpoint()
 ```
 
-📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/11_deploy_model_from_hf_hub/deploy_transformer_model_from_hf_hub.ipynb) for an example of how to deploy a model from the 🤗 Hub to SageMaker for inference.
+📓 Open the [deploy_transformer_model_from_hf_hub.ipynb notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/11_deploy_model_from_hf_hub/deploy_transformer_model_from_hf_hub.ipynb) for an example of how to deploy a model from the 🤗 Hub to SageMaker for inference.
 
 ## Run batch transform with 🤗 Transformers and SageMaker
 
@@ -277,7 +277,7 @@ from sagemaker.huggingface.model import HuggingFaceModel
 
 # Hub model configuration <https://huggingface.co/models>
 hub = {
-	'HF_MODEL_ID':'distilbert-base-uncased-finetuned-sst-2-english',
+	'HF_MODEL_ID':'distilbert/distilbert-base-uncased-finetuned-sst-2-english',
 	'HF_TASK':'text-classification'
 }
 
@@ -316,7 +316,7 @@ The `input.jsonl` looks like this:
 {"inputs":"this movie is amazing"}
 ```
 
-📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/12_batch_transform_inference/sagemaker-notebook.ipynb) for an example of how to run a batch transform job for inference.
+📓 Open the [sagemaker-notebook.ipynb notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/12_batch_transform_inference/sagemaker-notebook.ipynb) for an example of how to run a batch transform job for inference.
 
 ## User defined code and modules
 
@@ -346,25 +346,50 @@ The `inference.py` file contains your custom inference module, and the `requirem
 Here is an example of a custom inference module with `model_fn`, `input_fn`, `predict_fn`, and `output_fn`:  
 
 ```python
-def model_fn(model_dir):
-    return "model"
+from sagemaker_huggingface_inference_toolkit import decoder_encoder
 
-def input_fn(data, content_type):
-    return "data"
+def model_fn(model_dir):
+    # implement custom code to load the model
+    loaded_model = ...
+    
+    return loaded_model 
+
+def input_fn(input_data, content_type):
+    # decode the input data  (e.g. JSON string -> dict)
+    data = decoder_encoder.decode(input_data, content_type)
+    return data
 
 def predict_fn(data, model):
-    return "output"
+    # call your custom model with the data
+    outputs = model(data , ... )
+    return predictions
 
 def output_fn(prediction, accept):
-    return prediction
+    # convert the model output to the desired output format (e.g. dict -> JSON string)
+    response = decoder_encoder.encode(prediction, accept)
+    return response
 ```
 
 Customize your inference module with only `model_fn` and `transform_fn`:   
 
 ```python
+from sagemaker_huggingface_inference_toolkit import decoder_encoder
+
 def model_fn(model_dir):
-    return "loading model"
+    # implement custom code to load the model
+    loaded_model = ...
+    
+    return loaded_model 
 
 def transform_fn(model, input_data, content_type, accept):
-    return f"output"
+     # decode the input data (e.g. JSON string -> dict)
+    data = decoder_encoder.decode(input_data, content_type)
+
+    # call your custom model with the data
+    outputs = model(data , ... ) 
+
+    # convert the model output to the desired output format (e.g. dict -> JSON string)
+    response = decoder_encoder.encode(output, accept)
+
+    return response
 ```

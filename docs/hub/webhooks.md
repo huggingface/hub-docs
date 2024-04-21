@@ -44,12 +44,12 @@ As an example, here is the full payload when a Pull Request is opened:
   },
   "repo": {
     "type": "model",
-    "name": "gpt2",
+    "name": "openai-community/gpt2",
     "id": "621ffdc036468d709f17434d",
     "private": false,
     "url": {
-      "web": "https://huggingface.co/gpt2",
-      "api": "https://huggingface.co/api/models/gpt2"
+      "web": "https://huggingface.co/openai-community/gpt2",
+      "api": "https://huggingface.co/api/models/openai-community/gpt2"
     },
     "owner": {
       "id": "628b753283ef59b5be89e937"
@@ -59,8 +59,8 @@ As an example, here is the full payload when a Pull Request is opened:
     "id": "6399f58518721fdd27fc9ca9",
     "title": "Update co2 emissions",
     "url": {
-      "web": "https://huggingface.co/gpt2/discussions/19",
-      "api": "https://huggingface.co/api/models/gpt2/discussions/19"
+      "web": "https://huggingface.co/openai-community/gpt2/discussions/19",
+      "api": "https://huggingface.co/api/models/openai-community/gpt2/discussions/19"
     },
     "status": "open",
     "author": {
@@ -80,7 +80,7 @@ As an example, here is the full payload when a Pull Request is opened:
     "content": "Add co2 emissions information to the model card",
     "hidden": false,
     "url": {
-      "web": "https://huggingface.co/gpt2/discussions/19#6399f58518721fdd27fc9caa"
+      "web": "https://huggingface.co/openai-community/gpt2/discussions/19#6399f58518721fdd27fc9caa"
     }
   },
   "webhook": {
@@ -134,6 +134,29 @@ In the current version of webhooks, the top-level property `repo` is always spec
 ```
 
 `repo.headSha` is the sha of the latest commit on the repo's `main` branch. It is only sent when `event.scope` starts with `"repo"`, not on community events like discussions and comments.
+
+### Code changes
+
+On code changes, the top-level property `updatedRefs` is specified on repo events. It is an array of references that have been updated. Here is an example value:
+
+```json
+"updatedRefs": [
+  {
+    "ref": "refs/heads/main",
+    "oldSha": "ce9a4674fa833a68d5a73ec355f0ea95eedd60b7",
+    "newSha": "575db8b7a51b6f85eb06eee540738584589f131c"
+  },
+  {
+    "ref": "refs/tags/test",
+    "oldSha": null,
+    "newSha": "575db8b7a51b6f85eb06eee540738584589f131c"
+  }
+]
+```
+
+Newly created references will have `oldSha` set to `null`. Deleted references will have `newSha` set to `null`.
+
+You can react to new commits on specific pull requests, new tags, or new branches.
 
 ### Discussions and Pull Requests
 

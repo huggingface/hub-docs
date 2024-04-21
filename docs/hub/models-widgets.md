@@ -86,11 +86,11 @@ widget:
   - src: nested/directory/sample1.flac
 ```
 
-We provide example inputs for some languages and most widget types in [the DefaultWidget.ts file](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/DefaultWidget.ts). If some examples are missing, we welcome PRs from the community to add them!
+We provide example inputs for some languages and most widget types in [default-widget-inputs.ts file](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/default-widget-inputs.ts). If some examples are missing, we welcome PRs from the community to add them!
 
 ## Example outputs
 
-As an extension to example inputs, for each widget example, you can also optionally describe the corresponding model output, direcly in the `output` property.
+As an extension to example inputs, for each widget example, you can also optionally describe the corresponding model output, directly in the `output` property.
 
 This is useful when the model is not yet supported by the Inference API (for instance, the model library is not yet supported or the model is too large) so that the model page can still showcase how the model works and what results it gives.
 
@@ -103,6 +103,11 @@ widget:
     output:
       text: "Hello my name is Julien"
 ```
+
+<div class="flex justify-center">
+<img class="block dark:hidden" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-asr-light.png"/>
+<img class="hidden dark:block" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-asr-dark.png"/>
+</div>
 
 The `output` property should be a YAML dictionary that represents the Inference API output.
 
@@ -120,6 +125,11 @@ widget:
         score: 0.2
 ```
 
+<div class="flex justify-center">
+<img class="block dark:hidden" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-textcls-light.png"/>
+<img class="hidden dark:block" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-textcls-dark.png"/>
+</div>
+
 Finally, for a model that outputs an image, audio, or any other kind of asset, the output should include a `url` property linking to either a file name or path inside the repo or a remote URL. For example, for a text-to-image model:
 
 ```yaml
@@ -129,26 +139,31 @@ widget:
       url: images/tiger.jpg
 ```
 
-<!-- todo(add a screenshot) -->
+<div class="flex justify-center">
+<img class="block dark:hidden" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-text2img-light.png"/>
+<img class="hidden dark:block" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-text2img-dark.png"/>
+</div>
 
 We can also surface the example outputs in the Hugging Face UI, for instance, for a text-to-image model to display a gallery of cool image generations.
 
-<!-- todo(add a screenshot) -->
+<div class="flex justify-center">
+<img width="650" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
+</div>
 
 ## What are all the possible task/widget types?
 
-You can find all the supported tasks [here](https://github.com/huggingface/hub-docs/blob/main/js/src/lib/interfaces/Types.ts).
+You can find all the supported tasks in [pipelines.ts file](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/pipelines.ts).
 
 Here are some links to examples:
 
-- `text-classification`, for instance [`roberta-large-mnli`](https://huggingface.co/roberta-large-mnli)
+- `text-classification`, for instance [`FacebookAI/roberta-large-mnli`](https://huggingface.co/FacebookAI/roberta-large-mnli)
 - `token-classification`, for instance [`dbmdz/bert-large-cased-finetuned-conll03-english`](https://huggingface.co/dbmdz/bert-large-cased-finetuned-conll03-english)
-- `question-answering`, for instance [`distilbert-base-uncased-distilled-squad`](https://huggingface.co/distilbert-base-uncased-distilled-squad)
-- `translation`, for instance [`t5-base`](https://huggingface.co/t5-base)
+- `question-answering`, for instance [`distilbert/distilbert-base-uncased-distilled-squad`](https://huggingface.co/distilbert/distilbert-base-uncased-distilled-squad)
+- `translation`, for instance [`google-t5/t5-base`](https://huggingface.co/google-t5/t5-base)
 - `summarization`, for instance [`facebook/bart-large-cnn`](https://huggingface.co/facebook/bart-large-cnn)
 - `conversational`, for instance [`facebook/blenderbot-400M-distill`](https://huggingface.co/facebook/blenderbot-400M-distill)
-- `text-generation`, for instance [`gpt2`](https://huggingface.co/gpt2)
-- `fill-mask`, for instance [`distilroberta-base`](https://huggingface.co/distilroberta-base)
+- `text-generation`, for instance [`openai-community/gpt2`](https://huggingface.co/openai-community/gpt2)
+- `fill-mask`, for instance [`distilbert/distilroberta-base`](https://huggingface.co/distilbert/distilroberta-base)
 - `zero-shot-classification` (implemented on top of a nli `text-classification` model), for instance [`facebook/bart-large-mnli`](https://huggingface.co/facebook/bart-large-mnli)
 - `table-question-answering`, for instance [`google/tapas-base-finetuned-wtq`](https://huggingface.co/google/tapas-base-finetuned-wtq)
 - `sentence-similarity`, for instance [`osanseviero/full-sentence-distillroberta2`](/osanseviero/full-sentence-distillroberta2)

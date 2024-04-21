@@ -11,7 +11,7 @@ We conducted a user study, with the aim of validating a literature informed mode
 
 During our examination of the state of the art of model cards, which noted recurring sections from the top ~100 downloaded models on the hub that had model cards. From this analysis we catalogued the top recurring model card sections and recurring information, this coupled with the structure of the Bloom model card, lead us to the initial version of a standard model card structure. 
 
-As we began to structure our user studies, two variations of model cards - that made use of the [initial model card structure](http://github.com/huggingface/hub-docs/docs/hub/model-card-annotated.md) - were used as interactive demonstrations. The aim of these demo’s was to understand not only the different user perspectives on the visual elements of the model card’s but also the content presented to users. The {desired} outcome would enable us to further understand  what makes a model card both easier to read, still providing some level of interactivity within the model cards, all while presenting the information in an easily understandable [approachable] manner.
+As we began to structure our user studies, two variations of model cards - that made use of the [initial model card structure](./model-card-annotated) - were used as interactive demonstrations. The aim of these demo’s was to understand not only the different user perspectives on the visual elements of the model card’s but also the content presented to users. The {desired} outcome would enable us to further understand  what makes a model card both easier to read, still providing some level of interactivity within the model cards, all while presenting the information in an easily understandable [approachable] manner.
 
 * **Stakeholder Perspectives**
 
@@ -60,7 +60,7 @@ We selected people from a variety of different backgrounds relevant to machine l
 ### Feedback on Specific Model Card Formats
 
 #### Format 1: 
-**Current [distilgpt2 model card](https://huggingface.co/distilgpt2) on the Hub**
+**Current [distilbert/distilgpt2 model card](https://huggingface.co/distilbert/distilgpt2) on the Hub**
 
 **Insights:**
 
@@ -111,3 +111,10 @@ We want to acknowledge and thank [Bibi Ofuya](https://www.figma.com/proto/qrPCjW
 
 
 [^1]: See https://towardsdatascience.com/dag-card-is-the-new-model-card-70754847a111
+
+
+---
+
+**Please cite as:**
+Ozoani, Ezi and Gerchick, Marissa and Mitchell, Margaret. Model Card Guidebook. Hugging Face, 2022. https://huggingface.co/docs/hub/en/model-card-guidebook
+

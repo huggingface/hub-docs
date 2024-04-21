@@ -6,7 +6,7 @@ The get started guide will show you how to quickly use Hugging Face on Amazon Sa
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pYqjCzoyWyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/sagemaker-notebook.ipynb) to follow along!
+📓 Open the [agemaker-notebook.ipynb file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/sagemaker-notebook.ipynb) to follow along!
 
 ## Installation and setup
 
@@ -55,7 +55,7 @@ from transformers import AutoTokenizer
 train_dataset, test_dataset = load_dataset("imdb", split=["train", "test"])
 
 # load tokenizer
-tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+tokenizer = AutoTokenizer.from_pretrained("distilbert/distilbert-base-uncased")
 
 # create tokenization function
 def tokenize(batch):
@@ -90,7 +90,7 @@ test_dataset.save_to_disk(test_input_path)
 
 Create a Hugging Face Estimator to handle end-to-end SageMaker training and deployment. The most important parameters to pay attention to are:
 
-* `entry_point` refers to the fine-tuning script which you can find [here](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py).
+* `entry_point` refers to the fine-tuning script which you can find in [train.py file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py).
 * `instance_type` refers to the SageMaker instance that will be launched. Take a look [here](https://aws.amazon.com/sagemaker/pricing/) for a complete list of instance types.
 * `hyperparameters` refers to the training hyperparameters the model will be fine-tuned with.
 
@@ -98,9 +98,9 @@ Create a Hugging Face Estimator to handle end-to-end SageMaker training and depl
 from sagemaker.huggingface import HuggingFace
 
 hyperparameters={
-    "epochs": 1,                            # number of training epochs
-    "train_batch_size": 32,                 # training batch size
-    "model_name":"distilbert-base-uncased"  # name of pretrained model
+    "epochs": 1,                                       # number of training epochs
+    "train_batch_size": 32,                            # training batch size
+    "model_name":"distilbert/distilbert-base-uncased"  # name of pretrained model
 }
 
 huggingface_estimator = HuggingFace(
