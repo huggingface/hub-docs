@@ -76,6 +76,7 @@ A full list of the available licenses is available here:
 | Lesser General Public License For Linguistic Resources         | `lgpl-lr`                                |
 | DeepFloyd IF Research License Agreement                        | `deepfloyd-if-license`                   |
 | Llama 2 Community License Agreement                            | `llama2`                                 | <!-- license: https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/blob/main/LICENSE.txt -->
+| Llama 3 Community License Agreement                            | `llama3`                                 | <!-- license: https://huggingface.co/meta-llama/Meta-Llama-3-8B/blob/main/LICENSE -->
 | Gemma Terms of Use                                             | `gemma`                                  | <!-- license: https://ai.google.dev/gemma/terms -->
 | Unknown                                                        | `unknown`                                |
 | Other                                                          | `other`                                  |
