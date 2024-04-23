@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "docs/hub/**"
+      - ".github/workflows/build_pr_documentation.yml"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -19,4 +20,5 @@ jobs:
       package_name: hub
       path_to_docs: hub-docs/docs/hub/
       additional_args: --not_python_module
+      doc_builder_revision: update_on_github
 
