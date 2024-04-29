@@ -9,7 +9,7 @@ Llama.cpp directly allows you to download and run inference on a GGUF simply by 
   -p "I believe the meaning of life is " -n 128
 ```
 
-Replace `--hf-repo` with any valid Hugging Face hub repo name and `-m` with the GGUF file name - off you go! 🦙
+Replace `--hf-repo` with any valid Hugging Face hub repo name and `-m` with the GGUF file name in the hub repo - off you go! 🦙
 
 Find more information [here](https://github.com/ggerganov/llama.cpp/pull/6234).
 
