@@ -1,19 +1,16 @@
 # GGUF usage with llama.cpp
 
-Llama.cpp has a helper script, [`scripts/hf.sh`](https://github.com/ggerganov/llama.cpp/blob/master/scripts/hf.sh), that makes it easy to download GGUF files from Hugging Face Hub. You can use it with a repo and file name, or with a URL to the GGUF file entry on the Hub:
+Llama.cpp directly allows you to download and run inference on a GGUF simply by providing a path to the Hugging Face repo path and the file name. llama.cpp would download the model checkpoint in the directory you invoke it from:
 
 ```bash
 ./main \
-  -m $(./scripts/hf.sh --repo TheBloke/Mixtral-8x7B-v0.1-GGUF --file mixtral-8x7b-v0.1.Q4_K_M.gguf) \
-  -p "I believe the meaning of life is" -n 64
-
-./main \
-  -m $(./scripts/hf.sh https://huggingface.co/TheBloke/Mixtral-8x7B-v0.1-GGUF/blob/main/mixtral-8x7b-v0.1.Q4_K_M.gguf) \
-  -p "I believe the meaning of life is" -n 64
-
-./main \
-  -m $(./scripts/hf.sh --url https://huggingface.co/TheBloke/Mixtral-8x7B-v0.1-GGUF/blob/main/mixtral-8x7b-v0.1.Q4_K_M.gguf) \
-  -p "I believe the meaning of life is" -n 64
+  --hf-repo lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF \
+  -m Meta-Llama-3-8B-Instruct-Q8_0.gguf \
+  -p "I believe the meaning of life is " -n 128
 ```
 
-Find more information [here](https://github.com/ggerganov/llama.cpp/pull/5501).
+Replace `--hf-repo` with any valid Hugging Face hub repo name and off you go! 🦙
+
+Find more information [here](https://github.com/ggerganov/llama.cpp/pull/6234).
+
+Note: Remember to `build` llama.cpp with `LLAMA_CURL=ON` :)
