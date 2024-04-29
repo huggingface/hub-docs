@@ -1,6 +1,6 @@
 # GGUF usage with llama.cpp
 
-Llama.cpp now directly allows you to download aand run inference on a GGUF simply by providing a path to the Hugging Face repo path and the file name. llama.cpp would download the model checkpoint in the directory you invoke it from:
+Llama.cpp directly allows you to download and run inference on a GGUF simply by providing a path to the Hugging Face repo path and the file name. llama.cpp would download the model checkpoint in the directory you invoke it from:
 
 ```bash
 ./main \
