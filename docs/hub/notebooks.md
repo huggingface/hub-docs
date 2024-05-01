@@ -12,4 +12,4 @@ Notebooks will be rendered when included in any type of repository on the Hub. T
 
 ## Launch in Google Colab
 
-[Google Colab](https://colab.google/) is a free Jupyter Notebook environment that requires no setup and runs entirely in the cloud. It's a great way to run Jupyter Notebooks without having to install anything on your local machine. Notebooks hosted on the Hub are automatically given a launch in [Google Colab](https://colab.research.google.com/) button. This allows you to open the notebook in Colab with a single click.
+[Google Colab](https://colab.google/) is a free Jupyter Notebook environment that requires no setup and runs entirely in the cloud. It's a great way to run Jupyter Notebooks without having to install anything on your local machine. Notebooks hosted on the Hub are automatically given a "launch in Google Colab" button. This allows you to open the notebook in Colab with a single click.
