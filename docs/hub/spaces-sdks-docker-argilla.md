@@ -44,6 +44,7 @@ The Space is configured with **two users**: **argilla** and **admin** with the s
 <Tip>
 For quick experimentation, you can jump directly into the next section. If you want to secure your space and for longer-term usage, setting up secret variables is recommended.
 </Tip>
+
 ## Setting up secret environment variables
 
 The Space template provides a way to set up different **optional settings** focusing on securing your Argilla Space.
