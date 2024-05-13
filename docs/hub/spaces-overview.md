@@ -74,7 +74,7 @@ Secrets are private and their value cannot be read from the Space's settings onc
 - For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management)
 - For Streamlit Spaces, secrets are exposed to your app through [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/), and public variables are directly available as environment variables
 
-For other Spaces, both are exposed to your app as environment variables. Here is a very simple example of accessing the previously declared `MODEL_REPO_ID` variable with `python` (it would be the same for secrets):
+For other Spaces, both are exposed to your app as environment variables. Here is a very simple example of accessing the previously declared `MODEL_REPO_ID` variable in Python (it would be the same for secrets):
 ```py
 import os
 print(os.environ['MODEL_REPO_ID'])
