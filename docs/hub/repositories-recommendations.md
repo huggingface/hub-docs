@@ -77,3 +77,4 @@ We also have a strong preference for the following:
 
 - Using file formats that are well integrated with the Hugging Face ecosystem. We have good support for [Parquet](https://huggingface.co/docs/datasets/main/en/loading) and [WebDataset](https://huggingface.co/docs/datasets/main/en/loading#webdataset) formats, which are often good options for sharing large datasets efficiently. This will also ensure the dataset viewer works for your dataset.
 - Avoid the use of custom loading scripts when using datasets. In our experience, datasets that require custom code to use often end up with limited reuse.
+Please get in touch with us if any of these requirements are difficult for you to meet because of the type of data or domain you are working in.
