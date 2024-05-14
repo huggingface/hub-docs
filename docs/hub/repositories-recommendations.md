@@ -59,7 +59,7 @@ adding around 50-100 files per commit.
 
 ## Sharing large datasets on the Hub
 
-One key way in which Hugging Face supports the machine learning ecosystem is by hosting datasets on the Hub, including very large datasets. To ensure we can effectively support the open source ecosystem, we ask that you let us know in advance via datasets@huggingface.co or on [our Discord](http://hf.co/join/discord) if you are uploading datasets above a couple of hundred GBs or even TBs of data.
+One key way in which Hugging Face supports the machine learning ecosystem is by hosting datasets on the Hub, including very large datasets. To ensure we can effectively support the open-source ecosystem, we ask that you let us know in advance via datasets at huggingface.co or on [our Discord](http://hf.co/join/discord) if you are uploading datasets above a couple of hundred GBs or TBs of data.
 
 When you get in touch with us, please let us know:
 
