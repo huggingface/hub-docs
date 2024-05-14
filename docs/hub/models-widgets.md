@@ -188,4 +188,4 @@ inference:
     temperature: 0.7
 ``` 
 
-The Inference API allows you to send HTTP requests to models in the Hugging Face Hub, and it's 2x to 10x faster than the widgets! ⚡⚡ Learn more about it by reading the [Inference API documentation](./models-inference). Finally, you can also deploy all those models to dedicated [Inference Endpoints](https://huggingface.co/docs/inference-endpoints).
+The Serverless inference API allows you to send HTTP requests to models in the Hugging Face Hub programatically. ⚡⚡ Learn more about it by reading the [Inference API documentation](./models-inference). Finally, you can also deploy all those models to dedicated [Inference Endpoints](https://huggingface.co/docs/inference-endpoints).
