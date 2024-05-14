@@ -57,3 +57,22 @@ happen (in rare cases) that even if the timeout is raised client-side, the proce
 completed server-side. This can be checked manually by browsing the repo on the Hub. To prevent this timeout, we recommend
 adding around 50-100 files per commit.
 
+## Sharing large datasets on the Hub
+One of the key ways in which Hugging Face supports the machine learning ecosystem is by hosting datasets on the Hub, including very large datasets. To ensure we can effectively support the open source ecosystem we ask that if you are uploading a datasets above a couple of hundreds GBs or even TBs of data that you let us know in advance via datasets@huggingface.co or on [our Discord](http://hf.co/join/discord).
+
+When you get in touch with us, please let us know:
+
+- What the dataset is and who/what it is likely to be useful for.
+- The size of the dataset.
+- The format you plan to use for sharing your dataset.
+
+For hosting large datasets on the Hub we require the following for your dataset:
+
+- A dataset card: we want to ensure that your dataset can be used effectively by the community and one of the key ways of enabling this is via a dataset card. This [guidance](docs/hub/datasets-cards.md) provides an overview of how to write a dataset card.
+- That you are sharing the dataset with the goal of enabling reuse by the community. If you are planning to store a dataset that you anticipate won't have any further reuse then other platforms are likely to be more suitable.
+- That you follow the repository limitations outlined above.
+
+We also have a strong preference for the following:
+
+- Using file formats that are well integrated with the Hugging Face ecosystem. We have good support for [Parquet](https://huggingface.co/docs/datasets/v2.19.0/en/loading#parquet) and [WebDataset](https://huggingface.co/docs/datasets/v2.19.0/en/loading#webdataset) formats and these are often good options for sharing large datasets efficiently. This will also ensure the datasets viewer works for your dataset.
+- Avoiding the use of custom loading scripts for using datasets. In our experience datasets which require custom code to use often end up with limited reuse.
