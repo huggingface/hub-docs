@@ -35,7 +35,7 @@ The currently supported scopes are:
 - `write-repos`: Get write/read access to the user's personal repos.
 - `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion.
 - `inference-api`: Get access to the [Inference API](https://huggingface.co/docs/api-inference/index), you will be able to make inference requests on behalf of the user.
-- `write-discussions`: Open discussions and pull requests on behalf of the user, and interact with discussions.
+- `write-discussions`: Open discussions and Pull Requests on behalf of the user as well as interact with discussions.
 
 All other information is available in the [OpenID metadata](https://huggingface.co/.well-known/openid-configuration).
 
