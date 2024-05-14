@@ -35,7 +35,7 @@ In this case, an informational message lets you know that the Viewer is partial.
 
 ## Access the parquet files
 
-To power the dataset viewer, the first 5GB of every dataset are auto-converted to the Parquet format (unless it was already a Parquet dataset). In the dataset viewer (for example, see [GLUE](https://huggingface.co/datasets/nyu-mll/glue)), you can click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/nyu-mll/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Please, refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
+To power the dataset viewer, the first 5GB of every dataset are auto-converted to the Parquet format (unless it was already a Parquet dataset). In the dataset viewer (for example, see [GLUE](https://huggingface.co/datasets/nyu-mll/glue)), you can click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/nyu-mll/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Please, refer to the [dataset viewer docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
 
 <Tip>
 
