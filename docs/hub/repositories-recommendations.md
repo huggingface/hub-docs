@@ -72,9 +72,7 @@ For hosting large datasets on the Hub, we require the following for your dataset
 - A dataset card: we want to ensure that your dataset can be used effectively by the community and one of the key ways of enabling this is via a dataset card. This [guidance](docs/hub/datasets-cards.md) provides an overview of how to write a dataset card.
 - You are sharing the dataset to enable community reuse. If you plan to upload a dataset you anticipate won't have any further reuse, other platforms are likely more suitable.
 - You must follow the repository limitations outlined above.
-
-We also have a strong preference for the following:
-
-- Using file formats that are well integrated with the Hugging Face ecosystem. We have good support for [Parquet](https://huggingface.co/docs/datasets/main/en/loading) and [WebDataset](https://huggingface.co/docs/datasets/main/en/loading#webdataset) formats, which are often good options for sharing large datasets efficiently. This will also ensure the dataset viewer works for your dataset.
+- Using file formats that are well integrated with the Hugging Face ecosystem. We have good support for [Parquet](https://huggingface.co/docs/datasets/v2.19.0/en/loading#parquet) and [WebDataset](https://huggingface.co/docs/datasets/v2.19.0/en/loading#webdataset) formats, which are often good options for sharing large datasets efficiently. This will also ensure the dataset viewer works for your dataset.
 - Avoid the use of custom loading scripts when using datasets. In our experience, datasets that require custom code to use often end up with limited reuse.
+
 Please get in touch with us if any of these requirements are difficult for you to meet because of the type of data or domain you are working in.
