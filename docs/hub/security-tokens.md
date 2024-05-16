@@ -11,6 +11,8 @@ User Access Tokens are the preferred way to authenticate an application or noteb
 
 Access tokens allow applications and notebooks to perform specific actions specified by the scope of the roles shown in the following:
 
+- `fine-grained`: tokens with this role can be used to provide fine-grained access to specific resources, such as a specific model or models in a specific organization. This type of token is useful in production environments, as you can use your own token without sharing access to all your resources.
+
 - `read`: tokens with this role can only be used to provide read access to repositories you could read. That includes public and private repositories that you, or an organization you're a member of, own. Use this role if you only need to read content from the Hugging Face Hub (e.g. when downloading private models or doing inference).
 
 - `write`: tokens with this role additionally grant write access to the repositories you have write access to. Use this token if you need to create or push content to a repository (e.g., when training a model or modifying a model card).
@@ -72,4 +74,6 @@ We recommend you create one access token per app or usage. For instance, you cou
  
  This way, you can invalidate one token without impacting your other usages.
 
-We also recommend only giving the appropriate role to each token you create. If you only need read access (e.g., loading a dataset with the `datasets` library or retrieving the weights of a model), only give your access token the `read` role.
+We also recommend only using fine-grained tokens for production usage. The impact, if leaked, will be reduced, and they can be shared among your organization without impacting your account.
+
+For example, if your production application needs read access to a gated model, a member of your organization can request access to the model and then create a fine-grained token with read access to that model. This token can then be used in your production application without giving it access to all your private models.
