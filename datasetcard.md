@@ -33,9 +33,13 @@ task_ids:
 - {subtask_0}  # Example: extractive-qa
 - {subtask_1}  # Example: multi-class-image-classification
 paperswithcode_id: {paperswithcode_id}  # Dataset id on PapersWithCode (from the URL). Example for SQuAD: squad
-configs:  # Optional for datasets with multiple configurations like glue.
-- {config_0}  # Example for glue: sst2
-- {config_1}  # Example for glue: cola
+configs:  # Optional for datasets with multiple configurations.
+  - config_name: default
+    data_files:
+      - split: train
+        path: "data.csv"
+      - split: test
+        path: "holdout.csv"
 
 # Optional. This part can be used to store the feature types and size of the dataset to be used in python. This can be automatically generated using the datasets-cli.
 dataset_info:
