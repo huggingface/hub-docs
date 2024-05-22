@@ -66,9 +66,13 @@ If your app requires environment variables (for instance, secret keys or tokens)
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets-and-variables-dark.png"/>
 </div>
 
-Variables are publicly accessible and viewable and will be automatically added to Spaces duplicated from your repository.
+You can use:
 
-Secrets are private and their value cannot be read from the Space's settings once set. They won't be added to Spaces duplicated from your repository.
+* **Variables** if you need to store non-sensitive configuration values. They are publicly accessible and viewable and will be automatically added to Spaces duplicated from yours.
+* **Secrets** to store access tokens, API keys, or any sensitive values or credentials. They are private and their value cannot be read from the Space's settings page once set. They won't be added to Spaces duplicated from your repository.
+
+
+Accessing secrets and variables is different depending on your Space SDK:
 
 - For Static Spaces, both are available through client-side JavaScript in `window.huggingface.variables`
 - For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management)
@@ -77,10 +81,10 @@ Secrets are private and their value cannot be read from the Space's settings onc
 For other Spaces, both are exposed to your app as environment variables. Here is a very simple example of accessing the previously declared `MODEL_REPO_ID` variable in Python (it would be the same for secrets):
 ```py
 import os
-print(os.environ['MODEL_REPO_ID'])
+print(os.getenv['MODEL_REPO_ID'])
 ```
 
-Users are warned when our `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
+Spaces owners are warned when our `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
 
 ## Duplicating a Space
 
