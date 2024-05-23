@@ -163,11 +163,9 @@
         title: Dask
       - local: datasets-usage
         title: Datasets
-      - local: datasets-duckdb
+      - local: datasets-duckdb-cli
         title: DuckDB
         sections:
-          - local: datasets-duckdb-cli
-            title: DuckDB CLI
           - local: datasets-duckdb-cli-auth
             title: Authentication for private and gated datasets
           - local: datasets-duckdb-cli-select
