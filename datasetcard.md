@@ -40,7 +40,10 @@ configs:  # Optional. This can be used to pass additional parameters to the data
     path: {file_path_0}  # Example: data.csv
   - split: {split_name_1}  # Example: test
     path: {file_path_1}   # Example: holdout.csv
-- config_name: {config_name_1}  # Example: ...
+- config_name: {config_name_1}  # Example: processed
+  data_files:
+  - split: {split_name_3}  # Example: train
+    path: {file_path_3}  # Example: data_processed.csv
 
 # Optional. This part can be used to store the feature types and size of the dataset to be used in python. This can be automatically generated using the datasets-cli.
 dataset_info:
