@@ -165,6 +165,19 @@
         title: Datasets
       - local: datasets-duckdb
         title: DuckDB
+        sections:
+          - local: datasets-duckdb-cli
+            title: DuckDB CLI
+          - local: datasets-duckdb-cli-auth
+            title: Authentication for private and gated datasets
+          - local: datasets-duckdb-cli-select
+            title: Query datasets
+          - local: datasets-duckdb-cli-sql
+            title: Perform SQL operations
+          - local: datasets-duckdb-cli-combine-and-export
+            title: Combine datasets and export
+          - local: datasets-duckdb-cli-vector-similarity-search
+            title: Perform vector similarity search
       - local: datasets-pandas
         title: Pandas
       - local: datasets-webdataset
