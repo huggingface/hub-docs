@@ -92,13 +92,6 @@ You can also export to [CSV](https://duckdb.org/docs/guides/file_formats/csv_exp
 
 </Tip>
 
-Finally, let's push the resulting dataset to the Hub using the [Datasets](https://huggingface.co/docs/datasets/index) library in Python:
-
-```python
-from datasets import load_dataset
-
-dataset = load_dataset("parquet", data_files="output.parquet")
-dataset.push_to_hub("asoria/duckdb_combine_demo")
-```
+Finally, let's push the resulting dataset to the Hub. You can use the Hub UI, the `huggingface_hub` client library and more to upload your Parquet file, see more information [here](./datasets-adding).
 
 And that's it! You've successfully combined two datasets, exported the result, and uploaded it to the Hugging Face Hub.
