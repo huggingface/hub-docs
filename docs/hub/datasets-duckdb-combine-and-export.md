@@ -1,7 +1,6 @@
 # Combine datasets and export
 
-In this section, we'll combine two datasets and export the result. Let's start with our datasets:
-
+In this section, we'll demonstrate how to combine two datasets and export the result. The first dataset is in CSV format, and the second dataset is in Parquet format. Let's start by examining our datasets:
 
 The first will be [TheFusion21/PokemonCards](https://huggingface.co/datasets/TheFusion21/PokemonCards):
 

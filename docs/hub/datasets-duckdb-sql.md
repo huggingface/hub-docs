@@ -13,9 +13,9 @@ FROM 'hf://datasets/cais/mmlu/all/test-*.parquet' USING SAMPLE 3;
 │       question       │       subject        │                                                                         choices                                                                          │ answer │
 │       varchar        │       varchar        │                                                                        varchar[]                                                                         │ int64  │
 ├──────────────────────┼──────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────┤
-│ Dr. Harry Holliday…  │ professional_psych…  │ [discuss his vacation plans with his current clients ahead of time so that they know he’ll be unavailable during that time., give his clients a phone …  │      2 │
-│ A resident of a st…  │ professional_law     │ [The resident would succeed, because the logging company's selling of the timber would entitle the resident to re-enter and terminate the grant to the…  │      2 │
-│ Moderate and frequ…  │ miscellaneous        │ [dispersed alluvial fan soil, heavy-textured soil, such as silty clay, light-textured soil, such as loamy sand, region of low humidity]                  │      2 │
+│ The model of light…  │ conceptual_physics   │ [wave model, particle model, Both of these, Neither of these]                                                                                            │      1 │
+│ A person who is lo…  │ professional_psych…  │ [his/her life scripts., his/her own feelings, attitudes, and beliefs., the emotional reactions and behaviors of the people he/she is interacting with.…  │      1 │
+│ The thermic effect…  │ nutrition            │ [is substantially higher for carbohydrate than for protein, is accompanied by a slight decrease in body core temperature., is partly related to sympat…  │      2 │
 └──────────────────────┴──────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────┘
 
 ```

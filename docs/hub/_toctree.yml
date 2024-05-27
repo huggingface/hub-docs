@@ -163,18 +163,18 @@
         title: Dask
       - local: datasets-usage
         title: Datasets
-      - local: datasets-duckdb-cli
+      - local: datasets-duckdb
         title: DuckDB
         sections:
-          - local: datasets-duckdb-cli-auth
+          - local: datasets-duckdb-auth
             title: Authentication for private and gated datasets
-          - local: datasets-duckdb-cli-select
+          - local: datasets-duckdb-select
             title: Query datasets
-          - local: datasets-duckdb-cli-sql
+          - local: datasets-duckdb-sql
             title: Perform SQL operations
-          - local: datasets-duckdb-cli-combine-and-export
+          - local: datasets-duckdb-combine-and-export
             title: Combine datasets and export
-          - local: datasets-duckdb-cli-vector-similarity-search
+          - local: datasets-duckdb-vector-similarity-search
             title: Perform vector similarity search
       - local: datasets-pandas
         title: Pandas

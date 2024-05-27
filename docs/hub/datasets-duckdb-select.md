@@ -55,18 +55,32 @@ Select using [read_parquet](https://duckdb.org/docs/guides/file_formats/query_pa
 
 ```bash
 SELECT * FROM read_parquet('hf://datasets/jamescalam/world-cities-geo@~parquet/default/**/*.parquet') LIMIT 3;
+
+┌────────────────┬─────────────┬───────────────┬───────────┬────────────┬────────────┬────────────────────┬───────────────────┬────────────────────┐
+│      city      │   country   │    region     │ continent │  latitude  │ longitude  │         x          │         y         │         z          │
+│    varchar     │   varchar   │    varchar    │  varchar  │   double   │   double   │       double       │      double       │       double       │
+├────────────────┼─────────────┼───────────────┼───────────┼────────────┼────────────┼────────────────────┼───────────────────┼────────────────────┤
+│ Kabul          │ Afghanistan │ Southern Asia │ Asia      │ 34.5166667 │ 69.1833344 │  1865.546409629258 │ 4906.785732164055 │ 3610.1012966606136 │
+│ Kandahar       │ Afghanistan │ Southern Asia │ Asia      │      31.61 │ 65.6999969 │  2232.782351694877 │ 4945.064042683584 │  3339.261233224765 │
+│ Mazar-e Sharif │ Afghanistan │ Southern Asia │ Asia      │ 36.7069444 │ 67.1122208 │ 1986.5057687360124 │  4705.51748048584 │  3808.088900172991 │
+└────────────────┴─────────────┴───────────────┴───────────┴────────────┴────────────┴────────────────────┴───────────────────┴────────────────────┘
+
 ```
 
 Read all files that match a glob pattern and include a filename column specifying which file each row came from:
 
 ```bash
-SELECT * FROM read_parquet('hf://datasets/jamescalam/world-cities-geo@~parquet/default/**/*.parquet', filename = true) LIMIT 3;
-```
+SELECT city, country, filename FROM read_parquet('hf://datasets/jamescalam/world-cities-geo@~parquet/default/**/*.parquet', filename = true) LIMIT 3;
 
-Using [`parquet_scan`](https://duckdb.org/docs/data/parquet/overview) function:
+┌────────────────┬─────────────┬───────────────────────────────────────────────────────────────────────────────┐
+│      city      │   country   │                                   filename                                    │
+│    varchar     │   varchar   │                                    varchar                                    │
+├────────────────┼─────────────┼───────────────────────────────────────────────────────────────────────────────┤
+│ Kabul          │ Afghanistan │ hf://datasets/jamescalam/world-cities-geo@~parquet/default/train/0000.parquet │
+│ Kandahar       │ Afghanistan │ hf://datasets/jamescalam/world-cities-geo@~parquet/default/train/0000.parquet │
+│ Mazar-e Sharif │ Afghanistan │ hf://datasets/jamescalam/world-cities-geo@~parquet/default/train/0000.parquet │
+└────────────────┴─────────────┴───────────────────────────────────────────────────────────────────────────────┘
 
-```bash
-SELECT * FROM parquet_scan('hf://datasets/jamescalam/world-cities-geo@~parquet/default/**/*.parquet') LIMIT 3;
 ```
 
 ## Get metadata and schema

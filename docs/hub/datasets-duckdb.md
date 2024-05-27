@@ -11,7 +11,7 @@ For installation details, visit the [installation page](https://duckdb.org/docs/
 
 </Tip>
 
-Starting from version `v0.10.3`, the DuckDB CLI includes native support for accessing datasets on the Hugging Face Hub via URLs. Here are some features you can leverage with this powerful tool:
+Starting from version `v0.10.3`, the DuckDB CLI includes native support for accessing datasets on the Hugging Face Hub via URLs with the `hf://` scheme. Here are some features you can leverage with this powerful tool:
 
 - Query public datasets and your own gated and private datasets
 - Analyze datasets and perform SQL operations
@@ -42,7 +42,19 @@ hf://datasets/{my-username}/{my-dataset}/{path_to_file}
 
 <Tip>
 
-You can query auto-converted Parquet files using the @~parquet branch, which corresponds to the refs/convert/parquet revision. For more details, refer to the documentation at https://huggingface.co/docs/datasets-server/en/parquet#conversion-to-parquet.
+You can query auto-converted Parquet files using the @~parquet branch, which corresponds to the `refs/convert/parquet` revision. For more details, refer to the documentation at https://huggingface.co/docs/datasets-server/en/parquet#conversion-to-parquet.
+
+To reference the `refs/convert/parquet` revision of a dataset, use the following syntax:
+
+```plaintext
+hf://datasets/{my-username}/{my-dataset}@~parquet/{path_to_file} 
+```
+
+Here is a sample URL following the above syntax:
+
+```plaintext
+hf://datasets/ibm/duorc@~parquet/ParaphraseRC/test/0000.parquet
+```
 
 </Tip>
 
