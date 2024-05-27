@@ -144,7 +144,7 @@ WHERE  subject = 'nutrition' AND LENGTH(correct_answer) > 0 LIMIT 3;
 
 ```
 
-Finally, lets hightlight some of the DuckDB functions used in this section:
+Finally, lets highlight some of the DuckDB functions used in this section:
 - `DESCRIBE`, returns the table schema.
 - `USING SAMPLE`, samples are used to randomly select a subset of a dataset.
 - `BAR`, draws a band whose width is proportional to (x - min) and equal to width characters when x = max. Width defaults to 80.

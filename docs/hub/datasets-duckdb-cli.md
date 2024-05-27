@@ -1,7 +1,7 @@
 # DuckDB
 
 [DuckDB](https://github.com/duckdb/duckdb) is an in-process SQL [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) database management system.
-Since it supports [fsspec](https://filesystem-spec.readthedocs.io) to read and write remote data, you can use the Hugging Face paths ([`hf://`](https://huggingface.co/docs/huggingface_hub/guides/hf_file_system#integrations)) to read and write data on the Hub:
+You can use the Hugging Face paths (`hf://`) to access data on the Hub:
 
 The [DuckDB CLI](https://duckdb.org/docs/api/cli/overview.html) (Command Line Interface) is a single, dependency-free executable. 
 
@@ -27,12 +27,12 @@ To start the CLI, execute the following command in the installation folder:
 ./duckdb
 ```
 
-## Forming the Hugging Face URL
+## Forging the Hugging Face URL
 
 To access Hugging Face datasets, use the following URL format:
 
 ```plaintext
-hf://datasets/{my-username}/{my-dataset}/{path_to_parquet_file} 
+hf://datasets/{my-username}/{my-dataset}/{path_to_file} 
 ```
 
 - **my-username**, the user or organization of the dataset, e.g. `ibm`

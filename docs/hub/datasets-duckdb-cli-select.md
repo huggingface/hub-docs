@@ -2,7 +2,7 @@
 
 Querying datasets is a fundamental step in data analysis. Here, we'll guide you through querying datasets using various methods.
 
-There are several [different ways](https://duckdb.org/docs/data/parquet/overview.html) to select your data.
+There are [several ways](https://duckdb.org/docs/data/parquet/overview.html) to select your data.
 
 Using the `FROM` syntax:
 ```bash
@@ -35,7 +35,7 @@ SELECT city, country, region FROM 'hf://datasets/jamescalam/world-cities-geo/tra
 
 ```
 
-Count all parquet files matching a glob pattern:
+Count all JSONL files matching a glob pattern:
 
 ```bash
 SELECT COUNT(*) FROM 'hf://datasets/jamescalam/world-cities-geo/*.jsonl';
@@ -49,7 +49,7 @@ SELECT COUNT(*) FROM 'hf://datasets/jamescalam/world-cities-geo/*.jsonl';
 
 ```
 
-You can also query Parquet files using the read_parquet and parquet_scan functions. Let's explore these functions using the auto-converted Parquet files from the same dataset.
+You can also query Parquet files using the `read_parquet` function (or its alias `parquet_scan`). Let's explore these functions using the auto-converted Parquet files from the same dataset.
 
 Select using [read_parquet](https://duckdb.org/docs/guides/file_formats/query_parquet.html) function:
 

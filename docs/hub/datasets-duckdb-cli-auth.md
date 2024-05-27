@@ -40,7 +40,7 @@ huggingface-cli login
 Alternatively, you can set your Hugging Face token as an environment variable:
 
 ```bash
-export HF_TOKEN="HF_XXXXXXXXXXXXX"
+export HF_TOKEN="hf_xxxxxxxxxxxxx"
 ```
 
 For more information on authentication, see the [Hugging Face authentication](https://huggingface.co/docs/huggingface_hub/main/en/quick-start#authentication) documentation.
