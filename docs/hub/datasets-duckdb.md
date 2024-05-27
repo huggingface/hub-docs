@@ -4,6 +4,7 @@
 You can use the Hugging Face paths (`hf://`) to access data on the Hub:
 
 The [DuckDB CLI](https://duckdb.org/docs/api/cli/overview.html) (Command Line Interface) is a single, dependency-free executable. 
+There are also other APIs available for running DuckDB, including Python, C++, Go, Java, Rust, and more. For additional details, visit their [clients](https://duckdb.org/docs/api/overview.html) page.
 
 <Tip>
 
