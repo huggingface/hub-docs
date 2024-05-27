@@ -49,7 +49,7 @@ SELECT COUNT(*) FROM 'hf://datasets/jamescalam/world-cities-geo/*.jsonl';
 
 ```
 
-You can also query Parquet files using the `read_parquet` function (or its alias `parquet_scan`). Let's explore these functions using the auto-converted Parquet files from the same dataset.
+You can also query Parquet files using the `read_parquet` function (or its alias `parquet_scan`). This function, along with other [parameters]((https://duckdb.org/docs/data/parquet/overview.html#parameters)), provides flexibility in handling Parquet files specially if they dont have a `.parquet` extension. Let's explore these functions using the auto-converted Parquet files from the same dataset.
 
 Select using [read_parquet](https://duckdb.org/docs/guides/file_formats/query_parquet.html) function:
 
@@ -157,8 +157,8 @@ SUMMARIZE SELECT latitude, longitude FROM 'hf://datasets/jamescalam/world-cities
 │ column_name │ column_type │     min      │     max     │ approx_unique │        avg         │        std         │        q25         │        q50         │        q75         │ count │ null_percentage │
 │   varchar   │   varchar   │   varchar    │   varchar   │     int64     │      varchar       │      varchar       │      varchar       │      varchar       │      varchar       │ int64 │  decimal(9,2)   │
 ├─────────────┼─────────────┼──────────────┼─────────────┼───────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┼────────────────────┼───────┼─────────────────┤
-│ latitude    │ DOUBLE      │ -54.8        │ 67.8557214  │          7324 │ 22.5004568364307   │ 26.770454684690925 │ 6.073347186812835  │ 29.223859636018815 │ 44.884045573688766 │  9083 │            0.00 │
-│ longitude   │ DOUBLE      │ -175.2166595 │ 179.3833313 │          7802 │ 14.699333721953098 │ 63.93672742608224  │ -7.177897543684238 │ 19.1630782194276   │ 43.8093965168563   │  9083 │            0.00 │
+│ latitude    │ DOUBLE      │ -54.8        │ 67.8557214  │          7324 │ 22.5004568364307   │ 26.770454684690925 │ 6.089858461951687  │ 29.321258648324747 │ 44.90191158328915  │  9083 │            0.00 │
+│ longitude   │ DOUBLE      │ -175.2166595 │ 179.3833313 │          7802 │ 14.699333721953098 │ 63.93672742608224  │ -6.877990418604821 │ 19.12963979385393  │ 43.873513093419966 │  9083 │            0.00 │
 └─────────────┴─────────────┴──────────────┴─────────────┴───────────────┴────────────────────┴────────────────────┴────────────────────┴────────────────────┴────────────────────┴───────┴─────────────────┘
 
 ```
