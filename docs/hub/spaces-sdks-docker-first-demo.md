@@ -65,17 +65,16 @@ The main step for a Docker Space is creating a Dockerfile. You can read more abo
 
 FROM python:3.9
 
+# The two following lines are requirements for the Dev Mode to be functional
+# Learn more about the Dev Mode at https://huggingface.co/dev-mode-explorers
 RUN useradd -m -u 1000 user
-
 WORKDIR /app
 
 COPY --chown=user ./requirements.txt requirements.txt
-
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 COPY --chown=user . /app
-
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
 
 ```
 
@@ -169,7 +168,7 @@ def t5(input):
 </main>
 ```
 
-3. In the `app.py` file, mount the static files and show the html file in the root route
+3. In the `main.py` file, mount the static files and show the html file in the root route
 
 ```python
 app.mount("/", StaticFiles(directory="static", html=True), name="static")
@@ -212,33 +211,31 @@ USER user
 # Set home to the user's home directory
 ENV HOME=/home/user \
 	PATH=/home/user/.local/bin:$PATH
-
-# Set the working directory to /app
-WORKDIR /app
-
-# Copy the current directory contents into the container at $HOME/app setting the owner to the user
-COPY --chown=user . /app
 ```
 
 The final `Dockerfile` should look like this:
 
 ```Dockerfile
+
+# read the doc: https://huggingface.co/docs/hub/spaces-sdks-docker
+# you will also find guides on how best to write your Dockerfile
+
 FROM python:3.9
 
+# The two following lines are requirements for the Dev Mode to be functional
+# Learn more about the Dev Mode at https://huggingface.co/dev-mode-explorers
 RUN useradd -m -u 1000 user
-
 WORKDIR /app
 
 COPY --chown=user ./requirements.txt requirements.txt
-
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+COPY --chown=user . /app
 
 USER user
 
 ENV HOME=/home/user \
 	PATH=/home/user/.local/bin:$PATH
-
-COPY --chown=user . /app
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
 ```
@@ -270,6 +267,8 @@ On the **Container** tab, you will see the application status, in this case, `Uv
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_fastapi_t5_2.jpg"/>
 </div>
+
+Additionally, you can enable the Dev Mode on your Space. The Dev Mode allows you to connect to your running Space via VSCode or SSH. Learn more here: https://huggingface.co/dev-mode-explorers
 
 ## Read More
 
