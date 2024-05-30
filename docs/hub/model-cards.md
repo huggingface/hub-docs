@@ -205,7 +205,7 @@ You can specify your **model's evaluation results** in a structured way in the m
 
 The metadata spec was based on Papers with code's [model-index specification](https://github.com/paperswithcode/model-index). This allow us to directly index the results into Papers with code's leaderboards when appropriate. You can also link the source from where the eval results has been computed.
 
-Here is a partial example to describe [01-ai/Yi-34B](https://huggingface.co/01-ai/Yi-34B)'s score on the ARC benchmark. The result comes from the [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) which is defined as the `source`:
+Here is a partial example to describe [01-ai/Yi-34B](https://huggingface.co/01-ai/Yi-34B)'s score on the ARC benchmark. The result comes from the [Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) which is defined as the `source`:
 
 ```yaml
 ---
@@ -223,7 +223,7 @@ model-index:
             value: 64.59
         source:
           name: Open LLM Leaderboard
-          url: https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard
+          url: https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
 ---
 ```
 
