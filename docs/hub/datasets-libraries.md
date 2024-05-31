@@ -11,5 +11,6 @@ The table below summarizes the supported libraries and their level of integratio
 | [Dask](./datasets-dask) | Parallel and distributed computing library that scales the existing Python and PyData ecosystem.                                                           | ✅ | ✅ |
 | [Datasets](./datasets-usage) | 🤗 Datasets is a library for accessing and sharing datasets for Audio, Computer Vision, and Natural Language Processing (NLP).              | ✅ | ✅ |
 | [DuckDB](./datasets-duckdb) | In-process SQL OLAP database management system.                                                                                                      | ✅ | ✅ |
+| [FiftyOne](./datasets-fiftyone) | FiftyOne is a library for curation and visualization of image, video, and 3D data | ✅ | ✅ |
 | [Pandas](./datasets-pandas) | Python data analysis toolkit.                                                                                                                    | ✅ | ✅ |
 | [WebDataset](./datasets-webdataset) | Library to write I/O pipelines for large datasets.                                                                                       | ✅ | ❌ |
