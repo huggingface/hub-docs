@@ -13,6 +13,8 @@ accomodating object detections, keypoints, polylines, etc. and custom schemas.
 FiftyOne is integrated with the Hugging Face Hub, so you can load and share
 FiftyOne datasets directly from the Hub.
 
+🚀 Try the FiftyOne 🤝 Hugging Face Integration in [Colab](https://colab.research.google.com/drive/1l0kzfbJ2wtUw1EGS1tq1PJYoWenMlihp?usp=sharing)!
+
 ## Prerequisites
 
 First [login with your Hugging Face account](../huggingface_hub/quick-start#login):
@@ -138,6 +140,7 @@ push_to_hub(
 
 ## 📚 Resources
 
+- [🚀 Code-Along Colab Notebook](https://colab.research.google.com/drive/1l0kzfbJ2wtUw1EGS1tq1PJYoWenMlihp?usp=sharing)
 - [🗺️ User Guide for FiftyOne Datasets](https://docs.voxel51.com/user_guide/using_datasets.html#)
 - [🤗 FiftyOne 🤝 Hub Integration Docs](https://docs.voxel51.com/integrations/huggingface.html#huggingface-hub)
 - [🤗 FiftyOne 🤝 Transformers Integration Docs](https://docs.voxel51.com/integrations/huggingface.html#transformers-library)
