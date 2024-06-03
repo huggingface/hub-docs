@@ -120,16 +120,6 @@ When you call `push_to_hub()`, the dataset will be uploaded to the repo
 with the specified repo name under your username, and the repo will be created
 if necessary. A [Dataset Card](./datasets-cards) will automatically be generated and populated with instructions for loading the dataset from the hub. You can even upload a thumbnail image/gif to appear on the Dataset Card with the `preview_path` argument.
 
-You can also upload datasets to the Hugging Face Hub:
-
-```python
-my_new_dataset.push_to_hub("username/my_new_dataset")
-```
-
-This creates a dataset repository `username/my_new_dataset` containing your Dataset in Parquet format, that you can reload later.
-
-For more information about using 🤗 Datasets, check out the [tutorials](https://huggingface.co/docs/datasets/tutorial) and [how-to guides](https://huggingface.co/docs/datasets/how_to) available in the 🤗 Datasets documentation.
-
 Here’s an example using many of these arguments, which would upload the dataset to the private repo `username/my-action-recognition-dataset` with tags, an MIT license, a description, and a preview image:
 
 ```py
