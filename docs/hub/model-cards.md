@@ -1,10 +1,5 @@
 # Model Cards
 
-<Tip>
-
-[New! Try our experimental Model Card Creator App](https://huggingface.co/spaces/huggingface/Model_Cards_Writing_Tool)
-
-</Tip>
 
 ## What are Model Cards?
 
