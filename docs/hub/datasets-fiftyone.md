@@ -75,14 +75,16 @@ You can also use the `load_from_hub()` function to load datasets from Parquet
 files. Type conversions are handled for you and images are downloaded from URLs
 if necessary.
 
-With this functionality, [you can load](https://docs.voxel51.com/integrations/huggingface.html#basic-examples):
+With this functionality, [you can load](https://docs.voxel51.com/integrations/huggingface.html#basic-examples) any of the following:
 
-- Image classification datasets like [Food101](https://huggingface.co/datasets/food101) and [ImageNet-Sketch](https://huggingface.co/datasets/imagenet_sketch)
-- Object detection datasets like [CPPE-5](https://huggingface.co/datasets/cppe-5) and [WIDER FACE](https://huggingface.co/datasets/wider_face)
-- Segmentation datasets like [SceneParse150](https://huggingface.co/datasets/scene_parse_150) and [Sidewalk Semantic](https://huggingface.co/datasets/segments/sidewalk-semantic)
-- Image captioning datasets like [COYO-700M](https://huggingface.co/datasets/kakaobrain/coyo-700m) and [New Yorker Caption Contest](https://huggingface.co/datasets/jmhessel/newyorker_caption_contest)
-- Visual question-answering datasets like [TextVQA](https://huggingface.co/datasets/textvqa) and [ScienceQA](https://huggingface.co/datasets/derek-thomas/ScienceQA)
-  And many more!
+- [FiftyOne-Compatible Image Classification Datasets](https://huggingface.co/collections/Voxel51/fiftyone-compatible-image-classification-datasets-665dfd51020d8b66a56c9b6f), like [Food101](https://huggingface.co/datasets/food101) and [ImageNet-Sketch](https://huggingface.co/datasets/imagenet_sketch)
+- [FiftyOne-Compatible Object Detection Datasets](https://huggingface.co/collections/Voxel51/fiftyone-compatible-object-detection-datasets-665e0279c94ae552c7159a2b) like [CPPE-5](https://huggingface.co/datasets/cppe-5) and [WIDER FACE](https://huggingface.co/datasets/wider_face)
+- [FiftyOne-Compatible Segmentation Datasets](https://huggingface.co/collections/Voxel51/fiftyone-compatible-image-segmentation-datasets-665e15b6ddb96a4d7226a380) like [SceneParse150](https://huggingface.co/datasets/scene_parse_150) and [Sidewalk Semantic](https://huggingface.co/datasets/segments/sidewalk-semantic)
+- [FiftyOne-Compatible Image Captioning Datasets](https://huggingface.co/collections/Voxel51/fiftyone-compatible-image-captioning-datasets-665e16e29350244c06084505) like [COYO-700M](https://huggingface.co/datasets/kakaobrain/coyo-700m) and [New Yorker Caption Contest](https://huggingface.co/datasets/jmhessel/newyorker_caption_contest)
+- [FiftyOne-Compatible Visual Question-Answering Datasets](https://huggingface.co/collections/Voxel51/fiftyone-compatible-vqa-datasets-665e16424ecc8a718156248a) like [TextVQA](https://huggingface.co/datasets/textvqa) and [ScienceQA](https://huggingface.co/datasets/derek-thomas/ScienceQA)
+
+
+And many more!
 
 As a simple example, we can load the first 1,000 samples from the
 [WikiArt dataset](https://huggingface.co/datasets/huggan/wikiart) into FiftyOne with:
