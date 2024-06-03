@@ -120,17 +120,17 @@ When you call `push_to_hub()`, the dataset will be uploaded to the repo
 with the specified repo name under your username, and the repo will be created
 if necessary. A [Dataset Card](./datasets-cards) will automatically be generated and populated with instructions for loading the dataset from the hub. You can even upload a thumbnail image/gif to appear on the Dataset Card with the `preview_path` argument.
 
-Here’s an example using many of these arguments, which would upload the dataset to the private repo `username/my-action-recognition-dataset` with tags, an MIT license, a description, and a preview image:
+Here’s an example using many of these arguments, which would upload the first three samples of FiftyOne's [Quickstart Video](https://docs.voxel51.com/user_guide/dataset_zoo/datasets.html#quickstart-video) dataset to the private repo `username/my-quickstart-video-dataset` with tags, an MIT license, a description, and a preview image:
 
 ```py
 dataset = foz.load_from_zoo("quickstart-video", max_samples=3)
 
 push_to_hub(
     dataset,
-    "my-action-recognition-dataset",
+    "my-quickstart-video-dataset",
     tags=["video", "tracking"],
     license="mit",
-    description="A dataset of videos for action recognition tasks",
+    description="A dataset of video samples for tracking tasks",
     private=True,
     preview_path="<path/to/preview.png>"
 )
