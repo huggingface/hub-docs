@@ -85,7 +85,7 @@ With this functionality, [you can load](https://docs.voxel51.com/integrations/hu
 As a simple example, we can load the first 1,000 samples from the
 [WikiArt dataset](https://huggingface.co/datasets/huggan/wikiart) into FiftyOne with:
 
-```py
+```python
 import fiftyone as fo
 from fiftyone.utils.huggingface import load_from_hub
 
@@ -104,7 +104,7 @@ dataset = load_from_hub(
 
 Pushing a dataset to the hub is as simple as:
 
-```py
+```python
 import fiftyone as fo
 import fiftyone.zoo as foz
 from fiftyone.utils.huggingface import push_to_hub
@@ -122,7 +122,7 @@ if necessary. A [Dataset Card](./datasets-cards) will automatically be generated
 
 Here’s an example using many of these arguments, which would upload the first three samples of FiftyOne's [Quickstart Video](https://docs.voxel51.com/user_guide/dataset_zoo/datasets.html#quickstart-video) dataset to the private repo `username/my-quickstart-video-dataset` with tags, an MIT license, a description, and a preview image:
 
-```py
+```python
 dataset = foz.load_from_zoo("quickstart-video", max_samples=3)
 
 push_to_hub(
