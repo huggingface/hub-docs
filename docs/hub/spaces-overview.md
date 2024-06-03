@@ -81,7 +81,7 @@ Accessing secrets and variables is different depending on your Space SDK:
 For other Spaces, both are exposed to your app as environment variables. Here is a very simple example of accessing the previously declared `MODEL_REPO_ID` variable in Python (it would be the same for secrets):
 ```py
 import os
-print(os.getenv['MODEL_REPO_ID'])
+print(os.getenv('MODEL_REPO_ID'))
 ```
 
 Spaces owners are warned when our `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
