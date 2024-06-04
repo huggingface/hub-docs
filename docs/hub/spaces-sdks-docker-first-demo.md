@@ -60,16 +60,20 @@ def read_root():
 The main step for a Docker Space is creating a Dockerfile. You can read more about Dockerfiles [here](https://docs.docker.com/get-started/). Although we're using FastAPI in this tutorial, Dockerfiles give great flexibility to users allowing you to build a new generation of ML demos. Let's write the Dockerfile for our application
 
 ```Dockerfile
+# read the doc: https://huggingface.co/docs/hub/spaces-sdks-docker
+# you will also find guides on how best to write your Dockerfile
+
 FROM python:3.9
 
-WORKDIR /code
+# The two following lines are requirements for the Dev Mode to be functional
+# Learn more about the Dev Mode at https://huggingface.co/dev-mode-explorers
+RUN useradd -m -u 1000 user
+WORKDIR /app
 
-COPY ./requirements.txt /code/requirements.txt
+COPY --chown=user ./requirements.txt requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-
-COPY . .
-
+COPY --chown=user . /app
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
 
 ```
@@ -164,7 +168,7 @@ def t5(input):
 </main>
 ```
 
-3. In the `app.py` file, mount the static files and show the html file in the root route
+3. In the `main.py` file, mount the static files and show the html file in the root route
 
 ```python
 app.mount("/", StaticFiles(directory="static", html=True), name="static")
@@ -201,44 +205,37 @@ textGenForm.addEventListener("submit", async (event) => {
 As discussed in the [Permissions Section](./spaces-sdks-docker#permissions), the container runs with user ID 1000. That means that the Space might face permission issues. For example, `transformers` downloads and caches the models in the path under the `HUGGINGFACE_HUB_CACHE` path. The easiest way to solve this is to create a user with righ permissions and use it to run the container application. We can do this by adding the following lines to the `Dockerfile`.
 
 ```Dockerfile
-# Set up a new user named "user" with user ID 1000
-RUN useradd -m -u 1000 user
-
 # Switch to the "user" user
 USER user
 
 # Set home to the user's home directory
 ENV HOME=/home/user \
 	PATH=/home/user/.local/bin:$PATH
-
-# Set the working directory to the user's home directory
-WORKDIR $HOME/app
-
-# Copy the current directory contents into the container at $HOME/app setting the owner to the user
-COPY --chown=user . $HOME/app
 ```
 
 The final `Dockerfile` should look like this:
 
 ```Dockerfile
+
+# read the doc: https://huggingface.co/docs/hub/spaces-sdks-docker
+# you will also find guides on how best to write your Dockerfile
+
 FROM python:3.9
 
-WORKDIR /code
-
-COPY ./requirements.txt /code/requirements.txt
-
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-
+# The two following lines are requirements for the Dev Mode to be functional
+# Learn more about the Dev Mode at https://huggingface.co/dev-mode-explorers
 RUN useradd -m -u 1000 user
+WORKDIR /app
+
+COPY --chown=user ./requirements.txt requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+COPY --chown=user . /app
 
 USER user
 
 ENV HOME=/home/user \
 	PATH=/home/user/.local/bin:$PATH
-
-WORKDIR $HOME/app
-
-COPY --chown=user . $HOME/app
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
 ```
@@ -270,6 +267,8 @@ On the **Container** tab, you will see the application status, in this case, `Uv
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_fastapi_t5_2.jpg"/>
 </div>
+
+Additionally, you can enable the Dev Mode on your Space. The Dev Mode allows you to connect to your running Space via VSCode or SSH. Learn more here: https://huggingface.co/dev-mode-explorers
 
 ## Read More
 
