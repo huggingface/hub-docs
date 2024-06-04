@@ -176,6 +176,8 @@
             title: Combine datasets and export
           - local: datasets-duckdb-vector-similarity-search
             title: Perform vector similarity search
+      - local: datasets-fiftyone
+        title: FiftyOne
       - local: datasets-pandas
         title: Pandas
       - local: datasets-webdataset
