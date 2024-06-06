@@ -42,3 +42,10 @@ You may be able to view the email addresses for members of your organization. Th
 
 - If you verify a domain for your organization, you can view members' email addresses for the verified domain. [Organization domain name](./organizations-managing#organization-domain-name)
 - If SSO is configured for your organization, you can view the email address for each of your organization members by setting `Matching email domains` in SSO configuration  
+
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-members-page-emails.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-members-page-emails-dark.png"/>
+</div>
+
