@@ -38,7 +38,7 @@ As an organization `admin`, go to the **Members** section of the org settings to
 This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
 </Tip>
 
-You may be able to view the email addresses for members of your organization. The visibility of the email addresses depends on the organization's sso configuration.
+You may be able to view the email addresses for members of your organization. The visibility of the email addresses depends on the organization's sso configuration, or verified organization status.
 
 - If you verify a domain for your organization, you can view members' email addresses for the verified domain. [Organization domain name](./organizations-managing#organization-domain-name)
 - If SSO is configured for your organization, you can view the email address for each of your organization members by setting `Matching email domains` in SSO configuration  
