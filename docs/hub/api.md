@@ -265,7 +265,7 @@ The following endpoint gets information about a paper.
 
 ### GET /api/arxiv/{arxiv_id}/repos
 
-Get all the models, datasets, and Spaces mentioned in a paper.
+Get all the models, datasets, and Spaces that refer to a paper.
 
 ### GET /api/daily_papers
 
