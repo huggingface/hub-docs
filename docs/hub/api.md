@@ -161,6 +161,7 @@ This is equivalent to `huggingface_hub.space_info(repo_id, revision)`.
 ## Repo API
 
 The following endpoints manage repository settings like creating and deleting a repository.
+
 ### POST /api/repos/create
 
 Create a repository. It's a model repo by default.
@@ -257,6 +258,18 @@ headers = { "authorization" :  "Bearer $token" }
 ```
 
 This is equivalent to `huggingface_hub.whoami()`.
+
+## Paper Pages API
+
+The following endpoint gets information about a paper.
+
+### GET /api/arxiv/{arxiv_id}/repos
+
+Get all the models, datasets, and Spaces mentioned in a paper.
+
+### GET /api/daily_papers
+
+Get the daily papers curated by AK and the community. It's the equivalent of [https://huggingface.co/papers](https://huggingface.co/papers). 
 
 ## Collections API
 
