@@ -62,7 +62,7 @@ A full list of the available licenses is available here:
 | ISC                                                            | `isc`                                    |
 | LaTeX Project Public License v1.3c                             | `lppl-1.3c`                              |
 | Microsoft Public License                                       | `ms-pl`                                  |
-| Apple Sample Code license                                      | `apple-ascl`                             | <!-- license: https://github.com/apple/ml-tic-clip/blob/main/LICENSE -->
+| Apple Sample Code license                                      | `apple-ascl`                             | <!-- license: https://developer.apple.com/support/downloads/terms/apple-sample-code/Apple-Sample-Code-License.pdf -->
 | Mozilla Public License 2.0                                     | `mpl-2.0`                                |
 | Open Data Commons License Attribution family                   | `odc-by`                                 |
 | Open Database License family                                   | `odbl`                                   |
