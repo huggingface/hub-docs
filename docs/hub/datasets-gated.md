@@ -25,7 +25,7 @@ By default, access to the dataset is automatically granted to the user when requ
 
 If you want to manually approve which users can access your dataset, you must set it to **manual approval**. When this is the case, you will notice more options:
 - **Add access** allows you to search for a user and grant them access even if they did not request it.
-- **Notification frequency** lets you configure when to get notified if new users request access. It can be set to once a day or real-time. By default, an email is sent to your primary email address. You can set a different email address in the **Notifications email** field. For datasets hosted under an organization, emails are sent to the first 5 admins of the organization.
+- **Notification frequency** lets you configure when to get notified if new users request access. It can be set to once a day or real-time. By default, an email is sent to your primary email address. For datasets hosted under an organization, emails are by default sent to the first 5 admins of the organization. In both cases (user or organization) you can set a different email address in the **Notifications email** field.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-gated-manual-approval.png"/>
