@@ -202,7 +202,7 @@ textGenForm.addEventListener("submit", async (event) => {
 
 5. Grant permissions to the right directories
 
-As discussed in the [Permissions Section](./spaces-sdks-docker#permissions), the container runs with user ID 1000. That means that the Space might face permission issues. For example, `transformers` downloads and caches the models in the path under the `HUGGINGFACE_HUB_CACHE` path. The easiest way to solve this is to create a user with righ permissions and use it to run the container application. We can do this by adding the following lines to the `Dockerfile`.
+As discussed in the [Permissions Section](./spaces-sdks-docker#permissions), the container runs with user ID 1000. That means that the Space might face permission issues. For example, `transformers` downloads and caches the models in the path under the `HF_HOME` path. The easiest way to solve this is to create a user with righ permissions and use it to run the container application. We can do this by adding the following lines to the `Dockerfile`.
 
 ```Dockerfile
 # Switch to the "user" user

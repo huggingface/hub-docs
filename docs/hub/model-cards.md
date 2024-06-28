@@ -100,7 +100,7 @@ tags:
 
 If it's not specified, the Hub will try to automatically detect the library type. Unless your model is from `transformers`, this approach is discouraged and repo creators should use the explicit `library_name` as much as possible. 
 
-1. By looking into the presence of files such as `*.nemo` or `*saved_model.pb*`, the Hub can determine if a model is from NeMo or Keras. 
+1. By looking into the presence of files such as `*.nemo` or `*.mlmodel`, the Hub can determine if a model is from NeMo or CoreML.
 2. If nothing is detected and there is a `config.json` file, it's assumed the library is `transformers`.
 
 ### Specifying a base model
