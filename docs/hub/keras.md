@@ -42,7 +42,7 @@ model.save("hf://your-username/your-model-name")
 
 By default, the repository will contain a minimal model card. Check out the [Model Card guide](https://huggingface.co/docs/hub/model-cards) to learn more about model cards and how to complete them. You can also programmatically update model cards using `huggingface_hub.ModelCard` (see [guide](https://huggingface.co/docs/huggingface_hub/guides/model-cards)).
 
-## Legacy 'tf-keras' (Keras 2)
+## TF-Keras (legacy)
 
 `tf-keras` is the name given to Keras 2.x version. It is now hosted as a separate GitHub repo [here](https://github.com/keras-team/tf-keras). Though it's a legacy framework, there are still [4.5k+ models](https://huggingface.co/models?library=tf-keras&sort=trending) hosted on the Hub. These models can be loaded using the `huggingface_hub` library. You **must** have either `tf-keras` or `keras<3.x` installed on your machine.
 

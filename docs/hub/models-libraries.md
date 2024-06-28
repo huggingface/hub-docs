@@ -16,6 +16,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [fastai](./fastai)                                  | Library to train fast and accurate models with state-of-the-art outputs.             | ✅ | ✅ | ✅ | ✅ |
 | [Keras](./keras)                              | Open-source multi-backend deep learning framework, with support for JAX, TensorFlow, and PyTorch. | ❌ | ❌ | ✅ | ✅ |
 | [KerasNLP](https://keras.io/guides/keras_nlp/upload/)                              | Natural language processing library built on top of Keras that works natively with TensorFlow, JAX, or PyTorch. | ❌ | ❌ | ✅ | ✅ |
+| [TF-Keras](./keras#tf-keras-legacy) (legacy)                              | Legacy library that uses a consistent and simple API to build models leveraging TensorFlow and its ecosystem. | ❌ | ❌ | ✅ | ✅ |
 | [Flair](./flair)                                  | Very simple framework for state-of-the-art NLP.                                      | ✅ | ✅ | ✅ | ✅ |
 | [MBRL-Lib](https://github.com/facebookresearch/mbrl-lib)                    | PyTorch implementations of MBRL Algorithms.                                          | ❌ | ❌ | ✅ | ✅ |
 | [MidiTok](https://github.com/Natooz/MidiTok)                                | Tokenizers for symbolic music / MIDI files.                                          | ❌ | ❌ | ✅ | ✅ |
