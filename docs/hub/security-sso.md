@@ -72,3 +72,13 @@ You must map at least one admin role.
 If there is no match, a user will be assigned the default role for your organization. The default role can be customized in the `Members` section of the organization's settings.
 
 Role synchronization is performed on login.
+
+
+#### External Collaborators
+
+This enables certain users within your organization to access resources without completing the Single Sign-On (SSO) flow described before. This can be helpful when you work with external parties who aren't part of your organization's Identity Provider (IdP) but require access to specific resources.
+
+To add a user as an "External Collaborator" visit the `SSO/Users Management` section in your organization's settings. Once added, these users won't need to go through the SSO process. 
+
+However, they will still be subject to your organization's access controls ([Resource Groups](./security-resource-groups)). 
+It's crucial to manage their access carefully to maintain your organization's data security.
