@@ -1,7 +1,10 @@
+name: Secret Leaks
+
 on:
   push:
 
-name: Secret Leaks
+permissions:
+  contents: read
 
 jobs:
   trufflehog:
