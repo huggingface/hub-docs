@@ -60,7 +60,7 @@ Here's a quick video showing how to do that:
 
 If your Space Hardware is configured to use a GPU accelerator, you can configure Livebook to leverage it.
 
-Go to the Settings page of your Space and create a secret called `XLA_TARGET` with the value `cuda118`.
+Go to the Settings page of your Space and create a secret called `XLA_TARGET` with the value `cuda12` (this value may differ, depending on the Nx/EXLA versions you use, see [elixir-nx/xla](https://github.com/elixir-nx/xla?tab=readme-ov-file#xla_target) for the latest reference).
 
 Restart your Space and start using Livebook with a GPU.
 
