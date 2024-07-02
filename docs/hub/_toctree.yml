@@ -78,7 +78,7 @@
       - local: keras
         title: Keras
       - local: tf-keras
-        title: TF-Keras
+        title: TF-Keras (legacy)
       - local: ml-agents
         title: ML-Agents
       - local: mlx-image
