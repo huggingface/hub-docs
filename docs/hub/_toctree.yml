@@ -77,6 +77,8 @@
         title: Flair
       - local: keras
         title: Keras
+      - local: tf-keras
+        title: TF-Keras
       - local: ml-agents
         title: ML-Agents
       - local: mlx-image
