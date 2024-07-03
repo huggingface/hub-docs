@@ -20,7 +20,7 @@ Keras is deeply integrated with the Hugging Face Hub. This means you can load an
 pip install -U keras huggingface_hub
 ```
 
-Once you have the library installed, you just need to use the regular `keras.saving.load_model` method by passing as argument an HF path. An HF path is a `repo_id` prefixed by `hf://` e.g. `"hf://keras-io/weather-prediction"`. Read more about `load_model` in [Keras documentation](https://keras.io/api/models/model_saving_apis/model_saving_and_loading/#load_model-function).
+Once you have the library installed, you just need to use the regular `keras.saving.load_model` method by passing as argument a Hugging Face path. An HF path is a `repo_id` prefixed by `hf://` e.g. `"hf://keras-io/weather-prediction"`. Read more about `load_model` in [Keras documentation](https://keras.io/api/models/model_saving_apis/model_saving_and_loading/#load_model-function).
 
 ```py
 import keras
