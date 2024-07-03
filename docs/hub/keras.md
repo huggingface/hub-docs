@@ -32,7 +32,7 @@ If you want to see how to load a specific model, you can click **Use this model*
 
 ## Sharing your models
 
-Similarly to `load_model`, you can save and share a `keras` model on the Hub using `model.save()` with an HF path. If the repository does not exist on the Hub, it will be created for you. The upload model will contain a model card, a plot of the model, the `metadata.json` and `config.json` files, and a `model.weights.h5` file containing the model weights.
+Similarly to `load_model`, you can save and share a `keras` model on the Hub using `model.save()` with an HF path:
 
 
 ```py
@@ -40,7 +40,15 @@ model = ...
 model.save("hf://your-username/your-model-name")
 ```
 
+If the repository does not exist on the Hub, it will be created for you. The uploaded model contains a model card, a plot of the model, the `metadata.json` and `config.json` files, and a `model.weights.h5` file containing the model weights.
+
 By default, the repository will contain a minimal model card. Check out the [Model Card guide](https://huggingface.co/docs/hub/model-cards) to learn more about model cards and how to complete them. You can also programmatically update model cards using `huggingface_hub.ModelCard` (see [guide](https://huggingface.co/docs/huggingface_hub/guides/model-cards)).
+
+<Tip>
+
+You might be already familiar with `.keras` files. In fact, a `.keras` file is simply a zip file containing the `.json` and `model.weights.h5` files. When pushed to the Hub, the model is saved as an unzipped folder in order to let you navigate through the files. Note that if you manually upload a `.keras` file to a model repository on the Hub, the repository will automatically be tagged as `keras` but you won't be able to load it using `keras.saving.load_model`.
+
+</Tip>
 
 ## Additional resources
 
