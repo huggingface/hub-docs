@@ -46,4 +46,3 @@ By default, the repository will contain a minimal model card. Check out the [Mod
 
 * Keras Developer [Guides](https://keras.io/guides/).
 * Keras [examples](https://keras.io/examples/).
-* Keras [examples](https://keras.io/examples/).
