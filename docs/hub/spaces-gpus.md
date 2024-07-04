@@ -48,7 +48,7 @@ In the following tables, you can see the Specs for the different upgrade options
 | **Hardware**           | **Accelerators**       | **Accelerator Memory**   | **RAM**  | **Hourly Price**  |
 |----------------------- |----------------------- |------------------------- |--------- | ----------------- | 
 | Google TPU v5e - 1x1   | 1                      | 16 GB                    | 44 GB    | $1.38             |
-| Google TPU v5e - 2x2   | 4                      | 64 GB                    | 190 GB   | $5.50             |
+| Google TPU v5e - 2x2   | 4                      | 64 GB                    | 186 GB   | $5.50             |
 | Google TPU v5e - 2x4   | 8                      | 128 GB                   | 380 GB   | $11.00            |
 
 ## Configure hardware programmatically
