@@ -10,7 +10,9 @@ Llama.cpp allows you to download and run inference on a GGUF simply by providing
   -p "I believe the meaning of life is " -n 128
 ```
 
-Additionally, you can invoke an OpenAI spec chat completions endpoint directly using the llama.cpp server
+Note: You can remove `-cnv` to run the CLI in chat completion mode.
+
+Additionally, you can invoke an OpenAI spec chat completions endpoint directly using the llama.cpp server:
 
 ```bash
 ./llama-server \
