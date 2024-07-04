@@ -3,11 +3,10 @@
 Llama.cpp allows you to download and run inference on a GGUF simply by providing a path to the Hugging Face repo path and the file name. llama.cpp download the model checkpoint and automatically caches it. The location of the cache is defined by `LLAMA_CACHE` environment variable, read more about it [here](https://github.com/ggerganov/llama.cpp/pull/7826):
 
 ```bash
-./llama-cli \
+./llama-cli
   --hf-repo lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF \
   --hf-file Meta-Llama-3-8B-Instruct-Q8_0.gguf \
-  -cnv \
-  -p "I believe the meaning of life is " -n 128
+  -p "You are a helpful assistant" -cnv
 ```
 
 Note: You can remove `-cnv` to run the CLI in chat completion mode.
