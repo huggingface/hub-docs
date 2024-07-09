@@ -35,7 +35,7 @@ The currently supported scopes are:
 - `write-repos`: Get write/read access to the user's personal repos.
 - `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion.
 - `inference-api`: Get access to the [Inference API](https://huggingface.co/docs/api-inference/index), you will be able to make inference requests on behalf of the user.
-- `write-discussions`: Open discussions and Pull Requests on behalf of the user as well as interact with discussions (including reactions, posting/editing comments, closing discussions, ...). To push changes to a Pull Request, you need the `write-repos` scope.
+- `write-discussions`: Open discussions and Pull Requests on behalf of the user as well as interact with discussions (including reactions, posting/editing comments, closing discussions, ...). To push changes to a Pull Request, the user must have a read access to the repo. This means that for a private repository, you need the `read-repos` scope as well.
 
 All other information is available in the [OpenID metadata](https://huggingface.co/.well-known/openid-configuration).
 
