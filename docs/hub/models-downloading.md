@@ -52,6 +52,14 @@ mainly relevent if you have a machine with high bandwidth.
 pip install huggingface_hub[hf_transfer]
 HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli download ...
 ```
-To learn more, check out the documentation [here](https://huggingface.co/docs/huggingface_hub/guides/download#faster-downloads)
+
+<Tip warning={true}>
+
+`hf_transfer` is a power user tool!
+It is tested and production-ready,
+but it lacks user-friendly features like advanced error handling or proxies.
+For more details, please take a look at this [guide](https://huggingface.co/docs/huggingface_hub/hf_transfer).
+
+</Tip>
 
 
