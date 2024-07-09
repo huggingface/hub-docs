@@ -45,8 +45,9 @@ Add your SSH public key to [your user settings](https://huggingface.co/settings/
 
 ## Faster downloads
 
-You can also use the `hf_transfer` library which might give you the ability to download data faster from the Hub. This is 
-mainly relevent if you have a machine with high bandwidth.
+If you are running on a machine with high bandwidth,
+you can increase your download speed with [`hf_transfer`](https://github.com/huggingface/hf_transfer),
+a Rust-based library developed to speed up file transfers with the Hub.
 
 ```bash
 pip install huggingface_hub[hf_transfer]
