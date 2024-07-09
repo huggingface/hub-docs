@@ -4,9 +4,9 @@ Keras is an open-source multi-backend deep learning framework, with support for 
 
 ## Exploring Keras in the Hub
 
-You can find over 200 `keras` models by filtering at the left of the [models page](https://huggingface.co/models?library=keras&sort=downloads).
+You can list `keras` models on the Hub by filtering by library name on the [models page](https://huggingface.co/models?library=keras&sort=downloads).
 
-Keras models on the Hub come up with useful features:
+Keras models on the Hub come up with useful features when uploaded directly from the Keras library:
 1. A generated model card with a description, a plot of the model, and more.
 2. A download count to monitor the popularity of a model.
 3. A code snippet to quickly get started with the model.
