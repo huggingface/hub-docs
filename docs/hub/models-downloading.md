@@ -42,3 +42,16 @@ git clone git@hf.co:<MODEL ID> # example: git clone git@hf.co:bigscience/bloom
 If you have write-access to the particular model repo, you'll also have the ability to commit and push revisions to the model.
 
 Add your SSH public key to [your user settings](https://huggingface.co/settings/keys) to push changes and/or access private repos.
+
+## Faster downloads
+
+You can also use the `hf_transfer` library which might give you the ability to download data faster from the Hub. This is 
+mainly relevent if you have a machine with high bandwidth.
+
+```bash
+pip install huggingface_hub[hf_transfer]
+HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli download ...
+```
+To learn more, check out the documentation [here](https://huggingface.co/docs/huggingface_hub/guides/download#faster-downloads)
+
+
