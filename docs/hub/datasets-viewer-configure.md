@@ -18,7 +18,7 @@ For more information, feel free to check out the documentation on [Data files Co
 
 The dataset viewer can be disabled. To do this, add a YAML section to the dataset's `README.md` file (create one if it does not already exist) and add a `viewer` property with the value `false`.
 
-```
+```yaml
 ---
 viewer: false
 ---

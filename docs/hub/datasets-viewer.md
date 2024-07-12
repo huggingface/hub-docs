@@ -65,6 +65,12 @@ For the biggest datasets, the page shows a preview of the first 100 rows instead
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-preview-dark.png"/>
 </div>
 
+## Embed the Dataset Viewer in a webpage
+
+You can embed the Dataset Viewer in your own webpage using an iframe. The URL to use is `https://huggingface.co/datasets/<namespace>/<dataset-name>/embed/viewer`, where `<namespace>` is the owner of the dataset and `<dataset-name>` is the name of the dataset. You can also pass other parameters like the configuration, split, filter, search or selected row.
+
+For more information see our guide on [How to embed the Dataset Viewer in a webpage](./datasets-viewer-embed).
+
 ## Configure the Dataset Viewer
 
 To have a properly working Dataset Viewer for your dataset, make sure your dataset is in a supported format and structure.
