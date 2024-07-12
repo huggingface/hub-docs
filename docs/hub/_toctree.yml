@@ -189,6 +189,8 @@
     sections:
       - local: datasets-viewer-configure
         title: Configure the Dataset Viewer
+      - local: datasets-viewer-embed
+        title: Embed the Dataset Viewer in a webpage
   - local: datasets-download-stats
     title: Datasets Download Stats
   - local: datasets-data-files-configuration
