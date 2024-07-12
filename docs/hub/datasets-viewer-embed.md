@@ -17,11 +17,17 @@ For example, the following iframe embeds the Dataset Viewer for the `glue` datas
 
 You can also get the embed code directly from the Dataset Viewer interface. Click on the `Embed` button in the top right corner of the Dataset Viewer:
 
-<image1>
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-main-button.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-main-button-dark.png"/>
+</div>
 
 It will open a modal with the iframe code that you can copy and paste into your webpage:
 
-<image2>
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-main-button-modal.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-main-button-modal-dark.png"/>
+</div>
 
 ## Parameters
 
@@ -38,8 +44,14 @@ All the parameters of the dataset viewer page can also be passed to the embedded
 
 You can get this code directly from the Dataset Viewer interface by performing the search, clicking on the `⋮` button then `Embed`:
 
-<image3>
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-search-button.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-search-button-dark.png"/>
+</div>
 
 It will open a modal with the iframe code that you can copy and paste into your webpage:
 
-<image4>
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-search-button-modal.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-search-button-modal-dark.png"/>
+</div>
