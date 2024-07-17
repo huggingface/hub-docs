@@ -10,7 +10,7 @@ In Argilla, you can import/export two main components of a dataset:
 - The dataset's complete configuration defined in `rg.Settings`. This is useful if your want to share your feedback task or restore it later in Argilla.
 - The records stored in the dataset, including `Metadata`, `Vectors`, `Suggestions`, and `Responses`. This is useful if you want to use your dataset's records outside of Argilla.
 
-🚀 Try the Argilla 🤝 Hugging Face deployment integration on [Spaces](https://huggingface.co/docs/hub/en/spaces-sdks-docker-argilla)!
+🚀 Try the Argilla 🤝 Hugging Face [deployment integration on Spaces](https://huggingface.co/docs/hub/en/spaces-sdks-docker-argilla)!
 
 ## Prerequisites
 
