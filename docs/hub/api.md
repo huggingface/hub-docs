@@ -259,6 +259,22 @@ headers = { "authorization" :  "Bearer $token" }
 
 This is equivalent to `huggingface_hub.whoami()`.
 
+## Organization API
+
+The following endpoint gets a list of the Organization members.
+
+### GET /api/organizations/{organization_name}/members
+
+Get the organization members.
+
+Payload:
+
+```js
+headers = { "authorization" :  "Bearer $token" }
+```
+
+This is equivalent to `huggingface_hub.list_organization_members()`.
+
 ## Paper Pages API
 
 The following endpoint gets information about a paper.
@@ -269,7 +285,7 @@ Get all the models, datasets, and Spaces that refer to a paper.
 
 ### GET /api/daily_papers
 
-Get the daily papers curated by AK and the community. It's the equivalent of [https://huggingface.co/papers](https://huggingface.co/papers). 
+Get the daily papers curated by AK and the community. It's the equivalent of [https://huggingface.co/papers](https://huggingface.co/papers).
 
 ## Collections API
 
