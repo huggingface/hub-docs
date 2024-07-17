@@ -1,5 +1,7 @@
 # Argilla
 
+Argilla is a collaboration platform for AI engineers and domain experts that require high-quality outputs, full data ownership, and overall efficiency.
+
 # Importing and exporting datasets and records
 
 This guide provides an overview of how to import and export your dataset or its records to the Hugging Face Hub.
