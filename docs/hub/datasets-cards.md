@@ -72,7 +72,7 @@ tags:
 
 ### Associate a library to the dataset
 
-The dataset page automatically shows libraries and tools that support the dataset, but if you want to show another specific library, you can add a tag to the dataset card metadata: `argilla`, `dask`, `datasets`, `distilabel`, `fiftyone`, `mlcroissant` (or `croissant`), `pandas`, `webdataset`. See the [list of supported libraries](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/dataset-libraries.ts) for more information, or to propose to add a new library.
+The dataset page automatically shows libraries and tools that are able to natively load the dataset, but if you want to show another specific library, you can add a tag to the dataset card metadata: `argilla`, `dask`, `datasets`, `distilabel`, `fiftyone`, `mlcroissant`, `pandas`, `webdataset`. See the [list of supported libraries](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/dataset-libraries.ts) for more information, or to propose to add a new library.
 
 For example, to associate the `argilla` library to the dataset card, add the following to the dataset card metadata:
 
