@@ -58,3 +58,25 @@ If the dataset card includes a link to a paper on arXiv, the Hub will extract th
 </div>
 
 Read more about paper pages [here](./paper-pages).
+
+### Force set a dataset modality
+
+The Hub will automatically detect the modality of a dataset based on the files it contains (audio, video, geospatial, etc.). If you want to force a specific modality, you can add a tag to the dataset card metadata: `3d`, `audio`, `geospatial` (or `remote-sensing`), `image`, `tabular`, `text`, `timeseries`, `video`.
+
+For example, to force the modality to `audio`, add the following to the dataset card metadata:
+
+```yaml
+tags:
+- audio
+```
+
+### Associate a library to the dataset
+
+The dataset page automatically shows libraries and tools that support the dataset, but if you want to show another specific library, you can add a tag to the dataset card metadata: `argilla`, `dask`, `datasets`, `distilabel`, `fiftyone`, `mlcroissant` (or `croissant`), `pandas`, `webdataset`. See the [list of supported libraries](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/dataset-libraries.ts) for more information, or to propose to add a new library.
+
+For example, to associate the `argilla` library to the dataset card, add the following to the dataset card metadata:
+
+```yaml
+tags:
+- argilla
+```
