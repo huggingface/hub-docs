@@ -57,7 +57,7 @@ client = rg.Argilla(api_url="<api_url>", api_key="<api_key>")
 dataset = rg.Dataset.from_hub(repo_id="<repo_id>")
 ```
 
-The `rg.Dataset.from_hub` method loads the configuration and records from the dataset repo. If you only want to load records, you can pass a `datasets.Dataset` object to the `rg.Dataset.log` method. This enables you to configure your own dataset and reuse existing Hub datasets. See the [guide on records](record.md) for more information.
+The `rg.Dataset.from_hub` method loads the configuration and records from the dataset repo. If you only want to load records, you can pass a `datasets.Dataset` object to the `rg.Dataset.log` method. This enables you to configure your own dataset and reuse existing Hub datasets. 
 
 !!! note "With or without records"
 
