@@ -61,7 +61,7 @@ Read more about paper pages [here](./paper-pages).
 
 ### Force set a dataset modality
 
-The Hub will automatically detect the modality of a dataset based on the files it contains (audio, video, geospatial, etc.). If you want to force a specific modality, you can add a tag to the dataset card metadata: `3d`, `audio`, `geospatial` (or `remote-sensing`), `image`, `tabular`, `text`, `timeseries`, `video`.
+The Hub will automatically detect the modality of a dataset based on the files it contains (audio, video, geospatial, etc.). If you want to force a specific modality, you can add a tag to the dataset card metadata: `3d`, `audio`, `geospatial`, `image`, `tabular`, `text`, `timeseries`, `video`.
 
 For example, to force the modality to `audio`, add the following to the dataset card metadata:
 
