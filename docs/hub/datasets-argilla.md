@@ -8,7 +8,7 @@ Whether you are working on monitoring and improving complex generative tasks inv
 
 ## What do people build with Argilla?
 
-Our community uses Argilla to create amazing open-source [datasets](https://huggingface.co/datasets?other=argilla) and [models](https://huggingface.co/models?other=distilabel). 
+Our community uses Argilla to create amazing open-source [datasets](https://huggingface.co/datasets?library=library:argilla&sort=trending) and [models](https://huggingface.co/models?other=distilabel). 
 
 ### Open-source datasets and models
 
