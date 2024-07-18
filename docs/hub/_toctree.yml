@@ -165,10 +165,10 @@
         title: Argilla
       - local: datasets-dask
         title: Dask
-      - local: datasets-distilabel
-        title: Distilabel
       - local: datasets-usage
         title: Datasets
+      - local: datasets-distilabel
+        title: Distilabel
       - local: datasets-duckdb
         title: DuckDB
         sections:
