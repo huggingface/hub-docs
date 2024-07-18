@@ -55,3 +55,18 @@ It will open a modal with the iframe code that you can copy and paste into your 
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-search-button-modal.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-search-button-modal-dark.png"/>
 </div>
+
+## Examples
+
+The embedded dataset viewer is used in multiple Machine Learning tools and platforms to display datasets. Here are a few examples:
+
+- [ZenML](https://www.zenml.io/blog/embedding-huggingface-datasets-visualizations-with-zenml)
+- [Metaflow + Outerbounds](https://www.linkedin.com/posts/eddie-mattia_the-team-at-hugging-facerecently-released-activity-7219416449084272641-swIu)
+- [AutoTrain](https://x.com/abhi1thakur/status/1813892464144798171)
+
+Dataset creators also use the embedded viewer to showcase their datasets on their websites, spaces or apps:
+
+- [librarian-bots/alpaca-style-datasets gallery](https://huggingface.co/spaces/librarian-bots/Alpaca-Style-Datasets-explorer)
+- [Electric Vehicle Charge Finder app](https://x.com/calebfahlgren/status/1813356638239125735)
+
+Open a [pull request](https://github.com/huggingface/hub-docs/blob/main/docs/hub/datasets-viewer-embed.md) if you want to appear in this section!
