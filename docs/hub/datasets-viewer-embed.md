@@ -108,6 +108,6 @@ Open a [pull request](https://github.com/huggingface/hub-docs/blob/main/docs/hub
 
 <div class="flex justify-center">
 <a href="https://charge-finder.vercel.app">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-gallery.map"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-map.png"/>
 </a>
 </div>
