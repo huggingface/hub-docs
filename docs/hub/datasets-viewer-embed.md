@@ -69,3 +69,5 @@ Dataset creators also use the embedded viewer to showcase their datasets on thei
 - [librarian-bots/alpaca-style-datasets gallery](https://huggingface.co/spaces/librarian-bots/Alpaca-Style-Datasets-explorer)
 - [Finance Commons](https://huggingface.co/spaces/PleIAs/Finance-Commons)
 - [Electric Vehicle Charge Finder app](https://x.com/calebfahlgren/status/1813356638239125735)
+
+Open a [pull request](https://github.com/huggingface/hub-docs/blob/main/docs/hub/datasets-viewer-embed.md) if you want to appear in this section!
