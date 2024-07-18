@@ -4,11 +4,11 @@ Argilla is a collaboration tool for AI engineers and domain experts who need hig
 
 ![image](https://github.com/user-attachments/assets/0e6ce1d8-65ca-4211-b4ba-5182f88168a0)
 
-Whether you are working on monitoring and improving complex generative tasks involving LLM pipelines with RAG, or you are working on a predictive task for things like AB-testing of span- and text-classification models. Our versatile tool helps you ensure your data work pays off. We help you improve your AI output quality through data quality, take control of your data and models, and improve efficiency by quickly iterating on the right data and models.
+Whether you are working on monitoring and improving complex generative tasks involving LLM pipelines with RAG or you are working on a predictive task for things like AB-testing of span and text-classification models. Argilla helps you ensure your data work pays off. Argilla helps improve your AI output quality through data quality, take control of your data and models, and improve efficiency by quickly iterating on the right data and models.
 
 ## What do people build with Argilla?
 
-Our community uses Argilla to create amazing open-source [datasets](https://huggingface.co/datasets?library=library:argilla&sort=trending) and [models](https://huggingface.co/models?other=distilabel). 
+The community uses Argilla to create amazing open-source [datasets](https://huggingface.co/datasets?library=library:argilla&sort=trending) and [models](https://huggingface.co/models?other=distilabel). 
 
 ### Open-source datasets and models
 
