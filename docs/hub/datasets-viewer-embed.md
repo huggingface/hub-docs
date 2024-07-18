@@ -58,15 +58,56 @@ It will open a modal with the iframe code that you can copy and paste into your 
 
 ## Examples
 
-The embedded dataset viewer is used in multiple Machine Learning tools and platforms to display datasets. Here are a few examples:
-
-- [ZenML](https://www.zenml.io/blog/embedding-huggingface-datasets-visualizations-with-zenml)
-- [Metaflow + Outerbounds](https://www.linkedin.com/posts/eddie-mattia_the-team-at-hugging-facerecently-released-activity-7219416449084272641-swIu)
-- [AutoTrain](https://x.com/abhi1thakur/status/1813892464144798171)
-
-Dataset creators also use the embedded viewer to showcase their datasets on their websites, spaces or apps:
-
-- [librarian-bots/alpaca-style-datasets gallery](https://huggingface.co/spaces/librarian-bots/Alpaca-Style-Datasets-explorer)
-- [Electric Vehicle Charge Finder app](https://x.com/calebfahlgren/status/1813356638239125735)
+The embedded dataset viewer is used in multiple Machine Learning tools and platforms to display datasets. Here are a few examples. 
 
 Open a [pull request](https://github.com/huggingface/hub-docs/blob/main/docs/hub/datasets-viewer-embed.md) if you want to appear in this section!
+
+### Tool: ZenML
+
+[`htahir1`](https://huggingface.co/htahir1) shares code in a [blog post](https://www.zenml.io/blog/embedding-huggingface-datasets-visualizations-with-zenml) to visualize a Hugging Face dataset within a [ZenML](https://huggingface.co/zenml) pipeline.
+
+<div class="flex justify-center">
+<a href="https://www.zenml.io/blog/embedding-huggingface-datasets-visualizations-with-zenml">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-zenml.gif"/>
+</a>
+</div>
+
+### Tool: Metaflow + Outerbounds
+
+[`eddie-OB`](https://huggingface.co/eddie-OB) shows in a [demo video](https://www.linkedin.com/posts/eddie-mattia_the-team-at-hugging-facerecently-released-activity-7219416449084272641-swIu) how to include the dataset viewer in Metaflow cards on [Outerbounds](https://huggingface.co/outerbounds).
+
+<div class="flex justify-center">
+<a href="https://www.linkedin.com/posts/eddie-mattia_the-team-at-hugging-facerecently-released-activity-7219416449084272641-swIu">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-outerbounds.png"/>
+</a>
+</div>
+
+### Tool: AutoTrain
+
+[`abhishek`](https://huggingface.co/abhishek) showcases how the dataset viewer is integrated into [AutoTrain](https://huggingface.co/autotrain) in a [demo video](https://x.com/abhi1thakur/status/1813892464144798171).
+
+<div class="flex justify-center">
+<a href="https://x.com/abhi1thakur/status/1813892464144798171">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-autotrain.png"/>
+</a>
+</div>
+
+### Datasets: Alpaca-style datasets gallery
+
+[`davanstrien`](https://huggingface.co/davanstrien) showcases the [collection of Alpaca-style datasets](https://huggingface.co/collections/librarian-bots/alpaca-style-datasets-66964d3e490f463859002588) in a [space](https://huggingface.co/spaces/davanstrien/collection_dataset_viewer).
+
+<div class="flex justify-center">
+<a href="https://huggingface.co/spaces/davanstrien/collection_dataset_viewer">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-gallery.png"/>
+</a>
+</div>
+
+### App: Electric Vehicle Charge Finder
+
+[`cfahlgren1`](https://huggingface.co/cfahlgren1) [embeds](https://x.com/calebfahlgren/status/1813356638239125735) the dataset viewer in the [Electric Vehicle Charge Finder app](https://charge-finder.vercel.app/).
+
+<div class="flex justify-center">
+<a href="https://charge-finder.vercel.app">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-gallery.map"/>
+</a>
+</div>
