@@ -4,7 +4,7 @@ Argilla is a collaboration tool for AI engineers and domain experts who need to 
 
 ![image](https://github.com/user-attachments/assets/0e6ce1d8-65ca-4211-b4ba-5182f88168a0)
 
-Whether you are working on monitoring and improving complex generative tasks involving LLM pipelines with RAG or you are working on a predictive task for things like AB-testing of span and text-classification models. Argilla helps you ensure your data work pays off. Argilla helps improve your AI output quality through data quality, take control of your data and models, and improve efficiency by quickly iterating on the right data and models.
+Argilla can be used for collecting human feedback for a wide variety of AI projects like traditional NLP (text classification, NER, etc.), LLMs (RAG, preference tuning, etc.), or multimodal models (text to image, etc.). Argilla's programmatic approach lets you build workflows for continuous evaluation and model improvement. The goal of Argilla is to ensure your data work pays off by quickly iterating on the right data and models.
 
 ## What do people build with Argilla?
 
@@ -14,8 +14,8 @@ The community uses Argilla to create amazing open-source [datasets](https://hugg
 
 **We love contributions to open-source** ourselves too.
 
-- Our [cleaned UltraFeedback dataset](https://huggingface.co/datasets/argilla/ultrafeedback-binarized-preferences-cleaned) and the [Notus](https://huggingface.co/argilla/notus-7b-v1) and [Notux](https://huggingface.co/argilla/notux-8x7b-v1) models, where we improved benchmark and empirical human judgment for the Mistral and Mixtral models with cleaner data using **human feedback**.
-- Our [distilabeled Intel Orca DPO dataset](https://huggingface.co/datasets/argilla/distilabel-intel-orca-dpo-pairs) and the [improved OpenHermes model](https://huggingface.co/argilla/distilabeled-OpenHermes-2.5-Mistral-7B), show how we improve model performance by filtering out 50% of the original dataset through **human and AI feedback**.
+- [Cleaned UltraFeedback dataset](https://huggingface.co/datasets/argilla/ultrafeedback-binarized-preferences-cleaned) and the [Notus](https://huggingface.co/argilla/notus-7b-v1) and [Notux](https://huggingface.co/argilla/notux-8x7b-v1) models, where we improved benchmark and empirical human judgment for the Mistral and Mixtral models with cleaner data using **human feedback**.
+- [distilabeled Intel Orca DPO dataset](https://huggingface.co/datasets/argilla/distilabel-intel-orca-dpo-pairs) and the [improved OpenHermes model](https://huggingface.co/argilla/distilabeled-OpenHermes-2.5-Mistral-7B), show how we improve model performance by filtering out 50% of the original dataset through **human and AI feedback**.
 
 ### Internal Use cases
 
@@ -27,7 +27,7 @@ AI teams from companies like [the Red Cross](https://510.global/), [Loris.ai](ht
 
 ## Importing and exporting datasets and records
 
-This guide provides an overview of how to import and export your dataset or its records to the Hugging Face Hub.
+This guide shows how to import and export your dataset to the Hugging Face Hub.
 
 In Argilla, you can import/export two main components of a dataset:
 - The dataset's complete configuration defined in `rg.Settings`. This is useful if your want to share your feedback task or restore it later in Argilla.

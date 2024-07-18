@@ -2,14 +2,14 @@
 
 Distilabel is the framework for synthetic data and AI feedback for AI engineers that require high-quality outputs, full data ownership, and overall efficiency.
 
-Distilabel allows pipelines to be built with any number of steps or tasks that can be connected, so the output of one step or task is fed as input to another. A series of steps can be chained together to build complex data processing and generation pipelines with LLMs. The input of each step is a batch of data, containing a list of dictionaries, where each dictionary represents a row of the dataset, and the keys are the column names. To feed data from and to the Hugging Face hub, we've defined a `Distiset` class as an abstraction of a `datasets.DatasetDict`.
+Distilabel pipelines can be built with any number of interconnected steps or tasks. The output of one step or task is fed as input to another. A series of steps can be chained together to build complex data processing and generation pipelines with LLMs. The input of each step is a batch of data, containing a list of dictionaries, where each dictionary represents a row of the dataset, and the keys are the column names. To feed data from and to the Hugging Face hub, we've defined a `Distiset` class as an abstraction of a `datasets.DatasetDict`.
 
 ## What do people build with Distilabel?
 
-Our community uses Distilabel to create amazing [datasets](https://huggingface.co/datasets?other=distilabel) and [models](https://huggingface.co/models?other=distilabel), and **we love contributions to open-source** ourselves too.
+The community uses Distilabel to create amazing [datasets](https://huggingface.co/datasets?other=distilabel) and [models](https://huggingface.co/models?other=distilabel), and **we love contributions to open-source** ourselves too.
 
 - The [1M OpenHermesPreference](https://huggingface.co/datasets/argilla/OpenHermesPreferences) is a dataset of ~1 million AI preferences derived from teknium/OpenHermes-2.5. It shows how we can use Distilabel to **synthesize data on an immense scale**.
-- Our [distilabeled Intel Orca DPO dataset](https://huggingface.co/datasets/argilla/distilabel-intel-orca-dpo-pairs) and the [improved OpenHermes model](https://huggingface.co/argilla/distilabeled-OpenHermes-2.5-Mistral-7B),, show how we **improve model performance by filtering out 50%** of the original dataset through **AI feedback**.
+- [distilabeled Intel Orca DPO dataset](https://huggingface.co/datasets/argilla/distilabel-intel-orca-dpo-pairs) and the [improved OpenHermes model](https://huggingface.co/argilla/distilabeled-OpenHermes-2.5-Mistral-7B),, show how we **improve model performance by filtering out 50%** of the original dataset through **AI feedback**.
 - The [haiku DPO data](https://github.com/davanstrien/haiku-dpo) outlines how anyone can create a **dataset for a specific task** and **the latest research papers** to improve the quality of the dataset.
 
 ## Distiset as special datasets.DatasetDict
