@@ -94,7 +94,7 @@ distiset.push_to_hub(
 )
 ```
 
-There are already [many distilabel dataset available on the Hub](https://huggingface.co/datasets?library=library:distilabel&sort=trending) and we look forward to seeing your there too!
+There are [many distilabel dataset available on the Hub](https://huggingface.co/datasets?library=library:distilabel&sort=trending) already and we look forward to seeing your dataset there too!
 
 ## 📚 Resources
 
