@@ -21,15 +21,15 @@ huggingface-cli login
 Make sure you have `distilabel` installed:
 
 ```bash
-pip install -U distilabel[openai]
+pip install -U distilabel[vllm]
 ```
 
 ## Load data from the Hub to a Distiset
 
-To showcase an example of loading data from the hub, we will reproduce the Prometheus 2 and the PrometheusEval task implemented in distilabel and use it on a dataset that we load from the hub, which was created by the Hugging Face H4 team named [HuggingFaceH4/instruction-dataset](https://huggingface.co/datasets/HuggingFaceH4/instruction-dataset).
+To showcase an example of loading data from the Hub, we will reproduce the [Prometheus 2 paper](https://arxiv.org/pdf/2405.01535) and use the PrometheusEval task implemented in distilabel. The Prometheus 2 and Prometheuseval task  direct assessment and pairwise ranking tasks i.e. assessing the quality of a single isolated response for a given instruction with or without a reference answer, and assessing the quality of one response against another one for a given instruction with or without a reference answer, respectively. We will use these task on a dataset loaded from the Hub, which was created by the Hugging Face H4 team named [HuggingFaceH4/instruction-dataset](https://huggingface.co/datasets/HuggingFaceH4/instruction-dataset). 
 
 ```python
-from distilabel.llms import OpenAILLM
+from distilabel.llms import vLLM
 from distilabel.pipeline import Pipeline
 from distilabel.steps import KeepColumns, LoadDataFromHub
 from distilabel.steps.tasks import PrometheusEval
@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
         task = PrometheusEval(
             name="task",
-            llm=OpenAILLM(
+            llm=vLLM(
                 model="prometheus-eval/prometheus-7b-v2.0",
                 chat_template="[INST] {{ messages[0]['content'] }}\n{{ messages[1]['content'] }}[/INST]",
             ),
