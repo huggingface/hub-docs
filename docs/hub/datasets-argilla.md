@@ -1,6 +1,8 @@
 # Argilla
 
-Argilla is a collaboration platform for AI engineers and domain experts who need high-quality outputs, full data ownership, and overall efficiency in their work.
+Argilla is a collaboration tool for AI engineers and domain experts who need high-quality outputs, full data ownership, and overall efficiency in their work.
+
+Whether you are working on monitoring and improving complex generative tasks involving LLM pipelines with RAG, or you are working on a predictive task for things like AB-testing of span- and text-classification models. Our versatile tool helps you ensure your data work pays off. We help you improve your AI output quality through data quality, take control of your data and models, and improve efficiency by quickly iterating on the right data and models.
 
 ## Importing and exporting datasets and records
 
