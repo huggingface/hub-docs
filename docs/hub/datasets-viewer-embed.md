@@ -64,7 +64,7 @@ Open a [pull request](https://github.com/huggingface/hub-docs/blob/main/docs/hub
 
 ### Tool: ZenML
 
-[`htahir1`](https://huggingface.co/htahir1) shares code in a [blog post](https://www.zenml.io/blog/embedding-huggingface-datasets-visualizations-with-zenml) to visualize a Hugging Face dataset within a [ZenML](https://huggingface.co/zenml) pipeline.
+[`htahir1`](https://huggingface.co/htahir1) shares a [blog post](https://www.zenml.io/blog/embedding-huggingface-datasets-visualizations-with-zenml) showing how you can use the [ZenML](https://huggingface.co/zenml) integration with the Datasets Viewer to visualize a Hugging Face dataset within a  ZenML pipeline.
 
 <div class="flex justify-center">
 <a href="https://www.zenml.io/blog/embedding-huggingface-datasets-visualizations-with-zenml">
