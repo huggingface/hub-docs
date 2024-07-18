@@ -111,3 +111,14 @@ Open a [pull request](https://github.com/huggingface/hub-docs/blob/main/docs/hub
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-gallery.map"/>
 </a>
 </div>
+
+### Datasets: Docmatix
+
+[`andito`](https://huggingface.co/andito) uses the embedded viewer in the [blog post](https://huggingface.co/blog/docmatix) announcing the release of [Docmatix](https://huggingface.co/datasets/HuggingFaceM4/Docmatix), a huge dataset for Document Visual Question Answering (DocVQA).
+
+
+<div class="flex justify-center">
+<a href="https://huggingface.co/blog/docmatix">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-docmatix.map"/>
+</a>
+</div>
