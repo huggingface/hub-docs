@@ -119,6 +119,6 @@ Open a [pull request](https://github.com/huggingface/hub-docs/blob/main/docs/hub
 
 <div class="flex justify-center">
 <a href="https://huggingface.co/blog/docmatix">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-docmatix.map"/>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-docmatix.png"/>
 </a>
 </div>
