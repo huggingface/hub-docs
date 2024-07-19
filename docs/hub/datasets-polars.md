@@ -12,11 +12,6 @@ To get started you can simply `pip install` Polars into your environment
 pip install polars
 ``` 
 
-<Tip>
-A hugging face url can be constructed from the `username` and `dataset` name like this `hf://datasets/{username}/{dataset}/{path_to_file}`. The path may include globbing patterns such as `**/*.parquet` to query all the files matching the pattern. Additionally, for any non-supported [file formats](./datasets-polars-file-formats) you can use the auto-converted parquet files that Hugging Face provides using the `@~parquet branch`: `hf://datasets/{my-username}/{my-dataset}@~parquet/{path_to_file}`
-</Tip>
-
-
 Once you have installed Polars, you can directly query a dataset based on a hugging face url. No other dependencies are needed for this.
 
 ```python
@@ -33,3 +28,7 @@ Polars supports globbing to download multiple files at once into a single DataFr
 ```python
 pl.read_parquet("hf://datasets/roneneldan/TinyStories/data/train-*.parquet")
 ```
+
+### Hugging Face Url's
+
+A hugging face url can be constructed from the `username` and `dataset` name like this `hf://datasets/{username}/{dataset}/{path_to_file}`. The path may include globbing patterns such as `**/*.parquet` to query all the files matching the pattern. Additionally, for any non-supported [file formats](./datasets-polars-file-formats) you can use the auto-converted parquet files that Hugging Face provides using the `@~parquet branch`: `hf://datasets/{my-username}/{my-dataset}@~parquet/{path_to_file}`
