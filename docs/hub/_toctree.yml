@@ -182,6 +182,17 @@
         title: FiftyOne
       - local: datasets-pandas
         title: Pandas
+      - local: datasets-polars
+        title: Polars
+        sections:
+        - local: datasets-polars-auth
+          title: Authentication for private and gated datasets
+        - local: datasets-polars-file-formats
+          title: Supported file formats
+        - local: datasets-polars-operations
+          title: Performing data transformations
+        - local: datasets-polars-optimizations
+          title: Performance optimizations
       - local: datasets-webdataset
         title: WebDataset
   - local: datasets-viewer
