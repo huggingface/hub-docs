@@ -17,7 +17,10 @@ export HF_TOKEN="hf_xxxxxxxxxxxxx"
 You can also explicitly provide the access token into the reader (e.g. `read_parquet`) through the `storage_options` parameter. For a full overview on all the parameters you can visit the [API reference guide](https://docs.pola.rs/api/python/stable/reference/api/polars.read_parquet.html).
 
 ```python
-pl.read_parquet("hf://datasets/roneneldan/TinyStories/data/train-*.parquet", storage_options = {'token' : ACCESS_TOKEN})
+pl.read_parquet(
+    "hf://datasets/roneneldan/TinyStories/data/train-*.parquet",
+    storage_options={"token": ACCESS_TOKEN},
+)
 ```
 
-If both environment variable and the storage_options are provided the storage options access token will take precedence.
+If both the environment variable and the storage_options are provided the storage options will take precedence.

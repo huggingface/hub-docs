@@ -20,7 +20,9 @@ pl.read_parquet("hf://datasets/roneneldan/TinyStories/data/train-00000-of-00004-
 ```
 
 <Tip>
+
 Polars provides two API's, a lazy one (`scan_parquet`) and an eager API (`read_parquet`). We would recommend using the eager API for interactive workloads and the lazy API for performance as it allows for better query optimization. For more information on the topic, go to [lazy vs eager](https://docs.pola.rs/user-guide/concepts/lazy-vs-eager/).
+
 </Tip>
 
 Polars supports globbing to download multiple files at once into a single DataFrame
@@ -31,4 +33,10 @@ pl.read_parquet("hf://datasets/roneneldan/TinyStories/data/train-*.parquet")
 
 ### Hugging Face Url's
 
-A hugging face url can be constructed from the `username` and `dataset` name like this `hf://datasets/{username}/{dataset}/{path_to_file}`. The path may include globbing patterns such as `**/*.parquet` to query all the files matching the pattern. Additionally, for any non-supported [file formats](./datasets-polars-file-formats) you can use the auto-converted parquet files that Hugging Face provides using the `@~parquet branch`: `hf://datasets/{my-username}/{my-dataset}@~parquet/{path_to_file}`
+A hugging face url can be constructed from the `username` and `dataset` name like this:
+ 
+- `hf://datasets/{username}/{dataset}/{path_to_file}`. 
+
+The path may include globbing patterns such as `**/*.parquet` to query all the files matching the pattern. Additionally, for any non-supported [file formats](./datasets-polars-file-formats) you can use the auto-converted parquet files that Hugging Face provides using the `@~parquet branch`: 
+
+- `hf://datasets/{my-username}/{my-dataset}@~parquet/{path_to_file}`
