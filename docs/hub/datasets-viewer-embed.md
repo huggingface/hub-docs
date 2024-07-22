@@ -2,7 +2,7 @@
 
 You can embed the Dataset Viewer in your own webpage using an iframe.
 
-The URL to use is `https://huggingface.co/datasets/<namespace>/<dataset-name>/embed/viewer`, where `<namespace>` is the owner of the dataset (user or organization) and `<dataset-name>` is the name of the dataset. You can also pass other parameters like the configuration, split, filter, search or selected row.
+The URL to use is `https://huggingface.co/datasets/<namespace>/<dataset-name>/embed/viewer`, where `<namespace>` is the owner of the dataset (user or organization) and `<dataset-name>` is the name of the dataset. You can also pass other parameters like the configuration (or subset), split, filter, search or selected row.
 
 For example, the following iframe embeds the Dataset Viewer for the `glue` dataset from the `nyu-mll` organization:
 

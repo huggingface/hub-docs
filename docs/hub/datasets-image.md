@@ -153,7 +153,7 @@ You can disable this automatic addition of the `label` column in the [YAML confi
 
 ```yaml
 configs:
-  - config_name: default
+  - config_name: default # name of the configuration (or subset)
     drop_labels: true
 ```
 
