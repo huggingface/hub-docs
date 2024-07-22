@@ -34,7 +34,7 @@ task_ids:
 - {subtask_1}  # Example: multi-class-image-classification
 paperswithcode_id: {paperswithcode_id}  # Dataset id on PapersWithCode (from the URL). Example for SQuAD: squad
 configs:  # Optional. This can be used to pass additional parameters to the dataset loader, such as `data_files`, `data_dir`, and any builder-specific parameters  
-- config_name: {config_name_0}  # Name of the configuration (or subset). Example: default
+- config_name: {config_name_0}  # Name of the dataset subset, if applicable. Example: default
   data_files:
   - split: {split_name_0}  # Example: train
     path: {file_path_0}  # Example: data.csv
