@@ -25,15 +25,6 @@ AI teams from companies like [the Red Cross](https://510.global/), [Loris.ai](ht
 - Customer support: during [the Loris meetup](https://youtu.be/jWrtgf2w4VU?feature=shared) they showed how their AI team uses unsupervised and few-shot contrastive learning to help them **quickly validate and gain labelled samples for a huge amount of multi-label classifiers**.
 - Research studies: [the showcase from Prolific](https://youtu.be/ePDlhIxnuAs?feature=shared) announced their integration with our platform. They use it to actively **distribute data collection projects** among their annotating workforce. This allows them to quickly and **efficiently collect high-quality data** for their research studies.
 
-## Importing and exporting datasets and records
-
-This guide shows how to import and export your dataset to the Hugging Face Hub.
-
-In Argilla, you can import/export two main components of a dataset:
-- The dataset's complete configuration defined in `rg.Settings`. This is useful if your want to share your feedback task or restore it later in Argilla.
-- The records stored in the dataset, including `Metadata`, `Vectors`, `Suggestions`, and `Responses`. This is useful if you want to use your dataset's records outside of Argilla.
-
-🚀 Try the Argilla 🤝 Hugging Face [deployment integration on Spaces](https://huggingface.co/docs/hub/en/spaces-sdks-docker-argilla)!
 
 ## Prerequisites
 
@@ -49,7 +40,17 @@ Make sure you have `argilla>=2.0.0` installed:
 pip install -U argilla
 ```
 
-## Push an Argilla dataset to the Hugging Face Hub
+Lastly, you will need to deploy the Argilla server and UI, which can be done [easily on the Hugging Face Hub](https://argilla-io.github.io/argilla/latest/getting_started/quickstart/#run-the-argilla-server).
+
+## Importing and exporting datasets and records
+
+This guide shows how to import and export your dataset to the Hugging Face Hub.
+
+In Argilla, you can import/export two main components of a dataset:
+- The dataset's complete configuration defined in `rg.Settings`. This is useful if your want to share your feedback task or restore it later in Argilla.
+- The records stored in the dataset, including `Metadata`, `Vectors`, `Suggestions`, and `Responses`. This is useful if you want to use your dataset's records outside of Argilla.
+
+### Push an Argilla dataset to the Hugging Face Hub
 
 You can push a dataset from Argilla to the Hugging Face Hub. This is useful if you want to share your dataset with the community or version control it. You can push the dataset to the Hugging Face Hub using the `rg.Dataset.to_hub` method.
 
@@ -61,7 +62,7 @@ dataset = client.datasets(name="my_dataset")
 dataset.to_hub(repo_id="<repo_id>")
 ```
 
-### With or without records
+#### With or without records
     
 The example above will push the dataset's `Settings` and records to the hub. If you only want to push the dataset's configuration, you can set the `with_records` parameter to `False`. This is useful if you're just interested in a specific dataset template or you want to make changes in the dataset settings and/or records.
 
@@ -69,7 +70,7 @@ The example above will push the dataset's `Settings` and records to the hub. If 
 dataset.to_hub(repo_id="<repo_id>", with_records=False)
 ```
 
-## Pull an Argilla dataset from the Hugging Face Hub
+### Pull an Argilla dataset from the Hugging Face Hub
 
 You can pull a dataset from the Hugging Face Hub to Argilla. This is useful if you want to restore a dataset and its configuration. You can pull the dataset from the Hugging Face Hub using the `rg.Dataset.from_hub` method.
 
@@ -83,7 +84,7 @@ dataset = rg.Dataset.from_hub(repo_id="<repo_id>")
 
 The `rg.Dataset.from_hub` method loads the configuration and records from the dataset repo. If you only want to load records, you can pass a `datasets.Dataset` object to the `rg.Dataset.log` method. This enables you to configure your own dataset and reuse existing Hub datasets. 
 
-### With or without records
+#### With or without records
 
 The example above will pull the dataset's `Settings` and records from the hub. If you only want to pull the dataset's configuration, you can set the `with_records` parameter to `False`. This is useful if you're just interested in a specific dataset template or you want to make changes in the dataset settings and/or records.
 
