@@ -153,7 +153,7 @@ You can disable this automatic addition of the `label` column in the [YAML confi
 
 ```yaml
 configs:
-  - config_name: default # name of the dataset subset
+  - config_name: default  # Name of the dataset subset, if applicable.
     drop_labels: true
 ```
 
