@@ -112,7 +112,7 @@ Get the list of auto-converted parquet files.
 
 ### GET /api/datasets/{repo_id}/parquet/{config}/{split}/{n}.parquet
 
-Get the nth shard of the auto-converted parquet files, for a specific configuration (or subset) and split.
+Get the nth shard of the auto-converted parquet files, for a specific subset (also called "config") and split.
 
 ### GET /api/datasets/{repo_id}/croissant
 

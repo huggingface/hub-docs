@@ -40,7 +40,7 @@ configs:  # Optional. This can be used to pass additional parameters to the data
     path: {file_path_0}  # Example: data.csv
   - split: {split_name_1}  # Example: test
     path: {file_path_1}   # Example: holdout.csv
-- config_name: {config_name_1}  # Name of the configuration (or subset). Example: processed
+- config_name: {config_name_1}  # Name of the dataset subset. Example: processed
   data_files:
   - split: {split_name_3}  # Example: train
     path: {file_path_3}  # Example: data_processed.csv
@@ -69,7 +69,7 @@ dataset_info:
     #       dtype: string
     #     - name: answer_start
     #       dtype: int32
-  config_name: {config_name}  # Name of the configuration (or subset). Example for glue: sst2
+  config_name: {config_name}  # Name of the dataset subset. Example for glue: sst2
   splits:
     - name: {split_name_0}                  # Example: train
       num_bytes: {split_num_bytes_0}        # Example for SQuAD: 79317110
@@ -98,7 +98,7 @@ extra_gated_prompt: {extra_gated_prompt}  # Example for speech datasets: By clic
 
 # Optional. Add this if you want to encode a train and evaluation info in a structured way for AutoTrain or Evaluation on the Hub
 train-eval-index:
-  - config: {config_name}           # The dataset config name to use. Example for datasets without configs: default. Example for glue: sst2
+  - config: {config_name}           # The dataset subset name to use. Example for datasets without subsets: default. Example for glue: sst2
     task: {task_name}               # The task category name (same as task_category). Example: question-answering
     task_id: {task_type}            # The AutoTrain task id. Example: extractive_question_answering
     splits:
