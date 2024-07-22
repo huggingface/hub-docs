@@ -1,16 +1,14 @@
 # FiftyOne
 
-FiftyOne is the leading open-source toolkit for curating, visualizing, and
+FiftyOne is an open-source toolkit for curating, visualizing, and
 managing unstructured visual data. The library streamlines data-centric
 workflows, from finding low-confidence predictions to identifying poor-quality
 samples and uncovering hidden patterns in your data. The library supports all
 sorts of visual data, from images and videos to PDFs, point clouds, and meshes.
 
-Whereas tabular data formats like a pandas DataFrame or a Parquet file consist
-of rows and columns, FiftyOne datasets are considerably more flexible,
-accomodating object detections, keypoints, polylines, etc. and custom schemas.
+FiftyOne accommodates object detections, keypoints, polylines, and custom schemas.
 
-FiftyOne is integrated with the Hugging Face Hub, so you can load and share
+FiftyOne is integrated with the Hugging Face Hub so that you can load and share
 FiftyOne datasets directly from the Hub.
 
 🚀 Try the FiftyOne 🤝 Hugging Face Integration in [Colab](https://colab.research.google.com/drive/1l0kzfbJ2wtUw1EGS1tq1PJYoWenMlihp?usp=sharing)!
@@ -41,8 +39,7 @@ With `load_from_hub()` from FiftyOne's Hugging Face utils, you can load:
 Any dataset pushed to the hub in one of FiftyOne’s [supported common formats](https://docs.voxel51.com/user_guide/dataset_creation/datasets.html#supported-import-formats)
 should have all of the necessary configuration info in its dataset repo on the
 hub, so you can load the dataset by specifying its `repo_id`. As an example, to
-load the [VisDrone detection dataset](https://huggingface.co/datasets/Voxel51/VisDrone2019-DET),
-all you need is:
+load the [VisDrone detection dataset](https://huggingface.co/datasets/Voxel51/VisDrone2019-DET):
 
 ```python
 import fiftyone as fo
@@ -58,8 +55,8 @@ session = fo.launch_app(dataset)
 ![FiftyOne VisDrone dataset](https://cdn-uploads.huggingface.co/production/uploads/63127e2495407887cb79c5ea/0eKxe_GSsBjt8wMjT9qaI.jpeg)
 
 You can [customize the download process](https://docs.voxel51.com/integrations/huggingface.html#configuring-the-download-process), including the number of samples to
-download, the name of the created dataset object, whether or not it is persisted
-to disk, and more!
+download, the name of the created dataset object, or whether or not it is persisted
+to disk.
 
 You can list all the available FiftyOne datasets on the Hub using:
 
@@ -72,7 +69,7 @@ api.list_datasets(tags="fiftyone")
 ### Loading Parquet Datasets from the Hub with FiftyOne
 
 You can also use the `load_from_hub()` function to load datasets from Parquet
-files. Type conversions are handled for you and images are downloaded from URLs
+files. Type conversions are handled for you, and images are downloaded from URLs
 if necessary.
 
 With this functionality, [you can load](https://docs.voxel51.com/integrations/huggingface.html#basic-examples) any of the following:
@@ -83,10 +80,7 @@ With this functionality, [you can load](https://docs.voxel51.com/integrations/hu
 - [FiftyOne-Compatible Image Captioning Datasets](https://huggingface.co/collections/Voxel51/fiftyone-compatible-image-captioning-datasets-665e16e29350244c06084505) like [COYO-700M](https://huggingface.co/datasets/kakaobrain/coyo-700m) and [New Yorker Caption Contest](https://huggingface.co/datasets/jmhessel/newyorker_caption_contest)
 - [FiftyOne-Compatible Visual Question-Answering Datasets](https://huggingface.co/collections/Voxel51/fiftyone-compatible-vqa-datasets-665e16424ecc8a718156248a) like [TextVQA](https://huggingface.co/datasets/textvqa) and [ScienceQA](https://huggingface.co/datasets/derek-thomas/ScienceQA)
 
-
-And many more!
-
-As a simple example, we can load the first 1,000 samples from the
+As an example, we can load the first 1,000 samples from the
 [WikiArt dataset](https://huggingface.co/datasets/huggan/wikiart) into FiftyOne with:
 
 ```python
@@ -106,7 +100,7 @@ dataset = load_from_hub(
 
 ## Pushing FiftyOne Datasets to the Hub
 
-Pushing a dataset to the hub is as simple as:
+You can push a dataset to the hub with:
 
 ```python
 import fiftyone as fo
@@ -122,7 +116,7 @@ push_to_hub(dataset, "my-hf-dataset")
 
 When you call `push_to_hub()`, the dataset will be uploaded to the repo
 with the specified repo name under your username, and the repo will be created
-if necessary. A [Dataset Card](./datasets-cards) will automatically be generated and populated with instructions for loading the dataset from the hub. You can even upload a thumbnail image/gif to appear on the Dataset Card with the `preview_path` argument.
+if necessary. A [Dataset Card](./datasets-cards) will automatically be generated and populated with instructions for loading the dataset from the hub. You can upload a thumbnail image/gif to appear on the Dataset Card with the `preview_path` argument.
 
 Here’s an example using many of these arguments, which would upload the first three samples of FiftyOne's [Quickstart Video](https://docs.voxel51.com/user_guide/dataset_zoo/datasets.html#quickstart-video) dataset to the private repo `username/my-quickstart-video-dataset` with tags, an MIT license, a description, and a preview image:
 
