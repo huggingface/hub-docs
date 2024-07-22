@@ -1,14 +1,14 @@
 # Transforming your dataset
 
-On this page we'll guide you through some of the most common operations used when doing data analysis. This is only a small subsection of what is possible in Polars, for more information please visit the [Documentation](https://docs.pola.rs/).
+On this page we'll guide you through some of the most common operations used when doing data analysis. This is only a small subset of what's possible in Polars. For more information, please visit the [Documentation](https://docs.pola.rs/).
 
-For the example we will use the [Common Crawl statistics](https://huggingface.co/datasets/commoncrawl/statistics) dataset. These statistics include: number of pages, distribution of top-level domains, crawl overlaps, etc. For more detailed information and graphs please visit their [official statistics page](https://commoncrawl.github.io/cc-crawl-statistics/plots/tlds). 
-
+For the example we will use the [Common Crawl statistics](https://huggingface.co/datasets/commoncrawl/statistics) dataset. These statistics include: number of pages, distribution of top-level domains, crawl overlaps, etc. For more detailed information and graphs please visit their [official statistics page](https://commoncrawl.github.io/cc-crawl-statistics/plots/tlds).
 
 ## Reading
 
+```python
+import polars as pl
 
-```
 df = pl.read_csv(
     "hf://datasets/commoncrawl/statistics/tlds.csv",
     try_parse_dates=True,
@@ -30,10 +30,11 @@ df.head(3)
 
 ## Selecting columns
 
-The dataset contains some columns we won't need. To remove them we will use the `select` method:
+The dataset contains some columns we don't need. To remove them, we will use the `select` method:
 
-```
-df = df.select(["suffix","date","tld","pages","domains"])
+```python
+df = df.select("suffix", "date", "tld", "pages", "domains")
+df.head(3)
 ```
 
 ```bash
@@ -50,24 +51,26 @@ df = df.select(["suffix","date","tld","pages","domains"])
 
 ## Filtering
 
-We can filter the dataset using `.filter(..)` within a filter you can put complex expressions but let us start of easy. To filter based on the crawl date:
+We can filter the dataset using the `filter` method. This method accepts complex expressions, but let's start simple by filtering based on the crawl date:
 
 ```python
-df = df.filter(pl.col("date") >= datetime.date(2020,1,1))
+import datetime
+
+df = df.filter(pl.col("date") >= datetime.date(2020, 1, 1))
 ```
 
-You can combine multiple filters with `&` or '|' operators:
+You can combine multiple predicates with `&` or `|` operators:
 
 ```python
 df = df.filter(
-    (pl.col("date") >= datetime.date(2020, 1, 1)) | 
+    (pl.col("date") >= datetime.date(2020, 1, 1)) |
     pl.col("crawl").str.contains("CC")
 )
 ```
 
 ## Transforming
 
-In order to add new columns to the dataset use `with_columns`. In the example below we calculate the total of pages per domain and add a new column `pages_per_domain` using the `alias` method. The entire statement within `with_columns` is called an expression. To read more about expressions and how to use them in the Polars [User Guide](https://docs.pola.rs/user-guide/expressions/)
+In order to add new columns to the dataset, use `with_columns`. In the example below we calculate the total number of pages per domain and add a new column `pages_per_domain` using the `alias` method. The entire statement within `with_columns` is called an expression. Read more about expressions and how to use them in the [Polars user guide](https://docs.pola.rs/user-guide/expressions/)
 
 ```python
 df = df.with_columns(
@@ -90,30 +93,31 @@ df.sample(3)
 
 ## Aggregation & Sorting
 
-In order to aggregate data together you can use the `group_by`, `agg` and `sort` methods. Within the aggregation context you can combine expressions to create powerful statements which are still easy to read. 
+In order to aggregate data together you can use the `group_by`, `agg` and `sort` methods. Within the aggregation context you can combine expressions to create powerful statements which are still easy to read.
 
-First we aggregate all the data to the top level domain `tld` per scraped date
+First, we aggregate all the data to the top-level domain `tld` per scraped date:
 
 ```python
-df = df.group_by("tld","date").agg(
+df = df.group_by("tld", "date").agg(
     pl.col("pages").sum(),
-    pl.col("domains").sum()
+    pl.col("domains").sum(),
 )
 ```
 
 Now we can calculate several statistics per top level domain:
 
 - Number of unique scrape dates
-- The average number of domains in the scraped period 
+- Average number of domains in the scraped period
 - Average growth rate in terms of number of pages
 
 ```python
 df = df.group_by("tld").agg(
     pl.col("date").unique().count().alias("number_of_scrapes"),
     pl.col("domains").mean().alias("avg_number_of_domains"),
-    pl.col("pages").sort_by("date").pct_change().mean().alias("avg_page_growth_rate")
+    pl.col("pages").sort_by("date").pct_change().mean().alias("avg_page_growth_rate"),
 )
-print(df.sort("avg_number_of_domains",descending=True).head(10))
+df = df.sort("avg_number_of_domains", descending=True)
+df.head(10)
 ```
 
 ```bash
@@ -134,4 +138,3 @@ print(df.sort("avg_number_of_domains",descending=True).head(10))
 │ jp  ┆ 101               ┆ 615391.455446         ┆ 0.246162                        │
 └─────┴───────────────────┴───────────────────────┴─────────────────────────────────┘
 ```
-
