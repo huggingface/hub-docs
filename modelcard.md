@@ -29,7 +29,7 @@ model-index:
     dataset:
       type: {dataset_type}          # Required. Example: common_voice. Use dataset id from https://hf.co/datasets
       name: {dataset_name}          # Required. A pretty name for the dataset. Example: Common Voice (French)
-      config: {dataset_config}      # Optional. The name of the dataset configuration used in `load_dataset()`. Example: fr in `load_dataset("common_voice", "fr")`. See the `datasets` docs for more info: https://huggingface.co/docs/datasets/package_reference/loading_methods#datasets.load_dataset.name
+      config: {dataset_config}      # Optional. The name of the dataset subset used in `load_dataset()`. Example: fr in `load_dataset("common_voice", "fr")`. See the `datasets` docs for more info: https://huggingface.co/docs/datasets/package_reference/loading_methods#datasets.load_dataset.name
       split: {dataset_split}        # Optional. Example: test
       revision: {dataset_revision}  # Optional. Example: 5503434ddd753f426f4b38109466949a1217c2bb
       args:

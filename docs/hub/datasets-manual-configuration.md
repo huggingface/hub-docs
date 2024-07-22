@@ -2,9 +2,9 @@
 
 This guide will show you how to configure a custom structure for your dataset repository.
 
-A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its dataset page on the Hub. You can use YAML to define the splits, configurations and builder parameters that are used by the Viewer.
+A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its dataset page on the Hub. You can use YAML to define the splits, subsets and builder parameters that are used by the Viewer.
 
-It is also possible to define multiple configurations for the same dataset (e.g. if the dataset has various independent files).
+It is also possible to define multiple subsets (also called "configurations") for the same dataset (e.g. if the dataset has various independent files).
 
 ## Splits
 
@@ -19,7 +19,7 @@ my_dataset_repository/
 └── holdout.csv
 ```
 
-You can define a configuration for your splits by adding the `configs` field in the YAML block at the top of your README.md:
+You can define a subset for your splits by adding the `configs` field in the YAML block at the top of your README.md:
 
 ```yaml
 ---
@@ -75,16 +75,16 @@ configs:
 
 <Tip warning={true}>
 
-Note that `config_name` field is required even if you have a single configuration.
+Note that `config_name` field is required even if you have a single subset.
 
 </Tip>
 
-## Multiple Configurations
+## Multiple Subsets
 
 Your dataset might have several subsets of data that you want to be able to use separately.
-For example each configuration has its own dropdown in the Dataset Viewer the Hugging Face Hub.
+For example each subset has its own dropdown in the Dataset Viewer the Hugging Face Hub.
 
-In that case you can define a list of configurations inside the `configs` field in YAML:
+In that case you can define a list of subsets inside the `configs` field in YAML:
 
 ```
 my_dataset_repository/
@@ -105,7 +105,7 @@ configs:
 
 ## Builder parameters
 
-Not only `data_files`, but other builder-specific parameters can be passed via YAML, allowing for more flexibility on how to load the data while not requiring any custom code. For example, define which separator to use in which configuration to load your `csv` files:
+Not only `data_files`, but other builder-specific parameters can be passed via YAML, allowing for more flexibility on how to load the data while not requiring any custom code. For example, define which separator to use in which subset to load your `csv` files:
 
 ```yaml
 ---
@@ -119,11 +119,11 @@ configs:
 ---
 ```
 
-Refer to the [specific builders' documentation](../datasets/package_reference/builder_classes) to see what configuration parameters they have.
+Refer to the [specific builders' documentation](../datasets/package_reference/builder_classes) to see what parameters they have.
 
 <Tip>
 
-You can set a default configuration using `default: true`
+You can set a default subset using `default: true`
 
 ```yaml
 - config_name: main_data
