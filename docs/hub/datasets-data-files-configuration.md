@@ -7,7 +7,7 @@ Often it is as simple as naming your data files according to their split names, 
 
 ## What are splits and subsets?
 
-Machine learning datasets typically have splits and may also have subsets. A dataset is generally made of _splits_ (e.g. `train` and `test`) that are used during different stages of training and evaluating a model. A _subset_ (also called _configuration_) is a sub-dataset contained within a larger dataset. Subsets are especially common in multilingual speech datasets where there may be a different subset for each language. If you're interested in learning more about splits and subsets, check out the [Splits and configurations](https://huggingface.co/docs/datasets-server/configs_and_splits) guide!
+Machine learning datasets typically have splits and may also have subsets. A dataset is generally made of _splits_ (e.g. `train` and `test`) that are used during different stages of training and evaluating a model. A _subset_ (also called _configuration_) is a sub-dataset contained within a larger dataset. Subsets are especially common in multilingual speech datasets where there may be a different subset for each language. If you're interested in learning more about splits and subsets, check out the [Splits and subsets](https://huggingface.co/docs/datasets-server/configs_and_splits) guide!
 
 ![split-configs-server](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/split-configs-server.gif)
 

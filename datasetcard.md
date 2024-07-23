@@ -77,7 +77,7 @@ dataset_info:
   download_size: {dataset_download_size}   # Example for SQuAD: 35142551
   dataset_size: {dataset_size}             # Example for SQuAD: 89789763
 
-# It can also be a list of multiple configurations (or subsets):
+# It can also be a list of multiple subsets (also called "configurations"):
 # ```yaml
 # dataset_info:
 #   - config_name: {config0}
