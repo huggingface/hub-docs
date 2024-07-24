@@ -161,10 +161,14 @@
   - local: datasets-libraries
     title: Integrated Libraries
     sections:
+      - local: datasets-argilla
+        title: Argilla
       - local: datasets-dask
         title: Dask
       - local: datasets-usage
         title: Datasets
+      - local: datasets-distilabel
+        title: Distilabel
       - local: datasets-duckdb
         title: DuckDB
         sections:
