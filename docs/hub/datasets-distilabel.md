@@ -2,7 +2,7 @@
 
 Distilabel is the framework for synthetic data and AI feedback for engineers who need fast, reliable and scalable pipelines based on verified research papers.
 
-Distilabel pipelines can be built with any number of interconnected steps or tasks. The output of one step or task is fed as input to another. A series of steps can be chained together to build complex data processing and generation pipelines with LLMs. The input of each step is a batch of data, containing a list of dictionaries, where each dictionary represents a row of the dataset, and the keys are the column names. To feed data from and to the Hugging Face hub, we've defined a `Distiset` class as an abstraction of a `datasets.DatasetDict`.
+Distilabel can be used for generating synthetic data and AI feedback for a wide variety of projects including traditional predictive NLP (classification, extraction, etc.), or generative and large language model scenarios (instruction following, dialogue generation, judging etc.). Distilabel's programmatic approach allows you to build scalable pipelines for continuous data generation and model evaluation. The goal of distilabel is to accelerate your AI development by quickly generating high-quality, diverse datasets based on verified research methodologies for generating and judging with AI feedback.
 
 ## What do people build with distilabel?
 
@@ -25,6 +25,10 @@ Make sure you have `distilabel` installed:
 ```bash
 pip install -U distilabel[vllm]
 ```
+
+## Distilabel pipelines
+
+Distilabel pipelines can be built with any number of interconnected steps or tasks. The output of one step or task is fed as input to another. A series of steps can be chained together to build complex data processing and generation pipelines with LLMs. The input of each step is a batch of data, containing a list of dictionaries, where each dictionary represents a row of the dataset, and the keys are the column names. To feed data from and to the Hugging Face hub, we've defined a `Distiset` class as an abstraction of a `datasets.DatasetDict`.
 
 ## Distiset as dataset object
 
