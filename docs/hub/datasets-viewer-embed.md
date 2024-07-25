@@ -102,6 +102,16 @@ Open a [pull request](https://github.com/huggingface/hub-docs/blob/main/docs/hub
 </a>
 </div>
 
+### Datasets: Docmatix
+
+[`andito`](https://huggingface.co/andito) uses the embedded viewer in the [blog post](https://huggingface.co/blog/docmatix) announcing the release of [Docmatix](https://huggingface.co/datasets/HuggingFaceM4/Docmatix), a huge dataset for Document Visual Question Answering (DocVQA).
+
+<div class="flex justify-center">
+<a href="https://huggingface.co/blog/docmatix">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-docmatix.png"/>
+</a>
+</div>
+
 ### App: Electric Vehicle Charge Finder
 
 [`cfahlgren1`](https://huggingface.co/cfahlgren1) [embeds](https://x.com/calebfahlgren/status/1813356638239125735) the dataset viewer in the [Electric Vehicle Charge Finder app](https://charge-finder.vercel.app/).
@@ -112,13 +122,12 @@ Open a [pull request](https://github.com/huggingface/hub-docs/blob/main/docs/hub
 </a>
 </div>
 
-### Datasets: Docmatix
+### App: Masader - Arabic NLP data catalogue
 
-[`andito`](https://huggingface.co/andito) uses the embedded viewer in the [blog post](https://huggingface.co/blog/docmatix) announcing the release of [Docmatix](https://huggingface.co/datasets/HuggingFaceM4/Docmatix), a huge dataset for Document Visual Question Answering (DocVQA).
-
+[`Zaid`](https://huggingface.co/Zaid) [showcases](https://x.com/zaidalyafeai/status/1815365207775932576) the dataset viewer in [Masader - the Arabic NLP data catalogue0](https://arbml.github.io/masader//).
 
 <div class="flex justify-center">
-<a href="https://huggingface.co/blog/docmatix">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-docmatix.png"/>
+<a href="https://arbml.github.io/masader/">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-masader.png"/>
 </a>
 </div>
