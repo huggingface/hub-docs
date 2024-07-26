@@ -16,7 +16,7 @@ We will be using the example from the previous page to show the performance bene
 import polars as pl
 import datetime
 
-df = pl.read_csv("hf://datasets/commoncrawl/statistics/tlds.csv",try_parse_dates = True)
+df = pl.read_csv("hf://datasets/commoncrawl/statistics/tlds.csv", try_parse_dates=True)
 
 df = df.select("suffix", "crawl", "date", "tld", "pages", "domains")
 df = df.filter(
