@@ -2,7 +2,7 @@
 
 In order to access private or gated datasets, you need to authenticate first. Authentication works by providing an access token which will be used to authenticate and authorize your access to gated and private datasets. The first step is to create an access token for your account. This can be done by visiting [Hugging Face Settings - Tokens](https://huggingface.co/settings/tokens).
 
-There are two ways to provide the token: setting an environment variable and passing a parameter to the reader.
+There are three ways to provide the token: setting an environment variable, passing a parameter to the reader or using the Hugging Face CLI.
 
 ## Environment variable
 
@@ -23,4 +23,12 @@ pl.read_parquet(
 )
 ```
 
-If both the environment variable and the parameter are provided, the parameter will take precedence.
+## CLI
+
+Alternatively, you can you use the [Hugging Face CLI](https://huggingface.co/docs/huggingface_hub/en/guides/cli) to  authenticate. After successfully logging in with `huggingface-cli login` an access token will be stored in the `HF_HOME` directory which defaults to `~/.cache/huggingface`. Polars will then use this token for authentication.
+
+If multiple methods are specified, they are prioritized in the following order:
+
+- Parameters (`storage_options`)
+- Environment variable (`HF_TOKEN`)
+- CLI
