@@ -5,7 +5,6 @@ Polars supports the following file formats when reading from Hugging Face:
 -  [Parquet](https://docs.pola.rs/api/python/stable/reference/api/polars.read_parquet.html)
 -  [CSV](https://docs.pola.rs/api/python/stable/reference/api/polars.read_csv.html)
 -  [JSON Lines](https://docs.pola.rs/api/python/stable/reference/api/polars.read_ndjson.html)
--  [Arrow](https://docs.pola.rs/api/python/stable/reference/api/polars.read_ipc.html)
 
 The examples below show the default settings only. Use the links above to view all available parameters in the API reference guide.
 
@@ -31,12 +30,4 @@ Polars supports reading new line delimited JSON — also known as [json lines](h
 
 ```python
 pl.read_ndjson("hf://datasets/proj-persona/PersonaHub/persona.jsonl")
-```
-
-# Arrow
-
-Polars supports reading in from an Arrow IPC (Feather v2) file with the `read_ipc` function. 
-
-```python
-pl.read_ipc("hf://...")
 ```
