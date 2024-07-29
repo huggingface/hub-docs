@@ -52,7 +52,7 @@ For non-static Spaces, initial url to render. Needs to start with `/`. For stati
 
 **`fullWidth`**: _boolean_  
 Whether your Space is rendered inside a full-width (when `true`) or fixed-width column (ie. "container" CSS) inside the iframe.
-Defaults to false in `gradio`, and to true for other sdks.
+Defaults to `true`.
 
 **`header`**: _string_  
 Can be either `mini` or `default`. If `header` is set to `mini` the space will be displayed full-screen with a mini floating header .   
