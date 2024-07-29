@@ -85,7 +85,7 @@ By default, the oauth app does not need to access organization resources.
 
 But some scopes like `read-repos` or `read-billing` apply to organizations as well.
 
-The user can select which organizations to grant access to when authorizing the app. If you require access to a specific organization, you can add `orgIds=ORG_ID` as a query parameter to the OAuth authorization URL. You have to replace `ORG_ID` with the organization ID, which is availalbe in the `organizations.sub` field of the userinfo response.
+The user can select which organizations to grant access to when authorizing the app. If you require access to a specific organization, you can add `orgIds=ORG_ID` as a query parameter to the OAuth authorization URL. You have to replace `ORG_ID` with the organization ID, which is available in the `organizations.sub` field of the userinfo response.
 
 ## Adding the button to your Space
 
