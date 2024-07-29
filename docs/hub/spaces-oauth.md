@@ -72,11 +72,20 @@ The following scopes are always included for Spaces:
 Those scopes are optional and can be added by setting `hf_oauth_scopes` in your Space's metadata:
 
 - `email`: Get the user's email address.
+- `read-billing`: Know whether the user has a payment method set up.
 - `read-repos`: Get read access to the user's personal repos.
 - `write-repos`: Get write/read access to the user's personal repos.
 - `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion.
 - `inference-api`: Get access to the [Inference API](https://huggingface.co/docs/api-inference/index), you will be able to make inference requests on behalf of the user.
 - `write-discussions`: Open discussions and Pull Requests on behalf of the user as well as interact with discussions (including reactions, posting/editing comments, closing discussions, ...). To open Pull Requests on private repos, you need to request the `read-repos` scope as well.
+
+## Accessing organization resources
+
+By default, the oauth app does not need to access organization resources.
+
+But some scopes like `read-repos` or `read-billing` apply to organizations as well.
+
+The user can select which organizations to grant access to when authorizing the app. If you require access to a specific organization, you can add `orgIds=ORG_ID` as a query parameter to the OAuth authorization URL. You have to replace `ORG_ID` with the organization ID, which is available in the `organizations.sub` field of the userinfo response.
 
 ## Adding the button to your Space
 
