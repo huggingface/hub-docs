@@ -11,3 +11,5 @@ In this section we will document the following Enterprise Hub features:
 - [Storage Regions](./storage-regions)
 - [Dataset viewer for Private datasets](./enterprise-hub-datasets)
 - [Resource Groups](./security-resource-groups)
+- [Train on NVIDIA DGX Cloud](./train-dgx-cloud)
+- [Serverless Inference powered by NVIDIA](./inference-nim)
