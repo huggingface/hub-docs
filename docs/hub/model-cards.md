@@ -156,6 +156,8 @@ base_model:
 - l3utterfly/mistral-7b-v0.1-layla-v4
 ```
 
+The Hub will infer the type of relationship from the current model to the base model (`"adapter", "merge", "quantized", "finetune"`) but you can also set it explicitly if needed: `base_model_relation: quantized` for instance.
+
 ### Specifying a dataset
 
 You can specify the datasets used to train your model in the model card metadata section. The datasets will be displayed on the model page and users will be able to filter models by dataset. You should use the Hub dataset identifier, which is the same as the dataset's repo name as the identifier:
