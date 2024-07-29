@@ -15,9 +15,6 @@ def call_inference(prompt: str) -> str:
     return result
 ```
 
-To prevent this issue, we run an automated bot (Spaces Secrets Scanner) that scans for hard-coded secrets and opens a discussion (in case hard-coded secrets are found) about the exposed secrets & how to handle this problem.
+To prevent this issue, we run [TruffleHog](https://trufflesecurity.com/trufflehog) on each push you make. TruffleHog scans for hard-coded secrets and we will send you an email upon detection. You'll only receive an email for verified secrets. Verified secrets are secrets that have been verified by trufflehog, meaning that they can be used to authenticate to their given provider. Note that unverified secrets are not necessarily invalid, verification can also fail due to technical reasons, e.g. in that case of a network error.
 
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/token-scanner-light.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/token-scanner-dark.png"/>
-</div>
+TODO: add a picture of the email?
