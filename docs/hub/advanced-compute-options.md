@@ -45,7 +45,7 @@ Usage of Train on NVIDIA DGX Cloud is billed by the minute of the GPU instances 
 
 ## Serverless Inference powered by NVIDIA
 
-Serverless Inference powered by NVIDIA offers access to NVIDIA AI technology GPUs an [NVIDIA Inference Microservices](https://www.nvidia.com/en-us/ai/) (NIM) in a serverless way. Use standardized APIs and a few lines of code to run inference in a pay-as-you-go pricing model.
+Serverless Inference powered by NVIDIA offers access to [NVIDIA Inference Microservices (NIM)](https://www.nvidia.com/en-us/ai/) powered by NVIDIA H100s in a serverless way. Use standardized APIs and a few lines of code to run inference in a pay-as-you-go pricing model.
 
 ### How it works
 
