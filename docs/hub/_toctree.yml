@@ -324,6 +324,8 @@
         title: Dataset viewer for Private datasets
       - local: enterprise-hub-resource-groups
         title: Resource Groups (Advanced Access Control)
+      - local: advanced-compute-options
+        title: Advanced Compute Options
   - local: billing
     title: Billing
   - local: security

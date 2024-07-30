@@ -11,3 +11,4 @@ In this section we will document the following Enterprise Hub features:
 - [Storage Regions](./storage-regions)
 - [Dataset viewer for Private datasets](./enterprise-hub-datasets)
 - [Resource Groups](./security-resource-groups)
+- [Advanced Compute Options](./advanced-compute-options)
