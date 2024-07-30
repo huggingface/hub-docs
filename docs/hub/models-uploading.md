@@ -110,9 +110,14 @@ import torch.nn as nn
 from huggingface_hub import PyTorchModelHubMixin
 
 
-class MyModel(nn.Module, PyTorchModelHubMixin, 
-              # optionally, you can add metadata which gets pushed to the model card
-              repo_url="your-repo-url", pipeline_tag="text-to-image", license="mit"):
+class MyModel(
+    nn.Module,
+    PyTorchModelHubMixin, 
+    # optionally, you can add metadata which gets pushed to the model card
+    repo_url="your-repo-url",
+    pipeline_tag="text-to-image",
+    license="mit",
+):
     def __init__(self, num_channels: int, hidden_size: int, num_classes: int):
         super().__init__()
         self.param = nn.Parameter(torch.rand(num_channels, hidden_size))
