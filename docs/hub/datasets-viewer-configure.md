@@ -12,7 +12,7 @@ In the Dataset Viewer you can view the [train/validation/test](https://en.wikipe
 To define those dropdowns, you can name the data files or their folder after their split names (train/validation/test).
 It is also possible to customize your splits manually using YAML.
 
-For more information, feel free to check out the documentation on [Data files Configuration](./datasets-data-files-configuration).
+For more information, feel free to check out the documentation on [Data files Configuration](./datasets-data-files-configuration) and the [collections of example datasets](https://huggingface.co/datasets-examples). The [Image Dataset doc page](./datasets-image) proposes various methods to structure a dataset with images.
 
 ## Disable the viewer
 
