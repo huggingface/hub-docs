@@ -1,6 +1,6 @@
 # Manual Configuration
 
-This guide will show you how to configure a custom structure for your dataset repository.
+This guide will show you how to configure a custom structure for your dataset repository. The [companion collection of example datasets](https://huggingface.co/collections/datasets-examples/manual-configuration-655e293cea26da0acab95b87) showcases each section of the documentation.
 
 A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its dataset page on the Hub. You can use YAML to define the splits, subsets and builder parameters that are used by the Viewer.
 
