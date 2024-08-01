@@ -89,7 +89,7 @@ The Hub natively supports multiple file formats:
 
 It supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
 
-Image and audio files can also have additional metadata files, see the [Data files Configuration](./datasets-data-files-configuration#image-and-audio-datasets) on image and audio datasets, as well as the collections of [example datasets](https://huggingface.co/datasets-examples) for CSV, TSV and images.
+Image and audio files can also have additional metadata files. See the [Data files Configuration](./datasets-data-files-configuration#image-and-audio-datasets) on image and audio datasets, as well as the collections of [example datasets](https://huggingface.co/datasets-examples) for CSV, TSV and images.
 
 You may want to convert your files to these formats to benefit from all the Hub features.
 Other formats and structures may not be recognized by the Hub.
