@@ -24,6 +24,10 @@ You can also define multiple subsets for your dataset, and pass dataset building
 
 See the documentation on [Manual configuration](./datasets-manual-configuration) for more information.
 
+## Supported file formats
+
+See the [File formats](./datasets-adding#file-formats) doc page to find the list of supported formats and recommendations for your dataset.
+
 ## Image and Audio datasets
 
 For image and audio classification datasets, you can also use directories to name the image and audio classes.
