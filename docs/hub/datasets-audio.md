@@ -158,3 +158,61 @@ configs:
   - config_name: default  # Name of the dataset subset, if applicable.
     drop_labels: true
 ```
+
+## Large scale datasets
+
+### WebDataset format
+
+The [WebDataset](./datasets-webdataset) format is well suited for large scale audio datasets (see [AlienKevin/sbs_cantonese](https://huggingface.co/datasets/AlienKevin/sbs_cantonese) for example).
+It consists of TAR archives containing audio files and their metadata and is optimized for streaming. It is useful if you have a large number of audio files and to get streaming data loaders for large scale training.
+
+```plaintext
+my_dataset_repository/
+├── train-0000.tar
+├── train-0001.tar
+├── ...
+└── train-1023.tar
+```
+
+To make a WebDataset TAR archive, create a directory containing the audio files and metadata files to be archived and create the TAR archive using e.g. the `tar` command.
+The usual size per archive is generally around 1GB.
+Make sure each audio file and metadata pair share the same file prefix, for example:
+
+```plaintext
+train-0000/
+├── 000.flac
+├── 000.json
+├── 001.flac
+├── 001.json
+├── ...
+├── 999.flac
+└── 999.json
+```
+
+Note that for user convenience and to enable the [Dataset Viewer](./datasets-viewer), every dataset hosted in the Hub is automatically converted to Parquet format up to 5GB.
+Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.
+
+### Parquet format
+
+Instead of uploading the audio files and metadata as individual files, you can embed everything inside a [Parquet](https://parquet.apache.org/) file.
+This is useful if you have a large number of audio files, if you want to embed multiple audio columns, or if you want to store additional information about the audio in the same file.
+Parquet is also useful for storing data such as raw bytes, which is not supported by JSON/CSV.
+
+```plaintext
+my_dataset_repository/
+└── train.parquet
+```
+
+Audio columns are of type _struct_, with a binary field `"bytes"` for the audio data and a string field `"path"` for the image file name or path.
+You should specify the feature types of the columns directly in YAML in the README header, for example:
+
+```yaml
+dataset_info:
+  features:
+  - name: audio
+    dtype: audio
+  - name: caption
+    dtype: string
+```
+
+Alternatively, Parquet files with Audio data can be created using the `datasets` library by setting the column type to `Audio()` and using the `.to_parquet(...)` method or `.push_to_hub(...)`. You can find a guide on loading audio datasets in `datasets` [here](../datasets/audio_load).
