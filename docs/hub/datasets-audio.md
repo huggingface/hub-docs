@@ -14,7 +14,7 @@ Alternatively, images can be in Parquet files or in TAR archives following the [
 
 If your dataset only consists of one column with audio, you can simply store your audio files at the root:
 
-```
+```plaintext
 my_dataset_repository/
 ├── 1.wav
 ├── 2.wav
@@ -24,7 +24,7 @@ my_dataset_repository/
 
 or in a subdirectory:
 
-```
+```plaintext
 my_dataset_repository/
 └── audio
     ├── 1.wav
@@ -35,7 +35,7 @@ my_dataset_repository/
 
 Multiple [formats](./datasets-adding#file-formats) are supported at the same time, including AIFF, FLAC, MP3, OGG and WAV.
 
-```
+```plaintext
 my_dataset_repository/
 └── audio
     ├── 1.aiff
@@ -46,7 +46,7 @@ my_dataset_repository/
 
 If you have several splits, you can put your audio files into directories named accordingly:
 
-```
+```plaintext
 my_dataset_repository/
 ├── train
 │   ├── 1.wav
@@ -62,7 +62,7 @@ See [File names and splits](./datasets-file-names-and-splits) for more informati
 
 If there is additional information you'd like to include about your dataset, like the transcription, add it as a `metadata.csv` file in your repository. This lets you quickly create datasets for different audio tasks like [text-to-speech](https://huggingface.co/tasks/text-to-speech) or [automatic speech recognition](https://huggingface.co/tasks/automatic-speech-recognition).
 
-```
+```plaintext
 my_dataset_repository/
 ├── 1.wav
 ├── 2.wav
@@ -94,7 +94,7 @@ You can also use a [JSONL](https://jsonlines.org/) file `metadata.jsonl`:
 
 Metadata file must be located either in the same directory with the audio files it is linked to, or in any parent directory, like in this example:
 
-```
+```plaintext
 my_dataset_repository/
 └── test
     ├── audio
@@ -123,7 +123,7 @@ In this example, the `test` directory is used to setup the name of the training 
 
 For audio classification datasets, you can also use a simple setup: use directories to name the audio classes. Store your audio files in a directory structure like:
 
-```
+```plaintext
 my_dataset_repository/
 ├── cat
 │   ├── 1.wav
@@ -137,7 +137,7 @@ The dataset created with this structure contains two columns: `audio` and `label
 
 You can also provide multiple splits. To do so, your dataset directory should have the following structure (see [File names and splits](./datasets-file-names-and-splits) for more information):
 
-```
+```plaintext
 my_dataset_repository/
 ├── test
 │   ├── cat
