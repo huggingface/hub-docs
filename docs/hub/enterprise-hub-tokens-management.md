@@ -11,8 +11,11 @@ Tokens Management allows organization administrators to control access tokens wi
 
 The token listing feature provides a view of all access tokens within your organization. Administrators can:
 
-* Monitor token usage and identify potential security risks
-* Identify inactive or unused tokens that can be revoked
+- Monitor token usage and identify or prevent potential security risks:
+  - unauthorized access to private resources ("leak")
+  - scopes of access that are too wide
+  - improveable token hygienics (tokens that have not been rotated in a long time, etc) 
+- Identify inactive or unused tokens that can be revoked
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-list.png" />
