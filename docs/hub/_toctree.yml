@@ -326,6 +326,8 @@
         title: Resource Groups (Advanced Access Control)
       - local: advanced-compute-options
         title: Advanced Compute Options
+      - local: enterprise-hub-tokens-management
+        title: Tokens Management
   - local: billing
     title: Billing
   - local: security
