@@ -14,7 +14,7 @@ The token listing feature provides a view of all access tokens within your organ
 - Monitor token usage and identify or prevent potential security risks:
   - unauthorized access to private resources ("leak")
   - scopes of access that are too wide
-  - improveable token hygienics (tokens that have not been rotated in a long time, etc) 
+  - improvable token hygienics (tokens that have not been rotated in a long time, for example) 
 - Identify inactive or unused tokens that can be revoked
 
 <div class="flex justify-center">
@@ -23,7 +23,7 @@ The token listing feature provides a view of all access tokens within your organ
 </div>
 
 
-Each fine-grained token can be reviewed to see their permissions
+Fine-grained tokens can be reviewed to see their permissions:
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-detail.png" />
@@ -33,9 +33,11 @@ Each fine-grained token can be reviewed to see their permissions
 
 ## Token policy
 
-| **Policy** | **Personal Access Tokens Status** | **Fine-Grained Tokens Status** |
+With Tokens Management, Enterprise org admins can decide which of the following policies they want to enforce:
+
+| **Policy** | **Unscoped (Read/Write) Access Tokens** | **Fine-Grained Tokens** |
 | --- | --- | --- |
-| **Allow access via User Access Tokens** | Authorized | Authorized |
+| **Allow access via User Access Tokens (default)** | Authorized | Authorized |
 | **Only access via fine-grained tokens** | Unauthorized | Authorized |
 | **Do not require administrator approval** | Unauthorized | Authorized |
 | **Require administrator approval** | Unauthorized | Unauthorized without an approval (except for admin-created) |
@@ -49,12 +51,9 @@ Each fine-grained token can be reviewed to see their permissions
 
 ## Reviewing Token Authorization
 
-If your token policy requires an approval before accessing your resources, organization administrators can view all fine-grained tokens that can access resources owned by the organization. Organization owners can also revoke access by fine-grained personal access tokens. Organization administrators will receive an email when an authorization is requested.
+When your token policy is set to "Require administrator approval", organization administrators can view the details of all fine-grained tokens with access to resources owned by the organization. They can also revoke access to those tokens. Organization administrators will receive an email when an authorization is requested for a fine-grained token.
 
 When a token is revoked or denied, the user who created the token will receive an email notification.
-
-Organization owners can only view and revoke fine-grained personal access tokens, not personal access tokens.
-
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-review.png" />
