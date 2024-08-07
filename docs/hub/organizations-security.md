@@ -49,3 +49,7 @@ You may be able to view the email addresses of members of your organization. The
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-members-page-emails-dark.png"/>
 </div>
 
+
+## Managing Access Tokens with access to my organization
+
+See [Tokens Management](./enterprise-hub-tokens-management)
