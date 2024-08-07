@@ -76,24 +76,23 @@ This Python script uses a [🤗 Transformers pipeline](https://huggingface.co/do
 
 ## Embed Streamlit Spaces on other webpages
 
-You can use the HTML `<iframe>` tag to embed a Streamlit Space as an inline frame on other webpages. Simply include the URL of your Space, ending with the `.hf.space` suffix. To find the URL of your Space, you can use the "Embed this Space" button from the Spaces options.
-
-For example, the demo above can be embedded in these docs with the following tag:
+You can use the HTML `<iframe>` tag to embed a Streamlit Space as an inline frame on other webpages. Simply include the URL of your Space, ending with the `.hf.space` suffix. To find the URL of your Space, you can use the "Embed this Space" button from the Spaces options. Then you get the following code snippet which you directly can use in your homepage:
 
 ```
 <iframe
-  src="https://NimaBoscarino-hotdog-streamlit.hf.space?embed=true"
-  title="My awesome Streamlit Space"
+	src="https://kornia-kornia-augmentations-tester.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
 ></iframe>
 ```
 
-<!-- The height of this iframe has been calculated as 236 + 64 * 2. 236 is the inner content height measured with Chrome 108. 64 is padding-top of its container element. -->
 <iframe
-  src="https://NimaBoscarino-hotdog-streamlit.hf.space?embed=true"
-  frameborder="0"
-  height="364"
-  title="Streamlit app"
-  class="container p-0 flex-grow space-iframe"
+	src="https://kornia-kornia-augmentations-tester.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
+    class="container p-0 flex-grow space-iframe"
   allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
 ></iframe>
