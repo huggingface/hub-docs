@@ -97,9 +97,6 @@ You can use the HTML `<iframe>` tag to embed a Streamlit Space as an inline fram
   sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
 ></iframe>
 
-Please note that we have added `?embed=true` to the URL, which activates the embed mode of the Streamlit app, removing some spacers and the footer for slim embeds.
-
-
 ## Embed Streamlit Spaces with auto-resizing IFrames
 
 Streamlit has supported automatic iframe resizing since [1.17.0](https://docs.streamlit.io/library/changelog#version-1170) so that the size of the parent iframe is automatically adjusted to fit the content volume of the embedded Streamlit application.
