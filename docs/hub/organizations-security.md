@@ -50,6 +50,6 @@ You may be able to view the email addresses of members of your organization. The
 </div>
 
 
-# Managing Access Tokens with access to my organization
+## Managing Access Tokens with access to my organization
 
 See [Tokens Management](./enterprise-hub-tokens-management)
