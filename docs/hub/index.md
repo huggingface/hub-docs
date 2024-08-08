@@ -89,7 +89,7 @@ The Hugging Face Hub is a platform with over 350k models, 75k datasets, and 150k
 
 We are helping the community work together towards the goal of advancing Machine Learning 🔥.
 
-The Hugging Face Hub is a platform with over 120k models, 20k datasets, and 50k demos in which people can easily collaborate in their ML workflows. The Hub works as a central place where anyone can share, explore, discover, and experiment with open-source Machine Learning.
+The Hugging Face Hub is a platform with over 350k models, 75k datasets, and 150k demo apps (Spaces) in which people can easily collaborate in their ML workflows. The Hub works as a central place where anyone can share, explore, discover, and experiment with open-source Machine Learning.
 
 No single company, including the Tech Titans, will be able to “solve AI” by themselves – the only way we'll achieve this is by sharing knowledge and resources in a community-centric approach. We are building the largest open-source collection of models, datasets, demos and metrics on the Hugging Face Hub to democratize and advance ML for everyone 🚀.
 
