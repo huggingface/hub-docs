@@ -1,6 +1,6 @@
 # Using Unity Sentis Models from Hugging Face
 
-[Unity 3D](https://unity.com/) is one of the most popular game engines in the world. [Unity Sentis](https://unity.com/products/sentis) is the inference engine that runs on Unity 2023 or above. It is an API that allows you to easily integrate and run neural network models in your game or application making use of hardware acceleration. Because Unity can export to many different form factors including PC, mobile and consoles, it means that this is an easy way to run neural network models on many different types of hardware.
+[Unity 3D](https://unity.com/) is one of the most popular game engines in the world. [Unity Sentis](https://unity.com/products/sentis) is the inference engine that runs on Unity 2023 or above. It is an API that allows you to easily integrate and run neural network models in your game or application making use of hardware acceleration. Because Unity can export to many different form factors including PC, mobile, and consoles, it means that this is an easy way to run neural network models on many different types of hardware.
 
 ## Exploring Sentis Models in the Hub
 You will find `unity-sentis` models by filtering at the left of the [models page](https://huggingface.co/models?library=unity-sentis).
