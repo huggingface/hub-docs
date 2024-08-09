@@ -98,7 +98,7 @@ tags:
 - flair
 ```
 
-If it's not specified, the Hub will try to automatically detect the library type. However, this approach is discouraged and repo creators should use the explicit `library_name` as much as possible. 
+If it's not specified, the Hub will try to automatically detect the library type. However, this approach is discouraged, and repo creators should use the explicit `library_name` as much as possible. 
 
 1. By looking into the presence of files such as `*.nemo` or `*.mlmodel`, the Hub can determine if a model is from NeMo or CoreML.
 2. In the past, if nothing was detected and there was a `config.json` file, it was assumed the library was `transformers`. For model repos created after August 2024, this is not the case anymore – so you need to `library_name: transformers` explicitly.
