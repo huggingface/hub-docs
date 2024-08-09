@@ -101,9 +101,9 @@ The Hugging Face Hub hosts Git-based repositories, which are version-controlled 
 
 On it, you'll be able to upload and discover...
 
-- Models, _hosting the latest state-of-the-art models for NLP, vision, and audio tasks_
-- Datasets, _featuring a wide variety of data for different domains and modalities_..
-- Spaces, _interactive apps for demonstrating ML models directly in your browser_.
+- Models: _hosting the latest state-of-the-art models for NLP, vision, and audio tasks_
+- Datasets: _featuring a wide variety of data for different domains and modalities_
+- Spaces: _interactive apps for demonstrating ML models directly in your browser_
 
 The Hub offers **versioning, commit history, diffs, branches, and over a dozen library integrations**! You can learn more about the features that all repositories share in the [**Repositories documentation**](./repositories).
 
