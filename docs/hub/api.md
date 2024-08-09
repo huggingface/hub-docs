@@ -110,7 +110,12 @@ This is equivalent to `huggingface_hub.dataset_info(repo_id, revision)`.
 
 Get the list of auto-converted parquet files.
 
-### GET /api/datasets/{repo_id}/parquet/{config}/{split}/{n}.parquet
+Append the subset and the split to the URL to get the list of files for a specific subset and split:
+
+- `GET /api/datasets/{repo_id}/parquet/{subset}`
+- `GET /api/datasets/{repo_id}/parquet/{subset}/{split}`
+
+### GET /api/datasets/{repo_id}/parquet/{subset}/{split}/{n}.parquet
 
 Get the nth shard of the auto-converted parquet files, for a specific subset (also called "config") and split.
 
