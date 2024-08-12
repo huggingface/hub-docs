@@ -107,8 +107,8 @@ After uploading your dataset, make sure the Dataset Viewer correctly shows your 
 
 ## Large scale datasets
 
-The Hugging Face Hub supports large scale datasets, usually uploaded in Parquet (e.g. via `push_to_hub()` using [🤗 Datasets](../datasets/index)) or [WebDataset](https://github.com/webdataset/webdataset) format.
+The Hugging Face Hub supports large scale datasets, usually uploaded in Parquet (e.g. via `push_to_hub()` using [🤗 Datasets](https://huggingface.co/docs/datasets/v2.20.0/en/package_reference/main_classes#datasets.Dataset.push_to_hub)) or [WebDataset](https://github.com/webdataset/webdataset) format.
 
 You can upload large scale datasets at high speed using the `huggingface-hub` library.
 
-See [how to upload a folder by chunks](../huggingface_hub/guides/upload#upload-a-folder-by-chunks), the [tips and tricks for large uploads](../huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads) and the [repository limitations and recommendations](./repositories-recommendations).
+See [how to upload a folder by chunks](https://huggingface.co/docs/huggingface_hub/guides/upload#upload-a-folder-by-chunks), the [tips and tricks for large uploads](https://huggingface.co/docs/huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads) and the [repository limitations and recommendations](./repositories-recommendations).
