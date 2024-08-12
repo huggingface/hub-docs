@@ -4,6 +4,12 @@
 
 Starting from version `1.2.0`, Polars provides _native_ support for the Hugging Face file system. This means that all the benefits of the Polars query optimizer (e.g. predicate and projection pushdown) are applied and Polars will only load the data necessary to complete the query. This significantly speeds up reading, especially for large datasets (see [optimizations](./datasets-polars-optimizations))
 
+You can use the Hugging Face paths (`hf://`) to access data on the Hub:
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/polars_hf.png"/>
+</div>
+
 ## Getting started
 
 To get started, you can simply `pip install` Polars into your environment:
