@@ -43,9 +43,9 @@ Usage of Train on NVIDIA DGX Cloud is billed by the minute of the GPU instances 
 | NVIDIA L40S               | 48GB                      |$2.75                      |
 | NVIDIA H100               | 80GB                      |$8.25                      |
 
-## Serverless Inference powered by NVIDIA
+## NVIDIA NIM API (serverless)
 
-Serverless Inference powered by NVIDIA offers access to [NVIDIA Inference Microservices (NIM)](https://www.nvidia.com/en-us/ai/) powered by NVIDIA H100s in a serverless way. Use standardized APIs and a few lines of code to run inference in a pay-as-you-go pricing model.
+NVIDIA NIM API (serverless) offers access to [NVIDIA Inference Microservices (NIM)](https://www.nvidia.com/en-us/ai/) powered by NVIDIA H100s in a serverless way. Use standardized APIs and a few lines of code to run inference in a pay-as-you-go pricing model.
 
 ### How it works
 
@@ -57,7 +57,7 @@ You can find all supported models in [this NVIDIA Collection](https://huggingfac
 
 ### Pricing
 
-Usage of Serverless Inference powered by NVIDIA is billed based on the compute time spent per request. Usage fees accrue to your Enterprise Hub Organizations’ current monthly billing cycle, once a job is completed. You can check your current and past usage at any time within the billing settings of your Enterprise Hub Organization.
+Usage of NVIDIA NIM API (serverless) is billed based on the compute time spent per request. Usage fees accrue to your Enterprise Hub Organizations’ current monthly billing cycle, once a job is completed. You can check your current and past usage at any time within the billing settings of your Enterprise Hub Organization.
 
 | NVIDIA GPU                | GPU Memory                | On-Demand Price/hr        |
 |---------------------------|---------------------------|---------------------------|
