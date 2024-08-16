@@ -15,21 +15,15 @@ Below this, you can select the Hugging Face Hub ID of the model you wish to serv
 
 _Note_: If you'd like to deploy a model with gated access or a model in a private repository, you can simply provide `HF_TOKEN` in repository secrets. You need to set its value to an access token you can get from [here](https://huggingface.co/settings/tokens).
 
-<a href="Parameters">
-    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_chatui_params.png" />
-</a>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_chatui_params.png" />
 
 Once the creation is complete, you will see `Building` on your Space. Once built, you can try your own HuggingChat!
 
-<a href="Hugging Chat Landing UI">
-    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_chatui_ui.png" />
-</a>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_chatui_ui.png" />
 
 Start chatting!
 
-<a href="Hugging Chat">
-    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_chatui_chat.png" />
-</a>
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/huggingface.co_spaces_docker_chatui_chat.png" />
 
 ## Read more
 
