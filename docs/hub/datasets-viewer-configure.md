@@ -3,7 +3,7 @@
 The Dataset Viewer supports many [data files formats](./datasets-adding#file-formats), from text to tabular and from image to audio formats.
 It also separates the train/validation/test splits based on file and folder names.
 
-To configure the Dataset Viewer for your dataset, first make sure your dataset is in a [supported data format](./datasets-adding#files-formats).
+To configure the Dataset Viewer for your dataset, first make sure your dataset is in a [supported data format](./datasets-adding#file-formats).
 
 ## Configure dropdowns for splits or subsets
 
