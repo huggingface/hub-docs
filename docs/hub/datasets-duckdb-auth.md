@@ -31,7 +31,7 @@ CREATE SECRET hf_token (TYPE HUGGINGFACE, PROVIDER credential_chain);
 
 This command automatically retrieves the stored token from `~/.cache/huggingface/token`.
 
-First you need to [Login with your Hugging Face account](../huggingface_hub/quick-start#login), for example using:
+First you need to [Login with your Hugging Face account](https://huggingface.co/docs/huggingface_hub/quick-start#login), for example using:
 
 ```bash
 huggingface-cli login

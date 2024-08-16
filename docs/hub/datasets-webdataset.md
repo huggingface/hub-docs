@@ -32,7 +32,7 @@ WebDataset streaming offers high-speed performance both when reading from disk a
 
 For example here is how to stream the [timm/imagenet-12k-wds](https://huggingface.co/datasets/timm/imagenet-12k-wds) dataset directly from Hugging Face:
 
-First you need to [Login with your Hugging Face account](../huggingface_hub/quick-start#login), for example using:
+First you need to [Login with your Hugging Face account](https://huggingface.co/docs/huggingface_hub/quick-start#login), for example using:
 
 ```
 huggingface-cli login

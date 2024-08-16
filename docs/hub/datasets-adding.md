@@ -67,7 +67,7 @@ The rich features set in the `huggingface_hub` library allows you to manage repo
 
 ## Using other libraries
 
-Some libraries like [🤗 Datasets](../datasets/index), [Pandas](https://pandas.pydata.org/), [Polars](https://pola.rs), [Dask](https://www.dask.org/) or [DuckDB](https://duckdb.org/) can upload files to the Hub.
+Some libraries like [🤗 Datasets](https://huggingface.co/docs/datasets/index), [Pandas](https://pandas.pydata.org/), [Polars](https://pola.rs), [Dask](https://www.dask.org/) or [DuckDB](https://duckdb.org/) can upload files to the Hub.
 See the list of [Libraries supported by the Datasets Hub](./datasets-libraries) for more information.
 
 ## Using Git

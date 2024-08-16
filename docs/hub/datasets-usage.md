@@ -2,7 +2,7 @@
 
 Once you've found an interesting dataset on the Hugging Face Hub, you can load the dataset using 🤗 Datasets. You can click on the [**Use in dataset library** button](https://huggingface.co/datasets/samsum?library=true) to copy the code to load a dataset.
 
-First you need to [Login with your Hugging Face account](../huggingface_hub/quick-start#login), for example using:
+First you need to [Login with your Hugging Face account](https://huggingface.co/docs/huggingface_hub/quick-start#login), for example using:
 
 ```
 huggingface-cli login
