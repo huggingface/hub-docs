@@ -6,9 +6,9 @@ A dataset with a supported structure and [file formats](./datasets-adding#file-f
 
 ---
 
-Additional information about your images - such as captions or bounding boxes for object detection - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`).
+Additional information about your audio files - such as transcriptions - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`).
 
-Alternatively, images can be in Parquet files or in TAR archives following the [WebDataset](https://github.com/webdataset/webdataset) format.
+Alternatively, audio files can be in Parquet files or in TAR archives following the [WebDataset](https://github.com/webdataset/webdataset) format.
 
 ## Only audio files
 
