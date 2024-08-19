@@ -217,6 +217,8 @@
         title: Manual Configuration
       - local: datasets-image
         title: Image Dataset
+      - local: datasets-audio
+        title: Audio Dataset
 - local: spaces
   title: Spaces
   isExpanded: true
