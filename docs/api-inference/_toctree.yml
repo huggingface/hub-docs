@@ -1,0 +1,15 @@
+- sections:
+  - local: index
+    title: Serverless Inference API
+  - local: overview
+    title: Overview
+  - local: getting-started
+    title: Get started
+  title: Get Started
+- sections:
+  - local: task_parameters
+    title: Task Parameters
+  - sections:
+    - local: tasks/fill-mask
+      title: Fill Mask
+  title: Parameters
