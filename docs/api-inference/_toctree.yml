@@ -12,4 +12,6 @@
   - sections:
     - local: tasks/fill-mask
       title: Fill Mask
+    - local: tasks/text-to-image
+      title: Text-to-image
   title: Parameters
