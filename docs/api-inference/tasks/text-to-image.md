@@ -1,6 +1,6 @@
 ## Text-to-image
 
-Generates images from input text. These models can be used to generate and modify images based on text prompts.
+Generate an image based on a given text prompt.
 
 <Tip>
 
@@ -15,6 +15,8 @@ For more details about the `text-to-image` task, check out its [dedicated page](
 - [Kwai-Kolors/Kolors](https://huggingface.co/Kwai-Kolors/Kolors): text-to-image model for photorealistic generation.
 - [stabilityai/stable-diffusion-3-medium-diffusers](https://huggingface.co/stabilityai/stable-diffusion-3-medium-diffusers): a powerful text-to-image model.
 
+This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-to-image&sort=trending).
+
 ### API specification
 
 #### Inputs
@@ -27,7 +29,7 @@ For more details about the `text-to-image` task, check out its [dedicated page](
 | **parameters.num_inference_steps** | _integer, optional_ | For diffusion models. The number of denoising steps. More denoising steps usually lead to a higher quality image at the expense of slower inference. |
 | **parameters.target_size.width** | _integer, optional_ | The size in pixel of the output image. |
 | **parameters.target_size.height** | _integer, optional_ | The size in pixel of the output image. |
-| **parameters.scheduler** | _string_, optional_ | For diffusion models. Override the scheduler with a compatible one. |
+| **parameters.scheduler** | _string, optional_ | For diffusion models. Override the scheduler with a compatible one. |
 
 | Headers |   |    |
 | :--- | :--- | :--- |
@@ -43,20 +45,59 @@ For more details about the `text-to-image` task, check out its [dedicated page](
 
 ### Examples
 
+#### cURL
+
+```bash
+curl https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev \
+	-X POST \
+	-d '{"inputs": "Astronaut riding a horse"}' \
+	-H 'Content-Type: application/json' \
+	-H "Authorization: Bearer hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
 #### Python
 
 ```py
->>> from huggingface_hub import InferenceClient
->>> client = InferenceClient(model="black-forest-labs/FLUX.1-dev")
+import requests
 
->>> image = client.text_to_image("A city above clouds, pastel colors, Victorian style")
->>> image.save("output.png")
+API_URL = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev"
+headers = {"Authorization": "Bearer hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}
+
+def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.content
+image_bytes = query({
+	"inputs": "Astronaut riding a horse",
+})
+# You can access the image with PIL.Image for example
+import io
+from PIL import Image
+image = Image.open(io.BytesIO(image_bytes))
 ```
 
-See [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_to_image) for more details.
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_to_image).
 
 #### JavaScript
 
-????
+```js
+async function query(data) {
+	const response = await fetch(
+		"https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev",
+		{
+			headers: {
+				Authorization: "Bearer hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.blob();
+	return result;
+}
+query({"inputs": "Astronaut riding a horse"}).then((response) => {
+	// Use image
+});
+```
 
-See [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#texttoimage) for more details.
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#texttoimage).
