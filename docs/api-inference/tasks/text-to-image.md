@@ -69,6 +69,7 @@ def query(payload):
 image_bytes = query({
 	"inputs": "Astronaut riding a horse",
 })
+
 # You can access the image with PIL.Image for example
 import io
 from PIL import Image
