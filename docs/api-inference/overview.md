@@ -35,3 +35,15 @@ In addition to thousands of public models available in the Hub, PRO and Entepris
 | Meta Llama 3 Instruct          | [8B](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct), [70B](https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct)                                                       | 8k tokens      | One of the best chat models                                  |
 | Llama 2 Chat                   | [7B](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf), [13B](https://huggingface.co/meta-llama/Llama-2-13b-chat-hf), [70B](https://huggingface.co/meta-llama/Llama-2-70b-chat-hf) | 4k tokens      | One of the best conversational models                        |
 | Bark                           | [0.9B](https://huggingface.co/suno/bark)                                                                                                                                                   | -              | Text to audio generation                                     |
+
+
+## FAQ
+
+### Running Private Models
+
+The free Serverless API is designed to run popular public models. If you have a private model, you can use the [Inference Endpoints](https://huggingface.co/docs/inference/endpoints) to deploy your model.
+
+### Fine-tuning Models
+
+To automatically finetune a model on your data, please try [AutoTrain](https://huggingface.co/autotrain). It’s a no-code solution for automatically training and deploying a model; all you have to do is upload your data!
+
