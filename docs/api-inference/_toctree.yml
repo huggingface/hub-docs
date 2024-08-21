@@ -4,14 +4,13 @@
   - local: overview
     title: Overview
   - local: getting_started
+    title: Getting Started
   - local: rate_limits
     title: Rate Limits
-    title: Get started
-    
-  title: Get Started
+  title: title
 - sections:
-  - local: task_parameters
-    title: Task Parameters
+  - local: parameters
+    title: Parameters
   - sections:
     - local: tasks/fill_mask
       title: Fill Mask
