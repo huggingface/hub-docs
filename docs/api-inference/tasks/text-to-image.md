@@ -24,12 +24,14 @@ This is only a subset of the supported models. Find the model that suits you bes
 | Payload |   |    |
 | :--- | :--- | :--- |
 | **inputs** | _string, required_ | The input text data (sometimes called "prompt"). |
-| **parameters.guidance_scale** | _number, optional_ | For diffusion models. A higher guidance scale value encourages the model to generate images closely linked to the text prompt at the expense of lower image quality. |
-| **parameters.negative_prompt[]** | _string, optional_ | FOne or several prompt to guide what NOT to include in image generation. |
-| **parameters.num_inference_steps** | _integer, optional_ | For diffusion models. The number of denoising steps. More denoising steps usually lead to a higher quality image at the expense of slower inference. |
-| **parameters.target_size.width** | _integer, optional_ | The size in pixel of the output image. |
-| **parameters.target_size.height** | _integer, optional_ | The size in pixel of the output image. |
-| **parameters.scheduler** | _string, optional_ | For diffusion models. Override the scheduler with a compatible one. |
+| **parameters** |  _object, optional_ |  |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guidance_scale** |  _number, optional_ | For diffusion models. A higher guidance scale value encourages the model to generate images closely linked to the text prompt at the expense of lower image quality. |
+|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;negative_prompt** |  _string or string[], optional_ | One or several prompt to guide what NOT to include in image generation. |
+|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num_inference_steps** |  _integer, optional_ | For diffusion models. The number of denoising steps. More denoising steps usually lead to a higher quality image at the expense of slower inference. |
+|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target_size** |  _object, optional_ |  |
+|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width** |  _integer, required_ | The size in pixel of the output image. |
+|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height** |  _integer, required_ | The size in pixel of the output image. |
+|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheduler** |  _string, optional_ | For diffusion models. Override the scheduler with a compatible one. |
 
 | Headers |   |    |
 | :--- | :--- | :--- |
