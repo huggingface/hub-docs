@@ -33,7 +33,7 @@ TODO: add some flow chart image
 
 The documentation is organized into two sections:
 
-* **Quick Overview** Learn the basics of how to use the Inference API.
+* **Getting Started** Learn the basics of how to use the Inference API.
 * **Detailed Parameters** Dive deep into task-specific settings and parameters.
 
 ---
