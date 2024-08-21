@@ -1,4 +1,4 @@
-# Detailed Parameters
+# Parameters
 
 Table with 
 - Domain

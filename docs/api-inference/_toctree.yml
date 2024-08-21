@@ -3,14 +3,16 @@
     title: Serverless Inference API
   - local: overview
     title: Overview
-  - local: getting-started
-    title: Get started
-  title: Get Started
+  - local: getting_started
+    title: Getting Started
+  - local: rate_limits
+    title: Rate Limits
+  title: title
 - sections:
-  - local: task_parameters
-    title: Task Parameters
+  - local: parameters
+    title: Parameters
   - sections:
-    - local: tasks/fill-mask
+    - local: tasks/fill_mask
       title: Fill Mask
     - local: tasks/text-to-image
       title: Text-to-image
