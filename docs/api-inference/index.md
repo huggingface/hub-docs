@@ -17,7 +17,7 @@ The Serverless Inference API offers a fast and free way to explore thousands of 
 
 TODO: add some flow chart image
 
-⚡ **Fast and Free to Get Started**: The Inference API is free with rate limits. For production needs, explore [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) for dedicated resources, autoscaling, advanced security features, and more.
+⚡ **Fast and Free to Get Started**: The Inference API is free with higher rate limits for PRO users. For production needs, explore [Inference Endpoints](https://ui.endpoints.huggingface.co/) for dedicated resources, autoscaling, advanced security features, and more.
 
 ---
 
