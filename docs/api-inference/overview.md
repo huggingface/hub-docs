@@ -6,11 +6,11 @@
 * Use models for a variety of tasks, including text generation, image generation, document embeddings, NER, summarization, image classification, and more.
 * Accelerate your prototyping by using GPU-powered models.
 * Run very large models that are challenging to deploy in production.
-* Benefit from the built-in automatic scaling, load balancing and caching.
+* Production-grade platform without the hassle: built-in automatic scaling, load balancing and caching.
 
 ## Eligibility
 
-Given the fast-paced nature of the open ML ecosystem, the Inference API allows using models that have large community interest and are actively being used(based on recent likes, downloads, and usage). Because of this, deployed models can be swapped without prior notice.
+Given the fast-paced nature of the open ML ecosystem, the Inference API exposes models that have large community interest and are in active use (based on recent likes, downloads, and usage). Because of this, deployed models can be swapped without prior notice.
 
 You can find:
 
@@ -26,7 +26,7 @@ By default, the Inference API uses GPUs to run large models. For small models th
 
 ## Inference for PRO
 
-In addition to thousands of public models available in the Hub, PRO and Enteprise users get free access and higher rate limits to the following models:
+In addition to thousands of public models available in the Hub, PRO and Enteprise users get higher rate limits and free access to the following models:
 
 
 | Model                          | Size                                                                                                                                                                                       | Context Length | Use                                                          |
@@ -41,7 +41,7 @@ In addition to thousands of public models available in the Hub, PRO and Entepris
 
 ### Running Private Models
 
-The free Serverless API is designed to run popular public models. If you have a private model, you can use the [Inference Endpoints](https://huggingface.co/docs/inference/endpoints) to deploy your model.
+The free Serverless API is designed to run popular public models. If you have a private model, you can use [Inference Endpoints](https://huggingface.co/docs/inference/endpoints) to deploy your model.
 
 ### Fine-tuning Models
 
