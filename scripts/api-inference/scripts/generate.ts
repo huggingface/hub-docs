@@ -7,7 +7,7 @@ import type { JsonObject } from "type-fest";
 const inferenceSnippetLanguages = ["python", "js", "curl"] as const;
 type InferenceSnippetLanguage = (typeof inferenceSnippetLanguages)[number];
 
-console.log("🛠️  Preparing...")
+console.log("🛠️  Preparing...");
 
 ////////////////////////
 //// Filepath utils ////
@@ -114,7 +114,7 @@ const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
   `This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`,
 );
 
-const SPECS_HEADERS= await readTemplate("specs-headers");
+const SPECS_HEADERS = await readTemplate("specs-headers");
 
 ////////////////////
 //// Data utils ////
