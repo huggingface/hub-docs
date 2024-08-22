@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "generate": "tsc scripts/generate.ts && node scripts/generate.js"
+    "generate": "tsx scripts/generate.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,12 @@
   "dependencies": {
     "@huggingface/tasks": "^0.11.11",
     "@types/node": "^22.5.0",
+    "handlebars": "^4.7.8",
+    "node": "^20.17.0",
     "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.17.0",
+    "type-fest": "^4.25.0",
     "typescript": "^5.5.4"
   }
 }
