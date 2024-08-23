@@ -49,7 +49,9 @@ For example, if your billing threshold is set at $100.00, and you incur $254.00 
 
 Note: this will be detailed in your monthly invoice.
 
-<strong>TODO: insert visual here for explanation</strong>
+<div class="flex justify-center">
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/explain-threshold.png "/>
+</div>
 
 You can view receipts and invoices from your billing dashboard.
 
