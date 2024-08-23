@@ -7,6 +7,22 @@ import type { JsonObject } from "type-fest";
 const inferenceSnippetLanguages = ["python", "js", "curl"] as const;
 type InferenceSnippetLanguage = (typeof inferenceSnippetLanguages)[number];
 
+// Taken from https://stackoverflow.com/a/31632215
+Handlebars.registerHelper({
+  eq: (v1, v2) => v1 === v2,
+  ne: (v1, v2) => v1 !== v2,
+  lt: (v1, v2) => v1 < v2,
+  gt: (v1, v2) => v1 > v2,
+  lte: (v1, v2) => v1 <= v2,
+  gte: (v1, v2) => v1 >= v2,
+  and() {
+    return Array.prototype.every.call(arguments, Boolean);
+  },
+  or() {
+    return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
+  },
+});
+
 console.log("🛠️  Preparing...");
 
 ////////////////////////
@@ -69,35 +85,17 @@ export function getInferenceSnippet(
   id: string,
   pipeline_tag: PipelineType,
   language: InferenceSnippetLanguage,
-): string {
-  return GET_SNIPPET_FN[language](
-    {
-      id,
-      pipeline_tag,
-      mask_token: "",
-      library_name: "",
-      config: {},
-    },
-    "hf_***",
-  );
-}
-
-/**
- * - If language is undefined, the function checks if an inference snippet is available for at least one language
- * - If language is defined, the function checks if in an inference snippet is available for that specific language
- */
-export function hasInferenceSnippet(
-  id: string,
-  pipeline_tag: PipelineType,
-  language: InferenceSnippetLanguage,
-): boolean {
-  return HAS_SNIPPET_FN[language]({
+): string | undefined {
+  const modelData = {
     id,
     pipeline_tag,
     mask_token: "",
     library_name: "",
     config: {},
-  });
+  };
+  if (HAS_SNIPPET_FN[language](modelData)) {
+    return GET_SNIPPET_FN[language](modelData, "hf_***");
+  }
 }
 
 /////////////////////
@@ -149,9 +147,8 @@ function processPayloadSchema(schema: any, prefix: string = ""): JsonObject[] {
 
       const description = value.description || "";
       const isObject = type === "object" && value.properties;
-      const name = isObject ? `${prefix}▼${key}` : `${prefix}${key}`;
       const row = {
-        name: name,
+        name: `${prefix}${key}`,
         type: type,
         description: description,
         required: isRequired ? "required" : "optional",
@@ -188,6 +185,9 @@ const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
 );
 
 const SPECS_HEADERS = await readTemplate("specs-headers");
+const SNIPPETS_TEMPLATE = Handlebars.compile(
+  await readTemplate("snippets-template"),
+);
 const SPECS_PAYLOAD_TEMPLATE = Handlebars.compile(
   await readTemplate("specs-payload"),
 );
@@ -206,10 +206,7 @@ const DATA: {
     specsHeaders: string;
   };
   models: Record<string, { id: string; description: string }[]>;
-  snippets: Record<
-    string,
-    { curl: string; python: string; javascript: string }
-  >;
+  snippets: Record<string, string>;
   specs: Record<
     string,
     {
@@ -242,11 +239,16 @@ TASKS.forEach((task) => {
 // TODO: render snippets only if they are available
 TASKS.forEach((task) => {
   const mainModel = TASKS_DATA[task].models[0].id;
-  DATA.snippets[task] = {
+  const taskSnippets = {
     curl: getInferenceSnippet(mainModel, task, "curl"),
     python: getInferenceSnippet(mainModel, task, "python"),
     javascript: getInferenceSnippet(mainModel, task, "js"),
   };
+  DATA.snippets[task] = SNIPPETS_TEMPLATE({
+    taskSnippets,
+    taskSnakeCase: task.replace("-", "_"),
+    taskAttached: task.replace("-", ""),
+  });
 });
 
 // Render specs

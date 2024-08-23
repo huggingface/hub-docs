@@ -24,11 +24,11 @@ This is only a subset of the supported models. Find the model that suits you bes
 | Payload |  |  |
 | :--- | :--- | :--- |
 | **inputs** | _string, required_ | The input text data (sometimes called "prompt" |
-| **▼parameters** | _object, optional_ | Additional inference parameters for Text To Image |
+| **parameters** | _object, optional_ | Additional inference parameters for Text To Image |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guidance_scale** | _number, optional_ | For diffusion models. A higher guidance scale value encourages the model to generate images closely linked to the text prompt at the expense of lower image quality. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;negative_prompt** | _array, optional_ | One or several prompt to guide what NOT to include in image generation. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num_inference_steps** | _integer, optional_ | For diffusion models. The number of denoising steps. More denoising steps usually lead to a higher quality image at the expense of slower inference. |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼target_size** | _object, optional_ | The size in pixel of the output image |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target_size** | _object, optional_ | The size in pixel of the output image |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width** | _integer, required_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height** | _integer, required_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheduler** | _string, optional_ | For diffusion models. Override the scheduler with a compatible one |
@@ -37,8 +37,9 @@ This is only a subset of the supported models. Find the model that suits you bes
 | Headers |   |    |
 | :--- | :--- | :--- |
 | **authorization** | _string, optional_ | Authentication header in the form `'Bearer: hf_****'` when `hf_****` is a personal user access token with Inference API permission. You can generate one from [your settings page](https://huggingface.co/settings/tokens). |
-| **x-use-cache** | _boolean, optional, default to `true`_ | There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. |
-| **x-wait-for-model** | _boolean, optional, default to `false`_ | If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places. |
+| **x-use-cache** | _boolean, optional, default to `true`_ | There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query. Read more about caching [here](../parameters#additional-parameters-different-page]). |
+| **x-wait-for-model** | _boolean, optional, default to `false`_ | If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places. Read more about model availability [here](../parameters#additional-parameters-different-page]). |
+
 
 #### Response
 
@@ -48,6 +49,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 
 ### Using the API
+
 
 <inferencesnippet>
 
@@ -81,7 +83,7 @@ from PIL import Image
 image = Image.open(io.BytesIO(image_bytes))
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_to_image).
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_to-image).
 </python>
 
 <js>
@@ -106,7 +108,9 @@ query({"inputs": "Astronaut riding a horse"}).then((response) => {
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#texttoimage).
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#textto-image).
 </js>
 
 </inferencesnippet>
+
+
