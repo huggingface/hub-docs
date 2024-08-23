@@ -21,17 +21,18 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 #### Inputs
 
-| Payload |   |    |
+| Payload |  |  |
 | :--- | :--- | :--- |
-| **inputs** | _string, required_ | The input text data (sometimes called "prompt"). |
-| **parameters** |  _object, optional_ |  |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guidance_scale** |  _number, optional_ | For diffusion models. A higher guidance scale value encourages the model to generate images closely linked to the text prompt at the expense of lower image quality. |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;negative_prompt** |  _string or string[], optional_ | One or several prompt to guide what NOT to include in image generation. |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num_inference_steps** |  _integer, optional_ | For diffusion models. The number of denoising steps. More denoising steps usually lead to a higher quality image at the expense of slower inference. |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target_size** |  _object, optional_ |  |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width** |  _integer, required_ | The size in pixel of the output image. |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height** |  _integer, required_ | The size in pixel of the output image. |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheduler** |  _string, optional_ | For diffusion models. Override the scheduler with a compatible one. |
+| **inputs** | _string, required_ | The input text data (sometimes called "prompt" |
+| **parameters** | _object, optional_ | Additional inference parameters for Text To Image |
+| **&nbsp;&nbsp;&nbsp;&nbsp;guidance_scale** | _number, optional_ | For diffusion models. A higher guidance scale value encourages the model to generate images closely linked to the text prompt at the expense of lower image quality. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;negative_prompt** | _array, optional_ | One or several prompt to guide what NOT to include in image generation. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;num_inference_steps** | _integer, optional_ | For diffusion models. The number of denoising steps. More denoising steps usually lead to a higher quality image at the expense of slower inference. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;target_size** | _object, optional_ | The size in pixel of the output image |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width** | _integer, required_ |  |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height** | _integer, required_ |  |
+| **&nbsp;&nbsp;&nbsp;&nbsp;scheduler** | _string, optional_ | For diffusion models. Override the scheduler with a compatible one |
+
 
 | Headers |   |    |
 | :--- | :--- | :--- |
@@ -41,14 +42,16 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 #### Output
 
-| Response |   |
+| Payload | Description |
 | :--- | :--- |
-| **image**       | The generated image. |
+| **image** | The generated image |
 
-### Examples
 
-#### cURL
+### Using the API
 
+<inferencesnippet>
+
+<curl>
 ```bash
 curl https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev \
 	-X POST \
@@ -57,9 +60,9 @@ curl https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev \
 	-H "Authorization: Bearer hf_***"
 
 ```
+</curl>
 
-#### Python
-
+<python>
 ```py
 import requests
 
@@ -79,9 +82,9 @@ image = Image.open(io.BytesIO(image_bytes))
 ```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_to_image).
+</python>
 
-#### JavaScript
-
+<js>
 ```js
 async function query(data) {
 	const response = await fetch(
@@ -104,3 +107,6 @@ query({"inputs": "Astronaut riding a horse"}).then((response) => {
 ```
 
 To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#texttoimage).
+</js>
+
+</inferencesnippet>

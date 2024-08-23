@@ -26,14 +26,14 @@ function readTemplate(templateName: string): Promise<string> {
     TEMPLATE_DIR,
     `${templateNameSnakeCase}.handlebars`,
   );
-  console.debug(`   📖 Read from ${templatePath}`);
+  console.debug(`   🔍 Reading ${templateNameSnakeCase}.handlebars`);
   return fs.readFile(templatePath, { encoding: "utf-8" });
 }
 
 function writeTaskDoc(templateName: string, content: string): Promise<void> {
   const templateNameSnakeCase = templateName.replace(/-/g, "_");
   const taskDocPath = path.join(TASKS_DOCS_DIR, `${templateNameSnakeCase}.md`);
-  console.debug(`   💾 Save to ${taskDocPath}`);
+  console.debug(`   💾 Saving to ${taskDocPath}`);
   return fs
     .mkdir(TASKS_DOCS_DIR, { recursive: true })
     .then(() => fs.writeFile(taskDocPath, content, { encoding: "utf-8" }));
@@ -44,7 +44,7 @@ function writeTaskDoc(templateName: string, content: string): Promise<void> {
 /////////////////////////
 
 const TASKS_API_URL = "https://huggingface.co/api/tasks";
-console.debug(`   📖 Fetching ${TASKS_API_URL}`);
+console.debug(`   🕸️ Fetching ${TASKS_API_URL}`);
 const response = await fetch(TASKS_API_URL);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TASKS_DATA = (await response.json()) as any;
@@ -100,6 +100,74 @@ export function hasInferenceSnippet(
   });
 }
 
+/////////////////////
+//// Specs utils ////
+/////////////////////
+
+type SpecNameType = "input" | "output" | "stream_output";
+
+const SPECS_URL_TEMPLATE = Handlebars.compile(
+  `https://raw.githubusercontent.com/huggingface/huggingface.js/main/packages/tasks/src/tasks/{{task}}/spec/{{name}}.json`,
+);
+
+async function fetchOneSpec(
+  task: PipelineType,
+  name: SpecNameType,
+): Promise<JsonObject | undefined> {
+  const url = SPECS_URL_TEMPLATE({ task, name });
+  console.debug(`   🕸️ Fetching ${task} ${name} specs`);
+  return fetch(url)
+    .then((res) => res.json())
+    .catch(() => undefined);
+}
+
+async function fetchSpecs(
+  task: PipelineType,
+): Promise<
+  Record<"input" | "output" | "stream_output", JsonObject | undefined>
+> {
+  return {
+    input: await fetchOneSpec(task, "input"),
+    output: await fetchOneSpec(task, "output"),
+    stream_output: await fetchOneSpec(task, "stream_output"),
+  };
+}
+
+function processPayloadSchema(schema: any, prefix: string = ""): JsonObject[] {
+  let rows: JsonObject[] = [];
+
+  Object.entries(schema.properties || {}).forEach(
+    ([key, value]: [string, any]) => {
+      const isRequired = schema.required?.includes(key);
+      let type = value.type || "object";
+
+      if (value.$ref) {
+        // Handle references
+        const refSchemaKey = value.$ref.split("/").pop();
+        value = schema.$defs?.[refSchemaKey!];
+      }
+
+      const description = value.description || "";
+      const row = {
+        name: `${prefix}${key}`,
+        type: type,
+        description: description,
+        required: isRequired ? "required" : "optional",
+      };
+      rows.push(row);
+
+      if (type === "object" && value.properties) {
+        // Recursively process nested objects
+        rows = rows.concat(
+          processPayloadSchema(value, prefix + "&nbsp;&nbsp;&nbsp;&nbsp;"),
+        );
+      }
+    },
+  );
+
+  return rows;
+}
+
 //////////////////////////
 //// Inline templates ////
 //////////////////////////
@@ -115,6 +183,12 @@ const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
 );
 
 const SPECS_HEADERS = await readTemplate("specs-headers");
+const SPECS_PAYLOAD_TEMPLATE = Handlebars.compile(
+  await readTemplate("specs-payload"),
+);
+const SPECS_OUTPUT_TEMPLATE = Handlebars.compile(
+  await readTemplate("specs-output"),
+);
 
 ////////////////////
 //// Data utils ////
@@ -123,27 +197,43 @@ const SPECS_HEADERS = await readTemplate("specs-headers");
 const TASKS: PipelineType[] = ["text-to-image"];
 
 const DATA: {
+  constants: {
+    specsHeaders: string;
+  };
+  models: Record<string, { id: string; description: string }[]>;
   snippets: Record<
     string,
     { curl: string; python: string; javascript: string }
   >;
-  models: Record<string, { id: string; description: string }[]>;
+  specs: Record<
+    string,
+    {
+      input: string | undefined;
+      output: string | undefined;
+      stream_output: string | undefined;
+    }
+  >;
   tips: {
     linksToTaskPage: Record<string, string>;
     listModelsLink: Record<string, string>;
   };
-  constants: {
-    specsHeaders: string;
-  };
 } = {
-  snippets: {},
-  models: {},
-  tips: { linksToTaskPage: {}, listModelsLink: {} },
   constants: {
     specsHeaders: SPECS_HEADERS,
   },
+  models: {},
+  snippets: {},
+  specs: {},
+  tips: { linksToTaskPage: {}, listModelsLink: {} },
 };
 
+// Fetch recommended models
+TASKS.forEach((task) => {
+  // TODO loop over models and filter out freezed ones
+  DATA.models[task] = TASKS_DATA[task].models;
+});
+
+// Fetch snippets
 TASKS.forEach((task) => {
   const mainModel = TASKS_DATA[task].models[0].id;
   DATA.snippets[task] = {
@@ -153,11 +243,27 @@ TASKS.forEach((task) => {
   };
 });
 
-TASKS.forEach((task) => {
-  // TODO loop over models and filter out freezed ones
-  DATA.models[task] = TASKS_DATA[task].models;
-});
+// Render specs
+await Promise.all(
+  TASKS.map(async (task) => {
+    const specs = await fetchSpecs(task);
+    DATA.specs[task] = {
+      input: specs.input
+        ? SPECS_PAYLOAD_TEMPLATE({ schema: processPayloadSchema(specs.input) })
+        : undefined,
+      output: specs.output
+        ? SPECS_OUTPUT_TEMPLATE({ schema: processPayloadSchema(specs.output) })
+        : undefined,
+      stream_output: specs.stream_output
+        ? SPECS_OUTPUT_TEMPLATE({
+            schema: processPayloadSchema(specs.stream_output),
+          })
+        : undefined,
+    };
+  }),
+);
 
+// Render tips
 TASKS.forEach((task) => {
   DATA.tips.linksToTaskPage[task] = TIP_LINK_TO_TASK_PAGE_TEMPLATE({ task });
   DATA.tips.listModelsLink[task] = TIP_LIST_MODELS_LINK_TEMPLATE({ task });
@@ -171,12 +277,13 @@ async function renderTemplate(
   templateName: string,
   data: JsonObject,
 ): Promise<string> {
-  console.log(`🛠️  Rendering ${templateName}`);
+  console.log(`🎨  Rendering ${templateName}`);
   const template = Handlebars.compile(await readTemplate(templateName));
   return template(data);
 }
 
+// @ts-ignore
 const rendered = await renderTemplate("text-to-image", DATA);
 await writeTaskDoc("text-to-image", rendered);
 
-console.debug("✅ All done!");
+console.log("✅ All done!");

@@ -16,46 +16,38 @@ Generate an image based on a given text prompt.
 
 #### Inputs
 
-| Payload |   |    |
-| :--- | :--- | :--- |
-| **inputs** | _string, required_ | The input text data (sometimes called "prompt"). |
-| **parameters** |  _object, optional_ |  |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guidance_scale** |  _number, optional_ | For diffusion models. A higher guidance scale value encourages the model to generate images closely linked to the text prompt at the expense of lower image quality. |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;negative_prompt** |  _string or string[], optional_ | One or several prompt to guide what NOT to include in image generation. |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num_inference_steps** |  _integer, optional_ | For diffusion models. The number of denoising steps. More denoising steps usually lead to a higher quality image at the expense of slower inference. |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target_size** |  _object, optional_ |  |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width** |  _integer, required_ | The size in pixel of the output image. |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height** |  _integer, required_ | The size in pixel of the output image. |
-|  **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheduler** |  _string, optional_ | For diffusion models. Override the scheduler with a compatible one. |
+{{{specs.text-to-image.input}}}
 
 {{{constants.specsHeaders}}}
 
 #### Output
 
-| Response |   |
-| :--- | :--- |
-| **image**       | The generated image. |
+{{{specs.text-to-image.output}}}
 
-### Examples
+### Using the API
 
-#### cURL
+<inferencesnippet>
 
+<curl>
 ```bash
 {{{snippets.text-to-image.curl}}}
 ```
+</curl>
 
-#### Python
-
+<python>
 ```py
 {{{snippets.text-to-image.python}}}
 ```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_to_image).
+</python>
 
-#### JavaScript
-
+<js>
 ```js
 {{{snippets.text-to-image.javascript}}}
 ```
 
 To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#texttoimage).
+</js>
+
+</inferencesnippet>
