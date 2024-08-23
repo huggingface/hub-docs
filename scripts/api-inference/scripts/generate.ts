@@ -161,7 +161,10 @@ function processPayloadSchema(schema: any, prefix: string = ""): JsonObject[] {
       if (isObject) {
         // Recursively process nested objects
         rows = rows.concat(
-          processPayloadSchema(value, prefix + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"),
+          processPayloadSchema(
+            value,
+            prefix + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+          ),
         );
       }
     },
