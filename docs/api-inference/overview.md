@@ -45,5 +45,5 @@ The free Serverless API is designed to run popular public models. If you have a 
 
 ### Fine-tuning Models
 
-To automatically finetune a model on your data, please try [AutoTrain](https://huggingface.co/autotrain). It’s a no-code solution for automatically training and deploying a model; all you have to do is upload your data!
+To automatically finetune a model on your data, please try [AutoTrain](https://huggingface.co/autotrain). It’s a no-code solution for automatically training a model; all you have to do is upload your data.
 
