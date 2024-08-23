@@ -148,18 +148,20 @@ function processPayloadSchema(schema: any, prefix: string = ""): JsonObject[] {
       }
 
       const description = value.description || "";
+      const isObject = type === "object" && value.properties;
+      const name = isObject ? `${prefix}▼${key}` : `${prefix}${key}`;
       const row = {
-        name: `${prefix}${key}`,
+        name: name,
         type: type,
         description: description,
         required: isRequired ? "required" : "optional",
       };
       rows.push(row);
 
-      if (type === "object" && value.properties) {
+      if (isObject) {
         // Recursively process nested objects
         rows = rows.concat(
-          processPayloadSchema(value, prefix + "&nbsp;&nbsp;&nbsp;&nbsp;"),
+          processPayloadSchema(value, prefix + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"),
         );
       }
     },
