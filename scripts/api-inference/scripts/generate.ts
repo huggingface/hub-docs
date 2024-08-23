@@ -199,7 +199,7 @@ const SPECS_OUTPUT_TEMPLATE = Handlebars.compile(
 //// Data utils ////
 ////////////////////
 
-const TASKS: PipelineType[] = ["text-to-image"];
+const TASKS: PipelineType[] = ["image-to-image", "text-to-image"];
 
 const DATA: {
   constants: {
@@ -239,6 +239,7 @@ TASKS.forEach((task) => {
 });
 
 // Fetch snippets
+// TODO: render snippets only if they are available
 TASKS.forEach((task) => {
   const mainModel = TASKS_DATA[task].models[0].id;
   DATA.snippets[task] = {
@@ -287,8 +288,12 @@ async function renderTemplate(
   return template(data);
 }
 
-// @ts-ignore
-const rendered = await renderTemplate("text-to-image", DATA);
-await writeTaskDoc("text-to-image", rendered);
+await Promise.all(
+  TASKS.map(async (task) => {
+    // @ts-ignore
+    const rendered = await renderTemplate(task, DATA);
+    await writeTaskDoc(task, rendered);
+  }),
+);
 
 console.log("✅ All done!");

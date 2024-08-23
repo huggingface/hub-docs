@@ -1,0 +1,60 @@
+## Image-to-image
+
+Image-to-image is the task of transforming a source image to match the characteristics of a target image or a target image domain.
+Any image manipulation and enhancement is possible with image to image models.
+
+Use cases heavily depend on the model and the dataset it was trained on, but some common use cases include:
+- Style transfer
+- Image colorization
+- Image super-resolution
+- Image inpainting
+
+{{{tips.linksToTaskPage.image-to-image}}}
+
+### Recommended models
+
+{{#each models.image-to-image}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.image-to-image}}}
+
+### API specification
+
+#### Request
+
+{{{specs.image-to-image.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.image-to-image.output}}}
+
+### Using the API
+
+<inferencesnippet>
+
+<curl>
+```bash
+{{{snippets.image-to-image.curl}}}
+```
+</curl>
+
+<python>
+```py
+{{{snippets.image-to-image.python}}}
+```
+
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_to_image).
+</python>
+
+<js>
+```js
+{{{snippets.image-to-image.javascript}}}
+```
+
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#imagetoimage).
+</js>
+
+</inferencesnippet>
