@@ -42,14 +42,14 @@ function readTemplate(templateName: string): Promise<string> {
     TEMPLATE_DIR,
     `${templateNameSnakeCase}.handlebars`,
   );
-  console.debug(`   🔍 Reading ${templateNameSnakeCase}.handlebars`);
+  console.log(`   🔍 Reading ${templateNameSnakeCase}.handlebars`);
   return fs.readFile(templatePath, { encoding: "utf-8" });
 }
 
 function writeTaskDoc(templateName: string, content: string): Promise<void> {
   const templateNameSnakeCase = templateName.replace(/-/g, "_");
   const taskDocPath = path.join(TASKS_DOCS_DIR, `${templateNameSnakeCase}.md`);
-  console.debug(`   💾 Saving to ${taskDocPath}`);
+  console.log(`   💾 Saving to ${taskDocPath}`);
   return fs
     .mkdir(TASKS_DOCS_DIR, { recursive: true })
     .then(() => fs.writeFile(taskDocPath, content, { encoding: "utf-8" }));
@@ -60,7 +60,7 @@ function writeTaskDoc(templateName: string, content: string): Promise<void> {
 /////////////////////////
 
 const TASKS_API_URL = "https://huggingface.co/api/tasks";
-console.debug(`   🕸️ Fetching ${TASKS_API_URL}`);
+console.log(`   🕸️  Fetching ${TASKS_API_URL}`);
 const response = await fetch(TASKS_API_URL);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TASKS_DATA = (await response.json()) as any;
@@ -113,7 +113,7 @@ async function fetchOneSpec(
   name: SpecNameType,
 ): Promise<JsonObject | undefined> {
   const url = SPECS_URL_TEMPLATE({ task, name });
-  console.debug(`   🕸️ Fetching ${task} ${name} specs`);
+  console.log(`   🕸️  Fetching ${task} ${name} specs`);
   return fetch(url)
     .then((res) => res.json())
     .catch(() => undefined);
@@ -229,9 +229,29 @@ const DATA: {
   tips: { linksToTaskPage: {}, listModelsLink: {} },
 };
 
+// Check for each model if inference status is "warm"
+await Promise.all(
+  TASKS.map(async (task) => {
+    await Promise.all(
+      TASKS_DATA[task].models.map(
+        async (model: {
+          id: string;
+          description: string;
+          inference: string | undefined;
+        }) => {
+          console.log(`   ⚡ Checking inference status ${model.id}`);
+          const modelData = await fetch(
+            `https://huggingface.co/api/models/${model.id}?expand[]=inference`,
+          ).then((res) => res.json());
+          model.inference = modelData.inference;
+        },
+      ),
+    );
+  }),
+);
+
 // Fetch recommended models
 TASKS.forEach((task) => {
-  // TODO loop over models and filter out freezed ones
   DATA.models[task] = TASKS_DATA[task].models;
 });
 
