@@ -66,6 +66,8 @@ We offer advanced security and compliance features for organizations through our
 
 The Enterprise Hub is billed like a typical subscription. The subscription renews automatically for you. You can choose to cancel the subscription at anytime in the organization's billing settings.
 
+You can pay for the Enterprise Hub subscription with a credit card or your AWS account.
+
 Upon renewal, the number of seats in your Enterprise Hub subscription will be updated to match the number of members of your organization.
 
 
@@ -73,3 +75,20 @@ Upon renewal, the number of seats in your Enterprise Hub subscription will be up
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/enterprise-sub-light.png"/>
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/enterprise-sub-dark.png"/>
 </div>
+
+## PRO subscription
+
+The PRO subscription unlocks additional features for users, including:
+
+- Higher free tier for the serverless Inference API and when consuming ZeroGPU Spaces
+- Ability to create Dev Mode & Zero GPU Spaces
+- Ability to write Social Posts and Community Blogs
+- Leverage the Dataset Viewer on private datasets
+
+View the full list of benefits at https://huggingface.co/subscribe/pro
+
+Similarly to the Enterprise Hub subscription, PRO subscriptions are billed like a typical subscription. The subscription renews automatically for you. You can choose to cancel the subscription at anytime in your billing settings: https://huggingface.co/settings/billing
+
+You can only pay for the PRO subscription with a credit card.
+
+Note: PRO benefits are also included in the Enterprise Hub subscription.
