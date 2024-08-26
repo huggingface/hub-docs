@@ -252,7 +252,7 @@ Details on how to fill out a human-readable model card without Hub-specific meta
 
 ### How are model tags determined?
 
-Each model page lists all the model's tags in the page header, below the model name. These are primarily computed from the model card metadata, although some are added automatically, as described in [Creating a Widget](./models-widgets#creating-a-widget).
+Each model page lists all the model's tags in the page header, below the model name. These are primarily computed from the model card metadata, although some are added automatically, as described in [Enabling a Widget](./models-widgets#enabling-a-widget).
 
 ### Can I add custom tags to my model?
 

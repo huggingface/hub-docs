@@ -63,11 +63,11 @@ Adding a Dataset card is super valuable for helping users find your dataset and 
 
 ## Using the `huggingface_hub` client library
 
-The rich features set in the `huggingface_hub` library allows you to manage repositories, including creating repos and uploading datasets to the Hub. Visit [the client library's documentation](https://huggingface.co/docs/huggingface_hub/index) to learn more.
+The rich features set in the `huggingface_hub` library allows you to manage repositories, including creating repos and uploading datasets to the Hub. Visit [the client library's documentation](/docs/huggingface_hub/index) to learn more.
 
 ## Using other libraries
 
-Some libraries like [🤗 Datasets](../datasets/index), [Pandas](https://pandas.pydata.org/), [Polars](https://pola.rs), [Dask](https://www.dask.org/) or [DuckDB](https://duckdb.org/) can upload files to the Hub.
+Some libraries like [🤗 Datasets](/docs/datasets/index), [Pandas](https://pandas.pydata.org/), [Polars](https://pola.rs), [Dask](https://www.dask.org/) or [DuckDB](https://duckdb.org/) can upload files to the Hub.
 See the list of [Libraries supported by the Datasets Hub](./datasets-libraries) for more information.
 
 ## Using Git
@@ -107,8 +107,8 @@ After uploading your dataset, make sure the Dataset Viewer correctly shows your 
 
 ## Large scale datasets
 
-The Hugging Face Hub supports large scale datasets, usually uploaded in Parquet (e.g. via `push_to_hub()` using [🤗 Datasets](https://huggingface.co/docs/datasets/main/en/package_reference/main_classes#datasets.Dataset.push_to_hub)) or [WebDataset](https://github.com/webdataset/webdataset) format.
+The Hugging Face Hub supports large scale datasets, usually uploaded in Parquet (e.g. via `push_to_hub()` using [🤗 Datasets](/docs/datasets/main/en/package_reference/main_classes#datasets.Dataset.push_to_hub)) or [WebDataset](https://github.com/webdataset/webdataset) format.
 
 You can upload large scale datasets at high speed using the `huggingface-hub` library.
 
-See [how to upload a folder by chunks](https://huggingface.co/docs/huggingface_hub/guides/upload#upload-a-folder-by-chunks), the [tips and tricks for large uploads](https://huggingface.co/docs/huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads) and the [repository limitations and recommendations](./repositories-recommendations).
+See [how to upload a folder by chunks](/docs/huggingface_hub/guides/upload#upload-a-folder-by-chunks), the [tips and tricks for large uploads](/docs/huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads) and the [repository limitations and recommendations](./repositories-recommendations).

@@ -119,7 +119,7 @@ configs:
 ---
 ```
 
-Refer to the [specific builders' documentation](../datasets/package_reference/builder_classes) to see what parameters they have.
+Refer to the [specific builders' documentation](/docs/datasets/package_reference/builder_classes) to see what parameters they have.
 
 <Tip>
 

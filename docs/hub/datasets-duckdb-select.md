@@ -49,7 +49,7 @@ SELECT COUNT(*) FROM 'hf://datasets/jamescalam/world-cities-geo/*.jsonl';
 
 ```
 
-You can also query Parquet files using the `read_parquet` function (or its alias `parquet_scan`). This function, along with other [parameters]((https://duckdb.org/docs/data/parquet/overview.html#parameters)), provides flexibility in handling Parquet files specially if they dont have a `.parquet` extension. Let's explore these functions using the auto-converted Parquet files from the same dataset.
+You can also query Parquet files using the `read_parquet` function (or its alias `parquet_scan`). This function, along with other [parameters](https://duckdb.org/docs/data/parquet/overview.html#parameters), provides flexibility in handling Parquet files specially if they dont have a `.parquet` extension. Let's explore these functions using the auto-converted Parquet files from the same dataset.
 
 Select using [read_parquet](https://duckdb.org/docs/guides/file_formats/query_parquet.html) function:
 

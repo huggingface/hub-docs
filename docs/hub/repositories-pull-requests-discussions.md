@@ -7,7 +7,7 @@ At a high level, the aim is to build a simpler version of other git hosts' (like
 - there's no hard distinction between discussions and PRs: they are essentially the same so they are displayed in the same lists.
 - they are streamlined for ML (i.e. models/datasets/spaces repos), not arbitrary repos.
 
-_Note, Pull Requests and discussions can be enabled or disabled from the [repository settings](./repositories-settings#disabling-discussions-pull-requests)_
+_Note, Pull Requests and discussions can be enabled or disabled from the [repository settings](./repositories-settings#disabling-discussions--pull-requests)_
 
 ## List
 

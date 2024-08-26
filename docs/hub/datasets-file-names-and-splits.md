@@ -10,9 +10,9 @@ Note that if none of the structures below suits your case, you can have more con
 
 ## Basic use-case
 
-If your dataset isn't split into [train/validation/test splits](https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets), the simplest dataset structure is to have one file: `data.csv` (this works with any [supported file format](./datasets-adding#files-formats) and any file name).
+If your dataset isn't split into [train/validation/test splits](https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets), the simplest dataset structure is to have one file: `data.csv` (this works with any [supported file format](./datasets-adding#file-formats) and any file name).
 
-Your repository will also contain a `README.md` file, the [dataset card](./dataset-cards) displayed on your dataset page.
+Your repository will also contain a `README.md` file, the [dataset card](./datasets-cards) displayed on your dataset page.
 
 ```
 my_dataset_repository/

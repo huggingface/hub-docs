@@ -1,7 +1,7 @@
 # Libraries
 
 The Datasets Hub has support for several libraries in the Open Source ecosystem.
-Thanks to the [huggingface_hub Python library](../huggingface_hub), it's easy to enable sharing your datasets on the Hub.
+Thanks to the [huggingface_hub Python library](/docs/huggingface_hub), it's easy to enable sharing your datasets on the Hub.
 We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
 
 The table below summarizes the supported libraries and their level of integration.
