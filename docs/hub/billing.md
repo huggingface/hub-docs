@@ -80,7 +80,7 @@ Upon renewal, the number of seats in your Enterprise Hub subscription will be up
 
 The PRO subscription unlocks additional features for users, including:
 
-- Higher free tier for the serverless Inference API and when consuming ZeroGPU Spaces
+- Higher free tier for the Serverless Inference API and when consuming ZeroGPU Spaces
 - Ability to create Dev Mode & Zero GPU Spaces
 - Ability to write Social Posts and Community Blogs
 - Leverage the Dataset Viewer on private datasets
