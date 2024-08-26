@@ -59,7 +59,7 @@ See [File names and splits](./datasets-file-names-and-splits) for more informati
 
 ## Additional columns
 
-If there is additional information you'd like to include about your dataset, like text captions or bounding boxes, add it as a `metadata.csv` file in your repository. This lets you quickly create datasets for different computer vision tasks like text captioning or object detection.
+If there is additional information you'd like to include about your dataset, like text captions or bounding boxes, add it as a `metadata.csv` file in your repository. This lets you quickly create datasets for different computer vision tasks like [text captioning](https://huggingface.co/tasks/image-to-text) or [object detection](https://huggingface.co/tasks/object-detection).
 
 ```
 my_dataset_repository/
