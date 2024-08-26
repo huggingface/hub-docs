@@ -4,16 +4,16 @@ Welcome to the documentation repository for Hugging Face Hub. This repository co
 
 ## Accessing Documentation
 
-You can find the Hugging Face Hub documentation in the `docs` folder. For direct access, visit: [hf.co/docs/hub](https://hf.co/docs/hub).
+You can find the Hugging Face Hub documentation in the `docs` folder. For direct access, visit: [hf.co/docs/hub](https://huggingface.co/docs/hub/index).
 
 ## Related Components
 
 Explore these related components for more utilities and features:
 
 - **Hugging Face Hub JS Repository:**
-  - [Utilities to Interact with the Hub](https://github.com/huggingface/huggingface.js/packages/hub): Contains utilities to interact with the Hugging Face Hub.
-  - [Hub Widgets](https://github.com/huggingface/huggingface.js/packages/widgets): Includes widgets for the Hub.
-  - [Hub Tasks](https://github.com/huggingface/huggingface.js/packages/tasks): Provides information on tasks visible on [hf.co/tasks](https://hf.co/tasks).
+  - [Utilities to Interact with the Hub](https://github.com/huggingface/huggingface.js/tree/main/packages/hub): Contains utilities to interact with the Hugging Face Hub.
+  - [Hub Widgets](https://github.com/huggingface/huggingface.js/tree/main/packages/widgets): Includes widgets for the Hub.
+  - [Hub Tasks](https://github.com/huggingface/huggingface.js/tree/main/packages/tasks): Provides information on tasks visible on [hf.co/tasks](https://huggingface.co/tasks).
 
 ## Contributing to the Documentation
 
