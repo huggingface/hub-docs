@@ -27,7 +27,7 @@ AI teams from companies like [the Red Cross](https://510.global/), [Loris.ai](ht
 
 ## Prerequisites
 
-First [login with your Hugging Face account](https://huggingface.co/docs/huggingface_hub/quick-start#login):
+First [login with your Hugging Face account](/docs/huggingface_hub/quick-start#login):
 
 ```bash
 huggingface-cli login

@@ -25,7 +25,7 @@ pl.read_parquet(
 
 ## CLI
 
-Alternatively, you can you use the [Hugging Face CLI](https://huggingface.co/docs/huggingface_hub/en/guides/cli) to  authenticate. After successfully logging in with `huggingface-cli login` an access token will be stored in the `HF_HOME` directory which defaults to `~/.cache/huggingface`. Polars will then use this token for authentication.
+Alternatively, you can you use the [Hugging Face CLI](/docs/huggingface_hub/en/guides/cli) to  authenticate. After successfully logging in with `huggingface-cli login` an access token will be stored in the `HF_HOME` directory which defaults to `~/.cache/huggingface`. Polars will then use this token for authentication.
 
 If multiple methods are specified, they are prioritized in the following order:
 
