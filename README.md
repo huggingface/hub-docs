@@ -1,30 +1,47 @@
-# hub-docs
+# Hub Documentation
 
-This repository regroups documentation and information that is hosted on the Hugging Face website.
+Welcome to the documentation repository for Hugging Face Hub. This repository contains the documentation and information hosted on the Hugging Face website.
 
-You can access the Hugging Face Hub documentation in the `docs` folder at [hf.co/docs/hub](https://hf.co/docs/hub).
+## Accessing Documentation
 
-For some related components, check out the [Hugging Face Hub JS repository](https://github.com/huggingface/huggingface.js)
-- Utilities to interact with the Hub: [huggingface/huggingface.js/packages/hub](https://github.com/huggingface/huggingface.js/tree/main/packages/hub)
-- Hub Widgets: [huggingface/huggingface.js/packages/widgets](https://github.com/huggingface/huggingface.js/tree/main/packages/widgets)
-- Hub Tasks (as visible on the page [hf.co/tasks](https://hf.co/tasks)):  [huggingface/huggingface.js/packages/tasks](https://github.com/huggingface/huggingface.js/tree/main/packages/tasks)
+You can find the Hugging Face Hub documentation in the `docs` folder. For direct access, visit: [hf.co/docs/hub](https://hf.co/docs/hub).
 
-### How to contribute to the docs
+## Related Components
 
-Just add/edit the Markdown files, commit them, and create a PR.
-Then the CI bot will build the preview page and provide a url for you to look at the result!
+Explore these related components for more utilities and features:
 
-For simple edits, you don't need a local build environment.
+- **Hugging Face Hub JS Repository:**
+  - [Utilities to Interact with the Hub](https://github.com/huggingface/huggingface.js/packages/hub): Contains utilities to interact with the Hugging Face Hub.
+  - [Hub Widgets](https://github.com/huggingface/huggingface.js/packages/widgets): Includes widgets for the Hub.
+  - [Hub Tasks](https://github.com/huggingface/huggingface.js/packages/tasks): Provides information on tasks visible on [hf.co/tasks](https://hf.co/tasks).
 
-### Previewing locally
+## Contributing to the Documentation
 
-```bash
-# install doc-builder (if not done already)
-pip install hf-doc-builder
+To contribute:
 
-# you may also need to install some extra dependencies
-pip install black watchdog
+1. **Edit/Add Markdown Files:** Make changes directly to the Markdown files in this repository.
+2. **Commit Changes:** Commit your changes and create a Pull Request (PR).
+3. **CI Bot Preview:** After creating a PR, the CI bot will build a preview of your changes. You will receive a URL to review the result.
 
-# run `doc-builder preview` cmd
-doc-builder preview hub {YOUR_PATH}/hub-docs/docs/hub/ --not_python_module
-```
+For straightforward edits, you do not need a local build environment.
+
+## Previewing Documentation Locally
+
+To preview the documentation changes on your local machine, follow these steps:
+
+1. **Install Doc-Builder:**
+   ```bash
+   pip install hf-doc-builder
+   ```
+
+2. **Install Additional Dependencies (if needed):**
+   ```bash
+   pip install black watchdog
+   ```
+
+3. **Run the Preview Command:**
+   ```bash
+   doc-builder preview hub {YOUR_PATH}/hub-docs/docs/hub/ --not_python_module
+   ```
+
+Replace `{YOUR_PATH}` with the path to the cloned repository on your local machine.
