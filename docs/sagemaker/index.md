@@ -16,7 +16,7 @@ Hugging Face DLCs are open source and licensed under Apache 2.0. Feel free to re
 
 ## Features & benefits 🔥
 
-Hugging Face Deep DLCs make it easier than ever to train Transformer models in SageMaker. Here is why you should consider using Hugging Face DLCs to train and deploy your next machine learning models:
+Hugging Face DLCs make it easier than ever to train Transformer models in SageMaker. Here is why you should consider using Hugging Face DLCs to train and deploy your next machine learning models:
 
 **One command is all you need**
 
