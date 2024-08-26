@@ -197,6 +197,8 @@
           title: Performing data transformations
         - local: datasets-polars-optimizations
           title: Performance optimizations
+      - local: datasets-spark
+        title: Spark
       - local: datasets-webdataset
         title: WebDataset
   - local: datasets-viewer
