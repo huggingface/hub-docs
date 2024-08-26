@@ -58,5 +58,5 @@ This allows you to seamlessly integrate your Dask workflows with datasets stored
 
 ## Further Information
 
-For more detailed information on using Hugging Face paths and their implementation, refer to the [Hugging Face File System documentation](/docs/huggingface_hub/guides/hf_file_system).
+For more detailed information on using Hugging Face paths and their implementation, refer to the [Hugging Face File System documentation](https://huggingface.co/docs/huggingface_hub/en/guides/hf_file_system).
 
