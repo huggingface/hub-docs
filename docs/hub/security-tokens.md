@@ -74,6 +74,6 @@ We recommend you create one access token per app or usage. For instance, you cou
  
  This way, you can invalidate one token without impacting your other usages.
 
-We also recommend only using fine-grained tokens for production usage. The impact, if leaked, will be reduced, and they can be shared among your organization without impacting your account.
+We also recommend using only fine-grained tokens for production usage. The impact, if leaked, will be reduced, and they can be shared among your organization without impacting your account.
 
 For example, if your production application needs read access to a gated model, a member of your organization can request access to the model and then create a fine-grained token with read access to that model. This token can then be used in your production application without giving it access to all your private models.
