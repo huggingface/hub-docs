@@ -29,6 +29,16 @@ TODO: add some flow chart image
 
 ---
 
+## Main Features
+
+* Leverage over 800,000+ models from different open-source libraries (transformers, sentence transformers, adapter transformers, diffusers, timm, etc.).
+* Use models for a variety of tasks, including text generation, image generation, document embeddings, NER, summarization, image classification, and more.
+* Accelerate your prototyping by using GPU-powered models.
+* Run very large models that are challenging to deploy in production.
+* Production-grade platform without the hassle: built-in automatic scaling, load balancing and caching.
+
+---
+
 ## Contents
 
 The documentation is organized into two sections:
