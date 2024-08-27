@@ -14,7 +14,7 @@ Table with
 
 ### Caching
 
-There is a cache layer on the inference API to speed up requests when the inputs are exactly the same. For many models, such as classifiers and embedding models, results are deterministic meaning you can safely use the cached results. However, if you use a nondeterministic model, you might want to disable the cache mechanism resulting in a real new query.
+There is a cache layer on the inference API to speed up requests when the inputs are exactly the same. Many models, such as classifiers and embedding models, can use those results as is if they are deterministic, meaning the results will be the same. Howevr, if you use a nondeterministic model, you can disable the cache mechanism from being used, resulting in a real new query.
 
 To do this, you can add `x-use-cache:false` to the request headers. For example
 
