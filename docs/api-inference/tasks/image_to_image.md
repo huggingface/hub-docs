@@ -29,6 +29,8 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 #### Request
 
+##### Payload
+
 | Payload |  |  |
 | :--- | :--- | :--- |
 | **inputs** | _object, required_ | The input image data |
@@ -41,12 +43,17 @@ This is only a subset of the supported models. Find the model that suits you bes
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height** | _integer, required_ |  |
 
 
+##### Headers
+
+Some options can be configured by passing headers to the Inference API. Here are the available headers:
+
 | Headers |   |    |
 | :--- | :--- | :--- |
 | **authorization** | _string, optional_ | Authentication header in the form `'Bearer: hf_****'` when `hf_****` is a personal user access token with Inference API permission. You can generate one from [your settings page](https://huggingface.co/settings/tokens). |
 | **x-use-cache** | _boolean, optional, default to `true`_ | There is a cache layer on the inference API to speed up requests we have already seen. Most models can use those results as they are deterministic (meaning the outputs will be the same anyway). However, if you use a nondeterministic model, you can set this parameter to prevent the caching mechanism from being used, resulting in a real new query. Read more about caching [here](../parameters#caching]). |
 | **x-wait-for-model** | _boolean, optional, default to `false`_ | If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error, as it will limit hanging in your application to known places. Read more about model availability [here](../overview#eligibility]). |
 
+For more information about Inference API headers, check out the parameters [guide](../parameters).
 
 #### Response
 
