@@ -135,26 +135,13 @@ def read_parquet(
     filesystem: HfFileSystem = kwargs.pop("filesystem") if "filesystem" in kwargs else HfFileSystem(**kwargs.pop("storage_options", {}))
     paths = filesystem.glob(path)
     if not paths:
-        raise FileNotFoundError(f"Couldn't find any file at {path}")
-    df = spark.createDataFrame([{"path": path} for path in paths])
+        raise FileNotFoundError(f"Counldn't find any file at {path}")
+    df = spark.createDataFrame([{"path": path} for path in paths]).repartition(len(paths))
     arrow_schema = pq.read_schema(filesystem.open(paths[0]))
-    schema = pa.schema(
-        [
-            field for field in arrow_schema
-            if (columns is None or field.name in columns)
-        ],
-        metadata=arrow_schema.metadata
-    )
+    schema = pa.schema([field for field in arrow_schema if (columns is None or field.name in columns)], metadata=arrow_schema.metadata)
     return df.mapInArrow(
-        partial(
-            _read,
-            columns=columns,
-            filters=filters,
-            filesystem=filesystem,
-            schema=schema,
-            **kwargs
-        ),
-        from_arrow_schema(schema)
+        partial(_read, columns=columns, filters=filters, filesystem=filesystem, schema=schema, **kwargs),
+        from_arrow_schema(schema),
     )
 ```
 
@@ -263,34 +250,12 @@ import pickle
 import tempfile
 from functools import partial
 from typing import Iterator, Optional
-from uuid import uuid4
 
 import pyarrow as pa
 import pyarrow.parquet as pq
-from huggingface_hub import CommitOperationAdd, CommitOperationCopy, CommitOperationDelete, HfFileSystem
+from huggingface_hub import CommitOperationAdd, HfFileSystem
 from pyspark.sql.dataframe import DataFrame
 from pyspark.sql.pandas.types import from_arrow_schema, to_arrow_schema
-
-
-def _write_single(iterator: Iterator[pa.RecordBatch], path: str, schema: pa.Schema, filesystem: HfFileSystem, row_group_size: Optional[int] = None, **kwargs) -> Iterator[pa.RecordBatch]:
-    resolved_path = filesystem.resolve_path(path)
-    with tempfile.NamedTemporaryFile(suffix=".parquet") as temp_file:
-        with pq.ParquetWriter(temp_file.name, schema=schema, **kwargs) as writer:
-            for batch in iterator:
-                writer.write_batch(batch, row_group_size=row_group_size)
-        filesystem._api.upload_file(
-                repo_id=resolved_path.repo_id,
-                path_in_repo=resolved_path.path_in_repo,
-                repo_type=resolved_path.repo_type,
-                revision=resolved_path.revision,
-                path_or_fileobj=temp_file.name
-            )
-    yield pa.record_batch(
-        {
-            "path": [path],
-        },
-        schema=pa.schema({"path": pa.string()})
-    )
 
 
 def _preupload(iterator: Iterator[pa.RecordBatch], path: str, schema: pa.Schema, filesystem: HfFileSystem, row_group_size: Optional[int] = None, **kwargs) -> Iterator[pa.RecordBatch]:
@@ -299,78 +264,32 @@ def _preupload(iterator: Iterator[pa.RecordBatch], path: str, schema: pa.Schema,
         with pq.ParquetWriter(temp_file.name, schema=schema, **kwargs) as writer:
             for batch in iterator:
                 writer.write_batch(batch, row_group_size=row_group_size)
-        addition = CommitOperationAdd(path_in_repo=(resolved_path.path_in_repo + f"/.tmp/part-{uuid4()}.parquet"), path_or_fileobj=temp_file.name)
-        filesystem._api.preupload_lfs_files(
-                repo_id=resolved_path.repo_id,
-                additions=[addition],
-                repo_type=resolved_path.repo_type,
-                revision=resolved_path.revision,
-            )
-    yield pa.record_batch(
-        {
-            "addition": [pickle.dumps(addition)],
-        },
-        schema=pa.schema({"addition": pa.binary()})
-    )
+        addition = CommitOperationAdd(path_in_repo=temp_file.name, path_or_fileobj=temp_file.name)
+        filesystem._api.preupload_lfs_files(repo_id=resolved_path.repo_id, additions=[addition], repo_type=resolved_path.repo_type, revision=resolved_path.revision)
+    yield pa.record_batch({"addition": [pickle.dumps(addition)],}, schema=pa.schema({"addition": pa.binary()}))
 
 
 def _commit(iterator: Iterator[pa.RecordBatch], path: str, filesystem: HfFileSystem, max_operations_per_commit=50) -> Iterator[pa.RecordBatch]:
     resolved_path = filesystem.resolve_path(path)
     additions: list[CommitOperationAdd] = [pickle.loads(addition) for addition in pa.Table.from_batches(iterator, schema=pa.schema({"addition": pa.binary()}))[0].to_pylist()]
     num_commits = math.ceil(len(additions) / max_operations_per_commit)
+    for shard_idx, addition in enumerate(additions):
+        addition.path_in_repo = resolved_path.path_in_repo.replace("{shard_idx:05d}", f"{shard_idx:05d}")
     for i in range(0, num_commits):
         operations = additions[i * max_operations_per_commit : (i + 1) * max_operations_per_commit]
-        filesystem._api.create_commit(
-            repo_id=resolved_path.repo_id,
-            repo_type=resolved_path.repo_type,
-            revision=resolved_path.revision,
-            operations=operations,
-            commit_message="Upload using PySpark" + (f" (part {i:05d}-of-{num_commits:05d})" if num_commits > 1 else "")
-        )
-        yield pa.record_batch(
-            {
-                "path": [addition.path_in_repo for addition in operations],
-            },
-            schema=pa.schema({"path": pa.string()})
-        )
-
-
-def _rename(iterator: Iterator[pa.RecordBatch], path: str, filesystem: HfFileSystem, max_operations_per_commit=50) ->  Iterator[pa.RecordBatch]:
-    resolved_path = filesystem.resolve_path(path)
-    paths: list[str] = pa.Table.from_batches(iterator, schema=pa.schema({"path": pa.string()}))[0].to_pylist()
-    new_paths = {path: path.split(".tmp/")[0] + f"part-{i:05d}.parquet" for i, path in enumerate(paths)}
-    num_commits = math.ceil(len(paths) / max_operations_per_commit)
-    for i in range(0, num_commits):
-        filesystem._api.create_commit(
-            repo_id = resolved_path.repo_id,
-            revision = resolved_path.revision,
-            repo_type=resolved_path.repo_type,
-            operations=[
-                CommitOperationCopy(src_path_in_repo=path, path_in_repo=new_path)
-                for path, new_path in new_paths.items()
-            ] + [
-                CommitOperationDelete(path_in_repo=path)
-                for path in paths
-            ],
-            commit_message="Rename files" + (f" (part {i:05d}-of-{num_commits:05d})" if num_commits > 1 else "")
-        )
-        yield pa.record_batch(
-                {
-                    "path": list(new_paths.values()),
-                },
-                schema=pa.schema({"path": pa.string()})
-            )
+        commit_message = "Upload using PySpark" + (f" (part {i:05d}-of-{num_commits:05d})" if num_commits > 1 else "")
+        filesystem._api.create_commit(repo_id=resolved_path.repo_id, repo_type=resolved_path.repo_type, revision=resolved_path.revision, operations=operations, commit_message=commit_message)
+        yield pa.record_batch({"path": [addition.path_in_repo for addition in operations]}, schema=pa.schema({"path": pa.string()}))
 
 
 def write_parquet(df: DataFrame, path: str, **kwargs) -> None:
     """
     Write Parquet files to Hugging Face using PyArrow.
 
-    It uploads Parquet files in a distributed manner in three steps:
+    It uploads Parquet files in a distributed manner in two steps:
 
     1. Preupload the Parquet files in parallel in a distributed banner
     2. Commit the preuploaded files
-    3. Rename the files to their final names
 
     Authenticate using `huggingface-cli login` or passing a token
     using the `storage_options` argument: `storage_options={"token": "hf_xxx"}`
@@ -399,21 +318,16 @@ def write_parquet(df: DataFrame, path: str, **kwargs) -> None:
     """
     filesystem: HfFileSystem = kwargs.pop("filesystem", HfFileSystem(**kwargs.pop("storage_options", {})))
     if path.endswith(".parquet") or path.endswith(".pq"):
-        df.coalesce(1).mapInArrow(
-            partial(_write_single, path=path, schema=to_arrow_schema(df.schema), filesystem=filesystem, **kwargs),
-            from_arrow_schema(pa.schema({"path": pa.binary()})),
-        ).collect()
+        df = df.coalesce(1)
     else:
-        df.mapInArrow(
-            partial(_preupload, path=path, schema=to_arrow_schema(df.schema), filesystem=filesystem, **kwargs),
-            from_arrow_schema(pa.schema({"addition": pa.binary()})),
-        ).coalesce(1).mapInArrow(
-            partial(_commit, path=path, filesystem=filesystem),
-            from_arrow_schema(pa.schema({"path": pa.string()})),
-        ).coalesce(1).mapInArrow(
-            partial(_rename, path=path, filesystem=filesystem),
-            from_arrow_schema(pa.schema({"path": pa.string()})),
-        ).collect()
+        path += "/part-{shard_idx:05d}.parquet"
+    df.mapInArrow(
+        partial(_preupload, path=path, schema=to_arrow_schema(df.schema), filesystem=filesystem, **kwargs),
+        from_arrow_schema(pa.schema({"addition": pa.binary()})),
+    ).coalesce(1).mapInArrow(
+        partial(_commit, path=path, filesystem=filesystem),
+        from_arrow_schema(pa.schema({"path": pa.string()})),
+    ).collect()
 ```
 
 Here is how we can use this function to write the filtered version of the [BAAI/Infinity-Instruct](https://huggingface.co/datasets/BAAI/Infinity-Instruct) dataset back to Hugging Face.
