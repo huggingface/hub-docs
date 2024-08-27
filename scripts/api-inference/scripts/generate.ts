@@ -36,6 +36,9 @@ const TEMPLATE_DIR = path.join(ROOT_DIR, "templates");
 const DOCS_DIR = path.join(ROOT_DIR, "..", "..", "docs");
 const TASKS_DOCS_DIR = path.join(DOCS_DIR, "api-inference", "tasks");
 
+const NBSP = "&nbsp;"; // non-breaking space
+const TABLE_INDENT = NBSP.repeat(8);
+
 function readTemplate(
   templateName: string,
   namespace: string,
@@ -180,10 +183,19 @@ function processPayloadSchema(
     const isCombinator = value.oneOf || value.allOf || value.anyOf;
     const addRow =
       !(isCombinator && isCombinator.length === 1) &&
-      !description.includes("UNUSED");
+      !description.includes("UNUSED") &&
+      !key.includes("SKIP");
 
     if (isCombinator && isCombinator.length > 1) {
       description = "One of the following:";
+    }
+
+    if (isArray) {
+      if (value.items.$ref) {
+        type = "object[]";
+      } else if (value.items.type) {
+        type = `${value.items.type}[]`;
+      }
     }
 
     if (addRow) {
@@ -210,13 +222,18 @@ function processPayloadSchema(
             nestedKey,
             nestedValue,
             nestedRequired,
-            parentPrefix + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+            parentPrefix + TABLE_INDENT,
           );
         },
       );
-    } else if (isArray) {
+    } else if (isArray && value.items.$ref) {
       // Process array items
-      // processSchemaNode(key + "[]", value.items, false, parentPrefix + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+      processSchemaNode(
+        "SKIP",
+        resolveRef(value.items.$ref),
+        false,
+        parentPrefix,
+      );
     } else if (isCombinator) {
       // Process combinators like oneOf, allOf, anyOf
       const combinators = value.oneOf || value.allOf || value.anyOf;
@@ -227,10 +244,10 @@ function processPayloadSchema(
         // If there are multiple options, process each one as options
         combinators.forEach((subSchema: any, index: number) => {
           processSchemaNode(
-            `&nbsp;(#${index + 1})`,
+            `${NBSP}(#${index + 1})`,
             subSchema,
             isRequired,
-            parentPrefix + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+            parentPrefix + TABLE_INDENT,
           );
         });
       }
