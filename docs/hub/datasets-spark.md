@@ -267,7 +267,7 @@ def _preupload(iterator: Iterator[pa.RecordBatch], path: str, schema: pa.Schema,
                 writer.write_batch(batch, row_group_size=row_group_size)
         addition = CommitOperationAdd(path_in_repo=temp_file.name, path_or_fileobj=temp_file.name)
         filesystem._api.preupload_lfs_files(repo_id=resolved_path.repo_id, additions=[addition], repo_type=resolved_path.repo_type, revision=resolved_path.revision)
-    yield pa.record_batch({"addition": [pickle.dumps(addition)],}, schema=pa.schema({"addition": pa.binary()}))
+    yield pa.record_batch({"addition": [pickle.dumps(addition)]}, schema=pa.schema({"addition": pa.binary()}))
 
 
 def _commit(iterator: Iterator[pa.RecordBatch], path: str, filesystem: HfFileSystem, max_operations_per_commit=50) -> Iterator[pa.RecordBatch]:
