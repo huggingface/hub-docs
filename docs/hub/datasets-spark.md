@@ -25,7 +25,7 @@ You need to authenticate to Hugging Face to read private/gated dataset repositor
 You can use the CLI for example:
 
 ```
-huggingface-cli
+huggingface-cli login
 ```
 
 It's also possible to provide your Hugging Face token with the `HF_TOKEN` environment variable or passing the `storage_options` parameter to helper functions below:
@@ -34,11 +34,13 @@ It's also possible to provide your Hugging Face token with the `HF_TOKEN` enviro
 storage_options = {"token": "hf_xxx"}
 ```
 
+For more details about authentication, check out [this guide](https://huggingface.co/docs/huggingface_hub/quick-start#authentication).
+
 ## Read
 
 PySpark doesn't have an official support for Hugging Face paths, so we provide a helper function to read datasets in a distributed manner.
 
-For example you can read Parquet files from Hugging Face in an optimized way using PyArrow using this `read_parquet` helper function:
+For example you can read Parquet files from Hugging Face in an optimized way using PyArrow by defining this `read_parquet` helper function:
 
 ```python
 from functools import partial
@@ -130,7 +132,7 @@ def read_parquet(
     |  4|  9|
     +---+---+
     """
-    filesystem: HfFileSystem = kwargs.pop("filesystem", HfFileSystem(**kwargs.pop("storage_options", {})))
+    filesystem: HfFileSystem = kwargs.pop("filesystem") if "filesystem" in kwargs else HfFileSystem(**kwargs.pop("storage_options", {}))
     paths = filesystem.glob(path)
     if not paths:
         raise FileNotFoundError(f"Counldn't find any file at {path}")
@@ -157,7 +159,7 @@ def read_parquet(
 ```
 
 Here is how we can use this on the [BAAI/Infinity-Instruct](https://huggingface.co/datasets/BAAI/Infinity-Instruct) dataset.
-It is a gated repository, users have to accept the terms of use berfore accessing it.
+It is a gated repository, users have to accept the terms of use before accessing it.
 
 
 <div class="flex justify-center">
@@ -215,11 +217,11 @@ There is also a `filters` argument to only load data with values within a certai
 +----------+-------+
 ```
 
-To filter the dataset and only keep dialogues in chinese:
+To filter the dataset and only keep dialogues in Chinese:
 
 ```python
->>> sel = sel = [("langdetect", "=", "zh-cn")]
->>> df_chinese_only = read_parquet("hf://datasets/BAAI/Infinity-Instruct/7M/*.parquet", filters=sel)
+>>> criteria = [("langdetect", "=", "zh-cn")]
+>>> df_chinese_only = read_parquet("hf://datasets/BAAI/Infinity-Instruct/7M/*.parquet", filters=criteria)
 >>> df_chinese_only
 +---+----------------------------+-----+----------+----------+                  
 | id|               conversations|label|langdetect|    source|
@@ -249,7 +251,7 @@ To filter the dataset and only keep dialogues in chinese:
 
 ## Write
 
-We also provide a helper function to write datasets in a distributed manner to your Hugging Face account.
+We also provide a helper function to write datasets in a distributed manner to a Hugging Face repository.
 
 You can write a PySpark Dataframe to Hugging Face using this `write_parquet` helper functions based on the `huggingface_hub` API.
 In particular it uses the `preupload_lfs_files` utility to upload Parquet files in parallel in a distributed manner, and only commit the files once they're all uploaded:
