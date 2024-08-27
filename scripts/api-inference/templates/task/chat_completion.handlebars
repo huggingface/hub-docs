@@ -1,0 +1,38 @@
+## Chat completion
+
+Generate a response given a list of messages.
+This is a subtask of [`text-generation`](./text_generation) designed to generate responses in a conversational context.
+
+{{{tips.linksToTaskPage.chat-completion}}}
+
+### Recommended models
+
+{{#each models.chat-completion}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.chat-completion}}}
+
+### API specification
+
+#### Request
+
+{{{specs.chat-completion.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+Output type depends on the `stream` input parameter.
+If `stream` is `false` (default), the response will be a JSON object with the following fields:
+
+{{{specs.chat-completion.output}}}
+
+If `stream` is `true`, generated tokens are returned as a stream, using Server-Sent Events (SSE).
+For more information about streaming, check out [this guide](https://huggingface.co/docs/text-generation-inference/conceptual/streaming).
+
+{{{specs.chat-completion.stream_output}}}
+
+### Using the API
+
+{{{snippets.chat-completion}}}

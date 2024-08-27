@@ -178,7 +178,9 @@ function processPayloadSchema(
     const isObject = type === "object" && value.properties;
     const isArray = type === "array" && value.items;
     const isCombinator = value.oneOf || value.allOf || value.anyOf;
-    const addRow = !(isCombinator && isCombinator.length === 1);
+    const addRow =
+      !(isCombinator && isCombinator.length === 1) &&
+      !description.includes("UNUSED");
 
     if (isCombinator && isCombinator.length > 1) {
       description = "One of the following:";
@@ -193,7 +195,7 @@ function processPayloadSchema(
       const row = {
         name: `${parentPrefix}${key}`,
         type: type,
-        description: description.replace(/\n/g, "<br>"),
+        description: description.replace(/\n/g, " "),
         required: isRequired ? "required" : "optional",
       };
       rows.push(row);
@@ -280,6 +282,7 @@ const TASKS: PipelineType[] = [
   "text-generation",
   "text-to-image",
 ];
+const TASKS_EXTENDED = [...TASKS, "chat-completion"];
 
 const DATA: {
   constants: {
@@ -318,12 +321,16 @@ await Promise.all(
           id: string;
           description: string;
           inference: string | undefined;
+          config: JsonObject | undefined;
         }) => {
           console.log(`   ⚡ Checking inference status ${model.id}`);
-          const modelData = await fetch(
-            `https://huggingface.co/api/models/${model.id}?expand[]=inference`,
-          ).then((res) => res.json());
+          let url = `https://huggingface.co/api/models/${model.id}?expand[]=inference`;
+          if (task === "text-generation") {
+            url += "&expand[]=config";
+          }
+          const modelData = await fetch(url).then((res) => res.json());
           model.inference = modelData.inference;
+          model.config = modelData.config;
         },
       ),
     );
@@ -353,7 +360,8 @@ TASKS.forEach((task) => {
 
 // Render specs
 await Promise.all(
-  TASKS.map(async (task) => {
+  TASKS_EXTENDED.map(async (task) => {
+    // @ts-ignore
     const specs = await fetchSpecs(task);
     DATA.specs[task] = {
       input: specs.input
@@ -377,6 +385,45 @@ TASKS.forEach((task) => {
   DATA.tips.listModelsLink[task] = TIP_LIST_MODELS_LINK_TEMPLATE({ task });
 });
 
+///////////////////////////////////////////////
+//// Data for chat-completion special case ////
+///////////////////////////////////////////////
+
+function fetchChatCompletion() {
+  // Recommended models based on text-generation
+  DATA.models["chat-completion"] = DATA.models["text-generation"].filter(
+    // @ts-ignore
+    (model) => model.config?.tokenizer_config?.chat_template,
+  );
+
+  // Snippet specific to chat completion
+  const mainModel = DATA.models["chat-completion"][0].id;
+  const mainModelData = {
+    // @ts-ignore
+    id: mainModel.id,
+    pipeline_tag: "text-generation",
+    mask_token: "",
+    library_name: "",
+    // @ts-ignore
+    config: mainModel.config,
+  };
+  const taskSnippets = {
+    // @ts-ignore
+    curl: GET_SNIPPET_FN["curl"](mainModelData, "hf_***"),
+    // @ts-ignore
+    python: GET_SNIPPET_FN["python"](mainModelData, "hf_***"),
+    // @ts-ignore
+    javascript: GET_SNIPPET_FN["js"](mainModelData, "hf_***"),
+  };
+  DATA.snippets["chat-completion"] = SNIPPETS_TEMPLATE({
+    taskSnippets,
+    taskSnakeCase: "chat-completion".replace("-", "_"),
+    taskAttached: "chat-completion".replace("-", ""),
+  });
+}
+
+fetchChatCompletion();
+
 /////////////////////////
 //// Rendering utils ////
 /////////////////////////
@@ -391,7 +438,7 @@ async function renderTemplate(
 }
 
 await Promise.all(
-  TASKS.map(async (task) => {
+  TASKS_EXTENDED.map(async (task) => {
     // @ts-ignore
     const rendered = await renderTemplate(task, DATA);
     await writeTaskDoc(task, rendered);

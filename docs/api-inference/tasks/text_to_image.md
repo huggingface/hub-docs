@@ -21,8 +21,6 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 #### Request
 
-##### Payload
-
 | Payload |  |  |
 | :--- | :--- | :--- |
 | **inputs** | _string, required_ | The input text data (sometimes called "prompt" |
@@ -35,8 +33,6 @@ This is only a subset of the supported models. Find the model that suits you bes
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height** | _integer, required_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheduler** | _string, optional_ | For diffusion models. Override the scheduler with a compatible one |
 
-
-##### Headers
 
 Some options can be configured by passing headers to the Inference API. Here are the available headers:
 

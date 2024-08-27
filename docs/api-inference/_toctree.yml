@@ -12,6 +12,8 @@
   - local: parameters
     title: Parameters
   - sections:
+    - local: tasks/chat_completion
+      title: Chat completion
     - local: tasks/fill_mask
       title: Fill Mask
     - local: tasks/image_to_image

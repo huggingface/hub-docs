@@ -29,8 +29,6 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 #### Request
 
-##### Payload
-
 | Payload |  |  |
 | :--- | :--- | :--- |
 | **inputs** | _object, required_ | The input image data |
@@ -42,8 +40,6 @@ This is only a subset of the supported models. Find the model that suits you bes
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width** | _integer, required_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height** | _integer, required_ |  |
 
-
-##### Headers
 
 Some options can be configured by passing headers to the Inference API. Here are the available headers:
 
