@@ -14,5 +14,9 @@
   - sections:
     - local: tasks/fill_mask
       title: Fill Mask
+    - local: tasks/image_to_image
+      title: Image-to-image
+    - local: tasks/text_to_image
+      title: Text-to-image
     title: Detailed Task Parameters
   title: API Reference
