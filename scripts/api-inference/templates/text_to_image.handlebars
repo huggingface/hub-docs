@@ -1,0 +1,29 @@
+## Text-to-image
+
+Generate an image based on a given text prompt.
+
+{{{tips.linksToTaskPage.text-to-image}}}
+
+### Recommended models
+
+{{#each models.text-to-image}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.text-to-image}}}
+
+### API specification
+
+#### Request
+
+{{{specs.text-to-image.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.text-to-image.output}}}
+
+### Using the API
+
+{{{snippets.text-to-image}}}

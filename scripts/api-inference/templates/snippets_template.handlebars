@@ -1,0 +1,42 @@
+{{#if (or taskSnippets.curl taskSnippets.python taskSnippets.javascript)}}
+
+<inferencesnippet>
+
+{{!-- cURL snippet (if exists) --}}
+{{#if taskSnippets.curl}}
+<curl>
+```bash
+{{{taskSnippets.curl}}}
+```
+</curl>
+{{/if}}
+
+{{!-- Python snippet (if exists) --}}
+{{#if taskSnippets.python}}
+<python>
+```py
+{{{taskSnippets.python}}}
+```
+
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.{{taskSnakeCase}}).
+</python>
+{{/if}}
+
+{{!-- JavaScript snippet (if exists) --}}
+{{#if taskSnippets.javascript}}
+<js>
+```js
+{{{taskSnippets.javascript}}}
+```
+
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#{{taskAttached}}).
+</js>
+{{/if}}
+
+</inferencesnippet>
+
+{{else}}
+
+No snippet available for this task.
+
+{{/if}}

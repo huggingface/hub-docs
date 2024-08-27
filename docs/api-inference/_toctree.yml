@@ -1,0 +1,22 @@
+- sections:
+  - local: index
+    title: Serverless Inference API
+  - local: supported_models
+    title: Supported Models
+  - local: getting_started
+    title: Getting Started
+  - local: rate_limits
+    title: Rate Limits
+  title: Getting Started
+- sections:
+  - local: parameters
+    title: Parameters
+  - sections:
+    - local: tasks/fill_mask
+      title: Fill Mask
+    - local: tasks/image_to_image
+      title: Image-to-image
+    - local: tasks/text_to_image
+      title: Text-to-image
+    title: Detailed Task Parameters
+  title: API Reference
