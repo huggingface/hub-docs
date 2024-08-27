@@ -1,5 +1,9 @@
 | Body |  |
-| :--- | :--- |
+| :--- | :--- | :--- |
 {{#each schema}}
-| **{{{name}}}** | {{{description}}} |
+{{#if type}}
+| **{{{name}}}** | _{{type}}_ | {{{description}}} |
+{{else}}
+| **{{{name}}}** | | {{{description}}} |
+{{/if}}
 {{/each}}

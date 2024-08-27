@@ -131,39 +131,111 @@ async function fetchSpecs(
   };
 }
 
-function processPayloadSchema(schema: any, prefix: string = ""): JsonObject[] {
+function processPayloadSchema(
+  schema: any,
+  definitions: any = {},
+  prefix: string = "",
+): JsonObject[] {
   let rows: JsonObject[] = [];
 
-  Object.entries(schema.properties || {}).forEach(
-    ([key, value]: [string, any]) => {
-      const isRequired = schema.required?.includes(key);
-      let type = value.type || "object";
+  // Helper function to resolve schema references
+  function resolveRef(ref: string) {
+    const refPath = ref.split("/").slice(1); // remove the initial #
+    let refSchema = schema;
+    for (const part of refPath) {
+      refSchema = refSchema[part];
+    }
+    return refSchema;
+  }
 
-      if (value.$ref) {
-        // Handle references
-        const refSchemaKey = value.$ref.split("/").pop();
-        value = schema.$defs?.[refSchemaKey!];
+  // Helper function to process a schema node
+  function processSchemaNode(
+    key: string,
+    value: any,
+    required: boolean,
+    parentPrefix: string,
+  ): void {
+    const isRequired = required;
+    let type = value.type || "object";
+    let description = value.description || "";
+
+    if (value.$ref) {
+      // Resolve the reference
+      value = resolveRef(value.$ref);
+      type = value.type || "object";
+      description = value.description || "";
+    }
+
+    if (value.enum) {
+      type = "enum";
+      description = `Possible values: ${value.enum.join(", ")}`;
+    }
+
+    const isObject = type === "object" && value.properties;
+    const isArray = type === "array" && value.items;
+    const isCombinator = value.oneOf || value.allOf || value.anyOf;
+    const addRow = !(isCombinator && isCombinator.length === 1);
+
+    if (isCombinator && isCombinator.length > 1) {
+      description = "One of the following:";
+    }
+
+    if (addRow) {
+      // Add the row to the table except if combination with only one option
+      if (key.includes("(#")) {
+        // If it's a combination, no need to re-specify the type
+        type = "";
       }
-
-      const description = value.description || "";
-      const isObject = type === "object" && value.properties;
       const row = {
-        name: `${prefix}${key}`,
+        name: `${parentPrefix}${key}`,
         type: type,
-        description: description,
+        description: description.replace(/\n/g, "<br>"),
         required: isRequired ? "required" : "optional",
       };
       rows.push(row);
+    }
 
-      if (isObject) {
-        // Recursively process nested objects
-        rows = rows.concat(
-          processPayloadSchema(
-            value,
-            prefix + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
-          ),
-        );
+    if (isObject) {
+      // Recursively process nested objects
+      Object.entries(value.properties || {}).forEach(
+        ([nestedKey, nestedValue]) => {
+          const nestedRequired = value.required?.includes(nestedKey);
+          processSchemaNode(
+            nestedKey,
+            nestedValue,
+            nestedRequired,
+            parentPrefix + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+          );
+        },
+      );
+    } else if (isArray) {
+      // Process array items
+      // processSchemaNode(key + "[]", value.items, false, parentPrefix + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+    } else if (isCombinator) {
+      // Process combinators like oneOf, allOf, anyOf
+      const combinators = value.oneOf || value.allOf || value.anyOf;
+      if (combinators.length === 1) {
+        // If there is only one option, process it directly
+        processSchemaNode(key, combinators[0], isRequired, parentPrefix);
+      } else {
+        // If there are multiple options, process each one as options
+        combinators.forEach((subSchema: any, index: number) => {
+          processSchemaNode(
+            `&nbsp;(#${index + 1})`,
+            subSchema,
+            isRequired,
+            parentPrefix + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+          );
+        });
       }
+    }
+  }
+
+  // Start processing the root schema
+  Object.entries(schema.properties || {}).forEach(
+    ([key, value]: [string, any]) => {
+      const isRequired = schema.required?.includes(key);
+      processSchemaNode(key, value, isRequired, prefix);
     },
   );
 
@@ -199,7 +271,11 @@ const SPECS_OUTPUT_TEMPLATE = Handlebars.compile(
 //// Data utils ////
 ////////////////////
 
-const TASKS: PipelineType[] = ["image-to-image", "text-to-image"];
+const TASKS: PipelineType[] = [
+  "image-to-image",
+  "text-generation",
+  "text-to-image",
+];
 
 const DATA: {
   constants: {

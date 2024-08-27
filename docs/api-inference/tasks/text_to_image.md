@@ -44,8 +44,8 @@ This is only a subset of the supported models. Find the model that suits you bes
 #### Response
 
 | Body |  |
-| :--- | :--- |
-| **image** | The generated image |
+| :--- | :--- | :--- |
+| **image** | _object_ | The generated image |
 
 
 ### Using the API

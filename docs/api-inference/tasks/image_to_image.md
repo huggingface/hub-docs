@@ -51,8 +51,8 @@ This is only a subset of the supported models. Find the model that suits you bes
 #### Response
 
 | Body |  |
-| :--- | :--- |
-| **image** | The output image |
+| :--- | :--- | :--- |
+| **image** | _object_ | The output image |
 
 
 ### Using the API
