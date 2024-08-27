@@ -135,7 +135,7 @@ def read_parquet(
     filesystem: HfFileSystem = kwargs.pop("filesystem") if "filesystem" in kwargs else HfFileSystem(**kwargs.pop("storage_options", {}))
     paths = filesystem.glob(path)
     if not paths:
-        raise FileNotFoundError(f"Counldn't find any file at {path}")
+        raise FileNotFoundError(f"Couldn't find any file at {path}")
     df = spark.createDataFrame([{"path": path} for path in paths])
     arrow_schema = pq.read_schema(filesystem.open(paths[0]))
     schema = pa.schema(
@@ -416,7 +416,7 @@ def write_parquet(df: DataFrame, path: str, **kwargs) -> None:
         ).collect()
 ```
 
-Here is how we can use this function to write a the filtered version of the [BAAI/Infinity-Instruct](https://huggingface.co/datasets/BAAI/Infinity-Instruct) dataset back to Hugging Face.
+Here is how we can use this function to write the filtered version of the [BAAI/Infinity-Instruct](https://huggingface.co/datasets/BAAI/Infinity-Instruct) dataset back to Hugging Face.
 
 First you need to [create a dataset repository](https://huggingface.co/new-dataset), e.g. `username/Infinity-Instruct-Chinese-Only` (you can set it to private if you want).
 Then, make sure you are authenticated and you can run:
