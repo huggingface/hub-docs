@@ -136,7 +136,7 @@ def read_parquet(
     paths = filesystem.glob(path)
     if not paths:
         raise FileNotFoundError(f"Counldn't find any file at {path}")
-    df = spark.createDataFrame([{"path": path} for path in paths]).repartition(len(paths))
+    df = spark.createDataFrame([{"path": path} for path in paths])
     arrow_schema = pq.read_schema(filesystem.open(paths[0]))
     schema = pa.schema([field for field in arrow_schema if (columns is None or field.name in columns)], metadata=arrow_schema.metadata)
     return df.mapInArrow(
