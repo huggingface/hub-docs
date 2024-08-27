@@ -208,7 +208,7 @@ function processPayloadSchema(
         name: `${parentPrefix}${key}`,
         type: type,
         description: description.replace(/\n/g, " "),
-        required: isRequired ? "required" : "optional",
+        required: isRequired,
       };
       rows.push(row);
     }

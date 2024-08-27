@@ -2,7 +2,7 @@
 | :--- | :--- | :--- |
 {{#each schema}}
 {{#if type}}
-| **{{{name}}}** | _{{type}}, {{required}}_ | {{{description}}} |
+| **{{{name}}}{{#if required}}*{{/if}}** | _{{type}}_ | {{{description}}} |
 {{else}}
 | **{{{name}}}** |  | {{{description}}} |
 {{/if}}
