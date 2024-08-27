@@ -17,7 +17,7 @@ The Serverless Inference API offers a fast and free way to explore thousands of 
 
 TODO: add some flow chart image
 
-⚡ **Fast and Free to Get Started**: The Inference API is free with rate limits. For production needs, explore [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) for dedicated resources, autoscaling, advanced security features, and more.
+⚡ **Fast and Free to Get Started**: The Inference API is free with higher rate limits for PRO users. For production needs, explore [Inference Endpoints](https://ui.endpoints.huggingface.co/) for dedicated resources, autoscaling, advanced security features, and more.
 
 ---
 
@@ -29,12 +29,22 @@ TODO: add some flow chart image
 
 ---
 
+## Main Features
+
+* Leverage over 800,000+ models from different open-source libraries (transformers, sentence transformers, adapter transformers, diffusers, timm, etc.).
+* Use models for a variety of tasks, including text generation, image generation, document embeddings, NER, summarization, image classification, and more.
+* Accelerate your prototyping by using GPU-powered models.
+* Run very large models that are challenging to deploy in production.
+* Production-grade platform without the hassle: built-in automatic scaling, load balancing and caching.
+
+---
+
 ## Contents
 
 The documentation is organized into two sections:
 
 * **Getting Started** Learn the basics of how to use the Inference API.
-* **Parameters** Dive into task-specific settings and parameters.
+* **API Reference** Dive into task-specific settings and parameters.
 
 ---
 
