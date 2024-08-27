@@ -36,10 +36,14 @@ const TEMPLATE_DIR = path.join(ROOT_DIR, "templates");
 const DOCS_DIR = path.join(ROOT_DIR, "..", "..", "docs");
 const TASKS_DOCS_DIR = path.join(DOCS_DIR, "api-inference", "tasks");
 
-function readTemplate(templateName: string): Promise<string> {
+function readTemplate(
+  templateName: string,
+  namespace: string,
+): Promise<string> {
   const templateNameSnakeCase = templateName.replace(/-/g, "_");
   const templatePath = path.join(
     TEMPLATE_DIR,
+    namespace,
     `${templateNameSnakeCase}.handlebars`,
   );
   console.log(`   🔍 Reading ${templateNameSnakeCase}.handlebars`);
@@ -256,15 +260,15 @@ const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
   `This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`,
 );
 
-const SPECS_HEADERS = await readTemplate("specs-headers");
+const SPECS_HEADERS = await readTemplate("specs-headers", "common");
 const SNIPPETS_TEMPLATE = Handlebars.compile(
-  await readTemplate("snippets-template"),
+  await readTemplate("snippets-template", "common"),
 );
 const SPECS_PAYLOAD_TEMPLATE = Handlebars.compile(
-  await readTemplate("specs-payload"),
+  await readTemplate("specs-payload", "common"),
 );
 const SPECS_OUTPUT_TEMPLATE = Handlebars.compile(
-  await readTemplate("specs-output"),
+  await readTemplate("specs-output", "common"),
 );
 
 ////////////////////
@@ -382,7 +386,7 @@ async function renderTemplate(
   data: JsonObject,
 ): Promise<string> {
   console.log(`🎨  Rendering ${templateName}`);
-  const template = Handlebars.compile(await readTemplate(templateName));
+  const template = Handlebars.compile(await readTemplate(templateName, "task"));
   return template(data);
 }
 
