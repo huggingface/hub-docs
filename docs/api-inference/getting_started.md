@@ -9,6 +9,7 @@ We'll do a minimal example using a [sentiment classification model](https://hugg
 Using the Serverless Inference API requires passing a user token in the request headers. You can get a token by signing up on the Hugging Face website and then going to the [tokens page](https://huggingface.co/settings/tokens). We recommend creating a `Fine-grained` token with the scope to `Make calls to the serverless Inference API`.
 
 TODO: add screenshot
+For more details about user tokens, check out [this guide](https://huggingface.co/docs/hub/en/security-tokens).
 
 ## cURL
 
