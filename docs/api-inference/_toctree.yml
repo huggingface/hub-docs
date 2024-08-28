@@ -32,5 +32,7 @@
       title: Text to Image
     - local: tasks/token_classification
       title: Token Classification
+    - local: tasks/translation
+      title: Translation
     title: Detailed Task Parameters
   title: API Reference

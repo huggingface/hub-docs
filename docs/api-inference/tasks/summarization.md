@@ -21,6 +21,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 | Payload |  |  |
 | :--- | :--- | :--- |
+| **inputs*** | _string_ | The text to summarize. |
 
 
 Some options can be configured by passing headers to the Inference API. Here are the available headers:
