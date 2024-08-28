@@ -110,7 +110,7 @@ export function getInferenceSnippet(
   const modelData = {
     id,
     pipeline_tag,
-    mask_token: "",
+    mask_token: "[MASK]",
     library_name: "",
     config: {},
   };

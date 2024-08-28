@@ -57,7 +57,7 @@ For more information about Inference API headers, check out the parameters [guid
 ```bash
 curl https://api-inference.huggingface.co/models/distilbert-base-uncased \
 	-X POST \
-	-d '{"inputs": "The answer to the universe is ."}' \
+	-d '{"inputs": "The answer to the universe is [MASK]."}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
 
@@ -76,7 +76,7 @@ def query(payload):
 	return response.json()
 	
 output = query({
-	"inputs": "The answer to the universe is .",
+	"inputs": "The answer to the universe is [MASK].",
 })
 ```
 
@@ -101,7 +101,7 @@ async function query(data) {
 	return result;
 }
 
-query({"inputs": "The answer to the universe is ."}).then((response) => {
+query({"inputs": "The answer to the universe is [MASK]."}).then((response) => {
 	console.log(JSON.stringify(response));
 });
 ```
