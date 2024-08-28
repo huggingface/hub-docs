@@ -16,6 +16,7 @@ const TASKS: PipelineType[] = [
   "text-to-image",
 ];
 const TASKS_EXTENDED = [...TASKS, "chat-completion"];
+const SPECS_REVISION = "update-specification-for-docs";
 
 const inferenceSnippetLanguages = ["python", "js", "curl"] as const;
 type InferenceSnippetLanguage = (typeof inferenceSnippetLanguages)[number];
@@ -125,10 +126,10 @@ export function getInferenceSnippet(
 type SpecNameType = "input" | "output" | "stream_output";
 
 const SPECS_URL_TEMPLATE = Handlebars.compile(
-  `https://raw.githubusercontent.com/huggingface/huggingface.js/main/packages/tasks/src/tasks/{{task}}/spec/{{name}}.json`,
+  `https://raw.githubusercontent.com/huggingface/huggingface.js/${SPECS_REVISION}/packages/tasks/src/tasks/{{task}}/spec/{{name}}.json`,
 );
 const COMMON_DEFINITIONS_URL =
-  "https://raw.githubusercontent.com/huggingface/huggingface.js/main/packages/tasks/src/tasks/common-definitions.json";
+  `https://raw.githubusercontent.com/huggingface/huggingface.js/${SPECS_REVISION}/packages/tasks/src/tasks/common-definitions.json`;
 
 async function fetchOneSpec(
   task: PipelineType,
@@ -195,7 +196,7 @@ function processPayloadSchema(schema: any): JsonObject[] {
 
     if (value.enum) {
       type = "enum";
-      description = `Possible values: ${value.enum.join(", ")}`;
+      description = `Possible values: ${value.enum.join(", ")}.`;
     }
 
     const isObject = type === "object" && value.properties;
