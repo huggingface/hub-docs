@@ -326,7 +326,7 @@ def write_parquet(df: DataFrame, path: str, **kwargs) -> None:
     df.mapInArrow(
         partial(_preupload, path=path, schema=to_arrow_schema(df.schema), filesystem=filesystem, **kwargs),
         from_arrow_schema(pa.schema({"addition": pa.binary()})),
-    ).coalesce(1).mapInArrow(
+    ).repartition(1).mapInArrow(
         partial(_commit, path=path, filesystem=filesystem),
         from_arrow_schema(pa.schema({"path": pa.string()})),
     ).collect()
