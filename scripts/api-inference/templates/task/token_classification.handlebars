@@ -1,0 +1,37 @@
+## Token Classification
+
+Token classification is a task in which a label is assigned to some tokens in a text. Some popular token classification subtasks are Named Entity Recognition (NER) and Part-of-Speech (PoS) tagging.
+
+{{{tips.linksToTaskPage.token-classification}}}
+
+### Recommended models
+
+{{#each models.token-classification}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.token-classification}}}
+
+### API specification
+
+#### Request
+
+{{{specs.token-classification.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+Output type depends on the `stream` input parameter.
+If `stream` is `false` (default), the response will be a JSON object with the following fields:
+
+{{{specs.token-classification.output}}}
+
+If `stream` is `true`, generated tokens are returned as a stream, using Server-Sent Events (SSE).
+For more information about streaming, check out [this guide](https://huggingface.co/docs/token-classification-inference/conceptual/streaming).
+
+{{{specs.token-classification.stream_output}}}
+
+### Using the API
+
+{{{snippets.token-classification}}}

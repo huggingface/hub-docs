@@ -13,6 +13,7 @@ const TASKS: PipelineType[] = [
   "text-classification",
   "text-generation",
   "text-to-image",
+  "token-classification",
 ];
 const TASKS_EXTENDED = [...TASKS, "chat-completion"];
 const SPECS_REVISION = "update-specification-for-docs";
@@ -221,8 +222,9 @@ function processPayloadSchema(schema: any): JsonObject[] {
     if (addRow) {
       // Add the row to the table except if combination with only one option
       if (key.includes("(#")) {
-        // If it's a combination, no need to re-specify the type
-        type = "";
+        // If it's a combination, no need to re-specify the type except if it's to
+        // specify a constant value.
+        type = value.const ? `'${value.const}'` : "";
       }
       const row = {
         name: `${parentPrefix}${key}`,
