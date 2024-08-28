@@ -11,7 +11,6 @@ For more details about the `summarization` task, check out its [dedicated page](
 ### Recommended models
 
 - [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn): A strong summarization model trained on English news articles. Excels at generating factual summaries.
-- [google/bigbird-pegasus-large-pubmed](https://huggingface.co/google/bigbird-pegasus-large-pubmed): A summarization model trained on medical articles.
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=summarization&sort=trending).
 

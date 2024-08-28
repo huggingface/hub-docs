@@ -377,13 +377,18 @@ await Promise.all(
 
 // Fetch recommended models
 TASKS.forEach((task) => {
-  DATA.models[task] = TASKS_DATA[task].models;
+  DATA.models[task] = TASKS_DATA[task].models.filter(
+    (model: { inference: string }) =>
+      ["cold", "loading", "warm"].includes(model.inference),
+  );
 });
 
 // Fetch snippets
 // TODO: render snippets only if they are available
 TASKS.forEach((task) => {
-  const mainModel = TASKS_DATA[task].models[0].id;
+  // Let's take as example the first available model that is recommended.
+  // Otherwise, fallback to the first model of the task (better to have a snippet than nothing).
+  const mainModel = DATA.models[task][0]?.id || TASKS_DATA[task].models[0].id;
   const taskSnippets = {
     curl: getInferenceSnippet(mainModel, task, "curl"),
     python: getInferenceSnippet(mainModel, task, "python"),
