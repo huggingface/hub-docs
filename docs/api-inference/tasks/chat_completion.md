@@ -144,29 +144,35 @@ For more information about streaming, check out [this guide](https://huggingface
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/undefined \
-	-X POST \
-	-d '{"inputs": "Can you please let us know more details about your "}' \
-	-H 'Content-Type: application/json' \
-	-H "Authorization: Bearer hf_***"
+curl 'https://api-inference.huggingface.co/models/google/gemma-2-2b-it/v1/chat/completions' \
+-H "Authorization: Bearer hf_***" \
+-H 'Content-Type: application/json' \
+-d '{
+	"model": "google/gemma-2-2b-it",
+	"messages": [{"role": "user", "content": "What is the capital of France?"}],
+	"max_tokens": 500,
+	"stream": false
+}'
 
 ```
 </curl>
 
 <python>
 ```py
-import requests
+from huggingface_hub import InferenceClient
 
-API_URL = "https://api-inference.huggingface.co/models/undefined"
-headers = {"Authorization": "Bearer hf_***"}
+client = InferenceClient(
+    "google/gemma-2-2b-it",
+    token="hf_***",
+)
 
-def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-	
-output = query({
-	"inputs": "Can you please let us know more details about your ",
-})
+for message in client.chat_completion(
+	messages=[{"role": "user", "content": "What is the capital of France?"}],
+	max_tokens=500,
+	stream=True,
+):
+    print(message.choices[0].delta.content, end="")
+
 ```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.chat_completion).
@@ -174,25 +180,18 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 
 <js>
 ```js
-async function query(data) {
-	const response = await fetch(
-		"https://api-inference.huggingface.co/models/undefined",
-		{
-			headers: {
-				Authorization: "Bearer hf_***"
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference("hf_***");
+
+for await (const chunk of inference.chatCompletionStream({
+	model: "google/gemma-2-2b-it",
+	messages: [{ role: "user", content: "What is the capital of France?" }],
+	max_tokens: 500,
+})) {
+	process.stdout.write(chunk.choices[0]?.delta?.content || "");
 }
 
-query({"inputs": "Can you please let us know more details about your "}).then((response) => {
-	console.log(JSON.stringify(response));
-});
 ```
 
 To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#chatcompletion).

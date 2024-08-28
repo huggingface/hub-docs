@@ -435,7 +435,7 @@ function fetchChatCompletion() {
   );
 
   // Snippet specific to chat completion
-  const mainModel = DATA.models["chat-completion"][0].id;
+  const mainModel = DATA.models["chat-completion"][0];
   const mainModelData = {
     // @ts-ignore
     id: mainModel.id,
