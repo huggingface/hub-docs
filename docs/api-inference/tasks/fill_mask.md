@@ -41,7 +41,7 @@ For more information about Inference API headers, check out the parameters [guid
 
 | Body |  |
 | :--- | :--- | :--- |
-| **object[]** | | Output is an array of objects. |
+| **(array)** | _object[]_ | Output is an array of objects. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sequence** | _string_ | The corresponding input with the mask token prediction. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score** | _number_ | The corresponding probability |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;token** | _integer_ | The predicted token id (to replace the masked one). |

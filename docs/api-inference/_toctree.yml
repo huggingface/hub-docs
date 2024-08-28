@@ -20,6 +20,8 @@
       title: Image-to-image
     - local: tasks/question_answering
       title: Question answering
+    - local: tasks/sentence_similarity
+      title: Sentence similarity
     - local: tasks/summarization
       title: Summarization
     - local: tasks/table_question_answering

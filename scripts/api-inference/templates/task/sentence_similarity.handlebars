@@ -1,0 +1,29 @@
+## Sentence similarity
+
+Sentence Similarity is the task of determining how similar two texts are. Sentence similarity models convert input texts into vectors (embeddings) that capture semantic information and calculate how close (similar) they are between them.
+
+{{{tips.linksToTaskPage.sentence-similarity}}}
+
+### Recommended models
+
+{{#each models.sentence-similarity}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.sentence-similarity}}}
+
+### API specification
+
+#### Request
+
+{{{specs.sentence-similarity.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.sentence-similarity.output}}}
+
+### Using the API
+
+{{{snippets.sentence-similarity}}}

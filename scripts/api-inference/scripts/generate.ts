@@ -8,6 +8,7 @@ const TASKS: PipelineType[] = [
   "fill-mask",
   "image-to-image",
   "question-answering",
+  "sentence-similarity",
   "summarization",
   "table-question-answering",
   "text-generation",
@@ -265,9 +266,11 @@ function processPayloadSchema(
   if (schema.type === "array") {
     // If the root schema is an array, process its items
     const row = {
-      name: "object[]",
-      type: "",
-      description: "Output is an array of objects.",
+      name: "(array)",
+      type: `${schema.items.type}[]`,
+      description:
+        schema.items.description ||
+        `Output is an array of ${schema.items.type}s.`,
       required: true,
     };
     rows.push(row);
