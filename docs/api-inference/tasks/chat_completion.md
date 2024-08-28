@@ -1,4 +1,4 @@
-## Chat completion
+## Chat Completion
 
 Generate a response given a list of messages.
 This is a subtask of [`text-generation`](./text_generation) designed to generate responses in a conversational context.
