@@ -1,4 +1,4 @@
-## Question-answering
+## Question Answering
 
 Question Answering models can retrieve the answer to a question from a given text, which is useful for searching for an answer in a document.
 

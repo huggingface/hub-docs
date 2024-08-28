@@ -1,4 +1,4 @@
-## Text classification
+## Text Classification
 
 Text Classification is the task of assigning a label or class to a given text. Some use cases are sentiment analysis, natural language inference, and assessing grammatical correctness.
 

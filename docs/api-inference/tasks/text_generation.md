@@ -1,4 +1,4 @@
-## Text generation
+## Text Generation
 
 Generate text based on a prompt.
 

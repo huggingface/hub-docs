@@ -1,4 +1,4 @@
-## Text-to-image
+## Text to Image
 
 Generate an image based on a given text prompt.
 
