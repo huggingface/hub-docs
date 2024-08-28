@@ -53,10 +53,11 @@ from pyspark.sql.dataframe import DataFrame
 from pyspark.sql.pandas.types import from_arrow_schema
 
 
-def _read(iterator: Iterator[pa.RecordBatch], **kwargs) -> Iterator[pa.RecordBatch]:
+def _read(iterator: Iterator[pa.RecordBatch], columns: Optional[list[str]], filters: Optional[Union[list[tuple], list[list[tuple]]]], **kwargs) -> Iterator[pa.RecordBatch]:
     for batch in iterator:
-        for path in batch[0].to_pylist():
-            yield from pq.read_table(path, **kwargs).to_batches()
+        paths = batch[0].to_pylist()
+        ds = pq.ParquetDataset(paths, **kwargs)
+        yield from ds._dataset.to_batches(columns=columns, filter=pq.filters_to_expression(filters) if filters else None)
 
 
 def read_parquet(
@@ -92,7 +93,7 @@ def read_parquet(
         operation between set of filters is to be conducted.
 
     **kwargs
-        Any additional kwargs are passed to pyarrow.parquet.read_table.
+        Any additional kwargs are passed to pyarrow.parquet.ParquetDataset.
 
     Returns
     -------
@@ -141,7 +142,7 @@ def read_parquet(
     arrow_schema = pq.read_schema(filesystem.open(paths[0]))
     schema = pa.schema([field for field in arrow_schema if (columns is None or field.name in columns)], metadata=arrow_schema.metadata)
     return df.mapInArrow(
-        partial(_read, columns=columns, filters=filters, filesystem=filesystem, schema=schema, **kwargs),
+        partial(_read, columns=columns, filters=filters, filesystem=filesystem, schema=arrow_schema, **kwargs),
         from_arrow_schema(schema),
     )
 ```
