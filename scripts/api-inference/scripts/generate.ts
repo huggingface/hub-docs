@@ -7,6 +7,7 @@ import type { JsonObject } from "type-fest";
 const TASKS: PipelineType[] = [
   "fill-mask",
   "image-to-image",
+  "summarization",
   "text-generation",
   "text-to-image",
 ];

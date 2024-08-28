@@ -18,6 +18,8 @@
       title: Fill Mask
     - local: tasks/image_to_image
       title: Image-to-image
+    - local: tasks/summarization
+      title: Summarization
     - local: tasks/text_generation
       title: Text generation
     - local: tasks/text_to_image
