@@ -34,5 +34,7 @@
       title: Token Classification
     - local: tasks/translation
       title: Translation
+    - local: tasks/zero_shot_classification
+      title: Zero Shot Classification
     title: Detailed Task Parameters
   title: API Reference

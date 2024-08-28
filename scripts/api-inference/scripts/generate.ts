@@ -15,6 +15,7 @@ const TASKS: PipelineType[] = [
   "text-to-image",
   "token-classification",
   "translation",
+  "zero-shot-classification",
 ];
 const TASKS_EXTENDED = [...TASKS, "chat-completion"];
 const SPECS_REVISION = "update-specification-for-docs";
