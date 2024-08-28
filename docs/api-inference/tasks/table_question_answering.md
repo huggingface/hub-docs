@@ -1,6 +1,6 @@
 ## Table Question Answering
 
-Table Question Answering (Table QA) is the answering a question about an information on a given table.
+Table Question Answering (Table QA) is answering a question about information on a given table.
 
 <Tip>
 
