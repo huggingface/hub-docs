@@ -2,6 +2,8 @@
 
 Generate text based on a prompt.
 
+If you are interested in a Chat Completion task, which generates a response based on a list of messages, check out the [`chat-completion`](./chat_completion) task.
+
 <Tip>
 
 For more details about the `text-generation` task, check out its [dedicated page](https://huggingface.co/tasks/text-generation)! You will find examples and related materials.

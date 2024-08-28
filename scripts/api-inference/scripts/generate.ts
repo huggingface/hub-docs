@@ -127,8 +127,7 @@ type SpecNameType = "input" | "output" | "stream_output";
 const SPECS_URL_TEMPLATE = Handlebars.compile(
   `https://raw.githubusercontent.com/huggingface/huggingface.js/${SPECS_REVISION}/packages/tasks/src/tasks/{{task}}/spec/{{name}}.json`,
 );
-const COMMON_DEFINITIONS_URL =
-  `https://raw.githubusercontent.com/huggingface/huggingface.js/${SPECS_REVISION}/packages/tasks/src/tasks/common-definitions.json`;
+const COMMON_DEFINITIONS_URL = `https://raw.githubusercontent.com/huggingface/huggingface.js/${SPECS_REVISION}/packages/tasks/src/tasks/common-definitions.json`;
 
 async function fetchOneSpec(
   task: PipelineType,
