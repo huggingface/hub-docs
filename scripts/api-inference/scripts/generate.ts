@@ -11,6 +11,7 @@ const TASKS: PipelineType[] = [
   "sentence-similarity",
   "summarization",
   "table-question-answering",
+  "text-classification",
   "text-generation",
   "text-to-image",
 ];
@@ -126,6 +127,8 @@ type SpecNameType = "input" | "output" | "stream_output";
 const SPECS_URL_TEMPLATE = Handlebars.compile(
   `https://raw.githubusercontent.com/huggingface/huggingface.js/main/packages/tasks/src/tasks/{{task}}/spec/{{name}}.json`,
 );
+const COMMON_DEFINITIONS_URL =
+  "https://raw.githubusercontent.com/huggingface/huggingface.js/main/packages/tasks/src/tasks/common-definitions.json";
 
 async function fetchOneSpec(
   task: PipelineType,
@@ -150,17 +153,22 @@ async function fetchSpecs(
   };
 }
 
-function processPayloadSchema(
-  schema: any,
-  definitions: any = {},
-  prefix: string = "",
-): JsonObject[] {
+async function fetchCommonDefinitions(): Promise<JsonObject> {
+  console.log(`   🕸️  Fetching common definitions`);
+  return fetch(COMMON_DEFINITIONS_URL).then((res) => res.json());
+}
+
+const COMMON_DEFINITIONS = await fetchCommonDefinitions();
+
+function processPayloadSchema(schema: any): JsonObject[] {
   let rows: JsonObject[] = [];
 
   // Helper function to resolve schema references
   function resolveRef(ref: string) {
-    const refPath = ref.split("/").slice(1); // remove the initial #
-    let refSchema = schema;
+    const refPath = ref.split("#/")[1].split("/");
+    let refSchema = ref.includes("common-definitions.json")
+      ? COMMON_DEFINITIONS
+      : schema;
     for (const part of refPath) {
       refSchema = refSchema[part];
     }
@@ -274,13 +282,12 @@ function processPayloadSchema(
       required: true,
     };
     rows.push(row);
-    processSchemaNode("", schema.items, false, prefix);
-    // processPayloadSchema(schema.items, definitions, prefix);
+    processSchemaNode("", schema.items, false, "");
   } else {
     // Otherwise, start with the root object
     Object.entries(schema.properties || {}).forEach(([key, value]) => {
       const required = schema.required?.includes(key);
-      processSchemaNode(key, value, required, prefix);
+      processSchemaNode(key, value, required, "");
     });
   }
 

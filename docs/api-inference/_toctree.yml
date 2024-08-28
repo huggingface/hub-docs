@@ -26,6 +26,8 @@
       title: Summarization
     - local: tasks/table_question_answering
       title: Table question answering
+    - local: tasks/text_classification
+      title: Text classification
     - local: tasks/text_generation
       title: Text generation
     - local: tasks/text_to_image
