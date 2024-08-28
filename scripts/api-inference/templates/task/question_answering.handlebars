@@ -1,0 +1,29 @@
+## Question Answering
+
+Question Answering models can retrieve the answer to a question from a given text, which is useful for searching for an answer in a document.
+
+{{{tips.linksToTaskPage.question-answering}}}
+
+### Recommended models
+
+{{#each models.question-answering}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.question-answering}}}
+
+### API specification
+
+#### Request
+
+{{{specs.question-answering.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.question-answering.output}}}
+
+### Using the API
+
+{{{snippets.question-answering}}}

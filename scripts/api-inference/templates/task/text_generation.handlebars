@@ -1,0 +1,39 @@
+## Text Generation
+
+Generate text based on a prompt.
+
+If you are interested in a Chat Completion task, which generates a response based on a list of messages, check out the [`chat-completion`](./chat_completion) task.
+
+{{{tips.linksToTaskPage.text-generation}}}
+
+### Recommended models
+
+{{#each models.text-generation}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.text-generation}}}
+
+### API specification
+
+#### Request
+
+{{{specs.text-generation.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+Output type depends on the `stream` input parameter.
+If `stream` is `false` (default), the response will be a JSON object with the following fields:
+
+{{{specs.text-generation.output}}}
+
+If `stream` is `true`, generated tokens are returned as a stream, using Server-Sent Events (SSE).
+For more information about streaming, check out [this guide](https://huggingface.co/docs/text-generation-inference/conceptual/streaming).
+
+{{{specs.text-generation.stream_output}}}
+
+### Using the API
+
+{{{snippets.text-generation}}}

@@ -1,4 +1,4 @@
-## Image-to-image
+## Image to Image
 
 Image-to-image is the task of transforming a source image to match the characteristics of a target image or a target image domain.
 Any image manipulation and enhancement is possible with image to image models.

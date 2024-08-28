@@ -12,11 +12,23 @@
   - local: parameters
     title: Parameters
   - sections:
+    - local: tasks/chat_completion
+      title: Chat Completion
     - local: tasks/fill_mask
       title: Fill Mask
     - local: tasks/image_to_image
-      title: Image-to-image
+      title: Image to Image
+    - local: tasks/question_answering
+      title: Question Answering
+    - local: tasks/summarization
+      title: Summarization
+    - local: tasks/table_question_answering
+      title: Table Question Answering
+    - local: tasks/text_classification
+      title: Text Classification
+    - local: tasks/text_generation
+      title: Text Generation
     - local: tasks/text_to_image
-      title: Text-to-image
+      title: Text to Image
     title: Detailed Task Parameters
   title: API Reference
