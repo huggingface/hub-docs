@@ -21,25 +21,25 @@ To do this, you can add `x-use-cache:false` to the request headers. For example
 <inferencesnippet>
 
 <curl>
-```bash
+```diff
 curl https://api-inference.huggingface.co/models/MODEL_ID \
     -X POST \
     -d '{"inputs": "Can you please let us know more details about your "}' \
     -H "Authorization: Bearer hf_***" \
     -H "Content-Type: application/json" \
-    -H "x-use-cache: false"
++   -H "x-use-cache: false"
 ```
 </curl>
 
 <python>
-```python
+```diff
 import requests
 
 API_URL = "https://api-inference.huggingface.co/models/MODEL_ID"
 headers = {
     "Authorization": "Bearer hf_***",
     "Content-Type": "application/json",
-    "x-use-cache": "false"
++   "x-use-cache": "false"
 }
 data = {
     "inputs": "Can you please let us know more details about your "
@@ -51,7 +51,7 @@ print(response.json())
 </python>
 
 <js>
-```js
+```diff
 import fetch from "node-fetch";
 
 async function query(data) {
@@ -62,7 +62,7 @@ async function query(data) {
             headers: {
                 Authorization: `Bearer hf_***`,
                 "Content-Type": "application/json",
-                "x-use-cache": "false"
++               "x-use-cache": "false"
             },
             body: JSON.stringify(data),
         }
@@ -91,25 +91,25 @@ When a model is warm, it is ready to be used and you will get a response relativ
 <inferencesnippet>
 
 <curl>
-```bash
+```diff
 curl https://api-inference.huggingface.co/models/MODEL_ID \
     -X POST \
     -d '{"inputs": "Can you please let us know more details about your "}' \
     -H "Authorization: Bearer hf_***" \
     -H "Content-Type: application/json" \
-    -H "x-wait-for-model: true"
++   -H "x-wait-for-model: true"
 ```
 </curl>
 
 <python>
-```python
+```diff
 import requests
 
 API_URL = "https://api-inference.huggingface.co/models/MODEL_ID"
 headers = {
     "Authorization": "Bearer hf_***",
     "Content-Type": "application/json",
-    "x-wait-for-model": "true"
++   "x-wait-for-model": "true"
 }
 data = {
     "inputs": "Can you please let us know more details about your "
@@ -132,7 +132,7 @@ async function query(data) {
             headers: {
                 Authorization: `Bearer hf_***`,
                 "Content-Type": "application/json",
-                "x-wait-for-model": "true"
++               "x-wait-for-model": "true"
             },
             body: JSON.stringify(data),
         }
