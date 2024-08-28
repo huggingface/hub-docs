@@ -1,4 +1,4 @@
-## Text-to-image
+## Text to Image
 
 Generate an image based on a given text prompt.
 
@@ -23,7 +23,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 | Payload |  |  |
 | :--- | :--- | :--- |
-| **inputs*** | _string_ | The input text data (sometimes called "prompt" |
+| **inputs*** | _string_ | The input text data (sometimes called "prompt") |
 | **parameters** | _object_ | Additional inference parameters for Text To Image |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guidance_scale** | _number_ | For diffusion models. A higher guidance scale value encourages the model to generate images closely linked to the text prompt at the expense of lower image quality. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;negative_prompt** | _string[]_ | One or several prompt to guide what NOT to include in image generation. |

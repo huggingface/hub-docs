@@ -4,6 +4,19 @@ import * as fs from "node:fs/promises";
 import * as path from "node:path/posix";
 import type { JsonObject } from "type-fest";
 
+const TASKS: PipelineType[] = [
+  "fill-mask",
+  "image-to-image",
+  "question-answering",
+  "summarization",
+  "table-question-answering",
+  "text-classification",
+  "text-generation",
+  "text-to-image",
+];
+const TASKS_EXTENDED = [...TASKS, "chat-completion"];
+const SPECS_REVISION = "update-specification-for-docs";
+
 const inferenceSnippetLanguages = ["python", "js", "curl"] as const;
 type InferenceSnippetLanguage = (typeof inferenceSnippetLanguages)[number];
 
@@ -96,7 +109,7 @@ export function getInferenceSnippet(
   const modelData = {
     id,
     pipeline_tag,
-    mask_token: "",
+    mask_token: "[MASK]",
     library_name: "",
     config: {},
   };
@@ -112,8 +125,10 @@ export function getInferenceSnippet(
 type SpecNameType = "input" | "output" | "stream_output";
 
 const SPECS_URL_TEMPLATE = Handlebars.compile(
-  `https://raw.githubusercontent.com/huggingface/huggingface.js/main/packages/tasks/src/tasks/{{task}}/spec/{{name}}.json`,
+  `https://raw.githubusercontent.com/huggingface/huggingface.js/${SPECS_REVISION}/packages/tasks/src/tasks/{{task}}/spec/{{name}}.json`,
 );
+const COMMON_DEFINITIONS_URL =
+  `https://raw.githubusercontent.com/huggingface/huggingface.js/${SPECS_REVISION}/packages/tasks/src/tasks/common-definitions.json`;
 
 async function fetchOneSpec(
   task: PipelineType,
@@ -138,17 +153,22 @@ async function fetchSpecs(
   };
 }
 
-function processPayloadSchema(
-  schema: any,
-  definitions: any = {},
-  prefix: string = "",
-): JsonObject[] {
+async function fetchCommonDefinitions(): Promise<JsonObject> {
+  console.log(`   🕸️  Fetching common definitions`);
+  return fetch(COMMON_DEFINITIONS_URL).then((res) => res.json());
+}
+
+const COMMON_DEFINITIONS = await fetchCommonDefinitions();
+
+function processPayloadSchema(schema: any): JsonObject[] {
   let rows: JsonObject[] = [];
 
   // Helper function to resolve schema references
   function resolveRef(ref: string) {
-    const refPath = ref.split("/").slice(1); // remove the initial #
-    let refSchema = schema;
+    const refPath = ref.split("#/")[1].split("/");
+    let refSchema = ref.includes("common-definitions.json")
+      ? COMMON_DEFINITIONS
+      : schema;
     for (const part of refPath) {
       refSchema = refSchema[part];
     }
@@ -175,7 +195,7 @@ function processPayloadSchema(
 
     if (value.enum) {
       type = "enum";
-      description = `Possible values: ${value.enum.join(", ")}`;
+      description = `Possible values: ${value.enum.join(", ")}.`;
     }
 
     const isObject = type === "object" && value.properties;
@@ -184,7 +204,8 @@ function processPayloadSchema(
     const addRow =
       !(isCombinator && isCombinator.length === 1) &&
       !description.includes("UNUSED") &&
-      !key.includes("SKIP");
+      !key.includes("SKIP") &&
+      key.length > 0;
 
     if (isCombinator && isCombinator.length > 1) {
       description = "One of the following:";
@@ -226,14 +247,9 @@ function processPayloadSchema(
           );
         },
       );
-    } else if (isArray && value.items.$ref) {
+    } else if (isArray) {
       // Process array items
-      processSchemaNode(
-        "SKIP",
-        resolveRef(value.items.$ref),
-        false,
-        parentPrefix,
-      );
+      processSchemaNode("SKIP", value.items, false, parentPrefix);
     } else if (isCombinator) {
       // Process combinators like oneOf, allOf, anyOf
       const combinators = value.oneOf || value.allOf || value.anyOf;
@@ -254,13 +270,26 @@ function processPayloadSchema(
     }
   }
 
-  // Start processing the root schema
-  Object.entries(schema.properties || {}).forEach(
-    ([key, value]: [string, any]) => {
-      const isRequired = schema.required?.includes(key);
-      processSchemaNode(key, value, isRequired, prefix);
-    },
-  );
+  // Start processing based on the root type of the schema
+  if (schema.type === "array") {
+    // If the root schema is an array, process its items
+    const row = {
+      name: "(array)",
+      type: `${schema.items.type}[]`,
+      description:
+        schema.items.description ||
+        `Output is an array of ${schema.items.type}s.`,
+      required: true,
+    };
+    rows.push(row);
+    processSchemaNode("", schema.items, false, "");
+  } else {
+    // Otherwise, start with the root object
+    Object.entries(schema.properties || {}).forEach(([key, value]) => {
+      const required = schema.required?.includes(key);
+      processSchemaNode(key, value, required, "");
+    });
+  }
 
   return rows;
 }
@@ -293,13 +322,6 @@ const SPECS_OUTPUT_TEMPLATE = Handlebars.compile(
 ////////////////////
 //// Data utils ////
 ////////////////////
-
-const TASKS: PipelineType[] = [
-  "image-to-image",
-  "text-generation",
-  "text-to-image",
-];
-const TASKS_EXTENDED = [...TASKS, "chat-completion"];
 
 const DATA: {
   constants: {
