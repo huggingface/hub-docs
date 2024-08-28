@@ -195,7 +195,8 @@ function processPayloadSchema(
     const addRow =
       !(isCombinator && isCombinator.length === 1) &&
       !description.includes("UNUSED") &&
-      !key.includes("SKIP");
+      !key.includes("SKIP") &&
+      key.length > 0;
 
     if (isCombinator && isCombinator.length > 1) {
       description = "One of the following:";
@@ -237,14 +238,9 @@ function processPayloadSchema(
           );
         },
       );
-    } else if (isArray && value.items.$ref) {
+    } else if (isArray) {
       // Process array items
-      processSchemaNode(
-        "SKIP",
-        resolveRef(value.items.$ref),
-        false,
-        parentPrefix,
-      );
+      processSchemaNode("SKIP", value.items, false, parentPrefix);
     } else if (isCombinator) {
       // Process combinators like oneOf, allOf, anyOf
       const combinators = value.oneOf || value.allOf || value.anyOf;
@@ -265,13 +261,25 @@ function processPayloadSchema(
     }
   }
 
-  // Start processing the root schema
-  Object.entries(schema.properties || {}).forEach(
-    ([key, value]: [string, any]) => {
-      const isRequired = schema.required?.includes(key);
-      processSchemaNode(key, value, isRequired, prefix);
-    },
-  );
+  // Start processing based on the root type of the schema
+  if (schema.type === "array") {
+    // If the root schema is an array, process its items
+    const row = {
+      name: "object[]",
+      type: "",
+      description: "Output is an array of objects.",
+      required: true,
+    };
+    rows.push(row);
+    processSchemaNode("", schema.items, false, prefix);
+    // processPayloadSchema(schema.items, definitions, prefix);
+  } else {
+    // Otherwise, start with the root object
+    Object.entries(schema.properties || {}).forEach(([key, value]) => {
+      const required = schema.required?.includes(key);
+      processSchemaNode(key, value, required, prefix);
+    });
+  }
 
   return rows;
 }
