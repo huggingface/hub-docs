@@ -4,6 +4,14 @@ import * as fs from "node:fs/promises";
 import * as path from "node:path/posix";
 import type { JsonObject } from "type-fest";
 
+const TASKS: PipelineType[] = [
+  "fill-mask",
+  "image-to-image",
+  "text-generation",
+  "text-to-image",
+];
+const TASKS_EXTENDED = [...TASKS, "chat-completion"];
+
 const inferenceSnippetLanguages = ["python", "js", "curl"] as const;
 type InferenceSnippetLanguage = (typeof inferenceSnippetLanguages)[number];
 
@@ -293,13 +301,6 @@ const SPECS_OUTPUT_TEMPLATE = Handlebars.compile(
 ////////////////////
 //// Data utils ////
 ////////////////////
-
-const TASKS: PipelineType[] = [
-  "image-to-image",
-  "text-generation",
-  "text-to-image",
-];
-const TASKS_EXTENDED = [...TASKS, "chat-completion"];
 
 const DATA: {
   constants: {
