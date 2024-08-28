@@ -242,8 +242,8 @@ To filter the dataset and only keep dialogues in Chinese:
 
 We also provide a helper function to write datasets in a distributed manner to a Hugging Face repository.
 
-You can write a PySpark Dataframe to Hugging Face using this `write_parquet` helper functions based on the `huggingface_hub` API.
-In particular it uses the `preupload_lfs_files` utility to upload Parquet files in parallel in a distributed manner, and only commit the files once they're all uploaded:
+You can write a PySpark Dataframe to Hugging Face using this `write_parquet` helper function based on the `huggingface_hub` API.
+In particular it uses the `preupload_lfs_files` utility to upload Parquet files in parallel in a distributed manner, and only commits the files once they're all uploaded:
 
 
 ```python
@@ -338,7 +338,7 @@ First you need to [create a dataset repository](https://huggingface.co/new-datas
 Then, make sure you are authenticated and you can run:
 
 ```python
-write_parquet(df_chinese_only, "hf://datasets/username/Infinity-Instruct-Chinese-Only")
+>>> write_parquet(df_chinese_only, "hf://datasets/username/Infinity-Instruct-Chinese-Only")
 tmph9jwu9py.parquet: 100%|██████████| 50.5M/50.5M [00:03<00:00, 14.6MB/s]
 tmp0oqt99nc.parquet: 100%|██████████| 50.8M/50.8M [00:02<00:00, 17.9MB/s]
 tmpgnizkwqp.parquet: 100%|██████████| 50.5M/50.5M [00:02<00:00, 19.6MB/s]
