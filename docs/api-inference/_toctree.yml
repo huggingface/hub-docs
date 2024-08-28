@@ -22,6 +22,8 @@
       title: Question answering
     - local: tasks/summarization
       title: Summarization
+    - local: tasks/table_question_answering
+      title: Table question answering
     - local: tasks/text_generation
       title: Text generation
     - local: tasks/text_to_image

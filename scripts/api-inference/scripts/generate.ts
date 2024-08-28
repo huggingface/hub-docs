@@ -9,6 +9,7 @@ const TASKS: PipelineType[] = [
   "image-to-image",
   "question-answering",
   "summarization",
+  "table-question-answering",
   "text-generation",
   "text-to-image",
 ];
