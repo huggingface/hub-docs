@@ -24,6 +24,8 @@
       title: Image Classification
     - local: tasks/image_to_image
       title: Image to Image
+    - local: tasks/object_detection
+      title: Object Detection
     - local: tasks/question_answering
       title: Question Answering
     - local: tasks/summarization

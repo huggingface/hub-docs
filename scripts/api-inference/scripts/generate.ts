@@ -10,6 +10,7 @@ const TASKS: PipelineType[] = [
   "fill-mask",
   "image-classification",
   "image-to-image",
+  "object-detection",
   "question-answering",
   "summarization",
   "table-question-answering",

@@ -1,0 +1,29 @@
+## Object detection
+
+Object Detection models allow users to identify objects of certain defined classes. Object detection models receive an image as input and output the images with bounding boxes and labels on detected objects.
+
+{{{tips.linksToTaskPage.object-detection}}}
+
+### Recommended models
+
+{{#each models.object-detection}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.object-detection}}}
+
+### API specification
+
+#### Request
+
+{{{specs.object-detection.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.object-detection.output}}}
+
+### Using the API
+
+{{{snippets.object-detection}}}
