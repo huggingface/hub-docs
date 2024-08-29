@@ -17,8 +17,8 @@ While most of our compute services have a comprehensive free tier, users and org
 The billing for our compute services is usage-based, meaning you only pay for what you use. You can monitor your usage at any time from your billing dashboard, located in your user's or organization's settings menu.
 
 <div class="flex justify-center">
-	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/billing-dashboard-light.png"/>
-	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/billing-dashboard-dark.png"/>
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/billing-dashboard-light.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/billing-dashboard-dark.png"/>
 </div>
 
 ### Available payment methods
@@ -29,8 +29,8 @@ The only payment method supported for Hugging Face compute services is credit ca
 You can add a credit card to your account from your billing settings.
 
 <div class="flex justify-center">
-	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/payment-method-light.png"/>
-	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/payment-method-dark.png"/>
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/payment-method-light.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/payment-method-dark.png"/>
 </div>
 
 You also have the option to link your Hugging Face organization to your AWS account via [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-n6vsyhdjkfng2). Hugging Face compute service usage will then be included in your AWS bill. Read more in our [blog post](https://huggingface.co/blog/aws-marketplace).
@@ -49,14 +49,14 @@ For example, if your billing threshold is set at $100.00, and you incur $254.00 
 Note: this will be detailed in your monthly invoice.
 
 <div class="flex justify-center">
-	<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/explain-threshold.png "/>
+	<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/explain-threshold.png "/>
 </div>
 
 You can view invoices and receipts for the last 3 months in your billing dashboard.
 
 <div class="flex justify-center">
-	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/threshold-payments-light.png "/>
-	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/threshold-payments-dark.png"/>
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/threshold-payments-light.png "/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/threshold-payments-dark.png"/>
 </div>
 
 ## Enterprise Hub subscriptions
@@ -71,8 +71,8 @@ Upon renewal, the number of seats in your Enterprise Hub subscription will be up
 
 
 <div class="flex justify-center">
-	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/enterprise-sub-light.png"/>
-	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/enterprise-sub-dark.png"/>
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/enterprise-sub-light.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/enterprise-sub-dark.png"/>
 </div>
 
 ## PRO subscription
