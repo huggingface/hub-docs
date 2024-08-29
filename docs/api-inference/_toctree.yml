@@ -18,6 +18,8 @@
       title: Automatic Speech Recognition
     - local: tasks/chat_completion
       title: Chat Completion
+    - local: tasks/feature_extraction
+      title: Feature Extraction
     - local: tasks/fill_mask
       title: Fill Mask
     - local: tasks/image_classification
