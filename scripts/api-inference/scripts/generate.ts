@@ -6,6 +6,7 @@ import type { JsonObject } from "type-fest";
 
 const TASKS: PipelineType[] = [
   "automatic-speech-recognition",
+  "audio-classification",
   "fill-mask",
   "image-to-image",
   "question-answering",

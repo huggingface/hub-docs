@@ -12,6 +12,8 @@
   - local: parameters
     title: Parameters
   - sections:
+    - local: tasks/audio_classification
+      title: Audio Classification
     - local: tasks/automatic_speech_recognition
       title: Automatic Speech Recognition
     - local: tasks/chat_completion

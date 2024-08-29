@@ -1,19 +1,17 @@
-## Text Classification
+## Audio Classification
 
-Text Classification is the task of assigning a label or class to a given text. Some use cases are sentiment analysis, natural language inference, and assessing grammatical correctness.
+Audio classification is the task of assigning a label or class to a given audio. It can be used for recognizing which command a user is giving or the emotion of a statement, as well as identifying a speaker.
 
 <Tip>
 
-For more details about the `text-classification` task, check out its [dedicated page](https://huggingface.co/tasks/text-classification)! You will find examples and related materials.
+For more details about the `audio-classification` task, check out its [dedicated page](https://huggingface.co/tasks/audio-classification)! You will find examples and related materials.
 
 </Tip>
 
 ### Recommended models
 
-- [distilbert-base-uncased-finetuned-sst-2-english](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english): A robust model trained for sentiment analysis.
-- [roberta-large-mnli](https://huggingface.co/roberta-large-mnli): Multi-genre natural language inference model.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-classification&sort=trending).
+This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=audio-classification&sort=trending).
 
 ### API specification
 
@@ -21,8 +19,8 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 | Payload |  |  |
 | :--- | :--- | :--- |
-| **inputs*** | _string_ | The text to classify |
-| **parameters** | _object_ | Additional inference parameters for Text Classification |
+| **inputs*** | _string_ | The input audio data as a base64-encoded string. If no `parameters` are provided, you can also provide the audio data as a raw bytes payload. |
+| **parameters** | _object_ | Additional inference parameters for Audio Classification |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function_to_apply** | _enum_ | Possible values: sigmoid, softmax, none. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top_k** | _integer_ | When specified, limits the output to the top K most probable classes. |
 
@@ -53,10 +51,9 @@ For more information about Inference API headers, check out the parameters [guid
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english \
+curl https://api-inference.huggingface.co/models/<REPO_ID> \
 	-X POST \
-	-d '{"inputs": "I like you. I love you"}' \
-	-H 'Content-Type: application/json' \
+	--data-binary '@sample1.flac' \
 	-H "Authorization: Bearer hf_***"
 
 ```
@@ -66,45 +63,46 @@ curl https://api-inference.huggingface.co/models/distilbert-base-uncased-finetun
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english"
+API_URL = "https://api-inference.huggingface.co/models/<REPO_ID>"
 headers = {"Authorization": "Bearer hf_***"}
 
-def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-	
-output = query({
-	"inputs": "I like you. I love you",
-})
+def query(filename):
+    with open(filename, "rb") as f:
+        data = f.read()
+    response = requests.post(API_URL, headers=headers, data=data)
+    return response.json()
+
+output = query("sample1.flac")
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_classification).
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.audio_classification).
 </python>
 
 <js>
 ```js
-async function query(data) {
+async function query(filename) {
+	const data = fs.readFileSync(filename);
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english",
+		"https://api-inference.huggingface.co/models/<REPO_ID>",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"
 				"Content-Type": "application/json",
 			},
 			method: "POST",
-			body: JSON.stringify(data),
+			body: data,
 		}
 	);
 	const result = await response.json();
 	return result;
 }
 
-query({"inputs": "I like you. I love you"}).then((response) => {
+query("sample1.flac").then((response) => {
 	console.log(JSON.stringify(response));
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#textclassification).
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#audioclassification).
 </js>
 
 </inferencesnippet>
