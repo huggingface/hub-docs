@@ -17,10 +17,6 @@ For more details about the `image-to-image` task, check out its [dedicated page]
 
 ### Recommended models
 
-- [fal/AuraSR-v2](https://huggingface.co/fal/AuraSR-v2): An image-to-image model to improve image resolution.
-- [keras-io/super-resolution](https://huggingface.co/keras-io/super-resolution): A model that increases the resolution of an image.
-- [lambdalabs/sd-image-variations-diffusers](https://huggingface.co/lambdalabs/sd-image-variations-diffusers): A model that creates a set of variations of the input image in the style of DALL-E using Stable Diffusion.
-- [mfidabel/controlnet-segment-anything](https://huggingface.co/mfidabel/controlnet-segment-anything): A model that generates images based on segments in the input image and the text prompt.
 - [timbrooks/instruct-pix2pix](https://huggingface.co/timbrooks/instruct-pix2pix): A model that takes an image and an instruction to edit the image.
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-to-image&sort=trending).
