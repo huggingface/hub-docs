@@ -121,7 +121,7 @@ print(response.json())
 </python>
 
 <js>
-```js
+```diff
 import fetch from "node-fetch";
 
 async function query(data) {
