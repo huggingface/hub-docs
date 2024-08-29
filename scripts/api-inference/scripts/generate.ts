@@ -70,9 +70,11 @@ function writeTaskDoc(templateName: string, content: string): Promise<void> {
   const templateNameSnakeCase = templateName.replace(/-/g, "_");
   const taskDocPath = path.join(TASKS_DOCS_DIR, `${templateNameSnakeCase}.md`);
   console.log(`   💾 Saving to ${taskDocPath}`);
+  const header = PAGE_HEADER({task:templateName, taskSnakeCase: templateNameSnakeCase});
+  const contentWithHeader = `<!---\n${header}\n--->\n\n${content}`;
   return fs
     .mkdir(TASKS_DOCS_DIR, { recursive: true })
-    .then(() => fs.writeFile(taskDocPath, content, { encoding: "utf-8" }));
+    .then(() => fs.writeFile(taskDocPath, contentWithHeader, { encoding: "utf-8" }));
 }
 
 /////////////////////////
@@ -308,6 +310,9 @@ const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
 );
 
 const SPECS_HEADERS = await readTemplate("specs-headers", "common");
+const PAGE_HEADER = Handlebars.compile(
+  await readTemplate("page-header", "common"),
+);
 const SNIPPETS_TEMPLATE = Handlebars.compile(
   await readTemplate("snippets-template", "common"),
 );
