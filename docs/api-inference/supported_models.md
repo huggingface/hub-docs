@@ -25,4 +25,4 @@ In addition to thousands of public models available in the Hub, PRO and Enterpri
 
 ## Running Private Models
 
-The free Serverless API is designed to run popular public models. If you have a private model, you can use [Inference Endpoints](https://huggingface.co/docs/inference/endpoints) to deploy your model.
+The free Serverless API is designed to run popular public models. If you have a private model, you can use [Inference Endpoints](https://huggingface.co/docs/inference/endpoints) to deploy it.
