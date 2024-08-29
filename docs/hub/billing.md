@@ -33,9 +33,7 @@ You can add a credit card to your account from your billing settings.
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/payment-method-dark.png"/>
 </div>
 
-You also have the option to link your Hugging Face organization to your AWS account via [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-n6vsyhdjkfng2). Hugging Face compute service usage will then be included in your AWS bill.
-
-Read more in our [blog post](https://huggingface.co/blog/aws-marketplace).
+You also have the option to link your Hugging Face organization to your AWS account via [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-n6vsyhdjkfng2). Hugging Face compute service usage will then be included in your AWS bill. Read more in our [blog post](https://huggingface.co/blog/aws-marketplace).
 
 ### Billing thresholds & Invoicing
 
@@ -51,7 +49,7 @@ For example, if your billing threshold is set at $100.00, and you incur $254.00 
 Note: this will be detailed in your monthly invoice.
 
 <div class="flex justify-center">
-	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/explain-threshold.png "/>
+	<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F357/hub/billing/explain-threshold.png "/>
 </div>
 
 You can view invoices and receipts for the last 3 months in your billing dashboard.
@@ -82,7 +80,7 @@ Upon renewal, the number of seats in your Enterprise Hub subscription will be up
 The PRO subscription unlocks additional features for users, including:
 
 - Higher free tier for the Serverless Inference API and when consuming ZeroGPU Spaces
-- Ability to create Dev Mode & Zero GPU Spaces
+- Ability to create ZeroGPU Spaces and use Dev Mode
 - Ability to write Social Posts and Community Blogs
 - Leverage the Dataset Viewer on private datasets
 
@@ -90,6 +88,6 @@ View the full list of benefits at https://huggingface.co/subscribe/pro
 
 Similarly to the Enterprise Hub subscription, PRO subscriptions are billed like a typical subscription. The subscription renews automatically for you. You can choose to cancel the subscription at anytime in your billing settings: https://huggingface.co/settings/billing
 
-You can only pay for the PRO subscription with a credit card.
+You can only pay for the PRO subscription with a credit card. The subscription is billed separately from any pay-as-you-go compute usage.
 
 Note: PRO benefits are also included in the Enterprise Hub subscription.
