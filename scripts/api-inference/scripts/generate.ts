@@ -387,8 +387,8 @@ TASKS.forEach((task) => {
 // TODO: render snippets only if they are available
 TASKS.forEach((task) => {
   // Let's take as example the first available model that is recommended.
-  // Otherwise, fallback to the first model of the task (better to have a snippet than nothing).
-  const mainModel = DATA.models[task][0]?.id || TASKS_DATA[task].models[0].id;
+  // Otherwise, fallback to "<REPO_ID>".
+  const mainModel = DATA.models[task][0]?.id || "<REPO_ID>";
   const taskSnippets = {
     curl: getInferenceSnippet(mainModel, task, "curl"),
     python: getInferenceSnippet(mainModel, task, "python"),
