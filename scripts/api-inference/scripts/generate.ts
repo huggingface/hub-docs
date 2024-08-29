@@ -5,6 +5,7 @@ import * as path from "node:path/posix";
 import type { JsonObject } from "type-fest";
 
 const TASKS: PipelineType[] = [
+  "automatic-speech-recognition",
   "fill-mask",
   "image-to-image",
   "question-answering",

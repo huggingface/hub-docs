@@ -12,6 +12,8 @@
   - local: parameters
     title: Parameters
   - sections:
+    - local: tasks/automatic_speech_recognition
+      title: Automatic Speech Recognition
     - local: tasks/chat_completion
       title: Chat Completion
     - local: tasks/fill_mask
