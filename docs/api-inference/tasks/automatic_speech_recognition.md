@@ -20,7 +20,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 | Payload |  |  |
 | :--- | :--- | :--- |
-| **inputs*** | _object_ | The input audio data |
+| **inputs*** | _string_ | The input audio data as a base64-encoded string. |
 | **parameters** | _object_ | Additional inference parameters for Automatic Speech Recognition |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return_timestamps** | _boolean_ | Whether to output corresponding timestamps with the generated text |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generate** | _object_ | Ad-hoc parametrization of the text generation process |
