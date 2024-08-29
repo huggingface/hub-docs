@@ -190,13 +190,13 @@ function processPayloadSchema(schema: any): JsonObject[] {
     parentPrefix: string,
   ): void {
     const isRequired = required;
-    let type = value.type || "object";
+    let type = value.type || "unknown";
     let description = value.description || "";
 
     if (value.$ref) {
       // Resolve the reference
       value = resolveRef(value.$ref);
-      type = value.type || "object";
+      type = value.type || "unknown";
       description = value.description || "";
     }
 

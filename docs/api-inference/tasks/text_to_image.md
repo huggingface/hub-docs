@@ -47,7 +47,7 @@ For more information about Inference API headers, check out the parameters [guid
 
 | Body |  |
 | :--- | :--- | :--- |
-| **image** | _object_ | The generated image |
+| **image** | _unknown_ | The generated image |
 
 
 ### Using the API

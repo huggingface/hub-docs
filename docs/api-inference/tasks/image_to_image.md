@@ -27,7 +27,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 | Payload |  |  |
 | :--- | :--- | :--- |
-| **inputs*** | _object_ | The input image data |
+| **inputs*** | _unknown_ | The input image data |
 | **parameters** | _object_ | Additional inference parameters for Image To Image |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guidance_scale** | _number_ | For diffusion models. A higher guidance scale value encourages the model to generate images closely linked to the text prompt at the expense of lower image quality. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;negative_prompt** | _string[]_ | One or several prompt to guide what NOT to include in image generation. |
@@ -51,7 +51,7 @@ For more information about Inference API headers, check out the parameters [guid
 
 | Body |  |
 | :--- | :--- | :--- |
-| **image** | _object_ | The output image |
+| **image** | _unknown_ | The output image |
 
 
 ### Using the API
