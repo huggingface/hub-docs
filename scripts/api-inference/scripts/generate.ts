@@ -9,6 +9,7 @@ const TASKS: PipelineType[] = [
   "audio-classification",
   "fill-mask",
   "image-classification",
+  "image-segmentation",
   "image-to-image",
   "object-detection",
   "question-answering",

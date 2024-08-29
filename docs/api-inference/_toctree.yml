@@ -22,6 +22,8 @@
       title: Fill Mask
     - local: tasks/image_classification
       title: Image Classification
+    - local: tasks/image_segmentation
+      title: Image Segmentation
     - local: tasks/image_to_image
       title: Image to Image
     - local: tasks/object_detection
