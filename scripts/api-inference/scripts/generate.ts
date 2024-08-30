@@ -24,7 +24,7 @@ const TASKS: PipelineType[] = [
   "zero-shot-classification",
 ];
 const TASKS_EXTENDED = [...TASKS, "chat-completion"];
-const SPECS_REVISION = "update-specification-for-docs";
+const SPECS_REVISION = "main";
 
 const inferenceSnippetLanguages = ["python", "js", "curl"] as const;
 type InferenceSnippetLanguage = (typeof inferenceSnippetLanguages)[number];
