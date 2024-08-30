@@ -5,8 +5,14 @@ import * as path from "node:path/posix";
 import type { JsonObject } from "type-fest";
 
 const TASKS: PipelineType[] = [
+  "automatic-speech-recognition",
+  "audio-classification",
+  "feature-extraction",
   "fill-mask",
+  "image-classification",
+  "image-segmentation",
   "image-to-image",
+  "object-detection",
   "question-answering",
   "summarization",
   "table-question-answering",
@@ -185,13 +191,13 @@ function processPayloadSchema(schema: any): JsonObject[] {
     parentPrefix: string,
   ): void {
     const isRequired = required;
-    let type = value.type || "object";
+    let type = value.type || "unknown";
     let description = value.description || "";
 
     if (value.$ref) {
       // Resolve the reference
       value = resolveRef(value.$ref);
-      type = value.type || "object";
+      type = value.type || "unknown";
       description = value.description || "";
     }
 

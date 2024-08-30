@@ -12,12 +12,24 @@
   - local: parameters
     title: Parameters
   - sections:
+    - local: tasks/audio_classification
+      title: Audio Classification
+    - local: tasks/automatic_speech_recognition
+      title: Automatic Speech Recognition
     - local: tasks/chat_completion
       title: Chat Completion
+    - local: tasks/feature_extraction
+      title: Feature Extraction
     - local: tasks/fill_mask
       title: Fill Mask
+    - local: tasks/image_classification
+      title: Image Classification
+    - local: tasks/image_segmentation
+      title: Image Segmentation
     - local: tasks/image_to_image
       title: Image to Image
+    - local: tasks/object_detection
+      title: Object Detection
     - local: tasks/question_answering
       title: Question Answering
     - local: tasks/summarization

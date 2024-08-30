@@ -1,19 +1,18 @@
-## Text Classification
+## Image Classification
 
-Text Classification is the task of assigning a label or class to a given text. Some use cases are sentiment analysis, natural language inference, and assessing grammatical correctness.
+Image classification is the task of assigning a label or class to an entire image. Images are expected to have only one class for each image. Image classification models take an image as input and return a prediction about which class the image belongs to.
 
 <Tip>
 
-For more details about the `text-classification` task, check out its [dedicated page](https://huggingface.co/tasks/text-classification)! You will find examples and related materials.
+For more details about the `image-classification` task, check out its [dedicated page](https://huggingface.co/tasks/image-classification)! You will find examples and related materials.
 
 </Tip>
 
 ### Recommended models
 
-- [distilbert-base-uncased-finetuned-sst-2-english](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english): A robust model trained for sentiment analysis.
-- [roberta-large-mnli](https://huggingface.co/roberta-large-mnli): Multi-genre natural language inference model.
+- [google/vit-base-patch16-224](https://huggingface.co/google/vit-base-patch16-224): A strong image classification model.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-classification&sort=trending).
+This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-classification&sort=trending).
 
 ### API specification
 
@@ -21,8 +20,8 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 | Payload |  |  |
 | :--- | :--- | :--- |
-| **inputs*** | _string_ | The text to classify |
-| **parameters** | _object_ | Additional inference parameters for Text Classification |
+| **inputs*** | _string_ | The input image data as a base64-encoded string. If no `parameters` are provided, you can also provide the image data as a raw bytes payload. |
+| **parameters** | _object_ | Additional inference parameters for Image Classification |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function_to_apply** | _enum_ | Possible values: sigmoid, softmax, none. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top_k** | _integer_ | When specified, limits the output to the top K most probable classes. |
 
@@ -53,10 +52,9 @@ For more information about Inference API headers, check out the parameters [guid
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english \
+curl https://api-inference.huggingface.co/models/google/vit-base-patch16-224 \
 	-X POST \
-	-d '{"inputs": "I like you. I love you"}' \
-	-H 'Content-Type: application/json' \
+	--data-binary '@cats.jpg' \
 	-H "Authorization: Bearer hf_***"
 
 ```
@@ -66,45 +64,46 @@ curl https://api-inference.huggingface.co/models/distilbert-base-uncased-finetun
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english"
+API_URL = "https://api-inference.huggingface.co/models/google/vit-base-patch16-224"
 headers = {"Authorization": "Bearer hf_***"}
 
-def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-	
-output = query({
-	"inputs": "I like you. I love you",
-})
+def query(filename):
+    with open(filename, "rb") as f:
+        data = f.read()
+    response = requests.post(API_URL, headers=headers, data=data)
+    return response.json()
+
+output = query("cats.jpg")
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_classification).
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_classification).
 </python>
 
 <js>
 ```js
-async function query(data) {
+async function query(filename) {
+	const data = fs.readFileSync(filename);
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english",
+		"https://api-inference.huggingface.co/models/google/vit-base-patch16-224",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"
 				"Content-Type": "application/json",
 			},
 			method: "POST",
-			body: JSON.stringify(data),
+			body: data,
 		}
 	);
 	const result = await response.json();
 	return result;
 }
 
-query({"inputs": "I like you. I love you"}).then((response) => {
+query("cats.jpg").then((response) => {
 	console.log(JSON.stringify(response));
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#textclassification).
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#imageclassification).
 </js>
 
 </inferencesnippet>
