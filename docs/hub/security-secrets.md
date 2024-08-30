@@ -18,7 +18,7 @@ def call_inference(prompt: str) -> str:
 To prevent this issue, we run [TruffleHog](https://trufflesecurity.com/trufflehog) on each push you make. TruffleHog scans for hard-coded secrets, and we will send you an email upon detection.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/token-leak-email-example.png"/>
+<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/token-leak-email-example.png"/>
 </div>
 
 You'll only receive emails for verified secrets, which are the ones that have been confirmed to work for authentication against their respective providers. Note, however, that unverified secrets are not necessarily harmless or invalid: verification can fail due to technical reasons, such as in the case of a network error.
