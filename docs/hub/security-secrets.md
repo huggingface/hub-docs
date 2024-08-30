@@ -15,8 +15,15 @@ def call_inference(prompt: str) -> str:
     return result
 ```
 
-To prevent this issue, we run a tool called [TruffleHog](https://trufflesecurity.com/trufflehog) on each push you make. TruffleHog scans for hard-coded secrets and we will send you an email upon detection. You'll only receive an email for verified secrets. Verified secrets are secrets that have been verified by trufflehog, meaning that they can be used to authenticate to their given provider. Note that unverified secrets are not necessarily invalid, verification can also fail due to technical reasons, e.g. in that case of a network error.
+To prevent this issue, we run [TruffleHog](https://trufflesecurity.com/trufflehog) on each push you make. TruffleHog scans for hard-coded secrets, and we will send you an email upon detection.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/token-leak-email-example.png"/>
+</div>
+
+You'll only receive emails for verified secrets, which are the ones that have been confirmed to work for authentication against their respective providers. Note, however, that unverified secrets are not necessarily harmless or invalid: verification can fail due to technical reasons, such as in the case of a network error.
+
+TruffleHog can verify secrets that work across multiple services, it is not restricted to Hugging Face tokens.
 
 You can opt-out from those email notifications from [your settings](https://huggingface.co/settings/notifications).
 
-TODO: add a picture of the email?
