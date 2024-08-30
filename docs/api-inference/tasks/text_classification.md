@@ -1,3 +1,17 @@
+<!---
+This markdown file has been generated from a script. Please do not edit it directly.
+For more details, check out:
+- the `generate.ts` script: https://github.com/huggingface/hub-docs/blob/main/scripts/api-inference/scripts/generate.ts
+- the task template defining the sections in the page: https://github.com/huggingface/hub-docs/tree/main/scripts/api-inference/templates/task/text_classification.handlebars
+- the input jsonschema specifications used to generate the input markdown table: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/tasks/text-classification/spec/input.json
+- the output jsonschema specifications used to generate the output markdown table: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/tasks/text-classification/spec/output.json
+- the snippets used to generate the example:
+  - curl: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/snippets/curl.ts
+  - python: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/snippets/python.ts
+  - javascript: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/snippets/js.ts
+- the "tasks" content for recommended models: https://huggingface.co/api/tasks
+--->
+
 ## Text Classification
 
 Text Classification is the task of assigning a label or class to a given text. Some use cases are sentiment analysis, natural language inference, and assessing grammatical correctness.
@@ -11,7 +25,6 @@ For more details about the `text-classification` task, check out its [dedicated 
 ### Recommended models
 
 - [distilbert-base-uncased-finetuned-sst-2-english](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english): A robust model trained for sentiment analysis.
-- [roberta-large-mnli](https://huggingface.co/roberta-large-mnli): Multi-genre natural language inference model.
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-classification&sort=trending).
 
@@ -41,7 +54,7 @@ For more information about Inference API headers, check out the parameters [guid
 
 | Body |  |
 | :--- | :--- | :--- |
-| **(array)** | _undefined[]_ | Output is an array of undefineds. |
+| **(array)** | _object[]_ | Output is an array of objects. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label** | _string_ | The predicted class label. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score** | _number_ | The corresponding probability. |
 
