@@ -5,14 +5,23 @@ import * as path from "node:path/posix";
 import type { JsonObject } from "type-fest";
 
 const TASKS: PipelineType[] = [
+  "automatic-speech-recognition",
+  "audio-classification",
+  "feature-extraction",
   "fill-mask",
+  "image-classification",
+  "image-segmentation",
   "image-to-image",
+  "object-detection",
   "question-answering",
   "summarization",
   "table-question-answering",
   "text-classification",
   "text-generation",
   "text-to-image",
+  "token-classification",
+  "translation",
+  "zero-shot-classification",
 ];
 const TASKS_EXTENDED = [...TASKS, "chat-completion"];
 const SPECS_REVISION = "update-specification-for-docs";
@@ -184,13 +193,13 @@ function processPayloadSchema(schema: any): JsonObject[] {
     parentPrefix: string,
   ): void {
     const isRequired = required;
-    let type = value.type || "object";
+    let type = value.type || "unknown";
     let description = value.description || "";
 
     if (value.$ref) {
       // Resolve the reference
       value = resolveRef(value.$ref);
-      type = value.type || "object";
+      type = value.type || "unknown";
       description = value.description || "";
     }
 
@@ -223,8 +232,9 @@ function processPayloadSchema(schema: any): JsonObject[] {
     if (addRow) {
       // Add the row to the table except if combination with only one option
       if (key.includes("(#")) {
-        // If it's a combination, no need to re-specify the type
-        type = "";
+        // If it's a combination, no need to re-specify the type except if it's to
+        // specify a constant value.
+        type = value.const ? `'${value.const}'` : "";
       }
       const row = {
         name: `${parentPrefix}${key}`,

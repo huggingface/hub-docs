@@ -1,0 +1,29 @@
+## Image Segmentation
+
+Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.
+
+{{{tips.linksToTaskPage.image-segmentation}}}
+
+### Recommended models
+
+{{#each models.image-segmentation}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.image-segmentation}}}
+
+### API specification
+
+#### Request
+
+{{{specs.image-segmentation.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.image-segmentation.output}}}
+
+### Using the API
+
+{{{snippets.image-segmentation}}}

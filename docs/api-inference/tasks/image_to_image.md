@@ -65,7 +65,7 @@ For more information about Inference API headers, check out the parameters [guid
 
 | Body |  |
 | :--- | :--- | :--- |
-| **image** | _object_ | The output image |
+| **image** | _unknown_ | The output image returned as raw bytes in the payload. |
 
 
 ### Using the API

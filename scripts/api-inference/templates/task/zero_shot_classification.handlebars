@@ -1,0 +1,29 @@
+## Zero-Shot Classification
+
+Zero-shot text classification is super useful to try out classification with zero code, you simply pass a sentence/paragraph and the possible labels for that sentence, and you get a result. The model has not been necessarily trained on the labels you provide, but it can still predict the correct label.
+
+{{{tips.linksToTaskPage.zero-shot-classification}}}
+
+### Recommended models
+
+{{#each models.zero-shot-classification}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.zero-shot-classification}}}
+
+### API specification
+
+#### Request
+
+{{{specs.zero-shot-classification.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.zero-shot-classification.output}}}
+
+### Using the API
+
+{{{snippets.zero-shot-classification}}}

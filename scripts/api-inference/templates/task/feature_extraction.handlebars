@@ -1,0 +1,30 @@
+## Feature Extraction
+
+Feature extraction is the task of converting a text into a vector (often called "embedding").
+Extracting features is useful for subtasks like sentence similarity, reranking and retrieval augmented generation (RAG).
+
+{{{tips.linksToTaskPage.feature-extraction}}}
+
+### Recommended models
+
+{{#each models.feature-extraction}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.feature-extraction}}}
+
+### API specification
+
+#### Request
+
+{{{specs.feature-extraction.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.feature-extraction.output}}}
+
+### Using the API
+
+{{{snippets.feature-extraction}}}
