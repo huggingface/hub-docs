@@ -9,6 +9,7 @@ For more details, check out:
   - curl: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/snippets/curl.ts
   - python: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/snippets/python.ts
   - javascript: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/snippets/js.ts
+- the "tasks" content for recommended models: https://huggingface.co/api/tasks
 --->
 
 ## Text Generation

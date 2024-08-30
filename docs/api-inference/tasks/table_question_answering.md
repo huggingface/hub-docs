@@ -9,6 +9,7 @@ For more details, check out:
   - curl: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/snippets/curl.ts
   - python: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/snippets/python.ts
   - javascript: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/snippets/js.ts
+- the "tasks" content for recommended models: https://huggingface.co/api/tasks
 --->
 
 ## Table Question Answering
@@ -66,7 +67,7 @@ For more information about Inference API headers, check out the parameters [guid
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/microsoft/tapex-base \
+curl https://api-inference.huggingface.co/models/<REPO_ID> \
 	-X POST \
 	-d '{"inputs": { "query": "How many stars does the transformers repository have?", "table": { "Repository": ["Transformers", "Datasets", "Tokenizers"], "Stars": ["36542", "4512", "3934"], "Contributors": ["651", "77", "34"], "Programming language": [ "Python", "Python", "Rust, Python and NodeJS" ] } }}' \
 	-H 'Content-Type: application/json' \
@@ -79,7 +80,7 @@ curl https://api-inference.huggingface.co/models/microsoft/tapex-base \
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/microsoft/tapex-base"
+API_URL = "https://api-inference.huggingface.co/models/<REPO_ID>"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -110,7 +111,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/microsoft/tapex-base",
+		"https://api-inference.huggingface.co/models/<REPO_ID>",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"
