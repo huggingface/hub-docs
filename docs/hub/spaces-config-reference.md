@@ -33,7 +33,7 @@ Specify the suggested [hardware](https://huggingface.co/docs/hub/spaces-gpus) on
 Useful for Spaces that are meant to be duplicated by other users.  
 Setting this value will not automatically assign an hardware to this Space.  
 Value must be a valid hardware flavor (e.g. `"cpu-upgrade"`, `"t4-small"`, `"t4-medium"`, `"l4x1"`,
-	`"l4x4"`, `"a10g-small"`, `"a10g-large"`, `"a10g-largex2"`, `"a10g-largex4"`, `"a10g-largex2"`,
+	`"l4x4"`, `"a10g-small"`, `"a10g-large"`, `"a10g-largex2"`,
 	`"a10g-largex4"`,`"a100-large"`, `"v5e-1x1"`,
 	`"v5e-2x2"`, `"v5e-2x4"`).  
 
