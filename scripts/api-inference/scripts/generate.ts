@@ -403,7 +403,7 @@ TASKS.forEach((task) => {
 TASKS.forEach((task) => {
   // Let's take as example the first available model that is recommended.
   // Otherwise, fallback to "<REPO_ID>".
-  const mainModel = DATA.models[task][0]?.id || "<REPO_ID>";
+  const mainModel = DATA.models[task][0]?.id ?? "<REPO_ID>";
   const taskSnippets = {
     curl: getInferenceSnippet(mainModel, task, "curl"),
     python: getInferenceSnippet(mainModel, task, "python"),
