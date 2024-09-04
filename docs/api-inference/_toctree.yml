@@ -1,52 +1,52 @@
 - sections:
   - local: index
     title: Serverless Inference API
-  - local: getting_started
+  - local: getting-started
     title: Getting Started
-  - local: supported_models
+  - local: supported-models
     title: Supported Models
-  - local: rate_limits
+  - local: rate-limits
     title: Rate Limits
   title: Getting Started
 - sections:
   - local: parameters
     title: Parameters
   - sections:
-    - local: tasks/audio_classification
+    - local: tasks/audio-classification
       title: Audio Classification
-    - local: tasks/automatic_speech_recognition
+    - local: tasks/automatic-speech-recognition
       title: Automatic Speech Recognition
-    - local: tasks/chat_completion
+    - local: tasks/chat-completion
       title: Chat Completion
-    - local: tasks/feature_extraction
+    - local: tasks/feature-extraction
       title: Feature Extraction
-    - local: tasks/fill_mask
+    - local: tasks/fill-mask
       title: Fill Mask
-    - local: tasks/image_classification
+    - local: tasks/image-classification
       title: Image Classification
-    - local: tasks/image_segmentation
+    - local: tasks/image-segmentation
       title: Image Segmentation
-    - local: tasks/image_to_image
+    - local: tasks/image-to-image
       title: Image to Image
-    - local: tasks/object_detection
+    - local: tasks/object-detection
       title: Object Detection
-    - local: tasks/question_answering
+    - local: tasks/question-answering
       title: Question Answering
     - local: tasks/summarization
       title: Summarization
-    - local: tasks/table_question_answering
+    - local: tasks/table-question-answering
       title: Table Question Answering
-    - local: tasks/text_classification
+    - local: tasks/text-classification
       title: Text Classification
-    - local: tasks/text_generation
+    - local: tasks/text-generation
       title: Text Generation
-    - local: tasks/text_to_image
+    - local: tasks/text-to-image
       title: Text to Image
-    - local: tasks/token_classification
+    - local: tasks/token-classification
       title: Token Classification
     - local: tasks/translation
       title: Translation
-    - local: tasks/zero_shot_classification
+    - local: tasks/zero-shot-classification
       title: Zero Shot Classification
     title: Detailed Task Parameters
   title: API Reference

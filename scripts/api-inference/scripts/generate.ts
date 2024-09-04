@@ -65,21 +65,19 @@ function readTemplate(
   templateName: string,
   namespace: string,
 ): Promise<string> {
-  const templateNameSnakeCase = templateName.replace(/-/g, "_");
   const templatePath = path.join(
     TEMPLATE_DIR,
     namespace,
-    `${templateNameSnakeCase}.handlebars`,
+    `${templateName}.handlebars`,
   );
-  console.log(`   🔍 Reading ${templateNameSnakeCase}.handlebars`);
+  console.log(`   🔍 Reading ${templateName}.handlebars`);
   return fs.readFile(templatePath, { encoding: "utf-8" });
 }
 
 function writeTaskDoc(templateName: string, content: string): Promise<void> {
-  const templateNameSnakeCase = templateName.replace(/-/g, "_");
-  const taskDocPath = path.join(TASKS_DOCS_DIR, `${templateNameSnakeCase}.md`);
+  const taskDocPath = path.join(TASKS_DOCS_DIR, `${templateName}.md`);
   console.log(`   💾 Saving to ${taskDocPath}`);
-  const header = PAGE_HEADER({task:templateName, taskSnakeCase: templateNameSnakeCase});
+  const header = PAGE_HEADER({task:templateName});
   const contentWithHeader = `<!---\n${header}\n--->\n\n${content}`;
   return fs
     .mkdir(TASKS_DOCS_DIR, { recursive: true })
