@@ -2,9 +2,9 @@
 This markdown file has been generated from a script. Please do not edit it directly.
 For more details, check out:
 - the `generate.ts` script: https://github.com/huggingface/hub-docs/blob/main/scripts/api-inference/scripts/generate.ts
-- the task template defining the sections in the page: https://github.com/huggingface/hub-docs/tree/main/scripts/api-inference/templates/task/audio_classification.handlebars
-- the input jsonschema specifications used to generate the input markdown table: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/tasks/audio-classification/spec/input.json
-- the output jsonschema specifications used to generate the output markdown table: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/tasks/audio-classification/spec/output.json
+- the task template defining the sections in the page: https://github.com/huggingface/hub-docs/tree/main/scripts/api-inference/templates/task/image-classification.handlebars
+- the input jsonschema specifications used to generate the input markdown table: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/tasks/image-classification/spec/input.json
+- the output jsonschema specifications used to generate the output markdown table: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/tasks/image-classification/spec/output.json
 - the snippets used to generate the example:
   - curl: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/snippets/curl.ts
   - python: https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/snippets/python.ts
@@ -12,20 +12,21 @@ For more details, check out:
 - the "tasks" content for recommended models: https://huggingface.co/api/tasks
 --->
 
-## Audio Classification
+## Image Classification
 
-Audio classification is the task of assigning a label or class to a given audio. It can be used for recognizing which command a user is giving or the emotion of a statement, as well as identifying a speaker.
+Image classification is the task of assigning a label or class to an entire image. Images are expected to have only one class for each image. Image classification models take an image as input and return a prediction about which class the image belongs to.
 
 <Tip>
 
-For more details about the `audio-classification` task, check out its [dedicated page](https://huggingface.co/tasks/audio-classification)! You will find examples and related materials.
+For more details about the `image-classification` task, check out its [dedicated page](https://huggingface.co/tasks/image-classification)! You will find examples and related materials.
 
 </Tip>
 
 ### Recommended models
 
+- [google/vit-base-patch16-224](https://huggingface.co/google/vit-base-patch16-224): A strong image classification model.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=audio-classification&sort=trending).
+This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-classification&sort=trending).
 
 ### API specification
 
@@ -33,8 +34,8 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 | Payload |  |  |
 | :--- | :--- | :--- |
-| **inputs*** | _string_ | The input audio data as a base64-encoded string. If no `parameters` are provided, you can also provide the audio data as a raw bytes payload. |
-| **parameters** | _object_ | Additional inference parameters for Audio Classification |
+| **inputs*** | _string_ | The input image data as a base64-encoded string. If no `parameters` are provided, you can also provide the image data as a raw bytes payload. |
+| **parameters** | _object_ | Additional inference parameters for Image Classification |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function_to_apply** | _enum_ | Possible values: sigmoid, softmax, none. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top_k** | _integer_ | When specified, limits the output to the top K most probable classes. |
 
@@ -65,9 +66,9 @@ For more information about Inference API headers, check out the parameters [guid
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/<REPO_ID> \
+curl https://api-inference.huggingface.co/models/google/vit-base-patch16-224 \
 	-X POST \
-	--data-binary '@sample1.flac' \
+	--data-binary '@cats.jpg' \
 	-H "Authorization: Bearer hf_***"
 
 ```
@@ -77,7 +78,7 @@ curl https://api-inference.huggingface.co/models/<REPO_ID> \
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/<REPO_ID>"
+API_URL = "https://api-inference.huggingface.co/models/google/vit-base-patch16-224"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
@@ -86,10 +87,10 @@ def query(filename):
     response = requests.post(API_URL, headers=headers, data=data)
     return response.json()
 
-output = query("sample1.flac")
+output = query("cats.jpg")
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.audio_classification).
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_classification).
 </python>
 
 <js>
@@ -97,7 +98,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 async function query(filename) {
 	const data = fs.readFileSync(filename);
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/<REPO_ID>",
+		"https://api-inference.huggingface.co/models/google/vit-base-patch16-224",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"
@@ -111,12 +112,12 @@ async function query(filename) {
 	return result;
 }
 
-query("sample1.flac").then((response) => {
+query("cats.jpg").then((response) => {
 	console.log(JSON.stringify(response));
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#audioclassification).
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#imageclassification).
 </js>
 
 </inferencesnippet>
