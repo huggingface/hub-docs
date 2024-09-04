@@ -12,7 +12,7 @@ TODO: add screenshot
 
 ## What do I get with a PRO subscription?
 
-In addition to thousands of public models available in the Hub, PRO and Enterprise users get higher [rate limits](./rate_limits) and free access to the following models:
+In addition to thousands of public models available in the Hub, PRO and Enterprise users get higher [rate limits](./rate-limits) and free access to the following models:
 
 
 | Model                          | Size                                                                                                                                                                                       | Context Length | Use                                                          |

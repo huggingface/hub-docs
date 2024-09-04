@@ -1,11 +1,11 @@
 - sections:
   - local: index
     title: Serverless Inference API
-  - local: getting_started
+  - local: getting-started
     title: Getting Started
-  - local: supported_models
+  - local: supported-models
     title: Supported Models
-  - local: rate_limits
+  - local: rate-limits
     title: Rate Limits
   title: Getting Started
 - sections:
