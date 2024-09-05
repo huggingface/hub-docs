@@ -1,6 +1,6 @@
 # Serverless Inference API
 
-**Instant Access to 800,000+ ML Models for Fast Prototyping**
+**Instant Access to thousands of ML Models for Fast Prototyping**
 
 Explore the most popular models for text, image, speech, and more — all with a simple API request. Build, test, and experiment without worrying about infrastructure or setup.
 
