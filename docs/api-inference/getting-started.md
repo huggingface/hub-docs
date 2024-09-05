@@ -6,7 +6,7 @@ We'll do a minimal example using a [sentiment classification model](https://hugg
 
 ## Getting a Token
 
-Using the Serverless Inference API requires passing a user token in the request headers. You can get a token by signing up on the Hugging Face website and then going to the [tokens page](https://huggingface.co/settings/tokens). We recommend creating a `Fine-grained` token with the scope to `Make calls to the serverless Inference API`.
+Using the Serverless Inference API requires passing a user token in the request headers. You can get a token by signing up on the Hugging Face website and then going to the [tokens page](https://huggingface.co/settings/tokens/new?globalPermissions=inference.serverless.write&tokenType=fineGrained). We recommend creating a `Fine-grained` token with the scope to `Make calls to the serverless Inference API`.
 
 TODO: add screenshot
 For more details about user tokens, check out [this guide](https://huggingface.co/docs/hub/en/security-tokens).
@@ -14,11 +14,15 @@ For more details about user tokens, check out [this guide](https://huggingface.c
 ## cURL
 
 ```bash
-curl https://api-inference.huggingface.co/models/cardiffnlp/twitter-roberta-base-sentiment-latest \
-    -X POST \
-    -d '{"inputs": "Today is a nice day"}' \
-    -H "Authorization: Bearer hf_***" \
-    -H "Content-Type: application/json"
+curl 'https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3.1-8B-Instruct/v1/chat/completions' \
+-H "Authorization: Bearer hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+-H 'Content-Type: application/json' \
+-d '{
+    "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    "messages": [{"role": "user", "content": "What is the capital of France?"}],
+    "max_tokens": 500,
+    "stream": false
+}'
 ```
 
 ## Python
@@ -28,21 +32,35 @@ You can use the `requests` library to make a request to the Inference API.
 ```python
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/cardiffnlp/twitter-roberta-base-sentiment-latest"
-headers = {"Authorization": "Bearer hf_***"}
+API_URL = "https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3.1-8B-Instruct/v1/chat/completions"
+headers = {"Authorization": "Bearer hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}
+payload = {
+    "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    "messages": [{"role": "user", "content": "What is the capital of France?"}],
+    "max_tokens": 500,
+    "stream": False
+}
 
-payload = {"inputs": "Today is a nice day"}
 response = requests.post(API_URL, headers=headers, json=payload)
 response.json()
 ```
 
-Hugging Face also provides a [`InferenceClient`](https://huggingface.co/docs/huggingface_hub/guides/inference) that handles inference, caching, async, and more. Make sure to install it with `pip install huggingface_hub` first
+Hugging Face also provides a [`InferenceClient`](https://huggingface.co/docs/huggingface_hub/guides/inference) that handles inference for you. Make sure to install it with `pip install huggingface_hub` first.
 
 ```python
 from huggingface_hub import InferenceClient
 
-client = InferenceClient(model="cardiffnlp/twitter-roberta-base-sentiment-latest", token="hf_***")
-client.text_classification("Today is a nice day")
+client = InferenceClient(
+    "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    token="hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+)
+
+for message in client.chat_completion(
+	messages=[{"role": "user", "content": "What is the capital of France?"}],
+	max_tokens=500,
+	stream=True,
+):
+    print(message.choices[0].delta.content, end="")
 ```
 
 ## JavaScript
@@ -52,11 +70,11 @@ import fetch from "node-fetch";
 
 async function query(data) {
     const response = await fetch(
-        "https://api-inference.huggingface.co/models/MODEL_ID",
+        "https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3.1-8B-Instruct/v1/chat/completions",
         {
             method: "POST",
             headers: {
-                Authorization: `Bearer cardiffnlp/twitter-roberta-base-sentiment-latest`,
+                Authorization: `Bearer hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
@@ -67,10 +85,29 @@ async function query(data) {
 }
 
 query({
-    inputs: "Today is a nice day"
+	"model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+	"messages": [{"role": "user", "content": "What is the capital of France?"}],
+	"max_tokens": 500,
+	"stream": false
 }).then((response) => {
     console.log(JSON.stringify(response, null, 2));
 });
+```
+
+Hugging Face also provides a [`HfInference`](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference) client that handles inference. Make sure to install it with `npm install @huggingface/inference` first.
+
+```js
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference("hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+for await (const chunk of inference.chatCompletionStream({
+	model: "meta-llama/Meta-Llama-3.1-8B-Instruct",
+	messages: [{ role: "user", content: "What is the capital of France?" }],
+	max_tokens: 500,
+})) {
+	process.stdout.write(chunk.choices[0]?.delta?.content || "");
+}
 ```
 
 ## Next Steps

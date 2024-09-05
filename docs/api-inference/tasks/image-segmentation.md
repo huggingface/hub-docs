@@ -24,9 +24,75 @@ For more details about the `image-segmentation` task, check out its [dedicated p
 
 ### Recommended models
 
+- [facebook/detr-resnet-50-panoptic](https://huggingface.co/facebook/detr-resnet-50-panoptic): Solid panoptic segmentation model trained on the COCO 2017 benchmark dataset.
 - [nvidia/segformer-b0-finetuned-ade-512-512](https://huggingface.co/nvidia/segformer-b0-finetuned-ade-512-512): Semantic segmentation model trained on ADE20k benchmark dataset with 512x512 resolution.
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-segmentation&sort=trending).
+
+### Using the API
+
+
+<inferencesnippet>
+
+<curl>
+```bash
+curl https://api-inference.huggingface.co/models/facebook/detr-resnet-50-panoptic \
+	-X POST \
+	--data-binary '@cats.jpg' \
+	-H "Authorization: Bearer hf_***"
+
+```
+</curl>
+
+<python>
+```py
+import requests
+
+API_URL = "https://api-inference.huggingface.co/models/facebook/detr-resnet-50-panoptic"
+headers = {"Authorization": "Bearer hf_***"}
+
+def query(filename):
+    with open(filename, "rb") as f:
+        data = f.read()
+    response = requests.post(API_URL, headers=headers, data=data)
+    return response.json()
+
+output = query("cats.jpg")
+```
+
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_segmentation).
+</python>
+
+<js>
+```js
+async function query(filename) {
+	const data = fs.readFileSync(filename);
+	const response = await fetch(
+		"https://api-inference.huggingface.co/models/facebook/detr-resnet-50-panoptic",
+		{
+			headers: {
+				Authorization: "Bearer hf_***"
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+			body: data,
+		}
+	);
+	const result = await response.json();
+	return result;
+}
+
+query("cats.jpg").then((response) => {
+	console.log(JSON.stringify(response));
+});
+```
+
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#imagesegmentation).
+</js>
+
+</inferencesnippet>
+
+
 
 ### API specification
 
@@ -60,69 +126,5 @@ For more information about Inference API headers, check out the parameters [guid
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label** | _string_ | The label of the predicted segment. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mask** | _string_ | The corresponding mask as a black-and-white image (base64-encoded). |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score** | _number_ | The score or confidence degree the model has. |
-
-
-### Using the API
-
-
-<inferencesnippet>
-
-<curl>
-```bash
-curl https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512 \
-	-X POST \
-	--data-binary '@cats.jpg' \
-	-H "Authorization: Bearer hf_***"
-
-```
-</curl>
-
-<python>
-```py
-import requests
-
-API_URL = "https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(filename):
-    with open(filename, "rb") as f:
-        data = f.read()
-    response = requests.post(API_URL, headers=headers, data=data)
-    return response.json()
-
-output = query("cats.jpg")
-```
-
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_segmentation).
-</python>
-
-<js>
-```js
-async function query(filename) {
-	const data = fs.readFileSync(filename);
-	const response = await fetch(
-		"https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512",
-		{
-			headers: {
-				Authorization: "Bearer hf_***"
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: data,
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query("cats.jpg").then((response) => {
-	console.log(JSON.stringify(response));
-});
-```
-
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#imagesegmentation).
-</js>
-
-</inferencesnippet>
 
 

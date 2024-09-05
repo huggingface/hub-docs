@@ -28,39 +28,6 @@ For more details about the `zero-shot-classification` task, check out its [dedic
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=zero-shot-classification&sort=trending).
 
-### API specification
-
-#### Request
-
-| Payload |  |  |
-| :--- | :--- | :--- |
-| **inputs*** | _object_ | The input text data, with candidate labels |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text*** | _string_ | The text to classify |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;candidateLabels*** | _string[]_ | The set of possible class labels to classify the text into. |
-| **parameters** | _object_ | Additional inference parameters for Zero Shot Classification |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hypothesis_template** | _string_ | The sentence used in conjunction with candidateLabels to attempt the text classification by replacing the placeholder with the candidate labels. |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;multi_label** | _boolean_ | Whether multiple candidate labels can be true. If false, the scores are normalized such that the sum of the label likelihoods for each sequence is 1. If true, the labels are considered independent and probabilities are normalized for each candidate. |
-
-
-Some options can be configured by passing headers to the Inference API. Here are the available headers:
-
-| Headers |   |    |
-| :--- | :--- | :--- |
-| **authorization** | _string_ | Authentication header in the form `'Bearer: hf_****'` when `hf_****` is a personal user access token with Inference API permission. You can generate one from [your settings page](https://huggingface.co/settings/tokens). |
-| **x-use-cache** | _boolean, default to `true`_ | There is a cache layer on the inference API to speed up requests we have already seen. Most models can use those results as they are deterministic (meaning the outputs will be the same anyway). However, if you use a nondeterministic model, you can set this parameter to prevent the caching mechanism from being used, resulting in a real new query. Read more about caching [here](../parameters#caching]). |
-| **x-wait-for-model** | _boolean, default to `false`_ | If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error, as it will limit hanging in your application to known places. Read more about model availability [here](../overview#eligibility]). |
-
-For more information about Inference API headers, check out the parameters [guide](../parameters).
-
-#### Response
-
-| Body |  |
-| :--- | :--- | :--- |
-| **(array)** | _object[]_ | Output is an array of objects. |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label** | _string_ | The predicted class label. |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score** | _number_ | The corresponding probability. |
-
-
 ### Using the API
 
 
@@ -125,4 +92,37 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 
 </inferencesnippet>
 
+
+
+### API specification
+
+#### Request
+
+| Payload |  |  |
+| :--- | :--- | :--- |
+| **inputs*** | _object_ | The input text data, with candidate labels |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text*** | _string_ | The text to classify |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;candidateLabels*** | _string[]_ | The set of possible class labels to classify the text into. |
+| **parameters** | _object_ | Additional inference parameters for Zero Shot Classification |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hypothesis_template** | _string_ | The sentence used in conjunction with candidateLabels to attempt the text classification by replacing the placeholder with the candidate labels. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;multi_label** | _boolean_ | Whether multiple candidate labels can be true. If false, the scores are normalized such that the sum of the label likelihoods for each sequence is 1. If true, the labels are considered independent and probabilities are normalized for each candidate. |
+
+
+Some options can be configured by passing headers to the Inference API. Here are the available headers:
+
+| Headers |   |    |
+| :--- | :--- | :--- |
+| **authorization** | _string_ | Authentication header in the form `'Bearer: hf_****'` when `hf_****` is a personal user access token with Inference API permission. You can generate one from [your settings page](https://huggingface.co/settings/tokens). |
+| **x-use-cache** | _boolean, default to `true`_ | There is a cache layer on the inference API to speed up requests we have already seen. Most models can use those results as they are deterministic (meaning the outputs will be the same anyway). However, if you use a nondeterministic model, you can set this parameter to prevent the caching mechanism from being used, resulting in a real new query. Read more about caching [here](../parameters#caching]). |
+| **x-wait-for-model** | _boolean, default to `false`_ | If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error, as it will limit hanging in your application to known places. Read more about model availability [here](../overview#eligibility]). |
+
+For more information about Inference API headers, check out the parameters [guide](../parameters).
+
+#### Response
+
+| Body |  |
+| :--- | :--- | :--- |
+| **(array)** | _object[]_ | Output is an array of objects. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label** | _string_ | The predicted class label. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score** | _number_ | The corresponding probability. |
 

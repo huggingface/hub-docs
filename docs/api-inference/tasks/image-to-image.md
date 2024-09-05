@@ -35,6 +35,13 @@ For more details about the `image-to-image` task, check out its [dedicated page]
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-to-image&sort=trending).
 
+### Using the API
+
+
+No snippet available for this task.
+
+
+
 ### API specification
 
 #### Request
@@ -66,11 +73,5 @@ For more information about Inference API headers, check out the parameters [guid
 | Body |  |
 | :--- | :--- | :--- |
 | **image** | _unknown_ | The output image returned as raw bytes in the payload. |
-
-
-### Using the API
-
-
-No snippet available for this task.
 
 
