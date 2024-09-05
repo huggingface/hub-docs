@@ -35,6 +35,71 @@ For more details about the `text-generation` task, check out its [dedicated page
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-generation&sort=trending).
 
+### Using the API
+
+
+<inferencesnippet>
+
+<curl>
+```bash
+curl https://api-inference.huggingface.co/models/google/gemma-2-2b-it \
+	-X POST \
+	-d '{"inputs": "Can you please let us know more details about your "}' \
+	-H 'Content-Type: application/json' \
+	-H "Authorization: Bearer hf_***"
+
+```
+</curl>
+
+<python>
+```py
+import requests
+
+API_URL = "https://api-inference.huggingface.co/models/google/gemma-2-2b-it"
+headers = {"Authorization": "Bearer hf_***"}
+
+def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
+	
+output = query({
+	"inputs": "Can you please let us know more details about your ",
+})
+```
+
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_generation).
+</python>
+
+<js>
+```js
+async function query(data) {
+	const response = await fetch(
+		"https://api-inference.huggingface.co/models/google/gemma-2-2b-it",
+		{
+			headers: {
+				Authorization: "Bearer hf_***"
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.json();
+	return result;
+}
+
+query({"inputs": "Can you please let us know more details about your "}).then((response) => {
+	console.log(JSON.stringify(response));
+});
+```
+
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#textgeneration).
+</js>
+
+</inferencesnippet>
+
+
+
 ### API specification
 
 #### Request
@@ -148,69 +213,4 @@ For more information about streaming, check out [this guide](https://huggingface
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logprob** | _number_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;special** | _boolean_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text** | _string_ |  |
-
-
-### Using the API
-
-
-<inferencesnippet>
-
-<curl>
-```bash
-curl https://api-inference.huggingface.co/models/google/gemma-2-2b-it \
-	-X POST \
-	-d '{"inputs": "Can you please let us know more details about your "}' \
-	-H 'Content-Type: application/json' \
-	-H "Authorization: Bearer hf_***"
-
-```
-</curl>
-
-<python>
-```py
-import requests
-
-API_URL = "https://api-inference.huggingface.co/models/google/gemma-2-2b-it"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-	
-output = query({
-	"inputs": "Can you please let us know more details about your ",
-})
-```
-
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_generation).
-</python>
-
-<js>
-```js
-async function query(data) {
-	const response = await fetch(
-		"https://api-inference.huggingface.co/models/google/gemma-2-2b-it",
-		{
-			headers: {
-				Authorization: "Bearer hf_***"
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query({"inputs": "Can you please let us know more details about your "}).then((response) => {
-	console.log(JSON.stringify(response));
-});
-```
-
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#textgeneration).
-</js>
-
-</inferencesnippet>
-
 
