@@ -360,11 +360,8 @@ tmpmj97ab30.parquet: 100%|██████████| 71.3M/71.3M [00:02<00:
 
 ## Run in JupyterLab on Hugging Face Spaces
 
-You can duplicate the [Spark on HF JupyterLab](https://huggingface.co/spaces/lhoestq/Spark-on-HF-JupyterLab) Space to get a Notebook with PySpark and those helper functions pre-installed:
+You can duplicate the [Spark on HF JupyterLab](https://huggingface.co/spaces/lhoestq/Spark-on-HF-JupyterLab) Space to get a Notebook with PySpark and those helper functions pre-installed.
 
-<iframe
-	src="https://lhoestq-spark-on-hf-jupyterlab.hf.space"
-	frameborder="0"
-	width="850"
-	height="450"
-></iframe>
+Click on "Duplicate Space", choose a name for your Space, select your hardware and you are ready:
+
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spark-on-hf-jupyterlab-screenshot-min.png">
