@@ -322,7 +322,7 @@ The `input.jsonl` looks like this:
 
 ## Deploy an LLM to SageMaker using TGI
 
-If you are interested in using a high-performance serving container for LLMs, you can use the Hugging Face TGI container. This utilizes the [Text Generation Inference](https://github.com/huggingface/text-generation-inference) library.
+If you are interested in using a high-performance serving container for LLMs, you can use the Hugging Face TGI container. This utilizes the [Text Generation Inference](https://github.com/huggingface/text-generation-inference) library. A list of compatible models can be found [here](https://huggingface.co/docs/text-generation-inference/supported_models#supported-models).
 
 First, make sure that the latest version of SageMaker SDK is installed:
 
