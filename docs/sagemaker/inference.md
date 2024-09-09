@@ -327,7 +327,7 @@ If you are interested in using a high-performance serving container for LLMs, yo
 First, make sure that the latest version of SageMaker SDK is installed:
 
 ```bash
-pip install sagemaker>=2.161.0
+pip install sagemaker>=2.231.0
 ```
 
 Then, we import the SageMaker Python SDK and instantiate a sagemaker_session to find the current region and execution role.
