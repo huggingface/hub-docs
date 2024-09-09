@@ -379,7 +379,7 @@ Next, we invoke the deploy method to deploy the model.
 ```python
 predictor = model.deploy(
   initial_instance_count=1,
-  instance_type="ml.g4dn.12xlarge",
+  instance_type="ml.g5.2xlarge",
   endpoint_name=model_name
 )
 ```
