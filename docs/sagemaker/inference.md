@@ -363,7 +363,7 @@ model_name = "llama-3.1-8b-instruct" + time.strftime("%Y-%m-%d-%H-%M-%S", time.g
 hub = {
     'HF_MODEL_ID':'EleutherAI/gpt-neox-20b',
     'HF_TASK':'text-generation',
-    'SM_NUM_GPUS':'4',
+    'SM_NUM_GPUS':'1',
     'HF_MODEL_QUANTIZE':'true'
 }
 
