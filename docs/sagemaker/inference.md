@@ -366,6 +366,9 @@ hub = {
 	'HUGGING_FACE_HUB_TOKEN': '<REPLACE WITH YOUR TOKEN>'
 }
 
+assert hub['HUGGING_FACE_HUB_TOKEN'] != '<REPLACE WITH YOUR TOKEN>', "You have to provide a token."
+
+
 model = HuggingFaceModel(
     name=model_name,
     env=hub,
