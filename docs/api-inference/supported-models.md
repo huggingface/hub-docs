@@ -8,8 +8,6 @@ You can find:
 * **[Cold models](https://huggingface.co/models?inference=cold&sort=trending):** models that are not loaded but can be used.
 * **[Frozen models](https://huggingface.co/models?inference=frozen&sort=trending):** models that currently can't be run with the API.
 
-TODO: add screenshot
-
 ## What do I get with a PRO subscription?
 
 In addition to thousands of public models available in the Hub, PRO and Enterprise users get higher [rate limits](./rate-limits) and free access to the following models:
