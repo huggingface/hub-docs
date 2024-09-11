@@ -12,7 +12,7 @@ TODO: add screenshot
 
 ## What do I get with a PRO subscription?
 
-In addition to thousands of public models available in the Hub, PRO and Enterprise users get higher [rate limits](./rate_limits) and free access to the following models:
+In addition to thousands of public models available in the Hub, PRO and Enterprise users get higher [rate limits](./rate-limits) and free access to the following models:
 
 
 | Model                          | Size                                                                                                                                                                                       | Context Length | Use                                                          |
@@ -25,4 +25,4 @@ In addition to thousands of public models available in the Hub, PRO and Enterpri
 
 ## Running Private Models
 
-The free Serverless API is designed to run popular public models. If you have a private model, you can use [Inference Endpoints](https://huggingface.co/docs/inference/endpoints) to deploy your model.
+The free Serverless API is designed to run popular public models. If you have a private model, you can use [Inference Endpoints](https://huggingface.co/docs/inference/endpoints) to deploy it.
