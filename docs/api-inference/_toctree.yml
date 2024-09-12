@@ -7,6 +7,8 @@
     title: Supported Models
   - local: rate-limits
     title: Rate Limits
+  - local: security
+    title: Security
   title: Getting Started
 - sections:
   - local: parameters

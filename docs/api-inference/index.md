@@ -51,8 +51,3 @@ The documentation is organized into two sections:
 <a target="_blank" href="https://huggingface.co/support">
     <img alt="HuggingFace Expert Acceleration Program" src="https://cdn-media.huggingface.co/marketing/transformers/new-support-improved.png" style="max-width: 600px; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
 </a><br>
-
-## Hugging Face is trusted in production by over 10,000 companies
-
-<img class="block dark:hidden !shadow-none !border-0 !rounded-none" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-api/companies-light.png" width="600">
-<img class="hidden dark:block !shadow-none !border-0 !rounded-none" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-api/companies-dark.png" width="600">
