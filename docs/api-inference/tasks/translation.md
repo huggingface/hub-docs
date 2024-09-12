@@ -24,8 +24,7 @@ For more details about the `translation` task, check out its [dedicated page](ht
 
 ### Recommended models
 
-- [Helsinki-NLP/opus-mt-en-fr](https://huggingface.co/Helsinki-NLP/opus-mt-en-fr): A model that translates from English to French.
-- [t5-base](https://huggingface.co/t5-base): A general-purpose Transformer that can be used to translate from English to German, French, or Romanian.
+- [google-t5/t5-base](https://huggingface.co/google-t5/t5-base): A general-purpose Transformer that can be used to translate from English to German, French, or Romanian.
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=translation&sort=trending).
 
@@ -36,7 +35,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-fr \
+curl https://api-inference.huggingface.co/models/google-t5/t5-base \
 	-X POST \
 	-d '{"inputs": "Меня зовут Вольфганг и я живу в Берлине"}' \
 	-H 'Content-Type: application/json' \
@@ -49,7 +48,7 @@ curl https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-fr \
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-fr"
+API_URL = "https://api-inference.huggingface.co/models/google-t5/t5-base"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -68,7 +67,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-fr",
+		"https://api-inference.huggingface.co/models/google-t5/t5-base",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"

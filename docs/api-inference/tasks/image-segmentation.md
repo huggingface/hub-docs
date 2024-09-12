@@ -14,7 +14,7 @@ For more details, check out:
 
 ## Image Segmentation
 
-Image Segmentation divides an image into segments where each pixel in the image is mapped to an object. This task has multiple variants such as instance segmentation, panoptic segmentation and semantic segmentation.
+Image Segmentation divides an image into segments where each pixel in the image is mapped to an object.
 
 <Tip>
 
@@ -24,7 +24,6 @@ For more details about the `image-segmentation` task, check out its [dedicated p
 
 ### Recommended models
 
-- [facebook/detr-resnet-50-panoptic](https://huggingface.co/facebook/detr-resnet-50-panoptic): Solid panoptic segmentation model trained on the COCO 2017 benchmark dataset.
 - [nvidia/segformer-b0-finetuned-ade-512-512](https://huggingface.co/nvidia/segformer-b0-finetuned-ade-512-512): Semantic segmentation model trained on ADE20k benchmark dataset with 512x512 resolution.
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-segmentation&sort=trending).
@@ -36,7 +35,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/facebook/detr-resnet-50-panoptic \
+curl https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512 \
 	-X POST \
 	--data-binary '@cats.jpg' \
 	-H "Authorization: Bearer hf_***"
@@ -48,7 +47,7 @@ curl https://api-inference.huggingface.co/models/facebook/detr-resnet-50-panopti
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/facebook/detr-resnet-50-panoptic"
+API_URL = "https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
@@ -68,7 +67,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 async function query(filename) {
 	const data = fs.readFileSync(filename);
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/facebook/detr-resnet-50-panoptic",
+		"https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"

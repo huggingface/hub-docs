@@ -14,7 +14,7 @@ For more details, check out:
 
 ## Object detection
 
-Object Detection models allow users to identify objects of certain defined classes. Object detection models receive an image as input and output the images with bounding boxes and labels on detected objects.
+Object Detection models allow users to identify objects of certain defined classes. These models receive an image as input and output the images with bounding boxes and labels on detected objects.
 
 <Tip>
 

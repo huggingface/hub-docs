@@ -1,20 +1,11 @@
 # Parameters
 
-Table with 
-- Domain
-- Task
-- Whether it's supported in Inference API
-- Supported libraries (not sure)
-- Recommended model
-- Link to model specific page
-
-
 
 ## Additional Options
 
 ### Caching
 
-There is a cache layer on the inference API to speed up requests when the inputs are exactly the same. Many models, such as classifiers and embedding models, can use those results as is if they are deterministic, meaning the results will be the same. Howevr, if you use a nondeterministic model, you can disable the cache mechanism from being used, resulting in a real new query.
+There is a cache layer on the inference API to speed up requests when the inputs are exactly the same. Many models, such as classifiers and embedding models, can use those results as is if they are deterministic, meaning the results will be the same. However, if you use a nondeterministic model, you can disable the cache mechanism from being used, resulting in a real new query.
 
 To do this, you can add `x-use-cache:false` to the request headers. For example
 

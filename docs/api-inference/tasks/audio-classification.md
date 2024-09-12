@@ -14,7 +14,12 @@ For more details, check out:
 
 ## Audio Classification
 
-Audio classification is the task of assigning a label or class to a given audio. It can be used for recognizing which command a user is giving or the emotion of a statement, as well as identifying a speaker.
+Audio classification is the task of assigning a label or class to a given audio.
+
+Example applications:
+* Recognizing which command a user is giving
+* Identifying a speaker
+* Detecting the genre of a song
 
 <Tip>
 

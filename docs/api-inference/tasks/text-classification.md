@@ -24,7 +24,11 @@ For more details about the `text-classification` task, check out its [dedicated 
 
 ### Recommended models
 
-- [distilbert-base-uncased-finetuned-sst-2-english](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english): A robust model trained for sentiment analysis.
+- [distilbert/distilbert-base-uncased-finetuned-sst-2-english](https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english): A robust model trained for sentiment analysis.
+- [ProsusAI/finbert](https://huggingface.co/ProsusAI/finbert): A sentiment analysis model specialized in financial sentiment.
+- [cardiffnlp/twitter-roberta-base-sentiment-latest](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest): A sentiment analysis model specialized in analyzing tweets.
+- [papluca/xlm-roberta-base-language-detection](https://huggingface.co/papluca/xlm-roberta-base-language-detection): A model that can classify languages.
+- [meta-llama/Prompt-Guard-86M](https://huggingface.co/meta-llama/Prompt-Guard-86M): A model that can classify text generation attacks.
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-classification&sort=trending).
 
@@ -35,7 +39,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english \
+curl https://api-inference.huggingface.co/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english \
 	-X POST \
 	-d '{"inputs": "I like you. I love you"}' \
 	-H 'Content-Type: application/json' \
@@ -48,7 +52,7 @@ curl https://api-inference.huggingface.co/models/distilbert-base-uncased-finetun
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english"
+API_URL = "https://api-inference.huggingface.co/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -67,7 +71,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english",
+		"https://api-inference.huggingface.co/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"
