@@ -1,6 +1,6 @@
 # Dataset viewer
 
-The dataset page includes a table with the contents of the dataset, arranged by pages of 100 rows. You can navigate between pages using the buttons at the bottom of the table.
+Each dataset page includes a table with the contents of the dataset, arranged by pages of 100 rows. You can navigate between pages using the buttons at the bottom of the table.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer.png"/>
@@ -55,6 +55,8 @@ When you create a new dataset, the [`parquet-converter` bot](https://huggingface
 ### Programmatic access
 
 You can also access the list of Parquet files programmatically using the [Hub API](./api#get-apidatasetsrepoidparquet); for example, endpoint [`https://huggingface.co/api/datasets/nyu-mll/glue/parquet`](https://huggingface.co/api/datasets/nyu-mll/glue/parquet) lists the parquet files of the `nyu-mll/glue` dataset.
+
+We also have a specific documentation about the [Dataset Viewer API](https://huggingface.co/docs/dataset-viewer), which you can call directly. That API lets you access the contents, metadata and basic statistics of all Hugging Face Hub datasets, and powers the Dataset viewer frontend.
 
 ## Dataset preview
 
