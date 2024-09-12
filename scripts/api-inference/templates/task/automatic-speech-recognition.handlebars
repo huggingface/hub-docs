@@ -1,0 +1,34 @@
+## Automatic Speech Recognition
+
+Automatic Speech Recognition (ASR), also known as Speech to Text (STT), is the task of transcribing a given audio to text.
+
+Example applications:
+* Transcribing a podcast
+* Building a voice assistant
+* Generating subtitles for a video
+
+{{{tips.linksToTaskPage.automatic-speech-recognition}}}
+
+### Recommended models
+
+{{#each models.automatic-speech-recognition}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.automatic-speech-recognition}}}
+
+### Using the API
+
+{{{snippets.automatic-speech-recognition}}}
+
+### API specification
+
+#### Request
+
+{{{specs.automatic-speech-recognition.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.automatic-speech-recognition.output}}}

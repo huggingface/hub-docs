@@ -1,0 +1,34 @@
+## Audio Classification
+
+Audio classification is the task of assigning a label or class to a given audio.
+
+Example applications:
+* Recognizing which command a user is giving
+* Identifying a speaker
+* Detecting the genre of a song
+
+{{{tips.linksToTaskPage.audio-classification}}}
+
+### Recommended models
+
+{{#each models.audio-classification}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.audio-classification}}}
+
+### Using the API
+
+{{{snippets.audio-classification}}}
+
+### API specification
+
+#### Request
+
+{{{specs.audio-classification.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.audio-classification.output}}}
