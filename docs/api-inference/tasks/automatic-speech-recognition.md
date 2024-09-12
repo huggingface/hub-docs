@@ -14,7 +14,13 @@ For more details, check out:
 
 ## Automatic Speech Recognition
 
-Automatic Speech Recognition (ASR), also known as Speech to Text (STT), is the task of transcribing a given audio to text. It has many applications, such as voice user interfaces.
+Automatic Speech Recognition (ASR), also known as Speech to Text (STT), is the task of transcribing a given audio to text.
+
+Example applications:
+* Transcribing a podcast
+* Building a voice assistant
+* Generating subtitles for a video
+
 <Tip>
 
 For more details about the `automatic-speech-recognition` task, check out its [dedicated page](https://huggingface.co/tasks/automatic-speech-recognition)! You will find examples and related materials.
@@ -25,6 +31,7 @@ For more details about the `automatic-speech-recognition` task, check out its [d
 
 - [openai/whisper-large-v3](https://huggingface.co/openai/whisper-large-v3): A powerful ASR model by OpenAI.
 - [facebook/seamless-m4t-v2-large](https://huggingface.co/facebook/seamless-m4t-v2-large): An end-to-end model that performs ASR and Speech Translation by MetaAI.
+- [pyannote/speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1): Powerful speaker diarization model.
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=automatic-speech-recognition&sort=trending).
 

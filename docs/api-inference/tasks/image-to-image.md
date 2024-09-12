@@ -15,13 +15,11 @@ For more details, check out:
 ## Image to Image
 
 Image-to-image is the task of transforming a source image to match the characteristics of a target image or a target image domain.
-Any image manipulation and enhancement is possible with image to image models.
 
-Use cases heavily depend on the model and the dataset it was trained on, but some common use cases include:
-- Style transfer
-- Image colorization
-- Image super-resolution
-- Image inpainting
+Example applications:
+* Transferring the style of an image to another image
+* Colorizing a black and white image
+* Increasing the resolution of an image
 
 <Tip>
 

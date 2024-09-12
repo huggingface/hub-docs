@@ -24,8 +24,8 @@ For more details about the `fill-mask` task, check out its [dedicated page](http
 
 ### Recommended models
 
-- [distilbert-base-uncased](https://huggingface.co/distilbert-base-uncased): A faster and smaller model than the famous BERT model.
-- [xlm-roberta-base](https://huggingface.co/xlm-roberta-base): A multilingual model trained on 100 languages.
+- [google-bert/bert-base-uncased](https://huggingface.co/google-bert/bert-base-uncased): The famous BERT model.
+- [FacebookAI/xlm-roberta-base](https://huggingface.co/FacebookAI/xlm-roberta-base): A multilingual model trained on 100 languages.
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=fill-mask&sort=trending).
 
@@ -36,7 +36,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/distilbert-base-uncased \
+curl https://api-inference.huggingface.co/models/google-bert/bert-base-uncased \
 	-X POST \
 	-d '{"inputs": "The answer to the universe is [MASK]."}' \
 	-H 'Content-Type: application/json' \
@@ -49,7 +49,7 @@ curl https://api-inference.huggingface.co/models/distilbert-base-uncased \
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/distilbert-base-uncased"
+API_URL = "https://api-inference.huggingface.co/models/google-bert/bert-base-uncased"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -68,7 +68,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/distilbert-base-uncased",
+		"https://api-inference.huggingface.co/models/google-bert/bert-base-uncased",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"

@@ -15,7 +15,11 @@ For more details, check out:
 ## Feature Extraction
 
 Feature extraction is the task of converting a text into a vector (often called "embedding").
-Extracting features is useful for subtasks like sentence similarity, reranking and retrieval augmented generation (RAG).
+
+Example applications:
+* Retrieving the most relevant documents for a query (for RAG applications).
+* Reranking a list of documents based on their similarity to a query.
+* Calculating the similarity between two sentences.
 
 <Tip>
 
