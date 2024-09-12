@@ -182,7 +182,7 @@ _Detail throughput, start/end time, checkpoint sizes, etc._
 
 # Evaluation
 
-**Section Overview:** This section describes the evaluation protocols, what is being measured in the evaluation, and provides the results.  Evaluation is ideally constructed with factors, such as domain and demographic subgroup, and metrics, such as accuracy, which are prioritized in light of foreseeable error contexts and groups. Target fairness metrics should be decided based on which errors are more likely to be problematic in light of the model use. You can also specify your model's evaluation results in a structured way in the model card metadata. Results are parsed by the Hub and displayed in a widget on the model page. See https://huggingface.co/docs/hub/model-cards#evaluation-results.
+**Section Overview:** This section describes the evaluation protocols, what is being measured in the evaluation, and provides the results.  Evaluation ideally has at least two parts, with one part looking at general performance ([Testing Data, Factors & Metrics](#testing-data-factors--metrics)) and another looking at performance with respect to specific social safety issues ([Societal Impact Assessment](#societal-impact-assessment-optional)), such as may be done with red-teaming. The former is ideally constructed with factors, such as domain and demographic subgroup, and metrics, such as accuracy, which are prioritized in light of foreseeable error contexts and groups. Target fairness metrics should be decided based on which errors are more likely to be problematic in light of the model use. You can also specify your model's evaluation results in a structured way in the model card metadata. Results are parsed by the Hub and displayed in a widget on the model page. See https://huggingface.co/docs/hub/model-cards#evaluation-results.
 
 
 ## Testing Data, Factors & Metrics
@@ -217,19 +217,13 @@ _Results should be based on the Factors and Metrics defined above._
 
 _What do the results say? This can function as a kind of tl;dr for general audiences._
 
-## Safety Testing
+## Societal Impact Assessment [optional]
 
-### Child safety 
-`child_safety`
-_Is this model safe for kids to use? Why or why not?_
+_Explain how this model has been evaluated for risk of societal harm, such as for child safety, NCII, privacy, and violence. This might take the form of answers to the following questions:_
 
-### NCII
-`ncii`
-_Has this model been tested to see if it can be used for non-consensual intimate imagery (including CSEM)?_
-
-### Violence
-`violence`
-_Has this model been tested to see if it can be used for violent activities, or to depict violence? What were the results?_
+- _Is this model safe for kids to use? Why or why not?_
+- _Has this model been tested to see if it can be used for non-consensual intimate imagery (including CSEM)?_
+- _Has this model been tested to see if it can be used for violent activities, or to depict violence? What were the results?_
 
 # Model Examination [optional]
 
