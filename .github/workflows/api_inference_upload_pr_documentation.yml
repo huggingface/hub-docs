@@ -1,8 +1,8 @@
-name: Upload sagemaker PR Documentation
+name: Upload Inference API PR Documentation
 
 on:
   workflow_run:
-    workflows: ["Build sagemaker PR Documentation"]
+    workflows: ["Build Inference API PR Documentation"]
     types:
       - completed
 
@@ -10,7 +10,7 @@ jobs:
   build:
     uses: huggingface/doc-builder/.github/workflows/upload_pr_documentation.yml@main
     with:
-      package_name: sagemaker
+      package_name: api-inference
     secrets:
       hf_token: ${{ secrets.HF_DOC_BUILD_PUSH }}
       comment_bot_token: ${{ secrets.COMMENT_BOT_TOKEN }}
