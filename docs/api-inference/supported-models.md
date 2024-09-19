@@ -13,7 +13,7 @@ You can find:
 In addition to thousands of public models available in the Hub, PRO and Enterprise users get higher [rate limits](./rate-limits) and free access to the following models:
 
 
-| Model                          | Size                                                                                                                                                                                       | Context Length | Use                                                          |
+| Model                          | Size                                                                                                                                                                                       | Supported Context Length | Use                                                          |
 |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------------------------------------|
 | Meta Llama 3.1 Instruct  | [8B](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct), [70B](https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct)                                                      | 70B: 32k tokens / 8B: 8k tokens | High quality multilingual chat model with large context length |
 | Meta Llama 3 Instruct          | [8B](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct), [70B](https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct)                                                       | 8k tokens      | One of the best chat models                                  |
