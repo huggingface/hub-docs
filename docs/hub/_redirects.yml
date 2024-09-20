@@ -8,7 +8,7 @@ inference: models-inference
 org-cards: organizations-cards
 adding-a-task: models-tasks
 models-cards: model-cards
-models-cards-co2: model-cards-co
+models-cards-co2: model-cards-co2
 how-to-downstream: /docs/huggingface_hub/how-to-downstream
 how-to-upstream: /docs/huggingface_hub/how-to-upstream
 how-to-inference: /docs/huggingface_hub/how-to-inference
