@@ -42,6 +42,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [Timm](./timm)                   | Collection of image models, scripts, pretrained weights, etc.                        | ✅ | ✅ | ✅ | ✅ |
 | [Transformers](./transformers)                 | State-of-the-art Natural Language Processing for PyTorch, TensorFlow, and JAX        | ✅ | ✅ | ✅ | ✅ |
 | [Transformers.js](./transformers-js)                | State-of-the-art Machine Learning for the web. Run 🤗 Transformers directly in your browser, with no need for a server! | ❌ | ❌ | ✅ | ❌ |
+| [TRL](./trl)                             | Transformer Reinforcement Learning                    | ✅ | ✅ | ✅ | ✅ |
 | [Unity Sentis](./unity-sentis)                | Inference engine for the Unity 3D game engine | ❌ | ❌ | ❌ | ❌ |
 
 ### How can I add a new library to the Inference API?

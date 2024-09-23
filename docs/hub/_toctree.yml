@@ -117,6 +117,8 @@
         title: Transformers
       - local: transformers-js
         title: Transformers.js
+      - local: trl
+        title: TRL
       - local: unity-sentis
         title: Unity Sentis
   - local: models-widgets
