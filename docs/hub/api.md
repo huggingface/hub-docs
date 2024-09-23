@@ -284,6 +284,10 @@ This is equivalent to `huggingface_hub.list_organization_members()`.
 
 The following endpoint gets information about a paper.
 
+### GET /api/papers/{arxiv_id}
+
+Get the API equivalent of the Paper page, i.e. metadata like authors, summary, discussion comments.
+
 ### GET /api/arxiv/{arxiv_id}/repos
 
 Get all the models, datasets, and Spaces that refer to a paper.
