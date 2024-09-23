@@ -286,7 +286,7 @@ The following endpoint gets information about a paper.
 
 ### GET /api/papers/{arxiv_id}
 
-Get the API equivalent of the Paper page, i.e. metadata like authors, summary, discussion comments.
+Get the API equivalent of the Paper page, i.e., metadata like authors, summary, and discussion comments.
 
 ### GET /api/arxiv/{arxiv_id}/repos
 
