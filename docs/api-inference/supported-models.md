@@ -12,14 +12,18 @@ You can find:
 
 In addition to thousands of public models available in the Hub, PRO and Enterprise users get higher [rate limits](./rate-limits) and free access to the following models:
 
+<!-- Manually maintained hard-coded list based on https://github.com/huggingface-internal/api-inference/blob/main/master-rs/custom_config.yml -->
 
 | Model                          | Size                                                                                                                                                                                       | Supported Context Length | Use                                                          |
 |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------------------------------------|
 | Meta Llama 3.1 Instruct  | [8B](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct), [70B](https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct)                                                      | 70B: 32k tokens / 8B: 8k tokens | High quality multilingual chat model with large context length |
 | Meta Llama 3 Instruct          | [8B](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct), [70B](https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct)                                                       | 8k tokens      | One of the best chat models                                  |
+| Meta Llama Guard 3          | [8B](https://huggingface.co/meta-llama/Llama-Guard-3-8B)                                                       | 4k tokens      | |
 | Llama 2 Chat                   | [7B](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf), [13B](https://huggingface.co/meta-llama/Llama-2-13b-chat-hf), [70B](https://huggingface.co/meta-llama/Llama-2-70b-chat-hf) | 4k tokens      | One of the best conversational models                        |
+| DeepSeek Coder v2 | [236B](https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct) | 16k tokens | A model with coding capabilities. |
 | Bark                           | [0.9B](https://huggingface.co/suno/bark)                                                                                                                                                   | -              | Text to audio generation                                     |
 
+This list is not exhaustive and might be updated in the future.
 
 ## Running Private Models
 
