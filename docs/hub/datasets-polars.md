@@ -14,7 +14,7 @@ You can use the Hugging Face paths (`hf://`) to access data on the Hub:
 
 To get started, you can simply `pip install` Polars into your environment:
 
-```
+```bash
 pip install polars
 ```
 
