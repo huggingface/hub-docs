@@ -21,10 +21,9 @@ In addition to thousands of public models available in the Hub, PRO and Enterpri
 | Meta Llama Guard 3          | [8B](https://huggingface.co/meta-llama/Llama-Guard-3-8B)                                                       | 4k tokens      | |
 | Llama 2 Chat                   | [7B](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf), [13B](https://huggingface.co/meta-llama/Llama-2-13b-chat-hf), [70B](https://huggingface.co/meta-llama/Llama-2-70b-chat-hf) | 4k tokens      | One of the best conversational models                        |
 | DeepSeek Coder v2 | [236B](https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct) | 16k tokens | A model with coding capabilities. |
-| Aya 23 | [8B](https://huggingface.co/CohereForAI/aya-23-8B), [35B](https://huggingface.co/CohereForAI/aya-23-35B) | 4k tokens | A model with multilingual capabilities. |
-| C4AI Command R+ 08-2024 | [104B](https://huggingface.co/CohereForAI/c4ai-command-r-plus-08-2024) | 32k tokens | A model with high quality tool calling capabilities.
 | Bark                           | [0.9B](https://huggingface.co/suno/bark)                                                                                                                                                   | -              | Text to audio generation                                     |
 
+This list is not exhaustive and might be updated in the future.
 
 ## Running Private Models
 
