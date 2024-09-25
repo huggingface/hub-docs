@@ -168,7 +168,7 @@ For example, on `l3utterfly/mistral-7b-v0.1-layla-v3`:
 new_version: l3utterfly/mistral-7b-v0.1-layla-v4
 ```
 
-This metadata will be used to display a link to the latest version of a model, on the model page.
+This metadata will be used to display a link to the latest version of a model on the model page.
 
 <div class="flex justify-center">
    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_version.png"/>
