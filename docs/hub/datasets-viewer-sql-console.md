@@ -1,4 +1,4 @@
-# SQL Console: Query datasets in the browser
+# SQL Console
 
 You can run SQL queries on the dataset in the browser using the SQL Console. The SQL Console is powered by [DuckDB](https://duckdb.org/) WASM and runs entirely in the browser. You can access the SQL Console from the dataset page by clicking on the **SQL Console** badge.
 
