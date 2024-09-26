@@ -158,6 +158,23 @@ base_model:
 
 The Hub will infer the type of relationship from the current model to the base model (`"adapter", "merge", "quantized", "finetune"`) but you can also set it explicitly if needed: `base_model_relation: quantized` for instance.
 
+### Specifying a new version
+
+If a new version of your model is available in the Hub, you can specify it in a `new_version` field.  
+
+For example, on `l3utterfly/mistral-7b-v0.1-layla-v3`:
+
+```yaml
+new_version: l3utterfly/mistral-7b-v0.1-layla-v4
+```
+
+This metadata will be used to display a link to the latest version of a model on the model page. If the model linked in `new_version` also has a `new_version` field, the very latest version will always be displayed. 
+
+<div class="flex justify-center">
+   <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_version.png"/>
+   <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_version-dark.png"/>
+</div>
+
 ### Specifying a dataset
 
 You can specify the datasets used to train your model in the model card metadata section. The datasets will be displayed on the model page and users will be able to filter models by dataset. You should use the Hub dataset identifier, which is the same as the dataset's repo name as the identifier:
