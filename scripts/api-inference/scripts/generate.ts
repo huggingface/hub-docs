@@ -232,7 +232,7 @@ function processPayloadSchema(schema: any): JsonObject[] {
       if (key.includes("(#")) {
         // If it's a combination, no need to re-specify the type except if it's to
         // specify a constant value.
-        type = value.const ? `'${value.const}'` : "";
+        type = value.const ? `'${value.const}'` : type;
       }
       const row = {
         name: `${parentPrefix}${key}`,
