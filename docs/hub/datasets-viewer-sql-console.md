@@ -20,5 +20,5 @@ Through the SQL Console, you can:
 - Embed the results of the query in your own webpage using an iframe 
 
 <Tip>
-You can also use the DuckDB CLI to query the dataset via the `hf://` protocol. See the <a href="https://huggingface.co/docs/hub/en/datasets-duckdb" target="_blank" rel="noopener noreferrer">DuckDB CLI documentation</a> for more information.
+You can also use a local DuckDB CLI to query the dataset via the `hf://` protocol. See the <a href="https://huggingface.co/docs/hub/en/datasets-duckdb" target="_blank" rel="noopener noreferrer">DuckDB CLI documentation</a> for more information.
 </Tip>
