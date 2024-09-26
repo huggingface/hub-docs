@@ -208,6 +208,8 @@
         title: Configure the Dataset Viewer
       - local: datasets-viewer-embed
         title: Embed the Dataset Viewer in a webpage
+      - local: datasets-viewer-sql-console
+        title: "SQL Console: Query datasets in the browser"
   - local: datasets-download-stats
     title: Datasets Download Stats
   - local: datasets-data-files-configuration
