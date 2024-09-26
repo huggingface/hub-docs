@@ -29,7 +29,6 @@ For more details about the `audio-classification` task, check out its [dedicated
 
 ### Recommended models
 
-- [ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition](https://huggingface.co/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition): An emotion recognition model.
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=audio-classification&sort=trending).
 
@@ -40,7 +39,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition \
+curl https://api-inference.huggingface.co/models/<REPO_ID> \
 	-X POST \
 	--data-binary '@sample1.flac' \
 	-H "Authorization: Bearer hf_***"
@@ -52,7 +51,7 @@ curl https://api-inference.huggingface.co/models/ehcalabres/wav2vec2-lg-xlsr-en-
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition"
+API_URL = "https://api-inference.huggingface.co/models/<REPO_ID>"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
@@ -72,7 +71,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 async function query(filename) {
 	const data = fs.readFileSync(filename);
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition",
+		"https://api-inference.huggingface.co/models/<REPO_ID>",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"

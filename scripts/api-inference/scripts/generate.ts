@@ -271,7 +271,7 @@ function processPayloadSchema(schema: any): JsonObject[] {
           processSchemaNode(
             `${NBSP}(#${index + 1})`,
             subSchema,
-            isRequired,
+            false,
             parentPrefix + TABLE_INDENT,
           );
         });
