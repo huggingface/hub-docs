@@ -23,7 +23,7 @@ You can search for a word in the dataset by typing it in the search bar at the t
 ## Run SQL queries on the dataset
 
 You can run SQL queries on the dataset in the browser using the SQL Console. This feature also leverages our [auto-conversion to Parquet](datasets-viewer#access-the-parquet-files). 
-For more information see our guide on [SQL Console: Query the dataset in the browser](./datasets-viewer-sql-console).
+For more information see our guide on [SQL Console](./datasets-viewer-sql-console).
 
 ## Share a specific row
 
