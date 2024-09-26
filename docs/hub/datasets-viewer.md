@@ -22,7 +22,7 @@ You can search for a word in the dataset by typing it in the search bar at the t
 
 ## Using the SQL Console to query the dataset
 
-You can run SQL queries on the dataset in the browser using the SQL Console. The SQL Console is powered by [DuckDB](https://duckdb.org/) and runs entirely in the browser. You can access the SQL Console from the dataset page by clicking on the `SQL Console` tab.
+You can run SQL queries on the dataset in the browser using the SQL Console. The SQL Console is powered by [DuckDB](https://duckdb.org/) and runs entirely in the browser. You can access the SQL Console from the dataset page by clicking on the **SQL Console** badge.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/sql-console-histogram.png"/>
