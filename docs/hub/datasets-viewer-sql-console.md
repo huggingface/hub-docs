@@ -24,9 +24,9 @@ You can also use the DuckDB CLI to query the dataset via the `hf://` protocol. S
 </Tip>
 
 
-# Examples
+## Examples
 
-## Leakage Detection
+### Leakage Detection
 
 Leakage detection is the process of identifying whether data in a dataset is present in multiple splits, for example, whether the test set is present in the training set.
 
@@ -69,7 +69,7 @@ SELECT
 FROM overlapping_rows, total_unique_rows;
 ```
 
-## Filtering
+### Filtering
 
 The SQL Console makes filtering datasets really easily. For example, if you want to filter the `SkunkworksAI/reasoning-0.01` dataset for instructions and responses with a reasoning length of at least 10, you can use the following query:
 
@@ -89,7 +89,7 @@ order by reason_len desc
 
 The [bar](https://duckdb.org/docs/sql/functions/char.html#barx-min-max-width) function is a neat built-in DuckDB function that creates a bar chart of the reasoning lengths.
 
-## Histogram
+### Histogram
 
 Many dataset authors choose to include statistics about the distribution of the data in the dataset. Using the DuckDB `histogram` function, we can plot a histogram of a column's values.
 
@@ -107,7 +107,7 @@ For example, to plot a histogram of the `reason_len` column in the `SkunkworksAI
 from histogram(train, len(reasoning_chains))
 ```
 
-## Regex Matching
+### Regex Matching
 
 One of the most powerful features of DuckDB is the deep support for regular expressions. You can use the `regexp` function to match patterns in your data.
 
