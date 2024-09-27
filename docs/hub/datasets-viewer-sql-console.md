@@ -71,7 +71,7 @@ FROM overlapping_rows, total_unique_rows;
 
 ### Filtering
 
-The SQL Console makes filtering datasets really easily. For example, if you want to filter the `SkunkworksAI/reasoning-0.01` dataset for instructions and responses with a reasoning length of at least 10, you can use the following query:
+The SQL Console makes filtering datasets really easy. For example, if you want to filter the `SkunkworksAI/reasoning-0.01` dataset for instructions and responses with a reasoning length of at least 10, you can use the following query:
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/bar-struct-length.png"/>
