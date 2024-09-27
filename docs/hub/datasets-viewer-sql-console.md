@@ -26,49 +26,6 @@ You can also use the DuckDB CLI to query the dataset via the `hf://` protocol. S
 
 ## Examples
 
-### Leakage Detection
-
-Leakage detection is the process of identifying whether data in a dataset is present in multiple splits, for example, whether the test set is present in the training set.
-
-<div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/leakage-detection.png"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/leakage-detection-dark.png"/>
-</div>
-
-<p class="text-sm text-center italic">
-    Learn more about leakage detection <a href="https://huggingface.co/blog/lbourdois/lle">here</a>.
-</p>
-
-```sql
-WITH
-    overlapping_rows AS (
-        SELECT COALESCE(
-            (SELECT COUNT(*) AS overlap_count
-             FROM train
-             INTERSECT
-             SELECT COUNT(*) AS overlap_count
-             FROM test),
-            0
-        ) AS overlap_count
-    ),
-    total_unique_rows AS (
-        SELECT COUNT(*) AS total_count
-        FROM (
-            SELECT * FROM train
-            UNION
-            SELECT * FROM test
-        ) combined
-    )
-SELECT
-    overlap_count,
-    total_count,
-    CASE 
-        WHEN total_count > 0 THEN (overlap_count * 100.0 / total_count)
-        ELSE 0
-    END AS overlap_percentage
-FROM overlapping_rows, total_unique_rows;
-```
-
 ### Filtering
 
 The SQL Console makes filtering datasets really easy. For example, if you want to filter the `SkunkworksAI/reasoning-0.01` dataset for instructions and responses with a reasoning length of at least 10, you can use the following query:
@@ -127,4 +84,48 @@ SELECT *
 FROM train
 WHERE regexp_matches(instruction, '```[a-z]*\n')
 limit 100
+```
+
+
+### Leakage Detection
+
+Leakage detection is the process of identifying whether data in a dataset is present in multiple splits, for example, whether the test set is present in the training set.
+
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/leakage-detection.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/leakage-detection-dark.png"/>
+</div>
+
+<p class="text-sm text-center italic">
+    Learn more about leakage detection <a href="https://huggingface.co/blog/lbourdois/lle">here</a>.
+</p>
+
+```sql
+WITH
+    overlapping_rows AS (
+        SELECT COALESCE(
+            (SELECT COUNT(*) AS overlap_count
+             FROM train
+             INTERSECT
+             SELECT COUNT(*) AS overlap_count
+             FROM test),
+            0
+        ) AS overlap_count
+    ),
+    total_unique_rows AS (
+        SELECT COUNT(*) AS total_count
+        FROM (
+            SELECT * FROM train
+            UNION
+            SELECT * FROM test
+        ) combined
+    )
+SELECT
+    overlap_count,
+    total_count,
+    CASE 
+        WHEN total_count > 0 THEN (overlap_count * 100.0 / total_count)
+        ELSE 0
+    END AS overlap_percentage
+FROM overlapping_rows, total_unique_rows;
 ```
