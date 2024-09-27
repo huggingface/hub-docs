@@ -104,7 +104,7 @@ For example, to plot a histogram of the `reason_len` column in the `SkunkworksAI
 </p>
 
 ```sql
-from histogram(train, len(reasoning_chains))
+FROM histogram(train, len(reasoning_chains))
 ```
 
 ### Regex Matching
