@@ -81,10 +81,10 @@ The SQL Console makes filtering datasets really easily. For example, if you want
 In the query, we can use the `len` function to get the length of the `reasoning_chains` column and the `bar` function to create a bar chart of the reasoning lengths.
 
 ```sql
-select len(reasoning_chains) as reason_len, bar(reason_len, 0, 100), * 
-from train
-where reason_len > 10
-order by reason_len desc
+SELECT len(reasoning_chains) AS reason_len, bar(reason_len, 0, 100), * 
+FROM train
+WHERE reason_len > 10
+ORDER BY reason_len DESC
 ```
 
 The [bar](https://duckdb.org/docs/sql/functions/char.html#barx-min-max-width) function is a neat built-in DuckDB function that creates a bar chart of the reasoning lengths.
