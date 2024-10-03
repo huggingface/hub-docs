@@ -110,6 +110,7 @@ const HAS_SNIPPET_FN = {
   js: snippets.js.hasJsInferenceSnippet,
   python: snippets.python.hasPythonInferenceSnippet,
 } as const;
+
 interface MinimalModelData {
   id: string;
   pipeline_tag?: PipelineType;
@@ -118,6 +119,7 @@ interface MinimalModelData {
   config?: JsonObject;
   tags?: string[];
 }
+
 export function getInferenceSnippet(
   modelData: MinimalModelData,
   language: InferenceSnippetLanguage,

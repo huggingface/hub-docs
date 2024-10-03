@@ -24,6 +24,7 @@ For more details about the `table-question-answering` task, check out its [dedic
 
 ### Recommended models
 
+- [google/tapas-base-finetuned-wtq](https://huggingface.co/google/tapas-base-finetuned-wtq): A robust table question answering model.
 
 This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=table-question-answering&sort=trending).
 
@@ -34,7 +35,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/<REPO_ID> \
+curl https://api-inference.huggingface.co/models/google/tapas-base-finetuned-wtq \
 	-X POST \
 	-d '{"inputs": { "query": "How many stars does the transformers repository have?", "table": { "Repository": ["Transformers", "Datasets", "Tokenizers"], "Stars": ["36542", "4512", "3934"], "Contributors": ["651", "77", "34"], "Programming language": [ "Python", "Python", "Rust, Python and NodeJS" ] } }}' \
 	-H 'Content-Type: application/json' \
@@ -46,7 +47,7 @@ curl https://api-inference.huggingface.co/models/<REPO_ID> \
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/<REPO_ID>"
+API_URL = "https://api-inference.huggingface.co/models/google/tapas-base-finetuned-wtq"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -77,7 +78,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/<REPO_ID>",
+		"https://api-inference.huggingface.co/models/google/tapas-base-finetuned-wtq",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"
