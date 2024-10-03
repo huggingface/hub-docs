@@ -3,15 +3,17 @@
 > [!TIP]
 > You can now deploy any llama.cpp compatible GGUF on Hugging Face Endpoints, read more about it [here](https://huggingface.co/docs/inference-endpoints/en/others/llamacpp_container)
 
-Llama.cpp allows you to download and run inference on a GGUF simply by providing a path to the Hugging Face repo path and the file name. llama.cpp downloads the model checkpoint and automatically caches it. The location of the cache is defined by `LLAMA_CACHE` environment variable, read more about it [here](https://github.com/ggerganov/llama.cpp/pull/7826).
+Llama.cpp allows you to download and run inference on a GGUF simply by providing a path to the Hugging Face repo path and the file name. llama.cpp downloads the model checkpoint and automatically caches it. The location of the cache is defined by `LLAMA_CACHE` environment variable; read more about it [here](https://github.com/ggerganov/llama.cpp/pull/7826).
 
-Install llama.cpp through brew (works on Mac and Linux)
+You can install llama.cpp through brew (works on Mac and Linux), or you can build it from source. There are also pre-built binaries and Docker images that you can [check in the official documentation](https://github.com/ggerganov/llama.cpp?tab=readme-ov-file#usage).
+
+ ### Option 1: Install with brew
 
 ```bash
 brew install llama.cpp
 ```
 
-You can also use this checkpoint directly through the [usage steps](https://github.com/ggerganov/llama.cpp?tab=readme-ov-file#usage) listed in the Llama.cpp repo as well.
+### Option 2: build from source
 
 Step 1: Clone llama.cpp from GitHub.
 
