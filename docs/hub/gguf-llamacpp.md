@@ -1,6 +1,7 @@
 # GGUF usage with llama.cpp
 
-NEW: You can now deploy any llama.cpp compatible GGUF on Hugging Face Endpoints, read more about it [here](https://huggingface.co/docs/inference-endpoints/en/others/llamacpp_container)
+> [!TIP]
+> You can now deploy any llama.cpp compatible GGUF on Hugging Face Endpoints, read more about it [here](https://huggingface.co/docs/inference-endpoints/en/others/llamacpp_container)
 
 Llama.cpp allows you to download and run inference on a GGUF simply by providing a path to the Hugging Face repo path and the file name. llama.cpp downloads the model checkpoint and automatically caches it. The location of the cache is defined by `LLAMA_CACHE` environment variable, read more about it [here](https://github.com/ggerganov/llama.cpp/pull/7826).
 
@@ -27,7 +28,7 @@ cd llama.cpp && LLAMA_CURL=1 make
 Once installed, you can use the `llama-cli` or `llama-server` as follows:
 
 ```bash
-./llama-cli
+llama-cli
   --hf-repo lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF \
   --hf-file Meta-Llama-3-8B-Instruct-Q8_0.gguf \
   -p "You are a helpful assistant" -cnv
@@ -38,7 +39,7 @@ Note: You can remove `-cnv` to run the CLI in chat completion mode.
 Additionally, you can invoke an OpenAI spec chat completions endpoint directly using the llama.cpp server:
 
 ```bash
-./llama-server \
+llama-server \
   --hf-repo lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF \
   --hf-file Meta-Llama-3-8B-Instruct-Q8_0.gguf
 ```
