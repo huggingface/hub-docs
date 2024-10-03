@@ -39,7 +39,6 @@ curl https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-a
 	-X POST \
 	--data-binary '@cats.jpg' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

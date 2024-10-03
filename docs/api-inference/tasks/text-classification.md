@@ -43,7 +43,6 @@ curl https://api-inference.huggingface.co/models/distilbert/distilbert-base-unca
 	-d '{"inputs": "I like you. I love you"}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

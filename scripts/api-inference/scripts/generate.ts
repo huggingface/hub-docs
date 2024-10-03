@@ -1,4 +1,4 @@
-import { snippets, PipelineType } from "@huggingface/tasks";
+import { PipelineType, snippets } from "@huggingface/tasks";
 import Handlebars from "handlebars";
 import * as fs from "node:fs/promises";
 import * as path from "node:path/posix";
@@ -12,6 +12,7 @@ const TASKS: PipelineType[] = [
   "image-classification",
   "image-segmentation",
   "image-to-image",
+  "image-text-to-text",
   "object-detection",
   "question-answering",
   "summarization",
@@ -109,20 +110,21 @@ const HAS_SNIPPET_FN = {
   js: snippets.js.hasJsInferenceSnippet,
   python: snippets.python.hasPythonInferenceSnippet,
 } as const;
-
+interface MinimalModelData {
+  id: string;
+  pipeline_tag?: PipelineType;
+  mask_token?: string;
+  library_name?: string;
+  config?: JsonObject;
+  tags?: string[];
+}
 export function getInferenceSnippet(
-  id: string,
-  pipeline_tag: PipelineType,
+  modelData: MinimalModelData,
   language: InferenceSnippetLanguage,
 ): string | undefined {
-  const modelData = {
-    id,
-    pipeline_tag,
-    mask_token: "[MASK]",
-    library_name: "",
-    config: {},
-  };
+  // @ts-ignore
   if (HAS_SNIPPET_FN[language](modelData)) {
+    // @ts-ignore
     return GET_SNIPPET_FN[language](modelData, "hf_***");
   }
 }
@@ -373,15 +375,18 @@ await Promise.all(
           description: string;
           inference: string | undefined;
           config: JsonObject | undefined;
+          tags: string[];
         }) => {
           console.log(`   ⚡ Checking inference status ${model.id}`);
           let url = `https://huggingface.co/api/models/${model.id}?expand[]=inference`;
           if (task === "text-generation") {
             url += "&expand[]=config";
           }
+          url += "&expand[]=tags";
           const modelData = await fetch(url).then((res) => res.json());
           model.inference = modelData.inference;
           model.config = modelData.config;
+          model.tags = modelData.tags;
         },
       ),
     );
@@ -397,15 +402,32 @@ TASKS.forEach((task) => {
 });
 
 // Fetch snippets
-// TODO: render snippets only if they are available
 TASKS.forEach((task) => {
-  // Let's take as example the first available model that is recommended.
-  // Otherwise, fallback to "<REPO_ID>".
-  const mainModel = DATA.models[task][0]?.id ?? "<REPO_ID>";
+  const mainModel = DATA.models[task][0]; // Get the first recommended model for the task
+  const modelData = mainModel
+    ? {
+        id: mainModel.id,
+        pipeline_tag: task,
+        mask_token: "[MASK]",
+        library_name: "",
+        // @ts-ignore
+        config: mainModel.config,
+        // @ts-ignore
+        tags: mainModel.tags,
+      }
+    : {
+        id: "<REPO_ID>",
+        pipeline_tag: task,
+        mask_token: "[MASK]",
+        library_name: "",
+        config: {},
+        // @ts-ignore
+        tags: [],
+      };
   const taskSnippets = {
-    curl: getInferenceSnippet(mainModel, task, "curl"),
-    python: getInferenceSnippet(mainModel, task, "python"),
-    javascript: getInferenceSnippet(mainModel, task, "js"),
+    curl: getInferenceSnippet(modelData, "curl"),
+    python: getInferenceSnippet(modelData, "python"),
+    javascript: getInferenceSnippet(modelData, "js"),
   };
   DATA.snippets[task] = SNIPPETS_TEMPLATE({
     taskSnippets,
@@ -413,6 +435,7 @@ TASKS.forEach((task) => {
     taskAttached: task.replace("-", ""),
   });
 });
+
 
 // Render specs
 await Promise.all(
@@ -460,6 +483,8 @@ function fetchChatCompletion() {
     pipeline_tag: "text-generation",
     mask_token: "",
     library_name: "",
+    // @ts-ignore
+    tags: mainModel.tags,
     // @ts-ignore
     config: mainModel.config,
   };

@@ -43,7 +43,6 @@ curl https://api-inference.huggingface.co/models/<REPO_ID> \
 	-X POST \
 	--data-binary '@sample1.flac' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

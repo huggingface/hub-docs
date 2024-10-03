@@ -59,18 +59,15 @@ curl 'https://api-inference.huggingface.co/models/google/gemma-2-2b-it/v1/chat/c
 ```py
 from huggingface_hub import InferenceClient
 
-client = InferenceClient(
-    "google/gemma-2-2b-it",
-    token="hf_***",
-)
+client = InferenceClient(api_key="hf_***")
 
 for message in client.chat_completion(
+	model="google/gemma-2-2b-it",
 	messages=[{"role": "user", "content": "What is the capital of France?"}],
 	max_tokens=500,
 	stream=True,
 ):
     print(message.choices[0].delta.content, end="")
-
 ```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.chat_completion).
@@ -89,7 +86,6 @@ for await (const chunk of inference.chatCompletionStream({
 })) {
 	process.stdout.write(chunk.choices[0]?.delta?.content || "");
 }
-
 ```
 
 To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#chatcompletion).

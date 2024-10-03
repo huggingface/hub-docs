@@ -42,7 +42,6 @@ curl https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev \
 	-d '{"inputs": "Astronaut riding a horse"}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

@@ -39,7 +39,6 @@ curl https://api-inference.huggingface.co/models/google/vit-base-patch16-224 \
 	-X POST \
 	--data-binary '@cats.jpg' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

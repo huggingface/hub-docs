@@ -41,7 +41,6 @@ curl https://api-inference.huggingface.co/models/deepset/roberta-base-squad2 \
 	-d '{"inputs": { "question": "What is my name?", "context": "My name is Clara and I live in Berkeley." }}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 
