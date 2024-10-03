@@ -6,5 +6,5 @@ Serverless API is not meant to be used for heavy production applications. If you
 
 | User Tier           | Rate Limit                |
 |---------------------|---------------------------|
-| Signed-up Users     | 1000 requests per day     |
+| Signed-up Users     | 1.000 requests per day     |
 | PRO and Enterprise Users           | 20.000 requests per day    |
