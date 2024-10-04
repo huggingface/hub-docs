@@ -6,8 +6,8 @@ Integrating the Hub with your library provides many benefits, including:
 
 - Free model hosting for you and your users.
 - Built-in file versioning - even for huge files - made possible by [Git-LFS](https://git-lfs.github.com/).
-- All public models are powered by the [Inference API](https://huggingface.co/docs/api-inference/index).
-- In-browser widgets allow users to interact with your hosted models directly.
+- Community features (discussions, pull requests, likes).
+- Usage metrics for all models ran with your library.
 
 This tutorial will help you integrate the Hub into your library so your users can benefit from all the features offered by the Hub.
 
@@ -15,107 +15,84 @@ Before you begin, we recommend you create a [Hugging Face account](https://huggi
 
 If you need help with the integration, feel free to open an [issue](https://github.com/huggingface/huggingface_hub/issues/new/choose), and we would be more than happy to help you.
 
-## Installation
+## Implementation
 
-1. Install the `huggingface_hub` library with pip in your environment:
+Implementing an integration of a library with the Hub often means providing built-in methods to load models from the Hub and allow users to push new models to the Hub. In this section, we will cover the basics on how to do that using the `huggingface_hub` library. For more in-depth guidance, check out [this guide](https://huggingface.co/docs/huggingface_hub/guides/integrations). 
 
-   ```bash
-   python -m pip install huggingface_hub
-   ```
+### Installation
 
-2. Once you have successfully installed the `huggingface_hub` library, log in to your Hugging Face account:
+To integrate your library with the Hub, you will need to add `huggingface_hub` library as a dependency:
 
-   ```bash
-   huggingface-cli login
-   ```
+```bash
+pip install huggingface_hub
+```
 
-   ```bash
-        _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
-        _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
-        _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
-        _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
-        _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+For more details about `huggingface_hub` installation, check out [this guide](https://huggingface.co/docs/huggingface_hub/installation).
 
-        
-   Username: 
-   Password:
-   ```
+<Tip>
 
-3. Alternatively, if you prefer working from a Jupyter or Colaboratory notebook, login with `notebook_login`:
+In this guide, we will focus on Python libraries. If you've implemented your library in JavaScript, you can use [`@huggingface/hub`](https://www.npmjs.com/package/@huggingface/hub) instead. The rest of the logic (i.e. hosting files, code samples, etc.) does not depend on the code language.
 
-   ```python
-   >>> from huggingface_hub import notebook_login
-   >>> notebook_login()
-   ```
+```
+npm add @huggingface/hub
+```
 
-   `notebook_login` will launch a widget in your notebook from which you can enter your Hugging Face credentials.
+</Tip>
 
-## Download files from the Hub
+Once they have successfully installed the `huggingface_hub` library, users will need to authenticate. The easiest way to authenticate is to save the token on the machine. You can do that from the terminal using the `login()` command:
 
-Integration allows users to download your hosted files directly from the Hub using your library. 
+```
+huggingface-cli login
+```
 
-Use the `hf_hub_download` function to retrieve a URL and download files from your repository. Downloaded files are stored in your cache: `~/.cache/huggingface/hub`. You don't have to re-download the file the next time you use it, and for larger files, this can save a lot of time. Furthermore, if the repository is updated with a new version of the file, `huggingface_hub` will automatically download the latest version and store it in the cache for you. Users don't have to worry about updating their files.
+The command tells if you are already logged in and prompt you for your token. The token is then validated and saved in your `HF_HOME` directory (defaults to `~/.cache/huggingface/token`). Any script or library interacting with the Hub will use this token when sending requests.
+
+Alternatively, you can programmatically login using `login()` in a notebook or a script:
+
+```py
+from huggingface_hub import login
+login()
+```
+
+Authentication is optional when downloading files from public repos on the Hub.
+
+### Download files from the Hub
+
+Integrations allows users to download a model from the Hub and instantiate it directly from yours library. This is often made possible by providing a method (usually called `from_pretrained` or `load_from_hf`) that has be specific to your library. To instantiate a model from the Hub, your library has to:
+- download files from the Hub. This is what we will discuss now.
+- instantiate the Python model from these files.
+
+Use the [`hf_hub_download`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/file_download#huggingface_hub.hf_hub_download) method to download files from a repository on the Hub. Downloaded files are stored in the cache: `~/.cache/huggingface/hub`. Users won't have to re-download the file the next time they use it, which saves a lot of time for large files. Furthermore, if the repository is updated with a new version of the file, `huggingface_hub` will automatically download the latest version and store it in the cache. Users don't have to worry about updating their files manually.
 
 For example, download the `config.json` file from the [lysandre/arxiv-nlp](https://huggingface.co/lysandre/arxiv-nlp) repository:
 
 ```python
 >>> from huggingface_hub import hf_hub_download
->>> hf_hub_download(repo_id="lysandre/arxiv-nlp", filename="config.json")
+>>> config_path = hf_hub_download(repo_id="lysandre/arxiv-nlp", filename="config.json")
+>>> config_path
+'/home/lysandre/.cache/huggingface/hub/models--lysandre--arxiv-nlp/snapshots/894a9adde21d9a3e3843e6d5aeaaf01875c7fade/config.json'
 ```
 
-Download a specific version of the file by specifying the `revision` parameter. The `revision` parameter can be a branch name, tag, or commit hash. 
+`config_path` now contains a path to the downloaded file. You are guaranteed that the file exists and is up-to-date.
 
-The commit hash must be a full-length hash instead of the shorter 7-character commit hash:
+If your library needs to download an entire repository, use [`snapshot_download`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/file_download#huggingface_hub.snapshot_download). It will take care of downloading all the files in parallel. The return value is a path to the directory containing the downloaded files.
 
-```python
->>> from huggingface_hub import hf_hub_download
->>> hf_hub_download(repo_id="lysandre/arxiv-nlp", filename="config.json", revision="877b84a8f93f2d619faa2a6e514a32beef88ab0a")
+```py
+from huggingface_hub import snapshot_download
+snapshot_download(repo_id="lysandre/arxiv-nlp")
+'/home/lysandre/.cache/huggingface/hub/models--lysandre--arxiv-nlp/snapshots/894a9adde21d9a3e3843e6d5aeaaf01875c7fade'
 ```
 
-Use the `cache_dir` parameter to change where a file is stored:
+Many options exists to download files from a specific revision, to filter which files to download, to provide a custom cache directory, to download to a local directory, etc. Check out the [download guide](https://huggingface.co/docs/huggingface_hub/en/guides/download) for more details.
 
-```python
->>> from huggingface_hub import hf_hub_download
->>> hf_hub_download(repo_id="lysandre/arxiv-nlp", filename="config.json", cache_dir="/home/lysandre/test")
-```
+### Upload files to the Hub
 
-### Code sample
-
-We recommend adding a code snippet to explain how to use a model in your downstream library. 
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet-dark.png"/>
-</div>
-
-First, register your library by editing [model-libaries.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts).
-
-Then, add a code snippet by updating the [model-libraries-snippets.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries-snippets.ts) file with instructions for your model. For example, the [Asteroid](https://huggingface.co/asteroid-team) integration includes a brief code snippet for how to load and use an Asteroid model:
-
-```typescript
-const asteroid = (model: ModelData) =>
-`from asteroid.models import BaseModel
-  
-model = BaseModel.from_pretrained("${model.id}")`;
-```
-
-Doing so will also add a tag to your model so users can quickly identify models from your library.
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags-dark.png"/>
-</div>
-
-## Upload files to the Hub
-
-You might also want to provide a method for creating model repositories and uploading files to the Hub directly from your library. The `huggingface_hub` library offers two ways to assist you with creating repositories and uploading files:
+You might also want to provide a method so that users can push their own models to the Hub. This allows the community to build an ecosystem of models compatible with your library. The `huggingface_hub` library offers methods to create repositories and upload files:
 
 - `create_repo` creates a repository on the Hub.
-- `upload_file` directly uploads files to a repository on the Hub.
+- `upload_file` and `upload_folder` upload files to a repository on the Hub.
 
-### `create_repo`
-
-The `create_repo` method creates a repository on the Hub. Use the `name` parameter to provide a name for your repository:
+The `create_repo` method creates a repository on the Hub. Use the `repo_id` parameter to provide a name for your repository:
 
 ```python
 >>> from huggingface_hub import create_repo
@@ -125,9 +102,7 @@ The `create_repo` method creates a repository on the Hub. Use the `name` paramet
 
 When you check your Hugging Face account, you should now see a `test-model` repository under your namespace.
 
-### `upload_file`
-
-The `upload_file` method uploads files to the Hub. This method requires the following:
+The [`upload_file`](https://huggingface.co/docs/huggingface_hub/en/package_reference/hf_api#huggingface_hub.HfApi.upload_file) method uploads a file to the Hub. This method requires the following:
 
 - A path to the file to upload.
 - The final path in the repository.
@@ -145,51 +120,74 @@ For example:
 'https://huggingface.co/lysandre/test-model/blob/main/README.md'
 ```
 
-If you need to upload more than one file, look at the [utilities offered by the `Repository` class](https://huggingface.co/docs/huggingface_hub/package_reference/repository).
+If you check your Hugging Face account, you should see the file inside your repository.
 
-Once again, if you check your Hugging Face account, you should see the file inside your repository.
+Usually, a library will serialize the model to a local directory and then upload to the Hub the entire folder at once. This can be done using [`upload_folder`](https://huggingface.co/docs/huggingface_hub/en/package_reference/hf_api#huggingface_hub.HfApi.upload_folder):
 
-Lastly, it is important to add a model card so users understand how to use your model. See [here](./model-cards) for more details about how to create a model card.
+```py
+>>> from huggingface_hub import upload_folder
+>>> upload_folder(
+...     folder_path="/home/lysandre/dummy-test",
+...     repo_id="lysandre/test-model",
+... )
+```
 
-## Set up the Inference API
+For more details about how to upload files, check out the [upload guide](https://huggingface.co/docs/huggingface_hub/en/guides/upload).
 
-Our Inference API powers models uploaded to the Hub through your library.
+## Model cards
 
-### Create an Inference API Docker image 
+Model cards are files that accompany the models and provide handy information. Under the hood, model cards are simple Markdown files with additional metadata. Model cards are essential for discoverability, reproducibility, and sharing! You can find a model card as the README.md file in any model repo. See the [model cards guide](./model-cards) for more details about how to create a good model card.
 
-All third-party libraries are Dockerized, so you can install the dependencies you'll need for your library to work correctly. Add your library to the existing Docker images by navigating to the [Docker images folder](https://github.com/huggingface/api-inference-community/tree/main/docker_images).
+If your library allows pushing a model to the Hub, it is recommended to generate a minimal model card with prefilled metadata (typically `library_name`, `pipeline_tag` or `tags`) and information on how the model has been trained. This will help having a standardized description for all models built with your library.
 
-1. Copy the `common` folder and rename it with the name of your library (e.g. `docker/common` to `docker/your-awesome-library`).
-2. There are four files you need to edit:
-    * List the packages required for your library to work in `requirements.txt`.
-    * Update `app/main.py` with the tasks supported by your model (see [here](https://github.com/huggingface/api-inference-community) for a complete list of available tasks). Look out for the `IMPLEMENT_THIS` flag to add your supported task.
+## Register your library
 
-       ```python
-       ALLOWED_TASKS: Dict[str, Type[Pipeline]] = {
-           "token-classification": TokenClassificationPipeline
-       }
-       ```
+Well done! You should now have a library able to load a model from the Hub and eventually push new models. The next step is to make sure that your models on the Hub are well documented and integrated with the platform. To do so, libraries can be registered on the Hub, which comes with a few benefits for the users:
+- a pretty label can be shown on the model page (e.g. `KerasNLP` instead of `keras-nlp`)
+- a link to your library repository and documentation is added to each model page
+- a custom download count rule can be defined
+- code snippets can be generated to show how to load the model using your library 
 
-    * For each task your library supports, modify the `app/pipelines/task_name.py` files accordingly. We have also added an `IMPLEMENT_THIS` flag in the pipeline files to guide you. If there isn't a pipeline that supports your task, feel free to add one. Open an [issue](https://github.com/huggingface/huggingface.js/issues/new) here, and we will be happy to help you.
-    * Add your model and task to the `tests/test_api.py` file. For example, if you have a text generation model:
+To register a new library, please open a Pull Request [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts) following the instructions below:
+- The library id should be lowercased and hyphen-separated (example: `"adapter-transformers"`). Please make sure to preserve alphabetical order when opening the PR. 
+- set `repoName` and `prettyLabel` with user-friendly casing (example: `DeepForest`).
+- set `repoUrl` with a link to the library source code (usually a GitHub repository).
+- (optional) set `docsUrl` with a link to the docs of the library. If the documentation is in the GitHub repo referenced above, no need to set it twice.
+- set `filter` to `false`.
+- (optional) define how downloads must be counted by setting `countDownload`. Downloads can be tracked by file extensions or filenames. Please make sure to not duplicate the counting. For instance, if loading a model requires 3 files, the download count rule must count downloads only on 1 of the 3 files. Otherwise, the download count will be overestimated.
+**Note:** if the library uses one of the default config files (`config.json`, `config.yaml`, `hyperparams.yaml`, and `meta.yaml`, see [here](https://huggingface.co/docs/hub/models-download-stats#which-are-the-query-files-for-different-libraries)), there is no need to manually define a download count rule.
+- [ ] (optional) define `snippets` to let the user know how they can quickly instantiate a model. More details below.
 
-       ```python
-       TESTABLE_MODELS: Dict[str,str] = {
-           "text-generation": "my-gpt2-model"
-       }
-       ```
-3. Finally, run the following test to ensure everything works as expected:
+Before opening the PR, please make sure that at least one model should be referenced on https://huggingface.co/models?other=my-library-name. If not, the model card metadata of the relevant models must be updated with `library_name: my-library-name` (see [example](https://huggingface.co/google/gemma-scope/blob/main/README.md?code=true#L3)). If you are not the owner of the models on the Hub, please open PRs (see [example](https://huggingface.co/MCG-NJU/VFIMamba/discussions/1)).
 
-    ```bash
-    pytest -sv --rootdir docker_images/your-awesome-library/docker_images/your-awesome-library/
-    ```
+Here is a minimal [example](https://github.com/huggingface/huggingface.js/pull/561/files) adding integration for Grok-1.
 
-### Register your libraries supported tasks on the hub
+### Code snippets
 
-To register the tasks supported by your library on the hub you'll need to add a mapping from your library name to its supported tasks in [library-to-tasks.ts file](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/library-to-tasks.ts). This will ensure the inference API is registered for tasks supported by your model. This file is automatically generated as part of a [GitHub Action](https://github.com/huggingface/api-inference-community/actions/workflows/python-api-export-tasks.yaml) in the [
-api-inference-community repository](https://github.com/huggingface/api-inference-community) repository. You can see an example of this [here](https://github.com/huggingface/api-inference-community/actions/runs/5126874210/jobs/9221890853#step:5:8).
+We recommend adding a code snippet to explain how to use a model in your downstream library. 
 
-With these simple but powerful methods, you brought the full functionality of the Hub into your library. Users can download files stored on the Hub from your library with `hf_hub_download`, create repositories with `create_repo`, and upload files with `upload_file`. You also set up Inference API with your library, allowing users to interact with your models on the Hub from inside a browser.
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/code_snippet-dark.png"/>
+</div>
+
+To add a code snippet, you should update the [model-libraries-snippets.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries-snippets.ts) file with instructions for your model. For example, the [Asteroid](https://huggingface.co/asteroid-team) integration includes a brief code snippet for how to load and use an Asteroid model:
+
+```typescript
+const asteroid = (model: ModelData) =>
+`from asteroid.models import BaseModel
+  
+model = BaseModel.from_pretrained("${model.id}")`;
+```
+
+Doing so will also add a tag to your model so users can quickly identify models from your library.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags-dark.png"/>
+</div>
+
+Once your snippet has been added to [model-libraries-snippets.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries-snippets.ts), you can reference it in [model-libraries.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts) as described above.
 
 ## Document your library
 

@@ -12,7 +12,7 @@ By default, the Hub looks at `config.json`, `config.yaml`, `hyperparams.yaml`, a
 
 ## Can I add my query files for my library? 
 
-Yes, you can open a Pull Request [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts). Here is a minimal [example](https://github.com/huggingface/huggingface.js/pull/561/files) adding download metrics for Grok-1.
+Yes, you can open a Pull Request [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts). Here is a minimal [example](https://github.com/huggingface/huggingface.js/pull/561/files) adding download metrics for Grok-1. Check out the [integration guide](./models-adding-libraries.md#register-your-library) for more details.
 
 ## How are `GGUF` files handled?
 
