@@ -14,20 +14,20 @@ For more details, check out:
 
 ## Chat Completion
 
-Generate a response given a list of messages.
-This is a subtask of [`text-generation`](./text_generation) designed to generate responses in a conversational context.
-
-
+Generate a response given a list of messages in a conversational context, supporting both conversational Language Models (LLMs) and conversational Vision-Language Models (VLMs).
+This is a subtask of [`text-generation`](./text_generation) and [`image-text-to-text`](./image_text_to_text).
 
 ### Recommended models
 
+#### Conversational Large Language Models (LLMs)
 - [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it): A text-generation model trained to follow instructions.
 - [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct): Very powerful text generation model trained to follow instructions.
 - [microsoft/Phi-3-mini-4k-instruct](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct): Small yet powerful text generation model.
 - [HuggingFaceH4/starchat2-15b-v0.1](https://huggingface.co/HuggingFaceH4/starchat2-15b-v0.1): Strong coding assistant model.
 - [mistralai/Mistral-Nemo-Instruct-2407](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407): Very strong open-source large language model.
 
-
+#### Conversational Vision-Language Models (VLMs)
+- [microsoft/Phi-3.5-vision-instruct](https://huggingface.co/microsoft/Phi-3.5-vision-instruct): Strong image-text-to-text model.
 
 ### Using the API
 
@@ -36,6 +36,8 @@ The API supports:
 * Using the chat completion API compatible with the OpenAI SDK.
 * Using grammars, constraints, and tools.
 * Streaming the output
+
+#### Code snippet example for conversational LLMs
 
 
 <inferencesnippet>
@@ -70,7 +72,7 @@ for message in client.chat_completion(
     print(message.choices[0].delta.content, end="")
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.chat_completion).
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.conversational_text-generation).
 </python>
 
 <js>
@@ -88,7 +90,94 @@ for await (const chunk of inference.chatCompletionStream({
 }
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#chatcompletion).
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#conversationaltext-generation).
+</js>
+
+</inferencesnippet>
+
+
+
+#### Code snippet example for conversational VLMs
+
+
+<inferencesnippet>
+
+<curl>
+```bash
+curl 'https://api-inference.huggingface.co/models/microsoft/Phi-3.5-vision-instruct/v1/chat/completions' \
+-H "Authorization: Bearer hf_***" \
+-H 'Content-Type: application/json' \
+-d '{
+	"model": "microsoft/Phi-3.5-vision-instruct",
+	"messages": [
+		{
+			"role": "user",
+			"content": [
+				{"type": "image_url", "image_url": {"url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"}},
+				{"type": "text", "text": "Describe this image in one sentence."}
+			]
+		}
+	],
+	"max_tokens": 500,
+	"stream": false
+}'
+
+```
+</curl>
+
+<python>
+```py
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(api_key="hf_***")
+
+image_url = "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+
+for message in client.chat_completion(
+	model="microsoft/Phi-3.5-vision-instruct",
+	messages=[
+		{
+			"role": "user",
+			"content": [
+				{"type": "image_url", "image_url": {"url": image_url}},
+				{"type": "text", "text": "Describe this image in one sentence."},
+			],
+		}
+	],
+	max_tokens=500,
+	stream=True,
+):
+	print(message.choices[0].delta.content, end="")
+```
+
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.conversational_image-text-to-text).
+</python>
+
+<js>
+```js
+import { HfInference } from "@huggingface/inference";
+
+const inference = new HfInference("hf_***");
+const imageUrl = "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg";
+
+for await (const chunk of inference.chatCompletionStream({
+	model: "microsoft/Phi-3.5-vision-instruct",
+	messages: [
+		{
+			"role": "user",
+			"content": [
+				{"type": "image_url", "image_url": {"url": imageUrl}},
+				{"type": "text", "text": "Describe this image in one sentence."},
+			],
+		}
+	],
+	max_tokens: 500,
+})) {
+	process.stdout.write(chunk.choices[0]?.delta?.content || "");
+}
+```
+
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#conversationalimage-text-to-text).
 </js>
 
 </inferencesnippet>

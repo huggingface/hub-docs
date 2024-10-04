@@ -111,19 +111,19 @@ const HAS_SNIPPET_FN = {
   python: snippets.python.hasPythonInferenceSnippet,
 } as const;
 
-interface MinimalModelData {
-  id: string;
-  pipeline_tag?: PipelineType;
-  mask_token?: string;
-  library_name?: string;
-  config?: JsonObject;
-  tags?: string[];
-}
-
 export function getInferenceSnippet(
-  modelData: MinimalModelData,
+  id: string,
+  pipeline_tag: PipelineType,
   language: InferenceSnippetLanguage,
 ): string | undefined {
+  const modelData = {
+    id,
+    pipeline_tag,
+    mask_token: "[MASK]",
+    library_name: "",
+    config: {},
+    tags: [],
+  };
   // @ts-ignore
   if (HAS_SNIPPET_FN[language](modelData)) {
     // @ts-ignore
@@ -320,7 +320,6 @@ For more details about the \`{{task}}\` task, check out its [dedicated page](htt
 const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
   `This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`,
 );
-
 const SPECS_HEADERS = await readTemplate("specs-headers", "common");
 const PAGE_HEADER = Handlebars.compile(
   await readTemplate("page-header", "common"),
@@ -377,18 +376,15 @@ await Promise.all(
           description: string;
           inference: string | undefined;
           config: JsonObject | undefined;
-          tags: string[];
         }) => {
           console.log(`   ⚡ Checking inference status ${model.id}`);
           let url = `https://huggingface.co/api/models/${model.id}?expand[]=inference`;
-          if (task === "text-generation") {
+          if (task === "text-generation" || task === "image-text-to-text") {
             url += "&expand[]=config";
           }
-          url += "&expand[]=tags";
           const modelData = await fetch(url).then((res) => res.json());
           model.inference = modelData.inference;
           model.config = modelData.config;
-          model.tags = modelData.tags;
         },
       ),
     );
@@ -404,32 +400,15 @@ TASKS.forEach((task) => {
 });
 
 // Fetch snippets
+// TODO: render snippets only if they are available
 TASKS.forEach((task) => {
-  const mainModel = DATA.models[task][0]; // Get the first recommended model for the task
-  const modelData = mainModel
-    ? {
-        id: mainModel.id,
-        pipeline_tag: task,
-        mask_token: "[MASK]",
-        library_name: "",
-        // @ts-ignore
-        config: mainModel.config,
-        // @ts-ignore
-        tags: mainModel.tags,
-      }
-    : {
-        id: "<REPO_ID>",
-        pipeline_tag: task,
-        mask_token: "[MASK]",
-        library_name: "",
-        config: {},
-        // @ts-ignore
-        tags: [],
-      };
+  // Let's take as example the first available model that is recommended.
+  // Otherwise, fallback to "<REPO_ID>".
+  const mainModel = DATA.models[task][0]?.id ?? "<REPO_ID>";
   const taskSnippets = {
-    curl: getInferenceSnippet(modelData, "curl"),
-    python: getInferenceSnippet(modelData, "python"),
-    javascript: getInferenceSnippet(modelData, "js"),
+    curl: getInferenceSnippet(mainModel, task, "curl"),
+    python: getInferenceSnippet(mainModel, task, "python"),
+    javascript: getInferenceSnippet(mainModel, task, "js"),
   };
   DATA.snippets[task] = SNIPPETS_TEMPLATE({
     taskSnippets,
@@ -471,37 +450,54 @@ TASKS.forEach((task) => {
 ///////////////////////////////////////////////
 
 function fetchChatCompletion() {
-  // Recommended models based on text-generation
-  DATA.models["chat-completion"] = DATA.models["text-generation"].filter(
-    // @ts-ignore
-    (model) => model.config?.tokenizer_config?.chat_template,
-  );
+  const conversationalTasks = [
+    {
+      name: "conversational-text-generation",
+      baseName: "text-generation",
+      pipelineTag: "text-generation"
+    },
+    {
+      name: "conversational-image-text-to-text",
+      baseName: "image-text-to-text",
+      pipelineTag: "image-text-to-text"
+    }
+  ];
 
-  // Snippet specific to chat completion
-  const mainModel = DATA.models["chat-completion"][0];
-  const mainModelData = {
-    // @ts-ignore
-    id: mainModel.id,
-    pipeline_tag: "text-generation",
-    mask_token: "",
-    library_name: "",
-    // @ts-ignore
-    tags: mainModel.tags,
-    // @ts-ignore
-    config: mainModel.config,
-  };
-  const taskSnippets = {
-    // @ts-ignore
-    curl: GET_SNIPPET_FN["curl"](mainModelData, "hf_***"),
-    // @ts-ignore
-    python: GET_SNIPPET_FN["python"](mainModelData, "hf_***"),
-    // @ts-ignore
-    javascript: GET_SNIPPET_FN["js"](mainModelData, "hf_***"),
-  };
-  DATA.snippets["chat-completion"] = SNIPPETS_TEMPLATE({
-    taskSnippets,
-    taskSnakeCase: "chat-completion".replace("-", "_"),
-    taskAttached: "chat-completion".replace("-", ""),
+  conversationalTasks.forEach(task => {
+    // Recommended models based on the base task
+    DATA.models[task.name] = DATA.models[task.baseName].filter(
+      // @ts-ignore
+      (model) => model.config?.tokenizer_config?.chat_template,
+    );
+
+    const mainModel = DATA.models[task.name][0];
+    const mainModelData = {
+      // @ts-ignore
+      id: mainModel.id,
+      pipeline_tag: task.pipelineTag,
+      mask_token: "",
+      library_name: "",
+      // @ts-ignore
+      tags: ["conversational"],
+      // @ts-ignore
+      config: mainModel.config,
+    };
+
+    const taskSnippets = {
+      // @ts-ignore
+      curl: GET_SNIPPET_FN["curl"](mainModelData, "hf_***"),
+      // @ts-ignore
+      python: GET_SNIPPET_FN["python"](mainModelData, "hf_***"),
+      // @ts-ignore
+      javascript: GET_SNIPPET_FN["js"](mainModelData, "hf_***"),
+    };
+
+    DATA.snippets[task.name] = SNIPPETS_TEMPLATE({
+      taskSnippets,
+      taskSnakeCase: task.name.replace("-", "_"),
+      taskAttached: task.name.replace("-", ""),
+    });
+
   });
 }
 
