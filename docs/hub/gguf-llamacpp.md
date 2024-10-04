@@ -48,21 +48,21 @@ llama-server \
 
 After running the server you can simply utilise the endpoint as below:
 
-```
+```bash
 curl http://localhost:8080/v1/chat/completions \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer no-key" \
 -d '{
 "messages": [
-{
-    "role": "system",
-    "content": "You are an AI assistant. Your top priority is achieving user fulfilment via helping them with their requests."
-},
-{
-    "role": "user",
-    "content": "Write a limerick about Python exceptions"
-}
-]
+    {
+        "role": "system",
+        "content": "You are an AI assistant. Your top priority is achieving user fulfilment via helping them with their requests."
+    },
+    {
+        "role": "user",
+        "content": "Write a limerick about Python exceptions"
+    }
+  ]
 }'
 ```
 
