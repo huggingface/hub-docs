@@ -182,11 +182,6 @@ model = BaseModel.from_pretrained("${model.id}")`;
 
 Doing so will also add a tag to your model so users can quickly identify models from your library.
 
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-tags-dark.png"/>
-</div>
-
 Once your snippet has been added to [model-libraries-snippets.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries-snippets.ts), you can reference it in [model-libraries.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts) as described above.
 
 ## Document your library
