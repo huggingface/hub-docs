@@ -149,16 +149,16 @@ Well done! You should now have a library able to load a model from the Hub and e
 - code snippets can be generated to show how to load the model using your library 
 
 To register a new library, please open a Pull Request [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts) following the instructions below:
-- The library id should be lowercased and hyphen-separated (example: `"adapter-transformers"`). Please make sure to preserve alphabetical order when opening the PR. 
+- The library id should be lowercased and hyphen-separated (example: `"adapter-transformers"`). Make sure to preserve alphabetical order when opening the PR.
 - set `repoName` and `prettyLabel` with user-friendly casing (example: `DeepForest`).
 - set `repoUrl` with a link to the library source code (usually a GitHub repository).
 - (optional) set `docsUrl` with a link to the docs of the library. If the documentation is in the GitHub repo referenced above, no need to set it twice.
 - set `filter` to `false`.
-- (optional) define how downloads must be counted by setting `countDownload`. Downloads can be tracked by file extensions or filenames. Please make sure to not duplicate the counting. For instance, if loading a model requires 3 files, the download count rule must count downloads only on 1 of the 3 files. Otherwise, the download count will be overestimated.
+- (optional) define how downloads must be counted by setting `countDownload`. Downloads can be tracked by file extensions or filenames. Make sure to not duplicate the counting. For instance, if loading a model requires 3 files, the download count rule must count downloads only on 1 of the 3 files. Otherwise, the download count will be overestimated.
 **Note:** if the library uses one of the default config files (`config.json`, `config.yaml`, `hyperparams.yaml`, and `meta.yaml`, see [here](https://huggingface.co/docs/hub/models-download-stats#which-are-the-query-files-for-different-libraries)), there is no need to manually define a download count rule.
 - (optional) define `snippets` to let the user know how they can quickly instantiate a model. More details below.
 
-Before opening the PR, please make sure that at least one model should be referenced on https://huggingface.co/models?other=my-library-name. If not, the model card metadata of the relevant models must be updated with `library_name: my-library-name` (see [example](https://huggingface.co/google/gemma-scope/blob/main/README.md?code=true#L3)). If you are not the owner of the models on the Hub, please open PRs (see [example](https://huggingface.co/MCG-NJU/VFIMamba/discussions/1)).
+Before opening the PR, make sure that at least one model is referenced on https://huggingface.co/models?other=my-library-name. If not, the model card metadata of the relevant models must be updated with `library_name: my-library-name` (see [example](https://huggingface.co/google/gemma-scope/blob/main/README.md?code=true#L3)). If you are not the owner of the models on the Hub, please open PRs (see [example](https://huggingface.co/MCG-NJU/VFIMamba/discussions/1)).
 
 Here is a minimal [example](https://github.com/huggingface/huggingface.js/pull/561/files) adding integration for Grok-1.
 
