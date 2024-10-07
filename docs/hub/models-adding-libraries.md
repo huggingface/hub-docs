@@ -78,8 +78,8 @@ For example, download the `config.json` file from the [lysandre/arxiv-nlp](https
 If your library needs to download an entire repository, use [`snapshot_download`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/file_download#huggingface_hub.snapshot_download). It will take care of downloading all the files in parallel. The return value is a path to the directory containing the downloaded files.
 
 ```py
-from huggingface_hub import snapshot_download
-snapshot_download(repo_id="lysandre/arxiv-nlp")
+>>> from huggingface_hub import snapshot_download
+>>> snapshot_download(repo_id="lysandre/arxiv-nlp")
 '/home/lysandre/.cache/huggingface/hub/models--lysandre--arxiv-nlp/snapshots/894a9adde21d9a3e3843e6d5aeaaf01875c7fade'
 ```
 
