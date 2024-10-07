@@ -156,7 +156,7 @@ To register a new library, please open a Pull Request [here](https://github.com/
 - set `filter` to `false`.
 - (optional) define how downloads must be counted by setting `countDownload`. Downloads can be tracked by file extensions or filenames. Please make sure to not duplicate the counting. For instance, if loading a model requires 3 files, the download count rule must count downloads only on 1 of the 3 files. Otherwise, the download count will be overestimated.
 **Note:** if the library uses one of the default config files (`config.json`, `config.yaml`, `hyperparams.yaml`, and `meta.yaml`, see [here](https://huggingface.co/docs/hub/models-download-stats#which-are-the-query-files-for-different-libraries)), there is no need to manually define a download count rule.
-- [ ] (optional) define `snippets` to let the user know how they can quickly instantiate a model. More details below.
+- (optional) define `snippets` to let the user know how they can quickly instantiate a model. More details below.
 
 Before opening the PR, please make sure that at least one model should be referenced on https://huggingface.co/models?other=my-library-name. If not, the model card metadata of the relevant models must be updated with `library_name: my-library-name` (see [example](https://huggingface.co/google/gemma-scope/blob/main/README.md?code=true#L3)). If you are not the owner of the models on the Hub, please open PRs (see [example](https://huggingface.co/MCG-NJU/VFIMamba/discussions/1)).
 
