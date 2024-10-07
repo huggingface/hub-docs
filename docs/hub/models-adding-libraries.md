@@ -17,7 +17,7 @@ If you need help with the integration, feel free to open an [issue](https://gith
 
 ## Implementation
 
-Implementing an integration of a library with the Hub often means providing built-in methods to load models from the Hub and allow users to push new models to the Hub. In this section, we will cover the basics on how to do that using the `huggingface_hub` library. For more in-depth guidance, check out [this guide](https://huggingface.co/docs/huggingface_hub/guides/integrations). 
+Implementing an integration of a library with the Hub often means providing built-in methods to load models from the Hub and allow users to push new models to the Hub. This section will cover the basics of how to do that using the `huggingface_hub` library. For more in-depth guidance, check out [this guide](https://huggingface.co/docs/huggingface_hub/guides/integrations). 
 
 ### Installation
 
@@ -39,13 +39,13 @@ npm add @huggingface/hub
 
 </Tip>
 
-Once they have successfully installed the `huggingface_hub` library, users will need to authenticate. The easiest way to authenticate is to save the token on the machine. You can do that from the terminal using the `login()` command:
+Users will need to authenticate once they have successfully installed the `huggingface_hub` library. The easiest way to authenticate is to save the token on the machine. You can do that from the terminal using the `login()` command:
 
 ```
 huggingface-cli login
 ```
 
-The command tells if you are already logged in and prompt you for your token. The token is then validated and saved in your `HF_HOME` directory (defaults to `~/.cache/huggingface/token`). Any script or library interacting with the Hub will use this token when sending requests.
+The command tells you if you are already logged in and prompts you for your token. The token is then validated and saved in your `HF_HOME` directory (defaults to `~/.cache/huggingface/token`). Any script or library interacting with the Hub will use this token when sending requests.
 
 Alternatively, you can programmatically login using `login()` in a notebook or a script:
 
@@ -58,7 +58,7 @@ Authentication is optional when downloading files from public repos on the Hub.
 
 ### Download files from the Hub
 
-Integrations allows users to download a model from the Hub and instantiate it directly from yours library. This is often made possible by providing a method (usually called `from_pretrained` or `load_from_hf`) that has be specific to your library. To instantiate a model from the Hub, your library has to:
+Integrations allow users to download a model from the Hub and instantiate it directly from your library. This is often made possible by providing a method (usually called `from_pretrained` or `load_from_hf`) that has to be specific to your library. To instantiate a model from the Hub, your library has to:
 - download files from the Hub. This is what we will discuss now.
 - instantiate the Python model from these files.
 
@@ -142,7 +142,7 @@ If your library allows pushing a model to the Hub, it is recommended to generate
 
 ## Register your library
 
-Well done! You should now have a library able to load a model from the Hub and eventually push new models. The next step is to make sure that your models on the Hub are well documented and integrated with the platform. To do so, libraries can be registered on the Hub, which comes with a few benefits for the users:
+Well done! You should now have a library able to load a model from the Hub and eventually push new models. The next step is to make sure that your models on the Hub are well-documented and integrated with the platform. To do so, libraries can be registered on the Hub, which comes with a few benefits for the users:
 - a pretty label can be shown on the model page (e.g. `KerasNLP` instead of `keras-nlp`)
 - a link to your library repository and documentation is added to each model page
 - a custom download count rule can be defined
