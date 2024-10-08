@@ -1,6 +1,6 @@
 # Integrate your library with the Hub
 
-The Hugging Face Hub aims to facilitate sharing machine learning models, checkpoints, and artifacts. This endeavor includes integrating the Hub into many of the amazing third-party libraries in the community. Some of the ones already integrated include [spaCy](https://spacy.io/usage/projects#huggingface_hub), [AllenNLP](https://allennlp.org/), and [timm](https://rwightman.github.io/pytorch-image-models/), among many others. Integration means users can download and upload files to the Hub directly from your library. We hope you will integrate your library and join us in democratizing artificial intelligence for everyone.
+The Hugging Face Hub aims to facilitate sharing machine learning models, checkpoints, and artifacts. This endeavor includes integrating the Hub into many of the amazing third-party libraries in the community. Some of the ones already integrated include [spaCy](https://spacy.io/usage/projects#huggingface_hub), [Sentence Transformers](https://sbert.net/), [OpenCLIP](https://github.com/mlfoundations/open_clip), and [timm](https://huggingface.co/docs/timm/index), among many others. Integration means users can download and upload files to the Hub directly from your library. We hope you will integrate your library and join us in democratizing artificial intelligence for everyone.
 
 Integrating the Hub with your library provides many benefits, including:
 
