@@ -47,7 +47,6 @@ curl https://api-inference.huggingface.co/models/google/gemma-2-2b-it \
 	-d '{"inputs": "Can you please let us know more details about your "}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

@@ -43,7 +43,6 @@ curl https://api-inference.huggingface.co/models/dslim/bert-base-NER \
 	-d '{"inputs": "My name is Sarah Jessica Parker but you can call me Jessica"}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

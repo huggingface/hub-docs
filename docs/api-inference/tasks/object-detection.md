@@ -40,7 +40,6 @@ curl https://api-inference.huggingface.co/models/facebook/detr-resnet-50 \
 	-X POST \
 	--data-binary '@cats.jpg' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

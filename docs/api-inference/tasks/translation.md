@@ -40,7 +40,6 @@ curl https://api-inference.huggingface.co/models/google-t5/t5-base \
 	-d '{"inputs": "Меня зовут Вольфганг и я живу в Берлине"}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

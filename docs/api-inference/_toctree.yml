@@ -30,6 +30,8 @@
       title: Image Segmentation
     - local: tasks/image-to-image
       title: Image to Image
+    - local: tasks/image-text-to-text
+      title: Image-Text to Text
     - local: tasks/object-detection
       title: Object Detection
     - local: tasks/question-answering

@@ -41,7 +41,6 @@ curl https://api-inference.huggingface.co/models/google-bert/bert-base-uncased \
 	-d '{"inputs": "The answer to the universe is [MASK]."}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

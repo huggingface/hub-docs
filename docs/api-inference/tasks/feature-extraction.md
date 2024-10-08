@@ -45,7 +45,6 @@ curl https://api-inference.huggingface.co/models/thenlper/gte-large \
 	-d '{"inputs": "Today is a sunny day and I will get some ice cream."}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 
