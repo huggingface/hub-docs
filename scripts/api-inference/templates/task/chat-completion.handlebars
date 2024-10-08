@@ -6,11 +6,13 @@ This is a subtask of [`text-generation`](https://huggingface.co/docs/api-inferen
 ### Recommended models
 
 #### Conversational Large Language Models (LLMs)
-{{#each models.conversational-text-generation}}
+
+{{#each models.chat-completion}}
 - [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
 {{/each}}
 
 #### Conversational Vision-Language Models (VLMs)
+
 {{#each models.conversational-image-text-to-text}}
 - [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
 {{/each}}
@@ -25,7 +27,7 @@ The API supports:
 
 #### Code snippet example for conversational LLMs
 
-{{{snippets.conversational-text-generation}}}
+{{{snippets.chat-completion}}}
 
 #### Code snippet example for conversational VLMs
 

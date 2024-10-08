@@ -450,9 +450,10 @@ TASKS.forEach((task) => {
 ///////////////////////////////////////////////
 
 function fetchChatCompletion() {
+  const baseName = "chat-completion";
   const conversationalTasks = [
     {
-      name: "conversational-text-generation",
+      name: "chat-completion",
       baseName: "text-generation",
       pipelineTag: "text-generation"
     },
@@ -491,11 +492,10 @@ function fetchChatCompletion() {
       // @ts-ignore
       javascript: GET_SNIPPET_FN["js"](mainModelData, "hf_***"),
     };
-
     DATA.snippets[task.name] = SNIPPETS_TEMPLATE({
       taskSnippets,
-      taskSnakeCase: task.name.replace("-", "_"),
-      taskAttached: task.name.replace("-", ""),
+      taskSnakeCase: baseName.replace("-", "_"),
+      taskAttached: baseName.replace("-", ""),
     });
 
   });
