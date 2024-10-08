@@ -160,7 +160,7 @@ To register a new library, please open a Pull Request [here](https://github.com/
 
 Before opening the PR, make sure that at least one model is referenced on https://huggingface.co/models?other=my-library-name. If not, the model card metadata of the relevant models must be updated with `library_name: my-library-name` (see [example](https://huggingface.co/google/gemma-scope/blob/main/README.md?code=true#L3)). If you are not the owner of the models on the Hub, please open PRs (see [example](https://huggingface.co/MCG-NJU/VFIMamba/discussions/1)).
 
-Here is a minimal [example](https://github.com/huggingface/huggingface.js/pull/561/files) adding integration for Grok-1.
+Here is a minimal [example](https://github.com/huggingface/huggingface.js/pull/885/files) adding integration for VFIMamba.
 
 ### Code snippets
 
