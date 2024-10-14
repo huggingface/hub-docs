@@ -24,6 +24,7 @@ The Serverless Inference API offers a fast and free way to explore thousands of 
 - 🚀 **Instant Prototyping:** Access powerful models without setup.
 - 🎯 **Diverse Use Cases:** One API for text, image, and beyond.
 - 🔧 **Developer-Friendly:** Simple requests, fast responses.
+- 💬 **Get Started quickly**: With the [Inference Playground](https://huggingface.co/playground) for Chat Completion models.
 
 ---
 
