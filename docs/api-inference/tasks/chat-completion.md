@@ -34,7 +34,7 @@ For Chat Completion models, we provide an interactive UI Playground for easier t
 
 - Quickly iterate on your prompts from the UI.
 - Set and override system, assistant and user messages.
-- Browse and select models currently available in the Inference API.
+- Browse and select models currently available on the Inference API.
 - Compare the output of two models side-by-side.
 - Adjust requests parameters from the UI.
 - Easily switch between UI view and code snippets.
