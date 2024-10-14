@@ -36,7 +36,7 @@ For Chat Completion models, we provide an interactive UI Playground for easier t
 - Set and override system, assistant and user messages.
 - Browse and select models currently available in the Inference API.
 - Compare the output of two models side-by-side.
-- Adjust prompt parameters from the UI.
+- Adjust requests parameters from the UI.
 - Easily switch between UI view and code snippets.
 
 Access the Inference UI Playground and start exploring: [https://huggingface.co/playground](https://huggingface.co/playground)
