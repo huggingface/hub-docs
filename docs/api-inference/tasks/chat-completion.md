@@ -28,6 +28,18 @@ This is a subtask of [`text-generation`](./text_generation) designed to generate
 - [mistralai/Mistral-Nemo-Instruct-2407](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407): Very strong open-source large language model.
 
 
+### API Playground
+
+For Chat Completion models, we provide an interactive UI Playground for easier testing:
+
+- Quickly iterate on your prompts from the UI.
+- Set and override system, assistant and user messages.
+- Browse and select models currently available in the Inference API.
+- Compare the output of two models side-by-side.
+- Adjust prompt parameters from the UI.
+- Easily switch between UI view and code snippets.
+
+Access the Inference UI Playground and start exploring: [https://huggingface.co/playground](https://huggingface.co/playground)
 
 ### Using the API
 
