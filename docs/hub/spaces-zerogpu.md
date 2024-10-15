@@ -71,7 +71,7 @@ Note: The `@spaces.GPU` decorator is designed to be effect-free in non-ZeroGPU e
 
 ## Duration Management
 
-For functions expected to exceed the default 60-second runtime, specify a custom duration:
+For functions expected to exceed the default 60-second of GPU runtime, you can specify a custom duration:
 
 ```python
 @spaces.GPU(duration=120)
@@ -79,12 +79,12 @@ def generate(prompt):
    return pipe(prompt).images
 ```
 
-This sets the maximum function runtime to 120 seconds. Specifying shorter durations for quicker functions can improve queue priority for Space visitors.
+This sets the maximum function runtime to 120 seconds. Specifying shorter durations for quicker functions will improve queue priority for Space visitors.
 
-## Limitations
+## Hosting Limitations
 
-- **Personal accounts (PRO subscribers)**: Maximum of 10 ZeroGPU Spaces.
-- **Organization accounts (Enterprise Hub)**: Maximum of 50 ZeroGPU Spaces.
+- **Personal accounts ([PRO subscribers](https://huggingface.co/subscribe/pro))**: Maximum of 10 ZeroGPU Spaces.
+- **Organization accounts ([Enterprise Hub](https://huggingface.co/enterprise))**: Maximum of 50 ZeroGPU Spaces.
 
 By leveraging ZeroGPU, developers can create more efficient and scalable Spaces, maximizing GPU utilization while minimizing costs.
 
