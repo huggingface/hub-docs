@@ -1,6 +1,6 @@
 # Spaces ZeroGPU: Dynamic GPU Allocation for Spaces
 
-<img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/naVZI-v41zNxmGlhEhGDJ.gif" style="max-width: 550px; width: 100%" alt="ZeroGPU schema" />
+<img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/naVZI-v41zNxmGlhEhGDJ.gif" style="max-width: 440px; width: 100%" alt="ZeroGPU schema" />
 
 ZeroGPU is a shared infrastructure that optimizes GPU usage for AI models and demos on Hugging Face Spaces. It dynamically allocates and releases NVIDIA A100 GPUs as needed, offering:
 
