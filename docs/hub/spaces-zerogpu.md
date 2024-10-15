@@ -2,12 +2,12 @@
 
 <img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/naVZI-v41zNxmGlhEhGDJ.gif" style="max-width: 550px; width: 100%" alt="ZeroGPU schema" />
 
-ZeroGPU introduces a new approach to GPU utilization in Hugging Face Spaces. This innovative hardware solution offers two primary benefits:
+ZeroGPU is a shared infrastructure that optimizes GPU usage for AI models and demos on Hugging Face Spaces. It dynamically allocates and releases NVIDIA A100 GPUs as needed, offering:
 
 1. **Free GPU Access**: Enables cost-effective GPU usage for Spaces.
 2. **Multi-GPU Support**: Allows Spaces to leverage multiple GPUs concurrently on a single application.
 
-ZeroGPU achieves these goals by implementing an efficient GPU allocation system, dynamically assigning and releasing GPUs as needed. This contrasts with traditional GPU Spaces, which are limited to a single dedicated GPU.
+Unlike traditional single-GPU allocations, ZeroGPU's efficient system lowers barriers for developers, researchers, and organizations to deploy AI models by maximizing resource utilization and power efficiency.
 
 ## Using and hosting ZeroGPU Spaces
 
