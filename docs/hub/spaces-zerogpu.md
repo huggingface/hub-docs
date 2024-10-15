@@ -5,7 +5,7 @@
 ZeroGPU introduces a new approach to GPU utilization in Hugging Face Spaces. This innovative hardware solution offers two primary benefits:
 
 1. **Free GPU Access**: Enables cost-effective GPU usage for Spaces.
-2. **Multi-GPU Support**: Allows Spaces to leverage multiple GPUs concurrently on a single applications.
+2. **Multi-GPU Support**: Allows Spaces to leverage multiple GPUs concurrently on a single application.
 
 ZeroGPU achieves these goals by implementing an efficient GPU allocation system, dynamically assigning and releasing GPUs as needed. This contrasts with traditional GPU Spaces, which are limited to a single dedicated GPU.
 
