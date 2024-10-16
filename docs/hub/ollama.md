@@ -12,7 +12,7 @@ ollama run hf.co/{username}/{repository}
 
 Please note that you can use both `hf.co` and `huggingface.co` as the domain name.
 
-Here are some other models that you can try:
+Here are some models you can try:
 
 ```sh
 ollama run hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF
@@ -61,7 +61,7 @@ If your GGUF file doesn't have a built-in template or if you want to customize y
 {{ .Response }}<|end|>
 ```
 
-To know more about Go template format, please refer to [this documentation](https://github.com/ollama/ollama/blob/main/docs/template.md)
+To know more about the Go template format, please refer to [this documentation](https://github.com/ollama/ollama/blob/main/docs/template.md)
 
 You can optionally configure a system prompt by putting it into a new file named `system` in the repository.
 
