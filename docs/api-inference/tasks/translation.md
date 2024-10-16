@@ -26,7 +26,7 @@ For more details about the `translation` task, check out its [dedicated page](ht
 
 - [google-t5/t5-base](https://huggingface.co/google-t5/t5-base): A general-purpose Transformer that can be used to translate from English to German, French, or Romanian.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=translation&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=translation&sort=trending).
 
 ### Using the API
 
@@ -40,7 +40,6 @@ curl https://api-inference.huggingface.co/models/google-t5/t5-base \
 	-d '{"inputs": "Меня зовут Вольфганг и я живу в Берлине"}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

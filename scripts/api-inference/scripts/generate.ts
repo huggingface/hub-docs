@@ -1,4 +1,4 @@
-import { snippets, PipelineType } from "@huggingface/tasks";
+import { PipelineType, snippets } from "@huggingface/tasks";
 import Handlebars from "handlebars";
 import * as fs from "node:fs/promises";
 import * as path from "node:path/posix";
@@ -12,6 +12,7 @@ const TASKS: PipelineType[] = [
   "image-classification",
   "image-segmentation",
   "image-to-image",
+  "image-text-to-text",
   "object-detection",
   "question-answering",
   "summarization",
@@ -121,8 +122,11 @@ export function getInferenceSnippet(
     mask_token: "[MASK]",
     library_name: "",
     config: {},
+    tags: [],
   };
+  // @ts-ignore
   if (HAS_SNIPPET_FN[language](modelData)) {
+    // @ts-ignore
     return GET_SNIPPET_FN[language](modelData, "hf_***");
   }
 }
@@ -314,9 +318,8 @@ For more details about the \`{{task}}\` task, check out its [dedicated page](htt
 </Tip>`);
 
 const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
-  `This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`,
+  `Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`,
 );
-
 const SPECS_HEADERS = await readTemplate("specs-headers", "common");
 const PAGE_HEADER = Handlebars.compile(
   await readTemplate("page-header", "common"),
@@ -376,7 +379,7 @@ await Promise.all(
         }) => {
           console.log(`   ⚡ Checking inference status ${model.id}`);
           let url = `https://huggingface.co/api/models/${model.id}?expand[]=inference`;
-          if (task === "text-generation") {
+          if (task === "text-generation" || task === "image-text-to-text") {
             url += "&expand[]=config";
           }
           const modelData = await fetch(url).then((res) => res.json());
@@ -414,6 +417,7 @@ TASKS.forEach((task) => {
   });
 });
 
+
 // Render specs
 await Promise.all(
   TASKS_EXTENDED.map(async (task) => {
@@ -446,35 +450,54 @@ TASKS.forEach((task) => {
 ///////////////////////////////////////////////
 
 function fetchChatCompletion() {
-  // Recommended models based on text-generation
-  DATA.models["chat-completion"] = DATA.models["text-generation"].filter(
-    // @ts-ignore
-    (model) => model.config?.tokenizer_config?.chat_template,
-  );
+  const baseName = "chat-completion";
+  const conversationalTasks = [
+    {
+      name: "chat-completion",
+      baseName: "text-generation",
+      pipelineTag: "text-generation"
+    },
+    {
+      name: "conversational-image-text-to-text",
+      baseName: "image-text-to-text",
+      pipelineTag: "image-text-to-text"
+    }
+  ];
 
-  // Snippet specific to chat completion
-  const mainModel = DATA.models["chat-completion"][0];
-  const mainModelData = {
-    // @ts-ignore
-    id: mainModel.id,
-    pipeline_tag: "text-generation",
-    mask_token: "",
-    library_name: "",
-    // @ts-ignore
-    config: mainModel.config,
-  };
-  const taskSnippets = {
-    // @ts-ignore
-    curl: GET_SNIPPET_FN["curl"](mainModelData, "hf_***"),
-    // @ts-ignore
-    python: GET_SNIPPET_FN["python"](mainModelData, "hf_***"),
-    // @ts-ignore
-    javascript: GET_SNIPPET_FN["js"](mainModelData, "hf_***"),
-  };
-  DATA.snippets["chat-completion"] = SNIPPETS_TEMPLATE({
-    taskSnippets,
-    taskSnakeCase: "chat-completion".replace("-", "_"),
-    taskAttached: "chat-completion".replace("-", ""),
+  conversationalTasks.forEach(task => {
+    // Recommended models based on the base task
+    DATA.models[task.name] = DATA.models[task.baseName].filter(
+      // @ts-ignore
+      (model) => model.config?.tokenizer_config?.chat_template,
+    );
+
+    const mainModel = DATA.models[task.name][0];
+    const mainModelData = {
+      // @ts-ignore
+      id: mainModel.id,
+      pipeline_tag: task.pipelineTag,
+      mask_token: "",
+      library_name: "",
+      // @ts-ignore
+      tags: ["conversational"],
+      // @ts-ignore
+      config: mainModel.config,
+    };
+
+    const taskSnippets = {
+      // @ts-ignore
+      curl: GET_SNIPPET_FN["curl"](mainModelData, "hf_***"),
+      // @ts-ignore
+      python: GET_SNIPPET_FN["python"](mainModelData, "hf_***"),
+      // @ts-ignore
+      javascript: GET_SNIPPET_FN["js"](mainModelData, "hf_***"),
+    };
+    DATA.snippets[task.name] = SNIPPETS_TEMPLATE({
+      taskSnippets,
+      taskSnakeCase: baseName.replace("-", "_"),
+      taskAttached: baseName.replace("-", ""),
+    });
+
   });
 }
 

@@ -29,7 +29,7 @@ For more details about the `token-classification` task, check out its [dedicated
 - [blaze999/Medical-NER](https://huggingface.co/blaze999/Medical-NER): A token classification model specialized on medical entity recognition.
 - [flair/ner-english](https://huggingface.co/flair/ner-english): Flair models are typically the state of the art in named entity recognition tasks.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=token-classification&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=token-classification&sort=trending).
 
 ### Using the API
 
@@ -43,7 +43,6 @@ curl https://api-inference.huggingface.co/models/dslim/bert-base-NER \
 	-d '{"inputs": "My name is Sarah Jessica Parker but you can call me Jessica"}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 
