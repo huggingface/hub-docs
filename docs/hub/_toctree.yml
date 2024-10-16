@@ -144,6 +144,8 @@
             title: GGUF usage with llama.cpp
           - local: gguf-gpt4all
             title: GGUF usage with GPT4All
+      - local: ollama
+        title: Use Ollama with GGUF Model
 - title: Datasets
   local: datasets
   isExpanded: true
