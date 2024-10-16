@@ -12,7 +12,7 @@ ollama run hf.co/{username}/{repository}
 
 Please note that you can use both `hf.co` and `huggingface.co` as the domain name.
 
-Here are some other models that you can try:
+Here are some models you can try:
 
 ```sh
 ollama run hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF
@@ -23,7 +23,9 @@ ollama run hf.co/bartowski/Humanish-LLama3-8B-Instruct-GGUF
 
 ## Custom Quantization
 
-By default, the `Q4_K_M` quantization scheme is used. To select a different scheme, simply add a tag:
+By default, the `Q4_K_M` quantization scheme is used, when it's present inside the model repo. If not, we default to picking one reasonable quant type present inside the repo.
+
+To select a different scheme, simply add a tag:
 
 ```sh
 ollama run hf.co/{username}/{repository}:{quantization}
@@ -40,7 +42,7 @@ ollama run hf.co/bartowski/Llama-3.2-3B-Instruct-GGUF:Q8_0
 # the quantization name is case-insensitive, this will also work
 ollama run hf.co/bartowski/Llama-3.2-3B-Instruct-GGUF:iq3_m
 
-# you can also select a specific file
+# you can also directly use the full filename as a tag
 ollama run hf.co/bartowski/Llama-3.2-3B-Instruct-GGUF:Llama-3.2-3B-Instruct-IQ3_M.gguf
 ```
 
@@ -48,7 +50,7 @@ ollama run hf.co/bartowski/Llama-3.2-3B-Instruct-GGUF:Llama-3.2-3B-Instruct-IQ3_
 
 By default, a template will be selected automatically from a list of commonly used templates. It will be selected based on the built-in `tokenizer.chat_template` metadata stored inside the GGUF file.
 
-If your GGUF file doesn't have a built-in template or uses a custom chat template, you can create a new file called `template` in the repository. The template must be a Go template, not a Jinja template. Here's an example:
+If your GGUF file doesn't have a built-in template or if you want to customize your chat template, you can create a new file called `template` in the repository. The template must be a Go template, not a Jinja template. Here's an example:
 
 ```
 {{ if .System }}<|system|>
@@ -59,7 +61,7 @@ If your GGUF file doesn't have a built-in template or uses a custom chat templat
 {{ .Response }}<|end|>
 ```
 
-To know more about Go template format, please refer to [this documentation](https://github.com/ollama/ollama/blob/main/docs/template.md)
+To know more about the Go template format, please refer to [this documentation](https://github.com/ollama/ollama/blob/main/docs/template.md)
 
 You can optionally configure a system prompt by putting it into a new file named `system` in the repository.
 
