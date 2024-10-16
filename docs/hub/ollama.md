@@ -15,7 +15,7 @@ Please note that you can use both `hf.co` and `huggingface.co` as the domain nam
 Here are some other models that you can try:
 
 ```sh
-Ollama run hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF
+ollama run hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF
 ollama run hf.co/mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated-GGUF
 ollama run hf.co/arcee-ai/SuperNova-Medius-GGUF
 ollama run hf.co/bartowski/Humanish-LLama3-8B-Instruct-GGUF
