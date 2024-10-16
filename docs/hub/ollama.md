@@ -17,7 +17,6 @@ Here are some models you can try:
 ```sh
 ollama run hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF
 ollama run hf.co/mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated-GGUF
-ollama run hf.co/arcee-ai/SuperNova-Medius-GGUF
 ollama run hf.co/bartowski/Humanish-LLama3-8B-Instruct-GGUF
 ```
 
