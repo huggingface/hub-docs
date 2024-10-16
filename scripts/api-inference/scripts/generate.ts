@@ -318,7 +318,7 @@ For more details about the \`{{task}}\` task, check out its [dedicated page](htt
 </Tip>`);
 
 const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
-  `This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`,
+  `Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`,
 );
 const SPECS_HEADERS = await readTemplate("specs-headers", "common");
 const PAGE_HEADER = Handlebars.compile(

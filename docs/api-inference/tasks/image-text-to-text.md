@@ -24,10 +24,11 @@ For more details about the `image-text-to-text` task, check out its [dedicated p
 
 ### Recommended models
 
+- [meta-llama/Llama-3.2-11B-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct): Powerful vision language model with great visual understanding and reasoning capabilities.
 - [HuggingFaceM4/idefics2-8b-chatty](https://huggingface.co/HuggingFaceM4/idefics2-8b-chatty): Cutting-edge conversational vision language model that can take multiple image inputs.
 - [microsoft/Phi-3.5-vision-instruct](https://huggingface.co/microsoft/Phi-3.5-vision-instruct): Strong image-text-to-text model.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-text-to-text&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-text-to-text&sort=trending).
 
 ### Using the API
 
@@ -36,7 +37,7 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/HuggingFaceM4/idefics2-8b-chatty \
+curl https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct \
 	-X POST \
 	-d '{"inputs": No input example has been defined for this model task.}' \
 	-H 'Content-Type: application/json' \
@@ -48,7 +49,7 @@ curl https://api-inference.huggingface.co/models/HuggingFaceM4/idefics2-8b-chatt
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/HuggingFaceM4/idefics2-8b-chatty"
+API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct"
 headers = {"Authorization": "Bearer hf_***"}
 
 from huggingface_hub import InferenceClient
@@ -58,7 +59,7 @@ client = InferenceClient(api_key="hf_***")
 image_url = "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
 
 for message in client.chat_completion(
-	model="HuggingFaceM4/idefics2-8b-chatty",
+	model="meta-llama/Llama-3.2-11B-Vision-Instruct",
 	messages=[
 		{
 			"role": "user",
@@ -81,7 +82,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/HuggingFaceM4/idefics2-8b-chatty",
+		"https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"

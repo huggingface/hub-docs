@@ -29,6 +29,7 @@ This is a subtask of [`text-generation`](https://huggingface.co/docs/api-inferen
 
 #### Conversational Vision-Language Models (VLMs)
 
+- [meta-llama/Llama-3.2-11B-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct): Powerful vision language model with great visual understanding and reasoning capabilities.
 - [microsoft/Phi-3.5-vision-instruct](https://huggingface.co/microsoft/Phi-3.5-vision-instruct): Strong image-text-to-text model.
 
 ### Using the API
@@ -106,11 +107,11 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 
 <curl>
 ```bash
-curl 'https://api-inference.huggingface.co/models/microsoft/Phi-3.5-vision-instruct/v1/chat/completions' \
+curl 'https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct/v1/chat/completions' \
 -H "Authorization: Bearer hf_***" \
 -H 'Content-Type: application/json' \
 -d '{
-	"model": "microsoft/Phi-3.5-vision-instruct",
+	"model": "meta-llama/Llama-3.2-11B-Vision-Instruct",
 	"messages": [
 		{
 			"role": "user",
@@ -136,7 +137,7 @@ client = InferenceClient(api_key="hf_***")
 image_url = "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
 
 for message in client.chat_completion(
-	model="microsoft/Phi-3.5-vision-instruct",
+	model="meta-llama/Llama-3.2-11B-Vision-Instruct",
 	messages=[
 		{
 			"role": "user",
@@ -163,7 +164,7 @@ const inference = new HfInference("hf_***");
 const imageUrl = "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg";
 
 for await (const chunk of inference.chatCompletionStream({
-	model: "microsoft/Phi-3.5-vision-instruct",
+	model: "meta-llama/Llama-3.2-11B-Vision-Instruct",
 	messages: [
 		{
 			"role": "user",
