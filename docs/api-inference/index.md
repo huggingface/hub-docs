@@ -46,8 +46,16 @@ The documentation is organized into two sections:
 
 ---
 
+## Inference Playground
+
+If you want to get started quickly with [Chat Completion models](https://huggingface.co/models?inference=warm&other=conversational&sort=trending) use the Inference Playground to quickly text and compare models against your prompts.
+
+<a href="https://huggingface.co/playground" target="blank" style="max-width: 400px; width: 100%;"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png"/></a>
+
+---
+
 ## Looking for custom support from the Hugging Face team?
 
 <a target="_blank" href="https://huggingface.co/support">
-    <img alt="HuggingFace Expert Acceleration Program" src="https://cdn-media.huggingface.co/marketing/transformers/new-support-improved.png" style="max-width: 600px; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+    <img alt="HuggingFace Expert Acceleration Program" src="https://cdn-media.huggingface.co/marketing/transformers/new-support-improved.png" style="width: 100%; max-width: 400px; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
 </a><br>

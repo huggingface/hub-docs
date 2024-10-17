@@ -32,6 +32,21 @@ This is a subtask of [`text-generation`](https://huggingface.co/docs/api-inferen
 - [meta-llama/Llama-3.2-11B-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct): Powerful vision language model with great visual understanding and reasoning capabilities.
 - [microsoft/Phi-3.5-vision-instruct](https://huggingface.co/microsoft/Phi-3.5-vision-instruct): Strong image-text-to-text model.
 
+### API Playground
+
+For Chat Completion models, we provide an interactive UI Playground for easier testing:
+
+- Quickly iterate on your prompts from the UI.
+- Set and override system, assistant and user messages.
+- Browse and select models currently available on the Inference API.
+- Compare the output of two models side-by-side.
+- Adjust requests parameters from the UI.
+- Easily switch between UI view and code snippets.
+
+<a href="https://huggingface.co/playground" target="blank" style="max-width: 400px; width: 100%;"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png"/></a>
+
+Access the Inference UI Playground and start exploring: [https://huggingface.co/playground](https://huggingface.co/playground)
+
 ### Using the API
 
 The API supports:
