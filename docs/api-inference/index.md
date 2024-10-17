@@ -48,7 +48,7 @@ The documentation is organized into two sections:
 
 ## Inference Playground
 
-If you want to get started quickly with Chat Completion models use the Inference Playground to quickly text and compare models against your prompts.
+If you want to get started quickly with [Chat Completion models](https://huggingface.co/models?inference=warm&other=conversational&sort=trending) use the Inference Playground to quickly text and compare models against your prompts.
 
 <a href="https://huggingface.co/playground" target="blank" style="max-width: 400px; width: 100%;"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png"/></a>
 
