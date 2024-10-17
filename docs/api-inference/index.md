@@ -56,6 +56,6 @@ If you want to get started quickly with [Chat Completion models](https://hugging
 
 ## Serious about AI in your organisation? Build faster with the Hugging Face Enterprise Hub.
 
-<a target="_blank" href="https://huggingface.co/support">
+<a target="_blank" href="https://huggingface.co/enterprise">
     <img alt="Hugging Face Enterprise Hub" src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/64zNL-65xyIpRqWHe2iD0.png" style="width: 100%; max-width: 550px; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
 </a><br>
