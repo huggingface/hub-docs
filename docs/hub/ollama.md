@@ -2,7 +2,7 @@
 
 ![cover](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/ollama/cover.png)
 
-Ollama is an application based on llama.cpp to interact with LLMs directly through your computer. You can use any GGUF quants created by the community ([bartowski](https://huggingface.co/bartowski), [MaziyarPanahi](https://huggingface.co/MaziyarPanahi) and many more) on Hugging Face directly with Ollama, without creating a new `Modelfile`. At the time of writing there are 45K public GGUF checkpoints on the Hub, you can run any of them with a single `ollama run` command. We also provide customisations like choosing quantization type, system prompt and more to improve your overall experience. 
+Ollama is an application based on llama.cpp to interact with LLMs directly through your computer. You can use any GGUF quants created by the community ([bartowski](https://huggingface.co/bartowski), [MaziyarPanahi](https://huggingface.co/MaziyarPanahi) and [many more](https://huggingface.co/models?pipeline_tag=text-generation&library=gguf&sort=trending)) on Hugging Face directly with Ollama, without creating a new `Modelfile`. At the time of writing there are 45K public GGUF checkpoints on the Hub, you can run any of them with a single `ollama run` command. We also provide customisations like choosing quantization type, system prompt and more to improve your overall experience. 
 
 Getting started is as simple as:
 
