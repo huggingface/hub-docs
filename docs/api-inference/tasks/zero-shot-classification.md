@@ -25,9 +25,8 @@ For more details about the `zero-shot-classification` task, check out its [dedic
 ### Recommended models
 
 - [facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli): Powerful zero-shot text classification model.
-- [MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7): Powerful zero-shot multilingual text classification model that can accomplish multiple tasks.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=zero-shot-classification&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=zero-shot-classification&sort=trending).
 
 ### Using the API
 
@@ -41,7 +40,6 @@ curl https://api-inference.huggingface.co/models/facebook/bart-large-mnli \
 	-d '{"inputs": "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!", "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

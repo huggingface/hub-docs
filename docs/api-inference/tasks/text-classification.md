@@ -28,8 +28,9 @@ For more details about the `text-classification` task, check out its [dedicated 
 - [ProsusAI/finbert](https://huggingface.co/ProsusAI/finbert): A sentiment analysis model specialized in financial sentiment.
 - [cardiffnlp/twitter-roberta-base-sentiment-latest](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest): A sentiment analysis model specialized in analyzing tweets.
 - [papluca/xlm-roberta-base-language-detection](https://huggingface.co/papluca/xlm-roberta-base-language-detection): A model that can classify languages.
+- [meta-llama/Prompt-Guard-86M](https://huggingface.co/meta-llama/Prompt-Guard-86M): A model that can classify text generation attacks.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-classification&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-classification&sort=trending).
 
 ### Using the API
 
@@ -43,7 +44,6 @@ curl https://api-inference.huggingface.co/models/distilbert/distilbert-base-unca
 	-d '{"inputs": "I like you. I love you"}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 

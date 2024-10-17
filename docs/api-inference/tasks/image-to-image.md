@@ -31,7 +31,7 @@ For more details about the `image-to-image` task, check out its [dedicated page]
 
 - [timbrooks/instruct-pix2pix](https://huggingface.co/timbrooks/instruct-pix2pix): A model that takes an image and an instruction to edit the image.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-to-image&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-to-image&sort=trending).
 
 ### Using the API
 

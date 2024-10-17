@@ -25,10 +25,9 @@ For more details about the `text-to-image` task, check out its [dedicated page](
 ### Recommended models
 
 - [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev): One of the most powerful image generation models that can generate realistic outputs.
-- [latent-consistency/lcm-lora-sdxl](https://huggingface.co/latent-consistency/lcm-lora-sdxl): A powerful yet fast image generation model.
 - [stabilityai/stable-diffusion-3-medium-diffusers](https://huggingface.co/stabilityai/stable-diffusion-3-medium-diffusers): A powerful text-to-image model.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-to-image&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-to-image&sort=trending).
 
 ### Using the API
 
@@ -42,7 +41,6 @@ curl https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev \
 	-d '{"inputs": "Astronaut riding a horse"}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 
