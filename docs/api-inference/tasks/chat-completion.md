@@ -39,6 +39,8 @@ For Chat Completion models, we provide an interactive UI Playground for easier t
 - Adjust requests parameters from the UI.
 - Easily switch between UI view and code snippets.
 
+<a href="https://huggingface.co/playground" target="blank" style="max-width: 400px; width: 100%;"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png"/></a>
+
 Access the Inference UI Playground and start exploring: [https://huggingface.co/playground](https://huggingface.co/playground)
 
 ### Using the API
