@@ -363,7 +363,7 @@ model_name = "llama-3-1-8b-instruct" + time.strftime("%Y-%m-%d-%H-%M-%S", time.g
 hub = {
     'HF_MODEL_ID':'meta-llama/Llama-3.1-8B-Instruct',
     'SM_NUM_GPUS':'1',
-	  'HUGGING_FACE_HUB_TOKEN': '<REPLACE WITH YOUR TOKEN>',
+	'HUGGING_FACE_HUB_TOKEN': '<REPLACE WITH YOUR TOKEN>',
 }
 
 assert hub['HUGGING_FACE_HUB_TOKEN'] != '<REPLACE WITH YOUR TOKEN>', "You have to provide a token."
