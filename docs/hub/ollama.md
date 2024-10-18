@@ -10,8 +10,8 @@ Getting started is as simple as:
 2. On a model page, choose `ollama` from `Use this model` dropdown. For example: [bartowski/Llama-3.2-1B-Instruct-GGUF](https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF).
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modelpage-light.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modelpage-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modelpage-light.gif"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modelpage-dark.gif"/>
 </div>
 
 The snippet would be in format:
@@ -41,8 +41,8 @@ To select a different scheme, simply:
 2. Choose `ollama` from `Use this model` dropdown.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modeltree-light.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modeltree-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modeltree-light.gif"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modeltree-dark.gif"/>
 </div>
 
 The snippet would be in format (quantization tag added):
