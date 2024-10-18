@@ -6,6 +6,16 @@ Ollama is an application based on llama.cpp to interact with LLMs directly throu
 
 Getting started is as simple as:
 
+1. Enable `ollama` under your [Local Apps settings](https://huggingface.co/settings/local-apps).
+2. On a model page, choose `ollama` from `Use this model` dropdown. For example: [bartowski/Llama-3.2-1B-Instruct-GGUF](https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF).
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modelpage-light.gif"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modelpage-dark.gif"/>
+</div>
+
+The snippet would be in format:
+
 ```sh
 ollama run hf.co/{username}/{repository}
 ```
@@ -25,13 +35,21 @@ ollama run hf.co/bartowski/Humanish-LLama3-8B-Instruct-GGUF
 
 By default, the `Q4_K_M` quantization scheme is used, when it's present inside the model repo. If not, we default to picking one reasonable quant type present inside the repo.
 
-To select a different scheme, simply add a tag:
+To select a different scheme, simply:
+
+1. From `Files and versions` tab on a model page, open GGUF viewer on a particular GGUF file.
+2. Choose `ollama` from `Use this model` dropdown.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modeltree-light.gif"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/ollama-modeltree-dark.gif"/>
+</div>
+
+The snippet would be in format (quantization tag added):
 
 ```sh
 ollama run hf.co/{username}/{repository}:{quantization}
 ```
-
-![guide](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/ollama/guide.png)
 
 For example:
 
