@@ -18,8 +18,6 @@
       sections:
         - local: tasks/audio-classification
           title: Audio Classification
-        - local: tasks/automatic-speech-recognition
-          title: Automatic Speech Recognition
     - title: Computer Vision
       sections:
         - local: tasks/image-classification
@@ -30,8 +28,12 @@
           title: Object Detection
     - title: Multimodal
       sections:
+        - local: tasks/automatic-speech-recognition
+          title: Automatic Speech Recognition
         - local: tasks/image-to-image
           title: Image to Image
+        - local: tasks/table-question-answering
+          title: Table Question Answering
         - local: tasks/image-text-to-text
           title: Image-Text to Text
         - local: tasks/text-to-image
@@ -48,8 +50,6 @@
           title: Question Answering
         - local: tasks/summarization
           title: Summarization
-        - local: tasks/table-question-answering
-          title: Table Question Answering
         - local: tasks/text-classification
           title: Text Classification
         - local: tasks/text-generation
