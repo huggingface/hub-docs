@@ -1,12 +1,14 @@
-# 3rd Party scanners
+# Third-party scanners
 
-*Interested in joining our security partnership / providing scanning information on the Hub? Please get in touch with us over at security@huggingface.co.*
+<Tip>
+Interested in joining our security partnership / providing scanning information on the Hub? Please get in touch with us over at security@huggingface.co.*
+</Tip>
 
 We partner with 3rd party scanning providers in order to make the Hub safer. The same way files are scanned by our internal scanning system, public repositories' files are scanned by the 3rd party scanners we integrate.
 
 Our frontend has been redesigned specifically for this purpose, in order to accomodate for new scanners:
 
-<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/token-leak-email-example.png"/>
+<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/third-party-scans-list.png"/>
 
 Here is an example repository you can check out to see the feature in action: [mcpotato/42-eicar-street](https://huggingface.co/mcpotato/42-eicar-street).
 
