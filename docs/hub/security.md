@@ -20,5 +20,5 @@ For any other security questions, please feel free to send us an email at securi
 - [Malware Scanning](./security-malware)
 - [Pickle Scanning](./security-pickle)
 - [Secrets Scanning](./security-secrets)
-- [3rd party scanners](./security-third-party-scanners)
+- [Third-party scanner: Protect AI](./security-third-party-scanner-protect-ai)
 - [Resource Groups](./security-resource-groups)
