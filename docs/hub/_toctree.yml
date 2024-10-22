@@ -338,6 +338,8 @@
         title: Advanced Compute Options
       - local: enterprise-hub-tokens-management
         title: Tokens Management
+      - local: enterprise-hub-analytics
+        title: Analytics
   - local: billing
     title: Billing
   - local: security
