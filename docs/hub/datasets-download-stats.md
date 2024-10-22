@@ -2,7 +2,7 @@
 
 ## How are download stats generated for datasets?
 
-Counting the number of downloads for datasets is not a trivial task, as a single dataset repository might contain multiple files, from multiple subsets and splits (e.g. train/validation/test) and sometimes with many files in a single split. To avoid double counting downloads (e.g., counting a single download of a dataset as multiple downloads), the Hub counts as one download every series of files requests in an interval of 5 minutes per user. No information is sent from the user, and no additional calls are made for this. The count is done server-side as the Hub serves files for downloads. Every HTTP request to the files, including `GET` and `HEAD`, will be counted as a download.
+Counting the number of downloads for datasets is not a trivial task, as a single dataset repository might contain multiple files, from multiple subsets and splits (e.g. train/validation/test) and sometimes with many files in a single split. To solve this issue and avoid counting one person's download multiple times, we treat all files downloaded by a user within a 5-minute window as a single dataset download. This counting happens automatically on our servers when files are downloaded (through GET or HEAD requests), with no need to collect any user information or make additional calls.
 
 ## Before Setpember 2024
 
