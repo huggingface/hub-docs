@@ -6,8 +6,8 @@ Interested in joining our security partnership / providing scanning information 
 
 [Protect AI](https://protectai.com/)'s [Guardian](https://protectai.com/guardian) catches pickle, Keras, and other exploits as detailed on their [Knowledge Base page](https://protectai.com/insights/knowledge-base/). Guardian also benefits from reports sent in by their community of bounty [Huntr](https://huntr.com/)s.
 
-<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/protect-ai-report.png"/>
-<em>Example of a report for <a href="https://huggingface.co/mcpotato/42-eicar-street/blob/main/danger.dat">danger.dat</a></em>
+![Protect AI report for the danger.dat file contained in mcpotato/42-eicar-street](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/protect-ai-report.png)
+*Example of a report for [danger.dat](https://huggingface.co/mcpotato/42-eicar-street/blob/main/danger.dat)*
 
 We partnered with Protect AI to provide scanning in order to make the Hub safer. The same way files are scanned by our internal scanning system, public repositories' files are scanned by Guardian.
 
