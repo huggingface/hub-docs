@@ -24,7 +24,7 @@ For more details about the `image-segmentation` task, check out its [dedicated p
 
 ### Recommended models
 
-- [nvidia/segformer-b0-finetuned-ade-512-512](https://huggingface.co/nvidia/segformer-b0-finetuned-ade-512-512): Semantic segmentation model trained on ADE20k benchmark dataset with 512x512 resolution.
+- [nvidia/segformer-b0-finetuned-ade-512-512](https://huggingface.co/nvidia/segformer-b0-finetuned-ade-512-512): Semantic segmentation model trained on ADE20k dataset.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-segmentation&sort=trending).
 

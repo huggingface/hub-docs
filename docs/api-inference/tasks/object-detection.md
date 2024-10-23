@@ -24,8 +24,7 @@ For more details about the `object-detection` task, check out its [dedicated pag
 
 ### Recommended models
 
-- [facebook/detr-resnet-50](https://huggingface.co/facebook/detr-resnet-50): Solid object detection model trained on the benchmark dataset COCO 2017.
-- [microsoft/beit-base-patch16-224-pt22k-ft22k](https://huggingface.co/microsoft/beit-base-patch16-224-pt22k-ft22k): Strong object detection model trained on ImageNet-21k dataset.
+- [facebook/detr-resnet-50](https://huggingface.co/facebook/detr-resnet-50): Solid object detection model pre-trained on the COCO 2017 dataset.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=object-detection&sort=trending).
 
