@@ -1,6 +1,6 @@
 # Models Download Stats
 
-## How are download stats generated for models?
+## How are downloads counted for models?
 
 Counting the number of downloads for models is not a trivial task, as a single model repository might contain multiple files, including multiple model weight files (e.g., with sharded models) and different formats depending on the library (GGUF, PyTorch, TensorFlow, etc.). To avoid double counting downloads (e.g., counting a single download of a model as multiple downloads), the Hub uses a set of query files that are employed for download counting. No information is sent from the user, and no additional calls are made for this. The count is done server-side as the Hub serves files for downloads.
 
