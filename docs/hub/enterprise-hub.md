@@ -13,3 +13,4 @@ In this section we will document the following Enterprise Hub features:
 - [Resource Groups](./security-resource-groups)
 - [Advanced Compute Options](./advanced-compute-options)
 - [Tokens Management](./enterprise-hub-tokens-management)
+- [Analytics](./enterprise-hub-analytics)
