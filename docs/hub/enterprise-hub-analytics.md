@@ -17,54 +17,31 @@ Track all your repository activity with a detailed downloads overview that shows
 
 Explore the metrics of individual repositories with the per-repository drill-down table. Utilize the built-in search feature to quickly locate specific repositories. Each row also features a time-series graph that illustrates the trend of downloads over time.
 
-## Export Analytics as JSON
+## Export Analytics as CSV
 
-Download a comprehensive JSON file containing analytics for all your repositories, including model and dataset download activity.
+Download a comprehensive CSV file containing analytics for all your repositories, including model and dataset download activity.
 
 ### Response Structure
 
-```json
-[
-  {
-    "repoType": "model",
-    "repoName": "huggingface/CodeBERTa-small-v1",
-    "totalDownloads": 4362460,
-    "records": [
-      {
-        "timestamp": "2021-01-22T00:00:00.000Z",
-        "downloads": 4
-      }
-      // ... daily records
-    ]
-  },
-  {
-    "repoType": "dataset",
-    "repoName": "huggingface/documentation-images",
-    "totalDownloads": 2167284,
-    "records": [
-      {
-        "timestamp": "2021-11-27T00:00:00.000Z",
-        "downloads": 4
-      }
-      // ... daily records
-    ]
-  }
-]
+The CSV file is made of daily download records for each of your model and dataset.
+
+```csv
+repoType,repoName,total,timestamp,downloads
+model,huggingface/CodeBERTa-small-v1,4362460,2021-01-22T00:00:00.000Z,4
+model,huggingface/CodeBERTa-small-v1,4362460,2021-01-23T00:00:00.000Z,7
+model,huggingface/CodeBERTa-small-v1,4362460,2021-01-24T00:00:00.000Z,2
+dataset,huggingface/documentation-images,2167284,2021-11-27T00:00:00.000Z,3
+dataset,huggingface/documentation-images,2167284,2021-11-28T00:00:00.000Z,18
+dataset,huggingface/documentation-images,2167284,2021-11-29T00:00:00.000Z,7
 ```
 
 ### Repository Object Structure
 
-Each repository object contains:
+Each record in the CSV contains:
 
 - `repoType`: The type of repository (e.g., "model", "dataset")
 - `repoName`: Full repository name including organization (e.g., "huggingface/documentation-images")
-- `totalDownloads`: Cumulative number of downloads (can be 0 for repositories with no activity)
-- `records`: Array of daily download entries (can be empty for repositories with no activity)
-
-### Download History
-
-For repositories with download activity, each record in the `records` array includes:
-
+- `total`: Cumulative number of downloads for this repository
 - `timestamp`: ISO 8601 formatted date (UTC)
 - `downloads`: Number of downloads for that day
 
