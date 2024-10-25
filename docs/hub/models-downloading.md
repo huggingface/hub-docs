@@ -50,7 +50,7 @@ you can increase your download speed with [`hf_transfer`](https://github.com/hug
 a Rust-based library developed to speed up file transfers with the Hub.
 
 ```bash
-pip install huggingface_hub[hf_transfer]
+pip install "huggingface_hub[hf_transfer]"
 HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli download ...
 ```
 
