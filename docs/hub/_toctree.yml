@@ -373,7 +373,7 @@
     - local: security-secrets
       title: Secrets Scanning
     - local: security-protectai
-      title: "Third-party scanner: Protect AI"
+      title: "Protect AI"
   - local: moderation
     title: Moderation
   - local: paper-pages
