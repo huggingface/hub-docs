@@ -372,6 +372,8 @@
       title: Pickle Scanning
     - local: security-secrets
       title: Secrets Scanning
+    - local: security-protectai
+      title: "Third-party scanner: Protect AI"
   - local: moderation
     title: Moderation
   - local: paper-pages
