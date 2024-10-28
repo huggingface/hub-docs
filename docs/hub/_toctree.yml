@@ -331,7 +331,7 @@
       - local: storage-regions
         title: Storage Regions
       - local: enterprise-hub-datasets
-        title: Dataset viewer for Private datasets
+        title: Private datasets viewer
       - local: enterprise-hub-resource-groups
         title: Resource Groups (Access Control)
       - local: advanced-compute-options
