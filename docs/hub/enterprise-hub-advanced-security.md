@@ -26,4 +26,4 @@ Manage the default visibility of repositories in your organization:
 - **Private by default**: New repositories are created with private visibility. Note that changing this setting will not affect existing repositories.
 - **Private only**: Enforce private visibility for all new repositories, with only organization admins able to change visibility settings
 
-These settings help organizations maintain control over their intellectual property while enabling collaboration when needed.
+These settings help organizations maintain control of their ownership while enabling collaboration when needed.
