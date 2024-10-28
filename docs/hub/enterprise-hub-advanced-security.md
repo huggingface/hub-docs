@@ -27,5 +27,3 @@ Manage the default visibility of repositories in your organization:
 - **Private only**: Enforce private visibility for all new repositories, with only organization admins able to change visibility settings
 
 These settings help organizations maintain control over their intellectual property while enabling collaboration when needed.
-
-[Learn more about Enterprise security features →](/docs/hub/enterprise-hub-advanced-security)
