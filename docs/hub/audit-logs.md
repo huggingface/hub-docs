@@ -10,7 +10,7 @@ Audit Logs enable organization admins to easily review actions taken by members,
 
 ## Accessing Audit Logs
 
-Audit Logs are accessible through your organization admin settings. Each log entry includes:
+Audit Logs are accessible through your organization settings. Each log entry includes:
 
 - Who performed the action
 - What type of action was taken
