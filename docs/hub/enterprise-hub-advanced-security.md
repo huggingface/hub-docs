@@ -4,7 +4,7 @@
 This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
 </Tip>
 
-Enterprise Hub organizations can improve their security posture with advanced security controls for both members and repositories.
+Enterprise Hub organizations can improve their security with advanced security controls for both members and repositories.
 
 <div class="flex justify-center">
     <img class="block dark:hidden !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/advanced-security.png" alt="screenshot of the Dataset Viewer on a private dataset owned by an Enterprise Hub organization."/>
