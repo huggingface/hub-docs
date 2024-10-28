@@ -358,12 +358,12 @@ You should also define `SM_NUM_GPUS`, which specifies the tensor parallelism deg
 Note that you can optionally reduce the memory and computational footprint of the model by setting the `HF_MODEL_QUANTIZE` environment variable to `true`, but this lower weight precision could affect the quality of the output for some models.
 
 ```python
-model_name = "llama-3.1-8b-instruct" + time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime())
+model_name = "llama-3-1-8b-instruct" + time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime())
 
 hub = {
-    'HF_MODEL_ID':'EleutherAI/gpt-neox-20b',
+    'HF_MODEL_ID':'meta-llama/Llama-3.1-8B-Instruct',
     'SM_NUM_GPUS':'1',
-	'HUGGING_FACE_HUB_TOKEN': '<REPLACE WITH YOUR TOKEN>'
+	'HUGGING_FACE_HUB_TOKEN': '<REPLACE WITH YOUR TOKEN>',
 }
 
 assert hub['HUGGING_FACE_HUB_TOKEN'] != '<REPLACE WITH YOUR TOKEN>', "You have to provide a token."
