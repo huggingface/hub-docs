@@ -14,7 +14,7 @@ ZeroGPU is a dynamic GPU allocation system that optimizes AI deployment on Huggi
 
 - **Free GPU Access**: Access powerful NVIDIA A100 GPUs at no additional cost through dynamic allocation
 - **Enhanced Resource Management**: Host up to 50 ZeroGPU Spaces for efficient team-wide AI deployment
-- **Simplified Deployment**: Easy integration with PyTorch-based models and Hugging Face libraries
+- **Simplified Deployment**: Easy integration with PyTorch-based models, Gradio apps, and other Hugging Face libraries
 - **Enterprise-Grade Infrastructure**: Access to high-performance NVIDIA A100 GPUs with 40GB VRAM per workload
 
 [Learn more about ZeroGPU →](https://huggingface.co/docs/hub/spaces-zerogpu)
