@@ -40,7 +40,7 @@ Any repository (model or dataset) stored in a non-default location displays its 
 
 Regulated industries often require data storage in specific regions.
 
-For EU companies, this means you can use the Hub for ML development in a GDPR-compliant manner, with datasets, models and inference endpoints stored in EU data centers.
+For EU companies, you can use the Hub for ML development in a GDPR-compliant manner, with datasets, models and inference endpoints stored in EU data centers.
 
 ## Performance
 
