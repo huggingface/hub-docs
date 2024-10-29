@@ -13,7 +13,7 @@ If an organization needs to track user access to a dataset due to licensing or p
   - [SSO](./enterprise-sso)
   - [Audit Logs](./audit-logs)
   - [Storage Regions](./storage-regions)
-  - [Private datasets viewer](./enterprise-hub-datasets)
+  - [Dataset viewer for Private datasets](./enterprise-hub-datasets)
   - [Resource Groups](./security-resource-groups)
   - [Advanced Compute Options](./advanced-compute-options)
   - [Advanced Security](./enterprise-hub-advanced-security)
