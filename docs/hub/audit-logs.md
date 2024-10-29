@@ -15,7 +15,7 @@ Audit Logs are accessible through your organization settings. Each log entry inc
 - Who performed the action
 - What type of action was taken
 - A description of the change
-- Location and IP address
+- Location and anonymized IP address
 - Date and time of the action
 
 You can also download the complete audit log as a JSON file for further analysis.
