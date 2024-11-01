@@ -50,6 +50,7 @@ The marimo Space template provides a basic setup that you can extend based on yo
 - [marimo documentation](https://docs.marimo.io)
 - [marimo GitHub repository](https://github.com/marimo-team/marimo)
 - [marimo Discord](https://marimo.io/discord)
+- [marimo template Space](https://huggingface.co/spaces/marimo-team/marimo-app-template)
 
 ## Troubleshooting
 
