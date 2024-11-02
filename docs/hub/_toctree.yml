@@ -279,6 +279,8 @@
         title: Tabby on Spaces
       - local: spaces-sdks-docker-giskard
         title: Giskard on Spaces
+      - local: spaces-sdks-docker-evidence
+        title: Evidence on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-run-with-docker
