@@ -24,13 +24,12 @@ This is a subtask of [`text-generation`](https://huggingface.co/docs/api-inferen
 - [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it): A text-generation model trained to follow instructions.
 - [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct): Very powerful text generation model trained to follow instructions.
 - [microsoft/Phi-3-mini-4k-instruct](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct): Small yet powerful text generation model.
-- [HuggingFaceH4/starchat2-15b-v0.1](https://huggingface.co/HuggingFaceH4/starchat2-15b-v0.1): Strong coding assistant model.
-- [mistralai/Mistral-Nemo-Instruct-2407](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407): Very strong open-source large language model.
+- [Qwen/Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct): Strong text generation model to follow instructions.
 
 #### Conversational Vision-Language Models (VLMs)
 
 - [meta-llama/Llama-3.2-11B-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct): Powerful vision language model with great visual understanding and reasoning capabilities.
-- [microsoft/Phi-3.5-vision-instruct](https://huggingface.co/microsoft/Phi-3.5-vision-instruct): Strong image-text-to-text model.
+- [Qwen/Qwen2-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct): Strong image-text-to-text model.
 
 ### API Playground
 

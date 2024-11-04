@@ -25,8 +25,7 @@ For more details about the `image-text-to-text` task, check out its [dedicated p
 ### Recommended models
 
 - [meta-llama/Llama-3.2-11B-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct): Powerful vision language model with great visual understanding and reasoning capabilities.
-- [HuggingFaceM4/idefics2-8b-chatty](https://huggingface.co/HuggingFaceM4/idefics2-8b-chatty): Cutting-edge conversational vision language model that can take multiple image inputs.
-- [microsoft/Phi-3.5-vision-instruct](https://huggingface.co/microsoft/Phi-3.5-vision-instruct): Strong image-text-to-text model.
+- [Qwen/Qwen2-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct): Strong image-text-to-text model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-text-to-text&sort=trending).
 

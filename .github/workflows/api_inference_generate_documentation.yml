@@ -1,0 +1,64 @@
+name: Update API Inference Documentation
+
+on:
+    workflow_dispatch:
+#   push:
+#     branches:
+#       - regenerate-api-inference-docs
+
+concurrency:
+  group: api_inference_generate_documentation
+  cancel-in-progress: true
+
+jobs:
+  pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          package_json_file: ./hub-docs/scripts/api-inference/package.json
+
+      - name: Install dependencies
+        run: pnpm install
+        working-directory: ./hub-docs/scripts/api-inference
+
+      - name: Generate API inference documentation
+        run: pnpm run generate
+        working-directory: ./hub-docs/scripts/api-inference
+
+      - name: Check changes
+        run: git status
+        working-directory: ./hub-docs
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          path: ./hub-docs
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update API inference documentation (automated)
+          author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
+          branch: update-api-inference-docs-automated-pr
+          delete-branch: true
+          title: "[Bot] Update API inference documentation"
+          body: |
+            This PR automatically regenerates the API inference documentation by running:
+            ```sh
+            cd scripts/api-inference
+            pnpm run generate
+            ```
+            
+            This PR was automatically created by the [Update API Inference Documentation workflow](https://github.com/huggingface/hub-docs/blob/main/.github/workflows/api_inference_generate_documentation.yml).
+            
+            Please review the changes before merging.
+          reviewers: |
+            Wauplin
+            hanouticelina
