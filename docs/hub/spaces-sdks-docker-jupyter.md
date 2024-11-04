@@ -7,7 +7,7 @@
 You can deploy JupyterLab on Spaces with just a few clicks. First, go to [this link](https://huggingface.co/new-space?template=SpacesExamples/jupyterlab) or click the button below:
 
 <a  href="https://huggingface.co/new-space?template=SpacesExamples/jupyterlab">
-  <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
+  <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg" />
 </a>
 
 Spaces requires you to define:

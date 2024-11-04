@@ -15,7 +15,7 @@ To learn more about it, watch this [15-minute video](https://www.youtube.com/wat
 You can get Livebook up and running in a Space with just a few clicks. Click the button below to start creating a new Space using Livebook's Docker template:
 
 <a href="http://huggingface.co/new-space?template=livebook-dev/livebook" target="_blank">
-    <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" alt="">
+    <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg" alt="">
 </a>
 
 Then:
@@ -32,7 +32,7 @@ This will start building your Space using Livebook's Docker image.
 The visibility of the Space must be set to public for the Smart cells feature in Livebook to function properly. However, your Livebook instance will be protected by Livebook authentication.
 
 <Tip>
- 
+
 <a href="https://news.livebook.dev/v0.6-automate-and-learn-with-smart-cells-mxJJe" target="_blank">Smart cell</a> is a type of Livebook cell that provides a UI component for accomplishing a specific task. The code for the task is generated automatically based on the user's interactions with the UI, allowing for faster completion of high-level tasks without writing code from scratch.
 
 </Tip>

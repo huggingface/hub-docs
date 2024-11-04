@@ -16,7 +16,7 @@ Key features:
 To get started with marimo on Spaces, click the button below:
 
 <a href="http://huggingface.co/new-space?template=marimo-team/marimo-app-template" target="_blank">
-    <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" alt="">
+    <img src="https://huggingface.co/datasets/huggingface/badges/raw/main/deploy-to-spaces-lg.svg" alt="">
 </a>
 
 This will start building your Space using marimo's Docker template. If successful, you should see a similar application to the [marimo introduction notebook](https://huggingface.co/spaces/marimo-team/marimo-app-template).
