@@ -24,7 +24,7 @@ All models on the Hub come up with useful features
 All `spaCy` models from the Hub can be directly installed using pip install.
 
 ```bash
-pip install https://huggingface.co/spacy/en_core_web_sm/resolve/main/en_core_web_sm-any-py3-none-any.whl
+pip install "en_core_web_sm @ https://huggingface.co/spacy/en_core_web_sm/resolve/main/en_core_web_sm-any-py3-none-any.whl"
 ```
 
 To find the link of interest, you can go to a repository with a `spaCy` model. When you open the repository, you can click `Use in spaCy` and you will be given a working snippet that you can use to install and load the model!

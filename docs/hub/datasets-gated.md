@@ -25,7 +25,7 @@ By default, access to the dataset is automatically granted to the user when requ
 
 If you want to manually approve which users can access your dataset, you must set it to **manual approval**. When this is the case, you will notice more options:
 - **Add access** allows you to search for a user and grant them access even if they did not request it.
-- **Notification frequency** lets you configure when to get notified if new users request access. It can be set to once a day or real-time. By default, an email is sent to your primary email address. You can set a different email address in the **Notifications email** field. For datasets hosted under an organization, emails are sent to the first 5 admins of the organization.
+- **Notification frequency** lets you configure when to get notified if new users request access. It can be set to once a day or real-time. By default, an email is sent to your primary email address. For datasets hosted under an organization, emails are by default sent to the first 5 admins of the organization. In both cases (user or organization) you can set a different email address in the **Notifications email** field.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-gated-manual-approval.png"/>
@@ -62,7 +62,7 @@ You can automate the approval of access requests by using the API. You must pass
 
 The base URL for the HTTP endpoints above is `https://huggingface.co`.
 
-**NEW!** Those endpoints are now officially supported in our Python client `huggingface_hub`. List the access requests to your dataset with [`list_pending_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_pending_access_requests), [`list_accepted_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_accepted_access_requests) and [`list_rejected_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_rejected_access_requests). You can also accept, cancel and reject access requests with [`accept_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.accept_access_request), [`cancel_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.cancel_access_request), [`reject_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.reject_access_request). Finally, you can grant access to a user with [`grant_access`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.grant_access).
+**NEW!** Those endpoints are now officially supported in our Python client `huggingface_hub`. List the access requests to your dataset with [`list_pending_access_requests`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_pending_access_requests), [`list_accepted_access_requests`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_accepted_access_requests) and [`list_rejected_access_requests`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_rejected_access_requests). You can also accept, cancel and reject access requests with [`accept_access_request`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.accept_access_request), [`cancel_access_request`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.cancel_access_request), [`reject_access_request`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.reject_access_request). Finally, you can grant access to a user with [`grant_access`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.grant_access).
 
 ### Download access report
 
@@ -149,7 +149,7 @@ The dataset authors have complete control over dataset access. In particular, th
 
 ### Download files
 
-To download files from a gated dataset you'll need to be authenticated. In the browser, this is automatic as long as you are logged in with your account. If you are using a script, you will need to provide a [user token](./security-tokens). In the Hugging Face Python ecosystem (`transformers`, `diffusers`, `datasets`, etc.), you can login your machine using the [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub/index) library and running in your terminal:
+To download files from a gated dataset you'll need to be authenticated. In the browser, this is automatic as long as you are logged in with your account. If you are using a script, you will need to provide a [user token](./security-tokens). In the Hugging Face Python ecosystem (`transformers`, `diffusers`, `datasets`, etc.), you can login your machine using the [`huggingface_hub`](/docs/huggingface_hub/index) library and running in your terminal:
 
 ```bash
 huggingface-cli login
@@ -164,4 +164,4 @@ Alternatively, you can programmatically login using `login()` in a notebook or a
 
 You can also provide the `token` parameter to most loading methods in the libraries (`from_pretrained`, `hf_hub_download`, `load_dataset`, etc.), directly from your scripts.
 
-For more details about how to login, check out the [login guide](https://huggingface.co/docs/huggingface_hub/quick-start#login).
+For more details about how to login, check out the [login guide](/docs/huggingface_hub/quick-start#login).

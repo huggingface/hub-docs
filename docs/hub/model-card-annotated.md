@@ -22,6 +22,8 @@ _Instructions are provided below, in italics._
 
 Template variable names appear in `monospace`.
 
+--- 
+
 # Model Name
 
 **Section Overview:**  Provide the model name and a 1-2 sentence summary of what the model is. 
@@ -130,7 +132,7 @@ _List how the model may foreseeably be misused (used in a way it will not work f
 
 **Section Overview:** This section identifies foreseeable harms, misunderstandings, and technical and sociotechnical limitations. It also provides information on warnings and potential mitigations. Bias, risks, and limitations can sometimes be inseparable/refer to the same issues. Generally, bias and risks are sociotechnical, while limitations are technical: 
 - A **bias** is a stereotype or disproportionate performance (skew) for some subpopulations. 
-- A **risk** is a socially-relevant issue that the model might cause. 
+- A **risk** is a socially-relevant issue that the model might cause.
 - A **limitation** is a likely failure mode that can be addressed following the listed Recommendations.
 
 `bias_risks_limitations`
@@ -180,42 +182,52 @@ _Detail throughput, start/end time, checkpoint sizes, etc._
 
 # Evaluation
 
-**Section Overview:** This section describes the evaluation protocols, what is being measured in the evaluation, and provides the results.  Evaluation is ideally constructed with factors, such as domain and demographic subgroup, and metrics, such as accuracy, which are prioritized in light of foreseeable error contexts and groups. Target fairness metrics should be decided based on which errors are more likely to be problematic in light of the model use. You can also specify your model's evaluation results in a structured way in the model card metadata. Results are parsed by the Hub and displayed in a widget on the model page. See https://huggingface.co/docs/hub/model-cards#evaluation-results.
+**Section Overview:** This section describes the evaluation protocols, what is being measured in the evaluation, and provides the results.  Evaluation ideally has at least two parts, with one part looking at quantitative measurement of general performance ([Testing Data, Factors & Metrics](#testing-data-factors--metrics)), such as may be done with benchmarking; and another looking at performance with respect to specific social safety issues ([Societal Impact Assessment](#societal-impact-assessment-optional)), such as may be done with red-teaming. You can also specify your model's evaluation results in a structured way in the model card metadata. Results are parsed by the Hub and displayed in a widget on the model page. See https://huggingface.co/docs/hub/model-cards#evaluation-results.
 
 
 ## Testing Data, Factors & Metrics
+
+_Evaluation is ideally **disaggregated** with respect to different factors, such as task, domain and population subgroup; and calculated with metrics that are most meaningful for foreseeable contexts of use. Equal evaluation performance across different subgroups is said to be "fair" across those subgroups; target fairness metrics should be decided based on which errors are more likely to be problematic in light of the model use. However, this section is most commonly used to report aggregate evaluation performance on different task benchmarks._
 
 ### Testing Data
 
 `testing_data`
 
-_Ideally this links to a Dataset Card for the testing data._
+_Describe testing data or link to its Dataset Card._
 
 ### Factors
 
 `testing_factors`
 
-_What are the foreseeable characteristics that will influence how the model behaves? This includes domain and context, as well as population subgroups. Evaluation should ideally be **disaggregated** across factors in order to uncover disparities in performance._
+_What are the foreseeable characteristics that will influence how the model behaves? Evaluation should ideally be disaggregated across these factors in order to uncover disparities in performance._
 
 ### Metrics
 
 `testing_metrics`
 
-_What metrics will be used for evaluation in light of tradeoffs between different errors?_
+_What metrics will be used for evaluation?_
 
 ## Results
 
 `results`
 
-
 _Results should be based on the Factors and Metrics defined above._
 
 ### Summary
 
-
 `results_summary`
 
 _What do the results say? This can function as a kind of tl;dr for general audiences._
+
+## Societal Impact Assessment [optional]
+
+_Use this free text section to explain how this model has been evaluated for risk of societal harm, such as for child safety, NCII, privacy, and violence. This might take the form of answers to the following questions:_
+
+- _Is this model safe for kids to use? Why or why not?_
+- _Has this model been tested to evaluate risks pertaining to non-consensual intimate imagery (including CSEM)?_
+- _Has this model been tested to evaluate risks pertaining to violent activities, or depictions of violence? What were the results?_
+
+_Quantitative numbers on each issue may also be provided._
 
 # Model Examination [optional]
 
@@ -317,3 +329,10 @@ _Clearly define terms in order to be accessible across audiences._
 **Section Overview:** Provides a code snippet to show how to use the model.
 
 `get_started_code`
+
+
+---
+
+**Please cite as:**
+Ozoani, Ezi and Gerchick, Marissa and Mitchell, Margaret. Model Card Guidebook. Hugging Face, 2022. https://huggingface.co/docs/hub/en/model-card-guidebook 
+

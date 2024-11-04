@@ -1,0 +1,30 @@
+## Image Classification
+
+Image classification is the task of assigning a label or class to an entire image. Images are expected to have only one class for each image.
+
+{{{tips.linksToTaskPage.image-classification}}}
+
+### Recommended models
+
+{{#each models.image-classification}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.image-classification}}}
+
+### Using the API
+
+{{{snippets.image-classification}}}
+
+### API specification
+
+#### Request
+
+{{{specs.image-classification.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.image-classification.output}}}
+

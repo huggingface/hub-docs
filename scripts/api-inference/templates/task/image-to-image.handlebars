@@ -1,0 +1,35 @@
+## Image to Image
+
+Image-to-image is the task of transforming a source image to match the characteristics of a target image or a target image domain.
+
+Example applications:
+* Transferring the style of an image to another image
+* Colorizing a black and white image
+* Increasing the resolution of an image
+
+{{{tips.linksToTaskPage.image-to-image}}}
+
+### Recommended models
+
+{{#each models.image-to-image}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+{{{tips.listModelsLink.image-to-image}}}
+
+### Using the API
+
+{{{snippets.image-to-image}}}
+
+### API specification
+
+#### Request
+
+{{{specs.image-to-image.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+{{{specs.image-to-image.output}}}
+

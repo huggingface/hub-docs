@@ -1,10 +1,5 @@
 # Model Cards
 
-<Tip>
-
-[New! Try our experimental Model Card Creator App](https://huggingface.co/spaces/huggingface/Model_Cards_Writing_Tool)
-
-</Tip>
 
 ## What are Model Cards?
 
@@ -33,7 +28,7 @@ The metadata you add to the model card supports discovery and easier use of your
 
 * Allowing users to filter models at https://huggingface.co/models.
 * Displaying the model's license.
-* Adding datasets to the metadata will add a message reading `Datasets used to train:` to your model card and link the relevant datasets, if they're available on the Hub.
+* Adding datasets to the metadata will add a message reading `Datasets used to train:` to your model page and link the relevant datasets, if they're available on the Hub.
 
 Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages.
 
@@ -103,24 +98,81 @@ tags:
 - flair
 ```
 
-If it's not specified, the Hub will try to automatically detect the library type. Unless your model is from `transformers`, this approach is discouraged and repo creators should use the explicit `library_name` as much as possible. 
+If it's not specified, the Hub will try to automatically detect the library type. However, this approach is discouraged, and repo creators should use the explicit `library_name` as much as possible. 
 
-1. By looking into the presence of files such as `*.nemo` or `*saved_model.pb*`, the Hub can determine if a model is from NeMo or Keras. 
-2. If nothing is detected and there is a `config.json` file, it's assumed the library is `transformers`.
+1. By looking into the presence of files such as `*.nemo` or `*.mlmodel`, the Hub can determine if a model is from NeMo or CoreML.
+2. In the past, if nothing was detected and there was a `config.json` file, it was assumed the library was `transformers`. For model repos created after August 2024, this is not the case anymore – so you need to `library_name: transformers` explicitly.
 
 ### Specifying a base model
 
-If your model is a fine-tune or adapter of a base model, you can specify the base model in the model card metadata section. This information can also be used to indicate if your model is a merge of multiple existing models. The `base_model` field can either be a single model ID, or a list of one or more base_models (specified by their Hub identifier). 
+If your model is a fine-tune, an adapter, or a quantized version of a base model, you can specify the base model in the model card metadata section. This information can also be used to indicate if your model is a merge of multiple existing models. Hence, the `base_model` field can either be a single model ID, or a list of one or more base_models (specified by their Hub identifiers). 
 
 ```yaml
 base_model: HuggingFaceH4/zephyr-7b-beta
 ```
 
-This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model or find models that are fine-tuned from a specific base model.
+This metadata will be used to display the base model on the model page. Users can also use this information to filter models by base model or find models that are derived from a specific base model:
+
+<div class="flex flex-col md:flex-row gap-x-2">
+   <div class="flex-1">
+      For a fine-tuned model:
+      <div class="flex justify-center">
+         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui.png"/>
+         <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
+      </div>
+   </div>
+   <div class="flex-1">
+      For an adapter (LoRA, PEFT, etc):
+      <div class="flex justify-center">
+         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_adapter.png"/>
+         <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_adapter-dark.png"/>
+      </div>
+   </div>
+</div>
+
+<div class="flex flex-col md:flex-row gap-x-2">
+   <div class="flex-1">
+      For a quantized version of another model:
+      <div class="flex justify-center">
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_quantized.png"/>
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_quantized-dark.png"/>
+      </div>
+   </div>
+   <div class="flex-1">
+      For a merge of two or more models:
+      <div class="flex justify-center">
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_merge.png"/>
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base_model_merge-dark.png"/>
+      </div>
+   </div>
+</div>
+
+
+In the merge case, you specify a list of two or more base_models:
+
+```yaml
+base_model:
+- Endevor/InfinityRP-v1-7B
+- l3utterfly/mistral-7b-v0.1-layla-v4
+```
+
+The Hub will infer the type of relationship from the current model to the base model (`"adapter", "merge", "quantized", "finetune"`) but you can also set it explicitly if needed: `base_model_relation: quantized` for instance.
+
+### Specifying a new version
+
+If a new version of your model is available in the Hub, you can specify it in a `new_version` field.  
+
+For example, on `l3utterfly/mistral-7b-v0.1-layla-v3`:
+
+```yaml
+new_version: l3utterfly/mistral-7b-v0.1-layla-v4
+```
+
+This metadata will be used to display a link to the latest version of a model on the model page. If the model linked in `new_version` also has a `new_version` field, the very latest version will always be displayed. 
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/base-model-ui-dark.png"/>
+   <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_version.png"/>
+   <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_version-dark.png"/>
 </div>
 
 ### Specifying a dataset
@@ -135,7 +187,7 @@ datasets:
 
 ### Specifying a task (`pipeline_tag`)
 
-You can specify the `pipeline_tag` in the model card metadata. The `pipeline_tag` indicates the type of task the model is intended for. This tag will be displayed on the model page and users can filter models on the Hub by task. This tag is also used to determine which [widget](./models-widgets.md#enabling-a-widget) to use for the model and which APIs to use under the hood.
+You can specify the `pipeline_tag` in the model card metadata. The `pipeline_tag` indicates the type of task the model is intended for. This tag will be displayed on the model page and users can filter models on the Hub by task. This tag is also used to determine which [widget](./models-widgets#enabling-a-widget) to use for the model and which APIs to use under the hood.
 
 For `transformers` models, the pipeline tag is automatically inferred from the model's `config.json` file but you can override it in the model card metadata if required. Editing this field in the metadata UI will ensure that the pipeline tag is valid. Some other libraries with Hub integration will also automatically add the pipeline tag to the model card metadata.
 
@@ -167,7 +219,7 @@ You can specify your **model's evaluation results** in a structured way in the m
 
 The metadata spec was based on Papers with code's [model-index specification](https://github.com/paperswithcode/model-index). This allow us to directly index the results into Papers with code's leaderboards when appropriate. You can also link the source from where the eval results has been computed.
 
-Here is a partial example to describe [01-ai/Yi-34B](https://huggingface.co/01-ai/Yi-34B)'s score on the ARC benchmark. The result comes from the [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) which is defined as the `source`:
+Here is a partial example to describe [01-ai/Yi-34B](https://huggingface.co/01-ai/Yi-34B)'s score on the ARC benchmark. The result comes from the [Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) which is defined as the `source`:
 
 ```yaml
 ---
@@ -185,7 +237,7 @@ model-index:
             value: 64.59
         source:
           name: Open LLM Leaderboard
-          url: https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard
+          url: https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
 ---
 ```
 
@@ -217,7 +269,7 @@ Details on how to fill out a human-readable model card without Hub-specific meta
 
 ### How are model tags determined?
 
-Each model page lists all the model's tags in the page header, below the model name. These are primarily computed from the model card metadata, although some are added automatically, as described in [Creating a Widget](./models-widgets#creating-a-widget).
+Each model page lists all the model's tags in the page header, below the model name. These are primarily computed from the model card metadata, although some are added automatically, as described in [Enabling a Widget](./models-widgets#enabling-a-widget).
 
 ### Can I add custom tags to my model?
 

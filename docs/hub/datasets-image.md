@@ -59,7 +59,7 @@ See [File names and splits](./datasets-file-names-and-splits) for more informati
 
 ## Additional columns
 
-If there is additional information you'd like to include about your dataset, like text captions or bounding boxes, add it as a `metadata.csv` file in your repository. This lets you quickly create datasets for different computer vision tasks like text captioning or object detection.
+If there is additional information you'd like to include about your dataset, like text captions or bounding boxes, add it as a `metadata.csv` file in your repository. This lets you quickly create datasets for different computer vision tasks like [text captioning](https://huggingface.co/tasks/image-to-text) or [object detection](https://huggingface.co/tasks/object-detection).
 
 ```
 my_dataset_repository/
@@ -153,7 +153,7 @@ You can disable this automatic addition of the `label` column in the [YAML confi
 
 ```yaml
 configs:
-  - config_name: default
+  - config_name: default  # Name of the dataset subset, if applicable.
     drop_labels: true
 ```
 
@@ -161,7 +161,8 @@ configs:
 
 ### WebDataset format
 
-The [WebDataset](https://github.com/webdataset/webdataset) format is well suited for large scale image datasets (see [timm/imagenet-12k-wds](https://huggingface.co/datasets/timm/imagenet-12k-wds) for example). It consists of TAR archives containing images and their metadata and is optimized for streaming. It is useful if you have a large number of images and to get streaming data loaders for large scale training.
+The [WebDataset](./datasets-webdataset) format is well suited for large scale image datasets (see [timm/imagenet-12k-wds](https://huggingface.co/datasets/timm/imagenet-12k-wds) for example).
+It consists of TAR archives containing images and their metadata and is optimized for streaming. It is useful if you have a large number of images and to get streaming data loaders for large scale training.
 
 ```
 my_dataset_repository/
@@ -171,11 +172,29 @@ my_dataset_repository/
 └── train-1023.tar
 ```
 
-Note that for user convenience and to enable the [Dataset Viewer](./datasets-viewer), every dataset hosted in the Hub is automatically converted to Parquet format up to 5GB. Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.
+To make a WebDataset TAR archive, create a directory containing the images and metadata files to be archived and create the TAR archive using e.g. the `tar` command.
+The usual size per archive is generally around 1GB.
+Make sure each image and metadata pair share the same file prefix, for example:
+
+```
+train-0000/
+├── 000.jpg
+├── 000.json
+├── 001.jpg
+├── 001.json
+├── ...
+├── 999.jpg
+└── 999.json
+```
+
+Note that for user convenience and to enable the [Dataset Viewer](./datasets-viewer), every dataset hosted in the Hub is automatically converted to Parquet format up to 5GB.
+Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.
 
 ### Parquet format
 
-Instead of uploading the images and metadata as individual files, you can embed everything inside a [Parquet](https://parquet.apache.org/) file. This is useful if you have a large number of images, if you want to embed multiple image columns, or if you want to store additional information about the images in the same file. Parquet is also useful for storing data such as raw bytes, which is not supported by JSON/CSV.
+Instead of uploading the images and metadata as individual files, you can embed everything inside a [Parquet](https://parquet.apache.org/) file.
+This is useful if you have a large number of images, if you want to embed multiple image columns, or if you want to store additional information about the images in the same file.
+Parquet is also useful for storing data such as raw bytes, which is not supported by JSON/CSV.
 
 ```
 my_dataset_repository/
@@ -183,7 +202,7 @@ my_dataset_repository/
 ```
 
 Image columns are of type _struct_, with a binary field `"bytes"` for the image data and a string field `"path"` for the image file name or path.
-You can specify the feature types of the columns directly in YAML in the README header, for example:
+You should specify the feature types of the columns directly in YAML in the README header, for example:
 
 ```yaml
 dataset_info:
@@ -194,4 +213,4 @@ dataset_info:
     dtype: string
 ```
 
-Alternatively, Parquet files with Image data can be created using the `datasets` library by setting the column type to `Image()` and using the `.to_parquet(...)` method or `.push_to_hub(...)`. You can find a guide on loading image datasets in `datasets` [here](../datasets/image_load).
+Alternatively, Parquet files with Image data can be created using the `datasets` library by setting the column type to `Image()` and using the `.to_parquet(...)` method or `.push_to_hub(...)`. You can find a guide on loading image datasets in `datasets` [here](/docs/datasets/image_load).

@@ -1,6 +1,6 @@
 # Notifications
 
-Notifications allow you to know when new activities (Pull Requests or discussions) happen on models, datasets, and Spaces belonging to users or organizations you are watching.
+Notifications allow you to know when new activities (**Pull Requests or discussions**) happen on models, datasets, and Spaces belonging to users or organizations you are watching.
 
 By default, you'll receive a notification if:
 
@@ -37,7 +37,7 @@ By default, you'll be watching all the organizations you are a member of and wil
 
 You can also choose to get notified on arbitrary users or organizations. To do so, use the "Watch repos" button on their HF profiles. Note that you can also quickly watch/unwatch users and organizations directly from your [notifications settings](#notifications-settings).
 
-_Unlike Github or similar services, you cannot watch a specific repository. You must watch users/organizations to get notified about any new activity on any of their repositories. The goal is to simplify this functionality for users as much as possible and to make sure you don't miss anything you might be interested in._
+_Unlike GitHub or similar services, you cannot watch a specific repository. You must watch users/organizations to get notified about any new activity on any of their repositories. The goal is to simplify this functionality for users as much as possible and to make sure you don't miss anything you might be interested in._
 
 ## Notifications settings
 

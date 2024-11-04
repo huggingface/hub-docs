@@ -111,3 +111,10 @@ We want to acknowledge and thank [Bibi Ofuya](https://www.figma.com/proto/qrPCjW
 
 
 [^1]: See https://towardsdatascience.com/dag-card-is-the-new-model-card-70754847a111
+
+
+---
+
+**Please cite as:**
+Ozoani, Ezi and Gerchick, Marissa and Mitchell, Margaret. Model Card Guidebook. Hugging Face, 2022. https://huggingface.co/docs/hub/en/model-card-guidebook
+

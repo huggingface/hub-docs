@@ -2,7 +2,7 @@ name: Upload sagemaker PR Documentation
 
 on:
   workflow_run:
-    workflows: ["Build sagemaker PR DocumentationDocumentation"]
+    workflows: ["Build sagemaker PR Documentation"]
     types:
       - completed
 

@@ -56,14 +56,6 @@ Here's a quick video showing how to do that:
 
 <Youtube id="IcR60pVKeGY"/>
 
-## How to configure Livebook to use the GPU
-
-If your Space Hardware is configured to use a GPU accelerator, you can configure Livebook to leverage it.
-
-Go to the Settings page of your Space and create a secret called `XLA_TARGET` with the value `cuda118`.
-
-Restart your Space and start using Livebook with a GPU.
-
 ## How to update Livebook's version
 
 To update Livebook to its latest version, go to the Settings page of your Space and click on "Factory reboot this Space":

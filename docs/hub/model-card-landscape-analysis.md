@@ -139,3 +139,7 @@ While some headings within model cards may differ between models, we grouped com
 
 [^8]: By “Hugging Face models,” we mean models shared by Hugging Face, not another organisation, on the Hub. Formally, these are models without a ‘/’ in their model ID.
 
+---
+
+**Please cite as:**
+Ozoani, Ezi and Gerchick, Marissa and Mitchell, Margaret. Model Card Guidebook. Hugging Face, 2022. https://huggingface.co/docs/hub/en/model-card-guidebook 

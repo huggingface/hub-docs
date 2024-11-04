@@ -1,0 +1,9 @@
+| Payload |  |  |
+| :--- | :--- | :--- |
+{{#each schema}}
+{{#if type}}
+| **{{{name}}}{{#if required}}*{{/if}}** | _{{type}}_ | {{{description}}} |
+{{else}}
+| **{{{name}}}** |  | {{{description}}} |
+{{/if}}
+{{/each}}

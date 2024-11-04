@@ -37,7 +37,7 @@ Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not per
 | 2x Nvidia A10G - large| 48GB          	| 24 vCPU 	| 92 GB      	| 1000 GB  	| $5.70            	|
 | 4x Nvidia A10G - large| 96GB          	| 48 vCPU 	| 184 GB     	| 2000 GB  	| $10.80           	|
 | Nvidia A100 - large 	| 40GB          	| 12 vCPU 	| 142 GB     	| 1000 GB  	| $4.13            	|
- 
+
 | **Storage tier**     	| **Size**             	| **Persistent** 	| **Monthly price** 	|
 |---------------------	|----------------------	|------------------	| ---------------------	|
 | Ephemeral (default) 	| 50GB                	| No               	| Free!                	|
@@ -66,14 +66,25 @@ If your app requires environment variables (for instance, secret keys or tokens)
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/secrets-and-variables-dark.png"/>
 </div>
 
+You can use:
 
-Variables are publicly accessible and viewable and will be automatically added to Spaces duplicated from your repository. They are exposed to your app as environment variables.
+* **Variables** if you need to store non-sensitive configuration values. They are publicly accessible and viewable and will be automatically added to Spaces duplicated from yours.
+* **Secrets** to store access tokens, API keys, or any sensitive values or credentials. They are private and their value cannot be read from the Space's settings page once set. They won't be added to Spaces duplicated from your repository.
 
-For Static Spaces, they are available through client-side JavaScript in `window.huggingface.variables`.
 
-For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management).
+Accessing secrets and variables is different depending on your Space SDK:
 
-Secrets are private and their value cannot be retrieved once set. They won't be added to Spaces duplicated from your repository. The secrets will be exposed to your app with [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/) if you use Streamlit, and as environment variables in other cases. For Docker Spaces, please check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management). Users are warned when our `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
+- For Static Spaces, both are available through client-side JavaScript in `window.huggingface.variables`
+- For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management)
+- For Streamlit Spaces, secrets are exposed to your app through [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/), and public variables are directly available as environment variables
+
+For other Spaces, both are exposed to your app as environment variables. Here is a very simple example of accessing the previously declared `MODEL_REPO_ID` variable in Python (it would be the same for secrets):
+```py
+import os
+print(os.getenv('MODEL_REPO_ID'))
+```
+
+Spaces owners are warned when our `Spaces Secrets Scanner` [finds hard-coded secrets](./security-secrets).
 
 ## Duplicating a Space
 
@@ -83,7 +94,7 @@ If you want to duplicate a Space, you can click the three dots at the top right 
 
 * Owner: The duplicated Space can be under your account or any organization in which you have write access
 * Space name
-* Visibility: The Space is private by default. Read more about private repositories [here](./repositories-settings#private-repositories). 
+* Visibility: The Space is private by default. Read more about private repositories [here](./repositories-settings#private-repositories).
 * Hardware: You can choose the hardware on which the Space will be running. Read more about hardware upgrades [here](./spaces-gpus).
 * Storage: If the original repo uses persistent storage, you will be prompted to choose a storage tier. Read more about persistent storage [here](./spaces-storage).
 * Secrets and variables: If the original repo has set some secrets and variables, you'll be able to set them while duplicating the repo.
@@ -104,12 +115,13 @@ Paused time is not billed.
 In some cases, you might be interested in having programmatic access to the Space author or repository name. This feature is particularly useful when you expect users to duplicate your Space. To help with this, Spaces exposes different environment variables at runtime. Given a Space [`osanseviero/i-like-flan`](https://huggingface.co/spaces/osanseviero/i-like-flan):
 
 * `CPU_CORES`: 4
-* `MEMORY`: 15Gi 
+* `MEMORY`: 15Gi
 * `SPACE_AUTHOR_NAME`: osanseviero
 * `SPACE_REPO_NAME`: i-like-flan
 * `SPACE_TITLE`: I Like Flan (specified in the README file)
 * `SPACE_ID`: `osanseviero/i-like-flan`
 * `SPACE_HOST`: `osanseviero-i-like-flan.hf.space`
+* `SPACE_CREATOR_USER_ID`: `6032802e1f993496bc14d9e3` - This is the ID of the user that originally created the Space. It's useful if the Space is under an organization. You can get the user information with an API call to `https://huggingface.co/api/users/{SPACE_CREATOR_USER_ID}/overview`.
 
 In case [OAuth](./spaces-oauth) is enabled for your Space, the following variables will also be available:
 
@@ -120,14 +132,14 @@ In case [OAuth](./spaces-oauth) is enabled for your Space, the following variabl
 
 ## Clone the Repository
 
-You can easily clone your Space repo locally. Start by clicking on the dropdown menu in the top right of your Space page: 
+You can easily clone your Space repo locally. Start by clicking on the dropdown menu in the top right of your Space page:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SpacesCloneRepo2.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/SpacesCloneRepo1.png"/>
 </div>
 
-Select "Clone repository", and then you'll be able to follow the instructions to clone the Space repo to your local machine using HTTPS or SSH. 
+Select "Clone repository", and then you'll be able to follow the instructions to clone the Space repo to your local machine using HTTPS or SSH.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/HttpsClone2.png"/>
@@ -141,7 +153,7 @@ Select "Clone repository", and then you'll be able to follow the instructions to
 
 ## Linking Models and Datasets on the Hub
 
-You can showcase all the models and datasets that your Space links to by adding their identifier in your Space's README metadata. To do so, you can define them under the `models` and `datasets` keys. In addition to listing the artefacts in the README file, you can also record them in any `.py`, `.ini` or `.html` file as well. We'll parse it auto-magically! 
+You can showcase all the models and datasets that your Space links to by adding their identifier in your Space's README metadata. To do so, you can define them under the `models` and `datasets` keys. In addition to listing the artefacts in the README file, you can also record them in any `.py`, `.ini` or `.html` file as well. We'll parse it auto-magically!
 
 Here's an example linking two models from a space:
 

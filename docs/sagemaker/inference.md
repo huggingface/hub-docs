@@ -200,6 +200,8 @@ To deploy a model directly from the 🤗 Hub to SageMaker, define two environmen
 - `HF_MODEL_ID` defines the model ID which is automatically loaded from [huggingface.co/models](http://huggingface.co/models) when you create a SageMaker endpoint. Access 10,000+ models on he 🤗 Hub through this environment variable.
 - `HF_TASK` defines the task for the 🤗 Transformers `pipeline`. A complete list of tasks can be found [here](https://huggingface.co/docs/transformers/main_classes/pipelines).
 
+> ⚠️ ** Pipelines are not optimized for parallelism (multi-threading) and tend to consume a lot of RAM. For example, on a GPU-based instance, the pipeline operates on a single vCPU. When this vCPU becomes saturated with the inference requests preprocessing, it can create a bottleneck, preventing the GPU from being fully utilized for model inference. Learn more [here](https://huggingface.co/docs/transformers/en/pipeline_webserver#using-pipelines-for-a-webserver)
+
 ```python
 from sagemaker.huggingface.model import HuggingFaceModel
 
@@ -317,6 +319,101 @@ The `input.jsonl` looks like this:
 ```
 
 📓 Open the [sagemaker-notebook.ipynb notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/12_batch_transform_inference/sagemaker-notebook.ipynb) for an example of how to run a batch transform job for inference.
+
+## Deploy an LLM to SageMaker using TGI
+
+If you are interested in using a high-performance serving container for LLMs, you can use the Hugging Face TGI container. This utilizes the [Text Generation Inference](https://github.com/huggingface/text-generation-inference) library. A list of compatible models can be found [here](https://huggingface.co/docs/text-generation-inference/supported_models#supported-models).
+
+First, make sure that the latest version of SageMaker SDK is installed:
+
+```bash
+pip install sagemaker>=2.231.0
+```
+
+Then, we import the SageMaker Python SDK and instantiate a sagemaker_session to find the current region and execution role.
+
+```python
+import sagemaker
+from sagemaker.huggingface import HuggingFaceModel, get_huggingface_llm_image_uri
+import time
+
+sagemaker_session = sagemaker.Session()
+region = sagemaker_session.boto_region_name
+role = sagemaker.get_execution_role()
+```
+
+Next we retrieve the LLM image URI. We use the helper function get_huggingface_llm_image_uri() to generate the appropriate image URI for the Hugging Face Large Language Model (LLM) inference. The function takes a required parameter backend and several optional parameters. The backend specifies the type of backend to use for the model:  “huggingface” refers to using Hugging Face TGI backend.
+
+```python
+image_uri = get_huggingface_llm_image_uri(
+  backend="huggingface",
+  region=region
+)
+```
+
+Now that we have the image uri, the next step is to configure the model object. We specify a unique name, the image_uri for the managed TGI container, and the execution role for the endpoint. Additionally, we specify a number of environment variables including the `HF_MODEL_ID` which corresponds to the model from the HuggingFace Hub that will be deployed, and the `HF_TASK` which configures the inference task to be performed by the model.
+
+You should also define `SM_NUM_GPUS`, which specifies the tensor parallelism degree of the model. Tensor parallelism can be used to split the model across multiple GPUs, which is necessary when working with LLMs that are too big for a single GPU. To learn more about tensor parallelism with inference, see our previous blog post. Here, you should set `SM_NUM_GPUS` to the number of available GPUs on your selected instance type. For example, in this tutorial, we set `SM_NUM_GPUS` to 4 because our selected instance type ml.g4dn.12xlarge has 4 available GPUs.
+
+Note that you can optionally reduce the memory and computational footprint of the model by setting the `HF_MODEL_QUANTIZE` environment variable to `true`, but this lower weight precision could affect the quality of the output for some models.
+
+```python
+model_name = "llama-3-1-8b-instruct" + time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime())
+
+hub = {
+    'HF_MODEL_ID':'meta-llama/Llama-3.1-8B-Instruct',
+    'SM_NUM_GPUS':'1',
+	'HUGGING_FACE_HUB_TOKEN': '<REPLACE WITH YOUR TOKEN>',
+}
+
+assert hub['HUGGING_FACE_HUB_TOKEN'] != '<REPLACE WITH YOUR TOKEN>', "You have to provide a token."
+
+
+model = HuggingFaceModel(
+    name=model_name,
+    env=hub,
+    role=role,
+    image_uri=image_uri
+)
+```
+
+Next, we invoke the deploy method to deploy the model.
+
+```python
+predictor = model.deploy(
+  initial_instance_count=1,
+  instance_type="ml.g5.2xlarge",
+  endpoint_name=model_name
+)
+```
+
+Once the model is deployed, we can invoke it to generate text. We pass an input prompt and run the predict method to generate a text response from the LLM running in the TGI container.
+
+```python
+input_data = {
+  "inputs": "The diamondback terrapin was the first reptile to",
+  "parameters": {
+    "do_sample": True,
+    "max_new_tokens": 100,
+    "temperature": 0.7,
+    "watermark": True
+  }
+}
+
+predictor.predict(input_data)
+```
+
+We receive the following auto-generated text response:
+```python
+[{'generated_text': 'The diamondback terrapin was the first reptile to make the list, followed by the American alligator, the American crocodile, and the American box turtle. The polecat, a ferret-like animal, and the skunk rounded out the list, both having gained their slots because they have proven to be particularly dangerous to humans.\n\nCalifornians also seemed to appreciate the new list, judging by the comments left after the election.\n\n“This is fantastic,” one commenter declared.\n\n“California is a very'}]
+```
+
+Once we are done experimenting, we delete the endpoint and the model resources.
+
+```python
+predictor.delete_model()
+predictor.delete_endpoint()
+```
 
 ## User defined code and modules
 

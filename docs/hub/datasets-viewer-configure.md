@@ -3,7 +3,7 @@
 The Dataset Viewer supports many [data files formats](./datasets-adding#file-formats), from text to tabular and from image to audio formats.
 It also separates the train/validation/test splits based on file and folder names.
 
-To configure the Dataset Viewer for your dataset, first make sure your dataset is in a [supported data format](./datasets-adding#files-formats).
+To configure the Dataset Viewer for your dataset, first make sure your dataset is in a [supported data format](./datasets-adding#file-formats).
 
 ## Configure dropdowns for splits or subsets
 
@@ -12,13 +12,13 @@ In the Dataset Viewer you can view the [train/validation/test](https://en.wikipe
 To define those dropdowns, you can name the data files or their folder after their split names (train/validation/test).
 It is also possible to customize your splits manually using YAML.
 
-For more information, feel free to check out the documentation on [Data files Configuration](./datasets-data-files-configuration).
+For more information, feel free to check out the documentation on [Data files Configuration](./datasets-data-files-configuration) and the [collections of example datasets](https://huggingface.co/datasets-examples). The [Image Dataset doc page](./datasets-image) proposes various methods to structure a dataset with images.
 
 ## Disable the viewer
 
 The dataset viewer can be disabled. To do this, add a YAML section to the dataset's `README.md` file (create one if it does not already exist) and add a `viewer` property with the value `false`.
 
-```
+```yaml
 ---
 viewer: false
 ---

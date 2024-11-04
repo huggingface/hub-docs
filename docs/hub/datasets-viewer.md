@@ -1,6 +1,6 @@
 # Dataset viewer
 
-The dataset page includes a table with the contents of the dataset, arranged by pages of 100 rows. You can navigate between pages using the buttons at the bottom of the table.
+Each dataset page includes a table with the contents of the dataset, arranged by pages of 100 rows. You can navigate between pages using the buttons at the bottom of the table.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer.png"/>
@@ -20,6 +20,11 @@ Similarly, if you select one class from a categorical column, it will show only 
 
 You can search for a word in the dataset by typing it in the search bar at the top of the table. The search is case-insensitive and will match any row containing the word. The text is searched in the columns of `string`, even if the values are nested in a dictionary or a list.
 
+## Run SQL queries on the dataset
+
+You can run SQL queries on the dataset in the browser using the SQL Console. This feature also leverages our [auto-conversion to Parquet](datasets-viewer#access-the-parquet-files). 
+For more information see our guide on [SQL Console](./datasets-viewer-sql-console).
+
 ## Share a specific row
 
 You can share a specific row by clicking on it, and then copying the URL in the address bar of your browser. For example https://huggingface.co/datasets/nyu-mll/glue/viewer/mrpc/test?p=2&row=241 will open the dataset viewer on the MRPC dataset, on the test split, and on the 241st row.
@@ -35,7 +40,7 @@ In this case, an informational message lets you know that the Viewer is partial.
 
 ## Access the parquet files
 
-To power the dataset viewer, the first 5GB of every dataset are auto-converted to the Parquet format (unless it was already a Parquet dataset). In the dataset viewer (for example, see [GLUE](https://huggingface.co/datasets/nyu-mll/glue)), you can click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/nyu-mll/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Please, refer to the [Datasets Server docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
+To power the dataset viewer, the first 5GB of every dataset are auto-converted to the Parquet format (unless it was already a Parquet dataset). In the dataset viewer (for example, see [GLUE](https://huggingface.co/datasets/nyu-mll/glue)), you can click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/nyu-mll/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Please, refer to the [dataset viewer docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
 
 <Tip>
 
@@ -56,6 +61,8 @@ When you create a new dataset, the [`parquet-converter` bot](https://huggingface
 
 You can also access the list of Parquet files programmatically using the [Hub API](./api#get-apidatasetsrepoidparquet); for example, endpoint [`https://huggingface.co/api/datasets/nyu-mll/glue/parquet`](https://huggingface.co/api/datasets/nyu-mll/glue/parquet) lists the parquet files of the `nyu-mll/glue` dataset.
 
+We also have a specific documentation about the [Dataset Viewer API](https://huggingface.co/docs/dataset-viewer), which you can call directly. That API lets you access the contents, metadata and basic statistics of all Hugging Face Hub datasets, and powers the Dataset viewer frontend.
+
 ## Dataset preview
 
 For the biggest datasets, the page shows a preview of the first 100 rows instead of a full-featured viewer. This restriction only applies for datasets over 5GB that are not natively in Parquet format or that have not been auto-converted to Parquet.
@@ -64,6 +71,12 @@ For the biggest datasets, the page shows a preview of the first 100 rows instead
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-preview.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-preview-dark.png"/>
 </div>
+
+## Embed the Dataset Viewer in a webpage
+
+You can embed the Dataset Viewer in your own webpage using an iframe. The URL to use is `https://huggingface.co/datasets/<namespace>/<dataset-name>/embed/viewer`, where `<namespace>` is the owner of the dataset and `<dataset-name>` is the name of the dataset. You can also pass other parameters like the subset, split, filter, search or selected row.
+
+For more information see our guide on [How to embed the Dataset Viewer in a webpage](./datasets-viewer-embed).
 
 ## Configure the Dataset Viewer
 

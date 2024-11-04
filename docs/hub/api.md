@@ -17,7 +17,7 @@ Try it out now on our [Playground](https://huggingface.co/spaces/enzostvs/hub-ap
 
 ## Repo listing API
 
-The following endpoints help get information about models, datasets, Spaces, and metrics stored on the Hub.
+The following endpoints help get information about models, datasets, and Spaces stored on the Hub.
 
 <Tip>
 When making API calls to retrieve information about repositories, the <code>createdAt</code> attribute indicates the time when the respective repository was created. It's important to note that there is a unique value, <code>2022-03-02T23:29:04.000Z</code> assigned to all repositories that were created before we began storing creation dates.
@@ -110,9 +110,18 @@ This is equivalent to `huggingface_hub.dataset_info(repo_id, revision)`.
 
 Get the list of auto-converted parquet files.
 
-### GET /api/datasets/{repo_id}/parquet/{config}/{split}/{n}.parquet
+Append the subset and the split to the URL to get the list of files for a specific subset and split:
 
-Get the nth shard of the auto-converted parquet files.
+- `GET /api/datasets/{repo_id}/parquet/{subset}`
+- `GET /api/datasets/{repo_id}/parquet/{subset}/{split}`
+
+### GET /api/datasets/{repo_id}/parquet/{subset}/{split}/{n}.parquet
+
+Get the nth shard of the auto-converted parquet files, for a specific subset (also called "config") and split.
+
+### GET /api/datasets/{repo_id}/croissant
+
+Get the Croissant metadata. More details at https://huggingface.co/docs/datasets-server/croissant.
 
 ### GET /api/datasets-tags-by-type
 
@@ -157,6 +166,7 @@ This is equivalent to `huggingface_hub.space_info(repo_id, revision)`.
 ## Repo API
 
 The following endpoints manage repository settings like creating and deleting a repository.
+
 ### POST /api/repos/create
 
 Create a repository. It's a model repo by default.
@@ -253,6 +263,38 @@ headers = { "authorization" :  "Bearer $token" }
 ```
 
 This is equivalent to `huggingface_hub.whoami()`.
+
+## Organization API
+
+The following endpoint gets a list of the Organization members.
+
+### GET /api/organizations/{organization_name}/members
+
+Get the organization members.
+
+Payload:
+
+```js
+headers = { "authorization" :  "Bearer $token" }
+```
+
+This is equivalent to `huggingface_hub.list_organization_members()`.
+
+## Paper Pages API
+
+The following endpoint gets information about a paper.
+
+### GET /api/papers/{arxiv_id}
+
+Get the API equivalent of the Paper page, i.e., metadata like authors, summary, and discussion comments.
+
+### GET /api/arxiv/{arxiv_id}/repos
+
+Get all the models, datasets, and Spaces that refer to a paper.
+
+### GET /api/daily_papers
+
+Get the daily papers curated by AK and the community. It's the equivalent of [https://huggingface.co/papers](https://huggingface.co/papers).
 
 ## Collections API
 
