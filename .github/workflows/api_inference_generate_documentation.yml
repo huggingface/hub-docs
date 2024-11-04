@@ -43,9 +43,8 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           path: ./hub-docs
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
           commit-message: Update API inference documentation (automated)
-          author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
           branch: update-api-inference-docs-automated-pr
           delete-branch: true
           title: "[Bot] Update API inference documentation"
