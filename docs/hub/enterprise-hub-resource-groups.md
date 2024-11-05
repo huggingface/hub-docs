@@ -4,7 +4,7 @@
 This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
 </Tip>
 
-Resource Groups provide granular access control within Hugging Face organizations.
+Resource Groups allow organizations to enforce fine-grained access control to their repositories.
 
 <div class="flex justify-center" style="max-width: 550px">
   <img
