@@ -1,5 +1,9 @@
 # Enterprise Hub
 
+<Tip>
+<a href="https://huggingface.co/enterprise" target="_blank">Subscribe to Enterprise Hub</a> to get access to advanced features for your organization.
+</Tip>
+
 Enterprise Hub adds advanced capabilities to organizations, enabling safe, compliant and managed collaboration for companies and teams on Hugging Face.
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/enterprise-hub.png)
