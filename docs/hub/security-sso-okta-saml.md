@@ -1,11 +1,11 @@
 # How to configure SAML SSO with Okta
 
-In this guide, we will use Okta as the SSO provider and with the Security Assertion Markup Language (SAML) protocol as our preferred identity protocol. 
+In this guide, we will use Okta as the SSO provider and with the Security Assertion Markup Language (SAML) protocol as our preferred identity protocol.
 
 We currently support SP-initiated and IdP-initiated authentication. User provisioning is not yet supported at this time.
 
 <Tip warning={true}>
-	This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+	This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
 ### Step 1: Create a new application in your Identity Provider
@@ -20,11 +20,9 @@ Navigate to "Admin/Applications" and click the "Create App Integration" button.
 
 Then choose an "SAML 2.0" application and click "Create".
 
-
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-1.png"/>
 </div>
-
 
 ### Step 2: Configure your application on Okta
 
@@ -49,21 +47,20 @@ The URL looks like this: `https://huggingface.co/organizations/[organizationIden
 
 On Okta, set the following settings:
 
-* Set Audience URI (SP Entity Id) to match the "SP Entity ID" value on Hugging Face.
-* Set Name ID format to EmailAddress.
-* Under "Show Advanced Settings", verify that Response and Assertion Signature are set to: Signed.
-
+- Set Audience URI (SP Entity Id) to match the "SP Entity ID" value on Hugging Face.
+- Set Name ID format to EmailAddress.
+- Under "Show Advanced Settings", verify that Response and Assertion Signature are set to: Signed.
 
 Save your new application.
 
 ### Step 3: Finalize configuration on Hugging Face
 
 In your Okta application, under "Sign On/Settings/More details", find the following fields:
+
 - Sign-on URL
 - Public certificate
 - SP Entity ID
-You will need them to finalize the SSO setup on Hugging Face.
-
+  You will need them to finalize the SSO setup on Hugging Face.
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-4.png"/>
@@ -93,7 +90,6 @@ You can now click on "Update and Test SAML configuration" to save the settings.
 You should be redirected to your SSO provider (IdP) login prompt. Once logged in, you'll be redirected to your organization's settings page.
 
 A green check mark near the SAML selector will attest that the test was successful.
-
 
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-6.png"/>

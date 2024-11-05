@@ -5,7 +5,7 @@ The Hugging Face Hub gives you the ability to implement mandatory Single Sign-On
 We support both SAML 2.0 and OpenID Connect (OIDC) protocols.
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
 ## How does it work?
@@ -73,12 +73,11 @@ If there is no match, a user will be assigned the default role for your organiza
 
 Role synchronization is performed on login.
 
-
 #### External Collaborators
 
 This enables certain users within your organization to access resources without completing the Single Sign-On (SSO) flow described before. This can be helpful when you work with external parties who aren't part of your organization's Identity Provider (IdP) but require access to specific resources.
 
-To add a user as an "External Collaborator" visit the `SSO/Users Management` section in your organization's settings. Once added, these users won't need to go through the SSO process. 
+To add a user as an "External Collaborator" visit the `SSO/Users Management` section in your organization's settings. Once added, these users won't need to go through the SSO process.
 
-However, they will still be subject to your organization's access controls ([Resource Groups](./security-resource-groups)). 
+However, they will still be subject to your organization's access controls ([Resource Groups](./security-resource-groups)).
 It's crucial to manage their access carefully to maintain your organization's data security.

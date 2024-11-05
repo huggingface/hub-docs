@@ -1,7 +1,7 @@
 # Storage Regions on the Hub
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
 Regions allow you to specify where your organization's models and datasets are stored.

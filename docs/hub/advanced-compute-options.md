@@ -1,7 +1,7 @@
 # Advanced Compute Options
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
 Enterprise Hub organizations gain access to advanced compute options to accelerate their machine learning journey.
