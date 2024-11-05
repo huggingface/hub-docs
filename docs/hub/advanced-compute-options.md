@@ -10,6 +10,19 @@ This feature is part of the <a href="https://huggingface.co/enterprise" target="
 
 ZeroGPU is a dynamic GPU allocation system that optimizes AI deployment on Hugging Face Spaces. By automatically allocating and releasing NVIDIA A100 GPUs (40GB VRAM) as needed, organizations can efficiently serve their AI applications without dedicated GPU instances.
 
+<div class="flex justify-center" style="max-width: 550px">
+  <img
+    class="block dark:hidden !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/advanced-compute-options-zero.png"
+    alt="screenshot of Hugging Face Advanced Compute Options (ZeroGPU)"
+  />
+  <img
+    class="hidden dark:block !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-advanced-compute-options-zero.png"
+    alt="screenshot of Hugging Face Advanced Compute Options (ZeroGPU)"
+  />
+</div>
+
 **Key benefits for organizations**
 
 - **Free GPU Access**: Access powerful NVIDIA A100 GPUs at no additional cost through dynamic allocation
