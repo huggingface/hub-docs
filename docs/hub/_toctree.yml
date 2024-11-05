@@ -325,27 +325,27 @@
       title: Organization Cards
     - local: organizations-security
       title: Access Control in Organizations
-    - local: enterprise-hub
-      title: Enterprise Hub
-      sections:
-      - local: enterprise-sso
-        title: Single Sign-On (SSO)
-      - local: audit-logs
-        title: Audit Logs
-      - local: storage-regions
-        title: Storage Regions
-      - local: enterprise-hub-datasets
-        title: Dataset viewer for Private datasets
-      - local: enterprise-hub-resource-groups
-        title: Resource Groups (Access Control)
-      - local: advanced-compute-options
-        title: Advanced Compute Options
-      - local: enterprise-hub-advanced-security
-        title: Advanced Security
-      - local: enterprise-hub-tokens-management
-        title: Tokens Management
-      - local: enterprise-hub-analytics
-        title: Analytics
+  - local: enterprise-hub
+    title: Enterprise Hub
+    sections:
+    - local: enterprise-sso
+      title: Single Sign-On (SSO)
+    - local: audit-logs
+      title: Audit Logs
+    - local: storage-regions
+      title: Storage Regions
+    - local: enterprise-hub-datasets
+      title: Dataset viewer for Private datasets
+    - local: enterprise-hub-resource-groups
+      title: Resource Groups (Access Control)
+    - local: advanced-compute-options
+      title: Advanced Compute Options
+    - local: enterprise-hub-advanced-security
+      title: Advanced Security
+    - local: enterprise-hub-tokens-management
+      title: Tokens Management
+    - local: enterprise-hub-analytics
+      title: Analytics
   - local: billing
     title: Billing
   - local: security
