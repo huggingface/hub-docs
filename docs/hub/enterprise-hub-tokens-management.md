@@ -1,7 +1,7 @@
 # Tokens Management
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
 Tokens Management enables organization administrators to oversee access tokens within their organization, ensuring secure access to organization resources.
