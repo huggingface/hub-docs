@@ -10,7 +10,7 @@ Enterprise Hub adds advanced capabilities to organizations, enabling safe, compl
 
 In this section we will document the following Enterprise Hub features:
 
-- [SSO](./enterprise-sso)
+- [Single Sign-On (SSO)](./enterprise-sso)
 - [Audit Logs](./audit-logs)
 - [Storage Regions](./storage-regions)
 - [Dataset viewer for Private datasets](./enterprise-hub-datasets)
