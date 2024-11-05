@@ -36,8 +36,8 @@ Organizations subscribed to Enterprise Hub can access the Regions settings page 
 
 This feature allows organizations to:
 
-- An audit of your organization's repository locations
-- Options to select where new repositories will be stored
+- Audit their repository locations
+- Select where new repositories will be stored
 
 ## Repository Tag
 
