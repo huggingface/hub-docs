@@ -17,7 +17,7 @@ Currently available regions:
 - EU 🇪🇺
 - Coming soon: Asia-Pacific 🌏
 
-## How to set up
+## Getting started with Storage Regions
 
 Organizations subscribed to Enterprise Hub can access the Regions settings page to manage their repositories storage locations.
 
@@ -34,10 +34,10 @@ Organizations subscribed to Enterprise Hub can access the Regions settings page 
   />
 </div>
 
-This feature allows organizations to:
+This page displays:
 
-- Audit their repository locations
-- Select where new repositories will be stored
+- An audit of your organization's repository locations
+- Options to select where new repositories will be stored
 
 ## Repository Tag
 
