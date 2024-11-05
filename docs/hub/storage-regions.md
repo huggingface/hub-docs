@@ -19,11 +19,22 @@ Currently available regions:
 
 ## How to set up
 
-Organizations subscribed to Enterprise Hub can access the Regions settings page:
+Organizations subscribed to Enterprise Hub can access the Regions settings page to manage their repositories storage locations.
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-regions/feature-annotated.png)
+<div class="flex justify-center" style="max-width: 550px">
+  <img
+    class="block dark:hidden !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/regions.png"
+    alt="screenshot of Hugging Face Storage Regions feature"
+  />
+  <img
+    class="hidden dark:block !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-regions.png"
+    alt="screenshot of Hugging Face Storage Regions feature"
+  />
+</div>
 
-This page displays:
+This feature allows organizations to:
 
 - An audit of your organization's repository locations
 - Options to select where new repositories will be stored
@@ -32,8 +43,17 @@ This page displays:
 
 Any repository (model or dataset) stored in a non-default location displays its Region as a tag, allowing organization members to quickly identify repository locations.
 
-<div class="flex justify-center">
-<img class="block" width="400" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-regions/tag-on-repo.png"/>
+<div class="flex justify-center" style="max-width: 550px">
+  <img
+    class="block dark:hidden !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/region-tag.png"
+    alt="screenshot of Hugging Face Storage Regions tag feature"
+  />
+  <img
+    class="hidden dark:block !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-region-tag.png"
+    alt="screenshot of Hugging Face Storage Regions tag feature"
+  />
 </div>
 
 ## Regulatory and legal compliance
@@ -48,6 +68,17 @@ Storing models and datasets closer to your team and infrastructure significantly
 
 This impact is substantial given the typically large size of model weights and dataset files.
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-regions/upload-speed.png)
+<div class="flex justify-center" style="max-width: 750px;">
+  <img
+    class="block dark:hidden !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/region-git-code.png"
+    alt="example of Hugging Face Storage Regions feature"
+  />
+  <img
+    class="hidden dark:block !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-region-git-code.png"
+    alt="example of Hugging Face Storage Regions feature"
+  />
+</div>
 
 For example, European users storing repositories in the EU region can expect approximately 4-5x faster upload and download speeds compared to US storage.
