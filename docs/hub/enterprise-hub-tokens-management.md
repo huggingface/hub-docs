@@ -13,7 +13,7 @@ The token listing feature displays all access tokens within your organization. A
 - Monitor token usage to identify and prevent security risks:
   - Unauthorized access to private resources ("leaks")
   - Overly broad access scopes
-  - Suboptimal token hygiene (e.g., tokens that haven't been rotated recently)
+  - Suboptimal token hygiene (e.g., tokens that have not been rotated in a long time)
 - Identify and revoke inactive or unused tokens
 
 <div class="flex justify-center">
