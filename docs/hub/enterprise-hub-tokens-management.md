@@ -10,7 +10,7 @@ Tokens Management enables organization administrators to oversee access tokens w
 
 The token listing feature displays all access tokens within your organization. Administrators can:
 
-- Monitor token usage to identify and prevent security risks:
+- Monitor token usage and identify or prevent potential security risks:
   - Unauthorized access to private resources ("leaks")
   - Overly broad access scopes
   - Suboptimal token hygiene (e.g., tokens that have not been rotated in a long time)
