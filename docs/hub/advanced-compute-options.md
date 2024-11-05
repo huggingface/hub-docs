@@ -1,10 +1,10 @@
 # Advanced Compute Options
 
-Enterprise Hub organizations gain access to advanced compute options to accelerate their machine learning journey.
-
 <Tip warning={true}>
 This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
 </Tip>
+
+Enterprise Hub organizations gain access to advanced compute options to accelerate their machine learning journey.
 
 ## Host ZeroGPU Spaces in your organization
 
