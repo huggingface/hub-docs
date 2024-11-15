@@ -32,6 +32,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
+          package_json_file: scripts/api-inference/package.json
           run_install: true
 
       - name: Generate API inference documentation
