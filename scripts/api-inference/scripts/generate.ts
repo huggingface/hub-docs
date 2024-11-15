@@ -106,10 +106,17 @@ const formatSnippets = (result: snippets.types.InferenceSnippet | snippets.types
     return snippet.content;
   }
   
-  // For multiple snippets, add comments between them
+  // Get the appropriate comment 
+  const commentPrefix = {
+    'py': '#',
+    'js': '//',
+    'bash': '#'
+  }[language] || '#';
+  
+  // Show the snippet for each client
   return result
     .map(snippet => 
-      `# With ${snippet.client || defaultClient} client\n\n${snippet.content}`
+      `${commentPrefix} With ${snippet.client || defaultClient} client\n\n${snippet.content}`
     )
     .join('\n\n');
 };

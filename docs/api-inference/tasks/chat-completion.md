@@ -135,7 +135,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 
 <js>
 ```js
-# With huggingface_hub client
+// With huggingface_hub client
 
 import { HfInference } from "@huggingface/inference"
 
@@ -162,7 +162,7 @@ for await (const chunk of stream) {
 	}  
 }
 
-# With openai client
+// With openai client
 
 import { OpenAI } from "openai"
 
@@ -315,7 +315,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 
 <js>
 ```js
-# With huggingface_hub client
+// With huggingface_hub client
 
 import { HfInference } from "@huggingface/inference"
 
@@ -353,7 +353,7 @@ for await (const chunk of stream) {
 	}  
 }
 
-# With openai client
+// With openai client
 
 import { OpenAI } from "openai"
 
