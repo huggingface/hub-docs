@@ -1,15 +1,22 @@
 name: Update API Inference Documentation
 
 on:
-    workflow_dispatch:
-#   push:
-#     branches:
-#       - regenerate-api-inference-docs
+  workflow_dispatch:
+  push:
+    branches:
+      - regenerate-api-inference-docs
+
 
 concurrency:
   group: api_inference_generate_documentation
   cancel-in-progress: true
 
+defaults:
+  run:
+    working-directory: scripts/api-inference
+permissions:
+  contents: write  # Permet la modification des contenus du dépôt
+  pull-requests: write  # Permet la création de pull requests
 jobs:
   pull_request:
     runs-on: ubuntu-latest
@@ -25,24 +32,17 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          package_json_file: ./hub-docs/scripts/api-inference/package.json
-
-      - name: Install dependencies
-        run: pnpm install
-        working-directory: ./hub-docs/scripts/api-inference
+          run_install: true
 
       - name: Generate API inference documentation
         run: pnpm run generate
-        working-directory: ./hub-docs/scripts/api-inference
 
       - name: Check changes
         run: git status
-        working-directory: ./hub-docs
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          path: ./hub-docs
           token: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
           commit-message: Update API inference documentation (automated)
           branch: update-api-inference-docs-automated-pr
