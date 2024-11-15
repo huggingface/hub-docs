@@ -46,7 +46,8 @@ curl https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision
 
 <python>
 ```py
-<huggingface_hub>
+# With huggingface_hub client
+
 import requests
 
 API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct"
@@ -67,9 +68,9 @@ stream = client.chat.completions.create(
 
 for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
-</huggingface_hub>
 
-<openai>
+# With openai client
+
 import requests
 
 API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct"
@@ -93,7 +94,6 @@ stream = client.chat.completions.create(
 
 for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
-</openai>
 ```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_text-to-text).

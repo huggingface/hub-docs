@@ -106,13 +106,15 @@ const formatSnippets = (result: snippets.types.InferenceSnippet | snippets.types
     return snippet.content;
   }
   
-  // For multiple snippets, return just the content with client info
+  // For multiple snippets, add comments between them
   return result
     .map(snippet => 
-      `<${snippet.client || defaultClient}>\n${snippet.content}\n</${snippet.client || defaultClient}>`
+      `# With ${snippet.client || defaultClient} client\n\n${snippet.content}`
     )
     .join('\n\n');
 };
+
+
 
 const GET_SNIPPET_FN = {
   curl: (modelData: any, token: string) => {
