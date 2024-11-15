@@ -79,8 +79,8 @@ curl 'https://api-inference.huggingface.co/models/google/gemma-2-2b-it/v1/chat/c
 </curl>
 
 <python>
-<huggingface_hub>
 ```py
+<huggingface_hub>
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(api_key="hf_***")
@@ -101,11 +101,9 @@ stream = client.chat.completions.create(
 
 for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
-```
 </huggingface_hub>
 
 <openai>
-```py
 from openai import OpenAI
 
 client = OpenAI(
@@ -129,15 +127,15 @@ stream = client.chat.completions.create(
 
 for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
-```
 </openai>
+```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.chat_completion).
 </python>
 
 <js>
-<huggingface_hub>
 ```js
+<huggingface_hub>
 import { HfInference } from "@huggingface/inference"
 
 const client = new HfInference("hf_***")
@@ -162,11 +160,9 @@ for await (const chunk of stream) {
 		console.log(newContent);
 	}  
 }
-```
 </huggingface_hub>
 
 <openai>
-```js
 import { OpenAI } from "openai"
 
 const client = new OpenAI({
@@ -195,8 +191,8 @@ for await (const chunk of stream) {
 		console.log(newContent);
 	}  
 }
-```
 </openai>
+```
 
 To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#chatcompletion).
 </js>
@@ -241,8 +237,8 @@ curl 'https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Visio
 </curl>
 
 <python>
-<huggingface_hub>
 ```py
+<huggingface_hub>
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(api_key="hf_***")
@@ -274,11 +270,9 @@ stream = client.chat.completions.create(
 
 for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
-```
 </huggingface_hub>
 
 <openai>
-```py
 from openai import OpenAI
 
 client = OpenAI(
@@ -313,15 +307,15 @@ stream = client.chat.completions.create(
 
 for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
-```
 </openai>
+```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.chat_completion).
 </python>
 
 <js>
-<huggingface_hub>
 ```js
+<huggingface_hub>
 import { HfInference } from "@huggingface/inference"
 
 const client = new HfInference("hf_***")
@@ -357,11 +351,9 @@ for await (const chunk of stream) {
 		console.log(newContent);
 	}  
 }
-```
 </huggingface_hub>
 
 <openai>
-```js
 import { OpenAI } from "openai"
 
 const client = new OpenAI({
@@ -401,8 +393,8 @@ for await (const chunk of stream) {
 		console.log(newContent);
 	}  
 }
-```
 </openai>
+```
 
 To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#chatcompletion).
 </js>
