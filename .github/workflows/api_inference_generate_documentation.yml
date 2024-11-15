@@ -23,17 +23,16 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           run_install: true
-          package_json_file: ./hub-docs/scripts/api-inference/package.json
+          package_json_file: ./scripts/api-inference/package.json
 
       # Generate
       - name: Generate API inference documentation
         run: pnpm run generate
-        working-directory: ./hub-docs/scripts/api-inference
+        working-directory: ./scripts/api-inference
 
       # Check changes
       - name: Check changes
         run: git status
-        working-directory: ./hub-docs
 
       # Create or update Pull Request
       - name: Create Pull Request
