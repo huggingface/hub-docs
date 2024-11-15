@@ -100,20 +100,20 @@ const TASKS_DATA = (await response.json()) as any;
 ///////////////////////
 
 const formatSnippets = (result: snippets.types.InferenceSnippet | snippets.types.InferenceSnippet[], defaultClient: string, language: string): string => {
-  // For single snippet, return just the content
+  // For single snippet, just wrap with code block
   if (!Array.isArray(result) || result.length === 1) {
     const snippet = Array.isArray(result) ? result[0] : result;
     return `\`\`\`${language}\n${snippet.content}\n\`\`\``;
   }
   
-  // For multiple snippets, wrap each one in its own code block
+  // For multiple snippets, add description and wrap each one
   return result
-    .map(snippet => 
-      `\`\`\`${language}\n${snippet.content}\n\`\`\``
-    )
+    .map(snippet => {
+      const client = snippet.client || defaultClient;
+      return `With ${client} client:\n\`\`\`${language}\n${snippet.content}\n\`\`\``;
+    })
     .join('\n\n');
 };
-
 
 
 const GET_SNIPPET_FN = {

@@ -45,6 +45,7 @@ curl https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision
 </curl>
 
 <python>
+With huggingface_hub client:
 ```py
 import requests
 
@@ -68,6 +69,7 @@ for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
 ```
 
+With openai client:
 ```py
 import requests
 
