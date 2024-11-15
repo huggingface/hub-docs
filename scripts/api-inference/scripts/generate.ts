@@ -99,10 +99,34 @@ const TASKS_DATA = (await response.json()) as any;
 //// Snippet utils ////
 ///////////////////////
 
+const formatSnippets = (result: snippets.types.InferenceSnippet | snippets.types.InferenceSnippet[], defaultClient: string, language: string): string => {
+  // For single snippet, return just the content (let the template handle the wrapping)
+  if (!Array.isArray(result) || result.length === 1) {
+    const snippet = Array.isArray(result) ? result[0] : result;
+    return `\`\`\`${language}\n${snippet.content}\n\`\`\``;
+  }
+  
+  // For multiple snippets, include the client tags
+  return result
+    .map(snippet => 
+      `<${snippet.client || defaultClient}>\n\`\`\`${language}\n${snippet.content}\n\`\`\`\n</${snippet.client || defaultClient}>`
+    )
+    .join('\n\n');
+};
+
 const GET_SNIPPET_FN = {
-  curl: snippets.curl.getCurlInferenceSnippet,
-  js: snippets.js.getJsInferenceSnippet,
-  python: snippets.python.getPythonInferenceSnippet,
+  curl: (modelData: any, token: string) => {
+    const result = snippets.curl.getCurlInferenceSnippet(modelData, token);
+    return formatSnippets(result, 'curl', 'bash');
+  },
+  js: (modelData: any, token: string) => {
+    const result = snippets.js.getJsInferenceSnippet(modelData, token);
+    return formatSnippets(result, 'javascript', 'js');
+  },
+  python: (modelData: any, token: string) => {
+    const result = snippets.python.getPythonInferenceSnippet(modelData, token);
+    return formatSnippets(result, 'python', 'py');
+  },
 } as const;
 
 const HAS_SNIPPET_FN = {
@@ -129,8 +153,7 @@ export function getInferenceSnippet(
   // @ts-ignore
   if (HAS_SNIPPET_FN[language](modelData)) {
     // @ts-ignore
-    const snippets = GET_SNIPPET_FN[language](modelData, "hf_***");
-    return Array.isArray(snippets) ? snippets[0].content : snippets.content;
+    return GET_SNIPPET_FN[language](modelData, "hf_***");
   }
 }
 
@@ -483,6 +506,7 @@ function fetchChatCompletion() {
       // @ts-ignore
       javascript: getInferenceSnippet(mainModel.id, task.pipelineTag, "js", mainModel.config, ["conversational"]),
     };
+    console.log(taskSnippets);
     DATA.snippets[task.name] = SNIPPETS_TEMPLATE({
       taskSnippets,
       taskSnakeCase: baseName.replace("-", "_"),
