@@ -10,7 +10,7 @@ You can set up [Single Sign-On (SSO)](./security-sso) to be able to map access c
 
 Advanced and more fine-grained access control can be achieved with [Resource Groups](./security-resource-groups).
 
-The Resource Group feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+The Resource Group feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 
 </Tip>
 
@@ -31,24 +31,21 @@ As an organization `admin`, go to the **Members** section of the org settings to
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-members-page-dark.png"/>
 </div>
 
-
 ## Viewing members' email address
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
 You may be able to view the email addresses of members of your organization. The visibility of the email addresses depends on the organization's SSO configuration, or verified organization status.
 
 - If you [verify a domain for your organization](./organizations-managing#organization-domain-name), you can view members' email addresses for the verified domain.
-- If SSO is configured for your organization, you can view the email address for each of your organization members by setting `Matching email domains` in the SSO configuration  
-
+- If SSO is configured for your organization, you can view the email address for each of your organization members by setting `Matching email domains` in the SSO configuration
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-members-page-emails.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-members-page-emails-dark.png"/>
 </div>
-
 
 ## Managing Access Tokens with access to my organization
 

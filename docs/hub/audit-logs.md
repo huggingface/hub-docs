@@ -1,12 +1,23 @@
 # Audit Logs
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
 Audit Logs enable organization admins to easily review actions taken by members, including organization membership, repository settings and billing changes.
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/audit-logs.png)
+<div class="flex justify-center" style="max-width: 550px">
+  <img
+    class="block dark:hidden !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/audit-logs.png"
+    alt="screenshot of Hugging Face Audit Logs feature"
+  />
+  <img
+    class="hidden dark:block !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-audit-logs.png"
+    alt="screenshot of Hugging Face Audit Logs feature"
+  />
+</div>
 
 ## Accessing Audit Logs
 

@@ -1,14 +1,27 @@
 # Advanced Compute Options
 
-Enterprise Hub organizations gain access to advanced compute options to accelerate their machine learning journey.
-
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
+
+Enterprise Hub organizations gain access to advanced compute options to accelerate their machine learning journey.
 
 ## Host ZeroGPU Spaces in your organization
 
 ZeroGPU is a dynamic GPU allocation system that optimizes AI deployment on Hugging Face Spaces. By automatically allocating and releasing NVIDIA A100 GPUs (40GB VRAM) as needed, organizations can efficiently serve their AI applications without dedicated GPU instances.
+
+<div class="flex justify-center" style="max-width: 550px">
+  <img
+    class="block dark:hidden !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/advanced-compute-options-zero.png"
+    alt="screenshot of Hugging Face Advanced Compute Options (ZeroGPU)"
+  />
+  <img
+    class="hidden dark:block !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-advanced-compute-options-zero.png"
+    alt="screenshot of Hugging Face Advanced Compute Options (ZeroGPU)"
+  />
+</div>
 
 **Key benefits for organizations**
 

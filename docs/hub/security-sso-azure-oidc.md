@@ -1,12 +1,10 @@
 # How to configure OIDC SSO with Azure
 
-This guide will use Azure as the SSO provider and the Open ID Connect (OIDC) protocol as our preferred identity protocol. 
-
+This guide will use Azure as the SSO provider and the Open ID Connect (OIDC) protocol as our preferred identity protocol.
 
 <Tip warning={true}>
-	This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+	This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
-
 
 ### Step 1: Create a new application in your Identity Provider
 
@@ -44,7 +42,6 @@ Open a new tab/window in your browser and navigate to the SSO section of your or
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-settings-dark.png"/>
 </div>
 
-
 Copy the "Redirection URI" from the organization's settings on Hugging Face and paste it into the "Redirect URI" field on Azure Entra ID. Make sure you select "Web" in the dropdown menu.
 The URL looks like this: `https://huggingface.co/organizations/[organizationIdentifier]/oidc/consume`.
 
@@ -57,6 +54,7 @@ Save your new application.
 ### Step 3: Finalize configuration on Hugging Face
 
 We will need to collect the following information to finalize the setup on Hugging Face:
+
 - The Client ID of the OIDC app
 - A Client secret of the OIDC app
 - The Issuer URL of the OIDC app
@@ -99,13 +97,11 @@ Once you have created the secret, copy the secret value and paste it into the "C
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-10.png"/>
 </div>
 
-
 You can now click "Update and Test OIDC configuration" to save the settings.
 
 You should be redirected to your SSO provider (IdP) login prompt. Once logged in, you'll be redirected to your organization's settings page.
 
 A green check mark near the OIDC selector will attest that the test was successful.
-
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-6.png"/>
