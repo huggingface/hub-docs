@@ -13,7 +13,7 @@ concurrency:
 
 defaults:
   run:
-    working-directory: scripts/api-inference
+    working-directory: ./hub-docs/scripts/api-inference
 permissions:
   contents: write  # Permet la modification des contenus du dépôt
   pull-requests: write  # Permet la création de pull requests
