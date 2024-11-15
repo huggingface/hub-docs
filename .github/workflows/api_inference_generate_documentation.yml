@@ -26,7 +26,6 @@ jobs:
             - recursive: true
               cwd: ./scripts/api-inference
               args: [--frozen-lockfile]
-          package_json_file: ./scripts/api-inference/package.json
 
       # Generate
       - name: Generate API inference documentation
