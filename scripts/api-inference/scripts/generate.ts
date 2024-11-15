@@ -103,20 +103,13 @@ const formatSnippets = (result: snippets.types.InferenceSnippet | snippets.types
   // For single snippet, return just the content
   if (!Array.isArray(result) || result.length === 1) {
     const snippet = Array.isArray(result) ? result[0] : result;
-    return snippet.content;
+    return `\`\`\`${language}\n${snippet.content}\n\`\`\``;
   }
   
-  // Get the appropriate comment 
-  const commentPrefix = {
-    'py': '#',
-    'js': '//',
-    'bash': '#'
-  }[language] || '#';
-  
-  // Show the snippet for each client
+  // For multiple snippets, wrap each one in its own code block
   return result
     .map(snippet => 
-      `${commentPrefix} With ${snippet.client || defaultClient} client\n\n${snippet.content}`
+      `\`\`\`${language}\n${snippet.content}\n\`\`\``
     )
     .join('\n\n');
 };
@@ -148,16 +141,14 @@ export function getInferenceSnippet(
   id: string,
   pipeline_tag: PipelineType,
   language: InferenceSnippetLanguage,
-  config?: JsonObject,
-  tags?: string[],
 ): string | undefined {
   const modelData = {
     id,
     pipeline_tag,
     mask_token: "[MASK]",
     library_name: "",
-    config: config ?? {},
-    tags: tags ?? [],
+    config: {},
+    tags: [],
   };
   // @ts-ignore
   if (HAS_SNIPPET_FN[language](modelData)) {
@@ -507,15 +498,25 @@ function fetchChatCompletion() {
     );
 
     const mainModel = DATA.models[task.name][0];
+    const mainModelData = {
+      // @ts-ignore
+      id: mainModel.id,
+      pipeline_tag: task.pipelineTag,
+      mask_token: "",
+      library_name: "",
+      // @ts-ignore
+      tags: ["conversational"],
+      // @ts-ignore
+      config: mainModel.config,
+    };
     const taskSnippets = {
       // @ts-ignore
-      curl: getInferenceSnippet(mainModel.id, task.pipelineTag, "curl", mainModel.config, ["conversational"]),
+      curl: GET_SNIPPET_FN["curl"](mainModelData, "hf_***"),
       // @ts-ignore
-      python: getInferenceSnippet(mainModel.id, task.pipelineTag, "python", mainModel.config, ["conversational"]),
+      python: GET_SNIPPET_FN["python"](mainModelData, "hf_***"),
       // @ts-ignore
-      javascript: getInferenceSnippet(mainModel.id, task.pipelineTag, "js", mainModel.config, ["conversational"]),
+      javascript: GET_SNIPPET_FN["js"](mainModelData, "hf_***"),
     };
-    console.log(taskSnippets);
     DATA.snippets[task.name] = SNIPPETS_TEMPLATE({
       taskSnippets,
       taskSnakeCase: baseName.replace("-", "_"),

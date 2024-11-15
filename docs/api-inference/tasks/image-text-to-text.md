@@ -46,8 +46,6 @@ curl https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision
 
 <python>
 ```py
-# With huggingface_hub client
-
 import requests
 
 API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct"
@@ -68,9 +66,9 @@ stream = client.chat.completions.create(
 
 for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
+```
 
-# With openai client
-
+```py
 import requests
 
 API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct"

@@ -80,8 +80,6 @@ curl 'https://api-inference.huggingface.co/models/google/gemma-2-2b-it/v1/chat/c
 
 <python>
 ```py
-# With huggingface_hub client
-
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(api_key="hf_***")
@@ -102,9 +100,9 @@ stream = client.chat.completions.create(
 
 for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
+```
 
-# With openai client
-
+```py
 from openai import OpenAI
 
 client = OpenAI(
@@ -135,8 +133,6 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 
 <js>
 ```js
-// With huggingface_hub client
-
 import { HfInference } from "@huggingface/inference"
 
 const client = new HfInference("hf_***")
@@ -161,9 +157,9 @@ for await (const chunk of stream) {
 		console.log(newContent);
 	}  
 }
+```
 
-// With openai client
-
+```js
 import { OpenAI } from "openai"
 
 const client = new OpenAI({
@@ -238,8 +234,6 @@ curl 'https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Visio
 
 <python>
 ```py
-# With huggingface_hub client
-
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(api_key="hf_***")
@@ -271,9 +265,9 @@ stream = client.chat.completions.create(
 
 for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
+```
 
-# With openai client
-
+```py
 from openai import OpenAI
 
 client = OpenAI(
@@ -315,8 +309,6 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 
 <js>
 ```js
-// With huggingface_hub client
-
 import { HfInference } from "@huggingface/inference"
 
 const client = new HfInference("hf_***")
@@ -352,9 +344,9 @@ for await (const chunk of stream) {
 		console.log(newContent);
 	}  
 }
+```
 
-// With openai client
-
+```js
 import { OpenAI } from "openai"
 
 const client = new OpenAI({
