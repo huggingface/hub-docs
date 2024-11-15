@@ -141,14 +141,16 @@ export function getInferenceSnippet(
   id: string,
   pipeline_tag: PipelineType,
   language: InferenceSnippetLanguage,
+  config?: JsonObject,
+  tags?: string[],
 ): string | undefined {
   const modelData = {
     id,
     pipeline_tag,
     mask_token: "[MASK]",
     library_name: "",
-    config: {},
-    tags: [],
+    config: config ?? {},
+    tags: tags ?? [],
   };
   // @ts-ignore
   if (HAS_SNIPPET_FN[language](modelData)) {
@@ -498,24 +500,14 @@ function fetchChatCompletion() {
     );
 
     const mainModel = DATA.models[task.name][0];
-    const mainModelData = {
-      // @ts-ignore
-      id: mainModel.id,
-      pipeline_tag: task.pipelineTag,
-      mask_token: "",
-      library_name: "",
-      // @ts-ignore
-      tags: ["conversational"],
-      // @ts-ignore
-      config: mainModel.config,
-    };
+
     const taskSnippets = {
       // @ts-ignore
-      curl: GET_SNIPPET_FN["curl"](mainModelData, "hf_***"),
+      curl: getInferenceSnippet(mainModel.id, task.pipelineTag, "curl", mainModel.config, ["conversational"]),
       // @ts-ignore
-      python: GET_SNIPPET_FN["python"](mainModelData, "hf_***"),
+      python: getInferenceSnippet(mainModel.id, task.pipelineTag, "python", mainModel.config, ["conversational"]),
       // @ts-ignore
-      javascript: GET_SNIPPET_FN["js"](mainModelData, "hf_***"),
+      javascript: getInferenceSnippet(mainModel.id, task.pipelineTag, "js", mainModel.config, ["conversational"]),
     };
     DATA.snippets[task.name] = SNIPPETS_TEMPLATE({
       taskSnippets,
