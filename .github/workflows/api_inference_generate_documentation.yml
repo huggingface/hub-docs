@@ -6,40 +6,42 @@ on:
     branches:
       - regenerate-api-inference-docs
 
-
 concurrency:
   group: api_inference_generate_documentation
   cancel-in-progress: true
 
-defaults:
-  run:
-    working-directory: ./hub-docs/scripts/api-inference
 permissions:
   contents: write  # Permet la modification des contenus du dépôt
   pull-requests: write  # Permet la création de pull requests
+
 jobs:
   pull_request:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
           
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          package_json_file: scripts/api-inference/package.json
-          run_install: true
+          package_json_file: ./hub-docs/scripts/api-inference/package.json
+
+      - name: Install dependencies
+        run: pnpm install
+        working-directory: ./hub-docs/scripts/api-inference
 
       - name: Generate API inference documentation
         run: pnpm run generate
+        working-directory: ./hub-docs/scripts/api-inference
 
       - name: Check changes
         run: git status
+        working-directory: ./hub-docs
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
