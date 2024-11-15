@@ -14,31 +14,28 @@ jobs:
   pull_request:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      # Setup
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: "20"
-          
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v2
         with:
+          run_install: true
           package_json_file: ./hub-docs/scripts/api-inference/package.json
 
-      - name: Install dependencies
-        run: pnpm install
-        working-directory: ./hub-docs/scripts/api-inference
-
+      # Generate
       - name: Generate API inference documentation
         run: pnpm run generate
         working-directory: ./hub-docs/scripts/api-inference
 
+      # Check changes
       - name: Check changes
         run: git status
         working-directory: ./hub-docs
 
+      # Create or update Pull Request
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
