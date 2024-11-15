@@ -2,9 +2,8 @@ name: Update API Inference Documentation
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - regenerate-api-inference-docs
+  schedule:
+    - cron: "0 3 * * *" # Every day at 3am
 
 concurrency:
   group: api_inference_generate_documentation
