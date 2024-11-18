@@ -1,0 +1,64 @@
+name: Update API Inference Documentation
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *" # Every day at 3am
+
+concurrency:
+  group: api_inference_generate_documentation
+  cancel-in-progress: true
+
+jobs:
+  pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      # Setup
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          run_install: |
+            - recursive: true
+              cwd: ./scripts/api-inference
+              args: [--frozen-lockfile]
+          package_json_file: ./scripts/api-inference/package.json
+      - name: Update huggingface/tasks package
+        working-directory: ./scripts/api-inference
+        run: |
+          pnpm update @huggingface/tasks@latest
+      # Generate
+      - name: Generate API inference documentation
+        run: pnpm run generate
+        working-directory: ./scripts/api-inference
+
+      # Check changes
+      - name: Check changes
+        run: git status
+
+      # Create or update Pull Request
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
+          commit-message: Update API inference documentation (automated)
+          branch: update-api-inference-docs-automated-pr
+          delete-branch: true
+          title: "[Bot] Update API inference documentation"
+          body: |
+            This PR automatically upgrades the `@huggingface/tasks` package and regenerates the API inference documentation by running:
+            ```sh
+            cd scripts/api-inference
+            pnpm update @huggingface/tasks@latest
+            pnpm run generate
+            ```
+            
+            This PR was automatically created by the [Update API Inference Documentation workflow](https://github.com/huggingface/hub-docs/blob/main/.github/workflows/api_inference_generate_documentation.yml).
+            
+            Please review the changes before merging.
+          reviewers: |
+            Wauplin
+            hanouticelina

@@ -1,5 +1,6 @@
 {
   "name": "api-inference-generator",
+  "packageManager": "pnpm@9.7.1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
