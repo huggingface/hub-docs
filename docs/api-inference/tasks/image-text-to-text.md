@@ -45,13 +45,8 @@ curl https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision
 </curl>
 
 <python>
-With huggingface_hub client:
+Using `huggingface_hub`:
 ```py
-import requests
-
-API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct"
-headers = {"Authorization": "Bearer hf_***"}
-
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(api_key="hf_***")
@@ -69,13 +64,8 @@ for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
 ```
 
-With openai client:
+Using `openai`:
 ```py
-import requests
-
-API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct"
-headers = {"Authorization": "Bearer hf_***"}
-
 from openai import OpenAI
 
 client = OpenAI(

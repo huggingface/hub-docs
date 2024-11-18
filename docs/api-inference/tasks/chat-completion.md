@@ -79,7 +79,7 @@ curl 'https://api-inference.huggingface.co/models/google/gemma-2-2b-it/v1/chat/c
 </curl>
 
 <python>
-With huggingface_hub client:
+Using `huggingface_hub`:
 ```py
 from huggingface_hub import InferenceClient
 
@@ -103,7 +103,7 @@ for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
 ```
 
-With openai client:
+Using `openai`:
 ```py
 from openai import OpenAI
 
@@ -134,11 +134,11 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 </python>
 
 <js>
-With huggingface_hub client:
+Using `huggingface.js`:
 ```js
-import { HfInference } from "@huggingface/inference"
+import { HfInference } from "@huggingface/inference";
 
-const client = new HfInference("hf_***")
+const client = new HfInference("hf_***");
 
 let out = "";
 
@@ -162,14 +162,14 @@ for await (const chunk of stream) {
 }
 ```
 
-With openai client:
+Using `openai`:
 ```js
-import { OpenAI } from "openai"
+import { OpenAI } from "openai";
 
 const client = new OpenAI({
 	baseURL: "https://api-inference.huggingface.co/v1/",
     apiKey: "hf_***"
-})
+});
 
 let out = "";
 
@@ -237,7 +237,7 @@ curl 'https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Visio
 </curl>
 
 <python>
-With huggingface_hub client:
+Using `huggingface_hub`:
 ```py
 from huggingface_hub import InferenceClient
 
@@ -272,7 +272,7 @@ for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
 ```
 
-With openai client:
+Using `openai`:
 ```py
 from openai import OpenAI
 
@@ -314,11 +314,11 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 </python>
 
 <js>
-With huggingface_hub client:
+Using `huggingface.js`:
 ```js
-import { HfInference } from "@huggingface/inference"
+import { HfInference } from "@huggingface/inference";
 
-const client = new HfInference("hf_***")
+const client = new HfInference("hf_***");
 
 let out = "";
 
@@ -353,14 +353,14 @@ for await (const chunk of stream) {
 }
 ```
 
-With openai client:
+Using `openai`:
 ```js
-import { OpenAI } from "openai"
+import { OpenAI } from "openai";
 
 const client = new OpenAI({
 	baseURL: "https://api-inference.huggingface.co/v1/",
     apiKey: "hf_***"
-})
+});
 
 let out = "";
 

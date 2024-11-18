@@ -45,6 +45,16 @@ curl https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev \
 </curl>
 
 <python>
+Using `huggingface_hub`:
+```py
+from huggingface_hub import InferenceClient
+client = InferenceClient("black-forest-labs/FLUX.1-dev", token="hf_***")
+
+# output is a PIL.Image object
+image = client.text_to_image("Astronaut riding a horse")
+```
+
+Using `requests`:
 ```py
 import requests
 
@@ -57,6 +67,7 @@ def query(payload):
 image_bytes = query({
 	"inputs": "Astronaut riding a horse",
 })
+
 # You can access the image with PIL.Image for example
 import io
 from PIL import Image
