@@ -110,7 +110,7 @@ const formatSnippets = (result: snippets.types.InferenceSnippet | snippets.types
   return result
     .map(snippet => {
       const client = snippet.client || defaultClient;
-      return `With ${client} client:\n\`\`\`${language}\n${snippet.content}\n\`\`\``;
+      return `Using \`${client}\`:\n\`\`\`${language}\n${snippet.content}\n\`\`\``;
     })
     .join('\n\n');
 };
