@@ -2,11 +2,8 @@ name: Update API Inference Documentation
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - regenerate-api-inference-docs
-  # schedule:
-  #   - cron: "0 3 * * *" # Every day at 3am
+  schedule:
+    - cron: "0 3 * * *" # Every day at 3am
 
 concurrency:
   group: api_inference_generate_documentation
@@ -52,9 +49,10 @@ jobs:
           delete-branch: true
           title: "[Bot] Update API inference documentation"
           body: |
-            This PR automatically regenerates the API inference documentation by running:
+            This PR automatically upgrades the `@huggingface/tasks` package and regenerates the API inference documentation by running:
             ```sh
             cd scripts/api-inference
+            pnpm update @huggingface/tasks@latest
             pnpm run generate
             ```
             
