@@ -64,7 +64,7 @@ def query(filename):
 output = query("sample1.flac")
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.automatic_speech-recognition).
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.automatic_speech_recognition).
 </python>
 
 <js>

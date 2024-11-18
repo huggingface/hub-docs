@@ -86,7 +86,7 @@ for chunk in stream:
     print(chunk.choices[0].delta.content, end="")
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_text-to-text).
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_text_to_text).
 </python>
 
 <js>
