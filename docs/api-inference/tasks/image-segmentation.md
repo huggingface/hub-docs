@@ -24,7 +24,8 @@ For more details about the `image-segmentation` task, check out its [dedicated p
 
 ### Recommended models
 
-- [nvidia/segformer-b0-finetuned-ade-512-512](https://huggingface.co/nvidia/segformer-b0-finetuned-ade-512-512): Semantic segmentation model trained on ADE20k dataset.
+- [openmmlab/upernet-convnext-small](https://huggingface.co/openmmlab/upernet-convnext-small): Solid semantic segmentation model trained on ADE20k.
+- [facebook/mask2former-swin-large-coco-panoptic](https://huggingface.co/facebook/mask2former-swin-large-coco-panoptic): Panoptic segmentation model trained on the COCO (common objects) dataset.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-segmentation&sort=trending).
 
@@ -35,7 +36,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512 \
+curl https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-small \
 	-X POST \
 	--data-binary '@cats.jpg' \
 	-H "Authorization: Bearer hf_***"
@@ -46,7 +47,7 @@ curl https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-a
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512"
+API_URL = "https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-small"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
@@ -66,7 +67,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 async function query(filename) {
 	const data = fs.readFileSync(filename);
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512",
+		"https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-small",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"
