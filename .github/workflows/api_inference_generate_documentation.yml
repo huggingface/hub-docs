@@ -26,7 +26,10 @@ jobs:
               cwd: ./scripts/api-inference
               args: [--frozen-lockfile]
           package_json_file: ./scripts/api-inference/package.json
-
+      - name: Update huggingface/tasks package
+        working-directory: ./scripts/api-inference
+        run: |
+          pnpm update @huggingface/tasks@latest
       # Generate
       - name: Generate API inference documentation
         run: pnpm run generate
