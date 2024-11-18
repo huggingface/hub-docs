@@ -64,46 +64,133 @@ The API supports:
 curl 'https://api-inference.huggingface.co/models/google/gemma-2-2b-it/v1/chat/completions' \
 -H "Authorization: Bearer hf_***" \
 -H 'Content-Type: application/json' \
--d '{
-	"model": "google/gemma-2-2b-it",
-	"messages": [{"role": "user", "content": "What is the capital of France?"}],
-	"max_tokens": 500,
-	"stream": false
+--data '{
+    "model": "google/gemma-2-2b-it",
+    "messages": [
+		{
+			"role": "user",
+			"content": "What is the capital of France?"
+		}
+	],
+    "max_tokens": 500,
+    "stream": true
 }'
-
 ```
 </curl>
 
 <python>
+With huggingface_hub client:
 ```py
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(api_key="hf_***")
 
-for message in client.chat_completion(
-	model="google/gemma-2-2b-it",
-	messages=[{"role": "user", "content": "What is the capital of France?"}],
+messages = [
+	{
+		"role": "user",
+		"content": "What is the capital of France?"
+	}
+]
+
+stream = client.chat.completions.create(
+    model="google/gemma-2-2b-it", 
+	messages=messages, 
 	max_tokens=500,
-	stream=True,
-):
-    print(message.choices[0].delta.content, end="")
+	stream=True
+)
+
+for chunk in stream:
+    print(chunk.choices[0].delta.content, end="")
+```
+
+With openai client:
+```py
+from openai import OpenAI
+
+client = OpenAI(
+	base_url="https://api-inference.huggingface.co/v1/",
+	api_key="hf_***"
+)
+
+messages = [
+	{
+		"role": "user",
+		"content": "What is the capital of France?"
+	}
+]
+
+stream = client.chat.completions.create(
+    model="google/gemma-2-2b-it", 
+	messages=messages, 
+	max_tokens=500,
+	stream=True
+)
+
+for chunk in stream:
+    print(chunk.choices[0].delta.content, end="")
 ```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.chat_completion).
 </python>
 
 <js>
+With huggingface_hub client:
 ```js
-import { HfInference } from "@huggingface/inference";
+import { HfInference } from "@huggingface/inference"
 
-const inference = new HfInference("hf_***");
+const client = new HfInference("hf_***")
 
-for await (const chunk of inference.chatCompletionStream({
+let out = "";
+
+const stream = client.chatCompletionStream({
 	model: "google/gemma-2-2b-it",
-	messages: [{ role: "user", content: "What is the capital of France?" }],
+	messages: [
+		{
+			role: "user",
+			content: "What is the capital of France?"
+		}
+	],
+	max_tokens: 500
+});
+
+for await (const chunk of stream) {
+	if (chunk.choices && chunk.choices.length > 0) {
+		const newContent = chunk.choices[0].delta.content;
+		out += newContent;
+		console.log(newContent);
+	}  
+}
+```
+
+With openai client:
+```js
+import { OpenAI } from "openai"
+
+const client = new OpenAI({
+	baseURL: "https://api-inference.huggingface.co/v1/",
+    apiKey: "hf_***"
+})
+
+let out = "";
+
+const stream = await client.chat.completions.create({
+	model: "google/gemma-2-2b-it",
+	messages: [
+		{
+			role: "user",
+			content: "What is the capital of France?"
+		}
+	],
 	max_tokens: 500,
-})) {
-	process.stdout.write(chunk.choices[0]?.delta?.content || "");
+	stream: true,
+});
+
+for await (const chunk of stream) {
+	if (chunk.choices && chunk.choices.length > 0) {
+		const newContent = chunk.choices[0].delta.content;
+		out += newContent;
+		console.log(newContent);
+	}  
 }
 ```
 
@@ -124,73 +211,188 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 curl 'https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct/v1/chat/completions' \
 -H "Authorization: Bearer hf_***" \
 -H 'Content-Type: application/json' \
--d '{
-	"model": "meta-llama/Llama-3.2-11B-Vision-Instruct",
-	"messages": [
+--data '{
+    "model": "meta-llama/Llama-3.2-11B-Vision-Instruct",
+    "messages": [
 		{
 			"role": "user",
 			"content": [
-				{"type": "image_url", "image_url": {"url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"}},
-				{"type": "text", "text": "Describe this image in one sentence."}
+				{
+					"type": "text",
+					"text": "Describe this image in one sentence."
+				},
+				{
+					"type": "image_url",
+					"image_url": {
+						"url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+					}
+				}
 			]
 		}
 	],
-	"max_tokens": 500,
-	"stream": false
+    "max_tokens": 500,
+    "stream": true
 }'
-
 ```
 </curl>
 
 <python>
+With huggingface_hub client:
 ```py
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(api_key="hf_***")
 
-image_url = "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+messages = [
+	{
+		"role": "user",
+		"content": [
+			{
+				"type": "text",
+				"text": "Describe this image in one sentence."
+			},
+			{
+				"type": "image_url",
+				"image_url": {
+					"url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+				}
+			}
+		]
+	}
+]
 
-for message in client.chat_completion(
-	model="meta-llama/Llama-3.2-11B-Vision-Instruct",
-	messages=[
-		{
-			"role": "user",
-			"content": [
-				{"type": "image_url", "image_url": {"url": image_url}},
-				{"type": "text", "text": "Describe this image in one sentence."},
-			],
-		}
-	],
+stream = client.chat.completions.create(
+    model="meta-llama/Llama-3.2-11B-Vision-Instruct", 
+	messages=messages, 
 	max_tokens=500,
-	stream=True,
-):
-	print(message.choices[0].delta.content, end="")
+	stream=True
+)
+
+for chunk in stream:
+    print(chunk.choices[0].delta.content, end="")
+```
+
+With openai client:
+```py
+from openai import OpenAI
+
+client = OpenAI(
+	base_url="https://api-inference.huggingface.co/v1/",
+	api_key="hf_***"
+)
+
+messages = [
+	{
+		"role": "user",
+		"content": [
+			{
+				"type": "text",
+				"text": "Describe this image in one sentence."
+			},
+			{
+				"type": "image_url",
+				"image_url": {
+					"url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+				}
+			}
+		]
+	}
+]
+
+stream = client.chat.completions.create(
+    model="meta-llama/Llama-3.2-11B-Vision-Instruct", 
+	messages=messages, 
+	max_tokens=500,
+	stream=True
+)
+
+for chunk in stream:
+    print(chunk.choices[0].delta.content, end="")
 ```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.chat_completion).
 </python>
 
 <js>
+With huggingface_hub client:
 ```js
-import { HfInference } from "@huggingface/inference";
+import { HfInference } from "@huggingface/inference"
 
-const inference = new HfInference("hf_***");
-const imageUrl = "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg";
+const client = new HfInference("hf_***")
 
-for await (const chunk of inference.chatCompletionStream({
+let out = "";
+
+const stream = client.chatCompletionStream({
 	model: "meta-llama/Llama-3.2-11B-Vision-Instruct",
 	messages: [
 		{
-			"role": "user",
-			"content": [
-				{"type": "image_url", "image_url": {"url": imageUrl}},
-				{"type": "text", "text": "Describe this image in one sentence."},
-			],
+			role: "user",
+			content: [
+				{
+					type: "text",
+					text: "Describe this image in one sentence."
+				},
+				{
+					type: "image_url",
+					image_url: {
+						url: "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+					}
+				}
+			]
+		}
+	],
+	max_tokens: 500
+});
+
+for await (const chunk of stream) {
+	if (chunk.choices && chunk.choices.length > 0) {
+		const newContent = chunk.choices[0].delta.content;
+		out += newContent;
+		console.log(newContent);
+	}  
+}
+```
+
+With openai client:
+```js
+import { OpenAI } from "openai"
+
+const client = new OpenAI({
+	baseURL: "https://api-inference.huggingface.co/v1/",
+    apiKey: "hf_***"
+})
+
+let out = "";
+
+const stream = await client.chat.completions.create({
+	model: "meta-llama/Llama-3.2-11B-Vision-Instruct",
+	messages: [
+		{
+			role: "user",
+			content: [
+				{
+					type: "text",
+					text: "Describe this image in one sentence."
+				},
+				{
+					type: "image_url",
+					image_url: {
+						url: "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+					}
+				}
+			]
 		}
 	],
 	max_tokens: 500,
-})) {
-	process.stdout.write(chunk.choices[0]?.delta?.content || "");
+	stream: true,
+});
+
+for await (const chunk of stream) {
+	if (chunk.choices && chunk.choices.length > 0) {
+		const newContent = chunk.choices[0].delta.content;
+		out += newContent;
+		console.log(newContent);
+	}  
 }
 ```
 

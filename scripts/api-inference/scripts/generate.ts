@@ -99,10 +99,36 @@ const TASKS_DATA = (await response.json()) as any;
 //// Snippet utils ////
 ///////////////////////
 
+const formatSnippets = (result: snippets.types.InferenceSnippet | snippets.types.InferenceSnippet[], defaultClient: string, language: string): string => {
+  // For single snippet, just wrap with code block
+  if (!Array.isArray(result) || result.length === 1) {
+    const snippet = Array.isArray(result) ? result[0] : result;
+    return `\`\`\`${language}\n${snippet.content}\n\`\`\``;
+  }
+  
+  // For multiple snippets, add description and wrap each one
+  return result
+    .map(snippet => {
+      const client = snippet.client || defaultClient;
+      return `Using \`${client}\`:\n\`\`\`${language}\n${snippet.content}\n\`\`\``;
+    })
+    .join('\n\n');
+};
+
+
 const GET_SNIPPET_FN = {
-  curl: snippets.curl.getCurlInferenceSnippet,
-  js: snippets.js.getJsInferenceSnippet,
-  python: snippets.python.getPythonInferenceSnippet,
+  curl: (modelData: any, token: string) => {
+    const result = snippets.curl.getCurlInferenceSnippet(modelData, token);
+    return formatSnippets(result, 'curl', 'bash');
+  },
+  js: (modelData: any, token: string) => {
+    const result = snippets.js.getJsInferenceSnippet(modelData, token);
+    return formatSnippets(result, 'javascript', 'js');
+  },
+  python: (modelData: any, token: string) => {
+    const result = snippets.python.getPythonInferenceSnippet(modelData, token);
+    return formatSnippets(result, 'python', 'py');
+  },
 } as const;
 
 const HAS_SNIPPET_FN = {
@@ -115,14 +141,16 @@ export function getInferenceSnippet(
   id: string,
   pipeline_tag: PipelineType,
   language: InferenceSnippetLanguage,
+  config?: JsonObject,
+  tags?: string[],
 ): string | undefined {
   const modelData = {
     id,
     pipeline_tag,
     mask_token: "[MASK]",
     library_name: "",
-    config: {},
-    tags: [],
+    config: config ?? {},
+    tags: tags ?? [],
   };
   // @ts-ignore
   if (HAS_SNIPPET_FN[language](modelData)) {
@@ -472,25 +500,14 @@ function fetchChatCompletion() {
     );
 
     const mainModel = DATA.models[task.name][0];
-    const mainModelData = {
-      // @ts-ignore
-      id: mainModel.id,
-      pipeline_tag: task.pipelineTag,
-      mask_token: "",
-      library_name: "",
-      // @ts-ignore
-      tags: ["conversational"],
-      // @ts-ignore
-      config: mainModel.config,
-    };
 
     const taskSnippets = {
       // @ts-ignore
-      curl: GET_SNIPPET_FN["curl"](mainModelData, "hf_***"),
+      curl: getInferenceSnippet(mainModel.id, task.pipelineTag, "curl", mainModel.config, ["conversational"]),
       // @ts-ignore
-      python: GET_SNIPPET_FN["python"](mainModelData, "hf_***"),
+      python: getInferenceSnippet(mainModel.id, task.pipelineTag, "python", mainModel.config, ["conversational"]),
       // @ts-ignore
-      javascript: GET_SNIPPET_FN["js"](mainModelData, "hf_***"),
+      javascript: getInferenceSnippet(mainModel.id, task.pipelineTag, "js", mainModel.config, ["conversational"]),
     };
     DATA.snippets[task.name] = SNIPPETS_TEMPLATE({
       taskSnippets,

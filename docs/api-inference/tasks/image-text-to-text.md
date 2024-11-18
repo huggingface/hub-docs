@@ -38,13 +38,14 @@ Explore all available models and find the one that suits you best [here](https:/
 ```bash
 curl https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct \
 	-X POST \
-	-d '{"inputs": No input example has been defined for this model task.}' \
+	-d '{"inputs": "Can you please let us know more details about your "}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
 ```
 </curl>
 
 <python>
+With huggingface_hub client:
 ```py
 import requests
 
@@ -55,23 +56,44 @@ from huggingface_hub import InferenceClient
 
 client = InferenceClient(api_key="hf_***")
 
-image_url = "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+messages = "\"Can you please let us know more details about your \""
 
-for message in client.chat_completion(
-	model="meta-llama/Llama-3.2-11B-Vision-Instruct",
-	messages=[
-		{
-			"role": "user",
-			"content": [
-				{"type": "image_url", "image_url": {"url": image_url}},
-				{"type": "text", "text": "Describe this image in one sentence."},
-			],
-		}
-	],
+stream = client.chat.completions.create(
+    model="meta-llama/Llama-3.2-11B-Vision-Instruct", 
+	messages=messages, 
 	max_tokens=500,
-	stream=True,
-):
-	print(message.choices[0].delta.content, end="")
+	stream=True
+)
+
+for chunk in stream:
+    print(chunk.choices[0].delta.content, end="")
+```
+
+With openai client:
+```py
+import requests
+
+API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct"
+headers = {"Authorization": "Bearer hf_***"}
+
+from openai import OpenAI
+
+client = OpenAI(
+	base_url="https://api-inference.huggingface.co/v1/",
+	api_key="hf_***"
+)
+
+messages = "\"Can you please let us know more details about your \""
+
+stream = client.chat.completions.create(
+    model="meta-llama/Llama-3.2-11B-Vision-Instruct", 
+	messages=messages, 
+	max_tokens=500,
+	stream=True
+)
+
+for chunk in stream:
+    print(chunk.choices[0].delta.content, end="")
 ```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_text-to-text).
@@ -95,7 +117,7 @@ async function query(data) {
 	return result;
 }
 
-query({"inputs": No input example has been defined for this model task.}).then((response) => {
+query({"inputs": "Can you please let us know more details about your "}).then((response) => {
 	console.log(JSON.stringify(response));
 });
 ```
