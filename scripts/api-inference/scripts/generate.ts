@@ -440,8 +440,8 @@ TASKS.forEach((task) => {
   };
   DATA.snippets[task] = SNIPPETS_TEMPLATE({
     taskSnippets,
-    taskSnakeCase: task.replace("-", "_"),
-    taskAttached: task.replace("-", ""),
+    taskSnakeCase: task.replaceAll("-", "_"),
+    taskAttached: task.replaceAll("-", ""),
   });
 });
 
@@ -511,8 +511,8 @@ function fetchChatCompletion() {
     };
     DATA.snippets[task.name] = SNIPPETS_TEMPLATE({
       taskSnippets,
-      taskSnakeCase: baseName.replace("-", "_"),
-      taskAttached: baseName.replace("-", ""),
+      taskSnakeCase: baseName.replaceAll("-", "_"),
+      taskAttached: baseName.replaceAll("-", ""),
     });
 
   });
