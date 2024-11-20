@@ -1,7 +1,7 @@
 # Network Security
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub Plus</a> plan.
+This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Plus</a> plan.
 </Tip>
 
 ## Define your organization IP Ranges
@@ -32,7 +32,7 @@ To activate this option,
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-rate-limit.png" alt="Screenshot of the toggle to enable High rate-limits."/>
 </div>
 
-Please note, you're Enterprise Hub Plus subscription will be verified when activating this option.
+Please note, your Enterprise Hub Plus subscription will be verified when activating this option.
 
 2. Ensure the Organization IP Ranges is defined 
 
@@ -41,7 +41,7 @@ Once defined, higher rate limits will apply to the member of your organization w
 
 ## Enforce authenticated access to the Hugging Face Hub
 
-This option will ensure only authenticated users from your organization will be able to access the Hugging Face Hub. All public pages will show the following message if access unauthenticated:
+This option will ensure that, when browsing from your corporate network, only authenticated users belonging to your organization are able to access the Hugging Face Hub. All public pages will show the following message if access unauthenticated:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/network-sec-restricted-url.png" alt="Screenshot of restricted pages on the Hub."/>
@@ -55,7 +55,7 @@ This option will ensure only authenticated users from your organization will be 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-enforce-auth.png" alt="Screenshot of the toggle to enable Enforced authenticated access to the Hub."/>
 </div>
 
-Please note, you're Enterprise Hub Plus subscription will be verified when activating this option.
+Please note, your Enterprise Hub Plus subscription will be verified when activating this option.
 
 2. Ensure the Organization IP Ranges is defined 
 
