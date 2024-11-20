@@ -1,7 +1,7 @@
 # Network Security
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub __Plus__</a> plan.
+This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub Plus</a> plan.
 </Tip>
 
 ## Define your organization IP Ranges
@@ -74,8 +74,8 @@ For example, you can block your organization's members to access Spaces, by addi
 To define Blocked URLs, enter URL patterns, without the domain name, one per line:
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/network-sec-blocked-url.png" alt="Screenshot of blocked pages on the Hub."/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-blocked-url.png" alt="Screenshot of blocked pages on the Hub."/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/network-sec-cap.png" alt="Screenshot of blocked pages on the Hub."/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-cap.png" alt="Screenshot of blocked pages on the Hub."/>
 </div>
 
 The Allowed URLs field, enables you to define some exception to the blocking rules, especially. For example by allowing a specific URL within the Blocked URLs pattern, ie `/spaces/meta-llama/*`  
