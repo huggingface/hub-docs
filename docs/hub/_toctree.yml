@@ -346,6 +346,8 @@
       title: Tokens Management
     - local: enterprise-hub-analytics
       title: Analytics
+    - local: enterprise-hub-network-security
+      title: Network Security
   - local: billing
     title: Billing
   - local: security

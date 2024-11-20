@@ -22,3 +22,4 @@ In this section we will document the following Enterprise Hub features:
 - [Advanced Security](./enterprise-hub-advanced-security)
 - [Tokens Management](./enterprise-hub-tokens-management)
 - [Analytics](./enterprise-hub-analytics)
+- [Network Security](./enterprise-hub-network-security)
