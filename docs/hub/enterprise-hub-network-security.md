@@ -21,7 +21,7 @@ You can set multiple ranges, one per line.
 
 Apply for higher rate-limits for your organization. 
 
-Most of the actions on the Hub have limits, for example, users are limited to creating to a certain number of repositories per day. This option allows your organization to apply for higher limits for your organization members. 
+Most of the actions on the Hub have limits, for example, users are limited to creating a certain number of repositories per day. This option allows your organization to apply for higher limits for your organization members. 
 
 To activate this option,
 
@@ -32,11 +32,10 @@ To activate this option,
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-rate-limit.png" alt="Screenshot of the toggle to enable High rate-limits."/>
 </div>
 
-Please note, your Enterprise Hub Plus subscription will be verified when activating this option.
+You need to have a valid Enterprise Plus subscription for this option to take effect.
+2. Ensure the Organization IP Ranges are defined 
 
-2. Ensure the Organization IP Ranges is defined 
-
-Once defined, higher rate limits will apply to the member of your organization with IPs matching the defined ranges. 
+Once defined, higher rate limits will apply to members of your organization whose IPs match the defined ranges. 
 
 
 ## Enforce authenticated access to the Hugging Face Hub
@@ -55,16 +54,15 @@ This option will ensure that, when browsing from your corporate network, only au
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-enforce-auth.png" alt="Screenshot of the toggle to enable Enforced authenticated access to the Hub."/>
 </div>
 
-Please note, your Enterprise Hub Plus subscription will be verified when activating this option.
-
-2. Ensure the Organization IP Ranges is defined 
+You need to have a valid Enterprise Plus subscription for this option to take effect.
+2. Ensure the Organization IP Ranges are defined 
 
 
 ### Content Access Policy 
 
 You can also define a fine grained Content Access Policy by blocking some section of the Hugging Face Hub. 
 
-For example, you can block your organization's members to access Spaces, by adding `/spaces/*` to the blocked URLs. When users of your organization will navigate to a page that matches the URL pattern they'll be presented the following page:
+For example, you can block your organization's members to access Spaces, by adding `/spaces/*` to the blocked URLs. When users of your organization navigate to a page that matches the URL pattern, they'll be presented the following page:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/network-sec-blocked-url.png" alt="Screenshot of blocked pages on the Hub."/>
