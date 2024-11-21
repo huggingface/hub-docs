@@ -61,7 +61,7 @@ output = query({
 })
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.zero_shot-classification).
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.zero_shot_classification).
 </python>
 
 <js>
@@ -87,7 +87,7 @@ query({"inputs": "Hi, I recently bought a device from your company but it is not
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#zeroshot-classification).
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#zeroshotclassification).
 </js>
 
 </inferencesnippet>
