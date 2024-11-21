@@ -29,7 +29,10 @@ Overall it makes developing and experimenting with Spaces much faster by skippin
 
 Once the Dev Mode is enabled on your Space, you should see a modal like the following.
 
-<img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/wSfCELm8WoY_EFhj8l1MM.png" style="max-width: 500px;">
+<div class="flex justify-center" style="max-width: 550px">
+<img class="block dark:hidden !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-controls.png" alt="screenshot of the dev mode controls interface."/>
+<img class="hidden dark:block !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-controls-dark.png" alt="screenshot of the dev mode controls interface."/>
+</div>
 
 The application does not restart automatically when you change the code. For your changes to appear in the Space, you need to use the `Refresh` button that will restart the app.
 
@@ -37,6 +40,17 @@ The application does not restart automatically when you change the code. For you
   If you're using the Streamlit or Gradio SDK, or if your application is Pyhton-based, note that requirements are not installed automatically.
   You will need to manually run `pip install` from VS Code or SSH.
 </div>
+
+### SSH connection and VS Code
+
+The Dev Mode allows you to connect to your Space's docker container using SSH.
+
+Instructions to connect are listed in the Dev Mode controls modal.
+
+You will need to add your machine's SSH public key to [your user account](https://huggingface.co/settings/keys) to be able to connect to the Space using SSH.
+Check out the [Git over SSH](./security-git-ssh#add-a-ssh-key-to-your-account) documentation for more detailed instructions.
+
+You can also use a local install of VS Code to connect to the Space container. To do so, you will need to install the [SSH Remote](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension.
 
 ### Persisting changes
 
@@ -58,33 +72,35 @@ git push
 The modal will display a warning if you have uncommitted or unpushed changes in the Space:
 
 
-![image/png](https://cdn-uploads.huggingface.co/production/uploads/5fcfb7c407408029ba3577e2/r6Uk1YyvE2-hzsKTSRvnR.png)
-
+<div class="flex justify-center" style="max-width: 550px">
+<img class="block dark:hidden !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-controls-uncommitted.png" alt="screenshot of the dev mode controls interface."/>
+<img class="hidden dark:block !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-controls-uncommitted-dark.png" alt="screenshot of the dev mode controls interface."/>
+</div>
 
 ## Enabling Dev Mode
 
 You can enable the Dev Mode on your Space from the web interface.
 
 <div class="flex justify-center" style="max-width: 550px">
-<img class="block dark:hidden !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/TODO.png" alt="screenshot of the dev mode toggle from the contextual menu."/>
-<img class="hidden dark:block !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/TODO-dark.png" alt="screenshot of the dev mode toggle from the contextual menu."/>
+<img class="block dark:hidden !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-enable-contextual.png" alt="screenshot of the dev mode toggle from the contextual menu."/>
+<img class="hidden dark:block !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-enable-contextual-dark.png" alt="screenshot of the dev mode toggle from the contextual menu."/>
 </div>
 
 <div class="flex justify-center" style="max-width: 550px">
-<img class="block dark:hidden !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/TODO.png" alt="screenshot of the dev mode toggle from the Space settings."/>
-<img class="hidden dark:block !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/TODO-dark.png" alt="screenshot of the dev mode toggle from the Space settings."/>
+<img class="block dark:hidden !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-enable-settings.png" alt="screenshot of the dev mode toggle from the Space settings."/>
+<img class="hidden dark:block !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-enable-settings-dark.png" alt="screenshot of the dev mode toggle from the Space settings."/>
 </div>
 
 <div class="flex justify-center" style="max-width: 550px">
-<img class="block dark:hidden !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/TODO.png" alt="screenshot of the dev mode toggle from the Space logs."/>
-<img class="hidden dark:block !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/TODO-dark.png" alt="screenshot of the dev mode toggle from the Space logs."/>
+<img class="block dark:hidden !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-enable-logs.png" alt="screenshot of the dev mode toggle from the Space logs."/>
+<img class="hidden dark:block !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-enable-logs-dark.png" alt="screenshot of the dev mode toggle from the Space logs."/>
 </div>
 
 You can also create a Space with the dev mode enabled:
 
 <div class="flex justify-center" style="max-width: 550px">
-<img class="block dark:hidden !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/TODO.png" alt="screenshot of the dev mode toggle from the Space creation page."/>
-<img class="hidden dark:block !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/TODO-dark.png" alt="screenshot of the dev mode toggle from the Space creation page."/>
+<img class="block dark:hidden !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-creation-enable.png" alt="screenshot of the dev mode toggle from the Space creation page."/>
+<img class="hidden dark:block !m-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-creation-enable-dark.png" alt="screenshot of the dev mode toggle from the Space creation page."/>
 </div>
 
 
