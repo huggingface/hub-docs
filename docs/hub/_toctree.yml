@@ -242,6 +242,8 @@
     title: Spaces GPU Upgrades
   - local: spaces-zerogpu
     title: Spaces ZeroGPU
+  - local: spaces-dev-mode
+    title: Spaces Dev Mode
   - local: spaces-storage
     title: Spaces Persistent Storage
   - local: spaces-sdks-gradio
