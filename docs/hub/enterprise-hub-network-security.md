@@ -32,8 +32,7 @@ To activate this option,
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-rate-limit.png" alt="Screenshot of the toggle to enable High rate-limits."/>
 </div>
 
-Please, note that your Enterprise Plus subscription will be verified when activating this option.
-
+You need to have a valid Enterprise Plus subscription for this option to take effect.
 2. Ensure the Organization IP Ranges are defined 
 
 Once defined, higher rate limits will apply to members of your organization whose IPs match the defined ranges. 
@@ -55,8 +54,7 @@ This option will ensure that, when browsing from your corporate network, only au
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-enforce-auth.png" alt="Screenshot of the toggle to enable Enforced authenticated access to the Hub."/>
 </div>
 
-Please, note that your Enterprise Plus subscription will be verified when activating this option.
-
+You need to have a valid Enterprise Plus subscription for this option to take effect.
 2. Ensure the Organization IP Ranges are defined 
 
 
