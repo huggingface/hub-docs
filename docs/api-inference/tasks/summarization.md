@@ -99,7 +99,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | Payload |  |  |
 | :--- | :--- | :--- |
 | **inputs*** | _string_ | The input text to summarize. |
-| **parameters** | _object_ | Additional inference parameters for summarization. |
+| **parameters** | _object_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clean_up_tokenization_spaces** | _boolean_ | Whether to clean up the potential extra spaces in the text output. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;truncation** | _enum_ | Possible values: do_not_truncate, longest_first, only_first, only_second. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generate_parameters** | _object_ | Additional parametrization of the text generation algorithm. |

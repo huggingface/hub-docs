@@ -102,7 +102,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | Payload |  |  |
 | :--- | :--- | :--- |
 | **inputs*** | _string_ | The input text data |
-| **parameters** | _object_ | Additional inference parameters for Token Classification |
+| **parameters** | _object_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ignore_labels** | _string[]_ | A list of labels to ignore |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stride** | _integer_ | The number of overlapping tokens between chunks when splitting the input text. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aggregation_strategy** | _string_ | One of the following: |
