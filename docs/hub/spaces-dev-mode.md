@@ -10,7 +10,7 @@ The Spaces Dev Mode is part of PRO and Enterprise Hub subscriptions.
 
 ## Spaces Dev Mode
 
-The Dev Mode of Spaces is a tool that eases the debugging of your application and makes iterating on Spaces faster.
+Spaces Dev Mode is a feature that eases the debugging of your application and makes iterating on Spaces faster.
 
 Whenever your commit some changes to your Space repo, the underlying Docker image gets rebuilt, and then a new virtual machine is provisioned to host the new container.
 
