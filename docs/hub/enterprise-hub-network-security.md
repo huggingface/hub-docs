@@ -21,7 +21,7 @@ You can set multiple ranges, one per line.
 
 Apply for higher rate-limits for your organization. 
 
-Most of the actions on the Hub have limits, for example, users are limited to creating a certain number of repositories per day. This option allows your organization to apply for higher limits for your organization members. 
+Most of the actions on the Hub have limits, for example, users are limited to creating a certain number of repositories per day. This option allows your organization to apply for higher limits for your organization members. This also applies to model download rate limits if your organization downloads many models.
 
 To activate this option,
 
