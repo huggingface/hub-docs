@@ -125,7 +125,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | **inputs*** | _object_ | One (table, question) pair to answer |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table*** | _object_ | The table to serve as context for the questions |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;question*** | _string_ | The question to be answered about the table |
-| **parameters** | _object_ | Additional inference parameters for Table Question Answering |
+| **parameters** | _object_ |  |
 
 
 Some options can be configured by passing headers to the Inference API. Here are the available headers:

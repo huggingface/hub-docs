@@ -99,7 +99,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | Payload |  |  |
 | :--- | :--- | :--- |
 | **inputs*** | _string_ | The text to translate. |
-| **parameters** | _object_ | Additional inference parameters for Translation |
+| **parameters** | _object_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;src_lang** | _string_ | The source language of the text. Required for models that can translate from multiple languages. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tgt_lang** | _string_ | Target language to translate to. Required for models that can translate to multiple languages. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clean_up_tokenization_spaces** | _boolean_ | Whether to clean up the potential extra spaces in the text output. |
