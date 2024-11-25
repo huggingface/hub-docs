@@ -35,7 +35,7 @@ out = pipe('I love transformers!')
 <td>
 
 ```javascript
-import { pipeline } from '@xenova/transformers';
+import { pipeline } from '@huggingface/transformers';
 
 // Allocate a pipeline for sentiment-analysis
 let pipe = await pipeline('sentiment-analysis');
@@ -59,16 +59,16 @@ Refer to the [documentation](https://huggingface.co/docs/transformers.js) for th
 
 ## Installation
 
-To install via [NPM](https://www.npmjs.com/package/@xenova/transformers), run:
+To install via [NPM](https://www.npmjs.com/package/@huggingface/transformers), run:
 ```bash
-npm i @xenova/transformers
+npm i @huggingface/transformers
 ```
 
-For more information, including how to use it in vanilla JS (without any bundler) via a CDN or static hosting, refer to the [README](https://github.com/xenova/transformers.js/blob/main/README.md#installation).
+For more information, including how to use it in vanilla JS (without any bundler) via a CDN or static hosting, refer to the [README](https://github.com/huggingface/transformers.js/blob/main/README.md#installation).
 
 
 ## Additional resources
 
-* Transformers.js [repository](https://github.com/xenova/transformers.js)
+* Transformers.js [repository](https://github.com/huggingface/transformers.js)
 * Transformers.js [docs](https://huggingface.co/docs/transformers.js)
-* Transformers.js [demo](https://xenova.github.io/transformers.js/)
+* Transformers.js [demo](https://huggingface.github.io/transformers.js/)
