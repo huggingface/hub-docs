@@ -42,7 +42,7 @@ curl https://api-inference.huggingface.co/models/distilbert/distilbert-base-unca
 	-X POST \
 	-d '{"inputs": "I like you. I love you"}' \
 	-H 'Content-Type: application/json' \
-	-H "Authorization: Bearer hf_***"
+	-H 'Authorization: Bearer hf_***'
 ```
 </curl>
 
@@ -72,7 +72,7 @@ async function query(data) {
 		"https://api-inference.huggingface.co/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english",
 		{
 			headers: {
-				Authorization: "Bearer hf_***"
+				Authorization: "Bearer hf_***",
 				"Content-Type": "application/json",
 			},
 			method: "POST",

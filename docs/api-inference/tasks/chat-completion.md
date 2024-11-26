@@ -62,7 +62,7 @@ The API supports:
 <curl>
 ```bash
 curl 'https://api-inference.huggingface.co/models/google/gemma-2-2b-it/v1/chat/completions' \
--H "Authorization: Bearer hf_***" \
+-H 'Authorization: Bearer hf_***' \
 -H 'Content-Type: application/json' \
 --data '{
     "model": "google/gemma-2-2b-it",
@@ -209,7 +209,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 <curl>
 ```bash
 curl 'https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct/v1/chat/completions' \
--H "Authorization: Bearer hf_***" \
+-H 'Authorization: Bearer hf_***' \
 -H 'Content-Type: application/json' \
 --data '{
     "model": "meta-llama/Llama-3.2-11B-Vision-Instruct",

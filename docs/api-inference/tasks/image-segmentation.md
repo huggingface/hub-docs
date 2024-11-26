@@ -39,7 +39,7 @@ Explore all available models and find the one that suits you best [here](https:/
 curl https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-small \
 	-X POST \
 	--data-binary '@cats.jpg' \
-	-H "Authorization: Bearer hf_***"
+	-H 'Authorization: Bearer hf_***'
 ```
 </curl>
 
@@ -70,7 +70,7 @@ async function query(filename) {
 		"https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-small",
 		{
 			headers: {
-				Authorization: "Bearer hf_***"
+				Authorization: "Bearer hf_***",
 				"Content-Type": "application/json",
 			},
 			method: "POST",

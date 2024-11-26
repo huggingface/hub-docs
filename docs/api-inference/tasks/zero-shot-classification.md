@@ -40,7 +40,7 @@ curl https://api-inference.huggingface.co/models/facebook/bart-large-mnli \
 	-X POST \
 	-d '{"inputs": "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!", "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}' \
 	-H 'Content-Type: application/json' \
-	-H "Authorization: Bearer hf_***"
+	-H 'Authorization: Bearer hf_***'
 ```
 </curl>
 
@@ -71,7 +71,7 @@ async function query(data) {
 		"https://api-inference.huggingface.co/models/facebook/bart-large-mnli",
 		{
 			headers: {
-				Authorization: "Bearer hf_***"
+				Authorization: "Bearer hf_***",
 				"Content-Type": "application/json",
 			},
 			method: "POST",

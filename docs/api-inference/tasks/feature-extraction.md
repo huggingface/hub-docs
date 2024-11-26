@@ -44,7 +44,7 @@ curl https://api-inference.huggingface.co/models/thenlper/gte-large \
 	-X POST \
 	-d '{"inputs": "Today is a sunny day and I will get some ice cream."}' \
 	-H 'Content-Type: application/json' \
-	-H "Authorization: Bearer hf_***"
+	-H 'Authorization: Bearer hf_***'
 ```
 </curl>
 
@@ -74,7 +74,7 @@ async function query(data) {
 		"https://api-inference.huggingface.co/models/thenlper/gte-large",
 		{
 			headers: {
-				Authorization: "Bearer hf_***"
+				Authorization: "Bearer hf_***",
 				"Content-Type": "application/json",
 			},
 			method: "POST",
