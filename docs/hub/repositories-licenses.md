@@ -60,7 +60,7 @@ A full list of the available licenses is available here:
 | GNU Lesser General Public License v2.1                         | `lgpl-2.1`                               |
 | GNU Lesser General Public License v3.0                         | `lgpl-3.0`                               |
 | ISC                                                            | `isc`                                    |
-| Intel Research Use License Agreement                             | `intel-research`                         |
+| Intel Research Use License Agreement                           | `intel-research`                         |
 | LaTeX Project Public License v1.3c                             | `lppl-1.3c`                              |
 | Microsoft Public License                                       | `ms-pl`                                  |
 | Apple Sample Code license                                      | `apple-ascl`                             | <!-- license: https://developer.apple.com/support/downloads/terms/apple-sample-code/Apple-Sample-Code-License.pdf -->
