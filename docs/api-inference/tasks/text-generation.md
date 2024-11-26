@@ -44,7 +44,7 @@ curl https://api-inference.huggingface.co/models/google/gemma-2-2b-it \
 	-X POST \
 	-d '{"inputs": "Can you please let us know more details about your "}' \
 	-H 'Content-Type: application/json' \
-	-H "Authorization: Bearer hf_***"
+	-H 'Authorization: Bearer hf_***'
 ```
 </curl>
 
@@ -74,7 +74,7 @@ async function query(data) {
 		"https://api-inference.huggingface.co/models/google/gemma-2-2b-it",
 		{
 			headers: {
-				Authorization: "Bearer hf_***"
+				Authorization: "Bearer hf_***",
 				"Content-Type": "application/json",
 			},
 			method: "POST",

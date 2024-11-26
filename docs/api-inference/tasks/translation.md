@@ -39,7 +39,7 @@ curl https://api-inference.huggingface.co/models/google-t5/t5-base \
 	-X POST \
 	-d '{"inputs": "Меня зовут Вольфганг и я живу в Берлине"}' \
 	-H 'Content-Type: application/json' \
-	-H "Authorization: Bearer hf_***"
+	-H 'Authorization: Bearer hf_***'
 ```
 </curl>
 
@@ -69,7 +69,7 @@ async function query(data) {
 		"https://api-inference.huggingface.co/models/google-t5/t5-base",
 		{
 			headers: {
-				Authorization: "Bearer hf_***"
+				Authorization: "Bearer hf_***",
 				"Content-Type": "application/json",
 			},
 			method: "POST",

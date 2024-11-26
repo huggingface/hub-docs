@@ -42,7 +42,7 @@ curl https://api-inference.huggingface.co/models/dslim/bert-base-NER \
 	-X POST \
 	-d '{"inputs": "My name is Sarah Jessica Parker but you can call me Jessica"}' \
 	-H 'Content-Type: application/json' \
-	-H "Authorization: Bearer hf_***"
+	-H 'Authorization: Bearer hf_***'
 ```
 </curl>
 
@@ -72,7 +72,7 @@ async function query(data) {
 		"https://api-inference.huggingface.co/models/dslim/bert-base-NER",
 		{
 			headers: {
-				Authorization: "Bearer hf_***"
+				Authorization: "Bearer hf_***",
 				"Content-Type": "application/json",
 			},
 			method: "POST",
