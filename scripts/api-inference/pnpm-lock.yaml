@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@huggingface/tasks':
-        specifier: ^0.13.6
-        version: 0.13.6
+        specifier: ^0.13.8
+        version: 0.13.8
       '@types/node':
         specifier: ^22.5.0
         version: 22.5.0
@@ -186,8 +186,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@huggingface/tasks@0.13.6':
-    resolution: {integrity: sha512-5z7pkiLZTywSwXU6MPeKGC/RGXqTeF5J9iSWDQE+QPn0AXzYBAqDHLXSfjGMXpLhFg31VGl8OxGOjfn3dH+DWw==}
+  '@huggingface/tasks@0.13.8':
+    resolution: {integrity: sha512-ozfDHYzdHXoinlHmcIhlvTicipmVB01YVGSb8vT94m+NrDDYQHsyihh3ZvJ0MiKfgQi7KDpzKiGfPFP2BjxxDg==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -404,7 +404,7 @@ snapshots:
   '@esbuild/win32-x64@0.23.1':
     optional: true
 
-  '@huggingface/tasks@0.13.6': {}
+  '@huggingface/tasks@0.13.8': {}
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
