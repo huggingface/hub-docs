@@ -24,9 +24,10 @@ For more details about the `image-segmentation` task, check out its [dedicated p
 
 ### Recommended models
 
-- [nvidia/segformer-b0-finetuned-ade-512-512](https://huggingface.co/nvidia/segformer-b0-finetuned-ade-512-512): Semantic segmentation model trained on ADE20k benchmark dataset with 512x512 resolution.
+- [openmmlab/upernet-convnext-small](https://huggingface.co/openmmlab/upernet-convnext-small): Solid semantic segmentation model trained on ADE20k.
+- [facebook/mask2former-swin-large-coco-panoptic](https://huggingface.co/facebook/mask2former-swin-large-coco-panoptic): Panoptic segmentation model trained on the COCO (common objects) dataset.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-segmentation&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-segmentation&sort=trending).
 
 ### Using the API
 
@@ -35,11 +36,10 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512 \
+curl https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-small \
 	-X POST \
 	--data-binary '@cats.jpg' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 
@@ -47,7 +47,7 @@ curl https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-a
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512"
+API_URL = "https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-small"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
@@ -67,7 +67,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 async function query(filename) {
 	const data = fs.readFileSync(filename);
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/nvidia/segformer-b0-finetuned-ade-512-512",
+		"https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-small",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"
@@ -100,7 +100,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | Payload |  |  |
 | :--- | :--- | :--- |
 | **inputs*** | _string_ | The input image data as a base64-encoded string. If no `parameters` are provided, you can also provide the image data as a raw bytes payload. |
-| **parameters** | _object_ | Additional inference parameters for Image Segmentation |
+| **parameters** | _object_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mask_threshold** | _number_ | Threshold to use when turning the predicted masks into binary values. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;overlap_mask_area_threshold** | _number_ | Mask overlap threshold to eliminate small, disconnected segments. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subtask** | _enum_ | Possible values: instance, panoptic, semantic. |

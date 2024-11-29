@@ -1,11 +1,11 @@
 # How to configure SAML SSO with Azure
 
-In this guide, we will use Azure as the SSO provider and with the Security Assertion Markup Language (SAML) protocol as our preferred identity protocol. 
+In this guide, we will use Azure as the SSO provider and with the Security Assertion Markup Language (SAML) protocol as our preferred identity protocol.
 
 We currently support SP-initiated and IdP-initiated authentication. User provisioning is not yet supported at this time.
 
 <Tip warning={true}>
-	This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+	This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
 ### Step 1: Create a new application in your Identity Provider
@@ -30,7 +30,6 @@ Then select "Single Sign-On", and select SAML
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-3.png"/>
 </div>
 
-
 ### Step 2: Configure your application on Azure
 
 Open a new tab/window in your browser and navigate to the SSO section of your organization's settings. Select the SAML protocol.
@@ -49,7 +48,6 @@ Copy the "SP Entity Id" from the organization's settings on Hugging Face, and pa
 
 Copy the "Assertion Consumer Service URL" from the organization's settings on Hugging Face, and paste it in the "Reply URL" field on Azure (2).
 
-
 The URL looks like this: `https://huggingface.co/organizations/[organizationIdentifier]/saml/consume`.
 
 <div class="flex justify-center">
@@ -62,19 +60,19 @@ Then under "SAML Certificates", verify that "Signin Option" is set to "Sign SAML
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-5.png"/>
 </div>
 
-
 Save your new application.
 
 ### Step 3: Finalize configuration on Hugging Face
 
 In your Azure application, under "Set up", find the following field:
+
 - Login Url
 
 And under "SAML Certificates":
+
 - Download the "Certificate (base64)"
 
 You will need them to finalize the SSO setup on Hugging Face.
-
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-6.png"/>
@@ -103,7 +101,6 @@ You can now click on "Update and Test SAML configuration" to save the settings.
 You should be redirected to your SSO provider (IdP) login prompt. Once logged in, you'll be redirected to your organization's settings page.
 
 A green check mark near the SAML selector will attest that the test was successful.
-
 
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-azure-guide-8.png"/>

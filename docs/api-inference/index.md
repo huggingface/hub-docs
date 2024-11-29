@@ -46,8 +46,16 @@ The documentation is organized into two sections:
 
 ---
 
-## Looking for custom support from the Hugging Face team?
+## Inference Playground
 
-<a target="_blank" href="https://huggingface.co/support">
-    <img alt="HuggingFace Expert Acceleration Program" src="https://cdn-media.huggingface.co/marketing/transformers/new-support-improved.png" style="max-width: 600px; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+If you want to get started quickly with [Chat Completion models](https://huggingface.co/models?inference=warm&other=conversational&sort=trending) use the Inference Playground to quickly text and compare models against your prompts.
+
+<a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 550px; width: 100%;"/></a>
+
+---
+
+## Serious about AI in your organisation? Build faster with the Hugging Face Enterprise Hub.
+
+<a target="_blank" href="https://huggingface.co/enterprise">
+    <img alt="Hugging Face Enterprise Hub" src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/64zNL-65xyIpRqWHe2iD0.png" style="width: 100%; max-width: 550px; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
 </a><br>

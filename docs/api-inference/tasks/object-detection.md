@@ -24,10 +24,9 @@ For more details about the `object-detection` task, check out its [dedicated pag
 
 ### Recommended models
 
-- [facebook/detr-resnet-50](https://huggingface.co/facebook/detr-resnet-50): Solid object detection model trained on the benchmark dataset COCO 2017.
-- [microsoft/beit-base-patch16-224-pt22k-ft22k](https://huggingface.co/microsoft/beit-base-patch16-224-pt22k-ft22k): Strong object detection model trained on ImageNet-21k dataset.
+- [facebook/detr-resnet-50](https://huggingface.co/facebook/detr-resnet-50): Solid object detection model pre-trained on the COCO 2017 dataset.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=object-detection&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=object-detection&sort=trending).
 
 ### Using the API
 
@@ -40,7 +39,6 @@ curl https://api-inference.huggingface.co/models/facebook/detr-resnet-50 \
 	-X POST \
 	--data-binary '@cats.jpg' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 
@@ -101,7 +99,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | Payload |  |  |
 | :--- | :--- | :--- |
 | **inputs*** | _string_ | The input image data as a base64-encoded string. If no `parameters` are provided, you can also provide the image data as a raw bytes payload. |
-| **parameters** | _object_ | Additional inference parameters for Object Detection |
+| **parameters** | _object_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;threshold** | _number_ | The probability necessary to make a prediction. |
 
 

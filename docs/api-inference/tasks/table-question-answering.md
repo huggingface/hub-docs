@@ -24,8 +24,9 @@ For more details about the `table-question-answering` task, check out its [dedic
 
 ### Recommended models
 
+- [google/tapas-base-finetuned-wtq](https://huggingface.co/google/tapas-base-finetuned-wtq): A robust table question answering model.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=table-question-answering&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=table-question-answering&sort=trending).
 
 ### Using the API
 
@@ -34,12 +35,11 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/<REPO_ID> \
+curl https://api-inference.huggingface.co/models/google/tapas-base-finetuned-wtq \
 	-X POST \
 	-d '{"inputs": { "query": "How many stars does the transformers repository have?", "table": { "Repository": ["Transformers", "Datasets", "Tokenizers"], "Stars": ["36542", "4512", "3934"], "Contributors": ["651", "77", "34"], "Programming language": [ "Python", "Python", "Rust, Python and NodeJS" ] } }}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 
@@ -47,7 +47,7 @@ curl https://api-inference.huggingface.co/models/<REPO_ID> \
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/<REPO_ID>"
+API_URL = "https://api-inference.huggingface.co/models/google/tapas-base-finetuned-wtq"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -71,14 +71,14 @@ output = query({
 })
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.table_question-answering).
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.table_question_answering).
 </python>
 
 <js>
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/<REPO_ID>",
+		"https://api-inference.huggingface.co/models/google/tapas-base-finetuned-wtq",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"
@@ -109,7 +109,7 @@ query({"inputs": {
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#tablequestion-answering).
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#tablequestionanswering).
 </js>
 
 </inferencesnippet>
@@ -125,7 +125,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | **inputs*** | _object_ | One (table, question) pair to answer |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table*** | _object_ | The table to serve as context for the questions |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;question*** | _string_ | The question to be answered about the table |
-| **parameters** | _object_ | Additional inference parameters for Table Question Answering |
+| **parameters** | _object_ |  |
 
 
 Some options can be configured by passing headers to the Inference API. Here are the available headers:

@@ -144,6 +144,8 @@
             title: GGUF usage with llama.cpp
           - local: gguf-gpt4all
             title: GGUF usage with GPT4All
+          - local: ollama
+            title: GGUF usage with Ollama
 - title: Datasets
   local: datasets
   isExpanded: true
@@ -238,6 +240,10 @@
       title: Using Spaces for Organization Cards
   - local: spaces-gpus
     title: Spaces GPU Upgrades
+  - local: spaces-zerogpu
+    title: Spaces ZeroGPU
+  - local: spaces-dev-mode
+    title: Spaces Dev Mode
   - local: spaces-storage
     title: Spaces Persistent Storage
   - local: spaces-sdks-gradio
@@ -275,6 +281,10 @@
         title: Tabby on Spaces
       - local: spaces-sdks-docker-giskard
         title: Giskard on Spaces
+      - local: spaces-sdks-docker-evidence
+        title: Evidence on Spaces
+      - local: spaces-sdks-docker-marimo
+        title: marimo on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-run-with-docker
@@ -317,23 +327,29 @@
       title: Organization Cards
     - local: organizations-security
       title: Access Control in Organizations
-    - local: enterprise-hub
-      title: Enterprise Hub
-      sections:
-      - local: enterprise-sso
-        title: Single Sign-On (SSO)
-      - local: audit-logs
-        title: Audit Logs
-      - local: storage-regions
-        title: Storage Regions
-      - local: enterprise-hub-datasets
-        title: Dataset viewer for Private datasets
-      - local: enterprise-hub-resource-groups
-        title: Resource Groups (Advanced Access Control)
-      - local: advanced-compute-options
-        title: Advanced Compute Options
-      - local: enterprise-hub-tokens-management
-        title: Tokens Management
+  - local: enterprise-hub
+    title: Enterprise Hub
+    sections:
+    - local: enterprise-sso
+      title: Single Sign-On (SSO)
+    - local: audit-logs
+      title: Audit Logs
+    - local: storage-regions
+      title: Storage Regions
+    - local: enterprise-hub-datasets
+      title: Dataset viewer for Private datasets
+    - local: enterprise-hub-resource-groups
+      title: Resource Groups (Access Control)
+    - local: advanced-compute-options
+      title: Advanced Compute Options
+    - local: enterprise-hub-advanced-security
+      title: Advanced Security
+    - local: enterprise-hub-tokens-management
+      title: Tokens Management
+    - local: enterprise-hub-analytics
+      title: Analytics
+    - local: enterprise-hub-network-security
+      title: Network Security
   - local: billing
     title: Billing
   - local: security
@@ -366,6 +382,8 @@
       title: Pickle Scanning
     - local: security-secrets
       title: Secrets Scanning
+    - local: security-protectai
+      title: "Protect AI"
   - local: moderation
     title: Moderation
   - local: paper-pages

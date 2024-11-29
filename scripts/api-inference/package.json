@@ -1,5 +1,6 @@
 {
   "name": "api-inference-generator",
+  "packageManager": "pnpm@9.7.1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@huggingface/tasks": "^0.11.11",
+    "@huggingface/tasks": "^0.13.5",
     "@types/node": "^22.5.0",
     "handlebars": "^4.7.8",
     "node": "^20.17.0",

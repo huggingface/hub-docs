@@ -31,7 +31,7 @@ For more details about the `feature-extraction` task, check out its [dedicated p
 
 - [thenlper/gte-large](https://huggingface.co/thenlper/gte-large): A powerful feature extraction model for natural language processing tasks.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=feature-extraction&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=feature-extraction&sort=trending).
 
 ### Using the API
 
@@ -45,7 +45,6 @@ curl https://api-inference.huggingface.co/models/thenlper/gte-large \
 	-d '{"inputs": "Today is a sunny day and I will get some ice cream."}' \
 	-H 'Content-Type: application/json' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 
@@ -106,7 +105,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | :--- | :--- | :--- |
 | **inputs*** | _string_ | The text to embed. |
 | **normalize** | _boolean_ |  |
-| **prompt_name** | _string_ | The name of the prompt that should be used by for encoding. If not set, no prompt will be applied.  Must be a key in the `Sentence Transformers` configuration `prompts` dictionary.  For example if ``prompt_name`` is "query" and the ``prompts`` is {"query": "query: ", ...}, then the sentence "What is the capital of France?" will be encoded as "query: What is the capital of France?" because the prompt text will be prepended before any text to encode. |
+| **prompt_name** | _string_ | The name of the prompt that should be used by for encoding. If not set, no prompt will be applied.  Must be a key in the `sentence-transformers` configuration `prompts` dictionary.  For example if ``prompt_name`` is "query" and the ``prompts`` is {"query": "query: ", ...}, then the sentence "What is the capital of France?" will be encoded as "query: What is the capital of France?" because the prompt text will be prepended before any text to encode. |
 | **truncate** | _boolean_ |  |
 | **truncation_direction** | _enum_ | Possible values: Left, Right. |
 

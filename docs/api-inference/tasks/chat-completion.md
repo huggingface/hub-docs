@@ -14,20 +14,37 @@ For more details, check out:
 
 ## Chat Completion
 
-Generate a response given a list of messages.
-This is a subtask of [`text-generation`](./text_generation) designed to generate responses in a conversational context.
-
-
+Generate a response given a list of messages in a conversational context, supporting both conversational Language Models (LLMs) and conversational Vision-Language Models (VLMs).
+This is a subtask of [`text-generation`](https://huggingface.co/docs/api-inference/tasks/text-generation) and [`image-text-to-text`](https://huggingface.co/docs/api-inference/tasks/image-text-to-text).
 
 ### Recommended models
+
+#### Conversational Large Language Models (LLMs)
 
 - [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it): A text-generation model trained to follow instructions.
 - [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct): Very powerful text generation model trained to follow instructions.
 - [microsoft/Phi-3-mini-4k-instruct](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct): Small yet powerful text generation model.
-- [HuggingFaceH4/starchat2-15b-v0.1](https://huggingface.co/HuggingFaceH4/starchat2-15b-v0.1): Strong coding assistant model.
-- [mistralai/Mistral-Nemo-Instruct-2407](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407): Very strong open-source large language model.
+- [Qwen/Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct): Strong text generation model to follow instructions.
 
+#### Conversational Vision-Language Models (VLMs)
 
+- [meta-llama/Llama-3.2-11B-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct): Powerful vision language model with great visual understanding and reasoning capabilities.
+- [Qwen/Qwen2-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct): Strong image-text-to-text model.
+
+### API Playground
+
+For Chat Completion models, we provide an interactive UI Playground for easier testing:
+
+- Quickly iterate on your prompts from the UI.
+- Set and override system, assistant and user messages.
+- Browse and select models currently available on the Inference API.
+- Compare the output of two models side-by-side.
+- Adjust requests parameters from the UI.
+- Easily switch between UI view and code snippets.
+
+<a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 400px; width: 100%;"/></a>
+
+Access the Inference UI Playground and start exploring: [https://huggingface.co/playground](https://huggingface.co/playground)
 
 ### Using the API
 
@@ -37,6 +54,8 @@ The API supports:
 * Using grammars, constraints, and tools.
 * Streaming the output
 
+#### Code snippet example for conversational LLMs
+
 
 <inferencesnippet>
 
@@ -45,51 +64,336 @@ The API supports:
 curl 'https://api-inference.huggingface.co/models/google/gemma-2-2b-it/v1/chat/completions' \
 -H "Authorization: Bearer hf_***" \
 -H 'Content-Type: application/json' \
--d '{
-	"model": "google/gemma-2-2b-it",
-	"messages": [{"role": "user", "content": "What is the capital of France?"}],
-	"max_tokens": 500,
-	"stream": false
+--data '{
+    "model": "google/gemma-2-2b-it",
+    "messages": [
+		{
+			"role": "user",
+			"content": "What is the capital of France?"
+		}
+	],
+    "max_tokens": 500,
+    "stream": true
 }'
-
 ```
 </curl>
 
 <python>
+Using `huggingface_hub`:
 ```py
 from huggingface_hub import InferenceClient
 
-client = InferenceClient(
-    "google/gemma-2-2b-it",
-    token="hf_***",
+client = InferenceClient(api_key="hf_***")
+
+messages = [
+	{
+		"role": "user",
+		"content": "What is the capital of France?"
+	}
+]
+
+stream = client.chat.completions.create(
+    model="google/gemma-2-2b-it", 
+	messages=messages, 
+	max_tokens=500,
+	stream=True
 )
 
-for message in client.chat_completion(
-	messages=[{"role": "user", "content": "What is the capital of France?"}],
-	max_tokens=500,
-	stream=True,
-):
-    print(message.choices[0].delta.content, end="")
+for chunk in stream:
+    print(chunk.choices[0].delta.content, end="")
+```
 
+Using `openai`:
+```py
+from openai import OpenAI
+
+client = OpenAI(
+	base_url="https://api-inference.huggingface.co/v1/",
+	api_key="hf_***"
+)
+
+messages = [
+	{
+		"role": "user",
+		"content": "What is the capital of France?"
+	}
+]
+
+stream = client.chat.completions.create(
+    model="google/gemma-2-2b-it", 
+	messages=messages, 
+	max_tokens=500,
+	stream=True
+)
+
+for chunk in stream:
+    print(chunk.choices[0].delta.content, end="")
 ```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.chat_completion).
 </python>
 
 <js>
+Using `huggingface.js`:
 ```js
 import { HfInference } from "@huggingface/inference";
 
-const inference = new HfInference("hf_***");
+const client = new HfInference("hf_***");
 
-for await (const chunk of inference.chatCompletionStream({
+let out = "";
+
+const stream = client.chatCompletionStream({
 	model: "google/gemma-2-2b-it",
-	messages: [{ role: "user", content: "What is the capital of France?" }],
-	max_tokens: 500,
-})) {
-	process.stdout.write(chunk.choices[0]?.delta?.content || "");
-}
+	messages: [
+		{
+			role: "user",
+			content: "What is the capital of France?"
+		}
+	],
+	max_tokens: 500
+});
 
+for await (const chunk of stream) {
+	if (chunk.choices && chunk.choices.length > 0) {
+		const newContent = chunk.choices[0].delta.content;
+		out += newContent;
+		console.log(newContent);
+	}  
+}
+```
+
+Using `openai`:
+```js
+import { OpenAI } from "openai";
+
+const client = new OpenAI({
+	baseURL: "https://api-inference.huggingface.co/v1/",
+    apiKey: "hf_***"
+});
+
+let out = "";
+
+const stream = await client.chat.completions.create({
+	model: "google/gemma-2-2b-it",
+	messages: [
+		{
+			role: "user",
+			content: "What is the capital of France?"
+		}
+	],
+	max_tokens: 500,
+	stream: true,
+});
+
+for await (const chunk of stream) {
+	if (chunk.choices && chunk.choices.length > 0) {
+		const newContent = chunk.choices[0].delta.content;
+		out += newContent;
+		console.log(newContent);
+	}  
+}
+```
+
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#chatcompletion).
+</js>
+
+</inferencesnippet>
+
+
+
+#### Code snippet example for conversational VLMs
+
+
+<inferencesnippet>
+
+<curl>
+```bash
+curl 'https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct/v1/chat/completions' \
+-H "Authorization: Bearer hf_***" \
+-H 'Content-Type: application/json' \
+--data '{
+    "model": "meta-llama/Llama-3.2-11B-Vision-Instruct",
+    "messages": [
+		{
+			"role": "user",
+			"content": [
+				{
+					"type": "text",
+					"text": "Describe this image in one sentence."
+				},
+				{
+					"type": "image_url",
+					"image_url": {
+						"url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+					}
+				}
+			]
+		}
+	],
+    "max_tokens": 500,
+    "stream": true
+}'
+```
+</curl>
+
+<python>
+Using `huggingface_hub`:
+```py
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(api_key="hf_***")
+
+messages = [
+	{
+		"role": "user",
+		"content": [
+			{
+				"type": "text",
+				"text": "Describe this image in one sentence."
+			},
+			{
+				"type": "image_url",
+				"image_url": {
+					"url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+				}
+			}
+		]
+	}
+]
+
+stream = client.chat.completions.create(
+    model="meta-llama/Llama-3.2-11B-Vision-Instruct", 
+	messages=messages, 
+	max_tokens=500,
+	stream=True
+)
+
+for chunk in stream:
+    print(chunk.choices[0].delta.content, end="")
+```
+
+Using `openai`:
+```py
+from openai import OpenAI
+
+client = OpenAI(
+	base_url="https://api-inference.huggingface.co/v1/",
+	api_key="hf_***"
+)
+
+messages = [
+	{
+		"role": "user",
+		"content": [
+			{
+				"type": "text",
+				"text": "Describe this image in one sentence."
+			},
+			{
+				"type": "image_url",
+				"image_url": {
+					"url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+				}
+			}
+		]
+	}
+]
+
+stream = client.chat.completions.create(
+    model="meta-llama/Llama-3.2-11B-Vision-Instruct", 
+	messages=messages, 
+	max_tokens=500,
+	stream=True
+)
+
+for chunk in stream:
+    print(chunk.choices[0].delta.content, end="")
+```
+
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.chat_completion).
+</python>
+
+<js>
+Using `huggingface.js`:
+```js
+import { HfInference } from "@huggingface/inference";
+
+const client = new HfInference("hf_***");
+
+let out = "";
+
+const stream = client.chatCompletionStream({
+	model: "meta-llama/Llama-3.2-11B-Vision-Instruct",
+	messages: [
+		{
+			role: "user",
+			content: [
+				{
+					type: "text",
+					text: "Describe this image in one sentence."
+				},
+				{
+					type: "image_url",
+					image_url: {
+						url: "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+					}
+				}
+			]
+		}
+	],
+	max_tokens: 500
+});
+
+for await (const chunk of stream) {
+	if (chunk.choices && chunk.choices.length > 0) {
+		const newContent = chunk.choices[0].delta.content;
+		out += newContent;
+		console.log(newContent);
+	}  
+}
+```
+
+Using `openai`:
+```js
+import { OpenAI } from "openai";
+
+const client = new OpenAI({
+	baseURL: "https://api-inference.huggingface.co/v1/",
+    apiKey: "hf_***"
+});
+
+let out = "";
+
+const stream = await client.chat.completions.create({
+	model: "meta-llama/Llama-3.2-11B-Vision-Instruct",
+	messages: [
+		{
+			role: "user",
+			content: [
+				{
+					type: "text",
+					text: "Describe this image in one sentence."
+				},
+				{
+					type: "image_url",
+					image_url: {
+						url: "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+					}
+				}
+			]
+		}
+	],
+	max_tokens: 500,
+	stream: true,
+});
+
+for await (const chunk of stream) {
+	if (chunk.choices && chunk.choices.length > 0) {
+		const newContent = chunk.choices[0].delta.content;
+		out += newContent;
+		console.log(newContent);
+	}  
+}
 ```
 
 To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#chatcompletion).
@@ -136,12 +440,12 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;include_usage*** | _boolean_ | If set, an additional chunk will be streamed before the data: [DONE] message. The usage field on this chunk shows the token usage statistics for the entire request, and the choices field will always be an empty array. All other chunks will also include a usage field, but with a null value. |
 | **temperature** | _number_ | What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.  We generally recommend altering this or `top_p` but not both. |
 | **tool_choice** | _unknown_ | One of the following: |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#1)** | _object_ |  |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#2)** | _string_ |  |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#3)** | _object_ |  |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#1)** | _enum_ | Possible values: auto. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#2)** | _enum_ | Possible values: none. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#3)** | _enum_ | Possible values: required. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#4)** | _object_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function*** | _object_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name*** | _string_ |  |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#4)** | _object_ |  |
 | **tool_prompt** | _string_ | A prompt to be appended before the tools |
 | **tools** | _object[]_ | A list of tools the model may call. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function*** | _object_ |  |

@@ -224,8 +224,8 @@ _What do the results say? This can function as a kind of tl;dr for general audie
 _Use this free text section to explain how this model has been evaluated for risk of societal harm, such as for child safety, NCII, privacy, and violence. This might take the form of answers to the following questions:_
 
 - _Is this model safe for kids to use? Why or why not?_
-- _Has this model been tested to see if it can be used for non-consensual intimate imagery (including CSEM)?_
-- _Has this model been tested to see if it can be used for violent activities, or to depict violence? What were the results?_
+- _Has this model been tested to evaluate risks pertaining to non-consensual intimate imagery (including CSEM)?_
+- _Has this model been tested to evaluate risks pertaining to violent activities, or depictions of violence? What were the results?_
 
 _Quantitative numbers on each issue may also be provided._
 

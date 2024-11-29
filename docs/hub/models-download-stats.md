@@ -1,6 +1,6 @@
 # Models Download Stats
 
-## How are download stats generated for models?
+## How are downloads counted for models?
 
 Counting the number of downloads for models is not a trivial task, as a single model repository might contain multiple files, including multiple model weight files (e.g., with sharded models) and different formats depending on the library (GGUF, PyTorch, TensorFlow, etc.). To avoid double counting downloads (e.g., counting a single download of a model as multiple downloads), the Hub uses a set of query files that are employed for download counting. No information is sent from the user, and no additional calls are made for this. The count is done server-side as the Hub serves files for downloads.
 
@@ -12,7 +12,7 @@ By default, the Hub looks at `config.json`, `config.yaml`, `hyperparams.yaml`, a
 
 ## Can I add my query files for my library? 
 
-Yes, you can open a Pull Request [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts). Here is a minimal [example](https://github.com/huggingface/huggingface.js/pull/561/files) adding download metrics for Grok-1.
+Yes, you can open a Pull Request [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts). Here is a minimal [example](https://github.com/huggingface/huggingface.js/pull/885/files) adding download metrics for VFIMamba. Check out the [integration guide](./models-adding-libraries#register-your-library) for more details.
 
 ## How are `GGUF` files handled?
 

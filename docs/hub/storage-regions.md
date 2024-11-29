@@ -1,53 +1,84 @@
 # Storage Regions on the Hub
 
-Regions let you decide where your org's models and datasets will be stored.
-
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
-This has two main benefits:
+Regions allow you to specify where your organization's models and datasets are stored.
+
+This offers two key benefits:
 
 - Regulatory and legal compliance
-- Performance (improved download and upload speeds and latency)
+- Performance (faster download/upload speeds and lower latency)
 
-Currently we support the following regions:
+Currently available regions:
 
 - US 🇺🇸
 - EU 🇪🇺
-- coming soon: Asia-Pacific 🌏
+- Coming soon: Asia-Pacific 🌏
 
-## How to set up
+## Getting started with Storage Regions
 
-If your organization is subscribed to Enterprise Hub, you will be able to see the Regions settings page:
+Organizations subscribed to Enterprise Hub can access the Regions settings page to manage their repositories storage locations.
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-regions/feature-annotated.png)
+<div class="flex justify-center" style="max-width: 550px">
+  <img
+    class="block dark:hidden !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/regions.png"
+    alt="screenshot of Hugging Face Storage Regions feature"
+  />
+  <img
+    class="hidden dark:block !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-regions.png"
+    alt="screenshot of Hugging Face Storage Regions feature"
+  />
+</div>
 
-On that page you can see:
+This page displays:
 
-- an audit of where your organization repos are currently located
-- dropdowns to select where your repos will be created
+- An audit of your organization's repository locations
+- Options to select where new repositories will be stored
 
 ## Repository Tag
 
-Any repo (model or dataset) stored in a non-default location will display its Region directly as a tag. That way your organization's members can see at a glance where repos are located.
+Any repository (model or dataset) stored in a non-default location displays its Region as a tag, allowing organization members to quickly identify repository locations.
 
-<div class="flex justify-center">
-<img class="block" width="400" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-regions/tag-on-repo.png"/>
+<div class="flex justify-center" style="max-width: 550px">
+  <img
+    class="block dark:hidden !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/region-tag.png"
+    alt="screenshot of Hugging Face Storage Regions tag feature"
+  />
+  <img
+    class="hidden dark:block !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-region-tag.png"
+    alt="screenshot of Hugging Face Storage Regions tag feature"
+  />
 </div>
 
 ## Regulatory and legal compliance
 
-In regulated industries, companies may be required to store data in a specific region.
+Regulated industries often require data storage in specific regions.
 
-For companies in the EU, that means you can use the Hub to build ML in a GDPR compliant way: with datasets, models and inference endpoints all stored within EU data centers.
+For EU companies, you can use the Hub for ML development in a GDPR-compliant manner, with datasets, models and inference endpoints stored in EU data centers.
 
 ## Performance
 
-Storing your models or your datasets closer to your team and infrastructure also means significantly improved performance, for both uploads and downloads.
+Storing models and datasets closer to your team and infrastructure significantly improves performance for both uploads and downloads.
 
-This makes a big difference considering model weights and dataset files are usually very large.
+This impact is substantial given the typically large size of model weights and dataset files.
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-regions/upload-speed.png)
+<div class="flex justify-center" style="max-width: 750px;">
+  <img
+    class="block dark:hidden !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/region-git-code.png"
+    alt="example of Hugging Face Storage Regions feature"
+  />
+  <img
+    class="hidden dark:block !m-0"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-region-git-code.png"
+    alt="example of Hugging Face Storage Regions feature"
+  />
+</div>
 
-As an example, if you are located in Europe and store your repositories in the EU region, you can expect to see ~4-5x faster upload and download speeds vs. if they were stored in the US.
+For example, European users storing repositories in the EU region can expect approximately 4-5x faster upload and download speeds compared to US storage.

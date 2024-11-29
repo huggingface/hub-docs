@@ -29,8 +29,9 @@ For more details about the `audio-classification` task, check out its [dedicated
 
 ### Recommended models
 
+- [ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition](https://huggingface.co/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition): An emotion recognition model.
 
-This is only a subset of the supported models. Find the model that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=audio-classification&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=audio-classification&sort=trending).
 
 ### Using the API
 
@@ -39,11 +40,10 @@ This is only a subset of the supported models. Find the model that suits you bes
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/<REPO_ID> \
+curl https://api-inference.huggingface.co/models/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition \
 	-X POST \
 	--data-binary '@sample1.flac' \
 	-H "Authorization: Bearer hf_***"
-
 ```
 </curl>
 
@@ -51,7 +51,7 @@ curl https://api-inference.huggingface.co/models/<REPO_ID> \
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/<REPO_ID>"
+API_URL = "https://api-inference.huggingface.co/models/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
@@ -71,7 +71,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 async function query(filename) {
 	const data = fs.readFileSync(filename);
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/<REPO_ID>",
+		"https://api-inference.huggingface.co/models/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition",
 		{
 			headers: {
 				Authorization: "Bearer hf_***"
@@ -104,7 +104,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | Payload |  |  |
 | :--- | :--- | :--- |
 | **inputs*** | _string_ | The input audio data as a base64-encoded string. If no `parameters` are provided, you can also provide the audio data as a raw bytes payload. |
-| **parameters** | _object_ | Additional inference parameters for Audio Classification |
+| **parameters** | _object_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function_to_apply** | _enum_ | Possible values: sigmoid, softmax, none. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top_k** | _integer_ | When specified, limits the output to the top K most probable classes. |
 

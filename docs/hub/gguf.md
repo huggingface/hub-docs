@@ -37,6 +37,7 @@ The Hub has a viewer for GGUF files that lets a user check out metadata & tensor
 
 * [llama.cpp](./gguf-llamacpp)
 * [GPT4All](./gguf-gpt4all)
+* [Ollama](./ollama)
 
 <!-- empty html divs with ids not to break previous hashlinks -->
 <div id="usage-with-llamacpp" />
