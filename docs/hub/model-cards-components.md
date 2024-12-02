@@ -4,26 +4,11 @@
 
 ## The Gallery component
 
-Add the `<Gallery />` component to your text-to-image model card to showcase your images generation.
+The `<Gallery />` component can be used in your model card to showcase your generated images and videos.
 
-For example, 
-```md
+### How to use it?
 
-<Gallery />
-
-## Model description
-
-TintinIA is fine-tuned version of Stable-Diffusion-xl trained on 125 comics panels from Tintin album. 
-
-```
-
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery-dark.png"/>
-</div>
-
-The `<Gallery/>` component will use your Model Card [widget metadata](/docs/hub/models-widgets-examples#text-to-image) to display the images with each associated prompt. 
+1. Update your Model Card [widget metadata](/docs/hub/models-widgets-examples#text-to-image) to add the medias you want to showcase. 
 
 ```yaml
 widget:
@@ -39,5 +24,21 @@ widget:
   output:
     url: "images/office.png"
 ```
+
+2. Add the `<Gallery />` component to your card. The widget metadata will be used by the `<Gallery />` component to display the media with each associated prompt.
+```md
+
+<Gallery />
+
+## Model description
+
+TintinIA is fine-tuned version of Stable-Diffusion-xl trained on 125 comics panels from Tintin album. 
+
+```
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery-dark.png"/>
+</div>
 
 > Hint: Support of Card Components through the GUI editor coming soon... 
