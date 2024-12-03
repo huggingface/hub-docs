@@ -238,6 +238,41 @@ To filter the dataset and only keep dialogues in Chinese:
 +---+----------------------------+-----+----------+----------+
 ```
 
+### Run SQL queries
+
+Once you have your PySpark Dataframe ready, you can run SQL queries using `spark.sql`:
+
+```python
+>>> from pyspark.sql import SparkSession
+>>> spark = SparkSession.builder.appName("demo").getOrCreate()
+>>> df = read_parquet("hf://datasets/BAAI/Infinity-Instruct/7M/*.parquet", columns=["source"])
+>>> spark.sql("SELECT source, count(*) AS total FROM {df} GROUP BY source ORDER BY total DESC", df=df).show()
++--------------------+-------+
+|              source|  total|
++--------------------+-------+
+|                flan|2435840|
+|          Subjective|1342427|
+|      OpenHermes-2.5| 855478|
+|            MetaMath| 690138|
+|      code_exercises| 590958|
+|Orca-math-word-pr...| 398168|
+|          code_bagel| 386649|
+|        MathInstruct| 329254|
+|python-code-datas...|  88632|
+|instructional_cod...|  82920|
+|        CodeFeedback|  79513|
+|self-oss-instruct...|  50467|
+|Evol-Instruct-Cod...|  43354|
+|CodeExercise-Pyth...|  27159|
+|code_instructions...|  23130|
+|  Code-Instruct-700k|  10860|
+|Glaive-code-assis...|   9281|
+|python_code_instr...|   2581|
+|Python-Code-23k-S...|   2297|
++--------------------+-------+
+```
+
+
 ## Write
 
 We also provide a helper function to write datasets in a distributed manner to a Hugging Face repository.
