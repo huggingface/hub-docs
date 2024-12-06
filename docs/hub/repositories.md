@@ -13,6 +13,6 @@ In these pages, you will go over the basics of getting started with Git and inte
 - [Webhooks](./webhooks)
 - [Notifications](./notifications)
 - [Collections](./collections)
-- [Repository size recommendations](./repositories-recommendations)
+- [Repository storage limits](./storage-limits)
 - [Next Steps](./repositories-next-steps)
 - [Licenses](./repositories-licenses)
