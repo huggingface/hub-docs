@@ -68,7 +68,7 @@ The Enterprise Hub is billed like a typical subscription. It renews automaticall
 You can pay for the Enterprise Hub subscription with a credit card or your AWS account.
 
 Upon renewal, the number of seats in your Enterprise Hub subscription will be updated to match the number of members of your organization.
-Private repository storage above the [included free-tier](./storage-limits.md) will be billed along with your subscription renewal.
+Private repository storage above the [included storage](./storage-limits.md) will be billed along with your subscription renewal.
 
 
 <div class="flex justify-center">
@@ -91,6 +91,6 @@ View the full list of benefits at https://huggingface.co/subscribe/pro
 Similarly to the Enterprise Hub subscription, PRO subscriptions are billed like a typical subscription. The subscription renews automatically for you. You can choose to cancel the subscription at anytime in your billing settings: https://huggingface.co/settings/billing
 
 You can only pay for the PRO subscription with a credit card. The subscription is billed separately from any pay-as-you-go compute usage.
-Private repository storage above the [included free-tier](./storage-limits.md) will be billed along with your subscription renewal.
+Private repository storage above the [included storage](./storage-limits.md) will be billed along with your subscription renewal.
 
 Note: PRO benefits are also included in the Enterprise Hub subscription.
