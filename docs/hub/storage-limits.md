@@ -107,3 +107,7 @@ Please get in touch with us if any of these requirements are difficult for you t
 Similarly to datasets, if you host models bigger than 300GB or if you plan on uploading a large number of smaller sized models (for instance, hundreds of automated quants) totalling more than 1TB, you will need to ask us to grant more storage. 
 
 To do that, to ensure we can effectively support the open-source ecosystem, please send an email with details of your project to models@huggingface.co.
+
+### Grants for private repositories
+
+If you need more model/ dataset storage than your allocated private storage for academic/ research purposes, please reach out to us at datasets@huggingface.co or models@huggingface.co along with a proposal of how you will use the storage grant.
