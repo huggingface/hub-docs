@@ -1,6 +1,6 @@
 # Billing
 
-At Hugging Face, we build a collaboration platform for the ML community (i.e., the Hub) and monetize by providing simple access to compute for AI.
+At Hugging Face, we build a collaboration platform for the ML community (i.e., the Hub) and monetize by providing advanced features and simple access to compute for AI.
 
 Any feedback or support request related to billing is welcome at billing@huggingface.co
 
