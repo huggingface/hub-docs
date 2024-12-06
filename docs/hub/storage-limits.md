@@ -15,7 +15,7 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 | Enterprise Hub   | Unlimited ✅   | 1TB per seat + pay-as-you-go |
 
 
-💡 Enterprise Hub includes 1TB of private storage per seat in the subscription: for example, if your organization has 40 members, then you have 40TB included private storage.
+💡 Enterprise Hub includes 1TB of private storage per seat in the subscription: for example, if your organization has 40 members, then you have 40TB of included private storage.
 
 ### Pay-as-you-go price
 
