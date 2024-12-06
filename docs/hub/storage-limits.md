@@ -19,7 +19,7 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 ### Pay-as-you-go price
 
-Above the included 1TB (or 1TB per seat) of private storage in PRO and Enterprise Hub, private storage is invoiced at **$25/TB/month**. See our [billing doc](./billing) for more details.
+Above the included 1TB (or 1TB per seat) of private storage in PRO and Enterprise Hub, private storage is invoiced at **$25/TB/month**, in 1TB increments. See our [billing doc](./billing) for more details.
 
 ## Repository limitations and recommendations
 
