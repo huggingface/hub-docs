@@ -1,6 +1,6 @@
 # Storage limits
 
-At Hugging Face our intent is to provide the AI community with **free storage space for public models and datasets**. We do bill for storage space for **private repositories**, above a free tier (see table below).
+At Hugging Face our intent is to provide the AI community with **free storage space for public repositories**. We do bill for storage space for **private repositories**, above a free tier (see table below).
 
 We [optimize our infrastructure](https://huggingface.co/blog/xethub-joins-hf) continuously to [scale our storage](https://x.com/julien_c/status/1821540661973160339) for the coming years of growth in Machine learning.
 
