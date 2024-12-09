@@ -37,10 +37,21 @@ jobs:
 
       # Check changes
       - name: Check changes
-        run: git status
+        run: |
+          git diff --name-only > changed_files.txt
+          if grep -v -E "^(scripts/api-inference/package.json|scripts/api-inference/pnpm-lock.yaml)$" changed_files.txt | grep -q '.'; then
+            echo "changes_detected=true" >> $GITHUB_ENV
+          else
+            echo "changes_detected=false" >> $GITHUB_ENV
+
+      # Skip PR if only certain files are updated
+      - name: Skip PR creation if no meaningful changes
+        if: env.changes_detected == 'false'
+        run: echo "No meaningful changes. Skipping PR creation."
 
       # Create or update Pull Request
       - name: Create Pull Request
+        if: env.changes_detected == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
