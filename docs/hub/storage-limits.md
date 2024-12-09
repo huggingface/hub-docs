@@ -10,7 +10,7 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 | Type of account  | Public storage | Private storage              |
 | ---------------- | -------------- | ---------------------------- |
-| Free user or org | Unlimited ✅   | 100GB                        |
+| Free user or org | Best-effort 🙏 | 100GB                        |
 | PRO              | Unlimited ✅   | 1TB + pay-as-you-go          |
 | Enterprise Hub   | Unlimited ✅   | 1TB per seat + pay-as-you-go |
 
