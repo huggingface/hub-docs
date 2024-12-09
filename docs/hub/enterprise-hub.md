@@ -23,3 +23,5 @@ In this section we will document the following Enterprise Hub features:
 - [Tokens Management](./enterprise-hub-tokens-management)
 - [Analytics](./enterprise-hub-analytics)
 - [Network Security](./enterprise-hub-network-security)
+
+Finally, Enterprise Hub includes 1TB of [private repository storage](./storage-limits) per seat in the subscription, i.e. if your organization has 40 members, then you have 40TB included storage for your private models and datasets.
