@@ -94,3 +94,7 @@ You can only pay for the PRO subscription with a credit card. The subscription i
 Private repository storage above the [included storage](./storage-limits.md) will be billed along with your subscription renewal.
 
 Note: PRO benefits are also included in the Enterprise Hub subscription.
+
+## Pay-as-you-go private storage 
+
+Above the included 1TB (or 1TB per seat) of private storage in PRO and Enterprise Hub, private storage is invoiced at **$25/TB/month**, in 1TB increments.
