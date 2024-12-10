@@ -89,12 +89,11 @@ To change sampling parameters, create a file named `params` in the repository. T
 
 ## Run Private GGUFs from the Hugging Face Hub
 
-You can run private GGUFs from your personal account or from an associated organisation account in three simple steps:
+You can run private GGUFs from your personal account or from an associated organisation account in two simple steps:
 
 1. Copy your Ollama SSH key you can do so via: `cat ~/.ollama/id_ed25519.pub | pbcopy`
 2. Add the corresponding key to your Hugging Face account by going to [your account settings](https://huggingface.co/settings/keys) and clicking on `Add new key`.
-3. On terminal, run `huggingface-cli login` to authenticate with your Hugging Face account.
-4. That's it! You can now run private GGUFs from the Hugging Face Hub: `Ollama run hf.co/{username}/{repository}`.
+3. That's it! You can now run private GGUFs from the Hugging Face Hub: `ollama run hf.co/{username}/{repository}`.
 
 ## References
 
