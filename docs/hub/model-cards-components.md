@@ -8,7 +8,7 @@ The `<Gallery />` component can be used in your model card to showcase your gene
 
 ### How to use it?
 
-1. Update your Model Card [widget metadata](/docs/hub/models-widgets-examples#text-to-image) to add the medias you want to showcase. 
+1. Update your Model Card [widget metadata](/docs/hub/models-widgets-examples#text-to-image) to add the media you want to showcase. 
 
 ```yaml
 widget:
