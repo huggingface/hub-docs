@@ -2,6 +2,8 @@
 
 ![cover](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/ollama/cover.png)
 
+🆕 You can now also run private GGUFs from the Hugging Face Hub.
+
 Ollama is an application based on llama.cpp to interact with LLMs directly through your computer. You can use any GGUF quants created by the community ([bartowski](https://huggingface.co/bartowski), [MaziyarPanahi](https://huggingface.co/MaziyarPanahi) and [many more](https://huggingface.co/models?pipeline_tag=text-generation&library=gguf&sort=trending)) on Hugging Face directly with Ollama, without creating a new `Modelfile`. At the time of writing there are 45K public GGUF checkpoints on the Hub, you can run any of them with a single `ollama run` command. We also provide customisations like choosing quantization type, system prompt and more to improve your overall experience. 
 
 Getting started is as simple as:
@@ -85,6 +87,13 @@ You can optionally configure a system prompt by putting it into a new file named
 
 To change sampling parameters, create a file named `params` in the repository. The file must be in JSON format. For the list of all available parameters, please refer to [this documentation](https://github.com/ollama/ollama/blob/main/docs/modelfile.md#parameter).
 
+## Run Private GGUFs from the Hugging Face Hub
+
+You can run private GGUFs from your personal account or from an associated organisation account in two simple steps:
+
+1. Copy your Ollama SSH key you can do so via: `cat ~/.ollama/id_ed25519.pub | pbcopy`
+2. Add the corresponding key to your Hugging Face account by going to [your account settings](https://huggingface.co/settings/keys) and clicking on `Add new key`.
+3. That's it! You can now run private GGUFs from the Hugging Face Hub: `Ollama run hf.co/{username}/{repository}`.
 
 ## References
 
