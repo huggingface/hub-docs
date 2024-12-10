@@ -111,4 +111,4 @@ The Hugging Face Hub supports large scale datasets, usually uploaded in Parquet 
 
 You can upload large scale datasets at high speed using the `huggingface_hub` library.
 
-See [how to upload a folder by chunks](/docs/huggingface_hub/guides/upload#upload-a-folder-by-chunks), the [tips and tricks for large uploads](/docs/huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads) and the [repository limitations and recommendations](./repositories-recommendations).
+See [how to upload a folder by chunks](/docs/huggingface_hub/guides/upload#upload-a-folder-by-chunks), the [tips and tricks for large uploads](/docs/huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads) and the [repository storage limits and recommendations](./storage-limits).

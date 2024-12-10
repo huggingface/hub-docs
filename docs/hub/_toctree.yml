@@ -25,8 +25,8 @@
         title: "How-to: Create automatic metadata quality reports"
   - local: notebooks
     title: Notebooks
-  - local: repositories-recommendations
-    title: Repository size recommendations
+  - local: storage-limits
+    title: Storage Limits
   - local: repositories-next-steps
     title: Next Steps
   - local: repositories-licenses
