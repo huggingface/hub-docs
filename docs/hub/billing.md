@@ -44,6 +44,8 @@ Note: PRO benefits are also included in the Enterprise Hub subscription.
 
 Above the included 1TB (or 1TB per seat) of private storage in PRO and Enterprise Hub, private storage is invoiced at **$25/TB/month**, in 1TB increments.
 
+Excess storage costs will be billed with the renewal invoices of your PRO or Enterprise Hub subscription.
+
 ## Compute Services on the Hub
 
 We also directly provide compute services with [Spaces](./spaces), [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) and the [Serverless Inference API](https://huggingface.co/docs/api-inference/index).
@@ -57,7 +59,10 @@ The billing for our compute services is usage-based, meaning you only pay for wh
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/billing-dashboard-dark.png"/>
 </div>
 
-### Available payment methods
+Compute services usage is billed separately from PRO and Enterprise Hub subscriptions (and potential excess storage).
+Invoices for compute services are edited at the beginning of each month.
+
+## Available payment methods
 
 Hugging Face uses [Stripe](https://stripe.com) to securely process your payment information.
 
@@ -69,9 +74,8 @@ You can add a credit card to your account from your billing settings.
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/payment-method-dark.png"/>
 </div>
 
-You also have the option to link your Hugging Face organization to your AWS account via [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-n6vsyhdjkfng2). Hugging Face compute service usage will then be included in your AWS bill. Read more in our [blog post](https://huggingface.co/blog/aws-marketplace).
 
-## Billing thresholds & Invoicing
+### Billing thresholds & Invoicing
 
 When using credit cards as a payment method, you'll be billed for the Hugging Face compute usage each time the accrued usage goes above a billing threshold for your user or organization.
 
@@ -97,5 +101,10 @@ You can view invoices and receipts for the last 3 months in your billing dashboa
 
 ## Cloud providers partnerships
 
-We partner with cloud providers like [AWS](https://huggingface.co/blog/aws-partnership), [Azure](https://huggingface.co/blog/hugging-face-endpoints-on-azure), and [Google Cloud](https://huggingface.co/blog/llama31-on-vertex-ai) to make it easy for customers to use Hugging Face directly in their cloud of choice. These solutions and usage are billed directly by the cloud provider. Ultimately, we want people to have great options for using Hugging Face wherever they build ML-powered products.
+We partner with cloud providers like [AWS](https://huggingface.co/blog/aws-partnership), [Azure](https://huggingface.co/blog/hugging-face-endpoints-on-azure),
+and [Google Cloud](https://huggingface.co/blog/llama31-on-vertex-ai) to make it easy for customers to use Hugging Face directly in their cloud of choice.
+These solutions and usage are billed directly by the cloud provider. Ultimately, we want people to have great options for using Hugging Face wherever they
+build ML-powered products.
 
+You also have the option to link your Hugging Face organization to your AWS account via [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-n6vsyhdjkfng2).
+Hugging Face compute service usage will then be included in your AWS bill. Read more in our [blog post](https://huggingface.co/blog/aws-marketplace).
