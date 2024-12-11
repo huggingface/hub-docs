@@ -8,7 +8,7 @@ on:
   push:
     branches:
       - fix-update-doc-workflow
-  workflow_dispatch:  # Allows manual trigger from GitHub UI
+  workflow_dispatch:
 
 concurrency:
   group: api_inference_generate_documentation
