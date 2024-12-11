@@ -1,9 +1,14 @@
 name: Update API Inference Documentation
 
+# on:
+#   workflow_dispatch:
+#   schedule:
+#     - cron: "0 3 * * *" # Every day at 3am
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 3 * * *" # Every day at 3am
+  push:
+    branches:
+      - fix-update-doc-workflow
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
 
 concurrency:
   group: api_inference_generate_documentation
@@ -35,23 +40,8 @@ jobs:
         run: pnpm run generate
         working-directory: ./scripts/api-inference
 
-      # Check changes
-      - name: Check changes
-        run: |
-          git diff --name-only > changed_files.txt
-          if grep -v -E "^(scripts/api-inference/package.json|scripts/api-inference/pnpm-lock.yaml)$" changed_files.txt | grep -q '.'; then
-            echo "changes_detected=true" >> $GITHUB_ENV
-          else
-            echo "changes_detected=false" >> $GITHUB_ENV
-
-      # Skip PR if only certain files are updated
-      - name: Skip PR creation if no meaningful changes
-        if: env.changes_detected == 'false'
-        run: echo "No meaningful changes. Skipping PR creation."
-
       # Create or update Pull Request
       - name: Create Pull Request
-        if: env.changes_detected == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
@@ -59,6 +49,10 @@ jobs:
           branch: update-api-inference-docs-automated-pr
           delete-branch: true
           title: "[Bot] Update API inference documentation"
+          add-paths: |
+            **/*
+            !scripts/api-inference/package.json
+            !scripts/api-inference/pnpm-lock.yaml
           body: |
             This PR automatically upgrades the `@huggingface/tasks` package and regenerates the API inference documentation by running:
             ```sh
