@@ -43,8 +43,8 @@ Note: PRO benefits are also included in the Enterprise Hub subscription.
 ## Pay-as-you-go private storage 
 
 Above the included 1TB (or 1TB per seat) of private storage in PRO and Enterprise Hub, private storage is invoiced at **$25/TB/month**, in 1TB increments.
+It is billed with the renewal invoices of your PRO or Enterprise Hub subscription.
 
-Excess storage costs will be billed with the renewal invoices of your PRO or Enterprise Hub subscription.
 
 ## Compute Services on the Hub
 
@@ -59,7 +59,7 @@ The billing for our compute services is usage-based, meaning you only pay for wh
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/billing-dashboard-dark.png"/>
 </div>
 
-Compute services usage is billed separately from PRO and Enterprise Hub subscriptions (and potential excess storage).
+Compute services usage is billed separately from PRO and Enterprise Hub subscriptions (and potential private storage).
 Invoices for compute services are edited at the beginning of each month.
 
 ## Available payment methods
