@@ -5,6 +5,7 @@ on:
   schedule:
     - cron: "0 3 * * *" # Every day at 3am
 
+
 concurrency:
   group: api_inference_generate_documentation
   cancel-in-progress: true
@@ -43,6 +44,7 @@ jobs:
             echo "changes_detected=true" >> $GITHUB_ENV
           else
             echo "changes_detected=false" >> $GITHUB_ENV
+          fi
 
       # Skip PR if only certain files are updated
       - name: Skip PR creation if no meaningful changes
