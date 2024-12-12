@@ -1,8 +1,8 @@
-# DDUF: Diffusion ??? Universal Format
+# DDUF
 
 ## Overview
 
-DDUF (Diffusion ??? Universal Format) is a file format designed to make storing, distributing, and using diffusion models much easier. Built on the ZIP file format, DDUF offers a standardized, efficient, and flexible way to package all parts of a diffusion model into a single, easy-to-manage file.
+DDUF (**D**DUF’s **D**iffusion **U**nified **F**ormat) is a file format designed to make storing, distributing, and using diffusion models much easier. Built on the ZIP file format, DDUF offers a standardized, efficient, and flexible way to package all parts of a diffusion model into a single, easy-to-manage file.
 
 This work draws inspiration from the [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) format.
 
