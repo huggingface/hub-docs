@@ -18,7 +18,7 @@ To create a widely adopted file format, we need early feedback from the communit
 
 Yet, another file format? Yes, but for good reasons!
 
-The primary goal of DDUF is to create a community-endorsed file format for diffusion models. Current model distribution methods often involve multiple separate files, different weight-saving formats, and managing files from various locations. DDUF aims to solve these challenges by packaging all model components into a single file, enforcing a consistent structure while being opinionated about saving formats.
+The primary goal of DDUF is to create a community-endorsed single-file format for diffusion models. Current model distribution methods often involve multiple separate files, different weight-saving formats, and managing files from various locations. DDUF aims to solve these challenges by packaging all model components into a single file, enforcing a consistent structure while being opinionated about saving formats.
 
 The DDUF format is also designed to be language-agnostic. While we currently provide tooling for the Python ecosystem, there's nothing stopping similar tools from being developed in JavaScript, Rust, C++, and other languages. Like GGUF or safetensors, DDUF is built to be parsable from a remote location without downloading the entire file, which will enable advanced support on the Hugging Face Hub.
 
@@ -51,7 +51,7 @@ The `huggingface_hub` provides tooling to handle DDUF files in Python. It includ
 
 ### How to read a DDUF file?
 
-Reading a DDUF file is as simple as calling `read_dduf_file` and passing a path as argument. Only the metadata is read, meaning this is a lightweight call that will not explode your memory. In the example below, we consider that you've already downloaded the [`FLUX.1-dev.dduf`](https://huggingface.co/DDUF/FLUX.1-dev-DDUF/blob/main/FLUX.1-dev.dduf) file locally.
+Reading a DDUF file is as simple as calling `read_dduf_file` and passing a path as argument. Only the metadata is read, meaning this is a lightweight call that will not make your memory explode. In the example below, we consider that you've already downloaded the [`FLUX.1-dev.dduf`](https://huggingface.co/DDUF/FLUX.1-dev-DDUF/blob/main/FLUX.1-dev.dduf) file locally.
 
 ```python
 >>> from huggingface_hub import read_dduf_file
