@@ -10,7 +10,7 @@ This work draws inspiration from the [GGUF](https://github.com/ggerganov/ggml/bl
 
 We welcome contributions with open arms!
 
-To create a widely adopted file format, we need early feedback from the community. Nothing is set in stone, and we value everyone's input. Is your use case not covered? Please let us know! Discussions about the DDUF format happen in the https://huggingface.co/DDUF organization.
+To create a widely adopted file format, we need early feedback from the community. Nothing is set in stone, and we value everyone's input. Is your use case not covered? Please let us know! Discussions about the DDUF format happen in the [DDUF organization](https://huggingface.co/spaces/DDUF/README/discussions/2).
 
 </Tip>
 
