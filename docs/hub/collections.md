@@ -94,6 +94,7 @@ To start adding images to your collection, you can click on the image icon in th
 
 Then, add images by dragging and dropping images from your computer. You can also click on the gray zone to select image files from your computer's file system.
 
+
 ![Collection image drop zone with images](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-gallery.webp)
 
 You can re-order images by drag-and-dropping them. Clicking on an image will open it in full-screen mode.
