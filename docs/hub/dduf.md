@@ -147,6 +147,6 @@ Why not use a TAR with a table of contents at the beginning of the archive? See 
 - Prevents CPU overhead during file reading.
 - Maintains compatibility with safetensors.
 
-### Can I Modify a DDUF file?
+### Can I modify a DDUF file?
 
 No. For now, DDUF files are designed to be immutable. To update a model, create a new DDUF file.
