@@ -127,7 +127,7 @@ extra_gated_button_content: "Acknowledge license"
 
 ## Manage gated datasets as an organization (Enterprise Hub)
 
-For [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers, you can gate all the repos in a Gating Group collection, enabling **access requests** for all datasets (and/or models) in it.
+For [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers, you can gate all the repos in a Gating Group collection, enabling **a single access requests** for all datasets (and/or models) in it.
 
 More information about Gating Group collections can be found in [our doc](https://huggingface.co/docs/hub/en/enterprise-hub-gating-group-collections).
 

@@ -57,7 +57,7 @@ Set your collection to **private** if you don't want it to be accessible via its
 
 ### Gating Group Collection (Enterprise only)
 
-For [Enterprise](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers, you can gate all the repos in a collection, enabling **access requests** for all models and datasets in it.
+For [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers, you can gate all the repos in a collection, enabling **a single access requests** for all models and datasets in it.
 
 This feature allows you to restrict access to specific collections: users must agree to share their contact information (username and email address) with the organization to access the models and datasets files when enabled.
 
