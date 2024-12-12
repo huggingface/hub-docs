@@ -139,9 +139,9 @@ Possible use cases of programmatic management include:
     - Here's an [example repo](https://huggingface.co/Trelis/openchat_3.5-function-calling-v3) from TrelisResearch that uses this use case.
    - [@RonanMcGovern](https://huggingface.co/RonanMcGovern) has posted a [video about the flow](https://www.youtube.com/watch?v=2OT2SI5auQU) and tips on how to implement it.
 
-### Manage gated models as an organization (Enterprise)
+## Manage gated models as an organization (Enterprise Hub)
 
-For [Enterprise](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers, you can gate all the repos in a Gating Group collection, enabling **access requests** for all models (and/or datasets) in it.
+For [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers, you can gate all the repos in a Gating Group collection, enabling **access requests** for all models (and/or datasets) in it.
 
 More information about Gating Group collections can be found in [our doc](https://huggingface.co/docs/hub/en/enterprise-hub-gating-group-collections).
 
