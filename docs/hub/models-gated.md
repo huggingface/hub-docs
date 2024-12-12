@@ -141,7 +141,7 @@ Possible use cases of programmatic management include:
 
 ## Manage gated models as an organization (Enterprise Hub)
 
-For [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers, you can gate all the repos in a Gating Group collection, enabling **access requests** for all models (and/or datasets) in it.
+For [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers, you can gate all the repos in a Gating Group collection, enabling **a single access request** for all the models (and/or datasets) in it.
 
 More information about Gating Group collections can be found in [our doc](https://huggingface.co/docs/hub/en/enterprise-hub-gating-group-collections).
 
