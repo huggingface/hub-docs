@@ -11,7 +11,7 @@ Collections have many use cases:
 - Showcase and share a complete project with its paper(s), dataset(s), model(s) and Space(s).
 - Bookmark things you find on the Hub in categories.
 - Have a dedicated page of curated things to share with others.
-- Gate a group of models/datasets (Enterprise only)
+- Gate a group of models/datasets (Enterprise Hub)
 
 This is just a list of possible uses, but remember that collections are just a way of grouping things, so use them in the way that best fits your use case.
 
@@ -55,13 +55,13 @@ Use the **history feature** to keep track of who has edited the collection.
 
 Set your collection to **private** if you don't want it to be accessible via its URL (it will not be displayed on your profile/organization page). For organizations, private collections are only available to members of the organization.
 
-### Gating Group Collection (Enterprise only)
+### Gating Group Collection (Enterprise Hub)
 
 For [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers, you can gate all the repos in a collection, enabling **a single access requests** for all models and datasets in it.
 
-This feature allows you to restrict access to specific collections: users must agree to share their contact information (username and email address) with the organization to access the models and datasets files when enabled.
+This feature allows you to restrict access to specific collections: users must agree to share their contact information (username and email address) with the organization to access the models and datasets in a gating group collection.
 
-Please note that this feature is only available to Enterprise subscribers: more information about Gating Group Collection can be found in [our doc](https://huggingface.co/docs/hub/en/enterprise-hub-gating-group-collections).
+Please note that this feature is only available to Enterprise Hub subscribers: more information about Gating Group Collection can be found in [our doc](https://huggingface.co/docs/hub/en/enterprise-hub-gating-group-collections).
 
 ### Ordering your collections and their items
 

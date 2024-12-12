@@ -4,7 +4,7 @@
 This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
-Gating Group collections allows organizations to configure gate all the repos in a collection, enabling **access requests** for all models or datasets in it.
+Gating Group Collections allow organizations to configure gated access to all the repos in a collection, enabling **a single access request** for all the models and datasets in it.
 
 ## Manage gating group as an organization admin
 
@@ -49,7 +49,7 @@ By default, access to the repos in the collection is automatically granted to th
     <img
         class="hidden dark:block !m-0"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-modal-enabling.webp"
-        alt="Hugging Face gating group collection settings with gating with automatic mode selected"
+        alt="Hugging Face gating group collection settings with automatic mode selected"  
     />
 </div>
 
@@ -68,4 +68,4 @@ If you want to manually approve which users can access repos in your collection,
     />
 </div>
 
-**Notification frequency** lets you configure when to get notified if new users request access. It can be set to once a day or real-time. By default, emails are sent to the first 5 admins of the organization. You can also set a different email address in the **Notifications email** field.
+**Notification frequency** lets you configure when to get notified about new users requesting access. It can be set to once a day or real-time. By default, emails are sent to the first 5 admins of the organization. You can also set a different email address in the **Notifications email** field.
