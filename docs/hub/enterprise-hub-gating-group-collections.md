@@ -6,6 +6,13 @@ This feature is part of the <a href="https://huggingface.co/enterprise">Enterpri
 
 Gating Group Collections allow organizations to configure gated access to all the repos in a collection, enabling **a single access request** for all the models and datasets in it.
 
+To enable gating group in a collection:
+
+- collection owner must be an organization
+- organization must be subscribed to Enterprise Hub
+- all models and datasets in the collection must be owned by the same organization as the collection
+- all models and datasets in the collection can only be in one gating group collection at once
+
 ## Manage gating group as an organization admin
 
 To enable access requests, go to the collection page and click on **Gating group** in the bottom-right corner.
@@ -74,6 +81,8 @@ If you want to manually approve which users can access repos in your collection,
 
 Once access requests are enabled, you have full control of who can access repos in your gating group collection or not, whether the approval mode is manual or automatic. You can review and manage requests either from the UI or via the API.
 
+**Approving a request for a repo in a gating group collection will automatically approve access to all repos in that collection.**
+
 #### From the UI
 
 You can review who has access to the repos in your gating group collection from the settings page of one of the repos of the collection by clicking on the **Review access requests** button:
@@ -112,6 +121,22 @@ This will open a modal with 3 lists of users:
 </div>
 
 #### Via the API
+
+Automating the approval of access requests by using the API works the same as gated models or repos.
+
+Visit our [gated models](https://huggingface.co/docs/hub/models-gated#via-the-api) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#via-the-api) documentation to know more about it.
+
+#### Download access report
+
+Access report download for repos in gating group collection works the same as gated models or repos.
+
+Visit our [gated models](https://huggingface.co/docs/hub/models-gated#download-access-report) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#download-access-report) documentation to know more about it.
+
+#### Customize requested information
+
+Customized information requests for repos in gating group collection works the same way as gated models or repos.
+
+Visit our [gated models](https://huggingface.co/docs/hub/models-gated#customize-requested-information) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#customize-requested-information) documentation to know more about it.
 
 ## Access gated repos in a gating group as a user
 
