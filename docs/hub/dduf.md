@@ -12,6 +12,7 @@ DDUF (**D**DUF’s **D**iffusion **U**nified **F**ormat) is a file format design
 
 This work draws inspiration from the [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) format.
 
+We've seeded some DDUFs of popular formats for the community to play with: https://huggingface.co/DDUF, check them out!
 <Tip>
 
 We welcome contributions with open arms!
@@ -156,3 +157,9 @@ Why not use a TAR with a table of contents at the beginning of the archive? See 
 ### Can I modify a DDUF file?
 
 No. For now, DDUF files are designed to be immutable. To update a model, create a new DDUF file.
+	
+### Which frameworks/apps support DDUFs?
+	
+- [diffusers](https://github.com/huggingface/diffusers)
+	
+We are continuously reaching out to other libraries and frameworks, if you are interested in adding support for your project, open a Discussion in the [DDUF org](https://huggingface.co/spaces/DDUF/README/discussions).
