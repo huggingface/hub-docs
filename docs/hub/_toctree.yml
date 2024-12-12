@@ -137,6 +137,8 @@
         title: Integrate a library with the Hub
       - local: models-tasks
         title: Tasks
+      - local: dduf
+        title: DDUF
       - local: gguf
         title: GGUF
         sections:
