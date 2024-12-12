@@ -351,7 +351,7 @@
     - local: enterprise-hub-network-security
       title: Network Security
     - local: enterprise-hub-gating-group-collections
-      title: Network Security
+      title: Gating Group Collections
   - local: billing
     title: Billing
   - local: security

@@ -28,12 +28,12 @@ By default, gating group is disabled: click on **Configure Access Requests** to 
 <div class="flex justify-center" style="max-width: 750px">
     <img
         class="block dark:hidden !m-0"
-        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-disabled.webp"
+        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-modal-disabled.webp"
         alt="Hugging Face gating group collection settings with gating disabled"
     />
     <img
         class="hidden dark:block !m-0"
-        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-disabled.webp"
+        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-modal-disabled.webp"
         alt="Hugging Face gating group collection settings with gating disabled"
     />
 </div>
@@ -43,12 +43,12 @@ By default, access to the repos in the collection is automatically granted to th
 <div class="flex justify-center" style="max-width: 750px">
     <img
         class="block dark:hidden !m-0"
-        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-enabling.webp"
+        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-modal-enabling.webp"
         alt="Hugging Face gating group collection settings with automatic mode selected"
     />
     <img
         class="hidden dark:block !m-0"
-        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-enabling.webp"
+        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-modal-enabling.webp"
         alt="Hugging Face gating group collection settings with gating with automatic mode selected"
     />
 </div>
@@ -58,12 +58,12 @@ If you want to manually approve which users can access repos in your collection,
 <div class="flex justify-center" style="max-width: 750px">
     <img
         class="block dark:hidden !m-0"
-        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-changes.webp"
+        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-modal-changes.webp"
         alt="Hugging Face gating group collection settings with manual review mode selected"
     />
     <img
         class="hidden dark:block !m-0"
-        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-changes.webp"
+        src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-modal-changes.webp"
         alt="Hugging Face gating group collection settings with manual review mode selected"
     />
 </div>
