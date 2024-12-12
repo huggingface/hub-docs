@@ -11,6 +11,7 @@ Collections have many use cases:
 - Showcase and share a complete project with its paper(s), dataset(s), model(s) and Space(s).
 - Bookmark things you find on the Hub in categories.
 - Have a dedicated page of curated things to share with others.
+- Gate a group of models/datasets (Enterprise only)
 
 This is just a list of possible uses, but remember that collections are just a way of grouping things, so use them in the way that best fits your use case.
 
@@ -54,6 +55,14 @@ Use the **history feature** to keep track of who has edited the collection.
 
 Set your collection to **private** if you don't want it to be accessible via its URL (it will not be displayed on your profile/organization page). For organizations, private collections are only available to members of the organization.
 
+### Gating Group Collection (Enterprise only)
+
+For [Enterprise](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers, you can gate all the repos in a collection, enabling **access requests** for all models and datasets in it.
+
+This feature allows you to restrict access to specific collections: users must agree to share their contact information (username and email address) with the organization to access the models and datasets files when enabled.
+
+Please note that this feature is only available to Enterprise subscribers: more information about Gating Group Collection can be found in [our doc](https://huggingface.co/docs/hub/en/enterprise-hub-gating-group-collections).
+
 ### Ordering your collections and their items
 
 You can use the drag and drop handles in the collections list (on the left side of your collections page) to change the order of your collections (1). The first two collections will be directly visible on your profile/organization pages.
@@ -84,7 +93,6 @@ To start adding images to your collection, you can click on the image icon in th
 ![Collection image icon](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-button.webp)
 
 Then, add images by dragging and dropping images from your computer. You can also click on the gray zone to select image files from your computer's file system.
-
 
 ![Collection image drop zone with images](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collections-image-gallery.webp)
 
