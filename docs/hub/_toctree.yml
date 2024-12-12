@@ -137,8 +137,6 @@
         title: Integrate a library with the Hub
       - local: models-tasks
         title: Tasks
-      - local: dduf
-        title: DDUF
       - local: gguf
         title: GGUF
         sections:
@@ -148,6 +146,8 @@
             title: GGUF usage with GPT4All
           - local: ollama
             title: GGUF usage with Ollama
+      - local: dduf
+        title: DDUF
 - title: Datasets
   local: datasets
   isExpanded: true
