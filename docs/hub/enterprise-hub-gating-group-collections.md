@@ -65,9 +65,7 @@ If you want to manually approve which users can access repos in your collection,
         class="hidden dark:block !m-0"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-changes.webp"
         alt="Hugging Face gating group collection settings with manual review mode selected"
-
     />
-
 </div>
 
 **Notification frequency** lets you configure when to get notified if new users request access. It can be set to once a day or real-time. By default, emails are sent to the first 5 admins of the organization. You can also set a different email address in the **Notifications email** field.
