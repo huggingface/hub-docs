@@ -13,6 +13,7 @@ DDUF (**D**DUF’s **D**iffusion **U**nified **F**ormat) is a file format design
 This work draws inspiration from the [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) format.
 
 We've seeded some DDUFs of popular formats for the community to play with: https://huggingface.co/DDUF, check them out!
+
 <Tip>
 
 We welcome contributions with open arms!
