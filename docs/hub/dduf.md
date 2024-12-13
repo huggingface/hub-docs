@@ -12,13 +12,13 @@ DDUF (**D**DUF’s **D**iffusion **U**nified **F**ormat) is a file format design
 
 This work draws inspiration from the [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) format.
 
-We've seeded some DDUFs of popular formats for the community to play with: https://huggingface.co/DDUF, check them out!
+Check out the [DDUF](https://huggingface.co/DDUF) org to start using some of the most popular diffusion models in DDUF.
 
 <Tip>
 
 We welcome contributions with open arms!
 
-To create a widely adopted file format, we need early feedback from the community. Nothing is set in stone, and we value everyone's input. Is your use case not covered? Please let us know! Discussions about the DDUF format happen in the [DDUF organization](https://huggingface.co/spaces/DDUF/README/discussions/2).
+To create a widely adopted file format, we need early feedback from the community. Nothing is set in stone, and we value everyone's input. Is your use case not covered? Please let us know in the DDUF organization [discussions](https://huggingface.co/spaces/DDUF/README/discussions/2).
 
 </Tip>
 
@@ -30,14 +30,14 @@ The primary goal of DDUF is to create a community-endorsed single-file format fo
 
 The DDUF format is also designed to be language-agnostic. While we currently provide tooling for the Python ecosystem, there's nothing stopping similar tools from being developed in JavaScript, Rust, C++, and other languages. Like GGUF or safetensors, DDUF is built to be parsable from a remote location without downloading the entire file, which will enable advanced support on the Hugging Face Hub.
 
-## Key Features
+Its key features include the following.
 
 1. **Single file** packaging.
 2. Based on **ZIP file format** to leverage existing tooling.
 3. No compression, ensuring **`mmap` compatibility** for fast loading and saving.
 4. **HTTP-friendly**: metadata and file structure can be fetched remotely using HTTP Range requests.
-5. **Flexible**: each model component is stored in its own directory, following the current `diffusers` structure.
-6. **Safe**: uses `safetensors` as weights saving format and prohibits nested directories to prevent ZIP-bombs.
+5. **Flexible**: each model component is stored in its own directory, following the current Diffusers structure.
+6. **Safe**: uses [Safetensors](https://huggingface.co/docs/diffusers/using-diffusers/other-formats#safetensors) as a weight-saving format and prohibits nested directories to prevent ZIP bombs.
 
 ## Technical specifications
 
@@ -59,7 +59,7 @@ The `huggingface_hub` provides tooling to handle DDUF files in Python. It includ
 
 ### How to read a DDUF file?
 
-Reading a DDUF file is as simple as calling `read_dduf_file` and passing a path as argument. Only the metadata is read, meaning this is a lightweight call that will not make your memory explode. In the example below, we consider that you've already downloaded the [`FLUX.1-dev.dduf`](https://huggingface.co/DDUF/FLUX.1-dev-DDUF/blob/main/FLUX.1-dev.dduf) file locally.
+Pass a path to `read_dduf_file` to read a DDUF file. Only the metadata is read, meaning this is a lightweight call that won't explode your memory. In the example below, we consider that you've already downloaded the [`FLUX.1-dev.dduf`](https://huggingface.co/DDUF/FLUX.1-dev-DDUF/blob/main/FLUX.1-dev.dduf) file locally.
 
 ```python
 >>> from huggingface_hub import read_dduf_file
@@ -68,7 +68,7 @@ Reading a DDUF file is as simple as calling `read_dduf_file` and passing a path 
 >>> dduf_entries = read_dduf_file("FLUX.1-dev.dduf")
 ```
 
-This will return a mapping where each entry corresponds to a file in the DDUF archive. A file is represented by a `DDUFEntry` dataclass that contains the filename, offset and length of the entry in the original DDUF file. This information is useful to read its content without loading the whole file. In practice, you won't have to handle low-level reading but rely on helpers instead.
+`read_dduf_file` returns a mapping where each entry corresponds to a file in the DDUF archive. A file is represented by a `DDUFEntry` dataclass that contains the filename, offset, and length of the entry in the original DDUF file. This information is useful to read its content without loading the whole file. In practice, you won't have to handle low-level reading but rely on helpers instead.
 
 For instance, here is how to load the `model_index.json` content:
 ```python
@@ -85,11 +85,12 @@ For binary files, you'll want to access the raw bytes using `as_mmap`. This retu
 ...     state_dict = safetensors.torch.load(mm) # `mm` is a bytes object
 ```
 
-Note: `as_mmap` must be used in a context manager to benefit from the memory-mapping properties.
+> [!TIP]
+> `as_mmap` must be used in a context manager to benefit from the memory-mapping properties.
 
 ### How to write a DDUF file?
 
-A DDUF file can be exported by passing to `export_folder_as_dduf` a folder path containing a diffusion model:
+Pass a folder path to `export_folder_as_dduf` to export a DDUF file.
 
 ```python
 # Export a folder as a DDUF file
@@ -99,7 +100,7 @@ A DDUF file can be exported by passing to `export_folder_as_dduf` a folder path 
 
 This tool scans the folder, adds the relevant entries and ensures the exported file is valid. If anything goes wrong during the process, a `DDUFExportError` is raised.
 
-For more flexibility, you can use [`export_entries_as_dduf`] and pass a list of files to include in the final DDUF file:
+For more flexibility, use [`export_entries_as_dduf`] to explicitly specify a list of files to include in the final DDUF file:
 
 ```python
 # Export specific files from the local disk.
@@ -117,7 +118,7 @@ For more flexibility, you can use [`export_entries_as_dduf`] and pass a list of 
 ... )
 ```
 
-This works well if you've already saved your model on the disk. But what if you have a model loaded in memory and want to serialize it directly into a DDUF file? `export_entries_as_dduf` lets you do that by providing a Python `generator` that tells how to serialize the data iteratively:
+`export_entries_as_dduf` works well if you've already saved your model on the disk. But what if you have a model loaded in memory and want to serialize it directly into a DDUF file? `export_entries_as_dduf` lets you do that by providing a Python `generator` that tells how to serialize the data iteratively:
 
 ```python
 (...)
@@ -146,14 +147,16 @@ ZIP provides several advantages:
 - Built-in file indexing
 - Wide language support
 
-Why not use a TAR with a table of contents at the beginning of the archive? See explanation [in this comment](https://github.com/huggingface/huggingface_hub/pull/2692#issuecomment-2519863726).
+### Why not use a TAR with a table of contents at the beginning of the archive?
+
+See the explanation in this [comment](https://github.com/huggingface/huggingface_hub/pull/2692#issuecomment-2519863726).
 
 ### Why no compression?
 
-- Enables direct memory mapping of large files.
-- Ensures consistent and predictable remote file access.
-- Prevents CPU overhead during file reading.
-- Maintains compatibility with safetensors.
+- Enables direct memory mapping of large files
+- Ensures consistent and predictable remote file access
+- Prevents CPU overhead during file reading
+- Maintains compatibility with safetensors
 
 ### Can I modify a DDUF file?
 
@@ -161,6 +164,6 @@ No. For now, DDUF files are designed to be immutable. To update a model, create 
 	
 ### Which frameworks/apps support DDUFs?
 	
-- [diffusers](https://github.com/huggingface/diffusers)
+- [Diffusers](https://github.com/huggingface/diffusers)
 	
-We are continuously reaching out to other libraries and frameworks, if you are interested in adding support for your project, open a Discussion in the [DDUF org](https://huggingface.co/spaces/DDUF/README/discussions).
+We are constantly reaching out to other libraries and frameworks. If you are interested in adding support to your project, open a Discussion in the [DDUF org](https://huggingface.co/spaces/DDUF/README/discussions).
