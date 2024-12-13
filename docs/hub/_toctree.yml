@@ -350,6 +350,8 @@
       title: Analytics
     - local: enterprise-hub-network-security
       title: Network Security
+    - local: enterprise-hub-gating-group-collections
+      title: Gating Group Collections
   - local: billing
     title: Billing
   - local: security
