@@ -130,7 +130,7 @@ For more flexibility, use [`export_entries_as_dduf`] to explicitly specify a lis
 >>> export_entries_as_dduf(dduf_path="my-cool-diffusion-model.dduf", entries=as_entries(pipe))
 ```
 
-### Loading a pipeline with Diffusers
+### Loading a DDUF file with Diffusers
 
 Diffusers has a built-in integration for DDUF files. Here is an example on how to load a pipeline from a stored checkpoint on the Hub:
 
