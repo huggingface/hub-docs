@@ -42,7 +42,7 @@ Its key features include the following.
 ## Technical specifications
 
 Technically, a `.dduf` file **is** a [`.zip` archive](https://en.wikipedia.org/wiki/ZIP_(file_format)). By building on a universally supported file format, we ensure robust tooling already exists. However, some constraints are enforced to meet diffusion models' requirements:
-- Data must be stored uncompressed (flag `0`), allowing mmap-compatibility.
+- Data must be stored uncompressed (flag `0`), allowing lazy-loading using memory-mapping.
 - Data must be stored using ZIP64 protocol, enabling saving files above 4GB.
 - The archive can only contain `.json`, `.safetensors`, `.model` and `.txt` files.
 - A `model_index.json` file must be present at the root of the archive. It must contain a key-value mapping with metadata about the model and its components.
