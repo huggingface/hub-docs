@@ -48,7 +48,7 @@ Technically, a `.dduf` file **is** a [`.zip` archive](https://en.wikipedia.org/w
 - A `model_index.json` file must be present at the root of the archive. It must contain a key-value mapping with metadata about the model and its components.
 - Each component must be stored in its own directory (e.g., `vae/`, `text_encoder/`). Nested files must use UNIX-style path separators (`/`).
 - Each directory must correspond to a component in the `model_index.json` index.
-- Each directory must contain a json config file (one of `config.json`, `tokenizer_config.json`, `image_processor.json`, `scheduler_config.json`).
+- Each directory must contain a json config file (one of `config.json`, `tokenizer_config.json`, `preprocessor_config.json`, `scheduler_config.json`).
 - Sub-directories are forbidden.
 
 Want to check if your file is valid? Check it out using this Space: https://huggingface.co/spaces/DDUF/dduf-check.
