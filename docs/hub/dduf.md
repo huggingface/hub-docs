@@ -8,7 +8,7 @@
 
 ## Overview
 
-DDUF (**D**DUF’s **D**iffusion **U**nified **F**ormat) is a file format designed to make storing, distributing, and using diffusion models much easier. Built on the ZIP file format, DDUF offers a standardized, efficient, and flexible way to package all parts of a diffusion model into a single, easy-to-manage file.
+DDUF (**D**DUF’s **D**iffusion **U**nified **F**ormat) is a single-file format for diffusion models that aims to unify the different model distribution methods and weight-saving formats by packaging all model components into a single file. It is language-agnostic and built to be parsable from a remote location without downloading the entire file.
 
 This work draws inspiration from the [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) format.
 
@@ -21,14 +21,6 @@ We welcome contributions with open arms!
 To create a widely adopted file format, we need early feedback from the community. Nothing is set in stone, and we value everyone's input. Is your use case not covered? Please let us know in the DDUF organization [discussions](https://huggingface.co/spaces/DDUF/README/discussions/2).
 
 </Tip>
-
-## Motivation
-
-Yet, another file format? Yes, but for good reasons!
-
-The primary goal of DDUF is to create a community-endorsed single-file format for diffusion models. Current model distribution methods often involve multiple separate files, different weight-saving formats, and managing files from various locations. DDUF aims to solve these challenges by packaging all model components into a single file, enforcing a consistent structure while being opinionated about saving formats.
-
-The DDUF format is also designed to be language-agnostic. While we currently provide tooling for the Python ecosystem, there's nothing stopping similar tools from being developed in JavaScript, Rust, C++, and other languages. Like GGUF or safetensors, DDUF is built to be parsable from a remote location without downloading the entire file, which will enable advanced support on the Hugging Face Hub.
 
 Its key features include the following.
 
