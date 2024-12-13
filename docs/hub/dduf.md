@@ -27,9 +27,10 @@ Its key features include the following.
 1. **Single file** packaging.
 2. Based on **ZIP file format** to leverage existing tooling.
 3. No compression, ensuring **`mmap` compatibility** for fast loading and saving.
-4. **HTTP-friendly**: metadata and file structure can be fetched remotely using HTTP Range requests.
-5. **Flexible**: each model component is stored in its own directory, following the current Diffusers structure.
-6. **Safe**: uses [Safetensors](https://huggingface.co/docs/diffusers/using-diffusers/other-formats#safetensors) as a weight-saving format and prohibits nested directories to prevent ZIP bombs.
+4. **Language-agnostic**: tooling can be implemented in Python, JavaScript, Rust, C++, etc.
+5. **HTTP-friendly**: metadata and file structure can be fetched remotely using HTTP Range requests.
+6. **Flexible**: each model component is stored in its own directory, following the current Diffusers structure.
+7. **Safe**: uses [Safetensors](https://huggingface.co/docs/diffusers/using-diffusers/other-formats#safetensors) as a weight-saving format and prohibits nested directories to prevent ZIP bombs.
 
 ## Technical specifications
 
