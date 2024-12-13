@@ -55,13 +55,11 @@ Use the **history feature** to keep track of who has edited the collection.
 
 Set your collection to **private** if you don't want it to be accessible via its URL (it will not be displayed on your profile/organization page). For organizations, private collections are only available to members of the organization.
 
-### Gating Group Collection (Enterprise Hub)
+### Gating Group Collections (Enterprise Hub)
 
-For [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers, you can gate all the repos in a collection, enabling **a single access requests** for all models and datasets in it.
+You can use a collection to [gate](https://huggingface.co/docs/hub/en/models-gated) all the models/datasets belonging to it, allowing you to grant (or reject) access to all of them at once.
 
-This feature allows you to restrict access to specific collections: users must agree to share their contact information (username and email address) with the organization to access the models and datasets in a gating group collection.
-
-Please note that this feature is only available to Enterprise Hub subscribers: more information about Gating Group Collection can be found in [our doc](https://huggingface.co/docs/hub/en/enterprise-hub-gating-group-collections).
+This feature is reserved for [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers: more information about Gating Group Collections can be found in [our dedicated doc](https://huggingface.co/docs/hub/en/enterprise-hub-gating-group-collections).
 
 ### Ordering your collections and their items
 

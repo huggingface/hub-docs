@@ -4,14 +4,18 @@
 This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
-Gating Group Collections allow organizations to configure gated access to all the repos in a collection, enabling **a single access request** for all the models and datasets in it.
+Gating Group Collections allow organizations to grant (or reject) access to all the models and datasets in a collection at once rather than repo per repo. Users will only have to go through **a single access request**.
 
 To enable gating group in a collection:
 
 - collection owner must be an organization
 - organization must be subscribed to Enterprise Hub
 - all models and datasets in the collection must be owned by the same organization as the collection
-- all models and datasets in the collection can only be in one gating group collection at once
+- all models and datasets in the collection can only be in one Gating Group Collection at once
+
+<Tip>
+Gating only applies to models and datasets; any other resource part of the collection (such as a Space or a Paper) won't be affected.
+<Tip>
 
 ## Manage gating group as an organization admin
 
@@ -45,7 +49,7 @@ By default, gating group is disabled: click on **Configure Access Requests** to 
     />
 </div>
 
-By default, access to the repos in the collection is automatically granted to the user when requesting it. This is referred to as **automatic approval**. In this mode, any user can access your repos once they’ve shared their personal information with you.
+By default, access to the repos in the collection is automatically granted to the user when requesting it. This is referred to as **automatic approval**. In this mode, any user can access your repos once they’ve shared their contact information with you.
 
 <div class="flex justify-center" style="max-width: 750px">
     <img
@@ -60,7 +64,7 @@ By default, access to the repos in the collection is automatically granted to th
     />
 </div>
 
-If you want to manually approve which users can access repos in your collection, you must set it to **manual approval**. When this is the case, you will notice a new option:
+If you want to manually approve which users can access repos in your collection, you must set it to **Manual Review**. When this is the case, you will notice a new option:
 
 **Notification frequency** lets you configure when to get notified about new users requesting access. It can be set to once a day or real-time. By default, emails are sent to the first 5 admins of the organization. You can also set a different email address in the **Notifications email** field.
 
@@ -79,13 +83,13 @@ If you want to manually approve which users can access repos in your collection,
 
 ### Review access requests
 
-Once access requests are enabled, you have full control of who can access repos in your gating group collection or not, whether the approval mode is manual or automatic. You can review and manage requests either from the UI or via the API.
+Once access requests are enabled, you have full control of who can access repos in your gating group collection, whether the approval mode is manual or automatic. You can review and manage requests either from the UI or via the API.
 
 **Approving a request for a repo in a gating group collection will automatically approve access to all repos in that collection.**
 
 #### From the UI
 
-You can review who has access to the repos in your gating group collection from the settings page of one of the repos of the collection by clicking on the **Review access requests** button:
+You can review who has access to the repos in your Gating Group Collection from the settings page of any of the repos of the collection by clicking on the **Review access requests** button:
 
 <div class="flex justify-center" style="max-width: 750px">
     <img
@@ -102,9 +106,9 @@ You can review who has access to the repos in your gating group collection from 
 
 This will open a modal with 3 lists of users:
 
-- **pending**: the list of users waiting for approval to access your dataset. This list is empty unless you’ve selected **manual approval**. You can either **Accept** or **Reject** the demand. If the demand is rejected, the user cannot access your dataset and cannot request access again.
-- **accepted**: the complete list of users with access to your dataset. You can choose to **Reject** access at any time for any user, whether the approval mode is manual or automatic. You can also **Cancel** the approval, which will move the user to the **pending** list.
-- **rejected**: the list of users you’ve manually rejected. Those users cannot access your datasets. If they go to your dataset repository, they will see a message _Your request to access this repo has been rejected by the repo’s authors_.
+- **pending**: the list of users waiting for approval to access your repository. This list is empty unless you’ve selected **Manual Review**. You can either **Accept** or **Reject** the demand. If the demand is rejected, the user cannot access your repository and cannot request access again.
+- **accepted**: the complete list of users with access to your repository. You can choose to **Reject** access at any time for any user, whether the approval mode is manual or automatic. You can also **Cancel** the approval, which will move the user to the **pending** list.
+- **rejected**: the list of users you’ve manually rejected. Those users cannot access your repositories. If they go to your repository, they will see a message _Your request to access this repo has been rejected by the repo’s authors_.
 
 <div class="flex justify-center" style="max-width: 750px">
     <img 
@@ -122,27 +126,27 @@ This will open a modal with 3 lists of users:
 
 #### Via the API
 
-Automating the approval of access requests by using the API works the same as gated models or repos.
+You can programmatically manage access requests in a Gated Group Collection through the API of any of its models or datasets.
 
 Visit our [gated models](https://huggingface.co/docs/hub/models-gated#via-the-api) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#via-the-api) documentation to know more about it.
 
 #### Download access report
 
-Access report download for repos in gating group collection works the same as gated models or repos.
+You can download access reports for the Gated Group Collection through the settings page of any of its models or datasets.
 
 Visit our [gated models](https://huggingface.co/docs/hub/models-gated#download-access-report) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#download-access-report) documentation to know more about it.
 
 #### Customize requested information
 
-Customized information requests for repos in gating group collection works the same way as gated models or repos.
+<Tip warning={true}>
+There is currently no way to customize the gate parameters and requested information in a centralized way. If you want to collect the same data no matter which collection's repository a user requests access throughout, you need to add the same gate parameters in the metadata of all the models and datasets of the collection, and keep it synced.
+</Tip>
 
-Visit our [gated models](https://huggingface.co/docs/hub/models-gated#customize-requested-information) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#customize-requested-information) documentation to know more about it.
+Visit our [gated models](https://huggingface.co/docs/hub/models-gated#customize-requested-information) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#customize-requested-information) documentation to know more about customizing the requested information for a given repository.
 
-## Access gated repos in a gating group as a user
+## Access gated repos in a Gating Group Collection as a user
 
-As a user, if you want to use a gated repo in a gating group collection, you will need to request access to it. This means that you must be logged in to a Hugging Face user account.
-
-To know if a collection has gating group enabled, an icon will be shown next to its name:
+A Gated Group Collection shows a specific icon before its name:
 
 <div class="flex justify-center" style="max-width: 750px">
     <img
@@ -157,4 +161,6 @@ To know if a collection has gating group enabled, an icon will be shown next to 
     />
 </div>
 
-Visit our [gated models](https://huggingface.co/docs/hub/models-gated#access-gated-models-as-a-user) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#access-gated-datasets-as-a-user) documentation to know more about it.
+To get access to the models and datasets in a Gated Group Collection, a single access request on the page of any of those repositories is needed. Once your request is approved, you will be able to access all the other repositories in the collection, including future ones.
+
+Visit our [gated models](https://huggingface.co/docs/hub/models-gated#access-gated-models-as-a-user) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#access-gated-datasets-as-a-user) documentation to know more requesting access to a repository.
