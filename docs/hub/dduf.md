@@ -1,10 +1,18 @@
 # DDUF
 
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/DDUF/DDUF-Banner.svg"/>
+     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/DDUF/DDUF-Banner-dark.svg"/>
+</div>
+
+
 ## Overview
 
 DDUF (**D**DUF’s **D**iffusion **U**nified **F**ormat) is a file format designed to make storing, distributing, and using diffusion models much easier. Built on the ZIP file format, DDUF offers a standardized, efficient, and flexible way to package all parts of a diffusion model into a single, easy-to-manage file.
 
 This work draws inspiration from the [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) format.
+
+We've seeded some DDUFs of popular formats for the community to play with: https://huggingface.co/DDUF, check them out!
 
 <Tip>
 
@@ -150,3 +158,9 @@ Why not use a TAR with a table of contents at the beginning of the archive? See 
 ### Can I modify a DDUF file?
 
 No. For now, DDUF files are designed to be immutable. To update a model, create a new DDUF file.
+	
+### Which frameworks/apps support DDUFs?
+	
+- [diffusers](https://github.com/huggingface/diffusers)
+	
+We are continuously reaching out to other libraries and frameworks, if you are interested in adding support for your project, open a Discussion in the [DDUF org](https://huggingface.co/spaces/DDUF/README/discussions).
