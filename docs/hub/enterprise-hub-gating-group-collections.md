@@ -4,7 +4,7 @@
 This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
-Gating Group Collections allow organizations to grant (or reject) access to all the models and datasets in a collection at once rather than repo per repo. Users will only have to go through **a single access request**.
+Gating Group Collections allow organizations to grant (or reject) access to all the models and datasets in a collection at once, rather than per repo. Users will only have to go through **a single access request**.
 
 To enable gating group in a collection:
 
