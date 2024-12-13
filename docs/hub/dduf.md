@@ -130,6 +130,23 @@ For more flexibility, use [`export_entries_as_dduf`] to explicitly specify a lis
 >>> export_entries_as_dduf(dduf_path="my-cool-diffusion-model.dduf", entries=as_entries(pipe))
 ```
 
+### Loading a pipeline with Diffusers
+
+Diffusers has a built-in integration for DDUF files. Here is an example on how to load a pipeline from a stored checkpoint on the Hub:
+
+```py
+from diffusers import DiffusionPipeline
+import torch
+
+pipe = DiffusionPipeline.from_pretrained(
+    "DDUF/FLUX.1-dev-DDUF", dduf_file="FLUX.1-dev.dduf", torch_dtype=torch.bfloat16
+).to("cuda")
+image = pipe(
+    "photo a cat holding a sign that says Diffusers", num_inference_steps=50, guidance_scale=3.5
+).images[0]
+image.save("cat.png")
+```
+
 ## F.A.Q.
 
 ### Why build on top of ZIP?
