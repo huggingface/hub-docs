@@ -15,7 +15,7 @@ To enable gating group in a collection:
 
 <Tip>
 Gating only applies to models and datasets; any other resource part of the collection (such as a Space or a Paper) won't be affected.
-<Tip>
+</Tip>
 
 ## Manage gating group as an organization admin
 
