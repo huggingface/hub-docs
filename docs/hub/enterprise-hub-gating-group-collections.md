@@ -6,7 +6,7 @@ This feature is part of the <a href="https://huggingface.co/enterprise">Enterpri
 
 Gating Group Collections allow organizations to grant (or reject) access to all the models and datasets in a collection at once, rather than per repo. Users will only have to go through **a single access request**.
 
-To enable gating group in a collection:
+To enable Gating Group in a collection:
 
 - the collection owner must be an organization
 - the organization must be subscribed to the Enterprise Hub
