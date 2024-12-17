@@ -152,6 +152,7 @@ git log --all -p -S <SHA-256-OID>
 For example:
 
 ```bash
+$ git log --all -p -S 68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3
 
 commit 5af368743e3f1d81c2a846f7c8d4a028ad9fb021
 Date:   Sun Apr 28 02:01:18 2024 +0200
