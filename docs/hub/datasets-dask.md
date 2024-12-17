@@ -107,10 +107,12 @@ df = dd.read_parquet("hf://datasets/HuggingFaceFW/fineweb-edu/sample/10BT/*.parq
 df = df[df.dump >= "CC-MAIN-2023"]
 ```
 
-Dask will also read only the required columns for your computation and skip the rest. This is useful when you want to manipulate a subset of the columns or for analytics:
+Dask will also read only the required columns for your computation and skip the rest.
+For example if you drop a column late in your code, it will not bother to load it early on in the pipeline if it's not needed.
+This is useful when you want to manipulate a subset of the columns or for analytics:
 
 ```python
 # Dask will download the 'dump' and 'token_count' needed
-# for the computation and skip the other columns.
+# for the filtering and computation and skip the other columns.
 df.token_count.mean().compute()
 ```
