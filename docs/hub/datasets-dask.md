@@ -93,7 +93,7 @@ the `meta` argument to know the type of the new column in the meantime.
 
 When reading Parquet data from Hugging Face, Dask automatically leverages the metadata in Parquet files to skip entire files or row groups if they are not needed. For example if you apply a filter (predicate) on a Hugging Face Dataset in Parquet format or if you select a subset of the columns (projection), Dask will read the metadata of the Paquet files to discard the parts that are not needed without downloading them.
 
-This is possible thanks to the `dask-expr` package which is generally installed by default with Dask.
+This is possible thanks to the `dask-expr` package which is generally installed by default with Dask. You can read more about `dask-expr` in its [introduction blog post](https://blog.dask.org/2023/08/25/dask-expr-introduction) and in this more recent [blog post on dask optimizations](https://blog.dask.org/2024/05/30/dask-is-fast#optimizer)
 
 For example this subset of FineWeb-Edu contains many Parquet files. If you can filter the dataset to keep the text from recent CC dumps, Dask will skip most of the files and only download the data that match the filter:
 
