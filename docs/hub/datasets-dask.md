@@ -89,9 +89,9 @@ Note that you also need to provide `meta` which is the type of the pandas Series
 This is needed because Dask DataFrame is a lazy API. Since Dask will only run the data processing once `.compute()` is called, it needs
 the `meta` argument to know the type of the new column in the meantime.
 
-# Column and Filter Pushdown
+# Predicate and Projection Pushdown
 
-When reading Parquet data from Hugging Face, Dask automatically leverages the metadata in Parquet files to skip entire files or row groups if they are not needed. For example if you apply a filter on a Hugging Face Dataset in Parquet format or if you select a subset of the columns, Dask will read the metadata of the Paquet files to discard the parts that are not needed without downloading them.
+When reading Parquet data from Hugging Face, Dask automatically leverages the metadata in Parquet files to skip entire files or row groups if they are not needed. For example if you apply a filter (predicate) on a Hugging Face Dataset in Parquet format or if you select a subset of the columns (projection), Dask will read the metadata of the Paquet files to discard the parts that are not needed without downloading them.
 
 This is possible thanks to the `dask-expr` package which is generally installed by default with Dask.
 
