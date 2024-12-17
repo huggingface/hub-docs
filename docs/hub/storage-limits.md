@@ -112,3 +112,96 @@ To do that, to ensure we can effectively support the open-source ecosystem, plea
 ### Grants for private repositories
 
 If you need more model/ dataset storage than your allocated private storage for academic/ research purposes, please reach out to us at datasets@huggingface.co or models@huggingface.co along with a proposal of how you will use the storage grant.
+
+
+## How can I free up storage space in my account/organization?
+
+There are several ways to manage and free some storage space in your account or organization. First, if you need more storage space, consider upgrading to PRO or Enterprise plans for increased storage limits.
+
+⚠️ **Important**: Deleting LFS files is a destructive operation that cannot be undone. Make sure to backup your files before proceeding.
+
+Key points to understand:
+- Deleting only LFS pointers don't free space
+- Future checkouts of branches/tags containing deleted LFS files will fail (to avoid errors, add the following line to your `.gitconfig` file: `lfs.skipdownloaderrors=true`)
+
+To delete individual LFS files:
+
+1. Navigate to your repository's Settings page
+2. Click on "List LFS files" 
+3. Use the actions menu to delete specific files
+
+### Delete entire repositories
+
+To completely remove a repository and its LFS files:
+
+1. Ensure you have a full backup of your repository including all LFS files
+2. Navigate to repository settings
+3. Use the delete repository option
+4. Confirm the deletion
+
+💡 You can view LFS storage usage per repository in your repository settings
+
+### Track LFS file references
+
+To find which commits reference a specific LFS file, you can use the git log command:
+
+```bash
+git log --all -p -S <SHA-256-OID>
+```
+
+For example:
+
+```bash
+
+commit 5af368743e3f1d81c2a846f7c8d4a028ad9fb021
+Date:   Sun Apr 28 02:01:18 2024 +0200
+
+    Update LayerNorm tensor names to weight and bias
+
+diff --git a/model.safetensors b/model.safetensors
+index a090ee7..e79c80e 100644
+--- a/model.safetensors
++++ b/model.safetensors
+@@ -1,3 +1,3 @@
+ version https://git-lfs.github.com/spec/v1
+-oid sha256:68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3
++oid sha256:0bb7a1683251b832d6f4644e523b325adcf485b7193379f5515e6083b5ed174b
+ size 440449768
+
+commit 0a6aa9128b6194f4f3c4db429b6cb4891cdb421b (origin/pr/28)
+Date:   Wed Nov 16 15:15:39 2022 +0000
+
+    Adding `safetensors` variant of this model (#15)
+    
+    
+    - Adding `safetensors` variant of this model (18c87780b5e54825a2454d5855a354ad46c5b87e)
+    
+    
+    Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>
+
+diff --git a/model.safetensors b/model.safetensors
+new file mode 100644
+index 0000000..a090ee7
+--- /dev/null
++++ b/model.safetensors
+@@ -0,0 +1,3 @@
++version https://git-lfs.github.com/spec/v1
++oid sha256:68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3
++size 440449768
+
+commit 18c87780b5e54825a2454d5855a354ad46c5b87e (origin/pr/15)
+Date:   Thu Nov 10 09:35:55 2022 +0000
+
+    Adding `safetensors` variant of this model
+
+diff --git a/model.safetensors b/model.safetensors
+new file mode 100644
+index 0000000..a090ee7
+--- /dev/null
++++ b/model.safetensors
+@@ -0,0 +1,3 @@
++version https://git-lfs.github.com/spec/v1
++oid sha256:68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3
++size 440449768
+
+```
