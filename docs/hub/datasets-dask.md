@@ -4,7 +4,7 @@
 
 In particular, we can use Dask DataFrame to scale up pandas workflows. Dask DataFrame parallelizes pandas to handle large tabular data. It closely mirrors the pandas API, making it simple to transition from testing on a single dataset to processing the full dataset. Dask is particularly effective with Parquet, the default format on Hugging Face Datasets, as it supports rich data types, efficient columnar filtering, and compression.
 
-A good practical use-case for Dask is to run data processing or model inference on a dataset in a distributed manner. See for example the excellent blog post on [Scaling AI-Based Data Processing with Hugging Face + Dask](https://huggingface.co/blog/dask-scaling) by Coiled.
+A good practical use case for Dask is running data processing or model inference on a dataset in a distributed manner. See, for example, Coiled's excellent blog post on [Scaling AI-Based Data Processing with Hugging Face + Dask](https://huggingface.co/blog/dask-scaling).
 
 # Read and Write
 
@@ -86,7 +86,7 @@ df["num_words"] = df.text.map_partitions(dummy_count_words, meta=int)
 ```
 
 Note that you also need to provide `meta` which is the type of the pandas Series or DataFrame in the output of your function.
-This is needed because Dask DataFrame is a lazy API. Since Dask will only run the data processing once `.compute()` is called, it needs
+This is needed because Dask DataFrame uses a lazy API. Since Dask will only run the data processing once `.compute()` is called, it needs
 the `meta` argument to know the type of the new column in the meantime.
 
 # Predicate and Projection Pushdown
@@ -103,7 +103,7 @@ import dask.dataframe as dd
 df = dd.read_parquet("hf://datasets/HuggingFaceFW/fineweb-edu/sample/10BT/*.parquet")
 
 # Dask will skip the files or row groups that don't
-# match rhe query without downloading them.
+# match the query without downloading them.
 df = df[df.dump >= "CC-MAIN-2023"]
 ```
 
