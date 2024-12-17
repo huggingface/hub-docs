@@ -11,7 +11,7 @@ To enable Gating Group in a collection:
 - the collection owner must be an organization
 - the organization must be subscribed to the Enterprise Hub
 - all models and datasets in the collection must be owned by the same organization as the collection
-- each model or dataset in the collection may only belong to one Gating Group Collection, but they may be present on non-gating collections.
+- each model or dataset in the collection may only belong to one Gating Group Collection (but they can still be included in non-gating i.e. _regular_ collections).
 
 <Tip>
 Gating only applies to models and datasets; any other resource part of the collection (such as a Space or a Paper) won't be affected.
@@ -146,7 +146,7 @@ There is currently no way to customize the gate parameters and requested informa
 
 ## Access gated repos in a Gating Group Collection as a user
 
-A Gated Group Collection shows a specific icon before its name:
+A Gated Group Collection shows a specific icon next to its name:
 
 <div class="flex justify-center" style="max-width: 750px">
     <img
