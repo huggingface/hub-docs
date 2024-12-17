@@ -88,3 +88,29 @@ df["num_words"] = df.text.map_partitions(dummy_count_words, meta=int)
 Note that you also need to provide `meta` which is the type of the pandas Series or DataFrame in the output of your function.
 This is needed because Dask DataFrame is a lazy API. Since Dask will only run the data processing once `.compute()` is called, it needs
 the `meta` argument to know the type of the new column in the meantime.
+
+# Column and Filter Pushdown
+
+When reading Parquet data from Hugging Face, Dask automatically leverages the metadata in Parquet files to skip entire files or row groups if they are not needed. For example if you apply a filter on a Hugging Face Dataset in Parquet format or if you select a subset of the columns, Dask will read the metadata of the Paquet files to discard the parts that are not needed without downloading them.
+
+This is possible thanks to the `dask-expr` package which is generally installed by default with Dask.
+
+For example this subset of FineWeb-Edu contains many Parquet files. If you can filter the dataset to keep the text from recent CC dumps, Dask will skip most of the files and only download the data that match the filter:
+
+```python
+import dask.dataframe as dd
+
+df = dd.read_parquet("hf://datasets/HuggingFaceFW/fineweb-edu/sample/10BT/*.parquet")
+
+# Dask will skip the files or row groups that don't
+# match rhe query without downloading them.
+df = df[df.dump >= "CC-MAIN-2023"]
+```
+
+Dask will also read only the required columns for your computation and skip the rest. This is useful when you want to manipulate a subset of the columns or for analytics:
+
+```python
+# Dask will download the 'dump' and 'token_count' needed
+# for the computation and skip the other columns.
+df.token_count.mean().compute()
+```
