@@ -12,7 +12,7 @@ Key features of Langfuse include LLM tracing to capture the full context of your
 
 As LLMs become more prevalent, understanding their behavior and performance is crucial. LLM observability refers to monitoring and understanding the internal states of an LLM application through its outputs. This is essential for addressing challenges such as complex control flows, non-deterministic outputs, and varied user intents.
 
-Building LLM applications involves dealing with intricate workflows that rely on repeated or chained calls, making debugging challenging. The non-deterministic nature of LLM outputs adds complexity to consistent quality assessment, and varied user inputs require deep understanding to improve user experience.
+Building LLM applications involves intricate workflows with repeated or chained calls, making debugging challenging. The non-deterministic nature of LLM outputs adds complexity to consistent quality assessment, and varied user inputs require deep understanding to improve user experience.
 
 Implementing LLM observability helps in debugging complex workflows, evaluating output quality over time, and analyzing user behavior. By gaining insights into your application's performance, you can enhance reliability and user satisfaction.
 
