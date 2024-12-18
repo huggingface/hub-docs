@@ -78,9 +78,9 @@ Since dataset repos are Git repositories, you can use Git to push your data file
 
 The Hub natively supports multiple file formats:
 
+- Parquet (.parquet)
 - CSV (.csv, .tsv)
 - JSON Lines, JSON (.jsonl, .json)
-- Parquet (.parquet)
 - Arrow streaming format (.arrow)
 - Text (.txt)
 - Images (.png, .jpg, etc.)
@@ -96,7 +96,7 @@ Other formats and structures may not be recognized by the Hub.
 
 ### Which file format should I use?
 
-For most types of datasets, Parquet is the recommended format due to its efficient compression, rich typing, and since a variety of tools supports this format with optimized read and batched operations. Alternatively, CSV or JSON Lines/JSON can be used for tabular data (prefer JSON Lines for nested data). Although easy to parse compared to Parquet, these formats are not recommended for data larger than several GBs. For image and audio datasets, uploading raw files is the most practical for most use cases since it's easy to access individual files. For large scale image and audio datasets streaming, [WebDataset](https://github.com/webdataset/webdataset) should be preferred over raw image and audio files to avoid the overhead of accessing individual files. Though for more general use cases involving analytics, data filtering or metadata parsing, Parquet is the recommended option for large scale image and audio datasets.
+For most types of datasets, **Parquet** is the recommended format due to its efficient compression, rich typing, and since a variety of tools supports this format with optimized read and batched operations. Alternatively, CSV or JSON Lines/JSON can be used for tabular data (prefer JSON Lines for nested data). Although easy to parse compared to Parquet, these formats are not recommended for data larger than several GBs. For image and audio datasets, uploading raw files is the most practical for most use cases since it's easy to access individual files. For large scale image and audio datasets streaming, [WebDataset](https://github.com/webdataset/webdataset) should be preferred over raw image and audio files to avoid the overhead of accessing individual files. Though for more general use cases involving analytics, data filtering or metadata parsing, Parquet is the recommended option for large scale image and audio datasets.
 
 ### Dataset Viewer
 

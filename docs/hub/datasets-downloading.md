@@ -2,7 +2,7 @@
 
 ## Integrated libraries
 
-If a dataset on the Hub is tied to a [supported library](./datasets-libraries), loading the dataset can be done in just a few lines. For information on accessing the dataset, you can click on the "Use in dataset library" button on the dataset page to see how to do so. For example, [`samsum`](https://huggingface.co/datasets/samsum?library=true) shows how to do so with 🤗 Datasets below.
+If a dataset on the Hub is tied to a [supported library](./datasets-libraries), loading the dataset can be done in just a few lines. For information on accessing the dataset, you can click on the "Use this dataset" button on the dataset page to see how to do so. For example, [`samsum`](https://huggingface.co/datasets/Samsung/samsum?library=datasets) shows how to do so with 🤗 Datasets below.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-usage.png"/>
