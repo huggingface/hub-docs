@@ -1,0 +1,4 @@
+docs/api-inference/tasks/question-answering.md
+docs/api-inference/tasks/table-question-answering.md
+scripts/api-inference/package.json
+scripts/api-inference/pnpm-lock.yaml
