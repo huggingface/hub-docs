@@ -78,9 +78,9 @@ Since dataset repos are Git repositories, you can use Git to push your data file
 
 The Hub natively supports multiple file formats:
 
+- Parquet (.parquet)
 - CSV (.csv, .tsv)
 - JSON Lines, JSON (.jsonl, .json)
-- Parquet (.parquet)
 - Arrow streaming format (.arrow)
 - Text (.txt)
 - Images (.png, .jpg, etc.)
