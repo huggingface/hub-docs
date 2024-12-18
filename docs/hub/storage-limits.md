@@ -125,12 +125,20 @@ Key points to understand:
 - Future checkouts of branches/tags containing deleted LFS files with existing lfs pointers will fail (to avoid errors, add the following line to your `.gitconfig` file: `lfs.skipdownloaderrors=true`)
 
 
-To delete individual LFS files:
+### Deleting individual LFS files
 
 1. Navigate to your repository's Settings page
 2. Click on "List LFS files" 
 3. Use the actions menu to delete specific files
 
+
+### Super squash by API your repository
+
+The super squash operation allows you to compress your entire Git history into a single commit, consider using super squash when you need to reclaim storage from old LFS versions you're not using. This operation is only available through the [Hub Python Library](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.super_squash_history).
+
+⚠️ **Important**: This is a destructive operation that cannot be undone, commit history will be permanently lost and **LFS file history will be removed**
+
+Changes from the squash operation is not immediate on yur quota and will be reflected in your storage quota within a few minutes
 
 ### Track LFS file references
 
