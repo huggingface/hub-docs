@@ -6,7 +6,7 @@ In particular, we can use Dask DataFrame to scale up pandas workflows. Dask Data
 
 A good practical use case for Dask is running data processing or model inference on a dataset in a distributed manner. See, for example, Coiled's excellent blog post on [Scaling AI-Based Data Processing with Hugging Face + Dask](https://huggingface.co/blog/dask-scaling).
 
-# Read and Write
+## Read and Write
 
 Since Dask uses [fsspec](https://filesystem-spec.readthedocs.io) to read and write remote data, you can use the Hugging Face paths ([`hf://`](/docs/huggingface_hub/guides/hf_file_system#integrations)) to read and write data on the Hub;
 
@@ -62,7 +62,7 @@ df_test  = dd.read_parquet("hf://datasets/username/my_dataset/test")
 
 For more information on the Hugging Face paths and how they are implemented, please refer to the [the client library's documentation on the HfFileSystem](/docs/huggingface_hub/guides/hf_file_system).
 
-# Process data
+## Process data
 
 To process a dataset in parallel using Dask, you can first define your data processing function for a pandas DataFrame or Series, and then use the Dask `map_partitions` function to apply this function to all the partitions of a dataset in parallel:
 
@@ -89,7 +89,7 @@ Note that you also need to provide `meta` which is the type of the pandas Series
 This is needed because Dask DataFrame uses a lazy API. Since Dask will only run the data processing once `.compute()` is called, it needs
 the `meta` argument to know the type of the new column in the meantime.
 
-# Predicate and Projection Pushdown
+## Predicate and Projection Pushdown
 
 When reading Parquet data from Hugging Face, Dask automatically leverages the metadata in Parquet files to skip entire files or row groups if they are not needed. For example if you apply a filter (predicate) on a Hugging Face Dataset in Parquet format or if you select a subset of the columns (projection), Dask will read the metadata of the Paquet files to discard the parts that are not needed without downloading them.
 
