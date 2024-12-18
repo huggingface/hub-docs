@@ -1,6 +1,6 @@
 # Using 🤗 Datasets
 
-Once you've found an interesting dataset on the Hugging Face Hub, you can load the dataset using 🤗 Datasets. You can click on the [**Use in dataset library** button](https://huggingface.co/datasets/samsum?library=true) to copy the code to load a dataset.
+Once you've found an interesting dataset on the Hugging Face Hub, you can load the dataset using 🤗 Datasets. You can click on the [**Use this dataset** button](https://huggingface.co/datasets/nyu-mll/glue?library=datasets) to copy the code to load a dataset.
 
 First you need to [Login with your Hugging Face account](/docs/huggingface_hub/quick-start#login), for example using:
 
