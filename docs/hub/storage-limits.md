@@ -122,7 +122,8 @@ There are several ways to manage and free some storage space in your account or 
 
 Key points to understand:
 - Deleting only LFS pointers don't free space
-- Future checkouts of branches/tags containing deleted LFS files will fail (to avoid errors, add the following line to your `.gitconfig` file: `lfs.skipdownloaderrors=true`)
+- Future checkouts of branches/tags containing deleted LFS files with existing lfs pointers will fail (to avoid errors, add the following line to your `.gitconfig` file: `lfs.skipdownloaderrors=true`)
+
 
 To delete individual LFS files:
 
@@ -130,16 +131,6 @@ To delete individual LFS files:
 2. Click on "List LFS files" 
 3. Use the actions menu to delete specific files
 
-### Delete entire repositories
-
-To completely remove a repository and its LFS files:
-
-1. Ensure you have a full backup of your repository including all LFS files
-2. Navigate to repository settings
-3. Use the delete repository option
-4. Confirm the deletion
-
-💡 You can view LFS storage usage per repository in your repository settings
 
 ### Track LFS file references
 
@@ -152,7 +143,7 @@ git log --all -p -S <SHA-256-OID>
 For example:
 
 ```bash
-$ git log --all -p -S 68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3
+git log --all -p -S 68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3
 
 commit 5af368743e3f1d81c2a846f7c8d4a028ad9fb021
 Date:   Sun Apr 28 02:01:18 2024 +0200
