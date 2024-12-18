@@ -142,7 +142,7 @@ The effects from the squash operation on your storage quota are not immediate an
 
 ### Advanced: Track LFS file references
 
-To find which commits reference a specific LFS file, you can use the git log command:
+When you find an LFS file in your repository's "List LFS files" but don't know where it came from, you can trace its history using its SHA-256 OID by using the git log command: 
 
 ```bash
 git log --all -p -S <SHA-256-OID>
