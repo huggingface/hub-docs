@@ -116,31 +116,31 @@ If you need more model/ dataset storage than your allocated private storage for 
 
 ## How can I free up storage space in my account/organization?
 
-There are several ways to manage and free some storage space in your account or organization. First, if you need more storage space, consider upgrading to PRO or Enterprise plans for increased storage limits.
+There are several ways to manage and free some storage space in your account or organization. First, if you need more storage space, consider upgrading to PRO or Enterprise Hub plans for increased storage limits.
 
 ⚠️ **Important**: Deleting LFS files is a destructive operation that cannot be undone. Make sure to backup your files before proceeding.
 
-Key points to understand:
-- Deleting only LFS pointers don't free space
+Key points to remember:
+- Deleting only LFS pointers doesn't free space
 - Future checkouts of branches/tags containing deleted LFS files with existing lfs pointers will fail (to avoid errors, add the following line to your `.gitconfig` file: `lfs.skipdownloaderrors=true`)
 
 
 ### Deleting individual LFS files
 
 1. Navigate to your repository's Settings page
-2. Click on "List LFS files" 
+2. Click on "List LFS files" in the "Storage" section
 3. Use the actions menu to delete specific files
 
 
-### Super squash by API your repository
+### Super-squash your repository using the API
 
-The super squash operation allows you to compress your entire Git history into a single commit, consider using super squash when you need to reclaim storage from old LFS versions you're not using. This operation is only available through the [Hub Python Library](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.super_squash_history).
+The super-squash operation allows you to compress your entire Git history into a single commit, consider using super-squash when you need to reclaim storage from old LFS versions you're not using. This operation is only available through the [Hub Python Library](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.super_squash_history) or the API.
 
 ⚠️ **Important**: This is a destructive operation that cannot be undone, commit history will be permanently lost and **LFS file history will be removed**
 
-Changes from the squash operation is not immediate on yur quota and will be reflected in your storage quota within a few minutes
+The effects from the squash operation on your storage quota are not immediate and will be reflected on your quota within a few minutes.
 
-### Track LFS file references
+### Advanced: Track LFS file references
 
 To find which commits reference a specific LFS file, you can use the git log command:
 
