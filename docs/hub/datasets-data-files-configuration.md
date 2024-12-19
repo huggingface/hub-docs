@@ -11,7 +11,7 @@ Machine learning datasets typically have splits and may also have subsets. A dat
 
 ![split-configs-server](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/split-configs-server.gif)
 
-## Automatic splits and subsets detection
+## Automatic splits detection
 
 Splits are automatically detected based on file and directory names. For example this is a dataset a the `train`, `test`, and `validation` splits:
 
