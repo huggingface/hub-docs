@@ -121,8 +121,8 @@ There are several ways to manage and free some storage space in your account or 
 ⚠️ **Important**: Deleting LFS files is a destructive operation that cannot be undone. Make sure to backup your files before proceeding.
 
 Key points to remember:
-- Deleting only LFS pointers doesn't free space
-- Future checkouts of branches/tags containing deleted LFS files with existing lfs pointers will fail (to avoid errors, add the following line to your `.gitconfig` file: `lfs.skipdownloaderrors=true`)
+- Deleting only LFS pointers doesn't free up space
+- If you do not rewrite the Git history, future checkouts of branches/tags containing deleted LFS files with existing lfs pointers will fail (to avoid errors, add the following line to your `.gitconfig` file: `lfs.skipdownloaderrors=true`)
 
 
 ### Deleting individual LFS files
@@ -134,7 +134,7 @@ Key points to remember:
 
 ### Super-squash your repository using the API
 
-The super-squash operation allows you to compress your entire Git history into a single commit, consider using super-squash when you need to reclaim storage from old LFS versions you're not using. This operation is only available through the [Hub Python Library](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.super_squash_history) or the API.
+The super-squash operation compresses your entire Git history into a single commit. Consider using super-squash when you need to reclaim storage from old LFS versions you're not using. This operation is only available through the [Hub Python Library](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.super_squash_history) or the API.
 
 ⚠️ **Important**: This is a destructive operation that cannot be undone, commit history will be permanently lost and **LFS file history will be removed**
 
