@@ -11,16 +11,36 @@ Machine learning datasets typically have splits and may also have subsets. A dat
 
 ![split-configs-server](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/split-configs-server.gif)
 
-## File names and splits
+## Automatic splits detection
+
+Splits are automatically detected based on file and directory names. For example this is a dataset a the `train`, `test`, and `validation` splits:
+
+```
+my_dataset_repository/
+├── README.md
+├── train.csv
+├── test.csv
+└── validation.csv
+```
 
 To structure your dataset by naming your data files or directories according to their split names, see the [File names and splits](./datasets-file-names-and-splits) documentation and the [companion collection of example datasets](https://huggingface.co/collections/datasets-examples/file-names-and-splits-655e28af4471bd95709eb135).
 
-## Manual configuration
+## Manual splits and subsets configuration
 
 You can choose the data files to show in the Dataset Viewer for your dataset using YAML.
 It is useful if you want to specify which file goes into which split manually.
 
 You can also define multiple subsets for your dataset, and pass dataset building parameters (e.g. the separator to use for CSV files).
+
+Here is an example of a configuration defining a subset called "benchmark" with a `test` split.
+
+```yaml
+configs:
+- config_name: benchmark
+  data_files:
+  - split: test
+    path: benchmark.csv
+```
 
 See the documentation on [Manual configuration](./datasets-manual-configuration) for more information. Look also to the [example datasets](https://huggingface.co/collections/datasets-examples/manual-configuration-655e293cea26da0acab95b87).
 

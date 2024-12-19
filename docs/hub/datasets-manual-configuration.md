@@ -103,6 +103,21 @@ configs:
 ---
 ```
 
+<Tip>
+
+You can set a default subset using `default: true`
+
+```yaml
+- config_name: main_data
+  data_files: "main_data.csv"
+  default: true
+```
+
+This is useful to set which subset the Dataset Viewer shows first, and which subset data libraries load by default.
+
+</Tip>
+
+
 ## Builder parameters
 
 Not only `data_files`, but other builder-specific parameters can be passed via YAML, allowing for more flexibility on how to load the data while not requiring any custom code. For example, define which separator to use in which subset to load your `csv` files:
@@ -120,15 +135,3 @@ configs:
 ```
 
 Refer to the [specific builders' documentation](/docs/datasets/package_reference/builder_classes) to see what parameters they have.
-
-<Tip>
-
-You can set a default subset using `default: true`
-
-```yaml
-- config_name: main_data
-  data_files: "main_data.csv"
-  default: true
-```
-
-</Tip>
