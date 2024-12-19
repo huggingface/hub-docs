@@ -1,8 +1,8 @@
 # Langfuse on Spaces
 
-[Langfuse](https://langfuse.com) is an open-source LLM observability platform that helps teams collaboratively debug, analyze, and iterate on their LLM applications. With Langfuse, you can capture detailed traces of your applications, manage prompts, evaluate outputs, and more—all in one place.
-
 ## What is Langfuse?
+
+[Langfuse](https://langfuse.com) is an open-source LLM observability platform that helps teams collaboratively debug, analyze, and iterate on their LLM applications. With Langfuse, you can capture detailed traces of your applications, manage prompts, evaluate outputs, and more—all in one place.
 
 Langfuse provides tools to monitor and understand the internal states of your large language model (LLM) applications. It enables developers to track LLM inference, embedding retrieval, API usage, and other interactions, making it easier to pinpoint problems and improve application performance.
 
@@ -14,32 +14,13 @@ As LLMs become more prevalent, understanding their behavior and performance is c
 
 Building LLM applications involves intricate workflows with repeated or chained calls, making debugging challenging. The non-deterministic nature of LLM outputs adds complexity to consistent quality assessment, and varied user inputs require deep understanding to improve user experience.
 
-Implementing LLM observability helps in debugging complex workflows, evaluating output quality over time, and analyzing user behavior. By gaining insights into your application's performance, you can enhance reliability and user satisfaction.
-
 ## Deploy Langfuse on Spaces
 
 You can deploy Langfuse on Hugging Face Spaces effortlessly and start using it within minutes.
 
 ### Steps to Deploy Langfuse:
 
-1. **Open the Langfuse Template Space:**
-
-   Click the button below to create your own Langfuse Space:
-
-   [![Open Space](https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg)](https://huggingface.co/spaces/langfuse/langfuse-template-space)
-
-4. **Open the Langfuse Instance:**
-
-   - Click on the **"Open in new tab"** button located.
-
-5. **Authenticate with Hugging Face OAuth:**
-
-   - On the Langfuse login page, click on **"Sign in with Hugging Face"**.
-   - Grant the necessary permissions when prompted.
-
-6. **Start Using Langfuse:**
-
-   After authentication, you will have a fully functioning Langfuse instance running on Hugging Face Spaces.
+TBD
 
 ## Get Started with Langfuse
 
@@ -55,32 +36,7 @@ Navigate to **Project Settings**, and under **API Keys**, click on **"Create New
 
 ### 3. Create a Sample Gradio Chat Application
 
-To create a sample Gradio chat application in Hugging Face Spaces, follow these steps:
-
-1. **Set Up Your Space:**
-
-   - Navigate to Hugging Face Spaces and create a new Space.
-   - Choose the appropriate template or start with a blank Space.
-
-2. **Add the Application Code:**
-
-   - Create a file named `app.py` in your Space.
-   - Copy the application code from [app.py](docs/hub/app.py) and paste it into your `app.py` file in the Space.
-
-3. **Define Dependencies:**
-
-   - Create a `requirements.txt` file in your Space.
-   - List all necessary dependencies for your application. For example:
-     ```
-     gradio
-     langfuse
-     openai
-     ```
-
-4. **Launch the Application:**
-
-   - Once the `app.py` and `requirements.txt` files are set up, start your Space.
-   - The application will launch, and you can interact with the Gradio chat interface.
+TBD
 
 5. **View Example Traces in Langfuse:**
 
@@ -95,10 +51,20 @@ Open your Langfuse dashboard, navigate to **Traces** to see the recorded traces 
 
 For detailed instructions and advanced features, refer to the [Langfuse Get Started Guide](https://langfuse.com/docs/get-started).
 
-## Feedback and Support
+## Additional Resources and Support
 
-We value your feedback and are here to help if you have any questions.
+- [Langfuse documentation](https://langfuse.com/docs)
+- [Langfuse GitHub repository](https://github.com/langfuse/langfuse)
+- [Langfuse Discord](https://langfuse.com/discord)
+- [Langfuse template Space](https://huggingface.co/spaces/langfuse/langfuse-template-space)
 
-- **Join Our Community:** Engage with us on [Discord](https://discord.gg/langfuse) or via [GitHub Discussions](https://github.com/langfuse/langfuse/discussions)
-- **Report Issues:** Submit issues or feature requests on our [GitHub Issues](https://github.com/langfuse/langfuse/issues) page
-- **Contact Us:** Reach out via our [Support Page](https://langfuse.com/support) or email us at [support@langfuse.com](mailto:support@langfuse.com)
+## Troubleshooting
+
+If you encounter issues:
+
+1. Make sure your notebook runs locally in app mode using `python app.py`
+2. Check that all required packages are listed in `requirements.txt`
+3. Check Space logs for any Python errors
+
+For more help, open a support ticket on [GitHub discussions](https://langfuse.com/discussions) or [open an issue](https://github.com/langfuse/langfuse/issues).
+
