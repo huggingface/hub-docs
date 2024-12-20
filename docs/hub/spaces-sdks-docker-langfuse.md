@@ -40,7 +40,7 @@ The Langfuse Hugging Face Space allows you to get up and running with a deployed
 
 ![Clone the Langfuse Space](https://langfuse.com/images/cookbook/huggingface/huggingface-space-setup.png)
 
-## Step 2: Instrument your Code
+## Step 2: Use Langfuse
 
 Now that you have Langfuse running, you can start instrumenting your LLM application to capture traces and manage your prompts.
 
