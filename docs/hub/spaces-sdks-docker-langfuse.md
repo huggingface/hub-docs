@@ -75,12 +75,4 @@ _[Example trace in the Langfuse UI](https://langfuse-langfuse-template-space.hf.
 - [Langfuse Discord](https://langfuse.com/discord)
 - [Langfuse template Space](https://huggingface.co/spaces/langfuse/langfuse-template-space)
 
-## Troubleshooting
-
-If you encounter issues using the [Langfuse Gradio example template](https://huggingface.co/spaces/langfuse/gradio-example-template):
-
-1. Make sure your notebook runs locally in app mode using `python app.py`
-2. Check that all required packages are listed in `requirements.txt`
-3. Check Space logs for any Python errors
-
 For more help, open a support thread on [GitHub discussions](https://langfuse.com/discussions) or [open an issue](https://github.com/langfuse/langfuse/issues).
