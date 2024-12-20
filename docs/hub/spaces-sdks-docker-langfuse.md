@@ -46,7 +46,43 @@ To get started, follow these steps:
 
 Now that you have Langfuse running, you can start instrumenting your LLM application to capture traces and manage your prompts.
 
-### Example: Monitor your Gradio Application
+### Monitor Any Application 
+
+Langfuse is model agnostic and can be used to trace any application. Follow the [get-started guide](https://langfuse.com/docs) in Langfuse documentation to see how you can instrument your code.
+
+Langfuse maintains native integrations with many popular LLM frameworks, including [Langchain](https://langfuse.com/docs/integrations/langchain/tracing), [LlamaIndex](https://langfuse.com/docs/integrations/llama-index/get-started) and [OpenAI](https://langfuse.com/docs/integrations/openai/python/get-started) and offers Python and JS/TS SDKs to instrument your code. Langfuse also offers various API endpoints to ingest data and has been integrated by other open source projects such as [Langflow](https://langfuse.com/docs/integrations/langflow), [Dify](https://langfuse.com/docs/integrations/dify) and [Haystack](https://langfuse.com/docs/integrations/haystack/get-started).
+
+### Example 1: Trace Calls to HF Serverless API
+
+As a simple example, here's how to trace calls to the HF Serverless API using the Langfuse Python SDK.
+
+<Tip>
+Be sure to first configure your `LANGFUSE_HOST`, `LANGFUSE_PUBLIC_KEY` and `LANGFUSE_SECRET_KEY` environment variables, and make sure you've [authenticated with your Hugging Face account](https://huggingface.co/docs/huggingface_hub/en/quick-start#authentication).
+</Tip>
+
+```python
+from langfuse.openai import openai
+from huggingface_hub import get_token
+
+client = openai.OpenAI(
+    base_url="https://api-inference.huggingface.co/v1/",
+    api_key=get_token(),
+)
+
+messages = [{"role": "user", "content": "What is observability for LLMs?"}]
+
+response = client.chat.completions.create(
+    model="meta-llama/Llama-3.3-70B-Instruct",
+    messages=messages,
+    max_tokens=100,
+)
+
+print(response.choices[0].message.content)
+```
+
+Then navigate to the Langfuse dashboard to see the trace!
+
+### Example 2: Monitor a Gradio Application
 
 We created a Gradio template space that shows how to create a simple chat application using a Hugging Face model and trace model calls and user feedback in Langfuse - without leaving Hugging Face.
 
@@ -55,12 +91,6 @@ We created a Gradio template space that shows how to create a simple chat applic
 </a>
 
 To get started, [duplicate this Gradio template space](https://huggingface.co/spaces/langfuse/langfuse-gradio-example-template?duplicate=true) and follow the instructions in the [README](https://huggingface.co/spaces/langfuse/langfuse-gradio-example-template/blob/main/README.md).
-
-### Monitor Any Application 
-
-Langfuse is model agnostic and can be used to trace any application. Follow the [get-started guide](https://langfuse.com/docs) in Langfuse documentation to see how you can instrument your code.
-
-Langfuse maintains native integrations with many popular LLM frameworks, including [Langchain](https://langfuse.com/docs/integrations/langchain/tracing), [LlamaIndex](https://langfuse.com/docs/integrations/llama-index/get-started) and [OpenAI](https://langfuse.com/docs/integrations/openai/python/get-started) and offers Python and JS/TS SDKs to instrument your code. Langfuse also offers various API endpoints to ingest data and has been integrated by other open source projects such as [Langflow](https://langfuse.com/docs/integrations/langflow), [Dify](https://langfuse.com/docs/integrations/dify) and [Haystack](https://langfuse.com/docs/integrations/haystack/get-started).
 
 ## Step 3: View Traces in Langfuse
 
