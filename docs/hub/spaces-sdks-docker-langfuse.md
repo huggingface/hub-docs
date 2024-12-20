@@ -23,7 +23,7 @@ _This video is a 10 min walkthrough of the Langfuse features:_
 
 ## Step 1: Set up Langfuse on Spaces
 
-The Langfuse Hugging Face Space allows you to get up and running with a deployed version of Langfuse with just a few clicks. Within a few minutes, you'll have this default Langfuse dashboard deployed and ready for you to connect to from your local machine.
+The Langfuse Hugging Face Space allows you to get up and running with a deployed version of Langfuse with just a few clicks.
 
 <a  href="https://huggingface.co/spaces/langfuse/langfuse-template-space">
     <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
