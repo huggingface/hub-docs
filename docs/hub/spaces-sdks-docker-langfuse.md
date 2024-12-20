@@ -1,55 +1,72 @@
 # Langfuse on Spaces
 
+This guide shows you how to deploy Langfuse on Hugging Face Spaces and start instrumenting your LLM application. This integreation helps you to experiment on Hugging Face models, manage your prompts in one place and evaluate model outputs.
+
 ## What is Langfuse?
 
-[Langfuse](https://langfuse.com) is an open-source LLM observability platform that helps teams collaboratively debug, analyze, and iterate on their LLM applications. With Langfuse, you can capture detailed traces of your applications, manage prompts, evaluate outputs, and more—all in one place.
-
-Langfuse provides tools to monitor and understand the internal states of your large language model (LLM) applications. It enables developers to track LLM inference, embedding retrieval, API usage, and other interactions, making it easier to pinpoint problems and improve application performance.
+[Langfuse](https://langfuse.com) is an open-source LLM engineering platform that helps teams collaboratively debug, evaluate, and iterate on their LLM applications. 
 
 Key features of Langfuse include LLM tracing to capture the full context of your application's execution flow, prompt management for centralized and collaborative prompt iteration, evaluation metrics to assess output quality, dataset creation for testing and benchmarking, and a playground to experiment with prompts and model configurations.
 
+_This video is a 10 min walkthrough of the Langfuse features:_
+<iframe width="700" height="394" src="https://www.youtube.com/embed/2E8iTvGo9Hs?si=i_mPeArwkWc5_4EO" title="10 min Walkthrough of Langfuse – Open Source LLM Observability, Evaluation, and Prompt Management" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Why LLM Observability?
 
-As LLMs become more prevalent, understanding their behavior and performance is crucial. LLM observability refers to monitoring and understanding the internal states of an LLM application through its outputs. This is essential for addressing challenges such as complex control flows, non-deterministic outputs, and varied user intents.
+- As language models become more prevalent, understanding their behavior and performance is important.
+- **LLM observability** involves monitoring and understanding the internal states of an LLM application through its outputs.
+- It is essential for addressing challenges such as:
+  - **Complex control flows** with repeated or chained calls, making debugging challenging.
+  - **Non-deterministic outputs**, adding complexity to consistent quality assessment.
+  - **Varied user intents**, requiring deep understanding to improve user experience.
+- Building LLM applications involves intricate workflows, and observability helps in managing these complexities.
 
-Building LLM applications involves intricate workflows with repeated or chained calls, making debugging challenging. The non-deterministic nature of LLM outputs adds complexity to consistent quality assessment, and varied user inputs require deep understanding to improve user experience.
+## Step 1: Set up Langfuse on Spaces
 
-## Deploy Langfuse on Spaces
+The Langfuse Huggingface Space allows you to get up and running with a deployed version of Langfuse with just a few clicks. Within a few minutes, you'll have this default Langfuse dashboard deployed and ready for you to connect to from your local machine.
 
-You can deploy Langfuse on Hugging Face Spaces effortlessly and start using it within minutes.
+<a  href="https://huggingface.co/spaces/langfuse/langfuse-template-space">
+    <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
+</a>
 
-### Steps to Deploy Langfuse:
+1. Create a [**new Hugging Face Space**](https://huggingface.co/new-space)
+2. Select **Docker** as the Space SDK
+3. Select **Langfuse** as the Space template
+4. Enable **persistent storage** to ensure your Langfuse data is persisted across restarts
+5. Change the **Environment Variables**:
+   - `NEXTAUTH_SECRET`: Used to validate login session cookies, generate secret with at least 256 entropy using `openssl rand -base64 32`.  You should overwrite the default value here for a secure deployment.
+   - `SALT`: Used to salt hashed API keys, generate secret with at least 256 entropy using `openssl rand -base64 32`. You should overwrite the default value here for a secure deployment.
+   - `ENCRYPTION_KEY`: Used to encrypt sensitive data. Must be 256 bits, 64 string characters in hex format, generate via: `openssl rand -hex 32`. You should overwrite the default value here for a secure deployment.
 
-TBD
+![Clone the Langfuse Space](https://langfuse.com/images/cookbook/huggingface/huggingface-space-setup.png)
 
-## Get Started with Langfuse
+## Step 2: Instrument your Code
 
-Now that you have Langfuse running, you can begin integrating it with your LLM applications.
+Now that you have Langfuse running, you can start instrumenting your LLM application to capture traces and manage your prompts.
 
-### 1. Create a New Project
+### Example: Monitor your Gradio Application
 
-Create a new organization and project in Langfuse.
+We created a Gradio template space that shows how to create a simple chat application using a Hugging Face model and trace model calls and user feedback in Langfuse - without leaving Hugging Face.
 
-### 2. Generate API Credentials
+<a  href="https://huggingface.co/spaces/langfuse/gradio-example-template">
+    <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
+</a>
 
-Navigate to **Project Settings**, and under **API Keys**, click on **"Create New Key"**. Copy the **Public Key** and **Secret Key**; you'll need them to authenticate when sending data to Langfuse.
+To get started, clone the [Gradio template space](https://huggingface.co/spaces/langfuse/gradio-example-template) and follow the instructions in the [README](https://huggingface.co/spaces/langfuse/gradio-example-template/blob/main/README.md).
 
-### 3. Create a Sample Gradio Chat Application
+### Monitor Any Application 
 
-TBD
+Langfuse is model agnostic and can be used to trace any application. Follow the [get-started guide](https://langfuse.com/docs) in Langfuse documentation to see how you can instrument your code.
 
-5. **View Example Traces in Langfuse:**
+Langfuse maintains native integrations with many popular LLM frameworks, including [Langchain](https://langfuse.com/docs/integrations/langchain/tracing), [LlamaIndex](https://langfuse.com/docs/integrations/llama-index/get-started) and [OpenAI](https://langfuse.com/docs/integrations/openai/python/get-started) and offers Python and JS/TS SDKs to instrument your code. Langfuse also offers various API endpoints to ingest data and has been integrated by other open source projects such as [Langflow](https://langfuse.com/docs/integrations/langflow), [Dify](https://langfuse.com/docs/integrations/dify) and [Haystack](https://langfuse.com/docs/integrations/haystack/get-started).
 
-   - After starting the application, navigate to your Langfuse dashboard.
-   - Go to the **Traces** section to view the example traces generated by your Gradio chat application.
+## Step 3: View Traces in Langfuse
 
-By following these steps, you can quickly set up and run a Gradio chat application in Hugging Face Spaces and observe its traces in Langfuse.
+Once you have instrumented your application, and ingested traces or user feedback into Langfuse, you can view your traces in Langfuse.
 
-### 4. View Traces in Langfuse Dashboard
+![Example trace with Gradio](https://langfuse.com/images/cookbook/huggingface/huggingface-gradio-example-trace.png)
 
-Open your Langfuse dashboard, navigate to **Traces** to see the recorded traces from your application, and use the observability tools to analyze and debug your LLM applications.
-
-For detailed instructions and advanced features, refer to the [Langfuse Get Started Guide](https://langfuse.com/docs/get-started).
+_[Example trace in the Langfuse UI](https://langfuse-langfuse-template-space.hf.space/project/cm4r1ajtn000a4co550swodxv/traces/9cdc12fb-71bf-4074-ab0b-0b8d212d839f?timestamp=2024-12-20T12%3A12%3A50.089Z&view=preview)_
 
 ## Additional Resources and Support
 
@@ -60,11 +77,10 @@ For detailed instructions and advanced features, refer to the [Langfuse Get Star
 
 ## Troubleshooting
 
-If you encounter issues:
+If you encounter issues using the [Langfuse Gradio example template](https://huggingface.co/spaces/langfuse/gradio-example-template):
 
 1. Make sure your notebook runs locally in app mode using `python app.py`
 2. Check that all required packages are listed in `requirements.txt`
 3. Check Space logs for any Python errors
 
 For more help, open a support ticket on [GitHub discussions](https://langfuse.com/discussions) or [open an issue](https://github.com/langfuse/langfuse/issues).
-
