@@ -13,7 +13,7 @@ Machine learning datasets typically have splits and may also have subsets. A dat
 
 ## Automatic splits detection
 
-Splits are automatically detected based on file and directory names. For example this is a dataset a the `train`, `test`, and `validation` splits:
+Splits are automatically detected based on file and directory names. For example, this is a dataset with `train`, `test`, and `validation` splits:
 
 ```
 my_dataset_repository/
