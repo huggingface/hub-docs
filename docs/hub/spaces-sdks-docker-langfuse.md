@@ -54,11 +54,9 @@ Langfuse maintains native integrations with many popular LLM frameworks, includi
 
 ### Example 1: Trace Calls to HF Serverless API
 
-As a simple example, here's how to trace calls to the HF Serverless API using the Langfuse Python SDK.
+As a simple example, here's how to trace LLM calls to the HF Serverless API using the Langfuse Python SDK.
 
-<Tip>
 Be sure to first configure your `LANGFUSE_HOST`, `LANGFUSE_PUBLIC_KEY` and `LANGFUSE_SECRET_KEY` environment variables, and make sure you've [authenticated with your Hugging Face account](https://huggingface.co/docs/huggingface_hub/en/quick-start#authentication).
-</Tip>
 
 ```python
 from langfuse.openai import openai
@@ -76,11 +74,7 @@ response = client.chat.completions.create(
     messages=messages,
     max_tokens=100,
 )
-
-print(response.choices[0].message.content)
 ```
-
-Then navigate to the Langfuse dashboard to see the trace!
 
 ### Example 2: Monitor a Gradio Application
 
