@@ -1,6 +1,6 @@
 # Langfuse on Spaces
 
-This guide shows you how to deploy Langfuse on Hugging Face Spaces and start instrumenting your LLM application. This integreation helps you to experiment on Hugging Face models, manage your prompts in one place and evaluate model outputs.
+This guide shows you how to deploy Langfuse on Hugging Face Spaces and start instrumenting your LLM application. This integration helps you to experiment on Hugging Face models, manage your prompts in one place and evaluate model outputs.
 
 ## What is Langfuse?
 
@@ -29,11 +29,11 @@ The Langfuse Hugging Face Space allows you to get up and running with a deployed
     <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
 </a>
 
-1.1. Create a [**new Hugging Face Space**](https://huggingface.co/new-space)
-1.2. Select **Docker** as the Space SDK
-1.3. Select **Langfuse** as the Space template
-1.4. Enable **persistent storage** to ensure your Langfuse data is persisted across restarts
-1.5. For a secure deployment, replace the default values of the **environment variables**:
+### 1.1. Create a [**new Hugging Face Space**](https://huggingface.co/new-space)
+### 1.2. Select **Docker** as the Space SDK
+### 1.3. Select **Langfuse** as the Space template
+### 1.4. Enable **persistent storage** to ensure your Langfuse data is persisted across restarts
+### 1.5. For a secure deployment, replace the default values of the **environment variables**:
    - `NEXTAUTH_SECRET`: Used to validate login session cookies, generate secret with at least 256 entropy using `openssl rand -base64 32`.
    - `SALT`: Used to salt hashed API keys, generate secret with at least 256 entropy using `openssl rand -base64 32`.
    - `ENCRYPTION_KEY`: Used to encrypt sensitive data. Must be 256 bits, 64 string characters in hex format, generate via: `openssl rand -hex 32`.
@@ -48,11 +48,11 @@ Now that you have Langfuse running, you can start instrumenting your LLM applica
 
 We created a Gradio template space that shows how to create a simple chat application using a Hugging Face model and trace model calls and user feedback in Langfuse - without leaving Hugging Face.
 
-<a  href="https://huggingface.co/spaces/langfuse/langfuse-gradio-example-template">
+<a  href="https://huggingface.co/spaces/langfuse/langfuse-gradio-example-template?duplicate=true">
     <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
 </a>
 
-To get started, clone the [Gradio template space](https://huggingface.co/spaces/langfuse/langfuse-gradio-example-template) and follow the instructions in the [README](https://huggingface.co/spaces/langfuse/langfuse-gradio-example-template/blob/main/README.md).
+To get started, [duplicate this Gradio template space](https://huggingface.co/spaces/langfuse/langfuse-gradio-example-template?duplicate=true) and follow the instructions in the [README](https://huggingface.co/spaces/langfuse/langfuse-gradio-example-template/blob/main/README.md).
 
 ### Monitor Any Application 
 
