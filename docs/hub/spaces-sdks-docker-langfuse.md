@@ -48,11 +48,11 @@ Now that you have Langfuse running, you can start instrumenting your LLM applica
 
 We created a Gradio template space that shows how to create a simple chat application using a Hugging Face model and trace model calls and user feedback in Langfuse - without leaving Hugging Face.
 
-<a  href="https://huggingface.co/spaces/langfuse/gradio-example-template">
+<a  href="https://huggingface.co/spaces/langfuse/langfuse-gradio-example-template">
     <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
 </a>
 
-To get started, clone the [Gradio template space](https://huggingface.co/spaces/langfuse/gradio-example-template) and follow the instructions in the [README](https://huggingface.co/spaces/langfuse/gradio-example-template/blob/main/README.md).
+To get started, clone the [Gradio template space](https://huggingface.co/spaces/langfuse/langfuse-gradio-example-template) and follow the instructions in the [README](https://huggingface.co/spaces/langfuse/langfuse-gradio-example-template/blob/main/README.md).
 
 ### Monitor Any Application 
 
