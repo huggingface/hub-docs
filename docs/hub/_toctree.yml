@@ -285,6 +285,8 @@
         title: Evidence on Spaces
       - local: spaces-sdks-docker-marimo
         title: marimo on Spaces
+      - local: spaces-sdks-docker-langfuse
+        title: Langfuse on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-run-with-docker
