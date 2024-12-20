@@ -25,7 +25,7 @@ _This video is a 10 min walkthrough of the Langfuse features:_
 
 The Langfuse Hugging Face Space allows you to get up and running with a deployed version of Langfuse with just a few clicks.
 
-<a  href="https://huggingface.co/spaces/langfuse/langfuse-template-space">
+<a  href="https://huggingface.co/new-space?template=langfuse/langfuse-template-space">
     <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
 </a>
 
