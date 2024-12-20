@@ -83,4 +83,4 @@ If you encounter issues using the [Langfuse Gradio example template](https://hug
 2. Check that all required packages are listed in `requirements.txt`
 3. Check Space logs for any Python errors
 
-For more help, open a support ticket on [GitHub discussions](https://langfuse.com/discussions) or [open an issue](https://github.com/langfuse/langfuse/issues).
+For more help, open a support thread on [GitHub discussions](https://langfuse.com/discussions) or [open an issue](https://github.com/langfuse/langfuse/issues).
