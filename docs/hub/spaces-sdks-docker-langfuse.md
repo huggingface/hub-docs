@@ -29,11 +29,11 @@ The Langfuse Huggingface Space allows you to get up and running with a deployed 
     <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
 </a>
 
-1. Create a [**new Hugging Face Space**](https://huggingface.co/new-space)
-2. Select **Docker** as the Space SDK
-3. Select **Langfuse** as the Space template
-4. Enable **persistent storage** to ensure your Langfuse data is persisted across restarts
-5. Change the **Environment Variables**:
+1.1. Create a [**new Hugging Face Space**](https://huggingface.co/new-space)
+1.2. Select **Docker** as the Space SDK
+1.3. Select **Langfuse** as the Space template
+1.4. Enable **persistent storage** to ensure your Langfuse data is persisted across restarts
+1.5. Change the **Environment Variables**:
    - `NEXTAUTH_SECRET`: Used to validate login session cookies, generate secret with at least 256 entropy using `openssl rand -base64 32`.  You should overwrite the default value here for a secure deployment.
    - `SALT`: Used to salt hashed API keys, generate secret with at least 256 entropy using `openssl rand -base64 32`. You should overwrite the default value here for a secure deployment.
    - `ENCRYPTION_KEY`: Used to encrypt sensitive data. Must be 256 bits, 64 string characters in hex format, generate via: `openssl rand -hex 32`. You should overwrite the default value here for a secure deployment.
