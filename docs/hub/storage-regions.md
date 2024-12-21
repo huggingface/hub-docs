@@ -1,11 +1,11 @@
 # Storage Regions on the Hub
-
+main
 <Tip warning={true}>
 This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
-
+https://
 Regions allow you to specify where your organization's models and datasets are stored.
-
+localhost
 This offers two key benefits:
 
 - Regulatory and legal compliance
