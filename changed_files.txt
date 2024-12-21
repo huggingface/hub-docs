@@ -1,0 +1,6 @@
+docs/api-inference/tasks/question-answering.md
+docs/api-inference/tasks/table-question-answering.md
+docs/api-inference/tasks/text-classification.md
+docs/api-inference/tasks/zero-shot-classification.md
+scripts/api-inference/package.json
+scripts/api-inference/pnpm-lock.yaml
