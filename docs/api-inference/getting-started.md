@@ -92,4 +92,4 @@ console.log(result);
 
 ## Next Steps
 
-Now that you know the basics, you can explore the parameters in [API Reference](https://huggingface.co/docs/api-inference/parameters) to learn more about the parameters and task-specific settings. 
+Now that you know the basics, you can explore [API Reference](https://huggingface.co/docs/api-inference/parameters) doc to learn more about the parameters and task-specific settings. 
