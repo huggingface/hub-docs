@@ -37,6 +37,7 @@ Explore all available models and find the one that suits you best [here](https:/
 <inferencesnippet>
 
 <curl>
+  
 ```bash
 curl https://api-inference.huggingface.co/models/mixedbread-ai/mxbai-rerank-base-v1 \
     -X POST \
@@ -44,9 +45,11 @@ curl https://api-inference.huggingface.co/models/mixedbread-ai/mxbai-rerank-base
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer hf_***'
 ```
+
 </curl>
 
 <python>
+  
 ```python
 import requests
 
@@ -64,9 +67,13 @@ output = query({
     ]
 })
 ```
+
+To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_classification).
+
 </python>
 
 <js>
+  
 ```javascript
 async function query(data) {
     const response = await fetch(
@@ -93,6 +100,8 @@ query({
     console.log(JSON.stringify(response));
 });
 ```
+
+To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#textclassification).
 </js>
 
 </inferencesnippet>
