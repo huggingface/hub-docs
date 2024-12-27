@@ -35,8 +35,6 @@ To list all available models:
 from mlxim.model import list_models
 list_models()
 ```
-> [!WARNING]
-> As of today (2024-03-15) mlx does not support `group` param for nn.Conv2d. Therefore, architectures such as `resnext`, `regnet` or `efficientnet` are not yet supported in `mlx-image`.
 
 ## ImageNet-1K Results
 
