@@ -280,6 +280,139 @@ headers = { "authorization" :  "Bearer $token" }
 
 This is equivalent to `huggingface_hub.list_organization_members()`.
 
+
+## Resource Groups API
+
+The following endpoints manage resource groups. Resource groups is an Enterprise feature.
+
+### GET /api/organizations/{name}/resource-groups
+
+Get all resource groups in an organization that the authenticated user has access to view.
+
+
+### GET /api/organizations/{name}/resource-groups/{resourceGroupId}
+
+Get detailed information about a specific resource group.
+
+
+### POST /api/organizations/{name}/resource-groups
+
+Create a new resource group in the organization.
+
+Parameters:
+- `name`: Name of the resource group (required)
+- `description`: Description of the resource group (optional)
+- `users`: List of users and their roles in the resource group (optional)
+- `repos`: List of repositories (optional)
+- `autoJoin`: Settings for automatic user joining (optional)
+
+Payload:
+```js
+payload = {
+    "name": "name",
+    "description": "description",
+    "users": [
+        {
+            "user": "username",
+            "role": "admin" // or "write" or "read"
+        }
+    ],
+    "repos": [
+        {
+            "type": "dataset",
+            "name": "huggingface/repo"
+        }
+    ]
+}
+```
+
+
+### PATCH /api/organizations/{name}/resource-groups/{resourceGroupId}
+
+Update a resource group's metadata.
+
+Parameters:
+- `name`: New name for the resource group (optional)
+- `description`: New description for the resource group (optional)
+
+Payload:
+```js
+payload = {
+    "name": "name",
+    "description": "description"
+}
+```
+
+
+### POST /api/organizations/{name}/resource-groups/{resourceGroupId}/settings
+
+Update a resource group's settings.
+
+Payload:
+```js
+payload = {
+    "autoJoin": {
+        "enabled": true,
+        "role": "read" // or "write" or "admin"
+    }
+}
+```
+
+
+### DELETE /api/organizations/{name}/resource-groups/{resourceGroupId}
+
+Delete a resource group.
+
+
+### POST /api/organizations/{name}/resource-groups/{resourceGroupId}/users
+
+Add users to a resource group.
+
+Payload:
+```js
+payload = {
+    "users": [
+        {
+            "user": "username",
+            "role": "admin" // or "write" or "read"
+        }
+    ]
+}
+```
+
+
+### DELETE /api/organizations/{name}/resource-groups/{resourceGroupId}/users/{username}
+
+Remove a user from a resource group.
+
+
+### PATCH /api/organizations/{name}/resource-groups/{resourceGroupId}/users/{username}
+
+Update a user's role in a resource group.
+
+Payload:
+```js
+payload = {
+    "role": "admin" // or "write" or "read"
+}
+```
+
+### POST /api/(models|spaces|datasets)/{namespace}/{repo}/resource-group
+
+Update resource group's repository.
+
+Payload:
+```js
+payload = {
+    "resourceGroupId": "6771d4700000000000000000" // (allow `null` for removing the repo's resource group)
+}
+```
+
+### GET /api/(models|spaces|datasets)/{namespace}/{repo}/resource-group
+
+Get detailed repository's resource group
+
+
 ## Paper Pages API
 
 The following endpoint gets information about a paper.
