@@ -146,6 +146,8 @@
             title: GGUF usage with GPT4All
           - local: ollama
             title: GGUF usage with Ollama
+      - local: dduf
+        title: DDUF
 - title: Datasets
   local: datasets
   isExpanded: true
