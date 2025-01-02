@@ -1,14 +1,14 @@
 # Dask
 
-[Dask](https://github.com/dask/dask) is a parallel and distributed computing library that scales the existing Python and PyData ecosystem.
+[Dask](https://www.dask.org/?utm_source=hf-docs) is a parallel and distributed computing library that scales the existing Python and PyData ecosystem.
 
-In particular, we can use Dask DataFrame to scale up pandas workflows. Dask DataFrame parallelizes pandas to handle large tabular data. It closely mirrors the pandas API, making it simple to transition from testing on a single dataset to processing the full dataset. Dask is particularly effective with Parquet, the default format on Hugging Face Datasets, as it supports rich data types, efficient columnar filtering, and compression.
+In particular, we can use [Dask DataFrame](https://docs.dask.org/en/stable/dataframe.html?utm_source=hf-docs) to scale up pandas workflows. Dask DataFrame parallelizes pandas to handle large tabular data. It closely mirrors the pandas API, making it simple to transition from testing on a single dataset to processing the full dataset. Dask is particularly effective with Parquet, the default format on Hugging Face Datasets, as it supports rich data types, efficient columnar filtering, and compression.
 
-A good practical use case for Dask is running data processing or model inference on a dataset in a distributed manner. See, for example, Coiled's excellent blog post on [Scaling AI-Based Data Processing with Hugging Face + Dask](https://huggingface.co/blog/dask-scaling).
+A good practical use case for Dask is running data processing or model inference on a dataset in a distributed manner. See, for example, [Coiled's](https://www.coiled.io/?utm_source=hf-docs) excellent blog post on [Scaling AI-Based Data Processing with Hugging Face + Dask](https://huggingface.co/blog/dask-scaling).
 
 ## Read and Write
 
-Since Dask uses [fsspec](https://filesystem-spec.readthedocs.io) to read and write remote data, you can use the Hugging Face paths ([`hf://`](/docs/huggingface_hub/guides/hf_file_system#integrations)) to read and write data on the Hub;
+Since Dask uses [fsspec](https://filesystem-spec.readthedocs.io) to read and write remote data, you can use the Hugging Face paths ([`hf://`](/docs/huggingface_hub/guides/hf_file_system#integrations)) to read and write data on the Hub.
 
 First you need to [Login with your Hugging Face account](/docs/huggingface_hub/quick-start#login), for example using:
 
@@ -91,9 +91,9 @@ the `meta` argument to know the type of the new column in the meantime.
 
 ## Predicate and Projection Pushdown
 
-When reading Parquet data from Hugging Face, Dask automatically leverages the metadata in Parquet files to skip entire files or row groups if they are not needed. For example if you apply a filter (predicate) on a Hugging Face Dataset in Parquet format or if you select a subset of the columns (projection), Dask will read the metadata of the Paquet files to discard the parts that are not needed without downloading them.
+When reading Parquet data from Hugging Face, Dask automatically leverages the metadata in Parquet files to skip entire files or row groups if they are not needed. For example if you apply a filter (predicate) on a Hugging Face Dataset in Parquet format or if you select a subset of the columns (projection), Dask will read the metadata of the Parquet files to discard the parts that are not needed without downloading them.
 
-This is possible thanks to the `dask-expr` package which is generally installed by default with Dask. You can read more about `dask-expr` in its [introduction blog post](https://blog.dask.org/2023/08/25/dask-expr-introduction) and in this more recent [blog post on dask optimizations](https://blog.dask.org/2024/05/30/dask-is-fast#optimizer)
+This is possible thanks to a [reimplmentation of the Dask DataFrame API](https://docs.coiled.io/blog/dask-dataframe-is-fast.html?utm_source=hf-docs) to support query optimization, which makes Dask faster and more robust.
 
 For example this subset of FineWeb-Edu contains many Parquet files. If you can filter the dataset to keep the text from recent CC dumps, Dask will skip most of the files and only download the data that match the filter:
 
