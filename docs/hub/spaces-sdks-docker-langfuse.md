@@ -29,7 +29,7 @@ The Langfuse Hugging Face Space allows you to get up and running with a deployed
     <img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg.svg" />
 </a>
 
-To get started, follow these steps:
+To get started, click the button above or follow these steps:
 
 1. Create a [**new Hugging Face Space**](https://huggingface.co/new-space)
 2. Select **Docker** as the Space SDK
@@ -44,7 +44,7 @@ To get started, follow these steps:
 
 ## Step 2: Use Langfuse
 
-Now that you have Langfuse running, you can start instrumenting your LLM application to capture traces and manage your prompts.
+Now that you have Langfuse running, you can start instrumenting your LLM application to capture traces and manage your prompts. Your Langfuse Space is pre-configured to use Hugging Face OAuth for secure authentication, so you'll need to authorize `read` access to your Hugging Face account upon first login.
 
 ### Monitor Any Application 
 
