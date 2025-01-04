@@ -30,7 +30,6 @@ For more details about the `automatic-speech-recognition` task, check out its [d
 ### Recommended models
 
 - [openai/whisper-large-v3](https://huggingface.co/openai/whisper-large-v3): A powerful ASR model by OpenAI.
-- [nvidia/canary-1b](https://huggingface.co/nvidia/canary-1b): A powerful multilingual ASR and Speech Translation model by Nvidia.
 - [pyannote/speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1): Powerful speaker diarization model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=automatic-speech-recognition&sort=trending).

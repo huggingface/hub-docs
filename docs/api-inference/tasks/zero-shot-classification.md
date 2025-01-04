@@ -25,7 +25,6 @@ For more details about the `zero-shot-classification` task, check out its [dedic
 ### Recommended models
 
 - [facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli): Powerful zero-shot text classification model.
-- [MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7): Powerful zero-shot multilingual text classification model that can accomplish multiple tasks.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=zero-shot-classification&sort=trending).
 

@@ -37,67 +37,54 @@ Explore all available models and find the one that suits you best [here](https:/
 <inferencesnippet>
 
 <curl>
-  
 ```bash
-curl https://api-inference.huggingface.co/models/mixedbread-ai/mxbai-rerank-base-v1 \
-    -X POST \
-    -d '{"inputs": [{"text": "What is Paris?", "text_pair": "Paris is the capital of France"}]}' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer hf_***'
+curl https://api-inference.huggingface.co/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english \
+	-X POST \
+	-d '{"inputs": "I like you. I love you"}' \
+	-H 'Content-Type: application/json' \
+	-H 'Authorization: Bearer hf_***'
 ```
-
 </curl>
 
 <python>
-  
-```python
+```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/mixedbread-ai/mxbai-rerank-base-v1"
+API_URL = "https://api-inference.huggingface.co/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
-    response = requests.post(API_URL, headers=headers, json=payload)
-    return response.json()
-    
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
+	
 output = query({
-    "inputs": [
-        {"text": "What is Paris?", "text_pair": "Paris is the capital of France"},
-        {"text": "What is Paris?", "text_pair": "London is the capital of England"}
-    ]
+	"inputs": "I like you. I love you",
 })
 ```
 
 To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_classification).
-
 </python>
 
 <js>
-  
-```javascript
+```js
 async function query(data) {
-    const response = await fetch(
-        "https://api-inference.huggingface.co/models/mixedbread-ai/mxbai-rerank-base-v1",
-        {
-            headers: {
-                Authorization: "Bearer hf_***",
-                "Content-Type": "application/json",
-            },
-            method: "POST",
-            body: JSON.stringify(data),
-        }
-    );
-    const result = await response.json();
-    return result;
+	const response = await fetch(
+		"https://api-inference.huggingface.co/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+		{
+			headers: {
+				Authorization: "Bearer hf_***",
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.json();
+	return result;
 }
 
-query({
-    "inputs": [
-        {"text": "What is Paris?", "text_pair": "Paris is the capital of France"},
-        {"text": "What is Paris?", "text_pair": "London is the capital of England"}
-    ]
-}).then((response) => {
-    console.log(JSON.stringify(response));
+query({"inputs": "I like you. I love you"}).then((response) => {
+	console.log(JSON.stringify(response));
 });
 ```
 
@@ -105,6 +92,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 </js>
 
 </inferencesnippet>
+
 
 
 ### API specification

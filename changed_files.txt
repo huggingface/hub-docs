@@ -1,0 +1,7 @@
+docs/api-inference/tasks/automatic-speech-recognition.md
+docs/api-inference/tasks/image-classification.md
+docs/api-inference/tasks/image-segmentation.md
+docs/api-inference/tasks/text-classification.md
+docs/api-inference/tasks/zero-shot-classification.md
+scripts/api-inference/package.json
+scripts/api-inference/pnpm-lock.yaml
