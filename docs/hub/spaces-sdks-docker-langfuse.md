@@ -49,10 +49,10 @@ Now that you have Langfuse running, you can start instrumenting your LLM applica
 
 Your Langfuse Space is pre-configured to use Hugging Face OAuth for secure authentication, so you'll need to authorize `read` access to your Hugging Face account upon first login.
 
-> [!TIP]
-> The Langfuse space must be set to **public** visibility so that the Langfuse API/SDK's can access the app.
+> **Note:**
+> The Langfuse space _must_ be set to **public** visibility so that the Langfuse API/SDK's can access the app.
 >
-> By default, _any_ logged-in Hugging Face user will be able to access the Langfuse space. You can prevent new user's from signing up and accessing the space by setting the `AUTH_DISABLE_SIGNUP` environment variable to `true`.
+> By default, _any_ logged-in Hugging Face user will be able to access the Langfuse space. You can prevent new user's from signing up and accessing the space by setting the `AUTH_DISABLE_SIGNUP` environment variable to `true`. Be sure that you've first signed in to the space before setting this variable.
 >
 > Inside of the app, you can use [the native Langfuse features](https://langfuse.com/docs/rbac) to manage Organizations, Projects, and Users.
 
