@@ -142,7 +142,7 @@ def create_or_update_report(data):
 ```
 
 <Tip>
-    `:=` is the Python Syntax for an assignment expression operator added to the Python language in version 3.8 (colloquially known as the walrus operator). People have mixed opinions on this syntax, and it doesn't change how Python evaluates the code if you don't use this. You can read more about this operator in this <a href="https://realpython.com/python-walrus-operator">Real Python article<\a>.
+    `:=` is the Python Syntax for an assignment expression operator added to the Python language in version 3.8 (colloquially known as the walrus operator). People have mixed opinions on this syntax, and it doesn't change how Python evaluates the code if you don't use this. You can read more about this operator in this <a href="https://realpython.com/python-walrus-operator">Real Python article</a>.
 </Tip>
 
 ## Creating a Webhook to respond to changes on the Hub
