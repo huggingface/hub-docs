@@ -35,7 +35,8 @@ To get started, click the button above or follow these steps:
 2. Select **Docker** as the Space SDK
 3. Select **Langfuse** as the Space template
 4. Enable **persistent storage** to ensure your Langfuse data is persisted across restarts
-5. [Optional but recommended] For a secure deployment, replace the default values of the **environment variables**:
+5. Ensure the space is set to **public** visibility so Langfuse API/SDK's can access the app (see note below for more details)
+6. [Optional but recommended] For a secure deployment, replace the default values of the **environment variables**:
    - `NEXTAUTH_SECRET`: Used to validate login session cookies, generate secret with at least 256 entropy using `openssl rand -base64 32`.
    - `SALT`: Used to salt hashed API keys, generate secret with at least 256 entropy using `openssl rand -base64 32`.
    - `ENCRYPTION_KEY`: Used to encrypt sensitive data. Must be 256 bits, 64 string characters in hex format, generate via: `openssl rand -hex 32`.
@@ -44,7 +45,17 @@ To get started, click the button above or follow these steps:
 
 ## Step 2: Use Langfuse
 
-Now that you have Langfuse running, you can start instrumenting your LLM application to capture traces and manage your prompts. Your Langfuse Space is pre-configured to use Hugging Face OAuth for secure authentication, so you'll need to authorize `read` access to your Hugging Face account upon first login.
+Now that you have Langfuse running, you can start instrumenting your LLM application to capture traces and manage your prompts. 
+
+Your Langfuse Space is pre-configured to use Hugging Face OAuth for secure authentication, so you'll need to authorize `read` access to your Hugging Face account upon first login.
+
+<Tip>
+The Langfuse space must be set to **public** visibility so that the Langfuse API/SDK's can access the app.
+
+By default, _any_ logged-in Hugging Face user will be able to access the Langfuse space. You can prevent new user's from signing up and accessing the space by setting the `AUTH_DISABLE_SIGNUP` environment variable to `true`.
+
+Inside of the app, you can use [the native Langfuse features](https://langfuse.com/docs/rbac) to manage Organizations, Projects, and Users.
+</Tip>
 
 ### Monitor Any Application 
 
