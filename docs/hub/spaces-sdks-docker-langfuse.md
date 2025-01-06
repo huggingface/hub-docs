@@ -40,21 +40,27 @@ To get started, click the button above or follow these steps:
    - `NEXTAUTH_SECRET`: Used to validate login session cookies, generate secret with at least 256 entropy using `openssl rand -base64 32`.
    - `SALT`: Used to salt hashed API keys, generate secret with at least 256 entropy using `openssl rand -base64 32`.
    - `ENCRYPTION_KEY`: Used to encrypt sensitive data. Must be 256 bits, 64 string characters in hex format, generate via: `openssl rand -hex 32`.
+7. Click **Create Space**!
 
 ![Clone the Langfuse Space](https://langfuse.com/images/cookbook/huggingface/huggingface-space-setup.png)
 
-## Step 2: Use Langfuse
+### User Access
 
-Now that you have Langfuse running, you can start instrumenting your LLM application to capture traces and manage your prompts. 
+Your Langfuse Space is pre-configured to use Hugging Face OAuth for secure authentication, so you'll need to authorize `read` access to your Hugging Face account upon first login by following the instructions in the pop-up.
 
-Your Langfuse Space is pre-configured to use Hugging Face OAuth for secure authentication, so you'll need to authorize `read` access to your Hugging Face account upon first login.
+The Langfuse space _must_ be set to **public** visibility so that Langfuse API/SDK's can reach the app. This means that by default, _any_ logged-in Hugging Face user will be able to access the Langfuse space!
+
+You can prevent new users from signing up and accessing the space by setting the `AUTH_DISABLE_SIGNUP` environment variable to `true`. Be sure that you've first signed in & authenticated to the space before setting this variable else your own user profile won't be able to authenticate.
+
+Once inside the app, you can use [the native Langfuse features](https://langfuse.com/docs/rbac) to manage Organizations, Projects, and Users.
 
 > [!TIP]
-> The Langfuse space _must_ be set to **public** visibility so that the Langfuse API/SDK's can access the app.
->
-> By default, _any_ logged-in Hugging Face user will be able to access the Langfuse space. You can prevent new user's from signing up and accessing the space by setting the `AUTH_DISABLE_SIGNUP` environment variable to `true`. Be sure that you've first signed in to the space before setting this variable.
->
-> Inside of the app, you can use [the native Langfuse features](https://langfuse.com/docs/rbac) to manage Organizations, Projects, and Users.
+> **Note:** If you've set the `AUTH_DISABLE_SIGNUP` environment variable to `true` to restrict access, and want to grant a new user access to the space, you'll need to first set it back to `false` (wait for rebuild to complete), add the user and have them authenticate with OAuth, and then set it back to `true`.
+
+
+## Step 2: Use Langfuse
+
+Now that you have Langfuse running, you can start instrumenting your LLM application to capture traces and manage your prompts.
 
 ### Monitor Any Application 
 
