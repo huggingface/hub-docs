@@ -1,4 +1,4 @@
-# Run with Docker
+# Run Locally
 
 You can use Docker to run most Spaces locally.
 To view instructions to download and run Spaces' Docker images, click on the "Run with Docker" button on the top-right corner of your Space page:
