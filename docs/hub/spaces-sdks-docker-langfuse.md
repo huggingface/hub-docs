@@ -1,6 +1,6 @@
 # Langfuse on Spaces
 
-This guide shows you how to deploy Langfuse on Hugging Face Spaces and start instrumenting your LLM application. This integration helps you to experiment on Hugging Face models, manage your prompts in one place and evaluate model outputs.
+This guide shows you how to deploy Langfuse on Hugging Face Spaces and start instrumenting your LLM application for observability. This integration helps you to experiment with LLM APIs on the Hugging Face Hub, manage your prompts in one place, and evaluate model outputs.
 
 ## What is Langfuse?
 
@@ -46,9 +46,9 @@ To get started, click the button above or follow these steps:
 
 ### User Access
 
-Your Langfuse Space is pre-configured to use Hugging Face OAuth for secure authentication, so you'll need to authorize `read` access to your Hugging Face account upon first login by following the instructions in the pop-up.
+Your Langfuse Space is pre-configured with Hugging Face OAuth for secure authentication, so you'll need to authorize `read` access to your Hugging Face account upon first login by following the instructions in the pop-up.
 
-The Langfuse space _must_ be set to **public** visibility so that Langfuse API/SDK's can reach the app. This means that by default, _any_ logged-in Hugging Face user will be able to access the Langfuse space!
+The Langfuse space _must_ be set to **public** visibility so that Langfuse API/SDK's can reach the app. This means that by default, _any_ logged-in Hugging Face user will be able to access the Langfuse space.
 
 You can prevent new users from signing up and accessing the space by setting the `AUTH_DISABLE_SIGNUP` environment variable to `true`. Be sure that you've first signed in & authenticated to the space before setting this variable else your own user profile won't be able to authenticate.
 
@@ -60,7 +60,7 @@ Once inside the app, you can use [the native Langfuse features](https://langfuse
 
 ## Step 2: Use Langfuse
 
-Now that you have Langfuse running, you can start instrumenting your LLM application to capture traces and manage your prompts.
+Now that you have Langfuse running, you can start instrumenting your LLM application to capture traces and manage your prompts. Let's see how!
 
 ### Monitor Any Application 
 
@@ -70,7 +70,7 @@ Langfuse maintains native integrations with many popular LLM frameworks, includi
 
 ### Example 1: Trace Calls to HF Serverless API
 
-As a simple example, here's how to trace LLM calls to the HF Serverless API using the Langfuse Python SDK.
+As a simple example, here's how to trace LLM calls to the [HF Serverless API](https://huggingface.co/docs/api-inference/en/index) using the Langfuse Python SDK.
 
 Be sure to first configure your `LANGFUSE_HOST`, `LANGFUSE_PUBLIC_KEY` and `LANGFUSE_SECRET_KEY` environment variables, and make sure you've [authenticated with your Hugging Face account](https://huggingface.co/docs/huggingface_hub/en/quick-start#authentication).
 
