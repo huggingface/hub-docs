@@ -54,4 +54,4 @@ Remember that a repository can be part of only one Resource Group. You'll be war
 
 ## Programmatic management (API)
 
-Coming soon!
+See [Resource Groups API Section](https://huggingface.co/docs/hub/en/api#resource-groups-api)
