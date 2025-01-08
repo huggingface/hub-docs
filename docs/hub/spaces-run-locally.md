@@ -10,7 +10,7 @@ To view instructions to download and run Spaces locally, click on the "Run local
 
 You can choose to run the Space using Docker or by cloning the repository with Git, and then follow the provided instructions.
 
-## Run with Docker
+## Run locally via Docker
 
 Some Spaces will require you to login to Hugging Face's Docker registry. To do so, you'll need to provide:
 - Your Hugging Face username as `username`
