@@ -1,4 +1,4 @@
-# Run Locally
+# Run Spaces locally
 
 You can run most Spaces locally.
 To view instructions to download and run Spaces locally, click on the "Run locally" button on the top-right corner of your Space page:
