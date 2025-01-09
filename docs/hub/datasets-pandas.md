@@ -67,10 +67,11 @@ df_test .to_parquet("hf://datasets/username/my_dataset/test.parquet")
 
 ## Use Images
 
-From a metadata file containing a "file_name" field for the names or paths to the images:
+From a folder with a metadata file containing a "file_name" field for the names or paths to the images:
 
 ```
-data/                 data/
+Example 1:            Example 2:
+folder/               folder/
 ├── metadata.csv      ├── metadata.csv
 ├── img000.png        └── images
 ├── img001.png            ├── img000.png
@@ -81,13 +82,13 @@ data/                 data/
 ```python
 import pandas as pd
 
-folder_path = "path/to/data/"
+folder_path = "path/to/folder/"
 df = pd.read_csv(folder_path + "metadata.csv")
 for image_path in (folder_path + df["file_name"]):
     ...
 ```
 
-Since the dataset is in a supported structure, you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and images on HF.
+Since the dataset is in a supported structure, you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and images on Hugging Face.
 
 ```python
 from huggingface_hub import HfApi
@@ -99,6 +100,8 @@ api.upload_folder(
     repo_type="dataset",
 )
 ```
+
+### Image methods and Parquet
 
 Using [pandas-image-methods](https://github.com/lhoestq/pandas-image-methods) you enable `PIL.Image` methods on an image column. It also enables saving the dataset as one single Parquet file containing both the images and the metadata:
 
@@ -116,6 +119,63 @@ All the `PIL.Image` methods are available, e.g.
 
 ```python
 df["image"] = df["image"].pil.rotate(90)
+```
+
+## Use Audios
+
+From a folder with a metadata file containing a "file_name" field for the names or paths to the audios:
+
+```
+Example 1:            Example 2:
+folder/               folder/
+├── metadata.csv      ├── metadata.csv
+├── rec000.wav        └── audios
+├── rec001.wav            ├── rec000.wav
+...                       ...
+└── recNNN.wav            └── recNNN.wav
+```
+
+```python
+import pandas as pd
+
+folder_path = "path/to/folder/"
+df = pd.read_csv(folder_path + "metadata.csv")
+for audio_path in (folder_path + df["file_name"]):
+    ...
+```
+
+Since the dataset is in a supported structure, you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and audios on Hugging Face.
+
+```python
+from huggingface_hub import HfApi
+api = HfApi()
+
+api.upload_folder(
+    folder_path=folder_path,
+    repo_id="username/my_audio_dataset",
+    repo_type="dataset",
+)
+```
+
+### Audio methods and Parquet
+
+Using [pandas-audio-methods](https://github.com/lhoestq/pandas-audio-methods) you enable `soundfile` methods on an audio column. It also enables saving the dataset as one single Parquet file containing both the audios and the metadata:
+
+```python
+import pandas as pd
+from pandas_image_methods import SFMethods
+
+pd.api.extensions.register_series_accessor("sf")(SFMethods)
+
+df["audio"] = (folder_path + df["file_name"]).sf.open()
+df.to_parquet("data.parquet")
+```
+
+This makes it easy to use with `librosa` e.g. for resampling:
+
+```python
+df["audio"] = [librosa.load(audio, sr=16_000) for audio in df["audio"]]
+df["audio"] = df["audio"].sf.write()
 ```
 
 ## Use Transformers
