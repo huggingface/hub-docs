@@ -111,7 +111,7 @@ Hugging Face compute service usage will then be included in your AWS bill. Read 
 
 ## Support FAQ 
 
-**Q.  Why did I get charged $10 when I added my credit card? When will I get this back?**
+**Q. Why did I get charged $10 when I added my credit card? When will I get this back?**
 
 A. This amount is not charged and the hold should clear within a few business days. If you have more questions about the status of the clear, you can contact your bank for more information. 
 
