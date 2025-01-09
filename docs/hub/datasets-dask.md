@@ -123,3 +123,29 @@ This is useful when you want to manipulate a subset of the columns or for analyt
 # for the filtering and computation and skip the other columns.
 df.token_count.mean().compute()
 ```
+
+## Client
+
+Most features in `dask` are optimized for a cluster or a local `Client` to launch the parallel computations:
+
+```python
+import dask.dataframe as dd
+from distributed import Client
+
+if __name__ == "__main__":  # needed for creating new processes
+    client = Client()
+    df = dd.read_parquet(...)
+    ...
+```
+
+For local usage, the `Client` uses a Dask `LocalCluster` with multiprocessing by default. You can manually configure the multiprocessing of `LocalCluster` with
+
+```python
+from dask.distributed import Client, LocalCluster
+cluster = LocalCluster(n_workers=8, threads_per_worker=8)
+client = Client(cluster)
+```
+
+Note that if you use the default threaded scheduler locally without `Client`, a DataFrame can become slower after certain operations (more details [here](https://github.com/dask/dask-expr/issues/1181)).
+
+Find more information on setting up a local or cloud cluster in the [Deploying Dask documentation](https://docs.dask.org/en/latest/deploying.html).
