@@ -5,7 +5,7 @@ Since it uses [fsspec](https://filesystem-spec.readthedocs.io) to read and write
 
 ## Load a DataFrame
 
-You can load data from local files or from remote storage like Hugging Face Datasets. Pandas supports many formats including CSV, JSON and Paequet:
+You can load data from local files or from remote storage like Hugging Face Datasets. Pandas supports many formats including CSV, JSON and Parquet:
 
 ```python
 >>> import pandas as pd
@@ -67,7 +67,7 @@ df_test .to_parquet("hf://datasets/username/my_dataset/test.parquet")
 
 ## Use Images
 
-From a folder with a metadata file containing a "file_name" field for the names or paths to the images:
+You can load a folder with a metadata file containing a field for the names or paths to the images, structured like this:
 
 ```
 Example 1:            Example 2:
@@ -79,6 +79,8 @@ folder/               folder/
 └── imgNNN.png            └── imgNNN.png
 ```
 
+You can iterate on the images paths like this:
+
 ```python
 import pandas as pd
 
@@ -88,7 +90,7 @@ for image_path in (folder_path + df["file_name"]):
     ...
 ```
 
-Since the dataset is in a supported structure, you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and images on Hugging Face.
+Since the dataset is in a supported structure ("metadata.csv" file with "file_name" field), you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and images on Hugging Face.
 
 ```python
 from huggingface_hub import HfApi
@@ -123,7 +125,7 @@ df["image"] = df["image"].pil.rotate(90)
 
 ## Use Audios
 
-From a folder with a metadata file containing a "file_name" field for the names or paths to the audios:
+You can load a folder with a metadata file containing a field for the names or paths to the audios, structured like this:
 
 ```
 Example 1:            Example 2:
@@ -135,6 +137,8 @@ folder/               folder/
 └── recNNN.wav            └── recNNN.wav
 ```
 
+You can iterate on the audios paths like this:
+
 ```python
 import pandas as pd
 
@@ -144,7 +148,7 @@ for audio_path in (folder_path + df["file_name"]):
     ...
 ```
 
-Since the dataset is in a supported structure, you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and audios on Hugging Face.
+Since the dataset is in a supported structure ("metadata.csv" file with "file_name" field), you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and audios on Hugging Face.
 
 ```python
 from huggingface_hub import HfApi
@@ -181,7 +185,13 @@ df["audio"] = df["audio"].sf.write()
 ## Use Transformers
 
 You can use `transformers` pipelines on pandas DataFrames to classify, generate text, images, etc.
-This section shows a few examples.
+This section shows a few examples with `tqdm` for progress bars.
+
+<Tip>
+
+Pipelines don't accept a `tqdm` object as input but you can use a python generator instead, in the form `x for x in tqdm(...)`
+
+</Tip>
 
 ### Text Classification
 
