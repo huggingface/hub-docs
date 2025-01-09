@@ -90,7 +90,7 @@ for image_path in (folder_path + df["file_name"]):
     ...
 ```
 
-Since the dataset is in a supported structure (a `metadata.csv` file with a `file_name` field), you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and images on Hugging Face.
+Since the dataset is in a [supported structure](https://huggingface.co/docs/hub/en/datasets-image#additional-columns) (a `metadata.csv` or `.jsonl` file with a `file_name` field), you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and images on Hugging Face.
 
 ```python
 from huggingface_hub import HfApi
@@ -148,7 +148,7 @@ for audio_path in (folder_path + df["file_name"]):
     ...
 ```
 
-Since the dataset is in a supported structure (a `metadata.csv` file with a `file_name` field), you can save it to Hugging Face, and the Hub Dataset Viewer shows both the metadata and audio. 
+Since the dataset is in a [supported structure](https://huggingface.co/docs/hub/en/datasets-audio#additional-columns) (a `metadata.csv` or `.jsonl` file with a `file_name` field), you can save it to Hugging Face, and the Hub Dataset Viewer shows both the metadata and audio. 
 
 ```python
 from huggingface_hub import HfApi
@@ -213,7 +213,8 @@ df[["label", "score"]] = [(y["label"], y["score"]) for y in pipe(x for x in tqdm
 from transformers import pipeline
 from tqdm import tqdm
 
-p = pipeline("text-generation", model="Qwen/Qwen2.5-1.5B-Instruct")
+pipe = pipeline("text-generation", model="Qwen/Qwen2.5-1.5B-Instruct")
+
 prompt = "What is the main topic of this sentence ? REPLY IN LESS THAN 3 WORDS. Sentence: '{}'"
 df["output"] = [y["generated_text"][1]["content"] for y in pipe([{"role": "user", "content": prompt.format(x)}] for x in tqdm(df["text"]))]
 ```
