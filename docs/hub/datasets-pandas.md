@@ -32,7 +32,7 @@ To load a file from Hugging Face, the path needs to start with `hf://`. For exam
 24999  The story centers around Barry McKenzie who mu...      1
 ```
 
-To have more information on the Hugging Face paths and how they are implemented, please refer to the [the client library's documentation on the HfFileSystem](/docs/huggingface_hub/guides/hf_file_system).
+For more information on the Hugging Face paths and how they are implemented, please refer to the [the client library's documentation on the HfFileSystem](/docs/huggingface_hub/guides/hf_file_system).
 
 ## Save a DataFrame
 
@@ -90,7 +90,7 @@ for image_path in (folder_path + df["file_name"]):
     ...
 ```
 
-Since the dataset is in a supported structure ("metadata.csv" file with "file_name" field), you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and images on Hugging Face.
+Since the dataset is in a supported structure (a `metadata.csv` file with a `file_name` field), you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and images on Hugging Face.
 
 ```python
 from huggingface_hub import HfApi
@@ -148,7 +148,7 @@ for audio_path in (folder_path + df["file_name"]):
     ...
 ```
 
-Since the dataset is in a supported structure ("metadata.csv" file with "file_name" field), you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and audios on Hugging Face.
+Since the dataset is in a supported structure (a `metadata.csv` file with a `file_name` field), you can save it to Hugging Face, and the Hub Dataset Viewer shows both the metadata and audio. 
 
 ```python
 from huggingface_hub import HfApi
