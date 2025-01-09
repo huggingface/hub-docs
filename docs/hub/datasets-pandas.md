@@ -215,6 +215,7 @@ from tqdm import tqdm
 
 pipe = pipeline("text-generation", model="Qwen/Qwen2.5-1.5B-Instruct")
 
+# Generate chat response
 prompt = "What is the main topic of this sentence ? REPLY IN LESS THAN 3 WORDS. Sentence: '{}'"
 df["output"] = [y["generated_text"][1]["content"] for y in pipe([{"role": "user", "content": prompt.format(x)}] for x in tqdm(df["text"]))]
 ```
