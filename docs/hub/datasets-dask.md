@@ -71,6 +71,13 @@ def dummy_count_words(texts):
     return pd.Series([len(text.split(" ")) for text in texts])
 ```
 
+or a similar function using pandas string methods (faster):
+
+```python
+def dummy_count_words(texts):
+    return texts.str.count(" ")
+```
+
 In pandas you can use this function on a text column:
 
 ```python
