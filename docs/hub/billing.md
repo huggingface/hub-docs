@@ -149,5 +149,5 @@ A. You can cancel your subscription at anytime here: https://huggingface.co/set
 
 **Q. My org has an Enterprise Hub subscription and I need to update the number of seats. How can I do this?**
 
-A. If you’re subscribed monthly, each month it will automatically renew and update based on the current number of members in the organization at the time of monthly renewal. If you’ve subscribed annually, it will automatically renew and update based on the current number of members in the organization at the time of the yearly renewal. There’s no need to update the subscribed number of seats during the month; year as it’s a flat fee subscription.
+A. The number of seats will automatically be adjusted at the time of the subscription renewal to reflect any increases in the number of members in the organization during the previous period. There’s no need to update the subscribed number of seats during the month or year as it’s a flat fee subscription.
 
