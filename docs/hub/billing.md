@@ -118,7 +118,7 @@ A. This amount is not charged and the hold should clear within a few business 
 **Q. My card was declined after adding to my account. What’s up?**
 
 A. Please ensure the card supports 3D-secure authentication and is properly configured for recurring online payments. We do not yet support credit cards issued in India as we’re working on adding system compliance with the latest RBI directives. Until we add support for Indian credit cards, you can:
-* Link an organization account to an AWS account in order to access pay-as-you-go features (Endpoints, Spaces, AutoTrain): Hugging Face Platform on the AWS Marketplace: Pay with your AWS Account
+* Link an organization account to an AWS account in order to access pay-as-you-go features (Endpoints, Spaces, AutoTrain): [Hugging Face Platform on the AWS Marketplace: Pay with your AWS Account](https://huggingface.co/blog/aws-marketplace)
 * Use a credit card issued in another country
 
 **Q. When am I going to get my invoice for pay as you go services?**
@@ -145,7 +145,8 @@ A. You can pay your bill with another payment method by clicking on the “pay o
 
 **Q. I need to pause my PRO subscription for a bit, where can I do this?**
 
-A. You can cancel your subscription at anytime here: https://huggingface.co/settings/billing/subscription. Drop us a line at billing@huggingface.co with your feedback.
+A. You can cancel your subscription at anytime here: https://huggingface.co/settings/billing/subscription. 
+Drop us a line at billing@huggingface.co with your feedback.
 
 **Q. My org has an Enterprise Hub subscription and I need to update the number of seats. How can I do this?**
 
