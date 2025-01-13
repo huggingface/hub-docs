@@ -41,6 +41,11 @@ hf_oauth_scopes:
  - write-repos
  - manage-repos
  - inference-api
+# optional, restrict access to members of specific organizations
+hf_oauth_authorized_org: ORG_NAME
+hf_oauth_authorized_org:
+  - ORG_NAME1
+  - ORG_NAME2
 ```
 
 You can check out the [configuration reference docs](./spaces-config-reference) for more information.

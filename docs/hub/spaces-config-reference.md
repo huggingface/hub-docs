@@ -91,6 +91,9 @@ Authorized scopes of the connected OAuth app. `openid` and `profile` are authori
 **`hf_oauth_expiration_minutes`** : _int_
 Duration of the OAuth token in minutes. Defaults to 480 minutes (8 hours). Maximum duration is 43200 minutes (30 days). See [Adding a Sign-In with HF button to your space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
 
+**`hf_oauth_authorized_org`** : _string_ or _List[string]_
+Restrict OAuth access to members of specific organizations. See [Adding a Sign-In with HF button to your space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
+
 **`disable_embedding`** : _boolean_  
 Whether the Space iframe can be embedded in other websites.
 Defaults to false, i.e. Spaces *can* be embedded.
