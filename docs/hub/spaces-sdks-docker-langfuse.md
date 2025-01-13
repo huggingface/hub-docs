@@ -54,7 +54,7 @@ The Langfuse space _must_ be set to **public** visibility so that Langfuse API/S
 
 You can prevent new users from signing up and accessing the space via two different methods:
 
-#### 1. [Recommended] Hugging Face native org-level OAuth restrictions
+#### 1. (Recommended) Hugging Face native org-level OAuth restrictions
 
 If you want to restrict access to only members of a specified organization(s), you can simply set the `hf_oauth_authorized_org` metadata field in the space's `README.md` file, as shown [here](https://huggingface.co/docs/hub/spaces-oauth#create-an-oauth-app).
 
