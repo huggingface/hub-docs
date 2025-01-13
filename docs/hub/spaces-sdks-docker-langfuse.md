@@ -48,15 +48,24 @@ To get started, click the button above or follow these steps:
 
 Your Langfuse Space is pre-configured with Hugging Face OAuth for secure authentication, so you'll need to authorize `read` access to your Hugging Face account upon first login by following the instructions in the pop-up.
 
+Once inside the app, you can use [the native Langfuse features](https://langfuse.com/docs/rbac) to manage Organizations, Projects, and Users.
+
 The Langfuse space _must_ be set to **public** visibility so that Langfuse API/SDK's can reach the app. This means that by default, _any_ logged-in Hugging Face user will be able to access the Langfuse space.
 
-You can prevent new users from signing up and accessing the space by setting the `AUTH_DISABLE_SIGNUP` environment variable to `true`. Be sure that you've first signed in & authenticated to the space before setting this variable else your own user profile won't be able to authenticate.
+You can prevent new users from signing up and accessing the space via two different methods:
 
-Once inside the app, you can use [the native Langfuse features](https://langfuse.com/docs/rbac) to manage Organizations, Projects, and Users.
+#### 1. [Recommended] Hugging Face native org-level OAuth restrictions
+
+If you want to restrict access to only members of a specified organization(s), you can simply set the `hf_oauth_authorized_org` metadata field in the space's `README.md` file, as shown [here](https://huggingface.co/docs/hub/spaces-oauth#create-an-oauth-app).
+
+Once configured, only users who are members of the specified organization(s) will be able to access the space.
+
+#### 2. Manual access control
+
+You can also restrict access on a per-user basis by setting the `AUTH_DISABLE_SIGNUP` environment variable to `true`. Be sure that you've first signed in & authenticated to the space before setting this variable else your own user profile won't be able to authenticate.
 
 > [!TIP]
 > **Note:** If you've set the `AUTH_DISABLE_SIGNUP` environment variable to `true` to restrict access, and want to grant a new user access to the space, you'll need to first set it back to `false` (wait for rebuild to complete), add the user and have them authenticate with OAuth, and then set it back to `true`.
-
 
 ## Step 2: Use Langfuse
 
