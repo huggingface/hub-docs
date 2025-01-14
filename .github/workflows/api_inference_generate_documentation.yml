@@ -5,7 +5,6 @@ on:
   schedule:
     - cron: "0 3 * * *" # Every day at 3am
 
-
 concurrency:
   group: api_inference_generate_documentation
   cancel-in-progress: true
@@ -45,6 +44,7 @@ jobs:
           else
             echo "changes_detected=false" >> $GITHUB_ENV
           fi
+          rm changed_files.txt
 
       # Skip PR if only certain files are updated
       - name: Skip PR creation if no meaningful changes
@@ -68,9 +68,9 @@ jobs:
             pnpm update @huggingface/tasks@latest
             pnpm run generate
             ```
-            
+
             This PR was automatically created by the [Update API Inference Documentation workflow](https://github.com/huggingface/hub-docs/blob/main/.github/workflows/api_inference_generate_documentation.yml).
-            
+
             Please review the changes before merging.
           reviewers: |
             Wauplin
