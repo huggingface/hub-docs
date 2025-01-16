@@ -57,7 +57,7 @@ You can automate the approval of access requests by using the API. You must pass
 | `GET` | `/api/models/{repo_id}/user-access-request/pending` | Retrieve the list of pending requests. | `{"authorization": "Bearer $token"}` | |
 | `GET` | `/api/models/{repo_id}/user-access-request/accepted` | Retrieve the list of accepted requests. | `{"authorization": "Bearer $token"}` | |
 | `GET` | `/api/models/{repo_id}/user-access-request/rejected` | Retrieve the list of rejected requests. | `{"authorization": "Bearer $token"}` | |
-| `POST` | `/api/models/{repo_id}/user-access-request/handle` | Change the status of a given access request to `status`. | `{"authorization": "Bearer $token"}` | `{"status": "accepted"/"rejected"/"pending", "user": "username"}` |
+| `POST` | `/api/models/{repo_id}/user-access-request/handle` | Change the status of a given access request to `status`. | `{"authorization": "Bearer $token"}` | `{"status": "accepted"/"rejected"/"pending", "user": "username", "rejectionReason": "optional rejection reason string (max 200 characters)"}` |
 | `POST` | `/api/models/{repo_id}/user-access-request/grant` | Allow a specific user to access your repo. | `{"authorization":  "Bearer $token"}` | `{"user": "username"} ` |
 
 The base URL for the HTTP endpoints above is `https://huggingface.co`.
