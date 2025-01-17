@@ -30,9 +30,7 @@ cd llama.cpp && LLAMA_CURL=1 make
 Once installed, you can use the `llama-cli` or `llama-server` as follows:
 
 ```bash
-llama-cli
- llama-cli -hf bartowski/Llama-3.2-3B-Instruct-GGUF:Q8_0
-  -p "You are a helpful assistant" -cnv
+llama-cli -hf bartowski/Llama-3.2-3B-Instruct-GGUF:Q8_0
 ```
 
 Note: You can remove `-cnv` to run the CLI in chat completion mode.
@@ -40,8 +38,7 @@ Note: You can remove `-cnv` to run the CLI in chat completion mode.
 Additionally, you can invoke an OpenAI spec chat completions endpoint directly using the llama.cpp server:
 
 ```bash
-llama-server \
-  -hf bartowski/Llama-3.2-3B-Instruct-GGUF:Q8_0
+llama-server -hf bartowski/Llama-3.2-3B-Instruct-GGUF:Q8_0
 ```
 
 After running the server you can simply utilise the endpoint as below:
