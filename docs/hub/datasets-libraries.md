@@ -40,7 +40,7 @@ You can find more information about loading data from the Hub [here](https://hug
 
 The Hub's dataset viewer and Parquet conversion system provide a standardized way to integrate with datasets, regardless of their original format. This infrastructure is a reliable integration layer between the Hub and external libraries.
 
-The Hub automatically converts the first 5GB of every dataset to Parquet format (unless already in Parquet) to power the dataset viewer and provide consistent access patterns. This standardization offers several benefits for library integrations:
+If the dataset is not already in Parquet, the Hub automatically converts the first 5GB of every dataset to Parquet format to power the dataset viewer and provide consistent access patterns. This standardization offers several benefits for library integrations:
 
 - Consistent data access patterns regardless of original format
 - Built-in dataset preview and exploration through the Hub's dataset viewer. The dataset viewer can also be embedded as an iframe in your applications, making it easy to provide rich dataset previews. For more information about embedding the viewer, see the [dataset viewer embedding documentation](https://huggingface.co/docs/hub/en/datasets-viewer-embed).
