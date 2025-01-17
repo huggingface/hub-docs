@@ -31,8 +31,7 @@ Once installed, you can use the `llama-cli` or `llama-server` as follows:
 
 ```bash
 llama-cli
-  --hf-repo lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF \
-  --hf-file Meta-Llama-3-8B-Instruct-Q8_0.gguf \
+  -hf bartowski/Llama-3.2-3B-Instruct-GGUF:Q8_0 \
   -p "You are a helpful assistant" -cnv
 ```
 
@@ -42,8 +41,7 @@ Additionally, you can invoke an OpenAI spec chat completions endpoint directly u
 
 ```bash
 llama-server \
-  --hf-repo lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF \
-  --hf-file Meta-Llama-3-8B-Instruct-Q8_0.gguf
+  -hf bartowski/Llama-3.2-3B-Instruct-GGUF:Q8_0
 ```
 
 After running the server you can simply utilise the endpoint as below:
@@ -66,6 +64,6 @@ curl http://localhost:8080/v1/chat/completions \
 }'
 ```
 
-Replace `--hf-repo` with any valid Hugging Face hub repo name and `--hf-file` with the GGUF file name in the hub repo - off you go! 🦙
+Replace `-hf` with any valid Hugging Face hub repo name - off you go! 🦙
 
 Note: Remember to `build` llama.cpp with `LLAMA_CURL=1` :)
