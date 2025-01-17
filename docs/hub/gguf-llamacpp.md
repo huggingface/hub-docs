@@ -31,7 +31,7 @@ Once installed, you can use the `llama-cli` or `llama-server` as follows:
 
 ```bash
 llama-cli
-  -hf bartowski/Llama-3.2-3B-Instruct-GGUF:Q8_0 \
+ llama-cli -hf bartowski/Llama-3.2-3B-Instruct-GGUF:Q8_0
   -p "You are a helpful assistant" -cnv
 ```
 
