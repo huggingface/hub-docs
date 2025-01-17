@@ -33,8 +33,8 @@ You can share a specific row by clicking on it, and then copying the URL in the 
 
 The Dataset Viewer supports large scale datasets, but depending on the data format it may only show the first 5GB of the dataset:
 
-- For Parquet datasets: the Dataset Viewer shows the full dataset, but filtering and search are only enabled on the first 5GB.
-- For datasets >5GB in other formats (e.g. [WebDataset](https://github.com/webdataset/webdataset) or JSON Lines): the Dataset Viewer only shows the first 5GB, and filtering and search are enabled on these first 5GB.
+- For Parquet datasets: the Dataset Viewer shows the full dataset, but sorting, filtering and search are only enabled on the first 5GB.
+- For datasets >5GB in other formats (e.g. [WebDataset](https://github.com/webdataset/webdataset) or JSON Lines): the Dataset Viewer only shows the first 5GB, and sorting, filtering and search are enabled on these first 5GB.
 
 In this case, an informational message lets you know that the Viewer is partial. This should be a large enough sample to represent the full dataset accurately, let us know if you need a bigger sample.
 
