@@ -138,6 +138,8 @@ The super-squash operation compresses your entire Git history into a single comm
 
 ⚠️ **Important**: This is a destructive operation that cannot be undone, commit history will be permanently lost and **LFS file history will be removed**
 
+For datasets with datasets-viewer enabled, you can also free up storage by squashing datasets-viewer special refs (`refs/convert/duckdb`, `refs/convert/parquet`). These refs are used by the datasets-viewer feature and can accumulate storage over time.
+
 The effects from the squash operation on your storage quota are not immediate and will be reflected on your quota within a few minutes.
 
 ### Advanced: Track LFS file references
