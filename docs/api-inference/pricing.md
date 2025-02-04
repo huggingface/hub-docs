@@ -9,7 +9,7 @@ When your monthly included credits are depleted:
 - if you're a Free user, you won't be able to query the Inference API anymore,
 - if you're a PRO or Enterprise Hub user, you will get charged for the requests on top of your subscription. You can monitor your spending on your billing page.
 
-Note that serverless API is not meant to be used for heavy production applications. If you need to handle large numbers of requests, consider [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) to have dedicated resources.
+Note that HF Inference API is not meant to be used for heavy production applications. If you need to handle large numbers of requests, consider [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) to have dedicated resources or [Inference Providers](https://huggingface.co/blog/inference-providers) for serverless usage.
 
 You need to be authenticated (passing a token or through your browser) to use the Inference API.
 
