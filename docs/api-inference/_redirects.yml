@@ -3,3 +3,4 @@ detailed_parameters: parameters
 parallelism: getting_started
 usage: getting_started
 faq: index
+rate-limits: pricing

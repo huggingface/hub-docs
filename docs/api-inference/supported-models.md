@@ -10,7 +10,7 @@ You can find:
 
 ## What do I get with a PRO subscription?
 
-In addition to thousands of public models available in the Hub, PRO and Enterprise users get higher [included credits](./rate-limits) and access to the following models:
+In addition to thousands of public models available in the Hub, PRO and Enterprise users get higher [included credits](./pricing) and access to the following models:
 
 <!-- Manually maintained hard-coded list based on https://github.com/huggingface-internal/api-inference/blob/main/master-rs/custom_config.yml -->
 

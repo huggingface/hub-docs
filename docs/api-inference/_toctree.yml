@@ -5,8 +5,8 @@
     title: Getting Started
   - local: supported-models
     title: Supported Models
-  - local: rate-limits
-    title: Rate Limits
+  - local: pricing
+    title: Pricing and Rate limits
   - local: security
     title: Security
   title: Getting Started
