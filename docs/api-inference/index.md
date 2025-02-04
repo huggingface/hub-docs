@@ -15,7 +15,7 @@ The Serverless Inference API offers a fast and simple way to explore thousands o
 * **Document Embeddings:** Build search and retrieval systems with SOTA embeddings.
 * **Classical AI Tasks:** Ready-to-use models for text classification, image classification, speech recognition, and more.
 
-⚡ **Fast and Free to Get Started**: The Inference API is free to try out and offers additional included credits for PRO users. For production needs, explore [Inference Endpoints](https://ui.endpoints.huggingface.co/) for dedicated resources, autoscaling, advanced security features, and more.
+⚡ **Fast and Free to Get Started**: The Inference API is free to try out and comes with additional included credits for PRO users. For production needs, explore [Inference Endpoints](https://ui.endpoints.huggingface.co/) for dedicated resources, autoscaling, advanced security features, and more.
 
 ---
 
