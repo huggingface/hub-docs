@@ -1,4 +1,4 @@
-# Rate Limits
+# Pricing and Rate limits
 
 As a HF user, you get monthly credits to run the HF Inference API. The amount of credits you get depends on your type of account (Free or PRO or Enterprise Hub), see table below.
 You get charged for every inference request, based on the compute time x price of the underlying hardware.
