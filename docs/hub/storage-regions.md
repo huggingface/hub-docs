@@ -4,7 +4,7 @@
 This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
 </Tip>
 
-Regions allow you to specify where your organization's models and datasets are stored.
+Regions allow you to specify where your organization's models, datasets and Spaces are stored. For non-Enterprise Hub users, repositories are always stored in the US.
 
 This offers two key benefits:
 
@@ -82,3 +82,9 @@ This impact is substantial given the typically large size of model weights and d
 </div>
 
 For example, European users storing repositories in the EU region can expect approximately 4-5x faster upload and download speeds compared to US storage.
+
+## Spaces
+
+Both Spaces's storage and runtime use the chosen region.
+
+Available hardware configurations vary by region, and some features may not be avaialble in all regions, like persistent storage associated to a Space.

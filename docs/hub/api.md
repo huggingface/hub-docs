@@ -225,7 +225,7 @@ payload = {
 }
 ```
 
-This is equivalent to `huggingface_hub.update_repo_visibility()`.
+This is equivalent to `huggingface_hub.update_repo_settings()`.
 
 ### POST /api/repos/move
 

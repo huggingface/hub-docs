@@ -92,7 +92,7 @@ We provide example inputs for some languages and most widget types in [default-w
 
 As an extension to example inputs, for each widget example, you can also optionally describe the corresponding model output, directly in the `output` property.
 
-This is useful when the model is not yet supported by the Inference API (for instance, the model library is not yet supported or the model is too large) so that the model page can still showcase how the model works and what results it gives.
+This is useful when the model is not yet supported by either the Inference API (for instance, the model library is not yet supported) or any other Inference Provider, so that the model page can still showcase how the model works and what results it gives.
 
 
 For instance, for an [automatic-speech-recognition](./models-widgets-examples#automatic-speech-recognition) model:

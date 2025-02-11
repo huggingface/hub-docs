@@ -1,6 +1,6 @@
 # Getting Started
 
-The Serverless Inference API allows you to easily do inference on a wide range of models and tasks. You can do requests with your favorite tools (Python, cURL, etc). We also provide a Python SDK (`huggingface_hub`) to make it even easier.
+The Serverless Inference API allows you to easily do inference on a wide range of models and tasks. You can do requests with your favorite tools (Python, cURL, etc). We also provide a Python SDK (`huggingface_hub`) and JavaScript SDK (`huggingface.js`) to make it even easier.
 
 We'll do a minimal example using a [sentiment classification model](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest). Please visit task-specific parameters and further documentation in our [API Reference](./parameters).
 

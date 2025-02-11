@@ -24,8 +24,8 @@ For more details about the `image-text-to-text` task, check out its [dedicated p
 
 ### Recommended models
 
-- [meta-llama/Llama-3.2-11B-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct): Powerful vision language model with great visual understanding and reasoning capabilities.
 - [Qwen/Qwen2-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct): Strong image-text-to-text model.
+- [Qwen/QVQ-72B-Preview](https://huggingface.co/Qwen/QVQ-72B-Preview): Image-text-to-text model with reasoning capabilities.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-text-to-text&sort=trending).
 
@@ -36,7 +36,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct \
+curl https://api-inference.huggingface.co/models/Qwen/Qwen2-VL-7B-Instruct \
 	-X POST \
 	-d '{"inputs": "Can you please let us know more details about your "}' \
 	-H 'Content-Type: application/json' \
@@ -54,7 +54,7 @@ client = InferenceClient(api_key="hf_***")
 messages = "\"Can you please let us know more details about your \""
 
 stream = client.chat.completions.create(
-    model="meta-llama/Llama-3.2-11B-Vision-Instruct", 
+    model="Qwen/Qwen2-VL-7B-Instruct", 
 	messages=messages, 
 	max_tokens=500,
 	stream=True
@@ -76,7 +76,7 @@ client = OpenAI(
 messages = "\"Can you please let us know more details about your \""
 
 stream = client.chat.completions.create(
-    model="meta-llama/Llama-3.2-11B-Vision-Instruct", 
+    model="Qwen/Qwen2-VL-7B-Instruct", 
 	messages=messages, 
 	max_tokens=500,
 	stream=True
@@ -93,7 +93,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct",
+		"https://api-inference.huggingface.co/models/Qwen/Qwen2-VL-7B-Instruct",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",

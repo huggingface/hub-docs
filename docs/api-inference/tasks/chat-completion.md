@@ -23,13 +23,15 @@ This is a subtask of [`text-generation`](https://huggingface.co/docs/api-inferen
 
 - [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it): A text-generation model trained to follow instructions.
 - [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct): Very powerful text generation model trained to follow instructions.
-- [microsoft/Phi-3-mini-4k-instruct](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct): Small yet powerful text generation model.
+- [microsoft/phi-4](https://huggingface.co/microsoft/phi-4): Powerful text generation model by Microsoft.
+- [PowerInfer/SmallThinker-3B-Preview](https://huggingface.co/PowerInfer/SmallThinker-3B-Preview): A very powerful model with reasoning capabilities.
 - [Qwen/Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct): Strong text generation model to follow instructions.
+- [Qwen/Qwen2.5-Coder-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct): Text generation model used to write code.
 
 #### Conversational Vision-Language Models (VLMs)
 
-- [meta-llama/Llama-3.2-11B-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct): Powerful vision language model with great visual understanding and reasoning capabilities.
 - [Qwen/Qwen2-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct): Strong image-text-to-text model.
+- [Qwen/QVQ-72B-Preview](https://huggingface.co/Qwen/QVQ-72B-Preview): Image-text-to-text model with reasoning capabilities.
 
 ### API Playground
 
@@ -208,11 +210,11 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 
 <curl>
 ```bash
-curl 'https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-11B-Vision-Instruct/v1/chat/completions' \
+curl 'https://api-inference.huggingface.co/models/Qwen/Qwen2-VL-7B-Instruct/v1/chat/completions' \
 -H 'Authorization: Bearer hf_***' \
 -H 'Content-Type: application/json' \
 --data '{
-    "model": "meta-llama/Llama-3.2-11B-Vision-Instruct",
+    "model": "Qwen/Qwen2-VL-7B-Instruct",
     "messages": [
 		{
 			"role": "user",
@@ -262,7 +264,7 @@ messages = [
 ]
 
 stream = client.chat.completions.create(
-    model="meta-llama/Llama-3.2-11B-Vision-Instruct", 
+    model="Qwen/Qwen2-VL-7B-Instruct", 
 	messages=messages, 
 	max_tokens=500,
 	stream=True
@@ -300,7 +302,7 @@ messages = [
 ]
 
 stream = client.chat.completions.create(
-    model="meta-llama/Llama-3.2-11B-Vision-Instruct", 
+    model="Qwen/Qwen2-VL-7B-Instruct", 
 	messages=messages, 
 	max_tokens=500,
 	stream=True
@@ -323,7 +325,7 @@ const client = new HfInference("hf_***");
 let out = "";
 
 const stream = client.chatCompletionStream({
-	model: "meta-llama/Llama-3.2-11B-Vision-Instruct",
+	model: "Qwen/Qwen2-VL-7B-Instruct",
 	messages: [
 		{
 			role: "user",
@@ -365,7 +367,7 @@ const client = new OpenAI({
 let out = "";
 
 const stream = await client.chat.completions.create({
-	model: "meta-llama/Llama-3.2-11B-Vision-Instruct",
+	model: "Qwen/Qwen2-VL-7B-Instruct",
 	messages: [
 		{
 			role: "user",
