@@ -36,9 +36,11 @@ TintinIA is fine-tuned version of Stable-Diffusion-xl trained on 125 comics pane
 
 ```
 
-<div class="flex justify-center">
+<a class="flex justify-center" href="https://huggingface.co/alvdansen/littletinies#little-tinies" target="_blank">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery-dark.png"/>
-</div>
+</a>
+
+See result [here](https://huggingface.co/alvdansen/littletinies#little-tinies).
 
 > Hint: Support of Card Components through the GUI editor coming soon... 
