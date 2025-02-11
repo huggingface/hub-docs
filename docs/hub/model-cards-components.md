@@ -12,17 +12,15 @@ The `<Gallery />` component can be used in your model card to showcase your gene
 
 ```yaml
 widget:
-- text: "drawing of tintin in a shop"
-  output:
-    url: "images/shop.png"
-- text: "drawing of tintin watching rugby"
-  output:
-    url: "images/rugby.png"
-  parameters:
-    negative_prompt: "blurry"
-- text: "tintin working at the office"
-  output:
-    url: "images/office.png"
+  - text: a girl wandering through the forest
+    output:
+      url: images/6CD03C101B7F6545EB60E9F48D60B8B3C2D31D42D20F8B7B9B149DD0C646C0C2.jpeg
+  - text: a tiny witch child
+    output:
+      url: images/7B482E1FDB39DA5A102B9CD041F4A2902A8395B3835105C736C5AD9C1D905157.jpeg
+  - text: an artist leaning over to draw something
+    output:
+      url: images/7CCEA11F1B74C8D8992C47C1C5DEA9BD6F75940B380E9E6EC7D01D85863AF718.jpeg
 ```
 
 2. Add the `<Gallery />` component to your card. The widget metadata will be used by the `<Gallery />` component to display the media with each associated prompt.
@@ -32,13 +30,15 @@ widget:
 
 ## Model description
 
-TintinIA is fine-tuned version of Stable-Diffusion-xl trained on 125 comics panels from Tintin album. 
+A very classic hand drawn cartoon style.
 
 ```
 
-<div class="flex justify-center">
+<a class="flex justify-center" href="https://huggingface.co/alvdansen/littletinies#little-tinies" target="_blank">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery-dark.png"/>
-</div>
+</a>
+
+See result [here](https://huggingface.co/alvdansen/littletinies#little-tinies).
 
 > Hint: Support of Card Components through the GUI editor coming soon... 
