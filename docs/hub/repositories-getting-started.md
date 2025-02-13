@@ -95,6 +95,12 @@ cd <your-model-name>
 
 You'll need to add your SSH public key to [your user settings](https://huggingface.co/settings/keys) to push changes or access private repositories.
 
+Note: You'll need to modify your path differently when cloning datasets
+
+```bash
+git clone https://huggingface.co/datasets/<your-username>/<your-dataset-name>
+cd <your-dataset-name>
+```
 
 ### Set up
 
