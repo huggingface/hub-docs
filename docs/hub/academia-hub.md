@@ -4,7 +4,7 @@
 <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Get in touch</a> from your university-affiliated email address to initiate the subscription process.
 </Tip>
 
-Academia Hub provides every student, reseacher, of faculty member having a verified and currently active email address from your academic institution access to our Hub’s PRO features. Explore advanced tools, enhanced collaboration, and exclusive resources to accelerate your learning and research.
+Academia Hub provides every student, reseacher, or faculty member having a verified and currently active email address from your academic institution access to our Hub’s PRO features. Explore advanced tools, enhanced collaboration, and exclusive resources to accelerate your learning and research.
 
 <a href="https://huggingface.co/contact/sales?from=academia" class="flex justify-center">
     <img class="block" src="https://huggingface.co/datasets/julien-c/documentation-images/resolve/main/AcademiaHub.png" />
