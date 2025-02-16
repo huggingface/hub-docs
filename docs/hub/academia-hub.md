@@ -4,7 +4,7 @@
 <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Get in touch</a> from your university-affiliated email address to initiate the subscription process.
 </Tip>
 
-Academia Hub provides every student, reseacher, or faculty member having a verified and currently active email address from your academic institution access to our Hub’s PRO features. Explore advanced tools, enhanced collaboration, and exclusive resources to accelerate your learning and research.
+Academia Hub provides every student, reseacher, or faculty member having a verified and currently active email address from your academic institution access to our Hub's PRO features. Explore advanced tools, enhanced collaboration, and exclusive resources to accelerate your learning and research.
 
 <a href="https://huggingface.co/contact/sales?from=academia" class="flex justify-center">
     <img class="block" src="https://huggingface.co/datasets/julien-c/documentation-images/resolve/main/AcademiaHub.png" />
@@ -19,9 +19,16 @@ Academia Hub is designed for:
 - **Researchers:** Collaborate with peers using the standard AI ecosystem of tools.
 - **Faculty members:** Enhance your classes' projects with PRO capabilities.
 
-Key Features are:
+Key Features of Academia Hub:
 
-- **Full PRO Access:** Enjoy all premium functionalities on the Hub.
+- **ZeroGPU:** Get 5x usage quota and highest GPU queue priority.
+- **Spaces Hosting:** Create ZeroGPU Spaces with A100 hardware.
+- **Spaces Dev Mode:** Fast iterations via SSH/VS Code for Spaces.
+- **HF Inference API:** Get x20 higher rate limits on HF Serverless API.
+- **Dataset Viewer:** Activate it on private datasets.
+- **Blog Articles:** Publish articles to the Hugging Face blog.
+- **Social Posts:** Share short updates with the community.
+- **Inference Providers:** Get $2 included credits across all Inference Providers.
 - **Seamless Onboarding:** Quick and secure sign-up with your academic email.
 - **Enhanced Collaboration:** Connect with peers and mentors.
 - **Exclusive Resources:** Access datasets, models, and projects tailored for academia.
