@@ -31,7 +31,9 @@ Key Features are:
 - Must possess a valid university or college email address.
 - Open to all students regardless of discipline or level of study.
 - Pricing: Academia Hub is priced based on volume of usage and number of active users. 
+#### Subscribe
 
+Send an email to academia@hf.co to subscribe to the Academia Hub today!
 #### Private storage
 
 Academia Hub includes 1TB of [private repository storage](./storage-limits) per seat in the subscription, i.e. if your institution has 400 students and faculty, then you have 400TB included storage for their private models and datasets.
