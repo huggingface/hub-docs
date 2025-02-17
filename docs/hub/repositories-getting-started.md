@@ -87,7 +87,7 @@ git clone https://huggingface.co/<your-username>/<your-model-name>
 cd <your-model-name>
 ```
 
-Note: You'll need to modify your path differently when cloning datasets
+Or for a dataset repo:
 
 ```bash
 git clone https://huggingface.co/datasets/<your-username>/<your-dataset-name>
