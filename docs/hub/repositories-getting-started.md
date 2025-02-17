@@ -87,6 +87,13 @@ git clone https://huggingface.co/<your-username>/<your-model-name>
 cd <your-model-name>
 ```
 
+Or for a dataset repo:
+
+```bash
+git clone https://huggingface.co/datasets/<your-username>/<your-dataset-name>
+cd <your-dataset-name>
+```
+
 You can clone over SSH with the following command:
 ```bash
 git clone git@hf.co:<your-username>/<your-model-name>
