@@ -73,6 +73,12 @@ If there is no match, a user will be assigned the default role for your organiza
 
 Role synchronization is performed on login.
 
+#### Matching email domains
+
+When enabled, Matching email domains only allow organization members to complete SSO if the email provided by your identity provider matches one of their emails on Hugging Face.
+
+To add an email domain, fill out the 'Matching email domains' field, click enter on your keyboard, and save. 
+
 #### External Collaborators
 
 This enables certain users within your organization to access resources without completing the Single Sign-On (SSO) flow described before. This can be helpful when you work with external parties who aren't part of your organization's Identity Provider (IdP) but require access to specific resources.
