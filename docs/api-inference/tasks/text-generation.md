@@ -16,7 +16,7 @@ For more details, check out:
 
 Generate text based on a prompt.
 
-If you are interested in a Chat Completion task, which generates a response based on a list of messages, check out the [`chat-completion`](./chat_completion) task.
+If you are interested in a Chat Completion task, which generates a response based on a list of messages, check out the [`chat-completion`](./chat-completion) task.
 
 <Tip>
 
