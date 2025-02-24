@@ -23,12 +23,12 @@ To enable access requests, go to the collection page and click on **Gating group
 
 <div class="flex justify-center" style="max-width: 750px">
     <img
-        class="block dark:hidden !m-0"
+        class="block dark:hidden m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-collection-disabled.webp"
         alt="Hugging Face collection page with gating group collection feature disabled"
     />
     <img
-        class="hidden dark:block !m-0"
+        class="hidden dark:block m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-collection-disabled.webp"
         alt="Hugging Face collection page with gating group collection feature disabled"
     />
@@ -38,12 +38,12 @@ By default, gating group is disabled: click on **Configure Access Requests** to 
 
 <div class="flex justify-center" style="max-width: 750px">
     <img
-        class="block dark:hidden !m-0"
+        class="block dark:hidden m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-modal-disabled.webp"
         alt="Hugging Face gating group collection settings with gating disabled"
     />
     <img
-        class="hidden dark:block !m-0"
+        class="hidden dark:block m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-modal-disabled.webp"
         alt="Hugging Face gating group collection settings with gating disabled"
     />
@@ -53,12 +53,12 @@ By default, access to the repos in the collection is automatically granted to us
 
 <div class="flex justify-center" style="max-width: 750px">
     <img
-        class="block dark:hidden !m-0"
+        class="block dark:hidden m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-modal-enabling.webp"
         alt="Hugging Face gating group collection settings with automatic mode selected"
     />
     <img
-        class="hidden dark:block !m-0"
+        class="hidden dark:block m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-modal-enabling.webp"
         alt="Hugging Face gating group collection settings with automatic mode selected"  
     />
@@ -70,12 +70,12 @@ If you want to manually approve which users can access repos in your collection,
 
 <div class="flex justify-center" style="max-width: 750px">
     <img
-        class="block dark:hidden !m-0"
+        class="block dark:hidden m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-modal-manual.webp"
         alt="Hugging Face gating group collection settings with manual review mode selected"
     />
     <img
-        class="hidden dark:block !m-0"
+        class="hidden dark:block m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-modal-manual.webp"
         alt="Hugging Face gating group collection settings with manual review mode selected"
     />
@@ -93,12 +93,12 @@ You can review who has access to all the repos in your Gating Group Collection f
 
 <div class="flex justify-center" style="max-width: 750px">
     <img
-        class="block dark:hidden !m-0"
+        class="block dark:hidden m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-repo-settings.webp"
         alt="Hugging Face repo access settings when repo is in a gating group collection"
     />
     <img
-        class="hidden dark:block !m-0"
+        class="hidden dark:block m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-repo-settings.webp"
         alt="Hugging Face repo access settings when repo is in a gating group collection"
     />
@@ -150,12 +150,12 @@ A Gated Group Collection shows a specific icon next to its name:
 
 <div class="flex justify-center" style="max-width: 750px">
     <img
-        class="block dark:hidden !m-0"
+        class="block dark:hidden m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/gating-group-collection-enabled.webp"
         alt="Hugging Face collection page with gating group collection feature enabled"
     />
     <img
-        class="hidden dark:block !m-0"
+        class="hidden dark:block m-0!"
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/dark-gating-group-collection-enabled.webp"
         alt="Hugging Face collection page with gating group collection feature enabled"
     />
