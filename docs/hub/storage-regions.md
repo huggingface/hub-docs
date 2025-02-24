@@ -23,12 +23,12 @@ Organizations subscribed to Enterprise Hub can access the Regions settings page 
 
 <div class="flex justify-center" style="max-width: 550px">
   <img
-    class="block dark:hidden !m-0"
+    class="block dark:hidden m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/regions.png"
     alt="screenshot of Hugging Face Storage Regions feature"
   />
   <img
-    class="hidden dark:block !m-0"
+    class="hidden dark:block m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-regions.png"
     alt="screenshot of Hugging Face Storage Regions feature"
   />
@@ -45,12 +45,12 @@ Any repository (model or dataset) stored in a non-default location displays its 
 
 <div class="flex justify-center" style="max-width: 550px">
   <img
-    class="block dark:hidden !m-0"
+    class="block dark:hidden m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/region-tag.png"
     alt="screenshot of Hugging Face Storage Regions tag feature"
   />
   <img
-    class="hidden dark:block !m-0"
+    class="hidden dark:block m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-region-tag.png"
     alt="screenshot of Hugging Face Storage Regions tag feature"
   />
@@ -70,12 +70,12 @@ This impact is substantial given the typically large size of model weights and d
 
 <div class="flex justify-center" style="max-width: 750px;">
   <img
-    class="block dark:hidden !m-0"
+    class="block dark:hidden m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/region-git-code.png"
     alt="example of Hugging Face Storage Regions feature"
   />
   <img
-    class="hidden dark:block !m-0"
+    class="hidden dark:block m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-region-git-code.png"
     alt="example of Hugging Face Storage Regions feature"
   />

@@ -8,12 +8,12 @@ Audit Logs enable organization admins to easily review actions taken by members,
 
 <div class="flex justify-center" style="max-width: 550px">
   <img
-    class="block dark:hidden !m-0"
+    class="block dark:hidden m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/audit-logs.png"
     alt="screenshot of Hugging Face Audit Logs feature"
   />
   <img
-    class="hidden dark:block !m-0"
+    class="hidden dark:block m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-audit-logs.png"
     alt="screenshot of Hugging Face Audit Logs feature"
   />

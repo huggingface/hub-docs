@@ -8,12 +8,12 @@ Single sign-on (SSO) allows organizations to securely manage user authentication
 
 <div class="flex justify-center" style="max-width: 550px">
   <img
-    class="block dark:hidden !m-0"
+    class="block dark:hidden m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/SSO.png"
     alt="screenshot of Hugging Face Single Sign-On (SSO) feature"
   />
   <img
-    class="hidden dark:block !m-0"
+    class="hidden dark:block m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-SSO.png"
     alt="screenshot of Hugging Face Single Sign-On (SSO) feature"
   />
