@@ -54,6 +54,8 @@
     title: Gated Models
   - local: models-uploading
     title: Uploading Models
+  - local: model-repo-layout
+    title: Model repository files
   - local: models-downloading
     title: Downloading Models
   - local: models-libraries
