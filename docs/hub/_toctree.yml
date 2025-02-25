@@ -58,7 +58,6 @@
     title: Model repository files
   - local: models-downloading
     title: Downloading Models
-  - local: model-repo-layout
   - local: models-libraries
     title: Integrated Libraries
     sections:
