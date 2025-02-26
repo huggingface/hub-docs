@@ -64,6 +64,7 @@ A full list of the available licenses is available here:
 | LaTeX Project Public License v1.3c                             | `lppl-1.3c`                              |
 | Microsoft Public License                                       | `ms-pl`                                  |
 | Apple Sample Code license                                      | `apple-ascl`                             | <!-- license: https://developer.apple.com/support/downloads/terms/apple-sample-code/Apple-Sample-Code-License.pdf -->
+| Apple Model License for Research                               | `apple-amlr`                             | <!-- license: https://huggingface.co/apple/deeplabv3-mobilevit-small/blob/main/LICENSE -->
 | Mozilla Public License 2.0                                     | `mpl-2.0`                                |
 | Open Data Commons License Attribution family                   | `odc-by`                                 |
 | Open Database License family                                   | `odbl`                                   |
