@@ -93,7 +93,7 @@ For example, the demo above can be embedded in these docs with the following tag
   frameborder="0"
   height="364"
   title="Streamlit app"
-  class="container p-0 flex-grow space-iframe"
+  class="container p-0 grow space-iframe"
   allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
 ></iframe>

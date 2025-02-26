@@ -12,12 +12,12 @@ ZeroGPU is a dynamic GPU allocation system that optimizes AI deployment on Huggi
 
 <div class="flex justify-center" style="max-width: 550px">
   <img
-    class="block dark:hidden !m-0"
+    class="block dark:hidden m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/advanced-compute-options-zero.png"
     alt="screenshot of Hugging Face Advanced Compute Options (ZeroGPU)"
   />
   <img
-    class="hidden dark:block !m-0"
+    class="hidden dark:block m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-advanced-compute-options-zero.png"
     alt="screenshot of Hugging Face Advanced Compute Options (ZeroGPU)"
   />
