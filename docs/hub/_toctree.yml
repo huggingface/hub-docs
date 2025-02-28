@@ -4,401 +4,403 @@
   title: Repositories
   isExpanded: true
   sections:
-  - local: repositories-getting-started
-    title: Getting Started with Repositories
-  - local: repositories-settings
-    title: Repository Settings
-  - local: repositories-pull-requests-discussions
-    title: Pull Requests & Discussions
-  - local: notifications
-    title: Notifications
-  - local: collections
-    title: Collections
-  - local: webhooks
-    title: Webhooks
-    sections:
-      - local: webhooks-guide-auto-retrain
-        title: "How-to: Automatic fine-tuning with Auto-Train"
-      - local: webhooks-guide-discussion-bot
-        title: "How-to: Build a Discussion bot based on BLOOM"
-      - local: webhooks-guide-metadata-review
-        title: "How-to: Create automatic metadata quality reports"
-  - local: notebooks
-    title: Notebooks
-  - local: storage-limits
-    title: Storage Limits
-  - local: repositories-next-steps
-    title: Next Steps
-  - local: repositories-licenses
-    title: Licenses
+    - local: repositories-getting-started
+      title: Getting Started with Repositories
+    - local: repositories-settings
+      title: Repository Settings
+    - local: repositories-pull-requests-discussions
+      title: Pull Requests & Discussions
+    - local: notifications
+      title: Notifications
+    - local: collections
+      title: Collections
+    - local: webhooks
+      title: Webhooks
+      sections:
+        - local: webhooks-guide-auto-retrain
+          title: "How-to: Automatic fine-tuning with Auto-Train"
+        - local: webhooks-guide-discussion-bot
+          title: "How-to: Build a Discussion bot based on BLOOM"
+        - local: webhooks-guide-metadata-review
+          title: "How-to: Create automatic metadata quality reports"
+    - local: notebooks
+      title: Notebooks
+    - local: storage-limits
+      title: Storage Limits
+    - local: repositories-next-steps
+      title: Next Steps
+    - local: repositories-licenses
+      title: Licenses
 - title: Models
   local: models
   isExpanded: true
   sections:
-  - local: models-the-hub
-    title: The Model Hub
-  - local: model-cards
-    title: Model Cards
-    sections:
-    - local: model-card-annotated
-      title: Annotated Model Card
-    - local: model-cards-co2
-      title: Carbon Emissions
-    - local: model-card-guidebook
-      title: Model Card Guidebook
-    - local: model-card-landscape-analysis
-      title: Landscape Analysis
-    - local: model-cards-components
-      title: Card Components
-  - local: models-gated
-    title: Gated Models
-  - local: models-uploading
-    title: Uploading Models
-  - local: models-downloading
-    title: Downloading Models
-  - local: models-libraries
-    title: Integrated Libraries
-    sections:
-      - local: adapters
-        title: Adapters
-      - local: allennlp
-        title: AllenNLP
-      - local: bertopic
-        title: BERTopic
-      - local: asteroid
-        title: Asteroid
-      - local: diffusers
-        title: Diffusers
-      - local: espnet
-        title: ESPnet
-      - local: fastai
-        title: fastai
-      - local: flair
-        title: Flair
-      - local: keras
-        title: Keras
-      - local: tf-keras
-        title: TF-Keras (legacy)
-      - local: ml-agents
-        title: ML-Agents
-      - local: mlx-image
-        title: mlx-image
-      - local: mlx
-        title: MLX
-      - local: open_clip
-        title: OpenCLIP
-      - local: paddlenlp
-        title: PaddleNLP
-      - local: peft
-        title: peft
-      - local: rl-baselines3-zoo
-        title: RL-Baselines3-Zoo
-      - local: sample-factory
-        title: Sample Factory
-      - local: sentence-transformers
-        title: Sentence Transformers
-      - local: setfit
-        title: SetFit
-      - local: spacy
-        title: spaCy
-      - local: span_marker
-        title: SpanMarker
-      - local: speechbrain
-        title: SpeechBrain
-      - local: stable-baselines3
-        title: Stable-Baselines3
-      - local: stanza
-        title: Stanza
-      - local: tensorboard
-        title: TensorBoard
-      - local: timm
-        title: timm
-      - local: transformers
-        title: Transformers
-      - local: transformers-js
-        title: Transformers.js
-      - local: unity-sentis
-        title: Unity Sentis
-  - local: models-widgets
-    title: Model Widgets
-    sections:
-      - local: models-widgets-examples
-        title: Widget Examples
-  - local: models-inference
-    title: Inference API docs
-  - local: models-download-stats
-    title: Models Download Stats
-  - local: models-faq
-    title: Frequently Asked Questions
-  - local: models-advanced
-    title: Advanced Topics
-    sections:
-      - local: models-adding-libraries
-        title: Integrate a library with the Hub
-      - local: models-tasks
-        title: Tasks
-      - local: gguf
-        title: GGUF
-        sections:
-          - local: gguf-llamacpp
-            title: GGUF usage with llama.cpp
-          - local: gguf-gpt4all
-            title: GGUF usage with GPT4All
-          - local: ollama
-            title: GGUF usage with Ollama
-      - local: dduf
-        title: DDUF
+    - local: models-the-hub
+      title: The Model Hub
+    - local: model-cards
+      title: Model Cards
+      sections:
+        - local: model-card-annotated
+          title: Annotated Model Card
+        - local: model-cards-co2
+          title: Carbon Emissions
+        - local: model-card-guidebook
+          title: Model Card Guidebook
+        - local: model-card-landscape-analysis
+          title: Landscape Analysis
+        - local: model-cards-components
+          title: Card Components
+    - local: models-gated
+      title: Gated Models
+    - local: models-uploading
+      title: Uploading Models
+    - local: models-downloading
+      title: Downloading Models
+    - local: models-libraries
+      title: Integrated Libraries
+      sections:
+        - local: adapters
+          title: Adapters
+        - local: allennlp
+          title: AllenNLP
+        - local: bertopic
+          title: BERTopic
+        - local: asteroid
+          title: Asteroid
+        - local: diffusers
+          title: Diffusers
+        - local: espnet
+          title: ESPnet
+        - local: fastai
+          title: fastai
+        - local: flair
+          title: Flair
+        - local: keras
+          title: Keras
+        - local: tf-keras
+          title: TF-Keras (legacy)
+        - local: ml-agents
+          title: ML-Agents
+        - local: mlx-image
+          title: mlx-image
+        - local: mlx
+          title: MLX
+        - local: open_clip
+          title: OpenCLIP
+        - local: paddlenlp
+          title: PaddleNLP
+        - local: peft
+          title: peft
+        - local: rl-baselines3-zoo
+          title: RL-Baselines3-Zoo
+        - local: sample-factory
+          title: Sample Factory
+        - local: sentence-transformers
+          title: Sentence Transformers
+        - local: setfit
+          title: SetFit
+        - local: spacy
+          title: spaCy
+        - local: span_marker
+          title: SpanMarker
+        - local: speechbrain
+          title: SpeechBrain
+        - local: stable-baselines3
+          title: Stable-Baselines3
+        - local: stanza
+          title: Stanza
+        - local: tensorboard
+          title: TensorBoard
+        - local: timm
+          title: timm
+        - local: transformers
+          title: Transformers
+        - local: transformers-js
+          title: Transformers.js
+        - local: unity-sentis
+          title: Unity Sentis
+    - local: models-widgets
+      title: Model Widgets
+      sections:
+        - local: models-widgets-examples
+          title: Widget Examples
+    - local: models-inference
+      title: Inference API docs
+    - local: models-download-stats
+      title: Models Download Stats
+    - local: models-faq
+      title: Frequently Asked Questions
+    - local: models-advanced
+      title: Advanced Topics
+      sections:
+        - local: models-adding-libraries
+          title: Integrate a library with the Hub
+        - local: models-tasks
+          title: Tasks
+        - local: gguf
+          title: GGUF
+          sections:
+            - local: gguf-llamacpp
+              title: GGUF usage with llama.cpp
+            - local: gguf-gpt4all
+              title: GGUF usage with GPT4All
+            - local: ollama
+              title: GGUF usage with Ollama
+        - local: dduf
+          title: DDUF
 - title: Datasets
   local: datasets
   isExpanded: true
   sections:
-  - local: datasets-overview
-    title: Datasets Overview
-  - local: datasets-cards
-    title: Dataset Cards
-  - local: datasets-gated
-    title: Gated Datasets
-  - local: datasets-adding
-    title: Uploading Datasets
-  - local: datasets-downloading
-    title: Downloading Datasets
-  - local: datasets-libraries
-    title: Integrated Libraries
-    sections:
-      - local: datasets-argilla
-        title: Argilla
-      - local: datasets-dask
-        title: Dask
-      - local: datasets-usage
-        title: Datasets
-      - local: datasets-distilabel
-        title: Distilabel
-      - local: datasets-duckdb
-        title: DuckDB
-        sections:
-          - local: datasets-duckdb-auth
-            title: Authentication for private and gated datasets
-          - local: datasets-duckdb-select
-            title: Query datasets
-          - local: datasets-duckdb-sql
-            title: Perform SQL operations
-          - local: datasets-duckdb-combine-and-export
-            title: Combine datasets and export
-          - local: datasets-duckdb-vector-similarity-search
-            title: Perform vector similarity search
-      - local: datasets-fiftyone
-        title: FiftyOne
-      - local: datasets-pandas
-        title: Pandas
-      - local: datasets-polars
-        title: Polars
-        sections:
-        - local: datasets-polars-auth
-          title: Authentication for private and gated datasets
-        - local: datasets-polars-file-formats
-          title: Supported file formats
-        - local: datasets-polars-operations
-          title: Performing data transformations
-        - local: datasets-polars-optimizations
-          title: Performance optimizations
-      - local: datasets-spark
-        title: Spark
-      - local: datasets-webdataset
-        title: WebDataset
-  - local: datasets-viewer
-    title: Dataset Viewer
-    sections:
-      - local: datasets-viewer-configure
-        title: Configure the Dataset Viewer
-      - local: datasets-viewer-embed
-        title: Embed the Dataset Viewer in a webpage
-      - local: datasets-viewer-sql-console
-        title: "SQL Console"
-  - local: datasets-download-stats
-    title: Datasets Download Stats
-  - local: datasets-data-files-configuration
-    title: Data files Configuration
-    sections:
-      - local: datasets-file-names-and-splits
-        title: File names and splits
-      - local: datasets-manual-configuration
-        title: Manual Configuration
-      - local: datasets-audio
-        title: Audio Dataset
-      - local: datasets-image
-        title: Image Dataset
+    - local: datasets-overview
+      title: Datasets Overview
+    - local: datasets-cards
+      title: Dataset Cards
+    - local: datasets-gated
+      title: Gated Datasets
+    - local: datasets-adding
+      title: Uploading Datasets
+    - local: datasets-downloading
+      title: Downloading Datasets
+    - local: datasets-libraries
+      title: Integrated Libraries
+      sections:
+        - local: datasets-argilla
+          title: Argilla
+        - local: datasets-dask
+          title: Dask
+        - local: datasets-usage
+          title: Datasets
+        - local: datasets-distilabel
+          title: Distilabel
+        - local: datasets-duckdb
+          title: DuckDB
+          sections:
+            - local: datasets-duckdb-auth
+              title: Authentication for private and gated datasets
+            - local: datasets-duckdb-select
+              title: Query datasets
+            - local: datasets-duckdb-sql
+              title: Perform SQL operations
+            - local: datasets-duckdb-combine-and-export
+              title: Combine datasets and export
+            - local: datasets-duckdb-vector-similarity-search
+              title: Perform vector similarity search
+        - local: datasets-fiftyone
+          title: FiftyOne
+        - local: datasets-pandas
+          title: Pandas
+        - local: datasets-polars
+          title: Polars
+          sections:
+            - local: datasets-polars-auth
+              title: Authentication for private and gated datasets
+            - local: datasets-polars-file-formats
+              title: Supported file formats
+            - local: datasets-polars-operations
+              title: Performing data transformations
+            - local: datasets-polars-optimizations
+              title: Performance optimizations
+        - local: datasets-spark
+          title: Spark
+        - local: datasets-webdataset
+          title: WebDataset
+    - local: datasets-viewer
+      title: Dataset Viewer
+      sections:
+        - local: datasets-viewer-configure
+          title: Configure the Dataset Viewer
+        - local: datasets-viewer-embed
+          title: Embed the Dataset Viewer in a webpage
+        - local: datasets-viewer-sql-console
+          title: "SQL Console"
+    - local: datasets-download-stats
+      title: Datasets Download Stats
+    - local: datasets-data-files-configuration
+      title: Data files Configuration
+      sections:
+        - local: datasets-file-names-and-splits
+          title: File names and splits
+        - local: datasets-manual-configuration
+          title: Manual Configuration
+        - local: datasets-audio
+          title: Audio Dataset
+        - local: datasets-image
+          title: Image Dataset
 - local: spaces
   title: Spaces
   isExpanded: true
   sections:
-  - local: spaces-overview
-    title: Spaces Overview
-    sections:
-    - local: spaces-dependencies
-      title: Handling Spaces Dependencies
-    - local: spaces-settings
-      title: Spaces Settings
-    - local: spaces-organization-cards
-      title: Using Spaces for Organization Cards
-  - local: spaces-gpus
-    title: Spaces GPU Upgrades
-  - local: spaces-zerogpu
-    title: Spaces ZeroGPU
-  - local: spaces-dev-mode
-    title: Spaces Dev Mode
-  - local: spaces-storage
-    title: Spaces Persistent Storage
-  - local: spaces-sdks-gradio
-    title: Gradio Spaces
-  - local: spaces-sdks-streamlit
-    title: Streamlit Spaces
-  - local: spaces-sdks-static
-    title: Static HTML Spaces
-  - local: spaces-sdks-docker
-    title: Docker Spaces
-    sections:
-      - local: spaces-sdks-docker-first-demo
-        title: Your first Docker Spaces
-      - local: spaces-sdks-docker-examples
-        title: Example Docker Spaces
-      - local: spaces-sdks-docker-jupyter
-        title: JupyterLab on Spaces
-      - local: spaces-sdks-docker-argilla
-        title: Argilla on Spaces
-      - local: spaces-sdks-docker-livebook
-        title: Livebook on Spaces
-      - local: spaces-sdks-docker-label-studio
-        title: Label Studio on Spaces
-      - local: spaces-sdks-docker-aim
-        title: Aim on Spaces
-      - local: spaces-sdks-docker-shiny
-        title: Shiny on Spaces
-      - local: spaces-sdks-docker-zenml
-        title: ZenML on Spaces
-      - local: spaces-sdks-docker-chatui
-        title: ChatUI on Spaces
-      - local: spaces-sdks-docker-panel
-        title: Panel on Spaces
-      - local: spaces-sdks-docker-tabby
-        title: Tabby on Spaces
-      - local: spaces-sdks-docker-giskard
-        title: Giskard on Spaces
-      - local: spaces-sdks-docker-evidence
-        title: Evidence on Spaces
-      - local: spaces-sdks-docker-marimo
-        title: marimo on Spaces
-      - local: spaces-sdks-docker-langfuse
-        title: Langfuse on Spaces
-  - local: spaces-embed
-    title: Embed your Space
-  - local: spaces-run-with-docker
-    title: Run Spaces with Docker
-  - local: spaces-config-reference
-    title: Spaces Configuration Reference
-  - local: spaces-oauth
-    title: Sign-In with HF button
-  - local: spaces-changelog
-    title: Spaces Changelog
-  - local: spaces-advanced
-    title: Advanced Topics
-    sections:
-    - local: spaces-using-opencv
-      title: Using OpenCV in Spaces
-    - local: spaces-more-ways-to-create
-      title: More ways to create Spaces
-    - local: spaces-github-actions
-      title: Managing Spaces with Github Actions
-    - local: spaces-circleci
-      title: Managing Spaces with CircleCI Workflows
-    - local: spaces-sdks-python
-      title: Custom Python Spaces
-    - local: spaces-add-to-arxiv
-      title: How to Add a Space to ArXiv
-    - local: spaces-cookie-limitations
-      title: Cookie limitations in Spaces
-    - local: spaces-handle-url-parameters
-      title: Set URL query and hash
+    - local: spaces-overview
+      title: Spaces Overview
+      sections:
+        - local: spaces-dependencies
+          title: Handling Spaces Dependencies
+        - local: spaces-settings
+          title: Spaces Settings
+        - local: spaces-organization-cards
+          title: Using Spaces for Organization Cards
+    - local: spaces-gpus
+      title: Spaces GPU Upgrades
+    - local: spaces-zerogpu
+      title: Spaces ZeroGPU
+    - local: spaces-dev-mode
+      title: Spaces Dev Mode
+    - local: spaces-storage
+      title: Spaces Persistent Storage
+    - local: spaces-sdks-gradio
+      title: Gradio Spaces
+    - local: spaces-sdks-streamlit
+      title: Streamlit Spaces
+    - local: spaces-sdks-static
+      title: Static HTML Spaces
+    - local: spaces-sdks-docker
+      title: Docker Spaces
+      sections:
+        - local: spaces-sdks-docker-first-demo
+          title: Your first Docker Spaces
+        - local: spaces-sdks-docker-examples
+          title: Example Docker Spaces
+        - local: spaces-sdks-docker-jupyter
+          title: JupyterLab on Spaces
+        - local: spaces-sdks-docker-argilla
+          title: Argilla on Spaces
+        - local: spaces-sdks-docker-livebook
+          title: Livebook on Spaces
+        - local: spaces-sdks-docker-label-studio
+          title: Label Studio on Spaces
+        - local: spaces-sdks-docker-aim
+          title: Aim on Spaces
+        - local: spaces-sdks-docker-shiny
+          title: Shiny on Spaces
+        - local: spaces-sdks-docker-zenml
+          title: ZenML on Spaces
+        - local: spaces-sdks-docker-chatui
+          title: ChatUI on Spaces
+        - local: spaces-sdks-docker-panel
+          title: Panel on Spaces
+        - local: spaces-sdks-docker-tabby
+          title: Tabby on Spaces
+        - local: spaces-sdks-docker-giskard
+          title: Giskard on Spaces
+        - local: spaces-sdks-docker-evidence
+          title: Evidence on Spaces
+        - local: spaces-sdks-docker-marimo
+          title: marimo on Spaces
+        - local: spaces-sdks-docker-langfuse
+          title: Langfuse on Spaces
+        - local: spaces-sdks-docker-dash
+          title: Plotly Dash on Spaces
+    - local: spaces-embed
+      title: Embed your Space
+    - local: spaces-run-with-docker
+      title: Run Spaces with Docker
+    - local: spaces-config-reference
+      title: Spaces Configuration Reference
+    - local: spaces-oauth
+      title: Sign-In with HF button
+    - local: spaces-changelog
+      title: Spaces Changelog
+    - local: spaces-advanced
+      title: Advanced Topics
+      sections:
+        - local: spaces-using-opencv
+          title: Using OpenCV in Spaces
+        - local: spaces-more-ways-to-create
+          title: More ways to create Spaces
+        - local: spaces-github-actions
+          title: Managing Spaces with Github Actions
+        - local: spaces-circleci
+          title: Managing Spaces with CircleCI Workflows
+        - local: spaces-sdks-python
+          title: Custom Python Spaces
+        - local: spaces-add-to-arxiv
+          title: How to Add a Space to ArXiv
+        - local: spaces-cookie-limitations
+          title: Cookie limitations in Spaces
+        - local: spaces-handle-url-parameters
+          title: Set URL query and hash
 - local: other
   title: Other
   isExpanded: true
   sections:
-  - local: organizations
-    title: Organizations
-    sections:
-    - local: organizations-managing
-      title: Managing Organizations
-    - local: organizations-cards
-      title: Organization Cards
-    - local: organizations-security
-      title: Access Control in Organizations
-  - local: enterprise-hub
-    title: Enterprise Hub
-    sections:
-    - local: enterprise-sso
-      title: Single Sign-On (SSO)
-    - local: audit-logs
-      title: Audit Logs
-    - local: storage-regions
-      title: Storage Regions
-    - local: enterprise-hub-datasets
-      title: Dataset viewer for Private datasets
-    - local: enterprise-hub-resource-groups
-      title: Resource Groups (Access Control)
-    - local: advanced-compute-options
-      title: Advanced Compute Options
-    - local: enterprise-hub-advanced-security
-      title: Advanced Security
-    - local: enterprise-hub-tokens-management
-      title: Tokens Management
-    - local: enterprise-hub-analytics
-      title: Analytics
-    - local: enterprise-hub-network-security
-      title: Network Security
-    - local: enterprise-hub-gating-group-collections
-      title: Gating Group Collections
-  - local: billing
-    title: Billing
-  - local: security
-    title: Security
-    sections:
-    - local: security-tokens
-      title: User Access Tokens
-    - local: security-2fa
-      title: Two-Factor Authentication
-    - local: security-git-ssh
-      title: Git over SSH
-    - local: security-gpg
-      title: Signing Commits with GPG
-    - local: security-sso
-      title: Single Sign-On (SSO)
+    - local: organizations
+      title: Organizations
       sections:
-      - local: security-sso-okta-oidc
-        title: How to configure OIDC with Okta in the Hub
-      - local: security-sso-okta-saml
-        title: How to configure SAML with Okta in the Hub
-      - local: security-sso-azure-saml
-        title: How to configure SAML with Azure in the Hub
-      - local: security-sso-azure-oidc
-        title: How to configure OIDC with Azure in the Hub
-    - local: security-resource-groups
-      title: Advanced Access Control (Resource Groups)
-    - local: security-malware
-      title: Malware Scanning
-    - local: security-pickle
-      title: Pickle Scanning
-    - local: security-secrets
-      title: Secrets Scanning
-    - local: security-protectai
-      title: "Protect AI"
-  - local: moderation
-    title: Moderation
-  - local: paper-pages
-    title: Paper Pages
-  - local: search
-    title: Search
-  - local: doi
-    title: Digital Object Identifier (DOI)
-  - local: api
-    title: Hub API Endpoints
-  - local: oauth
-    title: Sign-In with HF
+        - local: organizations-managing
+          title: Managing Organizations
+        - local: organizations-cards
+          title: Organization Cards
+        - local: organizations-security
+          title: Access Control in Organizations
+    - local: enterprise-hub
+      title: Enterprise Hub
+      sections:
+        - local: enterprise-sso
+          title: Single Sign-On (SSO)
+        - local: audit-logs
+          title: Audit Logs
+        - local: storage-regions
+          title: Storage Regions
+        - local: enterprise-hub-datasets
+          title: Dataset viewer for Private datasets
+        - local: enterprise-hub-resource-groups
+          title: Resource Groups (Access Control)
+        - local: advanced-compute-options
+          title: Advanced Compute Options
+        - local: enterprise-hub-advanced-security
+          title: Advanced Security
+        - local: enterprise-hub-tokens-management
+          title: Tokens Management
+        - local: enterprise-hub-analytics
+          title: Analytics
+        - local: enterprise-hub-network-security
+          title: Network Security
+        - local: enterprise-hub-gating-group-collections
+          title: Gating Group Collections
+    - local: billing
+      title: Billing
+    - local: security
+      title: Security
+      sections:
+        - local: security-tokens
+          title: User Access Tokens
+        - local: security-2fa
+          title: Two-Factor Authentication
+        - local: security-git-ssh
+          title: Git over SSH
+        - local: security-gpg
+          title: Signing Commits with GPG
+        - local: security-sso
+          title: Single Sign-On (SSO)
+          sections:
+            - local: security-sso-okta-oidc
+              title: How to configure OIDC with Okta in the Hub
+            - local: security-sso-okta-saml
+              title: How to configure SAML with Okta in the Hub
+            - local: security-sso-azure-saml
+              title: How to configure SAML with Azure in the Hub
+            - local: security-sso-azure-oidc
+              title: How to configure OIDC with Azure in the Hub
+        - local: security-resource-groups
+          title: Advanced Access Control (Resource Groups)
+        - local: security-malware
+          title: Malware Scanning
+        - local: security-pickle
+          title: Pickle Scanning
+        - local: security-secrets
+          title: Secrets Scanning
+        - local: security-protectai
+          title: "Protect AI"
+    - local: moderation
+      title: Moderation
+    - local: paper-pages
+      title: Paper Pages
+    - local: search
+      title: Search
+    - local: doi
+      title: Digital Object Identifier (DOI)
+    - local: api
+      title: Hub API Endpoints
+    - local: oauth
+      title: Sign-In with HF
