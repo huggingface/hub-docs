@@ -24,11 +24,11 @@ Key Features of Academia Hub:
 - **ZeroGPU:** Get 5x usage quota and highest GPU queue priority.
 - **Spaces Hosting:** Create ZeroGPU Spaces with A100 hardware.
 - **Spaces Dev Mode:** Fast iterations via SSH/VS Code for Spaces.
+- **Inference Providers:** Get monthly included credits across all Inference Providers.
 - **HF Inference API:** Get x20 higher rate limits on HF Serverless API.
 - **Dataset Viewer:** Activate it on private datasets.
 - **Blog Articles:** Publish articles to the Hugging Face blog.
 - **Social Posts:** Share short updates with the community.
-- **Inference Providers:** Get $2 included credits across all Inference Providers.
 - **Seamless Onboarding:** Quick and secure sign-up with your academic email.
 - **Enhanced Collaboration:** Connect with peers and mentors.
 - **Exclusive Resources:** Access datasets, models, and projects tailored for academia.
@@ -37,7 +37,8 @@ Key Features of Academia Hub:
 
 - Must possess a valid university or college email address.
 - Open to all students regardless of discipline or level of study.
-- Pricing: Academia Hub is priced based on volume of usage and number of active users. 
+- Pricing: Academia Hub is priced based on volume of usage and number of active users at your institution.
+
 #### Subscribe
 
 
@@ -45,4 +46,4 @@ Key Features of Academia Hub:
 
 #### Private storage
 
-Academia Hub includes 1TB of [private repository storage](./storage-limits) per seat in the subscription, i.e. if your institution has 400 students and faculty, then you have 400TB included storage for their private models and datasets.
+Academia Hub includes 1TB of [private repository storage](./storage-limits) per seat in the subscription, i.e. if your institution has 400 students and faculty, your students and faculty have 400TB included storage accross their private models and datasets.
