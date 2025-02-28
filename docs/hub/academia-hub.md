@@ -1,0 +1,49 @@
+# Academia Hub
+
+<Tip>
+<a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Get in touch</a> from your university-affiliated email address to initiate the subscription process.
+</Tip>
+
+Academia Hub provides the Hugging Face Hub’s PRO features to every student, researcher, or faculty member of an academic institution. Explore advanced tools, enhanced collaboration, and exclusive resources to accelerate your learning, research, and teaching.
+
+<a href="https://huggingface.co/contact/sales?from=academia" class="flex justify-center">
+    <img class="block" src="https://huggingface.co/datasets/julien-c/documentation-images/resolve/main/AcademiaHub.png" />
+</a>
+
+#### How does it work
+
+Any affiliated user will need to add their `@your-university-name.edu` email address to their HF account.
+
+Academia Hub is designed for:
+- **Students:** Unlock powerful features to learn about AI and Machine learning in the most efficient way.
+- **Researchers:** Collaborate with peers using the standard AI ecosystem of tools.
+- **Faculty members:** Enhance your classes' projects with PRO capabilities.
+
+Key Features of Academia Hub:
+
+- **ZeroGPU:** Get 5x usage quota and highest GPU queue priority.
+- **Spaces Hosting:** Create ZeroGPU Spaces with A100 hardware.
+- **Spaces Dev Mode:** Fast iterations via SSH/VS Code for Spaces.
+- **Inference Providers:** Get monthly included credits across all Inference Providers.
+- **HF Inference API:** Get x20 higher rate limits on HF Serverless API.
+- **Dataset Viewer:** Activate it on private datasets.
+- **Blog Articles:** Publish articles to the Hugging Face blog.
+- **Social Posts:** Share short updates with the community.
+- **Seamless Onboarding:** Quick and secure sign-up with your academic email.
+- **Enhanced Collaboration:** Connect with peers and mentors.
+- **Exclusive Resources:** Access datasets, models, and projects tailored for academia.
+
+#### Eligibility
+
+- Must possess a valid university or college email address.
+- Open to all students regardless of discipline or level of study.
+- Pricing: Academia Hub is priced based on volume of usage and number of active users at your institution.
+
+#### Subscribe
+
+
+<a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Get in touch</a> or send an email to academia@hf.co to initiate the subscription process to the Academia Hub today.
+
+#### Private storage
+
+Academia Hub includes 1TB of [private repository storage](./storage-limits) per seat in the subscription, i.e. if your institution has 400 students and faculty, your students and faculty have 400TB included storage accross their private models and datasets.
