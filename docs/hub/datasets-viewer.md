@@ -30,8 +30,8 @@ You can search for a word in the dataset by typing it in the search bar at the t
 You can run SQL queries on the dataset in the browser using the SQL Console. This feature also leverages our [auto-conversion to Parquet](datasets-viewer#access-the-parquet-files). 
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai.png" width=600/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai-dark.png" width=600/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai.png" />
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai-dark.png"/>
 </div>
 
 For more information see our guide on [SQL Console](./datasets-viewer-sql-console). 
@@ -69,8 +69,8 @@ Parquet is a columnar storage format optimized for querying and processing large
 When you create a new dataset, the [`parquet-converter` bot](https://huggingface.co/parquet-converter) notifies you once it converts the dataset to Parquet. The [discussion](./repositories-pull-requests-discussions) it opens in the repository provides details about the Parquet format and links to the Parquet files.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/parquet-converter-profile-light.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/parquet-converter-profile-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/parquet-converter-profile-light.png" width=600/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/parquet-converter-profile-dark.png" width=600/>
 </div>
 
 ### Programmatic access
