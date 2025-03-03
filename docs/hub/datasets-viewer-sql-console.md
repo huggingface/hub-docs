@@ -3,8 +3,8 @@
 You can run SQL queries on the dataset in the browser using the SQL Console. The SQL Console is powered by [DuckDB](https://duckdb.org/) WASM and runs entirely in the browser. You can access the SQL Console from the Data Studio.
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai.png" width=600/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai-dark.png" width=600/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai-dark.png"/>
 </div>
 
 <p class="text-sm text-center italic">
@@ -32,48 +32,44 @@ You can also use the DuckDB locally through the CLI to query the dataset via the
 The SQL Console makes filtering datasets really easy. For example, if you want to filter the `SkunkworksAI/reasoning-0.01` dataset for instructions and responses with a reasoning length of at least 10, you can use the following query:
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/bar-struct-length.png"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/bar-struct-length-dark.png"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-filtering.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-filtering-dark.png"/>
 </div>
 
-In the query, we can use the `len` function to get the length of the `reasoning_chains` column and the `bar` function to create a bar chart of the reasoning lengths.
-
+Here's the SQL to sort by length of the reasoning
 ```sql
-SELECT len(reasoning_chains) AS reason_len, bar(reason_len, 0, 100), * 
+SELECT *
 FROM train
-WHERE reason_len > 10
-ORDER BY reason_len DESC
+WHERE LENGTH(reasoning_chains) > 10;
 ```
-
-The [bar](https://duckdb.org/docs/sql/functions/char.html#barx-min-max-width) function is a neat built-in DuckDB function that creates a bar chart of the reasoning lengths.
 
 ### Histogram
 
 Many dataset authors choose to include statistics about the distribution of the data in the dataset. Using the DuckDB `histogram` function, we can plot a histogram of a column's values.
 
-For example, to plot a histogram of the `reason_len` column in the `SkunkworksAI/reasoning-0.01` dataset, you can use the following query:
+For example, to plot a histogram of the `Rating` column in the [Lichess/chess-puzzles](https://huggingface.co/datasets/Lichess/chess-puzzles) dataset, you can use the following query:
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/histogram-simple.png"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/histogram-simple-dark.png"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-histogram.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-histogram-dark.png"/>
 </div>
 <p class="text-sm text-center italic">
     Learn more about the `histogram` function and parameters <a href="https://cfahlgren1-sql-snippets.hf.space/histogram" target="_blank" rel="noopener noreferrer">here</a>.
 </p>
 
 ```sql
-FROM histogram(train, len(reasoning_chains))
+from histogram(train, Rating)
 ```
 
 ### Regex Matching
 
 One of the most powerful features of DuckDB is the deep support for regular expressions. You can use the `regexp` function to match patterns in your data.
 
- Using the [regexp_matches](https://duckdb.org/docs/sql/functions/char.html#regexp_matchesstring-pattern) function, we can filter the `SkunkworksAI/reasoning-0.01` dataset for instructions that contain markdown code blocks.
+ Using the [regexp_matches](https://duckdb.org/docs/sql/functions/char.html#regexp_matchesstring-pattern) function, we can filter the [GeneralReasoning/GeneralThought-195k](https://huggingface.co/datasets/GeneralReasoning/GeneralThought-195K) dataset for instructions that contain markdown code blocks.
 
  <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/regex-matching-markdown-code.png"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/regex-matching-markdown-code-dark.png"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-regex.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-regex-dark.png"/>
 </div>
 <p class="text-sm text-center italic">
     Learn more about the DuckDB regex functions <a href="https://duckdb.org/docs/sql/functions/regular_expressions.html" target="_blank" rel="noopener noreferrer">here</a>.
@@ -81,10 +77,10 @@ One of the most powerful features of DuckDB is the deep support for regular expr
 
 
 ```sql
-SELECT * 
+SELECT *
 FROM train
-WHERE regexp_matches(instruction, '```[a-z]*\n')
-limit 100
+WHERE regexp_matches(model_answer, '```')
+LIMIT 10;
 ```
 
 
@@ -93,8 +89,8 @@ limit 100
 Leakage detection is the process of identifying whether data in a dataset is present in multiple splits, for example, whether the test set is present in the training set.
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/leakage-detection.png"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sql_console/leakage-detection-dark.png"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-leakage.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-leakage-dark.png"/>
 </div>
 
 <p class="text-sm text-center italic">
