@@ -1,10 +1,10 @@
-# Dataset viewer
+# Data Studio
 
 Each dataset page includes a table with the contents of the dataset, arranged by pages of 100 rows. You can navigate between pages using the buttons at the bottom of the table.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-dark.png"/>
 </div>
 
 ## Inspect data distributions
@@ -16,6 +16,11 @@ At the top of the columns you can see the graphs representing the distribution o
 If you click on a bar of a histogram from a numerical column, the dataset viewer will filter the data and show only the rows with values that fall in the selected range.
 Similarly, if you select one class from a categorical column, it will show only the rows from the selected category.
 
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-filter.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-filter-dark.png"/>
+</div>
+
 ## Search a word in the dataset
 
 You can search for a word in the dataset by typing it in the search bar at the top of the table. The search is case-insensitive and will match any row containing the word. The text is searched in the columns of `string`, even if the values are nested in a dictionary or a list.
@@ -23,11 +28,22 @@ You can search for a word in the dataset by typing it in the search bar at the t
 ## Run SQL queries on the dataset
 
 You can run SQL queries on the dataset in the browser using the SQL Console. This feature also leverages our [auto-conversion to Parquet](datasets-viewer#access-the-parquet-files). 
-For more information see our guide on [SQL Console](./datasets-viewer-sql-console).
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai.png" width=600/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai-dark.png" width=600/>
+</div>
+
+For more information see our guide on [SQL Console](./datasets-viewer-sql-console). 
 
 ## Share a specific row
 
-You can share a specific row by clicking on it, and then copying the URL in the address bar of your browser. For example https://huggingface.co/datasets/nyu-mll/glue/viewer/mrpc/test?p=2&row=241 will open the dataset viewer on the MRPC dataset, on the test split, and on the 241st row.
+You can share a specific row by clicking on it, and then copying the URL in the address bar of your browser. For example https://huggingface.co/datasets/nyu-mll/glue/viewer/mrpc/test?p=2&row=241 will open the dataset studio on the MRPC dataset, on the test split, and on the 241st row.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-row.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-row-dark.png"/>
+</div>
 
 ## Large scale datasets
 
