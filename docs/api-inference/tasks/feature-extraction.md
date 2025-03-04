@@ -40,7 +40,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/thenlper/gte-large \
+curl https://router.huggingface.co/hf-inference/models/thenlper/gte-large \
 	-X POST \
 	-d '{"inputs": "Today is a sunny day and I will get some ice cream."}' \
 	-H 'Content-Type: application/json' \
@@ -49,10 +49,30 @@ curl https://api-inference.huggingface.co/models/thenlper/gte-large \
 </curl>
 
 <python>
+Using `huggingface_hub`:
+```py
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+	provider="hf-inference",
+	api_key="hf_***"
+)
+
+result = client.feature_extraction(
+	model="thenlper/gte-large",
+	inputs="Today is a sunny day and I will get some ice cream.",
+	provider="hf-inference",
+)
+
+print(result)
+
+```
+
+Using `requests`:
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/thenlper/gte-large"
+API_URL = "https://router.huggingface.co/hf-inference/v1"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -68,10 +88,27 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 </python>
 
 <js>
+Using `huggingface.js`:
+```js
+import { HfInference } from "@huggingface/inference";
+
+const client = new HfInference("hf_***");
+
+const output = await client.featureExtraction({
+	model: "thenlper/gte-large",
+	inputs: "Today is a sunny day and I will get some ice cream.",
+	provider: "hf-inference",
+});
+
+console.log(output);
+
+```
+
+Using `fetch`:
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/thenlper/gte-large",
+		"https://router.huggingface.co/hf-inference/models/thenlper/gte-large",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -103,7 +140,9 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 
 | Payload |  |  |
 | :--- | :--- | :--- |
-| **inputs*** | _string_ | The text to embed. |
+| **inputs*** | _unknown_ | One of the following: |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#1)** | _string_ |  |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#2)** | _string[]_ |  |
 | **normalize** | _boolean_ |  |
 | **prompt_name** | _string_ | The name of the prompt that should be used by for encoding. If not set, no prompt will be applied.  Must be a key in the `sentence-transformers` configuration `prompts` dictionary.  For example if ``prompt_name`` is "query" and the ``prompts`` is {"query": "query: ", ...}, then the sentence "What is the capital of France?" will be encoded as "query: What is the capital of France?" because the prompt text will be prepended before any text to encode. |
 | **truncate** | _boolean_ |  |

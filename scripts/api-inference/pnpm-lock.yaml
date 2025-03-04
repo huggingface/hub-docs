@@ -8,9 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@huggingface/inference':
+        specifier: ^3.5.0
+        version: 3.5.0
       '@huggingface/tasks':
-        specifier: ^0.14.0
-        version: 0.14.0
+        specifier: ^0.17.0
+        version: 0.17.0
       '@types/node':
         specifier: ^22.5.0
         version: 22.5.0
@@ -186,8 +189,12 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@huggingface/tasks@0.14.0':
-    resolution: {integrity: sha512-N7Zb5dX2Pl/fGBZ3dOCtjdvTr1CmVQ0ZRE/6VLqXsPeSYI+aoOUnICDya6lvo8INJYGCvjrgTM3keBeed/mfjg==}
+  '@huggingface/inference@3.5.0':
+    resolution: {integrity: sha512-5IKkI/HJDDWg5aVWyd60kj27L9Kwxyyvu64U1To4/HzsZj13flqv2rJMrT6OB0izvFwTfUN1SDrrA5OH3YbxQQ==}
+    engines: {node: '>=18'}
+
+  '@huggingface/tasks@0.17.0':
+    resolution: {integrity: sha512-tRF2gBBgt71VGTZa5Per7HzDWkQ+gzR6Ay2X2i0Cf9FJTMoHBIK0JJQ3W4wL1g4ebdDWiDppganqz8Upy3Hy4A==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -404,7 +411,11 @@ snapshots:
   '@esbuild/win32-x64@0.23.1':
     optional: true
 
-  '@huggingface/tasks@0.14.0': {}
+  '@huggingface/inference@3.5.0':
+    dependencies:
+      '@huggingface/tasks': 0.17.0
+
+  '@huggingface/tasks@0.17.0': {}
 
   '@jridgewell/resolve-uri@3.1.2': {}
 

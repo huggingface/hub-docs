@@ -30,7 +30,7 @@ For more details about the `automatic-speech-recognition` task, check out its [d
 ### Recommended models
 
 - [openai/whisper-large-v3](https://huggingface.co/openai/whisper-large-v3): A powerful ASR model by OpenAI.
-- [pyannote/speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1): Powerful speaker diarization model.
+- [facebook/seamless-m4t-v2-large](https://huggingface.co/facebook/seamless-m4t-v2-large): An end-to-end model that performs ASR and Speech Translation by MetaAI.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=automatic-speech-recognition&sort=trending).
 
@@ -41,7 +41,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/openai/whisper-large-v3 \
+curl https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3 \
 	-X POST \
 	--data-binary '@sample1.flac' \
 	-H 'Authorization: Bearer hf_***'
@@ -52,14 +52,14 @@ curl https://api-inference.huggingface.co/models/openai/whisper-large-v3 \
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v3"
+API_URL = "https://router.huggingface.co/hf-inference/v1"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
-    with open(filename, "rb") as f:
-        data = f.read()
-    response = requests.post(API_URL, headers=headers, data=data)
-    return response.json()
+	with open(filename, "rb") as f:
+		data = f.read()
+	response = requests.post(API_URL, headers=headers, data=data)
+	return response.json()
 
 output = query("sample1.flac")
 ```
@@ -68,11 +68,30 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 </python>
 
 <js>
+Using `huggingface.js`:
+```js
+import { HfInference } from "@huggingface/inference";
+
+const client = new HfInference("hf_***");
+
+const data = fs.readFileSync("sample1.flac");
+
+const output = await client.automaticSpeechRecognition({
+	data,
+	model: "openai/whisper-large-v3",
+	provider: "hf-inference",
+});
+
+console.log(output);
+
+```
+
+Using `fetch`:
 ```js
 async function query(filename) {
 	const data = fs.readFileSync(filename);
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/openai/whisper-large-v3",
+		"https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -143,5 +162,5 @@ For more information about Inference API headers, check out the parameters [guid
 | **text** | _string_ | The recognized text. |
 | **chunks** | _object[]_ | When returnTimestamps is enabled, chunks contains a list of audio chunks identified by the model. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text** | _string_ | A chunk of text identified by the model |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamps** | _number[]_ | The start and end timestamps corresponding with the text |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp** | _number[]_ | The start and end timestamps corresponding with the text |
 

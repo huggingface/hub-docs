@@ -38,7 +38,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/dslim/bert-base-NER \
+curl https://router.huggingface.co/hf-inference/models/dslim/bert-base-NER \
 	-X POST \
 	-d '{"inputs": "My name is Sarah Jessica Parker but you can call me Jessica"}' \
 	-H 'Content-Type: application/json' \
@@ -47,10 +47,30 @@ curl https://api-inference.huggingface.co/models/dslim/bert-base-NER \
 </curl>
 
 <python>
+Using `huggingface_hub`:
+```py
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+	provider="hf-inference",
+	api_key="hf_***"
+)
+
+result = client.token_classification(
+	model="dslim/bert-base-NER",
+	inputs="My name is Sarah Jessica Parker but you can call me Jessica",
+	provider="hf-inference",
+)
+
+print(result)
+
+```
+
+Using `requests`:
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/dslim/bert-base-NER"
+API_URL = "https://router.huggingface.co/hf-inference/v1"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -66,10 +86,27 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 </python>
 
 <js>
+Using `huggingface.js`:
+```js
+import { HfInference } from "@huggingface/inference";
+
+const client = new HfInference("hf_***");
+
+const output = await client.tokenClassification({
+	model: "dslim/bert-base-NER",
+	inputs: "My name is Sarah Jessica Parker but you can call me Jessica",
+	provider: "hf-inference",
+});
+
+console.log(output);
+
+```
+
+Using `fetch`:
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/dslim/bert-base-NER",
+		"https://router.huggingface.co/hf-inference/models/dslim/bert-base-NER",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",

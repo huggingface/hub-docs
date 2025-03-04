@@ -25,6 +25,7 @@ For more details about the `text-to-image` task, check out its [dedicated page](
 ### Recommended models
 
 - [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev): One of the most powerful image generation models that can generate realistic outputs.
+- [Kwai-Kolors/Kolors](https://huggingface.co/Kwai-Kolors/Kolors): Text-to-image model for photorealistic generation.
 - [stabilityai/stable-diffusion-3-medium-diffusers](https://huggingface.co/stabilityai/stable-diffusion-3-medium-diffusers): A powerful text-to-image model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-to-image&sort=trending).
@@ -36,7 +37,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev \
+curl https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev \
 	-X POST \
 	-d '{"inputs": "Astronaut riding a horse"}' \
 	-H 'Content-Type: application/json' \
@@ -48,22 +49,30 @@ curl https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev \
 Using `huggingface_hub`:
 ```py
 from huggingface_hub import InferenceClient
-client = InferenceClient("black-forest-labs/FLUX.1-dev", token="hf_***")
+
+client = InferenceClient(
+	provider="hf-inference",
+	api_key="hf_***"
+)
 
 # output is a PIL.Image object
-image = client.text_to_image("Astronaut riding a horse")
+image = client.text_to_image(
+	"Astronaut riding a horse",
+	model="black-forest-labs/FLUX.1-dev"
+)
 ```
 
 Using `requests`:
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev"
+API_URL = "https://router.huggingface.co/hf-inference/v1"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.content
+
 image_bytes = query({
 	"inputs": "Astronaut riding a horse",
 })
@@ -78,10 +87,27 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 </python>
 
 <js>
+Using `huggingface.js`:
+```js
+import { HfInference } from "@huggingface/inference";
+
+const client = new HfInference("hf_***");
+
+const image = await client.textToImage({
+	model: "black-forest-labs/FLUX.1-dev",
+	inputs: "Astronaut riding a horse",
+	parameters: { num_inference_steps: 5 },
+	provider: "hf-inference",
+});
+/// Use the generated image (it's a Blob)
+
+```
+
+Using `fetch`:
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev",
+		"https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -117,9 +143,8 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guidance_scale** | _number_ | A higher guidance scale value encourages the model to generate images closely linked to the text prompt, but values too high may cause saturation and other artifacts. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;negative_prompt** | _string_ | One prompt to guide what NOT to include in image generation. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num_inference_steps** | _integer_ | The number of denoising steps. More denoising steps usually lead to a higher quality image at the expense of slower inference. |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target_size** | _object_ | The size in pixel of the output image |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width*** | _integer_ |  |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height*** | _integer_ |  |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width** | _integer_ | The width in pixels of the output image |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height** | _integer_ | The height in pixels of the output image |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheduler** | _string_ | Override the scheduler with a compatible one. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seed** | _integer_ | Seed for the random number generator. |
 
