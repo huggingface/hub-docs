@@ -390,6 +390,8 @@
       title: Secrets Scanning
     - local: security-protectai
       title: "Protect AI"
+    - local: security-jfrog
+      title: "JFrog"
   - local: moderation
     title: Moderation
   - local: paper-pages
