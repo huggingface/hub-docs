@@ -149,12 +149,6 @@ const GET_SNIPPET_FN = {
   },
 } as const;
 
-const HAS_SNIPPET_FN = {
-  curl: snippets.curl.hasCurlInferenceSnippet,
-  js: snippets.js.hasJsInferenceSnippet,
-  python: snippets.python.hasPythonInferenceSnippet,
-} as const;
-
 export function getInferenceSnippet(
   id: string,
   pipeline_tag: PipelineType,
