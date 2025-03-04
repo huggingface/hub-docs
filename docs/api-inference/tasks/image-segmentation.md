@@ -36,7 +36,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-small \
+curl https://router.huggingface.co/hf-inference/models/openmmlab/upernet-convnext-small \
 	-X POST \
 	--data-binary '@cats.jpg' \
 	-H 'Authorization: Bearer hf_***'
@@ -47,14 +47,14 @@ curl https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-smal
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-small"
+API_URL = "https://router.huggingface.co/hf-inference/v1"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
-    with open(filename, "rb") as f:
-        data = f.read()
-    response = requests.post(API_URL, headers=headers, data=data)
-    return response.json()
+	with open(filename, "rb") as f:
+		data = f.read()
+	response = requests.post(API_URL, headers=headers, data=data)
+	return response.json()
 
 output = query("cats.jpg")
 ```
@@ -67,7 +67,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 async function query(filename) {
 	const data = fs.readFileSync(filename);
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/openmmlab/upernet-convnext-small",
+		"https://router.huggingface.co/hf-inference/models/openmmlab/upernet-convnext-small",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",

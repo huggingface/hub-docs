@@ -24,6 +24,7 @@ For more details about the `translation` task, check out its [dedicated page](ht
 
 ### Recommended models
 
+- [facebook/nllb-200-1.3B](https://huggingface.co/facebook/nllb-200-1.3B): Very powerful model that can translate many languages between each other, especially low-resource languages.
 - [google-t5/t5-base](https://huggingface.co/google-t5/t5-base): A general-purpose Transformer that can be used to translate from English to German, French, or Romanian.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=translation&sort=trending).
@@ -35,7 +36,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/google-t5/t5-base \
+curl https://router.huggingface.co/hf-inference/models/facebook/nllb-200-1.3B \
 	-X POST \
 	-d '{"inputs": "Меня зовут Вольфганг и я живу в Берлине"}' \
 	-H 'Content-Type: application/json' \
@@ -44,10 +45,30 @@ curl https://api-inference.huggingface.co/models/google-t5/t5-base \
 </curl>
 
 <python>
+Using `huggingface_hub`:
+```py
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+	provider="hf-inference",
+	api_key="hf_***"
+)
+
+result = client.translation(
+	model="facebook/nllb-200-1.3B",
+	inputs="Меня зовут Вольфганг и я живу в Берлине",
+	provider="hf-inference",
+)
+
+print(result)
+
+```
+
+Using `requests`:
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/google-t5/t5-base"
+API_URL = "https://router.huggingface.co/hf-inference/v1"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -63,10 +84,27 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 </python>
 
 <js>
+Using `huggingface.js`:
+```js
+import { HfInference } from "@huggingface/inference";
+
+const client = new HfInference("hf_***");
+
+const output = await client.translation({
+	model: "facebook/nllb-200-1.3B",
+	inputs: "Меня зовут Вольфганг и я живу в Берлине",
+	provider: "hf-inference",
+});
+
+console.log(output);
+
+```
+
+Using `fetch`:
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/google-t5/t5-base",
+		"https://router.huggingface.co/hf-inference/models/facebook/nllb-200-1.3B",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
