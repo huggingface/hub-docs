@@ -31,6 +31,8 @@
     title: Next Steps
   - local: repositories-licenses
     title: Licenses
+  - local: repositories-storage
+    title: Storage
 - title: Models
   local: models
   isExpanded: true
