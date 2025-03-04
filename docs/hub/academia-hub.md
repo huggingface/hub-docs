@@ -7,7 +7,7 @@
 Academia Hub provides the Hugging Face Hub’s PRO features to every student, researcher, or faculty member of an academic institution. Explore advanced tools, enhanced collaboration, and exclusive resources to accelerate your learning, research, and teaching.
 
 <a href="https://huggingface.co/contact/sales?from=academia" class="flex justify-center">
-    <img class="block" src="https://huggingface.co/datasets/julien-c/documentation-images/resolve/main/AcademiaHub.png" />
+    <img class="block" src="https://huggingface.co/datasets/Chunte/documentation-images/resolve/main/AcademiaHub.png" />
 </a>
 
 #### How does it work
