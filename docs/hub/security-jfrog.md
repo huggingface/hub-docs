@@ -1,12 +1,14 @@
 # Third-party scanner: JFrog
 
 
-[JFrog](https://protectai.com/)'s security scanner detects malicious behavior in machine learning models.
+[JFrog](https://jfrog.com/)'s security scanner detects malicious behavior in machine learning models.
 
 ![JFrog report for the danger.dat file contained in mcpotato/42-eicar-street](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/jfrog-report.png)
 *Example of a report for [danger.dat](https://huggingface.co/mcpotato/42-eicar-street/blob/main/danger.dat)*
 
 We partnered with JFrog to provide scanning in order to make the Hub safer. Model files are scanned by the JFrog scanner and reports you the scanning result.
+
+JFrog's scanner is built with the goal to reduce false positives. Indeed, what we currently observe is that code contained within model weights is not always malicious. When code is detected in a file, JFrog's scanner will parse it and analyze to check for potential malicious usage.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/jfrog-scanner.png"/>
