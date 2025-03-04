@@ -206,7 +206,7 @@
       - local: datasets-webdataset
         title: WebDataset
   - local: datasets-viewer
-    title: Dataset Viewer
+    title: Data Studio
     sections:
       - local: datasets-viewer-configure
         title: Configure the Dataset Viewer
