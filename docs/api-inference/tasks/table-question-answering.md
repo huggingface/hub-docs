@@ -24,6 +24,8 @@ For more details about the `table-question-answering` task, check out its [dedic
 
 ### Recommended models
 
+- [microsoft/tapex-base](https://huggingface.co/microsoft/tapex-base): A table question answering model that is capable of neural SQL execution, i.e., employ TAPEX to execute a SQL query on a given table.
+- [google/tapas-base-finetuned-wtq](https://huggingface.co/google/tapas-base-finetuned-wtq): A robust table question answering model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=table-question-answering&sort=trending).
 
@@ -34,7 +36,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/<REPO_ID> \
+curl https://router.huggingface.co/hf-inference/models/microsoft/tapex-base \
 	-X POST \
 	-d '{"inputs": { "query": "How many stars does the transformers repository have?", "table": { "Repository": ["Transformers", "Datasets", "Tokenizers"], "Stars": ["36542", "4512", "3934"], "Contributors": ["651", "77", "34"], "Programming language": [ "Python", "Python", "Rust, Python and NodeJS" ] } }}' \
 	-H 'Content-Type: application/json' \
@@ -43,10 +45,42 @@ curl https://api-inference.huggingface.co/models/<REPO_ID> \
 </curl>
 
 <python>
+Using `huggingface_hub`:
+```py
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+	provider="hf-inference",
+	api_key="hf_***"
+)
+
+result = client.table_question_answering(
+	model="microsoft/tapex-base",
+	inputs={
+	"query": "How many stars does the transformers repository have?",
+	"table": {
+		"Repository": ["Transformers", "Datasets", "Tokenizers"],
+		"Stars": ["36542", "4512", "3934"],
+		"Contributors": ["651", "77", "34"],
+		"Programming language": [
+			"Python",
+			"Python",
+			"Rust, Python and NodeJS"
+		]
+	}
+},
+	provider="hf-inference",
+)
+
+print(result)
+
+```
+
+Using `requests`:
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/<REPO_ID>"
+API_URL = "https://router.huggingface.co/hf-inference/v1"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -74,10 +108,39 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 </python>
 
 <js>
+Using `huggingface.js`:
+```js
+import { HfInference } from "@huggingface/inference";
+
+const client = new HfInference("hf_***");
+
+const output = await client.tableQuestionAnswering({
+	model: "microsoft/tapex-base",
+	inputs: {
+	"query": "How many stars does the transformers repository have?",
+	"table": {
+		"Repository": ["Transformers", "Datasets", "Tokenizers"],
+		"Stars": ["36542", "4512", "3934"],
+		"Contributors": ["651", "77", "34"],
+		"Programming language": [
+			"Python",
+			"Python",
+			"Rust, Python and NodeJS"
+		]
+	}
+},
+	provider: "hf-inference",
+});
+
+console.log(output);
+
+```
+
+Using `fetch`:
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/<REPO_ID>",
+		"https://router.huggingface.co/hf-inference/models/microsoft/tapex-base",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",

@@ -29,7 +29,9 @@ For more details about the `audio-classification` task, check out its [dedicated
 
 ### Recommended models
 
+- [speechbrain/google_speech_command_xvector](https://huggingface.co/speechbrain/google_speech_command_xvector): An easy-to-use model for command recognition.
 - [ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition](https://huggingface.co/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition): An emotion recognition model.
+- [facebook/mms-lid-126](https://huggingface.co/facebook/mms-lid-126): A language identification model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=audio-classification&sort=trending).
 
@@ -40,7 +42,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition \
+curl https://router.huggingface.co/hf-inference/models/speechbrain/google_speech_command_xvector \
 	-X POST \
 	--data-binary '@sample1.flac' \
 	-H 'Authorization: Bearer hf_***'
@@ -51,14 +53,14 @@ curl https://api-inference.huggingface.co/models/ehcalabres/wav2vec2-lg-xlsr-en-
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition"
+API_URL = "https://router.huggingface.co/hf-inference/v1"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
-    with open(filename, "rb") as f:
-        data = f.read()
-    response = requests.post(API_URL, headers=headers, data=data)
-    return response.json()
+	with open(filename, "rb") as f:
+		data = f.read()
+	response = requests.post(API_URL, headers=headers, data=data)
+	return response.json()
 
 output = query("sample1.flac")
 ```
@@ -71,7 +73,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 async function query(filename) {
 	const data = fs.readFileSync(filename);
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition",
+		"https://router.huggingface.co/hf-inference/models/speechbrain/google_speech_command_xvector",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",

@@ -1,4 +1,5 @@
-import { PipelineType, snippets } from "@huggingface/tasks";
+import { snippets } from "@huggingface/inference";
+import { PipelineType, InferenceSnippet } from "@huggingface/tasks";
 import Handlebars from "handlebars";
 import * as fs from "node:fs/promises";
 import * as path from "node:path/posix";
@@ -78,11 +79,13 @@ function readTemplate(
 function writeTaskDoc(templateName: string, content: string): Promise<void> {
   const taskDocPath = path.join(TASKS_DOCS_DIR, `${templateName}.md`);
   console.log(`   💾 Saving to ${taskDocPath}`);
-  const header = PAGE_HEADER({task:templateName});
+  const header = PAGE_HEADER({ task: templateName });
   const contentWithHeader = `<!---\n${header}\n--->\n\n${content}`;
   return fs
     .mkdir(TASKS_DOCS_DIR, { recursive: true })
-    .then(() => fs.writeFile(taskDocPath, contentWithHeader, { encoding: "utf-8" }));
+    .then(() =>
+      fs.writeFile(taskDocPath, contentWithHeader, { encoding: "utf-8" }),
+    );
 }
 
 /////////////////////////
@@ -99,42 +102,51 @@ const TASKS_DATA = (await response.json()) as any;
 //// Snippet utils ////
 ///////////////////////
 
-const formatSnippets = (result: snippets.types.InferenceSnippet | snippets.types.InferenceSnippet[], defaultClient: string, language: string): string => {
+const formatSnippets = (
+  result: InferenceSnippet | InferenceSnippet[],
+  defaultClient: string,
+  language: string,
+): string => {
   // For single snippet, just wrap with code block
   if (!Array.isArray(result) || result.length === 1) {
     const snippet = Array.isArray(result) ? result[0] : result;
     return `\`\`\`${language}\n${snippet.content}\n\`\`\``;
   }
-  
+
   // For multiple snippets, add description and wrap each one
   return result
-    .map(snippet => {
+    .map((snippet) => {
       const client = snippet.client || defaultClient;
       return `Using \`${client}\`:\n\`\`\`${language}\n${snippet.content}\n\`\`\``;
     })
-    .join('\n\n');
+    .join("\n\n");
 };
-
 
 const GET_SNIPPET_FN = {
   curl: (modelData: any, token: string) => {
-    const result = snippets.curl.getCurlInferenceSnippet(modelData, token);
-    return formatSnippets(result, 'curl', 'bash');
+    const result = snippets.curl.getCurlInferenceSnippet(
+      modelData,
+      token,
+      "hf-inference",
+    );
+    return formatSnippets(result, "curl", "bash");
   },
   js: (modelData: any, token: string) => {
-    const result = snippets.js.getJsInferenceSnippet(modelData, token);
-    return formatSnippets(result, 'javascript', 'js');
+    const result = snippets.js.getJsInferenceSnippet(
+      modelData,
+      token,
+      "hf-inference",
+    );
+    return formatSnippets(result, "javascript", "js");
   },
   python: (modelData: any, token: string) => {
-    const result = snippets.python.getPythonInferenceSnippet(modelData, token);
-    return formatSnippets(result, 'python', 'py');
+    const result = snippets.python.getPythonInferenceSnippet(
+      modelData,
+      token,
+      "hf-inference",
+    );
+    return formatSnippets(result, "python", "py");
   },
-} as const;
-
-const HAS_SNIPPET_FN = {
-  curl: snippets.curl.hasCurlInferenceSnippet,
-  js: snippets.js.hasJsInferenceSnippet,
-  python: snippets.python.hasPythonInferenceSnippet,
 } as const;
 
 export function getInferenceSnippet(
@@ -153,9 +165,9 @@ export function getInferenceSnippet(
     tags: tags ?? [],
   };
   // @ts-ignore
-  if (HAS_SNIPPET_FN[language](modelData)) {
-    // @ts-ignore
-    return GET_SNIPPET_FN[language](modelData, "hf_***");
+  const generatedSnippets = GET_SNIPPET_FN[language](modelData, "hf_***");
+  if (generatedSnippets) {
+    return generatedSnippets;
   }
 }
 
@@ -445,7 +457,6 @@ TASKS.forEach((task) => {
   });
 });
 
-
 // Render specs
 await Promise.all(
   TASKS_EXTENDED.map(async (task) => {
@@ -483,16 +494,16 @@ function fetchChatCompletion() {
     {
       name: "chat-completion",
       baseName: "text-generation",
-      pipelineTag: "text-generation"
+      pipelineTag: "text-generation",
     },
     {
       name: "conversational-image-text-to-text",
       baseName: "image-text-to-text",
-      pipelineTag: "image-text-to-text"
-    }
+      pipelineTag: "image-text-to-text",
+    },
   ];
 
-  conversationalTasks.forEach(task => {
+  conversationalTasks.forEach((task) => {
     // Recommended models based on the base task
     DATA.models[task.name] = DATA.models[task.baseName].filter(
       // @ts-ignore
@@ -503,18 +514,35 @@ function fetchChatCompletion() {
 
     const taskSnippets = {
       // @ts-ignore
-      curl: getInferenceSnippet(mainModel.id, task.pipelineTag, "curl", mainModel.config, ["conversational"]),
+      curl: getInferenceSnippet(
+        mainModel.id,
+        task.pipelineTag,
+        "curl",
+        mainModel.config,
+        ["conversational"],
+      ),
       // @ts-ignore
-      python: getInferenceSnippet(mainModel.id, task.pipelineTag, "python", mainModel.config, ["conversational"]),
+      python: getInferenceSnippet(
+        mainModel.id,
+        task.pipelineTag,
+        "python",
+        mainModel.config,
+        ["conversational"],
+      ),
       // @ts-ignore
-      javascript: getInferenceSnippet(mainModel.id, task.pipelineTag, "js", mainModel.config, ["conversational"]),
+      javascript: getInferenceSnippet(
+        mainModel.id,
+        task.pipelineTag,
+        "js",
+        mainModel.config,
+        ["conversational"],
+      ),
     };
     DATA.snippets[task.name] = SNIPPETS_TEMPLATE({
       taskSnippets,
       taskSnakeCase: baseName.replaceAll("-", "_"),
       taskAttached: baseName.replaceAll("-", ""),
     });
-
   });
 }
 

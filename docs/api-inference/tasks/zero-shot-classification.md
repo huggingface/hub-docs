@@ -35,7 +35,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://api-inference.huggingface.co/models/facebook/bart-large-mnli \
+curl https://router.huggingface.co/hf-inference/models/facebook/bart-large-mnli \
 	-X POST \
 	-d '{"inputs": "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!", "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}' \
 	-H 'Content-Type: application/json' \
@@ -47,7 +47,7 @@ curl https://api-inference.huggingface.co/models/facebook/bart-large-mnli \
 ```py
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-mnli"
+API_URL = "https://router.huggingface.co/hf-inference/v1"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -66,24 +66,24 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 <js>
 ```js
 async function query(data) {
-	const response = await fetch(
-		"https://api-inference.huggingface.co/models/facebook/bart-large-mnli",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: JSON.stringify(data),
+			const response = await fetch(
+				"https://router.huggingface.co/hf-inference/models/facebook/bart-large-mnli",
+				{
+					headers: {
+						Authorization: "Bearer hf_***",
+						"Content-Type": "application/json",
+					},
+					method: "POST",
+					body: JSON.stringify(data),
+				}
+			);
+			const result = await response.json();
+			return result;
 		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query({"inputs": "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!", "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}).then((response) => {
-	console.log(JSON.stringify(response));
-});
+		
+		query({"inputs": "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!", "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}).then((response) => {
+			console.log(JSON.stringify(response));
+		});
 ```
 
 To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#zeroshotclassification).
