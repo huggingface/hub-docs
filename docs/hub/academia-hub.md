@@ -1,10 +1,10 @@
 # Academia Hub
 
 <Tip>
-<a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Get in touch</a> from your university-affiliated email address to initiate the subscription process.
+Ask your University Procurement Team to <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">get in touch</a> with the university-affiliated email address to initiate the subscription process.
 </Tip>
 
-Academia Hub provides the Hugging Face Hub’s PRO features to every student, researcher, or faculty member of an academic institution. Explore advanced tools, enhanced collaboration, and exclusive resources to accelerate your learning, research, and teaching.
+Academia Hub is a paid offering and it provides the Hugging Face Hub’s PRO features to every student, researcher, or faculty member of an academic institution. Explore advanced tools, enhanced collaboration, and exclusive resources to accelerate your learning, research, and teaching. We would need to work with your procurement department to set that up!
 
 <a href="https://huggingface.co/contact/sales?from=academia" class="flex justify-center">
     <img class="block" src="https://huggingface.co/datasets/Chunte/documentation-images/resolve/main/AcademiaHub.png" />
@@ -12,7 +12,7 @@ Academia Hub provides the Hugging Face Hub’s PRO features to every student, re
 
 #### How does it work
 
-Any affiliated user will need to add their `@your-university-name.edu` email address to their HF account.
+When Academia Hub is enabled, any affiliated user will need to add their `@your-university-name.edu` email address to their HF account.
 
 Academia Hub is designed for:
 - **Students:** Unlock powerful features to learn about AI and Machine learning in the most efficient way.
