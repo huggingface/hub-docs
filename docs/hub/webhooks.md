@@ -158,6 +158,32 @@ Newly created references will have `oldSha` set to `null`. Deleted references wi
 
 You can react to new commits on specific pull requests, new tags, or new branches.
 
+### Config changes
+
+When the top-level property `event.scope` is `"repo.config"`, the `updatedConfig` property is specified. It is an object containing the updated config. Here is an example value:
+
+```json
+"updatedConfig": {
+  "private": false
+}
+```
+
+or
+
+```json
+"updatedConfig": {
+  "xetEnabled": true,
+}
+```
+
+or, when the updated config key is not supported by the webhook:
+
+```json
+"updatedConfig": {}
+```
+
+For now only `private` and `xetEnabled` are supported. If you would benefit from more config keys being present here, please let us know at website@huggingface.co.
+
 ### Discussions and Pull Requests
 
 The top-level property `discussion` is specified on community events (discussions and Pull Requests). The `discussion.isPullRequest` property is a boolean indicating if the discussion is also a Pull Request (on the Hub, a PR is a special type of discussion). Here is an example value:
