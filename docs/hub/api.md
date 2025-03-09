@@ -34,6 +34,7 @@ Get information from all models in the Hub. The response is paginated, use the [
 - `limit`: Limit the number of models fetched.
 - `full`: Whether to fetch most model data, such as all tags, the files, etc.
 - `config`: Whether to also fetch the repo config.
+- `expand`: List properties to return in the response. This parameter cannot be used if `full`, `cardData` or `config` are passed. When used, only the properties in the list will be returned. Possible values are: `author`, `cardData`, `config`, `createdAt`, `disabled`, `downloads`, `downloadsAllTime`, `gated`, `inference`, `inferenceProviderMapping`, `lastModified`, `library_name`, `likes`, `mask_token`, `model-index`, `pipeline_tag`, `private`, `safetensors`, `sha`, `siblings`, `spaces`, `tags`, `transformersInfo`, `trendingScore`, `widgetData`, `gguf`, `resourceGroup` and `xetEnabled`.
 
 Payload:
 
@@ -46,7 +47,8 @@ params = {
     "direction":"direction",
     "limit":"limit",
     "full":"full",
-    "config":"config"
+    "config":"config",
+    "expand":[]
 }
 ```
 
