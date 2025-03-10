@@ -19,7 +19,10 @@ Historically, Hub repositories have relied on [Git LFS](https://git-lfs.com/) fo
 
 Like Git LFS, a Xet-backed repository utilizes S3 as the remote storage with a `.gitattributes` file at the repository root helping identify what files should be stored remotely.
 
-![ ADD IMAGE OF .gitattributes here ]
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gitattributes-light.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gitattributes-dark.png"/>
+</div>
 
 Meanwhile, the pointer files provide metadata to locate the actual file contents in remote storage:
 
@@ -29,7 +32,10 @@ Meanwhile, the pointer files provide metadata to locate the actual file contents
 
 A Xet pointer includes all of this information (by design; refer to the section on [backwards compatibility with Git LFS](#backward-compatibility-with-lfs)) with the addition of a `Xet backed hash` field for referencing the file in Xet storage.
 
-![Xet pointer files are nearly identical to Git LFS pointer files with the addition of a `Xet backed hash` field that is used for referencing the file in Xet storage.](attachment:9828eb0c-3c93-4a85-bb79-9daacbec3258:Screenshot_2025-02-24_at_9.37.36_AM.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pointer-file-light.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pointer-file-dark.png"/>
+</div>
 
 Unlike Git LFS, which deduplicates at the file level, Xet-enabled repositories deduplicate at the level of bytes. When a file backed by Xet storage is updated, only the modified data is uploaded to remote storage, significantly saving on network transfers. For many workflows, like incremental updates to model checkpoints or appending/inserting new data into a dataset, this improves iteration speed for yourself and your collaborators. To learn more about deduplication in Xet storage, refer to the [Deduplication](#deduplication) section below.
 
@@ -84,11 +90,15 @@ S3 stores the blocks and shards. It provides resiliency, availability, and fast 
 
 #### Upload Sequence Diagram
 
-![new-writes.png](attachment:006a81c4-8ec6-4c78-a1a1-d47c3e4dd543:new-writes.png)
+<div class="flex justify-center">
+<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/writes.png"/>
+</div>
 
 #### Download Sequence Diagram
 
-![new-reads.png](attachment:337bb67d-bad4-4e27-a9c5-179d6ae746aa:new-reads.png)
+<div class="flex justify-center">
+<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/reads.png"/>
+</div>
 
 ### Backward Compatibility with LFS
 
