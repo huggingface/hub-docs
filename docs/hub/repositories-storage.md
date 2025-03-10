@@ -100,13 +100,33 @@ While a Xet-aware client will receive file reconstruction information from CAS t
 
 ### Security Model
 
-### Recommendations
+### Using Xet Storage
 
-#### Current Limitations
+To start using Xet Storage, the simplest way to get started is to install the `hf_xet` python package when installing `huggingface_hub`.
+
+```bash
+pip install huggingface_hub[hf_xet]
+```
+
+If you use the `transformers` or `datasets` libraries instead of making requests through `huggingface_hub` then simply install `hf_xet` directly.
+
+```bash
+pip install hf-xet
+```
+
+If your Python environment has a `hf_xet`-aware version of `huggingface_hub` then your uploads and downloads will automatically use Xet.
+
+That's it! You now get the benefits of Xet deduplication for both uploads and downloads. Team members using older `huggingface_hub` versions will still be able to upload and download repositories through the backwards compatibility provided by the LFS bridge.
 
 #### Best Practices
 
-### Using Xet Storage
+#### Current Limitations
+
+While Xet brings fine-grained deduplication and enhanced performance to Git-based storage, some features and platform compatibilities are still in development. As a result, keep the following constraints in mind when working with a Xet-enabled repository:
+
+- **64-bit systems only**: The hf_xet client currently requires a 64-bit architecture; 32-bit systems are not supported.
+- **Partial JavaScript library support**: The [huggingface.js](https://huggingface.co/docs/huggingface.js/index) library has limited functionality with Xet-based repositories; additional coverage is planned in future releases.
+- **Full web support currently unavailable**: Full support for chunked uploads via the Hub web interface remains under development.
 
 ## Legacy Storage: Git LFS
 
