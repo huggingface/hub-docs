@@ -118,7 +118,14 @@ If your Python environment has a `hf_xet`-aware version of `huggingface_hub` the
 
 That's it! You now get the benefits of Xet deduplication for both uploads and downloads. Team members using older `huggingface_hub` versions will still be able to upload and download repositories through the backwards compatibility provided by the LFS bridge.
 
-#### Best Practices
+#### Recommendations
+
+Xet integrates seamlessly with the Hub's current Python-based workflows. However, there are a few steps you may consider to get the most benefits from Xet storage:
+
+- **Use `hf_xet`**: While Xet remains backward compatible with legacy clients optimized for Git LFS, the `hf_xet` integration with `huggingface_hub` delivers optimal chunk-based performance and faster iteration on large files.
+- **Leverage frequent, incremental commits**: Xet's chunk-level deduplication means you can safely make incremental updates to models or datasets. Only changed chunks upload, so frequent commits are both fast and storage-efficient.
+- **Be Specific in .gitattributes**: When defining patterns for Xet or LFS, use precise file extensions (e.g., _.safetensors, _.bin) to avoid routing small, text-based files through large-file storage for optimal performance.
+- **Prioritize community access**: Xet substantially increases the efficiency and scale of large file transfers. Instead of structuring your repository to reduce its total size (or the size of individual files), organize it for collaborators and community users so they may easily navigate and retrieve the content they need.
 
 #### Current Limitations
 
