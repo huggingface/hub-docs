@@ -1,15 +1,15 @@
 # Storage
 
-Repositories on the Hugging Face Hub are unique to those on software development platforms. While both leverage the benefits of modern version control with the support of Git, Hub repositories often contain files that are considerably different from those used to build traditional software.
+Repositories on the Hugging Face Hub are unique to those on software development platforms. They contain files that are:
 
-They are:
-
-- Large - in the range of GB or TB
+- Large - in the range of GB and above
 - Binary - not in a human readable format by default (e.g., [Safetensors](https://huggingface.co/docs/safetensors/en/index) or [Parquet](https://huggingface.co/docs/dataset-viewer/en/parquet#what-is-parquet))
 
-Storing these files directly in a Git repository is impractical. Not only are the storage systems behind Git repositories unsuited for such large files, but when you clone a repository, Git retrieves the entire history, including all file revisions. This can be prohibitively large for massive binaries, forcing you to download gigabytes of historic data you may never need.
+While the Hub leverages modern version control with the support of Git, these differences make [Model](https://huggingface.co/docs/hub/models) and [Dataset](https://huggingface.co/docs/hub/datasets) repositories quite different from those that contain only source code.
 
-Instead, on the Hub, these large files are tracked using "pointer files" and identified through a `.gitattributes` file (both discussed in more detail below), which remain in the Git repository while the actual data is stored in remote storage (like Amazon S3). As a result, the repository stays small and typical Git workflows remain efficient.
+Storing these files directly in a Git repository is impractical. Not only are the typical storage systems behind Git repositories unsuited for such files, but when you clone a repository, Git retrieves the entire history, including all file revisions. This can be prohibitively large for massive binaries, forcing you to download gigabytes of historic data you may never need.
+
+Instead, on the Hub, these large files are tracked using "pointer files" and identified through a `.gitattributes` file (both discussed in more detail below), which remain in the Git repository while the actual data is stored in remote storage (like [Amazon S3](https://aws.amazon.com/s3/)). As a result, the repository stays small and typical Git workflows remain efficient.
 
 Historically, Hub repositories have relied on [Git LFS](https://git-lfs.com/) for this mechanism. While Git LFS remains supported and widely used (see the [Legacy section below](#legacy-storage-git-lfs)), the Hub is introducing a modern custom storage system built specifically for AI/ML development, enabling chunk-level deduplication, smaller uploads, and faster downloads than Git LFS.
 
@@ -31,15 +31,15 @@ A Xet pointer includes all of this information (by design; refer to the section 
 
 ![Xet pointer files are nearly identical to Git LFS pointer files with the addition of a `Xet backed hash` field that is used for referencing the file in Xet storage.](attachment:9828eb0c-3c93-4a85-bb79-9daacbec3258:Screenshot_2025-02-24_at_9.37.36_AM.png)
 
-Unlike Git LFS, which deduplicates at the file level, Xet-enabled repositories deduplicate at the level of bytes. When a file backed by Xet storage is updated, only the modified data is uploaded to remote storage, significantly saving on network transfers. For many workflows like incremental updates to model checkpoints or appending or inserting new data into a dataset, this improves iteration speed for yourself and your collaborators. To learn more about deduplication in Xet storage, refer to the [Deduplication](#deduplication) section below.
+Unlike Git LFS, which deduplicates at the file level, Xet-enabled repositories deduplicate at the level of bytes. When a file backed by Xet storage is updated, only the modified data is uploaded to remote storage, significantly saving on network transfers. For many workflows, like incremental updates to model checkpoints or appending/inserting new data into a dataset, this improves iteration speed for yourself and your collaborators. To learn more about deduplication in Xet storage, refer to the [Deduplication](#deduplication) section below.
 
 ### Deduplication
 
-Xet-enabled repositories utilize [content-defined chunking (CDC)](https://huggingface.co/blog/from-files-to-chunks) to deduplicate on the level of bytes (~64KB of data, also referred to as a `chunk`). Each chunk is identified by a rolling hash that determines chunk boundaries based on the actual file contents, making it resilient to insertions or deletions anywhere in the file. When a file is uploaded to a Xet-backed repository, its contents are broken down into these variable-sized chunks. Only new chunks not already present in Xet storage are kept after chunking, all other chunks are discarded.
+Xet-enabled repositories utilize [content-defined chunking (CDC)](https://huggingface.co/blog/from-files-to-chunks) to deduplicate on the level of bytes (~64KB of data, also referred to as a "chunk"). Each chunk is identified by a rolling hash that determines chunk boundaries based on the actual file contents, making it resilient to insertions or deletions anywhere in the file. When a file is uploaded to a Xet-backed repository, its contents are broken down into these variable-sized chunks. Only new chunks not already present in Xet storage are kept after chunking, everything else is discarded.
 
 To avoid the overhead of communicating and managing at the level of chunks, new chunks are grouped together in [64MB blocks](https://huggingface.co/blog/from-chunks-to-blocks#scaling-deduplication-with-aggregation) and uploaded. Each block is stored once in a [content-addressed store (CAS)](#content-addressed-store-cas), keyed by its hash.
 
-The Hub's [current recommendation is to limit files to 20GB](https://huggingface.co/docs/hub/storage-limits#recommendations). At a 64KB chunk size, a 20GB file has 312,500 chunks, many of which go unchanged from version to version. Git LFS is designed to only notice that a file has changed and store the entirety of that revision. By deduplicating at the level of chunks, the Xet backend enables storing only the modified content in a file (which might only be a few chunks) and securely deduplicates shared blocks across repositories. For the large binary files found in Model and Dataset repositories, this provides significant improvements to file transfer times.
+The Hub's [current recommendation is to limit files to 20GB](https://huggingface.co/docs/hub/storage-limits#recommendations). At a 64KB chunk size, a 20GB file has 312,500 chunks, many of which go unchanged from version to version. Git LFS is designed to notice only that a file has changed and store the entirety of that revision. By deduplicating at the level of chunks, the Xet backend enables storing only the modified content in a file (which might only be a few KB or MB) and securely deduplicates shared blocks across repositories. For the large binary files found in Model and Dataset repositories, this provides significant improvements to file transfer times.
 
 For more details, refer to the [From Files to Chunks](https://huggingface.co/blog/from-files-to-chunks) and [From Chunks to Blocks](https://huggingface.co/blog/from-chunks-to-blocks) blog posts, or the [Git is for Data](https://www.cidrdb.org/cidr2023/papers/p43-low.pdf) paper by Low et al. that served as the launch point for XetHub prior to being acquired by Hugging Face.
 
@@ -47,10 +47,10 @@ For more details, refer to the [From Files to Chunks](https://huggingface.co/blo
 
 Supporting this requires coordination between the storage layer and the local machine interacting with the repository (and all the systems in-between). There are 4 primary components to the Xet architecture:
 
-1. Client
-2. Hugging Face Hub
-3. Content addressed store (CAS)
-4. Amazon S3
+1. [Client](#client)
+2. [Hugging Face Hub](#hugging-face-hub)
+3. [Content addressed store (CAS)](#content-addressed-store-cas)
+4. [Amazon S3](#aws-s3)
 
 ![IMAGE OF XET ARCHITECTURE]
 
@@ -92,7 +92,7 @@ S3 stores the blocks and shards. It provides resiliency, availability, and fast 
 
 ### Backward Compatibility with LFS
 
-Xet Storage provides a seamless transition for existing Hub repositories. It isn't necessary to know if the Xet backend is involved at all. Xet-backed repositories continue to use the Git LFS pointer file format, with only the addition of the `Xet backed hash` field. Meaning, existing repos and newly created repos will not look any different if you do a `bare clone` of them. Each of the large files (or binary files) will continue to have a pointer file and matches the Git LFS pointer file specification.
+Xet storage provides a seamless transition for existing Hub repositories. It isn't necessary to know if the Xet backend is involved at all. Xet-backed repositories continue to use the Git LFS pointer file format, with only the addition of the `Xet backed hash` field. Meaning, existing repos and newly created repos will not look any different if you do a `bare clone` of them. Each of the large files (or binary files) will continue to have a pointer file and matches the Git LFS pointer file specification.
 
 This symmetry allows non-Xet-enabled clients (e.g., older versions of the `huggingface_hub` that are not Xet-aware) to interact with Xet-backed repositories without concern. In fact, within a repository a mixture of Git LFS and Xet backed files are supported. As noted in the section describing the CAS APIs, the Xet backend indicates whether a file is in Git LFS or Xet storage, allowing downstream services (Git LFS or the Git LFS bridge) to provide the proper URL to S3, regardless of which storage system holds the content.
 
@@ -102,13 +102,13 @@ While a Xet-aware client will receive file reconstruction information from CAS t
 
 ### Using Xet Storage
 
-To start using Xet Storage, the simplest way to get started is to install the `hf_xet` python package when installing `huggingface_hub`.
+To start using Xet Storage, the simplest way to get started is to install the `hf_xet` python package when installing `huggingface_hub`:
 
 ```bash
 pip install huggingface_hub[hf_xet]
 ```
 
-If you use the `transformers` or `datasets` libraries instead of making requests through `huggingface_hub` then simply install `hf_xet` directly.
+If you use the `transformers` or `datasets` libraries instead of making requests through `huggingface_hub` then simply install `hf_xet` directly:
 
 ```bash
 pip install hf-xet
@@ -124,7 +124,7 @@ Xet integrates seamlessly with the Hub's current Python-based workflows. However
 
 - **Use `hf_xet`**: While Xet remains backward compatible with legacy clients optimized for Git LFS, the `hf_xet` integration with `huggingface_hub` delivers optimal chunk-based performance and faster iteration on large files.
 - **Leverage frequent, incremental commits**: Xet's chunk-level deduplication means you can safely make incremental updates to models or datasets. Only changed chunks upload, so frequent commits are both fast and storage-efficient.
-- **Be Specific in .gitattributes**: When defining patterns for Xet or LFS, use precise file extensions (e.g., _.safetensors, _.bin) to avoid routing small, text-based files through large-file storage for optimal performance.
+- **Be Specific in .gitattributes**: When defining patterns for Xet or LFS, use precise file extensions (e.g., `*.safetensors`, `*.bin`) to avoid unnecessarily routing smaller files through large-file storage.
 - **Prioritize community access**: Xet substantially increases the efficiency and scale of large file transfers. Instead of structuring your repository to reduce its total size (or the size of individual files), organize it for collaborators and community users so they may easily navigate and retrieve the content they need.
 
 #### Current Limitations
@@ -132,7 +132,7 @@ Xet integrates seamlessly with the Hub's current Python-based workflows. However
 While Xet brings fine-grained deduplication and enhanced performance to Git-based storage, some features and platform compatibilities are still in development. As a result, keep the following constraints in mind when working with a Xet-enabled repository:
 
 - **64-bit systems only**: The hf_xet client currently requires a 64-bit architecture; 32-bit systems are not supported.
-- **Partial JavaScript library support**: The [huggingface.js](https://huggingface.co/docs/huggingface.js/index) library has limited functionality with Xet-based repositories; additional coverage is planned in future releases.
+- **Partial JavaScript library support**: The [huggingface.js](https://huggingface.co/docs/huggingface.js/index) library has limited functionality with Xet-backed repositories; additional coverage is planned in future releases.
 - **Full web support currently unavailable**: Full support for chunked uploads via the Hub web interface remains under development.
 
 ## Legacy Storage: Git LFS
