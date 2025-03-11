@@ -18,3 +18,13 @@ You need to be authenticated (passing a token or through your browser) to use th
 |---------------------------|------------------------------------|
 | Free Users                | subject to change, less than $0.10 |
 | PRO and Enterprise Users  | $2.00                              |
+
+### Features using the Inference API
+
+Several Hugging Face features utilize the Inference API and count towards your monthly credits:
+
+- Inference Widgets: Interactive chat widgets available on model pages.
+- [Inference Playground](https://huggingface.co/playground): A comprehensive chat interface supporting various models and providers.
+- Data Studio AI: Converts text to SQL queries for datasets.
+
+The included monthly credits for PRO and Enterprise should cover moderate usage of these features for most users.
