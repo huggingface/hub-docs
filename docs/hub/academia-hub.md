@@ -41,7 +41,7 @@ Key Features of Academia Hub:
 
 #### Subscribe
 
-Ask your university's IT or Procurement Team to <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">get in touch</a> or send an email to academia@hf.co to initiate the subscription process to the Academia Hub today. Academia Hub can not be initiated by students themselves. 
+Ask your university's IT or Procurement Team to <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">get in touch</a> to initiate the subscription process to the Academia Hub today. Academia Hub can not be initiated by students themselves. 
 
 #### Private storage
 
