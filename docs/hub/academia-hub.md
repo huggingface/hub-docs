@@ -110,8 +110,8 @@ Once an institution is subscribed to Academia Hub, any affiliated user will gain
 
 👩‍🎓 If you're a student or researcher then contact your TA, teacher, or supervisor and share this page to get started.
 
-👩‍🔬 If you're a faculty member then connect your institution's IT or procurement team with Hugging Face to get started. 
+👩‍🔬 If you're a faculty member, Ask your university's IT or Procurement Team to <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">get in touch</a> or send an email to academia@hf.co to initiate the subscription process to the Academia Hub today. Academia Hub can not be initiated by students themselves. 
 
-👩‍💼 If you're a procurement, IT, or project manager then <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">get in touch</a> or send an email to academia@hf.co to initiate the subscription process to the Academia Hub today.
+#### Private storage
 
-
+Academia Hub includes 1TB of [private repository storage](./storage-limits) per seat in the subscription, i.e. if your institution has 400 students and faculty, your students and faculty have 400TB included storage accross their private models and datasets.
