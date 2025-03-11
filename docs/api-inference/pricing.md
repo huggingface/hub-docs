@@ -21,7 +21,7 @@ You need to be authenticated (passing a token or through your browser) to use th
 
 ### Features using Inference Providers
 
-Several Hugging Face features utilize the Inference API and count towards your monthly credits:
+Several Hugging Face features utilize the Inference Providers API and count towards your monthly credits:
 
 - Inference Widgets: Interactive widgets available on model pages.
 - [Inference Playground](https://huggingface.co/playground): A comprehensive chat interface supporting various models and providers.
