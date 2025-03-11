@@ -23,7 +23,7 @@ You need to be authenticated (passing a token or through your browser) to use th
 
 Several Hugging Face features utilize the Inference API and count towards your monthly credits:
 
-- Inference Widgets: Interactive chat widgets available on model pages.
+- Inference Widgets: Interactive widgets available on model pages.
 - [Inference Playground](https://huggingface.co/playground): A comprehensive chat interface supporting various models and providers.
 - Data Studio AI: Converts text to SQL queries for datasets.
 
