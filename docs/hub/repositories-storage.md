@@ -41,7 +41,16 @@ Unlike Git LFS, which deduplicates at the file level, Xet-enabled repositories d
 
 ### Using Xet Storage
 
-To start using Xet Storage, you need a Xet-enabled client. Currently, you can do this by using the `hf_xet` python package when installing `huggingface_hub`:
+To start using Xet Storage, you need a Xet-enabled repository and client. 
+
+<Tip>
+
+To make Xet the default for all your repositories, [join the waitlist](https://huggingface.co/join/xet)! You can apply for yourself or your entire organization (requires [admin permissions](https://huggingface.co/docs/hub/organizations-security)). Once approved, all current repositories will be automatically migrated to Xet and future repositories will be Xet-enabled by default.
+
+</Tip>
+
+
+To access a Xet-enabled client, add the `hf_xet` Python package when installing `huggingface_hub`:
 
 ```bash
 pip install huggingface_hub[hf_xet]
@@ -56,6 +65,11 @@ pip install hf-xet
 If your Python environment has a `hf_xet`-aware version of `huggingface_hub` then your uploads and downloads will automatically use Xet.
 
 That's it! You now get the benefits of Xet deduplication for both uploads and downloads. Team members using older `huggingface_hub` versions will still be able to upload and download repositories through the backwards compatibility provided by the LFS bridge.
+
+To see more detailed usage docs, refer to the `huggingface_hub` docs for:
+- [Upload](https://huggingface.co/docs/huggingface_hub/guides/upload#faster-uploads-with-hf_xet)
+- [Download](https://huggingface.co/docs/huggingface_hub/guides/download#hf_xet)
+- [Managing the `hf_xet` cache](https://huggingface.co/docs/huggingface_hub/guides/manage-cache#xet-cache)
 
 #### Recommendations
 
