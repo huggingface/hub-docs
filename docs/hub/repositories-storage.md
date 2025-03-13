@@ -49,57 +49,6 @@ The Hub's [current recommendation is to limit files to 20GB](https://huggingface
 
 For more details, refer to the [From Files to Chunks](https://huggingface.co/blog/from-files-to-chunks) and [From Chunks to Blocks](https://huggingface.co/blog/from-chunks-to-blocks) blog posts, or the [Git is for Data](https://www.cidrdb.org/cidr2023/papers/p43-low.pdf) paper by Low et al. that served as the launch point for XetHub prior to being acquired by Hugging Face.
 
-### Architecture Overview
-
-Supporting this requires coordination between the storage layer and the local machine interacting with the repository (and all the systems in-between). There are 4 primary components to the Xet architecture:
-
-1. [Client](#client)
-2. [Hugging Face Hub](#hugging-face-hub)
-3. [Content addressed store (CAS)](#content-addressed-store-cas)
-4. [Amazon S3](#aws-s3)
-
-![IMAGE OF XET ARCHITECTURE]
-
-#### Client
-
-The client represents whatever machine is uploading or downloading a file. Current support is limited to [the Python package, `hf_xet`](https://pypi.org/project/hf-xet/), which provides an integration with the `huggingface_hub` and Xet-backed repositories.
-
-When uploading files to Hub, `hf_xet` chunks the files into immutable content-defined chunks and deduplicates - ignoring previously seen chunks and only uploading new ones.
-
-On the download path, `hf_xet` communicates with CAS to get the reconstruction information for a file. This information is compared against the local chunk cache so that `hf_xet` only issues requests for uncached chunks.
-
-#### Hugging Face Hub
-
-The Hub backend manages the Git repository, authentication & authorization, and metadata about both the files and repository. The Hub communicates with the client and CAS.
-
-#### Content Addressed Store (CAS)
-
-The content addressed store (CAS) is more than just a store - it is set of services that exposes APIs for supporting uploading and downloading Xet-backed files with a key-value store (DynamoDb) mapping hashed content and metadata to its location in S3.
-
-The primary APIs are used for:
-
-1. Uploading blocks: Verifies the contents of the uploaded blocks, and then writes them to the appropriate S3 bucket.
-2. Uploading shards: Verifies the contents of the uploaded shards, writes them to the appropriate S3 bucket, and registers the shard in CAS
-3. Downloading file reconstruction information: Given the `Xet backed hash` field from a pointer file organize the manifest necessary to rebuild the file. Return the manifest to the client for direct download from S3 using presigned URLs for the relevant blocks to download.
-4. Check storage location: Given the `LFS SHA256 hash` this returns if Xet or Git LFS manages the content. This is a critical part of migration & compatibility with the legacy Git LFS storage system.
-5. Git LFS Bridge: Allows repositories using Xet storage to be accessed by legacy non-Xet-aware clients. The Bridge mimics an Git LFS server but does the work of reconstructing the requested file and returning it to the client. This allows downloading files through a single URL (so you can use tools like `curl` of the web interface of the Hub to download files).
-
-#### AWS S3
-
-S3 stores the blocks and shards. It provides resiliency, availability, and fast access leveraging [Cloudfront](https://aws.amazon.com/cloudfront/) as a CDN.
-
-#### Upload Sequence Diagram
-
-<div class="flex justify-center">
-<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/writes.png"/>
-</div>
-
-#### Download Sequence Diagram
-
-<div class="flex justify-center">
-<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/reads.png"/>
-</div>
-
 ### Backward Compatibility with LFS
 
 Xet storage provides a seamless transition for existing Hub repositories. It isn't necessary to know if the Xet backend is involved at all. Xet-backed repositories continue to use the Git LFS pointer file format, with only the addition of the `Xet backed hash` field. Meaning, existing repos and newly created repos will not look any different if you do a `bare clone` of them. Each of the large files (or binary files) will continue to have a pointer file and matches the Git LFS pointer file specification.
