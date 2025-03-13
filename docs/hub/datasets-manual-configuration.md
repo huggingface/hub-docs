@@ -103,6 +103,8 @@ configs:
 ---
 ```
 
+Note that the order of subsets shown in the viewer is the default one first, then alphabetical.
+
 <Tip>
 
 You can set a default subset using `default: true`
