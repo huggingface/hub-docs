@@ -14,7 +14,7 @@ The Hugging Face Hub is a platform with over 900k models, 200k datasets, and 300
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./notifications">Notifications</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./collections">Collections</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./webhooks">Webhooks</a>
-<a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-storage">Storage Backend</a>
+<a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-storage">Storage Backends</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-next-steps">Next Steps</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-licenses">Licenses</a>
 </div>
