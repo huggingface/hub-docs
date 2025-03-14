@@ -41,7 +41,7 @@ Unlike Git LFS, which deduplicates at the file level, Xet-enabled repositories d
 
 ### Using Xet Storage
 
-To start using Xet Storage, you need a Xet-enabled repository and client. 
+To start using Xet Storage, you need a Xet-enabled repository and a Xet-aware version of the [huggingface_hub](https://huggingface.co/docs/huggingface_hub) Python library.
 
 <Tip>
 
