@@ -16,7 +16,7 @@ For more details, check out:
 
 Generate text based on a prompt.
 
-If you are interested in a Chat Completion task, which generates a response based on a list of messages, check out the [`chat-completion`](./chat-completion) task.
+If you are interested in a Chat Completion task, which generates a response based on a list of messages, check out the [`chat-completion`](./chat_completion) task.
 
 <Tip>
 
@@ -30,7 +30,6 @@ For more details about the `text-generation` task, check out its [dedicated page
 - [deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B): Smaller variant of one of the most powerful models.
 - [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct): Very powerful text generation model trained to follow instructions.
 - [microsoft/phi-4](https://huggingface.co/microsoft/phi-4): Powerful text generation model by Microsoft.
-- [PowerInfer/SmallThinker-3B-Preview](https://huggingface.co/PowerInfer/SmallThinker-3B-Preview): A very powerful model with reasoning capabilities.
 - [Qwen/Qwen2.5-Coder-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct): Text generation model used to write code.
 - [deepseek-ai/DeepSeek-R1](https://huggingface.co/deepseek-ai/DeepSeek-R1): Powerful reasoning based open large language model.
 

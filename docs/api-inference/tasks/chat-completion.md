@@ -25,13 +25,12 @@ This is a subtask of [`text-generation`](https://huggingface.co/docs/api-inferen
 - [deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B): Smaller variant of one of the most powerful models.
 - [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct): Very powerful text generation model trained to follow instructions.
 - [microsoft/phi-4](https://huggingface.co/microsoft/phi-4): Powerful text generation model by Microsoft.
-- [PowerInfer/SmallThinker-3B-Preview](https://huggingface.co/PowerInfer/SmallThinker-3B-Preview): A very powerful model with reasoning capabilities.
 - [Qwen/Qwen2.5-Coder-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct): Text generation model used to write code.
 - [deepseek-ai/DeepSeek-R1](https://huggingface.co/deepseek-ai/DeepSeek-R1): Powerful reasoning based open large language model.
 
 #### Conversational Vision-Language Models (VLMs)
 
-- [Qwen/QVQ-72B-Preview](https://huggingface.co/Qwen/QVQ-72B-Preview): Image-text-to-text model with reasoning capabilities.
+- [Qwen/Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct): Strong image-text-to-text model.
 
 ### API Playground
 
@@ -214,11 +213,11 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 
 <curl>
 ```bash
-curl 'https://router.huggingface.co/hf-inference/models/Qwen/QVQ-72B-Preview/v1/chat/completions' \
+curl 'https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1/chat/completions' \
 -H 'Authorization: Bearer hf_***' \
 -H 'Content-Type: application/json' \
 --data '{
-    "model": "Qwen/QVQ-72B-Preview",
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
     "messages": [
 		{
 			"role": "user",
@@ -271,7 +270,7 @@ messages = [
 ]
 
 stream = client.chat.completions.create(
-	model="Qwen/QVQ-72B-Preview", 
+	model="Qwen/Qwen2.5-VL-7B-Instruct", 
 	messages=messages, 
 	max_tokens=500,
 	stream=True
@@ -309,7 +308,7 @@ messages = [
 ]
 
 stream = client.chat.completions.create(
-    model="Qwen/QVQ-72B-Preview", 
+    model="Qwen/Qwen2.5-VL-7B-Instruct", 
 	messages=messages, 
 	max_tokens=500,
 	stream=True
@@ -332,7 +331,7 @@ const client = new HfInference("hf_***");
 let out = "";
 
 const stream = client.chatCompletionStream({
-	model: "Qwen/QVQ-72B-Preview",
+	model: "Qwen/Qwen2.5-VL-7B-Instruct",
 	messages: [
 		{
 			role: "user",
@@ -375,7 +374,7 @@ const client = new OpenAI({
 let out = "";
 
 const stream = await client.chat.completions.create({
-	model: "Qwen/QVQ-72B-Preview",
+	model: "Qwen/Qwen2.5-VL-7B-Instruct",
 	messages: [
 		{
 			role: "user",
@@ -458,7 +457,7 @@ To use the JavaScript client, see `huggingface.js`'s [package reference](https:/
 | **stop** | _string[]_ | Up to 4 sequences where the API will stop generating further tokens. |
 | **stream** | _boolean_ |  |
 | **stream_options** | _object_ |  |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;include_usage*** | _boolean_ | If set, an additional chunk will be streamed before the data: [DONE] message. The usage field on this chunk shows the token usage statistics for the entire request, and the choices field will always be an empty array. All other chunks will also include a usage field, but with a null value. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;include_usage** | _boolean_ | If set, an additional chunk will be streamed before the data: [DONE] message. The usage field on this chunk shows the token usage statistics for the entire request, and the choices field will always be an empty array. All other chunks will also include a usage field, but with a null value. |
 | **temperature** | _number_ | What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.  We generally recommend altering this or `top_p` but not both. |
 | **tool_choice** | _unknown_ | One of the following: |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#1)** | _enum_ | Possible values: auto. |
@@ -542,7 +541,7 @@ For more information about streaming, check out [this guide](https://huggingface
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tool_call_id** | _string_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#2)** | _object_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;role** | _string_ |  |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tool_calls** | _object_ |  |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tool_calls** | _object[]_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function** | _object_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arguments** | _string_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name** | _string_ |  |
