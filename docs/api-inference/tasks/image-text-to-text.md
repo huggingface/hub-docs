@@ -24,7 +24,7 @@ For more details about the `image-text-to-text` task, check out its [dedicated p
 
 ### Recommended models
 
-- [Qwen/QVQ-72B-Preview](https://huggingface.co/Qwen/QVQ-72B-Preview): Image-text-to-text model with reasoning capabilities.
+- [Qwen/Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct): Strong image-text-to-text model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-text-to-text&sort=trending).
 
@@ -35,7 +35,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <curl>
 ```bash
-curl https://router.huggingface.co/hf-inference/models/Qwen/QVQ-72B-Preview \
+curl https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct \
 	-X POST \
 	-d '{"inputs": "Can you please let us know more details about your "}' \
 	-H 'Content-Type: application/json' \
@@ -56,7 +56,7 @@ client = InferenceClient(
 messages = "\"Can you please let us know more details about your \""
 
 stream = client.chat.completions.create(
-	model="Qwen/QVQ-72B-Preview", 
+	model="Qwen/Qwen2.5-VL-7B-Instruct", 
 	messages=messages, 
 	max_tokens=500,
 	stream=True
@@ -78,7 +78,7 @@ client = OpenAI(
 messages = "\"Can you please let us know more details about your \""
 
 stream = client.chat.completions.create(
-    model="Qwen/QVQ-72B-Preview", 
+    model="Qwen/Qwen2.5-VL-7B-Instruct", 
 	messages=messages, 
 	max_tokens=500,
 	stream=True
@@ -95,7 +95,7 @@ To use the Python client, see `huggingface_hub`'s [package reference](https://hu
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/Qwen/QVQ-72B-Preview",
+		"https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
