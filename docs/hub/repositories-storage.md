@@ -50,7 +50,7 @@ To make Xet the default for all your repositories, [join the waitlist](https://h
 </Tip>
 
 
-To access a Xet-enabled client, add the `hf_xet` Python package when installing `huggingface_hub`:
+To access a Xet-aware client, add the `hf_xet` Python package when installing `huggingface_hub`:
 
 ```bash
 pip install huggingface_hub[hf_xet]

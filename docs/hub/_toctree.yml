@@ -25,7 +25,7 @@
         title: "How-to: Create automatic metadata quality reports"
   - local: notebooks
     title: Notebooks
-  - local: repositories-storage
+  - local: storage-backends
     title: Storage Backends
   - local: storage-limits
     title: Storage Limits
