@@ -69,7 +69,7 @@ That's it! You now get the benefits of Xet deduplication for both uploads and do
 To see more detailed usage docs, refer to the `huggingface_hub` docs for:
 - [Upload](https://huggingface.co/docs/huggingface_hub/guides/upload#faster-uploads-with-hf_xet)
 - [Download](https://huggingface.co/docs/huggingface_hub/guides/download#hf_xet)
-- [Managing the `hf_xet` cache](https://huggingface.co/docs/huggingface_hub/guides/manage-cache#xet-cache)
+- [Managing the `hf_xet` cache](https://huggingface.co/docs/huggingface_hub/guides/manage-cache#chunk-based-caching-xet)
 
 #### Recommendations
 
