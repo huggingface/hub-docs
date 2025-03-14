@@ -53,10 +53,10 @@ To make Xet the default for all your repositories, [join the waitlist](https://h
 To access a Xet-aware client, add the `hf_xet` Python package when installing `huggingface_hub`:
 
 ```bash
-pip install huggingface_hub[hf_xet]
+pip install -U huggingface_hub[hf_xet]
 ```
 
-If you use the `transformers` or `datasets` libraries instead of making requests through `huggingface_hub` then simply install `hf_xet` directly:
+If you use the `transformers` or `datasets` libraries, it's already using `huggingface_hub` so you can simply install `hf_xet` in the same env:
 
 ```bash
 pip install hf-xet
@@ -76,7 +76,7 @@ To see more detailed usage docs, refer to the `huggingface_hub` docs for:
 Xet integrates seamlessly with the Hub's current Python-based workflows. However, there are a few steps you may consider to get the most benefits from Xet storage:
 
 - **Use `hf_xet`**: While Xet remains backward compatible with legacy clients optimized for Git LFS, the `hf_xet` integration with `huggingface_hub` delivers optimal chunk-based performance and faster iteration on large files.
-- **Leverage frequent, incremental commits**: Xet's chunk-level deduplication means you can safely make incremental updates to models or datasets. Only changed chunks upload, so frequent commits are both fast and storage-efficient.
+- **Leverage frequent, incremental commits**: Xet's chunk-level deduplication means you can safely make incremental updates to models or datasets. Only changed chunks are uploaded, so frequent commits are both fast and storage-efficient.
 - **Be Specific in .gitattributes**: When defining patterns for Xet or LFS, use precise file extensions (e.g., `*.safetensors`, `*.bin`) to avoid unnecessarily routing smaller files through large-file storage.
 - **Prioritize community access**: Xet substantially increases the efficiency and scale of large file transfers. Instead of structuring your repository to reduce its total size (or the size of individual files), organize it for collaborators and community users so they may easily navigate and retrieve the content they need.
 
