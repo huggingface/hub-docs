@@ -16,4 +16,4 @@ In these pages, you will go over the basics of getting started with Git and inte
 - [Repository storage limits](./storage-limits)
 - [Next Steps](./repositories-next-steps)
 - [Licenses](./repositories-licenses)
-- [Storage](./repositories-storage)
+- [Storage Backends](./storage-backends)
