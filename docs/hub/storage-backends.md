@@ -108,6 +108,7 @@ This symmetry allows non-Xet-aware clients (e.g., older versions of the `hugging
 While a Xet-aware client will receive file reconstruction information from CAS to download the Xet-backed locally, a legacy client will get a S3 URL from the Git LFS bridge. Meanwhile, while uploading an update to a Xet-backed file, a Xet-aware client will run CDC deduplication and upload through CAS while a non-Xet-aware client will upload through Git LFS and a background process will convert the file revision to a Xet-backed version.
 
 ### Security Model
+Xet storage provides data deduplication over all chunks stored in Hugging Face. This is done via cryptographic hashing in a privacy sensitive way. The contents of chunks are protected and are associated with repository permissions. i.e. you can only read chunks which are required to reproduce files you have access to, and no more. See [xet-core](https://github.com/huggingface/xet-core) for details.
 
 ## Legacy Storage: Git LFS
 
