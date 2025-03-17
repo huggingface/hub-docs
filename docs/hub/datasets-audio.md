@@ -6,7 +6,7 @@ A dataset with a supported structure and [file formats](./datasets-adding#file-f
 
 ---
 
-Additional information about your audio files - such as transcriptions - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`).
+Additional information about your audio files - such as transcriptions - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`/`metadata.parquet`).
 
 Alternatively, audio files can be in Parquet files or in TAR archives following the [WebDataset](https://github.com/webdataset/webdataset) format.
 
@@ -90,6 +90,8 @@ You can also use a [JSONL](https://jsonlines.org/) file `metadata.jsonl`:
 {"file_name": "4.wav","text": "dog"}
 ```
 
+And for bigger datasets or if you are interested in advanced data retrieval features, you can use a [Parquet](https://parquet.apache.org/) file `metadata.parquet`.
+
 ## Relative paths
 
 Metadata file must be located either in the same directory with the audio files it is linked to, or in any parent directory, like in this example:
@@ -115,7 +117,9 @@ audio/3.wav,dog
 audio/4.wav,dog
 ```
 
-Metadata file cannot be put in subdirectories of a directory with the audio files.
+Metadata files cannot be put in subdirectories of a directory with the audio files.
+
+More generally, any column named `file_name` or `*_file_name` should contain the full relative path to the audio files.
 
 In this example, the `test` directory is used to setup the name of the training split. See [File names and splits](./datasets-file-names-and-splits) for more information.
 
@@ -203,8 +207,9 @@ my_dataset_repository/
 └── train.parquet
 ```
 
-Audio columns are of type _struct_, with a binary field `"bytes"` for the audio data and a string field `"path"` for the image file name or path.
-You should specify the feature types of the columns directly in YAML in the README header, for example:
+Parquet files with audio data can be created using `pandas` or the `datasets` library. To create Parquet files with audio data in `pandas`, you can use [pandas-audio-methods](https://github.com/lhoestq/pandas-audio-methods) and `df.to_parquet()`. In `datasets`, you can set the column type to `Audio()` and use the `ds.to_parquet(...)` method or `ds.push_to_hub(...)`. You can find a guide on loading audio datasets in `datasets` [here](/docs/datasets/audio_load).
+
+Alternatively you can manually set the audio type of Parquet created using other tools. First, make sure your audio columns are of type _struct_, with a binary field `"bytes"` for the audio data and a string field `"path"` for the audio file name or path. Then you should specify the feature types of the columns directly in YAML in the README header, for example:
 
 ```yaml
 dataset_info:
@@ -215,4 +220,4 @@ dataset_info:
     dtype: string
 ```
 
-Alternatively, Parquet files with Audio data can be created using the `datasets` library by setting the column type to `Audio()` and using the `.to_parquet(...)` method or `.push_to_hub(...)`. You can find a guide on loading audio datasets in `datasets` [here](../datasets/audio_load).
+Note that Parquet is recommended for small audio files (<1MB per audio file) and small row groups (100 rows per row group, which is what `datasets` uses for audio). For larger audio files it is recommended to use the WebDataset format, or to share the original audio files (optionally with metadata files).
