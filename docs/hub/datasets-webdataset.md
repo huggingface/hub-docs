@@ -18,6 +18,21 @@ Labels and metadata can be in a `.json` file, in a `.txt` (for a caption, a desc
 A large scale WebDataset is made of many files called shards, where each shard is a TAR archive.
 Each shard is often ~1GB but the full dataset can be multiple terabytes!
 
+## Multimodal support
+
+WebDataset is designed for multimodal datasets, i.e. for image, audio and/or video datasets.
+
+Indeed since media files tend to be quite big, the sequential I/O of WebDataset enables large reads and buffering. This results in obtaining the best data loading speed.
+
+Here is a non-exhaustive list of supported data formats:
+
+- image: jpeg, png, tiff
+- audio: mp3, m4a, wav, flac
+- video: mp4, mov, avi
+- other: npy, npz
+
+The full list evolves over time and depends on the implementation. For examoke you can can find which formats the `webdataset` package supports in the source code [here](https://github.com/webdataset/webdataset/blob/main/webdataset/autodecode.py).
+
 ## Streaming
 
 Streaming TAR archives is fast because it reads contiguous chunks of data.
