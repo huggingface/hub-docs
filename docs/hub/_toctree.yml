@@ -229,6 +229,8 @@
         title: Audio Dataset
       - local: datasets-image
         title: Image Dataset
+      - local: datasets-video
+        title: Video Dataset
 - local: spaces
   title: Spaces
   isExpanded: true
