@@ -1,6 +1,6 @@
 # Video Dataset
 
-This guide will show you how to configure your dataset repository with video files. You can find accompanying examples of repositories in this [Video datasets examples collection](https://huggingface.co/collections/datasets-examples/video-dataset-6568e7cf28639db76eb92d65).
+This guide will show you how to configure your dataset repository with video files.
 
 A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its page on the Hub.
 
@@ -32,15 +32,14 @@ my_dataset_repository/
     └── 4.mp4
 ```
 
-Multiple [formats](./datasets-adding#file-formats) are supported at the same time, including PNG, JPEG, TIFF and WebP.
+Multiple [formats](./datasets-adding#file-formats) are supported at the same time, including MP4, MOV and AVI.
 
 ```
 my_dataset_repository/
 └── videos
     ├── 1.mp4
-    ├── 2.png
-    ├── 3.tiff
-    └── 4.webp
+    ├── 2.mov
+    └── 3.avi
 ```
 
 If you have several splits, you can put your videos into directories named accordingly: 
