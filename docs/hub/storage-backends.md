@@ -46,6 +46,7 @@ To start using Xet Storage, you need a Xet-enabled repository and a Xet-aware ve
 <Tip>
 
 To make Xet the default for all your repositories, [join the waitlist](https://huggingface.co/join/xet)! You can apply for yourself or your entire organization (requires [admin permissions](https://huggingface.co/docs/hub/organizations-security)). Once approved, all current repositories will be automatically migrated to Xet and future repositories will be Xet-enabled by default.
+Note that our intent is to fast-track PRO users and Enterprise Hub organizations.
 
 </Tip>
 
