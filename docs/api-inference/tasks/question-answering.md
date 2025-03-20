@@ -35,82 +35,52 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/deepset/roberta-base-squad2 \
-	-X POST \
-	-d '{"inputs": { "question": "What is my name?", "context": "My name is Clara and I live in Berkeley." }}' \
-	-H 'Content-Type: application/json' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
-
-<python>
-Using `huggingface_hub`:
-```py
+<snippet provider="hf-inference" language="python" client="huggingface_hub">
+        
+```python
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(
-	provider="hf-inference",
-	api_key="hf_***"
+    provider="hf-inference",
+    api_key="hf_***",
 )
 
 result = client.question_answering(
-	model="deepset/roberta-base-squad2",
-	inputs={
+    inputs={
 	"question": "What is my name?",
 	"context": "My name is Clara and I live in Berkeley."
 },
-	provider="hf-inference",
+    model="deepset/roberta-base-squad2",
 )
-
-print(result)
-
 ```
 
-Using `requests`:
-```py
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+<snippet provider="hf-inference" language="python" client="requests">
+        
+```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/v1"
+API_URL = "https://router.huggingface.co/hf-inference/models/deepset/roberta-base-squad2"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-	
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
 output = query({
-	"inputs": {
+    "inputs": {
 	"question": "What is my name?",
 	"context": "My name is Clara and I live in Berkeley."
 },
 })
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.question_answering).
-</python>
+</snippet>
 
-<js>
-Using `huggingface.js`:
-```js
-import { HfInference } from "@huggingface/inference";
-
-const client = new HfInference("hf_***");
-
-const output = await client.questionAnswering({
-	model: "deepset/roberta-base-squad2",
-	inputs: {
-	"question": "What is my name?",
-	"context": "My name is Clara and I live in Berkeley."
-},
-	provider: "hf-inference",
-});
-
-console.log(output);
-
-```
-
-Using `fetch`:
+<snippet provider="hf-inference" language="js" client="fetch">
+        
 ```js
 async function query(data) {
 	const response = await fetch(
@@ -128,16 +98,52 @@ async function query(data) {
 	return result;
 }
 
-query({"inputs": {
+query({ inputs: {
 	"question": "What is my name?",
 	"context": "My name is Clara and I live in Berkeley."
-}}).then((response) => {
-	console.log(JSON.stringify(response));
+} }).then((response) => {
+    console.log(JSON.stringify(response));
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#questionanswering).
-</js>
+</snippet>
+
+<snippet provider="hf-inference" language="js" client="huggingface.js">
+        
+```js
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient("hf_***");
+
+const output = await client.questionAnswering({
+	model: "deepset/roberta-base-squad2",
+	inputs: {
+	"question": "What is my name?",
+	"context": "My name is Clara and I live in Berkeley."
+},
+	provider: "hf-inference",
+});
+
+console.log(output);
+```
+
+</snippet>
+
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+<snippet provider="hf-inference" language="sh" client="curl">
+        
+```sh
+curl https://router.huggingface.co/hf-inference/models/deepset/roberta-base-squad2 \
+    -X POST \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "inputs": "{\n\t\"question\": \"What is my name?\",\n\t\"context\": \"My name is Clara and I live in Berkeley.\"\n}"
+    }'
+```
+
+</snippet>
+
 
 </inferencesnippet>
 

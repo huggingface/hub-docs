@@ -33,73 +33,46 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-base \
-	-X POST \
-	-d '{"inputs": "The answer to the universe is [MASK]."}' \
-	-H 'Content-Type: application/json' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
-
-<python>
-Using `huggingface_hub`:
-```py
+<snippet provider="hf-inference" language="python" client="huggingface_hub">
+        
+```python
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(
-	provider="hf-inference",
-	api_key="hf_***"
+    provider="hf-inference",
+    api_key="hf_***",
 )
 
 result = client.fill_mask(
-	model="FacebookAI/xlm-roberta-base",
-	inputs="The answer to the universe is [MASK].",
-	provider="hf-inference",
+    inputs="The answer to the universe is [MASK].",
+    model="FacebookAI/xlm-roberta-base",
 )
-
-print(result)
-
 ```
 
-Using `requests`:
-```py
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+<snippet provider="hf-inference" language="python" client="requests">
+        
+```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/v1"
+API_URL = "https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-base"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-	
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
 output = query({
-	"inputs": "The answer to the universe is [MASK].",
+    "inputs": "The answer to the universe is [MASK].",
 })
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.fill_mask).
-</python>
+</snippet>
 
-<js>
-Using `huggingface.js`:
-```js
-import { HfInference } from "@huggingface/inference";
-
-const client = new HfInference("hf_***");
-
-const output = await client.fillMask({
-	model: "FacebookAI/xlm-roberta-base",
-	inputs: "The answer to the universe is [MASK].",
-	provider: "hf-inference",
-});
-
-console.log(output);
-
-```
-
-Using `fetch`:
+<snippet provider="hf-inference" language="js" client="fetch">
+        
 ```js
 async function query(data) {
 	const response = await fetch(
@@ -117,13 +90,46 @@ async function query(data) {
 	return result;
 }
 
-query({"inputs": "The answer to the universe is [MASK]."}).then((response) => {
-	console.log(JSON.stringify(response));
+query({ inputs: "The answer to the universe is [MASK]." }).then((response) => {
+    console.log(JSON.stringify(response));
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#fillmask).
-</js>
+</snippet>
+
+<snippet provider="hf-inference" language="js" client="huggingface.js">
+        
+```js
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient("hf_***");
+
+const output = await client.fillMask({
+	model: "FacebookAI/xlm-roberta-base",
+	inputs: "The answer to the universe is [MASK].",
+	provider: "hf-inference",
+});
+
+console.log(output);
+```
+
+</snippet>
+
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+<snippet provider="hf-inference" language="sh" client="curl">
+        
+```sh
+curl https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-base \
+    -X POST \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "inputs": "\"The answer to the universe is [MASK].\""
+    }'
+```
+
+</snippet>
+
 
 </inferencesnippet>
 

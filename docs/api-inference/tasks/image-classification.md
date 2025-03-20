@@ -35,60 +35,100 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/google/vit-base-patch16-224 \
-	-X POST \
-	--data-binary '@cats.jpg' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
+<snippet provider="hf-inference" language="python" client="huggingface_hub">
+        
+```python
+from huggingface_hub import InferenceClient
 
-<python>
-```py
+client = InferenceClient(
+    provider="hf-inference",
+    api_key="hf_***",
+)
+
+output = client.image_classification("cats.jpg", model="google/vit-base-patch16-224")
+```
+
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+<snippet provider="hf-inference" language="python" client="requests">
+        
+```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/v1"
+API_URL = "https://router.huggingface.co/hf-inference/models/google/vit-base-patch16-224"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
-	with open(filename, "rb") as f:
-		data = f.read()
-	response = requests.post(API_URL, headers=headers, data=data)
-	return response.json()
+    with open(filename, "rb") as f:
+        data = f.read()
+    response = requests.post(API_URL, headers={"Content-Type": "image/jpeg", **headers}, data=data)
+    return response.json()
 
 output = query("cats.jpg")
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_classification).
-</python>
+</snippet>
 
-<js>
+<snippet provider="hf-inference" language="js" client="fetch">
+        
 ```js
-async function query(filename) {
-	const data = fs.readFileSync(filename);
+async function query(data) {
 	const response = await fetch(
 		"https://router.huggingface.co/hf-inference/models/google/vit-base-patch16-224",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
+				"Content-Type": "image/jpeg"
 			},
 			method: "POST",
-			body: data,
+			body: JSON.stringify(data),
 		}
 	);
 	const result = await response.json();
 	return result;
 }
 
-query("cats.jpg").then((response) => {
-	console.log(JSON.stringify(response));
+query({ inputs: "cats.jpg" }).then((response) => {
+    console.log(JSON.stringify(response));
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#imageclassification).
-</js>
+</snippet>
+
+<snippet provider="hf-inference" language="js" client="huggingface.js">
+        
+```js
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient("hf_***");
+
+const data = fs.readFileSync("cats.jpg");
+
+const output = await client.imageClassification({
+	data,
+	model: "google/vit-base-patch16-224",
+	provider: "hf-inference",
+});
+
+console.log(output);
+```
+
+</snippet>
+
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+<snippet provider="hf-inference" language="sh" client="curl">
+        
+```sh
+curl https://router.huggingface.co/hf-inference/models/google/vit-base-patch16-224 \
+    -X POST \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: image/jpeg' \
+    --data-binary @"cats.jpg"
+```
+
+</snippet>
+
 
 </inferencesnippet>
 

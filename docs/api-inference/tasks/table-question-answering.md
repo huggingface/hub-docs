@@ -34,29 +34,18 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/microsoft/tapex-base \
-	-X POST \
-	-d '{"inputs": { "query": "How many stars does the transformers repository have?", "table": { "Repository": ["Transformers", "Datasets", "Tokenizers"], "Stars": ["36542", "4512", "3934"], "Contributors": ["651", "77", "34"], "Programming language": [ "Python", "Python", "Rust, Python and NodeJS" ] } }}' \
-	-H 'Content-Type: application/json' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
-
-<python>
-Using `huggingface_hub`:
-```py
+<snippet provider="hf-inference" language="python" client="huggingface_hub">
+        
+```python
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(
-	provider="hf-inference",
-	api_key="hf_***"
+    provider="hf-inference",
+    api_key="hf_***",
 )
 
 result = client.table_question_answering(
-	model="microsoft/tapex-base",
-	inputs={
+    inputs={
 	"query": "How many stars does the transformers repository have?",
 	"table": {
 		"Repository": ["Transformers", "Datasets", "Tokenizers"],
@@ -69,26 +58,27 @@ result = client.table_question_answering(
 		]
 	}
 },
-	provider="hf-inference",
+    model="microsoft/tapex-base",
 )
-
-print(result)
-
 ```
 
-Using `requests`:
-```py
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+<snippet provider="hf-inference" language="python" client="requests">
+        
+```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/v1"
+API_URL = "https://router.huggingface.co/hf-inference/models/microsoft/tapex-base"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-	
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
 output = query({
-	"inputs": {
+    "inputs": {
 	"query": "How many stars does the transformers repository have?",
 	"table": {
 		"Repository": ["Transformers", "Datasets", "Tokenizers"],
@@ -104,15 +94,52 @@ output = query({
 })
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.table_question_answering).
-</python>
+</snippet>
 
-<js>
-Using `huggingface.js`:
+<snippet provider="hf-inference" language="js" client="fetch">
+        
 ```js
-import { HfInference } from "@huggingface/inference";
+async function query(data) {
+	const response = await fetch(
+		"https://router.huggingface.co/hf-inference/models/microsoft/tapex-base",
+		{
+			headers: {
+				Authorization: "Bearer hf_***",
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.json();
+	return result;
+}
 
-const client = new HfInference("hf_***");
+query({ inputs: {
+	"query": "How many stars does the transformers repository have?",
+	"table": {
+		"Repository": ["Transformers", "Datasets", "Tokenizers"],
+		"Stars": ["36542", "4512", "3934"],
+		"Contributors": ["651", "77", "34"],
+		"Programming language": [
+			"Python",
+			"Python",
+			"Rust, Python and NodeJS"
+		]
+	}
+} }).then((response) => {
+    console.log(JSON.stringify(response));
+});
+```
+
+</snippet>
+
+<snippet provider="hf-inference" language="js" client="huggingface.js">
+        
+```js
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient("hf_***");
 
 const output = await client.tableQuestionAnswering({
 	model: "microsoft/tapex-base",
@@ -133,46 +160,25 @@ const output = await client.tableQuestionAnswering({
 });
 
 console.log(output);
-
 ```
 
-Using `fetch`:
-```js
-async function query(data) {
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/microsoft/tapex-base",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
+</snippet>
 
-query({"inputs": {
-	"query": "How many stars does the transformers repository have?",
-	"table": {
-		"Repository": ["Transformers", "Datasets", "Tokenizers"],
-		"Stars": ["36542", "4512", "3934"],
-		"Contributors": ["651", "77", "34"],
-		"Programming language": [
-			"Python",
-			"Python",
-			"Rust, Python and NodeJS"
-		]
-	}
-}}).then((response) => {
-	console.log(JSON.stringify(response));
-});
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+<snippet provider="hf-inference" language="sh" client="curl">
+        
+```sh
+curl https://router.huggingface.co/hf-inference/models/microsoft/tapex-base \
+    -X POST \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "inputs": "{\n\t\"query\": \"How many stars does the transformers repository have?\",\n\t\"table\": {\n\t\t\"Repository\": [\"Transformers\", \"Datasets\", \"Tokenizers\"],\n\t\t\"Stars\": [\"36542\", \"4512\", \"3934\"],\n\t\t\"Contributors\": [\"651\", \"77\", \"34\"],\n\t\t\"Programming language\": [\n\t\t\t\"Python\",\n\t\t\t\"Python\",\n\t\t\t\"Rust, Python and NodeJS\"\n\t\t]\n\t}\n}"
+    }'
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#tablequestionanswering).
-</js>
+</snippet>
+
 
 </inferencesnippet>
 

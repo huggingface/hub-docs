@@ -34,73 +34,46 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/facebook/nllb-200-1.3B \
-	-X POST \
-	-d '{"inputs": "Меня зовут Вольфганг и я живу в Берлине"}' \
-	-H 'Content-Type: application/json' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
-
-<python>
-Using `huggingface_hub`:
-```py
+<snippet provider="hf-inference" language="python" client="huggingface_hub">
+        
+```python
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(
-	provider="hf-inference",
-	api_key="hf_***"
+    provider="hf-inference",
+    api_key="hf_***",
 )
 
 result = client.translation(
-	model="facebook/nllb-200-1.3B",
-	inputs="Меня зовут Вольфганг и я живу в Берлине",
-	provider="hf-inference",
+    inputs="Меня зовут Вольфганг и я живу в Берлине",
+    model="facebook/nllb-200-1.3B",
 )
-
-print(result)
-
 ```
 
-Using `requests`:
-```py
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+<snippet provider="hf-inference" language="python" client="requests">
+        
+```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/v1"
+API_URL = "https://router.huggingface.co/hf-inference/models/facebook/nllb-200-1.3B"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-	
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
 output = query({
-	"inputs": "Меня зовут Вольфганг и я живу в Берлине",
+    "inputs": "Меня зовут Вольфганг и я живу в Берлине",
 })
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.translation).
-</python>
+</snippet>
 
-<js>
-Using `huggingface.js`:
-```js
-import { HfInference } from "@huggingface/inference";
-
-const client = new HfInference("hf_***");
-
-const output = await client.translation({
-	model: "facebook/nllb-200-1.3B",
-	inputs: "Меня зовут Вольфганг и я живу в Берлине",
-	provider: "hf-inference",
-});
-
-console.log(output);
-
-```
-
-Using `fetch`:
+<snippet provider="hf-inference" language="js" client="fetch">
+        
 ```js
 async function query(data) {
 	const response = await fetch(
@@ -118,13 +91,46 @@ async function query(data) {
 	return result;
 }
 
-query({"inputs": "Меня зовут Вольфганг и я живу в Берлине"}).then((response) => {
-	console.log(JSON.stringify(response));
+query({ inputs: "Меня зовут Вольфганг и я живу в Берлине" }).then((response) => {
+    console.log(JSON.stringify(response));
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#translation).
-</js>
+</snippet>
+
+<snippet provider="hf-inference" language="js" client="huggingface.js">
+        
+```js
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient("hf_***");
+
+const output = await client.translation({
+	model: "facebook/nllb-200-1.3B",
+	inputs: "Меня зовут Вольфганг и я живу в Берлине",
+	provider: "hf-inference",
+});
+
+console.log(output);
+```
+
+</snippet>
+
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+<snippet provider="hf-inference" language="sh" client="curl">
+        
+```sh
+curl https://router.huggingface.co/hf-inference/models/facebook/nllb-200-1.3B \
+    -X POST \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "inputs": "\"Меня зовут Вольфганг и я живу в Берлине\""
+    }'
+```
+
+</snippet>
+
 
 </inferencesnippet>
 

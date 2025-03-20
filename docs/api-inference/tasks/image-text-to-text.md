@@ -33,89 +33,123 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct \
-	-X POST \
-	-d '{"inputs": "Can you please let us know more details about your "}' \
-	-H 'Content-Type: application/json' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
-
-<python>
-Using `huggingface_hub`:
-```py
+<snippet provider="hf-inference" language="python" client="huggingface_hub">
+        
+```python
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(
-	provider="hf-inference",
-	api_key="hf_***"
+    provider="hf-inference",
+    api_key="hf_***",
 )
 
-messages = "\"Can you please let us know more details about your \""
-
-stream = client.chat.completions.create(
-	model="Qwen/Qwen2.5-VL-7B-Instruct", 
-	messages=messages, 
-	max_tokens=500,
-	stream=True
+completion = client.chat.completions.create(
+    model="Qwen/Qwen2.5-VL-7B-Instruct",
+    inputs="\"Can you please let us know more details about your \"",
 )
 
-for chunk in stream:
-    print(chunk.choices[0].delta.content, end="")
+print(completion.choices[0].message)
 ```
 
-Using `openai`:
-```py
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+<snippet provider="hf-inference" language="python" client="requests">
+        
+```python
+import requests
+
+API_URL = "https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1/chat/completions"
+headers = {"Authorization": "Bearer hf_***"}
+
+def query(payload):
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
+response = query({
+    "inputs": "\"Can you please let us know more details about your \"",
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct"
+})
+
+print(response["choices"][0]["message"])
+```
+
+</snippet>
+
+<snippet provider="hf-inference" language="python" client="openai">
+        
+```python
 from openai import OpenAI
 
 client = OpenAI(
-	base_url="https://router.huggingface.co/hf-inference/v1",
-	api_key="hf_***"
+    base_url="https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1",
+    api_key="hf_***"
 )
 
-messages = "\"Can you please let us know more details about your \""
-
-stream = client.chat.completions.create(
-    model="Qwen/Qwen2.5-VL-7B-Instruct", 
-	messages=messages, 
-	max_tokens=500,
-	stream=True
+completion = client.chat.completions.create(
+    model="Qwen/Qwen2.5-VL-7B-Instruct",
+    inputs="\"Can you please let us know more details about your \"",
 )
 
-for chunk in stream:
-	print(chunk.choices[0].delta.content, end="")
+print(completion.choices[0].message)
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_text_to_text).
-</python>
+</snippet>
 
-<js>
+<snippet provider="hf-inference" language="js" client="huggingface.js">
+        
 ```js
-async function query(data) {
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
+import { InferenceClient } from "@huggingface/inference";
 
-query({"inputs": "Can you please let us know more details about your "}).then((response) => {
-	console.log(JSON.stringify(response));
+const client = new InferenceClient("hf_***");
+
+const chatCompletion = await client.chatCompletion({
+    provider: "hf-inference",
+    model: "Qwen/Qwen2.5-VL-7B-Instruct",
+    inputs: "\"Can you please let us know more details about your \"",
 });
+
+console.log(chatCompletion.choices[0].message);
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#imagetexttotext).
-</js>
+</snippet>
+
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+<snippet provider="hf-inference" language="js" client="openai">
+        
+```js
+import { OpenAI } from "openai";
+
+const client = new OpenAI({
+	baseURL: "https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1",
+	apiKey: "hf_***",
+});
+
+const chatCompletion = await client.chat.completions.create({
+	model: "Qwen/Qwen2.5-VL-7B-Instruct",
+    inputs: "\"Can you please let us know more details about your \"",
+});
+
+console.log(chatCompletion.choices[0].message);
+```
+
+</snippet>
+
+<snippet provider="hf-inference" language="sh" client="curl">
+        
+```sh
+curl https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1/chat/completions \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "inputs": "\"Can you please let us know more details about your \"",
+        "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+        "stream": false
+    }'
+```
+
+</snippet>
+
 
 </inferencesnippet>
 

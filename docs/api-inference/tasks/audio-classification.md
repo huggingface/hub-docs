@@ -40,60 +40,79 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/speechbrain/google_speech_command_xvector \
-	-X POST \
-	--data-binary '@sample1.flac' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
+<snippet provider="hf-inference" language="python" client="huggingface_hub">
+        
+```python
+from huggingface_hub import InferenceClient
 
-<python>
-```py
+client = InferenceClient(
+    provider="hf-inference",
+    api_key="hf_***",
+)
+
+output = client.audio_classification("sample1.flac", model="speechbrain/google_speech_command_xvector")
+```
+
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+<snippet provider="hf-inference" language="python" client="requests">
+        
+```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/v1"
+API_URL = "https://router.huggingface.co/hf-inference/models/speechbrain/google_speech_command_xvector"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
-	with open(filename, "rb") as f:
-		data = f.read()
-	response = requests.post(API_URL, headers=headers, data=data)
-	return response.json()
+    with open(filename, "rb") as f:
+        data = f.read()
+    response = requests.post(API_URL, headers={"Content-Type": "audio/flac", **headers}, data=data)
+    return response.json()
 
 output = query("sample1.flac")
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.audio_classification).
-</python>
+</snippet>
 
-<js>
+<snippet provider="hf-inference" language="js" client="fetch">
+        
 ```js
-async function query(filename) {
-	const data = fs.readFileSync(filename);
+async function query(data) {
 	const response = await fetch(
 		"https://router.huggingface.co/hf-inference/models/speechbrain/google_speech_command_xvector",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
+				"Content-Type": "audio/flac"
 			},
 			method: "POST",
-			body: data,
+			body: JSON.stringify(data),
 		}
 	);
 	const result = await response.json();
 	return result;
 }
 
-query("sample1.flac").then((response) => {
-	console.log(JSON.stringify(response));
+query({ inputs: "sample1.flac" }).then((response) => {
+    console.log(JSON.stringify(response));
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#audioclassification).
-</js>
+</snippet>
+
+<snippet provider="hf-inference" language="sh" client="curl">
+        
+```sh
+curl https://router.huggingface.co/hf-inference/models/speechbrain/google_speech_command_xvector \
+    -X POST \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: audio/flac' \
+    --data-binary @"sample1.flac"
+```
+
+</snippet>
+
 
 </inferencesnippet>
 

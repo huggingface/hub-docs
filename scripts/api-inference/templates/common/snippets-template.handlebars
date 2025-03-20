@@ -1,31 +1,23 @@
-{{#if (or taskSnippets.curl taskSnippets.python taskSnippets.javascript)}}
+{{#if taskSnippets.length }}
 
 <inferencesnippet>
 
-{{!-- cURL snippet (if exists) --}}
-{{#if taskSnippets.curl}}
-<curl>
-{{{taskSnippets.curl}}}
-</curl>
+{{#each taskSnippets}}
+<snippet provider="hf-inference" language="{{this.language}}" client="{{this.client}}">
+
+```{{this.language}}
+{{{this.content}}}
+```
+
+</snippet>
+
+{{#if (eq this.client "huggingface_hub")}}
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.{{taskSnakeCase}}).
 {{/if}}
-
-{{!-- Python snippet (if exists) --}}
-{{#if taskSnippets.python}}
-<python>
-{{{taskSnippets.python}}}
-
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.{{taskSnakeCase}}).
-</python>
+{{#if (eq this.client "huggingface.js")}}
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#{{taskAttached}}).
 {{/if}}
-
-{{!-- JavaScript snippet (if exists) --}}
-{{#if taskSnippets.javascript}}
-<js>
-{{{taskSnippets.javascript}}}
-
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#{{taskAttached}}).
-</js>
-{{/if}}
+{{/each}}
 
 </inferencesnippet>
 

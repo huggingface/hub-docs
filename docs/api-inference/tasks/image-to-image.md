@@ -35,7 +35,62 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-No snippet available for this task.
+<inferencesnippet>
+
+<snippet provider="hf-inference" language="python" client="huggingface_hub">
+        
+```python
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+    provider="hf-inference",
+    api_key="hf_***",
+)
+
+# output is a PIL.Image object
+image = client.image_to_image(
+    "cat.png",
+    prompt="Turn the cat into a tiger.",
+    model="<REPO_ID>",
+)
+```
+
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+<snippet provider="hf-inference" language="python" client="requests">
+        
+```python
+import base64
+import requests
+
+API_URL = "https://router.huggingface.co/hf-inference/models/<REPO_ID>"
+headers = {"Authorization": "Bearer hf_***"}
+
+def query(payload):
+    with open(payload["inputs"], "rb") as f:
+        img = f.read()
+        payload["inputs"] = base64.b64encode(img).decode("utf-8")
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.content
+
+image_bytes = query({
+    "inputs": "cat.png",
+    "parameters": {
+        "prompt": "Turn the cat into a tiger."
+    }
+})
+
+# You can access the image with PIL.Image for example
+import io
+from PIL import Image
+image = Image.open(io.BytesIO(image_bytes))
+```
+
+</snippet>
+
+
+</inferencesnippet>
 
 
 

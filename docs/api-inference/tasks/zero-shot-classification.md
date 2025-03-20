@@ -33,26 +33,17 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/facebook/bart-large-mnli \
-	-X POST \
-	-d '{"inputs": "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!", "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}' \
-	-H 'Content-Type: application/json' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
-
-<python>
-```py
+<snippet provider="hf-inference" language="python" client="requests">
+        
+```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/v1"
+API_URL = "https://router.huggingface.co/hf-inference/models/facebook/bart-large-mnli"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
 
 output = query({
     "inputs": "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!",
@@ -60,34 +51,49 @@ output = query({
 })
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.zero_shot_classification).
-</python>
+</snippet>
 
-<js>
+<snippet provider="hf-inference" language="js" client="fetch">
+        
 ```js
 async function query(data) {
-			const response = await fetch(
-				"https://router.huggingface.co/hf-inference/models/facebook/bart-large-mnli",
-				{
-					headers: {
-						Authorization: "Bearer hf_***",
-						"Content-Type": "application/json",
-					},
-					method: "POST",
-					body: JSON.stringify(data),
-				}
-			);
-			const result = await response.json();
-			return result;
-		}
-		
-		query({"inputs": "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!", "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}).then((response) => {
-			console.log(JSON.stringify(response));
-		});
+    const response = await fetch(
+		"https://router.huggingface.co/hf-inference/models/facebook/bart-large-mnli",
+        {
+            headers: {
+				Authorization: "Bearer hf_***",
+                "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify(data),
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({
+    inputs: "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!",
+    parameters: { candidate_labels: ["refund", "legal", "faq"] }
+}).then((response) => {
+    console.log(JSON.stringify(response));
+});
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#zeroshotclassification).
-</js>
+</snippet>
+
+<snippet provider="hf-inference" language="sh" client="curl">
+        
+```sh
+curl https://router.huggingface.co/hf-inference/models/facebook/bart-large-mnli \
+    -X POST \
+    -d '{"inputs": "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!", "parameters": {"candidate_labels": ["refund", "legal", "faq"]}}' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer hf_***'
+```
+
+</snippet>
+
 
 </inferencesnippet>
 
