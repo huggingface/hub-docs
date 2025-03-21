@@ -45,7 +45,7 @@ client = InferenceClient(
 
 result = client.token_classification(
     inputs="My name is Sarah Jessica Parker but you can call me Jessica",
-    model="FacebookAI/xlm-roberta-large-finetuned-conll03-english",
+    model="dslim/bert-base-NER",
 )
 ```
 
@@ -58,7 +58,7 @@ To use the Python `InferenceClient`, see the [package reference](https://hugging
 ```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-large-finetuned-conll03-english"
+API_URL = "https://router.huggingface.co/hf-inference/models/dslim/bert-base-NER"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -78,7 +78,7 @@ output = query({
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-large-finetuned-conll03-english",
+		"https://router.huggingface.co/hf-inference/models/dslim/bert-base-NER",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -108,7 +108,7 @@ import { InferenceClient } from "@huggingface/inference";
 const client = new InferenceClient("hf_***");
 
 const output = await client.tokenClassification({
-	model: "FacebookAI/xlm-roberta-large-finetuned-conll03-english",
+	model: "dslim/bert-base-NER",
 	inputs: "My name is Sarah Jessica Parker but you can call me Jessica",
 	provider: "hf-inference",
 });
@@ -123,7 +123,7 @@ To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package referen
 <snippet provider="hf-inference" language="sh" client="curl">
 
 ```sh
-curl https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-large-finetuned-conll03-english \
+curl https://router.huggingface.co/hf-inference/models/dslim/bert-base-NER \
     -X POST \
     -H 'Authorization: Bearer hf_***' \
     -H 'Content-Type: application/json' \

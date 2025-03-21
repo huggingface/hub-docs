@@ -45,7 +45,7 @@ client = InferenceClient(
 
 result = client.translation(
     inputs="Меня зовут Вольфганг и я живу в Берлине",
-    model="facebook/mbart-large-50-many-to-many-mmt",
+    model="facebook/nllb-200-distilled-600M",
 )
 ```
 
@@ -58,7 +58,7 @@ To use the Python `InferenceClient`, see the [package reference](https://hugging
 ```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/models/facebook/mbart-large-50-many-to-many-mmt"
+API_URL = "https://router.huggingface.co/hf-inference/models/facebook/nllb-200-distilled-600M"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -78,7 +78,7 @@ output = query({
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/facebook/mbart-large-50-many-to-many-mmt",
+		"https://router.huggingface.co/hf-inference/models/facebook/nllb-200-distilled-600M",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -108,7 +108,7 @@ import { InferenceClient } from "@huggingface/inference";
 const client = new InferenceClient("hf_***");
 
 const output = await client.translation({
-	model: "facebook/mbart-large-50-many-to-many-mmt",
+	model: "facebook/nllb-200-distilled-600M",
 	inputs: "Меня зовут Вольфганг и я живу в Берлине",
 	provider: "hf-inference",
 });
@@ -123,7 +123,7 @@ To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package referen
 <snippet provider="hf-inference" language="sh" client="curl">
 
 ```sh
-curl https://router.huggingface.co/hf-inference/models/facebook/mbart-large-50-many-to-many-mmt \
+curl https://router.huggingface.co/hf-inference/models/facebook/nllb-200-distilled-600M \
     -X POST \
     -H 'Authorization: Bearer hf_***' \
     -H 'Content-Type: application/json' \

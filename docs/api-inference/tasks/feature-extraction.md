@@ -50,7 +50,7 @@ client = InferenceClient(
 
 result = client.feature_extraction(
     inputs="Today is a sunny day and I will get some ice cream.",
-    model="mixedbread-ai/mxbai-embed-large-v1",
+    model="intfloat/multilingual-e5-large-instruct",
 )
 ```
 
@@ -63,7 +63,7 @@ To use the Python `InferenceClient`, see the [package reference](https://hugging
 ```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/pipeline/feature-extraction/mixedbread-ai/mxbai-embed-large-v1"
+API_URL = "https://router.huggingface.co/hf-inference/pipeline/feature-extraction/intfloat/multilingual-e5-large-instruct"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -83,7 +83,7 @@ output = query({
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/pipeline/feature-extraction/mixedbread-ai/mxbai-embed-large-v1",
+		"https://router.huggingface.co/hf-inference/pipeline/feature-extraction/intfloat/multilingual-e5-large-instruct",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -113,7 +113,7 @@ import { InferenceClient } from "@huggingface/inference";
 const client = new InferenceClient("hf_***");
 
 const output = await client.featureExtraction({
-	model: "mixedbread-ai/mxbai-embed-large-v1",
+	model: "intfloat/multilingual-e5-large-instruct",
 	inputs: "Today is a sunny day and I will get some ice cream.",
 	provider: "hf-inference",
 });
@@ -128,7 +128,7 @@ To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package referen
 <snippet provider="hf-inference" language="sh" client="curl">
 
 ```sh
-curl https://router.huggingface.co/hf-inference/pipeline/feature-extraction/mixedbread-ai/mxbai-embed-large-v1 \
+curl https://router.huggingface.co/hf-inference/pipeline/feature-extraction/intfloat/multilingual-e5-large-instruct \
     -X POST \
     -H 'Authorization: Bearer hf_***' \
     -H 'Content-Type: application/json' \
