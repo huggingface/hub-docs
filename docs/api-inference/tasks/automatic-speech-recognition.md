@@ -29,8 +29,6 @@ For more details about the `automatic-speech-recognition` task, check out its [d
 
 ### Recommended models
 
-- [openai/whisper-large-v3](https://huggingface.co/openai/whisper-large-v3): A powerful ASR model by OpenAI.
-- [facebook/seamless-m4t-v2-large](https://huggingface.co/facebook/seamless-m4t-v2-large): An end-to-end model that performs ASR and Speech Translation by MetaAI.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=automatic-speech-recognition&sort=trending).
 
@@ -39,13 +37,14 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
-<snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
+
+<snippet provider="fal-ai" language="python" client="huggingface_hub">
+
 ```python
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(
-    provider="hf-inference",
+    provider="fal-ai",
     api_key="hf_***",
 )
 
@@ -55,12 +54,13 @@ output = client.automatic_speech_recognition("sample1.flac", model="openai/whisp
 </snippet>
 
 To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
-<snippet provider="hf-inference" language="python" client="requests">
-        
+
+<snippet provider="fal-ai" language="python" client="requests">
+
 ```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3"
+API_URL = "https://router.huggingface.co/fal-ai/fal-ai/whisper"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
@@ -74,12 +74,13 @@ output = query("sample1.flac")
 
 </snippet>
 
-<snippet provider="hf-inference" language="js" client="fetch">
-        
+
+<snippet provider="fal-ai" language="js" client="fetch">
+
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3",
+		"https://router.huggingface.co/fal-ai/fal-ai/whisper",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -100,8 +101,9 @@ query({ inputs: "sample1.flac" }).then((response) => {
 
 </snippet>
 
-<snippet provider="hf-inference" language="js" client="huggingface.js">
-        
+
+<snippet provider="fal-ai" language="js" client="huggingface.js">
+
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
@@ -112,6 +114,105 @@ const data = fs.readFileSync("sample1.flac");
 const output = await client.automaticSpeechRecognition({
 	data,
 	model: "openai/whisper-large-v3",
+	provider: "fal-ai",
+});
+
+console.log(output);
+```
+
+</snippet>
+
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
+<snippet provider="fal-ai" language="sh" client="curl">
+
+```sh
+curl https://router.huggingface.co/fal-ai/fal-ai/whisper \
+    -X POST \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: audio/flac' \
+    --data-binary @"sample1.flac"
+```
+
+</snippet>
+
+
+<snippet provider="hf-inference" language="python" client="huggingface_hub">
+
+```python
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+    provider="hf-inference",
+    api_key="hf_***",
+)
+
+output = client.automatic_speech_recognition("sample1.flac", model="openai/whisper-large-v3-turbo")
+```
+
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
+<snippet provider="hf-inference" language="python" client="requests">
+
+```python
+import requests
+
+API_URL = "https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3-turbo"
+headers = {"Authorization": "Bearer hf_***"}
+
+def query(filename):
+    with open(filename, "rb") as f:
+        data = f.read()
+    response = requests.post(API_URL, headers={"Content-Type": "audio/flac", **headers}, data=data)
+    return response.json()
+
+output = query("sample1.flac")
+```
+
+</snippet>
+
+
+<snippet provider="hf-inference" language="js" client="fetch">
+
+```js
+async function query(data) {
+	const response = await fetch(
+		"https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3-turbo",
+		{
+			headers: {
+				Authorization: "Bearer hf_***",
+				"Content-Type": "audio/flac"
+			},
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.json();
+	return result;
+}
+
+query({ inputs: "sample1.flac" }).then((response) => {
+    console.log(JSON.stringify(response));
+});
+```
+
+</snippet>
+
+
+<snippet provider="hf-inference" language="js" client="huggingface.js">
+
+```js
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient("hf_***");
+
+const data = fs.readFileSync("sample1.flac");
+
+const output = await client.automaticSpeechRecognition({
+	data,
+	model: "openai/whisper-large-v3-turbo",
 	provider: "hf-inference",
 });
 
@@ -121,10 +222,11 @@ console.log(output);
 </snippet>
 
 To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
 <snippet provider="hf-inference" language="sh" client="curl">
-        
+
 ```sh
-curl https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3 \
+curl https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3-turbo \
     -X POST \
     -H 'Authorization: Bearer hf_***' \
     -H 'Content-Type: audio/flac' \

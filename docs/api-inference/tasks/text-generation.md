@@ -26,12 +26,6 @@ For more details about the `text-generation` task, check out its [dedicated page
 
 ### Recommended models
 
-- [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it): A text-generation model trained to follow instructions.
-- [deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B): Smaller variant of one of the most powerful models.
-- [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct): Very powerful text generation model trained to follow instructions.
-- [microsoft/phi-4](https://huggingface.co/microsoft/phi-4): Powerful text generation model by Microsoft.
-- [Qwen/Qwen2.5-Coder-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct): Text generation model used to write code.
-- [deepseek-ai/DeepSeek-R1](https://huggingface.co/deepseek-ai/DeepSeek-R1): Powerful reasoning based open large language model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-generation&sort=trending).
 
@@ -40,8 +34,9 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
+
 <snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
+
 ```python
 from huggingface_hub import InferenceClient
 
@@ -52,19 +47,20 @@ client = InferenceClient(
 
 result = client.text_generation(
     inputs="Can you please let us know more details about your ",
-    model="google/gemma-2-2b-it",
+    model="Qwen/QwQ-32B",
 )
 ```
 
 </snippet>
 
 To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
 <snippet provider="hf-inference" language="python" client="requests">
-        
+
 ```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/models/google/gemma-2-2b-it"
+API_URL = "https://router.huggingface.co/hf-inference/models/Qwen/QwQ-32B"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -78,12 +74,13 @@ output = query({
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="fetch">
-        
+
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/google/gemma-2-2b-it",
+		"https://router.huggingface.co/hf-inference/models/Qwen/QwQ-32B",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -104,15 +101,16 @@ query({ inputs: "Can you please let us know more details about your " }).then((r
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="huggingface.js">
-        
+
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
 const client = new InferenceClient("hf_***");
 
 const output = await client.textGeneration({
-	model: "google/gemma-2-2b-it",
+	model: "Qwen/QwQ-32B",
 	inputs: "Can you please let us know more details about your ",
 	provider: "hf-inference",
 });
@@ -123,15 +121,119 @@ console.log(output);
 </snippet>
 
 To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
 <snippet provider="hf-inference" language="sh" client="curl">
-        
+
 ```sh
-curl https://router.huggingface.co/hf-inference/models/google/gemma-2-2b-it \
+curl https://router.huggingface.co/hf-inference/models/Qwen/QwQ-32B \
     -X POST \
     -H 'Authorization: Bearer hf_***' \
     -H 'Content-Type: application/json' \
     -d '{
         "inputs": "\"Can you please let us know more details about your \""
+    }'
+```
+
+</snippet>
+
+
+<snippet provider="together" language="python" client="huggingface_hub">
+
+```python
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+    provider="together",
+    api_key="hf_***",
+)
+
+result = client.text_generation(
+    inputs="Can you please let us know more details about your ",
+    model="deepseek-ai/DeepSeek-R1",
+)
+```
+
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
+<snippet provider="together" language="python" client="requests">
+
+```python
+import requests
+
+API_URL = "https://router.huggingface.co/together/v1/completions"
+headers = {"Authorization": "Bearer hf_***"}
+
+def query(payload):
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
+output = query({
+    "inputs": "Can you please let us know more details about your ",
+})
+```
+
+</snippet>
+
+
+<snippet provider="together" language="js" client="fetch">
+
+```js
+async function query(data) {
+	const response = await fetch(
+		"https://router.huggingface.co/together/v1/completions",
+		{
+			headers: {
+				Authorization: "Bearer hf_***",
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+			body: JSON.stringify(data),
+		}
+	);
+	const result = await response.json();
+	return result;
+}
+
+query({ inputs: "Can you please let us know more details about your " }).then((response) => {
+    console.log(JSON.stringify(response));
+});
+```
+
+</snippet>
+
+
+<snippet provider="together" language="js" client="huggingface.js">
+
+```js
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient("hf_***");
+
+const output = await client.textGeneration({
+	model: "deepseek-ai/DeepSeek-R1",
+	inputs: "Can you please let us know more details about your ",
+	provider: "together",
+});
+
+console.log(output);
+```
+
+</snippet>
+
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
+<snippet provider="together" language="sh" client="curl">
+
+```sh
+curl https://router.huggingface.co/together/v1/completions \
+    -X POST \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "inputs": "\"Can you please let us know more details about your \"",
+        "model": "deepseek-ai/DeepSeek-R1"
     }'
 ```
 

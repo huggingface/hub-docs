@@ -1,9 +1,10 @@
-{{#if taskSnippets.length }}
+{{#if inferenceSnippets.length }}
 
 <inferencesnippet>
 
-{{#each taskSnippets}}
-<snippet provider="hf-inference" language="{{this.language}}" client="{{this.client}}">
+{{#each inferenceSnippets}}
+
+<snippet provider="{{this.provider}}" language="{{this.language}}" client="{{this.client}}">
 
 ```{{this.language}}
 {{{this.content}}}

@@ -24,7 +24,6 @@ For more details about the `object-detection` task, check out its [dedicated pag
 
 ### Recommended models
 
-- [facebook/detr-resnet-50](https://huggingface.co/facebook/detr-resnet-50): Solid object detection model pre-trained on the COCO 2017 dataset.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=object-detection&sort=trending).
 
@@ -33,8 +32,9 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
+
 <snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
+
 ```python
 from huggingface_hub import InferenceClient
 
@@ -49,8 +49,9 @@ output = client.object_detection("cats.jpg", model="facebook/detr-resnet-50")
 </snippet>
 
 To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
 <snippet provider="hf-inference" language="python" client="requests">
-        
+
 ```python
 import requests
 
@@ -68,8 +69,9 @@ output = query("cats.jpg")
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="fetch">
-        
+
 ```js
 async function query(data) {
 	const response = await fetch(
@@ -94,8 +96,9 @@ query({ inputs: "cats.jpg" }).then((response) => {
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="sh" client="curl">
-        
+
 ```sh
 curl https://router.huggingface.co/hf-inference/models/facebook/detr-resnet-50 \
     -X POST \

@@ -24,7 +24,6 @@ For more details about the `image-text-to-text` task, check out its [dedicated p
 
 ### Recommended models
 
-- [Qwen/Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct): Strong image-text-to-text model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-text-to-text&sort=trending).
 
@@ -33,8 +32,9 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
+
 <snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
+
 ```python
 from huggingface_hub import InferenceClient
 
@@ -44,8 +44,25 @@ client = InferenceClient(
 )
 
 completion = client.chat.completions.create(
-    model="Qwen/Qwen2.5-VL-7B-Instruct",
-    inputs="\"Can you please let us know more details about your \"",
+    model="google/gemma-3-27b-it",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Describe this image in one sentence."
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                    }
+                }
+            ]
+        }
+    ],
+    max_tokens=500,
 )
 
 print(completion.choices[0].message)
@@ -54,12 +71,13 @@ print(completion.choices[0].message)
 </snippet>
 
 To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
 <snippet provider="hf-inference" language="python" client="requests">
-        
+
 ```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1/chat/completions"
+API_URL = "https://router.huggingface.co/hf-inference/models/google/gemma-3-27b-it/v1/chat/completions"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -67,8 +85,25 @@ def query(payload):
     return response.json()
 
 response = query({
-    "inputs": "\"Can you please let us know more details about your \"",
-    "model": "Qwen/Qwen2.5-VL-7B-Instruct"
+    "messages": [
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Describe this image in one sentence."
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                    }
+                }
+            ]
+        }
+    ],
+    "max_tokens": 500,
+    "model": "google/gemma-3-27b-it"
 })
 
 print(response["choices"][0]["message"])
@@ -76,19 +111,37 @@ print(response["choices"][0]["message"])
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="python" client="openai">
-        
+
 ```python
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1",
+    base_url="https://router.huggingface.co/hf-inference/models/google/gemma-3-27b-it/v1",
     api_key="hf_***"
 )
 
 completion = client.chat.completions.create(
-    model="Qwen/Qwen2.5-VL-7B-Instruct",
-    inputs="\"Can you please let us know more details about your \"",
+    model="google/gemma-3-27b-it",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Describe this image in one sentence."
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                    }
+                }
+            ]
+        }
+    ],
+    max_tokens=500,
 )
 
 print(completion.choices[0].message)
@@ -96,8 +149,9 @@ print(completion.choices[0].message)
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="huggingface.js">
-        
+
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
@@ -105,8 +159,25 @@ const client = new InferenceClient("hf_***");
 
 const chatCompletion = await client.chatCompletion({
     provider: "hf-inference",
-    model: "Qwen/Qwen2.5-VL-7B-Instruct",
-    inputs: "\"Can you please let us know more details about your \"",
+    model: "google/gemma-3-27b-it",
+    messages: [
+        {
+            role: "user",
+            content: [
+                {
+                    type: "text",
+                    text: "Describe this image in one sentence.",
+                },
+                {
+                    type: "image_url",
+                    image_url: {
+                        url: "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg",
+                    },
+                },
+            ],
+        },
+    ],
+    max_tokens: 500,
 });
 
 console.log(chatCompletion.choices[0].message);
@@ -115,19 +186,37 @@ console.log(chatCompletion.choices[0].message);
 </snippet>
 
 To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
 <snippet provider="hf-inference" language="js" client="openai">
-        
+
 ```js
 import { OpenAI } from "openai";
 
 const client = new OpenAI({
-	baseURL: "https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1",
+	baseURL: "https://router.huggingface.co/hf-inference/models/google/gemma-3-27b-it/v1",
 	apiKey: "hf_***",
 });
 
 const chatCompletion = await client.chat.completions.create({
-	model: "Qwen/Qwen2.5-VL-7B-Instruct",
-    inputs: "\"Can you please let us know more details about your \"",
+	model: "google/gemma-3-27b-it",
+    messages: [
+        {
+            role: "user",
+            content: [
+                {
+                    type: "text",
+                    text: "Describe this image in one sentence.",
+                },
+                {
+                    type: "image_url",
+                    image_url: {
+                        url: "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg",
+                    },
+                },
+            ],
+        },
+    ],
+    max_tokens: 500,
 });
 
 console.log(chatCompletion.choices[0].message);
@@ -135,14 +224,257 @@ console.log(chatCompletion.choices[0].message);
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="sh" client="curl">
-        
+
 ```sh
-curl https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1/chat/completions \
+curl https://router.huggingface.co/hf-inference/models/google/gemma-3-27b-it/v1/chat/completions \
     -H 'Authorization: Bearer hf_***' \
     -H 'Content-Type: application/json' \
     -d '{
-        "inputs": "\"Can you please let us know more details about your \"",
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Describe this image in one sentence."
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                        }
+                    }
+                ]
+            }
+        ],
+        "max_tokens": 500,
+        "model": "google/gemma-3-27b-it",
+        "stream": false
+    }'
+```
+
+</snippet>
+
+
+<snippet provider="hyperbolic" language="python" client="huggingface_hub">
+
+```python
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+    provider="hyperbolic",
+    api_key="hf_***",
+)
+
+completion = client.chat.completions.create(
+    model="Qwen/Qwen2.5-VL-7B-Instruct",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Describe this image in one sentence."
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                    }
+                }
+            ]
+        }
+    ],
+    max_tokens=500,
+)
+
+print(completion.choices[0].message)
+```
+
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
+<snippet provider="hyperbolic" language="python" client="requests">
+
+```python
+import requests
+
+API_URL = "https://router.huggingface.co/hyperbolic/v1/chat/completions"
+headers = {"Authorization": "Bearer hf_***"}
+
+def query(payload):
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
+response = query({
+    "messages": [
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Describe this image in one sentence."
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                    }
+                }
+            ]
+        }
+    ],
+    "max_tokens": 500,
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct"
+})
+
+print(response["choices"][0]["message"])
+```
+
+</snippet>
+
+
+<snippet provider="hyperbolic" language="python" client="openai">
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://router.huggingface.co/hyperbolic/v1",
+    api_key="hf_***"
+)
+
+completion = client.chat.completions.create(
+    model="Qwen/Qwen2.5-VL-7B-Instruct",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Describe this image in one sentence."
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                    }
+                }
+            ]
+        }
+    ],
+    max_tokens=500,
+)
+
+print(completion.choices[0].message)
+```
+
+</snippet>
+
+
+<snippet provider="hyperbolic" language="js" client="huggingface.js">
+
+```js
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient("hf_***");
+
+const chatCompletion = await client.chatCompletion({
+    provider: "hyperbolic",
+    model: "Qwen/Qwen2.5-VL-7B-Instruct",
+    messages: [
+        {
+            role: "user",
+            content: [
+                {
+                    type: "text",
+                    text: "Describe this image in one sentence.",
+                },
+                {
+                    type: "image_url",
+                    image_url: {
+                        url: "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg",
+                    },
+                },
+            ],
+        },
+    ],
+    max_tokens: 500,
+});
+
+console.log(chatCompletion.choices[0].message);
+```
+
+</snippet>
+
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
+<snippet provider="hyperbolic" language="js" client="openai">
+
+```js
+import { OpenAI } from "openai";
+
+const client = new OpenAI({
+	baseURL: "https://router.huggingface.co/hyperbolic/v1",
+	apiKey: "hf_***",
+});
+
+const chatCompletion = await client.chat.completions.create({
+	model: "Qwen/Qwen2.5-VL-7B-Instruct",
+    messages: [
+        {
+            role: "user",
+            content: [
+                {
+                    type: "text",
+                    text: "Describe this image in one sentence.",
+                },
+                {
+                    type: "image_url",
+                    image_url: {
+                        url: "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg",
+                    },
+                },
+            ],
+        },
+    ],
+    max_tokens: 500,
+});
+
+console.log(chatCompletion.choices[0].message);
+```
+
+</snippet>
+
+
+<snippet provider="hyperbolic" language="sh" client="curl">
+
+```sh
+curl https://router.huggingface.co/hyperbolic/v1/chat/completions \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Describe this image in one sentence."
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                        }
+                    }
+                ]
+            }
+        ],
+        "max_tokens": 500,
         "model": "Qwen/Qwen2.5-VL-7B-Instruct",
         "stream": false
     }'

@@ -26,13 +26,5 @@ Token classification is a task in which a label is assigned to some tokens in a 
 
 #### Response
 
-Output type depends on the `stream` input parameter.
-If `stream` is `false` (default), the response will be a JSON object with the following fields:
-
 {{{specs.token-classification.output}}}
-
-If `stream` is `true`, generated tokens are returned as a stream, using Server-Sent Events (SSE).
-For more information about streaming, check out [this guide](https://huggingface.co/docs/token-classification-inference/conceptual/streaming).
-
-{{{specs.token-classification.stream_output}}}
 

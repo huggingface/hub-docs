@@ -21,16 +21,9 @@ This is a subtask of [`text-generation`](https://huggingface.co/docs/api-inferen
 
 #### Conversational Large Language Models (LLMs)
 
-- [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it): A text-generation model trained to follow instructions.
-- [deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B): Smaller variant of one of the most powerful models.
-- [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct): Very powerful text generation model trained to follow instructions.
-- [microsoft/phi-4](https://huggingface.co/microsoft/phi-4): Powerful text generation model by Microsoft.
-- [Qwen/Qwen2.5-Coder-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct): Text generation model used to write code.
-- [deepseek-ai/DeepSeek-R1](https://huggingface.co/deepseek-ai/DeepSeek-R1): Powerful reasoning based open large language model.
 
 #### Conversational Vision-Language Models (VLMs)
 
-- [Qwen/Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct): Strong image-text-to-text model.
 
 ### API Playground
 
@@ -60,8 +53,9 @@ The API supports:
 
 <inferencesnippet>
 
+
 <snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
+
 ```python
 from huggingface_hub import InferenceClient
 
@@ -71,7 +65,7 @@ client = InferenceClient(
 )
 
 completion = client.chat.completions.create(
-    model="google/gemma-2-2b-it",
+    model="Qwen/QwQ-32B",
     messages=[
         {
             "role": "user",
@@ -87,12 +81,13 @@ print(completion.choices[0].message)
 </snippet>
 
 To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
 <snippet provider="hf-inference" language="python" client="requests">
-        
+
 ```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/models/google/gemma-2-2b-it/v1/chat/completions"
+API_URL = "https://router.huggingface.co/hf-inference/models/Qwen/QwQ-32B/v1/chat/completions"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -107,7 +102,7 @@ response = query({
         }
     ],
     "max_tokens": 500,
-    "model": "google/gemma-2-2b-it"
+    "model": "Qwen/QwQ-32B"
 })
 
 print(response["choices"][0]["message"])
@@ -115,18 +110,19 @@ print(response["choices"][0]["message"])
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="python" client="openai">
-        
+
 ```python
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://router.huggingface.co/hf-inference/models/google/gemma-2-2b-it/v1",
+    base_url="https://router.huggingface.co/hf-inference/models/Qwen/QwQ-32B/v1",
     api_key="hf_***"
 )
 
 completion = client.chat.completions.create(
-    model="google/gemma-2-2b-it",
+    model="Qwen/QwQ-32B",
     messages=[
         {
             "role": "user",
@@ -141,8 +137,9 @@ print(completion.choices[0].message)
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="huggingface.js">
-        
+
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
@@ -150,7 +147,7 @@ const client = new InferenceClient("hf_***");
 
 const chatCompletion = await client.chatCompletion({
     provider: "hf-inference",
-    model: "google/gemma-2-2b-it",
+    model: "Qwen/QwQ-32B",
     messages: [
         {
             role: "user",
@@ -166,18 +163,19 @@ console.log(chatCompletion.choices[0].message);
 </snippet>
 
 To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
 <snippet provider="hf-inference" language="js" client="openai">
-        
+
 ```js
 import { OpenAI } from "openai";
 
 const client = new OpenAI({
-	baseURL: "https://router.huggingface.co/hf-inference/models/google/gemma-2-2b-it/v1",
+	baseURL: "https://router.huggingface.co/hf-inference/models/Qwen/QwQ-32B/v1",
 	apiKey: "hf_***",
 });
 
 const chatCompletion = await client.chat.completions.create({
-	model: "google/gemma-2-2b-it",
+	model: "Qwen/QwQ-32B",
     messages: [
         {
             role: "user",
@@ -192,10 +190,11 @@ console.log(chatCompletion.choices[0].message);
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="sh" client="curl">
-        
+
 ```sh
-curl https://router.huggingface.co/hf-inference/models/google/gemma-2-2b-it/v1/chat/completions \
+curl https://router.huggingface.co/hf-inference/models/Qwen/QwQ-32B/v1/chat/completions \
     -H 'Authorization: Bearer hf_***' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -206,7 +205,166 @@ curl https://router.huggingface.co/hf-inference/models/google/gemma-2-2b-it/v1/c
             }
         ],
         "max_tokens": 500,
-        "model": "google/gemma-2-2b-it",
+        "model": "Qwen/QwQ-32B",
+        "stream": false
+    }'
+```
+
+</snippet>
+
+
+<snippet provider="together" language="python" client="huggingface_hub">
+
+```python
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+    provider="together",
+    api_key="hf_***",
+)
+
+completion = client.chat.completions.create(
+    model="deepseek-ai/DeepSeek-R1",
+    messages=[
+        {
+            "role": "user",
+            "content": "What is the capital of France?"
+        }
+    ],
+    max_tokens=500,
+)
+
+print(completion.choices[0].message)
+```
+
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
+<snippet provider="together" language="python" client="requests">
+
+```python
+import requests
+
+API_URL = "https://router.huggingface.co/together/v1/chat/completions"
+headers = {"Authorization": "Bearer hf_***"}
+
+def query(payload):
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
+response = query({
+    "messages": [
+        {
+            "role": "user",
+            "content": "What is the capital of France?"
+        }
+    ],
+    "max_tokens": 500,
+    "model": "deepseek-ai/DeepSeek-R1"
+})
+
+print(response["choices"][0]["message"])
+```
+
+</snippet>
+
+
+<snippet provider="together" language="python" client="openai">
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://router.huggingface.co/together/v1",
+    api_key="hf_***"
+)
+
+completion = client.chat.completions.create(
+    model="deepseek-ai/DeepSeek-R1",
+    messages=[
+        {
+            "role": "user",
+            "content": "What is the capital of France?"
+        }
+    ],
+    max_tokens=500,
+)
+
+print(completion.choices[0].message)
+```
+
+</snippet>
+
+
+<snippet provider="together" language="js" client="huggingface.js">
+
+```js
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient("hf_***");
+
+const chatCompletion = await client.chatCompletion({
+    provider: "together",
+    model: "deepseek-ai/DeepSeek-R1",
+    messages: [
+        {
+            role: "user",
+            content: "What is the capital of France?",
+        },
+    ],
+    max_tokens: 500,
+});
+
+console.log(chatCompletion.choices[0].message);
+```
+
+</snippet>
+
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
+<snippet provider="together" language="js" client="openai">
+
+```js
+import { OpenAI } from "openai";
+
+const client = new OpenAI({
+	baseURL: "https://router.huggingface.co/together/v1",
+	apiKey: "hf_***",
+});
+
+const chatCompletion = await client.chat.completions.create({
+	model: "deepseek-ai/DeepSeek-R1",
+    messages: [
+        {
+            role: "user",
+            content: "What is the capital of France?",
+        },
+    ],
+    max_tokens: 500,
+});
+
+console.log(chatCompletion.choices[0].message);
+```
+
+</snippet>
+
+
+<snippet provider="together" language="sh" client="curl">
+
+```sh
+curl https://router.huggingface.co/together/v1/chat/completions \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "messages": [
+            {
+                "role": "user",
+                "content": "What is the capital of France?"
+            }
+        ],
+        "max_tokens": 500,
+        "model": "deepseek-ai/DeepSeek-R1",
         "stream": false
     }'
 ```
@@ -223,13 +381,239 @@ curl https://router.huggingface.co/hf-inference/models/google/gemma-2-2b-it/v1/c
 
 <inferencesnippet>
 
+
 <snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
+
 ```python
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(
     provider="hf-inference",
+    api_key="hf_***",
+)
+
+completion = client.chat.completions.create(
+    model="google/gemma-3-27b-it",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Describe this image in one sentence."
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                    }
+                }
+            ]
+        }
+    ],
+    max_tokens=500,
+)
+
+print(completion.choices[0].message)
+```
+
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
+<snippet provider="hf-inference" language="python" client="requests">
+
+```python
+import requests
+
+API_URL = "https://router.huggingface.co/hf-inference/models/google/gemma-3-27b-it/v1/chat/completions"
+headers = {"Authorization": "Bearer hf_***"}
+
+def query(payload):
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
+response = query({
+    "messages": [
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Describe this image in one sentence."
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                    }
+                }
+            ]
+        }
+    ],
+    "max_tokens": 500,
+    "model": "google/gemma-3-27b-it"
+})
+
+print(response["choices"][0]["message"])
+```
+
+</snippet>
+
+
+<snippet provider="hf-inference" language="python" client="openai">
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://router.huggingface.co/hf-inference/models/google/gemma-3-27b-it/v1",
+    api_key="hf_***"
+)
+
+completion = client.chat.completions.create(
+    model="google/gemma-3-27b-it",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Describe this image in one sentence."
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                    }
+                }
+            ]
+        }
+    ],
+    max_tokens=500,
+)
+
+print(completion.choices[0].message)
+```
+
+</snippet>
+
+
+<snippet provider="hf-inference" language="js" client="huggingface.js">
+
+```js
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient("hf_***");
+
+const chatCompletion = await client.chatCompletion({
+    provider: "hf-inference",
+    model: "google/gemma-3-27b-it",
+    messages: [
+        {
+            role: "user",
+            content: [
+                {
+                    type: "text",
+                    text: "Describe this image in one sentence.",
+                },
+                {
+                    type: "image_url",
+                    image_url: {
+                        url: "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg",
+                    },
+                },
+            ],
+        },
+    ],
+    max_tokens: 500,
+});
+
+console.log(chatCompletion.choices[0].message);
+```
+
+</snippet>
+
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
+<snippet provider="hf-inference" language="js" client="openai">
+
+```js
+import { OpenAI } from "openai";
+
+const client = new OpenAI({
+	baseURL: "https://router.huggingface.co/hf-inference/models/google/gemma-3-27b-it/v1",
+	apiKey: "hf_***",
+});
+
+const chatCompletion = await client.chat.completions.create({
+	model: "google/gemma-3-27b-it",
+    messages: [
+        {
+            role: "user",
+            content: [
+                {
+                    type: "text",
+                    text: "Describe this image in one sentence.",
+                },
+                {
+                    type: "image_url",
+                    image_url: {
+                        url: "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg",
+                    },
+                },
+            ],
+        },
+    ],
+    max_tokens: 500,
+});
+
+console.log(chatCompletion.choices[0].message);
+```
+
+</snippet>
+
+
+<snippet provider="hf-inference" language="sh" client="curl">
+
+```sh
+curl https://router.huggingface.co/hf-inference/models/google/gemma-3-27b-it/v1/chat/completions \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Describe this image in one sentence."
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+                        }
+                    }
+                ]
+            }
+        ],
+        "max_tokens": 500,
+        "model": "google/gemma-3-27b-it",
+        "stream": false
+    }'
+```
+
+</snippet>
+
+
+<snippet provider="hyperbolic" language="python" client="huggingface_hub">
+
+```python
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+    provider="hyperbolic",
     api_key="hf_***",
 )
 
@@ -261,12 +645,13 @@ print(completion.choices[0].message)
 </snippet>
 
 To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
-<snippet provider="hf-inference" language="python" client="requests">
-        
+
+<snippet provider="hyperbolic" language="python" client="requests">
+
 ```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1/chat/completions"
+API_URL = "https://router.huggingface.co/hyperbolic/v1/chat/completions"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -300,13 +685,14 @@ print(response["choices"][0]["message"])
 
 </snippet>
 
-<snippet provider="hf-inference" language="python" client="openai">
-        
+
+<snippet provider="hyperbolic" language="python" client="openai">
+
 ```python
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1",
+    base_url="https://router.huggingface.co/hyperbolic/v1",
     api_key="hf_***"
 )
 
@@ -337,15 +723,16 @@ print(completion.choices[0].message)
 
 </snippet>
 
-<snippet provider="hf-inference" language="js" client="huggingface.js">
-        
+
+<snippet provider="hyperbolic" language="js" client="huggingface.js">
+
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
 const client = new InferenceClient("hf_***");
 
 const chatCompletion = await client.chatCompletion({
-    provider: "hf-inference",
+    provider: "hyperbolic",
     model: "Qwen/Qwen2.5-VL-7B-Instruct",
     messages: [
         {
@@ -373,13 +760,14 @@ console.log(chatCompletion.choices[0].message);
 </snippet>
 
 To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
-<snippet provider="hf-inference" language="js" client="openai">
-        
+
+<snippet provider="hyperbolic" language="js" client="openai">
+
 ```js
 import { OpenAI } from "openai";
 
 const client = new OpenAI({
-	baseURL: "https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1",
+	baseURL: "https://router.huggingface.co/hyperbolic/v1",
 	apiKey: "hf_***",
 });
 
@@ -410,10 +798,11 @@ console.log(chatCompletion.choices[0].message);
 
 </snippet>
 
-<snippet provider="hf-inference" language="sh" client="curl">
-        
+
+<snippet provider="hyperbolic" language="sh" client="curl">
+
 ```sh
-curl https://router.huggingface.co/hf-inference/models/Qwen/Qwen2.5-VL-7B-Instruct/v1/chat/completions \
+curl https://router.huggingface.co/hyperbolic/v1/chat/completions \
     -H 'Authorization: Bearer hf_***' \
     -H 'Content-Type: application/json' \
     -d '{

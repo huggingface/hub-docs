@@ -29,92 +29,13 @@ For more details about the `audio-classification` task, check out its [dedicated
 
 ### Recommended models
 
-- [speechbrain/google_speech_command_xvector](https://huggingface.co/speechbrain/google_speech_command_xvector): An easy-to-use model for command recognition.
-- [ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition](https://huggingface.co/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition): An emotion recognition model.
-- [facebook/mms-lid-126](https://huggingface.co/facebook/mms-lid-126): A language identification model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=audio-classification&sort=trending).
 
 ### Using the API
 
 
-<inferencesnippet>
-
-<snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
-```python
-from huggingface_hub import InferenceClient
-
-client = InferenceClient(
-    provider="hf-inference",
-    api_key="hf_***",
-)
-
-output = client.audio_classification("sample1.flac", model="speechbrain/google_speech_command_xvector")
-```
-
-</snippet>
-
-To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
-<snippet provider="hf-inference" language="python" client="requests">
-        
-```python
-import requests
-
-API_URL = "https://router.huggingface.co/hf-inference/models/speechbrain/google_speech_command_xvector"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(filename):
-    with open(filename, "rb") as f:
-        data = f.read()
-    response = requests.post(API_URL, headers={"Content-Type": "audio/flac", **headers}, data=data)
-    return response.json()
-
-output = query("sample1.flac")
-```
-
-</snippet>
-
-<snippet provider="hf-inference" language="js" client="fetch">
-        
-```js
-async function query(data) {
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/speechbrain/google_speech_command_xvector",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "audio/flac"
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query({ inputs: "sample1.flac" }).then((response) => {
-    console.log(JSON.stringify(response));
-});
-```
-
-</snippet>
-
-<snippet provider="hf-inference" language="sh" client="curl">
-        
-```sh
-curl https://router.huggingface.co/hf-inference/models/speechbrain/google_speech_command_xvector \
-    -X POST \
-    -H 'Authorization: Bearer hf_***' \
-    -H 'Content-Type: audio/flac' \
-    --data-binary @"sample1.flac"
-```
-
-</snippet>
-
-
-</inferencesnippet>
+No snippet available for this task.
 
 
 

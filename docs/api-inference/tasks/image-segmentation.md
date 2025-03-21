@@ -24,8 +24,6 @@ For more details about the `image-segmentation` task, check out its [dedicated p
 
 ### Recommended models
 
-- [openmmlab/upernet-convnext-small](https://huggingface.co/openmmlab/upernet-convnext-small): Solid semantic segmentation model trained on ADE20k.
-- [facebook/mask2former-swin-large-coco-panoptic](https://huggingface.co/facebook/mask2former-swin-large-coco-panoptic): Panoptic segmentation model trained on the COCO (common objects) dataset.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-segmentation&sort=trending).
 
@@ -34,8 +32,9 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
+
 <snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
+
 ```python
 from huggingface_hub import InferenceClient
 
@@ -44,18 +43,19 @@ client = InferenceClient(
     api_key="hf_***",
 )
 
-output = client.image_segmentation("cats.jpg", model="openmmlab/upernet-convnext-small")
+output = client.image_segmentation("cats.jpg", model="jonathandinu/face-parsing")
 ```
 
 </snippet>
 
 To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
 <snippet provider="hf-inference" language="python" client="requests">
-        
+
 ```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/models/openmmlab/upernet-convnext-small"
+API_URL = "https://router.huggingface.co/hf-inference/models/jonathandinu/face-parsing"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
@@ -69,12 +69,13 @@ output = query("cats.jpg")
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="fetch">
-        
+
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/openmmlab/upernet-convnext-small",
+		"https://router.huggingface.co/hf-inference/models/jonathandinu/face-parsing",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -95,10 +96,11 @@ query({ inputs: "cats.jpg" }).then((response) => {
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="sh" client="curl">
-        
+
 ```sh
-curl https://router.huggingface.co/hf-inference/models/openmmlab/upernet-convnext-small \
+curl https://router.huggingface.co/hf-inference/models/jonathandinu/face-parsing \
     -X POST \
     -H 'Authorization: Bearer hf_***' \
     -H 'Content-Type: image/jpeg' \

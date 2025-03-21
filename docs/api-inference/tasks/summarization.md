@@ -24,8 +24,6 @@ For more details about the `summarization` task, check out its [dedicated page](
 
 ### Recommended models
 
-- [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn): A strong summarization model trained on English news articles. Excels at generating factual summaries.
-- [Falconsai/medical_summarization](https://huggingface.co/Falconsai/medical_summarization): A summarization model trained on medical articles.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=summarization&sort=trending).
 
@@ -34,8 +32,9 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
+
 <snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
+
 ```python
 from huggingface_hub import InferenceClient
 
@@ -53,8 +52,9 @@ result = client.summarization(
 </snippet>
 
 To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
 <snippet provider="hf-inference" language="python" client="requests">
-        
+
 ```python
 import requests
 
@@ -72,8 +72,9 @@ output = query({
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="fetch">
-        
+
 ```js
 async function query(data) {
 	const response = await fetch(
@@ -98,8 +99,9 @@ query({ inputs: "The tower is 324 metres (1,063 ft) tall, about the same height 
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="huggingface.js">
-        
+
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
@@ -117,8 +119,9 @@ console.log(output);
 </snippet>
 
 To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
 <snippet provider="hf-inference" language="sh" client="curl">
-        
+
 ```sh
 curl https://router.huggingface.co/hf-inference/models/facebook/bart-large-cnn \
     -X POST \

@@ -1,4 +1,8 @@
-import { snippets } from "@huggingface/inference";
+import {
+  snippets,
+  INFERENCE_PROVIDERS,
+  InferenceProvider,
+} from "@huggingface/inference";
 import {
   PipelineType,
   InferenceSnippet,
@@ -32,8 +36,22 @@ const TASKS: PipelineType[] = [
 const TASKS_EXTENDED = [...TASKS, "chat-completion"];
 const SPECS_REVISION = "main";
 
-const inferenceSnippetLanguages = ["python", "js", "sh"] as const;
-type InferenceSnippetLanguage = (typeof inferenceSnippetLanguages)[number];
+const HEADERS = { Authorization: `Bearer ${process.env.HF_TOKEN}` };
+
+async function authFetchJson(url: string) {
+  const headers = url.includes("huggingface.co") ? HEADERS : {};
+  try {
+    const res = await fetch(url, { headers: headers });
+    if (!res.ok) {
+      console.warn(`Failed to fetch ${url}: ${await res.text()}`);
+      return {};
+    }
+    return res.json();
+  } catch (e) {
+    console.warn(`Failed to fetch ${url}: ${e}`);
+    return {};
+  }
+}
 
 // Taken from https://stackoverflow.com/a/31632215
 Handlebars.registerHelper({
@@ -52,6 +70,39 @@ Handlebars.registerHelper({
 });
 
 console.log("🛠️  Preparing...");
+
+////////////////////////
+//// Provider utils ////
+////////////////////////
+
+/// PER_TASK_SUPPORTED_PROVIDERS[task] = provider[]
+const PER_TASK_SUPPORTED_PROVIDERS: Record<string, string[]> = {};
+
+await Promise.all(
+  INFERENCE_PROVIDERS.map(async (provider) => {
+    if (provider == "hf-inference") {
+      return; // handled separately
+    }
+    console.log("   ⚡ Fetching supported tasks for provider " + provider);
+    const url = `https://huggingface.co/api/partners/${provider}/models`;
+    const mapping = (await authFetchJson(url)) as Record<
+      string,
+      Record<string, { status: "live" | "staging"; providerId: string }>
+    >;
+
+    for (const [task, models] of Object.entries(mapping)) {
+      for (const [modelId, modelMapping] of Object.entries(models)) {
+        if (modelMapping.status == "live") {
+          if (!PER_TASK_SUPPORTED_PROVIDERS[task]) {
+            PER_TASK_SUPPORTED_PROVIDERS[task] = [];
+          }
+          PER_TASK_SUPPORTED_PROVIDERS[task].push(provider);
+          break;
+        }
+      }
+    }
+  })
+);
 
 ////////////////////////
 //// Filepath utils ////
@@ -98,35 +149,39 @@ function writeTaskDoc(templateName: string, content: string): Promise<void> {
 
 const TASKS_API_URL = "https://huggingface.co/api/tasks";
 console.log(`   🕸️  Fetching ${TASKS_API_URL}`);
-const response = await fetch(TASKS_API_URL);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TASKS_DATA = (await response.json()) as any;
+const TASKS_DATA = (await authFetchJson(TASKS_API_URL)) as any;
 
 ///////////////////////
 //// Snippet utils ////
 ///////////////////////
 
 export function getFormattedInferenceSnippet(
-  id: string,
   pipeline_tag: PipelineType,
-  config?: JsonObject,
-  tags?: string[]
+  model: {
+    modelId: string;
+    provider: string;
+    providerModelId: string;
+    providerTask: string;
+    tags: string[];
+  },
+  conversational: boolean
 ): InferenceSnippet[] {
-  const modelData = {
-    id,
-    pipeline_tag,
-    mask_token: "[MASK]",
-    library_name: "",
-    config: config ?? {},
-    tags: tags ?? [],
-    inference: "",
-  } as ModelDataMinimal;
-  // @ts-ignore
+  if (conversational && !model.tags.includes("conversational")) {
+    return [];
+  }
   return snippets.getInferenceSnippets(
-    modelData,
+    {
+      id: model.modelId,
+      pipeline_tag,
+      mask_token: "[MASK]",
+      library_name: "",
+      tags: conversational ? ["conversational"] : [],
+      inference: "",
+    } as ModelDataMinimal,
     "hf_***",
-    "hf-inference",
-    modelData.id
+    model.provider as InferenceProvider,
+    model.providerModelId
   );
 }
 
@@ -147,9 +202,7 @@ async function fetchOneSpec(
 ): Promise<JsonObject | undefined> {
   const url = SPECS_URL_TEMPLATE({ task, name });
   console.log(`   🕸️  Fetching ${task} ${name} specs`);
-  return fetch(url)
-    .then((res) => res.json())
-    .catch(() => undefined);
+  return (await authFetchJson(url)) ?? undefined;
 }
 
 async function fetchSpecs(
@@ -166,7 +219,7 @@ async function fetchSpecs(
 
 async function fetchCommonDefinitions(): Promise<JsonObject> {
   console.log(`   🕸️  Fetching common definitions`);
-  return fetch(COMMON_DEFINITIONS_URL).then((res) => res.json());
+  return await authFetchJson(COMMON_DEFINITIONS_URL);
 }
 
 const COMMON_DEFINITIONS = await fetchCommonDefinitions();
@@ -347,7 +400,17 @@ const DATA: {
       id: string;
       description: string;
       inference: string | undefined;
-      config: JsonObject | undefined;
+      tags: string[];
+    }[]
+  >;
+  perProviderWarmModels: Record<
+    string,
+    {
+      modelId: string;
+      provider: string;
+      providerModelId: string;
+      providerTask: string;
+      tags: string[];
     }[]
   >;
   snippets: Record<string, string>;
@@ -368,12 +431,13 @@ const DATA: {
     specsHeaders: SPECS_HEADERS,
   },
   recommendedModels: {},
+  perProviderWarmModels: {},
   snippets: {},
   specs: {},
   tips: { linksToTaskPage: {}, listModelsLink: {} },
 };
 
-// Check for each model if inference status is "warm"
+// For each task, retrieve inference status of all recommended models
 await Promise.all(
   TASKS.map(async (task) => {
     await Promise.all(
@@ -382,39 +446,101 @@ await Promise.all(
           id: string;
           description: string;
           inference: string | undefined;
-          config: JsonObject | undefined;
         }) => {
           console.log(`   ⚡ Checking inference status ${model.id}`);
-          let url = `https://huggingface.co/api/models/${model.id}?expand[]=inference`;
-          if (task === "text-generation" || task === "image-text-to-text") {
-            url += "&expand[]=config";
-          }
-          const modelData = await fetch(url).then((res) => res.json());
+          let url = `https://huggingface.co/api/models/${model.id}?expand[]=inference&expand[]=tags`;
+          const modelData = await authFetchJson(url);
           model.inference = modelData.inference;
-          model.config = modelData.config;
         }
       )
     );
   })
 );
 
-// Fetch recommended models
+async function fetchWarmModels(task: PipelineType): Promise<
+  {
+    modelId: string;
+    provider: string;
+    providerModelId: string;
+    providerTask: string;
+    tags: string[];
+  }[]
+> {
+  const providers = [
+    "hf-inference",
+    ...(PER_TASK_SUPPORTED_PROVIDERS[task] ?? []),
+  ].sort();
+  return (
+    await Promise.all(
+      providers.map(async (provider) => {
+        console.log(
+          `   ⚡ Fetching most popular warm model for ${task} from ${provider}`
+        );
+        const url = `https://huggingface.co/api/models?pipeline_tag=${task}&inference_provider=${provider}&sort=likes30d&expand[]=inferenceProviderMapping&expand[]=tags&limit=5`;
+        const modelsData = (await authFetchJson(url)) as {
+          id: string;
+          likes30d: number;
+          inferenceProviderMapping: Record<string, string>[];
+          tags: string[];
+        }[];
+        if (modelsData.length === 0) {
+          return;
+        }
+
+        /// Little hack: if there are multiple models with the same number of likes (typically 0), we arbitrarily pick the one with the smallest ID to get a deterministic result
+        const topLikes = modelsData[0].likes30d;
+        const topModelData = modelsData
+          .filter((model) => model.likes30d === topLikes)
+          .sort((a, b) => a.id.localeCompare(b.id))[0];
+
+        const providerMapping = topModelData.inferenceProviderMapping as
+          | Record<string, string>[]
+          | undefined;
+        if (!providerMapping) {
+          return;
+        }
+        const providerData = providerMapping.filter(
+          (mapping) => mapping.provider === provider
+        )[0];
+        return {
+          modelId: topModelData.id,
+          provider: provider,
+          providerModelId: providerData.providerId,
+          providerTask: providerData.task,
+          tags: topModelData.tags,
+        };
+      })
+    )
+  ).filter((model) => model !== undefined);
+}
+
+// For each task and for each provider, retrieve the most popular warm model
+await Promise.all(
+  TASKS.map(async (task) => {
+    DATA.perProviderWarmModels[task] = await fetchWarmModels(task);
+  })
+);
+
+// Filter recommended models (i.e. recommended + warm)
 TASKS.forEach((task) => {
   DATA.recommendedModels[task] = TASKS_DATA[task].models.filter(
-    (model: { inference: string }) =>
-      ["cold", "loading", "warm"].includes(model.inference)
+    (model: { inference: string }) => model.inference === "warm"
   );
 });
 
-// Fetch snippets
-// TODO: render snippets only if they are available
+// Generate snippets
 TASKS.forEach((task) => {
-  // Let's take as example the first available model that is recommended.
-  // Otherwise, fallback to "<REPO_ID>".
-  const mainModel = DATA.recommendedModels[task][0]?.id ?? "<REPO_ID>";
-  const taskSnippets = getFormattedInferenceSnippet(mainModel, task);
+  const inferenceSnippets = DATA.perProviderWarmModels[task].flatMap((model) =>
+    getFormattedInferenceSnippet(task, model, false).map(
+      (inferenceSnippet) => ({
+        ...inferenceSnippet,
+        provider: model.provider,
+      })
+    )
+  );
+
   DATA.snippets[task] = SNIPPETS_TEMPLATE({
-    taskSnippets,
+    inferenceSnippets,
     taskSnakeCase: task.replaceAll("-", "_"),
     taskAttached: task.replaceAll("-", ""),
   });
@@ -451,47 +577,52 @@ TASKS.forEach((task) => {
 //// Data for chat-completion special case ////
 ///////////////////////////////////////////////
 
-function fetchChatCompletion() {
-  const baseName = "chat-completion";
-  const conversationalTasks = [
-    {
-      name: "chat-completion",
-      baseName: "text-generation",
-      pipelineTag: "text-generation",
-    },
-    {
-      name: "conversational-image-text-to-text",
-      baseName: "image-text-to-text",
-      pipelineTag: "image-text-to-text",
-    },
-  ];
+async function fetchChatCompletion() {
+  // Conversational text-generation
+  console.log(
+    "   ⚡ Prepare data for chat-completion (conversational text-generation)"
+  );
+  DATA.recommendedModels["chat-completion"] = DATA.recommendedModels[
+    "text-generation"
+  ].filter((model) => model.tags?.includes("conversational"));
+  DATA.snippets["chat-completion"] = SNIPPETS_TEMPLATE({
+    taskSnakeCase: "chat_completion",
+    taskAttached: "chatCompletion",
+    inferenceSnippets: (await fetchWarmModels("text-generation")).flatMap(
+      (model) =>
+        getFormattedInferenceSnippet("text-generation", model, true).map(
+          (inferenceSnippet) => ({
+            ...inferenceSnippet,
+            provider: model.provider,
+          })
+        )
+    ),
+  });
 
-  conversationalTasks.forEach((task) => {
-    // Recommended models based on the base task
-    DATA.recommendedModels[task.name] = DATA.recommendedModels[
-      task.baseName
-    ].filter(
-      // @ts-ignore
-      (model) => model.config?.tokenizer_config?.chat_template
+  // Conversational image-text-to-text
+  console.log(
+    "   ⚡ Prepare data for chat-completion (conversational image-text-to-text)"
+  );
+  DATA.recommendedModels["conversational-image-text-to-text"] =
+    DATA.recommendedModels["image-text-to-text"].filter((model) =>
+      model.tags?.includes("conversational")
     );
-
-    const mainModel = DATA.recommendedModels[task.name][0];
-
-    const taskSnippets = getFormattedInferenceSnippet(
-      mainModel.id,
-      task.pipelineTag as PipelineType,
-      mainModel.config,
-      ["conversational"]
-    );
-    DATA.snippets[task.name] = SNIPPETS_TEMPLATE({
-      taskSnippets,
-      taskSnakeCase: baseName.replaceAll("-", "_"),
-      taskAttached: baseName.replaceAll("-", ""),
-    });
+  DATA.snippets["conversational-image-text-to-text"] = SNIPPETS_TEMPLATE({
+    taskSnakeCase: "chat_completion",
+    taskAttached: "chatCompletion",
+    inferenceSnippets: (await fetchWarmModels("image-text-to-text")).flatMap(
+      (model) =>
+        getFormattedInferenceSnippet("image-text-to-text", model, true).map(
+          (inferenceSnippet) => ({
+            ...inferenceSnippet,
+            provider: model.provider,
+          })
+        )
+    ),
   });
 }
 
-fetchChatCompletion();
+await fetchChatCompletion();
 
 /////////////////////////
 //// Rendering utils ////

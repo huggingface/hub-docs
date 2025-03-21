@@ -29,7 +29,6 @@ For more details about the `feature-extraction` task, check out its [dedicated p
 
 ### Recommended models
 
-- [thenlper/gte-large](https://huggingface.co/thenlper/gte-large): A powerful feature extraction model for natural language processing tasks.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=feature-extraction&sort=trending).
 
@@ -38,8 +37,9 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
+
 <snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
+
 ```python
 from huggingface_hub import InferenceClient
 
@@ -50,19 +50,20 @@ client = InferenceClient(
 
 result = client.feature_extraction(
     inputs="Today is a sunny day and I will get some ice cream.",
-    model="thenlper/gte-large",
+    model="mixedbread-ai/mxbai-embed-large-v1",
 )
 ```
 
 </snippet>
 
 To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
 <snippet provider="hf-inference" language="python" client="requests">
-        
+
 ```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/pipeline/feature-extraction/thenlper/gte-large"
+API_URL = "https://router.huggingface.co/hf-inference/pipeline/feature-extraction/mixedbread-ai/mxbai-embed-large-v1"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -76,12 +77,13 @@ output = query({
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="fetch">
-        
+
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/pipeline/feature-extraction/thenlper/gte-large",
+		"https://router.huggingface.co/hf-inference/pipeline/feature-extraction/mixedbread-ai/mxbai-embed-large-v1",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -102,15 +104,16 @@ query({ inputs: "Today is a sunny day and I will get some ice cream." }).then((r
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="huggingface.js">
-        
+
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
 const client = new InferenceClient("hf_***");
 
 const output = await client.featureExtraction({
-	model: "thenlper/gte-large",
+	model: "mixedbread-ai/mxbai-embed-large-v1",
 	inputs: "Today is a sunny day and I will get some ice cream.",
 	provider: "hf-inference",
 });
@@ -121,10 +124,11 @@ console.log(output);
 </snippet>
 
 To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
 <snippet provider="hf-inference" language="sh" client="curl">
-        
+
 ```sh
-curl https://router.huggingface.co/hf-inference/pipeline/feature-extraction/thenlper/gte-large \
+curl https://router.huggingface.co/hf-inference/pipeline/feature-extraction/mixedbread-ai/mxbai-embed-large-v1 \
     -X POST \
     -H 'Authorization: Bearer hf_***' \
     -H 'Content-Type: application/json' \

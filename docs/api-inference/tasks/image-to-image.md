@@ -37,8 +37,9 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
+
 <snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
+
 ```python
 from huggingface_hub import InferenceClient
 
@@ -51,20 +52,21 @@ client = InferenceClient(
 image = client.image_to_image(
     "cat.png",
     prompt="Turn the cat into a tiger.",
-    model="<REPO_ID>",
+    model="stabilityai/stable-diffusion-xl-refiner-1.0",
 )
 ```
 
 </snippet>
 
 To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
 <snippet provider="hf-inference" language="python" client="requests">
-        
+
 ```python
 import base64
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/models/<REPO_ID>"
+API_URL = "https://router.huggingface.co/hf-inference/models/stabilityai/stable-diffusion-xl-refiner-1.0"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):

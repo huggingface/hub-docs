@@ -24,7 +24,6 @@ For more details about the `zero-shot-classification` task, check out its [dedic
 
 ### Recommended models
 
-- [facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli): Powerful zero-shot text classification model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=zero-shot-classification&sort=trending).
 
@@ -33,8 +32,9 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
+
 <snippet provider="hf-inference" language="python" client="requests">
-        
+
 ```python
 import requests
 
@@ -53,8 +53,9 @@ output = query({
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="fetch">
-        
+
 ```js
 async function query(data) {
     const response = await fetch(
@@ -82,8 +83,9 @@ query({
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="sh" client="curl">
-        
+
 ```sh
 curl https://router.huggingface.co/hf-inference/models/facebook/bart-large-mnli \
     -X POST \

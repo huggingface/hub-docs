@@ -24,114 +24,13 @@ For more details about the `fill-mask` task, check out its [dedicated page](http
 
 ### Recommended models
 
-- [FacebookAI/xlm-roberta-base](https://huggingface.co/FacebookAI/xlm-roberta-base): A multilingual model trained on 100 languages.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=fill-mask&sort=trending).
 
 ### Using the API
 
 
-<inferencesnippet>
-
-<snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
-```python
-from huggingface_hub import InferenceClient
-
-client = InferenceClient(
-    provider="hf-inference",
-    api_key="hf_***",
-)
-
-result = client.fill_mask(
-    inputs="The answer to the universe is [MASK].",
-    model="FacebookAI/xlm-roberta-base",
-)
-```
-
-</snippet>
-
-To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
-<snippet provider="hf-inference" language="python" client="requests">
-        
-```python
-import requests
-
-API_URL = "https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-base"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(payload):
-    response = requests.post(API_URL, headers=headers, json=payload)
-    return response.json()
-
-output = query({
-    "inputs": "The answer to the universe is [MASK].",
-})
-```
-
-</snippet>
-
-<snippet provider="hf-inference" language="js" client="fetch">
-        
-```js
-async function query(data) {
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-base",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query({ inputs: "The answer to the universe is [MASK]." }).then((response) => {
-    console.log(JSON.stringify(response));
-});
-```
-
-</snippet>
-
-<snippet provider="hf-inference" language="js" client="huggingface.js">
-        
-```js
-import { InferenceClient } from "@huggingface/inference";
-
-const client = new InferenceClient("hf_***");
-
-const output = await client.fillMask({
-	model: "FacebookAI/xlm-roberta-base",
-	inputs: "The answer to the universe is [MASK].",
-	provider: "hf-inference",
-});
-
-console.log(output);
-```
-
-</snippet>
-
-To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
-<snippet provider="hf-inference" language="sh" client="curl">
-        
-```sh
-curl https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-base \
-    -X POST \
-    -H 'Authorization: Bearer hf_***' \
-    -H 'Content-Type: application/json' \
-    -d '{
-        "inputs": "\"The answer to the universe is [MASK].\""
-    }'
-```
-
-</snippet>
-
-
-</inferencesnippet>
+No snippet available for this task.
 
 
 

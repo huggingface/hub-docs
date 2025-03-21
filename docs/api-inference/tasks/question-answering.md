@@ -24,9 +24,6 @@ For more details about the `question-answering` task, check out its [dedicated p
 
 ### Recommended models
 
-- [deepset/roberta-base-squad2](https://huggingface.co/deepset/roberta-base-squad2): A robust baseline model for most question answering domains.
-- [distilbert/distilbert-base-cased-distilled-squad](https://huggingface.co/distilbert/distilbert-base-cased-distilled-squad): Small yet robust model that can answer questions.
-- [google/tapas-base-finetuned-wtq](https://huggingface.co/google/tapas-base-finetuned-wtq): A special model that can answer questions from tables.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=question-answering&sort=trending).
 
@@ -35,8 +32,9 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
+
 <snippet provider="hf-inference" language="python" client="huggingface_hub">
-        
+
 ```python
 from huggingface_hub import InferenceClient
 
@@ -50,19 +48,20 @@ result = client.question_answering(
 	"question": "What is my name?",
 	"context": "My name is Clara and I live in Berkeley."
 },
-    model="deepset/roberta-base-squad2",
+    model="distilbert/distilbert-base-cased-distilled-squad",
 )
 ```
 
 </snippet>
 
 To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
 <snippet provider="hf-inference" language="python" client="requests">
-        
+
 ```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/models/deepset/roberta-base-squad2"
+API_URL = "https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-cased-distilled-squad"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
@@ -79,12 +78,13 @@ output = query({
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="fetch">
-        
+
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/deepset/roberta-base-squad2",
+		"https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-cased-distilled-squad",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -108,15 +108,16 @@ query({ inputs: {
 
 </snippet>
 
+
 <snippet provider="hf-inference" language="js" client="huggingface.js">
-        
+
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
 const client = new InferenceClient("hf_***");
 
 const output = await client.questionAnswering({
-	model: "deepset/roberta-base-squad2",
+	model: "distilbert/distilbert-base-cased-distilled-squad",
 	inputs: {
 	"question": "What is my name?",
 	"context": "My name is Clara and I live in Berkeley."
@@ -130,10 +131,11 @@ console.log(output);
 </snippet>
 
 To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
 <snippet provider="hf-inference" language="sh" client="curl">
-        
+
 ```sh
-curl https://router.huggingface.co/hf-inference/models/deepset/roberta-base-squad2 \
+curl https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-cased-distilled-squad \
     -X POST \
     -H 'Authorization: Bearer hf_***' \
     -H 'Content-Type: application/json' \
