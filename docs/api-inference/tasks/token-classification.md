@@ -24,10 +24,6 @@ For more details about the `token-classification` task, check out its [dedicated
 
 ### Recommended models
 
-- [dslim/bert-base-NER](https://huggingface.co/dslim/bert-base-NER): A robust performance model to identify people, locations, organizations and names of miscellaneous entities.
-- [FacebookAI/xlm-roberta-large-finetuned-conll03-english](https://huggingface.co/FacebookAI/xlm-roberta-large-finetuned-conll03-english): A strong model to identify people, locations, organizations and names in multiple languages.
-- [blaze999/Medical-NER](https://huggingface.co/blaze999/Medical-NER): A token classification model specialized on medical entity recognition.
-- [flair/ner-english](https://huggingface.co/flair/ner-english): Flair models are typically the state of the art in named entity recognition tasks.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=token-classification&sort=trending).
 
@@ -36,77 +32,53 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/dslim/bert-base-NER \
-	-X POST \
-	-d '{"inputs": "My name is Sarah Jessica Parker but you can call me Jessica"}' \
-	-H 'Content-Type: application/json' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
 
-<python>
-Using `huggingface_hub`:
-```py
+<snippet provider="hf-inference" language="python" client="huggingface_hub">
+
+```python
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(
-	provider="hf-inference",
-	api_key="hf_***"
+    provider="hf-inference",
+    api_key="hf_***",
 )
 
 result = client.token_classification(
-	model="dslim/bert-base-NER",
-	inputs="My name is Sarah Jessica Parker but you can call me Jessica",
-	provider="hf-inference",
+    inputs="My name is Sarah Jessica Parker but you can call me Jessica",
+    model="FacebookAI/xlm-roberta-large-finetuned-conll03-english",
 )
-
-print(result)
-
 ```
 
-Using `requests`:
-```py
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
+<snippet provider="hf-inference" language="python" client="requests">
+
+```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/v1"
+API_URL = "https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-large-finetuned-conll03-english"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-	
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
 output = query({
-	"inputs": "My name is Sarah Jessica Parker but you can call me Jessica",
+    "inputs": "My name is Sarah Jessica Parker but you can call me Jessica",
 })
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.token_classification).
-</python>
+</snippet>
 
-<js>
-Using `huggingface.js`:
-```js
-import { HfInference } from "@huggingface/inference";
 
-const client = new HfInference("hf_***");
+<snippet provider="hf-inference" language="js" client="fetch">
 
-const output = await client.tokenClassification({
-	model: "dslim/bert-base-NER",
-	inputs: "My name is Sarah Jessica Parker but you can call me Jessica",
-	provider: "hf-inference",
-});
-
-console.log(output);
-
-```
-
-Using `fetch`:
 ```js
 async function query(data) {
 	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/dslim/bert-base-NER",
+		"https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-large-finetuned-conll03-english",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
@@ -120,13 +92,48 @@ async function query(data) {
 	return result;
 }
 
-query({"inputs": "My name is Sarah Jessica Parker but you can call me Jessica"}).then((response) => {
-	console.log(JSON.stringify(response));
+query({ inputs: "My name is Sarah Jessica Parker but you can call me Jessica" }).then((response) => {
+    console.log(JSON.stringify(response));
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#tokenclassification).
-</js>
+</snippet>
+
+
+<snippet provider="hf-inference" language="js" client="huggingface.js">
+
+```js
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient("hf_***");
+
+const output = await client.tokenClassification({
+	model: "FacebookAI/xlm-roberta-large-finetuned-conll03-english",
+	inputs: "My name is Sarah Jessica Parker but you can call me Jessica",
+	provider: "hf-inference",
+});
+
+console.log(output);
+```
+
+</snippet>
+
+To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
+
+<snippet provider="hf-inference" language="sh" client="curl">
+
+```sh
+curl https://router.huggingface.co/hf-inference/models/FacebookAI/xlm-roberta-large-finetuned-conll03-english \
+    -X POST \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "inputs": "\"My name is Sarah Jessica Parker but you can call me Jessica\""
+    }'
+```
+
+</snippet>
+
 
 </inferencesnippet>
 
@@ -162,9 +169,6 @@ For more information about Inference API headers, check out the parameters [guid
 
 #### Response
 
-Output type depends on the `stream` input parameter.
-If `stream` is `false` (default), the response will be a JSON object with the following fields:
-
 | Body |  |
 | :--- | :--- | :--- |
 | **(array)** | _object[]_ | Output is an array of objects. |
@@ -174,10 +178,5 @@ If `stream` is `false` (default), the response will be a JSON object with the fo
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;word** | _string_ | The corresponding text |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start** | _integer_ | The character position in the input where this group begins. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end** | _integer_ | The character position in the input where this group ends. |
-
-
-If `stream` is `true`, generated tokens are returned as a stream, using Server-Sent Events (SSE).
-For more information about streaming, check out [this guide](https://huggingface.co/docs/token-classification-inference/conceptual/streaming).
-
 
 
