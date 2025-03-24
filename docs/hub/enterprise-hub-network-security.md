@@ -33,6 +33,7 @@ To activate this option,
 </div>
 
 You need to have a valid Enterprise Plus subscription for this option to take effect.
+
 2. Ensure the Organization IP Ranges are defined 
 
 Once defined, higher rate limits will apply to members of your organization whose IPs match the defined ranges. 
