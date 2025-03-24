@@ -62,3 +62,11 @@ _Note, if a repository is muted, you won't receive any new notification unless y
 The list of muted repositories is available from the notifications settings page:
 
 ![Notifications settings page muted repositories](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/notifications-settings-muted.png)
+
+## Mute notifications for a specific discussion or PR
+
+You can also mute notifications for individual discussions or pull requests by clicking the mute icon in the header. Doing this prevents you from receiving any further notifications from that specific discussion or PR, including direct mentions.
+
+You can unmute at any time by clicking the same icon again.
+
+![Notifications mute discussions](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/notifications-mute-discussion.png)
