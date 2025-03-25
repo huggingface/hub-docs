@@ -157,11 +157,11 @@ A successful model release extends beyond the initial publication. To maximize i
 
 [Hugging Face Enterprise](https://huggingface.co/enterprise) subscription offers additional capabilities:
 
-1. **Access Control**: Set [resource groups](https://huggingface.co/docs/hub/organizations) to control access for specific teams or users, ensuring appropriate permissions across your organization.
+1. **Access Control**: Set [resource groups](https://huggingface.co/docs/hub/security-resource-groups) to control access for specific teams or users, ensuring appropriate permissions across your organization.
 
-2. **Regional Compliance**: Select the data storage region (US/EU) for your model files to comply with regional data regulations and requirements.
+2. **Storage Region**: Select the data storage region (US/EU) for your model files to comply with regional data regulations and requirements.
 
-3. **Advanced Analytics**: Utilize [enterprise Analytics features](https://huggingface.co/docs/hub/enterprise) to gain deeper insights into usage patterns and adoption metrics.
+3. **Advanced Analytics**: Use [Enterprise Analytics features](https://huggingface.co/docs/hub/enterprise-hub-analytics) to gain deeper insights into usage patterns and adoption metrics.
 
 4. **Extended Storage**: Access additional private storage capacity to host more models and larger artifacts as your model portfolio grows.
 
