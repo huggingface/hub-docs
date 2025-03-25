@@ -4,7 +4,7 @@ The Hugging Face Hub is the go-to platform for sharing machine learning models. 
 
 ## ⏳ Preparing Your Model for Release
 
-### Creating a Comprehensive Model Card
+### Writing a Comprehensive Model Card
 
 A well-crafted model card (the ```README.md``` file in your repository) is essential for discoverability, reproducibility, and effective sharing. Your model card should include:
 
