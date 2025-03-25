@@ -24,8 +24,6 @@ For more details about the `image-segmentation` task, check out its [dedicated p
 
 ### Recommended models
 
-- [openmmlab/upernet-convnext-small](https://huggingface.co/openmmlab/upernet-convnext-small): Solid semantic segmentation model trained on ADE20k.
-- [facebook/mask2former-swin-large-coco-panoptic](https://huggingface.co/facebook/mask2former-swin-large-coco-panoptic): Panoptic segmentation model trained on the COCO (common objects) dataset.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-segmentation&sort=trending).
 
@@ -34,60 +32,83 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <inferencesnippet>
 
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/openmmlab/upernet-convnext-small \
-	-X POST \
-	--data-binary '@cats.jpg' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
 
-<python>
-```py
+<snippet provider="hf-inference" language="python" client="huggingface_hub">
+
+```python
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+    provider="hf-inference",
+    api_key="hf_***",
+)
+
+output = client.image_segmentation("cats.jpg", model="jonathandinu/face-parsing")
+```
+
+</snippet>
+
+To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
+
+<snippet provider="hf-inference" language="python" client="requests">
+
+```python
 import requests
 
-API_URL = "https://router.huggingface.co/hf-inference/v1"
+API_URL = "https://router.huggingface.co/hf-inference/models/jonathandinu/face-parsing"
 headers = {"Authorization": "Bearer hf_***"}
 
 def query(filename):
-	with open(filename, "rb") as f:
-		data = f.read()
-	response = requests.post(API_URL, headers=headers, data=data)
-	return response.json()
+    with open(filename, "rb") as f:
+        data = f.read()
+    response = requests.post(API_URL, headers={"Content-Type": "image/jpeg", **headers}, data=data)
+    return response.json()
 
 output = query("cats.jpg")
 ```
 
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.image_segmentation).
-</python>
+</snippet>
 
-<js>
+
+<snippet provider="hf-inference" language="js" client="fetch">
+
 ```js
-async function query(filename) {
-	const data = fs.readFileSync(filename);
+async function query(data) {
 	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/openmmlab/upernet-convnext-small",
+		"https://router.huggingface.co/hf-inference/models/jonathandinu/face-parsing",
 		{
 			headers: {
 				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
+				"Content-Type": "image/jpeg"
 			},
 			method: "POST",
-			body: data,
+			body: JSON.stringify(data),
 		}
 	);
 	const result = await response.json();
 	return result;
 }
 
-query("cats.jpg").then((response) => {
-	console.log(JSON.stringify(response));
+query({ inputs: "cats.jpg" }).then((response) => {
+    console.log(JSON.stringify(response));
 });
 ```
 
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#imagesegmentation).
-</js>
+</snippet>
+
+
+<snippet provider="hf-inference" language="sh" client="curl">
+
+```sh
+curl https://router.huggingface.co/hf-inference/models/jonathandinu/face-parsing \
+    -X POST \
+    -H 'Authorization: Bearer hf_***' \
+    -H 'Content-Type: image/jpeg' \
+    --data-binary @"cats.jpg"
+```
+
+</snippet>
+
 
 </inferencesnippet>
 
