@@ -39,8 +39,6 @@
   sections:
   - local: models-the-hub
     title: The Model Hub
-  - local: model-release
-    title: Model Release Checklist
   - local: model-cards
     title: Model Cards
     sections:
@@ -134,6 +132,8 @@
     title: Models Download Stats
   - local: models-faq
     title: Frequently Asked Questions
+  - local: model-release-checklist
+    title: Model Release Checklist
   - local: models-advanced
     title: Advanced Topics
     sections:
