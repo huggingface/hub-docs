@@ -138,7 +138,7 @@ The super-squash operation compresses your entire Git history into a single comm
 
 ⚠️ **Important**: This is a destructive operation that cannot be undone, commit history will be permanently lost and **LFS file history will be removed**
 
-The effects from the squash operation on your storage quota are not immediate and will be reflected on your quota within a few minutes.
+The effects from the squash operation on your storage quota are not immediate and will be reflected on your quota within 24 hours.
 
 ### Advanced: Track LFS file references
 
