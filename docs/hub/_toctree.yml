@@ -39,6 +39,8 @@
   sections:
   - local: models-the-hub
     title: The Model Hub
+  - local: model-release
+    title: Model Release Checklist
   - local: model-cards
     title: Model Cards
     sections:
