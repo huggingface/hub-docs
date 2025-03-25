@@ -1,4 +1,4 @@
-# Checklist for an impactful model release
+# Model(s) Release Checklist
 
 The Hugging Face Hub is the go-to platform for sharing machine learning models. A well-executed release can boost your model's visibility and impact. This section covers essential steps for a concise, informative, and user-friendly model release.
 
@@ -54,7 +54,7 @@ To maximize your model's reach and usability:
    - `image-text-to-text` - For vision language models that generate text
    - `text-to-speech` - For models that generate audio from text
 
-3. **Research Papers**: If your model originates from research papers, you can cite them in your model card and it will [link them automatically](https://huggingface.co/docs/hub/model-cards#linking-a-paper) in your model card. This provides academic context and allows users to dive deeper into the theoretical foundations of your work.
+3. **Research Papers**: If your model has associated research papers, you can cite them in your model card and they will be [linked automatically](https://huggingface.co/docs/hub/model-cards#linking-a-paper). This provides academic context and allows users to dive deeper into the theoretical foundations of your work.
 
    ```markdown
    ## References
@@ -64,7 +64,7 @@ To maximize your model's reach and usability:
 
 4. **Collections**: If you're releasing multiple related models or variants, organize them into a [collection](https://huggingface.co/docs/hub/collections). Collections help users discover related models and understand the relationships between different versions or variants.
 
-5. **Demo**: Create a [Hugging Face Space](https://huggingface.co/docs/hub/spaces) with an interactive demo of your model. This allows users to try your model directly without writing any code, significantly lowering the barrier to adoption. You can also [link the model](https://huggingface.co/docs/hub/spaces-config-reference) from the Space to make it appear on the model page dedicated UI.
+5. **Demos**: Create a [Hugging Face Space](https://huggingface.co/docs/hub/spaces) with an interactive demo of your model. This allows users to try your model directly without writing any code, significantly lowering the barrier to adoption. You can also [link the model](https://huggingface.co/docs/hub/spaces-config-reference) from the Space to make it appear on the model page dedicated UI.
 
    ```markdown
    ## Demo
@@ -80,7 +80,7 @@ To maximize your model's reach and usability:
    ---
    ```
 
-7. **Linking Datasets on the Model Page**: Link datasets in your ```README.md``` metadata to display those used directly on your model page.
+7. **Linking Datasets on the Model Page**: Link datasets in your ```README.md``` metadata to display those used directly from your model page.
 
    ```yaml
    ---
@@ -90,7 +90,7 @@ To maximize your model's reach and usability:
    ---
    ```
 
-8. **New Model Version**: If this model is an update of an existing one, you can specify it on the previous version model metadata. This will display a banner on the older model's page linking directly to this updated version.
+8. **New Model Version**: If your model is an update of an existing one, you can specify it on the older version model model card. This will [display a banner](https://huggingface.co/docs/hub/en/model-cards#specifying-a-new-version) on the older model's page linking directly to this updated version.
 
    ```yaml
    ---
@@ -98,7 +98,7 @@ To maximize your model's reach and usability:
    ---
    ```
 
-9. **Visual Examples**: For image or video generation models, include examples directly on your model page using the [`<Gallery>` card component](https://huggingface.co/docs/hub/model-card-components). Visual examples provide immediate insight into your model's capabilities.
+9. **Visual Examples**: For image or video generation models, include examples directly on your model page using the [`<Gallery>` card component](https://huggingface.co/docs/hub/en/model-cards-components#the-gallery-component). Visual examples provide immediate insight into your model's capabilities.
 
    ```markdown
    <Gallery>
