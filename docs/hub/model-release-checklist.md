@@ -51,8 +51,8 @@ To maximize your model's reach and usability:
    Examples of common pipeline tags:
    - `text-generation` - For language models that generate text
    - `text-to-image` - For text-to-image generation models
-   - `Image-Text-to-Text` - For vision language models that generate text
-   - `Text-to-Speech` - For models that generate audio from text
+   - `image-text-to-text` - For vision language models that generate text
+   - `text-to-speech` - For models that generate audio from text
 
 3. **Research Papers**: If your model originates from research papers, you can cite them in your model card and it will [link them automatically](https://huggingface.co/docs/hub/model-cards#linking-a-paper) in your model card. This provides academic context and allows users to dive deeper into the theoretical foundations of your work.
 
@@ -62,9 +62,9 @@ To maximize your model's reach and usability:
    * [Model Paper](https://arxiv.org/abs/xxxx.xxxxx)
    ```
 
-4. **Model Collections**: If you're releasing multiple related models or variants, organize them into a [collection](https://huggingface.co/docs/hub/collections). Collections help users discover related models and understand the relationships between different versions or variants.
+4. **Collections**: If you're releasing multiple related models or variants, organize them into a [collection](https://huggingface.co/docs/hub/collections). Collections help users discover related models and understand the relationships between different versions or variants.
 
-5. **Demo application**: Create a [Hugging Face Space](https://huggingface.co/docs/hub/spaces) with an interactive demo of your model. This allows users to try your model directly without writing any code, significantly lowering the barrier to adoption. You can also [link the model](https://huggingface.co/docs/hub/spaces-config-reference) from the Space to make it appear on the model page dedicated UI.
+5. **Demo**: Create a [Hugging Face Space](https://huggingface.co/docs/hub/spaces) with an interactive demo of your model. This allows users to try your model directly without writing any code, significantly lowering the barrier to adoption. You can also [link the model](https://huggingface.co/docs/hub/spaces-config-reference) from the Space to make it appear on the model page dedicated UI.
 
    ```markdown
    ## Demo
