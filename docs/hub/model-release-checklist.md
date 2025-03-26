@@ -56,7 +56,7 @@ Bonus: a recognised library also allows you to track downloads of your model ove
    - `image-text-to-text` - For vision-language models (VLMs) that generate text
    - `text-to-speech` - For models that generate audio from text
 
-3. **Research Papers**: If your model has associated research papers, you can cite them in your model card and they will be [linked automatically](https://huggingface.co/docs/hub/model-cards#linking-a-paper). This provides academic context and allows users to dive deeper into the theoretical foundations of your work.
+3. **Research Papers**: If your model has associated research papers, you can cite them in your model card and they will be [linked automatically](https://huggingface.co/docs/hub/model-cards#linking-a-paper). This provides academic context, allows users to dive deeper into the theoretical foundations of your work, and increases citations.
 
    ```markdown
    ## References
