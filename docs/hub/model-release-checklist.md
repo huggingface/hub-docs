@@ -109,7 +109,7 @@ Bonus: a recognised library also allows you to track downloads of your model ove
    </Gallery>
    ```
 
-10. **Carbon Emissions**: Optionally specify the [carbon emissions](https://huggingface.co/docs/hub/model-cards-co2) associated with training your model. This information helps environmentally conscious users and organizations make informed decisions.
+10. **Carbon Emissions**: If possible, specify the [carbon emissions](https://huggingface.co/docs/hub/model-cards-co2) associated with training your model. This information helps environmentally conscious users and organizations make informed decisions.
 
    ```yaml
    ---
