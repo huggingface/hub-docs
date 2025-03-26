@@ -79,10 +79,11 @@ Bonus: a recognised library also allows you to track downloads of your model ove
    ```yaml
    ---
    base_model: username/original-model
+   base_model_relation: quantized
    ---
    ```
 
-7. **Linking Datasets on the Model Page**: Link datasets in your ```README.md``` metadata to display those used directly from your model page.
+7. **Linking Datasets on the Model Page**: Link datasets in your `README.md` metadata to display those used directly from your model page.
 
    ```yaml
    ---
