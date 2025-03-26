@@ -37,7 +37,7 @@ A well-crafted model card (the ```README.md``` file in your repository) is essen
 
 To maximize your model's reach and usability:
 
-1. **Library Integration**: If possible, add support for one of the many [libraries integrated with the Hugging Face Hub](https://huggingface.co/docs/hub/models-libraries) (such as Transformers or Diffusers). This integration significantly increases your model's accessibility and provides users with familiar interfaces for working with your model.
+1. **Library Integration**: If possible, add support for one of the many [libraries integrated with the Hugging Face Hub](https://huggingface.co/docs/hub/models-libraries) (such as Transformers or Diffusers). This integration significantly increases your model's accessibility and provides users with code snippets for working with your model.
 
    For example, to specify that your model works with the Transformers library:
    ```yaml
