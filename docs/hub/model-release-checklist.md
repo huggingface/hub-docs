@@ -46,7 +46,7 @@ To maximize your model's reach and usability:
    ---
    ```
 
-2. **Pipeline Tag Selection**: Choose the correct [pipeline tag](https://huggingface.co/docs/hub/model-cards#specifying-a-task-pipeline_tag) that accurately reflects your model's primary task. This tag determines how your model appears in search results and which widgets are displayed on your model page.
+2. **Pipeline Tag Selection**: Choose the correct [pipeline tag](https://huggingface.co/docs/hub/model-cards#specifying-a-task--pipelinetag-) that accurately reflects your model's primary task. This tag determines how your model appears in search results and which widgets are displayed on your model page.
 
    Examples of common pipeline tags:
    - `text-generation` - For language models that generate text
