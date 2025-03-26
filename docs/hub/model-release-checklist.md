@@ -136,7 +136,7 @@ A successful model release extends beyond the initial publication. To maximize i
 
 1. **Verify Functionality**: After release, verify that all provided code snippets work correctly by testing them in a clean environment. This ensures users can successfully implement your model without frustration.
 
-   For example, test your library code snippet:
+   For example, if your model is a transformers compatible LLM, you can try the following code snippet:
    ```python
    from transformers import pipeline
 
