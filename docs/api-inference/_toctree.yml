@@ -1,27 +1,37 @@
-- sections:
+- title: Get Started
+  sections:
   - local: index
-    title: Serverless Inference API
-  - local: getting-started
-    title: Getting Started
-  - local: supported-models
-    title: Supported Models
+    title: Inference Providers API
   - local: pricing
-    title: Pricing and Rate limits
+    title: Pricing and Billing
+  - local: hub-integration
+    title: Hub integration
+  - local: providers
+    title: Providers
   - local: security
     title: Security
-  title: Getting Started
-- sections:
-  - local: parameters
-    title: Parameters
-  - sections:
-    - local: tasks/audio-classification
-      title: Audio Classification
-    - local: tasks/automatic-speech-recognition
-      title: Automatic Speech Recognition
+- title: API Reference
+  sections:
+  - local: tasks/index
+    title: Index
+  - local: hub-api
+    title: Hub API
+  - title: Popular Tasks
+    sections:
     - local: tasks/chat-completion
       title: Chat Completion
     - local: tasks/feature-extraction
       title: Feature Extraction
+    - local: tasks/text-generation
+      title: Text Generation
+    - local: tasks/text-to-image
+      title: Text to Image
+  - title: Other Tasks
+    sections:
+    - local: tasks/audio-classification
+      title: Audio Classification
+    - local: tasks/automatic-speech-recognition
+      title: Automatic Speech Recognition
     - local: tasks/fill-mask
       title: Fill Mask
     - local: tasks/image-classification
@@ -30,8 +40,6 @@
       title: Image Segmentation
     - local: tasks/image-to-image
       title: Image to Image
-    - local: tasks/image-text-to-text
-      title: Image-Text to Text
     - local: tasks/object-detection
       title: Object Detection
     - local: tasks/question-answering
@@ -42,15 +50,9 @@
       title: Table Question Answering
     - local: tasks/text-classification
       title: Text Classification
-    - local: tasks/text-generation
-      title: Text Generation
-    - local: tasks/text-to-image
-      title: Text to Image
     - local: tasks/token-classification
       title: Token Classification
     - local: tasks/translation
       title: Translation
     - local: tasks/zero-shot-classification
       title: Zero Shot Classification
-    title: Detailed Task Parameters
-  title: API Reference
