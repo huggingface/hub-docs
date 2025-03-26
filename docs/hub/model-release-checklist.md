@@ -6,7 +6,7 @@ The Hugging Face Hub is the go-to platform for sharing machine learning models. 
 
 ### Writing a Comprehensive Model Card
 
-A well-crafted model card (the ```README.md``` file in your repository) is essential for discoverability, reproducibility, and effective sharing. Your model card should include:
+A well-crafted model card (the `README.md` file in your repository) is essential for discoverability, reproducibility, and effective sharing. Your model card should include:
 
 1. **Metadata Configuration**: The [metadata section](https://huggingface.co/docs/hub/model-cards#model-card-metadata) at the top of your model card (in YAML format) is crucial for discoverability and proper categorization. Be sure to include:
    ```yaml
