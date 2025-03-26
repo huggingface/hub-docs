@@ -46,6 +46,8 @@ To maximize your model's reach and usability:
    ---
    ```
 
+You can also [create your own model library](https://huggingface.co/docs/hub/models-adding-libraries) or add Hub support to another existing library or codebase.
+
 Bonus: a recognised library also allows you to track downloads of your model over time.
 
 2. **Pipeline Tag Selection**: Choose the correct [pipeline tag](https://huggingface.co/docs/hub/model-cards#specifying-a-task--pipelinetag-) that accurately reflects your model's primary task. This tag determines how your model appears in search results and which widgets are displayed on your model page.
