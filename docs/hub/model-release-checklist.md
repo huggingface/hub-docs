@@ -124,7 +124,7 @@ Bonus: a recognised library also allows you to track downloads of your model ove
      hardware_used: "8xA100 GPUs"
    ---
    ```
-11. **Share Share Share**: Most people discover models on social media or in internal chat channels like your company slack or email threads so don't hesitate to share links to your models. A good way to distribute the models is also by adding links on your website or github projects. The more people will visit and like the model, the more it will go up in the trending sections of Hugging Face, leading to even more visibility.
+11. **Share Share Share**: Most people discover models on social media or in internal chat channels like your company Slack or email threads, so don't hesitate to share links to your models. A good way to distribute the models is also by adding links on your website or GitHub projects. The more people visit and like your model, the higher it will go up in the trending sections of Hugging Face, leading to even more visibility!
 
 
 ### Access Control and Visibility
