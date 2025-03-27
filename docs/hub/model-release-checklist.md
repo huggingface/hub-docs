@@ -124,8 +124,6 @@ Bonus: a recognised library also allows you to track downloads of your model ove
      hardware_used: "8xA100 GPUs"
    ---
    ```
-11. **Share Share Share**: Most people discover models on social media or in internal chat channels like your company Slack or email threads, so don't hesitate to share links to your models. A good way to distribute the models is also by adding links on your website or GitHub projects. The more people visit and like your model, the higher it will go up in the trending sections of Hugging Face, leading to even more visibility!
-
 
 ### Access Control and Visibility
 
@@ -150,7 +148,7 @@ A successful model release extends beyond the initial publication. To maximize i
    result = pipe("Your test prompt")
    ```
 
-2. **Promote Your Work**: Share your model through relevant channels such as social media, research communities, etc. Remember that every model represents valuable work that deserves visibility.
+2. **Share Share Share**: Most people discover models on social media or in internal chat channels like your company Slack or email threads, so don't hesitate to share links to your models. A good way to distribute the models is also by adding links on your website or GitHub projects. The more people visit and like your model, the higher it will go up in the trending sections of Hugging Face, leading to even more visibility!
 
 3. **Community Interaction**: Engage with users in the Community Tab by answering questions, addressing feedback, and resolving issues quickly. Clarify confusion, adopt useful suggestions, and close off-topic discussions or pull requests to keep the space focused.
 
