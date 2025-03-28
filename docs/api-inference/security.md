@@ -2,7 +2,7 @@
 
 ## Data Security/Privacy
 
-Hugging Face does not store any user data for training purposes. We do not parse or store the request body or response when routing requests through Hugging Face. Logs are kept for debugging purposes for up to 30 days, but no user data or tokens are stored.
+Hugging Face does not store any user data for training purposes. We do not store the request body or response when routing requests through Hugging Face. Logs are kept for debugging purposes for up to 30 days, but no user data or tokens are stored.
 
 For more information on how your data is handled, please refer to the Data Security Policies of each provider.
 
