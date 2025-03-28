@@ -218,4 +218,4 @@ dataset_info:
     dtype: string
 ```
 
-Note that Parquet is recommended for small images (<1MB per image) and small row groups (100 rows per row group, which is what `datasets` uses for images). For larger images it is recommended to use the WebDataset format, or to share the original image files (optionally with metadata files).
+Note that Parquet is recommended for small images (<1MB per image) and small row groups (100 rows per row group, which is what `datasets` uses for images). For larger images it is recommended to use the WebDataset format, or to share the original image files (optionally with metadata files, and following the [repositories recommendations and limits](https://huggingface.co/docs/hub/en/storage-limits) for storage and number of files).
