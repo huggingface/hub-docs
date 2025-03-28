@@ -22,8 +22,6 @@
       title: Chat Completion
     - local: tasks/feature-extraction
       title: Feature Extraction
-    - local: tasks/text-generation
-      title: Text Generation
     - local: tasks/text-to-image
       title: Text to Image
   - title: Other Tasks
@@ -50,6 +48,8 @@
       title: Table Question Answering
     - local: tasks/text-classification
       title: Text Classification
+    - local: tasks/text-generation
+      title: Text Generation
     - local: tasks/token-classification
       title: Token Classification
     - local: tasks/translation
