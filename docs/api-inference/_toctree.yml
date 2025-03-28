@@ -6,8 +6,6 @@
     title: Pricing and Billing
   - local: hub-integration
     title: Hub integration
-  - local: providers
-    title: Providers
   - local: security
     title: Security
 - title: API Reference
