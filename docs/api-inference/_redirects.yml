@@ -1,6 +1,6 @@
 quicktour: index
-detailed_parameters: parameters
-parallelism: getting_started
-usage: getting_started
+detailed_parameters: tasks/index
+parallelism: index
+usage: index
 faq: index
 rate-limits: pricing

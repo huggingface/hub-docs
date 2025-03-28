@@ -1,15 +1,15 @@
 # Security & Compliance
 
-The Inference API is not designed for heavy production requirements. For production needs, explore [Inference Endpoints](https://ui.endpoints.huggingface.co/) for dedicated resources, autoscaling, advanced security features, and more.
-
 ## Data Security/Privacy
 
-Hugging Face does not store any user data for training purposes. Tokens sent to the API might be stored in a short-term (few minutes) cache mechanism to speed-up repeated requests. Logs are stored for debugging for up to 30 days. Any additional data in terms of user data or tokens are not stored. 
+Hugging Face does not store any user data for training purposes. We do not store the request body or response when routing requests through Hugging Face. Logs are kept for debugging purposes for up to 30 days, but no user data or tokens are stored.
 
-Serverless Inference API use TLS/SSL to encrypt the data in transit.
+For more information on how your data is handled, please refer to the Data Security Policies of each provider.
+
+Inference Provider routing uses TLS/SSL to encrypt data in transit.
 
 ## Hub Security
 
-The Hugging Face Hub, which Serverless Inference API is part, is SOC2 Type 2 certified. For more on Hub security: https://huggingface.co/docs/hub/security
+The Hugging Face Hub, which Inference Providers is a feature of, is SOC2 Type 2 certified. For more on Hub security: https://huggingface.co/docs/hub/security. External providers are responsible for their own security measures, so please refer to their respective security policies for more details.
 
 <img width="150" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-soc-1.jpg">
