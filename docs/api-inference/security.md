@@ -6,10 +6,10 @@ Hugging Face does not store any user data for training purposes. We do not parse
 
 For more information on how your data is handled, please refer to the Data Security Policies of each provider.
 
-Inference Provider API uses TLS/SSL to encrypt data in transit.
+Inference Provider routing uses TLS/SSL to encrypt data in transit.
 
 ## Hub Security
 
-The Hugging Face Hub, which Inference Provider API is part, is SOC2 Type 2 certified. For more on Hub security: https://huggingface.co/docs/hub/security. External providers are responsible for their own security measures, so please refer to their respective security policies for more details.
+The Hugging Face Hub, which Inference Providers is a feature of, is SOC2 Type 2 certified. For more on Hub security: https://huggingface.co/docs/hub/security. External providers are responsible for their own security measures, so please refer to their respective security policies for more details.
 
 <img width="150" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/security-soc-1.jpg">

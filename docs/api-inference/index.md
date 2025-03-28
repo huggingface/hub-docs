@@ -4,16 +4,16 @@ The Hugging Face Inference Providers revolutionizes how developers access and ru
 
 To learn more about the launch of the Inference Providers, check out our [announcement blog post](https://huggingface.co/blog/inference-providers).
 
-## Why use the Inference Provider API?
+## Why use the Inference Providers?
 
-The Inference Provider API offers a fast and simple way to explore thousands of models for a variety of tasks. Whether you're experimenting with ML capabilities or building a new application, this API gives you instant access to high-performing models across multiple domains:
+The Inference Providers offers a fast and simple way to explore thousands of models for a variety of tasks. Whether you're experimenting with ML capabilities or building a new application, this API gives you instant access to high-performing models across multiple domains:
 
 * **Text Generation:** Including large language models and tool-calling prompts, generate and experiment with high-quality responses.
 * **Image and Video Generation:** Easily create customized images, including LoRAs for your own styles.
 * **Document Embeddings:** Build search and retrieval systems with SOTA embeddings.
 * **Classical AI Tasks:** Ready-to-use models for text classification, image classification, speech recognition, and more.
 
-⚡ **Fast and Free to Get Started**: The Inference Provider API comes with a free-tier and additional included credits for [PRO users](https://hf.co/subscribe/pro).
+⚡ **Fast and Free to Get Started**: The Inference Providers comes with a free-tier and additional included credits for [PRO users](https://hf.co/subscribe/pro).
 
 ## Key Features
 
@@ -166,7 +166,7 @@ console.log(chatCompletion.choices[0].message);
 
 In this introduction, we've covered the basics of Inference Provider. To learn more about this service, check out our guides and API Reference:
 - [Pricing and Billing](./pricing): everything you need to know about billing
-- [Hub integration](./hub-integration): how the Inference Provider API is integrated with the Hub?
+- [Hub integration](./hub-integration): how the Inference Providers is integrated with the Hub?
 - [External Providers](./providers): everything about providers and how to become an official partner
 - [Hub API](./hub-api): high level API for inference providers
 - [API Reference](./tasks/index): learn more about the parameters and task-specific settings.
