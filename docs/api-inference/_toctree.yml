@@ -1,7 +1,7 @@
 - title: Get Started
   sections:
   - local: index
-    title: Inference Providers API
+    title: Inference Providers
   - local: pricing
     title: Pricing and Billing
   - local: hub-integration

@@ -1,8 +1,8 @@
-# Inference Providers API
+# Inference Providers
 
-The Hugging Face Inference Providers API revolutionizes how developers access and run machine learning models by offering a unified, flexible interface to multiple serverless inference providers. This new approach extends our previous Serverless Inference API, providing more models, increased performances and better reliability thanks to our awesome partners.
+The Hugging Face Inference Providers revolutionizes how developers access and run machine learning models by offering a unified, flexible interface to multiple serverless inference providers. This new approach extends our previous Serverless Inference API, providing more models, increased performances and better reliability thanks to our awesome partners.
 
-To learn more about the launch of the Inference Providers API, check out our [announcement blog post](https://huggingface.co/blog/inference-providers).
+To learn more about the launch of the Inference Providers, check out our [announcement blog post](https://huggingface.co/blog/inference-providers).
 
 ## Why use the Inference Provider API?
 
@@ -33,13 +33,13 @@ To get started quickly with [Chat Completion models](http://huggingface.co/model
 
 ## Get Started
 
-You can call the Inference Providers API with your preferred tools, such as Python, JavaScript, or cURL. To simplify integration, we offer both a Python SDK (`huggingface_hub`) and a JavaScript SDK (`huggingface.js`).
+You can call the Inference Providers with your preferred tools, such as Python, JavaScript, or cURL. To simplify integration, we offer both a Python SDK (`huggingface_hub`) and a JavaScript SDK (`huggingface.js`).
 
 In this section, we will demonstrate a simple example using [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a conversational Large Language Model. For the example, we will use [Novita AI](https://novita.ai/) as Inference Provider with routed requests. You will learn what that means in the next chapters.
 
 ### Authentication
 
-The Inference Providers API requires passing a user token in the request headers. You can generate a token by signing up on the Hugging Face website and going to the [settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained). We recommend creating a `fine-grained` token with the scope to `Make calls to Inference Providers`.
+The Inference Providers requires passing a user token in the request headers. You can generate a token by signing up on the Hugging Face website and going to the [settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained). We recommend creating a `fine-grained` token with the scope to `Make calls to Inference Providers`.
 
 For more details about user tokens, check out [this guide](https://huggingface.co/docs/hub/en/security-tokens).
 

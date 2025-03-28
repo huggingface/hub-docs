@@ -1,6 +1,6 @@
 # Hub Integration
 
-The Inference Providers API is tightly integrated with the Hugging Face Hub. No matter in which service you use it, the usage and billing will be centralized on your Hugging Face account.
+The Inference Providers is tightly integrated with the Hugging Face Hub. No matter in which service you use it, the usage and billing will be centralized on your Hugging Face account.
 
 ## Model search
 
@@ -20,7 +20,7 @@ It is also possible to select multiple providers or even all of them to filter a
 
 ## Features using Inference Providers
 
-Several Hugging Face features utilize the Inference Providers API and count towards your monthly credits. The included monthly credits for PRO and Enterprise should cover moderate usage of these features for most users.
+Several Hugging Face features utilize the Inference Providers and count towards your monthly credits. The included monthly credits for PRO and Enterprise should cover moderate usage of these features for most users.
 
 - [Inference Widgets](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324): Interactive widgets available on model pages. This is the entry point to quickly test a model on the Hub.
 

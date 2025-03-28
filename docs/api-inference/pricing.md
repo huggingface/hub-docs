@@ -1,6 +1,6 @@
 # Pricing and Billing
 
-The Inference Providers API is a production-ready service involving external partners and is therefore a paid-product. However, as an Hugging Face user you get monthly credits to run experiments. The amount of credits you get depends on your type of account:
+The Inference Providers is a production-ready service involving external partners and is therefore a paid-product. However, as an Hugging Face user you get monthly credits to run experiments. The amount of credits you get depends on your type of account:
 
 | User Tier                | Included monthly credits           |
 | ------------------------ | ---------------------------------- |
@@ -25,7 +25,7 @@ Hugging Face charges you the same rates as the provider, with no additional fees
 
 The documentation above assumes you are making routed requests to external providers. In practice, there are 3 different ways to run inference, each with unique billing implications:
 
-- **Routed Request**: This is the default method for using the Inference Providers API. Simply use the JavaScript or Python `InferenceClient`, or make raw HTTP requests with your Hugging Face User Access Token. Your request is automatically routed through Hugging Face to the provider's platform. No separate provider account is required, and billing is managed directly by Hugging Face. This approach lets you seamlessly switch between providers without additional setup.
+- **Routed Request**: This is the default method for using the Inference Providers. Simply use the JavaScript or Python `InferenceClient`, or make raw HTTP requests with your Hugging Face User Access Token. Your request is automatically routed through Hugging Face to the provider's platform. No separate provider account is required, and billing is managed directly by Hugging Face. This approach lets you seamlessly switch between providers without additional setup.
 
 - **Routed Request with Custom Key**: In your [settings page](https://huggingface.co/settings/inference-providers) on the Hub, you can configure a custom key for each provider. To use this option, you'll need to create an account on the provider's platform, and billing will be handled directly by that provider. Hugging Face won't charge you for the call. This method gives you more control over billing when experimenting with models on the Hub. When making a routed request with a custom key, your code remains unchanged—you'll still pass your Hugging Face User Access Token. Hugging Face will automatically swap the authentication when routing the request.
 
