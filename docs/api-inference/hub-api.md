@@ -56,6 +56,10 @@ Finally, you can select all models served by at least one inference provider:
 
 If you are interested by a specific model and want to check if at least 1 provider serves it, you can request the `inference` attribute in the model info endpoint:
 
+<inferencesnippet>
+
+<curl>
+
 ```sh
 # Get google/gemma-3-27b-it inference status (warm)
 ~ curl -s https://huggingface.co/api/models/google/gemma-3-27b-it?expand[]=inference
@@ -65,8 +69,29 @@ If you are interested by a specific model and want to check if at least 1 provid
 "inference": "warm"
 }
 ```
+</curl>
+
+<python>
+
+In the `huggingface_hub`, use `model_info` with the expand parameter:
+
+```py
+>>> from huggingface_hub import model_info
+
+>>> info = model_info("google/gemma-3-27b-it", expand="inference")
+>>> info.inference
+'warm'
+```
+
+</python>
+
+</inferencesnippet>
 
 Inference status is either "warm" or undefined:
+
+<inferencesnippet>
+
+<curl>
 
 ```sh
 # Get inference status (not warm)
@@ -77,9 +102,31 @@ Inference status is either "warm" or undefined:
 }
 ```
 
+</curl>
+
+<python>
+
+In the `huggingface_hub`, use `model_info` with the expand parameter:
+
+```py
+>>> from huggingface_hub import model_info
+
+>>> info = model_info("manycore-research/SpatialLM-Llama-1B", expand="inference")
+>>> info.inference_provider_mapping
+None
+```
+
+</python>
+
+</inferencesnippet>
+
 ## Get model providers
 
 If you are interested by a specific model and want to check the list of providers serving it, you can request the `inferenceProviderMapping` attribute in the model info endpoint:
+
+<inferencesnippet>
+
+<curl>
 
 ```sh
 # List google/gemma-3-27b-it providers
@@ -101,5 +148,26 @@ If you are interested by a specific model and want to check the list of provider
     }
 }
 ```
+</curl>
+
+<python>
+
+In the `huggingface_hub`, use `model_info` with the expand parameter:
+
+```py
+>>> from huggingface_hub import model_info
+
+>>> info = model_info("google/gemma-3-27b-it", expand="inferenceProviderMapping")
+>>> info.inference_provider_mapping
+{
+    'hf-inference': InferenceProviderMapping(status='live', provider_id='google/gemma-3-27b-it', task='conversational'),
+    'nebius': InferenceProviderMapping(status='live', provider_id='google/gemma-3-27b-it-fast', task='conversational'),
+}
+```
+
+</python>
+
+</inferencesnippet>
+
 
 For each provider, you get the status (`staging` or `live`), the related task (here, `conversational`) and the providerId. In practice, this information is mostly relevant for the JS and Python clients. The relevant part is to know that the listed providers are the ones serving the model.
