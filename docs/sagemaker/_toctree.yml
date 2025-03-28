@@ -7,4 +7,10 @@
 - local: inference
   title: Deploy models to Amazon SageMaker
 - local: reference
-  title: Reference
+  title: AWS Deep Learning Containers (DLCs)
+  isExpanded: true
+  sections:
+  - local: tgi
+    title: Text Generation Inference (TGI)
+  - local: transformers
+    title: Transformers
