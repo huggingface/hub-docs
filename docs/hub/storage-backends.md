@@ -51,13 +51,13 @@ Note that our intent is to fast-track PRO users and Enterprise Hub organizations
 </Tip>
 
 
-To access a Xet-aware client, add the `hf_xet` Python package when installing `huggingface_hub`:
+To access a Xet-aware client, add the `hf_xet` Python package when installing `huggingface_hub` (should be >= 0.30.0):
 
 ```bash
 pip install -U huggingface_hub[hf_xet]
 ```
 
-If you use the `transformers` or `datasets` libraries, it's already using `huggingface_hub` so you can simply install `hf_xet` in the same env:
+If you use the `transformers` or `datasets` libraries, it's already using `huggingface_hub` (`huggingface_hub` should be >= 0.30.0) so you can simply install `hf_xet` in the same env:
 
 ```bash
 pip install hf-xet
