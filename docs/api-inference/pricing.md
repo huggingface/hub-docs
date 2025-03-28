@@ -9,7 +9,7 @@ The Inference Providers is a production-ready service involving external partner
 
 ## Pay-as-you-Go
 
-Only **PRO and Enterprise Hub users** can continue using the API once their monthly included credits are exhausted. This billing model, known as "Pay-as-you-Go" (PAYG), is charged on top of the monthly subscription. PAYG is only available for providers that are integrated with our billing system. We're actively working to integrate all providers, but in the meantime, any providers that are not yet integrated will be blocked once the free-tier limit is reached.
+**PRO and Enterprise Hub users** can continue using the API once their monthly included credits are exhausted. This billing model, known as "Pay-as-you-Go" (PAYG), is charged on top of the monthly subscription. PAYG is only available for providers that are integrated with our billing system. We're actively working to integrate all providers, but in the meantime, any providers that are not yet integrated will be blocked once the free-tier limit is reached.
 
 If you haven't used up your included credits yet, we estimate costs for providers that aren’t fully integrated with our billing system. These estimates are usually higher than the actual cost to prevent abuse, which is why PAYG is currently disabled for those providers.
 
