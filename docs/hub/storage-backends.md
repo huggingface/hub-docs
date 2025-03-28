@@ -51,7 +51,7 @@ Note that our intent is to fast-track PRO users and Enterprise Hub organizations
 </Tip>
 
 
-To access a Xet-aware client, add the `hf_xet` Python package when installing `huggingface_hub`:
+To access a Xet-aware client, add the `hf_xet` Python package when installing `huggingface_hub` (should be >= 0.30.0):
 
 ```bash
 pip install -U huggingface_hub[hf_xet]
