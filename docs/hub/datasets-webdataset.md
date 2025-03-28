@@ -22,7 +22,7 @@ Each shard is often ~1GB but the full dataset can be multiple terabytes!
 
 WebDataset is designed for multimodal datasets, i.e. for image, audio and/or video datasets.
 
-Indeed since media files tend to be quite big, the sequential I/O of WebDataset enables large reads and buffering. This results in obtaining the best data loading speed.
+Indeed, since media files tend to be quite big, WebDataset's sequential I/O enables large reads and buffering, resulting in the best data loading speed.
 
 Here is a non-exhaustive list of supported data formats:
 
@@ -31,7 +31,7 @@ Here is a non-exhaustive list of supported data formats:
 - video: mp4, mov, avi
 - other: npy, npz
 
-The full list evolves over time and depends on the implementation. For examoke you can can find which formats the `webdataset` package supports in the source code [here](https://github.com/webdataset/webdataset/blob/main/webdataset/autodecode.py).
+The full list evolves over time and depends on the implementation. For example, you can find which formats the `webdataset` package supports in the source code [here](https://github.com/webdataset/webdataset/blob/main/webdataset/autodecode.py).
 
 ## Streaming
 

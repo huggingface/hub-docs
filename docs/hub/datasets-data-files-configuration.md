@@ -50,7 +50,7 @@ See the [File formats](./datasets-adding#file-formats) doc page to find the list
 
 ## Image, Audio and Video datasets
 
-For image/audio.video classification datasets, you can also use directories to name the image/audio/video classes.
+For image/audio/video classification datasets, you can also use directories to name the image/audio/video classes.
 And if your images/audio/video files have metadata (e.g. captions, bounding boxes, transcriptions, etc.), you can have metadata files next to them.
 
 We provide two guides that you can check out:
