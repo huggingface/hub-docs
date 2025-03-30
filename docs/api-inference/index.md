@@ -1,5 +1,25 @@
 # Serverless Inference API
 
+<InferenceSnippet
+	modelId="deepseek-ai/DeepSeek-R1"
+	pipeline="text-generation"
+	conversational
+	providers={["fireworks-ai", "cerebras", "cohere", "hyperbolic"]}
+/>
+
+<InferenceSnippet
+	modelId="deepseek-ai/DeepSeek-R1"
+	pipeline="text-generation"
+	conversational
+	providers={["fireworks-ai"]}
+/>
+
+<InferenceSnippet
+	modelId="black-forest-labs/FLUX.1-dev"
+	pipeline="text-to-image"
+	providers={["black-forest-labs", "replicate", "fal-ai"]}
+/>
+
 **Instant Access to thousands of ML Models for Fast Prototyping**
 
 Explore the most popular models for text, image, speech, and more — all with a simple API request. Build, test, and experiment without worrying about infrastructure or setup.
