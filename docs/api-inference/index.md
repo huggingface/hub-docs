@@ -1,5 +1,35 @@
 # Serverless Inference API
 
+
+    <InferenceSnippet
+        pipeline="text-generation"
+        conversational
+        providersMapping={{
+            "fireworks-ai": {modelId: "deepseek-ai/DeepSeek-R1", providerModelId: "accounts/fireworks/models/deepseek-r1"},
+            novita: {modelId: "deepseek-ai/DeepSeek-V3-0324", providerModelId: "deepseek/deepseek-v3-0324"},
+            cohere: {modelId: "deepseek-ai/DeepSeek-V3-0324", providerModelId: "deepseek/deepseek-v3-0324"},
+            hyperbolic: {modelId: "deepseek-ai/DeepSeek-V3-0324", providerModelId: "deepseek/deepseek-v3-0324"}
+        }}
+    />
+
+    <InferenceSnippet
+        pipeline="text-generation"
+        conversational
+        providersMapping={{
+            "fireworks-ai": {modelId: "deepseek-ai/DeepSeek-R1", providerModelId: "accounts/fireworks/models/deepseek-r1"}
+        }}
+    />
+
+    <InferenceSnippet
+        pipeline="text-to-image"
+        providersMapping={{
+            "black-forest-labs": {modelId: "black-forest-labs/FLUX.1-dev", providerModelId: "flux-dev"},
+            "replicate": {modelId: "black-forest-labs/FLUX.1-dev", providerModelId: "black-forest-labs/flux-dev"},
+            "fal-ai": {modelId: "black-forest-labs/FLUX.1-dev", providerModelId: "fal-ai/flux/dev"},
+        }}
+    />
+
+
 **Instant Access to thousands of ML Models for Fast Prototyping**
 
 Explore the most popular models for text, image, speech, and more — all with a simple API request. Build, test, and experiment without worrying about infrastructure or setup.
