@@ -68,8 +68,8 @@ If your Python environment has a `hf_xet`-aware version of `huggingface_hub` the
 That's it! You now get the benefits of Xet deduplication for both uploads and downloads. Team members using older `huggingface_hub` versions will still be able to upload and download repositories through the backwards compatibility provided by the LFS bridge.
 
 To see more detailed usage docs, refer to the `huggingface_hub` docs for:
-- [Upload](https://huggingface.co/docs/huggingface_hub/guides/upload#faster-uploads-with-hf_xet)
-- [Download](https://huggingface.co/docs/huggingface_hub/guides/download#hf_xet)
+- [Upload](https://huggingface.co/docs/huggingface_hub/guides/upload#faster-uploads)
+- [Download](https://huggingface.co/docs/huggingface_hub/guides/download#hfxet)
 - [Managing the `hf_xet` cache](https://huggingface.co/docs/huggingface_hub/guides/manage-cache#chunk-based-caching-xet)
 
 #### Recommendations
