@@ -35,7 +35,7 @@ To get started quickly with [Chat Completion models](http://huggingface.co/model
 
 You can call the Inference Providers with your preferred tools, such as Python, JavaScript, or cURL. To simplify integration, we offer both a Python SDK (`huggingface_hub`) and a JavaScript SDK (`huggingface.js`).
 
-In this section, we will demonstrate a simple example using [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a conversational Large Language Model. For the example, we will use [Novita AI](https://novita.ai/) as Inference Provider with routed requests. You will learn what that means in the next chapters.
+In this section, we will demonstrate a simple example using [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a conversational Large Language Model. For the example, we will use [Novita AI](https://novita.ai/) as Inference Provider.
 
 ### Authentication
 
@@ -164,9 +164,9 @@ console.log(chatCompletion.choices[0].message);
 
 ## Next Steps
 
-In this introduction, we've covered the basics of Inference Provider. To learn more about this service, check out our guides and API Reference:
+In this introduction, we've covered the basics of Inference Providers. To learn more about this service, check out our guides and API Reference:
 - [Pricing and Billing](./pricing): everything you need to know about billing
-- [Hub integration](./hub-integration): how the Inference Providers is integrated with the Hub?
+- [Hub integration](./hub-integration): how Inference Providers is integrated with the Hub?
 - [External Providers](./providers): everything about providers and how to become an official partner
 - [Hub API](./hub-api): high level API for inference providers
 - [API Reference](./tasks/index): learn more about the parameters and task-specific settings.

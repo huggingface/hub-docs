@@ -1,17 +1,17 @@
 # Hub Integration
 
-The Inference Providers is tightly integrated with the Hugging Face Hub. No matter in which service you use it, the usage and billing will be centralized on your Hugging Face account.
+The Inference Providers is tightly integrated with the Hugging Face Hub. No matter which provider you use, the usage and billing will be centralized in your Hugging Face account.
 
 ## Model search
 
-When listing models on the Hub, you can filter to select models deployed on the inference provider for your choice. For example, to list all models deployed on Fireworks AI infra: https://huggingface.co/models?inference_provider=fireworks-ai.
+When listing models on the Hub, you can filter to select models deployed on the inference provider of your choice. For example, to list all models deployed on Fireworks AI infra: https://huggingface.co/models?inference_provider=fireworks-ai.
 
 <div class="flex justify-center">
     <img class="block light:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/models-filter-by-provider-light.png"/>
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/models-filter-by-provider-dark.png"/>
 </div>
 
-It is also possible to select multiple providers or even all of them to filter all models that are available on at least 1 provider: https://huggingface.co/models?inference_provider=all.
+It is also possible to select all or multiple providers and filter their available models: https://huggingface.co/models?inference_provider=all.
 
 <div class="flex justify-center">
     <img class="block light:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/models-filter-any-provider-light.png"/>
@@ -20,7 +20,7 @@ It is also possible to select multiple providers or even all of them to filter a
 
 ## Features using Inference Providers
 
-Several Hugging Face features utilize the Inference Providers and count towards your monthly credits. The included monthly credits for PRO and Enterprise should cover moderate usage of these features for most users.
+Several Hugging Face features utilize Inference Providers and count towards your monthly credits. The included monthly credits for PRO and Enterprise should cover moderate usage of these features for most users.
 
 - [Inference Widgets](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324): Interactive widgets available on model pages. This is the entry point to quickly test a model on the Hub.
 

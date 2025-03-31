@@ -1,6 +1,6 @@
 # Hub API
 
-The Hub provides a few API to deal with Inference Providers. Here is a list of them.
+The Hub provides a few APIs to interact with Inference Providers. Here is a list of them:
 
 ## List models
 
@@ -16,7 +16,7 @@ To list models powered by a provider, use the `inference_provider` query paramet
 ...
 ```
 
-It can be combined with other filters to e.g. select only text-to-image models:
+It can be combined with other filters to e.g. select only `text-to-image` models:
 
 ```sh
 # List text-to-image models served by Fal AI
@@ -28,7 +28,7 @@ It can be combined with other filters to e.g. select only text-to-image models:
 ...
 ```
 
-Pass a comma-separated list to select from multiple providers:
+Pass a comma-separated list of providers to select multiple:
 
 ```sh
 # List image-text-to-text models served by Novita or Sambanova
@@ -54,7 +54,7 @@ Finally, you can select all models served by at least one inference provider:
 
 ## Get model status
 
-If you are interested by a specific model and want to check if at least 1 provider serves it, you can request the `inference` attribute in the model info endpoint:
+To find an inference provider for a specific model, request the `inference` attribute in the model info endpoint:
 
 <inferencesnippet>
 
@@ -170,4 +170,4 @@ In the `huggingface_hub`, use `model_info` with the expand parameter:
 </inferencesnippet>
 
 
-For each provider, you get the status (`staging` or `live`), the related task (here, `conversational`) and the providerId. In practice, this information is mostly relevant for the JS and Python clients. The relevant part is to know that the listed providers are the ones serving the model.
+Each provider serving the model shows a status (`staging` or `live`), the related task (here, `conversational`) and the providerId. In practice, this information is relevant for the JS and Python clients. 
