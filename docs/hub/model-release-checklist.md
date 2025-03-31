@@ -4,6 +4,10 @@ The Hugging Face Hub is the go-to platform for sharing machine learning models. 
 
 ## ⏳ Preparing Your Model for Release
 
+### Uploading models
+
+When uploading weights to the hub, we recommend pushing them to separate model repositories. We wrote an extensive guide on uploading models [here](models-uploading).
+
 ### Writing a Comprehensive Model Card
 
 A well-crafted model card (the `README.md` file in your repository) is essential for discoverability, reproducibility, and effective sharing. Your model card should include:
