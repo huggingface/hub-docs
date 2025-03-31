@@ -4,6 +4,16 @@ The Hugging Face Hub is the go-to platform for sharing machine learning models. 
 
 ## ⏳ Preparing Your Model for Release
 
+### Uploading models
+
+When uploading models to the hub, it's recommended to follow a set best practices:
+
+- push weights to separate model repositories. Example: prefer uploading individual quantizations/precisions in a standalone repo like [this](https://huggingface.co/jameslahm/yolov10n) over all types/versions in one like [this](https://huggingface.co/kadirnar/Yolov10/tree/main).
+- adopt the [Mixin class](https://huggingface.co/docs/huggingface_hub/package_reference/mixins#huggingface_hub.PyTorchModelHubMixin) when pushing custom PyTorch models.
+- leverage [safetensors](https://huggingface.co/docs/safetensors/en/index) for weights serialization as opposed to pickle.
+
+We wrote an extensive guide on uploading best practices [here](models-uploading).
+
 ### Writing a Comprehensive Model Card
 
 A well-crafted model card (the `README.md` file in your repository) is essential for discoverability, reproducibility, and effective sharing. Your model card should include:
