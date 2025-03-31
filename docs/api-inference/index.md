@@ -1,23 +1,31 @@
 # Serverless Inference API
 
 <InferenceSnippet
-	modelId="deepseek-ai/DeepSeek-R1"
 	pipeline="text-generation"
 	conversational
-	providers={["fireworks-ai", "cerebras", "cohere", "hyperbolic"]}
+	providersMapping={{
+    "fireworks-ai": {modelId: "deepseek-ai/DeepSeek-R1", providerModelId: "accounts/fireworks/models/deepseek-r1"},
+    novita: {modelId: "deepseek-ai/DeepSeek-V3-0324", providerModelId: "deepseek/deepseek-v3-0324"},
+    cohere: {modelId: "deepseek-ai/DeepSeek-V3-0324", providerModelId: "deepseek/deepseek-v3-0324"},
+    hyperbolic: {modelId: "deepseek-ai/DeepSeek-V3-0324", providerModelId: "deepseek/deepseek-v3-0324"}
+  }}
 />
 
 <InferenceSnippet
-	modelId="deepseek-ai/DeepSeek-R1"
 	pipeline="text-generation"
 	conversational
-	providers={["fireworks-ai"]}
+	providers={{
+    "fireworks-ai": {modelId: "deepseek-ai/DeepSeek-R1", providerModelId: "accounts/fireworks/models/deepseek-r1"}
+  }}
 />
 
 <InferenceSnippet
-	modelId="black-forest-labs/FLUX.1-dev"
 	pipeline="text-to-image"
-	providers={["black-forest-labs", "replicate", "fal-ai"]}
+	providers={{
+    "black-forest-labs": {modelId: "black-forest-labs/FLUX.1-dev", providerModelId: "flux-dev"},
+    "replicate": {modelId: "black-forest-labs/FLUX.1-dev", providerModelId: "black-forest-labs/flux-dev"},
+    "fal-ai": {modelId: "black-forest-labs/FLUX.1-dev", providerModelId: "fal-ai/flux/dev"},
+  }}
 />
 
 **Instant Access to thousands of ML Models for Fast Prototyping**
