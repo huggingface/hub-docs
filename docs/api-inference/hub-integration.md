@@ -22,21 +22,27 @@ It is also possible to select all or multiple providers and filter their availab
 
 Several Hugging Face features utilize Inference Providers and count towards your monthly credits. The included monthly credits for PRO and Enterprise should cover moderate usage of these features for most users.
 
-- [Inference Widgets](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324): Interactive widgets available on model pages. This is the entry point to quickly test a model on the Hub.
+### Inference Widgets
+
+Interactive widgets available on model pages (e.g. [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324)). This is the entry point to quickly test a model on the Hub.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/widget-select-provider-light.png"/>
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/widget-select-provider-dark.png"/>
 </div>
 
-- [Inference Playground](https://huggingface.co/playground): A comprehensive chat interface supporting various models and providers.
+### Inference Playground
+
+A comprehensive chat interface supporting various models and providers available at https://huggingface.co/playground.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/playground-example-light.png"/>
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/playground-example-dark.png"/>
 </div>
 
-- [Data Studio AI](https://huggingface.co/datasets/open-r1/codeforces-cots/viewer): Converts text to SQL queries for datasets.
+### Data Studio AI
+
+Converts text to SQL queries on dataset pages (e.g. [open-r1/codeforces-cots](https://huggingface.co/datasets/open-r1/codeforces-cots/viewer)).
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/data-studio-example-light.png"/>
