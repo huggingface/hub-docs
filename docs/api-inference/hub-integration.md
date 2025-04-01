@@ -7,7 +7,7 @@ Inference Providers is tightly integrated with the Hugging Face Hub. No matter w
 When listing models on the Hub, you can filter to select models deployed on the inference provider of your choice. For example, to list all models deployed on Fireworks AI infra: https://huggingface.co/models?inference_provider=fireworks-ai.
 
 <div class="flex justify-center">
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/models-filter-by-provider-light.png"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/models-filter-by-provider-light.png"/>
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/models-filter-by-provider-dark.png"/>
 </div>
 
