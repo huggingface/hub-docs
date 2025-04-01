@@ -1,6 +1,6 @@
 # Serverless Inference API
 
-Please refer to [Serverless Inference API Documentation](https://huggingface.co/docs/inference-providers) for detailed information.
+Please refer to the [Inference Providers Documentation](https://huggingface.co/docs/inference-providers) for detailed information.
 
 
 ## What technology do you use to power the Serverless Inference API?
