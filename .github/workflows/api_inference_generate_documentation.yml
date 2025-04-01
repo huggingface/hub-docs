@@ -1,4 +1,4 @@
-name: Update API Inference Documentation
+name: Update Inference Providers Documentation
 
 on:
   workflow_dispatch:
@@ -31,7 +31,7 @@ jobs:
         run: |
           pnpm update @huggingface/tasks@latest
       # Generate
-      - name: Generate API inference documentation
+      - name: Generate Inference Providers documentation
         run: pnpm run generate
         working-directory: ./scripts/inference-providers
 
@@ -57,19 +57,19 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
-          commit-message: Update API inference documentation (automated)
+          commit-message: Update Inference Providers documentation (automated)
           branch: update-inference-providers-docs-automated-pr
           delete-branch: true
-          title: "[Bot] Update API inference documentation"
+          title: "[Bot] Update Inference Providers documentation"
           body: |
-            This PR automatically upgrades the `@huggingface/tasks` package and regenerates the API inference documentation by running:
+            This PR automatically upgrades the `@huggingface/tasks` package and regenerates the Inference Providers documentation by running:
             ```sh
             cd scripts/inference-providers
             pnpm update @huggingface/tasks@latest
             pnpm run generate
             ```
 
-            This PR was automatically created by the [Update API Inference Documentation workflow](https://github.com/huggingface/hub-docs/blob/main/.github/workflows/api_inference_generate_documentation.yml).
+            This PR was automatically created by the [Update Inference Providers Documentation workflow](https://github.com/huggingface/hub-docs/blob/main/.github/workflows/api_inference_generate_documentation.yml).
 
             Please review the changes before merging.
           reviewers: |

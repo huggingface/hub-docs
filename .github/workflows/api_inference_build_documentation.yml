@@ -1,4 +1,4 @@
-name: Build Inference API documentation
+name: Build Inference Providers documentation
 
 on:
   push:

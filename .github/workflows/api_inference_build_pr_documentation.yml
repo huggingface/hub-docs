@@ -1,4 +1,4 @@
-name: Build Inference API PR Documentation
+name: Build Inference Providers PR Documentation
 
 on:
   pull_request:

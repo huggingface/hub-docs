@@ -1,8 +1,8 @@
-name: Upload Inference API PR Documentation
+name: Upload Inference Providers PR Documentation
 
 on:
   workflow_run:
-    workflows: ["Build Inference API PR Documentation"]
+    workflows: ["Build Inference Providers PR Documentation"]
     types:
       - completed
 
