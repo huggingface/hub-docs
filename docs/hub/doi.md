@@ -11,7 +11,7 @@ To do this, you must go to the settings of your model or dataset. In the DOI sec
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/doi-generation-dark.png"/>
 </div>
 
-To generate the DOI for this model or dataset, you need to click on this button and acknowledge that some features on the hub will be restrained and some of your information (your full name) will be transferred to our partner DataCite. When generating a DOI, you can personalize the author name list allowing you to credit all contributors to your model or dataset.
+To generate the DOI for this model or dataset, you need to click on this button and acknowledge that some features on the hub will be restrained and some of your information (your full name) will be transferred to our partner DataCite. When generating a DOI, you can optionally personalize the author name list allowing you to credit all contributors to your model or dataset.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/doi-agreement.png"/>
