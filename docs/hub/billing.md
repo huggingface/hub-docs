@@ -25,9 +25,10 @@ Private repository storage above the [included storage](./storage-limits) will b
 
 The PRO subscription unlocks additional features for users, including:
 
-- Higher free tier for the Serverless Inference API and when consuming ZeroGPU Spaces
-- Higher [storage capacity](./storage-limits) for private repositories
+- Higher tier for ZeroGPU Spaces usage
 - Ability to create ZeroGPU Spaces and use Dev Mode
+- Included credits for [Inference Providers](/docs/inference-providers/)
+- Higher [storage capacity](./storage-limits) for private repositories
 - Ability to write Social Posts and Community Blogs
 - Leverage the Dataset Viewer on private datasets
 

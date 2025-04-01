@@ -168,9 +168,9 @@ Here are some links to examples:
 - `table-question-answering`, for instance [`google/tapas-base-finetuned-wtq`](https://huggingface.co/google/tapas-base-finetuned-wtq)
 - `sentence-similarity`, for instance [`osanseviero/full-sentence-distillroberta2`](/osanseviero/full-sentence-distillroberta2)
 
-## How can I control my model's widget Inference API parameters?
+## How can I control my model's widget HF-Inference API parameters?
 
-Generally, the Inference API for a model uses the default pipeline settings associated with each task. But if you'd like to change the pipeline's default settings and specify additional inference parameters, you can configure the parameters directly through the model card metadata. Refer [here](https://huggingface.co/docs/inference-providers/detailed_parameters) for some of the most commonly used parameters associated with each task.
+Generally, the HF-Inference API for a model uses the default pipeline settings associated with each task. But if you'd like to change the pipeline's default settings and specify additional inference parameters, you can configure the parameters directly through the model card metadata. Refer [here](https://huggingface.co/docs/inference-providers/detailed_parameters) for some of the most commonly used parameters associated with each task.
 
 For example, if you want to specify an aggregation strategy for a NER task in the widget:
 
@@ -188,4 +188,6 @@ inference:
     temperature: 0.7
 ``` 
 
-The Serverless inference API allows you to send HTTP requests to models in the Hugging Face Hub programatically. ⚡⚡ Learn more about it by reading the [Inference API documentation](./models-inference). Finally, you can also deploy all those models to dedicated [Inference Endpoints](https://huggingface.co/docs/inference-endpoints).
+Inference Providers allows you to send HTTP requests to models in the Hugging Face Hub programatically. It is an abstraction layer on top of External providers. ⚡⚡ Learn more about it by reading the [
+Inference Providers documentation](/docs/inference-providers). 
+Finally, you can also deploy all those models to dedicated [Inference Endpoints](https://huggingface.co/docs/inference-endpoints).
