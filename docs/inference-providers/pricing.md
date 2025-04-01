@@ -2,14 +2,18 @@
 
 Inference Providers is a production-ready service involving external partners and is therefore a paid product. However, as a Hugging Face user, you get monthly credits to run experiments. The amount of credits you get depends on your type of account:
 
-| User Tier                | Included monthly credits           |
-| ------------------------ | ---------------------------------- |
-| Free Users               | subject to change, less than $0.10 |
-| PRO and Enterprise Users | $2.00                              |
+| Tier                         | Included monthly credits             |
+| ---------------------------- | ------------------------------------ |
+| Free Users                   | subject to change, less than $0.10   |
+| PRO Users                    | $2.00                                |
+| Enterprise Hub Organizations | $2.00 per seat, shared among members |
+
+To benefit from Enterprise Hub included credits, you need to explicitly specify the organization to be billed when performing the inference requests.
+See the [Organization Billing section](#organization-billing) below for more details.
 
 ## Pay-as-you-Go
 
-**PRO and Enterprise Hub users** can continue using the API once their monthly included credits are exhausted. This billing model, known as "Pay-as-you-Go" (PAYG), is charged on top of the monthly subscription. PAYG is only available for providers that are integrated with our billing system. We're actively working to integrate all providers, but in the meantime, any providers that are not yet integrated will be blocked once the free-tier limit is reached.
+**PRO users and Enterprise Hub organizations** can continue using the API once their monthly included credits are exhausted. This billing model, known as "Pay-as-you-Go" (PAYG), is charged on top of the monthly subscription. PAYG is only available for providers that are integrated with our billing system. We're actively working to integrate all providers, but in the meantime, any providers that are not yet integrated will be blocked once the free-tier limit is reached.
 
 If you have remaining credits, we estimate costs for providers that aren’t fully integrated with our billing system. These estimates are usually higher than the actual cost to prevent abuse, which is why PAYG is currently disabled for those providers.
 
@@ -41,7 +45,7 @@ Here is a table that sums up what we've seen so far:
 
 ## HF-Inference cost
 
-As you may have noticed, you can select to work with `"hf-inference"` provider. This service used to be "Inference API (serverless)" prior to Inference Providers. From a user point of view, working with HF Inference is the same as with any other provider. Past the free-tier credits, you get charged for every inference request based on the compute time x price of the underlying hardware.
+As you may have noticed, you can select to work with `"hf-inference"` provider. This service used to be called "Inference API (serverless)" prior to Inference Providers. From a user point of view, working with HF Inference is the same as with any other provider. Past the free-tier credits, you get charged for every inference request based on the compute time x price of the underlying hardware.
 
 For instance, a request to [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) that takes 10 seconds to complete on a GPU machine that costs $0.00012 per second to run, will be billed $0.0012.
 
@@ -49,7 +53,14 @@ The `"hf-inference"` provider is currently the default provider when working wit
 
 ## Organization billing
 
-For Enterprise Hub organizations, it is possible to centralize billing for all your users. Each user still uses their own User Access Token but the requests are billed to your organization. This can be done by passing `"X-HF-Bill-To: my-org-name"` as header in your HTTP requests.
+For Enterprise Hub organizations, it is possible to centralize billing for all of your users. Each user still uses their own User Access Token but the requests are billed to your organization. This can be done by passing `"X-HF-Bill-To: my-org-name"` as a header in your HTTP requests.
+
+Enterprise Hub organizations receive a pool of free usage credits based on the number of seats in the subscription. Inference Providers usage can be tracked on the organization's billing page. Enterprise Hub organization administrators can also set a spending limit and disable a set of Inference Providers from the organization's settings.
+
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/enterprise-org-settings-light.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/enterprise-org-settings-dark.png"/>
+</div>
 
 If you are using the JavaScript `InferenceClient`, you can set the `billTo` attribute at a client level:
 
