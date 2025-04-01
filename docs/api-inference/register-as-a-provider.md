@@ -56,9 +56,57 @@ For example, you can find the expected schema for Text to Speech here: [https://
 
 ## 2. JS Client Integration
 
-Before proceeding with the next steps, ensure you've implemented the necessary code to integrate with the JS client and thoroughly tested your implementation.
+Before proceeding with the next steps, ensure you've implemented the necessary code to integrate with the JS client and thoroughly tested your implementation. Here are the steps to follow:
 
-TODO
+### 1. Implement the provider helper
+
+Create a new file under packages/inference/src/providers/{provider_name}.ts and copy-paste the following snippet.
+```js
+
+import { TaskProviderHelper } from "./providerHelper";
+
+export class MyNewProviderTask extends TaskProviderHelper {
+
+	constructor() {
+		super("your-provider-name", "your-api-base-url", "task-name");
+	}
+
+    override prepareHeaders(params: HeaderParams, binary: boolean): Record<string, string> {
+        // Override the headers to use for the request.
+        return super.prepareHeaders(params, binary);
+    }
+
+	makeRoute(params: UrlParams): string {
+        // Return the route to use for the request. e.g. /v1/chat/completions route is commonly use for chat completion.
+		raise NotImplementedError("Needs to be implemented")
+	}
+
+	preparePayload(params: BodyParams): Record<string, unknown> {
+        // Return the payload to use for the request, as a dict.
+		raise NotImplementedError("Needs to be implemented")
+	}
+
+	getResponse(response: TogetherBase64ImageGeneration, outputType?: "url" | "blob"): string | Promise<Blob> {
+		// Return the response in the expected format.
+        raise NotImplementedError("Needs to be implemented")
+    }
+}
+```
+
+Implement the methods that require custom handling. Check out the base implementation to check default behavior. If you don't need to override a method, just remove it. You have to define at least `makeRoute`, `preparePayload` and `getResponse`.
+
+If the provider supports multiple tasks that require different implementations, create dedicated subclasses for each task, following the pattern used in the existing providers implementation, e.g. [Together AI provider implementation](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/together.ts).
+
+For text-generation and conversational tasks, one can just inherit from BaseTextGenerationTask and BaseConversationalTask respectively (defined in [providerHelper.ts]((https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/providerHelper.ts))) and override the methods if needed. Examples can be found in [Cerebras](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/cerebras.ts) or [Fireworks](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/fireworks.ts) provider implementations.
+
+### 2. Register the provider
+
+Go to [packages/inference/src/lib/getProviderHelper.ts](https://github.com/huggingface/huggingface.js//blob/main/packages/inference/src/lib/getProviderHelper.ts) and add your provider to `PROVIDERS`. Please try to respect alphabetical order. 
+
+### 3. Add tests
+
+Go to [packages/inference/test/InferenceClient.spec.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/test/InferenceClient.spec.ts) and add new tests for each task supported by your provider. 
+
 
 ## 3. Model Mapping API
 
@@ -268,7 +316,7 @@ Before adding a new provider to the `huggingface_hub` Python library, make sure 
 ### 1. Implement the provider helper
 Create a new file under src/huggingface_hub/inference/_providers/{provider_name}.py and copy-paste the following snippet.
 
-Implement the methods that require custom handling. Check out the base implementation to check default behavior. If you don't need to override a method, just remove it. At least one of _prepare_payload_as_dict or _prepare_payload_as_bytes must be overwritten.
+Implement the methods that require custom handling. Check out the base implementation to check default behavior. If you don't need to override a method, just remove it. At least one of `_prepare_payload_as_dict` or `_prepare_payload_as_bytes` must be overwritten.
 
 If the provider supports multiple tasks that require different implementations, create dedicated subclasses for each task, following the pattern shown in fal_ai.py.
 
@@ -337,6 +385,7 @@ class MyNewProviderTaskProviderHelper(TaskProviderHelper):
 - Go to [tests/test_inference_providers.py](https://github.com/huggingface/huggingface_hub/blob/main/tests/test_inference_providers.py) and add static tests for overridden methods.
 - Go to [tests/test_inference_client.py](https://github.com/huggingface/huggingface_hub/blob/main/tests/test_inference_client.py) and add VCR tests:
 
+
     a. Add an entry to `_RECOMMENDED_MODELS_FOR_VCR` at the top of the test module. This contains a mapping task <> test model. model-id must be the HF model id.
     ```python
     _RECOMMENDED_MODELS_FOR_VCR = {
@@ -362,7 +411,7 @@ class MyNewProviderTaskProviderHelper(TaskProviderHelper):
     ```bash
     pytest tests/test_inference_client.py -k <provider>
     ```
-    
+
     d. Commit the generated VCR cassettes with your PR.
 
 
@@ -371,3 +420,5 @@ class MyNewProviderTaskProviderHelper(TaskProviderHelper):
 **Question:** By default, in which order do we list providers in the settings page?
 
 **Answer:** The default sort is by total number of requests routed by HF over the last 7 days. This order defines which provider will be used in priority by the widget on the model page (but the user's order takes precedence).
+
+## Get in touch!
