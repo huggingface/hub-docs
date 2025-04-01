@@ -62,37 +62,6 @@ Before proceeding with the next steps, ensure you've implemented the necessary c
 
 Create a new file under packages/inference/src/providers/{provider_name}.ts and copy-paste the following snippet.
 
-```ts
-import { TaskProviderHelper } from "./providerHelper";
-
-export class MyNewProviderTask extends TaskProviderHelper {
-
-	constructor() {
-		super("your-provider-name", "your-api-base-url", "task-name");
-	}
-
-    override prepareHeaders(params: HeaderParams, binary: boolean): Record<string, string> {
-        // Override the headers to use for the request.
-        return super.prepareHeaders(params, binary);
-    }
-
-	makeRoute(params: UrlParams): string {
-        // Return the route to use for the request. e.g. /v1/chat/completions route is commonly use for chat completion.
-		throw new Error("Needs to be implemented");
-	}
-
-	preparePayload(params: BodyParams): Record<string, unknown> {
-        // Return the payload to use for the request, as a dict.
-		throw new Error("Needs to be implemented");
-	}
-
-	getResponse(response: TogetherBase64ImageGeneration, outputType?: "url" | "blob"): string | Promise<Blob>{
-		// Return the response in the expected format.
-        throw new Error("Needs to be implemented");
-    }
-}
-```
-
 Implement the methods that require custom handling. Check out the base implementation to check default behavior. If you don't need to override a method, just remove it. You have to define at least `makeRoute`, `preparePayload` and `getResponse`.
 
 If the provider supports multiple tasks that require different implementations, create dedicated subclasses for each task, following the pattern used in the existing providers implementation, e.g. [Together AI provider implementation](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/together.ts).
