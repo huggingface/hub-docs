@@ -25,9 +25,10 @@ Private repository storage above the [included storage](./storage-limits) will b
 
 The PRO subscription unlocks additional features for users, including:
 
-- Higher free tier for the Serverless Inference API and when consuming ZeroGPU Spaces
-- Higher [storage capacity](./storage-limits) for private repositories
+- Higher tier for ZeroGPU Spaces usage
 - Ability to create ZeroGPU Spaces and use Dev Mode
+- Included credits for [Inference Providers](/docs/inference-providers/)
+- Higher [storage capacity](./storage-limits) for private repositories
 - Ability to write Social Posts and Community Blogs
 - Leverage the Dataset Viewer on private datasets
 
@@ -48,7 +49,7 @@ It is billed with the renewal invoices of your PRO or Enterprise Hub subscriptio
 
 ## Compute Services on the Hub
 
-We also directly provide compute services with [Spaces](./spaces), [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) and the [Serverless Inference API](https://huggingface.co/docs/api-inference/index).
+We also directly provide compute services with [Spaces](./spaces), [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) and [Inference Providers](https://huggingface.co/docs/inference-providers/index).
 
 While most of our compute services have a comprehensive free tier, users and organizations can pay to access more powerful hardware accelerators.
 

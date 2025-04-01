@@ -79,7 +79,7 @@ Langfuse maintains native integrations with many popular LLM frameworks, includi
 
 ### Example 1: Trace Calls to HF Serverless API
 
-As a simple example, here's how to trace LLM calls to the [HF Serverless API](https://huggingface.co/docs/api-inference/en/index) using the Langfuse Python SDK.
+As a simple example, here's how to trace LLM calls to the [HF Serverless API](https://huggingface.co/docs/inference-providers/en/index) using the Langfuse Python SDK.
 
 Be sure to first configure your `LANGFUSE_HOST`, `LANGFUSE_PUBLIC_KEY` and `LANGFUSE_SECRET_KEY` environment variables, and make sure you've [authenticated with your Hugging Face account](https://huggingface.co/docs/huggingface_hub/en/quick-start#authentication).
 
