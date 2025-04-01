@@ -1,8 +1,8 @@
-name: Upload Inference API PR Documentation
+name: Upload Inference Providers PR Documentation
 
 on:
   workflow_run:
-    workflows: ["Build Inference API PR Documentation"]
+    workflows: ["Build Inference Providers PR Documentation"]
     types:
       - completed
 
@@ -10,7 +10,7 @@ jobs:
   build:
     uses: huggingface/doc-builder/.github/workflows/upload_pr_documentation.yml@main
     with:
-      package_name: api-inference
+      package_name: inference-providers
     secrets:
       hf_token: ${{ secrets.HF_DOC_BUILD_PUSH }}
       comment_bot_token: ${{ secrets.COMMENT_BOT_TOKEN }}
