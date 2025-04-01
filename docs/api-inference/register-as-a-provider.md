@@ -336,6 +336,7 @@ class MyNewProviderTaskProviderHelper(TaskProviderHelper):
 ### 3. Add tests
 - Go to [tests/test_inference_providers.py](https://github.com/huggingface/huggingface_hub/blob/main/tests/test_inference_providers.py) and add static tests for overridden methods.
 - Go to [tests/test_inference_client.py](https://github.com/huggingface/huggingface_hub/blob/main/tests/test_inference_client.py) and add VCR tests:
+
     a. Add an entry to `_RECOMMENDED_MODELS_FOR_VCR` at the top of the test module. This contains a mapping task <> test model. model-id must be the HF model id.
     ```python
     _RECOMMENDED_MODELS_FOR_VCR = {
@@ -346,6 +347,7 @@ class MyNewProviderTaskProviderHelper(TaskProviderHelper):
         ...
     }
     ```
+
     b. Set up authentication: To record VCR cassettes, you'll need authentication:
     If you are a member of the provider organization (e.g., Replicate organization: https://huggingface.co/replicate), you can set the HF_INFERENCE_TEST_TOKEN environment variable with your HF token:
 
@@ -360,6 +362,7 @@ class MyNewProviderTaskProviderHelper(TaskProviderHelper):
     ```bash
     pytest tests/test_inference_client.py -k <provider>
     ```
+    
     d. Commit the generated VCR cassettes with your PR.
 
 
