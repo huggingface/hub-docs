@@ -27,8 +27,10 @@ model (basically which types of inputs and outputs the model has), for instance 
 or "text-to-image". It is indicated prominently on model pages, here:
 
 <div class="flex justify-center">
-    <img class="block light:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/pipeline-tag-on-model-page-light.png"/>
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/pipeline-tag-on-model-page-dark.png"/>
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/pipeline-tag-on-model-page-dark.png">
+        <img media="(prefers-color-scheme: light)" srcset="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/pipeline-tag-on-model-page-light.png" alt="Pipeline tag on model page">
+    </picture>
 </div>
 
 The list of all possible tasks can be found at https://huggingface.co/tasks and the list of JS method names is documented in the README at https://github.com/huggingface/huggingface.js/tree/main/packages/inference.
@@ -183,7 +185,7 @@ our users only pay the standard provider API rates. There's no additional markup
 just pass through the provider costs directly.
 
 <div class="flex justify-center">
-    <img src="https://huggingface.co/datasets/huggingface/documentation-images/inference-providers/types_of_billing.png"/>
+    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/types_of_billing.png"/>
 </div> 
 
 For LLM providers, a workaround some people use is to extract numbers of input and output
