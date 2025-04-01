@@ -61,8 +61,8 @@ Before proceeding with the next steps, ensure you've implemented the necessary c
 ### 1. Implement the provider helper
 
 Create a new file under packages/inference/src/providers/{provider_name}.ts and copy-paste the following snippet.
-```js
 
+```ts
 import { TaskProviderHelper } from "./providerHelper";
 
 export class MyNewProviderTask extends TaskProviderHelper {
@@ -86,7 +86,7 @@ export class MyNewProviderTask extends TaskProviderHelper {
 		throw new Error("Needs to be implemented");
 	}
 
-	getResponse(response: TogetherBase64ImageGeneration, outputType?: "url" | "blob"): string | Promise<Blob> {
+	getResponse(response: TogetherBase64ImageGeneration, outputType?: "url" | "blob"): string | Promise<Blob>{
 		// Return the response in the expected format.
         throw new Error("Needs to be implemented");
     }
