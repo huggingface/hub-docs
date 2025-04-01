@@ -49,7 +49,7 @@ Let's start with a cURL command highlighting the raw HTTP request. You can adapt
 
 ```bash
 curl https://router.huggingface.co/novita/v3/openai/chat/completions \
-    -H 'Authorization: Bearer hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
+    -H "Authorization: Bearer $HF_TOKEN" \
     -H 'Content-Type: application/json' \
     -d '{
         "messages": [
