@@ -94,7 +94,7 @@ Inference status is either "warm" or undefined:
 <curl>
 
 ```sh
-# Get inference status (not warm)
+# Get inference status (no inference)
 ~ curl -s https://huggingface.co/api/models/manycore-research/SpatialLM-Llama-1B?expand[]=inference
 {
 "_id": "67d3b141d8b6e20c6d009c8b",
@@ -112,7 +112,7 @@ In the `huggingface_hub`, use `model_info` with the expand parameter:
 >>> from huggingface_hub import model_info
 
 >>> info = model_info("manycore-research/SpatialLM-Llama-1B", expand="inference")
->>> info.inference_provider_mapping
+>>> info.inference
 None
 ```
 

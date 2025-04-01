@@ -1,6 +1,6 @@
 # Pricing and Billing
 
-Inference Providers is a production-ready service involving external partners and is therefore a paid-product. However, as a Hugging Face user you get monthly credits to run experiments. The amount of credits you get depends on your type of account:
+Inference Providers is a production-ready service involving external partners and is therefore a paid product. However, as a Hugging Face user, you get monthly credits to run experiments. The amount of credits you get depends on your type of account:
 
 | User Tier                | Included monthly credits           |
 | ------------------------ | ---------------------------------- |

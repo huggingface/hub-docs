@@ -1,6 +1,6 @@
 # Hub Integration
 
-The Inference Providers is tightly integrated with the Hugging Face Hub. No matter which provider you use, the usage and billing will be centralized in your Hugging Face account.
+Inference Providers is tightly integrated with the Hugging Face Hub. No matter which provider you use, the usage and billing will be centralized in your Hugging Face account.
 
 ## Model search
 
@@ -46,7 +46,7 @@ Several Hugging Face features utilize Inference Providers and count towards your
 ## User Settings
 
 In your user account settings, you are able to:
-- set your own API keys for the providers you’ve signed up with. Otherwise, you can still use them – your requests will be billed on your HF account. More details in the [billing section](./pricing#routed-requests-vs-direct-calls).
+- set your own API keys for the providers you’ve signed up with. If you don't, your requests will be billed on your HF account. More details in the [billing section](./pricing#routed-requests-vs-direct-calls).
 
 <div class="flex justify-center">
     <img class="block light:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/set-custom-key-light.png"/>
