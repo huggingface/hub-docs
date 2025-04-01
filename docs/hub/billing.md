@@ -48,7 +48,7 @@ It is billed with the renewal invoices of your PRO or Enterprise Hub subscriptio
 
 ## Compute Services on the Hub
 
-We also directly provide compute services with [Spaces](./spaces), [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) and the [Serverless Inference API](https://huggingface.co/docs/api-inference/index).
+We also directly provide compute services with [Spaces](./spaces), [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) and the [Serverless Inference API](https://huggingface.co/docs/inference-providers/index).
 
 While most of our compute services have a comprehensive free tier, users and organizations can pay to access more powerful hardware accelerators.
 

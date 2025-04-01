@@ -3,7 +3,7 @@ name: Build Inference API PR Documentation
 on:
   pull_request:
     paths:
-      - "docs/api-inference/**"
+      - "docs/inference-providers/**"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -16,6 +16,6 @@ jobs:
       commit_sha: ${{ github.event.pull_request.head.sha }}
       pr_number: ${{ github.event.number }}
       package: hub-docs
-      package_name: api-inference
-      path_to_docs: hub-docs/docs/api-inference/
+      package_name: inference-providers
+      path_to_docs: hub-docs/docs/inference-providers/
       additional_args: --not_python_module
