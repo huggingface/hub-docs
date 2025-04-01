@@ -28,8 +28,8 @@ or "text-to-image". It is indicated prominently on model pages, here:
 
 <div class="flex justify-center">
     <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/pipeline-tag-on-model-page-dark.png">
-        <img media="(prefers-color-scheme: light)" srcset="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/pipeline-tag-on-model-page-light.png" alt="Pipeline tag on model page">
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/pipeline-tag-on-model-page-light.png">
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/pipeline-tag-on-model-page-dark.png">
     </picture>
 </div>
 
