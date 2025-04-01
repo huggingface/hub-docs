@@ -23,23 +23,23 @@ jobs:
         with:
           run_install: |
             - recursive: true
-              cwd: ./scripts/api-inference
+              cwd: ./scripts/inference-providers
               args: [--frozen-lockfile]
-          package_json_file: ./scripts/api-inference/package.json
+          package_json_file: ./scripts/inference-providers/package.json
       - name: Update huggingface/tasks package
-        working-directory: ./scripts/api-inference
+        working-directory: ./scripts/inference-providers
         run: |
           pnpm update @huggingface/tasks@latest
       # Generate
       - name: Generate API inference documentation
         run: pnpm run generate
-        working-directory: ./scripts/api-inference
+        working-directory: ./scripts/inference-providers
 
       # Check changes
       - name: Check changes
         run: |
           git diff --name-only > changed_files.txt
-          if grep -v -E "^(scripts/api-inference/package.json|scripts/api-inference/pnpm-lock.yaml)$" changed_files.txt | grep -q '.'; then
+          if grep -v -E "^(scripts/inference-providers/package.json|scripts/inference-providers/pnpm-lock.yaml)$" changed_files.txt | grep -q '.'; then
             echo "changes_detected=true" >> $GITHUB_ENV
           else
             echo "changes_detected=false" >> $GITHUB_ENV
@@ -58,13 +58,13 @@ jobs:
         with:
           token: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
           commit-message: Update API inference documentation (automated)
-          branch: update-api-inference-docs-automated-pr
+          branch: update-inference-providers-docs-automated-pr
           delete-branch: true
           title: "[Bot] Update API inference documentation"
           body: |
             This PR automatically upgrades the `@huggingface/tasks` package and regenerates the API inference documentation by running:
             ```sh
-            cd scripts/api-inference
+            cd scripts/inference-providers
             pnpm update @huggingface/tasks@latest
             pnpm run generate
             ```

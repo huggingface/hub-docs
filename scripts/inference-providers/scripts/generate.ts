@@ -58,7 +58,7 @@ const ROOT_DIR = path
   .replace(/^(file:)/, "");
 const TEMPLATE_DIR = path.join(ROOT_DIR, "templates");
 const DOCS_DIR = path.join(ROOT_DIR, "..", "..", "docs");
-const TASKS_DOCS_DIR = path.join(DOCS_DIR, "api-inference", "tasks");
+const TASKS_DOCS_DIR = path.join(DOCS_DIR, "inference-providers", "tasks");
 
 const NBSP = "&nbsp;"; // non-breaking space
 const TABLE_INDENT = NBSP.repeat(8);
