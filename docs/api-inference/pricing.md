@@ -2,11 +2,11 @@
 
 Inference Providers is a production-ready service involving external partners and is therefore a paid product. However, as a Hugging Face user, you get monthly credits to run experiments. The amount of credits you get depends on your type of account:
 
-| Tier                         | Included monthly credits           |
-| ---------------------------- | ---------------------------------- |
-| Free Users                   | subject to change, less than $0.10 |
-| PRO Users                    | $2.00                              |
-| Enterprise Hub Organizations | $2.00 per Enterprise Hu b seat     |
+| Tier                         | Included monthly credits             |
+| ---------------------------- | ------------------------------------ |
+| Free Users                   | subject to change, less than $0.10   |
+| PRO Users                    | $2.00                                |
+| Enterprise Hub Organizations | $2.00 per seat, shared among members |
 
 To benefit from Enterprise Hub included credits, you need to explicitly specify the organization to be billed when performing the inference requests.
 See the [Organization Billing section](#organization-billing) below for more details.
