@@ -78,17 +78,17 @@ export class MyNewProviderTask extends TaskProviderHelper {
 
 	makeRoute(params: UrlParams): string {
         // Return the route to use for the request. e.g. /v1/chat/completions route is commonly use for chat completion.
-		raise NotImplementedError("Needs to be implemented")
+		throw new Error("Needs to be implemented");
 	}
 
 	preparePayload(params: BodyParams): Record<string, unknown> {
         // Return the payload to use for the request, as a dict.
-		raise NotImplementedError("Needs to be implemented")
+		throw new Error("Needs to be implemented");
 	}
 
 	getResponse(response: TogetherBase64ImageGeneration, outputType?: "url" | "blob"): string | Promise<Blob> {
 		// Return the response in the expected format.
-        raise NotImplementedError("Needs to be implemented")
+        throw new Error("Needs to be implemented");
     }
 }
 ```
