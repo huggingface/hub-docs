@@ -329,7 +329,7 @@ Before adding a new provider to the `huggingface_hub` Python library, make sure 
 
 </Tip>
 
-### Implement the provider helper
+### Implement the provider helper (Python)
 
 Create a new file under `src/huggingface_hub/inference/_providers/{provider_name}.py` and copy-paste the following snippet.
 
