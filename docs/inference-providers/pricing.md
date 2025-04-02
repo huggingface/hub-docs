@@ -21,7 +21,7 @@ You can track your spending on your [billing page](https://huggingface.co/settin
 
 <Tip>
 
-Hugging Face charges you the same rates as the provider, with no additional fees.
+Hugging Face charges you the same rates as the provider, with no additional fees. We just pass through the provider costs directly.
 
 </Tip>
 
