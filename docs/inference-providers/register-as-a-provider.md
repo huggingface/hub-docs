@@ -156,7 +156,7 @@ Create a new mapping item, with the following body (JSON-encoded):
 In the future, we will add support for a new parameter (ping us if it's important to you now):
 ```json
 {
-    "hfFilter": ["string"] // (both can't be defined at the same time)
+    "hfFilter": ["string"]
     // ^Power user move: register a "tag" slice of HF in one go.
     // Example: tag == "base_model:adapter:black-forest-labs/FLUX.1-dev" for all Flux-dev LoRAs
 }
