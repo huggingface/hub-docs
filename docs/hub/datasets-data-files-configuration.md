@@ -48,12 +48,13 @@ See the documentation on [Manual configuration](./datasets-manual-configuration)
 
 See the [File formats](./datasets-adding#file-formats) doc page to find the list of supported formats and recommendations for your dataset. If your dataset uses CSV or TSV files, you can find more information in the [example datasets](https://huggingface.co/collections/datasets-examples/format-csv-and-tsv-655f681cb9673a4249cccb3d).
 
-## Image and Audio datasets
+## Image, Audio and Video datasets
 
-For image and audio classification datasets, you can also use directories to name the image and audio classes.
-And if your images/audio files have metadata (e.g. captions, bounding boxes, transcriptions, etc.), you can have metadata files next to them.
+For image/audio/video classification datasets, you can also use directories to name the image/audio/video classes.
+And if your images/audio/video files have metadata (e.g. captions, bounding boxes, transcriptions, etc.), you can have metadata files next to them.
 
 We provide two guides that you can check out:
 
 - [How to create an image dataset](./datasets-image) ([example datasets](https://huggingface.co/collections/datasets-examples/image-dataset-6568e7cf28639db76eb92d65))
 - [How to create an audio dataset](./datasets-audio) ([example datasets](https://huggingface.co/collections/datasets-examples/audio-dataset-66aca0b73e8f69e3d069e607))
+- [How to create a video dataset](./datasets-video)

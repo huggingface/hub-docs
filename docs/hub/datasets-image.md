@@ -4,7 +4,7 @@ This guide will show you how to configure your dataset repository with image fil
 
 A dataset with a supported structure and [file formats](./datasets-adding#file-formats) automatically has a Dataset Viewer on its page on the Hub.
 
-Additional information about your images - such as captions or bounding boxes for object detection - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`).
+Additional information about your images - such as captions or bounding boxes for object detection - is automatically loaded as long as you include this information in a metadata file (`metadata.csv`/`metadata.jsonl`/`metadata.parquet`).
 
 Alternatively, images can be in Parquet files or in TAR archives following the [WebDataset](https://github.com/webdataset/webdataset) format.
 
@@ -90,6 +90,8 @@ You can also use a [JSONL](https://jsonlines.org/) file `metadata.jsonl`:
 {"file_name": "4.jpg","text": "a cartoon ball with a smile on it's face"}
 ```
 
+And for bigger datasets or if you are interested in advanced data retrieval features, you can use a [Parquet](https://parquet.apache.org/) file `metadata.parquet`.
+
 ## Relative paths
 
 Metadata file must be located either in the same directory with the images it is linked to, or in any parent directory, like in this example: 
@@ -115,7 +117,9 @@ images/3.jpg,a red and white ball with an angry look on its face
 images/4.jpg,a cartoon ball with a smile on it's face
 ```
 
-Metadata file cannot be put in subdirectories of a directory with the images.
+Metadata files cannot be put in subdirectories of a directory with the images.
+
+More generally, any column named `file_name` or `*_file_name` should contain the full relative path to the images.
 
 ## Image classification
 
@@ -201,8 +205,9 @@ my_dataset_repository/
 └── train.parquet
 ```
 
-Image columns are of type _struct_, with a binary field `"bytes"` for the image data and a string field `"path"` for the image file name or path.
-You should specify the feature types of the columns directly in YAML in the README header, for example:
+Parquet files with image data can be created using `pandas` or the `datasets` library. To create Parquet files with image data in `pandas`, you can use [pandas-image-methods](https://github.com/lhoestq/pandas-image-methods) and `df.to_parquet()`. In `datasets`, you can set the column type to `Image()` and use the `ds.to_parquet(...)` method or `ds.push_to_hub(...)`. You can find a guide on loading image datasets in `datasets` [here](/docs/datasets/image_load).
+
+Alternatively you can manually set the image type of Parquet created using other tools. First, make sure your image columns are of type _struct_, with a binary field `"bytes"` for the image data and a string field `"path"` for the image file name or path. Then you should specify the feature types of the columns directly in YAML in the README header, for example:
 
 ```yaml
 dataset_info:
@@ -213,4 +218,4 @@ dataset_info:
     dtype: string
 ```
 
-Alternatively, Parquet files with Image data can be created using the `datasets` library by setting the column type to `Image()` and using the `.to_parquet(...)` method or `.push_to_hub(...)`. You can find a guide on loading image datasets in `datasets` [here](/docs/datasets/image_load).
+Note that Parquet is recommended for small images (<1MB per image) and small row groups (100 rows per row group, which is what `datasets` uses for images). For larger images it is recommended to use the WebDataset format, or to share the original image files (optionally with metadata files, and following the [repositories recommendations and limits](https://huggingface.co/docs/hub/en/storage-limits) for storage and number of files).

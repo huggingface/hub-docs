@@ -1,0 +1,70 @@
+## Chat Completion
+
+Generate a response given a list of messages in a conversational context, supporting both conversational Language Models (LLMs) and conversational Vision-Language Models (VLMs).
+This is a subtask of [`text-generation`](https://huggingface.co/docs/inference-providers/tasks/text-generation) and [`image-text-to-text`](https://huggingface.co/docs/inference-providers/tasks/image-text-to-text).
+
+### Recommended models
+
+#### Conversational Large Language Models (LLMs)
+
+{{#each models.chat-completion}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+#### Conversational Vision-Language Models (VLMs)
+
+{{#each models.conversational-image-text-to-text}}
+- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
+{{/each}}
+
+### API Playground
+
+For Chat Completion models, we provide an interactive UI Playground for easier testing:
+
+- Quickly iterate on your prompts from the UI.
+- Set and override system, assistant and user messages.
+- Browse and select models currently available on the Inference API.
+- Compare the output of two models side-by-side.
+- Adjust requests parameters from the UI.
+- Easily switch between UI view and code snippets.
+
+<a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 400px; width: 100%;"/></a>
+
+Access the Inference UI Playground and start exploring: [https://huggingface.co/playground](https://huggingface.co/playground)
+
+### Using the API
+
+The API supports:
+
+* Using the chat completion API compatible with the OpenAI SDK.
+* Using grammars, constraints, and tools.
+* Streaming the output
+
+#### Code snippet example for conversational LLMs
+
+{{{snippets.chat-completion}}}
+
+#### Code snippet example for conversational VLMs
+
+{{{snippets.conversational-image-text-to-text}}}
+
+### API specification
+
+#### Request
+
+{{{specs.chat-completion.input}}}
+
+{{{constants.specsHeaders}}}
+
+#### Response
+
+Output type depends on the `stream` input parameter.
+If `stream` is `false` (default), the response will be a JSON object with the following fields:
+
+{{{specs.chat-completion.output}}}
+
+If `stream` is `true`, generated tokens are returned as a stream, using Server-Sent Events (SSE).
+For more information about streaming, check out [this guide](https://huggingface.co/docs/text-generation-inference/conceptual/streaming).
+
+{{{specs.chat-completion.stream_output}}}
+

@@ -1,9 +1,9 @@
-name: Build Inference API documentation
+name: Build Inference Providers documentation
 
 on:
   push:
     paths:
-      - "docs/api-inference/**"
+      - "docs/inference-providers/**"
     branches:
       - main
 
@@ -13,8 +13,8 @@ jobs:
     with:
       commit_sha: ${{ github.sha }}
       package: hub-docs
-      package_name: api-inference
-      path_to_docs: hub-docs/docs/api-inference/
+      package_name: inference-providers
+      path_to_docs: hub-docs/docs/inference-providers/
       additional_args: --not_python_module
     secrets:
       hf_token: ${{ secrets.HF_DOC_BUILD_PUSH }}

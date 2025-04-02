@@ -33,6 +33,7 @@ To activate this option,
 </div>
 
 You need to have a valid Enterprise Plus subscription for this option to take effect.
+
 2. Ensure the Organization IP Ranges are defined 
 
 Once defined, higher rate limits will apply to members of your organization whose IPs match the defined ranges. 
@@ -40,7 +41,7 @@ Once defined, higher rate limits will apply to members of your organization whos
 
 ## Enforce authenticated access to the Hugging Face Hub
 
-This option will ensure that, when browsing from your corporate network, only authenticated users belonging to your organization are able to access the Hugging Face Hub. All public pages will show the following message if access unauthenticated:
+This option will ensure that, when browsing from your corporate network, only authenticated users belonging to your organization are able to access the Hugging Face Hub. All public pages will show the following message if access is unauthenticated:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/network-sec-restricted-url.png" alt="Screenshot of restricted pages on the Hub."/>
@@ -55,6 +56,7 @@ This option will ensure that, when browsing from your corporate network, only au
 </div>
 
 You need to have a valid Enterprise Plus subscription for this option to take effect.
+
 2. Ensure the Organization IP Ranges are defined 
 
 
