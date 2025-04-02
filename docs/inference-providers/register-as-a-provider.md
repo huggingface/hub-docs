@@ -113,7 +113,7 @@ Implement the methods that require custom handling. Check out the base implement
 
 If the provider supports multiple tasks that require different implementations, create dedicated subclasses for each task, following the pattern used in the existing providers implementation, e.g. [Together AI provider implementation](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/together.ts).
 
-For text-generation and conversational tasks, you can just inherit from BaseTextGenerationTask and BaseConversationalTask respectively (defined in [providerHelper.ts]((https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/providerHelper.ts))) and override the methods if needed. Examples can be found in [Cerebras](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/cerebras.ts) or [Fireworks](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/fireworks.ts) provider implementations.
+For text-generation and conversational tasks, you can just inherit from `BaseTextGenerationTask` and `BaseConversationalTask` respectively (defined in [providerHelper.ts]((https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/providerHelper.ts))) and override the methods if needed. Examples can be found in [Cerebras](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/cerebras.ts) or [Fireworks](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/fireworks.ts) provider implementations.
 
 ### Register the provider
 
