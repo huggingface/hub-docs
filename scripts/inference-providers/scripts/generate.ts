@@ -1,13 +1,5 @@
-import {
-  snippets,
-  INFERENCE_PROVIDERS,
-  InferenceProvider,
-} from "@huggingface/inference";
-import {
-  PipelineType,
-  InferenceSnippet,
-  type ModelDataMinimal,
-} from "@huggingface/tasks";
+import { INFERENCE_PROVIDERS } from "@huggingface/inference";
+import { PipelineType } from "@huggingface/tasks";
 import Handlebars from "handlebars";
 import * as fs from "node:fs/promises";
 import * as path from "node:path/posix";
@@ -151,39 +143,6 @@ const TASKS_API_URL = "https://huggingface.co/api/tasks";
 console.log(`   🕸️  Fetching ${TASKS_API_URL}`);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TASKS_DATA = (await authFetchJson(TASKS_API_URL)) as any;
-
-///////////////////////
-//// Snippet utils ////
-///////////////////////
-
-export function getFormattedInferenceSnippet(
-  pipeline_tag: PipelineType,
-  model: {
-    modelId: string;
-    provider: string;
-    providerModelId: string;
-    providerTask: string;
-    tags: string[];
-  },
-  conversational: boolean
-): InferenceSnippet[] {
-  if (conversational && !model.tags.includes("conversational")) {
-    return [];
-  }
-  return snippets.getInferenceSnippets(
-    {
-      id: model.modelId,
-      pipeline_tag,
-      mask_token: "[MASK]",
-      library_name: "",
-      tags: conversational ? ["conversational"] : [],
-      inference: "",
-    } as ModelDataMinimal,
-    "hf_***",
-    model.provider as InferenceProvider,
-    model.providerModelId
-  );
-}
 
 /////////////////////
 //// Specs utils ////
@@ -528,21 +487,40 @@ TASKS.forEach((task) => {
   );
 });
 
+function buildProviderMapping(
+  models: {
+    modelId: string;
+    provider: string;
+    providerModelId: string;
+    providerTask: string;
+    tags: string[];
+  }[]
+): Record<string, { modelId: string; providerModelId: string }> {
+  return models.reduce(
+    (acc, item) => {
+      acc[item.provider] = {
+        modelId: item.modelId,
+        providerModelId: item.providerModelId,
+      };
+      return acc;
+    },
+    {} as Record<string, { modelId: string; providerModelId: string }>
+  );
+}
+
 // Generate snippets
 TASKS.forEach((task) => {
-  const inferenceSnippets = DATA.perProviderWarmModels[task].flatMap((model) =>
-    getFormattedInferenceSnippet(task, model, false).map(
-      (inferenceSnippet) => ({
-        ...inferenceSnippet,
-        provider: model.provider,
-      })
-    )
+  const providersMapping = buildProviderMapping(
+    DATA.perProviderWarmModels[task]
   );
 
   DATA.snippets[task] = SNIPPETS_TEMPLATE({
-    inferenceSnippets,
+    task,
     taskSnakeCase: task.replaceAll("-", "_"),
     taskAttached: task.replaceAll("-", ""),
+    conversational: false,
+    hasSnippets: Object.keys(providersMapping).length > 0,
+    providersMappingAsStr: JSON.stringify(providersMapping),
   });
 });
 
@@ -585,18 +563,17 @@ async function fetchChatCompletion() {
   DATA.recommendedModels["chat-completion"] = DATA.recommendedModels[
     "text-generation"
   ].filter((model) => model.tags?.includes("conversational"));
+
+  const providersMappingChatCompletion = buildProviderMapping(
+    await fetchWarmModels("text-generation")
+  );
   DATA.snippets["chat-completion"] = SNIPPETS_TEMPLATE({
+    task: "text-generation",
     taskSnakeCase: "chat_completion",
     taskAttached: "chatCompletion",
-    inferenceSnippets: (await fetchWarmModels("text-generation")).flatMap(
-      (model) =>
-        getFormattedInferenceSnippet("text-generation", model, true).map(
-          (inferenceSnippet) => ({
-            ...inferenceSnippet,
-            provider: model.provider,
-          })
-        )
-    ),
+    conversational: true,
+    hasSnippets: Object.keys(providersMappingChatCompletion).length > 0,
+    providersMappingAsStr: JSON.stringify(providersMappingChatCompletion),
   });
 
   // Conversational image-text-to-text
@@ -607,18 +584,17 @@ async function fetchChatCompletion() {
     DATA.recommendedModels["image-text-to-text"].filter((model) =>
       model.tags?.includes("conversational")
     );
+  const providersMappingImageTextToText = buildProviderMapping(
+    await fetchWarmModels("image-text-to-text")
+  );
+
   DATA.snippets["conversational-image-text-to-text"] = SNIPPETS_TEMPLATE({
+    task: "image-text-to-text",
     taskSnakeCase: "chat_completion",
     taskAttached: "chatCompletion",
-    inferenceSnippets: (await fetchWarmModels("image-text-to-text")).flatMap(
-      (model) =>
-        getFormattedInferenceSnippet("image-text-to-text", model, true).map(
-          (inferenceSnippet) => ({
-            ...inferenceSnippet,
-            provider: model.provider,
-          })
-        )
-    ),
+    conversational: true,
+    hasSnippets: Object.keys(providersMappingImageTextToText).length > 0,
+    providersMappingAsStr: JSON.stringify(providersMappingImageTextToText),
   });
 }
 
@@ -639,6 +615,9 @@ async function renderTemplate(
 
 await Promise.all(
   TASKS_EXTENDED.map(async (task) => {
+    if (task === "image-text-to-text") {
+      return; // not generated -> merged with chat-completion
+    }
     // @ts-ignore
     const rendered = await renderTemplate(task, DATA);
     await writeTaskDoc(task, rendered);

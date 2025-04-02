@@ -30,112 +30,11 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<inferencesnippet>
+<InferenceSnippet
+    pipeline=summarization
 
-
-<snippet provider="hf-inference" language="python" client="huggingface_hub">
-
-```python
-from huggingface_hub import InferenceClient
-
-client = InferenceClient(
-    provider="hf-inference",
-    api_key="hf_***",
-)
-
-result = client.summarization(
-    inputs="The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.",
-    model="facebook/bart-large-cnn",
-)
-```
-
-</snippet>
-
-To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
-
-<snippet provider="hf-inference" language="python" client="requests">
-
-```python
-import requests
-
-API_URL = "https://router.huggingface.co/hf-inference/models/facebook/bart-large-cnn"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(payload):
-    response = requests.post(API_URL, headers=headers, json=payload)
-    return response.json()
-
-output = query({
-    "inputs": "The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.",
-})
-```
-
-</snippet>
-
-
-<snippet provider="hf-inference" language="js" client="fetch">
-
-```js
-async function query(data) {
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/facebook/bart-large-cnn",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query({ inputs: "The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct." }).then((response) => {
-    console.log(JSON.stringify(response));
-});
-```
-
-</snippet>
-
-
-<snippet provider="hf-inference" language="js" client="huggingface.js">
-
-```js
-import { InferenceClient } from "@huggingface/inference";
-
-const client = new InferenceClient("hf_***");
-
-const output = await client.summarization({
-	model: "facebook/bart-large-cnn",
-	inputs: "The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.",
-	provider: "hf-inference",
-});
-
-console.log(output);
-```
-
-</snippet>
-
-To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
-
-<snippet provider="hf-inference" language="sh" client="curl">
-
-```sh
-curl https://router.huggingface.co/hf-inference/models/facebook/bart-large-cnn \
-    -X POST \
-    -H 'Authorization: Bearer hf_***' \
-    -H 'Content-Type: application/json' \
-    -d '{
-        "inputs": "\"The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930. It was the first structure to reach a height of 300 metres. Due to the addition of a broadcasting aerial at the top of the tower in 1957, it is now taller than the Chrysler Building by 5.2 metres (17 ft). Excluding transmitters, the Eiffel Tower is the second tallest free-standing structure in France after the Millau Viaduct.\""
-    }'
-```
-
-</snippet>
-
-
-</inferencesnippet>
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"}} }
+/>
 
 
 

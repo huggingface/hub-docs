@@ -30,109 +30,11 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<inferencesnippet>
+<InferenceSnippet
+    pipeline=image-classification
 
-
-<snippet provider="hf-inference" language="python" client="huggingface_hub">
-
-```python
-from huggingface_hub import InferenceClient
-
-client = InferenceClient(
-    provider="hf-inference",
-    api_key="hf_***",
-)
-
-output = client.image_classification("cats.jpg", model="Falconsai/nsfw_image_detection")
-```
-
-</snippet>
-
-To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
-
-<snippet provider="hf-inference" language="python" client="requests">
-
-```python
-import requests
-
-API_URL = "https://router.huggingface.co/hf-inference/models/Falconsai/nsfw_image_detection"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(filename):
-    with open(filename, "rb") as f:
-        data = f.read()
-    response = requests.post(API_URL, headers={"Content-Type": "image/jpeg", **headers}, data=data)
-    return response.json()
-
-output = query("cats.jpg")
-```
-
-</snippet>
-
-
-<snippet provider="hf-inference" language="js" client="fetch">
-
-```js
-async function query(data) {
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/Falconsai/nsfw_image_detection",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "image/jpeg"
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query({ inputs: "cats.jpg" }).then((response) => {
-    console.log(JSON.stringify(response));
-});
-```
-
-</snippet>
-
-
-<snippet provider="hf-inference" language="js" client="huggingface.js">
-
-```js
-import { InferenceClient } from "@huggingface/inference";
-
-const client = new InferenceClient("hf_***");
-
-const data = fs.readFileSync("cats.jpg");
-
-const output = await client.imageClassification({
-	data,
-	model: "Falconsai/nsfw_image_detection",
-	provider: "hf-inference",
-});
-
-console.log(output);
-```
-
-</snippet>
-
-To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
-
-<snippet provider="hf-inference" language="sh" client="curl">
-
-```sh
-curl https://router.huggingface.co/hf-inference/models/Falconsai/nsfw_image_detection \
-    -X POST \
-    -H 'Authorization: Bearer hf_***' \
-    -H 'Content-Type: image/jpeg' \
-    --data-binary @"cats.jpg"
-```
-
-</snippet>
-
-
-</inferencesnippet>
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"}} }
+/>
 
 
 

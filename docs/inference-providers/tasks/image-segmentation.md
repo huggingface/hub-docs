@@ -30,87 +30,11 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<inferencesnippet>
+<InferenceSnippet
+    pipeline=image-segmentation
 
-
-<snippet provider="hf-inference" language="python" client="huggingface_hub">
-
-```python
-from huggingface_hub import InferenceClient
-
-client = InferenceClient(
-    provider="hf-inference",
-    api_key="hf_***",
-)
-
-output = client.image_segmentation("cats.jpg", model="jonathandinu/face-parsing")
-```
-
-</snippet>
-
-To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
-
-<snippet provider="hf-inference" language="python" client="requests">
-
-```python
-import requests
-
-API_URL = "https://router.huggingface.co/hf-inference/models/jonathandinu/face-parsing"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(filename):
-    with open(filename, "rb") as f:
-        data = f.read()
-    response = requests.post(API_URL, headers={"Content-Type": "image/jpeg", **headers}, data=data)
-    return response.json()
-
-output = query("cats.jpg")
-```
-
-</snippet>
-
-
-<snippet provider="hf-inference" language="js" client="fetch">
-
-```js
-async function query(data) {
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/jonathandinu/face-parsing",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "image/jpeg"
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query({ inputs: "cats.jpg" }).then((response) => {
-    console.log(JSON.stringify(response));
-});
-```
-
-</snippet>
-
-
-<snippet provider="hf-inference" language="sh" client="curl">
-
-```sh
-curl https://router.huggingface.co/hf-inference/models/jonathandinu/face-parsing \
-    -X POST \
-    -H 'Authorization: Bearer hf_***' \
-    -H 'Content-Type: image/jpeg' \
-    --data-binary @"cats.jpg"
-```
-
-</snippet>
-
-
-</inferencesnippet>
+    providersMapping={ {"hf-inference":{"modelId":"jonathandinu/face-parsing","providerModelId":"jonathandinu/face-parsing"}} }
+/>
 
 
 

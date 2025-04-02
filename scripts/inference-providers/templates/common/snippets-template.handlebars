@@ -1,26 +1,10 @@
-{{#if inferenceSnippets.length }}
+{{#if hasSnippets }}
 
-<inferencesnippet>
-
-{{#each inferenceSnippets}}
-
-<snippet provider="{{this.provider}}" language="{{this.language}}" client="{{this.client}}">
-
-```{{this.language}}
-{{{this.content}}}
-```
-
-</snippet>
-
-{{#if (eq this.client "huggingface_hub")}}
-To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.{{taskSnakeCase}}).
-{{/if}}
-{{#if (eq this.client "huggingface.js")}}
-To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#{{taskAttached}}).
-{{/if}}
-{{/each}}
-
-</inferencesnippet>
+<InferenceSnippet
+    pipeline={{ task }}
+{{#if conversational }}conversational{{/if}}
+    providersMapping={ {{{providersMappingAsStr}}} }
+/>
 
 {{else}}
 

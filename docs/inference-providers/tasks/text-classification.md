@@ -30,112 +30,11 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<inferencesnippet>
+<InferenceSnippet
+    pipeline=text-classification
 
-
-<snippet provider="hf-inference" language="python" client="huggingface_hub">
-
-```python
-from huggingface_hub import InferenceClient
-
-client = InferenceClient(
-    provider="hf-inference",
-    api_key="hf_***",
-)
-
-result = client.text_classification(
-    inputs="I like you. I love you",
-    model="ProsusAI/finbert",
-)
-```
-
-</snippet>
-
-To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
-
-<snippet provider="hf-inference" language="python" client="requests">
-
-```python
-import requests
-
-API_URL = "https://router.huggingface.co/hf-inference/models/ProsusAI/finbert"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(payload):
-    response = requests.post(API_URL, headers=headers, json=payload)
-    return response.json()
-
-output = query({
-    "inputs": "I like you. I love you",
-})
-```
-
-</snippet>
-
-
-<snippet provider="hf-inference" language="js" client="fetch">
-
-```js
-async function query(data) {
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/ProsusAI/finbert",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query({ inputs: "I like you. I love you" }).then((response) => {
-    console.log(JSON.stringify(response));
-});
-```
-
-</snippet>
-
-
-<snippet provider="hf-inference" language="js" client="huggingface.js">
-
-```js
-import { InferenceClient } from "@huggingface/inference";
-
-const client = new InferenceClient("hf_***");
-
-const output = await client.textClassification({
-	model: "ProsusAI/finbert",
-	inputs: "I like you. I love you",
-	provider: "hf-inference",
-});
-
-console.log(output);
-```
-
-</snippet>
-
-To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
-
-<snippet provider="hf-inference" language="sh" client="curl">
-
-```sh
-curl https://router.huggingface.co/hf-inference/models/ProsusAI/finbert \
-    -X POST \
-    -H 'Authorization: Bearer hf_***' \
-    -H 'Content-Type: application/json' \
-    -d '{
-        "inputs": "\"I like you. I love you\""
-    }'
-```
-
-</snippet>
-
-
-</inferencesnippet>
+    providersMapping={ {"hf-inference":{"modelId":"ProsusAI/finbert","providerModelId":"ProsusAI/finbert"}} }
+/>
 
 
 

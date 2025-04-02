@@ -30,112 +30,11 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<inferencesnippet>
+<InferenceSnippet
+    pipeline=translation
 
-
-<snippet provider="hf-inference" language="python" client="huggingface_hub">
-
-```python
-from huggingface_hub import InferenceClient
-
-client = InferenceClient(
-    provider="hf-inference",
-    api_key="hf_***",
-)
-
-result = client.translation(
-    inputs="Меня зовут Вольфганг и я живу в Берлине",
-    model="facebook/nllb-200-distilled-600M",
-)
-```
-
-</snippet>
-
-To use the Python `InferenceClient`, see the [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.).
-
-<snippet provider="hf-inference" language="python" client="requests">
-
-```python
-import requests
-
-API_URL = "https://router.huggingface.co/hf-inference/models/facebook/nllb-200-distilled-600M"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(payload):
-    response = requests.post(API_URL, headers=headers, json=payload)
-    return response.json()
-
-output = query({
-    "inputs": "Меня зовут Вольфганг и я живу в Берлине",
-})
-```
-
-</snippet>
-
-
-<snippet provider="hf-inference" language="js" client="fetch">
-
-```js
-async function query(data) {
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/facebook/nllb-200-distilled-600M",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query({ inputs: "Меня зовут Вольфганг и я живу в Берлине" }).then((response) => {
-    console.log(JSON.stringify(response));
-});
-```
-
-</snippet>
-
-
-<snippet provider="hf-inference" language="js" client="huggingface.js">
-
-```js
-import { InferenceClient } from "@huggingface/inference";
-
-const client = new InferenceClient("hf_***");
-
-const output = await client.translation({
-	model: "facebook/nllb-200-distilled-600M",
-	inputs: "Меня зовут Вольфганг и я живу в Берлине",
-	provider: "hf-inference",
-});
-
-console.log(output);
-```
-
-</snippet>
-
-To use the JavaScript `InferenceClient`, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient#).
-
-<snippet provider="hf-inference" language="sh" client="curl">
-
-```sh
-curl https://router.huggingface.co/hf-inference/models/facebook/nllb-200-distilled-600M \
-    -X POST \
-    -H 'Authorization: Bearer hf_***' \
-    -H 'Content-Type: application/json' \
-    -d '{
-        "inputs": "\"Меня зовут Вольфганг и я живу в Берлине\""
-    }'
-```
-
-</snippet>
-
-
-</inferencesnippet>
+    providersMapping={ {"hf-inference":{"modelId":"facebook/nllb-200-distilled-600M","providerModelId":"facebook/nllb-200-distilled-600M"}} }
+/>
 
 
 
