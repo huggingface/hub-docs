@@ -1,14 +1,28 @@
 # How to be registered as an inference provider on the Hub?
 
-If you'd like to be an inference provider on the Hub, you must follow the steps outlined in this guide.
+<Tip>
 
-## 1. Requirements
+Want to be an Inference Provider on the Hub? Please reach out to us!
+
+</Tip>
+
+This guide details each of the following steps and provides implementation guidance.
+
+1. **Implement standard task APIs** - Follow our task API schemas for compatibility (see [Prerequisites](#1-prerequisites))
+2. **Submit a PR for JS client integration** - Add your provider to [huggingface.js](https://github.com/huggingface/huggingface.js/tree/main/packages/inference) (see [JS Client Integration](#2-js-client-integration))
+3. **Register model mappings** - Use our Model Mapping API to connect your models to Hub models (see [Model Mapping API](#3-model-mapping-api))
+4. **Implement a billing endpoint** - Provide an API for billing (see [Billing](#4-billing))
+5. **Submit a PR for Python client integration** - Add your provider to [huggingface_hub](https://github.com/huggingface/huggingface_hub) (see [Python client integration](#5-python-client-integration))
+6. **Provide an icon** - Submit an SVG icon for your provider.
+7. **Create documentation** - Add documentation and do some communication on your side.
+8. **Add a documentation page** - Add a provider-specific page in the Hub documentation.
+
+
+## 1. Prerequisites
 
 <Tip>
 
-If you provide inference only for LLMs and VLMs following the OpenAI API, you
-can probably skip most of this section and just open a PR on
-https://github.com/huggingface/huggingface.js/tree/main/packages/inference to add you as a provider.
+If your implementation strictly follows the OpenAI API for LLMs and VLMs, you may be able to skip most of this section. In that case, simply open a PR on [huggingface.js](https://github.com/huggingface/huggingface.js/tree/main/packages/inference) to register.
 
 </Tip>
 
@@ -17,7 +31,8 @@ inside the huggingface.js repo:
 https://github.com/huggingface/huggingface.js/tree/main/packages/inference
 
 This is the client that powers our Inference widgets on model pages, and is the blueprint
-implementation for other downstream SDKs like Python's `huggingface-hub` and other tools.
+implementation downstream (for Python SDK, to generate code snippets, etc.).
+
 
 ### What is a Task 
 
@@ -43,6 +58,7 @@ which are tagged as "conversational".
 
 </Tip>
 
+
 ### Task API schema
 
 For each task type, we enforce an API schema to make it easier for end users to use different
@@ -58,9 +74,9 @@ For example, you can find the expected schema for Text to Speech here: [https://
 
 Before proceeding with the next steps, ensure you've implemented the necessary code to integrate with the JS client and thoroughly tested your implementation. Here are the steps to follow:
 
-### 1. Implement the provider helper
+### Implement the provider helper
 
-Create a new file under packages/inference/src/providers/{provider_name}.ts and copy-paste the following snippet.
+Create a new file under `packages/inference/src/providers/{provider_name}.ts` and copy-paste the following snippet.
 
 ```ts
 import { TaskProviderHelper } from "./providerHelper";
@@ -86,7 +102,7 @@ export class MyNewProviderTask extends TaskProviderHelper {
 		throw new Error("Needs to be implemented");
 	}
 
-	getResponse(response: TogetherBase64ImageGeneration, outputType?: "url" | "blob"): string | Promise<Blob>{
+	getResponse(response: unknown, outputType?: "url" | "blob"): string | Promise<Blob>{
 		// Return the response in the expected format.
         throw new Error("Needs to be implemented");
     }
@@ -97,27 +113,24 @@ Implement the methods that require custom handling. Check out the base implement
 
 If the provider supports multiple tasks that require different implementations, create dedicated subclasses for each task, following the pattern used in the existing providers implementation, e.g. [Together AI provider implementation](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/together.ts).
 
-For text-generation and conversational tasks, one can just inherit from BaseTextGenerationTask and BaseConversationalTask respectively (defined in [providerHelper.ts]((https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/providerHelper.ts))) and override the methods if needed. Examples can be found in [Cerebras](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/cerebras.ts) or [Fireworks](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/fireworks.ts) provider implementations.
+For text-generation and conversational tasks, you can just inherit from BaseTextGenerationTask and BaseConversationalTask respectively (defined in [providerHelper.ts]((https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/providerHelper.ts))) and override the methods if needed. Examples can be found in [Cerebras](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/cerebras.ts) or [Fireworks](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/fireworks.ts) provider implementations.
 
-### 2. Register the provider
+### Register the provider
 
 Go to [packages/inference/src/lib/getProviderHelper.ts](https://github.com/huggingface/huggingface.js//blob/main/packages/inference/src/lib/getProviderHelper.ts) and add your provider to `PROVIDERS`. Please try to respect alphabetical order. 
-
-### 3. Add tests
-
-Go to [packages/inference/test/InferenceClient.spec.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/test/InferenceClient.spec.ts) and add new tests for each task supported by your provider. 
 
 
 ## 3. Model Mapping API
 
-Once you've verified the huggingface.js/inference client can call your models successfully, you
-can use our Model Mapping API.
+Congratulations! You now have a JS implementation to successfully make inference calls on your infra! Time to integrate with the Hub!
 
-This API lets a Partner "register" that they support model X, Y or Z on HF.
+First step is to use the Model Mapping API to register which HF models are supported. 
 
-This enables:
-- The inference widget on corresponding model pages
-- Inference compatibility throughout the HF ecosystem (Python and JS client SDKs for instance), and any downstream tool or library
+<Tip>
+
+To proceed with this step, we have to enable your account server-side. Make sure you have an organization on the Hub for your enterprise.
+
+</Tip>
 
 ### Register a mapping item
 
@@ -230,17 +243,16 @@ Here is an example of response:
 
 For routed requests (see figure below), i.e. when users authenticate via HF, our intent is that
 our users only pay the standard provider API rates. There's no additional markup from us, we
-just pass through the provider costs directly.
+just pass through the provider costs directly. 
+More details about the pricing structure can be found on the [pricing page](./pricing.md).
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/types_of_billing.png"/>
 </div> 
 
-For LLM providers, a workaround some people use is to extract numbers of input and output
-tokens in the responses and multiply by a hardcoded pricing table – this is quite brittle, so we
-are reluctant to do this.
+
 We propose an easier way to figure out this cost and charge it to our users, by asking you to
-provide the cost for each request via an HTTP API you host on your end.
+provide the cost for each request via an HTTP API you host on your end. 
 
 ### HTTP API Specs
 
@@ -313,8 +325,8 @@ Before adding a new provider to the `huggingface_hub` Python library, make sure 
 
 </Tip>
 
-### 1. Implement the provider helper
-Create a new file under src/huggingface_hub/inference/_providers/{provider_name}.py and copy-paste the following snippet.
+### Implement the provider helper
+Create a new file under `src/huggingface_hub/inference/_providers/{provider_name}.py` and copy-paste the following snippet.
 
 Implement the methods that require custom handling. Check out the base implementation to check default behavior. If you don't need to override a method, just remove it. At least one of `_prepare_payload_as_dict` or `_prepare_payload_as_bytes` must be overwritten.
 
@@ -377,42 +389,12 @@ class MyNewProviderTaskProviderHelper(TaskProviderHelper):
         return super()._prepare_payload_as_bytes(inputs, parameters, mapped_model, extra_payload)
 ```
 
-### 2. Register the Provider
+### Register the Provider
 - Go to [src/huggingface_hub/inference/_providers/__init__.py](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/inference/_providers/__init__.py) and add your provider to `PROVIDER_T` and `PROVIDERS`. Please try to respect alphabetical order. 
 - Go to [src/huggingface_hub/inference/_client.py](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/inference/_client.py) and update docstring in `InferenceClient.__init__` to document your provider.
 
-### 3. Add tests
+### Add tests
 - Go to [tests/test_inference_providers.py](https://github.com/huggingface/huggingface_hub/blob/main/tests/test_inference_providers.py) and add static tests for overridden methods.
-- Go to [tests/test_inference_client.py](https://github.com/huggingface/huggingface_hub/blob/main/tests/test_inference_client.py) and add VCR tests:
-
-
-    a. Add an entry to `_RECOMMENDED_MODELS_FOR_VCR` at the top of the test module. This contains a mapping task <> test model. model-id must be the HF model id.
-    ```python
-    _RECOMMENDED_MODELS_FOR_VCR = {
-        "your-provider": {
-            "task": "model-id",
-            ...
-        },
-        ...
-    }
-    ```
-
-    b. Set up authentication: To record VCR cassettes, you'll need authentication:
-    If you are a member of the provider organization (e.g., Replicate organization: https://huggingface.co/replicate), you can set the HF_INFERENCE_TEST_TOKEN environment variable with your HF token:
-
-    ```bash
-    export HF_INFERENCE_TEST_TOKEN="your-hf-token"
-    ```
-    
-    If you're not a member but the provider is officially released on the Hub, you can set the HF_INFERENCE_TEST_TOKEN environment variable as above. If you don't have enough inference credits, we can help you record the VCR cassettes.
-
-    c. Record and commit tests
-    Run the tests for your provider:
-    ```bash
-    pytest tests/test_inference_client.py -k <provider>
-    ```
-
-    d. Commit the generated VCR cassettes with your PR.
 
 
 ## FAQ
@@ -421,4 +403,4 @@ class MyNewProviderTaskProviderHelper(TaskProviderHelper):
 
 **Answer:** The default sort is by total number of requests routed by HF over the last 7 days. This order defines which provider will be used in priority by the widget on the model page (but the user's order takes precedence).
 
-## Get in touch!
+
