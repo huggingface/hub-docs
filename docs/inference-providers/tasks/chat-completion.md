@@ -60,9 +60,8 @@ The API supports:
 
 <InferenceSnippet
     pipeline=text-generation
-conversational
     providersMapping={ {"cerebras":{"modelId":"meta-llama/Llama-3.3-70B-Instruct","providerModelId":"llama-3.3-70b"},"fireworks-ai":{"modelId":"Qwen/QwQ-32B","providerModelId":"accounts/fireworks/models/qwq-32b"},"hf-inference":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B"},"hyperbolic":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B"},"nebius":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B-fast"},"novita":{"modelId":"Qwen/QwQ-32B","providerModelId":"qwen/qwq-32b"},"sambanova":{"modelId":"Qwen/QwQ-32B","providerModelId":"QwQ-32B"},"together":{"modelId":"deepseek-ai/DeepSeek-R1","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
-/>
+conversational />
 
 
 
@@ -71,9 +70,8 @@ conversational
 
 <InferenceSnippet
     pipeline=image-text-to-text
-conversational
     providersMapping={ {"fireworks-ai":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct"},"hf-inference":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it"},"hyperbolic":{"modelId":"Qwen/Qwen2.5-VL-7B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-7B-Instruct"},"nebius":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it-fast"},"novita":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"meta-llama/llama-3.2-11b-vision-instruct"},"sambanova":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"Llama-3.2-11B-Vision-Instruct"},"together":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"meta-llama/Llama-3.2-11B-Vision-Instruct"}} }
-/>
+conversational />
 
 
 

@@ -37,7 +37,6 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-classification
-
     providersMapping={ {"hf-inference":{"modelId":"cardiffnlp/twitter-roberta-base-sentiment-latest","providerModelId":"cardiffnlp/twitter-roberta-base-sentiment-latest"}} }
 />
 
