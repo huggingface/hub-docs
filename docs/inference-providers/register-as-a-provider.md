@@ -74,7 +74,7 @@ For example, you can find the expected schema for Text to Speech here: [https://
 
 Before proceeding with the next steps, ensure you've implemented the necessary code to integrate with the JS client and thoroughly tested your implementation. Here are the steps to follow:
 
-### Implement the provider helper
+### Implement the provider helper (JS)
 
 Create a new file under `packages/inference/src/providers/{provider_name}.ts` and copy-paste the following snippet.
 
