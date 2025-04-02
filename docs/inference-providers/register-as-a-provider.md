@@ -14,7 +14,7 @@ This guide details the steps for registering as an inference provider on the Hub
 4. **Implement a billing endpoint** - Provide an API for billing (see [Billing](#4-billing)).
 5. **Submit a PR for Python client integration** - Add your provider to [huggingface_hub](https://github.com/huggingface/huggingface_hub) (see [Python client integration](#5-python-client-integration)).
 6. **Provide an icon** - Submit an SVG icon for your provider.
-7. **Create documentation** - Add documentation and do some communication on your side.
+7. **Create documentation on your side** - Add documentation and do a lot of communication on your side.
 8. **Add a documentation page** - Add a provider-specific page in the Hub documentation.
 
 
