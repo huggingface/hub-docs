@@ -405,18 +405,23 @@ await Promise.all(
           id: string;
           description: string;
           inference: string | undefined;
+          tags: string[] | undefined;
         }) => {
           console.log(`   ⚡ Checking inference status ${model.id}`);
           let url = `https://huggingface.co/api/models/${model.id}?expand[]=inference&expand[]=tags`;
           const modelData = await authFetchJson(url);
           model.inference = modelData.inference;
+          model.tags = modelData.tags;
         }
       )
     );
   })
 );
 
-async function fetchWarmModels(task: PipelineType): Promise<
+async function fetchWarmModels(
+  task: PipelineType,
+  conversational: boolean = false
+): Promise<
   {
     modelId: string;
     provider: string;
@@ -425,10 +430,14 @@ async function fetchWarmModels(task: PipelineType): Promise<
     tags: string[];
   }[]
 > {
-  const providers = [
-    "hf-inference",
-    ...(PER_TASK_SUPPORTED_PROVIDERS[task] ?? []),
-  ].sort();
+  const providers = (
+    conversational
+      ? [
+          "hf-inference",
+          ...(PER_TASK_SUPPORTED_PROVIDERS["conversational"] ?? []),
+        ]
+      : ["hf-inference", ...(PER_TASK_SUPPORTED_PROVIDERS[task] ?? [])]
+  ).sort();
   return (
     await Promise.all(
       providers.map(async (provider) => {
@@ -565,7 +574,7 @@ async function fetchChatCompletion() {
   ].filter((model) => model.tags?.includes("conversational"));
 
   const providersMappingChatCompletion = buildProviderMapping(
-    await fetchWarmModels("text-generation")
+    await fetchWarmModels("text-generation", true)
   );
   DATA.snippets["chat-completion"] = SNIPPETS_TEMPLATE({
     task: "text-generation",
@@ -585,7 +594,7 @@ async function fetchChatCompletion() {
       model.tags?.includes("conversational")
     );
   const providersMappingImageTextToText = buildProviderMapping(
-    await fetchWarmModels("image-text-to-text")
+    await fetchWarmModels("image-text-to-text", true)
   );
 
   DATA.snippets["conversational-image-text-to-text"] = SNIPPETS_TEMPLATE({

@@ -29,6 +29,9 @@ For more details about the `audio-classification` task, check out its [dedicated
 
 ### Recommended models
 
+- [speechbrain/google_speech_command_xvector](https://huggingface.co/speechbrain/google_speech_command_xvector): An easy-to-use model for command recognition.
+- [ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition](https://huggingface.co/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition): An emotion recognition model.
+- [facebook/mms-lid-126](https://huggingface.co/facebook/mms-lid-126): A language identification model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=audio-classification&sort=trending).
 

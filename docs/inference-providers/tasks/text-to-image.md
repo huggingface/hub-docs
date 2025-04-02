@@ -24,6 +24,9 @@ For more details about the `text-to-image` task, check out its [dedicated page](
 
 ### Recommended models
 
+- [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev): One of the most powerful image generation models that can generate realistic outputs.
+- [Kwai-Kolors/Kolors](https://huggingface.co/Kwai-Kolors/Kolors): Text-to-image model for photorealistic generation.
+- [stabilityai/stable-diffusion-3-medium-diffusers](https://huggingface.co/stabilityai/stable-diffusion-3-medium-diffusers): A powerful text-to-image model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-to-image&sort=trending).
 
