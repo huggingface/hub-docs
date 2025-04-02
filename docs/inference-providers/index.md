@@ -1,5 +1,10 @@
 # Inference Providers
 
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/Inference-providers-banner-light.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/Inference-providers-banner-dark.png"/>
+</div>
+
 Hugging Face Inference Providers simplify and unify how developers access and run machine learning models by offering a unified, flexible interface to multiple serverless inference providers. This new approach extends our previous Serverless Inference API, providing more models, increased performances and better reliability thanks to our inference partners.
 
 To learn more about the launch of Inference Providers, check out our [announcement blog post](https://huggingface.co/blog/inference-providers).
