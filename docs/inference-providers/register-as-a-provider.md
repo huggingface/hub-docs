@@ -27,8 +27,7 @@ If your implementation strictly follows the OpenAI API for LLMs and VLMs, you ma
 </Tip>
 
 The first step to understand the integration is to take a look at the JS inference client that lives
-inside the huggingface.js repo:
-https://github.com/huggingface/huggingface.js/tree/main/packages/inference
+inside the [huggingface.js](https://github.com/huggingface/huggingface.js/tree/main/packages/inference) repo.
 
 This is the client that powers our Inference widgets on model pages, and is the blueprint
 implementation downstream (for Python SDK, to generate code snippets, etc.).
