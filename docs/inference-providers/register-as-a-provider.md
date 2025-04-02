@@ -6,13 +6,13 @@ Want to be an Inference Provider on the Hub? Please reach out to us!
 
 </Tip>
 
-This guide details each of the following steps and provides implementation guidance.
+This guide details the steps for registering as an inference provider on the Hub and provides implementation guidance.
 
-1. **Implement standard task APIs** - Follow our task API schemas for compatibility (see [Prerequisites](#1-prerequisites))
-2. **Submit a PR for JS client integration** - Add your provider to [huggingface.js](https://github.com/huggingface/huggingface.js/tree/main/packages/inference) (see [JS Client Integration](#2-js-client-integration))
-3. **Register model mappings** - Use our Model Mapping API to connect your models to Hub models (see [Model Mapping API](#3-model-mapping-api))
-4. **Implement a billing endpoint** - Provide an API for billing (see [Billing](#4-billing))
-5. **Submit a PR for Python client integration** - Add your provider to [huggingface_hub](https://github.com/huggingface/huggingface_hub) (see [Python client integration](#5-python-client-integration))
+1. **Implement standard task APIs** - Follow our task API schemas for compatibility (see [Prerequisites](#1-prerequisites)).
+2. **Submit a PR for JS client integration** - Add your provider to [huggingface.js](https://github.com/huggingface/huggingface.js/tree/main/packages/inference) (see [JS Client Integration](#2-js-client-integration)).
+3. **Register model mappings** - Use our Model Mapping API to link your models to Hub models (see [Model Mapping API](#3-model-mapping-api)).
+4. **Implement a billing endpoint** - Provide an API for billing (see [Billing](#4-billing)).
+5. **Submit a PR for Python client integration** - Add your provider to [huggingface_hub](https://github.com/huggingface/huggingface_hub) (see [Python client integration](#5-python-client-integration)).
 6. **Provide an icon** - Submit an SVG icon for your provider.
 7. **Create documentation** - Add documentation and do some communication on your side.
 8. **Add a documentation page** - Add a provider-specific page in the Hub documentation.
@@ -162,10 +162,12 @@ In the future, we will add support for a new parameter (ping us if it's importan
 }
 ```
 #### Authentication
+
 You need to be in the _provider_ Hub organization (e.g. https://huggingface.co/togethercomputer
 for TogetherAI) with **Write** permissions to be able to access this endpoint.
 
 #### Validation
+
 The endpoint validates that:
 - `hfModel` is indeed of `pipeline_tag == task` OR `task` is "conversational" and the model is
 compatible (i.e. the `pipeline_tag` is either "text-generation" or "image-text-to-text" AND the model is tagged as "conversational").
@@ -200,10 +202,12 @@ With the following body (JSON-encoded):
 ```http
 GET /api/partners/{provider}/models?status=staging|live
 ```
-This gets all mapping items from the DB. For clarity/DX, the output is grouped by task.
+This gets all mapping items from the DB. For clarity, the output is grouped by task.
 
 <Tip warning={true}>
+
 This is publicly accessible. It's useful to be transparent by default and it helps debug client SDKs, etc.
+
 </Tip>
 
 Here is an example of response:
@@ -326,6 +330,7 @@ Before adding a new provider to the `huggingface_hub` Python library, make sure 
 </Tip>
 
 ### Implement the provider helper
+
 Create a new file under `src/huggingface_hub/inference/_providers/{provider_name}.py` and copy-paste the following snippet.
 
 Implement the methods that require custom handling. Check out the base implementation to check default behavior. If you don't need to override a method, just remove it. At least one of `_prepare_payload_as_dict` or `_prepare_payload_as_bytes` must be overwritten.
