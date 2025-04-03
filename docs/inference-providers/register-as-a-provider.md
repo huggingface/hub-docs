@@ -2,7 +2,7 @@
 
 <Tip>
 
-Want to be an Inference Provider on the Hub? Please reach out to us on social networks or [here on the Hub](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49)
+Want to be an Inference Provider on the Hub? Please reach out to us on social networks or [here on the Hub](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49).
 
 </Tip>
 
