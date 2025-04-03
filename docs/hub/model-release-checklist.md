@@ -7,9 +7,12 @@ The Hugging Face Hub is the go-to platform for sharing machine learning models. 
 ### Uploading weights
 
 When uploading models to the hub, it's recommended to follow a set of best practices:
+### Uploading Weights
 
-- push weights to separate model repositories. Example: prefer uploading individual quantizations/precisions in a standalone repo like [this](https://huggingface.co/jameslahm/yolov10n) over all types/versions in one like [this](https://huggingface.co/kadirnar/Yolov10/tree/main).
-- leverage [safetensors](https://huggingface.co/docs/safetensors/en/index) for weights serialization as opposed to pickle.
+- **Use separate repositories for different model weights.** For example, you can store quantization variants for the same model in a single repository, but use separate repositories for different model weights.
+
+- **Prefer [`safetensors`](https://huggingface.co/docs/safetensors/en/index) over `pickle` for weight serialization.** `safetensors` offers improved safety and performance compared to Python's `pickle`.
+
 
 ### Writing a Comprehensive Model Card
 
