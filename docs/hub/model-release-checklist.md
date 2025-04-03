@@ -14,7 +14,6 @@ When uploading models to the hub, it's recommended to follow a set of best pract
 
 - **Prefer [`safetensors`](https://huggingface.co/docs/safetensors/en/index) over `pickle` for weight serialization.** `safetensors` offers improved safety and performance compared to Python's `pickle`.
 
-
 ### Writing a Comprehensive Model Card
 
 A well-crafted model card (the `README.md` file in your repository) is essential for discoverability, reproducibility, and effective sharing. Your model card should include:
@@ -42,7 +41,6 @@ A well-crafted model card (the `README.md` file in your repository) is essential
 5. **Performance Metrics**: Share comprehensive benchmarks and evaluation results. Include both quantitative metrics and qualitative examples to give users a complete picture of your model's capabilities and limitations.
 
 6. **Limitations and Biases**: Transparently document any known limitations, biases, or ethical considerations associated with your model. This helps users make informed decisions about whether and how to use your model.
-
 
 ### Enhancing Model Discoverability and Usability
 
