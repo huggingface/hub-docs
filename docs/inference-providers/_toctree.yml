@@ -13,8 +13,6 @@
 
 - title: Providers
   sections:
-  - local: providers/index
-    title: Index
   - local: providers/sambanova
     title: SambaNova
 - title: API Reference
