@@ -8,6 +8,8 @@
     title: Hub integration
   - local: security
     title: Security
+  - local: register-as-a-provider
+    title: Register as an Inference Provider
 - title: API Reference
   sections:
   - local: tasks/index
