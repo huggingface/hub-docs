@@ -21,6 +21,7 @@ const TASKS: PipelineType[] = [
   "text-classification",
   "text-generation",
   "text-to-image",
+  "text-to-video",
   "token-classification",
   "translation",
   "zero-shot-classification",
