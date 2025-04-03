@@ -37,83 +37,10 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<inferencesnippet>
-
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3 \
-	-X POST \
-	--data-binary '@sample1.flac' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
-
-<python>
-```py
-import requests
-
-API_URL = "https://router.huggingface.co/hf-inference/v1"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(filename):
-	with open(filename, "rb") as f:
-		data = f.read()
-	response = requests.post(API_URL, headers=headers, data=data)
-	return response.json()
-
-output = query("sample1.flac")
-```
-
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.automatic_speech_recognition).
-</python>
-
-<js>
-Using `huggingface.js`:
-```js
-import { HfInference } from "@huggingface/inference";
-
-const client = new HfInference("hf_***");
-
-const data = fs.readFileSync("sample1.flac");
-
-const output = await client.automaticSpeechRecognition({
-	data,
-	model: "openai/whisper-large-v3",
-	provider: "hf-inference",
-});
-
-console.log(output);
-
-```
-
-Using `fetch`:
-```js
-async function query(filename) {
-	const data = fs.readFileSync(filename);
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: data,
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query("sample1.flac").then((response) => {
-	console.log(JSON.stringify(response));
-});
-```
-
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#automaticspeechrecognition).
-</js>
-
-</inferencesnippet>
+<InferenceSnippet
+    pipeline=automatic-speech-recognition
+    providersMapping={ {"fal-ai":{"modelId":"openai/whisper-large-v3","providerModelId":"fal-ai/whisper"},"hf-inference":{"modelId":"openai/whisper-large-v3-turbo","providerModelId":"openai/whisper-large-v3-turbo"}} }
+/>
 
 
 

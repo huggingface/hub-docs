@@ -38,101 +38,10 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<inferencesnippet>
-
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/google/gemma-2-2b-it \
-	-X POST \
-	-d '{"inputs": "Can you please let us know more details about your "}' \
-	-H 'Content-Type: application/json' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
-
-<python>
-Using `huggingface_hub`:
-```py
-from huggingface_hub import InferenceClient
-
-client = InferenceClient(
-	provider="hf-inference",
-	api_key="hf_***"
-)
-
-result = client.text_generation(
-	model="google/gemma-2-2b-it",
-	inputs="Can you please let us know more details about your ",
-	provider="hf-inference",
-)
-
-print(result)
-
-```
-
-Using `requests`:
-```py
-import requests
-
-API_URL = "https://router.huggingface.co/hf-inference/v1"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
-	
-output = query({
-	"inputs": "Can you please let us know more details about your ",
-})
-```
-
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_generation).
-</python>
-
-<js>
-Using `huggingface.js`:
-```js
-import { HfInference } from "@huggingface/inference";
-
-const client = new HfInference("hf_***");
-
-const output = await client.textGeneration({
-	model: "google/gemma-2-2b-it",
-	inputs: "Can you please let us know more details about your ",
-	provider: "hf-inference",
-});
-
-console.log(output);
-
-```
-
-Using `fetch`:
-```js
-async function query(data) {
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/google/gemma-2-2b-it",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.json();
-	return result;
-}
-
-query({"inputs": "Can you please let us know more details about your "}).then((response) => {
-	console.log(JSON.stringify(response));
-});
-```
-
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#textgeneration).
-</js>
-
-</inferencesnippet>
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"hf-inference":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B"},"together":{"modelId":"deepseek-ai/DeepSeek-R1","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
+/>
 
 
 

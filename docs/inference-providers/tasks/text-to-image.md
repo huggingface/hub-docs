@@ -33,102 +33,10 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<inferencesnippet>
-
-<curl>
-```bash
-curl https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev \
-	-X POST \
-	-d '{"inputs": "Astronaut riding a horse"}' \
-	-H 'Content-Type: application/json' \
-	-H 'Authorization: Bearer hf_***'
-```
-</curl>
-
-<python>
-Using `huggingface_hub`:
-```py
-from huggingface_hub import InferenceClient
-
-client = InferenceClient(
-	provider="hf-inference",
-	api_key="hf_***"
-)
-
-# output is a PIL.Image object
-image = client.text_to_image(
-	"Astronaut riding a horse",
-	model="black-forest-labs/FLUX.1-dev"
-)
-```
-
-Using `requests`:
-```py
-import requests
-
-API_URL = "https://router.huggingface.co/hf-inference/v1"
-headers = {"Authorization": "Bearer hf_***"}
-
-def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.content
-
-image_bytes = query({
-	"inputs": "Astronaut riding a horse",
-})
-
-# You can access the image with PIL.Image for example
-import io
-from PIL import Image
-image = Image.open(io.BytesIO(image_bytes))
-```
-
-To use the Python client, see `huggingface_hub`'s [package reference](https://huggingface.co/docs/huggingface_hub/package_reference/inference_client#huggingface_hub.InferenceClient.text_to_image).
-</python>
-
-<js>
-Using `huggingface.js`:
-```js
-import { HfInference } from "@huggingface/inference";
-
-const client = new HfInference("hf_***");
-
-const image = await client.textToImage({
-	model: "black-forest-labs/FLUX.1-dev",
-	inputs: "Astronaut riding a horse",
-	parameters: { num_inference_steps: 5 },
-	provider: "hf-inference",
-});
-/// Use the generated image (it's a Blob)
-
-```
-
-Using `fetch`:
-```js
-async function query(data) {
-	const response = await fetch(
-		"https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-dev",
-		{
-			headers: {
-				Authorization: "Bearer hf_***",
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	);
-	const result = await response.blob();
-	return result;
-}
-query({"inputs": "Astronaut riding a horse"}).then((response) => {
-	// Use image
-});
-```
-
-To use the JavaScript client, see `huggingface.js`'s [package reference](https://huggingface.co/docs/huggingface.js/inference/classes/HfInference#texttoimage).
-</js>
-
-</inferencesnippet>
+<InferenceSnippet
+    pipeline=text-to-image
+    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"fal-ai/flux/dev"},"hf-inference":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"},"nebius":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/flux-dev"},"replicate":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/flux-dev"},"together":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"}} }
+/>
 
 
 
