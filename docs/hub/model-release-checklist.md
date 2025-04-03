@@ -7,6 +7,7 @@ The Hugging Face Hub is the go-to platform for sharing machine learning models. 
 ### Uploading weights
 
 When uploading models to the hub, it's recommended to follow a set of best practices:
+
 ### Uploading Weights
 
 - **Use separate repositories for different model weights.** For example, you can store quantization variants for the same model in a single repository, but use separate repositories for different model weights.
