@@ -8,7 +8,7 @@ SambaNova’s AI platform is the technology backbone for the next decade of AI i
 
 ### Chat completion
 
-Find out more about Chat completion [here](../tasks/chat-completion.md).
+Find out more about Chat completion [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
