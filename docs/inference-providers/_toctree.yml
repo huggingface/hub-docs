@@ -6,10 +6,17 @@
     title: Pricing and Billing
   - local: hub-integration
     title: Hub integration
-  - local: security
-    title: Security
   - local: register-as-a-provider
     title: Register as an Inference Provider
+  - local: security
+    title: Security
+
+- title: Providers
+  sections:
+  - local: providers/index
+    title: Index
+  - local: providers/sambanova
+    title: SambaNova
 - title: API Reference
   sections:
   - local: tasks/index
