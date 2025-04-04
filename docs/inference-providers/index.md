@@ -28,6 +28,13 @@ Inference Providers offers a fast and simple way to explore thousands of models 
 - **🔧 Developer-Friendly**: Simple requests, fast responses, and a consistent developer experience across Python and JavaScript clients.
 - **💰 Cost-Effective**: No extra markup on provider rates.
 
+## Partners
+
+Here is the complete list of partners integrated with Inference Providers, and the supported tasks for each of them:
+
+| Provider                           | Chat completion | Feature-extraction | Text-to-Image | Text-to-video |
+| ---------------------------------- | :-------------: | :----------------: | :-----------: | :-----------: |
+| [SambaNova](./providers/sambanova) |        ✅        |                    |               |               |
 
 ## Inference Playground
 
