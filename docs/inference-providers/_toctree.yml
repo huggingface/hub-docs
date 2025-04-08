@@ -29,6 +29,8 @@
       title: Feature Extraction
     - local: tasks/text-to-image
       title: Text to Image
+    - local: tasks/text-to-video
+      title: Text to Video
   - title: Other Tasks
     sections:
     - local: tasks/audio-classification

@@ -179,6 +179,6 @@ console.log(chatCompletion.choices[0].message);
 In this introduction, we've covered the basics of Inference Providers. To learn more about this service, check out our guides and API Reference:
 - [Pricing and Billing](./pricing): everything you need to know about billing.
 - [Hub integration](./hub-integration): how is Inference Providers integrated with the Hub?
-- [Register as an Inference Provider](./register-as-a-provider.md): everything about how to become an official partner. 
+- [Register as an Inference Provider](./register-as-a-provider): everything about how to become an official partner. 
 - [Hub API](./hub-api): high-level API for Inference Providers.
 - [API Reference](./tasks/index): learn more about the parameters and task-specific settings.
