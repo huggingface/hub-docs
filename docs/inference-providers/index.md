@@ -13,7 +13,7 @@ To learn more about the launch of Inference Providers, check out our [announceme
 
 Here is the complete list of partners integrated with Inference Providers, and the supported tasks for each of them:
 
-| Provider                              | Chat completion (LLM) | Chat completion (VLM) | Feature-extraction | Text-to-Image | Text-to-video |
+| Provider                              | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video |
 | ------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: |
 | [Cerebras](./providers/cerebras)      |           ✅           |                       |                    |               |               |
 | [Fal AI](./providers/fal-ai)          |                       |                       |                    |       ✅       |       ✅       |
