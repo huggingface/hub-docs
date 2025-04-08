@@ -13,8 +13,24 @@
 
 - title: Providers
   sections:
+  - local: providers/cerebras
+    title: Cerebras
+  - local: providers/fal-ai
+    title: Fal AI
+  - local: providers/fireworks-ai
+    title: Fireworks
+  - local: providers/hyperbolic
+    title: Hyperbolic
+  - local: providers/nebius
+    title: Nebius
+  - local: providers/novita
+    title: Novita
+  - local: providers/replicate
+    title: Replicate
   - local: providers/sambanova
     title: SambaNova
+  - local: providers/together
+    title: Together
 - title: API Reference
   sections:
   - local: tasks/index

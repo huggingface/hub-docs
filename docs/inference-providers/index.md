@@ -9,6 +9,22 @@ Hugging Face Inference Providers simplify and unify how developers access and ru
 
 To learn more about the launch of Inference Providers, check out our [announcement blog post](https://huggingface.co/blog/inference-providers).
 
+## Partners
+
+Here is the complete list of partners integrated with Inference Providers, and the supported tasks for each of them:
+
+| Provider                              | Chat completion (LLM) | Chat completion (VLM) | Feature-extraction | Text-to-Image | Text-to-video |
+| ------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: |
+| [Cerebras](./providers/cerebras)      |           ✅           |                       |                    |               |               |
+| [Fal AI](./providers/fal-ai)          |                       |                       |                    |       ✅       |       ✅       |
+| [Fireworks](./providers/fireworks-ai) |           ✅           |           ✅           |                    |               |               |
+| [Hyperbolic](./providers/hyperbolic)  |           ✅           |           ✅           |                    |               |               |
+| [Nebius](./providers/nebius)          |           ✅           |           ✅           |                    |       ✅       |               |
+| [Novita](./providers/novita)          |           ✅           |           ✅           |                    |               |       ✅       |
+| [Replicate](./providers/replicate)    |                       |                       |                    |       ✅       |       ✅       |
+| [SambaNova](./providers/sambanova)    |           ✅           |                       |         ✅          |               |               |
+| [Together](./providers/together)      |           ✅           |           ✅           |                    |       ✅       |               |
+
 ## Why use Inference Providers?
 
 Inference Providers offers a fast and simple way to explore thousands of models for a variety of tasks. Whether you're experimenting with ML capabilities or building a new application, this API gives you instant access to high-performing models across multiple domains:
@@ -27,14 +43,6 @@ Inference Providers offers a fast and simple way to explore thousands of models 
 - **🚀 Scalable & Reliable**: Built for high availability and low-latency performance in production environments.
 - **🔧 Developer-Friendly**: Simple requests, fast responses, and a consistent developer experience across Python and JavaScript clients.
 - **💰 Cost-Effective**: No extra markup on provider rates.
-
-## Partners
-
-Here is the complete list of partners integrated with Inference Providers, and the supported tasks for each of them:
-
-| Provider                           | Chat completion | Feature-extraction | Text-to-Image | Text-to-video |
-| ---------------------------------- | :-------------: | :----------------: | :-----------: | :-----------: |
-| [SambaNova](./providers/sambanova) |        ✅        |                    |               |               |
 
 ## Inference Playground
 

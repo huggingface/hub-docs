@@ -107,6 +107,11 @@ const ROOT_DIR = path
 const TEMPLATE_DIR = path.join(ROOT_DIR, "templates");
 const DOCS_DIR = path.join(ROOT_DIR, "..", "..", "docs");
 const TASKS_DOCS_DIR = path.join(DOCS_DIR, "inference-providers", "tasks");
+const PROVIDERS_DOCS_DIR = path.join(
+  DOCS_DIR,
+  "inference-providers",
+  "providers"
+);
 
 const NBSP = "&nbsp;"; // non-breaking space
 const TABLE_INDENT = NBSP.repeat(8);
@@ -133,6 +138,21 @@ function writeTaskDoc(templateName: string, content: string): Promise<void> {
     .mkdir(TASKS_DOCS_DIR, { recursive: true })
     .then(() =>
       fs.writeFile(taskDocPath, contentWithHeader, { encoding: "utf-8" })
+    );
+}
+
+function writeProviderDoc(
+  templateName: string,
+  content: string
+): Promise<void> {
+  const providerDocPath = path.join(PROVIDERS_DOCS_DIR, `${templateName}.md`);
+  console.log(`   💾 Saving to ${providerDocPath}`);
+  const header = PROVIDER_PAGE_HEADER({ provider: templateName });
+  const contentWithHeader = `<!---\n${header}\n--->\n\n${content}`;
+  return fs
+    .mkdir(TASKS_DOCS_DIR, { recursive: true })
+    .then(() =>
+      fs.writeFile(providerDocPath, contentWithHeader, { encoding: "utf-8" })
     );
 }
 
@@ -336,6 +356,9 @@ const SPECS_HEADERS = await readTemplate("specs-headers", "common");
 const PAGE_HEADER = Handlebars.compile(
   await readTemplate("page-header", "common")
 );
+const PROVIDER_PAGE_HEADER = Handlebars.compile(
+  await readTemplate("provider-header", "common")
+);
 const SNIPPETS_TEMPLATE = Handlebars.compile(
   await readTemplate("snippets-template", "common")
 );
@@ -344,6 +367,9 @@ const SPECS_PAYLOAD_TEMPLATE = Handlebars.compile(
 );
 const SPECS_OUTPUT_TEMPLATE = Handlebars.compile(
   await readTemplate("specs-output", "common")
+);
+const PROVIDER_TASKS_TEMPLATE = Handlebars.compile(
+  await readTemplate("provider-tasks", "common")
 );
 
 ////////////////////
@@ -355,7 +381,7 @@ const DATA: {
     specsHeaders: string;
   };
   recommendedModels: Record<
-    string,
+    string, // task
     {
       id: string;
       description: string;
@@ -364,7 +390,7 @@ const DATA: {
     }[]
   >;
   perProviderWarmModels: Record<
-    string,
+    string, // task
     {
       modelId: string;
       provider: string;
@@ -574,8 +600,12 @@ async function fetchChatCompletion() {
     "text-generation"
   ].filter((model) => model.tags?.includes("conversational"));
 
+  DATA.perProviderWarmModels["chat-completion"] = await fetchWarmModels(
+    "text-generation",
+    true
+  );
   const providersMappingChatCompletion = buildProviderMapping(
-    await fetchWarmModels("text-generation", true)
+    DATA.perProviderWarmModels["chat-completion"]
   );
   DATA.snippets["chat-completion"] = SNIPPETS_TEMPLATE({
     task: "text-generation",
@@ -594,8 +624,12 @@ async function fetchChatCompletion() {
     DATA.recommendedModels["image-text-to-text"].filter((model) =>
       model.tags?.includes("conversational")
     );
+  DATA.perProviderWarmModels["image-text-to-text"] = await fetchWarmModels(
+    "image-text-to-text",
+    true
+  );
   const providersMappingImageTextToText = buildProviderMapping(
-    await fetchWarmModels("image-text-to-text", true)
+    DATA.perProviderWarmModels["image-text-to-text"]
   );
 
   DATA.snippets["conversational-image-text-to-text"] = SNIPPETS_TEMPLATE({
@@ -610,16 +644,82 @@ async function fetchChatCompletion() {
 
 await fetchChatCompletion();
 
+///////////////////////////////
+//// Providers pages utils ////
+///////////////////////////////
+
+const PER_PROVIDER_TASKS: Record<
+  string, // provider
+  {
+    provider: string;
+    pipelineTag: string;
+    title: string;
+    linkAnchor: string;
+    modelId: string;
+    providerModelId: string;
+    conversational: boolean;
+  }[]
+> = {};
+
+// Populate PER_PROVIDER_TASKS based on DATA.perProviderWarmModels
+Object.entries(DATA.perProviderWarmModels).forEach(([task, models]) => {
+  models.forEach((model) => {
+    if (!PER_PROVIDER_TASKS[model.provider]) {
+      PER_PROVIDER_TASKS[model.provider] = [];
+    }
+    let conversational = ["chat-completion", "image-text-to-text"].includes(
+      task
+    );
+    let title = conversational
+      ? task == "image-text-to-text"
+        ? "Chat Completion (VLM)"
+        : "Chat Completion (LLM)"
+      : task
+          .replaceAll("-", " ")
+          .split(" ")
+          .map((word) => word[0].toUpperCase() + word.slice(1))
+          .join(" ");
+
+    let linkAnchor = conversational
+      ? "chat-completion"
+      : task.replaceAll("-", "_");
+
+    let pipelineTag = task === "chat-completion" ? "text-generation" : task;
+
+    PER_PROVIDER_TASKS[model.provider].push({
+      provider: model.provider,
+      pipelineTag,
+      title,
+      linkAnchor,
+      modelId: model.modelId,
+      providerModelId: model.providerModelId,
+      conversational,
+    });
+  });
+});
+
+// sort tasks by title
+Object.entries(PER_PROVIDER_TASKS).forEach(([provider, tasks]) => {
+  PER_PROVIDER_TASKS[provider] = tasks.sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+});
+
+console.log(PER_PROVIDER_TASKS);
+
 /////////////////////////
 //// Rendering utils ////
 /////////////////////////
 
 async function renderTemplate(
   templateName: string,
+  namespace: string,
   data: JsonObject
 ): Promise<string> {
-  console.log(`🎨  Rendering ${templateName}`);
-  const template = Handlebars.compile(await readTemplate(templateName, "task"));
+  console.log(`🎨  Rendering ${templateName} (${namespace})`);
+  const template = Handlebars.compile(
+    await readTemplate(templateName, namespace)
+  );
   return template(data);
 }
 
@@ -629,8 +729,20 @@ await Promise.all(
       return; // not generated -> merged with chat-completion
     }
     // @ts-ignore
-    const rendered = await renderTemplate(task, DATA);
+    const rendered = await renderTemplate(task, "task", DATA);
     await writeTaskDoc(task, rendered);
+  })
+);
+
+await Promise.all(
+  Object.entries(PER_PROVIDER_TASKS).map(async ([provider, tasks]) => {
+    if (provider === "hf-inference") {
+      return;
+    }
+    const rendered = await renderTemplate(provider, "providers", {
+      tasksSection: PROVIDER_TASKS_TEMPLATE({ tasks }),
+    });
+    await writeProviderDoc(provider, rendered);
   })
 );
 
