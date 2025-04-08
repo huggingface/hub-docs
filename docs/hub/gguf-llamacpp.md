@@ -21,11 +21,15 @@ Step 1: Clone llama.cpp from GitHub.
 git clone https://github.com/ggerganov/llama.cpp
 ```
 
-Step 2: Move into the llama.cpp folder and build it with `LLAMA_CURL=1` flag along with other hardware-specific flags (for ex: LLAMA_CUDA=1 for Nvidia GPUs on Linux).
+Step 2: Move into the llama.cpp folder and build it. You can also add hardware-specific flags (for ex: `-DGGML_CUDA=1` for Nvidia GPUs).
 
 ```
-cd llama.cpp && LLAMA_CURL=1 make
+cd llama.cpp
+cmake -B build   # optionally, add -DGGML_CUDA=ON to activate CUDA
+cmake --build build --config Release
 ```
+
+Note: for other hardware support (for ex: AMD ROCm, Intel SYCL), please refer to [llama.cpp's build guide](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md)
 
 Once installed, you can use the `llama-cli` or `llama-server` as follows:
 
@@ -33,7 +37,7 @@ Once installed, you can use the `llama-cli` or `llama-server` as follows:
 llama-cli -hf bartowski/Llama-3.2-3B-Instruct-GGUF:Q8_0
 ```
 
-Note: You can remove `-cnv` to run the CLI in chat completion mode.
+Note: You can explicitly add `-no-cnv` to run the CLI in raw completion mode (non-chat mode).
 
 Additionally, you can invoke an OpenAI spec chat completions endpoint directly using the llama.cpp server:
 
@@ -62,5 +66,3 @@ curl http://localhost:8080/v1/chat/completions \
 ```
 
 Replace `-hf` with any valid Hugging Face hub repo name - off you go! 🦙
-
-Note: Remember to `build` llama.cpp with `LLAMA_CURL=1` :)
