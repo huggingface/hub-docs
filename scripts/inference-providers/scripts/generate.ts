@@ -736,9 +736,6 @@ await Promise.all(
 
 await Promise.all(
   Object.entries(PER_PROVIDER_TASKS).map(async ([provider, tasks]) => {
-    if (provider === "hf-inference") {
-      return;
-    }
     const rendered = await renderTemplate(provider, "providers", {
       tasksSection: PROVIDER_TASKS_TEMPLATE({ tasks }),
     });

@@ -13,17 +13,18 @@ To learn more about the launch of Inference Providers, check out our [announceme
 
 Here is the complete list of partners integrated with Inference Providers, and the supported tasks for each of them:
 
-| Provider                              | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video |
-| ------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: |
-| [Cerebras](./providers/cerebras)      |           ✅           |                       |                    |               |               |
-| [Fal AI](./providers/fal-ai)          |                       |                       |                    |       ✅       |       ✅       |
-| [Fireworks](./providers/fireworks-ai) |           ✅           |           ✅           |                    |               |               |
-| [Hyperbolic](./providers/hyperbolic)  |           ✅           |           ✅           |                    |               |               |
-| [Nebius](./providers/nebius)          |           ✅           |           ✅           |                    |       ✅       |               |
-| [Novita](./providers/novita)          |           ✅           |           ✅           |                    |               |       ✅       |
-| [Replicate](./providers/replicate)    |                       |                       |                    |       ✅       |       ✅       |
-| [SambaNova](./providers/sambanova)    |           ✅           |                       |         ✅          |               |               |
-| [Together](./providers/together)      |           ✅           |           ✅           |                    |       ✅       |               |
+| Provider                                 | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video |
+| ---------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: |
+| [Cerebras](./providers/cerebras)         |           ✅           |                       |                    |               |               |
+| [Fal AI](./providers/fal-ai)             |                       |                       |                    |       ✅       |       ✅       |
+| [Fireworks](./providers/fireworks-ai)    |           ✅           |           ✅           |                    |               |               |
+| [HF Inference](./providers/hf-inference) |           ✅           |           ✅           |         ✅          |       ✅       |               |
+| [Hyperbolic](./providers/hyperbolic)     |           ✅           |           ✅           |                    |               |               |
+| [Nebius](./providers/nebius)             |           ✅           |           ✅           |                    |       ✅       |               |
+| [Novita](./providers/novita)             |           ✅           |           ✅           |                    |               |       ✅       |
+| [Replicate](./providers/replicate)       |                       |                       |                    |       ✅       |       ✅       |
+| [SambaNova](./providers/sambanova)       |           ✅           |                       |         ✅          |               |               |
+| [Together](./providers/together)         |           ✅           |           ✅           |                    |       ✅       |               |
 
 ## Why use Inference Providers?
 

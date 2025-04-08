@@ -21,6 +21,8 @@
     title: Fireworks
   - local: providers/hyperbolic
     title: Hyperbolic
+  - local: providers/hf-inference
+    title: HF Inference
   - local: providers/nebius
     title: Nebius
   - local: providers/novita
