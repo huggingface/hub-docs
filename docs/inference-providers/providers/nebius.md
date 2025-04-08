@@ -12,6 +12,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 ![https://nebius.com/](https://companieslogo.com/img/orig/NBIS_BIG-446495ba.png?t=1729269594)
 
+![https://huggingface.co/nebius](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)
+
 ​Nebius AI is a technology company specializing in AI-centric cloud platforms, offering scalable GPU clusters, managed services, and developer tools designed for intensive AI workloads. Headquartered in Amsterdam, Nebius provides flexible architecture and high-performance infrastructure to support AI model training and inference at any scale.
 
 ## Supported tasks

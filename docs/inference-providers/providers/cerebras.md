@@ -12,6 +12,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 ![https://www.cerebras.ai/](https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cerebras_logo.svg/512px-Cerebras_logo.svg.png)
 
+![https://huggingface.co/cerebras](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)
+
 Cerebras stands alone as the world’s fastest AI inference and training platform. Organizations across fields like medical research, cryptography, energy, and agentic AI use our CS-2 and CS-3 systems to build on-premise supercomputers, while developers and enterprises everywhere can access the power of Cerebras through our pay-as-you-go cloud offerings.
 
 ## Supported tasks

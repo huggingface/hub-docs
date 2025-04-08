@@ -12,6 +12,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 ![https://fireworks.ai/](https://d1.awsstatic.com/fireworks-ai-wordmark-color-dark.93b1f27fdf77899fa02afb949fb27317ee4081ad.png)
 
+![https://huggingface.co/fireworks-ai](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)
+
 Fireworks AI is a developer-centric platform that delivers high-performance generative AI solutions, enabling efficient deployment and fine-tuning of large language models (LLMs) and image models.
 ## Supported tasks
 

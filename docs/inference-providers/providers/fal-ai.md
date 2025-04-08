@@ -12,7 +12,9 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 ![https://fal.ai/](https://images.seeklogo.com/logo-png/61/1/fal-ai-logo-png_seeklogo-611592.png)
 
-Founded in 2021 by Burkay Gur and Gorkem Yurtseven, fal.ai was born out of a shared passion for AI and a desire to address the challenges in AI infrastructure observed during their tenures at Coinbase and Amazon.
+![https://huggingface.co/fal](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)
+
+Founded in 2021 by [Burkay Gur](https://huggingface.co/burkaygur) and [Gorkem Yurtseven](https://huggingface.co/gorkemyurt), fal.ai was born out of a shared passion for AI and a desire to address the challenges in AI infrastructure observed during their tenures at Coinbase and Amazon.
 
 ## Supported tasks
 

@@ -12,6 +12,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 ![https://novita.ai/](https://novita.ai/logo/logo.svg)
 
+![https://huggingface.co/novita](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)
+
 ​Novita AI is a comprehensive AI cloud platform that provides developers and businesses with access to over 200 APIs for tasks such as image generation, video processing, audio synthesis, and large language models.
 
 ## Supported tasks
