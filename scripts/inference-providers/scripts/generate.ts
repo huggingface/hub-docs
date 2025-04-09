@@ -29,7 +29,9 @@ const TASKS: PipelineType[] = [
 const TASKS_EXTENDED = [...TASKS, "chat-completion"];
 const SPECS_REVISION = "main";
 
-const HEADERS = { Authorization: `Bearer ${process.env.HF_TOKEN}` };
+const HEADERS: Record<string, string> = process.env.HF_TOKEN
+  ? { Authorization: `Bearer ${process.env.HF_TOKEN}` }
+  : {};
 
 const PROVIDERS_HUB_ORGS: Record<string, string> = {
   cerebras: "cerebras",
@@ -510,12 +512,10 @@ async function fetchWarmModels(
           inferenceProviderMapping: Record<string, string>[];
           tags: string[];
         }[];
-        if (modelsData.length === 0 || modelsData[0] === undefined) {
+        if (modelsData.length === 0) {
           console.warn(
             `   ⚠️  No warm model found for ${task} from ${provider}`
           );
-          console.log(modelsData);
-          console.log("cancel early");
           return;
         }
 
