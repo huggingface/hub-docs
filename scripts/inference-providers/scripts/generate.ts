@@ -514,6 +514,8 @@ async function fetchWarmModels(
           console.warn(
             `   ⚠️  No warm model found for ${task} from ${provider}`
           );
+          console.log(modelsData);
+          console.log("cancel early");
           return;
         }
 
