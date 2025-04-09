@@ -10,9 +10,9 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Replicate
 
-![https://replicate.com/](https://cdn.sanity.io/images/50q6fr1p/production/2542fad4ab944c0f5e1ab7507a3333a2d5f7f464-2626x684.png?auto=format)
+[![https://replicate.com/](https://cdn.sanity.io/images/50q6fr1p/production/2542fad4ab944c0f5e1ab7507a3333a2d5f7f464-2626x684.png?auto=format)](https://replicate.com/)
 
-![https://huggingface.co/replicate](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)
+[![https://huggingface.co/replicate](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)](https://huggingface.co/replicate)
 
 Replicate is building tools so all software engineers can use AI as if it were normal software. You should be able to import an image generator the same way you import an npm package. You should be able to customize a model as easily as you can fork something on GitHub.
 

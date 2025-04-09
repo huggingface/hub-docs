@@ -10,9 +10,9 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # SambaNova
 
-![https://sambanova.ai/](https://sambanova.ai/hubfs/sambanova-logo-black.png)
+[![SambaNova Logo](https://sambanova.ai/hubfs/sambanova-logo-black.png)](https://sambanova.ai/)
 
-![https://huggingface.co/sambanovasystems](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)
+[![Follow us on Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)](https://huggingface.co/sambanovasystems)
 
 SambaNova's AI platform is the technology backbone for the next decade of AI innovation.
 Customers are turning to SambaNova to quickly deploy state-of-the-art AI and deep learning capabilities that help them outcompete their peers.

@@ -10,9 +10,9 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Hyperbolic
 
-![https://hyperbolic.xyz/](https://cdn-images-1.medium.com/max/330/1*vVHd_J2oAOKr1IyjFB-pYQ@2x.png)
+[![hyperbolic.xyz logo](https://cdn-images-1.medium.com/max/330/1*vVHd_J2oAOKr1IyjFB-pYQ@2x.png)](https://hyperbolic.xyz/)
 
-![https://huggingface.co/hyperbolic](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)
+[![Follow us on Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)](https://huggingface.co/hyperbolic)
 
 Hyperbolic is building an open-access platform for AI development by aggregating idle computing resources and making it seamlessly simple to use them.
 

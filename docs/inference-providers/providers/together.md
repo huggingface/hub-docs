@@ -10,9 +10,9 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Together
 
-![https://www.together.ai/](https://cdn.prod.website-files.com/64f6f2c0e3f4c5a91c1e823a/65d36320026d81d87266e15f_together-color.jpg)
+[![https://www.together.ai/](https://cdn.prod.website-files.com/64f6f2c0e3f4c5a91c1e823a/65d36320026d81d87266e15f_together-color.jpg)](https://www.together.ai/)
 
-![https://huggingface.co/togethercomputer](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)
+[![https://huggingface.co/togethercomputer](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)](https://huggingface.co/togethercomputer)
 
 Together decentralized cloud services empower developers and researchers at organizations of all sizes to train, fine-tune, and deploy generative AI models.
 
