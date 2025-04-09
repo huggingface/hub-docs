@@ -26,7 +26,7 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
     </a>
 </div>
 
-<div class="flex justify-center">
+<div class="flex">
     <a href="https://huggingface.co/fireworks-ai" target="_blank">
         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg"/>
         <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg-dark.svg"/>

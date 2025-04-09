@@ -26,8 +26,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
     </a>
 </div>
 
-<div class="flex justify-center">
-    <a href="https://huggingface.co/sambanova" target="_blank">
+<div class="flex">
+    <a href="https://huggingface.co/sambanovasystems" target="_blank">
         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg"/>
         <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg-dark.svg"/>
     </a>

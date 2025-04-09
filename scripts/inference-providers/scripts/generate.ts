@@ -31,6 +31,19 @@ const SPECS_REVISION = "main";
 
 const HEADERS = { Authorization: `Bearer ${process.env.HF_TOKEN}` };
 
+const PROVIDERS_HUB_ORGS: Record<string, string> = {
+  cerebras: "cerebras",
+  "fal-ai": "fal",
+  "fireworks-ai": "fireworks-ai",
+  "hf-inference": "hf-inference",
+  hyperbolic: "Hyperbolic",
+  nebius: "nebius",
+  novita: "novita",
+  replicate: "replicate",
+  sambanova: "sambanovasystems",
+  together: "togethercomputer",
+};
+
 const PROVIDERS_URLS: Record<string, string> = {
   cerebras: "https://www.cerebras.ai/",
   "fal-ai": "https://fal.ai/",
@@ -757,7 +770,10 @@ await Promise.all(
   Object.entries(PER_PROVIDER_TASKS).map(async ([provider, tasks]) => {
     const rendered = await renderTemplate(provider, "providers", {
       tasksSection: PROVIDER_TASKS_TEMPLATE({ tasks }),
-      followUsSection: FOLLOW_US_BUTTON_TEMPLATE({ provider }),
+      followUsSection: FOLLOW_US_BUTTON_TEMPLATE({
+        provider,
+        providerHubOrg: PROVIDERS_HUB_ORGS[provider],
+      }),
       logoSection: PROVIDER_LOGO_TEMPLATE({
         provider,
         providerUrl: PROVIDERS_URLS[provider],
