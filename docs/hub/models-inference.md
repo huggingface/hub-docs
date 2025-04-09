@@ -6,6 +6,8 @@ Please refer to the [Inference Providers Documentation](https://huggingface.co/d
 
 HF-Inference API is the serverless Inference API powered by Hugging Face. This service used to be called “Inference API (serverless)” prior to Inference Providers. HF-Inference API is one of the many providers available on the Hugging Face Hub.
 
+For more details about the HF-Inference API, check out it's [dedicated page](https://huggingface.co/docs/inference-providers/providers/hf-inference).
+
 ## What technology do you use to power the HF-Inference API?
 
 The HF-Inference API is powered by [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) under the hood.
