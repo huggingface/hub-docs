@@ -1,0 +1,14 @@
+## Supported tasks
+
+{{#each tasks}}
+
+### {{title}}
+
+Find out more about {{title}} [here](../tasks/{{linkAnchor}}).
+
+<InferenceSnippet
+    pipeline={{ pipelineTag }}
+    providersMapping={ {"{{provider}}":{"modelId":"{{modelId}}","providerModelId":"{{providerModelId}}"} } }
+{{#if conversational }}conversational {{/if}}/>
+
+{{/each}}

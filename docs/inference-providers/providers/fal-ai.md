@@ -1,0 +1,50 @@
+<!---
+WARNING
+
+This markdown file has been generated from a script. Please do not edit it directly.
+
+If you want to update the content related to fal-ai's description, please edit the template file under `https://github.com/huggingface/hub-docs/tree/main/scripts/inference-providers/templates/providers/fal-ai.handlebars`.
+
+For more details, check out the `generate.ts` script: https://github.com/huggingface/hub-docs/blob/main/scripts/inference-providers/scripts/generate.ts.
+--->
+
+# Fal
+
+[![fal.ai logo](https://images.seeklogo.com/logo-png/61/1/fal-ai-logo-png_seeklogo-611592.png)](https://fal.ai/)
+
+[![Follow us on Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)](https://huggingface.co/fal)
+
+Founded in 2021 by [Burkay Gur](https://huggingface.co/burkaygur) and [Gorkem Yurtseven](https://huggingface.co/gorkemyurt), fal.ai was born out of a shared passion for AI and a desire to address the challenges in AI infrastructure observed during their tenures at Coinbase and Amazon.
+
+## Supported tasks
+
+
+### Automatic Speech Recognition
+
+Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
+
+<InferenceSnippet
+    pipeline=automatic-speech-recognition
+    providersMapping={ {"fal-ai":{"modelId":"openai/whisper-large-v3","providerModelId":"fal-ai/whisper"} } }
+/>
+
+
+### Text To Image
+
+Find out more about Text To Image [here](../tasks/text_to_image).
+
+<InferenceSnippet
+    pipeline=text-to-image
+    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"fal-ai/flux/dev"} } }
+/>
+
+
+### Text To Video
+
+Find out more about Text To Video [here](../tasks/text_to_video).
+
+<InferenceSnippet
+    pipeline=text-to-video
+    providersMapping={ {"fal-ai":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"fal-ai/wan-t2v"} } }
+/>
+
