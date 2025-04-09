@@ -510,7 +510,10 @@ async function fetchWarmModels(
           inferenceProviderMapping: Record<string, string>[];
           tags: string[];
         }[];
-        if (modelsData.length === 0) {
+        if (modelsData.length === 0 || modelsData[0] === undefined) {
+          console.warn(
+            `   ⚠️  No warm model found for ${task} from ${provider}`
+          );
           return;
         }
 
