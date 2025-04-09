@@ -77,9 +77,9 @@ Langfuse is model agnostic and can be used to trace any application. Follow the 
 
 Langfuse maintains native integrations with many popular LLM frameworks, including [Langchain](https://langfuse.com/docs/integrations/langchain/tracing), [LlamaIndex](https://langfuse.com/docs/integrations/llama-index/get-started) and [OpenAI](https://langfuse.com/docs/integrations/openai/python/get-started) and offers Python and JS/TS SDKs to instrument your code. Langfuse also offers various API endpoints to ingest data and has been integrated by other open source projects such as [Langflow](https://langfuse.com/docs/integrations/langflow), [Dify](https://langfuse.com/docs/integrations/dify) and [Haystack](https://langfuse.com/docs/integrations/haystack/get-started).
 
-### Example 1: Trace Calls to HF Serverless API
+### Example 1: Trace Calls to Inference Providers
 
-As a simple example, here's how to trace LLM calls to the [HF Serverless API](https://huggingface.co/docs/inference-providers/en/index) using the Langfuse Python SDK.
+As a simple example, here's how to trace LLM calls to [Inference Providers](https://huggingface.co/docs/inference-providers/en/index) using the Langfuse Python SDK.
 
 Be sure to first configure your `LANGFUSE_HOST`, `LANGFUSE_PUBLIC_KEY` and `LANGFUSE_SECRET_KEY` environment variables, and make sure you've [authenticated with your Hugging Face account](https://huggingface.co/docs/huggingface_hub/en/quick-start#authentication).
 
@@ -88,7 +88,7 @@ from langfuse.openai import openai
 from huggingface_hub import get_token
 
 client = openai.OpenAI(
-    base_url="https://api-inference.huggingface.co/v1/",
+    base_url="https://router.huggingface.co/hf-inference/models/meta-llama/Llama-3.3-70B-Instruct/v1",
     api_key=get_token(),
 )
 
