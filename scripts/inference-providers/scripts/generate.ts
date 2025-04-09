@@ -31,6 +31,19 @@ const SPECS_REVISION = "main";
 
 const HEADERS = { Authorization: `Bearer ${process.env.HF_TOKEN}` };
 
+const PROVIDERS_URLS: Record<string, string> = {
+  cerebras: "https://www.cerebras.ai/",
+  "fal-ai": "https://fal.ai/",
+  "fireworks-ai": "https://fireworks.ai/",
+  "hf-inference": "https://huggingface.co/",
+  hyperbolic: "https://hyperbolic.xyz/",
+  nebius: "https://nebius.com/",
+  novita: "https://novita.ai/",
+  replicate: "https://replicate.com/",
+  sambanova: "https://sambanova.ai/",
+  together: "https://together.xyz/",
+};
+
 async function authFetchJson(url: string) {
   const headers = url.includes("huggingface.co") ? HEADERS : {};
   try {
@@ -370,6 +383,12 @@ const SPECS_OUTPUT_TEMPLATE = Handlebars.compile(
 );
 const PROVIDER_TASKS_TEMPLATE = Handlebars.compile(
   await readTemplate("provider-tasks", "common")
+);
+const PROVIDER_LOGO_TEMPLATE = Handlebars.compile(
+  await readTemplate("provider-logo", "common")
+);
+const FOLLOW_US_BUTTON_TEMPLATE = Handlebars.compile(
+  await readTemplate("follow-us-button", "common")
 );
 
 ////////////////////
@@ -738,6 +757,11 @@ await Promise.all(
   Object.entries(PER_PROVIDER_TASKS).map(async ([provider, tasks]) => {
     const rendered = await renderTemplate(provider, "providers", {
       tasksSection: PROVIDER_TASKS_TEMPLATE({ tasks }),
+      followUsSection: FOLLOW_US_BUTTON_TEMPLATE({ provider }),
+      logoSection: PROVIDER_LOGO_TEMPLATE({
+        provider,
+        providerUrl: PROVIDERS_URLS[provider],
+      }),
     });
     await writeProviderDoc(provider, rendered);
   })

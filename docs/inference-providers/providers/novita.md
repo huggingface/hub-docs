@@ -3,16 +3,35 @@ WARNING
 
 This markdown file has been generated from a script. Please do not edit it directly.
 
+### Template
+
 If you want to update the content related to novita's description, please edit the template file under `https://github.com/huggingface/hub-docs/tree/main/scripts/inference-providers/templates/providers/novita.handlebars`.
+
+### Logos
+
+If you want to update novita's logo, upload a file by opening a PR on https://huggingface.co/datasets/huggingface/documentation-images/tree/main/inference-providers/logos. Ping @wauplin and @celinah on the PR to let them know you uploaded a new logo.
+Logos must be in .png format and be named `novita-light.png` and `novita-dark.png`. Visit https://huggingface.co/settings/theme to switch between light and dark mode and check that the logos are displayed correctly.
+
+### Generation script
 
 For more details, check out the `generate.ts` script: https://github.com/huggingface/hub-docs/blob/main/scripts/inference-providers/scripts/generate.ts.
 --->
 
 # Novita
 
-[![https://novita.ai/](https://novita.ai/logo/logo.svg)](https://novita.ai/)
+<div class="flex justify-center">
+    <a href="https://novita.ai/" target="_blank">
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/novita-light.png"/>
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/novita-dark.png"/>
+    </a>
+</div>
 
-[![https://huggingface.co/novita](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)](https://huggingface.co/novita)
+<div class="flex justify-center">
+    <a href="https://huggingface.co/novita" target="_blank">
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg"/>
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg-dark.svg"/>
+    </a>
+</div>
 
 ​Novita AI is a comprehensive AI cloud platform that provides developers and businesses with access to over 200 APIs for tasks such as image generation, video processing, audio synthesis, and large language models.
 

@@ -3,16 +3,35 @@ WARNING
 
 This markdown file has been generated from a script. Please do not edit it directly.
 
+### Template
+
 If you want to update the content related to sambanova's description, please edit the template file under `https://github.com/huggingface/hub-docs/tree/main/scripts/inference-providers/templates/providers/sambanova.handlebars`.
+
+### Logos
+
+If you want to update sambanova's logo, upload a file by opening a PR on https://huggingface.co/datasets/huggingface/documentation-images/tree/main/inference-providers/logos. Ping @wauplin and @celinah on the PR to let them know you uploaded a new logo.
+Logos must be in .png format and be named `sambanova-light.png` and `sambanova-dark.png`. Visit https://huggingface.co/settings/theme to switch between light and dark mode and check that the logos are displayed correctly.
+
+### Generation script
 
 For more details, check out the `generate.ts` script: https://github.com/huggingface/hub-docs/blob/main/scripts/inference-providers/scripts/generate.ts.
 --->
 
 # SambaNova
 
-[![SambaNova Logo](https://sambanova.ai/hubfs/sambanova-logo-black.png)](https://sambanova.ai/)
+<div class="flex justify-center">
+    <a href="https://sambanova.ai/" target="_blank">
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/sambanova-light.png"/>
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/sambanova-dark.png"/>
+    </a>
+</div>
 
-[![Follow us on Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)](https://huggingface.co/sambanovasystems)
+<div class="flex justify-center">
+    <a href="https://huggingface.co/sambanova" target="_blank">
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg"/>
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg-dark.svg"/>
+    </a>
+</div>
 
 SambaNova's AI platform is the technology backbone for the next decade of AI innovation.
 Customers are turning to SambaNova to quickly deploy state-of-the-art AI and deep learning capabilities that help them outcompete their peers.
