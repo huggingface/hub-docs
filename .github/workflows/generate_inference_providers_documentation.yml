@@ -1,0 +1,77 @@
+name: Generate Inference Providers Documentation
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *" # Every day at 3am
+
+concurrency:
+  group: generate_inference_providers_documentation
+  cancel-in-progress: true
+
+jobs:
+  pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      # Setup
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          run_install: |
+            - recursive: true
+              cwd: ./scripts/inference-providers
+              args: [--frozen-lockfile]
+          package_json_file: ./scripts/inference-providers/package.json
+      - name: Update huggingface/tasks package
+        working-directory: ./scripts/inference-providers
+        run: |
+          pnpm update @huggingface/tasks@latest @huggingface/inference@latest
+      # Generate
+      - name: Generate Inference Providers documentation
+        run: pnpm run generate
+        working-directory: ./scripts/inference-providers
+
+      # Check changes
+      - name: Check changes
+        run: |
+          git diff --name-only > changed_files.txt
+          if grep -v -E "^(scripts/inference-providers/package.json|scripts/inference-providers/pnpm-lock.yaml)$" changed_files.txt | grep -q '.'; then
+            echo "changes_detected=true" >> $GITHUB_ENV
+          else
+            echo "changes_detected=false" >> $GITHUB_ENV
+          fi
+          rm changed_files.txt
+
+      # Skip PR if only certain files are updated
+      - name: Skip PR creation if no meaningful changes
+        if: env.changes_detected == 'false'
+        run: echo "No meaningful changes. Skipping PR creation."
+
+      # Create or update Pull Request
+      - name: Create Pull Request
+        if: env.changes_detected == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
+          commit-message: Update Inference Providers documentation (automated)
+          branch: update-inference-providers-docs-automated-pr
+          delete-branch: true
+          title: "[Bot] Update Inference Providers documentation"
+          body: |
+            This PR automatically upgrades the `@huggingface/tasks` and `@huggingface/inference` packages and regenerates the Inference Providers documentation by running:
+            ```sh
+            cd scripts/inference-providers
+            pnpm update @huggingface/tasks@latest @huggingface/inference@latest
+            pnpm run generate
+            ```
+
+            This PR was automatically created by the [Update Inference Providers Documentation workflow](https://github.com/huggingface/hub-docs/blob/main/.github/workflows/generate_inference_providers_documentation.yml).
+
+            Please review the changes before merging.
+          reviewers: |
+            Wauplin
+            hanouticelina
