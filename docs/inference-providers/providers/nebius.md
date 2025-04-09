@@ -3,16 +3,35 @@ WARNING
 
 This markdown file has been generated from a script. Please do not edit it directly.
 
+### Template
+
 If you want to update the content related to nebius's description, please edit the template file under `https://github.com/huggingface/hub-docs/tree/main/scripts/inference-providers/templates/providers/nebius.handlebars`.
+
+### Logos
+
+If you want to update nebius's logo, upload a file by opening a PR on https://huggingface.co/datasets/huggingface/documentation-images/tree/main/inference-providers/logos. Ping @wauplin and @celinah on the PR to let them know you uploaded a new logo.
+Logos must be in .png format and be named `nebius-light.png` and `nebius-dark.png`. Visit https://huggingface.co/settings/theme to switch between light and dark mode and check that the logos are displayed correctly.
+
+### Generation script
 
 For more details, check out the `generate.ts` script: https://github.com/huggingface/hub-docs/blob/main/scripts/inference-providers/scripts/generate.ts.
 --->
 
 # Nebius
 
-[![Nebius Logo](https://companieslogo.com/img/orig/NBIS_BIG-446495ba.png?t=1729269594)](https://nebius.com/)
+<div class="flex justify-center">
+    <a href="https://nebius.com/" target="_blank">
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/nebius-light.png"/>
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/nebius-dark.png"/>
+    </a>
+</div>
 
-[![Follow us on Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg)](https://huggingface.co/nebius)
+<div class="flex">
+    <a href="https://huggingface.co/nebius" target="_blank">
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg"/>
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg-dark.svg"/>
+    </a>
+</div>
 
 ​Nebius AI is a technology company specializing in AI-centric cloud platforms, offering scalable GPU clusters, managed services, and developer tools designed for intensive AI workloads. Headquartered in Amsterdam, Nebius provides flexible architecture and high-performance infrastructure to support AI model training and inference at any scale.
 
