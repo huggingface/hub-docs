@@ -117,7 +117,7 @@ For text-generation and conversational tasks, you can just inherit from `BaseTex
 
 ### Register the provider
 
-Go to [packages/inference/src/lib/getProviderHelper.ts](https://github.com/huggingface/huggingface.js//blob/main/packages/inference/src/lib/getProviderHelper.ts) and add your provider to `PROVIDERS`. You will have to add your provider to the `INFERENCE_PROVIDERS` list as well in [packages/inference/src/types.ts](https://github.com/huggingface/huggingface.js//blob/main/packages/inference/src/types.ts). Please try to respect alphabetical order. 
+Go to [packages/inference/src/lib/getProviderHelper.ts](https://github.com/huggingface/huggingface.js//blob/main/packages/inference/src/lib/getProviderHelper.ts) and add your provider to `PROVIDERS`. You will need to add your provider to the `INFERENCE_PROVIDERS` list as well in [packages/inference/src/types.ts](https://github.com/huggingface/huggingface.js//blob/main/packages/inference/src/types.ts). Please try to respect alphabetical order. 
 
 Update the [README.md](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/README.md) in the `packages/inference` directory to include your provider in the list of supported providers and the list of supported models links. 
 
