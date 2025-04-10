@@ -83,6 +83,7 @@ A full list of the available licenses is available here:
 | Llama 3.1 Community License Agreement                          | `llama3.1`                               | <!-- license: https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct/blob/main/LICENSE -->
 | Llama 3.2 Community License Agreement                          | `llama3.2`                               | <!-- license: https://huggingface.co/meta-llama/Llama-3.2-1B/blob/main/LICENSE.txt -->
 | Llama 3.3 Community License Agreement                          | `llama3.3`                               | <!-- license: https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE -->
+| Llama 4 Community License Agreement                            | `llama4`                                 | <!-- license: https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct/blob/main/LICENSE -->
 | Gemma Terms of Use                                             | `gemma`                                  | <!-- license: https://ai.google.dev/gemma/terms -->
 | Unknown                                                        | `unknown`                                |
 | Other                                                          | `other`                                  |
