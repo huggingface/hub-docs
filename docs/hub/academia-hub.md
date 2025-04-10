@@ -25,7 +25,6 @@ Key Features of Academia Hub:
 - **Spaces Hosting:** Create ZeroGPU Spaces with A100 hardware.
 - **Spaces Dev Mode:** Fast iterations via SSH/VS Code for Spaces.
 - **Inference Providers:** Get monthly included credits across all Inference Providers.
-- **HF Inference API:** Get x20 higher rate limits on HF Serverless API.
 - **Dataset Viewer:** Activate it on private datasets.
 - **Blog Articles:** Publish articles to the Hugging Face blog.
 - **Social Posts:** Share short updates with the community.
