@@ -38,7 +38,10 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-No snippet available for this task.
+<InferenceSnippet
+    pipeline=audio-classification
+    providersMapping={ {"hf-inference":{"modelId":"ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition","providerModelId":"ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition"}} }
+/>
 
 
 

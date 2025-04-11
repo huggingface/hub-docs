@@ -60,7 +60,7 @@ The API supports:
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"cerebras":{"modelId":"meta-llama/Llama-3.3-70B-Instruct","providerModelId":"llama-3.3-70b"},"fireworks-ai":{"modelId":"Qwen/QwQ-32B","providerModelId":"accounts/fireworks/models/qwq-32b"},"hf-inference":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B"},"hyperbolic":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B"},"nebius":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B-fast"},"novita":{"modelId":"Qwen/QwQ-32B","providerModelId":"qwen/qwq-32b"},"sambanova":{"modelId":"Qwen/QwQ-32B","providerModelId":"QwQ-32B"},"together":{"modelId":"deepseek-ai/DeepSeek-R1","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
+    providersMapping={ {"cerebras":{"modelId":"meta-llama/Llama-3.3-70B-Instruct","providerModelId":"llama-3.3-70b"},"fireworks-ai":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"accounts/fireworks/models/deepseek-v3-0324"},"hf-inference":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B"},"hyperbolic":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"deepseek-ai/DeepSeek-V3-0324"},"nebius":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"deepseek-ai/DeepSeek-V3-0324-fast"},"novita":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"deepseek/deepseek-v3-0324"},"sambanova":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"DeepSeek-V3-0324"},"together":{"modelId":"deepseek-ai/DeepSeek-R1","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
 conversational />
 
 
@@ -70,7 +70,7 @@ conversational />
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"fireworks-ai":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"accounts/fireworks/models/llama-v3p2-11b-vision-instruct"},"hf-inference":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it"},"hyperbolic":{"modelId":"Qwen/Qwen2.5-VL-7B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-7B-Instruct"},"nebius":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it-fast"},"novita":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"meta-llama/llama-3.2-11b-vision-instruct"},"sambanova":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"Llama-3.2-11B-Vision-Instruct"},"together":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"meta-llama/Llama-3.2-11B-Vision-Instruct"}} }
+    providersMapping={ {"fireworks-ai":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"accounts/fireworks/models/llama4-scout-instruct-basic"},"hf-inference":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it"},"hyperbolic":{"modelId":"Qwen/Qwen2.5-VL-7B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-7B-Instruct"},"nebius":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it-fast"},"novita":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/llama-4-scout-17b-16e-instruct"},"sambanova":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"Llama-4-Scout-17B-16E-Instruct"},"together":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct"}} }
 conversational />
 
 

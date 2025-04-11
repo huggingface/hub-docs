@@ -35,7 +35,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"distilbert/distilbert-base-cased-distilled-squad","providerModelId":"distilbert/distilbert-base-cased-distilled-squad"}} }
+    providersMapping={ {"hf-inference":{"modelId":"deepset/gelectra-large-germanquad","providerModelId":"deepset/gelectra-large-germanquad"}} }
 />
 
 

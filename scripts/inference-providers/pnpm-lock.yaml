@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@huggingface/inference':
-        specifier: ^3.6.1
-        version: 3.6.1
+        specifier: ^3.7.1
+        version: 3.7.1
       '@huggingface/tasks':
-        specifier: ^0.18.4
-        version: 0.18.4
+        specifier: ^0.18.7
+        version: 0.18.7
       '@types/node':
         specifier: ^22.5.0
         version: 22.5.0
@@ -189,19 +189,16 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@huggingface/inference@3.6.1':
-    resolution: {integrity: sha512-EtQlbBqcZycPe+qiTEFI+wNHOMpG0gwNTaZSvYu1juN1p/1dEgqAb2GO31dxLgNev2PzH9d+9nm8GngOsIepJg==}
+  '@huggingface/inference@3.7.1':
+    resolution: {integrity: sha512-xDAVfT3YOiz8+pExrFEFRp+93ptw9alU2bwj5Jg7F60dbCU26nH55260M5maXUj83btr/46XQVZgPWYLD/ea7w==}
     engines: {node: '>=18'}
 
   '@huggingface/jinja@0.3.3':
     resolution: {integrity: sha512-vQQr2JyWvVFba3Lj9es4q9vCl1sAc74fdgnEMoX8qHrXtswap9ge9uO3ONDzQB0cQ0PUyaKY2N6HaVbTBvSXvw==}
     engines: {node: '>=18'}
 
-  '@huggingface/tasks@0.17.9':
-    resolution: {integrity: sha512-lV6RgCJkqy3p93FFxP9H4SGJmFcHAwr1FO+Zk56q/JWsf7Tdsel1DEo1Xfd3An7ZPWpc2Y9ldRecGo9efDYghg==}
-
-  '@huggingface/tasks@0.18.4':
-    resolution: {integrity: sha512-kZ8G2b6JSdVCn48VpmB2Kcb9ae16HmDRf4RWEQJMgbF98DFTt4y69fTcvQ1vi/qALRWL57pDpbzIlwWlVhY3aQ==}
+  '@huggingface/tasks@0.18.7':
+    resolution: {integrity: sha512-ZzwifnFo4onuIs7cIzm/1G8MFZPQeMhQplG/Ru5Xnnm4TDwxrtThHfhrCZrdS8vEKpy+XBH9INoNelnWox8UQQ==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -418,16 +415,14 @@ snapshots:
   '@esbuild/win32-x64@0.23.1':
     optional: true
 
-  '@huggingface/inference@3.6.1':
+  '@huggingface/inference@3.7.1':
     dependencies:
       '@huggingface/jinja': 0.3.3
-      '@huggingface/tasks': 0.17.9
+      '@huggingface/tasks': 0.18.7
 
   '@huggingface/jinja@0.3.3': {}
 
-  '@huggingface/tasks@0.17.9': {}
-
-  '@huggingface/tasks@0.18.4': {}
+  '@huggingface/tasks@0.18.7': {}
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
