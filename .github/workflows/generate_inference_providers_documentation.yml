@@ -1,4 +1,4 @@
-name: Update Inference Providers Documentation
+name: Generate Inference Providers Documentation
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: "0 3 * * *" # Every day at 3am
 
 concurrency:
-  group: api_inference_generate_documentation
+  group: generate_inference_providers_documentation
   cancel-in-progress: true
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
       - name: Update huggingface/tasks package
         working-directory: ./scripts/inference-providers
         run: |
-          pnpm update @huggingface/tasks@latest
+          pnpm update @huggingface/tasks@latest @huggingface/inference@latest
       # Generate
       - name: Generate Inference Providers documentation
         run: pnpm run generate
@@ -62,14 +62,14 @@ jobs:
           delete-branch: true
           title: "[Bot] Update Inference Providers documentation"
           body: |
-            This PR automatically upgrades the `@huggingface/tasks` package and regenerates the Inference Providers documentation by running:
+            This PR automatically upgrades the `@huggingface/tasks` and `@huggingface/inference` packages and regenerates the Inference Providers documentation by running:
             ```sh
             cd scripts/inference-providers
-            pnpm update @huggingface/tasks@latest
+            pnpm update @huggingface/tasks@latest @huggingface/inference@latest
             pnpm run generate
             ```
 
-            This PR was automatically created by the [Update Inference Providers Documentation workflow](https://github.com/huggingface/hub-docs/blob/main/.github/workflows/api_inference_generate_documentation.yml).
+            This PR was automatically created by the [Update Inference Providers Documentation workflow](https://github.com/huggingface/hub-docs/blob/main/.github/workflows/generate_inference_providers_documentation.yml).
 
             Please review the changes before merging.
           reviewers: |
