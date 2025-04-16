@@ -35,7 +35,7 @@ const HEADERS: Record<string, string> = process.env.HF_TOKEN
 
 const PROVIDERS_HUB_ORGS: Record<string, string> = {
   cerebras: "cerebras",
-  cohere: "Cohere",
+  cohere: "CohereLabs",
   "fal-ai": "fal",
   "fireworks-ai": "fireworks-ai",
   "hf-inference": "hf-inference",
