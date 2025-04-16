@@ -35,6 +35,7 @@ const HEADERS: Record<string, string> = process.env.HF_TOKEN
 
 const PROVIDERS_HUB_ORGS: Record<string, string> = {
   cerebras: "cerebras",
+  cohere: "CohereLabs",
   "fal-ai": "fal",
   "fireworks-ai": "fireworks-ai",
   "hf-inference": "hf-inference",
@@ -48,6 +49,7 @@ const PROVIDERS_HUB_ORGS: Record<string, string> = {
 
 const PROVIDERS_URLS: Record<string, string> = {
   cerebras: "https://www.cerebras.ai/",
+  cohere: "https://cohere.com/",
   "fal-ai": "https://fal.ai/",
   "fireworks-ai": "https://fireworks.ai/",
   "hf-inference": "https://huggingface.co/",
@@ -741,8 +743,6 @@ Object.entries(PER_PROVIDER_TASKS).forEach(([provider, tasks]) => {
     a.title.localeCompare(b.title)
   );
 });
-
-console.log(PER_PROVIDER_TASKS);
 
 /////////////////////////
 //// Rendering utils ////
