@@ -15,6 +15,8 @@
   sections:
   - local: providers/cerebras
     title: Cerebras
+  - local: providers/cohere
+    title: Cohere
   - local: providers/fal-ai
     title: Fal AI
   - local: providers/fireworks-ai
