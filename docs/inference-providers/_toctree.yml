@@ -52,6 +52,7 @@
     - local: tasks/text-to-video
       title: Text to Video
   - title: Other Tasks
+    isExpanded: false
     sections:
     - local: tasks/audio-classification
       title: Audio Classification
