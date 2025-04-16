@@ -16,6 +16,7 @@ Here is the complete list of partners integrated with Inference Providers, and t
 | Provider                                 | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video |
 | ---------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: |
 | [Cerebras](./providers/cerebras)         |           ✅           |                       |                    |               |               |
+| [Cohere](./providers/cohere)             |           ✅           |           ✅           |                    |               |               |
 | [Fal AI](./providers/fal-ai)             |                       |                       |                    |       ✅       |       ✅       |
 | [Fireworks](./providers/fireworks-ai)    |           ✅           |           ✅           |                    |               |               |
 | [HF Inference](./providers/hf-inference) |           ✅           |           ✅           |         ✅          |       ✅       |               |
