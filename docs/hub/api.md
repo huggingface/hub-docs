@@ -429,6 +429,8 @@ Get all the models, datasets, and Spaces that refer to a paper.
 
 Get the daily papers curated by AK and the community. It's the equivalent of [https://huggingface.co/papers](https://huggingface.co/papers).
 
+To filter on a particular date, simply pass the date like so: https://huggingface.co/api/daily_papers?date=2025-03-31.
+
 ## Collections API
 
 Use Collections to group repositories from the Hub (Models, Datasets, Spaces and Papers) on a dedicated page.
