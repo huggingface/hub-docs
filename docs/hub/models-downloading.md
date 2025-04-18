@@ -16,8 +16,13 @@ If a model on the Hub is tied to a [supported library](./models-libraries), load
 
 ## Using the Hugging Face Client Library
 
-You can use the [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) library to create, delete, update and retrieve information from repos. You can also download files from repos or integrate them into your library! For example, you can quickly load a Scikit-learn model with a few lines.
+You can use the [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) library to create, delete, update and retrieve information from repos. For example, to download the `HuggingFaceH4/zephyr-7b-beta` model from the command line, run
+```bash
+huggingface-cli download HuggingFaceH4/zephyr-7b-beta
+```
+See the [huggingface-cli download documentation](https://huggingface.co/docs/huggingface_hub/en/guides/cli#download-an-entire-repository) for more information.
 
+You can also integrate this into your own library. For example, you can quickly load a Scikit-learn model with a few lines.
 ```py
 from huggingface_hub import hf_hub_download
 import joblib
