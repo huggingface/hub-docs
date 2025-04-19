@@ -24,8 +24,6 @@ For more details about the `translation` task, check out its [dedicated page](ht
 
 ### Recommended models
 
-- [facebook/nllb-200-1.3B](https://huggingface.co/facebook/nllb-200-1.3B): Very powerful model that can translate many languages between each other, especially low-resource languages.
-- [google-t5/t5-base](https://huggingface.co/google-t5/t5-base): A general-purpose Transformer that can be used to translate from English to German, French, or Romanian.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=translation&sort=trending).
 
@@ -34,7 +32,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"facebook/nllb-200-distilled-600M","providerModelId":"facebook/nllb-200-distilled-600M"}} }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/mbart-large-50-many-to-many-mmt","providerModelId":"facebook/mbart-large-50-many-to-many-mmt"}} }
 />
 
 

@@ -30,7 +30,6 @@ For more details about the `automatic-speech-recognition` task, check out its [d
 ### Recommended models
 
 - [openai/whisper-large-v3](https://huggingface.co/openai/whisper-large-v3): A powerful ASR model by OpenAI.
-- [facebook/seamless-m4t-v2-large](https://huggingface.co/facebook/seamless-m4t-v2-large): An end-to-end model that performs ASR and Speech Translation by MetaAI.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=automatic-speech-recognition&sort=trending).
 
@@ -39,7 +38,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
-    providersMapping={ {"fal-ai":{"modelId":"openai/whisper-large-v3","providerModelId":"fal-ai/whisper"},"hf-inference":{"modelId":"openai/whisper-large-v3-turbo","providerModelId":"openai/whisper-large-v3-turbo"}} }
+    providersMapping={ {"fal-ai":{"modelId":"openai/whisper-large-v3","providerModelId":"fal-ai/whisper"},"hf-inference":{"modelId":"openai/whisper-large-v3-turbo","providerModelId":"openai/whisper-large-v3-turbo"},"sambanova":{"modelId":"openai/whisper-large-v3","providerModelId":"Whisper-Large-v3"}} }
 />
 
 
