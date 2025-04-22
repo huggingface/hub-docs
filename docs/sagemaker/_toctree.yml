@@ -1,10 +1,28 @@
-- local: index
-  title: Hugging Face on Amazon SageMaker
-- local: getting-started
-  title: Get started
-- local: train
-  title: Run training on Amazon SageMaker
-- local: inference
-  title: Deploy models to Amazon SageMaker
-- local: reference
+- sections:
+    - local: getting-started/index
+      title: Hugging Face on AWS
+    - local: getting-started/deploy
+      title: Deploy Models on AWS
+    - local: getting-started/train
+      title: Train Models on AWS
+    - local: getting-started/resources
+      title: Other Resources
+  title: Getting Started
+- sections:
+    - local: dlcs/introduction
+      title: Introduction
+    - local: dlcs/features
+      title: Features & benefits
+    - local: dlcs/available
+      title: Available DLCs on AWS
+  title: Deep Learning Containers (DLCs)
+- sections:
+  title: Examples
+- sections:
+  title: Advanced Topics
+- sections:
+  title: How-to
+- sections:
+    - local: reference/inference-toolkit
+      title: Inference Toolkit API
   title: Reference
