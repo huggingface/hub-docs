@@ -75,7 +75,7 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"mixedbread-ai/mxbai-embed-large-v1","providerModelId":"mixedbread-ai/mxbai-embed-large-v1"} } }
+    providersMapping={ {"hf-inference":{"modelId":"intfloat/multilingual-e5-large-instruct","providerModelId":"intfloat/multilingual-e5-large-instruct"} } }
 />
 
 
@@ -86,16 +86,6 @@ Find out more about Image Classification [here](../tasks/image_classification).
 <InferenceSnippet
     pipeline=image-classification
     providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
-/>
-
-
-### Image Segmentation
-
-Find out more about Image Segmentation [here](../tasks/image_segmentation).
-
-<InferenceSnippet
-    pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"jonathandinu/face-parsing","providerModelId":"jonathandinu/face-parsing"} } }
 />
 
 
@@ -125,7 +115,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english","providerModelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english"} } }
+    providersMapping={ {"hf-inference":{"modelId":"ProsusAI/finbert","providerModelId":"ProsusAI/finbert"} } }
 />
 
 
@@ -146,6 +136,16 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 <InferenceSnippet
     pipeline=text-to-image
     providersMapping={ {"hf-inference":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"} } }
+/>
+
+
+### Token Classification
+
+Find out more about Token Classification [here](../tasks/token_classification).
+
+<InferenceSnippet
+    pipeline=token-classification
+    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
 />
 
 

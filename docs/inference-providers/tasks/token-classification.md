@@ -24,13 +24,18 @@ For more details about the `token-classification` task, check out its [dedicated
 
 ### Recommended models
 
+- [dslim/bert-base-NER](https://huggingface.co/dslim/bert-base-NER): A robust performance model to identify people, locations, organizations and names of miscellaneous entities.
+- [blaze999/Medical-NER](https://huggingface.co/blaze999/Medical-NER): A token classification model specialized on medical entity recognition.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=token-classification&sort=trending).
 
 ### Using the API
 
 
-No snippet available for this task.
+<InferenceSnippet
+    pipeline=token-classification
+    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"}} }
+/>
 
 
 
