@@ -49,4 +49,4 @@ Then, add a `gradio-app` element where you want to embed your Space.
 <gradio-app src="https://<space-subdomain>.hf.space"></gradio-app>
 ```
 
-Check out the [Gradio documentation](https://gradio.app/sharing_your_app/#embedding-hosted-spaces) for more details.
+Check out the [Gradio documentation](https://www.gradio.app/guides/sharing-your-app#embedding-hosted-spaces) for more details.
