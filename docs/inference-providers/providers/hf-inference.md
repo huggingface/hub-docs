@@ -39,16 +39,6 @@ If you are interested in deploying models to a dedicated and autoscaling infrast
 ## Supported tasks
 
 
-### Audio Classification
-
-Find out more about Audio Classification [here](../tasks/audio_classification).
-
-<InferenceSnippet
-    pipeline=audio-classification
-    providersMapping={ {"hf-inference":{"modelId":"ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition","providerModelId":"ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition"} } }
-/>
-
-
 ### Automatic Speech Recognition
 
 Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
@@ -75,7 +65,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"hf-inference":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it"} } }
+    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"meta-llama/Llama-3.2-11B-Vision-Instruct"} } }
 conversational />
 
 
@@ -89,16 +79,6 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 />
 
 
-### Fill Mask
-
-Find out more about Fill Mask [here](../tasks/fill_mask).
-
-<InferenceSnippet
-    pipeline=fill-mask
-    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-uncased","providerModelId":"google-bert/bert-base-uncased"} } }
-/>
-
-
 ### Image Classification
 
 Find out more about Image Classification [here](../tasks/image_classification).
@@ -109,16 +89,6 @@ Find out more about Image Classification [here](../tasks/image_classification).
 />
 
 
-### Image To Image
-
-Find out more about Image To Image [here](../tasks/image_to_image).
-
-<InferenceSnippet
-    pipeline=image-to-image
-    providersMapping={ {"hf-inference":{"modelId":"enhanceaiteam/Flux-Uncensored-V2","providerModelId":"black-forest-labs/FLUX.1-dev"} } }
-/>
-
-
 ### Object Detection
 
 Find out more about Object Detection [here](../tasks/object_detection).
@@ -126,16 +96,6 @@ Find out more about Object Detection [here](../tasks/object_detection).
 <InferenceSnippet
     pipeline=object-detection
     providersMapping={ {"hf-inference":{"modelId":"facebook/detr-resnet-50","providerModelId":"facebook/detr-resnet-50"} } }
-/>
-
-
-### Question Answering
-
-Find out more about Question Answering [here](../tasks/question_answering).
-
-<InferenceSnippet
-    pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"deepset/gelectra-large-germanquad","providerModelId":"deepset/gelectra-large-germanquad"} } }
 />
 
 
@@ -179,23 +139,13 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 />
 
 
-### Text To Video
-
-Find out more about Text To Video [here](../tasks/text_to_video).
-
-<InferenceSnippet
-    pipeline=text-to-video
-    providersMapping={ {"hf-inference":{"modelId":"AdamLucek/Wan2.1-T2V-14B-OldBookIllustrations","providerModelId":"black-forest-labs/FLUX.1-dev"} } }
-/>
-
-
 ### Token Classification
 
 Find out more about Token Classification [here](../tasks/token_classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"dbmdz/bert-large-cased-finetuned-conll03-english","providerModelId":"dbmdz/bert-large-cased-finetuned-conll03-english"} } }
+    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
 />
 
 
@@ -205,7 +155,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"facebook/nllb-200-distilled-600M","providerModelId":"facebook/nllb-200-distilled-600M"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/mbart-large-50-many-to-many-mmt","providerModelId":"facebook/mbart-large-50-many-to-many-mmt"} } }
 />
 
 

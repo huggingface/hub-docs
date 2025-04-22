@@ -33,7 +33,9 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
     </a>
 </div>
 
-​Novita AI is a comprehensive AI cloud platform that provides developers and businesses with access to over 200 APIs for tasks such as image generation, video processing, audio synthesis, and large language models.
+[Novita](https://novita.ai) is the go-to inference platform for AI developers seeking a low-cost, reliable, and simple solution for shipping AI models.
+
+Offering 200+ APIs (LLMs, image, video, audio) with fully managed deployment — enterprise-grade, scalable, and maintenance-free.
 
 ## Supported tasks
 
@@ -56,14 +58,4 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
     pipeline=image-text-to-text
     providersMapping={ {"novita":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/llama-4-scout-17b-16e-instruct"} } }
 conversational />
-
-
-### Text To Video
-
-Find out more about Text To Video [here](../tasks/text_to_video).
-
-<InferenceSnippet
-    pipeline=text-to-video
-    providersMapping={ {"novita":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"wan-t2v"} } }
-/>
 
