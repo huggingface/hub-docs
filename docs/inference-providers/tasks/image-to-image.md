@@ -35,10 +35,7 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<InferenceSnippet
-    pipeline=image-to-image
-    providersMapping={ {"hf-inference":{"modelId":"enhanceaiteam/Flux-Uncensored-V2","providerModelId":"black-forest-labs/FLUX.1-dev"}} }
-/>
+No snippet available for this task.
 
 
 

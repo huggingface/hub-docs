@@ -39,6 +39,16 @@ Customers are turning to SambaNova to quickly deploy state-of-the-art AI and dee
 ## Supported tasks
 
 
+### Automatic Speech Recognition
+
+Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
+
+<InferenceSnippet
+    pipeline=automatic-speech-recognition
+    providersMapping={ {"sambanova":{"modelId":"openai/whisper-large-v3","providerModelId":"Whisper-Large-v3"} } }
+/>
+
+
 ### Chat Completion (LLM)
 
 Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
