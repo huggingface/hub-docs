@@ -17,17 +17,17 @@
       title: Available DLCs on AWS
   title: Deep Learning Containers (DLCs)
 - sections:
-  title: Examples
     - local: examples/index
       title: Introduction
+  title: Examples
 - sections:
-  title: Advanced Topics
     - local: advanced-topics/index
       title: Introduction
+  title: Advanced Topics
 - sections:
-  title: How-to
     - local: how-to/index
       title: Introduction
+  title: How-to
 - sections:
     - local: reference/inference-toolkit
       title: Inference Toolkit API
