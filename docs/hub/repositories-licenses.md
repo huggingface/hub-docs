@@ -78,6 +78,7 @@ A full list of the available licenses is available here:
 | Open Data Commons Public Domain Dedication and License         | `pddl`                                   |
 | Lesser General Public License For Linguistic Resources         | `lgpl-lr`                                |
 | DeepFloyd IF Research License Agreement                        | `deepfloyd-if-license`                   |
+| FAIR Noncommercial Research License                            | `fair-noncommercial-research-license`    | <!-- license: https://huggingface.co/facebook/fair-noncommercial-research-license/blob/main/LICENSE -->
 | Llama 2 Community License Agreement                            | `llama2`                                 | <!-- license: https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/blob/main/LICENSE.txt -->
 | Llama 3 Community License Agreement                            | `llama3`                                 | <!-- license: https://huggingface.co/meta-llama/Meta-Llama-3-8B/blob/main/LICENSE -->
 | Llama 3.1 Community License Agreement                          | `llama3.1`                               | <!-- license: https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct/blob/main/LICENSE -->
