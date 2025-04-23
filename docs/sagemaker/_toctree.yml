@@ -27,6 +27,12 @@
 - sections:
     - local: how-to/index
       title: Introduction
+    - local: how-to/get-started-sagemaker-sdk
+      title: Get started with the SageMaker SDK
+    - local: how-to/deploy-sagemaker-sdk
+      title: Deploy models with SageMaker SDK
+    - local: how-to/training-sagemaker-sdk
+      title: Train models with SageMaker SDK
   title: How-to
 - sections:
     - local: reference/inference-toolkit
