@@ -18,10 +18,16 @@
   title: Deep Learning Containers (DLCs)
 - sections:
   title: Examples
+    - local: examples/index
+      title: Introduction
 - sections:
   title: Advanced Topics
+    - local: advanced-topics/index
+      title: Introduction
 - sections:
   title: How-to
+    - local: how-to/index
+      title: Introduction
 - sections:
     - local: reference/inference-toolkit
       title: Inference Toolkit API
