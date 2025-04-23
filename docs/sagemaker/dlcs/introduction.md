@@ -8,3 +8,5 @@ The containers are publicly maintained, updated and released periodically by Hug
 * Amazon Elastic Kubernetes Service (EKS): Amazon EKS is the premiere platform for running Kubernetes clusters in the AWS cloud.
 * Amazon Elastic Container Service (ECS): Amazon ECS is a fully managed container orchestration service that helps you easily deploy, manage, and scale containerized applications.
 * Amazon Elastic Compute Cloud (EC2): Amazon EC2 provides on-demand, scalable computing capacity in the Amazon Web Services (AWS) Cloud.
+
+Hugging Face DLCs are open source and licensed under Apache 2.0. Feel free to reach out on our [community forum](https://discuss.huggingface.co/c/sagemaker/17) if you have any questions.

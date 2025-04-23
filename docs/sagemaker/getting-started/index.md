@@ -1,5 +1,7 @@
 # Hugging Face on AWS
 
+![cover](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/cover.png)
+
 Hugging Face partners with Amazon Web Services (AWS) to democratize artificial intelligence (AI), enabling developers to seamlessly build, train, and deploy state-of-the-art machine learning models using AWS's robust cloud infrastructure. ​
 
 This collaboration aims to offer developers access to an everyday growing catalog of pre-trained models and dataset from the Hugging Face Hub, using Hugging Face open-source libraries across a broad spectrum of AWS services and hardware platforms.
