@@ -99,6 +99,16 @@ Find out more about Object Detection [here](../tasks/object_detection).
 />
 
 
+### Question Answering
+
+Find out more about Question Answering [here](../tasks/question_answering).
+
+<InferenceSnippet
+    pipeline=question-answering
+    providersMapping={ {"hf-inference":{"modelId":"deepset/bert-large-uncased-whole-word-masking-squad2","providerModelId":"deepset/bert-large-uncased-whole-word-masking-squad2"} } }
+/>
+
+
 ### Summarization
 
 Find out more about Summarization [here](../tasks/summarization).
@@ -115,7 +125,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"ProsusAI/finbert","providerModelId":"ProsusAI/finbert"} } }
+    providersMapping={ {"hf-inference":{"modelId":"j-hartmann/emotion-english-distilroberta-base","providerModelId":"j-hartmann/emotion-english-distilroberta-base"} } }
 />
 
 
@@ -139,23 +149,13 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 />
 
 
-### Token Classification
-
-Find out more about Token Classification [here](../tasks/token_classification).
-
-<InferenceSnippet
-    pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
-/>
-
-
 ### Translation
 
 Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"facebook/mbart-large-50-many-to-many-mmt","providerModelId":"facebook/mbart-large-50-many-to-many-mmt"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/nllb-200-distilled-600M","providerModelId":"facebook/nllb-200-distilled-600M"} } }
 />
 
 
