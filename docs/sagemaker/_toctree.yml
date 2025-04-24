@@ -13,22 +13,34 @@
     - local: dlcs/available
       title: Available DLCs on AWS
   title: Deep Learning Containers (DLCs)
-  isExpanded: false
+  isExpanded: true
 - sections:
     - local: how-to/index
       title: Introduction
-    - local: how-to/sagemaker-sdk-quickstart
-      title: SageMaker SDK Quickstart
-    - local: how-to/jumpstart-quickstart
-      title: Jumpstart Quickstart
-    - local: how-to/bedrock-quickstart
-      title: Bedrock Quickstart
-    - local: how-to/compute-services-quickstart
-      title: EC2, ECS and EKS Quickstart
-    - local: how-to/deploy-sagemaker-sdk
-      title: Deploy models with SageMaker SDK
-    - local: how-to/training-sagemaker-sdk
-      title: Train models with SageMaker SDK
+    - sections:
+        - local: how-to/sagemaker-sdk/sagemaker-sdk-quickstart
+          title: SageMaker SDK Quickstart
+        - local: how-to/sagemaker-sdk/training-sagemaker-sdk
+          title: Train models with SageMaker SDK
+        - local: how-to/sagemaker-sdk/deploy-sagemaker-sdk
+          title: Deploy models with SageMaker SDK
+      title: SageMaker SDK
+      isExpanded: false
+    - sections:
+        - local: how-to/jumpstart/jumpstart-quickstart
+          title: Jumpstart Quickstart
+      title: Jumpstart
+      isExpanded: false
+    - sections:
+        - local: how-to/bedrock/bedrock-quickstart
+          title: Bedrock Quickstart
+      title: Bedrock
+      isExpanded: false
+    - sections:
+        - local: how-to/compute-services/compute-services-quickstart
+          title: EC2, ECS and EKS Quickstart
+      title: EC2, ECS and EKS
+      isExpanded: false
   title: How-to
   isExpanded: false
 - sections:
