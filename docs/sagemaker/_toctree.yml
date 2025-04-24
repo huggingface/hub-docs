@@ -7,7 +7,8 @@
       title: Train Models on AWS
     - local: resources
       title: Other Resources
-  title: Getting Started
+  title: Get Started
+  isExpanded: true
 - sections:
     - local: dlcs/introduction
       title: Introduction
@@ -16,14 +17,7 @@
     - local: dlcs/available
       title: Available DLCs on AWS
   title: Deep Learning Containers (DLCs)
-- sections:
-    - local: examples/index
-      title: Introduction
-  title: Examples
-- sections:
-    - local: advanced-topics/index
-      title: Introduction
-  title: Advanced Topics
+  isExpanded: false
 - sections:
     - local: how-to/index
       title: Introduction
@@ -34,7 +28,14 @@
     - local: how-to/training-sagemaker-sdk
       title: Train models with SageMaker SDK
   title: How-to
+  isExpanded: false
+- sections:
+    - local: examples/index
+      title: Introduction
+  title: Examples
+  isExpanded: false
 - sections:
     - local: reference/inference-toolkit
       title: Inference Toolkit API
   title: Reference
+  isExpanded: false
