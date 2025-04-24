@@ -1,10 +1,6 @@
 - sections:
     - local: index
       title: Hugging Face on AWS
-    - local: deploy
-      title: Deploy Models on AWS
-    - local: train
-      title: Train Models on AWS
     - local: resources
       title: Other Resources
   title: Get Started
