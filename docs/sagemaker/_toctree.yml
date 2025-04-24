@@ -1,11 +1,11 @@
 - sections:
-    - local: getting-started/index
+    - local: index
       title: Hugging Face on AWS
-    - local: getting-started/deploy
+    - local: deploy
       title: Deploy Models on AWS
-    - local: getting-started/train
+    - local: train
       title: Train Models on AWS
-    - local: getting-started/resources
+    - local: resources
       title: Other Resources
   title: Getting Started
 - sections:
