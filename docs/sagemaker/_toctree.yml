@@ -21,8 +21,14 @@
 - sections:
     - local: how-to/index
       title: Introduction
-    - local: how-to/get-started-sagemaker-sdk
-      title: Get started with the SageMaker SDK
+    - local: how-to/sagemaker-sdk-quickstart
+      title: SageMaker SDK Quickstart
+    - local: how-to/jumpstart-quickstart
+      title: Jumpstart Quickstart
+    - local: how-to/bedrock-quickstart
+      title: Bedrock Quickstart
+    - local: how-to/compute-services-quickstart
+      title: EC2, ECS and EKS Quickstart
     - local: how-to/deploy-sagemaker-sdk
       title: Deploy models with SageMaker SDK
     - local: how-to/training-sagemaker-sdk

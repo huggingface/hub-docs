@@ -6,7 +6,7 @@ Training Hugging Face models on AWS is streamlined through various services. Her
 
 Amazon SageMaker is a fully managed AWS service for building, training, and deploying machine learning models at scale. The SageMaker SDK simplifies interacting with SageMaker programmatically. Amazon SageMaker SDK provides a seamless integration specifically designed for Hugging Face models, simplifying the training job management. With this integration, you can quickly create your own fine-tuned models, significantly reducing setup complexity and time to production.
 
-To get started, check out this example.
+[Sagemaker SDK Quickstart](https://huggingface.co/docs/sagemaker/main/en/how-to/sagemaker-sdk-quickstart)
 
 ## With ECS, EKS, and EC2
 
@@ -14,6 +14,4 @@ Hugging Face provides Training Deep Learning Containers (DLCs) to AWS users, opt
 
 AWS Elastic Container Service (ECS), Elastic Kubernetes Service (EKS), and Elastic Compute Cloud (EC2) allow you to leverage DLCs directly.
 
-Get started with HF DLCs on EC2
-Get started with HF DLCs on ECS
-Get started with HF DLCs on EKS
+[EC2, ECS and EKS Quickstart](https://huggingface.co/docs/sagemaker/main/en/how-to/compute-services-quickstart)
