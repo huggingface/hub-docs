@@ -8,6 +8,8 @@ For each supported combination of use-case (training, inference), accelerator ty
 
 **How to choose the right container for my use case?**
 
+This part is under construction, bear with us!
+
 **How to find the URI of my container?**
 The URI is built with an AWS account ID and an AWS region. Those two values need to be replaced depending on your use case.
 Let's say you want to use the training DLC for GPUs in  
