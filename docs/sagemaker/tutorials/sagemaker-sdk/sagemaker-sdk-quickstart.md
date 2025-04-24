@@ -1,16 +1,14 @@
-# Train and deploy Hugging Face on Amazon SageMaker
+# Train and deploy a Hugging Face model on Amazon SageMaker with the SDK
 
-The get started guide will show you how to quickly use Hugging Face on Amazon SageMaker. Learn how to fine-tune and deploy a pretrained 🤗 Transformers model on SageMaker for a binary text classification task.
-
-💡 If you are new to Hugging Face, we recommend first reading the 🤗 Transformers [quick tour](https://huggingface.co/docs/transformers/quicktour).
+The get started guide will show you how to quickly use Hugging Face on Amazon SageMaker with the SDK. Learn how to fine-tune and deploy a pretrained 🤗 Transformers model on SageMaker for a binary text classification task.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pYqjCzoyWyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-📓 Open the [agemaker-notebook.ipynb file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/sagemaker-notebook.ipynb) to follow along!
+📓 Open the [sagemaker-notebook.ipynb file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/sagemaker-notebook.ipynb) to follow along!
 
 ## Installation and setup
 
-Get started by installing the necessary Hugging Face libraries and SageMaker. You will also need to install [PyTorch](https://pytorch.org/get-started/locally/) and [TensorFlow](https://www.tensorflow.org/install/pip#tensorflow-2-packages-are-available) if you don't already have it installed.
+Get started by installing the necessary Hugging Face libraries and SageMaker. You will also need to install [PyTorch](https://pytorch.org/get-started/locally/) if you don't already have it installed. If you run this example in SageMaker Studio, it is already installed in the notebook kernel!
 
 ```python
 pip install "sagemaker>=2.140.0" "transformers==4.26.1" "datasets[s3]==2.10.1" --upgrade
@@ -109,9 +107,9 @@ huggingface_estimator = HuggingFace(
     instance_type="ml.p3.2xlarge",          # instance type
     instance_count=1,                       # number of instances
     role=role,                              # IAM role used in training job to acccess AWS resources (S3)
-    transformers_version="4.26",             # Transformers version
-    pytorch_version="1.13",                  # PyTorch version
-    py_version="py39",                      # Python version
+    transformers_version="4.36",             # Transformers version
+    pytorch_version="2.1.0",                  # PyTorch version
+    py_version="py310",                      # Python version
     hyperparameters=hyperparameters         # hyperparameters to use in training job
 )
 ```
@@ -146,6 +144,4 @@ predictor.delete_endpoint()
 
 ## What's next?
 
-Congratulations, you've just fine-tuned and deployed a pretrained 🤗 Transformers model on SageMaker! 🎉
-
-For your next steps, keep reading our documentation for more details about training and deployment. There are many interesting features such as [distributed training](/docs/sagemaker/train#distributed-training) and [Spot instances](/docs/sagemaker/train#spot-instances).
+Congratulations, you've just fine-tuned and deployed a pretrained 🤗 Transformers model on SageMaker for binary text classification! 🎉
