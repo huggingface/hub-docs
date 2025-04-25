@@ -43,16 +43,12 @@
       isExpanded: false
   title: Tutorials
   isExpanded: false
-- sections:
-    - local: reference/inference-toolkit
-      title: Inference Toolkit API
-  title: Reference
-  isExpanded: false
+
 # GENERATED CONTENT DO NOT EDIT!
 - title: Examples
   sections:
      - title: SageMaker SDK
-       isExpanded: true
+       isExpanded: false
        sections:
           - local: examples/sagemaker-sdk-deploy-embedding-models
             title: "How to deploy Embedding Models to Amazon SageMaker using new Hugging Face Embedding DLC"
@@ -63,3 +59,8 @@
           - local: examples/sagemaker-sdk-fine-tune-embedding-models
             title: "Fine-tune and deploy embedding models with Amazon SageMaker"
 # END GENERATED CONTENT
+- sections:
+    - local: reference/inference-toolkit
+      title: Inference Toolkit API
+  title: Reference
+  isExpanded: false
