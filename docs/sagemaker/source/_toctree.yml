@@ -44,12 +44,22 @@
   title: Tutorials
   isExpanded: false
 - sections:
-    - local: examples/index
-      title: Introduction
-  title: Examples
-  isExpanded: false
-- sections:
     - local: reference/inference-toolkit
       title: Inference Toolkit API
   title: Reference
   isExpanded: false
+# GENERATED CONTENT DO NOT EDIT!
+- title: Examples
+  sections:
+     - title: SageMaker SDK
+       isExpanded: true
+       sections:
+          - local: examples/sagemaker-sdk-deploy-embedding-models
+            title: "How to deploy Embedding Models to Amazon SageMaker using new Hugging Face Embedding DLC"
+          - local: examples/sagemaker-sdk-deploy-llama-3-3-70b-inferentia2
+            title: "Deploy Llama 3.3 70B on AWS Inferentia2"
+          - local: examples/sagemaker-sdk-evaluate-llm-lighteval
+            title: "Evaluate LLMs with Hugging Face Lighteval on Amazon SageMaker"
+          - local: examples/sagemaker-sdk-fine-tune-embedding-models
+            title: "Fine-tune and deploy embedding models with Amazon SageMaker"
+# END GENERATED CONTENT
