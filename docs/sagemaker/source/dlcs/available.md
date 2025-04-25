@@ -8,7 +8,11 @@ For each supported combination of use-case (training, inference), accelerator ty
 
 **How to choose the right container for my use case?**
 
-This part is under construction, bear with us!
+![dlc-decision-tree](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/dlc-decision-tree.png)
+
+*Note:* See [here]((https://huggingface.co/docs/sagemaker/main/en/reference/inference-toolkit)) for the list of supported task in the inference toolkit.
+
+*Note:* Browse through the Hub to see if you model is tagged ["text-generation-inference"](https://huggingface.co/models?other=text-generation-inference) or ["text-embeddings-inference"](https://huggingface.co/models?other=text-embeddings-inference)
 
 **How to find the URI of my container?**
 The URI is built with an AWS account ID and an AWS region. Those two values need to be replaced depending on your use case.
