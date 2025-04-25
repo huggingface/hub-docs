@@ -4,31 +4,14 @@ Below you can find a listing of all the Deep Learning Containers (DLCs) availabl
 
 For each supported combination of use-case (training, inference), accelerator type (CPU, GPU, Neuron), and framework (PyTorch, TGI, TEI) containers are created.
 
-## FAQ
-
-**How to choose the right container for my use case?**
-
-![dlc-decision-tree](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/dlc-decision-tree.png)
-
-*Note:* See [here]((https://huggingface.co/docs/sagemaker/main/en/reference/inference-toolkit)) for the list of supported task in the inference toolkit.
-
-*Note:* Browse through the Hub to see if you model is tagged ["text-generation-inference"](https://huggingface.co/models?other=text-generation-inference) or ["text-embeddings-inference"](https://huggingface.co/models?other=text-embeddings-inference)
-
-**How to find the URI of my container?**
-The URI is built with an AWS account ID and an AWS region. Those two values need to be replaced depending on your use case.
-Let's say you want to use the training DLC for GPUs in  
-- `dlc-aws-account-id`: The AWS account ID of the account that owns the ECR repository. You can find them in the [here](https://github.com/aws/sagemaker-python-sdk/blob/e0b9d38e1e3b48647a02af23c4be54980e53dc61/src/sagemaker/image_uri_config/huggingface.json#L21)
-- `region`: The AWS region where you want to use it.
-
 ## Training
 
-Pytorch Training DLC: For training, our DLCs are available for PyTorch via :hugging_face: Transformers. They include support for training on GPUs and AWS AI chips with libraries such as :hugging_face: TRL, Sentence Transformers, or :firecracker: Diffusers.
+Pytorch Training DLC: For training, our DLCs are available for PyTorch via Transformers. They include support for training on GPUs and AWS AI chips with libraries such as TRL, Sentence Transformers, or Diffusers.
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.5.1-transformers4.49.0-gpu-py311-cu124-ubuntu22.04 | GPU         |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training-neuronx:2.1.2-transformers4.48.1-neuronx-py310-sdk2.20.0-ubuntu20.04 | Neuron         |
-
 
 ## Inference
 
@@ -42,9 +25,9 @@ For inference, we have a general-purpose PyTorch inference DLC, for serving mode
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.49.0-gpu-py312-cu124-ubuntu22.04 | GPU         |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference-neuronx:2.1.2-transformers4.43.2-neuronx-py310-sdk2.20.0-ubuntu20.04 | Neuron         |
 
-### Text Generation Inference
+### LLM TGI
 
-There is also the Text Generation Inference (TGI) DLC for high-performance text generation of LLMs on GPU and AWS AI chips.
+There is also the LLM Text Generation Inference (TGI) DLC for high-performance text generation of LLMs on GPU and AWS AI chips.
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
@@ -59,3 +42,35 @@ Finally, there is a Text Embeddings Inference (TEI) DLC for high-performance ser
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.2.3-cpu-py310-ubuntu22.04 | CPU         |
 | 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.4.0-gpu-py310-cu122-ubuntu22.04 | GPU         |
+
+## FAQ
+
+**How to choose the right container for my use case?**
+
+![dlc-decision-tree](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/dlc-decision-tree.png)
+
+*Note:* See [here]((https://huggingface.co/docs/sagemaker/main/en/reference/inference-toolkit)) for the list of supported task in the inference toolkit.
+
+*Note:* Browse through the Hub to see if you model is tagged ["text-generation-inference"](https://huggingface.co/models?other=text-generation-inference) or ["text-embeddings-inference"](https://huggingface.co/models?other=text-embeddings-inference)
+
+**How to find the URI of my container?**
+
+The URI is built with an AWS account ID and an AWS region. Those two values need to be replaced depending on your use case.
+Let's say you want to use the training DLC for GPUs in  
+- `dlc-aws-account-id`: The AWS account ID of the account that owns the ECR repository. You can find them in the [here](https://github.com/aws/sagemaker-python-sdk/blob/e0b9d38e1e3b48647a02af23c4be54980e53dc61/src/sagemaker/image_uri_config/huggingface.json#L21)
+- `region`: The AWS region where you want to use it.
+
+**How to find the URI of my container but simpler?**
+
+The Python SagemMaker SDK util functions are not always up to date but it is much simpler than reconstructing the image URI yourself. 
+
+```python
+from sagemaker.huggingface import HuggingFaceModel, get_huggingface_llm_image_uri
+
+print(f"TGI GPU: {get_huggingface_llm_image_uri('huggingface')}")
+print(f"TEI GPU: {get_huggingface_llm_image_uri('huggingface-tei')}")
+print(f"TEI CPU: {get_huggingface_llm_image_uri('huggingface-tei-cpu')}")
+print(f"TGI Neuron: {get_huggingface_llm_image_uri('huggingface-neuronx')}")
+```
+
+For Pytorch Training and Pytorch Inference DLCs, there is no such utility. 
