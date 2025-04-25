@@ -32,7 +32,7 @@ See the following request examples for some of the tasks:
 
 ```json
 {
-  "inputs": "This sound track was beautiful! It paints the senery in your mind so well I would recomend it
+  "inputs": "This sound track was beautiful! It paints the senery in your mind so well I would recommend it
   even to people who hate vid. game music!"
 }
 ```
