@@ -32,7 +32,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"deepset/bert-large-uncased-whole-word-masking-squad2","providerModelId":"deepset/bert-large-uncased-whole-word-masking-squad2"}} }
+    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-large-squad2","providerModelId":"deepset/roberta-large-squad2"}} }
 />
 
 

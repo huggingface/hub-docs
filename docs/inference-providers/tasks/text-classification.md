@@ -24,6 +24,7 @@ For more details about the `text-classification` task, check out its [dedicated 
 
 ### Recommended models
 
+- [papluca/xlm-roberta-base-language-detection](https://huggingface.co/papluca/xlm-roberta-base-language-detection): A model that can classify languages.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-classification&sort=trending).
 
@@ -32,7 +33,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"j-hartmann/emotion-english-distilroberta-base","providerModelId":"j-hartmann/emotion-english-distilroberta-base"}} }
+    providersMapping={ {"hf-inference":{"modelId":"SamLowe/roberta-base-go_emotions","providerModelId":"SamLowe/roberta-base-go_emotions"}} }
 />
 
 

@@ -79,6 +79,16 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 />
 
 
+### Fill Mask
+
+Find out more about Fill Mask [here](../tasks/fill_mask).
+
+<InferenceSnippet
+    pipeline=fill-mask
+    providersMapping={ {"hf-inference":{"modelId":"FacebookAI/roberta-base","providerModelId":"FacebookAI/roberta-base"} } }
+/>
+
+
 ### Image Classification
 
 Find out more about Image Classification [here](../tasks/image_classification).
@@ -86,6 +96,16 @@ Find out more about Image Classification [here](../tasks/image_classification).
 <InferenceSnippet
     pipeline=image-classification
     providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
+/>
+
+
+### Image Segmentation
+
+Find out more about Image Segmentation [here](../tasks/image_segmentation).
+
+<InferenceSnippet
+    pipeline=image-segmentation
+    providersMapping={ {"hf-inference":{"modelId":"jonathandinu/face-parsing","providerModelId":"jonathandinu/face-parsing"} } }
 />
 
 
@@ -105,7 +125,7 @@ Find out more about Question Answering [here](../tasks/question_answering).
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"deepset/bert-large-uncased-whole-word-masking-squad2","providerModelId":"deepset/bert-large-uncased-whole-word-masking-squad2"} } }
+    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-large-squad2","providerModelId":"deepset/roberta-large-squad2"} } }
 />
 
 
@@ -125,7 +145,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"j-hartmann/emotion-english-distilroberta-base","providerModelId":"j-hartmann/emotion-english-distilroberta-base"} } }
+    providersMapping={ {"hf-inference":{"modelId":"SamLowe/roberta-base-go_emotions","providerModelId":"SamLowe/roberta-base-go_emotions"} } }
 />
 
 
@@ -149,13 +169,23 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 />
 
 
+### Token Classification
+
+Find out more about Token Classification [here](../tasks/token_classification).
+
+<InferenceSnippet
+    pipeline=token-classification
+    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
+/>
+
+
 ### Translation
 
 Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"facebook/nllb-200-distilled-600M","providerModelId":"facebook/nllb-200-distilled-600M"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/mbart-large-50-many-to-many-mmt","providerModelId":"facebook/mbart-large-50-many-to-many-mmt"} } }
 />
 
 

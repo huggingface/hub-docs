@@ -32,7 +32,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"facebook/nllb-200-distilled-600M","providerModelId":"facebook/nllb-200-distilled-600M"}} }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/mbart-large-50-many-to-many-mmt","providerModelId":"facebook/mbart-large-50-many-to-many-mmt"}} }
 />
 
 
