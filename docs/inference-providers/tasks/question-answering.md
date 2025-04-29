@@ -30,10 +30,7 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<InferenceSnippet
-    pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"deepset/bert-large-uncased-whole-word-masking-squad2","providerModelId":"deepset/bert-large-uncased-whole-word-masking-squad2"}} }
-/>
+No snippet available for this task.
 
 
 
