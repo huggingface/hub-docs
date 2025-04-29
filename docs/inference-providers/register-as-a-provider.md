@@ -154,17 +154,17 @@ Create a new mapping item, with the following body (JSON-encoded):
 - `hfModel` is the model id on the Hub's side.
 - `providerModel` is the model id on your side (can be the same or different).
 
-The output of such route is a mapping ID that you can use later to update the mapping's status; or to delete it.
+The output of this route is a mapping ID that you can later use to update the mapping's status or delete it.
 
 ### Using a tag-filter to map several HF models to a single inference endpoint
 
-We also support mapping HF models based on their `tags`.
+We also support mapping HF models based on their `tags`. Using tag filters, you can automatically map multiple HF models to a single inference endpoint on your side.
+For example, any model tagged with both `lora` and `base_model:adapter:black-forest-labs/FLUX.1-dev` can be mapped to your Flux-dev LoRA inference endpoint.
 
-This is useful to, for example, automatically map LoRA adapters to a single Inference Endpoint on your side.
 
 <Tip>
 
-Important note: the client library (Javascript) must be able to handle LoRA weights for your provider. Check out [fal's implementation](https://github.com/huggingface/huggingface.js/blob/904964c9f8cd10ed67114ccb88b9028e89fd6cad/packages/inference/src/providers/fal-ai.ts#L78-L124) for more details. 
+Important: Make sure that the JS client library can handle LoRA weights for your provider. Check out [fal's implementation](https://github.com/huggingface/huggingface.js/blob/904964c9f8cd10ed67114ccb88b9028e89fd6cad/packages/inference/src/providers/fal-ai.ts#L78-L124) for more details. 
 
 </Tip>
 
@@ -189,10 +189,10 @@ Create a new mapping item, with the following body (JSON-encoded):
 - `task`, also known as `pipeline_tag` in the HF ecosystem, is the type of model / type of API
 (examples: "text-to-image", "text-generation", but you should use "conversational" for chat models)
 - `tags` is the set of model tags to match. For example, to match all LoRAs of Flux, you can use: `["lora", "base_model:adapter:black-forest-labs/FLUX.1-dev"]` 
-- `providerModel` is the model id on your side (can be the same or different).
-- `adapterType` is a literal value designed to help client libraries interpret how to request your API. The only supported value at the moment is `"lora"`.
+- `providerModel` is the model ID on your side (can be the same or different from the HF model ID).
+- `adapterType` is a literal value that helps client libraries interpret how to call your API. The only supported value at the moment is `"lora"`.
 
-The output of such route is a mapping ID that you can use later to update the mapping's status; or to delete it.
+The output of this route is a mapping ID that you can later use to update the mapping's status or delete it.
 
 #### Authentication
 
