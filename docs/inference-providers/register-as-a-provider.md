@@ -162,6 +162,12 @@ We also support mapping HF models based on their `tags`.
 
 This is useful to, for example, automatically map LoRA adapters to a single Inference Endpoint on your side.
 
+<Tip>
+
+Important note: the client library (Javascript) must be able to handle LoRA weights for your provider. Check out [fal's implementation](https://github.com/huggingface/huggingface.js/blob/904964c9f8cd10ed67114ccb88b9028e89fd6cad/packages/inference/src/providers/fal-ai.ts#L78-L124) for more details. 
+
+</Tip>
+
 The API is as follows:
 
 ```http
