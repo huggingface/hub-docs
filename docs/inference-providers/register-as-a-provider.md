@@ -154,14 +154,40 @@ Create a new mapping item, with the following body (JSON-encoded):
 - `hfModel` is the model id on the Hub's side.
 - `providerModel` is the model id on your side (can be the same or different).
 
-In the future, we will add support for a new parameter (ping us if it's important to you now):
+The output of such route is a mapping ID that you can use later to update the mapping's status; or to delete it.
+
+### Using a tag-filter to map several HF models to a single inference endpoint
+
+We also support mapping HF models based on their `tags`.
+
+This is useful to, for example, automatically map LoRA adapters to a single Inference Endpoint on your side.
+
+The API is as follows:
+
+```http
+POST /api/partners/{provider}/models
+```
+Create a new mapping item, with the following body (JSON-encoded):
+
 ```json
 {
-    "hfFilter": ["string"]
-    // ^Power user move: register a "tag" slice of HF in one go.
-    // Example: tag == "base_model:adapter:black-forest-labs/FLUX.1-dev" for all Flux-dev LoRAs
+    "type": "tag-filter", // required
+    "task": "WidgetType", // required
+    "tags": ["string"], // required: any HF model with all of those tags will be mapped to providerModel
+    "providerModel": "string", // required: the partner's "model id" i.e. id on your side
+    "adapterType": "lora", // required: only "lora" is supported at the moment
+    "status": "live" | "staging" // Optional: defaults to "staging". "staging" models are only available to members of the partner's org, then you switch them to "live" when they're ready to go live
 }
 ```
+
+- `task`, also known as `pipeline_tag` in the HF ecosystem, is the type of model / type of API
+(examples: "text-to-image", "text-generation", but you should use "conversational" for chat models)
+- `tags` is the set of model tags to match. For example, to match all LoRAs of Flux, you can use: `["lora", "base_model:adapter:black-forest-labs/FLUX.1-dev"]` 
+- `providerModel` is the model id on your side (can be the same or different).
+- `adapterType` is a literal value designed to help client libraries interpret how to request your API. The only supported value at the moment is `"lora"`.
+
+The output of such route is a mapping ID that you can use later to update the mapping's status; or to delete it.
+
 #### Authentication
 
 You need to be in the _provider_ Hub organization (e.g. https://huggingface.co/togethercomputer
@@ -178,25 +204,30 @@ huggingface.js/inference call of the corresponding task i.e. the API specs are v
 ### Delete a mapping item
 
 ```http
-DELETE /api/partners/{provider}/models?hfModel=namespace/model-name
+DELETE /api/partners/{provider}/models/{mapping ID}
 ```
+
+Where `mapping ID` is the mapping's id obtained upon creation.
+You can also retrieve it from the [list API endpoint](#list-the-whole-mapping).
 
 ### Update a mapping item's status
 
 Call this HTTP PUT endpoint:
 
 ```http
-PUT /api/partners/{provider}/models/status
+PUT /api/partners/{provider}/models/{mapping ID}/status
 ```
 
 With the following body (JSON-encoded):
 
 ```json
 {
-    "hfModel": "namespace/model-name", // The name of the model on HF
     "status": "live" | "staging" // The new status, one of "staging" or "live"
 }   
 ```
+
+Where `mapping ID` is the mapping's id obtained upon creation.
+You can also retrieve it from the [list API endpoint](#list-the-whole-mapping).
 
 ### List the whole mapping
 
@@ -217,26 +248,41 @@ Here is an example of response:
 {
     "text-to-image": {
         "black-forest-labs/FLUX.1-Canny-dev": {
+            "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
             "providerId": "black-forest-labs/FLUX.1-canny",
             "status": "live"
         },
         "black-forest-labs/FLUX.1-Depth-dev": {
+            "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
             "providerId": "black-forest-labs/FLUX.1-depth",
             "status": "live"
+        },
+        "tag-filter=base_model:adapter:stabilityai/stable-diffusion-xl-base-1.0,lora": {
+            "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
+            "status": "live",
+            "providerId": "sdxl-lora-mutualized",
+            "adapterType": "lora",
+            "tags": [
+                "base_model:adapter:stabilityai/stable-diffusion-xl-base-1.0",
+                "lora"
+            ]
         }
     },
     "conversational": {
         "deepseek-ai/DeepSeek-R1": {
+            "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
             "providerId": "deepseek-ai/DeepSeek-R1",
             "status": "live"
         }
     },
     "text-generation": {
         "meta-llama/Llama-2-70b-hf": {
+            "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
             "providerId": "meta-llama/Llama-2-70b-hf",
             "status": "live"
         },
         "mistralai/Mixtral-8x7B-v0.1": {
+            "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
             "providerId": "mistralai/Mixtral-8x7B-v0.1",
             "status": "live"
         }
@@ -264,9 +310,11 @@ provide the cost for each request via an HTTP API you host on your end.
 We ask that you expose an API that supports a HTTP POST request.
 The body of the request is a JSON-encoded object containing a list of request IDs for which we
 request the cost.
+The authentication system should be the same as your Inference service; for example, a bearer token.
 
 ```http
 POST {your URL here}
+Authorization: {authentication info - eg "Bearer token"}
 Content-Type: application/json
 
 {
@@ -297,7 +345,7 @@ Content-Type: application/json
 
 ### Price Unit
 
-We require the price to be an **integer** number of **nano-USDs** (10^-9 USD).
+We require the price to be a **non-negative integer** number of **nano-USDs** (10^-9 USD).
 
 ### How to define the request ID
 
