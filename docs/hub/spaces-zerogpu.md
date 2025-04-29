@@ -20,8 +20,8 @@ Unlike traditional single-GPU allocations, ZeroGPU's efficient system lowers bar
 
 ## Technical Specifications
 
-- **GPU Type**: Nvidia A100
-- **Available VRAM**: 40GB per workload
+- **GPU Type**: Nvidia H200 slice
+- **Available VRAM**: 70GB per workload
 
 ## Compatibility
 
@@ -34,7 +34,7 @@ ZeroGPU Spaces are designed to be compatible with most PyTorch-based GPU Spaces.
 ### Supported Versions
 
 - Gradio: 4+
-- PyTorch: 2.0.1, 2.1.2, 2.2.2, 2.4.0 (Note: 2.3.x is not supported due to a [PyTorch bug](https://github.com/pytorch/pytorch/issues/122085))
+- PyTorch: 2.1.2, 2.2.2, 2.4.0, 2.5.1 (Note: 2.3.x is not supported due to a [PyTorch bug](https://github.com/pytorch/pytorch/issues/122085))
 - Python: 3.10.13
 
 ## Getting started with ZeroGPU
