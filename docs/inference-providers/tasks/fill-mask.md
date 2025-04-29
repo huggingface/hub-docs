@@ -32,7 +32,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=fill-mask
-    providersMapping={ {"hf-inference":{"modelId":"FacebookAI/roberta-base","providerModelId":"FacebookAI/roberta-base"}} }
+    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-uncased","providerModelId":"google-bert/bert-base-uncased"}} }
 />
 
 
