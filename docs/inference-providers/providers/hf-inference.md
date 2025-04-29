@@ -75,7 +75,17 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"intfloat/multilingual-e5-large-instruct","providerModelId":"intfloat/multilingual-e5-large-instruct"} } }
+    providersMapping={ {"hf-inference":{"modelId":"kyutai/mimi","providerModelId":"kyutai/mimi"} } }
+/>
+
+
+### Fill Mask
+
+Find out more about Fill Mask [here](../tasks/fill_mask).
+
+<InferenceSnippet
+    pipeline=fill-mask
+    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-uncased","providerModelId":"google-bert/bert-base-uncased"} } }
 />
 
 
@@ -85,27 +95,17 @@ Find out more about Image Classification [here](../tasks/image_classification).
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google/vit-base-patch16-224","providerModelId":"google/vit-base-patch16-224"} } }
 />
 
 
-### Object Detection
+### Image Segmentation
 
-Find out more about Object Detection [here](../tasks/object_detection).
-
-<InferenceSnippet
-    pipeline=object-detection
-    providersMapping={ {"hf-inference":{"modelId":"facebook/detr-resnet-50","providerModelId":"facebook/detr-resnet-50"} } }
-/>
-
-
-### Question Answering
-
-Find out more about Question Answering [here](../tasks/question_answering).
+Find out more about Image Segmentation [here](../tasks/image_segmentation).
 
 <InferenceSnippet
-    pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"deepset/bert-large-uncased-whole-word-masking-squad2","providerModelId":"deepset/bert-large-uncased-whole-word-masking-squad2"} } }
+    pipeline=image-segmentation
+    providersMapping={ {"hf-inference":{"modelId":"jonathandinu/face-parsing","providerModelId":"jonathandinu/face-parsing"} } }
 />
 
 
@@ -115,7 +115,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 <InferenceSnippet
     pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"} } }
+    providersMapping={ {"hf-inference":{"modelId":"pszemraj/led-base-book-summary","providerModelId":"pszemraj/led-base-book-summary"} } }
 />
 
 
@@ -125,7 +125,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"j-hartmann/emotion-english-distilroberta-base","providerModelId":"j-hartmann/emotion-english-distilroberta-base"} } }
+    providersMapping={ {"hf-inference":{"modelId":"NousResearch/Minos-v1","providerModelId":"NousResearch/Minos-v1"} } }
 />
 
 
@@ -155,16 +155,6 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"facebook/nllb-200-distilled-600M","providerModelId":"facebook/nllb-200-distilled-600M"} } }
-/>
-
-
-### Zero Shot Classification
-
-Find out more about Zero Shot Classification [here](../tasks/zero_shot_classification).
-
-<InferenceSnippet
-    pipeline=zero-shot-classification
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
 />
 

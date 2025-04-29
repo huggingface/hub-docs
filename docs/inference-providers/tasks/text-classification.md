@@ -24,6 +24,9 @@ For more details about the `text-classification` task, check out its [dedicated 
 
 ### Recommended models
 
+- [distilbert/distilbert-base-uncased-finetuned-sst-2-english](https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english): A robust model trained for sentiment analysis.
+- [ProsusAI/finbert](https://huggingface.co/ProsusAI/finbert): A sentiment analysis model specialized in financial sentiment.
+- [cardiffnlp/twitter-roberta-base-sentiment-latest](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest): A sentiment analysis model specialized in analyzing tweets.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-classification&sort=trending).
 
@@ -32,7 +35,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"j-hartmann/emotion-english-distilroberta-base","providerModelId":"j-hartmann/emotion-english-distilroberta-base"}} }
+    providersMapping={ {"hf-inference":{"modelId":"NousResearch/Minos-v1","providerModelId":"NousResearch/Minos-v1"}} }
 />
 
 
