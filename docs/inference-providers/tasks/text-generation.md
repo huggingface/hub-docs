@@ -39,7 +39,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B"},"together":{"modelId":"deepseek-ai/DeepSeek-R1","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
+    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"Qwen/Qwen3-235B-A22B"},"together":{"modelId":"deepseek-ai/DeepSeek-R1","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
 />
 
 
