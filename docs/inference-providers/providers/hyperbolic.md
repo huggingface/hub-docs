@@ -17,7 +17,7 @@ Logos must be in .png format and be named `hyperbolic-light.png` and `hyperbolic
 For more details, check out the `generate.ts` script: https://github.com/huggingface/hub-docs/blob/main/scripts/inference-providers/scripts/generate.ts.
 --->
 
-# Hyperbolic
+# Hyperbolic: The On-Demand AI Cloud
 
 <div class="flex justify-center">
     <a href="https://hyperbolic.xyz/" target="_blank">
@@ -32,8 +32,6 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
         <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg-dark.svg"/>
     </a>
 </div>
-
-# Hyperbolic: The On-Demand AI Cloud
 
 ## Join 165,000+ developers building with on-demand GPUs and running inference on the latest models — at 75% less than legacy clouds.
 
