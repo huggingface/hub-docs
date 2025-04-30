@@ -55,7 +55,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"Qwen/Qwen3-235B-A22B"} } }
 conversational />
 
 
@@ -109,16 +109,6 @@ Find out more about Image Segmentation [here](../tasks/image_segmentation).
 />
 
 
-### Summarization
-
-Find out more about Summarization [here](../tasks/summarization).
-
-<InferenceSnippet
-    pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"pszemraj/led-base-book-summary","providerModelId":"pszemraj/led-base-book-summary"} } }
-/>
-
-
 ### Text Classification
 
 Find out more about Text Classification [here](../tasks/text_classification).
@@ -135,7 +125,7 @@ Find out more about Text Generation [here](../tasks/text_generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"Qwen/Qwen3-235B-A22B"} } }
 />
 
 
