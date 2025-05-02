@@ -63,15 +63,18 @@ We wrote an extensive guide on uploading best practices [here](https://huggingfa
 
 Bonus: a recognised library also allows you to track downloads of your model over time.
 
-2. **Pipeline Tag Selection**: Choose the correct [pipeline tag](https://huggingface.co/docs/hub/model-cards#specifying-a-task--pipelinetag-) that accurately reflects your model's primary task. This tag determines how your model appears in search results and which widgets are displayed on your model page.
+2. **Correct Metadata**:
+   - **Pipeline Tag:** Choose the correct [pipeline tag](https://huggingface.co/docs/hub/model-cards#specifying-a-task--pipelinetag-) that accurately reflects your model's primary task. This tag determines how your model appears in search results and which widgets are displayed on your model page.
 
    Examples of common pipeline tags:
    - `text-generation` - For language models that generate text
    - `text-to-image` - For text-to-image generation models
    - `image-text-to-text` - For vision-language models (VLMs) that generate text
    - `text-to-speech` - For models that generate audio from text
+  
+   - **License:** Properly filling the license information in metadata will help users see if they can use the model for commercial or research purposes.
 
-3. **Research Papers**: If your model has associated research papers, you can cite them in your model card and they will be [linked automatically](https://huggingface.co/docs/hub/model-cards#linking-a-paper). This provides academic context, allows users to dive deeper into the theoretical foundations of your work, and increases citations.
+4. **Research Papers**: If your model has associated research papers, you can cite them in your model card and they will be [linked automatically](https://huggingface.co/docs/hub/model-cards#linking-a-paper). This provides academic context, allows users to dive deeper into the theoretical foundations of your work, and increases citations.
 
    ```markdown
    ## References
@@ -79,17 +82,19 @@ Bonus: a recognised library also allows you to track downloads of your model ove
    * [Model Paper](https://arxiv.org/abs/xxxx.xxxxx)
    ```
 
-4. **Collections**: If you're releasing multiple related models or variants, organize them into a [collection](https://huggingface.co/docs/hub/collections). Collections help users discover related models and understand the relationships between different versions or variants.
+5. **Collections**: If you're releasing multiple related models or variants, organize them into a [collection](https://huggingface.co/docs/hub/collections). Collections help users discover related models and understand the relationships between different versions or variants.
 
-5. **Demos**: Create a [Hugging Face Space](https://huggingface.co/docs/hub/spaces) with an interactive demo of your model. This allows users to try your model directly without writing any code, significantly lowering the barrier to adoption. You can also [link the model](https://huggingface.co/docs/hub/spaces-config-reference) from the Space to make it appear on the model page dedicated UI.
+6. **Demos**: Create a [Hugging Face Space](https://huggingface.co/docs/hub/spaces) with an interactive demo of your model. This allows users to try your model directly without writing any code, significantly lowering the barrier to adoption. You can also [link the model](https://huggingface.co/docs/hub/spaces-config-reference) from the Space to make it appear on the model page dedicated UI.
 
    ```markdown
    ## Demo
    
    Try this model directly in your browser: [Space Demo](https://huggingface.co/spaces/username/model-demo)
    ```
+   
+It's a good practise to load the model from the model's own repository in the demo instead of loading them from drive or keeping the checkpoint in the repository. This way, Space is linked to the repository, and chances of your model making it to trending is higher due to increased downloads.
 
-6. **Quantized Versions**: Consider uploading quantized versions of your model (e.g., in GGUF or DDUF formats) to improve accessibility for users with limited computational resources. Link these versions using the [`base_model` metadata field](https://huggingface.co/docs/hub/model-cards#specifying-a-base-model) on the quantized model cards. You can also clearly document performance differences between the original and quantized versions.
+7. **Quantized Versions**: Consider uploading quantized versions of your model (e.g., in GGUF or DDUF formats) to improve accessibility for users with limited computational resources. Link these versions using the [`base_model` metadata field](https://huggingface.co/docs/hub/model-cards#specifying-a-base-model) on the quantized model cards. You can also clearly document performance differences between the original and quantized versions.
 
    ```yaml
    ---
@@ -98,7 +103,7 @@ Bonus: a recognised library also allows you to track downloads of your model ove
    ---
    ```
 
-7. **Linking Datasets on the Model Page**: Link datasets in your `README.md` metadata to display those used directly from your model page.
+8. **Linking Datasets on the Model Page**: Link datasets in your `README.md` metadata to display those used directly from your model page.
 
    ```yaml
    ---
@@ -108,7 +113,7 @@ Bonus: a recognised library also allows you to track downloads of your model ove
    ---
    ```
 
-8. **New Model Version**: If your model is an update of an existing one, you can specify it on the older version model model card. This will [display a banner](https://huggingface.co/docs/hub/en/model-cards#specifying-a-new-version) on the older model's page linking directly to this updated version.
+9. **New Model Version**: If your model is an update of an existing one, you can specify it on the older version model model card. This will [display a banner](https://huggingface.co/docs/hub/en/model-cards#specifying-a-new-version) on the older model's page linking directly to this updated version.
 
    ```yaml
    ---
@@ -116,7 +121,7 @@ Bonus: a recognised library also allows you to track downloads of your model ove
    ---
    ```
 
-9. **Visual Examples**: For image or video generation models, include examples directly on your model page using the [`<Gallery>` card component](https://huggingface.co/docs/hub/en/model-cards-components#the-gallery-component). Visual examples provide immediate insight into your model's capabilities.
+10. **Visual Examples**: For image or video generation models, include examples directly on your model page using the [`<Gallery>` card component](https://huggingface.co/docs/hub/en/model-cards-components#the-gallery-component). Visual examples provide immediate insight into your model's capabilities.
 
    ```markdown
    <Gallery>
@@ -125,7 +130,7 @@ Bonus: a recognised library also allows you to track downloads of your model ove
    </Gallery>
    ```
 
-10. **Carbon Emissions**: If possible, specify the [carbon emissions](https://huggingface.co/docs/hub/model-cards-co2) associated with training your model. This information helps environmentally conscious users and organizations make informed decisions.
+11. **Carbon Emissions**: If possible, specify the [carbon emissions](https://huggingface.co/docs/hub/model-cards-co2) associated with training your model. This information helps environmentally conscious users and organizations make informed decisions.
 
    ```yaml
    ---
