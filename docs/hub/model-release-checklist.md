@@ -103,7 +103,7 @@ It's a good practise to load the model from the model's own repository in the de
    ---
    ```
 
-9. **Linking Datasets on the Model Page**: Link datasets in your `README.md` metadata to display those used directly from your model page.
+7. **Linking Datasets on the Model Page**: Link datasets in your `README.md` metadata to display those used directly from your model page.
 
    ```yaml
    ---
@@ -113,7 +113,7 @@ It's a good practise to load the model from the model's own repository in the de
    ---
    ```
 
-10. **New Model Version**: If your model is an update of an existing one, you can specify it on the older version model model card. This will [display a banner](https://huggingface.co/docs/hub/en/model-cards#specifying-a-new-version) on the older model's page linking directly to this updated version.
+8. **New Model Version**: If your model is an update of an existing one, you can specify it on the older version model model card. This will [display a banner](https://huggingface.co/docs/hub/en/model-cards#specifying-a-new-version) on the older model's page linking directly to this updated version.
 
    ```yaml
    ---
@@ -121,7 +121,7 @@ It's a good practise to load the model from the model's own repository in the de
    ---
    ```
 
-11. **Visual Examples**: For image or video generation models, include examples directly on your model page using the [`<Gallery>` card component](https://huggingface.co/docs/hub/en/model-cards-components#the-gallery-component). Visual examples provide immediate insight into your model's capabilities.
+9. **Visual Examples**: For image or video generation models, include examples directly on your model page using the [`<Gallery>` card component](https://huggingface.co/docs/hub/en/model-cards-components#the-gallery-component). Visual examples provide immediate insight into your model's capabilities.
 
    ```markdown
    <Gallery>
@@ -130,7 +130,7 @@ It's a good practise to load the model from the model's own repository in the de
    </Gallery>
    ```
 
-12. **Carbon Emissions**: If possible, specify the [carbon emissions](https://huggingface.co/docs/hub/model-cards-co2) associated with training your model. This information helps environmentally conscious users and organizations make informed decisions.
+10. **Carbon Emissions**: If possible, specify the [carbon emissions](https://huggingface.co/docs/hub/model-cards-co2) associated with training your model. This information helps environmentally conscious users and organizations make informed decisions.
 
    ```yaml
    ---
