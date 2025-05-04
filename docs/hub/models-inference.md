@@ -7,7 +7,7 @@ Please refer to the [Inference Providers Documentation](https://huggingface.co/d
 HF-Inference API is one of the many providers available on the Hugging Face Hub.
 It is deployed by Hugging Face ourselves, using text-generation-inference for LLMs for instance. This service used to be called “Inference API (serverless)” prior to Inference Providers. 
 
-For more details about the HF-Inference API, check out it's [dedicated page](https://huggingface.co/docs/inference-providers/providers/hf-inference).
+For more details about the HF-Inference API, check out its [dedicated page](https://huggingface.co/docs/inference-providers/providers/hf-inference).
 
 ## What technology do you use to power the HF-Inference API?
 
