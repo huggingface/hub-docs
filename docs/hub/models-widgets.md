@@ -188,6 +188,6 @@ inference:
     temperature: 0.7
 ``` 
 
-Inference Providers allows you to send HTTP requests to models in the Hugging Face Hub programatically. It is an abstraction layer on top of External providers. ⚡⚡ Learn more about it by reading the [
+Inference Providers allows you to send HTTP requests to models in the Hugging Face Hub programmatically. It is an abstraction layer on top of External providers. ⚡⚡ Learn more about it by reading the [
 Inference Providers documentation](/docs/inference-providers). 
 Finally, you can also deploy all those models to dedicated [Inference Endpoints](https://huggingface.co/docs/inference-endpoints).
