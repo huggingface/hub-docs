@@ -44,4 +44,4 @@ Ask your university's IT or Procurement Team to <a href="https://huggingface.co/
 
 #### Private storage
 
-Academia Hub includes 1TB of [private repository storage](./storage-limits) per seat in the subscription, i.e. if your institution has 400 students and faculty, your students and faculty have 400TB included storage accross their private models and datasets.
+Academia Hub includes 1TB of [private repository storage](./storage-limits) per seat in the subscription, i.e. if your institution has 400 students and faculty, your students and faculty have 400TB included storage across their private models and datasets.
