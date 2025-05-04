@@ -24,7 +24,7 @@ You can sign your commits locally using [GPG](https://gnupg.org/).
 Then configure your profile to mark these commits as **verified** on the Hub,
 so other people can be confident that they come from a trusted source.
 
-For a more in-depth explanation of how git and GPG interact, please visit the the [git documentation on the subject](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work)
+For a more in-depth explanation of how git and GPG interact, please visit the [git documentation on the subject](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work)
 
 Commits can have the following signing statuses:
 
