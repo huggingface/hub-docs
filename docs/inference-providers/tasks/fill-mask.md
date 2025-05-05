@@ -30,10 +30,7 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<InferenceSnippet
-    pipeline=fill-mask
-    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-uncased","providerModelId":"google-bert/bert-base-uncased"}} }
-/>
+There are currently no snippet examples for the **fill-mask** task, as no providers support it yet.
 
 
 

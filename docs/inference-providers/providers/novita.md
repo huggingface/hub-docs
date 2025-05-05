@@ -46,7 +46,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"novita":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"deepseek/deepseek-v3-0324"} } }
+    providersMapping={ {"novita":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"qwen/qwen3-235b-a22b-fp8"} } }
 conversational />
 
 

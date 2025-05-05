@@ -30,7 +30,7 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-No snippet available for this task.
+There are currently no snippet examples for the **summarization** task, as no providers support it yet.
 
 
 
