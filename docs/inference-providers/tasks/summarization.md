@@ -30,10 +30,7 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<InferenceSnippet
-    pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"pszemraj/led-base-book-summary","providerModelId":"pszemraj/led-base-book-summary"}} }
-/>
+No snippet available for this task.
 
 
 

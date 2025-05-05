@@ -55,7 +55,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"Qwen/Qwen3-235B-A22B"} } }
 conversational />
 
 
@@ -79,46 +79,6 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 />
 
 
-### Fill Mask
-
-Find out more about Fill Mask [here](../tasks/fill_mask).
-
-<InferenceSnippet
-    pipeline=fill-mask
-    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-uncased","providerModelId":"google-bert/bert-base-uncased"} } }
-/>
-
-
-### Image Classification
-
-Find out more about Image Classification [here](../tasks/image_classification).
-
-<InferenceSnippet
-    pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"google/vit-base-patch16-224","providerModelId":"google/vit-base-patch16-224"} } }
-/>
-
-
-### Image Segmentation
-
-Find out more about Image Segmentation [here](../tasks/image_segmentation).
-
-<InferenceSnippet
-    pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"jonathandinu/face-parsing","providerModelId":"jonathandinu/face-parsing"} } }
-/>
-
-
-### Summarization
-
-Find out more about Summarization [here](../tasks/summarization).
-
-<InferenceSnippet
-    pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"pszemraj/led-base-book-summary","providerModelId":"pszemraj/led-base-book-summary"} } }
-/>
-
-
 ### Text Classification
 
 Find out more about Text Classification [here](../tasks/text_classification).
@@ -135,7 +95,7 @@ Find out more about Text Generation [here](../tasks/text_generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"Qwen/QwQ-32B","providerModelId":"Qwen/QwQ-32B"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"Qwen/Qwen3-235B-A22B"} } }
 />
 
 
@@ -146,15 +106,5 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 <InferenceSnippet
     pipeline=text-to-image
     providersMapping={ {"hf-inference":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"} } }
-/>
-
-
-### Translation
-
-Find out more about Translation [here](../tasks/translation).
-
-<InferenceSnippet
-    pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
 />
 

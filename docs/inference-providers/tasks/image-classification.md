@@ -31,10 +31,7 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<InferenceSnippet
-    pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"google/vit-base-patch16-224","providerModelId":"google/vit-base-patch16-224"}} }
-/>
+No snippet available for this task.
 
 
 

@@ -16,7 +16,7 @@ You can edit the `sdk_version`, but note that issues may occur when you use an u
 For in-depth information about Streamlit, refer to the [Streamlit documentation](https://docs.streamlit.io/).
 
 <Tip warning={true}>
-Only port 8501 is allowed for Streamlit Spaces (default port). As a result if you provide a `config.toml` file for your Space make sure the default port is not overriden.
+Only port 8501 is allowed for Streamlit Spaces (default port). As a result if you provide a `config.toml` file for your Space make sure the default port is not overridden.
 </Tip>
 
 ## Your First Streamlit Space: Hot Dog Classifier

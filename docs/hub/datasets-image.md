@@ -78,7 +78,7 @@ file_name,text
 1.jpg,a drawing of a green pokemon with red eyes
 2.jpg,a green and yellow toy with a red nose
 3.jpg,a red and white ball with an angry look on its face
-4.jpg,a cartoon ball with a smile on it's face
+4.jpg,a cartoon ball with a smile on its face
 ```
 
 You can also use a [JSONL](https://jsonlines.org/) file `metadata.jsonl`:
@@ -87,7 +87,7 @@ You can also use a [JSONL](https://jsonlines.org/) file `metadata.jsonl`:
 {"file_name": "1.jpg","text": "a drawing of a green pokemon with red eyes"}
 {"file_name": "2.jpg","text": "a green and yellow toy with a red nose"}
 {"file_name": "3.jpg","text": "a red and white ball with an angry look on its face"}
-{"file_name": "4.jpg","text": "a cartoon ball with a smile on it's face"}
+{"file_name": "4.jpg","text": "a cartoon ball with a smile on its face"}
 ```
 
 And for bigger datasets or if you are interested in advanced data retrieval features, you can use a [Parquet](https://parquet.apache.org/) file `metadata.parquet`.

@@ -31,10 +31,7 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<InferenceSnippet
-    pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"}} }
-/>
+No snippet available for this task.
 
 
 
