@@ -35,10 +35,7 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-<InferenceSnippet
-    pipeline=image-to-image
-    providersMapping={ {"replicate":{"modelId":"stepfun-ai/Step1X-Edit","providerModelId":"zsxkib/step1x-edit"}} }
-/>
+No snippet available for this task.
 
 
 
