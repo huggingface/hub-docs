@@ -24,14 +24,13 @@ For more details about the `image-classification` task, check out its [dedicated
 
 ### Recommended models
 
-- [google/vit-base-patch16-224](https://huggingface.co/google/vit-base-patch16-224): A strong image classification model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-classification&sort=trending).
 
 ### Using the API
 
 
-No snippet available for this task.
+There are currently no snippet examples for the **image-classification** task, as no providers support it yet.
 
 
 
