@@ -1,0 +1,64 @@
+# Agents on Hub
+
+This page compiles all the libraries and tools Hugging Face offers for agentic workflows.
+
+## Smolagents
+
+[Smolagents](https://github.com/huggingface/smolagents) is a lightweight library to cover all agentic use cases from code writing agents to computer use in few lines of code. It is model agnostic, supporting local models served with Hugging Face Transformers, as well as models offered with [Inference Providers](../inference-providers/index.md), and proprietary model providers. 
+
+It offers three agent classes based on ReAct framework: `CodeAgent` for agents writing their own codes, `ToolCallingAgent` for tool calling agents and the `MultiStepAgent` which the former two agents are based on for multi-step ReAct workflows.
+
+If you want to avoid defining agents yourself, easiest way to start an agent is through CLI, with `smolagent` command.
+
+```python
+smolagent "Plan a trip to Tokyo, Kyoto and Osaka between Mar 28 and Apr 7."  --model-type "InferenceClientModel" --model-id "Qwen/Qwen2.5-Coder-32B-Instruct" --imports "pandas numpy" --tools "web_search"
+```
+
+Agents can be pushed to Hugging Face Hub as Spaces. Check out all the cool agents people have built [here](https://huggingface.co/spaces?filter=smolagents&sort=likes).
+
+## huggingface.js mcp-client
+
+Huggingface.js offers an MCP client served with Inference Providers. Getting started with them is as simple as running `pnpm agent`. You can plug and play different models and providers by setting `PROVIDER` and `MODEL_ID` environmental variables. 
+
+```bash
+export HF_TOKEN="hf_..."
+export MODEL_ID="Qwen/Qwen2.5-72B-Instruct"
+export PROVIDER="nebius"
+pnpm agent
+```
+
+You can get more information about mcp-client [here](https://huggingface.co/docs/huggingface.js/en/mcp-client/README).
+
+
+
+## Gradio MCP Client
+
+Gradio MCP Client wraps Gradio applications to make them available for LLM to use. 
+
+To make a Gradio application an MCP server, simply pass in `mcp_server=True` when launching your demo like follows.
+
+```python
+demo = gr.Interface(
+    fn=generate_images,
+    inputs="text",
+    outputs="image",
+    title="Image Generator"
+)
+
+demo.launch(mcp_server=True)
+```
+
+The server will be available at `http://your-server:port/gradio_api/mcp/sse` where your application is served. Lastly, add this to the settings of the MCP Client of your choice.
+
+```
+{
+  "mcpServers": {
+    "gradio": {
+      "url": "http://your-server:port/gradio_api/mcp/sse"
+    }
+  }
+}
+```
+
+
+This is very powerful because it let's the LLM use any Gradio application as a tool. You can find a variety of them on [Spaces](https://huggingface.co/spaces) and serve. 

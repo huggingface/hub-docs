@@ -63,6 +63,8 @@
     sections:
       - local: adapters
         title: Adapters
+      - local: agents
+        title: Agents on Hub
       - local: allennlp
         title: AllenNLP
       - local: bertopic
