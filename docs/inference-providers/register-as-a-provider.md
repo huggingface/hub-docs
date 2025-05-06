@@ -301,7 +301,7 @@ Here is an example of response:
 For routed requests (see figure below), i.e. when users authenticate via HF, our intent is that
 our users only pay the standard provider API rates. There's no additional markup from us, we
 just pass through the provider costs directly. 
-More details about the pricing structure can be found on the [pricing page](./pricing.md).
+More details about the pricing structure can be found on the [pricing page](./pricing).
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/types_of_billing.png"/>
