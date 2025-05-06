@@ -31,9 +31,9 @@ You can get more information about mcp-client [here](https://huggingface.co/docs
 
 
 
-## Gradio MCP Client
+## Gradio MCP Server
 
-Gradio MCP Client wraps Gradio applications to make them available for LLM to use. 
+Gradio MCP Server feature wraps Gradio applications to make them available for LLM to use. 
 
 To make a Gradio application an MCP server, simply pass in `mcp_server=True` when launching your demo like follows.
 
