@@ -2,7 +2,7 @@
 
 This page compiles all the libraries and tools Hugging Face offers for agentic workflows.
 
-## smolagents
+## smolagents
 
 [smolagents](https://github.com/huggingface/smolagents) is a lightweight library to cover all agentic use cases, from code-writing agents to computer use, in few lines of code. It is model agnostic, supporting local models served with Hugging Face Transformers, as well as models offered with [Inference Providers](../inference-providers/index.md), and proprietary model providers. 
 
