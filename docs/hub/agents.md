@@ -75,7 +75,9 @@ demo = gr.Interface(
 
 demo.launch(mcp_server=True)
 
-The server will be available at `http://your-server:port/gradio_api/mcp/sse` where your application is served. Lastly, add this to the settings of the MCP Client of your choice.
+The MCP server will be available at `http://your-server:port/gradio_api/mcp/sse` where your application is served. It will have a tool corresponding to each function in your Gradio app, with the tool description automatically generated from the docstrings of your functions.
+
+Lastly, add this to the settings of the MCP Client of your choice (e.g. Cursor).
 
 ```
 {
