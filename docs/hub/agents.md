@@ -12,13 +12,14 @@ To learn more about write actions in code vs JSON, check out our [new short cour
 
 If you want to avoid defining agents yourself, the easiest way to start an agent is through the CLI, using the `smolagent` command.
 
-```python
+```
 smolagent "Plan a trip to Tokyo, Kyoto and Osaka between Mar 28 and Apr 7."  --model-type "InferenceClientModel" --model-id "Qwen/Qwen2.5-Coder-32B-Instruct" --imports "pandas numpy" --tools "web_search"
 ```
 
 Agents can be pushed to Hugging Face Hub as Spaces. Check out all the cool agents people have built [here](https://huggingface.co/spaces?filter=smolagents&sort=likes).
 
 smolagents also support MCP servers as tools, as follows:
+
 ```python
 from smolagents import MCPClient, CodeAgent
 from mcp import StdioServerParameters
@@ -62,7 +63,6 @@ You can build an MCP server in just a few lines of Python with Gradio. If you ha
 To make a Gradio application an MCP server, simply pass in `mcp_server=True` when launching your demo like follows.
 
 ```python
-
 def generate_image(prompt: str):
    """
    Generate an image based on a text prompt
