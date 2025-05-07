@@ -92,7 +92,7 @@ Bonus: a recognised library also allows you to track downloads of your model ove
    Try this model directly in your browser: [Space Demo](https://huggingface.co/spaces/username/model-demo)
    ```
    
-When you write a demo, please download the model from its repository in the Hub (instead of using external sources) so both are cross-linked together. This will help all your artifacts achieve greater visibility.
+When you create a demo, please download the model from its repository on the Hub (instead of using external sources like Google Drive); it cross-links model artefacts and demo together and allows more paths to visibility. 
 
 6. **Quantized Versions**: Consider uploading quantized versions of your model (e.g., in GGUF or DDUF formats) to improve accessibility for users with limited computational resources. Link these versions using the [`base_model` metadata field](https://huggingface.co/docs/hub/model-cards#specifying-a-base-model) on the quantized model cards. You can also clearly document performance differences between the original and quantized versions.
 
