@@ -59,6 +59,10 @@ You can use Inference Providers with your preferred tools, such as Python, JavaS
 
 In this section, we will demonstrate a simple example using [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a conversational Large Language Model. For the example, we will use [Novita AI](https://novita.ai/) as Inference Provider.
 
+> [!TIP]
+> You can also automatically select a provider for a model using `provider="auto"` — it will pick the first available provider for your model based on your preferred order set in https://hf.co/settings/inference-providers.
+> This is the default if you don't specify a provider in our Python or JavaScript SDK.
+
 ### Authentication
 
 Inference Providers requires passing a user token in the request headers. You can generate a token by signing up on the Hugging Face website and going to the [settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained). We recommend creating a `fine-grained` token with the scope to `Make calls to Inference Providers`.
