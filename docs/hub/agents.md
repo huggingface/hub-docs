@@ -6,7 +6,7 @@ This page compiles all the libraries and tools Hugging Face offers for agentic w
 
 [smolagents](https://github.com/huggingface/smolagents) is a lightweight library to cover all agentic use cases, from code-writing agents to computer use, in few lines of code. It is model agnostic, supporting local models served with Hugging Face Transformers, as well as models offered with [Inference Providers](../inference-providers/index.md), and proprietary model providers. 
 
-It offers three agent classes based on ReAct framework: `CodeAgent` for agents writing their own codes, `ToolCallingAgent` for tool calling agents and the `MultiStepAgent` which the former two agents are based on for multi-step ReAct workflows.
+It offers three agent classes based on the ReAct framework: `CodeAgent` for agents writing their own code, `ToolCallingAgent` for tool calling agents, and the `MultiStepAgent` (on which the two former agents are based) for multi-step ReAct workflows.
 
 If you want to avoid defining agents yourself, the easiest way to start an agent is through the CLI, using the `smolagent` command.
 
