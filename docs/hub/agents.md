@@ -36,7 +36,7 @@ Learn more [in the documentation](https://huggingface.co/docs/smolagents/tutoria
 
 ## huggingface.js mcp-client
 
-Huggingface.js offers an MCP client served with Inference Providers. Getting started with them is as simple as running `pnpm agent`. You can plug and play different models and providers by setting `PROVIDER` and `MODEL_ID` environmental variables. 
+Huggingface.js offers an MCP client served with Inference Providers. Getting started with them is as simple as running `pnpm agent`. You can plug and play different models and providers by setting `PROVIDER` and `MODEL_ID` environment variables. 
 
 ```bash
 export HF_TOKEN="hf_..."
