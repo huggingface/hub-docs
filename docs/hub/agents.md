@@ -49,7 +49,7 @@ You can get more information about mcp-client [here](https://huggingface.co/docs
 
 
 
-## Gradio MCP Server
+## Gradio MCP Server / Tools
 
 Gradio MCP Server feature wraps Gradio applications to make them available for LLM to use. 
 
