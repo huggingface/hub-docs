@@ -56,15 +56,24 @@ Gradio MCP Server feature wraps Gradio applications to make them available for L
 To make a Gradio application an MCP server, simply pass in `mcp_server=True` when launching your demo like follows.
 
 ```python
+
+def generate_image(prompt: str):
+   """
+   Generate an image based on a text prompt
+   
+   Args:
+       prompt: a text string describing the image to generate
+   """
+   pass
+
 demo = gr.Interface(
-    fn=generate_images,
+    fn=generate_image,
     inputs="text",
     outputs="image",
     title="Image Generator"
 )
 
 demo.launch(mcp_server=True)
-```
 
 The server will be available at `http://your-server:port/gradio_api/mcp/sse` where your application is served. Lastly, add this to the settings of the MCP Client of your choice.
 
