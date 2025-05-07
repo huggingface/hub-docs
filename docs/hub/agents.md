@@ -18,7 +18,7 @@ smolagent "Plan a trip to Tokyo, Kyoto and Osaka between Mar 28 and Apr 7."  --m
 
 Agents can be pushed to Hugging Face Hub as Spaces. Check out all the cool agents people have built [here](https://huggingface.co/spaces?filter=smolagents&sort=likes).
 
-smolagents also support MCP servers as tools, as follows:
+smolagents also supports MCP servers as tools, as follows:
 
 ```python
 from smolagents import MCPClient, CodeAgent
@@ -35,6 +35,7 @@ with MCPClient(server_parameters) as tools:
     agent = CodeAgent(tools=tools, model=model, add_base_tools=True)
     agent.run("Please find the latest research on COVID-19 treatment.")
 ```
+
 Learn more [in the documentation](https://huggingface.co/docs/smolagents/tutorials/tools#use-mcp-tools-with-mcpclient-directly).
 
 ## huggingface.js mcp-client
