@@ -31,6 +31,9 @@ server_parameters = StdioServerParameters(
 with MCPClient(server_parameters) as tools:
     agent = CodeAgent(tools=tools, model=model, add_base_tools=True)
     agent.run("Please find the latest research on COVID-19 treatment.")
+```
+Learn more [in the documentation](https://huggingface.co/docs/smolagents/tutorials/tools#use-mcp-tools-with-mcpclient-directly).
+
 ## huggingface.js mcp-client
 
 Huggingface.js offers an MCP client served with Inference Providers. Getting started with them is as simple as running `pnpm agent`. You can plug and play different models and providers by setting `PROVIDER` and `MODEL_ID` environmental variables. 
