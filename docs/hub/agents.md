@@ -1,4 +1,4 @@
-# Agents on Hub
+# Agents on the Hub
 
 This page compiles all the libraries and tools Hugging Face offers for agentic workflows.
 
