@@ -8,7 +8,7 @@ This page compiles all the libraries and tools Hugging Face offers for agentic w
 
 It offers three agent classes based on ReAct framework: `CodeAgent` for agents writing their own codes, `ToolCallingAgent` for tool calling agents and the `MultiStepAgent` which the former two agents are based on for multi-step ReAct workflows.
 
-If you want to avoid defining agents yourself, easiest way to start an agent is through CLI, with `smolagent` command.
+If you want to avoid defining agents yourself, the easiest way to start an agent is through the CLI, using the `smolagent` command.
 
 ```python
 smolagent "Plan a trip to Tokyo, Kyoto and Osaka between Mar 28 and Apr 7."  --model-type "InferenceClientModel" --model-id "Qwen/Qwen2.5-Coder-32B-Instruct" --imports "pandas numpy" --tools "web_search"
