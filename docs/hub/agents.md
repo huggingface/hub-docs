@@ -90,4 +90,4 @@ Lastly, add this to the settings of the MCP Client of your choice (e.g. Cursor).
 ```
 
 
-This is very powerful because it let's the LLM use any Gradio application as a tool. You can find a variety of them on [Spaces](https://huggingface.co/spaces) and serve. 
+This is very powerful because it lets the LLM use any Gradio application as a tool. You can find thousands of them on [Spaces](https://huggingface.co/spaces). 
