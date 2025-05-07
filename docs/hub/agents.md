@@ -12,7 +12,7 @@ To learn more about write actions in code vs JSON, check out our [new short cour
 
 If you want to avoid defining agents yourself, the easiest way to start an agent is through the CLI, using the `smolagent` command.
 
-```
+```bash
 smolagent "Plan a trip to Tokyo, Kyoto and Osaka between Mar 28 and Apr 7."  --model-type "InferenceClientModel" --model-id "Qwen/Qwen2.5-Coder-32B-Instruct" --imports "pandas numpy" --tools "web_search"
 ```
 
@@ -48,13 +48,15 @@ export MODEL_ID="Qwen/Qwen2.5-72B-Instruct"
 export PROVIDER="nebius"
 npx @huggingface/mcp-client
 ```
+
 or, you can use any Local LLM (for example via lmstudio):
 
+```bash
 ENDPOINT_URL=http://localhost:1234/v1 \
 MODEL_ID=lmstudio-community/Qwen3-14B-GGUF \
 npx @huggingface/mcp-client
 You can get more information about mcp-client [here](https://huggingface.co/docs/huggingface.js/en/mcp-client/README).
-
+```
 
 
 ## Gradio MCP Server / Tools
@@ -81,6 +83,7 @@ demo = gr.Interface(
 )
 
 demo.launch(mcp_server=True)
+```
 
 The MCP server will be available at `http://your-server:port/gradio_api/mcp/sse` where your application is served. It will have a tool corresponding to each function in your Gradio app, with the tool description automatically generated from the docstrings of your functions.
 
