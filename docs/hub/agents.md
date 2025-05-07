@@ -42,7 +42,7 @@ Huggingface.js offers an MCP client served with Inference Providers. Getting sta
 export HF_TOKEN="hf_..."
 export MODEL_ID="Qwen/Qwen2.5-72B-Instruct"
 export PROVIDER="nebius"
-pnpm agent
+npx @huggingface/mcp-client
 ```
 or, you can use any Local LLM (for example via lmstudio):
 
