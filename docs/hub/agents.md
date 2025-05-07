@@ -16,6 +16,21 @@ smolagent "Plan a trip to Tokyo, Kyoto and Osaka between Mar 28 and Apr 7."  --m
 
 Agents can be pushed to Hugging Face Hub as Spaces. Check out all the cool agents people have built [here](https://huggingface.co/spaces?filter=smolagents&sort=likes).
 
+smolagents also support MCP servers as tools, as follows:
+```python
+from smolagents import MCPClient, CodeAgent
+from mcp import StdioServerParameters
+import os
+
+server_parameters = StdioServerParameters(
+    command="uvx",  # Using uvx ensures dependencies are available
+    args=["--quiet", "pubmedmcp@0.1.3"],
+    env={"UV_PYTHON": "3.12", **os.environ},
+)
+
+with MCPClient(server_parameters) as tools:
+    agent = CodeAgent(tools=tools, model=model, add_base_tools=True)
+    agent.run("Please find the latest research on COVID-19 treatment.")
 ## huggingface.js mcp-client
 
 Huggingface.js offers an MCP client served with Inference Providers. Getting started with them is as simple as running `pnpm agent`. You can plug and play different models and providers by setting `PROVIDER` and `MODEL_ID` environmental variables. 
