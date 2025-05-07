@@ -38,6 +38,16 @@ Replicate is building tools so all software engineers can use AI as if it were n
 ## Supported tasks
 
 
+### Image To Image
+
+Find out more about Image To Image [here](../tasks/image_to_image).
+
+<InferenceSnippet
+    pipeline=image-to-image
+    providersMapping={ {"replicate":{"modelId":"stepfun-ai/Step1X-Edit","providerModelId":"zsxkib/step1x-edit"} } }
+/>
+
+
 ### Text To Image
 
 Find out more about Text To Image [here](../tasks/text_to_image).

@@ -29,13 +29,17 @@ For more details about the `audio-classification` task, check out its [dedicated
 
 ### Recommended models
 
+- [ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition](https://huggingface.co/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition): An emotion recognition model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=audio-classification&sort=trending).
 
 ### Using the API
 
 
-There are currently no snippet examples for the **audio-classification** task, as no providers support it yet.
+<InferenceSnippet
+    pipeline=audio-classification
+    providersMapping={ {"hf-inference":{"modelId":"ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition","providerModelId":"ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition"}} }
+/>
 
 
 

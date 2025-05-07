@@ -24,13 +24,17 @@ For more details about the `translation` task, check out its [dedicated page](ht
 
 ### Recommended models
 
+- [google-t5/t5-base](https://huggingface.co/google-t5/t5-base): A general-purpose Transformer that can be used to translate from English to German, French, or Romanian.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=translation&sort=trending).
 
 ### Using the API
 
 
-There are currently no snippet examples for the **translation** task, as no providers support it yet.
+<InferenceSnippet
+    pipeline=translation
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"}} }
+/>
 
 
 

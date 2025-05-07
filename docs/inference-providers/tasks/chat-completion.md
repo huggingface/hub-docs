@@ -59,7 +59,7 @@ The API supports:
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"cerebras":{"modelId":"meta-llama/Llama-3.3-70B-Instruct","providerModelId":"llama-3.3-70b"},"cohere":{"modelId":"CohereLabs/c4ai-command-a-03-2025","providerModelId":"command-a-03-2025"},"fireworks-ai":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"accounts/fireworks/models/qwen3-235b-a22b"},"hf-inference":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"Qwen/Qwen3-235B-A22B"},"hyperbolic":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"deepseek-ai/DeepSeek-V3-0324"},"nebius":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"deepseek-ai/DeepSeek-V3-0324-fast"},"novita":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"qwen/qwen3-235b-a22b-fp8"},"sambanova":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"DeepSeek-V3-0324"},"together":{"modelId":"deepseek-ai/DeepSeek-R1","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
+    providersMapping={ {"cerebras":{"modelId":"meta-llama/Llama-3.3-70B-Instruct","providerModelId":"llama-3.3-70b"},"cohere":{"modelId":"CohereLabs/c4ai-command-a-03-2025","providerModelId":"command-a-03-2025"},"fireworks-ai":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"accounts/fireworks/models/qwen3-235b-a22b"},"hf-inference":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"Qwen/Qwen3-235B-A22B"},"hyperbolic":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"deepseek-ai/DeepSeek-V3-0324"},"nebius":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"Qwen/Qwen3-235B-A22B"},"novita":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"qwen/qwen3-235b-a22b-fp8"},"sambanova":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"DeepSeek-V3-0324"},"together":{"modelId":"deepseek-ai/DeepSeek-R1","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
 conversational />
 
 
@@ -120,6 +120,11 @@ conversational />
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#2)** | _object_ |  |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type*** | _enum_ | Possible values: regex. |
 | **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value*** | _string_ |  |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(#3)** | _object_ |  |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type*** | _enum_ | Possible values: json_schema. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value*** | _object_ |  |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name** | _string_ | Optional name identifier for the schema |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema*** | _unknown_ | The actual JSON schema definition |
 | **seed** | _integer_ |  |
 | **stop** | _string[]_ | Up to 4 sequences where the API will stop generating further tokens. |
 | **stream** | _boolean_ |  |

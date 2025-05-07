@@ -24,13 +24,18 @@ For more details about the `table-question-answering` task, check out its [dedic
 
 ### Recommended models
 
+- [microsoft/tapex-base](https://huggingface.co/microsoft/tapex-base): A table question answering model that is capable of neural SQL execution, i.e., employ TAPEX to execute a SQL query on a given table.
+- [google/tapas-base-finetuned-wtq](https://huggingface.co/google/tapas-base-finetuned-wtq): A robust table question answering model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=table-question-answering&sort=trending).
 
 ### Using the API
 
 
-There are currently no snippet examples for the **table-question-answering** task, as no providers support it yet.
+<InferenceSnippet
+    pipeline=table-question-answering
+    providersMapping={ {"hf-inference":{"modelId":"google/tapas-base-finetuned-wtq","providerModelId":"google/tapas-base-finetuned-wtq"}} }
+/>
 
 
 

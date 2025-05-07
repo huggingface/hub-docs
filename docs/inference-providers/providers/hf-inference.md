@@ -39,6 +39,16 @@ If you are interested in deploying models to a dedicated and autoscaling infrast
 ## Supported tasks
 
 
+### Audio Classification
+
+Find out more about Audio Classification [here](../tasks/audio_classification).
+
+<InferenceSnippet
+    pipeline=audio-classification
+    providersMapping={ {"hf-inference":{"modelId":"ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition","providerModelId":"ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition"} } }
+/>
+
+
 ### Automatic Speech Recognition
 
 Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
@@ -75,7 +85,67 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"kyutai/mimi","providerModelId":"kyutai/mimi"} } }
+    providersMapping={ {"hf-inference":{"modelId":"intfloat/multilingual-e5-large","providerModelId":"intfloat/multilingual-e5-large"} } }
+/>
+
+
+### Fill Mask
+
+Find out more about Fill Mask [here](../tasks/fill_mask).
+
+<InferenceSnippet
+    pipeline=fill-mask
+    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-uncased","providerModelId":"google-bert/bert-base-uncased"} } }
+/>
+
+
+### Image Classification
+
+Find out more about Image Classification [here](../tasks/image_classification).
+
+<InferenceSnippet
+    pipeline=image-classification
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
+/>
+
+
+### Image Segmentation
+
+Find out more about Image Segmentation [here](../tasks/image_segmentation).
+
+<InferenceSnippet
+    pipeline=image-segmentation
+    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
+/>
+
+
+### Question Answering
+
+Find out more about Question Answering [here](../tasks/question_answering).
+
+<InferenceSnippet
+    pipeline=question-answering
+    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-base-squad2","providerModelId":"deepset/roberta-base-squad2"} } }
+/>
+
+
+### Summarization
+
+Find out more about Summarization [here](../tasks/summarization).
+
+<InferenceSnippet
+    pipeline=summarization
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"} } }
+/>
+
+
+### Table Question Answering
+
+Find out more about Table Question Answering [here](../tasks/table_question_answering).
+
+<InferenceSnippet
+    pipeline=table-question-answering
+    providersMapping={ {"hf-inference":{"modelId":"google/tapas-base-finetuned-wtq","providerModelId":"google/tapas-base-finetuned-wtq"} } }
 />
 
 
@@ -106,5 +176,35 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 <InferenceSnippet
     pipeline=text-to-image
     providersMapping={ {"hf-inference":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"} } }
+/>
+
+
+### Token Classification
+
+Find out more about Token Classification [here](../tasks/token_classification).
+
+<InferenceSnippet
+    pipeline=token-classification
+    providersMapping={ {"hf-inference":{"modelId":"blaze999/Medical-NER","providerModelId":"blaze999/Medical-NER"} } }
+/>
+
+
+### Translation
+
+Find out more about Translation [here](../tasks/translation).
+
+<InferenceSnippet
+    pipeline=translation
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
+/>
+
+
+### Zero Shot Classification
+
+Find out more about Zero Shot Classification [here](../tasks/zero_shot_classification).
+
+<InferenceSnippet
+    pipeline=zero-shot-classification
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
 />
 

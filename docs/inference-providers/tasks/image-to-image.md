@@ -35,7 +35,10 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-There are currently no snippet examples for the **image-to-image** task, as no providers support it yet.
+<InferenceSnippet
+    pipeline=image-to-image
+    providersMapping={ {"replicate":{"modelId":"stepfun-ai/Step1X-Edit","providerModelId":"zsxkib/step1x-edit"}} }
+/>
 
 
 
