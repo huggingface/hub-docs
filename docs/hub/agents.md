@@ -55,7 +55,7 @@ You can get more information about mcp-client [here](https://huggingface.co/docs
 
 
 
-## Gradio MCP Server / Tools
+## Gradio MCP Server / Tools
 
 You can build an MCP server in just a few lines of Python with Gradio. If you have an existing Gradio app or Space you'd like to use as an MCP server / tool, it's just a single-line change.
 
