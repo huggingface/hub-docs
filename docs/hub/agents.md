@@ -44,7 +44,11 @@ export MODEL_ID="Qwen/Qwen2.5-72B-Instruct"
 export PROVIDER="nebius"
 pnpm agent
 ```
+or, you can use any Local LLM (for example via lmstudio):
 
+ENDPOINT_URL=http://localhost:1234/v1 \
+MODEL_ID=lmstudio-community/Qwen3-14B-GGUF \
+npx @huggingface/mcp-client
 You can get more information about mcp-client [here](https://huggingface.co/docs/huggingface.js/en/mcp-client/README).
 
 
