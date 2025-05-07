@@ -1,9 +1,10 @@
-name: Build sagemaker PR Documentation
+name: Build SageMaker PR Documentation
 
 on:
   pull_request:
     paths:
-      - "docs/sagemaker/**"
+      - docs/sagemaker/**
+      - .github/workflows/sagemaker_build_pr_documentation.yaml
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -17,5 +18,6 @@ jobs:
       pr_number: ${{ github.event.number }}
       package: hub-docs
       package_name: sagemaker
-      path_to_docs: hub-docs/docs/sagemaker/
+      path_to_docs: hub-docs/docs/sagemaker/source
       additional_args: --not_python_module
+      pre_command: cd hub-docs/docs/sagemaker && make docs
