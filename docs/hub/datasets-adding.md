@@ -85,6 +85,7 @@ The Hub natively supports multiple file formats:
 - Text (.txt)
 - Images (.png, .jpg, etc.)
 - Audio (.wav, .mp3, etc.)
+- PDF (.pdf)
 - [WebDataset](https://github.com/webdataset/webdataset) (.tar)
 
 It supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
