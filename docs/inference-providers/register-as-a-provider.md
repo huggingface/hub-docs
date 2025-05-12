@@ -457,6 +457,24 @@ class MyNewProviderTaskProviderHelper(TaskProviderHelper):
 - Go to [tests/test_inference_providers.py](https://github.com/huggingface/huggingface_hub/blob/main/tests/test_inference_providers.py) and add static tests for overridden methods.
 
 
+## 6. Add provider documentation
+
+Create a dedicated documentation page for your provider within the Hugging Face documentation. This page should contain a concise description of your provider services, highlight the benefits for users, set expectations regarding performance or features, and include any relevant details such as pricing models or data retention policies. Essentially, provide any information that would be valuable to end users.
+
+Here's how to add your documentation page:
+
+-   Prepare Your Logo: Upload your logo files (separate light and dark mode versions) by opening a PR in the [huggingface/documentation-images](https://huggingface.co/datasets/huggingface/documentation-images/tree/main/inference-providers/logos) repository.
+    *   Logos must be in `.png` format.
+    *   Name them `{provider-name}-light.png` and `{provider-name}-dark.png`.
+    *   Please ping `@Wauplin` and `@celinah` on the PR.
+-   Create the Documentation File:
+    *   Use an existing provider page as a template. For example, check out the template for [Fal AI](https://github.com/huggingface/hub-docs/blob/main/scripts/inference-providers/templates/providers/fal-ai.handlebars).
+    *   The file should be located under `scripts/inference-providers/templates/providers/{your-provider-name}.handlebars`.
+-   Submit the Documentation PR:
+    *   Add your new `{provider-name}.handlebars` file.
+    *   Update the [partners table](./index#partners) to include your provider.
+
+
 ## FAQ
 
 **Question:** By default, in which order do we list providers in the settings page?
