@@ -463,7 +463,7 @@ Create a dedicated documentation page for your provider within the Hugging Face 
 
 Here's how to add your documentation page:
 
--   Prepare Your Logo: Upload your logo files (separate light and dark mode versions) by opening a PR in the [huggingface/documentation-images](https://huggingface.co/datasets/huggingface/documentation-images/tree/main/inference-providers/logos) repository.
+-   Provide Your Logo: You can send your logo files (separate light and dark mode versions) directly to us. This is often the simplest way. Alternatively, if you prefer, you can open a PR in the [huggingface/documentation-images](https://huggingface.co/datasets/huggingface/documentation-images/tree/main/inference-providers/logos) repository. If you choose to open a PR:
     *   Logos must be in `.png` format.
     *   Name them `{provider-name}-light.png` and `{provider-name}-dark.png`.
     *   Please ping `@Wauplin` and `@celinah` on the PR.
