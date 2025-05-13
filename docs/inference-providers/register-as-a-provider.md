@@ -472,7 +472,7 @@ Here's how to add your documentation page:
     *   The file should be located under `scripts/inference-providers/templates/providers/{your-provider-name}.handlebars`.
 -   Submit the Documentation PR:
     *   Add your new `{provider-name}.handlebars` file.
-    *   Update the [partners table](./index#partners) to include your provider.
+    *   Update the [partners table](./index#partners) to include your company or product.
 
 
 ## FAQ
