@@ -57,6 +57,7 @@ MODEL_ID=lmstudio-community/Qwen3-14B-GGUF \
 npx @huggingface/mcp-client
 You can get more information about mcp-client [here](https://huggingface.co/docs/huggingface.js/en/mcp-client/README).
 ```
+You can get more information about mcp-client [here](https://huggingface.co/docs/huggingface.js/en/mcp-client/README).
 
 
 ## Gradio MCP Server / Tools
