@@ -774,7 +774,8 @@ await Promise.all(
 );
 
 await Promise.all(
-  Object.entries(PER_PROVIDER_TASKS).map(async ([provider, tasks]) => {
+  INFERENCE_PROVIDERS.map(async (provider) => {
+    const tasks = PER_PROVIDER_TASKS[provider] || []; // Get tasks or use an empty array if none
     const rendered = await renderTemplate(provider, "providers", {
       tasksSection: PROVIDER_TASKS_TEMPLATE({ tasks }),
       followUsSection: FOLLOW_US_BUTTON_TEMPLATE({
