@@ -1,4 +1,3 @@
-import { INFERENCE_PROVIDERS } from "@huggingface/inference";
 import { PipelineType } from "@huggingface/tasks";
 import Handlebars from "handlebars";
 import * as fs from "node:fs/promises";
@@ -62,6 +61,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   sambanova: "https://sambanova.ai/",
   together: "https://together.xyz/",
 };
+const INFERENCE_PROVIDERS = Object.keys(PROVIDERS_HUB_ORGS);
 
 async function authFetchJson(url: string) {
   const headers = url.includes("huggingface.co") ? HEADERS : {};

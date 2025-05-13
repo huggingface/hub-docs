@@ -24,13 +24,17 @@ For more details about the `fill-mask` task, check out its [dedicated page](http
 
 ### Recommended models
 
+- [FacebookAI/xlm-roberta-base](https://huggingface.co/FacebookAI/xlm-roberta-base): A multilingual model trained on 100 languages.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=fill-mask&sort=trending).
 
 ### Using the API
 
 
-There are currently no snippet examples for the **fill-mask** task, as no providers support it yet.
+<InferenceSnippet
+    pipeline=fill-mask
+    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-uncased","providerModelId":"google-bert/bert-base-uncased"}} }
+/>
 
 
 
