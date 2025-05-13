@@ -4,11 +4,11 @@ The Hugging Face DLCs provide ready-to-use, tested environments to train and dep
 
 ## One command is all you need
 
-With the new Hugging Face DLCs, train and deploy cutting-edge Transformers-based NLP models in a single line of code. The Hugging Face PyTorch DLCs for training come with all the libraries installed to run a single command e.g. via TRL CLI to fine-tune LLMs on any setting, either single-GPU, single-node multi-GPU, and more.
+With the new Hugging Face DLCs, train and deploy cutting-edge Transformers-based NLP models in a single line of code. The Hugging Face PyTorch DLCs for training come with all the libraries installed to run a single command e.g. via [TRL CLI](https://huggingface.co/docs/trl/en/clis) to fine-tune LLMs on any setting, either single-GPU, single-node multi-GPU, and more.
 
 ## Accelerate machine learning from science to production
 
-In addition to Hugging Face DLCs, we created a first-class Hugging Face library for inference, huggingface-inference-toolkit, that comes with the Hugging Face PyTorch DLCs for inference, with full support on serving any PyTorch model on AWS.
+In addition to Hugging Face DLCs, we created a first-class Hugging Face library for inference, [`sagemaker-huggingface-inference-toolkit`](https://github.com/aws/sagemaker-huggingface-inference-toolkit/tree/main/src/sagemaker_huggingface_inference_toolkit), that comes with the Hugging Face PyTorch DLCs for inference, with full support on serving any PyTorch model on AWS.
 
 Deploy your trained models for inference with just one more line of code or select any of the ever growing publicly available models from the model Hub.
 
@@ -26,4 +26,4 @@ Additionally, these DLCs come with full support for AWS meaning that deploying m
 
 Hugging Face DLCs feature built-in performance optimizations for PyTorch to train models faster. The DLCs also give you the flexibility to choose a training infrastructure that best aligns with the price/performance ratio for your workload.
 
-Hugging Face Inference DLCs provide you with production-ready endpoints that scale quickly with your Google Cloud environment, built-in monitoring, and a ton of enterprise features.
+Hugging Face Inference DLCs provide you with production-ready endpoints that scale quickly with your AWS environment, built-in monitoring, and a ton of enterprise features.

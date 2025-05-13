@@ -2,7 +2,7 @@
 
 ## Supported tasks
 
-The Inference Toolkit accepts inputs in the `inputs` key, and supports additional [`pipelines`](https://huggingface.co/docs/transformers/main_classes/pipelines) parameters in the `parameters` key. You can provide any of the supported `kwargs` from `pipelines` as `parameters`.
+The [Sagemaker Hugging Face Inference Toolkit](https://github.com/aws/sagemaker-huggingface-inference-toolkit/tree/main) accepts inputs in the `inputs` key, and supports additional [`pipelines`](https://huggingface.co/docs/transformers/main_classes/pipelines) parameters in the `parameters` key. You can provide any of the supported `kwargs` from `pipelines` as `parameters`.
 
 Tasks supported by the Inference Toolkit API include:
 

@@ -1,15 +1,11 @@
 - sections:
     - local: index
       title: Hugging Face on AWS
-    - local: resources
-      title: Other Resources
   title: Get Started
   isExpanded: true
 - sections:
     - local: dlcs/introduction
       title: Introduction
-    - local: dlcs/features
-      title: Features & benefits
     - local: dlcs/available
       title: Available DLCs on AWS
   title: Deep Learning Containers (DLCs)
@@ -62,5 +58,7 @@
 - sections:
     - local: reference/inference-toolkit
       title: Inference Toolkit API
+    - local: reference/resources
+      title: Other Resources
   title: Reference
   isExpanded: false

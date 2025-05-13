@@ -1,14 +1,14 @@
 # Quickstart — Using Hugging Face Models with Amazon Bedrock Marketplace
 
 ## Why use Bedrock Marketplace for Hugging Face models?
-Amazon Bedrock now exposes 83 Hugging Face open-weight models—including Gemma, Llama 3, Mistral, and more—through a single catalog. You invoke them with the same Bedrock APIs you already use for Titan, Anthropic, Cohere, etc. Under the hood, Bedrock Marketplace model endpoints are managed by Amazon SageMaker AI. With Bedrock Marketplace, you can now combine the ease of use of SageMaker JumpStart with the fully managed infrastructure of Amazon Bedrock, including compatibility with high-level APIs such as Agents, Knowledge Bases, Guardrails and Model Evaluations.
+Amazon Bedrock now exposes Hugging Face open-weight models—including Gemma, Llama 3, Mistral, and more—through a single catalog. You invoke them with the same Bedrock APIs you already use for Titan, Anthropic, Cohere, etc. Under the hood, Bedrock Marketplace model endpoints are managed by Amazon SageMaker AI. With Bedrock Marketplace, you can now combine the ease of use of SageMaker JumpStart with the fully managed infrastructure of Amazon Bedrock, including compatibility with high-level APIs such as Agents, Knowledge Bases, Guardrails and Model Evaluations.
 
 ## 1 . Prerequisites
 
 |  | Requirement | Notes |
 |---|-------------|
-| AWS account in a Bedrock Region | Marketplace is regional; switch the console to one of the 14 supported Regions first. |
-| Permissions | For a quick trial, attach AmazonBedrockFullAccess and AmazonSageMakerFullAccess.|
+| AWS account in a Bedrock Region | Marketplace is regional; switch the console to one of the 14 supported Regions first, for example `us-east-1`. |
+| Permissions | For a quick trial, attach `AmazonBedrockFullAccess` and `AmazonSageMakerFullAccess`.|
 | Service quotas | The SageMaker endpoint uses GPU instances (for example ml.g5). Verify you have quota or request it. |
 | JumpStart-only | If you choose path B, create a SageMaker Studio domain and user profile first (Console ▸ SageMaker ▸ Domains). Open Studio before continuing. |
 
@@ -24,7 +24,11 @@ Path A is from the Bedrock *Model Catalog*:
 3. If you see Subscribe, review pricing & terms, click Subscribe, then continue  
 4. Click Deploy → name the endpoint → keep the recommended instance → accept the EULA → Deploy  
 5. Wait for Foundation Models → Marketplace deployments to show status In service (takes a few minutes)  
-6. Click the deployment name and copy the SageMaker endpoint ARN — you’ll need it for API calls  
+6. Click the deployment name and copy the SageMaker endpoint ARN — you’ll need it for API calls
+
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/bedrock-marketplace-deployment.gif"
+     alt="Bedrock deployment demo"
+     width="500">
 
 Path B is from SageMaker JumpStart for the model that shows “Use with Bedrock”:
 1. In SageMaker Studio, open JumpStart  

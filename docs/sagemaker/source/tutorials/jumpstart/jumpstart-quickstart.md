@@ -13,7 +13,7 @@ In this quickstart guide, we will deploy [Qwen/Qwen2.5-14B-Instruct](https://hug
 | AWS account with SageMaker enabled | An AWS account that will contain all your AWS resources. |
 | An IAM role to access SageMaker AI | Learn more about how IAM works with SageMaker AI in this [guide](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam.html). |
 | SageMaker Studio domain and user profile | We recommend using SageMaker Studio for straightforward deployment and inference. Follow this [guide](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-quick-start.html). |
-| Service quotas | Most LLMs need GPU instances (e.g. ml.g5). Verify you have quota for ml.g5.24xlarge or [request it](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-requesting-quota-increases.html). | 
+| Service quotas | Most LLMs need GPU instances (e.g. ml.g5). Verify you have quota for `ml.g5.24xlarge` or [request it](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-requesting-quota-increases.html). | 
 
 ## 2· Endpoint deployment
 
@@ -24,9 +24,18 @@ Let's explain how you would deploy a Hugging Face model to SageMaker browsing th
 4. Wait until Endpoints shows In service.  
 5. Copy the Endpoint name (or ARN) for later use.
 
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/jumpstart-deployment.gif"
+     alt="JumpStart deployment demo"
+     width="500">
+
 Alternatively, you can also browse through the Hugging Face Model Hub:
 1. Open the model page → Click Deploy → SageMaker → Jumpstart tab if model is available.
 2. Copy the code snippet and use it from a SageMaker Notebook instance.
+
+
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/hf-jumpstart-deployment.gif"
+     alt="JumpStart deployment demo"
+     width="500">
 
 ```python
 # SageMaker JumpStart provides APIs as part of SageMaker SDK that allow you to deploy and fine-tune models in network isolation using scripts that SageMaker maintains.

@@ -8,6 +8,8 @@ For each supported combination of use-case (training, inference), accelerator ty
 
 Pytorch Training DLC: For training, our DLCs are available for PyTorch via Transformers. They include support for training on GPUs and AWS AI chips with libraries such as TRL, Sentence Transformers, or Diffusers.
 
+You can also keep track of the latest Pytorch Training DLC releases [here](https://github.com/aws/deep-learning-containers/releases?q=huggingface-training+AND+NOT+neuronx&expanded=true).
+
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.5.1-transformers4.49.0-gpu-py311-cu124-ubuntu22.04 | GPU         |
@@ -19,6 +21,8 @@ Pytorch Training DLC: For training, our DLCs are available for PyTorch via Trans
 
 For inference, we have a general-purpose PyTorch inference DLC, for serving models trained with any of those frameworks mentioned before on CPU, GPU, and AWS AI chips.
 
+You can also keep track of the latest Pytorch Inference DLC releases [here](https://github.com/aws/deep-learning-containers/releases?q=huggingface-inference+AND+NOT+tgi+AND+NOT+neuronx&expanded=true).
+
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.49.0-cpu-py312-ubuntu22.04- | CPU         |
@@ -28,6 +32,8 @@ For inference, we have a general-purpose PyTorch inference DLC, for serving mode
 ### LLM TGI
 
 There is also the LLM Text Generation Inference (TGI) DLC for high-performance text generation of LLMs on GPU and AWS AI chips.
+
+You can also keep track of the latest LLM TGI DLC releases [here](https://github.com/aws/deep-learning-containers/releases?q=tgi+AND+gpu&expanded=true).
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
@@ -45,11 +51,11 @@ Finally, there is a Text Embeddings Inference (TEI) DLC for high-performance ser
 
 ## FAQ
 
-**How to choose the right container for my use case?**
+**How to choose the right inference container for my use case?**
 
-![dlc-decision-tree](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/dlc-decision-tree.png)
+![inference-dlc-decision-tree](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/inference-dlc-decision-tree.png)
 
-*Note:* See [here]((https://huggingface.co/docs/sagemaker/main/en/reference/inference-toolkit)) for the list of supported task in the inference toolkit.
+*Note:* See [here](https://huggingface.co/docs/sagemaker/main/en/reference/inference-toolkit) for the list of supported task in the inference toolkit.
 
 *Note:* Browse through the Hub to see if you model is tagged ["text-generation-inference"](https://huggingface.co/models?other=text-generation-inference) or ["text-embeddings-inference"](https://huggingface.co/models?other=text-embeddings-inference)
 
