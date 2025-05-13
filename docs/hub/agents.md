@@ -54,7 +54,7 @@ demo = gr.Interface(
 demo.launch(mcp_server=True)
 ```
 
-The MCP server will be available at `http://your-server:port/gradio_api/mcp/sse` where your application is served. It will have a tool corresponding to each function in your Gradio app, with the tool description automatically generated from the docstrings of your functions.
+The MCP server will be available at `http://your-space-id.hf.space/gradio_api/mcp/sse` where your application is served. It will have a tool corresponding to each function in your Gradio app, with the tool description automatically generated from the docstrings of your functions.
 
 Lastly, add this to the settings of the MCP Client of your choice (e.g. Cursor).
 
@@ -68,7 +68,7 @@ Lastly, add this to the settings of the MCP Client of your choice (e.g. Cursor).
 }
 ```
 
-This is very powerful because it lets the LLM use any Gradio application as a tool. You can find thousands of them on [Spaces](https://huggingface.co/spaces). 
+This is very powerful because it lets the LLM use any Gradio application as a tool. You can find thousands of them on [Spaces](https://huggingface.co/spaces). Learn more [here](https://www.gradio.app/guides/building-mcp-server-with-gradio).
 
 ## smolagents
 
