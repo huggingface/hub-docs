@@ -42,6 +42,7 @@ with MCPClient(server_parameters) as tools:
 ```
 
 Learn more [in the documentation](https://huggingface.co/docs/smolagents/tutorials/tools#use-mcp-tools-with-mcpclient-directly).
+
 ## huggingface.js mcp-client
 
 Huggingface.js offers an MCP client served with [Inference Providers](https://huggingface.co/docs/inference-providers/en/index) or local LLMs. Getting started with them is as simple as running `pnpm agent`. You can plug and play different models and providers by setting `PROVIDER` and `MODEL_ID` environment variables. 
