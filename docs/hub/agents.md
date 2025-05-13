@@ -21,6 +21,7 @@ Agents can be pushed to Hugging Face Hub as Spaces. Check out all the cool agent
 smolagents also supports MCP servers as tools, as follows:
 
 ```python
+# pip install --upgrade smolagents mcp
 from smolagents import MCPClient, CodeAgent
 from mcp import StdioServerParameters
 import os
