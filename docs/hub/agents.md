@@ -72,6 +72,10 @@ You can build an MCP server in just a few lines of Python with Gradio. If you ha
 To make a Gradio application an MCP server, simply pass in `mcp_server=True` when launching your demo like follows.
 
 ```python
+# pip install gradio
+
+import gradio as gr
+
 def generate_image(prompt: str):
    """
    Generate an image based on a text prompt
