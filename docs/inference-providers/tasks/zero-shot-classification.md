@@ -24,13 +24,17 @@ For more details about the `zero-shot-classification` task, check out its [dedic
 
 ### Recommended models
 
+- [facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli): Powerful zero-shot text classification model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=zero-shot-classification&sort=trending).
 
 ### Using the API
 
 
-There are currently no snippet examples for the **zero-shot-classification** task, as no providers support it yet.
+<InferenceSnippet
+    pipeline=zero-shot-classification
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"}} }
+/>
 
 
 
