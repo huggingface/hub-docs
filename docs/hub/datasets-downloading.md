@@ -20,6 +20,9 @@ You can use the [`huggingface_hub`](/docs/huggingface_hub) library to create, de
 
 ```bash
 huggingface-cli download HuggingFaceH4/ultrachat_200k --repo-type dataset
+```
+
+See the [huggingface-cli download documentation](https://huggingface.co/docs/huggingface_hub/en/guides/cli#download-a-dataset-or-a-space) for more information.
 
 You can also integrate this into your own library! For example, you can quickly load a CSV dataset with a few lines using Pandas.
 ```py
