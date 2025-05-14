@@ -23,6 +23,7 @@ Here is the complete list of partners integrated with Inference Providers, and t
 | [Hyperbolic](./providers/hyperbolic)     |           ✅           |           ✅           |                    |               |               |
 | [Nebius](./providers/nebius)             |           ✅           |           ✅           |                    |       ✅       |               |
 | [Novita](./providers/novita)             |           ✅           |           ✅           |                    |               |       ✅       |
+| [Nscale](./providers/nscale)             |           ✅           |           ✅           |                    |      ✅        |              |
 | [Replicate](./providers/replicate)       |                       |                       |                    |       ✅       |       ✅       |
 | [SambaNova](./providers/sambanova)       |           ✅           |                       |         ✅          |               |               |
 | [Together](./providers/together)         |           ✅           |           ✅           |                    |       ✅       |               |
