@@ -21,7 +21,7 @@ Here is the complete list of partners integrated with Inference Providers, and t
 | [Fireworks](./providers/fireworks-ai)    |           ✅           |           ✅           |                    |               |               |
 | [HF Inference](./providers/hf-inference) |           ✅           |           ✅           |         ✅          |       ✅       |               |
 | [Hyperbolic](./providers/hyperbolic)     |           ✅           |           ✅           |                    |               |               |
-| [Nebius](./providers/nebius)             |           ✅           |           ✅           |                    |       ✅       |               |
+| [Nebius](./providers/nebius)             |           ✅           |           ✅           |         ✅         |       ✅       |               |
 | [Novita](./providers/novita)             |           ✅           |           ✅           |                    |               |       ✅       |
 | [Nscale](./providers/nscale)             |           ✅           |           ✅           |                    |      ✅        |              |
 | [Replicate](./providers/replicate)       |                       |                       |                    |       ✅       |       ✅       |
