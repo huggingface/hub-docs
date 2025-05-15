@@ -52,7 +52,7 @@ Path is relative to the root of the repository.
 **`app_build_command`** : _string_  
 For static Spaces, command to run first to generate the HTML to render. Use together with `app_file`. Example: `npm run build`. 
 
-Each update, the build command will run and the build output will be stored in `refs/convert/build`,
+Each update, the build command will run in a Job and the build output will be stored in `refs/convert/build`,
 which will be served by the Space. See an example at https://huggingface.co/spaces/coyotte508/static-vite
 
 **`app_port`** : _int_  
