@@ -1,4 +1,3 @@
-import { INFERENCE_PROVIDERS } from "@huggingface/inference";
 import { PipelineType } from "@huggingface/tasks";
 import Handlebars from "handlebars";
 import * as fs from "node:fs/promises";
@@ -42,6 +41,7 @@ const PROVIDERS_HUB_ORGS: Record<string, string> = {
   hyperbolic: "Hyperbolic",
   nebius: "nebius",
   novita: "novita",
+  nscale: "nscale",
   replicate: "replicate",
   sambanova: "sambanovasystems",
   together: "togethercomputer",
@@ -56,10 +56,12 @@ const PROVIDERS_URLS: Record<string, string> = {
   hyperbolic: "https://hyperbolic.xyz/",
   nebius: "https://nebius.com/",
   novita: "https://novita.ai/",
+  nscale: "https://www.nscale.com/",
   replicate: "https://replicate.com/",
   sambanova: "https://sambanova.ai/",
   together: "https://together.xyz/",
 };
+const INFERENCE_PROVIDERS = Object.keys(PROVIDERS_HUB_ORGS);
 
 async function authFetchJson(url: string) {
   const headers = url.includes("huggingface.co") ? HEADERS : {};
@@ -772,7 +774,8 @@ await Promise.all(
 );
 
 await Promise.all(
-  Object.entries(PER_PROVIDER_TASKS).map(async ([provider, tasks]) => {
+  INFERENCE_PROVIDERS.map(async (provider) => {
+    const tasks = PER_PROVIDER_TASKS[provider] || []; // Get tasks or use an empty array if none
     const rendered = await renderTemplate(provider, "providers", {
       tasksSection: PROVIDER_TASKS_TEMPLATE({ tasks }),
       followUsSection: FOLLOW_US_BUTTON_TEMPLATE({

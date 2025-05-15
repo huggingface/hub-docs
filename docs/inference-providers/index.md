@@ -23,6 +23,7 @@ Here is the complete list of partners integrated with Inference Providers, and t
 | [Hyperbolic](./providers/hyperbolic)     |           ✅           |           ✅           |                    |               |               |
 | [Nebius](./providers/nebius)             |           ✅           |           ✅           |                    |       ✅       |               |
 | [Novita](./providers/novita)             |           ✅           |           ✅           |                    |               |       ✅       |
+| [Nscale](./providers/nscale)             |           ✅           |           ✅           |                    |      ✅        |              |
 | [Replicate](./providers/replicate)       |                       |                       |                    |       ✅       |       ✅       |
 | [SambaNova](./providers/sambanova)       |           ✅           |                       |         ✅          |               |               |
 | [Together](./providers/together)         |           ✅           |           ✅           |                    |       ✅       |               |
@@ -58,6 +59,10 @@ To get started quickly with [Chat Completion models](http://huggingface.co/model
 You can use Inference Providers with your preferred tools, such as Python, JavaScript, or cURL. To simplify integration, we offer both a Python SDK (`huggingface_hub`) and a JavaScript SDK (`huggingface.js`).
 
 In this section, we will demonstrate a simple example using [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a conversational Large Language Model. For the example, we will use [Novita AI](https://novita.ai/) as Inference Provider.
+
+> [!TIP]
+> You can also automatically select a provider for a model using `provider="auto"` — it will pick the first available provider for your model based on your preferred order set in https://hf.co/settings/inference-providers.
+> This is the default if you don't specify a provider in our Python or JavaScript SDK.
 
 ### Authentication
 

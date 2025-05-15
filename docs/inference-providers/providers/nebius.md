@@ -44,7 +44,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"nebius":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"deepseek-ai/DeepSeek-V3-0324-fast"} } }
+    providersMapping={ {"nebius":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"Qwen/Qwen3-235B-A22B"} } }
 conversational />
 
 
@@ -56,6 +56,16 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
     pipeline=image-text-to-text
     providersMapping={ {"nebius":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it-fast"} } }
 conversational />
+
+
+### Feature Extraction
+
+Find out more about Feature Extraction [here](../tasks/feature_extraction).
+
+<InferenceSnippet
+    pipeline=feature-extraction
+    providersMapping={ {"nebius":{"modelId":"intfloat/e5-mistral-7b-instruct","providerModelId":"intfloat/e5-mistral-7b-instruct"} } }
+/>
 
 
 ### Text To Image

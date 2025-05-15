@@ -398,6 +398,8 @@
       title: "Protect AI"
     - local: security-jfrog
       title: "JFrog"
+  - local: agents
+    title: Agents on Hub
   - local: moderation
     title: Moderation
   - local: paper-pages

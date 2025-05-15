@@ -63,13 +63,16 @@ We wrote an extensive guide on uploading best practices [here](https://huggingfa
 
 Bonus: a recognised library also allows you to track downloads of your model over time.
 
-2. **Pipeline Tag Selection**: Choose the correct [pipeline tag](https://huggingface.co/docs/hub/model-cards#specifying-a-task--pipelinetag-) that accurately reflects your model's primary task. This tag determines how your model appears in search results and which widgets are displayed on your model page.
+2. **Correct Metadata**:
+   - **Pipeline Tag:** Choose the correct [pipeline tag](https://huggingface.co/docs/hub/model-cards#specifying-a-task--pipelinetag-) that accurately reflects your model's primary task. This tag determines how your model appears in search results and which widgets are displayed on your model page.
 
    Examples of common pipeline tags:
    - `text-generation` - For language models that generate text
    - `text-to-image` - For text-to-image generation models
    - `image-text-to-text` - For vision-language models (VLMs) that generate text
    - `text-to-speech` - For models that generate audio from text
+  
+   - **License:** License information is crucial for users to understand how they can use the model.
 
 3. **Research Papers**: If your model has associated research papers, you can cite them in your model card and they will be [linked automatically](https://huggingface.co/docs/hub/model-cards#linking-a-paper). This provides academic context, allows users to dive deeper into the theoretical foundations of your work, and increases citations.
 
@@ -88,6 +91,8 @@ Bonus: a recognised library also allows you to track downloads of your model ove
    
    Try this model directly in your browser: [Space Demo](https://huggingface.co/spaces/username/model-demo)
    ```
+   
+When you create a demo, please download the model from its repository on the Hub (instead of using external sources like Google Drive); it cross-links model artefacts and demo together and allows more paths to visibility. 
 
 6. **Quantized Versions**: Consider uploading quantized versions of your model (e.g., in GGUF or DDUF formats) to improve accessibility for users with limited computational resources. Link these versions using the [`base_model` metadata field](https://huggingface.co/docs/hub/model-cards#specifying-a-base-model) on the quantized model cards. You can also clearly document performance differences between the original and quantized versions.
 
