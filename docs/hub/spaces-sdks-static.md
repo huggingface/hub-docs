@@ -6,7 +6,23 @@ Here are some examples of Spaces using custom HTML:
 
 * [Smarter NPC](https://huggingface.co/spaces/mishig/smarter_npc): Display a PlayCanvas project with an iframe in Spaces.
 * [Huggingfab](https://huggingface.co/spaces/pierreant-p/huggingfab): Display a Sketchfab model in Spaces.
+* [Diffuse the rest](https://huggingface.co/spaces/huggingface-projects/diffuse-the-rest): Draw and diffuse the rest
 
+## Building from source automatically
+
+Add `app_build_command` instead the `YAML` block at the top of your Spaces **README.md** file, and `app_file`.
+
+For example:
+-  `app_build_command: npm run build`
+- `app_file: dist/index.html`
+
+Example spaces: 
+
+- [Svelte App](https://huggingface.co/spaces/julien-c/vite-svelte)
+- [React App](https://huggingface.co/spaces/coyotte508/static-vite)
+
+
+Under the hood, it will [launch a build](https://huggingface.co/spaces/huggingface/space-build), storing the generated files in a special `refs/convert/build` ref.
 ## Space variables
 
 Custom [environment variables](./spaces-overview#managing-secrets) can be passed to your Space. OAuth information such as the client ID and scope are also available as environment variables, if you have [enabled OAuth](./spaces-oauth) for your Space.
