@@ -10,7 +10,7 @@ Here are some examples of Spaces using custom HTML:
 
 ## Adding a build step before serving
 
-Static Spaces support adding a custom build step before serving your static assets. This is useful for frameworks like Next.js, SvelteKit, and others that require a build process before serving the application. The build command runs automatically when your Space is updated.
+Static Spaces support adding a custom build step before serving your static assets. This is useful for frontend frameworks like React, Svelte and Vue that require a build process before serving the application. The build command runs automatically when your Space is updated.
 
 Add `app_build_command` inside the `YAML` block at the top of your Spaces **README.md** file, and `app_file`.
 
