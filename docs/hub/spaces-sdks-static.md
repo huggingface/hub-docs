@@ -10,7 +10,7 @@ Here are some examples of Spaces using custom HTML:
 
 ## Building from source automatically
 
-Add `app_build_command` instead the `YAML` block at the top of your Spaces **README.md** file, and `app_file`.
+Add `app_build_command` inside the `YAML` block at the top of your Spaces **README.md** file, and `app_file`.
 
 For example:
 -  `app_build_command: npm run build`
