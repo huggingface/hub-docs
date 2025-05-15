@@ -15,7 +15,7 @@ Static Spaces support adding a custom build step before serving your static asse
 Add `app_build_command` inside the `YAML` block at the top of your Spaces **README.md** file, and `app_file`.
 
 For example:
--  `app_build_command: npm run build`
+- `app_build_command: npm run build`
 - `app_file: dist/index.html`
 
 Example spaces: 
