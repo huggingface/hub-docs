@@ -8,7 +8,7 @@ Here are some examples of Spaces using custom HTML:
 * [Huggingfab](https://huggingface.co/spaces/pierreant-p/huggingfab): Display a Sketchfab model in Spaces.
 * [Diffuse the rest](https://huggingface.co/spaces/huggingface-projects/diffuse-the-rest): Draw and diffuse the rest
 
-## Building from source automatically
+## Adding a build step before serving
 
 Add `app_build_command` inside the `YAML` block at the top of your Spaces **README.md** file, and `app_file`.
 
