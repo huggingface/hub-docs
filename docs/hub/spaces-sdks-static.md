@@ -25,6 +25,7 @@ Example spaces:
 
 
 Under the hood, it will [launch a build](https://huggingface.co/spaces/huggingface/space-build), storing the generated files in a special `refs/convert/build` ref.
+
 ## Space variables
 
 Custom [environment variables](./spaces-overview#managing-secrets) can be passed to your Space. OAuth information such as the client ID and scope are also available as environment variables, if you have [enabled OAuth](./spaces-oauth) for your Space.
