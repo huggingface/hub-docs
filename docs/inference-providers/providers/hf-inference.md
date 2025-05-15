@@ -75,7 +75,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"hf-inference":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen2.5-VL-32B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-32B-Instruct"} } }
 conversational />
 
 
