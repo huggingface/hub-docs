@@ -50,7 +50,9 @@ Path to your main application file (which contains either `gradio` or `streamlit
 Path is relative to the root of the repository.  
 
 **`app_build_command`** : _string_  
-For static Spaces, command to run first to generate the HTML to render. Use together with `app_file`. Example: `npm run build`. 
+For static Spaces, command to run first to generate the HTML to render. Example: `npm run build`. 
+
+This is used in conjunction with `app_file` which points to the built index file: e.g. `app_file: dist/index.html`. 
 
 Each update, the build command will run in a Job and the build output will be stored in `refs/convert/build`,
 which will be served by the Space. See an example at https://huggingface.co/spaces/coyotte508/static-vite
