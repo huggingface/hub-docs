@@ -103,7 +103,7 @@ For more details, refer to the [From Files to Chunks](https://huggingface.co/blo
 
 ### Backward Compatibility with LFS
 
-Xet storage provides a seamless transition for existing Hub repositories. It isn't necessary to know if the Xet backend is involved at all. Xet-backed repositories continue to use the Git LFS pointer file format; the addition of the `Xet backed hash` is only added to the web interface as a convenience. Practically, this means existing repos and newly created repos will not look any different if you do a `bare clone` of them. Each of the large files (or binary files) will continue to have a pointer file and matches the Git LFS pointer file specification.
+Xet storage provides a seamless transition for existing Hub repositories. It isn't necessary to know if the Xet backend is involved at all. Xet-backed repositories continue to use the Git LFS pointer file format; the addition of the `Xet backed hash` is only added to the web interface as a convenience. Practically, this means existing repos and newly created repos will not look any different if you do a `bare clone` of them. Each of the large files (or binary files) will continue to have a pointer file that matches the Git LFS pointer file specification.
 
 This symmetry allows non-Xet-aware clients (e.g., older versions of the `huggingface_hub`) to interact with Xet-backed repositories without concern. In fact, within a repository a mixture of Git LFS and Xet backed files are supported. The Xet backend indicates whether a file is in Git LFS or Xet storage, allowing downstream services to request the proper URL(s) from S3, regardless of which storage system holds the content.
 
