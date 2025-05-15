@@ -50,7 +50,6 @@ Note that our intent is to fast-track PRO users and Enterprise Hub organizations
 
 </Tip>
 
-
 To access a Xet-aware client, add the `hf_xet` Python package when installing `huggingface_hub` (should be >= 0.30.0):
 
 ```bash
@@ -65,9 +64,10 @@ pip install hf-xet
 
 If your Python environment has a `hf_xet`-aware version of `huggingface_hub` then your uploads and downloads will automatically use Xet.
 
-That's it! You now get the benefits of Xet deduplication for both uploads and downloads. Team members using older `huggingface_hub` versions will still be able to upload and download repositories through the backwards compatibility provided by the LFS bridge.
+That's it! You now get the benefits of Xet deduplication for both uploads and downloads. Team members using older `huggingface_hub` versions will still be able to upload and download repositories through the [backwards compatibility provided by the LFS bridge](#backward-compatibility-with-lfs).
 
 To see more detailed usage docs, refer to the `huggingface_hub` docs for:
+
 - [Upload](https://huggingface.co/docs/huggingface_hub/guides/upload#faster-uploads)
 - [Download](https://huggingface.co/docs/huggingface_hub/guides/download#hfxet)
 - [Managing the `hf_xet` cache](https://huggingface.co/docs/huggingface_hub/guides/manage-cache#chunk-based-caching-xet)
@@ -88,7 +88,7 @@ While Xet brings fine-grained deduplication and enhanced performance to Git-base
 - **64-bit systems only**: The `hf_xet` client currently requires a 64-bit architecture; 32-bit systems are not supported.
 - **Partial JavaScript library support**: The [huggingface.js](https://huggingface.co/docs/huggingface.js/index) library has limited functionality with Xet-backed repositories; additional coverage is planned in future releases.
 - **Full web support currently unavailable**: Full support for chunked uploads via the Hub web interface remains under development.
-- **No EU region support**: Support for EU [storage regions](https://huggingface.co/docs/hub/storage-regions) with Xet-backed repositories is planned but remains under development. 
+- **No EU region support**: Support for EU [storage regions](https://huggingface.co/docs/hub/storage-regions) with Xet-backed repositories is planned but remains under development.
 - **Git client integration (git-xet)**: Planned but remains under development.
 
 ### Deduplication
@@ -103,13 +103,16 @@ For more details, refer to the [From Files to Chunks](https://huggingface.co/blo
 
 ### Backward Compatibility with LFS
 
-Xet storage provides a seamless transition for existing Hub repositories. It isn't necessary to know if the Xet backend is involved at all. Xet-backed repositories continue to use the Git LFS pointer file format, with only the addition of the `Xet backed hash` field. Meaning, existing repos and newly created repos will not look any different if you do a `bare clone` of them. Each of the large files (or binary files) will continue to have a pointer file and matches the Git LFS pointer file specification.
+Xet storage provides a seamless transition for existing Hub repositories. It isn't necessary to know if the Xet backend is involved at all. Xet-backed repositories continue to use the Git LFS pointer file format; the addition of the `Xet backed hash` is only added to the web interface as a convenience. Practically, this means existing repos and newly created repos will not look any different if you do a `bare clone` of them. Each of the large files (or binary files) will continue to have a pointer file that matches the Git LFS pointer file specification.
 
-This symmetry allows non-Xet-aware clients (e.g., older versions of the `huggingface_hub` that are not Xet-aware) to interact with Xet-backed repositories without concern. In fact, within a repository a mixture of Git LFS and Xet backed files are supported. As noted in the section describing the CAS APIs, the Xet backend indicates whether a file is in Git LFS or Xet storage, allowing downstream services (Git LFS or the Git LFS bridge) to provide the proper URL to S3, regardless of which storage system holds the content.
+This symmetry allows non-Xet-aware clients (e.g., older versions of the `huggingface_hub`) to interact with Xet-backed repositories without concern. In fact, within a repository a mixture of Git LFS and Xet backed files are supported. The Xet backend indicates whether a file is in Git LFS or Xet storage, allowing downstream services to request the proper URL(s) from S3, regardless of which storage system holds the content.
 
-While a Xet-aware client will receive file reconstruction information from CAS to download the Xet-backed locally, a legacy client will get a S3 URL from the Git LFS bridge. Meanwhile, while uploading an update to a Xet-backed file, a Xet-aware client will run CDC deduplication and upload through CAS while a non-Xet-aware client will upload through Git LFS and a background process will convert the file revision to a Xet-backed version.
+Within the Xet architecture, backward compatibility for downloads is achieved by the Git LFS bridge. While a Xet-aware client will receive file reconstruction information from CAS to download the Xet-backed file, a legacy client will get a single URL from the bridge which does the work of reconstructing the request file and returning the URL to the resource. This allows downloading files through a URL so that you can continue to use the Hub's web interface or `curl`.
+
+Meanwhile, uploads from non‑Xet‑aware clients still follow the standard Git LFS path, even if the file is already Xet-backed. Once the file is uploaded to LFS, a background process automatically migrates the content, turning it into a Xet-backed revision. Coupled with the Git LFS bridge, this lets repository maintainers and the rest of the Hub adopt Xet at their own pace without disruption.
 
 ### Security Model
+
 Xet storage provides data deduplication over all chunks stored in Hugging Face. This is done via cryptographic hashing in a privacy sensitive way. The contents of chunks are protected and are associated with repository permissions. i.e. you can only read chunks which are required to reproduce files you have access to, and no more. See [xet-core](https://github.com/huggingface/xet-core) for details.
 
 ## Legacy Storage: Git LFS
