@@ -45,7 +45,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"sambanova":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"DeepSeek-V3-0324"} } }
+    providersMapping={ {"sambanova":{"modelId":"Qwen/Qwen3-32B","providerModelId":"Qwen3-32B"} } }
 conversational />
 
 

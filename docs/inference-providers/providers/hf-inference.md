@@ -39,16 +39,6 @@ If you are interested in deploying models to a dedicated and autoscaling infrast
 ## Supported tasks
 
 
-### Audio Classification
-
-Find out more about Audio Classification [here](../tasks/audio_classification).
-
-<InferenceSnippet
-    pipeline=audio-classification
-    providersMapping={ {"hf-inference":{"modelId":"firdhokk/speech-emotion-recognition-with-openai-whisper-large-v3","providerModelId":"firdhokk/speech-emotion-recognition-with-openai-whisper-large-v3"} } }
-/>
-
-
 ### Automatic Speech Recognition
 
 Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
@@ -75,7 +65,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"hf-inference":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen2.5-VL-32B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-32B-Instruct"} } }
 conversational />
 
 
