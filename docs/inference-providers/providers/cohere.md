@@ -46,7 +46,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"cohere":{"modelId":"CohereLabs/c4ai-command-a-03-2025","providerModelId":"command-a-03-2025"} } }
+    providersMapping={ {"cohere":{"modelId":"CohereLabs/aya-expanse-8b","providerModelId":"c4ai-aya-expanse-8b"} } }
 conversational />
 
 
