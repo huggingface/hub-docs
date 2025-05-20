@@ -82,7 +82,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hyperbolic":{"modelId":"deepseek-ai/DeepSeek-V3-0324","providerModelId":"deepseek-ai/DeepSeek-V3-0324"} } }
+    providersMapping={ {"hyperbolic":{"modelId":"deepseek-ai/DeepSeek-R1","providerModelId":"deepseek-ai/DeepSeek-R1"} } }
 conversational />
 
 
