@@ -1,9 +1,8 @@
-name: Delete sagemaker doc comment trigger
+name: Delete SageMaker PR Documentation Comment
 
 on:
   pull_request:
     types: [ closed ]
-
 
 jobs:
   delete:

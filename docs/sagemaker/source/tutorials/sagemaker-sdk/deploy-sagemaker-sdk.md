@@ -95,7 +95,7 @@ predictor = hf_estimator.deploy(initial_instance_count=1, instance_type="ml.m5.x
 
 # example request: you always need to define "inputs"
 data = {
-   "inputs": "Camera - You are awarded a SiPix Digital Camera! call 09061221066 fromm landline. Delivery within 28 days."
+   "inputs": "Camera - You are awarded a SiPix Digital Camera! call 09061221066 from landline. Delivery within 28 days."
 }
 
 # request
@@ -133,7 +133,7 @@ predictor = huggingface_model.deploy(
 
 # example request: you always need to define "inputs"
 data = {
-   "inputs": "Camera - You are awarded a SiPix Digital Camera! call 09061221066 fromm landline. Delivery within 28 days."
+   "inputs": "Camera - You are awarded a SiPix Digital Camera! call 09061221066 from landline. Delivery within 28 days."
 }
 
 # request
