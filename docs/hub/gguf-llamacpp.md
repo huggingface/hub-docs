@@ -7,10 +7,16 @@ Llama.cpp allows you to download and run inference on a GGUF simply by providing
 
 You can install llama.cpp through brew (works on Mac and Linux), or you can build it from source. There are also pre-built binaries and Docker images that you can [check in the official documentation](https://github.com/ggerganov/llama.cpp?tab=readme-ov-file#usage).
 
- ### Option 1: Install with brew
+ ### Option 1: Install with brew/ winget
 
 ```bash
 brew install llama.cpp
+```
+
+or, on windows via winget
+
+```bash
+winget install llama.cpp
 ```
 
 ### Option 2: build from source
