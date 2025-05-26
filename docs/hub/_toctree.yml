@@ -347,7 +347,7 @@
     - local: storage-regions
       title: Storage Regions
     - local: enterprise-hub-datasets
-      title: Dataset viewer for Private datasets
+      title: Data Studio for Private datasets
     - local: enterprise-hub-resource-groups
       title: Resource Groups (Access Control)
     - local: advanced-compute-options
