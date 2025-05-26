@@ -22,7 +22,7 @@ Academia Hub is designed for:
 Key Features of Academia Hub:
 
 - **ZeroGPU:** Get 5x usage quota and highest GPU queue priority.
-- **Spaces Hosting:** Create ZeroGPU Spaces with A100 hardware.
+- **Spaces Hosting:** Create ZeroGPU Spaces with H200 hardware.
 - **Spaces Dev Mode:** Fast iterations via SSH/VS Code for Spaces.
 - **Inference Providers:** Get monthly included credits across all Inference Providers.
 - **Dataset Viewer:** Activate it on private datasets.
