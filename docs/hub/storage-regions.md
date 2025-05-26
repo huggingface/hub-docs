@@ -39,6 +39,10 @@ This page displays:
 - An audit of your organization's repository locations
 - Options to select where new repositories will be stored
 
+<Tip>
+Some [advanced compute options](./advanced-compute-options) for Spaces, such as ZeroGPU, may not be available in all regions.
+</Tip>
+
 ## Repository Tag
 
 Any repository (model or dataset) stored in a non-default location displays its Region as a tag, allowing organization members to quickly identify repository locations.
@@ -87,4 +91,4 @@ For example, European users storing repositories in the EU region can expect app
 
 Both Spaces's storage and runtime use the chosen region.
 
-Available hardware configurations vary by region, and some features may not be avaialble in all regions, like persistent storage associated to a Space.
+Available hardware configurations vary by region, and some features may not be available in all regions, like persistent storage associated to a Space.
