@@ -23,7 +23,7 @@ Download a comprehensive CSV file containing analytics for all your repositories
 
 ### Response Structure
 
-The CSV file is made of daily download records for each of your model and dataset.
+The CSV file is made of daily download records for each of your models and datasets.
 
 ```csv
 repoType,repoName,total,timestamp,downloads
