@@ -80,7 +80,7 @@ Available Commands:
   serve       Run the Agent as an OpenAI-compatible HTTP server
 ```
 
-You can load agents directly from the Hugging Face Hub [tiny-agents](https://huggingface.co/datasets/tiny-agents/tiny-agents) Dataset, or specify a path to your own local agent configuration.
+You can load agents directly from the [tiny-agents](https://huggingface.co/datasets/tiny-agents/tiny-agents) Dataset, or specify a path to your own local agent configuration.
 
 **Advanced Usage**
 In addition to the CLI, you can use the `Agent` class for more fine-grained control. For lower-level interactions, use the `MCPClient` from the `@huggingface/mcp-client` package to connect directly to MCP servers and manage tool calls.
