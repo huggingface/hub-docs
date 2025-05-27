@@ -8,9 +8,7 @@ In your Hugging Face organization, you can use Resource Groups to control which 
 
 ## How does it work?
 
-Resource Groups allow organizations administrators to group related repositories together, and manage access to those repos.
-
-Resource Groups allow different teams to work on their respective repositories within the same organization.
+Resource Groups allow organization administrators to group related repositories together, allowing different teams in your organization to work on independent sets of repositories.
 
 A repository can belong to only one Resource Group.
 
