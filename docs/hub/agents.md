@@ -1,6 +1,9 @@
 # Agents on the Hub
 
-This page compiles all the libraries and tools Hugging Face offers for agentic workflows: huggingface.js tiny-agents, huggingface_hub (Python) tiny-agents, Gradio MCP Server and smolagents.
+This page compiles all the libraries and tools Hugging Face offers for agentic workflows: 
+- `tiny-agents`: A lightweight toolkit for MCP-powered agents, available in both JS (`@huggingface/tiny-agents`) and Python (`huggingface_hub`).
+- `Gradio MCP Server`: Easily create MCP servers from Gradio apps and Spaces.
+- `smolagents`: a Python library that enables you to run powerful agents in a few lines of code.
 
 ## smolagents
 
