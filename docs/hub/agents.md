@@ -1,6 +1,9 @@
 # Agents on the Hub
 
-This page compiles all the libraries and tools Hugging Face offers for agentic workflows: huggingface.js mcp-client, Gradio MCP Server and smolagents.
+This page compiles all the libraries and tools Hugging Face offers for agentic workflows: 
+- `tiny-agents`: A lightweight toolkit for MCP-powered agents, available in both JS (`@huggingface/tiny-agents`) and Python (`huggingface_hub`).
+- `Gradio MCP Server`: Easily create MCP servers from Gradio apps and Spaces.
+- `smolagents`: a Python library that enables you to run powerful agents in a few lines of code.
 
 ## smolagents
 
@@ -43,27 +46,132 @@ with MCPClient(server_parameters) as tools:
 
 Learn more [in the documentation](https://huggingface.co/docs/smolagents/tutorials/tools#use-mcp-tools-with-mcpclient-directly).
 
-## huggingface.js mcp-client
+## tiny-agents (JS and Python)
 
-Huggingface.js offers an MCP client served with [Inference Providers](https://huggingface.co/docs/inference-providers/en/index) or local LLMs. Getting started with them is as simple as running `pnpm agent`. You can plug and play different models and providers by setting `PROVIDER` and `MODEL_ID` environment variables. 
+`tiny-agents` is a lightweight toolkit for running and building MCP-powered agents on top of the Hugging Face Inference Client + Model Context Protocol (MCP). It is available as a JS package `@huggingface/tiny-agents` and in the `huggingface_hub` Python package.
+
+
+### @huggingface/tiny-agents (JS)
+
+The `@huggingface/tiny-agents` package offers a simple and straightforward CLI and a simple programmatic API for running and building MCP-powered agents in JS.
+
+
+**Getting Started**
+
+First, you need to install the package:
 
 ```bash
-export HF_TOKEN="hf_..."
-export MODEL_ID="Qwen/Qwen2.5-72B-Instruct"
-export PROVIDER="nebius"
-npx @huggingface/mcp-client
+npm install @huggingface/tiny-agents
+# or
+pnpm add @huggingface/tiny-agents
 ```
 
-or, you can use any Local LLM (for example via lmstudio):
-
+Then, you can your agent:
 ```bash
-ENDPOINT_URL=http://localhost:1234/v1 \
-MODEL_ID=lmstudio-community/Qwen3-14B-GGUF \
-npx @huggingface/mcp-client
+npx @huggingface/tiny-agents [command] "agent/id"
+
+Usage:
+  tiny-agents [flags]
+  tiny-agents run   "agent/id"
+  tiny-agents serve "agent/id"
+
+Available Commands:
+  run         Run the Agent in command-line
+  serve       Run the Agent as an OpenAI-compatible HTTP server
 ```
 
-You can get more information about mcp-client [here](https://huggingface.co/docs/huggingface.js/en/mcp-client/README).
+You can load agents directly from the [tiny-agents](https://huggingface.co/datasets/tiny-agents/tiny-agents) Dataset, or specify a path to your own local agent configuration.
 
+**Advanced Usage**
+In addition to the CLI, you can use the `Agent` class for more fine-grained control. For lower-level interactions, use the `MCPClient` from the `@huggingface/mcp-client` package to connect directly to MCP servers and manage tool calls.
+
+Learn more about tiny-agents in the [huggingface.js documentation](https://huggingface.co/docs/huggingface.js/en/tiny-agents/README). 
+
+### huggingface_hub (Python)
+
+The `huggingface_hub` library is the easiest way to run MCP-powered agents in Python. It includes a high-level `tiny-agents` CLI as well as programmatic access via the `Agent` and `MCPClient` classes — all built to work with [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers/index), local LLMs, or any inference endpoint compatible with OpenAI's API specs.
+
+**Getting started**
+
+Install the latest version with MCP support:
+```bash
+pip install "huggingface_hub[mcp]>=0.32.2"
+```
+Then, you can run your agent:
+```bash
+> tiny-agents run --help
+                                                                                                                                                                                     
+ Usage: tiny-agents run [OPTIONS] [PATH] COMMAND [ARGS]...                                                                                                                           
+                                                                                                                                                                                     
+ Run the Agent in the CLI                                                                                                                                                            
+                                                                                                                                                                                     
+                                                                                                                                                                                     
+╭─ Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│   path      [PATH]  Path to a local folder containing an agent.json file or a built-in agent stored in the 'tiny-agents/tiny-agents' Hugging Face dataset                         │
+│                     (https://huggingface.co/datasets/tiny-agents/tiny-agents)                                                                                                     │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Options ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ --help          Show this message and exit.                                                                                                                                       │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+```
+
+The CLI pulls the config, connects to its MCP servers, prints the available tools, and waits for your prompt.
+
+**Advanced Usage**
+
+For more fine-grained control, use the `MCPClient` directly. This low-level interface extends `AsyncInferenceClient` and allows LLMs to call tools via the Model Context Protocol (MCP). It supports both local (`stdio`) and remote (`http`/`sse`) MCP servers, handles tool registration and execution, and streams results back to the model in real-time.
+
+Learn more in the [`huggingface_hub` MCP documentation](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/mcp).
+
+
+### Custom Agents
+
+To create your own agent, simply create a folder (e.g., `my-agent/`) and define your agent’s configuration in an `agent.json` file.
+The following example shows a web-browsing agent configured to use the [Qwen/Qwen2.5-72B-Instruct](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct) model via Nebius inference provider, and it comes equipped with a playwright MCP server, which lets it use a web browser
+
+```json
+{
+	"model": "Qwen/Qwen2.5-72B-Instruct",
+	"provider": "nebius",
+	"servers": [
+		{
+			"type": "stdio",
+			"config": {
+				"command": "npx",
+				"args": ["@playwright/mcp@latest"]
+			}
+		}
+	]
+}
+```
+
+To use a local LLM (such as [llama.cpp](https://github.com/ggerganov/llama.cpp), or [LM Studio](https://lmstudio.ai/)), just provide an `endpointUrl`:
+
+```json
+{
+	"model": "Qwen/Qwen3-32B",
+	"endpointUrl": "http://localhost:1234/v1",
+	"servers": [
+		{
+			"type": "stdio",
+			"config": {
+				"command": "npx",
+				"args": ["@playwright/mcp@latest"]
+			}
+		}
+	]
+}
+
+```
+
+Optionally, add a `PROMPT.md` to customize the system prompt.
+
+<Tip>
+
+Don't hesitate to contribute your agent to the community by opening a Pull Request in the [tiny-agents](https://huggingface.co/datasets/tiny-agents/tiny-agents) Hugging Face dataset.
+
+</Tip>
 
 ## Gradio MCP Server / Tools
 
