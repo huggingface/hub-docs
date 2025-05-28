@@ -40,7 +40,7 @@ This page displays:
 - Options to select where new repositories will be stored
 
 <Tip>
-Some [advanced compute options](./advanced-compute-options) for Spaces, such as ZeroGPU, may not be available in all regions.
+Some <a href="./advanced-compute-options">advanced compute options</a> for Spaces, such as ZeroGPU, may not be available in all regions.
 </Tip>
 
 ## Repository Tag
