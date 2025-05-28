@@ -59,3 +59,13 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
     providersMapping={ {"novita":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/llama-4-scout-17b-16e-instruct"} } }
 conversational />
 
+
+### Text To Video
+
+Find out more about Text To Video [here](../tasks/text_to_video).
+
+<InferenceSnippet
+    pipeline=text-to-video
+    providersMapping={ {"novita":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"wan-t2v"} } }
+/>
+
