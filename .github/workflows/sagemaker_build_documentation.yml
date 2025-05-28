@@ -1,11 +1,13 @@
-name: Build sagemaker documentation
+name: Build SageMaker Documentation
 
 on:
   push:
-    paths:
-      - "docs/sagemaker/**"
     branches:
       - main
+      - doc-builder*
+    paths:
+      - docs/sagemaker/**
+      - .github/workflows/sagemaker_build_documentation.yaml
 
 jobs:
    build:
@@ -14,7 +16,9 @@ jobs:
       commit_sha: ${{ github.sha }}
       package: hub-docs
       package_name: sagemaker
-      path_to_docs: hub-docs/docs/sagemaker/
+      path_to_docs: hub-docs/docs/sagemaker/source
       additional_args: --not_python_module
+      pre_command: cd hub-docs/docs/sagemaker && make docs
     secrets:
+      token: ${{ secrets.HUGGINGFACE_PUSH }}
       hf_token: ${{ secrets.HF_DOC_BUILD_PUSH }}

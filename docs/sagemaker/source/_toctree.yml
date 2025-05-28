@@ -1,0 +1,64 @@
+- sections:
+    - local: index
+      title: Hugging Face on AWS
+  title: Get Started
+  isExpanded: true
+- sections:
+    - local: dlcs/introduction
+      title: Introduction
+    - local: dlcs/available
+      title: Available DLCs on AWS
+  title: Deep Learning Containers (DLCs)
+  isExpanded: true
+- sections:
+    - local: tutorials/index
+      title: Introduction
+    - sections:
+        - local: tutorials/sagemaker-sdk/sagemaker-sdk-quickstart
+          title: SageMaker SDK Quickstart
+        - local: tutorials/sagemaker-sdk/training-sagemaker-sdk
+          title: Train models with SageMaker SDK
+        - local: tutorials/sagemaker-sdk/deploy-sagemaker-sdk
+          title: Deploy models with SageMaker SDK
+      title: SageMaker SDK
+      isExpanded: false
+    - sections:
+        - local: tutorials/jumpstart/jumpstart-quickstart
+          title: Jumpstart Quickstart
+      title: Jumpstart
+      isExpanded: false
+    - sections:
+        - local: tutorials/bedrock/bedrock-quickstart
+          title: Bedrock Quickstart
+      title: Bedrock
+      isExpanded: false
+    - sections:
+        - local: tutorials/compute-services/compute-services-quickstart
+          title: EC2, ECS and EKS Quickstart
+      title: EC2, ECS and EKS
+      isExpanded: false
+  title: Tutorials
+  isExpanded: false
+
+# GENERATED CONTENT DO NOT EDIT!
+- title: Examples
+  sections:
+     - title: SageMaker SDK
+       isExpanded: false
+       sections:
+          - local: examples/sagemaker-sdk-deploy-embedding-models
+            title: "How to deploy Embedding Models to Amazon SageMaker using new Hugging Face Embedding DLC"
+          - local: examples/sagemaker-sdk-deploy-llama-3-3-70b-inferentia2
+            title: "Deploy Llama 3.3 70B on AWS Inferentia2"
+          - local: examples/sagemaker-sdk-evaluate-llm-lighteval
+            title: "Evaluate LLMs with Hugging Face Lighteval on Amazon SageMaker"
+          - local: examples/sagemaker-sdk-fine-tune-embedding-models
+            title: "Fine-tune and deploy embedding models with Amazon SageMaker"
+# END GENERATED CONTENT
+- sections:
+    - local: reference/inference-toolkit
+      title: Inference Toolkit API
+    - local: reference/resources
+      title: Other Resources
+  title: Reference
+  isExpanded: false
