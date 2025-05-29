@@ -51,6 +51,7 @@ A full list of the available licenses is available here:
 | Eclipse Public License 2.0                                     | `epl-2.0`                                |
 | Etalab Open License 2.0                                        | `etalab-2.0`                             |
 | European Union Public License 1.1                              | `eupl-1.1`                               |
+| European Union Public License 1.2                              | `eupl-1.2`                               |
 | GNU Affero General Public License v3.0                         | `agpl-3.0`                               |
 | GNU Free Documentation License family                          | `gfdl`                                   |
 | GNU General Public License family                              | `gpl`                                    |
