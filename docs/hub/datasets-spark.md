@@ -2,9 +2,15 @@
 
 Spark enables real-time, large-scale data processing in a distributed environment.
 
-In particular you can use `pyspark_huggingface` to access Hugging Face datasets repositories in PySpark.
+You can use `pyspark_huggingface` to access Hugging Face datasets repositories in PySpark via the "huggingface" Data Source.
 
-## Installation
+Try out [Spark Notebooks](https://huggingface.co/spaces/Dataset-Tools/Spark-Notebooks) on Hugging Face Spaces to get Notebooks with PySpark and `pyspark_huggingface` pre-installed.
+
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spark-notebooks-min.png">
+
+## Set up
+
+### Installation
 
 To be able to read and write to Hugging Face Datasets, you need to install the `pyspark_huggingface` library:
 
@@ -14,7 +20,7 @@ pip install pyspark_huggingface
 
 This will also install required dependencies like `huggingface_hub` for authentication, and `pyarrow` for reading and writing datasets.
 
-## Authentication
+### Authentication
 
 You need to authenticate to Hugging Face to read private/gated dataset repositories or to write to your dataset repositories.
 
@@ -24,11 +30,11 @@ You can use the CLI for example:
 huggingface-cli login
 ```
 
-It's also possible to provide your Hugging Face token with the `HF_TOKEN` environment variable or passing the `token` option to the spark context builder.
+It's also possible to provide your Hugging Face token with the `HF_TOKEN` environment variable or passing the `token` option to the reader.
 
 For more details about authentication, check out [this guide](https://huggingface.co/docs/huggingface_hub/quick-start#authentication).
 
-## Enable the "huggingface" Data Source
+### Enable the "huggingface" Data Source
 
 PySpark 4 came with a new Data Source API which allows to use datasets from custom sources.
 If `pyspark_huggingface` is installed, PySpark auto-imports it and enables the "huggingface" Data Dource.
@@ -218,7 +224,7 @@ It works like this:
 Here is how we can use this function to write the filtered version of the [BAAI/Infinity-Instruct](https://huggingface.co/datasets/BAAI/Infinity-Instruct) dataset back to Hugging Face.
 
 First you need to [create a dataset repository](https://huggingface.co/new-dataset), e.g. `username/Infinity-Instruct-Chinese-Only` (you can set it to private if you want).
-Then, make sure you are authenticated, you can use the "huggingface" Data Source, set the `mode` to "overwrite" (or "append" if you want to extend an existing dataset), and push to Hugging Face with `.save()`:
+Then, make sure you are authenticated and you can use the "huggingface" Data Source, set the `mode` to "overwrite" (or "append" if you want to extend an existing dataset), and push to Hugging Face with `.save()`:
 
 ```python
 >>> df_chinese_only.write.format("huggingface").mode("overwrite").save("username/Infinity-Instruct-Chinese-Only2")
@@ -228,11 +234,3 @@ Then, make sure you are authenticated, you can use the "huggingface" Data Source
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-spark-infinity-instruct-chinese-only-min.png"/>
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-spark-infinity-instruct-chinese-only-dark-min.png"/>
 </div>
-
-## Try Spark Notebooks on Hugging Face Spaces
-
-You can launch the [Spark Notebooks](https://huggingface.co/spaces/Dataset-Tools/Spark-Notebooks) in Spaces to get Notebooks with PySpark and `pyspark_huggingface` pre-installed.
-
-Click on "Launch Spark Notebooks", choose a name for your Space, select your hardware and you are ready !
-
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spark-notebooks-min.png">
