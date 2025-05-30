@@ -31,7 +31,7 @@ huggingface-cli login
 ```
 
 It's also possible to provide your Hugging Face token with the `HF_TOKEN` environment variable or passing the `token` option to the reader.
-
+If `pyspark_huggingface` is installed, PySpark (>=4) auto-imports it and enables the "huggingface" Data Source.
 For more details about authentication, check out [this guide](https://huggingface.co/docs/huggingface_hub/quick-start#authentication).
 
 ### Enable the "huggingface" Data Source
@@ -63,7 +63,7 @@ For example here is how to load the [stanfordnlp/imdb](https://huggingface.co/st
 
 Here is another example with the [BAAI/Infinity-Instruct](https://huggingface.co/datasets/BAAI/Infinity-Instruct) dataset.
 It is a gated repository, users have to accept the terms of use before accessing it.
-It also has multiple subsets, named "3M", "7M" etc. So wee need to specify which one to load.
+It also has multiple subsets, namely, "3M" and "7M". So we need to specify which one to load.
 
 
 <div class="flex justify-center">
