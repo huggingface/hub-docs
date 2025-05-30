@@ -2,21 +2,17 @@
 
 Spark enables real-time, large-scale data processing in a distributed environment.
 
-In particular you can use `huggingface_hub` to access Hugging Face datasets repositories in PySpark
+In particular you can use `pyspark_huggingface` to access Hugging Face datasets repositories in PySpark.
 
 ## Installation
 
-To be able to read and write to Hugging Face URLs (e.g. `hf://datasets/username/dataset/data.parquet`), you need to install the `huggingface_hub` library:
+To be able to read and write to Hugging Face Datasets, you need to install the `pyspark_huggingface` library:
 
 ```
-pip install huggingface_hub
+pip install pyspark_huggingface
 ```
 
-You also need to install `pyarrow` to read/write Parquet / JSON / CSV / etc. files using the filesystem API provided by `huggingFace_hub`:
-
-```
-pip install pyarrow
-```
+This will also install required dependencies like `huggingface_hub` for authentication, and `pyarrow` for reading and writing datasets.
 
 ## Authentication
 
@@ -28,127 +24,39 @@ You can use the CLI for example:
 huggingface-cli login
 ```
 
-It's also possible to provide your Hugging Face token with the `HF_TOKEN` environment variable or passing the `storage_options` parameter to helper functions below:
-
-```python
-storage_options = {"token": "hf_xxx"}
-```
+It's also possible to provide your Hugging Face token with the `HF_TOKEN` environment variable or passing the `token` option to the spark context builder.
 
 For more details about authentication, check out [this guide](https://huggingface.co/docs/huggingface_hub/quick-start#authentication).
 
-## Read
+## Enable the "huggingface" Data Source
 
-PySpark doesn't have an official support for Hugging Face paths, so we provide a helper function to read datasets in a distributed manner.
+PySpark 4 came with a new Data Source API which allows to use datasets from custom sources.
+If `pyspark_huggingface` is installed, PySpark auto-imports it and enables the "huggingface" Data Dource.
 
-For example you can read Parquet files from Hugging Face in an optimized way using PyArrow by defining this `read_parquet` helper function:
+The library also backports the Data Source API for the "huggingface" Data Source for PySpark 3.5, 3.4 and 3.3.
+However in this case `pyspark_huggingface` should be imported explicitly to activate the backport and enable the "huggingface" Data Dource:
 
 ```python
-from functools import partial
-from typing import Iterator, Optional, Union
-
-import pyarrow as pa
-import pyarrow.parquet as pq
-from huggingface_hub import HfFileSystem
-from pyspark.sql.dataframe import DataFrame
-from pyspark.sql.pandas.types import from_arrow_schema
-
-
-def _read(iterator: Iterator[pa.RecordBatch], columns: Optional[list[str]], filters: Optional[Union[list[tuple], list[list[tuple]]]], **kwargs) -> Iterator[pa.RecordBatch]:
-    for batch in iterator:
-        paths = batch[0].to_pylist()
-        ds = pq.ParquetDataset(paths, **kwargs)
-        yield from ds._dataset.to_batches(columns=columns, filter=pq.filters_to_expression(filters) if filters else None)
-
-
-def read_parquet(
-    path: str,
-    columns: Optional[list[str]] = None,
-    filters: Optional[Union[list[tuple], list[list[tuple]]]] = None,
-    **kwargs,
-) -> DataFrame:
-    """
-    Loads Parquet files from Hugging Face using PyArrow, returning a PySPark `DataFrame`.
-
-    It reads Parquet files in a distributed manner.
-
-    Access private or gated repositories using `huggingface-cli login` or passing a token
-    using the `storage_options` argument: `storage_options={"token": "hf_xxx"}`
-
-    Parameters
-    ----------
-    path : str
-        Path to the file. Prefix with a protocol like `hf://` to read from Hugging Face.
-        You can read from multiple files if you pass a globstring.
-    columns : list, default None
-        If not None, only these columns will be read from the file.
-    filters : List[Tuple] or List[List[Tuple]], default None
-        To filter out data.
-        Filter syntax: [[(column, op, val), ...],...]
-        where op is [==, =, >, >=, <, <=, !=, in, not in]
-        The innermost tuples are transposed into a set of filters applied
-        through an `AND` operation.
-        The outer list combines these sets of filters through an `OR`
-        operation.
-        A single list of tuples can also be used, meaning that no `OR`
-        operation between set of filters is to be conducted.
-
-    **kwargs
-        Any additional kwargs are passed to pyarrow.parquet.ParquetDataset.
-
-    Returns
-    -------
-    DataFrame
-        DataFrame based on parquet file.
-
-    Examples
-    --------
-    >>> path = "hf://datasets/username/dataset/data.parquet"
-    >>> pd.DataFrame({"foo": range(5), "bar": range(5, 10)}).to_parquet(path)
-    >>> read_parquet(path).show()
-    +---+---+
-    |foo|bar|
-    +---+---+
-    |  0|  5|
-    |  1|  6|
-    |  2|  7|
-    |  3|  8|
-    |  4|  9|
-    +---+---+
-    >>> read_parquet(path, columns=["bar"]).show()
-    +---+
-    |bar|
-    +---+
-    |  5|
-    |  6|
-    |  7|
-    |  8|
-    |  9|
-    +---+
-    >>> sel = [("foo", ">", 2)]
-    >>> read_parquet(path, filters=sel).show()
-    +---+---+
-    |foo|bar|
-    +---+---+
-    |  3|  8|
-    |  4|  9|
-    +---+---+
-    """
-    filesystem: HfFileSystem = kwargs.pop("filesystem") if "filesystem" in kwargs else HfFileSystem(**kwargs.pop("storage_options", {}))
-    paths = filesystem.glob(path)
-    if not paths:
-        raise FileNotFoundError(f"Counldn't find any file at {path}")
-    rdd = spark.sparkContext.parallelize([{"path": path} for path in paths], len(paths))
-    df = spark.createDataFrame(rdd)
-    arrow_schema = pq.read_schema(filesystem.open(paths[0]))
-    schema = pa.schema([field for field in arrow_schema if (columns is None or field.name in columns)], metadata=arrow_schema.metadata)
-    return df.mapInArrow(
-        partial(_read, columns=columns, filters=filters, filesystem=filesystem, schema=arrow_schema, **kwargs),
-        from_arrow_schema(schema),
-    )
+>>> import pyspark_huggingface
+huggingface datasource enabled for pyspark 3.x.x (backport from pyspark 4)
 ```
 
-Here is how we can use this on the [BAAI/Infinity-Instruct](https://huggingface.co/datasets/BAAI/Infinity-Instruct) dataset.
+## Read
+
+The "huggingface" Data Source allows to read datasets from Hugging Face, using `pyarrow` under the hood to stream Arrow data.
+This is compatible with all the dataset in [supported format](https://huggingface.co/docs/hub/datasets-adding#file-formats) on Hugging Face, like Parquet datasets.
+
+For example here is how to load the [stanfordnlp/imdb](https://huggingface.co/stanfordnlp/imdb) dataset:
+
+```python
+>>> from pyspark.sql import SparkSession
+>>> spark = SparkSession.builder.appName("demo").getOrCreate()
+>>> df = spark.read.format("huggingface").load("stanfordnlp/imdb")
+```
+
+Here is another example with the [BAAI/Infinity-Instruct](https://huggingface.co/datasets/BAAI/Infinity-Instruct) dataset.
 It is a gated repository, users have to accept the terms of use before accessing it.
+It also has multiple subsets, named "3M", "7M" etc. So wee need to specify which one to load.
 
 
 <div class="flex justify-center">
@@ -156,14 +64,14 @@ It is a gated repository, users have to accept the terms of use before accessing
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-spark-infinity-instruct-7M-dark-min.png"/>
 </div>
 
-We use the `read_parquet` function to read data from the dataset, compute the number of dialogue per language and filter the dataset.
+We use the `.format()` function to use the "huggingface" Data Source, and `.load()` to load the dataset (more precisely the config or subset named "7M" containing 7M samples). Then we compute the number of dialogue per language and filter the dataset.
 
 After logging-in to access the gated repository, we can run:
 
 ```python
 >>> from pyspark.sql import SparkSession
 >>> spark = SparkSession.builder.appName("demo").getOrCreate()
->>> df = read_parquet("hf://datasets/BAAI/Infinity-Instruct/7M/*.parquet")
+>>> df = spark.read.format("huggingface").option("config", "7M").load("BAAI/Infinity-Instruct")
 >>> df.show()
 +---+----------------------------+-----+----------+--------------------+        
 | id|               conversations|label|langdetect|              source|
@@ -191,12 +99,19 @@ After logging-in to access the gated repository, we can run:
 +---+----------------------------+-----+----------+--------------------+
 ```
 
-To compute the number of dialogues per language we run this code.
-The `columns` argument is useful to only load the data we need, since PySpark doesn't enable predicate push-down in this case.
-There is also a `filters` argument to only load data with values within a certain range.
+This loads the dataset in a streaming fashion, and the output DataFrame has one partition per data file in the dataset to enable efficient distributed processing.
+
+To compute the number of dialogues per language we run this code that uses the `columns` option and a `groupBy()` operation.
+The `columns` option is useful to only load the data we need, since PySpark doesn't enable predicate push-down with the Data Source API.
+There is also a `filters` option to only load data with values within a certain range.
 
 ```python
->>> df_langdetect_only = read_parquet("hf://datasets/BAAI/Infinity-Instruct/7M/*.parquet", columns=["langdetect"])
+>>> df_langdetect_only = (
+...     spark.read.format("huggingface")
+...     .option("config", "7M")
+...     .option("columns", '["langdetect"]')
+...     .load("BAAI/Infinity-Instruct")
+... )
 >>> df_langdetect_only.groupBy("langdetect").count().show()
 +----------+-------+                                                            
 |langdetect|  count|
@@ -209,8 +124,12 @@ There is also a `filters` argument to only load data with values within a certai
 To filter the dataset and only keep dialogues in Chinese:
 
 ```python
->>> criteria = [("langdetect", "=", "zh-cn")]
->>> df_chinese_only = read_parquet("hf://datasets/BAAI/Infinity-Instruct/7M/*.parquet", filters=criteria)
+>>> df_chinese_only = (
+...     spark.read.format("huggingface")
+...     .option("config", "7M")
+...     .option("filters", '[("langdetect", "=", "zh-cn")]')
+...     .load("BAAI/Infinity-Instruct")
+... )
 >>> df_chinese_only.show()
 +---+----------------------------+-----+----------+----------+                  
 | id|               conversations|label|langdetect|    source|
@@ -238,6 +157,9 @@ To filter the dataset and only keep dialogues in Chinese:
 +---+----------------------------+-----+----------+----------+
 ```
 
+It is also possible to apply filters or remove columns on the loaded DataFrame, but it is more efficient to do it while loading, especially on Parquet datasets.
+Indeed, Parquet contains metadata at the file and row group level, which allows to skip entire parts of the dataset that don't contain samples that satisfy the criteria. Columns in Parquet can also be loaded indepentently, whch allows to skip the excluded columns and avoid loading unnecessary data.
+
 ### Run SQL queries
 
 Once you have your PySpark Dataframe ready, you can run SQL queries using `spark.sql`:
@@ -245,7 +167,12 @@ Once you have your PySpark Dataframe ready, you can run SQL queries using `spark
 ```python
 >>> from pyspark.sql import SparkSession
 >>> spark = SparkSession.builder.appName("demo").getOrCreate()
->>> df = read_parquet("hf://datasets/BAAI/Infinity-Instruct/7M/*.parquet", columns=["source"])
+>>> df = (
+...     spark.read.format("huggingface")
+...     .option("config", "7M")
+...     .option("columns", '["source"]')
+...     .load("BAAI/Infinity-Instruct")
+... )
 >>> spark.sql("SELECT source, count(*) AS total FROM {df} GROUP BY source ORDER BY total DESC", df=df).show()
 +--------------------+-------+
 |              source|  total|
@@ -272,6 +199,7 @@ Once you have your PySpark Dataframe ready, you can run SQL queries using `spark
 +--------------------+-------+
 ```
 
+Again, specifying the `columns` option is not necessary, but is useful to avoid loading unnecessary data and make the query faster.
 
 ## Write
 
