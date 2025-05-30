@@ -168,6 +168,20 @@ To filter the dataset and only keep dialogues in Chinese:
 It is also possible to apply filters or remove columns on the loaded DataFrame, but it is more efficient to do it while loading, especially on Parquet datasets.
 Indeed, Parquet contains metadata at the file and row group level, which allows to skip entire parts of the dataset that don't contain samples that satisfy the criteria. Columns in Parquet can also be loaded indepentently, whch allows to skip the excluded columns and avoid loading unnecessary data.
 
+### Options
+
+Here is the list of available options you can pass to `read..option()`:
+
+* `config` (string): select a dataset subset/config
+* `split` (string): select a dataset split (default is "train")
+* `token` (string): your Hugging Face token
+
+For Parquet datasets:
+* `columns` (string): select a subset of columns to load, e.g. `'["id"]'`
+* `filters` (string): to skip files and row groups that don't match a criteria, e.g. `'["source", "=", "code_exercises"]'`. Filters are passed to [pyarrow.parquet.ParquetDataset](https://arrow.apache.org/docs/python/generated/pyarrow.parquet.ParquetDataset.html).
+
+Any other option is passed as an argument to [datasets.load_dataset] (https://huggingface.co/docs/datasets/en/package_reference/loading_methods#datasets.load_dataset)
+
 ### Run SQL queries
 
 Once you have your PySpark Dataframe ready, you can run SQL queries using `spark.sql`:
@@ -234,3 +248,18 @@ Then, make sure you are authenticated and you can use the "huggingface" Data Sou
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-spark-infinity-instruct-chinese-only-min.png"/>
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-spark-infinity-instruct-chinese-only-dark-min.png"/>
 </div>
+
+### Mode
+
+Two modes are available when pushing a dataset to Hugging Face:
+
+* "overwrite": overwrite the dataset if it already exists
+* "append": append the dataset to an existing dataset
+
+### Options
+
+Here is the list of available options you can pass to `write.option()`:
+
+* `token` (string): your Hugging Face token
+
+Contributions are welcome to add more options here, in particular `subset` and `split`.
