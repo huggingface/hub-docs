@@ -31,13 +31,12 @@ huggingface-cli login
 ```
 
 It's also possible to provide your Hugging Face token with the `HF_TOKEN` environment variable or passing the `token` option to the reader.
-If `pyspark_huggingface` is installed, PySpark (>=4) auto-imports it and enables the "huggingface" Data Source.
 For more details about authentication, check out [this guide](https://huggingface.co/docs/huggingface_hub/quick-start#authentication).
 
 ### Enable the "huggingface" Data Source
 
 PySpark 4 came with a new Data Source API which allows to use datasets from custom sources.
-If `pyspark_huggingface` is installed, PySpark auto-imports it and enables the "huggingface" Data Dource.
+If `pyspark_huggingface` is installed, PySpark auto-imports it and enables the "huggingface" Data Source.
 
 The library also backports the Data Source API for the "huggingface" Data Source for PySpark 3.5, 3.4 and 3.3.
 However in this case `pyspark_huggingface` should be imported explicitly to activate the backport and enable the "huggingface" Data Dource:
