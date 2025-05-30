@@ -19,6 +19,8 @@
     title: Cohere
   - local: providers/fal-ai
     title: Fal AI
+  - local: providers/featherless-ai
+    title: Featherless AI
   - local: providers/fireworks-ai
     title: Fireworks
   - local: providers/hyperbolic
