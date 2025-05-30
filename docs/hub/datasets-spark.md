@@ -49,6 +49,7 @@ This is compatible with all the dataset in [supported format](https://huggingfac
 For example here is how to load the [stanfordnlp/imdb](https://huggingface.co/stanfordnlp/imdb) dataset:
 
 ```python
+>>> import pyspark_huggingface
 >>> from pyspark.sql import SparkSession
 >>> spark = SparkSession.builder.appName("demo").getOrCreate()
 >>> df = spark.read.format("huggingface").load("stanfordnlp/imdb")
@@ -69,6 +70,7 @@ We use the `.format()` function to use the "huggingface" Data Source, and `.load
 After logging-in to access the gated repository, we can run:
 
 ```python
+>>> import pyspark_huggingface
 >>> from pyspark.sql import SparkSession
 >>> spark = SparkSession.builder.appName("demo").getOrCreate()
 >>> df = spark.read.format("huggingface").option("config", "7M").load("BAAI/Infinity-Instruct")
@@ -165,6 +167,7 @@ Indeed, Parquet contains metadata at the file and row group level, which allows 
 Once you have your PySpark Dataframe ready, you can run SQL queries using `spark.sql`:
 
 ```python
+>>> import pyspark_huggingface
 >>> from pyspark.sql import SparkSession
 >>> spark = SparkSession.builder.appName("demo").getOrCreate()
 >>> df = (
@@ -203,117 +206,22 @@ Again, specifying the `columns` option is not necessary, but is useful to avoid 
 
 ## Write
 
-We also provide a helper function to write datasets in a distributed manner to a Hugging Face repository.
-
-You can write a PySpark Dataframe to Hugging Face using this `write_parquet` helper function based on the `huggingface_hub` API.
-In particular it uses the `preupload_lfs_files` utility to upload Parquet files in parallel in a distributed manner, and only commits the files once they're all uploaded:
-
+You can write a PySpark Dataframe to Hugging Face with the "huggingface" Data Source.
+It uploads Parquet files in parallel in a distributed manner, and only commits the files once they're all uploaded.
+It works like this:
 
 ```python
-import math
-import pickle
-import tempfile
-from functools import partial
-from typing import Iterator, Optional
-
-import pyarrow as pa
-import pyarrow.parquet as pq
-from huggingface_hub import CommitOperationAdd, HfFileSystem
-from pyspark.sql.dataframe import DataFrame
-from pyspark.sql.pandas.types import from_arrow_schema, to_arrow_schema
-
-
-def _preupload(iterator: Iterator[pa.RecordBatch], path: str, schema: pa.Schema, filesystem: HfFileSystem, row_group_size: Optional[int] = None, **kwargs) -> Iterator[pa.RecordBatch]:
-    resolved_path = filesystem.resolve_path(path)
-    with tempfile.NamedTemporaryFile(suffix=".parquet") as temp_file:
-        with pq.ParquetWriter(temp_file.name, schema=schema, **kwargs) as writer:
-            for batch in iterator:
-                writer.write_batch(batch, row_group_size=row_group_size)
-        addition = CommitOperationAdd(path_in_repo=temp_file.name, path_or_fileobj=temp_file.name)
-        filesystem._api.preupload_lfs_files(repo_id=resolved_path.repo_id, additions=[addition], repo_type=resolved_path.repo_type, revision=resolved_path.revision)
-    yield pa.record_batch({"addition": [pickle.dumps(addition)]}, schema=pa.schema({"addition": pa.binary()}))
-
-
-def _commit(iterator: Iterator[pa.RecordBatch], path: str, filesystem: HfFileSystem, max_operations_per_commit=50) -> Iterator[pa.RecordBatch]:
-    resolved_path = filesystem.resolve_path(path)
-    additions: list[CommitOperationAdd] = [pickle.loads(addition) for addition in pa.Table.from_batches(iterator, schema=pa.schema({"addition": pa.binary()}))[0].to_pylist()]
-    num_commits = math.ceil(len(additions) / max_operations_per_commit)
-    for shard_idx, addition in enumerate(additions):
-        addition.path_in_repo = resolved_path.path_in_repo.replace("{shard_idx:05d}", f"{shard_idx:05d}")
-    for i in range(0, num_commits):
-        operations = additions[i * max_operations_per_commit : (i + 1) * max_operations_per_commit]
-        commit_message = "Upload using PySpark" + (f" (part {i:05d}-of-{num_commits:05d})" if num_commits > 1 else "")
-        filesystem._api.create_commit(repo_id=resolved_path.repo_id, repo_type=resolved_path.repo_type, revision=resolved_path.revision, operations=operations, commit_message=commit_message)
-        yield pa.record_batch({"path": [addition.path_in_repo for addition in operations]}, schema=pa.schema({"path": pa.string()}))
-
-
-def write_parquet(df: DataFrame, path: str, **kwargs) -> None:
-    """
-    Write Parquet files to Hugging Face using PyArrow.
-
-    It uploads Parquet files in a distributed manner in two steps:
-
-    1. Preupload the Parquet files in parallel in a distributed banner
-    2. Commit the preuploaded files
-
-    Authenticate using `huggingface-cli login` or passing a token
-    using the `storage_options` argument: `storage_options={"token": "hf_xxx"}`
-
-    Parameters
-    ----------
-    path : str
-        Path of the file or directory. Prefix with a protocol like `hf://` to read from Hugging Face.
-        It writes Parquet files in the form "part-xxxxx.parquet", or to a single file if `path ends with ".parquet".
-
-    **kwargs
-        Any additional kwargs are passed to pyarrow.parquet.ParquetWriter.
-
-    Returns
-    -------
-    DataFrame
-        DataFrame based on parquet file.
-
-    Examples
-    --------
-    >>> spark.createDataFrame(pd.DataFrame({"foo": range(5), "bar": range(5, 10)}))
-    >>> # Save to one file
-    >>> write_parquet(df, "hf://datasets/username/dataset/data.parquet")
-    >>> # OR save to a directory (possibly in many files)
-    >>> write_parquet(df, "hf://datasets/username/dataset")
-    """
-    filesystem: HfFileSystem = kwargs.pop("filesystem", HfFileSystem(**kwargs.pop("storage_options", {})))
-    if path.endswith(".parquet") or path.endswith(".pq"):
-        df = df.coalesce(1)
-    else:
-        path += "/part-{shard_idx:05d}.parquet"
-    df.mapInArrow(
-        partial(_preupload, path=path, schema=to_arrow_schema(df.schema), filesystem=filesystem, **kwargs),
-        from_arrow_schema(pa.schema({"addition": pa.binary()})),
-    ).repartition(1).mapInArrow(
-        partial(_commit, path=path, filesystem=filesystem),
-        from_arrow_schema(pa.schema({"path": pa.string()})),
-    ).collect()
+>>> import pyspark_huggingface
+>>> df.write.format("huggingface").save("username/dataset_name")
 ```
 
 Here is how we can use this function to write the filtered version of the [BAAI/Infinity-Instruct](https://huggingface.co/datasets/BAAI/Infinity-Instruct) dataset back to Hugging Face.
 
 First you need to [create a dataset repository](https://huggingface.co/new-dataset), e.g. `username/Infinity-Instruct-Chinese-Only` (you can set it to private if you want).
-Then, make sure you are authenticated and you can run:
+Then, make sure you are authenticated, you can use the "huggingface" Data Source, set the `mode` to "overwrite" (or "append" if you want to extend an existing dataset), and push to Hugging Face with `.save()`:
 
 ```python
->>> write_parquet(df_chinese_only, "hf://datasets/username/Infinity-Instruct-Chinese-Only")
-tmph9jwu9py.parquet: 100%|██████████| 50.5M/50.5M [00:03<00:00, 14.6MB/s]
-tmp0oqt99nc.parquet: 100%|██████████| 50.8M/50.8M [00:02<00:00, 17.9MB/s]
-tmpgnizkwqp.parquet: 100%|██████████| 50.5M/50.5M [00:02<00:00, 19.6MB/s]
-tmpanm04k4n.parquet: 100%|██████████| 51.4M/51.4M [00:02<00:00, 22.9MB/s]
-tmp14uy9oqb.parquet: 100%|██████████| 50.4M/50.4M [00:02<00:00, 23.0MB/s]
-tmpcp8t_qdl.parquet: 100%|██████████| 50.4M/50.4M [00:02<00:00, 23.5MB/s]
-tmpjui5mns8.parquet: 100%|██████████| 50.3M/50.3M [00:02<00:00, 24.1MB/s]
-tmpydqh6od1.parquet: 100%|██████████| 50.9M/50.9M [00:02<00:00, 23.8MB/s]
-tmp52f2t8tu.parquet: 100%|██████████| 50.5M/50.5M [00:02<00:00, 23.7MB/s]
-tmpg7egv3ye.parquet: 100%|██████████| 50.1M/50.1M [00:06<00:00, 7.68MB/s]
-tmp2s0fq2hm.parquet: 100%|██████████| 50.8M/50.8M [00:02<00:00, 18.1MB/s]
-tmpmj97ab30.parquet: 100%|██████████| 71.3M/71.3M [00:02<00:00, 23.9MB/s]
+>>> df_chinese_only.write.format("huggingface").mode("overwrite").save("username/Infinity-Instruct-Chinese-Only2")
 ```
 
 <div class="flex justify-center">
@@ -321,10 +229,10 @@ tmpmj97ab30.parquet: 100%|██████████| 71.3M/71.3M [00:02<00:
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-spark-infinity-instruct-chinese-only-dark-min.png"/>
 </div>
 
-## Run in JupyterLab on Hugging Face Spaces
+## Try Spark Notebooks on Hugging Face Spaces
 
-You can duplicate the [Spark on HF JupyterLab](https://huggingface.co/spaces/lhoestq/Spark-on-HF-JupyterLab) Space to get a Notebook with PySpark and those helper functions pre-installed.
+You can launch the [Spark Notebooks](https://huggingface.co/spaces/Dataset-Tools/Spark-Notebooks) in Spaces to get Notebooks with PySpark and `pyspark_huggingface` pre-installed.
 
-Click on "Duplicate Space", choose a name for your Space, select your hardware and you are ready:
+Click on "Launch Spark Notebooks", choose a name for your Space, select your hardware and you are ready !
 
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spark-on-hf-jupyterlab-screenshot-min.png">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spark-notebooks-min.png">
