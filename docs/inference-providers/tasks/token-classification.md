@@ -35,7 +35,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"}} }
+    providersMapping={ {"hf-inference":{"modelId":"DeepMount00/Italian_NER_XXL","providerModelId":"DeepMount00/Italian_NER_XXL"}} }
 />
 
 

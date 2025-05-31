@@ -185,7 +185,7 @@ Find out more about Token Classification [here](../tasks/token_classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
+    providersMapping={ {"hf-inference":{"modelId":"DeepMount00/Italian_NER_XXL","providerModelId":"DeepMount00/Italian_NER_XXL"} } }
 />
 
 
