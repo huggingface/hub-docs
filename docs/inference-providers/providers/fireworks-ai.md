@@ -43,7 +43,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"fireworks-ai":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"accounts/fireworks/models/qwen3-235b-a22b"} } }
+    providersMapping={ {"fireworks-ai":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"accounts/fireworks/models/deepseek-r1-0528"} } }
 conversational />
 
 
