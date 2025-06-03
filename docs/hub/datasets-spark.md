@@ -240,7 +240,7 @@ First you need to [create a dataset repository](https://huggingface.co/new-datas
 Then, make sure you are authenticated and you can use the "huggingface" Data Source, set the `mode` to "overwrite" (or "append" if you want to extend an existing dataset), and push to Hugging Face with `.save()`:
 
 ```python
->>> df_chinese_only.write.format("huggingface").mode("overwrite").save("username/Infinity-Instruct-Chinese-Only2")
+>>> df_chinese_only.write.format("huggingface").mode("overwrite").save("username/Infinity-Instruct-Chinese-Only")
 ```
 
 <div class="flex justify-center">
