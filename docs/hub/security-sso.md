@@ -23,7 +23,7 @@ When users log in, they will be prompted to complete the Single Sign-On authenti
 
 Single Sign-On only applies to your organization. Members may belong to other organizations on Hugging Face.
 
-We support [role mapping](#role-mapping): you can automatically assign [roles](./organizations-security#access-control-in-organizations) to organization members based on attributes provided by your Identity Provider.
+We support [role mapping](#role-mapping) and [resource group mapping](#resource-group-mapping). Based on attributes provided by your Identity Provider, you can dynamically assign [roles](./organizations-security#access-control-in-organizations) to organization members, or give them access to [resource groups](./enterprise-hub-resource-groups) defined in your organization.
 
 ### Supported Identity Providers
 
@@ -72,6 +72,25 @@ You must map at least one admin role.
 If there is no match, a user will be assigned the default role for your organization. The default role can be customized in the `Members` section of the organization's settings.
 
 Role synchronization is performed on login.
+
+#### Resource Group Mapping
+
+When enabled, Resource Group Mapping allows you to dynamically assign members to [resource groups](./enterprise-hub-resource-groups) in your organization, based on data provided by your Identity Provider.
+
+<div class="flex justify-center">
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/resource-group-mapping.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/resource-group-mapping-dark.png"/>
+</div>
+
+- IdP Attribute Path
+
+  A JSON path to an attribute in your user's IdP profile data.
+
+- Resource Group Mapping
+
+  A mapping from the IdP attribute value to a resource group in your Hugging Face organization.
+
+If there is no match, the user will not be assigned to any resource group.
 
 #### Matching email domains
 

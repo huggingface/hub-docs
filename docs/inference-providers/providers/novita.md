@@ -46,7 +46,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"novita":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"qwen/qwen3-235b-a22b-fp8"} } }
+    providersMapping={ {"novita":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek/deepseek-r1-0528"} } }
 conversational />
 
 
@@ -58,4 +58,14 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
     pipeline=image-text-to-text
     providersMapping={ {"novita":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/llama-4-scout-17b-16e-instruct"} } }
 conversational />
+
+
+### Text To Video
+
+Find out more about Text To Video [here](../tasks/text_to_video).
+
+<InferenceSnippet
+    pipeline=text-to-video
+    providersMapping={ {"novita":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"wan-t2v"} } }
+/>
 

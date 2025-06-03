@@ -4,7 +4,7 @@
 
 ## Exploring 🤗 transformers in the Hub
 
-There are over 25,000 `transformers` models in the Hub which you can find by filtering at the left of [the models page](https://huggingface.co/models?library=transformers&sort=downloads). 
+There are over 630,000 `transformers` models in the Hub which you can find by filtering at the left of [the models page](https://huggingface.co/models?library=transformers&sort=downloads). 
 
 You can find models for many different tasks:
 
