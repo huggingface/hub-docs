@@ -248,6 +248,14 @@ widget:
   prompt: Girl with Pearl Earring # `prompt` field is optional in case the underlying model supports text guidance
 ```
 
+### Image-to-Video
+
+```yaml
+widget:
+- src: https://huggingface.co/datasets/mishig/sample_images/resolve/main/canny-edge.jpg
+  prompt: Girl with Pearl Earring # `prompt` field is optional in case the underlying model supports text guidance
+```
+
 ### Text-to-Image
 
 ```yaml
