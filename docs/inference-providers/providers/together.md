@@ -58,16 +58,6 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 conversational />
 
 
-### Text Generation
-
-Find out more about Text Generation [here](../tasks/text_generation).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"together":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1"} } }
-/>
-
-
 ### Text To Image
 
 Find out more about Text To Image [here](../tasks/text_to_image).

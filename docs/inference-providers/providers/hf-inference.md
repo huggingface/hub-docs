@@ -105,7 +105,7 @@ Find out more about Image Segmentation [here](../tasks/image_segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/detr-resnet-101-panoptic","providerModelId":"facebook/detr-resnet-101-panoptic"} } }
 />
 
 
@@ -196,15 +196,5 @@ Find out more about Translation [here](../tasks/translation).
 <InferenceSnippet
     pipeline=translation
     providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
-/>
-
-
-### Zero Shot Classification
-
-Find out more about Zero Shot Classification [here](../tasks/zero_shot_classification).
-
-<InferenceSnippet
-    pipeline=zero-shot-classification
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
 />
 
