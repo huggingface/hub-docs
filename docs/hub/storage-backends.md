@@ -45,7 +45,7 @@ To start using Xet Storage, you need a Xet-enabled repository and a Xet-aware ve
 
 <Tip>
 
-For all accounts created before May 23rd, 2025, you can make Xet the default for all your repositories by [signing up here](https://huggingface.co/join/xet). You can apply for yourself or your entire organization (requires [admin permissions](https://huggingface.co/docs/hub/organizations-security)). Once approved, all existing repositories will be automatically migrated to Xet and future repositories will be Xet-enabled by default.
+For user and organization profiles created before May 23rd, 2025, you can make Xet the default for all your repositories by [signing up here](https://huggingface.co/join/xet). You can apply for yourself or your entire organization (requires [admin permissions](https://huggingface.co/docs/hub/organizations-security)). Once approved, all existing repositories will be automatically migrated to Xet and future repositories will be Xet-enabled by default.
 
 PRO users and Enterprise Hub organizations will be fast-tracked for access.
 
@@ -80,7 +80,7 @@ To see more detailed usage docs, refer to the `huggingface_hub` docs for:
 Xet integrates seamlessly with the Hub's current Python-based workflows. However, there are a few steps you may consider to get the most benefits from Xet storage:
 
 - **Use `hf_xet`**: While Xet remains backward compatible with legacy clients optimized for Git LFS, the `hf_xet` integration with `huggingface_hub` delivers optimal chunk-based performance and faster iteration on large files.
-- **Utilize `hf_xet` environment variables**: The out-of-the-box installation of `hf_xet` is designed to support the broadest range of hardware, but `hf_xet` includes a [number of environment variables](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#xet) to take advantage of setups with more network bandwidth, processing power, and fast local storage. 
+- **Utilize `hf_xet` environment variables**: The default installation of `hf_xet` is designed to support the broadest range of hardware. To take advantage of setups with more network bandwidth or processing power read up on `hf_xet`'s [environment variables](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#xet) to further speed up downloads and uploads. 
 - **Leverage frequent, incremental commits**: Xet's chunk-level deduplication means you can safely make incremental updates to models or datasets. Only changed chunks are uploaded, so frequent commits are both fast and storage-efficient.
 - **Be Specific in .gitattributes**: When defining patterns for Xet or LFS, use precise file extensions (e.g., `*.safetensors`, `*.bin`) to avoid unnecessarily routing smaller files through large-file storage.
 - **Prioritize community access**: Xet substantially increases the efficiency and scale of large file transfers. Instead of structuring your repository to reduce its total size (or the size of individual files), organize it for collaborators and community users so they may easily navigate and retrieve the content they need.
