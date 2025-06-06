@@ -342,6 +342,8 @@
     sections:
     - local: enterprise-sso
       title: Single Sign-On (SSO)
+    - local: enterprise-hub-advanced-sso
+      title: Advanced Single Sign-On (SSO)
     - local: audit-logs
       title: Audit Logs
     - local: storage-regions
