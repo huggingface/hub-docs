@@ -1,9 +1,28 @@
 # Agents on the Hub
 
 This page compiles all the libraries and tools Hugging Face offers for agentic workflows: 
+- `HF MCP Server`: Connect your MCP-compatible AI assistant directly to the Hugging Face Hub.
 - `tiny-agents`: A lightweight toolkit for MCP-powered agents, available in both JS (`@huggingface/tiny-agents`) and Python (`huggingface_hub`).
 - `Gradio MCP Server`: Easily create MCP servers from Gradio apps and Spaces.
 - `smolagents`: a Python library that enables you to run powerful agents in a few lines of code.
+
+## HF MCP Server
+
+The official **Hugging Face MCP (Model Context Protocol) Server** enables seamless integration between the Hugging Face Hub and any MCP-compatible AI assistant—including VSCode, Cursor, and Claude Desktop.
+
+With the HF MCP Server, you can enhance your AI assistant's capabilities by connecting directly to the Hub's ecosystem. It comes with:
+- a curated set of **built-in tools** like Spaces and Papers Semantic Search, Model and Dataset exploration, etc
+- **MCP-compatible Gradio apps**: Connect to any [MCP-compatible Gradio app](https://huggingface.co/spaces?filter=mcp-server) built by the Hugging Face community
+
+#### Getting Started
+
+Visit [huggingface.co/settings/mcp](https://huggingface.co/settings/mcp) to configure your MCP client and get started.
+
+<Tip warning={true}>
+
+This feature is experimental ⚗️ and will continue to evolve.
+
+</Tip>
 
 ## smolagents
 
