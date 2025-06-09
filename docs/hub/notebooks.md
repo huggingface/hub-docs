@@ -2,7 +2,7 @@
 
 [Jupyter notebooks](https://jupyter.org/) are a very popular format for sharing code and data analysis for machine learning and data science. They are interactive documents that can contain code, visualizations, and text.
 
-## Directly open models in Google Colab and Kaggle
+## Open models in Google Colab and Kaggle
 
 When you visit a model page on the Hugging Face Hub, you’ll see a new “Google Colab”/ "Kaggle" button in the “Use this model” drop down. Clicking this will generate a ready-to-run notebook with basic code to load and test the model. This is perfect for quick prototyping, inference testing, or fine-tuning experiments — all without leaving your browser.
 
@@ -18,7 +18,7 @@ and similarly for kaggle:
 https://huggingface.co/google/gemma-3-4b-it/kaggle
 
 
-If a model repository includes a file called `notebook.ipynb`, Hub will prioritize that over the auto-generated notebook content. Model authors can provide tailored examples, detailed walkthroughs, or advanced use cases while still benefiting from one-click Colab integration. [NousResearch/Genstruct-7B](https://huggingface.co/NousResearch/Genstruct-7B) is one such example.
+If a model repository includes a file called `notebook.ipynb`, we will use it for Colab and Kaggle instead of the auto-generated notebook content. Model authors can provide tailored examples, detailed walkthroughs, or advanced use cases while still benefiting from one-click Colab integration. [NousResearch/Genstruct-7B](https://huggingface.co/NousResearch/Genstruct-7B) is one such example.
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/hf-google-colab/genstruct-notebook-dark.png)
 
