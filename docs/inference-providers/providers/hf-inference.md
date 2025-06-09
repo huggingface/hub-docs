@@ -55,7 +55,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"Qwen/Qwen3-235B-A22B"} } }
+    providersMapping={ {"hf-inference":{"modelId":"sarvamai/sarvam-m","providerModelId":"sarvamai/sarvam-m"} } }
 conversational />
 
 
@@ -165,7 +165,7 @@ Find out more about Text Generation [here](../tasks/text_generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen3-235B-A22B","providerModelId":"Qwen/Qwen3-235B-A22B"} } }
+    providersMapping={ {"hf-inference":{"modelId":"sarvamai/sarvam-m","providerModelId":"sarvamai/sarvam-m"} } }
 />
 
 
