@@ -23,6 +23,8 @@
         title: "How-to: Build a Discussion bot based on BLOOM"
       - local: webhooks-guide-metadata-review
         title: "How-to: Create automatic metadata quality reports"
+      - local: webhooks-guide-assign-to-resource-group-ts
+        title: "How-to: Automatically assign new repos to a Resource Group (TypeScript)"
   - local: notebooks
     title: Notebooks
   - local: storage-backends
