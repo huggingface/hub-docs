@@ -41,7 +41,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"sarvamai/sarvam-m","providerModelId":"sarvamai/sarvam-m"},"together":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
+    providersMapping={ {"hf-inference":{"modelId":"sarvamai/sarvam-m","providerModelId":"sarvamai/sarvam-m"}} }
 />
 
 
