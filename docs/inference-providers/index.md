@@ -20,6 +20,7 @@ Here is the complete list of partners integrated with Inference Providers, and t
 | [Fal AI](./providers/fal-ai)             |                       |                       |                    |       ✅       |       ✅       |
 | [Featherless AI](./providers/featherless-ai) |    ✅           |                        |                     |             |                |
 | [Fireworks](./providers/fireworks-ai)    |           ✅           |           ✅           |                    |               |               |
+| [Groq](./providers/groq)                  |           ✅           |                       |                    |               |               |
 | [HF Inference](./providers/hf-inference) |           ✅           |           ✅           |         ✅          |       ✅       |               |
 | [Hyperbolic](./providers/hyperbolic)     |           ✅           |           ✅           |                    |               |               |
 | [Nebius](./providers/nebius)             |           ✅           |           ✅           |         ✅         |       ✅       |               |
