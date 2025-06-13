@@ -10,7 +10,7 @@ We offer advanced security and compliance features for organizations through our
 
 The Enterprise Hub is billed like a typical subscription. It renews automatically, but you can choose to cancel it at any time in the organization's billing settings.
 
-You can pay for the Enterprise Hub subscription with a credit card or your AWS account.
+You can pay for the Enterprise Hub subscription with a credit card, with a contract (for more than 50 seats), or your AWS account.
 
 Upon renewal, the number of seats in your Enterprise Hub subscription will be updated to match the number of members of your organization.
 Private repository storage above the [included storage](./storage-limits) will be billed along with your subscription renewal.
