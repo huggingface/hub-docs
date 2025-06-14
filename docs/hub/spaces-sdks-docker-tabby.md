@@ -6,7 +6,7 @@ In this guide, you will learn how to deploy your own Tabby instance and use it f
 
 ## Your first Tabby Space
 
-In this section, you will learn how to deploy a Tabby Space and use it for yourself or your orgnization.
+In this section, you will learn how to deploy a Tabby Space and use it for yourself or your organization.
 
 ### Deploy Tabby on Spaces
 
