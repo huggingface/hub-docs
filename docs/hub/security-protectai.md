@@ -11,7 +11,7 @@ Interested in joining our security partnership / providing scanning information 
 
 We partnered with Protect AI to provide scanning in order to make the Hub safer. The same way files are scanned by our internal scanning system, public repositories' files are scanned by Guardian.
 
-Our frontend has been redesigned specifically for this purpose, in order to accomodate for new scanners:
+Our frontend has been redesigned specifically for this purpose, in order to accommodate for new scanners:
 
 <img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/third-party-scans-list.png"/>
 
