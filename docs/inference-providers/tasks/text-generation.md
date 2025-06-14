@@ -40,7 +40,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1-0528"},"hf-inference":{"modelId":"sarvamai/sarvam-m","providerModelId":"sarvamai/sarvam-m"},"together":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
+    providersMapping={ {"featherless-ai":{"modelId":"mistralai/Magistral-Small-2506","providerModelId":"mistralai/Magistral-Small-2506"},"hf-inference":{"modelId":"sarvamai/sarvam-m","providerModelId":"sarvamai/sarvam-m"},"together":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
 />
 
 
