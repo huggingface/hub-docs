@@ -31,30 +31,36 @@ Explore all available models and find the one that suits you best [here](https:/
 
 ### Using the API
 
+
 <InferenceSnippet
-pipeline=text-classification
-providersMapping={ {"hf-inference":{"modelId":"tabularisai/multilingual-sentiment-analysis","providerModelId":"tabularisai/multilingual-sentiment-analysis"}} }
+    pipeline=text-classification
+    providersMapping={ {"hf-inference":{"modelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english","providerModelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english"}} }
 />
+
+
 
 ### API specification
 
 #### Request
 
-| Headers           |          |                                                                                                                                                                                                                                                                                                             |
-| :---------------- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Headers |   |    |
+| :--- | :--- | :--- |
 | **authorization** | _string_ | Authentication header in the form `'Bearer: hf_****'` when `hf_****` is a personal user access token with "Inference Providers" permission. You can generate one from [your settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained). |
 
-| Payload                                                               |           |                                                                       |
-| :-------------------------------------------------------------------- | :-------- | :-------------------------------------------------------------------- |
-| **inputs\***                                                          | _string_  | The text to classify                                                  |
-| **parameters**                                                        | _object_  |                                                                       |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function_to_apply** | _enum_    | Possible values: sigmoid, softmax, none.                              |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top_k**             | _integer_ | When specified, limits the output to the top K most probable classes. |
+
+| Payload |  |  |
+| :--- | :--- | :--- |
+| **inputs*** | _string_ | The text to classify |
+| **parameters** | _object_ |  |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function_to_apply** | _enum_ | Possible values: sigmoid, softmax, none. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top_k** | _integer_ | When specified, limits the output to the top K most probable classes. |
+
 
 #### Response
 
-| Body                                                      |            |
-| :-------------------------------------------------------- | :--------- | :----------------------------- |
-| **(array)**                                               | _object[]_ | Output is an array of objects. |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label** | _string_   | The predicted class label.     |
-| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score** | _number_   | The corresponding probability. |
+| Body |  |
+| :--- | :--- | :--- |
+| **(array)** | _object[]_ | Output is an array of objects. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label** | _string_ | The predicted class label. |
+| **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score** | _number_ | The corresponding probability. |
+

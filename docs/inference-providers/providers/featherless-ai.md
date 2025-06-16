@@ -56,7 +56,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"featherless-ai":{"modelId":"allura-org/Gemma-3-Glitter-27B","providerModelId":"allura-org/Gemma-3-Glitter-27B"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it"} } }
 conversational />
 
 
