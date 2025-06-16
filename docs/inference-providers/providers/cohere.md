@@ -56,6 +56,6 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"cohere":{"modelId":"CohereLabs/aya-vision-32b","providerModelId":"c4ai-aya-vision-32b"} } }
+    providersMapping={ {"cohere":{"modelId":"CohereLabs/aya-vision-8b","providerModelId":"c4ai-aya-vision-8b"} } }
 conversational />
 
