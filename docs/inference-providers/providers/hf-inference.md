@@ -65,7 +65,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen2.5-VL-32B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-32B-Instruct"} } }
+    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"meta-llama/Llama-3.2-11B-Vision-Instruct"} } }
 conversational />
 
 
@@ -95,7 +95,7 @@ Find out more about Image Classification [here](../tasks/image_classification).
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"google/vit-base-patch16-224","providerModelId":"google/vit-base-patch16-224"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
 />
 
 
@@ -135,7 +135,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 <InferenceSnippet
     pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"eenzeenee/t5-base-korean-summarization","providerModelId":"eenzeenee/t5-base-korean-summarization"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"} } }
 />
 
 
@@ -155,7 +155,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"NousResearch/Minos-v1","providerModelId":"NousResearch/Minos-v1"} } }
+    providersMapping={ {"hf-inference":{"modelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english","providerModelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english"} } }
 />
 
 

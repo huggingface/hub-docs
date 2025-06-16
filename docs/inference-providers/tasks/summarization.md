@@ -24,6 +24,7 @@ For more details about the `summarization` task, check out its [dedicated page](
 
 ### Recommended models
 
+- [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn): A strong summarization model trained on English news articles. Excels at generating factual summaries.
 - [Falconsai/medical_summarization](https://huggingface.co/Falconsai/medical_summarization): A summarization model trained on medical articles.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=summarization&sort=trending).
@@ -33,7 +34,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"eenzeenee/t5-base-korean-summarization","providerModelId":"eenzeenee/t5-base-korean-summarization"}} }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"}} }
 />
 
 

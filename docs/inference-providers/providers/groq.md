@@ -33,7 +33,17 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
     </a>
 </div>
 
-Groq is fast AI inference. Their groundbreaking Language Processing Unit (LPU) technology delivers industry-leading speed and performance for large language models, achieving much faster performance than traditional GPU-based solutions. With custom chips specifically designed for AI inference workloads and a deterministic, software-first approach, Groq eliminates the bottlenecks of conventional hardware to enable real-time AI applications with predictable latency and exceptional throughput for developers building the next generation of AI-powered solutions.
+Groq is fast AI inference. Their groundbreaking LPU technology delivers record-setting performance and efficiency for GenAI models. With custom chips specifically designed for AI inference workloads and a deterministic, software-first approach, Groq eliminates the bottlenecks of conventional hardware to enable real-time AI applications with predictable latency and exceptional throughput so developers can build fast.
+
+For latest pricing, visit our [pricing page](https://groq.com/pricing/).
+
+## Resources
+ - **Website**: https://groq.com/
+ - **Documentation**: https://console.groq.com/docs
+ - **Community Forum**: https://community.groq.com/
+ - **X**: [@GroqInc](https://x.com/GroqInc)
+ - **LinkedIn**: [Groq](https://www.linkedin.com/company/groq/)
+ - **YouTube**: [Groq](https://www.youtube.com/@GroqInc)
 
 ## Supported tasks
 

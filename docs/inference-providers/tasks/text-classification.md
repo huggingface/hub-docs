@@ -34,7 +34,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"NousResearch/Minos-v1","providerModelId":"NousResearch/Minos-v1"}} }
+    providersMapping={ {"hf-inference":{"modelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english","providerModelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english"}} }
 />
 
 
