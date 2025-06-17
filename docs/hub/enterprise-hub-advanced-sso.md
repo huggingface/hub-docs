@@ -11,7 +11,18 @@ Advanced Single Sign-On (SSO) capabilities extend the standard [SSO features](./
 Advanced SSO introduces automated user provisioning, which simplifies the onboarding and offboarding of users.
 
 *   **Just-In-Time (JIT) Provisioning**: When a user from your organization attempts to log in to Hugging Face for the first time via SSO, an account can be automatically created for them if one doesn't already exist. Their profile information and role mappings can be populated based on attributes from your IdP.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/jit-flow-chart.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/jit-flow-chart-dark.png"/>
+</div>
+
 *   **System for Cross-domain Identity Management (SCIM)**: For more robust user lifecycle management, SCIM allows your IdP to communicate user identity information to Hugging Face. This enables automatic creation, updates (e.g., name changes, role changes), and deactivation of user accounts on Hugging Face as changes occur in your IdP. This ensures that user access is always up-to-date with their status in your organization.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-flow-chart.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-flow-chart-dark.png"/>
+</div>
 
 ## Global SSO Enforcement 
 
