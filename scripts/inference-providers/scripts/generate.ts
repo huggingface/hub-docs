@@ -38,6 +38,7 @@ const PROVIDERS_HUB_ORGS: Record<string, string> = {
   "fal-ai": "fal",
   "featherless-ai": "featherless-ai",
   "fireworks-ai": "fireworks-ai",
+  groq: "groq",
   "hf-inference": "hf-inference",
   hyperbolic: "Hyperbolic",
   nebius: "nebius",
@@ -54,6 +55,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   "fal-ai": "https://fal.ai/",
   "featherless-ai": "https://featherless.ai/",
   "fireworks-ai": "https://fireworks.ai/",
+  groq: "https://groq.com/",
   "hf-inference": "https://huggingface.co/",
   hyperbolic: "https://hyperbolic.xyz/",
   nebius: "https://nebius.com/",
@@ -128,7 +130,7 @@ await Promise.all(
         }
       }
     }
-  })
+  }),
 );
 
 ////////////////////////
@@ -144,7 +146,7 @@ const TASKS_DOCS_DIR = path.join(DOCS_DIR, "inference-providers", "tasks");
 const PROVIDERS_DOCS_DIR = path.join(
   DOCS_DIR,
   "inference-providers",
-  "providers"
+  "providers",
 );
 
 const NBSP = "&nbsp;"; // non-breaking space
@@ -152,12 +154,12 @@ const TABLE_INDENT = NBSP.repeat(8);
 
 function readTemplate(
   templateName: string,
-  namespace: string
+  namespace: string,
 ): Promise<string> {
   const templatePath = path.join(
     TEMPLATE_DIR,
     namespace,
-    `${templateName}.handlebars`
+    `${templateName}.handlebars`,
   );
   console.log(`   🔍 Reading ${templateName}.handlebars`);
   return fs.readFile(templatePath, { encoding: "utf-8" });
@@ -171,13 +173,13 @@ function writeTaskDoc(templateName: string, content: string): Promise<void> {
   return fs
     .mkdir(TASKS_DOCS_DIR, { recursive: true })
     .then(() =>
-      fs.writeFile(taskDocPath, contentWithHeader, { encoding: "utf-8" })
+      fs.writeFile(taskDocPath, contentWithHeader, { encoding: "utf-8" }),
     );
 }
 
 function writeProviderDoc(
   templateName: string,
-  content: string
+  content: string,
 ): Promise<void> {
   const providerDocPath = path.join(PROVIDERS_DOCS_DIR, `${templateName}.md`);
   console.log(`   💾 Saving to ${providerDocPath}`);
@@ -186,7 +188,7 @@ function writeProviderDoc(
   return fs
     .mkdir(TASKS_DOCS_DIR, { recursive: true })
     .then(() =>
-      fs.writeFile(providerDocPath, contentWithHeader, { encoding: "utf-8" })
+      fs.writeFile(providerDocPath, contentWithHeader, { encoding: "utf-8" }),
     );
 }
 
@@ -206,13 +208,13 @@ const TASKS_DATA = (await authFetchJson(TASKS_API_URL)) as any;
 type SpecNameType = "input" | "output" | "stream_output";
 
 const SPECS_URL_TEMPLATE = Handlebars.compile(
-  `https://raw.githubusercontent.com/huggingface/huggingface.js/${SPECS_REVISION}/packages/tasks/src/tasks/{{task}}/spec/{{name}}.json`
+  `https://raw.githubusercontent.com/huggingface/huggingface.js/${SPECS_REVISION}/packages/tasks/src/tasks/{{task}}/spec/{{name}}.json`,
 );
 const COMMON_DEFINITIONS_URL = `https://raw.githubusercontent.com/huggingface/huggingface.js/${SPECS_REVISION}/packages/tasks/src/tasks/common-definitions.json`;
 
 async function fetchOneSpec(
   task: PipelineType,
-  name: SpecNameType
+  name: SpecNameType,
 ): Promise<JsonObject | undefined> {
   const url = SPECS_URL_TEMPLATE({ task, name });
   console.log(`   🕸️  Fetching ${task} ${name} specs`);
@@ -220,7 +222,7 @@ async function fetchOneSpec(
 }
 
 async function fetchSpecs(
-  task: PipelineType
+  task: PipelineType,
 ): Promise<
   Record<"input" | "output" | "stream_output", JsonObject | undefined>
 > {
@@ -258,7 +260,7 @@ function processPayloadSchema(schema: any): JsonObject[] {
     key: string,
     value: any,
     required: boolean,
-    parentPrefix: string
+    parentPrefix: string,
   ): void {
     const isRequired = required;
     let type = value.type || "unknown";
@@ -322,9 +324,9 @@ function processPayloadSchema(schema: any): JsonObject[] {
             nestedKey,
             nestedValue,
             nestedRequired,
-            parentPrefix + TABLE_INDENT
+            parentPrefix + TABLE_INDENT,
           );
-        }
+        },
       );
     } else if (isArray) {
       // Process array items
@@ -342,7 +344,7 @@ function processPayloadSchema(schema: any): JsonObject[] {
             `${NBSP}(#${index + 1})`,
             subSchema,
             false,
-            parentPrefix + TABLE_INDENT
+            parentPrefix + TABLE_INDENT,
           );
         });
       }
@@ -384,32 +386,32 @@ For more details about the \`{{task}}\` task, check out its [dedicated page](htt
 </Tip>`);
 
 const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
-  `Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`
+  `Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`,
 );
 const SPECS_HEADERS = await readTemplate("specs-headers", "common");
 const PAGE_HEADER = Handlebars.compile(
-  await readTemplate("page-header", "common")
+  await readTemplate("page-header", "common"),
 );
 const PROVIDER_PAGE_HEADER = Handlebars.compile(
-  await readTemplate("provider-header", "common")
+  await readTemplate("provider-header", "common"),
 );
 const SNIPPETS_TEMPLATE = Handlebars.compile(
-  await readTemplate("snippets-template", "common")
+  await readTemplate("snippets-template", "common"),
 );
 const SPECS_PAYLOAD_TEMPLATE = Handlebars.compile(
-  await readTemplate("specs-payload", "common")
+  await readTemplate("specs-payload", "common"),
 );
 const SPECS_OUTPUT_TEMPLATE = Handlebars.compile(
-  await readTemplate("specs-output", "common")
+  await readTemplate("specs-output", "common"),
 );
 const PROVIDER_TASKS_TEMPLATE = Handlebars.compile(
-  await readTemplate("provider-tasks", "common")
+  await readTemplate("provider-tasks", "common"),
 );
 const PROVIDER_LOGO_TEMPLATE = Handlebars.compile(
-  await readTemplate("provider-logo", "common")
+  await readTemplate("provider-logo", "common"),
 );
 const FOLLOW_US_BUTTON_TEMPLATE = Handlebars.compile(
-  await readTemplate("follow-us-button", "common")
+  await readTemplate("follow-us-button", "common"),
 );
 
 ////////////////////
@@ -479,15 +481,15 @@ await Promise.all(
           const modelData = await authFetchJson(url);
           model.inference = modelData.inference;
           model.tags = modelData.tags;
-        }
-      )
+        },
+      ),
     );
-  })
+  }),
 );
 
 async function fetchWarmModels(
   task: PipelineType,
-  conversational: boolean = false
+  conversational: boolean = false,
 ): Promise<
   {
     modelId: string;
@@ -509,7 +511,7 @@ async function fetchWarmModels(
     await Promise.all(
       providers.map(async (provider) => {
         console.log(
-          `   ⚡ Fetching most popular warm model for ${task} from ${provider}`
+          `   ⚡ Fetching most popular warm model for ${task} from ${provider}`,
         );
         const url = `https://huggingface.co/api/models?pipeline_tag=${task}&inference_provider=${provider}&sort=likes30d&expand[]=inferenceProviderMapping&expand[]=tags&limit=5`;
         const modelsData = (await authFetchJson(url)) as {
@@ -520,7 +522,7 @@ async function fetchWarmModels(
         }[];
         if (modelsData.length === 0) {
           console.warn(
-            `   ⚠️  No warm model found for ${task} from ${provider}`
+            `   ⚠️  No warm model found for ${task} from ${provider}`,
           );
           return;
         }
@@ -538,7 +540,7 @@ async function fetchWarmModels(
           return;
         }
         const providerData = providerMapping.filter(
-          (mapping) => mapping.provider === provider
+          (mapping) => mapping.provider === provider,
         )[0];
         return {
           modelId: topModelData.id,
@@ -547,7 +549,7 @@ async function fetchWarmModels(
           providerTask: providerData.task,
           tags: topModelData.tags,
         };
-      })
+      }),
     )
   ).filter((model) => model !== undefined);
 }
@@ -556,13 +558,13 @@ async function fetchWarmModels(
 await Promise.all(
   TASKS.map(async (task) => {
     DATA.perProviderWarmModels[task] = await fetchWarmModels(task);
-  })
+  }),
 );
 
 // Filter recommended models (i.e. recommended + warm)
 TASKS.forEach((task) => {
   DATA.recommendedModels[task] = TASKS_DATA[task].models.filter(
-    (model: { inference: string }) => model.inference === "warm"
+    (model: { inference: string }) => model.inference === "warm",
   );
 });
 
@@ -573,7 +575,7 @@ function buildProviderMapping(
     providerModelId: string;
     providerTask: string;
     tags: string[];
-  }[]
+  }[],
 ): Record<string, { modelId: string; providerModelId: string }> {
   return models.reduce(
     (acc, item) => {
@@ -583,14 +585,14 @@ function buildProviderMapping(
       };
       return acc;
     },
-    {} as Record<string, { modelId: string; providerModelId: string }>
+    {} as Record<string, { modelId: string; providerModelId: string }>,
   );
 }
 
 // Generate snippets
 TASKS.forEach((task) => {
   const providersMapping = buildProviderMapping(
-    DATA.perProviderWarmModels[task]
+    DATA.perProviderWarmModels[task],
   );
 
   DATA.snippets[task] = SNIPPETS_TEMPLATE({
@@ -621,7 +623,7 @@ await Promise.all(
           })
         : undefined,
     };
-  })
+  }),
 );
 
 // Render tips
@@ -637,7 +639,7 @@ TASKS.forEach((task) => {
 async function fetchChatCompletion() {
   // Conversational text-generation
   console.log(
-    "   ⚡ Prepare data for chat-completion (conversational text-generation)"
+    "   ⚡ Prepare data for chat-completion (conversational text-generation)",
   );
   DATA.recommendedModels["chat-completion"] = DATA.recommendedModels[
     "text-generation"
@@ -645,10 +647,10 @@ async function fetchChatCompletion() {
 
   DATA.perProviderWarmModels["chat-completion"] = await fetchWarmModels(
     "text-generation",
-    true
+    true,
   );
   const providersMappingChatCompletion = buildProviderMapping(
-    DATA.perProviderWarmModels["chat-completion"]
+    DATA.perProviderWarmModels["chat-completion"],
   );
   DATA.snippets["chat-completion"] = SNIPPETS_TEMPLATE({
     task: "text-generation",
@@ -661,18 +663,18 @@ async function fetchChatCompletion() {
 
   // Conversational image-text-to-text
   console.log(
-    "   ⚡ Prepare data for chat-completion (conversational image-text-to-text)"
+    "   ⚡ Prepare data for chat-completion (conversational image-text-to-text)",
   );
   DATA.recommendedModels["conversational-image-text-to-text"] =
     DATA.recommendedModels["image-text-to-text"].filter((model) =>
-      model.tags?.includes("conversational")
+      model.tags?.includes("conversational"),
     );
   DATA.perProviderWarmModels["image-text-to-text"] = await fetchWarmModels(
     "image-text-to-text",
-    true
+    true,
   );
   const providersMappingImageTextToText = buildProviderMapping(
-    DATA.perProviderWarmModels["image-text-to-text"]
+    DATA.perProviderWarmModels["image-text-to-text"],
   );
 
   DATA.snippets["conversational-image-text-to-text"] = SNIPPETS_TEMPLATE({
@@ -711,7 +713,7 @@ Object.entries(DATA.perProviderWarmModels).forEach(([task, models]) => {
       PER_PROVIDER_TASKS[model.provider] = [];
     }
     let conversational = ["chat-completion", "image-text-to-text"].includes(
-      task
+      task,
     );
     let title = conversational
       ? task == "image-text-to-text"
@@ -744,7 +746,7 @@ Object.entries(DATA.perProviderWarmModels).forEach(([task, models]) => {
 // sort tasks by title
 Object.entries(PER_PROVIDER_TASKS).forEach(([provider, tasks]) => {
   PER_PROVIDER_TASKS[provider] = tasks.sort((a, b) =>
-    a.title.localeCompare(b.title)
+    a.title.localeCompare(b.title),
   );
 });
 
@@ -755,11 +757,11 @@ Object.entries(PER_PROVIDER_TASKS).forEach(([provider, tasks]) => {
 async function renderTemplate(
   templateName: string,
   namespace: string,
-  data: JsonObject
+  data: JsonObject,
 ): Promise<string> {
   console.log(`🎨  Rendering ${templateName} (${namespace})`);
   const template = Handlebars.compile(
-    await readTemplate(templateName, namespace)
+    await readTemplate(templateName, namespace),
   );
   return template(data);
 }
@@ -772,7 +774,7 @@ await Promise.all(
     // @ts-ignore
     const rendered = await renderTemplate(task, "task", DATA);
     await writeTaskDoc(task, rendered);
-  })
+  }),
 );
 
 await Promise.all(
@@ -790,7 +792,7 @@ await Promise.all(
       }),
     });
     await writeProviderDoc(provider, rendered);
-  })
+  }),
 );
 
 console.log("✅ All done!");

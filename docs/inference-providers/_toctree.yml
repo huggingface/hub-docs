@@ -23,6 +23,8 @@
     title: Featherless AI
   - local: providers/fireworks-ai
     title: Fireworks
+  - local: providers/groq
+    title: Groq
   - local: providers/hyperbolic
     title: Hyperbolic
   - local: providers/hf-inference
