@@ -18,7 +18,7 @@ Here is the complete list of partners integrated with Inference Providers, and t
 | [Cerebras](./providers/cerebras)         |           ✅           |                       |                    |               |               |
 | [Cohere](./providers/cohere)             |           ✅           |           ✅           |                    |               |               |
 | [Fal AI](./providers/fal-ai)             |                       |                       |                    |       ✅       |       ✅       |
-| [Featherless AI](./providers/featherless-ai) |    ✅           |                        |                     |             |                |
+| [Featherless AI](./providers/featherless-ai) |    ✅           |            ✅           |                     |             |                |
 | [Fireworks](./providers/fireworks-ai)    |           ✅           |           ✅           |                    |               |               |
 | [Groq](./providers/groq)                  |           ✅           |                       |                    |               |               |
 | [HF Inference](./providers/hf-inference) |           ✅           |           ✅           |         ✅          |       ✅       |               |
