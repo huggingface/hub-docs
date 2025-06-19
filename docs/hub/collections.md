@@ -84,7 +84,7 @@ It's possible to add a note to any item in a collection to give it more context 
 
 ### Adding images to a collection item
 
-Similarily, you can attach images to a collection item. This is useful for showcasing the output of a model, the content of a dataset, attaching an infographic for context, etc.
+Similarly, you can attach images to a collection item. This is useful for showcasing the output of a model, the content of a dataset, attaching an infographic for context, etc.
 
 To start adding images to your collection, you can click on the image icon in the contextual menu of an item. The menu shows up when you hover over an item with your mouse.
 
