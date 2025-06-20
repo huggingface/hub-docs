@@ -61,7 +61,7 @@ curl http://localhost:8080/v1/chat/completions \
 "messages": [
     {
         "role": "system",
-        "content": "You are an AI assistant. Your top priority is achieving user fulfilment via helping them with their requests."
+        "content": "You are an AI assistant. Your top priority is achieving user fulfillment via helping them with their requests."
     },
     {
         "role": "user",
