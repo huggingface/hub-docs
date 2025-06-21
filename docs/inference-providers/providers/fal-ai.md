@@ -64,6 +64,6 @@ Find out more about Text To Video [here](../tasks/text_to_video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"fal-ai":{"modelId":"Lightricks/LTX-Video","providerModelId":"fal-ai/ltx-video"} } }
+    providersMapping={ {"fal-ai":{"modelId":"tencent/HunyuanVideo","providerModelId":"fal-ai/hunyuan-video"} } }
 />
 
