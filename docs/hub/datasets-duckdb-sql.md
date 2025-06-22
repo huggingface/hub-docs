@@ -101,7 +101,7 @@ WHERE  subject = 'nutrition' LIMIT 3;
 │       question       │  subject  │                                                                               choices                                                                               │ answer │
 │       varchar        │  varchar  │                                                                              varchar[]                                                                              │ int64  │
 ├──────────────────────┼───────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────┤
-│ Which foods tend t…  │ nutrition │ [Meat, Confectionary, Fruits and vegetables, Potatoes]                                                                                                              │      2 │
+│ Which foods tend t…  │ nutrition │ [Meat, Confectionery, Fruits and vegetables, Potatoes]                                                                                                              │      2 │
 │ In which one of th…  │ nutrition │ [If the incidence rate of the disease falls., If survival time with the disease increases., If recovery of the disease is faster., If the population in which the…  │      1 │
 │ Which of the follo…  │ nutrition │ [The flavonoid class comprises flavonoids and isoflavonoids., The digestibility and bioavailability of isoflavones in soya food products are not changed by proce…  │      0 │
 └──────────────────────┴───────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────┘
@@ -118,7 +118,7 @@ WHERE  subject = 'nutrition' LIMIT 3;
 │                                                              question                                                               │               correct_answer                │
 │                                                               varchar                                                               │                   varchar                   │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
-│ Which foods tend to be consumed in lower quantities in Wales and Scotland (as of 2020)?\n                                           │ Confectionary                               │
+│ Which foods tend to be consumed in lower quantities in Wales and Scotland (as of 2020)?\n                                           │ Confectionery                               │
 │ In which one of the following circumstances will the prevalence of a disease in the population increase, all else being constant?\n │ If the incidence rate of the disease falls. │
 │ Which of the following statements is correct?\n                                                                                     │                                             │
 └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴─────────────────────────────────────────────┘
@@ -137,7 +137,7 @@ WHERE  subject = 'nutrition' AND LENGTH(correct_answer) > 0 LIMIT 3;
 │                                                             question                                                              │               correct_answer                │
 │                                                              varchar                                                              │                   varchar                   │
 ├───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────┤
-│ Which foods tend to be consumed in lower quantities in Wales and Scotland (as of 2020)?                                           │ Confectionary                               │
+│ Which foods tend to be consumed in lower quantities in Wales and Scotland (as of 2020)?                                           │ Confectionery                               │
 │ In which one of the following circumstances will the prevalence of a disease in the population increase, all else being constant? │ If the incidence rate of the disease falls. │
 │ Which vitamin is a major lipid-soluble antioxidant in cell membranes?                                                             │ Vitamin D                                   │
 └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴─────────────────────────────────────────────┘
