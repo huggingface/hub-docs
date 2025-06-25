@@ -29,7 +29,7 @@ If your MCP client is configured correctly the Spaces you added will be availabl
 
 ## Build your own MCP-compatible Gradio Space
 
-To create your own MCP-enabled Space, you need to [Create a new Gradio Space](https://huggingface.co/new-space?sdk=gradio) then to enable MCP support. See the [complete guide](https://www.gradio.app/guides/building-mcp-server-with-gradio) for more details.
+To create your own MCP-enabled Space, you need to [Create a new Gradio Space](https://huggingface.co/new-space?sdk=gradio) then make sure to enable MCP support in the code. See the [complete guide](https://www.gradio.app/guides/building-mcp-server-with-gradio) for more details.
 
 
 First, install Gradio with MCP support:
