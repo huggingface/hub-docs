@@ -8,7 +8,7 @@ From your [Hub MCP settings](https://huggingface.co/settings/mcp), select your M
 
 ![image/png](https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/wWm_GeuWF17OrMyJT4tMx.png)
 
-> **Important:** You need a valid Hugging Face token with **READ** permissions to use MCP tools. If you don't have one, [create a new READ token](https://huggingface.co/settings/tokens/new?tokenType=read) with the **read** scope.
+> **Important:** You need a valid Hugging Face token with **READ** permissions to use MCP tools. If you don't have one, [create a new "Read" access token here](https://huggingface.co/settings/tokens/new?tokenType=read).
 
 ## Add an existing Space to your MCP tools
 
