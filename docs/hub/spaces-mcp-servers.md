@@ -23,7 +23,7 @@ From your [Hub MCP settings](https://huggingface.co/settings/mcp), select your M
 
 ## Use Spaces from your MCP client 
 
-If your MCP client is configured correctly the Spaces you added will be available instantly without changing anything. Most MCP clients will list what tools are currently loaded so you can make sure the Space is available.
+If your MCP client is configured correctly, the Spaces you added will be available instantly without changing anything. Most MCP clients will list what tools are currently loaded so you can make sure the Space is available.
 
 > **Note:** For ZeroGPU Spaces, your quota will be used when the tool is called, so make sure you [subscribe to PRO](https://huggingface.co/subscribe/pro?from=ZeroGPU) to get 25 minutes of daily quota (on H200 hardware). For example, this lets you generate up to 600 images per day using FLUX.1-schnell.
 
