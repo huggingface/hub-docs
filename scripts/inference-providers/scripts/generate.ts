@@ -757,24 +757,21 @@ Object.entries(PER_PROVIDER_TASKS).forEach(([provider, tasks]) => {
 async function renderTemplate(
   templateName: string,
   namespace: string,
-  data: JsonObject,
+  data: JsonObject
 ): Promise<string> {
   console.log(`🎨  Rendering ${templateName} (${namespace})`);
   const template = Handlebars.compile(
-    await readTemplate(templateName, namespace),
+    await readTemplate(templateName, namespace)
   );
   return template(data);
 }
 
 await Promise.all(
   TASKS_EXTENDED.map(async (task) => {
-    if (task === "image-text-to-text") {
-      return; // not generated -> merged with chat-completion
-    }
     // @ts-ignore
     const rendered = await renderTemplate(task, "task", DATA);
     await writeTaskDoc(task, rendered);
-  }),
+  })
 );
 
 await Promise.all(
