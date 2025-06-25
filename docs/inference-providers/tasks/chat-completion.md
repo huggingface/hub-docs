@@ -33,6 +33,8 @@ This is a subtask of [`text-generation`](https://huggingface.co/docs/inference-p
 
 - [Qwen/Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct): Strong image-text-to-text model.
 
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-text-to-text&sort=trending).
+
 ### API Playground
 
 For Chat Completion models, we provide an interactive UI Playground for easier testing:

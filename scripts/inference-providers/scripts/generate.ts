@@ -768,9 +768,6 @@ async function renderTemplate(
 
 await Promise.all(
   TASKS_EXTENDED.map(async (task) => {
-    if (task === "image-text-to-text") {
-      return; // not generated -> merged with chat-completion
-    }
     // @ts-ignore
     const rendered = await renderTemplate(task, "task", DATA);
     await writeTaskDoc(task, rendered);

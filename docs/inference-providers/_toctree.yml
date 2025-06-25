@@ -70,6 +70,8 @@
       title: Image Classification
     - local: tasks/image-segmentation
       title: Image Segmentation
+    - local: tasks/image-text-to-text
+      title: Image-Text to Text
     - local: tasks/image-to-image
       title: Image to Image
     - local: tasks/object-detection
