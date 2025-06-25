@@ -23,13 +23,13 @@ From your [Hub MCP settings](https://huggingface.co/settings/mcp), select your M
 
 ## Use Spaces from your MCP client 
 
-If your MCP client is configured correctly the Spaces you added will be available in your MCP client automatically. Most MCP clients will list what tools are currently loaded, if you did the setup correctly you should see the Space you just added.
+If your MCP client is configured correctly the Spaces you added will be available instantly without changing anything. Most MCP clients will list what tools are currently loaded, if you did the setup correctly you should see the Space you just added.
 
 > **Note:** For ZeroGPU Spaces, your quota will be used when the tool is called, so make sure you [subscribe to PRO](https://huggingface.co/subscribe/pro?from=ZeroGPU) to get 25 minutes of daily quota (on H200 hardware). For example, this lets you generate up to 600 images per day using FLUX.1-schnell.
 
 ## Build your own MCP-compatible Gradio Space
 
-To create your own MCP-enabled Space, you'll need to [Create a new Gradio Space](https://huggingface.co/new-space?sdk=gradio). See the [complete guide](https://www.gradio.app/guides/building-mcp-server-with-gradio) for more details.
+To create your own MCP-enabled Space, you need to [Create a new Gradio Space](https://huggingface.co/new-space?sdk=gradio) then to enable MCP support. See the [complete guide](https://www.gradio.app/guides/building-mcp-server-with-gradio) for more details.
 
 
 First, install Gradio with MCP support:
