@@ -15,7 +15,7 @@ From your [Hub MCP settings](https://huggingface.co/settings/mcp), select your M
 ![image/png](https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/ex9KRpvamn84ZaOlSp_Bj.png)
 
 
-1. Browse compatible [Spaces](https://huggingface.co/spaces?filter=mcp-server) to find Spaces that are usable via MCP. You can also look for the grey **MCP** badge on any Spaces overview.
+1. Browse compatible [Spaces](https://huggingface.co/spaces?filter=mcp-server) to find Spaces that are usable via MCP. You can also look for the grey **MCP** badge on any Spaces card.
 2. Click the badge and choose **Add to MCP tools** then confirm when asked.
 3. The Space should be listed in your MCP Server settings in the Spaces Tools section.
 
