@@ -1,4 +1,4 @@
-# Spaces as MCP tools
+# Spaces as MCP servers
 
 You can **turn any public Space that has a visible `MCP` badge into a callable tool** that will be available in any MCP-compatible client, without writing a single line of code.
 
