@@ -1,6 +1,6 @@
 # Spaces as MCP servers
 
-You can **turn any public Space that has a visible `MCP` badge into a callable tool** that will be available in any MCP-compatible client, without writing a single line of code.
+You can **expose any public Space that has a visible `MCP` badge into a callable tool** that will be available in any MCP-compatible client, you can add as many Spaces as you want and without writing a single line of code.
 
 ## Setup your MCP Client
 
@@ -23,9 +23,9 @@ From your [Hub MCP settings](https://huggingface.co/settings/mcp), select your M
 
 ## Use Spaces from your MCP client 
 
-If your MCP client is configured correctly, the Spaces you added will be available instantly without changing anything. Most MCP clients will list what tools are currently loaded so you can make sure the Space is available.
+If your MCP client is configured correctly, the Spaces you added will be available instantly without changing anything (if it doesn't restart your client and it should appear). Most MCP clients will list what tools are currently loaded so you can make sure the Space is available.
 
-> **Note:** For ZeroGPU Spaces, your quota will be used when the tool is called, so make sure you [subscribe to PRO](https://huggingface.co/subscribe/pro?from=ZeroGPU) to get 25 minutes of daily quota (on H200 hardware). For example, this lets you generate up to 600 images per day using FLUX.1-schnell.
+> **Note:** For ZeroGPU Spaces, your quota will be used when the tool is called, if you run out of quota you can [subscribe to PRO](https://huggingface.co/subscribe/pro?from=ZeroGPU) to get 25 minutes of daily quota (x8 more quota than free users). For example your PRO account lets you generate up to 600 images per day using FLUX.1-schnell.
 
 ## Build your own MCP-compatible Gradio Space
 
