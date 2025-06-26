@@ -11,6 +11,13 @@
   - local: security
     title: Security
 
+- title: Guides
+  sections:
+  - local: guides/first-api-call
+    title: Your First API Call
+  - local: guides/building-first-app
+    title: Building Your First AI App
+
 - title: Providers
   sections:
   - local: providers/cerebras
