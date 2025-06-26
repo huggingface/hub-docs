@@ -254,6 +254,8 @@
     title: Spaces Dev Mode
   - local: spaces-storage
     title: Spaces Persistent Storage
+  - local: spaces-mcp-servers
+    title: Spaces as MCP servers
   - local: spaces-sdks-gradio
     title: Gradio Spaces
   - local: spaces-sdks-streamlit
