@@ -1,7 +1,7 @@
 # Storage Regions on the Hub
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 </Tip>
 
 Regions allow you to specify where your organization's models, datasets and Spaces are stored. For non-Enterprise Hub users, repositories are always stored in the US.
