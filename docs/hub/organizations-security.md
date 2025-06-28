@@ -34,7 +34,7 @@ As an organization `admin`, go to the **Members** section of the org settings to
 ## Viewing members' email address
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 </Tip>
 
 You may be able to view the email addresses of members of your organization. The visibility of the email addresses depends on the organization's SSO configuration, or verified organization status.
