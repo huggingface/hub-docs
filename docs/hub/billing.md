@@ -10,7 +10,7 @@ We offer advanced security and compliance features for organizations through our
 
 The Enterprise Hub is billed like a typical subscription. It renews automatically, but you can choose to cancel it at any time in the organization's billing settings.
 
-You can pay for the Enterprise Hub subscription with a credit card or your AWS account, or via an annual contract.
+You can pay for a Team subscription with a credit card or your AWS account, or upgrade to Enterprise via an annual contract.
 
 Upon renewal, the number of seats in your Enterprise Hub subscription will be updated to match the number of members of your organization.
 Private repository storage above the [included storage](./storage-limits) will be billed along with your subscription renewal.
@@ -44,7 +44,7 @@ Note: PRO benefits are also included in the Enterprise Hub subscription.
 ## Pay-as-you-go private storage 
 
 Above the included 1TB (or 1TB per seat) of private storage in PRO, Team, and Enterprise, private storage is invoiced at **$25/TB/month**, in 1TB increments.
-It is billed with the renewal invoices of your PRO, Team or Enterprise Hub subscription.
+It is billed with the renewal invoices of your PRO, Team or Enterprise subscription.
 
 
 ## Compute Services on the Hub
