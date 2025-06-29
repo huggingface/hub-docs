@@ -64,7 +64,7 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"nebius":{"modelId":"intfloat/e5-mistral-7b-instruct","providerModelId":"intfloat/e5-mistral-7b-instruct"} } }
+    providersMapping={ {"nebius":{"modelId":"Qwen/Qwen3-Embedding-8B","providerModelId":"Qwen/Qwen3-Embedding-8B"} } }
 />
 
 
