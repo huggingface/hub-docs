@@ -14,7 +14,7 @@ This guide assumes you have a Hugging Face account. If you don't have one, you c
 
 ## Step 1: Find a Model on the Hub
 
-Visit the [Hugging Face Hub](https://huggingface.co/models) and look for models with the "Inference Providers" filter, you can select the provider that you want. We'll go with `fal`.
+Visit the [Hugging Face Hub](https://huggingface.co/models?pipeline_tag=text-to-image&inference_provider=fal-ai,hf-inference,nebius,nscale,replicate,together&sort=trending) and look for models with the "Inference Providers" filter, you can select the provider that you want. We'll go with `fal`. 
 
 ![search image](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/search.png)
 
@@ -22,7 +22,7 @@ For this example, we'll use [FLUX.1-schnell](https://huggingface.co/black-forest
 
 ## Step 2: Try the Interactive Widget
 
-Before writing any code, try the widget directly on the model page:
+Before writing any code, try the widget directly on the [model page](https://huggingface.co/black-forest-labs/FLUX.1-dev?inference_provider=fal-ai):  
 
 ![widget image](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/widget.png)
 
@@ -42,7 +42,7 @@ You'll need a Hugging Face account (free at [huggingface.co](https://huggingface
 
 ## Step 3: From Clicks to Code
 
-Now let's replicate this with Python. Click the **"View Code Snippets"** button in the widget to see the generated code snippets.
+Now let's replicate this with Python. Click the **"View Code Snippets"** button in the widget to see the [generated code snippets](https://huggingface.co/black-forest-labs/FLUX.1-dev?inference_api=true&language=python&inference_provider=auto).
 
 ![code snippets image](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/code-snippets.png)
 
@@ -73,7 +73,7 @@ import os
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(
-    provider="fal-ai",
+    provider="auto",
     api_key=os.environ["HF_TOKEN"],
 )
 
@@ -102,7 +102,7 @@ import { InferenceClient } from "@huggingface/inference";
 const client = new InferenceClient(process.env.HF_TOKEN);
 
 const image = await client.textToImage({
-    provider: "fal-ai",
+    provider: "auto",
     model: "black-forest-labs/FLUX.1-schnell",
 	inputs: "Astronaut riding a horse",
 	parameters: { num_inference_steps: 5 },
