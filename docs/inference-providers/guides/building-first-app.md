@@ -400,6 +400,10 @@ if __name__ == "__main__":
     app.launch()
 ```
 
+Our app will run on port 7860 and look like this:
+
+![Gradio app](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/gradio-app.png)
+
 </details>
 
 To deploy, we'll need to create a new Space and upload our files.
@@ -555,6 +559,10 @@ For JavaScript deployment, create a simple static HTML file:
 </body>
 </html>
 ```
+
+We can run our app locally by going to the file from our browser.
+
+![Local app](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/js-app.png)
 
 </details>
 
