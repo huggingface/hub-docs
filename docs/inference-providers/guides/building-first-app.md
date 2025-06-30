@@ -231,12 +231,18 @@ Using the `auto` provider will automatically select the best provider for the mo
 <hfoptions id="summarization">
 <hfoption id="python">
 
-Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from Qwen via Together AI for summarization:
+Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider. 
+
+<Tip>
+
+We'll use the `auto` provider to automatically select the best provider for the model. You can define your own priority list of providers in the [Inference Providers](https://huggingface.co/settings/inference-providers) page.
+
+</Tip>
 
 ```python
 def generate_summary(transcript):
-    """Generate summary using Together AI"""
-    client = InferenceClient(provider="together")
+    """Generate summary using an Inference Provider"""
+    client = InferenceClient(provider="auto")
     
     prompt = f"""
     Analyze this meeting transcript and provide:
@@ -343,8 +349,8 @@ def transcribe_audio(audio_file_path):
 
 
 def generate_summary(transcript):
-    """Generate summary using Together AI"""
-    client = InferenceClient(provider="together")
+    """Generate summary using an Inference Provider"""
+    client = InferenceClient(provider="auto")
 
     prompt = f"""
     Analyze this meeting transcript and provide:
