@@ -58,16 +58,22 @@ You can track your spending anytime on your [billing page](https://huggingface.c
 
 The documentation above assumes you are making routed requests to external providers. In practice, there are 3 different ways to run inference, each with unique billing implications:
 
-- **Routed Request**: This is the default method for using Inference Providers. Simply use the JavaScript or Python `InferenceClient`, or make raw HTTP requests with your Hugging Face User Access Token. Your request is automatically routed through Hugging Face to the provider's platform. No separate provider account is required, and billing is managed directly by Hugging Face. This approach lets you seamlessly switch between providers without additional setup.
+- **Hugging Face Routed Requests**: This is the default method for using Inference Providers. Simply use the JavaScript or Python `InferenceClient`, or make raw HTTP requests with your Hugging Face User Access Token. Your request is automatically routed through Hugging Face to the provider's platform. No separate provider account is required, and billing is managed directly by Hugging Face. This approach lets you seamlessly switch between providers without additional setup.
 
-- **Routed Request with Custom Key**: In your [settings page](https://huggingface.co/settings/inference-providers) on the Hub, you can configure a custom key for each provider. To use this option, you'll need to create an account on the provider's platform, and billing will be handled directly by that provider. Hugging Face won't charge you for the call. This method gives you more control over billing when experimenting with models on the Hub. When making a routed request with a custom key, your code remains unchanged—you'll still pass your Hugging Face User Access Token. Hugging Face will automatically swap the authentication when routing the request.
+- **Custom Provider Key**: You can bring your own provider key to use with the Inference Providers. This is useful if you already have an account with a provider and you want to use it with the Inference Providers. Hugging Face won't charge you for the call. 
 
 Here is a table that sums up what we've seen so far:
 
 |                                    | HF routing | Billed by    | Free-tier included | Pay-as-you-go                                   | Integration                               |
 | ---------------------------------- | ---------- | ------------ | ------------------ | ----------------------------------------------- | ----------------------------------------- |
-| **Routed request**                 | Yes        | Hugging Face | Yes                | Only for PRO users and for integrated providers | SDKs, Playground, widgets, Data AI Studio |
-| **Routed request with custom key** | Yes        | Provider     | No                 | Yes                                             | SDKs, Playground, widgets, Data AI Studio |
+| **Routed Requests**                 | Yes        | Hugging Face | Yes                | Only for PRO users and for integrated providers | SDKs, Playground, widgets, Data AI Studio |
+| **Custom Provider Key** | Yes        | Provider     | No                 | Yes                                             | SDKs, Playground, widgets, Data AI Studio |
+
+<Tip>
+
+You can set your custom provider key in the [settings page](https://huggingface.co/settings/inference-providers) on the Hub, or in the `InferenceClient` when using the JavaScript or Python SDKs. When making a routed request with a custom key, your code remains unchanged—you can still pass your Hugging Face User Access Token. Hugging Face will automatically swap the authentication when routing the request.
+
+</Tip>
 
 ## HF-Inference cost
 
