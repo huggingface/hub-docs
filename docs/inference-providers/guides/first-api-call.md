@@ -66,7 +66,7 @@ Install the required package:
 pip install huggingface_hub
 ```
 
-You can now use the code snippet to generate an image:
+You can now use the code snippet to generate an image in your app.
 
 ```python
 import os
@@ -94,6 +94,8 @@ Install the required package:
 npm install @huggingface/inference
 ```
 
+Then, you can use the code snippet to generate an image in your app.
+
 ```typescript
 import { InferenceClient } from "@huggingface/inference";
 
@@ -107,6 +109,7 @@ const image = await client.textToImage({
 });
 /// Use the generated image (it's a Blob)
 ```
+
 </hfoption>
 
 </hfoptions>
