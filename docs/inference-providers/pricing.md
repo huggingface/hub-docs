@@ -1,52 +1,23 @@
 # Pricing and Billing
 
-Access 200+ models from leading AI inference providers with centralized, transparent, pay-as-you-go pricing. No infrastructure management required—just pay for what you use, with no markup from Hugging Face.
+Inference Providers is a production-ready service involving external partners and is therefore a paid product. However, as a Hugging Face user, you get monthly credits to run experiments. The amount of credits you get depends on your type of account:
 
-## Free Credits to Get Started
-
-Every Hugging Face user receives monthly credits to experiment with Inference Providers:
-
-| Account Type                 | Monthly Credits | Value    |
-| ---------------------------- | --------------- | -------- |
-| Free Users                   | Limited credits | ~$0.10   |
-| PRO Users                    | Full access     | **$2.00** |
-| Enterprise Hub Organizations | Per-seat access | **$2.00 per seat** |
-
-<Tip>
-
-Your monthly credits automatically apply when you route requests through Hugging Face. For Enterprise organizations, credits are shared among all members.
-
-</Tip>
-
-## How Billing Works: Choose Your Approach
-
-Inference Providers offers flexibility in how you're billed. Understanding these options upfront helps you choose the best approach for your needs:
-
-| Feature | **Routed by Hugging Face** | **Custom Provider Key** | **Direct Calls** |
-| :--- | :--- | :--- | :--- |
-| **How it Works** | Your request routes through HF to the provider | You set a custom provider key in HF settings | You provide the provider key directly in your code |
-| **Billing** | Pay-as-you-go on your HF account | Billed directly by the provider | Billed directly by the provider |
-| **Monthly Credits** | **✅ Yes** - Credits apply to eligible providers | **❌ No** - Credits don't apply | **❌ No** - Credits don't apply |
-| **Provider Account Needed** | **❌ No** - We handle everything | **✅ Yes** - You need provider accounts | **✅ Yes** - You need provider accounts |
-| **Best For** | Simplicity, experimentation, consolidated billing | More billing control, using non-integrated providers | Full control, bypassing HF routing |
-| **Integration** | SDKs, Playground, widgets, Data AI Studio | SDKs, Playground, widgets, Data AI Studio | SDKs only |
-
-### Which Option Should I Choose?
-
-- **Start with Routed by Hugging Face** if you want simplicity and to use your monthly credits
-- **Use Custom Provider Key** if you need specific provider features or you're consistently using the same provider
-- **Use Direct Calls** if you want to bypass Hugging Face routing entirely
-
-## Pay-as-you-Go Details
+| Tier                         | Included monthly credits             |
+| ---------------------------- | ------------------------------------ |
+| Free Users                   | subject to change, less than $0.10   |
+| PRO Users                    | $2.00                                |
+| Enterprise Hub Organizations | $2.00 per seat, shared among members |
 
 To benefit from Enterprise Hub included credits, you need to explicitly specify the organization to be billed when performing the inference requests.
 See the [Organization Billing section](#organization-billing) below for more details.
 
-**PRO users and Enterprise Hub organizations** can continue using the API after exhausting their monthly credits. This ensures uninterrupted access to models for production workloads.
+## Pay-as-you-Go
 
-**Current Status**: Pay-as-you-Go is available for providers integrated with our billing system. We're actively integrating remaining providers—those not yet integrated will be blocked once free credits are exhausted.
+**PRO users and Enterprise Hub organizations** can continue using the API once their monthly included credits are exhausted. This billing model, known as "Pay-as-you-Go" (PAYG), is charged on top of the monthly subscription. PAYG is only available for providers that are integrated with our billing system. We're actively working to integrate all providers, but in the meantime, any providers that are not yet integrated will be blocked once the free-tier limit is reached.
 
 If you have remaining credits, we estimate costs for providers that aren’t fully integrated with our billing system. These estimates are usually higher than the actual cost to prevent abuse, which is why PAYG is currently disabled for those providers.
+
+You can track your spending on your [billing page](https://huggingface.co/settings/billing).
 
 <Tip>
 
@@ -54,9 +25,7 @@ Hugging Face charges you the same rates as the provider, with no additional fees
 
 </Tip>
 
-You can track your spending anytime on your [billing page](https://huggingface.co/settings/billing).
-
-## Routed Requests vs Direct Calls (Detailed Comparison)
+## Routed requests vs direct calls
 
 The documentation above assumes you are making routed requests to external providers. In practice, there are 3 different ways to run inference, each with unique billing implications:
 
@@ -82,7 +51,7 @@ For instance, a request to [black-forest-labs/FLUX.1-dev](https://huggingface.co
 
 The `"hf-inference"` provider is currently the default provider when working with the JavaScript and Python SDKs. Note that this default might change in the future.
 
-## Billing forEnterprise Hub organizations
+## Organization billing
 
 For Enterprise Hub organizations, it is possible to centralize billing for all of your users. Each user still uses their own User Access Token but the requests are billed to your organization. This can be done by passing `"X-HF-Bill-To: my-org-name"` as a header in your HTTP requests.
 
