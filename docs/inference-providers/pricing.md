@@ -44,7 +44,6 @@ See the [Organization Billing section](#organization-billing) below for more det
 
 **PRO users and Enterprise Hub organizations** can continue using the API after exhausting their monthly credits. This ensures uninterrupted access to models for production workloads.
 
-**Current Status**: Pay-as-you-Go is available for providers integrated with our billing system. We're actively integrating remaining providers—those not yet integrated will be blocked once free credits are exhausted.
 
 If you have remaining credits, we estimate costs for providers that aren’t fully integrated with our billing system. These estimates are usually higher than the actual cost to prevent abuse, which is why PAYG is currently disabled for those providers.
 
