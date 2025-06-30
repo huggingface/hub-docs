@@ -317,16 +317,7 @@ We're using automatic provider selection which will choose the best available pr
 <hfoptions id="deployment">
 <hfoption id="python">
 
-To deploy, we'll need to create a `requirements.txt` file and a `app.py` file.
-
-`requirements.txt`:
-
-```txt
-gradio
-huggingface_hub
-```
-
-`app.py`:
+To deploy, we'll need to create an `app.py` file and upload it to Hugging Face Spaces.
 
 <details>
 <summary><strong>📋 Click to view the complete app.py file</strong></summary>
@@ -337,8 +328,8 @@ from huggingface_hub import InferenceClient
 
 
 def transcribe_audio(audio_file_path):
-    """Transcribe audio using fal.ai for speed"""
-    client = InferenceClient(provider="fal-ai")
+    """Transcribe audio using an Inference Provider"""
+    client = InferenceClient(provider="auto")
 
     # Pass the file path directly - the client handles file reading
     transcript = client.automatic_speech_recognition(
@@ -367,7 +358,7 @@ def generate_summary(transcript):
     """
 
     response = client.chat.completions.create(
-        model="Qwen/Qwen3-235B-A22B-FP8",
+        model="deepseek-ai/DeepSeek-R1-0528",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=1000,
     )
