@@ -152,14 +152,9 @@ document.getElementById('file').onchange = async (e) => {
     hide(document.getElementById('results'), document.getElementById('error'));
     
     try {
-        console.log('🎤 Starting transcription...');
         const transcript = await transcribe(file);
-        console.log('✅ Transcription completed:', transcript.substring(0, 100) + '...');
-        
-        console.log('🖊️ Starting summarization...');
         const summary = await summarize(transcript);
-        console.log('✅ Summary completed:', summary.substring(0, 100) + '...');
-        
+
         document.getElementById('transcript').textContent = transcript;
         document.getElementById('summary').textContent = summary;
         
