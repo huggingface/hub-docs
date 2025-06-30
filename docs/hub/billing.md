@@ -12,7 +12,7 @@ The Enterprise Hub is billed like a typical subscription. It renews automaticall
 
 You can pay for a Team subscription with a credit card or your AWS account, or upgrade to Enterprise via an annual contract.
 
-Upon renewal, the number of seats in your Enterprise Hub subscription will be updated to match the number of members of your organization.
+Upon renewal, the number of seats in your subscription will be updated to match the number of members of your organization.
 Private repository storage above the [included storage](./storage-limits) will be billed along with your subscription renewal.
 
 
