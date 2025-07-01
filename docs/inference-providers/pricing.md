@@ -83,7 +83,7 @@ For instance, a request to [black-forest-labs/FLUX.1-dev](https://huggingface.co
 
 The `"hf-inference"` provider is currently the default provider when working with the JavaScript and Python SDKs. Note that this default might change in the future.
 
-## Billing for Enterprise Hub organizations
+## Billing for Team and Enterprise organizations
 
 For Enterprise Hub organizations, it is possible to centralize billing for all of your users. Each user still uses their own User Access Token but the requests are billed to your organization. This can be done by passing `"X-HF-Bill-To: my-org-name"` as a header in your HTTP requests.
 
