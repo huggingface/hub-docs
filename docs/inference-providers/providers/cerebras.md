@@ -20,7 +20,9 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 # Cerebras
 
 <Tip>
+
 All supported Cerebras models can be found [here](https://huggingface.co/models?inference_provider=cerebras&sort=trending)
+
 </Tip>
 
 <div class="flex justify-center">

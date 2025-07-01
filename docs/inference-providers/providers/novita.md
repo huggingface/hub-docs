@@ -20,7 +20,9 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 # Novita
 
 <Tip>
+
 All supported Novita models can be found [here](https://huggingface.co/models?inference_provider=novita&sort=trending)
+
 </Tip>
 
 <div class="flex justify-center">
