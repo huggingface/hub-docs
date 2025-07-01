@@ -48,6 +48,16 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic_speec
 />
 
 
+### Image To Image
+
+Find out more about Image To Image [here](../tasks/image_to_image).
+
+<InferenceSnippet
+    pipeline=image-to-image
+    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.1-Kontext-dev","providerModelId":"fal-ai/flux-kontext/dev"} } }
+/>
+
+
 ### Text To Image
 
 Find out more about Text To Image [here](../tasks/text_to_image).
@@ -64,6 +74,6 @@ Find out more about Text To Video [here](../tasks/text_to_video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"fal-ai":{"modelId":"Lightricks/LTX-Video","providerModelId":"fal-ai/ltx-video"} } }
+    providersMapping={ {"fal-ai":{"modelId":"tencent/HunyuanVideo","providerModelId":"fal-ai/hunyuan-video"} } }
 />
 
