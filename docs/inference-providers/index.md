@@ -9,6 +9,27 @@ Hugging Face’s Inference Providers give developers streamlined, unified access
 
 To learn more about the launch of Inference Providers, check out our [announcement blog post](https://huggingface.co/blog/inference-providers).
 
+## Partners
+
+Here is the complete list of partners integrated with Inference Providers, and the supported tasks for each of them:
+
+| Provider                                 | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video |
+| ---------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: |
+| [Cerebras](./providers/cerebras)         |           ✅           |                       |                    |               |               |
+| [Cohere](./providers/cohere)             |           ✅           |           ✅           |                    |               |               |
+| [Fal AI](./providers/fal-ai)             |                       |                       |                    |       ✅       |       ✅       |
+| [Featherless AI](./providers/featherless-ai) |    ✅           |            ✅           |                     |             |                |
+| [Fireworks](./providers/fireworks-ai)    |           ✅           |           ✅           |                    |               |               |
+| [Groq](./providers/groq)                  |           ✅           |                       |                    |               |               |
+| [HF Inference](./providers/hf-inference) |           ✅           |           ✅           |         ✅          |       ✅       |               |
+| [Hyperbolic](./providers/hyperbolic)     |           ✅           |           ✅           |                    |               |               |
+| [Nebius](./providers/nebius)             |           ✅           |           ✅           |         ✅         |       ✅       |               |
+| [Novita](./providers/novita)             |           ✅           |           ✅           |                    |               |       ✅       |
+| [Nscale](./providers/nscale)             |           ✅           |           ✅           |                    |      ✅        |              |
+| [Replicate](./providers/replicate)       |                       |                       |                    |       ✅       |       ✅       |
+| [SambaNova](./providers/sambanova)       |           ✅           |                       |         ✅          |               |               |
+| [Together](./providers/together)         |           ✅           |           ✅           |                    |       ✅       |               |
+
 ## Why use Inference Providers?
 
 Inference Providers offers a fast and simple way to explore thousands of models for a variety of tasks. Whether you're experimenting with ML capabilities or building a new application, this API gives you instant access to high-performing models across multiple domains:
@@ -33,27 +54,6 @@ Inference Providers offers a fast and simple way to explore thousands of models 
 To get started quickly with [Chat Completion models](http://huggingface.co/models?inference_provider=all&sort=trending&other=conversational), use the [Inference Playground](https://huggingface.co/playground) to easily test and compare models with your prompts.
 
 <a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 550px; width: 100%;"/></a>
-
-## Partners
-
-Here is the complete list of partners integrated with Inference Providers, and the supported tasks for each of them:
-
-| Provider                                 | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video |
-| ---------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: |
-| [Cerebras](./providers/cerebras)         |           ✅           |                       |                    |               |               |
-| [Cohere](./providers/cohere)             |           ✅           |           ✅           |                    |               |               |
-| [Fal AI](./providers/fal-ai)             |                       |                       |                    |       ✅       |       ✅       |
-| [Featherless AI](./providers/featherless-ai) |    ✅           |            ✅           |                     |             |                |
-| [Fireworks](./providers/fireworks-ai)    |           ✅           |           ✅           |                    |               |               |
-| [Groq](./providers/groq)                  |           ✅           |                       |                    |               |               |
-| [HF Inference](./providers/hf-inference) |           ✅           |           ✅           |         ✅          |       ✅       |               |
-| [Hyperbolic](./providers/hyperbolic)     |           ✅           |           ✅           |                    |               |               |
-| [Nebius](./providers/nebius)             |           ✅           |           ✅           |         ✅         |       ✅       |               |
-| [Novita](./providers/novita)             |           ✅           |           ✅           |                    |               |       ✅       |
-| [Nscale](./providers/nscale)             |           ✅           |           ✅           |                    |      ✅        |              |
-| [Replicate](./providers/replicate)       |                       |                       |                    |       ✅       |       ✅       |
-| [SambaNova](./providers/sambanova)       |           ✅           |                       |         ✅          |               |               |
-| [Together](./providers/together)         |           ✅           |           ✅           |                    |       ✅       |               |
 
 ## Get Started
 
