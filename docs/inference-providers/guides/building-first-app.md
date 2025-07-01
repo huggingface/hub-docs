@@ -177,7 +177,10 @@ We'll also need to implement the `transcribe` and `summarize` functions.
 <hfoptions id="transcription">
 <hfoption id="python">
 
-Now let's implement the transcription using `fal.ai` and OpenAI's `whisper-large-v3` model for fast, reliable speech processing:
+Now let's implement the transcription using OpenAI's `whisper-large-v3` model for fast, reliable speech processing. 
+<Tip>
+We'll use the `auto` provider to automatically select the first available provider for the model. You can define your own priority list of providers in the [Inference Providers](https://huggingface.co/settings/inference-providers) page.
+</Tip>
 
 ```python
 def transcribe_audio(audio_file_path):
@@ -193,12 +196,14 @@ def transcribe_audio(audio_file_path):
     return transcript.text
 ```
 
-Using the `auto` provider will automatically select the best provider for the model we're using.
 
 </hfoption>
 <hfoption id="javascript">
 
-We'll use the Hugging Face Inference client with automatic provider selection:
+Now let's implement the transcription using OpenAI's `whisper-large-v3` model for fast, reliable speech processing. 
+<Tip>
+We'll use the `auto` provider to automatically select the first available provider for the model. You can define your own priority list of providers in the [Inference Providers](https://huggingface.co/settings/inference-providers) page.
+</Tip>
 
 ```javascript
 import { InferenceClient } from 'https://esm.sh/@huggingface/inference';
@@ -216,7 +221,6 @@ async function transcribe(file) {
 }
 ```
 
-Using the `auto` provider will automatically select the best provider for the model we're using.
 
 </hfoption>
 </hfoptions>
@@ -226,13 +230,8 @@ Using the `auto` provider will automatically select the best provider for the mo
 <hfoptions id="summarization">
 <hfoption id="python">
 
-Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider. 
-
-<Tip>
-
-We'll use the `auto` provider to automatically select the best provider for the model. You can define your own priority list of providers in the [Inference Providers](https://huggingface.co/settings/inference-providers) page.
-
-</Tip>
+Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider, and just like in the previous step, we'll use the `auto` provider to automatically select the first available provider for the model.
+We will define a custom prompt to ensure the output is formatted as a summary with action items and decisions made:
 
 ```python
 def generate_summary(transcript):
@@ -262,12 +261,12 @@ def generate_summary(transcript):
     return response.choices[0].message.content
 ```
 
-Note, we're also defining a custom summary prompt to ensure the output is formatted as a summary with action items and decisions made.
 
 </hfoption>
 <hfoption id="javascript">
 
-We'll use the chat completion API with automatic provider selection again, and define a custom prompt to ensure the output is formatted as a summary with action items and decisions made:
+Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider, and just like in the previous step, we'll use the `auto` provider to automatically select the first available provider for the model.
+We will define a custom prompt to ensure the output is formatted as a summary with action items and decisions made:
 
 ```javascript
 async function summarize(transcript) {
@@ -302,7 +301,6 @@ async function summarize(transcript) {
 }
 ```
 
-We're using automatic provider selection which will choose the best available provider for the model.
 
 </hfoption>
 </hfoptions>
