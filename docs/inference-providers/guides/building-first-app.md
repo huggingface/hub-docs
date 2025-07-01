@@ -405,7 +405,7 @@ To deploy, we'll need to create a new Space and upload our files.
 
 1. **Create a new Space**: Go to [huggingface.co/new-space](https://huggingface.co/new-space)
 2. **Choose Gradio SDK** and make it public
-3. **Upload your files**: Upload `app.py` and `requirements.txt`
+3. **Upload your files**: Upload `app.py`
 4. **Add your token**: In Space settings, add `HF_TOKEN` as a secret (get it from [your settings](https://huggingface.co/settings/tokens))
 5. **Launch**: Your app will be live at `https://huggingface.co/spaces/your-username/your-space-name`
 
