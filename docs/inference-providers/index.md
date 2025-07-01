@@ -53,7 +53,6 @@ Inference Providers offers a fast and simple way to explore thousands of models 
 
 To get started quickly with [Chat Completion models](http://huggingface.co/models?inference_provider=all&sort=trending&other=conversational), use the [Inference Playground](https://huggingface.co/playground) to easily test and compare models with your prompts.
 
-
 <a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 550px; width: 100%;"/></a>
 
 ## Get Started
@@ -72,7 +71,12 @@ Inference Providers requires passing a user token in the request headers. You ca
 
 For more details about user tokens, check out [this guide](https://huggingface.co/docs/hub/en/security-tokens).
 
-### cURL
+### Quick Start
+
+<hfoptions id="inference-providers-examples">
+<hfoption id="curl">
+
+**cURL**
 
 Let's start with a cURL command highlighting the raw HTTP request. You can adapt this request to be run with the tool of your choice.
 
@@ -92,7 +96,10 @@ curl https://router.huggingface.co/novita/v3/openai/chat/completions \
     }'
 ```
 
-### Python
+</hfoption>
+<hfoption id="python">
+
+**Python**
 
 In Python, you can use the `requests` library to make raw requests to the API:
 
@@ -140,10 +147,12 @@ completion = client.chat.completions.create(
 print(completion.choices[0].message)
 ```
 
-### JavaScript
+</hfoption>
+<hfoption id="javascript">
+
+**JavaScript**
 
 In JS, you can use the `fetch` library to make raw requests to the API:
-
 
 ```js
 import fetch from "node-fetch";
@@ -173,7 +182,6 @@ console.log(await response.json());
 
 For convenience, the JS library `@huggingface/inference` provides an [`InferenceClient`](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient) that handles inference for you. You can install it with `npm install @huggingface/inference`.
 
-
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
@@ -192,6 +200,9 @@ const chatCompletion = await client.chatCompletion({
 
 console.log(chatCompletion.choices[0].message);
 ```
+
+</hfoption>
+</hfoptions>
 
 ## Next Steps
 
