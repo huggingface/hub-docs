@@ -19,6 +19,10 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Featherless AI
 
+<Tip>
+All supported  models can be found [here](https://huggingface.co/models?inference_provider=&sort=trending)
+</Tip>
+
 <div class="flex justify-center">
     <a href="https://featherless.ai/" target="_blank">
         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/featherless-ai-light.png"/>
@@ -46,7 +50,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"mistralai/Magistral-Small-2506","providerModelId":"mistralai/Magistral-Small-2506"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1-0528"} } }
 conversational />
 
 
@@ -56,7 +60,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"featherless-ai":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"google/medgemma-4b-it","providerModelId":"google/medgemma-4b-it"} } }
 conversational />
 
 
@@ -66,6 +70,6 @@ Find out more about Text Generation [here](../tasks/text_generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"mistralai/Magistral-Small-2506","providerModelId":"mistralai/Magistral-Small-2506"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1-0528"} } }
 />
 

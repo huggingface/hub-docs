@@ -35,7 +35,10 @@ Explore all available models and find the one that suits you best [here](https:/
 ### Using the API
 
 
-There are currently no snippet examples for the **image-to-image** task, as no providers support it yet.
+<InferenceSnippet
+    pipeline=image-to-image
+    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.1-Kontext-dev","providerModelId":"fal-ai/flux-kontext/dev"},"replicate":{"modelId":"black-forest-labs/FLUX.1-Kontext-dev","providerModelId":"black-forest-labs/flux-kontext-dev"}} }
+/>
 
 
 

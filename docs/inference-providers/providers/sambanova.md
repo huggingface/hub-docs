@@ -19,6 +19,10 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # SambaNova
 
+<Tip>
+All supported  models can be found [here](https://huggingface.co/models?inference_provider=&sort=trending)
+</Tip>
+
 <div class="flex justify-center">
     <a href="https://sambanova.ai/" target="_blank">
         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/sambanova-light.png"/>
@@ -55,7 +59,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"Llama-4-Scout-17B-16E-Instruct"} } }
+    providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-4-Maverick-17B-128E-Instruct","providerModelId":"Llama-4-Maverick-17B-128E-Instruct"} } }
 conversational />
 
 

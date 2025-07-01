@@ -19,6 +19,10 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Groq
 
+<Tip>
+All supported  models can be found [here](https://huggingface.co/models?inference_provider=&sort=trending)
+</Tip>
+
 <div class="flex justify-center">
     <a href="https://groq.com/" target="_blank">
         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/groq-light.png"/>
@@ -54,7 +58,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"groq":{"modelId":"Qwen/Qwen3-32B","providerModelId":"qwen/qwen3-32b"} } }
+    providersMapping={ {"groq":{"modelId":"meta-llama/Llama-3.3-70B-Instruct","providerModelId":"llama-3.3-70b-versatile"} } }
 conversational />
 
 
