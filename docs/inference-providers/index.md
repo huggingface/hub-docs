@@ -9,6 +9,31 @@ Hugging Face’s Inference Providers give developers streamlined, unified access
 
 To learn more about the launch of Inference Providers, check out our [announcement blog post](https://huggingface.co/blog/inference-providers).
 
+## Inference Playground
+
+To get started quickly with [Chat Completion models](http://huggingface.co/models?inference_provider=all&sort=trending&other=conversational), use the [Inference Playground](https://huggingface.co/playground) to easily test and compare models with your prompts.
+
+<a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 550px; width: 100%;"/></a>
+
+## Why use Inference Providers?
+
+Inference Providers offers a fast and simple way to explore thousands of models for a variety of tasks. Whether you're experimenting with ML capabilities or building a new application, this API gives you instant access to high-performing models across multiple domains:
+
+* **Text Generation:** Including large language models and tool-calling prompts, generate and experiment with high-quality responses.
+* **Image and Video Generation:** Easily create customized images, including LoRAs for your own styles.
+* **Document Embeddings:** Build search and retrieval systems with SOTA embeddings.
+* **Classical AI Tasks:** Ready-to-use models for text classification, image classification, speech recognition, and more.
+
+⚡ **Fast and Free to Get Started**: Inference Providers comes with a free-tier and additional included credits for [PRO users](https://hf.co/subscribe/pro), as well as [Enterprise Hub organizations](https://huggingface.co/enterprise).
+
+## Key Features
+
+- **🎯 All-in-One API**: A single API for text generation, image generation, document embeddings, NER, summarization, image classification, and more.
+- **🔀 Multi-Provider Support**: Easily run models from top-tier providers like fal, Replicate, Sambanova, Together AI, and others.
+- **🚀 Scalable & Reliable**: Built for high availability and low-latency performance in production environments.
+- **🔧 Developer-Friendly**: Simple requests, fast responses, and a consistent developer experience across Python and JavaScript clients.
+- **💰 Cost-Effective**: No extra markup on provider rates.
+
 ## Partners
 
 Here is the complete list of partners integrated with Inference Providers, and the supported tasks for each of them:
@@ -30,32 +55,6 @@ Here is the complete list of partners integrated with Inference Providers, and t
 | [SambaNova](./providers/sambanova)       |           ✅           |                       |         ✅          |               |               |
 | [Together](./providers/together)         |           ✅           |           ✅           |                    |       ✅       |               |
 
-## Why use Inference Providers?
-
-Inference Providers offers a fast and simple way to explore thousands of models for a variety of tasks. Whether you're experimenting with ML capabilities or building a new application, this API gives you instant access to high-performing models across multiple domains:
-
-* **Text Generation:** Including large language models and tool-calling prompts, generate and experiment with high-quality responses.
-* **Image and Video Generation:** Easily create customized images, including LoRAs for your own styles.
-* **Document Embeddings:** Build search and retrieval systems with SOTA embeddings.
-* **Classical AI Tasks:** Ready-to-use models for text classification, image classification, speech recognition, and more.
-
-⚡ **Fast and Free to Get Started**: Inference Providers comes with a free-tier and additional included credits for [PRO users](https://hf.co/subscribe/pro), as well as [Enterprise Hub organizations](https://huggingface.co/enterprise).
-
-## Key Features
-
-- **🎯 All-in-One API**: A single API for text generation, image generation, document embeddings, NER, summarization, image classification, and more.
-- **🔀 Multi-Provider Support**: Easily run models from top-tier providers like fal, Replicate, Sambanova, Together AI, and others.
-- **🚀 Scalable & Reliable**: Built for high availability and low-latency performance in production environments.
-- **🔧 Developer-Friendly**: Simple requests, fast responses, and a consistent developer experience across Python and JavaScript clients.
-- **💰 Cost-Effective**: No extra markup on provider rates.
-
-## Inference Playground
-
-To get started quickly with [Chat Completion models](http://huggingface.co/models?inference_provider=all&sort=trending&other=conversational), use the [Inference Playground](https://huggingface.co/playground) to easily test and compare models with your prompts.
-
-
-<a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 550px; width: 100%;"/></a>
-
 ## Get Started
 
 You can use Inference Providers with your preferred tools, such as Python, JavaScript, or cURL. To simplify integration, we offer both a Python SDK (`huggingface_hub`) and a JavaScript SDK (`huggingface.js`).
@@ -71,6 +70,9 @@ In this section, we will demonstrate a simple example using [deepseek-ai/DeepSee
 Inference Providers requires passing a user token in the request headers. You can generate a token by signing up on the Hugging Face website and going to the [settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained). We recommend creating a `fine-grained` token with the scope to `Make calls to Inference Providers`.
 
 For more details about user tokens, check out [this guide](https://huggingface.co/docs/hub/en/security-tokens).
+
+<hfoptions id="inference-providers-examples">
+<hfoption id="curl">
 
 ### cURL
 
@@ -91,6 +93,9 @@ curl https://router.huggingface.co/novita/v3/openai/chat/completions \
         "stream": false
     }'
 ```
+
+</hfoption>
+<hfoption id="python">
 
 ### Python
 
@@ -140,10 +145,12 @@ completion = client.chat.completions.create(
 print(completion.choices[0].message)
 ```
 
+</hfoption>
+<hfoption id="javascript">
+
 ### JavaScript
 
 In JS, you can use the `fetch` library to make raw requests to the API:
-
 
 ```js
 import fetch from "node-fetch";
@@ -173,7 +180,6 @@ console.log(await response.json());
 
 For convenience, the JS library `@huggingface/inference` provides an [`InferenceClient`](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient) that handles inference for you. You can install it with `npm install @huggingface/inference`.
 
-
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
@@ -192,6 +198,9 @@ const chatCompletion = await client.chatCompletion({
 
 console.log(chatCompletion.choices[0].message);
 ```
+
+</hfoption>
+</hfoptions>
 
 ## Next Steps
 
