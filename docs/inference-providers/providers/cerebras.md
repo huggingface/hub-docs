@@ -17,11 +17,11 @@ Logos must be in .png format and be named `cerebras-light.png` and `cerebras-dar
 For more details, check out the `generate.ts` script: https://github.com/huggingface/hub-docs/blob/main/scripts/inference-providers/scripts/generate.ts.
 --->
 
-<Tip>
-All supported  models can be found [here](https://huggingface.co/models?inference_provider=&sort=trending)
-</Tip>
-
 # Cerebras
+
+<Tip>
+All supported Cerebras models can be found [here](https://huggingface.co/models?inference_provider=cerebras&sort=trending)
+</Tip>
 
 <div class="flex justify-center">
     <a href="https://www.cerebras.ai/" target="_blank">

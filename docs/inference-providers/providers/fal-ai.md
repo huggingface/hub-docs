@@ -20,7 +20,7 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 # Fal
 
 <Tip>
-All supported  models can be found [here](https://huggingface.co/models?inference_provider=&sort=trending)
+All supported Fal models can be found [here](https://huggingface.co/models?inference_provider=fal-ai&sort=trending)
 </Tip>
 
 <div class="flex justify-center">
