@@ -19,6 +19,12 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Hyperbolic: The On-Demand AI Cloud
 
+<Tip>
+
+All supported Hyperbolic models can be found [here](https://huggingface.co/models?inference_provider=hyperbolic&sort=trending)
+
+</Tip>
+
 <div class="flex justify-center">
     <a href="https://hyperbolic.xyz/" target="_blank">
         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/hyperbolic-light.png"/>

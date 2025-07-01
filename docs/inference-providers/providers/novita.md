@@ -19,6 +19,12 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Novita
 
+<Tip>
+
+All supported Novita models can be found [here](https://huggingface.co/models?inference_provider=novita&sort=trending)
+
+</Tip>
+
 <div class="flex justify-center">
     <a href="https://novita.ai/" target="_blank">
         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/novita-light.png"/>

@@ -19,6 +19,12 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Nebius
 
+<Tip>
+
+All supported Nebius models can be found [here](https://huggingface.co/models?inference_provider=nebius&sort=trending)
+
+</Tip>
+
 <div class="flex justify-center">
     <a href="https://nebius.com/" target="_blank">
         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/nebius-light.png"/>
@@ -64,7 +70,7 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"nebius":{"modelId":"intfloat/e5-mistral-7b-instruct","providerModelId":"intfloat/e5-mistral-7b-instruct"} } }
+    providersMapping={ {"nebius":{"modelId":"Qwen/Qwen3-Embedding-8B","providerModelId":"Qwen/Qwen3-Embedding-8B"} } }
 />
 
 

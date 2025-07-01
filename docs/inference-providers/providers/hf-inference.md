@@ -19,6 +19,12 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # HF Inference
 
+<Tip>
+
+All supported HF Inference models can be found [here](https://huggingface.co/models?inference_provider=hf-inference&sort=trending)
+
+</Tip>
+
 <div class="flex justify-center">
     <a href="https://huggingface.co/" target="_blank">
         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/logos/hf-inference-light.png"/>
@@ -55,7 +61,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"sarvamai/sarvam-m","providerModelId":"sarvamai/sarvam-m"} } }
+    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Llama-3.1-8B-Instruct"} } }
 conversational />
 
 
@@ -65,7 +71,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"meta-llama/Llama-3.2-11B-Vision-Instruct"} } }
+    providersMapping={ {"hf-inference":{"modelId":"mistralai/Mistral-Small-3.1-24B-Instruct-2503","providerModelId":"mistralai/Mistral-Small-3.1-24B-Instruct-2503"} } }
 conversational />
 
 
@@ -135,7 +141,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 <InferenceSnippet
     pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/text_summarization","providerModelId":"Falconsai/text_summarization"} } }
 />
 
 
@@ -155,7 +161,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english","providerModelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english"} } }
+    providersMapping={ {"hf-inference":{"modelId":"tabularisai/multilingual-sentiment-analysis","providerModelId":"tabularisai/multilingual-sentiment-analysis"} } }
 />
 
 
@@ -165,7 +171,7 @@ Find out more about Text Generation [here](../tasks/text_generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"sarvamai/sarvam-m","providerModelId":"sarvamai/sarvam-m"} } }
+    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Llama-3.1-8B-Instruct"} } }
 />
 
 
