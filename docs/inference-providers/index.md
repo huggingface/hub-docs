@@ -71,10 +71,12 @@ Inference Providers requires passing a user token in the request headers. You ca
 
 For more details about user tokens, check out [this guide](https://huggingface.co/docs/hub/en/security-tokens).
 
+### Quick Start
+
 <hfoptions id="inference-providers-examples">
 <hfoption id="curl">
 
-### cURL
+**cURL**
 
 Let's start with a cURL command highlighting the raw HTTP request. You can adapt this request to be run with the tool of your choice.
 
@@ -97,7 +99,7 @@ curl https://router.huggingface.co/novita/v3/openai/chat/completions \
 </hfoption>
 <hfoption id="python">
 
-### Python
+**Python**
 
 In Python, you can use the `requests` library to make raw requests to the API:
 
@@ -148,7 +150,7 @@ print(completion.choices[0].message)
 </hfoption>
 <hfoption id="javascript">
 
-### JavaScript
+**JavaScript**
 
 In JS, you can use the `fetch` library to make raw requests to the API:
 
