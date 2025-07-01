@@ -51,6 +51,7 @@ A full list of the available licenses is available here:
 | Eclipse Public License 2.0                                     | `epl-2.0`                                |
 | Etalab Open License 2.0                                        | `etalab-2.0`                             |
 | European Union Public License 1.1                              | `eupl-1.1`                               |
+| European Union Public License 1.2                              | `eupl-1.2`                               |
 | GNU Affero General Public License v3.0                         | `agpl-3.0`                               |
 | GNU Free Documentation License family                          | `gfdl`                                   |
 | GNU General Public License family                              | `gpl`                                    |
@@ -60,6 +61,7 @@ A full list of the available licenses is available here:
 | GNU Lesser General Public License v2.1                         | `lgpl-2.1`                               |
 | GNU Lesser General Public License v3.0                         | `lgpl-3.0`                               |
 | ISC                                                            | `isc`                                    |
+| H Research License                                             | `h-research`                             | <!-- license: https://huggingface.co/Hcompany/Holo1-3B/blob/main/LICENSE -->
 | Intel Research Use License Agreement                           | `intel-research`                         | <!-- license: https://huggingface.co/OpenVINO/Llama-3.1-8B-Instruct-FastDraft-150M-int8-ov/blob/main/LICENSE.md -->
 | LaTeX Project Public License v1.3c                             | `lppl-1.3c`                              |
 | Microsoft Public License                                       | `ms-pl`                                  |

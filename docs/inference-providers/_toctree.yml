@@ -19,8 +19,12 @@
     title: Cohere
   - local: providers/fal-ai
     title: Fal AI
+  - local: providers/featherless-ai
+    title: Featherless AI
   - local: providers/fireworks-ai
     title: Fireworks
+  - local: providers/groq
+    title: Groq
   - local: providers/hyperbolic
     title: Hyperbolic
   - local: providers/hf-inference
@@ -66,6 +70,8 @@
       title: Image Classification
     - local: tasks/image-segmentation
       title: Image Segmentation
+    - local: tasks/image-text-to-text
+      title: Image-Text to Text
     - local: tasks/image-to-image
       title: Image to Image
     - local: tasks/object-detection

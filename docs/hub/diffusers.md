@@ -19,6 +19,18 @@ You can try out the models directly in the browser if you want to test them out 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F35/hub/libraries-diffusers_widget.png"/>
 </div>
 
+## Diffusers repository files
+
+A [Diffusers](https://hf.co/docs/diffusers/index) model repository contains all the required model sub-components such as the variational autoencoder for encoding images and decoding latents, text encoder, transformer model, and more. These sub-components are organized into a multi-folder layout.
+
+<div class="flex justify-center">
+  <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/diffusers-model-files-repo.png"/>
+</div>
+
+Each subfolder contains the weights and configuration - where applicable - for each component similar to a [Transformers](./transformers) model.
+
+Weights are usually stored as safetensors files and the configuration is usually a json file with information about the model architecture.
+
 ## Using existing pipelines
 
 All `diffusers` pipelines are a line away from being used! To run generation we recommended to always start from the `DiffusionPipeline`: 

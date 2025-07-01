@@ -4,15 +4,15 @@ At Hugging Face, we build a collaboration platform for the ML community (i.e., t
 
 Any feedback or support request related to billing is welcome at billing@huggingface.co
 
-## Enterprise Hub subscriptions
+## Team and Enterprise subscriptions
 
-We offer advanced security and compliance features for organizations through our Enterprise Hub subscription, including [Single Sign-On](./enterprise-sso), [Advanced Access Control](./enterprise-hub-resource-groups) for repositories, control over your data location, higher [storage capacity](./storage-limits) for private repositories, and more.
+We offer advanced security and compliance features for organizations through our Team or Enterprise subscription, including [Single Sign-On](./enterprise-sso), [Advanced Access Control](./enterprise-hub-resource-groups) for repositories, control over your data location, higher [storage capacity](./storage-limits) for private repositories, and more.
 
 The Enterprise Hub is billed like a typical subscription. It renews automatically, but you can choose to cancel it at any time in the organization's billing settings.
 
-You can pay for the Enterprise Hub subscription with a credit card or your AWS account.
+You can pay for a Team subscription with a credit card or your AWS account, or upgrade to Enterprise via an annual contract.
 
-Upon renewal, the number of seats in your Enterprise Hub subscription will be updated to match the number of members of your organization.
+Upon renewal, the number of seats in your subscription will be updated to match the number of members of your organization.
 Private repository storage above the [included storage](./storage-limits) will be billed along with your subscription renewal.
 
 
@@ -43,8 +43,8 @@ Note: PRO benefits are also included in the Enterprise Hub subscription.
 
 ## Pay-as-you-go private storage 
 
-Above the included 1TB (or 1TB per seat) of private storage in PRO and Enterprise Hub, private storage is invoiced at **$25/TB/month**, in 1TB increments.
-It is billed with the renewal invoices of your PRO or Enterprise Hub subscription.
+Above the included 1TB (or 1TB per seat) of private storage in PRO, Team, and Enterprise, private storage is invoiced at **$25/TB/month**, in 1TB increments.
+It is billed with the renewal invoices of your PRO, Team or Enterprise subscription.
 
 
 ## Compute Services on the Hub
@@ -149,7 +149,7 @@ A. You can pay your bill with another payment method by clicking on the “pay o
 A. You can cancel your subscription at anytime here: https://huggingface.co/settings/billing/subscription. 
 Drop us a line at billing@huggingface.co with your feedback.
 
-**Q. My org has an Enterprise Hub subscription and I need to update the number of seats. How can I do this?**
+**Q. My org has a Team or Enterprise subscription and I need to update the number of seats. How can I do this?**
 
 A. The number of seats will automatically be adjusted at the time of the subscription renewal to reflect any increases in the number of members in the organization during the previous period. There’s no need to update the subscribed number of seats during the month or year as it’s a flat fee subscription.
 

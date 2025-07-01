@@ -1,7 +1,7 @@
 # Gating Group Collections
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 </Tip>
 
 Gating Group Collections allow organizations to grant (or reject) access to all the models and datasets in a collection at once, rather than per repo. Users will only have to go through **a single access request**.

@@ -18,10 +18,12 @@ Here is the complete list of partners integrated with Inference Providers, and t
 | [Cerebras](./providers/cerebras)         |           ✅           |                       |                    |               |               |
 | [Cohere](./providers/cohere)             |           ✅           |           ✅           |                    |               |               |
 | [Fal AI](./providers/fal-ai)             |                       |                       |                    |       ✅       |       ✅       |
+| [Featherless AI](./providers/featherless-ai) |    ✅           |            ✅           |                     |             |                |
 | [Fireworks](./providers/fireworks-ai)    |           ✅           |           ✅           |                    |               |               |
+| [Groq](./providers/groq)                  |           ✅           |                       |                    |               |               |
 | [HF Inference](./providers/hf-inference) |           ✅           |           ✅           |         ✅          |       ✅       |               |
 | [Hyperbolic](./providers/hyperbolic)     |           ✅           |           ✅           |                    |               |               |
-| [Nebius](./providers/nebius)             |           ✅           |           ✅           |                    |       ✅       |               |
+| [Nebius](./providers/nebius)             |           ✅           |           ✅           |         ✅         |       ✅       |               |
 | [Novita](./providers/novita)             |           ✅           |           ✅           |                    |               |       ✅       |
 | [Nscale](./providers/nscale)             |           ✅           |           ✅           |                    |      ✅        |              |
 | [Replicate](./providers/replicate)       |                       |                       |                    |       ✅       |       ✅       |
@@ -95,10 +97,11 @@ curl https://router.huggingface.co/novita/v3/openai/chat/completions \
 In Python, you can use the `requests` library to make raw requests to the API:
 
 ```python
+import os
 import requests
 
 API_URL = "https://router.huggingface.co/novita/v3/openai/chat/completions"
-headers = {"Authorization": "Bearer hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}
+headers = {"Authorization": f"Bearer {os.environ['HF_TOKEN']}"}
 payload = {
     "messages": [
         {
@@ -116,11 +119,12 @@ print(response.json()["choices"][0]["message"])
 For convenience, the Python library `huggingface_hub` provides an [`InferenceClient`](https://huggingface.co/docs/huggingface_hub/guides/inference) that handles inference for you. Make sure to install it with `pip install huggingface_hub`.
 
 ```python
+import os
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(
     provider="novita",
-    api_key="hf_xxxxxxxxxxxxxxxxxxxxxxxx",
+    api_key=os.environ["HF_TOKEN"],
 )
 
 completion = client.chat.completions.create(
@@ -149,7 +153,7 @@ const response = await fetch(
     {
         method: "POST",
         headers: {
-            Authorization: `Bearer hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`,
+            Authorization: `Bearer ${process.env.HF_TOKEN}`,
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -173,7 +177,7 @@ For convenience, the JS library `@huggingface/inference` provides an [`Inference
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
-const client = new InferenceClient("hf_xxxxxxxxxxxxxxxxxxxxxxxx");
+const client = new InferenceClient(process.env.HF_TOKEN);
 
 const chatCompletion = await client.chatCompletion({
     provider: "novita",

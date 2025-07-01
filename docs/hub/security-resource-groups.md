@@ -1,16 +1,14 @@
 # Advanced Access Control in Organizations with Resource Groups
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
+This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 </Tip>
 
 In your Hugging Face organization, you can use Resource Groups to control which members have access to specific repositories.
 
 ## How does it work?
 
-Resource Groups allow organizations administrators to group related repositories together, and manage access to those repos.
-
-Resource Groups allow different teams to work on their respective repositories within the same organization.
+Resource Groups allow organization administrators to group related repositories together, allowing different teams in your organization to work on independent sets of repositories.
 
 A repository can belong to only one Resource Group.
 

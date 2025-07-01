@@ -45,7 +45,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"sambanova":{"modelId":"Qwen/Qwen3-32B","providerModelId":"Qwen3-32B"} } }
+    providersMapping={ {"sambanova":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"DeepSeek-R1-0528"} } }
 conversational />
 
 
@@ -55,7 +55,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"Llama-4-Scout-17B-16E-Instruct"} } }
+    providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-4-Maverick-17B-128E-Instruct","providerModelId":"Llama-4-Maverick-17B-128E-Instruct"} } }
 conversational />
 
 

@@ -254,6 +254,8 @@
     title: Spaces Dev Mode
   - local: spaces-storage
     title: Spaces Persistent Storage
+  - local: spaces-mcp-servers
+    title: Spaces as MCP servers
   - local: spaces-sdks-gradio
     title: Gradio Spaces
   - local: spaces-sdks-streamlit
@@ -342,12 +344,14 @@
     sections:
     - local: enterprise-sso
       title: Single Sign-On (SSO)
+    - local: enterprise-hub-advanced-sso
+      title: Advanced Single Sign-On (SSO)
     - local: audit-logs
       title: Audit Logs
     - local: storage-regions
       title: Storage Regions
     - local: enterprise-hub-datasets
-      title: Dataset viewer for Private datasets
+      title: Data Studio for Private datasets
     - local: enterprise-hub-resource-groups
       title: Resource Groups (Access Control)
     - local: advanced-compute-options

@@ -6,6 +6,25 @@ Here are some examples of Spaces using custom HTML:
 
 * [Smarter NPC](https://huggingface.co/spaces/mishig/smarter_npc): Display a PlayCanvas project with an iframe in Spaces.
 * [Huggingfab](https://huggingface.co/spaces/pierreant-p/huggingfab): Display a Sketchfab model in Spaces.
+* [Diffuse the rest](https://huggingface.co/spaces/huggingface-projects/diffuse-the-rest): Draw and diffuse the rest
+
+## Adding a build step before serving
+
+Static Spaces support adding a custom build step before serving your static assets. This is useful for frontend frameworks like React, Svelte and Vue that require a build process before serving the application. The build command runs automatically when your Space is updated.
+
+Add `app_build_command` inside the `YAML` block at the top of your Spaces **README.md** file, and `app_file`.
+
+For example:
+- `app_build_command: npm run build`
+- `app_file: dist/index.html`
+
+Example spaces: 
+
+- [Svelte App](https://huggingface.co/spaces/julien-c/vite-svelte)
+- [React App](https://huggingface.co/spaces/coyotte508/static-vite)
+
+
+Under the hood, it will [launch a build](https://huggingface.co/spaces/huggingface/space-build), storing the generated files in a special `refs/convert/build` ref.
 
 ## Space variables
 
