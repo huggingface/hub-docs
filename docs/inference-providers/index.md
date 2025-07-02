@@ -139,7 +139,7 @@ print(completion.choices[0].message)
 
 </hfoption>
 
-<hfoption id="request">
+<hfoption id="requests">
 
 If you would rather implement a lower-level integration, you can request the Inference Provider API with HTTP.
 The Inference Providers API will automatically select the most suitable provider for the requested model.
