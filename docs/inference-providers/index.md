@@ -287,9 +287,49 @@ curl https://router.huggingface.co/v1/chat/completions \
     }'
 ```
 
-### Quick Start - Image generation
+### Quick Start - Text-to-Image Generation
 
-TODO: explain how to use inference providers for text-to-image task
+Let's explore how to generate images from text prompts using Inference Providers. We'll use [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev), a state-of-the-art diffusion model that produces highly detailed, photorealistic images.
+
+#### Python
+
+Use the `huggingface_hub` library for the simplest image generation experience with automatic provider selection:
+
+```python
+import os
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(api_key=os.environ["HF_TOKEN"])
+
+image = client.text_to_image(
+    prompt="A serene lake surrounded by mountains at sunset, photorealistic style",
+    model="black-forest-labs/FLUX.1-dev"
+)
+
+# Save the generated image
+image.save("generated_image.png")
+```
+
+#### JavaScript
+
+Use our JavaScript SDK for streamlined image generation with TypeScript support:
+
+```js
+import { InferenceClient } from "@huggingface/inference";
+import fs from "fs";
+
+const client = new InferenceClient(process.env.HF_TOKEN);
+
+const imageBlob = await client.textToImage({
+  model: "black-forest-labs/FLUX.1-dev",
+  inputs:
+    "A serene lake surrounded by mountains at sunset, photorealistic style",
+});
+
+// Save the image
+const buffer = Buffer.from(await imageBlob.arrayBuffer());
+fs.writeFileSync("generated_image.png", buffer);
+```
 
 ## Advanced usage
 
