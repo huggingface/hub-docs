@@ -50,17 +50,17 @@ Inference Providers offers a fast and simple way to explore thousands of models 
 - **👷 Easy to integrate**: Drop-in replacement for the OpenAI chat completions API.
 - **💰 Cost-Effective**: No extra markup on provider rates.
 
-## Inference Playground
-
-To get started quickly with [Chat Completion models](http://huggingface.co/models?inference_provider=all&sort=trending&other=conversational), use the [Inference Playground](https://huggingface.co/playground) to easily test and compare models with your prompts.
-
-<a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 550px; width: 100%;"/></a>
-
 ## Get Started
 
 You can use Inference Providers with your preferred tools, such as Python, JavaScript, or cURL. To simplify integration, we offer both a Python SDK (`huggingface_hub`) and a JavaScript SDK (`huggingface.js`).
 
 In this section, we will demonstrate a simple example using [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a conversational Large Language Model.
+
+### Inference Playground
+
+To get started quickly with [Chat Completion models](http://huggingface.co/models?inference_provider=all&sort=trending&other=conversational), use the [Inference Playground](https://huggingface.co/playground) to easily test and compare models with your prompts.
+
+<a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 550px; width: 100%;"/></a>
 
 ### Authentication
 
