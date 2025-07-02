@@ -71,7 +71,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"hf-inference":{"modelId":"mistralai/Mistral-Small-3.1-24B-Instruct-2503","providerModelId":"mistralai/Mistral-Small-3.1-24B-Instruct-2503"} } }
+    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"meta-llama/Llama-3.2-11B-Vision-Instruct"} } }
 conversational />
 
 
