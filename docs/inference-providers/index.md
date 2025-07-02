@@ -180,7 +180,7 @@ print(response.json()["choices"][0]["message"])
 
 This section explains how to use the Inference Providers API to run inference requests with [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324) in Javascript.
 
-<hfoptions>
+<hfoptions id="js-clients">
 
 <hfoption id="huggingface.js">
 
