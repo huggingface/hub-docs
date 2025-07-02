@@ -216,7 +216,7 @@ import OpenAI from "openai";
 
 const client = new OpenAI({
   baseURL: "https://router.huggingface.co/v1",
-  apiKey: process.env["HF_TOKEN"],
+  apiKey: process.env.HF_TOKEN,
 });
 
 const completion = await client.chat.completions.create({
@@ -344,6 +344,178 @@ TODO: explain how a user or org can specify the order of selection for providers
 ### Implementation details
 
 TODO: explain implementation details? (no URL rewrite, just proxy)
+
+## Provider Selection
+
+The Inference Providers API acts as a unified proxy layer that sits between your application and multiple AI providers. Understanding how provider selection works is crucial for optimizing performance, cost, and reliability in your applications.
+
+### API as a Proxy Service
+
+When using Inference Providers, your requests go through Hugging Face's proxy infrastructure, which provides several key benefits:
+
+- **Unified Authentication & Billing**: Use a single Hugging Face token for all providers
+- **Automatic Failover**: If one provider is unavailable, requests can be routed to alternatives
+- **Rate Limiting & Load Balancing**: Intelligent distribution of requests across providers
+- **Consistent API Interface**: The same request format works across different providers
+
+Because the API acts as a proxy, the exact HTTP request may vary between providers as each provider has their own API requirements and response formats. The Hugging Face inference clients handle these provider-specific differences automatically when you use `provider="auto"` or specify a particular provider.
+
+### Client-Side Provider Selection (Inference Clients)
+
+When using the Hugging Face inference clients (JavaScript or Python), you can explicitly specify a provider or let the system choose automatically. The client then formats the HTTP request to match the selected provider's API requirements.
+
+<hfoptions id="client-side-provider-selection">
+
+<hfoption id="javascript">
+
+```javascript
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient(process.env.HF_TOKEN);
+
+// Explicit provider selection
+await client.chatCompletion({
+  model: "meta-llama/Llama-3.1-8B-Instruct",
+  provider: "sambanova", // Specific provider
+  messages: [{ role: "user", content: "Hello!" }],
+});
+
+// Automatic provider selection (default: "auto")
+await client.chatCompletion({
+  model: "meta-llama/Llama-3.1-8B-Instruct",
+  // Defaults to "auto" selection of the provider
+  // provider="auto",
+  messages: [{ role: "user", content: "Hello!" }],
+});
+```
+
+</hfoption>
+
+<hfoption id="python">
+
+```python
+import os
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(token=os.environ["HF_TOKEN"])
+
+# Explicit provider selection
+result = client.chat_completion(
+    model="meta-llama/Llama-3.1-8B-Instruct",
+    provider="sambanova",  # Specific provider
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+
+# Automatic provider selection (default: "auto")
+result = client.chat_completion(
+    model="meta-llama/Llama-3.1-8B-Instruct",
+    # Defaults to "auto" selection of the provider
+    # provider="auto",
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+```
+
+</hfoption>
+
+</hfoptions>
+
+**Provider Selection Policy:**
+
+- `provider: "auto"` (default): Selects the first available provider for the model, sorted by your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers)
+- `provider: "specific-provider"`: Forces use of a specific provider (e.g., "together", "replicate", "fal-ai", ...)
+
+### Alternative: OpenAI-Compatible Chat Completions Endpoint (Chat Only)
+
+If you prefer to work with familiar OpenAI APIs or want to migrate existing chat completion code with minimal changes, we offer a drop-in compatible endpoint that handles all provider selection automatically on the server side.
+
+**Note**: This OpenAI-compatible endpoint is currently available for chat completion tasks only. For other tasks like text-to-image, embeddings, or speech processing, use the Hugging Face inference clients shown above.
+
+<hfoptions id="openai-compatible">
+
+<hfoption id="javascript">
+
+```javascript
+import { OpenAI } from "openai";
+
+const client = new OpenAI({
+  baseURL: "https://router.huggingface.co/v1",
+  apiKey: process.env.HF_TOKEN,
+});
+
+const completion = await client.chat.completions.create({
+  model: "meta-llama/Llama-3.1-8B-Instruct",
+  messages: [{ role: "user", content: "Hello!" }],
+});
+```
+
+</hfoption>
+
+<hfoption id="python">
+
+```python
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://router.huggingface.co/v1",
+    api_key=os.environ["HF_TOKEN"],
+)
+
+completion = client.chat.completions.create(
+    model="meta-llama/Llama-3.1-8B-Instruct",
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+
+print(completion.choices[0].message.content)
+```
+
+</hfoption>
+
+</hfoptions>
+
+This endpoint can also be requested through direct HTTP access, making it suitable for integration with various HTTP clients and applications that need to interact with the chat completion service directly.
+
+```bash
+curl https://router.huggingface.co/v1/chat/completions \
+  -H "Authorization: Bearer $HF_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello!"
+      }
+    ]
+  }'
+```
+
+**Key Features:**
+
+- **Server-Side Provider Selection**: The server automatically chooses the best available provider
+- **Model Listing**: GET `/v1/models` returns available models across all providers
+- **OpenAI SDK Compatibility**: Works with existing OpenAI client libraries
+- **Chat Tasks Only**: Limited to conversational workloads
+
+### Choosing the Right Approach
+
+**Use Inference Clients when:**
+
+- You need support for all task types (text-to-image, speech, embeddings, etc.)
+- You want explicit control over provider selection
+- You're building applications that use multiple AI tasks
+
+**Use OpenAI-Compatible Endpoint when:**
+
+- You're only doing chat completions
+- You want to migrate existing OpenAI-based code with minimal changes
+- You prefer server-side provider management
+
+**Use Direct HTTP when:**
+
+- You're implementing custom request logic
+- You need fine-grained control over the request/response cycle
+- You're working in environments without available client libraries
 
 ## Next Steps
 
