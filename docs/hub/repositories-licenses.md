@@ -70,6 +70,7 @@ A full list of the available licenses is available here:
 | Mozilla Public License 2.0                                     | `mpl-2.0`                                |
 | Open Data Commons License Attribution family                   | `odc-by`                                 |
 | Open Database License family                                   | `odbl`                                   |
+| Open Model, Data & Weights License Agreement                   | `open-mdw`                                   |
 | Open Rail++-M License                                          | `openrail++`                             | <!-- license: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/LICENSE.md -->
 | Open Software License 3.0                                      | `osl-3.0`                                |
 | PostgreSQL License                                             | `postgresql`                             |
