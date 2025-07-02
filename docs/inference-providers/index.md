@@ -72,15 +72,11 @@ For more details about user tokens, check out [this guide](https://huggingface.c
 
 TODO : add blurb explaining what we're doing here (quick inference with LLM and chat completions)
 
-<hfoptions id="inference-providers-examples">
-
-<hfoption id="python">
-
-**Python**
+#### Python
 
 This section explains how to use the Inference Providers API to run inference requests with [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324) in Python.
 
-<hfoptions id="clients">
+<hfoptions id="python-clients">
 
 <hfoption id="huggingface_hub">
 
@@ -173,15 +169,11 @@ print(response.json()["choices"][0]["message"])
 
 </hfoptions>
 
-</hfoption>
-
-<hfoption id="javascript">
-
-**JavaScript**
+#### JavaScript
 
 This section explains how to use the Inference Providers API to run inference requests with [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324) in Javascript.
 
-<hfoptions id="js-clients">
+<hfoptions id="javascript-clients">
 
 <hfoption id="huggingface.js">
 
@@ -275,11 +267,7 @@ console.log(await response.json());
 
 </hfoptions>
 
-</hfoption>
-
-<hfoption id="curl">
-
-**cURL / HTTP**
+#### HTTP / cURL
 
 The following cURL command highlighting the raw HTTP request. You can adapt this request to be run with the tool of your choice.
 
@@ -300,10 +288,6 @@ curl https://router.huggingface.co/v1/chat/completions \
         "stream": false
     }'
 ```
-
-</hfoption>
-
-</hfoptions>
 
 ### Quick Start - Image generation
 
