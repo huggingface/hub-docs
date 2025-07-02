@@ -37,7 +37,7 @@ You can also keep track of the latest LLM TGI DLC releases [here](https://github
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-tgi-inference:2.6.0-tgi3.2.3-gpu-py311-cu124-ubuntu22.04 | GPU         |
+| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-tgi-inference:2.7.0-tgi3.3.4-gpu-py311-cu124-ubuntu22.04 | GPU         |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-tgi-inference:2.1.2-optimum0.0.28-neuronx-py310-ubuntu22.04 | Neuron         |
 
 ### Text Embedding Inference
@@ -46,8 +46,8 @@ Finally, there is a Text Embeddings Inference (TEI) DLC for high-performance ser
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.7.0-cpu-py310-ubuntu22.04 | CPU         |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.7.0-gpu-py310-cu122-ubuntu22.04 | GPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:tei1.7.1-cpu-ubuntu22.04 | CPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:tei1.7.1-gpu-cu122-ubuntu22.04 | GPU         |
 
 ## FAQ
 
