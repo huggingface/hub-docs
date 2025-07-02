@@ -11,7 +11,7 @@ To learn more about the launch of Inference Providers, check out our [announceme
 
 ## Partners
 
-Here is the complete list of partners integrated with Inference Providers, and the supported tasks for each of them:
+Our platform integrates with leading AI infrastructure providers, giving you access to their specialized capabilities through a single, consistent API. Here's what each partner supports:
 
 | Provider                                     | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video |
 | -------------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: |
@@ -30,16 +30,24 @@ Here is the complete list of partners integrated with Inference Providers, and t
 | [SambaNova](./providers/sambanova)           |          ✅           |                       |         ✅         |               |               |
 | [Together](./providers/together)             |          ✅           |          ✅           |                    |      ✅       |               |
 
-## Why use Inference Providers?
+## Why Choose Inference Providers?
 
-Inference Providers offers a fast and simple way to explore thousands of models for a variety of tasks. Whether you're experimenting with ML capabilities or building a new application, this API gives you instant access to high-performing models across multiple domains:
+If you're building AI-powered applications, you've likely experienced the pain points of managing multiple provider APIs, comparing model performance, and dealing with varying reliability. Inference Providers solves these challenges by offering:
 
-- **Text Generation:** Including large language models and tool-calling prompts, generate and experiment with high-quality responses.
-- **Image and Video Generation:** Easily create customized images, including LoRAs for your own styles.
-- **Document Embeddings:** Build search and retrieval systems with SOTA embeddings.
-- **Classical AI Tasks:** Ready-to-use models for text classification, image classification, speech recognition, and more.
+**Instant Access to Cutting-Edge Models**: Go beyond mainstream providers to access thousands of specialized models across multiple AI tasks. Whether you need the latest language models, state-of-the-art image generators, or domain-specific embeddings, you'll find them here.
 
-⚡ **Fast and Free to Get Started**: Inference Providers comes with a free-tier and additional included credits for [PRO users](https://hf.co/subscribe/pro), as well as [Enterprise Hub organizations](https://huggingface.co/enterprise).
+**Zero Vendor Lock-in**: Unlike being tied to a single provider's model catalog, you get access to models from Cerebras, Groq, Together AI, Replicate, and more — all through one consistent interface.
+
+**Production-Ready Performance**: Built for enterprise workloads with automatic failover, intelligent routing, and the reliability your applications demand.
+
+Here's what you can build:
+
+- **Text Generation**: Use Large language models with tool-calling capabilities for chatbots, content generation, and code assistance
+- **Image and Video Generation**: Create custom images and videos, including support for LoRAs and style customization
+- **Search & Retrieval**: State-of-the-art embeddings for semantic search, RAG systems, and recommendation engines
+- **Traditional ML Tasks**: Ready-to-use models for classification, NER, summarization, and speech recognition
+
+⚡ **Get Started for Free**: Inference Providers includes a generous free tier, with additional credits for [PRO users](https://hf.co/subscribe/pro) and [Enterprise Hub organizations](https://huggingface.co/enterprise).
 
 ## Key Features
 
@@ -50,23 +58,23 @@ Inference Providers offers a fast and simple way to explore thousands of models 
 - **👷 Easy to integrate**: Drop-in replacement for the OpenAI chat completions API.
 - **💰 Cost-Effective**: No extra markup on provider rates.
 
-## Get Started
+## Getting Started
 
-You can use Inference Providers with your preferred tools, such as Python, JavaScript, or cURL. To simplify integration, we offer both a Python SDK (`huggingface_hub`) and a JavaScript SDK (`huggingface.js`).
+Inference Providers works with your existing development workflow. Whether you prefer Python, JavaScript, or direct HTTP calls, we provide native SDKs and OpenAI-compatible APIs to get you up and running quickly.
 
-In this section, we will demonstrate a simple example using [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a conversational Large Language Model.
+We'll walk through a practical example using [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a state-of-the-art open-weights conversational model.
 
 ### Inference Playground
 
-To get started quickly with [Chat Completion models](http://huggingface.co/models?inference_provider=all&sort=trending&other=conversational), use the [Inference Playground](https://huggingface.co/playground) to easily test and compare models with your prompts.
+Before diving into integration, explore models interactively with our [Inference Playground](https://huggingface.co/playground). Test different [chat completion models](http://huggingface.co/models?inference_provider=all&sort=trending&other=conversational) with your prompts and compare responses to find the perfect fit for your use case.
 
 <a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 550px; width: 100%;"/></a>
 
 ### Authentication
 
-Inference Providers requires passing a user token in the request headers. You can generate a token by signing up on the Hugging Face website and going to the [settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained). We recommend creating a `fine-grained` token with the scope to `Make calls to Inference Providers`.
+You'll need a Hugging Face token to authenticate your requests. Create one by visiting your [token settings](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) and generating a `fine-grained` token with `Make calls to Inference Providers` permissions.
 
-For more details about user tokens, check out [this guide](https://huggingface.co/docs/hub/en/security-tokens).
+For complete token management details, see our [security tokens guide](https://huggingface.co/docs/hub/en/security-tokens).
 
 ### Quick Start - LLM
 
@@ -74,16 +82,15 @@ TODO : add blurb explaining what we're doing here (quick inference with LLM and 
 
 #### Python
 
-This section explains how to use the Inference Providers API to run inference requests with [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324) in Python.
+Here are three ways to integrate Inference Providers into your Python applications, from high-level convenience to low-level control:
 
 <hfoptions id="python-clients">
 
 <hfoption id="huggingface_hub">
 
-For convenience, the Python library `huggingface_hub` provides an [`InferenceClient`](https://huggingface.co/docs/huggingface_hub/guides/inference) that handles inference for you.
-The most suitable provider is automatically selected by the client library.
+For convenience, the `huggingface_hub` library provides an [`InferenceClient`](https://huggingface.co/docs/huggingface_hub/guides/inference) that automatically handles provider selection and request routing.
 
-Make sure to install it with `pip install huggingface_hub`.
+Install with `pip install huggingface_hub`:
 
 ```python
 import os
@@ -110,10 +117,9 @@ print(completion.choices[0].message)
 
 <hfoption id="openai">
 
-The Inference Providers API can be used as a drop-in replacement for the OpenAI API (or any chat completions compatible API) for your preferred client.
-Just replace the chat completion base URL with `https://router.huggingface.co/v1`.
-The most suitable provider for the model is automatically selected by the hugging face server.
-For example, with the OpenAI Python client:
+**Drop-in OpenAI Replacement**: Already using OpenAI's Python client? Just change the base URL to instantly access hundreds of additional open-weights models through our provider network.
+
+Our system automatically routes your request to the optimal provider for the specified model:
 
 ```python
 import os
@@ -125,7 +131,7 @@ client = OpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="deepseek-ai/DeepSeek-V3-024",
+    model="deepseek-ai/DeepSeek-V3-0324",
     messages=[
         {
             "role": "user",
@@ -141,9 +147,9 @@ print(completion.choices[0].message)
 
 <hfoption id="requests">
 
-If you would rather implement a lower-level integration, you can request the Inference Provider API with HTTP.
-The Inference Providers API will automatically select the most suitable provider for the requested model.
-For example with the `requests` library:
+**Direct HTTP Integration**: For maximum control or integration with custom frameworks, use our OpenAI-compatible REST API directly.
+
+Our routing system automatically selects the best available provider for your chosen model:
 
 ```python
 import os
@@ -158,7 +164,7 @@ payload = {
             "content": "How many 'G's in 'huggingface'?"
         }
     ],
-    "model": "deepseek/deepseek-v3-0324",
+    "model": "deepseek-ai/DeepSeek-V3-0324",
 }
 
 response = requests.post(API_URL, headers=headers, json=payload)
@@ -171,16 +177,15 @@ print(response.json()["choices"][0]["message"])
 
 #### JavaScript
 
-This section explains how to use the Inference Providers API to run inference requests with [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324) in Javascript.
+Integrate Inference Providers into your JavaScript applications with these flexible approaches:
 
 <hfoptions id="javascript-clients">
 
 <hfoption id="huggingface.js">
 
-For convenience, the JS library `@huggingface/inference` provides an [`InferenceClient`](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient) that handles inference for you.
-The most suitable provider is automatically selected by the client library.
+Our JavaScript SDK provides a convenient interface with automatic provider selection and TypeScript support.
 
-You can install it with `npm install @huggingface/inference`.
+Install with `npm install @huggingface/inference`:
 
 ```js
 import { InferenceClient } from "@huggingface/inference";
@@ -204,10 +209,7 @@ console.log(chatCompletion.choices[0].message);
 
 <hfoption id="openai">
 
-The Inference Providers API can be used as a drop-in replacement for the OpenAI API (or any chat completions compatible API) for your preferred client.
-Just replace the chat completion base URL with `https://router.huggingface.co/v1`.
-The most suitable provider for the model is automatically selected by the hugging face server.
-For example, with the OpenAI JS client:
+**OpenAI JavaScript Client Compatible**: Migrate your existing OpenAI integration seamlessly by updating just the base URL:
 
 ```javascript
 import OpenAI from "openai";
@@ -234,9 +236,7 @@ console.log(completion.choices[0].message.content);
 
 <hfoption id="fetch">
 
-If you would rather implement a lower-level integration, you can request the Inference Provider API with HTTP.
-The Inference Providers API will automatically select the most suitable provider for the requested model.
-For example, using `fetch`:
+**Native Fetch Integration**: For lightweight applications or custom implementations, use our REST API directly with standard fetch:
 
 ```js
 import fetch from "node-fetch";
@@ -269,9 +269,7 @@ console.log(await response.json());
 
 #### HTTP / cURL
 
-The following cURL command highlighting the raw HTTP request. You can adapt this request to be run with the tool of your choice.
-
-The most suitable provider for the requested model will be automatically selected by the server.
+For testing, debugging, or integrating with any HTTP client, here's the raw REST API format. Our intelligent routing automatically selects the optimal provider for your requested model:
 
 ```bash
 curl https://router.huggingface.co/v1/chat/completions \
@@ -284,7 +282,7 @@ curl https://router.huggingface.co/v1/chat/completions \
                 "content": "How many G in huggingface?"
             }
         ],
-        "model": "deepseek/deepseek-v3-0324",
+        "model": "deepseek-ai/DeepSeek-V3-0324",
         "stream": false
     }'
 ```
@@ -309,10 +307,10 @@ TODO: explain implementation details? (no URL rewrite, just proxy)
 
 ## Next Steps
 
-In this introduction, we've covered the basics of Inference Providers. To learn more about this service, check out our guides and API Reference:
+Now that you understand the basics, explore these resources to make the most of Inference Providers:
 
-- [Pricing and Billing](./pricing): everything you need to know about billing.
-- [Hub integration](./hub-integration): how is Inference Providers integrated with the Hub?
-- [Register as an Inference Provider](./register-as-a-provider): everything about how to become an official partner.
-- [Hub API](./hub-api): high-level API for Inference Providers.
-- [API Reference](./tasks/index): learn more about the parameters and task-specific settings.
+- **[Pricing and Billing](./pricing)**: Understand costs and billing of Inference Providers
+- **[Hub Integration](./hub-integration)**: Learn how Inference Providers are integrated with the Hugging Face Hub
+- **[Register as a Provider](./register-as-a-provider)**: Requirements to join our partner network as a provider
+- **[Hub API](./hub-api)**: Advanced API features and configuration
+- **[API Reference](./tasks/index)**: Complete parameter documentation for all supported tasks
