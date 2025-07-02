@@ -331,20 +331,6 @@ const buffer = Buffer.from(await imageBlob.arrayBuffer());
 fs.writeFileSync("generated_image.png", buffer);
 ```
 
-## Advanced usage
-
-### Provider selection
-
-TODO : explain how providers are selected in auto policy (client vs server selection)
-
-TODO: explain the chat completion auto URLs vs Provider URLs
-
-TODO: explain how a user or org can specify the order of selection for providers
-
-### Implementation details
-
-TODO: explain implementation details? (no URL rewrite, just proxy)
-
 ## Provider Selection
 
 The Inference Providers API acts as a unified proxy layer that sits between your application and multiple AI providers. Understanding how provider selection works is crucial for optimizing performance, cost, and reliability in your applications.
