@@ -78,7 +78,9 @@ For complete token management details, see our [security tokens guide](https://h
 
 ### Quick Start - LLM
 
-TODO : add blurb explaining what we're doing here (quick inference with LLM and chat completions)
+Let's start with the most common use case: conversational AI using large language models. This section demonstrates how to perform chat completions using DeepSeek V3, showcasing the different ways you can integrate Inference Providers into your applications.
+
+Whether you prefer our native clients, want OpenAI compatibility, or need direct HTTP access, we'll show you how to get up and running with just a few lines of code.
 
 #### Python
 
