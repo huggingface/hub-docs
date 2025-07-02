@@ -80,7 +80,7 @@ TODO : add blurb explaining what we're doing here (quick inference with LLM and 
 
 This section explains how to use the Inference Providers API to run inference requests with [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324) in Python.
 
-<hfoptions>
+<hfoptions id="clients">
 
 <hfoption id="huggingface_hub">
 
@@ -271,7 +271,9 @@ console.log(await response.json());
 ```
 
 </hfoption>
+
 </hfoptions>
+
 </hfoption>
 
 <hfoption id="curl">
