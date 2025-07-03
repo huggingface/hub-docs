@@ -1,6 +1,6 @@
 # Inference Providers
 
-Hugging Face's model pages have free inference for thousands of models, so you can try them all out right in the browser. It's also powered by Inference Providers.
+Hugging Face's model pages have pay-as-you-go inference for thousands of models, so you can try them all out right in the browser. Service is powered by Inference Providers and includes a free-tier.
 
 Inference Providers give developers streamlined, unified access to hundreds of machine learning models, powered by the best serverless inference partners. 👉 **For complete documentation, visit the [Inference Providers Documentation](https://huggingface.co/docs/inference-providers)**.
 
@@ -8,7 +8,7 @@ Inference Providers give developers streamlined, unified access to hundreds of m
 
 Inference Providers is deeply integrated with the Hugging Face Hub, and you can use it in a few different ways:
 
-- **Interactive Widgets** - Test models directly on model pages with interactive widgets that use Inference Providers under the hood. Check out the [DeepSeek-R1-0528 model page](https://huggingface.co/models/deepseek-ai/DeepSeek-R1-0528) for an example.
+- **Interactive Widgets** - Test models directly on model pages with interactive widgets that use Inference Providers under the hood. Check out the [DeepSeek-R1-0528 model page](https://huggingface.co/deepseek-ai/DeepSeek-R1-0528) for an example.
 - **Inference Playground** - Easily test and compare chat completion models with your prompts. Check out the [Inference Playground](https://huggingface.co/playground) to get started.
 - **Search** - Filter models by inference provider on the [models page](https://huggingface.co/models?inference_provider=all) to find models available through specific providers.
 - **Data Studio** - Use AI to explore datasets on the Hub. Check out [Data Studio](https://huggingface.co/datasets/fka/awesome-chatgpt-prompts/viewer?views%5B%5D=train) on your favorite dataset.
@@ -24,7 +24,12 @@ You can integrate Inference Providers into your own applications using our SDKs 
 ```python
 from huggingface_hub import InferenceClient
 
-client = InferenceClient(provider="auto")  # Automatically selects best provider
+import os
+
+client = InferenceClient(
+    api_key=os.environ["HF_TOKEN"],
+    provider="auto",   # Automatically selects best provider
+)
 
 # Chat completion
 completion = client.chat.completions.create(
