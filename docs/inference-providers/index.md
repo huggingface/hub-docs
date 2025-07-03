@@ -32,13 +32,13 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 
 ## Why Choose Inference Providers?
 
-If you're building AI-powered applications, you've likely experienced the pain points of managing multiple provider APIs, comparing model performance, and dealing with varying reliability. Inference Providers solves these challenges by offering:
+When you build AI applications, it's tough to manage multiple provider APIs, comparing model performance, and dealing with varying reliability. Inference Providers solves these challenges by offering:
 
 **Instant Access to Cutting-Edge Models**: Go beyond mainstream providers to access thousands of specialized models across multiple AI tasks. Whether you need the latest language models, state-of-the-art image generators, or domain-specific embeddings, you'll find them here.
 
 **Zero Vendor Lock-in**: Unlike being tied to a single provider's model catalog, you get access to models from Cerebras, Groq, Together AI, Replicate, and more — all through one consistent interface.
 
-**Production-Ready Performance**: Built for enterprise workloads with automatic failover, intelligent routing, and the reliability your applications demand.
+**Production-Ready Performance**: Built for enterprise workloads with automatic failover i.e. ~0 downtime, intelligent routing, and the reliability your applications demand.
 
 Here's what you can build:
 
@@ -68,7 +68,7 @@ We'll walk through a practical example using [deepseek-ai/DeepSeek-V3-0324](http
 
 Before diving into integration, explore models interactively with our [Inference Playground](https://huggingface.co/playground). Test different [chat completion models](http://huggingface.co/models?inference_provider=all&sort=trending&other=conversational) with your prompts and compare responses to find the perfect fit for your use case.
 
-<a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 550px; width: 100%;"/></a>
+<a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" alt="Inference Playground thumbnail" style="max-width: 550px; width: 100%;"/></a>
 
 ### Authentication
 
@@ -92,7 +92,14 @@ Here are three ways to integrate Inference Providers into your Python applicatio
 
 For convenience, the `huggingface_hub` library provides an [`InferenceClient`](https://huggingface.co/docs/huggingface_hub/guides/inference) that automatically handles provider selection and request routing.
 
-Install with `pip install huggingface_hub`:
+In your terminal, install the Hugging Face Hub Python client and log in:
+
+```shell
+pip install huggingface_hub
+huggingface-cli login # get a read token from hf.co/settings/tokens
+```
+
+You can now use the the client with a Python interpreter:
 
 ```python
 import os
@@ -119,7 +126,7 @@ print(completion.choices[0].message)
 
 <hfoption id="openai">
 
-**Drop-in OpenAI Replacement**: Already using OpenAI's Python client? Just change the base URL to instantly access hundreds of additional open-weights models through our provider network.
+If you're already using OpenAI's Python client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
 Our system automatically routes your request to the optimal provider for the specified model:
 
@@ -142,14 +149,14 @@ completion = client.chat.completions.create(
     ],
 )
 
-print(completion.choices[0].message)
+For maximum control and interoperability with custom frameworks, use our OpenAI-compatible REST API directly.
 ```
 
 </hfoption>
 
 <hfoption id="requests">
 
-**Direct HTTP Integration**: For maximum control or integration with custom frameworks, use our OpenAI-compatible REST API directly.
+For maximum control and interoperability with custom frameworks, use our OpenAI-compatible REST API directly.
 
 Our routing system automatically selects the best available provider for your chosen model:
 
@@ -187,7 +194,13 @@ Integrate Inference Providers into your JavaScript applications with these flexi
 
 Our JavaScript SDK provides a convenient interface with automatic provider selection and TypeScript support.
 
-Install with `npm install @huggingface/inference`:
+Install with NPM:
+
+```shell
+npm install @huggingface/inference
+```
+
+Then use the client with Javascript:
 
 ```js
 import { InferenceClient } from "@huggingface/inference";
@@ -211,7 +224,7 @@ console.log(chatCompletion.choices[0].message);
 
 <hfoption id="openai">
 
-**OpenAI JavaScript Client Compatible**: Migrate your existing OpenAI integration seamlessly by updating just the base URL:
+If you're already using OpenAI's Python client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
 ```javascript
 import OpenAI from "openai";
