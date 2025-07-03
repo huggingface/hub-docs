@@ -11,35 +11,43 @@ To learn more about the launch of Inference Providers, check out our [announceme
 
 ## Partners
 
-Here is the complete list of partners integrated with Inference Providers, and the supported tasks for each of them:
+Our platform integrates with leading AI infrastructure providers, giving you access to their specialized capabilities through a single, consistent API. Here's what each partner supports:
 
-| Provider                                 | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video | Speech to text |
-| ---------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: | :-----------: |
-| [Cerebras](./providers/cerebras)         |           ✅           |                       |                    |               |               |               |
-| [Cohere](./providers/cohere)             |           ✅           |           ✅           |                    |               |               |               |
-| [Fal AI](./providers/fal-ai)             |                       |                       |                    |       ✅       |       ✅       |       ✅       |
-| [Featherless AI](./providers/featherless-ai) |    ✅           |            ✅           |                     |             |                |               |
-| [Fireworks](./providers/fireworks-ai)    |           ✅           |           ✅           |                    |               |               |               |
-| [Groq](./providers/groq)                  |           ✅           |                       |                    |               |               |               |
-| [HF Inference](./providers/hf-inference) |           ✅           |           ✅           |         ✅          |       ✅       |               |       ✅       |
-| [Hyperbolic](./providers/hyperbolic)     |           ✅           |           ✅           |                    |               |               |               |
-| [Nebius](./providers/nebius)             |           ✅           |           ✅           |         ✅         |       ✅       |               |               |
-| [Novita](./providers/novita)             |           ✅           |           ✅           |                    |               |       ✅       |               |
-| [Nscale](./providers/nscale)             |           ✅           |           ✅           |                    |      ✅        |              |               |
-| [Replicate](./providers/replicate)       |                       |                       |                    |       ✅       |       ✅       |       ✅       |
-| [SambaNova](./providers/sambanova)       |           ✅           |                       |         ✅          |               |               |               |
-| [Together](./providers/together)         |           ✅           |           ✅           |                    |       ✅       |               |               |
+| Provider                                     | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video | Speech to text |
+| -------------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: | :------------: |
+| [Cerebras](./providers/cerebras)             |          ✅           |                       |                    |               |               |                |
+| [Cohere](./providers/cohere)                 |          ✅           |          ✅           |                    |               |               |                |
+| [Fal AI](./providers/fal-ai)                 |                       |                       |                    |      ✅       |      ✅       |       ✅       |
+| [Featherless AI](./providers/featherless-ai) |          ✅           |          ✅           |                    |               |               |                |
+| [Fireworks](./providers/fireworks-ai)        |          ✅           |          ✅           |                    |               |               |                |
+| [Groq](./providers/groq)                     |          ✅           |                       |                    |               |               |                |
+| [HF Inference](./providers/hf-inference)     |          ✅           |          ✅           |         ✅         |      ✅       |               |       ✅       |
+| [Hyperbolic](./providers/hyperbolic)         |          ✅           |          ✅           |                    |               |               |                |
+| [Nebius](./providers/nebius)                 |          ✅           |          ✅           |         ✅         |      ✅       |               |                |
+| [Novita](./providers/novita)                 |          ✅           |          ✅           |                    |               |      ✅       |                |
+| [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |      ✅       |               |                |
+| [Replicate](./providers/replicate)           |                       |                       |                    |      ✅       |      ✅       |       ✅       |
+| [SambaNova](./providers/sambanova)           |          ✅           |                       |         ✅         |               |               |                |
+| [Together](./providers/together)             |          ✅           |          ✅           |                    |      ✅       |               |                |
 
-## Why use Inference Providers?
+## Why Choose Inference Providers?
 
-Inference Providers offers a fast and simple way to explore thousands of models for a variety of tasks. Whether you're experimenting with ML capabilities or building a new application, this API gives you instant access to high-performing models across multiple domains:
+When you build AI applications, it's tough to manage multiple provider APIs, comparing model performance, and dealing with varying reliability. Inference Providers solves these challenges by offering:
 
-* **Text Generation:** Including large language models and tool-calling prompts, generate and experiment with high-quality responses.
-* **Image and Video Generation:** Easily create customized images, including LoRAs for your own styles.
-* **Document Embeddings:** Build search and retrieval systems with SOTA embeddings.
-* **Classical AI Tasks:** Ready-to-use models for text classification, image classification, speech recognition, and more.
+**Instant Access to Cutting-Edge Models**: Go beyond mainstream providers to access thousands of specialized models across multiple AI tasks. Whether you need the latest language models, state-of-the-art image generators, or domain-specific embeddings, you'll find them here.
 
-⚡ **Fast and Free to Get Started**: Inference Providers comes with a free-tier and additional included credits for [PRO users](https://hf.co/subscribe/pro), as well as [Enterprise Hub organizations](https://huggingface.co/enterprise).
+**Zero Vendor Lock-in**: Unlike being tied to a single provider's model catalog, you get access to models from Cerebras, Groq, Together AI, Replicate, and more — all through one consistent interface.
+
+**Production-Ready Performance**: Built for enterprise workloads with automatic failover i.e. ~0 downtime, intelligent routing, and the reliability your applications demand.
+
+Here's what you can build:
+
+- **Text Generation**: Use Large language models with tool-calling capabilities for chatbots, content generation, and code assistance
+- **Image and Video Generation**: Create custom images and videos, including support for LoRAs and style customization
+- **Search & Retrieval**: State-of-the-art embeddings for semantic search, RAG systems, and recommendation engines
+- **Traditional ML Tasks**: Ready-to-use models for classification, NER, summarization, and speech recognition
+
+⚡ **Get Started for Free**: Inference Providers includes a generous free tier, with additional credits for [PRO users](https://hf.co/subscribe/pro) and [Enterprise Hub organizations](https://huggingface.co/enterprise).
 
 ## Key Features
 
@@ -47,92 +55,57 @@ Inference Providers offers a fast and simple way to explore thousands of models 
 - **🔀 Multi-Provider Support**: Easily run models from top-tier providers like fal, Replicate, Sambanova, Together AI, and others.
 - **🚀 Scalable & Reliable**: Built for high availability and low-latency performance in production environments.
 - **🔧 Developer-Friendly**: Simple requests, fast responses, and a consistent developer experience across Python and JavaScript clients.
+- **👷 Easy to integrate**: Drop-in replacement for the OpenAI chat completions API.
 - **💰 Cost-Effective**: No extra markup on provider rates.
 
-## Inference Playground
+## Getting Started
 
-To get started quickly with [Chat Completion models](http://huggingface.co/models?inference_provider=all&sort=trending&other=conversational), use the [Inference Playground](https://huggingface.co/playground) to easily test and compare models with your prompts.
+Inference Providers works with your existing development workflow. Whether you prefer Python, JavaScript, or direct HTTP calls, we provide native SDKs and OpenAI-compatible APIs to get you up and running quickly.
 
-<a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" style="max-width: 550px; width: 100%;"/></a>
+We'll walk through a practical example using [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a state-of-the-art open-weights conversational model.
 
-## Get Started
+### Inference Playground
 
-You can use Inference Providers with your preferred tools, such as Python, JavaScript, or cURL. To simplify integration, we offer both a Python SDK (`huggingface_hub`) and a JavaScript SDK (`huggingface.js`).
+Before diving into integration, explore models interactively with our [Inference Playground](https://huggingface.co/playground). Test different [chat completion models](http://huggingface.co/models?inference_provider=all&sort=trending&other=conversational) with your prompts and compare responses to find the perfect fit for your use case.
 
-In this section, we will demonstrate a simple example using [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a conversational Large Language Model. For the example, we will use [Novita AI](https://novita.ai/) as Inference Provider.
-
-> [!TIP]
-> You can also automatically select a provider for a model using `provider="auto"` — it will pick the first available provider for your model based on your preferred order set in https://hf.co/settings/inference-providers.
-> This is the default if you don't specify a provider in our Python or JavaScript SDK.
+<a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" alt="Inference Playground thumbnail" style="max-width: 550px; width: 100%;"/></a>
 
 ### Authentication
 
-Inference Providers requires passing a user token in the request headers. You can generate a token by signing up on the Hugging Face website and going to the [settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained). We recommend creating a `fine-grained` token with the scope to `Make calls to Inference Providers`.
+You'll need a Hugging Face token to authenticate your requests. Create one by visiting your [token settings](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) and generating a `fine-grained` token with `Make calls to Inference Providers` permissions.
 
-For more details about user tokens, check out [this guide](https://huggingface.co/docs/hub/en/security-tokens).
+For complete token management details, see our [security tokens guide](https://huggingface.co/docs/hub/en/security-tokens).
 
-### Quick Start
+### Quick Start - LLM
 
-<hfoptions id="inference-providers-examples">
-<hfoption id="curl">
+Let's start with the most common use case: conversational AI using large language models. This section demonstrates how to perform chat completions using DeepSeek V3, showcasing the different ways you can integrate Inference Providers into your applications.
 
-**cURL**
+Whether you prefer our native clients, want OpenAI compatibility, or need direct HTTP access, we'll show you how to get up and running with just a few lines of code.
 
-Let's start with a cURL command highlighting the raw HTTP request. You can adapt this request to be run with the tool of your choice.
+#### Python
 
-```bash
-curl https://router.huggingface.co/novita/v3/openai/chat/completions \
-    -H "Authorization: Bearer $HF_TOKEN" \
-    -H 'Content-Type: application/json' \
-    -d '{
-        "messages": [
-            {
-                "role": "user",
-                "content": "How many G in huggingface?"
-            }
-        ],
-        "model": "deepseek/deepseek-v3-0324",
-        "stream": false
-    }'
+Here are three ways to integrate Inference Providers into your Python applications, from high-level convenience to low-level control:
+
+<hfoptions id="python-clients">
+
+<hfoption id="huggingface_hub">
+
+For convenience, the `huggingface_hub` library provides an [`InferenceClient`](https://huggingface.co/docs/huggingface_hub/guides/inference) that automatically handles provider selection and request routing.
+
+In your terminal, install the Hugging Face Hub Python client and log in:
+
+```shell
+pip install huggingface_hub
+huggingface-cli login # get a read token from hf.co/settings/tokens
 ```
 
-</hfoption>
-<hfoption id="python">
-
-**Python**
-
-In Python, you can use the `requests` library to make raw requests to the API:
-
-```python
-import os
-import requests
-
-API_URL = "https://router.huggingface.co/novita/v3/openai/chat/completions"
-headers = {"Authorization": f"Bearer {os.environ['HF_TOKEN']}"}
-payload = {
-    "messages": [
-        {
-            "role": "user",
-            "content": "How many 'G's in 'huggingface'?"
-        }
-    ],
-    "model": "deepseek/deepseek-v3-0324",
-}
-
-response = requests.post(API_URL, headers=headers, json=payload)
-print(response.json()["choices"][0]["message"])
-```
-
-For convenience, the Python library `huggingface_hub` provides an [`InferenceClient`](https://huggingface.co/docs/huggingface_hub/guides/inference) that handles inference for you. Make sure to install it with `pip install huggingface_hub`.
+You can now use the the client with a Python interpreter:
 
 ```python
 import os
 from huggingface_hub import InferenceClient
 
-client = InferenceClient(
-    provider="novita",
-    api_key=os.environ["HF_TOKEN"],
-)
+client = InferenceClient()
 
 completion = client.chat.completions.create(
     model="deepseek-ai/DeepSeek-V3-0324",
@@ -148,39 +121,83 @@ print(completion.choices[0].message)
 ```
 
 </hfoption>
-<hfoption id="javascript">
 
-**JavaScript**
+<hfoption id="openai">
 
-In JS, you can use the `fetch` library to make raw requests to the API:
+If you're already using OpenAI's Python client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
-```js
-import fetch from "node-fetch";
+Our system automatically routes your request to the most popular provider for the specified model. You can also order the available providers from your [user settings](https://huggingface.co/settings/inference-providers), in that case we will route your request to the first provider supporting the model.
 
-const response = await fetch(
-    "https://router.huggingface.co/novita/v3/openai/chat/completions",
-    {
-        method: "POST",
-        headers: {
-            Authorization: `Bearer ${process.env.HF_TOKEN}`,
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            provider: "novita",
-            model: "deepseek-ai/DeepSeek-V3-0324",
-            messages: [
-                {
-                    role: "user",
-                    content: "How many 'G's in 'huggingface'?",
-                },
-            ],
-        }),
-    }
-);
-console.log(await response.json());
+```python
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://router.huggingface.co/v1",
+    api_key=os.environ["HF_TOKEN"],
+)
+
+completion = client.chat.completions.create(
+    model="deepseek-ai/DeepSeek-V3-0324",
+    messages=[
+        {
+            "role": "user",
+            "content": "How many 'G's in 'huggingface'?"
+        }
+    ],
+)
 ```
 
-For convenience, the JS library `@huggingface/inference` provides an [`InferenceClient`](https://huggingface.co/docs/huggingface.js/inference/classes/InferenceClient) that handles inference for you. You can install it with `npm install @huggingface/inference`.
+</hfoption>
+
+<hfoption id="requests">
+
+For maximum control and interoperability with custom frameworks, use our OpenAI-compatible REST API directly.
+
+Our routing system automatically selects the most popular available provider for your chosen model,
+or to your preferred provider if you've sorted the providers from your [user settings](https://huggingface.co/settings/inference-providers).
+
+```python
+import os
+import requests
+
+API_URL = "https://router.huggingface.co/v1/chat/completions"
+headers = {"Authorization": f"Bearer {os.environ['HF_TOKEN']}"}
+payload = {
+    "messages": [
+        {
+            "role": "user",
+            "content": "How many 'G's in 'huggingface'?"
+        }
+    ],
+    "model": "deepseek-ai/DeepSeek-V3-0324",
+}
+
+response = requests.post(API_URL, headers=headers, json=payload)
+print(response.json()["choices"][0]["message"])
+```
+
+</hfoption>
+
+</hfoptions>
+
+#### JavaScript
+
+Integrate Inference Providers into your JavaScript applications with these flexible approaches:
+
+<hfoptions id="javascript-clients">
+
+<hfoption id="huggingface.js">
+
+Our JavaScript SDK provides a convenient interface with automatic provider selection and TypeScript support.
+
+Install with NPM:
+
+```shell
+npm install @huggingface/inference
+```
+
+Then use the client with Javascript:
 
 ```js
 import { InferenceClient } from "@huggingface/inference";
@@ -188,27 +205,325 @@ import { InferenceClient } from "@huggingface/inference";
 const client = new InferenceClient(process.env.HF_TOKEN);
 
 const chatCompletion = await client.chatCompletion({
-    provider: "novita",
-    model: "deepseek-ai/DeepSeek-V3-0324",
-    messages: [
-        {
-            role: "user",
-            content: "How many 'G's in 'huggingface'?",
-        },
-    ],
+  model: "deepseek-ai/DeepSeek-V3-0324",
+  messages: [
+    {
+      role: "user",
+      content: "How many 'G's in 'huggingface'?",
+    },
+  ],
 });
 
 console.log(chatCompletion.choices[0].message);
 ```
 
 </hfoption>
+
+<hfoption id="openai">
+
+If you're already using OpenAI's Javascript client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
+
+```javascript
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  baseURL: "https://router.huggingface.co/v1",
+  apiKey: process.env.HF_TOKEN,
+});
+
+const completion = await client.chat.completions.create({
+  model: "deepseek-ai/DeepSeek-V3-0324",
+  messages: [
+    {
+      role: "user",
+      content: "How many 'G's in 'huggingface'?",
+    },
+  ],
+});
+
+console.log(completion.choices[0].message.content);
+```
+
+</hfoption>
+
+<hfoption id="fetch">
+
+For lightweight applications or custom implementations, use our REST API directly with standard fetch.
+
+Our routing system automatically selects the most popular available provider for your chosen model,
+or to your preferred provider if you've sorted the providers from your [user settings](https://huggingface.co/settings/inference-providers).
+
+```js
+import fetch from "node-fetch";
+
+const response = await fetch(
+  "https://router.huggingface.co/v1/chat/completions",
+  {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.HF_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "deepseek-ai/DeepSeek-V3-0324",
+      messages: [
+        {
+          role: "user",
+          content: "How many 'G's in 'huggingface'?",
+        },
+      ],
+    }),
+  }
+);
+console.log(await response.json());
+```
+
+</hfoption>
+
 </hfoptions>
+
+#### HTTP / cURL
+
+For testing, debugging, or integrating with any HTTP client, here's the raw REST API format. Our intelligent routing automatically selects the most popular provider for your requested model,
+or to your preferred provider if you've sorted the providers from your [user settings](https://huggingface.co/settings/inference-providers).
+
+```bash
+curl https://router.huggingface.co/v1/chat/completions \
+    -H "Authorization: Bearer $HF_TOKEN" \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "messages": [
+            {
+                "role": "user",
+                "content": "How many G in huggingface?"
+            }
+        ],
+        "model": "deepseek-ai/DeepSeek-V3-0324",
+        "stream": false
+    }'
+```
+
+### Quick Start - Text-to-Image Generation
+
+Let's explore how to generate images from text prompts using Inference Providers. We'll use [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev), a state-of-the-art diffusion model that produces highly detailed, photorealistic images.
+
+#### Python
+
+Use the `huggingface_hub` library for the simplest image generation experience with automatic provider selection:
+
+```python
+import os
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(api_key=os.environ["HF_TOKEN"])
+
+image = client.text_to_image(
+    prompt="A serene lake surrounded by mountains at sunset, photorealistic style",
+    model="black-forest-labs/FLUX.1-dev"
+)
+
+# Save the generated image
+image.save("generated_image.png")
+```
+
+#### JavaScript
+
+Use our JavaScript SDK for streamlined image generation with TypeScript support:
+
+```js
+import { InferenceClient } from "@huggingface/inference";
+import fs from "fs";
+
+const client = new InferenceClient(process.env.HF_TOKEN);
+
+const imageBlob = await client.textToImage({
+  model: "black-forest-labs/FLUX.1-dev",
+  inputs:
+    "A serene lake surrounded by mountains at sunset, photorealistic style",
+});
+
+// Save the image
+const buffer = Buffer.from(await imageBlob.arrayBuffer());
+fs.writeFileSync("generated_image.png", buffer);
+```
+
+## Provider Selection
+
+The Inference Providers API acts as a unified proxy layer that sits between your application and multiple AI providers. Understanding how provider selection works is crucial for optimizing performance, cost, and reliability in your applications.
+
+### API as a Proxy Service
+
+When using Inference Providers, your requests go through Hugging Face's proxy infrastructure, which provides several key benefits:
+
+- **Unified Authentication & Billing**: Use a single Hugging Face token for all providers
+- **Automatic Failover**: When using automatic provider selection (`provider="auto"`), requests are automatically routed to alternative providers if the primary provider is flagged as unavailable by our validation system
+- **Consistent Interface through client libraries**: When using our client libraries, the same request format works across different providers
+
+Because the API acts as a proxy, the exact HTTP request may vary between providers as each provider has their own API requirements and response formats. **When using our official client libraries** (JavaScript or Python), these provider-specific differences are handled automatically whether you use `provider="auto"` or specify a particular provider.
+
+### Client-Side Provider Selection (Inference Clients)
+
+When using the Hugging Face inference clients (JavaScript or Python), you can explicitly specify a provider or let the system choose automatically. The client then formats the HTTP request to match the selected provider's API requirements.
+
+<hfoptions id="client-side-provider-selection">
+
+<hfoption id="javascript">
+
+```javascript
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient(process.env.HF_TOKEN);
+
+// Explicit provider selection
+await client.chatCompletion({
+  model: "meta-llama/Llama-3.1-8B-Instruct",
+  provider: "sambanova", // Specific provider
+  messages: [{ role: "user", content: "Hello!" }],
+});
+
+// Automatic provider selection (default: "auto")
+await client.chatCompletion({
+  model: "meta-llama/Llama-3.1-8B-Instruct",
+  // Defaults to "auto" selection of the provider
+  // provider="auto",
+  messages: [{ role: "user", content: "Hello!" }],
+});
+```
+
+</hfoption>
+
+<hfoption id="python">
+
+```python
+import os
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(token=os.environ["HF_TOKEN"])
+
+# Explicit provider selection
+result = client.chat_completion(
+    model="meta-llama/Llama-3.1-8B-Instruct",
+    provider="sambanova",  # Specific provider
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+
+# Automatic provider selection (default: "auto")
+result = client.chat_completion(
+    model="meta-llama/Llama-3.1-8B-Instruct",
+    # Defaults to "auto" selection of the provider
+    # provider="auto",
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+```
+
+</hfoption>
+
+</hfoptions>
+
+**Provider Selection Policy:**
+
+- `provider: "auto"` (default): Selects the first available provider for the model, sorted by your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers)
+- `provider: "specific-provider"`: Forces use of a specific provider (e.g., "together", "replicate", "fal-ai", ...)
+
+### Alternative: OpenAI-Compatible Chat Completions Endpoint (Chat Only)
+
+If you prefer to work with familiar OpenAI APIs or want to migrate existing chat completion code with minimal changes, we offer a drop-in compatible endpoint that handles all provider selection automatically on the server side.
+
+**Note**: This OpenAI-compatible endpoint is currently available for chat completion tasks only. For other tasks like text-to-image, embeddings, or speech processing, use the Hugging Face inference clients shown above.
+
+<hfoptions id="openai-compatible">
+
+<hfoption id="javascript">
+
+```javascript
+import { OpenAI } from "openai";
+
+const client = new OpenAI({
+  baseURL: "https://router.huggingface.co/v1",
+  apiKey: process.env.HF_TOKEN,
+});
+
+const completion = await client.chat.completions.create({
+  model: "meta-llama/Llama-3.1-8B-Instruct",
+  messages: [{ role: "user", content: "Hello!" }],
+});
+```
+
+</hfoption>
+
+<hfoption id="python">
+
+```python
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://router.huggingface.co/v1",
+    api_key=os.environ["HF_TOKEN"],
+)
+
+completion = client.chat.completions.create(
+    model="meta-llama/Llama-3.1-8B-Instruct",
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+
+print(completion.choices[0].message.content)
+```
+
+</hfoption>
+
+</hfoptions>
+
+This endpoint can also be requested through direct HTTP access, making it suitable for integration with various HTTP clients and applications that need to interact with the chat completion service directly.
+
+```bash
+curl https://router.huggingface.co/v1/chat/completions \
+  -H "Authorization: Bearer $HF_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello!"
+      }
+    ]
+  }'
+```
+
+**Key Features:**
+
+- **Server-Side Provider Selection**: The server automatically chooses the best available provider
+- **Model Listing**: GET `/v1/models` returns available models across all providers
+- **OpenAI SDK Compatibility**: Works with existing OpenAI client libraries
+- **Chat Tasks Only**: Limited to conversational workloads
+
+### Choosing the Right Approach
+
+**Use Inference Clients when:**
+
+- You need support for all task types (text-to-image, speech, embeddings, etc.)
+- You want explicit control over provider selection
+- You're building applications that use multiple AI tasks
+
+**Use OpenAI-Compatible Endpoint when:**
+
+- You're only doing chat completions
+- You want to migrate existing OpenAI-based code with minimal changes
+- You prefer server-side provider management
+
+**Use Direct HTTP when:**
+
+- You're implementing custom request logic
+- You need fine-grained control over the request/response cycle
+- You're working in environments without available client libraries
 
 ## Next Steps
 
-In this introduction, we've covered the basics of Inference Providers. To learn more about this service, check out our guides and API Reference:
-- [Pricing and Billing](./pricing): everything you need to know about billing.
-- [Hub integration](./hub-integration): how is Inference Providers integrated with the Hub?
-- [Register as an Inference Provider](./register-as-a-provider): everything about how to become an official partner. 
-- [Hub API](./hub-api): high-level API for Inference Providers.
-- [API Reference](./tasks/index): learn more about the parameters and task-specific settings.
+Now that you understand the basics, explore these resources to make the most of Inference Providers:
+
+- **[Pricing and Billing](./pricing)**: Understand costs and billing of Inference Providers
+- **[Hub Integration](./hub-integration)**: Learn how Inference Providers are integrated with the Hugging Face Hub
+- **[Register as a Provider](./register-as-a-provider)**: Requirements to join our partner network as a provider
+- **[Hub API](./hub-api)**: Advanced API features and configuration
+- **[API Reference](./tasks/index)**: Complete parameter documentation for all supported tasks
