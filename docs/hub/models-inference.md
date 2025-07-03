@@ -21,6 +21,8 @@ You can integrate Inference Providers into your own applications using our SDKs 
 
 <hfoption id="python">
 
+You can use our Python SDK to interact with Inference Providers.
+
 ```python
 from huggingface_hub import InferenceClient
 
@@ -34,13 +36,46 @@ client = InferenceClient(
 # Chat completion
 completion = client.chat.completions.create(
     model="deepseek-ai/DeepSeek-V3-0324",
-    messages=[{"role": "user", "content": "Hello!"}]
+    messages=[{"role": "user", "content": "A story about hiking in the mountains"}]
+)
+
+# Image generation
+image = client.text_to_image(
+    prompt="A serene lake surrounded by mountains at sunset, photorealistic style",
+    model="black-forest-labs/FLUX.1-dev"
+)
+
+```
+
+Or, you can just use the OpenAI API compatible client.
+
+```python
+import os
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+    api_key=os.environ["HF_TOKEN"],
+)
+
+completion = client.chat.completions.create(
+    model="deepseek-ai/DeepSeek-V3-0324",
+    messages=[
+        {
+            "role": "user",
+            "content": "A story about hiking in the mountains"
+        }
+    ],
 )
 ```
+
+> [!NOTE]
+> The OpenAI API compatible client is not supported for image generation.
 
 </hfoption>
 
 <hfoption id="javascript">
+
+You can use our JavaScript SDK to interact with Inference Providers.
 
 ```javascript
 import { InferenceClient } from "@huggingface/inference";
@@ -52,7 +87,33 @@ const chatCompletion = await client.chatCompletion({
     model: "deepseek-ai/DeepSeek-V3-0324",
     messages: [{ role: "user", content: "Hello!" }]
 });
+
+const imageBlob = await client.textToImage({
+  model: "black-forest-labs/FLUX.1-dev",
+  inputs:
+    "A serene lake surrounded by mountains at sunset, photorealistic style",
+});
 ```
+
+Or, you can just use the OpenAI API compatible client.
+
+```javascript
+import { OpenAI } from "openai";
+
+const client = new OpenAI({
+  baseURL: "https://router.huggingface.co/v1",
+  apiKey: process.env.HF_TOKEN,
+});
+
+const completion = await client.chat.completions.create({
+  model: "meta-llama/Llama-3.1-8B-Instruct",
+  messages: [{ role: "user", content: "A story about hiking in the mountains" }],
+});
+
+```
+
+> [!NOTE]
+> The OpenAI API compatible client is not supported for image generation.
 
 </hfoption>
 
