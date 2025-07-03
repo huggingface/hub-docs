@@ -11,6 +11,7 @@ Inference Providers is deeply integrated with the Hugging Face Hub, and you can 
 - **Interactive Widgets** - Test models directly on model pages with interactive widgets that use Inference Providers under the hood. Check out the [DeepSeek-R1-0528 model page](https://huggingface.co/models/deepseek-ai/DeepSeek-R1-0528) for an example.
 - **Inference Playground** - Easily test and compare chat completion models with your prompts. Check out the [Inference Playground](https://huggingface.co/playground) to get started.
 - **Search** - Filter models by inference provider on the [models page](https://huggingface.co/models?inference_provider=all) to find models available through specific providers.
+- **Data Studio** - Use AI to explore datasets on the Hub. Check out [Data Studio](https://huggingface.co/datasets/fka/awesome-chatgpt-prompts/viewer?views%5B%5D=train) on your favorite dataset.
 
 ## Build with Inference Providers
 
