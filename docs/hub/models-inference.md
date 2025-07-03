@@ -23,7 +23,12 @@ You can integrate Inference Providers into your own applications using our SDKs 
 ```python
 from huggingface_hub import InferenceClient
 
-client = InferenceClient(provider="auto")  # Automatically selects best provider
+import os
+
+client = InferenceClient(
+    api_key=os.environ["HF_TOKEN"],
+    provider="auto",   # Automatically selects best provider
+)
 
 # Chat completion
 completion = client.chat.completions.create(
