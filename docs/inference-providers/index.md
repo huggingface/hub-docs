@@ -221,7 +221,7 @@ console.log(chatCompletion.choices[0].message);
 
 <hfoption id="openai">
 
-If you're already using OpenAI's Python client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
+If you're already using OpenAI's Javascript client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
 ```javascript
 import OpenAI from "openai";
