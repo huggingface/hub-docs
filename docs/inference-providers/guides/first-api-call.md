@@ -124,6 +124,112 @@ Nice work! You've successfully used a production-grade AI model without any comp
 
 The model you just used runs on professional infrastructure, handling scaling, optimization, and reliability automatically.
 
+## Dive Deeper: Provider Selection
+
+You might have noticed the `provider="auto"` parameter in the code examples above. This is a key feature of Inference Providers that gives you control over which infrastructure provider handles your request.
+
+`auto` is powerful because:
+
+1. It makes it easy to switch between providers, and to test different providers' performance for your use case. 
+2. It also gives a fallback mechanism in case a provider is unavailable.
+
+But if you want to be more specific, you can also specify a provider. Let's see how.
+
+### Understanding Provider Selection
+
+When you use `provider="auto"` (which is the default), the system automatically selects the first available provider for your chosen model based on your preference order in your [Inference Provider settings](https://hf.co/settings/inference-providers). This provides:
+
+- **Automatic failover**: If one provider is unavailable, the system tries the next one
+- **Simplified setup**: No need to research which providers support your model
+- **Optimal routing**: The system handles provider selection for you
+
+### Specifying a Specific Provider
+
+Alternatively, you can explicitly choose a provider if you have specific requirements:
+
+<hfoptions id="provider-selection-examples">
+
+<hfoption id="python">
+
+```python
+import os
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(api_key=os.environ["HF_TOKEN"])
+
+# Using automatic provider selection (default)
+image_auto = client.text_to_image(
+    "Astronaut riding a horse",
+    model="black-forest-labs/FLUX.1-schnell",
+    provider="auto"  # This is the default
+)
+
+# Using a specific provider
+image_fal = client.text_to_image(
+    "Astronaut riding a horse", 
+    model="black-forest-labs/FLUX.1-schnell",
+    provider="fal-ai"  # Explicitly use Fal AI
+)
+
+# Using another specific provider
+image_replicate = client.text_to_image(
+    "Astronaut riding a horse",
+    model="black-forest-labs/FLUX.1-schnell", 
+    provider="replicate"  # Explicitly use Replicate
+)
+```
+
+</hfoption>
+
+<hfoption id="typescript">
+
+```typescript
+import { InferenceClient } from "@huggingface/inference";
+
+const client = new InferenceClient(process.env.HF_TOKEN);
+
+// Using automatic provider selection (default)
+const imageAuto = await client.textToImage({
+    model: "black-forest-labs/FLUX.1-schnell",
+    inputs: "Astronaut riding a horse",
+    provider: "auto", // This is the default
+    parameters: { num_inference_steps: 5 },
+});
+
+// Using a specific provider
+const imageFal = await client.textToImage({
+    model: "black-forest-labs/FLUX.1-schnell",
+    inputs: "Astronaut riding a horse",
+    provider: "fal-ai", // Explicitly use Fal AI
+    parameters: { num_inference_steps: 5 },
+});
+
+// Using another specific provider
+const imageReplicate = await client.textToImage({
+    model: "black-forest-labs/FLUX.1-schnell",
+    inputs: "Astronaut riding a horse",
+    provider: "replicate", // Explicitly use Replicate
+    parameters: { num_inference_steps: 5 },
+});
+```
+
+</hfoption>
+
+</hfoptions>
+
+### When to Use Each Approach
+
+**Use `provider="auto"` when:**
+- You're just getting started with Inference Providers
+- You want the simplest setup and maximum reliability
+- You don't have specific infrastructure requirements
+- You want automatic failover if a provider is unavailable
+
+**Use a specific provider when:**
+- You need consistent performance characteristics
+- You have specific billing or cost requirements
+- You want to test different providers' performance for your use case
+
 ## Next Steps
 
 Now that you've seen how easy it is to use AI models, you might wonder:
