@@ -68,8 +68,11 @@ completion = client.chat.completions.create(
 )
 ```
 
-> [!NOTE]
-> The OpenAI API compatible client is not supported for image generation.
+<Tip warning={true}>
+
+The OpenAI API compatible client is not supported for image generation.
+
+</Tip>
 
 </hfoption>
 
@@ -112,8 +115,11 @@ const completion = await client.chat.completions.create({
 
 ```
 
-> [!NOTE]
-> The OpenAI API compatible client is not supported for image generation.
+<Tip warning={true}>
+
+The OpenAI API compatible client is not supported for image generation.
+
+</Tip>
 
 </hfoption>
 
