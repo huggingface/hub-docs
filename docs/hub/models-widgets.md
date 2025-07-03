@@ -157,20 +157,6 @@ We can also surface the example outputs in the Hugging Face UI, for instance, fo
 <img width="650" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
 </div>
 
-## Learn More About Inference Providers
-
-Widgets are powered by [Inference Providers](https://huggingface.co/docs/inference-providers), which provides unified access to hundreds of machine learning models backed by our serverless inference partners.
-
-Key benefits of Inference Providers:
-
-- **Unified API**: Access models from multiple providers (Cerebras, Cohere, Fireworks, Together AI, Replicate, and more) through a single interface
-- **Automatic Provider Selection**: Intelligent routing to the best available provider for your model
-- **Production-Ready**: Built for enterprise workloads with automatic failover and high availability
-- **Cost-Effective**: No extra markup on provider rates
-- **OpenAI-Compatible**: Drop-in replacement for OpenAI chat completions API
-
-⚡⚡ Learn more by reading the [Inference Providers documentation](https://huggingface.co/docs/inference-providers). You can also deploy models to dedicated [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) for more control and customization.
-
 ## Widget Availability and Provider Support
 
 Not all models have widgets available. Widget availability depends on:
@@ -179,18 +165,14 @@ Not all models have widgets available. Widget availability depends on:
 2. **Provider Availability**: At least one provider must be serving the specific model
 3. **Model Configuration**: The model must have proper metadata and configuration files
 
-Current provider support includes:
+To view the full list of supported tasks, check out [our dedicated documentation page](https://huggingface.co/docs/inference-providers/tasks/index).
 
-- **Chat Completion (LLM)**: Cerebras, Cohere, Fireworks, Groq, HF Inference, Hyperbolic, Nebius, Novita, Nscale, SambaNova, Together
-- **Chat Completion (VLM)**: Cohere, Featherless AI, Fireworks, HF Inference, Hyperbolic, Nebius, Novita, Nscale, Together
-- **Text to Image**: Fal AI, HF Inference, Nebius, Nscale, Replicate, Together
-- **Text to Video**: Fal AI, Novita, Replicate
-- **Speech to Text**: Fal AI, HF Inference, Replicate
-- **Feature Extraction**: HF Inference, Nebius, SambaNova
+The list of all providers and the tasks they support is available in [this documentation page](https://huggingface.co/docs/inference-providers/index#partners).
 
 For models without provider support, you can still showcase functionality using [example outputs](#example-outputs) in your model card.
 
 You can also click _Ask for provider support_ directly on the model page to encourage providers to serve the model, given there is enough community interest.
+
 ## Exploring Models with the Inference Playground
 
 Before integrating models into your applications, you can test them interactively with the [Inference Playground](https://huggingface.co/playground). The playground allows you to:
