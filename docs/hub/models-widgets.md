@@ -2,23 +2,26 @@
 
 ## What's a widget?
 
-Many model repos have a widget that allows anyone to run inferences directly in the browser!
+Many model repos have a widget that allows anyone to run inferences directly in the browser. These widgets are powered by [Inference Providers](https://huggingface.co/docs/inference-providers), which provide access to hundreds of machine learning models through multiple AI infrastructure providers.
 
-Here are some examples:
-* [Named Entity Recognition](https://huggingface.co/spacy/en_core_web_sm?text=My+name+is+Sarah+and+I+live+in+London) using [spaCy](https://spacy.io/).
-* [Image Classification](https://huggingface.co/google/vit-base-patch16-224) using [🤗 Transformers](https://github.com/huggingface/transformers)
-* [Text to Speech](https://huggingface.co/julien-c/ljspeech_tts_train_tacotron2_raw_phn_tacotron_g2p_en_no_space_train) using [ESPnet](https://github.com/espnet/espnet).
-* [Sentence Similarity](https://huggingface.co/osanseviero/full-sentence-distillroberta3) using [Sentence Transformers](https://github.com/UKPLab/sentence-transformers).
+Here are some examples of current popular models:
 
-You can try out all the widgets [here](https://huggingface-widgets.netlify.app/).
+- [DeepSeek V3](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324) - State-of-the-art open-weights conversational model
+- [Flux Kontext](https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev) - Open-weights transformer model for image editing
+- [Falconsai's NSFW Detection](https://huggingface.co/Falconsai/nsfw_image_detection) - Image content moderation
+- [ResembleAI's Chatterbox](https://huggingface.co/ResembleAI/chatterbox) - Production-grade open source text-to-speech model.
+
+You can explore more models and their widgets on the [models page](https://huggingface.co/models?inference_provider=all&sort=trending) or try them interactively in the [Inference Playground](https://huggingface.co/playground).
 
 ## Enabling a widget
 
-A widget is automatically created for your model when you upload it to the Hub. To determine which pipeline and widget to display (`text-classification`, `token-classification`, `translation`, etc.), we analyze information in the repo, such as the metadata provided in the model card and configuration files. This information is mapped to a single `pipeline_tag`. We choose to expose **only one** widget per model for simplicity.
+Widgets are displayed when the model is hosted by one of our partner [Inference Providers](https://huggingface.co/docs/inference-providers), ensuring optimal performance and reliability for the model's inference. Providers autonomously chose and control what models they deploy.
 
-For most use cases, we determine the model type from the tags. For example, if there is `tag: text-classification` in the [model card metadata](./model-cards), the inferred `pipeline_tag` will be `text-classification`.
+The type of widget displayed (conversational, text to image, etc) is inferred from the model's `pipeline_tag`, a special tag that the Hub tries to compute automatically for all models. We choose to expose **only one** widget per model for simplicity.
 
-For some libraries, such as 🤗  `Transformers`, the model type should be inferred automatically based from configuration files (`config.json`). The architecture can determine the type: for example, `AutoModelForTokenClassification` corresponds to `token-classification`. If you're interested in this, you can see pseudo-code in [this gist](https://gist.github.com/julien-c/857ba86a6c6a895ecd90e7f7cab48046).
+For some libraries, such as 🤗 `Transformers`, the model type can be inferred automatically based from configuration files (`config.json`). The architecture can determine the type: for example, `AutoModelForTokenClassification` corresponds to `token-classification`. If you're interested in this, you can see pseudo-code in [this gist](https://gist.github.com/julien-c/857ba86a6c6a895ecd90e7f7cab48046).
+
+For most other use cases, we use the model tag to determine the model task type. For example, if there is `tag: text-classification` in the [model card metadata](./model-cards), the inferred `pipeline_tag` will be `text-classification`.
 
 **You can always manually override your pipeline type with `pipeline_tag: xxx` in your [model card metadata](./model-cards#model-card-metadata).** (You can also use the metadata GUI editor to do this).
 
@@ -28,7 +31,12 @@ You can specify the widget input in the model card metadata section:
 
 ```yaml
 widget:
-- text: "Jens Peter Hansen kommer fra Danmark"
+  - text: "This new restaurant has amazing food and great service!"
+    example_title: "Positive Review"
+  - text: "I'm really disappointed with this product. Poor quality and overpriced."
+    example_title: "Negative Review"
+  - text: "The weather is nice today."
+    example_title: "Neutral Statement"
 ```
 
 You can provide more than one example input. In the examples dropdown menu of the widget, they will appear as `Example 1`, `Example 2`, etc. Optionally, you can supply `example_title` as well.
@@ -40,26 +48,26 @@ You can provide more than one example input. In the examples dropdown menu of th
 
 ```yaml
 widget:
-- text: "Is this review positive or negative? Review: Best cast iron skillet you will ever buy."
-  example_title: "Sentiment analysis"
-- text: "Barack Obama nominated Hilary Clinton as his secretary of state on Monday. He chose her because she had ..."
-  example_title: "Coreference resolution"
-- text: "On a shelf, there are five books: a gray book, a red book, a purple book, a blue book, and a black book ..."
-  example_title: "Logic puzzles"
-- text: "The two men running to become New York City's next mayor will face off in their first debate Wednesday night ..."
-  example_title: "Reading comprehension"
+  - text: "Is this review positive or negative? Review: Best cast iron skillet you will ever buy."
+    example_title: "Sentiment analysis"
+  - text: "Barack Obama nominated Hilary Clinton as his secretary of state on Monday. He chose her because she had ..."
+    example_title: "Coreference resolution"
+  - text: "On a shelf, there are five books: a gray book, a red book, a purple book, a blue book, and a black book ..."
+    example_title: "Logic puzzles"
+  - text: "The two men running to become New York City's next mayor will face off in their first debate Wednesday night ..."
+    example_title: "Reading comprehension"
 ```
 
-Moreover, you can specify non-text example inputs in the model card metadata. Refer [here](./models-widgets-examples) for a complete list of sample input formats for all widget types. For vision & audio widget types, provide example inputs with `src` rather than `text`. 
+Moreover, you can specify non-text example inputs in the model card metadata. Refer [here](./models-widgets-examples) for a complete list of sample input formats for all widget types. For vision & audio widget types, provide example inputs with `src` rather than `text`.
 
 For example, allow users to choose from two sample audio files for automatic speech recognition tasks by:
 
 ```yaml
 widget:
-- src: https://example.org/somewhere/speech_samples/sample1.flac
-  example_title: Speech sample 1
-- src: https://example.org/somewhere/speech_samples/sample2.flac
-  example_title: Speech sample 2
+  - src: https://example.org/somewhere/speech_samples/sample1.flac
+    example_title: Speech sample 1
+  - src: https://example.org/somewhere/speech_samples/sample2.flac
+    example_title: Speech sample 2
 ```
 
 Note that you can also include example files in your model repository and use
@@ -92,8 +100,7 @@ We provide example inputs for some languages and most widget types in [default-w
 
 As an extension to example inputs, for each widget example, you can also optionally describe the corresponding model output, directly in the `output` property.
 
-This is useful when the model is not yet supported by either the Inference API (for instance, the model library is not yet supported) or any other Inference Provider, so that the model page can still showcase how the model works and what results it gives.
-
+This is useful when the model is not yet supported by Inference Providers, so that the model page can still showcase how the model works and what results it gives.
 
 For instance, for an [automatic-speech-recognition](./models-widgets-examples#automatic-speech-recognition) model:
 
@@ -109,7 +116,7 @@ widget:
 <img class="hidden dark:block" width="450" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/infrence-examples-asr-dark.png"/>
 </div>
 
-The `output` property should be a YAML dictionary that represents the Inference API output.
+The `output` property should be a YAML dictionary that represents the output format from Inference Providers.
 
 For a model that outputs text, see the example above.
 
@@ -150,44 +157,52 @@ We can also surface the example outputs in the Hugging Face UI, for instance, fo
 <img width="650" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
 </div>
 
-## What are all the possible task/widget types?
+## Learn More About Inference Providers
 
-You can find all the supported tasks in [pipelines.ts file](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/pipelines.ts).
+Widgets are powered by [Inference Providers](https://huggingface.co/docs/inference-providers), which allows you to send HTTP requests to models in the Hugging Face Hub programmatically. It provides unified access to hundreds of machine learning models powered by our serverless inference partners.
 
-Here are some links to examples:
+Key benefits of Inference Providers:
 
-- `text-classification`, for instance [`FacebookAI/roberta-large-mnli`](https://huggingface.co/FacebookAI/roberta-large-mnli)
-- `token-classification`, for instance [`dbmdz/bert-large-cased-finetuned-conll03-english`](https://huggingface.co/dbmdz/bert-large-cased-finetuned-conll03-english)
-- `question-answering`, for instance [`distilbert/distilbert-base-uncased-distilled-squad`](https://huggingface.co/distilbert/distilbert-base-uncased-distilled-squad)
-- `translation`, for instance [`google-t5/t5-base`](https://huggingface.co/google-t5/t5-base)
-- `summarization`, for instance [`facebook/bart-large-cnn`](https://huggingface.co/facebook/bart-large-cnn)
-- `conversational`, for instance [`facebook/blenderbot-400M-distill`](https://huggingface.co/facebook/blenderbot-400M-distill)
-- `text-generation`, for instance [`openai-community/gpt2`](https://huggingface.co/openai-community/gpt2)
-- `fill-mask`, for instance [`distilbert/distilroberta-base`](https://huggingface.co/distilbert/distilroberta-base)
-- `zero-shot-classification` (implemented on top of a nli `text-classification` model), for instance [`facebook/bart-large-mnli`](https://huggingface.co/facebook/bart-large-mnli)
-- `table-question-answering`, for instance [`google/tapas-base-finetuned-wtq`](https://huggingface.co/google/tapas-base-finetuned-wtq)
-- `sentence-similarity`, for instance [`osanseviero/full-sentence-distillroberta2`](/osanseviero/full-sentence-distillroberta2)
+- **Unified API**: Access models from multiple providers (Cerebras, Cohere, Fireworks, Together AI, Replicate, and more) through a single interface
+- **Automatic Provider Selection**: Intelligent routing to the best available provider for your model
+- **Production-Ready**: Built for enterprise workloads with automatic failover and high availability
+- **Cost-Effective**: No extra markup on provider rates
+- **OpenAI-Compatible**: Drop-in replacement for OpenAI chat completions API
 
-## How can I control my model's widget HF-Inference API parameters?
+⚡⚡ Learn more by reading the [Inference Providers documentation](https://huggingface.co/docs/inference-providers). You can also deploy models to dedicated [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) for more control and customization.
 
-Generally, the HF-Inference API for a model uses the default pipeline settings associated with each task. But if you'd like to change the pipeline's default settings and specify additional inference parameters, you can configure the parameters directly through the model card metadata. Refer [here](https://huggingface.co/docs/inference-providers/detailed_parameters) for some of the most commonly used parameters associated with each task.
+## Widget Availability and Provider Support
 
-For example, if you want to specify an aggregation strategy for a NER task in the widget:
+Not all models have widgets available. Widget availability depends on:
 
-```yaml
-inference:
-  parameters:
-    aggregation_strategy: "none"
-```
+1. **Task Support**: The model's task must be supported by at least one provider in the Inference Providers network
+2. **Provider Availability**: At least one provider must support the specific model
+3. **Model Configuration**: The model must have proper metadata and configuration files
 
-Or if you'd like to change the temperature for a summarization task in the widget:
+Current provider support includes:
 
-```yaml
-inference:
-  parameters:
-    temperature: 0.7
-``` 
+- **Chat Completion (LLM)**: Cerebras, Cohere, Fireworks, Groq, HF Inference, Hyperbolic, Nebius, Novita, Nscale, SambaNova, Together
+- **Chat Completion (VLM)**: Cohere, Featherless AI, Fireworks, HF Inference, Hyperbolic, Nebius, Novita, Nscale, Together
+- **Text to Image**: Fal AI, HF Inference, Nebius, Nscale, Replicate, Together
+- **Text to Video**: Fal AI, Novita, Replicate
+- **Speech to Text**: Fal AI, HF Inference, Replicate
+- **Feature Extraction**: HF Inference, Nebius, SambaNova
 
-Inference Providers allows you to send HTTP requests to models in the Hugging Face Hub programmatically. It is an abstraction layer on top of External providers. ⚡⚡ Learn more about it by reading the [
-Inference Providers documentation](/docs/inference-providers). 
-Finally, you can also deploy all those models to dedicated [Inference Endpoints](https://huggingface.co/docs/inference-endpoints).
+For models without provider support, you can still showcase functionality using [example outputs](#example-outputs) in your model card.
+
+## Exploring Models with the Inference Playground
+
+Before integrating models into your applications, you can test them interactively with the [Inference Playground](https://huggingface.co/playground). The playground allows you to:
+
+- Test different [chat completion models](https://huggingface.co/models?inference_provider=all&sort=trending&other=conversational) with custom prompts
+- Compare responses across different models
+- Experiment with inference parameters like temperature, max tokens, and more
+- Find the perfect model for your specific use case
+
+The playground uses the same Inference Providers infrastructure that powers the widgets, so you can expect similar performance and capabilities when you integrate the models into your own applications.
+
+<div class="flex justify-center">
+<a href="https://huggingface.co/playground" target="_blank">
+<img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" alt="Inference Playground" style="max-width: 550px; width: 100%; border-radius: 8px;"/>
+</a>
+</div>
