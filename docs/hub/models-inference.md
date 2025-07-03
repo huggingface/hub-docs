@@ -51,9 +51,10 @@ Or, you can just use the OpenAI API compatible client.
 
 ```python
 import os
-from huggingface_hub import InferenceClient
+from openai import OpenAI
 
-client = InferenceClient(
+client = OpenAI(
+    base_url="https://router.huggingface.co/v1",
     api_key=os.environ["HF_TOKEN"],
 )
 
