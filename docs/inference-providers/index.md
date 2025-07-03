@@ -13,22 +13,22 @@ To learn more about the launch of Inference Providers, check out our [announceme
 
 Our platform integrates with leading AI infrastructure providers, giving you access to their specialized capabilities through a single, consistent API. Here's what each partner supports:
 
-| Provider                                     | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video |
-| -------------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: |
-| [Cerebras](./providers/cerebras)             |          ✅           |                       |                    |               |               |
-| [Cohere](./providers/cohere)                 |          ✅           |          ✅           |                    |               |               |
-| [Fal AI](./providers/fal-ai)                 |                       |                       |                    |      ✅       |      ✅       |
-| [Featherless AI](./providers/featherless-ai) |          ✅           |          ✅           |                    |               |               |
-| [Fireworks](./providers/fireworks-ai)        |          ✅           |          ✅           |                    |               |               |
-| [Groq](./providers/groq)                     |          ✅           |                       |                    |               |               |
-| [HF Inference](./providers/hf-inference)     |          ✅           |          ✅           |         ✅         |      ✅       |               |
-| [Hyperbolic](./providers/hyperbolic)         |          ✅           |          ✅           |                    |               |               |
-| [Nebius](./providers/nebius)                 |          ✅           |          ✅           |         ✅         |      ✅       |               |
-| [Novita](./providers/novita)                 |          ✅           |          ✅           |                    |               |      ✅       |
-| [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |      ✅       |               |
-| [Replicate](./providers/replicate)           |                       |                       |                    |      ✅       |      ✅       |
-| [SambaNova](./providers/sambanova)           |          ✅           |                       |         ✅         |               |               |
-| [Together](./providers/together)             |          ✅           |          ✅           |                    |      ✅       |               |
+| Provider                                     | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video | Speech to text |
+| -------------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: | :------------: |
+| [Cerebras](./providers/cerebras)             |          ✅           |                       |                    |               |               |                |
+| [Cohere](./providers/cohere)                 |          ✅           |          ✅           |                    |               |               |                |
+| [Fal AI](./providers/fal-ai)                 |                       |                       |                    |      ✅       |      ✅       |       ✅       |
+| [Featherless AI](./providers/featherless-ai) |          ✅           |          ✅           |                    |               |               |                |
+| [Fireworks](./providers/fireworks-ai)        |          ✅           |          ✅           |                    |               |               |                |
+| [Groq](./providers/groq)                     |          ✅           |                       |                    |               |               |                |
+| [HF Inference](./providers/hf-inference)     |          ✅           |          ✅           |         ✅         |      ✅       |               |       ✅       |
+| [Hyperbolic](./providers/hyperbolic)         |          ✅           |          ✅           |                    |               |               |                |
+| [Nebius](./providers/nebius)                 |          ✅           |          ✅           |         ✅         |      ✅       |               |                |
+| [Novita](./providers/novita)                 |          ✅           |          ✅           |                    |               |      ✅       |                |
+| [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |      ✅       |               |                |
+| [Replicate](./providers/replicate)           |                       |                       |                    |      ✅       |      ✅       |       ✅       |
+| [SambaNova](./providers/sambanova)           |          ✅           |                       |         ✅         |               |               |                |
+| [Together](./providers/together)             |          ✅           |          ✅           |                    |      ✅       |               |                |
 
 ## Why Choose Inference Providers?
 

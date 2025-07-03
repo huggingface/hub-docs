@@ -62,7 +62,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"novita":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/llama-4-scout-17b-16e-instruct"} } }
+    providersMapping={ {"novita":{"modelId":"baidu/ERNIE-4.5-VL-424B-A47B-Base-PT","providerModelId":"baidu/ernie-4.5-vl-424b-a47b"} } }
 conversational />
 
 
