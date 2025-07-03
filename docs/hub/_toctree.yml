@@ -127,7 +127,7 @@
       - local: models-widgets-examples
         title: Widget Examples
   - local: models-inference
-    title: Inference API docs
+    title: Model Inference
   - local: models-download-stats
     title: Models Download Stats
   - local: models-faq
