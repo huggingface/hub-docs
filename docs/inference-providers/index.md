@@ -154,7 +154,8 @@ completion = client.chat.completions.create(
 
 For maximum control and interoperability with custom frameworks, use our OpenAI-compatible REST API directly.
 
-Our routing system automatically selects the best available provider for your chosen model:
+Our routing system automatically selects the most popular available provider for your chosen model,
+or to your preferred provider if you've sorted the providers from your [user settings](https://huggingface.co/settings/inference-providers).
 
 ```python
 import os
@@ -247,7 +248,10 @@ console.log(completion.choices[0].message.content);
 
 <hfoption id="fetch">
 
-**Native Fetch Integration**: For lightweight applications or custom implementations, use our REST API directly with standard fetch:
+For lightweight applications or custom implementations, use our REST API directly with standard fetch.
+
+Our routing system automatically selects the most popular available provider for your chosen model,
+or to your preferred provider if you've sorted the providers from your [user settings](https://huggingface.co/settings/inference-providers).
 
 ```js
 import fetch from "node-fetch";
