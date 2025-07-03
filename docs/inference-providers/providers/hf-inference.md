@@ -55,16 +55,6 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic_speec
 />
 
 
-### Chat Completion (LLM)
-
-Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Llama-3.1-8B-Instruct"} } }
-conversational />
-
-
 ### Chat Completion (VLM)
 
 Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
@@ -101,7 +91,7 @@ Find out more about Image Classification [here](../tasks/image_classification).
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
+    providersMapping={ {"hf-inference":{"modelId":"dima806/fairface_age_image_detection","providerModelId":"dima806/fairface_age_image_detection"} } }
 />
 
 
@@ -111,7 +101,7 @@ Find out more about Image Segmentation [here](../tasks/image_segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
+    providersMapping={ {"hf-inference":{"modelId":"nvidia/segformer-b0-finetuned-ade-512-512","providerModelId":"nvidia/segformer-b0-finetuned-ade-512-512"} } }
 />
 
 
@@ -131,7 +121,7 @@ Find out more about Question Answering [here](../tasks/question_answering).
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-base-squad2","providerModelId":"deepset/roberta-base-squad2"} } }
+    providersMapping={ {"hf-inference":{"modelId":"uer/roberta-base-chinese-extractive-qa","providerModelId":"uer/roberta-base-chinese-extractive-qa"} } }
 />
 
 
@@ -141,7 +131,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 <InferenceSnippet
     pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"Falconsai/text_summarization","providerModelId":"Falconsai/text_summarization"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"} } }
 />
 
 
@@ -151,7 +141,7 @@ Find out more about Table Question Answering [here](../tasks/table_question_answ
 
 <InferenceSnippet
     pipeline=table-question-answering
-    providersMapping={ {"hf-inference":{"modelId":"google/tapas-base-finetuned-wtq","providerModelId":"google/tapas-base-finetuned-wtq"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google/tapas-large-finetuned-wtq","providerModelId":"google/tapas-large-finetuned-wtq"} } }
 />
 
 
@@ -162,16 +152,6 @@ Find out more about Text Classification [here](../tasks/text_classification).
 <InferenceSnippet
     pipeline=text-classification
     providersMapping={ {"hf-inference":{"modelId":"tabularisai/multilingual-sentiment-analysis","providerModelId":"tabularisai/multilingual-sentiment-analysis"} } }
-/>
-
-
-### Text Generation
-
-Find out more about Text Generation [here](../tasks/text_generation).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Llama-3.1-8B-Instruct"} } }
 />
 
 
@@ -191,7 +171,7 @@ Find out more about Token Classification [here](../tasks/token_classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
+    providersMapping={ {"hf-inference":{"modelId":"DeepMount00/Italian_NER_XXL","providerModelId":"DeepMount00/Italian_NER_XXL"} } }
 />
 
 
@@ -201,6 +181,6 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Helsinki-NLP/opus-mt-zh-en","providerModelId":"Helsinki-NLP/opus-mt-zh-en"} } }
 />
 
