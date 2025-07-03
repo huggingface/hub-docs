@@ -105,9 +105,7 @@ You can now use the the client with a Python interpreter:
 import os
 from huggingface_hub import InferenceClient
 
-client = InferenceClient(
-    api_key=os.environ["HF_TOKEN"],
-)
+client = InferenceClient()
 
 completion = client.chat.completions.create(
     model="deepseek-ai/DeepSeek-V3-0324",
@@ -128,7 +126,7 @@ print(completion.choices[0].message)
 
 If you're already using OpenAI's Python client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
-Our system automatically routes your request to the optimal provider for the specified model:
+Our system automatically routes your request to the most popular provider for the specified model. You can also order the available providers from your [user settings](https://huggingface.co/settings/inference-providers), in that case we will route your request to the first provider supporting the model.
 
 ```python
 import os
@@ -148,8 +146,6 @@ completion = client.chat.completions.create(
         }
     ],
 )
-
-For maximum control and interoperability with custom frameworks, use our OpenAI-compatible REST API directly.
 ```
 
 </hfoption>
@@ -284,7 +280,8 @@ console.log(await response.json());
 
 #### HTTP / cURL
 
-For testing, debugging, or integrating with any HTTP client, here's the raw REST API format. Our intelligent routing automatically selects the optimal provider for your requested model:
+For testing, debugging, or integrating with any HTTP client, here's the raw REST API format. Our intelligent routing automatically selects the most popular provider for your requested model,
+or to your preferred provider if you've sorted the providers from your [user settings](https://huggingface.co/settings/inference-providers).
 
 ```bash
 curl https://router.huggingface.co/v1/chat/completions \
@@ -355,11 +352,10 @@ The Inference Providers API acts as a unified proxy layer that sits between your
 When using Inference Providers, your requests go through Hugging Face's proxy infrastructure, which provides several key benefits:
 
 - **Unified Authentication & Billing**: Use a single Hugging Face token for all providers
-- **Automatic Failover**: If one provider is unavailable, requests can be routed to alternatives
-- **Rate Limiting & Load Balancing**: Intelligent distribution of requests across providers
-- **Consistent API Interface**: The same request format works across different providers
+- **Automatic Failover**: When using automatic provider selection (`provider="auto"`), requests are automatically routed to alternative providers if the primary provider is flagged as unavailable by our validation system
+- **Consistent Interface through client libraries**: When using our client libraries, the same request format works across different providers
 
-Because the API acts as a proxy, the exact HTTP request may vary between providers as each provider has their own API requirements and response formats. The Hugging Face inference clients handle these provider-specific differences automatically when you use `provider="auto"` or specify a particular provider.
+Because the API acts as a proxy, the exact HTTP request may vary between providers as each provider has their own API requirements and response formats. **When using our official client libraries** (JavaScript or Python), these provider-specific differences are handled automatically whether you use `provider="auto"` or specify a particular provider.
 
 ### Client-Side Provider Selection (Inference Clients)
 
