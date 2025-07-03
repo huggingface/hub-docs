@@ -123,8 +123,6 @@ You'll need a Hugging Face token with inference permissions. Create one at [Sett
 
 ### How Inference Providers works
 
-Hugging Face’s Inference Providers give developers unified access to hundreds of machine learning models, powered by our serverless inference partners. This new approach builds on our previous Serverless Inference API, offering more models, improved performance, and greater reliability thanks to world-class providers.
-
 To dive deeper into Inference Providers, check out the [Inference Providers Documentation](https://huggingface.co/docs/inference-providers). Here are some key resources:
 
 - **[Quick Start](https://huggingface.co/docs/inference-providers)** 
