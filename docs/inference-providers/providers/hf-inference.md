@@ -45,26 +45,6 @@ If you are interested in deploying models to a dedicated and autoscaling infrast
 ## Supported tasks
 
 
-### Automatic Speech Recognition
-
-Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
-
-<InferenceSnippet
-    pipeline=automatic-speech-recognition
-    providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"} } }
-/>
-
-
-### Chat Completion (VLM)
-
-Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=image-text-to-text
-    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"meta-llama/Llama-3.2-11B-Vision-Instruct"} } }
-conversational />
-
-
 ### Feature Extraction
 
 Find out more about Feature Extraction [here](../tasks/feature_extraction).
@@ -91,7 +71,7 @@ Find out more about Image Classification [here](../tasks/image_classification).
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"dima806/fairface_age_image_detection","providerModelId":"dima806/fairface_age_image_detection"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
 />
 
 
@@ -101,17 +81,7 @@ Find out more about Image Segmentation [here](../tasks/image_segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"nvidia/segformer-b0-finetuned-ade-512-512","providerModelId":"nvidia/segformer-b0-finetuned-ade-512-512"} } }
-/>
-
-
-### Object Detection
-
-Find out more about Object Detection [here](../tasks/object_detection).
-
-<InferenceSnippet
-    pipeline=object-detection
-    providersMapping={ {"hf-inference":{"modelId":"facebook/detr-resnet-50","providerModelId":"facebook/detr-resnet-50"} } }
+    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
 />
 
 
@@ -121,7 +91,7 @@ Find out more about Question Answering [here](../tasks/question_answering).
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"uer/roberta-base-chinese-extractive-qa","providerModelId":"uer/roberta-base-chinese-extractive-qa"} } }
+    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-base-squad2","providerModelId":"deepset/roberta-base-squad2"} } }
 />
 
 
@@ -141,7 +111,7 @@ Find out more about Table Question Answering [here](../tasks/table_question_answ
 
 <InferenceSnippet
     pipeline=table-question-answering
-    providersMapping={ {"hf-inference":{"modelId":"google/tapas-large-finetuned-wtq","providerModelId":"google/tapas-large-finetuned-wtq"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google/tapas-base-finetuned-wtq","providerModelId":"google/tapas-base-finetuned-wtq"} } }
 />
 
 
@@ -155,23 +125,13 @@ Find out more about Text Classification [here](../tasks/text_classification).
 />
 
 
-### Text To Image
-
-Find out more about Text To Image [here](../tasks/text_to_image).
-
-<InferenceSnippet
-    pipeline=text-to-image
-    providersMapping={ {"hf-inference":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"} } }
-/>
-
-
 ### Token Classification
 
 Find out more about Token Classification [here](../tasks/token_classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"DeepMount00/Italian_NER_XXL","providerModelId":"DeepMount00/Italian_NER_XXL"} } }
+    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
 />
 
 
@@ -181,6 +141,6 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"Helsinki-NLP/opus-mt-zh-en","providerModelId":"Helsinki-NLP/opus-mt-zh-en"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
 />
 
