@@ -5,9 +5,7 @@
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/Inference-providers-banner-dark.png"/>
 </div>
 
-Hugging Face’s Inference Providers give developers streamlined, unified access to hundreds of machine learning models, powered by our serverless inference partners. This new approach builds on our previous Serverless Inference API, offering more models, improved performance, and greater reliability thanks to world-class providers.
-
-To learn more about the launch of Inference Providers, check out our [announcement blog post](https://huggingface.co/blog/inference-providers).
+Hugging Face’s Inference Providers give developers access to hundreds of machine learning models, powered by world-class inference providers. They are also integrated into our client SDKs (for JS and Python), making it easy to explore serverless inference of models your favorite providers.
 
 ## Partners
 
@@ -522,6 +520,7 @@ curl https://router.huggingface.co/v1/chat/completions \
 
 Now that you understand the basics, explore these resources to make the most of Inference Providers:
 
+- **[Announcement Blog Post](https://huggingface.co/blog/inference-providers)**: Learn more about the launch of Inference Providers
 - **[Pricing and Billing](./pricing)**: Understand costs and billing of Inference Providers
 - **[Hub Integration](./hub-integration)**: Learn how Inference Providers are integrated with the Hugging Face Hub
 - **[Register as a Provider](./register-as-a-provider)**: Requirements to join our partner network as a provider
