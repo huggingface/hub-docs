@@ -177,9 +177,12 @@ We'll also need to implement the `transcribe` and `summarize` functions.
 <hfoptions id="transcription">
 <hfoption id="python">
 
-Now let's implement the transcription using OpenAI's `whisper-large-v3` model for fast, reliable speech processing. 
+Now let's implement the transcription using OpenAI's `whisper-large-v3` model for fast, reliable speech processing.
+
 <Tip>
+
 We'll use the `auto` provider to automatically select the first available provider for the model. You can define your own priority list of providers in the [Inference Providers](https://huggingface.co/settings/inference-providers) page.
+
 </Tip>
 
 ```python
@@ -200,9 +203,12 @@ def transcribe_audio(audio_file_path):
 </hfoption>
 <hfoption id="javascript">
 
-Now let's implement the transcription using OpenAI's `whisper-large-v3` model for fast, reliable speech processing. 
+Now let's implement the transcription using OpenAI's `whisper-large-v3` model for fast, reliable speech processing.
+
 <Tip>
+
 We'll use the `auto` provider to automatically select the first available provider for the model. You can define your own priority list of providers in the [Inference Providers](https://huggingface.co/settings/inference-providers) page.
+
 </Tip>
 
 ```javascript
