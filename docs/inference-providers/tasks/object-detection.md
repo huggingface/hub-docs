@@ -24,13 +24,17 @@ For more details about the `object-detection` task, check out its [dedicated pag
 
 ### Recommended models
 
+- [facebook/detr-resnet-50](https://huggingface.co/facebook/detr-resnet-50): Solid object detection model pre-trained on the COCO 2017 dataset.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=object-detection&sort=trending).
 
 ### Using the API
 
 
-There are currently no snippet examples for the **object-detection** task, as no providers support it yet.
+<InferenceSnippet
+    pipeline=object-detection
+    providersMapping={ {"hf-inference":{"modelId":"facebook/detr-resnet-50","providerModelId":"facebook/detr-resnet-50"}} }
+/>
 
 
 
