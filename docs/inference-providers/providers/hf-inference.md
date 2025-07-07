@@ -45,13 +45,33 @@ If you are interested in deploying models to a dedicated and autoscaling infrast
 ## Supported tasks
 
 
+### Automatic Speech Recognition
+
+Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
+
+<InferenceSnippet
+    pipeline=automatic-speech-recognition
+    providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"} } }
+/>
+
+
+### Chat Completion (VLM)
+
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=image-text-to-text
+    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-3.2-11B-Vision-Instruct","providerModelId":"meta-llama/Llama-3.2-11B-Vision-Instruct"} } }
+conversational />
+
+
 ### Feature Extraction
 
 Find out more about Feature Extraction [here](../tasks/feature_extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"intfloat/multilingual-e5-large-instruct","providerModelId":"intfloat/multilingual-e5-large-instruct"} } }
+    providersMapping={ {"hf-inference":{"modelId":"intfloat/multilingual-e5-large","providerModelId":"intfloat/multilingual-e5-large"} } }
 />
 
 
@@ -82,6 +102,16 @@ Find out more about Image Segmentation [here](../tasks/image_segmentation).
 <InferenceSnippet
     pipeline=image-segmentation
     providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
+/>
+
+
+### Object Detection
+
+Find out more about Object Detection [here](../tasks/object_detection).
+
+<InferenceSnippet
+    pipeline=object-detection
+    providersMapping={ {"hf-inference":{"modelId":"facebook/detr-resnet-50","providerModelId":"facebook/detr-resnet-50"} } }
 />
 
 
@@ -122,6 +152,16 @@ Find out more about Text Classification [here](../tasks/text_classification).
 <InferenceSnippet
     pipeline=text-classification
     providersMapping={ {"hf-inference":{"modelId":"tabularisai/multilingual-sentiment-analysis","providerModelId":"tabularisai/multilingual-sentiment-analysis"} } }
+/>
+
+
+### Text To Image
+
+Find out more about Text To Image [here](../tasks/text_to_image).
+
+<InferenceSnippet
+    pipeline=text-to-image
+    providersMapping={ {"hf-inference":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"} } }
 />
 
 
