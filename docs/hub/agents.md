@@ -156,10 +156,8 @@ The following example shows a web-browsing agent configured to use the [Qwen/Qwe
 	"servers": [
 		{
 			"type": "stdio",
-			"config": {
-				"command": "npx",
-				"args": ["@playwright/mcp@latest"]
-			}
+			"command": "npx",
+			"args": ["@playwright/mcp@latest"]
 		}
 	]
 }
@@ -174,10 +172,8 @@ To use a local LLM (such as [llama.cpp](https://github.com/ggerganov/llama.cpp),
 	"servers": [
 		{
 			"type": "stdio",
-			"config": {
-				"command": "npx",
-				"args": ["@playwright/mcp@latest"]
-			}
+			"command": "npx",
+			"args": ["@playwright/mcp@latest"]
 		}
 	]
 }
