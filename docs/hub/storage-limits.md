@@ -14,13 +14,13 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 | PRO              | Unlimited ✅   | 1TB + pay-as-you-go          |
 | Enterprise Hub   | Unlimited ✅   | 1TB per seat + pay-as-you-go |
 
-💡 Enterprise Hub includes 1TB of private storage per seat in the subscription: for example, if your organization has 40 members, then you have 40TB of included private storage.
+💡 [Enterprise Hub](https://huggingface.co/enterprise) includes 1TB of private storage per seat in the subscription: for example, if your organization has 40 members, then you have 40TB of included private storage.
 
 *We aim to continue providing the AI community with free storage space for public repositories, please don't abuse and upload dozens of TBs of generated anime 😁. If possible, we still ask that you consider upgrading to PRO and/or Enterprise Hub whenever possible.
 
 ### Pay-as-you-go price
 
-Above the included 1TB (or 1TB per seat) of private storage in PRO and Enterprise Hub, private storage is invoiced at **$25/TB/month**, in 1TB increments. See our [billing doc](./billing) for more details.
+Above the included 1TB (or 1TB per seat) of private storage in [PRO](https://huggingface.co/subscribe/pro) and [Enterprise Hub](https://huggingface.co/enterprise), private storage is invoiced at **$25/TB/month**, in 1TB increments. See our [billing doc](./billing) for more details.
 
 ## Repository limitations and recommendations
 
