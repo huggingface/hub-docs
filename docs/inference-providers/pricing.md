@@ -6,11 +6,11 @@ Access 200+ models from leading AI inference providers with centralized, transpa
 
 Every Hugging Face user receives monthly credits to experiment with Inference Providers:
 
-| Account Type                 | Monthly Credits | Extra usage (pay-as-you-go)    |
-| ---------------------------- | --------------- | -------- |
-| Free Users                   | $0.10, subject to change | no   |
-| PRO Users                    | $2.00     | yes |
-| Enterprise Hub Organizations | $2.00 per seat | yes |
+| Account Type                     | Monthly Credits          | Extra usage (pay-as-you-go) |
+| -------------------------------- | ------------------------ | --------------------------- |
+| Free Users                       | $0.10, subject to change | no                          |
+| PRO Users                        | $2.00                    | yes                         |
+| Team or Enterprise Organizations | $2.00 per seat           | yes                         |
 
 <Tip>
 
