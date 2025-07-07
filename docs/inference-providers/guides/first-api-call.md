@@ -54,6 +54,12 @@ Set your token as an environment variable:
 export HF_TOKEN="your_token_here"
 ```
 
+<Tip>
+
+You can add this line to your `.bash_profile` or similar file for all your terminal environments to automatically source the token.
+
+</Tip>
+
 The Python or TypeScript code snippet will use the token from the environment variable.
 
 <hfoptions id="python-code-snippet">
