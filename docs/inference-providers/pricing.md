@@ -216,20 +216,26 @@ To bill your organization with the OpenAI JavaScript client, set the `X-HF-Bill-
 import OpenAI from "openai";
 
 const client = new OpenAI({
-  baseURL: "https://router.huggingface.co/v1",
-  apiKey: process.env.HF_TOKEN,
-  defaultHeaders: { "X-HF-Bill-To": "my-org-name" },
+	baseURL: "https://router.huggingface.co/v1",
+	apiKey: process.env.HF_TOKEN,
 });
 
-const completion = await client.chat.completions.create({
-  model: "deepseek-ai/DeepSeek-V3-0324",
-  messages: [
-    {
-      role: "user",
-      content: "How many 'G's in 'huggingface'?",
-    },
-  ],
-});
+const completion = await client.chat.completions.create(
+	{
+		model: "deepseek-ai/DeepSeek-V3-0324",
+		messages: [
+			{
+				role: "user",
+				content: "How many 'G's in 'huggingface'?",
+			},
+		],
+	},
+	{
+		headers: {
+			"X-HF-Bill-To": "my-org-name",
+		},
+	}
+);
 
 console.log(completion.choices[0].message.content);
 ```
