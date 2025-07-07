@@ -14,7 +14,7 @@ Every Hugging Face user receives monthly credits to experiment with Inference Pr
 
 <Tip>
 
-Your monthly credits automatically apply when you route requests through Hugging Face. For Enterprise organizations, credits are shared among all members.
+Your monthly credits automatically apply when you route requests through Hugging Face. For Team or Enterprise organizations, credits are shared among all members.
 
 </Tip>
 
