@@ -103,7 +103,6 @@ Enterprise Hub organizations receive a pool of free usage credits based on the n
 To bill your organization, use the `bill_to` parameter when initializing the client.
 
 ```python
-import os
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(bill_to="my-org-name")
