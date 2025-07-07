@@ -94,30 +94,173 @@ Enterprise Hub organizations receive a pool of free usage credits based on the n
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/enterprise-org-settings-dark.png"/>
 </div>
 
-If you are using the JavaScript `InferenceClient`, you can set the `billTo` attribute at a client level:
+
+
+<hfoptions id="python-clients">
+
+<hfoption id="huggingface_hub">
+
+To bill your organization, use the `bill_to` parameter when initializing the client.
+
+```python
+import os
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(bill_to="my-org-name")
+
+completion = client.chat.completions.create(
+    model="deepseek-ai/DeepSeek-V3-0324",
+    messages=[
+        {
+            "role": "user",
+            "content": "How many 'G's in 'huggingface'?"
+        }
+    ],
+)
+
+print(completion.choices[0].message)
+```
+
+</hfoption>
+
+<hfoption id="openai">
+
+To bill your organization when using OpenAI's Python client, set the `X-HF-Bill-To` header using `extra_headers`.
+
+```python
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://router.huggingface.co/v1",
+    api_key=os.environ["HF_TOKEN"],
+    extra_headers={"X-HF-Bill-To": "my-org-name"},
+)
+
+completion = client.chat.completions.create(
+    model="deepseek-ai/DeepSeek-V3-0324",
+    messages=[
+        {
+            "role": "user",
+            "content": "How many 'G's in 'huggingface'?"
+        }
+    ],
+)
+```
+
+</hfoption>
+
+<hfoption id="requests">
+
+To bill your organization when making direct HTTP requests, include the `X-HF-Bill-To` header.
+
+```python
+import os
+import requests
+
+API_URL = "https://router.huggingface.co/v1/chat/completions"
+headers = {"Authorization": f"Bearer {os.environ['HF_TOKEN']}", "X-HF-Bill-To": "my-org-name"}
+payload = {
+    "messages": [
+        {
+            "role": "user",
+            "content": "How many 'G's in 'huggingface'?"
+        }
+    ],
+    "model": "deepseek-ai/DeepSeek-V3-0324",
+}
+
+response = requests.post(API_URL, headers=headers, json=payload)
+print(response.json()["choices"][0]["message"])
+```
+
+</hfoption>
+
+</hfoptions>
+
+Similarily in JavaScript:
+
+<hfoptions id="javascript-clients">
+
+<hfoption id="huggingface.js">
+
+If you are using the JavaScript `InferenceClient`, you can set the `billTo` attribute at a client level to bill your organization.
 
 ```js
 import { InferenceClient } from "@huggingface/inference";
 
-const client = new InferenceClient("hf_token", { billTo: "my-org-name" });
+const client = new InferenceClient(process.env.HF_TOKEN, { billTo: "my-org-name" });
 
-const image = await client.textToImage({
-	model: "black-forest-labs/FLUX.1-schnell",
-	inputs: "A majestic lion in a fantasy forest",
-	provider: "fal-ai",
+const completion = await client.chat.completions.create({
+  model: "deepseek-ai/DeepSeek-V3-0324",
+  messages: [
+    {
+      role: "user",
+      content: "How many 'G's in 'huggingface'?",
+    },
+  ],
 });
-/// Use the generated image (it's a Blob)
 ```
 
-And similarly in Python:
+</hfoption>
 
-```py
-from huggingface_hub import InferenceClient
-client = InferenceClient(provider="fal-ai", bill_to="my-org-name")
-image = client.text_to_image(
-    "A majestic lion in a fantasy forest",
-    model="black-forest-labs/FLUX.1-schnell",
-)
-image.save("lion.png")
+<hfoption id="openai">
+
+To bill your organization with the OpenAI JavaScript client, set the `X-HF-Bill-To` header using the `defaultHeaders` option.
+
+```javascript
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  baseURL: "https://router.huggingface.co/v1",
+  apiKey: process.env.HF_TOKEN,
+  defaultHeaders: { "X-HF-Bill-To": "my-org-name" },
+});
+
+const completion = await client.chat.completions.create({
+  model: "deepseek-ai/DeepSeek-V3-0324",
+  messages: [
+    {
+      role: "user",
+      content: "How many 'G's in 'huggingface'?",
+    },
+  ],
+});
+
+console.log(completion.choices[0].message.content);
 ```
 
+</hfoption>
+
+<hfoption id="fetch">
+
+When using `fetch`, include the `X-HF-Bill-To` header to bill your organization.
+
+```js
+import fetch from "node-fetch";
+
+const response = await fetch(
+  "https://router.huggingface.co/v1/chat/completions",
+  {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.HF_TOKEN}`,
+      "Content-Type": "application/json",
+      "X-HF-Bill-To": "my-org-name",
+    },
+    body: JSON.stringify({
+      model: "deepseek-ai/DeepSeek-V3-0324",
+      messages: [
+        {
+          role: "user",
+          content: "How many 'G's in 'huggingface'?",
+        },
+      ],
+    }),
+  }
+);
+console.log(await response.json());
+```
+</hfoption>
+
+</hfoptions>
