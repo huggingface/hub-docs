@@ -146,6 +146,8 @@ completion = client.chat.completions.create(
         }
     ],
 )
+
+print(completion.choices[0].message)
 ```
 
 </hfoption>
@@ -200,6 +202,8 @@ const completion = await client.chat.completions.create({
     },
   ],
 });
+
+console.log(completion.choices[0].message.content);
 ```
 
 </hfoption>
