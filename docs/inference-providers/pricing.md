@@ -134,7 +134,7 @@ from openai import OpenAI
 client = OpenAI(
     base_url="https://router.huggingface.co/v1",
     api_key=os.environ["HF_TOKEN"],
-    extra_headers={"X-HF-Bill-To": "my-org-name"},
+    
 )
 
 completion = client.chat.completions.create(
@@ -145,6 +145,7 @@ completion = client.chat.completions.create(
             "content": "How many 'G's in 'huggingface'?"
         }
     ],
+    extra_headers={"X-HF-Bill-To": "my-org-name"},
 )
 
 print(completion.choices[0].message)
