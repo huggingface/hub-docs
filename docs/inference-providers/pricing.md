@@ -124,7 +124,7 @@ print(completion.choices[0].message)
 
 <hfoption id="openai">
 
-To bill your organization when using OpenAI's Python client, set the `X-HF-Bill-To` header using `extra_headers`.
+To bill your organization when using OpenAI's Python client, set the `X-HF-Bill-To` header using `extra_headers` on the `completions.create` method call.
 
 ```python
 import os
@@ -209,7 +209,7 @@ console.log(completion.choices[0].message.content);
 
 <hfoption id="openai">
 
-To bill your organization with the OpenAI JavaScript client, set the `X-HF-Bill-To` header using the `defaultHeaders` option.
+To bill your organization with the OpenAI JavaScript client, set the `X-HF-Bill-To` header using the `defaultHeaders` option on the `completions.create` method call.
 
 ```javascript
 import OpenAI from "openai";
