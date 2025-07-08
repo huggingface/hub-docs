@@ -122,14 +122,15 @@ await Promise.all(
     >;
 
     for (const [task, models] of Object.entries(mapping)) {
-      for (const [modelId, modelMapping] of Object.entries(models)) {
-        if (modelMapping.status == "live") {
-          if (!PER_TASK_SUPPORTED_PROVIDERS[task]) {
-            PER_TASK_SUPPORTED_PROVIDERS[task] = [];
-          }
-          PER_TASK_SUPPORTED_PROVIDERS[task].push(provider);
-          break;
+      const hasLiveModel = Object.values(models).some(
+        (model) => model.status === "live",
+      );
+
+      if (hasLiveModel) {
+        if (!PER_TASK_SUPPORTED_PROVIDERS[task]) {
+          PER_TASK_SUPPORTED_PROVIDERS[task] = [];
         }
+        PER_TASK_SUPPORTED_PROVIDERS[task].push(provider);
       }
     }
   }),
