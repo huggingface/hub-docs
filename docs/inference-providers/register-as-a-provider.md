@@ -296,6 +296,36 @@ Here is an example of response:
 }
 ```
 
+### Automatic validation
+
+Once a mapping is created through the API, Hugging Face performs periodic automated tests to ensure the mapped endpoint functions correctly.
+
+Each model is tested every 6 hours by making API calls to your service. If the test is successful, the model remains active and continues to be tested periodically. However, if the test fails (e.g., your service returns an HTTP error status during an inference request), the provider will be temporarily removed from the list of active providers.
+
+<div class="flex justify-center">
+    <picture>
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/automatic-validation-light.png">
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/automatic-validation-dark.png">
+    </picture>
+</div>
+
+A failed mapping undergoes retesting every hour. Additionally, updating the status of a model mapping triggers an immediate validation test.
+
+The validation process checks the following:
+
+- The Inference API is reachable, and the HTTP call succeeds.
+- The output format is compatible with the Hugging Face JavaScript Inference Client.
+- Latency requirements are met:
+  - For conversational and text models: under 5 seconds (time to first token in streaming mode).
+  - For other tasks: under 30 seconds.
+
+For large language models (LLMs), additional behavioral tests are conducted:
+
+- Tool calling support.
+- Structured output support.
+
+These tests involve sending specific inference requests to the model and verifying that the responses meet the expected format.
+
 ## 4. Billing
 
 For routed requests (see figure below), i.e. when users authenticate via HF, our intent is that
