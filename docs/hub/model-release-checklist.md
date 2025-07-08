@@ -36,7 +36,7 @@ A well-crafted model card (the `README.md` file in your repository) is essential
 
 3. **Usage Examples**: Provide clear, actionable code snippets that demonstrate how to use your model for inference, fine-tuning, or other common tasks. These examples should be ready to copy and run with minimal modifications.
 
-Extra: If your model isn't a transformers or diffusers supported one, providing a `notebook.ipynb` notebook file in the repository with minimum loading and inference will let people open a Colab notebook with two clicks in your repository. 
+Bonus: You can showcase your model capabilities by placing a well structured `notebook.ipynb` in the model repository. This would allow users to directly open your notebook and run it in [Google Colab and Kaggle Notebooks](https://huggingface.co/docs/hub/en/notebooks) directly.
 
 4. **Technical Specifications**: Include information about training parameters, hardware requirements, and any other technical details that would help users understand how to effectively use your model.
 
