@@ -6,7 +6,7 @@ This feature is part of the <a href="https://huggingface.co/enterprise">Team & E
 
 Single sign-on (SSO) allows organizations to securely manage user authentication through their own identity provider (IdP). Both SAML 2.0 and OpenID Connect (OIDC) protocols are supported.
 
-Please note that this feature is intended to manage access to organization-specific resources such as private models, datasets, and Spaces. However, it does not replace the core authentication mechanism for the Hugging Face platform. For enhanced capabilities like automated user provisioning (JIT/SCIM) and global SSO enforcement, see our [Advanced SSO documentation](./enterprise-hub-advanced-sso).
+Please note that this feature is intended to manage access to organization-specific resources such as private models, datasets, and Spaces. However, it does not replace the core authentication mechanism for the Hugging Face platform, meaning that users still need to login with their own HF account. For enhanced capabilities like automated user provisioning (JIT/SCIM) and global SSO enforcement, see our [Advanced SSO documentation](./enterprise-hub-advanced-sso).
 
 <div class="flex justify-center" style="max-width: 550px">
   <img

@@ -10,7 +10,7 @@ You can set up [Single Sign-On (SSO)](./security-sso) to be able to map access c
 
 Advanced and more fine-grained access control can be achieved with [Resource Groups](./security-resource-groups).
 
-The Resource Group feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>.
+The Resource Group feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 </Tip>
 

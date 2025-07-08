@@ -50,7 +50,7 @@ There are plenty of ways to use a User Access Token to access the Hugging Face H
 
 User Access Tokens can be:
 - used **in place of a password** to access the Hugging Face Hub with git or with basic authentication.
-- passed as a **bearer token** when calling the [Inference API](https://huggingface.co/inference-api).
+- passed as a **bearer token** when calling [Inference Providers](https://huggingface.co/docs/inference-providers).
 - used in the Hugging Face Python libraries, such as `transformers` or `datasets`:
 
 ```python

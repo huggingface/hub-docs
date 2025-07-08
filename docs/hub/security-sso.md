@@ -5,13 +5,13 @@ The Hugging Face Hub gives you the ability to implement mandatory Single Sign-On
 We support both SAML 2.0 and OpenID Connect (OIDC) protocols.
 
 <Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise Hub</a>. For enhanced capabilities like automated user provisioning (JIT/SCIM) and global SSO enforcement, see our <a href="./enterprise-hub-advanced-sso">Advanced SSO documentation</Tip>
+This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans. For enhanced capabilities like automated user provisioning (JIT/SCIM) and global SSO enforcement, see our <a href="./enterprise-hub-advanced-sso">Advanced SSO documentation</Tip>
 
 ## How does it work?
 
 When Single Sign-On is enabled, the members of your organization must authenticate through your Identity Provider (IdP) to access any content under the organization's namespace. Public content will still be available to users who are not members of the organization.
 
-**We use email addresses to identify SSO users. Make sure that your organizational email address (e.g. your company email) has been added to [your user account](https://huggingface.co/settings/account).**
+**We use email addresses to identify SSO users. As a user, make sure that your organizational email address (e.g. your company email) has been added to [your user account](https://huggingface.co/settings/account).**
 
 When users log in, they will be prompted to complete the Single Sign-On authentication flow with a banner similar to the following:
 
