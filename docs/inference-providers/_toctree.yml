@@ -20,6 +20,8 @@
 
 - title: Providers
   sections:
+  - local: providers/bagelnet
+    title: BagelNet
   - local: providers/cerebras
     title: Cerebras
   - local: providers/cohere

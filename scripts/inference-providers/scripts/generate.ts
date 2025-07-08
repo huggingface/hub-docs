@@ -33,6 +33,7 @@ const HEADERS: Record<string, string> = process.env.HF_TOKEN
   : {};
 
 const PROVIDERS_HUB_ORGS: Record<string, string> = {
+  bagelnet: "bagelnet",
   cerebras: "cerebras",
   cohere: "CohereLabs",
   "fal-ai": "fal",
@@ -50,6 +51,7 @@ const PROVIDERS_HUB_ORGS: Record<string, string> = {
 };
 
 const PROVIDERS_URLS: Record<string, string> = {
+  bagelnet: "https://bagel.net/",
   cerebras: "https://www.cerebras.ai/",
   cohere: "https://cohere.com/",
   "fal-ai": "https://fal.ai/",
@@ -120,15 +122,14 @@ await Promise.all(
     >;
 
     for (const [task, models] of Object.entries(mapping)) {
-      const hasLiveModel = Object.values(models).some(
-        (model) => model.status === "live",
-      );
-
-      if (hasLiveModel) {
-        if (!PER_TASK_SUPPORTED_PROVIDERS[task]) {
-          PER_TASK_SUPPORTED_PROVIDERS[task] = [];
+      for (const [modelId, modelMapping] of Object.entries(models)) {
+        if (modelMapping.status == "live") {
+          if (!PER_TASK_SUPPORTED_PROVIDERS[task]) {
+            PER_TASK_SUPPORTED_PROVIDERS[task] = [];
+          }
+          PER_TASK_SUPPORTED_PROVIDERS[task].push(provider);
+          break;
         }
-        PER_TASK_SUPPORTED_PROVIDERS[task].push(provider);
       }
     }
   }),
