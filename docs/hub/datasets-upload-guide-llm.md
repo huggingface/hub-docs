@@ -22,6 +22,7 @@ Your goal is to help a user upload a dataset to the Hugging Face Hub. Ideally, t
 When you don't have direct access to the user's files (e.g., web interface), ask the user to run these commands to understand their dataset:
 
 **Dataset structure**:
+
 ```bash
 # Show directory tree (install with: pip install tree or brew install tree)
 tree -L 3 --filelimit 20
@@ -31,6 +32,7 @@ find . -type f -name "*.csv" -o -name "*.json" -o -name "*.parquet" | head -20
 ```
 
 **Check file sizes**:
+
 ```bash
 # Total dataset size
 du -sh .
@@ -40,6 +42,7 @@ ls -lh data/
 ```
 
 **Peek at data format**:
+
 ```bash
 # First few lines of CSV/JSON
 head -n 5 data/train.csv
@@ -49,6 +52,7 @@ ls -la images/ | head -10
 ```
 
 **Quick file count**:
+
 ```bash
 # Count files by type
 find . -name "*.jpg" | wc -l
@@ -61,15 +65,16 @@ find . -name "*.jpg" | wc -l
 ```yaml
 # Machine-readable Hub limits
 hub_limits:
-  max_file_size_gb: 50          # absolute hard stop enforced by LFS
-  recommended_file_size_gb: 20  # best-practice shard size
-  max_files_per_folder: 10000   # Git performance threshold
-  max_files_per_repo: 100000    # Repository file count limit
+  max_file_size_gb: 50 # absolute hard stop enforced by LFS
+  recommended_file_size_gb: 20 # best-practice shard size
+  max_files_per_folder: 10000 # Git performance threshold
+  max_files_per_repo: 100000 # Repository file count limit
   recommended_repo_size_gb: 300 # public-repo soft cap; contact HF if larger
-  viewer_row_size_mb: 2         # approximate per-row viewer limit
+  viewer_row_size_mb: 2 # approximate per-row viewer limit
 ```
 
 **Human-readable summary**:
+
 - Free: 100GB private datasets
 - Pro (for individuals) | Team or Enterprise (for organizations): 1TB+ private storage per seat (see [pricing](https://huggingface.co/pricing))
 - Public: 300GB (contact datasets@huggingface.co for larger)
@@ -106,7 +111,7 @@ See https://huggingface.co/docs/hub/storage-limits#repository-limitations-and-re
 
 1. ✓ **Authenticate**:
    - CLI: `huggingface-cli login`
-   - Or use token: `HfApi(token="hf_...")`  or set `HF_TOKEN` environment variable
+   - Or use token: `HfApi(token="hf_...")` or set `HF_TOKEN` environment variable
 2. ✓ **Identify your data type**: Check the [Quick Reference](#quick-reference-by-data-type) table above
 3. ✓ **Choose upload method**:
 
@@ -234,11 +239,11 @@ def data_generator():
         }
 
 # Specify features for Dataset Viewer compatibility
-from datasets import Features, Value, ClassLabel, Array1D
+from datasets import Features, Value, ClassLabel, List
 features = Features({
     'text': Value('string'),
     'label': ClassLabel(names=['cat1', 'cat2', 'cat3']),
-    'embedding': Array1D(shape=(768,), dtype='float32')
+    'embedding': List(feature=Value('float32'), length=768)
 })
 
 dataset = Dataset.from_generator(data_generator, features=features)
@@ -282,6 +287,7 @@ features = Features({
 })
 
 dataset = Dataset.from_generator(speech_generator, features=features)
+dataset.push_to_hub("username/speech-dataset")
 ```
 
 **Multiple images per example**:
@@ -301,6 +307,7 @@ features = Features({
 })
 
 dataset = Dataset.from_dict(data, features=features)
+dataset.push_to_hub("username/before-after-images")
 ```
 
 **Note**: For text + images, consider using ImageFolder with metadata.csv which handles this automatically.
@@ -372,6 +379,7 @@ api.upload_large_folder(folder_path="./data", repo_id="username/dataset", repo_t
 ## Validation
 
 **Consider small reformatting**: If data is close to a built-in loader format, suggest minor changes:
+
 - Rename columns (e.g., 'filename' → 'file_name' for ImageFolder)
 - Reorganize folders (e.g., move images into class subfolders)
 - Rename files to match expected patterns (e.g., 'data.csv' → 'train.csv')
@@ -380,17 +388,19 @@ api.upload_large_folder(folder_path="./data", repo_id="username/dataset", repo_t
 
 - Test locally: `load_dataset("imagefolder", data_dir="./data")`
 - Verify features work correctly:
+
   ```python
   # Test first example
   print(dataset[0])
-  
+
   # For images: verify they load
   if 'image' in dataset.features:
       dataset[0]['image']  # Should return PIL Image
-  
+
   # Check dataset size before upload
   print(f"Size: {len(dataset)} examples")
   ```
+
 - Check metadata.csv has 'file_name' column
 - Verify relative paths, no leading slashes
 - Ensure no folder >10k files
