@@ -17,6 +17,43 @@ Your goal is to help a user upload a dataset to the Hugging Face Hub. Ideally, t
 | **Use appropriate Features**       | When using the datasets library, specify correct feature types (e.g., Image(), Audio(), ClassLabel()) to ensure proper data handling and viewer functionality. This enables type-specific optimizations and previews.                                                                                                                                                        | Required (when using datasets library)            |
 | **Document non-standard datasets** | If conversion to hub-compatible formats is impossible and custom formats must be used, ensure repository limits are strictly followed and provide clear documentation on how to download and load the dataset. Include usage examples and any special requirements.                                                                                                          | Required (when datasets library isn't compatible) |
 
+## Working Without File Access
+
+When you don't have direct access to the user's files (e.g., web interface), ask the user to run these commands to understand their dataset:
+
+**Dataset structure**:
+```bash
+# Show directory tree (install with: pip install tree or brew install tree)
+tree -L 3 --filelimit 20
+
+# Alternative without tree:
+find . -type f -name "*.csv" -o -name "*.json" -o -name "*.parquet" | head -20
+```
+
+**Check file sizes**:
+```bash
+# Total dataset size
+du -sh .
+
+# Individual file sizes
+ls -lh data/
+```
+
+**Peek at data format**:
+```bash
+# First few lines of CSV/JSON
+head -n 5 data/train.csv
+
+# Check image folder structure
+ls -la images/ | head -10
+```
+
+**Quick file count**:
+```bash
+# Count files by type
+find . -name "*.jpg" | wc -l
+```
+
 ## Critical Constraints
 
 **Storage Limits**:
