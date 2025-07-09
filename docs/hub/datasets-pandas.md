@@ -167,7 +167,7 @@ Using [pandas-audio-methods](https://github.com/lhoestq/pandas-audio-methods) yo
 
 ```python
 import pandas as pd
-from pandas_image_methods import SFMethods
+from pandas_audio_methods import SFMethods
 
 pd.api.extensions.register_series_accessor("sf")(SFMethods)
 
