@@ -58,6 +58,18 @@ find . -name "*.jpg" | wc -l
 
 **Storage Limits**:
 
+```yaml
+# Machine-readable Hub limits
+hub_limits:
+  max_file_size_gb: 50          # absolute hard stop enforced by LFS
+  recommended_file_size_gb: 20  # best-practice shard size
+  max_files_per_folder: 10000   # Git performance threshold
+  max_files_per_repo: 100000    # Repository file count limit
+  recommended_repo_size_gb: 300 # public-repo soft cap; contact HF if larger
+  viewer_row_size_mb: 2         # approximate per-row viewer limit
+```
+
+**Human-readable summary**:
 - Free: 100GB private datasets
 - Pro (for individuals) | Team or Enterprise (for organizations): 1TB+ private storage per seat (see [pricing](https://huggingface.co/pricing))
 - Public: 300GB (contact datasets@huggingface.co for larger)
