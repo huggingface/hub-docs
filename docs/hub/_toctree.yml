@@ -235,11 +235,6 @@
         title: Image Dataset
       - local: datasets-video
         title: Video Dataset
-  - local: datasets-research-guide
-    title: Research Datasets Guide
-    sections:
-      - local: datasets-research-science
-        title: Science & Scientific Computing
 - local: spaces
   title: Spaces
   isExpanded: true
