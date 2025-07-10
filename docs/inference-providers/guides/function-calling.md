@@ -383,7 +383,7 @@ Each inference provider has different capabilities and performance characteristi
 
 ### Tool Choice Options
 
-You can control when and which functions are called using the `tool_choice` parameter in the OpenAI client.
+You can control when and which functions are called using the `tool_choice` parameter.
 
 The `tool_choice` parameter is used to control when the model calls functions. In most cases, we're using `auto`, which means the model will decide when to call functions (0 or more times). 
 
@@ -411,6 +411,10 @@ response = client.chat.completions.create(
 
 This works well if you have simple functions, but if you have more complex functions, you may want to use the `tool_choice` parameter to force the model to call a specific function at least once.
 
+<hfoptions id="tool-choice-options">
+
+<hfoption id="openai">
+
 For example, let's say you assistant's only job is to give the weather for a given location. You may want to force the model to call the `get_current_weather` function, and not call any other functions.
 
 ```python
@@ -427,6 +431,22 @@ response = client.chat.completions.create(
 ```
 
 Here, we're forcing the model to call the `get_current_weather` function, and not call any other functions.
+
+</hfoption>
+
+</hfoption>
+
+<hfoption id="huggingface_hub">
+
+<Tip warning={true}>
+
+Hugging Face Hub does not support the `tool_choice` parameters that specify which function to call.
+
+</Tip>
+
+</hfoption>
+
+</hfoptions>
 
 ### Strict Mode
 
