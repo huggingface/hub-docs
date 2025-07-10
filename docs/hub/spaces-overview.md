@@ -8,7 +8,7 @@ In the following sections, you'll learn the basics of creating a Space, configur
 
 ## Creating a new Space
 
-**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers four SDK options: Gradio, Streamlit, Docker and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
+**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers four SDK options: Gradio, Docker and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-blank-space.png"/>
@@ -19,7 +19,6 @@ Under the hood, Spaces stores your code inside a git repository, just like the m
 
 For step-by-step tutorials to creating your first Space, see the guides below:
 * [Creating a Gradio Space](./spaces-sdks-gradio)
-* [Creating a Streamlit Space](./spaces-sdks-streamlit)
 * [Creating a Docker Space](./spaces-sdks-docker-first-demo)
 
 ## Hardware resources
@@ -76,7 +75,6 @@ Accessing secrets and variables is different depending on your Space SDK:
 
 - For Static Spaces, both are available through client-side JavaScript in `window.huggingface.variables`
 - For Docker Spaces, check out [environment management with Docker](./spaces-sdks-docker#secrets-and-variables-management)
-- For Streamlit Spaces, secrets are exposed to your app through [Streamlit Secrets Management](https://blog.streamlit.io/secrets-in-sharing-apps/), and public variables are directly available as environment variables
 
 For other Spaces, both are exposed to your app as environment variables. Here is a very simple example of accessing the previously declared `MODEL_REPO_ID` variable in Python (it would be the same for secrets):
 ```py
