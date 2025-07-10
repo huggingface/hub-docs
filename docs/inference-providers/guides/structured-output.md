@@ -32,10 +32,6 @@ Before making any API calls, you need to define the structure you want. Let's bu
 
 We'll create a simple schema that captures the most essential elements: the paper's title and a summary of its abstract. The easiest way to do this is to use Pydantic, a library that allows you to define Python classes that represent JSON schemas (among other things).
 
-<hfoptions id="json-pydantic">
-
-<hfoption id="pydantic">
-
 ```python
 from pydantic import BaseModel
 
@@ -44,9 +40,7 @@ class PaperAnalysis(BaseModel):
     abstract_summary: str
 ```
 
-</hfoption>
-
-<hfoption id="json">
+Using `model_json_schema` we can convert the Pydantic model to a JSON Schema which is what the model will receive as a response format instruction. This is the schema that the model will use to generate the response.
 
 ```json
 {
@@ -58,12 +52,6 @@ class PaperAnalysis(BaseModel):
   "required": ["title", "abstract_summary"]
 }
 ```
-
-</hfoption>
-
-</hfoptions>
-
-If you switch to the JSON option, you can see that the schema is exactly the same as the Pydantic model. This is what the LLM will receive as a response format instruction.
 
 This simple schema ensures we'll always get the paper's title and a concise summary of its abstract. Notice how we mark both fields as required - this guarantees they'll always be present in the response, making our application more reliable.
 
