@@ -165,7 +165,7 @@
   - local: datasets-adding
     title: Uploading Datasets
   - local: datasets-upload-guide-llm
-    title: Dataset Upload Guide (LLM)
+    title: Uploading Datasets (for LLMs)
   - local: datasets-downloading
     title: Downloading Datasets
   - local: datasets-libraries
