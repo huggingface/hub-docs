@@ -396,8 +396,6 @@ Here, we're forcing the model to call the `get_current_weather` function, and no
 
 </hfoption>
 
-</hfoption>
-
 <hfoption id="huggingface_hub">
 
 <Tip warning={true}>
