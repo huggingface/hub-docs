@@ -14,14 +14,17 @@ This guide assumes you have a Hugging Face account and access token. If you don'
 
 The first step is implementing the functions you want the model to call and defining their schemas. We'll use a simple weather function example that returns the current weather for a given location.
 
-We can define the function as a Python function that performs a simple task. In this case, the function will return the current weather as a dictionary of location, temperature, and condition.
+As always, we'll start by initializing the client for our inference client.
 
 <hfoptions id="define-functions">
 <hfoption id="openai">
 
+In the OpenAI client, we'll use the `base_url` parameter to specify the provider we want to use for the request.
+
 ```python
 import json
 import os
+
 from openai import OpenAI
 
 # Initialize client
@@ -29,35 +32,29 @@ client = OpenAI(
     base_url="https://router.huggingface.co/nebius/v1",
     api_key=os.environ["HF_TOKEN"],
 )
-
-# Define the function
-def get_current_weather(location: str) -> dict:
-    """Get weather information for a location."""
-    # In production, this would call a real weather API
-    weather_data = {
-        "San Francisco": {"temperature": "22°C", "condition": "Sunny"},
-        "New York": {"temperature": "18°C", "condition": "Cloudy"},
-        "London": {"temperature": "15°C", "condition": "Rainy"},
-    }
-    
-    return weather_data.get(location, {
-        "location": location,
-        "error": "Weather data not available"
-    })
-
 ```
 
 </hfoption>
 <hfoption id="huggingface_hub">
+
+In the Hugging Face Hub client, we'll use the `provider` parameter to specify the provider we want to use for the request.
 
 ```python
 import json
 import os
+
 from huggingface_hub import InferenceClient
 
 # Initialize client
-client = InferenceClient(token=os.environ["HF_TOKEN"])
+client = InferenceClient(token=os.environ["HF_TOKEN"], provider="nebius")
+```
 
+</hfoption>
+</hfoptions>
+
+We can define the function as a Python function that performs a simple task. In this case, the function will return the current weather as a dictionary of location, temperature, and condition.
+
+```python
 # Define the function
 def get_current_weather(location: str) -> dict:
     """Get weather information for a location."""
@@ -74,14 +71,9 @@ def get_current_weather(location: str) -> dict:
     })
 ```
 
-</hfoption>
-</hfoptions>
 
 Now we need to define the function schema that describes our weather function to the language model. This schema tells the model what parameters the function expects and what it does:
 
-<hfoptions id="define-function-schema">
-<hfoption id="openai">
-
 ```python
 
 # Define the function schema
@@ -105,36 +97,6 @@ tools = [
     }
 ]
 ```
-
-</hfoption>
-<hfoption id="huggingface_hub">
-
-```python
-
-# Define the function schema
-tools = [
-    {
-        "type": "function",
-        "function": {
-            "name": "get_current_weather",
-            "description": "Get current weather for a location",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "location": {
-                        "type": "string", 
-                        "description": "City name"
-                    }
-                },
-                "required": ["location"],
-            },
-        },
-    }
-]
-```
-
-</hfoption>
-</hfoptions>
 
 The schema is a JSON Schema format that describes what the function does, its parameters, and which parameters are required. The description helps the model understand when to call the function and how to call it.
 
