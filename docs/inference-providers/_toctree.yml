@@ -17,6 +17,8 @@
     title: Your First API Call
   - local: guides/building-first-app
     title: Building Your First AI App
+  - local: guides/function-calling
+    title: Function Calling
 
 - title: Providers
   sections:
