@@ -224,9 +224,9 @@ Both approaches guarantee that your response will match the specified schema. He
 
 <hfoptions id="structured-outputs-implementation">
 
-The Hugging Face Hub client returns a `ChatCompletion` object, which contains the response from the model as a string. Use the `json.loads` function to parse the response and get the structured data.
-
 <hfoption id="huggingface_hub">
+
+The Hugging Face Hub client returns a `ChatCompletion` object, which contains the response from the model as a string. Use the `json.loads` function to parse the response and get the structured data.
 
 ```python
 # The response is guaranteed to match your schema
@@ -243,9 +243,10 @@ print(f"Abstract Summary: {analysis['abstract_summary']}")
 
 </hfoption>
 
-The OpenAI client returns a `ChatCompletion` object, which contains the response from the model as a Python object. Access the structured data using the `title` and `abstract_summary` attributes of the `PaperAnalysis` class.
 
 <hfoption id="openai">
+
+The OpenAI client returns a `ChatCompletion` object, which contains the response from the model as a Python object. Access the structured data using the `title` and `abstract_summary` attributes of the `PaperAnalysis` class.
 
 ```python
 # Get the parsed response as a Python object
