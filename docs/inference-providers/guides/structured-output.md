@@ -2,7 +2,7 @@
 
 In this guide, we'll show you how to use Inference Providers to generate structured outputs that follow a specific JSON schema. This is incredibly useful for building reliable AI applications that need predictable, parseable responses.
 
-Instead of hoping the model returns properly formatted JSON, structured outputs guarantee that the response will match your exact schema every time. This eliminates the need for complex parsing logic and makes your applications more robust.
+Structured outputs guarantee a model returns a response that matches your exact schema every time. This eliminates the need for complex parsing logic and makes your applications more robust.
 
 <Tip>
 
@@ -12,7 +12,7 @@ This guide assumes you have a Hugging Face account. If you don't have one, you c
 
 ## What Are Structured Outputs?
 
-Structured outputs make sure that AI model responses always follow a specific structure, typically a JSON Schema. This means you get predictable, type-safe data that integrates easily with your systems. Instead of hoping the model returns valid JSON, you give the AI a strict template to follow, so you always get data in the format you expect.
+Structured outputs make sure model responses always follow a specific structure, typically a JSON Schema. This means you get predictable, type-safe data that integrates easily with your systems. The model follows a strict template so you always get the data in the format you expect.
 
 Traditionally, getting structured data from LLMs required prompt engineering (asking the model to "respond in JSON format"), post-processing and parsing the response, and sometimes retrying when parsing failed. This approach is unreliable and can lead to brittle applications.
 
@@ -81,7 +81,7 @@ Install the Hugging Face Hub python package:
 pip install huggingface_hub
 ```
 
-Here's how to initialize the Hugging Face Hub client with the `InferenceClient` class.
+Initialize the `InferenceClient` with an Inference Provider (check this [list](https://huggingface.co/docs/inference-providers/index#partners) for all available providers) and your Hugging Face token.
 
 ```python
 import os
@@ -105,7 +105,7 @@ Install the OpenAI python package:
 pip install openai
 ```
 
-Here's how to initialize the OpenAI client with the `OpenAI` class.
+Initialize an `OpenAI` client with the `base_url` and your Hugging Face token.
 
 ```python
 import os
@@ -127,7 +127,7 @@ client = OpenAI(
 
 <Tip>
 
-Structured outputs are good use case for selecting a specific provider and model because you want to avoid incompatibility issues between the model, provider and the schema.
+Structured outputs are a good use case for selecting a specific provider and model because you want to avoid incompatibility issues between the model, provider and the schema.
 
 </Tip>
 
@@ -236,7 +236,7 @@ Both approaches guarantee that your response will match the specified schema. He
 
 <hfoptions id="structured-outputs-implementation">
 
-The Hugging Face Hub client returns a `ChatCompletion` object, which contains the response from the model as a string. You can then parse the response to get the structured data using the `json.loads` function.
+The Hugging Face Hub client returns a `ChatCompletion` object, which contains the response from the model as a string. Use the `json.loads` function to parse the response and get the structured data.
 
 <hfoption id="huggingface_hub">
 
@@ -255,7 +255,7 @@ print(f"Abstract Summary: {analysis['abstract_summary']}")
 
 </hfoption>
 
-The OpenAI client returns a `ChatCompletion` object, which contains the response from the model as a Python object. You can then access the structured data using the `title` and `abstract_summary` attributes of the `PaperAnalysis` class.
+The OpenAI client returns a `ChatCompletion` object, which contains the response from the model as a Python object. Access the structured data using the `title` and `abstract_summary` attributes of the `PaperAnalysis` class.
 
 <hfoption id="openai">
 
@@ -461,7 +461,7 @@ def analyze_paper_structured():
 Now that you understand structured outputs, you probably want to build an application that uses them. Here are some ideas for fun things you can try out:
 
 - **Different models**: Experiment with different models. The biggest models are not always the best for structured outputs!
-- **Multi-turn conversations**: Maintaining structured format across conversation turns
-- **Complex schemas**: Building domain-specific schemas for your use case
+- **Multi-turn conversations**: Maintaining structured format across conversation turns.
+- **Complex schemas**: Building domain-specific schemas for your use case.
 - **Performance optimization**: Choosing the right provider for your structured output needs.
 
