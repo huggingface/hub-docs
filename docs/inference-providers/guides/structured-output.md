@@ -1,6 +1,6 @@
 # Structured Outputs with Inference Providers
 
-In this guide, we'll show you how to use Inference Providers to generate structured outputs that follow a specific JSON schema. This is incredibly useful for building reliable AI applications that need predictable, parseable responses.
+In this guide, we'll show you how to use Inference Providers to generate structured outputs that follow a specific JSON schema. This is incredibly useful for building reliable AI applications that need predictable, parsable responses.
 
 Structured outputs guarantee a model returns a response that matches your exact schema every time. This eliminates the need for complex parsing logic and makes your applications more robust.
 
