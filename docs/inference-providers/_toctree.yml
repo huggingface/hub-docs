@@ -50,6 +50,8 @@
     title: Building Your First AI App
   - local: guides/structured-output
     title: Structured Outputs with LLMs
+  - local: guides/function-calling
+    title: Function Calling
 
 - title: API Reference
   sections:
