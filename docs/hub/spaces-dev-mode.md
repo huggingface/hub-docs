@@ -37,7 +37,7 @@ Once the Dev Mode is enabled on your Space, you should see a modal like the foll
 The application does not restart automatically when you change the code. For your changes to appear in the Space, you need to use the `Refresh` button that will restart the app.
 
 <div class="alert alert-warning">
-  If you're using the Streamlit or Gradio SDK, or if your application is Python-based, note that requirements are not installed automatically.
+  If you're using the Gradio SDK, or if your application is Python-based, note that requirements are not installed automatically.
   You will need to manually run `pip install` from VS Code or SSH.
 </div>
 
