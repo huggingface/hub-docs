@@ -1,8 +1,8 @@
-# Handling Spaces Dependencies
+# Handling Spaces Dependencies in Gradio Spaces
 
 ## Default dependencies
 
-The default Spaces environment comes with several pre-installed dependencies:
+The default Gradio Spaces environment comes with several pre-installed dependencies:
 
 * The [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub/index) client library allows you to manage your repository and files on the Hub with Python and programmatically access the Inference API from your Space. If you choose to instantiate the model in your app with the Inference API, you can benefit from the built-in acceleration optimizations. This option also consumes less computing resources, which is always nice for the environment! 🌎 
 
