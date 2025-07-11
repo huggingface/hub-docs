@@ -12,7 +12,7 @@ The default Spaces environment comes with several pre-installed dependencies:
 
 * [`datasets`](https://github.com/huggingface/datasets) allows you to fetch or display any dataset from the Hub inside your app.
 
-* Gradio version is specified by the `sdk_version` in the `README.md` file.
+* [`gradio`](https://github.com/gradio-app/gradio). You can optionally require a specific version using [`sdk_version` in the `README.md` file](spaces-config-reference).
 
 
 * Common Debian packages, such as `ffmpeg`, `cmake`, `libsm6`, and few others.
