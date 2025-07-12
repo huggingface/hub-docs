@@ -1,3 +1,10 @@
+<Tip warning={true}>
+
+The option to use Streamlit as the default built-in SDK for Spaces is deprecated.
+If you wish to deploy a Space with Streamlit, please use the Docker SDK instead.
+
+</Tip>
+
 # Streamlit Spaces
 
 **Streamlit** gives users freedom to build a full-featured web app with Python in a *reactive* way. Your code is rerun each time the state of the app changes. Streamlit is also great for data visualization and supports several charting libraries such as Bokeh, Plotly, and Altair. Read this [blog post](https://huggingface.co/blog/streamlit-spaces) about building and hosting Streamlit apps in Spaces.
