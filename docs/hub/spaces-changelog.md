@@ -2,7 +2,7 @@
 
 ## [2025-04-30] - Deprecate Streamlit SDK
 
-- Streamlit is no longer provided as a standard SDK option. Streamlit applications are now created using the Docker template.
+- Streamlit is no longer provided as a default built-in SDK option. Streamlit applications are now created using the Docker template.
 
 ## [2023-07-28] - Upstream Streamlit frontend for `>=1.23.0`
 
