@@ -41,7 +41,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"mistralai/Magistral-Small-2506","providerModelId":"mistralai/Magistral-Small-2506"},"together":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
+    providersMapping={ {"featherless-ai":{"modelId":"Menlo/Jan-nano","providerModelId":"Menlo/Jan-nano"},"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"},"nebius":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1-0528"},"together":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1"}} }
 />
 
 
