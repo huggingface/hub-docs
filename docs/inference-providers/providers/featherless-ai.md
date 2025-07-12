@@ -52,7 +52,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"mistralai/Magistral-Small-2506","providerModelId":"mistralai/Magistral-Small-2506"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"Menlo/Jan-nano","providerModelId":"Menlo/Jan-nano"} } }
 conversational />
 
 
@@ -62,7 +62,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"featherless-ai":{"modelId":"CEIA-UFG/Gemma-3-Gaia-PT-BR-4b-it","providerModelId":"CEIA-UFG/Gemma-3-Gaia-PT-BR-4b-it"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"google/medgemma-4b-it","providerModelId":"google/medgemma-4b-it"} } }
 conversational />
 
 
@@ -72,6 +72,6 @@ Find out more about Text Generation [here](../tasks/text_generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"mistralai/Magistral-Small-2506","providerModelId":"mistralai/Magistral-Small-2506"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"Menlo/Jan-nano","providerModelId":"Menlo/Jan-nano"} } }
 />
 
