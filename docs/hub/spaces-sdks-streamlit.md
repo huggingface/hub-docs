@@ -1,7 +1,7 @@
 <Tip warning={true}>
 
 The option to use Streamlit as the default built-in SDK for Spaces is deprecated.
-If you wish to deploy a Space with Streamlit, please use the Docker SDK instead.
+If you wish to deploy a Space with Streamlit, please pick the Docker SDK, then use the Streamlit template.
 
 </Tip>
 
