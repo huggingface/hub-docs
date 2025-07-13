@@ -3,6 +3,10 @@
 The option to use Streamlit as the default built-in SDK for Spaces is deprecated.
 If you wish to deploy a Space with Streamlit, please pick the Docker SDK, then use the Streamlit template.
 
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-streamlit-docker-sdk.png"/>
+</div>
+
 </Tip>
 
 # Streamlit Spaces
