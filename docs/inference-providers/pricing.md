@@ -79,6 +79,7 @@ As you may have noticed, you can select to work with `"hf-inference"` provider. 
 
 For instance, a request to [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) that takes 10 seconds to complete on a GPU machine that costs $0.00012 per second to run, will be billed $0.0012.
 
+As of July 2025, hf-inference focuses mostly on CPU inference (e.g. embedding, text-ranking, text-classification, or smaller LLMs that have historical importance like BERT or GPT-2).
 
 ## Billing for Team and Enterprise organizations
 
