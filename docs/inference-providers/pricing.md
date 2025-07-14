@@ -79,7 +79,6 @@ As you may have noticed, you can select to work with `"hf-inference"` provider. 
 
 For instance, a request to [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) that takes 10 seconds to complete on a GPU machine that costs $0.00012 per second to run, will be billed $0.0012.
 
-The `"hf-inference"` provider is currently the default provider when working with the JavaScript and Python SDKs. Note that this default might change in the future.
 
 ## Billing for Team and Enterprise organizations
 
