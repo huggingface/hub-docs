@@ -29,7 +29,7 @@ from openai import OpenAI
 
 # Initialize client
 client = OpenAI(
-    base_url="https://router.huggingface.co/nebius/v1",
+    base_url="https://router.huggingface.co/v1",
     api_key=os.environ["HF_TOKEN"],
 )
 ```
@@ -162,7 +162,7 @@ if response_message.tool_calls:
 
     # Get final response with function results
     final_response = client.chat.completions.create(
-        model="meta-llama/Llama-3.1-8B-Instruct",
+        model="deepseek-ai/DeepSeek-R1-0528",
         messages=messages,
     )
 
@@ -308,8 +308,9 @@ In the OpenAI client, you can specify the provider you want to use for the reque
 # The OpenAI client automatically routes through Inference Providers
 # You can specify provider preferences in your HF settings
 client = OpenAI(
--    base_url="https://router.huggingface.co/together/v1",
-+    base_url="https://router.huggingface.co/nebius/v1",
++    base_url="https://router.huggingface.co/v1", # automatically select provider based on hf.co/settings/inference-providers
+-    base_url="https://router.huggingface.co/together/v1", # manually select Together AI
+-    base_url="https://router.huggingface.co/nebius/v1", # manually select Nebius
     api_key=os.environ["HF_TOKEN"],
 )
 
@@ -325,8 +326,9 @@ In the Hugging Face Hub client, you can specify the provider you want to use for
 # Specify a provider directly
 client = InferenceClient(
     token=os.environ["HF_TOKEN"]
--    provider="together"  # Override client provider
-+    provider="nebius"  # Override client provider
++    provider="auto"  # automatically select provider based on hf.co/settings/inference-providers
+-    provider="together"  # manually select Together AI
+-    provider="nebius"  # manually select Nebius
 )
 
 ```
