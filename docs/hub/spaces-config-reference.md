@@ -17,16 +17,15 @@ Color for Thumbnail gradient (red, yellow, green, blue, indigo, purple, pink, gr
 Color for Thumbnail gradient (red, yellow, green, blue, indigo, purple, pink, gray).  
 
 **`sdk`** : _string_  
-Can be either `gradio`, `streamlit`, `docker`, or `static`.  
+Can be either `gradio`, `docker`, or `static`.  
 
 **`python_version`**: _string_  
 Any valid Python `3.x` or `3.x.x` version.  
 Defaults to `3.10`.  
 
 **`sdk_version`** : _string_  
-Specify the version of the selected SDK (Streamlit or Gradio).  
+Specify the version of Gradio to use.
 All versions of Gradio are supported.  
-All versions of Streamlit from `0.79.0` are supported.
 
 **`suggested_hardware`** : _string_  
 Specify the suggested [hardware](https://huggingface.co/docs/hub/spaces-gpus) on which this Space must be run.  
@@ -46,7 +45,7 @@ Setting this value will not automatically assign a permanent storage to this Spa
 Value must be one of `"small"`, `"medium"` or `"large"`.  
 
 **`app_file`** : _string_  
-Path to your main application file (which contains either `gradio` or `streamlit` Python code, or `static` html code).  
+Path to your main application file (which contains either `gradio` Python code or `static` html code).  
 Path is relative to the root of the repository.  
 
 **`app_build_command`** : _string_  
