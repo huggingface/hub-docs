@@ -2,17 +2,17 @@
 
 Function calling enables language models to interact with external tools and APIs by generating structured function calls based on user input. This capability allows you to build AI agents that can perform actions like retrieving real-time data, making calculations, or interacting with external services.
 
-When you provide a language model with function descriptions, it can decide when to call these functions based on user requests, execute them, and incorporate the results into natural language responses. For example, you can build an assistant that can fetch real-time weather data to provide responses.
+When you provide a language model that has been fine-tuned to use tools with function descriptions, it can decide when to call these functions based on user requests, execute them, and incorporate the results into natural language responses. For example, you can build an assistant that fetches real-time weather data to provide accurate responses.
 
 <Tip>
 
-This guide assumes you have a Hugging Face account and access token. If you don't have one, you can create a free account at [huggingface.co](https://huggingface.co) and get your token from your [settings page](https://huggingface.co/settings/tokens).
+This guide assumes you have a Hugging Face account and access token. You can create a free account at [huggingface.co](https://huggingface.co) and get your token from your [settings page](https://huggingface.co/settings/tokens).
 
 </Tip>
 
 ## Defining Functions
 
-The first step is implementing the functions you want the model to call and defining their schemas. We'll use a simple weather function example that returns the current weather for a given location.
+The first step is implementing the functions you want the model to call. We'll use a simple weather function example that returns the current weather for a given location.
 
 As always, we'll start by initializing the client for our inference client.
 
@@ -89,20 +89,18 @@ tools = [
                     "location": {
                         "type": "string", 
                         "description": "City name"
-                    }
+                    },
                 },
                 "required": ["location"],
             },
         },
-    }
+    },
 ]
 ```
 
 The schema is a JSON Schema format that describes what the function does, its parameters, and which parameters are required. The description helps the model understand when to call the function and how to call it.
 
 ## Handling Functions in Chats
-
-Once you've defined your functions, you can include them in chat completions. The model will decide when to call them based on user input:
 
 Functions work within typical chat completion conversations. The model will decide when to call them based on user input. 
 
@@ -134,7 +132,7 @@ The `tool_choice` parameter is used to control when the model calls functions. I
 
 </Tip>
 
-Next, we need to check if the model wants to call functions. If it does, we need to execute the function and add the result to the conversation.
+Next, we need to check in the model response where the model decided to call any functions. If it did, we need to execute the function and add the result to the conversation, before we send the final response to the user.
 
 ```python
 
@@ -172,11 +170,11 @@ else:
 
 ```
 
-The workflow is straightforward: make an initial API call with your tools, check if the model wants to call functions, execute them if needed, add the results to the conversation, and get the final response.
+The workflow is straightforward: make an initial API call with your tools, check if the model wants to call functions, execute them if needed, add the results to the conversation, and get the final response for the user.
 
 <Tip warning={true}>
 
-We have handled that the model wants to call functions and that it is calling a function that exists. Models can call functions that don't exist, so we need to handle that case. We can also deal with this using `strict` mode, which we'll cover later.
+We have handled the case where the model wants to call a function and that the function actually exists. However, models might try to call functions that don’t exist, so we need to account for that as well. We can also deal with this using `strict` mode, which we'll cover later.
 
 </Tip>
 
@@ -235,7 +233,7 @@ tools = [
                 "required": ["location", "date"],
             },
         },
-    }
+    },
 ]
 
 response = client.chat.completions.create(
@@ -321,7 +319,7 @@ client = OpenAI(
 
 In the Hugging Face Hub client, you can specify the provider you want to use for the request by setting the `provider` parameter.
 
-```python
+```diff
 # Specify a provider directly
 client = InferenceClient(
     token=os.environ["HF_TOKEN"]
@@ -339,7 +337,7 @@ By switching provider, you can see the model's response change because each prov
 
 <Tip warning={true}>
 
-Each inference provider has different capabilities and performance characteristics. You can find more information about each provider in the [Inference Providers](/inference-providers/providers) section.
+Each inference provider has different capabilities and performance characteristics. You can find more information about each provider in the [Inference Providers](/inference-providers/index#partners) section.
 
 </Tip>
 
@@ -377,7 +375,7 @@ This works well if you have simple functions, but if you have more complex funct
 
 <hfoption id="openai">
 
-For example, let's say you assistant's only job is to give the weather for a given location. You may want to force the model to call the `get_current_weather` function, and not call any other functions.
+For example, let's say your assistant's only job is to give the weather for a given location. You may want to force the model to call the `get_current_weather` function, and not call any other functions.
 
 ```python
 # Force a specific function call
@@ -400,7 +398,7 @@ Here, we're forcing the model to call the `get_current_weather` function, and no
 
 <Tip warning={true}>
 
-Hugging Face Hub does not support the `tool_choice` parameters that specify which function to call.
+Currently, Hugging Face Hub does not support the `tool_choice` parameters that specify which function to call.
 
 </Tip>
 
@@ -430,7 +428,7 @@ tools = [
             },
 +            "strict": True,  # Enable strict mode
         },
-    }
+    },
 ]
 ```
 
@@ -475,7 +473,7 @@ Streaming is not supported by all providers. You can check the provider's docume
 
 </Tip>
 
-# Next Steps
+## Next Steps
 
 Now that you've seen how to use function calling with Inference Providers, you can start building your own assistants! Why not try out some of these ideas:
 
