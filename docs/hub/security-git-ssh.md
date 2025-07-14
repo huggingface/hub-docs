@@ -30,8 +30,20 @@ $ ssh-keygen -t ed25519 -C "your.email@example.co"
 
 We recommend entering a passphrase when you are prompted to. A passphrase is an extra layer of security: it is a password that will be prompted whenever you use your SSH key.
 
-Once your new key is generated, add it to your SSH agent with `ssh-add`:
+Once your new key is generated, add it to your SSH agent with `ssh-add`.
 
+At first you have to open a connection to your authentication agent. To do this follow this step:
+
+1. **Start the SSH agent** : You need to start the ssh-agent before using it. Run the following command in your terminal :
+```
+$ eval `ssh-agent -s`
+```
+If you're using Git Bash, you can also use:
+```
+eval $(ssh-agent s)
+```
+
+2. **Add your key** : After starting the ssh-agent, add your key using :
 ```
 $ ssh-add ~/.ssh/id_ed25519
 ```
