@@ -65,3 +65,12 @@ In your user account settings, you are able to:
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/provider-list-light.png"/>
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/provider-list-dark.png"/>
 </div>
+
+## Organization Settings
+
+Similar settings can be found in your Organization settings. Additionally, you can see a graph of your team member's usage over time, helpful to centralize usage billing at the team level.
+
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/enterprise-org-settings-light.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/enterprise-org-settings-dark.png"/>
+</div>
