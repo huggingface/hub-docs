@@ -44,8 +44,6 @@ See the [Organization Billing section](#organization-billing) below for more det
 **PRO users and Enterprise Hub organizations** can continue using the API after exhausting their monthly credits. This ensures uninterrupted access to models for production workloads.
 
 
-If you have remaining credits, we estimate costs for providers that aren’t fully integrated with our billing system. These estimates are usually higher than the actual cost to prevent abuse, which is why PAYG is currently disabled for those providers.
-
 <Tip>
 
 Hugging Face charges you the same rates as the provider, with no additional fees. We just pass through the provider costs directly.
