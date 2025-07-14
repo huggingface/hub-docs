@@ -54,7 +54,7 @@ You can track your spending anytime on your [billing page](https://huggingface.c
 
 ## Hugging Face Billing vs Custom Provider Key (Detailed Comparison)
 
-The documentation above assumes you are making routed requests to external providers. In practice, there are 3 different ways to run inference, each with unique billing implications:
+The documentation above assumes you are making routed requests to external providers. In practice, there are 2 different ways to run inference, each with unique billing implications:
 
 - **Hugging Face Routed Requests**: This is the default method for using Inference Providers. Simply use the JavaScript or Python `InferenceClient`, or make raw HTTP requests with your Hugging Face User Access Token. Your request is automatically routed through Hugging Face to the provider's platform. No separate provider account is required, and billing is managed directly by Hugging Face. This approach lets you seamlessly switch between providers without additional setup.
 
