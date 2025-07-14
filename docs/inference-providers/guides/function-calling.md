@@ -400,7 +400,7 @@ Here, we're forcing the model to call the `get_current_weather` function, and no
 
 <Tip warning={true}>
 
-Currently, Hugging Face Hub does not support the `tool_choice` parameters that specify which function to call.
+Currently, `huggingface_hub.InferenceClient` does not support the `tool_choice` parameters that specify which function to call.
 
 </Tip>
 
