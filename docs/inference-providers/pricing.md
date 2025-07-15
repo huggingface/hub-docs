@@ -44,8 +44,6 @@ See the [Organization Billing section](#organization-billing) below for more det
 **PRO users and Enterprise Hub organizations** can continue using the API after exhausting their monthly credits. This ensures uninterrupted access to models for production workloads.
 
 
-If you have remaining credits, we estimate costs for providers that aren’t fully integrated with our billing system. These estimates are usually higher than the actual cost to prevent abuse, which is why PAYG is currently disabled for those providers.
-
 <Tip>
 
 Hugging Face charges you the same rates as the provider, with no additional fees. We just pass through the provider costs directly.
@@ -56,7 +54,7 @@ You can track your spending anytime on your [billing page](https://huggingface.c
 
 ## Hugging Face Billing vs Custom Provider Key (Detailed Comparison)
 
-The documentation above assumes you are making routed requests to external providers. In practice, there are 3 different ways to run inference, each with unique billing implications:
+The documentation above assumes you are making routed requests to external providers. In practice, there are 2 different ways to run inference, each with unique billing implications:
 
 - **Hugging Face Routed Requests**: This is the default method for using Inference Providers. Simply use the JavaScript or Python `InferenceClient`, or make raw HTTP requests with your Hugging Face User Access Token. Your request is automatically routed through Hugging Face to the provider's platform. No separate provider account is required, and billing is managed directly by Hugging Face. This approach lets you seamlessly switch between providers without additional setup.
 
@@ -81,7 +79,7 @@ As you may have noticed, you can select to work with `"hf-inference"` provider. 
 
 For instance, a request to [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) that takes 10 seconds to complete on a GPU machine that costs $0.00012 per second to run, will be billed $0.0012.
 
-The `"hf-inference"` provider is currently the default provider when working with the JavaScript and Python SDKs. Note that this default might change in the future.
+As of July 2025, hf-inference focuses mostly on CPU inference (e.g. embedding, text-ranking, text-classification, or smaller LLMs that have historical importance like BERT or GPT-2).
 
 ## Billing for Team and Enterprise organizations
 

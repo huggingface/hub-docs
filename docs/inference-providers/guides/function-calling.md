@@ -37,7 +37,7 @@ client = OpenAI(
 </hfoption>
 <hfoption id="huggingface_hub">
 
-In the Hugging Face Hub client, we'll use the `provider` parameter to specify the provider we want to use for the request.
+In the Hugging Face Hub client, we'll use the `provider` parameter to specify the provider we want to use for the request. By default, it is `"auto"`.
 
 ```python
 import json
@@ -400,7 +400,7 @@ Here, we're forcing the model to call the `get_current_weather` function, and no
 
 <Tip warning={true}>
 
-Currently, Hugging Face Hub does not support the `tool_choice` parameters that specify which function to call.
+Currently, `huggingface_hub.InferenceClient` does not support the `tool_choice` parameters that specify which function to call.
 
 </Tip>
 
@@ -471,13 +471,13 @@ Streaming allows you to process responses as they arrive, show real-time progres
 
 <Tip warning={true}>
 
-Streaming is not supported by all providers. You can check the provider's documentation to see if it supports streaming.
+Streaming is not supported by all providers. You can check the provider's documentation to see if it supports streaming, or you can refer to this [dynamic model compatibility table](https://huggingface.co/inference-providers/models).
 
 </Tip>
 
 ## Next Steps
 
-Now that you've seen how to use function calling with Inference Providers, you can start building your own assistants! Why not try out some of these ideas:
+Now that you've seen how to use function calling with Inference Providers, you can start building your own agents and assistants! Why not try out some of these ideas:
 
 - Try smaller models for faster responses and lower costs
 - Build an agent that can fetch real-time data 
