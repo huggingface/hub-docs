@@ -471,7 +471,7 @@ Streaming allows you to process responses as they arrive, show real-time progres
 
 <Tip warning={true}>
 
-Streaming is not supported by all providers. You can check the provider's documentation to see if it supports streaming, or you can refer to this [dynamic compatibility table](https://huggingface.co/inference-providers/models).
+Streaming is not supported by all providers. You can check the provider's documentation to see if it supports streaming, or you can refer to this [dynamic model compatibility table](https://huggingface.co/inference-providers/models).
 
 </Tip>
 
