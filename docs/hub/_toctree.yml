@@ -164,6 +164,8 @@
     title: Gated Datasets
   - local: datasets-adding
     title: Uploading Datasets
+  - local: datasets-upload-guide-llm
+    title: Uploading Datasets (for LLMs)
   - local: datasets-downloading
     title: Downloading Datasets
   - local: datasets-libraries
