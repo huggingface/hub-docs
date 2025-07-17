@@ -21,6 +21,7 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [Groq](./providers/groq)                     |          ✅           |                       |                    |               |               |                |
 | [HF Inference](./providers/hf-inference)     |          ✅           |          ✅           |         ✅         |      ✅       |               |       ✅       |
 | [Hyperbolic](./providers/hyperbolic)         |          ✅           |          ✅           |                    |               |               |                |
+| [Hyperfusion](./providers/hyperfusion)       |          ✅           |                       |                    |               |               |
 | [Nebius](./providers/nebius)                 |          ✅           |          ✅           |         ✅         |      ✅       |               |                |
 | [Novita](./providers/novita)                 |          ✅           |          ✅           |                    |               |      ✅       |                |
 | [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |      ✅       |               |                |
