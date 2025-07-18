@@ -1,5 +1,10 @@
 # Your First Inference Provider Call
 
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/first-api-call-thumbnail-light.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/first-api-call-thumbnail-dark.png"/>
+</div>
+
 In this guide we're going to help you make your first API call with Inference Providers.
 
 Many developers avoid using open source AI models because they assume deployment is complex. This guide will show you how to use a state-of-the-art model in under five minutes, with no infrastructure setup required.
