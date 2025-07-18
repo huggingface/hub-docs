@@ -36,7 +36,7 @@ When you build AI applications, it's tough to manage multiple provider APIs, com
 
 **Zero Vendor Lock-in**: Unlike being tied to a single provider's model catalog, you get access to models from Cerebras, Groq, Together AI, Replicate, and more — all through one consistent interface.
 
-**Production-Ready Performance**: Built for enterprise workloads with automatic failover i.e. ~0 downtime, intelligent routing, and the reliability your applications demand.
+**Production-Ready Performance**: Built for enterprise workloads with the reliability your applications demand.
 
 Here's what you can build:
 
@@ -124,7 +124,7 @@ print(completion.choices[0].message)
 
 If you're already using OpenAI's Python client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
-Our system automatically routes your request to the most popular provider for the specified model. You can also order the available providers from your [user settings](https://huggingface.co/settings/inference-providers), in that case we will route your request to the first provider supporting the model.
+Our system automatically routes your request to the most popular provider for the specified model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:sambanova"`).
 
 ```python
 import os
@@ -152,8 +152,7 @@ completion = client.chat.completions.create(
 
 For maximum control and interoperability with custom frameworks, use our OpenAI-compatible REST API directly.
 
-Our routing system automatically selects the most popular available provider for your chosen model,
-or to your preferred provider if you've sorted the providers from your [user settings](https://huggingface.co/settings/inference-providers).
+Our routing system automatically selects the most popular available provider for your chosen model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:novita"`).
 
 ```python
 import os
@@ -219,7 +218,7 @@ console.log(chatCompletion.choices[0].message);
 
 <hfoption id="openai">
 
-If you're already using OpenAI's Javascript client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
+If you're already using OpenAI's Javascript client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network. Our system automatically routes your request to the most popular provider for the specified model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:nebius"`).
 
 ```javascript
 import OpenAI from "openai";
@@ -248,8 +247,7 @@ console.log(completion.choices[0].message.content);
 
 For lightweight applications or custom implementations, use our REST API directly with standard fetch.
 
-Our routing system automatically selects the most popular available provider for your chosen model,
-or to your preferred provider if you've sorted the providers from your [user settings](https://huggingface.co/settings/inference-providers).
+Our routing system automatically selects the most popular available provider for your chosen model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:fireworks-ai"`).
 
 ```js
 import fetch from "node-fetch";
@@ -282,8 +280,8 @@ console.log(await response.json());
 
 #### HTTP / cURL
 
-For testing, debugging, or integrating with any HTTP client, here's the raw REST API format. Our intelligent routing automatically selects the most popular provider for your requested model,
-or to your preferred provider if you've sorted the providers from your [user settings](https://huggingface.co/settings/inference-providers).
+For testing, debugging, or integrating with any HTTP client, here's the raw REST API format.
+Our routing system automatically selects the most popular available provider for your chosen model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:fireworks-ai"`).
 
 ```bash
 curl https://router.huggingface.co/v1/chat/completions \
