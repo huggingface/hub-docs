@@ -298,20 +298,24 @@ You can specify which inference provider to use for more control over performanc
 
 <hfoptions id="provider-config">
 
-In the OpenAI client, you can specify the provider you want to use for the request by setting the `base_url` parameter.
+In the OpenAI client, you can specify the provider you want to use for the request by appending the provider ID to the model parameter as such:
 
 <hfoption id="openai">
 
-```python
+```diff
 # The OpenAI client automatically routes through Inference Providers
 # You can specify provider preferences in your HF settings
 client = OpenAI(
-+    base_url="https://router.huggingface.co/v1", # automatically select provider based on hf.co/settings/inference-providers
--    base_url="https://router.huggingface.co/together/v1", # manually select Together AI
--    base_url="https://router.huggingface.co/nebius/v1", # manually select Nebius
+    base_url="https://router.huggingface.co/v1",
     api_key=os.environ["HF_TOKEN"],
 )
 
+client.chat.completions.create(
+-     model="deepseek-ai/DeepSeek-R1-0528", # automatically select provider based on hf.co/settings/inference-providers
++     model="deepseek-ai/DeepSeek-R1-0528:nebius", # manually select Nebius AI
++     model="deepseek-ai/DeepSeek-R1-0528:hyperbolic", # manually select Hyperbolic
+      ...
+)
 ```
 
 </hfoption>
