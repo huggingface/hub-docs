@@ -42,6 +42,8 @@ All supported HF Inference models can be found [here](https://huggingface.co/mod
 HF Inference is the serverless Inference API powered by Hugging Face. This service used to be called "Inference API (serverless)" prior to Inference Providers.
 If you are interested in deploying models to a dedicated and autoscaling infrastructure managed by Hugging Face, check out [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) instead.
 
+As of July 2025, hf-inference focuses mostly on CPU inference (e.g. embedding, text-ranking, text-classification, or smaller LLMs that have historical importance like BERT or GPT-2).
+
 ## Supported tasks
 
 
@@ -53,6 +55,16 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic_speec
     pipeline=automatic-speech-recognition
     providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"} } }
 />
+
+
+### Chat Completion (LLM)
+
+Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"} } }
+conversational />
 
 
 ### Chat Completion (VLM)
@@ -155,6 +167,16 @@ Find out more about Text Classification [here](../tasks/text_classification).
 />
 
 
+### Text Generation
+
+Find out more about Text Generation [here](../tasks/text_generation).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"} } }
+/>
+
+
 ### Text To Image
 
 Find out more about Text To Image [here](../tasks/text_to_image).
@@ -182,5 +204,15 @@ Find out more about Translation [here](../tasks/translation).
 <InferenceSnippet
     pipeline=translation
     providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
+/>
+
+
+### Zero Shot Classification
+
+Find out more about Zero Shot Classification [here](../tasks/zero_shot_classification).
+
+<InferenceSnippet
+    pipeline=zero-shot-classification
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
 />
 
