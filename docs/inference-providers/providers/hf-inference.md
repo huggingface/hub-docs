@@ -47,7 +47,7 @@ If you are interested in deploying models to a dedicated and autoscaling infrast
 
 ### Automatic Speech Recognition
 
-Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
+Find out more about Automatic Speech Recognition [here](../tasks/automatic-speech-recognition).
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
@@ -67,7 +67,7 @@ conversational />
 
 ### Feature Extraction
 
-Find out more about Feature Extraction [here](../tasks/feature_extraction).
+Find out more about Feature Extraction [here](../tasks/feature-extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
@@ -77,7 +77,7 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 
 ### Fill Mask
 
-Find out more about Fill Mask [here](../tasks/fill_mask).
+Find out more about Fill Mask [here](../tasks/fill-mask).
 
 <InferenceSnippet
     pipeline=fill-mask
@@ -87,7 +87,7 @@ Find out more about Fill Mask [here](../tasks/fill_mask).
 
 ### Image Classification
 
-Find out more about Image Classification [here](../tasks/image_classification).
+Find out more about Image Classification [here](../tasks/image-classification).
 
 <InferenceSnippet
     pipeline=image-classification
@@ -97,7 +97,7 @@ Find out more about Image Classification [here](../tasks/image_classification).
 
 ### Image Segmentation
 
-Find out more about Image Segmentation [here](../tasks/image_segmentation).
+Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
@@ -107,7 +107,7 @@ Find out more about Image Segmentation [here](../tasks/image_segmentation).
 
 ### Object Detection
 
-Find out more about Object Detection [here](../tasks/object_detection).
+Find out more about Object Detection [here](../tasks/object-detection).
 
 <InferenceSnippet
     pipeline=object-detection
@@ -117,7 +117,7 @@ Find out more about Object Detection [here](../tasks/object_detection).
 
 ### Question Answering
 
-Find out more about Question Answering [here](../tasks/question_answering).
+Find out more about Question Answering [here](../tasks/question-answering).
 
 <InferenceSnippet
     pipeline=question-answering
@@ -137,7 +137,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 ### Table Question Answering
 
-Find out more about Table Question Answering [here](../tasks/table_question_answering).
+Find out more about Table Question Answering [here](../tasks/table-question-answering).
 
 <InferenceSnippet
     pipeline=table-question-answering
@@ -147,7 +147,7 @@ Find out more about Table Question Answering [here](../tasks/table_question_answ
 
 ### Text Classification
 
-Find out more about Text Classification [here](../tasks/text_classification).
+Find out more about Text Classification [here](../tasks/text-classification).
 
 <InferenceSnippet
     pipeline=text-classification
@@ -157,7 +157,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 ### Text To Image
 
-Find out more about Text To Image [here](../tasks/text_to_image).
+Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
@@ -167,7 +167,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 ### Token Classification
 
-Find out more about Token Classification [here](../tasks/token_classification).
+Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
