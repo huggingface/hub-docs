@@ -98,5 +98,5 @@ python -m mlx_lm.convert \
 * [MLX Repository](https://github.com/ml-explore/mlx)
 * [MLX Docs](https://ml-explore.github.io/mlx/)
 * [MLX Examples](https://github.com/ml-explore/mlx-examples/tree/main)
-* [MLX-LM](https://github.com/ml-explore/mlx-examples/tree/main/llms/mlx_lm)
+* [MLX-LM](https://github.com/ml-explore/mlx-lm/tree/main/mlx_lm/examples)
 * [All MLX models on Hub](https://huggingface.co/models?library=mlx&sort=trending)
