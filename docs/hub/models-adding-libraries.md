@@ -42,7 +42,7 @@ npm add @huggingface/hub
 Users will need to authenticate once they have successfully installed the `huggingface_hub` library. The easiest way to authenticate is to save the token on the machine. Users can do that from the terminal using the `login()` command:
 
 ```
-huggingface-cli login
+hf auth login
 ```
 
 The command tells them if they are already logged in and prompts them for their token. The token is then validated and saved in their `HF_HOME` directory (defaults to `~/.cache/huggingface/token`). Any script or library interacting with the Hub will use this token when sending requests.

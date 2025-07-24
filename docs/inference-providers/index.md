@@ -94,7 +94,7 @@ In your terminal, install the Hugging Face Hub Python client and log in:
 
 ```shell
 pip install huggingface_hub
-huggingface-cli login # get a read token from hf.co/settings/tokens
+hf auth login # get a read token from hf.co/settings/tokens
 ```
 
 You can now use the the client with a Python interpreter:

@@ -55,7 +55,7 @@ You can save a pyarrow Table using `pyarrow.parquet.write_table` to a local file
 To save the Table on Hugging Face, you first need to [Login with your Hugging Face account](/docs/huggingface_hub/quick-start#login), for example using:
 
 ```
-huggingface-cli login
+hf auth login
 ```
 
 Then you can [create a dataset repository](/docs/huggingface_hub/quick-start#create-a-repository), for example using:

@@ -17,7 +17,7 @@ The Argilla community uses distilabel to create amazing [datasets](https://huggi
 First [login with your Hugging Face account](/docs/huggingface_hub/quick-start#login):
 
 ```bash
-huggingface-cli login
+hf auth login
 ```
 
 Make sure you have `distilabel` installed:

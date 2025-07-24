@@ -30,7 +30,7 @@ AI teams from companies like [the Red Cross](https://510.global/), [Loris.ai](ht
 First [login with your Hugging Face account](/docs/huggingface_hub/quick-start#login):
 
 ```bash
-huggingface-cli login
+hf auth login
 ```
 
 Make sure you have `argilla>=2.0.0` installed:

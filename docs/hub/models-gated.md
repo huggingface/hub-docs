@@ -172,7 +172,7 @@ The model authors have complete control over model access. In particular, they c
 To download files from a gated model you'll need to be authenticated. In the browser, this is automatic as long as you are logged in with your account. If you are using a script, you will need to provide a [user token](./security-tokens). In the Hugging Face Python ecosystem (`transformers`, `diffusers`, `datasets`, etc.), you can login your machine using the [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub/index) library and running in your terminal:
 
 ```bash
-huggingface-cli login
+hf auth login
 ```
 
 Alternatively, you can programmatically login using `login()` in a notebook or a script:

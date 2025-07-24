@@ -158,7 +158,7 @@ The dataset authors have complete control over dataset access. In particular, th
 To download files from a gated dataset you'll need to be authenticated. In the browser, this is automatic as long as you are logged in with your account. If you are using a script, you will need to provide a [user token](./security-tokens). In the Hugging Face Python ecosystem (`transformers`, `diffusers`, `datasets`, etc.), you can login your machine using the [`huggingface_hub`](/docs/huggingface_hub/index) library and running in your terminal:
 
 ```bash
-huggingface-cli login
+hf auth login
 ```
 
 Alternatively, you can programmatically login using `login()` in a notebook or a script:

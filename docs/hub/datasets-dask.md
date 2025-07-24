@@ -13,7 +13,7 @@ Since Dask uses [fsspec](https://filesystem-spec.readthedocs.io) to read and wri
 First you need to [Login with your Hugging Face account](/docs/huggingface_hub/quick-start#login), for example using:
 
 ```
-huggingface-cli login
+hf auth login
 ```
 
 Then you can [Create a dataset repository](/docs/huggingface_hub/quick-start#create-a-repository), for example using:

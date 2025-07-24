@@ -5,7 +5,7 @@ Once you've found an interesting dataset on the Hugging Face Hub, you can load t
 First you need to [Login with your Hugging Face account](/docs/huggingface_hub/quick-start#login), for example using:
 
 ```
-huggingface-cli login
+hf auth login
 ```
 
 And then you can load a dataset from the Hugging Face Hub using

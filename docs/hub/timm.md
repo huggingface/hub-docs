@@ -104,7 +104,7 @@ Before pushing a model, make sure that you've logged in to Hugging Face:
 
 ```sh
 python -m pip install huggingface_hub
-huggingface-cli login
+hf auth login
 ```
 
 Alternatively, if you prefer working from a Jupyter or Colaboratory notebook, once you've installed `huggingface_hub` you can log in with:

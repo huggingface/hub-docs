@@ -27,7 +27,7 @@ You need to authenticate to Hugging Face to read private/gated dataset repositor
 You can use the CLI for example:
 
 ```
-huggingface-cli login
+hf auth login
 ```
 
 It's also possible to provide your Hugging Face token with the `HF_TOKEN` environment variable or passing the `token` option to the reader.

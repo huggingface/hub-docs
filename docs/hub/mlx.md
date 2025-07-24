@@ -73,7 +73,7 @@ MLX-LM supports popular LLM architectures including LLaMA, Phi-2, Mistral, and Q
 pip install huggingface_hub hf_transfer
 
 export HF_HUB_ENABLE_HF_TRANSFER=1
-huggingface-cli download --local-dir <LOCAL FOLDER PATH> <USER_ID>/<MODEL_NAME>
+hf download --local-dir <LOCAL FOLDER PATH> <USER_ID>/<MODEL_NAME>
 ```
 
 ## Converting and Sharing Models
