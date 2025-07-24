@@ -156,8 +156,7 @@ table = table.replace_schema_metadata(schema_metadata)
 
 # Save to Parquet
 # (Optional) with use_content_defined_chunking for faster uploads and downloads
-# (Optional) with row_group_size to allow loading 100 images at a time
-pq.write_table(table, "data.parquet", use_content_defined_chunking=True, row_group_size=100)
+pq.write_table(table, "data.parquet", use_content_defined_chunking=True)
 ```
 
 Setting the Image type in the Arrow schema metadata allows other libraries and the Hugging Face Dataset Viewer to know that "image" contains images and not just binary data.
@@ -227,8 +226,7 @@ table = table.replace_schema_metadata(schema_metadata)
 
 # Save to Parquet
 # (Optional) with use_content_defined_chunking for faster uploads and downloads
-# (Optional) with row_group_size to allow loading 100 audios at a time
-pq.write_table(table, "data.parquet", use_content_defined_chunking=True, row_group_size=100)
+pq.write_table(table, "data.parquet", use_content_defined_chunking=True)
 ```
 
 Setting the Audio type in the Arrow schema metadata enables other libraries and the Hugging Face Dataset Viewer to recognise that "audio" contains audio data, not just binary data.
