@@ -58,7 +58,7 @@ To save the Table on Hugging Face, you first need to [Login with your Hugging Fa
 huggingface-cli login
 ```
 
-Then you can [Create a dataset repository](/docs/huggingface_hub/quick-start#create-a-repository), for example using:
+Then you can [create a dataset repository](/docs/huggingface_hub/quick-start#create-a-repository), for example using:
 
 ```python
 from huggingface_hub import HfApi
@@ -118,7 +118,7 @@ for file_name in table["file_name"].to_pylist():
     ...
 ```
 
-Since the dataset is in a [supported structure](https://huggingface.co/docs/hub/en/datasets-image#additional-columns) (a `metadata.parquet` file with a `file_name` field), you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and images on Hugging Face.
+Since the dataset is in a [supported structure](https://huggingface.co/docs/hub/en/datasets-image#additional-columns) (a `metadata.parquet` file with a `file_name` field), you can save this dataset to Hugging Face and the Dataset Viewer shows both the metadata and images.
 
 ```python
 from huggingface_hub import HfApi
@@ -202,9 +202,9 @@ api.upload_folder(
 )
 ```
 
-### Embed Audios inside Parquet
+### Embed Audio inside Parquet
 
-PyArrow has a binary type which allows to have the audios bytes in Arrow tables. Therefore it enables saving the dataset as one single Parquet file containing both the audios (bytes and path) and the samples metadata:
+PyArrow has a binary type which allows for having audio bytes in Arrow tables. Therefore, it enables saving the dataset as one single Parquet file containing both the audio (bytes and path) and the samples metadata:
 
 ```python
 import pyarrow as pa
@@ -231,4 +231,4 @@ table = table.replace_schema_metadata(schema_metadata)
 pq.write_table(table, "data.parquet", use_content_defined_chunking=True, row_group_size=100)
 ```
 
-Setting the Audio type in the Arrow schema metadata allows other libraries and the Hugging Face Dataset Viewer to know that "audio" contains audios and not just binary data.
+Setting the Audio type in the Arrow schema metadata enables other libraries and the Hugging Face Dataset Viewer to recognise that "audio" contains audio data, not just binary data.
