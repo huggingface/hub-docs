@@ -20,7 +20,7 @@ You can use the [`huggingface_hub`](https://github.com/huggingface/huggingface_h
 ```bash
 hf download HuggingFaceH4/zephyr-7b-beta
 ```
-See the [HF download documentation](https://huggingface.co/docs/huggingface_hub/en/guides/cli#download-an-entire-repository) for more information.
+See the [CLI download documentation](https://huggingface.co/docs/huggingface_hub/en/guides/cli#download-an-entire-repository) for more information.
 
 You can also integrate this into your own library. For example, you can quickly load a Scikit-learn model with a few lines.
 ```py
