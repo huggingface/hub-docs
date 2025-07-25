@@ -34,7 +34,7 @@ This command automatically retrieves the stored token from `~/.cache/huggingface
 First you need to [Login with your Hugging Face account](/docs/huggingface_hub/quick-start#login), for example using:
 
 ```bash
-huggingface-cli login
+hf auth login
 ```
 
 Alternatively, you can set your Hugging Face token as an environment variable:

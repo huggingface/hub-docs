@@ -113,7 +113,7 @@ See https://huggingface.co/docs/hub/storage-limits#repository-limitations-and-re
    - Check for existing README or documentation files that describe the dataset
 
 1. ✓ **Authenticate**:
-   - CLI: `huggingface-cli login`
+   - CLI: `hf auth login`
    - Or use token: `HfApi(token="hf_...")` or set `HF_TOKEN` environment variable
 2. ✓ **Identify your data type**: Check the [Quick Reference](#quick-reference-by-data-type) table above
 3. ✓ **Choose upload method**:
@@ -418,7 +418,7 @@ api.upload_large_folder(folder_path="./data", repo_id="username/dataset", repo_t
 
 | Issue                      | Solution                             |
 | -------------------------- | ------------------------------------ |
-| "Repository not found"     | Run `huggingface-cli login`          |
+| "Repository not found"     | Run `hf auth login`          |
 | Memory errors              | Use `max_shard_size="500MB"`         |
 | Dataset viewer not working | Wait 5-10min, check README.md config |
 | Timeout errors             | Use `multi_commits=True`             |

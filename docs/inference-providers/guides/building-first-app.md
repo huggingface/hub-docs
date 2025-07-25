@@ -36,7 +36,7 @@ Before we start coding, authenticate with Hugging Face using the CLI:
 
 ```bash
 pip install huggingface_hub
-huggingface-cli login
+hf auth login
 ```
 
 When prompted, paste your Hugging Face token. This handles authentication automatically for all your inference calls. You can generate one from [your settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained).

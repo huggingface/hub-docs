@@ -50,7 +50,7 @@ For example here is how to stream the [timm/imagenet-12k-wds](https://huggingfac
 First you need to [Login with your Hugging Face account](/docs/huggingface_hub/quick-start#login), for example using:
 
 ```
-huggingface-cli login
+hf auth login
 ```
 
 And then you can stream the dataset with WebDataset:

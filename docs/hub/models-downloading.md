@@ -18,9 +18,9 @@ If a model on the Hub is tied to a [supported library](./models-libraries), load
 
 You can use the [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) library to create, delete, update and retrieve information from repos. For example, to download the `HuggingFaceH4/zephyr-7b-beta` model from the command line, run
 ```bash
-huggingface-cli download HuggingFaceH4/zephyr-7b-beta
+hf download HuggingFaceH4/zephyr-7b-beta
 ```
-See the [huggingface-cli download documentation](https://huggingface.co/docs/huggingface_hub/en/guides/cli#download-an-entire-repository) for more information.
+See the [CLI download documentation](https://huggingface.co/docs/huggingface_hub/en/guides/cli#download-an-entire-repository) for more information.
 
 You can also integrate this into your own library. For example, you can quickly load a Scikit-learn model with a few lines.
 ```py
@@ -56,7 +56,7 @@ a Rust-based library developed to speed up file transfers with the Hub.
 
 ```bash
 pip install "huggingface_hub[hf_transfer]"
-HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli download ...
+HF_HUB_ENABLE_HF_TRANSFER=1 hf download ...
 ```
 
 <Tip warning={true}>

@@ -18,7 +18,7 @@ FiftyOne datasets directly from the Hub.
 First [login with your Hugging Face account](/docs/huggingface_hub/quick-start#login):
 
 ```bash
-huggingface-cli login
+hf auth login
 ```
 
 Make sure you have `fiftyone>=0.24.0` installed:

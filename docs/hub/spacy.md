@@ -86,7 +86,7 @@ python -m spacy huggingface-hub push [whl_path] [--org] [--msg] [--local-repo] [
 You can then upload any pipeline packaged with [`spacy package`](https://spacy.io/api/cli#package). Make sure to set `--build wheel` to output a binary .whl file. The uploader will read all metadata from the pipeline package, including the auto-generated pretty `README.md` and the model details available in the `meta.json`.
 
 ```bash
-huggingface-cli login
+hf auth login
 python -m spacy package ./en_ner_fashion ./output --build wheel
 cd ./output/en_ner_fashion-0.0.0/dist
 python -m spacy huggingface-hub push en_ner_fashion-0.0.0-py3-none-any.whl

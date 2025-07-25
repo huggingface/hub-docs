@@ -12,7 +12,7 @@ To be able to push your code to the Hub, you'll need to authenticate somehow. Th
 
 ```bash
 python -m pip install huggingface_hub
-huggingface-cli login
+hf auth login
 ```
 
 **The content in the Getting Started section of this document is also available as a video!**
@@ -116,7 +116,7 @@ git lfs install
 Note that if your files are larger than **5GB** you'll also need to run:
 
 ```bash
-huggingface-cli lfs-enable-largefiles .
+hf lfs-enable-largefiles .
 ```
 
 When you use Hugging Face to create a repository, Hugging Face automatically provides a list of common file extensions for common Machine Learning large files in the `.gitattributes` file, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
