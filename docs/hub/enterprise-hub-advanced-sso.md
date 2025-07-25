@@ -24,6 +24,8 @@ Advanced SSO introduces automated user provisioning, which simplifies the onboar
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-flow-chart-dark.png"/>
 </div>
 
+Learn more about how to set up and manage SCIM in our [dedicated guide](./enterprise-hub-scim).
+
 ## Global SSO Enforcement 
 
 Beyond gating access to specific organizational content, Advanced SSO can be configured to make your IdP the mandatory authentication route for all your organization's members interacting with any part of the Hugging Face platform. Your organization's members will be required to authenticate via your IdP for all Hugging Face services, not just when accessing private or organizational repositories.

@@ -12,6 +12,7 @@ If an organization needs to track user access to a dataset or a model due to lic
 - [Enterprise Hub features](./enterprise-hub)
   - [SSO](./enterprise-sso)
   - [Advanced SSO](./enterprise-hub-advanced-sso)
+  - [User Provisioning (SCIM)](./enterprise-hub-scim)
   - [Audit Logs](./audit-logs)
   - [Storage Regions](./storage-regions)
   - [Dataset viewer for Private datasets](./enterprise-hub-datasets)
