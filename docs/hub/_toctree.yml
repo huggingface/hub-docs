@@ -348,6 +348,8 @@
       title: Single Sign-On (SSO)
     - local: enterprise-hub-advanced-sso
       title: Advanced Single Sign-On (SSO)
+    - local: enterprise-hub-scim
+      title: User Provisioning (SCIM)
     - local: audit-logs
       title: Audit Logs
     - local: storage-regions
@@ -392,6 +394,8 @@
         title: How to configure SAML with Azure in the Hub
       - local: security-sso-azure-oidc
         title: How to configure OIDC with Azure in the Hub
+      - local: security-sso-entra-id-scim
+        title: How to configure SCIM with Microsoft Entra ID (Azure AD)
     - local: security-resource-groups
       title: Advanced Access Control (Resource Groups)
     - local: security-malware
