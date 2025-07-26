@@ -35,7 +35,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"fal-ai":{"modelId":"tencent/HunyuanVideo","providerModelId":"fal-ai/hunyuan-video"},"novita":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"wan-t2v"},"replicate":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"wavespeedai/wan-2.1-t2v-480p"}} }
+    providersMapping={ {"fal-ai":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"fal-ai/wan-t2v"},"novita":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"wan-t2v"},"replicate":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"wavespeedai/wan-2.1-t2v-480p"}} }
 />
 
 

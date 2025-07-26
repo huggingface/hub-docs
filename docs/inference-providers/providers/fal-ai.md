@@ -80,6 +80,6 @@ Find out more about Text To Video [here](../tasks/text_to_video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"fal-ai":{"modelId":"tencent/HunyuanVideo","providerModelId":"fal-ai/hunyuan-video"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"fal-ai/wan-t2v"} } }
 />
 
