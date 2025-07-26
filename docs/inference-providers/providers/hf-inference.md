@@ -42,17 +42,29 @@ All supported HF Inference models can be found [here](https://huggingface.co/mod
 HF Inference is the serverless Inference API powered by Hugging Face. This service used to be called "Inference API (serverless)" prior to Inference Providers.
 If you are interested in deploying models to a dedicated and autoscaling infrastructure managed by Hugging Face, check out [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) instead.
 
+As of July 2025, hf-inference focuses mostly on CPU inference (e.g. embedding, text-ranking, text-classification, or smaller LLMs that have historical importance like BERT or GPT-2).
+
 ## Supported tasks
 
 
 ### Automatic Speech Recognition
 
-Find out more about Automatic Speech Recognition [here](../tasks/automatic-speech-recognition).
+Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
     providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"} } }
 />
+
+
+### Chat Completion (LLM)
+
+Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"} } }
+conversational />
 
 
 ### Chat Completion (VLM)
@@ -67,7 +79,7 @@ conversational />
 
 ### Feature Extraction
 
-Find out more about Feature Extraction [here](../tasks/feature-extraction).
+Find out more about Feature Extraction [here](../tasks/feature_extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
@@ -77,7 +89,7 @@ Find out more about Feature Extraction [here](../tasks/feature-extraction).
 
 ### Fill Mask
 
-Find out more about Fill Mask [here](../tasks/fill-mask).
+Find out more about Fill Mask [here](../tasks/fill_mask).
 
 <InferenceSnippet
     pipeline=fill-mask
@@ -87,7 +99,7 @@ Find out more about Fill Mask [here](../tasks/fill-mask).
 
 ### Image Classification
 
-Find out more about Image Classification [here](../tasks/image-classification).
+Find out more about Image Classification [here](../tasks/image_classification).
 
 <InferenceSnippet
     pipeline=image-classification
@@ -97,17 +109,17 @@ Find out more about Image Classification [here](../tasks/image-classification).
 
 ### Image Segmentation
 
-Find out more about Image Segmentation [here](../tasks/image-segmentation).
+Find out more about Image Segmentation [here](../tasks/image_segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
+    providersMapping={ {"hf-inference":{"modelId":"jonathandinu/face-parsing","providerModelId":"jonathandinu/face-parsing"} } }
 />
 
 
 ### Object Detection
 
-Find out more about Object Detection [here](../tasks/object-detection).
+Find out more about Object Detection [here](../tasks/object_detection).
 
 <InferenceSnippet
     pipeline=object-detection
@@ -117,7 +129,7 @@ Find out more about Object Detection [here](../tasks/object-detection).
 
 ### Question Answering
 
-Find out more about Question Answering [here](../tasks/question-answering).
+Find out more about Question Answering [here](../tasks/question_answering).
 
 <InferenceSnippet
     pipeline=question-answering
@@ -137,7 +149,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 ### Table Question Answering
 
-Find out more about Table Question Answering [here](../tasks/table-question-answering).
+Find out more about Table Question Answering [here](../tasks/table_question_answering).
 
 <InferenceSnippet
     pipeline=table-question-answering
@@ -147,7 +159,7 @@ Find out more about Table Question Answering [here](../tasks/table-question-answ
 
 ### Text Classification
 
-Find out more about Text Classification [here](../tasks/text-classification).
+Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
@@ -155,9 +167,19 @@ Find out more about Text Classification [here](../tasks/text-classification).
 />
 
 
+### Text Generation
+
+Find out more about Text Generation [here](../tasks/text_generation).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"} } }
+/>
+
+
 ### Text To Image
 
-Find out more about Text To Image [here](../tasks/text-to-image).
+Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
@@ -167,7 +189,7 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 ### Token Classification
 
-Find out more about Token Classification [here](../tasks/token-classification).
+Find out more about Token Classification [here](../tasks/token_classification).
 
 <InferenceSnippet
     pipeline=token-classification
@@ -181,6 +203,16 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-small","providerModelId":"google-t5/t5-small"} } }
+/>
+
+
+### Zero Shot Classification
+
+Find out more about Zero Shot Classification [here](../tasks/zero_shot_classification).
+
+<InferenceSnippet
+    pipeline=zero-shot-classification
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
 />
 
