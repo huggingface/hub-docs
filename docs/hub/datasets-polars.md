@@ -28,7 +28,7 @@ pl.read_parquet("hf://datasets/roneneldan/TinyStories/data/train-00000-of-00004-
 
 <Tip>
 
-Polars provides two APIs: a lazy API (`scan_parquet`) and an eager API (`read_parquet`). We recommend using the eager API for interactive workloads and the lazy API for performance as it allows for better query optimization. For more information on the topic, check out the [Polars user guide](https://docs.pola.rs/user-guide/concepts/lazy-vs-eager/).
+Polars provides two APIs: a lazy API (`scan_parquet`) and an eager API (`read_parquet`). We recommend using the eager API for interactive workloads and the lazy API for performance as it allows for better query optimization. For more information on the topic, check out the [Polars user guide](https://docs.pola.rs/user-guide/concepts/lazy-api/#when-to-use-which).
 
 </Tip>
 
