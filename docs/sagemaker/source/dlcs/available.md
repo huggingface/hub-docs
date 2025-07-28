@@ -4,6 +4,8 @@ Below you can find a listing of all the Deep Learning Containers (DLCs) availabl
 
 For each supported combination of use-case (training, inference), accelerator type (CPU, GPU, Neuron), and framework (PyTorch, TGI, TEI) containers are created.
 
+For Neuron DLCs specificaly, you can browse the Optimum Neuron [documentation](https://huggingface.co/docs/optimum-neuron/en/containers).
+
 ## Training
 
 Pytorch Training DLC: For training, our DLCs are available for PyTorch via Transformers. They include support for training on GPUs and AWS AI chips with libraries such as TRL, Sentence Transformers, or Diffusers.
