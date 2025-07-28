@@ -10,7 +10,7 @@ You can choose a repository's visibility when you create it, and any repository 
 
 ## Renaming or transferring a repo
 
-If you own a repository, you will be able to visit the **Settings** tab to manage its name and transfer ownership. Transferring or renaming a repo will automatically redirect the old URL to the new location, and will preserve download counts and likes. There are limitations that depend on [your access level permissions](https://huggingface.co/docs/hub/en/organizations-security).
+If you own a repository, you will be able to visit the **Settings** tab to manage its name and transfer ownership. Transferring or renaming a repo will automatically redirect the old URL to the new location, and will preserve download counts and likes. There are limitations that depend on [your access level permissions](./organizations-security).
 
 Moving can be used in these use cases ✅ 
 - Renaming a repository within the same user.
