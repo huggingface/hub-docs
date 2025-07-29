@@ -204,7 +204,7 @@ for TogetherAI) with **Write** permissions to be able to access this endpoint.
 The endpoint validates that:
 - `hfModel` is indeed of `pipeline_tag == task` OR `task` is "conversational" and the model is
 compatible (i.e. the `pipeline_tag` is either "text-generation" or "image-text-to-text" AND the model is tagged as "conversational").
-- (in the future) we auto-test that the Partner's API successfully responds to a
+- we auto-test that the Partner's API successfully responds to a
 huggingface.js/inference call of the corresponding task i.e. the API specs are valid.
 
 ### Delete a mapping item
