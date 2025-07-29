@@ -129,7 +129,7 @@ First step is to use the Model Mapping API to register which HF models are suppo
 
 <Tip>
 
-To proceed with this step, we have to enable your account server-side. Make sure you have an organization on the Hub for your enterprise.
+To proceed with this step, we have to enable your account server-side. Make sure you have an organization on the Hub for your company, and upgrade it to a Team or Enterprise plan.
 
 </Tip>
 
