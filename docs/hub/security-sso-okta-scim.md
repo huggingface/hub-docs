@@ -50,7 +50,7 @@ This feature is part of the <a href="https://huggingface.co/contact/sales?from=e
 4. In the mapping modal the Username needs to be edited. 
 
 > **Note:**  
-> Only regular characters and `-` are accepted in the Username.  
+> - Only regular characters and `-` are accepted in the Username.  
 > - `--` (double dash) is forbidden.  
 > - `-` cannot start or end the name.  
 > - Digit-only names are not accepted.  
