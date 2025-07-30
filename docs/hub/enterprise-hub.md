@@ -15,6 +15,7 @@ In this section we will document the following Enterprise Hub features:
 
 - [Single Sign-On (SSO)](./enterprise-sso)
 - [Advanced Single Sign-On (SSO)](./enterprise-hub-advanced-sso)
+- [User Provisioning (SCIM)](./enterprise-hub-scim)
 - [Audit Logs](./audit-logs)
 - [Storage Regions](./storage-regions)
 - [Dataset viewer for Private datasets](./enterprise-hub-datasets)
