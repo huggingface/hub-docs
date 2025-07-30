@@ -152,7 +152,7 @@ Create a new mapping item, with the following body (JSON-encoded):
 - `task`, also known as `pipeline_tag` in the HF ecosystem, is the type of model / type of API
 (examples: "text-to-image", "text-generation", but you should use "conversational" for chat models)
 - `hfModel` is the model id on the Hub's side.
-- `providerModel` is the model id on your side (can be the same or different).
+- `providerModel` is the model id on your side (can be the same or different. In general, we encourage you to use the HF model ids on your side as well, but this is up to you).
 
 The output of this route is a mapping ID that you can later use to update the mapping's status or delete it.
 
@@ -204,8 +204,7 @@ for TogetherAI) with **Write** permissions to be able to access this endpoint.
 The endpoint validates that:
 - `hfModel` is indeed of `pipeline_tag == task` OR `task` is "conversational" and the model is
 compatible (i.e. the `pipeline_tag` is either "text-generation" or "image-text-to-text" AND the model is tagged as "conversational").
-- we auto-test that the Partner's API successfully responds to a
-huggingface.js/inference call of the corresponding task i.e. the API specs are valid.
+- After the mapping creation (asynchronously) we automatically test whether the Partner API correctly handles huggingface.js/inference calls for the relevant task, ensuring the API specifications are valid. See the [Automatic validation](#automatic-validation) section below.
 
 ### Delete a mapping item
 
