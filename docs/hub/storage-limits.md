@@ -8,11 +8,11 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 ## Storage plans
 
-| Type of account  | Public storage | Private storage              |
-| ---------------- | -------------- | ---------------------------- |
-| Free user or org | Best-effort* 🙏| 100GB                        |
-| PRO              | Unlimited ✅   | 1TB + pay-as-you-go          |
-| Team or Enterprise Organizations   | Unlimited ✅   | 1TB per seat + pay-as-you-go |
+| Type of account                  | Public storage   | Private storage              |
+| -------------------------------- | ---------------- | ---------------------------- |
+| Free user or org                 | Best-effort* 🙏  | 100GB                        |
+| PRO                              | Unlimited* ✅    | 1TB + pay-as-you-go          |
+| Team or Enterprise Organizations | Unlimited* ✅    | 1TB per seat + pay-as-you-go |
 
 💡 [Team or Enterprise Organizations](https://huggingface.co/enterprise) include 1TB of private storage per seat in the subscription: for example, if your organization has 40 members, then you have 40TB of included private storage.
 
