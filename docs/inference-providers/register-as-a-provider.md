@@ -156,6 +156,19 @@ Create a new mapping item, with the following body (JSON-encoded):
 
 The output of this route is a mapping ID that you can later use to update the mapping's status or delete it.
 
+#### Authentication
+
+You need to be in the _provider_ Hub organization (e.g. https://huggingface.co/togethercomputer
+for TogetherAI) with **Write** permissions to be able to access this endpoint.
+
+#### Validation
+
+The endpoint validates that:
+- `hfModel` is indeed of `pipeline_tag == task` OR `task` is "conversational" and the model is
+compatible (i.e. the `pipeline_tag` is either "text-generation" or "image-text-to-text" AND the model is tagged as "conversational").
+- After the mapping creation (asynchronously) we automatically test whether the Partner API correctly handles huggingface.js/inference calls for the relevant task, ensuring the API specifications are valid. See the [Automatic validation](#automatic-validation) section below.
+
+
 ### Using a tag-filter to map several HF models to a single inference endpoint
 
 We also support mapping HF models based on their `tags`. Using tag filters, you can automatically map multiple HF models to a single inference endpoint on your side.
@@ -193,18 +206,6 @@ Create a new mapping item, with the following body (JSON-encoded):
 - `adapterType` is a literal value that helps client libraries interpret how to call your API. The only supported value at the moment is `"lora"`.
 
 The output of this route is a mapping ID that you can later use to update the mapping's status or delete it.
-
-#### Authentication
-
-You need to be in the _provider_ Hub organization (e.g. https://huggingface.co/togethercomputer
-for TogetherAI) with **Write** permissions to be able to access this endpoint.
-
-#### Validation
-
-The endpoint validates that:
-- `hfModel` is indeed of `pipeline_tag == task` OR `task` is "conversational" and the model is
-compatible (i.e. the `pipeline_tag` is either "text-generation" or "image-text-to-text" AND the model is tagged as "conversational").
-- After the mapping creation (asynchronously) we automatically test whether the Partner API correctly handles huggingface.js/inference calls for the relevant task, ensuring the API specifications are valid. See the [Automatic validation](#automatic-validation) section below.
 
 ### Delete a mapping item
 
