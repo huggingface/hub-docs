@@ -10,18 +10,18 @@ You can choose a repository's visibility when you create it, and any repository 
 
 ## Renaming or transferring a repo
 
-If you own a repository, you will be able to visit the **Settings** tab to manage the name and ownership. Note that there are certain limitations in terms of use cases.
+If you own a repository, you will be able to visit the **Settings** tab to manage its name and transfer ownership. Transferring or renaming a repo will automatically redirect the old URL to the new location, and will preserve download counts and likes. There are limitations that depend on [your access level permissions](./organizations-security).
 
 Moving can be used in these use cases ✅ 
-- Renaming a repository within same user.
-- Renaming a repository within same organization. The user must be part of the organization and have "write" or "admin" rights in the organization.
-- Transferring repository from user to an organization. The user must be part of the organization and have "write" or "admin" rights in the organization.
-- Transferring a repository from an organization to yourself. You must be part of the organization, and have "admin" rights in the organization.
-- Transferring a repository from a source organization to another target organization. The user must have "admin" rights in the source organization **and** either "write" or "admin" rights in the target organization. 
+- Renaming a repository within the same user.
+- Renaming a repository within the same organization. You must have "write" or "admin" rights in the organization.
+- Transferring repository from user to an organization. You must be a member of the organization and have "contributor" rights, at least.
+- Transferring a repository from an organization to yourself. You must have "admin" rights in the organization.
+- Transferring a repository from a source organization to another target organization. You must have "admin" rights in the source organization **and** at least "contributor" rights in the target organization. 
 
-Moving does not work for ❌
+Moving does not work in the following cases ❌
 - Transferring a repository from an organization to another user who is not yourself.
-- Transferring a repository from a source organization to another target organization if the user does not have both "admin" rights in the source organization **and** either "write" or "admin" rights in the target organization.
+- Transferring a repository from a source organization to another target organization if the user does not have both "admin" rights in the source organization **and** at least "contributor" rights in the target organization.
 - Transferring a repository from user A to user B.
 
 If these are use cases you need help with, please send us an email at **website at huggingface.co**.
