@@ -29,6 +29,8 @@
     title: Hyperbolic
   - local: providers/hf-inference
     title: HF Inference
+  - local: providers/hyperfusion
+    title: Hyperfusion
   - local: providers/nebius
     title: Nebius
   - local: providers/novita
