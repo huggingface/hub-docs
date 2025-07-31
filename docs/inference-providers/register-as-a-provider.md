@@ -1,10 +1,10 @@
 # How to be registered as an inference provider on the Hub?
 
-<Tip warning={true}>
+<Tip>
 
-New provider onboarding is temporarily paused with no specific timeline for resumption.
+-Want to be listed as an Inference Provider on the Hugging Face Hub? Let's get in touch!
 
-We are currently in a consolidation phase, focusing on growing usage of existing Inference Providers through new features and integrations rather than expanding to new partners. 
+Please reach out to us on social networks or [here on the Hub](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49).
 
 </Tip>
 
