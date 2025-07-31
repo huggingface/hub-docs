@@ -2,7 +2,9 @@
 
 <Tip>
 
-Want to be listed as an Inference Provider on the Hugging Face Hub? Please reach out to us on social networks or [here on the Hub](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49).
+-Want to be listed as an Inference Provider on the Hugging Face Hub? Let's get in touch!
+
+Please reach out to us on social networks or [here on the Hub](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49).
 
 </Tip>
 
@@ -213,7 +215,7 @@ The output of this route is a mapping ID that you can later use to update the ma
 DELETE /api/partners/{provider}/models/{mapping ID}
 ```
 
-Where `mapping ID` is the mapping's id obtained upon creation.
+Where `mapping ID` is the mapping's `_id` field obtained upon creation.
 You can also retrieve it from the [list API endpoint](#list-the-whole-mapping).
 
 ### Update a mapping item's status
@@ -232,7 +234,7 @@ With the following body (JSON-encoded):
 }   
 ```
 
-Where `mapping ID` is the mapping's id obtained upon creation.
+Where `mapping ID` is the mapping's `_id` field obtained upon creation.
 You can also retrieve it from the [list API endpoint](#list-the-whole-mapping).
 
 ### List the whole mapping
