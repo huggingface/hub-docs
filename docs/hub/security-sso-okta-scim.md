@@ -39,15 +39,15 @@ This feature is part of the <a href="https://huggingface.co/contact/sales?from=e
 2.  The default attribute mappings often require adjustments for robust provisioning. We recommend using the following configuration. You can delete attributes that are not here:
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/blob/main/hub/sso/scim-okta-mappings.png" alt="Okta SCIM mappings"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-okta-mappings.png" alt="Okta SCIM mappings"/>
 </div>
 
-### Step 5: Test Assigning Users
+### Step 5: Assign Users or Groups
 
 1. Visit the **Assignments** tab, click **Assign**
 2. Click **Assign to People** or **Assign to Groups** 
 3. After finding the User or Group that needs to be assigned, click **Assign** next to their name
-4. In the mapping modal the Username needs to be edited. 
+4. In the mapping modal the Username needs to be edited to comply with the following rules.
 
 > **Note:**  
 > - Only regular characters and `-` are accepted in the Username.  
