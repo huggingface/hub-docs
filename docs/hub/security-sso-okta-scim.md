@@ -40,6 +40,7 @@ This feature is part of the <a href="https://huggingface.co/contact/sales?from=e
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-okta-mappings.png" alt="Okta SCIM mappings"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-okta-mappings-dark.png" alt="Okta SCIM mappings"/>
 </div>
 
 ### Step 5: Assign Users or Groups
