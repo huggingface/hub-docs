@@ -396,6 +396,8 @@
         title: How to configure OIDC with Azure in the Hub
       - local: security-sso-entra-id-scim
         title: How to configure SCIM with Microsoft Entra ID (Azure AD)
+      - local: security-sso-okta-scim
+        title: How to configure SCIM with Okta in the Hub
     - local: security-resource-groups
       title: Advanced Access Control (Resource Groups)
     - local: security-malware
