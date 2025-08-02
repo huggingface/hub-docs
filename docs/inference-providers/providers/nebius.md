@@ -50,7 +50,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"nebius":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1-0528"} } }
+    providersMapping={ {"nebius":{"modelId":"Qwen/Qwen3-235B-A22B-Instruct-2507","providerModelId":"Qwen/Qwen3-235B-A22B-Instruct-2507"} } }
 conversational />
 
 
@@ -71,6 +71,16 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 <InferenceSnippet
     pipeline=feature-extraction
     providersMapping={ {"nebius":{"modelId":"Qwen/Qwen3-Embedding-8B","providerModelId":"Qwen/Qwen3-Embedding-8B"} } }
+/>
+
+
+### Text Generation
+
+Find out more about Text Generation [here](../tasks/text_generation).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"nebius":{"modelId":"Qwen/Qwen3-235B-A22B-Instruct-2507","providerModelId":"Qwen/Qwen3-235B-A22B-Instruct-2507"} } }
 />
 
 
