@@ -70,7 +70,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"fal-ai/flux/dev"} } }
+    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.1-Krea-dev","providerModelId":"fal-ai/flux/krea"} } }
 />
 
 
@@ -80,6 +80,6 @@ Find out more about Text To Video [here](../tasks/text_to_video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"fal-ai":{"modelId":"tencent/HunyuanVideo","providerModelId":"fal-ai/hunyuan-video"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Wan-AI/Wan2.2-T2V-A14B","providerModelId":"fal-ai/wan/v2.2-a14b/text-to-video"} } }
 />
 

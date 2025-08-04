@@ -50,7 +50,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"together":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1"} } }
+    providersMapping={ {"together":{"modelId":"moonshotai/Kimi-K2-Instruct","providerModelId":"moonshotai/Kimi-K2-Instruct"} } }
 conversational />
 
 
@@ -70,7 +70,7 @@ Find out more about Text Generation [here](../tasks/text_generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"together":{"modelId":"deepseek-ai/DeepSeek-R1-0528","providerModelId":"deepseek-ai/DeepSeek-R1"} } }
+    providersMapping={ {"together":{"modelId":"moonshotai/Kimi-K2-Instruct","providerModelId":"moonshotai/Kimi-K2-Instruct"} } }
 />
 
 

@@ -52,7 +52,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"nscale":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Llama-3.1-8B-Instruct"} } }
+    providersMapping={ {"nscale":{"modelId":"Qwen/Qwen3-235B-A22B-Instruct-2507","providerModelId":"Qwen/Qwen3-235B-A22B-Instruct-2507"} } }
 conversational />
 
 
@@ -72,6 +72,6 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"nscale":{"modelId":"black-forest-labs/FLUX.1-schnell","providerModelId":"black-forest-labs/FLUX.1-schnell"} } }
+    providersMapping={ {"nscale":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"} } }
 />
 
