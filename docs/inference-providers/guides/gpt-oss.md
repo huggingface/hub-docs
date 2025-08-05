@@ -43,7 +43,7 @@ Getting started with GPT OSS models on Inference Providers is simple and straigh
 
 Here's a basic example using [gpt-oss-120b](https://hf.co/openai/gpt-oss-120b) through the fast Cerebras provider:
 
-<hfoptions>
+<hfoptions id="simple">
 <hfoption id="python">
 
 ```python
@@ -64,6 +64,7 @@ print(response.choices[0].message.content)
 ```
 
 </hfoption>
+
 <hfoption id="javascript">
 
 ```ts
@@ -86,7 +87,7 @@ console.log(response.choices[0].message.content);
 
 You can also give the model access to tools. Below, we define a `get_current_weather` function and let the model decide whether to call it:
 
-<hfoptions>
+<hfoptions id="tool-call">
 <hfoption id="python">
 
 ```python
@@ -131,6 +132,7 @@ print(response.choices[0].message)
 ```
 
 </hfoption>
+
 <hfoption id="javascript">
 
 ```ts
@@ -178,7 +180,7 @@ console.log(response.choices[0].message);
 
 For structured tasks like data extraction, you can force the model to return a valid JSON object using the `response_format` parameter. We use the Fireworks AI provider.
 
-<hfoptions>
+<hfoptions id="structured">
 <hfoption id="python">
 
 ```python
@@ -301,7 +303,7 @@ The implementation is based on the open-source [huggingface/responses.js](https:
 
 Unlike traditional text streaming, the Responses API uses a system of semantic events for streaming. This means the stream is not just raw text, but a series of structured event objects. Each event has a type, so you can listen for the specific events you care about, such as content being added (`output_text.delta`) or the message being completed (`completed). The example below shows how to iterate through these events and print the content as it arrives.
 
-<hfoptions>
+<hfoptions id="stream">
 <hfoption id="python">
 
 ```python
@@ -327,6 +329,7 @@ for event in stream:
 ```
 
 </hfoption>
+
 <hfoption id="javascript">
 
 ```ts
@@ -357,7 +360,7 @@ for await (const event of stream) {
 
 You can extend the model with tools to access external data. The example below defines a get_current_weather function that the model can choose to call.
 
-<hfoptions>
+<hfoptions id="tool-call-resp">
 <hfoption id="python">
 
 ```python
@@ -399,6 +402,7 @@ print(response)
 ```
 
 </hfoption>
+
 <hfoption id="javascript">
 
 ```ts
@@ -445,7 +449,7 @@ console.log(response);
 
 The API's most advanced feature is Remote MCP calls, which allow the model to delegate tasks to external services. Calling a remote MCP server with the Responses API is straightforward. For example, here's how you can use the DeepWiki MCP server to ask questions about nearly any public GitHub repository.
 
-<hfoptions>
+<hfoptions id="mcp">
 <hfoption id="python">
 
 ```python
@@ -474,6 +478,7 @@ print(response)
 ```
 
 </hfoption>
+
 <hfoption id="javascript">
 
 ```ts
@@ -508,7 +513,7 @@ console.log(response);
 
 You can also control the model's "thinking" time with the `reasoning` parameter. The following example nudges the model to spend a medium amount of effort on the answer.
 
-<hfoptions>
+<hfoptions id="reasoning">
 <hfoption id="python">
 
 ```python
