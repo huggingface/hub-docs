@@ -513,7 +513,7 @@ console.log(response);
 
 You can also control the model's "thinking" time with the `reasoning` parameter. The following example nudges the model to spend a medium amount of effort on the answer.
 
-<hfoptions id="reasoning>
+<hfoptions id="reasoning">
 <hfoption id="python">
 
 ```python
