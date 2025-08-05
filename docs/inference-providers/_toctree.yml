@@ -52,6 +52,9 @@
     title: Structured Outputs with LLMs
   - local: guides/function-calling
     title: Function Calling
+  - local: guides/gpt-oss
+    title: How to use OpenAI's GPT OSS
+
 
 - title: API Reference
   sections:
