@@ -25,9 +25,9 @@ This feature is part of the <a href="https://huggingface.co/contact/sales?from=e
 3. For the Provisioning option select **SCIM**, click **Save**
 4. Go to the **Provisioning** tab and click **Edit**.
 5. Enter the **SCIM Tenant URL** as the SCIM connector base URL.
-6. Enter "userName" for Unique identifier field for users.
+6. Enter **userName** for Unique identifier field for users.
 7. Select all necessary actions for Supported provisioning actions.
-8. Select "HTTP Header" for Authentication Mode.
+8. Select **HTTP Header** for Authentication Mode.
 9. Enter the **Access Token** you generated as the Authorization Bearer Token.
 10. Click **Test Connector Configuration** to verify the connection.
 11. Save your changes.
