@@ -52,7 +52,20 @@ This feature is part of the <a href="https://huggingface.co/contact/sales?from=e
     | `name.formatted` | `Join(" ", [givenName], [surname])` | |
     | `externalId` | `objectId` | `1` |
 
-3.  After configuring the user mappings, go back to the Provisioning screen and click on **Provision Microsoft Entra ID Groups** to review group mappings. The default settings for groups are usually sufficient.
+3.  The Username needs to comply with the following rules.
+
+<Tip warning={true}>
+<ul>
+<li>Only regular characters and `-` are accepted in the Username.</li>
+<li>`--` (double dash) is forbidden.</li>
+<li>`-` cannot start or end the name.</li>
+<li>Digit-only names are not accepted.</li>
+<li>Minimum length is 2 and maximum length is 42.</li>
+<li>Username has to be unique within your org.</li>
+</ul>
+</Tip>
+
+4.  After configuring the user mappings, go back to the Provisioning screen and click on **Provision Microsoft Entra ID Groups** to review group mappings. The default settings for groups are usually sufficient.
 
 ### Step 5: Start Provisioning
 
