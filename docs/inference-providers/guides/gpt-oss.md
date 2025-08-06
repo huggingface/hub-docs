@@ -301,7 +301,7 @@ The implementation is based on the open-source [huggingface/responses.js](https:
 
 ### Stream responses
 
-Unlike traditional text streaming, the Responses API uses a system of semantic events for streaming. This means the stream is not just raw text, but a series of structured event objects. Each event has a type, so you can listen for the specific events you care about, such as content being added (`output_text.delta`) or the message being completed (`completed). The example below shows how to iterate through these events and print the content as it arrives.
+Unlike traditional text streaming, the Responses API uses a system of semantic events for streaming. This means the stream is not just raw text, but a series of structured event objects. Each event has a type, so you can listen for the specific events you care about, such as content being added (`output_text.delta`) or the message being completed (`completed`). The example below shows how to iterate through these events and print the content as it arrives.
 
 <hfoptions id="stream">
 <hfoption id="python">
