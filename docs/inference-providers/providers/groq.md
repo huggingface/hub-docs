@@ -60,7 +60,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"groq":{"modelId":"moonshotai/Kimi-K2-Instruct","providerModelId":"moonshotai/kimi-k2-instruct"} } }
+    providersMapping={ {"groq":{"modelId":"openai/gpt-oss-120b","providerModelId":"openai/gpt-oss-120b"} } }
 conversational />
 
 

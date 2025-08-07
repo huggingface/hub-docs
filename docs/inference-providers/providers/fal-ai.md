@@ -70,7 +70,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.1-Krea-dev","providerModelId":"fal-ai/flux/krea"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image","providerModelId":"fal-ai/qwen-image"} } }
 />
 
 
