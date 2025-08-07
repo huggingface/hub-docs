@@ -42,7 +42,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"moonshotai/Kimi-K2-Instruct","providerModelId":"moonshotai/Kimi-K2-Instruct"},"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"},"nebius":{"modelId":"Qwen/Qwen3-235B-A22B-Instruct-2507","providerModelId":"Qwen/Qwen3-235B-A22B-Instruct-2507"},"together":{"modelId":"moonshotai/Kimi-K2-Instruct","providerModelId":"moonshotai/Kimi-K2-Instruct"}} }
+    providersMapping={ {"featherless-ai":{"modelId":"moonshotai/Kimi-K2-Instruct","providerModelId":"moonshotai/Kimi-K2-Instruct"},"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"},"nebius":{"modelId":"Qwen/Qwen3-235B-A22B-Instruct-2507","providerModelId":"Qwen/Qwen3-235B-A22B-Instruct-2507"},"together":{"modelId":"openai/gpt-oss-120b","providerModelId":"openai/gpt-oss-120b"}} }
 />
 
 
