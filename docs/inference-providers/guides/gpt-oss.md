@@ -1,10 +1,10 @@
-# How to use OpenAI's GPT OSS
+# How to use OpenAI gpt-oss
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/gpt-oss-thumbnail-light.png"/>
 </div>
 
-This guide walks you through using OpenAI's latest GPT OSS models with Hugging Face Inference Providers. GPT OSS is an open-weights family built for strong reasoning, agentic workflows and versatile developer use cases, and it comes in two sizes: a one with 120B parameters ([gpt-oss-120b](https://hf.co/openai/gpt-oss-120b)), and a smaller one with 20B parameters ([gpt-oss-20b](https://hf.co/openai/gpt-oss-120b)). 
+This guide walks you through using OpenAI's latest gpt-oss models with Hugging Face Inference Providers which powers the official OpenAI playground ([gpt-oss.com](https://gpt-oss.com)). gpt-oss is an open-weights family built for strong reasoning, agentic workflows and versatile developer use cases, and it comes in two sizes: a one with 120B parameters [gpt-oss-120b](https://hf.co/openai/gpt-oss-120b), and a smaller one with 20B parameters ([gpt-oss-20b](https://hf.co/openai/gpt-oss-120b)). 
 
 Both models are supported on Inference Providers and can be accessed through either the OpenAI-compatible [Chat Completions API](https://platform.openai.com/docs/api-reference/chat/completions), or the more advanced [Responses API](https://platform.openai.com/docs/api-reference/responses).
 
@@ -39,7 +39,7 @@ npm install openai
 </hfoptions>
 
 ## Chat Completion
-Getting started with GPT OSS models on Inference Providers is simple and straightforward. The OpenAI-compatible Chat Completions API supports features like tool calling, structured outputs, streaming, and reasoning effort controls.
+Getting started with gpt-oss models on Inference Providers is simple and straightforward. The OpenAI-compatible Chat Completions API supports features like tool calling, structured outputs, streaming, and reasoning effort controls.
 
 Here's a basic example using [gpt-oss-120b](https://hf.co/openai/gpt-oss-120b) through the fast Cerebras provider:
 
@@ -282,7 +282,7 @@ console.log(parsedOutput);
 </hfoption>
 </hfoptions>
 
-With just a few lines of code, you can start using GPT OSS models with Hugging Face Inference Providers, fully OpenAI API-compatible, easy to integrate, and ready out of the box!
+With just a few lines of code, you can start using gpt-oss models with Hugging Face Inference Providers, fully OpenAI API-compatible, easy to integrate, and ready out of the box!
 
 ## Responses API 
 
@@ -566,5 +566,5 @@ response.output.forEach((item, index) => {
 </hfoption>
 </hfoptions>
 
-That's it! With the Responses API on Inference Providers, you get fine-grained control over powerful open-weight models like GPT OSS, including streaming, tool calling, and remote MCP, making it ideal for building reliable, agent-driven applications.
+That's it! With the Responses API on Inference Providers, you get fine-grained control over powerful open-weight models like gpt-oss, including streaming, tool calling, and remote MCP, making it ideal for building reliable, agent-driven applications.
 
