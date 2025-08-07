@@ -19,7 +19,7 @@ To use Streamlit in a Space, select **Streamlit** as the SDK when you create a S
 
 ```yaml
 sdk: streamlit
-sdk_version: 1.25.0 # The latest supported version
+sdk_version: 1.29.0 # The latest supported version
 ```
 
 You can edit the `sdk_version`, but note that issues may occur when you use an unsupported Streamlit version. Not all Streamlit versions are supported, so please refer to the [reference section](./spaces-config-reference) to see which versions are available.
@@ -34,7 +34,7 @@ Only port 8501 is allowed for Streamlit Spaces (default port). As a result if yo
 
 In the following sections, you'll learn the basics of creating a Space, configuring it, and deploying your code to it. We'll create a **Hot Dog Classifier** Space with Streamlit that'll be used to demo the [julien-c/hotdog-not-hotdog](https://huggingface.co/julien-c/hotdog-not-hotdog) model, which can detect whether a given picture contains a hot dog 🌭
 
-You can find a completed version of this hosted at [NimaBoscarino/hotdog-streamlit](https://huggingface.co/spaces/NimaBoscarino/hotdog-streamlit).
+You can find a completed version of this hosted at [whitphx/hotdog-streamlit](https://huggingface.co/spaces/whitphx/hotdog-streamlit).
 
 ## Create a new Streamlit Space
 
@@ -93,14 +93,38 @@ For example, the demo above can be embedded in these docs with the following tag
 
 ```
 <iframe
-  src="https://NimaBoscarino-hotdog-streamlit.hf.space?embed=true"
+  src="https://whitphx-hotdog-streamlit.hf.space"
   title="My awesome Streamlit Space"
+></iframe>
+```
+
+<iframe
+  src="https://whitphx-hotdog-streamlit.hf.space"
+  frameborder="0"
+  height="600"
+  title="Streamlit app"
+  class="container p-0 flex-grow space-iframe"
+  allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
+></iframe>
+
+Please note that, for versions `< 1.19`, scrolling is disabled. You'll need to set the height of the iframe enough to fit the embedded Streamlit app's content, or use the auto-resizing technique [described below](#embed-streamlit-spaces-with-auto-resizing-iframes).
+
+## Embed mode
+
+You can use the `embed=true` query parameter in the URL to activate embed mode in the Streamlit app, which removes some spacers and the footer for slim embeddings.
+
+```
+<iframe
+  src="https://whitphx-hotdog-streamlit.hf.space?embed=true"
+  title="My awesome Streamlit Space"
+  height="364"
 ></iframe>
 ```
 
 <!-- The height of this iframe has been calculated as 236 + 64 * 2. 236 is the inner content height measured with Chrome 108. 64 is padding-top of its container element. -->
 <iframe
-  src="https://NimaBoscarino-hotdog-streamlit.hf.space?embed=true"
+  src="https://whitphx-hotdog-streamlit.hf.space?embed=true"
   frameborder="0"
   height="364"
   title="Streamlit app"
@@ -108,9 +132,6 @@ For example, the demo above can be embedded in these docs with the following tag
   allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"
 ></iframe>
-
-Please note that we have added `?embed=true` to the URL, which activates the embed mode of the Streamlit app, removing some spacers and the footer for slim embeds.
-
 
 ## Embed Streamlit Spaces with auto-resizing IFrames
 
