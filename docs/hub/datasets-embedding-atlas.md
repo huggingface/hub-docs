@@ -2,8 +2,6 @@
 
 Embedding Atlas is an interactive visualization tool for exploring large embedding spaces. It enables you to visualize, cross-filter, and search embeddings alongside associated metadata, helping you understand patterns and relationships in high-dimensional data. All computation happens in your browser, ensuring your data remains private and secure.
 
-![Embedding Atlas Visualization](https://github.com/apple/embedding-atlas/assets/1688009/d3bb956e-d43e-4797-89c3-c1c69b98b30e)
-
 ## Key Features
 
 - **Interactive exploration**: Navigate through millions of embeddings with smooth, responsive visualization
