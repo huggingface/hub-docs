@@ -36,7 +36,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image","providerModelId":"fal-ai/qwen-image"},"hf-inference":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"},"nebius":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/flux-dev"},"nscale":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"replicate":{"modelId":"Qwen/Qwen-Image","providerModelId":"qwen/qwen-image"},"together":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"}} }
+    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image","providerModelId":"fal-ai/qwen-image"},"hf-inference":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"nebius":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/flux-dev"},"nscale":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"replicate":{"modelId":"Qwen/Qwen-Image","providerModelId":"qwen/qwen-image"},"together":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"}} }
 />
 
 

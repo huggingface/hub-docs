@@ -153,7 +153,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"tabularisai/multilingual-sentiment-analysis","providerModelId":"tabularisai/multilingual-sentiment-analysis"} } }
+    providersMapping={ {"hf-inference":{"modelId":"ProsusAI/finbert","providerModelId":"ProsusAI/finbert"} } }
 />
 
 
@@ -173,7 +173,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"hf-inference":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"} } }
+    providersMapping={ {"hf-inference":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"} } }
 />
 
 
