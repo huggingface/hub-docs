@@ -53,7 +53,7 @@
   - local: guides/function-calling
     title: Function Calling
   - local: guides/gpt-oss
-    title: How to use OpenAI's GPT OSS
+    title: How to use OpenAI gpt-oss
 
 
 - title: API Reference
