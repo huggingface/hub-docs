@@ -49,7 +49,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"fireworks-ai":{"modelId":"moonshotai/Kimi-K2-Instruct","providerModelId":"accounts/fireworks/models/kimi-k2-instruct"} } }
+    providersMapping={ {"fireworks-ai":{"modelId":"openai/gpt-oss-120b","providerModelId":"accounts/fireworks/models/gpt-oss-120b"} } }
 conversational />
 
 

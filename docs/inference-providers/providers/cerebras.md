@@ -50,7 +50,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"cerebras":{"modelId":"Qwen/Qwen3-Coder-480B-A35B-Instruct","providerModelId":"qwen-3-coder-480b"} } }
+    providersMapping={ {"cerebras":{"modelId":"openai/gpt-oss-120b","providerModelId":"gpt-oss-120b"} } }
 conversational />
 
 

@@ -60,7 +60,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"replicate":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/flux-dev"} } }
+    providersMapping={ {"replicate":{"modelId":"Qwen/Qwen-Image","providerModelId":"qwen/qwen-image"} } }
 />
 
 
@@ -70,6 +70,6 @@ Find out more about Text To Video [here](../tasks/text_to_video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"replicate":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"wavespeedai/wan-2.1-t2v-480p"} } }
+    providersMapping={ {"replicate":{"modelId":"Wan-AI/Wan2.2-TI2V-5B","providerModelId":"wan-video/wan-2.2-5b-fast"} } }
 />
 

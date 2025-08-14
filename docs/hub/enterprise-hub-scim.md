@@ -31,3 +31,4 @@ Once SCIM is enabled in your IdP, users and groups provisioned will appear in th
 
 We support SCIM with any IdP that implements the SCIM 2.0 protocol. We have specific guides for some of the most popular providers:
 - [How to configure SCIM with Microsoft Entra ID](./security-sso-entra-id-scim)
+- [How to configure SCIM with Okta](./security-sso-okta-scim)
