@@ -4,7 +4,7 @@
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/gpt-oss-thumbnail-light.png"/>
 </div>
 
-This guide walks you through using OpenAI's latest gpt-oss models with Hugging Face Inference Providers which powers the official OpenAI playground ([gpt-oss.com](https://gpt-oss.com)). gpt-oss is an open-weights family built for strong reasoning, agentic workflows and versatile developer use cases, and it comes in two sizes: a one with 120B parameters [gpt-oss-120b](https://hf.co/openai/gpt-oss-120b), and a smaller one with 20B parameters ([gpt-oss-20b](https://hf.co/openai/gpt-oss-120b)). 
+This guide walks you through using OpenAI's latest gpt-oss models with Hugging Face Inference Providers, which is the same infra that powers the official OpenAI playground ([gpt-oss.com](https://gpt-oss.com)). OpenAI gpt-oss is an open-weights family built for strong reasoning, agentic workflows and versatile developer use cases, and it comes in two sizes: a version with 120B parameters [gpt-oss-120b](https://hf.co/openai/gpt-oss-120b), and a smaller one with 20B parameters ([gpt-oss-20b](https://hf.co/openai/gpt-oss-20b)).
 
 Both models are supported on Inference Providers and can be accessed through either the OpenAI-compatible [Chat Completions API](https://platform.openai.com/docs/api-reference/chat/completions), or the more advanced [Responses API](https://platform.openai.com/docs/api-reference/responses).
 
