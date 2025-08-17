@@ -31,7 +31,7 @@ Here is a non-exhaustive list of supported data formats:
 - video: mp4, mov, avi
 - other: npy, npz
 
-The full list evolves over time and depends on the implementation. For example, you can find which formats the `webdataset` package supports in the source code [here](https://github.com/webdataset/webdataset/blob/main/webdataset/autodecode.py).
+The full list evolves over time and depends on the implementation. For example, you can find which formats the `webdataset` package supports in the source code [here](https://github.com/webdataset/webdataset/blob/main/src/webdataset/autodecode.py).
 
 ## Streaming
 
