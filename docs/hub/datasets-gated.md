@@ -171,3 +171,21 @@ Alternatively, you can programmatically login using `login()` in a notebook or a
 You can also provide the `token` parameter to most loading methods in the libraries (`from_pretrained`, `hf_hub_download`, `load_dataset`, etc.), directly from your scripts.
 
 For more details about how to login, check out the [login guide](/docs/huggingface_hub/quick-start#login).
+
+### Restricting Access for EU Users
+
+For gated datasets, you can add an additional layer of access control to specifically restrict users from European Union countries. This is useful if your dataset's license or terms of use prohibit its distribution in the EU.
+
+To enable this, add the `extra_gated_eu_disallowed: true` property to your dataset card's metadata.
+
+**Important:** This feature will only activate if your dataset is already gated. If `gated: false` or the property is not set, this restriction will not apply.
+
+```yaml
+---
+license: mit
+gated: true
+extra_gated_eu_disallowed: true
+---
+```
+
+The system identifies a user's location based on their IP address.
