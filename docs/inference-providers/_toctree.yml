@@ -6,10 +6,21 @@
     title: Pricing and Billing
   - local: hub-integration
     title: Hub integration
-  - local: register-as-a-provider
-    title: Register as an Inference Provider
   - local: security
     title: Security
+
+- title: Guides
+  sections:
+  - local: guides/first-api-call
+    title: Your First API Call
+  - local: guides/building-first-app
+    title: Building Your First AI App
+  - local: guides/structured-output
+    title: Structured Outputs with LLMs
+  - local: guides/function-calling
+    title: Function Calling
+  - local: guides/gpt-oss
+    title: How to use OpenAI gpt-oss
 
 - title: Providers
   sections:
@@ -42,20 +53,6 @@
   - local: providers/together
     title: Together
 
-- title: Guides
-  sections:
-  - local: guides/first-api-call
-    title: Your First API Call
-  - local: guides/building-first-app
-    title: Building Your First AI App
-  - local: guides/structured-output
-    title: Structured Outputs with LLMs
-  - local: guides/function-calling
-    title: Function Calling
-  - local: guides/gpt-oss
-    title: How to use OpenAI gpt-oss
-
-
 - title: API Reference
   sections:
   - local: tasks/index
@@ -73,7 +70,7 @@
     - local: tasks/text-to-video
       title: Text to Video
   - title: Other Tasks
-    isExpanded: false
+    isExpanded: true
     sections:
     - local: tasks/audio-classification
       title: Audio Classification
@@ -107,3 +104,6 @@
       title: Translation
     - local: tasks/zero-shot-classification
       title: Zero Shot Classification
+
+- local: register-as-a-provider
+  title: Register as an Inference Provider
