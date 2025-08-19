@@ -387,17 +387,20 @@
       title: Single Sign-On (SSO)
       sections:
       - local: security-sso-okta-oidc
-        title: How to configure OIDC with Okta in the Hub
+        title: How to configure OIDC with Okta
       - local: security-sso-okta-saml
-        title: How to configure SAML with Okta in the Hub
-      - local: security-sso-azure-saml
-        title: How to configure SAML with Azure in the Hub
-      - local: security-sso-azure-oidc
-        title: How to configure OIDC with Azure in the Hub
-      - local: security-sso-entra-id-scim
-        title: How to configure SCIM with Microsoft Entra ID (Azure AD)
+        title: How to configure SAML with Okta
       - local: security-sso-okta-scim
         title: How to configure SCIM with Okta
+      - local: security-sso-azure-saml
+        title: How to configure SAML with EntraID (Azure AD)
+      - local: security-sso-azure-oidc
+        title: How to configure OIDC with EntraID (Azure AD) 
+      - local: security-sso-entra-id-scim
+        title: How to configure SCIM with EntraID (Azure AD)
+      - local: security-sso-google-saml
+        title: How to configure SAML with Google Workspace
+    
     - local: security-resource-groups
       title: Advanced Access Control (Resource Groups)
     - local: security-malware
