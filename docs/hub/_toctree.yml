@@ -134,6 +134,8 @@
     title: Frequently Asked Questions
   - local: model-release-checklist
     title: Model Release Checklist
+  - local: local-apps
+    title: Local Apps
   - local: models-advanced
     title: Advanced Topics
     sections:
