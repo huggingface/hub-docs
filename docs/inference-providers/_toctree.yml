@@ -22,12 +22,8 @@
   - local: guides/gpt-oss
     title: How to use OpenAI gpt-oss
 
-- title: API Reference
+- title: Tasks
   sections:
-  - local: tasks/index
-    title: Index
-  - local: hub-api
-    title: Hub API
   - title: Popular Tasks
     sections:
     - local: tasks/chat-completion
@@ -39,7 +35,7 @@
     - local: tasks/text-to-video
       title: Text to Video
   - title: Other Tasks
-    isExpanded: true
+    isExpanded: False
     sections:
     - local: tasks/audio-classification
       title: Audio Classification
@@ -73,7 +69,7 @@
       title: Translation
     - local: tasks/zero-shot-classification
       title: Zero Shot Classification
-      
+          
 - title: Providers
   sections:
   - local: providers/cerebras
@@ -104,6 +100,13 @@
     title: SambaNova
   - local: providers/together
     title: Together
+
+- title: API Reference
+  sections:
+  - local: tasks/index
+    title: Index
+  - local: hub-api
+    title: Hub API
 
 - local: register-as-a-provider
   title: Register as an Inference Provider
