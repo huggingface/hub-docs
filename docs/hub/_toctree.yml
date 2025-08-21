@@ -192,6 +192,8 @@
             title: Combine datasets and export
           - local: datasets-duckdb-vector-similarity-search
             title: Perform vector similarity search
+      - local: datasets-embedding-atlas
+        title: Embedding Atlas
       - local: datasets-fiftyone
         title: FiftyOne
       - local: datasets-pandas
