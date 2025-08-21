@@ -430,7 +430,6 @@ Get all the models, datasets, and Spaces that refer to a paper.
 Get the daily papers curated by AK and the community. It's the equivalent of [https://huggingface.co/papers](https://huggingface.co/papers).
 
 To filter on a particular date, simply pass the date like so: https://huggingface.co/api/daily_papers?date=2025-03-31.
-You can also pass a month, like https://huggingface.co/api/daily_papers?month=2025-04 or week, like https://huggingface.co/api/daily_papers/week/2025-W16.
 
 ## Collections API
 
