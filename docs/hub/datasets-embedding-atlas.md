@@ -109,7 +109,7 @@ embedding-atlas username/dataset-name \
 
 ## Customizing Embeddings
 
-Embedding Atlas uses SentenceTransformers by default but supports custom embedding models:
+Embedding Atlas uses [SentenceTransformers](https://huggingface.co/sentence-transformers) by default but supports custom embedding models:
 
 ```bash
 # Use a specific embedding model
