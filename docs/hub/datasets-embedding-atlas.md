@@ -155,28 +155,6 @@ widget = EmbeddingAtlasWidget(df)
 widget
 ```
 
-### Analyzing Model Outputs
-
-Compare embeddings from different models or examine how embeddings change during training:
-
-```bash
-# Compare embeddings from different models
-embedding-atlas stanfordnlp/imdb \
-    --text "text" \
-    --model "sentence-transformers/all-MiniLM-L6-v2" \
-    --sample 5000
-```
-
-### Quality Control and Data Curation
-
-Identify mislabeled data, duplicates, or unusual patterns in your datasets:
-
-```bash
-# Visualize with sampling for large datasets
-embedding-atlas username/large-dataset \
-    --sample 50000 \
-    --text "content"
-```
 
 ## Additional Resources
 
