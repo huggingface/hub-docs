@@ -1,6 +1,6 @@
 # Building an AI Image Editor with Gradio and Inference Providers
 
-In this guide, we'll build an AI-powered image editor that lets users upload images and edit them using natural language prompts. This project demonstrates how to combine Inference Providers with image-to-image models like [Qwen's Image Edit](https://huggingface.co/Qwen/Qwen-Image-Edit).
+In this guide, we'll build an AI-powered image editor that lets users upload images and edit them using natural language prompts. This project demonstrates how to combine Inference Providers with image-to-image models like [Qwen's Image Edit](https://huggingface.co/Qwen/Qwen-Image-Edit) and [Black Forest Labs' Flux Kontext](https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev).
 
 Our app will:
 
