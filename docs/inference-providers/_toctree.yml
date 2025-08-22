@@ -54,6 +54,8 @@
     title: Function Calling
   - local: guides/gpt-oss
     title: How to use OpenAI gpt-oss
+  - local: guides/image-editor
+    title: Build an Image Editor
 
 
 - title: API Reference
