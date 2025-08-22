@@ -18,7 +18,7 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [Fal AI](./providers/fal-ai)                 |                       |                       |                    |      ✅       |      ✅       |       ✅       |
 | [Featherless AI](./providers/featherless-ai) |          ✅           |          ✅           |                    |               |               |                |
 | [Fireworks](./providers/fireworks-ai)        |          ✅           |          ✅           |                    |               |               |                |
-| [Groq](./providers/groq)                     |          ✅           |                       |                    |               |               |                |
+| [Groq](./providers/groq)                     |          ✅           |          ✅           |                    |               |               |                |
 | [HF Inference](./providers/hf-inference)     |          ✅           |          ✅           |         ✅         |      ✅       |               |       ✅       |
 | [Hyperbolic](./providers/hyperbolic)         |          ✅           |          ✅           |                    |               |               |                |
 | [Nebius](./providers/nebius)                 |          ✅           |          ✅           |         ✅         |      ✅       |               |                |
