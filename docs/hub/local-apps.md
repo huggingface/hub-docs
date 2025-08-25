@@ -33,19 +33,21 @@ The best way to check if a local app is supported is to go to the Local Apps set
 
 <Tip>
 
-To use these local apps, copy the snippets from the model card as above.
+👨‍💻 To use these local apps, copy the snippets from the model card as above.
+
+👷 If you're building a local app, you can learn about integrating with the Hub in [this guide](https://huggingface.co/docs/hub/en/models-adding-libraries).
 
 </Tip>
 
 ### Llama.cpp
 
-Llama.cpp is a high-performance C/C++ library for running LLMs locally with optimized inference across different hardware. If you are running a CPU, this is the best option.
+Llama.cpp is a high-performance C/C++ library for running LLMs locally with optimized inference across lots of different hardware, including CPUs, CUDA and Metal.
 
 **Advantages:**
-- Extremely fast performance for CPU-based models
+- Extremely fast performance for CPU-based models on multiple CPU families
 - Low resource usage
 - Multiple interface options (CLI, server, Python library)
-- Hardware-optimized for CPU and GPU
+- Hardware-optimized for CPUs and GPUs
 
 To use Llama.cpp, navigate to the model card and click "Use this model" and copy the command.
 
@@ -71,10 +73,10 @@ Navigate to the model card and click "Use this model". LM Studio will open and y
 Jan is an open-source ChatGPT alternative that runs entirely offline with a user-friendly interface.
 
 **Advantages:**
-- Complete privacy (all data stays local)
 - User-friendly GUI
 - Chat with documents and files
 - OpenAI-compatible API server
+- OpenAI-compatible API server, so you can run models and use them from other apps
 
 To use Jan, navigate to the model card and click "Use this model". Jan will open and you can start chatting through the interface.
 
