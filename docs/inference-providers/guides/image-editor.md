@@ -6,7 +6,7 @@ Our app will:
 
 1. **Accept image uploads** through a web interface
 2. **Process natural language prompts** editing instructions like "Turn the cat into a tiger"
-3. **Transform images** using Qwen Image Edit
+3. **Transform images** using Qwen Image Edit or FLUX.1 Kontext
 4. **Display results** in a Gradio interface
 
 <Tip>
