@@ -22,18 +22,17 @@
   - local: guides/gpt-oss
     title: How to use OpenAI gpt-oss
 
-- title: Tasks
+- local: tasks/index
+  title: Inference Tasks
   sections:
-  - title: Popular Tasks
-    sections:
-    - local: tasks/chat-completion
-      title: Chat Completion
-    - local: tasks/feature-extraction
-      title: Feature Extraction
-    - local: tasks/text-to-image
-      title: Text to Image
-    - local: tasks/text-to-video
-      title: Text to Video
+  - local: tasks/chat-completion
+    title: Chat Completion
+  - local: tasks/feature-extraction
+    title: Feature Extraction
+  - local: tasks/text-to-image
+    title: Text to Image
+  - local: tasks/text-to-video
+    title: Text to Video
   - title: Other Tasks
     isExpanded: False
     sections:
@@ -101,12 +100,8 @@
   - local: providers/together
     title: Together
 
-- title: API Reference
-  sections:
-  - local: tasks/index
-    title: Index
-  - local: hub-api
-    title: Hub API
+- local: hub-api
+  title: Hub API
 
 - local: register-as-a-provider
   title: Register as an Inference Provider
