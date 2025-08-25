@@ -42,7 +42,7 @@ This creates a basic project structure with a `pyproject.toml` file. Now add the
 uv add huggingface-hub>=0.34.4 gradio>=5.0.0 pillow>=11.3.0
 ```
 
-The dependencies are now installed and ready to use! Also, `uv` will create a handy `pyproject.toml` file for you to manage your dependencies as a project.
+The dependencies are now installed and ready to use! Also, `uv` will maintain the `pyproject.toml` file for you as you add dependencies.
 
 <Tip>
 
@@ -339,4 +339,4 @@ Congratulations! You've created a production-ready AI image editor. Now that you
 - **Object removal**: Remove unwanted objects from images
 - **Provider comparison**: Benchmark different providers for your use case
 
-Happy building! And remember to share your app with the community on the hub.
+Happy building! And remember to share your app with the community on the Hub.
