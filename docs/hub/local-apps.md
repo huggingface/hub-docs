@@ -56,29 +56,6 @@ To use Llama.cpp, navigate to the model card and click "Use this model" and copy
 ./llama-server -hf unsloth/gpt-oss-20b-GGUF:Q4_K_M
 ```
 
-### LM Studio
-
-LM Studio is a desktop application that provides an easy way to download, run, and experiment with local LLMs.
-
-**Advantages:**
-- Intuitive graphical interface
-- Built-in model browser
-- Developer tools and APIs
-- Free for personal and commercial use
-
-Navigate to the model card and click "Use this model". LM Studio will open and you can start chatting through the interface.
-
-### Jan
-
-Jan is an open-source ChatGPT alternative that runs entirely offline with a user-friendly interface.
-
-**Advantages:**
-- User-friendly GUI
-- Chat with documents and files
-- OpenAI-compatible API server
-- OpenAI-compatible API server, so you can run models and use them from other apps
-
-To use Jan, navigate to the model card and click "Use this model". Jan will open and you can start chatting through the interface.
 
 ### Ollama
 
@@ -93,3 +70,26 @@ To use Ollama, navigate to the model card and click "Use this model" and copy th
 ```sh
 ollama run hf.co/unsloth/gpt-oss-20b-GGUF:Q4_K_M
 ```
+
+### Jan
+
+Jan is an open-source ChatGPT alternative that runs entirely offline with a user-friendly interface.
+
+**Advantages:**
+- User-friendly GUI
+- Chat with documents and files
+- OpenAI-compatible API server, so you can run models and use them from other apps
+
+To use Jan, navigate to the model card and click "Use this model". Jan will open and you can start chatting through the interface.
+
+### LM Studio
+
+LM Studio is a desktop application that provides an easy way to download, run, and experiment with local LLMs.
+
+**Advantages:**
+- Intuitive graphical interface
+- Built-in model browser
+- Developer tools and APIs
+- Free for personal and commercial use
+
+Navigate to the model card and click "Use this model". LM Studio will open and you can start chatting through the interface.
