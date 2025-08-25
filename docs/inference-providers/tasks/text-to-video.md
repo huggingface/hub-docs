@@ -26,7 +26,7 @@ For more details about the `text-to-video` task, check out its [dedicated page](
 
 - [tencent/HunyuanVideo](https://huggingface.co/tencent/HunyuanVideo): A strong model for consistent video generation.
 - [Lightricks/LTX-Video](https://huggingface.co/Lightricks/LTX-Video): A text-to-video model with high fidelity motion and strong prompt adherence.
-- [Wan-AI/Wan2.1-T2V-1.3B](https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B): A robust model for video generation.
+- [Lightricks/LTX-Video-0.9.8-13B-distilled](https://huggingface.co/Lightricks/LTX-Video-0.9.8-13B-distilled): Very fast model for video generation.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-to-video&sort=trending).
 

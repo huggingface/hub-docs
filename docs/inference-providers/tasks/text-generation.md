@@ -27,10 +27,10 @@ For more details about the `text-generation` task, check out its [dedicated page
 ### Recommended models
 
 - [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it): A text-generation model trained to follow instructions.
-- [deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B): Smaller variant of one of the most powerful models.
-- [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct): Very powerful text generation model trained to follow instructions.
-- [microsoft/phi-4](https://huggingface.co/microsoft/phi-4): Powerful text generation model by Microsoft.
-- [simplescaling/s1.1-32B](https://huggingface.co/simplescaling/s1.1-32B): A very powerful model with reasoning capabilities.
+- [Qwen/Qwen3-Coder-480B-A35B-Instruct](https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct): Powerful text generation model for coding.
+- [openai/gpt-oss-120b](https://huggingface.co/openai/gpt-oss-120b): Great text generation model with top-notch tool calling capabilities.
+- [zai-org/GLM-4.5](https://huggingface.co/zai-org/GLM-4.5): Powerful text generation model.
+- [Qwen/Qwen3-4B-Thinking-2507](https://huggingface.co/Qwen/Qwen3-4B-Thinking-2507): A powerful small model with reasoning capabilities.
 - [Qwen/Qwen2.5-7B-Instruct-1M](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-1M): Strong conversational model that supports very long instructions.
 - [Qwen/Qwen2.5-Coder-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct): Text generation model used to write code.
 - [deepseek-ai/DeepSeek-R1](https://huggingface.co/deepseek-ai/DeepSeek-R1): Powerful reasoning based open large language model.
@@ -42,7 +42,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"moonshotai/Kimi-K2-Instruct","providerModelId":"moonshotai/Kimi-K2-Instruct"},"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"},"nebius":{"modelId":"Qwen/Qwen3-235B-A22B-Instruct-2507","providerModelId":"Qwen/Qwen3-235B-A22B-Instruct-2507"},"together":{"modelId":"openai/gpt-oss-120b","providerModelId":"openai/gpt-oss-120b"}} }
+    providersMapping={ {"featherless-ai":{"modelId":"moonshotai/Kimi-K2-Instruct","providerModelId":"moonshotai/Kimi-K2-Instruct"},"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"},"nebius":{"modelId":"openai/gpt-oss-120b","providerModelId":"openai/gpt-oss-120b"},"together":{"modelId":"openai/gpt-oss-120b","providerModelId":"openai/gpt-oss-120b"}} }
 />
 
 
