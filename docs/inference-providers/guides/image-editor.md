@@ -306,9 +306,27 @@ if __name__ == "__main__":
 
 ## Deploy on Hugging Face Spaces
 
+Let's deploy our app to Hugging Face Spaces.
+
+First, we will export our dependencies to a requirements file. 
+
+```bash
+uv export --format requirements-txt --output-file requirements.txt
+```
+
+This creates a `requirements.txt` file with all your project dependencies and their exact versions from the lockfile.
+
+<Tip>
+
+The `uv export` command ensures that your Space will use the exact same dependency versions that you tested locally, preventing deployment issues caused by version mismatches.
+
+</Tip>
+
+Now you can deploy to Spaces:
+
 1. **Create a new Space**: Go to [huggingface.co/new-space](https://huggingface.co/new-space)
 2. **Choose Gradio SDK** and make it public
-3. **Upload your files**: Upload `main.py` and any example images
+3. **Upload your files**: Upload `main.py`, `requirements.txt`, and any example images
 4. **Add your token**: In Space settings, add `HF_TOKEN` as a secret
 5. **Launch**: Your app will be live at `https://huggingface.co/spaces/your-username/your-space-name`
 
