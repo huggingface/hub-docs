@@ -60,7 +60,7 @@ We're using `uv` because it's a fast Python package manager that handles depende
 
 Now let's create the main logic for our application - the image editing function that transforms images using AI.
 
-Create `main.py` then import the necessary libraries and instantiate the InferenceClient. We're using the `fal-ai` provider for fast image processing, but other providers are available.
+Create `main.py` then import the necessary libraries and instantiate the InferenceClient. We're using the `fal-ai` provider for fast image processing, but other providers like `replicate` are also available.
 
 ```python
 import os
@@ -117,9 +117,9 @@ def edit_image(input_image, prompt):
 
 <Tip>
 
-We're using the `fal-ai` provider with the `Qwen/Qwen-Image-Edit` model. The fal-ai provider offers fast inference times, perfect for interactive applications. In some use cases, you might want to switch between providers for maximum performance. Whilst in others you might want to go for the consistency of a single provider.
+We're using the `fal-ai` provider with the `Qwen/Qwen-Image-Edit` model. The fal-ai provider offers fast inference times, perfect for interactive applications.
 
-You can experiment with different providers for various performance characteristics:
+However, you can experiment with different providers for various performance characteristics:
 
 ```python
 client = InferenceClient(provider="replicate", api_key=os.environ["HF_TOKEN"])
