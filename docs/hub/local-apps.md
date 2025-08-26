@@ -15,7 +15,7 @@ Local apps are applications that can run Hugging Face models directly on your ma
 
 ![Local Apps](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/local-apps/settings.png)
 
-1. **Choose a supported model** from the Hub by searching for it.
+1. **Choose a supported model** from the Hub by searching for it. You can filter by `app` in the `Other` section of the navigation bar: 
 
 ![Local Apps](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/local-apps/search_llamacpp.png)
 
