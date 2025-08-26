@@ -11,7 +11,7 @@ Our app will:
 
 <Tip>
 
-TLDR; this guide will show you how to build an AI image editor with Gradio and Inference Providers, just like [this one](https://huggingface.co/spaces/Qwen/Qwen-Image-Edit).
+TL;DR - this guide will show you how to build an AI image editor with Gradio and Inference Providers, just like [this one](https://huggingface.co/spaces/Qwen/Qwen-Image-Edit).
 
 </Tip>
 
