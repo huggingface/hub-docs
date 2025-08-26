@@ -11,7 +11,7 @@ Our app will:
 
 <Tip>
 
-This guide assumes you have a Hugging Face account. If you don't have one, you can create one for free at [huggingface.co](https://huggingface.co).
+TLDR; this guide will show you how to build an AI image editor with Gradio and Inference Providers, just like [this one](https://huggingface.co/spaces/Qwen/Qwen-Image-Edit).
 
 </Tip>
 
@@ -23,6 +23,12 @@ Before we start coding, authenticate with Hugging Face using your token:
 # Get your token from https://huggingface.co/settings/tokens
 export HF_TOKEN="your_token_here"
 ```
+
+<Tip>
+
+This guide assumes you have a Hugging Face account. If you don't have one, you can create one for free at [huggingface.co](https://huggingface.co).
+
+</Tip>
 
 When you set this environment variable, it handles authentication automatically for all your inference calls. You can generate a token from [your settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained).
 
