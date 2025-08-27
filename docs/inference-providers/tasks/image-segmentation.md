@@ -24,7 +24,6 @@ For more details about the `image-segmentation` task, check out its [dedicated p
 
 ### Recommended models
 
-- [openmmlab/upernet-convnext-small](https://huggingface.co/openmmlab/upernet-convnext-small): Solid semantic segmentation model trained on ADE20k.
 - [facebook/mask2former-swin-large-coco-panoptic](https://huggingface.co/facebook/mask2former-swin-large-coco-panoptic): Panoptic segmentation model trained on the COCO (common objects) dataset.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-segmentation&sort=trending).
@@ -34,7 +33,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"jonathandinu/face-parsing","providerModelId":"jonathandinu/face-parsing"}} }
+    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"}} }
 />
 
 
