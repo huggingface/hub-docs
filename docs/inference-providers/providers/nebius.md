@@ -50,7 +50,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"nebius":{"modelId":"Qwen/Qwen3-235B-A22B-Instruct-2507","providerModelId":"Qwen/Qwen3-235B-A22B-Instruct-2507"} } }
+    providersMapping={ {"nebius":{"modelId":"openai/gpt-oss-120b","providerModelId":"openai/gpt-oss-120b"} } }
 conversational />
 
 
@@ -80,7 +80,7 @@ Find out more about Text Generation [here](../tasks/text_generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"nebius":{"modelId":"Qwen/Qwen3-235B-A22B-Instruct-2507","providerModelId":"Qwen/Qwen3-235B-A22B-Instruct-2507"} } }
+    providersMapping={ {"nebius":{"modelId":"openai/gpt-oss-120b","providerModelId":"openai/gpt-oss-120b"} } }
 />
 
 

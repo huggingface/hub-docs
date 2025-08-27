@@ -60,7 +60,7 @@ Find out more about Image To Image [here](../tasks/image_to_image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.1-Kontext-dev","providerModelId":"fal-ai/flux-kontext/dev"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"fal-ai/qwen-image-edit"} } }
 />
 
 

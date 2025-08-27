@@ -24,10 +24,10 @@ For more details about the `text-to-image` task, check out its [dedicated page](
 
 ### Recommended models
 
-- [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev): One of the most powerful image generation models that can generate realistic outputs.
-- [latent-consistency/lcm-lora-sdxl](https://huggingface.co/latent-consistency/lcm-lora-sdxl): A powerful yet fast image generation model.
-- [Kwai-Kolors/Kolors](https://huggingface.co/Kwai-Kolors/Kolors): Text-to-image model for photorealistic generation.
-- [stabilityai/stable-diffusion-3-medium-diffusers](https://huggingface.co/stabilityai/stable-diffusion-3-medium-diffusers): A powerful text-to-image model.
+- [black-forest-labs/FLUX.1-Krea-dev](https://huggingface.co/black-forest-labs/FLUX.1-Krea-dev): One of the most powerful image generation models that can generate realistic outputs.
+- [Qwen/Qwen-Image](https://huggingface.co/Qwen/Qwen-Image): A powerful image generation model.
+- [ByteDance/SDXL-Lightning](https://huggingface.co/ByteDance/SDXL-Lightning): Powerful and fast image generation model.
+- [ByteDance/Hyper-SD](https://huggingface.co/ByteDance/Hyper-SD): A powerful text-to-image model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=text-to-image&sort=trending).
 
@@ -36,7 +36,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image","providerModelId":"fal-ai/qwen-image"},"hf-inference":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"nebius":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/flux-dev"},"nscale":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"replicate":{"modelId":"Qwen/Qwen-Image","providerModelId":"qwen/qwen-image"},"together":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"}} }
+    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image","providerModelId":"fal-ai/qwen-image"},"hf-inference":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"},"nebius":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/flux-dev"},"nscale":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"replicate":{"modelId":"Qwen/Qwen-Image","providerModelId":"qwen/qwen-image"},"together":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"}} }
 />
 
 
