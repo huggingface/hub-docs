@@ -92,7 +92,6 @@ While Xet brings fine-grained deduplication and enhanced performance to Git-base
 - **64-bit systems only**: The `hf_xet` client currently requires a 64-bit architecture; 32-bit systems are not supported.
 - **Partial JavaScript library support**: The [huggingface.js](https://huggingface.co/docs/huggingface.js/index) library has limited functionality with Xet-backed repositories; additional coverage is planned in future releases.
 - **Full web support currently unavailable**: Full support for chunked uploads via the Hub web interface remains under development.
-- **No EU region support**: Support for EU [storage regions](https://huggingface.co/docs/hub/storage-regions) with Xet-backed repositories is planned but remains under development.
 - **Git client integration (git-xet)**: Planned but remains under development.
 
 ### Deduplication
