@@ -2,7 +2,7 @@
 
 [Embedding Atlas](https://apple.github.io/embedding-atlas/) is an interactive visualization tool for exploring large embedding spaces. It enables you to visualize, cross-filter, and search embeddings alongside associated metadata, helping you understand patterns and relationships in high-dimensional data. All computation happens in your computer, ensuring your data remains private and secure.
 
-Here is an example atlas for the [MegaScience](https://huggingface.co/datasets/MegaScience/MegaScience) dataset hosted as a [Static Space](https://huggingface.co/docs/hub/spaces-sdks-static):
+Here is an [example atlas](https://huggingface.co/spaces/davanstrien/megascience) for the [MegaScience](https://huggingface.co/datasets/MegaScience/MegaScience) dataset hosted as a [Static Space](https://huggingface.co/docs/hub/spaces-sdks-static):
 
 <iframe
 	src="https://davanstrien-megascience.static.hf.space"
@@ -10,6 +10,7 @@ Here is an example atlas for the [MegaScience](https://huggingface.co/datasets/M
 	width="100%"
 	height="560px"
 ></iframe>
+
 
 
 ## Key Features
