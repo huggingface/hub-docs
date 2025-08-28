@@ -5,9 +5,10 @@
 Here is an [example atlas](https://huggingface.co/spaces/davanstrien/megascience) for the [MegaScience](https://huggingface.co/datasets/MegaScience/MegaScience) dataset hosted as a Static Space:
 
 <div class="flex justify-center">
-  <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/atlas-dataset-library-screenshot.png"/>
+  <a href="https://huggingface.co/spaces/davanstrien/megascience">
+    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/atlas-dataset-library-screenshot.png"/>
+  </a>
 </div>
-
 
 ## Key Features
 
