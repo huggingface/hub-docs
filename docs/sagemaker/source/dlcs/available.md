@@ -40,7 +40,7 @@ You can also keep track of the latest LLM TGI DLC releases [here](https://github
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-tgi-inference:2.7.0-tgi3.3.4-gpu-py311-cu124-ubuntu22.04 | GPU         |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-tgi-inference:2.1.2-optimum0.0.28-neuronx-py310-ubuntu22.04 | Neuron         |
+| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-tgi-inference:2.5.1-optimum3.3.4-neuronx-py310-ubuntu22.04 | Neuron         |
 
 ### Text Embedding Inference
 
