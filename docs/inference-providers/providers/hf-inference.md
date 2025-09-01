@@ -93,7 +93,7 @@ Find out more about Image Classification [here](../tasks/image_classification).
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"apple/mobilevit-small","providerModelId":"apple/mobilevit-small"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
 />
 
 
@@ -183,7 +183,7 @@ Find out more about Token Classification [here](../tasks/token_classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
+    providersMapping={ {"hf-inference":{"modelId":"iiiorg/piiranha-v1-detect-personal-information","providerModelId":"iiiorg/piiranha-v1-detect-personal-information"} } }
 />
 
 
@@ -193,7 +193,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-small","providerModelId":"google-t5/t5-small"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
 />
 
 
