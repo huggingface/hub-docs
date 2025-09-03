@@ -6,41 +6,8 @@
     title: Pricing and Billing
   - local: hub-integration
     title: Hub integration
-  - local: register-as-a-provider
-    title: Register as an Inference Provider
   - local: security
     title: Security
-
-- title: Providers
-  sections:
-  - local: providers/cerebras
-    title: Cerebras
-  - local: providers/cohere
-    title: Cohere
-  - local: providers/fal-ai
-    title: Fal AI
-  - local: providers/featherless-ai
-    title: Featherless AI
-  - local: providers/fireworks-ai
-    title: Fireworks
-  - local: providers/groq
-    title: Groq
-  - local: providers/hyperbolic
-    title: Hyperbolic
-  - local: providers/hf-inference
-    title: HF Inference
-  - local: providers/nebius
-    title: Nebius
-  - local: providers/novita
-    title: Novita
-  - local: providers/nscale
-    title: Nscale
-  - local: providers/replicate
-    title: Replicate
-  - local: providers/sambanova
-    title: SambaNova
-  - local: providers/together
-    title: Together
 
 - title: Guides
   sections:
@@ -57,25 +24,19 @@
   - local: guides/image-editor
     title: Build an Image Editor
 
-
-- title: API Reference
+- local: tasks/index
+  title: Inference Tasks
   sections:
-  - local: tasks/index
-    title: Index
-  - local: hub-api
-    title: Hub API
-  - title: Popular Tasks
-    sections:
-    - local: tasks/chat-completion
-      title: Chat Completion
-    - local: tasks/feature-extraction
-      title: Feature Extraction
-    - local: tasks/text-to-image
-      title: Text to Image
-    - local: tasks/text-to-video
-      title: Text to Video
+  - local: tasks/chat-completion
+    title: Chat Completion
+  - local: tasks/feature-extraction
+    title: Feature Extraction
+  - local: tasks/text-to-image
+    title: Text to Image
+  - local: tasks/text-to-video
+    title: Text to Video
   - title: Other Tasks
-    isExpanded: false
+    isExpanded: False
     sections:
     - local: tasks/audio-classification
       title: Audio Classification
@@ -109,3 +70,40 @@
       title: Translation
     - local: tasks/zero-shot-classification
       title: Zero Shot Classification
+          
+- title: Providers
+  sections:
+  - local: providers/cerebras
+    title: Cerebras
+  - local: providers/cohere
+    title: Cohere
+  - local: providers/fal-ai
+    title: Fal AI
+  - local: providers/featherless-ai
+    title: Featherless AI
+  - local: providers/fireworks-ai
+    title: Fireworks
+  - local: providers/groq
+    title: Groq
+  - local: providers/hyperbolic
+    title: Hyperbolic
+  - local: providers/hf-inference
+    title: HF Inference
+  - local: providers/nebius
+    title: Nebius
+  - local: providers/novita
+    title: Novita
+  - local: providers/nscale
+    title: Nscale
+  - local: providers/replicate
+    title: Replicate
+  - local: providers/sambanova
+    title: SambaNova
+  - local: providers/together
+    title: Together
+
+- local: hub-api
+  title: Hub API
+
+- local: register-as-a-provider
+  title: Register as an Inference Provider
