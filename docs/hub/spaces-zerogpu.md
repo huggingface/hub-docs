@@ -81,6 +81,29 @@ def generate(prompt):
 
 This sets the maximum function runtime to 120 seconds. Specifying shorter durations for quicker functions will improve queue priority for Space visitors.
 
+### Dynamic duration
+
+`@spaces.GPU` also supports dynamic durations.
+
+Instead of directly passing a duration, simply pass a callable that takes the same inputs as your decorated function and returns a duration:
+
+```python
+def get_duration(prompt, steps):
+    step_duration = 3.75
+    return steps * step_duration
+
+@spaces.GPU(duration=get_duration)
+def generate(prompt, steps):
+   return pipe(prompt, num_inference_steps=steps).images
+```
+
+
+## Compilation
+
+ZeroGPU does not support `torch.compile` but you can use PyTorch **ahead-of-time** compilation.
+
+Checkout this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a complete compilation guide on ZeroGPU
+
 ## Hosting Limitations
 
 - **Personal accounts ([PRO subscribers](https://huggingface.co/subscribe/pro))**: Maximum of 10 ZeroGPU Spaces.
