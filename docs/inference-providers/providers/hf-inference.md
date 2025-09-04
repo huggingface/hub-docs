@@ -57,16 +57,6 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic_speec
 />
 
 
-### Chat Completion (LLM)
-
-Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"} } }
-conversational />
-
-
 ### Feature Extraction
 
 Find out more about Feature Extraction [here](../tasks/feature_extraction).
@@ -83,7 +73,7 @@ Find out more about Fill Mask [here](../tasks/fill_mask).
 
 <InferenceSnippet
     pipeline=fill-mask
-    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-uncased","providerModelId":"google-bert/bert-base-uncased"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-chinese","providerModelId":"google-bert/bert-base-chinese"} } }
 />
 
 
@@ -103,17 +93,7 @@ Find out more about Image Segmentation [here](../tasks/image_segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
-/>
-
-
-### Object Detection
-
-Find out more about Object Detection [here](../tasks/object_detection).
-
-<InferenceSnippet
-    pipeline=object-detection
-    providersMapping={ {"hf-inference":{"modelId":"facebook/detr-resnet-50","providerModelId":"facebook/detr-resnet-50"} } }
+    providersMapping={ {"hf-inference":{"modelId":"sayeed99/segformer_b3_clothes","providerModelId":"sayeed99/segformer_b3_clothes"} } }
 />
 
 
@@ -123,7 +103,7 @@ Find out more about Question Answering [here](../tasks/question_answering).
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-base-squad2","providerModelId":"deepset/roberta-base-squad2"} } }
+    providersMapping={ {"hf-inference":{"modelId":"distilbert/distilbert-base-cased-distilled-squad","providerModelId":"distilbert/distilbert-base-cased-distilled-squad"} } }
 />
 
 
@@ -133,7 +113,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 <InferenceSnippet
     pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/text_summarization","providerModelId":"Falconsai/text_summarization"} } }
 />
 
 
@@ -143,7 +123,7 @@ Find out more about Table Question Answering [here](../tasks/table_question_answ
 
 <InferenceSnippet
     pipeline=table-question-answering
-    providersMapping={ {"hf-inference":{"modelId":"google/tapas-base-finetuned-wtq","providerModelId":"google/tapas-base-finetuned-wtq"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google/tapas-base-finetuned-wikisql-supervised","providerModelId":"google/tapas-base-finetuned-wikisql-supervised"} } }
 />
 
 
@@ -153,17 +133,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"ProsusAI/finbert","providerModelId":"ProsusAI/finbert"} } }
-/>
-
-
-### Text Generation
-
-Find out more about Text Generation [here](../tasks/text_generation).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"} } }
+    providersMapping={ {"hf-inference":{"modelId":"tabularisai/multilingual-sentiment-analysis","providerModelId":"tabularisai/multilingual-sentiment-analysis"} } }
 />
 
 
@@ -193,7 +163,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-small","providerModelId":"google-t5/t5-small"} } }
 />
 
 
@@ -203,6 +173,6 @@ Find out more about Zero Shot Classification [here](../tasks/zero_shot_classific
 
 <InferenceSnippet
     pipeline=zero-shot-classification
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
+    providersMapping={ {"hf-inference":{"modelId":"joeddav/xlm-roberta-large-xnli","providerModelId":"joeddav/xlm-roberta-large-xnli"} } }
 />
 
