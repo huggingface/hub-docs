@@ -33,9 +33,24 @@ ZeroGPU Spaces are designed to be compatible with most PyTorch-based GPU Spaces.
 
 ### Supported Versions
 
-- Gradio: 4+
-- PyTorch: 2.1.2, 2.2.2, 2.4.0, 2.5.1 (Note: 2.3.x is not supported due to a [PyTorch bug](https://github.com/pytorch/pytorch/issues/122085))
-- Python: 3.10.13
+- **Gradio**: 4+
+- **PyTorch**: Almost all versions from **2.1.0** to **latest** are supported  
+  <details>
+    <summary>See full list</summary>
+
+    - 2.1.0  
+    - 2.1.1  
+    - 2.1.2  
+    - 2.2.0  
+    - 2.2.2  
+    - 2.4.0  
+    - 2.5.1  
+    - 2.6.0  
+    - 2.7.1  
+    - 2.8.0  
+
+  </details>
+- **Python**: 3.10.13
 
 ## Getting started with ZeroGPU
 
