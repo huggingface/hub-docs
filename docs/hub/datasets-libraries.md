@@ -88,7 +88,7 @@ Examples of this kind of integration:
 
 #### Rely on an existing libraries integration with the Hub
 
-Polars, Pandas, Dask, Spark, DuckDB, and Daft all can write to a Hugging Face Hub repository. See [datasets libraries](https://huggingface.co/docs/hub/datasets-libraries) for more details.
+Polars, Pandas, Dask, Spark, DuckDB, and Daft can all write to a Hugging Face Hub repository. See [datasets libraries](https://huggingface.co/docs/hub/datasets-libraries) for more details.
 
 If you are already using one of these libraries in your code, adding the ability to push to the Hub is straightforward. For example, if you have a synthetic data generation library that can return a Pandas DataFrame, here is the code you would need to write to the Hub:
 

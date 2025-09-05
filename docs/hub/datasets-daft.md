@@ -17,11 +17,11 @@ pip install 'daft[hugggingface]'
 
 ## Read
 
-Daft is able to read datasets directly from Hugging Face using the [`daft.read_huggingface()`](https://docs.daft.ai/en/stable/api/io/#daft.read_huggingface) function or via the `hf://datasets/` protocol.
+Daft is able to read datasets directly from the Hugging Face Hub using the [`daft.read_huggingface()`](https://docs.daft.ai/en/stable/api/io/#daft.read_huggingface) function or via the `hf://datasets/` protocol.
 
 ### Reading an Entire Dataset
 
-Using [`daft.read_huggingface()`](https://docs.daft.ai/en/stable/api/io/#daft.read_huggingface), you can easily read a Hugging Face dataset.
+Using [`daft.read_huggingface()`](https://docs.daft.ai/en/stable/api/io/#daft.read_huggingface), you can easily load a dataset.
 
 
 ```python
@@ -34,7 +34,7 @@ This will read the entire dataset into a DataFrame.
 
 ### Reading Specific Files
 
-Not only can you read entire datasets, but you can also read individual files from a dataset. Using a read function that takes in a path (such as [`daft.read_parquet()`](https://docs.daft.ai/en/stable/api/io/#daft.read_parquet), [`daft.read_csv()`](https://docs.daft.ai/en/stable/api/io/#daft.read_csv), or [`daft.read_json()`](https://docs.daft.ai/en/stable/api/io/#daft.read_json)), specify a Hugging Face dataset path via the `hf://datasets/` prefix:
+Not only can you read entire datasets, but you can also read individual files from a dataset repository. Using a read function that takes in a path (such as [`daft.read_parquet()`](https://docs.daft.ai/en/stable/api/io/#daft.read_parquet), [`daft.read_csv()`](https://docs.daft.ai/en/stable/api/io/#daft.read_csv), or [`daft.read_json()`](https://docs.daft.ai/en/stable/api/io/#daft.read_json)), specify a Hugging Face dataset path via the `hf://datasets/` prefix:
 
 ```python
 import daft
@@ -51,7 +51,7 @@ df = daft.read_parquet("hf://datasets/username/dataset_name/**/*.parquet")
 
 ## Write
 
-Daft is able to write Parquet files to Hugging Face datasets using [`daft.DataFrame.write_huggingface`](https://docs.daft.ai/en/stable/api/dataframe/#daft.DataFrame.write_deltalake). Daft supports [Content-Defined Chunking](https://huggingface.co/blog/parquet-cdc) and [Xet](https://huggingface.co/blog/xet-on-the-hub) for faster, deduplicated writes.
+Daft is able to write Parquet files to a Hugging Face dataset repository using [`daft.DataFrame.write_huggingface`](https://docs.daft.ai/en/stable/api/dataframe/#daft.DataFrame.write_deltalake). Daft supports [Content-Defined Chunking](https://huggingface.co/blog/parquet-cdc) and [Xet](https://huggingface.co/blog/xet-on-the-hub) for faster, deduplicated writes.
 
 Basic usage:
 
@@ -67,9 +67,9 @@ See the [`DataFrame.write_huggingface`](https://docs.daft.ai/en/stable/api/dataf
 
 ## Authentication
 
-The `token` parameter in [`daft.io.HuggingFaceConfig`](https://docs.daft.ai/en/stable/api/config/#daft.io.HuggingFaceConfig) can be used to specify a Hugging Face access token for requests that require authentication (e.g. reading private datasets or writing to a dataset).
+The `token` parameter in [`daft.io.HuggingFaceConfig`](https://docs.daft.ai/en/stable/api/config/#daft.io.HuggingFaceConfig) can be used to specify a Hugging Face access token for requests that require authentication (e.g. reading private dataset repositories or writing to a dataset repository).
 
-Example of reading a dataset with a specified token:
+Example of loading a dataset with a specified token:
 
 ```python
 from daft.io import IOConfig, HuggingFaceConfig
