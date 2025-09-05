@@ -1,10 +1,10 @@
-# Enterprise Hub
+# Team & Enterprise plans
 
 <Tip>
 <a href="https://huggingface.co/enterprise" target="_blank">Subscribe to a Team or Enterprise plan</a> to get access to advanced features for your organization.
 </Tip>
 
-Enterprise Hub adds advanced capabilities to organizations, enabling safe, compliant and managed collaboration for companies and teams on Hugging Face.
+Team & Enterprise organization plans add advanced capabilities to organizations, enabling safe, compliant and managed collaboration for companies and teams on Hugging Face.
 
 <a href="https://huggingface.co/enterprise" class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/enterprise-header.png" />
