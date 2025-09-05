@@ -24,7 +24,6 @@ For more details about the `token-classification` task, check out its [dedicated
 
 ### Recommended models
 
-- [blaze999/Medical-NER](https://huggingface.co/blaze999/Medical-NER): A token classification model specialized on medical entity recognition.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=token-classification&sort=trending).
 
@@ -33,7 +32,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"iiiorg/piiranha-v1-detect-personal-information","providerModelId":"iiiorg/piiranha-v1-detect-personal-information"}} }
+    providersMapping={ {"hf-inference":{"modelId":"microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank","providerModelId":"microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank"}} }
 />
 
 
