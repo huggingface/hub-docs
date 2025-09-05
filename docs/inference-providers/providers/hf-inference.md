@@ -73,7 +73,7 @@ Find out more about Fill Mask [here](../tasks/fill_mask).
 
 <InferenceSnippet
     pipeline=fill-mask
-    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-chinese","providerModelId":"google-bert/bert-base-chinese"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-uncased","providerModelId":"google-bert/bert-base-uncased"} } }
 />
 
 
@@ -83,7 +83,7 @@ Find out more about Image Classification [here](../tasks/image_classification).
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
+    providersMapping={ {"hf-inference":{"modelId":"dima806/fairface_age_image_detection","providerModelId":"dima806/fairface_age_image_detection"} } }
 />
 
 
@@ -93,7 +93,17 @@ Find out more about Image Segmentation [here](../tasks/image_segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"sayeed99/segformer_b3_clothes","providerModelId":"sayeed99/segformer_b3_clothes"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/mask2former-swin-small-ade-semantic","providerModelId":"facebook/mask2former-swin-small-ade-semantic"} } }
+/>
+
+
+### Object Detection
+
+Find out more about Object Detection [here](../tasks/object_detection).
+
+<InferenceSnippet
+    pipeline=object-detection
+    providersMapping={ {"hf-inference":{"modelId":"facebook/detr-resnet-50","providerModelId":"facebook/detr-resnet-50"} } }
 />
 
 
@@ -103,7 +113,7 @@ Find out more about Question Answering [here](../tasks/question_answering).
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"distilbert/distilbert-base-cased-distilled-squad","providerModelId":"distilbert/distilbert-base-cased-distilled-squad"} } }
+    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-base-squad2","providerModelId":"deepset/roberta-base-squad2"} } }
 />
 
 
@@ -113,7 +123,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 <InferenceSnippet
     pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"Falconsai/text_summarization","providerModelId":"Falconsai/text_summarization"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"} } }
 />
 
 
@@ -123,7 +133,7 @@ Find out more about Table Question Answering [here](../tasks/table_question_answ
 
 <InferenceSnippet
     pipeline=table-question-answering
-    providersMapping={ {"hf-inference":{"modelId":"google/tapas-base-finetuned-wikisql-supervised","providerModelId":"google/tapas-base-finetuned-wikisql-supervised"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google/tapas-base-finetuned-wtq","providerModelId":"google/tapas-base-finetuned-wtq"} } }
 />
 
 
@@ -133,7 +143,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"tabularisai/multilingual-sentiment-analysis","providerModelId":"tabularisai/multilingual-sentiment-analysis"} } }
+    providersMapping={ {"hf-inference":{"modelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english","providerModelId":"distilbert/distilbert-base-uncased-finetuned-sst-2-english"} } }
 />
 
 
@@ -153,7 +163,7 @@ Find out more about Token Classification [here](../tasks/token_classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"iiiorg/piiranha-v1-detect-personal-information","providerModelId":"iiiorg/piiranha-v1-detect-personal-information"} } }
+    providersMapping={ {"hf-inference":{"modelId":"microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank","providerModelId":"microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank"} } }
 />
 
 
@@ -163,7 +173,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-small","providerModelId":"google-t5/t5-small"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
 />
 
 
