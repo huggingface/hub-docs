@@ -175,6 +175,8 @@
     sections:
       - local: datasets-argilla
         title: Argilla
+      - local: datasets-daft
+        title: Daft
       - local: datasets-dask
         title: Dask
       - local: datasets-usage

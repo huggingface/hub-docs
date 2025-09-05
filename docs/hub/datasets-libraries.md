@@ -9,6 +9,7 @@ The table below summarizes the supported libraries and their level of integratio
 | Library                             | Description                                                                                                                    | Download from Hub | Push to Hub |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ----------- |
 | [Argilla](./datasets-argilla)       | Collaboration tool for AI engineers and domain experts that value high quality data.                                           | ✅                | ✅          |
+| [Daft](./datasets-daft)             | Data engine for large scale, multimodal data processing with a Python-native interface.                                        | ✅                | ✅          |
 | [Dask](./datasets-dask)             | Parallel and distributed computing library that scales the existing Python and PyData ecosystem.                               | ✅                | ✅          |
 | [Datasets](./datasets-usage)        | 🤗 Datasets is a library for accessing and sharing datasets for Audio, Computer Vision, and Natural Language Processing (NLP). | ✅                | ✅          |
 | [Distilabel](./datasets-distilabel) | The framework for synthetic data generation and AI feedback.                                                                   | ✅                | ✅          |
@@ -87,7 +88,7 @@ Examples of this kind of integration:
 
 #### Rely on an existing libraries integration with the Hub
 
-Polars, Pandas, Dask, Spark and DuckDB all can write to a Hugging Face Hub repository. See [datasets libraries](https://huggingface.co/docs/hub/datasets-libraries) for more details.
+Polars, Pandas, Dask, Spark, DuckDB, and Daft can all write to a Hugging Face Hub repository. See [datasets libraries](https://huggingface.co/docs/hub/datasets-libraries) for more details.
 
 If you are already using one of these libraries in your code, adding the ability to push to the Hub is straightforward. For example, if you have a synthetic data generation library that can return a Pandas DataFrame, here is the code you would need to write to the Hub:
 
