@@ -7,10 +7,12 @@ The base URL for those endpoints below is `https://huggingface.co`. For example,
 ## The Hub API Playground
 
 Want to try out our API?
-Try it out now on our [Playground](https://huggingface.co/spaces/enzostvs/hub-api-playground)!
+Try it out now on our OpenAPI-based [Playground](https://huggingface.co/spaces/huggingface/openapi)!
+
+You can also access the OpenAPI specification directly: [https://huggingface.co/.well-known/openapi.json](https://huggingface.co/.well-known/openapi.json)
 
 <div class="flex justify-center">
-<a href="https://huggingface.co/spaces/enzostvs/hub-api-playground" target="_blank">
+<a href="https://huggingface.co/spaces/huggingface/openapi" target="_blank">
 <img class="w-full object-contain" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/hub-api-playground.png"/>
 </a>
 </div>
