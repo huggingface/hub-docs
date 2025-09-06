@@ -88,6 +88,11 @@ This sets the maximum function runtime to 120 seconds. Specifying shorter durati
 
 By leveraging ZeroGPU, developers can create more efficient and scalable Spaces, maximizing GPU utilization while minimizing costs.
 
+## Recommendations
+
+If your demo uses a large model, we recommend [these optimizations](https://huggingface.co/blog/zerogpu-aoti) to maximize the advantages of ZeroGPU hours and
+also to provide a better user experience.
+
 ## Feedback
 
 You can share your feedback on Spaces ZeroGPU directly on the HF Hub: https://huggingface.co/spaces/zero-gpu-explorers/README/discussions
