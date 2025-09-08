@@ -90,8 +90,9 @@ By leveraging ZeroGPU, developers can create more efficient and scalable Spaces,
 
 ## Recommendations
 
-If your demo uses a large model, we recommend [these optimizations](https://huggingface.co/blog/zerogpu-aoti) to maximize the advantages of ZeroGPU hours and
-also to provide a better user experience.
+If your demo uses a large model, we recommend using optimizations like ahead-of-time compilation and. flash-attention 3. You can learn how to leverage these in
+ZeroGPU in [this post](https://huggingface.co/blog/zerogpu-aoti). These optimizations will help you to maximize the advantages of ZeroGPU hours and provide
+a better user experience.
 
 ## Feedback
 
