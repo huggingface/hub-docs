@@ -100,7 +100,7 @@ This sets the maximum function runtime to 120 seconds. Specifying shorter durati
 
 `@spaces.GPU` also supports dynamic durations.
 
-Instead of directly passing a duration, simply pass a callable that takes the same inputs as your decorated function and returns a duration:
+Instead of directly passing a duration, simply pass a callable that takes the same inputs as your decorated function and returns a duration value:
 
 ```python
 def get_duration(prompt, steps):
