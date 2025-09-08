@@ -33,9 +33,24 @@ ZeroGPU Spaces are designed to be compatible with most PyTorch-based GPU Spaces.
 
 ### Supported Versions
 
-- Gradio: 4+
-- PyTorch: 2.1.2, 2.2.2, 2.4.0, 2.5.1 (Note: 2.3.x is not supported due to a [PyTorch bug](https://github.com/pytorch/pytorch/issues/122085))
-- Python: 3.10.13
+- **Gradio**: 4+
+- **PyTorch**: Almost all versions from **2.1.0** to **latest** are supported  
+  <details>
+    <summary>See full list</summary>
+
+    - 2.1.0  
+    - 2.1.1  
+    - 2.1.2  
+    - 2.2.0  
+    - 2.2.2  
+    - 2.4.0  
+    - 2.5.1  
+    - 2.6.0  
+    - 2.7.1  
+    - 2.8.0  
+
+  </details>
+- **Python**: 3.10.13
 
 ## Getting started with ZeroGPU
 
@@ -80,6 +95,29 @@ def generate(prompt):
 ```
 
 This sets the maximum function runtime to 120 seconds. Specifying shorter durations for quicker functions will improve queue priority for Space visitors.
+
+### Dynamic duration
+
+`@spaces.GPU` also supports dynamic durations.
+
+Instead of directly passing a duration, simply pass a callable that takes the same inputs as your decorated function and returns a duration value:
+
+```python
+def get_duration(prompt, steps):
+    step_duration = 3.75
+    return steps * step_duration
+
+@spaces.GPU(duration=get_duration)
+def generate(prompt, steps):
+   return pipe(prompt, num_inference_steps=steps).images
+```
+
+
+## Compilation
+
+ZeroGPU does not support `torch.compile`, but you can use PyTorch **ahead-of-time** compilation (requires torch `2.8+`)
+
+Check out this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a complete guide on ahead-of-time compilation on ZeroGPU.
 
 ## Hosting Limitations
 
