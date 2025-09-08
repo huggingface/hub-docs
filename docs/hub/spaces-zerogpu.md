@@ -126,6 +126,12 @@ Check out this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a comple
 
 By leveraging ZeroGPU, developers can create more efficient and scalable Spaces, maximizing GPU utilization while minimizing costs.
 
+## Recommendations
+
+If your demo uses a large model, we recommend using optimizations like ahead-of-time compilation and flash-attention 3. You can learn how to leverage these with
+ZeroGPU in [this post](https://huggingface.co/blog/zerogpu-aoti). These optimizations will help you to maximize the advantages of ZeroGPU hours and provide
+a better user experience.
+
 ## Feedback
 
 You can share your feedback on Spaces ZeroGPU directly on the HF Hub: https://huggingface.co/spaces/zero-gpu-explorers/README/discussions
