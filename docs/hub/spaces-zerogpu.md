@@ -117,7 +117,7 @@ def generate(prompt, steps):
 
 ZeroGPU does not support `torch.compile`, but you can use PyTorch **ahead-of-time** compilation (requires torch `2.8+`)
 
-Checkout this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a complete compilation guide on ZeroGPU
+Check out this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a complete guide on ahead-of-time compilation on ZeroGPU.
 
 ## Hosting Limitations
 
