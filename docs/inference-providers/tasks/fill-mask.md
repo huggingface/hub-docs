@@ -24,7 +24,6 @@ For more details about the `fill-mask` task, check out its [dedicated page](http
 
 ### Recommended models
 
-- [FacebookAI/xlm-roberta-base](https://huggingface.co/FacebookAI/xlm-roberta-base): A multilingual model trained on 100 languages.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=fill-mask&sort=trending).
 

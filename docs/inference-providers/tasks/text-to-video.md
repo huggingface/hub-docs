@@ -35,7 +35,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"fal-ai":{"modelId":"Wan-AI/Wan2.2-T2V-A14B","providerModelId":"fal-ai/wan/v2.2-a14b/text-to-video"},"novita":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"wan-t2v"},"replicate":{"modelId":"Wan-AI/Wan2.2-TI2V-5B","providerModelId":"wan-video/wan-2.2-5b-fast"}} }
+    providersMapping={ {"fal-ai":{"modelId":"Wan-AI/Wan2.2-T2V-A14B","providerModelId":"fal-ai/wan/v2.2-a14b/text-to-video"},"novita":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"wan-t2v"},"replicate":{"modelId":"Wan-AI/Wan2.2-T2V-A14B","providerModelId":"wan-video/wan-2.2-t2v-fast"}} }
 />
 
 
