@@ -37,6 +37,7 @@ We have some guides available to help with configuring based on your chosen SSO 
 - [How to configure SAML with Okta in the Hub](./security-sso-okta-saml)
 - [How to configure SAML with Azure in the Hub](./security-sso-azure-saml)
 - [How to configure SAML with Google Workspace in the Hub](./security-sso-google-saml)
+- [How to configure OIDC with Google Workspace in the Hub](./security-sso-google-oidc)
 
 ### Users Management
 

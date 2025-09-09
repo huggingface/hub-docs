@@ -404,6 +404,8 @@
         title: How to configure SCIM with EntraID (Azure AD)
       - local: security-sso-google-saml
         title: How to configure SAML with Google Workspace
+      - local: security-sso-google-oidc
+        title: How to configure OIDC with Google Workspace
     
     - local: security-resource-groups
       title: Advanced Access Control (Resource Groups)
