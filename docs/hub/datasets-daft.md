@@ -63,7 +63,7 @@ df: daft.DataFrame = ...
 df.write_huggingface("username/dataset_name")
 ```
 
-See the [`DataFrame.write_huggingface`](https://docs.daft.ai/en/stable/api/dataframe/#daft.DataFrame.write_deltalake) API page for more info.
+See the [`DataFrame.write_huggingface`](https://docs.daft.ai/en/stable/api/dataframe/#daft.DataFrame.write_huggingface) API page for more info.
 
 ## Authentication
 
