@@ -12,7 +12,7 @@
 To get started, pip install `daft` with the `huggingface` feature:
 
 ```bash
-pip install 'daft[hugggingface]'
+pip install 'daft[huggingface]'
 ```
 
 ## Read
