@@ -346,7 +346,7 @@
     - local: organizations-security
       title: Access Control in Organizations
   - local: enterprise-hub
-    title: Team & Enterprise plans
+    title: Team & Enterprise Plans
     sections:
     - local: enterprise-sso
       title: Single Sign-On (SSO)
