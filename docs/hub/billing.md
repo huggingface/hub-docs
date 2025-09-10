@@ -6,9 +6,9 @@ Any feedback or support request related to billing is welcome at billing@hugging
 
 ## Team and Enterprise subscriptions
 
-We offer advanced security and compliance features for organizations through our Team or Enterprise subscription, including [Single Sign-On](./enterprise-sso), [Advanced Access Control](./enterprise-hub-resource-groups) for repositories, control over your data location, higher [storage capacity](./storage-limits) for private repositories, and more.
+We offer advanced security and compliance features for organizations through our Team or Enterprise plans, which include [Single Sign-On](./enterprise-sso), [Advanced Access Control](./enterprise-hub-resource-groups) for repositories, control over your data location, higher [storage capacity](./storage-limits) for public and private repositories, and more.
 
-The Enterprise Hub is billed like a typical subscription. It renews automatically, but you can choose to cancel it at any time in the organization's billing settings.
+Team and Enterprise plans are billed like a typical subscription. They renew automatically, but you can choose to cancel at any time in the organization's billing settings.
 
 You can pay for a Team subscription with a credit card or your AWS account, or upgrade to Enterprise via an annual contract.
 
@@ -23,23 +23,23 @@ Private repository storage above the [included storage](./storage-limits) will b
 
 ## PRO subscription
 
-The PRO subscription unlocks additional features for users, including:
+The PRO subscription unlocks essential features for serious users, including:
 
+- Higher [storage capacity](./storage-limits) for public and private repositories
 - Higher tier for ZeroGPU Spaces usage
 - Ability to create ZeroGPU Spaces and use Dev Mode
 - Included credits for [Inference Providers](/docs/inference-providers/)
-- Higher [storage capacity](./storage-limits) for private repositories
-- Ability to write Social Posts and Community Blogs
-- Leverage the Dataset Viewer on private datasets
+- Ability to publish Social Posts and Community Blogs
+- Leverage the Data Studio on private datasets
 
-View the full list of benefits at https://huggingface.co/subscribe/pro
+View the full list of benefits at https://huggingface.co/pro then subscribe over at https://huggingface.co/subscribe/pro
 
 Similarly to the Enterprise Hub subscription, PRO subscriptions are billed like a typical subscription. The subscription renews automatically for you. You can choose to cancel the subscription at anytime in your billing settings: https://huggingface.co/settings/billing
 
 You can only pay for the PRO subscription with a credit card. The subscription is billed separately from any pay-as-you-go compute usage.
 Private repository storage above the [included storage](./storage-limits) will be billed along with your subscription renewal.
 
-Note: PRO benefits are also included in the Enterprise Hub subscription.
+Note: PRO benefits are also included in the Enterprise subscription.
 
 ## Pay-as-you-go private storage 
 

@@ -30,7 +30,7 @@
   - local: enterprise-hub-gating-group-collections
     title: Gating Group Collections
 
-- local: pro-subscription
+- local: pro
   title: PRO Plan
 
 - local: repositories

@@ -20,7 +20,7 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 💡 [Team or Enterprise Organizations](https://huggingface.co/enterprise) include 1TB of private storage per seat in the subscription: for example, if your organization has 40 members, then you have 40TB of included private storage.
 
-\*We aim to continue providing the AI community with free storage space for public repositories. Please use this resource responsibly by uploading content that offers genuine value to other users - not dozens of TBs with limited community interest. If you need substantial storage space, you need to upgrade to [PRO, Team or Enterprise](https://huggingface.co/pricing).
+\*We aim to continue providing the AI community with free storage space for public repositories. Beyond the first few gigabytes, please use this resource responsibly by uploading content that offers genuine value to other users. If you need substantial storage space, you will need to upgrade to [PRO, Team or Enterprise](https://huggingface.co/pricing).
 
 
 ### Pay-as-you-go price
