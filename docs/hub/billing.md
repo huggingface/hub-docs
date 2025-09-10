@@ -31,6 +31,7 @@ The PRO subscription unlocks essential features for serious users, including:
 - Included credits for [Inference Providers](/docs/inference-providers/)
 - Ability to publish Social Posts and Community Blogs
 - Leverage the Data Studio on private datasets
+- Run and schedule serverless [CPU/ GPU Jobs](https://huggingface.co/docs/huggingface_hub/en/guides/jobs)
 
 View the full list of benefits at https://huggingface.co/pro then subscribe over at https://huggingface.co/subscribe/pro
 
@@ -39,7 +40,7 @@ Similarly to the Enterprise Hub subscription, PRO subscriptions are billed like 
 You can only pay for the PRO subscription with a credit card. The subscription is billed separately from any pay-as-you-go compute usage.
 Private repository storage above the [included storage](./storage-limits) will be billed along with your subscription renewal.
 
-Note: PRO benefits are also included in the Enterprise subscription.
+Note: PRO benefits are also included in the [Enterprise subscription](https://huggingface.co/enterprise).
 
 ## Pay-as-you-go private storage 
 
