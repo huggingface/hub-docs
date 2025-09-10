@@ -25,10 +25,10 @@
         title: "How-to: Create automatic metadata quality reports"
   - local: notebooks
     title: Notebooks
-  - local: storage-backends
-    title: Storage Backends
   - local: storage-limits
     title: Storage Limits
+  - local: storage-backends
+    title: Storage Backends
   - local: repositories-next-steps
     title: Next Steps
   - local: repositories-licenses
@@ -350,7 +350,7 @@
     - local: organizations-security
       title: Access Control in Organizations
   - local: enterprise-hub
-    title: Enterprise Hub
+    title: Team & Enterprise Plans
     sections:
     - local: enterprise-sso
       title: Single Sign-On (SSO)
@@ -373,7 +373,7 @@
     - local: enterprise-hub-tokens-management
       title: Tokens Management
     - local: enterprise-hub-analytics
-      title: Analytics
+      title: Publisher Analytics
     - local: enterprise-hub-network-security
       title: Network Security
     - local: enterprise-hub-gating-group-collections
