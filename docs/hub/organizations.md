@@ -9,15 +9,7 @@ If an organization needs to track user access to a dataset or a model due to lic
 - [Managing Organizations](./organizations-managing)
 - [Organization Cards](./organizations-cards)
 - [Access Control in Organizations](./organizations-security)
-- [Enterprise Hub features](./enterprise-hub)
-  - [SSO](./enterprise-sso)
-  - [Advanced SSO](./enterprise-hub-advanced-sso)
-  - [User Provisioning (SCIM)](./enterprise-hub-scim)
-  - [Audit Logs](./audit-logs)
-  - [Storage Regions](./storage-regions)
-  - [Dataset viewer for Private datasets](./enterprise-hub-datasets)
-  - [Resource Groups](./security-resource-groups)
-  - [Advanced Compute Options](./advanced-compute-options)
-  - [Advanced Security](./enterprise-hub-advanced-security)
-  - [Tokens Management](./enterprise-hub-tokens-management)
-  - [Analytics](./enterprise-hub-analytics)
+
+## Next: Power up your organization
+
+- [Team & Enterprise Plans](./enterprise-hub)

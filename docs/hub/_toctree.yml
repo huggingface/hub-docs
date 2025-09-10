@@ -1,5 +1,38 @@
 - local: index
   title: 🤗 Hugging Face Hub
+- local: enterprise-hub
+  title: Team & Enterprise Plans
+  sections:
+  - local: enterprise-sso
+    title: Single Sign-On (SSO)
+  - local: enterprise-hub-advanced-sso
+    title: Advanced Single Sign-On (SSO)
+  - local: enterprise-hub-scim
+    title: User Provisioning (SCIM)
+  - local: audit-logs
+    title: Audit Logs
+  - local: storage-regions
+    title: Storage Regions
+  - local: enterprise-hub-datasets
+    title: Data Studio for Private datasets
+  - local: enterprise-hub-resource-groups
+    title: Resource Groups (Access Control)
+  - local: advanced-compute-options
+    title: Advanced Compute Options
+  - local: enterprise-hub-advanced-security
+    title: Advanced Security
+  - local: enterprise-hub-tokens-management
+    title: Tokens Management
+  - local: enterprise-hub-analytics
+    title: Publisher Analytics
+  - local: enterprise-hub-network-security
+    title: Network Security
+  - local: enterprise-hub-gating-group-collections
+    title: Gating Group Collections
+
+- local: pro-subscription
+  title: PRO Plan
+
 - local: repositories
   title: Repositories
   isExpanded: true
@@ -349,35 +382,6 @@
       title: Organization Cards
     - local: organizations-security
       title: Access Control in Organizations
-  - local: enterprise-hub
-    title: Team & Enterprise Plans
-    sections:
-    - local: enterprise-sso
-      title: Single Sign-On (SSO)
-    - local: enterprise-hub-advanced-sso
-      title: Advanced Single Sign-On (SSO)
-    - local: enterprise-hub-scim
-      title: User Provisioning (SCIM)
-    - local: audit-logs
-      title: Audit Logs
-    - local: storage-regions
-      title: Storage Regions
-    - local: enterprise-hub-datasets
-      title: Data Studio for Private datasets
-    - local: enterprise-hub-resource-groups
-      title: Resource Groups (Access Control)
-    - local: advanced-compute-options
-      title: Advanced Compute Options
-    - local: enterprise-hub-advanced-security
-      title: Advanced Security
-    - local: enterprise-hub-tokens-management
-      title: Tokens Management
-    - local: enterprise-hub-analytics
-      title: Publisher Analytics
-    - local: enterprise-hub-network-security
-      title: Network Security
-    - local: enterprise-hub-gating-group-collections
-      title: Gating Group Collections
   - local: billing
     title: Billing
   - local: security

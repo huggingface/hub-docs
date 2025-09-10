@@ -121,7 +121,7 @@ If you need more model/ dataset storage than your allocated private storage for 
 
 ## How can I free up storage space in my account/organization?
 
-There are several ways to manage and free some storage space in your account or organization. First, if you need more storage space, consider upgrading to PRO or Enterprise Hub plans for increased storage limits.
+There are several ways to manage and free some storage space in your account or organization. First, if you need more storage space, consider upgrading to a PRO, Team or Enterprise plan for increased storage limits.
 
 ⚠️ **Important**: Deleting LFS files is a destructive operation that cannot be undone. Make sure to backup your files before proceeding.
 
