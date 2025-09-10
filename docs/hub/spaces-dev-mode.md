@@ -5,7 +5,7 @@ This feature is still in Beta stage.
 </Tip>
 
 <Tip warning={true}>
-The Spaces Dev Mode is part of PRO and Enterprise Hub subscriptions.
+The Spaces Dev Mode is part of <a href="https://huggingface.co/pro">PRO</a> or <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 </Tip>
 
 ## Spaces Dev Mode
