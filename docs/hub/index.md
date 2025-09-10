@@ -7,8 +7,16 @@ The Hugging Face Hub is a platform with over 1.7M models, 400k datasets, and 600
 <div class="group flex flex-col space-y-2 rounded-xl border border-purple-100 bg-linear-to-br from-purple-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-purple-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-purple-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-purple-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M11.61 29.92a1 1 0 0 1-.6-1.07L12.83 17H8a1 1 0 0 1-1-1.23l3-13A1 1 0 0 1 11 2h10a1 1 0 0 1 .78.37a1 1 0 0 1 .2.85L20.25 11H25a1 1 0 0 1 .9.56a1 1 0 0 1-.11 1l-13 17A1 1 0 0 1 12 30a1.1 1.1 0 0 1-.39-.08M17.75 13l2-9H11.8L9.26 15h5.91l-1.59 10.28L23 13Z"/></svg> Subscriptions &  Plans</div>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub">Team & Enterprise plans</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub">PRO plan</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./pro-subscription">PRO subscription</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub">Team & Enterprise Plans</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-sso">Single Sign-On (SSO)</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./audit-logs">Audit Logs</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-regions">Storage Regions</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-datasets">Data Studio for Private datasets</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./security-resource-groups">Resource Groups</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-advanced-security">Advanced Security</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-tokens-management">Tokens Management</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-network-security">Network Security</a>
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-orange-100 bg-linear-to-br from-orange-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-orange-700">
