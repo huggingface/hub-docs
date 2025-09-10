@@ -26,4 +26,4 @@ viewer: false
 
 ## Private datasets
 
-For **private** datasets, the Dataset Viewer is enabled for [PRO users](https://huggingface.co/pricing) and [Enterprise Hub organizations](https://huggingface.co/enterprise).
+For **private** datasets, the Dataset Viewer is enabled for [PRO users](https://huggingface.co/pricing) and [Team or Enterprise organizations](https://huggingface.co/enterprise).

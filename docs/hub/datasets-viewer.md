@@ -99,6 +99,6 @@ For more information see our guide on [How to embed the Dataset Viewer in a webp
 To have a properly working Dataset Viewer for your dataset, make sure your dataset is in a supported format and structure.
 There is also an option to configure your dataset using YAML.
 
-For **private** datasets, the Dataset Viewer is enabled for [PRO users](https://huggingface.co/pricing) and [Enterprise Hub organizations](https://huggingface.co/enterprise).
+For **private** datasets, the Dataset Viewer is enabled for [PRO users](https://huggingface.co/pricing) and [Team or Enterprise organizations](https://huggingface.co/enterprise).
 
 For more information see our guide on [How to configure the Dataset Viewer](./datasets-viewer-configure).
