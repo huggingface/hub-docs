@@ -1,5 +1,40 @@
 - local: index
   title: 🤗 Hugging Face Hub
+
+- local: enterprise-hub
+  title: Team & Enterprise Plans
+  isExpanded: true
+  sections:
+  - local: enterprise-sso
+    title: Single Sign-On (SSO)
+  - local: enterprise-hub-advanced-sso
+    title: Advanced Single Sign-On (SSO)
+  - local: enterprise-hub-scim
+    title: User Provisioning (SCIM)
+  - local: audit-logs
+    title: Audit Logs
+  - local: storage-regions
+    title: Storage Regions
+  - local: enterprise-hub-datasets
+    title: Data Studio for Private datasets
+  - local: enterprise-hub-resource-groups
+    title: Resource Groups (Access Control)
+  - local: advanced-compute-options
+    title: Advanced Compute Options
+  - local: enterprise-hub-advanced-security
+    title: Advanced Security
+  - local: enterprise-hub-tokens-management
+    title: Tokens Management
+  - local: enterprise-hub-analytics
+    title: Publisher Analytics
+  - local: enterprise-hub-network-security
+    title: Network Security
+  - local: enterprise-hub-gating-group-collections
+    title: Gating Group Collections
+
+- local: pro
+  title: PRO Plan
+
 - local: repositories
   title: Repositories
   isExpanded: true
@@ -25,14 +60,15 @@
         title: "How-to: Create automatic metadata quality reports"
   - local: notebooks
     title: Notebooks
-  - local: storage-backends
-    title: Storage Backends
   - local: storage-limits
     title: Storage Limits
+  - local: storage-backends
+    title: Storage Backends
   - local: repositories-next-steps
     title: Next Steps
   - local: repositories-licenses
     title: Licenses
+
 - title: Models
   local: models
   isExpanded: true
@@ -154,6 +190,7 @@
             title: GGUF usage with Ollama
       - local: dduf
         title: DDUF
+
 - title: Datasets
   local: datasets
   isExpanded: true
@@ -175,6 +212,8 @@
     sections:
       - local: datasets-argilla
         title: Argilla
+      - local: datasets-daft
+        title: Daft
       - local: datasets-dask
         title: Dask
       - local: datasets-usage
@@ -239,6 +278,7 @@
         title: Image Dataset
       - local: datasets-video
         title: Video Dataset
+
 - local: spaces
   title: Spaces
   isExpanded: true
@@ -303,6 +343,8 @@
         title: marimo on Spaces
       - local: spaces-sdks-docker-langfuse
         title: Langfuse on Spaces
+      - local: spaces-sdks-docker-dash
+        title: Plotly Dash on Spaces
   - local: spaces-embed
     title: Embed your Space
   - local: spaces-run-with-docker
@@ -332,6 +374,7 @@
       title: Cookie limitations in Spaces
     - local: spaces-handle-url-parameters
       title: Set URL query and hash
+
 - local: other
   title: Other
   isExpanded: true
@@ -345,35 +388,6 @@
       title: Organization Cards
     - local: organizations-security
       title: Access Control in Organizations
-  - local: enterprise-hub
-    title: Enterprise Hub
-    sections:
-    - local: enterprise-sso
-      title: Single Sign-On (SSO)
-    - local: enterprise-hub-advanced-sso
-      title: Advanced Single Sign-On (SSO)
-    - local: enterprise-hub-scim
-      title: User Provisioning (SCIM)
-    - local: audit-logs
-      title: Audit Logs
-    - local: storage-regions
-      title: Storage Regions
-    - local: enterprise-hub-datasets
-      title: Data Studio for Private datasets
-    - local: enterprise-hub-resource-groups
-      title: Resource Groups (Access Control)
-    - local: advanced-compute-options
-      title: Advanced Compute Options
-    - local: enterprise-hub-advanced-security
-      title: Advanced Security
-    - local: enterprise-hub-tokens-management
-      title: Tokens Management
-    - local: enterprise-hub-analytics
-      title: Analytics
-    - local: enterprise-hub-network-security
-      title: Network Security
-    - local: enterprise-hub-gating-group-collections
-      title: Gating Group Collections
   - local: billing
     title: Billing
   - local: security
@@ -406,7 +420,6 @@
         title: How to configure SAML with Google Workspace
       - local: security-sso-google-oidc
         title: How to configure OIDC with Google Workspace
-    
     - local: security-resource-groups
       title: Advanced Access Control (Resource Groups)
     - local: security-malware
@@ -425,6 +438,8 @@
     title: Moderation
   - local: paper-pages
     title: Paper Pages
+  - local: academia-hub
+    title: Academia Hub
   - local: search
     title: Search
   - local: doi

@@ -1,14 +1,14 @@
 # Storage limits
 
-At Hugging Face our intent is to provide the AI community with **free storage space for public repositories**. We do bill for storage space for **private repositories**, above a free tier (see table below).
+At Hugging Face our intent is to provide the AI community with as much **free storage space for public repositories** as we can. We do bill for storage space for **private repositories**, above a free tier (see table below).
 
 <Tip>
 Storage limits and policies apply to both model and dataset repositories on the Hub.
 </Tip>
 
-We [optimize our infrastructure](https://huggingface.co/blog/xethub-joins-hf) continuously to [scale our storage](https://x.com/julien_c/status/1821540661973160339) for the coming years of growth in Machine learning.
+We [optimize our infrastructure](https://huggingface.co/blog/xethub-joins-hf) continuously to [scale our storage](https://x.com/julien_c/status/1821540661973160339) for the coming years of growth in AI and Machine learning.
 
-We do have mitigations in place to prevent abuse of free public storage, and in general we ask users and organizations to make sure any uploaded large model or dataset is **as useful to the community as possible** (as represented by numbers of likes or downloads, for instance).
+We do have mitigations in place to prevent abuse of free public storage, and in general we ask users and organizations to make sure any uploaded large model or dataset is **as useful to the community as possible** (as represented by numbers of likes or downloads, for instance). Finally, upgrade to a paid Organization or User (PRO) account to unlock higher limits.
 
 ## Storage plans
 
@@ -20,7 +20,7 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 💡 [Team or Enterprise Organizations](https://huggingface.co/enterprise) include 1TB of private storage per seat in the subscription: for example, if your organization has 40 members, then you have 40TB of included private storage.
 
-\*We aim to continue providing the AI community with free storage space for public repositories. Please use this resource responsibly by uploading content that offers genuine value to other users - not dozens of TBs with limited community interest. If you need substantial storage space, you should upgrade to [PRO, Team or Enterprise](https://huggingface.co/pricing).
+\*We aim to continue providing the AI community with free storage space for public repositories. Beyond the first few gigabytes, please use this resource responsibly by uploading content that offers genuine value to other users. If you need substantial storage space, you will need to upgrade to [PRO, Team or Enterprise](https://huggingface.co/pricing).
 
 
 ### Pay-as-you-go price
@@ -121,7 +121,7 @@ If you need more model/ dataset storage than your allocated private storage for 
 
 ## How can I free up storage space in my account/organization?
 
-There are several ways to manage and free some storage space in your account or organization. First, if you need more storage space, consider upgrading to PRO or Enterprise Hub plans for increased storage limits.
+There are several ways to manage and free some storage space in your account or organization. First, if you need more storage space, upgrade to a PRO, Team or Enterprise plan for increased storage limits.
 
 ⚠️ **Important**: Deleting LFS files is a destructive operation that cannot be undone. Make sure to backup your files before proceeding.
 

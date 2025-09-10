@@ -1,10 +1,10 @@
-# Enterprise Hub
+# Team & Enterprise plans
 
 <Tip>
 <a href="https://huggingface.co/enterprise" target="_blank">Subscribe to a Team or Enterprise plan</a> to get access to advanced features for your organization.
 </Tip>
 
-Enterprise Hub adds advanced capabilities to organizations, enabling safe, compliant and managed collaboration for companies and teams on Hugging Face.
+Team & Enterprise organization plans add advanced capabilities to organizations, enabling safe, compliant and managed collaboration for companies and teams on Hugging Face.
 
 <a href="https://huggingface.co/enterprise" class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/enterprise-header.png" />
@@ -18,12 +18,12 @@ In this section we will document the following Enterprise Hub features:
 - [User Provisioning (SCIM)](./enterprise-hub-scim)
 - [Audit Logs](./audit-logs)
 - [Storage Regions](./storage-regions)
-- [Dataset viewer for Private datasets](./enterprise-hub-datasets)
+- [Data Studio for Private datasets](./enterprise-hub-datasets)
 - [Resource Groups](./security-resource-groups)
 - [Advanced Compute Options](./advanced-compute-options)
 - [Advanced Security](./enterprise-hub-advanced-security)
 - [Tokens Management](./enterprise-hub-tokens-management)
-- [Analytics](./enterprise-hub-analytics)
+- [Publisher Analytics](./enterprise-hub-analytics)
 - [Network Security](./enterprise-hub-network-security)
 - [Gating Group Collections](./enterprise-hub-gating-group-collections)
 

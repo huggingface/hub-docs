@@ -22,7 +22,7 @@ If a model repository includes a file called `notebook.ipynb`, we will use it fo
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/hf-google-colab/genstruct-notebook-dark.png)
 
-## Rendering Jupyter notebooks on the Hub
+## Rendering .ipynb Jupyter notebooks on the Hub
 
 Under the hood, Jupyter Notebook files (usually shared with a `.ipynb` extension) are JSON files. While viewing these files directly is possible, it's not a format intended to be read by humans. The Hub has rendering support for notebooks hosted on the Hub. This means that notebooks are displayed in a human-readable format.
 
@@ -30,6 +30,8 @@ Under the hood, Jupyter Notebook files (usually shared with a `.ipynb` extension
 
 Notebooks will be rendered when included in any type of repository on the Hub. This includes models, datasets, and Spaces.
 
-## Launch in Google Colab
+### Launch in Google Colab
 
-[Google Colab](https://colab.google/) is a free Jupyter Notebook environment that requires no setup and runs entirely in the cloud. It's a great way to run Jupyter Notebooks without having to install anything on your local machine. Notebooks hosted on the Hub are automatically given a "Open in Colab" button. This allows you to open the notebook in Colab with a single click.
+[Google Colab](https://colab.google/) is a free Jupyter Notebook environment that requires no setup and runs entirely in the cloud. It's a great way to run Jupyter Notebooks without having to install anything on your local machine. 
+
+All .ipynb files hosted on the Hub are automatically given a "Open in Colab" button. This allows you to open the notebook in Colab with a single click.

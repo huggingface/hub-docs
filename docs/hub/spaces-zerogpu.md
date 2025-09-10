@@ -33,9 +33,24 @@ ZeroGPU Spaces are designed to be compatible with most PyTorch-based GPU Spaces.
 
 ### Supported Versions
 
-- Gradio: 4+
-- PyTorch: 2.1.2, 2.2.2, 2.4.0, 2.5.1 (Note: 2.3.x is not supported due to a [PyTorch bug](https://github.com/pytorch/pytorch/issues/122085))
-- Python: 3.10.13
+- **Gradio**: 4+
+- **PyTorch**: Almost all versions from **2.1.0** to **latest** are supported  
+  <details>
+    <summary>See full list</summary>
+
+    - 2.1.0  
+    - 2.1.1  
+    - 2.1.2  
+    - 2.2.0  
+    - 2.2.2  
+    - 2.4.0  
+    - 2.5.1  
+    - 2.6.0  
+    - 2.7.1  
+    - 2.8.0  
+
+  </details>
+- **Python**: 3.10.13
 
 ## Getting started with ZeroGPU
 
@@ -81,12 +96,41 @@ def generate(prompt):
 
 This sets the maximum function runtime to 120 seconds. Specifying shorter durations for quicker functions will improve queue priority for Space visitors.
 
+### Dynamic duration
+
+`@spaces.GPU` also supports dynamic durations.
+
+Instead of directly passing a duration, simply pass a callable that takes the same inputs as your decorated function and returns a duration value:
+
+```python
+def get_duration(prompt, steps):
+    step_duration = 3.75
+    return steps * step_duration
+
+@spaces.GPU(duration=get_duration)
+def generate(prompt, steps):
+   return pipe(prompt, num_inference_steps=steps).images
+```
+
+
+## Compilation
+
+ZeroGPU does not support `torch.compile`, but you can use PyTorch **ahead-of-time** compilation (requires torch `2.8+`)
+
+Check out this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a complete guide on ahead-of-time compilation on ZeroGPU.
+
 ## Hosting Limitations
 
 - **Personal accounts ([PRO subscribers](https://huggingface.co/subscribe/pro))**: Maximum of 10 ZeroGPU Spaces.
 - **Organization accounts ([Enterprise Hub](https://huggingface.co/enterprise))**: Maximum of 50 ZeroGPU Spaces.
 
 By leveraging ZeroGPU, developers can create more efficient and scalable Spaces, maximizing GPU utilization while minimizing costs.
+
+## Recommendations
+
+If your demo uses a large model, we recommend using optimizations like ahead-of-time compilation and flash-attention 3. You can learn how to leverage these with
+ZeroGPU in [this post](https://huggingface.co/blog/zerogpu-aoti). These optimizations will help you to maximize the advantages of ZeroGPU hours and provide
+a better user experience.
 
 ## Feedback
 

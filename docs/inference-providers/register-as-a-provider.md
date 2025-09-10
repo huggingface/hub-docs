@@ -2,9 +2,15 @@
 
 <Tip>
 
--Want to be listed as an Inference Provider on the Hugging Face Hub? Let's get in touch!
+Want to be listed as an Inference Provider on the Hugging Face Hub? Let's get in touch!
 
 Please reach out to us on social networks or [here on the Hub](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49).
+
+</Tip>
+
+<Tip warning={true}>
+
+Note that Step 3 will require your organization to upgrade their Hub account to a [Team or Enterprise plan](https://huggingface.co/pricing).
 
 </Tip>
 
@@ -131,7 +137,7 @@ First step is to use the Model Mapping API to register which HF models are suppo
 
 <Tip>
 
-To proceed with this step, we have to enable your account server-side. Make sure you have an organization on the Hub for your company, and upgrade it to a Team or Enterprise plan.
+To proceed with this step, we have to enable your account server-side. Make sure you have an organization on the Hub for your company, and upgrade it to a [Team or Enterprise plan](https://huggingface.co/pricing).
 
 </Tip>
 

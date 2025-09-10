@@ -4,6 +4,21 @@ The Hugging Face Hub is a platform with over 1.7M models, 400k datasets, and 600
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-10">
 
+<div class="group flex flex-col space-y-2 rounded-xl border border-purple-100 bg-linear-to-br from-purple-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-purple-700">
+<div class="flex items-center py-0.5 text-lg font-semibold text-purple-600 dark:text-gray-400 mb-1">
+<svg class="shrink-0 mr-1.5 text-purple-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M11.61 29.92a1 1 0 0 1-.6-1.07L12.83 17H8a1 1 0 0 1-1-1.23l3-13A1 1 0 0 1 11 2h10a1 1 0 0 1 .78.37a1 1 0 0 1 .2.85L20.25 11H25a1 1 0 0 1 .9.56a1 1 0 0 1-.11 1l-13 17A1 1 0 0 1 12 30a1.1 1.1 0 0 1-.39-.08M17.75 13l2-9H11.8L9.26 15h5.91l-1.59 10.28L23 13Z"/></svg> Subscriptions &  Plans</div>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./pro">PRO subscription</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub">Team & Enterprise Plans</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-sso">Single Sign-On (SSO)</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./audit-logs">Audit Logs</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-regions">Storage Regions</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-datasets">Data Studio for Private datasets</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./security-resource-groups">Resource Groups</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-advanced-security">Advanced Security</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-tokens-management">Tokens Management</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-network-security">Network Security</a>
+</div>
+
 <div class="group flex flex-col space-y-2 rounded-xl border border-orange-100 bg-linear-to-br from-orange-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-orange-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-orange-600 dark:text-gray-400 mb-1">
  <svg class="shrink-0 mr-1.5 text-orange-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2a2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82Z"></path></svg>Repositories</div>
@@ -70,7 +85,6 @@ The Hugging Face Hub is a platform with over 1.7M models, 400k datasets, and 600
 <div class="flex items-center py-0.5 text-lg font-semibold text-green-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-green-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" stroke="currentColor" d="M8.892 21.854a6.25 6.25 0 0 1-4.42-10.67l7.955-7.955a4.5 4.5 0 0 1 6.364 6.364l-6.895 6.894a2.816 2.816 0 0 1-3.89 0a2.75 2.75 0 0 1 .002-3.888l5.126-5.127a1 1 0 1 1 1.414 1.414l-5.126 5.127a.75.75 0 0 0 0 1.06a.768.768 0 0 0 1.06 0l6.895-6.894a2.503 2.503 0 0 0 0-3.535a2.56 2.56 0 0 0-3.536 0l-7.955 7.955a4.25 4.25 0 1 0 6.01 6.01l6.188-6.187a1 1 0 1 1 1.414 1.414l-6.187 6.186a6.206 6.206 0 0 1-4.42 1.832z"></path></svg> Other</div>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./organizations">Organizations</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub">Enterprise Hub</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./billing">Billing</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./security">Security</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./moderation">Moderation</a>
@@ -115,7 +129,7 @@ To upload models to the Hub, or download models and integrate them into your wor
 
 ## Datasets
 
-The Hub is home to over 200k datasets in more than 8k languages that can be used for a broad range of tasks across NLP, Computer Vision, and Audio. The Hub makes it simple to find, download, and upload datasets. Datasets are accompanied by extensive documentation in the form of [**Dataset Cards**](./datasets-cards) and [**Dataset Viewer**](./datasets-viewer) to let you explore the data directly in your browser. While many datasets are public, [**organizations**](./organizations) and individuals can create private datasets to comply with licensing or privacy issues. You can learn more about [**Datasets here on Hugging Face Hub documentation**](./datasets-overview).
+The Hub is home to over 400k datasets in more than 8k languages that can be used for a broad range of tasks across NLP, Computer Vision, and Audio. The Hub makes it simple to find, download, and upload datasets. Datasets are accompanied by extensive documentation in the form of [**Dataset Cards**](./datasets-cards) and [**Dataset Viewer**](./datasets-viewer) to let you explore the data directly in your browser. While many datasets are public, [**organizations**](./organizations) and individuals can create private datasets to comply with licensing or privacy issues. You can learn more about [**Datasets here on Hugging Face Hub documentation**](./datasets-overview).
 
 The [🤗 `datasets`](https://huggingface.co/docs/datasets/index) library allows you to programmatically interact with the datasets, so you can easily use datasets from the Hub in your projects. With a single line of code, you can access the datasets; even if they are so large they don't fit in your computer, you can use streaming to efficiently access the data.
 
@@ -123,7 +137,7 @@ The [🤗 `datasets`](https://huggingface.co/docs/datasets/index) library allows
 
 [Spaces](https://huggingface.co/spaces) is a simple way to host ML demo apps on the Hub. They allow you to build your ML portfolio, showcase your projects at conferences or to stakeholders, and work collaboratively with other people in the ML ecosystem.
 
-We currently support two awesome Python SDKs (**[Gradio](https://gradio.app/)** and **[Streamlit](https://streamlit.io/)**) that let you build cool apps in a matter of minutes. Users can also create static Spaces which are simple HTML/CSS/JavaScript page within a Space.
+We currently support two awesome Python SDKs (**[Gradio](https://gradio.app/)** and **[Streamlit](https://streamlit.io/)**) that let you build cool apps in a matter of minutes. Users can also create static Spaces, which are simple HTML/CSS/JavaScript pages, or deploy any Docker-based application.
 
 After you've explored a few Spaces (take a look at our [Space of the Week!](https://huggingface.co/spaces)), dive into the [**Spaces documentation**](./spaces-overview) to learn all about how you can create your own Space. You'll also be able to upgrade your Space to run on a GPU or other accelerated hardware. ⚡️
 

@@ -67,7 +67,7 @@ The rich features set in the `huggingface_hub` library allows you to manage repo
 
 ## Using other libraries
 
-Some libraries like [🤗 Datasets](/docs/datasets/index), [Pandas](https://pandas.pydata.org/), [Polars](https://pola.rs), [Dask](https://www.dask.org/) or [DuckDB](https://duckdb.org/) can upload files to the Hub.
+Some libraries like [🤗 Datasets](/docs/datasets/index), [Pandas](https://pandas.pydata.org/), [Polars](https://pola.rs), [Dask](https://www.dask.org/), [DuckDB](https://duckdb.org/), or [Daft](https://daft.ai/) can upload files to the Hub.
 See the list of [Libraries supported by the Datasets Hub](./datasets-libraries) for more information.
 
 ## Using Git
@@ -102,7 +102,7 @@ For most types of datasets, **Parquet** is the recommended format due to its eff
 ### Data Studio
 
 The [Data Studio](./datasets-viewer) is useful to know how the data actually looks like before you download it.
-It is enabled by default for all public datasets. It is also available for private datasets owned by a [PRO user](https://huggingface.co/pricing) or an [Enterprise Hub organization](https://huggingface.co/enterprise).
+It is enabled by default for all public datasets. It is also available for private datasets owned by a [PRO user](https://huggingface.co/pricing) or a [Team or Enterprise organization](https://huggingface.co/enterprise).
 
 After uploading your dataset, make sure the Dataset Viewer correctly shows your data, or [Configure the Dataset Viewer](./datasets-viewer-configure).
 

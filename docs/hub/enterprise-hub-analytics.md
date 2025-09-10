@@ -4,9 +4,9 @@
 This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 </Tip>
 
-## Analytics Dashboard
+## Publisher Analytics Dashboard
 
-Track all your repository activity with a detailed downloads overview that shows total downloads for all your Models and Datasets. Toggle between "All Time" and "Last Month" views to gain insights into your repository's downloads over different periods.
+Track all your repository activity with a detailed downloads overview that shows total downloads for all the Models and Datasets published by your organization. Toggle between "All Time" and "Last Month" views to gain insights across your repositories over different periods.
 
 <div class="flex justify-center" style="max-width: 550px">
 <img class="block dark:hidden m-0!" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise-analytics.png" alt="screenshot of the Dataset Viewer on a private dataset owned by an Enterprise Hub organization."/>
@@ -17,7 +17,7 @@ Track all your repository activity with a detailed downloads overview that shows
 
 Explore the metrics of individual repositories with the per-repository drill-down table. Utilize the built-in search feature to quickly locate specific repositories. Each row also features a time-series graph that illustrates the trend of downloads over time.
 
-## Export Analytics as CSV
+## Export Publisher Analytics as CSV
 
 Download a comprehensive CSV file containing analytics for all your repositories, including model and dataset download activity.
 
