@@ -3,6 +3,7 @@
 
 - local: enterprise-hub
   title: Team & Enterprise Plans
+  isExpanded: true
   sections:
   - local: enterprise-sso
     title: Single Sign-On (SSO)
