@@ -2,9 +2,7 @@
 
 ![Demo](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/demo.gif)
 
-<!-- Place demo.gif at docs/inference-providers/guides/assets/demo.gif -->
-
-Bring SoTA open‑source LLMs to VS Code Copilot Chat with [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers/index), built on the [Language Model Chat Provider API](https://code.visualstudio.com/api/extension-guides/ai/language-model-chat-provider).
+You can now use SoTA open‑source LLMs in VS Code via Copilot Chat with [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers/index) 🔥
 
 ## ⚡ Quick start
 1. Install the HF Copilot Chat extension [here](#todo).
