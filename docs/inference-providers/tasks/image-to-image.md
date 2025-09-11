@@ -39,7 +39,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"thedeoxen/FLUX.1-Kontext-dev-reference-depth-fusion-LORA","providerModelId":"fal-ai/flux-kontext-lora"},"replicate":{"modelId":"black-forest-labs/FLUX.1-Kontext-dev","providerModelId":"black-forest-labs/flux-kontext-dev"}} }
+    providersMapping={ {"fal-ai":{"modelId":"thedeoxen/FLUX.1-Kontext-dev-reference-depth-fusion-LORA","providerModelId":"fal-ai/flux-kontext-lora"},"replicate":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"qwen/qwen-image-edit"}} }
 />
 
 
