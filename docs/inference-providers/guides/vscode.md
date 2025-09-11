@@ -1,4 +1,4 @@
-# 🤗 Hugging Face Inference Providers for VS Code Copilot
+# 🤗 Use Hugging Face Inference Providers with GitHub Copilot Chat in VS Code
 
 ![Demo](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/demo_vscode.gif)
 
