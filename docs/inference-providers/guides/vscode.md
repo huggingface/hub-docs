@@ -20,9 +20,8 @@ Use frontier open LLMs like Kimi K2, DeepSeek V3.1, GLM 4.5 and more in VS Code 
 - Built for high availability (across providers) and low latency.
 - Transparent pricing: what the provider charges is what you pay.
 
-💡 The free Hugging Face user tier gives you a small amount of monthly inference credits to experiment. Upgrade to [Hugging Face PRO](https://huggingface.co/pro) or [Enterprise](https://huggingface.co/enterprise) for $2 in monthly credits plus pay‑as‑you‑go access across all providers!
+💡 The free Hugging Face user tier gives you a small amount of monthly inference credits to experiment. Upgrade to [Hugging Face PRO](https://huggingface.co/pro) or [Team or Enterprise](https://huggingface.co/enterprise) for $2 in monthly credits plus pay‑as‑you‑go access across all providers!
 
 Check out the whole workflow in action in the video below:
 
-
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rqawpJhPhvM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
