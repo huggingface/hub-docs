@@ -23,8 +23,8 @@
     title: How to use OpenAI gpt-oss
   - local: guides/image-editor
     title: Build an Image Editor
-  - local: guides/vscode-copilot
-    title: VS Code Copilot
+  - local: guides/vscode
+    title: VS Code with GitHub Copilot
 
 - local: tasks/index
   title: Inference Tasks
