@@ -6,18 +6,18 @@ You can now use SoTA open‑source LLMs like Kimi K2, DeepSeek V3.1, GLM 4.5 and
 
 ## ⚡ Quick start
 
-1. Install the HF Copilot Chat extension [here](https://marketplace.visualstudio.com/items?itemName=HuggingFace.huggingface-vscode-chat ).
+1. Install the HF Copilot Chat extension [here](https://marketplace.visualstudio.com/items?itemName=HuggingFace.huggingface-vscode-chat).
 2. Open VS Code's chat interface.
 3. Click the model picker and click "Manage Models...".
 4. Select "Hugging Face" provider.
-5. Provide your Hugging Face Token, you can get one in your [settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained).
+5. Enter your Hugging Face Token. You can get one from your [settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained).
 6. Choose the models you want to add to the model picker. 🥳
 
 ## ✨ Why use the Hugging Face provider in Copilot
 
-- Access [SoTA frontier open‑source LLMs](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=cerebras,together,fireworks-ai,nebius,novita,sambanova,groq,hyperbolic,nscale,fal-ai,cohere,replicate,scaleway,black-forest-labs,ovhcloud&sort=trending) with tool calling capabilities.
+- Access [SoTA open‑source LLMs](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=cerebras,together,fireworks-ai,nebius,novita,sambanova,groq,hyperbolic,nscale,fal-ai,cohere,replicate,scaleway,black-forest-labs,ovhcloud&sort=trending) with tool calling capabilities.
 - Single API to thousands of open‑source LLMs via providers like Groq, Cerebras, Together AI, SambaNova, and more.
 - Built for high availability (across providers) and low latency through world‑class providers.
 - Transparent pricing: what the provider charges is what you pay.
 
-💡 The free tier gives you a small amount of monthly inference credits to experiment. Upgrade to [Hugging Face PRO](https://huggingface.co/pro) or [Enterprise](https://huggingface/enterprise) for $2 in monthly credits plus pay‑as‑you‑go access across all providers!
+💡 The free Hugging Face user tier gives you a small amount of monthly inference credits to experiment. Upgrade to [Hugging Face PRO](https://huggingface.co/pro) or [Enterprise](https://huggingface.co/enterprise) for $2 in monthly credits plus pay‑as‑you‑go access across all providers!
