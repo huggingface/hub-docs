@@ -16,7 +16,7 @@ You can now use SoTA open‑source LLMs like Kimi K2, DeepSeek V3.1, GLM 4.5 and
 ## ✨ Why use the Hugging Face provider in Copilot
 
 - Access [SoTA open‑source LLMs](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=cerebras,together,fireworks-ai,nebius,novita,sambanova,groq,hyperbolic,nscale,fal-ai,cohere,replicate,scaleway,black-forest-labs,ovhcloud&sort=trending) with tool calling capabilities.
-- Single API to thousands of open‑source LLMs via providers like Groq, Cerebras, Together AI, SambaNova, and more.
+- Single API to multiple providers like Groq, Cerebras, Together AI, SambaNova, and more.
 - Built for high availability (across providers) and low latency through world‑class providers.
 - Transparent pricing: what the provider charges is what you pay.
 
