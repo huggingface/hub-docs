@@ -97,6 +97,8 @@
     title: Novita
   - local: providers/nscale
     title: Nscale
+  - local: providers/publicai
+    title: Public AI
   - local: providers/replicate
     title: Replicate
   - local: providers/sambanova
