@@ -60,7 +60,7 @@ Find out more about Image To Image [here](../tasks/image_to_image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"thedeoxen/FLUX.1-Kontext-dev-reference-depth-fusion-LORA","providerModelId":"fal-ai/flux-kontext-lora"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"fal-ai/qwen-image-edit"} } }
 />
 
 
@@ -70,7 +70,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image","providerModelId":"fal-ai/qwen-image"} } }
+    providersMapping={ {"fal-ai":{"modelId":"tencent/HunyuanImage-2.1","providerModelId":"fal-ai/hunyuan-image/v2.1/text-to-image"} } }
 />
 
 
