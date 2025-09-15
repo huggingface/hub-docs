@@ -4,7 +4,7 @@
 
 It comes with a variety of examples:
 
-- [Generate text with MLX-LM](https://github.com/ml-explore/mlx-examples/tree/main/llms/mlx_lm) and [generating text with MLX-LM for models in GGUF format](https://github.com/ml-explore/mlx-examples/tree/main/llms/gguf_llm).
+- [Generate text with MLX-LM](https://github.com/ml-explore/mlx-lm/tree/main) and [generating text with MLX-LM for models in GGUF format](https://github.com/ml-explore/mlx-examples/tree/main/llms/gguf_llm).
 - Large-scale text generation with [LLaMA](https://github.com/ml-explore/mlx-examples/tree/main/llms/llama).
 - Fine-tuning with [LoRA](https://github.com/ml-explore/mlx-examples/tree/main/lora).
 - Generating images with [Stable Diffusion](https://github.com/ml-explore/mlx-examples/tree/main/stable_diffusion).
@@ -27,7 +27,7 @@ To install MLX-LM, you can use the following one-line install through `pip`:
 pip install mlx-lm
 ```
 
-You can get more information about it [here](https://github.com/ml-explore/mlx-examples/blob/main/llms/README.md#generate-text-with-llms-and-mlx). 
+You can get more information about it [here](https://github.com/ml-explore/mlx-lm/tree/main).
 
 If you install `mlx-lm`, you don't need to install `mlx`. If you don't want to use `mlx-lm` but only MLX, you can install MLX itself as follows.
 
@@ -97,6 +97,6 @@ python -m mlx_lm.convert \
 
 * [MLX Repository](https://github.com/ml-explore/mlx)
 * [MLX Docs](https://ml-explore.github.io/mlx/)
+* [MLX-LM](https://github.com/ml-explore/mlx-lm/tree/main)
 * [MLX Examples](https://github.com/ml-explore/mlx-examples/tree/main)
-* [MLX-LM](https://github.com/ml-explore/mlx-lm/tree/main/mlx_lm/examples)
-* [All MLX models on Hub](https://huggingface.co/models?library=mlx&sort=trending)
+* [All MLX models on the Hub](https://huggingface.co/models?library=mlx&sort=trending)
