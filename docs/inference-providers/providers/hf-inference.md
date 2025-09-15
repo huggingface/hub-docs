@@ -83,7 +83,7 @@ Find out more about Fill Mask [here](../tasks/fill_mask).
 
 <InferenceSnippet
     pipeline=fill-mask
-    providersMapping={ {"hf-inference":{"modelId":"jhu-clsp/mmBERT-base","providerModelId":"jhu-clsp/mmBERT-base"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-uncased","providerModelId":"google-bert/bert-base-uncased"} } }
 />
 
 
@@ -173,7 +173,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"hf-inference":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"} } }
+    providersMapping={ {"hf-inference":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"} } }
 />
 
 
@@ -183,7 +183,7 @@ Find out more about Token Classification [here](../tasks/token_classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
+    providersMapping={ {"hf-inference":{"modelId":"iiiorg/piiranha-v1-detect-personal-information","providerModelId":"iiiorg/piiranha-v1-detect-personal-information"} } }
 />
 
 
