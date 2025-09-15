@@ -545,6 +545,9 @@ async function fetchWarmModels(
         const providerData = providerMapping.filter(
           (mapping) => mapping.provider === provider,
         )[0];
+        if (!providerData) {
+          return;
+        }
         return {
           modelId: topModelData.id,
           provider: provider,
