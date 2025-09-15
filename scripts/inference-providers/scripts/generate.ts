@@ -46,6 +46,7 @@ const PROVIDERS_HUB_ORGS: Record<string, string> = {
   nscale: "nscale",
   replicate: "replicate",
   sambanova: "sambanovasystems",
+  scaleway: "scaleway",
   together: "togethercomputer",
 };
 
@@ -63,6 +64,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   nscale: "https://www.nscale.com/",
   replicate: "https://replicate.com/",
   sambanova: "https://sambanova.ai/",
+  scaleway: "https://www.scaleway.com",
   together: "https://together.xyz/",
 };
 const INFERENCE_PROVIDERS = Object.keys(PROVIDERS_HUB_ORGS);
@@ -543,6 +545,9 @@ async function fetchWarmModels(
         const providerData = providerMapping.filter(
           (mapping) => mapping.provider === provider,
         )[0];
+        if (!providerData) {
+          return;
+        }
         return {
           modelId: topModelData.id,
           provider: provider,

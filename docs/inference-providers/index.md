@@ -26,6 +26,7 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |      ✅       |               |                |
 | [Replicate](./providers/replicate)           |                       |                       |                    |      ✅       |      ✅       |       ✅       |
 | [SambaNova](./providers/sambanova)           |          ✅           |                       |         ✅         |               |               |                |
+| [Scaleway](./providers/scaleway)           |          ✅           |                       |         ✅         |               |               |                |
 | [Together](./providers/together)             |          ✅           |          ✅           |                    |      ✅       |               |                |
 
 ## Why Choose Inference Providers?

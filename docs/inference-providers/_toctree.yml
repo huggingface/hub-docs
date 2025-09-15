@@ -101,6 +101,8 @@
     title: Replicate
   - local: providers/sambanova
     title: SambaNova
+  - local: providers/scaleway
+    title: Scaleway
   - local: providers/together
     title: Together
 
