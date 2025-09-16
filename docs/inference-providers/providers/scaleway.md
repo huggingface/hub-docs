@@ -50,6 +50,26 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"scaleway":{"modelId":"Qwen/Qwen3-235B-A22B-Instruct-2507","providerModelId":"qwen3-235b-a22b-instruct-2507"} } }
+    providersMapping={ {"scaleway":{"modelId":"openai/gpt-oss-120b","providerModelId":"gpt-oss-120b"} } }
 conversational />
+
+
+### Chat Completion (VLM)
+
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=image-text-to-text
+    providersMapping={ {"scaleway":{"modelId":"google/gemma-3-27b-it","providerModelId":"gemma-3-27b-it"} } }
+conversational />
+
+
+### Feature Extraction
+
+Find out more about Feature Extraction [here](../tasks/feature_extraction).
+
+<InferenceSnippet
+    pipeline=feature-extraction
+    providersMapping={ {"scaleway":{"modelId":"BAAI/bge-multilingual-gemma2","providerModelId":"bge-multilingual-gemma2"} } }
+/>
 
