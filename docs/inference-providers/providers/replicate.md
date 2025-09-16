@@ -44,6 +44,16 @@ Replicate is building tools so all software engineers can use AI as if it were n
 ## Supported tasks
 
 
+### Automatic Speech Recognition
+
+Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
+
+<InferenceSnippet
+    pipeline=automatic-speech-recognition
+    providersMapping={ {"replicate":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper:8099696689d249cf8b122d833c36ac3f75505c666a395ca40ef26f68e7d3d16e"} } }
+/>
+
+
 ### Image To Image
 
 Find out more about Image To Image [here](../tasks/image_to_image).
@@ -60,7 +70,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"replicate":{"modelId":"Qwen/Qwen-Image","providerModelId":"qwen/qwen-image"} } }
+    providersMapping={ {"replicate":{"modelId":"tencent/HunyuanImage-2.1","providerModelId":"tencent/hunyuan-image-2.1"} } }
 />
 
 

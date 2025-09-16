@@ -38,7 +38,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"BAAI/bge-large-en-v1.5","providerModelId":"BAAI/bge-large-en-v1.5"},"nebius":{"modelId":"Qwen/Qwen3-Embedding-8B","providerModelId":"Qwen/Qwen3-Embedding-8B"},"sambanova":{"modelId":"intfloat/e5-mistral-7b-instruct","providerModelId":"E5-Mistral-7B-Instruct"}} }
+    providersMapping={ {"hf-inference":{"modelId":"BAAI/bge-large-en-v1.5","providerModelId":"BAAI/bge-large-en-v1.5"},"nebius":{"modelId":"Qwen/Qwen3-Embedding-8B","providerModelId":"Qwen/Qwen3-Embedding-8B"},"sambanova":{"modelId":"intfloat/e5-mistral-7b-instruct","providerModelId":"E5-Mistral-7B-Instruct"},"scaleway":{"modelId":"BAAI/bge-multilingual-gemma2","providerModelId":"bge-multilingual-gemma2"}} }
 />
 
 
