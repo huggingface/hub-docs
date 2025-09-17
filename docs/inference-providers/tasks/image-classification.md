@@ -34,7 +34,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"}} }
+    providersMapping={ {"hf-inference":{"modelId":"Freepik/nsfw_image_detector","providerModelId":"Freepik/nsfw_image_detector"}} }
 />
 
 

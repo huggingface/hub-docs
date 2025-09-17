@@ -73,7 +73,7 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"BAAI/bge-large-en-v1.5","providerModelId":"BAAI/bge-large-en-v1.5"} } }
+    providersMapping={ {"hf-inference":{"modelId":"intfloat/multilingual-e5-large","providerModelId":"intfloat/multilingual-e5-large"} } }
 />
 
 
@@ -93,7 +93,7 @@ Find out more about Image Classification [here](../tasks/image_classification).
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Freepik/nsfw_image_detector","providerModelId":"Freepik/nsfw_image_detector"} } }
 />
 
 
