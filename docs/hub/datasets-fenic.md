@@ -64,9 +64,8 @@ df = session.read.parquet("hf://datasets/username/dataset_name/*.parquet", merge
 
 To read private datasets, you need to set your Hugging Face token as an environment variable:
 
-```python
-import os
-os.environ["HF_TOKEN"] = "your_hugging_face_token_here"
+```shell
+export HF_TOKEN="your_hugging_face_token_here"
 ```
 
 ### Path Format
@@ -113,16 +112,19 @@ Once loaded from Hugging Face, you can use fenic's full DataFrame API:
 ```python
 import fenic as fc
 
-# Load IMDB dataset from Hugging Face
-df = session.read.parquet("hf://datasets/imdb/plain_text/train-*.parquet")
+  # Create session
+  session = fc.Session.get_or_create()
 
-# Filter and select
-positive_reviews = df.filter(fc.api.functions.col("label") == 1).select("text", "label")
+  # Load IMDB dataset from Hugging Face
+  df = session.read.parquet("hf://datasets/imdb/plain_text/train-*.parquet")
 
-# Group by and aggregate  
-label_counts = df.group_by("label").agg(
-    fc.api.functions.count().alias("count")
-)
+  # Filter and select
+  positive_reviews = df.filter(fc.col("label") == 1).select("text", "label")
+
+  # Group by and aggregate
+  label_counts = df.group_by("label").agg(
+      fc.count("*").alias("count")
+  )
 ```
 
 ### AI-Powered Operations
@@ -132,54 +134,59 @@ To use semantic and embedding operations, configure language and embedding model
 ```python
 import fenic as fc
 
-# Load a text dataset from Hugging Face
-df = session.read.parquet("hf://datasets/imdb/plain_text/train-00000-of-00001.parquet")
+  # Create session
+  session = fc.Session.get_or_create()
 
-# Add embeddings to text columns
-df_with_embeddings = df.with_column(
-    "embedding", 
-    fc.api.functions.embedding("text")
-)
+  # Load a text dataset from Hugging Face
+  df = session.read.parquet("hf://datasets/imdb/plain_text/train-00000-of-00001.parquet")
 
-# Apply semantic functions for sentiment analysis
-df_analyzed = df.with_column(
-    "sentiment_score",
-    fc.api.functions.semantic("Rate the sentiment from 1-10: {text}")
-)
+  # Add embeddings to text columns
+  df_with_embeddings = df.select(
+      "*",
+      fc.semantic.embed(fc.col("text")).alias("embedding")
+  )
+
+  # Apply semantic functions for sentiment analysis
+  df_analyzed = df_with_embeddings.select(
+      "*",
+      fc.semantic.analyze_sentiment(
+          fc.col("text"),
+          model_alias="gpt-4o-mini"  # Optional: specify model
+      ).alias("sentiment")
+  )
 ```
 
 ## Example: Analyzing MMLU Dataset
 
 ```python
-import fenic as fc
-import os
+  import fenic as fc
 
-# Set HF token if accessing private datasets
-os.environ["HF_TOKEN"] = "your_token_here"
+  # Create session
+  session = fc.Session.get_or_create()
 
-# Load MMLU astronomy subset from Hugging Face
-df = session.read.parquet("hf://datasets/cais/mmlu/astronomy/*.parquet")
+  # Load MMLU astronomy subset from Hugging Face
+  df = session.read.parquet("hf://datasets/cais/mmlu/astronomy/*.parquet")
 
-# Process the data
-processed_df = (df
-    # Filter for specific criteria
-    .filter(fc.api.functions.col("subject") == "astronomy")
-    # Select relevant columns
-    .select("question", "choices", "answer")
-    # Add difficulty analysis (requires semantic configuration)
-    .with_column("difficulty",
-                 fc.api.functions.semantic("Rate difficulty 1-5: {question}"))
-)
+  # Process the data
+  processed_df = (df
+      # Filter for specific criteria
+      .filter(fc.col("subject") == "astronomy")
+      # Select relevant columns
+      .select("question", "choices", "answer")
+      # Add difficulty analysis using semantic.map
+      .select(
+          "*",
+          fc.semantic.map(
+              "Rate the difficulty of this question from 1-5: {{question}}",
+              question=fc.col("question"),
+              model_alias="gpt-4o-mini"  # Optional: specify model
+          ).alias("difficulty")
+      )
+  )
 
-# Show results
-processed_df.show()
+  # Show results
+  processed_df.show()
 ```
-
-## Limitations
-
-- **Writing to Hugging Face Hub**: Currently not supported. fenic can only read from the Hub.
-- **Supported Read Formats**: Limited to CSV and Parquet formats when reading from the Hub.
-- **Semantic Operations**: Require configuring language/embedding models in SessionConfig.
 
 ## Resources
 
