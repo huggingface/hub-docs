@@ -93,7 +93,7 @@ Find out more about Image Classification [here](../tasks/image_classification).
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"Freepik/nsfw_image_detector","providerModelId":"Freepik/nsfw_image_detector"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
 />
 
 
@@ -133,7 +133,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 <InferenceSnippet
     pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"} } }
+    providersMapping={ {"hf-inference":{"modelId":"knkarthick/MEETING_SUMMARY","providerModelId":"knkarthick/MEETING_SUMMARY"} } }
 />
 
 
