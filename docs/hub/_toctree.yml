@@ -235,6 +235,8 @@
             title: Perform vector similarity search
       - local: datasets-embedding-atlas
         title: Embedding Atlas
+      - local: datasets-fenic
+        title: fenic
       - local: datasets-fiftyone
         title: FiftyOne
       - local: datasets-pandas
