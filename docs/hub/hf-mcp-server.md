@@ -20,6 +20,8 @@ The Hugging Face MCP (Model Context Protocol) Server connects your MCP‑compati
 The settings page generates the exact configuration your client expects. Use it rather than writing config by hand.
 </Tip>
 
+![MCP Settings Example](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hf-mcp-settings.png)
+
 ## Using the server
 
 After connecting, ask your assistant to use the Hugging Face tools. Example prompts:
@@ -31,9 +33,11 @@ After connecting, ask your assistant to use the Hugging Face tools. Example prom
 
 Your assistant will call MCP tools exposed by the HF MCP Server (including HF spaces) and return results (titles, owners, downloads, links, and so on). You can then open the resource on the Hub or continue iterating in the same chat.
 
-## Add community tools (Gradio MCP)
+![HF MCP with Spaces in VS Code](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hf-mcp-vscode.png)
 
-You can extend your setup with MCP‑compatible Gradio apps built by the community:
+## Add community tools (Spaces)
+
+You can extend your setup with MCP‑compatible Gradio spaces built by the community:
 
 - Explore Spaces with MCP support [here](https://huggingface.co/spaces?filter=mcp-server).
 - Add the relevant space in your MCP settings on Hugging Face [here](https://huggingface.co/settings/mcp).
@@ -50,5 +54,5 @@ Gradio MCP apps expose their functions as tools (with arguments and descriptions
 
 - Settings and client setup: https://huggingface.co/settings/mcp
 - Changelog announcement: https://huggingface.co/changelog/hf-mcp-server
-- Agents on the Hub overview: 
+- HF MCP Server: https://huggingface.co/mcp
 
