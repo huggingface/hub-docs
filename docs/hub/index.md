@@ -120,7 +120,10 @@ On it, you'll be able to upload and discover...
 - Datasets: _featuring a wide variety of data for different domains and modalities_
 - Spaces: _interactive apps for demonstrating ML models directly in your browser_
 
-The Hub offers **versioning, commit history, diffs, branches, and over a dozen library integrations**! You can learn more about the features that all repositories share in the [**Repositories documentation**](./repositories).
+The Hub offers **versioning, commit history, diffs, branches, and over a dozen library integrations**! 
+All repositories build on [Xet](https://huggingface.co/join/xet), a new technology to efficiently store Large Files inside Git, intelligently splitting files into unique chunks and accelerating uploads and downloads.
+
+You can learn more about the features that all repositories share in the [**Repositories documentation**](./repositories).
 
 ## Models
 
