@@ -57,4 +57,5 @@ Gradio MCP apps expose their functions as tools (with arguments and descriptions
 - Settings and client setup: https://huggingface.co/settings/mcp
 - Changelog announcement: https://huggingface.co/changelog/hf-mcp-server
 - HF MCP Server: https://huggingface.co/mcp
+- Build your own MCP Server with Gradio Spaces: https://www.gradio.app/guides/building-mcp-server-with-gradio
 
