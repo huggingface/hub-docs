@@ -9,7 +9,7 @@ Gating Group Collections allow organizations to grant (or reject) access to all 
 To enable Gating Group in a collection:
 
 - the collection owner must be an organization
-- the organization must be subscribed to the Enterprise Hub
+- the organization must be subscribed to a Team or Enterprise plan
 - all models and datasets in the collection must be owned by the same organization as the collection
 - each model or dataset in the collection may only belong to one Gating Group Collection (but they can still be included in non-gating i.e. _regular_ collections).
 

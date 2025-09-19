@@ -25,11 +25,12 @@ The Hugging Face Hub is a platform with over 1.7M models, 400k datasets, and 600
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories">Introduction</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-getting-started">Getting Started</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-settings">Repository Settings</a>
+<a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./storage-limits">Storage Limits</a>
+<a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./storage-backends">Storage Backends</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-pull-requests-discussions">Pull requests and Discussions</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./notifications">Notifications</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./collections">Collections</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./webhooks">Webhooks</a>
-<a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./storage-backends">Storage Backends</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-next-steps">Next Steps</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-licenses">Licenses</a>
 </div>
