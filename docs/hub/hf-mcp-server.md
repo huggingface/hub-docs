@@ -31,7 +31,7 @@ After connecting, ask your assistant to use the Hugging Face tools. Example prom
 - “Search Hugging Face models for Qwen 3 Quantizatizations.”
 - “Find a Space that can transcribe audio files.”
 - “Show datasets about weather time‑series.”
-- “Create a 1024 x 1024 image of a dof anime style.”
+- “Create a 1024 x 1024 image of a cat anime style.”
 
 Your assistant will call MCP tools exposed by the HF MCP Server (including HF spaces) and return results (titles, owners, downloads, links, and so on). You can then open the resource on the Hub or continue iterating in the same chat.
 
@@ -46,16 +46,10 @@ You can extend your setup with MCP‑compatible Gradio spaces built by the commu
 
 Gradio MCP apps expose their functions as tools (with arguments and descriptions) so your assistant can call them directly.
 
-## Security and permissions
-
-- Scoped access: the server uses your authenticated Hugging Face account to access Hub resources. You can review or revoke access anytime from your Hugging Face settings.
-- Least surprise: tools only perform actions you prompt them to do in your assistant; browsing and lookups are read‑only.
-- Privacy: results returned to your client are based on your account’s visibility and permissions (for example, private org content remains private).
-
 ## Learn more
 
 - Settings and client setup: https://huggingface.co/settings/mcp
 - Changelog announcement: https://huggingface.co/changelog/hf-mcp-server
-- HF MCP Server: https://huggingface.co/mcp
+- Hugging Face MCP Server: https://huggingface.co/mcp
 - Build your own MCP Server with Gradio Spaces: https://www.gradio.app/guides/building-mcp-server-with-gradio
 
