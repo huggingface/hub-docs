@@ -43,6 +43,10 @@
     title: Getting Started with Repositories
   - local: repositories-settings
     title: Repository Settings
+  - local: storage-limits
+    title: Storage Limits
+  - local: storage-backends
+    title: Storage Backends
   - local: repositories-pull-requests-discussions
     title: Pull Requests & Discussions
   - local: notifications
@@ -60,10 +64,6 @@
         title: "How-to: Create automatic metadata quality reports"
   - local: notebooks
     title: Notebooks
-  - local: storage-limits
-    title: Storage Limits
-  - local: storage-backends
-    title: Storage Backends
   - local: repositories-next-steps
     title: Next Steps
   - local: repositories-licenses
