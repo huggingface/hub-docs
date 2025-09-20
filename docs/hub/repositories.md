@@ -7,6 +7,7 @@ To achieve this, we built [Xet](./storage-backends), a modern custom storage sys
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/xet-speed.gif"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/xet-speed-dark.gif"/>
 </div>
 
 In these pages, you will go over the basics of getting started with Git and Xet and interacting with repositories on the Hub. Once you get the hang of it, you can explore the best practices and next steps that we've compiled for effective repository usage.
