@@ -26,9 +26,10 @@ Private repository storage above the [included storage](./storage-limits) will b
 The PRO subscription unlocks essential features for serious users, including:
 
 - Higher [storage capacity](./storage-limits) for public and private repositories
+- Higher bandwidth and API rate limits
+- Included credits for [Inference Providers](/docs/inference-providers/)
 - Higher tier for ZeroGPU Spaces usage
 - Ability to create ZeroGPU Spaces and use Dev Mode
-- Included credits for [Inference Providers](/docs/inference-providers/)
 - Ability to publish Social Posts and Community Blogs
 - Leverage the Data Studio on private datasets
 - Run and schedule serverless [CPU/ GPU Jobs](https://huggingface.co/docs/huggingface_hub/en/guides/jobs)
