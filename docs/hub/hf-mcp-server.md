@@ -31,7 +31,7 @@ After connecting, ask your assistant to use the Hugging Face tools. Example prom
 - “Search Hugging Face models for Qwen 3 Quantizatizations.”
 - “Find a Space that can transcribe audio files.”
 - “Show datasets about weather time‑series.”
-- “Create a 1024 x 1024 image of a cat anime style.”
+- “Create a 1024 x 1024 image of a cat ghibli style.”
 
 Your assistant will call MCP tools exposed by the Hugging Face MCP Server (including Spaces) and return results (titles, owners, downloads, links, and so on). You can then open the resource on the Hub or continue iterating in the same chat.
 
