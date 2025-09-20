@@ -35,7 +35,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"iiiorg/piiranha-v1-detect-personal-information","providerModelId":"iiiorg/piiranha-v1-detect-personal-information"}} }
+    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"}} }
 />
 
 
