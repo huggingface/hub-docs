@@ -1,12 +1,12 @@
 # Hugging Face MCP Server
 
-The Hugging Face MCP (Model Context Protocol) Server connects your MCP‑compatible AI assistant (for example Codex, Cursor, VS Code extensions, Zed, or Claude Desktop) directly to the Hugging Face Hub. Once connected, your assistant can search and explore Hub resources and use community tools, all from within your editor or chat.
+The Hugging Face MCP (Model Context Protocol) Server connects your MCP‑compatible AI assistant (for example Codex, Cursor, VS Code extensions, Zed, ChatGPT or Claude Desktop) directly to the Hugging Face Hub. Once connected, your assistant can search and explore Hub resources and use community tools, all from within your editor, chat or CLI.
 
 ## What you can do
 
-- Search and explore Hub resources: models, datasets, Spaces, and papers
-- Run community tools via MCP‑compatible Gradio apps hosted on [Spaces](https://hf.co/spaces)
-- Bring results back into your assistant with metadata, links, and context
+- Search and explore Hub resources: models, datasets, Spaces, and papers.
+- Run community tools via MCP‑compatible Gradio apps hosted on [Spaces](https://hf.co/spaces).
+- Bring results back into your assistant with metadata, links, and context.
 
 ## Get started
 
@@ -33,7 +33,7 @@ After connecting, ask your assistant to use the Hugging Face tools. Example prom
 - “Show datasets about weather time‑series.”
 - “Create a 1024 x 1024 image of a cat anime style.”
 
-Your assistant will call MCP tools exposed by the HF MCP Server (including HF spaces) and return results (titles, owners, downloads, links, and so on). You can then open the resource on the Hub or continue iterating in the same chat.
+Your assistant will call MCP tools exposed by the Hugging Face MCP Server (including Spaces) and return results (titles, owners, downloads, links, and so on). You can then open the resource on the Hub or continue iterating in the same chat.
 
 ![HF MCP with Spaces in VS Code](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hf-mcp-vscode.png)
 
@@ -44,7 +44,7 @@ You can extend your setup with MCP‑compatible Gradio spaces built by the commu
 - Explore Spaces with MCP support [here](https://huggingface.co/spaces?filter=mcp-server).
 - Add the relevant space in your MCP settings on Hugging Face [here](https://huggingface.co/settings/mcp).
 
-Gradio MCP apps expose their functions as tools (with arguments and descriptions) so your assistant can call them directly. Please, restart or refresh your client so it picks up new tools you select.
+Gradio MCP apps expose their functions as tools (with arguments and descriptions) so your assistant can call them directly. Please, restart or refresh your client so it picks up new tools you add.
 
 ## Learn more
 
