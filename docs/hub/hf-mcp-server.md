@@ -46,6 +46,10 @@ You can extend your setup with MCP‑compatible Gradio spaces built by the commu
 
 Gradio MCP apps expose their functions as tools (with arguments and descriptions) so your assistant can call them directly. Please, restart or refresh your client so it picks up new tools you add.
 
+![image/png](https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/ex9KRpvamn84ZaOlSp_Bj.png)
+
+Check out our dedicated guide for Spaces as MCP server [here](https://huggingface.co/docs/hub/spaces-mcp-servers#add-an-existing-space-to-your-mcp-tools).
+
 ## Learn more
 
 - Settings and client setup: https://huggingface.co/settings/mcp
