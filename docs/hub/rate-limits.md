@@ -52,15 +52,16 @@ Precisely, we implement the following headers:
 
 Here are the current rate limiting values (in September '25) based on your plan:
 
-| Plan                            | API      | Resolvers | Pages  |
-| ------------------------------- | -------- | --------- | ------ |
-| Anonymous user (per IP address) | 500 \*   | 3,000 \*  | 100 \* |
-| Free user                       | 1,000 \* | 5,000 \*  | 200 \* |
-| PRO user                        | 2,500    | 12,000    | 400    |
-| Team organization               | 3,000    | 15,000    | 400    |
-| Enterprise organization         | 6,000    | 30,000    | 600    |
-| Enterprise Plus organization    | 10,000   | 50,000    | 1,000  |
-| Academia Hub organization       | 2,500    | 12,000    | 400    |
+| Plan                                                                      | API      | Resolvers | Pages  |
+| ------------------------------------------------------------------------- | -------- | --------- | ------ |
+| Anonymous user (per IP address)                                           | 500 \*   | 3,000 \*  | 100 \* |
+| Free user                                                                 | 1,000 \* | 5,000 \*  | 200 \* |
+| PRO user                                                                  | 2,500    | 12,000    | 400    |
+| Team organization                                                         | 3,000    | 15,000    | 400    |
+| Enterprise organization                                                   | 6,000    | 30,000    | 600    |
+| Enterprise Plus organization                                              | 10,000   | 50,000    | 1,000  |
+| Enterprise Plus organization <br> When Organization IP Ranges are defined | 100,000  | 500,000   | 10,000 |
+| Academia Hub organization                                                 | 2,500    | 12,000    | 400    |
 
 \* Anonymous and Free users are subject to change over time depending on platform health 🤞
 
