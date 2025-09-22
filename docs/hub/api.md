@@ -17,6 +17,8 @@ You can also access the OpenAPI specification directly: [https://huggingface.co/
 </a>
 </div>
 
+All API calls are subject to the HF-wide [Rate limits](./rate-limits). Upgrade your account if you need elevated, large-scale access.
+
 ## Repo listing API
 
 The following endpoints help get information about models, datasets, and Spaces stored on the Hub.

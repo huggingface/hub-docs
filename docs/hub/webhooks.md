@@ -242,7 +242,7 @@ This can be helpful if accessing the HTTP headers of the request is complicated 
 
 Each Webhook is limited to 1,000 triggers per 24 hours. You can view your usage in the Webhook settings page in the "Activity" tab.
 
-If you need to increase the number of triggers for your Webhook, contact us at website@huggingface.co.
+If you need to increase the number of triggers for your Webhook, upgrade to PRO, Team or Enterprise and contact us at website@huggingface.co.
 
 ## Developing your Webhooks
 
