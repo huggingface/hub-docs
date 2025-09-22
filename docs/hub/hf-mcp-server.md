@@ -28,7 +28,7 @@ The settings page generates the exact configuration your client expects. Use it 
 
 After connecting, ask your assistant to use the Hugging Face tools. Example prompts:
 
-- “Search Hugging Face models for Qwen 3 Quantizatizations.”
+- “Search Hugging Face models for Qwen 3 Quantizations.”
 - “Find a Space that can transcribe audio files.”
 - “Show datasets about weather time‑series.”
 - “Create a 1024 x 1024 image of a cat ghibli style.”
