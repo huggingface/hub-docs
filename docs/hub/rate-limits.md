@@ -5,7 +5,7 @@ To protect our platform's integrity and ensure availability to as many AI commun
 We define different rate limits for distinct classes of requests. We distinguish three main buckets:
 
 - **Hub APIs**
-  - e.g. model or dataset search, repo creation, user management, etc. Note: all those endpoints are documented in [Hub API Endpoints](./api).
+  - e.g. model or dataset search, repo creation, user management, etc. All endpoints that belong to this bucket are documented in [Hub API Endpoints](./api).
 - **Resolvers**
   - They're all the URLs that contain a `/resolve/` segment in their path, which serve user-generated content from the Hub. Concretely, those are the URLs that are constructed by open source libraries (transformers, datasets, vLLM, llama.cpp, …) or AI applications (LM Studio, Jan, ollama, …) to download model/dataset files from HF.
   - Resolve requests are heavily used by the community, and since we optimize our infrastructure to serve them with maximum efficiency, the rate limits for Resolvers are the highest.
