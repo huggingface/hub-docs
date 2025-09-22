@@ -19,7 +19,7 @@ If you, your organization, or your application need higher rate limits, we encou
 
 ## Billing dashboard
 
-At any point in time, you can check your rate limit status on your (or your org)'s Billing page: https://huggingface.co/settings/billing
+At any point in time, you can check your rate limit status on your (or your org’s) Billing page: https://huggingface.co/settings/billing
 
 ![dashboard for rate limits](https://cdn-uploads.huggingface.co/production/uploads/5dd96eb166059660ed1ee413/0pzQQyuVG3c9tWjCqrX9Y.png)
 
@@ -27,48 +27,51 @@ On the right side, you will see three gauges, one for each bucket of Rate limiti
 
 Each bucket presents the number of current (last 5 minutes) requests, and the number of allowed requests based on your user account or organization plan.
 
+Whenever you are above the limit in the past 5 minutes (the view is updated in real-time), the bar will turn red.
+
 Note: You can use the context switcher to easily switch between your user account and your orgs.
 
 ## HTTP Headers
 
 Whenever you or your organization hits a rate limit, you will receive a **429** `Too Many Requests` HTTP error.
 
-We implement the mechanism described in the IETF draft titled “RateLimit HTTP header fields for HTTP” (also known as `draft-ietf-httpapi-ratelimit-headers`).
+We implement the mechanism described in the [IETF draft](https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers/) titled “RateLimit HTTP header fields for HTTP” (also known as `draft-ietf-httpapi-ratelimit-headers`).
 
 The goal is to define standardized HTTP headers that servers can use to advertise quota / rate-limit policies and communicate current usage / limits to clients so that they can avoid being throttled.
 
 Precisely, we implement the following headers:
 
-| Header                  | Purpose / Meaning                                                                                                                              |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **RateLimit-Policy**    | Carries the rate limit policy itself (e.g. “100 requests per 5 minutes”). It’s informative; shows what policy the client is subject to.        |
-| **RateLimit-Limit**     | The total allowed rate limit for the current window. “How many requests (of this type) you’re allowed.”                                        |
-| **RateLimit-Remaining** | How many requests of this type you have left in the current window.                                                                            |
-| **RateLimit-Reset**     | Number of seconds until the rate limit window resets (or until quota is refreshed). Uses a “delta-seconds” format to reduce clock sync issues. |
+| Header                    | Purpose / Meaning                                                                                                                              |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`RateLimit-Policy`**    | Carries the rate limit policy itself (e.g. “100 requests per 5 minutes”). It’s informative; shows what policy the client is subject to.        |
+| **`RateLimit-Limit`**     | The total allowed rate limit for the current window. “How many requests (of this type) you’re allowed.”                                        |
+| **`RateLimit-Remaining`** | How many requests of this type you have left in the current window.                                                                            |
+| **`RateLimit-Reset`**     | Number of seconds until the rate limit window resets (or until quota is refreshed). Uses a “delta-seconds” format to reduce clock sync issues. |
 
 ## Rate limit Tiers
 
 Here are the current rate limiting values (in September '25) based on your plan:
 
-| Plan                            | API    | Resolvers | Pages |
-| ------------------------------- | ------ | --------- | ----- |
-| Anonymous user (per IP address) | 500 \*   | 3,000 \*    | 100 \*  |
-| Free user                       | 1,000 \* | 5,000 \*    | 200 \*  |
-| PRO user                        | 2,500  | 12,000    | 400   |
-| Team organization               | 3,000  | 15,000    | 400   |
-| Enterprise organization         | 6,000  | 30,000    | 600   |
-| Enterprise Plus organization    | 10,000 | 50,000    | 1,000 |
-| Academia Hub organization       | 2,500  | 12,000    | 400   |
+| Plan                            | API      | Resolvers | Pages  |
+| ------------------------------- | -------- | --------- | ------ |
+| Anonymous user (per IP address) | 500 \*   | 3,000 \*  | 100 \* |
+| Free user                       | 1,000 \* | 5,000 \*  | 200 \* |
+| PRO user                        | 2,500    | 12,000    | 400    |
+| Team organization               | 3,000    | 15,000    | 400    |
+| Enterprise organization         | 6,000    | 30,000    | 600    |
+| Enterprise Plus organization    | 10,000   | 50,000    | 1,000  |
+| Academia Hub organization       | 2,500    | 12,000    | 400    |
 
-\* Subject to change over time depending on platform health 🤞
+\* Anonymous and Free users are subject to change over time depending on platform health 🤞
 
 ## What if I get rate-limited
 
-First, make sure you are always passing a `HF_TOKEN`, and it gets passed downstream to all libraries or applications you might be using that downloads _stuff_ from the Hub. 
+First, make sure you are always passing a `HF_TOKEN`, and it gets passed downstream to all libraries or applications you might be using that downloads _stuff_ from the Hub.
 
 This is the number one reason users get rate limited and is a very easy fix.
 
 If you're sure you're passing a `HF_TOKEN`, you can:
+
 - spread out your requests over longer periods of time
 - replace Hub API calls with Resolver calls, whenever possible (Resolver rate limits are much higher and much more optimized).
 - upgrade to PRO, Team, or Enterprise.
@@ -83,5 +86,5 @@ In addition to those main classes of rate limits, we enforce limits on certain s
 - moderation actions
 - etc.
 
-We don't currently document the rate limits for those specific actions, given they tend to change over time more often. If you get quota errors, we encourage you to upgrade your account to PRO, Team, or Enterprise. 
+We don't currently document the rate limits for those specific actions, given they tend to change over time more often. If you get quota errors, we encourage you to upgrade your account to PRO, Team, or Enterprise.
 Feel free to get in touch with us via the support team.
