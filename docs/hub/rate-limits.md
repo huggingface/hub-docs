@@ -1,6 +1,6 @@
 # Hub Rate limits
 
-To protect our platform's integrity and make sure we are able to scale our service to as many AI community members as possible, we enforce rate limits on all requests made to the HF Hub.
+To protect our platform's integrity and ensure availability to as many AI community members as possible, we enforce rate limits on all requests made to the Hugging Face Hub.
 
 We define different rate limits for distinct classes of requests. We distinguish three main buckets:
 
@@ -8,9 +8,10 @@ We define different rate limits for distinct classes of requests. We distinguish
   - e.g. model or dataset search, repo creation, user management, etc. Note: all those endpoints are documented in [Hub API Endpoints](./api).
 - **Resolvers**
   - They're all the URLs that contain a `/resolve/` segment in their path, which serve user-generated content from the Hub. Concretely, those are the URLs that are constructed by open source libraries (transformers, datasets, vLLM, llama.cpp, …) or AI applications (LM Studio, Jan, ollama, …) to download model/dataset files from HF.
-  - Because they are very heavily used by the community, and because we optimize our infrastructure to serve them with high efficiency, rate limits for Resolvers are the highest ones.
+  - Resolve requests are heavily used by the community, and since we optimize our infrastructure to serve them with maximum efficiency, the rate limits for Resolvers are the highest.
 - **Pages**
-  - All the Web pages we host on huggingface.co. Usually Web browsing is browsing made by humans hence rate limits don't need to be as high as programmatic endpoints like the two former buckets.
+  - All the Web pages we host on huggingface.co. 
+  - Usually Web browsing requests are made by humans, hence rate limits don't need to be as high as the above mentioned programmatic endpoints.
 
 > [!TIP]
 > All values are defined over 5-minute windows, which allows for some level of "burstiness" from an application or developer's point of view.
@@ -19,15 +20,15 @@ If you, your organization, or your application need higher rate limits, we encou
 
 ## Billing dashboard
 
-At any point in time, you can check your rate limit status on your (or your org’s) Billing page: https://huggingface.co/settings/billing
+At any point, you can check your rate limit status on your (or your org’s) Billing page: https://huggingface.co/settings/billing
 
 ![dashboard for rate limits](https://cdn-uploads.huggingface.co/production/uploads/5dd96eb166059660ed1ee413/0pzQQyuVG3c9tWjCqrX9Y.png)
 
-On the right side, you will see three gauges, one for each bucket of Rate limiting.
+On the right side, you will see three gauges, one for each bucket of Requests.
 
 Each bucket presents the number of current (last 5 minutes) requests, and the number of allowed requests based on your user account or organization plan.
 
-Whenever you are above the limit in the past 5 minutes (the view is updated in real-time), the bar will turn red.
+Whenever you exceed the limit in the past 5 minutes (the view is updated in real-time), the bar will turn red.
 
 Note: You can use the context switcher to easily switch between your user account and your orgs.
 
@@ -43,14 +44,14 @@ Precisely, we implement the following headers:
 
 | Header                    | Purpose / Meaning                                                                                                                              |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`RateLimit-Policy`**    | Carries the rate limit policy itself (e.g. “100 requests per 5 minutes”). It’s informative; shows what policy the client is subject to.        |
-| **`RateLimit-Limit`**     | The total allowed rate limit for the current window. “How many requests (of this type) you’re allowed.”                                        |
-| **`RateLimit-Remaining`** | How many requests of this type you have left in the current window.                                                                            |
-| **`RateLimit-Reset`**     | Number of seconds until the rate limit window resets (or until quota is refreshed). Uses a “delta-seconds” format to reduce clock sync issues. |
+| **`RateLimit‑Policy`**    | Carries the rate limit policy itself (e.g. “100 requests per 5 minutes”). It’s informative; shows what policy the client is subject to.        |
+| **`RateLimit‑Limit`**     | The total allowed rate limit for the current window. “How many requests (of this type) you’re allowed.”                                        |
+| **`RateLimit‑Remaining`** | How many requests of this type you have left in the current window.                                                                            |
+| **`RateLimit‑Reset`**     | Number of seconds until the rate limit window resets (or until quota is refreshed). Uses a “delta-seconds” format to reduce clock sync issues. |
 
 ## Rate limit Tiers
 
-Here are the current rate limiting values (in September '25) based on your plan:
+Here are the current rate limits (in September '25) based on your plan:
 
 | Plan                                                                      | API      | Resolvers | Pages  |
 | ------------------------------------------------------------------------- | -------- | --------- | ------ |
@@ -65,13 +66,15 @@ Here are the current rate limiting values (in September '25) based on your plan:
 
 \* Anonymous and Free users are subject to change over time depending on platform health 🤞
 
+Note: For organizations, rate limits are applied individually to each member.
+
 ## What if I get rate-limited
 
-First, make sure you are always passing a `HF_TOKEN`, and it gets passed downstream to all libraries or applications you might be using that downloads _stuff_ from the Hub.
+First, make sure you always pass a `HF_TOKEN`, and it is passed downstream to all libraries or applications that downloads _stuff_ from the Hub.
 
 This is the number one reason users get rate limited and is a very easy fix.
 
-If you're sure you're passing a `HF_TOKEN`, you can:
+Despite passing `HF_TOKEN` if you are still rate limited, you can:
 
 - spread out your requests over longer periods of time
 - replace Hub API calls with Resolver calls, whenever possible (Resolver rate limits are much higher and much more optimized).
