@@ -46,7 +46,7 @@ Precisely, we implement the following headers:
 | Header                    | Purpose / Meaning                                                                                                                              |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`RateLimit‑Policy`**    | Carries the rate limit policy itself (e.g. “100 requests per 5 minutes”). It’s informative; shows what policy the client is subject to.        |
-| **`RateLimit‑Limit`**     | The total allowed rate limit for the current window. “How many requests (of this type) you’re allowed.”                                        |
+| **`RateLimit‑Limit`**     | The total allowed rate limit for the current window. “How many requests (of this type) you’re allowed to perform.”                                        |
 | **`RateLimit‑Remaining`** | How many requests of this type you have left in the current window.                                                                            |
 | **`RateLimit‑Reset`**     | Number of seconds until the rate limit window resets (or until quota is refreshed). Uses a “delta-seconds” format to reduce clock sync issues. |
 
