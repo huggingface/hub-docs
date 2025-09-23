@@ -8,6 +8,7 @@ We define different rate limits for distinct classes of requests. We distinguish
   - e.g. model or dataset search, repo creation, user management, etc. All endpoints that belong to this bucket are documented in [Hub API Endpoints](./api).
 - **Resolvers**
   - They're all the URLs that contain a `/resolve/` segment in their path, which serve user-generated content from the Hub. Concretely, those are the URLs that are constructed by open source libraries (transformers, datasets, vLLM, llama.cpp, …) or AI applications (LM Studio, Jan, ollama, …) to download model/dataset files from HF.
+  - Specifically, this is the ["Resolve a file" endpoint](https://huggingface.co/spaces/huggingface/openapi#tag/models/get/{namespace}/{repo}/resolve/{rev}/{path}) documented in our OpenAPI spec.
   - Resolve requests are heavily used by the community, and since we optimize our infrastructure to serve them with maximum efficiency, the rate limits for Resolvers are the highest.
 - **Pages**
   - All the Web pages we host on huggingface.co. 
