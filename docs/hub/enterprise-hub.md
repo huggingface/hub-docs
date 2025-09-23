@@ -24,7 +24,8 @@ In this section we will document the following Enterprise Hub features:
 - [Advanced Security](./enterprise-hub-advanced-security)
 - [Tokens Management](./enterprise-hub-tokens-management)
 - [Publisher Analytics](./enterprise-hub-analytics)
-- [Network Security](./enterprise-hub-network-security)
 - [Gating Group Collections](./enterprise-hub-gating-group-collections)
+- [Network Security](./enterprise-hub-network-security)
+- [Higher Rate limits](./rate-limits)
 
 Finally, Team & Enterprise plans include 1TB of [private repository storage](./storage-limits) per seat in the subscription, i.e. if your organization has 40 members, then you have 40TB included storage for your private models and datasets.

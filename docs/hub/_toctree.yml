@@ -27,10 +27,12 @@
     title: Tokens Management
   - local: enterprise-hub-analytics
     title: Publisher Analytics
-  - local: enterprise-hub-network-security
-    title: Network Security
   - local: enterprise-hub-gating-group-collections
     title: Gating Group Collections
+  - local: enterprise-hub-network-security
+    title: Network Security
+  - local: rate-limits
+    title: Rate Limits
 
 - local: pro
   title: PRO Plan
