@@ -67,11 +67,11 @@ Here are the current rate limits (in September '25) based on your plan:
 
 \* Anonymous and Free users are subject to change over time depending on platform health 🤞
 
-Note: For organizations, rate limits are applied individually to each member.
+Note: For organizations, rate limits are applied individually to each member, not shared among members.
 
 ## What if I get rate-limited
 
-First, make sure you always pass a `HF_TOKEN`, and it is passed downstream to all libraries or applications that downloads _stuff_ from the Hub.
+First, make sure you always pass a `HF_TOKEN`, and it is passed downstream to all libraries or applications that download _stuff_ from the Hub.
 
 This is the number one reason users get rate limited and is a very easy fix.
 
