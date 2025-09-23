@@ -11,7 +11,7 @@ We define different rate limits for distinct classes of requests. We distinguish
   - Specifically, this is the ["Resolve a file" endpoint](https://huggingface.co/spaces/huggingface/openapi#tag/models/get/{namespace}/{repo}/resolve/{rev}/{path}) documented in our OpenAPI spec.
   - Resolve requests are heavily used by the community, and since we optimize our infrastructure to serve them with maximum efficiency, the rate limits for Resolvers are the highest.
 - **Pages**
-  - All the Web pages we host on huggingface.co. 
+  - All the Web pages we host on huggingface.co.
   - Usually Web browsing requests are made by humans, hence rate limits don't need to be as high as the above mentioned programmatic endpoints.
 
 > [!TIP]
@@ -37,18 +37,23 @@ Note: You can use the context switcher to easily switch between your user accoun
 
 Whenever you or your organization hits a rate limit, you will receive a **429** `Too Many Requests` HTTP error.
 
-We implement the mechanism described in the [IETF draft](https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers/) titled “RateLimit HTTP header fields for HTTP” (also known as `draft-ietf-httpapi-ratelimit-headers`).
+We implement the mechanism described in the [IETF draft (Version 9)](https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers/) titled “RateLimit HTTP header fields for HTTP” (also known as `draft-ietf-httpapi-ratelimit-headers`).
 
 The goal is to define standardized HTTP headers that servers can use to advertise quota / rate-limit policies and communicate current usage / limits to clients so that they can avoid being throttled.
 
 Precisely, we implement the following headers:
 
-| Header                    | Purpose / Meaning                                                                                                                              |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`RateLimit‑Policy`**    | Carries the rate limit policy itself (e.g. “100 requests per 5 minutes”). It’s informative; shows what policy the client is subject to.        |
-| **`RateLimit‑Limit`**     | The total allowed rate limit for the current window. “How many requests (of this type) you’re allowed to perform.”                                        |
-| **`RateLimit‑Remaining`** | How many requests of this type you have left in the current window.                                                                            |
-| **`RateLimit‑Reset`**     | Number of seconds until the rate limit window resets (or until quota is refreshed). Uses a “delta-seconds” format to reduce clock sync issues. |
+| Header                 | Purpose / Meaning                                                                                                                       |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **`RateLimit`**        | The total allowed rate limit for the current window. “How many requests (of this type) you’re allowed to perform.”                      |
+| **`RateLimit-Policy`** | Carries the rate limit policy itself (e.g. “100 requests per 5 minutes”). It’s informative; shows what policy the client is subject to. |
+
+A set of examples is as follows:
+
+| Header                 | Example                                                                                               |
+| ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| **`RateLimit`**        | `"api\|pages\|resolvers";r=[remaining];t=[seconds remaining until reset]`                             |
+| **`RateLimit-Policy`** | `"fixed window";"api\|\pages\|resolvers";q=[total allowed for window];w=[window duration in seconds]` |
 
 ## Rate limit Tiers
 
