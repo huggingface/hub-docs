@@ -153,7 +153,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"ProsusAI/finbert","providerModelId":"ProsusAI/finbert"} } }
+    providersMapping={ {"hf-inference":{"modelId":"tabularisai/multilingual-sentiment-analysis","providerModelId":"tabularisai/multilingual-sentiment-analysis"} } }
 />
 
 
@@ -183,7 +183,7 @@ Find out more about Token Classification [here](../tasks/token_classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
+    providersMapping={ {"hf-inference":{"modelId":"iiiorg/piiranha-v1-detect-personal-information","providerModelId":"iiiorg/piiranha-v1-detect-personal-information"} } }
 />
 
 
