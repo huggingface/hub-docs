@@ -1,18 +1,12 @@
 # How to be registered as an inference provider on the Hub?
 
-<Tip>
+> [!TIP]
+> Want to be listed as an Inference Provider on the Hugging Face Hub? Let's get in touch!
+>
+> Please reach out to us on social networks or [here on the Hub](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49).
 
-Want to be listed as an Inference Provider on the Hugging Face Hub? Let's get in touch!
-
-Please reach out to us on social networks or [here on the Hub](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49).
-
-</Tip>
-
-<Tip warning={true}>
-
-Note that Step 3 will require your organization to upgrade their Hub account to a [Team or Enterprise plan](https://huggingface.co/pricing).
-
-</Tip>
+> [!WARNING]
+> Note that Step 3 will require your organization to upgrade their Hub account to a [Team or Enterprise plan](https://huggingface.co/pricing).
 
 This guide details the steps for registering as an inference provider on the Hub and provides implementation guidance.
 
@@ -29,11 +23,8 @@ This guide details the steps for registering as an inference provider on the Hub
 
 ## 1. Prerequisites
 
-<Tip>
-
-If your implementation strictly follows the OpenAI API for LLMs and VLMs, you may be able to skip most of this section. In that case, simply open a PR on [huggingface.js](https://github.com/huggingface/huggingface.js/tree/main/packages/inference) to register.
-
-</Tip>
+> [!TIP]
+> If your implementation strictly follows the OpenAI API for LLMs and VLMs, you may be able to skip most of this section. In that case, simply open a PR on [huggingface.js](https://github.com/huggingface/huggingface.js/tree/main/packages/inference) to register.
 
 The first step to understand the integration is to take a look at the JS inference client that lives
 inside the [huggingface.js](https://github.com/huggingface/huggingface.js/tree/main/packages/inference) repo.
@@ -58,13 +49,10 @@ or "text-to-image". It is indicated prominently on model pages, here:
 
 The list of all possible tasks can be found at https://huggingface.co/tasks and the list of JS method names is documented in the README at https://github.com/huggingface/huggingface.js/tree/main/packages/inference.
 
-<Tip>
-
-Note that `chatCompletion` is an exception as it is not a pipeline_tag, per se. Instead, it
-includes models with either `pipeline_tag="text-generation"` or `pipeline_tag="image-text-to-text"`
-which are tagged as "conversational".
-
-</Tip>
+> [!TIP]
+> Note that `chatCompletion` is an exception as it is not a pipeline_tag, per se. Instead, it
+> includes models with either `pipeline_tag="text-generation"` or `pipeline_tag="image-text-to-text"`
+> which are tagged as "conversational".
 
 
 ### Task API schema
@@ -135,11 +123,8 @@ Congratulations! You now have a JS implementation to successfully make inference
 
 First step is to use the Model Mapping API to register which HF models are supported. 
 
-<Tip>
-
-To proceed with this step, we have to enable your account server-side. Make sure you have an organization on the Hub for your company, and upgrade it to a [Team or Enterprise plan](https://huggingface.co/pricing).
-
-</Tip>
+> [!TIP]
+> To proceed with this step, we have to enable your account server-side. Make sure you have an organization on the Hub for your company, and upgrade it to a [Team or Enterprise plan](https://huggingface.co/pricing).
 
 ### Register a mapping item
 
@@ -183,11 +168,8 @@ We also support mapping HF models based on their `tags`. Using tag filters, you 
 For example, any model tagged with both `lora` and `base_model:adapter:black-forest-labs/FLUX.1-dev` can be mapped to your Flux-dev LoRA inference endpoint.
 
 
-<Tip>
-
-Important: Make sure that the JS client library can handle LoRA weights for your provider. Check out [fal's implementation](https://github.com/huggingface/huggingface.js/blob/904964c9f8cd10ed67114ccb88b9028e89fd6cad/packages/inference/src/providers/fal-ai.ts#L78-L124) for more details. 
-
-</Tip>
+> [!TIP]
+> Important: Make sure that the JS client library can handle LoRA weights for your provider. Check out [fal's implementation](https://github.com/huggingface/huggingface.js/blob/904964c9f8cd10ed67114ccb88b9028e89fd6cad/packages/inference/src/providers/fal-ai.ts#L78-L124) for more details.
 
 The API is as follows:
 
@@ -250,11 +232,8 @@ GET /api/partners/{provider}/models?status=staging|live
 ```
 This gets all mapping items from the DB. For clarity, the output is grouped by task.
 
-<Tip warning={true}>
-
-This is publicly accessible. It's useful to be transparent by default and it helps debug client SDKs, etc.
-
-</Tip>
+> [!WARNING]
+> This is publicly accessible. It's useful to be transparent by default and it helps debug client SDKs, etc.
 
 Here is an example of response:
 
@@ -416,11 +395,8 @@ Inference-Id: unique-id-00131
 
 ## 5. Python client integration
 
-<Tip>
-
-Before adding a new provider to the `huggingface_hub` Python library, make sure that all the previous steps have been completed and everything is working on the Hub. Support in the Python library comes as a second step. 
-
-</Tip>
+> [!TIP]
+> Before adding a new provider to the `huggingface_hub` Python library, make sure that all the previous steps have been completed and everything is working on the Hub. Support in the Python library comes as a second step.
 
 ### Implement the provider helper (Python)
 

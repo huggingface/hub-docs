@@ -11,11 +11,8 @@ Many developers avoid using open source AI models because they assume deployment
 
 We're going to use the [FLUX.1-schnell](https://huggingface.co/black-forest-labs/FLUX.1-schnell) model, which is a powerful text-to-image model.
 
-<Tip>
-
-This guide assumes you have a Hugging Face account. If you don't have one, you can create one for free at [huggingface.co](https://huggingface.co).
-
-</Tip>
+> [!TIP]
+> This guide assumes you have a Hugging Face account. If you don't have one, you can create one for free at [huggingface.co](https://huggingface.co).
 
 ## Step 1: Find a Model on the Hub
 
@@ -39,11 +36,8 @@ Here, you can test the model directly in the browser from any of the available p
 
 This widget uses the same endpoint you're about to implement in code.
 
-<Tip warning={true}>
-
-You'll need a Hugging Face account (free at [huggingface.co](https://huggingface.co)) and remaining credits to use the model.
-
-</Tip>
+> [!WARNING]
+> You'll need a Hugging Face account (free at [huggingface.co](https://huggingface.co)) and remaining credits to use the model.
 
 ## Step 3: From Clicks to Code
 
@@ -59,11 +53,8 @@ Set your token as an environment variable:
 export HF_TOKEN="your_token_here"
 ```
 
-<Tip>
-
-You can add this line to your `.bash_profile` or similar file for all your terminal environments to automatically source the token.
-
-</Tip>
+> [!TIP]
+> You can add this line to your `.bash_profile` or similar file for all your terminal environments to automatically source the token.
 
 The Python or TypeScript code snippet will use the token from the environment variable.
 

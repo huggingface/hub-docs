@@ -16,11 +16,8 @@ For more details, check out:
 
 Text Classification is the task of assigning a label or class to a given text. Some use cases are sentiment analysis, natural language inference, and assessing grammatical correctness.
 
-<Tip>
-
-For more details about the `text-classification` task, check out its [dedicated page](https://huggingface.co/tasks/text-classification)! You will find examples and related materials.
-
-</Tip>
+> [!TIP]
+> For more details about the `text-classification` task, check out its [dedicated page](https://huggingface.co/tasks/text-classification)! You will find examples and related materials.
 
 ### Recommended models
 

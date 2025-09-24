@@ -21,11 +21,8 @@ Example applications:
 * Reranking a list of documents based on their similarity to a query.
 * Calculating the similarity between two sentences.
 
-<Tip>
-
-For more details about the `feature-extraction` task, check out its [dedicated page](https://huggingface.co/tasks/feature-extraction)! You will find examples and related materials.
-
-</Tip>
+> [!TIP]
+> For more details about the `feature-extraction` task, check out its [dedicated page](https://huggingface.co/tasks/feature-extraction)! You will find examples and related materials.
 
 ### Recommended models
 

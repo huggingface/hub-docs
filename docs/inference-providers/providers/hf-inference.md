@@ -19,11 +19,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # HF Inference
 
-<Tip>
-
-All supported HF Inference models can be found [here](https://huggingface.co/models?inference_provider=hf-inference&sort=trending)
-
-</Tip>
+> [!TIP]
+> All supported HF Inference models can be found [here](https://huggingface.co/models?inference_provider=hf-inference&sort=trending)
 
 <div class="flex justify-center">
     <a href="https://huggingface.co/" target="_blank">
