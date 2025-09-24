@@ -72,6 +72,9 @@ Here are the current rate limits (in September '25) based on your plan:
 
 \* Anonymous and Free users are subject to change over time depending on platform health 🤞
 
+> [!NOTE]
+> All quotas are calculated over 5-minute fixed windows.
+
 Note: For organizations, rate limits are applied individually to each member, not shared among members.
 
 ## What if I get rate-limited
