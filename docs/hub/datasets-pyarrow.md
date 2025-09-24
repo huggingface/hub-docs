@@ -81,13 +81,10 @@ pq.write_table(table_test , "hf://datasets/username/my_dataset/test.parquet", us
 
 We use `use_content_defined_chunking=True` to enable faster uploads and downloads from Hugging Face thanks to Xet deduplication (it requires `pyarrow>=21.0`).
 
-<Tip>
-
-Content defined chunking (CDC) makes the Parquet writer chunk the data pages in a way that makes duplicate data chunked and compressed identically.
-Without CDC, the pages are arbitrarily chunked and therefore duplicate data are impossible to detect because of compression.
-Thanks to CDC, Parquet uploads and downloads from Hugging Face are faster, since duplicate data are uploaded or downloaded only once.
-
-</Tip>
+> [!TIP]
+> Content defined chunking (CDC) makes the Parquet writer chunk the data pages in a way that makes duplicate data chunked and compressed identically.
+> Without CDC, the pages are arbitrarily chunked and therefore duplicate data are impossible to detect because of compression.
+> Thanks to CDC, Parquet uploads and downloads from Hugging Face are faster, since duplicate data are uploaded or downloaded only once.
 
 Find more information about Xet [here](https://huggingface.co/join/xet).
 

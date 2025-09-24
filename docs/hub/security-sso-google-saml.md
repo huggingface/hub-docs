@@ -4,9 +4,8 @@ In this guide, we will use Google Workspace as the SSO provider and with the Sec
 
 We currently support SP-initiated and IdP-initiated authentication. User provisioning is part of Enterprise Plus's [Advanced SSO](./enterprise-hub-advanced-sso).
 
-<Tip warning={true}>
-	This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 ### Step 1: Create SAML App in Google Workspace
 
@@ -67,9 +66,8 @@ We currently support SP-initiated and IdP-initiated authentication. User provisi
 
 ### Step 5: Test and Enable SSO
 
-<Tip warning={true}>
-Before testing, ensure you have granted access to the application for the appropriate users in the Google Workspace admin console under the app's "User access" settings. The admin performing the test must have access. It may take a few minutes for user access changes to apply on Google Workspace.
-</Tip>
+> [!WARNING]
+> Before testing, ensure you have granted access to the application for the appropriate users in the Google Workspace admin console under the app's "User access" settings. The admin performing the test must have access. It may take a few minutes for user access changes to apply on Google Workspace.
 
 - Now, in your Hugging Face SSO settings, click on **"Update and Test SAML configuration"**.
 - You should be redirected to your Google login prompt. Once logged in, you'll be redirected to your organization's settings page.

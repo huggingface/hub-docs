@@ -27,9 +27,8 @@ All API calls are subject to the HF-wide [Rate limits](./rate-limits). Upgrade y
 
 The following endpoints help get information about models, datasets, and Spaces stored on the Hub.
 
-<Tip>
-When making API calls to retrieve information about repositories, the <code>createdAt</code> attribute indicates the time when the respective repository was created. It's important to note that there is a unique value, <code>2022-03-02T23:29:04.000Z</code> assigned to all repositories that were created before we began storing creation dates.
-</Tip>
+> [!TIP]
+> When making API calls to retrieve information about repositories, the <code>createdAt</code> attribute indicates the time when the respective repository was created. It's important to note that there is a unique value, <code>2022-03-02T23:29:04.000Z</code> assigned to all repositories that were created before we began storing creation dates.
 
 ### GET /api/models
 
@@ -486,11 +485,8 @@ If no parameter is set, all collections are returned.
 
 The response is paginated. To get all collections, you must follow the [`Link` header](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#link-header).
 
-<Tip warning={true}>
-
-When listing collections, the item list per collection is truncated to 4 items maximum. To retrieve all items from a collection, you need to make an additional call using its collection slug.
-
-</Tip>
+> [!WARNING]
+> When listing collections, the item list per collection is truncated to 4 items maximum. To retrieve all items from a collection, you need to make an additional call using its collection slug.
 
 Payload:
 

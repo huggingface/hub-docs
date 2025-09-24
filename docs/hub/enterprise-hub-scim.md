@@ -1,8 +1,7 @@
 # User Provisioning (SCIM)
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
 
 SCIM, or System for Cross-domain Identity Management, is a standard for automating user provisioning. It allows you to connect your Identity Provider (IdP) to Hugging Face to automatically manage your organization's members.
 

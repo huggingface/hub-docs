@@ -35,9 +35,8 @@ In Hugging Face Hub:
 
 If you entered the correct pin, the Hub displays a list of recovery codes. Download them and keep them in a safe place.
 
-<Tip>
-You will be prompted for 2FA every time you log in, and every 30 days
-</Tip>
+> [!TIP]
+> You will be prompted for 2FA every time you log in, and every 30 days
 
 ## Recovery codes
 
@@ -60,9 +59,8 @@ To regenerate 2FA recovery codes:
 2. If you’ve already configured 2FA, select Recovery Code
 3. Click on Regenerate recovery codes
 
-<Tip warning={true}>
-If you regenerate 2FA recovery codes, save them. You can’t use any previously created recovery codes.
-</Tip>
+> [!WARNING]
+> If you regenerate 2FA recovery codes, save them. You can’t use any previously created recovery codes.
 
 ## Sign in with two-factor authentication enabled
 

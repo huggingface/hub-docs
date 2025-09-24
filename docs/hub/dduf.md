@@ -14,13 +14,10 @@ This work draws inspiration from the [GGUF](https://github.com/ggerganov/ggml/bl
 
 Check out the [DDUF](https://huggingface.co/DDUF) org to start using some of the most popular diffusion models in DDUF.
 
-<Tip>
-
-We welcome contributions with open arms!
-
-To create a widely adopted file format, we need early feedback from the community. Nothing is set in stone, and we value everyone's input. Is your use case not covered? Please let us know in the DDUF organization [discussions](https://huggingface.co/spaces/DDUF/README/discussions/2).
-
-</Tip>
+> [!TIP]
+> We welcome contributions with open arms!
+>
+> To create a widely adopted file format, we need early feedback from the community. Nothing is set in stone, and we value everyone's input. Is your use case not covered? Please let us know in the DDUF organization [discussions](https://huggingface.co/spaces/DDUF/README/discussions/2).
 
 Its key features include the following.
 

@@ -97,11 +97,8 @@ We selected people from a variety of different backgrounds relevant to machine l
 ![user studies results 2](https://huggingface.co/datasets/huggingface/documentation-images/blob/main/hub/user-studies-responses(2).png) 
 
 
-<Tip>
-
- [Checkout the Appendix](./model-card-appendix)
-
- </Tip>
+> [!TIP]
+> [Checkout the Appendix](./model-card-appendix)
 
 
 Acknowledgements

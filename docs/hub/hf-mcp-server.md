@@ -16,11 +16,8 @@ The Hugging Face MCP (Model Context Protocol) Server connects your MCP‑compati
 
 3. Paste and restart: copy the snippet into your client’s MCP configuration, save, and restart/reload the client. You should see “Hugging Face” (or similar) listed as a connected MCP server in your client.
 
-<Tip>
-
-The settings page generates the exact configuration your client expects. Use it rather than writing config by hand.
-
-</Tip>
+> [!TIP]
+> The settings page generates the exact configuration your client expects. Use it rather than writing config by hand.
 
 ![MCP Settings Example](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hf-mcp-settings.png)
 

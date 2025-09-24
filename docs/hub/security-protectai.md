@@ -1,8 +1,7 @@
 # Third-party scanner: Protect AI
 
-<Tip>
-Interested in joining our security partnership / providing scanning information on the Hub? Please get in touch with us over at security@huggingface.co.*
-</Tip>
+> [!TIP]
+> Interested in joining our security partnership / providing scanning information on the Hub? Please get in touch with us over at security@huggingface.co.*
 
 [Protect AI](https://protectai.com/)'s [Guardian](https://protectai.com/guardian) catches pickle, Keras, and other exploits as detailed on their [Knowledge Base page](https://protectai.com/insights/knowledge-base/). Guardian also benefits from reports sent in by their community of bounty [Huntr](https://huntr.com/)s.
 

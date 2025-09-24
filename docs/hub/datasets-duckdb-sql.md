@@ -152,8 +152,5 @@ Finally, lets highlight some of the DuckDB functions used in this section:
 - `regexp_replace`, if the string contains the regexp pattern, replaces the matching part with replacement.
 - `LENGTH`, gets the number of characters in the string.
 
-<Tip>
-
-There are plenty of useful functions available in DuckDB's [SQL functions overview](https://duckdb.org/docs/sql/functions/overview). The best part is that you can use them directly on Hugging Face datasets.
-
-</Tip>
+> [!TIP]
+> There are plenty of useful functions available in DuckDB's [SQL functions overview](https://duckdb.org/docs/sql/functions/overview). The best part is that you can use them directly on Hugging Face datasets.

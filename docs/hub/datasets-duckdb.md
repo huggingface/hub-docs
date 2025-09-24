@@ -10,11 +10,8 @@ You can use the Hugging Face paths (`hf://`) to access data on the Hub:
 The [DuckDB CLI](https://duckdb.org/docs/api/cli/overview.html) (Command Line Interface) is a single, dependency-free executable. 
 There are also other APIs available for running DuckDB, including Python, C++, Go, Java, Rust, and more. For additional details, visit their [clients](https://duckdb.org/docs/api/overview.html) page.
 
-<Tip>
-
-For installation details, visit the [installation page](https://duckdb.org/docs/installation).
-
-</Tip>
+> [!TIP]
+> For installation details, visit the [installation page](https://duckdb.org/docs/installation).
 
 Starting from version `v0.10.3`, the DuckDB CLI includes native support for accessing datasets on the Hugging Face Hub via URLs with the `hf://` scheme. Here are some features you can leverage with this powerful tool:
 
@@ -45,23 +42,20 @@ hf://datasets/{my-username}/{my-dataset}/{path_to_file}
 - **path_to_parquet_file**, the parquet file path which supports glob patterns, e.g `**/*.parquet`, to query all parquet files
 
 
-<Tip>
-
-You can query auto-converted Parquet files using the @~parquet branch, which corresponds to the `refs/convert/parquet` revision. For more details, refer to the documentation at https://huggingface.co/docs/datasets-server/en/parquet#conversion-to-parquet.
-
-To reference the `refs/convert/parquet` revision of a dataset, use the following syntax:
-
-```plaintext
-hf://datasets/{my-username}/{my-dataset}@~parquet/{path_to_file} 
-```
-
-Here is a sample URL following the above syntax:
-
-```plaintext
-hf://datasets/ibm/duorc@~parquet/ParaphraseRC/test/0000.parquet
-```
-
-</Tip>
+> [!TIP]
+> You can query auto-converted Parquet files using the @~parquet branch, which corresponds to the `refs/convert/parquet` revision. For more details, refer to the documentation at https://huggingface.co/docs/datasets-server/en/parquet#conversion-to-parquet.
+>
+> To reference the `refs/convert/parquet` revision of a dataset, use the following syntax:
+>
+> ```plaintext
+> hf://datasets/{my-username}/{my-dataset}@~parquet/{path_to_file} 
+> ```
+>
+> Here is a sample URL following the above syntax:
+>
+> ```plaintext
+> hf://datasets/ibm/duorc@~parquet/ParaphraseRC/test/0000.parquet
+> ```
 
 Let's start with a quick demo to query all the rows of a dataset:
 

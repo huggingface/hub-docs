@@ -58,11 +58,8 @@ In this case, an informational message lets you know that the Viewer is partial.
 
 To power the dataset viewer, the first 5GB of every dataset are auto-converted to the Parquet format (unless it was already a Parquet dataset). In the dataset viewer (for example, see [GLUE](https://huggingface.co/datasets/nyu-mll/glue)), you can click on [_"Auto-converted to Parquet"_](https://huggingface.co/datasets/nyu-mll/glue/tree/refs%2Fconvert%2Fparquet/cola) to access the Parquet files. Please, refer to the [dataset viewer docs](/docs/datasets-server/parquet_process) to learn how to query the dataset parquet files with libraries such as Polars, Pandas or DuckDB.
 
-<Tip>
-
-Parquet is a columnar storage format optimized for querying and processing large datasets. Parquet is a popular choice for big data processing and analytics and is widely used for data processing and machine learning. You can learn more about the advantages associated with this format in the <a href="https://huggingface.co/docs/datasets-server/parquet">documentation</a>.
-
-</Tip>
+> [!TIP]
+> Parquet is a columnar storage format optimized for querying and processing large datasets. Parquet is a popular choice for big data processing and analytics and is widely used for data processing and machine learning. You can learn more about the advantages associated with this format in the <a href="https://huggingface.co/docs/datasets-server/parquet">documentation</a>.
 
 ### Conversion bot
 

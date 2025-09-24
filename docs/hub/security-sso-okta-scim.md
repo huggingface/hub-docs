@@ -2,9 +2,8 @@
 
 This guide explains how to set up SCIM user and group provisioning between Okta and your Hugging Face organization using SCIM.
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
 
 ### Step 1: Get SCIM configuration from Hugging Face
 
@@ -54,16 +53,15 @@ This feature is part of the <a href="https://huggingface.co/contact/sales?from=e
 3. After finding the User or Group that needs to be assigned, click **Assign** next to their name
 4. In the mapping modal the Username needs to be edited to comply with the following rules.
 
-<Tip warning={true}>
-<ul>
-<li>Only regular characters and `-` are accepted in the Username.</li>
-<li>`--` (double dash) is forbidden.</li>
-<li>`-` cannot start or end the name.</li>
-<li>Digit-only names are not accepted.</li>
-<li>Minimum length is 2 and maximum length is 42.</li>
-<li>Username has to be unique within your org.</li>
-</ul>
-</Tip>
+> [!WARNING]
+> <ul>
+> <li>Only regular characters and `-` are accepted in the Username.</li>
+> <li>`--` (double dash) is forbidden.</li>
+> <li>`-` cannot start or end the name.</li>
+> <li>Digit-only names are not accepted.</li>
+> <li>Minimum length is 2 and maximum length is 42.</li>
+> <li>Username has to be unique within your org.</li>
+> </ul>
 
 5. Scroll down and click **Save and Go Back** 
 6. Click **Done**

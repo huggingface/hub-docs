@@ -19,6 +19,5 @@ To work around this issue, you would need to set the `server.enableXsrfProtectio
    enableXsrfProtection = false
    ```
 
-<Tip>
-When you are using the Streamlit SDK, you don't need to worry about this because the SDK does it for you.
-</Tip>
+> [!TIP]
+> When you are using the Streamlit SDK, you don't need to worry about this because the SDK does it for you.

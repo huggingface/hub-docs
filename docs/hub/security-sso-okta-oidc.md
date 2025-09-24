@@ -2,9 +2,8 @@
 
 In this guide, we will use Okta as the SSO provider and with the Open ID Connect (OIDC) protocol as our preferred identity protocol.
 
-<Tip warning={true}>
-	This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 ### Step 1: Create a new application in your Identity Provider
 

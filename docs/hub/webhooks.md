@@ -1,10 +1,7 @@
 # Webhooks
 
-<Tip>
-
-Webhooks are now publicly available!
-
-</Tip>
+> [!TIP]
+> Webhooks are now publicly available!
 
 Webhooks are a foundation for MLOps-related features. They allow you to listen for new changes on specific repos or to all repos belonging to particular set of users/organizations (not just your repos, but any repo).
 
@@ -232,11 +229,10 @@ Setting a Webhook secret is useful to make sure payloads sent to your Webhook ha
 
 If you set a secret for your Webhook, it will be sent along as an `X-Webhook-Secret` HTTP header on every request. Only ASCII characters are supported.
 
-<Tip>
-It's also possible to add the secret directly in the handler URL. For example, setting it as a query parameter: https://example.com/webhook?secret=XXX.
-
-This can be helpful if accessing the HTTP headers of the request is complicated for your Webhook handler.
-</Tip>
+> [!TIP]
+> It's also possible to add the secret directly in the handler URL. For example, setting it as a query parameter: https://example.com/webhook?secret=XXX.
+>
+> This can be helpful if accessing the HTTP headers of the request is complicated for your Webhook handler.
 
 ## Rate limiting
 

@@ -161,11 +161,8 @@ By clicking on **Agree**, you agree to share your username and email address wit
 
 Once the access request is sent, there are two possibilities. If the approval mechanism is automatic, you immediately get access to the model files. Otherwise, the requests have to be approved manually by the authors, which can take more time. 
 
-<Tip warning={true}>
-
-The model authors have complete control over model access. In particular, they can decide at any time to block your access to the model without prior notice, regardless of approval mechanism or if your request has already been approved.
-
-</Tip>
+> [!WARNING]
+> The model authors have complete control over model access. In particular, they can decide at any time to block your access to the model without prior notice, regardless of approval mechanism or if your request has already been approved.
 
 ### Download files
 

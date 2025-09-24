@@ -1,8 +1,7 @@
 # Single Sign-On (SSO)
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 Single sign-on (SSO) allows organizations to securely manage user authentication through their own identity provider (IdP). Both SAML 2.0 and OpenID Connect (OIDC) protocols are supported.
 

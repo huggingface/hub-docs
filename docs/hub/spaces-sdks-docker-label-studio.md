@@ -43,12 +43,11 @@ local storage for the application database to store configuration, account
 credentials, and project information. Labeling tasks and data items are also held
 in local storage. 
 
-<Tip warning={true}>
-Storage in Hugging Face Spaces is ephemeral, and the data you store in the default
-configuration can be lost in a reboot or reset of the Space. Because of this,
-we strongly encourage you to use the default configuration only for testing and
-demonstration purposes.
-</Tip>
+> [!WARNING]
+> Storage in Hugging Face Spaces is ephemeral, and the data you store in the default
+> configuration can be lost in a reboot or reset of the Space. Because of this,
+> we strongly encourage you to use the default configuration only for testing and
+> demonstration purposes.
 
 After launching Label Studio, you will be presented with the standard login
 screen. You can start by creating a new account using your email address and

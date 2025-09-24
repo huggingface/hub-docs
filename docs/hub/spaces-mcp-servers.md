@@ -9,9 +9,8 @@ From your [Hub MCP settings](https://huggingface.co/settings/mcp), select your M
 ![image/png](https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/wWm_GeuWF17OrMyJT4tMx.png)
 
 
-<Tip warning={true}>
-You need a valid Hugging Face token with <strong>READ</strong> permissions to use MCP tools. If you don't have one, <a href="https://huggingface.co/settings/tokens/new?tokenType=read" target="_blank">create a new "Read" access token here</a>.
-</Tip>
+> [!WARNING]
+> You need a valid Hugging Face token with <strong>READ</strong> permissions to use MCP tools. If you don't have one, <a href="https://huggingface.co/settings/tokens/new?tokenType=read" target="_blank">create a new "Read" access token here</a>.
 
 ## Add an existing Space to your MCP tools
 
@@ -28,9 +27,8 @@ You need a valid Hugging Face token with <strong>READ</strong> permissions to us
 
 If your MCP client is configured correctly, the Spaces you added will be available instantly without changing anything (if it doesn't restart your client and it should appear). Most MCP clients will list what tools are currently loaded so you can make sure the Space is available.
 
-<Tip>
-For ZeroGPU Spaces, your quota will be used when the tool is called, if you run out of quota you can <a href="https://huggingface.co/subscribe/pro?from=ZeroGPU" target="_blank">subscribe to PRO</a> to get 25 minutes of daily quota (x8 more quota than free users). For example your PRO account lets you generate up to 600 images per day using FLUX.1-schnell.
-</Tip>
+> [!TIP]
+> For ZeroGPU Spaces, your quota will be used when the tool is called, if you run out of quota you can <a href="https://huggingface.co/subscribe/pro?from=ZeroGPU" target="_blank">subscribe to PRO</a> to get 25 minutes of daily quota (x8 more quota than free users). For example your PRO account lets you generate up to 600 images per day using FLUX.1-schnell.
 
 ## Build your own MCP-compatible Gradio Space
 
@@ -67,9 +65,8 @@ demo.launch(mcp_server=True)   # exposes an MCP schema automatically
 
 Push the app to a **Gradio Space** and it will automatically receive the **MCP** badge. Anyone can then add it as a tool with a single click.
 
-<Tip>
-It's also quite easy to convert an existing Gradio Space to MCP server. Duplicate it from the context menu then just add the <code>mcp_server=True</code> parameter to your <code>launch()</code> method, and ensure your functions have clear type hints and docstrings - you can use AI tools to automate this quite easily (<a href="https://huggingface.co/spaces/Lightricks/ltx-video-distilled/discussions/22/files" target="_blank">example</a> of AI generated docstrings).
-</Tip>
+> [!TIP]
+> It's also quite easy to convert an existing Gradio Space to MCP server. Duplicate it from the context menu then just add the <code>mcp_server=True</code> parameter to your <code>launch()</code> method, and ensure your functions have clear type hints and docstrings - you can use AI tools to automate this quite easily (<a href="https://huggingface.co/spaces/Lightricks/ltx-video-distilled/discussions/22/files" target="_blank">example</a> of AI generated docstrings).
 
 ## Be creative by mixing Spaces!
 

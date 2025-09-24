@@ -1,8 +1,7 @@
 # Storage Regions on the Hub
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 Regions allow you to specify where your organization's models, datasets and Spaces are stored. For non-Enterprise Hub users, repositories are always stored in the US.
 
@@ -39,9 +38,8 @@ This page displays:
 - An audit of your organization's repository locations
 - Options to select where new repositories will be stored
 
-<Tip>
-Some <a href="./advanced-compute-options">advanced compute options</a> for Spaces, such as ZeroGPU, may not be available in all regions.
-</Tip>
+> [!TIP]
+> Some <a href="./advanced-compute-options">advanced compute options</a> for Spaces, such as ZeroGPU, may not be available in all regions.
 
 ## Repository Tag
 

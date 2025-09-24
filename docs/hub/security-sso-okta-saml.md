@@ -4,9 +4,8 @@ In this guide, we will use Okta as the SSO provider and with the Security Assert
 
 We currently support SP-initiated and IdP-initiated authentication. User provisioning is part of Enterprise Plus's [Advanced SSO](./enterprise-hub-advanced-sso).
 
-<Tip warning={true}>
-	This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 ### Step 1: Create a new application in your Identity Provider
 

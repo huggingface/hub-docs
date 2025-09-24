@@ -1,10 +1,7 @@
 # Moderation
 
-<Tip>
-
-Check out the [Code of Conduct](https://huggingface.co/code-of-conduct) and the [Content Guidelines](https://huggingface.co/content-guidelines).
-
-</Tip>
+> [!TIP]
+> Check out the [Code of Conduct](https://huggingface.co/code-of-conduct) and the [Content Guidelines](https://huggingface.co/content-guidelines).
 
 ## Reporting a repository
 

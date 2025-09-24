@@ -1,8 +1,7 @@
 # Gating Group Collections
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 Gating Group Collections allow organizations to grant (or reject) access to all the models and datasets in a collection at once, rather than per repo. Users will only have to go through **a single access request**.
 
@@ -13,9 +12,8 @@ To enable Gating Group in a collection:
 - all models and datasets in the collection must be owned by the same organization as the collection
 - each model or dataset in the collection may only belong to one Gating Group Collection (but they can still be included in non-gating i.e. _regular_ collections).
 
-<Tip>
-Gating only applies to models and datasets; any other resource part of the collection (such as a Space or a Paper) won't be affected.
-</Tip>
+> [!TIP]
+> Gating only applies to models and datasets; any other resource part of the collection (such as a Space or a Paper) won't be affected.
 
 ## Manage gating group as an organization admin
 
@@ -140,9 +138,8 @@ Visit our [gated models](https://huggingface.co/docs/hub/models-gated#download-a
 
 Organizations can customize the gating parameters as well as the user information that is collected per gated repo. Please, visit our [gated models](https://huggingface.co/docs/hub/models-gated#customize-requested-information) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#customize-requested-information) documentation for more details.
 
-<Tip warning={true}>
-There is currently no way to customize the gate parameters and requested information in a centralized way. If you want to collect the same data no matter which collection's repository a user requests access throughout, you need to add the same gate parameters in the metadata of all the models and datasets of the collection, and keep it synced.
-</Tip>
+> [!WARNING]
+> There is currently no way to customize the gate parameters and requested information in a centralized way. If you want to collect the same data no matter which collection's repository a user requests access throughout, you need to add the same gate parameters in the metadata of all the models and datasets of the collection, and keep it synced.
 
 ## Access gated repos in a Gating Group Collection as a user
 

@@ -1,9 +1,8 @@
 # Spaces Custom Domain  
 
 
-<Tip warning={true}>
-Spaces Custom Domain feature is part of PRO and Team or Enterprise subscriptions.
-</Tip>
+> [!WARNING]
+> Spaces Custom Domain feature is part of PRO and Team or Enterprise subscriptions.
 
 ## Getting started with a Custom Domain
 

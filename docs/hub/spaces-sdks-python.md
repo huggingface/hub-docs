@@ -1,10 +1,7 @@
 # Custom Python Spaces
 
-<Tip>
-
-Spaces now support arbitrary Dockerfiles so you can host any Python app directly using [Docker Spaces](./spaces-sdks-docker).
-
-</Tip>
+> [!TIP]
+> Spaces now support arbitrary Dockerfiles so you can host any Python app directly using [Docker Spaces](./spaces-sdks-docker).
 
 While not an official workflow, you are able to run your own Python + interface stack in Spaces by selecting Gradio as your SDK and serving a frontend on port `7860`. See the [templates](https://huggingface.co/templates#spaces) for examples.
 
