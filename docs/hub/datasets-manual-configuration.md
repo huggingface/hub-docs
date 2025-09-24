@@ -73,11 +73,8 @@ configs:
 ---
 ```
 
-<Tip warning={true}>
-
-Note that `config_name` field is required even if you have a single subset.
-
-</Tip>
+> [!WARNING]
+> Note that `config_name` field is required even if you have a single subset.
 
 ## Multiple Subsets
 
@@ -105,19 +102,16 @@ configs:
 
 Note that the order of subsets shown in the viewer is the default one first, then alphabetical.
 
-<Tip>
-
-You can set a default subset using `default: true`
-
-```yaml
-- config_name: main_data
-  data_files: "main_data.csv"
-  default: true
-```
-
-This is useful to set which subset the Dataset Viewer shows first, and which subset data libraries load by default.
-
-</Tip>
+> [!TIP]
+> You can set a default subset using `default: true`
+>
+> ```yaml
+> - config_name: main_data
+>   data_files: "main_data.csv"
+>   default: true
+> ```
+>
+> This is useful to set which subset the Dataset Viewer shows first, and which subset data libraries load by default.
 
 
 ## Builder parameters

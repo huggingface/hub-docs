@@ -84,13 +84,10 @@ SELECT COUNT(*) FROM 'output.parquet';
 
 ```
 
-<Tip>
-
-You can also export to [CSV](https://duckdb.org/docs/guides/file_formats/csv_export), [Excel](https://duckdb.org/docs/guides/file_formats/excel_export
-) and [JSON](https://duckdb.org/docs/guides/file_formats/json_export
-) formats.
-
-</Tip>
+> [!TIP]
+> You can also export to [CSV](https://duckdb.org/docs/guides/file_formats/csv_export), [Excel](https://duckdb.org/docs/guides/file_formats/excel_export
+> ) and [JSON](https://duckdb.org/docs/guides/file_formats/json_export
+> ) formats.
 
 Finally, let's push the resulting dataset to the Hub. You can use the Hub UI, the `huggingface_hub` client library and more to upload your Parquet file, see more information [here](./datasets-adding).
 

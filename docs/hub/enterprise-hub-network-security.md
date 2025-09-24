@@ -1,8 +1,7 @@
 # Network Security
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
 
 ## Define your organization IP Ranges
 

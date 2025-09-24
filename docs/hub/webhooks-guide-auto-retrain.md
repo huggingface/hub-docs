@@ -1,10 +1,7 @@
 # Webhook guide: Setup an automatic system to re-train a model when a dataset changes
 
-<Tip>
-
-Webhooks are now publicly available!
-
-</Tip>
+> [!TIP]
+> Webhooks are now publicly available!
 
 This guide will help walk you through the setup of an automatic training pipeline on the Hugging Face platform
 using HF Datasets, Webhooks, Spaces, and AutoTrain.

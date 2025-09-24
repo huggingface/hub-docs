@@ -31,13 +31,10 @@ Local apps are applications that can run Hugging Face models directly on your ma
 
 The best way to check if a local app is supported is to go to the Local Apps settings and see if the app is listed. Here is a quick overview of some of the most popular local apps:
 
-<Tip>
-
-👨‍💻 To use these local apps, copy the snippets from the model card as above.
-
-👷 If you're building a local app, you can learn about integrating with the Hub in [this guide](https://huggingface.co/docs/hub/en/models-adding-libraries).
-
-</Tip>
+> [!TIP]
+> 👨‍💻 To use these local apps, copy the snippets from the model card as above.
+>
+> 👷 If you're building a local app, you can learn about integrating with the Hub in [this guide](https://huggingface.co/docs/hub/en/models-adding-libraries).
 
 ### Llama.cpp
 

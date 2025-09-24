@@ -114,9 +114,8 @@ RUN chmod 777 /data
 ```
 
 You should always avoid superfluous chowns.
-<Tip warning={true}>
-Updating metadata for a file creates a new copy stored in the new layer. Therefore, a recursive chown can result in a very large image due to the duplication of all affected files.
-</Tip>
+> [!WARNING]
+> Updating metadata for a file creates a new copy stored in the new layer. Therefore, a recursive chown can result in a very large image due to the duplication of all affected files.
 
 Rather than fixing permission by running `chown`:
 ```

@@ -4,8 +4,8 @@ The Hugging Face Hub gives you the ability to implement mandatory Single Sign-On
 
 We support both SAML 2.0 and OpenID Connect (OIDC) protocols.
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans. For enhanced capabilities like automated user provisioning (JIT/SCIM) and global SSO enforcement, see our <a href="./enterprise-hub-advanced-sso">Advanced SSO documentation</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans. For enhanced capabilities like automated user provisioning (JIT/SCIM) and global SSO enforcement, see our <a href="./enterprise-hub-advanced-sso">Advanced SSO documentation
 
 ## How does it work?
 

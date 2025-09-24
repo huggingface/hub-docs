@@ -1,8 +1,7 @@
 # Hugging Face Dataset Upload Decision Guide
 
-<Tip>
-This guide is primarily designed for LLMs to help users upload datasets to the Hugging Face Hub in the most compatible format. Users can also reference this guide to understand the upload process and best practices.
-</Tip>
+> [!TIP]
+> This guide is primarily designed for LLMs to help users upload datasets to the Hugging Face Hub in the most compatible format. Users can also reference this guide to understand the upload process and best practices.
 
 
 > Decision guide for uploading datasets to Hugging Face Hub. Optimized for Dataset Viewer compatibility and integration with the Hugging Face ecosystem.

@@ -31,14 +31,11 @@ You can deploy Giskard on Spaces with just a few clicks:
 </a>
 
 
-<Tip  warning={true}>
-
-IMPORTANT NOTE ABOUT DATA PERSISTENCE:
-You can use the Giskard Space as is for initial exploration and experimentation. For **longer use in 
-small-scale projects, activate the [paid persistent storage option](https://huggingface.co/docs/hub/spaces-storage)**. This prevents data loss during Space restarts which 
-occur every 24 hours.
-
-</Tip>
+> [!WARNING]
+> IMPORTANT NOTE ABOUT DATA PERSISTENCE:
+> You can use the Giskard Space as is for initial exploration and experimentation. For **longer use in 
+> small-scale projects, activate the [paid persistent storage option](https://huggingface.co/docs/hub/spaces-storage)**. This prevents data loss during Space restarts which 
+> occur every 24 hours.
 
 You need to define the **Owner** (your personal account or an organization), a **Space name**, and the **Visibility**. 
 If you don’t want to publicly share your models and quality tests, set your Space to **Private**.
@@ -100,12 +97,9 @@ giskard worker start -d -k GISKARD-API-KEY -u https://XXX.hf.space --hf-token GI
 In order to start building quality tests for a project, you will need to upload model and dataset objects, and either create or 
 upload a test suite from the Giskard Python library. 
 
-<Tip>
-
-For more information on how to create test suites from Giskard's Python library's automated model scanning tool, head 
-over to Giskard's [Quickstart Guides](https://docs.giskard.ai/en/latest/getting_started/quickstart/index.html).
-
-</Tip>
+> [!TIP]
+> For more information on how to create test suites from Giskard's Python library's automated model scanning tool, head 
+> over to Giskard's [Quickstart Guides](https://docs.giskard.ai/en/latest/getting_started/quickstart/index.html).
 
 These actions will all require a connection between your Python environment and 
 the Giskard Space. Achieve this by initializing a Giskard Client: simply copy the “Create a Giskard Client” snippet 

@@ -1,8 +1,7 @@
 # Advanced Single Sign-On (SSO)
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
 
 Advanced Single Sign-On (SSO) capabilities extend the standard [SSO features](./security-sso) available in the Enterprise Hub, offering enhanced control and automation for user management and access across the entire Hugging Face platform for your organization members.
 
@@ -34,9 +33,8 @@ This feature is particularly beneficial for organizations requiring a higher deg
 
 ## Limitations on Managed User Accounts
 
-<Tip warning={true}>
-Important Considerations for Managed Accounts.
-</Tip>
+> [!WARNING]
+> Important Considerations for Managed Accounts.
 
 To ensure organizational control and data governance, user accounts provisioned and managed via Advanced SSO ("managed user accounts") have specific limitations:
 

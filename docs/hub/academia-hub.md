@@ -1,8 +1,7 @@
 # Academia Hub
 
-<Tip>
-Ask your university's IT or Procurement Team to <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">get in touch</a> from a university-affiliated email address to initiate the subscription process.
-</Tip>
+> [!TIP]
+> Ask your university's IT or Procurement Team to <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">get in touch</a> from a university-affiliated email address to initiate the subscription process.
 
 Academia Hub is a paid offering that provides the Hugging Face Hub’s PRO features to every student, researcher, or faculty member of an academic institution. Explore advanced tools, enhanced collaboration, and exclusive resources to accelerate your learning, research, and teaching. The Hugging Face team is able to work with your IT or procurement department to set the product up.
 

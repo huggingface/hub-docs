@@ -1,18 +1,12 @@
 # Access control in organizations
 
-<Tip>
+> [!TIP]
+> You can set up [Single Sign-On (SSO)](./security-sso) to be able to map access control rules from your organization's Identity Provider.
 
-You can set up [Single Sign-On (SSO)](./security-sso) to be able to map access control rules from your organization's Identity Provider.
-
-</Tip>
-
-<Tip>
-
-Advanced and more fine-grained access control can be achieved with [Resource Groups](./security-resource-groups).
-
-The Resource Group feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-
-</Tip>
+> [!TIP]
+> Advanced and more fine-grained access control can be achieved with [Resource Groups](./security-resource-groups).
+>
+> The Resource Group feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 Members of organizations can have four different roles: `read`, `contributor`, `write`, or `admin`:
 
@@ -33,9 +27,8 @@ As an organization `admin`, go to the **Members** section of the org settings to
 
 ## Viewing members' email address
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 You may be able to view the email addresses of members of your organization. The visibility of the email addresses depends on the organization's SSO configuration, or verified organization status.
 

@@ -24,11 +24,8 @@ You’ll see the *Building status*. Once it becomes *Running*, your Space is rea
 
 ![Swagger UI](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tabby/swagger-ui.png)
 
-<Tip>
-
-If you want to customize the title, emojis, and colors of your space, go to "Files and Versions" and edit the metadata of your README.md file.
-
-</Tip>
+> [!TIP]
+> If you want to customize the title, emojis, and colors of your space, go to "Files and Versions" and edit the metadata of your README.md file.
 
 ### Your Tabby Space URL
 

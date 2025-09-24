@@ -4,17 +4,11 @@ You can enable a built-in sign-in flow in your Space by seamlessly creating and 
 
 This enables new use cases for your Space. For instance, when combined with [Persistent Storage](https://huggingface.co/docs/hub/spaces-storage), a generative AI Space could allow users to log in to access their previous generations, only accessible to them.
 
-<Tip>
+> [!TIP]
+> This guide will take you through the process of integrating a *Sign-In with HF* button into any Space. If you're seeking a fast and simple method to implement this in a **Gradio** Space, take a look at its [built-in integration](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face).
 
-This guide will take you through the process of integrating a *Sign-In with HF* button into any Space. If you're seeking a fast and simple method to implement this in a **Gradio** Space, take a look at its [built-in integration](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face).
-
-</Tip>
-
-<Tip>
-
-You can also use the HF OAuth flow to create a "Sign in with HF" flow in any website or App, outside of Spaces. [Read our general OAuth page](./oauth).
-
-</Tip>
+> [!TIP]
+> You can also use the HF OAuth flow to create a "Sign in with HF" flow in any website or App, outside of Spaces. [Read our general OAuth page](./oauth).
 
 ## Create an OAuth app
 
@@ -104,11 +98,8 @@ Basically, you need to:
 - Handle the callback on `/auth/callback` or `/login/callback` (or your own custom callback URL) and verify the `state` parameter.
 - Use the `code` query parameter to get an access token and id token from `https://huggingface.co/oauth/token` (POST request with `client_id`, `code`, `grant_type=authorization_code` and `redirect_uri` as form data, and with `Authorization: Basic {base64(client_id:client_secret)}` as a header).
 
-<Tip warning={true}>
-
-You should use `target=_blank` on the button to open the sign-in page in a new tab, unless you run the space outside its `iframe`. Otherwise, you might encounter issues with cookies on some browsers.
-
-</Tip>
+> [!WARNING]
+> You should use `target=_blank` on the button to open the sign-in page in a new tab, unless you run the space outside its `iframe`. Otherwise, you might encounter issues with cookies on some browsers.
 
 ## Examples:
 

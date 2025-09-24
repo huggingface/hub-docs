@@ -29,15 +29,12 @@ pip install huggingface_hub
 
 For more details about `huggingface_hub` installation, check out [this guide](https://huggingface.co/docs/huggingface_hub/installation).
 
-<Tip>
-
-In this guide, we will focus on Python libraries. If you've implemented your library in JavaScript, you can use [`@huggingface/hub`](https://www.npmjs.com/package/@huggingface/hub) instead. The rest of the logic (i.e. hosting files, code samples, etc.) does not depend on the code language.
-
-```
-npm add @huggingface/hub
-```
-
-</Tip>
+> [!TIP]
+> In this guide, we will focus on Python libraries. If you've implemented your library in JavaScript, you can use [`@huggingface/hub`](https://www.npmjs.com/package/@huggingface/hub) instead. The rest of the logic (i.e. hosting files, code samples, etc.) does not depend on the code language.
+>
+> ```
+> npm add @huggingface/hub
+> ```
 
 Users will need to authenticate once they have successfully installed the `huggingface_hub` library. The easiest way to authenticate is to save the token on the machine. Users can do that from the terminal using the `login()` command:
 

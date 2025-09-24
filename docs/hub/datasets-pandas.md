@@ -187,11 +187,8 @@ df["audio"] = df["audio"].sf.write()
 You can use `transformers` pipelines on pandas DataFrames to classify, generate text, images, etc.
 This section shows a few examples with `tqdm` for progress bars.
 
-<Tip>
-
-Pipelines don't accept a `tqdm` object as input but you can use a python generator instead, in the form `x for x in tqdm(...)`
-
-</Tip>
+> [!TIP]
+> Pipelines don't accept a `tqdm` object as input but you can use a python generator instead, in the form `x for x in tqdm(...)`
 
 ### Text Classification
 

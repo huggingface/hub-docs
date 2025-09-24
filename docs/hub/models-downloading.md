@@ -59,13 +59,10 @@ pip install "huggingface_hub[hf_transfer]"
 HF_HUB_ENABLE_HF_TRANSFER=1 hf download ...
 ```
 
-<Tip warning={true}>
-
-`hf_transfer` is a power user tool!
-It is tested and production-ready,
-but it lacks user-friendly features like advanced error handling or proxies.
-For more details, please take a look at this [guide](https://huggingface.co/docs/huggingface_hub/hf_transfer).
-
-</Tip>
+> [!WARNING]
+> `hf_transfer` is a power user tool!
+> It is tested and production-ready,
+> but it lacks user-friendly features like advanced error handling or proxies.
+> For more details, please take a look at this [guide](https://huggingface.co/docs/huggingface_hub/hf_transfer).
 
 

@@ -1,8 +1,7 @@
 # Audit Logs
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 Audit Logs enable organization admins to easily review actions taken by members, including organization membership, repository settings and billing changes.
 

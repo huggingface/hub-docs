@@ -18,11 +18,8 @@ With the HF MCP Server, you can enhance your AI assistant's capabilities by conn
 
 Visit [huggingface.co/settings/mcp](https://huggingface.co/settings/mcp) to configure your MCP client and get started. Read the dedicated one‑page guide: [HF MCP Server](./hf-mcp-server).
 
-<Tip warning={true}>
-
-This feature is experimental ⚗️ and will continue to evolve.
-
-</Tip>
+> [!WARNING]
+> This feature is experimental ⚗️ and will continue to evolve.
 
 ## tiny-agents (JS and Python)
 
@@ -143,11 +140,8 @@ To use a local LLM (such as [llama.cpp](https://github.com/ggerganov/llama.cpp),
 
 Optionally, add a `PROMPT.md` to customize the system prompt.
 
-<Tip>
-
-Don't hesitate to contribute your agent to the community by opening a Pull Request in the [tiny-agents](https://huggingface.co/datasets/tiny-agents/tiny-agents) Hugging Face dataset.
-
-</Tip>
+> [!TIP]
+> Don't hesitate to contribute your agent to the community by opening a Pull Request in the [tiny-agents](https://huggingface.co/datasets/tiny-agents/tiny-agents) Hugging Face dataset.
 
 ## Gradio MCP Server / Tools
 

@@ -1,8 +1,7 @@
 # Tokens Management
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 Tokens Management enables organization administrators to oversee access tokens within their organization, ensuring secure access to organization resources.
 

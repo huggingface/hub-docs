@@ -75,10 +75,9 @@ login to access the dashboard (username: 'default', password: (leave it empty)).
 Once you have your ZenML server up and running, you can connect to it from your
 local machine. To do this, you'll need to get your Space's 'Direct URL' (see above).
 
-<Tip warning={true}>
-Your Space's URL will only be available and usable for connecting from your
-local machine if the visibility of the space is set to 'Public'.
-</Tip>
+> [!WARNING]
+> Your Space's URL will only be available and usable for connecting from your
+> local machine if the visibility of the space is set to 'Public'.
 
 You can use the 'Direct URL' to connect to your ZenML server from your local machine
 with the following CLI command (after installing ZenML, and using your custom
@@ -91,12 +90,11 @@ zenml connect --url '<YOUR_HF_SPACES_DIRECT_URL>' --username='default' --passwor
 You can also use the Direct URL in your browser to use the ZenML dashboard as a
 fullscreen application (i.e. without the HuggingFace Spaces wrapper around it).
 
-<Tip warning={true}>
-The ZenML dashboard will currently not work when viewed from within the Huggingface 
-webpage (i.e. wrapped in the main `https://huggingface.co/...` website). This is on 
-account of a limitation in how cookies are handled between ZenML and Huggingface. 
-You **must** view the dashboard from the 'Direct URL' (see above).
-</Tip>
+> [!WARNING]
+> The ZenML dashboard will currently not work when viewed from within the Huggingface 
+> webpage (i.e. wrapped in the main `https://huggingface.co/...` website). This is on 
+> account of a limitation in how cookies are handled between ZenML and Huggingface. 
+> You **must** view the dashboard from the 'Direct URL' (see above).
 
 ## Extra Configuration Options
 
@@ -107,10 +105,9 @@ full details on the various parameters you can change, see [our reference
 documentation](https://docs.zenml.io/getting-started/deploying-zenml/docker#zenml-server-configuration-options) on configuring
 ZenML when deployed with Docker.
 
-<Tip>
-If you are using the space just for testing and experimentation, you don't need
-to make any changes to the configuration. Everything will work out of the box.
-</Tip>
+> [!TIP]
+> If you are using the space just for testing and experimentation, you don't need
+> to make any changes to the configuration. Everything will work out of the box.
 
 You can also use an external secrets backend together with your HuggingFace
 Spaces as described in [our
@@ -120,25 +117,24 @@ configure any secrets you need to use in your`Dockerfile` configuration. [See th
 documentation](https://huggingface.co/docs/hub/spaces-sdks-docker#secret-management)
 for more details how to set this up.
 
-<Tip warning={true}>
-If you wish to use a cloud secrets backend together with ZenML for secrets
-management, **you must take the following minimal security precautions** on your ZenML Server on the
-Dashboard:
-
-- change your password on the `default` account that you get when you start. You
-  can do this from the Dashboard or via the CLI.
-- create a new user account with a password and assign it the `admin` role. This
-  can also be done from the Dashboard (by 'inviting' a new user) or via the CLI.
-- reconnect to the server using the new user account and password as described
-  above, and use this new user account as your working account.
-
-This is because the default user created by the
-HuggingFace Spaces deployment process has no password assigned to it and as the
-Space is publicly accessible (since the Space is public) *potentially anyone
-could access your secrets without this extra step*. To change your password
-navigate to the Settings page by clicking the button in the upper right hand
-corner of the Dashboard and then click 'Update Password'.
-</Tip>
+> [!WARNING]
+> If you wish to use a cloud secrets backend together with ZenML for secrets
+> management, **you must take the following minimal security precautions** on your ZenML Server on the
+> Dashboard:
+>
+> - change your password on the `default` account that you get when you start. You
+>   can do this from the Dashboard or via the CLI.
+> - create a new user account with a password and assign it the `admin` role. This
+>   can also be done from the Dashboard (by 'inviting' a new user) or via the CLI.
+> - reconnect to the server using the new user account and password as described
+>   above, and use this new user account as your working account.
+>
+> This is because the default user created by the
+> HuggingFace Spaces deployment process has no password assigned to it and as the
+> Space is publicly accessible (since the Space is public) *potentially anyone
+> could access your secrets without this extra step*. To change your password
+> navigate to the Settings page by clicking the button in the upper right hand
+> corner of the Dashboard and then click 'Update Password'.
 
 ## Upgrading your ZenML Server on HF Spaces
 

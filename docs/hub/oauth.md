@@ -18,11 +18,8 @@ You can create your application in your [settings](https://huggingface.co/settin
 
 ### If you are hosting in Spaces
 
-<Tip>
-
-If you host your app on Spaces, then the flow will be even easier to implement (and built-in to Gradio directly); Check our [Spaces OAuth guide](https://huggingface.co/docs/hub/spaces-oauth).
-
-</Tip>
+> [!TIP]
+> If you host your app on Spaces, then the flow will be even easier to implement (and built-in to Gradio directly); Check our [Spaces OAuth guide](https://huggingface.co/docs/hub/spaces-oauth).
 
 ## Currently supported scopes
 
@@ -40,11 +37,8 @@ The currently supported scopes are:
 
 All other information is available in the [OpenID metadata](https://huggingface.co/.well-known/openid-configuration).
 
-<Tip warning={true}>
-
-Please contact us if you need any extra scopes.
-
-</Tip>
+> [!WARNING]
+> Please contact us if you need any extra scopes.
 
 ## Accessing organization resources
 

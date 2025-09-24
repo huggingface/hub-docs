@@ -1,8 +1,7 @@
 # Advanced Security
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 Enterprise Hub organizations can improve their security with advanced security controls for both members and repositories.
 

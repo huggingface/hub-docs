@@ -1,10 +1,7 @@
 # Webhook guide: Setup an automatic metadata quality review for models and datasets 
 
-<Tip>
-
-Webhooks are now publicly available!
-
-</Tip>
+> [!TIP]
+> Webhooks are now publicly available!
 
 This guide will walk you through creating a system that reacts to changes to a user's or organization's models or datasets on the Hub and creates a 'metadata review' for the changed repository. 
 
@@ -141,9 +138,8 @@ def create_or_update_report(data):
     return True
 ```
 
-<Tip>
-    `:=` is the Python Syntax for an assignment expression operator added to the Python language in version 3.8 (colloquially known as the walrus operator). People have mixed opinions on this syntax, and it doesn't change how Python evaluates the code if you don't use this. You can read more about this operator in this <a href="https://realpython.com/python-walrus-operator">Real Python article</a>.
-</Tip>
+> [!TIP]
+> `:=` is the Python Syntax for an assignment expression operator added to the Python language in version 3.8 (colloquially known as the walrus operator). People have mixed opinions on this syntax, and it doesn't change how Python evaluates the code if you don't use this. You can read more about this operator in this <a href="https://realpython.com/python-walrus-operator">Real Python article</a>.
 
 ## Creating a Webhook to respond to changes on the Hub
 
@@ -168,9 +164,8 @@ This guide creates a separate user account that will post the metadata reviews.
 
 ![Bot user account](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhooks-guides/003-metadata-review/librarian-bot-profile.png)
 
-<Tip>
-	When creating a bot that will interact with other users on the Hub, we ask that you clearly label the account as a "Bot" (see profile screenshot).
-</Tip>
+> [!TIP]
+> When creating a bot that will interact with other users on the Hub, we ask that you clearly label the account as a "Bot" (see profile screenshot).
 
 
 ## Create a Webhook listener

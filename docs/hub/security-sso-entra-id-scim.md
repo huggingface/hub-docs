@@ -2,9 +2,8 @@
 
 This guide explains how to set up automatic user and group provisioning between Microsoft Entra ID and your Hugging Face organization using SCIM.
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
 
 ### Step 1: Get SCIM configuration from Hugging Face
 
@@ -54,16 +53,15 @@ This feature is part of the <a href="https://huggingface.co/contact/sales?from=e
 
 3.  The Username needs to comply with the following rules.
 
-<Tip warning={true}>
-<ul>
-<li>Only regular characters and `-` are accepted in the Username.</li>
-<li>`--` (double dash) is forbidden.</li>
-<li>`-` cannot start or end the name.</li>
-<li>Digit-only names are not accepted.</li>
-<li>Minimum length is 2 and maximum length is 42.</li>
-<li>Username has to be unique within your org.</li>
-</ul>
-</Tip>
+> [!WARNING]
+> <ul>
+> <li>Only regular characters and `-` are accepted in the Username.</li>
+> <li>`--` (double dash) is forbidden.</li>
+> <li>`-` cannot start or end the name.</li>
+> <li>Digit-only names are not accepted.</li>
+> <li>Minimum length is 2 and maximum length is 42.</li>
+> <li>Username has to be unique within your org.</li>
+> </ul>
 
 4.  After configuring the user mappings, go back to the Provisioning screen and click on **Provision Microsoft Entra ID Groups** to review group mappings. The default settings for groups are usually sufficient.
 
@@ -91,13 +89,12 @@ To control which users and groups are provisioned to your Hugging Face organizat
 
 Only the users and groups you assign here will be provisioned to Hugging Face if you have set the **Scope** to "Sync only assigned users and groups".
 
-<Tip>
-<p><strong>Active Directory Plan Considerations</strong></p>
-<ul>
-<li>With <strong>Free, Office 365, and Premium P1/P2 plans</strong>, you can assign individual users to the application for provisioning.</li>
-<li>With <strong>Premium P1/P2 plans</strong>, you can also assign groups. This is the recommended approach for managing access at scale, as you can manage group membership in AD, and the changes will automatically be reflected in Hugging Face.</li>
-</ul>
-</Tip>
+> [!TIP]
+> <p><strong>Active Directory Plan Considerations</strong></p>
+> <ul>
+> <li>With <strong>Free, Office 365, and Premium P1/P2 plans</strong>, you can assign individual users to the application for provisioning.</li>
+> <li>With <strong>Premium P1/P2 plans</strong>, you can also assign groups. This is the recommended approach for managing access at scale, as you can manage group membership in AD, and the changes will automatically be reflected in Hugging Face.</li>
+> </ul>
 
 ### Step 6: Verify Provisioning in Hugging Face
 

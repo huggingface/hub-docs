@@ -4,9 +4,8 @@ In this guide, we will use Google Workspace as the SSO provider with the OpenID 
 
 We currently support SP-initiated authentication. User provisioning is part of Enterprise Plus's [Advanced SSO](./enterprise-hub-advanced-sso).
 
-<Tip warning={true}>
-    This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 ### Step 1: Create OIDC App in Google Workspace
 
@@ -35,9 +34,8 @@ We currently support SP-initiated authentication. User provisioning is part of E
 
 ### Step 3: Test and Enable SSO
 
-<Tip warning={true}>
-Before testing, ensure you have granted access to the application for the appropriate users. The admin performing the test must have access.
-</Tip>
+> [!WARNING]
+> Before testing, ensure you have granted access to the application for the appropriate users. The admin performing the test must have access.
 
 - Now, in your Hugging Face SSO settings, click on **"Update and Test OIDC configuration"**.
 - You should be redirected to your Google login prompt. Once logged in, you'll be redirected to your organization's settings page.

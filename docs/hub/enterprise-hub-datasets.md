@@ -1,8 +1,7 @@
 # Datasets
 
-<Tip warning={true}>
-This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-</Tip>
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 Data Studio is enabled on private datasets under your Enterprise Hub organization.
 
