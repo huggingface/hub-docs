@@ -55,11 +55,8 @@ export HF_TOKEN="your_token_here"
 const HF_TOKEN = process.env.HF_TOKEN;
 ```
 
-<Tip warning={true}>
-
-When we deploy our app to Hugging Face Spaces, we'll need to add our token as a secret. This is a secure way to handle the token and avoid exposing it in the code.
-
-</Tip>
+> [!WARNING]
+> When we deploy our app to Hugging Face Spaces, we'll need to add our token as a secret. This is a secure way to handle the token and avoid exposing it in the code.
 
 </hfoption>
 </hfoptions>
@@ -179,11 +176,8 @@ We'll also need to implement the `transcribe` and `summarize` functions.
 
 Now let's implement the transcription using OpenAI's `whisper-large-v3` model for fast, reliable speech processing.
 
-<Tip>
-
-We'll use the `auto` provider to automatically select the first available provider for the model. You can define your own priority list of providers in the [Inference Providers](https://huggingface.co/settings/inference-providers) page.
-
-</Tip>
+> [!TIP]
+> We'll use the `auto` provider to automatically select the first available provider for the model. You can define your own priority list of providers in the [Inference Providers](https://huggingface.co/settings/inference-providers) page.
 
 ```python
 def transcribe_audio(audio_file_path):
@@ -205,11 +199,8 @@ def transcribe_audio(audio_file_path):
 
 Now let's implement the transcription using OpenAI's `whisper-large-v3` model for fast, reliable speech processing.
 
-<Tip>
-
-We'll use the `auto` provider to automatically select the first available provider for the model. You can define your own priority list of providers in the [Inference Providers](https://huggingface.co/settings/inference-providers) page.
-
-</Tip>
+> [!TIP]
+> We'll use the `auto` provider to automatically select the first available provider for the model. You can define your own priority list of providers in the [Inference Providers](https://huggingface.co/settings/inference-providers) page.
 
 ```javascript
 import { InferenceClient } from 'https://esm.sh/@huggingface/inference';

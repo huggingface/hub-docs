@@ -4,11 +4,8 @@ In this guide, we'll show you how to use Inference Providers to generate structu
 
 Structured outputs guarantee a model returns a response that matches your exact schema every time. This eliminates the need for complex parsing logic and makes your applications more robust.
 
-<Tip>
-
-This guide assumes you have a Hugging Face account. If you don't have one, you can create one for free at [huggingface.co](https://huggingface.co).
-
-</Tip>
+> [!TIP]
+> This guide assumes you have a Hugging Face account. If you don't have one, you can create one for free at [huggingface.co](https://huggingface.co).
 
 ## What Are Structured Outputs?
 
@@ -113,11 +110,8 @@ client = OpenAI(
 
 </hfoptions>
 
-<Tip>
-
-Structured outputs are a good use case for selecting a specific provider and model because you want to avoid incompatibility issues between the model, provider and the schema.
-
-</Tip>
+> [!TIP]
+> Structured outputs are a good use case for selecting a specific provider and model because you want to avoid incompatibility issues between the model, provider and the schema.
 
 ## Step 3: Generate structured output
 

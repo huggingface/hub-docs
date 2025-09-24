@@ -9,11 +9,8 @@ Our app will:
 3. **Transform images** using Qwen Image Edit or FLUX.1 Kontext
 4. **Display results** in a Gradio interface
 
-<Tip>
-
-TL;DR - this guide will show you how to build an AI image editor with Gradio and Inference Providers, just like [this one](https://huggingface.co/spaces/Qwen/Qwen-Image-Edit).
-
-</Tip>
+> [!TIP]
+> TL;DR - this guide will show you how to build an AI image editor with Gradio and Inference Providers, just like [this one](https://huggingface.co/spaces/Qwen/Qwen-Image-Edit).
 
 ## Step 1: Set Up Authentication
 
@@ -24,11 +21,8 @@ Before we start coding, authenticate with Hugging Face using your token:
 export HF_TOKEN="your_token_here"
 ```
 
-<Tip>
-
-This guide assumes you have a Hugging Face account. If you don't have one, you can create one for free at [huggingface.co](https://huggingface.co).
-
-</Tip>
+> [!TIP]
+> This guide assumes you have a Hugging Face account. If you don't have one, you can create one for free at [huggingface.co](https://huggingface.co).
 
 When you set this environment variable, it handles authentication automatically for all your inference calls. You can generate a token from [your settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained).
 
@@ -50,11 +44,8 @@ uv add huggingface-hub>=0.34.4 gradio>=5.0.0 pillow>=11.3.0
 
 The dependencies are now installed and ready to use! Also, `uv` will maintain the `pyproject.toml` file for you as you add dependencies.
 
-<Tip>
-
-We're using `uv` because it's a fast Python package manager that handles dependency resolution and virtual environment management automatically. It's much faster than pip and provides better dependency resolution. If you're not familiar with `uv`, check it out [here](https://docs.astral.sh/uv/).
-
-</Tip>
+> [!TIP]
+> We're using `uv` because it's a fast Python package manager that handles dependency resolution and virtual environment management automatically. It's much faster than pip and provides better dependency resolution. If you're not familiar with `uv`, check it out [here](https://docs.astral.sh/uv/).
 
 ## Step 3: Build the Core Image Editing Function
 
@@ -115,18 +106,15 @@ def edit_image(input_image, prompt):
         return input_image
 ```
 
-<Tip>
-
-We're using the `fal-ai` provider with the `Qwen/Qwen-Image-Edit` model. The fal-ai provider offers fast inference times, perfect for interactive applications.
-
-However, you can experiment with different providers for various performance characteristics:
-
-```python
-client = InferenceClient(provider="replicate", api_key=os.environ["HF_TOKEN"])
-client = InferenceClient(provider="auto", api_key=os.environ["HF_TOKEN"])  # Automatic selection
-```
-
-</Tip>
+> [!TIP]
+> We're using the `fal-ai` provider with the `Qwen/Qwen-Image-Edit` model. The fal-ai provider offers fast inference times, perfect for interactive applications.
+>
+> However, you can experiment with different providers for various performance characteristics:
+>
+> ```python
+> client = InferenceClient(provider="replicate", api_key=os.environ["HF_TOKEN"])
+> client = InferenceClient(provider="auto", api_key=os.environ["HF_TOKEN"])  # Automatic selection
+> ```
 
 ## Step 4: Create the Gradio Interface
 
@@ -322,11 +310,8 @@ uv export --format requirements-txt --output-file requirements.txt
 
 This creates a `requirements.txt` file with all your project dependencies and their exact versions from the lockfile.
 
-<Tip>
-
-The `uv export` command ensures that your Space will use the exact same dependency versions that you tested locally, preventing deployment issues caused by version mismatches.
-
-</Tip>
+> [!TIP]
+> The `uv export` command ensures that your Space will use the exact same dependency versions that you tested locally, preventing deployment issues caused by version mismatches.
 
 Now you can deploy to Spaces:
 

@@ -19,11 +19,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # SambaNova
 
-<Tip>
-
-All supported SambaNova models can be found [here](https://huggingface.co/models?inference_provider=sambanova&sort=trending)
-
-</Tip>
+> [!TIP]
+> All supported SambaNova models can be found [here](https://huggingface.co/models?inference_provider=sambanova&sort=trending)
 
 <div class="flex justify-center">
     <a href="https://sambanova.ai/" target="_blank">

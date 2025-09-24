@@ -16,11 +16,8 @@ For more details, check out:
 
 Translation is the task of converting text from one language to another.
 
-<Tip>
-
-For more details about the `translation` task, check out its [dedicated page](https://huggingface.co/tasks/translation)! You will find examples and related materials.
-
-</Tip>
+> [!TIP]
+> For more details about the `translation` task, check out its [dedicated page](https://huggingface.co/tasks/translation)! You will find examples and related materials.
 
 ### Recommended models
 

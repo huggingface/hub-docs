@@ -13,11 +13,8 @@ Use frontier open LLMs like Kimi K2, DeepSeek V3.1, GLM 4.5 and more in VS Code 
 5. Enter your Hugging Face Token. You can get one from your [settings page](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained).
 6. Choose the models you want to add to the model picker. 🥳
 
-<Tip>
-
-VS Code 1.104.0+ is required to install the HF Copilot Chat extension. If "Hugging Face" doesn't appear in the Copilot provider list, update VS Code, then reload.
-
-</Tip>
+> [!TIP]
+> VS Code 1.104.0+ is required to install the HF Copilot Chat extension. If "Hugging Face" doesn't appear in the Copilot provider list, update VS Code, then reload.
 
 ## ✨ Why use the Hugging Face provider in Copilot
 

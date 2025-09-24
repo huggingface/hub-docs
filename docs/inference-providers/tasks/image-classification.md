@@ -16,11 +16,8 @@ For more details, check out:
 
 Image classification is the task of assigning a label or class to an entire image. Images are expected to have only one class for each image.
 
-<Tip>
-
-For more details about the `image-classification` task, check out its [dedicated page](https://huggingface.co/tasks/image-classification)! You will find examples and related materials.
-
-</Tip>
+> [!TIP]
+> For more details about the `image-classification` task, check out its [dedicated page](https://huggingface.co/tasks/image-classification)! You will find examples and related materials.
 
 ### Recommended models
 

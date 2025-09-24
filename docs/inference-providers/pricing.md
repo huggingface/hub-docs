@@ -12,11 +12,8 @@ Every Hugging Face user receives monthly credits to experiment with Inference Pr
 | PRO Users                        | $2.00                    | yes                         |
 | Team or Enterprise Organizations | $2.00 per seat           | yes                         |
 
-<Tip>
-
-Your monthly credits automatically apply when you route requests through Hugging Face. For Team or Enterprise organizations, credits are shared among all members.
-
-</Tip>
+> [!TIP]
+> Your monthly credits automatically apply when you route requests through Hugging Face. For Team or Enterprise organizations, credits are shared among all members.
 
 ## How Billing Works: Choose Your Approach
 
@@ -44,11 +41,8 @@ See the [Organization Billing section](#organization-billing) below for more det
 **PRO users and Enterprise Hub organizations** can continue using the API after exhausting their monthly credits. This ensures uninterrupted access to models for production workloads.
 
 
-<Tip>
-
-Hugging Face charges you the same rates as the provider, with no additional fees. We just pass through the provider costs directly.
-
-</Tip>
+> [!TIP]
+> Hugging Face charges you the same rates as the provider, with no additional fees. We just pass through the provider costs directly.
 
 You can track your spending anytime on your [billing page](https://huggingface.co/settings/billing).
 
@@ -67,11 +61,8 @@ Here is a table that sums up what we've seen so far:
 | **Routed Requests**                 | Yes        | Hugging Face | Yes                | Only for PRO users and for integrated providers | SDKs, Playground, widgets, Data AI Studio |
 | **Custom Provider Key** | Yes        | Provider     | No                 | Yes                                             | SDKs, Playground, widgets, Data AI Studio |
 
-<Tip>
-
-You can set your custom provider key in the [settings page](https://huggingface.co/settings/inference-providers) on the Hub, or in the `InferenceClient` when using the JavaScript or Python SDKs. When making a routed request with a custom key, your code remains unchanged—you can still pass your Hugging Face User Access Token. Hugging Face will automatically swap the authentication when routing the request.
-
-</Tip>
+> [!TIP]
+> You can set your custom provider key in the [settings page](https://huggingface.co/settings/inference-providers) on the Hub, or in the `InferenceClient` when using the JavaScript or Python SDKs. When making a routed request with a custom key, your code remains unchanged—you can still pass your Hugging Face User Access Token. Hugging Face will automatically swap the authentication when routing the request.
 
 ## HF-Inference cost
 

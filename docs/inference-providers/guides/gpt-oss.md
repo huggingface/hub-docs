@@ -16,11 +16,8 @@ Both models are supported on Inference Providers and can be accessed through eit
 export HF_TOKEN="your_token_here"
 ```
 
-<Tip>
-
-💡 Pro tip: The free tier gives you monthly inference credits to start building and experimenting. Upgrade to [Hugging Face PRO](https://huggingface.co/pro) for even more flexibility, $2 in monthly credits plus pay‑as‑you‑go access to all providers!
-
-</Tip>
+> [!TIP]
+> 💡 Pro tip: The free tier gives you monthly inference credits to start building and experimenting. Upgrade to [Hugging Face PRO](https://huggingface.co/pro) for even more flexibility, $2 in monthly credits plus pay‑as‑you‑go access to all providers!
 
 2. Install the official OpenAI SDK.
 
@@ -293,11 +290,8 @@ Key Advantages:
 - Stateful, Event-Driven Architecture: Features a stateful, event-driven architecture. Instead of resending the entire text on every update, it streams semantic events that describe only the precise change (the "delta"). This eliminates the need for manual state tracking.
 - Simplified Development for Complex Logic: The event-driven model makes it easier to build reliable applications with multi-step logic. Your code simply listens for specific events, leading to cleaner and more robust integrations.
 
-<Tip>
-
-The implementation is based on the open-source [huggingface/responses.js](https://github.com/huggingface/responses.js) project.
-
-</Tip>
+> [!TIP]
+> The implementation is based on the open-source [huggingface/responses.js](https://github.com/huggingface/responses.js) project.
 
 ### Stream responses
 

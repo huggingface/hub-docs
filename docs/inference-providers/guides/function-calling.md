@@ -4,11 +4,8 @@ Function calling enables language models to interact with external tools and API
 
 When you provide a language model that has been fine-tuned to use tools with function descriptions, it can decide when to call these functions based on user requests, execute them, and incorporate the results into natural language responses. For example, you can build an assistant that fetches real-time weather data to provide accurate responses.
 
-<Tip>
-
-This guide assumes you have a Hugging Face account and access token. You can create a free account at [huggingface.co](https://huggingface.co) and get your token from your [settings page](https://huggingface.co/settings/tokens).
-
-</Tip>
+> [!TIP]
+> This guide assumes you have a Hugging Face account and access token. You can create a free account at [huggingface.co](https://huggingface.co) and get your token from your [settings page](https://huggingface.co/settings/tokens).
 
 ## Defining Functions
 
@@ -126,11 +123,8 @@ response = client.chat.completions.create(
 response_message = response.choices[0].message
 ```
 
-<Tip>
-
-The `tool_choice` parameter is used to control when the model calls functions. In this case, we're using `auto`, which means the model will decide when to call functions (0 or more times). Below we'll expand on `tool_choice` and other parameters.
-
-</Tip>
+> [!TIP]
+> The `tool_choice` parameter is used to control when the model calls functions. In this case, we're using `auto`, which means the model will decide when to call functions (0 or more times). Below we'll expand on `tool_choice` and other parameters.
 
 Next, we need to check in the model response where the model decided to call any functions. If it did, we need to execute the function and add the result to the conversation, before we send the final response to the user.
 
@@ -172,11 +166,8 @@ else:
 
 The workflow is straightforward: make an initial API call with your tools, check if the model wants to call functions, execute them if needed, add the results to the conversation, and get the final response for the user.
 
-<Tip warning={true}>
-
-We have handled the case where the model wants to call a function and that the function actually exists. However, models might try to call functions that don’t exist, so we need to account for that as well. We can also deal with this using `strict` mode, which we'll cover later.
-
-</Tip>
+> [!WARNING]
+> We have handled the case where the model wants to call a function and that the function actually exists. However, models might try to call functions that don’t exist, so we need to account for that as well. We can also deal with this using `strict` mode, which we'll cover later.
 
 ## Multiple Functions
 
@@ -341,11 +332,8 @@ client = InferenceClient(
 
 By switching provider, you can see the model's response change because each provider uses a different configuration of the model.
 
-<Tip warning={true}>
-
-Each inference provider has different capabilities and performance characteristics. You can find more information about each provider in the [Inference Providers](/inference-providers/index#partners) section.
-
-</Tip>
+> [!WARNING]
+> Each inference provider has different capabilities and performance characteristics. You can find more information about each provider in the [Inference Providers](/inference-providers/index#partners) section.
 
 ### Tool Choice Options
 
@@ -402,11 +390,8 @@ Here, we're forcing the model to call the `get_current_weather` function, and no
 
 <hfoption id="huggingface_hub">
 
-<Tip warning={true}>
-
-Currently, `huggingface_hub.InferenceClient` does not support the `tool_choice` parameters that specify which function to call.
-
-</Tip>
+> [!WARNING]
+> Currently, `huggingface_hub.InferenceClient` does not support the `tool_choice` parameters that specify which function to call.
 
 </hfoption>
 
@@ -440,11 +425,8 @@ tools = [
 
 Strict mode ensures that function arguments match your schema exactly: no additional properties are allowed, all required parameters must be provided, and data types are strictly enforced.
 
-<Tip warning={true}>
-
-Strict mode is not supported by all providers. You can check the provider's documentation to see if it supports strict mode.
-
-</Tip>
+> [!WARNING]
+> Strict mode is not supported by all providers. You can check the provider's documentation to see if it supports strict mode.
 
 ### Streaming Responses
 
@@ -473,11 +455,8 @@ for chunk in stream:
 
 Streaming allows you to process responses as they arrive, show real-time progress to users, and handle long-running function calls more efficiently.
 
-<Tip warning={true}>
-
-Streaming is not supported by all providers. You can check the provider's documentation to see if it supports streaming, or you can refer to this [dynamic model compatibility table](https://huggingface.co/inference-providers/models).
-
-</Tip>
+> [!WARNING]
+> Streaming is not supported by all providers. You can check the provider's documentation to see if it supports streaming, or you can refer to this [dynamic model compatibility table](https://huggingface.co/inference-providers/models).
 
 ## Next Steps
 
