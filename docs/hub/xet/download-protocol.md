@@ -13,9 +13,9 @@ File download in the Xet protocol is a two-stage process:
 
 ### Single File Reconstruction
 
-To download a file given a file hash, first call the reconstruction API to get the file reconstruction. Follow the steps in [api.md](./api.md#1-get-file-reconstruction).
+To download a file given a file hash, first call the reconstruction API to get the file reconstruction. Follow the steps in [api](./api#1-get-file-reconstruction).
 
-Note that you will need at least a `read` scope auth token, [auth reference](./auth.md).
+Note that you will need at least a `read` scope auth token, [auth reference](./auth).
 
 > For large files it is RECOMMENDED to request the reconstruction in batches i.e. the first 10GB, download all the data, then the next 10GB and so on. Clients can use the `Range` header to specify a range of file data.
 
@@ -116,7 +116,7 @@ Scroll
 
 ```python
 file_id = "0123...abcdef"
-api_endpoint, token = get_token() # follow auth.md instructions
+api_endpoint, token = get_token() # follow auth instructions
 url = api_endpoint + "/reconstructions/" + file_id
 reconstruction = get(url, headers={"Authorization": "Bearer: " + token})
 
@@ -172,7 +172,7 @@ The downloaded data is in xorb format and MUST be deserialized:
 3. **Extract byte indices**: Track byte boundaries between chunks for range extraction
 4. **Validate length**: Decompressed length MUST match `unpacked_length` from the term
 
-**Note**: The specific deserialization process depends on the [Xorb format](../xorb.md).
+**Note**: The specific deserialization process depends on the [Xorb format](../xorb).
 
 ```python
 for term in terms:
@@ -340,23 +340,23 @@ Note that in this example the chunk at index 3 is used twice! This is the benefi
 ```mermaid
 sequenceDiagram
   autonumber
-  actor Client as "Client"
-  participant CAS as "CAS API"
-  participant Transfer as "Transfer Service (Xet storage)"
+  actor client as Client
+  participant S as CAS API
+  participant Transfer as Transfer Service (Xet storage)
 
-  Client->>CAS: GET /reconstructions/{file_id}<br/>Authorization: Bearer <token><br/>Range: bytes=start-end (optional)
-  CAS-->>Client: 200 OK<br/>QueryReconstructionResponse {offset_into_first_range, terms[], fetch_info{}}
+  client->>S: GET /reconstructions/{file_id}<br/>Authorization: Bearer <token><br/>Range: bytes=start-end (optional)
+  S-->>client: 200 OK<br/>QueryReconstructionResponse {offset_into_first_range, terms[], fetch_info{}}
 
   loop For each term in terms (ordered)
-    Client->>Client: Find fetch_info by xorb hash, entry whose range contains term.range
-    Client->>Transfer: GET {url}<br/>Range: bytes=url_range.start-url_range.end
-    Transfer-->>Client: 206 Partial Content<br/>xorb byte range
-    Client->>Client: Deserialize xorb → chunks for fetch_info.range
-    Client->>Client: Trim to term.range, apply offset for first term
-    Client->>Client: Append chunks to output
+    client->>client: Find fetch_info by xorb hash, entry whose range contains term.range
+    client->>Transfer: GET {url}<br/>Range: bytes=url_range.start-url_range.end
+    Transfer-->>client: 206 Partial Content<br/>xorb byte range
+    client->>client: Deserialize xorb → chunks for fetch_info.range
+    client->>client: Trim to term.range, apply offset for first term
+    client->>client: Append chunks to output
   end
 
   alt Range requested
-    Client->>Client: Truncate output to requested length
+    client->>client: Truncate output to requested length
   end
 ```

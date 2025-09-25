@@ -8,7 +8,7 @@ The Shard format is the vehicle for uploading the file reconstruction upload and
 
 The MDB (Merkle Database) shard file format is a binary format used to store file metadata and content-addressable storage (CAS) information for efficient deduplication and retrieval.
 This document describes the binary layout and deserialization process for the shard format.
-Implementors of the xet protocol MUST use the shard format when implementing the [upload protocol](./upload-protocol.md).
+Implementors of the xet protocol MUST use the shard format when implementing the [upload protocol](./upload-protocol).
 The shard format is used on the shard upload (record files) and global deduplication APIs.
 
 ## Use As API Request and Response Bodies
@@ -141,7 +141,7 @@ struct MDBShardFileHeader {
 This section contains a sequence of 0 or more file information (File Info) blocks, each consisting at least a header and at least 1 data sequence entry, and OPTIONAL verification entries and metadata extension section.
 The file info section ends when reaching the bookend entry.
 
-Each File Info block within the overall section is a serialization of a [file reconstruction](./file-reconstruction.md) into a binary format.
+Each File Info block within the overall section is a serialization of a [file reconstruction](./file-reconstruction) into a binary format.
 For each file, there is a `FileDataSequenceHeader` and for each term a `FileDataSequenceEntry` with OPTIONAL a matching `FileVerificationEntry` and also OPTIONAL at the end a `FileMetadataExt`.
 
 A shard File Info section can contain more than 1 File Info block in series, after completing reading all the content for 1 file description, the next one immediately begins.
@@ -229,7 +229,7 @@ Given the `file_data_sequence_header.file_flags & MASK` (bitwise AND) operations
 
 ### FileDataSequenceEntry
 
-Each `FileDataSequenceEntry` is 1 term is essentially the binary serialization of a [file reconstruction term](./file-reconstruction.md#term-format).
+Each `FileDataSequenceEntry` is 1 term is essentially the binary serialization of a [file reconstruction term](./file-reconstruction#term-format).
 
 ```rust
 struct FileDataSequenceEntry {
@@ -258,7 +258,7 @@ struct FileDataSequenceEntry {
 
 Verification Entries MUST be set for shard uploads.
 
-To generate verification hashes for shard upload read the section about [Verification Hashes](../hashing.md#Term%20Verification%20Hashes).
+To generate verification hashes for shard upload read the section about [Verification Hashes](../hashing#Term%20Verification%20Hashes).
 
 ```rust
 struct FileVerificationEntry {

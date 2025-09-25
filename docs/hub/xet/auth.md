@@ -23,7 +23,7 @@ All parameters are required to form the url.
 - `token_type`: Either `read` or `write`.
 - `revision`: Git revision (branch, tag, or commit hash; default to using `main` if no specific ref is required)
 
-To understand the distinction for between `token_type` values read onwards in this document to [Token Scope](./auth.md#token-scope).
+To understand the distinction for between `token_type` values read onwards in this document to [Token Scope](./auth#token-scope).
 
 **Example URLs:**
 

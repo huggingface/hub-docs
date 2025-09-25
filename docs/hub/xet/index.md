@@ -10,20 +10,20 @@ Implementors can create their own clients, SDKs, and tools that speak the Xet pr
 
 ## Building a client library for xet storage
 
-- [Upload Protocol](./upload-protocol.md): End-to-end top level description of the upload flow.
-- [Download Protocol](./download-protocol.md): Instructions for the download procedure.
-- [CAS API](./api.md): HTTP endpoints for reconstruction, global chunk dedupe, xorb upload, and shard upload, including error semantics.
-- [Authentication and Authorization](./auth.md): How to obtain Xet tokens from the Hugging Face Hub, token scopes, and security considerations.
-- [Hugging Face Hub Files Conversion to Xet File ID's](./file-id.md): How to obtain a Xet file id from the Hugging Face Hub for a particular file in a model or dataset repository.
+- [Upload Protocol](./upload-protocol): End-to-end top level description of the upload flow.
+- [Download Protocol](./download-protocol): Instructions for the download procedure.
+- [CAS API](./api): HTTP endpoints for reconstruction, global chunk dedupe, xorb upload, and shard upload, including error semantics.
+- [Authentication and Authorization](./auth): How to obtain Xet tokens from the Hugging Face Hub, token scopes, and security considerations.
+- [Hugging Face Hub Files Conversion to Xet File ID's](./file-id): How to obtain a Xet file id from the Hugging Face Hub for a particular file in a model or dataset repository.
 
 ## Overall Xet architecture
 
-- [Content-Defined Chunking](./chunking.md): Gearhash-based CDC with parameters, boundary rules, and performance optimizations.
-- [Hashing Methods](./hashing.md): Descriptions and definitions of the different hashing functions used for chunks, xorbs and term verification entries.
-- [File Reconstruction](./file-reconstruction.md): Defining "term"-based representation of files using xorb hash + chunk ranges.
-- [Xorb Format](./xorb.md): Explains grouping chunks into xorbs, 64 MiB limits, binary layout, and compression schemes.
-- [Shard Format](./shard.md): Binary shard structure (header, file info, CAS info, footer), offsets, HMAC key usage, and bookends.
-- [Deduplication](./deduplication.md): Explanation of chunk level dedupe including global system-wide chunk level dedupe.
+- [Content-Defined Chunking](./chunking): Gearhash-based CDC with parameters, boundary rules, and performance optimizations.
+- [Hashing Methods](./hashing): Descriptions and definitions of the different hashing functions used for chunks, xorbs and term verification entries.
+- [File Reconstruction](./file-reconstruction): Defining "term"-based representation of files using xorb hash + chunk ranges.
+- [Xorb Format](./xorb): Explains grouping chunks into xorbs, 64 MiB limits, binary layout, and compression schemes.
+- [Shard Format](./shard): Binary shard structure (header, file info, CAS info, footer), offsets, HMAC key usage, and bookends.
+- [Deduplication](./deduplication): Explanation of chunk level dedupe including global system-wide chunk level dedupe.
 
 ## Reference implementation
 

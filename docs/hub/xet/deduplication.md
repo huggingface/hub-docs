@@ -23,7 +23,7 @@ A **chunk** is a variable-sized content block derived from files using Content-D
 - **Size range**: 8KB to 128KB (minimum and maximum constraints)
 - **Identification**: Each chunk is uniquely identified by its cryptographic hash (MerkleHash)
 
-[Detailed chunking description](./chunking.md)
+[Detailed chunking description](./chunking)
 
 ### Xorbs (Extended Object Blocks)
 
@@ -143,11 +143,11 @@ They MAY know this chunk hash because they own this data, the match has made the
 ### Chunk Hash Computation
 
 Each chunk has its content hashed using a cryptographic hash function (Blake3-based MerkleHash) to create a unique identifier for content addressing.
-[See section about hashing](./hashing.md#chunk-hashes).
+[See section about hashing](./hashing#chunk-hashes).
 
 ### Xorb Formation
 
-When new chunks need to be stored, they are aggregated into xorbs based on size and count limits. If adding a new chunk would exceed the maximum xorb size or chunk count, the current xorb is finalized and uploaded. [See section about xorb formation](../xorb.md)
+When new chunks need to be stored, they are aggregated into xorbs based on size and count limits. If adding a new chunk would exceed the maximum xorb size or chunk count, the current xorb is finalized and uploaded. [See section about xorb formation](../xorb)
 
 ### File Reconstruction Information
 
@@ -164,7 +164,7 @@ This information allows the system to reconstruct files by:
 2. Extracting the specific chunk ranges from each xorb
 3. Concatenating chunks in the correct order
 
-[See section about file reconstruction](./file-reconstruction.md).
+[See section about file reconstruction](./file-reconstruction).
 
 ## Fragmentation Prevention
 
