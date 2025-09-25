@@ -17,6 +17,7 @@ To download a file given a file hash, first call the reconstruction API to get t
 
 Note that you will need at least a `read` scope auth token, [auth reference](./auth).
 
+> [!TIP]
 > For large files it is RECOMMENDED to request the reconstruction in batches i.e. the first 10GB, download all the data, then the next 10GB and so on. Clients can use the `Range` header to specify a range of file data.
 
 ## Stage 2: Understanding the Reconstruction Response
@@ -24,8 +25,6 @@ Note that you will need at least a `read` scope auth token, [auth reference](./a
 The reconstruction API returns a `QueryReconstructionResponse` object with three key components:
 
 ### QueryReconstructionResponse Structure
-
-Scroll
 
 ```json
 {
@@ -172,7 +171,7 @@ The downloaded data is in xorb format and MUST be deserialized:
 3. **Extract byte indices**: Track byte boundaries between chunks for range extraction
 4. **Validate length**: Decompressed length MUST match `unpacked_length` from the term
 
-**Note**: The specific deserialization process depends on the [Xorb format](../xorb).
+**Note**: The deserialization process depends on the [Xorb format](./xorb).
 
 ```python
 for term in terms:
