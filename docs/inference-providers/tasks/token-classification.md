@@ -16,8 +16,11 @@ For more details, check out:
 
 Token classification is a task in which a label is assigned to some tokens in a text. Some popular token classification subtasks are Named Entity Recognition (NER) and Part-of-Speech (PoS) tagging.
 
-> [!TIP]
-> For more details about the `token-classification` task, check out its [dedicated page](https://huggingface.co/tasks/token-classification)! You will find examples and related materials.
+<Tip>
+
+For more details about the `token-classification` task, check out its [dedicated page](https://huggingface.co/tasks/token-classification)! You will find examples and related materials.
+
+</Tip>
 
 ### Recommended models
 

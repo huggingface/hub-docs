@@ -19,8 +19,11 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Cohere
 
-> [!TIP]
-> All supported Cohere models can be found [here](https://huggingface.co/models?inference_provider=cohere&sort=trending)
+<Tip>
+
+All supported Cohere models can be found [here](https://huggingface.co/models?inference_provider=cohere&sort=trending)
+
+</Tip>
 
 <div class="flex justify-center">
     <a href="https://cohere.com/" target="_blank">

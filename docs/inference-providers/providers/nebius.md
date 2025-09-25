@@ -19,8 +19,11 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Nebius
 
-> [!TIP]
-> All supported Nebius models can be found [here](https://huggingface.co/models?inference_provider=nebius&sort=trending)
+<Tip>
+
+All supported Nebius models can be found [here](https://huggingface.co/models?inference_provider=nebius&sort=trending)
+
+</Tip>
 
 <div class="flex justify-center">
     <a href="https://nebius.com/" target="_blank">

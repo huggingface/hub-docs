@@ -19,8 +19,11 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Novita
 
-> [!TIP]
-> All supported Novita models can be found [here](https://huggingface.co/models?inference_provider=novita&sort=trending)
+<Tip>
+
+All supported Novita models can be found [here](https://huggingface.co/models?inference_provider=novita&sort=trending)
+
+</Tip>
 
 <div class="flex justify-center">
     <a href="https://novita.ai/" target="_blank">
@@ -59,7 +62,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"novita":{"modelId":"zai-org/GLM-4.5V","providerModelId":"zai-org/glm-4.5v"} } }
+    providersMapping={ {"novita":{"modelId":"Qwen/Qwen3-VL-235B-A22B-Thinking","providerModelId":"qwen/qwen3-vl-235b-a22b-thinking"} } }
 conversational />
 
 

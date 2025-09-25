@@ -19,8 +19,11 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # PublicAI
 
-> [!TIP]
-> All models supported by the PublicAI Inference Utility can be found [here](https://huggingface.co/models?inference_provider=publicai&sort=trending)
+<Tip>
+
+All models supported by the PublicAI Inference Utility can be found [here](https://huggingface.co/models?inference_provider=publicai&sort=trending)
+
+</Tip>
 
 <div class="flex justify-center">
     <a href="https://publicai.co/" target="_blank">

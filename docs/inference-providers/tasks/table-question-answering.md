@@ -16,8 +16,11 @@ For more details, check out:
 
 Table Question Answering (Table QA) is the answering a question about an information on a given table.
 
-> [!TIP]
-> For more details about the `table-question-answering` task, check out its [dedicated page](https://huggingface.co/tasks/table-question-answering)! You will find examples and related materials.
+<Tip>
+
+For more details about the `table-question-answering` task, check out its [dedicated page](https://huggingface.co/tasks/table-question-answering)! You will find examples and related materials.
+
+</Tip>
 
 ### Recommended models
 

@@ -19,8 +19,11 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Fireworks AI
 
-> [!TIP]
-> All supported Fireworks AI models can be found [here](https://huggingface.co/models?inference_provider=fireworks-ai&sort=trending)
+<Tip>
+
+All supported Fireworks AI models can be found [here](https://huggingface.co/models?inference_provider=fireworks-ai&sort=trending)
+
+</Tip>
 
 <div class="flex justify-center">
     <a href="https://fireworks.ai/" target="_blank">
