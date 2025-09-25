@@ -19,8 +19,8 @@ For simple edits, you don't need a local build environment.
 ### Previewing locally
 
 ```bash
-# install doc-builder (if not done already)
-pip install hf-doc-builder
+# install doc-builder (if not done already) - (need to build from source https://github.com/huggingface/doc-builder, pypi package is out of date)
+# pip install hf-doc-builder
 
 # you may also need to install some extra dependencies
 pip install black watchdog
