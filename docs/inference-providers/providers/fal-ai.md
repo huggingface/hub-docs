@@ -19,11 +19,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Fal
 
-<Tip>
-
-All supported Fal models can be found [here](https://huggingface.co/models?inference_provider=fal-ai&sort=trending)
-
-</Tip>
+> [!TIP]
+> All supported Fal models can be found [here](https://huggingface.co/models?inference_provider=fal-ai&sort=trending)
 
 <div class="flex justify-center">
     <a href="https://fal.ai/" target="_blank">

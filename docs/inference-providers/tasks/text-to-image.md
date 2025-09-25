@@ -16,11 +16,9 @@ For more details, check out:
 
 Generate an image based on a given text prompt.
 
-<Tip>
+> [!TIP]
+> For more details about the `text-to-image` task, check out its [dedicated page](https://huggingface.co/tasks/text-to-image)! You will find examples and related materials.
 
-For more details about the `text-to-image` task, check out its [dedicated page](https://huggingface.co/tasks/text-to-image)! You will find examples and related materials.
-
-</Tip>
 
 ### Recommended models
 

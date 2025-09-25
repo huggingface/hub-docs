@@ -16,11 +16,9 @@ For more details, check out:
 
 Image Segmentation divides an image into segments where each pixel in the image is mapped to an object.
 
-<Tip>
+> [!TIP]
+> For more details about the `image-segmentation` task, check out its [dedicated page](https://huggingface.co/tasks/image-segmentation)! You will find examples and related materials.
 
-For more details about the `image-segmentation` task, check out its [dedicated page](https://huggingface.co/tasks/image-segmentation)! You will find examples and related materials.
-
-</Tip>
 
 ### Recommended models
 

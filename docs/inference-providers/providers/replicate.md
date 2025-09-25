@@ -19,11 +19,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Replicate
 
-<Tip>
-
-All supported Replicate models can be found [here](https://huggingface.co/models?inference_provider=replicate&sort=trending)
-
-</Tip>
+> [!TIP]
+> All supported Replicate models can be found [here](https://huggingface.co/models?inference_provider=replicate&sort=trending)
 
 <div class="flex justify-center">
     <a href="https://replicate.com/" target="_blank">

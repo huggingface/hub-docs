@@ -19,11 +19,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Featherless AI
 
-<Tip>
-
-All supported Featherless AI models can be found [here](https://huggingface.co/models?inference_provider=featherless-ai&sort=trending)
-
-</Tip>
+> [!TIP]
+> All supported Featherless AI models can be found [here](https://huggingface.co/models?inference_provider=featherless-ai&sort=trending)
 
 <div class="flex justify-center">
     <a href="https://featherless.ai/" target="_blank">
