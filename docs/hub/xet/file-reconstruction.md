@@ -22,7 +22,7 @@ The file is reconstructed by retrieving those chunk ranges, decoding them to raw
 
 ### Diagram
 
-> A file with 4 terms. Each term is a pointer to chunk range within a xorb.
+A file with 4 terms. Each term is a pointer to chunk range within a xorb.
 
 ```txt
 File Reconstruction

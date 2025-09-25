@@ -132,6 +132,7 @@ struct MDBShardFileHeader {
 4. Verify version equals 2
 5. Read 8 bytes for footer_size (u64)
 
+> [!NOTE]
 > When serializing, footer_size MUST be the number of bytes that make up the footer, or 0 if the footer is omitted.
 
 ## 2. File Info Section
@@ -241,6 +242,7 @@ struct FileDataSequenceEntry {
 }
 ```
 
+> [!NOTE]
 > Note that when describing a chunk range in a `FileDataSequenceEntry` use ranges that are start-inclusive but end-exclusive i.e. `[chunk_index_start, chunk_index_end)`
 
 **Memory Layout**:
@@ -427,6 +429,7 @@ Since the cas info section immediately follows the file info section bookend, a 
 
 ## 4. Footer (MDBShardFileFooter)
 
+> [!NOTE]
 > MUST NOT include the footer when serializing the shard as the body for the shard upload API.
 
 **Location**: End of file minus footer_size
@@ -448,6 +451,7 @@ struct MDBShardFileFooter {
 
 **Memory Layout**:
 
+> [!NOTE]
 > Fields are not exactly to scale
 
 ```txt

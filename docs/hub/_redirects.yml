@@ -19,4 +19,3 @@ adapter-transformers: adapters
 security-two-fa: security-2fa
 repositories-recommendations: storage-limits
 xet: storage-backends#xet
-xet-spec: xet/index

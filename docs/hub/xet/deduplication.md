@@ -25,9 +25,9 @@ A **chunk** is a variable-sized content block derived from files using Content-D
 
 [Detailed chunking description](./chunking)
 
-### Xorbs (Extended Object Blocks)
+### Xorbs
 
-**Xorbs** are containers that aggregate multiple chunks for efficient storage and transfer:
+**Xorbs** are objects that aggregate multiple chunks for efficient storage and transfer:
 
 - **Maximum size**: 64MB
 - **Maximum chunks**: 8,192 chunks per xorb

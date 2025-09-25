@@ -1,4 +1,4 @@
-# Getting a File ID from the Hugging Face Hub
+# Getting a Xet File ID from the Hugging Face Hub
 
 This section explains the Xet file ID used in the reconstruction API to download a file from the HuggingFace hub using the xet protocol.
 
@@ -28,5 +28,6 @@ If the file is stored on the xet system then a successful response will have a `
 The string value of this header is the Xet file ID and SHOULD be used in the path of the reconstruction API URL.
 This is the string representation of the hash and can be used directly in the file reconstruction API on download.
 
+> [!NOTE]
 > The resolve URL will return a 302 redirect http status code, following the redirect will download the content via the old LFS compatible route rather than through the Xet protocol.
 In order to use the Xet protocol you MUST NOT follow this redirect.

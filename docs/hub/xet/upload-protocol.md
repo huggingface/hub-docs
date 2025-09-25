@@ -1,4 +1,4 @@
-# Upload protocol
+# Upload Protocol
 
 This document describes how files are uploaded in the Xet protocol to the Content Addressable Storage (CAS) service.
 The flow converts input files into chunks, applies deduplication, groups chunks into xorbs, uploads xorbs, then forms and uploads shards that reference those xorbs.
@@ -50,6 +50,7 @@ Shards are also used to communicate xorb metadata that can be used for deduplica
 
 The shard format is specified in [shard](./shard).
 
+> [!NOTE]
 > In xet-core the shard format is used to keep a local cache with fast lookup of known chunks for deduplication, other implementors of the xet protocol may choose to reuse the shard format for that purpose as well, however that is not a requirement of the protocol.
 
 ## Steps
@@ -68,18 +69,19 @@ To deduplicate a chunk is to find if the current chunk hash already exists, eith
 
 When a chunk is deduplicated it SHOULD NOT be re-uploaded to the CAS (by being included in a xorb in the next step), but when rebuilding the file, the chunk needs to be included by referencing the xorb that includes it and the specific chunk index.
 
+> [!NOTE]
 > Note that Deduplication is considered an optimization and is an OPTIONAL component of the upload process, however it provides potential resource saving.
 
 For more detail visit the [deduplication document](./deduplication)
 
-### 3. Xorb formation and hashing
+### 3. Xorb Formation and Hashing
 
 Contiguous runs of chunks are collected into xorbs (roughly 64 MiB total length per xorb), preserving order within each run. See formation rules: [xorb](./xorb#collecting-chunks).
 The xorb's content-addressed key is computed using the chunks in the xorb. See: [hashing](./hashing#xorb-hashes).
 
 Given the xorb hash chunks in the xorb can be referred in file reconstructions.
 
-### 4. Xorb serialization and upload
+### 4. Xorb Serialization and Upload
 
 Each xorb is serialized into its binary representation as defined by the xorb format. See: [xorb](./xorb).
 The client uploads each new xorb via the [Xorb upload API](./api#3-upload-xorb).
@@ -87,7 +89,7 @@ The client uploads each new xorb via the [Xorb upload API](./api#3-upload-xorb).
 The serialization and upload steps are separated from collecting chunks and hashing as these steps can be done independently while still referencing the xorb in creating file reconstructions.
 However a xorb MUST be uploaded before a file reconstruction that references it is uploaded in a shard.
 
-### 5. Shard formation, collect required components
+### 5. Shard Formation, Collect Required Components
 
 Map each file to a reconstruction using available xorbs, the file reconstruction MUST point to ranges of chunks within xorbs that refer to each chunk in the file.
 Terms for chunks that are deduplicated using results from the Global Dedupe API will use xorb hashes that already exist in CAS.
@@ -105,7 +107,7 @@ In addition to the file info information, it is also necessary to collect all me
 This metadata is the xorb hash, the hash and length of each chunk, the serialized length of the xorb and the sum of the chunk lengths for a xorb.
 With these components it is now possible to serialize for each xorb a [CAS Info block](./shard#3-cas-info-section).
 
-### 6. Shard serialization
+### 6. Shard Serialization and Upload
 
 Given the information collected in the previous section, serialize a shard for a batch of files following the format specified in the [shard spec](./shard).
 
@@ -114,6 +116,7 @@ For this to succeed, all xorbs referenced by the shard MUST have already complet
 
 This API registers files as uploaded.
 
+> [!NOTE]
 > For a large batch of files or a batch of large files if the serialized shard will be greater than 64 MiB you MUST break up the content into multiple shards.
 
 ### Done
@@ -121,9 +124,10 @@ This API registers files as uploaded.
 After all xorbs and all shards are successfully uploaded, the full upload is considered complete.
 Files can then be downloaded by any client using the [download protocol](./download-protocol).
 
+> [!NOTE]
 > If this file is being uploaded to the Hugging Face Hub, users will need to commit a git lfs pointer file using the sha256 of the file contents.
 
-## Ordering and concurrency
+## Ordering and Concurrency
 
 There are some natural ordering requirements in the upload process, e.g. you MUST have determined a chunk boundary before computing the chunk hash, and you MUST have collected a sequence of chunks to create a xorb to compute the xorb hash etc.
 
@@ -131,7 +135,7 @@ However there is one additional enforced requirement about ordering: **all xorbs
 If any xorb referenced by a shard is not already uploaded when the shard upload API is called, the server will reject the request.
 All xorbs whose hash is used as an entry in the cas info section and in data entries of the file info section are considered "referenced" by a shard.
 
-## Integrity and idempotency
+## Integrity and Idempotency
 
 - Hashing of chunks, xorbs, and shards ensures integrity and enables deduplication across local and global scopes. See: [hashing](./hashing).
   - the same chunk data produces the same chunk hash

@@ -101,6 +101,7 @@ Here's a basic implementation flow:
 4. **Token refresh (when needed):**
    Use the same API to generate a new token.
   
+  > [!NOTE]
   > In `xet-core` we SHOULD add 30 seconds of buffer time before the provided `expiration` time to refresh the token.
 
 ## Token Scope

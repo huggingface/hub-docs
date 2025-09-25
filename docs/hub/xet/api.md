@@ -18,6 +18,9 @@ For every 8 bytes in the hash (indices 0-7, 8-15, 16-23, 24-31) reverse the orde
 
 Otherwise stated, consider each 8 byte part of a hash as a little endian 64 bit unsigned integer, then concatenate the hexadecimal representation of the 4 numbers in order (each padded with 0's to 16 characters).
 
+> [!NOTE]
+> In all cases that a hash is represented as a string it is converted from a byte array to a string using this procedure.
+
 ### Example
 
 Suppose a hash value is:
