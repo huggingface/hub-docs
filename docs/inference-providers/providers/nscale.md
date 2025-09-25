@@ -19,11 +19,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Nscale
 
-<Tip>
-
-All supported Nscale models can be found [here](https://huggingface.co/models?inference_provider=nscale&sort=trending)
-
-</Tip>
+> [!TIP]
+> All supported Nscale models can be found [here](https://huggingface.co/models?inference_provider=nscale&sort=trending)
 
 <div class="flex justify-center">
     <a href="https://www.nscale.com/" target="_blank">

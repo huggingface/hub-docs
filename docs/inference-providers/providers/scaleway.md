@@ -19,11 +19,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Scaleway
 
-<Tip>
-
-All supported Scaleway models can be found [here](https://huggingface.co/models?inference_provider=scaleway&sort=trending)
-
-</Tip>
+> [!TIP]
+> All supported Scaleway models can be found [here](https://huggingface.co/models?inference_provider=scaleway&sort=trending)
 
 <div class="flex justify-center">
     <a href="https://www.scaleway.com" target="_blank">

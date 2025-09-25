@@ -19,11 +19,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Novita
 
-<Tip>
-
-All supported Novita models can be found [here](https://huggingface.co/models?inference_provider=novita&sort=trending)
-
-</Tip>
+> [!TIP]
+> All supported Novita models can be found [here](https://huggingface.co/models?inference_provider=novita&sort=trending)
 
 <div class="flex justify-center">
     <a href="https://novita.ai/" target="_blank">
@@ -52,7 +49,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"novita":{"modelId":"baidu/ERNIE-4.5-21B-A3B-Thinking","providerModelId":"baidu/ernie-4.5-21B-a3b-thingking"} } }
+    providersMapping={ {"novita":{"modelId":"Qwen/Qwen3-Next-80B-A3B-Instruct","providerModelId":"qwen/qwen3-next-80b-a3b-instruct"} } }
 conversational />
 
 

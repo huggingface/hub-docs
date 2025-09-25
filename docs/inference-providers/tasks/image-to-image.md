@@ -21,11 +21,9 @@ Example applications:
 * Colorizing a black and white image
 * Increasing the resolution of an image
 
-<Tip>
+> [!TIP]
+> For more details about the `image-to-image` task, check out its [dedicated page](https://huggingface.co/tasks/image-to-image)! You will find examples and related materials.
 
-For more details about the `image-to-image` task, check out its [dedicated page](https://huggingface.co/tasks/image-to-image)! You will find examples and related materials.
-
-</Tip>
 
 ### Recommended models
 

@@ -16,11 +16,9 @@ For more details, check out:
 
 Question Answering models can retrieve the answer to a question from a given text, which is useful for searching for an answer in a document.
 
-<Tip>
+> [!TIP]
+> For more details about the `question-answering` task, check out its [dedicated page](https://huggingface.co/tasks/question-answering)! You will find examples and related materials.
 
-For more details about the `question-answering` task, check out its [dedicated page](https://huggingface.co/tasks/question-answering)! You will find examples and related materials.
-
-</Tip>
 
 ### Recommended models
 

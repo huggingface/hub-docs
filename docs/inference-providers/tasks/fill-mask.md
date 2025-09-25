@@ -16,11 +16,9 @@ For more details, check out:
 
 Mask filling is the task of predicting the right word (token to be precise) in the middle of a sequence.
 
-<Tip>
+> [!TIP]
+> For more details about the `fill-mask` task, check out its [dedicated page](https://huggingface.co/tasks/fill-mask)! You will find examples and related materials.
 
-For more details about the `fill-mask` task, check out its [dedicated page](https://huggingface.co/tasks/fill-mask)! You will find examples and related materials.
-
-</Tip>
 
 ### Recommended models
 

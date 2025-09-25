@@ -19,11 +19,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # HF Inference
 
-<Tip>
-
-All supported HF Inference models can be found [here](https://huggingface.co/models?inference_provider=hf-inference&sort=trending)
-
-</Tip>
+> [!TIP]
+> All supported HF Inference models can be found [here](https://huggingface.co/models?inference_provider=hf-inference&sort=trending)
 
 <div class="flex justify-center">
     <a href="https://huggingface.co/" target="_blank">
@@ -73,7 +70,7 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"BAAI/bge-large-en-v1.5","providerModelId":"BAAI/bge-large-en-v1.5"} } }
+    providersMapping={ {"hf-inference":{"modelId":"intfloat/multilingual-e5-large","providerModelId":"intfloat/multilingual-e5-large"} } }
 />
 
 

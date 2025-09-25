@@ -16,11 +16,9 @@ For more details, check out:
 
 Object Detection models allow users to identify objects of certain defined classes. These models receive an image as input and output the images with bounding boxes and labels on detected objects.
 
-<Tip>
+> [!TIP]
+> For more details about the `object-detection` task, check out its [dedicated page](https://huggingface.co/tasks/object-detection)! You will find examples and related materials.
 
-For more details about the `object-detection` task, check out its [dedicated page](https://huggingface.co/tasks/object-detection)! You will find examples and related materials.
-
-</Tip>
 
 ### Recommended models
 
