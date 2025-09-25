@@ -53,8 +53,7 @@
     - local: xet/index
       title: Open Source Xet Protocol
       sections:
-        - local: xet/index#building-a-client-library-for-xet-storage
-          title: Building a client library for xet storage
+        - title: Building a client library for xet storage
           sections:
             - local: xet/upload-protocol
               title: Upload Protocol
@@ -66,8 +65,7 @@
               title: Authentication and Authorization
             - local: xet/file-id
               title: Hub files conversion to Xet File ID's
-        - local: xet/index#overall-xet-architecture
-          title: Overall Xet architecture
+        - title: Overall Xet architecture
           sections:
             - local: xet/chunking
               title: Content-Defined Chunking
