@@ -21,8 +21,11 @@ Example applications:
 * Reranking a list of documents based on their similarity to a query.
 * Calculating the similarity between two sentences.
 
-> [!TIP]
-> For more details about the `feature-extraction` task, check out its [dedicated page](https://huggingface.co/tasks/feature-extraction)! You will find examples and related materials.
+<Tip>
+
+For more details about the `feature-extraction` task, check out its [dedicated page](https://huggingface.co/tasks/feature-extraction)! You will find examples and related materials.
+
+</Tip>
 
 ### Recommended models
 
@@ -35,7 +38,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"intfloat/multilingual-e5-large","providerModelId":"intfloat/multilingual-e5-large"},"nebius":{"modelId":"Qwen/Qwen3-Embedding-8B","providerModelId":"Qwen/Qwen3-Embedding-8B"},"sambanova":{"modelId":"intfloat/e5-mistral-7b-instruct","providerModelId":"E5-Mistral-7B-Instruct"},"scaleway":{"modelId":"BAAI/bge-multilingual-gemma2","providerModelId":"bge-multilingual-gemma2"}} }
+    providersMapping={ {"hf-inference":{"modelId":"BAAI/bge-large-en-v1.5","providerModelId":"BAAI/bge-large-en-v1.5"},"nebius":{"modelId":"Qwen/Qwen3-Embedding-8B","providerModelId":"Qwen/Qwen3-Embedding-8B"},"sambanova":{"modelId":"intfloat/e5-mistral-7b-instruct","providerModelId":"E5-Mistral-7B-Instruct"},"scaleway":{"modelId":"BAAI/bge-multilingual-gemma2","providerModelId":"bge-multilingual-gemma2"}} }
 />
 
 

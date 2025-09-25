@@ -16,8 +16,11 @@ For more details, check out:
 
 Mask filling is the task of predicting the right word (token to be precise) in the middle of a sequence.
 
-> [!TIP]
-> For more details about the `fill-mask` task, check out its [dedicated page](https://huggingface.co/tasks/fill-mask)! You will find examples and related materials.
+<Tip>
+
+For more details about the `fill-mask` task, check out its [dedicated page](https://huggingface.co/tasks/fill-mask)! You will find examples and related materials.
+
+</Tip>
 
 ### Recommended models
 
@@ -30,7 +33,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=fill-mask
-    providersMapping={ {"hf-inference":{"modelId":"jhu-clsp/mmBERT-small","providerModelId":"jhu-clsp/mmBERT-small"}} }
+    providersMapping={ {"hf-inference":{"modelId":"jhu-clsp/mmBERT-base","providerModelId":"jhu-clsp/mmBERT-base"}} }
 />
 
 

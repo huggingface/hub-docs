@@ -21,8 +21,11 @@ Example applications:
 * Building a voice assistant
 * Generating subtitles for a video
 
-> [!TIP]
-> For more details about the `automatic-speech-recognition` task, check out its [dedicated page](https://huggingface.co/tasks/automatic-speech-recognition)! You will find examples and related materials.
+<Tip>
+
+For more details about the `automatic-speech-recognition` task, check out its [dedicated page](https://huggingface.co/tasks/automatic-speech-recognition)! You will find examples and related materials.
+
+</Tip>
 
 ### Recommended models
 

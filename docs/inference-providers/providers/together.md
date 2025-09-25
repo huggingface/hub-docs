@@ -19,8 +19,11 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Together
 
-> [!TIP]
-> All supported Together models can be found [here](https://huggingface.co/models?inference_provider=together&sort=trending)
+<Tip>
+
+All supported Together models can be found [here](https://huggingface.co/models?inference_provider=together&sort=trending)
+
+</Tip>
 
 <div class="flex justify-center">
     <a href="https://together.xyz/" target="_blank">

@@ -16,8 +16,11 @@ For more details, check out:
 
 Generate an video based on a given text prompt.
 
-> [!TIP]
-> For more details about the `text-to-video` task, check out its [dedicated page](https://huggingface.co/tasks/text-to-video)! You will find examples and related materials.
+<Tip>
+
+For more details about the `text-to-video` task, check out its [dedicated page](https://huggingface.co/tasks/text-to-video)! You will find examples and related materials.
+
+</Tip>
 
 ### Recommended models
 
