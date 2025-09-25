@@ -107,6 +107,8 @@
     title: Scaleway
   - local: providers/together
     title: Together
+  - local: providers/zai
+    title: Z AI
 
 - local: hub-api
   title: Hub API
