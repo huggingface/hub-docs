@@ -132,7 +132,7 @@ struct MDBShardFileHeader {
 4. Verify version equals 2
 5. Read 8 bytes for footer_size (u64)
 
-> when serializing, footer_size MUST be the number of bytes that make up the footer, or 0 if the footer is omitted.
+> When serializing, footer_size MUST be the number of bytes that make up the footer, or 0 if the footer is omitted.
 
 ## 2. File Info Section
 
