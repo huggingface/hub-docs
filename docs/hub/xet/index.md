@@ -27,6 +27,8 @@ Implementors can create their own clients, SDKs, and tools that speak the Xet pr
 
 ## Reference implementation
 
+### xet-core: hf-xet + git-xet
+
 The primary reference implementation of the protocol written in rust 🦀 lives in the [xet-core](https://github.com/huggingface/xet-core) repository under multiple crates:
 
 - [cas_types](https://github.com/huggingface/xet-core/tree/main/cas_types) - Common re-usable types for interacting with CAS API's
@@ -37,6 +39,7 @@ The primary reference implementation of the protocol written in rust 🦀 lives 
 - [merklehash](https://github.com/huggingface/xet-core/tree/main/merklehash) - Exports a `MerkleHash` type extensively used to represent hashes. Exports functions to compute the different hashes used to track chunks, xorbs and files.
 - [data](https://github.com/huggingface/xet-core/tree/main/data) - Comprehensive package exposing interfaces to upload and download contents
 - [hf_xet](https://github.com/huggingface/xet-core/tree/main/hf_xet) - Python bindings to use the Xet protocol for uploads and downloads with the Hugging Face Hub.
+- [git-xet](ttps://github.com/huggingface/xet-core/tree/main/git-xet) - git lfs custom transfer agent that uploads files using the xet protocol to the Hugging Face Hub.
 
 ### Huggingface.js
 
