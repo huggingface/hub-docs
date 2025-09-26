@@ -27,7 +27,7 @@ The Hugging Face Hub is a platform with over 1.7M models, 400k datasets, and 600
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-getting-started">Getting Started</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-settings">Repository Settings</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./storage-limits">Storage Limits</a>
-<a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./storage-backends">Storage Backends</a>
+<a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./storage-backends">Storage Backend - Xet</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-pull-requests-discussions">Pull requests and Discussions</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./notifications">Notifications</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./collections">Collections</a>
@@ -105,7 +105,7 @@ The Hugging Face Hub is a platform with over 1.7M models, 400k datasets, and 600
 
 We are helping the community work together towards the goal of advancing Machine Learning 🔥.
 
-The Hugging Face Hub is a platform with over 1.7M models, 400k datasets, and 600k demos in which people can easily collaborate in their ML workflows. The Hub works as a central place where anyone can share, explore, discover, and experiment with open-source Machine Learning.
+The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 600k demos in which people can easily collaborate in their ML workflows. The Hub works as a central place where anyone can share, explore, discover, and experiment with open-source Machine Learning.
 
 No single company, including the Tech Titans, will be able to “solve AI” by themselves – the only way we'll achieve this is by sharing knowledge and resources in a community-centric approach. We are building the largest open-source collection of models, datasets, and demos on the Hugging Face Hub to democratize and advance ML for everyone 🚀.
 
@@ -122,7 +122,7 @@ On it, you'll be able to upload and discover...
 - Spaces: _interactive apps for demonstrating ML models directly in your browser_
 
 The Hub offers **versioning, commit history, diffs, branches, and over a dozen library integrations**! 
-All repositories build on [Xet](https://huggingface.co/join/xet), a new technology to efficiently store Large Files inside Git, intelligently splitting files into unique chunks and accelerating uploads and downloads.
+All repositories build on [Xet](./storage-backends), a new technology to efficiently store Large Files inside Git, intelligently splitting files into unique chunks and accelerating uploads and downloads.
 
 You can learn more about the features that all repositories share in the [**Repositories documentation**](./repositories).
 

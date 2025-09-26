@@ -48,7 +48,50 @@
   - local: storage-limits
     title: Storage Limits
   - local: storage-backends
-    title: Storage Backends
+    title: Storage Backend - Xet
+    sections:
+    - local: xet/overview
+      title: Xet History & Overview
+    - local: xet/using-xet-storage
+      title: Using Xet Storage
+    - local: xet/deduplication
+      title: Deduplication
+    - local: xet/protocol/index
+      title: Open Source Xet Protocol
+      sections:
+        - local: xet/protocol/building-client
+          title: Building a client library for xet storage
+          sections:
+            - local: xet/protocol/upload-protocol
+              title: Upload Protocol
+            - local: xet/protocol/download-protocol
+              title: Download Protocol
+            - local: xet/protocol/api
+              title: CAS API
+            - local: xet/protocol/auth
+              title: Authentication and Authorization
+            - local: xet/protocol/file-id
+              title: Hub files conversion to Xet File ID's
+        - local: xet/protocol/architecture
+          title: Overall Xet architecture
+          sections:
+            - local: xet/protocol/chunking
+              title: Content-Defined Chunking
+            - local: xet/protocol/hashing
+              title: Hashing Methods
+            - local: xet/protocol/file-reconstruction
+              title: File Reconstruction
+            - local: xet/protocol/xorb
+              title: Xorb Format
+            - local: xet/protocol/shard
+              title: Shard Format
+            - local: xet/protocol/deduplication
+              title: Deduplication
+    - local: xet/legacy-git-lfs
+      title: Backwards Compatibility & Legacy
+    - local: xet/security
+      title: Security
+
   - local: repositories-pull-requests-discussions
     title: Pull Requests & Discussions
   - local: notifications
