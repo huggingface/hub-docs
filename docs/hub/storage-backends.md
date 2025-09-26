@@ -99,6 +99,12 @@ The Hub's [current recommendation](https://huggingface.co/docs/hub/storage-limit
 
 For more details, refer to the [From Files to Chunks](https://huggingface.co/blog/from-files-to-chunks) and [From Chunks to Blocks](https://huggingface.co/blog/from-chunks-to-blocks) blog posts, or the [Git is for Data](https://www.cidrdb.org/cidr2023/papers/p43-low.pdf) paper by Low et al. that served as the launch point for XetHub prior to being acquired by Hugging Face.
 
+## Open Source Xet Protocol
+
+The Xet storage backend is built on an open source protocol that enables efficient, chunk-based storage and retrieval of large files. This protocol provides the foundation for the deduplication and performance benefits described throughout this documentation.
+
+For detailed technical specifications about the Xet protocol, including API endpoints, authentication mechanisms, chunking algorithms, and file reconstruction processes, see the [Xet Protocol Specification](https://huggingface.co/docs/xet-specification).
+
 ### Backward Compatibility with LFS
 
 Xet storage provides a seamless transition for existing Hub repositories. It isn't necessary to know if the Xet backend is involved at all. Xet-backed repositories continue to use the Git LFS pointer file format; the addition of the `Xet backed hash` is only added to the web interface as a convenience. Practically, this means existing repos and newly created repos will not look any different if you do a `bare clone` of them. Each of the large files (or binary files) will continue to have a pointer file that matches the Git LFS pointer file specification.
@@ -120,9 +126,3 @@ The legacy storage system on the Hub, Git LFS utilizes many of the same conventi
 The primary limitation of Git LFS is its file-centric approach to deduplication. Any change to a file, irrespective of how large of small that change is, means the entire file is versioned - incurring significant overheads in file transfers as the entire file is uploaded (if committing to a repository) or downloaded (if pulling the latest version to your machine).
 
 This leads to a worse developer experience along with a proliferation of additional storage.
-
-## Open Source Xet Protocol
-
-The Xet storage backend is built on an open source protocol that enables efficient, chunk-based storage and retrieval of large files. This protocol provides the foundation for the deduplication and performance benefits described throughout this documentation.
-
-For detailed technical specifications about the Xet protocol, including API endpoints, authentication mechanisms, chunking algorithms, and file reconstruction processes, see the [Xet Protocol Specification](./xet/index).
