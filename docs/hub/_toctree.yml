@@ -59,7 +59,8 @@
     - local: xet/protocol/index
       title: Open Source Xet Protocol
       sections:
-        - title: Building a client library for xet storage
+        - local: xet/protocol/building-client
+          title: Building a client library for xet storage
           sections:
             - local: xet/protocol/upload-protocol
               title: Upload Protocol
@@ -71,7 +72,8 @@
               title: Authentication and Authorization
             - local: xet/protocol/file-id
               title: Hub files conversion to Xet File ID's
-        - title: Overall Xet architecture
+        - local: xet/protocol/architecture
+          title: Overall Xet architecture
           sections:
             - local: xet/protocol/chunking
               title: Content-Defined Chunking
@@ -85,6 +87,10 @@
               title: Shard Format
             - local: xet/protocol/deduplication
               title: Deduplication
+    - local: xet/legacy-git-lfs
+      title: Backwards Compatibility & Legacy
+    - local: xet/security
+      title: Security
 
   - local: repositories-pull-requests-discussions
     title: Pull Requests & Discussions
