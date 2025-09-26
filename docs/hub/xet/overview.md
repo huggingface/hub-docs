@@ -15,11 +15,11 @@ A Git LFS pointer file provides metadata to locate the actual file contents in r
 - **Pointer size**: The size of the pointer file stored in the Git repository.
 - **Size of the remote file**: Indicates the size of the actual large file in bytes. This metadata is useful for both verification purposes and for managing storage and transfer operations.
 
-A Xet pointer includes all of this information by design. Refer to the section on [backwards compatibility with Git LFS](#backward-compatibility-with-lfs) with the addition of a `Xet backed hash` field for referencing the file in Xet storage.
+A Xet pointer includes all of this information by design. Refer to the section on [backwards compatibility with Git LFS](legacy-git-lfs#backward-compatibility-with-lfs) with the addition of a `Xet backed hash` field for referencing the file in Xet storage.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pointer-file-light.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pointer-file-dark.png"/>
 </div>
 
-Unlike Git LFS, which deduplicates at the file level, Xet-enabled repositories deduplicate at the level of bytes. When a file backed by Xet storage is updated, only the modified data is uploaded to remote storage, significantly saving on network transfers. For many workflows, like incremental updates to model checkpoints or appending/inserting new data into a dataset, this improves iteration speed for yourself and your collaborators. To learn more about deduplication in Xet storage, refer to the [Deduplication](#deduplication) section below.
+Unlike Git LFS, which deduplicates at the file level, Xet-enabled repositories deduplicate at the level of bytes. When a file backed by Xet storage is updated, only the modified data is uploaded to remote storage, significantly saving on network transfers. For many workflows, like incremental updates to model checkpoints or appending/inserting new data into a dataset, this improves iteration speed for yourself and your collaborators. To learn more about deduplication in Xet storage, refer to [Deduplication](deduplication).

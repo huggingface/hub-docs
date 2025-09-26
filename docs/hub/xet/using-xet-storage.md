@@ -23,7 +23,7 @@ Where versions of `huggingface_hub` >= 0.30.0 and < 0.32.0 are installed, `hf_xe
 pip install -U hf-xet
 ```
 
-And that's it! You now get the benefits of Xet deduplication for both uploads and downloads. Team members using a version of `huggingface_hub` < 0.30.0 will still be able to upload and download repositories through the [backwards compatibility provided by the LFS bridge](#backward-compatibility-with-lfs).
+And that's it! You now get the benefits of Xet deduplication for both uploads and downloads. Team members using a version of `huggingface_hub` < 0.30.0 will still be able to upload and download repositories through the [backwards compatibility provided by the LFS bridge](legacy-git-lfs#backward-compatibility-with-lfs).
 
 To see more detailed usage docs, refer to the `huggingface_hub` docs for:
 
