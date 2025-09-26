@@ -6,10 +6,10 @@ These pages will describe the overall Xet architecture, including how to perform
 
 ## Contents
 
-- [Content-Defined Chunking](./xet/protocol/chunking)
-- [Hashing Methods](./xet/protocol/hashing)
-- [File Reconstruction](./xet/protocol/file-reconstruction)
-- [Xorb Format](./xet/protocol/xorb)
-- [Shard Format](./xet/protocol/shard)
-- [Deduplication](./xet/protocol/deduplication)
+- [Content-Defined Chunking](./chunking)
+- [Hashing Methods](./hashing)
+- [File Reconstruction](./file-reconstruction)
+- [Xorb Format](./xorb)
+- [Shard Format](./shard)
+- [Deduplication](./deduplication)
 
