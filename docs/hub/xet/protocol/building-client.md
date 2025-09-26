@@ -4,9 +4,9 @@ These pages explain how you can build a client library for Xet storage. Included
 
 ## Contents
 
-- [Upload Protocol](./xet/protocol/upload-protocol)
-- [Download Protocol](./xet/protocol/download-protocol)
-- [CAS API](./xet/protocol/api)
-- [Authentication and Authorization](./xet/protocol/auth)
-- [Hub file conversion to Xet File ID](./xet/protocol/file-id)
+- [Upload Protocol](./upload-protocol)
+- [Download Protocol](./download-protocol)
+- [CAS API](./api)
+- [Authentication and Authorization](./auth)
+- [Hub file conversion to Xet File ID](./file-id)
 
