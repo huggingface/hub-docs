@@ -1,6 +1,6 @@
 # CAS API Documentation
 
-This document describes the HTTP API endpoints used by the CAS (Content Addressable Storage) client to interact with the remote CAS server.
+This document describes the HTTP API endpoints used by the Content Addressable Storage (CAS) client to interact with the remote CAS server.
 
 ## Authentication
 

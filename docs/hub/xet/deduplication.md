@@ -96,7 +96,7 @@ Xet employs a three-tiered deduplication strategy to maximize efficiency while m
 
 #### Level 3: Global Deduplication API
 
-**Scope**: Entire Xet ecosystem
+**Scope**: Entire Xet system
 **Mechanism**: Global deduplication service with HMAC protection
 **Purpose**: Discover deduplication opportunities across all users and repositories
 

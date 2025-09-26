@@ -1,6 +1,6 @@
 # Download Protocol
 
-This document describes the complete process of downloading a single file from the Xet protocol using the CAS (Content Addressable Storage) reconstruction API.
+This document describes the complete process of downloading a single file from the Xet protocol using the Content Addressable Storage (CAS) reconstruction API.
 
 ## Overview
 
@@ -84,7 +84,7 @@ The reconstruction API returns a `QueryReconstructionResponse` object with three
 - Maps xorb hashes to required information to download some of their chunks.
   - The mapping is to an array of 1 or more `CASReconstructionFetchInfo`
 - Each `CASReconstructionFetchInfo` contains:
-  - `url`: HTTP URL for downloading the xorb data, presigned url containing authorization information
+  - `url`: HTTP URL for downloading the xorb data, presigned URL containing authorization information
   - `url_range` (bytes_start, bytes_end): Byte range `{ start: number, end: number }` for the Range header; end-inclusive `[start, end]`
     - The `Range` header MUST be set as `Range: bytes=<start>-<end>` when downloading this chunk range
   - `range` (index_start, index_end): Chunk index range `{ start: number, end: number }` that this URL provides; end-exclusive `[start, end)`
@@ -233,7 +233,7 @@ For partial file downloads, the reconstruction API supports range queries:
 
 When downloading individual term data:
 
-A client MUST include the `Range` header formed with the values from the url_range field to specify the exact range of data of a xorb that they are accessing. Not specifying this header will cause result in an authorization failure.
+A client MUST include the `Range` header formed with the values from the `url_range` field to specify the exact range of data of a xorb that they are accessing. Not specifying this header will cause result in an authorization failure.
 
 Xet global deduplication requires that access to xorbs is only granted to authorized ranges.
 Not specifying this header will result in an authorization failure.
@@ -250,8 +250,8 @@ Consider downloading such content only once and reusing the data.
 ### Caching recommendations
 
 1. It can be ineffective to cache the reconstruction object
-    1. The fetch_info section provides short-expiration pre-signed url's hence Clients SHOULD NOT cache the urls beyond their short expiration
-    2. To get those url's to access the data you will need to call the reconstruction API again anyway
+    1. The fetch_info section provides short-expiration pre-signed URL's hence Clients SHOULD NOT cache the urls beyond their short expiration
+    2. To get those URL's to access the data you will need to call the reconstruction API again anyway
 2. Cache chunks by range not just individually
     1. If you need a chunk from a xorb it is very likely that you will need another, so cache them close
 3. Caching helps when downloading similar contents. May not be worth to cache data if you are always downloading different things
@@ -326,8 +326,8 @@ This example shows reconstruction of a file that requires:
 - Chunks `[0, 2)` from the second xorb (~144KB of unpacked data)
 - Chunks `[3, 43)` from the same xorb from the first term (~3MB of unpacked data)
 
-The `fetch_info` provides the HTTP URLs and byte ranges needed to download the required chunk data from each xorb. The ranges provided within fetch_info and term sections are always end-exclusive i.e. `{ "start": 0, "end": 3 }` is a range of 3 chunks at indices 0, 1 and 2.
-The ranges provided under a fetch_info items' url_range key are to be used to form the `Range` header when downloading the chunk range.
+The `fetch_info` provides the HTTP URLs and byte ranges needed to download the required chunk data from each xorb. The ranges provided within `fetch_info` and term sections are always end-exclusive i.e. `{ "start": 0, "end": 3 }` is a range of 3 chunks at indices 0, 1 and 2.
+The ranges provided under a `fetch_info` items' `url_range` key are to be used to form the `Range` header when downloading the chunk range.
 A `"url_range"` value of `{ "start": X, "end": Y }` creates a `Range` header value of `bytes=X-Y`.
 
 When downloading and deserializing the chunks from xorb `a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456` we will have the chunks at indices `[1, 43)`.

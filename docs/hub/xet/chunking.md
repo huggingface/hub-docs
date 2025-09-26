@@ -81,7 +81,7 @@ if start_offset < len(data):
 
 ### Boundary probability and mask selection
 
-Given that MASK has 16 one-bits, for a random 64-bit hash h, the chance that all those 16 bits are zero is 1 / 2^16. On average, that means you’ll see a match about once every 64 KiB.
+Given that MASK has 16 one-bits, for a random 64-bit hash `h`, the chance that all those 16 bits are zero is 1 / 2^16. On average, that means you’ll see a match about once every 64 KiB.
 
 ### Properties
 

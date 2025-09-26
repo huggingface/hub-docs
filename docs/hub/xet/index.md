@@ -30,7 +30,7 @@ Implementors can create their own clients, SDKs, and tools that speak the Xet pr
 
 ### xet-core: hf-xet + git-xet
 
-The primary reference implementation of the protocol written in rust 🦀 lives in the [xet-core](https://github.com/huggingface/xet-core) repository under multiple crates:
+The primary reference implementation of the protocol written in Rust 🦀 lives in the [xet-core](https://github.com/huggingface/xet-core) repository under multiple crates:
 
 - [cas_types](https://github.com/huggingface/xet-core/tree/main/cas_types) - Common re-usable types for interacting with CAS API's
 - [cas_client](https://github.com/huggingface/xet-core/tree/main/cas_client) - Client interface that calls CAS API's, including comprehensive implementation of download protocol.
