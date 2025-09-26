@@ -67,7 +67,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"tencent/HunyuanImage-2.1","providerModelId":"fal-ai/hunyuan-image/v2.1/text-to-image"} } }
+    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"fal-ai/flux/dev"} } }
 />
 
 
