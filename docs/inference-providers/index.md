@@ -29,7 +29,7 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [SambaNova](./providers/sambanova)           |          ✅           |                       |         ✅         |               |               |                |
 | [Scaleway](./providers/scaleway)           |          ✅           |                       |         ✅         |               |               |                |
 | [Together](./providers/together)             |          ✅           |          ✅           |                    |      ✅       |               |                |
-| [Z AI](./providers/zai)                      |          ✅           |                       |                     |               |               |                |
+| [Z.ai](./providers/zai-org)                  |          ✅           |          ✅           |                     |               |               |                |
 
 ## Why Choose Inference Providers?
 

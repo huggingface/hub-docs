@@ -49,7 +49,7 @@ const PROVIDERS_HUB_ORGS: Record<string, string> = {
   sambanova: "sambanovasystems",
   scaleway: "scaleway",
   together: "togethercomputer",
-  zai: "zai-org"
+  "zai-org": "zai-org"
 };
 
 const PROVIDERS_URLS: Record<string, string> = {
@@ -69,7 +69,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   sambanova: "https://sambanova.ai/",
   scaleway: "https://www.scaleway.com",
   together: "https://together.xyz/",
-  zai: "https://z.ai/"
+  "zai-org": "https://z.ai/"
 };
 const INFERENCE_PROVIDERS = Object.keys(PROVIDERS_HUB_ORGS);
 
