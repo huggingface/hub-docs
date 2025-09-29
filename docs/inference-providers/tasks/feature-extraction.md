@@ -24,6 +24,7 @@ Example applications:
 > [!TIP]
 > For more details about the `feature-extraction` task, check out its [dedicated page](https://huggingface.co/tasks/feature-extraction)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [thenlper/gte-large](https://huggingface.co/thenlper/gte-large): A powerful feature extraction model for natural language processing tasks.

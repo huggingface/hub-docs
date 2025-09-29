@@ -19,6 +19,7 @@ Image-text-to-text models take in an image and text prompt and output text. Thes
 > [!TIP]
 > For more details about the `image-text-to-text` task, check out its [dedicated page](https://huggingface.co/tasks/image-text-to-text)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [zai-org/GLM-4.5V](https://huggingface.co/zai-org/GLM-4.5V): Cutting-edge reasoning vision language model.
@@ -30,7 +31,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"cerebras":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"llama-4-scout-17b-16e-instruct"},"cohere":{"modelId":"CohereLabs/command-a-vision-07-2025","providerModelId":"command-a-vision-07-2025"},"featherless-ai":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it"},"fireworks-ai":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"accounts/fireworks/models/llama4-scout-instruct-basic"},"groq":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/llama-4-scout-17b-16e-instruct"},"hyperbolic":{"modelId":"Qwen/Qwen2.5-VL-7B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-7B-Instruct"},"nebius":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it-fast"},"novita":{"modelId":"zai-org/GLM-4.5V","providerModelId":"zai-org/glm-4.5v"},"nscale":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct"},"sambanova":{"modelId":"meta-llama/Llama-4-Maverick-17B-128E-Instruct","providerModelId":"Llama-4-Maverick-17B-128E-Instruct"},"scaleway":{"modelId":"google/gemma-3-27b-it","providerModelId":"gemma-3-27b-it"},"together":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct"}} }
+    providersMapping={ {"cerebras":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"llama-4-scout-17b-16e-instruct"},"cohere":{"modelId":"CohereLabs/aya-vision-8b","providerModelId":"c4ai-aya-vision-8b"},"featherless-ai":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it"},"fireworks-ai":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"accounts/fireworks/models/llama4-scout-instruct-basic"},"groq":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/llama-4-scout-17b-16e-instruct"},"hyperbolic":{"modelId":"Qwen/Qwen2.5-VL-7B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-7B-Instruct"},"nebius":{"modelId":"google/gemma-3-27b-it","providerModelId":"google/gemma-3-27b-it-fast"},"novita":{"modelId":"Qwen/Qwen3-VL-235B-A22B-Thinking","providerModelId":"qwen/qwen3-vl-235b-a22b-thinking"},"nscale":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct"},"sambanova":{"modelId":"meta-llama/Llama-4-Maverick-17B-128E-Instruct","providerModelId":"Llama-4-Maverick-17B-128E-Instruct"},"scaleway":{"modelId":"google/gemma-3-27b-it","providerModelId":"gemma-3-27b-it"},"together":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct"}} }
 conversational />
 
 

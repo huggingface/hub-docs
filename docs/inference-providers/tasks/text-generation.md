@@ -21,6 +21,7 @@ If you are interested in a Chat Completion task, which generates a response base
 > [!TIP]
 > For more details about the `text-generation` task, check out its [dedicated page](https://huggingface.co/tasks/text-generation)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it): A text-generation model trained to follow instructions.

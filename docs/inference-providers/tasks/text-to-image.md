@@ -19,6 +19,7 @@ Generate an image based on a given text prompt.
 > [!TIP]
 > For more details about the `text-to-image` task, check out its [dedicated page](https://huggingface.co/tasks/text-to-image)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [black-forest-labs/FLUX.1-Krea-dev](https://huggingface.co/black-forest-labs/FLUX.1-Krea-dev): One of the most powerful image generation models that can generate realistic outputs.

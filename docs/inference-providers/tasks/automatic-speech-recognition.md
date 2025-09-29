@@ -24,6 +24,7 @@ Example applications:
 > [!TIP]
 > For more details about the `automatic-speech-recognition` task, check out its [dedicated page](https://huggingface.co/tasks/automatic-speech-recognition)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [openai/whisper-large-v3](https://huggingface.co/openai/whisper-large-v3): A powerful ASR model by OpenAI.

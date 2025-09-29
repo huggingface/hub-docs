@@ -19,6 +19,7 @@ Generate an video based on a given text prompt.
 > [!TIP]
 > For more details about the `text-to-video` task, check out its [dedicated page](https://huggingface.co/tasks/text-to-video)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [tencent/HunyuanVideo](https://huggingface.co/tencent/HunyuanVideo): A strong model for consistent video generation.

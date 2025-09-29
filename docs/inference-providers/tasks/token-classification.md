@@ -19,6 +19,7 @@ Token classification is a task in which a label is assigned to some tokens in a 
 > [!TIP]
 > For more details about the `token-classification` task, check out its [dedicated page](https://huggingface.co/tasks/token-classification)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [dslim/bert-base-NER](https://huggingface.co/dslim/bert-base-NER): A robust performance model to identify people, locations, organizations and names of miscellaneous entities.

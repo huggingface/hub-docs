@@ -19,6 +19,7 @@ Mask filling is the task of predicting the right word (token to be precise) in t
 > [!TIP]
 > For more details about the `fill-mask` task, check out its [dedicated page](https://huggingface.co/tasks/fill-mask)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [FacebookAI/xlm-roberta-base](https://huggingface.co/FacebookAI/xlm-roberta-base): A multilingual model trained on 100 languages.
@@ -30,7 +31,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=fill-mask
-    providersMapping={ {"hf-inference":{"modelId":"jhu-clsp/mmBERT-small","providerModelId":"jhu-clsp/mmBERT-small"}} }
+    providersMapping={ {"hf-inference":{"modelId":"jhu-clsp/mmBERT-base","providerModelId":"jhu-clsp/mmBERT-base"}} }
 />
 
 

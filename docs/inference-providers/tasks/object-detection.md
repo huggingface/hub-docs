@@ -19,6 +19,7 @@ Object Detection models allow users to identify objects of certain defined class
 > [!TIP]
 > For more details about the `object-detection` task, check out its [dedicated page](https://huggingface.co/tasks/object-detection)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [facebook/detr-resnet-50](https://huggingface.co/facebook/detr-resnet-50): Solid object detection model pre-trained on the COCO 2017 dataset.

@@ -19,6 +19,7 @@ Image classification is the task of assigning a label or class to an entire imag
 > [!TIP]
 > For more details about the `image-classification` task, check out its [dedicated page](https://huggingface.co/tasks/image-classification)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [google/vit-base-patch16-224](https://huggingface.co/google/vit-base-patch16-224): A strong image classification model.

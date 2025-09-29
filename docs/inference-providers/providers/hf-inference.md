@@ -80,7 +80,7 @@ Find out more about Fill Mask [here](../tasks/fill_mask).
 
 <InferenceSnippet
     pipeline=fill-mask
-    providersMapping={ {"hf-inference":{"modelId":"jhu-clsp/mmBERT-small","providerModelId":"jhu-clsp/mmBERT-small"} } }
+    providersMapping={ {"hf-inference":{"modelId":"jhu-clsp/mmBERT-base","providerModelId":"jhu-clsp/mmBERT-base"} } }
 />
 
 
@@ -100,7 +100,7 @@ Find out more about Image Segmentation [here](../tasks/image_segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/mask2former-swin-small-ade-semantic","providerModelId":"facebook/mask2former-swin-small-ade-semantic"} } }
 />
 
 

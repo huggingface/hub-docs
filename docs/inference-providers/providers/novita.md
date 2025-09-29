@@ -49,7 +49,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"novita":{"modelId":"baidu/ERNIE-4.5-21B-A3B-Thinking","providerModelId":"baidu/ernie-4.5-21B-a3b-thingking"} } }
+    providersMapping={ {"novita":{"modelId":"Qwen/Qwen3-Next-80B-A3B-Instruct","providerModelId":"qwen/qwen3-next-80b-a3b-instruct"} } }
 conversational />
 
 
@@ -59,7 +59,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"novita":{"modelId":"zai-org/GLM-4.5V","providerModelId":"zai-org/glm-4.5v"} } }
+    providersMapping={ {"novita":{"modelId":"Qwen/Qwen3-VL-235B-A22B-Thinking","providerModelId":"qwen/qwen3-vl-235b-a22b-thinking"} } }
 conversational />
 
 

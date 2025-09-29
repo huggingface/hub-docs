@@ -19,6 +19,7 @@ Summarization is the task of producing a shorter version of a document while pre
 > [!TIP]
 > For more details about the `summarization` task, check out its [dedicated page](https://huggingface.co/tasks/summarization)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn): A strong summarization model trained on English news articles. Excels at generating factual summaries.

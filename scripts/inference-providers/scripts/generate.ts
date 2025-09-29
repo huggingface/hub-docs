@@ -386,11 +386,9 @@ function processPayloadSchema(schema: any): JsonObject[] {
 //// Inline templates ////
 //////////////////////////
 
-const TIP_LINK_TO_TASK_PAGE_TEMPLATE = Handlebars.compile(`<Tip>
-
-For more details about the \`{{task}}\` task, check out its [dedicated page](https://huggingface.co/tasks/{{task}})! You will find examples and related materials.
-
-</Tip>`);
+const TIP_LINK_TO_TASK_PAGE_TEMPLATE = Handlebars.compile(`> [!TIP]
+> For more details about the \`{{task}}\` task, check out its [dedicated page](https://huggingface.co/tasks/{{task}})! You will find examples and related materials.
+`);
 
 const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
   `Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`,

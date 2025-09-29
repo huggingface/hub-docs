@@ -19,6 +19,7 @@ Zero-shot text classification is super useful to try out classification with zer
 > [!TIP]
 > For more details about the `zero-shot-classification` task, check out its [dedicated page](https://huggingface.co/tasks/zero-shot-classification)! You will find examples and related materials.
 
+
 ### Recommended models
 
 - [facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli): Powerful zero-shot text classification model.

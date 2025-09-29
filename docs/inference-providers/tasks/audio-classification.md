@@ -24,6 +24,7 @@ Example applications:
 > [!TIP]
 > For more details about the `audio-classification` task, check out its [dedicated page](https://huggingface.co/tasks/audio-classification)! You will find examples and related materials.
 
+
 ### Recommended models
 
 
