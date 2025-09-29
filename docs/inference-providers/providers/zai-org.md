@@ -19,11 +19,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 # Z.ai
 
-<Tip>
-
-All supported Z.ai models can be found [here](https://huggingface.co/models?inference_provider=zai-org&sort=trending)
-
-</Tip>
+> [!TIP]
+> All supported Z.ai models can be found [here](https://huggingface.co/models?inference_provider=zai-org&sort=trending)
 
 <div class="flex justify-center">
     <a href="https://z.ai/" target="_blank">
@@ -51,5 +48,15 @@ For latest pricing, visit the [pricing page](https://docs.z.ai/guides/overview/p
  - **Hugging Face**: https://huggingface.co/zai-org
 
 ## Supported tasks
+
+
+### Chat Completion (LLM)
+
+Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"zai-org":{"modelId":"zai-org/GLM-4.5","providerModelId":"glm-4.5"} } }
+conversational />
 
 
