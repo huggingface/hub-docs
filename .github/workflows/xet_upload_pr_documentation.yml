@@ -1,8 +1,8 @@
-name: Upload Xet Protocol PR Documentation
+name: Upload Xet PR Documentation
 
 on:
   workflow_run:
-    workflows: ["Build Xet Protocol PR Documentation"]
+    workflows: ["Build Xet PR Documentation"]
     types:
       - completed
 
@@ -10,7 +10,7 @@ jobs:
   build:
     uses: huggingface/doc-builder/.github/workflows/upload_pr_documentation.yml@main
     with:
-      package_name: xet-protocol
+      package_name: xet
     secrets:
       hf_token: ${{ secrets.HF_DOC_BUILD_PUSH }}
       comment_bot_token: ${{ secrets.COMMENT_BOT_TOKEN }}
