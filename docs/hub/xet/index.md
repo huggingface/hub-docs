@@ -11,15 +11,19 @@ Storing these files directly in a pure Git repository is impractical. Not only a
 
 Instead, on the Hub, these large files are tracked using "pointer files" and identified through a `.gitattributes` file (both discussed in more detail below), which remain in the Git repository while the actual data is stored in remote storage (like [Amazon S3](https://aws.amazon.com/s3/)). As a result, the repository stays small and typical Git workflows remain efficient.
 
-Historically, Hub repositories have relied on [Git LFS](https://git-lfs.com/) for this mechanism. While Git LFS remains supported (see [Backwards Compatibility & Legacy](./xet/legacy-git-lfs)), the Hub has adopted Xet, a modern custom storage system built specifically for AI/ML development. It enables chunk-level deduplication, smaller uploads, and faster downloads than Git LFS.
+Historically, Hub repositories have relied on [Git LFS](https://git-lfs.com/) for this mechanism. While Git LFS remains supported (see [Backwards Compatibility & Legacy](./legacy-git-lfs)), the Hub has adopted Xet, a modern custom storage system built specifically for AI/ML development. It enables chunk-level deduplication, smaller uploads, and faster downloads than Git LFS.
+
+### Open Source Xet Protocol
+
+If you are looking to understand the underlying Xet protocol or are looking to build a new client library to access Xet Storage, check out the [Xet Protocol Specification](https://huggingface.co/docs/xet/index).
 
 In these pages you will get started in using Xet Storage.
 
 ## Contents
 
-- [Xet History & Overview](./xet/overview)
-- [Using Xet Storage](./xet/using-xet-storage)
-- [Deduplication](./xet/deduplication)
-- [Backwards Compatibility & Legacy](./xet/legacy-git-lfs)
-- [Security](./xet/security)
+- [Xet History & Overview](./overview)
+- [Using Xet Storage](./using-xet-storage)
+- [Deduplication](./deduplication)
+- [Backwards Compatibility & Legacy](./legacy-git-lfs)
+- [Security](./security)
 
