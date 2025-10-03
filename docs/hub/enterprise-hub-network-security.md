@@ -18,8 +18,9 @@ You can set multiple ranges, one per line.
 
 ## Higher Hub Rate Limits
 
-Most of the actions on the Hub have limits, for example, users are limited to creating a certain number of repositories per day. 
-Once your IP ranges are set, enabling this option lets your organization request the highest usage limits for members connecting from those ranges. This also enables the highest HTTP rate limits on the Hub API, to unlock large volumes of model or dataset downloads.
+Most of the actions on the Hub have limits; for example, users are limited to creating a certain number of repositories per day. Enterprise Plus automatically gives your users the highest rate limits possible for every action.
+
+Additionally, once your IP ranges are set, enabling the "Higher Hub Rate Limits" option allows your organization to benefit from the highest HTTP rate limits on the Hub API, unlocking large volumes of model or dataset downloads.
 
 For more information about rate limits, see the [Hub Rate limits](./rate-limits) documentation.
 
