@@ -75,6 +75,8 @@
           
 - title: Providers
   sections:
+  - local: providers/baseten
+    title: Baseten
   - local: providers/cerebras
     title: Cerebras
   - local: providers/cohere
