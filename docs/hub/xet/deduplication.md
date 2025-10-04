@@ -1,0 +1,10 @@
+## Deduplication
+
+Xet-enabled repositories utilize [content-defined chunking (CDC)](https://huggingface.co/blog/from-files-to-chunks) to deduplicate on the level of bytes (~64KB of data, also referred to as a "chunk"). Each chunk is identified by a rolling hash that determines chunk boundaries based on the actual file contents, making it resilient to insertions or deletions anywhere in the file. When a file is uploaded to a Xet-backed repository using a Xet-aware client, its contents are broken down into these variable-sized chunks. Only new chunks not already present in Xet storage are kept after chunking, everything else is discarded.
+
+To avoid the overhead of communicating and managing at the level of chunks, new chunks are grouped together in [64MB blocks](https://huggingface.co/blog/from-chunks-to-blocks#scaling-deduplication-with-aggregation) and uploaded. Each block is stored once in a content-addressed store (CAS), keyed by its hash.
+
+The Hub's [current recommendation](https://huggingface.co/docs/hub/storage-limits#recommendations) is to limit files to 20GB. At a 64KB chunk size, a 20GB file has 312,500 chunks, many of which go unchanged from version to version. Git LFS is designed to notice only that a file has changed and store the entirety of that revision. By deduplicating at the level of chunks, the Xet backend enables storing only the modified content in a file (which might only be a few KB or MB) and securely deduplicates shared blocks across repositories. For the large binary files found in Model and Dataset repositories, this provides significant improvements to file transfer times.
+
+For more details, refer to the [From Files to Chunks](https://huggingface.co/blog/from-files-to-chunks) and [From Chunks to Blocks](https://huggingface.co/blog/from-chunks-to-blocks) blog posts, or the [Git is for Data](https://www.cidrdb.org/cidr2023/papers/p43-low.pdf) paper by Low et al. that served as the launch point for XetHub prior to being acquired by Hugging Face.
+
