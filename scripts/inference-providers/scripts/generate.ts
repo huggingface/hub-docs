@@ -33,6 +33,7 @@ const HEADERS: Record<string, string> = process.env.HF_TOKEN
   : {};
 
 const PROVIDERS_HUB_ORGS: Record<string, string> = {
+  baseten: "baseten",
   cerebras: "cerebras",
   cohere: "CohereLabs",
   "fal-ai": "fal",
@@ -53,6 +54,7 @@ const PROVIDERS_HUB_ORGS: Record<string, string> = {
 };
 
 const PROVIDERS_URLS: Record<string, string> = {
+  baseten: "https://baseten.ai/",
   cerebras: "https://www.cerebras.ai/",
   cohere: "https://cohere.com/",
   "fal-ai": "https://fal.ai/",

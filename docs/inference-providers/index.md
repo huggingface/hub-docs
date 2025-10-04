@@ -13,6 +13,7 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 
 | Provider                                     | Chat completion (LLM) | Chat completion (VLM) | Feature Extraction | Text to Image | Text to video | Speech to text |
 | -------------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: | :------------: |
+| [Baseten](./providers/baseten)               |          ✅           |                       |                    |               |               |                |
 | [Cerebras](./providers/cerebras)             |          ✅           |                       |                    |               |               |                |
 | [Cohere](./providers/cohere)                 |          ✅           |          ✅           |                    |               |               |                |
 | [Fal AI](./providers/fal-ai)                 |                       |                       |                    |      ✅       |      ✅       |       ✅       |
