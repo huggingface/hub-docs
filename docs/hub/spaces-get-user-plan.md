@@ -1,6 +1,6 @@
-# How to get a user's status in Spaces
+# How to get a user's plan and status in Spaces
 
-From inside a Space's iframe, you can check if a user is logged in or not on the main site, and if they have a PRO subscription or one of their orgs has a paid subscription.
+From inside a Space's iframe, you can check if a user is logged in or not on the main site, and if they have a PRO subscription or if one of their orgs has a paid subscription.
 
 ```js
 window.addEventListener("message", (event) => {
@@ -18,7 +18,7 @@ window.parent.postMessage({
 
 ```ts
 {
-    user: "anonymoous",
+    user: "anonymous",
     org: undefined
 } | {
     user: "pro" | "free",
@@ -26,7 +26,7 @@ window.parent.postMessage({
 }
 ```
 
-You will get both the user's status (logged-out = `"anonymous"`) and their <a href="https://huggingface.co/pricing">plan</a>.
+You will get both the user's status (logged out = `"anonymous"`) and their <a href="https://huggingface.co/pricing">plan</a>.
 
 ## Examples
 
