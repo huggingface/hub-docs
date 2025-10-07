@@ -378,8 +378,8 @@
       title: Cookie limitations in Spaces
     - local: spaces-handle-url-parameters
       title: Set URL query and hash
-    - local: spaces-get-user-status
-      title: Get User Status
+    - local: spaces-get-user-plan
+      title: Get User Plan and Status
 
 - local: other
   title: Other
