@@ -27,3 +27,7 @@ window.parent.postMessage({
 ```
 
 You will get both the user's status (logged-out = `"anonymous"`) and their <a href="https://huggingface.co/pricing">plan</a>.
+
+## Examples
+
+- https://huggingface.co/spaces/huggingfacejs/plan
