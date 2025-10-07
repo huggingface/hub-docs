@@ -1,6 +1,6 @@
 # How to get a user's status in Spaces
 
-You can check if a user is logged in or not on the main site, and if they have a PRO subscription or one of their orgs has a paid subscription.
+From inside a Space's iframe, you can check if a user is logged in or not on the main site, and if they have a PRO subscription or one of their orgs has a paid subscription.
 
 ```js
 window.addEventListener("message", (event) => {
