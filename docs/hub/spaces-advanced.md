@@ -10,3 +10,4 @@
 - [How to Add a Space to ArXiv](./spaces-add-to-arxiv)
 - [Cookie limitations in Spaces](./spaces-cookie-limitations)
 - [How to handle URL parameters in Spaces](./spaces-handle-url-parameters)
+- [How to get user status and plan in Spaces](./spaces-get-user-plan)
