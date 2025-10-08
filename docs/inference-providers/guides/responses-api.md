@@ -18,12 +18,7 @@ The Responses API provides a unified interface built for agentic apps. With it, 
 - A Hugging Face account with remaining Inference Providers credits (free tier available).
 - A fine-grained Hugging Face token with “Make calls to Inference Providers” permission stored in `HF_TOKEN`.
 
-> [!TIP]
-> If you plan to pin a specific provider, append it to the model id as `<repo>:<provider>` (for example `moonshotai/Kimi-K2-Instruct-0905:groq`). Otherwise, omit the suffix and let routing fall back to the default provider.
-
 ## Configure your Responses client
-
-The Hugging Face router lives at `https://router.huggingface.co/v1`. When you use the OpenAI SDK, set that URL as the client's `base_url` so the library can append resource paths (for example `/responses`).
 
 Install the OpenAI SDK for your language of choice before running the snippets below (`pip install openai` for Python or `npm install openai` for Node.js). If you prefer issuing raw HTTP calls, any standard tool such as `curl` will work as well.
 
@@ -88,6 +83,10 @@ curl https://router.huggingface.co/v1/responses \
 </hfoption>
 
 </hfoptions>
+
+
+> [!TIP]
+> If you plan to pin a specific provider, append it to the model id as `<repo>:<provider>` (for example `moonshotai/Kimi-K2-Instruct-0905:groq`). Otherwise, omit the suffix and let routing fall back to the default provider.
 
 ## Core Response patterns
 
