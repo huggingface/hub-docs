@@ -18,3 +18,7 @@ You can also revoke a user's membership or change their role on this page.
 ## Organization domain name
 
 Under the **Account** tab in the Organization settings, you can set an **Organization domain name**. Specifying a domain name will allow any user with a matching email address on the Hugging Face Hub to join your organization.
+
+## Leaving an organization
+
+To remove yourself from an organization, visit your [organization settings](https://huggingface.co/settings/organizations) and click **Leave Organization** next to the organization you wish to exit.
