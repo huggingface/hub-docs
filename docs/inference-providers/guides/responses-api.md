@@ -86,7 +86,7 @@ curl https://router.huggingface.co/v1/responses \
 
 
 > [!TIP]
-> If you plan to pin a specific provider, append it to the model id as `<repo>:<provider>` (for example `moonshotai/Kimi-K2-Instruct-0905:groq`). Otherwise, omit the suffix and let routing fall back to the default provider.
+> If you plan to use a specific provider, append it to the model id as `<repo>:<provider>` (for example `moonshotai/Kimi-K2-Instruct-0905:groq`). Otherwise, omit the suffix and let routing fall back to the default provider.
 
 ## Core Response patterns
 
