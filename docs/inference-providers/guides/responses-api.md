@@ -1,6 +1,6 @@
 # Responses API (beta)
 
-The Responses API (from OpenAI) provides a unified interface for model interactions with Hugging Face Inference Providers. Use your existing OpenAI SDKs to access features like multi-provider routing, enterprise controls, event streaming, structured outputs, and integration with Remote MCP tools.
+The Responses API (from OpenAI) provides a unified interface for model interactions with Hugging Face Inference Providers. Use your existing OpenAI SDKs to access features like multi-provider routing, event streaming, structured outputs, and Remote MCP tools.
 
 > [!TIP]
 > This guide assumes you have a Hugging Face account and access token. You can create a free account at [huggingface.co](https://huggingface.co) and get your token from your [settings page](https://huggingface.co/settings/tokens).
