@@ -21,4 +21,4 @@ Under the **Account** tab in the Organization settings, you can set an **Organiz
 
 ## Leaving an organization
 
-To leave an organization, visit your [organization settings](https://huggingface.co/settings/organizations) and click **Leave Organization** next to the organization you wish to exit.
+Users can leave an organization visiting their [organization settings](https://huggingface.co/settings/organizations) and clicking **Leave Organization** next to the organization they want to leave. Organization administrators can always remove users as explained above.
