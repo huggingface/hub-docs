@@ -34,24 +34,19 @@ In the following tables, you can see the Specs for the different upgrade options
 |----------------------- |-------------- |------------- |---------------- |---------- | ----------------- |
 | Nvidia T4 - small      | 4 vCPU        | 15 GB        | 16 GB           | 50 GB     | $0.40             |
 | Nvidia T4 - medium     | 8 vCPU        | 30 GB        | 16 GB           | 100 GB    | $0.60             |
-| Nvidia A10G - small    | 4 vCPU        | 15 GB        | 24 GB           | 110 GB    | $1.00             |
+| 1x Nvidia L4           | 8 vCPU        | 30 GB        | 24 GB           | 400 GB    | $0.80             |
+| 4x Nvidia L4           | 48 vCPU       | 186 GB       | 96 GB           | 3200 GB   | $3.80             |
+| 1x Nvidia L40S         | 8 vCPU        | 62 GB        | 48 GB           | 380 GB    | $1.80             |
+| 4x Nvidia L40S         | 48 vCPU       | 382 GB       | 192 GB          | 3200 GB   | $8.30             |
+| 8x Nvidia L40S         | 192 vCPU      | 1534 GB      | 384 GB          | 6500 GB   | $23.50            |
+| Nvidia A10G - small    | 4 vCPU        | 14 GB        | 24 GB           | 110 GB    | $1.00             |
 | Nvidia A10G - large    | 12 vCPU       | 46 GB        | 24 GB           | 200 GB    | $1.50             |
 | 2x Nvidia A10G - large | 24 vCPU       | 92 GB        | 48 GB           | 1000 GB   | $3.00             |
 | 4x Nvidia A10G - large | 48 vCPU       | 184 GB       | 96 GB           | 2000 GB   | $5.00             |
-| Nvidia A100 - large    | 12 vCPU       | 142 GB       | 80 GB           | 1000 GB   | $4.00             |
-| 1x Nvidia L40S         | 8 vCPU        | 62 GB        | 48 GB           | 380 GB    | $1.80             |
-| 4x Nvidia L40S         | 48 vCPU       | 48 GB        | 192 GB          | 3200 GB   | $8.30             |
-| 8x Nvidia L40S         | 192 vCPU      | 1534 GB      | 384 GB          | 6500 GB   | $23.50            |
-| Nvidia H100            | 24 vCPU       | 250 GB       | 80 GB           | 3000 GB   | $10.00            |
-| 8x Nvidia H100         | 192 vCPU      | 2 TB         | 640 GB          | 3000 GB   | coming soon       |
+| Nvidia A100 - large    | 12 vCPU       | 142 GB       | 80 GB           | 1000 GB   | $2.50             |
+| Nvidia H100            | 23 vCPU       | 240 GB       | 80 GB           | 3000 GB   | $4.50             |
+| 8x Nvidia H100         | 184 vCPU      | 1920 GB      | 640 GB          | 24 TB     | $36.00            |
 
-### TPU
-
-| **Hardware**           | **Accelerators**       | **Accelerator Memory**   | **RAM**  | **Hourly Price**  |
-|----------------------- |----------------------- |------------------------- |--------- | ----------------- | 
-| Google TPU v5e - 1x1   | 1                      | 16 GB                    | 44 GB    | $1.20             |
-| Google TPU v5e - 2x2   | 4                      | 64 GB                    | 186 GB   | $4.75             |
-| Google TPU v5e - 2x4   | 8                      | 128 GB                   | 380 GB   | $9.50             |
 
 ## Configure hardware programmatically
 
