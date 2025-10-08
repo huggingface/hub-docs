@@ -18,6 +18,9 @@ The Responses API provides a unified interface built for agentic apps. With it, 
 - A Hugging Face account with remaining Inference Providers credits (free tier available).
 - A fine-grained [Hugging Face token](https://huggingface.co/settings/tokens) with “Make calls to Inference Providers” permission stored in `HF_TOKEN`.
 
+> [!TIP]
+> All Inference Providers chat completion models should be compatible with the Responses API. You can browse available models on the [Inference Models page](https://huggingface.co/inference/models).
+
 ## Configure your Responses client
 
 Install the OpenAI SDK for your language of choice before running the snippets below (`pip install openai` for Python or `npm install openai` for Node.js). If you prefer issuing raw HTTP calls, any standard tool such as `curl` will work as well.
