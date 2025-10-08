@@ -807,4 +807,4 @@ curl https://router.huggingface.co/v1/responses \
 
 ## API reference
 
-Review the official [OpenAI Responses reference](https://platform.openai.com/docs/api-reference/responses).
+Read the official [OpenAI Responses reference](https://platform.openai.com/docs/api-reference/responses).
