@@ -390,7 +390,7 @@ curl -N https://router.huggingface.co/v1/responses \
   -d '{
     "model": "moonshotai/Kimi-K2-Instruct-0905:groq",
     "input": [
-      {"role": "user", "content": "Say 'double bubble bath' ten times fast."}
+      {"role": "user", "content": "Say \"double bubble bath\" ten times fast."}
     ],
     "stream": true
   }'
