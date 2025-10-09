@@ -67,7 +67,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"replicate":{"modelId":"tencent/HunyuanImage-2.1","providerModelId":"tencent/hunyuan-image-2.1"} } }
+    providersMapping={ {"replicate":{"modelId":"tencent/HunyuanImage-3.0","providerModelId":"tencent/hunyuan-image-3"} } }
 />
 
 
