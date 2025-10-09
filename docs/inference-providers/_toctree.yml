@@ -19,6 +19,8 @@
     title: Structured Outputs with LLMs
   - local: guides/function-calling
     title: Function Calling
+  - local: guides/responses-api
+    title: Responses API (beta)
   - local: guides/gpt-oss
     title: How to use OpenAI gpt-oss
   - local: guides/image-editor
