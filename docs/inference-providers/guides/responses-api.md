@@ -754,7 +754,7 @@ client = OpenAI(
 )
 
 response = client.responses.create(
-    model="deepseek-ai/DeepSeek-R1",
+    model="openai/gpt-oss-120b:groq",
     instructions="You are a helpful assistant.",
     input="Say hello to the world.",
     reasoning={"effort": "low"},
@@ -777,7 +777,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "deepseek-ai/DeepSeek-R1",
+  model: "openai/gpt-oss-120b:groq",
   instructions: "You are a helpful assistant.",
   input: "Say hello to the world.",
   reasoning: { effort: "low" },
@@ -797,7 +797,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "deepseek-ai/DeepSeek-R1",
+    "model": "openai/gpt-oss-120b:groq",
     "instructions": "You are a helpful assistant.",
     "input": "Say hello to the world.",
     "reasoning": {"effort": "low"}
