@@ -71,6 +71,8 @@ df = session.read.csv("hf://datasets/username/dataset_name/*.csv", merge_schemas
 df = session.read.parquet("hf://datasets/username/dataset_name/*.parquet", merge_schemas=True)
 ```
 
+> **Note:** In fenic, a schema is the set of column names and their data types. When you enable `merge_schemas`, fenic tries to reconcile differences across files by filling missing columns with nulls and widening types where it can. Some layouts still cannot be merged—consult the fenic docs for [CSV schema merging limitations](https://docs.fenic.ai/latest/reference/fenic/?h=parquet#fenic.DataFrameReader.csv) and [Parquet schema merging limitations](https://docs.fenic.ai/latest/reference/fenic/?h=parquet#fenic.DataFrameReader.parquet).
+
 ### Authentication
 
 To read private datasets, you need to set your Hugging Face token as an environment variable:
