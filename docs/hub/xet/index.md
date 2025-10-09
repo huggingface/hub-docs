@@ -23,7 +23,7 @@ In these pages you will get started in using Xet Storage.
 
 - [Xet History & Overview](./overview)
 - [Using Xet Storage](./using-xet-storage)
-- [Deduplication](./deduplication)
-- [Backwards Compatibility & Legacy](./legacy-git-lfs)
 - [Security](./security)
+- [Backwards Compatibility & Legacy](./legacy-git-lfs)
+- [Deduplication](./deduplication)
 
