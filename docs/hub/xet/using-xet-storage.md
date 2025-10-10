@@ -1,12 +1,5 @@
 ## Using Xet Storage
 
-To start using Xet Storage, you need a Xet-enabled repository and a Xet-aware version of the [huggingface_hub](https://huggingface.co/docs/huggingface_hub) Python library. As of May 23rd, 2025, Xet-enabled repositories are the default [for all new users and organizations on the Hub](https://huggingface.co/changelog/xet-default-for-new-users).
-
-> [!TIP]
-> For user and organization profiles created before May 23rd, 2025, you can make Xet the default for all your repositories by [signing up here](https://huggingface.co/join/xet). You can apply for yourself or your entire organization (requires [admin permissions](https://huggingface.co/docs/hub/organizations-security)). Once approved, all existing repositories will be automatically migrated to Xet and future repositories will be Xet-enabled by default.
->
-> PRO users and Team or Enterprise organizations will be fast-tracked for access.
-
 To access a Xet-aware version of the `huggingface_hub`, simply install the latest version:
 
 ```bash
