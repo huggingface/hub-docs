@@ -1,6 +1,6 @@
 # Storage limits
 
-At Hugging Face our intent is to provide the AI community with as much **free storage space for public repositories** as we can. We do bill for storage space for **private repositories**, above a free tier (see table below).
+At Hugging Face we aim to provide the AI community with significant volumes of **free storage space for public repositories**. We bill for storage space for **private repositories**, above a free tier (see table below).
 
 > [!TIP]
 > Storage limits and policies apply to both model and dataset repositories on the Hub.
@@ -11,16 +11,18 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 ## Storage plans
 
-| Type of account                  | Public storage   | Private storage              |
-| -------------------------------- | ---------------- | ---------------------------- |
-| Free user or org                 | Best-effort* 🙏  | 100GB                        |
-| PRO                              | Unlimited* ✅    | 1TB + pay-as-you-go          |
-| Team or Enterprise Organizations | Unlimited* ✅    | 1TB per seat + pay-as-you-go |
+| Type of account          | Public storage                                                     | Private storage              |
+| ------------------------ | ------------------------------------------------------------------ | ---------------------------- |
+| Free user or org         | Best-effort\* 🙏 <br> usually up to 5TB for impactful work         | 100GB                        |
+| PRO                      | Up to 10TB included\* ✅ <br> grants available for impactful work† | 1TB + pay-as-you-go          |
+| Team Organizations       | 12TB base + 1TB per seat ✅                                        | 1TB per seat + pay-as-you-go |
+| Enterprise Organizations | 500TB base + 1TB per seat 🏆                                       | 1TB per seat + pay-as-you-go |
 
 💡 [Team or Enterprise Organizations](https://huggingface.co/enterprise) include 1TB of private storage per seat in the subscription: for example, if your organization has 40 members, then you have 40TB of included private storage.
 
-\*We aim to continue providing the AI community with free storage space for public repositories. Beyond the first few gigabytes, please use this resource responsibly by uploading content that offers genuine value to other users. If you need substantial storage space, you will need to upgrade to [PRO, Team or Enterprise](https://huggingface.co/pricing).
+\* We aim to continue providing the AI community with generous free storage space for public repositories. Beyond the first few gigabytes, please use this resource responsibly by uploading content that offers genuine value to other users. If you need substantial storage space, you will need to upgrade to [PRO, Team or Enterprise](https://huggingface.co/pricing).
 
+† We work with impactful community members to ensure it is as easy as possible for them to unlock large storage limits. If your models or datasets consistently get many likes and downloads and you hit limits, get in touch.
 
 ### Pay-as-you-go price
 
@@ -45,7 +47,7 @@ We gathered a list of tips and recommendations for structuring your repo. If you
 | Commit size        | <100 files*        | upload files in multiple commits                       |
 | Commits per repo   | -                  | upload multiple files per commit and/or squash history |
 
-_* Not relevant when using `git` CLI directly_
+_\* Not relevant when using `git` CLI directly_
 
 Please read the next section to understand better those limits and how to deal with them.
 
@@ -115,7 +117,7 @@ To do that, to ensure we can effectively support the open-source ecosystem, plea
 
 ### Grants for private repositories
 
-If you need more model/ dataset storage than your allocated private storage for academic/ research purposes, please reach out to us at datasets@huggingface.co or models@huggingface.co along with a proposal of how you will use the storage grant.
+We recommend that academic and research institutions upgrade to Team, Enterprise, or Academia Hub for guaranteed storage limits. For researchers doing highly impactful work who are genuinely blocked by lack of institutional funding, PRO storage grants may be available on a case-by-case basis. Please contact datasets@huggingface.co or models@huggingface.co with a proposal explaining your use case and demonstrated impact.
 
 
 ## How can I free up storage space in my account/organization?
