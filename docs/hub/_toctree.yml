@@ -47,8 +47,19 @@
     title: Repository Settings
   - local: storage-limits
     title: Storage Limits
-  - local: storage-backends
-    title: Storage Backends
+  - local: xet/index
+    title: Storage Backend (Xet)
+    sections:
+    - local: xet/overview
+      title: Xet History & Overview
+    - local: xet/using-xet-storage
+      title: Using Xet Storage
+    - local: xet/security
+      title: Security
+    - local: xet/legacy-git-lfs
+      title: Backwards Compatibility & Legacy
+    - local: xet/deduplication
+      title: Deduplication
   - local: repositories-pull-requests-discussions
     title: Pull Requests & Discussions
   - local: notifications
