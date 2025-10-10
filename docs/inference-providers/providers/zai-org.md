@@ -60,3 +60,13 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 conversational />
 
 
+### Chat Completion (VLM)
+
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=image-text-to-text
+    providersMapping={ {"zai-org":{"modelId":"zai-org/GLM-4.5V","providerModelId":"glm-4.5v"} } }
+conversational />
+
+
