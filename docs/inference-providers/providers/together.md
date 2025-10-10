@@ -61,16 +61,6 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 conversational />
 
 
-### Text Generation
-
-Find out more about Text Generation [here](../tasks/text_generation).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"together":{"modelId":"Qwen/Qwen3-Next-80B-A3B-Instruct","providerModelId":"Qwen/Qwen3-Next-80B-A3B-Instruct"} } }
-/>
-
-
 ### Text To Image
 
 Find out more about Text To Image [here](../tasks/text_to_image).
