@@ -47,7 +47,7 @@ We gathered a list of tips and recommendations for structuring your repo. If you
 | Commit size        | <100 files*        | upload files in multiple commits                       |
 | Commits per repo   | -                  | upload multiple files per commit and/or squash history |
 
-_* Not relevant when using `git` CLI directly_
+_\* Not relevant when using `git` CLI directly_
 
 Please read the next section to understand better those limits and how to deal with them.
 
