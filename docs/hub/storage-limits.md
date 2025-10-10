@@ -1,6 +1,6 @@
 # Storage limits
 
-At Hugging Face our intent is to provide the AI community with as much **free storage space for public repositories** as we can. We do bill for storage space for **private repositories**, above a free tier (see table below).
+At Hugging Face we aim to provide the AI community with significant volumes of **free storage space for public repositories**. We bill for storage space for **private repositories**, above a free tier (see table below).
 
 > [!TIP]
 > Storage limits and policies apply to both model and dataset repositories on the Hub.
@@ -11,16 +11,18 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 ## Storage plans
 
-| Type of account                  | Public storage   | Private storage              |
-| -------------------------------- | ---------------- | ---------------------------- |
-| Free user or org                 | Best-effort* 🙏  | 100GB                        |
-| PRO                              | Unlimited* ✅    | 1TB + pay-as-you-go          |
-| Team or Enterprise Organizations | Unlimited* ✅    | 1TB per seat + pay-as-you-go |
+| Type of account          | Public storage                                                | Private storage              |
+| ------------------------ | ------------------------------------------------------------- | ---------------------------- |
+| Free user or org         | Best-effort\* 🙏 <br> usually up to 5TB for impactful work    | 100GB                        |
+| PRO                      | ~10TB included\* ✅ <br> grants available for impactful work† | 1TB + pay-as-you-go          |
+| Team Organizations       | 12TB base + 1TB per seat ✅                                   | 1TB per seat + pay-as-you-go |
+| Enterprise Organizations | 500TB base + 1TB per seat 🏆                                  | 1TB per seat + pay-as-you-go |
 
 💡 [Team or Enterprise Organizations](https://huggingface.co/enterprise) include 1TB of private storage per seat in the subscription: for example, if your organization has 40 members, then you have 40TB of included private storage.
 
-\*We aim to continue providing the AI community with free storage space for public repositories. Beyond the first few gigabytes, please use this resource responsibly by uploading content that offers genuine value to other users. If you need substantial storage space, you will need to upgrade to [PRO, Team or Enterprise](https://huggingface.co/pricing).
+\* We aim to continue providing the AI community with generous free storage space for public repositories. Beyond the first few gigabytes, please use this resource responsibly by uploading content that offers genuine value to other users. If you need substantial storage space, you will need to upgrade to [PRO, Team or Enterprise](https://huggingface.co/pricing).
 
+† We work with impactful community members to ensure it is as easy as possible for them to unlock large storage limits. If your models or datasets consistently get many likes and downloads and you hit limits, get in touch.
 
 ### Pay-as-you-go price
 
