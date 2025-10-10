@@ -117,7 +117,7 @@ To do that, to ensure we can effectively support the open-source ecosystem, plea
 
 ### Grants for private repositories
 
-We recommend that academic and research institutions with resources upgrade to PRO, Team, or Enterprise plans for guaranteed storage limits. For researchers doing highly impactful work who are genuinely blocked by lack of institutional funding, storage grants may be available on a case-by-case basis. Please contact datasets@huggingface.co or models@huggingface.co with a proposal explaining your use case and demonstrated impact.
+We recommend that academic and research institutions upgrade to Team, Enterprise, or Academia Hub for guaranteed storage limits. For researchers doing highly impactful work who are genuinely blocked by lack of institutional funding, PRO storage grants may be available on a case-by-case basis. Please contact datasets@huggingface.co or models@huggingface.co with a proposal explaining your use case and demonstrated impact.
 
 
 ## How can I free up storage space in my account/organization?
