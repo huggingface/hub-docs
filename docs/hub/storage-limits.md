@@ -117,7 +117,7 @@ To do that, to ensure we can effectively support the open-source ecosystem, plea
 
 ### Grants for private repositories
 
-If you need more model/ dataset storage than your allocated private storage for academic/ research purposes, please reach out to us at datasets@huggingface.co or models@huggingface.co along with a proposal of how you will use the storage grant.
+We recommend that academic and research institutions with resources upgrade to PRO, Team, or Enterprise plans for guaranteed storage limits. For researchers doing highly impactful work who are genuinely blocked by lack of institutional funding, storage grants may be available on a case-by-case basis. Please contact datasets@huggingface.co or models@huggingface.co with a proposal explaining your use case and demonstrated impact.
 
 
 ## How can I free up storage space in my account/organization?
