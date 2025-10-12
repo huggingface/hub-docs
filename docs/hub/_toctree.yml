@@ -442,6 +442,12 @@
     title: Agents on Hub
   - local: hf-mcp-server
     title: Hugging Face MCP Server
+  - local: hf-mcp-claude
+    title: Connect MCP to Claude
+  - local: hf-mcp-chatgpt
+    title: Connect MCP to ChatGPT
+  - local: hf-mcp-codex-cli
+    title: Connect MCP to Codex CLI
   - local: moderation
     title: Moderation
   - local: paper-pages
