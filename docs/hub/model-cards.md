@@ -249,7 +249,7 @@ The model card is also a great place to show information about the CO<sub>2</sub
 
 ### Linking a Paper
 
-If the model card includes a link to a Hugging Face paper page or Arxiv abstract/PDF, the Hugging Face Hub will extract the arXiv ID and include it in the model tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you:
+If the model card includes a link to a Paper page (either on HF or an Arxiv abstract/PDF), the Hugging Face Hub will extract the arXiv ID and include it in the model tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you:
 
 * Visit the Paper page
 * Filter for other models on the Hub that cite the same paper.

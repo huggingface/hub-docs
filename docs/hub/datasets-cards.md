@@ -47,7 +47,7 @@ Reading through existing dataset cards, such as the [ELI5 dataset card](https://
 
 ### Linking a Paper
 
-If the dataset card includes a link to a Hugging Face paper page or Arxiv abstract/PDF, the Hub will extract the arXiv ID and include it in the dataset tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you:
+If the dataset card includes a link to a Paper page (either on HF or an Arxiv abstract/PDF), the Hub will extract the arXiv ID and include it in the dataset tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you:
 
 * Visit the Paper page
 * Filter for other models on the Hub that cite the same paper.
