@@ -15,7 +15,7 @@ You can also keep track of the latest Pytorch Training DLC releases [here](https
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.5.1-transformers4.49.0-gpu-py311-cu124-ubuntu22.04 | GPU         |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training-neuronx:2.1.2-transformers4.48.1-neuronx-py310-sdk2.20.0-ubuntu20.04 | Neuron         |
+| 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-training-neuronx:2.7.0-transformers4.51.0-neuronx-py310-sdk2.24.1-ubuntu22.04 | Neuron         |
 
 ## Inference
 
