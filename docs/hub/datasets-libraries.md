@@ -15,6 +15,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [Distilabel](./datasets-distilabel) | The framework for synthetic data generation and AI feedback.                                                                   | ✅                | ✅          |
 | [DuckDB](./datasets-duckdb)         | In-process SQL OLAP database management system.                                                                                | ✅                | ✅          |
 | [Embedding Atlas](./datasets-embedding-atlas) | Interactive visualization and exploration tool for large embeddings.                                                     | ✅                | ❌          |
+| [fenic](./datasets-fenic)           | PySpark-inspired DataFrame framework for building production AI and agentic applications.                                      | ✅                | ❌          |
 | [FiftyOne](./datasets-fiftyone)     | FiftyOne is a library for curation and visualization of image, video, and 3D data.                                             | ✅                | ✅          |
 | [Pandas](./datasets-pandas)         | Python data analysis toolkit.                                                                                                  | ✅                | ✅          |
 | [Polars](./datasets-polars)         | A DataFrame library on top of an OLAP query engine.                                                                            | ✅                | ✅          |
