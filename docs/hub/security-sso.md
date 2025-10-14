@@ -32,12 +32,12 @@ You can easily integrate Hugging Face Hub with a variety of Identity Providers, 
 
 We have some guides available to help with configuring based on your chosen SSO provider, or to take inspiration from:
 
-- [How to configure SAML with Okta in the Hub](./security-sso-okta-saml)
-- [How to configure OIDC with Okta in the Hub](./security-sso-okta-oidc)
-- [How to configure SAML with Azure in the Hub](./security-sso-azure-saml)
-- [How to configure OIDC with Azure in the Hub](./security-sso-azure-oidc)
-- [How to configure SAML with Google Workspace in the Hub](./security-sso-google-saml)
-- [How to configure OIDC with Google Workspace in the Hub](./security-sso-google-oidc)
+- [How to configure SAML with Okta in the Hub](./security-sso-okta-saml.md)
+- [How to configure OIDC with Okta in the Hub](./security-sso-okta-oidc.md)
+- [How to configure SAML with Azure in the Hub](./security-sso-azure-saml.md)
+- [How to configure OIDC with Azure in the Hub](./security-sso-azure-oidc.md)
+- [How to configure SAML with Google Workspace in the Hub](./security-sso-google-saml.md)
+- [How to configure OIDC with Google Workspace in the Hub](./security-sso-google-oidc.md)
 
 ### Users Management
 
