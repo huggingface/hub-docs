@@ -14,7 +14,7 @@ You can also keep track of the latest Pytorch Training DLC releases [here](https
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.5.1-transformers4.49.0-gpu-py311-cu124-ubuntu22.04 | GPU         |
+| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.8.0-transformers4.56.2-gpu-py312-cu129-ubuntu22.04 | GPU         |
 | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-training-neuronx:2.7.0-transformers4.51.0-neuronx-py310-sdk2.24.1-ubuntu22.04 | Neuron         |
 
 ## Inference
@@ -39,7 +39,7 @@ You can also keep track of the latest LLM TGI DLC releases [here](https://github
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-tgi-inference:2.7.0-tgi3.3.4-gpu-py311-cu124-ubuntu22.04 | GPU         |
+| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-tgi-inference:2.7.0-tgi3.3.6-gpu-py311-cu124-ubuntu22.04 | GPU         |
 | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-tgi-inference:2.7.0-optimum3.3.6-neuronx-py310-ubuntu22.04 | Neuron         |
 
 ### Text Embedding Inference
@@ -48,8 +48,8 @@ Finally, there is a Text Embeddings Inference (TEI) DLC for high-performance ser
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.8.0-cpu-py310-ubuntu22.04 | CPU         |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.8.0-gpu-py310-cu122-ubuntu22.04 | GPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/2.0.1-tei1.8.2-cpu-py310-ubuntu22.04 | CPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/2.0.1-tei1.8.2-gpu-py310-cu122-ubuntu22.04 | GPU         |
 
 ## FAQ
 
