@@ -54,6 +54,6 @@ If you are running on a machine with high bandwidth,
 you can speed up downloads by allowing `hf_xet` to run on all CPU cores. `hf_xet` is a Rust-based package leveraging the new Xet storage backend to optimize file transfers with chunk-based deduplication. `hf_xet` is enabled by default but with lower performances to avoid bloating available CPU and bandwidth, which would degrade UX.
 
 ```bash
-pip install "huggingface_hub[hf_xet]"
+pip install -U huggingface_hub
 HF_XET_HIGH_PERFORMANCE=1 hf download ...
 ```
