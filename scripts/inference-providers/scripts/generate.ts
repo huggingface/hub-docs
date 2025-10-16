@@ -1,4 +1,5 @@
 import { PipelineType } from "@huggingface/tasks";
+import { PROVIDERS_HUB_ORGS } from "@huggingface/inference";
 import Handlebars from "handlebars";
 import * as fs from "node:fs/promises";
 import * as path from "node:path/posix";
@@ -32,25 +33,6 @@ const HEADERS: Record<string, string> = process.env.HF_TOKEN
   ? { Authorization: `Bearer ${process.env.HF_TOKEN}` }
   : {};
 
-const PROVIDERS_HUB_ORGS: Record<string, string> = {
-  cerebras: "cerebras",
-  cohere: "CohereLabs",
-  "fal-ai": "fal",
-  "featherless-ai": "featherless-ai",
-  "fireworks-ai": "fireworks-ai",
-  groq: "groq",
-  "hf-inference": "hf-inference",
-  hyperbolic: "Hyperbolic",
-  nebius: "nebius",
-  novita: "novita",
-  nscale: "nscale",
-  publicai: "publicai",
-  replicate: "replicate",
-  sambanova: "sambanovasystems",
-  scaleway: "scaleway",
-  together: "togethercomputer",
-  "zai-org": "zai-org"
-};
 
 const PROVIDERS_URLS: Record<string, string> = {
   cerebras: "https://www.cerebras.ai/",
@@ -71,7 +53,8 @@ const PROVIDERS_URLS: Record<string, string> = {
   together: "https://together.xyz/",
   "zai-org": "https://z.ai/"
 };
-const INFERENCE_PROVIDERS = Object.keys(PROVIDERS_HUB_ORGS);
+//filter PROVIDERS_HUB_ORGS to only include providers that are in PROVIDERS_URLS
+const INFERENCE_PROVIDERS = Object.keys(PROVIDERS_HUB_ORGS).filter(provider => PROVIDERS_URLS[provider]); 
 
 async function authFetchJson(url: string) {
   const headers = url.includes("huggingface.co") ? HEADERS : {};
