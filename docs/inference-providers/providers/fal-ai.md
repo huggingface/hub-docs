@@ -51,6 +51,16 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic_speec
 />
 
 
+### Image Segmentation
+
+Find out more about Image Segmentation [here](../tasks/image_segmentation).
+
+<InferenceSnippet
+    pipeline=image-segmentation
+    providersMapping={ {"fal-ai":{"modelId":"briaai/RMBG-2.0","providerModelId":"fal-ai/bria/background/remove"} } }
+/>
+
+
 ### Image To Image
 
 Find out more about Image To Image [here](../tasks/image_to_image).
@@ -77,6 +87,6 @@ Find out more about Text To Video [here](../tasks/text_to_video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"fal-ai":{"modelId":"Wan-AI/Wan2.2-T2V-A14B","providerModelId":"fal-ai/wan/v2.2-a14b/text-to-video"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Wan-AI/Wan2.2-TI2V-5B","providerModelId":"fal-ai/wan/v2.2-5b/text-to-video"} } }
 />
 
