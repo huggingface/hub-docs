@@ -15,7 +15,7 @@ Enterprise Hub organizations can improve their security with advanced security c
 Configure additional security settings to protect your organization:
 
 - **Two-Factor Authentication (2FA)**: Require all organization members to enable 2FA for enhanced account security.
-- **User Approval**: For organizations with a verified domain name, require admin approval for new users with matching email addresses. This adds a verified badge to your organization page.
+- **User Approval**: For organizations with a verified email domain, require admin approval for new users with matching email addresses to join. This adds a verified badge to your organization page.
 
 ## Repository Visibility Controls
 
