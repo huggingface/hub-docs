@@ -15,9 +15,9 @@ New members can be added to an organization by visiting the **Organization setti
 
 You can also revoke a user's membership or change their role on this page.
 
-## Organization domain name
+## Organization email domain
 
-Under the **Account** tab in the Organization settings, you can set an **Organization domain name**. Specifying a domain name will allow any user with a matching email address on the Hugging Face Hub to join your organization.
+Under the **Account** tab in the Organization settings, you can set an **Organization email domain**. Specifying a domain will allow any user with a matching email address on the Hugging Face Hub to join your organization.
 
 ## Leaving an organization
 

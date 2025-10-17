@@ -32,7 +32,7 @@ As an organization `admin`, go to the **Members** section of the org settings to
 
 You may be able to view the email addresses of members of your organization. The visibility of the email addresses depends on the organization's SSO configuration, or verified organization status.
 
-- If you [verify a domain for your organization](./organizations-managing#organization-domain-name), you can view members' email addresses for the verified domain.
+- By [verifying an email domain](./organizations-managing#organization-email-domain) for your organization, you can view the email addresses of members with a matching email domain.
 - If SSO is configured for your organization, you can view the email address for each of your organization members by setting `Matching email domains` in the SSO configuration
 
 <div class="flex justify-center">
