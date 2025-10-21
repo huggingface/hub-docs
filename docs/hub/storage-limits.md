@@ -61,7 +61,7 @@ Under the hood, the Hub uses Git to version the data, which has structural impli
 If your repo is crossing some of the numbers mentioned in the previous section, **we strongly encourage you to check out [`git-sizer`](https://github.com/github/git-sizer)**,
 which has very detailed documentation about the different factors that will impact your experience. Here is a TL;DR of factors to consider:
 
-- **Repository size**: The total size of the data you're planning to upload. We generally support repositories up to 1TB. If you would like to upload more than 1TB, you will need to ask us to grant more storage. To do that, please send an email with details of your project to datasets@huggingface.co (for datasets) or models@huggingface.co (for models).
+- **Repository size**: The total size of the data you're planning to upload. If you would like to upload more than 1TB, you will need to subscribe to Team/Enterprise or ask us to grant more storage. We consider storage grants for impactful work and when a subscription is not an option. To do that, please send an email with details of your project to datasets@huggingface.co (for datasets) or models@huggingface.co (for models).
 - **Number of files**:
     - For optimal experience, we recommend keeping the total number of files under 100k, and ideally much less. Try merging the data into fewer files if you have more.
       For example, json files can be merged into a single jsonl file, or large datasets can be exported as Parquet files or in [WebDataset](https://github.com/webdataset/webdataset) format.
