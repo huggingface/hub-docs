@@ -61,7 +61,7 @@ Under the hood, the Hub uses Git to version the data, which has structural impli
 If your repo is crossing some of the numbers mentioned in the previous section, **we strongly encourage you to check out [`git-sizer`](https://github.com/github/git-sizer)**,
 which has very detailed documentation about the different factors that will impact your experience. Here is a TL;DR of factors to consider:
 
-- **Repository size**: The total size of the data you're planning to upload. We generally support repositories up to 300GB. If you would like to upload more than 300 GBs (or even TBs) of data, you will need to ask us to grant more storage. To do that, please send an email with details of your project to datasets@huggingface.co (for datasets) or models@huggingface.co (for models).
+- **Repository size**: The total size of the data you're planning to upload. If you would like to upload more than 1TB, you will need to subscribe to Team/Enterprise or ask us to grant more storage. We consider storage grants for impactful work and when a subscription is not an option. To do that, please send an email with details of your project to datasets@huggingface.co (for datasets) or models@huggingface.co (for models).
 - **Number of files**:
     - For optimal experience, we recommend keeping the total number of files under 100k, and ideally much less. Try merging the data into fewer files if you have more.
       For example, json files can be merged into a single jsonl file, or large datasets can be exported as Parquet files or in [WebDataset](https://github.com/webdataset/webdataset) format.
@@ -89,7 +89,7 @@ adding around 50-100 files per commit.
 
 ### Sharing large datasets on the Hub
 
-One key way Hugging Face supports the machine learning ecosystem is by hosting datasets on the Hub, including very large ones. However, if your dataset is bigger than 300GB, you will need to ask us to grant more storage.
+One key way Hugging Face supports the machine learning ecosystem is by hosting datasets on the Hub, including very large ones. However, if your dataset is bigger than 1TB, you will need to subscribe to Team/Enterprise or  ask us to grant more storage.
 
 In this case, to ensure we can effectively support the open-source ecosystem, we require you to let us know via datasets@huggingface.co.
 
@@ -111,7 +111,7 @@ Please get in touch with us if any of these requirements are difficult for you t
 
 ### Sharing large volumes of models on the Hub
 
-Similarly to datasets, if you host models bigger than 300GB or if you plan on uploading a large number of smaller sized models (for instance, hundreds of automated quants) totalling more than 1TB, you will need to ask us to grant more storage. 
+Similarly to datasets, if you host models bigger than 1TB or if you plan on uploading a large number of smaller sized models (for instance, hundreds of automated quants) totalling more than 1TB, you will need to subscribe to Team/Enterprise or ask us to grant more storage. 
 
 To do that, to ensure we can effectively support the open-source ecosystem, please send an email with details of your project to models@huggingface.co.
 
