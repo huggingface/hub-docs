@@ -36,15 +36,16 @@ Install [Git](https://git-scm.com/) and [Git LFS](https://git-lfs.com/).
 
 ### Install on macOS or Linux (amd64 or aarch64)
 
- To install using [Homebrew](https://brew.sh/):
+ Install using an installation script with the following command in your terminal (requires `curl` and `unzip`):
+   ```
+   curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/huggingface/xet-core/refs/heads/main/git_xet/install.sh | sh
+   ```
+ Or, install using [Homebrew](https://brew.sh/), with the following [tap](https://docs.brew.sh/Taps) (direct `brew install` coming soon):
    ```
    brew tap huggingface/tap
    brew install git-xet
    ```
- Or, using an installation script, run the following in your terminal (requires `curl` and `unzip`):
-   ```
-   curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/huggingface/xet-core/refs/heads/main/git_xet/install.sh | sh
-   ```
+
   To verify the installation, run:
    ```
    git-xet --version
@@ -64,6 +65,23 @@ To verity the installation, run:
   ```
   git-xet --version
   ```
+
+### Using Git Xet
+
+Once installed on your platform, using Git Xet is as simple as following the Hub's standard Git workflows. First, make sure Git LFS is initialized in your local version of the repository: 
+
+  ```
+  git lfs install
+  ```
+Then make any additions you might want, commit your changes, and `push` your commit to the Hub:
+
+  ```
+  # Create any files you like! Then...
+  git add .
+  git commit -m "Uploading new models"  # You can choose any descriptive message
+  git push
+  ```
+Under the hood, the [Xet protocol](https://huggingface.co/docs/xet/index) is invoked to upload large files directly to Xet storage, increasing upload speeds through the power of [chunk-level deduplication](./deduplication).
 
 ### Uninstall on macOS or Linux
 
