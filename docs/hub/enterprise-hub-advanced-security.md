@@ -6,8 +6,8 @@
 Enterprise Hub organizations can improve their security with advanced security controls for both members and repositories.
 
 <div class="flex justify-center" style="max-width: 550px">
-    <img class="block dark:hidden m-0!" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/advanced-security.png" alt="screenshot of the Dataset Viewer on a private dataset owned by an Enterprise Hub organization."/>
-    <img class="hidden dark:block m-0!" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/advanced-security-dark.png" alt="screenshot of the Dataset Viewer on a private dataset owned by an Enterprise Hub organization."/>
+    <img class="block dark:hidden m-0!" src="https://cdn-uploads.huggingface.co/production/uploads/5dd96eb166059660ed1ee413/LqAmGSG7YbP7Y8vJJr7NQ.png" alt="screenshot of the Organization settings page for Advanced security."/>
+    <img class="hidden dark:block m-0!" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/advanced-security-dark.png" alt="screenshot of the Organization settings page for Advanced security in dark mode."/>
 </div>
 
 ## Members Security
@@ -15,7 +15,7 @@ Enterprise Hub organizations can improve their security with advanced security c
 Configure additional security settings to protect your organization:
 
 - **Two-Factor Authentication (2FA)**: Require all organization members to enable 2FA for enhanced account security.
-- **User Approval**: For organizations with a verified email domain, require admin approval for new users with matching email addresses to join. This adds a verified badge to your organization page.
+- **User Approval**: For organizations with a verified domain name, require admin approval for new users with matching email addresses. This adds a verified badge to your organization page.
 
 ## Repository Visibility Controls
 
