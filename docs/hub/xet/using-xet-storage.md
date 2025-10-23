@@ -61,7 +61,7 @@ Install [Git](https://git-scm.com/) and [Git LFS](https://git-lfs.com/).
  - Place the extracted `git-xet.exe` under a `PATH` directory.
  - Run `git-xet install` in a terminal.
 
-To verity the installation, run:
+To verify the installation, run:
   ```
   git-xet --version
   ```
