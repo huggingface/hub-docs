@@ -13,7 +13,7 @@ Instead, on the Hub, these large files are tracked using "pointer files" and ide
 
 Historically, Hub repositories have relied on [Git LFS](https://git-lfs.com/) for this mechanism. While Git LFS remains supported (see [Backwards Compatibility & Legacy](./legacy-git-lfs)), the Hub has adopted Xet, a modern custom storage system built specifically for AI/ML development. It enables chunk-level deduplication, smaller uploads, and faster downloads than Git LFS.
 
-### Open Source Xet Protocol
+## Open Source Xet Protocol
 
 If you are looking to understand the underlying Xet protocol or are looking to build a new client library to access Xet Storage, check out the [Xet Protocol Specification](https://huggingface.co/docs/xet/index).
 
