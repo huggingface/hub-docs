@@ -11,11 +11,9 @@ The PRO subscription unlocks essential features for serious users, including:
 - Leverage the [Data Studio](./datasets-viewer) on private datasets
 - Run and schedule serverless [CPU/ GPU Jobs](https://huggingface.co/docs/huggingface_hub/en/guides/jobs)
 
-<div class="flex justify-center">
-<a href="https://huggingface.co/pro" target="_blank">
-<img class="block dark:hidden" src="https://cdn-uploads.huggingface.co/production/uploads/5dd96eb166059660ed1ee413/bGcKmczypN_mmWXdzfOSi.png"/>
-<img class="hidden dark:block" src="https://cdn-uploads.huggingface.co/production/uploads/5dd96eb166059660ed1ee413/P-hmoyYMTnBZ2uGezjLO7.png"/>
+<a href="https://huggingface.co/pro" target="_blank" class="flex justify-center">
+	<img class="block dark:hidden" src="https://cdn-uploads.huggingface.co/production/uploads/5dd96eb166059660ed1ee413/bGcKmczypN_mmWXdzfOSi.png"/>
+	<img class="hidden dark:block" src="https://cdn-uploads.huggingface.co/production/uploads/5dd96eb166059660ed1ee413/P-hmoyYMTnBZ2uGezjLO7.png"/>
 </a>
-</div>
 
 View the full list of benefits at **https://huggingface.co/pro** then subscribe over at https://huggingface.co/subscribe/pro
