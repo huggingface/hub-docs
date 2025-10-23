@@ -8,6 +8,9 @@ This document shows how to handle repositories through the web interface as well
 
 If you do not have `git` available as a CLI command yet, you will need to [install Git](https://git-scm.com/downloads) for your platform. You will also need to [install Git LFS](https://git-lfs.github.com/), which will be used to handle large files such as images and model weights.
 
+> [!TIP]
+> For improved upload and download speeds when working with large files and Git, install the [Git Xet](xet/using-xet-storage#git) extension. 
+
 To be able to push your code to the Hub, you'll need to authenticate somehow. The easiest way to do this is by installing the [`huggingface_hub` CLI](https://huggingface.co/docs/huggingface_hub/index) and running the login command:
 
 ```bash
