@@ -1,4 +1,4 @@
-## Xet History & Overview
+# Xet History & Overview
 
 [In August 2024 Hugging Face acquired XetHub](https://huggingface.co/blog/xethub-joins-hf), a [seed-stage startup based in Seattle](https://www.geekwire.com/2023/ex-apple-engineers-raise-7-5m-for-new-seattle-data-storage-startup/), to replace Git LFS on the Hub.
 

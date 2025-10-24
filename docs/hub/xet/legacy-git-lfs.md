@@ -1,4 +1,4 @@
-## Backward Compatibility with LFS
+# Backward Compatibility with LFS
 
 Uploads from legacy / non‑Xet‑aware clients still follow the standard Git LFS path, even if the repo is already Xet-backed. Once the file is uploaded to LFS, a background process automatically migrates the file to using Xet storage. The Xet architecture provides backwards compatibility for legacy clients downloading files from Xet-backed repos by offering a Git LFS bridge. While a Xet-aware client will receive file reconstruction information from CAS to download the Xet-backed file, a legacy client will get a single URL from the bridge which does the work of reconstructing the request file and returning the URL to the resource. This allows downloading files through a URL so that you can continue to use the Hub's web interface or `curl`. By having LFS file uploads automatically migrate and having older clients continue to download files from Xet-backed repositories, maintainers and the rest of the Hub can update their pipelines at their own pace.
 

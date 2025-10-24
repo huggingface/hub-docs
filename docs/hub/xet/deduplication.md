@@ -1,4 +1,4 @@
-## Deduplication
+# Deduplication
 
 Xet-enabled repositories utilize [content-defined chunking (CDC)](https://huggingface.co/blog/from-files-to-chunks) to deduplicate on the level of bytes (~64KB of data, also referred to as a "chunk"). Each chunk is identified by a rolling hash that determines chunk boundaries based on the actual file contents, making it resilient to insertions or deletions anywhere in the file. When a file is uploaded to a Xet-backed repository using a Xet-aware client, its contents are broken down into these variable-sized chunks. Only new chunks not already present in Xet storage are kept after chunking, everything else is discarded.
 
