@@ -52,11 +52,11 @@ Install [Git](https://git-scm.com/) and [Git LFS](https://git-lfs.com/).
    ```
 ### Windows (amd64)
 
- Using an installer: 
+Using an installer: 
  - Download `git-xet-windows-installer-x86_64.zip` ([available here](https://github.com/huggingface/xet-core/releases/download/git-xet-v0.1.0/git-xet-windows-installer-x86_64.zip)) and unzip. 
  - Run the `msi` installer file and follow the prompts.
- 
- Manual installation:
+
+Manual installation:
  - Download `git-xet-windows-x86_64.zip` ([available here](https://github.com/huggingface/xet-core/releases/download/git-xet-v0.1.0/git-xet-windows-x86_64.zip)) and unzip. 
  - Place the extracted `git-xet.exe` under a `PATH` directory.
  - Run `git-xet install` in a terminal.
