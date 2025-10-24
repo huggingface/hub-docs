@@ -310,6 +310,8 @@ Payload:
 headers = { "authorization" :  "Bearer $token" }
 ```
 
+this is equivalent to `huggingface_hub.list_organization_followers()`.
+
 ## Resource Groups API
 
 The following endpoints manage resource groups. Resource groups is an Enterprise feature.
