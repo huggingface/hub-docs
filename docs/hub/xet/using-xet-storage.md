@@ -68,12 +68,9 @@ To verify the installation, run:
 
 ### Using Git Xet
 
-Once installed on your platform, using Git Xet is as simple as following the Hub's standard Git workflows. First, make sure Git LFS is initialized in your local version of the repository: 
+Once installed on your platform, using Git Xet is as simple as following the Hub's standard Git workflows.
 
-  ```
-  git lfs install
-  ```
-Then make any additions you might want, commit your changes, and `push` your commit to the Hub:
+Make sure all [prerequisites are installed and configured](https://huggingface.co/docs/hub/repositories-getting-started#requirements), follow the [setup instructions for working with repositories on the Hub](https://huggingface.co/docs/hub/repositories-getting-started#set-up), then commit your changes, and `push` to the Hub:
 
   ```
   # Create any files you like! Then...
@@ -125,4 +122,4 @@ When uploading or downloading in Git or Python:
 
 While Xet brings fine-grained deduplication and enhanced performance to Git-based storage, some features and platform compatibilities are still in development. As a result, keep the following constraints in mind when working with a Xet-enabled repository:
 
-- **64-bit systems only**: The `hf_xet` client currently requires a 64-bit architecture; 32-bit systems are not supported.
+- **64-bit systems only**: Both `hf_xet` and Git Xet currently require a 64-bit architecture; 32-bit systems are not supported.
