@@ -273,7 +273,7 @@ This is equivalent to `huggingface_hub.whoami()`.
 
 ## Organization API
 
-The following endpoint gets a list of the Organization members.
+The following endpoints handle organization like getting overview of an organization, listing members and followers.
 
 ### GET /api/organizations/{organization_name}/overview
 
