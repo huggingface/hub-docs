@@ -273,7 +273,20 @@ This is equivalent to `huggingface_hub.whoami()`.
 
 ## Organization API
 
-The following endpoint gets a list of the Organization members.
+The following endpoints handle organization like getting overview of an organization, listing members and followers.
+
+### GET /api/organizations/{organization_name}/overview
+
+Get the organization overview.
+
+Payload:
+
+```js
+headers = { "authorization" :  "Bearer $token" }
+```
+
+This is equivalent to `huggingface_hub.get_organization_overview()`.
+
 
 ### GET /api/organizations/{organization_name}/members
 
@@ -287,6 +300,17 @@ headers = { "authorization" :  "Bearer $token" }
 
 This is equivalent to `huggingface_hub.list_organization_members()`.
 
+### GET /api/organizations/{organization_name}/followers
+
+Get the organization followers.
+
+Payload:
+
+```js
+headers = { "authorization" :  "Bearer $token" }
+```
+
+this is equivalent to `huggingface_hub.list_organization_followers()`.
 
 ## Resource Groups API
 
