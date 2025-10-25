@@ -1,0 +1,11 @@
+{
+  // Extendable configuration for markdownlint-cli2
+  "config": {
+    "MD013": { "line_length": 120, "code_blocks": false, "ignore_code_languages": ["bash", "sh", "powershell"] },
+    "MD033": false,
+    "MD041": false,
+    "MD024": { "siblings_only": true },
+    "MD025": { "level": 1 },
+    "MD007": { "indent": 2 }
+  }
+}

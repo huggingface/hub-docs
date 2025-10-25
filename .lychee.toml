@@ -1,0 +1,19 @@
+# Lychee link checker configuration
+verbose = true
+max_concurrency = 8
+retry_wait_time = 2
+
+# Treat 429/5xx as transient
+exclude_status = [429, 500, 502, 503, 504]
+
+# Ignore anchors generated dynamically or HF playground links that may redirect
+exclude = [
+  "https://huggingface.co/playground",
+  "https://hf.co/playground",
+  "https://hf.co/subscribe/pro",
+  "https://huggingface.co/enterprise",
+  "https://router.huggingface.co/*"
+]
+
+# Allow insecure TLS for some provider docs that may have intermittent cert chains
+insecure = true

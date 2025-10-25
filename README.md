@@ -28,3 +28,19 @@ pip install black watchdog
 # run `doc-builder preview` cmd
 doc-builder preview hub {YOUR_PATH}/hub-docs/docs/hub/ --not_python_module
 ```
+
+### Inference Providers docs generator (optional)
+
+This repo includes a generator to update pages under `docs/inference-providers/` from templates. To use it:
+
+```bash
+cd scripts/inference-providers
+pnpm install
+pnpm run generate
+```
+
+Templates live under `scripts/inference-providers/templates/` and are compiled by `scripts/inference-providers/scripts/generate.ts`.
+
+### Contributing
+
+See `CONTRIBUTING.md` for guidelines (Hacktoberfest-friendly!), local preview instructions, and PR tips.

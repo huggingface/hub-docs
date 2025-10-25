@@ -43,7 +43,7 @@ When you build AI applications, it's tough to manage multiple provider APIs, com
 
 Here's what you can build:
 
-- **Text Generation**: Use Large language models with tool-calling capabilities for chatbots, content generation, and code assistance
+- **Text Generation**: Use large language models with tool-calling capabilities for chatbots, content generation, and code assistance
 - **Image and Video Generation**: Create custom images and videos, including support for LoRAs and style customization
 - **Search & Retrieval**: State-of-the-art embeddings for semantic search, RAG systems, and recommendation engines
 - **Traditional ML Tasks**: Ready-to-use models for classification, NER, summarization, and speech recognition
@@ -73,7 +73,7 @@ Before diving into integration, explore models interactively with our [Inference
 
 ### Authentication
 
-You'll need a Hugging Face token to authenticate your requests. Create one by visiting your [token settings](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) and generating a `fine-grained` token with `Make calls to Inference Providers` permissions.
+You'll need a Hugging Face token to authenticate your requests. Create one by visiting your [token settings](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) and generating a fine‑grained token with "Make calls to Inference Providers" permissions.
 
 For complete token management details, see our [security tokens guide](https://huggingface.co/docs/hub/en/security-tokens).
 
@@ -100,7 +100,7 @@ pip install huggingface_hub
 hf auth login # get a read token from hf.co/settings/tokens
 ```
 
-You can now use the the client with a Python interpreter:
+You can now use the client with a Python interpreter:
 
 ```python
 import os
@@ -197,7 +197,7 @@ Install with NPM:
 npm install @huggingface/inference
 ```
 
-Then use the client with Javascript:
+Then use the client with JavaScript:
 
 ```js
 import { InferenceClient } from "@huggingface/inference";
@@ -248,7 +248,7 @@ console.log(completion.choices[0].message.content);
 
 <hfoption id="fetch">
 
-For lightweight applications or custom implementations, use our REST API directly with standard fetch.
+For lightweight applications or custom implementations, use our REST API directly with `fetch`.
 
 Our routing system automatically selects the most popular available provider for your chosen model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:fireworks-ai"`).
 
@@ -283,7 +283,7 @@ console.log(await response.json());
 
 #### HTTP / cURL
 
-For testing, debugging, or integrating with any HTTP client, here's the raw REST API format.
+For testing, debugging, or integrating with any HTTP client, here's the raw REST API format:
 Our routing system automatically selects the most popular available provider for your chosen model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:fireworks-ai"`).
 
 ```bash
