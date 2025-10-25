@@ -44,6 +44,7 @@ Install [Git](https://git-scm.com/) and [Git LFS](https://git-lfs.com/).
    ```
    brew tap huggingface/tap
    brew install git-xet
+   git-xet install
    ```
 
   To verify the installation, run:
