@@ -109,6 +109,8 @@
     title: Scaleway
   - local: providers/together
     title: Together
+  - local: providers/wavespeed
+    title: WaveSpeed
   - local: providers/zai-org
     title: Z.ai
 

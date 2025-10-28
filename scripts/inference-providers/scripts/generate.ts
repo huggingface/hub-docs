@@ -51,6 +51,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   sambanova: "https://sambanova.ai/",
   scaleway: "https://www.scaleway.com",
   together: "https://together.xyz/",
+  wavespeed: "https://wavespeed.ai/",
   "zai-org": "https://z.ai/"
 };
 //filter PROVIDERS_HUB_ORGS to only include providers that are in PROVIDERS_URLS
