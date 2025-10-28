@@ -20,7 +20,7 @@ With Academia Hub, your institution joins a dedicated program built for higher e
 
 ***Advanced compute & hosting***
 - ZeroGPU: 5× usage quota and highest GPU queue priority
-- Spaces Hosting: run ZeroGPU Spaces with H200 hardware
+- Spaces Hosting: create ZeroGPU Spaces with H200 hardware
 - Spaces Dev Mode: fast iterations via SSH/VS Code
 
 ***Storage & data management***
