@@ -24,7 +24,7 @@ With Academia Hub, your institution joins a dedicated program built for higher e
 - Spaces Dev Mode: fast iterations via SSH/VS Code
 
 ***Storage & data management***
-- More included public storage for datasets and models
+- Increased public storage capacity for datasets and models.
 - 1TB of private repository storage per seat in the subscription (i.e with 400 seats, your institution would have 400TB of included private storage)
 - Dataset Viewer: enable visualization even on private datasets
 
