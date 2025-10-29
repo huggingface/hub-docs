@@ -64,9 +64,7 @@ After the setup completes, you'll need to add your Hugging Face token as a repos
 Once your workflow is set up and your token is configured, test it by commenting on any issue:
 
 ```
-
 /oc summarize
-
 ```
 
 OpenCode will analyze the issue and provide a summary. Here are other commands you can try:
@@ -74,27 +72,17 @@ OpenCode will analyze the issue and provide a summary. Here are other commands y
 **Explain an issue:**
 
 ```
-
 /opencode explain this issue
-
 ```
 
 **Implement a fix:**
-
-```
-
-/oc fix this
-
-```
 
 OpenCode creates a new branch, implements the changes, and opens a pull request.
 
 **Request changes on a PR:**
 
 ```
-
 /oc please add error handling
-
 ```
 
 > [!TIP]
