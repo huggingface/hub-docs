@@ -52,16 +52,6 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 conversational />
 
 
-### Chat Completion (VLM)
-
-Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=image-text-to-text
-    providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-4-Maverick-17B-128E-Instruct","providerModelId":"Llama-4-Maverick-17B-128E-Instruct"} } }
-conversational />
-
-
 ### Feature Extraction
 
 Find out more about Feature Extraction [here](../tasks/feature_extraction).
