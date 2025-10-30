@@ -124,6 +124,7 @@ Congratulations! You now have a JS implementation to successfully make inference
 First step is to use the Model Mapping API to register which HF models are supported. 
 
 > [!TIP]
+> The completion of step 1. and 2. are pre-requisites for this step.
 > To proceed with this step, we have to enable your account server-side. Make sure you have an organization on the Hub for your company, and upgrade it to a [Team or Enterprise plan](https://huggingface.co/pricing).
 
 ### Register a mapping item
@@ -366,6 +367,8 @@ Content-Type: application/json
 }
 ```
 
+This API endpoint will be requested by our system every minute, in batches of up to 10,000 requests.
+
 ### Price Unit
 
 We require the price to be a **non-negative integer** number of **nano-USDs** (10^-9 USD).
@@ -391,6 +394,39 @@ Content-Type: application/json
 [other request headers]
 Inference-Id: unique-id-00131
 [response body]
+```
+
+### Exposing pricing through OpenAI /models routes
+
+If your API is OpenAI-compatible, we kindly ask that you expose LLM pricing information and context length through the [`/v1/models` endpoint](https://platform.openai.com/docs/api-reference/models/list).
+
+This helps power our [provider comparison table](https://huggingface.co/inference/models) and other provider selection features.
+
+
+<div class="flex justify-center">
+    <picture>
+        <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/provider-comparison-table.png">
+        <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/provider-comparison-table-dark.png">
+    </picture>
+</div>
+
+The format we expect is as follows:
+
+```json
+{
+    {
+      "id": "model-id-0",
+      "object": "model",
+      "created": 1686935002,
+      "owned_by": "organization-owner",
+      /// [...] other fields
+      "pricing": {
+        "input": 0.2, /// Price in US dollars per million input tokens
+        "output": 2, /// Price in US dollars per million output tokens
+      },
+      "context_length": 200000, /// Supported context length in tokens
+    },
+}
 ```
 
 ## 5. Python client integration
