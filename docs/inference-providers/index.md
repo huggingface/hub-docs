@@ -457,7 +457,7 @@ result = client.chat_completion(
 **Provider Selection Policy:**
 
 - `provider: "auto"` (default): Selects the first available provider for the model, sorted by your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
-- `provider: "specific-provider"`: Forces use of a specific provider (e.g., "together", "replicate", "fal-ai", ...)
+- `provider: "specific-provider"`: Forces use of a specific provider (e.g., "together", "replicate", "fal-ai", ...).
 
 ### Alternative: OpenAI-Compatible Chat Completions Endpoint (Chat Only)
 
