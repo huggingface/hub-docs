@@ -398,7 +398,7 @@ Inference-Id: unique-id-00131
 
 ### Exposing pricing through OpenAI /models routes
 
-If your API is OpenAI-compatible, we kindly ask that you expose LLM pricing information and context length through the [`/v1/models` endpoint](https://platform.openai.com/docs/api-reference/models/list).
+If your API is OpenAI-compatible, we expect that you expose LLM pricing information and context length through the [`/v1/models` endpoint](https://platform.openai.com/docs/api-reference/models/list).
 
 This helps power our [provider comparison table](https://huggingface.co/inference/models) and other provider selection features.
 
