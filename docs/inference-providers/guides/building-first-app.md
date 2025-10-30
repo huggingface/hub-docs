@@ -7,6 +7,7 @@ This project demonstrates real-world AI orchestration using multiple specialized
 ## Project Overview
 
 Our app will:
+
 1. **Accept audio** as a microphone input through a web interface
 2. **Transcribe speech** using a fast speech-to-text model
 3. **Generate summaries** using a powerful language model
@@ -76,7 +77,7 @@ def process_meeting_audio(audio_file):
     """Process uploaded audio file and return transcript + summary"""
     if audio_file is None:
         return "Please upload an audio file.", ""
-    
+
     # We'll implement the AI logic next
     return "Transcript will appear here...", "Summary will appear here..."
 
@@ -105,26 +106,26 @@ For JavaScript, we'll create a clean HTML interface with native file upload and 
 
 ```html
 <body>
-    <h1>🎤 AI Meeting Notes</h1>
-    
-    <div class="upload" onclick="document.getElementById('file').click()">
-        <input type="file" id="file" accept="audio/*">
-        <p>Upload audio file</p>
-        <button type="button">Choose File</button>
+  <h1>🎤 AI Meeting Notes</h1>
+
+  <div class="upload" onclick="document.getElementById('file').click()">
+    <input type="file" id="file" accept="audio/*" />
+    <p>Upload audio file</p>
+    <button type="button">Choose File</button>
+  </div>
+
+  <div class="loading" id="loading">Processing...</div>
+
+  <div class="results" id="results">
+    <div class="result">
+      <h3>📝 Transcript</h3>
+      <div id="transcript"></div>
     </div>
-    
-    <div class="loading" id="loading">Processing...</div>
-    
-    <div class="results" id="results">
-        <div class="result">
-            <h3>📝 Transcript</h3>
-            <div id="transcript"></div>
-        </div>
-        <div class="result">
-            <h3>📋 Summary</h3>
-            <div id="summary"></div>
-        </div>
+    <div class="result">
+      <h3>📋 Summary</h3>
+      <div id="summary"></div>
     </div>
+  </div>
 </body>
 ```
 
@@ -133,34 +134,34 @@ This creates a clean drag-and-drop interface with styled results sections for th
 Our application can then use the `InferenceClient` from `huggingface.js` to call the transcription and summarization functions.
 
 ```javascript
-import { InferenceClient } from 'https://esm.sh/@huggingface/inference';
+import { InferenceClient } from "https://esm.sh/@huggingface/inference";
 
 // Access the token from Hugging Face Spaces secrets
 const HF_TOKEN = window.huggingface?.variables?.HF_TOKEN;
 // Or if you're running locally, you can set it as an environment variable
 // const HF_TOKEN = process.env.HF_TOKEN;
 
-document.getElementById('file').onchange = async (e) => {
-    if (!e.target.files[0]) return;
-    
-    const file = e.target.files[0];
-    
-    show(document.getElementById('loading'));
-    hide(document.getElementById('results'), document.getElementById('error'));
-    
-    try {
-        const transcript = await transcribe(file);
-        const summary = await summarize(transcript);
+document.getElementById("file").onchange = async (e) => {
+  if (!e.target.files[0]) return;
 
-        document.getElementById('transcript').textContent = transcript;
-        document.getElementById('summary').textContent = summary;
-        
-        hide(document.getElementById('loading'));
-        show(document.getElementById('results'));
-    } catch (error) {
-        hide(document.getElementById('loading'));
-        showError(`Error: ${error.message}`);
-    }
+  const file = e.target.files[0];
+
+  show(document.getElementById("loading"));
+  hide(document.getElementById("results"), document.getElementById("error"));
+
+  try {
+    const transcript = await transcribe(file);
+    const summary = await summarize(transcript);
+
+    document.getElementById("transcript").textContent = transcript;
+    document.getElementById("summary").textContent = summary;
+
+    hide(document.getElementById("loading"));
+    show(document.getElementById("results"));
+  } catch (error) {
+    hide(document.getElementById("loading"));
+    showError(`Error: ${error.message}`);
+  }
 };
 ```
 
@@ -183,16 +184,15 @@ Now let's implement the transcription using OpenAI's `whisper-large-v3` model fo
 def transcribe_audio(audio_file_path):
     """Transcribe audio using fal.ai for speed"""
     client = InferenceClient(provider="auto")
-    
+
     # Pass the file path directly - the client handles file reading
     transcript = client.automatic_speech_recognition(
         audio=audio_file_path,
         model="openai/whisper-large-v3"
     )
-    
+
     return transcript.text
 ```
-
 
 </hfoption>
 <hfoption id="javascript">
@@ -203,21 +203,20 @@ Now let's implement the transcription using OpenAI's `whisper-large-v3` model fo
 > We'll use the `auto` provider to automatically select the first available provider for the model. You can define your own priority list of providers in the [Inference Providers](https://huggingface.co/settings/inference-providers) page.
 
 ```javascript
-import { InferenceClient } from 'https://esm.sh/@huggingface/inference';
+import { InferenceClient } from "https://esm.sh/@huggingface/inference";
 
 async function transcribe(file) {
-    const client = new InferenceClient(HF_TOKEN);
+  const client = new InferenceClient(HF_TOKEN);
 
-    const output = await client.automaticSpeechRecognition({
-        data: file,
-        model: "openai/whisper-large-v3-turbo",
-        provider: "auto"
-    });
-    
-    return output.text || output || 'Transcription completed';
+  const output = await client.automaticSpeechRecognition({
+    data: file,
+    model: "openai/whisper-large-v3-turbo",
+    provider: "auto",
+  });
+
+  return output.text || output || "Transcription completed";
 }
 ```
-
 
 </hfoption>
 </hfoptions>
@@ -228,48 +227,49 @@ async function transcribe(file) {
 <hfoption id="python">
 
 Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider, and just like in the previous step, we'll use the `auto` provider to automatically select the first available provider for the model.
+We'll also use the `:fastest` policy to make sure we select the best performing provider for this model.
 We will define a custom prompt to ensure the output is formatted as a summary with action items and decisions made:
 
 ```python
 def generate_summary(transcript):
     """Generate summary using an Inference Provider"""
     client = InferenceClient(provider="auto")
-    
+
     prompt = f"""
     Analyze this meeting transcript and provide:
     1. A concise summary of key points
     2. Action items with responsible parties
     3. Important decisions made
-    
+
     Transcript: {transcript}
-    
+
     Format with clear sections:
     ## Summary
-    ## Action Items  
+    ## Action Items
     ## Decisions Made
     """
-    
+
     response = client.chat.completions.create(
-        model="deepseek-ai/DeepSeek-R1-0528",
+        model="deepseek-ai/DeepSeek-R1-0528:fastest",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=1000
     )
-    
+
     return response.choices[0].message.content
 ```
-
 
 </hfoption>
 <hfoption id="javascript">
 
 Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider, and just like in the previous step, we'll use the `auto` provider to automatically select the first available provider for the model.
+We'll also use the `:fastest` policy to make sure we select the best performing provider for this model.
 We will define a custom prompt to ensure the output is formatted as a summary with action items and decisions made:
 
 ```javascript
 async function summarize(transcript) {
-    const client = new InferenceClient(HF_TOKEN);
+  const client = new InferenceClient(HF_TOKEN);
 
-    const prompt = `Analyze this meeting transcript and provide:
+  const prompt = `Analyze this meeting transcript and provide:
     1. A concise summary of key points
     2. Action items with responsible parties
     3. Important decisions made
@@ -281,23 +281,29 @@ async function summarize(transcript) {
     ## Action Items  
     ## Decisions Made`;
 
-    const response = await client.chatCompletion({
-        model: "deepseek-ai/DeepSeek-R1-0528",
-        messages: [
-            {
-                role: "user", 
-                content: prompt
-            }
-        ],
-        max_tokens: 1000
-    }, {
-        provider: "auto"
-    });
-    
-    return response.choices?.[0]?.message?.content || response || 'No summary available';
+  const response = await client.chatCompletion(
+    {
+      model: "deepseek-ai/DeepSeek-R1-0528:fastest",
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+      max_tokens: 1000,
+    },
+    {
+      provider: "auto",
+    }
+  );
+
+  return (
+    response.choices?.[0]?.message?.content ||
+    response ||
+    "No summary available"
+  );
 }
 ```
-
 
 </hfoption>
 </hfoptions>
@@ -338,17 +344,17 @@ def generate_summary(transcript):
     1. A concise summary of key points
     2. Action items with responsible parties
     3. Important decisions made
-    
+
     Transcript: {transcript}
-    
+
     Format with clear sections:
     ## Summary
-    ## Action Items  
+    ## Action Items
     ## Decisions Made
     """
 
     response = client.chat.completions.create(
-        model="deepseek-ai/DeepSeek-R1-0528",
+        model="deepseek-ai/DeepSeek-R1-0528:fastest",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=1000,
     )
@@ -417,100 +423,149 @@ For JavaScript deployment, create a simple static HTML file:
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🎤 AI Meeting Notes</title>
     <style>
-        body { font-family: system-ui; max-width: 600px; margin: 50px auto; padding: 20px; }
-        .upload { border: 2px dashed #ccc; padding: 40px; text-align: center; margin: 20px 0; cursor: pointer; }
-        .upload:hover { border-color: #007bff; }
-        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
-        .loading { display: none; text-align: center; margin: 20px 0; }
-        .results { display: none; margin-top: 20px; }
-        .result { background: #f5f5f5; padding: 15px; margin: 10px 0; border-radius: 4px; }
-        .error { color: red; background: #ffe6e6; padding: 15px; border-radius: 4px; display: none; }
-        input[type="file"] { display: none; }
+      body {
+        font-family: system-ui;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      .upload {
+        border: 2px dashed #ccc;
+        padding: 40px;
+        text-align: center;
+        margin: 20px 0;
+        cursor: pointer;
+      }
+      .upload:hover {
+        border-color: #007bff;
+      }
+      button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .loading {
+        display: none;
+        text-align: center;
+        margin: 20px 0;
+      }
+      .results {
+        display: none;
+        margin-top: 20px;
+      }
+      .result {
+        background: #f5f5f5;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 4px;
+      }
+      .error {
+        color: red;
+        background: #ffe6e6;
+        padding: 15px;
+        border-radius: 4px;
+        display: none;
+      }
+      input[type="file"] {
+        display: none;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>🎤 AI Meeting Notes</h1>
-       
+
     <div class="upload" onclick="document.getElementById('file').click()">
-        <input type="file" id="file" accept="audio/*">
-        <p>Upload audio file</p>
-        <button type="button">Choose File</button>
+      <input type="file" id="file" accept="audio/*" />
+      <p>Upload audio file</p>
+      <button type="button">Choose File</button>
     </div>
-    
+
     <div class="loading" id="loading">Processing...</div>
     <div class="error" id="error"></div>
-    
+
     <div class="results" id="results">
-        <div class="result">
-            <h3>📝 Transcript</h3>
-            <div id="transcript"></div>
-        </div>
-        <div class="result">
-            <h3>📋 Summary</h3>
-            <div id="summary"></div>
-        </div>
+      <div class="result">
+        <h3>📝 Transcript</h3>
+        <div id="transcript"></div>
+      </div>
+      <div class="result">
+        <h3>📋 Summary</h3>
+        <div id="summary"></div>
+      </div>
     </div>
 
     <script type="module">
-        import { InferenceClient } from 'https://esm.sh/@huggingface/inference';
-        
-        // Access the token from Hugging Face Spaces secrets
-        const HF_TOKEN = window.huggingface?.variables?.HF_TOKEN;
-        
-        // Add error handling for missing token
-        if (!HF_TOKEN) {
-            showError('HF_TOKEN not configured. Please add it in Space settings.');
-            return;
-        }
-        
-        document.getElementById('file').onchange = async (e) => {
-            if (!e.target.files[0]) return;
-            
-            const file = e.target.files[0];
-            
-            show(document.getElementById('loading'));
-            hide(document.getElementById('results'), document.getElementById('error'));
-            
-            try {
-                console.log('🎤 Starting transcription...');
-                const transcript = await transcribe(file);
-                console.log('✅ Transcription completed:', transcript.substring(0, 100) + '...');
-                
-                console.log('🖊️ Starting summarization...');
-                const summary = await summarize(transcript);
-                console.log('✅ Summary completed:', summary.substring(0, 100) + '...');
-                
-                document.getElementById('transcript').textContent = transcript;
-                document.getElementById('summary').textContent = summary;
-                
-                hide(document.getElementById('loading'));
-                show(document.getElementById('results'));
-            } catch (error) {
-                hide(document.getElementById('loading'));
-                showError(`Error: ${error.message}`);
-            }
-        };
-        
-        async function transcribe(file) {
-            const client = new InferenceClient(HF_TOKEN);
+      import { InferenceClient } from "https://esm.sh/@huggingface/inference";
 
-            const output = await client.automaticSpeechRecognition({
-                data: file,
-                model: "openai/whisper-large-v3-turbo",
-                provider: "auto"
-            });
-            
-            return output.text || output || 'Transcription completed';
-        }
-        
-        async function summarize(transcript) {
-            const client = new InferenceClient(HF_TOKEN);
+      // Access the token from Hugging Face Spaces secrets
+      const HF_TOKEN = window.huggingface?.variables?.HF_TOKEN;
 
-            const prompt = `Analyze this meeting transcript and provide:
+      // Add error handling for missing token
+      if (!HF_TOKEN) {
+        showError("HF_TOKEN not configured. Please add it in Space settings.");
+        return;
+      }
+
+      document.getElementById("file").onchange = async (e) => {
+        if (!e.target.files[0]) return;
+
+        const file = e.target.files[0];
+
+        show(document.getElementById("loading"));
+        hide(
+          document.getElementById("results"),
+          document.getElementById("error")
+        );
+
+        try {
+          console.log("🎤 Starting transcription...");
+          const transcript = await transcribe(file);
+          console.log(
+            "✅ Transcription completed:",
+            transcript.substring(0, 100) + "..."
+          );
+
+          console.log("🖊️ Starting summarization...");
+          const summary = await summarize(transcript);
+          console.log(
+            "✅ Summary completed:",
+            summary.substring(0, 100) + "..."
+          );
+
+          document.getElementById("transcript").textContent = transcript;
+          document.getElementById("summary").textContent = summary;
+
+          hide(document.getElementById("loading"));
+          show(document.getElementById("results"));
+        } catch (error) {
+          hide(document.getElementById("loading"));
+          showError(`Error: ${error.message}`);
+        }
+      };
+
+      async function transcribe(file) {
+        const client = new InferenceClient(HF_TOKEN);
+
+        const output = await client.automaticSpeechRecognition({
+          data: file,
+          model: "openai/whisper-large-v3-turbo",
+          provider: "auto",
+        });
+
+        return output.text || output || "Transcription completed";
+      }
+
+      async function summarize(transcript) {
+        const client = new InferenceClient(HF_TOKEN);
+
+        const prompt = `Analyze this meeting transcript and provide:
             1. A concise summary of key points
             2. Action items with responsible parties
             3. Important decisions made
@@ -522,31 +577,38 @@ For JavaScript deployment, create a simple static HTML file:
             ## Action Items  
             ## Decisions Made`;
 
-            const response = await client.chatCompletion({
-                model: "deepseek-ai/DeepSeek-R1-0528",
-                messages: [
-                    {
-                        role: "user", 
-                        content: prompt
-                    }
-                ],
-                max_tokens: 1000
-            }, {
-                provider: "auto"
-            });
-            
-            return response.choices?.[0]?.message?.content || response || 'No summary available';
-        }
-        
-        const show = el => el.style.display = 'block';
-        const hide = (...els) => els.forEach(el => el.style.display = 'none');
-        const showError = msg => {
-            const error = document.getElementById('error');
-            error.innerHTML = msg;
-            show(error);
-        };
+        const response = await client.chatCompletion(
+          {
+            model: "deepseek-ai/DeepSeek-R1-0528:fastest",
+            messages: [
+              {
+                role: "user",
+                content: prompt,
+              },
+            ],
+            max_tokens: 1000,
+          },
+          {
+            provider: "auto",
+          }
+        );
+
+        return (
+          response.choices?.[0]?.message?.content ||
+          response ||
+          "No summary available"
+        );
+      }
+
+      const show = (el) => (el.style.display = "block");
+      const hide = (...els) => els.forEach((el) => (el.style.display = "none"));
+      const showError = (msg) => {
+        const error = document.getElementById("error");
+        error.innerHTML = msg;
+        show(error);
+      };
     </script>
-</body>
+  </body>
 </html>
 ```
 
