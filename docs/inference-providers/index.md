@@ -24,12 +24,12 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [Nebius](./providers/nebius)                 |          ✅           |          ✅           |         ✅         |      ✅       |               |                |
 | [Novita](./providers/novita)                 |          ✅           |          ✅           |                    |               |      ✅       |                |
 | [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |      ✅       |               |                |
-| [Public AI](./providers/publicai)             |          ✅           |                       |                    |               |               |                |
+| [Public AI](./providers/publicai)            |          ✅           |                       |                    |               |               |                |
 | [Replicate](./providers/replicate)           |                       |                       |                    |      ✅       |      ✅       |       ✅       |
 | [SambaNova](./providers/sambanova)           |          ✅           |                       |         ✅         |               |               |                |
-| [Scaleway](./providers/scaleway)           |          ✅           |                       |         ✅         |               |               |                |
+| [Scaleway](./providers/scaleway)             |          ✅           |                       |         ✅         |               |               |                |
 | [Together](./providers/together)             |          ✅           |          ✅           |                    |      ✅       |               |                |
-| [Z.ai](./providers/zai-org)                  |          ✅           |          ✅           |                     |               |               |                |
+| [Z.ai](./providers/zai-org)                  |          ✅           |          ✅           |                    |               |               |                |
 
 ## Why Choose Inference Providers?
 
@@ -63,7 +63,7 @@ Here's what you can build:
 
 Inference Providers works with your existing development workflow. Whether you prefer Python, JavaScript, or direct HTTP calls, we provide native SDKs and OpenAI-compatible APIs to get you up and running quickly.
 
-We'll walk through a practical example using [deepseek-ai/DeepSeek-V3-0324](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a state-of-the-art open-weights conversational model.
+We'll walk through a practical example using [openai/gpt-oss-120b](https://huggingface.co/openai/gpt-oss-120b), a state-of-the-art open-weights conversational model.
 
 ### Inference Playground
 
@@ -100,7 +100,13 @@ pip install huggingface_hub
 hf auth login # get a read token from hf.co/settings/tokens
 ```
 
-You can now use the the client with a Python interpreter:
+You can now use the the client with a Python interpreter.
+
+By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+
+You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
 ```python
 import os
@@ -109,7 +115,7 @@ from huggingface_hub import InferenceClient
 client = InferenceClient()
 
 completion = client.chat.completions.create(
-    model="deepseek-ai/DeepSeek-V3-0324",
+    model="openai/gpt-oss-120b",
     messages=[
         {
             "role": "user",
@@ -127,7 +133,11 @@ print(completion.choices[0].message)
 
 If you're already using OpenAI's Python client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
-Our system automatically routes your request to the most popular provider for the specified model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:sambanova"`).
+By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+
+You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
 ```python
 import os
@@ -139,7 +149,7 @@ client = OpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="deepseek-ai/DeepSeek-V3-0324",
+    model="openai/gpt-oss-120b:fastest",
     messages=[
         {
             "role": "user",
@@ -155,7 +165,11 @@ completion = client.chat.completions.create(
 
 For maximum control and interoperability with custom frameworks, use our OpenAI-compatible REST API directly.
 
-Our routing system automatically selects the most popular available provider for your chosen model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:novita"`).
+By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+
+You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
 ```python
 import os
@@ -170,7 +184,7 @@ payload = {
             "content": "How many 'G's in 'huggingface'?"
         }
     ],
-    "model": "deepseek-ai/DeepSeek-V3-0324",
+    "model": "openai/gpt-oss-120b:fastest",
 }
 
 response = requests.post(API_URL, headers=headers, json=payload)
@@ -197,7 +211,13 @@ Install with NPM:
 npm install @huggingface/inference
 ```
 
-Then use the client with Javascript:
+Then use the client with Javascript.
+
+By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+
+You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
 ```js
 import { InferenceClient } from "@huggingface/inference";
@@ -205,7 +225,7 @@ import { InferenceClient } from "@huggingface/inference";
 const client = new InferenceClient(process.env.HF_TOKEN);
 
 const chatCompletion = await client.chatCompletion({
-  model: "deepseek-ai/DeepSeek-V3-0324",
+  model: "openai/gpt-oss-120b:fastest",
   messages: [
     {
       role: "user",
@@ -221,7 +241,13 @@ console.log(chatCompletion.choices[0].message);
 
 <hfoption id="openai">
 
-If you're already using OpenAI's Javascript client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network. Our system automatically routes your request to the most popular provider for the specified model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:nebius"`).
+If you're already using OpenAI's Javascript client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
+
+By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+
+You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
 ```javascript
 import OpenAI from "openai";
@@ -232,7 +258,7 @@ const client = new OpenAI({
 });
 
 const completion = await client.chat.completions.create({
-  model: "deepseek-ai/DeepSeek-V3-0324",
+  model: "openai/gpt-oss-120b:fastest",
   messages: [
     {
       role: "user",
@@ -250,7 +276,11 @@ console.log(completion.choices[0].message.content);
 
 For lightweight applications or custom implementations, use our REST API directly with standard fetch.
 
-Our routing system automatically selects the most popular available provider for your chosen model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:fireworks-ai"`).
+By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+
+You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
 ```js
 import fetch from "node-fetch";
@@ -264,7 +294,7 @@ const response = await fetch(
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "deepseek-ai/DeepSeek-V3-0324",
+      model: "openai/gpt-oss-120b:fastest",
       messages: [
         {
           role: "user",
@@ -284,7 +314,12 @@ console.log(await response.json());
 #### HTTP / cURL
 
 For testing, debugging, or integrating with any HTTP client, here's the raw REST API format.
-Our routing system automatically selects the most popular available provider for your chosen model. You can also select the provider of your choice by appending it to the model id (e.g. `"deepseek-ai/DeepSeek-V3-0324:fireworks-ai"`).
+
+By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+
+You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
 ```bash
 curl https://router.huggingface.co/v1/chat/completions \
@@ -297,7 +332,7 @@ curl https://router.huggingface.co/v1/chat/completions \
                 "content": "How many G in huggingface?"
             }
         ],
-        "model": "deepseek-ai/DeepSeek-V3-0324",
+        "model": "openai/gpt-oss-120b:fastest",
         "stream": false
     }'
 ```
@@ -375,14 +410,14 @@ const client = new InferenceClient(process.env.HF_TOKEN);
 
 // Explicit provider selection
 await client.chatCompletion({
-  model: "meta-llama/Llama-3.1-8B-Instruct",
+  model: "deepseek-ai/DeepSeek-R1",
   provider: "sambanova", // Specific provider
   messages: [{ role: "user", content: "Hello!" }],
 });
 
 // Automatic provider selection (default: "auto")
 await client.chatCompletion({
-  model: "meta-llama/Llama-3.1-8B-Instruct",
+  model: "deepseek-ai/DeepSeek-R1",
   // Defaults to "auto" selection of the provider
   // provider="auto",
   messages: [{ role: "user", content: "Hello!" }],
@@ -401,14 +436,14 @@ client = InferenceClient(token=os.environ["HF_TOKEN"])
 
 # Explicit provider selection
 result = client.chat_completion(
-    model="meta-llama/Llama-3.1-8B-Instruct",
+    model="deepseek-ai/DeepSeek-R1",
     provider="sambanova",  # Specific provider
     messages=[{"role": "user", "content": "Hello!"}],
 )
 
 # Automatic provider selection (default: "auto")
 result = client.chat_completion(
-    model="meta-llama/Llama-3.1-8B-Instruct",
+    model="deepseek-ai/DeepSeek-R1",
     # Defaults to "auto" selection of the provider
     # provider="auto",
     messages=[{"role": "user", "content": "Hello!"}],
@@ -421,12 +456,18 @@ result = client.chat_completion(
 
 **Provider Selection Policy:**
 
-- `provider: "auto"` (default): Selects the first available provider for the model, sorted by your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers)
+- `provider: "auto"` (default): Selects the first available provider for the model, sorted by your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
 - `provider: "specific-provider"`: Forces use of a specific provider (e.g., "together", "replicate", "fal-ai", ...)
 
 ### Alternative: OpenAI-Compatible Chat Completions Endpoint (Chat Only)
 
 If you prefer to work with familiar OpenAI APIs or want to migrate existing chat completion code with minimal changes, we offer a drop-in compatible endpoint that handles all provider selection automatically on the server side.
+
+By default, the selected provider is the first available provider for the selected model, sorted by your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+You can change that policy by adding a suffix to the model name:
+
+- `:fastest` selects the fastest provider for the model (highest throughput in tokens per second)
+- `:cheapest` selects the most cost-efficient provider for the model (lowest price per output tokens)
 
 **Note**: This OpenAI-compatible endpoint is currently available for chat completion tasks only. For other tasks like text-to-image, embeddings, or speech processing, use the Hugging Face inference clients shown above.
 
@@ -443,7 +484,7 @@ const client = new OpenAI({
 });
 
 const completion = await client.chat.completions.create({
-  model: "meta-llama/Llama-3.1-8B-Instruct",
+  model: "deepseek-ai/DeepSeek-R1:fastest",
   messages: [{ role: "user", content: "Hello!" }],
 });
 ```
@@ -462,7 +503,7 @@ client = OpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="meta-llama/Llama-3.1-8B-Instruct",
+    model="deepseek-ai/DeepSeek-R1:fastest",
     messages=[{"role": "user", "content": "Hello!"}],
 )
 
@@ -480,7 +521,7 @@ curl https://router.huggingface.co/v1/chat/completions \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "model": "deepseek-ai/DeepSeek-R1:fastest",
     "messages": [
       {
         "role": "user",
