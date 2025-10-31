@@ -31,6 +31,8 @@ The request will move to 'pending' status after submission as seen below.
 
 Please make sure to point the domain to `hf.space`. Once set up, you'll see a 'ready' status to know the custom domain is active for your Space 🔥
 
+If you've completed all the steps but aren't seeing a 'ready' status, you can enter your domain [here](https://toolbox.googleapps.com/apps/dig/#CNAME/) to verify it points to `hf.space`. If if doesn't, please check your domain host to ensure the CNAME record was added correctly.
+
 ## Removing a Custom Domain
 
 Simply remove a custom domain by using the delete button to the right of “Custom Domain” in the settings of your Space. You can delete while the custom domain is pending or in ready state.
