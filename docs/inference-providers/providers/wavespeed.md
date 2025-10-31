@@ -47,7 +47,7 @@ Find out more about Image To Image [here](../tasks/image_to_image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"wavespeed":{"modelId":"example/model","providerModelId":"wavespeed/image-to-image"} } }
+    providersMapping={ {"wavespeed":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"wavespeed-ai/qwen-image/edit"} } }
 />
 
 
@@ -57,7 +57,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"wavespeed":{"modelId":"example/model","providerModelId":"wavespeed/text-to-image"} } }
+    providersMapping={ {"wavespeed":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"wavespeed-ai/flux-dev"} } }
 />
 
 
@@ -67,6 +67,8 @@ Find out more about Text To Video [here](../tasks/text_to_video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"wavespeed":{"modelId":"example/model","providerModelId":"wavespeed/text-to-video"} } }
+    providersMapping={ {"wavespeed":{"modelId":"Wan-AI/Wan2.2-TI2V-5B","providerModelId":"wavespeed-ai/wan-2.2/t2v-5b-720p"} } }
 />
+
+
 
