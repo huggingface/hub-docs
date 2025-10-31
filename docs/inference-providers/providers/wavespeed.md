@@ -36,7 +36,7 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
     </a>
 </div>
 
-WaveSpeed AI is a high-performance AI inference platform specializing in image and video generation. Built with cutting-edge infrastructure and optimization techniques, WaveSpeed provides fast, scalable, and cost-effective model serving for creative AI applications.
+[WaveSpeedAI](https://wavespeed.ai/) is a high-performance AI inference platform specializing in image and video generation. Built with cutting-edge infrastructure and optimization techniques, [WaveSpeedAI](https://wavespeed.ai/) provides fast, scalable, and cost-effective model serving for creative AI applications.
 
 ## Supported tasks
 
