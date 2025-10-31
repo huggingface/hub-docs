@@ -110,7 +110,7 @@
   - local: providers/together
     title: Together
   - local: providers/wavespeed
-    title: WaveSpeed
+    title: WaveSpeedAI
   - local: providers/zai-org
     title: Z.ai
 
