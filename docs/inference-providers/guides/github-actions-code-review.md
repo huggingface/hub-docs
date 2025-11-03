@@ -34,7 +34,7 @@ cd your-repository
 opencode github install
 ```
 
-This interactive setup will guide you through:
+This triggers an interactive setup process that will guide you through:
 
 1. **Installing the GitHub app** - Your browser opens to authorize OpenCode for your repositories. You can choose specific repositories or all repositories.
 2. **Selecting a provider** - Choose **Hugging Face** from the list
