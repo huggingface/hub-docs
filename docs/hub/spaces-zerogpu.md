@@ -119,7 +119,7 @@ ZeroGPU does not support `torch.compile`, but you can use PyTorch **ahead-of-tim
 
 Check out this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a complete guide on ahead-of-time compilation on ZeroGPU.
 
-## Usage Limitations
+## Usage Tiers
 
 GPU usage is subject to **daily** quotas, per account tier:
 
