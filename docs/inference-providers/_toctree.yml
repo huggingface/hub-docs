@@ -30,6 +30,9 @@
 
 - local: intergrations/index
   title: Inference Provider Intergrations 
+  sections:
+  - local: intergrations/open-code.md
+  - title: OpenCode
 
 - local: tasks/index
   title: Inference Tasks
