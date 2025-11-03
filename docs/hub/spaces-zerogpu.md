@@ -130,7 +130,7 @@ GPU usage is subject to **daily** quotas, per account tier:
 | PRO account    | 25 minutes       | Highest         |
 
 > [!NOTE]
-> Remaning quota directly impacts priority in ZeroGPU queues.
+> Remaining quota directly impacts priority in ZeroGPU queues.
 
 ## Hosting Limitations
 
