@@ -125,7 +125,7 @@ GPU usage is subject to **daily** quotas, per account tier:
 
 | Account type   | Daily GPU quota  | Queue priority  |
 | -------------- | ---------------- | --------------- |
-| Unlogged       | 2 minutes        | Low             |
+| Unauthenticated | 2 minutes        | Low             |
 | Free account   | 3.5 minutes      | Medium          |
 | PRO account    | 25 minutes       | Highest         |
 
