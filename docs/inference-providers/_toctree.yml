@@ -28,9 +28,12 @@
   - local: guides/vscode
     title: VS Code with GitHub Copilot
 
-- local: intergrations/index
-  title: Integrations 
+- title: Integrations
   sections:
+  - local: intergrations/index
+    title: Integrations Overview
+  - local: intergrations/adding-integration
+    title: Add Your Integration
   - local: intergrations/open-code
     title: OpenCode
 
