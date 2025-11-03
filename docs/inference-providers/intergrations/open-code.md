@@ -1,11 +1,12 @@
 # OpenCode
 
+<!--
 <div class="flex justify-center">
     <a href="https://opencode.ai/" target="_blank">
         <img class="block dark:hidden" src="https://opencode.ai/_build/assets/preview-opencode-wordmark-light-nzmKQT2r.png" alt="OpenCode">
         <img class="hidden dark:block" src="https://opencode.ai/_build/assets/preview-opencode-wordmark-dark-tZ1Y3VXe.png" alt="OpenCode"/>
     </a>
-</div>
+</div> -->
 
 [OpenCode](https://opencode.ai/) is an AI coding agent built for the terminal that helps with code review, refactoring, testing, and general development tasks.
 
