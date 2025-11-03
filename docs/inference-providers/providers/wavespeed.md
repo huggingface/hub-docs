@@ -17,10 +17,10 @@ Logos must be in .png format and be named `wavespeed-light.png` and `wavespeed-d
 For more details, check out the `generate.ts` script: https://github.com/huggingface/hub-docs/blob/main/scripts/inference-providers/scripts/generate.ts.
 --->
 
-# WaveSpeed
+# WaveSpeedAI
 
 > [!TIP]
-> All supported WaveSpeed models can be found [here](https://huggingface.co/models?inference_provider=wavespeed&sort=trending)
+> All supported WaveSpeedAI models can be found [here](https://huggingface.co/models?inference_provider=wavespeed&sort=trending)
 
 <div class="flex justify-center">
     <a href="https://wavespeed.ai/" target="_blank">
