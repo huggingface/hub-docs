@@ -23,7 +23,7 @@ The entire workflow runs securely in your GitHub Actions runners, and you mainta
 
 ## Step 1: Install OpenCode
 
-First, install OpenCode on your local machine see the [installation instructions](https://opencode.ai/docs/#install).
+First, install OpenCode on your local machine following the [installation instructions](https://opencode.ai/docs/#install).
 
 ## Step 2: Configure OpenCode for GitHub
 
