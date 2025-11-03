@@ -6,6 +6,11 @@ You can also install OpenCode as a GitHub App to help automate GitHub workflows!
 
 In less than 5 minutes, you can set it up to respond to issues and pull requests using powerful open source language models.
 
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F565/hub/inference-providers-github-actions-code/recording-light.gif"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F565/hub/inference-providers-github-actions-code/recording-dark.gif"/>
+</div>
+
 This guide shows you how to use Hugging Face Inference Providers with OpenCode to power GitHub automation. You'll be able to triage issues, implement features, and review code using models like DeepSeek, GLM-4.5, and Kimi K2.
 
 > [!TIP]
@@ -102,15 +107,24 @@ OpenCode creates a new branch, implements the changes, and opens a pull request.
 
 Here's a real example from a [fork of the Hugging Face datasets repository](https://github.com/davanstrien/datasets). The issue requests adding `uv` installation support:
 
-![Example Issue](./images/opencode-example-issue.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F565/hub/inference-providers-github-actions-code/opencode-example-issue-light.png">
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F565/hub/inference-providers-github-actions-code/opencode-example-issue-dark.png"/>
+</div>
 
 When someone comments `/oc fix this`, OpenCode analyzes the issue, creates a new branch, implements the changes, and opens a pull request:
 
-![Bot Created PR](./images/opencode-bot-created-pr.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F565/hub/inference-providers-github-actions-code/opencode-bot-created-pr-light.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F565/hub/inference-providers-github-actions-code/opencode-bot-created-pr-dark.png"/>
+</div>
 
 The PR includes all the necessary changes:
 
-![PR Changes](./images/opencode-pr-diff.png)
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F565/hub/inference-providers-github-actions-code/opencode-pr-diff-light.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/refs%2Fpr%2F565/hub/inference-providers-github-actions-code/opencode-pr-diff-dark.png"/>
+</div>
 
 ## Switching Models
 
