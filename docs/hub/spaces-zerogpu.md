@@ -123,11 +123,13 @@ Check out this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a comple
 
 GPU usage is subject to **daily** quotas, per account tier:
 
-| Account type   | Daily GPU quota  | Queue priority  |
-| -------------- | ---------------- | --------------- |
-| Unauthenticated | 2 minutes        | Low             |
-| Free account   | 3.5 minutes      | Medium          |
-| PRO account    | 25 minutes       | Highest         |
+| Account type               | Daily GPU quota  | Queue priority  |
+| -------------------------- | ---------------- | --------------- |
+| Unauthenticated            | 2 minutes        | Low             |
+| Free account               | 3.5 minutes      | Medium          |
+| PRO account                | 25 minutes       | Highest         |
+| Team plan (per seat)       | 25 minutes       | Highest         |
+| Enterprise plan (per seat) | 25 minutes       | Highest         |
 
 > [!NOTE]
 > Remaining quota directly impacts priority in ZeroGPU queues.
