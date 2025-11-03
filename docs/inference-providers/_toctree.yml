@@ -29,10 +29,10 @@
     title: VS Code with GitHub Copilot
 
 - local: intergrations/index
-  title: Inference Provider Intergrations 
+  title: Integrations 
   sections:
-  - local: intergrations/open-code.md
-  - title: OpenCode
+  - local: intergrations/open-code
+    title: OpenCode
 
 - local: tasks/index
   title: Inference Tasks
