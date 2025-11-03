@@ -56,7 +56,7 @@ Once configured, OpenCode will use your selected model for all operations. You c
 
 ## GitHub Actions Integration
 
-OpenCode can be used in CI/CD pipelines for automated code review. See our [GitHub Actions guide](../guides/github-actions-code-review) for setting up automated PR reviews.
+OpenCode can also be used to run open models in GitHub Actions via Inference Providers. See our [GitHub Actions guide](../guides/github-actions-code-review) for setting up automated PR reviews.
 
 ## Resources
 
