@@ -86,7 +86,7 @@ Note: The `@spaces.GPU` decorator is designed to be effect-free in non-ZeroGPU e
 
 ## Duration Management
 
-For functions expected to exceed the default 60-second of GPU runtime, you can specify a custom duration:
+For functions expected to exceed the default 60 seconds of GPU runtime, you can specify a custom duration:
 
 ```python
 @spaces.GPU(duration=120)
