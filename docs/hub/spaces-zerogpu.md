@@ -123,11 +123,14 @@ Check out this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a comple
 
 GPU usage is subject to **daily** quotas, per account tier:
 
-- **Unlogged**: 2 minutes
-- **Free account**: 3.5 minutes
-- **Pro account**: 25 minutes (7x more than free account)
+| Account type   | Daily GPU quota  | Queue priority  |
+| -------------- | ---------------- | --------------- |
+| Unlogged       | 2 minutes        | Low             |
+| Free account   | 3.5 minutes      | Medium          |
+| PRO account    | 25 minutes       | Highest         |
 
-Higher quota also means higher priority in ZeroGPU queues
+> [!NOTE]
+> Remaning quota directly impacts priority in ZeroGPU queues
 
 ## Hosting Limitations
 
