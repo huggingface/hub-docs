@@ -2,8 +2,8 @@
 
 <div class="flex justify-center">
     <a href="https://opencode.ai/" target="_blank">
-        <img class="block dark:hidden" src="./opencode-wordmark-light.png">
-        <img class="hidden dark:block" src="./opencode-wordmark-dark.png"/>
+        <img class="block dark:hidden" src="https://opencode.ai/_build/assets/preview-opencode-wordmark-light-nzmKQT2r.png" alt="OpenCode">
+        <img class="hidden dark:block" src="https://opencode.ai/_build/assets/preview-opencode-wordmark-dark-tZ1Y3VXe.png" alt="OpenCode"/>
     </a>
 </div>
 
