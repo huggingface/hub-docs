@@ -127,7 +127,7 @@ GPU usage is subject to **daily** quotas, per account tier:
 - **Free account**: 3.5 minutes
 - **Pro account**: 25 minutes (7x more than free account)
 
-Higher quota also means higher prioirty in ZeroGPU queues
+Higher quota also means higher priority in ZeroGPU queues
 
 ## Hosting Limitations
 
