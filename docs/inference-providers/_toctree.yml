@@ -30,11 +30,11 @@
 
 - title: Integrations
   sections:
-  - local: intergrations/index
+  - local: integrations/index
     title: Integrations Overview
-  - local: intergrations/adding-integration
+  - local: integrations/adding-integration
     title: Add Your Integration
-  - local: intergrations/open-code
+  - local: integrations/open-code
     title: OpenCode
 
 - local: tasks/index
