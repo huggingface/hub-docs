@@ -256,24 +256,3 @@ inspect eval animal_or_else.py --model hf-inference-providers/Qwen/Qwen3-VL-30B-
 # Next Steps
 * Explore [Inspect's documentation](https://inspect.aisi.org.uk/) to learn more about model evaluation.
 * Browse models available through Inference Providers to find the best model for your needs and run your own evaluations.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
