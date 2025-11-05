@@ -40,7 +40,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"inclusionAI/Ling-1T","providerModelId":"inclusionAI/Ling-1T"},"hf-inference":{"modelId":"katanemo/Arch-Router-1.5B","providerModelId":"katanemo/Arch-Router-1.5B"},"nebius":{"modelId":"openai/gpt-oss-20b","providerModelId":"openai/gpt-oss-20b"}} }
+    providersMapping={ {"featherless-ai":{"modelId":"inclusionAI/Ling-1T","providerModelId":"inclusionAI/Ling-1T"},"hf-inference":{"modelId":"katanemo/Arch-Router-1.5B","providerModelId":"katanemo/Arch-Router-1.5B"}} }
 />
 
 

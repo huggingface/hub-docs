@@ -47,16 +47,6 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"cerebras":{"modelId":"openai/gpt-oss-120b","providerModelId":"gpt-oss-120b"} } }
-conversational />
-
-
-### Chat Completion (VLM)
-
-Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=image-text-to-text
-    providersMapping={ {"cerebras":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"llama-4-scout-17b-16e-instruct"} } }
+    providersMapping={ {"cerebras":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"llama3.1-8b"} } }
 conversational />
 
