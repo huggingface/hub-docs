@@ -21,7 +21,7 @@ pip install openai
 ```
 
 > [!TIP]
-> The Hugging Face token will be used to authenticate your requests. If this is the first time you use Inference Providers, check [this section](https://huggingface.co/docs/inference-providers/index#authentication) to set your token up.
+> The Hugging Face token will be used to authenticate your requests. If this is the first time you use Inference Providers, [create a token in your settings](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) or check [this section](https://huggingface.co/docs/inference-providers/index#authentication) to learn more details.
 
 ## Run your first evaluation
 Let's start by running the ["Hello, Inspect"](https://inspect.aisi.org.uk/#sec-hello-inspect) example from Inspect's documentation. This example evaluates models on the Sally-Anne test, which assesses the ability to infer false beliefs in others. The test format is as follows:
