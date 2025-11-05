@@ -80,7 +80,7 @@ hub_limits:
 - Free: 100GB private datasets
 - Pro (for individuals) | Team or Enterprise (for organizations): 1TB+ private storage per seat (see [pricing](https://huggingface.co/pricing))
 - Public: 1TB (contact datasets@huggingface.co for larger)
-- Per file: 50GB max, 20GB recommended
+- Per file: 200GB max, <50GB recommended
 - Per folder: <10k files
 
 See https://huggingface.co/docs/hub/storage-limits#repository-limitations-and-recommendations for current limits for current recommendations for repository sizes and file counts.
