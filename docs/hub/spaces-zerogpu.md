@@ -129,7 +129,7 @@ GPU usage is subject to **daily** quotas, per account tier:
 | Free account                   | 3.5 minutes      | Medium          |
 | PRO account                    | 25 minutes       | Highest         |
 | Team organization member       | 25 minutes       | Highest         |
-| Enterprise organization member | 25 minutes       | Highest         |
+| Enterprise organization member | 45 minutes       | Highest         |
 
 > [!NOTE]
 > Remaining quota directly impacts priority in ZeroGPU queues.
