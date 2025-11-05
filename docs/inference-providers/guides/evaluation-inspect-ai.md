@@ -74,7 +74,7 @@ inspect viewer
 Nice! We have just evaluated our first model with Inspect and Inference Providers. Now let's look at more advanced examples.
 
 ## Example: Benchmarking several models for a task
-In this section, we will evaluate several models for a specific task. This is useful for selecting the most suitable model for your project and establishing a baseline if you plan to fine-tune a model for your use case. Fortunately, Inspect and Inference Providers make this task very easy. We just need to:
+In this section, we will evaluate several models for a specific task. This is useful for selecting the most suitable model for your project and establishing a baseline if you plan to fine-tune a model for your use case. Fortunately, Inspect and Inference Providers make this task very easy. We need to:
 
 1. **Select a list of target models**. The best place to select the model is the "Models" page on the Hub, where you can sort and filter the models by size, task, languages, and many other features. You can use [this link](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all&sort=trending) to browse all `text-generation` models with Inference Providers' support. For this guide, let's use the following models: `MiniMaxAI/MiniMax-M2`, `openai/gpt-oss-20b`, `openai/gpt-oss-120b`, and `moonshotai/Kimi-K2-Instruct-0905`.
 
