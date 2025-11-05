@@ -67,8 +67,8 @@ find . -name "*.jpg" | wc -l
 ```yaml
 # Machine-readable Hub limits
 hub_limits:
-  max_file_size_gb: 50 # absolute hard stop enforced by LFS
-  recommended_file_size_gb: 20 # best-practice shard size
+  max_file_size_gb: 200 # absolute hard stop enforced by LFS
+  recommended_file_size_gb: 50 # best-practice shard size
   max_files_per_folder: 10000 # Git performance threshold
   max_files_per_repo: 100000 # Repository file count limit
   recommended_repo_size_gb: 300 # public-repo soft cap; contact HF if larger
