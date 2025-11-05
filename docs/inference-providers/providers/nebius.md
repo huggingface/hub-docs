@@ -71,16 +71,6 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 />
 
 
-### Text Generation
-
-Find out more about Text Generation [here](../tasks/text_generation).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"nebius":{"modelId":"openai/gpt-oss-20b","providerModelId":"openai/gpt-oss-20b"} } }
-/>
-
-
 ### Text To Image
 
 Find out more about Text To Image [here](../tasks/text_to_image).
