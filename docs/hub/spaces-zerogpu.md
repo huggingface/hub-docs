@@ -13,10 +13,10 @@ Unlike traditional single-GPU allocations, ZeroGPU's efficient system lowers bar
 
 - **Using existing ZeroGPU Spaces**
   - ZeroGPU Spaces are available to use for free to all users. (Visit [the curated list](https://huggingface.co/spaces/enzostvs/zero-gpu-spaces)).
-  - [PRO users](https://huggingface.co/subscribe/pro) get x5 more daily usage quota and highest priority in GPU queues when using any ZeroGPU Spaces.
+  - [PRO users](https://huggingface.co/subscribe/pro) get x7 more daily usage quota and highest priority in GPU queues when using any ZeroGPU Spaces.
 - **Hosting your own ZeroGPU Spaces**
   - Personal accounts: [Subscribe to PRO](https://huggingface.co/settings/billing/subscription) to access ZeroGPU in the hardware options when creating a new Gradio SDK Space.
-  - Organizations: [Subscribe to the Enterprise Hub](https://huggingface.co/enterprise) to enable ZeroGPU Spaces for all organization members.
+  - Organizations: [Subscribe to a Team or Enterprise plan](https://huggingface.co/enterprise) to enable ZeroGPU Spaces for all organization members.
 
 ## Technical Specifications
 
@@ -118,6 +118,21 @@ def generate(prompt, steps):
 ZeroGPU does not support `torch.compile`, but you can use PyTorch **ahead-of-time** compilation (requires torch `2.8+`)
 
 Check out this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a complete guide on ahead-of-time compilation on ZeroGPU.
+
+## Usage Tiers
+
+GPU usage is subject to **daily** quotas, per account tier:
+
+| Account type                   | Daily GPU quota  | Queue priority  |
+| ------------------------------ | ---------------- | --------------- |
+| Unauthenticated                | 2 minutes        | Low             |
+| Free account                   | 3.5 minutes      | Medium          |
+| PRO account                    | 25 minutes       | Highest         |
+| Team organization member       | 25 minutes       | Highest         |
+| Enterprise organization member | 45 minutes       | Highest         |
+
+> [!NOTE]
+> Remaining quota directly impacts priority in ZeroGPU queues.
 
 ## Hosting Limitations
 
