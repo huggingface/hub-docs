@@ -249,5 +249,5 @@ inspect eval animal_or_else.py --model hf-inference-providers/Qwen/Qwen3-VL-30B-
 
 # Next Steps
 * Explore [Inspect's documentation](https://inspect.aisi.org.uk/) to learn more about model evaluation.
+* Check out the [lighteval](https://github.com/huggingface/lighteval) library. It comes with over [1,000 tasks](https://huggingface.co/spaces/OpenEvals/open_benchmark_index), so you don't have to write any code, and it gives you several quality-of-life features for quickly running evaluations.
 * Browse models available through Inference Providers to find the best model for your needs and run your own evaluations.
-* Enjoy quality of life upgrades and more than 1000 tasks by exploring [lighteval's](https://github.com/huggingface/lighteval) library and [catalog of tasks](https://huggingface.co/spaces/OpenEvals/open_benchmark_index)
