@@ -30,14 +30,16 @@
 
 - title: Integrations
   sections:
-  - local: integrations/index
-    title: Integrations Overview
   - local: integrations/index-simple
-    title: Intergration Overview Simple Version
+    title: Integrations Overview (Simple)
+  - local: integrations/index
+    title: Integrations Overview (Full)
   - local: integrations/adding-integration
     title: Add Your Integration
   - local: integrations/open-code
     title: OpenCode
+  - local: integrations/macwhisper
+    title: MacWhisper
 
 - local: tasks/index
   title: Inference Tasks
