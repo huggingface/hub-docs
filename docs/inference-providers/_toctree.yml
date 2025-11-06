@@ -32,6 +32,8 @@
   sections:
   - local: integrations/index
     title: Integrations Overview
+  - local: integrations/index-simple
+    title: Intergration Overview Simple Version
   - local: integrations/adding-integration
     title: Add Your Integration
   - local: integrations/open-code
