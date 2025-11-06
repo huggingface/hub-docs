@@ -67,7 +67,7 @@ Find out more about Image To Image [here](../tasks/image_to_image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"fal-ai/qwen-image-edit"} } }
+    providersMapping={ {"fal-ai":{"modelId":"nvidia/ChronoEdit-14B-Diffusers","providerModelId":"fal-ai/chrono-edit"} } }
 />
 
 
