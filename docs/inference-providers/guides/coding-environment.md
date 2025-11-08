@@ -37,7 +37,7 @@ With the OpenEnv library installed, we can start coding. We can connect to the c
 env = CodingEnv(base_url="https://openenv-coding-env.hf.space")
 ```
 
-This example connects to the [coding environment](https://openenv-coding-env.hf.space/web) hosted on Hugging Face Spaces. This is perfect for this guide, but if you need to run the environment locally, you can use the `CodingEnv.from_hub`.
+This example connects to the [coding environment](https://openenv-coding-env.hf.space/web) hosted on Hugging Face Spaces. This is perfect for this guide, but if you need to run the environment locally, we recommend using `CodingEnv.from_hub(...)`.
 
 ## Step 2: Configure the Inference Client
 
