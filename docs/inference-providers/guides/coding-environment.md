@@ -34,6 +34,8 @@ pip install git+https://github.com/meta-pytorch/OpenEnv.git
 With the OpenEnv library installed, we can start coding. We can connect to the coding environment by creating a `CodingEnv` object.
 
 ```python
+from envs.coding_env import CodeAction, CodingEnv
+
 env = CodingEnv(base_url="https://openenv-coding-env.hf.space")
 ```
 
