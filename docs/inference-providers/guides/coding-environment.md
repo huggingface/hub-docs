@@ -16,7 +16,7 @@ We will build a coding agent that uses an OpenEnv Coding environment to execute 
 2. Generate Python code to solve a task with Inference Providers.
 3. Execute the code in the environment.
 4. Get feedback on the results from the environment.
-5. Feed the feedback back to the model and repeat the process until the task succeeds.
+5. Send the feedback back to the model and repeat the process until the task succeeds.
 
 >[!NOTE]
 > If you prefer this guide as a complete script, check out the example [below](#complete-working-example).
