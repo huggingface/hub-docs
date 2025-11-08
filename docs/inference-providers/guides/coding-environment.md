@@ -46,6 +46,8 @@ This example connects to the [coding environment](https://openenv-coding-env.hf.
 Set up the connection to Inference Providers. You can find your User Access Token in your [settings page](https://huggingface.co/settings/tokens).
 
 ```python
+from openai import OpenAI
+
 client = OpenAI(
     base_url="https://router.huggingface.co/v1",
     api_key=os.environ["HF_TOKEN"]
