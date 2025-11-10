@@ -172,7 +172,7 @@ To maximize reach and usability::
 
 10. **Carbon Emissions**:
    If possible, specify the [carbon emissions](https://huggingface.co/docs/hub/model-cards-co2) from training.
-
+   
    ```yaml
    ---
    co2_eq_emissions:
