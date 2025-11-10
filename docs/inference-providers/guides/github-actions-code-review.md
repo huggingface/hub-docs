@@ -192,5 +192,5 @@ The workflow triggers whenever someone comments on an issue or PR with `/oc` or 
 ## Next Steps
 
 - Explore the [OpenCode GitHub documentation](https://opencode.ai/docs/github/) for advanced configuration
-- Browse [models available through Inference Providers](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=cerebras,together,fireworks-ai,nebius,novita,sambanova,groq,hyperbolic,nscale,fal-ai,cohere,replicate,scaleway&sort=trending) to find the best model for your needs
+- Browse [models available through Inference Providers](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=cerebras,together,fireworks-ai,nebius,novita,sambanova,groq,hyperbolic,nscale,fal-ai,cohere,replicate,scaleway,ovhcloud&sort=trending) to find the best model for your needs
 - Try OpenCode in a private repository first to test with controlled access

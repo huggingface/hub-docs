@@ -24,12 +24,13 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [Nebius](./providers/nebius)                 |          ✅           |          ✅           |         ✅         |      ✅       |               |                |
 | [Novita](./providers/novita)                 |          ✅           |          ✅           |                    |               |      ✅       |                |
 | [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |      ✅       |               |                |
+| [OVHcloud AI Endpoints](./providers/ovhcloud)|          ✅           |          ✅           |                    |               |               |                |
 | [Public AI](./providers/publicai)            |          ✅           |                       |                    |               |               |                |
 | [Replicate](./providers/replicate)           |                       |                       |                    |      ✅       |      ✅       |       ✅       |
 | [SambaNova](./providers/sambanova)           |          ✅           |                       |         ✅         |               |               |                |
 | [Scaleway](./providers/scaleway)             |          ✅           |                       |         ✅         |               |               |                |
 | [Together](./providers/together)             |          ✅           |          ✅           |                    |      ✅       |               |                |
-| [WaveSpeedAI](./providers/wavespeed)           |                       |                       |                    |      ✅       |      ✅       |                |
+| [WaveSpeedAI](./providers/wavespeed)         |                       |                       |                    |      ✅       |      ✅       |                |
 | [Z.ai](./providers/zai-org)                  |          ✅           |          ✅           |                    |               |               |                |
 
 ## Why Choose Inference Providers?
