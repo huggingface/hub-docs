@@ -101,6 +101,8 @@
     title: Novita
   - local: providers/nscale
     title: Nscale
+  - local: providers/ovhcloud
+    title: OVHcloud AI Endpoints
   - local: providers/publicai
     title: Public AI
   - local: providers/replicate
