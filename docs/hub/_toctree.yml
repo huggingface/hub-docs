@@ -468,4 +468,4 @@
   - local: api
     title: Hub API Endpoints
   - local: oauth
-    title: Sign-In with HF
+    title: Sign-In with HF (OAuth)
