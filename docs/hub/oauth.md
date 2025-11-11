@@ -21,6 +21,27 @@ You can create your application in your [settings](https://huggingface.co/settin
 > [!TIP]
 > If you host your app on Spaces, then the flow will be even easier to implement (and built-in to Gradio directly); Check our [Spaces OAuth guide](https://huggingface.co/docs/hub/spaces-oauth).
 
+### Automated oauth app creation
+
+Hugging Face supports [Client ID Metadata Documents](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/), which allows you to create an oauth app for your website in an automated manner:
+
+- Add an endpoint to your website `/.well-known/oauth-cimd` which returns the following JSON:
+
+```json
+{
+  client_id:                  "[your website url]/.well-known/oauth-cimd",
+  client_name:                "Your Website",
+  redirect_uris:              ["[your website url]/oauth/callback/huggingface"],
+  token_endpoint_auth_method: "none",
+  logo_uri:                  "https://....", // optional
+  client_uri:                 "[your website url]", // optional
+}
+```
+
+- Use `"[your website url]/.well-known/oauth-cimd"` as client ID, and PCKE as auth mechanism
+
+This is particularly useful for ephemeral environments or MCP clients. See an [implementation example](https://github.com/huggingface/chat-ui/pull/1978) in Hugging Chat.
+
 ## Currently supported scopes
 
 The currently supported scopes are:
