@@ -23,7 +23,7 @@ You can create your application in your [settings](https://huggingface.co/settin
 
 ### Automated oauth app creation
 
-Hugging Face supports [Client ID Metadata Documents](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/), which allows you to create an oauth app for your website in an automated manner:
+Hugging Face supports CIMD aka [Client ID Metadata Documents](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/), which allows you to create an oauth app for your website in an automated manner:
 
 - Add an endpoint to your website `/.well-known/oauth-cimd` which returns the following JSON:
 
