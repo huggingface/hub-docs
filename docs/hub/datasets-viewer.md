@@ -27,7 +27,7 @@ You can search for a word in the dataset by typing it in the search bar at the t
 
 ## Run SQL queries on the dataset
 
-You can run SQL queries on the dataset in the browser using the SQL Console. This feature also leverages our [auto-conversion to Parquet](datasets-viewer#access-the-parquet-files). 
+You can run SQL queries on the dataset in the browser using the SQL Console. This feature also leverages our [auto-conversion to Parquet](data-studio#access-the-parquet-files). 
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai.png" />
