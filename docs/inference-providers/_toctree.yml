@@ -31,6 +31,8 @@
     title: Automating Code Review with GitHub Actions
   - local: guides/coding-environment
     title: Agentic Coding Environments with OpenEnv
+  - local: guides/evaluation-inspect-ai
+    title: Evaluating Models with Inspect
 
 - local: tasks/index
   title: Inference Tasks
