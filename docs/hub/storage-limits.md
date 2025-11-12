@@ -67,7 +67,7 @@ which has very detailed documentation about the different factors that will impa
       For example, json files can be merged into a single jsonl file, or large datasets can be exported as Parquet files or in [WebDataset](https://github.com/webdataset/webdataset) format.
     - The maximum number of files per folder cannot exceed 10k files per folder. A simple solution is to
       create a repository structure that uses subdirectories. For example, a repo with 1k folders from `000/` to `999/`, each containing at most 1000 files, is already enough.
-- **File size**: In the case of uploading large files (e.g. model weights), we strongly recommend splitting them **into chunks of around 50GB each**.
+- **File size**: In the case of uploading large files (e.g. model weights), we strongly recommend splitting them **into chunks <200GB each.**.
 There are a few reasons for this:
     - Uploading and downloading smaller files is much easier both for you and the other users. Connection issues can always
       happen when streaming data and smaller files avoid resuming from the beginning in case of errors.
