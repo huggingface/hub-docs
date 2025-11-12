@@ -20,3 +20,4 @@ security-two-fa: security-2fa
 repositories-recommendations: storage-limits
 xet: xet/index
 storage-backends: xet/index
+git-xet: xet/using-xet-storage#git-xet
