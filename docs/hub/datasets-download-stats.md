@@ -2,7 +2,7 @@
 
 ## How are downloads counted for datasets?
 
-Counting the number of downloads for datasets is not a trivial task, as a single dataset repository might contain multiple files, from multiple subsets and splits (e.g. train/validation/test) and sometimes with many files in a single split. To solve this issue and avoid counting one person's download multiple times, we treat all files downloaded by a user (based on their IP address) within a 5-minute window as a single dataset download. This counting happens automatically on our servers when files are downloaded (through GET or HEAD requests), with no need to collect any user information or make additional calls.
+Counting the number of downloads for datasets is not a trivial task, as a single dataset repository might contain multiple files, from multiple subsets and splits (e.g. train/validation/test) and sometimes with many files in a single split. To solve this issue and avoid counting one person's download multiple times, we treat all files downloaded by a user (based on their IP address) within a 5-minute window in a given repository as a single dataset download. This counting happens automatically on our servers when files are downloaded (through GET or HEAD requests), with no need to collect any user information or make additional calls.
 
 ## Before September 2024
 
