@@ -43,6 +43,7 @@ Since all datasets on the Hub are [Xet-backed](./xet/using-xet-storage#git-xet) 
 
 ```bash
 git xet install
+git lfs install
 git clone git@hf.co:datasets/<dataset ID> # example: git clone git@hf.co:datasets/allenai/c4
 ```
 

@@ -41,6 +41,7 @@ Since all models on the Model Hub are [Xet-backed](./xet/using-xet-storage#git-x
 
 ```bash
 git xet install
+git lfs install
 git clone git@hf.co:<MODEL ID> # example: git clone git@hf.co:bigscience/bloom
 ```
 
