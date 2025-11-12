@@ -59,7 +59,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"novita":{"modelId":"Qwen/Qwen3-VL-8B-Instruct","providerModelId":"qwen/qwen3-vl-8b-instruct"} } }
+    providersMapping={ {"novita":{"modelId":"deepseek-ai/DeepSeek-OCR","providerModelId":"deepseek/deepseek-ocr"} } }
 conversational />
 
 
