@@ -269,7 +269,7 @@
         title: Spark
       - local: datasets-webdataset
         title: WebDataset
-  - local: datasets-viewer
+  - local: data-studio
     title: Data Studio
     sections:
       - local: datasets-viewer-configure

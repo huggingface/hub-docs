@@ -101,7 +101,7 @@ For most types of datasets, **Parquet** is the recommended format due to its eff
 
 ### Data Studio
 
-The [Data Studio](./datasets-viewer) is useful to know how the data actually looks like before you download it.
+The [Data Studio](./data-studio) is useful to know how the data actually looks like before you download it.
 It is enabled by default for all public datasets. It is also available for private datasets owned by a [PRO user](https://huggingface.co/pricing) or a [Team or Enterprise organization](https://huggingface.co/enterprise).
 
 After uploading your dataset, make sure the Dataset Viewer correctly shows your data, or [Configure the Dataset Viewer](./datasets-viewer-configure).
