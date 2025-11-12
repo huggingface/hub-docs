@@ -29,6 +29,8 @@
     title: VS Code with GitHub Copilot
   - local: guides/github-actions-code-review
     title: Automating Code Review with GitHub Actions
+  - local: guides/coding-environment
+    title: Agentic Coding Environments with OpenEnv
   - local: guides/evaluation-inspect-ai
     title: Evaluating Models with Inspect
 
