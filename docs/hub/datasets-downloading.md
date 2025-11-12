@@ -42,7 +42,7 @@ dataset = pd.read_csv(
 Since all datasets on the Hub are [Xet-backed](./xet/using-xet-storage#git-xet) Git repositories, you can clone the datasets locally by running:
 
 ```bash
-git-xet install
+git xet install
 git clone git@hf.co:datasets/<dataset ID> # example: git clone git@hf.co:datasets/allenai/c4
 ```
 

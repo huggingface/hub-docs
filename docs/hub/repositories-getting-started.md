@@ -113,7 +113,7 @@ Now's the time, you can add any files you want to the repository! 🔥
 Do you have files larger than 10MB? Those files should be tracked with [`git-xet`](./xet/using-xet-storage#git-xet), which you can initialize with:
 
 ```bash
-git-xet install
+git xet install
 ```
 
 When you use Hugging Face to create a repository, Hugging Face automatically provides a list of common file extensions for common Machine Learning large files in the `.gitattributes` file, which `git-xet` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git xet track "*.your_extension"`.

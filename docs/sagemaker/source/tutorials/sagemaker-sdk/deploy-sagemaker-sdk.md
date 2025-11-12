@@ -172,7 +172,7 @@ Create your own `model.tar.gz` from a model from the 🤗 Hub:
 1. Download a model:
 
 ```bash
-git-xet install
+git xet install
 git clone git@hf.co:{repository}
 ```
 

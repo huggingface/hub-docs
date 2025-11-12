@@ -45,7 +45,7 @@ Or, install using [Homebrew](https://brew.sh/), with the following [tap](https:/
 ```
 brew tap huggingface/tap
 brew install git-xet
-git-xet install
+git xet install
 ```
 
 To verify the installation, run:
@@ -62,7 +62,7 @@ Using an installer:
 Manual installation:
  - Download `git-xet-windows-x86_64.zip` ([available here](https://github.com/huggingface/xet-core/releases/download/git-xet-v0.1.0/git-xet-windows-x86_64.zip)) and unzip. 
  - Place the extracted `git-xet.exe` under a `PATH` directory.
- - Run `git-xet install` in a terminal.
+ - Run `git xet install` in a terminal.
 
 To verify the installation, run:
   ```
