@@ -6,7 +6,7 @@ This beginner-friendly guide will help you get the basic skills you need to crea
 
 This document shows how to handle repositories through the web interface as well as through the terminal. There are no requirements if working with the UI. If you want to work with the terminal, please follow these installation instructions.
 
-If you do not have `git` available as a CLI command yet, you will need to [install Git](https://git-scm.com/downloads) for your platform. You will also need to [install Git LFS](https://git-lfs.github.com/), which will be used to handle large files such as images and model weights.
+If you do not have `git` available as a CLI command yet, you will need to [install Git](https://git-scm.com/downloads) for your platform. You will also need to [install Git-xet](./xet/using-xet-storage#git-xet), which will be used to handle large files such as images and model weights.
 
 > [!TIP]
 > For improved upload and download speeds when working with large files and Git, install the [Git Xet](xet/using-xet-storage#git) extension. 
@@ -110,10 +110,10 @@ You'll need to add your SSH public key to [your user settings](https://huggingfa
 
 Now's the time, you can add any files you want to the repository! 🔥
 
-Do you have files larger than 10MB? Those files should be tracked with `git-lfs`, which you can initialize with:
+Do you have files larger than 10MB? Those files should be tracked with [`git-xet`](./xet/using-xet-storage#git-xet), which you can initialize with:
 
 ```bash
-git lfs install
+git-xet install
 ```
 
 Note that if your files are larger than **5GB** you'll also need to run:
@@ -122,7 +122,7 @@ Note that if your files are larger than **5GB** you'll also need to run:
 hf lfs-enable-largefiles .
 ```
 
-When you use Hugging Face to create a repository, Hugging Face automatically provides a list of common file extensions for common Machine Learning large files in the `.gitattributes` file, which `git-lfs` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git lfs track "*.your_extension"`.
+When you use Hugging Face to create a repository, Hugging Face automatically provides a list of common file extensions for common Machine Learning large files in the `.gitattributes` file, which `git-xet` uses to efficiently track changes to your large files. However, you might need to add new extensions if your file types are not already handled. You can do so with `git xet track "*.your_extension"`.
 
 ### Pushing files
 
@@ -135,7 +135,7 @@ git commit -m "First model version"  # You can choose any descriptive message
 git push
 ```
 
-And you're done! You can check your repository on Hugging Face with all the recently added files. For example, in the screenshot below the user added a number of files. Note that some files in this example have a size of `1.04 GB`, so the repo uses Git LFS to track it.
+And you're done! You can check your repository on Hugging Face with all the recently added files. For example, in the screenshot below the user added a number of files. Note that some files in this example have a size of `1.04 GB`, so the repo uses Xet to track it.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo_with_files.png"/>
