@@ -46,6 +46,16 @@ See the [Organization Billing section](#organization-billing) below for more det
 
 You can track your spending anytime on your [billing page](https://huggingface.co/settings/billing).
 
+## Inference Providers Usage Breakdown
+
+View detailed usage information for Inference Providers directly from your settings. Visit your [Inference Providers Settings](https://huggingface.co/settings/inference-providers/overview) to see your usage for the past month, broken down by model and provider.
+
+The same detailed view is available for organizations subscribed to a paid plan under the organization's settings.
+
+<div class="flex justify-center">
+    <img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/3EZCqRTQq3opfvmMB5nSw.png"/>
+</div>
+
 ## Hugging Face Billing vs Custom Provider Key (Detailed Comparison)
 
 The documentation above assumes you are making routed requests to external providers. In practice, there are 2 different ways to run inference, each with unique billing implications:
