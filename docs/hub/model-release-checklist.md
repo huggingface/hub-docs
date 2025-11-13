@@ -10,10 +10,10 @@ A well-executed release can boost your model's visibility and impact. This secti
 When uploading models to the Hub, follow these best practices:
 
 - **Use separate repositories for different model weights**:
-   Create individual repositories for each variant of the same architecture. This lets you group them into a [collection](https://huggingface.co/docs/hub/en/collections), which users prefer when browsing many options. It also improves visibility because each model has its own URL (`hf.co/org/model-name`) and is easier to search.
+   Create individual repositories for each variant of the same architecture. This lets you group them into a [collection](https://huggingface.co/docs/hub/en/collections), which are easier to navigate than directory listings. It also improves visibility because each model has its own URL (`hf.co/org/model-name`), makes search easier, and provides download counts for each one of your models. A great example is the recent [Qwen3-VL collection](https://huggingface.co/collections/Qwen/qwen3-vl) which features various variants of the VL architecture.
 
 - **Prefer [`safetensors`](https://huggingface.co/docs/safetensors/en/index) over `pickle` for weight serialization.**:
-   `safetensors` is safer and often faster than Python’s `pickle`. If you have a `.bin` pickle file, use the [weight conversion tool](https://huggingface.co/docs/safetensors/en/convert-weights) to convert it quickly.
+   `safetensors` is safer and faster than Python’s `pickle` or `pth`. If you have a `.bin` pickle file, use the [weight conversion tool](https://huggingface.co/docs/safetensors/en/convert-weights) to convert it.
 
 ### Write a Comprehensive Model Card
 
@@ -26,17 +26,17 @@ A well-crafted model card (the `README.md` in your repository) is essential for 
    pipeline_tag: text-generation    # Specify the task
    library_name: transformers       # Specify the library
    language:
-     - en                           # List language for your model
+     - en                           # List languages your model supports
    license: apache-2.0              # Specify a license
    datasets:
      - username/dataset             # List datasets used for training
-   base_model: username/base-model  # If applicable
+   base_model: username/base-model  # If applicable (your model is a fine-tune, quantized, merged version of another model)
    ---
    ```
 
-   Create the `README.md` in the Web UI, and you’ll see a form with the most important metadata fields we recommend 🤗.
+   If you create the `README.md` in the Web UI, you’ll see a form with the most important metadata fields we recommend 🤗.
 
-   | ![metadata template on the hub ui](../../assets/metadata-template.png) |
+   | ![metadata template on the hub ui](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/release-checklist/metadata-template.png) |
    | :--: |
    | Metadata Form on the Hub UI |
 
@@ -48,7 +48,7 @@ A well-crafted model card (the `README.md` in your repository) is essential for 
 
    *Bonus*: Add a well-structured `notebook.ipynb` in the repo so users can open it in [Google Colab and Kaggle Notebooks](https://huggingface.co/docs/hub/en/notebooks) directly.
 
-   | ![colab and kaggle button](../../assets/colab-kaggle.png) |
+   | ![colab and kaggle button](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/release-checklist/colab-kaggle.png) |
    | :--: |
    | Google and Kaggle Usage Buttons |
 
@@ -63,34 +63,34 @@ A well-crafted model card (the `README.md` in your repository) is essential for 
 
 To make the process more seamless, click **Import model card template** to pre-fill the `README.md`s with placeholders.
 
-| ![model card template button on the hub ui](../../assets/model-card-template-button.png) | ![model card template on the hub](../../assets/model-card-template.png) |
+| ![model card template button on the hub ui](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/release-checklist/model-card-template-button.png) | ![model card template on the hub](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/release-checklist/model-card-template.png) |
 |:--: | :--: |
 | The button to import the model card template | A section of the imported template |
 
 ### Enhance Model Discoverability and Usability
 
-To maximize reach and usability::
+To maximize reach and usability:
 
 1. **Library Integration**:
    Add support for one of the many [libraries integrated with the Hugging Face Hub](https://huggingface.co/docs/hub/models-libraries) (such as `transformers`, `diffusers`, `sentence-transformers`, `timm`). This integration significantly increases your model's accessibility and provides users with code snippets for working with your model.
-
-  To specify that your model works with the `transformers` library:
+   
+   For example, to specify that your model works with the `transformers` library:
    ```yaml
    ---
    library_name: transformers
    ---
    ```
 
-   | ![code snippet tab](../../assets/code-snippet.png) |
+   | ![code snippet tab](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/release-checklist/code-snippet.png) |
    | :--: |
    | Code snippet tab |
 
-   You can also [create your own model library](https://huggingface.co/docs/hub/models-adding-libraries) or add Hub support to another existing library or codebase.
+   You can also [create your own model library](https://huggingface.co/docs/hub/en/models-adding-libraries) or add Hub support to your library and codebase so they know how to download model weights from the Hub.
 
    We wrote an extensive guide on uploading best practices [here](https://huggingface.co/docs/hub/models-uploading).
 
    > [!NOTE]
-   > A recognised library also allows you to track downloads of your model over time.
+   > Using a registered library also allows you to track downloads of your model over time.
 
 2. **Correct Metadata**:
    - **Pipeline Tag:** Choose the correct [pipeline tag](https://huggingface.co/docs/hub/model-cards#specifying-a-task--pipelinetag-) so your model shows up in the right searches and widgets.
@@ -101,10 +101,11 @@ To maximize reach and usability::
    - `image-text-to-text` - For vision-language models (VLMs) that generate text
    - `text-to-speech` - For models that generate audio from text
   
-   - **License:** Add a license so users know how they can use the model.
+   - **License:**
+   License information is crucial for users to understand how they can use the model.
 
 3. **Research Papers**:
-   If your model has associated papers, cite them in the model card. They will be[linked automatically](https://huggingface.co/docs/hub/model-cards#linking-a-paper).
+   If your model has associated papers, cite them in the model card. They will be [cross-linked automatically](https://huggingface.co/docs/hub/model-cards#linking-a-paper).
 
    ```markdown
    ## References
@@ -127,7 +128,7 @@ To maximize reach and usability::
    When you create a demo, download the model from its Hub repository (not external sources like Google Drive). This cross-links artifacts and improves visibility
 
 6. **Quantized Versions**:
-   Consider uploading quantized versions (for example, GGUF)to improve accessibility for users with limited compute. Link these versions using the [`base_model` metadata field](https://huggingface.co/docs/hub/model-cards#specifying-a-base-model) on the quantized model cards, and document performance differences.
+   Consider uploading quantized versions (for example, GGUF) to improve accessibility for users with limited compute. Link these versions using the [`base_model` metadata field](https://huggingface.co/docs/hub/model-cards#specifying-a-base-model) on the quantized model cards, and document performance differences.
 
    ```yaml
    ---
@@ -136,7 +137,7 @@ To maximize reach and usability::
    ---
    ```
 
-   | ![model tree showcasing relations](../../assets/model-tree.png) |
+   | ![model tree showcasing relations](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/release-checklist/model-tree.png) |
    | :--: |
    | Model tree showing quantized versions |
 
@@ -187,7 +188,7 @@ To maximize reach and usability::
 ### Access Control and Visibility
 
 1. **Visibility Settings**:
-   When ready to share your model, switch it to public in your [model settings](https://huggingface.co/docs/hub/repositories-settings). Before doing so, double-check that all documentation and code examples to ensure they're accurate and complete
+   When ready to share your model, switch it to public in your [model settings](https://huggingface.co/docs/hub/repositories-settings). Before doing so, double-check that all documentation and code examples to ensure they're accurate and complete.
 
 2. **Gated Access**:
    If your model needs controlled access, use the [gated access feature](https://huggingface.co/docs/hub/models-gated) and clearly state the conditions users must meet. This is important for models with dual-use concerns or commercial restrictions.
@@ -222,14 +223,14 @@ A successful model release extends beyond the initial publication. To maintain q
 ### Tracking Usage and Impact
 
 1. **Usage Metrics**:
-   Track downloads and likes to understand your model’s reach and adoption. You can view total download metrics in your model’s settings.
+   [Track downloads](https://huggingface.co/docs/hub/en/models-download-stats) and likes to understand your model’s reach and adoption. You can view total download metrics in your model’s settings.
 
 2. **Review Community Contributions**:
    Regularly check your model’s repository for contributions from other users. Community pull requests and discussions can provide useful feedback, ideas, and opportunities for collaboration.
 
 ## 🏢 Enterprise Features
 
-[Hugging Face Enterprise](https://huggingface.co/enterprise) subscription offers additional capabilities for teams and organizations:
+[Hugging Face Team & Enterprise](https://huggingface.co/enterprise) subscription offers additional capabilities for teams and organizations:
 
 1. **Access Control**:
    Set [resource groups](https://huggingface.co/docs/hub/security-resource-groups) to manage access for specific teams or users. This ensures the right permissions and secure collaboration across your organization.
