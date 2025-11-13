@@ -62,7 +62,7 @@ This guide will cover three primary ways to upload data to the Hub:
 - using the `datasets` library and the `push_to_hub` method
 - using `pandas` to write to the Hub
 - using the `huggingface_hub` library and the `hf_hub_download` method
-- directly using the API or Git LFS
+- directly using the API or Git with git-xet
 
 #### Use the `datasets` library
 

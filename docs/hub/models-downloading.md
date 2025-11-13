@@ -37,9 +37,10 @@ model = joblib.load(
 
 ## Using Git
 
-Since all models on the Model Hub are Git repositories, you can clone the models locally by running:
+Since all models on the Model Hub are Xet-backed Git repositories, you can clone the models locally by [installing git-xet](./xet/using-xet-storage#git-xet) and running:
 
 ```bash
+git xet install
 git lfs install
 git clone git@hf.co:<MODEL ID> # example: git clone git@hf.co:bigscience/bloom
 ```
