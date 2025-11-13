@@ -46,6 +46,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   nebius: "https://nebius.com/",
   novita: "https://novita.ai/",
   nscale: "https://www.nscale.com/",
+  ovhcloud: "https://www.ovhcloud.com/",
   publicai: "https://publicai.co/",
   replicate: "https://replicate.com/",
   sambanova: "https://sambanova.ai/",
