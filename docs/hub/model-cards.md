@@ -277,7 +277,7 @@ Yes, you can add custom tags to your model by adding them to the `tags` field in
 
 ### How can I indicate that my model is not suitable for all audiences
 
-You can add a `not-for-all-audience` tag to your model card metadata. When this tag is present, a message will be displayed on the model page indicating that the model is not for all audiences. Users can click through this message to view the model card. 
+You can add a `not-for-all-audiences` tag to your model card metadata. When this tag is present, a message will be displayed on the model page indicating that the model is not for all audiences. Users can click through this message to view the model card. 
 
 ### Can I write LaTeX in my model card?
 
