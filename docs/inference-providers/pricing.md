@@ -53,7 +53,8 @@ View detailed usage information for Inference Providers directly from your setti
 The same detailed view is available for organizations subscribed to a paid plan under the organization's settings.
 
 <div class="flex justify-center">
-    <img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/3EZCqRTQq3opfvmMB5nSw.png"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/ip-billing-light.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/ip-billing-dark.png"/>
 </div>
 
 ## Hugging Face Billing vs Custom Provider Key (Detailed Comparison)
