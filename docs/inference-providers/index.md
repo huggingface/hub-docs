@@ -101,7 +101,7 @@ pip install huggingface_hub
 hf auth login # get a read token from hf.co/settings/tokens
 ```
 
-You can now use the the client with a Python interpreter.
+You can now use the client with a Python interpreter.
 
 By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
 
