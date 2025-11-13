@@ -6,10 +6,10 @@ This beginner-friendly guide will help you get the basic skills you need to crea
 
 This document shows how to handle repositories through the web interface as well as through the terminal. There are no requirements if working with the UI. If you want to work with the terminal, please follow these installation instructions.
 
-If you do not have `git` available as a CLI command yet, you will need to [install Git](https://git-scm.com/downloads) for your platform. You will also need to [install Git-xet](./xet/using-xet-storage#git-xet), which will be used to handle large files such as images and model weights.
+If you do not have `git` available as a CLI command yet, you will need to [install Git](https://git-scm.com/downloads) for your platform. You will also need to [install Git-Xet](./xet/using-xet-storage#git-xet), which will be used to handle large files such as images and model weights.
 
 > [!TIP]
-> For improved upload and download speeds when working with large files and Git, install the [Git Xet](xet/using-xet-storage#git) extension. 
+> To be able to download and upload large files from Git, you need to install the [Git Xet](./xet/using-xet-storage#git) extension.
 
 To be able to push your code to the Hub, you'll need to authenticate somehow. The easiest way to do this is by installing the [`huggingface_hub` CLI](https://huggingface.co/docs/huggingface_hub/index) and running the login command:
 

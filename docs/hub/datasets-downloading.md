@@ -39,7 +39,7 @@ dataset = pd.read_csv(
 
 ## Using Git
 
-Since all datasets on the Hub are [Xet-backed](./xet/using-xet-storage#git-xet) Git repositories, you can clone the datasets locally by running:
+Since all datasets on the Hub are Xet-backed Git repositories, you can clone the datasets locally by [installing git-xet](./xet/using-xet-storage#git-xet) and running:
 
 ```bash
 git xet install
