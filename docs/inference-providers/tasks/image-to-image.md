@@ -37,7 +37,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"nvidia/ChronoEdit-14B-Diffusers","providerModelId":"fal-ai/chrono-edit"},"replicate":{"modelId":"black-forest-labs/FLUX.1-Kontext-dev","providerModelId":"black-forest-labs/flux-kontext-dev"},"wavespeed":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"wavespeed-ai/qwen-image/edit"}} }
+    providersMapping={ {"fal-ai":{"modelId":"nvidia/ChronoEdit-14B-Diffusers","providerModelId":"fal-ai/chrono-edit"},"replicate":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"qwen/qwen-image-edit"},"wavespeed":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"wavespeed-ai/qwen-image/edit"}} }
 />
 
 
