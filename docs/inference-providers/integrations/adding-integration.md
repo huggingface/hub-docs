@@ -22,7 +22,7 @@ To be listed, your integration should:
 
 Create a file named `your-tool-name.md` with this structure:
 
-```markdown
+```
 # Your Tool Name
 
 Brief description of what your tool does.
@@ -50,10 +50,20 @@ Step-by-step setup instructions with code examples.
 
 Add your tool to the table in `integrations/index.md`:
 
-```markdown
 | [Your Tool](./your-tool) | Brief description | [Docs](https://yourtool.com/docs) | [Guide](../guides/your-guide) |
+
 ```
 
 ## Questions?
 
 Need help with your integration? Visit the [Hugging Face Forums](https://discuss.huggingface.co/) or open an issue in the [hub-docs repository](https://github.com/huggingface/hub-docs/issues).
+
+```
+
+```
+
+```
+
+```
+
+```
