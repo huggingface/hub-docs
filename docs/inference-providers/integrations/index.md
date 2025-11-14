@@ -7,7 +7,7 @@ If a tool doesn't have explicit support for Inference Providers, it is often sti
 ## Why Use Integrations?
 
 - **Keep your existing tools**: Use Inference Providers with tools you already know
-- **Access 17+ providers**: Switch between providers without changing your code
+- **Access dozens of providers**: Switch between providers without changing your code
 - **Zero markup pricing**: Get the same rates as going direct to providers
 - **Single API token**: One HF token for all providers and models
 
