@@ -45,12 +45,3 @@ Step-by-step setup instructions with code examples.
 - [Your Tool Documentation](https://yourtool.com/docs)
 - [HF Integration Guide](link-to-your-guide)
 ```
-
-## Updating the Index
-
-Add your tool to the table in `integrations/index.md`:
-
-```
-| [Your Tool](./your-tool) | Brief description | [Docs](https://yourtool.com/docs) | [Guide](../guides/your-guide) |
-
-```
