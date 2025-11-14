@@ -2,6 +2,8 @@
 
 Hugging Face Inference Providers works with a growing ecosystem of developer tools, frameworks, and platforms. These integrations let you use state-of-the-art models in your existing workflows and development environments.
 
+If a tool doesn't have explicit support for Inference Providers, it is often still compatible via its OpenAI-compatible API support. Check the documentation for your tool to see if it can be configured to use custom endpoints.
+
 ## Why Use Integrations?
 
 - **Keep your existing tools**: Use Inference Providers with tools you already know
