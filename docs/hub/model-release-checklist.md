@@ -20,7 +20,7 @@ When uploading models to the Hub, follow these best practices:
 A well-crafted model card (the `README.md` in your repository) is essential for discoverability, reproducibility, and effective sharing. Make sure to cover:
 
 1. **Metadata Configuration**:
-   The [metadata section](https://huggingface.co/docs/hub/model-cards#model-card-metadata) at the top of your model card (YAML) is key for search and categorization. Include:
+   The [metadata section](https://huggingface.co/docs/hub/model-cards#model-card-metadata) (YAML) at the top of your model card is key for search and categorization. Include:
    ```yaml
    ---
    pipeline_tag: text-generation    # Specify the task
@@ -31,6 +31,9 @@ A well-crafted model card (the `README.md` in your repository) is essential for 
    datasets:
      - username/dataset             # List datasets used for training
    base_model: username/base-model  # If applicable (your model is a fine-tune, quantized, merged version of another model)
+   tags:                            # Add extra tags which would make the repo searchable using the tag
+     - tag1 
+     - tag2
    ---
    ```
 
@@ -46,7 +49,7 @@ A well-crafted model card (the `README.md` in your repository) is essential for 
 3. **Usage Examples**:
    Provide clear, copy-and-run code snippets for inference, fine-tuning, or other common tasks. Keep edits needed by users to a minimum.
 
-   *Bonus*: Add a well-structured `notebook.ipynb` in the repo so users can open it in [Google Colab and Kaggle Notebooks](https://huggingface.co/docs/hub/en/notebooks) directly.
+   *Bonus*: Add a well-structured `notebook.ipynb` in the repo showing inference or fine-tuning, so users can open it in [Google Colab and Kaggle Notebooks](https://huggingface.co/docs/hub/en/notebooks) directly.
 
    | ![colab and kaggle button](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/release-checklist/colab-kaggle.png) |
    | :--: |
@@ -85,7 +88,7 @@ To maximize reach and usability:
    | :--: |
    | Code snippet tab |
 
-   You can also [register your own model library](https://huggingface.co/docs/hub/en/models-adding-libraries) or add Hub support to your library and codebase so they know how to download model weights from the Hub.
+   You can also [register your own model library](https://huggingface.co/docs/hub/en/models-adding-libraries) or add Hub support to your library and codebase, so the users know how to download model weights from the Hub.
 
    We wrote an extensive guide on uploading best practices [here](https://huggingface.co/docs/hub/models-uploading).
 
@@ -128,7 +131,7 @@ To maximize reach and usability:
    When you create a demo, download the model from its Hub repository (not external sources like Google Drive). This cross-links artifacts and improves visibility
 
 6. **Quantized Versions**:
-   Consider uploading quantized versions (for example, GGUF) to improve accessibility for users with limited compute. Link these versions using the [`base_model` metadata field](https://huggingface.co/docs/hub/model-cards#specifying-a-base-model) on the quantized model cards, and document performance differences.
+   Consider uploading quantized versions (for example, GGUF) on a separate repository to improve accessibility for users with limited compute. Link these versions using the [`base_model` metadata field](https://huggingface.co/docs/hub/model-cards#specifying-a-base-model) on the quantized model cards, and document performance differences.
 
    ```yaml
    ---
@@ -215,7 +218,7 @@ A successful model release extends beyond the initial publication. To maintain q
 2. **Share Share Share**:
    Most users discover models through social media, chat channels (like Slack or Discord), or newsletters. Share your model links in these spaces, and also add them to your website or GitHub repositories.
    
-   The more visits and likes your model receives, the higher it appears in the [Hugging Face trending section](https://huggingface.co/models?sort=trending), bringing even more visibility
+   The more visits and likes your model receives, the higher it appears on the [Hugging Face Trending section](https://huggingface.co/models?sort=trending), bringing even more visibility
 
 3. **Community Interaction**:
    Use the Community tab to answer questions, address feedback, and resolve issues promptly. Clarify confusion, accept helpful suggestions, and close off-topic threads to keep discussions focused.
