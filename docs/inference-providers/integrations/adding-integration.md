@@ -14,8 +14,8 @@ To be listed, your integration should:
 
 1. Test your integration with Hugging Face Inference Providers
 2. Fork the repository at [github.com/huggingface/hub-docs](https://github.com/huggingface/hub-docs)
-3. **Update the index** in `docs/inference-providers/integrations/index.md` to add your tool to the table with a link to your integration docs.
-4. **Submit a Pull Request** with your changes
+3. Update the index in `docs/inference-providers/integrations/index.md` to add your tool to the table with a link to your integration docs.
+4. Submit a Pull Request with your changes
 5. (Optional) Create a dedicated integration page in `docs/inference-providers/integrations/your-tool-name.md` with detailed setup instructions.
 
 ## Integration Page Template
