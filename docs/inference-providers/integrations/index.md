@@ -11,29 +11,41 @@ Hugging Face Inference Providers works with a growing ecosystem of developer too
 
 ## Overview
 
-This table lists _some_ tools, libraries, and applications that work with Hugging Face Inference Providers. For detailed setup instructions, follow the links in the "Guide" column.
+This table lists _some_ tools, libraries, and applications that work with Hugging Face Inference Providers. For detailed setup instructions, follow the links in the Documentation column.
 
 | Integration                                                                                                         | Description                                                    | Documentation                                                                                                             |
 | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| [Continue](https://continue.dev/)                                                                                   | AI code assistant for VS Code and JetBrains                    | [Intergration docs](https://docs.continue.dev/customize/model-providers/more/huggingfaceinferenceapi#hugging-face)        |
-| [Haystack](https://haystack.deepset.ai/)                                                                            | Open-source LLM framework for building production applications | [Intergration docs](https://docs.haystack.deepset.ai/docs/huggingfaceapichatgenerator)                                    |
-| [LangChain](https://www.langchain.com/)                                                                             | LLM application framework                                      | [Intergation docs](https://docs.langchain.com/oss/python/integrations/providers/huggingface#huggingfaceendpoint)          |
-| [LiteLLM](https://docs.litellm.ai/docs/providers/huggingface)                                                       | Unified interface for 100+ LLMs                                | [Intergation docs](https://docs.litellm.ai/docs/providers/huggingface)                                                    |
-| [LlamaIndex](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers) | Data framework for LLM applications                            | [Intergation docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers) |
+| [Continue](https://continue.dev/)                                                                                   | AI code assistant for VS Code and JetBrains                    | [Integration docs](https://docs.continue.dev/customize/model-providers/more/huggingfaceinferenceapi#hugging-face)         |
+| [Haystack](https://haystack.deepset.ai/)                                                                            | Open-source LLM framework for building production applications | [Integration docs](https://docs.haystack.deepset.ai/docs/huggingfaceapichatgenerator)                                     |
+| [Inspect](https://inspect.aisi.org.uk/)                                                                             | AI safety and evaluation framework                             | [Integration docs](https://inspect.aisi.org.uk/providers.html#hugging-face)                                               |
+| [LangChain](https://www.langchain.com/)                                                                             | LLM application framework                                      | [Integration docs](https://docs.langchain.com/oss/python/integrations/providers/huggingface#huggingfaceendpoint)          |
+| [LiteLLM](https://docs.litellm.ai/docs/providers/huggingface)                                                       | Unified interface for 100+ LLMs                                | [Integration docs](https://docs.litellm.ai/docs/providers/huggingface)                                                    |
+| [LlamaIndex](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers) | Data framework for LLM applications                            | [Integration docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers) |
 | [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper)                                                           | Speech-to-text application for macOS                           | [Guide](./macwhisper)                                                                                                     |
-| [OpenCode](./open-code)                                                                                             | AI coding agent built for the terminal                         | [Intergrations docs](https://opencode.ai/docs/providers#hugging-face) / [HF Guide](./open-code)                           |
-| [Roo Code](./roo-code)                                                                                              | AI-powered code generation and refactoring                     | [Intergation docs](https://docs.roocode.com/providers/huggingface)                                                        |
-|                                                                                                                     |                                                                |                                                                                                                           |
+| [OpenCode](./open-code)                                                                                             | AI coding agent built for the terminal                         | [Integration docs](https://opencode.ai/docs/providers#hugging-face) / [HF Guide](./open-code)                             |
+| [Roo Code](./roo-code)                                                                                              | AI-powered code generation and refactoring                     | [Integration docs](https://docs.roocode.com/providers/huggingface)                                                        |
 
-## Intergrations by Category
+## Integrations by Category
 
-### Development Tools
+### API Clients
+
+Client libraries and gateways for simplified LLM access.
+
+- [LiteLLM](https://docs.litellm.ai/docs/providers/huggingface) - Unified interface for calling 100+ LLMs with the same format
+
+### Applications
+
+End-user applications and interfaces powered by LLMs.
+
+- [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper) - Speech-to-text application for macOS ([HF setup Guide](./macwhisper))
+
+### Developer Tools
 
 AI-powered coding assistants and development environments.
 
 - [Continue](https://docs.continue.dev/customize/model-providers/more/huggingfaceinferenceapi#hugging-face) - AI code assistant for VS Code, JetBrains and the terminal.
 - [OpenCode](https://opencode.ai/docs/providers#hugging-face) - AI coding agent built for the terminal.
-- [Roo Code](https://docs.roocode.com/providers/huggingface)- AI-powered code generation and refactoring.
+- [Roo Code](https://docs.roocode.com/providers/huggingface) - AI-powered code generation and refactoring.
 
 ### Evaluation Frameworks
 
@@ -48,18 +60,6 @@ LLM application frameworks and orchestration platforms.
 - [Haystack](https://docs.haystack.deepset.ai/docs/huggingfaceapichatgenerator) - Open-source framework for building production-ready LLM applications
 - [LangChain](https://docs.langchain.com/oss/python/integrations/providers/huggingface#huggingfaceendpoint) - Popular framework for developing LLM applications
 - [LlamaIndex](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers) - Data framework for connecting custom data to LLMs
-
-### Applications
-
-End-user applications and interfaces powered by LLMs.
-
-- [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper) - Speech-to-text application for macOS ([HF setup Guide](./macwhisper))
-
-### API Clients
-
-Client libraries and gateways for simplified LLM access.
-
-- [LiteLLM](https://docs.litellm.ai/docs/providers/huggingface) - Unified interface for calling 100+ LLMs with the same format
 
 <!-- ## Add Your Integration
 
