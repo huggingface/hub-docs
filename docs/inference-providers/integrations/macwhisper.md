@@ -8,7 +8,7 @@ MacWhisper includes AI services that can process your transcriptions—for examp
 
 ## Prerequisites
 
-- MacWhisper installed ([download from Gumroad](https://goodsnooze.gumroad.com/l/macwhisper))
+- MacWhisper installed.
 - A Hugging Face account with an [API token](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) (needs "Make calls to Inference Providers" permission)
 
 ## Configuration
@@ -26,7 +26,7 @@ MacWhisper includes AI services that can process your transcriptions—for examp
    Paste your Hugging Face token in the API token field.
 
 5. **Choose a model**
-   Enter the model ID you want to use (e.g., `meta-llama/Llama-3.3-70B-Instruct`).
+   Enter the model ID you want to use (e.g., `openai/gpt-oss-20b`).
 
 That's it! MacWhisper will now use Hugging Face Inference Providers for AI processing of your transcriptions.
 
@@ -41,4 +41,4 @@ That's it! MacWhisper will now use Hugging Face Inference Providers for AI proce
 
 - [MacWhisper product page](https://goodsnooze.gumroad.com/l/macwhisper)
 - [Hugging Face Inference Providers documentation](https://huggingface.co/docs/inference-providers)
-- [Available models](https://huggingface.co/models?pipeline_tag=text-generation&sort=trending)
+- [Available models](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all&sort=trending)
