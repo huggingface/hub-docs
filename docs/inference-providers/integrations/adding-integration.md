@@ -8,7 +8,7 @@ To be listed, your integration should:
 
 - Work with Inference Providers
 - Be actively maintained with recent commits or releases
-- Have clear documentation showing how to connect to HF
+- Have clear documentation showing how to connect to Inference Providers
 
 ## How to Submit
 
@@ -54,4 +54,3 @@ Add your tool to the table in `integrations/index.md`:
 | [Your Tool](./your-tool) | Brief description | [Docs](https://yourtool.com/docs) | [Guide](../guides/your-guide) |
 
 ```
-
