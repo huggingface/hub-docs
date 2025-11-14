@@ -16,6 +16,15 @@ Hugging Face Hub is where leading researchers and developers across academia and
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/epita.png"/>
 </div>
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/ESCP_LOGO_CMJN.png"/>
+</div>
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/The_2025_MBZUAI_logo.png"/>
+</div>
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/Universität_Zürich_logo.png"/>
+</div>
 
 #### Why Academia Hub: Built for the complete research lifecycle
 Academia Hub scales with your research from early prototypes to large-scale published models while ensuring security, reproducibility, and seamless collaboration across your entire institution.
