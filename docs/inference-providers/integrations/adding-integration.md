@@ -50,20 +50,8 @@ Step-by-step setup instructions with code examples.
 
 Add your tool to the table in `integrations/index.md`:
 
+```
 | [Your Tool](./your-tool) | Brief description | [Docs](https://yourtool.com/docs) | [Guide](../guides/your-guide) |
 
 ```
 
-## Questions?
-
-Need help with your integration? Visit the [Hugging Face Forums](https://discuss.huggingface.co/) or open an issue in the [hub-docs repository](https://github.com/huggingface/hub-docs/issues).
-
-```
-
-```
-
-```
-
-```
-
-```
