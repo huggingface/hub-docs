@@ -17,7 +17,7 @@ When uploading models to the Hub, follow these best practices:
 
 ### Write a Comprehensive Model Card
 
-A well-crafted model card (the `README.md` in your repository) is essential for discoverability, reproducibility, and effective sharing. Include:
+A well-crafted model card (the `README.md` in your repository) is essential for discoverability, reproducibility, and effective sharing. Make sure to cover:
 
 1. **Metadata Configuration**:
    The [metadata section](https://huggingface.co/docs/hub/model-cards#model-card-metadata) at the top of your model card (YAML) is key for search and categorization. Include:
@@ -85,7 +85,7 @@ To maximize reach and usability:
    | :--: |
    | Code snippet tab |
 
-   You can also [create your own model library](https://huggingface.co/docs/hub/en/models-adding-libraries) or add Hub support to your library and codebase so they know how to download model weights from the Hub.
+   You can also [register your own model library](https://huggingface.co/docs/hub/en/models-adding-libraries) or add Hub support to your library and codebase so they know how to download model weights from the Hub.
 
    We wrote an extensive guide on uploading best practices [here](https://huggingface.co/docs/hub/models-uploading).
 
