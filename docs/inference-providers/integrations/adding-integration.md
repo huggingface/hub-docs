@@ -6,7 +6,7 @@ Building a tool that works with Hugging Face Inference Providers? We'd love to f
 
 To be listed, your integration should:
 
-- Work with HF Inference Providers
+- Work with Inference Providers
 - Be actively maintained with recent commits or releases
 - Have clear documentation showing how to connect to HF
 
