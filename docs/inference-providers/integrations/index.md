@@ -23,7 +23,7 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 | [LlamaIndex](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers) | Data framework for LLM applications                            | [Integration docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers) |
 | [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper)                                                           | Speech-to-text application for macOS                           | [Guide](./macwhisper)                                                                                                     |
 | [OpenCode](./open-code)                                                                                             | AI coding agent built for the terminal                         | [Integration docs](https://opencode.ai/docs/providers#hugging-face) / [HF Guide](./open-code)                             |
-| [Roo Code](./roo-code)                                                                                              | AI-powered code generation and refactoring                     | [Integration docs](https://docs.roocode.com/providers/huggingface)                                                        |
+| [Roo Code](https://docs.roocode.com/)                                                                               | AI-powered code generation and refactoring                     | [Integration docs](https://docs.roocode.com/providers/huggingface)                                                        |
 
 ## Integrations by Category
 
