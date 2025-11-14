@@ -58,7 +58,7 @@ Explore all available models and find the one that suits you best [here](https:/
 | **normalize** | _boolean_ |  |
 | **prompt_name** | _string_ | The name of the prompt that should be used by for encoding. If not set, no prompt will be applied.  Must be a key in the `sentence-transformers` configuration `prompts` dictionary.  For example if ``prompt_name`` is "query" and the ``prompts`` is {"query": "query: ", ...}, then the sentence "What is the capital of France?" will be encoded as "query: What is the capital of France?" because the prompt text will be prepended before any text to encode. |
 | **truncate** | _boolean_ |  |
-| **truncation_direction** | _enum_ | Possible values: Left, Right. |
+| **truncation_direction** | _enum_ | Possible values: left, right. |
 
 
 #### Response
