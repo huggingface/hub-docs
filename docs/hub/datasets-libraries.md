@@ -4,24 +4,52 @@ The Datasets Hub has support for several libraries in the Open Source ecosystem.
 Thanks to the [huggingface_hub Python library](/docs/huggingface_hub), it's easy to enable sharing your datasets on the Hub.
 We're happy to welcome to the Hub a set of Open Source libraries that are pushing Machine Learning forward.
 
+## Libraries table
+
 The table below summarizes the supported libraries and their level of integration.
 
 | Library                             | Description                                                                                                                    | Download from Hub | Push to Hub |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ----------- |
 | [Argilla](./datasets-argilla)       | Collaboration tool for AI engineers and domain experts that value high quality data.                                           | ✅                | ✅          |
-| [Daft](./datasets-daft)             | Data engine for large scale, multimodal data processing with a Python-native interface.                                        | ✅                | ✅          |
-| [Dask](./datasets-dask)             | Parallel and distributed computing library that scales the existing Python and PyData ecosystem.                               | ✅                | ✅          |
-| [Datasets](./datasets-usage)        | 🤗 Datasets is a library for accessing and sharing datasets for Audio, Computer Vision, and Natural Language Processing (NLP). | ✅                | ✅          |
+| [Daft](./datasets-daft)             | Data engine for large scale, multimodal data processing with a Python-native interface.                                        | ✅ +s             | ✅ +s +p    |
+| [Dask](./datasets-dask)             | Parallel and distributed computing library that scales the existing Python and PyData ecosystem.                               | ✅ +s             | ✅ +s +p*   |
+| [Datasets](./datasets-usage)        | 🤗 Datasets is a library for accessing and sharing datasets for Audio, Computer Vision, and Natural Language Processing (NLP). | ✅ +s             | ✅ +s +p    |
 | [Distilabel](./datasets-distilabel) | The framework for synthetic data generation and AI feedback.                                                                   | ✅                | ✅          |
-| [DuckDB](./datasets-duckdb)         | In-process SQL OLAP database management system.                                                                                | ✅                | ✅          |
-| [Embedding Atlas](./datasets-embedding-atlas) | Interactive visualization and exploration tool for large embeddings.                                                     | ✅                | ❌          |
-| [fenic](./datasets-fenic)           | PySpark-inspired DataFrame framework for building production AI and agentic applications.                                      | ✅                | ❌          |
-| [FiftyOne](./datasets-fiftyone)     | FiftyOne is a library for curation and visualization of image, video, and 3D data.                                             | ✅                | ✅          |
-| [Pandas](./datasets-pandas)         | Python data analysis toolkit.                                                                                                  | ✅                | ✅          |
-| [Polars](./datasets-polars)         | A DataFrame library on top of an OLAP query engine.                                                                            | ✅                | ✅          |
-| [PyArrow](./datasets-pyarrow)       | Apache Arrow is a columnar format and a toolbox for fast data interchange and in-memory analytics.                             | ✅                | ✅          |
-| [Spark](./datasets-spark)           | Real-time, large-scale data processing tool in a distributed environment.                                                      | ✅                | ✅          |
-| [WebDataset](./datasets-webdataset) | Library to write I/O pipelines for large datasets.                                                                             | ✅                | ❌          |
+| [DuckDB](./datasets-duckdb)         | In-process SQL OLAP database management system.                                                                                | ✅ +s             | ❌          |
+| [Embedding Atlas](./datasets-embedding-atlas) | Interactive visualization and exploration tool for large embeddings.                                                 | ✅ +s             | ❌          |
+| [Fenic](./datasets-fenic)           | PySpark-inspired DataFrame framework for building production AI and agentic applications.                                      | ✅ +s             | ❌          |
+| [FiftyOne](./datasets-fiftyone)     | FiftyOne is a library for curation and visualization of image, video, and 3D data.                                             | ✅ +s             | ✅          |
+| [Pandas](./datasets-pandas)         | Python data analysis toolkit.                                                                                                  | ✅                | ✅ +p*      |
+| [Polars](./datasets-polars)         | A DataFrame library on top of an OLAP query engine.                                                                            | ✅ +s             | ✅          |
+| [PyArrow](./datasets-pyarrow)       | Apache Arrow is a columnar format and a toolbox for fast data interchange and in-memory analytics.                             | ✅ +s             | ✅ +p*      |
+| [Spark](./datasets-spark)           | Real-time, large-scale data processing tool in a distributed environment.                                                      | ✅ +s             | ✅ +s +p    |
+| [WebDataset](./datasets-webdataset) | Library to write I/O pipelines for large datasets.                                                                             | ✅ +s             | ❌          |
+
+_+s: Supports Streaming_
+_+p: Writes optimized Parquet files_
+_+p*: Requires passing extra arguments to write optimized Parquet files_
+
+### Streaming
+
+Dataset streaming allows to iterate on a dataset on Hugging Face progressively without having to download it completely.
+It saves disk space and download time.
+
+In addition to streaming from Hugging Face, many libraries also support streaming when writing back to Hugging Face.
+Therefore they can run end-to-end streaming pipelines: streaming from a source and writing to Hugging Face progressively, often overlapping the downloads, uploads and processing steps.
+
+For more details on how to do streaming, check out the documentation of a library that support streaming (see table above) or the [streaming datasets](./datasets-streaming) documentation if you want to stream datasets from Hugging Face by yourself.
+
+### Optimized Parquet files
+
+Parquet files on Hugging Face are optimized to improve storage efficiency, accelerate downloads and uploads, and enable efficient dataset streaming and editing:
+
+* [Parquet Content Defined Chunking](https://huggingface.co/blog/parquet-cdc) optimizes Parquet for [Xet](https://huggingface.co/docs/hub/en/xet/index), Hugging Face's storage based on Git. It accelereates uploads and downloads thanks to deduplication and allows efficient file editing
+* Page index accelerates filters when streaming and enables efficient random access, e.g. in the [Dataset Viewer](https://huggingface.co/docs/dataset-viewer)
+
+Some libraries require extra argument to write optimized Parquet files:
+
+* `content_defined_chunking=True` to enable Parquet Content Defined Chunking, for [deduplication](https://huggingface.co/blog/parquet-cdc) and [editing](./datasets-editing)
+* `write_page_index=True` to include a page index in the Parquet metadata, for [streaming and random access](./datasets-streaming)
 
 ## Integrating data libraries and tools with the Hub
 
