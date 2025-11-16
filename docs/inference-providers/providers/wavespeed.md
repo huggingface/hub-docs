@@ -47,7 +47,7 @@ Find out more about Image To Image [here](../tasks/image_to_image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"wavespeed":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"wavespeed-ai/qwen-image/edit"} } }
+    providersMapping={ {"wavespeed":{"modelId":"dx8152/Qwen-Edit-2509-Multiple-angles","providerModelId":"wavespeed-ai/qwen-image/edit-plus-lora"} } }
 />
 
 
