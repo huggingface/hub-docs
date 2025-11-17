@@ -2,7 +2,7 @@
 
 ## Integrated libraries
 
-If a dataset on the Hub is tied to a [supported library](./datasets-libraries) that allows streaming from Hugging Face, streaming the dataset can be done in just a few lines. For information on accessing the dataset, you can click on the "Use this dataset" button on the dataset page to see how to do so. For example, [`samsum`](https://huggingface.co/datasets/knkarthick/samsum?library=datasets) shows how to do so with 🤗 Datasets below.
+If a dataset on the Hub is tied to a [supported library](./datasets-libraries) that allows streaming from Hugging Face, streaming the dataset can be done in just a few lines. For information on accessing the dataset, you can click on the "Use this dataset" button on the dataset page to see how to do so. For example, [`knkarthick/samsum`](https://huggingface.co/datasets/knkarthick/samsum?library=datasets) shows how to do so with `datasets` below.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-usage.png"/>
@@ -16,8 +16,10 @@ If a dataset on the Hub is tied to a [supported library](./datasets-libraries) t
 
 ## Using the Hugging Face Client Library
 
-You can use the [`huggingface_hub`](/docs/huggingface_hub) library to create, delete, and access files from repositories. For example, to stream the `allenai/c4` dataset in python, run
+You can use the [`huggingface_hub`](/docs/huggingface_hub) library to create, delete, and access files from repositories. For example, to stream the `allenai/c4` dataset in Python, simply install the library (we recommend using the latest version) and run the following code.
 
+```bash
+pip install -U huggingface_hub
 ```python
 from huggingface_hub import HfFileSystem
 
@@ -32,7 +34,7 @@ with fs.open(f"datasets/{repo_id}/{path_in_repo}", "r", compression="gzip") as f
     # {"text":"Beginners BBQ Class Taking Place in Missoula!...}
 ```
 
-See the [HF filesystem documentation](https://huggingface.co/docs/huggingface_hub/en/guides/hf_file_system) for more information.
+See the [`HfFileSystem` documentation](https://huggingface.co/docs/huggingface_hub/en/guides/hf_file_system) for more information.
 
 You can also integrate this into your own library! For example, you can quickly stream a CSV dataset using Pandas in a batched manner.
 ```py
@@ -52,11 +54,11 @@ with fs.open(f"datasets/{repo_id}/{path_in_repo}") as f:
         print(len(df))  # 5
 ```
 
-Streaming is especially useful to read big files on Hugging Face progressively or only small portion.
+Streaming is especially useful to read big files on Hugging Face progressively or only a small portion.
 For example `tarfile` can iterate on the files of TAR archives, `zipfile` can read files from ZIP archives and `pyarrow` can access row groups of Parquet files.
 
->![TIP]
-> There is an equivalent filesystem implementation in Rust available in [OpenDAL](https://github.com/apache/opendal)
+> ![TIP]
+> There is an equivalent filesystem implementation in Rust available in [OpenDAL](https://github.com/apache/opendal).
 
 ## Using cURL
 
@@ -116,7 +118,7 @@ Find more information in the [PyArrow documentation](./datasets-pyarrow).
 
 ### Efficient random access
 
-Row groups are further divied into columns, and columns into pages. Pages are often around 1MB and are the smallest unit of data in Parquet, since this is where compression is applied. Accessing pages enables loading specific rows without having to load a full row group, and is possible if the Parquet file has a page index. However not every Parquet frameworks supports reading at the page level. PyArrow doesn't for example, but the `parquet` crate in Rust does:
+Row groups are further divided into columns, and columns into pages. Pages are often around 1MB and are the smallest unit of data in Parquet, since this is where compression is applied. Accessing pages enables loading specific rows without having to load a full row group, and is possible if the Parquet file has a page index. However not every Parquet frameworks support reading at the page level. PyArrow doesn't for example, but the `parquet` crate in Rust does:
 
 ```rust
 use std::sync::Arc;

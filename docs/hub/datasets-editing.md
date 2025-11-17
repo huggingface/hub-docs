@@ -1,6 +1,6 @@
 # Editing datasets
 
-The [Hub](https://huggingface.co/datasets) enables collabporative curation of community and research datasets. We encourage you to explore dataset on the Hub and contribute to dataset curation to help grow the ML community and accelerate progress for everyone. All contributions are welcome!
+The [Hub](https://huggingface.co/datasets) enables collaborative curation of community and research datasets. We encourage you to explore the datasets available on the Hub and contribute to their improvement to help grow the ML community and accelerate progress for everyone. All contributions are welcome!
 
 Start by [creating a Hugging Face Hub account](https://huggingface.co/join) if you don't have one yet.
 
@@ -9,9 +9,9 @@ Start by [creating a Hugging Face Hub account](https://huggingface.co/join) if y
 > [!WARNING]
 > This feature is only available for CSV datasets for now.
 
-The Hub's web-based interface allows users without any developer experience to edit a dataset.
+The Hub's web interface allows users without any developer experience to edit a dataset.
 
-Open the dataset page and navigate to the dataset **Data Studio** to edit the dataset
+Open the dataset page and navigate to the **Data Studio** tab to begin editing.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-edit/data_studio_button-min.png"/>
@@ -45,7 +45,7 @@ Edit as many cells as you want and finally click **Commit** to commit your chang
 
 ## Using the `huggingface_hub` client library
 
-The rich features set in the `huggingface_hub` library allows you to manage repositories, including editing dataset files on the Hub. Visit [the client library's documentation](/docs/huggingface_hub/index) to learn more.
+The rich feature set in the `huggingface_hub` library allows you to manage repositories, including editing dataset files on the Hub. Visit [the client library's documentation](/docs/huggingface_hub/index) to learn more.
 
 ## Integrated libraries
 
@@ -65,9 +65,9 @@ For example, [`samsum`](https://huggingface.co/datasets/knkarthick/samsum?librar
 
 ### Only upload the new data
 
-Hugging Face's storage uses [Xet](https://huggingface.co/docs/hub/en/xet) which is based on deduplication, and enables in particular deduplicated uploads.
-Unlike regular cloud storages, Xet doesn't require datasets to be completely reuploaded to commit changes.
-Instead, it automatically detects which parts of the dataset changed and tells the client library to only upload the parts that changed.
+Hugging Face's storage is powered by [Xet](https://huggingface.co/docs/hub/en/xet), which uses chunk deduplication to make uploads more efficient.
+Unlike regular cloud storage, Xet doesn't require files to be entirely reuploaded to commit changes.
+Instead, it automatically detects which parts of the dataset have changed and instructs the client library only to upload the updated parts.
 To do that, Xet uses a smart algorithm to find chunks of 64kB that already exist on Hugging Face.
 
 Here is how it works with Pandas:
@@ -86,7 +86,7 @@ df.to_csv(f"hf://datasets/{repo_id}/data.csv")
 ```
 
 This code first loads a dataset and then edits it.
-Once the edits are done, `to_csv()` materializes the file in memory, chunks it, and asks Xet which chunks are already on Hugging Face and which chunks changed, and finally only upload the new data.
+Once the edits are done, `to_csv()` materializes the file in memory, chunks it, asks Xet which chunks are already on Hugging Face and which chunks have changed, and then uploads only the new data.
 
 ### Optimized Parquet editing
 
