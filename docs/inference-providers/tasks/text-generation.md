@@ -16,7 +16,7 @@ For more details, check out:
 
 Generate text based on a prompt.
 
-If you are interested in a Chat Completion task, which generates a response based on a list of messages, check out the [`chat-completion`](./chat_completion) task.
+If you are interested in a Chat Completion task, which generates a response based on a list of messages, check out the [`chat-completion`](./chat-completion) task.
 
 > [!TIP]
 > For more details about the `text-generation` task, check out its [dedicated page](https://huggingface.co/tasks/text-generation)! You will find examples and related materials.
@@ -40,7 +40,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Meta-Llama-3.1-8B-Instruct"},"hf-inference":{"modelId":"katanemo/Arch-Router-1.5B","providerModelId":"katanemo/Arch-Router-1.5B"}} }
+    providersMapping={ {"featherless-ai":{"modelId":"moonshotai/Kimi-K2-Thinking","providerModelId":"moonshotai/Kimi-K2-Thinking"},"hf-inference":{"modelId":"katanemo/Arch-Router-1.5B","providerModelId":"katanemo/Arch-Router-1.5B"}} }
 />
 
 
