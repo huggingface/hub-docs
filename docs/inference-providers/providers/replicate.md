@@ -57,7 +57,7 @@ Find out more about Image To Image [here](../tasks/image_to_image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"replicate":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"qwen/qwen-image-edit"} } }
+    providersMapping={ {"replicate":{"modelId":"black-forest-labs/FLUX.1-Kontext-dev","providerModelId":"black-forest-labs/flux-kontext-dev"} } }
 />
 
 
@@ -67,7 +67,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"replicate":{"modelId":"briaai/FIBO","providerModelId":"bria/fibo"} } }
+    providersMapping={ {"replicate":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/flux-dev"} } }
 />
 
 
