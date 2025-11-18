@@ -269,7 +269,7 @@
         title: Spark
       - local: datasets-webdataset
         title: WebDataset
-  - local: datasets-viewer
+  - local: data-studio
     title: Data Studio
     sections:
       - local: datasets-viewer-configure
@@ -468,4 +468,4 @@
   - local: api
     title: Hub API Endpoints
   - local: oauth
-    title: Sign-In with HF
+    title: Sign-In with HF (OAuth)

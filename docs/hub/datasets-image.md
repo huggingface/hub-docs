@@ -191,8 +191,8 @@ train-0000/
 └── 999.json
 ```
 
-Note that for user convenience and to enable the [Dataset Viewer](./datasets-viewer), every dataset hosted in the Hub is automatically converted to Parquet format up to 5GB.
-Read more about it in the [Parquet format](./datasets-viewer#access-the-parquet-files) documentation.
+Note that for user convenience and to enable the [Dataset Viewer](./data-studio), every dataset hosted in the Hub is automatically converted to Parquet format up to 5GB.
+Read more about it in the [Parquet format](./data-studio#access-the-parquet-files) documentation.
 
 ### Parquet format
 

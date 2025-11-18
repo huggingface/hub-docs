@@ -5,7 +5,7 @@ The Hugging Face Hub aims to facilitate sharing machine learning models, checkpo
 Integrating the Hub with your library provides many benefits, including:
 
 - Free model hosting for you and your users.
-- Built-in file versioning - even for huge files - made possible by [Git-LFS](https://git-lfs.github.com/).
+- Built-in file versioning - even for huge files - made possible by [Git-Xet](./xet/using-xet-storage#git-xet).
 - Community features (discussions, pull requests, likes).
 - Usage metrics for all models ran with your library.
 

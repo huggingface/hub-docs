@@ -18,5 +18,7 @@ api-webhook: webhooks
 adapter-transformers: adapters
 security-two-fa: security-2fa
 repositories-recommendations: storage-limits
+datasets-viewer: data-studio
 xet: xet/index
 storage-backends: xet/index
+git-xet: xet/using-xet-storage#git-xet

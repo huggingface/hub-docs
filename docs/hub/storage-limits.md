@@ -43,7 +43,7 @@ We gathered a list of tips and recommendations for structuring your repo. If you
 | Repo size          | -                  | contact us for large repos (TBs of data)               |
 | Files per repo     | <100k              | merge data into fewer files                            |
 | Entries per folder | <10k               | use subdirectories in repo                             |
-| File size          | <20GB              | split data into chunked files                          |
+| File size          | <50GB              | split data into chunked files                          |
 | Commit size        | <100 files*        | upload files in multiple commits                       |
 | Commits per repo   | -                  | upload multiple files per commit and/or squash history |
 
@@ -67,20 +67,20 @@ which has very detailed documentation about the different factors that will impa
       For example, json files can be merged into a single jsonl file, or large datasets can be exported as Parquet files or in [WebDataset](https://github.com/webdataset/webdataset) format.
     - The maximum number of files per folder cannot exceed 10k files per folder. A simple solution is to
       create a repository structure that uses subdirectories. For example, a repo with 1k folders from `000/` to `999/`, each containing at most 1000 files, is already enough.
-- **File size**: In the case of uploading large files (e.g. model weights), we strongly recommend splitting them **into chunks of around 20GB each**.
+- **File size**: In the case of uploading large files (e.g. model weights), we strongly recommend splitting them **into chunks <200GB each.**.
 There are a few reasons for this:
     - Uploading and downloading smaller files is much easier both for you and the other users. Connection issues can always
       happen when streaming data and smaller files avoid resuming from the beginning in case of errors.
     - Files are served to the users using CloudFront. From our experience, huge files are not cached by this service
       leading to a slower download speed.
-In all cases no single LFS file will be able to be >50GB. I.e. 50GB is the hard limit for single file size.
+In all cases, no single file will exceed 500GB. I.e. 500GB is the hard limit for a single file size.
 - **Number of commits**: There is no hard limit for the total number of commits on your repo history. However, from
 our experience, the user experience on the Hub starts to degrade after a few thousand commits. We are constantly working to
 improve the service, but one must always remember that a git repository is not meant to work as a database with a lot of
 writes. If your repo's history gets very large, it is always possible to squash all the commits to get a
 fresh start using `huggingface_hub`'s [`super_squash_history`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.super_squash_history). Be aware that this is a non-revertible operation.
 - **Number of operations per commit**: Once again, there is no hard limit here. When a commit is uploaded on the Hub, each
-git operation (addition or delete) is checked by the server. When a hundred LFS files are committed at once,
+git operation (addition or delete) is checked by the server. When a hundred Large Files are committed at once,
 each file is checked individually to ensure it's been correctly uploaded. When pushing data through HTTP,
 a timeout of 60s is set on the request, meaning that if the process takes more time, an error is raised. However, it can
 happen (in rare cases) that even if the timeout is raised client-side, the process is still
@@ -124,7 +124,7 @@ We recommend that academic and research institutions upgrade to Team, Enterprise
 
 There are several ways to manage and free some storage space in your account or organization. First, if you need more storage space, upgrade to a PRO, Team or Enterprise plan for increased storage limits.
 
-⚠️ **Important**: Deleting LFS files is a destructive operation that cannot be undone. Make sure to backup your files before proceeding.
+⚠️ **Important**: Deleting Large Files is a destructive operation that cannot be undone. Make sure to backup your files before proceeding.
 
 Key points to remember:
 - Deleting only LFS pointers doesn't free up space

@@ -140,7 +140,7 @@ Find out more about Table Question Answering [here](../tasks/table_question_answ
 
 <InferenceSnippet
     pipeline=table-question-answering
-    providersMapping={ {"hf-inference":{"modelId":"google/tapas-base-finetuned-wtq","providerModelId":"google/tapas-base-finetuned-wtq"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google/tapas-large-finetuned-wtq","providerModelId":"google/tapas-large-finetuned-wtq"} } }
 />
 
 
@@ -150,7 +150,7 @@ Find out more about Text Classification [here](../tasks/text_classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"ProsusAI/finbert","providerModelId":"ProsusAI/finbert"} } }
+    providersMapping={ {"hf-inference":{"modelId":"tabularisai/multilingual-sentiment-analysis","providerModelId":"tabularisai/multilingual-sentiment-analysis"} } }
 />
 
 
