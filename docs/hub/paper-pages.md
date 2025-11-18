@@ -40,9 +40,9 @@ If you don't have any papers on Hugging Face yet, you can index your first one a
 
 ## Recent additions
 
-When submitting a Paper you can now tag an Organization so it appears on that org's dedicated `/papers` page (for example `https://huggingface.co/nvidia/papers`), which helps teams showcase their work together.
+Submitting a Paper allows tagging an Organization so it appears on that org's dedicated `/papers` page (for example `https://huggingface.co/nvidia/papers`), which helps teams showcase their work together.
 
-The Daily Papers page now highlights Trending Papers—ranked by recent GitHub activity along with their code links—and each entry includes an AI-generated one-sentence abstract so readers can quickly understand the main idea before diving deeper.
+The Daily Papers page highlights Trending Papers—ranked by recent GitHub activity along with their code links—and each entry includes an AI-generated one-sentence abstract so readers can quickly understand the main idea before diving deeper.
 
 
 ## Frequently Asked Questions

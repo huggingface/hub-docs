@@ -33,7 +33,7 @@ The Hub has a viewer for GGUF files that lets a user check out metadata & tensor
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-tensortable-dark.png"/>
 </div>
 
-For GGUF files up to 10 GB you will now see a **GGUF Editor** label powered by Xet; clicking it opens an in-browser metadata editor so you can tweak properties such as the chat template without re-uploading the entire file.
+For GGUF files up to 10 GB the **GGUF Editor** label powered by Xet appears; clicking it opens an in-browser metadata editor so you can tweak properties such as the chat template without re-uploading the entire file.
 
 ## Usage with open-source tools
 

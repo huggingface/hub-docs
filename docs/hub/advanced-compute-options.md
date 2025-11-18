@@ -5,7 +5,7 @@
 
 Enterprise Hub organizations gain access to advanced compute options to accelerate their machine learning journey.
 
-In addition to ZeroGPU, you can run `hf jobs run…` on Hugging Face for arbitrary CPU or GPU workloads. The new Jobs service is billed by the second, supports simple scripts and large fleets of hardware, and is controlled via the `hf jobs run` CLI (see [the Jobs guide](https://huggingface.co/docs/huggingface_hub/en/guides/jobs)).
+In addition to ZeroGPU, `hf jobs run…` executes arbitrary CPU or GPU workloads on Hugging Face. The Jobs service is billed by the second, supports simple scripts and large fleets of hardware, and is controlled via the `hf jobs run` CLI (see [the Jobs guide](https://huggingface.co/docs/huggingface_hub/en/guides/jobs)).
 
 ## Host ZeroGPU Spaces in your organization
 
