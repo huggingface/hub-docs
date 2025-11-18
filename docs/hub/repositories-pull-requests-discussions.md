@@ -13,6 +13,8 @@ _Note, Pull Requests and discussions can be enabled or disabled from the [reposi
 
 By going to the community tab in any repository, you can see all Discussions and Pull requests. You can also filter to only see the ones that are open.
 
+Repository owners can choose a default sorting (Trending, Most Reactions, or Recently Created) from the repository settings, and the discussions experience now offers emoji autocomplete whenever you type `:` in a comment or reply.
+
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-list.png"/>
@@ -159,5 +161,4 @@ git checkout pr/{PR_NUMBER}
 git push origin pr/{PR_NUMBER}:refs/pr/{PR_NUMBER}
 # for example: git push origin pr/42:refs/pr/42
 ```
-
 

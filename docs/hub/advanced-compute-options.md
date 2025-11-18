@@ -5,6 +5,8 @@
 
 Enterprise Hub organizations gain access to advanced compute options to accelerate their machine learning journey.
 
+In addition to ZeroGPU, you can run `hf jobs run…` on Hugging Face for arbitrary CPU or GPU workloads. The new Jobs service is billed by the second, supports simple scripts and large fleets of hardware, and is controlled via the `hf jobs run` CLI (see [the Jobs guide](https://huggingface.co/docs/huggingface_hub/en/guides/jobs)).
+
 ## Host ZeroGPU Spaces in your organization
 
 ZeroGPU is a dynamic GPU allocation system that optimizes AI deployment on Hugging Face Spaces. By automatically allocating and releasing NVIDIA H200 GPU slices (70GB VRAM) as needed, organizations can efficiently serve their AI applications without dedicated GPU instances.

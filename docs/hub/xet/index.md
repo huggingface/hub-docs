@@ -5,6 +5,8 @@ Repositories on the Hugging Face Hub are different from those on software develo
 - Large - model or dataset files are in the range of GB and above. We have a few TB-scale files!
 - Binary - not in a human readable format by default (e.g., [Safetensors](https://huggingface.co/docs/safetensors/en/index) or [Parquet](https://huggingface.co/docs/dataset-viewer/en/parquet#what-is-parquet))
 
+Starting in May 2025, new users and organizations are onboarded with Xet storage by default (more than 25% of Hub traffic is already coming from Xet-enabled repos), and existing users can migrate via `hf.co/join/xet`.
+
 While the Hub leverages modern version control with the support of Git, these differences make [Model](https://huggingface.co/docs/hub/models) and [Dataset](https://huggingface.co/docs/hub/datasets) repositories quite different from those that contain only source code.
 
 Storing these files directly in a pure Git repository is impractical. Not only are the typical storage systems behind Git repositories unsuited for such files, but when you clone a repository, Git retrieves the entire history, including all file revisions. This can be prohibitively large for massive binaries, forcing you to download gigabytes of historic data you may never need.
@@ -31,4 +33,3 @@ In these pages you will get started in using Xet Storage.
 - [Security](./security)
 - [Backwards Compatibility & Legacy](./legacy-git-lfs)
 - [Deduplication](./deduplication)
-

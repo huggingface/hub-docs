@@ -38,6 +38,13 @@ If your paper is not linked to your account, you can click in your name in the c
 If you don't have any papers on Hugging Face yet, you can index your first one as explained [here](#can-i-have-a-paper-page-even-if-i-have-no-modeldatasetspace). Once available, you can claim authorship.
 
 
+## Recent additions
+
+When submitting a Paper you can now tag an Organization so it appears on that org's dedicated `/papers` page (for example `https://huggingface.co/nvidia/papers`), which helps teams showcase their work together.
+
+The Daily Papers page now highlights Trending Papers—ranked by recent GitHub activity along with their code links—and each entry includes an AI-generated one-sentence abstract so readers can quickly understand the main idea before diving deeper.
+
+
 ## Frequently Asked Questions
 
 ### Can I control which Paper pages show in my profile?
