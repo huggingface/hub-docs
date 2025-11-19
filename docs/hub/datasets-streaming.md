@@ -2,7 +2,7 @@
 
 ## Integrated libraries
 
-If a dataset on the Hub is tied to a [supported library](./datasets-libraries) that allows streaming from Hugging Face, streaming the dataset can be done in just a few lines. For information on accessing the dataset, you can click on the "Use this dataset" button on the dataset page to see how to do so. For example, [`knkarthick/samsum`](https://huggingface.co/datasets/knkarthick/samsum?library=datasets) shows how to do so with `datasets` below.
+If a dataset on the Hub is compatible with a [supported library](./datasets-libraries) that allows streaming from Hugging Face, streaming the dataset can be done in just a few lines. For information on accessing the dataset, you can click on the "Use this dataset" button on the dataset page to see how to do so. For example, [`knkarthick/samsum`](https://huggingface.co/datasets/knkarthick/samsum?library=datasets) shows how to do so with `datasets` below.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-usage.png"/>
@@ -20,6 +20,7 @@ You can use the [`huggingface_hub`](/docs/huggingface_hub) library to create, de
 
 ```bash
 pip install -U huggingface_hub
+```
 ```python
 from huggingface_hub import HfFileSystem
 
@@ -36,7 +37,7 @@ with fs.open(f"datasets/{repo_id}/{path_in_repo}", "r", compression="gzip") as f
 
 See the [`HfFileSystem` documentation](https://huggingface.co/docs/huggingface_hub/en/guides/hf_file_system) for more information.
 
-You can also integrate this into your own library! For example, you can quickly stream a CSV dataset using Pandas in a batched manner.
+You can also integrate this into your own library! For example, you can quickly stream a CSV dataset using Pandas in batches.
 ```py
 from huggingface_hub import HfFileSystem
 import pandas as pd

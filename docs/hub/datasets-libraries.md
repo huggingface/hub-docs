@@ -31,10 +31,10 @@ _+p*: Requires passing extra arguments to write optimized Parquet files_
 
 ### Streaming
 
-Dataset streaming allows to iterate on a dataset on Hugging Face progressively without having to download it completely.
-It saves disk space since the data is never materialized on disk. It saves memory since only a small portion of the dataset is used at a time. And it saves time, since there is no need to download data in advance prior to the actual CPU or GPU workload.
+Dataset streaming allows iterating on a dataset from Hugging Face progressively without having to download it completely.
+It saves local disk space because the data is never on disk. It saves memory since only a small portion of the dataset is used at a time. And it saves time, since there is no need to download data before the CPU or GPU workload.
 
-In addition to streaming from Hugging Face, many libraries also support streaming when writing back to Hugging Face.
+In addition to streaming *from* Hugging Face, many libraries also support streaming *back to* Hugging Face.
 Therefore, they can run end-to-end streaming pipelines: streaming from a source and writing to Hugging Face progressively, often overlapping the download, upload, and processing steps.
 
 For more details on how to do streaming, check out the documentation of a library that support streaming (see table above) or the [streaming datasets](./datasets-streaming) documentation if you want to stream datasets from Hugging Face by yourself.
