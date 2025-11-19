@@ -34,7 +34,7 @@ Academia Hub scales with your research from early prototypes to large-scale publ
 
 ***For researchers and students***
 - **Storage**: 1 TB private storage per seat (e.g., 400 seats = 400 TB) powered by Xet, purpose-built for versioning large AI models and datasets; expanded public storage; Dataset Viewer for private datasets
-- **Hosting & demos**: Spaces Hosting for scalable AI demos and applications powered by ZeroGPU (5× priority quota); Dev Mode with SSH/VS Code access for development
+- **Hosting & demos**: <a href="https://huggingface.co/docs/hub/spaces" target="_blank">Spaces</a> Hosting for scalable AI demos and applications powered by ZeroGPU (5× priority quota); <a href="https://huggingface.co/docs/hub/spaces-dev-mode" target="_blank">Dev Mode</a> with SSH/VS Code access for development
 - **Compute**: Priority GPU access (H100/H200) for training; managed runs with experiment tracking
 - **Collaboration**: Team workspaces with version control, peer review, and shared governance
 - **Publishing**: Share the research artifacts like models and datasets with the global AI community through citable releases with model cards, dataset cards, and DOIs
@@ -48,6 +48,6 @@ Academia Hub scales with your research from early prototypes to large-scale publ
 
 ## How to get started
 
-1. Ask your university's IT or Procurement Team to <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">get in touch</a> to initiate the subscription process to the Academia Hub today.
-Academia Hub cannot be initiated by researchers or students themselves. 
-2. When Academia Hub is enabled, any affiliated user will need to add their `@your-university-name.edu` email address (or other university domain) to their HF account.
+Researchers and students: <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Contact us</a> to express interest in Academia Hub and help us connect with your university's IT or Procurement Team.
+
+IT or Procurement staff: <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Get in touch</a> directly to set up your institution's Academia Hub subscription or find out more about how your institution can benefit from Academia Hub
