@@ -9,7 +9,7 @@
 
 ## Accelerate your university's AI research, publication pipeline, and collaboration at scale
 
-Hugging Face Hub is where leading researchers and developers across academia and industry collaborate on AI throughout the whole research lifecycle. Academia Hub brings that proven ecosystem to your university, giving your researchers everything they need to work securely, reproducibly, and at scale: compute, storage, collaboration, and governance, all managed through your institution.
+The Hugging Face Hub is where leading researchers and developers across academia and industry collaborate on AI throughout the whole research lifecycle. Academia Hub brings that proven ecosystem to your university, giving your researchers everything they need to work securely, reproducibly, and at scale: compute, storage, collaboration, and governance, all managed through your institution.
 
 **University-level seat management, accounts for researchers, professors and students.**
 
