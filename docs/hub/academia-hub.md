@@ -37,7 +37,7 @@ Academia Hub scales with your research from early prototypes to large-scale publ
 - **Hosting & demos**: Spaces Hosting for scalable AI demos and applications powered by ZeroGPU (5× priority quota); Dev Mode with SSH/VS Code access for development
 - **Compute**: Priority GPU access (H100/H200) for training; managed runs with experiment tracking
 - **Collaboration**: Team workspaces with version control, peer review, and shared governance
-- **Publishing**: Share your work with the global AI research community through citable releases with model cards, dataset cards, and DOIs
+- **Publishing**: Share the research artifacts like models and datasets with the global AI community through citable releases with model cards, dataset cards, and DOIs
 
 ***For administrators***
 - **Pricing**: $10/seat/month (volume-based pricing); $2/seat/month compute credits included (top-ups available)
