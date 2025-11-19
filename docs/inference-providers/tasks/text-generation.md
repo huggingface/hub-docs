@@ -40,7 +40,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"moonshotai/Kimi-K2-Thinking","providerModelId":"moonshotai/Kimi-K2-Thinking"},"hf-inference":{"modelId":"katanemo/Arch-Router-1.5B","providerModelId":"katanemo/Arch-Router-1.5B"}} }
+    providersMapping={ {"featherless-ai":{"modelId":"moonshotai/Kimi-K2-Thinking","providerModelId":"moonshotai/Kimi-K2-Thinking"},"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"}} }
 />
 
 
