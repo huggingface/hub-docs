@@ -104,7 +104,7 @@ Basically, you need to:
 > [!WARNING]
 > You should use `target=_blank` on the button to open the sign-in page in a new tab, unless you run the space outside its `iframe`. Otherwise, you might encounter issues with cookies on some browsers.
 
-## Examples:
+## HuggingChat
 
 - [Gradio test app](https://huggingface.co/spaces/Wauplin/gradio-oauth-test)
 - [Hugging Chat (NodeJS/SvelteKit)](https://huggingface.co/spaces/huggingchat/chat-ui)
