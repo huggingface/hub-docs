@@ -467,8 +467,8 @@ Other keywords that are supported:
 1. `limit` - the number of papers returned
 2. `p` - the page number, for paging through results
 3. `submitter` - to filter the paper submitter
-4. `date`, `week`, `month` - for filtering by date range
-5. `sort` - to specify how results are sorted.  Defaults to "publishedAt", but can be set to "trending" as well.
+4. `date`, `week`, `month` - for filtering by date range on the date the paper was included in Daily Papers
+5. `sort` - to specify how results are sorted.  Defaults to "publishedAt", but can be set to "trending" as well
 
 See the [OpenAPI Playground for Daily Papers](https://huggingface-openapi.hf.space/#tag/papers) for the full list of params.
 
