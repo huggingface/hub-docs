@@ -464,7 +464,7 @@ To filter on a particular date, simply pass the date like so: https://huggingfac
 
 Other keywords that are supported: 
 
-1. `limit` - the number of pages returned
+1. `limit` - the number of papers returned
 2. `p` - the page number, for paging through results
 3. `submitter` - to filter the paper submitter
 4. `date`, `week`, `month` - for filtering by date range
