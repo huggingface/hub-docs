@@ -466,7 +466,7 @@ Other keywords that are supported:
 
 1. `limit` - the number of pages returned
 2. `p` - the page number, for paging through results
-3. `submitter` - to filter by summitter
+3. `submitter` - to filter the paper submitter
 4. `date`, `week`, `month` - for filtering by date range
 5. `sort` - to specify how results are sorted.
 
