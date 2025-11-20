@@ -468,7 +468,7 @@ Other keywords that are supported:
 2. `p` - the page number, for paging through results
 3. `submitter` - to filter the paper submitter
 4. `date`, `week`, `month` - for filtering by date range
-5. `sort` - to specify how results are sorted.
+5. `sort` - to specify how results are sorted.  Defaults to "publishedAt", but can be set to "trending" as well.
 
 See the [OpenAPI Playground for Daily Papers](https://huggingface-openapi.hf.space/#tag/papers) for the full list of params.
 
@@ -476,7 +476,7 @@ See the [OpenAPI Playground for Daily Papers](https://huggingface-openapi.hf.spa
 
 Search the daily papers by keyword:
 
-1. `q` - the keyword to search
+* `q` - the keyword to search
 
 ## Collections API
 
