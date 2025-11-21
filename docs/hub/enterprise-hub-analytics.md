@@ -20,6 +20,12 @@ Explore the metrics of individual repositories with the per-repository drill-dow
 
 Download a comprehensive CSV file containing analytics for all your repositories, including model and dataset download activity.
 
+You can also access this data programmatically via the following API endpoint:
+
+```bash
+curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" "https://huggingface.co/organizations/YOUR_ORG_NAME/settings/publisher-analytics/download-breakdown" --output breakdown.csv
+```
+
 ### Response Structure
 
 The CSV file is made of daily download records for each of your models and datasets.
