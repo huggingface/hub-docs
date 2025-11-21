@@ -4,7 +4,7 @@ Hugging Face highlights certain Spaces to make it easier for you to discover hig
 
 ## Author-owned Spaces
 
-Model, Dataset, and Paper pages can include a section showing the Spaces that use or reference that resource. A star icon identifies author-owned Spaces, which are official demos or examples created by the resource’s author.
+Model, Dataset, and Paper pages can include a section showing the Spaces that use or reference that artifact. A star icon identifies author-owned Spaces, which are official demos or examples created by the owner of the artifact.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/author-owned-spaces-light.png"/>
