@@ -11,7 +11,7 @@ Model, Dataset, and Paper pages can include a section showing the Spaces that us
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/author-owned-spaces-dark.png"/>
 </div>
 
-Learn how to link a Space to a model or dataset <a href="paper-pages#linking-a-paper-to-a-model-dataset-or-space">here</a>, and how to link it to a paper <a href="paper-pages#linking-a-paper-to-a-model-dataset-or-space">here</a>.
+Learn how to link a Space to a Model or Dataset <a href="paper-pages#linking-a-paper-to-a-model-dataset-or-space">here</a>, and how to link it to a Paper <a href="paper-pages#linking-a-paper-to-a-model-dataset-or-space">here</a>.
 
 ## Spaces of the Week
 
