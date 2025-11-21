@@ -474,7 +474,7 @@ See the [OpenAPI Playground for Daily Papers](https://huggingface-openapi.hf.spa
 
 ### GET /api/papers/search
 
-Search the daily papers by keyword:
+Search the daily papers by keyword `q` (the keyword to search)
 
 * `q` - the keyword to search
 
