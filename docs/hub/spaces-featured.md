@@ -4,7 +4,7 @@ Hugging Face highlights certain Spaces to make it easier for you to discover hig
 
 ## Author-owned Spaces
 
-On model, dataset, and paper pages, you can find a section listing Spaces that use or reference them. A star icon identifies author-owned Spaces. Those are official demos or examples created by the resource’s author.
+Model, Dataset, and Paper pages can include a section showing the Spaces that use or reference that resource. A star icon identifies author-owned Spaces, which are official demos or examples created by the resource’s author.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/author-owned-spaces-light.png"/>
@@ -14,7 +14,7 @@ On model, dataset, and paper pages, you can find a section listing Spaces that u
 
 ## Spaces of the Week
 
-<a href="https://huggingface.co/spaces/" target="_blank">Spaces of the Week</a> are a curated selection of standout Spaces chosen by the Hugging Face team.
+<a href="https://huggingface.co/spaces/" target="_blank">Spaces of the Week</a> are a curated weekly selection of standout Spaces chosen by the Hugging Face team.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/SOTW-light.png"/>
