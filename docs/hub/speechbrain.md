@@ -14,7 +14,7 @@ All models on the Hub come up with the following features:
 
 ## Using existing models
 
-`speechbrain` offers different interfaces to manage pretrained models for different tasks, such as `EncoderClassifier`, `EncoderClassifier`, `SepformerSeperation`, and `SpectralMaskEnhancement`. These classes have a `from_hparams` method you can use to load a model from the Hub
+`speechbrain` offers different interfaces to manage pretrained models for different tasks, such as `EncoderClassifier`, `EncoderClassifier`, `SepformerSeparation`, and `SpectralMaskEnhancement`. These classes have a `from_hparams` method you can use to load a model from the Hub
 
 Here is an example to run inference for sound recognition in urban sounds.
 

@@ -112,7 +112,7 @@ Not all chunks are eligible for global deduplication queries to manage system lo
 2. **Hash pattern matching**: Chunks are eligible if: the last 8 bytes of the hash interpreted as a little-endian 64 bit integer % 1024 == 0.
 
 **Recommendations:**
-**Spacing constraints**: The global dedupe API is optimized to return information about nearby chunks when there is a match. Consider only issueing a request to an eligible chunk every ~4MB of data.
+**Spacing constraints**: The global dedupe API is optimized to return information about nearby chunks when there is a match. Consider only issuing a request to an eligible chunk every ~4MB of data.
 
 #### Query Process
 
