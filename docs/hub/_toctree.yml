@@ -370,6 +370,8 @@
     title: Spaces Configuration Reference
   - local: spaces-oauth
     title: Sign-In with HF button
+  - local: spaces-featured
+    title: Featured Spaces
   - local: spaces-changelog
     title: Spaces Changelog
   - local: spaces-advanced
