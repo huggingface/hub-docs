@@ -38,8 +38,8 @@ This feature is particularly beneficial for organizations requiring a higher deg
 
 To ensure organizational control and data governance, user accounts provisioned and managed via Advanced SSO ("managed user accounts") have specific limitations:
 
-*   **No Public Content Creation**: Managed user accounts cannot create public content on the Hugging Face platform. This includes, but is not limited to, public models, datasets, or Spaces. All content created by these accounts is restricted to within your organization or private visibility.
-*   **No External Collaboration**: Managed user accounts are restricted from collaborating outside of your Hugging Face organization. This means they cannot, for example, join other organizations, contribute to repositories outside their own organization.
+*   **No Personal Content Creation**: Managed users cannot create any content (models, datasets, or Spaces) in their personal user namespace. All content must be created within the Organization.
+*   **Organization-Bound Collaboration**: Managed users are restricted to collaborating solely within their managing Organization. They cannot join other organizations or contribute to repositories outside of their managing Organization. 
+*   **Content Visibility**: Content created by managed users resides within the Organization. While the managed users cannot create public content in their personal profile, they can **create public content within the Organization** if the Organization's settings permit it.
 
-These restrictions are in place to maintain the integrity and security boundaries defined by your enterprise. If members of your organization require the ability to create public content or collaborate more broadly on the Hugging Face platform, they will need to do so using a separate, personal Hugging Face account that is not managed by your organization's Advanced SSO.
-
+These restrictions maintain your enterprise's security boundaries. For personal projects or broader collaboration outside your organization, members should use a separate, unmanaged Hugging Face account.
