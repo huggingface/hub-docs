@@ -119,7 +119,7 @@ print(tf.config.list_physical_devices('GPU'))
 Billing on Spaces is based on hardware usage and is computed by the minute: you get charged for every minute the Space runs on the requested hardware, 
 regardless of whether the Space is used.
 
-During a Space's lifecycle, it is only billed when the Space is actually `Starting` and `Running`. This means that there is no cost during build.
+During a Space's lifecycle, it is only billed when the Space is `Starting` or `Running`. This means that there is no cost during build.
 
 If a running Space starts to fail, it will be automatically suspended and the billing will stop.
 
