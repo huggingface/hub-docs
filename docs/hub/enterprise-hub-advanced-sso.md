@@ -40,6 +40,6 @@ To ensure organizational control and data governance, user accounts provisioned 
 
 *   **No Personal Content Creation**: Managed users cannot create any content (models, datasets, or Spaces) in their personal user namespace. All content must be created within the Organization.
 *   **Organization-Bound Collaboration**: Managed users are restricted to collaborating solely within their managing Organization. They cannot join other organizations or contribute to repositories outside of their managing Organization. 
-*   **Content Visibility**: Content created by managed users resides within the Organization. While they cannot create public content in their personal profile, they **can create public content within the Organization** if the Organization's settings permit it.
+*   **Content Visibility**: Content created by managed users resides within the Organization. While the managed users cannot create public content in their personal profile, they can **create public content within the Organization** if the Organization's settings permit it.
 
 These restrictions maintain your enterprise's security boundaries. For personal projects or broader collaboration outside your organization, members should use a separate, unmanaged Hugging Face account.
