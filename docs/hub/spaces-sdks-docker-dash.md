@@ -22,7 +22,7 @@ When you create a Dash Space, you'll get a few key files to help you get started
 
 ### 1. app.py
 
-This is the main app file that defines the core logic of your project. Dash apps are often structured as modules, and you can optionally seperate your layout, callbacks, and data into other files, like `layout.py`, etc.
+This is the main app file that defines the core logic of your project. Dash apps are often structured as modules, and you can optionally separate your layout, callbacks, and data into other files, like `layout.py`, etc.
 
 Inside of `app.py` you will see:
 
@@ -36,7 +36,7 @@ Inside of `app.py` you will see:
    Here, we define our server variable, which is used to run the app in production.
 
 4. `app.layout = `
-   The starter app layout is defined as a list of Dash components, an indivdual Dash component, or a function that returns either.
+   The starter app layout is defined as a list of Dash components, an individual Dash component, or a function that returns either.
 
    The `app.layout` is your initial layout that will be updated as a single-page application by callbacks and other logic in your project.
 

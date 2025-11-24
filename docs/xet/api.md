@@ -29,7 +29,7 @@ Suppose a hash value is:
 Then before converting to a string it will first have its bytes reordered to:
 `[7, 6, 5, 4, 3, 2, 1, 0, 15, 14, 13, 12, 11, 10, 9, 8, 23, 22, 21, 20, 19, 18, 17, 16, 31, 30, 29, 28, 27, 26, 25, 24]`
 
-So the string value of the the provided hash [0..32] is **NOT** `000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f`.
+So the string value of the provided hash [0..32] is **NOT** `000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f`.
 It is: `07060504030201000f0e0d0c0b0a0908171615141312111f1e1d1c1b1a1918`.
 
 ## Endpoints
