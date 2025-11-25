@@ -24,7 +24,7 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 | [LiteLLM](https://www.litellm.ai/)                                                       | Unified interface for 100+ LLMs                                | [Official docs](https://docs.litellm.ai/docs/providers/huggingface)                                                    |
 | [LlamaIndex](https://www.llamaindex.ai/) | Data framework for LLM applications                            | [Official docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers) |
 | [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper)                                                           | Speech-to-text application for macOS                           | [HF docs](./macwhisper)                                                                                                     |
-| [OpenCode](https://opencode.ai/)                                                                                             | AI coding agent built for the terminal                         | [Official docs](https://opencode.ai/docs/providers#hugging-face) / [HF docs](./open-code)                             |
+| [OpenCode](https://opencode.ai/)                                                                                             | AI coding agent built for the terminal                         | [Official docs](https://opencode.ai/docs/providers#hugging-face) / [HF docs](./opencode)                             |
 | [Roo Code](https://roocode.com/)                                                                               | AI-powered code generation and refactoring                     | [Official docs](https://docs.roocode.com/providers/huggingface)                                                        |
 
 ## Integrations by Category
@@ -46,7 +46,7 @@ End-user applications and interfaces powered by LLMs.
 AI-powered coding assistants and development environments.
 
 - [Continue](https://continue.dev/) - AI code assistant for VS Code, JetBrains and the terminal ([Official docs](https://docs.continue.dev/customize/model-providers/more/huggingfaceinferenceapi#hugging-face))
-- [OpenCode](https://opencode.ai/) - AI coding agent built for the terminal ([Official docs](https://opencode.ai/docs/providers#hugging-face) / [HF docs](./open-code))
+- [OpenCode](https://opencode.ai/) - AI coding agent built for the terminal ([Official docs](https://opencode.ai/docs/providers#hugging-face) / [HF docs](./opencode))
 - [Roo Code](https://roocode.com/) - AI-powered code generation and refactoring ([Official docs](https://docs.roocode.com/providers/huggingface))
 
 ### Evaluation Frameworks
