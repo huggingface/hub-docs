@@ -39,7 +39,7 @@ Client libraries and gateways for simplified LLM access.
 
 End-user applications and interfaces powered by LLMs.
 
-- [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper) - Speech-to-text application for macOS ([HF setup Guide](./macwhisper))
+- [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper) - Speech-to-text application for macOS ([HF docs](./macwhisper))
 
 ### Developer Tools
 
