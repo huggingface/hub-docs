@@ -9,7 +9,7 @@ MacWhisper includes AI services that can process your transcriptions—for examp
 ## Prerequisites
 
 - MacWhisper installed.
-- A Hugging Face account with an [API token](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) (needs "Make calls to Inference Providers" permission)
+- A Hugging Face account with an [API token](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) (needs "Make calls to Inference Providers" permission).
 
 ## Configuration
 
