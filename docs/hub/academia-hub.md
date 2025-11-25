@@ -13,7 +13,7 @@ The Hugging Face Hub is where leading researchers and developers across academia
 
 **University-level seat management, accounts for researchers, professors and students.**
 
-<div class="flex justify-center items-center gap-8 my-8">
+<div class="flex flex-wrap justify-center items-center gap-8 my-8">
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/Zurich.png" alt="ETH Zurich logo" class="h-24 object-contain"/>
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/ESCP_LOGO_CMJN.png" alt="ESCP Business School logo" class="h-24 object-contain"/>
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/The_2025_MBZUAI_logo.png" alt="MBZUAI logo" class="h-24 object-contain"/>
