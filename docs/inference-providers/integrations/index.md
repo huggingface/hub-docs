@@ -33,7 +33,7 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 
 Client libraries and gateways for simplified LLM access.
 
-- [LiteLLM](https://docs.litellm.ai/docs/providers/huggingface) - Unified interface for calling 100+ LLMs with the same format
+- [LiteLLM](https://www.litellm.ai/) - Unified interface for calling 100+ LLMs with the same format ([Official docs](https://docs.litellm.ai/docs/providers/huggingface))
 
 ### Applications
 
@@ -45,23 +45,23 @@ End-user applications and interfaces powered by LLMs.
 
 AI-powered coding assistants and development environments.
 
-- [Continue](https://docs.continue.dev/customize/model-providers/more/huggingfaceinferenceapi#hugging-face) - AI code assistant for VS Code, JetBrains and the terminal.
-- [OpenCode](https://opencode.ai/docs/providers#hugging-face) - AI coding agent built for the terminal.
-- [Roo Code](https://docs.roocode.com/providers/huggingface) - AI-powered code generation and refactoring.
+- [Continue](https://continue.dev/) - AI code assistant for VS Code, JetBrains and the terminal ([Official docs](https://docs.continue.dev/customize/model-providers/more/huggingfaceinferenceapi#hugging-face))
+- [OpenCode](https://opencode.ai/) - AI coding agent built for the terminal ([Official docs](https://opencode.ai/docs/providers#hugging-face) / [HF docs](./open-code))
+- [Roo Code](https://roocode.com/) - AI-powered code generation and refactoring ([Official docs](https://docs.roocode.com/providers/huggingface))
 
 ### Evaluation Frameworks
 
 Tools for assessing and ensuring AI safety and performance.
 
-- [Inspect](https://inspect.aisi.org.uk/providers.html#hugging-face) - AI safety and evaluation framework.
+- [Inspect](https://inspect.aisi.org.uk/) - AI safety and evaluation framework ([Official docs](https://inspect.aisi.org.uk/providers.html#hugging-face))
 
 ### LLM Frameworks
 
 LLM application frameworks and orchestration platforms.
 
-- [Haystack](https://docs.haystack.deepset.ai/docs/huggingfaceapichatgenerator) - Open-source framework for building production-ready LLM applications
-- [LangChain](https://docs.langchain.com/oss/python/integrations/providers/huggingface#huggingfaceendpoint) - Popular framework for developing LLM applications
-- [LlamaIndex](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers) - Data framework for connecting custom data to LLMs
+- [Haystack](https://haystack.deepset.ai/) - Open-source framework for building production-ready LLM applications ([Official docs](https://docs.haystack.deepset.ai/docs/huggingfaceapichatgenerator))
+- [LangChain](https://www.langchain.com/) - Popular framework for developing LLM applications ([Official docs](https://docs.langchain.com/oss/python/integrations/providers/huggingface#huggingfaceendpoint))
+- [LlamaIndex](https://www.llamaindex.ai/) - Data framework for connecting custom data to LLMs ([Official docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers))
 
 <!-- ## Add Your Integration
 
