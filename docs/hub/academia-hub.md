@@ -13,7 +13,7 @@ The Hugging Face Hub is where leading researchers and developers across academia
 
 Academia Hub brings that proven ecosystem to your university, giving your researchers everything they need to work securely, reproducibly, and at scale: compute, storage, collaboration, and governance, all managed through your institution.
 
-**University-level seat management, accounts for researchers, professors and students.**
+With Academia Hub, you get **university-level seat management and accounts for researchers, professors, and/or students.**
 
 <div class="flex flex-wrap justify-center items-center gap-8 my-8">
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/Zurich.png" alt="ETH Zurich logo" class="h-24 object-contain"/>
