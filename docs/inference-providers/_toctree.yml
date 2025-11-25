@@ -31,7 +31,7 @@
 - title: Integrations
   sections:
   - local: integrations/index
-    title: Integrations Overview
+    title: Overview
   - local: integrations/adding-integration
     title: Add Your Integration
   - local: integrations/macwhisper
