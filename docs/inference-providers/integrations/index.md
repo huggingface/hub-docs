@@ -61,7 +61,7 @@ Tools for assessing and ensuring AI safety and performance.
 LLM application frameworks and orchestration platforms.
 
 - [Haystack](https://haystack.deepset.ai/) - Open-source framework for building production-ready LLM applications ([Official docs](https://docs.haystack.deepset.ai/docs/huggingfaceapichatgenerator))
-- [fast-agent](https://fast-agent.ai/) - Flexible framework building MCP/ACP powered Agents, Workflows and evals([Official docs](https://fast-agent.ai/models/llm_providers/#hugging-face))
+- [fast-agent](https://fast-agent.ai/) - Flexible framework building MCP/ACP powered Agents, Workflows and evals ([Official docs](https://fast-agent.ai/models/llm_providers/#hugging-face))
 - [LangChain](https://www.langchain.com/) - Popular framework for developing LLM applications ([Official docs](https://docs.langchain.com/oss/python/integrations/providers/huggingface#huggingfaceendpoint))
 - [LlamaIndex](https://www.llamaindex.ai/) - Data framework for connecting custom data to LLMs ([Official docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers))
 
