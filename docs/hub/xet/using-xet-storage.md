@@ -41,9 +41,8 @@ Install using an installation script with the following command in your terminal
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/huggingface/xet-core/refs/heads/main/git_xet/install.sh | sh
 ```
 
-Or, install using [Homebrew](https://brew.sh/), with the following [tap](https://docs.brew.sh/Taps) (direct `brew install` coming soon):
+Or, install using [Homebrew](https://brew.sh/):
 ```
-brew tap huggingface/tap
 brew install git-xet
 git xet install
 ```
