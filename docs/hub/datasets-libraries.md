@@ -46,7 +46,7 @@ Parquet files on Hugging Face are optimized to improve storage efficiency, accel
 
 Some libraries require extra argument to write optimized Parquet files like `Pandas` and `PyArrow`:
 
-* `content_defined_chunking=True` to enable Parquet Content Defined Chunking, for [deduplication](https://huggingface.co/blog/parquet-cdc) and [editing](./datasets-editing)
+* `use_content_defined_chunking=True` to enable Parquet Content Defined Chunking, for [deduplication](https://huggingface.co/blog/parquet-cdc) and [editing](./datasets-editing)
 * `write_page_index=True` to include a page index in the Parquet metadata, for [streaming and random access](./datasets-streaming)
 
 ## Integrating data libraries and tools with the Hub
