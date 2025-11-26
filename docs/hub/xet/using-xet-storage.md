@@ -28,7 +28,8 @@ To see more detailed usage docs, refer to the `huggingface_hub` docs for:
 
 ## Git
 <a id="git-xet"></a>
-Git users can access the benefits of Xet by downloading and installing the Git Xet extension. Once installed, simply use the [standard workflows for managing Hub repositories with Git](../repositories-getting-started) - no additional changes necessary. 
+
+Git users can access the benefits of Xet by downloading and installing the Git Xet extension. Once installed, simply use the [standard workflows for managing Hub repositories with Git](../repositories-getting-started) - no additional changes necessary.
 
 ### Prerequisites
 
@@ -41,9 +42,8 @@ Install using an installation script with the following command in your terminal
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/huggingface/xet-core/refs/heads/main/git_xet/install.sh | sh
 ```
 
-Or, install using [Homebrew](https://brew.sh/), with the following [tap](https://docs.brew.sh/Taps) (direct `brew install` coming soon):
+Or, install using [Homebrew](https://brew.sh/):
 ```
-brew tap huggingface/tap
 brew install git-xet
 git xet install
 ```
