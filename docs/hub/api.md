@@ -462,6 +462,21 @@ Get the daily papers curated by AK and the community. It's the equivalent of [ht
 
 To filter on a particular date, simply pass the date like so: https://huggingface.co/api/daily_papers?date=2025-03-31.
 
+Other keywords that are supported: 
+
+1. `limit` - the number of papers returned
+2. `p` - the page number, for paging through results
+3. `submitter` - to filter the paper submitter
+4. `date`, `week`, `month` - for filtering by date range on the date the paper was included in Daily Papers
+5. `sort` - to specify how results are sorted.  Defaults to "publishedAt", but can be set to "trending" as well
+
+See the [OpenAPI Playground for Daily Papers](https://huggingface-openapi.hf.space/#tag/papers) for the full list of params.
+
+### GET /api/papers/search
+
+Search the daily papers by keyword `q` (the keyword to search)
+
+
 ## Collections API
 
 Use Collections to group repositories from the Hub (Models, Datasets, Spaces and Papers) on a dedicated page.
