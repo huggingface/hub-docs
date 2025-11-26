@@ -34,6 +34,17 @@
   - local: guides/evaluation-inspect-ai
     title: Evaluating Models with Inspect
 
+- title: Integrations
+  sections:
+  - local: integrations/index
+    title: Overview
+  - local: integrations/adding-integration
+    title: Add Your Integration
+  - local: integrations/macwhisper
+    title: MacWhisper
+  - local: integrations/opencode
+    title: OpenCode
+
 - local: tasks/index
   title: Inference Tasks
   sections:
