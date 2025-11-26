@@ -5,3 +5,4 @@ parallelism: index
 usage: index
 faq: index
 rate-limits: pricing
+guides/vscode: integrations/vscode

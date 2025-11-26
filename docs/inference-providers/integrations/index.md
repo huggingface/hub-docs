@@ -17,7 +17,8 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 
 | Integration                                                                                                         | Description                                                    | Resources                                                                                                             |
 | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| [Continue](https://continue.dev/)                                                                                   | AI code assistant for VS Code and JetBrains                    | [Official docs](https://docs.continue.dev/customize/model-providers/more/huggingfaceinferenceapi#hugging-face)         |
+| [CrewAI](https://www.crewai.com/)                                                                                   | Framework for orchestrating AI agent teams                     | [Official docs](https://docs.crewai.com/en/concepts/llms#hugging-face)                                                 |
+| [GitHub Copilot Chat](https://docs.github.com/en/copilot)                                                           | AI pair programmer in VS Code                                  | [HF docs](./vscode)                                                                                                    |
 | [fast-agent](https://fast-agent.ai/)                                                                                | Flexible framework building MCP/ACP powered Agents, Workflows and evals | [Official docs](https://fast-agent.ai/models/llm_providers/#hugging-face)                                     |
 | [Haystack](https://haystack.deepset.ai/)                                                                            | Open-source LLM framework for building production applications | [Official docs](https://docs.haystack.deepset.ai/docs/huggingfaceapichatgenerator)                                     |
 | [Inspect](https://inspect.aisi.org.uk/)                                                                             | AI safety and evaluation framework                             | [Official docs](https://inspect.aisi.org.uk/providers.html#hugging-face)                                               |
@@ -26,7 +27,9 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 | [LlamaIndex](https://www.llamaindex.ai/) | Data framework for LLM applications                            | [Official docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers) |
 | [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper)                                                           | Speech-to-text application for macOS                           | [HF docs](./macwhisper)                                                                                                     |
 | [OpenCode](https://opencode.ai/)                                                                                             | AI coding agent built for the terminal                         | [Official docs](https://opencode.ai/docs/providers#hugging-face) / [HF docs](./opencode)                             |
+| [PydanticAI](https://ai.pydantic.dev/)                                                                         | Framework for building AI agents with Python                   | [Official docs](https://ai.pydantic.dev/models/huggingface/)                                                           |
 | [Roo Code](https://roocode.com/)                                                                               | AI-powered code generation and refactoring                     | [Official docs](https://docs.roocode.com/providers/huggingface)                                                        |
+| [smolagents](https://huggingface.co/docs/smolagents)                                                           | Framework for building LLM agents with tool integration        | [Official docs](https://huggingface.co/docs/smolagents/reference/models#smolagents.InferenceClientModel)               |
 
 ## Integrations by Category
 
@@ -46,7 +49,7 @@ End-user applications and interfaces powered by LLMs.
 
 AI-powered coding assistants and development environments.
 
-- [Continue](https://continue.dev/) - AI code assistant for VS Code, JetBrains and the terminal ([Official docs](https://docs.continue.dev/customize/model-providers/more/huggingfaceinferenceapi#hugging-face))
+- [GitHub Copilot Chat](https://docs.github.com/en/copilot) - AI pair programmer in VS Code ([HF docs](./vscode))
 - [OpenCode](https://opencode.ai/) - AI coding agent built for the terminal ([Official docs](https://opencode.ai/docs/providers#hugging-face) / [HF docs](./opencode))
 - [Roo Code](https://roocode.com/) - AI-powered code generation and refactoring ([Official docs](https://docs.roocode.com/providers/huggingface))
 
@@ -60,10 +63,13 @@ Tools for assessing and ensuring AI safety and performance.
 
 LLM application frameworks and orchestration platforms.
 
-- [Haystack](https://haystack.deepset.ai/) - Open-source framework for building production-ready LLM applications ([Official docs](https://docs.haystack.deepset.ai/docs/huggingfaceapichatgenerator))
+- [CrewAI](https://www.crewai.com/) - Framework for orchestrating AI agent teams ([Official docs](https://docs.crewai.com/en/concepts/llms#hugging-face))
 - [fast-agent](https://fast-agent.ai/) - Flexible framework building MCP/ACP powered Agents, Workflows and evals ([Official docs](https://fast-agent.ai/models/llm_providers/#hugging-face))
+- [Haystack](https://haystack.deepset.ai/) - Open-source framework for building production-ready LLM applications ([Official docs](https://docs.haystack.deepset.ai/docs/huggingfaceapichatgenerator))
 - [LangChain](https://www.langchain.com/) - Popular framework for developing LLM applications ([Official docs](https://docs.langchain.com/oss/python/integrations/providers/huggingface#huggingfaceendpoint))
 - [LlamaIndex](https://www.llamaindex.ai/) - Data framework for connecting custom data to LLMs ([Official docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers))
+- [PydanticAI](https://ai.pydantic.dev/) - Framework for building AI agents with Python ([Official docs](https://ai.pydantic.dev/models/huggingface/))
+- [smolagents](https://huggingface.co/docs/smolagents) - Framework for building LLM agents with tool integration ([Official docs](https://huggingface.co/docs/smolagents/reference/models#smolagents.InferenceClientModel))
 
 <!-- ## Add Your Integration
 
