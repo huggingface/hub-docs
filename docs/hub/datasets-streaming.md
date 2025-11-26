@@ -22,15 +22,13 @@ You can use the [`huggingface_hub`](/docs/huggingface_hub) library to create, de
 pip install -U huggingface_hub
 ```
 ```python
-from huggingface_hub import HfFileSystem
-
-fs = HfFileSystem()
+from huggingface_hub import hffs
 
 repo_id = "allenai/c4"
 path_in_repo = "en/c4-train.00000-of-01024.json.gz"
 
 # Stream the file
-with fs.open(f"datasets/{repo_id}/{path_in_repo}", "r", compression="gzip") as f:
+with hffs.open(f"datasets/{repo_id}/{path_in_repo}", "r", compression="gzip") as f:
     print(f.readline())  # read only the first line
     # {"text":"Beginners BBQ Class Taking Place in Missoula!...}
 ```
@@ -39,10 +37,7 @@ See the [`HfFileSystem` documentation](https://huggingface.co/docs/huggingface_h
 
 You can also integrate this into your own library! For example, you can quickly stream a CSV dataset using Pandas in batches.
 ```py
-from huggingface_hub import HfFileSystem
 import pandas as pd
-
-fs = HfFileSystem()
 
 repo_id = "YOUR_REPO_ID"
 path_in_repo = "data.csv"
@@ -50,7 +45,7 @@ path_in_repo = "data.csv"
 batch_size = 5
 
 # Stream the file
-with fs.open(f"datasets/{repo_id}/{path_in_repo}") as f:
+with hffs.open(f"datasets/{repo_id}/{path_in_repo}") as f:
     for df in pd.read_csv(f, iterator=True, chunksize=batch_size):  # read 5 lines at a time
         print(len(df))  # 5
 ```
