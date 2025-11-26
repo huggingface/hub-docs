@@ -28,7 +28,8 @@ To see more detailed usage docs, refer to the `huggingface_hub` docs for:
 
 ## Git
 <a id="git-xet"></a>
-Git users can access the benefits of Xet by downloading and installing the Git Xet extension. Once installed, simply use the [standard workflows for managing Hub repositories with Git](../repositories-getting-started.md) - no additional changes necessary. 
+
+Git users can access the benefits of Xet by downloading and installing the Git Xet extension. Once installed, simply use the [standard workflows for managing Hub repositories with Git](../repositories-getting-started) - no additional changes necessary.
 
 ### Prerequisites
 
