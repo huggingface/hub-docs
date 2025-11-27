@@ -13,7 +13,7 @@ If a tool doesn't have explicit support for Inference Providers, it is often sti
 
 ## Overview
 
-This table lists _some_ tools, libraries, and applications that work with Hugging Face Inference Providers. For detailed setup instructions, follow the links in the Documentation column.
+This table lists _some_ tools, libraries, and applications that work with Hugging Face Inference Providers. For detailed setup instructions, follow the links in the Resources column.
 
 | Integration                                                                                                         | Description                                                    | Resources                                                                                                             |
 | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
