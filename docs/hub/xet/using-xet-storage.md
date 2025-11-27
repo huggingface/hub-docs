@@ -55,6 +55,11 @@ git xet --version
 
 ### Windows (amd64)
 
+Using `winget`:
+```
+winget install git-xet
+```
+
 Using an installer: 
  - Download `git-xet-windows-installer-x86_64.zip` ([available here](https://github.com/huggingface/xet-core/releases/download/git-xet-v0.2.0/git-xet-windows-installer-x86_64.zip)) and unzip. 
  - Run the `msi` installer file and follow the prompts.
@@ -96,6 +101,11 @@ git xet uninstall
 sudo rm $(which git-xet)
 ```
 ### Uninstall on Windows
+
+If you used `winget`:
+```
+winget uninstall git-xet
+```
 
 If you used the installer:
 -  Navigate to Settings -> Apps -> Installed apps
