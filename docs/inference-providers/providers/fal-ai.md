@@ -87,6 +87,6 @@ Find out more about Text To Video [here](../tasks/text_to_video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"fal-ai":{"modelId":"tencent/HunyuanVideo-1.5","providerModelId":"fal-ai/hunyuan-video-v1.5/text-to-video"} } }
+    providersMapping={ {"fal-ai":{"modelId":"meituan-longcat/LongCat-Video","providerModelId":"fal-ai/longcat-video/text-to-video/480p"} } }
 />
 
