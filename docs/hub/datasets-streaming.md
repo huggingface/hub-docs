@@ -90,6 +90,13 @@ Parquet is a great format for AI datasets. It offers good compression, a columna
 
 Parquet files are divided in row groups that are often around 100MB each. This lets data loaders and data processing frameworks stream data progressively, iterating on row groups.
 
+Inside row groups are pages. They are compressed block of aryound 1MB which contain the actual data.
+
+<div class="flex justify-center">
+<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets_parquet_layout.png"/>
+</div>
+
+
 ### Stream Row Groups
 
 Use PyArrow to stream row groups from Parquet files on Hugging Face:
