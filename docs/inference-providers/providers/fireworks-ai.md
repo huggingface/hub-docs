@@ -56,6 +56,6 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"fireworks-ai":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"accounts/fireworks/models/llama4-scout-instruct-basic"} } }
+    providersMapping={ {"fireworks-ai":{"modelId":"Qwen/Qwen2.5-VL-32B-Instruct","providerModelId":"accounts/fireworks/models/qwen2p5-vl-32b-instruct"} } }
 conversational />
 

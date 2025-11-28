@@ -67,7 +67,7 @@ Find out more about Image To Image [here](../tasks/image_to_image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"fal-ai/flux-2/edit"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"fal-ai/qwen-image-edit"} } }
 />
 
 
@@ -77,7 +77,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"briaai/FIBO","providerModelId":"bria/fibo/generate"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"fal-ai/z-image/turbo"} } }
 />
 
 

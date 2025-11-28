@@ -60,13 +60,3 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
     providersMapping={ {"groq":{"modelId":"openai/gpt-oss-20b","providerModelId":"openai/gpt-oss-20b"} } }
 conversational />
 
-
-### Chat Completion (VLM)
-
-Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=image-text-to-text
-    providersMapping={ {"groq":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/llama-4-scout-17b-16e-instruct"} } }
-conversational />
-
