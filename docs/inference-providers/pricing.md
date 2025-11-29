@@ -52,6 +52,8 @@ View detailed usage information for Inference Providers directly from your setti
 
 The same detailed view is available for organizations subscribed to a paid plan under the organization's settings.
 
+Enterprise Hub orgs also gain access to an Inference Providers dashboard (in Organization Settings) with charts for provider- and model-level usage, team-member breakdowns, API call volume over time, and accrued costs so you can monitor consumption without leaving the Hub.
+
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/ip-billing-light.png"/>
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/ip-billing-dark.png"/>
