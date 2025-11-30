@@ -67,7 +67,7 @@ Find out more about Image To Image [here](../tasks/image_to_image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"fal-ai/qwen-image-edit"} } }
+    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"fal-ai/flux-2/edit"} } }
 />
 
 
@@ -87,6 +87,6 @@ Find out more about Text To Video [here](../tasks/text_to_video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"fal-ai":{"modelId":"meituan-longcat/LongCat-Video","providerModelId":"fal-ai/longcat-video/text-to-video/480p"} } }
+    providersMapping={ {"fal-ai":{"modelId":"tencent/HunyuanVideo-1.5","providerModelId":"fal-ai/hunyuan-video-v1.5/text-to-video"} } }
 />
 
