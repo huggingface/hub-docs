@@ -53,7 +53,7 @@ with hffs.open(f"datasets/{repo_id}/{path_in_repo}") as f:
 Streaming is especially useful to read big files on Hugging Face progressively or only a small portion.
 For example `tarfile` can iterate on the files of TAR archives, `zipfile` can read files from ZIP archives and `pyarrow` can access row groups of Parquet files.
 
-> ![TIP]
+> [!TIP]
 > There is an equivalent filesystem implementation in Rust available in [OpenDAL](https://github.com/apache/opendal).
 
 ## Using cURL
@@ -90,7 +90,7 @@ Parquet is a great format for AI datasets. It offers good compression, a columna
 
 Parquet files are divided in row groups that are often around 100MB each. This lets data loaders and data processing frameworks stream data progressively, iterating on row groups.
 
-Inside row groups are pages. They are compressed block of around 1MB which contain the actual data.
+Inside row groups are individual columns, which are divied into pages. Pages are the compressed block of around 1MB which contain the actual data.
 
 <div class="flex justify-center">
 <img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets_parquet_layout.png"/>
@@ -114,7 +114,7 @@ with pq.ParquetFile(f"hf://datasets/{repo_id}/{path_in_repo}") as pf:
         df = row_group_table.to_pandas()
 ```
 
-> ![TIP]
+> [!TIP]
 > PyArrow supports `hf://` paths out-of-the-box and uses `HfFileSystem` automatically
 
 Find more information in the [PyArrow documentation](./datasets-pyarrow).
@@ -155,7 +155,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-> ![TIP]
+> [!TIP]
 > In Rust we use OpenDAL's `Huggingface` service which is equivalent to `HfFileSystem` in python
 
 Pass `write_page_index=True` in PyArrow to include the page index that enables efficient random access.
