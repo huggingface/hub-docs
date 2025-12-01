@@ -47,7 +47,7 @@ Find out more about Image To Image [here](../tasks/image_to_image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"wavespeed":{"modelId":"dx8152/Qwen-Edit-2509-Multiple-angles","providerModelId":"wavespeed-ai/qwen-image/edit-plus-lora"} } }
+    providersMapping={ {"wavespeed":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"wavespeed-ai/flux-2-dev/edit"} } }
 />
 
 
@@ -57,7 +57,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"wavespeed":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"wavespeed-ai/flux-dev"} } }
+    providersMapping={ {"wavespeed":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"wavespeed-ai/z-image/turbo"} } }
 />
 
 
@@ -67,7 +67,7 @@ Find out more about Text To Video [here](../tasks/text_to_video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"wavespeed":{"modelId":"Wan-AI/Wan2.2-TI2V-5B","providerModelId":"wavespeed-ai/wan-2.2/t2v-5b-720p"} } }
+    providersMapping={ {"wavespeed":{"modelId":"tencent/HunyuanVideo-1.5","providerModelId":"wavespeed-ai/hunyuan-video-1.5/text-to-video"} } }
 />
 
 
