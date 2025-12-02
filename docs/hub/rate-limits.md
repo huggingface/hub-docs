@@ -93,7 +93,7 @@ Despite passing `HF_TOKEN` if you are still rate limited, you can:
 
 The Hub Python Library [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub/index) (version **1.2.0+**) includes smart retry handling for rate limit errors.
 
-When a 429 error occurs, the SDK automatically parses the `RateLimit` header to extract the exact number of seconds until the rate limit resets, then waits precisely that duration before retrying. This applies to file downloads and paginated API calls (list models, datasets, spaces, etc.).
+When a 429 error occurs, the SDK automatically parses the `RateLimit` header to extract the exact number of seconds until the rate limit resets, then waits precisely that duration before retrying. This applies to file downloads (i.e. Resolvers) and paginated Hub API calls (list models, datasets, spaces, etc.).
 
 **We strongly recommend using `huggingface_hub` for all programmatic access to the Hub** to benefit from this optimized retry behavior and avoid implementing custom rate limit handling.
 
