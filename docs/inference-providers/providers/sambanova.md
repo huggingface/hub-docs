@@ -51,3 +51,13 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
     providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"Meta-Llama-3.1-8B-Instruct"} } }
 conversational />
 
+
+### Feature Extraction
+
+Find out more about Feature Extraction [here](../tasks/feature_extraction).
+
+<InferenceSnippet
+    pipeline=feature-extraction
+    providersMapping={ {"sambanova":{"modelId":"intfloat/e5-mistral-7b-instruct","providerModelId":"E5-Mistral-7B-Instruct"} } }
+/>
+
