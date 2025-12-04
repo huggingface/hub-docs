@@ -43,7 +43,7 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 ### Image To Image
 
-Find out more about Image To Image [here](../tasks/image_to_image).
+Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image

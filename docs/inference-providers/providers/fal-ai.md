@@ -43,7 +43,7 @@ Founded in 2021 by [Burkay Gur](https://huggingface.co/burkaygur) and [Gorkem Yu
 
 ### Automatic Speech Recognition
 
-Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
+Find out more about Automatic Speech Recognition [here](../tasks/automatic-speech-recognition).
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
@@ -53,7 +53,7 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic_speec
 
 ### Image Segmentation
 
-Find out more about Image Segmentation [here](../tasks/image_segmentation).
+Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
@@ -63,7 +63,7 @@ Find out more about Image Segmentation [here](../tasks/image_segmentation).
 
 ### Image To Image
 
-Find out more about Image To Image [here](../tasks/image_to_image).
+Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image

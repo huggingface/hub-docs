@@ -43,7 +43,7 @@ Replicate is building tools so all software engineers can use AI as if it were n
 
 ### Automatic Speech Recognition
 
-Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
+Find out more about Automatic Speech Recognition [here](../tasks/automatic-speech-recognition).
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
@@ -53,7 +53,7 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic_speec
 
 ### Image To Image
 
-Find out more about Image To Image [here](../tasks/image_to_image).
+Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
