@@ -65,7 +65,7 @@ conversational />
 
 ### Text To Video
 
-Find out more about Text To Video [here](../tasks/text_to_video).
+Find out more about Text To Video [here](../tasks/text-to-video).
 
 <InferenceSnippet
     pipeline=text-to-video

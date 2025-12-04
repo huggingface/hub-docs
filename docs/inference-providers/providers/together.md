@@ -53,7 +53,7 @@ conversational />
 
 ### Text To Image
 
-Find out more about Text To Image [here](../tasks/text_to_image).
+Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
