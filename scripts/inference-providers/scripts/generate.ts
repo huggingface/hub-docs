@@ -718,9 +718,7 @@ Object.entries(DATA.perProviderWarmModels).forEach(([task, models]) => {
           .map((word) => word[0].toUpperCase() + word.slice(1))
           .join(" ");
 
-    let linkAnchor = conversational
-      ? "chat-completion"
-      : task.replaceAll("-", "_");
+    let linkAnchor = conversational ? "chat-completion" : task;
 
     let pipelineTag = task === "chat-completion" ? "text-generation" : task;
 

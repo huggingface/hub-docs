@@ -65,7 +65,7 @@ conversational />
 
 ### Text Generation
 
-Find out more about Text Generation [here](../tasks/text_generation).
+Find out more about Text Generation [here](../tasks/text-generation).
 
 <InferenceSnippet
     pipeline=text-generation
