@@ -13,7 +13,7 @@ We develop new tools to simplify the adoption of custom AI accelerators like AWS
 By combining Hugging Face's open-source models and libraries with AWS's scalable and secure cloud services, developers can more easily and affordably incorporate advanced AI capabilities into their applications.
 
 > [!WARNING]
-> As per the time of writing, a new version of the sagemaker python SDK has been released [(v3)](https://github.com/aws/sagemaker-python-sdk/tree/master) with major and breaking changes. Unless otherwise specified, all the documentation and tutorials are using the previous version of the SDK [(v2)](https://github.com/aws/sagemaker-python-sdk/tree/master-v2). We are actively working on updating all the content to reflect the new changes in the SDK. For now, please make sure to use the previous version of the SDK by running `pip install 'sagemaker<3.0.0'`.
+> [SageMaker Python SDK v3 has been recently released](https://github.com/aws/sagemaker-python-sdk), so unless specified otherwise, all the documentation and tutorials are still using the [SageMaker Python SDK v2](https://github.com/aws/sagemaker-python-sdk/tree/master-v2). We are actively working on updating all the tutorials and examples, but in the meantime make sure to install the SageMaker SDK as `pip install "sagemaker<3.0.0"`.
 
 ## Deploy models on AWS
 
