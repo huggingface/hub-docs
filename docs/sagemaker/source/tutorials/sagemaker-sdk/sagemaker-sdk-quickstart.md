@@ -11,8 +11,11 @@ The get started guide will show you how to quickly use Hugging Face on Amazon Sa
 Get started by installing the necessary Hugging Face libraries and SageMaker. You will also need to install [PyTorch](https://pytorch.org/get-started/locally/) if you don't already have it installed. If you run this example in SageMaker Studio, it is already installed in the notebook kernel!
 
 ```python
-pip install "sagemaker>=2.140.0" "transformers==4.26.1" "datasets[s3]==2.10.1" --upgrade
+pip install "sagemaker<3.0.0" "transformers==4.26.1" "datasets[s3]==2.10.1" --upgrade
 ```
+
+> [!WARNING]
+> [SageMaker Python SDK v3 has been recently released](https://github.com/aws/sagemaker-python-sdk), so unless specified otherwise, all the documentation and tutorials are still using the [SageMaker Python SDK v2](https://github.com/aws/sagemaker-python-sdk/tree/master-v2). We are actively working on updating all the tutorials and examples, but in the meantime make sure to install the SageMaker SDK as `pip install "sagemaker<3.0.0"`.
 
 If you want to run this example in [SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio.html), upgrade [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/) for the 🤗 Datasets library and restart the kernel:
 

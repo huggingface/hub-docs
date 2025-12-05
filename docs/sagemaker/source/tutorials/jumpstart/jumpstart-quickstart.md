@@ -15,6 +15,9 @@ In this quickstart guide, we will deploy [Qwen/Qwen2.5-14B-Instruct](https://hug
 | SageMaker Studio domain and user profile | We recommend using SageMaker Studio for straightforward deployment and inference. Follow this [guide](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-quick-start.html). |
 | Service quotas | Most LLMs need GPU instances (e.g. ml.g5). Verify you have quota for `ml.g5.24xlarge` or [request it](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-requesting-quota-increases.html). | 
 
+> [!WARNING]
+> [SageMaker Python SDK v3 has been recently released](https://github.com/aws/sagemaker-python-sdk), so unless specified otherwise, all the documentation and tutorials are still using the [SageMaker Python SDK v2](https://github.com/aws/sagemaker-python-sdk/tree/master-v2). We are actively working on updating all the tutorials and examples, but in the meantime make sure to install the SageMaker SDK as `pip install "sagemaker<3.0.0"`.
+
 ## 2· Endpoint deployment
 
 Let's explain how you would deploy a Hugging Face model to SageMaker browsing through the Jumpstart catalog:
