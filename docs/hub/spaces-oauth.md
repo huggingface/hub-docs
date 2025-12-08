@@ -104,10 +104,10 @@ Basically, you need to:
 > [!WARNING]
 > You should use `target=_blank` on the button to open the sign-in page in a new tab, unless you run the space outside its `iframe`. Otherwise, you might encounter issues with cookies on some browsers.
 
-## HuggingChat
+## Examples:
 
 - [Gradio test app](https://huggingface.co/spaces/Wauplin/gradio-oauth-test)
-- [Hugging Chat (NodeJS/SvelteKit)](https://huggingface.co/spaces/huggingchat/chat-ui)
+- [HuggingChat (NodeJS/SvelteKit)](https://huggingface.co/spaces/huggingchat/chat-ui)
 - [Inference Widgets (Auth.js/SvelteKit)](https://huggingface.co/spaces/huggingfacejs/inference-widgets), uses the `inference-api` scope to make inference requests on behalf of the user.
 - [Client-Side in a Static Space (huggingface.js)](https://huggingface.co/spaces/huggingfacejs/client-side-oauth) - very simple JavaScript example.
 
