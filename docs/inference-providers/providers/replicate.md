@@ -57,7 +57,7 @@ Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"replicate":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"qwen/qwen-image-edit"} } }
+    providersMapping={ {"replicate":{"modelId":"black-forest-labs/FLUX.1-Kontext-dev","providerModelId":"black-forest-labs/flux-kontext-dev"} } }
 />
 
 
