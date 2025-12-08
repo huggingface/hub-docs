@@ -140,7 +140,7 @@ Find out more about Table Question Answering [here](../tasks/table-question-answ
 
 <InferenceSnippet
     pipeline=table-question-answering
-    providersMapping={ {"hf-inference":{"modelId":"google/tapas-large-finetuned-wtq","providerModelId":"google/tapas-large-finetuned-wtq"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google/tapas-base-finetuned-wtq","providerModelId":"google/tapas-base-finetuned-wtq"} } }
 />
 
 
