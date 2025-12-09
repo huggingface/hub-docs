@@ -44,8 +44,8 @@ In the following tables, you can see the Specs for the different upgrade options
 | 2x Nvidia A10G - large | 24 vCPU       | 92 GB        | 48 GB           | 1000 GB   | $3.00             |
 | 4x Nvidia A10G - large | 48 vCPU       | 184 GB       | 96 GB           | 2000 GB   | $5.00             |
 | Nvidia A100 - large    | 12 vCPU       | 142 GB       | 80 GB           | 1000 GB   | $2.50             |
-| *Nvidia H100 - To be deprecated December 2025*| 23 vCPU       | 240 GB       | 80 GB           | 3000 GB   | $4.50             |
-| *8x Nvidia H100 - To be deprecated December 2025*| 184 vCPU      | 1920 GB      | 640 GB          | 24 TB     | $36.00            |
+| *Nvidia H100 - deprecated December 2025*| 23 vCPU       | 240 GB       | 80 GB           | 3000 GB   | $4.50             |
+| *8x Nvidia H100 - deprecated December 2025*| 184 vCPU      | 1920 GB      | 640 GB          | 24 TB     | $36.00            |
 
 
 ## Configure hardware programmatically
