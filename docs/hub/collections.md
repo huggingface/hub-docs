@@ -40,7 +40,7 @@ It's possible to add external repositories to your collections, not just your ow
 
 ## Collaborating on collections
 
-Organization collections are a great way to build collections together. Any member of the organization can add, edit and remove items from the collection.
+Organization collections are a great way to build collections together. Members with Read-only access can view collections, but only members with Write (or higher) organization permissions can create collections or add, edit, and remove items.
 Use the **history feature** to keep track of who has edited the collection.
 
 ![Collection history](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/collections/collection-history.webp)
