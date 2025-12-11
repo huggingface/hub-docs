@@ -7,12 +7,6 @@
       title: Hugging Face Jobs
     - local: quickstart
       title: Quickstart
-    - local: docker
-      title: Docker
-    - local: schedule
-      title: Schedule Jobs
-    - local: webhooks
-      title: Webhook Automation
     - local: pricing
       title: Pricing and Billing
 
@@ -39,3 +33,7 @@
       title: Configuration
     - local: frameworks
       title: Frameworks Setups
+    - local: schedule
+      title: Schedule Jobs
+    - local: webhooks
+      title: Webhook Automation

@@ -3,8 +3,8 @@
 In this guide you will run a Job to fine-tune an open source model on Hugging Face infrastastructure in only a few minutes. Make sure you are logged in to Hugging Face and have access to your [Jobs page](https://huggingface.co/settings/jobs).
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/empty-jobs-page.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/empty-jobs-page-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-page.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-page-dark.png"/>
 </div>
 
 ## Getting started
@@ -14,19 +14,19 @@ First install the Hugging Face CLI:
 1. Install the CLI
 
 ```bash
-curl -LsSf https://hf.co/cli/install.sh | bash
+>>> curl -LsSf https://hf.co/cli/install.sh | bash
 ```
 
 Install the CLI (using Homebrew)
 
 ```bash
-brew install huggingface-cli
+>>> brew install huggingface-cli
 ```
 
 Install the CLI (using uv)
 
 ```bash
-uv tool install hf
+>>> uv tool install hf
 ```
 
 2. Login to your Hugging Face account:
@@ -34,7 +34,7 @@ uv tool install hf
 Login
 
 ```bash
-hf auth login
+>>> hf auth login
 ```
 
 3. Create your first jobs using the `hf jobs` command:
@@ -42,27 +42,28 @@ hf auth login
 Run a UV command or script
 
 ```bash
-hf jobs uv run python -c 'print("Hello from the cloud!")'
+>>> hf jobs uv run python -c 'print("Hello from the cloud!")'
+Job started with ID: 693aef401a39f67af5a41c0e
+View at: https://huggingface.co/jobs/lhoestq/693aef401a39f67af5a41c0e
+Hello from the cloud!
 ```
 
 ```bash
-hf jobs uv run path/to/script.py
+>>> hf jobs uv run path/to/script.py
 ```
 
 Run a Docker command
 
 ```bash
-hf jobs run python:3.12 python -c 'print("Hello from the cloud!")'
+>>> hf jobs run ubuntu echo 'Hello from the cloud!'
+Job started with ID: 693aee76c67c9f186cfe233e
+View at: https://huggingface.co/jobs/lhoestq/693aee76c67c9f186cfe233e
+Hello from the cloud!
 ```
 
-4. Monitor your job
+4. Check your first jobs
 
-The job logs appear in your terminal, but you can also see the job in your jobs page. Open the job page to see the job information, status and logs:
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-page-with-first-job.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-page-with-first-job-dark.png"/>
-</div>
+The job logs appear in your terminal, but you can also see them in your jobs page. Open the job page to see the job information, status and logs:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/first-job-page.png"/>
@@ -87,7 +88,7 @@ trainer.train()
 trainer.push_to_hub("Qwen2.5-0.5B-SFT")
 ```
 
-Save this script as `train.py`
+Save this script as `train.py`, and we can now run it with UV on Hugging Face Jobs.
 
 ## Run the training job
 
@@ -135,8 +136,8 @@ Follow the Job advancements on the job page on Hugging Face:
 Once the job is done, find your model on your account:
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/trl-sft-model-job-page.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/trl-sft-model-job-page-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/trl-sft-model-page.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/trl-sft-model-page-dark.png"/>
 </div>
 
 Congrats ! You just run your first Job to fine-tune an open source model 🔥
