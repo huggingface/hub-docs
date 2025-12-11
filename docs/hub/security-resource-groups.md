@@ -18,7 +18,7 @@ Members are assigned a role in each Resource Group that determines their permiss
 - `read`: Grants read access to repositories within the Resource Group.
 - `contributor`: Provides extra write rights to the subset of the Organization's repositories created by the user (i.e., users can create repos and then modify only those repos). Similar to the 'Write' role, but limited to repos created by the user.
 - `write`: Offers write access to all repositories in the Resource Group. Users can create, delete, or rename any repository in the Resource Group.
-- `admin`: In addition to write permissions on repositories, admin members can administer the Resource Group — add, remove, and alter the roles of other members. They can manage already existing repos in a Resource Group.
+- `admin`: In addition to write permissions on repositories, admin members can administer the Resource Group — add, remove, and alter the roles of other members. They can manage already existing repositories in a Resource Group.
 
 In addition, Organization admins can manage all resource groups inside the organization.
 
