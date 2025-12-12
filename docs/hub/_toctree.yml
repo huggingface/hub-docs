@@ -180,7 +180,7 @@
   - local: models-download-stats
     title: Models Download Stats
   - local: eval-results
-    title: Evaluation Results
+    title: Eval Results
   - local: model-release-checklist
     title: Model Release Checklist
   - local: local-apps
