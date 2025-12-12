@@ -285,26 +285,26 @@ You can display different versions of an image optimized for each theme. This is
 
 **For images uploaded via the markdown editor**
 
-When you upload an image directly from the markdown editor (using drag-and-drop), append a URI fragment to the end of the image URL to specify which theme it should display in:
-
-- `#hf-dark-mode-only` - Image only displays when viewing in dark mode
-- `#hf-light-mode-only` - Image only displays when viewing in light mode
+When you upload an image directly from the markdown editor (using drag-and-drop), append the URI fragment #hf-light-mode-only or #hf-dark-mode-only to the end of the image URL to specify which theme it should display in:
 
 ```markdown
+Image only displays when viewing in light mode
 ![Logo](https://cdn-uploads.huggingface.co/production/uploads/logo-light.png#hf-light-mode-only)
+
+Image only displays when viewing in dark mode
 ![Logo](https://cdn-uploads.huggingface.co/production/uploads/logo-dark.png#hf-dark-mode-only)
 ```
 
 **For already hosted images**
 
-If you want to reference images that are already hosted without re-uploading them, use HTML `<img>` tags with Tailwind CSS classes:
-
-- `class="dark:hidden"` - Image hidden in dark mode (shown only in light mode)
-- `class="hidden dark:block"` - Image hidden in light mode (shown only in dark mode)
+If you want to reference images that are already hosted without re-uploading them, use HTML `<img>` tags with the following Tailwind CSS classes:
 
 ```html
-<img class="hidden dark:block" src="https://hf.co/logo-light.png" alt="Logo" />
-<img class="dark:hidden" src="https://hf.co/logo-dark.png" alt="Logo" />
+// Image only displays when viewing in dark mode
+<img class="hidden dark:block" src="https://hf.co/logo-dark.png" alt="Logo" />
+
+// Image only displays when viewing in light mode
+<img class="dark:hidden" src="https://hf.co/logo-light.png" alt="Logo" />
 ```
 
 ### Can I write LaTeX in my model card?
