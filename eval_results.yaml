@@ -4,6 +4,7 @@
     config: {dataset_config}      # Optional. The name of the dataset subset or config (when it has different subsets)
     split: {dataset_split}        # Optional. Example: test, validation
     revision: {dataset_revision}  # Optional. Example: 5503434ddd753f426f4b38109466949a1217c2bb
+    task_id: {dataset_revision}  # Optional, in case there are multiple tasks for this dataset, config and split combination. Example: solver_pass_at_10
 
   value: {metric_value}       # Required. Example: 20.90
 
