@@ -285,7 +285,7 @@ You can display different versions of an image optimized for each theme. This is
 
 **For images uploaded via the markdown editor**
 
-When you upload an image directly from the markdown editor (using drag-and-drop), append the URI fragment #hf-light-mode-only or #hf-dark-mode-only to the end of the image URL to specify which theme it should display in:
+When you upload an image directly from the markdown editor (using drag-and-drop), append the URI fragment `#hf-light-mode-only` or `#hf-dark-mode-only` to the end of the image URL to specify which theme it should display in:
 
 ```markdown
 Image only displays when viewing in light mode
