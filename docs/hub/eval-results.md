@@ -73,6 +73,8 @@ Results display badges based on their metadata in the YAML file:
 | leaderboard | Links to the benchmark dataset |
 | source | Links to evaluation logs or external source |
 
+For more details on how to format this data, check out the [Eval Results](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/eval_results.yaml) specifications.
+
 ### Community Contributions
 
 Anyone can submit evaluation results to any model via Pull Request:
