@@ -90,6 +90,8 @@
     title: The Model Hub
   - local: model-cards
     title: Model Cards
+  - local: eval-results
+    title: Eval Results
     sections:
     - local: model-card-annotated
       title: Annotated Model Card
