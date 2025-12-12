@@ -18,6 +18,7 @@ To register your dataset as a benchmark:
 1. Create a dataset repo containing your evaluation data
 2. Add an `eval.yaml` file to the repo root with your benchmark configuration
 3. The file is validated at push time
+4. (**Beta**) Get in touch so we can add it to the allow-list.
 
 The `eval.yaml` format is based on [Inspect AI](https://inspect.aisi.org.uk/), enabling reproducible evaluations. See the [Evaluating models with Inspect](https://huggingface.co/docs/inference-providers/guides/evaluation-inspect-ai) guide for details on running evaluations.
 
