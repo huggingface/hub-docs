@@ -297,7 +297,7 @@ Image only displays when viewing in dark mode
 
 **For already hosted images**
 
-If you want to reference images that are already hosted without re-uploading them, use HTML `<img>` tags with the following Tailwind CSS classes:
+If you want to reference images that are already hosted without re-uploading them, use HTML `<img>` tags with the following Tailwind CSS classes to specify which theme it should display in:
 
 ```html
 // Image only displays when viewing in dark mode
