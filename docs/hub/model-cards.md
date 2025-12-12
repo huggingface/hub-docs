@@ -279,6 +279,34 @@ Yes, you can add custom tags to your model by adding them to the `tags` field in
 
 You can add a `not-for-all-audiences` tag to your model card metadata. When this tag is present, a message will be displayed on the model page indicating that the model is not for all audiences. Users can click through this message to view the model card. 
 
+### How can I display different images for dark and light mode?
+
+You can display different versions of an image optimized for each theme. This is particularly useful for logos, diagrams, or screenshots that need different color schemes to maintain visibility and aesthetics across light and dark modes. To use this feature, you'll need to provide both versions of your image.
+
+**For images uploaded via the markdown editor**
+
+When you upload an image directly from the markdown editor (using drag-and-drop), append the URI fragment `#hf-light-mode-only` or `#hf-dark-mode-only` to the end of the image URL to specify which theme it should display in:
+
+```markdown
+Image only displays when viewing in light mode
+![Logo](https://cdn-uploads.huggingface.co/production/uploads/logo-light.png#hf-light-mode-only)
+
+Image only displays when viewing in dark mode
+![Logo](https://cdn-uploads.huggingface.co/production/uploads/logo-dark.png#hf-dark-mode-only)
+```
+
+**For already hosted images**
+
+If you want to reference images that are already hosted without re-uploading them, use HTML `<img>` tags with the following Tailwind CSS classes to specify which theme it should display in:
+
+```html
+// Image only displays when viewing in dark mode
+<img class="hidden dark:block" src="https://hf.co/logo-dark.png" alt="Logo" />
+
+// Image only displays when viewing in light mode
+<img class="dark:hidden" src="https://hf.co/logo-light.png" alt="Logo" />
+```
+
 ### Can I write LaTeX in my model card?
 
 Yes! The Hub uses the [KaTeX](https://katex.org/) math typesetting library to render math formulas server-side before parsing the Markdown.
