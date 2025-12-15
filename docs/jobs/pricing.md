@@ -6,7 +6,15 @@ During a Job’s lifecycle, it is only billed when the Job is Starting or Runnin
 
 If a running Job starts to fail, it will be automatically suspended and the billing will stop.
 
-Jobs have a timeout of 30 minutes by default. You can change this behavior by setting a custom `timeout` when creating the Job. For example in the CLI:
+Billing is done to the user's namespace by default, but you can bill to your organization instead by specifying the right `namespace`:
+
+```bash
+hf jobs run --namespace my-org-name ...
+```
+
+In this case the Job runs under the organization account, and you can see it in your organization Jobs page (organization page > settings > Jobs).
+
+Moreobver Jobs have a timeout of 30 minutes by default. You can change this behavior by setting a custom `timeout` when creating the Job. For example in the CLI:
 
 ```bash
 hf jobs run --timeout 3h ...
