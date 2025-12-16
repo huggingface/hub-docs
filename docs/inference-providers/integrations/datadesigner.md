@@ -92,8 +92,8 @@ You can use any model available through [Inference Providers](https://huggingfac
 ```python
 # Use a different model
 hf_model = ModelConfig(
-    alias="hf-qwen",
-    model="Qwen/Qwen2.5-72B-Instruct",
+    alias="hf-olmo",
+    model="allenai/OLMo-3-7B-Instruct",
     provider="huggingface",
 )
 ```
