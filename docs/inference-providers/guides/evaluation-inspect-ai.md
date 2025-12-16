@@ -67,7 +67,7 @@ Once it finishes, we'll see the evaluation results:
 Besides the command line report, Inspect comes with a nice viewer UI. We can launch it with the following command:
 
 ```bash
-inspect viewer
+inspect view
 ```
 ![Screenshot of inspect viewer results with gpt-oss-20b](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/evals-guide-first-eval-viewer.png)
 
@@ -92,7 +92,7 @@ If everything went well we will see the evaluations running in parallel for each
 
 
 ```bash
-inspect viewer
+inspect view
 ```
 ![Screenshot of inspect viewer results with gpt-oss-20b](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/evals-guide-model-bench-viewer.png)
 
