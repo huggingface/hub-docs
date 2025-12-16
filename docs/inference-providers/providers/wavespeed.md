@@ -43,7 +43,7 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 
 ### Image To Image
 
-Find out more about Image To Image [here](../tasks/image_to_image).
+Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
@@ -53,7 +53,7 @@ Find out more about Image To Image [here](../tasks/image_to_image).
 
 ### Text To Image
 
-Find out more about Text To Image [here](../tasks/text_to_image).
+Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
@@ -63,7 +63,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 ### Text To Video
 
-Find out more about Text To Video [here](../tasks/text_to_video).
+Find out more about Text To Video [here](../tasks/text-to-video).
 
 <InferenceSnippet
     pipeline=text-to-video

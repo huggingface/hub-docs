@@ -333,7 +333,7 @@ client = InferenceClient(
 By switching provider, you can see the model's response change because each provider uses a different configuration of the model.
 
 > [!WARNING]
-> Each inference provider has different capabilities and performance characteristics. You can find more information about each provider in the [Inference Providers](/inference-providers/index#partners) section.
+> Each inference provider has different capabilities and performance characteristics. You can find more information about each provider in the [Inference Providers](/docs/inference-providers/index#partners) section.
 
 ### Tool Choice Options
 

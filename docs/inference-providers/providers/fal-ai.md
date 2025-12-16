@@ -43,7 +43,7 @@ Founded in 2021 by [Burkay Gur](https://huggingface.co/burkaygur) and [Gorkem Yu
 
 ### Automatic Speech Recognition
 
-Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
+Find out more about Automatic Speech Recognition [here](../tasks/automatic-speech-recognition).
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
@@ -53,7 +53,7 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic_speec
 
 ### Image Segmentation
 
-Find out more about Image Segmentation [here](../tasks/image_segmentation).
+Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
@@ -63,17 +63,17 @@ Find out more about Image Segmentation [here](../tasks/image_segmentation).
 
 ### Image To Image
 
-Find out more about Image To Image [here](../tasks/image_to_image).
+Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"fal-ai/flux-2/edit"} } }
+    providersMapping={ {"fal-ai":{"modelId":"meituan-longcat/LongCat-Image-Edit","providerModelId":"fal-ai/longcat-image/edit"} } }
 />
 
 
 ### Text To Image
 
-Find out more about Text To Image [here](../tasks/text_to_image).
+Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
@@ -83,7 +83,7 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 ### Text To Video
 
-Find out more about Text To Video [here](../tasks/text_to_video).
+Find out more about Text To Video [here](../tasks/text-to-video).
 
 <InferenceSnippet
     pipeline=text-to-video

@@ -8,7 +8,7 @@ We define different rate limits for distinct classes of requests. We distinguish
   - e.g. model or dataset search, repo creation, user management, etc. All endpoints that belong to this bucket are documented in [Hub API Endpoints](./api).
 - **Resolvers**
   - They're all the URLs that contain a `/resolve/` segment in their path, which serve user-generated content from the Hub. Concretely, those are the URLs that are constructed by open source libraries (transformers, datasets, vLLM, llama.cpp, …) or AI applications (LM Studio, Jan, ollama, …) to download model/dataset files from HF.
-  - Specifically, this is the ["Resolve a file" endpoint](https://lnkd.in/eesDKirG) documented in our OpenAPI spec.
+  - Specifically, this is the ["Resolve a file" endpoint](https://huggingface-openapi.hf.space/#tag/models/get/apiresolve-cachemodelsnamespacereporevpath) documented in our OpenAPI spec.
   - Resolve requests are heavily used by the community, and since we optimize our infrastructure to serve them with maximum efficiency, the rate limits for Resolvers are the highest.
 - **Pages**
   - All the Web pages we host on huggingface.co.
@@ -88,6 +88,14 @@ Despite passing `HF_TOKEN` if you are still rate limited, you can:
 - spread out your requests over longer periods of time
 - replace Hub API calls with Resolver calls, whenever possible (Resolver rate limits are much higher and much more optimized).
 - upgrade to PRO, Team, or Enterprise.
+
+## Smart rate limit handling with `huggingface_hub`
+
+The Hub Python Library [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub/index) (version **1.2.0+**) includes smart retry handling for rate limit errors.
+
+When a 429 error occurs, the SDK automatically parses the `RateLimit` header to extract the exact number of seconds until the rate limit resets, then waits precisely that duration before retrying. This applies to file downloads (i.e. Resolvers) and paginated Hub API calls (list models, datasets, spaces, etc.).
+
+**We strongly recommend using `huggingface_hub` for all programmatic access to the Hub** to benefit from this optimized retry behavior and avoid implementing custom rate limit handling.
 
 ## Granular user action Rate limits
 

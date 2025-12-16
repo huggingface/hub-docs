@@ -43,7 +43,7 @@ Replicate is building tools so all software engineers can use AI as if it were n
 
 ### Automatic Speech Recognition
 
-Find out more about Automatic Speech Recognition [here](../tasks/automatic_speech_recognition).
+Find out more about Automatic Speech Recognition [here](../tasks/automatic-speech-recognition).
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
@@ -53,17 +53,17 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic_speec
 
 ### Image To Image
 
-Find out more about Image To Image [here](../tasks/image_to_image).
+Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"replicate":{"modelId":"black-forest-labs/FLUX.1-Kontext-dev","providerModelId":"black-forest-labs/flux-kontext-dev"} } }
+    providersMapping={ {"replicate":{"modelId":"Qwen/Qwen-Image-Edit","providerModelId":"qwen/qwen-image-edit"} } }
 />
 
 
 ### Text To Image
 
-Find out more about Text To Image [here](../tasks/text_to_image).
+Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
@@ -73,10 +73,10 @@ Find out more about Text To Image [here](../tasks/text_to_image).
 
 ### Text To Video
 
-Find out more about Text To Video [here](../tasks/text_to_video).
+Find out more about Text To Video [here](../tasks/text-to-video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"replicate":{"modelId":"Wan-AI/Wan2.2-TI2V-5B","providerModelId":"wan-video/wan-2.2-5b-fast"} } }
+    providersMapping={ {"replicate":{"modelId":"Wan-AI/Wan2.2-T2V-A14B","providerModelId":"wan-video/wan-2.2-t2v-fast"} } }
 />
 

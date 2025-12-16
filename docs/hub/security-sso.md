@@ -58,21 +58,28 @@ The default value is 7 days.
 
 When enabled, Role Mapping allows you to dynamically assign [roles](./organizations-security#access-control-in-organizations) to organization members based on data provided by your Identity Provider.
 
-This section allows you to define a mapping from your IdP's user profile data from your IdP to the assigned role in Hugging Face.
+This section allows you to define a mapping from your IdP's user profile data to the assigned role in Hugging Face.
 
-- IdP Role Attribute Mapping
+- **IdP Role Attribute Path**
 
   A JSON path to an attribute in your user's IdP profile data.
+  It supports dot notation (e.g. `user.role` or `groups`).
+  For SAML, this can be a URI (e.g. `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`).
 
-- Role Mapping
+- **Role Mapping**
 
   A mapping from the IdP attribute value to the assigned role in the Hugging Face organization.
+  
+  Available roles are `admin`, `write`, `contributor`, and `read`. See [roles documentation](./organizations-security#access-control-in-organizations) for more details.
 
-You must map at least one admin role.
+> [!WARNING]
+> You must map at least one `admin` role in your configuration.
+
+If the attribute in the IdP response contains multiple values (e.g. a list of groups), the **first matching mapping** will be used to determine the user's role.
 
 If there is no match, a user will be assigned the default role for your organization. The default role can be customized in the `Members` section of the organization's settings.
 
-Role synchronization is performed on login.
+Role synchronization is performed on every login.
 
 #### Resource Group Mapping
 
@@ -83,13 +90,15 @@ When enabled, Resource Group Mapping allows you to dynamically assign members to
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/resource-group-mapping-dark.png"/>
 </div>
 
-- IdP Attribute Path
+- **IdP Attribute Path**
 
-  A JSON path to an attribute in your user's IdP profile data.
+  A JSON path to an attribute in your user's IdP profile data. Similar to Role Mapping, this supports dot notation or URIs for SAML.
 
-- Resource Group Mapping
+- **Resource Group Mapping**
 
-  A mapping from the IdP attribute value to a resource group in your Hugging Face organization.
+  A mapping from the IdP attribute value to a resource group in your Hugging Face organization. You can assign a specific role (`admin`, `write`, `contributor`, `read`) for each resource group mapping.
+
+Unlike Role Mapping, **Resource Group Mapping is additive**. If a user matches multiple mappings (e.g. they belong to multiple groups in your IdP that are mapped to different Resource Groups), they will be added to **all** matched Resource Groups.
 
 If there is no match, the user will not be assigned to any resource group.
 

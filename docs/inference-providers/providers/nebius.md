@@ -63,7 +63,7 @@ conversational />
 
 ### Feature Extraction
 
-Find out more about Feature Extraction [here](../tasks/feature_extraction).
+Find out more about Feature Extraction [here](../tasks/feature-extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
@@ -73,7 +73,7 @@ Find out more about Feature Extraction [here](../tasks/feature_extraction).
 
 ### Text To Image
 
-Find out more about Text To Image [here](../tasks/text_to_image).
+Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image

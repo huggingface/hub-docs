@@ -94,25 +94,6 @@ extra_gated_fields:
 - {field_name_2}: {field_type_2}  # Example: Email: text
 - {field_name_3}: {field_type_3}  # Example for speech datasets: I agree to not attempt to determine the identity of speakers in this dataset: checkbox
 extra_gated_prompt: {extra_gated_prompt}  # Example for speech datasets: By clicking on “Access repository” below, you also agree to not attempt to determine the identity of speakers in the dataset.
-
-# Optional. Add this if you want to encode a train and evaluation info in a structured way for AutoTrain or Evaluation on the Hub
-train-eval-index:
-  - config: {config_name}           # The dataset subset name to use. Example for datasets without subsets: default. Example for glue: sst2
-    task: {task_name}               # The task category name (same as task_category). Example: question-answering
-    task_id: {task_type}            # The AutoTrain task id. Example: extractive_question_answering
-    splits:
-      train_split: train            # The split to use for training. Example: train
-      eval_split: validation        # The split to use for evaluation. Example: test
-    col_mapping:                    # The columns mapping needed to configure the task_id.
-    # Example for extractive_question_answering:
-      # question: question
-      # context: context
-      # answers:
-      #   text: text
-      #   answer_start: answer_start
-    metrics:
-      - type: {metric_type}         # The metric id. Example: wer. Use metric id from https://hf.co/metrics
-        name: {metric_name}         # Tne metric name to be displayed. Example: Test WER
 ---
 
 Valid license identifiers can be found in [our docs](https://huggingface.co/docs/hub/repositories-licenses).

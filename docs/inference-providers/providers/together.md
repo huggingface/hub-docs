@@ -51,9 +51,19 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 conversational />
 
 
+### Chat Completion (VLM)
+
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=image-text-to-text
+    providersMapping={ {"together":{"modelId":"ServiceNow-AI/Apriel-1.6-15b-Thinker","providerModelId":"ServiceNow-AI/Apriel-1.5-15b-Thinker"} } }
+conversational />
+
+
 ### Text To Image
 
-Find out more about Text To Image [here](../tasks/text_to_image).
+Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image

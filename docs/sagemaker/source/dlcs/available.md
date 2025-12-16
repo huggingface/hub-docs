@@ -72,6 +72,9 @@ Let's say you want to use the training DLC for GPUs in
 
 The Python SagemMaker SDK util functions are not always up to date but it is much simpler than reconstructing the image URI yourself. 
 
+> [!WARNING]
+> [SageMaker Python SDK v3 has been recently released](https://github.com/aws/sagemaker-python-sdk), so unless specified otherwise, all the documentation and tutorials are still using the [SageMaker Python SDK v2](https://github.com/aws/sagemaker-python-sdk/tree/master-v2). We are actively working on updating all the tutorials and examples, but in the meantime make sure to install the SageMaker SDK as `pip install "sagemaker<3.0.0"`.
+
 ```python
 from sagemaker.huggingface import HuggingFaceModel, get_huggingface_llm_image_uri
 

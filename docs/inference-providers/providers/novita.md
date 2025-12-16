@@ -49,7 +49,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"novita":{"modelId":"moonshotai/Kimi-K2-Thinking","providerModelId":"moonshotai/kimi-k2-thinking"} } }
+    providersMapping={ {"novita":{"modelId":"deepseek-ai/DeepSeek-V3.2","providerModelId":"deepseek/deepseek-v3.2"} } }
 conversational />
 
 
@@ -59,13 +59,13 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"novita":{"modelId":"deepseek-ai/DeepSeek-OCR","providerModelId":"deepseek/deepseek-ocr"} } }
+    providersMapping={ {"novita":{"modelId":"zai-org/GLM-4.6V-Flash","providerModelId":"zai-org/glm-4.6v"} } }
 conversational />
 
 
 ### Text To Video
 
-Find out more about Text To Video [here](../tasks/text_to_video).
+Find out more about Text To Video [here](../tasks/text-to-video).
 
 <InferenceSnippet
     pipeline=text-to-video

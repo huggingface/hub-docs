@@ -54,7 +54,7 @@ conversational />
 
 ### Feature Extraction
 
-Find out more about Feature Extraction [here](../tasks/feature_extraction).
+Find out more about Feature Extraction [here](../tasks/feature-extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
