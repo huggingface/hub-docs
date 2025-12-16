@@ -91,14 +91,8 @@
   - local: model-cards
     title: Model Cards
     sections:
-    - local: model-card-annotated
-      title: Annotated Model Card
     - local: model-cards-co2
       title: Carbon Emissions
-    - local: model-card-guidebook
-      title: Model Card Guidebook
-    - local: model-card-landscape-analysis
-      title: Landscape Analysis
     - local: model-cards-components
       title: Card Components
   - local: eval-results
@@ -187,6 +181,13 @@
     title: Local Apps
   - local: models-faq
     title: Frequently Asked Questions
+    sections:
+      - local: model-card-annotated
+        title: Annotated Model Card
+      - local: model-card-guidebook
+        title: Model Card Guidebook
+      - local: model-card-landscape-analysis
+        title: Model Card Landscape
   - local: models-advanced
     title: Advanced Topics
     sections:
