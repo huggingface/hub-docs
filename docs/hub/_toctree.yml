@@ -90,8 +90,6 @@
     title: The Model Hub
   - local: model-cards
     title: Model Cards
-  - local: eval-results
-    title: Eval Results
     sections:
     - local: model-card-annotated
       title: Annotated Model Card
@@ -103,6 +101,8 @@
       title: Landscape Analysis
     - local: model-cards-components
       title: Card Components
+  - local: eval-results
+    title: Eval Results
   - local: models-gated
     title: Gated Models
   - local: models-uploading
