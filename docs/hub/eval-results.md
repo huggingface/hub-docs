@@ -73,7 +73,7 @@ Results display badges based on their metadata in the YAML file:
 | leaderboard | Links to the benchmark dataset |
 | source | Links to evaluation logs or external source |
 
-For more details on how to format this data, check out the [Eval Results](https://github.com/huggingface/hub-docs/blob/47a2b70cada8057a4acb02d8f19527ff16585ed1/eval_results.yaml) specifications.
+For more details on how to format this data, check out the [Eval Results](https://github.com/huggingface/hub-docs/blob/main/eval_results.yaml) specifications.
 
 ### Community Contributions
 
