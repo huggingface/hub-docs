@@ -38,14 +38,14 @@
     title: Overview
   - local: integrations/adding-integration
     title: Add Your Integration
+  - local: integrations/datadesigner
+    title: DataDesigner
   - local: integrations/macwhisper
     title: MacWhisper
   - local: integrations/opencode
     title: OpenCode
   - local: integrations/vscode
     title: VS Code with GitHub Copilot
-  - local: integrations/datadesigner
-    title: DataDesigner
 
 - local: tasks/index
   title: Inference Tasks
