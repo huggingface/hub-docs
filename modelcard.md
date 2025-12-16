@@ -1,6 +1,5 @@
 ---
 # Example metadata to be added to a model card.  
-# Full model card template at https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md
 language:
 - {lang_0}  # Example: fr
 - {lang_1}  # Example: en
@@ -20,6 +19,7 @@ metrics:
 base_model: {base_model}  # Example: stabilityai/stable-diffusion-xl-base-1.0. Can also be a list (for merges)
 
 # Optional. Add this if you want to encode your eval results in a structured way.
+# There is a newer, simpler version of this metadata format in ./eval_results.yaml
 model-index:
 - name: {model_id}
   results:
@@ -48,7 +48,7 @@ model-index:
       url: {source_url}             # Required if source is provided. A link to the source. Example: https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard.
 ---
 
-This markdown file contains the spec for the modelcard metadata regarding evaluation parameters. When present, and only then, 'model-index', 'datasets' and 'license' contents will be verified when git pushing changes to your README.md file.
+This markdown file contains the spec for the modelcard metadata. Properties will be validated by the Hub when git pushing changes to your README.md file.
 Valid license identifiers can be found in [our docs](https://huggingface.co/docs/hub/repositories-licenses).
 
-For the full model card template, see: [modelcard_template.md file](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md).
+For a template for the human-readable portion of the model card, see: [modelcard_template.md file](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/modelcard_template.md).
