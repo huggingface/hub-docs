@@ -30,7 +30,7 @@ The metadata you add to the model card supports discovery and easier use of your
 * Displaying the model's license.
 * Adding datasets to the metadata will add a message reading `Datasets used to train:` to your model page and link the relevant datasets, if they're available on the Hub.
 
-Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages.
+Dataset and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets) and [Languages](https://huggingface.co/languages) pages.
 
 
 ### Adding metadata to your model card
@@ -72,9 +72,6 @@ license: "any valid license identifier"
 datasets:
 - dataset1
 - dataset2
-metrics:
-- metric1
-- metric2
 base_model: "base model Hub identifier"
 ---
 ```
@@ -101,7 +98,7 @@ tags:
 If it's not specified, the Hub will try to automatically detect the library type. However, this approach is discouraged, and repo creators should use the explicit `library_name` as much as possible. 
 
 1. By looking into the presence of files such as `*.nemo` or `*.mlmodel`, the Hub can determine if a model is from NeMo or CoreML.
-2. In the past, if nothing was detected and there was a `config.json` file, it was assumed the library was `transformers`. For model repos created after August 2024, this is not the case anymore – so you need to `library_name: transformers` explicitly.
+2. In the past, if nothing was detected and there was a `config.json` file, it was assumed the library was `transformers`. For model repos created after August 2024, this is not the case anymore, so you need to set `library_name: transformers` explicitly.
 
 ### Specifying a base model
 
@@ -181,8 +178,8 @@ You can specify the datasets used to train your model in the model card metadata
 
 ```yaml
 datasets:
-- imdb
-- HuggingFaceH4/no_robots
+- stanfordnlp/imdb
+- HuggingFaceFW/fineweb
 ```
 
 ### Specifying a task (`pipeline_tag`)
@@ -217,9 +214,12 @@ You can specify your **model's evaluation results** in a structured way in the m
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/eval-results-v2-dark.png"/>
 </div>
 
-The metadata spec was based on Papers with code's [model-index specification](https://github.com/paperswithcode/model-index). This allow us to directly index the results into Papers with code's leaderboards when appropriate. You can also link the source from where the eval results has been computed.
+The initial metadata spec was based on Papers with code's [model-index specification](https://github.com/paperswithcode/model-index). This allowed us to directly index the results into Papers with code's leaderboards when appropriate. You could also link the source from where the eval results has been computed.
 
-Here is a partial example to describe [01-ai/Yi-34B](https://huggingface.co/01-ai/Yi-34B)'s score on the ARC benchmark. The result comes from the [Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) which is defined as the `source`:
+> [!TIP]
+> NEW: We have a new, simpler metadata format for eval results. Check it out in [the dedicated doc page](./eval-results).
+
+Here is a partial example of a model-index that was describing [01-ai/Yi-34B](https://huggingface.co/01-ai/Yi-34B)'s score on the ARC benchmark. The result came from the [Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) which is defined as the `source`:
 
 ```yaml
 ---
@@ -263,7 +263,7 @@ Read more about Paper pages [here](./paper-pages).
 
 ## Model Card text
 
-Details on how to fill out a human-readable model card without Hub-specific metadata (so that it may be printed out, cut+pasted, etc.) is available in the [Annotated Model Card](./model-card-annotated).
+Details on how to fill out the human-readable portion of the model card (so that it may be printed out, cut+pasted, etc.) is available in the [Annotated Model Card](./model-card-annotated).
 
 ## FAQ
 

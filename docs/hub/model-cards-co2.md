@@ -36,7 +36,7 @@ The math is pretty simple! ➕
 
 First, you take the *carbon intensity* of the electric grid used for the training -- this is how much CO<sub>2</sub> is produced by KwH of electricity used. The carbon intensity depends on the location of the hardware and the [energy mix](https://electricitymap.org/) used at that location -- whether it's renewable energy like solar 🌞, wind 🌬️ and hydro 💧, or non-renewable energy like coal ⚫ and natural gas 💨. The more renewable energy gets used for training, the less carbon-intensive it is!
  
-Then, you take the power consumption of the GPU during training using the `pynvml` library.
+Then, you take the power consumption of the GPUs during training using the `pynvml` library.
 
 Finally, you multiply the power consumption and carbon intensity by the training time of the model, and you have an estimate of the CO<sub>2</sub> emission.
 

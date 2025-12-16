@@ -1,6 +1,5 @@
 ---
 # Example metadata to be added to a dataset card.  
-# Full dataset card template at https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/datasetcard_template.md
 language:
 - {lang_0}  # Example: fr
 - {lang_1}  # Example: en
@@ -99,4 +98,4 @@ extra_gated_prompt: {extra_gated_prompt}  # Example for speech datasets: By clic
 
 Valid license identifiers can be found in [our docs](https://huggingface.co/docs/hub/repositories-licenses).
 
-For the full dataset card template, see: [datasetcard_template.md file](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/datasetcard_template.md).
+For a template for the human-readable portion of the dataset card, see: [datasetcard_template.md file](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/datasetcard_template.md).
