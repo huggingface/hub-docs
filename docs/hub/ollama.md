@@ -81,11 +81,11 @@ If your GGUF file doesn't have a built-in template or if you want to customize y
 {{ .Response }}<|end|>
 ```
 
-To know more about the Go template format, please refer to [this documentation](https://github.com/ollama/ollama/blob/main/docs/template.md)
+To know more about the Go template format, please refer to [this documentation](https://github.com/ollama/ollama/blob/main/docs/template.mdx)
 
 You can optionally configure a system prompt by putting it into a new file named `system` in the repository.
 
-To change sampling parameters, create a file named `params` in the repository. The file must be in JSON format. For the list of all available parameters, please refer to [this documentation](https://github.com/ollama/ollama/blob/main/docs/modelfile.md#parameter).
+To change sampling parameters, create a file named `params` in the repository. The file must be in JSON format. For the list of all available parameters, please refer to [this documentation](https://github.com/ollama/ollama/blob/main/docs/modelfile.mdx#parameter).
 
 ## Run Private GGUFs from the Hugging Face Hub
 
