@@ -178,8 +178,8 @@ You can specify the datasets used to train your model in the model card metadata
 
 ```yaml
 datasets:
-- imdb
-- HuggingFaceH4/no_robots
+- stanfordnlp/imdb
+- HuggingFaceFW/fineweb
 ```
 
 ### Specifying a task (`pipeline_tag`)
