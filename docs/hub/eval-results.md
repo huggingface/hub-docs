@@ -16,11 +16,13 @@ Dataset repos can be defined as **Benchmarks** (e.g., [AIME](https://huggingface
 To register your dataset as a benchmark:
 
 1. Create a dataset repo containing your evaluation data
-2. Add an `eval.yaml` file to the repo root with your benchmark configuration
+2. Add an `eval.yaml` file to the repo root with your [benchmark configuration](https://inspect.aisi.org.uk/tasks.html#hugging-face)
 3. The file is validated at push time
 4. (**Beta**) Get in touch so we can add it to the allow-list.
 
 The `eval.yaml` format is based on [Inspect AI](https://inspect.aisi.org.uk/), enabling reproducible evaluations. See the [Evaluating models with Inspect](https://huggingface.co/docs/inference-providers/guides/evaluation-inspect-ai) guide for details on running evaluations.
+
+Examples can be found in those benchmarks: [SimpleQA](https://huggingface.co/datasets/OpenEvals/SimpleQA/blob/main/eval.yaml), [AIME 24](https://huggingface.co/datasets/OpenEvals/aime_24/blob/main/eval.yaml), [MuSR](https://huggingface.co/datasets/OpenEvals/MuSR/blob/main/eval.yaml)
 
 <!-- TODO: Add example of eval.yaml file -->
 
