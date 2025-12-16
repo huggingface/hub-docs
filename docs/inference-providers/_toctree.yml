@@ -44,6 +44,8 @@
     title: OpenCode
   - local: integrations/vscode
     title: VS Code with GitHub Copilot
+  - local: integrations/datadesigner
+    title: DataDesigner
 
 - local: tasks/index
   title: Inference Tasks
