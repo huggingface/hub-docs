@@ -30,7 +30,7 @@ The metadata you add to the model card supports discovery and easier use of your
 * Displaying the model's license.
 * Adding datasets to the metadata will add a message reading `Datasets used to train:` to your model page and link the relevant datasets, if they're available on the Hub.
 
-Dataset, metric, and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets), [Metrics](https://huggingface.co/metrics) and [Languages](https://huggingface.co/languages) pages.
+Dataset and language identifiers are those listed on the [Datasets](https://huggingface.co/datasets) and [Languages](https://huggingface.co/languages) pages.
 
 
 ### Adding metadata to your model card
