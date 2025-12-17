@@ -18,6 +18,7 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 | Integration                                                                                                         | Description                                                    | Resources                                                                                                             |
 | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | [CrewAI](https://www.crewai.com/)                                                                                   | Framework for orchestrating AI agent teams                     | [Official docs](https://docs.crewai.com/en/concepts/llms#hugging-face)                                                 |
+| [NeMo Data Designer](https://github.com/NVIDIA-NeMo/DataDesigner)                                                         | Synthetic dataset generation framework                         | [HF docs](./datadesigner)                                                                                              |
 | [GitHub Copilot Chat](https://docs.github.com/en/copilot)                                                           | AI pair programmer in VS Code                                  | [HF docs](./vscode)                                                                                                    |
 | [fast-agent](https://fast-agent.ai/)                                                                                | Flexible framework building MCP/ACP powered Agents, Workflows and evals | [Official docs](https://fast-agent.ai/models/llm_providers/#hugging-face)                                     |
 | [Haystack](https://haystack.deepset.ai/)                                                                            | Open-source LLM framework for building production applications | [Official docs](https://docs.haystack.deepset.ai/docs/huggingfaceapichatgenerator)                                     |
@@ -70,6 +71,12 @@ LLM application frameworks and orchestration platforms.
 - [LlamaIndex](https://www.llamaindex.ai/) - Data framework for connecting custom data to LLMs ([Official docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers))
 - [PydanticAI](https://ai.pydantic.dev/) - Framework for building AI agents with Python ([Official docs](https://ai.pydantic.dev/models/huggingface/))
 - [smolagents](https://huggingface.co/docs/smolagents) - Framework for building LLM agents with tool integration ([Official docs](https://huggingface.co/docs/smolagents/reference/models#smolagents.InferenceClientModel))
+
+### Synthetic Data
+
+Tools for creating synthetic datasets.
+
+- [NeMo Data Designer](https://github.com/NVIDIA-NeMo/DataDesigner) - NVIDIA NeMo framework for synthetic data generation ([HF docs](./datadesigner))
 
 <!-- ## Add Your Integration
 
