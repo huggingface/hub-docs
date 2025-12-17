@@ -39,7 +39,7 @@
   - local: integrations/adding-integration
     title: Add Your Integration
   - local: integrations/datadesigner
-    title: DataDesigner
+    title: NeMo Data Designer
   - local: integrations/macwhisper
     title: MacWhisper
   - local: integrations/opencode
