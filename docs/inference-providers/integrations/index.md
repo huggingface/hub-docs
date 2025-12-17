@@ -76,7 +76,7 @@ LLM application frameworks and orchestration platforms.
 
 Tools for creating synthetic datasets.
 
-- [DataDesigner](https://github.com/NVIDIA-NeMo/DataDesigner) - NVIDIA NeMo framework for synthetic data generation ([HF docs](./datadesigner))
+- [NeMo Data Designer](https://github.com/NVIDIA-NeMo/DataDesigner) - NVIDIA NeMo framework for synthetic data generation ([HF docs](./datadesigner))
 
 <!-- ## Add Your Integration
 
