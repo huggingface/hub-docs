@@ -7,7 +7,7 @@ The Hub provides a decentralized system for tracking model evaluation results. B
 
 ## Benchmark Datasets
 
-Dataset repos can be defined as **Benchmarks** (e.g., [AIME](https://huggingface.co/datasets/aime-ai/aime), [HLE](https://huggingface.co/datasets/cais/hle), [GPQA](https://huggingface.co/datasets/Idavidrein/gpqa)). These display a "Benchmark" tag and automatically aggregate evaluation results from model repos across the Hub and display a leaderboard of top models.
+Dataset repos can be defined as **Benchmarks** (e.g., [AIME](https://huggingface.co/datasets/OpenEvals/aime_24), [HLE](https://huggingface.co/datasets/cais/hle), [GPQA](https://huggingface.co/datasets/Idavidrein/gpqa)). These display a "Benchmark" tag and automatically aggregate evaluation results from model repos across the Hub and display a leaderboard of top models.
 
 ![Benchmark Dataset](https://huggingface.co/huggingface/documentation-images/resolve/main/evaluation-results/benchmark-preview.png)
 
