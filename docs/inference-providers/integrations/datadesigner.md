@@ -1,4 +1,4 @@
-# DataDesigner
+# NeMo Data Designer
 
 [DataDesigner](https://github.com/NVIDIA-NeMo/DataDesigner) is NVIDIA NeMo's framework for generating high-quality synthetic datasets using LLMs. It enables you to create diverse data using statistical samplers, LLMs, or existing seed datasets while maintaining control over field relationships and data quality.
 
