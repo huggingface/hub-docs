@@ -16,7 +16,7 @@ There are multiple tools you can use to run jobs:
 
 * the `hf` Command Line Interface (see the [CLI installation steps](https://huggingface.co/docs/huggingface_hub/main/en/guides/cli) and the [Jobs CLI documentation](https://huggingface.co/docs/huggingface_hub/guides/cli#hf-jobs) for more information)
 * the `huggingface_hub` Python client (see the [`huggingface_hub` Jobs documentation](https://huggingface.co/docs/huggingface_hub/guides/jobs) for more information)
-* the Jobs HTTP API (see the [Jobs HTTP API documentation](./http) for more information)
+* the Jobs HTTP API (see the [Jobs HTTP API documentation](./http-api) for more information)
 
 ## Run any workload
 

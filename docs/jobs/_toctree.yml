@@ -37,3 +37,12 @@
       title: Schedule Jobs
     - local: webhooks
       title: Webhook Automation
+
+- title: Reference
+  sections:
+    - local: cli
+      title: Command Line Interface (CLI)
+    - local: python
+      title: Python client
+    - local: api
+      title: Jobs API Endpoints
