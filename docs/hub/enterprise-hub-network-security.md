@@ -18,9 +18,9 @@ You can set multiple ranges, one per line.
 Once organization admins have completed the “Organization IP Ranges” in the Network Security settings, a manual verification is carried out jointly by Hugging Face Solution Engineers and the organization’s admins.
 
 After the “Organization IP Ranges” have been manually verified, and the organization admins have enabled both “Restrict organization access to your IP ranges only” and “Require login for users in your IP ranges”, the following flow applies:
-- When a user from the organization logs in, all IP checks are performed first.
-- The content access policy then determines what the user is allowed to access.
-- SSO operates in parallel as a separate authentication flow and does not replace the IP or content access checks.
+- When a user arrives on the platform, their IP address is checked.
+- If the IP falls within the organization’s defined ranges, the user must authenticate (via the organization’s SSO if enabled).
+- Once authenticated, the Content Access Policy determines which resources the user can access.
 
 ## Higher Hub Rate Limits
 
