@@ -15,7 +15,7 @@ You can set multiple ranges, one per line.
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-ip-ranges.png" alt="Screenshot of the Organization IP Ranges field."/>
 </div>
 
-Once organization admins have completed the “Organization IP Ranges” in the Network Security settings, a manual verification is carried out jointly by Hugging Face Solution Engineers and the organization’s admins.
+Once organization admins populate the “Organization IP Ranges” in the Network Security settings, a manual verification—carried out jointly by Hugging Face Solution Engineers and the organization’s admins—is required for the "Require login for users in your IP ranges" setting to become available.
 
 After the “Organization IP Ranges” have been manually verified, and the organization admins have enabled both “Restrict organization access to your IP ranges only” and “Require login for users in your IP ranges”, the following flow applies:
 - When a user arrives on the platform, their IP address is checked.
