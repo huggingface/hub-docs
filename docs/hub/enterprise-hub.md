@@ -1,6 +1,7 @@
 # Team & Enterprise plans
 
 > [!TIP]
+>
 > <a href="https://huggingface.co/enterprise" target="_blank">Subscribe to a Team or Enterprise plan</a> to get access to advanced features for your organization.
 
 Team & Enterprise organization plans add advanced capabilities to organizations, enabling safe, compliant and managed collaboration for companies and teams on Hugging Face.
@@ -10,7 +11,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-enterprise-header.png" />
 </a>
 
-In this section we will document the following Enterprise Hub features:
+In the following sections we will document the following Enterprise Hub features:
 
 - [Single Sign-On (SSO)](./enterprise-sso)
 - [Advanced Single Sign-On (SSO)](./enterprise-hub-advanced-sso)
