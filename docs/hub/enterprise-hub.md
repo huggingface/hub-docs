@@ -30,12 +30,12 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 ### Inference & Hub credits
 
-| Feature                                                                                                                | Free    | Team                          | Enterprise                    | Enterprise Plus               |
-| ---------------------------------------------------------------------------------------------------------------------- | ------- | ----------------------------- | ----------------------------- | ----------------------------- |
-| Serve models with Inference Providers                                                                                  | ❌      | ✅ $2/seat/mo included + PAYG | ✅ $2/seat/mo included + PAYG | ✅ $2/seat/mo included + PAYG |
-| [Usage & billing control](https://huggingface.co/docs/inference-providers/pricing#inference-providers-usage-breakdown) | ❌      | ✅                            | ✅                            | ✅                            |
-| Scale deployment with Inference Endpoints                                                                              | ✅ PAYG | ✅ PAYG                       | ✅ PAYG                       | ✅ PAYG                       |
-| Hub credits\* included in plan                                                                                         | ❌      | ❌ (bulk purchase available)  | $2k included                  | 5% of ACV included            |
+| Feature                                                                                                                | Free    | Team                              | Enterprise                        | Enterprise Plus                   |
+| ---------------------------------------------------------------------------------------------------------------------- | ------- | --------------------------------- | --------------------------------- | --------------------------------- |
+| Serve models with Inference Providers                                                                                  | ❌      | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG |
+| [Usage & billing control](https://huggingface.co/docs/inference-providers/pricing#inference-providers-usage-breakdown) | ❌      | ✅                                | ✅                                | ✅                                |
+| Scale deployment with Inference Endpoints                                                                              | ✅ PAYG | ✅ PAYG                           | ✅ PAYG                           | ✅ PAYG                           |
+| Hub credits\* included in plan                                                                                         | ❌      | ❌ (bulk purchase available)      | $2k included                      | 5% of ACV included                |
 
 \* Hub credits can be utilized for inference providers, inference endpoints, Jobs, Space upgrade
 
