@@ -41,13 +41,13 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 ### Spaces & Jobs
 
-| Feature                                                    | Free      | Team        | Enterprise  | Enterprise Plus |
-| ---------------------------------------------------------- | --------- | ----------- | ----------- | --------------- |
-| <img width="441" height="1"><br>Spaces – CPU-based runtime | 8 units\* | ✅ No limit | ✅ No limit | ✅ No limit     |
-| Spaces – ZeroGPU usage tiers                               | 3.5 min†  | 25 min      | 45 min      | 45 min          |
-| Spaces – Upgraded hardware                                 | PAYG      | PAYG        | PAYG        | PAYG            |
-| Dev Mode / Custom domain for Spaces                        | ❌        | ✅          | ✅          | ✅              |
-| Jobs & Scripts (train/fine-tune, eval)                     | ❌        | ✅          | ✅          | ✅              |
+| Feature                                | Free      | Team        | Enterprise  | Enterprise Plus |
+| -------------------------------------- | --------- | ----------- | ----------- | --------------- |
+| Spaces – CPU-based runtime             | 8 units\* | ✅ No limit | ✅ No limit | ✅ No limit     |
+| Spaces – ZeroGPU usage tiers           | 3.5 min†  | 25 min      | 45 min      | 45 min          |
+| Spaces – Upgraded hardware             | PAYG      | PAYG        | PAYG        | PAYG            |
+| Dev Mode / Custom domain for Spaces    | ❌        | ✅          | ✅          | ✅              |
+| Jobs & Scripts (train/fine-tune, eval) | ❌        | ✅          | ✅          | ✅              |
 
 \* running at the same time
 
