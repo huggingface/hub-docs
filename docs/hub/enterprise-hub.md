@@ -1,5 +1,7 @@
 # Team & Enterprise plans
 
+<!-- STRETCH TABLES -->
+
 > [!TIP]
 >
 > <a href="https://huggingface.co/enterprise" target="_blank">Subscribe to a Team or Enterprise plan</a> to get access to advanced features for your organization.
