@@ -231,7 +231,7 @@ print(structured_data)
 # Parse the JSON to work with individual fields
 import json
 analysis = json.loads(structured_data)
-print(f"Title: {analysis['title']}"
+print(f"Title: {analysis['title']}")
 print(f"Abstract Summary: {analysis['abstract_summary']}")
 ```
 
