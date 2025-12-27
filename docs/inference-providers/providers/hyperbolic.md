@@ -95,7 +95,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"hyperbolic":{"modelId":"Qwen/Qwen2.5-VL-7B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-7B-Instruct"} } }
+    providersMapping={ {"hyperbolic":{"modelId":"Qwen/Qwen2.5-VL-72B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-72B-Instruct"} } }
 conversational />
 
 
