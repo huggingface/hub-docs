@@ -47,7 +47,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"ovhcloud":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"Llama-3.1-8B-Instruct"} } }
+    providersMapping={ {"ovhcloud":{"modelId":"openai/gpt-oss-20b","providerModelId":"gpt-oss-20b"} } }
 conversational />
 
 

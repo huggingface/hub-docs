@@ -12,8 +12,8 @@ importers:
         specifier: ^4.13.5
         version: 4.13.5
       '@huggingface/tasks':
-        specifier: ^0.19.71
-        version: 0.19.71
+        specifier: ^0.19.74
+        version: 0.19.74
       '@types/node':
         specifier: ^22.5.0
         version: 22.5.0
@@ -197,8 +197,8 @@ packages:
     resolution: {integrity: sha512-asqfZ4GQS0hD876Uw4qiUb7Tr/V5Q+JZuo2L+BtdrD4U40QU58nIRq3ZSgAzJgT874VLjhGVacaYfrdpXtEvtA==}
     engines: {node: '>=18'}
 
-  '@huggingface/tasks@0.19.71':
-    resolution: {integrity: sha512-oDQ3b6p9305s3El4N2PDnfWqFtqwNV2BPmbH2HARt6Zl+oBfdFntwBF8zeRyfh9E5/5vojAZpI4aGAgC/SKmxg==}
+  '@huggingface/tasks@0.19.74':
+    resolution: {integrity: sha512-2H3v2kkMmvx6reRo18hXWg50NH+0151O8kCkvCiuDobC5RYCIoiLz9Z1PFYXIQAvQpUfZDeeZd87figo/q5gIQ==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -418,11 +418,11 @@ snapshots:
   '@huggingface/inference@4.13.5':
     dependencies:
       '@huggingface/jinja': 0.5.3
-      '@huggingface/tasks': 0.19.71
+      '@huggingface/tasks': 0.19.74
 
   '@huggingface/jinja@0.5.3': {}
 
-  '@huggingface/tasks@0.19.71': {}
+  '@huggingface/tasks@0.19.74': {}
 
   '@jridgewell/resolve-uri@3.1.2': {}
 

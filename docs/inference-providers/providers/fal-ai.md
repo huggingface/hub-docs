@@ -67,7 +67,7 @@ Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"meituan-longcat/LongCat-Image-Edit","providerModelId":"fal-ai/longcat-image/edit"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image-Edit-2511","providerModelId":"fal-ai/qwen-image-edit-plus"} } }
 />
 
 
