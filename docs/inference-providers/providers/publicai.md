@@ -49,6 +49,6 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"publicai":{"modelId":"allenai/Olmo-3-7B-Instruct","providerModelId":"allenai/Olmo-3-7B-Instruct"} } }
+    providersMapping={ {"publicai":{"modelId":"allenai/Olmo-3.1-32B-Think","providerModelId":"allenai/Olmo-3.1-32B-Think"} } }
 conversational />
 

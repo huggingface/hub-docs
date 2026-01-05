@@ -49,7 +49,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"moonshotai/Kimi-K2-Thinking","providerModelId":"moonshotai/Kimi-K2-Thinking"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Meta-Llama-3.1-8B-Instruct"} } }
 conversational />
 
 
@@ -69,6 +69,6 @@ Find out more about Text Generation [here](../tasks/text-generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"moonshotai/Kimi-K2-Thinking","providerModelId":"moonshotai/Kimi-K2-Thinking"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Meta-Llama-3.1-8B-Instruct"} } }
 />
 

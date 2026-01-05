@@ -47,7 +47,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"nebius":{"modelId":"moonshotai/Kimi-K2-Thinking","providerModelId":"moonshotai/Kimi-K2-Thinking"} } }
+    providersMapping={ {"nebius":{"modelId":"openai/gpt-oss-20b","providerModelId":"openai/gpt-oss-20b"} } }
 conversational />
 
 

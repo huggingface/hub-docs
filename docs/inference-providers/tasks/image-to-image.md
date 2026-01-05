@@ -37,7 +37,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"meituan-longcat/LongCat-Image-Edit","providerModelId":"fal-ai/longcat-image/edit"},"replicate":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"black-forest-labs/flux-2-dev"},"wavespeed":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"wavespeed-ai/flux-2-dev/edit"}} }
+    providersMapping={ {"fal-ai":{"modelId":"Qwen/Qwen-Image-Edit-2511","providerModelId":"fal-ai/qwen-image-edit-plus"},"replicate":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"black-forest-labs/flux-2-dev"},"wavespeed":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"wavespeed-ai/flux-2-dev/edit"}} }
 />
 
 
