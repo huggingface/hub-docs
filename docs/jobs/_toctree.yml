@@ -1,0 +1,7 @@
+- local: index
+  title: Hugging Face Jobs
+
+- title: Overview
+  sections:
+    - local: index
+      title: Hugging Face Jobs
