@@ -92,7 +92,7 @@ Save this script as `train.py`, and we can now run it with UV on Hugging Face Jo
 
 ## Run the training job
 
-`hf jobs` takes several arguments: select the hardware with `--flavor`, and pass environment variable with `--env` and `--secrets`. Here we use the A100 Large GPU flavor with `--flavor a100-large` and pass your Hugging Face token as a secret with `--secrets HF_TOKEN` in order to be able to push the resulting model to your account.
+`hf jobs` takes several arguments: select the hardware with `--flavor`, choose a maximum duration with `--timeout`, and pass environment variable with `--env` and `--secrets`. Here we use the A100 Large GPU flavor with `--flavor a100-large` and pass your Hugging Face token as a secret with `--secrets HF_TOKEN` in order to be able to push the resulting model to your account.
 
 Moreover, UV accepts the `--with` argument to define python dependencies, so we use `--with trl` to have the `trl` library available.
 
@@ -101,6 +101,7 @@ You can now run the final command which looks like this:
 ```bash
 hf jobs uv run \
     --flavor a100-large \
+    --timeout 6h \
     --with trl \
     --secrets HF_TOKEN \
     train.py
@@ -127,11 +128,19 @@ The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and g
 
 Follow the Job advancements on the job page on Hugging Face:
 
-
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/trl-sft-job-page.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/trl-sft-job-page-dark.png"/>
 </div>
+
+Monitor GPU usage and other metrics in the CLI or use the [MacOS menu bar](./manage#macos-menu-bar). Here with the CLI you get:
+
+```bash
+>>> hf jobs stats
+JOB ID                   CPU % NUM CPU MEM % MEM USAGE        NET I/O         GPU UTIL % GPU MEM % GPU MEM USAGE   
+------------------------ ----- ------- ----- ---------------- --------------- ---------- --------- --------------- 
+695e83c5d2f3efac77e8cf18 8%    12.0    7.18% 10.9GB / 152.5GB 0.0bps / 0.0bps 100%       31.92%    25.9GB / 81.2GB
+```
 
 Once the job is done, find your model on your account:
 

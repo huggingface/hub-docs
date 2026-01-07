@@ -1,6 +1,6 @@
-## Manage Jobs
+# Manage Jobs
 
-### List Jobs
+## List Jobs
 
 Find your list of Jobs in the Jobs page or your organization Jobs page (user/organization page > settings > Jobs):
 
@@ -52,8 +52,24 @@ Specify your organization `namespace` to list Jobs under your organization:
 >>> hf jobs ps --namespace <my-org-name>
 ```
 
+## Monitor resource usage
 
-### Inspect a Job
+Use `hf jobs stats` to get the usage statistics for CPU, memory, network and GPU (if any) of running Jobs:
+
+```bash
+>>> hf jobs stats
+JOB ID                   CPU % NUM CPU MEM % MEM USAGE        NET I/O         GPU UTIL % GPU MEM % GPU MEM USAGE   
+------------------------ ----- ------- ----- ---------------- --------------- ---------- --------- --------------- 
+695e83c5d2f3efac77e8cf18 8%    12.0    7.18% 10.9GB / 152.5GB 0.0bps / 0.0bps 100%       31.92%    25.9GB / 81.2GB
+```
+
+Specify one or several Job ids to only show the statistics of certain Jobs:
+
+```bash
+>>> hf jobs stats [job-ids]...
+```
+
+## Inspect a Job
 
 You can see the status logs of a Job in the Job page:
 
@@ -107,7 +123,7 @@ hf jobs inspect --namespace <my-org-name> <job_id>
 hf jobs logs --namespace <my-org-name> <job_id>
 ```
 
-### Debug a Job
+## Debug a Job
 
 If a Job has an error, you can see it in on the Job page
 
@@ -146,7 +162,7 @@ In this case you need to specify a higher timeout, using `--timeout` in the CLI,
 hf jobs uv run --timeout 3h ...
 ```
 
-### Cancel Jobs
+## Cancel Jobs
 
 Use the "Cancel" button on the Job page to cancel a Job:
 
@@ -171,3 +187,17 @@ Specify your organization `namespace` to cancel a Job under your organization:
 ```bash
 hf jobs cancel --namespace <my-org-name> <job_id>
 ```
+
+## MacOS menu bar
+
+Find your list of Jobs in the MacOS [`hfjobs-menubar`](https://github.com/drbh/hfjobs-menubar) client:
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/macos-hfjobs-list.png"/>
+</div>
+
+Get Jobs information, and monitor logs and resource usage statistics:
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/macos-hfjobs-stats.png"/>
+</div>
