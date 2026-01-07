@@ -24,6 +24,8 @@ Here is a list of available endpoints and arguments:
   Inspect a Job.
 * GET `https://huggingface.co/api/jobs/{namespace}/{job_id}/logs`
   Fetch the logs of a Job.
+* GET `https://huggingface.co/api/jobs/{namespace}/{job_id}/metrics`
+  Fetch the resource usage statistics and metrics of a Job.
 * GET `https://huggingface.co/api/jobs/{namespace}/{job_id}/cancel`
   Cancel a Job.
 
