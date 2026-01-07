@@ -18,15 +18,17 @@ webhook = create_webhook(
 
 The webhook triggers the Job with the webhook payload in the environment variable `WEBHOOK_PAYLOAD`.
 
-The webjook payload contains multiple fields, here are a few useful ones:
+The webhook payload contains multiple fields, here are a few useful ones:
 
-* event:
-  * action: one of "create", "delete", "move", "update"
-  * scope: string
-* repo:
-  * owner: string
-  * headSha: string
-  * name: string
-  * type: one of "dataset", "model", "space"
+```
+- event:
+  - action: one of "create", "delete", "move", "update"
+  - scope: string
+- repo:
+  - owner: string
+  - headSha: string
+  - name: string
+  - type: one of "dataset", "model", "space"
+```
 
 You can find more information on webhooks in the [`huggingface_hub` Webhooks documentation](https://huggingface.co/docs/huggingface_hub/en/guides/webhooks).

@@ -178,8 +178,8 @@ hf jobs cancel 693b06b8c67c9f186cfe239e
 ```
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/cancelled-job.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/cancelled-job-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/cancelled-job-page.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/cancelled-job-page-dark.png"/>
 </div>
 
 Specify your organization `namespace` to cancel a Job under your organization:

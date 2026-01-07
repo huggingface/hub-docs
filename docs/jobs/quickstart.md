@@ -67,7 +67,7 @@ The job logs appear in your terminal, but you can also see them in your jobs pag
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/first-job-page.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/firts-job-page-dark.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/first-job-page-dark.png"/>
 </div>
 
 
