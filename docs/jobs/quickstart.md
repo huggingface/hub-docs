@@ -1,6 +1,7 @@
 # Quickstart
 
-In this guide you will run a Job to fine-tune an open source model on Hugging Face infrastructure in only a few minutes. Make sure you are logged in to Hugging Face and have access to your [Jobs page](https://huggingface.co/settings/jobs).
+In this guide you will run a Job to fine-tune an open source model on Hugging Face infrastructure in only a few minutes.
+Make sure you are logged in to Hugging Face and have access to your [Jobs page](https://huggingface.co/settings/jobs), which is available if you have a PRO account, or a Team or Enterprise subscription.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-page.png"/>
@@ -11,7 +12,7 @@ In this guide you will run a Job to fine-tune an open source model on Hugging Fa
 
 First install the Hugging Face CLI:
 
-1. Install the CLI
+### 1. Install the CLI
 
 
 Recommended approach:
@@ -32,7 +33,7 @@ Or using uv:
 >>> uv tool install hf
 ``
 
-2. Login to your Hugging Face account:
+### 2. Login to your Hugging Face account
 
 Login
 
@@ -40,7 +41,7 @@ Login
 >>> hf auth login
 ```
 
-3. Create your first jobs using the `hf jobs` command:
+### 3. Create your first jobs using the `hf jobs` command
 
 Run a UV command or script
 
@@ -68,7 +69,7 @@ View at: https://huggingface.co/jobs/lhoestq/693aee76c67c9f186cfe233e
 Hello from the cloud!
 ```
 
-4. Check your first jobs
+### 4. Check your first jobs
 
 The job logs appear in your terminal, but you can also see them in your jobs page. Open the job page to see the job information, status and logs:
 

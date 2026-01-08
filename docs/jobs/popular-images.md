@@ -1,6 +1,6 @@
-# Frameworks Setups
+# Popular Images
 
-Here is the list of frameworks that provide ready-to-use Docker images with UV that you can use in Jobs.
+Here is the list of ready-to-use Docker images from popular frameworks that you can use in Jobs with uv.
 
 These Docker images already have uv installed but if you want to use an image + uv for an image without uv insalled you’ll need to make sure uv is installed first. This will work well in many cases but for LLM inference libraries which can have quite specific requirements, it can be useful to use a specific image that has the library installed.
 

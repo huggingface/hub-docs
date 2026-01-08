@@ -10,39 +10,18 @@
     - local: pricing
       title: Pricing and Billing
 
-- title: Tutorials
-  sections:
-    - title: Training
-      sections:
-      - local: training1
-        title: Training Tuto 1
-    - title: Inference
-      sections:
-      - local: inference1
-        title: Inference Tuto 1
-    - title: Data
-      sections:
-      - local: data1
-        title: Data Tuto 1
-
 - title: Guides
   sections:
     - local: manage
       title: Manage Jobs
     - local: configuration
       title: Configuration
-    - local: frameworks
-      title: Frameworks Setups
+    - local: popular-images
+      title: Popular Images
     - local: schedule
       title: Schedule Jobs
     - local: webhooks
       title: Webhook Automation
 
 - title: Reference
-  sections:
-    - local: cli
-      title: Command Line Interface (CLI)
-    - local: python
-      title: Python client
-    - local: api
-      title: Jobs API Endpoints
+  local: reference
