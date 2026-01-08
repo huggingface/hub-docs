@@ -2,7 +2,7 @@
 
 Schedule and manage jobs that will run on HF infrastructure.
 
-Use `hf jobs uv run ` or [`hf jobs run`] with a schedule of `@annually`, `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, or a CRON schedule expression (e.g., `"0 9 * * 1"` for 9 AM every Monday):
+Use `hf jobs uv run ` or `hf jobs run` with a schedule of `@annually`, `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, or a CRON schedule expression (e.g., `"0 9 * * 1"` for 9 AM every Monday):
 
 ```bash
 # Schedule a job that runs every hour

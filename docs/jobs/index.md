@@ -40,4 +40,8 @@ More generally, Hugging Face Jobs supports any workload based on Docker and a co
 
 ## Automate Jobs
 
-Trigger Jobs automatically with a schedule or using webhooks. With a schedule, you can run Jobs every X minutes, hours, days, weeks or months. Scheduling Jobs uses the `cron` syntax like `"*/5 * * * *"` for "every 5 minutes", or aliases like `"@hourly"`, `"@daily"`, `"weekly"` or `"@monthly"`. With webhooks, Jobs can run whenever there is an update on Hugging face. For example you can configure webhooks to trigger for every model update under a given account, and retrieve the updated model from the webhook payload in the Job.
+Trigger Jobs automatically with a schedule or using webhooks.
+
+With a schedule, you can run Jobs every X minutes, hours, days, weeks or months. Scheduling Jobs uses the `cron` syntax like `"*/5 * * * *"` for "every 5 minutes", or aliases like `"@hourly"`, `"@daily"`, `"weekly"` or `"@monthly"`.
+
+With webhooks, Jobs can run whenever there is an update on a Hugging Face repository. For example you can configure webhooks to trigger for every model update under a given account, and retrieve the updated model from the webhook payload in the Job.

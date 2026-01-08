@@ -4,7 +4,7 @@
 
 You need to be authenticated with `hf auth login` to run Jobs, and use a token with the permission to start and manage Jobs.
 
-Alternatively, pass a Hugging Face token manually with `--token` in the CLI, the `token` argument in Python or a Bearer token for the HTTP API.
+Alternatively, pass a Hugging Face token manually with `--token` in the CLI, or the `token` argument in Python.
 
 ## UV Jobs
 

@@ -1,6 +1,6 @@
 # Quickstart
 
-In this guide you will run a Job to fine-tune an open source model on Hugging Face infrastastructure in only a few minutes. Make sure you are logged in to Hugging Face and have access to your [Jobs page](https://huggingface.co/settings/jobs).
+In this guide you will run a Job to fine-tune an open source model on Hugging Face infrastructure in only a few minutes. Make sure you are logged in to Hugging Face and have access to your [Jobs page](https://huggingface.co/settings/jobs).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-page.png"/>
@@ -13,21 +13,24 @@ First install the Hugging Face CLI:
 
 1. Install the CLI
 
-```bash
+
+Recommended approach:
+
+``bash
 >>> curl -LsSf https://hf.co/cli/install.sh | bash
-```
+``
 
-Install the CLI (using Homebrew)
+Or using Homebrew:
 
-```bash
+``bash
 >>> brew install huggingface-cli
-```
+``
 
-Install the CLI (using uv)
+Or using uv:
 
-```bash
+``bash
 >>> uv tool install hf
-```
+``
 
 2. Login to your Hugging Face account:
 
@@ -49,7 +52,11 @@ Hello from the cloud!
 ```
 
 ```bash
->>> hf jobs uv run path/to/script.py
+>>> echo "print('Hello from uv script!')" > script.py
+>>> hf jobs uv run script.py
+Job started with ID: 695f6cd8d2f3efac77e8cf7f
+View at: https://huggingface.co/jobs/lhoestq/695f6cd8d2f3efac77e8cf7f
+Hello from uv script!
 ```
 
 Run a Docker command
@@ -151,4 +158,4 @@ Once the job is done, find your model on your account:
 
 Congrats ! You just run your first Job to fine-tune an open source model 🔥
 
-Feel free to try out your model locally and evaluate it using e.g. [tranfomers](https://huggingface.co/docs/transformers) by clicking on "Use this model", or deploy it to [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) in one click using the "Deploy" button.
+Feel free to try out your model locally and evaluate it using e.g. [transformers](https://huggingface.co/docs/transformers) by clicking on "Use this model", or deploy it to [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) in one click using the "Deploy" button.

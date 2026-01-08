@@ -14,7 +14,7 @@ hf jobs run --namespace my-org-name ...
 
 In this case the Job runs under the organization account, and you can see it in your organization Jobs page (organization page > settings > Jobs).
 
-Moreobver Jobs have a timeout of 30 minutes by default. You can change this behavior by setting a custom `timeout` when creating the Job. For example in the CLI:
+Moreover Jobs have a timeout of 30 minutes by default. You can change this behavior by setting a custom `timeout` when creating the Job. For example in the CLI:
 
 ```bash
 hf jobs run --timeout 3h ...
@@ -27,11 +27,11 @@ You can look at your current billing information for Jobs in in your [Billing](h
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/billing-dark.png"/>
 </div>
 
-To interrupt the billing on a Job, you can cancel it:
+You can cancel a Job prematurely to stop its billing
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/cancel-job.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/cancel-job-dark.png"/>
 </div>
 
-Additional information about billing can be found in the dedicated Hub-wide section.
+Additional information about billing can be found in the [dedicated Hub documentation](https://huggingface.co/docs/hub/en/billing).
