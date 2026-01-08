@@ -17,21 +17,21 @@ First install the Hugging Face CLI:
 
 Recommended approach:
 
-``bash
+```bash
 >>> curl -LsSf https://hf.co/cli/install.sh | bash
-``
+```
 
 Or using Homebrew:
 
-``bash
+```bash
 >>> brew install huggingface-cli
-``
+```
 
 Or using uv:
 
-``bash
+```bash
 >>> uv tool install hf
-``
+```
 
 ### 2. Login to your Hugging Face account
 
