@@ -1,9 +1,9 @@
 # Pricing and Billing
 
-Hugging Face Jobs let you run compute tasks on Hugging Face infrastructure without managing any infrastructure. Simply define a command, a Docker image, and a hardware flavor (CPU, GPU, or TPU).
+Hugging Face Jobs let you run compute tasks on Hugging Face infrastructure without managing it yourself. Simply define a command, a Docker image, and a hardware flavor among various CPU and GPU options.
 
 > [!TIP]
-> Jobs are available to [Pro users](https://huggingface.co/pro) and [Team or Enterprise organizations](https://huggingface.co/enterprise).
+> Jobs are available to [PRO users](https://huggingface.co/pro) and [Team or Enterprise organizations](https://huggingface.co/enterprise).
 
 Billing on Jobs is based on hardware usage and is computed by the minute: you get charged for every minute the Jobs runs on the requested hardware.
 
