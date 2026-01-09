@@ -10,7 +10,7 @@ Jobs are ideal for:
 - **Batch inference** on large datasets
 - **Data processing** with high-CPU configurations
 
-You can run jobs via the `hf jobs` CLI or the Python API, schedule recurring jobs with CRON expressions, and pay only for the seconds you use.
+You can run jobs via the `hf jobs` [CLI](https://huggingface.co/docs/huggingface_hub/en/guides/cli) or the [Python API](https://huggingface.co/docs/huggingface_hub/en/guides/jobs). You can launch one-off runs, or schedule recurring jobs with CRON expressions; either way, you only pay for the seconds you use.
 
 > [!TIP]
 > Jobs are available to [Pro users](https://huggingface.co/pro) and [Team or Enterprise organizations](https://huggingface.co/enterprise).
