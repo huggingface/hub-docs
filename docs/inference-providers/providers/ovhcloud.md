@@ -41,3 +41,23 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 ## Supported tasks
 
 
+### Chat Completion (LLM)
+
+Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"ovhcloud":{"modelId":"openai/gpt-oss-20b","providerModelId":"gpt-oss-20b"} } }
+conversational />
+
+
+### Chat Completion (VLM)
+
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=image-text-to-text
+    providersMapping={ {"ovhcloud":{"modelId":"Qwen/Qwen2.5-VL-72B-Instruct","providerModelId":"Qwen2.5-VL-72B-Instruct"} } }
+conversational />
+
+

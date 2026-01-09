@@ -170,7 +170,7 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"hf-inference":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"} } }
+    providersMapping={ {"hf-inference":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"} } }
 />
 
 
@@ -190,7 +190,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google/madlad400-3b-mt","providerModelId":"google/madlad400-3b-mt"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-small","providerModelId":"google-t5/t5-small"} } }
 />
 
 
