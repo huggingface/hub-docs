@@ -1,0 +1,20 @@
+- title: Get Started
+  sections:
+  - local: index
+    title: Agents
+  - local: chat-agents
+    title: Chat with the Hub
+  - local: coding-agents
+    title: Coding Agents on the Hub
+
+- title: Guides
+  sections:
+  - local: guides/mcp
+    title: MCP Server
+  - local: guides/skills
+    title: Skills
+  - local: guides/cli
+    title: CLI
+  - local: guides/sdk
+    title: Building with the SDK
+
