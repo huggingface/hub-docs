@@ -2,7 +2,7 @@
 
 <!-- STRETCH TABLES -->
 
-Hugging Face Jobs let you run compute tasks on Hugging Face infrastructure without managing any infrastructure. Simply define a command, a Docker image, and a hardware flavor (CPU, GPU, or TPU).
+Hugging Face Jobs let you run compute tasks on Hugging Face infrastructure without managing it yourself. Simply define a command, a Docker image, and a hardware flavor among various CPU and GPU options.
 
 Jobs are ideal for:
 - **Model training & fine-tuning** on GPUs without local setup
