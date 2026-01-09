@@ -13,7 +13,7 @@ Jobs are ideal for:
 You can run jobs via the `hf jobs` [CLI](https://huggingface.co/docs/huggingface_hub/en/guides/cli) or the [Python API](https://huggingface.co/docs/huggingface_hub/en/guides/jobs). You can launch one-off runs, or schedule recurring jobs with CRON expressions; either way, you only pay for the seconds you use.
 
 > [!TIP]
-> Jobs are available to [Pro users](https://huggingface.co/pro) and [Team or Enterprise organizations](https://huggingface.co/enterprise).
+> Jobs are available to [PRO users](https://huggingface.co/pro) and [Team or Enterprise organizations](https://huggingface.co/enterprise).
 
 **For usage guides and API reference, see the [Jobs documentation](https://huggingface.co/docs/jobs).**
 
