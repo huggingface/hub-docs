@@ -1,17 +1,30 @@
 # GGUF usage with LM Studio
 
+![cover](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-lmstudio-coverimage.png)
 
 [LM Studio](https://lmstudio.ai) is a desktop application for experimenting & developing with local AI models directly on your computer. LM Studio is built on llama.cpp and works on Mac (Apple Silicon), Windows, and Linux! 
 
 ## Getting models from Hugging Face into LM Studio
 
 First, enable LM Studio under your [Local Apps Settings](https://huggingface.co/settings/local-apps) in Hugging Face.  
-![][image2]
+
+<div class="flex justify-center">
+  <img
+    class="block"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-lmstudio-hfsettings.gif"
+  />
+</div>
 
 ### Option 1: Use the 'Use this model' button right from Hugging Face
 
 For any GGUF or MLX LLM, click the "Use this model" dropdown and select LM Studio. This will run the model directly in LM Studio if you already have it, or show you a download option if you don't.  
-![][image3]
+
+<div class="flex justify-center">
+  <img
+    class="block"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-lmstudio-modelcard.gif"
+  />
+</div>
 
 To try LM Studio with a trending model, find them here: [https://huggingface.co/models?library=gguf\&sort=trending](https://huggingface.co/models?library=gguf&sort=trending)
 
@@ -19,15 +32,29 @@ To try LM Studio with a trending model, find them here: [https://huggingface.co/
 
 Open the LM Studio app and search for any model by presssing ⌘ + Shift + M on Mac, or Ctrl + Shift + M on PC (M stands for Models). You can even paste entire Hugging Face URLs into the search bar!
 
-![][image4]
+<div class="flex justify-center">
+  <img
+    class="block"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-lmstudio-modelsearch.gif"
+  />
+</div>
 
 For each model, you can expand the dropdown to view multiple quantization options. LM Studio highlights the recommended choice for your hardware and indicates which options are supported.
 
-![][image5]
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-lmstudio-modelquant.png"/>
+</div>
 
 ### Option 3: Use lms, LM Studio's CLI:
 
 If you prefer a terminal based workflow, use lms, LM Studio's CLI.
+
+<div class="flex justify-center">
+  <img
+    class="block"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-lmstudio-lms.gif"
+  />
+</div>
  
 
 #### **Search for models from the terminal:**
@@ -66,7 +93,12 @@ You've downloaded a model following one of the above options, now let's get star
 
 In the LM Studio application, head to the model loader to view a list of downloaded models and select one to load. You may customize the model load parameters, though LM Studio will by default select the load parameters that optimizes model performance on your hardware.
 
-**![][image6]**
+<div class="flex justify-center">
+  <img
+    class="block"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/gguf-lmstudio-modelload.gif"
+  />
+</div>
 
 Once the model has completed loading (as indicated by the progress bar), you may start chatting away using our app's chat interface!
 
