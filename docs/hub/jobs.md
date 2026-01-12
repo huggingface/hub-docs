@@ -44,5 +44,6 @@ Jobs are billed per minute based on the hardware used. Below are the available h
 | 2x Nvidia A10G - large | 24 vCPU       | 92 GB        | 48 GB           | $3.00             |
 | 4x Nvidia A10G - large | 48 vCPU       | 184 GB       | 96 GB           | $5.00             |
 | Nvidia A100 - large    | 12 vCPU       | 142 GB       | 80 GB           | $2.50             |
-
+| 4x Nvidia A100     | 48 vCPU       | 568 GB       | 320 GB           | $10.00             |
+| 8x Nvidia A100     | 96 vCPU       | 1136 GB      | 640 GB           | $20.00            |
 You can also retrieve available hardware and pricing programmatically via the API at `GET /api/jobs/hardware`.
