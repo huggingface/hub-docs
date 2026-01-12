@@ -25,7 +25,7 @@ Jobs are billed per minute based on the hardware used. Below are the available h
 
 | **Hardware**           | **CPU**       | **Memory**   | **Hourly Price**  |
 |----------------------- |-------------- |------------- | ----------------- |
-| CPU Basic              | 2 vCPU        | 16 GB        | Free              |
+| CPU Basic              | 2 vCPU        | 16 GB        | $0.01             |
 | CPU Upgrade            | 8 vCPU        | 32 GB        | $0.03             |
 
 ### GPU
