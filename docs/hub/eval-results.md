@@ -49,11 +49,11 @@ Create a YAML file in `.eval_results/*.yaml` in your model repo:
     revision: <hash>              # Optional. Dataset revision hash
   value: 20.90                    # Required. Metric value
   verifyToken: <token>            # Optional. Cryptographic proof of auditable evaluation
-  date: 2025-01-15T10:30:00Z      # Optional. ISO-8601 datetime (defaults to git commit time)
-  source:                         # Optional. Attribution for the result
-    url: https://huggingface.co/datasets/cais/hle  # Required if source provided
-    name: CAIS HLE                # Optional. Display name
-    user: cais                    # Optional. HF username/org
+  date: 2025-01-15                # Optional. ISO-8601 date or datetime (defaults to git commit time)
+  source:                         # Optional. Attribution for this result, for instance a repo containing output traces or a Paper
+    url: https://huggingface.co/spaces/SaylorTwift/smollm3-mmlu-pro  # Required if source provided
+    name: Eval traces             # Optional. Display name
+    user: SaylorTwift             # Optional. HF username/org
 ```
 
 Or, with only the required attributes:
