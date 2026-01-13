@@ -44,7 +44,7 @@ Useful for Spaces that are meant to be duplicated by other users.
 Setting this value will not automatically assign a permanent storage to this Space.  
 Value must be one of `"small"`, `"medium"` or `"large"`.  
 > [!NOTE]
-> The persistent storage feature is no longer available.
+> The persistent storage feature is no longer available so this setting will be ignored.
 
 **`app_file`** : _string_  
 Path to your main application file (which contains either `gradio` Python code or `static` html code).  
