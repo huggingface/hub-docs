@@ -142,4 +142,4 @@ In this example, the Space will preload specific .safetensors files from `warp-a
 > Files are saved in the default `huggingface_hub` disk cache `~/.cache/huggingface/hub`. If your application expects them elsewhere or you changed your `HF_HOME` variable, this preloading does not follow that at this time.
 
 > [!NOTE]
-> Private preloading is not yet supported.
+> Preloading of private repos is not supported yet.
