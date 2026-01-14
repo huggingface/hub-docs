@@ -52,7 +52,7 @@ ZeroGPU Spaces are designed to be compatible with most PyTorch-based GPU Spaces.
 
   </details>
 - **Python**:
-  - 3.12.12 (default)
+  - 3.12.12  
   - 3.10.13  
 
 ## Getting started with ZeroGPU
