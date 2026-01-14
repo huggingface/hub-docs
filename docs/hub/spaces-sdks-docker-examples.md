@@ -12,3 +12,4 @@ We gathered some example demos in the [Spaces Examples](https://huggingface.co/S
 * JupyterLab and VSCode: https://huggingface.co/spaces/DockerTemplates/docker-examples by [@camenduru](https://twitter.com/camenduru) and [@nateraw](https://hf.co/nateraw).
 * Zeno app for interactive model evaluation: https://huggingface.co/spaces/zeno-ml/diffusiondb and [instructions for setup](https://zenoml.com/docs/deployment#hugging-face-spaces)
 * Gradio App: https://huggingface.co/spaces/sayakpaul/demo-docker-gradio
+* Basic Agentic UI using FunctionGemma and transformers.js: https://huggingface.co/spaces/harlley/basic-agentic-ui
