@@ -31,6 +31,7 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 | [PydanticAI](https://ai.pydantic.dev/)                                                                         | Framework for building AI agents with Python                   | [Official docs](https://ai.pydantic.dev/models/huggingface/)                                                           |
 | [Roo Code](https://roocode.com/)                                                                               | AI-powered code generation and refactoring                     | [Official docs](https://docs.roocode.com/providers/huggingface)                                                        |
 | [smolagents](https://huggingface.co/docs/smolagents)                                                           | Framework for building LLM agents with tool integration        | [Official docs](https://huggingface.co/docs/smolagents/reference/models#smolagents.InferenceClientModel)               |
+| [VT Code](https://github.com/vinhnx/vtcode)                                                           |  Reseach-preview semantic coding agent in the terminal  | [Official docs](https://github.com/vinhnx/vtcode/docs/huggingface/vtcode.md)               |
 
 ## Integrations by Category
 
@@ -53,6 +54,7 @@ AI-powered coding assistants and development environments.
 - [GitHub Copilot Chat](https://docs.github.com/en/copilot) - AI pair programmer in VS Code ([HF docs](./vscode))
 - [OpenCode](https://opencode.ai/) - AI coding agent built for the terminal ([Official docs](https://opencode.ai/docs/providers#hugging-face) / [HF docs](./opencode))
 - [Roo Code](https://roocode.com/) - AI-powered code generation and refactoring ([Official docs](https://docs.roocode.com/providers/huggingface))
+- [VT Code](https://github.com/vinhnx/vtcode) - Reseach-preview semantic coding agent in the terminal ([Official docs](https://github.com/vinhnx/vtcode/docs/huggingface/vtcode.md))
 
 ### Evaluation Frameworks
 
