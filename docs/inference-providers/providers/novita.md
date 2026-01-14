@@ -49,7 +49,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"novita":{"modelId":"zai-org/GLM-4.7","providerModelId":"zai-org/glm-4.7"} } }
+    providersMapping={ {"novita":{"modelId":"MiniMaxAI/MiniMax-M2.1","providerModelId":"minimax/minimax-m2.1"} } }
 conversational />
 
 
