@@ -35,10 +35,10 @@ Training libraries that integrate with Hub datasets for model training. The tabl
 | ------- | ----------- | --------------- |
 | [Axolotl](https://docs.axolotl.ai/docs/streaming.html) | Low-code LLM fine-tuning framework | ✅ |
 | [LlamaFactory](https://github.com/hiyouga/LLaMA-Factory) | Unified fine-tuning for 100+ LLMs | ✅ |
-| [Sentence Transformers](https://sbert.net) | Text embeddings and semantic similarity | ✅ |
+| [Sentence Transformers](https://sbert.net/docs/sentence_transformer/training_overview.html) | Text embeddings and semantic similarity | ✅ |
 | [Transformers](https://huggingface.co/docs/transformers/trainer) | 🤗 Transformers Trainer for fine-tuning models | ✅ |
 | [TRL](https://huggingface.co/docs/trl) | Training LLMs with reinforcement learning (SFT, DPO, GRPO) | ⚠️* |
-| [Unsloth](https://github.com/unslothai/unsloth) | Fast LLM fine-tuning (2x speedup, 70% less memory) | ✅ |
+| [Unsloth](https://docs.unsloth.ai) | Fast LLM fine-tuning (2x speedup, 70% less memory) | ✅ |
 
 _* SFTTrainer and DPOTrainer support streaming; GRPOTrainer does not yet support streaming input_
 
