@@ -31,19 +31,16 @@ _ * Requires passing extra arguments to write optimized Parquet files_
 
 Training libraries that integrate with Hub datasets for model training. The table below shows their streaming capabilities - the ability to train on datasets without downloading them first.
 
-| Library | Description | Stream from Hub | Stream to Hub |
-| ------- | ----------- | --------------- | ------------- |
-| [Axolotl](https://docs.axolotl.ai/docs/streaming.html) | Low-code LLM fine-tuning framework | ✅ | ❌ |
-| [LlamaFactory](https://github.com/hiyouga/LLaMA-Factory) | Unified fine-tuning for 100+ LLMs | ✅ | ❌ |
-| [Sentence Transformers](https://sbert.net) | Text embeddings and semantic similarity | ⚠️* | ❌ |
-| [TRL](https://huggingface.co/docs/trl) | Training LLMs with reinforcement learning (SFT, DPO, GRPO) | ⚠️** | ✅*** |
-| [Unsloth](https://github.com/unslothai/unsloth) | Fast LLM fine-tuning (2x speedup, 70% less memory) | ✅ | ❌ |
+| Library | Description | Stream from Hub |
+| ------- | ----------- | --------------- |
+| [Axolotl](https://docs.axolotl.ai/docs/streaming.html) | Low-code LLM fine-tuning framework | ✅ |
+| [LlamaFactory](https://github.com/hiyouga/LLaMA-Factory) | Unified fine-tuning for 100+ LLMs | ✅ |
+| [Sentence Transformers](https://sbert.net) | Text embeddings and semantic similarity | ✅ |
+| [Transformers](https://huggingface.co/docs/transformers/trainer) | 🤗 Transformers Trainer for fine-tuning models | ✅ |
+| [TRL](https://huggingface.co/docs/trl) | Training LLMs with reinforcement learning (SFT, DPO, GRPO) | ⚠️* |
+| [Unsloth](https://github.com/unslothai/unsloth) | Fast LLM fine-tuning (2x speedup, 70% less memory) | ✅ |
 
-_* Requires `max_steps` in training arguments ([see issue](https://github.com/huggingface/sentence-transformers/issues/3264))_
-
-_** SFTTrainer and DPOTrainer support streaming; GRPOTrainer does not yet support streaming input_
-
-_*** GRPO trainer only - logs completions to Hub dataset during training via `log_completions_hub_repo`_
+_* SFTTrainer and DPOTrainer support streaming; GRPOTrainer does not yet support streaming input_
 
 ### Streaming from Hub
 
@@ -52,18 +49,16 @@ Streaming allows training on massive datasets without downloading them first. Th
 - You want to start training immediately
 - You're using [HF Jobs](https://huggingface.co/docs/hub/jobs) where co-located compute provides faster streaming
 
-**Note:** Streaming datasets require setting `max_steps` in training arguments since the dataset length is unknown.
+Recent improvements have made streaming [up to 100x more efficient](https://huggingface.co/blog/streaming-datasets) with faster startup, prefetching, and better scaling to many workers.
 
-For more details, see [streaming datasets](./datasets-streaming).
+**Note:** Streaming requires `max_steps` in training arguments since dataset length is unknown, and uses buffer-based shuffling. See [streaming datasets](./datasets-streaming) for more details.
 
-### Streaming to Hub
+### Logging to Hub
 
-Some training libraries can stream training outputs back to a Hub dataset during training. This enables:
-- Real-time collection of model completions for analysis
-- Building preference datasets from training runs
-- Sharing training artifacts with collaborators
+Some tools can stream training data back to the Hub during training:
 
-Currently, [TRL's GRPO trainer](https://huggingface.co/docs/trl) supports this via `log_completions=True` and `log_completions_hub_repo` config options.
+- **[TRL](https://huggingface.co/docs/trl)**: The GRPO trainer can log completions to a Hub dataset via `log_completions=True` and `log_completions_hub_repo` config options
+- **[Trackio](https://github.com/huggingface/trackio)**: Streams training metrics to a Hub dataset in real-time
 
 ## Data Processing Libraries
 
