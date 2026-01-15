@@ -403,24 +403,24 @@
   title: Jobs
   isExpanded: true
   sections:
-  - local: index
+  - local: jobs
     title: Hugging Face Jobs
-  - local: quickstart
+  - local: jobs-quickstart
     title: Quickstart
-  - local: pricing
+  - local: jobs-pricing
     title: Pricing and Billing
-  - local: manage
+  - local: jobs-manage
     title: Manage Jobs
-  - local: configuration
+  - local: jobs-configuration
     title: Configuration
-  - local: popular-images
+  - local: jobs-popular-images
     title: Popular Images
-  - local: schedule
+  - local: jobs-schedule
     title: Schedule Jobs
-  - local: webhooks
+  - local: jobs-webhooks
     title: Webhook Automation
-  - title: Reference
-    local: reference
+  - local: jobs-reference
+    title: Reference
 
 - local: other
   title: Other
