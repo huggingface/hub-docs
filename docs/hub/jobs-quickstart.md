@@ -141,7 +141,7 @@ Follow the Job advancements on the job page on Hugging Face:
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/trl-sft-job-page-dark.png"/>
 </div>
 
-Monitor GPU usage and other metrics in the CLI or use the [MacOS menu bar](./manage#macos-menu-bar). Here with the CLI you get:
+Monitor GPU usage and other metrics in the CLI or use the [MacOS menu bar](./jobs-manage#macos-menu-bar). Here with the CLI you get:
 
 ```bash
 >>> hf jobs stats

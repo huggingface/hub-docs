@@ -399,6 +399,29 @@
     - local: spaces-get-user-plan
       title: Get User Plan and Status
 
+- local: jobs
+  title: Jobs
+  isExpanded: true
+  sections:
+  - local: jobs
+    title: Hugging Face Jobs
+  - local: jobs-quickstart
+    title: Quickstart
+  - local: jobs-pricing
+    title: Pricing and Billing
+  - local: jobs-manage
+    title: Manage Jobs
+  - local: jobs-configuration
+    title: Configuration
+  - local: jobs-popular-images
+    title: Popular Images
+  - local: jobs-schedule
+    title: Schedule Jobs
+  - local: jobs-webhooks
+    title: Webhook Automation
+  - local: jobs-reference
+    title: Reference
+
 - local: other
   title: Other
   isExpanded: true
