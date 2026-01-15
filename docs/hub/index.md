@@ -85,6 +85,20 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./spaces-oauth">Sign in with HF</a>
 </div>
 
+<div class="group flex flex-col space-y-2 rounded-xl border border-amber-100 bg-linear-to-br from-amber-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-amber-700">
+<div class="flex items-center py-0.5 text-lg font-semibold text-amber-600 dark:text-gray-400 mb-1">
+<svg class="shrink-0 mr-1.5 text-amber-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 25 25"><path opacity=".5" d="M6.016 14.674v4.31h4.31v-4.31h-4.31ZM14.674 14.674v4.31h4.31v-4.31h-4.31ZM6.016 6.016v4.31h4.31v-4.31h-4.31Z" fill="currentColor"></path><path opacity=".75" fill-rule="evenodd" clip-rule="evenodd" d="M3 4.914C3 3.857 3.857 3 4.914 3h6.514c.884 0 1.628.6 1.848 1.414a5.171 5.171 0 0 1 7.31 7.31c.815.22 1.414.964 1.414 1.848v6.514A1.914 1.914 0 0 1 20.086 22H4.914A1.914 1.914 0 0 1 3 20.086V4.914Zm3.016 1.102v4.31h4.31v-4.31h-4.31Zm0 12.968v-4.31h4.31v4.31h-4.31Zm8.658 0v-4.31h4.31v4.31h-4.31Zm0-10.813a2.155 2.155 0 1 1 4.31 0 2.155 2.155 0 0 1-4.31 0Z" fill="currentColor"></path><path opacity=".25" d="M16.829 6.016a2.155 2.155 0 1 0 0 4.31 2.155 2.155 0 0 0 0-4.31Z" fill="currentColor"></path></svg> Jobs</div>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs">Introduction</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-quickstart">Quickstart</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-pricing">Pricing</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-manage">Manage Jobs</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-configuration">Jobs Configuration</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-popular-images">Popular images</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-schedule">Schedule Jobs</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-webhooks">Webhooks Automation</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-reference">Reference</a>
+</div>
+
 <div class="group flex flex-col space-y-2 rounded-xl border border-green-100 bg-linear-to-br from-green-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-green-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-green-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-green-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" stroke="currentColor" d="M8.892 21.854a6.25 6.25 0 0 1-4.42-10.67l7.955-7.955a4.5 4.5 0 0 1 6.364 6.364l-6.895 6.894a2.816 2.816 0 0 1-3.89 0a2.75 2.75 0 0 1 .002-3.888l5.126-5.127a1 1 0 1 1 1.414 1.414l-5.126 5.127a.75.75 0 0 0 0 1.06a.768.768 0 0 0 1.06 0l6.895-6.894a2.503 2.503 0 0 0 0-3.535a2.56 2.56 0 0 0-3.536 0l-7.955 7.955a4.25 4.25 0 1 0 6.01 6.01l6.188-6.187a1 1 0 1 1 1.414 1.414l-6.187 6.186a6.206 6.206 0 0 1-4.42 1.832z"></path></svg> Other</div>
