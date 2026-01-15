@@ -65,6 +65,9 @@ def get_weather(city: str) -> str:
 response = await llm.simple_response("What's the weather in Paris?")
 ```
 
+> [!TIP]
+> Looking for a compatible model? Check out [this table](https://huggingface.co/inference/models) for a full list of supported models with providers, pricing, context length, latency, throughput, etc.
+
 ### VLM
 
 LLMs are nice but now let's use Vision Agents to plug a VLM in a video stream to get real-time video understanding!
