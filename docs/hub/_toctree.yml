@@ -399,6 +399,9 @@
     - local: spaces-get-user-plan
       title: Get User Plan and Status
 
+- local: jobs
+  title: Jobs
+
 - local: other
   title: Other
   isExpanded: true
