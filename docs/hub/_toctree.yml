@@ -403,8 +403,8 @@
   title: Jobs
   isExpanded: true
   sections:
-  - local: jobs
-    title: Hugging Face Jobs
+  - local: jobs-overview
+    title: Jobs Overview
   - local: jobs-quickstart
     title: Quickstart
   - local: jobs-pricing
