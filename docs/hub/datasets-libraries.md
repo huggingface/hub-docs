@@ -27,6 +27,30 @@ The table below summarizes the supported libraries and their level of integratio
 
 _ * Requires passing extra arguments to write optimized Parquet files_
 
+## Data Processing Libraries
+
+### Streaming
+
+Dataset streaming allows iterating on a dataset from Hugging Face progressively without having to download it completely.
+It saves local disk space because the data is never on disk. It saves memory since only a small portion of the dataset is used at a time. And it saves time, since there is no need to download data before the CPU or GPU workload.
+
+In addition to streaming *from* Hugging Face, many libraries also support streaming *back to* Hugging Face.
+Therefore, they can run end-to-end streaming pipelines: streaming from a source and writing to Hugging Face progressively, often overlapping the download, upload, and processing steps.
+
+For more details on how to do streaming, check out the documentation of a library that support streaming (see table above) or the [streaming datasets](./datasets-streaming) documentation if you want to stream datasets from Hugging Face by yourself.
+
+### Optimized Parquet files
+
+Parquet files on Hugging Face are optimized to improve storage efficiency, accelerate downloads and uploads, and enable efficient dataset streaming and editing:
+
+* [Parquet Content Defined Chunking](https://huggingface.co/blog/parquet-cdc) optimizes Parquet for [Xet](https://huggingface.co/docs/hub/en/xet/index), Hugging Face's storage backend. It accelerates uploads and downloads thanks to chunk-based deduplication and allows efficient file editing
+* Page index accelerates filters when streaming and enables efficient random access, e.g. in the [Dataset Viewer](https://huggingface.co/docs/dataset-viewer)
+
+Some libraries require extra argument to write optimized Parquet files like `Pandas` and `PyArrow`:
+
+* `use_content_defined_chunking=True` to enable Parquet Content Defined Chunking, for [deduplication](https://huggingface.co/blog/parquet-cdc) and [editing](./datasets-editing)
+* `write_page_index=True` to include a page index in the Parquet metadata, for [streaming and random access](./datasets-streaming)
+
 ## Training Libraries
 
 Training libraries that integrate with Hub datasets for model training. The table below shows their streaming capabilities - the ability to train on datasets without downloading them first.
@@ -57,32 +81,7 @@ Recent improvements have made streaming [up to 100x more efficient](https://hugg
 
 Some tools can stream training data back to the Hub during training:
 
-- **[TRL](https://huggingface.co/docs/trl)**: The GRPO trainer can log completions to a Hub dataset via `log_completions=True` and `log_completions_hub_repo` config options
 - **[Trackio](https://github.com/huggingface/trackio)**: Streams training metrics to a Hub dataset in real-time
-
-## Data Processing Libraries
-
-### Streaming
-
-Dataset streaming allows iterating on a dataset from Hugging Face progressively without having to download it completely.
-It saves local disk space because the data is never on disk. It saves memory since only a small portion of the dataset is used at a time. And it saves time, since there is no need to download data before the CPU or GPU workload.
-
-In addition to streaming *from* Hugging Face, many libraries also support streaming *back to* Hugging Face.
-Therefore, they can run end-to-end streaming pipelines: streaming from a source and writing to Hugging Face progressively, often overlapping the download, upload, and processing steps.
-
-For more details on how to do streaming, check out the documentation of a library that support streaming (see table above) or the [streaming datasets](./datasets-streaming) documentation if you want to stream datasets from Hugging Face by yourself.
-
-### Optimized Parquet files
-
-Parquet files on Hugging Face are optimized to improve storage efficiency, accelerate downloads and uploads, and enable efficient dataset streaming and editing:
-
-* [Parquet Content Defined Chunking](https://huggingface.co/blog/parquet-cdc) optimizes Parquet for [Xet](https://huggingface.co/docs/hub/en/xet/index), Hugging Face's storage backend. It accelerates uploads and downloads thanks to chunk-based deduplication and allows efficient file editing
-* Page index accelerates filters when streaming and enables efficient random access, e.g. in the [Dataset Viewer](https://huggingface.co/docs/dataset-viewer)
-
-Some libraries require extra argument to write optimized Parquet files like `Pandas` and `PyArrow`:
-
-* `use_content_defined_chunking=True` to enable Parquet Content Defined Chunking, for [deduplication](https://huggingface.co/blog/parquet-cdc) and [editing](./datasets-editing)
-* `write_page_index=True` to include a page index in the Parquet metadata, for [streaming and random access](./datasets-streaming)
 
 ## Integrating data libraries and tools with the Hub
 
