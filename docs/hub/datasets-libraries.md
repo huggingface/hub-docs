@@ -27,6 +27,8 @@ The table below summarizes the supported libraries and their level of integratio
 
 _ * Requires passing extra arguments to write optimized Parquet files_
 
+## Data Processing Libraries
+
 ### Streaming
 
 Dataset streaming allows iterating on a dataset from Hugging Face progressively without having to download it completely.
@@ -48,6 +50,38 @@ Some libraries require extra argument to write optimized Parquet files like `Pan
 
 * `use_content_defined_chunking=True` to enable Parquet Content Defined Chunking, for [deduplication](https://huggingface.co/blog/parquet-cdc) and [editing](./datasets-editing)
 * `write_page_index=True` to include a page index in the Parquet metadata, for [streaming and random access](./datasets-streaming)
+
+## Training Libraries
+
+Training libraries that integrate with Hub datasets for model training. The table below shows their streaming capabilities - the ability to train on datasets without downloading them first.
+
+| Library | Description | Stream from Hub |
+| ------- | ----------- | --------------- |
+| [Axolotl](https://docs.axolotl.ai/docs/streaming.html) | Low-code LLM fine-tuning framework | ✅ |
+| [LlamaFactory](https://github.com/hiyouga/LLaMA-Factory) | Unified fine-tuning for 100+ LLMs | ✅ |
+| [Sentence Transformers](https://sbert.net/docs/sentence_transformer/training_overview.html) | Text embeddings and semantic similarity | ✅ |
+| [Transformers](https://huggingface.co/docs/transformers/trainer) | 🤗 Transformers Trainer for fine-tuning models | ✅ |
+| [TRL](https://huggingface.co/docs/trl) | Training LLMs with reinforcement learning (SFT, DPO, GRPO) | ⚠️* |
+| [Unsloth](https://docs.unsloth.ai) | Fast LLM fine-tuning (2x speedup, 70% less memory) | ✅ |
+
+_* SFTTrainer and DPOTrainer support streaming; GRPOTrainer does not yet support streaming input_
+
+### Streaming from Hub
+
+Streaming allows training on massive datasets without downloading them first. This is valuable when:
+- Your dataset is too large to fit on disk
+- You want to start training immediately
+- You're using [HF Jobs](https://huggingface.co/docs/hub/jobs) where co-located compute provides faster streaming
+
+Recent improvements have made streaming [up to 100x more efficient](https://huggingface.co/blog/streaming-datasets) with faster startup, prefetching, and better scaling to many workers.
+
+**Note:** Streaming requires `max_steps` in training arguments since dataset length is unknown, and uses buffer-based shuffling. See [streaming datasets](./datasets-streaming) for more details.
+
+### Logging to Hub
+
+Some tools can stream training data back to the Hub during training:
+
+- **[Trackio](https://github.com/huggingface/trackio)**: Streams training metrics to a Hub dataset in real-time
 
 ## Integrating data libraries and tools with the Hub
 
