@@ -33,7 +33,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-base-squad2","providerModelId":"deepset/roberta-base-squad2"}} }
+    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-large-uncased-whole-word-masking-finetuned-squad","providerModelId":"google-bert/bert-large-uncased-whole-word-masking-finetuned-squad"}} }
 />
 
 

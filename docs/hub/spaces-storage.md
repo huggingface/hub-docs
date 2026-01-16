@@ -2,10 +2,12 @@
 
 Every Space comes with a small amount of disk storage. This disk space is ephemeral, meaning its content will be lost if your Space restarts or is stopped.
 If you need to persist data with a longer lifetime than the Space itself, you can:
-- [Subscribe to a persistent storage upgrade](#persistent-storage)
 - [Use a dataset as a data store](#dataset-storage)
 
 ## Persistent storage
+
+> [!NOTE]
+> The persistent storage feature is no longer available.
 
 You can upgrade your Space to have access to persistent disk space from the **Settings** tab.
 

@@ -67,6 +67,6 @@ Find out more about Feature Extraction [here](../tasks/feature-extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"scaleway":{"modelId":"BAAI/bge-multilingual-gemma2","providerModelId":"bge-multilingual-gemma2"} } }
+    providersMapping={ {"scaleway":{"modelId":"Qwen/Qwen3-Embedding-8B","providerModelId":"qwen3-embedding-8b"} } }
 />
 

@@ -70,3 +70,13 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 conversational />
 
 
+### Text To Image
+
+Find out more about Text To Image [here](../tasks/text-to-image).
+
+<InferenceSnippet
+    pipeline=text-to-image
+    providersMapping={ {"zai-org":{"modelId":"zai-org/GLM-Image","providerModelId":"glm-image"} } }
+/>
+
+
