@@ -39,20 +39,20 @@ from vision_agents.huggingface import HuggingFaceLLM
 
 llm = HuggingFaceLLM(
       model="meta-llama/Meta-Llama-3-8B-Instruct",
-      provider="together"  # Optional: "fastest", "cheapest", "groq", "together", etc.
+      provider="auto"  # Optional: "fastest", "cheapest", "groq", "together", etc.
 )
 ```
 
 Once `llm` is instantiated, you can use it like this:
 
-```py
+```python
 response = await llm.simple_response("Hello, how are you?")
 print(response.text)
 ```
 
 You can also register Python functions as tools to be called by the LLM:
 
-```py
+```python
 from vision_agents.plugins import huggingface
 
 llm = huggingface.LLM(model="meta-llama/Meta-Llama-3-8B-Instruct")
@@ -70,9 +70,9 @@ response = await llm.simple_response("What's the weather in Paris?")
 
 ### VLM
 
-LLMs are nice but now let's use Vision Agents to plug a VLM in a video stream to get real-time video understanding!
+LLMs are nice, but now let's use Vision Agents to plug a VLM in a video stream to get real-time video understanding!
 
-```py
+```python
 from vision_agents.plugins import huggingface, getstream, deepgram
 from vision_agents.core import Agent, User
 
@@ -90,7 +90,7 @@ agent = Agent(
 
 Once the Agent is defined, simply ask what's in the video:
 
-```py
+```python
 response = await vlm.simple_response("What do you see?")
 print(response.text)
 ```
