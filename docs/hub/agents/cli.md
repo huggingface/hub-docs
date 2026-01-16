@@ -1,6 +1,6 @@
 # Hugging Face CLI for Agents
 
-The `hf` command-line interface lets you interact with the Hugging Face Hub from your terminal. Search for models, datasets, Spaces, and papers. Download models, upload files, manage repositories, and run compute jobs.
+Coding agents like Claude Code, OpenAI Codex, and Open Code are excellent at using the CLI to interact with the Hub. The `hf` command-line interface lets you interact with the Hugging Face Hub from your terminal. Search for models, datasets, Spaces, and papers. Download models, upload files, manage repositories, and run compute jobs.
 
 > [!TIP]
 > This is a quick guide on agents using the CLI. For more detailed information, see the [CLI Reference](https://huggingface.co/docs/huggingface_hub/guides/cli).
@@ -53,7 +53,14 @@ hf --help
 Hugging Face Skills are available for the CLI to help you interact with the Hub.
 
 ```bash
-hf skill add huggingface/hf-cli
+# start claude 
+claude
+
+# install the skills marketplace plugin
+/plugin marketplace add huggingface/skills
+
+# install the hugging face cli skill
+/plugin install hugging-face-cli@huggingface/skills
 ```
 
 > [!TIP]

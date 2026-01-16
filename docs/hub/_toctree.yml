@@ -399,6 +399,20 @@
     - local: spaces-get-user-plan
       title: Get User Plan and Status
 
+- title: Agents
+  isExpanded: true
+  sections:
+  - local: agents/index
+    title: Agents on the Hub
+  - local: agents/mcp
+    title: Hugging Face MCP Server
+  - local: agents/skills
+    title: Hugging Face Agent Skills
+  - local: agents/cli
+    title: Agents and theCLI
+  - local: agents/sdk
+    title: Building agents with the SDK
+
 - local: other
   title: Other
   isExpanded: true
@@ -458,8 +472,6 @@
       title: "JFrog"
   - local: agents
     title: Agents on Hub
-  - local: hf-mcp-server
-    title: Hugging Face MCP Server
   - local: moderation
     title: Moderation
   - local: paper-pages

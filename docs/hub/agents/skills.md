@@ -1,6 +1,6 @@
 # Skills
 
-Skills are Agent Context Protocol (ACP) definitions that provide coding agents with structured guidance for AI/ML tasks. They help agents understand best practices for a give domain or task. Hugging Face Skills is a repository of skills that are available to all coding agents, specifically designed for AI/ML tasks.
+Skills are Agent Context definitions that provide coding agents with structured guidance for AI/ML tasks. They help agents understand best practices for a give domain or task. Hugging Face Skills is a repository of skills that are available to all coding agents, specifically designed for AI/ML tasks.
 
 Hugging Face Skills work with major coding agents:
 - OpenAI Codex
@@ -21,9 +21,76 @@ Each skill includes:
 
 To install the Hugging Face CLI skill, use the following command with Claude Code:
 
+Skills provide task-specific guidance for AI/ML workflows. They work alongside MCP or standalone.
+
+<hfoptions id="install-skills">
+
+<hfoption id="Claude Code">
+
 ```bash
-claude skill add huggingface/hf-cli
+# start claude 
+claude
+
+# install the skills marketplace plugin
+/plugin marketplace add huggingface/skills
 ```
+
+Then, to install a specific skill, use the following command:
+
+```bash
+# skill name + marketplace 
+/plugin install <skill-name>@huggingface/skills
+
+# for example, to install the hugging face cli skill
+/plugin install hugging-face-cli@huggingface/skills
+```
+
+</hfoption>
+
+<hfoption id="OpenAI Codex">
+
+```bash
+# start codex
+codex
+
+# install all Hugging Face Skills
+$skill-installer install https://github.com/huggingface/skills
+```
+
+Or, to install a specific skill, use the following command:
+
+```bash
+# skill name + marketplace 
+$skill-installer install <skill-name> from https://github.com/huggingface/skills
+```
+
+For some GPT models, `skill-installer` works better with models on a local directory of skills, so do:
+
+```bash
+git clone https://github.com/huggingface/skills
+
+# start codex
+codex
+
+# install the skills from the local directory
+$skill-installer install the hugging face cli skill from the skills/skills/hugging-face-cli/ folder
+```
+</hfoption>
+
+</hfoptions>
+
+### What You Can Do
+
+Once configured, your coding agent can:
+
+| Capability | Example |
+| ---------- | ------- |
+| Search the Hub | "Find a code generation model under 7B parameters" |
+| Generate images | "Create a diagram of a transformer architecture" |
+| Explore datasets | "What datasets are available for sentiment analysis?" |
+| Run Spaces | "Use the Whisper Space to transcribe this audio file" |
+| Get documentation | "How do I fine-tune a model with transformers?" |
+
 ## Available Skills
 
 Hugging Face Skills are available in the [Hugging Face Skills repository](https://github.com/huggingface/skills) and include two types of skills:

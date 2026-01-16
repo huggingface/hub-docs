@@ -62,6 +62,7 @@ The `Agent` class manages the chat loop and MCP tool execution. It uses [Inferen
 
 ```python
 from huggingface_hub import Agent
+import asyncio
 
 agent = Agent(
     model="Qwen/Qwen2.5-72B-Instruct",
@@ -74,9 +75,6 @@ agent = Agent(
     ]
 )
 
-# Run the agent
-import asyncio
-
 async def main():
     async for chunk in agent.run("Generate an image of a sunset"):
         if hasattr(chunk, 'choices'):
@@ -88,38 +86,6 @@ asyncio.run(main())
 ```
 
 See the [Agent reference](https://huggingface.co/docs/huggingface_hub/package_reference/mcp#huggingface_hub.Agent) for all options.
-
-## Using MCPClient Directly
-
-For more control, use `MCPClient` to manage MCP servers and tool calls directly.
-```python
-import asyncio
-from huggingface_hub import MCPClient
-
-async def main():
-    async with MCPClient(
-        model="Qwen/Qwen2.5-72B-Instruct",
-        provider="nebius",
-    ) as client:
-        # Connect to an MCP server
-        await client.add_mcp_server(
-            type="sse", 
-            url="https://evalstate-flux1-schnell.hf.space/gradio_api/mcp/sse"
-        )
-        
-        # Process a request with tools
-        messages = [{"role": "user", "content": "Generate an image of a sunset"}]
-        
-        async for chunk in client.process_single_turn_with_tools(messages):
-            if hasattr(chunk, 'choices'):
-                delta = chunk.choices[0].delta
-                if delta.content:
-                    print(delta.content, end="")
-
-asyncio.run(main())
-```
-
-See the [MCPClient reference](https://huggingface.co/docs/huggingface_hub/package_reference/mcp#huggingface_hub.MCPClient) for all options.
 
 </hfoption>
 
@@ -154,8 +120,56 @@ for await (const chunk of agent.run("Generate an image of a sunset")) {
 
 See the [tiny-agents documentation](https://huggingface.co/docs/huggingface.js/tiny-agents/README) for all options.
 
+</hfoption>
+
+</hfoptions>
+
+## Using MCPClient Directly
+
+For more control, use `MCPClient` to manage MCP servers and tool calls directly.
+
+<hfoptions id="mcp-client">
+
+<hfoption id="Python">
+
+```python
+import asyncio
+from huggingface_hub import MCPClient
+
+async def main():
+    async with MCPClient(
+        model="Qwen/Qwen2.5-72B-Instruct",
+        provider="nebius",
+    ) as client:
+        # Connect to an MCP server
+        await client.add_mcp_server(
+            type="sse", 
+            url="https://evalstate-flux1-schnell.hf.space/gradio_api/mcp/sse"
+        )
+        
+        # Process a request with tools
+        messages = [{"role": "user", "content": "Generate an image of a sunset"}]
+        
+        async for chunk in client.process_single_turn_with_tools(messages):
+            if hasattr(chunk, 'choices'):
+                delta = chunk.choices[0].delta
+                if delta.content:
+                    print(delta.content, end="")
+
+asyncio.run(main())
+```
+
+See the [MCPClient reference](https://huggingface.co/docs/huggingface_hub/package_reference/mcp#huggingface_hub.MCPClient) for all options.
+
+</hfoption>
+
+<hfoption id="JavaScript">
 
 The JavaScript SDK uses the `Agent` class for MCP interactions. For lower-level control, see the [@huggingface/mcp-client](https://huggingface.co/docs/huggingface.js/mcp-client/README) package.
+
+</hfoption>
+
+</hfoptions>
 
 ## Share Your Agent
 
