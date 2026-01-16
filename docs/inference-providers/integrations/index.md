@@ -31,6 +31,7 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 | [PydanticAI](https://ai.pydantic.dev/)                                                                         | Framework for building AI agents with Python                   | [Official docs](https://ai.pydantic.dev/models/huggingface/)                                                           |
 | [Roo Code](https://roocode.com/)                                                                               | AI-powered code generation and refactoring                     | [Official docs](https://docs.roocode.com/providers/huggingface)                                                        |
 | [smolagents](https://huggingface.co/docs/smolagents)                                                           | Framework for building LLM agents with tool integration        | [Official docs](https://huggingface.co/docs/smolagents/reference/models#smolagents.InferenceClientModel)               |
+| [Vision Agents](https://visionagents.ai/)                                                                      | SDK for real-time AI with text and vision language models      | [Official docs](https://visionagents.ai/integrations/huggingface) / [HF docs](./visionagents)                          |
 
 ## Integrations by Category
 
@@ -71,6 +72,7 @@ LLM application frameworks and orchestration platforms.
 - [LlamaIndex](https://www.llamaindex.ai/) - Data framework for connecting custom data to LLMs ([Official docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers))
 - [PydanticAI](https://ai.pydantic.dev/) - Framework for building AI agents with Python ([Official docs](https://ai.pydantic.dev/models/huggingface/))
 - [smolagents](https://huggingface.co/docs/smolagents) - Framework for building LLM agents with tool integration ([Official docs](https://huggingface.co/docs/smolagents/reference/models#smolagents.InferenceClientModel))
+- [Vision Agents](https://visionagents.ai/) - SDK for real-time AI with text and vision language models ([Official docs](https://visionagents.ai/integrations/huggingface) / [HF docs](./visionagents))
 
 ### Synthetic Data
 
