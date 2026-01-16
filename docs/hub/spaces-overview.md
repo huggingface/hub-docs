@@ -23,26 +23,26 @@ For step-by-step tutorials to creating your first Space, see the guides below:
 
 ## Hardware resources
 
-Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators and persistent storage, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
+Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
 
-| **Hardware**        	| **GPU Memory** 	| **CPU** 	| **Memory** 	| **Disk** 	| **Hourly Price** 	|
-|---------------------	|----------------	|----------	|------------	|----------	| ----------------	|
-| CPU Basic           	| -             	| 2 vCPU  	| 16 GB     	| 50 GB    	| Free!            	|
-| CPU Upgrade         	| -             	| 8 vCPU  	| 32 GB      	| 50 GB    	| $0.03            	|
-| Nvidia T4 - small   	| 16GB          	| 4 vCPU  	| 15 GB      	| 50 GB    	| $0.60            	|
-| Nvidia T4 - medium  	| 16GB          	| 8 vCPU  	| 30 GB      	| 100 GB   	| $0.90            	|
-| Nvidia A10G - small 	| 24GB          	| 4 vCPU  	| 15 GB      	| 110 GB   	| $1.05            	|
-| Nvidia A10G - large 	| 24GB          	| 12 vCPU 	| 46 GB      	| 200 GB   	| $3.15            	|
-| 2x Nvidia A10G - large| 48GB          	| 24 vCPU 	| 92 GB      	| 1000 GB  	| $5.70            	|
-| 4x Nvidia A10G - large| 96GB          	| 48 vCPU 	| 184 GB     	| 2000 GB  	| $10.80           	|
-| Nvidia A100 - large 	| 40GB          	| 12 vCPU 	| 142 GB     	| 1000 GB  	| $4.13            	|
-
-| **Storage tier**     	| **Size**             	| **Persistent** 	| **Monthly price** 	|
-|---------------------	|----------------------	|------------------	| ---------------------	|
-| Ephemeral (default) 	| 50GB                	| No               	| Free!                	|
-| Small               	| Ephemeral + 20GB    	| Yes              	| $5                   	|
-| Medium              	| Ephemeral + 150GB   	| Yes              	| $25                  	|
-| Large               	| Ephemeral + 1TB     	| yes              	| $100                 	|
+| **Hardware**           | **CPU**       | **Memory**   | **GPU Memory**  | **Hourly Price**  |
+|----------------------- |-------------- |------------- |---------------- | ----------------- |
+| CPU Basic              | 2 vCPU        | 16 GB        |                 | FREE              |
+| CPU Upgrade            | 8 vCPU        | 32 GB        |                 | $0.03             | 
+| Nvidia T4 - small      | 4 vCPU        | 15 GB        | 16 GB           | $0.40             |
+| Nvidia T4 - medium     | 8 vCPU        | 30 GB        | 16 GB           | $0.60             |
+| 1x Nvidia L4           | 8 vCPU        | 30 GB        | 24 GB           | $0.80             |
+| 4x Nvidia L4           | 48 vCPU       | 186 GB       | 96 GB           | $3.80             |
+| 1x Nvidia L40S         | 8 vCPU        | 62 GB        | 48 GB           | $1.80             |
+| 4x Nvidia L40S         | 48 vCPU       | 382 GB       | 192 GB          | $8.30             |
+| 8x Nvidia L40S         | 192 vCPU      | 1534 GB      | 384 GB          | $23.50            |
+| Nvidia A10G - small    | 4 vCPU        | 15 GB        | 24 GB           | $1.00             |
+| Nvidia A10G - large    | 12 vCPU       | 46 GB        | 24 GB           | $1.50             |
+| 2x Nvidia A10G - large | 24 vCPU       | 92 GB        | 48 GB           | $3.00             |
+| 4x Nvidia A10G - large | 48 vCPU       | 184 GB       | 96 GB           | $5.00             |
+| Nvidia A100 - large    | 12 vCPU       | 142 GB       | 80 GB           | $2.50             |
+| 4x Nvidia A100         | 48 vCPU       | 568 GB       | 320 GB          | $10.00            |
+| 8x Nvidia A100         | 96 vCPU       | 1136 GB      | 640 GB          | $20.00            |
 
 Note: Find more detailed and comprehensive pricing information on [our pricing page](https://huggingface.co/pricing).
 
