@@ -47,7 +47,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"nebius":{"modelId":"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8","providerModelId":"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B"} } }
+    providersMapping={ {"nebius":{"modelId":"MiniMaxAI/MiniMax-M2.1","providerModelId":"MiniMaxAI/MiniMax-M2.1"} } }
 conversational />
 
 
