@@ -399,18 +399,19 @@
     - local: spaces-get-user-plan
       title: Get User Plan and Status
 
-- title: Agents
+- local: agents
+  title: Agents
   isExpanded: true
   sections:
-  - local: agents/index
+  - local: agents-overview
     title: Agents on the Hub
-  - local: agents/mcp
+  - local: agents-mcp
     title: Hugging Face MCP Server
-  - local: agents/skills
+  - local: agents-skills
     title: Hugging Face Agent Skills
-  - local: agents/cli
-    title: Agents and theCLI
-  - local: agents/sdk
+  - local: agents-cli
+    title: Agents and the CLI
+  - local: agents-sdk
     title: Building agents with the SDK
 
 - local: jobs
