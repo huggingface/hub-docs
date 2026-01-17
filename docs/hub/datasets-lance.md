@@ -8,7 +8,7 @@
 
 ## Getting Started
 
-To get started, pip install `lance` and `pyarrow`:
+To get started, pip install `pylance` and `pyarrow`:
 
 ```bash
 pip install pylance pyarrow
