@@ -29,7 +29,7 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [Replicate](./providers/replicate)           |                       |                       |                    |      ✅       |      ✅       |       ✅       |
 | [SambaNova](./providers/sambanova)           |          ✅           |                       |         ✅         |               |               |                |
 | [Scaleway](./providers/scaleway)             |          ✅           |                       |         ✅         |               |               |                |
-| [Together](./providers/together)             |          ✅           |          ✅           |                    |      ✅       |               |                |
+| [Together](./providers/together)             |          ✅           |          ✅           |         ✅         |      ✅       |      ✅        |       ✅       |
 | [WaveSpeedAI](./providers/wavespeed)         |                       |                       |                    |      ✅       |      ✅       |                |
 | [Z.ai](./providers/zai-org)                  |          ✅           |          ✅           |                    |               |               |                |
 
