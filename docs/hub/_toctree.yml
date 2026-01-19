@@ -200,10 +200,10 @@
         sections:
           - local: gguf-llamacpp
             title: GGUF usage with llama.cpp
-          - local: gguf-gpt4all
-            title: GGUF usage with GPT4All
           - local: lmstudio
             title: GGUF usage with LM Studio
+          - local: gguf-gpt4all
+            title: GGUF usage with GPT4All
           - local: ollama
             title: GGUF usage with Ollama
       - local: dduf
