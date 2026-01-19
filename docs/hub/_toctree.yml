@@ -223,6 +223,8 @@
     title: Uploading Datasets (for LLMs)
   - local: datasets-downloading
     title: Downloading Datasets
+  - local: datasets-streaming
+    title: Streaming Datasets
   - local: datasets-libraries
     title: Integrated Libraries
     sections:
