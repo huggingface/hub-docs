@@ -105,12 +105,12 @@ Learn more in the [`huggingface_hub` MCP documentation](https://huggingface.co/d
 ### Custom Agents
 
 To create your own agent, simply create a folder (e.g., `my-agent/`) and define your agent’s configuration in an `agent.json` file.
-The following example shows a web-browsing agent configured to use the [Qwen/Qwen2.5-72B-Instruct](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct) model via Nebius inference provider, and it comes equipped with a playwright MCP server, which lets it use a web browser
+The following example shows a web-browsing agent configured to use the [Qwen/Qwen2.5-72B-Instruct](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct) model via Together AI inference provider, and it comes equipped with a playwright MCP server, which lets it use a web browser
 
 ```json
 {
 	"model": "Qwen/Qwen2.5-72B-Instruct",
-	"provider": "nebius",
+	"provider": "together",
 	"servers": [
 		{
 			"type": "stdio",

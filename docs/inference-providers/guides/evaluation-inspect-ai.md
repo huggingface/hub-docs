@@ -112,7 +112,6 @@ target_providers = [
     "sambanova",
     "groq",
     "novita",
-    "nebius",
     "cerebras",
     "nscale",
     "hyperbolic",
@@ -143,7 +142,6 @@ Launching the viewer and sorting by score, we can compare the performance across
 | openai/gpt-oss-120b | hyperbolic | 0.84 |
 | openai/gpt-oss-120b | fireworks-ai | 0.82 |
 | openai/gpt-oss-120b | nscale | 0.82 |
-| openai/gpt-oss-120b | nebius | 0.82 |
 | openai/gpt-oss-120b | scaleway | 0.81 |
 | openai/gpt-oss-120b | together | 0.81 |
 | openai/gpt-oss-120b | cerebras | 0.8 |
