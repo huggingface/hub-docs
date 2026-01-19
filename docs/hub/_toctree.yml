@@ -255,6 +255,8 @@
         title: fenic
       - local: datasets-fiftyone
         title: FiftyOne
+      - local: datasets-lance
+        title: Lance
       - local: datasets-pandas
         title: Pandas
       - local: datasets-polars
