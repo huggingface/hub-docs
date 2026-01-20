@@ -84,10 +84,11 @@ Once configured, your coding agent can:
 | Capability | Example |
 | ---------- | ------- |
 | Search the Hub | "Find a code generation model under 7B parameters" |
-| Generate images | "Create a diagram of a transformer architecture" |
 | Explore datasets | "What datasets are available for sentiment analysis?" |
 | Run Spaces | "Use the Whisper Space to transcribe this audio file" |
 | Get documentation | "How do I fine-tune a model with transformers?" |
+| Train a model | "Train an LLM with SFT using the Qwen/Qwen3-0.6B model and the trl-lib/Capybara dataset" |
+| Query a dataset | "Tell me about the evalstate/mcp-clients dataset from the last 2 days" |
 
 ## Available Skills
 
