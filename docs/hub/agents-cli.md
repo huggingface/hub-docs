@@ -5,6 +5,10 @@ Coding agents like Claude Code, OpenAI Codex, or Open Code are excellent at usin
 > [!TIP]
 > This is a quick guide on agents that use the CLI. For more detailed information, see the [CLI Reference itself](https://huggingface.co/docs/huggingface_hub/guides/cli).
 
+## Skills
+
+Hugging Face Skills are available for the CLI to help your agents interact with the Hub. Skills give agents relevant instructions for how to use the CLI. See the [Skills Guide](./agents-skills) for available skills and usage. That said, most agents can get by using the CLI directly without Skills. Worst case scenario, they will rely on documentation and trial and error to get commands right. Skills will make your agents more efficient and productive.
+
 ## Installation
 
 Make sure the `hf` CLI is installed on your system.
