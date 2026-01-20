@@ -20,7 +20,7 @@ The HF MCP Server works with any MCP-compatible client:
 
 #### 1. Open MCP Settings
 
-![MCP Settings Example](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hf-mcp-settings.png)
+![MCP Settings Example](https://huggingface.co/huggingface/documentation-images/resolve/main/agents-docs/mcp-settings.png)
 
 Visit [huggingface.co/settings/mcp](https://huggingface.co/settings/mcp) while logged in.
 
