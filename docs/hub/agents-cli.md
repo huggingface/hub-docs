@@ -52,7 +52,7 @@ hf --help
 
 ## Hugging Face Skills for the CLI
 
-Hugging Face Skills are available for the CLI to help you interact with the Hub.
+Hugging Face Skills are available for the CLI to help you interact with the Hub. Skills give agents relevant instructions for how to use the CLI. See the [Skills Guide](./skills) for available skills and usage. 
 
 ```bash
 # start claude 
@@ -65,10 +65,19 @@ claude
 /plugin install hugging-face-cli@huggingface/skills
 ```
 
-> [!TIP]
-> Skills give agents relevant instructions for how to use the CLI. See the [Skills Guide](./agents-skills) for available skills and usage. 
->
-> If you can't use skills, you can use the MCP Server for the CLI. The Hugging Face MCP Server gives your CLI access to the Hub's documentation, including the CLI reference.
+With Skills installed, your agent can use the CLI to interact with the Hub.
+
+For example, you could use Claude Code to search for datasets:
+
+```
+"What datasets are available for sentiment analysis?"
+```
+
+Or, you could use OpenAI Codex to create pull requests:
+
+```
+"Open a PR with evaluation results from the results.csv file to my/my-model repo on the Hub."
+```
 
 ## Resources
 
