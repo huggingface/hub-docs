@@ -43,7 +43,7 @@ We gathered a list of tips and recommendations for structuring your repo. If you
 | Repo size          | -                  | contact us for large repos (TBs of data)               |
 | Files per repo     | <100k              | merge data into fewer files                            |
 | Entries per folder | <10k               | use subdirectories in repo                             |
-| File size          | <200GB              | split data into chunked files                          |
+| File size          | <200GB             | split data into chunked files                          |
 | Commit size        | <100 files*        | upload files in multiple commits                       |
 | Commits per repo   | -                  | upload multiple files per commit and/or squash history |
 
