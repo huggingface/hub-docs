@@ -410,7 +410,7 @@
   - local: agents-skills
     title: Hugging Face Agent Skills
   - local: agents-cli
-    title: Agents and the CLI
+    title: Agents and the `hf` CLI
   - local: agents-sdk
     title: Building agents with the SDK
 

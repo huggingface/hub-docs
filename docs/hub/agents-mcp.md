@@ -10,7 +10,7 @@ The Hugging Face MCP (Model Context Protocol) Server connects your MCP‑compati
 
 ## Get started
 
-1. Open your MCP settings: visit https://huggingface.co/settings/mcp while logged in.
+1. Open your [MCP settings](https://huggingface.co/settings/mcp) while logged in.
 
 2. Pick your client: select your MCP‑compatible client (for example Cursor, VS Code, Zed, Claude Desktop). The page shows client‑specific instructions and a ready‑to‑copy configuration snippet.
 
@@ -30,7 +30,7 @@ After connecting, ask your assistant to use the Hugging Face tools. Example prom
 - “Show datasets about weather time‑series.”
 - “Create a 1024 x 1024 image of a cat ghibli style.”
 
-Your assistant will call MCP tools exposed by the Hugging Face MCP Server (including Spaces) and return results (titles, owners, downloads, links, and so on). You can then open the resource on the Hub or continue iterating in the same chat.
+Your assistant will call MCP tools exposed by the Hugging Face MCP Server (including Spaces you have selected, as shown in the next section) and return results (titles, owners, downloads, links, and so on). You can then open the resource on the Hub or continue iterating in the same chat.
 
 ![HF MCP with Spaces in VS Code](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hf-mcp-vscode.png)
 
@@ -45,7 +45,7 @@ Gradio MCP apps expose their functions as tools (with arguments and descriptions
 
 ![image/png](https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/ex9KRpvamn84ZaOlSp_Bj.png)
 
-Check out our dedicated guide for Spaces as MCP server [here](https://huggingface.co/docs/hub/spaces-mcp-servers#add-an-existing-space-to-your-mcp-tools).
+Check out our dedicated guide for Spaces as MCP servers [here](https://huggingface.co/docs/hub/spaces-mcp-servers#add-an-existing-space-to-your-mcp-tools).
 
 ## Learn more
 

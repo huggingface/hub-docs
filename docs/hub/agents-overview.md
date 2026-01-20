@@ -37,7 +37,7 @@ Copy the configuration snippet into your client's MCP settings, save, and restar
 
 ### What You Can Do
 
-Once connected, ask your assistant to use Hugging Face tools:
+Once connected, ask your assistant to use Hugging Face tools among the ones you selected in your configuration:
 
 | Task | Example Prompt |
 | ---- | -------------- |
@@ -61,7 +61,7 @@ Gradio MCP apps expose their functions as tools with arguments and descriptions,
 
 ### Learn More
 
-- [MCP Server Guide](./mcp) - Detailed setup and configuration
+- [MCP Server Guide](./agents-mcp) - Detailed setup and configuration
 - [HF MCP Settings](https://huggingface.co/settings/mcp) - Configure your client
 - [MCP-compatible Spaces](https://huggingface.co/spaces?filter=mcp-server) - Community tools
 
@@ -111,12 +111,12 @@ claude
 /plugin marketplace add huggingface/skills
 ```
 
-Then, to install a speci
+Then, to install a Skill specification:
 ```bash
 /plugin install hugging-face-cli@huggingface/skills
 ```
 
-See the [Skills Guide](./skills) for available skills and usage.
+See the [Skills Guide](./agents-skills) for available skills and usage.
 
 ### What You Can Do
 
@@ -140,7 +140,7 @@ Set your Hugging Face token as an environment variable:
 export HF_TOKEN="hf_..."
 ```
 
-Or authenticate via the [CLI](./cli):
+Or authenticate via the [CLI](./agents-cli):
 
 ```bash
 hf auth login
@@ -178,7 +178,7 @@ Agent: [Fetches documentation]
 
 ## Next Steps
 
-- [MCP Server](./mcp) - Connect any MCP-compatible AI assistant to the Hub
-- [Skills](./skills) - Pre-built capabilities for coding agents
-- [CLI](./cli) - Command-line interface for Hub operations  
-- [SDK](./sdk) - Python and JavaScript libraries for building agents
+- [MCP Server](./agens-mcp) - Connect any MCP-compatible AI assistant to the Hub
+- [Skills](./agens-skills) - Pre-built capabilities for coding agents
+- [CLI](./agens-cli) - Command-line interface for Hub operations  
+- [SDK](./agens-sdk) - Python and JavaScript libraries for building agents

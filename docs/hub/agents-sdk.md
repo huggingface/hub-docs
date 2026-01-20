@@ -1,6 +1,6 @@
 # Building with the SDK
 
-Build MCP-powered agents with the Hugging Face SDKs. The `huggingface_hub` (Python) and `@huggingface/tiny-agents` (JavaScript) libraries provide everything you need to connect LLMs to MCP tools.
+Build MCP-powered agents with the Hugging Face agentic SDKs. The `huggingface_hub` (Python) and `@huggingface/tiny-agents` (JavaScript) libraries provide everything you need to connect LLMs to MCP tools.
 
 ## Installation
 
@@ -185,4 +185,4 @@ Contribute agents to the [tiny-agents collection](https://huggingface.co/dataset
 - [tiny-agents Documentation](https://huggingface.co/docs/huggingface.js/tiny-agents/README) - JavaScript API reference
 - [Inference Providers](https://huggingface.co/docs/inference-providers) - Available LLM providers
 - [tiny-agents Collection](https://huggingface.co/datasets/tiny-agents/tiny-agents) - Browse community agents
-- [MCP Server Guide](./mcp) - Connect to the Hugging Face MCP Server
+- [MCP Server Guide](./agents-mcp) - Connect to the Hugging Face MCP Server
