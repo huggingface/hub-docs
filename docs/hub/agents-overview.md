@@ -3,7 +3,7 @@
 Hugging Face provides tools and protocols that connect AI agents directly to the Hub. Whether you're chatting with Claude, building with Codex, or developing custom agents, you can access models, datasets, Spaces, and community tools. This page covers connecting your [chat agents](#chat-with-hugging-face) and [coding agents](#coding-agents) to the Hub. 
 
 > [!TIP]
-> To build with agents on the Hub, check out the pages on [MCP Server](./mcp), [Skills](./skills), [CLI](./cli), and [SDK](./sdk).
+> To build with agents on the Hub, check out the pages on [MCP Server](./agents-mcp), [Skills](./agents-skills), [CLI](./agents-cli), and [SDK](./agents-sdk).
 
 ## Chat with Hugging Face
 
