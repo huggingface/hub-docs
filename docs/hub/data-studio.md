@@ -96,6 +96,36 @@ For more information see our guide on [How to embed the Dataset Viewer in a webp
 To have a properly working Dataset Viewer for your dataset, make sure your dataset is in a supported format and structure.
 There is also an option to configure your dataset using YAML.
 
+You can specify which files to display in the Dataset Viewer by adding a YAML configuration block at the top of your dataset's `README.md` file. For example, to choose which file goes into which split:
+
+```yaml
+---
+configs:
+- config_name: default
+  data_files:
+  - split: train
+    path: "data.csv"
+  - split: test
+    path: "holdout.csv"
+---
+```
+
+You can also select multiple files per split or use glob patterns:
+
+```yaml
+---
+configs:
+- config_name: default
+  data_files:
+  - split: train
+    path:
+    - "data/train_part1.csv"
+    - "data/train_part2.csv"
+  - split: test
+    path: "data/*.csv"
+---
+```
+
 For **private** datasets, the Dataset Viewer is enabled for [PRO users](https://huggingface.co/pricing) and [Team or Enterprise organizations](https://huggingface.co/enterprise).
 
 For more information see our guide on [How to configure the Dataset Viewer](./datasets-viewer-configure).
