@@ -23,24 +23,20 @@ You can also keep track of the latest Pytorch Training DLC releases [here](https
 
 For inference, we have a general-purpose PyTorch inference DLC, for serving models trained with any of those frameworks mentioned before on CPU, GPU, and AWS AI chips.
 
-You can also keep track of the latest Pytorch Inference DLC releases [here](https://github.com/aws/deep-learning-containers/releases?q=huggingface-inference+AND+NOT+tgi+AND+NOT+neuronx&expanded=true).
-
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.51.3-cpu-py312-ubuntu22.04- | CPU         |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.51.3-gpu-py312-cu124-ubuntu22.04 | GPU         |
 | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-inference-neuronx:2.7.1-transformers4.51.3-neuronx-py310-sdk2.24.1-ubuntu22.04 | Neuron         |
 
-### LLM TGI
+### LLM DLC
 
-There is also the LLM Text Generation Inference (TGI) DLC for high-performance text generation of LLMs on GPU and AWS AI chips.
-
-You can also keep track of the latest LLM TGI DLC releases [here](https://github.com/aws/deep-learning-containers/releases?q=tgi+AND+gpu&expanded=true).
+There is also the LLM DLC for high-performance text generation of LLMs on GPU and AWS AI chips.
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-tgi-inference:2.7.0-tgi3.3.6-gpu-py311-cu124-ubuntu22.04 | GPU         |
-| 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-tgi-inference:2.7.0-optimum3.3.6-neuronx-py310-ubuntu22.04 | Neuron         |
+| 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.4-neuronx-py310-sdk2.26.0-ubuntu22.04 | Neuron         |
 
 ### Text Embedding Inference
 
