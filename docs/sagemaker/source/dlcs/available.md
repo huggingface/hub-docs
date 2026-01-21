@@ -8,7 +8,7 @@ Neuron DLCs for training and inference on AWS Trainium and AWS Inferentia instan
 
 ## Training
 
-Pytorch Training DLC: For training, our DLCs are available for PyTorch via Transformers. They include support for training on GPUs and AWS AI chips with libraries such as TRL, Sentence Transformers, or Diffusers.
+For training, the DLCs are available for PyTorch via Transformers. They include GPUs and AWS AI chips support, with libraries such as TRL, Sentence Transformers, or Diffusers.
 
 You can also keep track of the latest Pytorch Training DLC releases [here](https://github.com/aws/deep-learning-containers/releases?q=huggingface-training+AND+NOT+neuronx&expanded=true).
 
@@ -21,7 +21,7 @@ You can also keep track of the latest Pytorch Training DLC releases [here](https
 
 ### Pytorch Inference DLC
 
-For inference, we have a general-purpose PyTorch inference DLC, for serving models trained with any of those frameworks mentioned before on CPU, GPU, and AWS AI chips.
+For inference, there is a general-purpose PyTorch inference DLC, for serving models trained with any of those frameworks mentioned before on CPU, GPU, and AWS AI chips.
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
@@ -31,7 +31,7 @@ For inference, we have a general-purpose PyTorch inference DLC, for serving mode
 
 ### LLM DLC
 
-For high-performance serving of text generation models, we have the LLM DLC available for GPU and AWS AI chips.
+For high-performance serving of text generation models, there is the LLM DLC, available on GPU and AWS AI chips.
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
@@ -40,7 +40,7 @@ For high-performance serving of text generation models, we have the LLM DLC avai
 
 ### Text Embedding Inference
 
-Finally, there is a Text Embeddings Inference (TEI) DLC for high-performance serving of embedding models on CPU and GPU.
+Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance serving of embedding models on CPU and GPU.
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
