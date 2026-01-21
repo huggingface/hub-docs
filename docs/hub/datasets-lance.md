@@ -114,7 +114,15 @@ blob_file = ds.take_blobs("video_blob", ids=[selected_index])[0]
 with open("video_0.mp4", "wb") as f:
     f.write(blob_file.read())
 ```
+The blob API is compatible with `torchcodec` to decode videos as torch tensors:
 
+```python
+from torchcodec.decoders import VideoDecoder
+decoder = VideoDecoder(blob_file)
+tensor = decoder[0]  # uint8 tensor of shape [C, H, W]
+```
+
+Refer to the [torchcodec docs](https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.VideoDecoder.html) to see more functions for efficiently decoding videos.
 ## Explore more Lance datasets
 
 Lance is an open format with native support for multimodal blobs alongside your traditional tabular data. You can work with images, audio, video, text, embeddings, and scalar metadata all in one place!
