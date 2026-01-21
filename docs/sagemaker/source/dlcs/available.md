@@ -31,7 +31,7 @@ For inference, we have a general-purpose PyTorch inference DLC, for serving mode
 
 ### LLM DLC
 
-There is also the LLM DLC for high-performance text generation of LLMs on GPU and AWS AI chips.
+For high-performance serving of text generation models, we have the LLM DLC available for GPU and AWS AI chips.
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
