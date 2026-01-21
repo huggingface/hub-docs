@@ -52,7 +52,7 @@ for row in rows:
 
 ## Vector search
 
-Because indexes native to the Lance format, you can store not only your data but also your **embeddings and indexes together** in one dataset and query them directly on the Hub.
+Because indexes are native to the Lance format, you can store not only your data but also your **embeddings and indexes together** in one dataset and query them directly on the Hub.
 
 If the dataset includes a vector index (for example `img_emb`), you can run vector search queries directly on the remote dataset without downloading it.
 The example below shows how to run a nearest neighbor search on a vector index using an image embedding as the query vector.
@@ -88,12 +88,12 @@ You can
 ```python
 import lance
 
-lance_ds = lance.dataset("hf://datasets/lance-format/openvid-lance")
+lance_ds = lance.dataset("hf://datasets/lance-format/openvid-lance/data/train.lance")
 blob_file = lance_ds.take_blobs("video_blob", ids=[0])[0]
 video_bytes = blob_file.read()
 ```
 
-For large video blobs (e.g., ~10 MB and beyond) that Lance also provides a high-level[blob API](https://lance.org/guide/blob/) to store, distribute and search on them efficiently.
+For large video blobs (e.g., ~10 MB and beyond), Lance also provides a high-level [blob API](https://lance.org/guide/blob/) to store, distribute, and search them efficiently.
 The following example shows how to efficiently browse metadata without loading the heavier video blobs, then fetch the relevant video blobs on demand.
 
 ```python
@@ -127,4 +127,4 @@ Refer to the [torchcodec docs](https://docs.pytorch.org/torchcodec/stable/genera
 
 Lance is an open format with native support for multimodal blobs alongside your traditional tabular data. You can work with images, audio, video, text, embeddings, and scalar metadata all in one place!
 
-Explore more Lance datasets on the [Hugging Face Hub](https://huggingface.co/datasets?search=lance-format&sort=downloads). Feel free to upload and share your own Lance datasets too!
+Explore more Lance datasets on the [Hugging Face Hub](https://huggingface.co/datasets?format=format:lance). Feel free to upload and share your own Lance datasets too!
