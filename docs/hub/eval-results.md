@@ -70,7 +70,7 @@ Results display badges based on their metadata in the YAML file:
 | Badge | Condition |
 |-------|-----------|
 | verified | A `verifyToken` is valid (evaluation ran in HF Jobs with inspect-ai) |
-| community-provided | Result submitted via open PR (not merged to main) |
+| community | Result submitted via open PR (not merged to main) |
 | leaderboard | Links to the benchmark dataset |
 | source | Links to evaluation logs or external source |
 
