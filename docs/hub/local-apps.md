@@ -53,6 +53,7 @@ To use Llama.cpp, navigate to the model card and click "Use this model" and copy
 ./llama-server -hf unsloth/gpt-oss-20b-GGUF:Q4_K_M
 ```
 
+Read our dedicated [llama.cpp + HF doc page](./gguf-llamacpp).
 
 ### Ollama
 
@@ -81,6 +82,9 @@ To use Jan, navigate to the model card and click "Use this model". Jan will open
 
 ### LM Studio
 
+> [!NOTE]
+> Read our dedicated [LM Studio doc page](./lmstudio)
+
 LM Studio is a desktop application that provides an easy way to download, run, and experiment with local LLMs.
 
 **Advantages:**
@@ -90,3 +94,4 @@ LM Studio is a desktop application that provides an easy way to download, run, a
 - Free for personal and commercial use
 
 Navigate to the model card and click "Use this model". LM Studio will open and you can start chatting through the interface.
+

@@ -57,7 +57,7 @@ Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"replicate":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"black-forest-labs/flux-2-dev"} } }
+    providersMapping={ {"replicate":{"modelId":"black-forest-labs/FLUX.2-klein-4B","providerModelId":"black-forest-labs/flux-2-klein-4b"} } }
 />
 
 

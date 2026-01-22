@@ -57,7 +57,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"together":{"modelId":"ServiceNow-AI/Apriel-1.6-15b-Thinker","providerModelId":"ServiceNow-AI/Apriel-1.5-15b-Thinker"} } }
+    providersMapping={ {"together":{"modelId":"Qwen/Qwen3-VL-32B-Instruct","providerModelId":"Qwen/Qwen3-VL-32B-Instruct"} } }
 conversational />
 
 

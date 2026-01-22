@@ -31,7 +31,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-large","providerModelId":"google-t5/t5-large"}} }
+    providersMapping={ {"hf-inference":{"modelId":"Helsinki-NLP/opus-mt-ru-en","providerModelId":"Helsinki-NLP/opus-mt-ru-en"}} }
 />
 
 
@@ -61,4 +61,3 @@ Explore all available models and find the one that suits you best [here](https:/
 | Body |  |
 | :--- | :--- | :--- |
 | **translation_text** | _string_ | The translated text. |
-

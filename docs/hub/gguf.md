@@ -36,6 +36,7 @@ The Hub has a viewer for GGUF files that lets a user check out metadata & tensor
 ## Usage with open-source tools
 
 * [llama.cpp](./gguf-llamacpp)
+* [LM Studio](./lmstudio)
 * [GPT4All](./gguf-gpt4all)
 * [Ollama](./ollama)
 
