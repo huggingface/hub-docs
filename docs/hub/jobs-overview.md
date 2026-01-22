@@ -10,6 +10,8 @@ Run compute jobs on Hugging Face infrastructure with a familiar UV & Docker-like
 
 The Hugging Face Hub provides compute for AI and data workflows via Jobs.
 
+**For the complete Jobs documentation, see the [huggingface_hub Jobs guide](https://huggingface.co/docs/huggingface_hub/guides/jobs).**
+
 Jobs runs on Hugging Face infrastructure and aim at providing AI builders, Data engineers, developers and AI agents an easy access to cloud infrastructure to run their workloads. They are ideal to fine tune AI models and run inference with GPUs, but also for data ingestion and processing as well.
 
 A job is defined with a command to run (e.g. a UV or python command), a hardware flavor (CPU, GPU, TPU), and optionnally a Docker Image from Hugging Face Spaces or Docker Hub. Many jobs can run in parallel, which is useful e.g. for parameters tuning or parallel inference and data processing.
