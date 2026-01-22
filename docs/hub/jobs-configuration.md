@@ -104,13 +104,29 @@ Here is another example to run a fine-tuning script like [trl/scripts/sft.py](ht
 > [!TIP]
 > For comprehensive guidance on running model training jobs with TRL on Hugging Face infrastructure, check out the [TRL Jobs Training documentation](https://huggingface.co/docs/trl/main/en/jobs_training). It covers fine-tuning recipes, hardware selection, and best practices for training models efficiently.
 
-Available `--flavor` options:
+See the list of available `--flavor` options using the `hf jobs hardware` command (default is `cpu-basic`):
 
-- CPU: `cpu-basic`, `cpu-upgrade`
-- GPU: `t4-small`, `t4-medium`, `l4x1`, `l4x4`, `a10g-small`, `a10g-large`, `a10g-largex2`, `a10g-largex4`,`a100-large`
-- TPU: `v5e-1x1`, `v5e-2x2`, `v5e-2x4`
-
-(updated in 12/2025 from Hugging Face [suggested_hardware docs](https://huggingface.co/docs/hub/en/spaces-config-reference))
+```bash
+>>> hf jobs hardware
+NAME         PRETTY NAME            CPU      RAM     ACCELERATOR      COST/MIN COST/HOUR 
+------------ ---------------------- -------- ------- ---------------- -------- --------- 
+cpu-basic    CPU Basic              2 vCPU   16 GB   N/A              $0.0002  $0.01     
+cpu-upgrade  CPU Upgrade            8 vCPU   32 GB   N/A              $0.0005  $0.03     
+t4-small     Nvidia T4 - small      4 vCPU   15 GB   1x T4 (16 GB)    $0.0067  $0.40     
+t4-medium    Nvidia T4 - medium     8 vCPU   30 GB   1x T4 (16 GB)    $0.0100  $0.60     
+a10g-small   Nvidia A10G - small    4 vCPU   15 GB   1x A10G (24 GB)  $0.0167  $1.00     
+a10g-large   Nvidia A10G - large    12 vCPU  46 GB   1x A10G (24 GB)  $0.0250  $1.50     
+a10g-largex2 2x Nvidia A10G - large 24 vCPU  92 GB   2x A10G (48 GB)  $0.0500  $3.00     
+a10g-largex4 4x Nvidia A10G - large 48 vCPU  184 GB  4x A10G (96 GB)  $0.0833  $5.00     
+a100-large   Nvidia A100 - large    12 vCPU  142 GB  1x A100 (80 GB)  $0.0417  $2.50     
+a100x4       4x Nvidia A100         48 vCPU  568 GB  4x A100 (320 GB) $0.1667  $10.00    
+a100x8       8x Nvidia A100         96 vCPU  1136 GB 8x A100 (640 GB) $0.3333  $20.00    
+l4x1         1x Nvidia L4           8 vCPU   30 GB   1x L4 (24 GB)    $0.0133  $0.80     
+l4x4         4x Nvidia L4           48 vCPU  186 GB  4x L4 (96 GB)    $0.0633  $3.80     
+l40sx1       1x Nvidia L40S         8 vCPU   62 GB   1x L40S (48 GB)  $0.0300  $1.80     
+l40sx4       4x Nvidia L40S         48 vCPU  382 GB  4x L40S (192 GB) $0.1383  $8.30     
+l40sx8       8x Nvidia L40S         192 vCPU 1534 GB 8x L40S (384 GB) $0.3917  $23.50
+```
 
 ## Timeout
 
