@@ -45,7 +45,7 @@ Create a YAML file in `.eval_results/*.yaml` in your model repo:
 ```yaml
 - dataset:
     id: cais/hle                  # Required. Hub dataset ID (must be a Benchmark)
-    task_id: default              # Optional, in case there are multiple tasks or leaderboards for this dataset.
+    task_id: default              # Required. Identifies the task or leaderboard for this dataset.
     revision: <hash>              # Optional. Dataset revision hash
   value: 20.90                    # Required. Metric value
   verifyToken: <token>            # Optional. Cryptographic proof of auditable evaluation

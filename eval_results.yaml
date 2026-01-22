@@ -1,7 +1,7 @@
 - dataset:
     id: cais/hle                  # Required. A valid dataset id from the Hub, which should have a "Benchmark" tag.
                                   # ^Basically, this is where the leaderboard lives.
-    task_id: {task_id}            # Optional, in case there are multiple tasks or leaderboards for this dataset.
+    task_id: {task_id}            # Required. Identifies the task or leaderboard for this dataset.
                                   # It is defined in the benchmark dataset's eval.yaml file. Example: gpqa_diamond
                                   # It can usually be a dataset config (aka subset) or split name.
     revision: {dataset_revision}  # Optional. Example: 5503434ddd753f426f4b38109466949a1217c2bb
