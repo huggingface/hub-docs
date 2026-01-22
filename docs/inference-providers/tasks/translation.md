@@ -61,4 +61,3 @@ Explore all available models and find the one that suits you best [here](https:/
 | Body |  |
 | :--- | :--- | :--- |
 | **translation_text** | _string_ | The translated text. |
-

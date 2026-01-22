@@ -16,7 +16,7 @@ We're going to use the [FLUX.1-schnell](https://huggingface.co/black-forest-labs
 
 ## Step 1: Find a Model on the Hub
 
-Visit the [Hugging Face Hub](https://huggingface.co/models?pipeline_tag=text-to-image&inference_provider=fal-ai,hf-inference,nebius,nscale,replicate,together&sort=trending) and look for models with the "Inference Providers" filter, you can select the provider that you want. We'll go with `fal`. 
+Visit the [Hugging Face Hub](https://huggingface.co/models?pipeline_tag=text-to-image&inference_provider=all&sort=trending) and look for models with the "Inference Providers" filter, you can select the provider that you want. We'll go with `fal`. 
 
 ![search image](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers-guides/search.png)
 

@@ -202,4 +202,3 @@ Find out more about Zero Shot Classification [here](../tasks/zero-shot-classific
     pipeline=zero-shot-classification
     providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
 />
-

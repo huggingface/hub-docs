@@ -43,7 +43,7 @@ import os
 from huggingface_hub import InferenceClient
 
 # Initialize client
-client = InferenceClient(token=os.environ["HF_TOKEN"], provider="nebius")
+client = InferenceClient(token=os.environ["HF_TOKEN"], provider="novita")
 ```
 
 </hfoption>
@@ -303,7 +303,7 @@ client = OpenAI(
 
 client.chat.completions.create(
 -     model="deepseek-ai/DeepSeek-R1-0528", # automatically select provider based on hf.co/settings/inference-providers
-+     model="deepseek-ai/DeepSeek-R1-0528:nebius", # manually select Nebius AI
++     model="deepseek-ai/DeepSeek-R1-0528:novita", # manually select Novita
 +     model="deepseek-ai/DeepSeek-R1-0528:hyperbolic", # manually select Hyperbolic
       ...
 )
@@ -321,7 +321,7 @@ client = InferenceClient(
     token=os.environ["HF_TOKEN"]
 +    provider="auto"  # automatically select provider based on hf.co/settings/inference-providers
 -    provider="together"  # manually select Together AI
--    provider="nebius"  # manually select Nebius
+-    provider="novita"  # manually select Novita
 )
 
 ```

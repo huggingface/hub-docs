@@ -135,15 +135,17 @@ If you are interested by a specific model and want to check the list of provider
     "_id": "67c35b9bb236f0d365bf29d3",
     "id": "google/gemma-3-27b-it",
     "inferenceProviderMapping": {
-        "hf-inference": {
-            "status": "live",
-            "providerId": "google/gemma-3-27b-it",
-            "task": "conversational"
+        featherless-ai: {
+            status: live,
+            providerId: google/gemma-3-27b-it,
+            task: conversational,
+            isModelAuthor: false
         },
-        "nebius": {
-            "status": "live",
-            "providerId": "google/gemma-3-27b-it-fast",
-            "task": "conversational"
+        scaleway: {
+            status: live,
+            providerId: gemma-3-27b-it,
+            task: conversational,
+            isModelAuthor: false
         }
     }
 }
@@ -160,8 +162,8 @@ In the `huggingface_hub`, use `model_info` with the expand parameter:
 >>> info = model_info("google/gemma-3-27b-it", expand="inferenceProviderMapping")
 >>> info.inference_provider_mapping
 {
-    'hf-inference': InferenceProviderMapping(status='live', provider_id='google/gemma-3-27b-it', task='conversational'),
-    'nebius': InferenceProviderMapping(status='live', provider_id='google/gemma-3-27b-it-fast', task='conversational'),
+    'featherless-ai': InferenceProviderMapping(status='live', provider_id='google/gemma-3-27b-it', task='conversational'),
+    'scaleway': InferenceProviderMapping(status='live', provider_id='google/gemma-3-27b-it-fast', task='conversational'),
 }
 ```
 
