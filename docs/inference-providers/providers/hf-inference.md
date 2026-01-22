@@ -190,7 +190,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google/madlad400-3b-mt","providerModelId":"google/madlad400-3b-mt"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Helsinki-NLP/opus-mt-ru-en","providerModelId":"Helsinki-NLP/opus-mt-ru-en"} } }
 />
 
 
