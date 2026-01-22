@@ -20,8 +20,15 @@ Unlike traditional single-GPU allocations, ZeroGPU's efficient system lowers bar
 
 ## Technical Specifications
 
-- **GPU Type**: Nvidia H200 slice
-- **Available VRAM**: 70GB per workload
+ZeroGPU supports two GPU sizes
+
+| GPU size            | Backing hardware | Vram                     | Quota cost |
+|---------------------|------------------|--------------------------|------------|
+| `large` *(default)* | Half NVIDIA H200 | 70GB                     | 1×         |
+| `xlarge`            | Full NVIDIA H200 | 141GB                    | 2×         |
+
+> [!NOTE]
+> See [GPU size selection](#gpu-size-selection) to learn how to use sizes
 
 ## Compatibility
 
@@ -86,6 +93,23 @@ gr.Interface(
 ```
 
 Note: The `@spaces.GPU` decorator is designed to be effect-free in non-ZeroGPU environments, ensuring compatibility across different setups.
+
+## GPU size selection
+
+The default size used by `@spaces.GPU` is `large` (half H200).
+
+You can explicitly request a full H200 by specifying `size="xlarge"`:
+
+``` python
+@spaces.GPU(size="xlarge")
+def generate(prompt):
+    return pipe(prompt).images
+```
+
+> [!NOTE]
+> - `xlarge` consumes **2×** more daily quota than large (for instance 45s actual task duration will consume 90s worth of quotas)
+> - `xlarge` usually means increased queuing probability and durations
+> - Only use `xlarge` when your workload truly benefits from the additional compute or memory
 
 ## Duration Management
 
