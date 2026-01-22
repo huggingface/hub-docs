@@ -108,7 +108,7 @@ def generate(prompt):
 
 > [!NOTE]
 > - `xlarge` consumes **2×** more daily quota than `large` (e.g. a 45s **effective** task duration consumes 90s of quota)
-> - `xlarge` usually means increased queuing probability and durations
+> - `xlarge` usually means increased queuing probability and duration
 > - Only use `xlarge` when your workload truly benefits from the additional compute or memory
 
 ## Duration Management
