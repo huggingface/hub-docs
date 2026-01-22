@@ -22,7 +22,7 @@ To register your dataset as a benchmark:
 
 The `eval.yaml` format is based on [Inspect AI](https://inspect.aisi.org.uk/), enabling reproducible evaluations. See the [Evaluating models with Inspect](https://huggingface.co/docs/inference-providers/guides/evaluation-inspect-ai) guide for details on running evaluations.
 
-Examples can be found in these benchmarks: [SimpleQA](https://huggingface.co/datasets/OpenEvals/SimpleQA/blob/main/eval.yaml), [MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro/blob/main/eval.yaml), [MuSR](https://huggingface.co/datasets/OpenEvals/MuSR/blob/main/eval.yaml)
+Examples can be found in these benchmarks: [GPQA](https://huggingface.co/datasets/Idavidrein/gpqa/blob/main/eval.yaml), [MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro/blob/main/eval.yaml), [HLE](https://huggingface.co/datasets/cais/hle/blob/main/eval.yaml)
 
 <!-- TODO: Add example of eval.yaml file -->
 
