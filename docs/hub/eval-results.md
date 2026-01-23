@@ -7,7 +7,7 @@ The Hub provides a decentralized system for tracking model evaluation results. B
 
 ## Benchmark Datasets
 
-Dataset repos can be defined as **Benchmarks** (e.g., [AIME](https://huggingface.co/datasets/OpenEvals/aime_24), [HLE](https://huggingface.co/datasets/cais/hle), [GPQA](https://huggingface.co/datasets/Idavidrein/gpqa)). These display a "Benchmark" tag and automatically aggregate evaluation results from model repos across the Hub and display a leaderboard of top models.
+Dataset repos can be defined as **Benchmarks** (e.g., [MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro), [HLE](https://huggingface.co/datasets/cais/hle), [GPQA](https://huggingface.co/datasets/Idavidrein/gpqa)). These display a "Benchmark" tag and automatically aggregate evaluation results from model repos across the Hub and display a leaderboard of top models.
 
 ![Benchmark Dataset](https://huggingface.co/huggingface/documentation-images/resolve/main/evaluation-results/benchmark-preview.png)
 
@@ -22,7 +22,7 @@ To register your dataset as a benchmark:
 
 The `eval.yaml` format is based on [Inspect AI](https://inspect.aisi.org.uk/), enabling reproducible evaluations. See the [Evaluating models with Inspect](https://huggingface.co/docs/inference-providers/guides/evaluation-inspect-ai) guide for details on running evaluations.
 
-Examples can be found in these benchmarks: [SimpleQA](https://huggingface.co/datasets/OpenEvals/SimpleQA/blob/main/eval.yaml), [AIME 24](https://huggingface.co/datasets/OpenEvals/aime_24/blob/main/eval.yaml), [MuSR](https://huggingface.co/datasets/OpenEvals/MuSR/blob/main/eval.yaml)
+Examples can be found in these benchmarks: [GPQA](https://huggingface.co/datasets/Idavidrein/gpqa/blob/main/eval.yaml), [MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro/blob/main/eval.yaml), [HLE](https://huggingface.co/datasets/cais/hle/blob/main/eval.yaml), [GSM8K](https://huggingface.co/datasets/openai/gsm8k/blob/main/eval.yaml).
 
 <!-- TODO: Add example of eval.yaml file -->
 
@@ -45,7 +45,7 @@ Create a YAML file in `.eval_results/*.yaml` in your model repo:
 ```yaml
 - dataset:
     id: cais/hle                  # Required. Hub dataset ID (must be a Benchmark)
-    task_id: default              # Optional, in case there are multiple tasks or leaderboards for this dataset.
+    task_id: default              # Required. ID of the Task, as defined in the dataset's eval.yaml
     revision: <hash>              # Optional. Dataset revision hash
   value: 20.90                    # Required. Metric value
   verifyToken: <token>            # Optional. Cryptographic proof of auditable evaluation
@@ -70,7 +70,7 @@ Results display badges based on their metadata in the YAML file:
 | Badge | Condition |
 |-------|-----------|
 | verified | A `verifyToken` is valid (evaluation ran in HF Jobs with inspect-ai) |
-| community-provided | Result submitted via open PR (not merged to main) |
+| community | Result submitted via open PR (not merged to main) |
 | leaderboard | Links to the benchmark dataset |
 | source | Links to evaluation logs or external source |
 
