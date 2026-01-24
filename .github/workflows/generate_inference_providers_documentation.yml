@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: "20"
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4.2.0
         with:
           run_install: |
             - recursive: true
@@ -54,7 +54,7 @@ jobs:
       # Create or update Pull Request
       - name: Create Pull Request
         if: env.changes_detected == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
           commit-message: Update Inference Providers documentation (automated)
