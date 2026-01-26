@@ -193,7 +193,7 @@ Lance tables also support large inline video blobs. The `OpenVid-1M` dataset (fr
 ```python
 import lance
 
-lance_ds = lance.dataset("hf://datasets/lance-format/openvid-lance")
+lance_ds = lance.dataset("hf://datasets/lance-format/openvid-lance/data/train.lance")
 blob_file = lance_ds.take_blobs("video_blob", ids=[0])[0]
 video_bytes = blob_file.read()
 ```
