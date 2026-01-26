@@ -56,7 +56,7 @@ hf --help
 
 ## Hugging Face Skills for the CLI
 
-Hugging Face Skills are available for the CLI to help you interact with the Hub. Skills give agents relevant instructions for how to use the CLI. See the [Skills Guide](./skills) for available skills and usage. 
+Hugging Face Skills are available for the CLI to help you interact with the Hub. Skills give agents relevant instructions for how to use the CLI. See the [Skills Guide](./agents-skills) for available skills and usage. 
 
 ```bash
 # start claude 
