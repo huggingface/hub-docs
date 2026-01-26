@@ -19,6 +19,8 @@
     user: {username}              # Optional. A HF user name.
     org: {orgname}                # Optional. A HF org name.
 
+  notes: "{notes}"                # Optional. Details about the evaluation setup (e.g., "tools", "no-tools", "chain-of-thought", etc.)
+
 # or, with only the required attributes:
 
 - dataset:

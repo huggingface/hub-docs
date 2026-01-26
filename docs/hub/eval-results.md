@@ -54,6 +54,7 @@ Create a YAML file in `.eval_results/*.yaml` in your model repo:
     url: https://huggingface.co/spaces/SaylorTwift/smollm3-mmlu-pro  # Required if source provided
     name: Eval traces             # Optional. Display name
     user: SaylorTwift             # Optional. HF username/org
+  notes: "no-tools"               # Optional. Details about the evaluation setup (e.g., "tools", "no-tools", etc.)
 ```
 
 Or, with only the required attributes:
