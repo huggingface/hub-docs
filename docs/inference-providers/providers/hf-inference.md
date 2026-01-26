@@ -100,7 +100,7 @@ Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
+    providersMapping={ {"hf-inference":{"modelId":"fashn-ai/fashn-human-parser","providerModelId":"fashn-ai/fashn-human-parser"} } }
 />
 
 
@@ -120,7 +120,7 @@ Find out more about Question Answering [here](../tasks/question-answering).
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-large-uncased-whole-word-masking-finetuned-squad","providerModelId":"google-bert/bert-large-uncased-whole-word-masking-finetuned-squad"} } }
+    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-base-squad2","providerModelId":"deepset/roberta-base-squad2"} } }
 />
 
 
@@ -150,7 +150,7 @@ Find out more about Text Classification [here](../tasks/text-classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"ProsusAI/finbert","providerModelId":"ProsusAI/finbert"} } }
+    providersMapping={ {"hf-inference":{"modelId":"BAAI/bge-reranker-v2-m3","providerModelId":"BAAI/bge-reranker-v2-m3"} } }
 />
 
 
@@ -190,7 +190,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google/madlad400-3b-mt","providerModelId":"google/madlad400-3b-mt"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-large","providerModelId":"google-t5/t5-large"} } }
 />
 
 
