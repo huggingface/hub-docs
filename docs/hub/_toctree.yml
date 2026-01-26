@@ -326,6 +326,8 @@
     title: Spaces Custom Domain
   - local: spaces-mcp-servers
     title: Spaces as MCP servers
+  - local: spaces-api-endpoints
+    title: Spaces as API Endpoints
   - local: spaces-sdks-gradio
     title: Gradio Spaces
   - local: spaces-sdks-streamlit
