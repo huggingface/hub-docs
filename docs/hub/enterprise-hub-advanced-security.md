@@ -16,6 +16,7 @@ Configure additional security settings to protect your organization:
 
 - **Two-Factor Authentication (2FA)**: Require all organization members to enable 2FA for enhanced account security.
 - **User Approval**: For organizations with a verified domain name, require admin approval for new users with matching email addresses. This adds a verified badge to your organization page.
+- **Hide members list**: When enabled, the list of members will not be visible on the organization page. Note that users can potentially find organization membership information through other means, so do not use for critical use cases.
 
 ## Repository Visibility Controls
 
