@@ -181,3 +181,17 @@ Note that you can pass a token with the right permission manually:
 ```bash
 >>> hf jobs uv run --namespace my-org-name --token hf_xxx python -c "print('Running in an org account')"
 ```
+
+## Labels
+
+Add one or more labels to a Job to add some metadata with `-l` or `-label`.
+You can use such metadata later to filter Jobs on the website or in the CLI.
+
+Add labels with `--label my-label` or key-value labels with `--label key=value`.
+For example:
+
+```bash
+hf jobs uv run --label fine-tuning --label model=Qwen3-0.6B --label dataset=Capybara ...
+```
+
+Note that using the same `key` multiple times causes the last `key=value` to overwrite and discard any previous label with `key`.
