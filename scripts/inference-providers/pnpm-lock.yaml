@@ -193,8 +193,8 @@ packages:
     resolution: {integrity: sha512-aXVSXGNZqMnLxR4hbsxu2cgoY83EYUIc8bqC+5I5iRLqMlQb2E1g5Q+oIkZQQPLO7xfSSrjz2piZOVYF6Ia+og==}
     engines: {node: '>=18'}
 
-  '@huggingface/jinja@0.5.3':
-    resolution: {integrity: sha512-asqfZ4GQS0hD876Uw4qiUb7Tr/V5Q+JZuo2L+BtdrD4U40QU58nIRq3ZSgAzJgT874VLjhGVacaYfrdpXtEvtA==}
+  '@huggingface/jinja@0.5.4':
+    resolution: {integrity: sha512-VoQJywjpjy2D88Oj0BTHRuS8JCbUgoOg5t1UGgbtGh2fRia9Dx/k6Wf8FqrEWIvWK9fAkfJeeLB9fcSpCNPCpw==}
     engines: {node: '>=18'}
 
   '@huggingface/tasks@0.19.80':
@@ -417,10 +417,10 @@ snapshots:
 
   '@huggingface/inference@4.13.10':
     dependencies:
-      '@huggingface/jinja': 0.5.3
+      '@huggingface/jinja': 0.5.4
       '@huggingface/tasks': 0.19.80
 
-  '@huggingface/jinja@0.5.3': {}
+  '@huggingface/jinja@0.5.4': {}
 
   '@huggingface/tasks@0.19.80': {}
 
