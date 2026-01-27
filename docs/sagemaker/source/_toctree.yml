@@ -40,12 +40,19 @@
   title: Tutorials
   isExpanded: false
 
+
+
+
+
+
 # GENERATED CONTENT DO NOT EDIT!
 - title: Examples
   sections:
      - title: SageMaker SDK
        isExpanded: false
        sections:
+          - local: examples/sagemaker-sdk-deepseek-ocr-sagemaker
+            title: "DeepSeek OCR Pipeline on SageMaker Training Jobs"
           - local: examples/sagemaker-sdk-deploy-embedding-models
             title: "How to deploy Embedding Models to Amazon SageMaker using new Hugging Face Embedding DLC"
           - local: examples/sagemaker-sdk-deploy-llama-3-3-70b-inferentia2
@@ -54,6 +61,10 @@
             title: "Evaluate LLMs with Hugging Face Lighteval on Amazon SageMaker"
           - local: examples/sagemaker-sdk-fine-tune-embedding-models
             title: "Fine-tune and deploy embedding models with Amazon SageMaker"
+          - local: examples/sagemaker-sdk-fine-tune-trl-cli
+            title: "Fine-Tuning LLMs with TRL CLI on SageMaker"
+          - local: examples/sagemaker-sdk-neuron-agent-inf
+            title: "Deploy an AI Agent on AWS Inferentia2 with SageMaker"
 # END GENERATED CONTENT
 - sections:
     - local: reference/inference-toolkit
