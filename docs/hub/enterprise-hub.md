@@ -144,5 +144,6 @@ In the following sections we will document the following Enterprise Hub features
 - [Gating Group Collections](./enterprise-hub-gating-group-collections)
 - [Network Security](./enterprise-hub-network-security)
 - [Higher Rate limits](./rate-limits)
+- [Blog Articles](./enterprise-hub-blog-articles)
 
 Finally, Team & Enterprise plans include vastly more [included public storage](./storage-limits), as well as 1TB of [private storage](./storage-limits) per seat in the subscription, i.e. if your organization has 40 members, then you have 40TB included storage for your private models and datasets.
