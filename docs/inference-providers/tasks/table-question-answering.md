@@ -22,17 +22,13 @@ Table Question Answering (Table QA) is the answering a question about an informa
 
 ### Recommended models
 
-- [google/tapas-base-finetuned-wtq](https://huggingface.co/google/tapas-base-finetuned-wtq): A robust table question answering model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=table-question-answering&sort=trending).
 
 ### Using the API
 
 
-<InferenceSnippet
-    pipeline=table-question-answering
-    providersMapping={ {"hf-inference":{"modelId":"google/tapas-base-finetuned-wtq","providerModelId":"google/tapas-base-finetuned-wtq"}} }
-/>
+There are currently no snippet examples for the **table-question-answering** task, as no providers support it yet.
 
 
 
