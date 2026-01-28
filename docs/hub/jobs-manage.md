@@ -28,7 +28,34 @@ JOB ID       IMAGE/SPACE COMMAND         CREATED             STATUS
 693ae8e3c... python:... python -c pr... 2025-12-11 15:53:07 COMPLETED
 ```
 
-You can filter Jobs based on conditions provided, using the format key=value:
+Specify your organization `namespace` to list Jobs under your organization:
+
+```bash
+>>> hf jobs ps --namespace <my-org-name>
+```
+
+## Filter Jobs
+
+Click on a Job's label to filter Jobs by label:
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-labels-page.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-labels-page-dark.png"/>
+</div>
+
+In the CLI, you can filter Jobs based on conditions provided, using the format key=value:
+
+Filter by labels:
+
+```bash
+>>> hf jobs ps --filter label=fine-tuning --filter label=model=Qwen3-06B -a
+JOB ID       IMAGE/SPACE  COMMAND          CREATED             STATUS 
+------------ ------------ ---------------- ------------------- ---------
+6978b1254... ghcr.io/a... uv run --with... 2026-01-27 12:35:49 COMPLETED  
+6978b11d4... ghcr.io/a... uv run --with... 2026-01-27 12:33:53 COMPLETED
+```
+
+Filter on any condition:
 
 ```bash
 >>> hf jobs ps --filter status=error -a
@@ -39,17 +66,25 @@ JOB ID       IMAGE/SPACE COMMAND            CREATED            STATUS
 69399695c... ghcr.io... uv run --with t... 2025-12-10 15:49:41 ERROR  
 693994bdc... ghcr.io... uv run --with t... 2025-12-10 15:41:49 ERROR  
 68d3c1af3... ghcr.io... uv run bash -c ... 2025-09-24 10:02:23 ERROR
->>> hf jobs ps --filter "command=*train.py" --filter status=error -a
-JOB ID       IMAGE/SPACE  COMMAND          CREATED             STATUS 
------------- ------------ ---------------- ------------------- ------ 
-69399695c... ghcr.io/a... uv run --with... 2025-12-10 15:49:41 ERROR  
-693994bdc... ghcr.io/a... uv run --with... 2025-12-10 15:41:49 ERROR
 ```
 
-Specify your organization `namespace` to list Jobs under your organization:
+Filtering supports negation `!=` and glob patterns (including `*` and `?`):
 
 ```bash
->>> hf jobs ps --namespace <my-org-name>
+# Show Jobs that are not completed
+>>> hf jobs ps -a --filter status!=completed
+
+# Show Jobs with a command that ends with "train.py"
+>>> hf jobs ps -a --filter "command=*train.py"
+
+# Show Jobs with a "fine-tuning" label
+>>> hf jobs ps -a --filter label=fine-tuning
+
+# Show Jobs that don't have the "prod" label and have a label that starts with "data-"
+>>> hf jobs ps -a --filter label!=prod --filter "label=data-*"
+
+# Show Jobs based on key=value labels
+>>> hf jobs ps -a --filter label=model=Qwen3-06B --filter label=dataset!=Capybara
 ```
 
 ## Monitor resource usage
