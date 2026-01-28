@@ -3,7 +3,7 @@
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
-Blog Articles allow Team and Enterprise organizations to publish articles directly under their organization profile, enabling you to share model releases, research updates, and announcements with the broader community.
+Blog Articles allow Team and Enterprise organizations to publish long-form content directly under your organization profile, enabling you to share model releases, research updates, and announcements with the broader community.
 
 ## Publishing as an Organization
 
