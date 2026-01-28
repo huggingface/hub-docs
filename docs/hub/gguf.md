@@ -73,7 +73,7 @@ Find more information [here](https://github.com/huggingface/huggingface.js/tree/
 | BF16 | [Wikipedia](https://en.wikipedia.org/wiki/Bfloat16_floating-point_format) | 16-bit shortened version of the 32-bit IEEE 754 single-precision floating-point number. |
 | I16 | [GH](https://github.com/ggerganov/llama.cpp/pull/6045) | 16-bit fixed-width integer number. |
 | Q8_0 | [GH](https://github.com/huggingface/huggingface.js/pull/615#discussion_r1557654249) | 8-bit round-to-nearest quantization (`q`). Each block has 32 weights. Weight formula: `w = q * block_scale`. Legacy quantization method (not used widely as of today). |
-| Q8_1 | [GH](https://github.com/huggingface/huggingface.js/pull/615#discussion_r1557682290) | 8-bit round-to-nearest quantization (`q`). Each block has 32 weights. Weight formula: `w = q * block_scale + block_minimum`. Legacy quantization method (not used widely as of today) |
+| Q8_1 | [GH](https://github.com/huggingface/huggingface.js/pull/615#discussion_r1557682290) | 8-bit round-to-nearest quantization (`q`). Each block has 32 weights. Weight formula: `w = q * block_scale + block_minimum`. Legacy quantization method (not used widely as of today). |
 | Q8_K | [GH](https://github.com/ggerganov/llama.cpp/pull/1684#issue-1739619305) | 8-bit quantization (`q`). Each block has 256 weights. Only used for quantizing intermediate results. All 2-6 bit dot products are implemented for this quantization type. Weight formula: `w = q * block_scale`. |
 | I8 | [GH](https://github.com/ggerganov/llama.cpp/pull/6045) | 8-bit fixed-width integer number. |
 | Q6_K | [GH](https://github.com/ggerganov/llama.cpp/pull/1684#issue-1739619305) | 6-bit quantization (`q`). Super-blocks with 16 blocks, each block has 16 weights. Weight formula: `w = q * block_scale(8-bit)`, resulting in 6.5625 bits-per-weight. |
@@ -94,5 +94,8 @@ Find more information [here](https://github.com/huggingface/huggingface.js/tree/
 | IQ2_XS | [HF](https://huggingface.co/CISCai/OpenCodeInterpreter-DS-6.7B-SOTA-GGUF/blob/main/README.md?code=true#L59-L70) | 2-bit quantization (`q`). Super-blocks with 256 weights. Weight `w` is obtained using `super_block_scale` & `importance matrix`, resulting in 2.31 bits-per-weight. |
 | IQ1_S | [HF](https://huggingface.co/CISCai/OpenCodeInterpreter-DS-6.7B-SOTA-GGUF/blob/main/README.md?code=true#L59-L70) | 1-bit quantization (`q`). Super-blocks with 256 weights. Weight `w` is obtained using `super_block_scale` & `importance matrix`, resulting in 1.56 bits-per-weight. |
 | IQ1_M | [GH](https://github.com/ggerganov/llama.cpp/pull/6302) | 1-bit quantization (`q`). Super-blocks with 256 weights. Weight `w` is obtained using `super_block_scale` & `importance matrix`, resulting in 1.75 bits-per-weight. |
+| TQ1_0 | [GH](https://github.com/ggml-org/llama.cpp/pull/8151) | Ternary quantization. |
+| TQ2_0 | [GH](https://github.com/ggml-org/llama.cpp/pull/8151) | Ternary quantization. |
+| MXFP4 | [GH](https://github.com/ggml-org/llama.cpp/pull/15091) | 4-bit Microscaling Block Floating Point. |
 
 *if there's any inaccuracy on the table above, please open a PR on [this file](https://github.com/huggingface/huggingface.js/blob/main/packages/gguf/src/quant-descriptions.ts).*
