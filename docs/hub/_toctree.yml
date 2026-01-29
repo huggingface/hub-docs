@@ -33,6 +33,8 @@
     title: Network Security
   - local: rate-limits
     title: Rate Limits
+  - local: enterprise-hub-blog-articles
+    title: Blog Articles
 
 - local: pro
   title: PRO Plan
