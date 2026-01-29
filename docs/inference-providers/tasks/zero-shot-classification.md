@@ -22,6 +22,7 @@ Zero-shot text classification is super useful to try out classification with zer
 
 ### Recommended models
 
+- [facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli): Powerful zero-shot text classification model.
 - [MoritzLaurer/ModernBERT-large-zeroshot-v2.0](https://huggingface.co/MoritzLaurer/ModernBERT-large-zeroshot-v2.0): Cutting-edge zero-shot multilingual text classification model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=zero-shot-classification&sort=trending).
@@ -31,7 +32,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=zero-shot-classification
-    providersMapping={ {"hf-inference":{"modelId":"MoritzLaurer/deberta-v3-large-zeroshot-v2.0","providerModelId":"MoritzLaurer/deberta-v3-large-zeroshot-v2.0"}} }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"}} }
 />
 
 
