@@ -34,7 +34,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"zai-org/GLM-Image","providerModelId":"fal-ai/glm-image"},"hf-inference":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"nscale":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"replicate":{"modelId":"Qwen/Qwen-Image-2512","providerModelId":"qwen/qwen-image-2512"},"together":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"},"wavespeed":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"wavespeed-ai/z-image/turbo"},"zai-org":{"modelId":"zai-org/GLM-Image","providerModelId":"glm-image"}} }
+    providersMapping={ {"fal-ai":{"modelId":"zai-org/GLM-Image","providerModelId":"fal-ai/glm-image"},"hf-inference":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"replicate":{"modelId":"Qwen/Qwen-Image-2512","providerModelId":"qwen/qwen-image-2512"},"together":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"},"wavespeed":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"wavespeed-ai/z-image/turbo"},"zai-org":{"modelId":"zai-org/GLM-Image","providerModelId":"glm-image"}} }
 />
 
 
