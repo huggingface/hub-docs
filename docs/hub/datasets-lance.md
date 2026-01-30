@@ -108,11 +108,29 @@ subset = scanner.to_table()
 lance.write_dataset(subset, "./laion_subset")
 ```
 
+## Create index
+
+If your dataset doesn't already have an index associated with it, you can create one after downloading it locally.
+
+```python
+# ds is a local Lance dataset
+ds.create_index(
+    "img_emb",
+    index_type="IVF_PQ",
+    num_partitions=256,
+    num_sub_vectors=96,
+    replace=True,
+)
+```
+
+See the [Lance docs](https://lance.org/quickstart/vector-search/) on vector index creation for a more detailed example. Once you have a vector index created, you can run similarity search on the data via embeddings.
+
 ## Vector search
 
-Because indexes are first-class citizens in Lance, you can store not only your data but also your embeddings and indexes together in a dataset and query them directly on the Hub. Simply use the `describe_indices()` method to list the index information for the dataset. If an index doesn't exist in the dataset, you can use `lance.write_dataset()` to write a local version of the dataset and use [LanceDataset.create_index](https://lance-format.github.io/lance-python-doc/all-modules.html#lance.dataset.LanceDataset.create_index) to create an index for your needs.
+Because indexes are first-class citizens in Lance, you can store not only your data but also your embeddings and indexes together and query them **directly on the Hub**. Simply use the `describe_indices()` method to list the index information for the dataset. If an index doesn't exist in the dataset, you can use `lance.write_dataset()` to write a local version of the dataset and use [LanceDataset.create_index](https://lance-format.github.io/lance-python-doc/all-modules.html#lance.dataset.LanceDataset.create_index) to create an index for your needs.
 
-The example below shows a dataset for which we have a vector index on the `img_emb` field, as well as its index statistics.
+The example below shows a dataset for which we already have a vector index on the `img_emb` field:
+
 ```python
 import lance
 
@@ -133,7 +151,7 @@ print(ds.list_indices())
 # ]
 ```
 
-You can run vector search queries directly on the remote dataset without downloading it. The example below shows how to run a nearest neighbor search on a vector index using an image embedding as the query vector.
+You can run vector search queries directly on the remote dataset without downloading it (or, if you prefer, download the dataset locally and create a new index). The example below shows how to run a nearest neighbor search on a vector index using an image embedding as the query vector.
 
 ```python
 import lance
@@ -218,6 +236,22 @@ blob_file = ds.take_blobs("video_blob", ids=[selected_index])[0]
 with open("video_0.mp4", "wb") as f:
     f.write(blob_file.read())
 ```
+
+## Lance for training
+
+Training is another area where Lance's fast random access and scan performance can be helpful. You can use Lance datasets as the storage mechanism for your training data, shuffling it and loadint into batches as part of your training pipelines.
+
+The blob API in Lance is compatible with `torchcodec`, so you can easily decode video blobs as `torch` tensors:
+
+```python
+from torchcodec.decoders import VideoDecoder
+decoder = VideoDecoder(blob_file)
+tensor = decoder[0]  # uint8 tensor of shape [C, H, W]
+```
+
+See the [torchcodec docs](https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.VideoDecoder.html) for more functions for efficiently decoding videos.
+
+In addition, you can also check out the [Lance documentation](https://lance.org/examples/python/clip_training/) for more examples on loading image data into `torchvision` for training your own image models.
 
 ## Explore more Lance datasets
 
