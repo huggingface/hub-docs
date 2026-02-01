@@ -16,7 +16,7 @@ pip install pylance pyarrow
 
 ## Why Lance?
 
-- Optimized for ML/AI workloads: Lance is a modern columnar format designed for fast random access without compromising scan performance.
+- Optimized for ML/AI workloads: Lance is a modern columnar format designed for fast random access without compromising scan performance, making it useful for search, analytics, training, feature engineering and many more use cases.
 - Multimodal assets are stored as bytes, or binary objects ("[blobs as files](https://lance.org/guide/blob/)") in Lance alongside embeddings, and traditional scalar data -- this makes it easier to govern, share, and distribute your large datasets via the Hub.
 - Indexing is a first-class citizen (native to the format itself): Lance comes with fast, on-disk, scalable [vector](https://lance.org/quickstart/vector-search) and FTS indexes that sit right alongside the dataset on the Hub, so you can share not only your data but also your embeddings and indexes without your users needing to recompute them.
 - Flexible schema and [data evolution](https://lance.org/guide/data_evolution) let you incrementally add new features/columns (moderation tags, embeddings, etc.) **without** needing to rewrite the entire table.
@@ -211,7 +211,7 @@ Lance tables also support large inline video blobs. The `OpenVid-1M` dataset (fr
 ```python
 import lance
 
-lance_ds = lance.dataset("hf://datasets/lance-format/openvid-lance/data/train.lance")
+lance_ds = lance.dataset("hf://datasets/lance-format/Openvid-1M/data/train.lance")
 blob_file = lance_ds.take_blobs("video_blob", ids=[0])[0]
 video_bytes = blob_file.read()
 ```
@@ -221,7 +221,7 @@ Unlike other data formats, large multimodal binary objects (blobs) are first-cla
 ```python
 import lance
 
-ds = lance.dataset("hf://datasets/lance-format/openvid-lance/data/train.lance")
+ds = lance.dataset("hf://datasets/lance-format/Openvid-1M/data/train.lance")
 
 # 1. Browse metadata without loading video blobs.
 metadata = ds.scanner(
@@ -237,9 +237,9 @@ with open("video_0.mp4", "wb") as f:
     f.write(blob_file.read())
 ```
 
-## Lance for training
+## Prepare data for training
 
-Training is another area where Lance's fast random access and scan performance can be helpful. You can use Lance datasets as the storage mechanism for your training data, shuffling it and loadint into batches as part of your training pipelines.
+Training is another area where Lance's fast random access and scan performance can be useful. You can use Lance datasets as the storage mechanism for your training data, shuffling it and loadint into batches as part of your training pipelines.
 
 The blob API in Lance is compatible with `torchcodec`, so you can easily decode video blobs as `torch` tensors:
 
