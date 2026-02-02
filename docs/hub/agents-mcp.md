@@ -5,7 +5,7 @@ The Hugging Face MCP (Model Context Protocol) Server connects your MCP‑compati
 ## What you can do
 
 - Search and explore Hub resources: models, datasets, Spaces, and papers.
-- Search the Hugging Face documentation library with natural language queries.
+- Search the Hugging Face documentation with natural language queries.
 - Run community tools via MCP‑compatible Gradio apps hosted on [Spaces](https://hf.co/spaces).
 - Bring results back into your assistant with metadata, links, and context.
 
@@ -47,7 +47,7 @@ The Hugging Face MCP Server includes several built-in tools that connect your AI
 | **Papers Semantic Search** | Find ML Research Papers via natural language queries. |
 | **Model Search** | Search for ML models with filters for task, library, and more. |
 | **Dataset Search** | Search for datasets with filters for author, tags, and more. |
-| **Documentation Semantic Search** | Search the Hugging Face documentation library using natural language. Great for finding guides, API references, and tutorials across all Hugging Face libraries. |
+| **Documentation Semantic Search** | Search the Hugging Face documentation using natural language. Great for finding guides, API references, and tutorials across all Hugging Face libraries. |
 | **Run and Manage Jobs** | Run, monitor, and schedule jobs on Hugging Face infrastructure. |
 | **Hub Repository Details** | Get detailed information about Models, Datasets, and Spaces. Optionally enable **Include repository README files** to include README content in results. |
 
