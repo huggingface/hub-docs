@@ -239,7 +239,7 @@ with open("video_0.mp4", "wb") as f:
 
 ## Prepare data for training
 
-Training is another area where Lance's fast random access and scan performance can be useful. You can use Lance datasets as the storage mechanism for your training data, shuffling it and loadint into batches as part of your training pipelines.
+Training is another area where Lance's fast random access and scan performance can be useful. You can use Lance datasets as the storage mechanism for your training data, shuffling it and loading into batches as part of your training pipelines.
 
 The blob API in Lance is compatible with `torchcodec`, so you can easily decode video blobs as `torch` tensors:
 
