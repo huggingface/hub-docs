@@ -67,7 +67,7 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"replicate":{"modelId":"Qwen/Qwen-Image-2512","providerModelId":"qwen/qwen-image-2512"} } }
+    providersMapping={ {"replicate":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"prunaai/z-image-turbo:7ea16386290ff5977c7812e66e462d7ec3954d8e007a8cd18ded3e7d41f5d7cf"} } }
 />
 
 
