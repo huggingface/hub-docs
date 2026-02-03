@@ -125,7 +125,7 @@ Once configured, you will receive:
 - A **Client Secret** (keep this secure!)
 
 > [!TIP]
-> Organization administrators can manage the OAuth app after creation, including refreshing the client secret and adjusting the token duration (up to 30 days).
+> Organization administrators can manage the OAuth app after creation, including refreshing the client secret and configuring the token duration.
 
 ### Authentication
 
@@ -198,7 +198,7 @@ Tokens issued via Token Exchange have built-in security restrictions:
 
 - **Organization-scoped**: Tokens can only access resources within your organization (models, datasets, Spaces owned by the org).
 - **No personal access**: Tokens cannot access the user's personal private repositories or resources from other organizations.
-- **Short-lived**: Tokens expire after 8 hours by default and must be re-issued (no refresh tokens are provided).
+- **Short-lived**: Tokens expire after 8 hours by default. Organization administrators can configure the token duration (up to 30 days) in the OAuth app settings. No refresh tokens are provided.
 - **Auditable**: All token exchanges are logged and visible in your organization's [audit logs](./audit-logs).
 
 > [!WARNING]
