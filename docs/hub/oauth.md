@@ -174,7 +174,7 @@ curl "https://huggingface.co/api/whoami-v2" \
 
 ### Scope control
 
-By default, issued tokens inherit all scopes configured on the OAuth app. You can request a subset of scopes by adding the `scope` parameter:
+By default, issued tokens inherit all scopes configured on the OAuth app. You can request specific scopes by adding the `scope` parameter:
 
 ```bash
 curl -X POST "https://huggingface.co/oauth/token" \
