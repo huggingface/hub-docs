@@ -124,6 +124,8 @@ Once configured, you will receive:
 - A **Client ID** (e.g., `a1b2c3d4-e5f6-7890-abcd-ef1234567890`)
 - A **Client Secret** (keep this secure!)
 
+Organization administrators can manage the OAuth app after creation, including refreshing the client secret and adjusting the token duration (up to 30 days).
+
 ### Authentication
 
 Token Exchange uses HTTP Basic Authentication with your OAuth app credentials. Create the authorization header by Base64-encoding your `client_id:client_secret`:
