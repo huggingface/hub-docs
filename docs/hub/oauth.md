@@ -212,6 +212,7 @@ Tokens issued via Token Exchange have built-in security restrictions:
 |-------|-------------|
 | `invalid_client` | Client is not authorized to use token exchange, or the app is not bound to an organization |
 | `invalid_grant` | User not found in the bound organization |
+| `invalid_scope` | Requested scope is not valid |
 
 ### Reference
 
