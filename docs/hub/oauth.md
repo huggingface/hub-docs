@@ -179,6 +179,8 @@ curl "https://huggingface.co/api/whoami-v2" \
 
 By default, issued tokens inherit all scopes configured on the OAuth app. You can request specific scopes by adding the `scope` parameter. See [Currently supported scopes](#currently-supported-scopes) for available values.
 
+The token's effective permissions are limited both by the requested scope and by the user's role within the organization.
+
 ```bash
 curl -X POST "https://huggingface.co/oauth/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
