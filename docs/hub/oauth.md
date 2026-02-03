@@ -89,3 +89,144 @@ Check out [our badges](https://huggingface.co/datasets/huggingface/badges#sign-i
 
 [![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-xl.svg)](https://huggingface.co/oauth/authorize?client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&scope=openid%20profile&state=STATE)
 [![Sign in with Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/sign-in-with-huggingface-xl-dark.svg)](https://huggingface.co/oauth/authorize?client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&scope=openid%20profile&state=STATE)
+
+## Token Exchange for Organizations (RFC 8693)
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Plus</a> plan.
+
+Token Exchange allows organizations to programmatically issue access tokens for their members without requiring interactive user consent. This is particularly useful for building internal tools, automation pipelines, and enterprise integrations that need to access Hugging Face resources on behalf of organization members.
+
+This feature implements [RFC 8693 - OAuth 2.0 Token Exchange](https://www.rfc-editor.org/rfc/rfc8693.html), a standard protocol for token exchange scenarios.
+
+### Use cases
+
+Token Exchange is designed for scenarios where your organization needs to:
+
+- **Build internal platforms**: Create dashboards or portals that access Hugging Face resources on behalf of your team members, without requiring each user to manually authenticate.
+- **Automate CI/CD pipelines**: Issue short-lived, scoped tokens for automated workflows that need to push models or datasets to organization repositories.
+- **Integrate with enterprise identity systems**: Bridge your existing identity provider with Hugging Face by issuing tokens based on your internal user directory.
+- **Implement custom access controls**: Build middleware that issues tokens with specific scopes based on your organization's internal policies.
+
+### How it works
+
+1. Your organization has an OAuth application bound to your organization with the `token-exchange` privilege.
+2. Your backend service authenticates with this OAuth app using client credentials.
+3. Your service requests an access token for a specific organization member (identified by email).
+4. Hugging Face verifies the user is a member of your organization and issues a scoped token.
+5. The issued token can only access resources within your organization's scope.
+
+### Prerequisites
+
+To use Token Exchange, you need an organization-bound OAuth application with the `token-exchange` privilege. Contact Hugging Face support to set up an eligible OAuth app for your organization.
+
+Once configured, you will receive:
+- A **Client ID** (e.g., `a1b2c3d4-e5f6-7890-abcd-ef1234567890`)
+- A **Client Secret** (keep this secure!)
+
+### Authentication
+
+Token Exchange uses HTTP Basic Authentication with your OAuth app credentials. Create the authorization header by Base64-encoding your `client_id:client_secret`:
+
+```bash
+# Create the authorization header
+export CLIENT_ID="your-client-id"
+export CLIENT_SECRET="your-client-secret"
+export AUTH_HEADER=$(echo -n "${CLIENT_ID}:${CLIENT_SECRET}" | base64)
+```
+
+### Issuing tokens by email
+
+To issue an access token for an organization member using their email address:
+
+```bash
+curl -X POST "https://huggingface.co/oauth/token" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Authorization: Basic ${AUTH_HEADER}" \
+  -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange" \
+  -d "subject_token=user@yourorg.com" \
+  -d "subject_token_type=urn:huggingface:token-type:user-email"
+```
+
+### Response
+
+A successful request returns an access token:
+
+```json
+{
+  "access_token": "hf_oauth_...",
+  "token_type": "bearer",
+  "expires_in": 28800,
+  "scope": "openid profile email read-repos",
+  "id_token": "eyJhbGciOiJS...",
+  "issued_token_type": "urn:ietf:params:oauth:token-type:access_token"
+}
+```
+
+The `id_token` field is included when the `openid` scope is requested.
+
+You can then use this token to make API requests on behalf of the user:
+
+```bash
+curl "https://huggingface.co/api/whoami-v2" \
+  -H "Authorization: Bearer ${ACCESS_TOKEN}"
+```
+
+### Scope control
+
+By default, issued tokens inherit all scopes configured on the OAuth app. You can request a subset of scopes by adding the `scope` parameter:
+
+```bash
+curl -X POST "https://huggingface.co/oauth/token" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Authorization: Basic ${AUTH_HEADER}" \
+  -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange" \
+  -d "subject_token=user@yourorg.com" \
+  -d "subject_token_type=urn:huggingface:token-type:user-email" \
+  -d "scope=openid profile"
+```
+
+> [!TIP]
+> Follow the principle of least privilege: request only the scopes your application actually needs.
+
+### Security considerations
+
+Tokens issued via Token Exchange have built-in security restrictions:
+
+- **Organization-scoped**: Tokens can only access resources within your organization (models, datasets, Spaces owned by the org).
+- **No personal access**: Tokens cannot access the user's personal private repositories or resources from other organizations.
+- **Short-lived**: Tokens expire after 8 hours by default and must be re-issued (no refresh tokens are provided).
+- **Auditable**: All token exchanges are logged and visible in your organization's [audit logs](./audit-logs).
+
+> [!WARNING]
+> Protect your OAuth app credentials carefully. Anyone with access to your client secret can issue tokens for any member of your organization.
+
+### Error responses
+
+| Error | Description |
+|-------|-------------|
+| `invalid_client` | Client is not authorized to use token exchange, or the app is not bound to an organization |
+| `invalid_grant` | User not found in the bound organization |
+
+### Reference
+
+**Grant type:**
+```
+urn:ietf:params:oauth:grant-type:token-exchange
+```
+
+**Request parameter (`subject_token_type`):**
+
+| Value | Description |
+|-------|-------------|
+| `urn:huggingface:token-type:user-email` | Identify the user by their email address |
+
+**Response field (`issued_token_type`):**
+
+| Value | Description |
+|-------|-------------|
+| `urn:ietf:params:oauth:token-type:access_token` | Indicates an access token was issued |
+
+**Related documentation:**
+- [RFC 8693 - OAuth 2.0 Token Exchange](https://www.rfc-editor.org/rfc/rfc8693.html)
+- [Audit Logs](./audit-logs)

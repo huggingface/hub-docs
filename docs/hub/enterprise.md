@@ -75,6 +75,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | [SSO to private org](./enterprise-sso)             |  ❌  | ✅ Basic SSO | ✅ Basic SSO | ✅ Advanced SSO |
 | [SSO to public Hub](./enterprise-advanced-sso) |  ❌  |      ❌      |      ❌      |       ✅        |
 | [Enforce 2FA](./enterprise-advanced-security)  |  ❌  |      ✅      |      ✅      |       ✅        |
+| [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693) |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable personal public repos for users            |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable joining other orgs for users               |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable PRO subscription                           |  ❌  |      ❌      |      ❌      |       ✅        |
@@ -145,5 +146,6 @@ In the following sections we will document the following Team & Enterprise featu
 - [Network Security](./enterprise-network-security)
 - [Higher Rate limits](./rate-limits)
 - [Blog Articles](./enterprise-blog-articles)
+- [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693)
 
 Finally, Team & Enterprise plans include vastly more [included public storage](./storage-limits), as well as 1TB of [private storage](./storage-limits) per seat in the subscription, i.e. if your organization has 40 members, then you have 40TB included storage for your private models and datasets.
