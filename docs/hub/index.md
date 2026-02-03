@@ -100,6 +100,17 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-reference">Reference</a>
 </div>
 
+<div class="group flex flex-col space-y-2 rounded-xl border border-cyan-100 bg-linear-to-br from-cyan-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-cyan-700">
+<div class="flex items-center py-0.5 text-lg font-semibold text-cyan-600 dark:text-gray-400 mb-1">
+<svg class="shrink-0 mr-1.5 text-cyan-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5A2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5a2.5 2.5 0 0 0 2.5 2.5a2.5 2.5 0 0 0 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5"/></svg> Agents</div>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents">Introduction</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-overview">Agents on the Hub</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-mcp">Hugging Face MCP Server</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-skills">Hugging Face Agent Skills</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-cli">Agents and the hf CLI</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-sdk">Building agents with the SDK</a>
+</div>
+
 <div class="group flex flex-col space-y-2 rounded-xl border border-green-100 bg-linear-to-br from-green-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-green-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-green-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-green-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" stroke="currentColor" d="M8.892 21.854a6.25 6.25 0 0 1-4.42-10.67l7.955-7.955a4.5 4.5 0 0 1 6.364 6.364l-6.895 6.894a2.816 2.816 0 0 1-3.89 0a2.75 2.75 0 0 1 .002-3.888l5.126-5.127a1 1 0 1 1 1.414 1.414l-5.126 5.127a.75.75 0 0 0 0 1.06a.768.768 0 0 0 1.06 0l6.895-6.894a2.503 2.503 0 0 0 0-3.535a2.56 2.56 0 0 0-3.536 0l-7.955 7.955a4.25 4.25 0 1 0 6.01 6.01l6.188-6.187a1 1 0 1 1 1.414 1.414l-6.187 6.186a6.206 6.206 0 0 1-4.42 1.832z"></path></svg> Other</div>
