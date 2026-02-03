@@ -56,4 +56,4 @@ When a token is revoked or denied, the user who created the token receives an em
 
 ## Programmatic Token Issuance
 
-For organizations that need to programmatically issue access tokens for their members (e.g., for internal platforms, CI/CD pipelines, or custom integrations), see [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693). This Enterprise Plus feature allows your backend services to issue scoped tokens for organization members without requiring interactive user consent.
+For organizations that need to programmatically issue access tokens for their members (e.g., for internal platforms, CI/CD pipelines, or custom integrations), see [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693). This Enterprise plan feature allows your backend services to issue scoped tokens for organization members without requiring interactive user consent.

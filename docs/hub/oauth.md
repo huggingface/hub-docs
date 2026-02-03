@@ -93,7 +93,7 @@ Check out [our badges](https://huggingface.co/datasets/huggingface/badges#sign-i
 ## Token Exchange for Organizations (RFC 8693)
 
 > [!WARNING]
-> This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise Plus</a> plan.
+> This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise</a> plan.
 
 Token Exchange allows organizations to programmatically issue access tokens for their members without requiring interactive user consent. This is particularly useful for building internal tools, automation pipelines, and enterprise integrations that need to access Hugging Face resources on behalf of organization members.
 
