@@ -17,7 +17,7 @@ import data_designer.config as dd
 from data_designer.interface import DataDesigner
 
 data_designer = DataDesigner()
-config_builder = dd.DataDesignerConfigBuilder(model_configs=[...])
+config_builder = dd.DataDesignerConfigBuilder()
 
 # Load seed data from HuggingFace
 seed_source = dd.HuggingFaceSeedSource(
@@ -30,7 +30,7 @@ config_builder.with_seed_dataset(seed_source)
 config_builder.add_column(
     dd.LLMTextColumnConfig(
         name="physician_notes",
-        model_alias="my-model",
+        model_alias="openai-gpt-5",
         prompt="Write notes for a patient with {{ diagnosis }}. Symptoms: {{ patient_summary }}",
     )
 )
