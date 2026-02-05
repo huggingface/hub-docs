@@ -50,7 +50,7 @@ results = data_designer.create(config_builder, num_records=1000, dataset_name="m
 url = results.push_to_hub(
     repo_id="username/my-synthetic-dataset",
     description="Synthetic dataset generated with Data Designer.",
-    tags=["synthetic"],
+    tags=["medical", "notes"],
     private=False,
 )
 ```
