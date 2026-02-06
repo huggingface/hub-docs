@@ -98,8 +98,26 @@ hf_model = ModelConfig(
 )
 ```
 
+## Push to Hub
+
+Once you've generated your dataset, push it directly to the Hugging Face Hub:
+
+```python
+# Generate full dataset
+results = data_designer.create(config_builder, num_records=1000, dataset_name="my-dataset")
+
+# Push to Hub
+url = results.push_to_hub(
+    repo_id="username/my-synthetic-dataset",
+    private=False,
+)
+```
+
+For loading Hub datasets as seed data and more details on Hub integration, see the [Data Designer Hub datasets guide](https://huggingface.co/docs/hub/en/datasets-data-designer).
+
 ## Resources
 
 - [DataDesigner Documentation](https://nvidia-nemo.github.io/DataDesigner/)
 - [GitHub Repository](https://github.com/NVIDIA-NeMo/DataDesigner)
 - [Available Models on Inference Providers](https://huggingface.co/models?inference_provider=all&pipeline_tag=text-generation)
+- [Using Data Designer with Hub Datasets](https://huggingface.co/docs/hub/en/datasets-data-designer)
