@@ -6,7 +6,7 @@
   - [Managing Organizations](./organizations-managing)
   - [Organization Cards](./organizations-cards)
   - [Access control in organizations](./organizations-security)
-- [Enterprise Hub](./enterprise)
+- [Team & Enterprise](./enterprise)
 - [Moderation](./moderation)
 - [Billing](./billing)
 - [Digital Object Identifier (DOI)](./doi)

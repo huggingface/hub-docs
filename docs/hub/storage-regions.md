@@ -3,7 +3,7 @@
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
-Regions allow you to specify where your organization's models, datasets and Spaces are stored. For non-Enterprise Hub users, repositories are always stored in the US.
+Regions allow you to specify where your organization's models, datasets and Spaces are stored. For non-Team & Enterprise users, repositories are always stored in the US.
 
 This offers two key benefits:
 
@@ -18,7 +18,7 @@ Currently available regions:
 
 ## Getting started with Storage Regions
 
-Organizations subscribed to Enterprise Hub can access the Regions settings page to manage their repositories storage locations.
+Organizations subscribed to Team & Enterprise can access the Regions settings page to manage their repositories storage locations.
 
 <div class="flex justify-center" style="max-width: 550px">
   <img

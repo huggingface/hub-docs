@@ -3,7 +3,7 @@
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
 
-Advanced Single Sign-On (SSO) capabilities extend the standard [SSO features](./security-sso) available in the Enterprise Hub, offering enhanced control and automation for user management and access across the entire Hugging Face platform for your organization members.
+Advanced Single Sign-On (SSO) capabilities extend the standard [SSO features](./security-sso) available in Team & Enterprise, offering enhanced control and automation for user management and access across the entire Hugging Face platform for your organization members.
 
 ## User Provisioning
 

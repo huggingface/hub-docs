@@ -26,6 +26,6 @@ This feature allows organization administrators to:
 - Keep private repositories visible only to authorized group members
 - Enable multiple teams to work independently within the same organization
 
-This Enterprise Hub feature helps organizations manage complex team structures and maintain proper access control over their repositories.
+This Team & Enterprise feature helps organizations manage complex team structures and maintain proper access control over their repositories.
 
 [Getting started with Resource Groups →](./security-resource-groups)
