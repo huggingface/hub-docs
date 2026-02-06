@@ -75,6 +75,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | [SSO to private org](./enterprise-sso)             |  ❌  | ✅ Basic SSO | ✅ Basic SSO | ✅ Advanced SSO |
 | [SSO to public Hub](./enterprise-advanced-sso) |  ❌  |      ❌      |      ❌      |       ✅        |
 | [Enforce 2FA](./enterprise-advanced-security)  |  ❌  |      ✅      |      ✅      |       ✅        |
+| [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693) |  ❌  |      ❌      |      ✅      |       ✅        |
 | Disable personal public repos for users            |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable joining other orgs for users               |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable PRO subscription                           |  ❌  |      ❌      |      ❌      |       ✅        |
@@ -140,6 +141,7 @@ In the following sections we will document the following Team & Enterprise featu
 - [Advanced Compute Options](./advanced-compute-options)
 - [Advanced Security](./enterprise-advanced-security)
 - [Tokens Management](./enterprise-tokens-management)
+- [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693)
 - [Publisher Analytics](./enterprise-analytics)
 - [Gating Group Collections](./enterprise-gating-group-collections)
 - [Network Security](./enterprise-network-security)

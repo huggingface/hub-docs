@@ -515,4 +515,4 @@
   - local: api
     title: Hub API Endpoints
   - local: oauth
-    title: Sign-In with HF (OAuth)
+    title: OAuth / Sign in with HF

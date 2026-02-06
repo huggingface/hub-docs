@@ -76,3 +76,7 @@ We recommend you create one access token per app or usage. For instance, you cou
 We also recommend using only fine-grained tokens for production usage. The impact, if leaked, will be reduced, and they can be shared among your organization without impacting your account.
 
 For example, if your production application needs read access to a gated model, a member of your organization can request access to the model and then create a fine-grained token with read access to that model. This token can then be used in your production application without giving it access to all your private models.
+
+### For Enterprise organizations
+
+If your organization needs to programmatically issue tokens for members without requiring each user to create their own token, see [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693). This Enterprise plan feature is ideal for building internal platforms, CI/CD pipelines, or custom integrations that need to access Hugging Face resources on behalf of organization members.
