@@ -2,7 +2,7 @@
 
 In this guide, we will use Google Workspace as the SSO provider with the OpenID Connect (OIDC) protocol as our preferred identity protocol.
 
-We currently support SP-initiated authentication. User provisioning is part of Enterprise Plus's [Advanced SSO](./enterprise-hub-advanced-sso).
+We currently support SP-initiated authentication. User provisioning is part of Enterprise Plus's [Advanced SSO](./enterprise-advanced-sso).
 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.

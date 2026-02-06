@@ -6,7 +6,7 @@ Any feedback or support request related to billing is welcome at billing@hugging
 
 ## Team and Enterprise subscriptions
 
-We offer advanced security and compliance features for organizations through our Team or Enterprise plans, which include [Single Sign-On](./enterprise-sso), [Advanced Access Control](./enterprise-hub-resource-groups) for repositories, control over your data location, higher [storage capacity](./storage-limits) for public and private repositories, and more.
+We offer advanced security and compliance features for organizations through our Team or Enterprise plans, which include [Single Sign-On](./enterprise-sso), [Advanced Access Control](./enterprise-resource-groups) for repositories, control over your data location, higher [storage capacity](./storage-limits) for public and private repositories, and more.
 
 Team and Enterprise plans are billed like a typical subscription. They renew automatically, but you can choose to cancel at any time in the organization's billing settings.
 
@@ -36,7 +36,7 @@ The PRO subscription unlocks essential features for serious users, including:
 
 View the full list of benefits at https://huggingface.co/pro then subscribe over at https://huggingface.co/subscribe/pro
 
-Similarly to the Enterprise Hub subscription, PRO subscriptions are billed like a typical subscription. The subscription renews automatically for you. You can choose to cancel the subscription at anytime in your billing settings: https://huggingface.co/settings/billing
+Similarly to the Team & Enterprise subscriptions, PRO subscriptions are billed like a typical subscription. The subscription renews automatically for you. You can choose to cancel the subscription at anytime in your billing settings: https://huggingface.co/settings/billing
 
 You can only pay for the PRO subscription with a credit card. The subscription is billed separately from any pay-as-you-go compute usage.
 Private repository storage above the [included storage](./storage-limits) will be billed along with your subscription renewal.
@@ -62,7 +62,7 @@ The billing for our compute services is usage-based, meaning you only pay for wh
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/billing-dashboard-dark.png"/>
 </div>
 
-Compute services usage is billed separately from PRO and Enterprise Hub subscriptions (and potential private storage).
+Compute services usage is billed separately from PRO and Team / Enterprise subscriptions (and potential private storage).
 Invoices for compute services are edited at the beginning of each month.
 
 ## Available payment methods

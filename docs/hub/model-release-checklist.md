@@ -242,7 +242,7 @@ A successful model release extends beyond the initial publication. To maintain q
    Choose the data storage region (US or EU) for your model files to meet regional data regulations and compliance requirements.
 
 3. **Advanced Analytics**:
-   Use [Enterprise Analytics features](https://huggingface.co/docs/hub/enterprise-hub-analytics) to gain deeper insights into model usage patterns, downloads, and adoption trends across your organization.
+   Use [Enterprise Analytics features](https://huggingface.co/docs/hub/enterprise-analytics) to gain deeper insights into model usage patterns, downloads, and adoption trends across your organization.
 
 4. **Extended Storage**:
    Access additional private storage capacity to host more models and larger artifacts as your model portfolio expands.

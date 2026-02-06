@@ -1,39 +1,39 @@
 - local: index
   title: 🤗 Hugging Face Hub
 
-- local: enterprise-hub
+- local: enterprise
   title: Team & Enterprise Plans
   isExpanded: true
   sections:
   - local: enterprise-sso
     title: Single Sign-On (SSO)
-  - local: enterprise-hub-advanced-sso
+  - local: enterprise-advanced-sso
     title: Advanced Single Sign-On (SSO)
-  - local: enterprise-hub-scim
+  - local: enterprise-scim
     title: User Provisioning (SCIM)
   - local: audit-logs
     title: Audit Logs
   - local: storage-regions
     title: Storage Regions
-  - local: enterprise-hub-datasets
+  - local: enterprise-datasets
     title: Data Studio for Private datasets
-  - local: enterprise-hub-resource-groups
+  - local: enterprise-resource-groups
     title: Resource Groups (Access Control)
   - local: advanced-compute-options
     title: Advanced Compute Options
-  - local: enterprise-hub-advanced-security
+  - local: enterprise-advanced-security
     title: Advanced Security
-  - local: enterprise-hub-tokens-management
+  - local: enterprise-tokens-management
     title: Tokens Management
-  - local: enterprise-hub-analytics
+  - local: enterprise-analytics
     title: Publisher Analytics
-  - local: enterprise-hub-gating-group-collections
+  - local: enterprise-gating-group-collections
     title: Gating Group Collections
-  - local: enterprise-hub-network-security
+  - local: enterprise-network-security
     title: Network Security
   - local: rate-limits
     title: Rate Limits
-  - local: enterprise-hub-blog-articles
+  - local: enterprise-blog-articles
     title: Blog Articles
 
 - local: pro

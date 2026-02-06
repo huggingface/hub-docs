@@ -73,8 +73,8 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | Feature                                            | Free |     Team     |  Enterprise  | Enterprise Plus |
 | -------------------------------------------------- | :--: | :----------: | :----------: | :-------------: |
 | [SSO to private org](./enterprise-sso)             |  ❌  | ✅ Basic SSO | ✅ Basic SSO | ✅ Advanced SSO |
-| [SSO to public Hub](./enterprise-hub-advanced-sso) |  ❌  |      ❌      |      ❌      |       ✅        |
-| [Enforce 2FA](./enterprise-hub-advanced-security)  |  ❌  |      ✅      |      ✅      |       ✅        |
+| [SSO to public Hub](./enterprise-advanced-sso) |  ❌  |      ❌      |      ❌      |       ✅        |
+| [Enforce 2FA](./enterprise-advanced-security)  |  ❌  |      ✅      |      ✅      |       ✅        |
 | Disable personal public repos for users            |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable joining other orgs for users               |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable PRO subscription                           |  ❌  |      ❌      |      ❌      |       ✅        |
@@ -86,12 +86,12 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | ----------------------------------------------------------------------- | :--: | :---------: | :---------: | :-------------: |
 | RBAC                                                                    |  ✅  | ✅ Advanced | ✅ Advanced |   ✅ Advanced   |
 | [Audit logs](./audit-logs)                                              |  ❌  |     ✅      |     ✅      |       ✅        |
-| [Resource groups](./enterprise-hub-advanced-security)                   |  ❌  |     ✅      |     ✅      |       ✅        |
-| [Tokens admin / management](./enterprise-hub-tokens-management)         |  ❌  |     ✅      |     ✅      |       ✅        |
-| [Users Download analytics](./enterprise-hub-network-security)           |  ❌  |     ❌      |     ❌      |       ✅        |
-| [Content access / policy controls](./enterprise-hub-network-security)   |  ❌  |     ❌      |     ❌      |       ✅        |
-| [Network access controls](./enterprise-hub-network-security)            |  ❌  |     ❌      |     ❌      |       ✅        |
-| [Enforced authentication (advanced)](./enterprise-hub-network-security) |  ❌  |     ❌      |     ❌      |       ✅        |
+| [Resource groups](./enterprise-advanced-security)                   |  ❌  |     ✅      |     ✅      |       ✅        |
+| [Tokens admin / management](./enterprise-tokens-management)         |  ❌  |     ✅      |     ✅      |       ✅        |
+| [Users Download analytics](./enterprise-network-security)           |  ❌  |     ❌      |     ❌      |       ✅        |
+| [Content access / policy controls](./enterprise-network-security)   |  ❌  |     ❌      |     ❌      |       ✅        |
+| [Network access controls](./enterprise-network-security)            |  ❌  |     ❌      |     ❌      |       ✅        |
+| [Enforced authentication (advanced)](./enterprise-network-security) |  ❌  |     ❌      |     ❌      |       ✅        |
 
 ### User provisioning & admin
 
@@ -116,7 +116,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | Feature                                                                                                   | Free | Team | Enterprise | Enterprise Plus |
 | --------------------------------------------------------------------------------------------------------- | :--: | :--: | :--------: | :-------------: |
 | Org Article                                                                                               |  ❌  |  ✅  |     ✅     |       ✅        |
-| [Publisher Analytics Dashboard](./enterprise-hub-analytics)                                               |  ❌  |  ✅  |     ✅     |       ✅        |
+| [Publisher Analytics Dashboard](./enterprise-analytics)                                               |  ❌  |  ✅  |     ✅     |       ✅        |
 | [Set your primary org on your profile](https://huggingface.co/changelog/primary-organization-on-profiles) |  ❌  |  ✅  |     ✅     |       ✅        |
 
 ### Pricing
@@ -128,22 +128,22 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 ## Dive more
 
-In the following sections we will document the following Enterprise Hub features:
+In the following sections we will document the following Team & Enterprise features:
 
 - [Single Sign-On (SSO)](./enterprise-sso)
-- [Advanced Single Sign-On (SSO)](./enterprise-hub-advanced-sso)
-- [User Provisioning (SCIM)](./enterprise-hub-scim)
+- [Advanced Single Sign-On (SSO)](./enterprise-advanced-sso)
+- [User Provisioning (SCIM)](./enterprise-scim)
 - [Audit Logs](./audit-logs)
 - [Storage Regions](./storage-regions)
-- [Data Studio for Private datasets](./enterprise-hub-datasets)
+- [Data Studio for Private datasets](./enterprise-datasets)
 - [Resource Groups](./security-resource-groups)
 - [Advanced Compute Options](./advanced-compute-options)
-- [Advanced Security](./enterprise-hub-advanced-security)
-- [Tokens Management](./enterprise-hub-tokens-management)
-- [Publisher Analytics](./enterprise-hub-analytics)
-- [Gating Group Collections](./enterprise-hub-gating-group-collections)
-- [Network Security](./enterprise-hub-network-security)
+- [Advanced Security](./enterprise-advanced-security)
+- [Tokens Management](./enterprise-tokens-management)
+- [Publisher Analytics](./enterprise-analytics)
+- [Gating Group Collections](./enterprise-gating-group-collections)
+- [Network Security](./enterprise-network-security)
 - [Higher Rate limits](./rate-limits)
-- [Blog Articles](./enterprise-hub-blog-articles)
+- [Blog Articles](./enterprise-blog-articles)
 
 Finally, Team & Enterprise plans include vastly more [included public storage](./storage-limits), as well as 1TB of [private storage](./storage-limits) per seat in the subscription, i.e. if your organization has 40 members, then you have 40TB included storage for your private models and datasets.

@@ -5,7 +5,7 @@
 
 Single sign-on (SSO) allows organizations to securely manage user authentication through their own identity provider (IdP). Both SAML 2.0 and OpenID Connect (OIDC) protocols are supported.
 
-Please note that this feature is intended to manage access to organization-specific resources such as private models, datasets, and Spaces. However, by default it does not replace the core authentication mechanism for the Hugging Face platform, meaning that users still need to login with their own HF account. To replace the core authentication, i.e. for enhanced capabilities like automated user provisioning (JIT/SCIM) and global SSO enforcement, see our [Advanced SSO documentation](./enterprise-hub-advanced-sso).
+Please note that this feature is intended to manage access to organization-specific resources such as private models, datasets, and Spaces. However, by default it does not replace the core authentication mechanism for the Hugging Face platform, meaning that users still need to login with their own HF account. To replace the core authentication, i.e. for enhanced capabilities like automated user provisioning (JIT/SCIM) and global SSO enforcement, see our [Advanced SSO documentation](./enterprise-advanced-sso).
 
 <div class="flex justify-center" style="max-width: 550px">
   <img
@@ -28,6 +28,6 @@ This feature allows organizations to:
 - Maintain security while allowing external collaborators when needed
 - Control session timeouts and role mappings
 
-This Enterprise Hub feature helps organizations maintain consistent security policies while giving their teams seamless access to Hugging Face resources.
+This Team & Enterprise feature helps organizations maintain consistent security policies while giving their teams seamless access to Hugging Face resources.
 
 [Getting started with SSO →](./security-sso)
