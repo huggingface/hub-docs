@@ -127,7 +127,7 @@ extra_gated_button_content: "Acknowledge license"
 
 ## Manage gated datasets as an organization (Team & Enterprise)
 
-[Team or Enterprise](https://huggingface.co/docs/hub/en/enterprise) subscribers can create a Gating Group Collection to grant (or reject) access to all the models and datasets in a collection at once.
+[Team & Enterprise](https://huggingface.co/docs/hub/en/enterprise) subscribers can create a Gating Group Collection to grant (or reject) access to all the models and datasets in a collection at once.
 
 More information about Gating Group Collections can be found in [our dedicated doc](https://huggingface.co/docs/hub/en/enterprise-gating-group-collections).
 
