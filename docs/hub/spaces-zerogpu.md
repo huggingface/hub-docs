@@ -164,7 +164,7 @@ GPU usage is subject to **daily** quotas, per account tier:
 ## Hosting Limitations
 
 - **Personal accounts ([PRO subscribers](https://huggingface.co/subscribe/pro))**: Maximum of 10 ZeroGPU Spaces.
-- **Organization accounts ([Enterprise Hub](https://huggingface.co/enterprise))**: Maximum of 50 ZeroGPU Spaces.
+- **Organization accounts ([Enterprise](https://huggingface.co/enterprise))**: Maximum of 50 ZeroGPU Spaces.
 
 By leveraging ZeroGPU, developers can create more efficient and scalable Spaces, maximizing GPU utilization while minimizing costs.
 

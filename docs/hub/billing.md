@@ -36,7 +36,7 @@ The PRO subscription unlocks essential features for serious users, including:
 
 View the full list of benefits at https://huggingface.co/pro then subscribe over at https://huggingface.co/subscribe/pro
 
-Similarly to the Enterprise Hub subscription, PRO subscriptions are billed like a typical subscription. The subscription renews automatically for you. You can choose to cancel the subscription at anytime in your billing settings: https://huggingface.co/settings/billing
+Similarly to the Enterprise subscription, PRO subscriptions are billed like a typical subscription. The subscription renews automatically for you. You can choose to cancel the subscription at anytime in your billing settings: https://huggingface.co/settings/billing
 
 You can only pay for the PRO subscription with a credit card. The subscription is billed separately from any pay-as-you-go compute usage.
 Private repository storage above the [included storage](./storage-limits) will be billed along with your subscription renewal.
@@ -62,7 +62,7 @@ The billing for our compute services is usage-based, meaning you only pay for wh
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/billing-dashboard-dark.png"/>
 </div>
 
-Compute services usage is billed separately from PRO and Enterprise Hub subscriptions (and potential private storage).
+Compute services usage is billed separately from PRO and Enterprise subscriptions (and potential private storage).
 Invoices for compute services are edited at the beginning of each month.
 
 ## Available payment methods

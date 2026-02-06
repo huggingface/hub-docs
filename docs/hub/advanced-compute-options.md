@@ -3,7 +3,7 @@
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
-Enterprise Hub organizations gain access to advanced compute options to accelerate their machine learning journey.
+Enterprise organizations gain access to advanced compute options to accelerate their machine learning journey.
 
 ## Host ZeroGPU Spaces in your organization
 

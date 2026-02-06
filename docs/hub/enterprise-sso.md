@@ -28,6 +28,6 @@ This feature allows organizations to:
 - Maintain security while allowing external collaborators when needed
 - Control session timeouts and role mappings
 
-This Enterprise Hub feature helps organizations maintain consistent security policies while giving their teams seamless access to Hugging Face resources.
+This Enterprise feature helps organizations maintain consistent security policies while giving their teams seamless access to Hugging Face resources.
 
 [Getting started with SSO →](./security-sso)

@@ -18,7 +18,7 @@ Feel free to reach out on our [community forum](https://discuss.huggingface.co/c
 - [Hugging Face and AWS partner to make AI more accessible](https://huggingface.co/blog/aws-partnership)
 - [Introducing the Hugging Face LLM Inference Container for Amazon SageMaker](https://huggingface.co/blog/sagemaker-huggingface-llm)
 - [Hugging Face Text Generation Inference available for AWS Inferentia2](https://huggingface.co/blog/text-generation-inference-on-inferentia2)
-- [Subscribe to Enterprise Hub with your AWS Account](https://huggingface.co/blog/enterprise-hub-aws-marketplace)
+- [Subscribe to Enterprise with your AWS Account](https://huggingface.co/blog/enterprise-hub-aws-marketplace)
 - [Deploy models on AWS Inferentia2 from Hugging Face](https://huggingface.co/blog/inferentia-inference-endpoints)
 - [Introducing the Hugging Face Embedding Container for Amazon SageMaker](https://huggingface.co/blog/sagemaker-huggingface-embedding)
 - [Use Hugging Face models with Amazon Bedrock](https://huggingface.co/blog/bedrock-marketplace)
