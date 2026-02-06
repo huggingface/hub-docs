@@ -18,7 +18,7 @@ Currently available regions:
 
 ## Getting started with Storage Regions
 
-Organizations subscribed to Team or Enterprise can access the Regions settings page to manage their repositories storage locations.
+Organizations subscribed to a Team or Enterprise plan can access the Regions settings page to manage their repositories storage locations.
 
 <div class="flex justify-center" style="max-width: 550px">
   <img
