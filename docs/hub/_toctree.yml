@@ -240,6 +240,8 @@
         title: Dask
       - local: datasets-usage
         title: Datasets
+      - local: datasets-data-designer
+        title: Data Designer
       - local: datasets-distilabel
         title: Distilabel
       - local: datasets-duckdb
