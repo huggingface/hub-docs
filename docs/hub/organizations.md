@@ -19,4 +19,4 @@ Note: Use the context switcher in your org settings to quickly switch between yo
 
 ## Next: Power up your organization
 
-- [Team & Enterprise Plans](./enterprise-hub)
+- [Team & Enterprise Plans](./enterprise)

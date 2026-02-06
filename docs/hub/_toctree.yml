@@ -1,7 +1,7 @@
 - local: index
   title: 🤗 Hugging Face Hub
 
-- local: enterprise-hub
+- local: enterprise
   title: Team & Enterprise Plans
   isExpanded: true
   sections:

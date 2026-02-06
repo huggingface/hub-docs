@@ -59,7 +59,7 @@ Set your collection to **private** if you don't want it to be accessible via its
 
 You can use a collection to [gate](https://huggingface.co/docs/hub/en/models-gated) all the models/datasets belonging to it, allowing you to grant (or reject) access to all of them at once.
 
-This feature is reserved for [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise-hub) subscribers: more information about Gating Group Collections can be found in [our dedicated doc](https://huggingface.co/docs/hub/en/enterprise-hub-gating-group-collections).
+This feature is reserved for [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise) subscribers: more information about Gating Group Collections can be found in [our dedicated doc](https://huggingface.co/docs/hub/en/enterprise-hub-gating-group-collections).
 
 ### Ordering your collections and their items
 
