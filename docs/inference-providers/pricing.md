@@ -85,9 +85,9 @@ As of July 2025, hf-inference focuses mostly on CPU inference (e.g. embedding, t
 
 ## Billing for Team and Enterprise organizations
 
-For Team or Enterprise organizations, it is possible to centralize billing for all of your users. Each user still uses their own User Access Token but the requests are billed to your organization. This can be done by passing `"X-HF-Bill-To: my-org-name"` as a header in your HTTP requests.
+For Team & Enterprise organizations, it is possible to centralize billing for all of your users. Each user still uses their own User Access Token but the requests are billed to your organization. This can be done by passing `"X-HF-Bill-To: my-org-name"` as a header in your HTTP requests.
 
-Team or Enterprise organizations receive a pool of free usage credits based on the number of seats in the subscription. Inference Providers usage can be tracked on the organization's billing page. Team or Enterprise organization administrators can also set a spending limit and disable a set of Inference Providers from the organization's settings.
+Team & Enterprise organizations receive a pool of free usage credits based on the number of seats in the subscription. Inference Providers usage can be tracked on the organization's billing page. Team & Enterprise organization administrators can also set a spending limit and disable a set of Inference Providers from the organization's settings.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/enterprise-org-settings-light.png"/>
