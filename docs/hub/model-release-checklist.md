@@ -233,7 +233,7 @@ A successful model release extends beyond the initial publication. To maintain q
 
 ## 🏢 Enterprise Features
 
-[Hugging Face Team & Enterprise](https://huggingface.co/enterprise) subscription offers additional capabilities for teams and organizations:
+[Hugging Face Team or Enterprise](https://huggingface.co/enterprise) subscription offers additional capabilities for teams and organizations:
 
 1. **Access Control**:
    Set [resource groups](https://huggingface.co/docs/hub/security-resource-groups) to manage access for specific teams or users. This ensures the right permissions and secure collaboration across your organization.

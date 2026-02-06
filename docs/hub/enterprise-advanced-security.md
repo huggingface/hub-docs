@@ -3,7 +3,7 @@
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
-Team & Enterprise organizations can improve their security with advanced security controls for both members and repositories.
+Team or Enterprise organizations can improve their security with advanced security controls for both members and repositories.
 
 <div class="flex justify-center" style="max-width: 550px">
     <img class="block dark:hidden m-0!" src="https://cdn-uploads.huggingface.co/production/uploads/5dd96eb166059660ed1ee413/LqAmGSG7YbP7Y8vJJr7NQ.png" alt="screenshot of the Organization settings page for Advanced security."/>
