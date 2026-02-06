@@ -5,7 +5,7 @@ The Hugging Face Hub gives you the ability to implement mandatory Single Sign-On
 We support both SAML 2.0 and OpenID Connect (OIDC) protocols.
 
 > [!WARNING]
-> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans. For enhanced capabilities like automated user provisioning (JIT/SCIM) and global SSO enforcement, see our <a href="./enterprise-hub-advanced-sso">Advanced SSO documentation</a>
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans. For enhanced capabilities like automated user provisioning (JIT/SCIM) and global SSO enforcement, see our <a href="./enterprise-advanced-sso">Advanced SSO documentation</a>
 
 ## How does it work?
 
@@ -22,7 +22,7 @@ When users log in, they will be prompted to complete the Single Sign-On authenti
 
 Single Sign-On only applies to your organization. Members may belong to other organizations on Hugging Face.
 
-We support [role mapping](#role-mapping) and [resource group mapping](#resource-group-mapping). Based on attributes provided by your Identity Provider, you can dynamically assign [roles](./organizations-security#access-control-in-organizations) to organization members, or give them access to [resource groups](./enterprise-hub-resource-groups) defined in your organization.
+We support [role mapping](#role-mapping) and [resource group mapping](#resource-group-mapping). Based on attributes provided by your Identity Provider, you can dynamically assign [roles](./organizations-security#access-control-in-organizations) to organization members, or give them access to [resource groups](./enterprise-resource-groups) defined in your organization.
 
 ### Supported Identity Providers
 
@@ -92,7 +92,7 @@ Role synchronization is performed on every login.
 
 #### Resource Group Mapping
 
-When enabled, Resource Group Mapping allows you to dynamically assign members to [resource groups](./enterprise-hub-resource-groups) in your organization, based on data provided by your Identity Provider.
+When enabled, Resource Group Mapping allows you to dynamically assign members to [resource groups](./enterprise-resource-groups) in your organization, based on data provided by your Identity Provider.
 
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/resource-group-mapping.png"/>

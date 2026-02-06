@@ -6,7 +6,7 @@ Any feedback or support request related to billing is welcome at billing@hugging
 
 ## Team and Enterprise subscriptions
 
-We offer advanced security and compliance features for organizations through our Team or Enterprise plans, which include [Single Sign-On](./enterprise-sso), [Advanced Access Control](./enterprise-hub-resource-groups) for repositories, control over your data location, higher [storage capacity](./storage-limits) for public and private repositories, and more.
+We offer advanced security and compliance features for organizations through our Team or Enterprise plans, which include [Single Sign-On](./enterprise-sso), [Advanced Access Control](./enterprise-resource-groups) for repositories, control over your data location, higher [storage capacity](./storage-limits) for public and private repositories, and more.
 
 Team and Enterprise plans are billed like a typical subscription. They renew automatically, but you can choose to cancel at any time in the organization's billing settings.
 

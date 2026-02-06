@@ -24,3 +24,13 @@ storage-backends: xet/index
 git-xet: xet/using-xet-storage#git-xet
 hf-mcp-server: agents-mcp
 enterprise-hub: enterprise
+enterprise-hub-advanced-sso: enterprise-advanced-sso
+enterprise-hub-scim: enterprise-scim
+enterprise-hub-datasets: enterprise-datasets
+enterprise-hub-resource-groups: enterprise-resource-groups
+enterprise-hub-advanced-security: enterprise-advanced-security
+enterprise-hub-tokens-management: enterprise-tokens-management
+enterprise-hub-analytics: enterprise-analytics
+enterprise-hub-gating-group-collections: enterprise-gating-group-collections
+enterprise-hub-network-security: enterprise-network-security
+enterprise-hub-blog-articles: enterprise-blog-articles

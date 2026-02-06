@@ -23,7 +23,7 @@ Advanced SSO introduces automated user provisioning, which simplifies the onboar
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-flow-chart-dark.png"/>
 </div>
 
-Learn more about how to set up and manage SCIM in our [dedicated guide](./enterprise-hub-scim).
+Learn more about how to set up and manage SCIM in our [dedicated guide](./enterprise-scim).
 
 ## Global SSO Enforcement 
 

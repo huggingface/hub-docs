@@ -12,11 +12,11 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-sso">Single Sign-On (SSO)</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./audit-logs">Audit Logs</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-regions">Storage Regions</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-datasets">Data Studio for Private datasets</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-datasets">Data Studio for Private datasets</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./security-resource-groups">Resource Groups</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-advanced-security">Advanced Security</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-tokens-management">Tokens Management</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-hub-network-security">Network Security</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-advanced-security">Advanced Security</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-tokens-management">Tokens Management</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./enterprise-network-security">Network Security</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./rate-limits">Rate Limits</a>
 </div>
 

@@ -42,4 +42,4 @@ You may be able to view the email addresses of members of your organization. The
 
 ## Managing Access Tokens with access to my organization
 
-See [Tokens Management](./enterprise-hub-tokens-management)
+See [Tokens Management](./enterprise-tokens-management)
