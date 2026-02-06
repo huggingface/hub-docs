@@ -124,7 +124,7 @@ Once configured, you will receive:
 - A **Client ID** (e.g., `a1b2c3d4-e5f6-7890-abcd-ef1234567890`)
 - A **Client Secret** (keep this secure!)
 
-> [!TIP]
+> [!WARNING]
 > Organization administrators can manage the OAuth app after creation, including refreshing the client secret and configuring the token duration.
 
 ### Authentication
