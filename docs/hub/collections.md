@@ -11,7 +11,7 @@ Collections have many use cases:
 - Showcase and share a complete project with its paper(s), dataset(s), model(s) and Space(s).
 - Bookmark things you find on the Hub in categories.
 - Have a dedicated page of curated things to share with others.
-- Gate a group of models/datasets (Enterprise)
+- Gate a group of models/datasets (Enterprise Hub)
 
 This is just a list of possible uses, but remember that collections are just a way of grouping things, so use them in the way that best fits your use case.
 
@@ -55,11 +55,11 @@ Use the **history feature** to keep track of who has edited the collection.
 
 Set your collection to **private** if you don't want it to be accessible via its URL (it will not be displayed on your profile/organization page). For organizations, private collections are only available to members of the organization.
 
-### Gating Group Collections (Enterprise)
+### Gating Group Collections (Enterprise Hub)
 
 You can use a collection to [gate](https://huggingface.co/docs/hub/en/models-gated) all the models/datasets belonging to it, allowing you to grant (or reject) access to all of them at once.
 
-This feature is reserved for [Enterprise](https://huggingface.co/docs/hub/en/enterprise) subscribers: more information about Gating Group Collections can be found in [our dedicated doc](https://huggingface.co/docs/hub/en/enterprise-gating-group-collections).
+This feature is reserved for [Enterprise Hub](https://huggingface.co/docs/hub/en/enterprise) subscribers: more information about Gating Group Collections can be found in [our dedicated doc](https://huggingface.co/docs/hub/en/enterprise-gating-group-collections).
 
 ### Ordering your collections and their items
 

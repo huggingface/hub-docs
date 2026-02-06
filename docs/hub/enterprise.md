@@ -128,7 +128,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 ## Dive more
 
-In the following sections we will document the following Enterprise features:
+In the following sections we will document the following Enterprise Hub features:
 
 - [Single Sign-On (SSO)](./enterprise-sso)
 - [Advanced Single Sign-On (SSO)](./enterprise-advanced-sso)

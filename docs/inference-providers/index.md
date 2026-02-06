@@ -49,7 +49,7 @@ Here's what you can build:
 - **Search & Retrieval**: State-of-the-art embeddings for semantic search, RAG systems, and recommendation engines
 - **Traditional ML Tasks**: Ready-to-use models for classification, NER, summarization, and speech recognition
 
-⚡ **Get Started for Free**: Inference Providers includes a generous free tier, with additional credits for [PRO users](https://hf.co/subscribe/pro) and [Enterprise organizations](https://huggingface.co/enterprise).
+⚡ **Get Started for Free**: Inference Providers includes a generous free tier, with additional credits for [PRO users](https://hf.co/subscribe/pro) and [Enterprise Hub organizations](https://huggingface.co/enterprise).
 
 ## Key Features
 
