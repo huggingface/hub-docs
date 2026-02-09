@@ -20,6 +20,7 @@ Starting from version `v0.10.3`, the DuckDB CLI includes native support for acce
 - Combine datasets and export it to different formats
 - Conduct vector similarity search on embedding datasets
 - Implement full-text search on datasets
+- Use an Iceberg Datasets Catalog
 
 For a complete list of DuckDB features, visit the DuckDB [documentation](https://duckdb.org/docs/).
 

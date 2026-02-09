@@ -1,0 +1,193 @@
+# PyIceberg
+
+PyIceberg is a Python implementation for accessing Iceberg tables.
+
+You can use the PyIceberg library `faceberg` to add Hugging Face datasets to Iceberg catalog.
+
+Try out [Iceberg Datasets Catalog](https://huggingface.co/spaces/Dataset-Tools/Iceberg-Datasets-Catalog) to deploy Iceberg catalogs on Hugging Face Spaces.
+
+<div class="flex justify-center">
+    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-catalog.png">
+</div>
+
+## Set up
+
+### Installation
+
+To be able to add Hugging Face Datasets to a catalog, you need to install the `faceberg` library:
+
+```
+pip install faceberg
+```
+
+This will also install required dependencies like `huggingface_hub` for authentication, and `datasets` for metadata discovery.
+
+### Authentication
+
+You need to authenticate to Hugging Face to read private/gated dataset repositories or to write to your dataset repositories.
+
+You can use the CLI for example:
+
+```
+hf auth login
+```
+
+It's also possible to provide your Hugging Face token with the `HF_TOKEN` environment variable or passing the `token` option to the reader.
+For more details about authentication, check out [this guide](https://huggingface.co/docs/huggingface_hub/quick-start#authentication).
+
+## Deploy a Datasets Catalog
+
+Use `faceberg <username>/catalog-name> init` to deploy an Iceberg Datasets Catalog under your account on Hugging Face Spaces (free !)
+
+```bash
+>>> faceberg username/my-catalog init
+🤗🧊 Catalog: hf://spaces/username/my-catalog
+
+Initializing remote catalog: hf://spaces/username/my-catalog
+✓ Catalog initialized successfully!
+
+Space URL: https://username-my-catalog.hf.space
+Repository: https://huggingface.co/spaces/username/my-catalog
+
+Next steps:
+  • Run faceberg add <dataset> to add tables
+  • Run faceberg sync to sync tables from datasets
+  • Use faceberg scan <table> to view sample data
+  • Run faceberg serve to start the REST catalog server
+  • Run faceberg quack to open DuckDB with the catalog
+```
+
+<div class="flex justify-center">
+    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-space-empty-min.png"/>
+</div>
+
+## Add a dataset
+
+The `faceberg` command line makes it easy to add datasets from Hugging Face to an Iceberg catalog.
+
+This is compatible with all the dataset in [supported format](https://huggingface.co/docs/hub/datasets-adding#file-formats) on Hugging Face.
+Under the hood, the catalog points to the dataset's Parquet files.
+
+For example here is how to load the [stanfordnlp/imdb](https://huggingface.co/stanfordnlp/imdb) dataset:
+
+```bash
+>>> faceberg username/my-catalog add stanfordnlp/imdb
+faceberg username/my-catalog add stanfordnlp/imdb
+🤗🧊 Catalog: hf://spaces/username/my-catalog
+
+Adding dataset: stanfordnlp/imdb
+Table identifier: stanfordnlp.imdb
+
+stanfordnlp.imdb ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% • Complete
+
+✓ Added stanfordnlp.imdb to catalog
+  Dataset: stanfordnlp/imdb
+  Location: hf://spaces/username/my-catalog/stanfordnlp/imdb/metadata/v1.metadata.json
+
+Table schema:
+imdb(
+  1: split: optional string,
+  2: text: optional string,
+  3: label: optional long
+),
+partition by: [split],
+sort order: [],
+snapshot: Operation.APPEND: id=1, schema_id=0
+```
+
+<div class="flex justify-center">
+    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-space-imdb-min.png"/>
+</div>
+
+> ![TIP]
+> On Hugging Face, datasets that are not in Parquet format are automatically converted to Parquet in a separate git branch `refs/convert/parquet`.
+> Therefore it is possible to add to an Iceberg catalog a dataset that is not originally in Parquet.
+
+Here is another example with the [BAAI/Infinity-Instruct](https://huggingface.co/datasets/BAAI/Infinity-Instruct) dataset.
+It is a gated repository, users have to accept the terms of use before accessing it.
+It also has multiple subsets, namely, "3M" and "7M". So we need to specify which one to load.
+
+```bash
+>>> faceberg username/my-catalog add BAAI/Infinity-Instruct --config 7M
+🤗🧊 Catalog: hf://spaces/lhoestq/my-catalog
+
+Adding dataset: BAAI/Infinity-Instruct
+Table identifier: BAAI.Infinity-Instruct
+
+BAAI.Infinity-Instruct ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% • Complete
+
+✓ Added BAAI.Infinity-Instruct to catalog
+  Dataset: BAAI/Infinity-Instruct
+  Config: 7M
+  Location: hf://spaces/lhoestq/my-catalog/BAAI/Infinity-Instruct/metadata/v1.metadata.json
+
+Table schema:
+Infinity-Instruct(
+  1: split: optional string,
+  2: id: optional long,
+  3: conversations: optional list<struct<9: from: optional string, 10: value: optional string>>,
+  4: label: optional struct<11: ability_en: optional list<string>, 12: ability_zh: optional list<string>, 13: cate_ability_en: optional list<string>, 14: cate_ability_zh: 
+optional list<string>>,
+  5: langdetect: optional string,
+  6: source: optional string,
+  7: reward: optional double
+),
+partition by: [split],
+sort order: [],
+snapshot: Operation.APPEND: id=1, schema_id=0
+```
+
+<div class="flex justify-center">
+    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-space-infinity-instruct-7M-min.png"/>
+</div>
+
+## Load a dataset table
+
+### Using `faceberg`
+
+We use the `faceberg` to get the PyIceberg catalog in python, and `.load_table()` to load the dataset table (more precisely the config or subset named "7M" containing 7M samples). Then we compute the number of dialogue per language and filter the dataset.
+
+After logging-in to access the gated dataset, we can run:
+
+```python
+>>> import faceberg
+>>> catalog = faceberg.catalog("username/my-catalog")
+>>> table = catalog.load_table("BAAI.Infinity-Instruct")
+>>> table.scan(limit=5).to_pandas()
+Out[9]: 
+   split  id                                      conversations                                              label langdetect          source     reward
+0  train   0  [{'from': 'human', 'value': 'def extinguish_fi...  {'ability_en': ['programming ability'], 'abili...         en  code_exercises   3.718750
+1  train   1  [{'from': 'human', 'value': 'See the multi-cho...  {'ability_en': ['logical reasoning'], 'ability...         en            flan  -3.359375
+2  train   2  [{'from': 'human', 'value': 'This is some data...  {'ability_en': ['geographic knowledge', 'text ...         en            flan  -1.171875
+3  train   3  [{'from': 'human', 'value': 'If you don't want...  {'ability_en': ['logical reasoning'], 'ability...         en            flan -12.187500
+4  train   4  [{'from': 'human', 'value': 'In a United State...  {'ability_en': ['text understanding', 'informa...         en            flan  12.687500
+```
+
+### Using `pyiceberg.RestCatalog`
+
+```python
+>>> from pyiceberg.catalog.rest import RestCatalog
+>>> properties = {
+...     "uri": "https://username-my-catalog.hf.space"
+...     "warehouse": "hf://spaces/username/my-catalog"
+... }
+>>> catalog = RestCatalog("username/my-catalog", **properties)
+```
+
+## Run SQL queries
+
+Once you have your PyIceberg table ready, you can run SQL queries from the catalog Space:
+
+<div class="flex justify-center">
+    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-space-imdb-sql-min.png"/>
+</div>
+
+## Use other Iceberg clients
+
+Access datasets via your Iceberg Datasets Catalog via other clients:
+
+* **DuckDB** to run SQL, see the [documentation](./datasets-duckdb-iceberg)
+* **Pandas** for easy dataframe processing, see the [documentation](./datasets-pandas-iceberg)
+
+More generally, any client that supports REST catalogs and `hf://` URIs can now use access your Iceberg Datasets Catalog.
+In addition to native support in DuckDB, `hf://` URIs are also supported in any `fsspec`-based client in Python and in any `object_store_opendal`-based client in Rust.

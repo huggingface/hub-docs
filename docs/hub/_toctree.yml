@@ -255,6 +255,8 @@
             title: Combine datasets and export
           - local: datasets-duckdb-vector-similarity-search
             title: Perform vector similarity search
+          - local: datasets-duckdb-iceberg
+            title: Use an Iceberg Datasets catalog
       - local: datasets-embedding-atlas
         title: Embedding Atlas
       - local: datasets-fenic
@@ -276,6 +278,10 @@
           title: Performing data transformations
         - local: datasets-polars-optimizations
           title: Performance optimizations
+      - local: datasets-pyarrow
+        title: PyArrow
+      - local: datasets-pyiceberg
+        title: PyIceberg
       - local: datasets-spark
         title: Spark
       - local: datasets-webdataset
