@@ -110,7 +110,7 @@ snapshot: Operation.APPEND: id=1, schema_id=0
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-space-imdb-min.png"/>
 </div>
 
-> ![TIP]
+> [!TIP]
 > On Hugging Face, datasets that are not in Parquet format are automatically converted to Parquet in a separate git branch `refs/convert/parquet`.
 > Therefore it is possible to add to an Iceberg catalog a dataset that is not originally in Parquet.
 
