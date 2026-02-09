@@ -2,13 +2,10 @@
 
 PyIceberg is a Python implementation for accessing Iceberg tables.
 
-You can use the PyIceberg library `faceberg` to add Hugging Face datasets to Iceberg catalog.
+You can use the PyIceberg library `faceberg` to deploy an Iceberg Datasets catalog and add datasets from the Hugging Face Hub.
 
-Try out [Iceberg Datasets Catalog](https://huggingface.co/spaces/Dataset-Tools/Iceberg-Datasets-Catalog) to deploy Iceberg catalogs on Hugging Face Spaces.
-
-<div class="flex justify-center">
-    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-catalog.png">
-</div>
+Once your catalog is ready, use your favorite Iceberg client to query datasets in your catalog.
+For example: run SQL queries to explore datasets, do analytics, mix datasets together, or run large processing jobs.
 
 ## Set up
 
@@ -60,6 +57,8 @@ Next steps:
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-space-empty-min.png"/>
 </div>
+
+Alternatively, deploy a catalog locally using using `"/path/to/catalog"` or `"file:///path/to/catalog"` instead of a Space repository name.
 
 ## Add a dataset
 
@@ -138,16 +137,16 @@ snapshot: Operation.APPEND: id=1, schema_id=0
 ```
 
 <div class="flex justify-center">
-    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-space-infinity-instruct-7M-min.png"/>
+    <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-space-infinity-instruct-7m-min.png"/>
 </div>
 
 ## Load a dataset table
 
 ### Using `faceberg`
 
-We use the `faceberg` to get the PyIceberg catalog in python, and `.load_table()` to load the dataset table (more precisely the config or subset named "7M" containing 7M samples). Then we compute the number of dialogue per language and filter the dataset.
+Use the `faceberg` to get the PyIceberg catalog in python, and `.load_table()` to load the dataset table (more precisely the config or subset named "7M" containing 7M samples). Here is how to compute the number of dialogue per language and filter the dataset.
 
-After logging-in to access the gated dataset, we can run:
+After logging-in to access the gated dataset, you can run:
 
 ```python
 >>> import faceberg
@@ -163,15 +162,21 @@ Out[9]:
 4  train   4  [{'from': 'human', 'value': 'In a United State...  {'ability_en': ['text understanding', 'informa...         en            flan  12.687500
 ```
 
-### Using `pyiceberg.RestCatalog`
+### Using `pyiceberg`
+
+Here is how to instantiate the catalog using native PyIceberg.
+The catalog is a REST catalog so we use `pyiceberg.catalog.rest.RestCatalog`.
+
+The uri of the catalog is the Space HTTP URL that ends with `.hf.space`, and the warehouse property should point to the Space repository on Hugging face, which contains the metadata files of the iceberg tables:
 
 ```python
 >>> from pyiceberg.catalog.rest import RestCatalog
 >>> properties = {
-...     "uri": "https://username-my-catalog.hf.space"
-...     "warehouse": "hf://spaces/username/my-catalog"
+...     "uri": "https://username-my-catalog.hf.space",
+...     "warehouse": "hf://spaces/username/my-catalog",
 ... }
 >>> catalog = RestCatalog("username/my-catalog", **properties)
+>>> table = catalog.load_table("BAAI.Infinity-Instruct")
 ```
 
 ## Run SQL queries
