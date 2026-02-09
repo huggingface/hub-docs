@@ -37,7 +37,12 @@ For more details about authentication, check out [this guide](https://huggingfac
 Use `faceberg <username>/catalog-name> init` to deploy an Iceberg Datasets Catalog under your account on Hugging Face Spaces (free !)
 
 ```bash
->>> faceberg username/my-catalog init
+faceberg username/my-catalog init
+```
+
+This command will show you the created catalog information and some helpful commands:
+
+```
 🤗🧊 Catalog: hf://spaces/username/my-catalog
 
 Initializing remote catalog: hf://spaces/username/my-catalog
@@ -54,6 +59,9 @@ Next steps:
   • Run faceberg quack to open DuckDB with the catalog
 ```
 
+In particular, note the Space URL that ends with `.hf.space`.
+It is your catalog uri for iceberg clients, and also the web interface you can open in your browser:
+
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-space-empty-min.png"/>
 </div>
@@ -67,11 +75,15 @@ The `faceberg` command line makes it easy to add datasets from Hugging Face to a
 This is compatible with all the dataset in [supported format](https://huggingface.co/docs/hub/datasets-adding#file-formats) on Hugging Face.
 Under the hood, the catalog points to the dataset's Parquet files.
 
-For example here is how to load the [stanfordnlp/imdb](https://huggingface.co/stanfordnlp/imdb) dataset:
+For example here is how to load the [stanfordnlp/imdb](https://huggingface.co/stanfordnlp/imdb) dataset and the `faceberg add` command:
 
 ```bash
->>> faceberg username/my-catalog add stanfordnlp/imdb
 faceberg username/my-catalog add stanfordnlp/imdb
+```
+
+which shows:
+
+```
 🤗🧊 Catalog: hf://spaces/username/my-catalog
 
 Adding dataset: stanfordnlp/imdb
@@ -107,33 +119,7 @@ It is a gated repository, users have to accept the terms of use before accessing
 It also has multiple subsets, namely, "3M" and "7M". So we need to specify which one to load.
 
 ```bash
->>> faceberg username/my-catalog add BAAI/Infinity-Instruct --config 7M
-🤗🧊 Catalog: hf://spaces/lhoestq/my-catalog
-
-Adding dataset: BAAI/Infinity-Instruct
-Table identifier: BAAI.Infinity-Instruct
-
-BAAI.Infinity-Instruct ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% • Complete
-
-✓ Added BAAI.Infinity-Instruct to catalog
-  Dataset: BAAI/Infinity-Instruct
-  Config: 7M
-  Location: hf://spaces/lhoestq/my-catalog/BAAI/Infinity-Instruct/metadata/v1.metadata.json
-
-Table schema:
-Infinity-Instruct(
-  1: split: optional string,
-  2: id: optional long,
-  3: conversations: optional list<struct<9: from: optional string, 10: value: optional string>>,
-  4: label: optional struct<11: ability_en: optional list<string>, 12: ability_zh: optional list<string>, 13: cate_ability_en: optional list<string>, 14: cate_ability_zh: 
-optional list<string>>,
-  5: langdetect: optional string,
-  6: source: optional string,
-  7: reward: optional double
-),
-partition by: [split],
-sort order: [],
-snapshot: Operation.APPEND: id=1, schema_id=0
+faceberg username/my-catalog add BAAI/Infinity-Instruct --config 7M
 ```
 
 <div class="flex justify-center">
