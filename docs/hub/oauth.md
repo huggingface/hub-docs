@@ -55,7 +55,6 @@ This is particularly useful for ephemeral environments or MCP clients. See an [i
 
 Device code flow lets users authorize an app on one device (e.g. a CLI) by entering a short code on another device (e.g. a phone or browser). No redirect URI or browser on the device running the app is required.
 
-<!-- TODO: Replace with real screenshot when available -->
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-device-first-step.png)
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-device-second-step.png)
