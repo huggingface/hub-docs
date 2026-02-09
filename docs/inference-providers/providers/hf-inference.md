@@ -90,7 +90,7 @@ Find out more about Image Classification [here](../tasks/image-classification).
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Anwarkh1/Skin_Cancer-Image_Classification","providerModelId":"Anwarkh1/Skin_Cancer-Image_Classification"} } }
 />
 
 
@@ -180,7 +180,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
+    providersMapping={ {"hf-inference":{"modelId":"OpenMed/OpenMed-PII-BioClinicalModern-Large-395M-v1","providerModelId":"OpenMed/OpenMed-PII-BioClinicalModern-Large-395M-v1"} } }
 />
 
 
