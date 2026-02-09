@@ -2,7 +2,7 @@
 
 PyIceberg is a Python implementation for accessing Iceberg tables.
 
-You can use the PyIceberg library `faceberg` to deploy an Iceberg Datasets catalog and add datasets from the Hugging Face Hub.
+You can use the PyIceberg library [faceberg](https://github.com/kszucs/faceberg) to deploy an Iceberg Datasets catalog and add datasets from the Hugging Face Hub.
 
 Once your catalog is ready, use your favorite Iceberg client to query datasets in your catalog.
 For example: run SQL queries to explore datasets, do analytics, mix datasets together, or run large processing jobs.
@@ -182,3 +182,5 @@ Access datasets via your Iceberg Datasets Catalog via other clients:
 
 More generally, any client that supports REST catalogs and `hf://` URIs can now use access your Iceberg Datasets Catalog.
 In addition to native support in DuckDB, `hf://` URIs are also supported in any `fsspec`-based client in Python and in any `object_store_opendal`-based client in Rust.
+
+Find more examples and advanced usage in the main [faceberg documentation](https://faceberg.kszucs.dev/).
