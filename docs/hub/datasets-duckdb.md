@@ -79,11 +79,11 @@ Which returns:
 
 ## Query an Iceberg Datasets Catalog
 
-Use the PyIceberg library `faceberg` to deploy an Iceberg catalog you can use to query datasets on Huggging Face using an easy syntax.
+Use the PyIceberg library `faceberg` to deploy an Iceberg catalog (see next section) you can use to query datasets on Huggging Face using an easy syntax.
 
 In particular you can query datasets as `faceberg.namespace.dataset_name` instead of having to pass a file pattern, and it automatically adds a `split` column to differentiate between train/test/validation splits.
 
-For example, to query the [stanfordnlp/imdb](https://huggingface.co/datasets/stanfordnlp/imdb) dataset:
+For example, here is the syntax to query the [stanfordnlp/imdb](https://huggingface.co/datasets/stanfordnlp/imdb) dataset:
 
 ```sql
 SELECT * FROM faceberg.stanfordnlp.imdb LIMIT 10;
@@ -136,7 +136,7 @@ SELECT * FROM faceberg.stanfordnlp.imdb WHERE split = 'test' LIMIT 10;
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Create a catalog on HuggingFace Hub
+### Deploy a catalog on HuggingFace Hub
 
 To deploy an Iceberg Datasets catalog, run `pip install faceberg` and run this command using your own Hugging Face username instead of "user":
 
