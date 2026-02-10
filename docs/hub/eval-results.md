@@ -55,6 +55,10 @@ Create a YAML file in `.eval_results/*.yaml` in your model repo:
     name: Eval traces             # Optional. Display name
     user: SaylorTwift             # Optional. HF username/org
   notes: "no-tools"               # Optional. Details about the evaluation setup (e.g., "tools", "no-tools", etc.)
+  agentic:                        # Optional. Metadata for agentic evaluations
+    scaffold_name: "open-sourcer" # Optional. Name of the agent scaffold
+    scaffold_repository: "huggingface/open-sourcer" # Optional. Hub repository or URL of the scaffold
+    scaffold_commit: "a1b2c3d"    # Optional. Commit ID of the scaffold
 ```
 
 Or, with only the required attributes:
