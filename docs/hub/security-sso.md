@@ -28,6 +28,8 @@ We support [role mapping](#role-mapping) and [resource group mapping](#resource-
 
 You can easily integrate Hugging Face Hub with a variety of Identity Providers, such as Okta, OneLogin or Azure Active Directory (Azure AD). Hugging Face Hub can work with any OIDC-compliant or SAML Identity Provider.
 
+As of November 2025, the official Hugging Face App is listed in the Okta Integration Network, providing a pre-validated SAML configuration that organizations can add directly from the network. OIDC, SCIM, and JIT provisioning are planned for the same app soon.
+
 ## How to configure OIDC/SAML provider in the Hub
 
 We have some guides available to help with configuring based on your chosen SSO provider, or to take inspiration from:

@@ -50,6 +50,8 @@ After creating your model repository, you should see a page like this:
 
 Note that the Hub prompts you to create a *Model Card*, which you can learn about in the [**Model Cards documentation**](./model-cards). Including a Model Card in your model repo is best practice, but since we're only making a test repo at the moment we can skip this.
 
+The Files & Versions tab also displays the total size of the current branch/folder so you can monitor how much storage your repo is using as you add or remove files.
+
 ## Adding files to a repository (Web UI)
 
 To add files to your repository via the web UI, start by selecting the **Files** tab, navigating to the desired directory, and then clicking **Add file**. You'll be given the option to create a new file or upload a file directly from your computer. 

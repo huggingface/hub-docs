@@ -31,4 +31,3 @@ In these pages you will get started in using Xet Storage.
 - [Security](./security)
 - [Backwards Compatibility & Legacy](./legacy-git-lfs)
 - [Deduplication](./deduplication)
-
