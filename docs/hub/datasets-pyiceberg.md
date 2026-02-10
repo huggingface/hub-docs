@@ -130,7 +130,7 @@ faceberg username/my-catalog add BAAI/Infinity-Instruct --config 7M
 
 ### Using `faceberg`
 
-Use the `faceberg` to get the PyIceberg catalog in python, and `.load_table()` to load the dataset table (more precisely the config or subset named "7M" containing 7M samples). Here is how to compute the number of dialogue per language and filter the dataset.
+Use `faceberg` to get the PyIceberg catalog in python, and `.load_table()` to load the dataset table (more precisely the config or subset named "7M" containing 7M samples). Here is how to compute the number of dialogue per language and filter the dataset.
 
 After logging-in to access the gated dataset, you can run:
 
@@ -173,12 +173,27 @@ Once you have your PyIceberg table ready, you can run SQL queries from the catal
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-faceberg-space-imdb-sql-min.png"/>
 </div>
 
+## More information on `faceberg`
+
+Find more information about the `faceberg` library in its official documentation:
+
+* [Getting Started](https://faceberg.kszucs.dev/), and in particular:
+  - [Query data with the CLI](https://faceberg.kszucs.dev/#query-data)
+  - [Query data with DuckDB](https://faceberg.kszucs.dev/#interactive-queries-with-duckdb)
+  - [Query data with pyiceberg](https://faceberg.kszucs.dev/#query-using-pyiceberg)
+  - [The Catalog API](https://faceberg.kszucs.dev/#catalog-api)
+  - [How it works](https://faceberg.kszucs.dev/#how-it-works)
+* [Local Catalogs](https://faceberg.kszucs.dev/local.html)
+* [Architecture](https://faceberg.kszucs.dev/design.html)
+* [DuckDB integration](https://faceberg.kszucs.dev/duckdb.html)
+* [Pandas integration](https://faceberg.kszucs.dev/pandas.html)
+
 ## Use other Iceberg clients
 
 Access datasets via your Iceberg Datasets Catalog via other clients:
 
-* **DuckDB** to run SQL, see the [documentation](./datasets-duckdb-iceberg)
-* **Pandas** for easy dataframe processing, see the [documentation](./datasets-pandas-iceberg)
+* **DuckDB** to run SQL, see the [DuckDB integration with faceberg](https://faceberg.kszucs.dev/duckdb.html)
+* **Pandas** for easy dataframe processing, see the [Pandas integration with faceberg](https://faceberg.kszucs.dev/pandas.html)
 
 More generally, any client that supports REST catalogs and `hf://` URIs can now use access your Iceberg Datasets Catalog.
 In addition to native support in DuckDB, `hf://` URIs are also supported in any `fsspec`-based client in Python and in any `object_store_opendal`-based client in Rust.
