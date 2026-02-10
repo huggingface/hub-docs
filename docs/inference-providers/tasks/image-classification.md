@@ -31,7 +31,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"Anwarkh1/Skin_Cancer-Image_Classification","providerModelId":"Anwarkh1/Skin_Cancer-Image_Classification"}} }
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"}} }
 />
 
 
