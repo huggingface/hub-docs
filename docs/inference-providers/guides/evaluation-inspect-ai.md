@@ -100,7 +100,7 @@ inspect view
 ## Example: Comparing several inference providers for a task
 In this section, we will evaluate the same model across different providers. Inference Providers gives us access to many providers for the same model. Performance might vary across providers, so this is a useful factor, in addition to speed and cost, to choose the most appropriate inference provider for your task.
 
-If we don't specify a provider, like we did in our previous examples, the system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). But we can also select the provider by appending the provider name to the model id (e.g. `openai/gpt-oss-120b:sambanova`).
+If we don't specify a provider, like we did in our previous examples, the system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy). But we can also select the provider by appending the provider name to the model id (e.g. `openai/gpt-oss-120b:sambanova`).
 
 Let's run the evaluations for `gpt-oss-120b` across several providers. Please note that this time we are using the `eval_set` function directly in Python for extra flexibility (e.g., changing the list of providers):
 
