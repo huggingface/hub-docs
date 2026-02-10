@@ -180,7 +180,7 @@ Find more information about the `faceberg` library in its official documentation
 * [Getting Started](https://faceberg.kszucs.dev/), and in particular:
   - [Query data with the CLI](https://faceberg.kszucs.dev/#query-data)
   - [Query data with DuckDB](https://faceberg.kszucs.dev/#interactive-queries-with-duckdb)
-  - [Query data with pyiceberg](https://faceberg.kszucs.dev/#query-using-pyiceberg)
+  - [Query data with PyIceberg](https://faceberg.kszucs.dev/#query-using-pyiceberg)
   - [The Catalog API](https://faceberg.kszucs.dev/#catalog-api)
   - [How it works](https://faceberg.kszucs.dev/#how-it-works)
 * [Local Catalogs](https://faceberg.kszucs.dev/local.html)
