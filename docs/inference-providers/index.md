@@ -105,7 +105,7 @@ You can now use the client with a Python interpreter.
 
 By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:cheapest` to the model id to select the most cost-efficient provider instead (lowest price per output token), e.g. `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -136,7 +136,7 @@ If you're already using OpenAI's Python client, then you need a **drop-in OpenAI
 
 By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:cheapest` to the model id to select the most cost-efficient provider instead (lowest price per output token), e.g. `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -168,7 +168,7 @@ For maximum control and interoperability with custom frameworks, use our OpenAI-
 
 By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:cheapest` to the model id to select the most cost-efficient provider instead (lowest price per output token), e.g. `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -216,7 +216,7 @@ Then use the client with Javascript.
 
 By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:cheapest` to the model id to select the most cost-efficient provider instead (lowest price per output token), e.g. `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -246,7 +246,7 @@ If you're already using OpenAI's Javascript client, then you need a **drop-in Op
 
 By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:cheapest` to the model id to select the most cost-efficient provider instead (lowest price per output token), e.g. `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -279,7 +279,7 @@ For lightweight applications or custom implementations, use our REST API directl
 
 By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:cheapest` to the model id to select the most cost-efficient provider instead (lowest price per output token), e.g. `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -318,7 +318,7 @@ For testing, debugging, or integrating with any HTTP client, here's the raw REST
 
 By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:cheapest` to the model id to select the most cost-efficient provider instead (lowest price per output token), e.g. `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -468,6 +468,7 @@ By default, the fastest available provider is selected for the model (highest th
 You can change that policy by adding a suffix to the model name:
 
 - `:cheapest` selects the most cost-efficient provider for the model (lowest price per output tokens)
+- `:preferred` selects the first available provider sorted by your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers)
 
 **Note**: This OpenAI-compatible endpoint is currently available for chat completion tasks only. For other tasks like text-to-image, embeddings, or speech processing, use the Hugging Face inference clients shown above.
 
