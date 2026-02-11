@@ -226,8 +226,7 @@ async function transcribe(file) {
 <hfoptions id="summarization">
 <hfoption id="python">
 
-Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider, and just like in the previous step, we'll use the `auto` provider to automatically select the first available provider for the model.
-We'll also use the `:fastest` policy to make sure we select the best performing provider for this model.
+Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider. The `:fastest` policy is the default for chat completions, automatically selecting the best performing provider for this model.
 We will define a custom prompt to ensure the output is formatted as a summary with action items and decisions made:
 
 ```python
@@ -261,8 +260,7 @@ def generate_summary(transcript):
 </hfoption>
 <hfoption id="javascript">
 
-Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider, and just like in the previous step, we'll use the `auto` provider to automatically select the first available provider for the model.
-We'll also use the `:fastest` policy to make sure we select the best performing provider for this model.
+Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider. The `:fastest` policy is the default for chat completions, automatically selecting the best performing provider for this model.
 We will define a custom prompt to ensure the output is formatted as a summary with action items and decisions made:
 
 ```javascript

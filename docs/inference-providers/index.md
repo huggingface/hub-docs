@@ -103,9 +103,9 @@ hf auth login # get a read token from hf.co/settings/tokens
 
 You can now use the client with a Python interpreter.
 
-By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -134,9 +134,9 @@ print(completion.choices[0].message)
 
 If you're already using OpenAI's Python client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
-By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -166,9 +166,9 @@ completion = client.chat.completions.create(
 
 For maximum control and interoperability with custom frameworks, use our OpenAI-compatible REST API directly.
 
-By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -214,9 +214,9 @@ npm install @huggingface/inference
 
 Then use the client with Javascript.
 
-By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -244,9 +244,9 @@ console.log(chatCompletion.choices[0].message);
 
 If you're already using OpenAI's Javascript client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
-By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -277,9 +277,9 @@ console.log(completion.choices[0].message.content);
 
 For lightweight applications or custom implementations, use our REST API directly with standard fetch.
 
-By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -316,9 +316,9 @@ console.log(await response.json());
 
 For testing, debugging, or integrating with any HTTP client, here's the raw REST API format.
 
-By default, our system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
-You can change the provider selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`).
+You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
 
@@ -464,11 +464,11 @@ result = client.chat_completion(
 
 If you prefer to work with familiar OpenAI APIs or want to migrate existing chat completion code with minimal changes, we offer a drop-in compatible endpoint that handles all provider selection automatically on the server side.
 
-By default, the selected provider is the first available provider for the selected model, sorted by your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers).
+By default, the fastest available provider is selected for the model (highest throughput in tokens per second). This is equivalent to appending `:fastest` to the model name.
 You can change that policy by adding a suffix to the model name:
 
-- `:fastest` selects the fastest provider for the model (highest throughput in tokens per second)
 - `:cheapest` selects the most cost-efficient provider for the model (lowest price per output tokens)
+- `:preferred` selects the first available provider sorted by your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers)
 
 **Note**: This OpenAI-compatible endpoint is currently available for chat completion tasks only. For other tasks like text-to-image, embeddings, or speech processing, use the Hugging Face inference clients shown above.
 
@@ -534,7 +534,7 @@ curl https://router.huggingface.co/v1/chat/completions \
 
 **Key Features:**
 
-- **Server-Side Provider Selection**: The server automatically chooses the best available provider
+- **Server-Side Provider Selection**: The server automatically selects the fastest available provider by default (`:fastest` policy)
 - **Model Listing**: GET `/v1/models` returns available models across all providers
 - **OpenAI SDK Compatibility**: Works with existing OpenAI client libraries
 - **Chat Tasks Only**: Limited to conversational workloads
