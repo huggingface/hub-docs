@@ -113,7 +113,7 @@ url = results.push_to_hub(
 )
 ```
 
-For loading Hub datasets as seed data and more details on Hub integration, see the [Data Designer Hub datasets guide](https://huggingface.co/docs/hub/en/datasets-data-designer).
+For loading Hub datasets as seed data and more details on the Hub integration, see the [Data Designer Hub datasets guide](https://huggingface.co/docs/hub/en/datasets-data-designer).
 
 ## Resources
 
