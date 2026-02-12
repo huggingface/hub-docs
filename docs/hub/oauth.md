@@ -16,6 +16,15 @@ You can create your application in your [settings](https://huggingface.co/settin
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-create-application.png)
 
+### Public OAuth apps (no secret)
+
+You can create or use OAuth apps without a client secret. This is useful for native apps, CLIs, or other contexts where keeping a secret is impractical.
+
+- **At app creation**: When creating a new OAuth app, you can choose to create it without a secret.
+- **After creation**: For an existing app, you can delete the client secret in the app settings. The app will then work as a public app.
+
+Public apps authenticate using only the client ID (e.g. in device code or authorization code flows with PKCE). Apps that have a secret can still use the secret when needed (e.g. `Authorization: Basic` for token requests).
+
 ### If you are hosting in Spaces
 
 > [!TIP]
@@ -41,6 +50,48 @@ Hugging Face supports CIMD aka [Client ID Metadata Documents](https://datatracke
 - Use `"[your website url]/.well-known/oauth-cimd"` as client ID, and PCKE as auth mechanism
 
 This is particularly useful for ephemeral environments or MCP clients. See an [implementation example](https://github.com/huggingface/chat-ui/pull/1978) in Hugging Chat.
+
+## Device code OAuth
+
+Device code flow lets users authorize an app on one device (e.g. a CLI) by entering a short code on another device (e.g. a phone or browser). No redirect URI or browser on the device running the app is required.
+
+![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-device-first-step.png)
+
+![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-device-second-step.png)
+
+### Testing with a sample script
+
+You can test a device-code OAuth app with the following script. Replace `<Client ID>` with your app’s client ID. For **public apps** (no secret), the script works as-is. For **apps with a secret**, add an `Authorization: Basic` header (Base64 of `client_id:client_secret`) to both the device and token requests.
+
+```sh
+#!/bin/bash
+CLIENT_ID="<Client ID>"
+
+# Step 1: Get device code
+RESPONSE=$(curl -s -X POST https://huggingface.co/oauth/device \
+  -d "client_id=$CLIENT_ID")
+
+DEVICE_CODE=$(echo $RESPONSE | jq -r '.device_code')
+USER_CODE=$(echo $RESPONSE | jq -r '.user_code')
+VERIFICATION_URI=$(echo $RESPONSE | jq -r '.verification_uri')
+
+echo "Device Code: $DEVICE_CODE"
+echo "User Code: $USER_CODE"
+echo ""
+echo "Open: ${VERIFICATION_URI}"
+echo "Enter the user code: $USER_CODE"
+echo ""
+read -p "Press Enter after authorizing..."
+
+# Step 3: Exchange for token
+curl -X POST https://huggingface.co/oauth/token \
+  -d "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
+  -d "device_code=$DEVICE_CODE" \
+  -d "client_id=$CLIENT_ID"
+```
+
+> [!NOTE]
+> For OAuth apps that have a client secret, include an `Authorization: Basic` header (with Base64-encoded `client_id:client_secret`) on both the device code request and the token exchange request.
 
 ## Currently supported scopes
 
