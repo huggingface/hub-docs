@@ -60,3 +60,4 @@ url = results.push_to_hub(
 - [Data Designer Documentation](https://nvidia-nemo.github.io/DataDesigner/)
 - [GitHub Repository](https://github.com/NVIDIA-NeMo/DataDesigner)
 - [Seed Datasets Guide](https://nvidia-nemo.github.io/DataDesigner/latest/concepts/seed-datasets/)
+- [Guide to using Data Designer with Inference Providers](https://huggingface.co/docs/inference-providers/integrations/datadesigner)
