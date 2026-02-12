@@ -40,7 +40,7 @@ preview = data_designer.preview(config_builder, num_records=5)
 
 ## Push generated datasets to the Hub
 
-Use the built-in `push_to_hub` method to upload generated datasets.
+Use the built-in `push_to_hub` method to upload generated datasets to the Hub.
 
 ```python
 # Generate dataset
