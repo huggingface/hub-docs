@@ -16,11 +16,22 @@ Dataset repos can be defined as **Benchmarks** (e.g., [MMLU-Pro](https://hugging
 To register your dataset as a benchmark:
 
 1. Create a dataset repo containing your evaluation data
-2. Add an `eval.yaml` file to the repo root with your [benchmark configuration](https://inspect.aisi.org.uk/tasks.html#hugging-face)
-3. The file is validated at push time
-4. (**Beta**) Get in touch so we can add it to the allow-list.
+2. Add an `eval.yaml` file to the repo root that looks like this example:
 
-The `eval.yaml` format is based on [Inspect AI](https://inspect.aisi.org.uk/), enabling reproducible evaluations. See the [Evaluating models with Inspect](https://huggingface.co/docs/inference-providers/guides/evaluation-inspect-ai) guide for details on running evaluations.
+```yaml
+name: Humanity's Last Exam
+description: Humanity's Last Exam (HLE) is a benchmark to (...)
+evaluation_framework: hle
+
+tasks:
+  - id: hle # the HF dataset ID
+    config: default # the HF dataset config
+    split: test # the HF dataset split
+```
+
+3. The file is validated at push time
+4. (**Beta**) Get in touch so we can add it to the allow-list by commenting on the [discussion](https://huggingface.co/spaces/OpenEvals/README/discussions/2).
+
 
 Examples can be found in these benchmarks: [GPQA](https://huggingface.co/datasets/Idavidrein/gpqa/blob/main/eval.yaml), [MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro/blob/main/eval.yaml), [HLE](https://huggingface.co/datasets/cais/hle/blob/main/eval.yaml), [GSM8K](https://huggingface.co/datasets/openai/gsm8k/blob/main/eval.yaml).
 
@@ -54,6 +65,7 @@ Create a YAML file in `.eval_results/*.yaml` in your model repo:
     url: https://huggingface.co/spaces/SaylorTwift/smollm3-mmlu-pro  # Required if source provided
     name: Eval traces             # Optional. Display name
     user: SaylorTwift             # Optional. HF username/org
+  evaluation_framework: hle       # Optional. Evaluation framework used to make the eval show up as "verified" (should be the same as the one in the eval.yaml)
   notes: "no-tools"               # Optional. Details about the evaluation setup (e.g., "tools", "no-tools", etc.)
 ```
 
