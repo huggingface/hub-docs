@@ -100,7 +100,7 @@ Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
+    providersMapping={ {"hf-inference":{"modelId":"fashn-ai/fashn-human-parser","providerModelId":"fashn-ai/fashn-human-parser"} } }
 />
 
 

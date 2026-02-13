@@ -52,13 +52,3 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
     providersMapping={ {"publicai":{"modelId":"utter-project/EuroLLM-22B-Instruct-2512","providerModelId":"utter-project/EuroLLM-22B-Instruct-2512"} } }
 conversational />
 
-
-### Chat Completion (VLM)
-
-Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=image-text-to-text
-    providersMapping={ {"publicai":{"modelId":"allenai/Molmo2-8B","providerModelId":"allenai/Molmo2-8B"} } }
-conversational />
-
