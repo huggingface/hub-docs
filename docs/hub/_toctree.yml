@@ -278,6 +278,10 @@
           title: Performing data transformations
         - local: datasets-polars-optimizations
           title: Performance optimizations
+      - local: datasets-pyarrow
+        title: PyArrow
+      - local: datasets-pyiceberg
+        title: PyIceberg
       - local: datasets-spark
         title: Spark
       - local: datasets-webdataset
