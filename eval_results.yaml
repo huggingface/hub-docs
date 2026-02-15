@@ -1,30 +1,71 @@
+# File naming convention: .eval_results/<benchmark_repo_name>.yaml
+# where <benchmark_repo_name> is the lowercased, hyphen-to-underscore repo name part
+# of the benchmark's HF dataset id.
+# For example: cais/hle → .eval_results/hle.yaml
+#              ScaleAI/SWE-bench_Pro → .eval_results/swe_bench_pro.yaml
+
 - dataset:
     id: cais/hle                  # Required. A valid dataset id from the Hub, which should have a "Benchmark" tag.
                                   # ^Basically, this is where the leaderboard lives.
-    task_id: {task_id}            # Required. ID of the Task, as defined in the dataset's eval.yaml
+    task_id: {task_id}            # Required. ID of the Task, as defined in the dataset's eval.yaml.
                                   # A single dataset can define several tasks or leaderboards.
                                   # Example: GPQA defines gpqa_diamond, gpqa_main, gpqa_extended.
-    revision: {dataset_revision}  # Optional. Example: 5503434ddd753f426f4b38109466949a1217c2bb
+    revision: {dataset_revision}  # Optional. Full commit SHA of the dataset revision used. Recommended for reproducibility.
+                                  # Example: 5503434ddd753f426f4b38109466949a1217c2bb
 
-  value: {metric_value}           # Required. Example: 20.90
+  framework:                        # Optional. Omit if the framework is unknown (e.g. results from a paper or blog post).
+    name: {framework_name}        # Optional. Name of the evaluation framework. Example: inspect-ai
+    version: {framework_version}  # Optional. Version of the evaluation framework. Example: 0.4.2
+    command: {framework_command}   # Optional. The command used to run the evaluation.
+                                  # Example: inspect eval theory.py --model openai/gpt-4
 
-  verifyToken: {verify_token}     # Optional. If present, this is a signature that can be used to prove that evaluation is provably auditable and reproducible. 
+  model_revision: {model_revision}  # Optional. Revision (full commit SHA) of the model evaluated. Recommended for reproducibility.
+                                    # Example: 9f3c2c9a1c4e6d1e
+
+  metrics:                        # Required. One or more metrics for the same run.
+    - metric_id: {metric_id}      # Required. Must match a metric defined in the benchmark's eval.yaml. Example: accuracy
+      value: {metric_value}       # Required. Example: 20.90
+
+  verify_token: {verify_token}     # Optional. If present, this is a signature that can be used to prove that
+                                  # evaluation is provably auditable and reproducible.
                                   # (For example, was run in a HF Job using inspect-ai or lighteval)
 
-  date: "{date}"                  # Optional. When was this eval run (ISO-8601 date or datetime). Format this as a string. If not provided, can default to this file creation time in git.
+  date: "{date}"                  # Optional. When was this eval run (ISO-8601 date or datetime).
+                                  # Format this as a string. If not provided, can default to this file creation time in git.
 
-  source:                         # Optional. Attribution for this result, for instance a repo containing output traces or a Paper
-    url: {source_url}             # Required if source is provided. A link to the source. Example: https://huggingface.co/spaces/SaylorTwift/smollm3-mmlu-pro.
+  source:                         # Optional. Attribution for this result, for instance a repo containing output traces or a Paper.
+    url: {source_url}             # Required if source is provided. A link to the source.
+                                  # Example: https://huggingface.co/spaces/SaylorTwift/smollm3-mmlu-pro
     name: {source_name}           # Optional. The name of the source. Example: Eval Logs.
-    user: {username}              # Optional. A HF user name.
-    org: {orgname}                # Optional. A HF org name.
 
-  notes: "{notes}"                # Optional. Details about the evaluation setup (e.g., "tools", "no-tools", "chain-of-thought", etc.)
+  notes: "{notes}"                # Optional. Details about the evaluation setup
+                                  # (e.g., "tools", "no-tools", "chain-of-thought", etc.)
 
-# or, with only the required attributes:
+  run: {run}                      # Optional. Additional run metadata.
+  artifacts: {artifacts}          # Optional. Additional artifacts metadata.
+  runtime_context: {runtime_context}  # Optional. Additional runtime context metadata.
+
+# or, minimal example (e.g. results from a paper or blog post):
 
 - dataset:
-    id: Idavidrein/gpqa
-    task_id: gpqa_diamond
-  value: 0.412
+    id: cais/hle
+    task_id: default
+  metrics:
+    - metric_id: accuracy
+      value: 20.90
 
+# or, example with full provenance:
+
+- dataset:
+    id: cais/hle
+    task_id: default
+    revision: 5503434ddd753f426f4b38109466949a1217c2bb
+  framework:
+    name: inspect-ai
+    version: "0.4.2"
+    command: "inspect eval theory.py --model openai/gpt-4"
+  model_revision: 9f3c2c9a1c4e6d1e
+  metrics:
+    - metric_id: accuracy
+      value: 20.90
+  verify_token: "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9..."
