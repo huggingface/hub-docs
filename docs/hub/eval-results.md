@@ -16,7 +16,7 @@ Dataset repos can be defined as **Benchmarks** (for example [MMLU-Pro](https://h
 To register your dataset as a benchmark:
 
 1. Create a dataset repo containing your evaluation data.
-2. Add an `eval.yaml` file to the dataset repo root.
+2. Add an `eval.yaml` file to the dataset repo root, conform the spec defined below.
 3. Push changes; the file is validated at push time.
 4. (**Beta**) Get in touch so we can add it to the allow-list by commenting on the [discussion](https://huggingface.co/spaces/OpenEvals/README/discussions/2).
 
@@ -24,19 +24,19 @@ Required top-level fields in `eval.yaml`:
 
 - `name` — Human-readable display name for the benchmark (e.g. `"Humanity's Last Exam"`).
 - `description` — Short description of what the benchmark measures.
-- `evaluation_framework` — Canonical evaluation framework for this benchmark (e.g. `"inspect-ai"`). Exactly one framework is supported per benchmark leaderboard.
+- `evaluation_framework` — Canonical evaluation framework identifier for this benchmark (e.g. `"inspect-ai"`, `"verifiers"`, `"helm"`). Exactly one framework is supported per benchmark leaderboard.
 - `metrics[]` — List of metrics this benchmark tracks (see below).
 - `tasks[]` — List of tasks (sub-leaderboards) defined by this benchmark (see below).
 
 Required fields in each `metrics[]` item:
 
 - `id` — Unique identifier for the metric (e.g. `"accuracy"`, `"wer"`). Model eval results reference this id via `metric_id`.
-- `display_name` — Human-readable label shown on the leaderboard (e.g. `"Top-1 Accuracy"`).
-- `higher_is_better` — Boolean indicating sort direction: `true` if higher values are better, `false` otherwise.
-- `primary` — Boolean marking the primary ranking metric. Required when there are multiple metrics; exactly one metric must be `true`.
 
 Optional fields in each `metrics[]` item:
 
+- `display_name` — Human-readable label shown on the leaderboard (e.g. `"Top-1 Accuracy"`). Defaults to a camelcase version of `id`.
+- `higher_is_better` — Boolean indicating sort direction: `true` if higher values are better, `false` otherwise. Defaults to `true`.
+- `primary` — Boolean marking the primary ranking metric. Required only when there are multiple metrics; in that case, exactly one metric must be `true`.
 - `description` — Human-readable description of what the metric measures (e.g. `"Fraction of correct answers after chain of thought"`).
 - `score_type` — Type of score value (e.g. `"continuous"`, `"integer"`, `"categorical"`).
 - `min_score` — Minimum possible score for this metric (e.g. `0.0`).
@@ -44,11 +44,28 @@ Optional fields in each `metrics[]` item:
 
 Required fields in each `tasks[]` item:
 
-- `id` — Unique identifier for the task (e.g. `"default"`, `"gpqa_diamond"`). A single benchmark can define several tasks, each producing its own leaderboard.
-- `dataset.id` — The Hugging Face dataset id that contains the evaluation data (e.g. `"cais/hle"`).
-- `dataset.revision` — Full commit SHA of the dataset revision to evaluate against. Required to ensure reproducibility.
+- `id` — Unique identifier for the task (e.g. `"gpqa_diamond"`). A single benchmark can define several tasks, each producing its own leaderboard.
 
-Example:
+Optional fields in each `tasks[]` item:
+
+- `config` — Dataset configuration/subset name to evaluate (e.g. `"default"`). Defaults to the dataset's default config.
+- `split` — Dataset split to evaluate (e.g. `"test"`). Defaults to the dataset's default split.
+
+Minimal example (required fields only):
+
+```yaml
+name: "Humanity's Last Exam"
+description: "Multi-modal benchmark at the frontier of human knowledge."
+evaluation_framework: "inspect-ai"
+
+metrics:
+  - id: "accuracy"
+
+tasks:
+  - id: "hle"
+```
+
+Extended example:
 
 ```yaml
 name: "Humanity's Last Exam"
@@ -64,10 +81,10 @@ metrics:
     min_score: 0.0
     max_score: 1.0
     primary: true
-  - id: "wer"
-    display_name: "Word Error Rate"
+  - id: "cost"
+    display_name: "Cost"
     higher_is_better: false
-    description: "Word-level transcription error rate."
+    description: "Cost in dollars."
     score_type: "continuous"
     min_score: 0.0
 
