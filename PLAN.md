@@ -37,6 +37,10 @@ Each `metrics[]` item:
 - `display_name` (required) — Human-readable label shown on the leaderboard (e.g. `"Top-1 Accuracy"`).
 - `higher_is_better` (required) — Boolean indicating sort direction: `true` if higher values are better, `false` otherwise.
 - `primary` (required when there are multiple metrics; exactly one metric must be `true`) — Boolean marking the primary ranking metric.
+- `description` (optional) — Human-readable description of what the metric measures (e.g. `"Fraction of correct answers after chain of thought"`).
+- `score_type` (optional) — Type of score value (e.g. `"continuous"`, `"integer"`, `"categorical"`).
+- `min_score` (optional) — Minimum possible score for this metric (e.g. `0.0`).
+- `max_score` (optional) — Maximum possible score for this metric (e.g. `1.0`).
 
 Each `tasks[]` item:
 
@@ -55,10 +59,17 @@ metrics:
   - id: "accuracy"
     display_name: "Top-1 Accuracy"
     higher_is_better: true
+    description: "Fraction of correct answers."
+    score_type: "continuous"
+    min_score: 0.0
+    max_score: 1.0
     primary: true
   - id: "wer"
     display_name: "Word Error Rate"
     higher_is_better: false
+    description: "Word-level transcription error rate."
+    score_type: "continuous"
+    min_score: 0.0
 
 tasks:
   - id: hle

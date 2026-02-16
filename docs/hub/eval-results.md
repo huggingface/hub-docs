@@ -35,6 +35,13 @@ Required fields in each `metrics[]` item:
 - `higher_is_better` — Boolean indicating sort direction: `true` if higher values are better, `false` otherwise.
 - `primary` — Boolean marking the primary ranking metric. Required when there are multiple metrics; exactly one metric must be `true`.
 
+Optional fields in each `metrics[]` item:
+
+- `description` — Human-readable description of what the metric measures (e.g. `"Fraction of correct answers after chain of thought"`).
+- `score_type` — Type of score value (e.g. `"continuous"`, `"integer"`, `"categorical"`).
+- `min_score` — Minimum possible score for this metric (e.g. `0.0`).
+- `max_score` — Maximum possible score for this metric (e.g. `1.0`).
+
 Required fields in each `tasks[]` item:
 
 - `id` — Unique identifier for the task (e.g. `"default"`, `"gpqa_diamond"`). A single benchmark can define several tasks, each producing its own leaderboard.
@@ -52,10 +59,17 @@ metrics:
   - id: "accuracy"
     display_name: "Top-1 Accuracy"
     higher_is_better: true
+    description: "Fraction of correct answers."
+    score_type: "continuous"
+    min_score: 0.0
+    max_score: 1.0
     primary: true
   - id: "wer"
     display_name: "Word Error Rate"
     higher_is_better: false
+    description: "Word-level transcription error rate."
+    score_type: "continuous"
+    min_score: 0.0
 
 tasks:
   - id: hle
@@ -98,7 +112,15 @@ Optional fields per run entry:
 - `framework.version` — Version of the evaluation framework (e.g. `"0.4.2"`).
 - `framework.command` — The command used to run the evaluation (e.g. `"inspect eval theory.py --model openai/gpt-4"`).
 - `source.url` — A link to evaluation logs, a paper, or another external source (required if `source` is provided).
-- `source.name` — Human-readable name for the source (e.g. `"Eval Logs"`).
+- `source.name` — Human-readable name for the source (e.g. `"Model Card"`).
+- `source.type` — Type of source metadata (for example `"evaluation_run"`, `"paper"`, `"leaderboard_snapshot"`).
+- `source.organization_name` — Organization that produced or hosted the source (e.g. `"crfm"`).
+- `source.organization_url` — Organization URL for provenance (e.g. `"https://crfm.stanford.edu"`).
+- `source.evaluator_relationship` — Relationship between evaluator and model provider (e.g. `"first_party"`, `"third_party"`).
+- `inference_engine.name` — Inference engine name (for example `"vLLM"`).
+- `inference_engine.version` — Inference engine version (for example `"0.6.3"`).
+- `generation_config.generation_args` — Key/value generation parameters used for the run (for example `temperature`, `top_p`, `top_k`, `max_tokens`).
+- `generation_config.additional_details` — Free-form key/value metadata about generation settings.
 - `date` — When the evaluation was run, as an ISO-8601 date or datetime string. Defaults to the file creation time in git if not provided.
 - `notes` — Free-text details about the evaluation setup (e.g. `"tools"`, `"no-tools"`, `"chain-of-thought"`).
 - `verify_token` — A signed token proving the evaluation is auditable and reproducible (see [Verification Flow](#verification-flow) below).

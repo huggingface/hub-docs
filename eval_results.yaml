@@ -37,6 +37,20 @@
     url: {source_url}             # Required if source is provided. A link to the source.
                                   # Example: https://huggingface.co/spaces/SaylorTwift/smollm3-mmlu-pro
     name: {source_name}           # Optional. The name of the source. Example: Eval Logs.
+    type: {source_type}           # Optional. Source type aligned with aggregate schema. Example: evaluation_run
+    organization_name: {source_organization_name}  # Optional. Organization that produced the source. Example: crfm
+    organization_url: {source_organization_url}    # Optional. URL for source organization.
+    evaluator_relationship: {source_evaluator_relationship}  # Optional. Example: first_party or third_party
+
+  inference_engine:               # Optional object. Inference runtime metadata schema.
+    name: {inference_engine_name} # Optional string. Inference engine name. Example: vLLM
+    version: {inference_engine_version} # Optional string. Inference engine version. Example: 0.6.3
+  
+  generation_config:              # Optional object. Generation settings schema.
+    generation_args: {generation_args}  # Optional object. Arbitrary key/value generation params.
+                                       # Example: {temperature: 0.0, top_p: 1.0, max_tokens: 2048}
+    additional_details: {generation_additional_details}  # Optional object. Extra generation metadata.
+                                       # Example: {description: "Chain of thought prompting used."}
 
   notes: "{notes}"                # Optional. Details about the evaluation setup
                                   # (e.g., "tools", "no-tools", "chain-of-thought", etc.)
@@ -71,3 +85,21 @@
     - metric_id: accuracy
       value: 20.90
   verify_token: "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9..."
+  source:
+    url: "https://crfm.stanford.edu/helm/latest"
+    name: "HELM Results"
+    type: "evaluation_run"
+    organization_name: "crfm"
+    organization_url: "https://crfm.stanford.edu"
+    evaluator_relationship: "third_party"
+  inference_engine:
+    name: "vLLM"
+    version: "0.6.3"
+  generation_config:
+    generation_args:
+      temperature: 0.0
+      top_p: 1.0
+      max_tokens: 2048
+      reasoning: true
+    additional_details:
+      description: "Chain of thought prompting used."
