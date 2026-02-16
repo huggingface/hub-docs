@@ -24,6 +24,7 @@ Required top-level fields in `eval.yaml`:
 
 - `name` — Human-readable display name for the benchmark (e.g. `"Humanity's Last Exam"`).
 - `description` — Short description of what the benchmark measures.
+- `framework.name` — Canonical evaluation framework for this benchmark (e.g. `"inspect-ai"`). Exactly one framework is supported per benchmark leaderboard.
 - `metrics[]` — List of metrics this benchmark tracks (see below).
 - `tasks[]` — List of tasks (sub-leaderboards) defined by this benchmark (see below).
 
@@ -45,6 +46,8 @@ Example:
 ```yaml
 name: "Humanity's Last Exam"
 description: "Multi-modal benchmark at the frontier of human knowledge."
+framework:
+  name: "inspect-ai"
 
 metrics:
   - id: "accuracy"
@@ -81,6 +84,7 @@ Each file should contain one or more run entries. Required fields per run entry:
 
 - `dataset.id` — The Hugging Face dataset id of the benchmark (e.g. `"cais/hle"`). Must match a dataset that has a "Benchmark" tag.
 - `dataset.task_id` — ID of the task as defined in the benchmark's `eval.yaml` (e.g. `"default"`, `"gpqa_diamond"`).
+- `framework.name` — Name of the evaluation framework used for this run. Must exist and equal the benchmark's configured `eval.yaml` `framework.name`.
 - `metrics[]` — One or more metrics for the same run (see below).
 
 Required fields per `metrics[]` item:
@@ -92,7 +96,6 @@ Optional fields per run entry:
 
 - `dataset.revision` — Full commit SHA of the dataset revision used. Recommended for reproducibility.
 - `model_revision` — Full commit SHA of the model revision evaluated. Recommended for reproducibility.
-- `framework.name` — Name of the evaluation framework (e.g. `"inspect-ai"`, `"lighteval"`). Omit if unknown (e.g. results from a paper).
 - `framework.version` — Version of the evaluation framework (e.g. `"0.4.2"`).
 - `framework.command` — The command used to run the evaluation (e.g. `"inspect eval theory.py --model openai/gpt-4"`).
 - `source.url` — A link to evaluation logs, a paper, or another external source (required if `source` is provided).
@@ -101,12 +104,14 @@ Optional fields per run entry:
 - `notes` — Free-text details about the evaluation setup (e.g. `"tools"`, `"no-tools"`, `"chain-of-thought"`).
 - `verify_token` — A signed token proving the evaluation is auditable and reproducible (see [Verification Flow](#verification-flow) below).
 
-Minimal example (for example from a paper or blog post):
+Minimal example:
 
 ```yaml
 - dataset:
     id: "cais/hle"
-    task_id: "default"
+    task_id: "hle"
+  framework:
+    name: "inspect-ai"
   metrics:
     - metric_id: "accuracy"
       value: 20.90
@@ -158,7 +163,7 @@ At minimum, token claims should bind to:
 - `benchmark_repo`, `benchmark_revision`
 - `task_id`
 - `metrics` (canonical ordered list of `{metric_id, value}`)
-- `framework.name`, `framework.version`, `framework.command`
+- token framework identity and `framework.name`, and if present `framework.version`, `framework.command`
 
 ### Token Issuance Authentication and Authorization
 
@@ -179,6 +184,14 @@ Authorization and safety requirements:
 - Claims should be bound to exact submitted content via canonical digest fields.
 
 If any validation check fails, the result remains visible but is not marked verified.
+
+### Framework Matching Rules
+
+Leaderboards are bound to exactly one framework, defined in benchmark `eval.yaml` as `framework.name`.
+
+- `framework.name` is required for every run entry in `.eval_results/*.yaml`.
+- `run.framework.name` must equal benchmark `eval.yaml` `framework.name`.
+- The token framework identity must match the benchmark's configured framework.
 
 ### Community Contributions
 

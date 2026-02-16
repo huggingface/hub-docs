@@ -13,8 +13,8 @@
     revision: {dataset_revision}  # Optional. Full commit SHA of the dataset revision used. Recommended for reproducibility.
                                   # Example: 5503434ddd753f426f4b38109466949a1217c2bb
 
-  framework:                        # Optional. Omit if the framework is unknown (e.g. results from a paper or blog post).
-    name: {framework_name}        # Optional. Name of the evaluation framework. Example: inspect-ai
+  framework:                        # Required. Every leaderboard is bound to one framework configured in benchmark eval.yaml.
+    name: {framework_name}        # Required. Must equal benchmark eval.yaml framework.name. Example: inspect-ai
     version: {framework_version}  # Optional. Version of the evaluation framework. Example: 0.4.2
     command: {framework_command}   # Optional. The command used to run the evaluation.
                                   # Example: inspect eval theory.py --model openai/gpt-4
@@ -45,11 +45,13 @@
   artifacts: {artifacts}          # Optional. Additional artifacts metadata.
   runtime_context: {runtime_context}  # Optional. Additional runtime context metadata.
 
-# or, minimal example (e.g. results from a paper or blog post):
+# or, minimal example:
 
 - dataset:
     id: cais/hle
     task_id: default
+  framework:
+    name: inspect-ai
   metrics:
     - metric_id: accuracy
       value: 20.90

@@ -27,6 +27,7 @@ Required top-level fields:
 
 - `name` — Human-readable display name for the benchmark (e.g. `"Humanity's Last Exam"`).
 - `description` — Short description of what the benchmark measures.
+- `framework.name` — Canonical evaluation framework for this benchmark (e.g. `"inspect-ai"`). Exactly one framework is supported per benchmark leaderboard.
 - `metrics[]` — List of metrics this benchmark tracks (see below).
 - `tasks[]` — List of tasks (sub-leaderboards) defined by this benchmark (see below).
 
@@ -48,6 +49,8 @@ Example:
 ```yaml
 name: "Humanity's Last Exam"
 description: "Multi-modal benchmark at the frontier of human knowledge."
+framework:
+  name: "inspect-ai"
 
 metrics:
   - id: "accuracy"
@@ -75,6 +78,7 @@ Required fields per result entry (run-level):
 
 - `dataset.id` — The Hugging Face dataset id of the benchmark (e.g. `"cais/hle"`). Must match a dataset that has a "Benchmark" tag.
 - `dataset.task_id` — ID of the task as defined in the benchmark's `eval.yaml` (e.g. `"default"`, `"gpqa_diamond"`).
+- `framework.name` — Name of the evaluation framework used for this run. Must exist and equal benchmark `eval.yaml` `framework.name`.
 - `metrics[]` — One or more metric values for the same run (see below).
 
 Required fields per `metrics[]` item:
@@ -86,17 +90,18 @@ Optional fields per result entry:
 
 - `dataset.revision` — Full commit SHA of the dataset revision used. Recommended for reproducibility.
 - `model_revision` — Full commit SHA of the model evaluated. Recommended for reproducibility.
-- `framework.name` — Name of the evaluation framework (e.g. `"inspect-ai"`, `"lighteval"`). Omit if unknown (e.g. results from a paper).
 - `framework.version` — Version of the evaluation framework (e.g. `"0.4.2"`).
 - `framework.command` — The exact invocation used to run the evaluation (e.g. `"inspect eval theory.py --model openai/gpt-4"`).
 - `verify_token` — A signed token proving the evaluation is auditable and reproducible. Only for verifiable runs (see Verification Flow below).
 
-Minimal example (for example from a paper or blog post):
+Minimal example:
 
 ```yaml
 - dataset:
     id: "cais/hle"
     task_id: "default"
+  framework:
+    name: "inspect-ai"
   metrics:
     - metric_id: "accuracy"
       value: 20.90
@@ -143,7 +148,8 @@ At minimum, `verify_token` claims should bind to:
 - `benchmark_repo`, `benchmark_revision` — Identifies the exact benchmark dataset and commit used.
 - `task_id` — The specific task within the benchmark that was evaluated.
 - `metrics` — Canonical ordered list of `{metric_id, value}` pairs, ensuring the token is bound to exact scores.
-- `framework.name`, `framework.version` — Identifies the evaluation framework and version that produced the results.
+- token framework identity and `framework.name` — Must match the benchmark-configured framework.
+- `framework.version` — Version of the framework that produced the results.
 
 ### Token issuance authentication and authorization
 
@@ -173,6 +179,7 @@ A result can be marked as verified only if all checks pass:
 - Token signature is valid.
 - Token issuer is trusted.
 - Claims match the submitted YAML fields exactly.
+- Token framework identity matches benchmark `eval.yaml` `framework.name`.
 
 If any check fails, the result remains visible but is not marked verified.
 
@@ -233,6 +240,8 @@ Observed benchmark conventions to encode:
 ```yaml
 name: "SWE-Bench Pro (Public)"
 description: "Long-horizon software engineering benchmark on real repositories."
+framework:
+  name: "swe-agent"
 
 metrics:
   - id: "accuracy"
@@ -295,6 +304,8 @@ Observed benchmark conventions to encode:
 ```yaml
 name: "COCO Object Detection"
 description: "COCO detection benchmark (bbox)."
+framework:
+  name: "pycocotools"
 
 metrics:
   - id: "ap"
@@ -382,6 +393,8 @@ Observed benchmark conventions to encode:
 ```yaml
 name: "MathArena"
 description: "Uncontaminated math competition benchmark suite."
+framework:
+  name: "matharena-harness"
 
 metrics:
   - id: "accuracy"
@@ -444,6 +457,8 @@ Observed benchmark conventions to encode:
 ```yaml
 name: "Open ASR Leaderboard"
 description: "Reproducible multilingual and long-form ASR evaluation."
+framework:
+  name: "open-asr-leaderboard"
 
 metrics:
   - id: "wer"
