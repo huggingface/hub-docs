@@ -49,7 +49,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Meta-Llama-3.1-8B-Instruct"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"Nanbeige/Nanbeige4.1-3B","providerModelId":"Nanbeige/Nanbeige4.1-3B"} } }
 conversational />
 
 
@@ -69,6 +69,6 @@ Find out more about Text Generation [here](../tasks/text-generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Meta-Llama-3.1-8B-Instruct"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"Nanbeige/Nanbeige4.1-3B","providerModelId":"Nanbeige/Nanbeige4.1-3B"} } }
 />
 

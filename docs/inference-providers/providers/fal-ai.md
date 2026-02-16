@@ -51,23 +51,13 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 />
 
 
-### Image Segmentation
-
-Find out more about Image Segmentation [here](../tasks/image-segmentation).
-
-<InferenceSnippet
-    pipeline=image-segmentation
-    providersMapping={ {"fal-ai":{"modelId":"briaai/RMBG-2.0","providerModelId":"fal-ai/bria/background/remove"} } }
-/>
-
-
 ### Image To Image
 
 Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.2-klein-4B","providerModelId":"fal-ai/flux-2/klein/4b/distilled/edit"} } }
+    providersMapping={ {"fal-ai":{"modelId":"fal/Qwen-Image-Edit-2511-Multiple-Angles-LoRA","providerModelId":"fal-ai/qwen-image-edit-2511/lora"} } }
 />
 
 
@@ -77,7 +67,7 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"zai-org/GLM-Image","providerModelId":"fal-ai/glm-image"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Tongyi-MAI/Z-Image","providerModelId":"fal-ai/z-image/base"} } }
 />
 
 

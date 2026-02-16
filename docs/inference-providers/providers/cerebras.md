@@ -47,6 +47,6 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"cerebras":{"modelId":"zai-org/GLM-4.7","providerModelId":"zai-glm-4.7"} } }
+    providersMapping={ {"cerebras":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"llama3.1-8b"} } }
 conversational />
 

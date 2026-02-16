@@ -37,7 +37,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.2-klein-4B","providerModelId":"fal-ai/flux-2/klein/4b/distilled/edit"},"replicate":{"modelId":"black-forest-labs/FLUX.2-klein-4B","providerModelId":"black-forest-labs/flux-2-klein-4b"},"wavespeed":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"wavespeed-ai/flux-2-dev/edit"}} }
+    providersMapping={ {"fal-ai":{"modelId":"fal/Qwen-Image-Edit-2511-Multiple-Angles-LoRA","providerModelId":"fal-ai/qwen-image-edit-2511/lora"},"replicate":{"modelId":"black-forest-labs/FLUX.2-klein-base-9B","providerModelId":"black-forest-labs/flux-2-klein-9b-base"},"wavespeed":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"wavespeed-ai/flux-2-dev/edit"}} }
 />
 
 
