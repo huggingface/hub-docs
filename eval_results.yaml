@@ -14,7 +14,7 @@
                                   # Example: 5503434ddd753f426f4b38109466949a1217c2bb
 
   framework:                        # Required. Every leaderboard is bound to one framework configured in benchmark eval.yaml.
-    name: {framework_name}        # Required. Must equal benchmark eval.yaml framework.name. Example: inspect-ai
+    name: {framework_name}        # Required. Must equal benchmark eval.yaml evaluation_framework. Example: inspect-ai
     version: {framework_version}  # Optional. Version of the evaluation framework. Example: 0.4.2
     command: {framework_command}   # Optional. The command used to run the evaluation.
                                   # Example: inspect eval theory.py --model openai/gpt-4

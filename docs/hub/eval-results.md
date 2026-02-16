@@ -24,7 +24,7 @@ Required top-level fields in `eval.yaml`:
 
 - `name` — Human-readable display name for the benchmark (e.g. `"Humanity's Last Exam"`).
 - `description` — Short description of what the benchmark measures.
-- `framework.name` — Canonical evaluation framework for this benchmark (e.g. `"inspect-ai"`). Exactly one framework is supported per benchmark leaderboard.
+- `evaluation_framework` — Canonical evaluation framework for this benchmark (e.g. `"inspect-ai"`). Exactly one framework is supported per benchmark leaderboard.
 - `metrics[]` — List of metrics this benchmark tracks (see below).
 - `tasks[]` — List of tasks (sub-leaderboards) defined by this benchmark (see below).
 
@@ -46,8 +46,7 @@ Example:
 ```yaml
 name: "Humanity's Last Exam"
 description: "Multi-modal benchmark at the frontier of human knowledge."
-framework:
-  name: "inspect-ai"
+evaluation_framework: "inspect-ai"
 
 metrics:
   - id: "accuracy"
@@ -84,7 +83,7 @@ Each file should contain one or more run entries. Required fields per run entry:
 
 - `dataset.id` — The Hugging Face dataset id of the benchmark (e.g. `"cais/hle"`). Must match a dataset that has a "Benchmark" tag.
 - `dataset.task_id` — ID of the task as defined in the benchmark's `eval.yaml` (e.g. `"default"`, `"gpqa_diamond"`).
-- `framework.name` — Name of the evaluation framework used for this run. Must exist and equal the benchmark's configured `eval.yaml` `framework.name`.
+- `framework.name` — Name of the evaluation framework used for this run. Must exist and equal the benchmark's configured `eval.yaml` `evaluation_framework`.
 - `metrics[]` — One or more metrics for the same run (see below).
 
 Required fields per `metrics[]` item:
@@ -187,10 +186,10 @@ If any validation check fails, the result remains visible but is not marked veri
 
 ### Framework Matching Rules
 
-Leaderboards are bound to exactly one framework, defined in benchmark `eval.yaml` as `framework.name`.
+Leaderboards are bound to exactly one framework, defined in benchmark `eval.yaml` as `evaluation_framework`.
 
 - `framework.name` is required for every run entry in `.eval_results/*.yaml`.
-- `run.framework.name` must equal benchmark `eval.yaml` `framework.name`.
+- `run.framework.name` must equal benchmark `eval.yaml` `evaluation_framework`.
 - The token framework identity must match the benchmark's configured framework.
 
 ### Community Contributions

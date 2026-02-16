@@ -27,7 +27,7 @@ Required top-level fields:
 
 - `name` — Human-readable display name for the benchmark (e.g. `"Humanity's Last Exam"`).
 - `description` — Short description of what the benchmark measures.
-- `framework.name` — Canonical evaluation framework for this benchmark (e.g. `"inspect-ai"`). Exactly one framework is supported per benchmark leaderboard.
+- `evaluation_framework` — Canonical evaluation framework for this benchmark (e.g. `"inspect-ai"`). Exactly one framework is supported per benchmark leaderboard.
 - `metrics[]` — List of metrics this benchmark tracks (see below).
 - `tasks[]` — List of tasks (sub-leaderboards) defined by this benchmark (see below).
 
@@ -49,8 +49,7 @@ Example:
 ```yaml
 name: "Humanity's Last Exam"
 description: "Multi-modal benchmark at the frontier of human knowledge."
-framework:
-  name: "inspect-ai"
+evaluation_framework: "inspect-ai"
 
 metrics:
   - id: "accuracy"
@@ -78,7 +77,7 @@ Required fields per result entry (run-level):
 
 - `dataset.id` — The Hugging Face dataset id of the benchmark (e.g. `"cais/hle"`). Must match a dataset that has a "Benchmark" tag.
 - `dataset.task_id` — ID of the task as defined in the benchmark's `eval.yaml` (e.g. `"default"`, `"gpqa_diamond"`).
-- `framework.name` — Name of the evaluation framework used for this run. Must exist and equal benchmark `eval.yaml` `framework.name`.
+- `framework.name` — Name of the evaluation framework used for this run. Must exist and equal benchmark `eval.yaml` `evaluation_framework`.
 - `metrics[]` — One or more metric values for the same run (see below).
 
 Required fields per `metrics[]` item:
@@ -148,7 +147,7 @@ At minimum, `verify_token` claims should bind to:
 - `benchmark_repo`, `benchmark_revision` — Identifies the exact benchmark dataset and commit used.
 - `task_id` — The specific task within the benchmark that was evaluated.
 - `metrics` — Canonical ordered list of `{metric_id, value}` pairs, ensuring the token is bound to exact scores.
-- token framework identity and `framework.name` — Must match the benchmark-configured framework.
+- token framework identity and `framework.name` — Must match benchmark `eval.yaml` `evaluation_framework`.
 - `framework.version` — Version of the framework that produced the results.
 
 ### Token issuance authentication and authorization
@@ -179,7 +178,7 @@ A result can be marked as verified only if all checks pass:
 - Token signature is valid.
 - Token issuer is trusted.
 - Claims match the submitted YAML fields exactly.
-- Token framework identity matches benchmark `eval.yaml` `framework.name`.
+- Token framework identity matches benchmark `eval.yaml` `evaluation_framework`.
 
 If any check fails, the result remains visible but is not marked verified.
 
@@ -240,8 +239,7 @@ Observed benchmark conventions to encode:
 ```yaml
 name: "SWE-Bench Pro (Public)"
 description: "Long-horizon software engineering benchmark on real repositories."
-framework:
-  name: "swe-agent"
+evaluation_framework: "swe-agent"
 
 metrics:
   - id: "accuracy"
@@ -304,8 +302,7 @@ Observed benchmark conventions to encode:
 ```yaml
 name: "COCO Object Detection"
 description: "COCO detection benchmark (bbox)."
-framework:
-  name: "pycocotools"
+evaluation_framework: "pycocotools"
 
 metrics:
   - id: "ap"
@@ -393,8 +390,7 @@ Observed benchmark conventions to encode:
 ```yaml
 name: "MathArena"
 description: "Uncontaminated math competition benchmark suite."
-framework:
-  name: "matharena-harness"
+evaluation_framework: "matharena-harness"
 
 metrics:
   - id: "accuracy"
@@ -457,8 +453,7 @@ Observed benchmark conventions to encode:
 ```yaml
 name: "Open ASR Leaderboard"
 description: "Reproducible multilingual and long-form ASR evaluation."
-framework:
-  name: "open-asr-leaderboard"
+evaluation_framework: "open-asr-leaderboard"
 
 metrics:
   - id: "wer"
