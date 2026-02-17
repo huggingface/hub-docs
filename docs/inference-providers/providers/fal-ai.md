@@ -51,13 +51,23 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 />
 
 
+### Image Segmentation
+
+Find out more about Image Segmentation [here](../tasks/image-segmentation).
+
+<InferenceSnippet
+    pipeline=image-segmentation
+    providersMapping={ {"fal-ai":{"modelId":"briaai/RMBG-2.0","providerModelId":"fal-ai/bria/background/remove"} } }
+/>
+
+
 ### Image To Image
 
 Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"fal/Qwen-Image-Edit-2511-Multiple-Angles-LoRA","providerModelId":"fal-ai/qwen-image-edit-2511/lora"} } }
+    providersMapping={ {"fal-ai":{"modelId":"tencent/HunyuanImage-3.0-Instruct","providerModelId":"fal-ai/hunyuan-image/v3/instruct/edit"} } }
 />
 
 
