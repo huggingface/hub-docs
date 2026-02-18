@@ -106,7 +106,7 @@ Create a YAML file in `.eval_results/*.yaml` in your model repo:
     task_id: default              # Required. ID of the Task, as defined in the dataset's eval.yaml
     revision: <hash>              # Optional. Dataset revision hash
   metrics:
-    - metric_id: "accuracy"       # Required. Metric id
+    - metric_id: "accuracy"       # Required. Metric id. Must match one of the metrics defined in the `eval.yaml` of the benchmark.
       value: 20.90                # Required. Metric value
   verifyToken: <token>            # Optional. Cryptographic proof of auditable evaluation
   date: "2025-01-15"              # Optional. ISO-8601 date or datetime (defaults to git commit time)
