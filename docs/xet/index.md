@@ -40,7 +40,7 @@ The primary reference implementation of the protocol written in Rust 🦀 lives 
 - [merklehash](https://github.com/huggingface/xet-core/tree/main/merklehash) - Exports a `MerkleHash` type extensively used to represent hashes. Exports functions to compute the different hashes used to track chunks, xorbs and files.
 - [data](https://github.com/huggingface/xet-core/tree/main/data) - Comprehensive package exposing interfaces to upload and download contents
 - [hf_xet](https://github.com/huggingface/xet-core/tree/main/hf_xet) - Python bindings to use the Xet protocol for uploads and downloads with the Hugging Face Hub.
-- [git-xet](https://github.com/huggingface/xet-core/tree/main/git-xet) - git lfs custom transfer agent that uploads files using the xet protocol to the Hugging Face Hub.
+- [git-xet](https://github.com/huggingface/xet-core/tree/main/git_xet) - git lfs custom transfer agent that uploads files using the xet protocol to the Hugging Face Hub.
 
 ### huggingface.js
 
