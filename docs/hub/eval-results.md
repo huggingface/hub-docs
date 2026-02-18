@@ -111,10 +111,6 @@ Create a YAML file in `.eval_results/*.yaml` in your model repo:
   metrics:
     - metric_id: "accuracy"       # Required. Metric id
       value: 20.90                # Required. Metric value
-  framework:
-    name: "inspect-ai"            # Optional. Name of the evaluation framework used for this run. In order to show up as verified, must equal the benchmark's configured `eval.yaml` `evaluation_framework`.
-    version: "0.4.2"              # Optional. Framework version used
-    command: "inspect eval theory.py --model openai/gpt-4" # Optional. Framework command used
   verifyToken: <token>            # Optional. Cryptographic proof of auditable evaluation
   date: "2025-01-15"              # Optional. ISO-8601 date or datetime (defaults to git commit time)
   source:                         # Optional. Attribution for this result, for instance a repo containing output traces or a Paper
