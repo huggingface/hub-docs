@@ -38,7 +38,6 @@ Required fields in each `metrics[]` item:
 
 Optional fields in each `metrics[]` item:
 
-- `display_name` — Human-readable label shown on the leaderboard (e.g. `"Top-1 Accuracy"`). Defaults to a camelcase version of `id`.
 - `higher_is_better` — Boolean indicating sort direction: `true` if higher values are better, `false` otherwise. Defaults to `true`.
 - `primary` — Boolean marking the primary ranking metric. Required only when there are multiple metrics; in that case, exactly one metric must be `true`.
 
@@ -74,11 +73,9 @@ evaluation_framework: "inspect-ai"
 
 metrics:
   - id: "accuracy"
-    display_name: "Top-1 Accuracy"
     higher_is_better: true
     primary: true
   - id: "cost"
-    display_name: "Cost"
     higher_is_better: false
 
 tasks:
