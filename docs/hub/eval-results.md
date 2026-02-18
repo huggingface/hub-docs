@@ -29,17 +29,7 @@ The `eval.yaml` should contain the following fields:
 - `name` — Human-readable display name for the benchmark (e.g. `"Humanity's Last Exam"`).
 - `description` — Short description of what the benchmark measures.
 - `evaluation_framework` — Canonical evaluation framework identifier for this benchmark (e.g. `"inspect-ai"`, `"math-arena"`, `"verifiers"`, `"helm"`). This is an enumerable which the Hugging Face team maintains. Exactly one framework is supported per benchmark.
-- `metrics[]` — List of metrics this benchmark tracks (see below).
 - `tasks[]` — List of tasks (sub-leaderboards) defined by this benchmark (see below).
-
-Required fields in each `metrics[]` item:
-
-- `id` — Unique identifier for the metric (e.g. `"accuracy"`, `"wer"`). Model eval results reference this id via `metric_id`.
-
-Optional fields in each `metrics[]` item:
-
-- `higher_is_better` — Boolean indicating sort direction: `true` if higher values are better, `false` otherwise. Defaults to `true`.
-- `primary` — Boolean marking the primary ranking metric. Required only when there are multiple metrics; in that case, exactly one metric must be `true`.
 
 Required fields in each `tasks[]` item:
 
@@ -47,8 +37,8 @@ Required fields in each `tasks[]` item:
 
 Optional fields in each `tasks[]` item:
 
-- `config` — Dataset configuration/subset name to evaluate (e.g. `"default"`). Defaults to the dataset's default config.
-- `split` — Dataset split to evaluate (e.g. `"test"`). Defaults to the dataset's default split.
+- `config` — Configuration of the Hugging Face dataset to evaluate (e.g. `"default"`). Defaults to the dataset's default config.
+- `split` — Split of the Hugging Face dataset to evaluate (e.g. `"test"`). Defaults to `"test"`.
 
 Minimal example (required fields only):
 
@@ -56,9 +46,6 @@ Minimal example (required fields only):
 name: "Humanity's Last Exam"
 description: "Multi-modal benchmark at the frontier of human knowledge."
 evaluation_framework: "inspect-ai"
-
-metrics:
-  - id: "accuracy"
 
 tasks:
   - id: "hle"
@@ -70,13 +57,6 @@ Extended example:
 name: "Humanity's Last Exam"
 description: "Multi-modal benchmark at the frontier of human knowledge."
 evaluation_framework: "inspect-ai"
-
-metrics:
-  - id: "accuracy"
-    higher_is_better: true
-    primary: true
-  - id: "cost"
-    higher_is_better: false
 
 tasks:
   - id: hle
@@ -105,9 +85,6 @@ Create a YAML file in `.eval_results/*.yaml` in your model repo:
     id: cais/hle                  # Required. Hub dataset ID (must be a Benchmark)
     task_id: default              # Required. ID of the Task, as defined in the dataset's eval.yaml
     revision: <hash>              # Optional. Dataset revision hash
-  metrics:
-    - metric_id: "accuracy"       # Required. Metric id. Must match one of the metrics defined in the `eval.yaml` of the benchmark.
-      value: 20.90                # Required. Metric value
   verifyToken: <token>            # Optional. Cryptographic proof of auditable evaluation
   date: "2025-01-15"              # Optional. ISO-8601 date or datetime (defaults to git commit time)
   source:                         # Optional. Attribution for this result, for instance a repo containing output traces or a Paper
@@ -123,9 +100,7 @@ Or, with only the required attributes:
 - dataset:
     id: Idavidrein/gpqa
     task_id: gpqa_diamond
-  metrics:
-    - metric_id: "accuracy"
-      value: 20.90
+    value: 20.90
 ```
 
 Results display badges based on their metadata in the YAML file:
