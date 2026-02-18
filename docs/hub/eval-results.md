@@ -170,6 +170,8 @@ Example with full provenance:
   metrics:
     - metric_id: "accuracy"
       value: 20.90
+    - metric_id: "cost"
+      value: 0.20
   verify_token: "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9..."
 ```
 
