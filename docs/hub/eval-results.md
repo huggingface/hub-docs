@@ -85,6 +85,7 @@ Create a YAML file in `.eval_results/*.yaml` in your model repo:
     id: cais/hle                  # Required. Hub dataset ID (must be a Benchmark)
     task_id: default              # Required. ID of the Task, as defined in the dataset's eval.yaml
     revision: <hash>              # Optional. Dataset revision hash
+  value: 20.90                    # Required. Metric value
   verifyToken: <token>            # Optional. Cryptographic proof of auditable evaluation
   date: "2025-01-15"              # Optional. ISO-8601 date or datetime (defaults to git commit time)
   source:                         # Optional. Attribution for this result, for instance a repo containing output traces or a Paper
@@ -100,7 +101,7 @@ Or, with only the required attributes:
 - dataset:
     id: Idavidrein/gpqa
     task_id: gpqa_diamond
-    value: 20.90
+  value: 0.412
 ```
 
 Results display badges based on their metadata in the YAML file:
