@@ -50,7 +50,7 @@ See the [File formats](./datasets-adding#file-formats) doc page to find the list
 
 ### Dataset Viewer size-limit errors (`TooBigContentError`)
 
-If you see `The dataset viewer is not available for this split` with `Error code: TooBigContentError`, the Viewer could not read a preview within its limits. Common messages include `Parquet error: Scan size limit exceeded ...` and `The size of the content of the first rows ... exceeds the maximum supported size ...`.
+If you see `Error code: TooBigContentError`, then the dataset viewer could not read a preview within its limits. Common messages include `Parquet error: Scan size limit exceeded` and `The size of the content of the first rows exceeds the maximum supported size`.
 
 What you can do:
 
