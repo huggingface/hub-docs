@@ -41,10 +41,6 @@ Optional fields in each `metrics[]` item:
 - `display_name` — Human-readable label shown on the leaderboard (e.g. `"Top-1 Accuracy"`). Defaults to a camelcase version of `id`.
 - `higher_is_better` — Boolean indicating sort direction: `true` if higher values are better, `false` otherwise. Defaults to `true`.
 - `primary` — Boolean marking the primary ranking metric. Required only when there are multiple metrics; in that case, exactly one metric must be `true`.
-- `description` — Human-readable description of what the metric measures (e.g. `"Fraction of correct answers after chain of thought"`).
-- `score_type` — Type of score value (e.g. `"continuous"`, `"integer"`, `"categorical"`).
-- `min_score` — Minimum possible score for this metric (e.g. `0.0`).
-- `max_score` — Maximum possible score for this metric (e.g. `1.0`).
 
 Required fields in each `tasks[]` item:
 
@@ -80,17 +76,10 @@ metrics:
   - id: "accuracy"
     display_name: "Top-1 Accuracy"
     higher_is_better: true
-    description: "Fraction of correct answers."
-    score_type: "continuous"
-    min_score: 0.0
-    max_score: 1.0
     primary: true
   - id: "cost"
     display_name: "Cost"
     higher_is_better: false
-    description: "Cost in dollars."
-    score_type: "continuous"
-    min_score: 0.0
 
 tasks:
   - id: hle
