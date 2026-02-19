@@ -127,7 +127,7 @@ Draft mode is the default status when opening a new Pull request from scratch in
 
 ## Deleting a Pull request ref
 
-When a Pull request is closed or merged, you can delete its associated git ref to free up storage space. This is particularly useful for storage management, especially when PRs contain large files.
+When a Pull request is closed or merged, you can delete its associated git ref (the branch storing the PR's commits) to free up storage space.
 
 After closing or merging a PR, you'll see a notice at the bottom of the discussion showing the estimated storage that could be freed by deleting the ref. Click the "Delete ref" button to permanently remove the PR's git ref and reclaim the storage.
 
