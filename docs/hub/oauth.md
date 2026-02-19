@@ -83,7 +83,7 @@ echo "Enter the user code: $USER_CODE"
 echo ""
 read -p "Press Enter after authorizing..."
 
-# Step 3: Exchange for token
+# Step 3: Get token
 curl -X POST https://huggingface.co/oauth/token \
   -d "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
   -d "device_code=$DEVICE_CODE" \
