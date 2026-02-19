@@ -125,6 +125,23 @@ git push origin pr/42:refs/pr/42
 
 Draft mode is the default status when opening a new Pull request from scratch in "Advanced mode". With this status, other contributors know that your Pull request is under work and it cannot be merged. When your branch is ready, just hit the "Publish" button to change the status of the Pull request to "Open". Note that once published you cannot go back to draft mode. 
 
+## Deleting a Pull request ref
+
+When a Pull request is closed or merged, you can delete its associated git ref to free up storage space. This is particularly useful for storage management, especially when PRs contain large files.
+
+After closing or merging a PR, you'll see a notice at the bottom of the discussion showing the estimated storage that could be freed by deleting the ref. Click the "Delete ref" button to permanently remove the PR's git ref and reclaim the storage.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-delete-ref.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/discussions-delete-ref-dark.png"/>
+</div>
+
+> [!TIP]
+> This is especially useful after merging PRs where the main branch was later squashed, as the PR ref may still hold copies of files that could be deduplicated.
+
+> [!WARNING]
+> Deleting a PR ref is irreversible. Once deleted, you won't be able to fetch or checkout the PR's commits locally anymore.
+
 ## Pull requests advanced usage
 
 ### Where in the git repo are changes stored?

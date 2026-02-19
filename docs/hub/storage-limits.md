@@ -137,6 +137,16 @@ Key points to remember:
 2. Click on "List LFS files" in the "Storage" section
 3. Use the actions menu to delete specific files
 
+### Deleting Pull request refs
+
+[Pull requests](./repositories-pull-requests-discussions) create git refs that store their commits. After closing or merging a PR, you can delete its ref to free up storage space. This is especially useful when:
+- PRs contain large files that were never merged
+- You've squashed the main branch after merging, leaving duplicate data in the PR ref
+
+To delete a PR ref, open the closed or merged PR and look for the storage notice at the bottom showing the estimated space that could be freed. Click "Delete ref" to permanently remove it.
+
+> [!NOTE]
+> Deleting a PR ref is irreversible and will prevent anyone from fetching or checking out those commits locally.
 
 ### Super-squash your repository using the API
 
