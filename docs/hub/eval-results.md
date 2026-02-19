@@ -40,6 +40,12 @@ Optional fields in each `tasks[]` item:
 - `config` — Configuration of the Hugging Face dataset to evaluate (e.g. `"default"`). Defaults to the dataset's default config.
 - `split` — Split of the Hugging Face dataset to evaluate (e.g. `"test"`). Defaults to `"test"`.
 
+When setting `evaluation_framework: inspect-ai`, one also requires to set the following fields:
+
+- `field_spec` — Specification of the input and output fields. Consists of `input`, `target`, `choices` and optional `input_image` subfields. See the [docs](https://inspect.aisi.org.uk/tasks.html#hugging-facehttps://inspect.aisi.org.uk/tasks.html#hugging-face) for more details.
+- `solvers` — Solvers used to go from input to output using the AI model. This can range from a simple system prompt to self-critique loops. See the [docs](https://inspect.aisi.org.uk/solvers.html) for more details.
+- `scores` — Scorers used. Scorers determine whether solvers were successful in finding the right output for the target defined in the dataset, and in what measure. See the [docs](https://inspect.aisi.org.uk/scorers.html) for more details.
+
 Minimal example (required fields only):
 
 ```yaml
@@ -53,14 +59,54 @@ tasks:
 Extended example:
 
 ```yaml
-name: "Humanity's Last Exam"
-description: "Multi-modal benchmark at the frontier of human knowledge."
+name: MathArena AIME 2026
+description: The American Invitational Mathematics Exam (AIME).
+evaluation_framework: "math-arena"
+
+tasks:
+  - id: MathArena/aime_2026
+    config: default
+    split: test
+```
+
+Extended example (`"inspect-ai"`-specific):
+
+```yaml
+name: Humanity's Last Exam
+description: >
+  Humanity's Last Exam (HLE) is a multi-modal benchmark at the frontier of human
+  knowledge, designed to be the final closed-ended academic benchmark of its
+  kind with broad subject coverage. Humanity's Last Exam consists of 2,500
+  questions across dozens of subjects, including mathematics, humanities, and
+  the natural sciences. HLE is developed globally by subject-matter experts and
+  consists of multiple-choice and short-answer questions suitable for automated
+  grading.
 evaluation_framework: "inspect-ai"
 
 tasks:
   - id: hle
     config: default
     split: test
+
+    field_spec:
+      input: question
+      input_image: image
+      target: answer
+
+    solvers:
+      - name: system_message
+        args:
+          template: |
+            Your response should be in the following format:
+            Explanation: {your explanation for your answer choice}
+            Answer: {your chosen answer}
+            Confidence: {your confidence score between 0% and 100% for your answer}
+      - name: generate
+
+    scorers:
+      - name: model_graded_fact
+        args:
+          model: openai/o3-mini
 ```
 
 ## Model Evaluation Results
