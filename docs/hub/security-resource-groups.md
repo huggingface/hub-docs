@@ -43,7 +43,7 @@ After creating a resource group and giving it a meaningful name, you can start a
 </div>
 
 > [!TIP]
-> When adding users to a Resource Group, you can search by email address if the user has an organization-specific email (e.g., `user@your-company.com`). This is particularly useful for organizations that identify their members by email rather than by username.
+> When adding users to a Resource Group, you can search by email address if the user has an organization-specific email (e.g., `user@your-company.com`).
 
 Remember that a repository can be part of only one Resource Group. You'll be warned when trying to add a repository that already belongs to another Resource Group.
 
