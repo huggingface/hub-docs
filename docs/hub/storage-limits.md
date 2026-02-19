@@ -141,7 +141,7 @@ Key points to remember:
 
 [Pull requests](./repositories-pull-requests-discussions) create git refs that store their commits. After closing or merging a PR, you can delete its ref to free up storage space. This is especially useful when:
 - PRs contain large files that were never merged
-- You've squashed the main branch and removed files later on—those files remain in the PR branch history even if they weren't added by the PR itself
+- You've squashed the main branch and removed files later on — those files remain in the PR branch history even if they weren't added by the PR itself
 
 To delete a PR ref, open the closed or merged PR and look for the storage notice at the bottom showing the estimated space that could be freed. Click "Delete ref" to permanently remove it.
 
