@@ -28,7 +28,7 @@ The `eval.yaml` should contain the following fields:
 
 - `name` — Human-readable display name for the benchmark (e.g. `"Humanity's Last Exam"`).
 - `description` — Short description of what the benchmark measures.
-- `evaluation_framework` — Canonical evaluation framework identifier for this benchmark (e.g. `"inspect-ai"`, `"math-arena"`, `"verifiers"`, `"helm"`). This is an enumerable which the Hugging Face team maintains. Exactly one framework is supported per benchmark.
+- `evaluation_framework` — Canonical evaluation framework identifier for this benchmark (e.g. `"inspect-ai"`, `"math-arena"`, `"verifiers"`, `"helm"`). This is an enumerable which the Hugging Face team maintains. Add your own to the list [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/eval.ts). Exactly one framework is supported per benchmark.
 - `tasks[]` — List of tasks (sub-leaderboards) defined by this benchmark (see below).
 
 Required fields in each `tasks[]` item:
