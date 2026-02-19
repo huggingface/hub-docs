@@ -11,7 +11,68 @@ Dataset repos can be defined as **Benchmarks** (e.g., [MMLU-Pro](https://hugging
 
 ![Benchmark Dataset](https://huggingface.co/huggingface/documentation-images/resolve/main/evaluation-results/benchmark-preview.png)
 
-### Registering a Benchmark
+## Model Evaluation Results
+
+Evaluation scores are stored in model repos as YAML files in the `.eval_results/` folder. These results:
+
+- Appear on the model page with links to the benchmark leaderboard
+- Are aggregated into the benchmark dataset's leaderboards
+- Can be submitted via PRs and marked as "community-provided"
+
+![Model Evaluation Results](https://huggingface.co/huggingface/documentation-images/resolve/main/evaluation-results/eval-results-previw.png)
+
+### Adding Evaluation Results
+
+To add evaluation results to a model, you can submit a PR to the model repo with a YAML file in the `.eval_results/` folder.
+
+Create a YAML file in `.eval_results/*.yaml` in your model repo:
+
+```yaml
+- dataset:
+    id: cais/hle                  # Required. Hub dataset ID (must be a Benchmark)
+    task_id: default              # Required. ID of the Task, as defined in the dataset's eval.yaml
+    revision: <hash>              # Optional. Dataset revision hash
+  value: 20.90                    # Required. Metric value
+  verifyToken: <token>            # Optional. Cryptographic proof of auditable evaluation
+  date: "2025-01-15"              # Optional. ISO-8601 date or datetime (defaults to git commit time)
+  source:                         # Optional. Attribution for this result, for instance a repo containing output traces or a Paper
+    url: https://huggingface.co/spaces/SaylorTwift/smollm3-mmlu-pro  # Required if source provided
+    name: Eval traces             # Optional. Display name
+    user: SaylorTwift             # Optional. HF username/org
+  notes: "no-tools"               # Optional. Details about the evaluation setup (e.g., "tools", "no-tools", etc.)
+```
+
+Or, with only the required attributes:
+
+```yaml
+- dataset:
+    id: Idavidrein/gpqa
+    task_id: gpqa_diamond
+  value: 0.412
+```
+
+Results display badges based on their metadata in the YAML file:
+
+| Badge | Condition |
+|-------|-----------|
+| verified | A `verifyToken` is valid (evaluation ran in HF Jobs with inspect-ai) |
+| community | Result submitted via open PR (not merged to main) |
+| leaderboard | Links to the benchmark dataset |
+| source | Links to evaluation logs or external source |
+
+For more details on how to format this data, check out the [Eval Results](https://github.com/huggingface/hub-docs/blob/main/eval_results.yaml) specifications.
+
+### Community Contributions
+
+Anyone can submit evaluation results to any model via Pull Request:
+
+1. Go to the model page and click on the "Community" tab and open a Pull Request.
+3. Add a `.eval_results/*.yaml` file with your results.
+4. The PR will show as "community-provided" on the model page while open.
+
+For help evaluating a model, see the [Evaluating models with Inspect](https://huggingface.co/docs/inference-providers/guides/evaluation-inspect-ai) guide.
+
+## Registering a Benchmark
 
 To register your dataset as a benchmark:
 
@@ -108,64 +169,3 @@ tasks:
         args:
           model: openai/o3-mini
 ```
-
-## Model Evaluation Results
-
-Evaluation scores are stored in model repos as YAML files in the `.eval_results/` folder. These results:
-
-- Appear on the model page with links to the benchmark leaderboard
-- Are aggregated into the benchmark dataset's leaderboards
-- Can be submitted via PRs and marked as "community-provided"
-
-![Model Evaluation Results](https://huggingface.co/huggingface/documentation-images/resolve/main/evaluation-results/eval-results-previw.png)
-
-### Adding Evaluation Results
-
-To add evaluation results to a model, you can submit a PR to the model repo with a YAML file in the `.eval_results/` folder.
-
-Create a YAML file in `.eval_results/*.yaml` in your model repo:
-
-```yaml
-- dataset:
-    id: cais/hle                  # Required. Hub dataset ID (must be a Benchmark)
-    task_id: default              # Required. ID of the Task, as defined in the dataset's eval.yaml
-    revision: <hash>              # Optional. Dataset revision hash
-  value: 20.90                    # Required. Metric value
-  verifyToken: <token>            # Optional. Cryptographic proof of auditable evaluation
-  date: "2025-01-15"              # Optional. ISO-8601 date or datetime (defaults to git commit time)
-  source:                         # Optional. Attribution for this result, for instance a repo containing output traces or a Paper
-    url: https://huggingface.co/spaces/SaylorTwift/smollm3-mmlu-pro  # Required if source provided
-    name: Eval traces             # Optional. Display name
-    user: SaylorTwift             # Optional. HF username/org
-  notes: "no-tools"               # Optional. Details about the evaluation setup (e.g., "tools", "no-tools", etc.)
-```
-
-Or, with only the required attributes:
-
-```yaml
-- dataset:
-    id: Idavidrein/gpqa
-    task_id: gpqa_diamond
-  value: 0.412
-```
-
-Results display badges based on their metadata in the YAML file:
-
-| Badge | Condition |
-|-------|-----------|
-| verified | A `verifyToken` is valid (evaluation ran in HF Jobs with inspect-ai) |
-| community | Result submitted via open PR (not merged to main) |
-| leaderboard | Links to the benchmark dataset |
-| source | Links to evaluation logs or external source |
-
-For more details on how to format this data, check out the [Eval Results](https://github.com/huggingface/hub-docs/blob/main/eval_results.yaml) specifications.
-
-### Community Contributions
-
-Anyone can submit evaluation results to any model via Pull Request:
-
-1. Go to the model page and click on the "Community" tab and open a Pull Request.
-3. Add a `.eval_results/*.yaml` file with your results.
-4. The PR will show as "community-provided" on the model page while open.
-
-For help evaluating a model, see the [Evaluating models with Inspect](https://huggingface.co/docs/inference-providers/guides/evaluation-inspect-ai) guide.
