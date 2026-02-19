@@ -91,7 +91,7 @@ curl -X POST https://huggingface.co/oauth/token \
 ```
 
 > [!NOTE]
-> For OAuth apps that have a client secret, include an `Authorization: Basic` header (with Base64-encoded `client_id:client_secret`) on both the device code request and the token exchange request.
+> For OAuth apps that have a client secret, include an `Authorization: Basic` header (with Base64-encoded `client_id:client_secret`) on both the device code request and the token request.
 
 ## Currently supported scopes
 
