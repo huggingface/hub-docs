@@ -137,7 +137,7 @@ After closing or merging a PR, you'll see a notice at the bottom of the discussi
 </div>
 
 > [!TIP]
-> This is especially useful after merging PRs where the main branch was later squashed, as the PR ref may still hold copies of files that could be deduplicated.
+> This is especially useful when the main branch has been squashed and files removed later on. Those files remain in the PR branch history even if they weren't added by the PR itself, taking up storage that could be freed.
 
 > [!WARNING]
 > Deleting a PR ref is irreversible. Once deleted, you won't be able to fetch or checkout the PR's commits locally anymore.
