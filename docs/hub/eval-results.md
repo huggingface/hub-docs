@@ -43,13 +43,12 @@ Optional fields in each `tasks[]` item:
 Minimal example (required fields only):
 
 ```yaml
-name: "Humanity's Last Exam"
-description: "Multi-modal benchmark at the frontier of human knowledge."
-evaluation_framework: "inspect-ai"
+name: MathArena AIME 2026
+description: The American Invitational Mathematics Exam (AIME).
+evaluation_framework: math-arena
 
 tasks:
-  - id: "hle"
-```
+  - id: MathArena/aime_2026
 
 Extended example:
 
