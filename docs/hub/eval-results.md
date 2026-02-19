@@ -16,7 +16,7 @@ Dataset repos can be defined as **Benchmarks** (e.g., [MMLU-Pro](https://hugging
 To register your dataset as a benchmark:
 
 1. Create a dataset repo containing your evaluation data
-2. Add an `eval.yaml` file to the repo root with your benchmark configuration, conform the specification defined below.
+2. Add an `eval.yaml` file to the repo root with your benchmark configuration, conform to the specification defined below.
 3. The file is validated at push time
 4. (**Beta**) Get in touch so we can add it to the allow-list.
 
