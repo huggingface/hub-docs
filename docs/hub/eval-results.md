@@ -116,7 +116,7 @@ evaluation_framework: math-arena
 
 tasks:
   - id: MathArena/aime_2026
-
+```
 Extended example:
 
 ```yaml
