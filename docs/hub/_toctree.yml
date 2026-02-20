@@ -425,6 +425,8 @@
     title: Configuration
   - local: jobs-popular-images
     title: Popular Images
+  - local: jobs-examples
+    title: Examples & Tutorials
   - local: jobs-schedule
     title: Schedule Jobs
   - local: jobs-webhooks
