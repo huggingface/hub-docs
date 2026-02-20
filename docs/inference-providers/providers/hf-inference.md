@@ -80,7 +80,7 @@ Find out more about Fill Mask [here](../tasks/fill-mask).
 
 <InferenceSnippet
     pipeline=fill-mask
-    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-base-uncased","providerModelId":"google-bert/bert-base-uncased"} } }
+    providersMapping={ {"hf-inference":{"modelId":"medicalai/ClinicalBERT","providerModelId":"medicalai/ClinicalBERT"} } }
 />
 
 
