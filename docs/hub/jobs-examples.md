@@ -1,6 +1,6 @@
 # Examples & Tutorials
 
-## Integration Guides
+## Guides to train with Jobs
 
 Guides for using popular libraries with Jobs:
 
