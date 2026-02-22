@@ -12,5 +12,5 @@ To view instructions to download and run Spaces' Docker images, click on the "Ru
 
 Some Spaces will require you to login to Hugging Face's Docker registry. To do so, you'll need to provide:
 - Your Hugging Face username as `username`
-- A User Access Token as `password`. Generate one [here](https://huggingface.co/settings/tokens).
+- A User Access Token as `password`. Generate one [here](https://huggingface.co/settings/tokens)..
 
