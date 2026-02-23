@@ -67,7 +67,7 @@ Find out more about Text To Video [here](../tasks/text-to-video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"wavespeed":{"modelId":"tencent/HunyuanVideo-1.5","providerModelId":"wavespeed-ai/hunyuan-video-1.5/text-to-video"} } }
+    providersMapping={ {"wavespeed":{"modelId":"Wan-AI/Wan2.2-TI2V-5B","providerModelId":"wavespeed-ai/wan-2.2/t2v-5b-720p"} } }
 />
 
 
