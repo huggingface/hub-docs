@@ -61,13 +61,19 @@ Jobs automatically provide the following environment variables inside the contai
 | Variable | Description |
 |----------|-------------|
 | `JOB_ID` | The unique identifier of the current job (e.g., `699d874f1aad19adb8aaeadc`). This is the same ID shown in the UI and the job URL. |
+| `ACCELERATOR` | The type of accelerator available (e.g., `a10g`, `a100`, `t4`), or `none` for CPU-only jobs. |
+| `CPU_CORES` | The number of CPU cores allocated to the job. |
+| `MEMORY` | The amount of memory allocated to the job (e.g., `15GB`). |
 
-You can use `JOB_ID` to track outputs, organize results by job, or reference the current job programmatically:
+You can use these variables to track outputs, adapt your code to available resources, or reference the current job programmatically:
 
 ```python
 import os
 job_id = os.environ.get("JOB_ID")
-print(f"Running job: {job_id}")
+accelerator = os.environ.get("ACCELERATOR")
+cpu_cores = os.environ.get("CPU_CORES")
+memory = os.environ.get("MEMORY")
+print(f"Running job {job_id} with {accelerator} accelerator, {cpu_cores} CPU cores, and {memory} memory")
 ```
 
 ### User-defined environment variables
