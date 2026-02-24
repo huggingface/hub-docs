@@ -12,7 +12,7 @@ Guides for using popular libraries with Jobs:
 hf jobs uv run --flavor a10g-small --secrets HF_TOKEN \
   https://raw.githubusercontent.com/huggingface/transformers/main/examples/pytorch/image-classification/run_image_classification.py \
   --model_name_or_path google/vit-base-patch16-224-in21k \
-  --dataset_name food101 \
+  --dataset_name ethz/food101 \
   --output_dir vit-food101 \
   --push_to_hub
 ```
