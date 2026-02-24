@@ -54,6 +54,24 @@ Find the list of all arguments in the [CLI documentation](https://huggingface.co
 
 ## Environment variables and Secrets
 
+### Built-in environment variables
+
+Jobs automatically provide the following environment variables inside the container:
+
+| Variable | Description |
+|----------|-------------|
+| `JOB_ID` | The unique identifier of the current job (e.g., `699d874f1aad19adb8aaeadc`). This is the same ID shown in the UI and the job URL. |
+
+You can use `JOB_ID` to track outputs, organize results by job, or reference the current job programmatically:
+
+```python
+import os
+job_id = os.environ.get("JOB_ID")
+print(f"Running job: {job_id}")
+```
+
+### User-defined environment variables
+
 You can pass environment variables to your job using 
 
 ```bash
