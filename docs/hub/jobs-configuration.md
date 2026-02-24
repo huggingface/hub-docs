@@ -67,14 +67,9 @@ Jobs automatically provide the following environment variables inside the contai
 
 You can use these variables to track outputs, adapt your code to available resources, or reference the current job programmatically:
 
-```python
-import os
-job_id = os.environ.get("JOB_ID")
-accelerator = os.environ.get("ACCELERATOR")
-cpu_cores = os.environ.get("CPU_CORES")
-memory = os.environ.get("MEMORY")
-print(f"Running job {job_id} with {accelerator} accelerator, {cpu_cores} CPU cores, and {memory} memory")
-```
+```bash
+# Access job environment information
+>>> hf jobs run python:3.12 python -c "import os; print(f'Job: {os.environ.get(\"JOB_ID\")}, CPU: {os.environ.get(\"CPU_CORES\")}, Mem: {os.environ.get(\"MEMORY\")}')"
 
 ### User-defined environment variables
 
