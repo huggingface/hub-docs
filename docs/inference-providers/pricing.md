@@ -6,11 +6,11 @@ Access 200+ models from leading AI inference providers with centralized, transpa
 
 Every Hugging Face user receives monthly credits to experiment with Inference Providers:
 
-| Account Type                     | Monthly Credits          | Extra usage (pay-as-you-go) |
-| -------------------------------- | ------------------------ | --------------------------- |
-| Free Users                       | $0.10, subject to change | no                          |
-| PRO Users                        | $2.00                    | yes                         |
-| Team or Enterprise Organizations | $2.00 per seat           | yes                         |
+| Account Type                     | Monthly Credits          | Extra usage (pay-as-you-go)     |
+| -------------------------------- | ------------------------ | ------------------------------- |
+| Free Users                       | $0.10, subject to change | yes (credits purchase required) |
+| PRO Users                        | $2.00                    | yes                             |
+| Team or Enterprise Organizations | $2.00 per seat           | yes                             |
 
 > [!TIP]
 > Your monthly credits automatically apply when you route requests through Hugging Face. For Team or Enterprise organizations, credits are shared among all members.
@@ -38,7 +38,7 @@ Inference Providers offers flexibility in how you're billed. Understanding these
 To benefit from Team or Enterprise included credits, you need to explicitly specify the organization to be billed when performing the inference requests.
 See the [Organization Billing section](#organization-billing) below for more details.
 
-**PRO users or Team or Enterprise organizations** can continue using the API after exhausting their monthly credits. This ensures uninterrupted access to models for production workloads.
+**All users** can continue using the API after exhausting their monthly credits by purchasing additional credits. This ensures uninterrupted access to models for production workloads.
 
 
 > [!TIP]
@@ -69,7 +69,7 @@ Here is a table that sums up what we've seen so far:
 
 |                                    | HF routing | Billed by    | Free-tier included | Pay-as-you-go                                   | Integration                               |
 | ---------------------------------- | ---------- | ------------ | ------------------ | ----------------------------------------------- | ----------------------------------------- |
-| **Routed Requests**                 | Yes        | Hugging Face | Yes                | Only for PRO users and for integrated providers | SDKs, Playground, widgets, Data AI Studio |
+| **Routed Requests**                 | Yes        | Hugging Face | Yes                | Yes (credits purchase required)                 | SDKs, Playground, widgets, Data AI Studio |
 | **Custom Provider Key** | Yes        | Provider     | No                 | Yes                                             | SDKs, Playground, widgets, Data AI Studio |
 
 > [!TIP]
