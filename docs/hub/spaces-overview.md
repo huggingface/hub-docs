@@ -110,7 +110,7 @@ Paused time is not billed.
 
 ## Built-in environment variables
 
-In some cases, you might be interested in having programmatic access to the Space author or repository name. This feature is particularly useful when you expect users to duplicate your Space. To help with this, Spaces exposes different environment variables at runtime. Given a Space [`osanseviero/i-like-flan`](https://huggingface.co/spaces/osanseviero/i-like-flan):
+In some cases, you might be interested in having programmatic access to the Space author or repository name. This feature is particularly useful when you expect users to duplicate your Space. To help with this, Spaces exposes different environment variables at runtime (see also [built-in environment variables in Jobs](./jobs-configuration#built-in-environment-variables)). Given a Space [`osanseviero/i-like-flan`](https://huggingface.co/spaces/osanseviero/i-like-flan):
 
 * `CPU_CORES`: 4
 * `MEMORY`: 15Gi

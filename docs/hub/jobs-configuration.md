@@ -56,7 +56,7 @@ Find the list of all arguments in the [CLI documentation](https://huggingface.co
 
 ### Built-in environment variables
 
-Jobs automatically provide the following environment variables inside the container:
+Similarly to the [built-in environment variables in Spaces](./spaces-overview#built-in-environment-variables), Jobs automatically provide the following environment variables inside the container:
 
 | Variable | Description |
 |----------|-------------|
