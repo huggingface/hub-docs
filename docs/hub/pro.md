@@ -9,7 +9,7 @@ The PRO subscription unlocks essential features for serious users, including:
 - Ability to create ZeroGPU Spaces and use [Dev Mode](./spaces-dev-mode)
 - Ability to publish Social Posts and Community Blogs
 - Leverage the [Data Studio](./datasets-viewer) on private datasets
-- Run and schedule serverless [CPU/ GPU Jobs](https://huggingface.co/docs/huggingface_hub/en/guides/jobs)
+
 
 <a href="https://huggingface.co/pro" target="_blank" class="flex justify-center">
 	<img class="block dark:hidden" src="https://cdn-uploads.huggingface.co/production/uploads/5dd96eb166059660ed1ee413/bGcKmczypN_mmWXdzfOSi.png"/>

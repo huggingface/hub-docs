@@ -49,7 +49,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | Spaces – ZeroGPU usage tiers           | 3.5 min†  | 25 min      | 45 min      | 45 min          |
 | Spaces – Upgraded hardware             | PAYG      | PAYG        | PAYG        | PAYG            |
 | Dev Mode / Custom domain for Spaces    | ❌        | ✅          | ✅          | ✅              |
-| Jobs & Scripts (train/fine-tune, eval) | ❌        | ✅          | ✅          | ✅              |
+| Jobs & Scripts (train/fine-tune, eval) | PAYG      | PAYG        | PAYG        | PAYG            |
 
 \* running at the same time
 
