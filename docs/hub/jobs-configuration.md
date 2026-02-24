@@ -63,7 +63,7 @@ Jobs automatically provide the following environment variables inside the contai
 | `JOB_ID` | The unique identifier of the current job (e.g., `699d874f1aad19adb8aaeadc`). This is the same ID shown in the UI and the job URL. |
 | `ACCELERATOR` | The type of accelerator available (e.g., `t4-medium`, `a10g-small`, `a100x4`), or `none` for CPU-only jobs. |
 | `CPU_CORES` | The number of CPU cores allocated to the job. |
-| `MEMORY` | The amount of memory allocated to the job (e.g., `15GB`). |
+| `MEMORY` | The amount of memory allocated to the job (e.g., `8Gi`). |
 
 You can use these variables to track outputs, adapt your code to available resources, or reference the current job programmatically:
 
