@@ -16,9 +16,12 @@ Use `hf jobs uv run ` or `hf jobs run` with a schedule of `@annually`, `@yearly`
 
 # Schedule with a Docker image
 >>> hf jobs scheduled run @hourly python:3.12 python -c "print('This runs every hour!')"
+
+# Schedule a Python script with a label
+>>> hf jobs scheduled uv run --label fine-tuning @hourly my_script.py
 ```
 
-Use the same parameters as `hf jobs uv run` and `hf jobs run` to pass environment variables, secrets, timeout, etc.
+Use the same parameters as `hf jobs uv run` and `hf jobs run` to pass environment variables, secrets, timeout, labels, etc.
 
 Manage scheduled jobs using `hf jobs scheduled ps`, `hf jobs scheduled inspect`, `hf jobs scheduled suspend`, `hf jobs scheduled resume`, and `hf jobs scheduled delete`:
 
