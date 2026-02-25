@@ -448,6 +448,8 @@
     title: Agents and the `hf` CLI
   - local: agents-sdk
     title: Building agents with the SDK
+  - local: agents-local
+    title: Local Agents with llama.cpp and Pi
 
 - local: other
   title: Other
