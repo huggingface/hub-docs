@@ -15,9 +15,7 @@ Go to [huggingface.co/settings/local-apps](https://huggingface.co/settings/local
 
 ### 2. Find a Compatible Model
 
-Browse models for compatible models for Pi:
-
-[huggingface.co/models?apps=pi&sort=trending](https://huggingface.co/models?apps=pi&sort=trending)
+Browse models for compatible models for Pi: [huggingface.co/models?apps=pi&sort=trending](https://huggingface.co/models?apps=pi&sort=trending)
 
 ### 3. Launch the llama.cpp Server
 
