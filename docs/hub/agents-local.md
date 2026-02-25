@@ -1,6 +1,6 @@
 # Local Agents with llama.cpp and Pi
 
-You can run AI agents entirely on your own hardware. By combining [Pi](https://pi.dev) with a local [llama.cpp](https://github.com/ggerganov/llama.cpp) server, you get a coding agent similar to Claude Code or Codex - but running locally on your machine.
+You can run a coding agent entirely on your own hardware. [Pi](https://pi.dev) connects to a local [llama.cpp](https://github.com/ggerganov/llama.cpp) server to give you an experience similar to Claude Code or Codex — but everything runs on your machine.
 
 > [!TIP]
 > Pi is the agent behind [OpenClaw](https://github.com/openclaw) and is now integrated directly into Hugging Face, giving you access to thousands of compatible models.
