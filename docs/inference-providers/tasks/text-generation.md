@@ -39,7 +39,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"Nanbeige/Nanbeige4.1-3B","providerModelId":"Nanbeige/Nanbeige4.1-3B"},"hf-inference":{"modelId":"HuggingFaceTB/SmolLM3-3B","providerModelId":"HuggingFaceTB/SmolLM3-3B"}} }
+    providersMapping={ {"featherless-ai":{"modelId":"Nanbeige/Nanbeige4.1-3B","providerModelId":"Nanbeige/Nanbeige4.1-3B"},"hf-inference":{"modelId":"katanemo/Arch-Router-1.5B","providerModelId":"katanemo/Arch-Router-1.5B"}} }
 />
 
 
