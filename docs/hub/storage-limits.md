@@ -28,13 +28,13 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 Users on a paid plan (PRO, Team, or Enterprise) can subscribe to a **Public Storage add-on** for additional public storage on top of their plan's base limit.
 
-| Storage add-on | Price          |
-| -------------- | -------------- |
-| 1 TB           | $12/month      |
-| 5 TB           | $60/month      |
-| 10 TB          | $120/month     |
-| 20 TB          | $240/month     |
-| 50 TB          | $500/month     |
+| Storage add-on | Price          | Per TB           |
+| -------------- | -------------- | ---------------- |
+| 1 TB           | $12/month      | $12/TB/month     |
+| 5 TB           | $60/month      | $12/TB/month     |
+| 10 TB          | $120/month     | $12/TB/month     |
+| 20 TB          | $240/month     | $12/TB/month     |
+| 50 TB          | $500/month     | $10/TB/month     |
 
 You can subscribe or change your tier from the **Billing** settings page of your account or organization. Upgrades take effect immediately; downgrades are scheduled to take effect at the start of the next month.
 
