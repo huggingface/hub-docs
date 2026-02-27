@@ -45,7 +45,7 @@ Note: PRO benefits are also included in the [Enterprise subscription](https://hu
 
 ## Pay-as-you-go private storage 
 
-Above the included 1TB (or 1TB per seat) of private storage in PRO, Team, and Enterprise, additional private storage is available starting at **$18/TB/month**, in 1TB increments.
+Above the included 1TB (or 1TB per seat) of private storage in PRO, Team, and Enterprise, additional private storage is billed in 1TB increments, with public prices as low as **$12/TB/month** depending on total volume.
 See the full pricing tiers at [huggingface.co/pricing](https://huggingface.co/pricing#storage).
 
 
