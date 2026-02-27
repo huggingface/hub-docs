@@ -13,7 +13,7 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 | Type of account          | Public storage                                                      | Private storage              |
 | ------------------------ | ------------------------------------------------------------------- | ---------------------------- |
-| Free user or org         | Best-effort\* 🙏                                                    | 100GB                        |
+| Free user or org         | Best-effort\*                                                        | 100GB                        |
 | PRO                      | Up to 10TB included\* + [add-on](#public-storage-add-on) ✅ <br> grants available for impactful work†  | 1TB + pay-as-you-go          |
 | Team Organizations       | 12TB base + 1TB per seat + [add-on](#public-storage-add-on) ✅      | 1TB per seat + pay-as-you-go |
 | Enterprise Organizations | 200TB base + 1TB per seat + [add-on](#public-storage-add-on) 🏆 <br> Up to 1,000TB for large contracts | 1TB per seat + pay-as-you-go |
