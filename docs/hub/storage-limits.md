@@ -26,7 +26,7 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 ### Public Storage add-on
 
-If you need more public storage beyond what your plan includes, you can subscribe to a **Public Storage add-on**. The additional storage stacks on top of your plan's base public storage limit. This add-on is available to PRO users, Team organizations, and Enterprise organizations.
+Users on a paid plan (PRO, Team, or Enterprise) can subscribe to a **Public Storage add-on** for additional public storage on top of their plan's base limit.
 
 | Storage add-on | Price          |
 | -------------- | -------------- |
