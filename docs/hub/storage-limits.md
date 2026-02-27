@@ -36,7 +36,7 @@ Users on a paid plan (PRO, Team, or Enterprise) can subscribe to a **Public Stor
 | 20 TB          | $240/month     |
 | 50 TB          | $500/month     |
 
-You can subscribe or change your tier from the **Billing** settings page of your account or organization. Upgrades take effect immediately; downgrades are scheduled to take effect at the start of the next billing period.
+You can subscribe or change your tier from the **Billing** settings page of your account or organization. Upgrades take effect immediately; downgrades are scheduled to take effect at the start of the next month.
 
 ### Pay-as-you-go price for private storage
 
