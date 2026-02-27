@@ -137,7 +137,7 @@ _List how the model may foreseeably be misused (used in a way it will not work f
 
 `bias_risks_limitations`
 
-_What are the known or foreseeable issues stemming from this model?_
+_What are the known or foreseeable issues stemming from this model? Consider biases related to, for example: race, gender, religion, age, disability, sexual orientation, nationality, and species (speciesism). Speciesist bias — in which models associate certain animals with harm or lower moral status based on their categorization as farmed vs. companion animals — has been documented in language models ([Hagendorff et al., 2023](https://doi.org/10.1007/s43681-023-00302-w); [Takeshita et al., 2022](https://doi.org/10.1016/j.ipm.2022.103070); [Hagendorff et al., 2025](https://doi.org/10.48550/arXiv.2406.15668)) and is particularly relevant for models processing text about animals, food recommendation systems, and agricultural NLP._
 
 
 
