@@ -49,7 +49,7 @@ Above the included 1TB (or 1TB per seat) of private storage in PRO, Team, and En
 
 Overage is charged to your payment method in Pay-as-you-go mode.
 
-Additional discounts are available for large-scale volumes.
+Additional discounts are available for large-scale volumes through our account executives.
 See the full pricing tiers at [huggingface.co/pricing](https://huggingface.co/pricing#storage).
 
 
