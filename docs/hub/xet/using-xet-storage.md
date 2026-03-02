@@ -123,7 +123,8 @@ Xet integrates seamlessly with all of the Hub's workflows. However, there are a 
 When uploading or downloading with Python:
 
 - **Make sure `hf_xet` is installed**: While Xet remains backward compatible with legacy clients optimized for Git LFS, the `hf_xet` integration with `huggingface_hub` delivers optimal chunk-based performance and faster iteration on large files.
-- **Utilize `hf_xet` environment variables**: The default installation of `hf_xet` is designed to support the broadest range of hardware. To take advantage of setups with more network bandwidth or processing power read up on `hf_xet`'s [environment variables](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#xet) to optimize downloads and uploads.
+- **Adaptive concurrency is on by default**: `hf_xet` automatically adjusts the number of parallel transfer streams based on real-time network conditions — no configuration required. For high-bandwidth machines, set `HF_XET_HIGH_PERFORMANCE=1` to raise the concurrency bounds and buffer sizes for maximum throughput.
+- **Advanced tuning**: For fine-grained control, `HF_XET_FIXED_DOWNLOAD_CONCURRENCY` and `HF_XET_FIXED_UPLOAD_CONCURRENCY` let you pin concurrency to a fixed value, bypassing the adaptive controller. See `hf_xet`'s [environment variables](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#xet) for the full list of options.
 
 When uploading or downloading in Git or Python: 
 
