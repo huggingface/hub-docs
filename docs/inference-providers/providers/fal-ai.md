@@ -67,7 +67,7 @@ Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"tencent/HunyuanImage-3.0-Instruct","providerModelId":"fal-ai/hunyuan-image/v3/instruct/edit"} } }
+    providersMapping={ {"fal-ai":{"modelId":"FireRedTeam/FireRed-Image-Edit-1.0","providerModelId":"fal-ai/firered-image-edit"} } }
 />
 
 

@@ -59,7 +59,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"novita":{"modelId":"moonshotai/Kimi-K2.5","providerModelId":"moonshotai/kimi-k2.5"} } }
+    providersMapping={ {"novita":{"modelId":"Qwen/Qwen3.5-397B-A17B","providerModelId":"qwen/qwen3.5-397b-a17b"} } }
 conversational />
 
 
