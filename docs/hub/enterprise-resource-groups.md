@@ -9,12 +9,12 @@ Resource Groups allow organizations to enforce fine-grained access control to th
   <img
     class="block dark:hidden m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/resource-groups.png"
-    alt="screenshot of Hugging Face Single Sign-On (SSO) feature"
+    alt="screenshot of Hugging Face Resource Groups feature"
   />
   <img
     class="hidden dark:block m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-resource-groups.png"
-    alt="screenshot of Hugging Face Single Sign-On (SSO) feature"
+    alt="screenshot of Hugging Face Resource Groups feature"
   />
 </div>
 
