@@ -2,12 +2,12 @@
 
 In this guide, we will use Okta as the SSO provider and with the Security Assertion Markup Language (SAML) protocol as our preferred identity protocol.
 
-We currently support SP-initiated and IdP-initiated authentication. User provisioning is part of Enterprise Plus's [Advanced SSO](./enterprise-advanced-sso).
+We currently support SP-initiated and IdP-initiated authentication. For user provisioning, see [SCIM](./enterprise-scim).
 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
-### Step 1: Create a new application in your Identity Provider
+## Step 1: Create a new application in your Identity Provider
 
 Open a new tab/window in your browser and sign in to your Okta account.
 
@@ -23,7 +23,7 @@ Then choose an "SAML 2.0" application and click "Create".
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-1.png"/>
 </div>
 
-### Step 2: Configure your application on Okta
+## Step 2: Configure your application on Okta
 
 Open a new tab/window in your browser and navigate to the SSO section of your organization's settings. Select the SAML protocol.
 
@@ -52,7 +52,7 @@ On Okta, set the following settings:
 
 Save your new application.
 
-### Step 3: Finalize configuration on Hugging Face
+## Step 3: Finalize configuration on Hugging Face
 
 In your Okta application, under "Sign On/Settings/More details", find the following fields:
 
@@ -95,8 +95,8 @@ A green check mark near the SAML selector will attest that the test was successf
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-saml-6-dark.png"/>
 </div>
 
-### Step 4: Enable SSO in your organization
+## Step 4: Enable SSO in your organization
 
 Now that Single Sign-On is configured and tested, you can enable it for members of your organization by clicking on the "Enable" button.
 
-Once enabled, members of your organization must complete the SSO authentication flow described in the [How does it work?](./security-sso#how-does-it-work) section.
+Once enabled, members of your organization must complete the SSO authentication flow described in the [How it works](./security-sso-basic#how-it-works) section.

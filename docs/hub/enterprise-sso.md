@@ -55,8 +55,6 @@ Learn more in the [User Provisioning (SCIM) guide](./enterprise-scim).
 
 Both models support SAML 2.0 and OIDC protocols and can be integrated with popular identity providers such as Okta, Microsoft Entra ID (Azure AD), and Google Workspace.
 
-[Getting started with Basic SSO →](./security-sso-basic) | [Getting started with Managed SSO →](./enterprise-advanced-sso)
-
 ## Further reading
 
 - [SSO Features](./security-sso-features) — Role mapping, resource group mapping, session timeout, and more

@@ -2,12 +2,12 @@
 
 In this guide, we will use Google Workspace as the SSO provider and with the Security Assertion Markup Language (SAML) protocol as our preferred identity protocol.
 
-We currently support SP-initiated and IdP-initiated authentication. User provisioning is part of Enterprise Plus's [Advanced SSO](./enterprise-advanced-sso).
+We currently support SP-initiated and IdP-initiated authentication. For user provisioning, see [SCIM](./enterprise-scim).
 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
-### Step 1: Create SAML App in Google Workspace
+## Step 1: Create SAML App in Google Workspace
 
 - In your Google Workspace admin console, navigate to `Admin` > `Apps` > `Web and mobile apps`.
 - Click `Add app` and then `Add custom SAML app`.
@@ -19,7 +19,7 @@ We currently support SP-initiated and IdP-initiated authentication. User provisi
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-google-saml-app-details-dark.png"/>
 </div>
 
-### Step 2: Configure Hugging Face with Google's IdP Details
+## Step 2: Configure Hugging Face with Google's IdP Details
 
 - The next screen in the Google setup contains the SSO information for your application.
 - In your Hugging Face organization settings, go to the `SSO` tab and select the `SAML` protocol.
@@ -38,7 +38,7 @@ We currently support SP-initiated and IdP-initiated authentication. User provisi
 
 - In the Google Workspace setup, click `Continue`.
 
-### Step 3: Configure Google with Hugging Face's SP Details
+## Step 3: Configure Google with Hugging Face's SP Details
 
 - In the "Service provider details" screen, you'll need the `Assertion Consumer Service URL` and `SP Entity ID` from your Hugging Face SSO settings. Copy them into the corresponding `ACS URL` and `Entity ID` fields in Google.
 - Ensure the following are set:
@@ -53,9 +53,9 @@ We currently support SP-initiated and IdP-initiated authentication. User provisi
 
 - Click `Continue`.
 
-### Step 4: Attribute Mapping
+## Step 4: Attribute Mapping
 
-- On the "Attribute mapping" screen, click `Add mapping` and configure the attributes you want to send. This step is optional and depends on whether you want to use [Role Mapping](./security-sso#role-mapping) or [Resource Group Mapping](./security-sso#resource-group-mapping) on Hugging Face.
+- On the "Attribute mapping" screen, click `Add mapping` and configure the attributes you want to send. This step is optional and depends on whether you want to use [Role Mapping](./security-sso-features#role-mapping) or [Resource Group Mapping](./security-sso-features#resource-group-mapping) on Hugging Face.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-google-saml-attribute-mapping.png"/>
@@ -64,7 +64,7 @@ We currently support SP-initiated and IdP-initiated authentication. User provisi
 
 - Click `Finish`.
 
-### Step 5: Test and Enable SSO
+## Step 5: Test and Enable SSO
 
 > [!WARNING]
 > Before testing, ensure you have granted access to the application for the appropriate users in the Google Workspace admin console under the app's "User access" settings. The admin performing the test must have access. It may take a few minutes for user access changes to apply on Google Workspace.
@@ -73,4 +73,4 @@ We currently support SP-initiated and IdP-initiated authentication. User provisi
 - You should be redirected to your Google login prompt. Once logged in, you'll be redirected to your organization's settings page.
 - A green check mark near the SAML selector will confirm that the test was successful.
 - Once the test is successful, you can enable SSO for your organization by clicking the "Enable" button.
-- Once enabled, members of your organization must complete the SSO authentication flow described in the [How does it work?](./security-sso#how-does-it-work) section.
+- Once enabled, members of your organization must complete the SSO authentication flow described in the [How it works](./security-sso-basic#how-it-works) section.

@@ -1,11 +1,11 @@
-# How to configure OIDC SSO with Azure
+# How to configure OIDC SSO with Microsoft Entra ID (Azure AD)
 
-This guide will use Azure as the SSO provider and the Open ID Connect (OIDC) protocol as our preferred identity protocol.
+This guide will use Microsoft Entra ID as the SSO provider and the Open ID Connect (OIDC) protocol as our preferred identity protocol.
 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
-### Step 1: Create a new application in your Identity Provider
+## Step 1: Create a new application in your Identity Provider
 
 Open a new tab/window in your browser and sign in to the Azure portal of your organization.
 
@@ -27,7 +27,7 @@ Input a name for your application (for example, Hugging Face SSO), then select "
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/b134c56c2d4748be0a161ed13211407228f34553/hub/sso/sso-azure-oidc-guide-3.png"/>
 </div>
 
-### Step 2: Configure your application on Azure
+## Step 2: Configure your application on Azure
 
 Open a new tab/window in your browser and navigate to the SSO section of your organization's settings. Select the OIDC protocol.
 
@@ -50,7 +50,7 @@ The URL looks like this: `https://huggingface.co/organizations/[organizationIden
 
 Save your new application.
 
-### Step 3: Finalize configuration on Hugging Face
+## Step 3: Finalize configuration on Hugging Face
 
 We will need to collect the following information to finalize the setup on Hugging Face:
 
@@ -107,8 +107,8 @@ A green check mark near the OIDC selector will attest that the test was successf
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-okta-guide-6-dark.png"/>
 </div>
 
-### Step 4: Enable SSO in your organization
+## Step 4: Enable SSO in your organization
 
 Now that Single Sign-On is configured and tested, you can enable it for members of your organization by clicking on the "Enable" button.
 
-Once enabled, members of your organization must complete the SSO authentication flow described in [How does it work?](./security-sso#how-does-it-work).
+Once enabled, members of your organization must complete the SSO authentication flow described in the [How it works](./security-sso-basic#how-it-works) section.
