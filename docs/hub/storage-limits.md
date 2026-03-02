@@ -26,7 +26,17 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 ### Pay-as-you-go price
 
-Above the included 1TB (or 1TB per seat) of private storage in [PRO](https://huggingface.co/subscribe/pro) and [Team or Enterprise Organizations](https://huggingface.co/enterprise), private storage is invoiced at **$25/TB/month**, in 1TB increments. See our [billing doc](./billing) for more details.
+Above the included 1TB (or 1TB per seat) of private storage in [PRO](https://huggingface.co/subscribe/pro) and [Team or Enterprise Organizations](https://huggingface.co/enterprise), additional private storage is charged to your payment method in Pay-as-you-go mode, at a base price of $18/TB/mo.
+Additional discounts are available for large-scale volumes through our account executives:
+
+| Volume | Price (private repos) |
+| ------ | --------------------- |
+| Base   | $18/TB/mo             |
+| 50TB+  | $16/TB/mo             |
+| 200TB+ | $14/TB/mo             |
+| 500TB+ | $12/TB/mo             |
+
+See our [billing doc](./billing) for more details, or view the latest pricing at [huggingface.co/pricing](https://huggingface.co/pricing#storage).
 
 ## Repository limitations and recommendations
 
