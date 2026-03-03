@@ -40,20 +40,17 @@ The reconstruction API returns a `QueryReconstructionResponse` object with three
     },
     ...
   ],
-  "fetch_info": {
+  "xorbs": {
     "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456": [
       {
-        "range": {
-          "start": 0,
-          "end": 4
-        },
-        "url": "https://transfer.xethub.hf.co/xorb/default/a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456",
-        "url_range": {
-          "start": 0,
-          "end": 131071
-        }
-      },
-      ...
+        "url": "https://transfer.xethub.hf.co/xorb/default/a1b2c3d4...?<signed-params>",
+        "ranges": [
+          {
+            "chunks": { "start": 0, "end": 4 },
+            "bytes": { "start": 0, "end": 131071 }
+          }
+        ]
+      }
     ],
     ...
   }
@@ -75,146 +72,117 @@ The reconstruction API returns a `QueryReconstructionResponse` object with three
 - Ordered list of reconstruction terms describing what chunks to download from which xorb
 - Each `CASReconstructionTerm` contains:
   - `hash`: The xorb hash (64-character lowercase hex string)
-  - `range`: Chunk index range`{ start: number, end: number }` within the xorb; end-exclusive `[start, end)`
+  - `range`: Chunk index range `{ start: number, end: number }` within the xorb; end-exclusive `[start, end)`
   - `unpacked_length`: Expected length after decompression (for validation)
 
-#### fetch_info
+#### xorbs
 
-- Type: `Map<Xorb Hash (64 character lowercase hex string), Array<CASReconstructionFetchInfo>>`
-- Maps xorb hashes to required information to download some of their chunks.
-  - The mapping is to an array of 1 or more `CASReconstructionFetchInfo`
-- Each `CASReconstructionFetchInfo` contains:
-  - `url`: HTTP URL for downloading the xorb data, presigned URL containing authorization information
-  - `url_range` (bytes_start, bytes_end): Byte range `{ start: number, end: number }` for the Range header; end-inclusive `[start, end]`
-    - The `Range` header MUST be set as `Range: bytes=<start>-<end>` when downloading this chunk range
-  - `range` (index_start, index_end): Chunk index range `{ start: number, end: number }` that this URL provides; end-exclusive `[start, end)`
-    - This range indicates which range of chunk indices within this xorb that this fetch info term is describing
+- Type: `Map<Xorb Hash (64 character lowercase hex string), Array<XorbMultiRangeFetch>>`
+- Maps xorb hashes to a list of multi-range fetch entries.
+- Typically 1 entry per xorb. Multiple entries only when the URL would exceed the URL length limit.
+- Each `XorbMultiRangeFetch` contains:
+  - `url`: Signed URL with all byte ranges encoded. The client MUST send exactly the signed range value as the `Range` header.
+  - `ranges`: Array of `XorbRangeDescriptor`, sorted by chunk start. Each descriptor contains:
+    - `chunks`: Chunk index range `{ start: number, end: number }`; end-exclusive `[start, end)`
+    - `bytes`: Physical byte range `{ start: number, end: number }` for the HTTP Range header; end-inclusive `[start, end]`
+
+> [!IMPORTANT]
+> The URL encodes the exact set of byte ranges that MUST be requested. Requesting individual sub-ranges separately will result in an authorization failure. The client MUST send all ranges from a single `XorbMultiRangeFetch` entry in a single request.
 
 ## Stage 3: Downloading and Reconstructing the File
 
 ### Process Overview
 
-1. Process each `CASReconstructionTerm` in order from the `terms` array
-2. For each `CASReconstructionTerm`, find matching fetch info using the term's hash
+1. For each entry in the `xorbs` map, download xorb data using multi-range HTTP requests
+2. Process each `CASReconstructionTerm` in order from the `terms` array, using the downloaded chunk data
+3. (for the first term only) skip `offset_into_first_range` bytes
+4. Concatenate the results in term order to reconstruct the file
 
-    1. get the list of fetch_info items under the xorb hash from the `CASReconstructionTerm`. The xorb hash is guaranteed to exist as a key in the fetch_info map.
-    2. linearly iterate through the list of `CASReconstructionFetchInfo` and find one which refers to a chunk range that is equal or encompassing the term's chunk range.
-        - Such a fetch_info item is guaranteed to exist. If none exist the server is at fault.
-3. Download the required data using HTTP `GET` request and MUST set the `Range` header
-4. Deserialize the downloaded xorb data to extract chunks
-
-    1. This series of chunks contains chunks at indices specified by the `CASReconstructionFetchInfo`'s `range` field. Trim chunks at the beginning or end to match the chunks specified by the reconstruction term's `range` field.
-    2. (for the first term only) skip `offset_into_first_range` bytes
-5. Concatenate the results in term order to reconstruct the file
+> [!TIP]
+> Clients MAY interleave downloading and processing to reduce memory usage, as long as terms are assembled in order. It is not necessary to download all xorb data before processing terms.
 
 ### Detailed Download Process
 
-#### Download Reconstruction
+#### Step 1: Download Reconstruction
 
-- use the reconstruction api to download the reconstruction object for a given file
+Use the reconstruction API to download the reconstruction object for a given file.
 
 ```python
 file_id = "0123...abcdef"
 api_endpoint, token = get_token() # follow auth instructions
-url = api_endpoint + "/reconstructions/" + file_id
-reconstruction = get(url, headers={"Authorization": "Bearer: " + token})
+url = api_endpoint + "/v2/reconstructions/" + file_id
+reconstruction = get(url, headers={"Authorization": "Bearer " + token})
 
 # break the reconstruction into components
 terms = reconstruction["terms"]
-fetch_info = reconstruction["fetch_info"]
+xorbs = reconstruction["xorbs"]
 offset_into_first_range = reconstruction["offset_into_first_range"]
-```
-
-#### Match Terms to Fetch Info
-
-For each `CASReconstructionTerm` in the `terms` array:
-
-- Look up the term's `hash` in the `fetch_info` map to get a list of `CASReconstructionFetchInfo`
-- Find a `CASReconstructionFetchInfo` entry where the fetch info's `range` contains the term's `range`
-  - linearly search through the array of `CASReconstructionFetchInfo` and find the element where the range block (`{ "start": number, "end": number }`) of the `CASReconstructionFetchInfo` has start <= term's range start AND end >= term's range end.
-  - The server is meant to guarantee a match, if there isn't a match this download is considered failed and the server made an error.
-
-```python
-for term in terms:
-  xorb_hash = term["hash"]
-  fetch_info_entries = fetch_info[xorb_hash]
-  fetch_info_entry = None
-  for entry in fetch_info_entries:
-    if entry["range"][start] <= term["range"]["start"] and entry["range"]["end"] >= term["range"]["end"]:
-      fetch_info_entry = entry
-      break
-  if fetch_info_entry is None:
-    # Error!
 ```
 
 #### Step 2: Download Xorb Data
 
-For each matched fetch info:
+For each xorb, for each fetch entry, send a single multi-range HTTP GET request:
 
-1. Make an HTTP GET request to the `url` in the fetch info entry
-2. Include a `Range` header: `bytes={url_range.start}-{url_range.end}`
-
-```python
-for term in terms:
-  ...
-  data_url = fetch_info_entry["url"]
-  range_header = "bytes=" + fetch_info_entry["url_range"]["start"] + "-" + fetch_info_entry["url_range"]["end"]
-  data = get(data_url, headers={"Range": range_header})
-```
-
-#### Deserialize Downloaded Data
-
-The downloaded data is in xorb format and MUST be deserialized:
-
-1. **Parse xorb structure**: The data contains compressed chunks with headers
-2. **Decompress chunks**: Each chunk has a header followed by compressed data
-3. **Extract byte indices**: Track byte boundaries between chunks for range extraction
-4. **Validate length**: Decompressed length MUST match `unpacked_length` from the term
-
-**Note**: The deserialization process depends on the [Xorb format](./xorb).
+1. Build the `Range` header from all `bytes` ranges: `Range: bytes=0-131071,500000-600000`
+2. Send a single HTTP `GET` request to the `url` with this `Range` header
+3. If there is a single range, the response is a `206 Partial Content` with the xorb data directly
+4. If there are multiple ranges, the response is a `206 Partial Content` with `Content-Type: multipart/byteranges`. Parse each part to get the xorb data for each range.
+5. Deserialize each part as xorb data to extract chunks
 
 ```python
-for term in terms:
-  ...
-  chunks = {}
-  for i in range(fetch_info_entry["range"]["start"], fetch_info_entry["range"]["end"]):
-    chunk = deserialize_chunk(data) # assume data is a reader that advances forwards
-    chunks[i] = chunk
-  # at this point data should be fully consumed
+# Download all xorb data upfront
+downloaded_chunks = {}  # (xorb_hash, chunk_index) -> chunk_data
+
+for xorb_hash, fetch_entries in xorbs.items():
+  for fetch_entry in fetch_entries:
+    url = fetch_entry["url"]
+    ranges = fetch_entry["ranges"]
+
+    # Build multi-range header
+    range_parts = [f'{r["bytes"]["start"]}-{r["bytes"]["end"]}' for r in ranges]
+    range_header = "bytes=" + ",".join(range_parts)
+
+    response = get(url, headers={"Range": range_header})
+
+    # Parse response (multipart/byteranges if multiple ranges)
+    parts = parse_multipart_response(response) if len(ranges) > 1 else [response.content]
+
+    for part, range_desc in zip(parts, ranges):
+      # Deserialize xorb data to extract chunks
+      for i in range(range_desc["chunks"]["start"], range_desc["chunks"]["end"]):
+        chunk = deserialize_chunk(part)
+        downloaded_chunks[(xorb_hash, i)] = chunk
 ```
 
-#### Step 4: Extract Term Data
+#### Step 3: Extract Term Data and Reconstruct
 
-From the deserialized xorb data:
-
-1. Use the term's `range` to identify which chunks are needed
-2. Extract only the chunks specified by `range.start` to `range.end-1` (end-exclusive)
-3. Apply any range offsets if processing a partial file download
+Process the `terms` array in order, using the downloaded chunk data:
 
 ```python
 file_chunks = []
 for term in terms:
-  ...
+  xorb_hash = term["hash"]
   for i in range(term["range"]["start"], term["range"]["end"]):
-    chunk = chunks[i]
-    # it is possible that the offset captures multiple chunks, so we may need to skip whole chunks
+    chunk = downloaded_chunks[(xorb_hash, i)]
+
+    # skip offset_into_first_range bytes from the beginning
     if offset_into_first_range > len(chunk):
       offset_into_first_range -= len(chunk)
       continue
-    if offset_info_first_range > 0:
+    if offset_into_first_range > 0:
       chunk = chunk[offset_into_first_range:]
-      offset_info_first_range = 0
-    
-    file_chunks.push(chunk)
+      offset_into_first_range = 0
+
+    file_chunks.append(chunk)
 ```
 
-#### Step 5: Stitch Results Together
+#### Step 4: Stitch Results Together
 
 Write all of the chunks to the output file or buffer.
 
 If a range was specified then the total data will need to be truncated to the amount of bytes requested.
 When a range is specified but the range does not end on a chunk boundary the last byte of the requested range will be in the middle of the last chunk.
-A client knows the start of the data from `offset_into_first_range` and can then use the length of the specified range to know end end offset.
+A client knows the start of the data from `offset_into_first_range` and can then use the length of the specified range to know the end offset.
 
 ```python
 with open(file_path) as f:
@@ -226,23 +194,19 @@ with open(file_path) as f:
 
 For partial file downloads, the reconstruction API supports range queries:
 
-- Include `Range: bytes=start-end` header in reconstruction request
+- Include `Range: bytes=start-end` header in the reconstruction request
 - The `offset_into_first_range` field indicates where your range starts within the first term
 - The end of the content will need to be truncated to fit the requested range.
   - Except if the requested range exceeds the total file length, then the returned content will be shorter and no truncation is necessary.
 
-When downloading individual term data:
+When downloading xorb data:
 
-A client MUST include the `Range` header formed with the values from the `url_range` field to specify the exact range of data of a xorb that they are accessing. Not specifying this header will cause result in an authorization failure.
-
-Xet global deduplication requires that access to xorbs is only granted to authorized ranges.
-Not specifying this header will result in an authorization failure.
+A client MUST include the `Range` header formed with the byte range values from the `XorbMultiRangeFetch` entry. The signed URL authorizes access only to the specific ranges listed. Not specifying the correct `Range` header will result in an authorization failure.
 
 ## Performance Considerations
 
-- **Range coalescing**: Multiple terms may share the same fetch info for efficiency, so a single fetch info may be larger than any 1 term and could be used to fulfil multiple terms.
-Consider downloading such content only once and reusing the data.
-- **Parallel downloads**: Terms can be downloaded in parallel, but MUST be assembled in order
+- **Fewer HTTP requests**: Multiple byte ranges for the same xorb are combined into a single URL, allowing one HTTP request per xorb instead of one per chunk range
+- **Parallel downloads**: Xorb data can be downloaded in parallel, but terms MUST be assembled in order
   - On file systems with fast seeking, it MAY be advantageous to open the output file in different threads and writing contents at different offsets
 - **Caching**: Clients SHOULD consider caching downloaded xorb ranges to avoid redundant requests
 - **Retry logic**: Implement exponential backoff for transient failures
@@ -250,15 +214,15 @@ Consider downloading such content only once and reusing the data.
 ### Caching recommendations
 
 1. It can be ineffective to cache the reconstruction object
-    1. The fetch_info section provides short-expiration pre-signed URL's hence Clients SHOULD NOT cache the urls beyond their short expiration
-    2. To get those URL's to access the data you will need to call the reconstruction API again anyway
+    1. The xorbs section provides short-expiration pre-signed URLs hence clients SHOULD NOT cache the URLs beyond their short expiration
+    2. To get those URLs to access the data you will need to call the reconstruction API again anyway
 2. Cache chunks by range not just individually
     1. If you need a chunk from a xorb it is very likely that you will need another, so cache them close
 3. Caching helps when downloading similar contents. May not be worth to cache data if you are always downloading different things
 
 ## More complex QueryReconstruction Example
 
-Here's an example of a serialized `QueryReconstructionResponse` struct that shows how file reconstruction would work across multiple xorbs:
+Here's an example of a `QueryReconstructionResponse` that shows how file reconstruction works across multiple xorbs:
 
 ```json
 {
@@ -287,33 +251,29 @@ Here's an example of a serialized `QueryReconstructionResponse` struct that show
         "start": 3,
         "end": 43
       }
-    },
+    }
   ],
-  "fetch_info": {
+  "xorbs": {
     "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456": [
       {
-        "range": {
-          "start": 1,
-          "end": 43
-        },
-        "url": "https://transfer.xethub.hf.co/xorb/default/a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20130721%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20130721T201207Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d6796aa6097c82ba7e33b4725e8396f8a9638f7c3d4b5a6b7c8d9e0f1a2b3c4d",
-        "url_range": {
-          "start": 57980,
-          "end": 1433008
-        }
+        "url": "https://transfer.xethub.hf.co/xorb/default/a1b2c3d4...?<signed-params>",
+        "ranges": [
+          {
+            "chunks": { "start": 1, "end": 43 },
+            "bytes": { "start": 57980, "end": 1433008 }
+          }
+        ]
       }
     ],
     "fedcba0987654321098765432109876543210fedcba098765432109876543": [
       {
-        "range": {
-          "start": 0,
-          "end": 3
-        },
-        "url": "https://transfer.xethub.hf.co/xorb/default/fedcba0987654321098765432109876543210fedcba098765432109876543?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20130721%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20130721T201207Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d6796aa6097c82ba7e33b4725e8396f8a9638f7c3d4b5a6b7c8d9e0f1a2b3c4d",
-        "url_range": {
-          "start": 0,
-          "end": 65670
-        }
+        "url": "https://transfer.xethub.hf.co/xorb/default/fedcba09...?<signed-params>",
+        "ranges": [
+          {
+            "chunks": { "start": 0, "end": 3 },
+            "bytes": { "start": 0, "end": 65670 }
+          }
+        ]
       }
     ]
   }
@@ -323,16 +283,16 @@ Here's an example of a serialized `QueryReconstructionResponse` struct that show
 This example shows reconstruction of a file that requires:
 
 - Chunks `[1, 4)` from the first xorb (~264KB of unpacked data)
-- Chunks `[0, 2)` from the second xorb (~144KB of unpacked data)
-- Chunks `[3, 43)` from the same xorb from the first term (~3MB of unpacked data)
+- Chunks `[0, 3)` from the second xorb (~144KB of unpacked data)
+- Chunks `[3, 43)` from the first xorb again (~3MB of unpacked data)
 
-The `fetch_info` provides the HTTP URLs and byte ranges needed to download the required chunk data from each xorb. The ranges provided within `fetch_info` and term sections are always end-exclusive i.e. `{ "start": 0, "end": 3 }` is a range of 3 chunks at indices 0, 1 and 2.
-The ranges provided under a `fetch_info` items' `url_range` key are to be used to form the `Range` header when downloading the chunk range.
-A `"url_range"` value of `{ "start": X, "end": Y }` creates a `Range` header value of `bytes=X-Y`.
+The `xorbs` map provides signed URLs and byte ranges needed to download the chunk data from each xorb. The `chunks` ranges are always end-exclusive i.e. `{ "start": 0, "end": 3 }` is a range of 3 chunks at indices 0, 1 and 2.
+The `bytes` ranges are end-inclusive and used to form the `Range` header when downloading.
+A `"bytes"` value of `{ "start": X, "end": Y }` creates a `Range` header value of `bytes=X-Y`.
 
-When downloading and deserializing the chunks from xorb `a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456` we will have the chunks at indices `[1, 43)`.
-We will need to only use the chunks at `[1, 4)` to fulfill the first term and then chunks `[3, 43)` to fulfill the third term.
-Note that in this example the chunk at index 3 is used twice! This is the benefit of deduplication; we only need to download the chunk content once.
+When downloading and deserializing the chunks from xorb `a1b2c3d4...` we get chunks at indices `[1, 43)`.
+We use chunks `[1, 4)` to fulfill the first term, then chunks `[3, 43)` to fulfill the third term.
+Note that chunk at index 3 is used twice! This is the benefit of deduplication; we only need to download the chunk content once.
 
 ## Diagram
 
@@ -343,17 +303,19 @@ sequenceDiagram
   participant S as CAS API
   participant Transfer as Transfer Service (Xet storage)
 
-  client->>S: GET /reconstructions/{file_id}<br/>Authorization: Bearer <token><br/>Range: bytes=start-end (optional)
-  S-->>client: 200 OK<br/>QueryReconstructionResponse {offset_into_first_range, terms[], fetch_info{}}
+  client->>S: GET /v2/reconstructions/{file_id}<br/>Authorization: Bearer <token><br/>Range: bytes=start-end (optional)
+  S-->>client: 200 OK<br/>QueryReconstructionResponse {offset_into_first_range, terms[], xorbs{}}
 
-  loop For each term in terms (ordered)
-    client->>client: Find fetch_info by xorb hash, entry whose range contains term.range
-    client->>Transfer: GET {url}<br/>Range: bytes=url_range.start-url_range.end
-    Transfer-->>client: 206 Partial Content<br/>xorb byte range
-    client->>client: Deserialize xorb → chunks for fetch_info.range
-    client->>client: Trim to term.range, apply offset for first term
-    client->>client: Append chunks to output
+  loop For each xorb in xorbs
+    loop For each fetch entry
+      client->>Transfer: GET {url}<br/>Range: bytes=r1_start-r1_end,r2_start-r2_end,...
+      Transfer-->>client: 206 Partial Content<br/>multipart/byteranges
+      client->>client: Parse multipart, deserialize xorb parts into chunks
+    end
   end
+
+  client->>client: Process terms in order using downloaded chunks
+  client->>client: Apply offset_into_first_range, concatenate output
 
   alt Range requested
     client->>client: Truncate output to requested length
