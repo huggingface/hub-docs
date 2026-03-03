@@ -53,7 +53,7 @@ Add your SSH public key to [your user settings](https://huggingface.co/settings/
 
 `hf_xet` is a Rust-based package leveraging the [Xet storage backend](https://huggingface.co/docs/hub/en/xet/index) to optimize file transfers with chunk-based deduplication. By default, `hf_xet` uses **adaptive concurrency** — it automatically tunes the number of parallel transfer streams based on real-time network conditions, starting conservatively (1 stream) and scaling up to 64 concurrent streams as bandwidth permits.
 
-If you are running on a machine with high bandwidth, set `HF_XET_HIGH_PERFORMANCE=1` to raise the concurrency bounds: it starts at 16 streams instead of 1, allows up to 124 concurrent streams, and increases download buffer sizes. This is recommended for high-bandwidth machines or data center environments.
+For most machines — including data center environments — the default settings will already saturate the available network bandwidth. For advanced users on machines with high bandwidth **and at least 64 GB of RAM**, `HF_XET_HIGH_PERFORMANCE=1` raises concurrency bounds and significantly increases memory buffer sizes, which can help when downloading many large files in parallel.
 
 ```bash
 pip install -U huggingface_hub

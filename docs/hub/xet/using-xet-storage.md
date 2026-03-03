@@ -123,7 +123,7 @@ Xet integrates seamlessly with all of the Hub's workflows. However, there are a 
 When uploading or downloading with Python:
 
 - **Make sure `hf_xet` is installed**: While Xet remains backward compatible with legacy clients optimized for Git LFS, the `hf_xet` integration with `huggingface_hub` delivers optimal chunk-based performance and faster iteration on large files.
-- **Adaptive concurrency is on by default**: `hf_xet` automatically adjusts the number of parallel transfer streams based on real-time network conditions — no configuration required. For high-bandwidth machines, set `HF_XET_HIGH_PERFORMANCE=1` to raise the concurrency bounds and buffer sizes for maximum throughput.
+- **Adaptive concurrency is on by default**: `hf_xet` automatically adjusts the number of parallel transfer streams based on real-time network conditions — no configuration required. The default settings will saturate most network paths without any tuning.
 - **Advanced tuning**: For fine-grained control, `HF_XET_FIXED_DOWNLOAD_CONCURRENCY` and `HF_XET_FIXED_UPLOAD_CONCURRENCY` let you pin concurrency to a fixed value, bypassing the adaptive controller. See `hf_xet`'s [environment variables](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#xet) for the full list of options.
 
 When uploading or downloading in Git or Python: 
@@ -134,11 +134,14 @@ When uploading or downloading in Git or Python:
 
 ## Environment Variables
 
-Both `hf_xet` and Git Xet are powered by `xet-core`, which can be configured via environment variables. The most common variable is `HF_XET_HIGH_PERFORMANCE=1`, which adjusts several settings at once for high-bandwidth machines. The tables below list the individual variables for fine-grained control.
+Both `hf_xet` and Git Xet are powered by `xet-core`, which can be configured via environment variables. The tables below list the individual variables for fine-grained control. Most users will not need to change any of these — the defaults are tuned to saturate most network paths automatically.
+
+> [!NOTE]
+> `HF_XET_HIGH_PERFORMANCE=1` is a convenience flag that adjusts several settings at once (concurrency bounds, buffer sizes, and parallel file limits). It is intended for machines with high bandwidth **and at least 64 GB of RAM** for buffering. On machines with less memory, it may degrade performance.
 
 ### Adaptive Concurrency
 
-By default, `xet-core` uses adaptive concurrency — dynamically adjusting parallelism based on real-time network conditions. These variables control the adaptive controller's behavior:
+By default, `xet-core` uses adaptive concurrency — dynamically adjusting parallelism based on real-time network conditions. These are advanced settings that are unlikely to be needed in most cases. The variables below control the adaptive controller's behavior:
 
 | Environment Variable | Default | Description |
 |---|---|---|
@@ -149,7 +152,7 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 | `HF_XET_CLIENT_AC_MIN_DOWNLOAD_CONCURRENCY` | `1` | Lower bound for download concurrency. HP mode: `4`. |
 | `HF_XET_CLIENT_AC_MAX_UPLOAD_CONCURRENCY` | `64` | Upper bound for upload concurrency. HP mode: `124`. |
 | `HF_XET_CLIENT_AC_MAX_DOWNLOAD_CONCURRENCY` | `64` | Upper bound for download concurrency. HP mode: `124`. |
-| `HF_XET_CLIENT_AC_TARGET_RTT` | `60s` | Target round-trip time. Concurrency increases when RTT is below this value. |
+| `HF_XET_CLIENT_AC_TARGET_RTT` | `60s` | Target round-trip time. Concurrency increases as long as the predicted round-trip time for a full transfer is below this value. |
 | `HF_XET_CLIENT_AC_HEALTHY_SUCCESS_RATIO_THRESHOLD` | `0.8` | Success ratio above which the controller increases concurrency. |
 | `HF_XET_CLIENT_AC_UNHEALTHY_SUCCESS_RATIO_THRESHOLD` | `0.5` | Success ratio below which the controller decreases concurrency. |
 | `HF_XET_CLIENT_AC_LOGGING_INTERVAL_MS` | `10000` | Interval (in ms) at which concurrency status is logged. |
