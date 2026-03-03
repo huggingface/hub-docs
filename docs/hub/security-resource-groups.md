@@ -52,6 +52,6 @@ Remember that a repository can be part of only one Resource Group. You'll be war
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-groups-manage-move-repo-dark.png"/>
 </div>
 
-## Programmatic management (API)
+## Resource Groups API
 
-See [Resource Groups API Section](https://huggingface.co/docs/hub/en/api#resource-groups-api)
+You can list resource groups and add users to them (or change a member's org role and resource group assignments) via the Hub API. For the full reference, examples, and batch workflows, see the [Programmatic User Access Control Management](./programmatic-user-access-control) guide.
