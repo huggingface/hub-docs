@@ -17,7 +17,9 @@ You can also revoke a user's membership or change their role on this page.
 
 ### Inviting members with SSO
 
-If SSO is enabled on your organization, a direct join link can be copied and shared with new members. This SSO join link is available in both the **SSO** and **Members** settings tabs. Since organizations with SSO enabled cannot use classic invite links, the SSO join link is the primary method for inviting teammates to your organization. Simply click the copy button to copy the link to your clipboard and share it with the members you want to invite. When recipients click the shared link, they will be able to authenticate via SSO and directly join your organization.
+If [Basic SSO](./security-sso-basic) is enabled on your organization, a direct join link can be copied and shared with new members. This SSO join link is available in both the **SSO** and **Members** settings tabs. Since organizations with SSO enabled cannot use classic invite links, the SSO join link is the primary method for inviting teammates to your organization. Simply click the copy button to copy the link to your clipboard and share it with the members you want to invite. When recipients click the shared link, they will be able to authenticate via SSO and directly join your organization.
+
+Organizations using [Managed SSO](./enterprise-advanced-sso) provision users directly through their Identity Provider via [SCIM](./enterprise-scim).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso-join-link.png"/>

@@ -72,7 +72,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 | Feature                                            | Free |     Team     |  Enterprise  | Enterprise Plus |
 | -------------------------------------------------- | :--: | :----------: | :----------: | :-------------: |
-| [SSO to private org](./enterprise-sso)             |  ❌  | ✅ Basic SSO | ✅ Basic SSO | ✅ Advanced SSO |
+| [SSO to private org](./enterprise-sso)             |  ❌  | ✅ Basic SSO | ✅ Basic SSO | ✅ Managed SSO |
 | [SSO to public Hub](./enterprise-advanced-sso) |  ❌  |      ❌      |      ❌      |       ✅        |
 | [Enforce 2FA](./enterprise-advanced-security)  |  ❌  |      ✅      |      ✅      |       ✅        |
 | [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693) |  ❌  |      ❌      |      ✅      |       ✅        |
@@ -99,7 +99,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | Feature                |   Free    |     Team      |  Enterprise   | Enterprise Plus |
 | ---------------------- | :-------: | :-----------: | :-----------: | :-------------: |
 | Onboarding/Offboarding | ✅ manual | ✅ controlled | ✅ controlled |  ✅ automated   |
-| SCIM provisioning      |    ❌     |      ❌       |      ❌       |   ✅ Included   |
+| SCIM provisioning      |    ❌     |      ❌       | ✅ Invitation-based | ✅ Full lifecycle |
 | Managed users          |    ❌     |      ❌       |      ❌       |       ✅        |
 
 ### Support, billing, procurement
@@ -132,8 +132,6 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 In the following sections we will document the following Team & Enterprise features:
 
 - [Single Sign-On (SSO)](./enterprise-sso)
-- [Advanced Single Sign-On (SSO)](./enterprise-advanced-sso)
-- [User Provisioning (SCIM)](./enterprise-scim)
 - [Audit Logs](./audit-logs)
 - [Storage Regions](./storage-regions)
 - [Data Studio for Private datasets](./enterprise-datasets)

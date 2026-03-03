@@ -3,9 +3,9 @@
 This guide explains how to set up SCIM user and group provisioning between Okta and your Hugging Face organization using SCIM.
 
 > [!WARNING]
-> This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> and <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plans.
 
-### Step 1: Get SCIM configuration from Hugging Face
+## Step 1: Get SCIM configuration from Hugging Face
 
 1.  Navigate to your organization's settings page on Hugging Face.
 2.  Go to the **SSO** tab, then click on the **SCIM** sub-tab.
@@ -17,7 +17,7 @@ This guide explains how to set up SCIM user and group provisioning between Okta 
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-settings-dark.png"/>
 </div>
 
-### Step 2: Enter Admin Credentials
+## Step 2: Enter Admin Credentials
 
 1. In Okta, go to **Applications** and select your Hugging Face app.
 2. Go to the **General** tab and click **Edit** on App Settings
@@ -31,13 +31,13 @@ This guide explains how to set up SCIM user and group provisioning between Okta 
 10. Click **Test Connector Configuration** to verify the connection.
 11. Save your changes.
 
-### Step 3: Configure Provisioning
+## Step 3: Configure Provisioning
 
 1. In the **Provisioning** tab, click **To App** from the side nav.
 2. Click **Edit** and check to Enable all the features you need, i.e. Create, Update, Delete Users.
 3. Click **Save** at the bottom.
 
-### Step 4: Configure Attribute Mappings
+## Step 4: Configure Attribute Mappings
 1.  While still in the **Provisioning** tab scroll down to Attribute Mappings section
 2.  The default attribute mappings often require adjustments for robust provisioning. We recommend using the following configuration. You can delete attributes that are not here:
 
@@ -46,7 +46,7 @@ This guide explains how to set up SCIM user and group provisioning between Okta 
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-okta-mappings-dark.png" alt="Okta SCIM mappings"/>
 </div>
 
-### Step 5: Assign Users or Groups
+## Step 5: Assign Users or Groups
 
 1. Visit the **Assignments** tab, click **Assign**
 2. Click **Assign to People** or **Assign to Groups** 
