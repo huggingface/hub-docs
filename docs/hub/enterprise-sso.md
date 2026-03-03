@@ -32,9 +32,9 @@ This is well suited for teams that want to **secure access to their organization
 
 ## Managed SSO
 
-Managed SSO **replaces the Hugging Face login entirely**. Your Identity Provider becomes the sole authentication method across the entire Hugging Face platform. The organization controls the full user lifecycle — from account creation to deactivation.
+Managed SSO **replaces the Hugging Face login entirely**. Your Identity Provider becomes the sole authentication method across the entire Hugging Face platform. The organization controls the full user lifecycle, from account creation to deactivation.
 
-This is designed for enterprises that require **complete control over identity, access, and data governance**. Managed accounts have [specific restrictions](./enterprise-advanced-sso#restrictions-on-managed-accounts) (no personal content, organization-bound collaboration). Setup requires coordination with the Hugging Face team.
+This is designed for companies that require **complete control over identity, access, and data governance**. Managed accounts have [specific restrictions](./enterprise-advanced-sso#restrictions-on-managed-accounts) (no personal content, organization-bound collaboration). Setup requires coordination with the Hugging Face team.
 
 [Getting started with Managed SSO →](./enterprise-advanced-sso)
 
@@ -57,5 +57,5 @@ Both models support SAML 2.0 and OIDC protocols and can be integrated with popul
 
 ## Further reading
 
-- [SSO Features](./security-sso-features) — Role mapping, resource group mapping, session timeout, and more
+- [User Management](./security-sso-user-management) — Role mapping, resource group mapping, session timeout, and more
 - [Configuration Guides](./security-sso-configuration-guides) — Step-by-step setup instructions for Okta, Microsoft Entra ID, and Google Workspace

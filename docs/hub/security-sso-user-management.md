@@ -1,11 +1,9 @@
-# SSO Features
+# User Management
 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 The following features are available to organizations with SSO enabled. See [Basic SSO](./security-sso-basic) and [Managed SSO](./enterprise-advanced-sso) for details on each mode.
-
-## Users Management
 
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-settings-users.png"/>
@@ -73,7 +71,7 @@ If there is no match, the user will not be assigned to any resource group.
 > [!NOTE]
 > This feature is only relevant for [Basic SSO](./security-sso-basic). With [Managed SSO](./enterprise-advanced-sso), user accounts are fully managed by the organization, so email domain matching does not apply.
 
-When enabled, Matching email domains only allow organization members to complete SSO if the email provided by your identity provider matches one of their emails on Hugging Face.
+When enabled, 'Matching email domains' only allows organization members to complete SSO if the email provided by your identity provider matches one of their emails on Hugging Face.
 
 To add an email domain, fill out the 'Matching email domains' field, click enter on your keyboard, and save.
 

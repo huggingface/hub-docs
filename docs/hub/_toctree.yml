@@ -478,8 +478,8 @@
         title: Basic SSO
       - local: enterprise-advanced-sso
         title: Managed SSO
-      - local: security-sso-features
-        title: SSO Features
+      - local: security-sso-user-management
+        title: User Management
       - local: enterprise-scim
         title: User Provisioning (SCIM)
       - local: security-sso-configuration-guides

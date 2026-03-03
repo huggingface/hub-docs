@@ -12,6 +12,6 @@ There are two SSO models available, depending on your plan and needs. For a deta
 
 ## Further reading
 
-- [SSO Features](./security-sso-features) — Role mapping, resource group mapping, session timeout, and more
+- [User Management](./security-sso-user-management) — Role mapping, resource group mapping, session timeout, and more
 - [Configuration Guides](./security-sso-configuration-guides) — Step-by-step setup instructions for Okta, Microsoft Entra ID, and Google Workspace
 - [User Provisioning (SCIM)](./enterprise-scim) — Automated user provisioning from your Identity Provider

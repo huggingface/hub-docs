@@ -3,7 +3,7 @@
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
 
-Managed SSO **replaces the Hugging Face login entirely**. Your Identity Provider becomes the sole authentication method for your organization's members across the entire Hugging Face platform. The organization controls the full user lifecycle — from account creation to deactivation.
+Managed SSO **replaces the Hugging Face login entirely**. Your Identity Provider becomes the sole authentication method for your organization's members across the entire Hugging Face platform. The organization controls the full user lifecycle, from account creation to deactivation.
 
 For a comparison with Basic SSO, see the [SSO overview](./enterprise-sso).
 
@@ -35,7 +35,7 @@ Learn more about how to set up and manage SCIM in our [dedicated guide](./enterp
 
 ## SSO features
 
-Managed SSO supports [role mapping, resource group mapping, session timeout, and external collaborators](./security-sso-features). These features are configurable from your organization's settings.
+Managed SSO supports [role mapping, resource group mapping, session timeout, and external collaborators](./security-sso-user-management). These features are configurable from your organization's settings.
 
 ## Restrictions on managed accounts
 

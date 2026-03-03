@@ -44,4 +44,4 @@ Organizations on the Enterprise plan can also use [SCIM](./enterprise-scim) to a
 
 ## SSO features
 
-Basic SSO supports [role mapping, resource group mapping, session timeout, matching email domains, and external collaborators](./security-sso-features). These features are configurable from your organization's settings.
+Basic SSO supports [role mapping, resource group mapping, session timeout, matching email domains, and external collaborators](./security-sso-user-management). These features are configurable from your organization's settings.

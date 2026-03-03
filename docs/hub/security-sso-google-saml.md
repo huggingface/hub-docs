@@ -55,7 +55,7 @@ We currently support SP-initiated and IdP-initiated authentication. For user pro
 
 ## Step 4: Attribute Mapping
 
-- On the "Attribute mapping" screen, click `Add mapping` and configure the attributes you want to send. This step is optional and depends on whether you want to use [Role Mapping](./security-sso-features#role-mapping) or [Resource Group Mapping](./security-sso-features#resource-group-mapping) on Hugging Face.
+- On the "Attribute mapping" screen, click `Add mapping` and configure the attributes you want to send. This step is optional and depends on whether you want to use [Role Mapping](./security-sso-user-management#role-mapping) or [Resource Group Mapping](./security-sso-user-management#resource-group-mapping) on Hugging Face.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-google-saml-attribute-mapping.png"/>
