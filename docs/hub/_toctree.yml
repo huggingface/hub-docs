@@ -494,6 +494,8 @@
         title: How to configure OIDC with Google Workspace
     - local: security-resource-groups
       title: Advanced Access Control (Resource Groups)
+    - local: programmatic-user-access-control
+      title: Programmatic user access control management
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle
