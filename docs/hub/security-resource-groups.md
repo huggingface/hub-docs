@@ -51,4 +51,4 @@ Remember that a repository can be part of only one Resource Group. You'll be war
 
 ## Resource Groups API
 
-You can list resource groups and add users to them (or change a member's org role and resource group assignments) via the Hub API. For the full reference, examples, and batch workflows, see the [Programmatic user access control management](./programmatic-user-access-control) guide.
+You can list resource groups and add users to them (or change a member's org role and resource group assignments) via the Hub API. For the full reference, examples, and batch workflows, see the [Programmatic User Access Control Management](./programmatic-user-access-control) guide.

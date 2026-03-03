@@ -1,4 +1,4 @@
-# Programmatic user access control management
+# Programmatic User Access Control Management
 
 This guide describes how to manage organization member roles and resource group membership via the Hub API: changing a member's organization role and resource group assignments, listing resource groups, adding users to groups, and batch workflows.
 

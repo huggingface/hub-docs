@@ -18,7 +18,7 @@ Members of organizations can have four different roles: `read`, `contributor`, `
 
 - `admin`: in addition to write rights on repos, admin members can update the Organization's profile, refresh the Organization's API token, and manage Organization members.
 
-As an organization `admin`, go to the **Members** section of the org settings to manage roles for users. To change roles or resource group assignments programmatically, see the [Programmatic user access control management](./programmatic-user-access-control) guide.
+As an organization `admin`, go to the **Members** section of the org settings to manage roles for users. To change roles or resource group assignments programmatically, see the [Programmatic User Access Control Management](./programmatic-user-access-control) guide.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-members-page.png"/>
