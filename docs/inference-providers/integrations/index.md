@@ -28,6 +28,7 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 | [LlamaIndex](https://www.llamaindex.ai/) | Data framework for LLM applications                            | [Official docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers) |
 | [MacWhisper](https://goodsnooze.gumroad.com/l/macwhisper)                                                           | Speech-to-text application for macOS                           | [HF docs](./macwhisper)                                                                                                     |
 | [OpenCode](https://opencode.ai/)                                                                                             | AI coding agent built for the terminal                         | [Official docs](https://opencode.ai/docs/providers#hugging-face) / [HF docs](./opencode)                             |
+| [Pi](https://github.com/badlogic/pi-mono)                                                                                    | Minimalist terminal-based coding assistant                     | [Official docs](https://github.com/badlogic/pi-mono) / [HF docs](./pi)                                               |
 | [PydanticAI](https://ai.pydantic.dev/)                                                                         | Framework for building AI agents with Python                   | [Official docs](https://ai.pydantic.dev/models/huggingface/)                                                           |
 | [Roo Code](https://roocode.com/)                                                                               | AI-powered code generation and refactoring                     | [Official docs](https://docs.roocode.com/providers/huggingface)                                                        |
 | [smolagents](https://huggingface.co/docs/smolagents)                                                           | Framework for building LLM agents with tool integration        | [Official docs](https://huggingface.co/docs/smolagents/reference/models#smolagents.InferenceClientModel)               |
@@ -53,6 +54,7 @@ AI-powered coding assistants and development environments.
 
 - [GitHub Copilot Chat](https://docs.github.com/en/copilot) - AI pair programmer in VS Code ([HF docs](./vscode))
 - [OpenCode](https://opencode.ai/) - AI coding agent built for the terminal ([Official docs](https://opencode.ai/docs/providers#hugging-face) / [HF docs](./opencode))
+- [Pi](https://github.com/badlogic/pi-mono) - Minimalist terminal-based coding assistant ([Official docs](https://github.com/badlogic/pi-mono) / [HF docs](./pi))
 - [Roo Code](https://roocode.com/) - AI-powered code generation and refactoring ([Official docs](https://docs.roocode.com/providers/huggingface))
 
 ### Evaluation Frameworks

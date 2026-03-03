@@ -45,8 +45,12 @@ Note: PRO benefits are also included in the [Enterprise subscription](https://hu
 
 ## Pay-as-you-go private storage 
 
-Above the included 1TB (or 1TB per seat) of private storage in PRO, Team, and Enterprise, private storage is invoiced at **$25/TB/month**, in 1TB increments.
-It is billed with the renewal invoices of your PRO, Team or Enterprise subscription.
+Above the included 1TB (or 1TB per seat) of private storage in PRO, Team, and Enterprise, additional private storage is billed in 1TB increments, at a base price of **$18/TB/month**. 
+
+Overage is charged to your payment method in Pay-as-you-go mode.
+
+Additional discounts are available for large-scale volumes through our account executives.
+See the full pricing tiers at [huggingface.co/pricing](https://huggingface.co/pricing#storage).
 
 
 ## Compute Services on the Hub

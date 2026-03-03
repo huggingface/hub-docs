@@ -44,6 +44,8 @@
     title: MacWhisper
   - local: integrations/opencode
     title: OpenCode
+  - local: integrations/pi
+    title: Pi
   - local: integrations/visionagents
     title: Vision Agents
   - local: integrations/vscode

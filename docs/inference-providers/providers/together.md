@@ -57,7 +57,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"together":{"modelId":"moonshotai/Kimi-K2.5","providerModelId":"moonshotai/Kimi-K2.5"} } }
+    providersMapping={ {"together":{"modelId":"Qwen/Qwen3.5-397B-A17B","providerModelId":"Qwen/Qwen3.5-397B-A17B"} } }
 conversational />
 
 
@@ -67,6 +67,6 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"together":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/FLUX.1-dev"} } }
+    providersMapping={ {"together":{"modelId":"black-forest-labs/FLUX.1-schnell","providerModelId":"black-forest-labs/FLUX.1-schnell"} } }
 />
 
