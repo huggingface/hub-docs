@@ -87,6 +87,24 @@ The setup has two components running locally:
   terminal, etc.
 ```
 
+## Alternative: llama-agent
+
+[llama-agent](https://github.com/gary149/llama-agent) takes a different approach — it builds the agent loop directly into [llama.cpp](https://github.com/ggerganov/llama.cpp) as a single binary with zero external dependencies. No Node.js, no Python, just compile and run:
+
+```bash
+git clone https://github.com/gary149/llama-agent.git
+cd llama-agent
+
+# Build
+cmake -B build
+cmake --build build --target llama-agent
+
+# Run (downloads the model automatically)
+./build/bin/llama-agent -hf unsloth/GLM-4.7-Flash-GGUF:UD-Q4_K_XL
+```
+
+Because tool calls happen in-process rather than over HTTP, there is no network overhead between the model and the agent. It also supports subagents, MCP servers, and an HTTP API server mode.
+
 ## Next Steps
 
 - [Use AI Models Locally](./local-apps) — Learn more about running models on your machine
