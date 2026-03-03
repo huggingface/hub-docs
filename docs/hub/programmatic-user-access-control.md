@@ -23,7 +23,7 @@ You can change a member's **organization role** (Read / Contributor / Write / Ad
 
 ### Base URL and authentication
 
-- **Base URL:** `https://huggingface.co` (or your Hub host if self-hosted).
+- **Base URL:** `https://huggingface.co`
 - **Authentication:** Send your token in the request header:
   ```http
   Authorization: Bearer <your_access_token>
@@ -155,7 +155,7 @@ The following endpoints let you **list** resource groups and **add** users to th
 
 ### Base URL and authentication
 
-- **Base URL:** `https://huggingface.co` (or your Hub host if self-hosted).
+- **Base URL:** `https://huggingface.co`
 - **Authentication:** Use one of:
   - **Access token (recommended for scripts):** Create a fine-grained token with the "Write access to organizations settings / member management" permission scoped to your org at [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). Send it in the request header:
     ```http
