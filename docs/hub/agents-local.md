@@ -11,15 +11,15 @@ You can run a coding agent entirely on your own hardware. [Pi](https://pi.dev) c
 
 Set your local hardware so it can show you which models are compatible with your setup.
 
-Go to [huggingface.co/settings/local-apps](https://huggingface.co/settings/local-apps) and configure your local hardware profile.
+Go to [huggingface.co/settings/local-apps](https://huggingface.co/settings/local-apps) and configure your local hardware profile. Select `llama.cpp` in the Local Apps section as this will be the engine you'll use.
 
 ### 2. Find a Compatible Model
 
-Browse models for compatible models for Pi: [huggingface.co/models?apps=pi&sort=trending](https://huggingface.co/models?apps=pi&sort=trending)
+Browse for models compatible with Pi: [huggingface.co/models?apps=pi&sort=trending](https://huggingface.co/models?apps=pi&sort=trending)
 
 ### 3. Launch the llama.cpp Server
 
-On the model page, click the **"Use this model"** button. Pi will show you the exact commands for your setup. The first step is to start a llama.cpp server, e.g.
+On the model page, click the **"Use this model"** button and select `llama.cpp`. Pi will show you the exact commands for your setup. The first step is to start a llama.cpp server, e.g.
 
 ```bash
 # Start a local OpenAI-compatible server:
