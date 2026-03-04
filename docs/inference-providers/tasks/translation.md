@@ -31,7 +31,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"Helsinki-NLP/opus-mt-tr-en","providerModelId":"Helsinki-NLP/opus-mt-tr-en"}} }
+    providersMapping={ {"hf-inference":{"modelId":"Helsinki-NLP/opus-mt-tc-big-tr-en","providerModelId":"Helsinki-NLP/opus-mt-tc-big-tr-en"}} }
 />
 
 

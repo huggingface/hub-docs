@@ -130,7 +130,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 <InferenceSnippet
     pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/text_summarization","providerModelId":"Falconsai/text_summarization"} } }
 />
 
 
@@ -190,7 +190,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"Helsinki-NLP/opus-mt-tr-en","providerModelId":"Helsinki-NLP/opus-mt-tr-en"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Helsinki-NLP/opus-mt-tc-big-tr-en","providerModelId":"Helsinki-NLP/opus-mt-tc-big-tr-en"} } }
 />
 
 
