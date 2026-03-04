@@ -1,4 +1,4 @@
-# Cell Editing
+# Editing Datasets in Data Studio
 
 Data Studio lets you edit dataset values directly in the browser, then commit those edits back to your repo — no re-upload required.
 
