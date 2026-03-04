@@ -112,16 +112,6 @@ Open a [pull request](https://github.com/huggingface/hub-docs/blob/main/docs/hub
 </a>
 </div>
 
-### App: Electric Vehicle Charge Finder
-
-[`cfahlgren1`](https://huggingface.co/cfahlgren1) [embeds](https://x.com/calebfahlgren/status/1813356638239125735) the dataset viewer in the [Electric Vehicle Charge Finder app](https://charge-finder.vercel.app/).
-
-<div class="flex justify-center">
-<a href="https://charge-finder.vercel.app">
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dataset-viewer-embed-example-map.png"/>
-</a>
-</div>
-
 ### App: Masader - Arabic NLP data catalogue
 
 [`Zaid`](https://huggingface.co/Zaid) [showcases](https://x.com/zaidalyafeai/status/1815365207775932576) the dataset viewer in [Masader - the Arabic NLP data catalogue0](https://arbml.github.io/masader//).
