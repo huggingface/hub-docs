@@ -46,6 +46,6 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"fireworks-ai":{"modelId":"openai/gpt-oss-20b","providerModelId":"accounts/fireworks/models/gpt-oss-20b"} } }
+    providersMapping={ {"fireworks-ai":{"modelId":"zai-org/GLM-5","providerModelId":"accounts/fireworks/models/glm-5"} } }
 conversational />
 
