@@ -281,6 +281,8 @@
   - local: data-studio
     title: Data Studio
     sections:
+      - local: datasets-cell-editing
+        title: Cell Editing
       - local: datasets-viewer-configure
         title: Configure the Dataset Viewer
       - local: datasets-viewer-embed
