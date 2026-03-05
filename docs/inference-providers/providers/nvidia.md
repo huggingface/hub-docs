@@ -48,11 +48,3 @@ For details on pricing, usage policies, and data handling, please refer to NVIDI
 ## Supported tasks
 
 
-### Chat Completion (LLM)
-
-Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"nvidia":{"modelId":"nvidia/nemotron-3-nano-30b-a3b","providerModelId":"private/huggingface/nvidia/nemotron-3-nano-30b-a3b"} } }
-conversational />
