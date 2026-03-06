@@ -36,14 +36,15 @@ It is: `07060504030201000f0e0d0c0b0a0908171615141312111f1e1d1c1b1a1918`.
 
 ### 1. Get File Reconstruction
 
-- **Description**: Retrieves reconstruction information for a specific file, includes byte range support when `Range` header is set.
-- **Path**: `/v1/reconstructions/{file_id}`
+- **Description**: Retrieves reconstruction information for a specific file. Returns URLs optimized for multi-range fetching: multiple byte ranges for the same xorb are combined into a single URL. Supports byte range via the optional `Range` header.
+- **Path**: `/v2/reconstructions/{file_id}`
 - **Method**: `GET`
 - **Parameters**:
   - `file_id`: File hash in hex format (64 lowercase hexadecimal characters).
 See [file hashes](./hashing#file-hashes) for computing the file hash and [converting hashes to strings](./api#converting-hashes-to-strings).
 - **Headers**:
   - `Range`: OPTIONAL. Format: `bytes={start}-{end}` (end is inclusive).
+  - `Accept-Encoding`: OPTIONAL. The server supports `gzip` and `zstd` compression on the JSON response. Clients SHOULD send `Accept-Encoding: gzip` or `Accept-Encoding: zstd` to reduce reconstruction response size.
 - **Minimum Token Scope**: `read`
 - **Body**: None.
 - **Response**: JSON (`QueryReconstructionResponse`)
@@ -52,7 +53,7 @@ See [file hashes](./hashing#file-hashes) for computing the file hash and [conver
   {
     "offset_into_first_range": 0,
     "terms": [...],
-    "fetch_info": {...}
+    "xorbs": {...}
   }
   ```
 
@@ -63,7 +64,7 @@ See [file hashes](./hashing#file-hashes) for computing the file hash and [conver
   - `416 Range Not Satisfiable`: The requested byte range start exceeds the end of the file. Not retryable.
 
 ```txt
-GET /v1/reconstructions/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+GET /v2/reconstructions/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 -H "Authorization: Bearer <token>"
 OPTIONAL: -H Range: "bytes=0-100000"
 ```
