@@ -49,3 +49,13 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
     providersMapping={ {"fireworks-ai":{"modelId":"zai-org/GLM-5","providerModelId":"accounts/fireworks/models/glm-5"} } }
 conversational />
 
+
+### Chat Completion (VLM)
+
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=image-text-to-text
+    providersMapping={ {"fireworks-ai":{"modelId":"moonshotai/Kimi-K2.5","providerModelId":"accounts/fireworks/models/kimi-k2p5"} } }
+conversational />
+
