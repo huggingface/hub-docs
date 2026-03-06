@@ -135,6 +135,8 @@ However there is one additional enforced requirement about ordering: **all xorbs
 If any xorb referenced by a shard is not already uploaded when the shard upload API is called, the server will reject the request.
 All xorbs whose hash is used as an entry in the cas info section and in data entries of the file info section are considered "referenced" by a shard.
 
+The reference implementation (`xet-core`) uses adaptive concurrency to dynamically adjust the number of concurrent xorb uploads based on network conditions. It starts conservatively and scales up when bandwidth permits, automatically backing off under congestion. This allows uploads to achieve high throughput on fast connections while remaining well-behaved on constrained networks.
+
 ## Integrity and Idempotency
 
 - Hashing of chunks, xorbs, and shards ensures integrity and enables deduplication across local and global scopes. See: [hashing](./hashing).

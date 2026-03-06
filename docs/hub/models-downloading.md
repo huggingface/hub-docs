@@ -51,8 +51,9 @@ Add your SSH public key to [your user settings](https://huggingface.co/settings/
 
 ## Faster downloads
 
-If you are running on a machine with high bandwidth,
-you can speed up downloads by allowing `hf_xet` to run on all CPU cores. `hf_xet` is a Rust-based package leveraging the new [Xet storage backend](https://huggingface.co/docs/hub/en/xet/index) to optimize file transfers with chunk-based deduplication. `hf_xet` is enabled by default but with lower performances to avoid bloating available CPU and bandwidth, which could degrade UX.
+`hf_xet` is a Rust-based package leveraging the [Xet storage backend](https://huggingface.co/docs/hub/en/xet/index) to optimize file transfers with chunk-based deduplication. By default, `hf_xet` uses **adaptive concurrency** — it automatically tunes the number of parallel transfer streams based on real-time network conditions, starting conservatively (1 stream) and scaling up to 64 concurrent streams as bandwidth permits.
+
+For most machines — including data center environments — the default settings will already saturate the available network bandwidth. For advanced users on machines with high bandwidth **and at least 64 GB of RAM**, `HF_XET_HIGH_PERFORMANCE=1` raises concurrency bounds and significantly increases memory buffer sizes, which can help when downloading many large files in parallel.
 
 ```bash
 pip install -U huggingface_hub
