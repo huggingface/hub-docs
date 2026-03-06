@@ -23,6 +23,7 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [Hyperbolic](./providers/hyperbolic)         |          ✅           |          ✅           |                    |               |               |                |
 | [Novita](./providers/novita)                 |          ✅           |          ✅           |                    |               |      ✅       |                |
 | [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |      ✅       |               |                |
+| [NVIDIA](./providers/nvidia)                 |          ✅           |                       |                    |               |               |                |
 | [OVHcloud AI Endpoints](./providers/ovhcloud)|          ✅           |          ✅           |                    |               |               |                |
 | [Public AI](./providers/publicai)            |          ✅           |                       |                    |               |               |                |
 | [Replicate](./providers/replicate)           |                       |                       |                    |      ✅       |      ✅       |       ✅       |
