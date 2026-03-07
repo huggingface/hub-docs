@@ -105,7 +105,7 @@ With these components it is now possible to completely serialize a [file info bl
 
 In addition to the file info information, it is also necessary to collect all metadata for new xorbs that were created.
 This metadata is the xorb hash, the hash and length of each chunk, the serialized length of the xorb and the sum of the chunk lengths for a xorb.
-With these components it is now possible to serialize for each xorb a [CAS Info block](./shard#3-cas-info-section).
+With these components it is now possible to serialize for each xorb a [Xorb Info block](./shard#3-xorb-info-section).
 
 ### 6. Shard Serialization and Upload
 
@@ -133,7 +133,7 @@ There are some natural ordering requirements in the upload process, e.g. you MUS
 
 However there is one additional enforced requirement about ordering: **all xorbs referenced by a shard MUST be uploaded before that shard is uploaded**.
 If any xorb referenced by a shard is not already uploaded when the shard upload API is called, the server will reject the request.
-All xorbs whose hash is used as an entry in the cas info section and in data entries of the file info section are considered "referenced" by a shard.
+All xorbs whose hash is used as an entry in the xorb info section and in data entries of the file info section are considered "referenced" by a shard.
 
 ## Integrity and Idempotency
 

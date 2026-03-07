@@ -119,7 +119,7 @@ Not all chunks are eligible for global deduplication queries to manage system lo
 1. **Background Query**: Global deduplication queries SHOULD run asynchronously to avoid blocking upload
 2. **HMAC Protection**: Chunk hashes are protected using HMAC keys
 3. **Shard Response**: When a match is found, the API returns a shard containing:
-   - **CAS Info Section**: Contains metadata about many xorbs that store chunks
+   - **Xorb Info Section**: Contains metadata about many xorbs that store chunks
    - **HMAC Key**: Included in the shard metadata header used to encrypt chunk hashes
 4. **Encrypted Chunk Matching**: All chunk hashes in the returned shard have been encrypted with the HMAC key
 5. **Match Discovery Process**: To find matches, clients MUST:
@@ -154,7 +154,7 @@ When new chunks need to be stored, they are aggregated into xorbs based on size 
 When chunks are deduplicated, the system creates file reconstruction information that includes:
 
 - Hash of the xorb containing the chunks
-- Flags for the CAS block
+- Flags for the xorb
 - Total bytes in the segment
 - Start and end indices within the xorb (start inclusive, end exclusive)
 
