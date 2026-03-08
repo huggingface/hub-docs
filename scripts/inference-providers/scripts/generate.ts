@@ -51,6 +51,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   replicate: "https://replicate.com/",
   sambanova: "https://sambanova.ai/",
   scaleway: "https://www.scaleway.com",
+  textclf: "https://textclf.com/",
   together: "https://together.xyz/",
   wavespeed: "https://wavespeed.ai/",
   "zai-org": "https://z.ai/"
