@@ -101,11 +101,11 @@ The currently supported scopes are:
 - `profile`: Get the user's profile information (username, avatar, etc.)
 - `email`: Get the user's email address.
 - `read-billing`: Know whether the user has a payment method set up.
-- `read-repos`: Get read access to the user's personal repos.
+- `read-repos`: Get read access to the user's personal repos. Implies `gated-repos`.
 - `gated-repos`: Get read access to the content of public gated repos the user has been granted access to. Unlike `read-repos`, this does not grant access to private repos.
 - `contribute-repos`: Can create repositories and access those created by this app. Cannot access any other repositories unless additional permissions are granted.
-- `write-repos`: Get write/read access to the user's personal repos.
-- `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion.
+- `write-repos`: Get write/read access to the user's personal repos. Implies `read-repos` and `gated-repos`.
+- `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion. Implies `write-repos`, `read-repos`, and `gated-repos`.
 - `inference-api`: Get access to the [Inference Providers](https://huggingface.co/docs/inference-providers/index), you will be able to make inference requests on behalf of the user.
 - `jobs`: Run [jobs](https://huggingface.co/docs/huggingface_hub/main/en/guides/jobs) 
 - `webhooks`: Manage [webhooks](https://huggingface.co/docs/huggingface_hub/main/en/guides/webhooks)
