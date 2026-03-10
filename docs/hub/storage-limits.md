@@ -133,7 +133,7 @@ Similarly to datasets, large models or large volumes of models (for instance, hu
 
 ### Grants for research teams and non-profits
 
-We recommend that academic and research institutions upgrade to [Team, Enterprise, or Academia Hub](https://huggingface.co/pricing) for guaranteed storage limits. In some cases, storage grants may be available for high-impact open-source work where a paid plan genuinely cannot cover the need. These are evaluated strictly on a case-by-case basis and require demonstrated community impact (downloads, citations, community adoption). Contact datasets@huggingface.co or models@huggingface.co with a detailed proposal.
+We recommend that academic and research institutions upgrade to [Team, Enterprise, or Academia Hub](https://huggingface.co/pricing) for guaranteed storage limits. In some cases, storage grants may be available for high-impact open-source work where a paid plan genuinely cannot cover the need. These are evaluatedon a case-by-case basis and require demonstrated community impact (downloads, citations, community adoption, etc.). Contact datasets@huggingface.co or models@huggingface.co with a detailed proposal.
 
 
 ## How can I free up storage space in my account/organization?
