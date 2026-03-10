@@ -1,13 +1,15 @@
 # Storage limits
 
-At Hugging Face we aim to provide the AI community with significant volumes of **free storage space for public repositories**. We bill for storage space for **private repositories**, above a free tier (see table below).
+<!-- STRETCH TABLES -->
+
+At Hugging Face we aim to provide the AI community with significant volumes of **free storage space for public repositories**, with options to buy more storage if necessary. We also bill for storage space for **private repositories**, above a free tier (see table below).
 
 > [!TIP]
-> Storage limits and policies apply to both model and dataset repositories on the Hub.
+> Storage limits and policies apply to all types of repositories (models, datasets, …) on the Hub.
 
 We [optimize our infrastructure](https://huggingface.co/blog/xethub-joins-hf) continuously to [scale our storage](https://x.com/julien_c/status/1821540661973160339) for the coming years of growth in AI and Machine learning.
 
-We do have mitigations in place to prevent abuse of free public storage, and in general we ask users and organizations to make sure any uploaded large model or dataset is **as useful to the community as possible** (as represented by numbers of likes or downloads, for instance). Finally, upgrade to a paid Organization or User (PRO) account to unlock higher limits.
+We do have mitigations in place to prevent abuse of free public storage, and in general we ask users and organizations to make sure any uploaded large model or dataset is **as useful to the community as possible** (as represented by numbers of likes or downloads, for instance). Upgrade to a paid Organization or User (PRO) account to unlock higher limits.
 
 ## Storage plans
 
@@ -36,9 +38,9 @@ Users on a paid plan (PRO, Team, or Enterprise) can subscribe to a **Public Stor
 | 20 TB          | $240/month     | $12/TB/month     |
 | 50 TB          | $500/month     | $10/TB/month     |
 
-You can subscribe or change your tier from the **Billing** settings page of your account or organization. Upgrades take effect immediately; downgrades are scheduled to take effect at the start of the next month.
+You can subscribe or change your tier from the **Billing** settings page of your account or organization. Upgrades take effect immediately; downgrades are scheduled to take effect at the start of the next month. If you need more storage, you can [contact us](https://huggingface.co/contact/sales) to take advantage of [custom large-scale pricing](https://huggingface.co/pricing#storage).
 
-### Pay-as-you-go price for private storage
+### Private storage Pay-as-you-go
 
 Above the included 1TB (or 1TB per seat) of private storage in [PRO](https://huggingface.co/subscribe/pro) and [Team or Enterprise Organizations](https://huggingface.co/enterprise), private storage is invoiced at **$25/TB/month**, in 1TB increments. See our [billing doc](./billing) for more details.
 
