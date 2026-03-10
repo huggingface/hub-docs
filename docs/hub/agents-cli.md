@@ -42,7 +42,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://hf.co/cli/install.ps1 | iex"
 pip install -U huggingface_hub
 
 # Using Homebrew (macOS)
-brew install huggingface-cli
+brew install hf
 
 # Using uvx (no install needed)
 uvx hf --help
