@@ -24,7 +24,7 @@ Recommended approach:
 Or using Homebrew:
 
 ```bash
->>> brew install huggingface-cli
+>>> brew install hf
 ```
 
 Or using uv:
