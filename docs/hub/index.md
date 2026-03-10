@@ -151,7 +151,7 @@ We encourage you to read the [Code of Conduct](https://huggingface.co/code-of-co
 
 ## What can you find on the Hub?
 
-The Hugging Face Hub hosts Git-based repositories, which are version-controlled containers that can contain all your files. For non-versioned, mutable object storage, the Hub also offers [Storage Buckets](./storage-buckets).
+The Hugging Face Hub hosts Git-based repositories, which are version-controlled folders that can contain all your files. For non-versioned, mutable object storage, the Hub also offers [Storage Buckets](./storage-buckets).
 
 On it, you'll be able to upload and discover...
 
