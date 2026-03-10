@@ -143,11 +143,11 @@ hf buckets list julien-c/my-training-bucket --tree -h -R
 
 ## Managing Files
 
-Bucket files are referenced using `hf://buckets/` paths (e.g., `hf://buckets/username/my-bucket/path/to/file`). The `hf buckets cp` command handles individual file transfers while `hf buckets sync` is better suited for directories. All commands work in both directions — local-to-remote and remote-to-local.
+You can upload and download files directly from the bucket page on the Hub, or use the CLI and Python API for programmatic access. Bucket files are referenced using `hf://buckets/` paths (e.g., `hf://buckets/username/my-bucket/path/to/file`). The `hf buckets cp` command handles individual file transfers while `hf buckets sync` is better suited for directories. All commands work in both directions — local-to-remote and remote-to-local.
 
 ### Uploading files
 
-Use `hf buckets cp` to copy individual files into a bucket. The source is a local path and the destination is an `hf://buckets/` path. You can also pipe data from stdin, which is handy for programmatically generated content.
+For quick uploads, you can drag and drop files directly on the bucket page in your browser. For programmatic use, `hf buckets cp` copies individual files into a bucket. The source is a local path and the destination is an `hf://buckets/` path. You can also pipe data from stdin, which is handy for programmatically generated content.
 
 **CLI:**
 ```bash
@@ -177,7 +177,7 @@ For more upload options (raw bytes, combined upload+delete, etc.), see the [`hug
 
 ### Downloading files
 
-Downloading mirrors the upload syntax — swap the source and destination in `hf buckets cp`. You can also stream a file to stdout by using `-` as the destination, which lets you pipe bucket contents directly into other tools.
+You can download individual files directly from the bucket page on the Hub by clicking on them. For programmatic access, downloading mirrors the upload syntax — swap the source and destination in `hf buckets cp`. You can also stream a file to stdout by using `-` as the destination, which lets you pipe bucket contents directly into other tools.
 
 **CLI:**
 ```bash
