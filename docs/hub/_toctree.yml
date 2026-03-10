@@ -407,6 +407,7 @@
 
 - local: storage-buckets
   title: Storage Buckets
+  new: true
 
 - local: jobs
   title: Jobs

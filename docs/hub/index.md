@@ -102,7 +102,7 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-amber-100 bg-linear-to-br from-amber-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-amber-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-amber-600 dark:text-gray-400 mb-1">
-<svg class="shrink-0 mr-1.5 text-amber-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2m0 12H4V8h16z"/></svg> Storage Buckets</div>
+<svg class="shrink-0 mr-1.5 text-amber-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2m0 12H4V8h16z"/></svg> Storage Buckets <span class="ml-1 rounded-sm bg-blue-500/10 px-1 text-xs leading-tight text-blue-700 dark:text-blue-200">new</span></div>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets">Introduction</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#buckets-vs-repositories">Buckets vs Repositories</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#creating-a-bucket">Creating a Bucket</a>
