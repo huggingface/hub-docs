@@ -85,6 +85,16 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./spaces-oauth">Sign in with HF</a>
 </div>
 
+<div class="group flex flex-col space-y-2 rounded-xl border border-amber-100 bg-linear-to-br from-amber-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-amber-700">
+<div class="flex items-center py-0.5 text-lg font-semibold text-amber-600 dark:text-gray-400 mb-1">
+<svg class="shrink-0 mr-1.5 text-amber-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2m0 12H4V8h16z"/></svg> Storage Buckets <span class="ml-1 rounded-sm bg-blue-500/10 px-1 text-xs leading-tight text-blue-700 dark:text-blue-200">new</span></div>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets">Introduction</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#buckets-vs-repositories">Buckets vs Repositories</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#creating-a-bucket">Creating a Bucket</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#managing-files">Managing Files</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#use-cases">Use Cases</a>
+</div>
+
 <div class="group flex flex-col space-y-2 rounded-xl border border-teal-100 bg-linear-to-br from-teal-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-teal-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-teal-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-teal-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 18 18" fill="currentColor"><path d="M6.66667 12.4352V4.93521L11.6667 8.68521L6.66667 12.4352ZM8.33333 0.351877C7.23898 0.351877 6.15535 0.567425 5.1443 0.986215C4.13326 1.405 3.2146 2.01883 2.44078 2.79265C0.877974 4.35546 0 6.47507 0 8.68521C0 10.8953 0.877974 13.015 2.44078 14.5778C3.2146 15.3516 4.13326 15.9654 5.1443 16.3842C6.15535 16.803 7.23898 17.0185 8.33333 17.0185C10.5435 17.0185 12.6631 16.1406 14.2259 14.5778C15.7887 13.015 16.6667 10.8953 16.6667 8.68521C16.6667 7.59086 16.4511 6.50723 16.0323 5.49618C15.6135 4.48514 14.9997 3.56648 14.2259 2.79265C13.4521 2.01883 12.5334 1.405 11.5224 0.986215C10.5113 0.567425 9.42768 0.351877 8.33333 0.351877Z"></path></svg> Jobs</div>
@@ -98,16 +108,6 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-schedule">Schedule Jobs</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-webhooks">Webhooks Automation</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-reference">Reference</a>
-</div>
-
-<div class="group flex flex-col space-y-2 rounded-xl border border-amber-100 bg-linear-to-br from-amber-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-amber-700">
-<div class="flex items-center py-0.5 text-lg font-semibold text-amber-600 dark:text-gray-400 mb-1">
-<svg class="shrink-0 mr-1.5 text-amber-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2m0 12H4V8h16z"/></svg> Storage Buckets <span class="ml-1 rounded-sm bg-blue-500/10 px-1 text-xs leading-tight text-blue-700 dark:text-blue-200">new</span></div>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets">Introduction</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#buckets-vs-repositories">Buckets vs Repositories</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#creating-a-bucket">Creating a Bucket</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#managing-files">Managing Files</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#use-cases">Use Cases</a>
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-cyan-100 bg-linear-to-br from-cyan-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-cyan-700">
