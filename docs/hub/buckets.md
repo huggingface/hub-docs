@@ -79,8 +79,7 @@ create_bucket("my-bucket", private=True)
 create_bucket("my-org/shared-bucket")
 ```
 
-> [!TIP]
-> For the full Python API reference including deleting, moving, and listing buckets, see the [`huggingface_hub` Buckets guide](https://huggingface.co/docs/huggingface_hub/guides/buckets).
+For the full Python API reference including deleting, moving, and listing buckets, see the [`huggingface_hub` Buckets guide](https://huggingface.co/docs/huggingface_hub/guides/buckets).
 
 ## Browsing Buckets on the Hub
 
@@ -174,6 +173,8 @@ batch_bucket_files(
 )
 ```
 
+For more upload options (raw bytes, combined upload+delete, etc.), see the [`huggingface_hub` upload guide](https://huggingface.co/docs/huggingface_hub/guides/buckets#upload-files).
+
 ### Downloading files
 
 Downloading mirrors the upload syntax — swap the source and destination in `hf buckets cp`. You can also stream a file to stdout by using `-` as the destination, which lets you pipe bucket contents directly into other tools.
@@ -202,6 +203,8 @@ download_bucket_files(
 )
 ```
 
+For faster downloads using pre-fetched metadata, see the [`huggingface_hub` download guide](https://huggingface.co/docs/huggingface_hub/guides/buckets#download-files).
+
 ### Syncing directories
 
 The `sync` command works like `rsync` or `aws s3 sync` — it compares source and destination and only transfers files that have changed. This is the most efficient way to keep a local directory and a bucket in sync. By default, `sync` only adds and updates files. Pass `--delete` to also remove files at the destination that no longer exist at the source. Use `--dry-run` to preview what would happen without actually transferring anything.
@@ -219,6 +222,11 @@ hf buckets sync ./data hf://buckets/username/my-bucket/data --delete
 
 # Preview what would be synced without executing
 hf buckets sync ./data hf://buckets/username/my-bucket/data --dry-run
+
+# Plan and apply: review the sync plan before executing
+hf buckets sync ./data hf://buckets/username/my-bucket/data --plan sync-plan.jsonl
+# ... review the plan file, then apply it
+hf buckets sync --apply sync-plan.jsonl
 ```
 
 > [!TIP]
@@ -234,6 +242,8 @@ sync_bucket("./data", "hf://buckets/username/my-bucket/data")
 # Download from a bucket to a local directory
 sync_bucket("hf://buckets/username/my-bucket/data", "./data")
 ```
+
+The `sync` command supports filtering (`--include`, `--exclude`), comparison modes (`--ignore-times`, `--existing`), and a **plan-and-apply** workflow to review operations before executing them. For the full set of options, see the [`huggingface_hub` sync guide](https://huggingface.co/docs/huggingface_hub/guides/buckets#sync-directories).
 
 ### Deleting files
 
@@ -258,8 +268,7 @@ from huggingface_hub import batch_bucket_files
 batch_bucket_files("username/my-bucket", delete=["old-model.bin", "logs/debug.log"])
 ```
 
-> [!TIP]
-> For the full set of options (filtering, plan-and-apply, comparison modes, etc.), see the [`huggingface_hub` Buckets guide](https://huggingface.co/docs/huggingface_hub/guides/buckets) and the [`hf` CLI reference](https://huggingface.co/docs/huggingface_hub/guides/cli#hf-buckets).
+For more deletion options (pattern-based filtering, recursive removal, etc.), see the [`huggingface_hub` delete guide](https://huggingface.co/docs/huggingface_hub/guides/buckets#delete-files).
 
 ## Pre-warming and CDN
 
