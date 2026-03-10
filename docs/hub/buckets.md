@@ -305,6 +305,15 @@ Note that transferring data from a Bucket to a repository without reuploading is
 
 AI agents need scratch storage for intermediate results, tool outputs, traces, and working memory. Buckets provide a Hub-native place for this data: fast mutable access without Git overhead, standard Hugging Face permissions, and addressable via `hf://buckets/` paths across the Hub ecosystem.
 
+### Rolling backups
+
+Buckets are well-suited for maintaining rolling backups. With a Git-based [Dataset](./datasets) repository, deleting outdated files doesn't free storage — Git history retains every past version, so you'd need to squash commits or rewrite history to actually reclaim space. With buckets, old files are truly gone once deleted, and you only pay for what's currently stored.
+
+```bash
+# Sync today's backup, removing files that no longer exist locally
+hf sync ./daily-backup hf://buckets/my-user/backups/latest --delete
+```
+
 ## Pricing
 
 Storage Buckets are billed based on the amount of data stored, with simple per-TB pricing. Enterprise plans benefit from dedup-based billing, where shared chunks across files directly reduce the billed footprint.
