@@ -24,7 +24,7 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 \* We aim to continue providing the AI community with generous free storage space for public repositories. Beyond the first few gigabytes, please use this resource responsibly by uploading content that offers genuine value to other users. If you need substantial storage space, you will need to upgrade to [PRO, Team or Enterprise](https://huggingface.co/pricing).
 
-† In rare cases, additional storage grants are available for high-impact open-source work where a paid plan genuinely cannot cover the need. Contact us with evidence of community impact (likes, downloads, citations).
+† In some cases, additional storage grants are available for high-impact open-source work where a paid plan genuinely cannot cover the need. Contact us with evidence of community impact (likes, downloads, citations).
 
 ### Public Storage add-on
 
