@@ -31,8 +31,8 @@ Use **repositories** when you want version history, collaboration features (PRs,
 
 <!-- TODO: Screenshot of the bucket creation page showing name field, owner selector, and visibility toggle -->
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets-create.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets-create-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/buckets-create.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/buckets-create-dark.png"/>
 </div>
 
 2. Specify the owner of the bucket: this can be either you or any of the organizations you're affiliated with.
@@ -41,12 +41,14 @@ Use **repositories** when you want version history, collaboration features (PRs,
 
 4. Choose whether the bucket should be public or private.
 
+5. Optionally, preselect [CDN pre-warming](#pre-warming-and-cdn) regions to cache your data closer to your compute from the start.
+
 After creating the bucket, you should see the bucket page:
 
 <!-- TODO: Screenshot of the empty bucket page right after creation -->
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets-empty.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets-empty-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/buckets-empty.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/buckets-empty-dark.png"/>
 </div>
 
 ### From the CLI
@@ -86,8 +88,8 @@ Every bucket has a page on the Hub where you can browse its contents, navigate d
 
 <!-- TODO: Screenshot of a bucket file browser showing several files and folders with sizes and timestamps -->
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets-file-browser.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets-file-browser-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/buckets-file-browser.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/buckets-file-browser-dark.png"/>
 </div>
 
 You can also list bucket contents from the CLI:
