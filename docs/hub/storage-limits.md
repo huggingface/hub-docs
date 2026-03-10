@@ -131,7 +131,7 @@ Please get in touch with us if any of these requirements are difficult for you t
 
 Similarly to datasets, large models or large volumes of models (for instance, hundreds of automated quants) count against your account's total storage quota. Make sure your [storage plan](#storage-plans) has sufficient capacity, or purchase a [storage add-on](#public-storage-add-on).
 
-### Grants for private repositories
+### Grants for research teams and non-profits
 
 We recommend that academic and research institutions upgrade to [Team, Enterprise, or Academia Hub](https://huggingface.co/pricing) for guaranteed storage limits. In some cases, storage grants may be available for high-impact open-source work where a paid plan genuinely cannot cover the need. These are evaluated strictly on a case-by-case basis and require demonstrated community impact (downloads, citations, community adoption). Contact datasets@huggingface.co or models@huggingface.co with a detailed proposal.
 
