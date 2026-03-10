@@ -5,7 +5,7 @@
 At Hugging Face we aim to provide the AI community with significant volumes of **free storage space for public repositories**, with options to buy more storage if necessary. We also bill for storage space for **private repositories**, above a free tier (see table below).
 
 > [!TIP]
-> Storage limits and policies apply to all types of repositories (models, datasets, …) on the Hub.
+> Storage limits and policies apply to all types of repositories (models, datasets, buckets, …) on the Hub.
 
 We [optimize our infrastructure](https://huggingface.co/blog/xethub-joins-hf) continuously to [scale our storage](https://x.com/julien_c/status/1821540661973160339) for the coming years of growth in AI and Machine learning.
 

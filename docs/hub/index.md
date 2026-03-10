@@ -100,6 +100,16 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./jobs-reference">Reference</a>
 </div>
 
+<div class="group flex flex-col space-y-2 rounded-xl border border-amber-100 bg-linear-to-br from-amber-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-amber-700">
+<div class="flex items-center py-0.5 text-lg font-semibold text-amber-600 dark:text-gray-400 mb-1">
+<svg class="shrink-0 mr-1.5 text-amber-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2m0 12H4V8h16z"/></svg> Storage Buckets <span class="ml-1 rounded-sm bg-blue-500/10 px-1 text-xs leading-tight text-blue-700 dark:text-blue-200">new</span></div>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets">Introduction</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#buckets-vs-repositories">Buckets vs Repositories</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#creating-a-bucket">Creating a Bucket</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#managing-files">Managing Files</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#use-cases">Use Cases</a>
+</div>
+
 <div class="group flex flex-col space-y-2 rounded-xl border border-cyan-100 bg-linear-to-br from-cyan-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-cyan-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-cyan-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-cyan-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5A2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5a2.5 2.5 0 0 0 2.5 2.5a2.5 2.5 0 0 0 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5"/></svg> Agents</div>
@@ -141,7 +151,7 @@ We encourage you to read the [Code of Conduct](https://huggingface.co/code-of-co
 
 ## What can you find on the Hub?
 
-The Hugging Face Hub hosts Git-based repositories, which are version-controlled buckets that can contain all your files. 💾
+The Hugging Face Hub hosts Git-based repositories, which are version-controlled folders that can contain all your files. For non-versioned, mutable object storage, the Hub also offers [Storage Buckets](./storage-buckets).
 
 On it, you'll be able to upload and discover...
 
@@ -175,6 +185,10 @@ We currently support two awesome Python SDKs (**[Gradio](https://gradio.app/)** 
 If you need GPU power for your demos, try [**ZeroGPU**](./spaces-zerogpu): it dynamically provides NVIDIA H200 GPUs, in real-time, only when needed.
 
 After you've explored a few Spaces (take a look at our [Space of the Week!](https://huggingface.co/spaces)), dive into the [**Spaces documentation**](./spaces-overview) to learn all about how you can create your own Space. You'll also be able to upgrade your Space to run on a GPU or other accelerated hardware. ⚡️
+
+## Storage Buckets
+
+[Storage Buckets](./storage-buckets) provide S3-like object storage on Hugging Face, powered by the Xet storage backend. Unlike repositories (which are git-based and track file history), buckets are remote object storage containers designed for large-scale files with content-addressable deduplication. They are designed for use cases where you need simple, fast, mutable storage such as storing training checkpoints, logs, intermediate artifacts, or any large collection of files that doesn’t need version control.
 
 ## Organizations
 
