@@ -405,6 +405,9 @@
     - local: spaces-get-user-plan
       title: Get User Plan and Status
 
+- local: storage-buckets
+  title: Storage Buckets
+
 - local: jobs
   title: Jobs
   isExpanded: true
@@ -429,9 +432,6 @@
     title: Webhook Automation
   - local: jobs-reference
     title: Reference
-
-- local: buckets
-  title: Storage Buckets
 
 - local: agents
   title: Agents

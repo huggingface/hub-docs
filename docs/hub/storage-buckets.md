@@ -21,7 +21,7 @@ The Hub offers two types of storage: Git-based **repositories** for versioned, c
 | Pull Requests      | Yes                             | No                                  |
 | Model/Dataset Cards| Yes                             | No                                  |
 
-Use **repositories** when you want version history, collaboration features (PRs, discussions), and library integrations. Use **buckets** when you need fast, mutable storage for data that changes frequently.
+Use **repositories** when you want version history, collaboration features (PRs, discussions), and library integrations. Use **buckets** when you need fast, mutable storage for data that changes frequently — files can be overwritten or deleted in place.
 
 ## Creating a Bucket
 
