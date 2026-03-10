@@ -430,6 +430,9 @@
   - local: jobs-reference
     title: Reference
 
+- local: buckets
+  title: Storage Buckets
+
 - local: agents
   title: Agents
   isExpanded: true
