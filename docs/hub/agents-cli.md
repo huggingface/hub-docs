@@ -1,8 +1,19 @@
-# The `hf` CLI Skill
+# Agents and the `hf` CLI
 
-The `hf` CLI is the fastest way to plug your coding agent into the Hugging Face ecosystem. It works with Claude Code, OpenAI Codex, Cursor, and more.
+Coding agents like Claude Code, OpenAI Codex, or Open Code are excellent at using the CLI to interact with the Hub through the `hf` command-line interface. Search for models, datasets, Spaces, and papers. Download models, upload files, manage repositories, and run compute jobs.
 
-## Install the CLI
+> [!TIP]
+> This is a quick guide on agents that use the CLI. For more detailed information, see the [CLI Reference itself](https://huggingface.co/docs/huggingface_hub/guides/cli).
+
+## Skills
+
+Hugging Face Skills are available for the CLI to help your agents interact with the Hub. Skills give agents relevant instructions for how to use the CLI. See the [Skills Guide](./agents-skills) for available skills and usage. That said, most agents can get by using the CLI directly without Skills. Worst case scenario, they will rely on documentation and trial and error to get commands right. Skills will make your agents more efficient and productive.
+
+## Installation
+
+Make sure the `hf` CLI is installed on your system.
+
+### Standalone Installer (Recommended)
 
 <hfoptions id="cli-install">
 
@@ -24,53 +35,57 @@ powershell -ExecutionPolicy ByPass -c "irm https://hf.co/cli/install.ps1 | iex"
 
 </hfoptions>
 
-Alternative methods: `pip install -U huggingface_hub`, `brew install huggingface-cli`, or `uvx hf --help`.
-
-## Add the CLI Skill
-
-Install the CLI skill so your agent knows how to use `hf`:
+### Alternative Methods
 
 ```bash
-# install globally (available in all projects)
-hf skills add --claude --global
+# Using pip
+pip install -U huggingface_hub
 
-# or install for the current project only
-hf skills add --claude
+# Using Homebrew (macOS)
+brew install huggingface-cli
+
+# Using uvx (no install needed)
+uvx hf --help
 ```
 
-This also works with other coding agents:
+### Verify Installation
 
 ```bash
-hf skills add --codex
-hf skills add --cursor
-hf skills add --opencode
+hf --help
 ```
 
-> [!TIP]
-> The skill is generated from your locally installed CLI version, so it's always up to date. For additional skills (training, datasets, evaluation, etc.), see the [Skills Guide](./agents-skills).
+## Hugging Face Skills for the CLI
 
-Alternatively, you can install via the Claude Code plugin system:
+Hugging Face Skills are available for the CLI to help you interact with the Hub. Skills give agents relevant instructions for how to use the CLI. See the [Skills Guide](./agents-skills) for available skills and usage. 
 
 ```bash
+# start claude 
 claude
+
+# install the skills marketplace plugin
 /plugin marketplace add huggingface/skills
+
+# install the hugging face cli skill
 /plugin install hugging-face-cli@huggingface/skills
 ```
 
-## What You Can Do
+With Skills installed, your agent can use the CLI to interact with the Hub.
 
-Once set up, your agent can use the CLI to interact with the Hub:
+For example, you could use Claude Code to search for datasets:
 
 ```
-"Find a code generation model under 7B parameters"
-"Upload my model to the Hub"
-"Open a PR with evaluation results from results.csv to my/my-model"
+"What datasets are available for sentiment analysis?"
 ```
 
-See the [CLI Reference](https://huggingface.co/docs/huggingface_hub/guides/cli) for all available commands.
+Or, you could use OpenAI Codex to create pull requests:
+
+```
+"Open a PR with evaluation results from the results.csv file to my/my-model repo on the Hub."
+```
 
 ## Resources
 
 - [CLI Reference](https://huggingface.co/docs/huggingface_hub/guides/cli) - Complete command documentation
 - [Token Settings](https://huggingface.co/settings/tokens) - Manage your tokens
 - [Jobs Documentation](https://huggingface.co/docs/huggingface_hub/guides/cli#hf-jobs) - Compute jobs guide
+
