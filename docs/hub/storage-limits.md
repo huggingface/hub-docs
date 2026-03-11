@@ -24,7 +24,7 @@ We do have mitigations in place to prevent abuse of free public storage, and in 
 
 \* We aim to continue providing the AI community with generous free storage space for public repositories. Beyond the first few gigabytes, please use this resource responsibly by uploading content that offers genuine value to other users. If you need substantial storage space, you will need to upgrade to [PRO, Team or Enterprise](https://huggingface.co/pricing).
 
-† We work with impactful community members to ensure it is as easy as possible for them to unlock large storage limits. If your models or datasets consistently get many likes and downloads and you hit limits, get in touch.
+† In some cases, additional storage grants are available for high-impact open-source work where a paid plan genuinely cannot cover the need. Contact us with evidence of community impact (likes, downloads, citations).
 
 ### Public Storage add-on
 
@@ -87,7 +87,7 @@ Under the hood, the Hub uses Git to version the data, which has structural impli
 If your repo is crossing some of the numbers mentioned in the previous section, **we strongly encourage you to check out [`git-sizer`](https://github.com/github/git-sizer)**,
 which has very detailed documentation about the different factors that will impact your experience. Here is a TL;DR of factors to consider:
 
-- **Repository size**: The total size of the data you're planning to upload. If you would like to upload more than 1TB, you will need to upgrade your [storage plan](#storage-plans). We also consider storage grants for impactful work — please send an email with details of your project to datasets@huggingface.co (for datasets) or models@huggingface.co (for models).
+- **Repository size**: The total size of the data you're planning to upload. There is no per-repo size limit for models and datasets, but uploads count against your account's total storage quota (see [Storage plans](#storage-plans) above). If you need more storage, [upgrade your plan](https://huggingface.co/pricing) or purchase a [storage add-on](#public-storage-add-on).
 - **Number of files**:
     - For optimal experience, we recommend keeping the total number of files under 100k, and ideally much less. Try merging the data into fewer files if you have more.
       For example, json files can be merged into a single jsonl file, or large datasets can be exported as Parquet files or in [WebDataset](https://github.com/webdataset/webdataset) format.
@@ -115,17 +115,9 @@ adding around 50-100 files per commit.
 
 ### Sharing large datasets on the Hub
 
-One key way Hugging Face supports the machine learning ecosystem is by hosting datasets on the Hub, including very large ones. However, if your dataset is bigger than 1TB, you will need to upgrade your [storage plan](#storage-plans) or ask us to grant more storage.
+One key way Hugging Face supports the machine learning ecosystem is by hosting datasets on the Hub, including very large ones. Large datasets count against your account's total storage quota, so make sure your [storage plan](#storage-plans) has sufficient capacity before uploading. Additional public storage can be purchased as an [add-on](#public-storage-add-on).
 
-In this case, to ensure we can effectively support the open-source ecosystem, we require you to let us know via datasets@huggingface.co.
-
-When you get in touch with us, please let us know:
-
-- What is the dataset, and who/what is it likely to be useful for?
-- The size of the dataset.
-- The format you plan to use for sharing your dataset.
-
-For hosting large datasets on the Hub, we require the following for your dataset:
+For hosting large datasets on the Hub, we require the following:
 
 - A dataset card: we want to ensure that your dataset can be used effectively by the community and one of the key ways of enabling this is via a dataset card. This [guidance](./datasets-cards) provides an overview of how to write a dataset card.
 - You are sharing the dataset to enable community reuse. If you plan to upload a dataset you anticipate won't have any further reuse, other platforms are likely more suitable.
@@ -137,13 +129,11 @@ Please get in touch with us if any of these requirements are difficult for you t
 
 ### Sharing large volumes of models on the Hub
 
-Similarly to datasets, if you host models bigger than 1TB or if you plan on uploading a large number of smaller sized models (for instance, hundreds of automated quants) totalling more than 1TB, you will need to upgrade your [storage plan](#storage-plans) or ask us to grant more storage.
+Similarly to datasets, large models or large volumes of models (for instance, hundreds of automated quants) count against your account's total storage quota. Make sure your [storage plan](#storage-plans) has sufficient capacity, or purchase a [storage add-on](#public-storage-add-on).
 
-To do that, to ensure we can effectively support the open-source ecosystem, please send an email with details of your project to models@huggingface.co.
+### Grants for research teams and non-profits
 
-### Grants for private repositories
-
-We recommend that academic and research institutions upgrade to Team, Enterprise, or Academia Hub for guaranteed storage limits. For researchers doing highly impactful work who are genuinely blocked by lack of institutional funding, PRO storage grants may be available on a case-by-case basis. Please contact datasets@huggingface.co or models@huggingface.co with a proposal explaining your use case and demonstrated impact.
+We recommend that academic and research institutions upgrade to [Team, Enterprise, or Academia Hub](https://huggingface.co/pricing) for guaranteed storage limits. In some cases, storage grants may be available for high-impact open-source work where a paid plan genuinely cannot cover the need. These are evaluated on a case-by-case basis and require demonstrated community impact (downloads, citations, community adoption, etc.). Contact datasets@huggingface.co or models@huggingface.co with a detailed proposal.
 
 
 ## How can I free up storage space in my account/organization?
