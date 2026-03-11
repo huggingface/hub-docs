@@ -117,7 +117,7 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-overview">Agents on the Hub</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-mcp">Hugging Face MCP Server</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-skills">Hugging Face Agent Skills</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-cli">Agents and the hf CLI</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-cli">Hugging Face CLI for AI Agents</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-sdk">Building agents with the SDK</a>
 </div>
 

@@ -2,8 +2,13 @@
 
 Hugging Face provides tools and protocols that connect AI agents directly to the Hub. Whether you're chatting with Claude, building with Codex, or developing custom agents, you can access models, datasets, Spaces, and community tools. This page covers connecting your [chat agents](#chat-with-hugging-face) and [coding agents](#coding-agents) to the Hub. 
 
-> [!TIP]
-> To build with agents on the Hub, check out the pages on [MCP Server](./agents-mcp), [Skills](./agents-skills), [CLI](./agents-cli), and [SDK](./agents-sdk).
+| Page | Description |
+| ---- | ----------- |
+| [CLI](./agents-cli) | Give your agent the `hf` CLI with a built-in Skill |
+| [MCP Server](./agents-mcp) | Connect any MCP-compatible client to the Hub |
+| [Skills](./agents-skills) | Task-specific guidance for AI/ML workflows |
+| [SDK](./agents-sdk) | Build agents programmatically with Python or JavaScript |
+| [Local Agents](./agents-local) | Run fully local agents with llama.cpp and Pi |
 
 ## Chat with Hugging Face
 
@@ -74,7 +79,7 @@ Integrate Hugging Face into your coding workflow with the MCP Server and Skills.
 | [Claude Code](https://code.claude.com/docs) | MCP Server + Skills |
 | [OpenAI Codex](https://openai.com/codex/) | MCP Server + Skills |
 | [Open Code](https://opencode.ai/) | MCP Server + Skills |
-| [Cursor](https://www.cursor.com/) | MCP Server |
+| [Cursor](https://www.cursor.com/) | MCP Server + Skills |
 | [VS Code](https://code.visualstudio.com/) | MCP Server |
 | [Gemini CLI](https://geminicli.com/) | MCP Server |
 | [Zed](https://zed.dev/) | MCP Server |
@@ -113,7 +118,7 @@ claude
 
 Then, to install a Skill specification:
 ```bash
-/plugin install hugging-face-cli@huggingface/skills
+/plugin install hf-cli@huggingface/skills
 ```
 
 See the [Skills Guide](./agents-skills) for available skills and usage.
@@ -178,7 +183,7 @@ Agent: [Fetches documentation]
 
 ## Next Steps
 
-- [MCP Server](./agens-mcp) - Connect any MCP-compatible AI assistant to the Hub
-- [Skills](./agens-skills) - Pre-built capabilities for coding agents
-- [CLI](./agens-cli) - Command-line interface for Hub operations  
-- [SDK](./agens-sdk) - Python and JavaScript libraries for building agents
+- [CLI](./agents-cli) - Command-line interface for Hub operations
+- [MCP Server](./agents-mcp) - Connect any MCP-compatible AI assistant to the Hub
+- [Skills](./agents-skills) - Pre-built capabilities for coding agents
+- [SDK](./agents-sdk) - Python and JavaScript libraries for building agents
