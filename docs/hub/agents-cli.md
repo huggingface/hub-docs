@@ -21,6 +21,9 @@ hf skills add --claude --global
 hf skills add --claude
 ```
 
+> [!TIP]
+> The skill is generated from your locally installed CLI version, so it's always up to date. For additional skills (training, datasets, evaluation, etc.), see the [Skills Guide](./agents-skills).
+
 This also works with other coding agents:
 
 ```bash
@@ -28,9 +31,6 @@ hf skills add --codex
 hf skills add --cursor
 hf skills add --opencode
 ```
-
-> [!TIP]
-> The skill is generated from your locally installed CLI version, so it's always up to date. For additional skills (training, datasets, evaluation, etc.), see the [Skills Guide](./agents-skills).
 
 Alternatively, you can install via the Claude Code plugin system:
 

@@ -4,7 +4,7 @@ Hugging Face provides tools and protocols that connect AI agents directly to the
 
 | Page | Description |
 | ---- | ----------- |
-| [CLI](./agents-cli) | Give your coding agent the `hf` command-line interface |
+| [CLI](./agents-cli) | Give your agent the `hf` CLI with a built-in Skill |
 | [MCP Server](./agents-mcp) | Connect any MCP-compatible client to the Hub |
 | [Skills](./agents-skills) | Task-specific guidance for AI/ML workflows |
 | [SDK](./agents-sdk) | Build agents programmatically with Python or JavaScript |

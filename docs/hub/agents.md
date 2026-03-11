@@ -6,7 +6,7 @@ Hugging Face provides tools and protocols to connect AI agents to the Hub ecosys
 
 | Tool | What it does |
 | ---- | ------------ |
-| [CLI](./agents-cli) | Give your coding agent the `hf` command-line interface |
+| [CLI](./agents-cli) | Give your agent the `hf` CLI with a built-in Skill |
 | [MCP Server](./agents-mcp) | Connect any MCP-compatible client (Claude, Cursor, VS Code, ChatGPT) to the Hub |
 | [Skills](./agents-skills) | Task-specific guidance for AI/ML workflows |
 | [SDK](./agents-sdk) | Build agents programmatically with Python or JavaScript |
