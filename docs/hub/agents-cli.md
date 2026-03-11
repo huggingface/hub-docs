@@ -7,7 +7,7 @@ The `hf` CLI is a great way to connect your agents to the Hugging Face ecosystem
 
 ## Install the CLI
 
-Make sure the `hf` CLI is installed and up to date. See the [CLI installation guide](https://huggingface.co/docs/huggingface_hub/guides/cli#installation) for setup instructions.
+Make sure the `hf` CLI is installed and up to date. See the [CLI installation guide](https://huggingface.co/docs/huggingface_hub/guides/cli#getting-started) for setup instructions.
 
 ## Add the CLI Skill
 
