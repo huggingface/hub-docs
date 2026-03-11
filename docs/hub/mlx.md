@@ -71,7 +71,7 @@ MLX-LM supports popular LLM architectures including LLaMA, Phi-2, Mistral, and Q
 
 Setting `HF_XET_HIGH_PERFORMANCE=1` raises concurrency bounds and buffer sizes for machines with high bandwidth and at least 64 GB of RAM:
 
-```py
+```bash
 pip install -U huggingface_hub
 
 export HF_XET_HIGH_PERFORMANCE=1

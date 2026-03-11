@@ -56,6 +56,5 @@ Add your SSH public key to [your user settings](https://huggingface.co/settings/
 For most machines — including data center environments — the default settings will already saturate the available network bandwidth. For advanced users on machines with high bandwidth **and at least 64 GB of RAM**, `HF_XET_HIGH_PERFORMANCE=1` raises concurrency bounds and significantly increases memory buffer sizes, which can help when downloading many large files in parallel.
 
 ```bash
-pip install -U huggingface_hub
 HF_XET_HIGH_PERFORMANCE=1 hf download ...
 ```
