@@ -178,7 +178,7 @@ Agent: [Fetches documentation]
 
 ## Next Steps
 
-- [MCP Server](./agens-mcp) - Connect any MCP-compatible AI assistant to the Hub
-- [Skills](./agens-skills) - Pre-built capabilities for coding agents
-- [CLI](./agens-cli) - Command-line interface for Hub operations  
-- [SDK](./agens-sdk) - Python and JavaScript libraries for building agents
+- [MCP Server](./agents-mcp) - Connect any MCP-compatible AI assistant to the Hub
+- [Skills](./agents-skills) - Pre-built capabilities for coding agents
+- [CLI](./agents-cli) - Command-line interface for Hub operations  
+- [SDK](./agents-sdk) - Python and JavaScript libraries for building agents
