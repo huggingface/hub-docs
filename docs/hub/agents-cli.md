@@ -1,6 +1,6 @@
-# Getting Started
+# The `hf` CLI Skill
 
-The `hf` CLI is the fastest way to connect your coding agent to the Hugging Face Hub. It works with Claude Code, OpenAI Codex, Cursor, and more.
+The `hf` CLI is the fastest way to plug your coding agent into the Hugging Face ecosystem. It works with Claude Code, OpenAI Codex, Cursor, and more.
 
 ## Install the CLI
 

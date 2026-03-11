@@ -435,7 +435,7 @@
   isExpanded: true
   sections:
   - local: agents-cli
-    title: Getting Started
+    title: The `hf` CLI Skill
   - local: agents-overview
     title: Agents on the Hub
   - local: agents-mcp
