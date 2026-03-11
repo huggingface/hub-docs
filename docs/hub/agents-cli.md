@@ -1,6 +1,6 @@
-# CLI for AI Agents
+# Hugging Face CLI for AI Agents
 
-Coding agents like Claude Code, OpenAI Codex, or Open Code are excellent at using the CLI to interact with the Hub through the `hf` command-line interface. Search for models, datasets, Spaces, and papers. Download models, upload files, manage repositories, and run compute jobs.
+The `hf` CLI is a great way to connect your agents to the Hugging Face ecosystem. Models, datasets, Spaces, jobs, from any coding agent.
 
 > [!TIP]
 > This is a quick guide on agents that use the CLI. For more detailed information, see the [CLI Reference itself](https://huggingface.co/docs/huggingface_hub/guides/cli).
@@ -11,7 +11,7 @@ Make sure the `hf` CLI is installed and up to date. See the [CLI installation gu
 
 ## Add the CLI Skill
 
-Install the CLI skill so your agent knows how to use `hf`:
+Skills give your agent the context it needs to use tools effectively. Install the CLI skill so your agent knows every `hf` command and stays current with the latest updates. Learn more about Skills at [agentskills.io](https://agentskills.io).
 
 ```bash
 # install globally (available in all projects)
