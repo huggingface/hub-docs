@@ -22,7 +22,7 @@ hf skills add --claude
 ```
 
 > [!TIP]
-> The Skill is generated from your locally installed CLI version, so it's always up to date. For additional Skills (training, datasets, evaluation, etc.), see the [Skills Guide](./agents-skills).
+> The Skill is generated from your locally installed CLI version, so it's always up to date.
 
 This also works with other coding agents:
 
@@ -37,7 +37,7 @@ Alternatively, you can install via the Claude Code plugin system:
 ```bash
 claude
 /plugin marketplace add huggingface/skills
-/plugin install hugging-face-cli@huggingface/skills
+/plugin install hf-cli@huggingface/skills
 ```
 
 ## Resources

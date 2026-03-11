@@ -79,7 +79,7 @@ Integrate Hugging Face into your coding workflow with the MCP Server and Skills.
 | [Claude Code](https://code.claude.com/docs) | MCP Server + Skills |
 | [OpenAI Codex](https://openai.com/codex/) | MCP Server + Skills |
 | [Open Code](https://opencode.ai/) | MCP Server + Skills |
-| [Cursor](https://www.cursor.com/) | MCP Server |
+| [Cursor](https://www.cursor.com/) | MCP Server + Skills |
 | [VS Code](https://code.visualstudio.com/) | MCP Server |
 | [Gemini CLI](https://geminicli.com/) | MCP Server |
 | [Zed](https://zed.dev/) | MCP Server |
@@ -118,7 +118,7 @@ claude
 
 Then, to install a Skill specification:
 ```bash
-/plugin install hugging-face-cli@huggingface/skills
+/plugin install hf-cli@huggingface/skills
 ```
 
 See the [Skills Guide](./agents-skills) for available skills and usage.
