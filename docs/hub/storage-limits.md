@@ -56,7 +56,10 @@ See our [billing doc](./billing) for more details, or view the latest pricing at
 
 ## Repository limitations and recommendations
 
-In parallel to storage limits at the account (user or organization) level, there are some limitations to be aware of when dealing with a large amount of data in a specific repo. Given the time it takes to stream the data,
+> [!NOTE]
+> This section does not apply to [Storage Buckets](./storage-buckets)
+
+In addition to storage limits at the account (user or organization) level, there are some limitations to be aware of when dealing with large amounts of data in a specific Git-backed repository. Given the time it takes to stream the data,
 getting an upload/push to fail at the end of the process or encountering a degraded experience, be it on hf.co or when working locally, can be very annoying. In the following section, we describe our recommendations on how to best structure your large repos.
 
 ### Recommendations
