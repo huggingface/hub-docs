@@ -123,13 +123,83 @@ Xet integrates seamlessly with all of the Hub's workflows. However, there are a 
 When uploading or downloading with Python:
 
 - **Make sure `hf_xet` is installed**: While Xet remains backward compatible with legacy clients optimized for Git LFS, the `hf_xet` integration with `huggingface_hub` delivers optimal chunk-based performance and faster iteration on large files.
-- **Utilize `hf_xet` environment variables**: The default installation of `hf_xet` is designed to support the broadest range of hardware. To take advantage of setups with more network bandwidth or processing power read up on `hf_xet`'s [environment variables](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#xet) to optimize downloads and uploads.
+- **Adaptive concurrency is on by default**: `hf_xet` automatically adjusts the number of parallel transfer streams based on real-time network conditions — no configuration required. The default settings will saturate most network paths without any tuning.
+- **Advanced tuning**: For fine-grained control, `HF_XET_FIXED_DOWNLOAD_CONCURRENCY` and `HF_XET_FIXED_UPLOAD_CONCURRENCY` let you pin concurrency to a fixed value, bypassing the adaptive controller. See `hf_xet`'s [environment variables](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#xet) for the full list of options.
 
 When uploading or downloading in Git or Python: 
 
 - **Leverage frequent, incremental commits**: Xet's chunk-level deduplication means you can safely make incremental updates to models or datasets. Only changed chunks are uploaded, so frequent commits are both fast and storage-efficient.
 - **Be Specific in .gitattributes**: When defining patterns for Xet or LFS, use precise file extensions (e.g., `*.safetensors`, `*.bin`) to avoid unnecessarily routing smaller files through large-file storage.
 - **Prioritize community access**: Xet substantially increases the efficiency and scale of large file transfers. Instead of structuring your repository to reduce its total size (or the size of individual files), organize it for collaborators and community users so they may easily navigate and retrieve the content they need.
+
+## Environment Variables
+
+Both `hf_xet` and Git Xet are powered by `xet-core`, which can be configured via environment variables. The tables below list the individual variables for fine-grained control. Most users will not need to change any of these — the defaults are tuned to saturate most network paths automatically.
+
+> [!NOTE]
+> `HF_XET_HIGH_PERFORMANCE=1` is a convenience flag that adjusts several settings at once (concurrency bounds, buffer sizes, and parallel file limits). It is intended for machines with high bandwidth **and at least 64 GB of RAM** for buffering. On machines with less memory, it may degrade performance.
+
+### Adaptive Concurrency
+
+By default, `xet-core` uses adaptive concurrency — dynamically adjusting parallelism based on real-time network conditions. These are advanced settings that are unlikely to be needed in most cases. The variables below control the adaptive controller's behavior:
+
+| Environment Variable | Default | Description |
+|---|---|---|
+| `HF_XET_CLIENT_ENABLE_ADAPTIVE_CONCURRENCY` | `true` | Enable or disable adaptive concurrency control. When disabled, concurrency stays at the initial value. |
+| `HF_XET_CLIENT_AC_INITIAL_UPLOAD_CONCURRENCY` | `1` | Starting number of concurrent upload streams. HP mode: `16`. |
+| `HF_XET_CLIENT_AC_INITIAL_DOWNLOAD_CONCURRENCY` | `1` | Starting number of concurrent download streams. HP mode: `16`. |
+| `HF_XET_CLIENT_AC_MIN_UPLOAD_CONCURRENCY` | `1` | Lower bound for upload concurrency. HP mode: `4`. |
+| `HF_XET_CLIENT_AC_MIN_DOWNLOAD_CONCURRENCY` | `1` | Lower bound for download concurrency. HP mode: `4`. |
+| `HF_XET_CLIENT_AC_MAX_UPLOAD_CONCURRENCY` | `64` | Upper bound for upload concurrency. HP mode: `124`. |
+| `HF_XET_CLIENT_AC_MAX_DOWNLOAD_CONCURRENCY` | `64` | Upper bound for download concurrency. HP mode: `124`. |
+| `HF_XET_CLIENT_AC_TARGET_RTT` | `60s` | Target round-trip time. Concurrency increases as long as the predicted round-trip time for a full transfer is below this value. |
+| `HF_XET_CLIENT_AC_HEALTHY_SUCCESS_RATIO_THRESHOLD` | `0.8` | Success ratio above which the controller increases concurrency. |
+| `HF_XET_CLIENT_AC_UNHEALTHY_SUCCESS_RATIO_THRESHOLD` | `0.5` | Success ratio below which the controller decreases concurrency. |
+| `HF_XET_CLIENT_AC_LOGGING_INTERVAL_MS` | `10000` | Interval (in ms) at which concurrency status is logged. |
+
+> [!TIP]
+> To pin concurrency to a fixed value (bypassing the adaptive controller), use the convenience aliases `HF_XET_FIXED_UPLOAD_CONCURRENCY` and `HF_XET_FIXED_DOWNLOAD_CONCURRENCY`. These set the initial, minimum, and maximum concurrency to the same value.
+
+### Network and Retry
+
+| Environment Variable | Default | Description |
+|---|---|---|
+| `HF_XET_CLIENT_RETRY_MAX_ATTEMPTS` | `5` | Maximum number of retry attempts for failed requests. |
+| `HF_XET_CLIENT_RETRY_BASE_DELAY` | `3000ms` | Base delay between retries (with exponential backoff). |
+| `HF_XET_CLIENT_RETRY_MAX_DURATION` | `360s` | Maximum total time to spend retrying a request. |
+| `HF_XET_CLIENT_CONNECT_TIMEOUT` | `60s` | TCP connection timeout. |
+| `HF_XET_CLIENT_READ_TIMEOUT` | `120s` | Read timeout for HTTP responses. |
+| `HF_XET_CLIENT_IDLE_CONNECTION_TIMEOUT` | `60s` | Timeout before idle connections are closed. |
+| `HF_XET_CLIENT_MAX_IDLE_CONNECTIONS` | `16` | Maximum number of idle connections in the pool. |
+
+### Data Transfer
+
+| Environment Variable | Default | Description |
+|---|---|---|
+| `HF_XET_DATA_MAX_CONCURRENT_FILE_INGESTION` | `8` | Maximum number of files processed concurrently during upload. HP mode: `100`. |
+| `HF_XET_DATA_MAX_CONCURRENT_FILE_DOWNLOADS` | `8` | Maximum number of files downloaded concurrently. |
+| `HF_XET_DATA_INGESTION_BLOCK_SIZE` | `8mb` | Size of blocks read during file ingestion. |
+| `HF_XET_DATA_PROGRESS_UPDATE_INTERVAL` | `200ms` | How often progress bars are updated. |
+
+### Download Buffers
+
+These control memory usage during downloads. `HF_XET_HIGH_PERFORMANCE=1` raises these significantly.
+
+| Environment Variable | Default | HP Mode | Description |
+|---|---|---|---|
+| `HF_XET_RECONSTRUCTION_MIN_RECONSTRUCTION_FETCH_SIZE` | `256mb` | `1gb` | Minimum fetch size for reconstruction requests. |
+| `HF_XET_RECONSTRUCTION_MAX_RECONSTRUCTION_FETCH_SIZE` | `8gb` | `16gb` | Maximum fetch size for reconstruction requests. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` | `2gb` | `16gb` | Total download buffer size. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_PERFILE_SIZE` | `512mb` | `2gb` | Per-file download buffer size. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_LIMIT` | `8gb` | `64gb` | Hard limit on total download buffer memory. |
+
+### Logging
+
+| Environment Variable | Default | Description |
+|---|---|---|
+| `HF_XET_LOG_DEST` | (none) | Log destination (e.g. a file path). When unset, logs go to stderr. |
+| `HF_XET_LOG_FORMAT` | (none) | Log format. |
+| `HF_XET_LOG_PREFIX` | `xet` | Prefix for log messages. |
 
 ## Current Limitations
 
