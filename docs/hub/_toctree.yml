@@ -441,7 +441,7 @@
   - local: agents-skills
     title: Hugging Face Agent Skills
   - local: agents-cli
-    title: Agents and the `hf` CLI
+    title: CLI for AI Agents
   - local: agents-sdk
     title: Building agents with the HF SDK
   - local: agents-local
