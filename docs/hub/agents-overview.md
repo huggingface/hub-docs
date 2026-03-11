@@ -2,8 +2,13 @@
 
 Hugging Face provides tools and protocols that connect AI agents directly to the Hub. Whether you're chatting with Claude, building with Codex, or developing custom agents, you can access models, datasets, Spaces, and community tools. This page covers connecting your [chat agents](#chat-with-hugging-face) and [coding agents](#coding-agents) to the Hub. 
 
-> [!TIP]
-> To build with agents on the Hub, check out the pages on [CLI](./agents-cli), [MCP Server](./agents-mcp), [Skills](./agents-skills), and [SDK](./agents-sdk).
+| Page | Description |
+| ---- | ----------- |
+| [CLI](./agents-cli) | Give your coding agent the `hf` command-line interface |
+| [MCP Server](./agents-mcp) | Connect any MCP-compatible client to the Hub |
+| [Skills](./agents-skills) | Task-specific guidance for AI/ML workflows |
+| [SDK](./agents-sdk) | Build agents programmatically with Python or JavaScript |
+| [Local Agents](./agents-local) | Run fully local agents with llama.cpp and Pi |
 
 ## Chat with Hugging Face
 
