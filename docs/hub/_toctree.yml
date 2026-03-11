@@ -434,14 +434,14 @@
   title: Agents
   isExpanded: true
   sections:
+  - local: agents-cli
+    title: Getting Started
   - local: agents-overview
     title: Agents on the Hub
   - local: agents-mcp
     title: Hugging Face MCP Server
   - local: agents-skills
     title: Hugging Face Agent Skills
-  - local: agents-cli
-    title: Agents and the `hf` CLI
   - local: agents-sdk
     title: Building agents with the HF SDK
   - local: agents-local
