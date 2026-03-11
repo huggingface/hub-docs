@@ -1,4 +1,4 @@
-# Agents and the `hf` CLI
+# CLI for AI Agents
 
 Coding agents like Claude Code, OpenAI Codex, or Open Code are excellent at using the CLI to interact with the Hub through the `hf` command-line interface. Search for models, datasets, Spaces, and papers. Download models, upload files, manage repositories, and run compute jobs.
 
