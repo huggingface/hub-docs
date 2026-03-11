@@ -11,7 +11,7 @@ Make sure the `hf` CLI is installed and up to date. See the [CLI installation gu
 
 ## Add the CLI Skill
 
-Skills give your agent the context it needs to use tools effectively. Install the CLI skill so your agent knows every `hf` command and stays current with the latest updates. Learn more about Skills at [agentskills.io](https://agentskills.io).
+Skills give your agent the context it needs to use tools effectively. Install the CLI Skill so your agent knows every `hf` command and stays current with the latest updates. Learn more about Skills at [agentskills.io](https://agentskills.io).
 
 ```bash
 # install globally (available in all projects)
@@ -22,7 +22,7 @@ hf skills add --claude
 ```
 
 > [!TIP]
-> The skill is generated from your locally installed CLI version, so it's always up to date. For additional skills (training, datasets, evaluation, etc.), see the [Skills Guide](./agents-skills).
+> The Skill is generated from your locally installed CLI version, so it's always up to date. For additional Skills (training, datasets, evaluation, etc.), see the [Skills Guide](./agents-skills).
 
 This also works with other coding agents:
 
