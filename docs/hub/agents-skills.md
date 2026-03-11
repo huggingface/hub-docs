@@ -21,31 +21,6 @@ Each skill includes:
 
 Skills provide task-specific guidance for AI/ML workflows. They work alongside MCP or standalone.
 
-### Quick Install with the `hf` CLI
-
-The fastest way to install the HF CLI skill is with the `hf` command:
-
-```bash
-# install globally (available in all projects)
-hf skills add --claude --global
-
-# or install for the current project only
-hf skills add --claude
-```
-
-This also works with other coding agents:
-
-```bash
-hf skills add --codex
-hf skills add --cursor
-hf skills add --opencode
-```
-
-> [!TIP]
-> The `hf` CLI generates the skill from your locally installed version, so it's always up to date. To install additional skills beyond `hf-cli`, use the plugin or manual methods below.
-
-### Plugin Install
-
 <hfoptions id="install-skills">
 
 <hfoption id="Claude Code">

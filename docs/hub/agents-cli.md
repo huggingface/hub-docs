@@ -56,10 +56,33 @@ hf --help
 
 ## Hugging Face Skills for the CLI
 
-Hugging Face Skills are available for the CLI to help you interact with the Hub. Skills give agents relevant instructions for how to use the CLI. See the [Skills Guide](./agents-skills) for available skills and usage. 
+Hugging Face Skills are available for the CLI to help you interact with the Hub. Skills give agents relevant instructions for how to use the CLI. See the [Skills Guide](./agents-skills) for available skills and usage.
+
+The fastest way to install the CLI skill is with the `hf` command itself:
 
 ```bash
-# start claude 
+# install globally (available in all projects)
+hf skills add --claude --global
+
+# or install for the current project only
+hf skills add --claude
+```
+
+This also works with other coding agents:
+
+```bash
+hf skills add --codex
+hf skills add --cursor
+hf skills add --opencode
+```
+
+> [!TIP]
+> The `hf` CLI generates the skill from your locally installed version, so it's always up to date.
+
+Alternatively, you can install via the Claude Code plugin system:
+
+```bash
+# start claude
 claude
 
 # install the skills marketplace plugin
