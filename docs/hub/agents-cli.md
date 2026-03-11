@@ -1,6 +1,6 @@
 # Hugging Face CLI for AI Agents
 
-The `hf` CLI is a great way to connect your agents to the Hugging Face ecosystem. Search models, manage datasets, launch Spaces, and run jobs from any coding agent.
+The `hf` CLI is a great way to connect your agents to the Hugging Face ecosystem. Search models, manage datasets and buckets, launch Spaces, and run jobs from any coding agent.
 
 > [!TIP]
 > This is a quick guide on agents that use the CLI. For more detailed information, see the [CLI Reference itself](https://huggingface.co/docs/huggingface_hub/guides/cli).
