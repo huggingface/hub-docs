@@ -1,5 +1,8 @@
 # Skills
 
+> [!TIP]
+> Looking for the `hf` CLI Skill? It's the quickest way to connect your agent to the Hugging Face ecosystem. See the [Hugging Face CLI for AI Agents](./agents-cli) guide.
+
 Skills are [Agent Context](https://agents.md) definitions that provide coding agents with structured guidance for AI/ML tasks. They help agents understand best practices for a given domain or task. Hugging Face Skills is a repository of skills specifically designed for AI/ML tasks that you can make available to your coding agents.
 
 Hugging Face Skills work with major coding agents:
