@@ -150,7 +150,36 @@ The amount of data to upload depends on the edits and the file structure.
 The Parquet format is columnar and compressed at the page level (pages are around ~1MB).
 We optimized Parquet for Xet with [Parquet Content Defined Chunking](https://huggingface.co/blog/parquet-cdc), which ensures unchanged data generally result in unchanged pages.
 
-Check out if your library supports optimized Parquet in the [supported libraries](./datasets-libraries) page.
+For example, this code uploads the content of `df` and then for `edited_df` the upload is faster since it only uploads the chunks that changed:
+
+```python
+import pandas as pd
+
+df.to_parquet(
+    "hf://datasets/username/my_dataset/imdb.parquet",
+    # Optimize for Xet
+    use_content_defined_chunking=True,
+    write_page_index=True,
+)
+
+edited_df = ...  # e.g. with added/modified/removed rows or columns
+
+edited_df.to_parquet(
+    "hf://datasets/username/my_dataset/imdb.parquet",
+    # Optimize for Xet
+    use_content_defined_chunking=True,
+    write_page_index=True,
+)
+```
+
+Chunks are ~64kB and Parquet saves data column per column, so in practice this is what happens when editing an Optimized Parquet file:
+
+* add a new column -> only the chunks of the new column are uploaded
+* add/edit/delete a row -> one chunk per column is uploaded
+
+And in addition to this, the chunks of the Parquet footer containing metadata are also uploaded.
+
+Check out if your library supports Optimized Parquet in the [supported libraries](./datasets-libraries) page.
 
 ## Streaming
 
