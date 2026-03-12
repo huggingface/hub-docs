@@ -45,7 +45,7 @@ For more details on how to do streaming, check out the documentation of a librar
 
 Parquet files on Hugging Face are optimized to improve storage efficiency, accelerate downloads and uploads, and enable efficient dataset streaming and editing.
 
-<div class="flex justify-center" style="max-width: 550px">
+<div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-optimized-parquet-banner.png"/>
 </div>
 
