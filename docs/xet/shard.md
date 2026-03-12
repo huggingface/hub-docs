@@ -6,7 +6,7 @@ The Shard format is the vehicle for uploading the file reconstruction upload and
 
 ## Overview
 
-The MDB (Merkle Database) shard file format is a binary format used to store file metadata and content-addressable storage (CAS) information for efficient deduplication and retrieval.
+The MDB (Merkle Database) shard file format is a binary format used to store file metadata and xorb information for efficient deduplication and retrieval.
 This document describes the binary layout and deserialization process for the shard format.
 Implementors of the xet protocol MUST use the shard format when implementing the [upload protocol](./upload-protocol).
 The shard format is used on the shard upload (record files) and global deduplication APIs.
@@ -19,7 +19,7 @@ The shard format is used in the shard upload API as the request payload and in t
 
 The shard in this case is a serialization format that allows clients to denote the files that they are uploading.
 Each file reconstruction maps to a File Info block in the File Info section.
-Additionally, the listing of all new xorbs that the client created are mapped to items (CAS Info blocks) in the CAS Info section so that they may be deduplicated against in the future.
+Additionally, the listing of all new xorbs that the client created are mapped to items (Xorb Info blocks) in the Xorb Info section so that they may be deduplicated against in the future.
 
 When uploading a shard the footer section MUST be omitted.
 
@@ -28,9 +28,9 @@ A version of this shard that also contains the footer in [Xet reference files](h
 
 ### Global Deduplication
 
-Shards returned by the Global Deduplication API have an empty File Info Section, and only contain relevant information in the CAS Info section.
-The CAS Info section returned by this API contains xorbs, where a xorb described in the CAS Info section contains the chunk that was queried.
-Clients can deduplicate their content against any of the other xorbs described in any CAS Info block in the CAS Info section of the returned shard.
+Shards returned by the Global Deduplication API have an empty File Info Section, and only contain relevant information in the Xorb Info section.
+The Xorb Info section returned by this API contains xorbs, where a xorb described in the Xorb Info section contains the chunk that was queried.
+Clients can deduplicate their content against any of the other xorbs described in any Xorb Info block in the Xorb Info section of the returned shard.
 Other xorb descriptions returned in a shard are possibly more likely to reference content that the client has.
 
 An example of a shard that can be returned for a global deduplication query can be found in [Xet reference files](https://huggingface.co/datasets/xet-team/xet-spec-reference-files/blob/main/Electric_Vehicle_Population_Data_20250917.csv.shard.dedupe).
@@ -45,7 +45,7 @@ A shard file consists of the following sections in order:
 ├─────────────────────┤
 │ File Info Section   │
 ├─────────────────────┤
-│ CAS Info Section    │
+│ Xorb Info Section    │
 ├─────────────────────┤
 │ Footer              │
 └─────────────────────┘
@@ -68,11 +68,11 @@ Offset footer.file_info_offset:
 │                                                       │
 └───────────────────────────────────────────────────────┘
 
-Offset footer.cas_info_offset:
+Offset footer.xorb_info_offset:
 ┌───────────────────────────────────────────────────────┐
 │                                                       │
-│               CAS Info Section                        │ ← Variable size
-│            (Multiple CAS blocks +                     │
+│               Xorb Info Section                        │ ← Variable size
+│            (Multiple Xorb blocks +                     │
 │               bookend entry)                          │
 │                                                       │
 └───────────────────────────────────────────────────────┘
@@ -88,7 +88,7 @@ Offset footer.footer_offset:
 - `MDB_SHARD_HEADER_VERSION`: 2
 - `MDB_SHARD_FOOTER_VERSION`: 1
 - `MDB_FILE_INFO_ENTRY_SIZE`: 48 bytes (size of each file info structure)
-- `MDB_CAS_INFO_ENTRY_SIZE`: 48 bytes (size of each CAS info structure)
+- `MDB_XORB_INFO_ENTRY_SIZE`: 48 bytes (size of each xorb info structure)
 - `MDB_SHARD_HEADER_TAG`: 32-byte magic identifier
 
 ## Data Types
@@ -137,7 +137,7 @@ struct MDBShardFileHeader {
 
 ## 2. File Info Section
 
-**Location**: `footer.file_info_offset` to `footer.cas_info_offset` or directly after the header
+**Location**: `footer.file_info_offset` to `footer.xorb_info_offset` or directly after the header
 
 This section contains a sequence of 0 or more file information (File Info) blocks, each consisting at least a header and at least 1 data sequence entry, and OPTIONAL verification entries and metadata extension section.
 The file info section ends when reaching the bookend entry.
@@ -234,8 +234,8 @@ Each `FileDataSequenceEntry` is 1 term is essentially the binary serialization o
 
 ```rust
 struct FileDataSequenceEntry {
-    cas_hash: Hash,               // 32-byte Xorb hash in the term
-    cas_flags: u32,               // CAS flags (reserved for future, set to 0)
+    xorb_hash: Hash,               // 32-byte Xorb hash in the term
+    xorb_flags: u32,               // Xorb flags (reserved for future, set to 0)
     unpacked_segment_bytes: u32,  // Term size when unpacked
     chunk_index_start: u32,       // Start chunk index within the Xorb for the term
     chunk_index_end: u32,         // End chunk index (exclusive) within the Xorb for the term
@@ -249,8 +249,8 @@ struct FileDataSequenceEntry {
 
 ```txt
 ┌────────────────────────────────────────────────────────────────┬─────────┬─────────┬─────────┬─────────┐
-│                       cas_hash (32 bytes)                      │cas_flags│unpacked │chunk_idx│chunk_idx│
-│                      CAS Block Hash                            │(4 bytes)│seg_bytes│start    │end      │
+│                       xorb_hash (32 bytes)                      │xorb_flags│unpacked │chunk_idx│chunk_idx│
+│                      Xorb Hash                            │(4 bytes)│seg_bytes│start    │end      │
 │                                                                │         │(4 bytes)│(4 bytes)│(4 bytes)│
 └────────────────────────────────────────────────────────────────┴─────────┴─────────┴─────────┴─────────┘
 0                                                               32        36        40        44        48
@@ -331,27 +331,27 @@ The file info section begins right after the header and ends when the bookend is
 6. If `file_flags & MDB_FILE_FLAG_WITH_METADATA_EXT != 0`: read 1 × `FileMetadataExt`
 7. Repeat from step 2 until bookend found
 
-## 3. CAS Info Section
+## 3. Xorb Info Section
 
-**Location**: `footer.cas_info_offset` to `footer.footer_offset` or directly after the file info section bookend
+**Location**: `footer.xorb_info_offset` to `footer.footer_offset` or directly after the file info section bookend
 
-This section contains CAS (Content Addressable Storage) block information. Each CAS Info block represents a xorb by first having a `CASChunkSequenceHeader` which contains the number of `CASChunkSequenceEntries` to follow that make up this block. The CAS Info section ends when reaching the bookend entry.
+This section contains xorb block information. Each Xorb Info block represents a xorb by first having a `XorbChunkSequenceHeader` which contains the number of `XorbChunkSequenceEntries` to follow that make up this block. The Xorb Info section ends when reaching the bookend entry.
 
-### CAS Info Section Layout
+### Xorb Info Section Layout
 
 ```txt
 ┌─────────────────────┐
-│ CASChunkSeqHeader   │ ← CAS Block 1
+│ XorbChunkSeqHeader   │ ← Xorb 1
 ├─────────────────────┤
-│ CASChunkSeqEntry    │
+│ XorbChunkSeqEntry    │
 ├─────────────────────┤
-│ CASChunkSeqEntry    │
+│ XorbChunkSeqEntry    │
 ├─────────────────────┤
 │        ...          │
 ├─────────────────────┤
-│ CASChunkSeqHeader   │ ← CAS Block 2
+│ XorbChunkSeqHeader   │ ← Xorb 2
 ├─────────────────────┤
-│ CASChunkSeqEntry    │
+│ XorbChunkSeqEntry    │
 ├─────────────────────┤
 │        ...          │
 ├─────────────────────┤
@@ -361,20 +361,20 @@ This section contains CAS (Content Addressable Storage) block information. Each 
 
 **Deserialization steps**:
 
-1. Seek to `footer.cas_info_offset`
-2. Read `CASChunkSequenceHeader`
-3. Check if `cas_hash` is all 0xFF (bookend marker) - if so, stop
-4. Read `cas_chunk_sequence_header.num_entries` × `CASChunkSequenceEntry` structures
+1. Seek to `footer.xorb_info_offset`
+2. Read `XorbChunkSequenceHeader`
+3. Check if `xorb_hash` is all 0xFF (bookend marker) - if so, stop
+4. Read `xorb_chunk_sequence_header.num_entries` × `XorbChunkSequenceEntry` structures
 5. Repeat from step 2 until bookend found
 
-### CASChunkSequenceHeader
+### XorbChunkSequenceHeader
 
 ```rust
-struct CASChunkSequenceHeader {
-    cas_hash: Hash,           // 32-byte Xorb hash
-    cas_flags: u32,           // CAS flags (reserved for later, set to 0)
+struct XorbChunkSequenceHeader {
+    xorb_hash: Hash,           // 32-byte Xorb hash
+    xorb_flags: u32,           // Xorb flags (reserved for later, set to 0)
     num_entries: u32,         // Number of chunks in this Xorb
-    num_bytes_in_cas: u32,    // Total size of all raw chunk bytes in this Xorb
+    num_bytes_in_xorb: u32,    // Total size of all raw chunk bytes in this Xorb
     num_bytes_on_disk: u32,   // Length of the xorb after serialized when uploaded
 }
 ```
@@ -383,22 +383,22 @@ struct CASChunkSequenceHeader {
 
 ```txt
 ┌────────────────────────────────────────────────────────────────┬─────────┬─────────┬─────────┬─────────┐
-│                       cas_hash (32 bytes)                      │cas_flags│num_     │num_bytes│num_bytes│
-│                      CAS Block Hash                            │(4 bytes)│entries  │in_cas   │on_disk  │
+│                       xorb_hash (32 bytes)                      │xorb_flags│num_     │num_bytes│num_bytes│
+│                      Xorb Hash                            │(4 bytes)│entries  │in_xorb   │on_disk  │
 │                                                                │         │(4 bytes)│(4 bytes)│(4 bytes)│
 └────────────────────────────────────────────────────────────────┴─────────┴─────────┴─────────┴─────────┘
 0                                                               32        36        40        44        48
 ```
 
-### CASChunkSequenceEntry
+### XorbChunkSequenceEntry
 
-Every `CASChunkSequenceHeader` will have a `num_entries` number field.
-This number is the number of `CASChunkSequenceEntry` items that should be deserialized that are associated with the xorb described by this CAS Info block.
+Every `XorbChunkSequenceHeader` will have a `num_entries` number field.
+This number is the number of `XorbChunkSequenceEntry` items that should be deserialized that are associated with the xorb described by this Xorb Info block.
 
 ```rust
-struct CASChunkSequenceEntry {
+struct XorbChunkSequenceEntry {
     chunk_hash: Hash,             // 32-byte chunk hash
-    chunk_byte_range_start: u32,  // Start position in CAS block
+    chunk_byte_range_start: u32,  // Start position in xorb
     unpacked_segment_bytes: u32,  // Size when unpacked
     _unused: [u8; 8],             // Reserved space 8 bytes
 }
@@ -417,15 +417,15 @@ struct CASChunkSequenceEntry {
 0                                                               32        36        40               48
 ```
 
-### CAS Info Bookend
+### Xorb Info Bookend
 
-The end of the cas info sections is marked by a bookend entry.
+The end of the xorb info sections is marked by a bookend entry.
 
 The bookend entry is 48 bytes long where the first 32 bytes are all `0xFF`, followed by 16 bytes of all `0x00`.
 
-Suppose you were attempting to deserialize a `CASChunkSequenceHeader` and it's hash was all 1 bits then this entry is a bookend entry and the next bytes start the next section.
+Suppose you were attempting to deserialize a `XorbChunkSequenceHeader` and it's hash was all 1 bits then this entry is a bookend entry and the next bytes start the next section.
 
-Since the cas info section immediately follows the file info section bookend, a client MAY skip deserializing the footer to know where the cas info section starts starts deserialize this section, it begins right after the file info section bookend and ends when the next bookend is reached.
+Since the xorb info section immediately follows the file info section bookend, a client MAY skip deserializing the footer to know where the xorb info section starts starts deserialize this section, it begins right after the file info section bookend and ends when the next bookend is reached.
 
 ## 4. Footer (MDBShardFileFooter)
 
@@ -439,7 +439,7 @@ Since the cas info section immediately follows the file info section bookend, a 
 struct MDBShardFileFooter {
     version: u64,                    // Footer version (must be 1)
     file_info_offset: u64,           // Offset to file info section
-    cas_info_offset: u64,            // Offset to CAS info section
+    xorb_info_offset: u64,            // Offset to xorb info section
     _buffer: [u8; 48],               // Reserved space (48 bytes)
     chunk_hash_hmac_key: Hash,       // HMAC key for chunk hashes (32 bytes)
     shard_creation_timestamp: u64,   // Creation time (seconds since epoch)
@@ -456,7 +456,7 @@ struct MDBShardFileFooter {
 
 ```txt
 ┌─────────┬─────────┬─────────┬─────────────────────────────────────────────────────────────┬─────────────────────────────────────┐
-│ version │file_info│cas_info │                    _buffer (reserved)                       │        chunk_hash_hmac_key          │
+│ version │file_info│xorb_info│                    _buffer (reserved)                       │        chunk_hash_hmac_key          │
 │(8 bytes)│offset   │offset   │                      (48 bytes)                             │             (32 bytes)              │
 │         │(8 bytes)│(8 bytes)│                                                             │                                     │
 └─────────┴─────────┴─────────┴─────────────────────────────────────────────────────────────┴─────────────────────────────────────┘
@@ -478,13 +478,13 @@ struct MDBShardFileFooter {
 
 ### Use of Footer Fields
 
-#### file_info_offset and cas_info_offset
+#### file_info_offset and xorb_info_offset
 
 These offsets allow you to seek into the shard data buffer to reach these sections without deserializing linearly.
 
 #### HMAC Key Protection
 
-If `footer.chunk_hash_hmac_key` is non-zero (as a response shard from the global dedupe API), chunk hashes in the CAS Info section are protected with [HMAC](https://en.wikipedia.org/wiki/HMAC):
+If `footer.chunk_hash_hmac_key` is non-zero (as a response shard from the global dedupe API), chunk hashes in the Xorb Info section are protected with [HMAC](https://en.wikipedia.org/wiki/HMAC):
 
 - The stored chunk hashes are `HMAC(original_hash, footer.chunk_hash_hmac_key)`
 - To check if a chunk of data that you have matches a chunk listed in the shard, compute `HMAC(chunk_hash, footer.chunk_hash_hmac_key)` for your chunk hash and search through the shard results.
@@ -508,8 +508,8 @@ header = read_header(shard)
 // 2. Read file info section  
 file_info = read_file_info_section(shard) // read through file info bookend
 
-// 3. Read CAS info section
-cas_info = read_cas_info_section(shard) // read through cas info bookend
+// 3. Read xorb info section
+xorb_info = read_xorb_info_section(shard) // read through xorb info bookend
 
 // 4. Read footer
 footer = read_footer(shard)
@@ -529,11 +529,11 @@ footer = read_footer(shard)
 
 // 3. Read file info section  
 seek(footer.file_info_offset)
-file_info = read_file_info_section(shard) // until footer.cas_info_offset
+file_info = read_file_info_section(shard) // until footer.xorb_info_offset
 
-// 4. Read CAS info section
-seek(footer.cas_info_offset)
-cas_info = read_cas_info_section(shard) // until footer.footer_offset
+// 4. Read xorb info section
+seek(footer.xorb_info_offset)
+xorb_info = read_xorb_info_section(shard) // until footer.footer_offset
 ```
 
 ## Version Compatibility

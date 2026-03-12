@@ -71,19 +71,19 @@ The reconstruction API returns a `QueryReconstructionResponse` object with three
 
 #### terms
 
-- Type: `Array<CASReconstructionTerm>`
+- Type: `Array<XorbReconstructionTerm>`
 - Ordered list of reconstruction terms describing what chunks to download from which xorb
-- Each `CASReconstructionTerm` contains:
+- Each `XorbReconstructionTerm` contains:
   - `hash`: The xorb hash (64-character lowercase hex string)
   - `range`: Chunk index range`{ start: number, end: number }` within the xorb; end-exclusive `[start, end)`
   - `unpacked_length`: Expected length after decompression (for validation)
 
 #### fetch_info
 
-- Type: `Map<Xorb Hash (64 character lowercase hex string), Array<CASReconstructionFetchInfo>>`
+- Type: `Map<Xorb Hash (64 character lowercase hex string), Array<XorbReconstructionFetchInfo>>`
 - Maps xorb hashes to required information to download some of their chunks.
-  - The mapping is to an array of 1 or more `CASReconstructionFetchInfo`
-- Each `CASReconstructionFetchInfo` contains:
+  - The mapping is to an array of 1 or more `XorbReconstructionFetchInfo`
+- Each `XorbReconstructionFetchInfo` contains:
   - `url`: HTTP URL for downloading the xorb data, presigned URL containing authorization information
   - `url_range` (bytes_start, bytes_end): Byte range `{ start: number, end: number }` for the Range header; end-inclusive `[start, end]`
     - The `Range` header MUST be set as `Range: bytes=<start>-<end>` when downloading this chunk range
@@ -94,16 +94,16 @@ The reconstruction API returns a `QueryReconstructionResponse` object with three
 
 ### Process Overview
 
-1. Process each `CASReconstructionTerm` in order from the `terms` array
-2. For each `CASReconstructionTerm`, find matching fetch info using the term's hash
+1. Process each `XorbReconstructionTerm` in order from the `terms` array
+2. For each `XorbReconstructionTerm`, find matching fetch info using the term's hash
 
-    1. get the list of fetch_info items under the xorb hash from the `CASReconstructionTerm`. The xorb hash is guaranteed to exist as a key in the fetch_info map.
-    2. linearly iterate through the list of `CASReconstructionFetchInfo` and find one which refers to a chunk range that is equal or encompassing the term's chunk range.
+    1. get the list of fetch_info items under the xorb hash from the `XorbReconstructionTerm`. The xorb hash is guaranteed to exist as a key in the fetch_info map.
+    2. linearly iterate through the list of `XorbReconstructionFetchInfo` and find one which refers to a chunk range that is equal or encompassing the term's chunk range.
         - Such a fetch_info item is guaranteed to exist. If none exist the server is at fault.
 3. Download the required data using HTTP `GET` request and MUST set the `Range` header
 4. Deserialize the downloaded xorb data to extract chunks
 
-    1. This series of chunks contains chunks at indices specified by the `CASReconstructionFetchInfo`'s `range` field. Trim chunks at the beginning or end to match the chunks specified by the reconstruction term's `range` field.
+    1. This series of chunks contains chunks at indices specified by the `XorbReconstructionFetchInfo`'s `range` field. Trim chunks at the beginning or end to match the chunks specified by the reconstruction term's `range` field.
     2. (for the first term only) skip `offset_into_first_range` bytes
 5. Concatenate the results in term order to reconstruct the file
 
@@ -127,11 +127,11 @@ offset_into_first_range = reconstruction["offset_into_first_range"]
 
 #### Match Terms to Fetch Info
 
-For each `CASReconstructionTerm` in the `terms` array:
+For each `XorbReconstructionTerm` in the `terms` array:
 
-- Look up the term's `hash` in the `fetch_info` map to get a list of `CASReconstructionFetchInfo`
-- Find a `CASReconstructionFetchInfo` entry where the fetch info's `range` contains the term's `range`
-  - linearly search through the array of `CASReconstructionFetchInfo` and find the element where the range block (`{ "start": number, "end": number }`) of the `CASReconstructionFetchInfo` has start <= term's range start AND end >= term's range end.
+- Look up the term's `hash` in the `fetch_info` map to get a list of `XorbReconstructionFetchInfo`
+- Find a `XorbReconstructionFetchInfo` entry where the fetch info's `range` contains the term's `range`
+  - linearly search through the array of `XorbReconstructionFetchInfo` and find the element where the range block (`{ "start": number, "end": number }`) of the `XorbReconstructionFetchInfo` has start <= term's range start AND end >= term's range end.
   - The server is meant to guarantee a match, if there isn't a match this download is considered failed and the server made an error.
 
 ```python
