@@ -5,7 +5,7 @@ Data Studio lets you edit dataset values directly in the browser, then commit th
 Cell editing is available when:
 
 - You have **write access** to the dataset repository.
-- The selected split is backed by a single `.csv` or `.tsv` file.
+- The selected split is backed by a single `.csv`, `.tsv`, or `.parquet` file.
 
 ## Enter edit mode
 
