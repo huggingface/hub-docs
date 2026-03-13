@@ -66,11 +66,15 @@ When a token is denied or revoked, the user who created the token receives an em
 Organization administrators can revoke a member's access token programmatically by providing the raw token value. This is useful for automated workflows such as secrets scanning, where a leaked token is detected and needs to be revoked immediately.
 
 ```bash
+# LEAKED_HF_TOKEN should contain the raw token value to revoke
 curl -X DELETE https://huggingface.co/api/organizations/{org}/tokens \
   -H "Authorization: Bearer {admin_token}" \
   -H "Content-Type: application/json" \
-  -d '{"token": "hf_..."}'
+  -d "{\"token\": \"${LEAKED_HF_TOKEN}\"}"
 ```
+
+> [!TIP]
+> To avoid leaking token values in shell history or logs, pass them via environment variables or files, and avoid pasting raw tokens directly into command lines.
 
 Key behaviors:
 
