@@ -35,23 +35,30 @@ Enterprise organization administrators can enforce the following policies:
 | ------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------- |
 | **Allow access via User Access Tokens (default)** | Authorized                              | Authorized                                                  |
 | **Only access via fine-grained tokens**           | Unauthorized                            | Authorized                                                  |
-| **Do not require administrator approval**         | Unauthorized                            | Authorized                                                  |
 | **Require administrator approval**                | Unauthorized                            | Unauthorized without an approval (except for admin-created) |
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-policy.png" />
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-policy.png" />
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-policy-dark.png" />
 </div>
 
 ## Reviewing Token Authorization
 
-When token policy is set to "Require administrator approval", organization administrators can review details of all fine-grained tokens accessing organization-owned resources and revoke access if needed. Administrators receive email notifications for token authorization requests.
+When token policy is set to "Require administrator approval", organization administrators can review details of all fine-grained tokens accessing organization-owned resources and approve or deny access. Administrators receive email notifications for token authorization requests.
 
-When a token is revoked or denied, the user who created the token receives an email notification.
+- **Pending** tokens are awaiting an administrator decision
+- **Approved** tokens have been authorized and are active
+- **Denied** tokens were rejected before ever being granted access
+- **Revoked** tokens were previously approved but have since had their access removed
+
+When a token is denied or revoked, the user who created the token receives an email notification.
+
+> [!NOTE]
+> Token names are only visible to administrators when the "Require administrator approval" policy is enabled.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-review.png" />
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-review.png" />
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-review-dark.png" />
 </div>
 
 ## Programmatic Token Issuance
