@@ -61,6 +61,24 @@ When a token is denied or revoked, the user who created the token receives an em
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-review-dark.png" />
 </div>
 
+## Revoking a Token via API
+
+Organization administrators can revoke a member's access token programmatically by providing the raw token value. This is useful for automated workflows such as secrets scanning, where a leaked token is detected and needs to be revoked immediately.
+
+```bash
+curl -X DELETE https://huggingface.co/api/organizations/{org}/tokens \
+  -H "Authorization: Bearer {admin_token}" \
+  -H "Content-Type: application/json" \
+  -d '{"token": "hf_..."}'
+```
+
+Key behaviors:
+
+- The token is **not deleted** — it is only revoked from accessing the organization's resources and will continue to work elsewhere
+- The token owner receives an email notification upon revocation
+- An administrator cannot revoke their own token
+- This endpoint is available on the Enterprise plan only
+
 ## Programmatic Token Issuance
 
 For organizations that need to programmatically issue access tokens for their members (e.g., for internal platforms, CI/CD pipelines, or custom integrations), see [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693). This Enterprise plan feature allows your backend services to issue scoped tokens for organization members without requiring interactive user consent.
