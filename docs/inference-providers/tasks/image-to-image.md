@@ -37,7 +37,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"FireRedTeam/FireRed-Image-Edit-1.0","providerModelId":"fal-ai/firered-image-edit"},"replicate":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"black-forest-labs/flux-2-dev"},"wavespeed":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"wavespeed-ai/flux-2-dev/edit"}} }
+    providersMapping={ {"fal-ai":{"modelId":"FireRedTeam/FireRed-Image-Edit-1.0","providerModelId":"fal-ai/firered-image-edit"},"replicate":{"modelId":"black-forest-labs/FLUX.2-klein-4B","providerModelId":"black-forest-labs/flux-2-klein-4b"},"wavespeed":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"wavespeed-ai/flux-2-dev/edit"}} }
 />
 
 
