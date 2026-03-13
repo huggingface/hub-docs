@@ -436,12 +436,10 @@
   - local: jobs-reference
     title: Reference
 
-- local: agents
+- local: agents-overview
   title: Agents
   isExpanded: true
   sections:
-  - local: agents-overview
-    title: Agents on the Hub
   - local: agents-cli
     title: Hugging Face CLI for AI Agents
   - local: agents-mcp
@@ -452,6 +450,8 @@
     title: Building agents with the HF SDK
   - local: agents-local
     title: Local Agents with llama.cpp and Pi
+  - local: agents
+    title: Agent Libraries
 
 - local: other
   title: Other
