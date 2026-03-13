@@ -71,7 +71,7 @@ Organization administrators can revoke a member's access token programmatically 
 curl -X POST "https://huggingface.co/api/organizations/${ORG_NAME}/settings/tokens/revoke" \
   -H "Authorization: Bearer ${ADMIN_HF_TOKEN}" \
   -H "Content-Type: application/json" \
-  -d '{"token": "'"${LEAKED_HF_TOKEN}"'"}'
+  -d '{"token": "${LEAKED_HF_TOKEN}"}'
 ```
 
 > [!TIP]
@@ -79,9 +79,9 @@ curl -X POST "https://huggingface.co/api/organizations/${ORG_NAME}/settings/toke
 
 Key behaviors:
 
-- The token is **not deleted** — it is only revoked from accessing the organization's resources and will continue to work elsewhere
+- The token is not deleted — it is only revoked from accessing the organization's resources and will continue to work elsewhere
 - The token owner receives an email notification upon revocation
-- An administrator cannot revoke their own token
+- An administrator cannot revoke their own token (`LEAKED_HF_TOKEN` cannot have the same value as `ADMIN_HF_TOKEN` in the snippet above)
 - This endpoint is available on Team & Enterprise plans
 
 ## Programmatic Token Issuance
