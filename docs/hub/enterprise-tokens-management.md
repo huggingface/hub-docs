@@ -66,11 +66,12 @@ When a token is denied or revoked, the user who created the token receives an em
 Organization administrators can revoke a member's access token programmatically by providing the raw token value. This is useful for automated workflows such as secrets scanning, where a leaked token is detected and needs to be revoked immediately.
 
 ```bash
+# ORG_NAME should be your organization name and ADMIN_HF_TOKEN an admin's access token
 # LEAKED_HF_TOKEN should contain the raw token value to revoke
-curl -X POST https://huggingface.co/api/organizations/{org}/settings/tokens/revoke \
-  -H "Authorization: Bearer {admin_token}" \
+curl -X POST "https://huggingface.co/api/organizations/${ORG_NAME}/settings/tokens/revoke" \
+  -H "Authorization: Bearer ${ADMIN_HF_TOKEN}" \
   -H "Content-Type: application/json" \
-  -d "{\"token\": \"${LEAKED_HF_TOKEN}\"}"
+  -d '{"token": "'"${LEAKED_HF_TOKEN}"'"}'
 ```
 
 > [!TIP]
@@ -81,7 +82,7 @@ Key behaviors:
 - The token is **not deleted** — it is only revoked from accessing the organization's resources and will continue to work elsewhere
 - The token owner receives an email notification upon revocation
 - An administrator cannot revoke their own token
-- This endpoint is available on Enterprise, Enterprise Plus, and Academia plans
+- This endpoint is available on Team & Enterprise plans
 
 ## Programmatic Token Issuance
 
