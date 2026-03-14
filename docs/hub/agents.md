@@ -1,18 +1,4 @@
-# Agents on the Hub
-
-Hugging Face provides tools and protocols to connect AI agents to the Hub ecosystem.
-
-## Get Started
-
-| Tool | What it does |
-| ---- | ------------ |
-| [CLI](./agents-cli) | Give your agent the `hf` CLI with a built-in Skill |
-| [MCP Server](./agents-mcp) | Connect any MCP-compatible client (Claude, Cursor, VS Code, ChatGPT) to the Hub |
-| [Skills](./agents-skills) | Task-specific guidance for AI/ML workflows |
-| [SDK](./agents-sdk) | Build agents programmatically with Python or JavaScript |
-| [Local Agents](./agents-local) | Run fully local agents with llama.cpp and Pi |
-
-See [Agents on the Hub](./agents-overview) for a complete setup walkthrough.
+# Agent Libraries
 
 ## tiny-agents
 
