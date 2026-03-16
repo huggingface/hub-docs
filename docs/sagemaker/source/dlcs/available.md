@@ -38,16 +38,16 @@ In case you want to serve text generation models with vLLM, there are specific D
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 0.14.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm:0.14-gpu-py312-cu129-ubuntu22.04-v1 | GPU         |
 | 0.11.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.5-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
+| 0.11.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.4-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
 
+### Hugging Face SGLang Inference DLC
 
-### LLM DLC
-
-For high-performance serving of text generation models, there is the LLM DLC, available on GPU and AWS AI chips.
+There is also a specific DLC for serving models with SGLang on GPU.
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-tgi-inference:2.7.0-tgi3.3.6-gpu-py311-cu124-ubuntu22.04 | GPU         |
-| 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.4-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
+| 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-sglang:0.5.8-transformers4.57.3-gpu-py312-cu129-ubuntu24.04 | GPU         |
+
 
 ### Text Embedding Inference
 
