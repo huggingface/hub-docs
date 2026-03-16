@@ -120,6 +120,8 @@
     title: Novita
   - local: providers/nscale
     title: Nscale
+  - local: providers/nvidia
+    title: NVIDIA
   - local: providers/ovhcloud
     title: OVHcloud AI Endpoints
   - local: providers/publicai
