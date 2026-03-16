@@ -38,7 +38,6 @@ In case you want to serve text generation models with vLLM, there are specific D
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 0.14.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm:0.14-gpu-py312-cu129-ubuntu22.04-v1 | GPU         |
 | 0.11.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.5-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
-| 0.11.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.4-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
 
 ### Hugging Face SGLang Inference DLC
 
