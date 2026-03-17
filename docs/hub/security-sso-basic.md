@@ -12,7 +12,17 @@ For a comparison with Managed SSO, see the [SSO overview](./enterprise-sso).
 > [!NOTE]
 > **Basic SSO does not replace the Hugging Face login.** Your members will still need to sign in to Hugging Face with their own credentials (email/password, Google, or GitHub) before being prompted to complete SSO authentication to access your organization's resources. This is by design: Basic SSO secures access to your organization without taking over the user's Hugging Face identity.
 
-When Single Sign-On is enabled, the members of your organization must authenticate through your Identity Provider (IdP) to access any content under the organization's namespace. Public content will still be available to users who are not members of the organization.
+When Single Sign-On is enabled, organization members authenticate through your Identity Provider (IdP). You pick whether SSO is **enforced** or **optional**:
+
+- **Enforced** (default): Members have to complete SSO authentication before accessing anything under the organization's namespace.
+- **Optional**: Members get prompted to set up SSO but can skip it and still access the organization. This is handy when you're migrating a lot of users and want to give them time to sort out their accounts before definitely enforcing SSO.
+
+<div class="flex justify-center">
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso-enabled-without-enforcement.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso-enabled-without-enforcement-dark.png"/>
+</div>
+
+Public content is still accessible to everyone, including non-members.
 
 **We use email addresses to identify SSO users. As a user, make sure that your organizational email address (e.g. your company email) has been added to [your user account](https://huggingface.co/settings/account).**
 
