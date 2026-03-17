@@ -43,7 +43,6 @@ For models and datasets, the Git history is squashed into a single commit. For S
 Some repositories cannot be duplicated:
 - **Gated repositories** (models or datasets with access requests enabled).
 - Repositories where the author has **disabled duplication**.
-- Repositories with **licenses that do not allow redistribution** of derivative works.
 - **Cross-region duplication** is not supported (e.g. a repository stored in the US region cannot be duplicated to an EU organization).
 
 ### Duplicating programmatically
@@ -75,7 +74,7 @@ Alternatively, if you want to keep a local copy of the repo, you can use `hf dow
 
 If you need to preserve Git history for models/datasets, or want more control over the process (e.g. rebasing on top of your own changes), you can fork a repository manually using Git.
 
-You will need [Git LFS](https://git-lfs.github.com/) and [`git-xet`](https://huggingface.co/docs/hub/xet/using-xet-storage#git) installed. Forking can take time depending on your bandwidth because you will have to fetch and re-upload all the LFS files.
+You will need [Git LFS](https://git-lfs.github.com/) and [`git-xet`](https://huggingface.co/docs/hub/xet/using-xet-storage#git) installed. Forking can take time depending on your bandwidth because you will have to fetch and re-upload all the LFS files (though the re-upload will be fast thanks to Xet).
 
 1. Create a destination repository (e.g. `me/myfork`) on https://huggingface.co
 
