@@ -18,8 +18,8 @@ When Single Sign-On is enabled, organization members authenticate through your I
 - **Optional**: Members get prompted to set up SSO but can skip it and still access the organization. This is handy when you're migrating a lot of users and want to give them time to sort out their accounts before definitely enforcing SSO.
 
 <div class="flex justify-center">
-	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso-enabled-without-enforcement.png"/>
-	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso-enabled-without-enforcement-dark.png"/>
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/security-sso-prompt.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/security-sso-prompt-dark.png"/>
 </div>
 
 Public content is still accessible to everyone, including non-members.
