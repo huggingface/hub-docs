@@ -74,6 +74,9 @@ Examples:
 | `huggingface/DataMeasurementsFiles`  | dataset   | `datasets--huggingface--DataMeasurementsFiles` |
 | `dalle-mini/dalle-mini`             | space     | `spaces--dalle-mini--dalle-mini`             |
 
+> [!NOTE]
+> Buckets are not handled by this cache as they are not git-backed. Use the dedicated `hf buckets sync` command instead.
+
 ## Inside a repository folder
 
 Every cached repository has the same internal structure:
