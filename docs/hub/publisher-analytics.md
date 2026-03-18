@@ -23,7 +23,9 @@ Download a comprehensive CSV file containing analytics for all your repositories
 You can also access this data programmatically via the following API endpoint:
 
 ```bash
-curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" "https://huggingface.co/organizations/YOUR_ORG_NAME/settings/publisher-analytics/download-breakdown" --output breakdown.csv
+curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  "https://huggingface.co/organizations/YOUR_ORG_NAME/settings/publisher-analytics/download-breakdown" \
+  --output breakdown.csv
 ```
 
 ### Response Structure
