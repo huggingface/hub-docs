@@ -8,6 +8,8 @@ Here is a partial list of applications and libraries that use this cache layout.
 |---------|----------|-------|
 | [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) | Python | And any library that depends on it (e.g. `transformers`, `diffusers`, `datasets`, …) |
 | [`hf-hub`](https://github.com/huggingface/hf-hub) | Rust | |
+| [`swift-huggingface`](https://github.com/huggingface/swift-huggingface) | Swift | |
+| [`@huggingface/hub`](https://github.com/huggingface/huggingface.js) | JavaScript | Node.js only |
 | [`HuggingFaceModelDownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) | Go | |
 | [`llama.cpp`](https://github.com/ggml-org/llama.cpp) | C++ | *Work in progress* |
 
