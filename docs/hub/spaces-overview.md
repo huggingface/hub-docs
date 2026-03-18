@@ -8,7 +8,7 @@ In the following sections, you'll learn the basics of creating a Space, configur
 
 ## Creating a new Space
 
-**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's visibility, you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Docker and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
+**To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's [visibility](#space-visibility) (public, protected, or private), you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Docker and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-blank-space.png"/>
@@ -20,6 +20,27 @@ Under the hood, Spaces stores your code inside a git repository, just like the m
 For step-by-step tutorials to creating your first Space, see the guides below:
 * [Creating a Gradio Space](./spaces-sdks-gradio)
 * [Creating a Docker Space](./spaces-sdks-docker-first-demo)
+
+## Space visibility
+
+You can set a Space's visibility from the **Settings** tab using the visibility dropdown. Spaces support three visibility levels: **public**, **protected**, and **private**.
+
+> [!WARNING]
+> Protected visibility is part of <a href="https://huggingface.co/pro">PRO</a> or <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
+
+| | Public | Protected | Private |
+|---|---|---|---|
+| Source code on the Hub | Visible to everyone | Private (only owner/collaborators) | Private (only owner/collaborators) |
+| App accessible via embed URL | Yes | Yes | No |
+| App accessible via [custom domain](./spaces-custom-domain) | Yes | Yes | No |
+| Shows in search results | Yes | No | No |
+| Clonable by others | Yes | No | No |
+
+**Public** Spaces are fully open: anyone can view the source code, access the running app, and clone the repository.
+
+**Protected** Spaces keep their source code private on the Hub — only the owner and collaborators can view or clone the repository. However, the running app is publicly accessible through its embed URL (`https://<space-subdomain>.hf.space`) or through a [custom domain](./spaces-custom-domain) when one is configured. This is especially useful for hosting websites or apps without publishing the source code.
+
+**Private** Spaces are fully private: the source code and the running app are only accessible to the owner and collaborators. The Space will not appear in search results and other users will receive a `404` error when visiting its URL.
 
 ## Hardware resources
 
@@ -92,7 +113,7 @@ If you want to duplicate a Space, you can click the three dots at the top right 
 
 * Owner: The duplicated Space can be under your account or any organization in which you have write access
 * Space name
-* Visibility: The Space is private by default. Read more about private repositories [here](./repositories-settings#private-repositories).
+* Visibility: The Space is private by default. Read more about visibility options [here](./repositories-settings#repository-visibility).
 * Hardware: You can choose the hardware on which the Space will be running. Read more about hardware upgrades [here](./spaces-gpus).
 * Storage: If the original repo uses persistent storage, you will be prompted to choose a storage tier. Read more about persistent storage [here](./spaces-storage).
 * Secrets and variables: If the original repo has set some secrets and variables, you'll be able to set them while duplicating the repo.

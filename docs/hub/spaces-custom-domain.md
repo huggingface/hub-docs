@@ -9,7 +9,7 @@
 Spaces Custom Domain allows you to host your Space on a custom domain of your choosing: `yourdomain.example.com`. The custom domain must be a valid DNS name.
 
 > [!NOTE]
-> Custom domains require your Space to have **public** visibility. They are not supported on private Spaces. Support for a new **Protected** visibility (public app, private code) is coming soon.
+> Custom domains require your Space to have **public** or **protected** visibility. They are not supported on private Spaces.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/custom-domain-feature_light.png"/>

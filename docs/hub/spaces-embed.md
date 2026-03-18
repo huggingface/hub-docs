@@ -2,7 +2,7 @@
 
 Once your Space is up and running you might wish to embed it in a website or in your blog. 
 Embedding or sharing your Space is a great way to allow your audience to interact with your work and demonstrations without requiring any setup on their side.
-To embed a Space its visibility needs to be public.
+To embed a Space its visibility needs to be **public** or **protected**. Protected Spaces keep their source code private on the Hub while remaining publicly accessible through their embed URLs (and [custom domains](./spaces-custom-domain), when configured). See [Space visibility](./spaces-overview#space-visibility) for more details.
 
 ## Direct URL
 
