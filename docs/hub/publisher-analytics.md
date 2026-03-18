@@ -78,4 +78,4 @@ Your team is responsible for ingesting these logs and running computations on th
 | `region`       | Region name                                             |
 | `isInternal`   | Whether the request comes from an HF internal service   |
 
-As it requires a custom Elastic index on our side, this is only available as an add-on to Enterprise Plus.
+As it requires setting up a custom data export pipeline on our side (custom Elastic index, etc), this is only available as an add-on to Enterprise Plus.
