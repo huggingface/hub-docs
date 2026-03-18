@@ -23,11 +23,11 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <div class="group flex flex-col space-y-2 rounded-xl border border-orange-100 bg-linear-to-br from-orange-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-orange-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-orange-600 dark:text-gray-400 mb-1">
  <svg class="shrink-0 mr-1.5 text-orange-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2a2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82Z"></path></svg>Repositories</div>
-<a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories">Introduction</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-getting-started">Getting Started</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-settings">Repository Settings</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./storage-limits">Storage Limits</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./xet/index">Storage Backend (Xet)</a>
+<a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./local-cache">Local Cache</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-pull-requests-discussions">Pull requests and Discussions</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./notifications">Notifications</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./collections">Collections</a>
@@ -39,9 +39,9 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <div class="group flex flex-col space-y-2 rounded-xl border border-indigo-100 bg-linear-to-br from-indigo-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-indigo-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-indigo-600 dark:text-gray-400 mb-1">
     <svg class="shrink-0 mr-1.5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path class="uim-quaternary" d="M20.23 7.24L12 12L3.77 7.24a1.98 1.98 0 0 1 .7-.71L11 2.76c.62-.35 1.38-.35 2 0l6.53 3.77c.29.173.531.418.7.71z" opacity=".25" fill="currentColor"></path><path class="uim-tertiary" d="M12 12v9.5a2.09 2.09 0 0 1-.91-.21L4.5 17.48a2.003 2.003 0 0 1-1-1.73v-7.5a2.06 2.06 0 0 1 .27-1.01L12 12z" opacity=".5" fill="currentColor"></path><path class="uim-primary" d="M20.5 8.25v7.5a2.003 2.003 0 0 1-1 1.73l-6.62 3.82c-.275.13-.576.198-.88.2V12l8.23-4.76c.175.308.268.656.27 1.01z" fill="currentColor"></path></svg> Models</div>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models">Introduction</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-the-hub">The Model Hub</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./model-cards">Model Cards</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./eval-results">Eval Results</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-gated">Gated Models</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-uploading">Uploading Models</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-downloading">Downloading Models</a>

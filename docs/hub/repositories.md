@@ -21,6 +21,7 @@ In these pages, you will go over the basics of getting started with Git and Xet 
 - [Settings](./repositories-settings)
 - [Storage Limits](./storage-limits)
 - [Storage Backend (Xet)](./xet/index)
+- [Local Cache](./local-cache)
 - [Pull Requests & Discussions](./repositories-pull-requests-discussions)
   - [Pull Requests advanced usage](./repositories-pull-requests-discussions#pull-requests-advanced-usage)
 - [Collections](./collections)
