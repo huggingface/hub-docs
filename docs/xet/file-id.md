@@ -37,11 +37,8 @@ sequenceDiagram
     autonumber
     actor C as Client
     participant Hub as Hugging Face Hub
-
     C->>Hub: GET /namespace/repo/resolve/branch/filepath<br/>Authorization: Bearer <hf_token>
     Hub-->>C: 302 Redirect + X-Xet-Hash header
-
     Note over C: Extract X-Xet-Hash value = Xet File ID<br/>Do NOT follow the 302 redirect
-
     C->>C: Use File ID with CAS Reconstruction API
 ```

@@ -15,10 +15,8 @@ flowchart LR
         CD["Chunk Data"]
         CH["Chunk Hashes"]
     end
-
     CD -->|"blake3(data, DATA_KEY)"| ChunkHash["Chunk Hash"]
     ChunkHash --> CH
-
     CH -->|"Merkle Tree\n+ INTERNAL_NODE_KEY"| XorbHash["Xorb Hash"]
     CH -->|"Merkle Tree\n+ INTERNAL_NODE_KEY\nthen blake3(root, zeros)"| FileHash["File Hash"]
     CH -->|"blake3(concat hashes,\nVERIFICATION_KEY)"| VerifHash["Term Verification Hash"]
