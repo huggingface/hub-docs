@@ -15,7 +15,7 @@ For a comparison with Managed SSO, see the [SSO overview](./enterprise-sso).
 When Single Sign-On is enabled, organization members authenticate through your Identity Provider (IdP). You pick whether SSO is **enforced** or **optional**:
 
 - **Enforced** (default): Members have to complete SSO authentication before accessing anything under the organization's namespace.
-- **Optional**: Members get prompted to set up SSO but can skip it and still access the organization. This is handy when you're migrating a lot of users and want to give them time to sort out their accounts before definitely enforcing SSO.
+- **Optional**: Members get prompted via a banner at the top of the page to set up SSO, but can skip it and still access the organization. This is handy when you're migrating a lot of users and want to give them time to sort out their accounts before definitely enforcing SSO.
 
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-enabled-without-enforcement.png"/>
