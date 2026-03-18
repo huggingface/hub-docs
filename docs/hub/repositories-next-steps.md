@@ -74,7 +74,7 @@ Alternatively, if you want to keep a local copy of the repo, you can use `hf dow
 
 If you need to preserve Git history for models/datasets, or want more control over the process (e.g. rebasing on top of your own changes), you can fork a repository manually using Git.
 
-You will need [Git LFS](https://git-lfs.github.com/) and [`git-xet`](https://huggingface.co/docs/hub/xet/using-xet-storage#git) installed. Forking can take time depending on your bandwidth because you will have to fetch and re-upload all the LFS files (though the re-upload will be fast thanks to Xet).
+You will need [`git-xet`](https://huggingface.co/docs/hub/xet/using-xet-storage#git) installed. Forking can take time depending on your bandwidth because you will have to fetch and re-upload all the LFS files (though the re-upload will be fast thanks to Xet).
 
 1. Create a destination repository (e.g. `me/myfork`) on https://huggingface.co
 
@@ -83,7 +83,7 @@ You will need [Git LFS](https://git-lfs.github.com/) and [`git-xet`](https://hug
 ```bash
 git clone git@hf.co:me/myfork
 cd myfork
-git lfs install --skip-smudge --local
+git xet install
 git remote add upstream git@hf.co:friend/upstream
 git fetch upstream
 git lfs fetch --all upstream
@@ -95,10 +95,8 @@ git lfs fetch --all upstream
 git reset --hard upstream/main
 ```
 
-4. Prepare LFS files and push:
+4. Push:
 
 ```bash
-git lfs install --force --local
-hf lfs-enable-largefiles .   # needed if some files are bigger than 5GB
 git push --force origin main
 ```
