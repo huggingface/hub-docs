@@ -153,6 +153,7 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 | `HF_XET_CLIENT_AC_MAX_UPLOAD_CONCURRENCY` | `64` | Upper bound for upload concurrency. HP mode: `124`. |
 | `HF_XET_CLIENT_AC_MAX_DOWNLOAD_CONCURRENCY` | `64` | Upper bound for download concurrency. HP mode: `124`. |
 | `HF_XET_CLIENT_AC_TARGET_RTT` | `60s` | Target round-trip time. Concurrency increases as long as the predicted round-trip time for a full transfer is below this value. |
+| `HF_XET_CLIENT_AC_MAX_HEALTHY_RTT` | `90s` | Maximum acceptable round-trip time. Transfers taking longer than this are counted as failures by the adaptive controller. |
 | `HF_XET_CLIENT_AC_HEALTHY_SUCCESS_RATIO_THRESHOLD` | `0.8` | Success ratio above which the controller increases concurrency. |
 | `HF_XET_CLIENT_AC_UNHEALTHY_SUCCESS_RATIO_THRESHOLD` | `0.5` | Success ratio below which the controller decreases concurrency. |
 | `HF_XET_CLIENT_AC_LOGGING_INTERVAL_MS` | `10000` | Interval (in ms) at which concurrency status is logged. |
@@ -180,6 +181,7 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 | `HF_XET_DATA_MAX_CONCURRENT_FILE_DOWNLOADS` | `8` | Maximum number of files downloaded concurrently. |
 | `HF_XET_DATA_INGESTION_BLOCK_SIZE` | `8mb` | Size of blocks read during file ingestion. |
 | `HF_XET_DATA_PROGRESS_UPDATE_INTERVAL` | `200ms` | How often progress bars are updated. |
+| `HF_XET_DATA_PROGRESS_UPDATE_SPEED_SAMPLING_WINDOW` | `10s` | Time window used for aggregating transfer speed measurements in progress reporting. |
 
 ### Download Buffers
 
@@ -192,14 +194,20 @@ These control memory usage during downloads. `HF_XET_HIGH_PERFORMANCE=1` raises 
 | `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` | `2gb` | `16gb` | Total download buffer size. |
 | `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_PERFILE_SIZE` | `512mb` | `2gb` | Per-file download buffer size. |
 | `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_LIMIT` | `8gb` | `64gb` | Hard limit on total download buffer memory. |
+| `HF_XET_RECONSTRUCTION_TARGET_BLOCK_COMPLETION_TIME` | `15m` | — | Target time for completing a prefetch block. Used to determine how much data to prefetch ahead during downloads. |
+| `HF_XET_RECONSTRUCTION_MIN_PREFETCH_BUFFER` | `1gb` | — | Minimum amount of data to keep prefetched during downloads, regardless of estimated completion time. |
 
 ### Logging
 
 | Environment Variable | Default | Description |
 |---|---|---|
-| `HF_XET_LOG_DEST` | (none) | Log destination (e.g. a file path). When unset, logs go to stderr. |
-| `HF_XET_LOG_FORMAT` | (none) | Log format. |
-| `HF_XET_LOG_PREFIX` | `xet` | Prefix for log messages. |
+| `HF_XET_LOG_DEST` | (none) | Log destination. Accepts a file path or directory path (ending with `/`). When set to a directory, log files are created with timestamped names. When set to an empty string, logs go to the console. When unset, logs go to the `logs/` subdirectory in the Hugging Face Xet cache directory. |
+| `HF_XET_LOG_FORMAT` | (none) | Log format. Set to `json` for JSON-formatted logs; otherwise plain text. By default, file logging uses JSON and console logging uses text. |
+| `HF_XET_LOG_PREFIX` | `xet` | Prefix for log file names when logging to a directory. |
+| `HF_XET_LOG_DIR_DISABLE_CLEANUP` | `false` | Disable automatic cleanup of old log files in the log directory. |
+| `HF_XET_LOG_DIR_MAX_SIZE` | `250mb` | Maximum total size of log files in the log directory. Old files are pruned to stay under this limit. |
+| `HF_XET_LOG_DIR_MIN_DELETION_AGE` | `1d` | Minimum age before a log file can be deleted during cleanup. |
+| `HF_XET_LOG_DIR_MAX_RETENTION_AGE` | `14d` | Maximum age for log files. Files older than this are always deleted during cleanup. |
 
 ## Current Limitations
 
