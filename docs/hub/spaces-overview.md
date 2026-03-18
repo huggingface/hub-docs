@@ -33,7 +33,6 @@ You can set a Space's visibility from the **Settings** tab using the visibility 
 | Source code on the Hub | Visible to everyone | Private (only owner/collaborators) | Private (only owner/collaborators) |
 | App accessible via embed URL | Yes | Yes | No |
 | App accessible via [custom domain](./spaces-custom-domain) | Yes | Yes | No |
-| Shows in search results | Yes | No | No |
 | Clonable by others | Yes | No | No |
 
 **Public** Spaces are fully open: anyone can view the source code, access the running app, and clone the repository.
