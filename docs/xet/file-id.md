@@ -31,3 +31,17 @@ This is the string representation of the hash and can be used directly in the fi
 > [!NOTE]
 > The resolve URL will return a 302 redirect http status code, following the redirect will download the content via the old LFS compatible route rather than through the Xet protocol.
 In order to use the Xet protocol you MUST NOT follow this redirect.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor C as Client
+    participant Hub as Hugging Face Hub
+
+    C->>Hub: GET /namespace/repo/resolve/branch/filepath<br/>Authorization: Bearer <hf_token>
+    Hub-->>C: 302 Redirect + X-Xet-Hash header
+
+    Note over C: Extract X-Xet-Hash value = Xet File ID<br/>Do NOT follow the 302 redirect
+
+    C->>C: Use File ID with CAS Reconstruction API
+```

@@ -48,6 +48,24 @@ When a boundary found or taken:
 
 At end-of-file, if `start_offset < len(data)`, emit the final chunk `[start_offset, len(data))`.
 
+### Decision Flowchart
+
+```mermaid
+flowchart TD
+    A["Read next byte b"] --> B["h = (h << 1) + TABLE[b]"]
+    B --> C["size = offset - start + 1"]
+    C --> D{"size < MIN_CHUNK_SIZE\n(8 KiB)?"}
+    D -->|Yes| A
+    D -->|No| E{"size >= MAX_CHUNK_SIZE\n(128 KiB)?"}
+    E -->|Yes| G["Emit chunk, reset h = 0"]
+    E -->|No| F{"(h & MASK) == 0?"}
+    F -->|Yes| G
+    F -->|No| A
+    G --> H{"End of file?"}
+    H -->|No| A
+    H -->|Yes| I["Emit final chunk if data remains"]
+```
+
 ### Pseudocode
 
 ```text

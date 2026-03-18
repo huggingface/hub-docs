@@ -9,6 +9,21 @@ The Xet protocol utilizes a few different hashing types.
 
 All hashes referenced are 32 bytes (256 bits) long.
 
+```mermaid
+flowchart LR
+    subgraph Input
+        CD["Chunk Data"]
+        CH["Chunk Hashes"]
+    end
+
+    CD -->|"blake3(data, DATA_KEY)"| ChunkHash["Chunk Hash"]
+    ChunkHash --> CH
+
+    CH -->|"Merkle Tree\n+ INTERNAL_NODE_KEY"| XorbHash["Xorb Hash"]
+    CH -->|"Merkle Tree\n+ INTERNAL_NODE_KEY\nthen blake3(root, zeros)"| FileHash["File Hash"]
+    CH -->|"blake3(concat hashes,\nVERIFICATION_KEY)"| VerifHash["Term Verification Hash"]
+```
+
 ## Chunk Hashes
 
 After cutting a chunk of data, the chunk hash is computed via a blake3 keyed hash with the following key (DATA_KEY):

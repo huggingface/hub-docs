@@ -58,13 +58,15 @@ the uncompressed size also being at a maximum of 128KiB.
 
 #### Chunk Header Layout
 
-```txt
-┌─────────┬─────────────────────────────────┬──────────────┬─────────────────────────────────┐
-│ Version │        Compressed Size          │ Compression  │       Uncompressed Size         │
-│ 1 byte  │           3 bytes               │    Type      │           3 bytes               │
-│         │      (little-endian)            │   1 byte     │      (little-endian)            │
-└─────────┴─────────────────────────────────┴──────────────┴─────────────────────────────────┘
-0         1                                 4              5                                 8
+```mermaid
+---
+title: "Chunk Header (8 bytes)"
+---
+packet
+  0-7: "Version"
+  8-31: "Compressed Size (LE)"
+  32-39: "Compression Type"
+  40-63: "Uncompressed Size (LE)"
 ```
 
 ### Chunk Compression Schemes

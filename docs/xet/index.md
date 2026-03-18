@@ -19,6 +19,51 @@ Implementors can create their own clients, SDKs, and tools that speak the Xet pr
 
 ## Overall Xet Architecture
 
+```mermaid
+block
+  columns 3
+  File["📄 File"]
+  space
+  space
+
+  CDC["Chunking (CDC)"]
+  space
+  space
+
+  block:chunks
+    columns 5
+    C0["Chunk 0"] C1["Chunk 1"] C2["Chunk 2"] C3["..."] C4["Chunk N"]
+  end
+
+  space
+  space
+  space
+
+  block:xorbs
+    columns 2
+    X0["Xorb A\n(chunks 0–1023)"]
+    X1["Xorb B\n(chunks 1024–N)"]
+  end
+
+  space
+  Shard["Shard\n(file reconstructions\n+ xorb metadata)"]
+
+  space
+  space
+  space
+
+  CAS["CAS Server\n(Content Addressable Storage)"]
+  space
+  space
+
+  File --> CDC
+  CDC --> chunks
+  chunks --> xorbs
+  xorbs --> Shard
+  xorbs --> CAS
+  Shard --> CAS
+```
+
 - [Content-Defined Chunking](./chunking): Gearhash-based CDC with parameters, boundary rules, and performance optimizations.
 - [Hashing Methods](./hashing): Descriptions and definitions of the different hashing functions used for chunks, xorbs and term verification entries.
 - [File Reconstruction](./file-reconstruction): Defining "term"-based representation of files using xorb hash + chunk ranges.

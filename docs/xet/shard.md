@@ -116,12 +116,14 @@ struct MDBShardFileHeader {
 
 **Memory Layout**:
 
-```txt
-┌────────────────────────────────────────────────────────────────┬───────────┬───────────┐
-│                          tag (32 bytes)                        │  version  │ footer_sz │
-│                    Magic Number Identifier                     │ (8 bytes) │ (8 bytes) │
-└────────────────────────────────────────────────────────────────┴───────────┴───────────┘
-0                                                               32          40         48
+```mermaid
+---
+title: "MDBShardFileHeader (48 bytes)"
+---
+packet
+  0-255: "tag (32 bytes) — Magic Number Identifier"
+  256-319: "version (u64)"
+  320-383: "footer_size (u64)"
 ```
 
 **Deserialization steps**:
@@ -220,12 +222,15 @@ Given the `file_data_sequence_header.file_flags & MASK` (bitwise AND) operations
 
 **Memory Layout**:
 
-```txt
-┌────────────────────────────────────────────────────────────────┬──────────┬───────────┬────────────┐
-│                       file_hash (32 bytes)                     │file_flags│num_entries│   _unused  │
-│                        File Hash Value                         │(4 bytes) │(4 bytes)  │  (8 bytes) │
-└────────────────────────────────────────────────────────────────┴──────────┴───────────┴────────────┘
-0                                                                32         36         40           48
+```mermaid
+---
+title: "FileDataSequenceHeader (48 bytes)"
+---
+packet
+  0-255: "file_hash (32 bytes)"
+  256-287: "file_flags (u32)"
+  288-319: "num_entries (u32)"
+  320-383: "_unused (8 bytes)"
 ```
 
 ### FileDataSequenceEntry
@@ -247,13 +252,16 @@ struct FileDataSequenceEntry {
 
 **Memory Layout**:
 
-```txt
-┌────────────────────────────────────────────────────────────────┬─────────┬─────────┬─────────┬─────────┐
-│                       cas_hash (32 bytes)                      │cas_flags│unpacked │chunk_idx│chunk_idx│
-│                      CAS Block Hash                            │(4 bytes)│seg_bytes│start    │end      │
-│                                                                │         │(4 bytes)│(4 bytes)│(4 bytes)│
-└────────────────────────────────────────────────────────────────┴─────────┴─────────┴─────────┴─────────┘
-0                                                               32        36        40        44        48
+```mermaid
+---
+title: "FileDataSequenceEntry (48 bytes)"
+---
+packet
+  0-255: "cas_hash (32 bytes) — Xorb Hash"
+  256-287: "cas_flags (u32)"
+  288-319: "unpacked_segment_bytes (u32)"
+  320-351: "chunk_index_start (u32)"
+  352-383: "chunk_index_end (u32)"
 ```
 
 ### FileVerificationEntry (OPTIONAL)
@@ -271,12 +279,13 @@ struct FileVerificationEntry {
 
 **Memory Layout**:
 
-```txt
-┌────────────────────────────────────────────────────────────────┬────────────────────────────────┐
-│                    range_hash (32 bytes)                       │       _unused (16 bytes)       │
-│                      Verification Hash                         │         Reserved Space         │
-└────────────────────────────────────────────────────────────────┴────────────────────────────────┘
-0                                                              32                               48
+```mermaid
+---
+title: "FileVerificationEntry (48 bytes)"
+---
+packet
+  0-255: "range_hash (32 bytes) — Verification Hash"
+  256-383: "_unused (16 bytes)"
 ```
 
 When a shard has verification entries, all file info sections MUST have verification entries.
@@ -302,12 +311,13 @@ struct FileMetadataExt {
 
 **Memory Layout**:
 
-```txt
-┌────────────────────────────────────────────────────────────────┬────────────────────────────────┐
-│                      sha256 (32 bytes)                         │       _unused (16 bytes)       │
-│                     SHA256 Hash                                │         Reserved Space         │
-└────────────────────────────────────────────────────────────────┴────────────────────────────────┘
-0                                                               32                               48
+```mermaid
+---
+title: "FileMetadataExt (48 bytes)"
+---
+packet
+  0-255: "sha256 (32 bytes) — SHA256 Hash"
+  256-383: "_unused (16 bytes)"
 ```
 
 ### File Info Bookend
@@ -381,13 +391,16 @@ struct CASChunkSequenceHeader {
 
 **Memory Layout**:
 
-```txt
-┌────────────────────────────────────────────────────────────────┬─────────┬─────────┬─────────┬─────────┐
-│                       cas_hash (32 bytes)                      │cas_flags│num_     │num_bytes│num_bytes│
-│                      CAS Block Hash                            │(4 bytes)│entries  │in_cas   │on_disk  │
-│                                                                │         │(4 bytes)│(4 bytes)│(4 bytes)│
-└────────────────────────────────────────────────────────────────┴─────────┴─────────┴─────────┴─────────┘
-0                                                               32        36        40        44        48
+```mermaid
+---
+title: "CASChunkSequenceHeader (48 bytes)"
+---
+packet
+  0-255: "cas_hash (32 bytes) — Xorb Hash"
+  256-287: "cas_flags (u32)"
+  288-319: "num_entries (u32)"
+  320-351: "num_bytes_in_cas (u32)"
+  352-383: "num_bytes_on_disk (u32)"
 ```
 
 ### CASChunkSequenceEntry
@@ -406,15 +419,15 @@ struct CASChunkSequenceEntry {
 
 **Memory Layout**:
 
-```txt
-┌────────────────────────────────────────────────────────────────┬─────────┬─────────┬─────────────────┐
-│                     chunk_hash (32 bytes)                      │chunk_   │unpacked │    _unused      │
-│                        Chunk Hash                              │byte_    │segment_ │   (8 bytes)     │
-│                                                                │range_   │bytes    │                 │
-│                                                                │start    │(4 bytes)│                 │
-│                                                                │(4 bytes)│         │                 │
-└────────────────────────────────────────────────────────────────┴─────────┴─────────┴─────────────────┘
-0                                                               32        36        40               48
+```mermaid
+---
+title: "CASChunkSequenceEntry (48 bytes)"
+---
+packet
+  0-255: "chunk_hash (32 bytes)"
+  256-287: "chunk_byte_range_start (u32)"
+  288-319: "unpacked_segment_bytes (u32)"
+  320-383: "_unused (8 bytes)"
 ```
 
 ### CAS Info Bookend
@@ -451,23 +464,20 @@ struct MDBShardFileFooter {
 
 **Memory Layout**:
 
-> [!NOTE]
-> Fields are not exactly to scale
-
-```txt
-┌─────────┬─────────┬─────────┬─────────────────────────────────────────────────────────────┬─────────────────────────────────────┐
-│ version │file_info│cas_info │                    _buffer (reserved)                       │        chunk_hash_hmac_key          │
-│(8 bytes)│offset   │offset   │                      (48 bytes)                             │             (32 bytes)              │
-│         │(8 bytes)│(8 bytes)│                                                             │                                     │
-└─────────┴─────────┴─────────┴─────────────────────────────────────────────────────────────┴─────────────────────────────────────┘
-0         8        16        24                                                           72                                    104
-
-┌─────────┬──────────┬─────────────────────────────────────────────────────────────────────────────┬─────────┐
-│creation │shard_    │                           _buffer (reserved)                                │footer_  │
-│timestamp│key_expiry│                             (72 bytes)                                      │offset   │
-│(8 bytes)│ (8 bytes)│                                                                             │(8 bytes)│
-└─────────┴──────────┴─────────────────────────────────────────────────────────────────────────────┴─────────┘
-104       112       120                                                                          192       200
+```mermaid
+---
+title: "MDBShardFileFooter (200 bytes)"
+---
+packet
+  0-63: "version (u64)"
+  64-127: "file_info_offset (u64)"
+  128-191: "cas_info_offset (u64)"
+  192-575: "_buffer (48 bytes reserved)"
+  576-831: "chunk_hash_hmac_key (32 bytes)"
+  832-895: "shard_creation_timestamp (u64)"
+  896-959: "shard_key_expiry (u64)"
+  960-1535: "_buffer2 (72 bytes reserved)"
+  1536-1599: "footer_offset (u64)"
 ```
 
 **Deserialization steps**:
