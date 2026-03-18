@@ -4,9 +4,9 @@ This document describes the on-disk layout of the HF Hub local cache. It is inte
 
 Here is a partial list of applications and libraries that use this cache layout. Please open a PR to add your own.
 
-| Library | Language | Notes |
+| Library or Application | Language | Notes |
 |---------|----------|-------|
-| [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) | Python | And any library that depends on it (e.g. `transformers`, `diffusers`, `datasets`, …) |
+| [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) | Python | And any library that depends on it (e.g. `transformers`, `diffusers`, `datasets`, `mlx`, `vllm` …) |
 | [`hf-hub`](https://github.com/huggingface/hf-hub) | Rust | |
 | [`swift-huggingface`](https://github.com/huggingface/swift-huggingface) | Swift | |
 | [`@huggingface/hub`](https://github.com/huggingface/huggingface.js) | JavaScript | Node.js only |
