@@ -21,7 +21,7 @@
     title: Advanced Security
   - local: enterprise-tokens-management
     title: Tokens Management
-  - local: enterprise-analytics
+  - local: publisher-analytics
     title: Publisher Analytics
   - local: enterprise-gating-group-collections
     title: Gating Group Collections

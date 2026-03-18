@@ -117,7 +117,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | Feature                                                                                                   | Free | Team | Enterprise | Enterprise Plus |
 | --------------------------------------------------------------------------------------------------------- | :--: | :--: | :--------: | :-------------: |
 | Org Article                                                                                               |  ❌  |  ✅  |     ✅     |       ✅        |
-| [Publisher Analytics Dashboard](./enterprise-analytics)                                               |  ❌  |  ✅  |     ✅     |       ✅        |
+| [Publisher Analytics Dashboard](./publisher-analytics)                                               |  ❌  |  ✅  |     ✅     |       ✅        |
 | [Set your primary org on your profile](https://huggingface.co/changelog/primary-organization-on-profiles) |  ❌  |  ✅  |     ✅     |       ✅        |
 
 ### Pricing
@@ -140,7 +140,7 @@ In the following sections we will document the following Team & Enterprise featu
 - [Advanced Security](./enterprise-advanced-security)
 - [Tokens Management](./enterprise-tokens-management)
 - [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693)
-- [Publisher Analytics](./enterprise-analytics)
+- [Publisher Analytics](./publisher-analytics)
 - [Gating Group Collections](./enterprise-gating-group-collections)
 - [Network Security](./enterprise-network-security)
 - [Higher Rate limits](./rate-limits)
