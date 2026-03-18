@@ -223,6 +223,8 @@
     title: Uploading Datasets
   - local: datasets-upload-guide-llm
     title: Uploading Datasets (for LLMs)
+  - local: datasets-ingesting
+    title: Ingesting Datasets
   - local: datasets-downloading
     title: Downloading Datasets
   - local: datasets-streaming
