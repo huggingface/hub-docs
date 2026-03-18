@@ -1,4 +1,4 @@
-# Analytics
+# Publisher Analytics
 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
@@ -53,3 +53,29 @@ Each record in the CSV contains:
 - `downloads`: Number of downloads for that day
 
 Records are ordered chronologically and provide a daily granular view of download activity for each repository.
+
+> [!NOTE]
+> Download figures are **not** deduplicated by user. If you need unique download counts, refer to the next section.
+
+## Unique downloaders and more granular logs
+
+> [!WARNING]
+> This feature is an add-on for the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
+
+As an advanced feature, we have the ability to export pseudonymized, request-level access logs for all of the models and datasets published by your organization . Each line represents a single download request (including HEAD and partial requests), giving you full granularity over your models and datasets' download data.
+
+Your team is responsible for ingesting these logs and running computations on them — for example, to deduplicate downloads by user and get unique downloader counts.
+
+| Column         | Description                                             |
+| -------------- | ------------------------------------------------------- |
+| `timestamp`    | Request timestamp                                       |
+| `requestType`  | Type of download request (`GET`, `HEAD`, partial/range) |
+| `repoName`     | Full repo name (e.g. `nvidia/segformer-b0`)             |
+| `repoType`     | `model` or `dataset`                                    |
+| `pseudoUserId` | Non-reversible hash of user ID (if authenticated)       |
+| `pseudoIp`     | Non-reversible hash of IP address (if unauthenticated)  |
+| `country`      | Country ISO code                                        |
+| `region`       | Region name                                             |
+| `isInternal`   | Whether the request comes from an HF internal service   |
+
+As it requires a custom Elastic index on our side, this is only available as an add-on to Enterprise Plus.
