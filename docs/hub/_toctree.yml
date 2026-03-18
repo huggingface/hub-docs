@@ -58,6 +58,8 @@
       title: Backwards Compatibility & Legacy
     - local: xet/deduplication
       title: Deduplication
+  - local: local-cache
+    title: Local Cache
   - local: repositories-pull-requests-discussions
     title: Pull Requests & Discussions
   - local: notifications
