@@ -212,7 +212,7 @@ Example:
             └── optional_config.json    # empty file
 ```
 
-Note how `pytorch_model.bin` points to the **same blob** in both revisions. Rhe 321 MB file is stored only once on disk.
+Note how `pytorch_model.bin` points to the **same blob** in both revisions. The 321 MB file is stored only once on disk.
 
 ## File resolution logic
 
