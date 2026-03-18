@@ -64,7 +64,7 @@ Records are ordered chronologically and provide a daily granular view of downloa
 
 As an advanced feature, we have the ability to export pseudonymized, request-level access logs for all of the models and datasets published by your organization . Each line represents a single download request (including HEAD and partial requests), giving you full granularity over your models and datasets' download data.
 
-Your team is responsible for ingesting these logs and running computations on them — for example, to deduplicate downloads by user and get unique downloader counts.
+Your team is responsible for ingesting these logs and running computations on them — for example, to deduplicate downloads to get unique downloader counts.
 
 | Column         | Description                                             |
 | -------------- | ------------------------------------------------------- |
