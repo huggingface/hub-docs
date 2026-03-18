@@ -1,6 +1,15 @@
 # Hub Local Cache
 
-This document describes the on-disk layout of the Hugging Face Hub local cache. It is intended as a reference for reimplementing the cache system in any language.
+This document describes the on-disk layout of the HF Hub local cache. It is intended as a reference for reimplementing the cache system in any language.
+
+Here is a partial list of applications and libraries that use this cache layout. Please open a PR to add your own.
+
+| Library | Language | Notes |
+|---------|----------|-------|
+| [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) | Python | And any library that depends on it (e.g. `transformers`, `diffusers`, `datasets`, …) |
+| [`hf-hub`](https://github.com/huggingface/hf-hub) | Rust | |
+| [`HuggingFaceModelDownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) | Go | |
+| [`llama.cpp`](https://github.com/ggml-org/llama.cpp) | C++ | *Work in progress* |
 
 ## Cache location
 
