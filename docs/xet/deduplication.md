@@ -56,10 +56,10 @@ When a file is processed for upload, it undergoes the following steps:
 
 ```mermaid
 graph TD
-    A[File Input] --> B[Content-Defined Chunking]
-    B --> C[Hash Computation]
-    C --> D[Chunk Creation]
-    D --> E[Deduplication Query]
+    A["File Input"] --> B["Content-Defined Chunking"]
+    B --> C["Hash Computation"]
+    C --> D["Chunk Creation"]
+    D --> E["Deduplication Query"]
 ```
 
 1. **Chunking**: Content-defined chunking using GearHash algorithm creates variable-sized chunks of file data
