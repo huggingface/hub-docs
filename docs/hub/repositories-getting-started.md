@@ -11,10 +11,13 @@ If you do not have `git` available as a CLI command yet, you will need to [insta
 > [!TIP]
 > To be able to download and upload large files from Git, you need to install the [Git Xet](./xet/using-xet-storage#git) extension.
 
-To be able to push your code to the Hub, you'll need to authenticate somehow. The easiest way to do this is by installing the [`huggingface_hub` CLI](https://huggingface.co/docs/huggingface_hub/index) and running the login command:
+To be able to push your code to the Hub, you'll need to authenticate somehow. The easiest way to do this is by installing the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/guides/cli) and running the login command:
 
 ```bash
-python -m pip install huggingface_hub
+# Install hf:
+#   brew install hf
+#   or
+#   pip install hf
 hf auth login
 ```
 
