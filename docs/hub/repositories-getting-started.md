@@ -82,7 +82,24 @@ If you choose _Upload file_ you'll be able to choose a local file to upload, alo
 
 As with creating new files, you can select `Open as a pull request` to create a [Pull Request](./repositories-pull-requests-discussions) instead of adding your changes directly to the `main` branch of your repo.
 
-## Adding files to a repository (terminal)[[terminal]]
+## Adding files to a repository (CLI)[[cli]]
+
+You can upload files to your repository directly from the terminal using the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/guides/cli). Use the `hf upload` command to push local files or entire folders:
+
+```bash
+# Upload a single file to your model repo
+hf upload your-username/your-model-name model.safetensors
+
+# Upload an entire directory
+hf upload your-username/your-model-name ./my-model-directory
+
+# Upload to a dataset repo
+hf upload your-username/your-dataset-name ./data --repo-type dataset
+```
+
+The `hf` CLI handles large files automatically — no extra setup is required.
+
+## Adding files to a repository (git)[[terminal]]
 
 ### Cloning repositories
 
