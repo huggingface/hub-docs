@@ -121,9 +121,9 @@ struct MDBShardFileHeader {
 title: "MDBShardFileHeader (48 bytes)"
 ---
 packet
-  0-255: "tag (32 bytes) — Magic Number Identifier"
-  256-319: "version (u64)"
-  320-383: "footer_size (u64)"
+  0-31: "tag (32 bytes) — Magic Number Identifier"
+  32-39: "version (u64)"
+  40-47: "footer_size (u64)"
 ```
 
 **Deserialization steps**:
@@ -227,10 +227,10 @@ Given the `file_data_sequence_header.file_flags & MASK` (bitwise AND) operations
 title: "FileDataSequenceHeader (48 bytes)"
 ---
 packet
-  0-255: "file_hash (32 bytes)"
-  256-287: "file_flags (u32)"
-  288-319: "num_entries (u32)"
-  320-383: "_unused (8 bytes)"
+  0-31: "file_hash (32 bytes)"
+  32-35: "file_flags (u32)"
+  36-39: "num_entries (u32)"
+  40-47: "_unused (8 bytes)"
 ```
 
 ### FileDataSequenceEntry
@@ -257,11 +257,11 @@ struct FileDataSequenceEntry {
 title: "FileDataSequenceEntry (48 bytes)"
 ---
 packet
-  0-255: "cas_hash (32 bytes) — Xorb Hash"
-  256-287: "cas_flags (u32)"
-  288-319: "unpacked_segment_bytes (u32)"
-  320-351: "chunk_index_start (u32)"
-  352-383: "chunk_index_end (u32)"
+  0-31: "cas_hash (32 bytes) — Xorb Hash"
+  32-35: "cas_flags (u32)"
+  36-39: "unpacked_segment_bytes (u32)"
+  40-43: "chunk_index_start (u32)"
+  44-47: "chunk_index_end (u32)"
 ```
 
 ### FileVerificationEntry (OPTIONAL)
@@ -284,8 +284,8 @@ struct FileVerificationEntry {
 title: "FileVerificationEntry (48 bytes)"
 ---
 packet
-  0-255: "range_hash (32 bytes) — Verification Hash"
-  256-383: "_unused (16 bytes)"
+  0-31: "range_hash (32 bytes) — Verification Hash"
+  32-47: "_unused (16 bytes)"
 ```
 
 When a shard has verification entries, all file info sections MUST have verification entries.
@@ -316,8 +316,8 @@ struct FileMetadataExt {
 title: "FileMetadataExt (48 bytes)"
 ---
 packet
-  0-255: "sha256 (32 bytes) — SHA256 Hash"
-  256-383: "_unused (16 bytes)"
+  0-31: "sha256 (32 bytes) — SHA256 Hash"
+  32-47: "_unused (16 bytes)"
 ```
 
 ### File Info Bookend
@@ -396,11 +396,11 @@ struct CASChunkSequenceHeader {
 title: "CASChunkSequenceHeader (48 bytes)"
 ---
 packet
-  0-255: "cas_hash (32 bytes) — Xorb Hash"
-  256-287: "cas_flags (u32)"
-  288-319: "num_entries (u32)"
-  320-351: "num_bytes_in_cas (u32)"
-  352-383: "num_bytes_on_disk (u32)"
+  0-31: "cas_hash (32 bytes) — Xorb Hash"
+  32-35: "cas_flags (u32)"
+  36-39: "num_entries (u32)"
+  40-43: "num_bytes_in_cas (u32)"
+  44-47: "num_bytes_on_disk (u32)"
 ```
 
 ### CASChunkSequenceEntry
@@ -424,10 +424,10 @@ struct CASChunkSequenceEntry {
 title: "CASChunkSequenceEntry (48 bytes)"
 ---
 packet
-  0-255: "chunk_hash (32 bytes)"
-  256-287: "chunk_byte_range_start (u32)"
-  288-319: "unpacked_segment_bytes (u32)"
-  320-383: "_unused (8 bytes)"
+  0-31: "chunk_hash (32 bytes)"
+  32-35: "chunk_byte_range_start (u32)"
+  36-39: "unpacked_segment_bytes (u32)"
+  40-47: "_unused (8 bytes)"
 ```
 
 ### CAS Info Bookend
@@ -469,15 +469,15 @@ struct MDBShardFileFooter {
 title: "MDBShardFileFooter (200 bytes)"
 ---
 packet
-  0-63: "version (u64)"
-  64-127: "file_info_offset (u64)"
-  128-191: "cas_info_offset (u64)"
-  192-575: "_buffer (48 bytes reserved)"
-  576-831: "chunk_hash_hmac_key (32 bytes)"
-  832-895: "shard_creation_timestamp (u64)"
-  896-959: "shard_key_expiry (u64)"
-  960-1535: "_buffer2 (72 bytes reserved)"
-  1536-1599: "footer_offset (u64)"
+  0-7: "version (u64)"
+  8-15: "file_info_offset (u64)"
+  16-23: "cas_info_offset (u64)"
+  24-71: "_buffer (48 bytes reserved)"
+  72-103: "chunk_hash_hmac_key (32 bytes)"
+  104-111: "shard_creation_timestamp (u64)"
+  112-119: "shard_key_expiry (u64)"
+  120-191: "_buffer2 (72 bytes reserved)"
+  192-199: "footer_offset (u64)"
 ```
 
 **Deserialization steps**:

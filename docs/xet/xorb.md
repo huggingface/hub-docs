@@ -63,10 +63,10 @@ the uncompressed size also being at a maximum of 128KiB.
 title: "Chunk Header (8 bytes)"
 ---
 packet
-  0-7: "Version"
-  8-31: "Compressed Size (LE)"
-  32-39: "Compression Type"
-  40-63: "Uncompressed Size (LE)"
+  0: "Version"
+  1-3: "Compressed Size (LE)"
+  4: "Compression Type"
+  5-7: "Uncompressed Size (LE)"
 ```
 
 ### Chunk Compression Schemes
