@@ -1,6 +1,6 @@
 # Accessing Benchmark Leaderboard Data
 
-[Benchmark datasets](./eval-results#benchmark-datasets) on the Hub contain leaderboards ranking models by their evaluation scores. You can access this data programmatically to either analyse, build dashboards, or tools on top of it.
+[Benchmark datasets](./eval-results#benchmark-datasets) on the Hub contain leaderboards ranking models by their evaluation scores. You can access this data programmatically to analyse, build dashboards or tools on top of it.
 
 ## Discovering official benchmarks
 
