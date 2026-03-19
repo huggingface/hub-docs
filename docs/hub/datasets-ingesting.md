@@ -1,15 +1,15 @@
 # Ingesting Datasets
 
-Data generally live in databases or cloud storage in forms that are not suited for AI workflows.
+Data generally lives in databases or cloud storage in forms that are not suited for AI workflows.
 Ingesting data to the [Hub](https://huggingface.co/datasets) is a good way to publish them as AI-ready datasets, enabling easy and efficient data loading, processing and model training and evaluation.
 
 ## Using `huggingface_hub`
 
 The simplest way to ingest data is to simply upload the data files with `huggingface_hub`.
 
-The rich features set in the `huggingface_hub` library allows you to manage repositories, including creating repos and uploading datasets to the Hub. Visit [the client library's documentation](/docs/huggingface_hub/index) to learn more.
+The `huggingface_hub` Python library provides a rich feature set that allows you to manage repositories, including creating repos and uploading datasets to the Hub. Visit [the client library's documentation](/docs/huggingface_hub/index) to learn more.
 
-This is relevant if your data is static/frozen and if you can easily get a dump of the data locally in a format supported on the Hub (like Parquet or Json Lines) and with a usable structure (e.g. well defined fields used for training and evaluation).
+This is relevant if your data is static/frozen and if you can easily obtain a local dump of the data in a format supported by the Hub (e.g., Parquet or JSON Lines) with a usable structure (e.g., well-defined fields for training and evaluation).
 
 ## Using `dlt`
 
@@ -33,7 +33,7 @@ Find your source type from the [list of sources](https://dlthub.com/docs/dlt-eco
 dlt init <source-type> filesystem
 ```
 
-In the `dlt` project, here is the configuration file `.dlt/secrets.toml` to define the Hub as a filesystem destination for your datasets, based on the `hf://` protocol:
+You can then create a configuration file `.dlt/secrets.toml` in the root of your dlt project to define the Hub as a filesystem destination for your datasets, based on the `hf://` protocol:
 
 ```toml
 [destination.filesystem]
@@ -45,7 +45,7 @@ hf_token = "hf_..."  # Your Hugging Face Access Token
 
 The namespace should be your user name or the name of your organization/team where you want to ingest your dataset.
 
-Then each dlt dataset creates or updates a Hugging Face dataset repository. The repository name is <namespace>/<dataset_name>, where <namespace> comes from the bucket_url and <dataset_name> is the pipeline's dataset_name.
+Then each dlt dataset creates or updates a Hugging Face dataset repository. The repository name is <namespace>/<dataset_name>, where <namespace> is the same one you used in the bucket_url (your organization or team), and <dataset_name> is the pipeline's dataset_name.
 
 Here is an example pipeline:
 
