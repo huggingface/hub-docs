@@ -99,7 +99,7 @@ Then for each file:
 - Compute the file hash using the [file hashing process](./hashing#file-hashes).
 - For each xorb range (a "term") compute a [verification hash](./hashing#term-verification-hashes) in order to upload it.
   - These hashes are used to ensure that the client uploading the file in the shard authoritatively has access to the actual file data.
-- Compute the sha256 for the file contents
+- Optionally, compute the SHA256 of the file contents. This is required when uploading to Git-based repositories on the Hugging Face Hub (models, datasets, Spaces) because those repos use git LFS pointer files that reference the SHA256. It is not needed when uploading to [Storage Buckets](https://huggingface.co/docs/hub/storage-buckets).
 
 With these components it is now possible to completely serialize a [file info block](./shard#2-file-info-section) in the shard format.
 
@@ -125,7 +125,7 @@ After all xorbs and all shards are successfully uploaded, the full upload is con
 Files can then be downloaded by any client using the [download protocol](./download-protocol).
 
 > [!NOTE]
-> If this file is being uploaded to the Hugging Face Hub, users will need to commit a git lfs pointer file using the sha256 of the file contents.
+> If this file is being uploaded to a Git-based repository on the Hugging Face Hub (models, datasets, or Spaces), users will need to commit a git LFS pointer file using the SHA256 of the file contents. This is not required when uploading to [Storage Buckets](https://huggingface.co/docs/hub/storage-buckets), which do not use git LFS pointer files.
 
 ## Ordering and Concurrency
 
