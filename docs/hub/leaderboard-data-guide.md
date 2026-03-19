@@ -10,7 +10,7 @@ Use `huggingface_hub` to find all official benchmark datasets:
 from huggingface_hub import HfApi
 
 api = HfApi()
-for ds in api.list_datasets(benchmark="official"):
+for ds in api.list_datasets(benchmark=True):
     print(ds.id)
 ```
 
@@ -50,6 +50,13 @@ for entry in entries[:5]:
 > resp = requests.get(url, headers=headers)
 > ```
 
+> [!TIP]
+> Curl one-liner for quick access (useful for scripting):
+> ```bash
+> curl https://huggingface.co/api/datasets/cais/hle/leaderboard \
+>   --header "Authorization: Bearer $(cat ~/.cache/huggingface/token)" | jq .
+> ```
+
 ### Response fields
 
 Each leaderboard entry contains:
@@ -84,7 +91,7 @@ This is the fastest way to get a cross-benchmark view without calling multiple A
 
 ## Enriching with model metadata
 
-Use `huggingface_hub` to add release dates, parameter counts, and other metadata:
+Use `huggingface_hub` to enrich leaderboard data with release dates, parameter counts, and other metadata:
 
 ```python
 from huggingface_hub import HfApi
