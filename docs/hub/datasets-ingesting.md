@@ -81,9 +81,49 @@ If you are ingesting raw data that need further curation before being published 
 
 ## Scheduled ingestion
 
-### Near real-time using `huggingface_hub`
+There are some limitations when updating the same file on the Hub thousands of times.
+For instance, you might want to ingest generations of a running LLM inference server, live agents traces, or logs of a running model training.
+In such cases, uploading the data as a dataset on the Hub makes sense, but it can be hard to do properly.
+The main reason is that you don’t want to version every update of your data because it’ll make the git repository unusable.
 
-There are some limitations when updating the same file on the Hub thousands of times. For instance, you might want to ingest generations of a running LLM inference server, live agents traces, or logs of a running model training. In such cases, uploading the data as a dataset on the Hub makes sense, but it can be hard to do properly. The main reason is that you don’t want to version every update of your data because it’ll make the git repository unusable. The CommitScheduler class offers a solution to this problem.
+Three options are available:
+
+* **Use a Storage Bucket instead of a Dataset repository:** [Storage Buckets](/docs/hub/storage-buckets) offer an S3-like experience that allows upadating files very frequently, since they are not based on git. Storage Buckets are especially useful for data that are not ready to be published as a dataset, e.g. data that are still evolving or that need more curation.
+* **Use a CommitScheduler**: The `CommitScheduler` in `huggingface_hub` offers near real-time ingestion to keep the git history of a Dataset repository manageable. It can be configured to do git commits at intervals defined in minutes.
+* **Use Hugging Face Jobs to schedule ingestion scripts**: Hugging Face Jobs provides a way to run and schedule python scripts on Hugging Face infrastructure. Schedule ingestion scripts to run at intervals defined using the Cron syntax.
+
+### High frequency using Storage Buckets
+
+Contrary to Dataset repositories that are based on git, you can update files on Storage Buckets at very high rate, offering quasi real-time ingestion.
+
+Use `batch_bucket_files()` in `huggingface_hub` to update files in a bucket:
+
+```python
+from huggingface_hub import batch_bucket_files
+
+def update_bucket(local_files):
+    destinations = [os.path.basename(local_file) for local_file in local_file]
+    batch_bucket_files(bucket_id="username/bucket_name", add=[(local_file, dst) for local_file, dst in zip(local_files, destinations)])
+```
+
+Alternatively, you can append to files in a Bucket and `flush()` on every new item:
+
+```python
+from huggingface_hub import hffs
+
+with hffs.open("buckets/username/bucket_name/texts.jsonl", "a") as f:
+    for text in live_texts_stream:
+        f.write(json.dumps({"text": text}) + "\n")
+        f.flush()
+```
+
+The `HfFileSystem` is based on `fsspec` which has a default blocksize of 5MiB, which means flushing actually uploads the data once a full chunk of 5MiB of new data was appended.
+If you want to upload more often, lower `blocksize` in `hffs.open()` (e.g. `hffs.open(..., blocksize=100 * 2 ** 10)` for 100 kiB) or use `f.flush(force=True)`.
+
+Hugging Face storage is based on Xet which enables efficient I/O when appending to files: uploads are deduplicated and only new data are uploaded.
+Find more information on doing dynamic data ingestion in buckets in the [buckets documentation on uploads](/docs/hub/storage-buckets#uploading-files) and in the [dataset editing documentation](./datasets-editing#only-upload-the-new-data).
+
+### Near real-time using a `CommitScheduler`
 
 The idea is to run a background job that regularly pushes a local folder to the Hub. You want to save data to the Hub (potentially millions of entries), but you don’t need to save in real-time each user’s input. Instead, you can save the data locally in a JSON file and upload it every 10 minutes. For example:
 
