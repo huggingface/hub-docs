@@ -62,6 +62,8 @@ Each leaderboard entry contains:
 | `verified` | Whether the result has been independently verified |
 | `author` | Organization/user info including `avatarUrl` |
 | `source` | Where the result was submitted from (model card, external, etc.) |
+| `filename` | Path to the eval results YAML file (e.g. `.eval_results/swe_bench_verified.yaml`) |
+| `pullRequest` | PR number for the submission on the benchmark dataset repo |
 
 ## Pre-aggregated multi-benchmark dataset
 
