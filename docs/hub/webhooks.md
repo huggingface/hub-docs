@@ -120,10 +120,6 @@ In the current version of webhooks, the top-level property `repo` is always spec
 		"api": "https://huggingface.co/api/models/some-user/some-repo"
 	},
 	"headSha": "c379e821c9c95d613899e8c4343e4bfee2b0c600",
-	"tags": [
-		"license:other",
-		"has_space"
-	],
 	"owner": {
 		"id": "61d2000c3c2083e1c08af22d"
 	}
