@@ -37,7 +37,7 @@ To create an access token, go to your settings, then click on the [Access Tokens
 
 Select a role and a name for your token and voilà - you're ready to go!
 
-You can delete, rotate, and refresh User Access Tokens by clicking on the **Manage** button.
+You can delete and rotate User Access Tokens by clicking on the **Manage** button.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/delete-token.png"/>
