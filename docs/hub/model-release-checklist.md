@@ -223,6 +223,29 @@ A successful model release extends beyond the initial publication. To maintain q
 3. **Community Interaction**:
    Use the Community tab to answer questions, address feedback, and resolve issues promptly. Clarify confusion, accept helpful suggestions, and close off-topic threads to keep discussions focused.
 
+### Add Evaluation Results
+
+If you evaluate on any of the [supported benchmark datasets on Hub](https://huggingface.co/datasets?benchmark=benchmark:official&sort=trending) you can add evaluation results to your model repository. Doing this will make benchmark scores visible directly on the model page and benchmark leaderboard in dataset repository. See the [Evaluation Results documentation](https://huggingface.co/docs/hub/eval-results) for the full specification.
+
+To add evaluation results, create YAML files in the `.eval_results/` folder of your model repository. Each file references a Hub Benchmark dataset:
+
+```yaml
+# .eval_results/gpqa.yaml
+- dataset:
+    id: Idavidrein/gpqa
+    task_id: diamond
+  value: 76.1
+  date: "2026-03-19"
+  source:
+    url: https://huggingface.co/your-org/your-model
+    name: Model Card
+    user: your-username
+```
+
+The `task_id` must match a task defined in the benchmark dataset's `eval.yaml`. You can find available benchmarks and their task IDs by checking the `eval.yaml` file in benchmark dataset repos like [GPQA](https://huggingface.co/datasets/Idavidrein/gpqa/blob/main/eval.yaml).
+
+Anyone in the community can also submit evaluation results to any model via Pull Request. Community-submitted scores display a "community" badge on the model page. To streamline this process, you can use the [community-evals](https://github.com/huggingface/community-evals) repository, which provides scripts and skill for extracting scores from model cards and creating PRs automatically.
+
 ### Tracking Usage and Impact
 
 1. **Usage Metrics**:
