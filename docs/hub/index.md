@@ -65,7 +65,7 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-streaming">Streaming Datasets</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-editing">Editing Datasets</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-libraries">Libraries</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-viewer">Dataset Viewer</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./data-studio">Data Studio</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-download-stats">Download Stats</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-data-files-configuration">Data files Configuration</a>
 </div>
@@ -94,6 +94,7 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#creating-a-bucket">Creating a Bucket</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#managing-files">Managing Files</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#use-cases">Use Cases</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets-security">Security & Compliance</a>
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-teal-100 bg-linear-to-br from-teal-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-teal-700">
