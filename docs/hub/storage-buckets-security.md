@@ -30,8 +30,8 @@ Hugging Face maintains the following certifications and compliance standards:
 <img alt="GDPR" src="https://cdn-media.huggingface.co/marketing/pmh-page/gdpr.png" width="150" />
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-security-compliande-doc.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/storage-security-compliande-doc-dark.png"/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/storage-security-compliande-doc.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/storage-security-compliande-doc-dark.png"/>
 </div>
 
 
