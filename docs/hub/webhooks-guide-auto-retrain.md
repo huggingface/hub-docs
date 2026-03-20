@@ -84,7 +84,7 @@ async def post_webhook(
 ```python
 # defined in src/models.py
 class WebhookPayloadEvent(BaseModel):
-	action: Literal["create", "update", "delete"]
+	action: Literal["create", "update", "delete", "move"]
 	scope: str
 
 class WebhookPayloadRepo(BaseModel):

@@ -76,6 +76,7 @@ As an example, here is the full payload when a Pull Request is opened:
     },
     "content": "Add co2 emissions information to the model card",
     "hidden": false,
+    // Note: when `hidden` is `true`, `content` will be undefined
     "url": {
       "web": "https://huggingface.co/openai-community/gpt2/discussions/19#6399f58518721fdd27fc9caa"
     }
@@ -165,21 +166,13 @@ When the top-level property `event.scope` is `"repo.config"`, the `updatedConfig
 }
 ```
 
-or
-
-```json
-"updatedConfig": {
-  "xetEnabled": true,
-}
-```
-
-or, when the updated config key is not supported by the webhook:
+When the updated config key is not supported by the webhook, the object will be empty:
 
 ```json
 "updatedConfig": {}
 ```
 
-For now only `private` and `xetEnabled` are supported. If you would benefit from more config keys being present here, please let us know at website@huggingface.co.
+For now only `private` is supported. If you would benefit from more config keys being present here, please let us know at website@huggingface.co.
 
 ### Discussions and Pull Requests
 

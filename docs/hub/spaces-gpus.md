@@ -39,13 +39,13 @@ In the following tables, you can see the Specs for the different upgrade options
 | 1x Nvidia L40S         | 8 vCPU        | 62 GB        | 48 GB           | 380 GB    | $1.80             |
 | 4x Nvidia L40S         | 48 vCPU       | 382 GB       | 192 GB          | 3200 GB   | $8.30             |
 | 8x Nvidia L40S         | 192 vCPU      | 1534 GB      | 384 GB          | 6500 GB   | $23.50            |
-| Nvidia A10G - small    | 4 vCPU        | 14 GB        | 24 GB           | 110 GB    | $1.00             |
+| Nvidia A10G - small    | 4 vCPU        | 15 GB        | 24 GB           | 110 GB    | $1.00             |
 | Nvidia A10G - large    | 12 vCPU       | 46 GB        | 24 GB           | 200 GB    | $1.50             |
 | 2x Nvidia A10G - large | 24 vCPU       | 92 GB        | 48 GB           | 1000 GB   | $3.00             |
 | 4x Nvidia A10G - large | 48 vCPU       | 184 GB       | 96 GB           | 2000 GB   | $5.00             |
 | Nvidia A100 - large    | 12 vCPU       | 142 GB       | 80 GB           | 1000 GB   | $2.50             |
-| *Nvidia H100 - deprecated December 2025*| 23 vCPU       | 240 GB       | 80 GB           | 3000 GB   | $4.50             |
-| *8x Nvidia H100 - deprecated December 2025*| 184 vCPU      | 1920 GB      | 640 GB          | 24 TB     | $36.00            |
+| ~~Nvidia H100~~ *(removed December 2025)* | | | | | |
+| ~~8x Nvidia H100~~ *(removed December 2025)* | | | | | |
 | 4x Nvidia A100         | 48 vCPU       | 568 GB       | 320 GB          | 4000 GB    | $10.00    |         
 | 8x Nvidia A100         | 96 vCPU       | 1136 GB      | 640 GB          | 8000 GB    | $20.00    | 
 

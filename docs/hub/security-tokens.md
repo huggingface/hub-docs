@@ -37,7 +37,7 @@ To create an access token, go to your settings, then click on the [Access Tokens
 
 Select a role and a name for your token and voilà - you're ready to go!
 
-You can delete and refresh User Access Tokens by clicking on the **Manage** button.
+You can delete, rotate, and refresh User Access Tokens by clicking on the **Manage** button.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/delete-token.png"/>
@@ -63,6 +63,20 @@ model = AutoModel.from_pretrained("private/model", token=access_token)
 
 > [!WARNING]
 > Try not to leak your token! Though you can always rotate it, anyone will be able to read or write your private repos in the meantime which is 💩
+
+### Token rotation
+
+You can rotate a token to generate a new token value while keeping the same name, permissions, and scopes. This is useful if a token may have been compromised. Rotate a token via the UI in your [Access Tokens settings](https://huggingface.co/settings/tokens), or programmatically via the API:
+
+```
+POST https://huggingface.co/api/settings/tokens/{token_id}/rotate
+```
+
+For fine-grained tokens, you can also retrieve an overview of the token's permissions and scopes:
+
+```
+GET https://huggingface.co/api/settings/tokens/{token_id}/fine-grained-overview
+```
 
 ### Best practices
 

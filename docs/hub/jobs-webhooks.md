@@ -16,7 +16,12 @@ webhook = create_webhook(
 )
 ```
 
-The webhook triggers the Job with the webhook payload in the environment variable `WEBHOOK_PAYLOAD`.
+The webhook triggers the Job with the following environment variables:
+
+- `WEBHOOK_PAYLOAD`: the full webhook payload as a JSON string
+- `WEBHOOK_REPO_ID`: the repository name (e.g., `user/repo-name`)
+- `WEBHOOK_REPO_TYPE`: the repository type (`model`, `dataset`, or `space`)
+- `WEBHOOK_SECRET`: the webhook secret, if one was configured
 
 The webhook payload contains multiple fields, here are a few useful ones:
 

@@ -7,7 +7,7 @@ Start by [creating a Hugging Face Hub account](https://huggingface.co/join) if y
 ## Edit using the Hub UI
 
 > [!WARNING]
-> This feature is only available for CSV datasets for now.
+> This feature is only available for CSV, TSV, and Parquet datasets for now.
 
 The Hub's web interface allows users without any technical expertise to edit a dataset.
 
