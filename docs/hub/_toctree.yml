@@ -420,8 +420,6 @@
   new: true
   isExpanded: true
   sections:
-  - local: storage-buckets # TODO link to #buckets-vs-repositories
-    title: Buckets vs Git Repositories
   - local: storage-buckets-security
     title: Bucket Security
 
