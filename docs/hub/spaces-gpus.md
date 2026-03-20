@@ -156,6 +156,32 @@ The following options are available:
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-sleep-time-options-dark.png"/>
 </div>
 
+## Replicas
+
+You can scale your Space horizontally by requesting multiple replicas. This distributes traffic across multiple instances of your Space for improved availability and throughput. You can set the number of replicas via the API:
+
+```
+POST https://huggingface.co/api/spaces/{namespace}/{repo}/replicas
+Content-Type: application/json
+
+{
+  "replicas": 2
+}
+```
+
+> [!NOTE]
+> Replicas are only available for upgraded (paid) hardware. Each replica is billed independently.
+
+## Streaming Logs, Events, and Metrics[[streaming]]
+
+You can stream real-time logs, status events, and metrics from your Space via SSE (Server-Sent Events):
+
+- **Build or run logs**: `GET /api/spaces/{namespace}/{repo}/logs/{build|run}`
+- **Status events**: `GET /api/spaces/{namespace}/{repo}/events`
+- **Metrics**: `GET /api/spaces/{namespace}/{repo}/metrics`
+
+These endpoints require authentication and return data using the [SSE protocol](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events).
+
 ## Pausing a Space[[pause]]
 
 You can `pause` a Space from the repo settings. A "paused" Space means that the Space is on hold and will not use resources until manually restarted, and only the owner of a paused Space can restart it. Paused time is not billed.

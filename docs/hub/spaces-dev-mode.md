@@ -77,7 +77,23 @@ The modal will display a warning if you have uncommitted or unpushed changes in 
 
 ## Enabling Dev Mode
 
-You can enable the Dev Mode on your Space from the web interface.
+You can enable the Dev Mode on your Space from the web interface or via the API.
+
+### Via the API
+
+You can toggle Dev Mode programmatically:
+
+```
+POST https://huggingface.co/api/spaces/{namespace}/{repo}/dev-mode
+Content-Type: application/json
+Authorization: Bearer {token}
+
+{
+  "enabled": true
+}
+```
+
+### Via the web interface
 
 <div class="flex justify-center" style="max-width: 550px">
 <img class="block dark:hidden m-0!" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-dev-mode/dev-mode-enable-contextual.png" alt="screenshot of the dev mode toggle from the contextual menu."/>

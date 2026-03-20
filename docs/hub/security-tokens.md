@@ -78,6 +78,73 @@ For fine-grained tokens, you can also retrieve an overview of the token's permis
 GET https://huggingface.co/api/settings/tokens/{token_id}/fine-grained-overview
 ```
 
+### Fine-grained token permission scopes
+
+When creating a fine-grained token, you can select from the following permission scopes:
+
+**Repository permissions** (applied per-repo or per-org):
+
+| Scope | Description |
+|-------|-------------|
+| `repo.content.read` | Read repository content (files, commits) |
+| `repo.content.write` | Push commits, create/delete branches and tags |
+| `repo.config.read` | Read repository settings |
+| `repo.config.write` | Modify repository settings |
+| `repo.config.visibility.write` | Change repository visibility (public/private) |
+| `repo.config.variables.write` | Manage Space variables |
+| `repo.config.secrets.write` | Manage Space secrets |
+| `repo.config.doi.write` | Generate or update DOI |
+| `repo.access.read` | Read gated access settings and requests |
+| `repo.access.write` | Approve/deny gated access requests |
+| `repo.lfs.read` | Read LFS files |
+| `repo.devMode.read` | Access VS Code dev mode |
+
+**Discussion & community permissions:**
+
+| Scope | Description |
+|-------|-------------|
+| `discussion.write` | Create/edit discussions and pull requests |
+| `post.write` | Create/edit social posts |
+| `collection.read` | Read collections |
+| `collection.write` | Create/edit collections |
+
+**User permissions** (applied to your own account):
+
+| Scope | Description |
+|-------|-------------|
+| `user.tokens.read` | List your tokens |
+| `user.tokens.write` | Create/manage tokens |
+| `user.billing.read` | View billing information |
+| `user.billing.write` | Modify billing settings |
+| `user.webhooks.read` | List your webhooks |
+| `user.webhooks.write` | Create/manage webhooks |
+| `user.inference-providers.write` | Manage inference provider API keys |
+
+**Infrastructure permissions:**
+
+| Scope | Description |
+|-------|-------------|
+| `inference.endpoints.read` | View Inference Endpoints |
+| `inference.endpoints.write` | Create/manage Inference Endpoints |
+| `inference.serverless.write` | Use serverless inference |
+| `job.read` | View Jobs |
+| `job.write` | Create/manage Jobs |
+| `sql-console.embed.read` | Read SQL Console embeds |
+| `sql-console.embed.write` | Create/manage SQL Console embeds |
+
+**Organization permissions** (applied per-org):
+
+| Scope | Description |
+|-------|-------------|
+| `org.read` | Read organization info |
+| `org.write` | Manage organization settings |
+| `org.billing.read` | View organization billing |
+| `org.billing.write` | Modify organization billing |
+| `resourceGroup.read` | View resource groups |
+| `resourceGroup.write` | Manage resource groups |
+| `resourceGroup.settings.write` | Manage resource group settings/members |
+| `resourceGroup.repos.write` | Add/remove repos in resource groups |
+
 ### Best practices
 
 We recommend you create one access token per app or usage. For instance, you could have a separate token for:
