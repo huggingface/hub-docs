@@ -33,10 +33,10 @@ Useful for Spaces that are meant to be duplicated by other users.
 Setting this value will not automatically assign an hardware to this Space.  
 Value must be a valid hardware flavor. Current valid hardware flavors:
 - CPU: `"cpu-basic"`, `"cpu-upgrade"`
-- GPU: `"t4-small"`, `"t4-medium"`, `"l4x1"`,
-	`"l4x4"`, `"a10g-small"`, `"a10g-large"`, `"a10g-largex2"`,
+- GPU: `"t4-small"`, `"t4-medium"`, `"l4x1"`, `"l4x4"`,
+	`"l40sx1"`, `"l40sx4"`, `"l40sx8"`,
+	`"a10g-small"`, `"a10g-large"`, `"a10g-largex2"`,
 	`"a10g-largex4"`, `"a100-large"`, `"a100x4"`, `"a100x8"`
-- TPU: `"v5e-1x1"`, `"v5e-2x2"`, `"v5e-2x4"`
 
 **`suggested_storage`** : _string_  
 Specify the suggested [permanent storage](https://huggingface.co/docs/hub/spaces-storage) on which this Space must be run.  
@@ -103,11 +103,11 @@ Duration of the OAuth token in minutes. Defaults to 480 minutes (8 hours). Maxim
 **`hf_oauth_authorized_org`** : _string_ or _List[string]_
 Restrict OAuth access to members of specific organizations. See [Adding a Sign-In with HF button to your space](https://huggingface.co/docs/hub/spaces-oauth) for more details.
 
-**`disable_embedding`** : _boolean_  
+**`disable_embedding`** : _boolean_
 Whether the Space iframe can be embedded in other websites.
 Defaults to false, i.e. Spaces *can* be embedded.
 
-**`startup_duration_timeout`**: _string_  
+**`startup_duration_timeout`**: _string_
 Set a custom startup duration timeout for your Space. This is the maximum time your Space is allowed to start before it times out and is flagged as unhealthy.
 Defaults to 30 minutes, but any valid duration (like `1h`, `30m`) is acceptable.
 
