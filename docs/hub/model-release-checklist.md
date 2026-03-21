@@ -225,7 +225,7 @@ A successful model release extends beyond the initial publication. To maintain q
 
 ### Add Evaluation Results
 
-If you evaluate on any of the [supported benchmark datasets on Hub](https://huggingface.co/datasets?benchmark=benchmark:official&sort=trending) you can add evaluation results to your model repository. Doing this will make benchmark scores visible directly on the model page and benchmark leaderboard in dataset repository. See the [Evaluation Results documentation](https://huggingface.co/docs/hub/eval-results) for the full specification.
+If you evaluate on any of the [supported benchmark datasets on the Hub](https://huggingface.co/datasets?benchmark=benchmark:official&sort=trending), you can add evaluation results to your model repository. This will make benchmark scores visible directly on the model page and benchmark leaderboard in the dataset repository. See the [Evaluation Results documentation](https://huggingface.co/docs/hub/eval-results) for the full specification.
 
 To add evaluation results, create YAML files in the `.eval_results/` folder of your model repository. Each file references a Hub Benchmark dataset:
 
