@@ -242,7 +242,7 @@ To add evaluation results, create YAML files in the `.eval_results/` folder of y
     user: your-username
 ```
 
-The `task_id` must match a task defined in the benchmark dataset's `eval.yaml`. You can find available benchmarks and their task IDs by checking the `eval.yaml` file in benchmark dataset repos like [GPQA](https://huggingface.co/datasets/Idavidrein/gpqa/blob/main/eval.yaml).
+The `task_id` must match a task defined in the benchmark dataset's `eval.yaml`. You can find available benchmarks and their task IDs by checking the `eval.yaml` file in benchmark dataset repos like [HLE](https://huggingface.co/datasets/cais/hle/blob/main/eval.yaml).
 
 Anyone in the community can also submit evaluation results to any model by opening a Pull Request. Community-submitted scores display a "community" badge on the model page. To streamline this process, you can use the [community-evals](https://github.com/huggingface/community-evals) repository, which provides scripts and an agent skill for extracting scores from model cards and creating PRs automatically.
 
