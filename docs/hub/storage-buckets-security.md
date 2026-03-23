@@ -2,6 +2,9 @@
 
 Storage Buckets are built on the same infrastructure that powers the Hugging Face Hub, with enterprise-grade security and compliance built in.
 
+<img class="block dark:hidden mt-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/storage-security-compliande-doc.png"/>
+<img class="hidden dark:block mt-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/storage-security-compliande-doc-dark.png"/>
+
 ## Encryption
 
 All data stored in buckets is encrypted at rest using **AES-256** encryption. Data in transit is protected via **TLS**.
@@ -30,8 +33,6 @@ Hugging Face maintains the following certifications and compliance standards:
 <div class="flex justify-start flex-wrap gap-5">
 <img alt="SOC 2" src="https://cdn-media.huggingface.co/marketing/pmh-page/soc2.png" width="150" class="mb-0" />
 <img alt="GDPR" src="https://cdn-media.huggingface.co/marketing/pmh-page/gdpr.png" width="150" class="mb-0" />
-<img class="block dark:hidden mt-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/storage-security-compliande-doc.png"/>
-<img class="hidden dark:block mt-0" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/storage-security-compliande-doc-dark.png"/>
 </div>
 
 
