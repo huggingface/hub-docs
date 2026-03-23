@@ -109,6 +109,22 @@ print(f"Released: {info.created_at}")
 print(f"Parameters: {info.safetensors.total / 1e9:.1f}B" if info.safetensors else "")
 ```
 
+## Model-centric view: eval results per model
+
+The leaderboard API gives a dataset-centric view (all models on one benchmark). For the reverse — all benchmark scores for a single model — use `model_info` with `expand=["evalResults"]`:
+
+```python
+from huggingface_hub import HfApi
+
+api = HfApi()
+info = api.model_info("Qwen/Qwen3.5-397B-A17B", expand=["evalResults"])
+
+for result in info.eval_results:
+    print(f"{result.dataset_id}: {result.value}")
+```
+
+This returns [`EvalResultEntry`](https://huggingface.co/docs/huggingface_hub/package_reference/hf_api#huggingface_hub.EvalResultEntry) objects parsed from the model's `.eval_results/` files.
+
 ## Example: building on leaderboard data
 
 The [Benchmark Leaderboard Race](https://huggingface.co/spaces/davanstrien/benchmark-race) Space combines these data sources to create an animated visualization of how model rankings evolve over time. You can build your own analyses and visualizations on top of this data — see the [source code](https://huggingface.co/spaces/davanstrien/benchmark-race/tree/main) for a complete example.
