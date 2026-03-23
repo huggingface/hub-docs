@@ -14,6 +14,12 @@ for ds in api.list_datasets(benchmark=True):
     print(ds.id)
 ```
 
+Or via the REST API directly (useful for agents and scripting):
+
+```
+GET https://huggingface.co/api/datasets?filter=benchmark:official
+```
+
 ## Getting leaderboard rankings
 
 The leaderboard API returns ranked model scores for a benchmark dataset:
