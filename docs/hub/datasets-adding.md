@@ -74,6 +74,12 @@ See the list of [Libraries supported by the Datasets Hub](./datasets-libraries) 
 
 Since dataset repos are Git repositories, you can use Git to push your data files to the Hub. Follow the guide on [Getting Started with Repositories](repositories-getting-started) to learn about using the `git` CLI to commit and push your datasets.
 
+## Ingest datasets
+
+If you have data in databases, cloud storage or behind APIs, you can ingest them to Hugging Face as ready-to-use datasets.
+
+Find more information in the [documentation on ingesting datasets](./datasets-ingesting).
+
 ## File formats
 
 The Hub natively supports multiple file formats:
@@ -81,12 +87,14 @@ The Hub natively supports multiple file formats:
 - Parquet (.parquet)
 - CSV (.csv, .tsv)
 - JSON Lines, JSON (.jsonl, .json)
-- Arrow streaming format (.arrow)
+- Arrow streaming and IPC formats (.arrow)
 - Text (.txt)
 - Images (.png, .jpg, etc.)
 - Audio (.wav, .mp3, etc.)
+- Video (.mp4, .mov, .avi, etc.)
 - PDF (.pdf)
-- [WebDataset](https://github.com/webdataset/webdataset) (.tar)
+- [WebDataset](./datasets-webdataset) (.tar)
+- [Lance](./datasets-lance) (.lance)
 
 It supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
 

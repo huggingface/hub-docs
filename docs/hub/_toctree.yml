@@ -223,10 +223,11 @@
     title: Gated Datasets
   - local: datasets-adding
     title: Uploading Datasets
+    sections:
+    - local: datasets-ingesting
+      title: Ingesting Datasets
   - local: datasets-upload-guide-llm
     title: Uploading Datasets (for LLMs)
-  - local: datasets-ingesting
-    title: Ingesting Datasets
   - local: datasets-downloading
     title: Downloading Datasets
   - local: datasets-streaming
@@ -291,25 +292,25 @@
         title: Editing Datasets
       - local: datasets-viewer-configure
         title: Configure the Dataset Viewer
-      - local: datasets-viewer-embed
-        title: Embed the Dataset Viewer in a webpage
-      - local: datasets-viewer-sql-console
-        title: "SQL Console"
+        sections:
+          - local: datasets-data-files-configuration
+            title: Data files Configuration
+          - local: datasets-file-names-and-splits
+            title: File names and splits
+          - local: datasets-manual-configuration
+            title: Manual Configuration
+          - local: datasets-audio
+            title: Audio Dataset
+          - local: datasets-image
+            title: Image Dataset
+          - local: datasets-video
+            title: Video Dataset
+          - local: datasets-viewer-embed
+            title: Embed the Dataset Viewer in a webpage
+          - local: datasets-viewer-sql-console
+            title: "SQL Console"
   - local: datasets-download-stats
     title: Datasets Download Stats
-  - local: datasets-data-files-configuration
-    title: Data files Configuration
-    sections:
-      - local: datasets-file-names-and-splits
-        title: File names and splits
-      - local: datasets-manual-configuration
-        title: Manual Configuration
-      - local: datasets-audio
-        title: Audio Dataset
-      - local: datasets-image
-        title: Image Dataset
-      - local: datasets-video
-        title: Video Dataset
 
 - local: spaces
   title: Spaces
