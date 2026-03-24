@@ -67,7 +67,7 @@ Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"FireRedTeam/FireRed-Image-Edit-1.0","providerModelId":"fal-ai/firered-image-edit"} } }
+    providersMapping={ {"fal-ai":{"modelId":"fal/Qwen-Image-Edit-2511-Multiple-Angles-LoRA","providerModelId":"fal-ai/qwen-image-edit-2511/lora"} } }
 />
 
 
