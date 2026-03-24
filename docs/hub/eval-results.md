@@ -3,7 +3,7 @@
 > [!WARNING]
 > This is a work in progress feature.
 
-The Hub provides a decentralized system for tracking model evaluation results. Benchmark datasets host leaderboards, and model repos store evaluation scores that automatically appear on both the model page and the benchmark's leaderboard. To access leaderboard data programmatically, see the [Leaderboard Data guide](./leaderboard-data-guide).
+The Hub provides a decentralized system for tracking model evaluation results. Benchmark datasets host leaderboards, and model repos store evaluation scores that automatically appear on both the model page and the benchmark's leaderboard.
 
 ## Benchmark Datasets
 
