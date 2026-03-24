@@ -25,6 +25,37 @@ A **chunk** is a variable-sized content block derived from files using Content-D
 
 [Detailed chunking description](./chunking)
 
+#### Why Content-Defined (not Fixed-Size) Chunks?
+
+The critical property of CDC is **boundary stability**: chunk boundaries are determined by the data content via a rolling hash, not by fixed byte offsets. This means insertions or deletions only affect chunks locally — all chunks outside the edited region remain identical.
+
+To illustrate, consider a data stream where `|` marks chunk boundaries (positions where the rolling hash matches a pattern):
+
+```text
+Original data:
+
+  ···AAAAAA|BBBBBBBB|CCCCCCCC|DDDDDDDD|EEEEEEEE···
+     chunk0  chunk1   chunk2   chunk3   chunk4
+
+Insert new data (XX) inside chunk2:
+
+  ···AAAAAA|BBBBBBBB|CCCCXXCCCC|DDDDDDDD|EEEEEEEE···
+     chunk0  chunk1   chunk2'    chunk3   chunk4
+     (same)  (same)  (changed)   (same)   (same)
+```
+
+With fixed-size chunking, the same insertion would shift every boundary after the edit, invalidating all downstream chunks:
+
+```text
+Fixed-size chunking — insert XX inside chunk2:
+
+  ···AAAAAA|BBBBBBBB|CCCCXXCC|CCDDDDDD|DDEEEEEE···
+     chunk0  chunk1   chunk2'  chunk3'   chunk4'
+     (same)  (same)  (changed) (changed) (changed)
+```
+
+This difference is the foundation of Xet's storage efficiency: when a file is updated, only the chunks that actually changed need to be uploaded and stored. For large files with small edits (common in ML workflows — checkpoint updates, dataset appends), this translates to uploading kilobytes instead of gigabytes.
+
 ### Xorbs
 
 **Xorbs** are objects that aggregate multiple chunks for efficient storage and transfer:
