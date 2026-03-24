@@ -28,36 +28,26 @@ The leaderboard API returns ranked model scores for a benchmark dataset:
 GET https://huggingface.co/api/datasets/{dataset_id}/leaderboard
 ```
 
-Each entry includes the model's rank, score, model ID, and the submitting organization's avatar:
+Use [`get_dataset_leaderboard`](https://huggingface.co/docs/huggingface_hub/package_reference/hf_api#huggingface_hub.HfApi.get_dataset_leaderboard) to fetch ranked model scores as typed [`DatasetLeaderboardEntry`](https://huggingface.co/docs/huggingface_hub/package_reference/hf_api#huggingface_hub.DatasetLeaderboardEntry) objects:
 
 ```python
-import requests
+from huggingface_hub import HfApi
 
-resp = requests.get(
-    "https://huggingface.co/api/datasets/SWE-bench/SWE-bench_Verified/leaderboard"
-)
-entries = resp.json()
+api = HfApi()
+leaderboard = api.get_dataset_leaderboard("SWE-bench/SWE-bench_Verified")
 
-for entry in entries[:5]:
-    print(f"#{entry['rank']} {entry['modelId']}: {entry['value']}")
-```
-
-```
-#1 Qwen/Qwen3.5-397B-A17B: 76.4
-#2 MiniMaxAI/MiniMax-M2.5: 75.8
-#3 stepfun-ai/Step-3.5-Flash: 74.4
-...
+for entry in leaderboard[:5]:
+    print(f"#{entry.rank} {entry.model_id}: {entry.value}")
 ```
 
 > [!TIP]
-> For gated benchmark datasets, pass an authorization header:
+> `huggingface_hub` uses your cached token by default. For gated benchmark datasets, make sure you are logged in (`huggingface-cli login`) or pass a token explicitly:
 > ```python
-> headers = {"Authorization": "Bearer hf_..."}
-> resp = requests.get(url, headers=headers)
+> leaderboard = api.get_dataset_leaderboard("gated/benchmark", token="hf_...")
 > ```
 
 > [!TIP]
-> Curl one-liner for quick access (useful for scripting):
+> Curl one-liner for quick access (useful for agents and scripting):
 > ```bash
 > curl https://huggingface.co/api/datasets/cais/hle/leaderboard \
 >   --header "Authorization: Bearer $(cat ~/.cache/huggingface/token)" | jq .
@@ -65,18 +55,19 @@ for entry in entries[:5]:
 
 ### Response fields
 
-Each leaderboard entry contains:
+Each [`DatasetLeaderboardEntry`](https://huggingface.co/docs/huggingface_hub/package_reference/hf_api#huggingface_hub.DatasetLeaderboardEntry) contains:
 
 | Field | Description |
 |---|---|
 | `rank` | Position on the leaderboard |
-| `modelId` | Full model ID (e.g. `Qwen/Qwen3.5-397B-A17B`) |
+| `model_id` | Full model ID (e.g. `Qwen/Qwen3.5-397B-A17B`) |
 | `value` | The benchmark score |
 | `verified` | Whether the result has been independently verified |
-| `author` | Organization/user info including `avatarUrl` |
+| `author` | A [`User`](https://huggingface.co/docs/huggingface_hub/package_reference/hf_api#huggingface_hub.User) or [`Organization`](https://huggingface.co/docs/huggingface_hub/package_reference/hf_api#huggingface_hub.Organization) object |
 | `source` | Where the result was submitted from (model card, external, etc.) |
 | `filename` | Path to the eval results YAML file (e.g. `.eval_results/swe_bench_verified.yaml`) |
-| `pullRequest` | PR number for the submission on the benchmark dataset repo |
+| `pull_request` | PR number for the submission on the benchmark dataset repo |
+| `notes` | Optional notes associated with the entry |
 
 ## Pre-aggregated multi-benchmark dataset
 
