@@ -14,23 +14,23 @@ Make sure the `hf` CLI is installed and up to date. See the [CLI installation gu
 Skills give your agent the context it needs to use tools effectively. Install the CLI Skill so your agent knows every `hf` command and stays current with the latest updates. Learn more about Skills at [agentskills.io](https://agentskills.io).
 
 ```bash
-# install globally (available in all projects)
+# install globally (available in all projects, works with Codex, Cursor, OpenCode,
+# and any agent that loads skills from ~/.agents/skills)
+hf skills add --global
+
+# for Claude Code use the --claude flag
 hf skills add --claude --global
 
-# or install for the current project only
+# or install for the current project only (works with Codex, Cursor, OpenCode,
+# and any agent that loads skills from .agents/skills)
+hf skills add
+
+# for Claude Code, use the --claude flag
 hf skills add --claude
 ```
 
 > [!TIP]
 > The Skill is generated from your locally installed CLI version, so it's always up to date.
-
-This also works with other coding agents:
-
-```bash
-hf skills add --codex
-hf skills add --cursor
-hf skills add --opencode
-```
 
 Alternatively, you can install via the Claude Code plugin system:
 
