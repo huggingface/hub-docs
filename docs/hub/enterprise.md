@@ -89,6 +89,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | [Audit logs](./audit-logs)                                              |  ❌  |     ✅      |     ✅      |       ✅        |
 | [Resource groups](./enterprise-advanced-security)                   |  ❌  |     ✅      |     ✅      |       ✅        |
 | [Tokens admin / management](./enterprise-tokens-management)         |  ❌  |     ✅      |     ✅      |       ✅        |
+| [Token revocation](./enterprise-tokens-management#revoking-a-token-via-api) |  ❌  |     ❌      |     ✅      |       ✅        |
 | [Users Download analytics](./enterprise-network-security)           |  ❌  |     ❌      |     ❌      |       ✅        |
 | [Content access / policy controls](./enterprise-network-security)   |  ❌  |     ❌      |     ❌      |       ✅        |
 | [Network access controls](./enterprise-network-security)            |  ❌  |     ❌      |     ❌      |       ✅        |

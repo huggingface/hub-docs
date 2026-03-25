@@ -13,7 +13,7 @@ The token listing feature displays all access tokens within your organization. A
   - Unauthorized access to private resources ("leaks")
   - Overly broad access scopes
   - Suboptimal token hygiene (e.g., tokens that have not been rotated in a long time)
-- Identify and revoke inactive or unused tokens
+- Identify inactive or unused tokens
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-list.png" />
@@ -49,9 +49,8 @@ When token policy is set to "Require administrator approval", organization admin
 - **Pending** tokens are awaiting an administrator decision
 - **Approved** tokens have been authorized and are active
 - **Denied** tokens were rejected before ever being granted access
-- **Revoked** tokens were previously approved but have since had their access removed
 
-When a token is denied or revoked, the user who created the token receives an email notification.
+When a token is denied, the user who created the token receives an email notification.
 
 > [!NOTE]
 > Token names are only visible to administrators when the "Require administrator approval" policy is enabled.
@@ -61,9 +60,16 @@ When a token is denied or revoked, the user who created the token receives an em
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-review-dark.png" />
 </div>
 
-## Revoking a Token via API
+## Revoking Tokens
 
-Organization administrators can revoke a member's access token programmatically by providing the raw token value. This is useful for automated workflows such as secrets scanning, where a leaked token is detected and needs to be revoked immediately.
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
+
+Organization administrators can revoke any member's access token from the token detail page. A revoked token can no longer access the organization's resources, but continues to work elsewhere. The token owner receives an email notification upon revocation.
+
+### Revoking via API
+
+Administrators can also revoke a token programmatically by providing the raw token value. This is useful for automated workflows such as secrets scanning, where a leaked token is detected and needs to be revoked immediately.
 
 ```bash
 # ORG_NAME should be your organization name and ADMIN_HF_TOKEN an admin's access token
@@ -77,12 +83,7 @@ curl -X POST "https://huggingface.co/api/organizations/${ORG_NAME}/settings/toke
 > [!TIP]
 > To avoid leaking token values in shell history or logs, pass them via environment variables or files, and avoid pasting raw tokens directly into command lines.
 
-Key behaviors:
-
-- The token is not deleted — it is only revoked from accessing the organization's resources and will continue to work elsewhere
-- The token owner receives an email notification upon revocation
-- An administrator cannot revoke their own token (`LEAKED_HF_TOKEN` cannot have the same value as `ADMIN_HF_TOKEN` in the snippet above)
-- This endpoint is available on Team & Enterprise plans
+An administrator cannot revoke their own token (`LEAKED_HF_TOKEN` cannot have the same value as `ADMIN_HF_TOKEN` in the snippet above).
 
 ## Programmatic Token Issuance
 
