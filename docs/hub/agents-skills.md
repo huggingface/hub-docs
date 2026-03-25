@@ -58,7 +58,7 @@ Install via the Cursor plugin flow using the [repository URL](https://github.com
 | [`huggingface-vision-trainer`](https://github.com/huggingface/skills/tree/main/skills/huggingface-vision-trainer) | Train object detection and image classification models |
 | [`huggingface-community-evals`](https://github.com/huggingface/skills/tree/main/skills/huggingface-community-evals) | Run evaluations against models on the Hugging Face Hub on local hardware |
 | [`huggingface-jobs`](https://github.com/huggingface/skills/tree/main/skills/huggingface-jobs) | Run compute jobs on Hugging Face infrastructure |
-| [`huggingface-trackio`](https://github.com/huggingface/skills/tree/main/skills/huggingface-trackio) | Track and visualize ML training experiments |
+| [`huggingface-trackio`](https://github.com/huggingface/skills/tree/main/skills/huggingface-trackio) | Track and visualize ML training experiments with Trackio |
 | [`huggingface-paper-publisher`](https://github.com/huggingface/skills/tree/main/skills/huggingface-paper-publisher) | Publish and manage research papers on the Hub |
 | [`huggingface-tool-builder`](https://github.com/huggingface/skills/tree/main/skills/huggingface-tool-builder) | Build reusable scripts for HF API operations |
 | [`gradio`](https://github.com/huggingface/skills/tree/main/skills/huggingface-gradio) | Build Gradio web UIs and demos |
