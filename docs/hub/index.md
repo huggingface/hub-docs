@@ -1,6 +1,6 @@
 # Hugging Face Hub documentation
 
-The Hugging Face Hub is the reference AI platform, with over 2M models, 500k datasets, and 1M demo apps (Spaces), all open source and publicly available, where people can easily collaborate and build ML together. Explore, experiment, collaborate, and build technology all under one roof. Are you ready to join the path towards open-source Machine Learning? 🤗
+The Hugging Face Hub is the reference AI platform, with over 2M models, 500k datasets, and 1M demo apps (Spaces), all open source and publicly available, where people can easily collaborate and build ML together. Explore, experiment, collaborate, and build technology all under one roof. Are you ready to join the path towards open-source AI? 🤗
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-10">
 
