@@ -99,18 +99,18 @@ Consider a byte stream where `|` marks positions where `(h & MASK) == 0` (a chun
 Original byte stream:
 
   ···AAAAAA|BBBBBBBB|CCCCCCCC|DDDDDDDD|EEEEEEEE|FFFFFFFF···
-            ↑        ↑        ↑        ↑        ↑
-         boundary  boundary  boundary  boundary  boundary
-        (content   (content  (content  (content  (content
-         match)     match)    match)    match)    match)
+           ↑       ↑       ↑       ↑       ↑
+        boundary boundary boundary boundary boundary
+        (content (content (content (content (content
+         match)   match)   match)   match)   match)
 
 Insert new data (XX) inside chunk C:
 
   ···AAAAAA|BBBBBBBB|CCCCXXCCCC|DDDDDDDD|EEEEEEEE|FFFFFFFF···
-            ↑        ↑          ↑        ↑        ↑
-          same!    same!     boundary   same!    same!
-                             may shift
-                             slightly
+           ↑       ↑         ↑       ↑       ↑
+         same!   same!    boundary  same!   same!
+                          may shift
+                          slightly
 ```
 
 Chunks A, B, D, E, and F are unchanged because their content — and therefore their rolling hash sequences — are identical. Only chunk C (and possibly one neighbor) is affected by the edit. The `MIN_CHUNK_SIZE` and `MAX_CHUNK_SIZE` constraints ensure the disruption stays bounded.

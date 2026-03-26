@@ -58,7 +58,7 @@ flowchart LR
     E --> F["Upload to\nXet Storage"]
 ```
 
-When a file is chunked, each chunk's hash is checked against what is already stored — first locally, then globally across all Xet storage. Duplicate chunks are skipped entirely. New chunks are grouped into 64 MB blocks and uploaded. Each block is stored once in a content-addressed store (CAS), keyed by its hash.
+When a file is chunked, each chunk's hash is checked against what is already stored. This happens at multiple levels: first against chunks already seen in the current upload session, then against a local cache of previously uploaded metadata, and finally against all of Xet storage via a global deduplication query. Duplicate chunks are skipped entirely. New chunks are grouped into 64 MB blocks and uploaded. Each block is stored once in a content-addressed store (CAS), keyed by its hash.
 
 ## Storage Savings in Practice
 
