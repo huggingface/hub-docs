@@ -110,7 +110,6 @@ Volume types:
 | Type | Example |
 |------|---------|
 | Model repo | `-v hf://openai/gpt-oss-120b:/model` |
-| Model repo (explicit) | `-v hf://models/openai/gpt-oss-120b:/model` |
 | Dataset repo | `-v hf://datasets/stanfordnlp/imdb:/data` |
 | Storage bucket | `-v hf://buckets/username/my-bucket:/mnt` |
 | Subfolder | `-v hf://datasets/org/my-dataset/train:/data` |
