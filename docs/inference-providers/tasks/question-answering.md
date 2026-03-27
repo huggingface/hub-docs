@@ -33,7 +33,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-large-uncased-whole-word-masking-finetuned-squad","providerModelId":"google-bert/bert-large-uncased-whole-word-masking-finetuned-squad"}} }
+    providersMapping={ {"hf-inference":{"modelId":"ahotrod/electra_large_discriminator_squad2_512","providerModelId":"ahotrod/electra_large_discriminator_squad2_512"}} }
 />
 
 

@@ -120,7 +120,7 @@ Find out more about Question Answering [here](../tasks/question-answering).
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"google-bert/bert-large-uncased-whole-word-masking-finetuned-squad","providerModelId":"google-bert/bert-large-uncased-whole-word-masking-finetuned-squad"} } }
+    providersMapping={ {"hf-inference":{"modelId":"ahotrod/electra_large_discriminator_squad2_512","providerModelId":"ahotrod/electra_large_discriminator_squad2_512"} } }
 />
 
 
