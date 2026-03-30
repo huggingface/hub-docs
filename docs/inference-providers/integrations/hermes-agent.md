@@ -8,7 +8,7 @@ Hermes Agent natively supports Hugging Face Inference Providers, giving you acce
 
 ## Prerequisites
 
-- Hermes Agent installed ([installation guide](https://github.com/NousResearch/hermes-agent#installation))
+- Hermes Agent installed ([installation guide](https://github.com/NousResearch/hermes-agent#quick-install))
 - A Hugging Face account with [API token](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) (needs "Make calls to Inference Providers" permission)
 
 ## Configuration
