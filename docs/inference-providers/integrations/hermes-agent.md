@@ -25,10 +25,10 @@ Then select Hugging Face as your provider via `hermes model`, or pass it directl
 hermes chat --provider hf
 ```
 
-For full configuration options including routing suffixes and permanent config, see the [Hermes Agent HF configuration guide](https://hermes-agent.nousresearch.com/docs/user-guide/configuration#hugging-face-inference-providers).
+For full configuration options including routing suffixes and permanent config, see the [Hermes Agent HF configuration guide](https://hermes-agent.nousresearch.com/docs/user-guide/configuration/#hugging-face-inference-providers).
 
 ## Resources
 
 - [Hermes Agent Documentation](https://hermes-agent.nousresearch.com)
-- [HF Configuration Guide](https://hermes-agent.nousresearch.com/docs/user-guide/configuration#hugging-face-inference-providers)
+- [HF Configuration Guide](https://hermes-agent.nousresearch.com/docs/user-guide/configuration/#hugging-face-inference-providers)
 - [GitHub](https://github.com/NousResearch/hermes-agent)
