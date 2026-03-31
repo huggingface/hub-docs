@@ -4,7 +4,7 @@
 
 ## Overview
 
-Hermes Agent natively supports Hugging Face Inference Providers, giving you access to open models from 17+ providers through a single interface.
+Hermes Agent natively supports Hugging Face Inference Providers, giving you access to 100s of open models from 17+ providers through a single interface.
 
 ## Prerequisites
 
