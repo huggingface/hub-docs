@@ -33,7 +33,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"cahya/bert-base-indonesian-NER","providerModelId":"cahya/bert-base-indonesian-NER"}} }
+    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-large-NER","providerModelId":"dslim/bert-large-NER"}} }
 />
 
 
