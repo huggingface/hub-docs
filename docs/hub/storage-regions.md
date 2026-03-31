@@ -89,4 +89,4 @@ For example, European users storing repositories in the EU region can expect app
 
 Both Spaces's storage and runtime use the chosen region.
 
-Available hardware configurations vary by region, and some features may not be available in all regions.
+Available hardware configurations vary by region, and some features may not be available in all regions. Contact your HF account team for specific requests.
