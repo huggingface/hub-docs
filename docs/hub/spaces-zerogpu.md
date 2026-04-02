@@ -13,7 +13,7 @@ Unlike traditional single-GPU allocations, ZeroGPU's efficient system lowers bar
 
 - **Using existing ZeroGPU Spaces**
   - ZeroGPU Spaces are available to use for free to all users. (Visit [the curated list](https://huggingface.co/spaces/enzostvs/zero-gpu-spaces)).
-  - [PRO users](https://huggingface.co/subscribe/pro) get x7 more daily usage quota and highest priority in GPU queues when using any ZeroGPU Spaces.
+  - [PRO users](https://huggingface.co/subscribe/pro) get x7 more daily usage quota, highest priority in GPU queues, and can go beyond their daily quota using pre-paid credits when using any ZeroGPU Spaces.
 - **Hosting your own ZeroGPU Spaces**
   - Personal accounts: [Subscribe to PRO](https://huggingface.co/settings/billing/subscription) to access ZeroGPU in the hardware options when creating a new Gradio SDK Space.
   - Organizations: [Subscribe to a Team or Enterprise plan](https://huggingface.co/enterprise) to enable ZeroGPU Spaces for all organization members.
@@ -150,18 +150,25 @@ Check out this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a comple
 
 GPU usage is subject to **daily** quotas, per account tier:
 
-| Account type                   | Daily GPU quota  | Queue priority  |
-| ------------------------------ | ---------------- | --------------- |
-| Unauthenticated                | 2 minutes        | Low             |
-| Free account                   | 3.5 minutes      | Medium          |
-| PRO account                    | 25 minutes       | Highest         |
-| Team organization member       | 25 minutes       | Highest         |
-| Enterprise organization member | 45 minutes       | Highest         |
+| Account type                   | Included daily GPU quota | Queue priority  |
+| ------------------------------ | ------------------------ | --------------- |
+| Unauthenticated                | 2 minutes                | Low             |
+| Free account                   | 3.5 minutes              | Medium          |
+| PRO account                    | 25 minutes               | Highest         |
+| Team organization member       | 25 minutes               | Highest         |
+| Enterprise organization member | 45 minutes               | Highest         |
 
 Quota resets exactly 24 hours after your first GPU usage.
 
 > [!NOTE]
 > Remaining quota directly impacts priority in ZeroGPU queues.
+
+### Extending quota with credits
+
+PRO, Team, and Enterprise users can continue using ZeroGPU Spaces beyond their included daily quota by consuming pre-paid credits at the rate of **$1 per 10 minutes** of GPU time.
+Once your daily quota is exhausted, any additional GPU usage is automatically billed against your credit balance.
+
+You can add credits from your [billing settings](https://huggingface.co/settings/billing).
 
 ## Hosting Limitations
 

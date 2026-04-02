@@ -39,21 +39,21 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | Scale deployment with Inference Endpoints                                                                              | ✅ PAYG | ✅ PAYG                           | ✅ PAYG                           | ✅ PAYG                           |
 | Hub credits\* included in plan                                                                                         | ❌      | ❌ (bulk purchase available)      | $2k included                      | 5% of ACV included                |
 
-\* Hub credits can be utilized for inference providers, inference endpoints, Jobs, Space upgrade
+\* Hub credits can be utilized for inference providers, inference endpoints, Jobs, Space upgrade, ZeroGPU quota extension
 
 ### Spaces & Jobs
 
 | Feature                                | Free      | Team        | Enterprise  | Enterprise Plus |
 | -------------------------------------- | --------- | ----------- | ----------- | --------------- |
 | Spaces – CPU-based runtime             | 8 units\* | ✅ No limit | ✅ No limit | ✅ No limit     |
-| Spaces – ZeroGPU usage tiers           | 3.5 min†  | 25 min      | 45 min      | 45 min          |
+| Spaces – ZeroGPU usage tiers           | 3.5 min†  | 25 min†     | 45 min†     | 45 min†         |
 | Spaces – Upgraded hardware             | PAYG      | PAYG        | PAYG        | PAYG            |
 | Dev Mode / Custom domain for Spaces    | ❌        | ✅          | ✅          | ✅              |
 | Jobs & Scripts (train/fine-tune, eval) | PAYG      | PAYG        | PAYG        | PAYG            |
 
 \* running at the same time
 
-† daily quota
+† included daily quota; paid plans can extend beyond quota using credits at $1 per 10 min of GPU time
 
 ### Repo rules, access control, visibility
 
