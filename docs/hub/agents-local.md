@@ -12,9 +12,7 @@ Go to [huggingface.co/settings/local-apps](https://huggingface.co/settings/local
 
 ### 2. Find a Compatible Model
 
-Browse for models compatible with your agent of choice:
-
-- [Llama.cpp-compatible models](https://huggingface.co/models?apps=llama.cpp&sort=trending)
+Browse for [Llama.cpp-compatible models](https://huggingface.co/models?apps=llama.cpp&sort=trending).
 
 
 ### 3. Launch the llama.cpp Server
