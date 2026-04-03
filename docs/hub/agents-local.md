@@ -22,7 +22,7 @@ Browse for models compatible with your agent of choice:
 On the model page, click the **"Use this model"** button and select `llama.cpp`. It will show you the exact commands for your setup. The first step is to start a llama.cpp server, e.g.
 
 ```bash
-llama-server -hf ggml-org/gemma-4-26b-a4b-it-GGUF:Q4_K_M
+llama-server -hf ggml-org/gemma-4-26b-a4b-it-GGUF:Q4_K_M --jinja
 ```
 
 This downloads the model and starts an OpenAI-compatible API server on your machine. See the [llama.cpp guide](./gguf-llamacpp) for installation instructions.
@@ -52,7 +52,7 @@ Then add your local model to Pi's configuration file at `~/.pi/agent/models.json
       "apiKey": "none",
       "models": [
         {
-          "id": "ggml-org-gemma-4-<size>-gguf"
+          "id": "ggml-org-gemma-4-26b-4b-gguf"
         }
       ]
     }
@@ -120,7 +120,7 @@ custom_providers:
         "baseURL": "http://127.0.0.1:8080/v1"
       },
       "models": {
-        "gemma-4-<size>-it": {
+        "gemma-4-26b-4b-it": {
           "name": "Gemma 4 (local)",
           "limit": {
             "context": 128000,
