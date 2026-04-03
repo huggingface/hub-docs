@@ -154,11 +154,11 @@ GPU usage is subject to **daily** quotas, per account tier:
 | ------------------------------ | ------------------------ | --------------- |
 | Unauthenticated                | 2 minutes                | Low             |
 | Free account                   | 3.5 minutes              | Medium          |
-| PRO account                    | 25 minutes               | Highest         |
-| Team organization member       | 25 minutes               | Highest         |
-| Enterprise organization member | 45 minutes               | Highest         |
+| PRO account                    | 25 minutes (extensible)  | Highest         |
+| Team organization member       | 25 minutes (extensible)  | Highest         |
+| Enterprise organization member | 45 minutes (extensible)  | Highest         |
 
-Quota resets exactly 24 hours after your first GPU usage.
+Included daily quota resets exactly 24 hours after your first GPU usage.
 
 > [!NOTE]
 > Remaining quota directly impacts priority in ZeroGPU queues.
