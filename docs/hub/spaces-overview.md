@@ -68,7 +68,7 @@ Note: Find more detailed and comprehensive pricing information on [our pricing p
 
 Do you have an awesome Space but need help covering the hardware upgrade costs? We love helping out those with an innovative Space so please feel free to apply for a community GPU grant using the link in the _Settings_ tab of your Space and see if yours makes the cut!
 
-Read more in our dedicated sections on [Spaces GPU Upgrades](./spaces-gpus) and [Spaces Storage Upgrades](./spaces-storage).
+Read more in our dedicated sections on [Spaces GPU Upgrades](./spaces-gpus) and [Spaces Disk Usage & Storage](./spaces-storage).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-gpu-settings.png"/>
@@ -114,7 +114,7 @@ If you want to duplicate a Space, you can click the three dots at the top right 
 * Space name
 * Visibility: The Space is private by default. Read more about visibility options [here](./repositories-settings#repository-visibility).
 * Hardware: You can choose the hardware on which the Space will be running. Read more about hardware upgrades [here](./spaces-gpus).
-* Storage: If the original repo uses persistent storage, you will be prompted to choose a storage tier. Read more about persistent storage [here](./spaces-storage).
+* Storage: If the original repo uses a storage bucket, you will be prompted to configure storage. Read more about disk usage and storage [here](./spaces-storage).
 * Secrets and variables: If the original repo has set some secrets and variables, you'll be able to set them while duplicating the repo.
 
 Some Spaces might have environment variables that you may need to set up. In these cases, the duplicate workflow will auto-populate the public Variables from the source Space, and give you a warning about setting up the Secrets. The duplicated Space will use a free CPU hardware by default, but you can later upgrade if needed.

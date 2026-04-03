@@ -34,7 +34,7 @@ To get started, click the button above or follow these steps:
 1. Create a [**new Hugging Face Space**](https://huggingface.co/new-space)
 2. Select **Docker** as the Space SDK
 3. Select **Langfuse** as the Space template
-4. Enable **persistent storage** to ensure your Langfuse data is persisted across restarts
+4. Attach a **[Storage Bucket](https://huggingface.co/docs/hub/storage-buckets)** to ensure your Langfuse data is persisted across restarts
 5. Ensure the space is set to **public** visibility so Langfuse API/SDK's can access the app (see note below for more details)
 6. [Optional but recommended] For a secure deployment, replace the default values of the **environment variables**:
    - `NEXTAUTH_SECRET`: Used to validate login session cookies, generate secret with at least 256 entropy using `openssl rand -base64 32`.

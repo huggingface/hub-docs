@@ -131,9 +131,7 @@ COPY --chown=user checkpoint .
 
 ## Data Persistence
 
-The data written on disk is lost whenever your Docker Space restarts, unless you opt-in for a [persistent storage](./spaces-storage) upgrade.
-
-If you opt-in for a persistent storage upgrade, you can use the `/data` directory to store data. This directory is mounted on a persistent volume, which means that the data written in this directory will be persisted across restarts.
+The data written on disk is lost whenever your Docker Space restarts. To persist data across restarts, you can attach a [Storage Bucket](./storage-buckets) to your Space.
 
 <Tip warning="{true}">
 
