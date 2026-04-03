@@ -52,6 +52,39 @@ Remember that a repository can be part of only one Resource Group. You'll be war
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-groups-manage-move-repo-dark.png"/>
 </div>
 
+## Auto-join
+
+Auto-join automatically adds **every org member** to a Resource Group at a specified role — both members who are already in the org when auto-join is enabled, and any new members who join in the future.
+
+This is useful for Resource Groups that should be accessible to your entire organization without requiring manual membership management.
+
+### Enabling auto-join
+
+**Via the UI**: Open the Resource Group's settings page and check the **Include all org members** option, then select the role to assign.
+
+**Via the API**:
+
+```
+POST /api/organizations/:name/resource-groups/:rgId/settings
+{
+  "autoJoin": {
+    "enabled": true,
+    "role": "read"
+  }
+}
+```
+
+When auto-join is enabled on an existing Resource Group, all current org members are **immediately added** to the group at the configured role (backfill).
+
+### Auto-join and SCIM
+
+Auto-join and SCIM management are **mutually exclusive** on the same Resource Group. Auto-join adds every org member automatically; SCIM management means only the IdP controls membership. These two behaviors conflict, so:
+
+- You cannot enable auto-join on a Resource Group that is linked to a SCIM group.
+- You cannot link a SCIM group to a Resource Group that has auto-join enabled.
+
+To switch a Resource Group from auto-join to SCIM-managed (or vice versa), disable the current setting first.
+
 ## Resource Groups API
 
 You can list resource groups and add users to them (or change a member's org role and resource group assignments) via the Hub API. For the full reference, examples, and batch workflows, see the [Programmatic User Access Control Management](./programmatic-user-access-control) guide.

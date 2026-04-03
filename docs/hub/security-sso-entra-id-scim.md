@@ -105,16 +105,21 @@ Once the synchronization is complete, navigate back to your Hugging Face organiz
 
 Once your groups are provisioned from Entra ID, you can link them to Hugging Face Resource Groups to manage permissions at scale. This allows all members of a SCIM group to automatically receive specific roles (like read or write) for a collection of resources.
 
-1.  In your Hugging Face organization settings, navigate to the **SSO** -> **SCIM** tab, You will see a list of your provisioned groups under **SCIM Groups**.
+> [!NOTE]
+> Before linking, make sure the Resource Group you want to link is **empty** (has no existing members) and does **not** have auto-join enabled. Both conditions are required — linking will fail otherwise.
+
+1.  In your Hugging Face organization settings, navigate to the **SSO** -> **SCIM** tab. You will see a list of your provisioned groups under **SCIM Groups**.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-provisioned-group.png" alt="Link SCIM group to a resource group"/>
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-provisioned-group-dark.png" alt="Link SCIM group to a resource group"/>
 </div>
 
-3.  Locate the group you wish to configure and click **Link resource groups** in its row.
-4.  A dialog will appear. Click **Link a Resource Group**.
-5.  From the dropdown menus, select the **Resource Group** you want to link and the **Role Assignment** you want to grant to the members of the SCIM group.
-6.  Click **Link to SCIM group** and save the mapping.
+2.  Locate the group you wish to configure and click **Link resource groups** in its row.
+3.  A dialog will appear. Click **Link a Resource Group**.
+4.  From the dropdown menus, select the **Resource Group** you want to link and the **Role Assignment** you want to grant to the members of the SCIM group.
+5.  Click **Link to SCIM group** and save the mapping.
+
+Once linked, the Resource Group becomes **SCIM-managed**: any members already in the SCIM group are immediately added to the Resource Group (backfill), and all future membership changes in Entra ID are automatically reflected. Manual membership edits on the Resource Group via the Hub UI or API will be blocked.
 
 

@@ -43,13 +43,34 @@ Once SCIM is enabled in your IdP, provisioned users will appear in the **Users M
 
 In addition to user provisioning, SCIM supports **group provisioning**. Groups pushed from your IdP are stored as SCIM groups on Hugging Face and can be linked to [Resource Groups](./enterprise-resource-groups) from the **SCIM** tab in your organization's settings.
 
-When a SCIM group is linked to a Resource Group, membership changes are **automatically synchronized**:
+### Linking a SCIM group to a Resource Group
 
-- When a user is **added** to a group in your IdP, they are automatically added to the linked Resource Groups with the configured role.
-- When a user is **removed** from a group in your IdP, they are automatically removed from the linked Resource Groups.
-- When a SCIM group is **deleted** in your IdP, all of its members are removed from the linked Resource Groups.
+To link a SCIM group, go to your organization's **SSO → SCIM** tab. Provisioned groups are listed in a table. In the **Resource Groups** column, each group shows either a **Link resource groups** button (if no links exist yet) or the number of currently linked resource groups (e.g. "2 resource groups"). Clicking either opens a modal where you can add one or more Resource Groups, each with its own role assignment. You can also change or remove existing links from the same modal.
 
-This allows you to manage Resource Group membership entirely from your Identity Provider, without manual configuration on Hugging Face.
+Before linking, make sure the following conditions are met:
+
+- The Resource Group must have **no existing members**. Linking to a non-empty Resource Group is not allowed.
+- The Resource Group must **not have auto-join enabled**. Auto-join (which automatically adds every new org member to the RG) is mutually exclusive with SCIM management. Disable auto-join on the RG before linking.
+
+A SCIM group can be linked to multiple Resource Groups, each with its own role.
+
+### What happens after linking
+
+Once a SCIM group is linked to a Resource Group:
+
+- **Backfill**: Any members already in the SCIM group are immediately added to the Resource Group at the configured role.
+- **Ongoing sync**: Membership changes in your IdP are automatically reflected:
+  - When a user is **added** to the group in your IdP, they are added to all linked Resource Groups.
+  - When a user is **removed** from the group in your IdP, they are removed from all linked Resource Groups.
+  - When a SCIM group is **deleted** in your IdP, all its members are removed from the linked Resource Groups.
+- **Role changes**: If you update the role on a link, all current group members' roles in that Resource Group are updated immediately.
+
+### SCIM-managed Resource Groups
+
+A Resource Group linked to a SCIM group is considered **SCIM-managed**. The IdP is the sole source of truth for its membership. As a result:
+
+- Manual membership changes via the Hub UI or API are **blocked** — any attempt to add, remove, or change a member's role on a SCIM-managed Resource Group will return a `403` error.
+- Auto-join **cannot be enabled** on a SCIM-managed Resource Group. To re-enable auto-join, first remove the SCIM link.
 
 Group provisioning works the same way for both Basic SSO and Managed SSO.
 
