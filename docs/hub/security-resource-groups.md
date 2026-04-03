@@ -64,8 +64,11 @@ This is useful for Resource Groups that should be accessible to your entire orga
 
 **Via the API**:
 
-```
-POST /api/organizations/:name/resource-groups/:rgId/settings
+```http
+POST /api/organizations/{org_name}/resource-groups/{resource_group_id}/settings
+Authorization: Bearer <your_access_token>
+Content-Type: application/json
+
 {
   "autoJoin": {
     "enabled": true,
@@ -73,6 +76,15 @@ POST /api/organizations/:name/resource-groups/:rgId/settings
   }
 }
 ```
+
+- `org_name`: Your organization's slug.
+- `resource_group_id`: The Resource Group's ID (24-character hex string; get IDs from the [resource groups list API](./programmatic-user-access-control#list-resource-groups)).
+- `role`: The role to assign to all org members. One of `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+
+To disable auto-join, send the same request with `{ "autoJoin": { "enabled": false } }` — the `role` field is not required when disabling.
+
+> [!NOTE]
+> Disabling auto-join does **not** remove members who were previously auto-joined. It only stops future org members from being added automatically. Existing members remain in the Resource Group.
 
 When auto-join is enabled on an existing Resource Group, all current org members are **immediately added** to the group at the configured role (backfill).
 
