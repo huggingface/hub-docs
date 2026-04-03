@@ -6,6 +6,7 @@ This guide describes how to manage organization member roles and resource group 
 
 - [Change member role via API](#change-member-role-via-api) — Set a member's org role and resource group assignments (one member per request).
 - [Resource Groups API](#resource-groups-api) — List resource groups and add users to them.
+- [Configure auto-join via API](#configure-auto-join-via-api) — Enable or disable auto-join on a Resource Group.
 
 ---
 
@@ -416,3 +417,51 @@ For a long list of usernames, chunk them (e.g. 50 per request) and call the API 
 3. **Idempotency** — If a user is already in the resource group, the backend may return `403` for that request. Your script can catch errors and continue, or skip users already in the group if you first fetch the group's `users` list.
 4. **Rate limits** — For large batches, consider adding a short delay between requests (e.g. 0.5–1 second) to avoid hitting rate limits.
 5. **Token scope** — The access token must have sufficient permissions for the organization (typically at least "Write access to organizations settings / member management"). Create and store the token securely; do not commit it to version control.
+
+---
+
+## Configure auto-join via API
+
+[Auto-join](./security-resource-groups#auto-join) automatically adds every org member to a Resource Group at a specified role. You can enable or disable it via the API.
+
+**Enable auto-join**
+
+```http
+POST /api/organizations/{org_name}/resource-groups/{resource_group_id}/settings
+Authorization: Bearer <your_access_token>
+Content-Type: application/json
+
+{
+  "autoJoin": {
+    "enabled": true,
+    "role": "read"
+  }
+}
+```
+
+- **Path parameters**
+  - `org_name`: Organization slug (e.g. `my-org`).
+  - `resource_group_id`: The Resource Group's ID (24-character hex string; get IDs from the [list resource groups endpoint](#list-resource-groups)).
+- **Body**
+  - `role`: The role to assign to all org members. One of `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+
+Enabling auto-join on an existing Resource Group immediately adds all current org members (backfill).
+
+**Disable auto-join**
+
+Send the same request with `"enabled": false`. The `role` field is not required when disabling:
+
+```http
+POST /api/organizations/{org_name}/resource-groups/{resource_group_id}/settings
+Authorization: Bearer <your_access_token>
+Content-Type: application/json
+
+{
+  "autoJoin": {
+    "enabled": false
+  }
+}
+```
+
+> [!NOTE]
+> Disabling auto-join does **not** remove members who were previously auto-joined. It only stops future org members from being added automatically. Existing members remain in the Resource Group.
