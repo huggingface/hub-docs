@@ -37,7 +37,7 @@ By default, you'll be watching all the organizations you are a member of and wil
 
 You can also choose to get notified on arbitrary users or organizations. To do so, use the "Watch repos" button on their HF profiles. Note that you can also quickly watch/unwatch users and organizations directly from your [notifications settings](#notifications-settings).
 
-_Like GitHub or similar services, you watch a specific repository too. You can watch users/repo or organizations/repo to get notified about any new activity ona specific repository_
+Finally, you can choose to watch a specific repository and get notified about any new activity without having to watch the whole organization or user account.
 
 ## Notifications settings
 
