@@ -61,7 +61,7 @@ Once a SCIM group is linked to a Resource Group:
 - **Backfill**: Any members already in the SCIM group are immediately added to the Resource Group at the configured role.
 - **Ongoing sync**: Membership changes in your IdP are automatically reflected:
   - When a user is **added** to the group in your IdP, they are added to all linked Resource Groups.
-  - When a user is **removed** from the group in your IdP, they are removed from all linked Resource Groups.
+  - When a user is **removed** from the group in your IdP, they are removed from all linked Resource Groups, except those the user is linked to through other SCIM groups. For those, the user's role will be updated to the “highest” role granted by the other SCIM groups.
   - When a SCIM group is **deleted** in your IdP, all its members are removed from the linked Resource Groups.
 - **Role changes**: If you update the role on a link, all current group members' roles in that Resource Group are updated immediately.
 
