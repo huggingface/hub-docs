@@ -1,6 +1,6 @@
 # Local Agents with llama.cpp
 
-You can run a coding agent entirely on your own hardware. Several open-source agents connect to a local [llama.cpp](https://github.com/ggerganov/llama.cpp) server to give you an experience similar to Claude Code or Codex — but everything runs on your machine.
+You can run a coding agent entirely on your own hardware. Several open-source agents can connect to a local [llama.cpp](https://github.com/ggerganov/llama.cpp) server to give you an experience similar to Claude Code or Codex — but everything runs on your machine.
 
 ## Getting Started
 
