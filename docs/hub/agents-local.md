@@ -87,7 +87,7 @@ You can also run `openclaw onboard` interactively, select `custom-compatibility`
 
 ## Hermes
 
-[Hermes](https://github.com/anthropics/hermes) works locally with llama.cpp. Define a default config as:
+[Hermes](https://hermes-agent.nousresearch.com/) works locally with llama.cpp. Define a default config as:
 
 ```yaml
 model:
