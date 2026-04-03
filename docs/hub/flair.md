@@ -11,7 +11,7 @@ All models on the Hub come with these useful features:
 
 1. An automatically generated model card with a brief description.
 2. An interactive widget you can use to play with the model directly in the browser.
-3. An Inference API that allows you to make inference requests.
+3. An Inference Providers widget that allows you to make inference requests.
 
 ## Installation
 

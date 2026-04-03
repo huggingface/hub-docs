@@ -7,6 +7,7 @@ By default, you'll receive a notification if:
 - Someone mentions you in a discussion/PR.
 - A new comment is posted in a discussion/PR you participated in.
 - A new discussion/PR or comment is posted in one of the repositories of an organization or user you are watching.
+- Someone replies to one of your posts, blog articles, or paper pages.
 
 ![Notifications page](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/notifications-page.png)
 

@@ -10,7 +10,7 @@ All models on the Hub come with several useful features:
 1. An automatically generated model card, which model authors can complete with [information about their model](./model-cards).
 2. Metadata tags help users discover the relevant `timm` models.
 3. An [interactive widget](./models-widgets) you can use to play with the model directly in the browser.
-4. An [Inference API](./models-inference) that allows users to make inference requests.
+4. An [Inference Providers](./models-inference) that allows users to make inference requests.
 
 ## Using existing models from the Hub
 
@@ -142,7 +142,7 @@ model_reloaded = timm.create_model(
 
 ## Inference Widget and API
 
-All `timm` models on the Hub are automatically equipped with an [inference widget](./models-widgets), pictured below for [nateraw/timm-resnet50-beans](https://huggingface.co/nateraw/timm-resnet50-beans). Additionally, `timm` models are available through the [Inference API](./models-inference), which you can access through HTTP with cURL, Python's `requests` library, or your preferred method for making network requests. 
+All `timm` models on the Hub are automatically equipped with an [inference widget](./models-widgets), pictured below for [nateraw/timm-resnet50-beans](https://huggingface.co/nateraw/timm-resnet50-beans). Additionally, `timm` models are available through the [Inference Providers](./models-inference), which you can access through HTTP with cURL, Python's `requests` library, or your preferred method for making network requests. 
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-timm_widget.png"/>

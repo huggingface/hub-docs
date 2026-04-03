@@ -10,7 +10,7 @@ All models on the Hub come up with features:
 1. An automatically generated model card with a description, example code snippets, architecture overview, and more. 
 2. Metadata tags that help for discoverability and contain information such as license.
 3. An interactive widget you can use to play out with the model directly in the browser.
-4. An Inference API that allows to make inference requests.
+4. An Inference Providers widget that allows to make inference requests.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-sentence_transformers_widget.png"/>

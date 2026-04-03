@@ -1,11 +1,8 @@
 # Webhooks
 
-> [!TIP]
-> Webhooks are now publicly available!
-
 Webhooks are a foundation for MLOps-related features. They allow you to listen for new changes on specific repos or to all repos belonging to particular set of users/organizations (not just your repos, but any repo).
 
-You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces (and much more!).
+You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces (and much more!). Webhooks can also [trigger Jobs](./jobs-webhooks) to automate compute tasks in response to repo events.
 
 
 The documentation for Webhooks is below – or you can also browse our **guides** showcasing a few possible use cases of Webhooks:

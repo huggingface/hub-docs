@@ -13,7 +13,7 @@ Unlike traditional single-GPU allocations, ZeroGPU's efficient system lowers bar
 
 - **Using existing ZeroGPU Spaces**
   - ZeroGPU Spaces are available to use for free to all users. (Visit [the curated list](https://huggingface.co/spaces/enzostvs/zero-gpu-spaces)).
-  - [PRO users](https://huggingface.co/subscribe/pro) get x7 more daily usage quota, highest priority in GPU queues, and can go beyond their daily quota using pre-paid credits when using any ZeroGPU Spaces.
+  - [PRO users](https://huggingface.co/subscribe/pro) get x8 more daily usage quota, highest priority in GPU queues, and can go beyond their daily quota using pre-paid credits when using any ZeroGPU Spaces.
 - **Hosting your own ZeroGPU Spaces**
   - Personal accounts: [Subscribe to PRO](https://huggingface.co/settings/billing/subscription) to access ZeroGPU in the hardware options when creating a new Gradio SDK Space.
   - Organizations: [Subscribe to a Team or Enterprise plan](https://huggingface.co/enterprise) to enable ZeroGPU Spaces for all organization members.

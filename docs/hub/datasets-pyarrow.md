@@ -84,7 +84,7 @@ Note that Parquet files on Hugging Face are optimized to improve storage efficie
 * [Parquet Content Defined Chunking](https://huggingface.co/blog/parquet-cdc) optimizes Parquet for [Xet](https://huggingface.co/docs/hub/en/xet/index), Hugging Face's storage backend. It accelerates uploads and downloads thanks to chunk-based deduplication and allows efficient file editing
 * Page index accelerates filters when streaming and enables efficient random access, e.g. in the [Dataset Viewer](https://huggingface.co/docs/dataset-viewer)
 
-Pandas require extra argument to write optimized Parquet files:
+PyArrow requires extra arguments to write optimized Parquet files:
 
 ```python
 import pyarrow.parquet as pq

@@ -24,7 +24,7 @@ All models on the Hub come up with the following features:
 </div>
 
 
-3. An Inference API that allows to make inference requests.
+3. An Inference Providers widget that allows to make inference requests.
 
 <div class="flex justify-center">
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/PaddleNLP-3.jpg"/>

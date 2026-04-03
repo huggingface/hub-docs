@@ -117,7 +117,7 @@ definition.
 * `POSTGRE_HOST`: Set this to the host that your Postgres database is running
    on.
 
-* `POSTGRE_PORT`: Set this to the port that your Pogtgres database is running
+* `POSTGRE_PORT`: Set this to the port that your Postgres database is running
   on.
 
 * `STORAGE_PERSISTENCE`: Set this to `1` to remove the warning about ephemeral

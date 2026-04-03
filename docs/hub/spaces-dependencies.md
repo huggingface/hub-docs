@@ -4,9 +4,9 @@
 
 The default Gradio Spaces environment comes with several pre-installed dependencies:
 
-* The [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub/index) client library allows you to manage your repository and files on the Hub with Python and programmatically access the Inference API from your Space. If you choose to instantiate the model in your app with the Inference API, you can benefit from the built-in acceleration optimizations. This option also consumes less computing resources, which is always nice for the environment! 🌎 
+* The [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub/index) client library allows you to manage your repository and files on the Hub with Python and programmatically access [Inference Providers](./models-inference) from your Space. If you choose to instantiate the model in your app with Inference Providers, you can benefit from the built-in acceleration optimizations. This option also consumes less computing resources, which is always nice for the environment! 🌎 
 
-  Refer to this [page](https://huggingface.co/docs/huggingface_hub/how-to-inference) for more information on how to programmatically access the Inference API.
+  Refer to this [page](https://huggingface.co/docs/huggingface_hub/how-to-inference) for more information on how to programmatically access Inference Providers.
 
 * [`requests`](https://docs.python-requests.org/en/master/) is useful for calling third-party APIs from your app.
 
