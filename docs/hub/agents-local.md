@@ -14,10 +14,8 @@ Go to [huggingface.co/settings/local-apps](https://huggingface.co/settings/local
 
 Browse for models compatible with your agent of choice:
 
-- [Pi-compatible models](https://huggingface.co/models?apps=pi&sort=trending)
-- [OpenClaw-compatible models](https://huggingface.co/models?apps=openclaw&sort=trending)
-- [Hermes-compatible models](https://huggingface.co/models?apps=hermes&sort=trending)
-- [OpenCode-compatible models](https://huggingface.co/models?apps=opencode&sort=trending)
+- [Llama.cpp-compatible models](https://huggingface.co/models?apps=llama.cpp&sort=trending)
+
 
 ### 3. Launch the llama.cpp Server
 
