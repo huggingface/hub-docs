@@ -332,7 +332,7 @@
   - local: spaces-dev-mode
     title: Spaces Dev Mode
   - local: spaces-storage
-    title: Spaces Persistent Storage
+    title: Spaces Disk Usage & Storage
   - local: spaces-custom-domain
     title: Spaces Custom Domain
   - local: spaces-mcp-servers
