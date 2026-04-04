@@ -73,7 +73,7 @@ Members whose tokens are pending or denied receive a `403` error when accessing 
 
 > *"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."*
 
-The error message is the same for both pending and denied states — members are not told specifically that their token was denied. To see the actual status, members must navigate to the individual token's edit page (the token list page does not show authorization status).
+The error message is the same for both pending and denied states — members are not told specifically that their token was denied. To see the actual status, members must navigate to the individual token's edit page. Note that the member-facing token list at `/settings/tokens` does not show authorization status; the organization administrator listing at `/organizations/:name/settings/tokens` does show status badges for all member tokens.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-review.png" />
