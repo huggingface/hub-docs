@@ -62,9 +62,6 @@ When a token is approved or denied, the token owner receives an email notificati
 Denial is not permanent: a denied token can later be approved by an administrator, restoring its access. Likewise, an already-approved token can be denied at any time, which removes its approval-based access immediately.
 
 > [!NOTE]
-> Tokens created or updated by organization administrators are automatically approved and skip the review queue. This is determined by the creator's org role at the time of creation or permission change — if a member later creates a token with the same scope, it will enter the pending state as normal.
-
-> [!NOTE]
 > Token names are only visible to administrators when the "Require administrator approval" policy is enabled.
 
 ### What members see when blocked
