@@ -80,3 +80,36 @@ For example, if your production application needs read access to a gated model, 
 ### For Enterprise organizations
 
 If your organization needs to programmatically issue tokens for members without requiring each user to create their own token, see [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693). This Enterprise plan feature is ideal for building internal platforms, CI/CD pipelines, or custom integrations that need to access Hugging Face resources on behalf of organization members.
+
+## Tokens in organizations with token management policies
+
+Organizations on Team and Enterprise plans can enforce token policies that affect how your tokens work when accessing that organization's resources.
+
+### When your token requires approval (Team & Enterprise organizations)
+
+When you create a fine-grained token scoped to an organization that requires administrator approval, the token enters a **Pending** state automatically. It cannot access that organization's resources until an administrator approves it. You will receive an email notification when your token is approved or denied.
+
+To check your token's status, navigate to the individual token's edit page at `/settings/tokens/{token-id}`. The main token listing page does not display approval status — you must open the specific token to see it. There is no specific indicator for a pending token on the edit page — you will know your token is awaiting approval when you receive a `403` error on first use. A red error appears on the edit page if the token has been denied or revoked.
+
+> [!NOTE]
+> If you are an administrator of the organization, fine-grained tokens you create scoped to that organization are automatically approved — no review step is required.
+
+### When your token is denied (Team & Enterprise organizations)
+
+If your token is denied, you will receive an email notification. The token remains in your account and can still be used for resources outside the organization. A denied token can later be approved by an administrator, restoring access without you needing to create a new token.
+
+When attempting to use a denied token against organization resources, you will receive a `403` error.
+
+### When your token is revoked (Enterprise organizations)
+
+Revocation is permanent. Unlike denial, a revoked token cannot be reinstated — there is no admin action that restores it. If your token has been revoked, you must delete it and create a new one. If the organization requires administrator approval, the new token will start in a pending state.
+
+When attempting to use a revoked token against organization resources, you will receive a `403` error with the message:
+
+> *"Your token has been revoked by the organization administrator, you can no longer access organization resources. Please contact them for more information."*
+
+Revocation only affects the organization that revoked it. The token continues to work normally for all other resources it is scoped to.
+
+### When your organization only allows fine-grained tokens (Team & Enterprise organizations)
+
+If your organization has set a policy requiring fine-grained tokens, read/write tokens will be rejected with a `403` error when used against that organization's resources.
