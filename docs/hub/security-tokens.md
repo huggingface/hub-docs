@@ -104,9 +104,11 @@ When attempting to use a denied token against organization resources, you will r
 
 Revocation is permanent. Unlike denial, a revoked token cannot be reinstated — there is no admin action that restores it. If your token has been revoked, you must delete it and create a new one. If the organization requires administrator approval, the new token will start in a pending state.
 
-When attempting to use a revoked token against organization resources, you will receive a `403` error with the message:
+When attempting to use a revoked token against organization resources, you will receive a `403` error. If the organization does not use the "Require administrator approval" policy, the message will be:
 
 > *"Your token has been revoked by the organization administrator, you can no longer access organization resources. Please contact them for more information."*
+
+If the organization does use the approval policy, the approval check takes priority in the auth flow and you will instead see the generic approval message: *"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."*
 
 Revocation only affects the organization that revoked it. The token continues to work normally for all other resources it is scoped to.
 

@@ -36,7 +36,7 @@ Token status badges (**PENDING**, **APPROVED**, **DENIED**, **REVOKED**) are sho
 
 ## Token Policy
 
-Enterprise organization administrators can enforce the following policies:
+Team & Enterprise organization administrators can enforce the following policies:
 
 | **Policy**                                        | **Unscoped (Read/Write) Access Tokens** | **Fine-Grained Tokens**                                     |
 | ------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------- |
@@ -84,7 +84,7 @@ The error message is the same for both pending and denied states — members are
 
 Administrators have two ways to remove a token's access to an organization:
 
-| | **Deny** | **Revoke** |
+| **Aspect** | **Deny** | **Revoke** |
 |---|---|---|
 | **Plan** | Team & Enterprise | Enterprise plan and above |
 | **Scope** | Operates within the approval workflow | Independent of the token policy |
