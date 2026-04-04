@@ -66,9 +66,7 @@ Denial is not permanent: a denied token can later be approved by an administrato
 
 ### What members see when blocked
 
-Members whose tokens are pending or denied receive a `403` error when accessing organization resources:
-
-> _"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."_
+Members whose tokens are pending or denied receive a `403` error when accessing organization resources: _"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."_
 
 The error message is the same for both pending and denied states. To see the status, members can navigate to the individual token's edit page. The organization administrator listing at `/organizations/:name/settings/tokens` shows status badges for all member tokens.
 
@@ -99,8 +97,6 @@ Use **deny** when managing access within the approval workflow (the token transi
 Organization administrators can revoke any member's access token from the token detail page. Revocation is available regardless of whether the organization uses the "Require administrator approval" policy. A revoked token can no longer access the organization's resources, but continues to work elsewhere. The token owner receives an email notification upon revocation.
 
 Revoked tokens remain revoked even if the organization's token policy is later changed or disabled. Revocation is permanent at the organization level — there is no un-revoke action. If a member needs access restored, they must delete the revoked token and create a new one. If the organization uses the "Require administrator approval" policy, the new token will start in the pending state and require admin approval.
-
-Revocation blocks access to all of the organization's resources — repositories, datasets, spaces, models, and inference endpoints. The token continues to work normally outside of that organization.
 
 The `403` error message a member sees depends on whether the organization uses the "Require administrator approval" policy:
 

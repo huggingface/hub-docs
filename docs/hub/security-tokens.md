@@ -17,7 +17,7 @@ Access tokens allow applications and notebooks to perform specific actions speci
 
 - `write`: tokens with this role additionally grant write access to the repositories you have write access to. Use this token if you need to create or push content to a repository (e.g., when training a model or modifying a model card).
 
-Note that Organization API Tokens have been deprecated: 
+Note that Organization API Tokens have been deprecated:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/API-token.png"/>
@@ -49,6 +49,7 @@ You can delete and refresh User Access Tokens by clicking on the **Manage** butt
 There are plenty of ways to use a User Access Token to access the Hugging Face Hub, granting you the flexibility you need to build awesome apps on top of it.
 
 User Access Tokens can be:
+
 - used **in place of a password** to access the Hugging Face Hub with git or with basic authentication.
 - passed as a **bearer token** when calling [Inference Providers](https://huggingface.co/docs/inference-providers).
 - used in the Hugging Face Python libraries, such as `transformers` or `datasets`:
@@ -67,11 +68,12 @@ model = AutoModel.from_pretrained("private/model", token=access_token)
 ### Best practices
 
 We recommend you create one access token per app or usage. For instance, you could have a separate token for:
- * A local machine.
- * A Colab notebook.
- * An awesome custom inference server. 
- 
- This way, you can invalidate one token without impacting your other usages.
+
+- A local machine.
+- A Colab notebook.
+- An awesome custom inference server.
+
+This way, you can invalidate one token without impacting your other usages.
 
 We also recommend using only fine-grained tokens for production usage. The impact, if leaked, will be reduced, and they can be shared among your organization without impacting your account.
 
@@ -102,13 +104,11 @@ When attempting to use a denied token against organization resources, you will r
 
 ### When your token is revoked (Enterprise organizations)
 
-Revocation is permanent. Unlike denial, a revoked token cannot be reinstated — there is no admin action that restores it. If your token has been revoked, you must delete it and create a new one. If the organization requires administrator approval, the new token will start in a pending state.
+Revocation is permanent. Unlike denial, a revoked token cannot be reinstated. If your token has been revoked, you must delete it and create a new one. If the organization requires administrator approval, the new token will start in a pending state.
 
-When attempting to use a revoked token against organization resources, you will receive a `403` error. If the organization does not use the "Require administrator approval" policy, the message will be:
+When attempting to use a revoked token against organization resources, you will receive a `403` error. If the organization does not use the "Require administrator approval" policy, the message will be: _"Your token has been revoked by the organization administrator, you can no longer access organization resources. Please contact them for more information."_
 
-> *"Your token has been revoked by the organization administrator, you can no longer access organization resources. Please contact them for more information."*
-
-If the organization does use the approval policy, the approval check takes priority in the auth flow and you will instead see the generic approval message: *"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."*
+If the organization does use the approval policy, the approval check takes priority in the auth flow and you will instead see the generic approval message: _"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."_
 
 Revocation only affects the organization that revoked it. The token continues to work normally for all other resources it is scoped to.
 
