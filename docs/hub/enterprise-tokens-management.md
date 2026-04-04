@@ -68,9 +68,9 @@ Denial is not permanent: a denied token can later be approved by an administrato
 
 Members whose tokens are pending or denied receive a `403` error when accessing organization resources:
 
-> *"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."*
+> _"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."_
 
-The error message is the same for both pending and denied states — members are not told specifically that their token was denied. To see the actual status, members must navigate to the individual token's edit page. Note that the member-facing token list at `/settings/tokens` does not show authorization status; the organization administrator listing at `/organizations/:name/settings/tokens` does show status badges for all member tokens.
+The error message is the same for both pending and denied states. To see the status, members can navigate to the individual token's edit page. The organization administrator listing at `/organizations/:name/settings/tokens` shows status badges for all member tokens.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-review.png" />
@@ -81,13 +81,13 @@ The error message is the same for both pending and denied states — members are
 
 Administrators have two ways to remove a token's access to an organization:
 
-| **Aspect** | **Deny** | **Revoke** |
-|---|---|---|
-| **Plan** | Team & Enterprise | Enterprise plan and above |
-| **Scope** | Operates within the approval workflow | Independent of the token policy |
-| **Effect** | Blocks or removes approval-based access | Forcefully removes access regardless of policy or token state |
-| **Reversible?** | Yes — a denied token can later be approved | No — revoked status persists even if the policy changes |
-| **Token elsewhere** | No effect outside the org | No effect outside the org |
+| **Aspect**          | **Deny**                                   | **Revoke**                                                    |
+| ------------------- | ------------------------------------------ | ------------------------------------------------------------- |
+| **Plan**            | Team & Enterprise                          | Enterprise plan and above                                     |
+| **Scope**           | Operates within the approval workflow      | Independent of the token policy                               |
+| **Effect**          | Blocks or removes approval-based access    | Forcefully removes access regardless of policy or token state |
+| **Reversible?**     | Yes — a denied token can later be approved | No — revoked status persists even if the policy changes       |
+| **Token elsewhere** | No effect outside the org                  | No effect outside the org                                     |
 
 Use **deny** when managing access within the approval workflow (the token transitions to a `denied` state and can be re-approved later). Use **revoke** when you need to permanently cut off a token's access to the organization — for example, when a token has leaked or an employee has left.
 
@@ -104,8 +104,8 @@ Revocation blocks access to all of the organization's resources — repositories
 
 The `403` error message a member sees depends on whether the organization uses the "Require administrator approval" policy:
 
-- **Without approval policy:** Members see the revoked-specific message: *"Your token has been revoked by the organization administrator, you can no longer access organization resources. Please contact them for more information."*
-- **With approval policy:** The revoked state is caught by the approval check first, so members see the same message as pending or denied tokens: *"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."* Revocation and denial are not distinguished in this message.
+- **Without approval policy:** Members see the revoked-specific message: _"Your token has been revoked by the organization administrator, you can no longer access organization resources. Please contact them for more information."_
+- **With approval policy:** The revoked state is caught by the approval check first, so members see the same message as pending or denied tokens: _"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."_ Revocation and denial are not distinguished in this message.
 
 ### Revoking via API
 

@@ -89,7 +89,7 @@ Organizations on Team and Enterprise plans can enforce token policies that affec
 
 When you create a fine-grained token scoped to an organization that requires administrator approval, the token enters a **Pending** state automatically. It cannot access that organization's resources until an administrator approves it. You will receive an email notification when your token is approved or denied.
 
-Your personal token list at `/settings/tokens` does not show authorization status. On the individual token's edit page, a red error appears if your token has been denied or revoked — but there is no indicator for a pending token. If your token is still awaiting approval, the only signals are a `403` error on first use against that organization's resources, or the absence of an approval confirmation email.
+To check status, open the token's edit page — a red error banner appears if your token was denied or revoked. If you haven't received an approval email yet and see no banner, your token is still pending review.
 
 > [!NOTE]
 > If you are an administrator of the organization, fine-grained tokens you create scoped to that organization are automatically approved — no review step is required.
