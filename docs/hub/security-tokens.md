@@ -17,13 +17,6 @@ Access tokens allow applications and notebooks to perform specific actions speci
 
 - `write`: tokens with this role additionally grant write access to the repositories you have write access to. Use this token if you need to create or push content to a repository (e.g., when training a model or modifying a model card).
 
-Note that Organization API Tokens have been deprecated:
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/API-token.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/API-token_dark.png"/>
-</div>
-
 If you are a member of an organization with read/write/admin role, then your User Access Tokens will be able to read/write the resources according to the token permission (read/write) and organization membership (read/write/admin).
 
 ## How to manage User Access Tokens?
@@ -106,9 +99,7 @@ When attempting to use a denied token against organization resources, you will r
 
 Revocation is permanent. Unlike denial, a revoked token cannot be reinstated. If your token has been revoked, you must delete it and create a new one. If the organization requires administrator approval, the new token will start in a pending state.
 
-When attempting to use a revoked token against organization resources, you will receive a `403` error. If the organization does not use the "Require administrator approval" policy, the message will be: _"Your token has been revoked by the organization administrator, you can no longer access organization resources. Please contact them for more information."_
-
-If the organization does use the approval policy, the approval check takes priority in the auth flow and you will instead see the generic approval message: _"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."_
+When attempting to use a revoked token against organization resources, you will receive a `403` error with the message: _"Your token has been revoked by the organization administrator, you can no longer access organization resources. Please contact them for more information."_
 
 Revocation only affects the organization that revoked it. The token continues to work normally for all other resources it is scoped to.
 
