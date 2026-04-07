@@ -421,6 +421,8 @@
   new: true
   isExpanded: true
   sections:
+  - local: storage-buckets-access
+    title: Access from Code
   - local: storage-buckets-security
     title: Bucket Security
 

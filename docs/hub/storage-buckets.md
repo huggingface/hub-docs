@@ -7,6 +7,9 @@ You can interact with buckets using the Hub web interface, the [`hf` CLI](https:
 > [!TIP]
 > Buckets are available to all users and organizations. See [hf.co/storage](https://huggingface.co/storage) for pricing details.
 
+> [!TIP]
+> Want to use bucket data with pandas, DuckDB, or mount buckets as a local filesystem? See [Access Buckets from Code](./storage-buckets-access).
+
 ## Buckets vs Repositories
 
 The Hub offers two types of storage: Git-based **repositories** for versioned, collaborative work and **buckets** for fast, mutable object storage.
