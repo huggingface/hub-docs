@@ -422,7 +422,7 @@
   isExpanded: true
   sections:
   - local: storage-buckets-access
-    title: Access from Code
+    title: Access Patterns
   - local: storage-buckets-security
     title: Bucket Security
 

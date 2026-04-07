@@ -1,4 +1,4 @@
-# Access Buckets from Code
+# Access Patterns
 
 Beyond the [CLI and Python SDK](./storage-buckets#managing-files), there are several ways to access bucket data from your existing tools and workflows.
 
