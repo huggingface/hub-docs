@@ -30,9 +30,9 @@ Fine-grained tokens display their specific permissions:
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-detail-dark.png" />
 </div>
 
-Revoked tokens are hidden from the listing by default. If any tokens have been revoked, a **Show revoked tokens** toggle appears above the list to include them in the view.
+Revoked tokens are hidden from the listing by default. Use the **Show revoked tokens** toggle above the list to include them in the view.
 
-Token status badges (**PENDING**, **APPROVED**, **DENIED**, **REVOKED**) are shown for any token that has an authorization record — even in organizations not using the "Require administrator approval" policy (for example, a token that has been revoked will show its status regardless of the current policy).
+A **REVOKED** status badge is shown for any revoked token regardless of the organization's token policy. **PENDING**, **APPROVED**, and **DENIED** badges only appear in organizations with the "Require administrator approval" policy enabled, as those states are only created by the approval flow.
 
 ## Token Policy
 
@@ -64,11 +64,11 @@ Denial is not permanent: a denied token can later be approved by an administrato
 > [!NOTE]
 > Token names are only visible to administrators when the "Require administrator approval" policy is enabled.
 
-### What members see when blocked
+### What Members See When Blocked
 
 Members whose tokens are pending or denied receive a `403` error when accessing organization resources: _"Due to the organization token policy, your token needs to be approved by the organization before you can access this resource."_
 
-The error message is the same for both pending and denied states. To see the status, members can navigate to the individual token's edit page. The organization administrator listing at `/organizations/:name/settings/tokens` shows status badges for all member tokens.
+The error message is the same for both pending and denied states. To see the status, members can navigate to the individual token's edit page. The organization administrator token management settings page shows status badges for all member tokens.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/tokens-management-review.png" />
