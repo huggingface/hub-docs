@@ -69,3 +69,12 @@ Or using traditional SQL syntax:
 SELECT * FROM 'hf://datasets/ibm/duorc/ParaphraseRC/*.parquet' LIMIT 3;
 ```
 In the following sections, we will cover more complex operations you can perform with DuckDB on Hugging Face datasets.
+
+> [!TIP]
+> **Querying Storage Buckets**: When using the DuckDB Python client, you can query data stored in [Storage Buckets](./storage-buckets) by registering the Hugging Face filesystem:
+> ```python
+> import duckdb
+> from huggingface_hub import HfFileSystem
+> duckdb.register_filesystem(HfFileSystem())
+> duckdb.sql("SELECT * FROM 'hf://buckets/username/my-bucket/data.parquet' LIMIT 10")
+> ```

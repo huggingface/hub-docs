@@ -34,6 +34,13 @@ To load a file from Hugging Face, the path needs to start with `hf://`. For exam
 
 For more information on the Hugging Face paths and how they are implemented, please refer to the [the client library's documentation on the HfFileSystem](/docs/huggingface_hub/guides/hf_file_system).
 
+> [!TIP]
+> The same `hf://` paths also work with [Storage Buckets](./storage-buckets):
+> ```python
+> >>> df = pd.read_parquet("hf://buckets/username/my-bucket/data.parquet")
+> >>> df.to_parquet("hf://buckets/username/my-bucket/output.parquet")
+> ```
+
 ## Save a DataFrame
 
 You can save a pandas DataFrame using `to_csv/to_json/to_parquet` to a local file or to Hugging Face directly.
