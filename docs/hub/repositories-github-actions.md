@@ -4,8 +4,9 @@ You can use [GitHub Actions](https://docs.github.com/en/actions) to automaticall
 
 ## Setup
 
-1. Create a [GitHub secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-environment) called `HF_TOKEN` with a Hugging Face [access token](https://huggingface.co/settings/tokens).
-2. Add a workflow file (e.g. `.github/workflows/sync-to-hub.yml`) to your repository.
+1. Create a Hugging Face [access token](https://huggingface.co/settings/tokens) with **write** permission to the target repo. For better security, use a [fine-grained token](https://huggingface.co/settings/tokens) scoped to only the repository you're syncing to.
+2. Add the token as a [GitHub secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-environment) called `HF_TOKEN` in your repository settings.
+3. Add a workflow file (e.g. `.github/workflows/sync-to-hub.yml`) to your repository.
 
 ## Basic usage
 
