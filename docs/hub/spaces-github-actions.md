@@ -41,25 +41,7 @@ For more complex workflows (e.g. build steps, custom logic), you can install and
 
 ## File size considerations
 
-For files larger than 10MB, Spaces requires Git-LFS. If you don't want to use Git-LFS, you may need to review your files and check your history. Use a tool like [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to remove any large files from your history. BFG Repo-Cleaner will keep a local copy of your repository as a backup.
-
-You can add a workflow to automatically check file sizes on pull requests:
-
-```yaml
-name: Check file size
-on:
-  pull_request:
-    branches: [main]
-
-jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check large files
-        uses: ActionsDesk/lfs-warning@v2.0
-        with:
-          filesizelimit: 10485760 # 10MB — the Spaces limit
-```
+For files larger than 10MB, Spaces requires [Git-LFS](./repositories-getting-started#terminal). Make sure large files in your GitHub repository are tracked with LFS before syncing.
 
 ## Alternative: manual git push
 
