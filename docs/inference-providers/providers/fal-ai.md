@@ -67,7 +67,7 @@ Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"Alissonerdx/BFS-Best-Face-Swap","providerModelId":"fal-ai/qwen-image-edit-2511/lora"} } }
+    providersMapping={ {"fal-ai":{"modelId":"fal/Qwen-Image-Edit-2511-Multiple-Angles-LoRA","providerModelId":"fal-ai/qwen-image-edit-2511/lora"} } }
 />
 
 
@@ -77,7 +77,7 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"fal-ai/flux/dev"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"fal-ai/z-image/turbo"} } }
 />
 
 

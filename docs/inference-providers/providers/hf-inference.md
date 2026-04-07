@@ -70,7 +70,7 @@ Find out more about Feature Extraction [here](../tasks/feature-extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"intfloat/multilingual-e5-large","providerModelId":"intfloat/multilingual-e5-large"} } }
+    providersMapping={ {"hf-inference":{"modelId":"microsoft/harrier-oss-v1-0.6b","providerModelId":"microsoft/harrier-oss-v1-0.6b"} } }
 />
 
 
@@ -180,7 +180,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"Davlan/bert-base-multilingual-cased-ner-hrl","providerModelId":"Davlan/bert-base-multilingual-cased-ner-hrl"} } }
+    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
 />
 
 
@@ -190,7 +190,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"Helsinki-NLP/opus-mt-tc-big-tr-en","providerModelId":"Helsinki-NLP/opus-mt-tc-big-tr-en"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-small","providerModelId":"google-t5/t5-small"} } }
 />
 
 
