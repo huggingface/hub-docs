@@ -75,6 +75,8 @@
         title: "How-to: Build a Discussion bot based on BLOOM"
       - local: webhooks-guide-metadata-review
         title: "How-to: Create automatic metadata quality reports"
+  - local: repositories-github-actions
+    title: GitHub Actions
   - local: notebooks
     title: Notebooks
   - local: repositories-next-steps
