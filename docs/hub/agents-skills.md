@@ -53,7 +53,6 @@ Install via the Cursor plugin flow using the [repository URL](https://github.com
 | ----- | ------------ |
 | [`hf-cli`](https://github.com/huggingface/skills/tree/main/skills/hf-cli) | Hub operations via the `hf` CLI: download, upload, manage repos, run jobs |
 | [`huggingface-datasets`](https://github.com/huggingface/skills/tree/main/skills/huggingface-datasets) | Create and manage datasets on the Hub |
-| [`huggingface-dataset-viewer`](https://github.com/huggingface/skills/tree/main/skills/huggingface-dataset-viewer) | Explore and query any dataset via the Dataset Viewer API |
 | [`huggingface-llm-trainer`](https://github.com/huggingface/skills/tree/main/skills/huggingface-llm-trainer) | Train or fine-tune LLMs with TRL (SFT, DPO, GRPO) on HF Jobs |
 | [`huggingface-vision-trainer`](https://github.com/huggingface/skills/tree/main/skills/huggingface-vision-trainer) | Train object detection and image classification models |
 | [`huggingface-community-evals`](https://github.com/huggingface/skills/tree/main/skills/huggingface-community-evals) | Run evaluations against models on the Hugging Face Hub on local hardware |
