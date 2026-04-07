@@ -65,4 +65,4 @@ When running [Jobs](./jobs) or [Spaces](./spaces), you can mount buckets directl
 hf jobs run -v hf://buckets/username/my-bucket:/data python:3.12 python script.py
 ```
 
-For the full volume mount syntax and Python API, see the [Jobs configuration docs](./jobs-configuration#volumes).
+For the full volume mount syntax and Python API, see the [Jobs configuration docs](./jobs-configuration#volumes) and the [Spaces volume mount guide](/docs/huggingface_hub/guides/manage-spaces#mount-volumes-in-your-space).
