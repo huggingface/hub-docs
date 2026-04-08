@@ -72,9 +72,6 @@ license: "any valid license identifier"
 datasets:
 - dataset1
 - dataset2
-buckets:
-- bucket1
-- bucket2
 base_model: "base model Hub identifier"
 ---
 ```
