@@ -15,7 +15,7 @@ tags:
 datasets:
 - {dataset_0}  # Example: common_voice. Use dataset id from https://hf.co/datasets
 buckets:
-- {bucket_0}  # Example: my-org/my-bucket. Use bucket id from https://hf.co/buckets
+- {bucket_0}  # Example: my-org/my-bucket
 metrics:
 - {metric_0}  # Example: wer. Use metric id from https://hf.co/metrics
 base_model: {base_model}  # Example: stabilityai/stable-diffusion-xl-base-1.0. Can also be a list (for merges)
