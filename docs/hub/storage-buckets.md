@@ -314,6 +314,18 @@ Buckets are well-suited for maintaining rolling backups. With a Git-based [Datas
 hf sync ./daily-backup hf://buckets/my-user/backups/latest --delete
 ```
 
+### Linking models to buckets
+
+You can create a two-way link between a model and a bucket by adding the `buckets` field to the model card metadata. The linked models will then appear on the bucket page, and the bucket will appear as a tag on the model page.
+
+```yaml
+# In the model card YAML frontmatter
+buckets:
+- my-org/my-bucket
+```
+
+See [Specifying a bucket](./model-cards#specifying-a-bucket) in the model cards documentation for more details.
+
 ## Pricing
 
 Storage Buckets are billed based on the amount of data stored, with simple per-TB pricing. Enterprise plans benefit from dedup-based billing, where shared chunks across files directly reduce the billed footprint.

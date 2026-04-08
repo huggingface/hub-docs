@@ -72,6 +72,9 @@ license: "any valid license identifier"
 datasets:
 - dataset1
 - dataset2
+buckets:
+- bucket1
+- bucket2
 base_model: "base model Hub identifier"
 ---
 ```
@@ -180,6 +183,16 @@ You can specify the datasets used to train your model in the model card metadata
 datasets:
 - stanfordnlp/imdb
 - HuggingFaceFW/fineweb
+```
+
+### Specifying a bucket
+
+You can specify the [storage buckets](./storage-buckets) linked to your model in the model card metadata section. The buckets will be shown as tags on the model page and the linked bucket pages will show the model in return. You should use the Hub bucket identifier, which is the same as the bucket's repo name:
+
+```yaml
+buckets:
+- my-org/my-bucket
+- my-org/another-bucket
 ```
 
 ### Specifying a task (`pipeline_tag`)
