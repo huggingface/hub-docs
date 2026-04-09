@@ -116,31 +116,9 @@ Note that the order of subsets shown in the viewer is the default one first, the
 
 ## Data Directory
 
-Instead of listing individual files with `data_files`, you can use `data_dir` to point to a directory. Files inside that directory are resolved automatically based on the builder's default patterns. This is especially useful when your data is organized in subdirectories:
+Instead of listing individual files with `data_files`, you can use `data_dir` to point to a directory. Files inside that directory are resolved automatically based on file extensions. This is especially useful when your data is organized in subdirectories:
 
-```
-my_dataset_repository/
-├── README.md
-├── train/
-│   ├── 001.parquet
-│   └── 002.parquet
-└── test/
-    └── 001.parquet
-```
-
-```yaml
----
-configs:
-- config_name: default
-  data_files:
-  - split: train
-    path: "train/*.parquet"
-  - split: test
-    path: "test/*.parquet"
----
-```
-
-You can simplify this with `data_dir` when each subset's data lives in its own directory:
+For example in a case like this, you can simply use `data_dir` since each subset's data lives in its own directory:
 
 ```
 my_dataset_repository/
