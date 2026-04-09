@@ -7,8 +7,8 @@ Beyond the [CLI and Python SDK](./storage-buckets#managing-files), there are sev
 | Method | Best for | Details |
 |--------|----------|---------|
 | **hf-mount** | Mount as local filesystem — any tool works | [See below](#mount-as-a-local-filesystem) |
+| **Volume mounts** | HF Jobs & Spaces (same idea, managed for you) | [See below](#volume-mounts-in-jobs-and-spaces) |
 | **hf:// paths** (fsspec) | Python data tools (pandas, DuckDB) | [See below](#python-data-tools) |
-| **Volume mounts** | HF Jobs & Spaces | [See below](#volume-mounts-in-jobs-and-spaces) |
 | **CLI sync** | Batch transfers, backups | [Sync docs](./storage-buckets#syncing-directories) |
 
 ## Mount as a Local Filesystem
@@ -31,6 +31,16 @@ Once mounted, any tool that reads or writes files works with your bucket — pan
 
 > [!TIP]
 > Buckets are mounted read-write; repos are read-only. See the [hf-mount repository](https://github.com/huggingface/hf-mount) for full documentation including backend options, caching, and write modes.
+
+## Volume Mounts in Jobs and Spaces
+
+Volume mounts in [Jobs](./jobs) and [Spaces](./spaces) are the same idea as `hf-mount`, managed for you by the platform — no extra setup needed. Buckets are mounted read-write by default.
+
+```bash
+hf jobs run -v hf://buckets/username/my-bucket:/data python:3.12 python script.py
+```
+
+For the full volume mount syntax and Python API, see the [Jobs configuration docs](./jobs-configuration#volumes) and the [Spaces volume mount guide](/docs/huggingface_hub/guides/manage-spaces#mount-volumes-in-your-space).
 
 ## Python Data Tools
 
@@ -56,13 +66,3 @@ duckdb.sql("SELECT * FROM 'hf://buckets/username/my-bucket/data.parquet' LIMIT 1
 ```
 
 For more on `hf://` paths and supported operations, see the [`HfFileSystem` guide](/docs/huggingface_hub/guides/hf_file_system) and the [Buckets Python guide](/docs/huggingface_hub/guides/buckets).
-
-## Volume Mounts in Jobs and Spaces
-
-When running [Jobs](./jobs) or [Spaces](./spaces), you can mount buckets directly as volumes — no extra setup needed. Buckets are mounted read-write by default.
-
-```bash
-hf jobs run -v hf://buckets/username/my-bucket:/data python:3.12 python script.py
-```
-
-For the full volume mount syntax and Python API, see the [Jobs configuration docs](./jobs-configuration#volumes) and the [Spaces volume mount guide](/docs/huggingface_hub/guides/manage-spaces#mount-volumes-in-your-space).
