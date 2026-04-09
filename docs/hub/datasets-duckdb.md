@@ -78,3 +78,4 @@ In the following sections, we will cover more complex operations you can perform
 > duckdb.register_filesystem(HfFileSystem())
 > duckdb.sql("SELECT * FROM 'hf://buckets/username/my-bucket/data.parquet' LIMIT 10")
 > ```
+Native `hf://buckets/` support in DuckDB is expected in a future release.
