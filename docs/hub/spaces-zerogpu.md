@@ -72,6 +72,9 @@ To utilize ZeroGPU in your Space, follow these steps:
 
 This decoration process allows the Space to request a GPU when the function is called and release it upon completion.
 
+> [!NOTE]
+> The `@spaces.GPU` decorator is designed to be effect-free in non-ZeroGPU environments, ensuring compatibility across different setups.
+
 ### Example Usage
 
 ```python
@@ -92,7 +95,14 @@ gr.Interface(
 ).launch()
 ```
 
-Note: The `@spaces.GPU` decorator is designed to be effect-free in non-ZeroGPU environments, ensuring compatibility across different setups.
+### Note on (PyTorch) CUDA device
+
+Even though a real GPU is only available inside `@spaces.GPU` functions, models must be placed on `cuda` at the root module level (as shown in the example above).
+
+Lazy-loading or moving models to CUDA inside `@spaces.GPU` is discouraged, as it is significantly less efficient (CUDA transfers are optimized for placements done during startup).
+
+> [!NOTE]
+> This works because a PyTorch CUDA emulation mode is enabled outside `@spaces.GPU` functions, allowing CUDA operations without a real GPU. Inside `@spaces.GPU`, real CUDA is used.
 
 ## GPU size selection
 
