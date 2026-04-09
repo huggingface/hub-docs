@@ -95,14 +95,14 @@ gr.Interface(
 ).launch()
 ```
 
-### Note on (PyTorch) CUDA device
+### Model loading
 
 Even though a real GPU is only available inside `@spaces.GPU` functions, models must be placed on `cuda` at the root module level (as shown in the example above).
 
 Lazy-loading or moving models to CUDA inside `@spaces.GPU` is discouraged, as it is significantly less efficient (CUDA transfers are optimized for placements done during startup).
 
 > [!NOTE]
-> This works because a PyTorch CUDA emulation mode is enabled outside `@spaces.GPU` functions, allowing CUDA operations without a real GPU. Inside `@spaces.GPU`, real CUDA is used.
+> Loading models on `cuda` at module level works because a PyTorch CUDA emulation mode is enabled outside `@spaces.GPU` functions, allowing CUDA operations without a real GPU. Inside `@spaces.GPU`, real CUDA is used.
 
 ## GPU size selection
 
