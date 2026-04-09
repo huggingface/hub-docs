@@ -41,13 +41,3 @@ Customers are turning to SambaNova to quickly deploy state-of-the-art AI and dee
 
 ## Supported tasks
 
-
-### Chat Completion (LLM)
-
-Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-3.3-70B-Instruct","providerModelId":"Meta-Llama-3.3-70B-Instruct"} } }
-conversational />
-

@@ -120,7 +120,7 @@ Find out more about Question Answering [here](../tasks/question-answering).
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"ahotrod/electra_large_discriminator_squad2_512","providerModelId":"ahotrod/electra_large_discriminator_squad2_512"} } }
+    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-large-squad2","providerModelId":"deepset/roberta-large-squad2"} } }
 />
 
 
@@ -130,7 +130,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 <InferenceSnippet
     pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"Falconsai/medical_summarization","providerModelId":"Falconsai/medical_summarization"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"} } }
 />
 
 

@@ -33,7 +33,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"ahotrod/electra_large_discriminator_squad2_512","providerModelId":"ahotrod/electra_large_discriminator_squad2_512"}} }
+    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-large-squad2","providerModelId":"deepset/roberta-large-squad2"}} }
 />
 
 
