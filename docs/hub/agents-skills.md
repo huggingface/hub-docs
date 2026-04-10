@@ -62,6 +62,7 @@ Install via the Cursor plugin flow using the [repository URL](https://github.com
 | [`huggingface-tool-builder`](https://github.com/huggingface/skills/tree/main/skills/huggingface-tool-builder) | Build reusable scripts for HF API operations |
 | [`gradio`](https://github.com/huggingface/skills/tree/main/skills/huggingface-gradio) | Build Gradio web UIs and demos |
 | [`transformers-js`](https://github.com/huggingface/skills/tree/main/skills/transformers-js) | Run ML models in JavaScript/TypeScript with WebGPU/WASM |
+| [`huggingface-papers`](https://github.com/huggingface/skills/tree/main/skills/huggingface-papers) | Look up and read Hugging Face paper pages in markdown |
 
 ## Using Skills
 
