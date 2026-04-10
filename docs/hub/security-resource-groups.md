@@ -33,9 +33,9 @@ Head to your Organization's settings, then navigate to the "Resource Group" tab 
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-groups-page-dark.png"/>
 </div>
 
-Organization admins can create and manage Resource Groups from that page. Depending on the organization's settings, members with lower roles may also be allowed to create resource groups (see [Who can create resource groups](#who-can-create-resource-groups) below).
+Organization admins can create and manage Resource Groups from that page. Depending on the organization's settings, members with lower roles may also be allowed to create Resource Groups (see [Who can create resource groups](#who-can-create-resource-groups) below).
 
-After creating a resource group and giving it a meaningful name, you can start adding repositories and users to it.
+After creating a Resource Group and giving it a meaningful name, you can start adding repositories and users to it.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-groups-manage-empty-page.png"/>
