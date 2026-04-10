@@ -58,11 +58,11 @@ Install via the Cursor plugin flow using the [repository URL](https://github.com
 | [`huggingface-community-evals`](https://github.com/huggingface/skills/tree/main/skills/huggingface-community-evals) | Run evaluations against models on the Hugging Face Hub on local hardware |
 | [`huggingface-jobs`](https://github.com/huggingface/skills/tree/main/skills/huggingface-jobs) | Run compute jobs on Hugging Face infrastructure |
 | [`huggingface-trackio`](https://github.com/huggingface/skills/tree/main/skills/huggingface-trackio) | Track and visualize ML training experiments with Trackio |
+| [`huggingface-papers`](https://github.com/huggingface/skills/tree/main/skills/huggingface-papers) | Look up and read Hugging Face paper pages in markdown |
 | [`huggingface-paper-publisher`](https://github.com/huggingface/skills/tree/main/skills/huggingface-paper-publisher) | Publish and manage research papers on the Hub |
 | [`huggingface-tool-builder`](https://github.com/huggingface/skills/tree/main/skills/huggingface-tool-builder) | Build reusable scripts for HF API operations |
 | [`gradio`](https://github.com/huggingface/skills/tree/main/skills/huggingface-gradio) | Build Gradio web UIs and demos |
 | [`transformers-js`](https://github.com/huggingface/skills/tree/main/skills/transformers-js) | Run ML models in JavaScript/TypeScript with WebGPU/WASM |
-| [`huggingface-papers`](https://github.com/huggingface/skills/tree/main/skills/huggingface-papers) | Look up and read Hugging Face paper pages in markdown |
 
 ## Using Skills
 
