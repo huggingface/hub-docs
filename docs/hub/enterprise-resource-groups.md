@@ -25,6 +25,7 @@ This feature allows organization administrators to:
 - Assign different permission roles (read, contributor, write, admin) to team members
 - Keep private repositories visible only to authorized group members
 - Enable multiple teams to work independently within the same organization
+- Configure which member roles are allowed to create new resource groups
 
 This Team & Enterprise feature helps organizations manage complex team structures and maintain proper access control over their repositories.
 

@@ -33,7 +33,7 @@ Head to your Organization's settings, then navigate to the "Resource Group" tab 
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-groups-page-dark.png"/>
 </div>
 
-If you are an admin of the organization, you can create and manage Resource Groups from that page.
+Organization admins can create and manage Resource Groups from that page. Depending on the organization's settings, members with lower roles may also be allowed to create resource groups (see [Who can create resource groups](#who-can-create-resource-groups) below).
 
 After creating a resource group and giving it a meaningful name, you can start adding repositories and users to it.
 
@@ -74,6 +74,18 @@ Auto-join and SCIM management are **mutually exclusive** on the same Resource Gr
 - You cannot link a SCIM group to a Resource Group that has auto-join enabled.
 
 To switch a Resource Group from auto-join to SCIM-managed (or vice versa), disable the current setting first.
+
+## Who can create resource groups
+
+By default, only organization admins can create new resource groups. Org admins can change this by setting the **minimum member role required to create resource groups** on the resource groups settings page.
+
+The available options are:
+- **Admins only** (default) — only org admins can create resource groups.
+- **Write** — members with Write or Admin role can create resource groups.
+- **Contributor** — members with Contributor, Write, or Admin role can create resource groups.
+- **All members** — any org member can create resource groups.
+
+When a non-admin member creates a resource group, they are automatically added as an **admin** of that newly created group. When creating a resource group via the API, non-admin creators must include at least one admin in the group's initial user list.
 
 ## Resource Groups API
 
