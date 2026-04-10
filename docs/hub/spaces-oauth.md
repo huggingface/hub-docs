@@ -78,6 +78,8 @@ Those scopes are optional and can be added by setting `hf_oauth_scopes` in your 
 - `contribute-repos`: Can create repositories and access those created by this app. Cannot access any other repositories unless additional permissions are granted.
 - `write-repos`: Get write/read access to the user's personal repos.
 - `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion.
+- `read-collections`: Get read access to the user's personal collections.
+- `write-collections`: Get write/read access to the user's personal collections. Also grants collection creation and deletion.
 - `inference-api`: Get access to the [Inference Providers](https://huggingface.co/docs/inference-providers/index), you will be able to make inference requests on behalf of the user.
 - `jobs`: Run [jobs](https://huggingface.co/docs/huggingface_hub/main/en/guides/jobs) 
 - `webhooks`: Manage [webhooks](https://huggingface.co/docs/huggingface_hub/main/en/guides/webhooks)
