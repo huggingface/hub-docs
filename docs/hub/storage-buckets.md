@@ -270,6 +270,35 @@ batch_bucket_files("username/my-bucket", delete=["old-model.bin", "logs/debug.lo
 
 For more deletion options (pattern-based filtering, recursive removal, etc.), see the [`huggingface_hub` delete guide](https://huggingface.co/docs/huggingface_hub/guides/buckets#delete-files).
 
+### Copying files between repos and buckets
+
+You can copy [Xet](./xet/index)-tracked files from any repository (model, dataset, Space) or bucket into a destination bucket without re-uploading the data. The copy is server-side: only the Xet content hashes are migrated, so even very large files are copied instantly.
+
+> [!NOTE]
+> Only Xet-tracked files can be copied this way. For small non-Xet files (e.g. config files, READMEs), download and re-upload them instead — they are lightweight.
+
+**CLI:**
+```bash
+hf buckets cp \
+  hf://datasets/HuggingFaceFW/fineweb/data \
+  hf://buckets/{your_username}/fineweb-data
+```
+
+**Python:**
+```python
+from huggingface_hub import HfApi
+
+api = HfApi()
+
+api.copy_files(
+    "hf://datasets/HuggingFaceFW/fineweb/data",
+    "hf://buckets/{your_username}/fineweb-data",
+)
+```
+
+
+The caller must have read access to the source repository/bucket and write access to the destination bucket.
+
 ## Pre-warming and CDN
 
 Buckets live on the Hub's global storage by default. For workloads where storage location directly affects throughput you can **pre-warm** bucket data to bring it closer to your compute.
@@ -299,7 +328,7 @@ Because buckets are built on [Xet](./xet/index), successive checkpoints where la
 
 Buckets serve as staging areas for data processing workflows. Process raw data, write intermediate outputs to a bucket, then promote the final artifact to a versioned [Dataset](./datasets) repository when the pipeline completes. This keeps your versioned repo clean while giving your pipeline fast mutable storage.
 
-Note that transferring data from a Bucket to a repository without reuploading is not yet available, but is on the roadmap.
+You can [copy Xet-tracked files](#copying-files-between-repos-and-buckets) between repositories and buckets server-side, without re-uploading.
 
 ### Agentic storage
 
