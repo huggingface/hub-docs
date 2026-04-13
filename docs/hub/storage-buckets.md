@@ -295,7 +295,7 @@ api = HfApi()
 
 api.copy_files(
     "hf://datasets/HuggingFaceFW/fineweb/data",
-    "hf://buckets/username/fineweb-data",
+    "hf://buckets/username/my-bucket",
 )
 ```
 
