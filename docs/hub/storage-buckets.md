@@ -328,7 +328,7 @@ Because buckets are built on [Xet](./xet/index), successive checkpoints where la
 
 Buckets serve as staging areas for data processing workflows. Process raw data, write intermediate outputs to a bucket, then promote the final artifact to a versioned [Dataset](./datasets) repository when the pipeline completes. This keeps your versioned repo clean while giving your pipeline fast mutable storage.
 
-You can [copy Xet-tracked files](#copying-files-between-repos-and-buckets) between repositories and buckets server-side, without re-uploading.
+Note that transferring data from a Bucket to a repository without reuploading is not yet available, but is on the roadmap.
 
 ### Agentic storage
 
