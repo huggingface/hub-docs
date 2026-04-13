@@ -275,7 +275,7 @@ For more deletion options (pattern-based filtering, recursive removal, etc.), se
 You can copy [Xet](./xet/index)-tracked files from any repository (model, dataset, Space) or bucket into a destination bucket without re-uploading the data. The copy is server-side: only the Xet content hashes are migrated, so even very large files are copied instantly.
 
 > [!NOTE]
-> Only Xet-tracked files can be copied this way. For small non-Xet files (e.g. config files, READMEs), download and re-upload them instead — they are lightweight.
+> Only Xet-tracked files are copied server-to-server. Small non-Xet files (e.g. config files, READMEs), are automatically downloaded and re-uploaded.
 
 **CLI:**
 ```bash
