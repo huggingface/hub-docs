@@ -24,7 +24,10 @@ You can configure volumes from the Space settings under the **Storage** section,
 
 The Space page displays attached volumes in the actions dropdown. Each volume shows its source repository or bucket, its mount path inside the container, and whether it is mounted as read-only or read-write.
 
-[screenshot]
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-attached-volumes-light.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-attached-volumes-dark.png"/>
+</div>
 
 ### Access-aware filtering
 
