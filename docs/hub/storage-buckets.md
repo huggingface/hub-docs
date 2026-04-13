@@ -275,7 +275,7 @@ For more deletion options (pattern-based filtering, recursive removal, etc.), se
 You can copy [Xet](./xet/index)-tracked files from any repository (model, dataset, Space) or bucket into a destination bucket without re-uploading the data. The copy is server-side: only the Xet content hashes are migrated, so even very large files are copied instantly.
 
 > [!NOTE]
-> Only Xet-tracked files are copied server-to-server. Small non-Xet files (e.g. config files, READMEs), are automatically downloaded and re-uploaded.
+> Only Xet-tracked files are copied server-to-server. Small non-Xet files (e.g., config files and READMEs) are automatically downloaded and re-uploaded.
 
 **CLI:**
 ```bash
@@ -292,12 +292,12 @@ api = HfApi()
 
 api.copy_files(
     "hf://datasets/HuggingFaceFW/fineweb/data",
-    "hf://buckets/{your_username}/fineweb-data",
+    "hf://buckets/username/fineweb-data",
 )
 ```
 
 
-The caller must have read access to the source repository/bucket and write access to the destination bucket.
+You need read access to the source repository or bucket and write access to the destination bucket.
 
 ## Pre-warming and CDN
 
