@@ -20,7 +20,7 @@ See the [Storage Buckets documentation](./storage-buckets) for full details on c
 
 The Space page displays attached volumes in the actions dropdown. Each volume shows its source repository or bucket, its mount path inside the container, and whether it is mounted as read-only or read-write.
 
-<div class="flex justify-center" style="max-width: 300px">
+<div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-attached-volumes-light.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-attached-volumes-dark.png"/>
 </div>
