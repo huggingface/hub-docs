@@ -56,7 +56,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"zai-org":{"modelId":"zai-org/GLM-5.1","providerModelId":"glm-5.1"} } }
+    providersMapping={ {"zai-org":{"modelId":"zai-org/GLM-5","providerModelId":"glm-5"} } }
 conversational />
 
 
@@ -66,7 +66,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"zai-org":{"modelId":"zai-org/GLM-4.6V","providerModelId":"glm-4.6v"} } }
+    providersMapping={ {"zai-org":{"modelId":"zai-org/GLM-4.5V","providerModelId":"glm-4.5v"} } }
 conversational />
 
 
