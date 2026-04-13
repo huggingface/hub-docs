@@ -33,7 +33,7 @@ Head to your Organization's settings, then navigate to the "Resource Group" tab 
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-groups-page-dark.png"/>
 </div>
 
-Organization admins can create and manage Resource Groups from that page. Depending on the organization's settings, members with lower roles may also be allowed to create Resource Groups (see [Who can create resource groups](#who-can-create-resource-groups) below).
+Organization admins can create and manage Resource Groups from that page. Depending on the organization's settings, members with lower roles may also be allowed to create Resource Groups (see [Who can create Resource Groups](#who-can-create-resource-groups) below).
 
 After creating a Resource Group and giving it a meaningful name, you can start adding repositories and users to it.
 
@@ -75,17 +75,17 @@ Auto-join and SCIM management are **mutually exclusive** on the same Resource Gr
 
 To switch a Resource Group from auto-join to SCIM-managed (or vice versa), disable the current setting first.
 
-## Who can create resource groups
+## Who can create Resource Groups
 
-By default, only organization admins can create new resource groups. Org admins can change this by setting the **minimum member role required to create resource groups** on the resource groups settings page.
+By default, only organization admins can create new Resource Groups. Org admins can change this by setting the **minimum member role required to create Resource Groups** on the Resource Groups settings page.
 
 The available options are:
-- **Admins only** (default) — only org admins can create resource groups.
-- **Write** — members with Write or Admin role can create resource groups.
-- **Contributor** — members with Contributor, Write, or Admin role can create resource groups.
-- **All members** — any org member can create resource groups.
+- **Admins only** (default) — only org admins can create Resource Groups.
+- **Write** — members with Write or Admin role can create Resource Groups.
+- **Contributor** — members with Contributor, Write, or Admin role can create Resource Groups.
+- **All members** — any org member can create Resource Groups.
 
-When a non-admin member creates a resource group, they are automatically added as an **admin** of that newly created group. When creating a resource group via the API, non-admin creators must include at least one admin in the group's initial user list.
+When a non-admin member creates a Resource Group through the UI, they are automatically added as an **admin** of that newly created group. Through the API, this does not happen automatically, since API callers may be creating groups on behalf of others. Non-admin API callers must include at least one user with the admin role in the group's initial member list.
 
 ## Resource Groups API
 
