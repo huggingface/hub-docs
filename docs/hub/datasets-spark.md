@@ -175,9 +175,15 @@ Here is the list of available options you can pass to `read..option()`:
 * `split` (string): select a dataset split (default is "train")
 * `token` (string): your Hugging Face token
 
+Instead of specifying a config or split, you can select which files to load manually:
+
+* `data_dir` (string): select a directory
+* `data_files` (string): select one or many files, e.g. `"data/*.parquet"` or `'["part1.parquet", "par2.parquet"]'`
+
 For Parquet datasets:
+
 * `columns` (string): select a subset of columns to load, e.g. `'["id"]'`
-* `filters` (string): to skip files and row groups that don't match a criteria, e.g. `'["source", "=", "code_exercises"]'`. Filters are passed to [pyarrow.parquet.ParquetDataset](https://arrow.apache.org/docs/python/generated/pyarrow.parquet.ParquetDataset.html).
+* `filters` (string): to skip files and row groups that don't match a criteria, e.g. `'[("source", "=", "code_exercises")]'`. Filters are passed to [pyarrow.parquet.ParquetDataset](https://arrow.apache.org/docs/python/generated/pyarrow.parquet.ParquetDataset.html).
 
 Any other option is passed as an argument to [datasets.load_dataset] (https://huggingface.co/docs/datasets/en/package_reference/loading_methods#datasets.load_dataset)
 
@@ -262,3 +268,16 @@ Here is the list of available options you can pass to `write.option()`:
 * `token` (string): your Hugging Face token
 
 Contributions are welcome to add more options here, in particular `subset` and `split`.
+
+## Storage Buckets
+
+It is common to process raw data in [Storage Buckets](/docs/hub/storage-buckets) and experiment there before publishing AI-ready data in Dataset repositories.
+
+Access Storage Buckets the same way as Dataset repositories but with the `buckets/` prefix and with the `data_dir` or `data_files` options:
+
+```python
+>>> df = spark.read.format("huggingface").option("data_dir", "data").load("buckets/username/my-bucket")
+>>> # OR with a glob pattern
+>>> # df = spark.read.format("huggingface").option("data_files", "data/*.parquet").load("buckets/username/my-bucket")
+>>> df.write.format("huggingface").option("data_dir", "new-data").save("buckets/username/my-bucket")
+```
