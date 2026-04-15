@@ -153,7 +153,7 @@ api.add_space_secret(space_id, "SECRET_KEY", "<random-string>")
 api.restart_space(space_id, factory_reboot=True)
 ```
 
-See the [`manage-spaces` guide](/docs/huggingface_hub/guides/manage-spaces#mount-volumes-in-your-space) for more on volume mounts.
+See the [`manage-spaces` guide](/docs/huggingface_hub/guides/manage-spaces) for more on managing spaces and volume mounts via `huggingface_hub`.
 
 ### Enable Persistence with Postgres
 
