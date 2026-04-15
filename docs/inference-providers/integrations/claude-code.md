@@ -1,6 +1,6 @@
 # Claude Code
 
-[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's agentic coding tool that lives in your terminal. It can understand your codebase, edit files, run commands, and handle complex development tasks. By pointing it at Hugging Face Inference Providers, you can use open models like [GLM-5.1](https://huggingface.co/zai-org/GLM-5.1), [DeepSeek-R1](https://huggingface.co/deepseek-ai/DeepSeek-R1), and more as the backing LLM.
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's agentic coding tool that lives in your terminal. It can understand your codebase, edit files, run commands, and handle complex development tasks. By pointing it at Hugging Face Inference Providers, you can use open models like [GLM-5.1](https://huggingface.co/zai-org/GLM-5.1), [Gemma 4](https://huggingface.co/google/gemma-4-31B-it), and more as the backing LLM.
 
 ## Overview
 
@@ -63,17 +63,13 @@ Then start Claude Code:
 claude
 ```
 
-Replace `zai-org/GLM-5.1` with any model available on [Inference Providers](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all&sort=trending). You can also append a provider suffix to pin a specific provider (e.g. `zai-org/GLM-5.1:groq`).
+Replace `zai-org/GLM-5.1` with any model available on [Inference Providers](https://huggingface.co/inference/models). You can also append a provider suffix to pin a specific provider (e.g. `MiniMaxAI/MiniMax-M2.7:fireworks-ai`).
 
 > [!TIP]
-> The `ANTHROPIC_DEFAULT_*_MODEL` variables map to Claude Code's internal model slots (Opus, Sonnet, Haiku). Setting all three to the same model ensures Claude Code uses your chosen model for every task. `CLAUDE_CODE_SUBAGENT_MODEL` controls which model is used for sub-agents.
-
-### Billing to an Organization
-
-To bill inference usage to a Hugging Face organization instead of your personal account, launch Claude Code with the `X-HF-Bill-To` header. You can do this by setting it in your environment or via a wrapper script.
+> The `ANTHROPIC_DEFAULT_*_MODEL` variables map to Claude Code's internal model slots (Opus, Sonnet, Haiku), from the most powerful to the quickest. You can assign different models to each slot to balance capability and speed — for example, `zai-org/GLM-5.1` for Opus, `google/gemma-4-31B-it:together` for Sonnet, and `openai/gpt-oss-120b:cerebras` for Haiku. `CLAUDE_CODE_SUBAGENT_MODEL` controls which model is used for sub-agents.
 
 ## Resources
 
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
 - [`hf-claude` Extension](https://github.com/hanouticelina/hf-claude)
-- [Available models on Inference Providers](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all&sort=trending)
+- [Available models on Inference Providers](https://huggingface.co/inference/models)
