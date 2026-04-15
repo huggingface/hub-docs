@@ -284,7 +284,7 @@ You can copy [Xet](./xet/index)-tracked files from any repository (model, datase
 ```bash
 hf buckets cp \
   hf://datasets/HuggingFaceFW/fineweb/data \
-  hf://buckets/username/my-bucket
+  hf://buckets/username/fineweb-data
 ```
 
 **Python:**
