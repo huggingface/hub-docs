@@ -106,6 +106,8 @@
     title: Cerebras
   - local: providers/cohere
     title: Cohere
+  - local: providers/deepinfra
+    title: DeepInfra
   - local: providers/fal-ai
     title: Fal AI
   - local: providers/featherless-ai

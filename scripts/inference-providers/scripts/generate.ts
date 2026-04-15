@@ -37,6 +37,7 @@ const HEADERS: Record<string, string> = process.env.HF_TOKEN
 const PROVIDERS_URLS: Record<string, string> = {
   cerebras: "https://www.cerebras.ai/",
   cohere: "https://cohere.com/",
+  deepinfra: "https://deepinfra.com/",
   "fal-ai": "https://fal.ai/",
   "featherless-ai": "https://featherless.ai/",
   "fireworks-ai": "https://fireworks.ai/",
