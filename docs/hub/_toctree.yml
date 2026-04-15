@@ -425,6 +425,8 @@
   sections:
   - local: storage-buckets-access
     title: Access Patterns
+  - local: storage-buckets-integrations
+    title: Bucket Integrations
   - local: storage-buckets-security
     title: Bucket Security
 
