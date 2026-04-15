@@ -124,6 +124,37 @@ projects and annotations survive restarts.
 > Without it, Label Studio generates a random key on each boot and all users
 > are logged out on restart.
 
+#### Have a coding agent do it for you
+
+If you'd rather not click through the Space settings, you can ask a coding agent with access to `huggingface_hub` to provision the Space for you. Tell it your Space ID and bucket name, and it can run the equivalent of:
+
+```python
+from huggingface_hub import HfApi, Volume
+
+api = HfApi()
+space_id = "<your-namespace>/<your-space>"
+
+# Attach the bucket at /data
+api.set_space_volumes(
+    space_id,
+    volumes=[
+        Volume(type="bucket", source="<your-namespace>/label-studio-data", mount_path="/data"),
+    ],
+)
+
+# Tell Label Studio to write its SQLite DB and media into the mounted bucket
+api.add_space_variable(space_id, "LABEL_STUDIO_BASE_DATA_DIR", "/data")
+api.add_space_variable(space_id, "STORAGE_PERSISTENCE", "1")
+
+# Optional: set a stable SECRET_KEY so sessions survive restarts
+api.add_space_secret(space_id, "SECRET_KEY", "<random-string>")
+
+# Factory rebuild so the new mount and variables take effect
+api.restart_space(space_id, factory_reboot=True)
+```
+
+See the [`manage-spaces` guide](/docs/huggingface_hub/guides/manage-spaces#mount-volumes-in-your-space) for more on volume mounts.
+
 ### Enable Persistence with Postgres
 
 For heavier multi-user deployments, you can instead enable persistence by
