@@ -13,7 +13,7 @@ Unlike traditional single-GPU allocations, ZeroGPU's efficient system lowers bar
 
 - **Using existing ZeroGPU Spaces**
   - ZeroGPU Spaces are available to use for free to all users. (Visit [the curated list](https://huggingface.co/spaces/enzostvs/zero-gpu-spaces)).
-  - [PRO users](https://huggingface.co/subscribe/pro) get x7 more daily usage quota and highest priority in GPU queues when using any ZeroGPU Spaces.
+  - [PRO users](https://huggingface.co/subscribe/pro) get x8 more daily usage quota, highest priority in GPU queues, and can go beyond their daily quota using pre-paid credits when using any ZeroGPU Spaces.
 - **Hosting your own ZeroGPU Spaces**
   - Personal accounts: [Subscribe to PRO](https://huggingface.co/settings/billing/subscription) to access ZeroGPU in the hardware options when creating a new Gradio SDK Space.
   - Organizations: [Subscribe to a Team or Enterprise plan](https://huggingface.co/enterprise) to enable ZeroGPU Spaces for all organization members.
@@ -72,6 +72,9 @@ To utilize ZeroGPU in your Space, follow these steps:
 
 This decoration process allows the Space to request a GPU when the function is called and release it upon completion.
 
+> [!NOTE]
+> The `@spaces.GPU` decorator is designed to be effect-free in non-ZeroGPU environments, ensuring compatibility across different setups.
+
 ### Example Usage
 
 ```python
@@ -92,7 +95,14 @@ gr.Interface(
 ).launch()
 ```
 
-Note: The `@spaces.GPU` decorator is designed to be effect-free in non-ZeroGPU environments, ensuring compatibility across different setups.
+### Model loading
+
+Even though a real GPU is only available inside `@spaces.GPU` functions, models must be placed on `cuda` at the root module level (as shown in the example above).
+
+Lazy-loading or moving models to CUDA inside `@spaces.GPU` is discouraged, as it is significantly less efficient (CUDA transfers are optimized for placements done during startup).
+
+> [!NOTE]
+> Loading models on `cuda` at module level works because a PyTorch CUDA emulation mode is enabled outside `@spaces.GPU` functions, allowing CUDA operations without a real GPU. Inside `@spaces.GPU`, real CUDA is used.
 
 ## GPU size selection
 
@@ -150,16 +160,25 @@ Check out this [blogpost](https://huggingface.co/blog/zerogpu-aoti) for a comple
 
 GPU usage is subject to **daily** quotas, per account tier:
 
-| Account type                   | Daily GPU quota  | Queue priority  |
-| ------------------------------ | ---------------- | --------------- |
-| Unauthenticated                | 2 minutes        | Low             |
-| Free account                   | 3.5 minutes      | Medium          |
-| PRO account                    | 25 minutes       | Highest         |
-| Team organization member       | 25 minutes       | Highest         |
-| Enterprise organization member | 45 minutes       | Highest         |
+| Account type                   | Included daily GPU quota | Queue priority  |
+| ------------------------------ | ------------------------ | --------------- |
+| Unauthenticated                | 2 minutes                | Low             |
+| Free account                   | 3.5 minutes              | Medium          |
+| PRO account                    | 25 minutes (extensible)  | Highest         |
+| Team organization member       | 25 minutes (extensible)  | Highest         |
+| Enterprise organization member | 45 minutes (extensible)  | Highest         |
+
+Included daily quota resets exactly 24 hours after your first GPU usage.
 
 > [!NOTE]
 > Remaining quota directly impacts priority in ZeroGPU queues.
+
+### Extending quota with credits
+
+PRO, Team, and Enterprise users can continue using ZeroGPU Spaces beyond their included daily quota by consuming pre-paid credits at the rate of **$1 per 10 minutes** of GPU time.
+Once your daily quota is exhausted, any additional GPU usage is automatically billed against your credit balance.
+
+You can add credits from your [billing settings](https://huggingface.co/settings/billing).
 
 ## Hosting Limitations
 

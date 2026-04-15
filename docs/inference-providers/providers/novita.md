@@ -42,33 +42,3 @@ Offering 200+ APIs (LLMs, image, video, audio) with fully managed deployment —
 
 ## Supported tasks
 
-
-### Chat Completion (LLM)
-
-Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"novita":{"modelId":"zai-org/GLM-4.7-Flash","providerModelId":"zai-org/glm-4.7-flash"} } }
-conversational />
-
-
-### Chat Completion (VLM)
-
-Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=image-text-to-text
-    providersMapping={ {"novita":{"modelId":"moonshotai/Kimi-K2.5","providerModelId":"moonshotai/kimi-k2.5"} } }
-conversational />
-
-
-### Text To Video
-
-Find out more about Text To Video [here](../tasks/text-to-video).
-
-<InferenceSnippet
-    pipeline=text-to-video
-    providersMapping={ {"novita":{"modelId":"Wan-AI/Wan2.1-T2V-14B","providerModelId":"wan-t2v"} } }
-/>
-

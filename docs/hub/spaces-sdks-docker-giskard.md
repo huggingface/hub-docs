@@ -34,7 +34,7 @@ You can deploy Giskard on Spaces with just a few clicks:
 > [!WARNING]
 > IMPORTANT NOTE ABOUT DATA PERSISTENCE:
 > You can use the Giskard Space as is for initial exploration and experimentation. For **longer use in 
-> small-scale projects, activate the [paid persistent storage option](https://huggingface.co/docs/hub/spaces-storage)**. This prevents data loss during Space restarts which 
+> small-scale projects, attach a [Storage Bucket](https://huggingface.co/docs/hub/storage-buckets)**. This prevents data loss during Space restarts which 
 > occur every 24 hours.
 
 You need to define the **Owner** (your personal account or an organization), a **Space name**, and the **Visibility**. 

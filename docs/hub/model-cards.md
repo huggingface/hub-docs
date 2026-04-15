@@ -182,6 +182,16 @@ datasets:
 - HuggingFaceFW/fineweb
 ```
 
+### Specifying a bucket
+
+You can specify the [storage buckets](./storage-buckets) linked to your model in the model card metadata section. The buckets will be shown as tags on the model page and the linked bucket pages will show the model in return. You should use the Hub bucket identifier, which is the same as the bucket's repo name:
+
+```yaml
+buckets:
+- my-org/my-bucket
+- my-org/another-bucket
+```
+
 ### Specifying a task (`pipeline_tag`)
 
 You can specify the `pipeline_tag` in the model card metadata. The `pipeline_tag` indicates the type of task the model is intended for. This tag will be displayed on the model page and users can filter models on the Hub by task. This tag is also used to determine which [widget](./models-widgets#enabling-a-widget) to use for the model and which APIs to use under the hood.

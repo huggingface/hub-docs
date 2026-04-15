@@ -1,31 +1,57 @@
 # Managing Spaces with Github Actions
 
-You can keep your app in sync with your GitHub repository with **Github Actions**. Remember that for files larger than 10MB, Spaces requires Git-LFS. If you don't want to use Git-LFS, you may need to review your files and check your history. Use a tool like [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to remove any large files from your history. BFG Repo-Cleaner will keep a local copy of your repository as a backup.
+You can keep your Space in sync with your GitHub repository using the official [`huggingface/hub-sync`](https://github.com/marketplace/actions/sync-github-to-hugging-face-hub) GitHub Action.
 
-First, you should set up your GitHub repository and Spaces app together. Add your Spaces app as an additional remote to your existing Git repository.
+<Tip>
 
-```bash
-git remote add space https://huggingface.co/spaces/HF_USERNAME/SPACE_NAME
+`hub-sync` also works for Models and Datasets. See [GitHub Actions](./repositories-github-actions) for general usage.
+
+</Tip>
+
+## Setup
+
+1. Create a [GitHub secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-environment) called `HF_TOKEN` with a Hugging Face [access token](https://huggingface.co/settings/tokens).
+2. Add a workflow file (e.g. `.github/workflows/sync-to-hub.yml`) to your repository:
+
+```yaml
+name: Sync to Hugging Face Hub
+on:
+  push:
+    branches: [main]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: huggingface/hub-sync@v0.1.0
+        with:
+          github_repo_id: ${{ github.repository }}
+          huggingface_repo_id: username/my-space
+          hf_token: ${{ secrets.HF_TOKEN }}
 ```
 
-Then force push to sync everything for the first time:
+You can configure the Space SDK with `space_sdk` (defaults to `gradio`). See [all parameters](./repositories-github-actions#parameters).
 
-```bash
-git push --force space main
-```
+## How it works
 
-Next, set up a GitHub Action to push your main branch to Spaces. In the example below:
+The action mirrors your files to the Hub using the `hf` CLI (`hf repo create` + `hf upload`). It is not a git-to-git sync — it uploads the file contents and automatically excludes `.github/` and `.git/` directories. Files removed from your GitHub repository will also be removed from the Hub.
 
-* Replace `HF_USERNAME` with your username and `SPACE_NAME` with your Space name. 
-* Create a [Github secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-environment) with your `HF_TOKEN`. You can find your Hugging Face API token under **API Tokens** on your Hugging Face profile.
+For more complex workflows (e.g. build steps, custom logic), you can install and use the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/en/guides/cli) directly in your workflow instead.
+
+## File size considerations
+
+For files larger than 10MB, Spaces requires [Git-LFS](./repositories-getting-started#terminal). Make sure large files in your GitHub repository are tracked with LFS before syncing.
+
+## Alternative: manual git push
+
+If you prefer a direct git-to-git sync instead of file mirroring, you can push to your Space's git remote directly:
 
 ```yaml
 name: Sync to Hugging Face hub
 on:
   push:
     branches: [main]
-
-  # to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
@@ -42,24 +68,4 @@ jobs:
         run: git push https://HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/HF_USERNAME/SPACE_NAME main
 ```
 
-Finally, create an Action that automatically checks the file size of any new pull request:
-
-
-```yaml
-name: Check file size
-on:               # or directly `on: [push]` to run the action on every push on any branch
-  pull_request:
-    branches: [main]
-
-  # to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-jobs:
-  sync-to-hub:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check large files
-        uses: ActionsDesk/lfs-warning@v2.0
-        with:
-          filesizelimit: 10485760 # this is 10MB so we can sync to HF Spaces
-```
+Replace `HF_USERNAME` with your username and `SPACE_NAME` with your Space name.

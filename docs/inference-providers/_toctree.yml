@@ -38,12 +38,16 @@
     title: Overview
   - local: integrations/adding-integration
     title: Add Your Integration
+  - local: integrations/hermes-agent
+    title: Hermes Agent
   - local: integrations/datadesigner
     title: NeMo Data Designer
   - local: integrations/macwhisper
     title: MacWhisper
   - local: integrations/opencode
     title: OpenCode
+  - local: integrations/pi
+    title: Pi
   - local: integrations/visionagents
     title: Vision Agents
   - local: integrations/vscode

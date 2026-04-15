@@ -2,7 +2,7 @@
 
 You can enable a built-in sign-in flow in your Space by seamlessly creating and associating an [OAuth/OpenID connect](https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc) app so users can log in with their HF account.
 
-This enables new use cases for your Space. For instance, when combined with [Persistent Storage](https://huggingface.co/docs/hub/spaces-storage), a generative AI Space could allow users to log in to access their previous generations, only accessible to them.
+This enables new use cases for your Space. For instance, when combined with [Storage Buckets](https://huggingface.co/docs/hub/storage-buckets), a generative AI Space could allow users to log in to access their previous generations, only accessible to them.
 
 > [!TIP]
 > This guide will take you through the process of integrating a *Sign-In with HF* button into any Space. If you're seeking a fast and simple method to implement this in a **Gradio** Space, take a look at its [built-in integration](https://www.gradio.app/guides/sharing-your-app#o-auth-login-via-hugging-face).
@@ -32,6 +32,7 @@ hf_oauth_expiration_minutes: 480
 # optional, see "Scopes" below. "openid profile" is always included.
 hf_oauth_scopes:
  - read-repos
+ - gated-repos
  - write-repos
  - manage-repos
  - inference-api
@@ -73,9 +74,12 @@ Those scopes are optional and can be added by setting `hf_oauth_scopes` in your 
 - `email`: Get the user's email address.
 - `read-billing`: Know whether the user has a payment method set up.
 - `read-repos`: Get read access to the user's personal repos.
+- `gated-repos`: Get read access to the content of public gated repos the user has been granted access to. Unlike `read-repos`, this does not grant access to private repos.
 - `contribute-repos`: Can create repositories and access those created by this app. Cannot access any other repositories unless additional permissions are granted.
 - `write-repos`: Get write/read access to the user's personal repos.
 - `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion.
+- `read-collections`: Get read access to the user's personal collections.
+- `write-collections`: Get write/read access to the user's personal collections. Also grants collection creation and deletion.
 - `inference-api`: Get access to the [Inference Providers](https://huggingface.co/docs/inference-providers/index), you will be able to make inference requests on behalf of the user.
 - `jobs`: Run [jobs](https://huggingface.co/docs/huggingface_hub/main/en/guides/jobs) 
 - `webhooks`: Manage [webhooks](https://huggingface.co/docs/huggingface_hub/main/en/guides/webhooks)

@@ -9,7 +9,7 @@ You can find `fastai` models by filtering at the left of the [models page](https
 All models on the Hub come up with the following features:
 1. An automatically generated model card with a brief description and metadata tags that help for discoverability.
 2. An interactive widget you can use to play out with the model directly in the browser (for Image Classification)
-3. An Inference API that allows to make inference requests (for Image Classification).
+3. An Inference Providers widget that allows to make inference requests (for Image Classification).
 
 
 ## Using existing models

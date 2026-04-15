@@ -66,7 +66,7 @@ import asyncio
 
 agent = Agent(
     model="Qwen/Qwen2.5-72B-Instruct",
-    provider="nebius",
+    provider="novita",
     servers=[
         {
             "type": "sse",
@@ -96,7 +96,7 @@ import { Agent } from "@huggingface/tiny-agents";
 
 const agent = new Agent({
     model: "Qwen/Qwen2.5-72B-Instruct",
-    provider: "nebius",
+    provider: "novita",
     apiKey: process.env.HF_TOKEN,
     servers: [
         {
@@ -139,7 +139,7 @@ from huggingface_hub import MCPClient
 async def main():
     async with MCPClient(
         model="Qwen/Qwen2.5-72B-Instruct",
-        provider="nebius",
+        provider="novita",
     ) as client:
         # Connect to an MCP server
         await client.add_mcp_server(

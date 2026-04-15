@@ -7,10 +7,6 @@
   sections:
   - local: enterprise-sso
     title: Single Sign-On (SSO)
-  - local: enterprise-advanced-sso
-    title: Advanced Single Sign-On (SSO)
-  - local: enterprise-scim
-    title: User Provisioning (SCIM)
   - local: audit-logs
     title: Audit Logs
   - local: storage-regions
@@ -25,7 +21,7 @@
     title: Advanced Security
   - local: enterprise-tokens-management
     title: Tokens Management
-  - local: enterprise-analytics
+  - local: publisher-analytics
     title: Publisher Analytics
   - local: enterprise-gating-group-collections
     title: Gating Group Collections
@@ -62,6 +58,8 @@
       title: Backwards Compatibility & Legacy
     - local: xet/deduplication
       title: Deduplication
+  - local: local-cache
+    title: Local Cache
   - local: repositories-pull-requests-discussions
     title: Pull Requests & Discussions
   - local: notifications
@@ -77,6 +75,8 @@
         title: "How-to: Build a Discussion bot based on BLOOM"
       - local: webhooks-guide-metadata-review
         title: "How-to: Create automatic metadata quality reports"
+  - local: repositories-github-actions
+    title: GitHub Actions
   - local: notebooks
     title: Notebooks
   - local: repositories-next-steps
@@ -99,6 +99,8 @@
       title: Card Components
   - local: eval-results
     title: Eval Results
+  - local: leaderboard-data-guide
+    title: Leaderboard Data
   - local: models-gated
     title: Gated Models
   - local: models-uploading
@@ -223,6 +225,9 @@
     title: Gated Datasets
   - local: datasets-adding
     title: Uploading Datasets
+    sections:
+    - local: datasets-ingesting
+      title: Ingesting Datasets
   - local: datasets-upload-guide-llm
     title: Uploading Datasets (for LLMs)
   - local: datasets-downloading
@@ -240,6 +245,8 @@
         title: Dask
       - local: datasets-usage
         title: Datasets
+      - local: datasets-data-designer
+        title: Data Designer
       - local: datasets-distilabel
         title: Distilabel
       - local: datasets-duckdb
@@ -287,27 +294,29 @@
   - local: data-studio
     title: Data Studio
     sections:
+      - local: datasets-cell-editing
+        title: Editing Datasets
       - local: datasets-viewer-configure
         title: Configure the Dataset Viewer
-      - local: datasets-viewer-embed
-        title: Embed the Dataset Viewer in a webpage
-      - local: datasets-viewer-sql-console
-        title: "SQL Console"
+        sections:
+          - local: datasets-data-files-configuration
+            title: Data files Configuration
+          - local: datasets-file-names-and-splits
+            title: File names and splits
+          - local: datasets-manual-configuration
+            title: Manual Configuration
+          - local: datasets-audio
+            title: Audio Dataset
+          - local: datasets-image
+            title: Image Dataset
+          - local: datasets-video
+            title: Video Dataset
+          - local: datasets-viewer-embed
+            title: Embed the Dataset Viewer in a webpage
+          - local: datasets-viewer-sql-console
+            title: "SQL Console"
   - local: datasets-download-stats
     title: Datasets Download Stats
-  - local: datasets-data-files-configuration
-    title: Data files Configuration
-    sections:
-      - local: datasets-file-names-and-splits
-        title: File names and splits
-      - local: datasets-manual-configuration
-        title: Manual Configuration
-      - local: datasets-audio
-        title: Audio Dataset
-      - local: datasets-image
-        title: Image Dataset
-      - local: datasets-video
-        title: Video Dataset
 
 - local: spaces
   title: Spaces
@@ -329,11 +338,13 @@
   - local: spaces-dev-mode
     title: Spaces Dev Mode
   - local: spaces-storage
-    title: Spaces Persistent Storage
+    title: Spaces Disk Usage & Storage
   - local: spaces-custom-domain
     title: Spaces Custom Domain
   - local: spaces-mcp-servers
     title: Spaces as MCP servers
+  - local: spaces-api-endpoints
+    title: Spaces as API Endpoints
   - local: spaces-sdks-gradio
     title: Gradio Spaces
   - local: spaces-sdks-streamlit
@@ -411,20 +422,17 @@
     - local: spaces-get-user-plan
       title: Get User Plan and Status
 
-- local: agents
-  title: Agents
+- local: storage-buckets
+  title: Storage Buckets
+  new: true
   isExpanded: true
   sections:
-  - local: agents-overview
-    title: Agents on the Hub
-  - local: agents-mcp
-    title: Hugging Face MCP Server
-  - local: agents-skills
-    title: Hugging Face Agent Skills
-  - local: agents-cli
-    title: Agents and the `hf` CLI
-  - local: agents-sdk
-    title: Building agents with the SDK
+  - local: storage-buckets-access
+    title: Access Patterns
+  - local: storage-buckets-integrations
+    title: Bucket Integrations
+  - local: storage-buckets-security
+    title: Bucket Security
 
 - local: jobs
   title: Jobs
@@ -442,12 +450,33 @@
     title: Configuration
   - local: jobs-popular-images
     title: Popular Images
+  - local: jobs-examples
+    title: Examples & Tutorials
   - local: jobs-schedule
     title: Schedule Jobs
   - local: jobs-webhooks
     title: Webhook Automation
   - local: jobs-reference
     title: Reference
+
+- local: agents
+  title: Agents
+  isExpanded: true
+  sections:
+  - local: agents-overview
+    title: Agents Overview
+  - local: agents-cli
+    title: Hugging Face CLI for AI Agents
+  - local: agents-mcp
+    title: Hugging Face MCP Server
+  - local: agents-skills
+    title: Hugging Face Agent Skills
+  - local: agents-sdk
+    title: Building agents with the HF SDK
+  - local: agents-local
+    title: Local Agents with llama.cpp and Pi
+  - local: agents-libraries
+    title: Agent Libraries
 
 - local: other
   title: Other
@@ -478,24 +507,37 @@
     - local: security-sso
       title: Single Sign-On (SSO)
       sections:
-      - local: security-sso-okta-oidc
-        title: How to configure OIDC with Okta
-      - local: security-sso-okta-saml
-        title: How to configure SAML with Okta
-      - local: security-sso-okta-scim
-        title: How to configure SCIM with Okta
-      - local: security-sso-azure-saml
-        title: How to configure SAML with EntraID (Azure AD)
-      - local: security-sso-azure-oidc
-        title: How to configure OIDC with EntraID (Azure AD) 
-      - local: security-sso-entra-id-scim
-        title: How to configure SCIM with EntraID (Azure AD)
-      - local: security-sso-google-saml
-        title: How to configure SAML with Google Workspace
-      - local: security-sso-google-oidc
-        title: How to configure OIDC with Google Workspace
+      - local: security-sso-basic
+        title: Basic SSO
+      - local: enterprise-advanced-sso
+        title: Managed SSO
+      - local: security-sso-user-management
+        title: User Management
+      - local: enterprise-scim
+        title: User Provisioning (SCIM)
+      - local: security-sso-configuration-guides
+        title: Configuration Guides
+        sections:
+        - local: security-sso-okta-oidc
+          title: How to configure OIDC with Okta
+        - local: security-sso-okta-saml
+          title: How to configure SAML with Okta
+        - local: security-sso-okta-scim
+          title: How to configure SCIM with Okta
+        - local: security-sso-azure-saml
+          title: How to configure SAML with EntraID (Azure AD)
+        - local: security-sso-azure-oidc
+          title: How to configure OIDC with EntraID (Azure AD)
+        - local: security-sso-entra-id-scim
+          title: How to configure SCIM with EntraID (Azure AD)
+        - local: security-sso-google-saml
+          title: How to configure SAML with Google Workspace
+        - local: security-sso-google-oidc
+          title: How to configure OIDC with Google Workspace
     - local: security-resource-groups
       title: Advanced Access Control (Resource Groups)
+    - local: programmatic-user-access-control
+      title: Programmatic User Access Control Management
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle

@@ -47,7 +47,7 @@ Streaming is great for sampling metadata to understand what you have. For vector
 
 > [!WARNING]
 > Streaming is fast for sampling simple scalar metadata but not as quick for embeddings or large multimodal assets. To work with large datasets, it's recommended to scan the metadata, identify subsets of what you need, and download that portion of the dataset locally to avoid facing Hub rate limits:
-> `huggingface-cli download lance-format/laion-1m --repo-type dataset --local-dir ./laion`
+> `hf download lance-format/laion-1m --repo-type dataset --local-dir ./laion`
 
 ## Stream from the Hub with `lance.dataset`
 

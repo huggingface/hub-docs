@@ -57,7 +57,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"scaleway":{"modelId":"google/gemma-3-27b-it","providerModelId":"gemma-3-27b-it"} } }
+    providersMapping={ {"scaleway":{"modelId":"Qwen/Qwen3.5-397B-A17B","providerModelId":"qwen3.5-397b-a17b"} } }
 conversational />
 
 

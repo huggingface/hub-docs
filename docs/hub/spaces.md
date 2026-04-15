@@ -18,7 +18,7 @@ You'll also be able to upgrade your Space to run [on a GPU or other accelerated 
   - [How to Add a Space to ArXiv](./spaces-add-to-arxiv)
 - [Spaces Dev Mode](./spaces-dev-mode)
 - [Spaces GPU Upgrades](./spaces-gpus)
-- [Spaces Persistent Storage](./spaces-storage)
+- [Spaces Disk Usage & Storage](./spaces-storage)
 - [Gradio Spaces](./spaces-sdks-gradio)
 - [Docker Spaces](./spaces-sdks-docker)
 - [Static HTML Spaces](./spaces-sdks-static)

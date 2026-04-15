@@ -34,6 +34,13 @@ To load a file from Hugging Face, the path needs to start with `hf://`. For exam
 
 For more information on the Hugging Face paths and how they are implemented, please refer to the [the client library's documentation on the HfFileSystem](/docs/huggingface_hub/guides/hf_file_system).
 
+> [!TIP]
+> The same `hf://` paths also work with [Storage Buckets](./storage-buckets):
+> ```python
+> >>> df = pd.read_parquet("hf://buckets/username/my-bucket/data.parquet")
+> >>> df.to_parquet("hf://buckets/username/my-bucket/output.parquet")
+> ```
+
 ## Save a DataFrame
 
 You can save a pandas DataFrame using `to_csv/to_json/to_parquet` to a local file or to Hugging Face directly.
@@ -64,6 +71,68 @@ df_train.to_parquet("hf://datasets/username/my_dataset/train.parquet")
 df_valid.to_parquet("hf://datasets/username/my_dataset/validation.parquet")
 df_test .to_parquet("hf://datasets/username/my_dataset/test.parquet")
 ```
+
+Note that Parquet files on Hugging Face are optimized to improve storage efficiency, accelerate downloads and uploads, and enable efficient dataset streaming and editing:
+
+* [Parquet Content Defined Chunking](https://huggingface.co/blog/parquet-cdc) optimizes Parquet for [Xet](https://huggingface.co/docs/hub/en/xet/index), Hugging Face's storage backend. It accelerates uploads and downloads thanks to chunk-based deduplication and allows efficient file editing
+* Page index accelerates filters when streaming and enables efficient random access, e.g. in the [Dataset Viewer](https://huggingface.co/docs/dataset-viewer)
+
+Pandas require extra argument to write optimized Parquet files:
+
+```python
+import pandas as pd
+
+df.to_parquet(
+    "hf://datasets/username/my_dataset/imdb.parquet",
+    # Optimize for Xet
+    use_content_defined_chunking=True,
+    write_page_index=True,
+)
+```
+
+* `use_content_defined_chunking=True` to enable Parquet Content Defined Chunking, for [deduplication](https://huggingface.co/blog/parquet-cdc) and [editing](./datasets-editing) (it requires `pyarrow>=21.0`)
+* `write_page_index=True` to include a page index in the Parquet metadata, for [streaming and random access](./datasets-streaming)
+
+> [!TIP]
+> Content defined chunking (CDC) makes the Parquet writer chunk the data pages in a way that makes duplicate data chunked and compressed identically.
+> Without CDC, the pages are arbitrarily chunked and therefore duplicate data are impossible to detect because of compression.
+> Thanks to CDC, Parquet uploads and downloads from Hugging Face are faster, since duplicate data are uploaded or downloaded only once.
+
+Find more information about Xet [here](https://huggingface.co/join/xet).
+
+## Leverage Xet deduplication for Parquet
+
+Optimized Parquet files are written with Content Defined Chunking, which enables deduplication.
+This accelerates uploads since chunks of data that already exist on Hugging Face don't need to be uploaded again, and this saves a lot of I/O.
+
+For example, this code uploads the content of `df` and then for `edited_df` the upload is faster since it only uploads the chunks that changed:
+
+```python
+import pandas as pd
+
+df.to_parquet(
+    "hf://datasets/username/my_dataset/imdb.parquet",
+    # Optimize for Xet
+    use_content_defined_chunking=True,
+    write_page_index=True,
+)
+
+edited_df = ...  # e.g. with added/modified/removed rows or columns
+
+edited_df.to_parquet(
+    "hf://datasets/username/my_dataset/imdb.parquet",
+    # Optimize for Xet
+    use_content_defined_chunking=True,
+    write_page_index=True,
+)
+```
+
+Chunks are ~64kB and Parquet saves data column per column, so in practice this is what happens when editing an Optimized Parquet file:
+
+* add a new column -> only the chunks of the new column are uploaded
+* add/edit/delete a row -> one chunk per column is uploaded
+
+And in addition to this, the chunks of the Parquet footer containing metadata are also uploaded.
 
 ## Use Images
 

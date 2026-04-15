@@ -1,8 +1,5 @@
 # Webhook guide: Setup an automatic system to re-train a model when a dataset changes
 
-> [!TIP]
-> Webhooks are now publicly available!
-
 This guide will help walk you through the setup of an automatic training pipeline on the Hugging Face platform
 using HF Datasets, Webhooks, Spaces, and AutoTrain.
 
@@ -84,7 +81,7 @@ async def post_webhook(
 ```python
 # defined in src/models.py
 class WebhookPayloadEvent(BaseModel):
-	action: Literal["create", "update", "delete"]
+	action: Literal["create", "update", "delete", "move"]
 	scope: str
 
 class WebhookPayloadRepo(BaseModel):

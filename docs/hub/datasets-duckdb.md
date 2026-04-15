@@ -77,6 +77,17 @@ Which returns:
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
 
+> [!TIP]
+> **Querying Storage Buckets**: When using the DuckDB Python client, you can query data stored in [Storage Buckets](./storage-buckets) by registering the Hugging Face filesystem:
+> ```python
+> import duckdb
+> from huggingface_hub import HfFileSystem
+> duckdb.register_filesystem(HfFileSystem())
+> duckdb.sql("SELECT * FROM 'hf://buckets/username/my-bucket/data.parquet' LIMIT 10")
+> ```
+> 
+Native `hf://buckets/` support in DuckDB is expected in a future release.
+
 ## Query an Iceberg Datasets Catalog
 
 Use the PyIceberg library `faceberg` to deploy an Iceberg catalog (see next section) you can use to query datasets on Huggging Face using an easy syntax.

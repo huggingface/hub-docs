@@ -69,7 +69,9 @@ response = generate(model, tokenizer, prompt="hello", verbose=True)
 
 MLX-LM supports popular LLM architectures including LLaMA, Phi-2, Mistral, and Qwen. Models other than supported ones can easily be downloaded as follows:
 
-```py
+Setting `HF_XET_HIGH_PERFORMANCE=1` raises concurrency bounds and buffer sizes for machines with high bandwidth and at least 64 GB of RAM:
+
+```bash
 pip install -U huggingface_hub
 
 export HF_XET_HIGH_PERFORMANCE=1

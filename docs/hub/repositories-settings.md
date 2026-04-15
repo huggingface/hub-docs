@@ -1,8 +1,15 @@
 # Repository Settings 
 
-## Private repositories
+## Repository visibility
+<a id="private-repositories"></a>
 
-You can choose a repository's visibility when you create it, and any repository that you own can have its visibility toggled between *public* and *private* in the **Settings** tab. Unless your repository is owned by an [organization](./organizations), you are the only user that can make changes to your repo or upload any code. Setting your visibility to *private* will:
+You can choose a repository's visibility when you create it, and any repository that you own can have its visibility changed in the **Settings** tab. Unless your repository is owned by an [organization](./organizations), you are the only user that can make changes to your repo or upload any code.
+
+For models and datasets, visibility can be toggled between *public* and *private*.
+
+For Spaces, visibility is set through a dropdown with three options: *public*, *protected*, and *private*. Protected visibility is available on [PRO](https://huggingface.co/pro) and [Team & Enterprise](https://huggingface.co/enterprise) plans. See [Spaces Overview](./spaces-overview#space-visibility) for details on protected Spaces.
+
+Setting your visibility to *private* will:
 
  - Ensure your repo does not show up in other users' search results.
  - Other users who visit the URL of your private repo will receive a `404 - Repo not found` error. 

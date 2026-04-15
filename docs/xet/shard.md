@@ -287,11 +287,12 @@ For any file the nth `FileVerificationEntry` correlates to the nth `FileDataSequ
 
 ### FileMetadataExt (OPTIONAL)
 
-This section is REQUIRED per file for shards uploaded through the shard upload API.
-
 There is only 1 `FileMetadataExt` instance per file info block and it is the last component of that file info block when present.
+Its presence is controlled by the `MDB_FILE_FLAG_WITH_METADATA_EXT` flag in the `FileDataSequenceHeader`.
 
 The sha256 field is the 32 byte SHA256 of the file contents of the file described.
+
+This section is REQUIRED when uploading files to Git-based repositories on the Hugging Face Hub (models, datasets, Spaces), because those repos use git LFS pointer files that reference the SHA256. It is OPTIONAL when uploading to [Storage Buckets](https://huggingface.co/docs/hub/storage-buckets), which do not use git LFS pointer files. When omitted, the `MDB_FILE_FLAG_WITH_METADATA_EXT` flag MUST NOT be set.
 
 ```rust
 struct FileMetadataExt {

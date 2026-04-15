@@ -1,10 +1,12 @@
 # Available DLCs on AWS
 
-Below you can find a listing of all the Deep Learning Containers (DLCs) available on AWS.
+Below you can find a listing of our latest Deep Learning Containers (DLCs) available on AWS.
 
 For each supported combination of use-case (training, inference), accelerator type (CPU, GPU, Neuron), and framework (PyTorch, TGI, TEI) containers are created.
 
 Neuron DLCs for training and inference on AWS Trainium and AWS Inferentia instances can be found in the [Optimum Neuron documentation](https://huggingface.co/docs/optimum-neuron/en/containers).
+
+If you want to keep track of all our available DLCs, you can also check the [AWS Deep Learning Containers releases](https://aws.github.io/deep-learning-containers/reference/available_images#huggingface-pytorch-training) page.
 
 ## Training
 
@@ -29,14 +31,24 @@ For inference, there is a general-purpose PyTorch inference DLC, for serving mod
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.51.3-gpu-py312-cu124-ubuntu22.04 | GPU         |
 | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-inference-neuronx:2.8.0-transformers4.55.4-neuronx-py310-sdk2.26.0-ubuntu22.04 | Neuron         |
 
-### LLM DLC
 
-For high-performance serving of text generation models, there is the LLM DLC, available on GPU and AWS AI chips.
+### Hugging Face vLLM Inference DLC
 
-| Container URI                                                                                                                    | Accelerator |
-| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-tgi-inference:2.7.0-tgi3.3.6-gpu-py311-cu124-ubuntu22.04 | GPU         |
-| 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.4-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
+In case you want to serve text generation models with vLLM, there are specific DLCs available for GPU and AWS AI chips.
+
+| vLLM version | Container URI                                                                                                                    | Accelerator |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| 0.17.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm:0.17.0-transformers4.57.5-gpu-py312-cu129-ubuntu22.04 | GPU         |
+| 0.11.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.5-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
+
+### Hugging Face SGLang Inference DLC
+
+There is also a specific DLC for serving models with SGLang on GPU.
+
+| SGLang version | Container URI                                                                                                                    | Accelerator |
+| ---------------| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| 0.5.8          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-sglang:0.5.8-transformers4.57.3-gpu-py312-cu129-ubuntu24.04 | GPU         |
+
 
 ### Text Embedding Inference
 

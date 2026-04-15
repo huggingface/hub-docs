@@ -1,6 +1,9 @@
 # Repositories
 
-Models, Spaces, and Datasets are hosted on the Hugging Face Hub as [Git repositories](https://git-scm.com/about), which means that version control and collaboration are core elements of the Hub. In a nutshell, a repository (also known as a **repo**) is a place where code and assets can be stored to back up your work, share it with the community, and work in a team. 
+Models, Spaces, and Datasets are hosted on the Hugging Face Hub as [Git repositories](https://git-scm.com/about), which means that version control and collaboration are core elements of the Hub. In a nutshell, a repository (also known as a **repo**) is a place where code and assets can be stored to back up your work, share it with the community, and work in a team.
+
+> [!TIP]
+> Looking for non-versioned, mutable storage? Check out [Storage Buckets](./storage-buckets), which provide S3-like object storage without Git history.
 
 Unlike other collaboration platforms, our Git repositories are optimized for Machine Learning and AI files – large binary files, usually in specific file formats like Parquet and Safetensors, and up to [Terabyte-scale sizes](https://huggingface.co/blog/from-files-to-chunks)!
 To achieve this, we built [Xet](./xet/index), a modern custom storage system built specifically for AI/ML development, enabling chunk-level deduplication, smaller uploads, and faster downloads.
@@ -18,6 +21,7 @@ In these pages, you will go over the basics of getting started with Git and Xet 
 - [Settings](./repositories-settings)
 - [Storage Limits](./storage-limits)
 - [Storage Backend (Xet)](./xet/index)
+- [Local Cache](./local-cache)
 - [Pull Requests & Discussions](./repositories-pull-requests-discussions)
   - [Pull Requests advanced usage](./repositories-pull-requests-discussions#pull-requests-advanced-usage)
 - [Collections](./collections)

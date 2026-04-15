@@ -4,7 +4,7 @@ The Hub has support for dozens of libraries in the Open Source ecosystem. Thanks
 
 The table below summarizes the supported libraries and their level of integration. Find all our supported libraries in [the model-libraries.ts file](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/model-libraries.ts).
 
-| Library                                                                     | Description                                                                          | Inference API | Widgets | Download from Hub | Push to Hub |
+| Library                                                                     | Description                                                                          | Inference Providers | Widgets | Download from Hub | Push to Hub |
 |-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------|---|---:|---|---|
 | [Adapters](./adapters) | A unified Transformers add-on for parameter-efficient and modular fine-tuning.                                                | ✅  | ✅  | ✅ | ✅ |
 | [AllenNLP](./allennlp)                             | An open-source NLP research library, built on PyTorch.                               | ✅ | ✅ | ✅ | ❌ |
@@ -44,6 +44,6 @@ The table below summarizes the supported libraries and their level of integratio
 | [Transformers.js](./transformers-js)                | State-of-the-art Machine Learning for the web. Run 🤗 Transformers directly in your browser, with no need for a server! | ❌ | ❌ | ✅ | ❌ |
 | [Unity Sentis](./unity-sentis)                | Inference engine for the Unity 3D game engine | ❌ | ❌ | ❌ | ❌ |
 
-### How can I add a new library to the Inference API?
+### How can I add support for a new library?
 
 If you're interested in adding your library, please reach out to us! Read about it in [Adding a Library Guide](./models-adding-libraries).

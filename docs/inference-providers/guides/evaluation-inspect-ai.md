@@ -100,7 +100,7 @@ inspect view
 ## Example: Comparing several inference providers for a task
 In this section, we will evaluate the same model across different providers. Inference Providers gives us access to many providers for the same model. Performance might vary across providers, so this is a useful factor, in addition to speed and cost, to choose the most appropriate inference provider for your task.
 
-If we don't specify a provider, like we did in our previous examples, the system automatically routes your request to the first available provider for the specified model, following your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). But we can also select the provider by appending the provider name to the model id (e.g. `openai/gpt-oss-120b:sambanova`).
+If we don't specify a provider, like we did in our previous examples, the system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy). But we can also select the provider by appending the provider name to the model id (e.g. `openai/gpt-oss-120b:sambanova`).
 
 Let's run the evaluations for `gpt-oss-120b` across several providers. Please note that this time we are using the `eval_set` function directly in Python for extra flexibility (e.g., changing the list of providers):
 
@@ -152,7 +152,7 @@ Launching the viewer and sorting by score, we can compare the performance across
 > [!TIP]
 > **Why performance varies across providers**: As seen above, the same model can produce different results when served by different inference providers due to several factors: variations in inference implementations, differences in hardware (GPU generations, optimizations), and non-determinism introduced by load balancing and batching strategies. Performance can vary across the matrix of provider-model combinations and may change with updates to inference stacks, GPU generations, and model versions. Evaluating across multiple providers helps identify the best-performing combinations for your specific use case.
 
-As mentioned earlier, two additional factors for choosing a model are speed and cost. Luckily, Inference Providers give you another selection policy by appending `:fastest` (selects the provider with highest throughput) or `:cheapest` (selects the provider with lowest price per output token) to the model id (e.g., `openai/gpt-oss-120b:fastest`). Using Inspect you can compare the performance between these two options as follows:
+As mentioned earlier, two additional factors for choosing a model are speed and cost. Luckily, Inference Providers give you selection policies by appending a suffix to the model id: `:fastest` (selects the provider with highest throughput — this is the default), `:cheapest` (selects the provider with lowest price per output token), or `:preferred` (follows your preference order in your [Inference Provider settings](https://hf.co/settings/inference-providers)). Using Inspect you can compare the performance between the fastest and cheapest options as follows:
 
 ```bash
 inspect eval-set theory-of-mind.py --model \

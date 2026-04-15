@@ -48,16 +48,16 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"Meta-Llama-3.1-8B-Instruct"} } }
+    providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-3.3-70B-Instruct","providerModelId":"Meta-Llama-3.3-70B-Instruct"} } }
 conversational />
 
 
-### Feature Extraction
+### Chat Completion (VLM)
 
-Find out more about Feature Extraction [here](../tasks/feature-extraction).
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
-    pipeline=feature-extraction
-    providersMapping={ {"sambanova":{"modelId":"intfloat/e5-mistral-7b-instruct","providerModelId":"E5-Mistral-7B-Instruct"} } }
-/>
+    pipeline=image-text-to-text
+    providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-4-Maverick-17B-128E-Instruct","providerModelId":"Llama-4-Maverick-17B-128E-Instruct"} } }
+conversational />
 

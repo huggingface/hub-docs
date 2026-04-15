@@ -49,16 +49,6 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"publicai":{"modelId":"allenai/Olmo-3.1-32B-Instruct","providerModelId":"allenai/Olmo-3.1-32B-Instruct"} } }
-conversational />
-
-
-### Chat Completion (VLM)
-
-Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=image-text-to-text
-    providersMapping={ {"publicai":{"modelId":"allenai/Molmo2-8B","providerModelId":"allenai/Molmo2-8B"} } }
+    providersMapping={ {"publicai":{"modelId":"swiss-ai/Apertus-8B-Instruct-2509","providerModelId":"swiss-ai/apertus-8b-instruct"} } }
 conversational />
 

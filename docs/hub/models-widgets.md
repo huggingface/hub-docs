@@ -15,7 +15,7 @@ You can explore more models and their widgets on the [models page](https://huggi
 
 ## Enabling a widget
 
-Widgets are displayed when the model is hosted by at least one Inference Provider, ensuring optimal performance and reliability for the model's inference. Providers autonomously chose and control what models they deploy.
+Widgets are displayed when the model is hosted by at least one Inference Provider, ensuring optimal performance and reliability for the model's inference. Providers autonomously choose and control what models they deploy.
 
 The type of widget displayed (text-generation, text to image, etc) is inferred from the model's `pipeline_tag`, a special tag that the Hub tries to compute automatically for all models. The only exception is for the `conversational` widget which is shown on models with a `pipeline_tag` of either `text-generation` or `image-text-to-text`, as long as they’re also tagged as `conversational`. We choose to expose **only one** widget per model for simplicity.
 

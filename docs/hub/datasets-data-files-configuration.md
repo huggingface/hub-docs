@@ -48,6 +48,17 @@ See the documentation on [Manual configuration](./datasets-manual-configuration)
 
 See the [File formats](./datasets-adding#file-formats) doc page to find the list of supported formats and recommendations for your dataset. If your dataset uses CSV or TSV files, you can find more information in the [example datasets](https://huggingface.co/collections/datasets-examples/format-csv-and-tsv-655f681cb9673a4249cccb3d).
 
+### Dataset Viewer size-limit errors (`TooBigContentError`)
+
+If you see `Error code: TooBigContentError`, then the dataset viewer could not read a preview within its limits. Common messages include `Parquet error: Scan size limit exceeded` and `The size of the content of the first rows exceeds the maximum supported size`.
+
+What you can do:
+
+- For Parquet files, use smaller row groups and include a page index (`write_page_index=True`) so the Viewer can read only what it needs.
+- Avoid very large values in the first rows (very long strings, large JSON blobs, base64 payloads). Move large payloads to separate files when possible.
+- Split very large files into smaller shards or splits, then re-upload.
+- If the issue remains, review [Configure the Dataset Viewer](./datasets-viewer-configure) and open a discussion on your dataset page with the full error text.
+
 ## Image, Audio and Video datasets
 
 For image/audio/video classification datasets, you can also use directories to name the image/audio/video classes.

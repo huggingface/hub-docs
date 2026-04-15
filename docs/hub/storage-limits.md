@@ -1,36 +1,65 @@
 # Storage limits
 
-At Hugging Face we aim to provide the AI community with significant volumes of **free storage space for public repositories**. We bill for storage space for **private repositories**, above a free tier (see table below).
+<!-- STRETCH TABLES -->
+
+At Hugging Face we aim to provide the AI community with significant volumes of **free storage space for public repositories**, with options to buy more storage if necessary. We also bill for storage space for **private repositories**, above a free tier (see table below).
 
 > [!TIP]
-> Storage limits and policies apply to both model and dataset repositories on the Hub.
+> Storage limits and policies apply to all types of repositories (models, datasets, buckets, …) on the Hub.
 
 We [optimize our infrastructure](https://huggingface.co/blog/xethub-joins-hf) continuously to [scale our storage](https://x.com/julien_c/status/1821540661973160339) for the coming years of growth in AI and Machine learning.
 
-We do have mitigations in place to prevent abuse of free public storage, and in general we ask users and organizations to make sure any uploaded large model or dataset is **as useful to the community as possible** (as represented by numbers of likes or downloads, for instance). Finally, upgrade to a paid Organization or User (PRO) account to unlock higher limits.
+We do have mitigations in place to prevent abuse of free public storage, and in general we ask users and organizations to make sure any uploaded large model or dataset is **as useful to the community as possible** (as represented by numbers of likes or downloads, for instance). Upgrade to a paid Organization or User (PRO) account to unlock higher limits.
 
 ## Storage plans
 
 | Type of account          | Public storage                                                      | Private storage              |
 | ------------------------ | ------------------------------------------------------------------- | ---------------------------- |
-| Free user or org         | Best-effort\* 🙏 <br> usually up to 5TB for impactful work          | 100GB                        |
-| PRO                      | Up to 10TB included\* ✅ <br> grants available for impactful work†  | 1TB + pay-as-you-go          |
-| Team Organizations       | 12TB base + 1TB per seat ✅                                         | 1TB per seat + pay-as-you-go |
-| Enterprise Organizations | 200TB base + 1TB per seat 🏆 <br> Up to 1,000TB for large contracts | 1TB per seat + pay-as-you-go |
+| Free user or org         | Best-effort\*                                                        | 100GB                        |
+| PRO                      | Up to 10TB included\* + [add-on](#public-storage-add-on) ✅ <br> grants available for impactful work†  | 1TB + pay-as-you-go          |
+| Team Organizations       | 12TB base + 1TB per seat + [add-on](#public-storage-add-on) ✅      | 1TB per seat + pay-as-you-go |
+| Enterprise Organizations | 200TB base + 1TB per seat + [add-on](#public-storage-add-on) 🏆 <br> Up to 1,000TB for large contracts | 1TB per seat + pay-as-you-go |
 
 💡 [Team or Enterprise Organizations](https://huggingface.co/enterprise) include 1TB of private storage per seat in the subscription: for example, if your organization has 40 members, then you have 40TB of included private storage.
 
 \* We aim to continue providing the AI community with generous free storage space for public repositories. Beyond the first few gigabytes, please use this resource responsibly by uploading content that offers genuine value to other users. If you need substantial storage space, you will need to upgrade to [PRO, Team or Enterprise](https://huggingface.co/pricing).
 
-† We work with impactful community members to ensure it is as easy as possible for them to unlock large storage limits. If your models or datasets consistently get many likes and downloads and you hit limits, get in touch.
+† In some cases, additional storage grants are available for high-impact open-source work where a paid plan genuinely cannot cover the need. Contact us with evidence of community impact (likes, downloads, citations).
 
-### Pay-as-you-go price
+### Public Storage add-on
 
-Above the included 1TB (or 1TB per seat) of private storage in [PRO](https://huggingface.co/subscribe/pro) and [Team or Enterprise Organizations](https://huggingface.co/enterprise), private storage is invoiced at **$25/TB/month**, in 1TB increments. See our [billing doc](./billing) for more details.
+Users on a paid plan (PRO, Team, or Enterprise) can subscribe to a **Public Storage add-on** for additional public storage on top of their plan's base limit.
+
+| Storage add-on | Price          | Per TB           |
+| -------------- | -------------- | ---------------- |
+| 1 TB           | $12/month      | $12/TB/month     |
+| 5 TB           | $60/month      | $12/TB/month     |
+| 10 TB          | $120/month     | $12/TB/month     |
+| 20 TB          | $240/month     | $12/TB/month     |
+| 50 TB          | $500/month     | $10/TB/month     |
+
+You can subscribe or change your tier from the **Billing** settings page of your account or organization. Upgrades take effect immediately; downgrades are scheduled to take effect at the start of the next month. If you need more storage, you can [contact us](https://huggingface.co/contact/sales) to take advantage of [custom large-scale pricing](https://huggingface.co/pricing#storage).
+
+### Private storage Pay-as-you-go
+
+Above the included 1TB (or 1TB per seat) of private storage in [PRO](https://huggingface.co/subscribe/pro) and [Team or Enterprise Organizations](https://huggingface.co/enterprise), additional private storage is charged to your payment method in Pay-as-you-go mode, at a base price of $18/TB/mo.
+Additional discounts are available for large-scale volumes through our account executives:
+
+| Volume | Price (private repos) |
+| ------ | --------------------- |
+| Base   | $18/TB/mo             |
+| 50TB+  | $16/TB/mo             |
+| 200TB+ | $14/TB/mo             |
+| 500TB+ | $12/TB/mo             |
+
+See our [billing doc](./billing) for more details, or view the latest pricing at [huggingface.co/pricing](https://huggingface.co/pricing#storage).
 
 ## Repository limitations and recommendations
 
-In parallel to storage limits at the account (user or organization) level, there are some limitations to be aware of when dealing with a large amount of data in a specific repo. Given the time it takes to stream the data,
+> [!NOTE]
+> This section does not apply to [Storage Buckets](./storage-buckets)
+
+In addition to storage limits at the account (user or organization) level, there are some limitations to be aware of when dealing with large amounts of data in a specific Git-backed repository. Given the time it takes to stream the data,
 getting an upload/push to fail at the end of the process or encountering a degraded experience, be it on hf.co or when working locally, can be very annoying. In the following section, we describe our recommendations on how to best structure your large repos.
 
 ### Recommendations
@@ -40,7 +69,7 @@ We gathered a list of tips and recommendations for structuring your repo. If you
 
 | Characteristic     | Recommended        | Tips                                                   |
 | ----------------   | ------------------ | ------------------------------------------------------ |
-| Repo size          | -                  | contact us for large repos (TBs of data)               |
+| Repo size          | -                  | upgrade your [storage plan](#storage-plans) or contact us for large repos (TBs of data) |
 | Files per repo     | <100k              | merge data into fewer files                            |
 | Entries per folder | <10k               | use subdirectories in repo                             |
 | File size          | <200GB             | split data into chunked files                          |
@@ -61,7 +90,7 @@ Under the hood, the Hub uses Git to version the data, which has structural impli
 If your repo is crossing some of the numbers mentioned in the previous section, **we strongly encourage you to check out [`git-sizer`](https://github.com/github/git-sizer)**,
 which has very detailed documentation about the different factors that will impact your experience. Here is a TL;DR of factors to consider:
 
-- **Repository size**: The total size of the data you're planning to upload. If you would like to upload more than 1TB, you will need to subscribe to Team/Enterprise or ask us to grant more storage. We consider storage grants for impactful work and when a subscription is not an option. To do that, please send an email with details of your project to datasets@huggingface.co (for datasets) or models@huggingface.co (for models).
+- **Repository size**: The total size of the data you're planning to upload. There is no per-repo size limit for models and datasets, but uploads count against your account's total storage quota (see [Storage plans](#storage-plans) above). If you need more storage, [upgrade your plan](https://huggingface.co/pricing) or purchase a [storage add-on](#public-storage-add-on).
 - **Number of files**:
     - For optimal experience, we recommend keeping the total number of files under 100k, and ideally much less. Try merging the data into fewer files if you have more.
       For example, json files can be merged into a single jsonl file, or large datasets can be exported as Parquet files or in [WebDataset](https://github.com/webdataset/webdataset) format.
@@ -89,17 +118,9 @@ adding around 50-100 files per commit.
 
 ### Sharing large datasets on the Hub
 
-One key way Hugging Face supports the machine learning ecosystem is by hosting datasets on the Hub, including very large ones. However, if your dataset is bigger than 1TB, you will need to subscribe to Team/Enterprise or  ask us to grant more storage.
+One key way Hugging Face supports the machine learning ecosystem is by hosting datasets on the Hub, including very large ones. Large datasets count against your account's total storage quota, so make sure your [storage plan](#storage-plans) has sufficient capacity before uploading. Additional public storage can be purchased as an [add-on](#public-storage-add-on).
 
-In this case, to ensure we can effectively support the open-source ecosystem, we require you to let us know via datasets@huggingface.co.
-
-When you get in touch with us, please let us know:
-
-- What is the dataset, and who/what is it likely to be useful for?
-- The size of the dataset.
-- The format you plan to use for sharing your dataset.
-
-For hosting large datasets on the Hub, we require the following for your dataset:
+For hosting large datasets on the Hub, we require the following:
 
 - A dataset card: we want to ensure that your dataset can be used effectively by the community and one of the key ways of enabling this is via a dataset card. This [guidance](./datasets-cards) provides an overview of how to write a dataset card.
 - You are sharing the dataset to enable community reuse. If you plan to upload a dataset you anticipate won't have any further reuse, other platforms are likely more suitable.
@@ -111,13 +132,11 @@ Please get in touch with us if any of these requirements are difficult for you t
 
 ### Sharing large volumes of models on the Hub
 
-Similarly to datasets, if you host models bigger than 1TB or if you plan on uploading a large number of smaller sized models (for instance, hundreds of automated quants) totalling more than 1TB, you will need to subscribe to Team/Enterprise or ask us to grant more storage. 
+Similarly to datasets, large models or large volumes of models (for instance, hundreds of automated quants) count against your account's total storage quota. Make sure your [storage plan](#storage-plans) has sufficient capacity, or purchase a [storage add-on](#public-storage-add-on).
 
-To do that, to ensure we can effectively support the open-source ecosystem, please send an email with details of your project to models@huggingface.co.
+### Grants for research teams and non-profits
 
-### Grants for private repositories
-
-We recommend that academic and research institutions upgrade to Team, Enterprise, or Academia Hub for guaranteed storage limits. For researchers doing highly impactful work who are genuinely blocked by lack of institutional funding, PRO storage grants may be available on a case-by-case basis. Please contact datasets@huggingface.co or models@huggingface.co with a proposal explaining your use case and demonstrated impact.
+We recommend that academic and research institutions upgrade to [Team, Enterprise, or Academia Hub](https://huggingface.co/pricing) for guaranteed storage limits. In some cases, storage grants may be available for high-impact open-source work where a paid plan genuinely cannot cover the need. These are evaluated on a case-by-case basis and require demonstrated community impact (downloads, citations, community adoption, etc.). Contact datasets@huggingface.co or models@huggingface.co with a detailed proposal.
 
 
 ## How can I free up storage space in my account/organization?
@@ -137,6 +156,16 @@ Key points to remember:
 2. Click on "List LFS files" in the "Storage" section
 3. Use the actions menu to delete specific files
 
+### Deleting Pull request refs
+
+[Pull requests](./repositories-pull-requests-discussions) create git refs that store their commits. After closing or merging a PR, you can delete its ref to free up storage space. This is especially useful when:
+- PRs contain large files that were never merged
+- You've squashed the main branch and removed files later on — those files remain in the PR branch history even if they weren't added by the PR itself
+
+To delete a PR ref, open the closed or merged PR and look for the storage notice at the bottom showing the estimated space that could be freed. Click "Delete ref" to permanently remove it.
+
+> [!NOTE]
+> Deleting a PR ref is irreversible and will prevent anyone from fetching or checking out those commits locally.
 
 ### Super-squash your repository using the API
 

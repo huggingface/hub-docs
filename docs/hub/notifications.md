@@ -7,6 +7,7 @@ By default, you'll receive a notification if:
 - Someone mentions you in a discussion/PR.
 - A new comment is posted in a discussion/PR you participated in.
 - A new discussion/PR or comment is posted in one of the repositories of an organization or user you are watching.
+- Someone replies to one of your posts, blog articles, or paper pages.
 
 ![Notifications page](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/notifications-page.png)
 
@@ -37,7 +38,7 @@ By default, you'll be watching all the organizations you are a member of and wil
 
 You can also choose to get notified on arbitrary users or organizations. To do so, use the "Watch repos" button on their HF profiles. Note that you can also quickly watch/unwatch users and organizations directly from your [notifications settings](#notifications-settings).
 
-_Unlike GitHub or similar services, you cannot watch a specific repository. You must watch users/organizations to get notified about any new activity on any of their repositories. The goal is to simplify this functionality for users as much as possible and to make sure you don't miss anything you might be interested in._
+Finally, you can choose to watch a specific repository and get notified about any new activity without having to watch the whole organization or user account.
 
 ## Notifications settings
 

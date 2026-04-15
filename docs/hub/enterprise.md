@@ -34,26 +34,26 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 | Feature                                                                                                                | Free    | Team                              | Enterprise                        | Enterprise Plus                   |
 | ---------------------------------------------------------------------------------------------------------------------- | ------- | --------------------------------- | --------------------------------- | --------------------------------- |
-| Serve models with Inference Providers                                                                                  | ❌      | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG |
+| Serve models with Inference Providers                                                                                  | ✅ <br>PAYG | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG |
 | [Usage & billing control](https://huggingface.co/docs/inference-providers/pricing#inference-providers-usage-breakdown) | ❌      | ✅                                | ✅                                | ✅                                |
 | Scale deployment with Inference Endpoints                                                                              | ✅ PAYG | ✅ PAYG                           | ✅ PAYG                           | ✅ PAYG                           |
 | Hub credits\* included in plan                                                                                         | ❌      | ❌ (bulk purchase available)      | $2k included                      | 5% of ACV included                |
 
-\* Hub credits can be utilized for inference providers, inference endpoints, Jobs, Space upgrade
+\* Hub credits can be utilized for inference providers, inference endpoints, Jobs, Space upgrade, ZeroGPU quota extension
 
 ### Spaces & Jobs
 
 | Feature                                | Free      | Team        | Enterprise  | Enterprise Plus |
 | -------------------------------------- | --------- | ----------- | ----------- | --------------- |
 | Spaces – CPU-based runtime             | 8 units\* | ✅ No limit | ✅ No limit | ✅ No limit     |
-| Spaces – ZeroGPU usage tiers           | 3.5 min†  | 25 min      | 45 min      | 45 min          |
+| Spaces – ZeroGPU usage tiers           | 3.5 min†  | 25 min†     | 45 min†     | 45 min†         |
 | Spaces – Upgraded hardware             | PAYG      | PAYG        | PAYG        | PAYG            |
 | Dev Mode / Custom domain for Spaces    | ❌        | ✅          | ✅          | ✅              |
-| Jobs & Scripts (train/fine-tune, eval) | ❌        | ✅          | ✅          | ✅              |
+| Jobs & Scripts (train/fine-tune, eval) | PAYG      | PAYG        | PAYG        | PAYG            |
 
 \* running at the same time
 
-† daily quota
+† included daily quota; paid plans can extend beyond quota using credits at $1 per 10 min of GPU time
 
 ### Repo rules, access control, visibility
 
@@ -72,7 +72,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 | Feature                                            | Free |     Team     |  Enterprise  | Enterprise Plus |
 | -------------------------------------------------- | :--: | :----------: | :----------: | :-------------: |
-| [SSO to private org](./enterprise-sso)             |  ❌  | ✅ Basic SSO | ✅ Basic SSO | ✅ Advanced SSO |
+| [SSO to private org](./enterprise-sso)             |  ❌  | ✅ Basic SSO | ✅ Basic SSO | ✅ Managed SSO |
 | [SSO to public Hub](./enterprise-advanced-sso) |  ❌  |      ❌      |      ❌      |       ✅        |
 | [Enforce 2FA](./enterprise-advanced-security)  |  ❌  |      ✅      |      ✅      |       ✅        |
 | [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693) |  ❌  |      ❌      |      ✅      |       ✅        |
@@ -89,6 +89,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | [Audit logs](./audit-logs)                                              |  ❌  |     ✅      |     ✅      |       ✅        |
 | [Resource groups](./enterprise-advanced-security)                   |  ❌  |     ✅      |     ✅      |       ✅        |
 | [Tokens admin / management](./enterprise-tokens-management)         |  ❌  |     ✅      |     ✅      |       ✅        |
+| [Token revocation](./enterprise-tokens-management#revoking-via-api) |  ❌  |     ❌      |     ✅      |       ✅        |
 | [Users Download analytics](./enterprise-network-security)           |  ❌  |     ❌      |     ❌      |       ✅        |
 | [Content access / policy controls](./enterprise-network-security)   |  ❌  |     ❌      |     ❌      |       ✅        |
 | [Network access controls](./enterprise-network-security)            |  ❌  |     ❌      |     ❌      |       ✅        |
@@ -99,7 +100,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | Feature                |   Free    |     Team      |  Enterprise   | Enterprise Plus |
 | ---------------------- | :-------: | :-----------: | :-----------: | :-------------: |
 | Onboarding/Offboarding | ✅ manual | ✅ controlled | ✅ controlled |  ✅ automated   |
-| SCIM provisioning      |    ❌     |      ❌       |      ❌       |   ✅ Included   |
+| SCIM provisioning      |    ❌     |      ❌       | ✅ Invitation-based | ✅ Full lifecycle |
 | Managed users          |    ❌     |      ❌       |      ❌       |       ✅        |
 
 ### Support, billing, procurement
@@ -117,7 +118,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | Feature                                                                                                   | Free | Team | Enterprise | Enterprise Plus |
 | --------------------------------------------------------------------------------------------------------- | :--: | :--: | :--------: | :-------------: |
 | Org Article                                                                                               |  ❌  |  ✅  |     ✅     |       ✅        |
-| [Publisher Analytics Dashboard](./enterprise-analytics)                                               |  ❌  |  ✅  |     ✅     |       ✅        |
+| [Publisher Analytics Dashboard](./publisher-analytics)                                               |  ❌  |  ✅  |     ✅     |       ✅        |
 | [Set your primary org on your profile](https://huggingface.co/changelog/primary-organization-on-profiles) |  ❌  |  ✅  |     ✅     |       ✅        |
 
 ### Pricing
@@ -132,8 +133,6 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 In the following sections we will document the following Team & Enterprise features:
 
 - [Single Sign-On (SSO)](./enterprise-sso)
-- [Advanced Single Sign-On (SSO)](./enterprise-advanced-sso)
-- [User Provisioning (SCIM)](./enterprise-scim)
 - [Audit Logs](./audit-logs)
 - [Storage Regions](./storage-regions)
 - [Data Studio for Private datasets](./enterprise-datasets)
@@ -142,7 +141,7 @@ In the following sections we will document the following Team & Enterprise featu
 - [Advanced Security](./enterprise-advanced-security)
 - [Tokens Management](./enterprise-tokens-management)
 - [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693)
-- [Publisher Analytics](./enterprise-analytics)
+- [Publisher Analytics](./publisher-analytics)
 - [Gating Group Collections](./enterprise-gating-group-collections)
 - [Network Security](./enterprise-network-security)
 - [Higher Rate limits](./rate-limits)

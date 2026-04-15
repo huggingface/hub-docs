@@ -1,5 +1,13 @@
 # Spaces Changelog
 
+## [2026-03-18] - Protected Spaces visibility
+
+- Spaces now support a **protected** visibility option, in addition to public and private. In Space settings, visibility is now set through a dropdown with three options instead of a simple public/private toggle.
+- Protected visibility is available on [PRO](https://huggingface.co/pro) and [Team & Enterprise](https://huggingface.co/enterprise) plans.
+- A protected Space keeps its source code private on the Hub, while the app remains publicly accessible through its embed URL or [custom domain](./spaces-custom-domain).
+- This is especially useful for hosting websites without publishing source code.
+- Read more in the [Spaces Overview](./spaces-overview#space-visibility).
+
 ## [2025-04-30] - Deprecate Streamlit SDK
 
 - Streamlit is no longer provided as a default built-in SDK option. Streamlit applications are now created using the Docker template.

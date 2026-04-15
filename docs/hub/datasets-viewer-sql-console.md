@@ -83,6 +83,43 @@ LIMIT 10;
 ```
 
 
+### Saved Queries and Embeds API
+
+You can create, update, and delete SQL Console embeds programmatically. Embeds are saved queries that can be shared via link or embedded in other pages.
+
+**Create an embed:**
+```
+POST /api/datasets/{namespace}/{repo}/sql-console/embed
+Content-Type: application/json
+Authorization: Bearer {token}
+
+{
+  "sql": "SELECT * FROM train LIMIT 10",
+  "title": "Sample rows",
+  "private": false,
+  "views": [{"key": "default/train", "displayName": "Train", "viewName": "train"}]
+}
+```
+
+**Update an embed:**
+```
+PATCH /api/datasets/{namespace}/{repo}/sql-console/embed/{embed_id}
+Content-Type: application/json
+Authorization: Bearer {token}
+
+{
+  "sql": "SELECT * FROM train LIMIT 20",
+  "title": "Updated title",
+  "private": true
+}
+```
+
+**Delete an embed:**
+```
+DELETE /api/datasets/{namespace}/{repo}/sql-console/embed/{embed_id}
+Authorization: Bearer {token}
+```
+
 ### Leakage Detection
 
 Leakage detection is the process of identifying whether data in a dataset is present in multiple splits, for example, whether the test set is present in the training set.

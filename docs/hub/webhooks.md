@@ -1,11 +1,8 @@
 # Webhooks
 
-> [!TIP]
-> Webhooks are now publicly available!
-
 Webhooks are a foundation for MLOps-related features. They allow you to listen for new changes on specific repos or to all repos belonging to particular set of users/organizations (not just your repos, but any repo).
 
-You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces (and much more!).
+You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces (and much more!). Webhooks can also [trigger Jobs](./jobs-webhooks) to automate compute tasks in response to repo events.
 
 
 The documentation for Webhooks is below – or you can also browse our **guides** showcasing a few possible use cases of Webhooks:
@@ -76,6 +73,7 @@ As an example, here is the full payload when a Pull Request is opened:
     },
     "content": "Add co2 emissions information to the model card",
     "hidden": false,
+    // Note: when `hidden` is `true`, `content` will be undefined
     "url": {
       "web": "https://huggingface.co/openai-community/gpt2/discussions/19#6399f58518721fdd27fc9caa"
     }
@@ -120,10 +118,6 @@ In the current version of webhooks, the top-level property `repo` is always spec
 		"api": "https://huggingface.co/api/models/some-user/some-repo"
 	},
 	"headSha": "c379e821c9c95d613899e8c4343e4bfee2b0c600",
-	"tags": [
-		"license:other",
-		"has_space"
-	],
 	"owner": {
 		"id": "61d2000c3c2083e1c08af22d"
 	}
@@ -165,21 +159,13 @@ When the top-level property `event.scope` is `"repo.config"`, the `updatedConfig
 }
 ```
 
-or
-
-```json
-"updatedConfig": {
-  "xetEnabled": true,
-}
-```
-
-or, when the updated config key is not supported by the webhook:
+When the updated config key is not supported by the webhook, the object will be empty:
 
 ```json
 "updatedConfig": {}
 ```
 
-For now only `private` and `xetEnabled` are supported. If you would benefit from more config keys being present here, please let us know at website@huggingface.co.
+For now only `private` is supported. If you would benefit from more config keys being present here, please let us know at website@huggingface.co.
 
 ### Discussions and Pull Requests
 

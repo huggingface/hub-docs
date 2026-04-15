@@ -302,7 +302,7 @@ client = OpenAI(
 )
 
 client.chat.completions.create(
--     model="deepseek-ai/DeepSeek-R1-0528", # automatically select provider based on hf.co/settings/inference-providers
+-     model="deepseek-ai/DeepSeek-R1-0528", # automatically selects the fastest available provider
 +     model="deepseek-ai/DeepSeek-R1-0528:novita", # manually select Novita
 +     model="deepseek-ai/DeepSeek-R1-0528:hyperbolic", # manually select Hyperbolic
       ...

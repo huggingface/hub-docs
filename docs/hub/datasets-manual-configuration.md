@@ -114,6 +114,52 @@ Note that the order of subsets shown in the viewer is the default one first, the
 > This is useful to set which subset the Dataset Viewer shows first, and which subset data libraries load by default.
 
 
+## Data Directory
+
+Instead of listing individual files with `data_files`, you can use `data_dir` to point to a directory. Files inside that directory are resolved automatically based on file extensions. This is especially useful when your data is organized in subdirectories:
+
+For example in a case like this, you can simply use `data_dir` since each subset's data lives in its own directory:
+
+```
+my_dataset_repository/
+├── README.md
+├── main/
+│   ├── train.csv
+│   └── test.csv
+└── extra/
+    ├── train.csv
+    └── test.csv
+```
+
+```yaml
+---
+configs:
+- config_name: main
+  data_dir: "main"
+- config_name: extra
+  data_dir: "extra"
+---
+```
+
+When `data_dir` is set, the builder resolves files relative to that directory. If the directory contains files matching the default split naming pattern (e.g. `train.csv`, `test.csv`), splits are assigned automatically without needing explicit `data_files`.
+
+You can also combine `data_dir` with `data_files` for more control:
+
+```yaml
+---
+configs:
+- config_name: default
+  data_dir: "data"
+  data_files:
+  - split: train
+    path: "training_*.csv"
+  - split: test
+    path: "eval_*.csv"
+---
+```
+
+In this case, the `path` patterns in `data_files` are resolved relative to the `data_dir`.
+
 ## Builder parameters
 
 Not only `data_files`, but other builder-specific parameters can be passed via YAML, allowing for more flexibility on how to load the data while not requiring any custom code. For example, define which separator to use in which subset to load your `csv` files:

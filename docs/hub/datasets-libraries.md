@@ -13,6 +13,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [Argilla](./datasets-argilla)       | Collaboration tool for AI engineers and domain experts that value high quality data.                                           | ✅                | ❌              | ✅          | ❌            | ❌                      |
 | [Daft](./datasets-daft)             | Data engine for large scale, multimodal data processing with a Python-native interface.                                        | ✅                | ✅              | ✅          | ✅            | ✅                      |
 | [Dask](./datasets-dask)             | Parallel and distributed computing library that scales the existing Python and PyData ecosystem.                               | ✅                | ✅              | ✅          | ✅            | ✅*                     |
+| [Data Designer](./datasets-data-designer) | NVIDIA NeMo framework for generating synthetic datasets using LLMs.                                                      | ✅                | ❌              | ✅          | ❌            | ❌                      |
 | [Datasets](./datasets-usage)        | 🤗 Datasets is a library for accessing and sharing datasets for Audio, Computer Vision, and Natural Language Processing (NLP). | ✅                | ✅              | ✅          | ✅            | ✅                      |
 | [Distilabel](./datasets-distilabel) | The framework for synthetic data generation and AI feedback.                                                                   | ✅                | ❌              | ✅          | ❌            | ❌                      |
 | [DuckDB](./datasets-duckdb)         | In-process SQL OLAP database management system.                                                                                | ✅                | ✅              | ❌          | ❌            | ❌                      |
@@ -43,12 +44,18 @@ For more details on how to do streaming, check out the documentation of a librar
 
 ### Optimized Parquet files
 
-Parquet files on Hugging Face are optimized to improve storage efficiency, accelerate downloads and uploads, and enable efficient dataset streaming and editing:
+Parquet files on Hugging Face are optimized to improve storage efficiency, accelerate downloads and uploads, and enable efficient dataset streaming and editing.
+
+<div class="flex justify-center">
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-optimized-parquet-banner.png"/>
+</div>
+
+Optimized Parquet files are Parquet files with additional features:
 
 * [Parquet Content Defined Chunking](https://huggingface.co/blog/parquet-cdc) optimizes Parquet for [Xet](https://huggingface.co/docs/hub/en/xet/index), Hugging Face's storage backend. It accelerates uploads and downloads thanks to chunk-based deduplication and allows efficient file editing
 * Page index accelerates filters when streaming and enables efficient random access, e.g. in the [Dataset Viewer](https://huggingface.co/docs/dataset-viewer)
 
-Some libraries require extra argument to write optimized Parquet files like `Pandas` and `PyArrow`:
+Some libraries require extra argument to write Optimized Parquet files like `Pandas` and `PyArrow`:
 
 * `use_content_defined_chunking=True` to enable Parquet Content Defined Chunking, for [deduplication](https://huggingface.co/blog/parquet-cdc) and [editing](./datasets-editing)
 * `write_page_index=True` to include a page index in the Parquet metadata, for [streaming and random access](./datasets-streaming)

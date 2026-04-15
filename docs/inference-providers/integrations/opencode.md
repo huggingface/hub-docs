@@ -55,6 +55,27 @@ $ opencode auth login
 
 Once configured, OpenCode will use your selected model for all operations. You can switch models anytime using the `/models` command in the OpenCode TUI (Terminal User Interface).
 
+### Billing to an Organization
+
+To bill inference usage to a Hugging Face organization instead of your personal account, add the `X-HF-Bill-To` header in your OpenCode config (`~/.config/opencode/opencode.json`):
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "huggingface": {
+      "options": {
+        "headers": {
+          "X-HF-Bill-To": "your-org-name"
+        }
+      }
+    }
+  }
+}
+```
+
+Replace `"your-org-name"` with the name of the organization you want to bill to.
+
 ## GitHub Actions Integration
 
 OpenCode can also be used to run open models in GitHub Actions via Inference Providers. See our [GitHub Actions guide](../guides/github-actions-code-review) for setting up automated PR reviews.

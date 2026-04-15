@@ -58,7 +58,7 @@ The UI allows you to explore the model files and commits and to see the diff int
 5. Add metadata
 
 You can add metadata to your model card. You can specify:
-* the type of task this model is for, enabling widgets and the Inference API.
+* the type of task this model is for, enabling widgets and Inference Providers.
 * the used library (`transformers`, `spaCy`, etc.)
 * the language
 * the dataset

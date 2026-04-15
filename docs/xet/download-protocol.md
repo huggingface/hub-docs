@@ -244,6 +244,7 @@ Not specifying this header will result in an authorization failure.
 Consider downloading such content only once and reusing the data.
 - **Parallel downloads**: Terms can be downloaded in parallel, but MUST be assembled in order
   - On file systems with fast seeking, it MAY be advantageous to open the output file in different threads and writing contents at different offsets
+  - The reference implementation (`xet-core`) uses adaptive concurrency to dynamically adjust the number of concurrent download streams based on network health, scaling up when bandwidth permits and backing off under congestion
 - **Caching**: Clients SHOULD consider caching downloaded xorb ranges to avoid redundant requests
 - **Retry logic**: Implement exponential backoff for transient failures
 

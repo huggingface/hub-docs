@@ -24,68 +24,79 @@ Git allows you to *tag* commits so that you can easily note milestones in your p
 
 Beyond making it easy to identify important commits in your repo's history, using Git tags also allows you to do A/B testing, [clone a repository at a specific tag](https://www.techiedelight.com/clone-specific-tag-with-git/), and more! The `huggingface_hub` library also supports working with tags, such as [downloading files from a specific tagged commit](https://huggingface.co/docs/huggingface_hub/main/en/how-to-downstream#hfhuburl).
 
-## How to duplicate or fork a repo (including LFS pointers)
+## How to duplicate a repo
 
-If you'd like to copy a repository, depending on whether you want to preserve the Git history there are two options.
+There are several ways to duplicate a repository, depending on whether you need to preserve the Git history.
 
-### Duplicating without Git history
+### Duplicating from the Hub
 
-In many scenarios, if you want your own copy of a particular codebase you might not be concerned about the previous Git history. In this case, you can quickly duplicate a repo with the handy [Repo Duplicator](https://huggingface.co/spaces/huggingface-projects/repo_duplicator)! You'll have to create a User Access Token, which you can read more about in the [security documentation](./security-tokens).
+Click the three dots at the top right of any repository page, then select **Duplicate this model**, **Duplicate this dataset**, or **Duplicate this Space**. This operation is nearly instant, thanks to the use of [Xet deduplication technology](./xet/deduplication). You will be able to choose:
 
-### Duplicating with the Git history (Fork)
+* **Owner**: Your account or any organization in which you have write access.
+* **Repository name**: The name of the duplicated repository. By default it keeps the same name as the source, under your namespace (e.g. duplicating `bigscience/bloom-560m` creates `your-username/bloom-560m`).
+* **Visibility**: You can choose to make the duplicated repo public or private. Read more about private repositories [here](./repositories-settings#private-repositories).
 
-A duplicate of a repository with the commit history preserved is called a *fork*. You may choose to fork one of your own repos, but it also common to fork other people's projects if you would like to tinker with them.
+For models and datasets, the Git history is squashed into a single commit. For Spaces, the full Git history is preserved. Public variables are copied over for Spaces, but secrets must be re-entered manually.
 
-**Note that you will need to [install Git LFS](https://git-lfs.github.com/) and the [`huggingface_hub` CLI](https://huggingface.co/docs/huggingface_hub/index) to follow this process**. When you want to fork or [rebase](https://git-scm.com/docs/git-rebase) a repository with LFS files you cannot use the usual Git approach that you might be familiar with since you need to be careful to not break the LFS pointers. Forking can take time depending on your bandwidth because you will have to fetch and re-upload all the LFS files in your fork.
+#### Restrictions
 
-For example, say you have an upstream repository, **upstream**, and you just created your own repository on the Hub which is **myfork** in this example.
+Some repositories cannot be duplicated:
+- **Gated repositories** (models or datasets with access requests enabled).
+- Repositories where the author has **disabled duplication**.
+- **Cross-region duplication** is not supported (e.g. a repository stored in the US region cannot be duplicated to an EU organization).
 
-1. Create a destination repository (e.g. **myfork**) in https://huggingface.co 
+### Duplicating programmatically
 
-2. Clone your fork repository:
+You can also duplicate repositories using the `huggingface_hub` library or CLI. These use the same server-side API as the Hub button above (Git history is squashed for models and datasets, preserved for Spaces).
 
+Using Python:
+
+```python
+from huggingface_hub import duplicate_repo
+
+duplicate_repo("bigscience/bloom-560m", private=False)
+duplicate_repo("openai/gdpval", repo_type="dataset")
+duplicate_repo("multimodalart/dreambooth-training", repo_type="space", private=False)
 ```
+
+Or using the CLI:
+
+```bash
+hf repos duplicate bigscience/bloom-560m
+hf repos duplicate openai/gdpval --type dataset
+```
+
+For Spaces, you will still need to configure your own settings (hardware, sleep time, storage, variables and secrets). Check out the [Manage your Space](https://huggingface.co/docs/huggingface_hub/guides/manage-spaces) guide for more details.
+
+Alternatively, if you want to keep a local copy of the repo, you can use `hf download` followed by `hf upload` to a different namespace. This won't preserve the Git history either.
+
+### Forking manually with Git
+
+If you need to preserve Git history for models/datasets, or want more control over the process (e.g. rebasing on top of your own changes), you can fork a repository manually using Git.
+
+You will need [`git-xet`](https://huggingface.co/docs/hub/xet/using-xet-storage#git) installed. Forking can take time depending on your bandwidth because you will have to fetch and re-upload all the LFS files (though the re-upload will be fast thanks to Xet).
+
+1. Create a destination repository (e.g. `me/myfork`) on https://huggingface.co
+
+2. Clone it and add the source repo as a remote:
+
+```bash
 git clone git@hf.co:me/myfork
-```
-
-3. Fetch non-LFS files:
-
-```
 cd myfork
-git lfs install --skip-smudge --local # affects only this clone
+git xet install
 git remote add upstream git@hf.co:friend/upstream
 git fetch upstream
+git lfs fetch --all upstream
 ```
 
-4. Fetch large files. This can take some time depending on your download bandwidth:
+3. Replace the fork contents with the upstream history:
 
-```
-git lfs fetch --all upstream # this can take time depending on your download bandwidth
-```
-
-4.a. If you want to completely override the fork history (which should only have an initial commit), run:
-
-```
+```bash
 git reset --hard upstream/main
 ```
 
-4.b. If you want to rebase instead of overriding, run the following command and resolve any conflicts:
+4. Push:
 
+```bash
+git push --force origin main
 ```
-git rebase upstream/main
-```
-
-5. Prepare your LFS files to push:
-
-```
-git lfs install --force --local # this reinstalls the LFS hooks
-hf lfs-enable-largefiles . # needed if some files are bigger than 5GB
-```
-
-6. And finally push:
-
-```
-git push --force origin main # this can take time depending on your upload bandwidth
-```
-
-Now you have your own fork or rebased repo in the Hub!

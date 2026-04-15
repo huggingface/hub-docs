@@ -89,6 +89,34 @@ Given that MASK has 16 one-bits, for a random 64-bit hash `h`, the chance that a
 - Locality: small edits only affect nearby boundaries
 - Linear time and constant memory: single 64-bit state and counters
 
+### Visualizing Boundary Stability Under Edits
+
+The key property of content-defined chunking is that an insertion or deletion only disrupts chunk boundaries locally — chunks before and after the edit remain unchanged. This is what makes deduplication effective across file versions.
+
+Consider a byte stream where `|` marks positions where `(h & MASK) == 0` (a chunk boundary). Below, each letter represents a data segment between boundaries:
+
+```text
+Original byte stream:
+
+  ···AAAAAA|BBBBBBBB|CCCCCCCC|DDDDDDDD|EEEEEEEE|FFFFFFFF···
+          ↑        ↑        ↑        ↑        ↑
+        boundary boundary boundary boundary boundary
+        (content (content (content (content (content
+         match)   match)   match)   match)   match)
+
+Insert new data (XX) inside chunk C:
+
+  ···AAAAAA|BBBBBBBB|CCCCXXCCCC|DDDDDDDD|EEEEEEEE|FFFFFFFF···
+          ↑        ↑          ↑        ↑        ↑
+         same!   same!    boundary  same!   same!
+                          may shift
+                          slightly
+```
+
+Chunks A, B, D, E, and F are unchanged because their content — and therefore their rolling hash sequences — are identical. Only chunk C (and possibly one neighbor) is affected by the edit. The `MIN_CHUNK_SIZE` and `MAX_CHUNK_SIZE` constraints ensure the disruption stays bounded.
+
+In practice, for a 20 GB file where a user modifies a few KB of data, this means only a handful of ~64 KiB chunks change. All other chunks are deduplicated, and only the changed chunks are uploaded.
+
 ### Intuition and Rationale
 
 - The table `TABLE[256]` injects pseudo-randomness per byte value so that the evolving hash `h` behaves like a random 64-bit value with respect to the mask test. This makes boundaries content-defined yet statistically evenly spaced.

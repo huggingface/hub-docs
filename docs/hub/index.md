@@ -23,11 +23,11 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <div class="group flex flex-col space-y-2 rounded-xl border border-orange-100 bg-linear-to-br from-orange-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-orange-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-orange-600 dark:text-gray-400 mb-1">
  <svg class="shrink-0 mr-1.5 text-orange-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2a2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82Z"></path></svg>Repositories</div>
-<a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories">Introduction</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-getting-started">Getting Started</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-settings">Repository Settings</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./storage-limits">Storage Limits</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./xet/index">Storage Backend (Xet)</a>
+<a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./local-cache">Local Cache</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./repositories-pull-requests-discussions">Pull requests and Discussions</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./notifications">Notifications</a>
 <a class="transform no-underline! transition-colors hover:translate-x-px hover:text-gray-700" href="./collections">Collections</a>
@@ -39,16 +39,16 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <div class="group flex flex-col space-y-2 rounded-xl border border-indigo-100 bg-linear-to-br from-indigo-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-indigo-700">
 <div class="flex items-center py-0.5 text-lg font-semibold text-indigo-600 dark:text-gray-400 mb-1">
     <svg class="shrink-0 mr-1.5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path class="uim-quaternary" d="M20.23 7.24L12 12L3.77 7.24a1.98 1.98 0 0 1 .7-.71L11 2.76c.62-.35 1.38-.35 2 0l6.53 3.77c.29.173.531.418.7.71z" opacity=".25" fill="currentColor"></path><path class="uim-tertiary" d="M12 12v9.5a2.09 2.09 0 0 1-.91-.21L4.5 17.48a2.003 2.003 0 0 1-1-1.73v-7.5a2.06 2.06 0 0 1 .27-1.01L12 12z" opacity=".5" fill="currentColor"></path><path class="uim-primary" d="M20.5 8.25v7.5a2.003 2.003 0 0 1-1 1.73l-6.62 3.82c-.275.13-.576.198-.88.2V12l8.23-4.76c.175.308.268.656.27 1.01z" fill="currentColor"></path></svg> Models</div>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models">Introduction</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-the-hub">The Model Hub</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./model-cards">Model Cards</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./eval-results">Eval Results</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-gated">Gated Models</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-uploading">Uploading Models</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-downloading">Downloading Models</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-libraries">Libraries</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-tasks">Tasks</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-widgets">Widgets</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-inference">Inference API</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-inference">Inference Providers</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./models-download-stats">Download Stats</a>
 </div>
 
@@ -60,11 +60,12 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-cards">Dataset Cards</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-gated">Gated Datasets</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-adding">Uploading Datasets</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-ingesting">Ingesting Datasets</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-downloading">Downloading Datasets</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-streaming">Streaming Datasets</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-editing">Editing Datasets</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-libraries">Libraries</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-viewer">Dataset Viewer</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./data-studio">Data Studio</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-download-stats">Download Stats</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./datasets-data-files-configuration">Data files Configuration</a>
 </div>
@@ -83,6 +84,17 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./spaces-config-reference">Reference</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./spaces-advanced">Advanced Topics</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./spaces-oauth">Sign in with HF</a>
+</div>
+
+<div class="group flex flex-col space-y-2 rounded-xl border border-blue-100 bg-linear-to-br from-blue-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-blue-700">
+<div class="flex items-center py-0.5 text-lg font-semibold text-blue-600 dark:text-gray-400 mb-1">
+<svg class="shrink-0 mr-1.5 text-blue-500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" fill="none"><path opacity="0.25" d="M36 4H12C7.58172 4 4 7.58172 4 12V36C4 40.4183 7.58172 44 12 44H36C40.4183 44 44 40.4183 44 36V12C44 7.58172 40.4183 4 36 4Z" fill="currentColor"/><path opacity="0.5" d="M31 11H17C13.6863 11 11 13.6863 11 17V31C11 34.3137 13.6863 37 17 37H31C34.3137 37 37 34.3137 37 31V17C37 13.6863 34.3137 11 31 11Z" fill="currentColor"/><path d="M27 18H21C19.3431 18 18 19.3431 18 21V27C18 28.6569 19.3431 30 21 30H27C28.6569 30 30 28.6569 30 27V21C30 19.3431 28.6569 18 27 18Z" fill="currentColor"/></svg> Storage Buckets <span class="ml-1 rounded-sm bg-blue-500/10 px-1 text-xs leading-tight text-blue-700 dark:text-blue-200">new</span></div>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets">Introduction</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#buckets-vs-repositories">Buckets vs Git Repositories</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#creating-a-bucket">Creating a Bucket</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#managing-files">Managing Files</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets#use-cases">Use Cases</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./storage-buckets-security">Security & Compliance</a>
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-teal-100 bg-linear-to-br from-teal-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-teal-700">
@@ -104,11 +116,13 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <div class="flex items-center py-0.5 text-lg font-semibold text-cyan-600 dark:text-gray-400 mb-1">
 <svg class="shrink-0 mr-1.5 text-cyan-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5A2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5a2.5 2.5 0 0 0 2.5 2.5a2.5 2.5 0 0 0 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5"/></svg> Agents</div>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents">Introduction</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-overview">Agents on the Hub</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-overview">Agents Overview</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-cli">Hugging Face CLI for AI Agents</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-mcp">Hugging Face MCP Server</a>
 <a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-skills">Hugging Face Agent Skills</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-cli">Agents and the hf CLI</a>
-<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-sdk">Building agents with the SDK</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-sdk">Building agents with the HF SDK</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-local">Local Agents</a>
+<a class="no-underline! hover:opacity-60 transform transition-colors hover:translate-x-px" href="./agents-libraries">Agent Libraries</a>
 </div>
 
 <div class="group flex flex-col space-y-2 rounded-xl border border-green-100 bg-linear-to-br from-green-50 dark:bg-none px-6 py-4 transition-colors hover:shadow-sm dark:border-green-700">
@@ -141,7 +155,7 @@ We encourage you to read the [Code of Conduct](https://huggingface.co/code-of-co
 
 ## What can you find on the Hub?
 
-The Hugging Face Hub hosts Git-based repositories, which are version-controlled buckets that can contain all your files. 💾
+The Hugging Face Hub hosts Git-based repositories, which are version-controlled folders that can contain all your files. For non-versioned, mutable object storage, the Hub also offers [Storage Buckets](./storage-buckets).
 
 On it, you'll be able to upload and discover...
 
@@ -175,6 +189,10 @@ We currently support two awesome Python SDKs (**[Gradio](https://gradio.app/)** 
 If you need GPU power for your demos, try [**ZeroGPU**](./spaces-zerogpu): it dynamically provides NVIDIA H200 GPUs, in real-time, only when needed.
 
 After you've explored a few Spaces (take a look at our [Space of the Week!](https://huggingface.co/spaces)), dive into the [**Spaces documentation**](./spaces-overview) to learn all about how you can create your own Space. You'll also be able to upgrade your Space to run on a GPU or other accelerated hardware. ⚡️
+
+## Storage Buckets
+
+[Storage Buckets](./storage-buckets) provide S3-like object storage on Hugging Face, powered by the Xet storage backend. Unlike repositories (which are git-based and track file history), buckets are remote object storage containers designed for large-scale files with content-addressable deduplication. They are designed for use cases where you need simple, fast, mutable storage such as storing training checkpoints, logs, intermediate artifacts, or any large collection of files that doesn’t need version control.
 
 ## Organizations
 
