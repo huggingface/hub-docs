@@ -42,23 +42,3 @@ Offering 200+ APIs (LLMs, image, video, audio) with fully managed deployment —
 
 ## Supported tasks
 
-
-### Chat Completion (LLM)
-
-Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"novita":{"modelId":"MiniMaxAI/MiniMax-M2.7","providerModelId":"minimax/minimax-m2.7"} } }
-conversational />
-
-
-### Chat Completion (VLM)
-
-Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=image-text-to-text
-    providersMapping={ {"novita":{"modelId":"google/gemma-4-31B-it","providerModelId":"google/gemma-4-31b-it"} } }
-conversational />
-
