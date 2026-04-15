@@ -8,7 +8,7 @@ You can interact with buckets using the Hub web interface, the [`hf` CLI](https:
 > Buckets are available to all users and organizations. See [hf.co/storage](https://huggingface.co/storage) for pricing details.
 
 > [!TIP]
-> Want to use bucket data with pandas, DuckDB, or mount buckets as a local filesystem? See [Access Patterns](./storage-buckets-access).
+> See [Access Patterns](./storage-buckets-access) for how to reach bucket data from your tools (mount as a filesystem, `hf://` paths, volume mounts in Jobs/Spaces), and [Bucket Integrations](./storage-buckets-integrations) for ready-to-use snippets in popular data libraries like pandas, Dask, and Spark.
 
 ## Buckets vs Repositories
 
@@ -300,54 +300,6 @@ api.copy_files(
 ```
 
 You need read access to the source repository or bucket and write access to the destination bucket.
-
-## Integrations
-
-### Mount
-
-Use [hf-mount](https://github.com/huggingface/hf-mount) to mount buckets and repos as local filesystems:
-
-```bash
-hf-mount start bucket username/my-bucket /tmp/data
-```
-
-### FileSystems
-
-While `huggingface_hub` provides the main functions to handle files in buckets, you can also use its [filesystem interface](https://huggingface.co/docs/huggingface_hub/guides/hf_file_system) in Python for convenience:
-
-```python
-from huggingface_hub import hffs
-
-with hffs.open("buckets/username/my-bucket/hello.txt", "w") as f:
-    f.write("Hello world !")
-
-hffs.cp("buckets/username/my-bucket/hello.txt", "buckets/username/my-bucket/hello2.txt")
-hffs.rm("buckets/username/my-bucket/hello2.txt")
-files = hffs.ls("buckets/username/my-bucket")
-text_files = hffs.glob("buckets/username/my-bucket/*.txt")
-```
-
-Check out [OpenDAL](https://opendal.apache.org/) to access buckets with a similar interface in Rust/Java/Go/Javascript/etc.
-
-### Data processing
-
-Use your favorite data library with buckets:
-
-```python
-# pandas
-df = pd.read_parquet("hf://buckets/username/my-bucket/data.parquet")
-# dask
-df = dd.read_parquet("hf://buckets/username/my-bucket/data.parquet")
-# pyarrow
-df = pq.read_table("hf://buckets/username/my-bucket/data.parquet")
-# daft
-df = daft.read_parquet("hf://buckets/username/my-bucket/data.parquet")
-# pyspark + pyspark_huggingface
-df = spark.format("huggingface").option("data_files", '["data.parquet"]').load("buckets/username/my-bucket")
-# datasets
-ds = load_dataset("buckets/username/my-bucket", data_files=["data.parquet"])
-# more to come: polars, duckdb, webdataset...
-```
 
 ## Pre-warming and CDN
 
