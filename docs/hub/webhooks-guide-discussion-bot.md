@@ -68,7 +68,7 @@ In that case, we will continue to the next step:
 
 ```ts
 	const INFERENCE_URL =
-		"https://api-inference.huggingface.co/models/bigscience/bloom";
+		"https://router.huggingface.co/hf-inference/models/bigscience/bloom";
 	const PROMPT = `Pretend that you are a bot that replies to discussions about machine learning, and reply to the following comment:\n`;
 
 	const response = await fetch(INFERENCE_URL, {

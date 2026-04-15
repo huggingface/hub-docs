@@ -150,7 +150,7 @@ All `timm` models on the Hub are automatically equipped with an [inference widge
 </div>
 
 ```sh
-curl https://api-inference.huggingface.co/models/nateraw/timm-resnet50-beans \
+curl https://router.huggingface.co/hf-inference/models/nateraw/timm-resnet50-beans \
         -X POST \
         --data-binary '@beans.jpeg' \
         -H "Authorization: Bearer {$HF_API_TOKEN}"
