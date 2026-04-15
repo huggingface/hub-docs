@@ -361,4 +361,6 @@ See [Specifying a bucket](./model-cards#specifying-a-bucket) in the model cards 
 
 Storage Buckets are billed based on the amount of data stored, with simple per-TB pricing. Enterprise plans benefit from dedup-based billing, where shared chunks across files directly reduce the billed footprint.
 
+As for other repositories, buckets are free to create and have a free storage allowance. You only pay if you exceed the [free tier](https://huggingface.co/docs/hub/storage-limits), and you can delete files to reduce your usage at any time.
+
 For current pricing tiers and volume discounts, see [hf.co/storage](https://huggingface.co/storage). For general billing information, see the [Billing](./billing) documentation.
