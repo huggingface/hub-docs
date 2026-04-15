@@ -38,6 +38,8 @@
     title: Overview
   - local: integrations/adding-integration
     title: Add Your Integration
+  - local: integrations/claude-code
+    title: Claude Code
   - local: integrations/hermes-agent
     title: Hermes Agent
   - local: integrations/datadesigner

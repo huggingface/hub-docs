@@ -17,6 +17,7 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 
 | Integration                                                                                                         | Description                                                    | Resources                                                                                                             |
 | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| [Claude Code](https://docs.anthropic.com/en/docs/claude-code)                                                       | Agentic coding tool for the terminal                           | [HF docs](./claude-code)                                                                                               |
 | [CrewAI](https://www.crewai.com/)                                                                                   | Framework for orchestrating AI agent teams                     | [Official docs](https://docs.crewai.com/en/concepts/llms#hugging-face)                                                 |
 | [NeMo Data Designer](https://github.com/NVIDIA-NeMo/DataDesigner)                                                         | Synthetic dataset generation framework                         | [HF docs](./datadesigner)                                                                                              |
 | [GitHub Copilot Chat](https://docs.github.com/en/copilot)                                                           | AI pair programmer in VS Code                                  | [HF docs](./vscode)                                                                                                    |
@@ -53,6 +54,7 @@ End-user applications and interfaces powered by LLMs.
 
 AI-powered coding assistants and development environments.
 
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) - Agentic coding tool for the terminal ([HF docs](./claude-code))
 - [GitHub Copilot Chat](https://docs.github.com/en/copilot) - AI pair programmer in VS Code ([HF docs](./vscode))
 - [Hermes Agent](https://github.com/NousResearch/hermes-agent) - Open-source AI agent CLI for coding and development ([Official docs](https://hermes-agent.nousresearch.com/docs/user-guide/configuration/#hugging-face-inference-providers) / [HF docs](./hermes-agent))
 - [OpenCode](https://opencode.ai/) - AI coding agent built for the terminal ([Official docs](https://opencode.ai/docs/providers#hugging-face) / [HF docs](./opencode))
