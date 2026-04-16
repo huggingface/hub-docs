@@ -93,7 +93,7 @@ The main reason is that you don’t want to version every update of your data be
 
 Three options are available:
 
-* **Use a Storage Bucket instead of a Dataset repository:** [Storage Buckets](/docs/hub/storage-buckets) offer an S3-like experience that allows upadating files very frequently, since they are not based on git. Storage Buckets are especially useful for data that are not ready to be published as a dataset, e.g. data that are still evolving or that need more curation.
+* **Use a Storage Bucket instead of a Dataset repository:** [Storage Buckets](/docs/hub/storage-buckets) offer an S3-like experience that allows updating files very frequently, since they are not based on git. Storage Buckets are especially useful for data that are not ready to be published as a dataset, e.g. data that are still evolving or that need more curation.
 * **Use a CommitScheduler**: The `CommitScheduler` in `huggingface_hub` offers near real-time ingestion to keep the git history of a Dataset repository manageable. It can be configured to do git commits at intervals defined in minutes.
 * **Use Hugging Face Jobs to schedule ingestion scripts**: Hugging Face Jobs provides a way to run and schedule python scripts on Hugging Face infrastructure. Schedule ingestion scripts to run at intervals defined using the Cron syntax.
 
