@@ -56,7 +56,6 @@ Install via the Cursor plugin flow using the [repository URL](https://github.com
 | [`huggingface-llm-trainer`](https://github.com/huggingface/skills/tree/main/skills/huggingface-llm-trainer) | Train or fine-tune LLMs with TRL (SFT, DPO, GRPO) on HF Jobs |
 | [`huggingface-vision-trainer`](https://github.com/huggingface/skills/tree/main/skills/huggingface-vision-trainer) | Train object detection and image classification models |
 | [`huggingface-community-evals`](https://github.com/huggingface/skills/tree/main/skills/huggingface-community-evals) | Run evaluations against models on the Hugging Face Hub on local hardware |
-| [`huggingface-jobs`](https://github.com/huggingface/skills/tree/main/skills/huggingface-jobs) | Run compute jobs on Hugging Face infrastructure |
 | [`huggingface-trackio`](https://github.com/huggingface/skills/tree/main/skills/huggingface-trackio) | Track and visualize ML training experiments with Trackio |
 | [`huggingface-papers`](https://github.com/huggingface/skills/tree/main/skills/huggingface-papers) | Look up and read Hugging Face paper pages in markdown |
 | [`huggingface-paper-publisher`](https://github.com/huggingface/skills/tree/main/skills/huggingface-paper-publisher) | Publish and manage research papers on the Hub |
