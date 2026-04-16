@@ -301,6 +301,8 @@ api.copy_files(
 
 You need read access to the source repository or bucket and write access to the destination bucket.
 
+Note that transferring data the other way from a bucket to a repository (model, dataset, Space) without reuploading is not yet available, but is on the roadmap.
+
 ## Pre-warming and CDN
 
 Buckets live on the Hub's global storage by default. For workloads where storage location directly affects throughput you can **pre-warm** bucket data to bring it closer to your compute.
