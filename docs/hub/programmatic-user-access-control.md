@@ -53,7 +53,7 @@ Content-Type: application/json
   - `role` (required): The member's **organization-level** role. One of: `"no_access"`, `"read"`, `"contributor"`, `"write"`, or `"admin"`.
   - `resourceGroups` (optional): Array of resource group assignments for this user. Each item:
     - `id`: Resource group ID (24-character hex string; get IDs from the [resource groups list API](#list-resource-groups)).
-    - `role`: Role in that resource group: `"no_access"`, `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+    - `role`: Role in that resource group: `"read"`, `"contributor"`, `"write"`, or `"admin"`.
   - If you omit `resourceGroups` or pass `[]`, the user is removed from all resource groups. To only change org role and leave resource groups unchanged, pass their current resource group memberships (the body always sets both org role and resource group list).
 
 **Example (curl) – set org role to "read", no resource groups (removes any the user was previously in)**
