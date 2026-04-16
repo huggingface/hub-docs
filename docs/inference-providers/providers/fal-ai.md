@@ -77,7 +77,7 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"fal-ai/z-image/turbo"} } }
+    providersMapping={ {"fal-ai":{"modelId":"baidu/ERNIE-Image","providerModelId":"fal-ai/ernie-image"} } }
 />
 
 

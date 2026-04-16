@@ -47,7 +47,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"scaleway":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"llama-3.1-8b-instruct"} } }
+    providersMapping={ {"scaleway":{"modelId":"openai/gpt-oss-120b","providerModelId":"gpt-oss-120b"} } }
 conversational />
 
 

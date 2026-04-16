@@ -47,7 +47,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"together":{"modelId":"zai-org/GLM-5.1","providerModelId":"zai-org/GLM-5.1"} } }
+    providersMapping={ {"together":{"modelId":"MiniMaxAI/MiniMax-M2.7","providerModelId":"MiniMaxAI/MiniMax-M2.7"} } }
 conversational />
 
 
