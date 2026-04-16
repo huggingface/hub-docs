@@ -11,7 +11,7 @@ Beyond the [CLI and Python SDK](./storage-buckets#managing-files), there are sev
 | **hf:// paths** (fsspec) | Python data tools (pandas, DuckDB) | [See below](#python-data-tools) |
 | **CLI sync** | Batch transfers, backups | [Sync docs](./storage-buckets#syncing-directories) |
 
-Access through `s3://` paths is on the roadmap, but not available yet.
+Access through the S3 API is not currently supported, but is on the roadmap.
 
 ## Mount as a Local Filesystem
 
