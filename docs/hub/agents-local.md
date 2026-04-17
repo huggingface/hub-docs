@@ -69,6 +69,21 @@ Pi connects to your local llama.cpp server and gives you an interactive agent se
 
 ![Demo](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pi-llama-cpp-demo.gif)
 
+### Enabling vision support
+
+For vision-capable models, add `"input": ["text", "image"]` to the model entry in `~/.pi/agent/models.json`:
+
+```json
+"models": [
+  {
+    "id": "unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL",
+    "input": ["text", "image"]
+  }
+]
+```
+
+Browse [vision-language models compatible with Pi](https://huggingface.co/models?pipeline_tag=image-text-to-text&apps=pi).
+
 ## How It Works
 
 The setup has two components running locally:
