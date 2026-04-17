@@ -1,6 +1,6 @@
 # Spaces as Agent Tools
 
-Every compatible Gradio Space exposes a plain-text `agents.md` that coding agents (Claude Code, Codex, OpenCode, Pi, etc.) can call directly. Find one via semantic search on [huggingface.co/spaces](https://huggingface.co/spaces) (e.g. "audio transcription"), optionally try it in the UI first, then point your agent at its `agents.md`. The response is four lines: schema URL, call template, poll template, auth hint.
+Every Gradio Space exposes a plain-text `agents.md` that coding agents (Claude Code, Codex, OpenCode, Pi, etc.) can call directly. Find one via semantic search on [huggingface.co/spaces](https://huggingface.co/spaces) (e.g. "audio transcription"), optionally try it in the UI first, then point your agent at its `agents.md`. The response is four lines: schema URL, call template, poll template, auth hint.
 
 This gets powerful when **chaining Spaces**. An agent can turn a prompt into a 3D asset by calling [`black-forest-labs/flux-klein-9b-kv`](https://huggingface.co/spaces/black-forest-labs/flux-klein-9b-kv) for an image, then passing the generated image into [`microsoft/TRELLIS.2`](https://huggingface.co/spaces/microsoft/TRELLIS.2) for the 3D model. No client library, no hardcoded integration.
 
