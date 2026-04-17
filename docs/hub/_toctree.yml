@@ -339,6 +339,8 @@
     title: Spaces Custom Domain
   - local: spaces-mcp-servers
     title: Spaces as MCP servers
+  - local: spaces-agents
+    title: Spaces as Agent Tools
   - local: spaces-api-endpoints
     title: Spaces as API Endpoints
   - local: spaces-sdks-gradio
