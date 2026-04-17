@@ -252,7 +252,7 @@ curl -X POST "https://huggingface.co/oauth/token" \
 
 Tokens issued via Token Exchange have built-in security restrictions:
 
-- **Organization-scoped**: Tokens can only access resources within your organization (models, datasets, Spaces owned by the org), plus any public gated repos outside the org that the user has been individually granted access to (read-only).
+- **Organization-scoped**: Tokens can only access resources within your organization (models, datasets, Spaces, and collections owned by the org). Outside the org, access is read-only and limited to: public collections from any user or organization, and public gated repos the user has been individually granted access to.
 - **No personal access**: Tokens cannot access the user's personal private repositories or private repos from other organizations.
 - **Short-lived**: Tokens expire after 8 hours by default. Organization administrators can configure the token duration (up to 30 days) in the OAuth app settings. No refresh tokens are provided.
 - **Auditable**: All token exchanges are logged and visible in your organization's [audit logs](./audit-logs).
