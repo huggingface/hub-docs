@@ -24,16 +24,16 @@ https://huggingface.co/spaces/<namespace>/<repo>/agents.md
 Example:
 
 ```bash
-curl https://huggingface.co/spaces/Tongyi-MAI/Z-Image-Turbo/agents.md
+curl https://huggingface.co/spaces/microsoft/TRELLIS.2/agents.md
 ```
 
 Returns:
 
 ```
-To use this application (Tongyi-MAI/Z-Image-Turbo: Generate images from text prompts with customizable resolution):
-API schema: GET https://tongyi-mai-z-image-turbo.hf.space/gradio_api/info
-Call endpoint: POST https://tongyi-mai-z-image-turbo.hf.space/gradio_api/call/{endpoint} {"data": [...]}
-Poll result: GET https://tongyi-mai-z-image-turbo.hf.space/gradio_api/call/{endpoint}/{event_id}
+To use this application (microsoft/TRELLIS.2: Create 3D model from a single image):
+API schema: GET https://microsoft-trellis-2.hf.space/gradio_api/info
+Call endpoint: POST https://microsoft-trellis-2.hf.space/gradio_api/call/{endpoint} {"data": [...]}
+Poll result: GET https://microsoft-trellis-2.hf.space/gradio_api/call/{endpoint}/{event_id}
 Auth: Bearer $HF_TOKEN
 ```
 
@@ -43,8 +43,8 @@ Most popular Spaces run on [ZeroGPU](./spaces-zerogpu), which uses the caller's 
 
 ```bash
 curl -H "Authorization: Bearer $HF_TOKEN" \
-  https://tongyi-mai-z-image-turbo.hf.space/gradio_api/call/predict \
-  -d '{"data": ["a cat in Ghibli style"]}'
+  https://microsoft-trellis-2.hf.space/gradio_api/call/predict \
+  -d '{"data": [{"path": "https://example.com/chair.png"}]}'
 ```
 
 ## How agents will use this
