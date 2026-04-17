@@ -61,11 +61,11 @@ HF_XET_HIGH_PERFORMANCE=1 hf download ...
 
 ## Using hf-mount
 
-For large models, you can mount a repo as a local filesystem with [hf-mount](./storage-buckets-access#mount-as-a-local-filesystem) instead of downloading the full repo. Files are fetched lazily — only the bytes your code reads hit the network.
+For large models, you can mount a repo as a local filesystem with [hf-mount](https://github.com/huggingface/hf-mount) instead of downloading the full repo. Files are fetched lazily — only the bytes your code reads hit the network.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/huggingface/hf-mount/main/install.sh | sh
 hf-mount start repo openai-community/gpt2 /tmp/gpt2
 ```
 
-Repos are mounted read-only. See the [hf-mount repository](https://github.com/huggingface/hf-mount) for full documentation including backend options and caching.
+Repos are mounted read-only. See [Mount as a Local Filesystem](./storage-buckets-access#mount-as-a-local-filesystem) for full setup details, backend options, and caching.
