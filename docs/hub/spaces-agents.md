@@ -4,7 +4,7 @@ Every Gradio Space exposes a plain-text `agents.md` that coding agents (Claude C
 
 This gets powerful when **chaining Spaces**. An agent can turn a prompt into a 3D asset by calling [`black-forest-labs/flux-klein-9b-kv`](https://huggingface.co/spaces/black-forest-labs/flux-klein-9b-kv) for an image, then passing the generated image into [`microsoft/TRELLIS.2`](https://huggingface.co/spaces/microsoft/TRELLIS.2) for the 3D model. No client library, no hardcoded integration.
 
-All you need is an `HF_TOKEN` set in your environment to get started.
+All you need is an [HF_TOKEN](https://huggingface.co/settings/tokens) set in your environment to get started.
 
 ## From the UI
 
