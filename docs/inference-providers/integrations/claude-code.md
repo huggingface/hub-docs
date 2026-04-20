@@ -29,7 +29,7 @@ export HF_TOKEN="hf_..."
 hf extensions install hanouticelina/hf-claude
 ```
 
-3. Launch Claude Code:
+3. Launch Claude Code through `hf`:
 
 ```bash
 hf claude
