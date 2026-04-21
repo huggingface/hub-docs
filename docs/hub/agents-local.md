@@ -20,7 +20,7 @@ Browse for [Llama.cpp-compatible models](https://huggingface.co/models?apps=llam
 On the model page, click the **"Use this model"** button and select `llama.cpp`. It will show you the exact commands for your setup. The first step is to start a llama.cpp server, e.g.
 
 ```bash
-llama-server -hf ggml-org/gemma-4-26b-a4b-it-GGUF:Q4_K_M --jinja
+llama-server -hf ggml-org/gemma-4-26b-a4b-it-GGUF:Q4_K_M
 ```
 
 This downloads the model and starts an OpenAI-compatible API server on your machine. See the [llama.cpp guide](./gguf-llamacpp) for installation instructions.
