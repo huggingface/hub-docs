@@ -47,7 +47,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"together":{"modelId":"MiniMaxAI/MiniMax-M2.7","providerModelId":"MiniMaxAI/MiniMax-M2.7"} } }
+    providersMapping={ {"together":{"modelId":"openai/gpt-oss-120b","providerModelId":"openai/gpt-oss-120b"} } }
 conversational />
 
 
@@ -57,7 +57,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"together":{"modelId":"google/gemma-4-31B-it","providerModelId":"google/gemma-4-31B-it"} } }
+    providersMapping={ {"together":{"modelId":"Qwen/Qwen3.5-9B","providerModelId":"Qwen/Qwen3.5-9B"} } }
 conversational />
 
 

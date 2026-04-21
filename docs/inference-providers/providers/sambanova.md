@@ -51,3 +51,13 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
     providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"Meta-Llama-3.1-8B-Instruct"} } }
 conversational />
 
+
+### Chat Completion (VLM)
+
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=image-text-to-text
+    providersMapping={ {"sambanova":{"modelId":"meta-llama/Llama-4-Maverick-17B-128E-Instruct","providerModelId":"Llama-4-Maverick-17B-128E-Instruct"} } }
+conversational />
+
