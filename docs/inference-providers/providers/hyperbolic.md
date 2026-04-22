@@ -85,17 +85,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hyperbolic":{"modelId":"meta-llama/Llama-3.3-70B-Instruct","providerModelId":"meta-llama/Llama-3.3-70B-Instruct"} } }
-conversational />
-
-
-### Chat Completion (VLM)
-
-Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=image-text-to-text
-    providersMapping={ {"hyperbolic":{"modelId":"Qwen/Qwen2.5-VL-7B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-7B-Instruct"} } }
+    providersMapping={ {"hyperbolic":{"modelId":"deepseek-ai/DeepSeek-R1","providerModelId":"deepseek-ai/DeepSeek-R1"} } }
 conversational />
 
 
