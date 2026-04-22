@@ -20,6 +20,7 @@ With Academia Hub, you get **an all-in-one subscription to the Hugging Face Hub 
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/The_2025_MBZUAI_logo.png" alt="MBZUAI logo" class="h-24 object-contain"/>
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/epita.png" alt="EPITA logo" class="h-24 object-contain"/>
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/logo-UT-site.png" alt="UT logo" class="h-24 object-contain"/>
+  <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/hong-kong-polytechnic-university-logo.png" alt="HKPolyU logo" class="h-24 object-contain"/>
 </div>
 
 ## What's included in the subscription
