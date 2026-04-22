@@ -18,7 +18,7 @@ The Dev Mode Docker image starts your application as a sub-process, allowing you
 
 The ability to connect to the running Space unlocks several use cases:
 
-    - You can make changes to the app code without the Space rebuilding everytime
+    - You can make changes to the app code without the Space rebuilding every time
     - You can debug a running application and monitor resources live
 
 Overall it makes developing and experimenting with Spaces much faster by skipping the Docker image rebuild phase.
