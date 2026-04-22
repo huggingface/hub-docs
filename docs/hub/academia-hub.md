@@ -8,9 +8,12 @@
 </a>
 
 ## Where universities build, teach, and publish AI.
-For universities, by design. One subscription gives your students, professors, and research staff the same tools used by the world's leading AI teams — open, auditable, and governed by your institution.
+For universities, by design. One subscription gives your students, professors, and research staff the same tools used by the world's leading AI teams: open, auditable, and governed by your institution.
 
-Universities don't just teach students how to use AI — they teach them how to understand, audit, and manage it. Academia Hub is our dedicated initiative to put those tools into the heart of the university ecosystem, so students move from being passive consumers to strategic architects of their own innovation.
+Universities don't just teach students how to use AI, they teach them how to understand, audit, and manage it. 
+Academia Hub is our dedicated initiative to put those tools into the heart of the university ecosystem, so students move from being passive consumers to strategic architects of their own innovation.
+
+With Academia Hub, you get **an all-in-one subscription to the Hugging Face Hub for students, researchers and staff.**
 
 <div class="flex flex-wrap justify-center items-center gap-8 my-8">
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/Zurich.png" alt="ETH Zurich logo" class="h-24 object-contain"/>
@@ -21,19 +24,19 @@ Universities don't just teach students how to use AI — they teach them how to 
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/hong-kong-polytechnic-university-logo.png" alt="HKPolyU logo" class="h-24 object-contain"/>
 </div>
 
-With Academia Hub, you get **an all-in-one subscription to the Hugging Face Hub for students, researchers and staff.**
-
 ## What's included in the subscription
-1. **Storage** 1 TB of private and 1 TB of public storage per seat, including our new <a href="https://huggingface.co/storage" target="_blank">Storage Buckets!</a>
-2. **Compute** $2/month/seat of credits for <a href="https://huggingface.co/docs/inference-providers/en/index" target="_blank">Inference Providers</a>, daily higher ZeroGPU priority access for <a href="https://huggingface.co/docs/hub/en/spaces-zerogpu" target="_blank">Spaces</a>, and higher Hub <a href="https://huggingface.co/docs/hub/rate-limits#rate-limit-tiers" target="_blank">rate limits</a>.
-3. **Collaboration tools** Resource Groups, Data Studio for private datasets, Audit Logs, and access controls.
-4. **Governance & security** Seat management, centralized admin, SSO, 2FA, SCIM, SOC 2 certified.
-5. **Global Open Source community** publish and collaborate alongside the researchers and builders working on the field's most-used models and datasets.
+1. **Storage:** 1 TB of private and 1 TB of public storage per seat, including our new <a href="https://huggingface.co/storage" target="_blank">Storage Buckets!</a>
+2. **Compute:** $2/month/seat of credits for <a href="https://huggingface.co/docs/inference-providers/en/index" target="_blank">Inference Providers</a>, daily higher ZeroGPU priority access for <a href="https://huggingface.co/docs/hub/en/spaces-zerogpu" target="_blank">Spaces</a>, and higher Hub <a href="https://huggingface.co/docs/hub/rate-limits#rate-limit-tiers" target="_blank">rate limits</a>.
+3. **Collaboration tools:** Resource Groups, Data Studio for private datasets, Audit Logs, and access controls.
+4. **Governance & security:** Seat management, centralized admin, SSO, 2FA, SCIM, SOC 2 certified.
+5. **Global Open Source community:** publish and collaborate alongside the researchers and builders working on the field's most-used models and datasets.
 
 
 ## Pricing
 Starting at $10/seat/month, with volume-based discounts. 
+
 We require a minimum of 250 annual seats to enter the program. For smaller groups, we recommend starting with a <a href="https://huggingface.co/docs/hub/enterprise" target="_blank">Team plan.</a>
+
 <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Contact</a> our Academia Hub Team for a bespoke package!
 
 ## How to get started
