@@ -7,13 +7,13 @@
     <img class="block" src="https://huggingface.co/datasets/Chunte/documentation-images/resolve/main/AcademiaHub.png" />
 </a>
 
-## Accelerate your university's AI research, publication pipeline, and collaboration at scale
+## Where universities build, teach, and publish AI.
 
-The Hugging Face Hub is where leading researchers and developers across academia and industry collaborate on AI throughout the whole research lifecycle. 
+For universities, by design. One subscription gives your students, professors, and research staff the same tools used by the world's leading AI teams — open, auditable, and governed by your institution.
 
-Academia Hub brings that proven ecosystem to your university, giving your researchers everything they need to work securely, reproducibly, and at scale: compute, storage, collaboration, and governance, all managed through your institution.
+Universities don't just teach students how to use AI — they teach them how to understand, audit, and manage it. Academia Hub is our dedicated initiative to put those tools into the heart of the university ecosystem, so students move from being passive consumers to strategic architects of their own innovation.
 
-With Academia Hub, you get **university-level seat management and accounts for researchers, professors, and/or students.**
+With Academia Hub, you get **an all-in-one subscription to the Hugging Face Hub for students, researchers and staff.**
 
 <div class="flex flex-wrap justify-center items-center gap-8 my-8">
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/Zurich.png" alt="ETH Zurich logo" class="h-24 object-contain"/>
@@ -23,34 +23,27 @@ With Academia Hub, you get **university-level seat management and accounts for r
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/logo-UT-site.png" alt="UT logo" class="h-24 object-contain"/>
 </div>
 
-## Why Academia Hub: Built for the complete research lifecycle
-Academia Hub scales with your research from early prototypes to large-scale published models while ensuring security, reproducibility, and seamless collaboration across your entire institution.
+## What's included in the subscription
 
-1. **Store & version** datasets, models, and results with 1TB private storage per seat.
-2. **Collaborate & review** with co-authors and lab members in shared workspaces.
-3. **Prototype** ideas using interactive Spaces and hosted notebooks.
-4. **Train & scale** with managed GPUs and tracked runs.
-5. **Publish & share** using model cards, DOIs, and dataset releases.
-6. **Preserve** your work for reproducibility and future research. All backed by enterprise-grade infrastructure, institutional governance, and storage that grows with your needs.
+1. **Storage** 1 TB of private and 1 TB of public storage per seat, including our new <a href="https://huggingface.co/storage" target="_blank">Storage Buckets!</a>
+2. **Compute** $2/month/seat of credits for <a href="https://huggingface.co/docs/inference-providers/en/index" target="_blank">Inference Providers</a>, daily higher ZeroGPU priority access for <a href="https://huggingface.co/docs/hub/en/spaces-zerogpu" target="_blank">Spaces</a>, and higher Hub <a href="https://huggingface.co/docs/hub/rate-limits#rate-limit-tiers" target="_blank">rate limits</a>.
+3. **Collaboration tools** Resource Groups, Data Studio for private datasets, Audit Logs, and access controls.
+4. **Governance & security** Seat management, centralized admin, SSO, 2FA, SCIM, SOC 2 certified.
+5. **Global Open Source community** publish and collaborate alongside the researchers and builders working on the field's most-used models and datasets.
 
-## Key features of Academia Hub
 
-***For researchers and students***
-- **Storage**: 1 TB private storage per seat (e.g., 400 seats = 400 TB) powered by Xet, purpose-built for versioning large AI models and datasets; expanded public storage; Dataset Viewer for private datasets.
-- **Hosting & demos**: <a href="https://huggingface.co/docs/hub/spaces" target="_blank">Spaces</a> Hosting for scalable AI demos and applications powered by ZeroGPU (5× priority quota); <a href="https://huggingface.co/docs/hub/spaces-dev-mode" target="_blank">Dev Mode</a> with SSH/VS Code access for development.
-- **Compute**: Priority GPU access (H100/H200) for training; managed runs with experiment tracking.
-- **Collaboration**: Team workspaces with version control, peer review, and shared governance.
-- **Publishing**: Share the research artifacts like models and datasets with the global AI community through citable releases with model cards, dataset cards, and DOIs.
-
-***For administrators***
-- **Pricing**: $10/seat/month (volume-based pricing); $2/seat/month compute credits included (top-ups available).
-- **Admin & security**: University-level seat management for researchers, professors, and students; centralized administration; SSO with university domain.
-
-***For your research community***
-- **Community & resources**: Connect with peers; curated models/datasets/projects for academia.
+## Pricing
+Starting at $10/seat/month, with volume-based discounts. 
+Minimum of 250 annual seats to enter the program.
 
 ## How to get started
 
 Researchers and students: <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Contact us</a> to express interest in Academia Hub and help us connect with your university's IT or Procurement Team.
 
 IT or Procurement staff: <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Get in touch</a> directly to set up your institution's Academia Hub subscription or find out more about how your institution can benefit from Academia Hub.
+
+## Common use cases
+- A research lab storing private checkpoints and datasets during a multi-year project, and publishing final artefacts with DOIs — using the Hugging Face community blog to showcase their work.
+- A multi-campus collaboration sharing a single organization workspace with per-lab access controls.
+- A semester-long course distributing notebooks, assignments, and student-built Spaces under one institutional org.
+- Reproducible publication: keeping code, data, weights, and environment together so a result can be re-run years later.
