@@ -73,3 +73,11 @@ To define Blocked URLs, enter URL patterns, without the domain name, one per lin
 </div>
 
 The Allowed URLs field, enables you to define some exception to the blocking rules, especially. For example by allowing a specific URL within the Blocked URLs pattern, ie `/spaces/meta-llama/*`  
+
+## Manage Network Security via API
+
+You can read and update your organization's network security settings programmatically via the Hub API.
+
+**OpenAPI reference:**
+- [GET /api/organizations/{name}/settings/network-security](https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/{name}/settings/network-security)
+- [PATCH /api/organizations/{name}/settings/network-security](https://huggingface.co/spaces/huggingface/openapi#tag/orgs/PATCH/api/organizations/{name}/settings/network-security)
