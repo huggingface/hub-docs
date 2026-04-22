@@ -33,7 +33,7 @@ With Academia Hub, you get **an all-in-one subscription to the Hugging Face Hub 
 
 ## Pricing
 Starting at $10/seat/month, with volume-based discounts. 
-Minimum of 250 annual seats to enter the program.
+We require a minimum of 250 annual seats to enter the program. For smaller groups, we recommend starting with a <a href="https://huggingface.co/docs/hub/enterprise" target="_blank">Team plan.</a>
 <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Contact</a> our Academia Hub Team for a bespoke package!
 
 ## How to get started
