@@ -12,8 +12,6 @@ For universities, by design. One subscription gives your students, professors, a
 
 Universities don't just teach students how to use AI — they teach them how to understand, audit, and manage it. Academia Hub is our dedicated initiative to put those tools into the heart of the university ecosystem, so students move from being passive consumers to strategic architects of their own innovation.
 
-With Academia Hub, you get **an all-in-one subscription to the Hugging Face Hub for students, researchers and staff.**
-
 <div class="flex flex-wrap justify-center items-center gap-8 my-8">
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/Zurich.png" alt="ETH Zurich logo" class="h-24 object-contain"/>
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/ESCP_LOGO_CMJN.png" alt="ESCP Business School logo" class="h-24 object-contain"/>
@@ -22,6 +20,8 @@ With Academia Hub, you get **an all-in-one subscription to the Hugging Face Hub 
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/logo-UT-site.png" alt="UT logo" class="h-24 object-contain"/>
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/hong-kong-polytechnic-university-logo.png" alt="HKPolyU logo" class="h-24 object-contain"/>
 </div>
+
+With Academia Hub, you get **an all-in-one subscription to the Hugging Face Hub for students, researchers and staff.**
 
 ## What's included in the subscription
 1. **Storage** 1 TB of private and 1 TB of public storage per seat, including our new <a href="https://huggingface.co/storage" target="_blank">Storage Buckets!</a>
@@ -34,7 +34,7 @@ With Academia Hub, you get **an all-in-one subscription to the Hugging Face Hub 
 ## Pricing
 Starting at $10/seat/month, with volume-based discounts. 
 Minimum of 250 annual seats to enter the program.
-<a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Contact</a> our Sales Team for a bespoke package!
+<a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Contact</a> our Academia Hub Team for a bespoke package!
 
 ## How to get started
 Researchers and students: <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Contact us</a> to express interest in Academia Hub and help us connect with your university's IT or Procurement Team.
