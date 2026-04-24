@@ -79,7 +79,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | Disable personal public repos for users            |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable joining other orgs for users               |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable PRO subscription                           |  ❌  |      ❌      |      ❌      |       ✅        |
-| Hide members list                                  |  ❌  |      ❌      |      ❌      |       ✅        |
+| Hide members list                                  |  ❌  |      ✅      |      ✅      |       ✅        |
 
 ### Governance, auditing, compliance
 
