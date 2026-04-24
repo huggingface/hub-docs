@@ -53,6 +53,7 @@ jobs:
 
       # Create or update Pull Request
       - name: Create Pull Request
+        id: create_pr
         if: env.changes_detected == 'true'
         uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676  # v7
         with:
@@ -69,9 +70,14 @@ jobs:
             pnpm run generate
             ```
 
-            This PR was automatically created by the [Update Inference Providers Documentation workflow](https://github.com/huggingface/hub-docs/blob/main/.github/workflows/generate_inference_providers_documentation.yml).
-
-            Please review the changes before merging.
+            This PR was automatically created (and merged) by the [Update Inference Providers Documentation workflow](https://github.com/huggingface/hub-docs/blob/main/.github/workflows/generate_inference_providers_documentation.yml).
           reviewers: |
             Wauplin
             hanouticelina
+
+      # Automatically merge the Pull Request
+      - name: Merge Pull Request
+        if: env.changes_detected == 'true' && steps.create_pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
+        run: gh pr merge --squash --delete-branch --auto "${{ steps.create_pr.outputs.pull-request-number }}"
