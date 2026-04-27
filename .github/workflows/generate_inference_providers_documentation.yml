@@ -75,9 +75,9 @@ jobs:
             Wauplin
             hanouticelina
 
-      # Automatically merge the Pull Request
+      # Merge the Pull Request immediately (no repo-level auto-merge setting required)
       - name: Merge Pull Request
         if: env.changes_detected == 'true' && steps.create_pr.outputs.pull-request-number != ''
         env:
           GH_TOKEN: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
-        run: gh pr merge --squash --delete-branch --auto "${{ steps.create_pr.outputs.pull-request-number }}"
+        run: gh pr merge --squash --delete-branch "${{ steps.create_pr.outputs.pull-request-number }}"
