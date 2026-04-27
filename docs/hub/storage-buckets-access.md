@@ -17,7 +17,13 @@ Access through the S3 API is not currently supported, but is on the roadmap.
 
 [hf-mount](https://github.com/huggingface/hf-mount) lets you mount buckets (and repos) as local filesystems via NFS (recommended) or FUSE. Files are fetched lazily — only the bytes your code reads hit the network.
 
-Install:
+Install with [Homebrew](https://brew.sh/) (macOS, Linux):
+
+```bash
+brew install hf-mount
+```
+
+Or using an installation script:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/huggingface/hf-mount/main/install.sh | sh

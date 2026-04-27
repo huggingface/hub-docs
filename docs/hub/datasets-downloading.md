@@ -56,7 +56,7 @@ Add your SSH public key to [your user settings](https://huggingface.co/settings/
 For large datasets, you can mount a repo as a local filesystem with [hf-mount](https://github.com/huggingface/hf-mount) instead of downloading the full repo. Files are fetched lazily — only the bytes your code reads hit the network. Useful when your workflow expects local file paths (e.g. `tarfile`, `zipfile`, `imagefolder`) rather than Python iterators.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/huggingface/hf-mount/main/install.sh | sh
+brew install hf-mount
 hf-mount start repo datasets/stanfordnlp/imdb /tmp/imdb
 ```
 
