@@ -63,21 +63,8 @@ HF_XET_HIGH_PERFORMANCE=1 hf download ...
 
 For large models, you can mount a repo as a local filesystem with [hf-mount](https://github.com/huggingface/hf-mount) instead of downloading the full repo. Files are fetched lazily — only the bytes your code reads hit the network.
 
-Install with [Homebrew](https://brew.sh/) (macOS, Linux):
-
 ```bash
 brew install hf-mount
-```
-
-Or using an installation script:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/huggingface/hf-mount/main/install.sh | sh
-```
-
-Then mount:
-
-```bash
 hf-mount start repo openai-community/gpt2 /tmp/gpt2
 ```
 
