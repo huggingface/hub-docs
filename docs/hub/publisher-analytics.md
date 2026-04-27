@@ -62,20 +62,20 @@ Records are ordered chronologically and provide a daily granular view of downloa
 > [!WARNING]
 > This feature is an add-on for the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
 
-As an advanced feature, Hugging Face can export anonymized, request-level access logs for all of the models and datasets published by your organization. Each line represents a single download request (including HEAD and partial requests), giving you full granularity over your models and datasets' download data.
+As an advanced feature, Hugging Face can export anonymized, request-level access logs for all of the models and datasets published by your organization. Each line represents a single download-related request, giving you full granularity over your models and datasets' download data.
 
-Your team is responsible for ingesting these logs and running computations on them — for example, to deduplicate downloads to get unique downloader counts.
+Your team is responsible for ingesting these logs and running computations on them. The export intentionally includes raw HTTP status codes and methods so you can classify `HEAD`, partial-content, redirect, and other request patterns based on your own analytics needs.
 
 | Column         | Description                                             |
 | -------------- | ------------------------------------------------------- |
 | `timestamp`    | Request timestamp                                       |
-| `requestType`  | Type of download request (`GET`, `HEAD`, partial/range) |
+| `status`       | HTTP status code (for example `200`, `206`, `302`, `307`, `304`) |
+| `method`       | HTTP method (for example `GET`, `HEAD`)                 |
 | `repoName`     | Full repo name (e.g. `nvidia/segformer-b0`)             |
-| `repoType`     | `model` or `dataset`                                    |
+| `repoType`     | Repository type: `model`, `dataset`, or `space`         |
 | `hashedUserId` | Non-reversible hash of user ID (if authenticated)       |
 | `hashedIp`     | Non-reversible hash of IP address (if unauthenticated)  |
 | `country`      | Country ISO code                                        |
-| `region`       | Region name                                             |
-| `isInternal`   | Whether the request comes from an HF internal service   |
+| `region`       | Region or city name                                     |
 
 As it requires setting up a custom data export pipeline on our side (custom Elastic index, etc), this is only available as an add-on to Enterprise Plus.

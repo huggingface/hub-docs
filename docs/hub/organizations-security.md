@@ -8,7 +8,9 @@
 >
 > The Resource Group feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
-Members of organizations can have four different roles: `read`, `contributor`, `write`, or `admin`:
+Members of organizations can have five different roles: `no_access`, `read`, `contributor`, `write`, or `admin`:
+
+- `no_access`: the member belongs to the Organization but has no access to its repositories or settings. Use with [Resource Groups](./security-resource-groups) to grant access to specific repos only.
 
 - `read`: read-only access to the Organization's repos and metadata/settings (eg, the Organization's profile, members list, API token, etc).
 

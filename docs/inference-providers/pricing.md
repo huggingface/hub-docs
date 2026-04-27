@@ -179,7 +179,7 @@ print(response.json()["choices"][0]["message"])
 
 </hfoptions>
 
-Similarily in JavaScript:
+Similarly in JavaScript:
 
 <hfoptions id="javascript-clients">
 

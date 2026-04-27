@@ -301,6 +301,8 @@ api.copy_files(
 
 You need read access to the source repository or bucket and write access to the destination bucket.
 
+Note that transferring data the other way from a bucket to a repository (model, dataset, Space) without reuploading is not yet available, but is on the roadmap.
+
 ## Pre-warming and CDN
 
 Buckets live on the Hub's global storage by default. For workloads where storage location directly affects throughput you can **pre-warm** bucket data to bring it closer to your compute.
@@ -361,4 +363,4 @@ See [Specifying a bucket](./model-cards#specifying-a-bucket) in the model cards 
 
 Storage Buckets are billed based on the amount of data stored, with simple per-TB pricing. Enterprise plans benefit from dedup-based billing, where shared chunks across files directly reduce the billed footprint.
 
-For current pricing tiers and volume discounts, see [hf.co/storage](https://huggingface.co/storage). For general billing information, see the [Billing](./billing) documentation.
+As for other repositories, buckets are free to create and have a free storage allowance. For usage above the [free tier](https://huggingface.co/docs/hub/storage-limits), see [hf.co/storage](https://huggingface.co/storage). For general billing information, see the [Billing](./billing) documentation.
