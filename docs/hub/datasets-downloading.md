@@ -57,6 +57,7 @@ For large datasets, you can mount a repo as a local filesystem with [hf-mount](h
 
 ```bash
 brew install hf-mount
+# or: curl -fsSL https://raw.githubusercontent.com/huggingface/hf-mount/main/install.sh | sh
 hf-mount start repo datasets/stanfordnlp/imdb /tmp/imdb
 ```
 

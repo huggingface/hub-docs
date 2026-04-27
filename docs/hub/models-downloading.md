@@ -65,6 +65,7 @@ For large models, you can mount a repo as a local filesystem with [hf-mount](htt
 
 ```bash
 brew install hf-mount
+# or: curl -fsSL https://raw.githubusercontent.com/huggingface/hf-mount/main/install.sh | sh
 hf-mount start repo openai-community/gpt2 /tmp/gpt2
 ```
 
