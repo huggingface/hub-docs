@@ -472,7 +472,7 @@
   - local: agents-sdk
     title: Building agents with the HF SDK
   - local: agents-local
-    title: Local Agents with llama.cpp and Pi
+    title: Local Agents with llama.cpp
   - local: agents-libraries
     title: Agent Libraries
 
