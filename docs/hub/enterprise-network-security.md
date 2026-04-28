@@ -79,5 +79,5 @@ The Allowed URLs field, enables you to define some exception to the blocking rul
 You can read and update your organization's network security settings programmatically via the Hub API.
 
 **OpenAPI reference:**
-- [GET /api/organizations/{name}/settings/network-security](https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/{name}/settings/network-security)
-- [PATCH /api/organizations/{name}/settings/network-security](https://huggingface.co/spaces/huggingface/openapi#tag/orgs/PATCH/api/organizations/{name}/settings/network-security)
+- [`GET /api/organizations/{name}/settings/network-security`](https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/%7Bname%7D/settings/network-security)
+- [`PATCH /api/organizations/{name}/settings/network-security`](https://huggingface.co/spaces/huggingface/openapi#tag/orgs/PATCH/api/organizations/%7Bname%7D/settings/network-security)
