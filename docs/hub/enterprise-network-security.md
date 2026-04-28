@@ -80,4 +80,4 @@ You can read and update your organization's network security settings programmat
 
 **OpenAPI reference:**
 - <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/%7Bname%7D/settings/network-security" rel="nofollow">GET /api/organizations/<name>/settings/network-security</a>
-- <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/PATCH/api/organizations/%7Bname%7D/settings/network-security" rel="nofollow">PATCH — update network security settings</a>
+- <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/PATCH/api/organizations/%7Bname%7D/settings/network-security" rel="nofollow">PATCH /api/organizations/<name>/settings/network-security</a>
