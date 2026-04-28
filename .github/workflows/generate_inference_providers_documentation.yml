@@ -76,10 +76,13 @@ jobs:
             hanouticelina
 
       # Wait for PR CI checks to finish before merging.
-      # The build typically takes ~1min; 5min gives a safe buffer without needing --admin to bypass checks.
+      # `gh pr checks --watch` blocks until all checks complete and exits non-zero if any fail,
+      # so we don't need --admin to bypass checks and we won't merge if CI is broken.
       - name: Wait for PR CI to complete
         if: env.changes_detected == 'true' && steps.create_pr.outputs.pull-request-number != ''
-        run: sleep 300
+        env:
+          GH_TOKEN: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
+        run: gh pr checks --watch --fail-fast "${{ steps.create_pr.outputs.pull-request-number }}"
 
       # Merge the Pull Request (no repo-level auto-merge setting required)
       - name: Merge Pull Request
