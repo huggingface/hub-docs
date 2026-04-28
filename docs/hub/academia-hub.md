@@ -45,7 +45,15 @@ Researchers and students: <a href="https://huggingface.co/contact/sales?from=aca
 IT or Procurement staff: <a href="https://huggingface.co/contact/sales?from=academia" target="_blank">Get in touch</a> directly to set up your institution's Academia Hub subscription or find out more about how your institution can benefit from Academia Hub.
 
 ## Common use cases
-- A research lab storing private checkpoints and datasets during a multi-year project, and publishing final artefacts with DOIs — using the Hugging Face community blog to showcase their work.
-- A multi-campus collaboration sharing a single organization workspace with per-lab access controls.
-- A semester-long course distributing notebooks, assignments, and student-built Spaces under one institutional org.
-- Reproducible publication: keeping code, data, weights, and environment together so a result can be re-run years later.
+🎓 Teaching & Coursework
+- Distribute notebooks, datasets, models and student Spaces under one institutional org.
+- Test and compare models interactively without necessarily writing code.
+- Fine-tune a base model on a Hub dataset for a downstream task.
+
+🔬 Research & Publication
+- Store private checkpoints and datasets, then publish final artefacts with DOIs.
+- Keep code, data, and weights together for reproducible results.
+- Showcase work on the Hugging Face community blog.
+
+🤝 Collaboration
+- Share an org workspace across labs or campuses with granular access controls.
