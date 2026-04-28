@@ -49,7 +49,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"arcee-ai/Trinity-Large-Thinking","providerModelId":"arcee-ai/Trinity-Large-Thinking"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"deepseek-ai/DeepSeek-V4-Pro","providerModelId":"deepseek-ai/DeepSeek-V4-Pro"} } }
 conversational />
 
 
@@ -59,7 +59,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"featherless-ai":{"modelId":"Qwen/Qwen3.5-27B","providerModelId":"Qwen/Qwen3.5-27B"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"google/gemma-4-31B-it","providerModelId":"google/gemma-4-31B-it"} } }
 conversational />
 
 
@@ -69,6 +69,6 @@ Find out more about Text Generation [here](../tasks/text-generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"arcee-ai/Trinity-Large-Thinking","providerModelId":"arcee-ai/Trinity-Large-Thinking"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"deepseek-ai/DeepSeek-V4-Pro","providerModelId":"deepseek-ai/DeepSeek-V4-Pro"} } }
 />
 
