@@ -12,7 +12,7 @@ Here is a partial list of applications and libraries that use this cache layout.
 | [`@huggingface/hub`](https://github.com/huggingface/huggingface.js) | JavaScript | Node.js only |
 | [`HuggingFaceModelDownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) | Go | |
 | [`llama.cpp`](https://github.com/ggml-org/llama.cpp) | C++ | *Work in progress* |
-| [`SMILE`](https://github.com/haifengl/smile) | Java | See [`HuggingFaceHub`](https://haifengl.github.io/api/java/smile/util/HuggingFaceHub.html) |
+| [`SMILE`](https://github.com/haifengl/smile) | Java | See [`HuggingFaceHub`](https://haifengl.github.io/api/java/smile/util/HuggingFaceHub.html) documentation |
 
 ## Cache location
 
