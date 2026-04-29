@@ -16,7 +16,7 @@ You can also keep track of the latest PyTorch Training DLC releases [here](https
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.8.0-transformers4.56.2-gpu-py312-cu129-ubuntu22.04 | GPU         |
+| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.9.0-transformers5.3.0-gpu-py312-cu130-ubuntu22.04 | GPU         |
 | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-training-neuronx:2.8.0-transformers4.55.4-neuronx-py310-sdk2.26.0-ubuntu22.04 | Neuron         |
 
 ## Inference
@@ -57,7 +57,8 @@ Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance s
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 683313688378.dkr.ecr.us-east-1.amazonaws.com/2.0.1-tei1.8.2-cpu-py310-ubuntu22.04 | CPU         |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/2.0.1-tei1.8.2-gpu-py310-cu122-ubuntu22.04 | GPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.8.2-cpu-py310-ubuntu22.04 | CPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.8.2-gpu-py310-cu122-ubuntu22.04 | GPU         |
 
 ## FAQ
 
@@ -67,7 +68,7 @@ Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance s
 
 *Note:* See [here](https://huggingface.co/docs/sagemaker/main/en/reference/inference-toolkit) for the list of supported task in the inference toolkit.
 
-*Note:* Browse through the Hub to see if you model is tagged ["text-generation-inference"](https://huggingface.co/models?other=text-generation-inference) or ["text-embeddings-inference"](https://huggingface.co/models?other=text-embeddings-inference).
+*Note:* Browse through the Hub to see if your model is tagged ["text-generation-inference"](https://huggingface.co/models?other=text-generation-inference) or ["text-embeddings-inference"](https://huggingface.co/models?other=text-embeddings-inference).
 
 **How to find the URI of my container?**
 
