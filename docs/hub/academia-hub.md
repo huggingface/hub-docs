@@ -8,7 +8,7 @@
 </a>
 
 ## Where universities build, teach, and publish AI.
-For universities, by design. One subscription gives your students, professors, and research staff the same tools used by the world's leading AI teams: open, auditable, and governed by your institution.
+For universities, by design. One subscription gives your students, faculty, and research staff the same tools used by the world's leading AI teams: open, auditable, and governed by your institution.
 
 Universities don't just teach students how to use AI, they teach them how to understand, audit, and manage it. 
 Academia Hub is our dedicated initiative to put those tools into the heart of the university ecosystem, so students move from being passive consumers to strategic architects of their own innovation.
