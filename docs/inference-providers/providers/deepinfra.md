@@ -30,18 +30,38 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
 </div>
 
 <div class="flex">
-    <a href="https://huggingface.co/deepinfra" target="_blank">
+    <a href="https://huggingface.co/DeepInfra" target="_blank">
         <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg.svg"/>
         <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-us-on-hf-lg-dark.svg"/>
     </a>
 </div>
 
-DeepInfra is a serverless AI inference platform that enables developers to run machine learning models through a simple API, without managing infrastructure. The platform handles GPUs, scaling, and monitoring, offering cost-efficient pay-per-token pricing with OpenAI-compatible endpoints.
+DeepInfra is a serverless AI inference platform offering one of the most cost-effective pricing per token in the industry. With a catalog of over 100 models spanning LLMs, text-to-image, text-to-speech, speech-to-text, video generation, OCR, and more, DeepInfra makes it easy for developers to integrate a wide range of AI capabilities into their applications with minimal setup.
 
 ## Resources
 - **Website**: https://deepinfra.com/
-- **Documentation**: https://deepinfra.com/docs
+- **Documentation**: https://docs.deepinfra.com
 
 ## Supported tasks
+
+
+### Chat Completion (LLM)
+
+Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"deepinfra":{"modelId":"deepseek-ai/DeepSeek-V4-Pro","providerModelId":"deepseek-ai/DeepSeek-V4-Pro"} } }
+conversational />
+
+
+### Chat Completion (VLM)
+
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=image-text-to-text
+    providersMapping={ {"deepinfra":{"modelId":"google/gemma-4-31B-it","providerModelId":"google/gemma-4-31B-it"} } }
+conversational />
 
 
