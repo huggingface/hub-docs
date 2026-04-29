@@ -49,6 +49,9 @@ IT or Procurement staff: <a href="https://huggingface.co/contact/sales?from=acad
 - Distribute notebooks, datasets, models and student Spaces under one institutional org.
 - Test and compare models interactively without necessarily writing code.
 - Fine-tune a base model on a Hub dataset for a downstream task.
+- Launch jobs on Hugging Face infra to run experiments and assignments.
+- Preserve data and class materials on the Hub, mount or use locally when needed.
+- Easily find models and datasets to use in your project through agent-friendly interfaces.
 
 🔬 Research & Publication
 - Store private checkpoints and datasets, then publish final artefacts with DOIs.
