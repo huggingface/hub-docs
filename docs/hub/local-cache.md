@@ -2,17 +2,25 @@
 
 This document describes the on-disk layout of the HF Hub local cache. It is intended as a reference for reimplementing the cache system in any language.
 
-Here is a partial list of applications and libraries that use this cache layout. Please open a PR to add your own.
+Here is a partial list of libraries and applications that use this cache layout. Please open a PR to add your own.
 
-| Library or Application | Language | Notes |
+### Libraries
+
+| Library | Language | Notes |
 |---------|----------|-------|
 | [`huggingface_hub`](https://github.com/huggingface/huggingface_hub) | Python | And any library that depends on it (e.g. `transformers`, `diffusers`, `datasets`, `mlx`, `vllm` …) |
 | [`hf-hub`](https://github.com/huggingface/hf-hub) | Rust | |
 | [`swift-huggingface`](https://github.com/huggingface/swift-huggingface) | Swift | |
 | [`@huggingface/hub`](https://github.com/huggingface/huggingface.js) | JavaScript | Node.js only |
-| [`HuggingFaceModelDownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) | Go | |
-| [`llama.cpp`](https://github.com/ggml-org/llama.cpp) | C++ | *Work in progress* |
 | [`SMILE`](https://github.com/haifengl/smile) | Java | See [`HuggingFaceHub`](https://haifengl.github.io/api/java/smile/util/HuggingFaceHub.html) documentation |
+
+### Applications
+
+| Application | Language | Notes |
+|-------------|----------|-------|
+| [`llama.cpp`](https://github.com/ggml-org/llama.cpp) | C++ | Since [#20775](https://github.com/ggml-org/llama.cpp/pull/20775) |
+| [`LlamaBarn`](https://github.com/ggml-org/LlamaBarn) | Swift | macOS app, built on `llama.cpp` |
+| [`HuggingFaceModelDownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) | Go | |
 
 ## Cache location
 
