@@ -57,7 +57,7 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"wavespeed":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"wavespeed-ai/flux-dev"} } }
+    providersMapping={ {"wavespeed":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"wavespeed-ai/z-image/turbo"} } }
 />
 
 
