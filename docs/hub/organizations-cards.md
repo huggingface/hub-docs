@@ -19,9 +19,7 @@ The card for the [Hugging Face Course organization](https://huggingface.co/huggi
 ```html
 <p>
   This is the organization grouping all the models and datasets used in the
-  <a href="https://huggingface.co/course/chapter1" class="underline"
-    >Hugging Face course</a
-  >.
+  <a href="https://huggingface.co/course/chapter1" class="underline">Hugging Face course</a>.
 </p>
 ```
 
