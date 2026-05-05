@@ -56,7 +56,7 @@ All public pages will show the following message if access is unauthenticated:
 
 ### Content Access Policy 
 
-Define a fine-grained Content Access Policy by blocking certain contents of the Hugging Face Hub. 
+Define a fine-grained Content Access Policy by blocking specific content of the Hugging Face Hub. 
 
 For example, you can block your organization's members from accessing Spaces. When users of your organization navigate to blocked content, they'll be presented the following page:
 
@@ -65,14 +65,14 @@ For example, you can block your organization's members from accessing Spaces. Wh
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-blocked-content.png" alt="Screenshot of blocked pages on the Hub."/>
 </div>
 
-To define Blocked Content, add rules that target a repository type, an organization, a specific repository, or a combination such as a repository type within a given organization (e.g. all Spaces from a specific organization).
+To define Blocked content, add rules that target a repository type, an organization, a specific repository, or a combination such as a repository type within a given organization (e.g. all Spaces from a specific organization).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/network-sec-cap-v2.png" alt="Screenshot of access content policy settings on the Hub."/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-cap-v2.png" alt="Screenshot of access content policy settings on the Hub."/>
 </div>
 
-The Always Allowed field lets you define exceptions to the blocking rules. You can target content that should remain accessible regardless of the blocked rules.
+The Always allowed field lets you define exceptions to the blocking rules. You can target content that should remain accessible even when a block rule would otherwise apply.
 
 ## Manage Network Security via API
 
