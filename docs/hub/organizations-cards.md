@@ -12,7 +12,7 @@ An organization card is displayed on an organization's profile:
 If you're a member of an organization, you'll see a button to create or edit your organization card on the organization's main page. Organization cards are a `README.md` static file inside a Space repo named `README`. The card can be as simple as Markdown text, or you can create a more customized appearance with HTML.
 
 > [!WARNING]
-> The README Space must be set to **Public** visibility. If it is set to Protected or Private, the organization card will not appear on your organization's profile page.
+> The `README` Space must be set to **Public** visibility. If it is set to Protected or Private, the organization card will not appear on your organization's profile page.
 
 The card for the [Hugging Face Course organization](https://huggingface.co/huggingface-course), shown above, [contains the following HTML](https://huggingface.co/spaces/huggingface-course/README/blob/main/README.md):
 
