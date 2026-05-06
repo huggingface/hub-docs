@@ -27,7 +27,7 @@ While submitting the report, you also have the option to **block the comment aut
 
 Blocking a user prevents them from interacting with your repositories and other Hub content. When you block someone, any existing follow relationship between you and that user is also removed.
 
-To block a user, you can opt in to blocking them directly from the [comment report modal](#reporting-a-comment). Select "Report" from the comment's menu, fill in your reason, and check **"Yes, block this user"** before submitting.
+You can block a user from the [comment report modal](#reporting-a-comment). Select "Report" from the comment's menu, fill in your reason, and check **"Yes, block this user"** before submitting.
 
 > [!NOTE]
 > You must have a confirmed email address on your account to block users.
