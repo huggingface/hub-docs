@@ -190,7 +190,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-small","providerModelId":"google-t5/t5-small"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-base","providerModelId":"google-t5/t5-base"} } }
 />
 
 
@@ -200,6 +200,6 @@ Find out more about Zero Shot Classification [here](../tasks/zero-shot-classific
 
 <InferenceSnippet
     pipeline=zero-shot-classification
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
+    providersMapping={ {"hf-inference":{"modelId":"MoritzLaurer/mDeBERTa-v3-base-mnli-xnli","providerModelId":"MoritzLaurer/mDeBERTa-v3-base-mnli-xnli"} } }
 />
 
