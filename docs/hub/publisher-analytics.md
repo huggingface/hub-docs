@@ -77,5 +77,7 @@ Your team is responsible for ingesting these logs and running computations on th
 | `hashedIp`     | Non-reversible hash of IP address (if unauthenticated)  |
 | `country`      | Country ISO code                                        |
 | `region`       | Region or city name                                     |
+| `userAgent`    | HTTP User-Agent header                                  |
+
 
 As it requires setting up a custom data export pipeline on our side (custom Elastic index, etc), this is only available as an add-on to Enterprise Plus.
