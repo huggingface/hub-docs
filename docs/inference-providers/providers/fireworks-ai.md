@@ -46,7 +46,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"fireworks-ai":{"modelId":"deepseek-ai/DeepSeek-V4-Pro","providerModelId":"accounts/fireworks/models/deepseek-v4-pro"} } }
+    providersMapping={ {"fireworks-ai":{"modelId":"MiniMaxAI/MiniMax-M2.7","providerModelId":"accounts/fireworks/models/minimax-m2p7"} } }
 conversational />
 
 
@@ -56,6 +56,6 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"fireworks-ai":{"modelId":"moonshotai/Kimi-K2.6","providerModelId":"accounts/fireworks/models/kimi-k2p6"} } }
+    providersMapping={ {"fireworks-ai":{"modelId":"moonshotai/Kimi-K2.5","providerModelId":"accounts/fireworks/models/kimi-k2p5"} } }
 conversational />
 
