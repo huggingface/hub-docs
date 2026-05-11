@@ -72,7 +72,7 @@
       - local: webhooks-guide-auto-retrain
         title: "How-to: Automatic fine-tuning with Auto-Train"
       - local: webhooks-guide-discussion-bot
-        title: "How-to: Build a Discussion bot based on BLOOM"
+        title: "How-to: Build a Discussion bot with a LLM"
       - local: webhooks-guide-metadata-review
         title: "How-to: Create automatic metadata quality reports"
   - local: repositories-github-actions
