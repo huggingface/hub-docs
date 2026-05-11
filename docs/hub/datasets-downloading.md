@@ -50,3 +50,14 @@ git clone git@hf.co:datasets/<dataset ID> # example: git clone git@hf.co:dataset
 If you have write-access to the particular dataset repo, you'll also have the ability to commit and push revisions to the dataset.
 
 Add your SSH public key to [your user settings](https://huggingface.co/settings/keys) to push changes and/or access private repos.
+
+## Using hf-mount
+
+For large datasets, you can mount a repo as a local filesystem with [hf-mount](https://github.com/huggingface/hf-mount) instead of downloading the full repo. Files are fetched lazily — only the bytes your code reads hit the network. Useful when your workflow expects local file paths (e.g. `tarfile`, `zipfile`, `imagefolder`) rather than Python iterators.
+
+```bash
+brew install hf-mount
+hf-mount start repo datasets/stanfordnlp/imdb /tmp/imdb
+```
+
+Repos are mounted read-only. See [Mount as a Local Filesystem](./storage-buckets-access#mount-as-a-local-filesystem) for full setup details, backend options, and caching.

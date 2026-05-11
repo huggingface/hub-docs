@@ -56,20 +56,28 @@ All public pages will show the following message if access is unauthenticated:
 
 ### Content Access Policy 
 
-Define a fine-grained Content Access Policy by blocking certain sections of the Hugging Face Hub. 
+Define a fine-grained Content Access Policy by blocking specific content of the Hugging Face Hub. 
 
-For example, you can block your organization's members from accessing Spaces by adding `/spaces/*` to the blocked URLs. When users of your organization navigate to a page that matches the URL pattern, they'll be presented the following page:
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/network-sec-blocked-url.png" alt="Screenshot of blocked pages on the Hub."/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-blocked-url.png" alt="Screenshot of blocked pages on the Hub."/>
-</div>
-
-To define Blocked URLs, enter URL patterns, without the domain name, one per line:
+For example, you can block your organization's members from accessing Spaces. When users of your organization navigate to blocked content, they'll be presented the following page:
 
 <div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/network-sec-cap.png" alt="Screenshot of blocked pages on the Hub."/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-cap.png" alt="Screenshot of blocked pages on the Hub."/>
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/network-sec-blocked-content.png" alt="Screenshot of blocked pages on the Hub."/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-blocked-content.png" alt="Screenshot of blocked pages on the Hub."/>
 </div>
 
-The Allowed URLs field, enables you to define some exception to the blocking rules, especially. For example by allowing a specific URL within the Blocked URLs pattern, ie `/spaces/meta-llama/*`  
+To define Blocked content, add rules that target a repository type, an organization, a specific repository, or a combination such as a repository type within a given organization (e.g. all Spaces from a specific organization).
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/network-sec-cap-v2.png" alt="Screenshot of access content policy settings on the Hub."/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-network-sec-cap-v2.png" alt="Screenshot of access content policy settings on the Hub."/>
+</div>
+
+The Always allowed field lets you define exceptions to the blocking rules. You can target content that should remain accessible even when a block rule would otherwise apply.
+
+## Manage Network Security via API
+
+You can read and update your organization's network security settings programmatically via the Hub API.
+
+**OpenAPI reference:**
+- <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/%7Bname%7D/settings/network-security" rel="nofollow">GET /api/organizations/<name>/settings/network-security</a>
+- <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/PATCH/api/organizations/%7Bname%7D/settings/network-security" rel="nofollow">PATCH /api/organizations/<name>/settings/network-security</a>

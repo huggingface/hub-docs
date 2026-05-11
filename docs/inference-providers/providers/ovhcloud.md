@@ -57,7 +57,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"ovhcloud":{"modelId":"Qwen/Qwen2.5-VL-72B-Instruct","providerModelId":"Qwen2.5-VL-72B-Instruct"} } }
+    providersMapping={ {"ovhcloud":{"modelId":"Qwen/Qwen3.5-9B","providerModelId":"Qwen3.5-9B"} } }
 conversational />
 
 

@@ -12,16 +12,16 @@ If you want to keep track of all our available DLCs, you can also check the [AWS
 
 For training, the DLCs are available for PyTorch via Transformers. They include GPUs and AWS AI chips support, with libraries such as TRL, Sentence Transformers, or Diffusers.
 
-You can also keep track of the latest Pytorch Training DLC releases [here](https://github.com/aws/deep-learning-containers/releases?q=huggingface-training+AND+NOT+neuronx&expanded=true).
+You can also keep track of the latest PyTorch Training DLC releases [here](https://github.com/aws/deep-learning-containers/releases?q=huggingface-training+AND+NOT+neuronx&expanded=true).
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.8.0-transformers4.56.2-gpu-py312-cu129-ubuntu22.04 | GPU         |
+| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.9.0-transformers5.3.0-gpu-py312-cu130-ubuntu22.04 | GPU         |
 | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-training-neuronx:2.8.0-transformers4.55.4-neuronx-py310-sdk2.26.0-ubuntu22.04 | Neuron         |
 
 ## Inference
 
-### Pytorch Inference DLC
+### PyTorch Inference
 
 For inference, there is a general-purpose PyTorch inference DLC, for serving models trained with any of those frameworks mentioned before on CPU, GPU, and AWS AI chips.
 
@@ -32,7 +32,7 @@ For inference, there is a general-purpose PyTorch inference DLC, for serving mod
 | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-inference-neuronx:2.8.0-transformers4.55.4-neuronx-py310-sdk2.26.0-ubuntu22.04 | Neuron         |
 
 
-### Hugging Face vLLM Inference DLC
+### vLLM
 
 In case you want to serve text generation models with vLLM, there are specific DLCs available for GPU and AWS AI chips.
 
@@ -41,7 +41,7 @@ In case you want to serve text generation models with vLLM, there are specific D
 | 0.17.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm:0.17.0-transformers4.57.5-gpu-py312-cu129-ubuntu22.04 | GPU         |
 | 0.11.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.5-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
 
-### Hugging Face SGLang Inference DLC
+### SGLang
 
 There is also a specific DLC for serving models with SGLang on GPU.
 
@@ -50,14 +50,15 @@ There is also a specific DLC for serving models with SGLang on GPU.
 | 0.5.8          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-sglang:0.5.8-transformers4.57.3-gpu-py312-cu129-ubuntu24.04 | GPU         |
 
 
-### Text Embedding Inference
+### Text Embeddings Inference
 
 Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance serving of embedding models on CPU and GPU.
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 683313688378.dkr.ecr.us-east-1.amazonaws.com/2.0.1-tei1.8.2-cpu-py310-ubuntu22.04 | CPU         |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/2.0.1-tei1.8.2-gpu-py310-cu122-ubuntu22.04 | GPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.8.2-cpu-py310-ubuntu22.04 | CPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.8.2-gpu-py310-cu122-ubuntu22.04 | GPU         |
 
 ## FAQ
 
@@ -67,18 +68,19 @@ Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance s
 
 *Note:* See [here](https://huggingface.co/docs/sagemaker/main/en/reference/inference-toolkit) for the list of supported task in the inference toolkit.
 
-*Note:* Browse through the Hub to see if you model is tagged ["text-generation-inference"](https://huggingface.co/models?other=text-generation-inference) or ["text-embeddings-inference"](https://huggingface.co/models?other=text-embeddings-inference)
+*Note:* Browse through the Hub to see if your model is tagged ["text-generation-inference"](https://huggingface.co/models?other=text-generation-inference) or ["text-embeddings-inference"](https://huggingface.co/models?other=text-embeddings-inference).
 
 **How to find the URI of my container?**
 
 The URI is built with an AWS account ID and an AWS region. Those two values need to be replaced depending on your use case.
-Let's say you want to use the training DLC for GPUs in  
+
+Let's say you want to use the training DLC for GPUs:
 - `dlc-aws-account-id`: The AWS account ID of the account that owns the ECR repository. You can find them in the [here](https://github.com/aws/sagemaker-python-sdk/blob/e0b9d38e1e3b48647a02af23c4be54980e53dc61/src/sagemaker/image_uri_config/huggingface.json#L21)
 - `region`: The AWS region where you want to use it.
 
 **How to find the URI of my container but simpler?**
 
-The Python SagemMaker SDK util functions are not always up to date but it is much simpler than reconstructing the image URI yourself. 
+The Python SageMaker SDK util functions are not always up to date but it is much simpler than reconstructing the image URI yourself.
 
 > [!WARNING]
 > [SageMaker Python SDK v3 has been recently released](https://github.com/aws/sagemaker-python-sdk), so unless specified otherwise, all the documentation and tutorials are still using the [SageMaker Python SDK v2](https://github.com/aws/sagemaker-python-sdk/tree/master-v2). We are actively working on updating all the tutorials and examples, but in the meantime make sure to install the SageMaker SDK as `pip install "sagemaker<3.0.0"`.
@@ -92,4 +94,4 @@ print(f"TEI CPU: {get_huggingface_llm_image_uri('huggingface-tei-cpu')}")
 print(f"TGI Neuron: {get_huggingface_llm_image_uri('huggingface-neuronx')}")
 ```
 
-For Pytorch Training and Pytorch Inference DLCs, there is no such utility. 
+For PyTorch Training and PyTorch Inference DLCs, there is no such utility.

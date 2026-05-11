@@ -15,6 +15,7 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | -------------------------------------------- | :-------------------: | :-------------------: | :----------------: | :-----------: | :-----------: | :------------: |
 | [Cerebras](./providers/cerebras)             |          ✅           |                       |                    |               |               |                |
 | [Cohere](./providers/cohere)                 |          ✅           |          ✅           |                    |               |               |                |
+| [DeepInfra](./providers/deepinfra)           |          ✅           |          ✅           |                    |               |               |                |
 | [Fal AI](./providers/fal-ai)                 |                       |                       |                    |      ✅       |      ✅       |       ✅       |
 | [Featherless AI](./providers/featherless-ai) |          ✅           |          ✅           |                    |               |               |                |
 | [Fireworks](./providers/fireworks-ai)        |          ✅           |          ✅           |                    |               |               |                |

@@ -11,14 +11,16 @@ Beyond the [CLI and Python SDK](./storage-buckets#managing-files), there are sev
 | **hf:// paths** (fsspec) | Python data tools (pandas, DuckDB) | [See below](#python-data-tools) |
 | **CLI sync** | Batch transfers, backups | [Sync docs](./storage-buckets#syncing-directories) |
 
+Access through the S3 API is not currently supported, but is on the roadmap.
+
 ## Mount as a Local Filesystem
 
 [hf-mount](https://github.com/huggingface/hf-mount) lets you mount buckets (and repos) as local filesystems via NFS (recommended) or FUSE. Files are fetched lazily — only the bytes your code reads hit the network.
 
-Install:
+Install with [Homebrew](https://brew.sh/):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/huggingface/hf-mount/main/install.sh | sh
+brew install hf-mount
 ```
 
 Mount a bucket:

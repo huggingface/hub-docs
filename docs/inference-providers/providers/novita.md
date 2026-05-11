@@ -42,3 +42,23 @@ Offering 200+ APIs (LLMs, image, video, audio) with fully managed deployment —
 
 ## Supported tasks
 
+
+### Chat Completion (LLM)
+
+Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"novita":{"modelId":"deepseek-ai/DeepSeek-V4-Pro","providerModelId":"deepseek/deepseek-v4-pro"} } }
+conversational />
+
+
+### Chat Completion (VLM)
+
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=image-text-to-text
+    providersMapping={ {"novita":{"modelId":"moonshotai/Kimi-K2.6","providerModelId":"moonshotai/kimi-k2.6"} } }
+conversational />
+

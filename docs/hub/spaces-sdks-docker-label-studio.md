@@ -44,10 +44,9 @@ credentials, and project information. Labeling tasks and data items are also hel
 in local storage. 
 
 > [!WARNING]
-> Storage in Hugging Face Spaces is ephemeral, and the data you store in the default
-> configuration can be lost in a reboot or reset of the Space. Because of this,
-> we strongly encourage you to use the default configuration only for testing and
-> demonstration purposes.
+> Storage in Hugging Face Spaces is ephemeral by default. To persist your data
+> across restarts, attach a [Storage Bucket](./storage-buckets) — see the
+> [persistence section](#enable-persistence-with-hf-storage-buckets) below.
 
 After launching Label Studio, you will be presented with the standard login
 screen. You can start by creating a new account using your email address and
@@ -66,9 +65,9 @@ changes:
 
 * Disable the unrestricted creation of new accounts.
 
-* Enable persistence by attaching an external database.
+* Enable persistence by attaching a [Storage Bucket](./storage-buckets) or an external database.
 
-* Attach cloud storage for labeling tasks.
+* Optionally, attach cloud storage for labeling tasks.
 
 ### Disable Unrestricted Creation of New Accounts
 
@@ -92,12 +91,74 @@ from the login screen will be disabled. To create new accounts, you will need
 to invite new users in the `Organization` settings in the Label Studio
 application.
 
-### Enable Configuration Persistence
+### Enable Persistence with HF Storage Buckets
 
 By default, this Space stores all project configuration and data annotations in
 local storage with SQLite. If the Space is reset, all configuration and
-annotation data in the Space will be lost. You can enable configuration
-persistence by [connecting an external Postgres database to your
+annotation data in the Space will be lost.
+
+The simplest way to enable persistence is to attach a [Storage Bucket](./storage-buckets),
+which mounts persistent object storage directly into the Space. Label Studio
+writes its SQLite database and media uploads into the mounted bucket, so
+projects and annotations survive restarts.
+
+1. **Create a bucket:**
+
+   ```bash
+   hf buckets create <your-namespace>/label-studio-data
+   ```
+
+2. **Attach it** in Space Settings → Storage Buckets, mount path `/data`.
+
+3. **Set two Space Variables:**
+
+   ```
+   LABEL_STUDIO_BASE_DATA_DIR=/data
+   STORAGE_PERSISTENCE=1
+   ```
+
+4. **Factory rebuild** the Space.
+
+> [!TIP]
+> Set a `SECRET_KEY` Space Secret to keep user sessions alive across restarts.
+> Without it, Label Studio generates a random key on each boot and all users
+> are logged out on restart.
+
+#### Have a coding agent do it for you
+
+If you'd rather not click through the Space settings, you can ask a coding agent with access to `huggingface_hub` to provision the Space for you. Tell it your Space ID and bucket name, and it can run the equivalent of:
+
+```python
+from huggingface_hub import HfApi, Volume
+
+api = HfApi()
+space_id = "<your-namespace>/<your-space>"
+
+# Attach the bucket at /data
+api.set_space_volumes(
+    space_id,
+    volumes=[
+        Volume(type="bucket", source="<your-namespace>/label-studio-data", mount_path="/data"),
+    ],
+)
+
+# Tell Label Studio to write its SQLite DB and media into the mounted bucket
+api.add_space_variable(space_id, "LABEL_STUDIO_BASE_DATA_DIR", "/data")
+api.add_space_variable(space_id, "STORAGE_PERSISTENCE", "1")
+
+# Optional: set a stable SECRET_KEY so sessions survive restarts
+api.add_space_secret(space_id, "SECRET_KEY", "<random-string>")
+
+# Factory rebuild so the new mount and variables take effect
+api.restart_space(space_id, factory_reboot=True)
+```
+
+See the [`manage-spaces` guide](/docs/huggingface_hub/guides/manage-spaces) for more on managing spaces and volume mounts via `huggingface_hub`.
+
+### Enable Persistence with Postgres
+
+For heavier multi-user deployments, you can instead enable persistence by
+[connecting an external Postgres database to your
 space](https://labelstud.io/guide/storedata.html#PostgreSQL-database),
 guaranteeing that all project and annotation settings are preserved.
 

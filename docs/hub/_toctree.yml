@@ -339,6 +339,8 @@
     title: Spaces Custom Domain
   - local: spaces-mcp-servers
     title: Spaces as MCP servers
+  - local: spaces-agents
+    title: Spaces as Agent Tools
   - local: spaces-api-endpoints
     title: Spaces as API Endpoints
   - local: spaces-sdks-gradio
@@ -425,6 +427,8 @@
   sections:
   - local: storage-buckets-access
     title: Access Patterns
+  - local: storage-buckets-integrations
+    title: Bucket Integrations
   - local: storage-buckets-security
     title: Bucket Security
 
@@ -468,7 +472,7 @@
   - local: agents-sdk
     title: Building agents with the HF SDK
   - local: agents-local
-    title: Local Agents with llama.cpp and Pi
+    title: Local Agents with llama.cpp
   - local: agents-libraries
     title: Agent Libraries
 

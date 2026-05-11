@@ -83,7 +83,7 @@ The available options are:
 - **Admins only** (default) — only org admins can create Resource Groups.
 - **Write** — members with Write or Admin role can create Resource Groups.
 - **Contributor** — members with Contributor, Write, or Admin role can create Resource Groups.
-- **All members** — any org member can create Resource Groups.
+- **Read+** — any org member can create Resource Groups.
 
 When a non-admin member creates a Resource Group through the UI, they are automatically added as an **admin** of that newly created group. Through the API, this does not happen automatically, since API callers may be creating groups on behalf of others. Non-admin API callers must include at least one user with the admin role in the group's initial member list.
 

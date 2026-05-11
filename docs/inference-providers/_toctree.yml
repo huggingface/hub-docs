@@ -38,6 +38,8 @@
     title: Overview
   - local: integrations/adding-integration
     title: Add Your Integration
+  - local: integrations/claude-code
+    title: Claude Code
   - local: integrations/hermes-agent
     title: Hermes Agent
   - local: integrations/datadesigner
@@ -106,6 +108,8 @@
     title: Cerebras
   - local: providers/cohere
     title: Cohere
+  - local: providers/deepinfra
+    title: DeepInfra
   - local: providers/fal-ai
     title: Fal AI
   - local: providers/featherless-ai

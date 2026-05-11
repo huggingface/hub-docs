@@ -30,7 +30,7 @@ To try LM Studio with a trending model, find them here: [https://huggingface.co/
 
 ### Option 2: Use LM Studio's In-App Downloader
 
-Open the LM Studio app and search for any model by presssing ⌘ + Shift + M on Mac, or Ctrl + Shift + M on PC (M stands for Models). You can even paste entire Hugging Face URLs into the search bar!
+Open the LM Studio app and search for any model by pressing ⌘ + Shift + M on Mac, or Ctrl + Shift + M on PC (M stands for Models). You can even paste entire Hugging Face URLs into the search bar!
 
 <div class="flex justify-center">
   <img

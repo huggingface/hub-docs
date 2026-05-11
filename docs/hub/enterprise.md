@@ -37,7 +37,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | Serve models with Inference Providers                                                                                  | ✅ <br>PAYG | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG |
 | [Usage & billing control](https://huggingface.co/docs/inference-providers/pricing#inference-providers-usage-breakdown) | ❌      | ✅                                | ✅                                | ✅                                |
 | Scale deployment with Inference Endpoints                                                                              | ✅ PAYG | ✅ PAYG                           | ✅ PAYG                           | ✅ PAYG                           |
-| Hub credits\* included in plan                                                                                         | ❌      | ❌ (bulk purchase available)      | $2k included                      | 5% of ACV included                |
+| Hub credits\* included in plan                                                                                         | ❌      | ❌ (bulk purchase available)      | ❌ (bulk purchase available)      | 5% of ACV included                |
 
 \* Hub credits can be utilized for inference providers, inference endpoints, Jobs, Space upgrade, ZeroGPU quota extension
 
@@ -79,7 +79,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | Disable personal public repos for users            |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable joining other orgs for users               |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable PRO subscription                           |  ❌  |      ❌      |      ❌      |       ✅        |
-| Hide members list                                  |  ❌  |      ❌      |      ❌      |       ✅        |
+| Hide members list                                  |  ❌  |      ✅      |      ✅      |       ✅        |
 
 ### Governance, auditing, compliance
 

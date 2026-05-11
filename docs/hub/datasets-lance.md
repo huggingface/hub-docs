@@ -71,7 +71,7 @@ for row in rows:
 
 ## Work with binary assets
 
-The example below shows how images are retreved from a Lance dataset as raw JPEG bytes in the `image` column, and used downstream.
+The example below shows how images are retrieved from a Lance dataset as raw JPEG bytes in the `image` column, and used downstream.
 Use `ds.take` to fetch the bytes and write them to disk so you can use them elsewhere.
 
 ```python
@@ -262,4 +262,3 @@ scalar metadata all in one place.
 Explore more Lance datasets on the [Hugging Face Hub](https://huggingface.co/datasets?format=format:lance),
 and share your own Lance datasets with others in the community!
 You can visit [lance.org](https://lance.org/integrations/huggingface/) for more code snippets and examples.
-

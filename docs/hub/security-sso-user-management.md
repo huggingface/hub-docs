@@ -41,7 +41,13 @@ This section allows you to define a mapping from your IdP's user profile data to
 
 If the attribute in the IdP response contains multiple values (e.g. a list of groups), the **first matching mapping** will be used to determine the user's role.
 
-If there is no match, a user will be assigned the default role for your organization. The default role can be customized in the `Members` section of the organization's settings.
+If there is no match, the role is determined as follows:
+
+- If the user was invited to the organization with a specific role, that invitation role is used as a fallback.
+- Otherwise, the user is assigned the default role for your organization. The default role can be customized in the `Members` section of the organization's settings.
+
+> [!NOTE]
+> When inviting a user whose role will be controlled by SSO role mapping, the role selected in the invite modal only applies if the user does not yet have a role assigned in your SSO provider.
 
 Role synchronization is performed on every login.
 

@@ -134,7 +134,7 @@ This guide will cover three primary ways to upload data to the Hub:
 
 #### Use the `datasets` library
 
-The most straightforward approach to pushing data to the Hub is to rely on the existing [`push_to_hub`](https://huggingface.co/docs/datasets/v3.2.0/en/package_reference/main_classes#datasets.Dataset.push_to_hub) method from the `datasets` library. The `push_to_hub` method will automatically handle:
+The most straightforward approach to pushing data to the Hub is to rely on the existing [`push_to_hub`](https://huggingface.co/docs/datasets/main/en/package_reference/main_classes#datasets.Dataset.push_to_hub) method from the `datasets` library. The `push_to_hub` method will automatically handle:
 
 - the creation of the repository
 - the conversion of the dataset to Parquet

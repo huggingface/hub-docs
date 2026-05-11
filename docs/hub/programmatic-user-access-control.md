@@ -12,7 +12,7 @@ This guide describes how to manage organization member roles and resource group 
 
 ## Change member role via API
 
-You can change a member's **organization role** (Read / Contributor / Write / Admin) and, optionally, their roles in **resource groups** using the Hub API. The API updates **one member per request**. To change roles for multiple members, call the API in a loop (examples below).
+You can change a member's **organization role** (No Access / Read / Contributor / Write / Admin) and, optionally, their roles in **resource groups** using the Hub API. The API updates **one member per request**. To change roles for multiple members, call the API in a loop (examples below).
 
 **OpenAPI reference:** <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/PUT/api/organizations/&#123;name&#125;/members/&#123;username&#125;/role" rel="nofollow">PUT /api/organizations/&#123;name&#125;/members/&#123;username&#125;/role</a>
 
@@ -50,7 +50,7 @@ Content-Type: application/json
   - `org_name`: Organization slug (e.g. `my-org`).
   - `username`: Hugging Face **username** of the member whose role you are changing.
 - **Body**
-  - `role` (required): The member's **organization-level** role. One of: `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+  - `role` (required): The member's **organization-level** role. One of: `"no_access"`, `"read"`, `"contributor"`, `"write"`, or `"admin"`.
   - `resourceGroups` (optional): Array of resource group assignments for this user. Each item:
     - `id`: Resource group ID (24-character hex string; get IDs from the [resource groups list API](#list-resource-groups)).
     - `role`: Role in that resource group: `"read"`, `"contributor"`, `"write"`, or `"admin"`.
