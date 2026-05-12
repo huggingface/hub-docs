@@ -536,7 +536,7 @@ curl https://router.huggingface.co/v1/chat/completions \
 **Key Features:**
 
 - **Server-Side Provider Selection**: The server automatically selects the fastest available provider by default (`:fastest` policy)
-- **Model Listing**: GET `/v1/models` returns available models across all providers
+- **Model Listing**: GET `/v1/models` returns available models across all providers, including per-provider pricing, context length, latency, and throughput when available
 - **OpenAI SDK Compatibility**: Works with existing OpenAI client libraries
 - **Chat Tasks Only**: Limited to conversational workloads
 
