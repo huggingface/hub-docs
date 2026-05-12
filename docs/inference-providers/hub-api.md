@@ -125,7 +125,7 @@ None
 The router exposes an OpenAI-compatible endpoint to list chat-completion models served by Inference Providers, together with provider metadata used for routing and comparison:
 
 ```sh
-~ curl -s https://router.huggingface.co/v1/models | jq '.data[0]'
+~ curl -s https://router.huggingface.co/v1/models | jq '.data'
 {
   "id": "deepseek-ai/DeepSeek-V4-Pro",
   "object": "model",
@@ -199,6 +199,7 @@ The router exposes an OpenAI-compatible endpoint to list chat-completion models 
     }
   ]
 }
+...
 ```
 
 To retrieve a single model, append its model id to the endpoint:
