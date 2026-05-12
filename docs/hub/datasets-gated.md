@@ -72,6 +72,7 @@ You can download a report of all access requests for a gated datasets with the *
 - **status**: status of the request. Either `"pending"`, `"accepted"` or `"rejected"`.
 - **email**: email of the user.
 - **time**: datetime when the user initially made the request.
+- **reviewedAt**: datetime when the request was accepted or rejected. Not set for pending requests.
 
 <a id="modifying-the-prompt"></a> <!-- backward compatible anchor -->
 
