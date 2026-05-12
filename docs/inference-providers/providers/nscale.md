@@ -42,3 +42,33 @@ Built on this foundation, Nscale's inference service empowers developers with a 
 
 ## Supported tasks
 
+
+### Chat Completion (LLM)
+
+Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"nscale":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Llama-3.1-8B-Instruct"} } }
+conversational />
+
+
+### Chat Completion (VLM)
+
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=image-text-to-text
+    providersMapping={ {"nscale":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct"} } }
+conversational />
+
+
+### Text To Image
+
+Find out more about Text To Image [here](../tasks/text-to-image).
+
+<InferenceSnippet
+    pipeline=text-to-image
+    providersMapping={ {"nscale":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"} } }
+/>
+
