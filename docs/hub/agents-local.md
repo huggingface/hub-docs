@@ -107,7 +107,7 @@ You can run local embedding models with Llama.cpp for your agent's memory search
 ```bash
 npm ls -g node-llama-cpp --depth=0
 ```
-Here's an example snippet to run [quantized EmbeddingGemma-300M](https://huggingface.co/ggml-org/embeddinggemma-300M-GGUF?show_file_info=embeddinggemma-300M-Q8_0.gguf) locally for memory search.
+Here's an example snippet to run [quantized EmbeddingGemma-300M](https://huggingface.co/ggml-org/embeddinggemma-300M-GGUF?show_file_info=embeddinggemma-300M-Q8_0.gguf) locally for memory search. OpenClaw automatically downloads and serves the model with below command.
 
 ```bash
 openclaw config set agents.defaults.memorySearch.provider local
@@ -156,7 +156,7 @@ auxiliary:
     max_concurrency: 1
 ```
 
-Check if this works, `none - built-in only` shows that no other memory plug-ins are used.
+Check if this works, `none - built-in only` shows that no other memory plug-ins are used. Below output shows that local serving is active.
 
 ```bash
 $ hermes memory status
