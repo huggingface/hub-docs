@@ -22,7 +22,7 @@ The Hub offers two types of storage: Git-based **repositories** for versioned, c
 | Operations         | Hub API, Git push/pull          | S3-like `sync`, `cp`, `rm`          |
 | Deduplication      | Xet chunk-level                 | Xet chunk-level                     |
 | Pull Requests      | Yes                             | No                                  |
-| Model/Dataset Cards| Yes                             | No (but plain README rendered)          |
+| Model/Dataset Cards| Yes                             | No (but plain README rendered)      |
 
 Use **repositories** when you want version history, collaboration features (PRs, discussions), and library integrations. Use **buckets** when you need fast, mutable storage for data that changes frequently — files can be overwritten or deleted in place.
 
