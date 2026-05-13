@@ -144,7 +144,7 @@ custom_providers:
 
 ### Local Memory Search for Hermes Agent
 
-Hermes Agent consumes served semantic search models through endpoints. Once you get the model up on endpoint 8080 with the inference engine of your choice, add the following to `~/.hermes/config.yaml`.
+Hermes Agent consumes semantic search models through endpoints. Once you get your preferred embedding model up on endpoint 8080 with llama.cpp or the inference engine of your choice, add the following to `~/.hermes/config.yaml`.
 
 ```bash
 auxiliary:
@@ -156,7 +156,7 @@ auxiliary:
     max_concurrency: 1
 ```
 
-Check if this works, none - built-in only shows that no other memory plug-ins are used.
+Check if this works, `none - built-in only` shows that no other memory plug-ins are used.
 
 ```bash
 $ hermes memory status
