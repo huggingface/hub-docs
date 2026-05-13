@@ -102,11 +102,12 @@ You can also run `openclaw onboard` interactively, select `custom-compatibility`
 
 ### Local Memory Search for OpenClaw
 
-You can run local embedding models with Llama.cpp for your agent's memory search. To do so, make sure to have node-llama-cpp.
+You can run local embedding models with Llama.cpp for your agent's memory search. To do so, make sure to have node-llama-cpp. 
 
 ```bash
-npm ls -g node-llama-cpp --depth=0
+npm i node-llama-cpp 
 ```
+
 Here's an example snippet to run [quantized EmbeddingGemma-300M](https://huggingface.co/ggml-org/embeddinggemma-300M-GGUF?show_file_info=embeddinggemma-300M-Q8_0.gguf) locally for memory search. OpenClaw automatically downloads and serves the model with below command.
 
 ```bash
