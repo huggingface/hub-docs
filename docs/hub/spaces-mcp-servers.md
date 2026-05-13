@@ -28,7 +28,7 @@ From your [Hub MCP settings](https://huggingface.co/settings/mcp), select your M
 If your MCP client is configured correctly, the Spaces you added will be available instantly without changing anything (if it doesn't restart your client and it should appear). Most MCP clients will list what tools are currently loaded so you can make sure the Space is available.
 
 > [!TIP]
-> For ZeroGPU Spaces, your quota will be used when the tool is called, if you run out of quota you can <a href="https://huggingface.co/subscribe/pro?from=ZeroGPU" target="_blank">subscribe to PRO</a> to get 25 minutes of daily quota (x8 more quota than free users). For example your PRO account lets you generate up to 600 images per day using FLUX.1-schnell.
+> For ZeroGPU Spaces, your quota will be used when the tool is called, if you run out of quota you can <a href="https://huggingface.co/subscribe/pro?from=ZeroGPU" target="_blank">subscribe to PRO</a> to get 40 minutes of daily quota (x8 more quota than free users). For example your PRO account lets you generate up to 600 images per day using FLUX.1-schnell.
 
 ## Build your own MCP-compatible Gradio Space
 
