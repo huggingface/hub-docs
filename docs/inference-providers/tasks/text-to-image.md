@@ -33,7 +33,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"baidu/ERNIE-Image","providerModelId":"fal-ai/ernie-image"},"hf-inference":{"modelId":"black-forest-labs/FLUX.1-schnell","providerModelId":"black-forest-labs/FLUX.1-schnell"},"nscale":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"replicate":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"prunaai/z-image-turbo"},"together":{"modelId":"black-forest-labs/FLUX.1-schnell","providerModelId":"black-forest-labs/FLUX.1-schnell"},"wavespeed":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"wavespeed-ai/z-image/turbo"},"zai-org":{"modelId":"zai-org/GLM-Image","providerModelId":"glm-image"}} }
+    providersMapping={ {"fal-ai":{"modelId":"baidu/ERNIE-Image","providerModelId":"fal-ai/ernie-image"},"hf-inference":{"modelId":"black-forest-labs/FLUX.1-schnell","providerModelId":"black-forest-labs/FLUX.1-schnell"},"nscale":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"replicate":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"prunaai/z-image-turbo"},"together":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"},"wavespeed":{"modelId":"Tongyi-MAI/Z-Image-Turbo","providerModelId":"wavespeed-ai/z-image/turbo"},"zai-org":{"modelId":"zai-org/GLM-Image","providerModelId":"glm-image"}} }
 />
 
 

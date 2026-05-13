@@ -40,7 +40,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"deepseek-ai/DeepSeek-V4-Pro","providerModelId":"deepseek-ai/DeepSeek-V4-Pro"}} }
+    providersMapping={ {"featherless-ai":{"modelId":"deepseek-ai/DeepSeek-V4-Pro","providerModelId":"deepseek-ai/DeepSeek-V4-Pro"},"hf-inference":{"modelId":"katanemo/Arch-Router-1.5B","providerModelId":"katanemo/Arch-Router-1.5B"}} }
 />
 
 

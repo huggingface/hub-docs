@@ -22,6 +22,7 @@ Translation is the task of converting text from one language to another.
 
 ### Recommended models
 
+- [google-t5/t5-base](https://huggingface.co/google-t5/t5-base): A general-purpose Transformer that can be used to translate from English to German, French, or Romanian.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=translation&sort=trending).
 
