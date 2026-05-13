@@ -7,7 +7,7 @@ Team & Enterprise organizations gain access to advanced compute options to accel
 
 ## Host ZeroGPU Spaces in your organization
 
-ZeroGPU is a dynamic GPU allocation system that optimizes AI deployment on Hugging Face Spaces. By automatically allocating and releasing NVIDIA RTX Pro 6000 Blackwell GPU slices (96GB VRAM) as needed, organizations can efficiently serve their AI applications without dedicated GPU instances.
+ZeroGPU is a dynamic GPU allocation system that optimizes AI deployment on Hugging Face Spaces. By automatically allocating and releasing NVIDIA RTX Pro 6000 Blackwell GPUs (96GB VRAM) as needed, organizations can efficiently serve their AI applications without dedicated GPU instances.
 
 <div class="flex justify-center" style="max-width: 550px">
   <img
