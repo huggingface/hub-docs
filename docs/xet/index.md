@@ -32,13 +32,13 @@ Implementors can create their own clients, SDKs, and tools that speak the Xet pr
 
 The primary reference implementation of the protocol written in Rust 🦀 lives in the [xet-core](https://github.com/huggingface/xet-core) repository under multiple crates:
 
-- [cas_types](https://github.com/huggingface/xet-core/tree/main/cas_types) - Common re-usable types for interacting with CAS API's
-- [cas_client](https://github.com/huggingface/xet-core/tree/main/cas_client) - Client interface that calls CAS API's, including comprehensive implementation of download protocol.
-- [mdb_shard](https://github.com/huggingface/xet-core/tree/main/mdb_shard) - Library for interacting with shards and the shard binary format.
-- [deduplication](https://github.com/huggingface/xet-core/tree/main/deduplication) - Exposes interfaces to deduplicate chunks locally and using global deduplication
-  - [deduplication/src/chunking.rs](https://github.com/huggingface/xet-core/blob/main/deduplication/src/chunking.rs) - The reference implementation of the chunking algorithm.
-- [merklehash](https://github.com/huggingface/xet-core/tree/main/merklehash) - Exports a `MerkleHash` type extensively used to represent hashes. Exports functions to compute the different hashes used to track chunks, xorbs and files.
-- [data](https://github.com/huggingface/xet-core/tree/main/data) - Comprehensive package exposing interfaces to upload and download contents
+- [cas_types](https://github.com/huggingface/xet-core/tree/main/xet_client/src/cas_types) - Common re-usable types for interacting with CAS API's
+- [cas_client](https://github.com/huggingface/xet-core/tree/main/xet_client/src/cas_client) - Client interface that calls CAS API's, including comprehensive implementation of download protocol.
+- [metadata_shard](https://github.com/huggingface/xet-core/tree/main/xet_core_structures/src/metadata_shard) - Library for interacting with shards and the shard binary format.
+- [deduplication](https://github.com/huggingface/xet-core/tree/main/xet_data/src/deduplication) - Exposes interfaces to deduplicate chunks locally and using global deduplication
+  - [xet_data/src/deduplication/chunking.rs](https://github.com/huggingface/xet-core/blob/main/xet_data/src/deduplication/chunking.rs) - The reference implementation of the chunking algorithm.
+- [merklehash](https://github.com/huggingface/xet-core/tree/main/xet_core_structures/src/merklehash) - Exports a `MerkleHash` type extensively used to represent hashes. Exports functions to compute the different hashes used to track chunks, xorbs and files.
+- [xet_data](https://github.com/huggingface/xet-core/tree/main/xet_data) - Comprehensive package exposing interfaces to upload and download contents
 - [hf_xet](https://github.com/huggingface/xet-core/tree/main/hf_xet) - Python bindings to use the Xet protocol for uploads and downloads with the Hugging Face Hub.
 - [git-xet](https://github.com/huggingface/xet-core/tree/main/git_xet) - git lfs custom transfer agent that uploads files using the xet protocol to the Hugging Face Hub.
 
@@ -48,4 +48,4 @@ There is also a second reference implementation in Huggingface.js that can be us
 
 - Download uses the `XetBlob` that can be found in [XetBlob.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/hub/src/utils/XetBlob.ts).
 - The upload implementation is more comprehensive but the root of it begins in [uploadShards](https://github.com/huggingface/huggingface.js/blob/main/packages/hub/src/utils/uploadShards.ts).
-  - The upload process uses xet-core constructs compiled from Rust to WebAssembly, particularly all functions exported from the [hf_xet_thin_wasm](https://github.com/huggingface/xet-core/tree/main/hf_xet_thin_wasm) crate.
+  - The upload process uses xet-core constructs compiled from Rust to WebAssembly, particularly all functions exported from the [hf_xet_thin_wasm](https://github.com/huggingface/xet-core/tree/main/wasm/hf_xet_thin_wasm) crate.
