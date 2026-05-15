@@ -46,7 +46,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"fireworks-ai":{"modelId":"MiniMaxAI/MiniMax-M2.7","providerModelId":"accounts/fireworks/models/minimax-m2p7"} } }
+    providersMapping={ {"fireworks-ai":{"modelId":"deepseek-ai/DeepSeek-V4-Pro","providerModelId":"accounts/fireworks/models/deepseek-v4-pro"} } }
 conversational />
 
 
