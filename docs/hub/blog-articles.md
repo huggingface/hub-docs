@@ -8,8 +8,6 @@ To publish under **your personal namespace**, you need a confirmed email and mus
 
 - You have an active [PRO](./pro) subscription.
 - You are a member of a [Team or Enterprise](https://huggingface.co/enterprise) organization (with `write` or `admin` role in that organization).
-- You have at least 100 followers on your Hugging Face profile.
-- You are a member of the [`blog-explorers`](https://huggingface.co/blog-explorers) community organization.
 
 Managed users (users provisioned through Enterprise SSO) cannot publish under their personal namespace.
 
