@@ -24,9 +24,7 @@ Spaces are a great way to show off a model you've made or explore new ways to us
 
 ## Are community blog articles linked to models?
 
-If you publish a [blog article](./blog-articles) that mentions a model and you are the same user or organization as the model's owner, the article will automatically appear in the model page sidebar under **"Article(s) mentioning [model-id]"**. Up to three of the most recent matching articles are shown.
-
-This makes it easy for visitors to discover related write-ups, release announcements, and research notes alongside the model itself. The same behavior applies to dataset pages.
+Yes — if you publish a [blog article](./blog-articles) that mentions a model you own (as a user or organization), it will automatically appear in the model page sidebar. The same applies to dataset pages. See [Linking to Models and Datasets](./blog-articles#linking-to-models-and-datasets) for details.
 
 ## How do I upload an update / new version of the model?
 

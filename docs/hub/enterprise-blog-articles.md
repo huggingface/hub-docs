@@ -18,8 +18,6 @@ To publish blog articles under an organization namespace, members need `write` o
 
 ## Linking to Models and Datasets
 
-When a blog article mentions a model or dataset owned by the same organization, the article will automatically appear in the sidebar of that model or dataset page under **"Article(s) mentioning [repo-id]"**. Up to three of the most recent matching articles are shown, making it easy for visitors to discover your organization's related content directly from the repository page.
-
-This also works for any models or datasets that belong to a [Collection](./collections) mentioned in the article — each member repo of a linked collection will surface the article on its page.
+Articles mentioning a model or dataset owned by the same organization will automatically surface on that repo's page. See [Linking to Models and Datasets](./blog-articles#linking-to-models-and-datasets) for details.
 
 See [Blog Articles](./blog-articles) for general information about authoring blog articles on the Hub.
