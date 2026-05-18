@@ -14,7 +14,7 @@ Managed users (users provisioned through Enterprise SSO) cannot publish under th
 To publish under an **organization namespace**, both must hold:
 
 - The organization is on the [Team or Enterprise](https://huggingface.co/enterprise) plan.
-- You have the `write` or `admin` role in that organization (or a custom role with the `WriteBlog` permission). See [Access Control in Organizations](./organizations-security) for more on roles.
+- You have the `write` or `admin` role in that organization. See [Access Control in Organizations](./organizations-security) for more on roles.
 
 See [Blog Articles for Organizations](./enterprise-blog-articles) for organization-specific details.
 
@@ -30,7 +30,7 @@ When creating the article, pick the namespace it should be published under from 
 ## Editing an Article
 
 - Articles published under a user namespace can be edited by the original author and any coauthors listed on the article.
-- Articles published under an organization namespace can be edited by any organization member with `write` or `admin` role (or a custom role with `WriteBlog`).
+- Articles published under an organization namespace can be edited by any organization member with `write` or `admin` role.
 
 ## Linking to Models and Datasets
 
