@@ -19,35 +19,35 @@ Jobs are billed per minute based on the hardware used. Below are the available h
 
 ### CPU
 
-| **Hardware**           | **CPU**       | **Memory**   | **Hourly Price**  |
-|----------------------- |-------------- |------------- | ----------------- |
-| CPU Basic              | 2 vCPU        | 16 GB        | $0.01             |
-| CPU Upgrade            | 8 vCPU        | 32 GB        | $0.03             |
-| CPU XL                 | 16 vCPU       | 124 GB       | $1.00             |
-| CPU Performance        | 32 vCPU       | 256 GB       | $1.90             |
+| **Hardware**           | **CPU**       | **Memory**   | **Ephemeral Storage** | **Hourly Price**  |
+|----------------------- |-------------- |------------- |---------------------- | ----------------- |
+| CPU Basic              | 2 vCPU        | 16 GB        | 50 GB                 | $0.01             |
+| CPU Upgrade            | 8 vCPU        | 32 GB        | 50 GB                 | $0.03             |
+| CPU XL                 | 16 vCPU       | 124 GB       | 1000 GB               | $1.00             |
+| CPU Performance        | 32 vCPU       | 256 GB       | 1024 GB               | $1.90             |
 
 ### GPU
 
-| **Hardware**           | **CPU**       | **Memory**   | **GPU Memory**  | **Hourly Price**  |
-|----------------------- |-------------- |------------- |---------------- | ----------------- |
-| Nvidia T4 - small      | 4 vCPU        | 15 GB        | 16 GB           | $0.40             |
-| Nvidia T4 - medium     | 8 vCPU        | 30 GB        | 16 GB           | $0.60             |
-| 1x Nvidia L4           | 8 vCPU        | 30 GB        | 24 GB           | $0.80             |
-| 4x Nvidia L4           | 48 vCPU       | 186 GB       | 96 GB           | $3.80             |
-| 1x Nvidia L40S         | 8 vCPU        | 62 GB        | 48 GB           | $1.80             |
-| 4x Nvidia L40S         | 48 vCPU       | 382 GB       | 192 GB          | $8.30             |
-| 8x Nvidia L40S         | 192 vCPU      | 1534 GB      | 384 GB          | $23.50            |
-| Nvidia A10G - small    | 4 vCPU        | 15 GB        | 24 GB           | $1.00             |
-| Nvidia A10G - large    | 12 vCPU       | 46 GB        | 24 GB           | $1.50             |
-| 2x Nvidia A10G - large | 24 vCPU       | 92 GB        | 48 GB           | $3.00             |
-| 4x Nvidia A10G - large | 48 vCPU       | 184 GB       | 96 GB           | $5.00             |
-| Nvidia A100 - large    | 12 vCPU       | 142 GB       | 80 GB           | $2.50             |
-| 4x Nvidia A100 - large | 48 vCPU       | 568 GB       | 320 GB          | $10.00            |
-| 8x Nvidia A100 - large | 96 vCPU       | 1136 GB      | 640 GB          | $20.00            |
-| Nvidia H200            | 23 vCPU       | 256 GB       | 141 GB          | $5.00             |
-| 2x Nvidia H200         | 46 vCPU       | 512 GB       | 282 GB          | $10.00            |
-| 4x Nvidia H200         | 92 vCPU       | 1024 GB      | 564 GB          | $20.00            |
-| 8x Nvidia H200         | 184 vCPU      | 2048 GB      | 1128 GB         | $40.00            |
+| **Hardware**           | **CPU**       | **Memory**   | **GPU Memory**  | **Ephemeral Storage** | **Hourly Price**  |
+|----------------------- |-------------- |------------- |---------------- |---------------------- | ----------------- |
+| Nvidia T4 - small      | 4 vCPU        | 15 GB        | 16 GB           | 50 GB                 | $0.40             |
+| Nvidia T4 - medium     | 8 vCPU        | 30 GB        | 16 GB           | 100 GB                | $0.60             |
+| 1x Nvidia L4           | 8 vCPU        | 30 GB        | 24 GB           | 400 GB                | $0.80             |
+| 4x Nvidia L4           | 48 vCPU       | 186 GB       | 96 GB           | 3200 GB               | $3.80             |
+| 1x Nvidia L40S         | 8 vCPU        | 62 GB        | 48 GB           | 380 GB                | $1.80             |
+| 4x Nvidia L40S         | 48 vCPU       | 382 GB       | 192 GB          | 3200 GB               | $8.30             |
+| 8x Nvidia L40S         | 192 vCPU      | 1534 GB      | 384 GB          | 6500 GB               | $23.50            |
+| Nvidia A10G - small    | 4 vCPU        | 15 GB        | 24 GB           | 110 GB                | $1.00             |
+| Nvidia A10G - large    | 12 vCPU       | 46 GB        | 24 GB           | 200 GB                | $1.50             |
+| 2x Nvidia A10G - large | 24 vCPU       | 92 GB        | 48 GB           | 1000 GB               | $3.00             |
+| 4x Nvidia A10G - large | 48 vCPU       | 184 GB       | 96 GB           | 2000 GB               | $5.00             |
+| Nvidia A100 - large    | 12 vCPU       | 142 GB       | 80 GB           | 1000 GB               | $2.50             |
+| 4x Nvidia A100 - large | 48 vCPU       | 568 GB       | 320 GB          | 4000 GB               | $10.00            |
+| 8x Nvidia A100 - large | 96 vCPU       | 1136 GB      | 640 GB          | 8000 GB               | $20.00            |
+| Nvidia H200            | 23 vCPU       | 256 GB       | 141 GB          | 3000 GB               | $5.00             |
+| 2x Nvidia H200         | 46 vCPU       | 512 GB       | 282 GB          | 6000 GB               | $10.00            |
+| 4x Nvidia H200         | 92 vCPU       | 1024 GB      | 564 GB          | 12000 GB              | $20.00            |
+| 8x Nvidia H200         | 184 vCPU      | 2048 GB      | 1128 GB         | 24000 GB              | $40.00            |
 
 You can also retrieve available hardware and pricing programmatically via the API at `GET /api/jobs/hardware` or via the CLI:
 
