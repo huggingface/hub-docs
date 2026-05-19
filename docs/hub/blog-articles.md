@@ -9,7 +9,7 @@ To publish under **your personal namespace**, you need a confirmed email and mus
 - You have an active [PRO](./pro) subscription.
 - You are a member of a [Team or Enterprise](https://huggingface.co/enterprise) organization (with `write` or `admin` role in that organization).
 
-Managed users (users provisioned through Enterprise SSO) cannot publish under their personal namespace.
+Managed users (users provisioned through Enterprise IdP) cannot publish under their personal namespace.
 
 To publish under an **organization namespace**, both must hold:
 
