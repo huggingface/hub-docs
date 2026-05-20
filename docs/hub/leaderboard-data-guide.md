@@ -143,7 +143,7 @@ You can configure the embedded leaderboard by passing query parameters in the if
 |---|---|
 | `leaderboard_task_id` | ID of the task to display, as defined in the benchmark's `eval.yaml` (e.g. `gpqa_diamond`). Defaults to the first task. |
 | `eval_result` | Model ID to highlight on the leaderboard (e.g. `meta-llama/Llama-3.1-8B`). |
-| `leaderboard_max_params` | Filter rows by maximum parameter count. Accepts a plain number or a human-readable value with a `B` suffix (e.g. `7B`, `70B`). |
+| `leaderboard_max_params` | Filter rows by maximum parameter count. Accepts one of the following values: `1B`, `3B`, `6B`, `12B`, `32B`, `128B` or `500B`. |
 | `leaderboard_is_expanded` | Set to `true` to render the leaderboard fully expanded instead of collapsed. |
 
 For example, to embed the HLE leaderboard with the table expanded and a specific model highlighted:
