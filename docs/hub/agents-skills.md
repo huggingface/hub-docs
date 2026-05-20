@@ -1,7 +1,7 @@
 # Skills
 
 > [!TIP]
-> Looking for the `hf` CLI Skill? It's the quickest way to connect your agent to the Hugging Face ecosystem. See the [Hugging Face CLI for AI Agents](./agents-cli) guide.
+> Looking for the `hf` CLI Skill? It's the quickest way to connect your agent to the Hugging Face Hub and ecosystem. See the [Hugging Face CLI for AI Agents](./agents-cli) guide.
 
 Hugging Face provides a curated set of Skills built for AI builders. Train models, create datasets, run evaluations, track experiments. Each Skill is a self-contained `SKILL.md` that your agent follows while working on the task.
 
