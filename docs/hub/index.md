@@ -133,6 +133,8 @@ The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M 
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./security">Security</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./moderation">Moderation</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./paper-pages">Paper Pages</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./academia-hub">Academia Hub</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./blog-articles">Blog Articles</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./search">Search</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./doi">Digital Object Identifier (DOI)</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./api">Hub API Endpoints</a>

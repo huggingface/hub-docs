@@ -552,6 +552,8 @@
     title: Paper Pages
   - local: academia-hub
     title: Academia Hub
+  - local: blog-articles
+    title: Blog Articles
   - local: search
     title: Search
   - local: doi

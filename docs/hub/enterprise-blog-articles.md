@@ -15,3 +15,9 @@ To publish blog articles under an organization namespace, members need `write` o
 
 > [!NOTE]
 > Blog article permissions are currently tied to organization-level roles and cannot be scoped using [Resource Groups](./security-resource-groups). Resource Groups only control access to repositories (models, datasets, and Spaces), not blog articles.
+
+## Linking to Models and Datasets
+
+Articles mentioning a model or dataset owned by the same organization will automatically surface on that repo's page. See [Linking to Models and Datasets](./blog-articles#linking-to-models-and-datasets) for details.
+
+See [Blog Articles](./blog-articles) for general information about authoring blog articles on the Hub.
