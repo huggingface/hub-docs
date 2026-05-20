@@ -27,6 +27,11 @@ When creating the article, pick the namespace it should be published under from 
 - **Your username** — the article appears on your user profile.
 - **An organization** — the article appears on that organization's profile page.
 
+<div class="flex justify-center">
+<img class="block dark:hidden" width="550" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/blog-creation-editor.png"/>
+<img class="hidden dark:block" width="550" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/blog-creation-editor-dark.png"/>
+</div>
+
 ## Editing an Article
 
 - Articles published under a user namespace can be edited by the original author and any coauthors listed on the article.
@@ -35,6 +40,11 @@ When creating the article, pick the namespace it should be published under from 
 ## Linking to Models and Datasets
 
 When a blog article mentions a model or dataset, and the article's author (user or organization) is the same as the repo's owner, the article will automatically appear in the sidebar of that model or dataset page under **"Article(s) mentioning [repo-id]"**. Up to three of the most recent matching articles are shown.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/blog-articles-mentioning-sidebar.png"/>
+<img class="hidden dark:block" width="350" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/blog-articles-mentioning-sidebar-dark.png"/>
+</div>
 
 This makes it easy for visitors to discover related write-ups, release announcements, and research notes alongside the repository itself.
 
