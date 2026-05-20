@@ -11,7 +11,7 @@ Whenever your commit some changes to your Space repo, the underlying Docker imag
 
 The Dev Mode allows you to update your Space much quicker by overriding the Docker image.
 
-The Dev Mode Docker image starts your application as a sub-process, allowing you to restart it without stopping the Space container itself. It also starts an SSH server (and a VS Code server on top of it) in the background, so you can connect to the Space from any editor or terminal.
+The Dev Mode Docker image starts your application as a sub-process, allowing you to restart it without stopping the Space container itself. It also starts an SSH server (for local editors and terminals) and a VS Code server (for the in-product VS Code Web) in the background, so you can connect to the Space.
 
 The ability to connect to the running Space unlocks several use cases:
 
