@@ -1,9 +1,6 @@
 # Spaces Dev Mode: Seamless development in Spaces
 
 > [!WARNING]
-> This feature is still in Beta stage.
-
-> [!WARNING]
 > The Spaces Dev Mode is part of <a href="https://huggingface.co/pro">PRO</a> or <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 ## Spaces Dev Mode
