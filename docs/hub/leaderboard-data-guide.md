@@ -120,6 +120,45 @@ This returns [`EvalResultEntry`](https://huggingface.co/docs/huggingface_hub/pac
 
 The [Benchmark Leaderboard Race](https://huggingface.co/spaces/davanstrien/benchmark-race) Space combines these data sources to create an animated visualization of how model rankings evolve over time. You can build your own analyses and visualizations on top of this data — see the [source code](https://huggingface.co/spaces/davanstrien/benchmark-race/tree/main) for a complete example.
 
+## Embed a leaderboard in a webpage
+
+You can embed a benchmark dataset's leaderboard directly into your own webpage using an iframe.
+
+The URL to use is `https://huggingface.co/datasets/<namespace>/<dataset-name>/embed/leaderboard`, where `<namespace>` is the owner of the benchmark dataset (user or organization) and `<dataset-name>` is the name of the dataset.
+
+```html
+<iframe
+  src="https://huggingface.co/datasets/cais/hle/embed/leaderboard"
+  frameborder="0"
+  width="100%"
+  height="560px"
+></iframe>
+```
+
+### Parameters
+
+You can configure the embedded leaderboard by passing query parameters in the iframe URL:
+
+| Parameter | Description |
+|---|---|
+| `leaderboard_task_id` | ID of the task to display, as defined in the benchmark's `eval.yaml` (e.g. `gpqa_diamond`). Defaults to the first task. |
+| `eval_result` | Model ID to highlight on the leaderboard (e.g. `meta-llama/Llama-3.1-8B`). |
+| `leaderboard_max_params` | Filter rows by maximum parameter count. Accepts a plain number or a human-readable value with a `B` suffix (e.g. `7B`, `70B`). |
+| `leaderboard_is_expanded` | Set to `true` to render the leaderboard fully expanded instead of collapsed. |
+
+For example, to embed the HLE leaderboard with the table expanded and a specific model highlighted:
+
+```html
+<iframe
+  src="https://huggingface.co/datasets/cais/hle/embed/leaderboard?leaderboard_is_expanded=true&eval_result=meta-llama/Llama-3.1-8B"
+  frameborder="0"
+  width="100%"
+  height="560px"
+></iframe>
+```
+
+The embed is only available for [official benchmark datasets](./eval-results#benchmark-datasets) that have evaluation results.
+
 ## Related
 
 - [Eval Results](./eval-results) — how to submit evaluation results and register benchmarks
