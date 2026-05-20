@@ -14,7 +14,7 @@ Whenever your commit some changes to your Space repo, the underlying Docker imag
 
 The Dev Mode allows you to update your Space much quicker by overriding the Docker image.
 
-The Dev Mode Docker image starts your application as a sub-process, allowing you to restart it without stopping the Space container itself. It also starts a VS Code server and a SSH server in the background for you to connect to the Space.
+The Dev Mode Docker image starts your application as a sub-process, allowing you to restart it without stopping the Space container itself. It also starts an SSH server (and a VS Code server on top of it) in the background, so you can connect to the Space from any editor or terminal.
 
 The ability to connect to the running Space unlocks several use cases:
 
@@ -39,16 +39,31 @@ The application does not restart automatically when you change the code. For you
   You will need to manually run `pip install` from VS Code or SSH.
 </div>
 
-### SSH connection and VS Code
+### Connecting
 
-The Dev Mode allows you to connect to your Space's docker container using SSH.
+Dev Mode exposes the running Space as a standard SSH host. VS Code and any other editor connect through that same SSH endpoint.
 
-Instructions to connect are listed in the Dev Mode controls modal.
+#### SSH
+
+Once Dev Mode is running, connect with:
+
+```shell
+ssh <space-subdomain>@ssh.hf.space
+```
+
+The subdomain is shown in the Dev Mode controls modal. You can also retrieve it programmatically:
+
+```python
+from huggingface_hub import HfApi
+print(HfApi().space_info("namespace/repo").subdomain)
+```
 
 You will need to add your machine's SSH public key to [your user account](https://huggingface.co/settings/keys) to be able to connect to the Space using SSH.
 Check out the [Git over SSH](./security-git-ssh#add-a-ssh-key-to-your-account) documentation for more detailed instructions.
 
-You can also use a local install of VS Code to connect to the Space container. To do so, you will need to install the [SSH Remote](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension.
+#### VS Code
+
+You can also use a local install of VS Code to connect to the Space container. To do so, install the [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension and connect to the same `<space-subdomain>@ssh.hf.space` host.
 
 ### Persisting changes
 
