@@ -140,6 +140,18 @@ Possible use cases of programmatic management include:
     - Here's an [example repo](https://huggingface.co/Trelis/openchat_3.5-function-calling-v3) from TrelisResearch that uses this use case.
    - [@RonanMcGovern](https://huggingface.co/RonanMcGovern) has posted a [video about the flow](https://www.youtube.com/watch?v=2OT2SI5auQU) and tips on how to implement it.
 
+### Gate access for organization members
+
+For gated models hosted under an organization, you can also require the organization's **own members** to submit an access request. On the model settings page, under the gating options, enable **Also gate access for members of `{org}`**.
+
+When this option is enabled, organization members must request access to the model like any other user. The following roles bypass the request and keep direct access:
+
+- Organization admins
+- The user who created the repo
+- [Resource Group](./security-resource-groups) admins, when the model belongs to a Resource Group
+
+All other members must go through the access request flow. This includes members with the read, contributor, or write org role, and Resource Group members without the admin role.
+
 ## Manage gated models as an organization (Team & Enterprise)
 
 [Team & Enterprise](https://huggingface.co/docs/hub/en/enterprise) subscribers can create a Gating Group Collection to grant (or reject) access to all the models and datasets in a collection at once.
