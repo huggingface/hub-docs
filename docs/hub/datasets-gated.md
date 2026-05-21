@@ -136,7 +136,7 @@ When this option is enabled, organization members must request access to the dat
 - The user who created the repo
 - [Resource Group](./security-resource-groups) admins, when the dataset belongs to a Resource Group
 
-All other members — including regular `read`, `contributor`, and `write` org roles, as well as Resource Group members without the `admin` role — must go through the access request flow.
+All other members must go through the access request flow. This includes members with the read, contributor, or write org role, and Resource Group members without the admin role.
 
 ## Manage gated datasets as an organization (Team & Enterprise)
 
