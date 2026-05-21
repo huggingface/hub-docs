@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@huggingface/inference':
-        specifier: ^4.13.15
-        version: 4.13.15
+        specifier: ^4.13.17
+        version: 4.13.17
       '@huggingface/tasks':
         specifier: ^0.21.1
         version: 0.21.1
@@ -189,16 +189,13 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@huggingface/inference@4.13.15':
-    resolution: {integrity: sha512-V7B13KFDVhYkQqgx8vpMcmtEG+PoePlh65IUvpphTTItHAq6zRLcsS4torh1QavUaT+6nEwho4wFXzBQNGBwKQ==}
+  '@huggingface/inference@4.13.17':
+    resolution: {integrity: sha512-+qA6wrGjh2L6FfFkE2nJmiA7XcJJV5/9+WEwYzA/Y2kibPypGecvVSgsXTATeb9CmkCP8v+uhtDGVHJTuaAXOg==}
     engines: {node: '>=18'}
 
   '@huggingface/jinja@0.5.9':
     resolution: {integrity: sha512-uWTG+l3VJRsl7EXxYizuL3P+cCPoc3cRqbWWRcQN0FhejRfbdq0RNhCmbY/YDtnTcz9icdLYuLDjsnz4d8JMuw==}
     engines: {node: '>=18'}
-
-  '@huggingface/tasks@0.19.90':
-    resolution: {integrity: sha512-nfV9luJbvwGQ/5oKXkKhCV9h4X7mwh1YaGG3ORd6UMLDSwr1OFSSatcBX0O9OtBtmNK19aGSjbLFqqgcIR6+IA==}
 
   '@huggingface/tasks@0.21.1':
     resolution: {integrity: sha512-EGy9VE8h9d39JgyKY5+Nwl0mcGQOK3el8rlR9Y09KVCZOHsLHAsOP1e7D9M7P781dSObZW9lokdfT+Sm26Iv3g==}
@@ -418,14 +415,12 @@ snapshots:
   '@esbuild/win32-x64@0.23.1':
     optional: true
 
-  '@huggingface/inference@4.13.15':
+  '@huggingface/inference@4.13.17':
     dependencies:
       '@huggingface/jinja': 0.5.9
-      '@huggingface/tasks': 0.19.90
+      '@huggingface/tasks': 0.21.1
 
   '@huggingface/jinja@0.5.9': {}
-
-  '@huggingface/tasks@0.19.90': {}
 
   '@huggingface/tasks@0.21.1': {}
 
