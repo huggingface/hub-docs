@@ -126,6 +126,18 @@ extra_gated_button_content: "Acknowledge license"
 ---
 ```
 
+### Gate access for organization members
+
+For gated datasets hosted under an organization, you can also require the organization's **own members** to submit an access request. On the dataset settings page, under the gating options, enable **Also gate access for members of `{org}`**.
+
+When this option is enabled, organization members must request access to the dataset like any other user. The following roles bypass the request and keep direct access:
+
+- Organization admins
+- The user who created the repo
+- [Resource Group](./security-resource-groups) admins, when the dataset belongs to a Resource Group
+
+All other members — including regular `read`, `contributor`, and `write` org roles, as well as Resource Group members without the `admin` role — must go through the access request flow.
+
 ## Manage gated datasets as an organization (Team & Enterprise)
 
 [Team & Enterprise](https://huggingface.co/docs/hub/en/enterprise) subscribers can create a Gating Group Collection to grant (or reject) access to all the models and datasets in a collection at once.
