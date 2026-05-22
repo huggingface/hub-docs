@@ -47,7 +47,7 @@ You can share a specific row by clicking on it, and then copying the URL in the 
 
 ## Agent traces
 
-Push your raw JSONL traces from tools like Claude Code, Codex, or Pi into a dataset (or a [Storage Bucket](./storage-buckets)) to automatically benefit from a dedicated trace viewer for stepping through sessions, turns, tool calls, and model responses. See [Agent Traces](./datasets-agent-traces) for supported agents and viewing traces.
+Push your raw JSONL traces from tools like Claude Code, Codex, or Pi into a dataset to browse them in Data Studio, or sync them to a [Storage Bucket](./storage-buckets) and open individual `.jsonl` files there. Both paths use the same trace viewer for stepping through sessions, turns, tool calls, and model responses. See [Agent Traces](./datasets-agent-traces) for supported agents and viewing traces.
 
 ## Large scale datasets
 
@@ -105,12 +105,12 @@ You can specify which files to display in the Dataset Viewer by adding a YAML co
 ```yaml
 ---
 configs:
-  - config_name: default
-    data_files:
-      - split: train
-        path: "data.csv"
-      - split: test
-        path: "holdout.csv"
+- config_name: default
+  data_files:
+  - split: train
+    path: "data.csv"
+  - split: test
+    path: "holdout.csv"
 ---
 ```
 
@@ -119,14 +119,14 @@ You can also select multiple files per split or use glob patterns:
 ```yaml
 ---
 configs:
-  - config_name: default
-    data_files:
-      - split: train
-        path:
-          - "data/train_part1.csv"
-          - "data/train_part2.csv"
-      - split: test
-        path: "data/*.csv"
+- config_name: default
+  data_files:
+  - split: train
+    path:
+    - "data/train_part1.csv"
+    - "data/train_part2.csv"
+  - split: test
+    path: "data/*.csv"
 ---
 ```
 
