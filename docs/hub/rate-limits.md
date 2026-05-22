@@ -68,7 +68,7 @@ Here are the current rate limits (in September '25) based on your plan:
 | Enterprise organization                                                   | 6,000    | 50,000    | 600    |
 | Enterprise Plus organization                                              | 10,000   | 100,000   | 1,000  |
 | Enterprise Plus organization <br> When Organization IP Ranges are defined | 100,000  | 500,000   | 10,000 |
-| Academia Hub organization                                                 | 2,500    | 12,000    | 400    |
+| Academia Hub organization                                                 | 3,000    | 20,000    | 400    |
 
 \* Anonymous and Free users are subject to change over time depending on platform health 🤞
 
