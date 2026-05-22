@@ -26,7 +26,7 @@ With Academia Hub, you get **an all-in-one subscription to the Hugging Face Hub 
 ## What's included in the subscription
 1. **Storage:** 1 TB of private and 1 TB of public storage per seat, including our new <a href="https://huggingface.co/storage" target="_blank">Storage Buckets!</a>
 2. **Compute:** $2/month/seat of credits for <a href="https://huggingface.co/docs/inference-providers/en/index" target="_blank">Inference Providers</a>, daily higher ZeroGPU priority access for <a href="https://huggingface.co/docs/hub/en/spaces-zerogpu" target="_blank">Spaces</a>, and higher Hub <a href="https://huggingface.co/docs/hub/rate-limits#rate-limit-tiers" target="_blank">rate limits</a>.
-3. **Collaboration tools:** [Resource Groups](./security-resource-groups), [Data Studio](./data-studio) for private datasets, Audit Logs, and access controls.
+3. **Collaboration tools:** [Resource Groups](./security-resource-groups), [Data Studio](./data-studio) for private datasets, [Audit Logs](./audit-logs), and access controls.
 4. **Governance & security:** Seat management, centralized admin, SSO, 2FA, SCIM, SOC 2 certified.
 5. **Global Open Source community:** publish and collaborate alongside the researchers and builders working on the field's most-used models and datasets.
 
