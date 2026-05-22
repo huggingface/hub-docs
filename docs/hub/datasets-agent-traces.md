@@ -9,7 +9,7 @@ Agent traces from Claude Code, Codex, and Pi Agent are natively supported on the
 
 ## Find your traces
 
-Each supported agent writes JSONL sessions to a known directory:
+Each supported agent writes JSONL sessions to the following directories:
 
 | Agent       | Local session directory |
 | ----------- | ----------------------- |
