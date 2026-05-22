@@ -50,7 +50,7 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
-    providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"} } }
+    providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3-turbo","providerModelId":"openai/whisper-large-v3-turbo"} } }
 />
 
 
@@ -100,7 +100,7 @@ Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"jonathandinu/face-parsing","providerModelId":"jonathandinu/face-parsing"} } }
+    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
 />
 
 
@@ -200,6 +200,6 @@ Find out more about Zero Shot Classification [here](../tasks/zero-shot-classific
 
 <InferenceSnippet
     pipeline=zero-shot-classification
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
+    providersMapping={ {"hf-inference":{"modelId":"MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7","providerModelId":"MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7"} } }
 />
 

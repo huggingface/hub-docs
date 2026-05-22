@@ -61,6 +61,26 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 conversational />
 
 
+### Feature Extraction
+
+Find out more about Feature Extraction [here](../tasks/feature-extraction).
+
+<InferenceSnippet
+    pipeline=feature-extraction
+    providersMapping={ {"together":{"modelId":"intfloat/multilingual-e5-large-instruct","providerModelId":"intfloat/multilingual-e5-large-instruct"} } }
+/>
+
+
+### Image To Image
+
+Find out more about Image To Image [here](../tasks/image-to-image).
+
+<InferenceSnippet
+    pipeline=image-to-image
+    providersMapping={ {"together":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"black-forest-labs/FLUX.2-dev"} } }
+/>
+
+
 ### Text To Image
 
 Find out more about Text To Image [here](../tasks/text-to-image).
@@ -68,5 +88,15 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 <InferenceSnippet
     pipeline=text-to-image
     providersMapping={ {"together":{"modelId":"stabilityai/stable-diffusion-xl-base-1.0","providerModelId":"stabilityai/stable-diffusion-xl-base-1.0"} } }
+/>
+
+
+### Text To Video
+
+Find out more about Text To Video [here](../tasks/text-to-video).
+
+<InferenceSnippet
+    pipeline=text-to-video
+    providersMapping={ {"together":{"modelId":"Wan-AI/Wan2.2-T2V-A14B","providerModelId":"Wan-AI/Wan2.2-T2V-A14B"} } }
 />
 
