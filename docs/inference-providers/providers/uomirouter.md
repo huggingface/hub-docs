@@ -49,7 +49,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"uomirouter":{"modelId":"Qwen/Qwen3.6-27B","providerModelId":"Qwen/Qwen3.6-27B"} } }
+    providersMapping={ {"uomirouter":{"modelId":"Qwen/Qwen3.6-27B","providerModelId":"qwen/qwen3.6-27b"} } }
 conversational />
 
 
@@ -59,7 +59,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"uomirouter":{"modelId":"google/gemma-4-31b-it","providerModelId":"google/gemma-4-31b-it"} } }
+    providersMapping={ {"uomirouter":{"modelId":"google/gemma-4-31B-it","providerModelId":"google/gemma-4-31B-it"} } }
 conversational />
 
 
