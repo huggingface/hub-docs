@@ -138,6 +138,8 @@
     title: Scaleway
   - local: providers/together
     title: Together
+  - local: providers/uomirouter
+    title: UomiRouter
   - local: providers/wavespeed
     title: WaveSpeedAI
   - local: providers/zai-org

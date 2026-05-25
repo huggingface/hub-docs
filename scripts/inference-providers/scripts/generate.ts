@@ -53,6 +53,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   sambanova: "https://sambanova.ai/",
   scaleway: "https://www.scaleway.com",
   together: "https://together.xyz/",
+  uomirouter: "https://uomirouter.uomi.ai/",
   wavespeed: "https://wavespeed.ai/",
   "zai-org": "https://z.ai/"
 };

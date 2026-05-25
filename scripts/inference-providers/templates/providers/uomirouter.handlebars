@@ -1,0 +1,14 @@
+# UomiRouter
+
+> [!TIP]
+> All supported UomiRouter models can be found [here](https://huggingface.co/models?inference_provider=uomirouter&sort=trending)
+
+{{{logoSection}}}
+
+{{{followUsSection}}}
+
+UomiRouter is an OpenAI-compatible inference network powered by distributed GPUs across the vast.ai marketplace and homelab operators. Every response is signed by the GPU that produced it and anchored to the UOMI L1 via on-chain Proof of Computation (OPoC), letting agents verify the model and parameters that actually generated their tokens. We serve open-weight models (Qwen3.6, Gemma 4, etc.) at $0.10 / Mtok input + output — roughly 2–12× cheaper than centralized APIs.
+
+Endpoints are served from EU (Sweden, Czechia, Netherlands), US, and APAC (Korea, Australia) regions through a single public gateway at `https://gateway.uomi.ai`. Per-model pricing is exposed via `/v1/models` (`pricing.input` / `pricing.output`, USD per million tokens). Inference payloads are retained for 7 days for billing reconciliation and never used for training — UomiRouter is a routing layer, so GPU operators only see the request payload, not user identity. Full provider documentation lives at [https://uomirouter.uomi.ai/docs](https://uomirouter.uomi.ai/docs).
+
+{{{tasksSection}}}
