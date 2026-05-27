@@ -55,7 +55,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install --upgrade "huggingface_hub>=0.30"
+      - run: pip install --upgrade "huggingface_hub>=1.16.1"
 
       - name: Exchange GitHub OIDC token for a Hub token
         run: |
@@ -80,8 +80,7 @@ jobs:
 
       - name: Upload checkpoint
         run: |
-          huggingface-cli upload acme/awesome-model ./checkpoint . \
-            --commit-message "Publish from ${GITHUB_SHA::7}"
+          hf upload acme/awesome-model ./checkpoint . --commit-message "Publish from ${GITHUB_SHA::7}"
 ```
 
 That's it — `huggingface_hub` picks up `HF_TOKEN` from the environment.
