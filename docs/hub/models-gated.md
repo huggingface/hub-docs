@@ -73,6 +73,7 @@ You can download a report of all access requests for a gated model with the **do
 - **status**: status of the request. Either `"pending"`, `"accepted"` or `"rejected"`.
 - **email**: email of the user.
 - **time**: datetime when the user initially made the request.
+- **reviewedAt**: datetime when the request was accepted or rejected. Not set for pending requests.
 
 <a id="modifying-the-prompt"></a> <!-- backward compatible anchor -->
 
@@ -138,6 +139,18 @@ Possible use cases of programmatic management include:
 - If you want to condition access to a model based on completing a payment flow (note that the actual payment flow happens outside of the Hub).
     - Here's an [example repo](https://huggingface.co/Trelis/openchat_3.5-function-calling-v3) from TrelisResearch that uses this use case.
    - [@RonanMcGovern](https://huggingface.co/RonanMcGovern) has posted a [video about the flow](https://www.youtube.com/watch?v=2OT2SI5auQU) and tips on how to implement it.
+
+### Gate access for organization members
+
+For gated models hosted under an organization, you can also require the organization's **own members** to submit an access request. On the model settings page, under the gating options, enable **Also gate access for members of `{org}`**.
+
+When this option is enabled, organization members must request access to the model like any other user. The following roles bypass the request and keep direct access:
+
+- Organization admins
+- The user who created the repo
+- [Resource Group](./security-resource-groups) admins, when the model belongs to a Resource Group
+
+All other members must go through the access request flow. This includes members with the read, contributor, or write org role, and Resource Group members without the admin role.
 
 ## Manage gated models as an organization (Team & Enterprise)
 

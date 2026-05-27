@@ -1,7 +1,7 @@
 # Quickstart
 
 In this guide you will run a Job to fine-tune an open source model on Hugging Face infrastructure in only a few minutes.
-Make sure you are logged in to Hugging Face and have access to your [Jobs page](https://huggingface.co/settings/jobs). Jobs are available to any user or organization with [pre-paid credits](https://huggingface.co/pricing).
+Make sure you are logged in to Hugging Face and have [pre-paid credits](https://huggingface.co/settings/billing) available on your account or organization. You can then access your [Jobs page](https://huggingface.co/settings/jobs) to create and manage Jobs.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-page.png"/>

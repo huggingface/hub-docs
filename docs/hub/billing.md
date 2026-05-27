@@ -32,7 +32,6 @@ The PRO subscription unlocks essential features for serious users, including:
 - Ability to create ZeroGPU Spaces and use Dev Mode
 - Ability to publish Social Posts and Community Blogs
 - Leverage the [Data Studio](./data-studio) on private datasets
-- Run and schedule serverless [CPU/ GPU Jobs](https://huggingface.co/docs/huggingface_hub/en/guides/jobs)
 
 View the full list of benefits at https://huggingface.co/pro then subscribe over at https://huggingface.co/subscribe/pro
 
@@ -166,4 +165,3 @@ Drop us a line at billing@huggingface.co with your feedback.
 **Q. My org has a Team or Enterprise subscription and I need to update the number of seats. How can I do this?**
 
 A. The number of seats will automatically be adjusted at the time of the subscription renewal to reflect any increases in the number of members in the organization during the previous period. There’s no need to update the subscribed number of seats during the month or year as it’s a flat fee subscription.
-

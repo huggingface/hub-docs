@@ -22,7 +22,7 @@ The Hub offers two types of storage: Git-based **repositories** for versioned, c
 | Operations         | Hub API, Git push/pull          | S3-like `sync`, `cp`, `rm`          |
 | Deduplication      | Xet chunk-level                 | Xet chunk-level                     |
 | Pull Requests      | Yes                             | No                                  |
-| Model/Dataset Cards| Yes                             | No                                  |
+| Model/Dataset Cards| Yes                             | No (but plain README rendered)      |
 
 Use **repositories** when you want version history, collaboration features (PRs, discussions), and library integrations. Use **buckets** when you need fast, mutable storage for data that changes frequently — files can be overwritten or deleted in place.
 
@@ -93,6 +93,12 @@ Every bucket has a page on the Hub where you can browse its contents, navigate d
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/buckets-file-browser.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/buckets-file-browser-dark.png"/>
 </div>
+
+### README rendering
+
+If a directory in your bucket contains a `README.md` file, the Hub renders it below the file list on that directory's page. This works both at the bucket root and inside any subdirectory — useful for documenting what a bucket contains, how data is organized, or how downstream tools should consume it.
+
+### Listing from the CLI
 
 You can also list bucket contents from the CLI:
 

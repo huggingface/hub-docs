@@ -182,6 +182,12 @@ You can stream real-time logs, status events, and metrics from your Space via SS
 
 These endpoints require authentication and return data using the [SSE protocol](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events).
 
+The logs endpoint accepts an optional `tail` query parameter (non-negative integer) to limit the response to the last N lines of logs:
+
+```
+GET /api/spaces/{namespace}/{repo}/logs/{build|run}?tail=100
+```
+
 ## Pausing a Space[[pause]]
 
 You can `pause` a Space from the repo settings. A "paused" Space means that the Space is on hold and will not use resources until manually restarted, and only the owner of a paused Space can restart it. Paused time is not billed.

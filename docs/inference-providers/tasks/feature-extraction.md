@@ -36,7 +36,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"ibm-granite/granite-embedding-97m-multilingual-r2","providerModelId":"ibm-granite/granite-embedding-97m-multilingual-r2"},"scaleway":{"modelId":"Qwen/Qwen3-Embedding-8B","providerModelId":"qwen3-embedding-8b"}} }
+    providersMapping={ {"hf-inference":{"modelId":"ibm-granite/granite-embedding-97m-multilingual-r2","providerModelId":"ibm-granite/granite-embedding-97m-multilingual-r2"},"scaleway":{"modelId":"Qwen/Qwen3-Embedding-8B","providerModelId":"qwen3-embedding-8b"},"together":{"modelId":"intfloat/multilingual-e5-large-instruct","providerModelId":"intfloat/multilingual-e5-large-instruct"}} }
 />
 
 

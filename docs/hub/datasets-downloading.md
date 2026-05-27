@@ -51,6 +51,17 @@ If you have write-access to the particular dataset repo, you'll also have the ab
 
 Add your SSH public key to [your user settings](https://huggingface.co/settings/keys) to push changes and/or access private repos.
 
+## Faster downloads
+
+You can test your download speed from Hugging Face's CDN at [fast.hf.co](https://fast.hf.co). This runs a quick bandwidth test against the nearest HF edge server, helping you understand your baseline throughput. You can also measure download speed from the terminal using the [`hf-speedtest`](https://github.com/julien-c/hf-speedtest) CLI extension:
+
+```bash
+hf extensions install julien-c/hf-speedtest
+hf speedtest
+```
+
+For faster transfers, the Hub uses the [Xet storage backend](https://huggingface.co/docs/hub/en/xet/index) with adaptive concurrency that automatically tunes parallel streams based on network conditions. See [Faster downloads for models](./models-downloading#faster-downloads) for details on tuning options like `HF_XET_HIGH_PERFORMANCE=1`.
+
 ## Using hf-mount
 
 For large datasets, you can mount a repo as a local filesystem with [hf-mount](https://github.com/huggingface/hf-mount) instead of downloading the full repo. Files are fetched lazily — only the bytes your code reads hit the network. Useful when your workflow expects local file paths (e.g. `tarfile`, `zipfile`, `imagefolder`) rather than Python iterators.

@@ -72,6 +72,7 @@ You can download a report of all access requests for a gated datasets with the *
 - **status**: status of the request. Either `"pending"`, `"accepted"` or `"rejected"`.
 - **email**: email of the user.
 - **time**: datetime when the user initially made the request.
+- **reviewedAt**: datetime when the request was accepted or rejected. Not set for pending requests.
 
 <a id="modifying-the-prompt"></a> <!-- backward compatible anchor -->
 
@@ -124,6 +125,18 @@ extra_gated_description: "Our team may take 2-3 days to process your request"
 extra_gated_button_content: "Acknowledge license"
 ---
 ```
+
+### Gate access for organization members
+
+For gated datasets hosted under an organization, you can also require the organization's **own members** to submit an access request. On the dataset settings page, under the gating options, enable **Also gate access for members of `{org}`**.
+
+When this option is enabled, organization members must request access to the dataset like any other user. The following roles bypass the request and keep direct access:
+
+- Organization admins
+- The user who created the repo
+- [Resource Group](./security-resource-groups) admins, when the dataset belongs to a Resource Group
+
+All other members must go through the access request flow. This includes members with the read, contributor, or write org role, and Resource Group members without the admin role.
 
 ## Manage gated datasets as an organization (Team & Enterprise)
 

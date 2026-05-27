@@ -54,6 +54,16 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 />
 
 
+### Chat Completion (LLM)
+
+Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"hf-inference":{"modelId":"katanemo/Arch-Router-1.5B","providerModelId":"katanemo/Arch-Router-1.5B"} } }
+conversational />
+
+
 ### Feature Extraction
 
 Find out more about Feature Extraction [here](../tasks/feature-extraction).
@@ -90,7 +100,7 @@ Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"jonathandinu/face-parsing","providerModelId":"jonathandinu/face-parsing"} } }
+    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
 />
 
 
@@ -110,7 +120,7 @@ Find out more about Question Answering [here](../tasks/question-answering).
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-base-squad2","providerModelId":"deepset/roberta-base-squad2"} } }
+    providersMapping={ {"hf-inference":{"modelId":"deepset/minilm-uncased-squad2","providerModelId":"deepset/minilm-uncased-squad2"} } }
 />
 
 
@@ -144,6 +154,16 @@ Find out more about Text Classification [here](../tasks/text-classification).
 />
 
 
+### Text Generation
+
+Find out more about Text Generation [here](../tasks/text-generation).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"hf-inference":{"modelId":"katanemo/Arch-Router-1.5B","providerModelId":"katanemo/Arch-Router-1.5B"} } }
+/>
+
+
 ### Text To Image
 
 Find out more about Text To Image [here](../tasks/text-to-image).
@@ -160,7 +180,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"cahya/bert-base-indonesian-NER","providerModelId":"cahya/bert-base-indonesian-NER"} } }
+    providersMapping={ {"hf-inference":{"modelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1","providerModelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1"} } }
 />
 
 
@@ -170,7 +190,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-large","providerModelId":"google-t5/t5-large"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-small","providerModelId":"google-t5/t5-small"} } }
 />
 
 
@@ -180,6 +200,6 @@ Find out more about Zero Shot Classification [here](../tasks/zero-shot-classific
 
 <InferenceSnippet
     pipeline=zero-shot-classification
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
+    providersMapping={ {"hf-inference":{"modelId":"MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7","providerModelId":"MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7"} } }
 />
 

@@ -39,7 +39,7 @@ This section allows you to define a mapping from your IdP's user profile data to
 > [!WARNING]
 > You must map at least one `admin` role in your configuration.
 
-If the attribute in the IdP response contains multiple values (e.g. a list of groups), the **first matching mapping** will be used to determine the user's role.
+If the attribute in the IdP response contains multiple values (e.g. a list of groups) that match several mappings, the user is assigned the **most privileged matching role**. The role hierarchy, from least to most privileged, is `read` < `contributor` < `write` < `admin`.
 
 If there is no match, the role is determined as follows:
 
