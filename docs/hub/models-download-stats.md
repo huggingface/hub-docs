@@ -50,3 +50,15 @@ filter: [
 	]
 }
 ```
+
+## What if I need more granular download data on my models?
+
+If you need granular download data, for instance to:
+- differentiate config.json from model weights
+- exclude CI/CD
+- deduplicate users ie. count unique downloaders
+- etc,
+
+[Publisher Analytics]https://huggingface.co/docs/hub/publisher-analytics and in particular the "granular logs" (https://huggingface.co/docs/hub/publisher-analytics#unique-downloaders-and-more-granular-logs) feature can provide anonymized, request-level access logs for all of the models and datasets published by your organization.
+
+This is provided as raw logs given most organizations will want to apply their own custom rules.
