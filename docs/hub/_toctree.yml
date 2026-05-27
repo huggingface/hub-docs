@@ -496,6 +496,8 @@
     sections:
     - local: security-tokens
       title: User Access Tokens
+    - local: trusted-publishers
+      title: Trusted Publishers (CI/CD)
     - local: security-2fa
       title: Two-Factor Authentication
     - local: security-git-ssh

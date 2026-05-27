@@ -72,6 +72,10 @@ We also recommend using only fine-grained tokens for production usage. The impac
 
 For example, if your production application needs read access to a gated model, a member of your organization can request access to the model and then create a fine-grained token with read access to that model. This token can then be used in your production application without giving it access to all your private models.
 
+### For CI/CD pipelines
+
+If you only need access from a CI/CD workflow (GitHub Actions, GitLab CI, CircleCI, …), you can avoid storing an access token as a CI secret entirely. See [Trusted Publishers](./trusted-publishers), which exchanges your CI provider's OpenID Connect (OIDC) identity token for a short-lived Hub token at the start of each run — either repo-scoped (to publish models, datasets, Spaces or kernels) or user-scoped (to read your gated repos and get your account's rate limits).
+
 ### For Enterprise organizations
 
 If your organization needs to programmatically issue tokens for members without requiring each user to create their own token, see [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693). This Enterprise plan feature is ideal for building internal platforms, CI/CD pipelines, or custom integrations that need to access Hugging Face resources on behalf of organization members.
