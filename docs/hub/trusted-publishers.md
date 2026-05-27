@@ -96,7 +96,7 @@ Both tokens expire after 60 minutes. You need the **Write** role on a Hub repo t
 
 ### Accessing gated repos from CI
 
-If you only need to *read* gated repos (e.g. download a model from a job), configure a publisher on your **account** instead of on a specific repo, then pass your **username** as `resource`:
+If you only need to *read* gated repos (e.g. download a model from a job), configure a publisher on your account at [**huggingface.co/settings/trusted-publishers**](https://huggingface.co/settings/trusted-publishers) instead of on a specific repo, then pass your **username** as `resource`:
 
 ```bash
 HF_TOKEN=$(curl -sSf -X POST "https://huggingface.co/oauth/token" \
