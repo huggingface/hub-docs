@@ -158,6 +158,8 @@ All other members must go through the access request flow. This includes members
 
 More information about Gating Group Collections can be found in [our dedicated doc](https://huggingface.co/docs/hub/en/enterprise-gating-group-collections).
 
+[Enterprise Plus](https://huggingface.co/contact/sales?from=enterprise) organizations can also use [Publisher Gating](./enterprise-publisher-gating) to automatically reject access requests originating from specific countries across all of their gated models and datasets.
+
 ## Access gated models as a user
 
 

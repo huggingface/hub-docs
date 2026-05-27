@@ -67,6 +67,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | [Data residency](./storage-regions)    |                  ❌                  |       ✅        |       ✅        |             ✅             |
 | Data Studio (private datasets)         |                  ❌                  |       ✅        |       ✅        |             ✅             |
 | Gating Group Collections               |                  ❌                  |       ✅        |       ✅        |             ✅             |
+| [Publisher Gating](./enterprise-publisher-gating) |              ❌                  |       ❌        |       ❌        |             ✅             |
 
 ### Identity, authentication, org security
 
@@ -143,6 +144,7 @@ In the following sections we will document the following Team & Enterprise featu
 - [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693)
 - [Publisher Analytics](./publisher-analytics)
 - [Gating Group Collections](./enterprise-gating-group-collections)
+- [Publisher Gating](./enterprise-publisher-gating)
 - [Network Security](./enterprise-network-security)
 - [Higher Rate limits](./rate-limits)
 - [Blog Articles](./enterprise-blog-articles)

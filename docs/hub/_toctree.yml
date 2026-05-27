@@ -25,6 +25,8 @@
     title: Publisher Analytics
   - local: enterprise-gating-group-collections
     title: Gating Group Collections
+  - local: enterprise-publisher-gating
+    title: Publisher Gating
   - local: enterprise-network-security
     title: Network Security
   - local: rate-limits
