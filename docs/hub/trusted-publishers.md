@@ -17,14 +17,7 @@ Both tokens are valid for **60 minutes** and are minted on demand: the clock onl
 
 1. Your CI provider mints a short-lived **OIDC ID token** for the running job. The token's claims describe the workflow (which repository it ran from, which branch, which workflow file, …).
 2. Your workflow `POST`s that ID token to `https://huggingface.co/oauth/token` together with a `resource` describing what it wants to access.
-3. Hugging Face:
-   - extracts the `iss` (issuer) claim from the token,
-   - checks that the target resource (repo or user) has a **trusted publisher** configured with that issuer,
-   - verifies the token signature against the issuer's JWKS (with `audience = https://huggingface.co`),
-   - matches the **claims** you configured (e.g. `repository = octocat/my-publisher`) against the verified claims in the token,
-   - and finally issues a short-lived Hugging Face token.
-
-If any step fails, the exchange returns `400 invalid_grant` and no token is issued. Successful exchanges update a `lastUsedAt` timestamp on the trusted publisher entry that you can see in the UI.
+3. Hugging Face validates the ID token against the **trusted publishers** configured for the `resource` and issues a short-lived Hugging Face token.
 
 > [!NOTE]
 > The exchanged token is **distinct from your personal User Access Token**. Repo tokens are scoped to a single repo and can only write to it; user tokens are limited to the `gated-repos` scope (rate limits & read access to your gated repos).
@@ -61,7 +54,7 @@ For example, to allow only GitHub Actions workflows running in `octocat/my-publi
 All listed claims are matched with exact string equality. Claims you don't list are simply not checked.
 
 > [!WARNING]
-> Configuring `repository` alone is enough to scope to a specific GitHub repo, but adding `ref` and/or `workflow` lets you restrict pushes to a specific branch or workflow file. **Do not configure a publisher with only "soft" claims like `ref`** — that would allow any GitHub repository with a `main` branch to push to your Hub repo.
+> Configuring `repository` alone is enough to scope to a specific GitHub repo, but adding `ref` and/or `workflow` lets you restrict pushes to a specific branch or workflow file.
 
 You need the **Write** role on the Hub repository to add or remove its trusted publishers.
 
@@ -151,22 +144,7 @@ jobs:
         # HF_TOKEN is read from the environment by huggingface_hub
 ```
 
-That's it. No `secrets.HF_TOKEN`, no token to rotate. Each run mints its own one-hour token, scoped to `acme/awesome-model` and nothing else.
-
-### What the token looks like
-
-The response from `/oauth/token` for a repo publisher is:
-
-```json
-{
-  "access_token":      "hf_jwt_…",
-  "token_type":        "bearer",
-  "expires_in":        3600,
-  "issued_token_type": "urn:ietf:params:oauth:token-type:access_token"
-}
-```
-
-`hf_jwt_…` tokens are usable anywhere a normal `HF_TOKEN` is — `huggingface-cli`, the `huggingface_hub` Python library, `git push` over HTTPS, the REST API, etc. — as long as the operation only touches the resource you asked for. Any attempt to use it for another repo, or to read your private resources, will be rejected.
+No need for a secret.
 
 ## Example: access gated repos from CI
 
@@ -189,7 +167,7 @@ HF_TOKEN=$(curl -sSf -X POST "https://huggingface.co/oauth/token" \
   | jq -r .access_token)
 ```
 
-You'll get back an `hf_oauth_…` token, valid for 60 minutes, with the `gated-repos` scope.
+You'll get back a token valid for 60 minutes with the `gated-repos` scope.
 
 ## Token exchange reference
 
