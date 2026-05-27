@@ -60,7 +60,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceBio/Carbon-3B","providerModelId":"HuggingFaceBio/Carbon-3B"} } }
+    providersMapping={ {"hf-inference":{"modelId":"katanemo/Arch-Router-1.5B","providerModelId":"katanemo/Arch-Router-1.5B"} } }
 conversational />
 
 
@@ -160,7 +160,7 @@ Find out more about Text Generation [here](../tasks/text-generation).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceBio/Carbon-3B","providerModelId":"HuggingFaceBio/Carbon-3B"} } }
+    providersMapping={ {"hf-inference":{"modelId":"katanemo/Arch-Router-1.5B","providerModelId":"katanemo/Arch-Router-1.5B"} } }
 />
 
 
@@ -180,7 +180,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
+    providersMapping={ {"hf-inference":{"modelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1","providerModelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1"} } }
 />
 
 
