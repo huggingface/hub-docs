@@ -10,3 +10,14 @@ The Hub used to provide download stats only for the datasets loadable via the `d
 
 * The download count was the same regardless of whether the data is directly stored on the Hub repo or if the repository has a [script](/docs/datasets/dataset_script) to load the data from an external source.
 * If a user manually downloaded the data using tools like `wget` or the Hub's user interface (UI), those downloads were not included in the download count.
+
+## What if I need more granular download data for my datasets?
+
+If you need more granular download data, for instance to:
+- distinguish data files from metadata,
+- exclude downloads from CI/CD pipelines,
+- or deduplicate users (i.e. count unique downloaders),
+
+then [Publisher Analytics](https://huggingface.co/docs/hub/publisher-analytics), and in particular the [granular logs](https://huggingface.co/docs/hub/publisher-analytics#unique-downloaders-and-more-granular-logs) feature, can provide anonymized, request-level access logs for all the models and datasets published by your organization.
+
+These are provided as raw logs, since most organizations will want to apply their own custom rules.
