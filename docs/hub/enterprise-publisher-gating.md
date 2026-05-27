@@ -3,7 +3,7 @@
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
 
-Publisher Gating lets organization admins automatically block gated repository access requests based on the requester's country. This is useful for organizations that need to enforce compliance requirements (for example, export controls or sanctions) across all of their [gated models](./models-gated) and [gated datasets](./datasets-gated).
+Publisher Gating lets organization admins automatically reject gated repository access requests based on the requester's country. This is useful for organizations that need to enforce compliance requirements (for example, export controls or sanctions) across all of their [gated models](./models-gated) and [gated datasets](./datasets-gated).
 
 ## How it works
 

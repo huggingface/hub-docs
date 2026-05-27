@@ -57,17 +57,17 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 ### Repo rules, access control, visibility
 
-| Feature                                |                 Free                 |      Team       |   Enterprise    |      Enterprise Plus       |
-| -------------------------------------- | :----------------------------------: | :-------------: | :-------------: | :------------------------: |
-| Access control granularity             | [Standard](./organizations-security) | ✅ Fine-grained | ✅ Fine-grained | ✅ Fine-grained + policies |
-| Org controls                           |                  ❌                  |       ✅        |       ✅        |             ✅             |
-| Hub controls                           |                  ❌                  |       ❌        |       ❌        |             ✅             |
-| Default private repos                  |                  ❌                  |       ✅        |       ✅        |             ✅             |
-| Disable public repositories (org-wide) |                  ❌                  |       ✅        |       ✅        |             ✅             |
-| [Data residency](./storage-regions)    |                  ❌                  |       ✅        |       ✅        |             ✅             |
-| Data Studio (private datasets)         |                  ❌                  |       ✅        |       ✅        |             ✅             |
-| Gating Group Collections               |                  ❌                  |       ✅        |       ✅        |             ✅             |
-| [Publisher Gating](./enterprise-publisher-gating) |              ❌                  |       ❌        |       ❌        |             ✅             |
+| Feature                                             |                 Free                 |      Team       |   Enterprise    |      Enterprise Plus       |
+| --------------------------------------------------- | :----------------------------------: | :-------------: | :-------------: | :------------------------: |
+| Access control granularity                          | [Standard](./organizations-security) | ✅ Fine-grained | ✅ Fine-grained | ✅ Fine-grained + policies |
+| Org controls                                        |                  ❌                  |       ✅        |       ✅        |             ✅             |
+| Hub controls                                        |                  ❌                  |       ❌        |       ❌        |             ✅             |
+| Default private repos                               |                  ❌                  |       ✅        |       ✅        |             ✅             |
+| Disable public repositories (org-wide)              |                  ❌                  |       ✅        |       ✅        |             ✅             |
+| [Data residency](./storage-regions)                 |                  ❌                  |       ✅        |       ✅        |             ✅             |
+| Data Studio (private datasets)                      |                  ❌                  |       ✅        |       ✅        |             ✅             |
+| Gating Group Collections                            |                  ❌                  |       ✅        |       ✅        |             ✅             |
+| [Publisher Gating](./enterprise-publisher-gating)   |                  ❌                  |       ❌        |       ❌        |             ✅             |
 
 ### Identity, authentication, org security
 
