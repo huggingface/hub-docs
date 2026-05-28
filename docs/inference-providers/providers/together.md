@@ -41,6 +41,16 @@ Together decentralized cloud services empower developers and researchers at orga
 ## Supported tasks
 
 
+### Automatic Speech Recognition
+
+Find out more about Automatic Speech Recognition [here](../tasks/automatic-speech-recognition).
+
+<InferenceSnippet
+    pipeline=automatic-speech-recognition
+    providersMapping={ {"together":{"modelId":"nvidia/parakeet-tdt-0.6b-v3","providerModelId":"nvidia/parakeet-tdt-0.6b-v3"} } }
+/>
+
+
 ### Chat Completion (LLM)
 
 Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
