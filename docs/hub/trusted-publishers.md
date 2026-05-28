@@ -15,7 +15,7 @@ Trusted Publishers are the same idea as PyPI's [Trusted Publishers](https://docs
 
 ## Quick example: publish a model from GitHub Actions
 
-You maintain `acme/awesome-model` on the Hub and want CI in `acme/awesome-model-training` to push new checkpoints — no `HF_TOKEN` secret.
+You maintain `acme/awesome-model` on the HF Hub and want CI in an externally-hosted `acme/awesome-model-training` repository (on GitHub, GitLab, or any OIDC-compliant provider) to push new checkpoints — no `HF_TOKEN` secret.
 
 ### 1. Configure the trusted publisher on the Hub
 
