@@ -141,6 +141,10 @@ Organizations can customize the gating parameters as well as the user informatio
 > [!WARNING]
 > There is currently no way to customize the gate parameters and requested information in a centralized way. If you want to collect the same data no matter which collection's repository a user requests access throughout, you need to add the same gate parameters in the metadata of all the models and datasets of the collection, and keep it synced.
 
+## Blocked countries
+
+Enterprise Plus organizations can define **blocked countries** to automatically reject access requests across their gated models and datasets. This setting is available in the **Publisher Analytics** settings, under the **Advanced Gating** tab.
+
 ## Access gated repos in a Gating Group Collection as a user
 
 A Gated Group Collection shows a specific icon next to its name:
