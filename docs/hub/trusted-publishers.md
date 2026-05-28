@@ -59,12 +59,16 @@ jobs:
 
       - name: Exchange GitHub OIDC token for a Hub token
         run: |
+          set -euo pipefail
+
           ID_TOKEN=$(curl -sSf \
             -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
             "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=https://huggingface.co" \
             | jq -r .value)
 
-          HF_TOKEN=$(curl -sSf -X POST "https://huggingface.co/oauth/token" \
+          HEADERS=$(mktemp); BODY=$(mktemp)
+          STATUS=$(curl -sS -D "$HEADERS" -o "$BODY" -w '%{http_code}' \
+            -X POST "https://huggingface.co/oauth/token" \
             -H "Content-Type: application/json" \
             -d "$(jq -n --arg t "$ID_TOKEN" --arg r "acme/awesome-model" \
                   '{
@@ -72,11 +76,24 @@ jobs:
                     subject_token_type: "urn:ietf:params:oauth:token-type:id_token",
                     subject_token:      $t,
                     resource:           $r
-                  }')" \
-            | jq -r .access_token)
+                  }')")
 
+          if [ "$STATUS" -ne 200 ]; then
+            REQUEST_ID=$(grep -i '^x-request-id:' "$HEADERS" | sed 's/.*: *//' | tr -d '\r')
+            echo "::error::Token exchange failed with HTTP $STATUS (x-request-id: ${REQUEST_ID:-unknown})"
+            cat "$BODY"
+            exit 1
+          fi
+
+          HF_TOKEN=$(jq -r .access_token "$BODY")
           echo "::add-mask::$HF_TOKEN"
-          echo "HF_TOKEN=$HF_TOKEN" >> "$GITHUB_ENV"
+          # Safe way to write to env
+          DELIM="EOF_$(openssl rand -hex 16)"
+          {
+            echo "HF_TOKEN<<$DELIM"
+            echo "$HF_TOKEN"
+            echo "$DELIM"
+          } >> "$GITHUB_ENV"
 
       - name: Upload checkpoint
         # `hf upload` calls create_repo() first, which a Trusted Publisher token
