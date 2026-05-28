@@ -79,11 +79,24 @@ jobs:
           echo "HF_TOKEN=$HF_TOKEN" >> "$GITHUB_ENV"
 
       - name: Upload checkpoint
+        # `hf upload` calls create_repo() first, which a Trusted Publisher token
+        # isn't allowed to do. Call upload_folder() directly to skip that step.
         run: |
-          hf upload acme/awesome-model ./checkpoint . --commit-message "Publish from ${GITHUB_SHA::7}"
+          python - <<'PY'
+          import os
+          from huggingface_hub import upload_folder
+
+          upload_folder(
+              repo_id="acme/awesome-model",
+              folder_path="./checkpoint",
+              commit_message=f"Publish from {os.environ['GITHUB_SHA'][:7]}",
+          )
+          PY
 ```
 
 That's it — `huggingface_hub` picks up `HF_TOKEN` from the environment.
+
+A complete working example lives at [`coyotte508/publish-to-hf`](https://github.com/coyotte508/publish-to-hf) → [`coyotte508/published-from-github`](https://huggingface.co/coyotte508/published-from-github).
 
 ## Two flavors: repo vs. user
 
