@@ -61,7 +61,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          # The repo to publish to. For non-model repos, prefix accordingly:
+          # The HF repo to publish to. For non-model repos, prefix accordingly:
           #   datasets/acme/awesome-dataset, spaces/acme/awesome-space, kernels/acme/awesome-kernel
           RESOURCE="acme/awesome-model"
 
