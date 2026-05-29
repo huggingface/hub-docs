@@ -50,3 +50,14 @@ filter: [
 	]
 }
 ```
+
+## What if I need more granular download data for my models?
+
+If you need more granular download data, for instance to:
+- distinguish `config.json` from model weights,
+- exclude downloads from CI/CD pipelines,
+- or deduplicate users (i.e. count unique downloaders),
+
+then [Publisher Analytics](./publisher-analytics), and in particular the [granular logs](./publisher-analytics#unique-downloaders-and-more-granular-logs) feature, can provide anonymized, request-level access logs for all the models and datasets published by your organization.
+
+These are provided as raw logs, since most organizations will want to apply their own custom rules.
