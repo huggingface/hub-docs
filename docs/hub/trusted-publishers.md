@@ -24,7 +24,7 @@ On `https://huggingface.co/acme/awesome-model/settings`, open **Trusted Publishe
 - **Provider**: GitHub Actions
 - **Claims** (all must match for the exchange to succeed):
   - `repository` = `acme/awesome-model-training`
-  - `ref` = `refs/heads/main`
+  - `branch` = `main`
   - `workflow` = `publish.yml`
 
 > [!TIP]
@@ -61,6 +61,10 @@ jobs:
         run: |
           set -euo pipefail
 
+          # The repo to publish to. For non-model repos, prefix accordingly:
+          #   datasets/acme/awesome-dataset, spaces/acme/awesome-space, kernels/acme/awesome-kernel
+          RESOURCE="acme/awesome-model"
+
           ID_TOKEN=$(curl -sSf \
             -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
             "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=https://huggingface.co" \
@@ -70,7 +74,7 @@ jobs:
           STATUS=$(curl -sS -D "$HEADERS" -o "$BODY" -w '%{http_code}' \
             -X POST "https://huggingface.co/oauth/token" \
             -H "Content-Type: application/json" \
-            -d "$(jq -n --arg t "$ID_TOKEN" --arg r "acme/awesome-model" \
+            -d "$(jq -n --arg t "$ID_TOKEN" --arg r "$RESOURCE" \
                   '{
                     grant_type:         "urn:ietf:params:oauth:grant-type:token-exchange",
                     subject_token_type: "urn:ietf:params:oauth:token-type:id_token",
