@@ -1,0 +1,25 @@
+spec_version: env-0.1
+environments:
+  - id: terminal-bench-2
+    title: Terminal-Bench 2.0
+    config_name: harbor_tasks
+    splits: [train, validation]
+    frameworks:
+      harbor:
+        min_version: ">=0.1.0"
+      verifiers:
+        min_version: ">=0.1.14"
+        adapter: verifiers.v1.packages.tasksets.HarborTaskset
+    runtime:
+      isolation: container
+      network: disabled
+    reward:
+      type: scalar
+
+  - id: coding-env
+    title: OpenEnv Coding Environment
+    frameworks:
+      openenv:
+        manifest: openenv.yaml
+        mode: space
+        space_id: openenv/coding_env
