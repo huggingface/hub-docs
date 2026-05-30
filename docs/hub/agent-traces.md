@@ -1,11 +1,11 @@
-# Agent traces
+# Agent Traces
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/datasets/agent-traces-preview-light.webp" alt="Agent trace preview on a dataset page in light mode."/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/datasets/agent-traces-preview-dark.webp" alt="Agent trace preview on a dataset page in dark mode."/>
 </div>
 
-Agent traces from Claude Code, Codex, and Pi Agent are natively supported on the Hugging Face Hub. Upload the raw JSONL sessions to a dataset or a [Storage Bucket](./storage-buckets) to open them in a dedicated trace viewer. Datasets show traces in Data Studio; buckets let you open individual `.jsonl` files directly.
+Agent traces from Claude Code, Codex, and Pi Agent are natively supported on the Hugging Face Hub. Upload the raw JSONL sessions to a [Dataset](https://huggingface.co/datasets?format=format%3Aagent-traces) or a [Storage Bucket](./storage-buckets) to open them in a dedicated trace viewer. Datasets show traces in Data Studio; buckets let you open individual `.jsonl` files directly.
 
 ## Find your traces
 
