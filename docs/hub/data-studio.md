@@ -27,14 +27,14 @@ You can search for a word in the dataset by typing it in the search bar at the t
 
 ## Run SQL queries on the dataset
 
-You can run SQL queries on the dataset in the browser using the SQL Console. This feature also leverages our [auto-conversion to Parquet](data-studio#access-the-parquet-files). 
+You can run SQL queries on the dataset in the browser using the SQL Console. This feature also leverages our [auto-conversion to Parquet](data-studio#access-the-parquet-files).
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai.png" />
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sql-ai-dark.png"/>
 </div>
 
-For more information see our guide on [SQL Console](./datasets-viewer-sql-console). 
+For more information see our guide on [SQL Console](./datasets-viewer-sql-console).
 
 ## Share a specific row
 
@@ -44,6 +44,10 @@ You can share a specific row by clicking on it, and then copying the URL in the 
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-row.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-row-dark.png"/>
 </div>
+
+## Agent traces
+
+Push your raw JSONL traces from tools like Claude Code, Codex, or Pi into a dataset to browse them in Data Studio, or sync them to a [Storage Bucket](./storage-buckets) and open individual `.jsonl` files there. Both paths use the same trace viewer for stepping through sessions, turns, tool calls, and model responses. See [Agent Traces](./agent-traces) for supported agents and viewing traces.
 
 ## Large scale datasets
 

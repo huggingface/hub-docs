@@ -311,6 +311,8 @@
             title: Embed the Dataset Viewer in a webpage
           - local: datasets-viewer-sql-console
             title: "SQL Console"
+  - local: agent-traces
+    title: Agent Traces
   - local: datasets-download-stats
     title: Datasets Download Stats
 

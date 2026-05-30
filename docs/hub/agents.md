@@ -13,3 +13,4 @@ You can connect agents via the HF MCP Server, install pre-built Skills for codin
 - [Building agents with the HF SDK](./agents-sdk)
 - [Local Agents with llama.cpp and Pi](./agents-local)
 - [Agent Libraries](./agents-libraries)
+- [Agent Traces](./agent-traces)
