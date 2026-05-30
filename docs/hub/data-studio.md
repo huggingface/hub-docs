@@ -47,7 +47,7 @@ You can share a specific row by clicking on it, and then copying the URL in the 
 
 ## Agent traces
 
-Push your raw JSONL traces from tools like Claude Code, Codex, or Pi into a dataset to browse them in Data Studio, or sync them to a [Storage Bucket](./storage-buckets) and open individual `.jsonl` files there. Both paths use the same trace viewer for stepping through sessions, turns, tool calls, and model responses. See [Agent Traces](./datasets-agent-traces) for supported agents and viewing traces.
+Push your raw JSONL traces from tools like Claude Code, Codex, or Pi into a dataset to browse them in Data Studio, or sync them to a [Storage Bucket](./storage-buckets) and open individual `.jsonl` files there. Both paths use the same trace viewer for stepping through sessions, turns, tool calls, and model responses. See [Agent Traces](./agent-traces) for supported agents and viewing traces.
 
 ## Large scale datasets
 
