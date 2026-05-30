@@ -9,6 +9,7 @@ Hugging Face provides tools and protocols that connect AI agents directly to the
 | [Skills](./agents-skills) | Task-specific guidance for AI/ML workflows |
 | [SDK](./agents-sdk) | Build agents programmatically with Python or JavaScript |
 | [Local Agents](./agents-local) | Run fully local agents with llama.cpp and Pi |
+| [Agent Traces](./agent-traces) | View Claude Code, Codex, and Pi sessions on the Hub |
 
 ## Chat with Hugging Face
 
