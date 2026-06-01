@@ -1,9 +1,9 @@
 # Environment Datasets
 
-Environment datasets are ordinary dataset repositories with an optional `environment.yaml` file at the repository root. When a dataset includes a valid `environment.yaml`, the Hub shows an Environment badge, adds framework/library chips for supported frameworks, generates usage snippets, and exposes the parsed declarations at:
+Environment datasets are dataset repositories that can be used to create environments for training and evaluation. When a dataset includes a valid `environment.yaml`, the Hub shows an Environment badge, adds framework/library chips for supported frameworks, generates usage snippets, and exposes the parsed declarations at:
 
 ```text
-/api/datasets/{repo_id}/rl-environments
+/api/datasets/{repo_id}/environments
 ```
 
 ## Add environment.yaml
@@ -11,7 +11,7 @@ Environment datasets are ordinary dataset repositories with an optional `environ
 Add `environment.yaml` to the root of the dataset repository:
 
 ```yaml
-spec_version: hf-rl-env-0.1
+spec_version: hf-env-0.1
 environments:
   - id: terminal-bench-2
     title: Terminal-Bench 2.0
@@ -27,7 +27,7 @@ environments:
 
 Required top-level fields:
 
-- `spec_version`: currently `hf-rl-env-0.1`.
+- `spec_version`: currently `hf-env-0.1`.
 - `environments`: a non-empty list of environment declarations.
 
 Required per-environment fields:
@@ -81,7 +81,7 @@ env = vf.Env(taskset=taskset, harness=vf.OpenCode())
 Use `openenv` for an OpenEnv runtime package, Space, or container image. For a Space-backed environment:
 
 ```yaml
-spec_version: hf-rl-env-0.1
+spec_version: hf-env-0.1
 environments:
   - id: coding-env
     frameworks:
@@ -105,4 +105,3 @@ openenv:
   mode: container
   image: registry/repo:tag
 ```
-

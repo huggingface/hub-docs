@@ -234,8 +234,8 @@
     title: Downloading Datasets
   - local: datasets-streaming
     title: Streaming Datasets
-  - local: datasets-rl-environments
-    title: RL Environment Datasets
+  - local: datasets-environments
+    title: Environment Datasets
   - local: datasets-libraries
     title: Integrated Libraries
     sections:
