@@ -32,6 +32,13 @@ When creating the article, pick the namespace it should be published under from 
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/blog-creation-editor-dark.png"/>
 </div>
 
+## Content Guidelines
+
+Published articles should fall into one of two categories:
+
+- **Explore an AI science or engineering concept.** For example, [Uncensor any LLM with abliteration](https://huggingface.co/blog/mlabonne/abliteration) and [KV Caching Explained: Optimizing Transformer Inference Efficiency](https://huggingface.co/blog/not-lain/kv-caching).
+- **Announce the release of an open source artifact**, such as a model, dataset, or tool. For example, [Welcome NVIDIA Cosmos 3](https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai) and [OlmoEarth v1.1](https://huggingface.co/blog/allenai/olmoearth-v1-1).
+
 ## Editing an Article
 
 - Articles published under a user namespace can be edited by the original author and any coauthors listed on the article.
