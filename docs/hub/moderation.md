@@ -31,3 +31,7 @@ You can block a user from the [comment report modal](#reporting-a-comment). Sele
 
 > [!NOTE]
 > You must have a confirmed email address on your account to block users.
+
+## Unblocking a user
+
+If you've previously blocked a user, you can unblock them from any of their comments. Open the comment's menu (the three dots at the top right of the comment) and select **"Unblock @username"**. After confirming, the user will be able to interact with your repositories and other Hub content again.
