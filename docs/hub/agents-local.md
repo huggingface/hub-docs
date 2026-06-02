@@ -8,7 +8,7 @@ You can run a coding agent entirely on your own hardware. Several open-source ag
 
 Set your local hardware so it can show you which models are compatible with your setup.
 
-Go to [huggingface.co/settings/local-apps](https://huggingface.co/settings/local-apps) and configure your local hardware profile. Select `llama.cpp` in the Local Apps section as this will be the engine you'll use.
+Go to [huggingface.co/settings/hardware](https://huggingface.co/settings/hardware) and configure your local hardware profile. Then select `llama.cpp` in your [Local Apps settings](https://huggingface.co/settings/local-apps), as this will be the engine you'll use.
 
 ### 2. Find a Compatible Model
 
