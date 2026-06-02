@@ -5,7 +5,7 @@ Every Job comes with a fixed amount of local disk, set by its [hardware flavor](
 **Which approach?**
 
 - **Fits on disk** → a plain `load_dataset(...)` works as-is.
-- **Iterating over rows, or training** → [stream](#stream-the-dataset) it — no download.
+- **Iterating over rows, or training** → [stream](#stream-the-dataset) it.
 - **Filtered or column-pruned scans** → [mount](#mount-a-dataset-model-or-bucket) the repo and read it lazily, or query it [directly over `hf://`](#read-and-filter-over-hf) with Polars or DuckDB.
 - **Persisting results** → write them to a [Storage Bucket](#saving-results) so they survive the Job.
 
@@ -52,7 +52,7 @@ Datasets and models mount read-only; buckets are read-write, which makes them a 
 
 ## Read and filter over `hf://`
 
-Many data libraries read datasets and buckets straight from the Hub over `hf://` (via [`HfFileSystem`](/docs/huggingface_hub/guides/hf_file_system)/fsspec) — no mount needed. **Polars**, **DuckDB**, and **pandas** all read Hub Parquet directly, pushing filters and column selection down into the scan, so a single Job can process far more data than fits in memory. For example, DuckDB can filter the source and write the result to a mounted bucket in one query:
+Many data libraries read datasets and buckets straight from the Hub over `hf://` (via [`HfFileSystem`](/docs/huggingface_hub/guides/hf_file_system)/fsspec) with no mount needed. **Polars**, **DuckDB**, and **pandas** all read Hub Parquet directly, pushing filters and column selection down into the scan, so a single Job can process far more data than fits in memory. For example, DuckDB can filter the source and write the result to a mounted bucket in one query:
 
 ```python
 import duckdb
