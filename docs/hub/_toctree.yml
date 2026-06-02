@@ -183,6 +183,8 @@
     title: Model Release Checklist
   - local: local-apps
     title: Local Apps
+  - local: hardware
+    title: Hardware
   - local: models-faq
     title: Frequently Asked Questions
     sections:
