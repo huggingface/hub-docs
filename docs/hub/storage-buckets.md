@@ -154,6 +154,8 @@ hf buckets list julien-c/my-training-bucket --tree -h -R
 
 You can upload and download files directly from the bucket page on the Hub, or use the CLI and Python API for programmatic access. Bucket files are referenced using `hf://buckets/` paths (e.g., `hf://buckets/username/my-bucket/path/to/file`). The `hf buckets cp` command handles individual file transfers while `hf buckets sync` is better suited for directories. All commands work in both directions — local-to-remote and remote-to-local.
 
+If your data already lives in a model, dataset, or Space repository (or another bucket), you can copy it in **server-side** with `hf buckets cp` — no download or re-upload required. See [Copying files between repos and buckets](#copying-files-between-repos-and-buckets).
+
 ### Uploading files
 
 For quick uploads, you can drag and drop files directly on the bucket page in your browser. For programmatic use, `hf buckets cp` copies individual files into a bucket. The source is a local path and the destination is an `hf://buckets/` path. You can also pipe data from stdin, which is handy for programmatically generated content.
@@ -281,7 +283,7 @@ For more deletion options (pattern-based filtering, recursive removal, etc.), se
 
 ### Copying files between repos and buckets
 
-You can copy [Xet](./xet/index)-tracked files from any repository (model, dataset, Space) or bucket into a destination bucket without re-uploading the data. The copy is server-side: only the Xet content hashes are migrated, so even very large files are copied instantly.
+You can copy [Xet](./xet/index)-tracked files from any repository (model, dataset, Space) or bucket into a destination bucket without re-uploading the data. The copy is server-side: only the Xet content hashes are migrated, so even very large files are copied instantly thanks to [chunk-level deduplication](./xet/deduplication).
 
 > [!NOTE]
 > Only Xet-tracked files are copied server-to-server. Small non-Xet files (e.g., config files and READMEs) are automatically downloaded and re-uploaded.

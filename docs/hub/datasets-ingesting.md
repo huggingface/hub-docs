@@ -84,6 +84,14 @@ See the list of [Libraries supported by the Datasets Hub](./datasets-libraries) 
 
 If you are ingesting raw data that need further curation before being published as AI-ready datasets or if you need an S3-like experience, consider ingesting them to [Hugging Face Storage Buckets](./storage-buckets).
 
+If your data already lives in a dataset, model, or Space repository, you can copy it into a bucket **server-side** — no download or re-upload — with `hf buckets cp`:
+
+```bash
+hf buckets cp hf://datasets/username/my-dataset/ hf://buckets/username/my-bucket/
+```
+
+Only the Xet content hashes are migrated, so even very large files copy instantly. See [Copying files between repos and buckets](./storage-buckets#copying-files-between-repos-and-buckets).
+
 ## Scheduled ingestion
 
 There are some limitations when updating the same file on the Hub thousands of times.
