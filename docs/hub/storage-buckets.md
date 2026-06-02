@@ -154,7 +154,7 @@ hf buckets list julien-c/my-training-bucket --tree -h -R
 
 You can upload and download files directly from the bucket page on the Hub, or use the CLI and Python API for programmatic access. Bucket files are referenced using `hf://buckets/` paths (e.g., `hf://buckets/username/my-bucket/path/to/file`). The `hf buckets cp` command handles individual file transfers while `hf buckets sync` is better suited for directories. All commands work in both directions — local-to-remote and remote-to-local.
 
-If your data already lives in a model, dataset, or Space repository (or another bucket), you can copy it in **server-side** with `hf buckets cp` — no download or re-upload required. See [Copying files between repos and buckets](#copying-files-between-repos-and-buckets).
+If your data already lives in a model, dataset, or Space repository (or another bucket), you can copy it **server-side** with `hf buckets cp` — no download or re-upload required. See [Copying files between repos and buckets](#copying-files-between-repos-and-buckets).
 
 ### Uploading files
 
