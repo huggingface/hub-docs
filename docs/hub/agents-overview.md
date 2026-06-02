@@ -182,6 +182,23 @@ Agent: [Fetches documentation]
        result = classifier("I love this product!")
 ```
 
+## Register your agent harness
+
+Hugging Face maintains a public registry of agent harnesses, the coding agents and tools that interact with the Hub (Claude Code, Codex, Cursor, and more). When `huggingface_hub` detects it is running inside a registered harness, it reports it via the user agent on Hub requests. Registering your harness makes this agentic usage visible and gives your project a friendly display label, links back to your docs and repository, and inclusion in upcoming agent leaderboards.
+
+To register a harness, open a Pull Request adding an entry to [`agent-harnesses.ts`](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/agent-harnesses.ts) in the `@huggingface/tasks` package:
+
+- The harness id (the entry key) should be lowercased and hyphen-separated (example: `"claude-code"`).
+- set `prettyLabel` with user-friendly casing (example: `Claude Code`).
+- (optional) set `repoUrl` with a link to the harness source code (usually a GitHub repository).
+- (optional) set `docsUrl` with a link to the harness documentation or website.
+- (optional) set `description` with a short, one-line explanation of the harness.
+- define how your harness is detected from the environment:
+  - If your harness sets one of the standard environment variables (`AI_AGENT` or `AGENT`), its value is used directly as the identifier and no extra config is needed.
+  - Otherwise, set `envVars` to map environment variable names to value patterns. Use `"*"` to match any non-empty value, an exact string for an exact match, or `"<prefix>*"` for prefix matching.
+
+And that's it! Once PR is merged, we will start tracking usage of the `hf` CLI by your agent harness.
+
 ## Next Steps
 
 - [CLI](./agents-cli) - Command-line interface for Hub operations
