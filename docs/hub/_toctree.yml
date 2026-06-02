@@ -181,10 +181,10 @@
     title: Models Download Stats
   - local: model-release-checklist
     title: Model Release Checklist
-  - local: local-apps
-    title: Local Apps
   - local: hardware
     title: Hardware
+  - local: local-apps
+    title: Local Apps
   - local: models-faq
     title: Frequently Asked Questions
     sections:
