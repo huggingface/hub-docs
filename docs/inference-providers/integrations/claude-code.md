@@ -1,6 +1,6 @@
 # Claude Code
 
-[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's agentic coding tool that lives in your terminal. It can understand your codebase, edit files, run commands, and handle complex development tasks. By pointing it at Hugging Face Inference Providers, you can use open models like [GLM-5.1](https://huggingface.co/zai-org/GLM-5.1), [Gemma 4](https://huggingface.co/google/gemma-4-31B-it), and more as the backing LLM.
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's agentic coding tool that lives in your terminal. It can understand your codebase, edit files, run commands, and handle complex development tasks. By pointing it at Hugging Face Inference Providers, you can use [the latest open models available](https://huggingface.co/models?inference_provider=all) as the backing LLM.
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # Codex
 
-[Codex](https://developers.openai.com/codex) is OpenAI's agentic coding CLI that runs in your terminal, reads and edits your codebase, runs commands, and handles multi-step development tasks. By pointing it at Hugging Face Inference Providers, you can use open models like [openai/gpt-oss-120b](https://huggingface.co/openai/gpt-oss-120b), [GLM-5.1](https://huggingface.co/zai-org/GLM-5.1), and more as the backing model.
+[Codex](https://developers.openai.com/codex) is OpenAI's agentic coding CLI that runs in your terminal, reads and edits your codebase, runs commands, and handles multi-step development tasks. By pointing it at Hugging Face Inference Providers, you can use [the latest open models available](https://huggingface.co/models?inference_provider=all) as the backing model.
 
 ## Overview
 
