@@ -1,6 +1,6 @@
 # Claude Code
 
-[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's agentic coding tool that lives in your terminal. It can understand your codebase, edit files, run commands, and handle complex development tasks. By pointing it at Hugging Face Inference Providers, you can use [the latest open models available](https://huggingface.co/models?inference_provider=all) as the backing LLM.
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's agentic coding tool that lives in your terminal. It can understand your codebase, edit files, run commands, and handle complex development tasks. By pointing it at Hugging Face Inference Providers, you can use any of [the latest open models available](https://huggingface.co/models?inference_provider=all) as your backing LLM.
 
 ## Overview
 
@@ -63,9 +63,9 @@ Then start Claude Code:
 claude
 ```
 
-Replace `zai-org/GLM-5.1` with any model available on [Inference Providers](https://huggingface.co/inference/models). You can also append a provider suffix to pin a specific provider (e.g. `MiniMaxAI/MiniMax-M2.7:fireworks-ai`). Setting an explicit provider gives you deterministic routing, while omitting it (e.g. `MiniMaxAI/MiniMax-M2.7`) uses the default `:fastest` policy, so the router picks the highest-throughput available provider and automatically fails over if one becomes unavailable.
+Replace `zai-org/GLM-5.1` with any model available on [Inference Providers](https://huggingface.co/inference/models). You can also append a provider suffix to pin a specific provider (e.g. `MiniMaxAI/MiniMax-M2.7:fireworks-ai`). Setting an explicit provider gives you deterministic routing, while omitting it (e.g. `MiniMaxAI/MiniMax-M2.7`) uses the default `:fastest` policy. With this policy, the router picks the provider with the highest throughput, and automatically fails over if it becomes unavailable.
 
-You can also append a `:cheapest`, `:fastest`, or `:preferred` suffix to prefer cheaper, faster, or your preferred-order providers (e.g. `MiniMaxAI/MiniMax-M2.7:cheapest`).
+Available policies are `:cheapest`, `:fastest`, or `:preferred`; use one of these suffixes to prefer cheaper, faster, or your preferred-order providers (e.g. `MiniMaxAI/MiniMax-M2.7:cheapest`).
 
 > [!TIP]
 > The `ANTHROPIC_DEFAULT_*_MODEL` variables map to Claude Code's internal model slots (Opus, Sonnet, Haiku), from the most powerful to the quickest. You can assign different models to each slot to balance capability and speed e.g. `zai-org/GLM-5.1` for Opus, `google/gemma-4-31B-it:together` for Sonnet, and `openai/gpt-oss-120b:cerebras` for Haiku. `CLAUDE_CODE_SUBAGENT_MODEL` controls which model is used for sub-agents.

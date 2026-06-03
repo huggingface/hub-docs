@@ -65,5 +65,5 @@ Replace `"your-org-name"` with the name of the organization you want to bill to.
 
 ## Resources
 
-- [Pi Documentation](https://github.com/earendil-works/pi)
+- [Pi Documentation](https://pi.dev/docs/latest)
 - [Available models on Inference Providers](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all&sort=trending)

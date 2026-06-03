@@ -1,6 +1,6 @@
 # Codex
 
-[Codex](https://developers.openai.com/codex) is OpenAI's agentic coding CLI that runs in your terminal, reads and edits your codebase, runs commands, and handles multi-step development tasks. By pointing it at Hugging Face Inference Providers, you can use [the latest open models available](https://huggingface.co/models?inference_provider=all) as the backing model.
+[Codex](https://developers.openai.com/codex) is OpenAI's agentic coding CLI that runs in your terminal, reads and edits your codebase, runs commands, and handles multi-step development tasks. By pointing it at Hugging Face Inference Providers, you can use any of [the latest open models available](https://huggingface.co/models?inference_provider=all) as your backing model.
 
 ## Overview
 
@@ -41,7 +41,7 @@ model = "openai/gpt-oss-120b"
 ```
 
 > [!NOTE]
-> Codex 0.134.0 and later require each profile to live in its own `~/.codex/<profile-name>.config.toml` file with top-level keys, rather than a `[profiles.<name>]` table inside `config.toml`.
+> For Codex versions before 0.134.0, you have to define profiles in a `[profiles.<name>]` table inside `config.toml`.
 
 5. Launch Codex with the Hugging Face profile:
 
@@ -79,7 +79,7 @@ wire_api = "responses"
 http_headers = { "X-HF-Bill-To" = "your-org-name" }
 ```
 
-Replace `"your-org-name"` with the name of the organization you want to bill to.
+Replace `"your-org-name"` with the name of the organization you want to bill to. You must have Write privileges in the org.
 
 ## Resources
 
