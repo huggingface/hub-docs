@@ -1,5 +1,5 @@
 import { PipelineType } from "@huggingface/tasks";
-import { PROVIDERS_HUB_ORGS } from "@huggingface/inference";
+import { PROVIDERS_HUB_ORGS, getProviderHelper } from "@huggingface/inference";
 import Handlebars from "handlebars";
 import * as fs from "node:fs/promises";
 import * as path from "node:path/posix";
@@ -478,6 +478,19 @@ await Promise.all(
   }),
 );
 
+/// A provider may serve a live model for a task that `@huggingface/inference`
+/// has no snippet helper for. Emitting an `<InferenceSnippet>` for such a combo
+/// crashes the doc-builder prerender (`getProviderHelper` throws), so we mirror
+/// that lookup here and skip any (provider, task) combo it can't handle.
+function isSnippetSupported(provider: string, task: string): boolean {
+  try {
+    getProviderHelper(provider, task);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function fetchWarmModels(
   task: PipelineType,
   conversational: boolean = false,
@@ -498,9 +511,18 @@ async function fetchWarmModels(
         ]
       : ["hf-inference", ...(PER_TASK_SUPPORTED_PROVIDERS[task] ?? [])]
   ).sort();
+  // The doc-builder resolves conversational text-generation / image-text-to-text
+  // snippets to the "conversational" helper task; mirror that here.
+  const helperTask = conversational ? "conversational" : task;
   return (
     await Promise.all(
       providers.map(async (provider) => {
+        if (!isSnippetSupported(provider, helperTask)) {
+          console.warn(
+            `   ⏭️  Skipping ${provider} for ${task}: @huggingface/inference has no snippet helper for this (provider, task) combo`,
+          );
+          return;
+        }
         console.log(
           `   ⚡ Fetching most popular warm model for ${task} from ${provider}`,
         );
