@@ -8,7 +8,7 @@ Pi natively supports Hugging Face Inference Providers, giving you access to open
 
 ## Prerequisites
 
-- Pi installed (`npm install -g --ignore-scripts @earendil-works/pi-coding-agent`)
+- Pi installed (`npm install -g --ignore-scripts @earendil-works/pi-coding-agent`, or `curl -fsSL https://pi.dev/install.sh | sh`)
 - A Hugging Face account with [API token](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) (needs "Make calls to Inference Providers" permission)
 
 ## Configuration
