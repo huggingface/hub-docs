@@ -51,7 +51,7 @@ RuntimeError: Could not find nvcc and default cuda_home='/usr/local/cuda' doesn'
 ```
 
 Passing the framework image fixes this — it provides the CUDA toolkit, `nvcc`, and matched
-libraries — and **this is usually all you need**:
+libraries — and this is usually all you need:
 
 ```bash
 hf jobs uv run --image vllm/vllm-openai --flavor l4x4 -s HF_TOKEN generate-responses.py
