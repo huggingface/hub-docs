@@ -51,6 +51,10 @@ from datasets import load_dataset
 ds = load_dataset("buckets/username/my-bucket", data_files=["data.parquet"])
 ```
 
+## 🤗 Transformers
+
+The [`Trainer`](https://huggingface.co/docs/transformers/trainer_recipes) can push and resume training checkpoints directly to a bucket, so a run can resume on a fresh machine without keeping checkpoints in a Git repo. See the [Trainer checkpointing docs](https://huggingface.co/docs/transformers/trainer_recipes) for setup.
+
 ## Filesystem operations
 
 For direct file operations, `huggingface_hub` exposes a pre-instantiated [filesystem object](/docs/huggingface_hub/guides/hf_file_system), `hffs`:
