@@ -48,6 +48,10 @@ Jobs are billed per minute based on the hardware used. Below are the available h
 | 2x Nvidia H200         | 46 vCPU       | 512 GB       | 282 GB          | 6000 GB               | $10.00            |
 | 4x Nvidia H200         | 92 vCPU       | 1024 GB      | 564 GB          | 12000 GB              | $20.00            |
 | 8x Nvidia H200         | 184 vCPU      | 2048 GB      | 1128 GB         | 24000 GB              | $40.00            |
+| Nvidia RTX PRO 6000    | 23 vCPU       | 256 GB       | 96 GB           | 475 GB                | $2.75             |
+| 2x Nvidia RTX PRO 6000 | 46 vCPU       | 512 GB       | 192 GB          | 950 GB                | $5.50             |
+| 4x Nvidia RTX PRO 6000 | 92 vCPU       | 1024 GB      | 384 GB          | 1900 GB               | $11.00            |
+| 8x Nvidia RTX PRO 6000 | 184 vCPU      | 2048 GB      | 768 GB          | 3800 GB               | $22.00            |
 
 You can also retrieve available hardware and pricing programmatically via the API at `GET /api/jobs/hardware` or via the CLI:
 
