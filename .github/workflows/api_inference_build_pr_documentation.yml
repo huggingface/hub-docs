@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   build:
-    uses: huggingface/doc-builder/.github/workflows/build_pr_documentation.yml@6a5a6d1ecfa094768def72858d14d14e37853449  # huggingface/doc-builder#791 (InferenceSnippet prerender fix; main + 1)
+    uses: huggingface/doc-builder/.github/workflows/build_pr_documentation.yml@bcff59fca682130d2e7271ca8589911b7ac0b8bf  # main
     with:
       commit_sha: ${{ github.event.pull_request.head.sha }}
       pr_number: ${{ github.event.number }}
