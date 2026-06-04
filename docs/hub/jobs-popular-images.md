@@ -4,12 +4,10 @@ Here is the list of ready-to-use Docker images from popular frameworks that you 
 
 These Docker images already have uv installed but if you want to use an image + uv for an image without uv installed you’ll need to make sure uv is installed first. This will work well in many cases but for LLM inference libraries which can have quite specific requirements, it can be useful to use a specific image that has the library installed.
 
-> [!WARNING]
-> By default, `hf jobs uv run` installs your script's dependencies from PyPI and does **not**
-> reuse the libraries already baked into these images. For CUDA-heavy inference libraries
-> (vLLM, FlashInfer, and so on) the naive command can fail at startup. See
-> [Reusing image-baked libraries with `uv run`](#reusing-image-baked-libraries-with-uv-run)
-> below for the workaround.
+> [!TIP]
+> For GPU inference libraries, pass `--image` so the run gets a matching CUDA system stack
+> (toolkit, `nvcc`, libraries) — see [Using framework images for GPU
+> libraries](#using-framework-images-for-gpu-libraries) below.
 
 ## vLLM
 
@@ -23,9 +21,9 @@ Use the `--image` argument to use this Docker image:
 ```
 
 > [!TIP]
-> The `vllm/vllm-openai` image ships prebuilt vLLM and FlashInfer kernels. To use those
-> rather than letting UV reinstall vLLM from PyPI, follow [Reusing image-baked libraries
-> with `uv run`](#reusing-image-baked-libraries-with-uv-run) below.
+> The `vllm/vllm-openai` image bundles the CUDA toolkit and prebuilt vLLM/FlashInfer kernels.
+> Using it is usually all you need; you can also reuse its prebuilt Python builds — see [Using
+> framework images for GPU libraries](#using-framework-images-for-gpu-libraries) below.
 
 You can find more information on vLLM batch inference on Jobs in [Daniel Van Strien's blog post](https://danielvanstrien.xyz/posts/2025/hf-jobs/vllm-batch-inference.html).
 
@@ -39,15 +37,35 @@ Use the `--image` argument to use this Docker image:
 >>> hf jobs uv run --image huggingface/trl --flavor a100-large -s HF_TOKEN train.py
 ```
 
-## Reusing image-baked libraries with `uv run`
+## Using framework images for GPU libraries
 
-When you run a script against one of these images with `hf jobs uv run`, UV builds its own
-isolated environment and installs your `# /// script` dependencies from PyPI — it does
-**not** reuse the libraries already baked into the image. For images that ship prebuilt,
-CUDA-matched builds (vLLM, PyTorch, FlashInfer, and so on) you usually want the opposite:
-reuse the image's copies for faster cold starts and to avoid CUDA/ABI mismatches with the
-image's driver. Two flags do that — point UV at the image's interpreter, and add its
-site-packages to the import path:
+GPU libraries like vLLM need more than their Python package — they need a matching system
+environment: the CUDA toolkit (including `nvcc`), system libraries like NCCL and cuDNN, and so
+on. If you omit `--image`, `hf jobs uv run` uses the default uv image
+(`ghcr.io/astral-sh/uv:python3.12-bookworm`), a bare Python base with no CUDA toolkit. Your
+dependencies still install from PyPI, but at runtime a library that needs the toolkit can fail —
+for example FlashInfer's sampler JIT-compiles a kernel and aborts with:
+
+```text
+RuntimeError: Could not find nvcc and default cuda_home='/usr/local/cuda' doesn't exist
+```
+
+Passing the framework image fixes this — it provides the CUDA toolkit, `nvcc`, and matched
+libraries — and **this is usually all you need**:
+
+```bash
+hf jobs uv run --image vllm/vllm-openai --flavor l4x4 -s HF_TOKEN generate-responses.py
+```
+
+UV still reinstalls your `# /// script` dependencies from PyPI, but they now run against the
+image's system stack, so the framework works.
+
+### Optionally: reuse the image's prebuilt Python builds
+
+These images also ship prebuilt, CUDA-matched builds of the framework itself. To import those
+instead of UV's fresh PyPI install — handy if a PyPI build and the image's CUDA stack disagree
+(an ABI mismatch, or a kernel that won't build) — point UV at the image's interpreter and add
+its site-packages to the import path:
 
 ```bash
 hf jobs uv run \
@@ -59,30 +77,26 @@ hf jobs uv run \
     generate-responses.py
 ```
 
-- `--python` runs the script with the **image's** interpreter instead of one UV provisions
-  itself, keeping ABI compatibility with the image's compiled extensions.
-- `-e PYTHONPATH=...` adds the image's site-packages to the import path **for that UV run**,
-  so `import vllm` resolves to the image's prebuilt build rather than a fresh PyPI install.
+- `--python` uses the **image's** interpreter, keeping ABI compatibility with its compiled extensions.
+- `-e PYTHONPATH=...` makes `import vllm` resolve to the image's prebuilt build for that run.
 
-The exact paths differ per image. Find them with a one-off probe on `cpu-basic` — it prints
-the interpreter path to pass as `--python` and the package directory to pass as `PYTHONPATH`:
+Paths differ per image, so probe them on `cpu-basic` rather than hardcoding:
 
 ```bash
-hf jobs run --flavor cpu-basic vllm/vllm-openai bash -c '
-  which python3
-  python3 -c "import importlib.util, os; print(os.path.dirname(os.path.dirname(importlib.util.find_spec(\"vllm\").origin)))"
-'
+hf jobs run --flavor cpu-basic vllm/vllm-openai bash -c 'which python3; which uv; python3 -m pip show vllm | grep Location'
 ```
 
-(Swap `vllm` for whichever library you're reusing.)
+```text
+/usr/bin/python3                              # pass to --python
+/usr/local/bin/uv                             # uv is present, so `uv run` works
+Location: /usr/local/lib/python3.12/dist-packages   # pass to PYTHONPATH
+```
+
+Swap `vllm` for whichever library you're reusing. Layouts vary — `vllm/vllm-openai` and
+`lmsysorg/sglang` use the system `dist-packages` above, while `unsloth/unsloth` uses a
+virtualenv (`/opt/venv/...`).
 
 > [!TIP]
-> Symptoms of *not* reusing the image's build vary by library. With vLLM, for example, a
-> PyPI-installed copy can fail at startup with `RuntimeError: Could not find nvcc` — its
-> FlashInfer sampler tries to JIT-compile a CUDA kernel the runtime has no compiler for,
-> while the image already ships the prebuilt kernels.
-
-This only applies to `hf jobs uv run`. With generic `hf jobs run <image> python ...`, the
-image's libraries import directly — no `--python` or `PYTHONPATH` needed. There's an
-[open issue in `uv`](https://github.com/astral-sh/uv/issues/7999) to make this less manual
-in future.
+> This pins imports to the image's build; UV still installs your declared dependencies, so it
+> isn't a speed-up. A `uv run --system-site-packages` that would reuse the image's packages and
+> skip the reinstall is [requested upstream](https://github.com/astral-sh/uv/issues/7999).
