@@ -36,8 +36,12 @@
   sections:
   - local: integrations/index
     title: Overview
-  - local: integrations/adding-integration
-    title: Add Your Integration
+  - local: integrations/pi
+    title: Pi
+  - local: integrations/opencode
+    title: OpenCode
+  - local: integrations/codex
+    title: Codex
   - local: integrations/claude-code
     title: Claude Code
   - local: integrations/hermes-agent
@@ -46,14 +50,12 @@
     title: NeMo Data Designer
   - local: integrations/macwhisper
     title: MacWhisper
-  - local: integrations/opencode
-    title: OpenCode
-  - local: integrations/pi
-    title: Pi
   - local: integrations/visionagents
     title: Vision Agents
   - local: integrations/vscode
     title: VS Code with GitHub Copilot
+  - local: integrations/adding-integration
+    title: Add Your Integration
 
 - local: tasks/index
   title: Inference Tasks

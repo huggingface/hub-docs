@@ -8,7 +8,7 @@ Pi natively supports Hugging Face Inference Providers, giving you access to open
 
 ## Prerequisites
 
-- Pi installed (`npm install -g @mariozechner/pi-coding-agent`)
+- Pi installed (`curl -fsSL https://pi.dev/install.sh | sh`)
 - A Hugging Face account with [API token](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) (needs "Make calls to Inference Providers" permission)
 
 ## Configuration
@@ -43,7 +43,7 @@ Alternatively, store it in `~/.pi/agent/auth.json`:
 }
 ```
 
-4. Start pi and run the `/model` command (or press **Ctrl+L**) to open the interactive model selector. You can also press **Ctrl+P** to cycle through your scoped models.
+4. Start pi and run the `/model` command (or press **Ctrl+L**) to open the interactive model selector. You can also press **Ctrl+P** to cycle to the next model.
 
 ### Billing to an Organization
 
@@ -65,5 +65,5 @@ Replace `"your-org-name"` with the name of the organization you want to bill to.
 
 ## Resources
 
-- [Pi Documentation](https://github.com/badlogic/pi-mono)
+- [Pi Documentation](https://pi.dev/docs/latest)
 - [Available models on Inference Providers](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all&sort=trending)
