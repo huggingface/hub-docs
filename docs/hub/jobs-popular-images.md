@@ -57,7 +57,7 @@ libraries — and this is usually all you need:
 hf jobs uv run --image vllm/vllm-openai --flavor l4x4 -s HF_TOKEN generate-responses.py
 ```
 
-UV still reinstalls your `# /// script` dependencies from PyPI, but they now run against the
+UV still reinstalls your script dependencies from PyPI, but they now run against the
 image's system stack, so the framework works.
 
 ### Optionally: reuse the image's prebuilt Python builds
