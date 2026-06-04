@@ -55,6 +55,21 @@ from huggingface_hub import HfApi
 print(HfApi().space_info("namespace/repo").subdomain)
 ```
 
+The Hugging Face CLI can resolve the subdomain and open the session for you:
+
+```shell
+# SSH into the Space's Dev Mode container
+hf spaces ssh username/my-space
+
+# Print the SSH command instead of running it
+hf spaces ssh username/my-space --dry-run
+
+# Use a specific identity file
+hf spaces ssh username/my-space -i ~/.ssh/id_ed25519
+```
+
+Pass `--auto` to enable Dev Mode without prompting if it isn't already running. See the [`hf spaces ssh` CLI reference](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-spaces-ssh) for the full list of options.
+
 You will need to add your machine's SSH public key to [your user account](https://huggingface.co/settings/keys) to be able to connect to the Space using SSH.
 Check out the [Git over SSH](./security-git-ssh#add-a-ssh-key-to-your-account) documentation for more detailed instructions.
 
