@@ -44,6 +44,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   groq: "https://groq.com/",
   "hf-inference": "https://huggingface.co/",
   hyperbolic: "https://hyperbolic.xyz/",
+  "my-cloud-infra": "https://calibration-gentle-constantly-liked.trycloudflare.com/",
   //nebius: "https://nebius.com/",
   novita: "https://novita.ai/",
   nscale: "https://www.nscale.com/",
