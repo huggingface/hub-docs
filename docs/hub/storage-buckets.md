@@ -335,7 +335,7 @@ hf sync ./checkpoints hf://buckets/my-org/training-run-42/checkpoints
 Because buckets are built on [Xet](./xet/index), successive checkpoints where large parts of the model are frozen benefit from chunk-level deduplication. Only the changed chunks are uploaded.
 
 > [!TIP]
-> 🤗 Transformers' [`Trainer`](https://huggingface.co/docs/transformers/trainer_recipes) can push and resume training checkpoints directly to a bucket — no manual `sync` step needed. See the Trainer docs for setup.
+> Transformers' [`Trainer`](https://huggingface.co/docs/transformers/trainer_recipes) can push and resume training checkpoints directly to a bucket — no manual `sync` step needed. See the Trainer docs for setup.
 
 ### Data processing pipelines
 
