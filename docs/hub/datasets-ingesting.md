@@ -87,7 +87,7 @@ If you are ingesting raw data that need further curation before being published 
 If your data already lives in a dataset, model, or Space repository, you can copy it into a bucket **server-side** — no download or re-upload — with `hf buckets cp`:
 
 ```bash
-hf buckets cp hf://datasets/username/my-dataset/ hf://buckets/username/my-bucket/
+hf cp hf://datasets/username/my-dataset/ hf://buckets/username/my-bucket/
 ```
 
 Only the Xet content hashes are migrated, so even very large files copy instantly. See [Copying files between repos and buckets](./storage-buckets#copying-files-between-repos-and-buckets).
