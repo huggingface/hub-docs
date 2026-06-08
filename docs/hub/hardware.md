@@ -4,6 +4,11 @@ Tell the Hub which compute hardware you own (GPUs, CPUs, or Apple Silicon) and i
 
 Manage it any time from your [Hardware settings](https://huggingface.co/settings/hardware).
 
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/hardware-settings-light.png" alt="Hardware settings page in light mode."/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/hardware-settings-dark.png" alt="Hardware settings page in dark mode."/>
+</div>
+
 ## Add your hardware
 
 On your [Hardware settings](https://huggingface.co/settings/hardware) page, add each piece of hardware you own:
