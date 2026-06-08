@@ -117,13 +117,13 @@ Complete working examples, both publishing to [`coyotte508/published-from-github
 | Flavor | Configured on | What you get | Use it to… |
 | --- | --- | --- | --- |
 | **Repo publisher** | A repo's **Settings → Trusted Publishers** | A token with **write access to that one repo** | Publish a model, dataset, Space, or kernel from CI |
-| **User publisher** | Your account's [**CI/CD Access**](https://huggingface.co/settings/trusted-publishers) | A read-only token with the `gated-repos` scope | Read **your** gated repos and use your rate limits from CI |
+| **User publisher** | Your account's [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) | A read-only token with the `gated-repos` scope | Read **your** gated repos and use your rate limits from CI |
 
 Both tokens expire after 60 minutes. You need the **Write** role on a Hub repo to manage its trusted publishers.
 
 ### Accessing gated repos from CI
 
-If you only need to *read* gated repos (e.g. download a model from a job), configure a publisher on your account at [**huggingface.co/settings/trusted-publishers**](https://huggingface.co/settings/trusted-publishers) instead of on a specific repo, then pass your **username** as `resource`:
+If you only need to *read* gated repos (e.g. download a model from a job), configure a publisher on your account under [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) instead of on a specific repo, then pass your **username** as `resource`:
 
 ```bash
 HF_TOKEN=$(curl -sSf -X POST "https://huggingface.co/oauth/token" \
