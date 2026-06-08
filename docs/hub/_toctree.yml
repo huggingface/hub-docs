@@ -181,6 +181,8 @@
     title: Models Download Stats
   - local: model-release-checklist
     title: Model Release Checklist
+  - local: hardware
+    title: Hardware
   - local: local-apps
     title: Local Apps
   - local: models-faq
