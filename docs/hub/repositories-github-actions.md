@@ -2,6 +2,9 @@
 
 You can use [GitHub Actions](https://docs.github.com/en/actions) to automatically sync your GitHub repository to the Hugging Face Hub. The official [`huggingface/hub-sync`](https://github.com/marketplace/actions/sync-github-to-hugging-face-hub) action supports syncing **Models**, **Datasets**, and **Spaces**.
 
+> [!TIP]
+> For keyless publishing — no `HF_TOKEN` secret to store or rotate — see [Trusted Publishers](./trusted-publishers), which exchanges GitHub Actions' built-in OIDC token for a short-lived, repo-scoped Hub token at the start of each run.
+
 ## Setup
 
 1. Create a Hugging Face [access token](https://huggingface.co/settings/tokens) with **write** permission to the target repo. For better security, use a [fine-grained token](https://huggingface.co/settings/tokens) scoped to only the repository you're syncing to.

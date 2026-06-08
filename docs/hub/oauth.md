@@ -109,7 +109,7 @@ The currently supported scopes are:
 - `read-collections`: Get read access to the user's personal collections.
 - `write-collections`: Get write/read access to the user's personal collections. Also grants collection creation and deletion.
 - `inference-api`: Get access to the [Inference Providers](https://huggingface.co/docs/inference-providers/index), you will be able to make inference requests on behalf of the user.
-- `jobs`: Run [jobs](https://huggingface.co/docs/huggingface_hub/main/en/guides/jobs) 
+- `jobs`: Run [jobs](https://huggingface.co/docs/huggingface_hub/main/en/guides/jobs)
 - `webhooks`: Manage [webhooks](https://huggingface.co/docs/huggingface_hub/main/en/guides/webhooks)
 - `write-discussions`: Open discussions and Pull Requests on behalf of the user as well as interact with discussions (including reactions, posting/editing comments, closing discussions, ...). To open Pull Requests on private repos, you need to request the `read-repos` scope as well.
 
@@ -150,6 +150,9 @@ Check out [our badges](https://huggingface.co/datasets/huggingface/badges#sign-i
 > This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise</a> plan.
 
 Token Exchange allows organizations to programmatically issue access tokens for their members without requiring interactive user consent. This is particularly useful for building internal tools, automation pipelines, and enterprise integrations that need to access Hugging Face resources on behalf of organization members.
+
+> [!TIP]
+> If you only need keyless authentication from a CI/CD workflow (GitHub Actions, GitLab CI, CircleCI, …) — without per-member token issuance — see [Trusted Publishers](./trusted-publishers), which also uses `/oauth/token` but takes an OIDC `id_token` minted by your CI provider as the subject token (no Enterprise plan required, no client credentials).
 
 This feature implements [RFC 8693 - OAuth 2.0 Token Exchange](https://www.rfc-editor.org/rfc/rfc8693.html), a standard protocol for token exchange scenarios.
 
