@@ -107,7 +107,7 @@ jobs:
 
 That's it — `huggingface_hub` picks up `HF_TOKEN` from the environment.
 
-Complete working examples, both publishing to [`coyotte508/published-from-github`](https://huggingface.co/coyotte508/published-from-github):
+Complete working examples:
 
 - GitHub Actions — [`github.com/coyotte508/publish-to-hf`](https://github.com/coyotte508/publish-to-hf)
 - GitLab CI — [`gitlab.com/coyotte508/publish-to-hf`](https://gitlab.com/coyotte508/publish-to-hf)
