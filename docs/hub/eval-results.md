@@ -70,7 +70,7 @@ Anyone can submit evaluation results to any model via Pull Request:
 3. Add a `.eval_results/*.yaml` file with your results.
 4. The PR will show as "community-provided" on the model page while open.
 
-For help evaluating a model, see the [Evaluating models with Inspect](https://huggingface.co/docs/inference-providers/guides/evaluation-inspect-ai) guide.
+For help evaluating a model, see the [Evaluating models with Inspect](https://huggingface.co/docs/inference-providers/guides/evaluation-inspect-ai) guide. Evaluation logs from Inspect can be written directly to [HF Storage Buckets](./storage-buckets-integrations#inspect-ai).
 
 > [!TIP]
 > Community scores are visible while the PR is open. If a score is disputed, the model author can close the PR to remove it. The goal is to surface existing evaluation data transparently while building toward a fully reproducible standard via verified scores.
