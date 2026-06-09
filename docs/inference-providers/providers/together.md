@@ -47,7 +47,7 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
-    providersMapping={ {"together":{"modelId":"nvidia/parakeet-tdt-0.6b-v3","providerModelId":"nvidia/parakeet-tdt-0.6b-v3"} } }
+    providersMapping={ {"together":{"modelId":"nvidia/nemotron-3.5-asr-streaming-0.6b","providerModelId":"nvidia/nemotron-3.5-asr-streaming-0.6b"} } }
 />
 
 
