@@ -117,7 +117,7 @@ Complete working examples:
 | Flavor | Configured on | What you get | Use it to… |
 | --- | --- | --- | --- |
 | **Repo publisher** | A repo's **Settings → Trusted Publishers** | A token with **write access to that one repo** | Publish a model, dataset, Space, or kernel from CI |
-| **User publisher** | Your account's [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) | A read-only token with the `gated-repos` scope | Read **your** gated repos and use your rate limits from CI |
+| **User publisher** | Your account's [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) | A read-only token with the `gated-repos` scope | Read **gated repos you have access to** and use your rate limits from CI |
 
 Both tokens expire after 60 minutes. You need the **Write** role on a Hub repo to manage its trusted publishers.
 
@@ -138,7 +138,7 @@ HF_TOKEN=$(curl -sSf -X POST "https://huggingface.co/oauth/token" \
   | jq -r .access_token)
 ```
 
-The resulting token can read your gated repos and uses your account's rate limits. It **cannot** write anything, and **cannot** read your private repos.
+The resulting token can read gated repos you have access to and uses your account's rate limits. It **cannot** write anything, and **cannot** read your private repos.
 
 ## Supported CI providers
 
