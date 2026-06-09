@@ -74,7 +74,7 @@ For example, if your production application needs read access to a gated model, 
 
 ### For CI/CD pipelines
 
-If you only need access from a CI/CD workflow (GitHub Actions, GitLab CI, CircleCI, …), you can avoid storing an access token as a CI secret entirely. See [Trusted Publishers](./trusted-publishers), which exchanges your CI provider's OpenID Connect (OIDC) identity token for a short-lived Hub token at the start of each run — either repo-scoped (to publish models, datasets, Spaces or kernels) or user-scoped (to read your gated repos and get your account's rate limits).
+If you only need access from a CI/CD workflow (GitHub Actions, GitLab CI, CircleCI, …), you can avoid storing an access token as a CI secret entirely. See [Trusted Publishers](./trusted-publishers), which exchanges your CI provider's OpenID Connect (OIDC) identity token for a short-lived Hub token at the start of each run — either repo-scoped (to publish models, datasets, Spaces or kernels) or user-scoped (to read gated repos you have access to and get your account's rate limits).
 
 ### For Enterprise organizations
 
