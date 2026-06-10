@@ -103,9 +103,9 @@ Both tokens expire after 60 minutes. You need the **Write** role on a Hub repo t
 
 ### Accessing gated repos from CI
 
-If you only need to *read* gated repos (e.g. download a model from a job), configure a publisher on your account under [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) instead of on a specific repo, then use your **username** (no slash) as the resource.
+If you only need to *read* gated repos (e.g. download a model from a job), configure a publisher on your account under [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) instead of on a specific repo, then use your **username** as the resource.
 
-On **GitHub Actions**, the `hf` CLI does the exchange for you — just set `HF_OIDC_RESOURCE`:
+On **GitHub Actions**, the `hf` CLI does the exchange for you, just set `HF_OIDC_RESOURCE`:
 
 ```yaml
       - name: Download a gated model
