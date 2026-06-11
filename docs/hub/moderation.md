@@ -16,7 +16,7 @@ To report a repository, you can click the three dots at the top right of a repos
 
 To report a comment, click the three dots at the top right of a comment and select "Report". A modal will appear where you can describe the reason for your report — this will be reviewed by the Hugging Face moderation team.
 
-While submitting the report, you also have the option to **block the comment author** at the same time (see [Blocking a user](#blocking-a-user) below).
+While submitting the report, you also have the option to **block the comment author** at the same time. You can also block a user directly from the comment menu without filing a report — see [Blocking a user](#blocking-a-user) below.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/comment-report.png"/>
@@ -27,7 +27,10 @@ While submitting the report, you also have the option to **block the comment aut
 
 Blocking a user prevents them from interacting with your repositories and other Hub content. When you block someone, any existing follow relationship between you and that user is also removed.
 
-You can block a user from the [comment report modal](#reporting-a-comment). Select "Report" from the comment's menu, fill in your reason, and check **"Yes, block this user"** before submitting.
+There are two ways to block a user from a discussion comment:
+
+- **From the report modal** — select "Report" from the comment's menu, fill in your reason, and check **"Yes, block this user"** before submitting. Use this option if you also want to report the comment to the Hugging Face moderation team. 
+- **Directly from the comment menu** — click the three dots at the top right of a comment written by someone else and select **"Block @username"**. You will be asked to confirm before the block is applied.
 
 > [!NOTE]
 > You must have a confirmed email address on your account to block users.
