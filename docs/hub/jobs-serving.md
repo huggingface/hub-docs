@@ -76,6 +76,19 @@ The same pattern works with any server that speaks HTTP. llama.cpp's `llama-serv
 
 The `--` separates the job's command from `hf jobs run`'s own options — needed here because `llama-server`'s flags would otherwise be parsed by the CLI itself.
 
+> [!TIP]
+> You can skip the model download entirely by mounting the model repo as a read-only volume and pointing the server at the file directly:
+>
+> ```bash
+> >>> hf jobs run --detach --expose 8080 --flavor a10g-small -s HF_TOKEN \
+> ...   -v hf://ggml-org/gemma-4-E4B-it-GGUF:/model:ro \
+> ...   ghcr.io/ggml-org/llama.cpp:server-cuda -- \
+> ...   /app/llama-server --model /model/gemma-4-E4B-it-Q4_K_M.gguf \
+> ...   --host 0.0.0.0 --port 8080 -ngl 99
+> ```
+>
+> The server starts much faster since there is nothing to download — the model streams from the mounted repo as it loads.
+
 > [!WARNING]
 > Your server must listen on `0.0.0.0`. `llama-server` binds to `127.0.0.1` by default, which the jobs proxy can't reach — pass `--host 0.0.0.0` explicitly.
 
