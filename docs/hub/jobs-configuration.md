@@ -287,6 +287,9 @@ Jobs can expose container ports through the public jobs proxy using `--expose <p
 
 This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
 
+> [!NOTE]
+> Exposing ports is a paid service. See the [pricing page](./jobs-pricing) for details on exposed port billing.
+
 ### CLI
 
 ```bash
@@ -303,12 +306,11 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 ### Python
 
 ```python
-from huggingface_hub import run_job
-
-run_job(image="python:3.12", command=["python", "-m", "http.server", "8000"], expose=[8000])
+>>> from huggingface_hub import run_job
+>>> job = run_job(image="python:3.12", command=["python", "-m", "http.server", "8000"], expose=[8000])
+>>> job.status.expose_urls
+['https://6a2ab384c4f53f9fc5aa4d4f--8000.hf.jobs']
 ```
 
 Job responses surface exposed URLs on `JobStatus` via the `expose_urls` field.
 
-> [!NOTE]
-> Exposing ports requires `huggingface_hub` >= 1.19.0. See the [pricing page](./jobs-pricing) for details on exposed port billing.
