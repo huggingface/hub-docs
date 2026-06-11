@@ -28,7 +28,7 @@ On `https://huggingface.co/acme/awesome-model/settings`, open **Trusted Publishe
   - `workflow` = `publish.yml`
 
 > [!TIP]
-> `repository` alone scopes the publisher to a GitHub repo. Add `ref` and/or `workflow` to also pin it to a branch or workflow file — recommended.
+> `repository` alone scopes the publisher to a GitHub repo. Add `branch` and/or `workflow` to also pin it to a branch or workflow file — recommended.
 
 ### 2. Add the workflow to your GitHub repo
 
@@ -186,6 +186,8 @@ No client authentication is needed — the OIDC ID token authenticates the reque
 | `invalid_request` | Missing/malformed parameter, or bad `resource` format. |
 | `invalid_grant` | Repo or user not found; no publisher matches this issuer; configured claims don't match; signature or audience check failed; account locked. |
 
+When the `hf` CLI performs the exchange, a failure surfaces the `error` code along with a `(Request ID: …)` — include that Request ID when reporting an issue so we can trace the exchange in our logs.
+
 </details>
 
 ## Security model
@@ -193,8 +195,8 @@ No client authentication is needed — the OIDC ID token authenticates the reque
 - **Tokens are short-lived.** 60 minutes from the moment of exchange — the clock only starts when you call the endpoint, not when the workflow starts. There's no refresh token; long jobs should re-exchange.
 - **Repo tokens are repo-scoped.** A token for `acme/awesome-model` cannot touch `acme/anything-else`. Pushes are attributed to a synthetic `[OIDC]` system user, with a reference to the originating issuer and subject.
 - **User tokens are read-only.** Only the `gated-repos` scope — no writes, no private repos, no account management.
-- **Claims are matched exactly.** No regex, no prefix matching. `ref = refs/heads/main` will reject `refs/heads/main-backup`.
-- **Audit logs.** Adding or removing a publisher is logged, and successful exchanges update `lastUsedAt`. For security, error descriptions don't reveal which specific check failed.
+- - **Claims are matched exactly.** No regex, no prefix matching.
+- **Audit logs.** Adding or removing a publisher is logged, and successful exchanges update last used time.
 
 ## See also
 
