@@ -64,12 +64,12 @@ Because the token travels in the `Authorization` header, these URLs work from sc
 
 ## Serve GGUF models with llama.cpp
 
-The same pattern works with any server that speaks HTTP. llama.cpp's `llama-server` pulls GGUF files straight from the Hub with the `-hf` flag and serves the same OpenAI-compatible API. For example, to serve [Gemma 4 12B](https://huggingface.co/ggml-org/gemma-4-12B-it-GGUF) with Gemma's recommended sampling settings:
+The same pattern works with any server that speaks HTTP. llama.cpp's `llama-server` pulls GGUF files straight from the Hub with the `-hf` flag and serves the same OpenAI-compatible API. For example, to serve [Gemma 4 E4B](https://huggingface.co/ggml-org/gemma-4-E4B-it-GGUF) with Gemma's recommended sampling settings:
 
 ```bash
 >>> hf jobs run --detach --expose 8080 --flavor a10g-small -s HF_TOKEN \
 ...   ghcr.io/ggml-org/llama.cpp:server-cuda -- \
-...   /app/llama-server -hf ggml-org/gemma-4-12B-it-GGUF \
+...   /app/llama-server -hf ggml-org/gemma-4-E4B-it-GGUF \
 ...   --host 0.0.0.0 --port 8080 -ngl 99 \
 ...   --temp 1.0 --top-p 0.95 --top-k 64
 ```
