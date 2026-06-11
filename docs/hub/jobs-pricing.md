@@ -59,6 +59,16 @@ You can also retrieve available hardware and pricing programmatically via the AP
 >>> hf jobs hardware
 ```
 
+### Exposed ports
+
+A Job can expose a port to make it reachable from the outside while it is running. Exposing a port is billed at a flat rate per Job, in addition to the hardware price:
+
+| **Product**            | **Hourly Price**  |
+|----------------------- | ----------------- |
+| Exposed port           | $0.01             |
+
+Like hardware, it is billed by the minute, only while the Job is Starting or Running.
+
 ## Manage billing
 
 ### Bill to your organization
