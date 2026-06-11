@@ -336,6 +336,9 @@ hf sync ./checkpoints hf://buckets/my-org/training-run-42/checkpoints
 
 Because buckets are built on [Xet](./xet/index), successive checkpoints where large parts of the model are frozen benefit from chunk-level deduplication. Only the changed chunks are uploaded.
 
+> [!TIP]
+> Transformers' [`Trainer`](https://huggingface.co/docs/transformers/trainer_recipes) can push and resume training checkpoints directly to a bucket — no manual `sync` step needed. See the Trainer docs for setup.
+
 ### Data processing pipelines
 
 Buckets serve as staging areas for data processing workflows. Process raw data, write intermediate outputs to a bucket, then promote the final artifact to a versioned [Dataset](./datasets) repository when the pipeline completes. This keeps your versioned repo clean while giving your pipeline fast mutable storage.
