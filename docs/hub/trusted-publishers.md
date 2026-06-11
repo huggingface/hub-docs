@@ -52,60 +52,40 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - run: pip install --upgrade "huggingface_hub>=1.18.0"
 
-      - name: Exchange GitHub OIDC token for a Hub token
+      - name: Install the hf CLI
         run: |
-          set -euo pipefail
-
-          # The HF repo to publish to. For non-model repos, prefix accordingly:
-          #   datasets/acme/awesome-dataset, spaces/acme/awesome-space, kernels/acme/awesome-kernel
-          RESOURCE="acme/awesome-model"
-
-          ID_TOKEN=$(curl -sSf \
-            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=https://huggingface.co" \
-            | jq -r .value)
-
-          HEADERS=$(mktemp); BODY=$(mktemp)
-          STATUS=$(curl -sS -D "$HEADERS" -o "$BODY" -w '%{http_code}' \
-            -X POST "https://huggingface.co/oauth/token" \
-            -H "Content-Type: application/json" \
-            -d "$(jq -n --arg t "$ID_TOKEN" --arg r "$RESOURCE" \
-                  '{
-                    grant_type:         "urn:ietf:params:oauth:grant-type:token-exchange",
-                    subject_token_type: "urn:ietf:params:oauth:token-type:id_token",
-                    subject_token:      $t,
-                    resource:           $r
-                  }')")
-
-          if [ "$STATUS" -ne 200 ]; then
-            REQUEST_ID=$(grep -i '^x-request-id:' "$HEADERS" | sed 's/.*: *//' | tr -d '\r')
-            echo "::error::Token exchange failed with HTTP $STATUS (x-request-id: ${REQUEST_ID:-unknown})"
-            cat "$BODY"
-            exit 1
-          fi
-
-          HF_TOKEN=$(jq -r .access_token "$BODY")
-          echo "::add-mask::$HF_TOKEN"
-          # Safe way to write to env
-          DELIM="EOF_$(openssl rand -hex 16)"
-          {
-            echo "HF_TOKEN<<$DELIM"
-            echo "$HF_TOKEN"
-            echo "$DELIM"
-          } >> "$GITHUB_ENV"
+          curl -LsSf https://hf.co/cli/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
       - name: Upload checkpoint
-        run: |
-          hf upload acme/awesome-model ./checkpoint . \
-            --commit-message "Publish from ${GITHUB_SHA::7}"
+        env:
+          # The HF repo to publish to. For non-model repos, prefix accordingly:
+          #   datasets/acme/awesome-dataset, spaces/acme/awesome-space, kernels/acme/awesome-kernel
+          HF_OIDC_RESOURCE: acme/awesome-model
+        run: hf upload acme/awesome-model ./checkpoint . --commit-message "Publish from ${GITHUB_SHA::7}"
 ```
 
-That's it — `huggingface_hub` picks up `HF_TOKEN` from the environment.
+That's it. On GitHub Actions, the `hf` CLI (`huggingface_hub>=1.19.0`) detects the provider, performs the exchange, and uses the resulting token automatically. You only set `HF_OIDC_RESOURCE`.
+
+> [!TIP]
+> Publishing to several repos in one run (e.g. a model **and** a dataset)? Set `HF_OIDC_RESOURCE` per step so each token is scoped to the repo that step pushes to.
+
+#### Other CI providers
+
+The `hf` CLI mints the ID token natively on GitHub Actions only for now. On GitLab, CircleCI, Bitbucket, or any other provider, mint the ID token yourself (see [Supported CI providers](#supported-ci-providers)) and pass it via `HF_OIDC_ID_TOKEN` — the CLI exchanges it directly:
+
+```yaml
+# GitLab CI (.gitlab-ci.yml)
+publish:
+  id_tokens:
+    HF_ID_TOKEN:
+      aud: https://huggingface.co
+  script:
+    - curl -LsSf https://hf.co/cli/install.sh | bash
+    - export PATH="$HOME/.local/bin:$PATH"
+    - HF_OIDC_ID_TOKEN="$HF_ID_TOKEN" HF_OIDC_RESOURCE="acme/awesome-model" hf upload acme/awesome-model ./checkpoint .
+```
 
 Complete working examples:
 
@@ -123,19 +103,22 @@ Both tokens expire after 60 minutes. You need the **Write** role on a Hub repo t
 
 ### Accessing gated repos from CI
 
-If you only need to *read* gated repos (e.g. download a model from a job), configure a publisher on your account under [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) instead of on a specific repo, then pass your **username** as `resource`:
+If you only need to *read* gated repos (e.g. download a model from a job), configure a publisher on your account under [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) instead of on a specific repo, then use your **username** as the resource.
+
+On **GitHub Actions**, the `hf` CLI does the exchange for you, just set `HF_OIDC_RESOURCE`:
+
+```yaml
+      - name: Download a gated model
+        env:
+          HF_OIDC_RESOURCE: your-hf-username
+        run: hf download acme/gated-model
+```
+
+On **other providers**, mint the ID token yourself (see [Other CI providers](#other-ci-providers)) and pass it via `HF_OIDC_ID_TOKEN`:
 
 ```bash
-HF_TOKEN=$(curl -sSf -X POST "https://huggingface.co/oauth/token" \
-  -H "Content-Type: application/json" \
-  -d "$(jq -n --arg t "$ID_TOKEN" --arg r "your-hf-username" \
-        '{
-          grant_type:         "urn:ietf:params:oauth:grant-type:token-exchange",
-          subject_token_type: "urn:ietf:params:oauth:token-type:id_token",
-          subject_token:      $t,
-          resource:           $r
-        }')" \
-  | jq -r .access_token)
+# $ID_TOKEN is the OIDC token your provider minted (e.g. $HF_ID_TOKEN on GitLab)
+HF_OIDC_ID_TOKEN="$ID_TOKEN" HF_OIDC_RESOURCE="your-hf-username" hf download acme/gated-model
 ```
 
 The resulting token can read gated repos you have access to and uses your account's rate limits. It **cannot** write anything, and **cannot** read your private repos.
