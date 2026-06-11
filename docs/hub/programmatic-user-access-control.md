@@ -422,7 +422,7 @@ For a long list of usernames, chunk them (e.g. 50 per request) and call the API 
 
 ## Configure auto-join via API
 
-[Auto-join](./security-resource-groups#auto-join) automatically adds every org member to a Resource Group at a specified role. You can enable or disable it via the API.
+[Auto-join](./security-resource-groups#auto-join) automatically adds org members to a Resource Group at a specified role. You can enable or disable it via the API, and optionally choose whether to include every org member or only Read+ members.
 
 **Enable auto-join**
 
@@ -434,7 +434,8 @@ Content-Type: application/json
 {
   "autoJoin": {
     "enabled": true,
-    "role": "read"
+    "role": "read",
+    "scope": "read_plus"
   }
 }
 ```
@@ -443,9 +444,10 @@ Content-Type: application/json
   - `org_name`: Organization slug (e.g. `my-org`).
   - `resource_group_id`: The Resource Group's ID (24-character hex string; get IDs from the [list resource groups endpoint](#list-resource-groups)).
 - **Body**
-  - `role`: The role to assign to all org members. One of `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+  - `role`: The role to assign to automatically added members. One of `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+  - `scope` (optional): Which org members to add automatically. Use `"all"` to include every org member. Use `"read_plus"` to exclude members with the `no_access` organization role. Defaults to `"all"` when omitted.
 
-Enabling auto-join on an existing Resource Group immediately adds all current org members (backfill).
+Enabling auto-join on an existing Resource Group immediately adds current org members matching the selected scope (backfill).
 
 **Disable auto-join**
 
