@@ -11,6 +11,11 @@ Because a service account is decoupled from any individual, it keeps automated w
 
 As an organization administrator, go to the **Service Accounts** section of your organization settings to create and manage service accounts.
 
+<div class="flex justify-center">
+  <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-create.png" alt="Creating a new service account from the organization settings."/>
+  <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-service-account-create.png" alt="Creating a new service account from the organization settings."/>
+</div>
+
 When creating a service account, you provide:
 
 - A **name** to identify the service account.
@@ -21,6 +26,11 @@ Service accounts do not have a password and cannot sign in interactively — the
 ## Managing Access Tokens
 
 A service account's access to your organization is defined entirely by the fine-grained access tokens you issue to it. For each token, you choose a name and a set of fine-grained permissions, so you can grant only the access a given workflow needs.
+
+<div class="flex justify-center">
+  <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-create-token.png" alt="Creating a new access token with fine-grained permissions for a service account."/>
+  <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-service-account-create-token.png" alt="Creating a new access token with fine-grained permissions for a service account."/>
+</div>
 
 From the service account's page, administrators can:
 
