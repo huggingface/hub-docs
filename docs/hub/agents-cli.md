@@ -37,7 +37,7 @@ Alternatively, you can install via the Claude Code plugin system:
 ```bash
 claude
 /plugin marketplace add huggingface/skills
-/plugin install hf-cli@huggingface/skills
+/plugin install hf-cli@huggingface-skills
 ```
 
 ## Resources
