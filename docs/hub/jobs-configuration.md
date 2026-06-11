@@ -213,6 +213,39 @@ l40sx4           4x Nvidia L40S          48 vCPU   382 GB   3200 GB   4x L40S (1
 l40sx8           8x Nvidia L40S          192 vCPU  1534 GB  6500 GB   8x L40S (384 GB)          $0.3917   $23.50
 ```
 
+## Expose Ports
+
+Jobs can expose container ports through the public jobs proxy using `--expose <port>` (CLI) or `expose=[<port>]` (Python API). Each exposed port is reachable at `https://<job_id>--<port>.hf.jobs` and requires an HF token with `read` access to the job's namespace.
+
+This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
+
+> [!NOTE]
+> Exposing ports is a paid service. See the [pricing page](./jobs-pricing) for details on exposed port billing.
+
+### CLI
+
+```bash
+# Expose a web server running on port 8000
+>>> hf jobs run --expose 8000 python:3.12 python -m http.server 8000
+✓ Job started
+  id: 6a2aa7cec4f53f9fc5aa4cff
+  url: https://huggingface.co/jobs/Wauplin/6a2aa7cec4f53f9fc5aa4cff
+Hint: Exposed ports are reachable at (requires an HF token with read access to the job):
+  https://6a2aa7cec4f53f9fc5aa4cff--8000.hf.jobs
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+```
+
+### Python
+
+```python
+>>> from huggingface_hub import run_job
+>>> job = run_job(image="python:3.12", command=["python", "-m", "http.server", "8000"], expose=[8000])
+>>> job.status.expose_urls
+['https://6a2ab384c4f53f9fc5aa4d4f--8000.hf.jobs']
+```
+
+Job responses surface exposed URLs on `JobStatus` via the `expose_urls` field.
+
 ## Timeout
 
 Jobs have a default timeout (30 minutes), after which they will automatically stop. This is important to know when running long-running tasks like model training.
@@ -280,37 +313,3 @@ hf jobs uv run --label fine-tuning --label model=Qwen3-0.6B --label dataset=Capy
 ```
 
 Note that using the same `key` multiple times causes the last `key=value` to overwrite and discard any previous label with `key`.
-
-## Expose Ports
-
-Jobs can expose container ports through the public jobs proxy using `--expose <port>` (CLI) or `expose=[<port>]` (Python API). Each exposed port is reachable at `https://<job_id>--<port>.hf.jobs` and requires an HF token with `read` access to the job's namespace.
-
-This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
-
-> [!NOTE]
-> Exposing ports is a paid service. See the [pricing page](./jobs-pricing) for details on exposed port billing.
-
-### CLI
-
-```bash
-# Expose a web server running on port 8000
->>> hf jobs run --expose 8000 python:3.12 python -m http.server 8000
-✓ Job started
-  id: 6a2aa7cec4f53f9fc5aa4cff
-  url: https://huggingface.co/jobs/Wauplin/6a2aa7cec4f53f9fc5aa4cff
-Hint: Exposed ports are reachable at (requires an HF token with read access to the job):
-  https://6a2aa7cec4f53f9fc5aa4cff--8000.hf.jobs
-Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-```
-
-### Python
-
-```python
->>> from huggingface_hub import run_job
->>> job = run_job(image="python:3.12", command=["python", "-m", "http.server", "8000"], expose=[8000])
->>> job.status.expose_urls
-['https://6a2ab384c4f53f9fc5aa4d4f--8000.hf.jobs']
-```
-
-Job responses surface exposed URLs on `JobStatus` via the `expose_urls` field.
-
