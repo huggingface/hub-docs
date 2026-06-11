@@ -280,3 +280,35 @@ hf jobs uv run --label fine-tuning --label model=Qwen3-0.6B --label dataset=Capy
 ```
 
 Note that using the same `key` multiple times causes the last `key=value` to overwrite and discard any previous label with `key`.
+
+## Expose Ports
+
+Jobs can expose container ports through the public jobs proxy using `--expose <port>` (CLI) or `expose=[<port>]` (Python API). Each exposed port is reachable at `https://<job_id>--<port>.hf.jobs` and requires an HF token with `read` access to the job's namespace.
+
+This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
+
+### CLI
+
+```bash
+# Expose a web server running on port 8000
+>>> hf jobs run --expose 8000 python:3.12 python -m http.server 8000
+✓ Job started
+  id: 6a2aa7cec4f53f9fc5aa4cff
+  url: https://huggingface.co/jobs/Wauplin/6a2aa7cec4f53f9fc5aa4cff
+Hint: Exposed ports are reachable at (requires an HF token with read access to the job):
+  https://6a2aa7cec4f53f9fc5aa4cff--8000.hf.jobs
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+```
+
+### Python
+
+```python
+from huggingface_hub import run_job
+
+run_job(image="python:3.12", command=["python", "-m", "http.server", "8000"], expose=[8000])
+```
+
+Job responses surface exposed URLs on `JobStatus` via the `expose_urls` field.
+
+> [!NOTE]
+> Exposing ports requires `huggingface_hub` >= 1.19.0. See the [pricing page](./jobs-pricing) for details on exposed port billing.
