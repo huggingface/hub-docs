@@ -29,8 +29,8 @@ Blocking a user prevents them from interacting with your repositories and other 
 
 There are two ways to block a user from a discussion comment:
 
-- **Directly from the comment menu** — click the three dots at the top right of a comment written by someone else and select **"Block @username"**. You will be asked to confirm before the block is applied.
 - **From the report modal** — select "Report" from the comment's menu, fill in your reason, and check **"Yes, block this user"** before submitting. Use this option if you also want to report the comment to the Hugging Face moderation team. 
+- **Directly from the comment menu** — click the three dots at the top right of a comment written by someone else and select **"Block @username"**. You will be asked to confirm before the block is applied.
 
 > [!NOTE]
 > You must have a confirmed email address on your account to block users.
