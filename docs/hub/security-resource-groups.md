@@ -54,7 +54,7 @@ Remember that a repository can be part of only one Resource Group. You'll be war
 
 ## Auto-join
 
-Auto-join automatically adds **org member** to a Resource Group at a specified role — both members who are already in the org when auto-join is enabled, and any new members who join in the future.
+Auto-join automatically adds **org members** to a Resource Group at a specified role — both members who are already in the org when auto-join is enabled, and any new members who join in the future.
 
 This is useful for Resource Groups that should be accessible to your entire organization without requiring manual membership management.
 
