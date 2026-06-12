@@ -59,6 +59,16 @@ You can also retrieve available hardware and pricing programmatically via the AP
 >>> hf jobs hardware
 ```
 
+### Exposed ports
+
+A Job can [expose one or more ports](./jobs-configuration#docker-jobs) to make them reachable from the outside while the Job is running. Exposing one or more ports is billed at a flat rate per Job, in addition to the hardware price:
+
+| **Product**   | **Hourly Price**  |
+|---------------| ----------------- |
+| Exposed ports | $0.01             |
+
+Like hardware, it is billed by the minute, only while the Job is Starting or Running.
+
 ## Manage billing
 
 ### Bill to your organization
