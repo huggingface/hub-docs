@@ -290,6 +290,26 @@ ssh 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
 
 Then connect from a terminal with `hf jobs ssh <job_id>`, or directly with `ssh <job_id>@ssh.hf.jobs`.
 
+### Port forwarding
+
+Since this is a regular SSH connection, you can use SSH's `-L` and `-R` flags to forward ports between your machine and the Job. Connect directly with `ssh` (use `hf jobs ssh <job_id> --dry-run` to get the exact destination) and add the forwarding flags.
+
+Use `-L` (local forwarding) to access a service running inside the Job from your machine. For example, to reach a TensorBoard started in a training Job:
+
+```bash
+# Forward local port 6006 to the Job's TensorBoard on port 6006
+>>> ssh -L 6006:localhost:6006 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
+```
+
+Then open [http://localhost:6006](http://localhost:6006) in your browser.
+
+Use `-R` (remote forwarding) to let the Job access a service running on your machine. For example, to expose a local database or API to the Job:
+
+```bash
+# Make your local port 8080 reachable from inside the Job on port 8080
+>>> ssh -R 8080:localhost:8080 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
+```
+
 ## Timeout
 
 Jobs have a default timeout (30 minutes), after which they will automatically stop. This is important to know when running long-running tasks like model training.
