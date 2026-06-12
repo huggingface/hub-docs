@@ -21,7 +21,7 @@ When creating a service account, you provide:
 - A **name** to identify the service account.
 - An optional **description** to document what the service account is used for.
 
-Service accounts do not have a password and cannot sign in interactively — they are accessed exclusively through the access tokens you issue for them. They are also hidden from the organization's public member list and are managed only from the **Service Accounts** settings, not from the **Members** settings.
+Service accounts do not have a password and cannot sign in interactively — they are accessed exclusively through the access tokens you issue for them. Unlike regular users, they also don't have an HF profile page, aren't part of the organization's member list, and are managed only through the **Service Accounts** settings.
 
 ## Managing Access Tokens
 
@@ -44,4 +44,4 @@ From the service account's page, administrators can:
 
 ## Billing
 
-Service accounts are not counted as billable members of your organization, so creating them does not consume a paid seat in your subscription.
+Service accounts are not counted as billable members of your organization, so creating them does not consume a paid seat in your plan.
