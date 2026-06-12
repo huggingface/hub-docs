@@ -1,7 +1,7 @@
 # Service Accounts
 
 > [!WARNING]
-> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> and <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plans.
 
 Service accounts are organization-owned identities designed for programmatic access to your organization's resources, such as CI/CD pipelines, automation scripts, and backend integrations. Unlike a personal member account, a service account is not tied to an individual person: it belongs to the organization and is managed by its administrators.
 
