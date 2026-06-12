@@ -16,6 +16,7 @@ With Academia Hub, you get **an all-in-one subscription to the Hugging Face Hub 
 
 <div class="flex flex-wrap justify-center items-center gap-8 my-8">
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/Zurich.png" alt="ETH Zurich logo" class="h-24 object-contain"/>
+  <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/cmu-logo.png" alt="CMU logo" class="h-24 object-contain"/>
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/ESCP_LOGO_CMJN.png" alt="ESCP Business School logo" class="h-24 object-contain"/>
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/The_2025_MBZUAI_logo.png" alt="MBZUAI logo" class="h-24 object-contain"/>
   <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/academia-hub/epita.png" alt="EPITA logo" class="h-24 object-contain"/>
