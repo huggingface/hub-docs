@@ -120,4 +120,14 @@ An administrator cannot revoke their own token (`LEAKED_HF_TOKEN` cannot have th
 
 ## Programmatic Token Issuance
 
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
+
 For organizations that need to programmatically issue access tokens for their members (e.g., for internal platforms, CI/CD pipelines, or custom integrations), see [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693). This Enterprise plan feature allows your backend services to issue scoped tokens for organization members without requiring interactive user consent.
+
+## Service Accounts
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
+
+For automated access that is owned by the organization rather than an individual member, administrators can create [Service Accounts](./enterprise-service-accounts) and issue fine-grained tokens scoped to your organization's resources.
