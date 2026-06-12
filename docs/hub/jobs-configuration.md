@@ -215,7 +215,11 @@ l40sx8           8x Nvidia L40S          192 vCPU  1534 GB  6500 GB   8x L40S (3
 
 ## Expose Ports
 
-Jobs can expose container ports through the public jobs proxy using `--expose <port>` (CLI) or `expose=[<port>]` (Python API). Each exposed port is reachable at `https://<job_id>--<port>.hf.jobs` and requires an HF token with `read` access to the job's namespace.
+Jobs can expose container ports through the public jobs proxy using `--expose <port>` (CLI) or `expose=[<port>]` (Python API). Each exposed port is reachable at `https://<job_id>--<port>.hf.jobs` and requires an HF token with `read` access to the job's namespace:
+
+```bash
+curl -H "Authorization: Bearer $HF_TOKEN" https://<job_id>--<port>.hf.jobs/
+```
 
 This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants. Repeat the flag to expose multiple ports (`--expose 8000 --expose 8001`), or pass several ports in the list (`expose=[8000, 8001]`).
 
