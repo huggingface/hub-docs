@@ -250,12 +250,9 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 
 ## SSH
 
-You can open an interactive SSH session into a running Job to debug, inspect, or work directly inside the container. Enable it with `--ssh` (CLI) or `ssh=True` (Python API), then connect with `hf jobs ssh <job_id>`.
+You can open an interactive SSH session into a running Job to debug, inspect, or work directly inside the container. Enable it at job creation with `--ssh` (CLI) or `ssh=True` (Python API), then connect with `hf jobs ssh <job_id>`.
 
-Only users with write access to the Job's namespace are allowed in (the Job creator, or members of the owner organization), authenticated by an SSH public key registered at [https://huggingface.co/settings/keys](https://huggingface.co/settings/keys).
-
-> [!NOTE]
-> SSH access is **not billed** on top of the Job's hardware price.
+Only users with write access to the Job's namespace are allowed in (i.e. the Job creator, or members of the owner organization), authenticated by an SSH public key registered at [https://huggingface.co/settings/keys](https://huggingface.co/settings/keys).
 
 SSH is available on `hf jobs run` and `hf jobs uv run`. It is not supported for scheduled jobs.
 
