@@ -54,21 +54,30 @@ Remember that a repository can be part of only one Resource Group. You'll be war
 
 ## Auto-join
 
-Auto-join automatically adds **every org member** to a Resource Group at a specified role — both members who are already in the org when auto-join is enabled, and any new members who join in the future.
+Auto-join automatically adds **org members** to a Resource Group at a specified role — both members who are already in the org when auto-join is enabled, and any new members who join in the future.
 
 This is useful for Resource Groups that should be accessible to your entire organization without requiring manual membership management.
 
 ### Enabling auto-join
 
-**Via the UI**: Open the Resource Group's settings page and check the **Include all org members** option, then select the role to assign.
+**Via the UI**: Open the Resource Group's settings page and check the **Auto-include org members** option, then select the role to assign.
 
 **Via the API**: See [Configure auto-join via API](./programmatic-user-access-control#configure-auto-join-via-api).
 
-When auto-join is enabled on an existing Resource Group, all current org members are **immediately added** to the group at the configured role (backfill).
+When auto-join is enabled on an existing Resource Group, current org members matching the selected scope are **immediately added** to the group at the configured role (backfill).
+
+### Auto-join scope
+
+Auto-join can apply to:
+
+- **All org members**: Include every member, including members with the `no_access` organization role.
+- **Read+ members only**: Exclude members with the `no_access` organization role.
+
+Use **Read+ members only** when `no_access` members should keep access only to the specific Resource Groups where they are added manually or through another provisioning flow.
 
 ### Auto-join and SCIM
 
-Auto-join and SCIM management are **mutually exclusive** on the same Resource Group. Auto-join adds every org member automatically; SCIM management means only the IdP controls membership. These two behaviors conflict, so:
+Auto-join and SCIM management are **mutually exclusive** on the same Resource Group. Auto-join adds org members automatically; SCIM management means only the IdP controls membership. These two behaviors conflict, so:
 
 - You cannot enable auto-join on a Resource Group that is linked to a SCIM group.
 - You cannot link a SCIM group to a Resource Group that has auto-join enabled.
