@@ -248,6 +248,51 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 ['https://6a2ab384c4f53f9fc5aa4d4f--8000.hf.jobs']
 ```
 
+## SSH
+
+You can open an interactive SSH session into a running Job to debug, inspect, or work directly inside the container. Enable it with `--ssh` (CLI) or `ssh=True` (Python API), then connect with `hf jobs ssh <job_id>`.
+
+Only users with write access to the Job's namespace are allowed in (the Job creator, or members of the owner organization), authenticated by an SSH public key registered at [https://huggingface.co/settings/keys](https://huggingface.co/settings/keys).
+
+> [!NOTE]
+> SSH access is **not billed** on top of the Job's hardware price.
+
+SSH is available on `hf jobs run` and `hf jobs uv run`. It is not supported for scheduled jobs.
+
+### CLI
+
+```bash
+# Start a job with SSH enabled
+>>> hf jobs run --ssh --detach --timeout 10m python:3.12 sleep infinity
+✓ Job started
+  id: 6a2bd1f1871c005b5352ad31
+  url: https://huggingface.co/jobs/Wauplin/6a2bd1f1871c005b5352ad31
+Hint: Use `hf jobs ssh 6a2bd1f1871c005b5352ad31` to open an SSH session into the job.
+
+# Open an SSH session into the job
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31
+```
+
+You can also print the SSH command without running it (`--dry-run`), or pass a specific identity file (`-i`/`--identity-file`):
+
+```bash
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31 --dry-run
+ssh 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
+
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31 -i ~/.ssh/id_ed25519
+```
+
+### Python
+
+```python
+>>> from huggingface_hub import run_job
+>>> job = run_job(image="python:3.12", command=["sleep", "infinity"], ssh=True)
+>>> job.status.ssh_url
+'ssh://6a2bd1f1871c005b5352ad31@ssh.hf.jobs'
+```
+
+Then connect from a terminal with `hf jobs ssh <job_id>`, or directly with `ssh <job_id>@ssh.hf.jobs`.
+
 ## Timeout
 
 Jobs have a default timeout (30 minutes), after which they will automatically stop. This is important to know when running long-running tasks like model training.
