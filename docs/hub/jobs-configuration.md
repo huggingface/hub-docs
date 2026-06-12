@@ -220,7 +220,7 @@ Jobs can expose container ports through the public jobs proxy using `--expose <p
 This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
 
 > [!NOTE]
-> Exposing ports is a paid service. See the [pricing page](./jobs-pricing) for details on exposed port billing.
+> Exposed ports are billed at a small flat hourly rate on top of the job's hardware price, only while the job is running. See the [pricing page](./jobs-pricing) for details.
 
 ### CLI
 
