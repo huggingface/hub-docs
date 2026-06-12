@@ -27,6 +27,10 @@ The [uv-scripts](https://huggingface.co/uv-scripts) organization maintains a col
 
 The [hugging-face-jobs skill](https://github.com/huggingface/skills/tree/main/skills/hugging-face-jobs) lets coding agents like Claude Code and Cursor submit and monitor Jobs directly from your editor.
 
+## Sandboxes
+
+The [expose ports](./jobs-configuration#expose-ports) feature of Jobs makes them a great fit for building sandboxes, i.e. temporary self-contained environments used by agents and LLM applications.
+
 ## Community Tutorials and Projects
 
 - [Train on massive datasets without downloading](https://danielvanstrien.xyz/posts/2026/hf-streaming-unsloth/train-massive-datasets-without-downloading.html) - Stream datasets directly on Jobs with Unsloth, no local storage needed
