@@ -49,6 +49,6 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"publicai":{"modelId":"swiss-ai/Apertus-8B-Instruct-2509","providerModelId":"swiss-ai/apertus-8b-instruct"} } }
+    providersMapping={ {"publicai":{"modelId":"utter-project/EuroLLM-22B-Instruct-2512","providerModelId":"utter-project/EuroLLM-22B-Instruct-2512"} } }
 conversational />
 
