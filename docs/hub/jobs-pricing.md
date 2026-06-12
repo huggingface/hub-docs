@@ -61,7 +61,7 @@ You can also retrieve available hardware and pricing programmatically via the AP
 
 ### Exposed ports
 
-A Job can [expose one or more ports](./jobs-configuration#docker-jobs) to make them reachable from the outside while the Job is running. Exposing one or more ports is billed at a flat rate per Job, in addition to the hardware price:
+A Job can [expose one or more ports](./jobs-configuration#expose-ports) to make them reachable from the outside while the Job is running. Exposing one or more ports is billed at a flat rate per Job, in addition to the hardware price:
 
 | **Product**   | **Hourly Price**  |
 |---------------| ----------------- |
