@@ -70,7 +70,7 @@ Find out more about Feature Extraction [here](../tasks/feature-extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"microsoft/harrier-oss-v1-0.6b","providerModelId":"microsoft/harrier-oss-v1-0.6b"} } }
+    providersMapping={ {"hf-inference":{"modelId":"ibm-granite/granite-embedding-97m-multilingual-r2","providerModelId":"ibm-granite/granite-embedding-97m-multilingual-r2"} } }
 />
 
 
@@ -180,7 +180,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"Babelscape/wikineural-multilingual-ner","providerModelId":"Babelscape/wikineural-multilingual-ner"} } }
+    providersMapping={ {"hf-inference":{"modelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1","providerModelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1"} } }
 />
 
 
