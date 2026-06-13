@@ -21,6 +21,7 @@ Here is a partial list of libraries and applications that use this cache layout.
 | [`llama.cpp`](https://github.com/ggml-org/llama.cpp) | C++ | Since [#20775](https://github.com/ggml-org/llama.cpp/pull/20775) |
 | [`LlamaBarn`](https://github.com/ggml-org/LlamaBarn) | Swift | macOS app, built on `llama.cpp` |
 | [`HuggingFaceModelDownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) | Go | |
+| [`oMLX`](https://github.com/jundot/omlx) | Python | macOS MLX inference server, Since [v0.4.0](https://github.com/jundot/omlx/commit/341aebbeaba1ca3452f83dedf03a0d102cef9fd4) |
 
 ## Cache location
 
