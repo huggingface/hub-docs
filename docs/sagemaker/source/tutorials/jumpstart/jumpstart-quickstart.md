@@ -13,14 +13,15 @@ In this quickstart guide, we will deploy [Qwen/Qwen2.5-14B-Instruct](https://hug
 | AWS account with SageMaker enabled | An AWS account that will contain all your AWS resources. |
 | An IAM role to access SageMaker AI | Learn more about how IAM works with SageMaker AI in this [guide](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam.html). |
 | SageMaker Studio domain and user profile | We recommend using SageMaker Studio for straightforward deployment and inference. Follow this [guide](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-quick-start.html). |
-| Service quotas | Most LLMs need GPU instances (e.g. ml.g5). Verify you have quota for `ml.g5.24xlarge` or [request it](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-requesting-quota-increases.html). | 
+| Service quotas | Most LLMs need GPU instances (e.g. ml.g5). Verify you have quota for `ml.g5.24xlarge` or [request it](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-requesting-quota-increases.html). |
 
-> [!WARNING]
-> [SageMaker Python SDK v3 has been recently released](https://github.com/aws/sagemaker-python-sdk), so unless specified otherwise, all the documentation and tutorials are still using the [SageMaker Python SDK v2](https://github.com/aws/sagemaker-python-sdk/tree/master-v2). We are actively working on updating all the tutorials and examples, but in the meantime make sure to install the SageMaker SDK as `pip install "sagemaker<3.0.0"`.
+> [!NOTE]
+> These docs and examples use the [SageMaker Python SDK v3](https://github.com/aws/sagemaker-python-sdk), which introduces a new framework-agnostic API built around `ModelBuilder` (inference) and `ModelTrainer` (training), replacing the v2 `HuggingFaceModel` and `HuggingFace` classes. Install it with `pip install "sagemaker>=3.0.0"`.
 
-## 2· Endpoint deployment
+## 2. Endpoint deployment
 
 Let's explain how you would deploy a Hugging Face model to SageMaker browsing through the Jumpstart catalog:
+
 1. Open SageMaker → JumpStart.  
 2. Filter “Hugging Face” or search for your model (e.g. Qwen2.5-14B).  
 3. Click Deploy → (optional) adjust instance size / count → Deploy.  
@@ -32,29 +33,38 @@ Let's explain how you would deploy a Hugging Face model to SageMaker browsing th
      width="500">
 
 Alternatively, you can also browse through the Hugging Face Model Hub:
+
 1. Open the model page → Click Deploy → SageMaker → Jumpstart tab if model is available.
 2. Copy the code snippet and use it from a SageMaker Notebook instance.
-
 
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/hf-jumpstart-deployment.gif"
      alt="JumpStart deployment demo"
      width="500">
 
 ```python
-# SageMaker JumpStart provides APIs as part of SageMaker SDK that allow you to deploy and fine-tune models in network isolation using scripts that SageMaker maintains.
+# SageMaker JumpStart models can be deployed with ModelBuilder by passing the
+# JumpStart model ID as `model`. ModelBuilder resolves the JumpStart artifacts and
+# container, and runs the deployment in network isolation.
+# Set `instance_type` to one the model supports (see the model card): ModelBuilder's
+# auto-detection otherwise picks a CPU instance, which LLMs don't support.
+import json
+from sagemaker.serve import ModelBuilder
 
-from sagemaker.jumpstart.model import JumpStartModel
+# use the `role_arn` parameter to use a different role
+model_builder = ModelBuilder(
+    model="huggingface-llm-qwen2-5-14b-instruct",
+    instance_type="ml.g5.24xlarge",
+)
+model_builder.build()
 
+predictor = model_builder.deploy(accept_eula=True)
 
-model = JumpStartModel(model_id="huggingface-llm-qwen2-5-14b-instruct")
-example_payloads = model.retrieve_all_examples()
-
-predictor = model.deploy()
-
-for payload in example_payloads:
-    response = predictor.predict(payload.body)
-    print("Input:\n", payload.body[payload.prompt_key])
-    print("Output:\n", response[0]["generated_text"], "\n\n===============\n")
+payload = {
+    "inputs": "what is machine learning?",
+    "parameters": {"max_new_tokens": 256},
+}
+response = predictor.invoke(body=json.dumps(payload), content_type="application/json")
+print(json.loads(response.body.read()))
 ```
 
 The endpoint creation can take several minutes, depending on the size of the model.
@@ -62,10 +72,13 @@ The endpoint creation can take several minutes, depending on the size of the mod
 ## 3. Test interactively
 
 If you deployed through the console, you need to grab the endpoint ARN and reuse in your code.
+
 ```python
-from sagemaker.predictor import retrieve_default
+import json
+from sagemaker.core.resources import Endpoint
+
 endpoint_name = "MY ENDPOINT NAME"
-predictor = retrieve_default(endpoint_name)
+predictor = Endpoint.get(endpoint_name=endpoint_name)
 payload = {
     "messages": [
         {
@@ -83,16 +96,16 @@ payload = {
     "stream": False
 }
 
-response = predictor.predict(payload)
-print(response)
+response = predictor.invoke(body=json.dumps(payload), content_type="application/json")
+print(json.loads(response.body.read()))
 ```
 
-The endpoint support the Open AI API specification. 
+The endpoint supports the OpenAI API specification.
 
 ## 4. Clean‑up
 
 To avoid incurring unnecessary costs, when you’re done, delete the SageMaker endpoints in the Deployments → Endpoints console or using the following code snippets:
+
 ```python
-predictor.delete_model()
-predictor.delete_endpoint()
+predictor.delete()
 ```
