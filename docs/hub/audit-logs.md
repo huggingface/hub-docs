@@ -36,8 +36,22 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 
 ### Organization Management & Security
 
-- **Core organization changes** — Creation, deletion, restoration, renaming, and profile/settings updates.
-  - **Events:** `org.create`, `org.delete`, `org.restore`, `org.rename`, `org.update_settings`
+- **Core organization changes** — Creation, deletion, restoration, and renaming.
+  - **Events:** `org.create`, `org.delete`, `org.restore`, `org.rename`
+- **Settings changes** — Updates to organization settings are recorded as granular `org.settings.*` events, so you can pinpoint exactly which setting changed.
+  - General settings — Profile, storage regions, resource groups, and publisher gating.
+  - **Events:** `org.settings.profile`, `org.settings.regions`, `org.settings.resource_groups`, `org.settings.publisher_gating`
+  - Inference providers — Provider configuration, API key add/remove, and usage settings.
+  - **Events:** `org.settings.inference_providers`, `org.settings.inference_providers.keys.add`, `org.settings.inference_providers.keys.remove`, `org.settings.inference_providers.usage`
+  - SSO — SSO configuration updates, and enabling or disabling SSO.
+  - **Events:** `org.settings.sso`, `org.settings.sso.enable`, `org.settings.sso.disable`
+  - Security — Default repository visibility, and enabling or disabling 2FA enforcement, automatic join, and member privacy.
+  - **Events:** `org.settings.security.repo_visibility`, `org.settings.security.2fa.enable`, `org.settings.security.2fa.disable`, `org.settings.security.auto_join.enable`, `org.settings.security.auto_join.disable`, `org.settings.security.members_privacy.enable`, `org.settings.security.members_privacy.disable`
+  - Network — Network configuration updates, and enabling or disabling IP access restriction and authentication enforcement.
+  - **Events:** `org.settings.network`, `org.settings.network.ip_restriction.enable`, `org.settings.network.ip_restriction.disable`, `org.settings.network.auth_enforcement.enable`, `org.settings.network.auth_enforcement.disable`
+
+  > [!TIP]
+  > These granular events replace the previous single `org.update_settings` event. Historical `org.update_settings` entries already in your logs are unchanged and remain readable, so update any integration that filters or parses the event `type` field to handle the new `org.settings.*` types.
 - **Security management**
   - Organization API token rotation.
   - **Event:** `org.rotate_token`
