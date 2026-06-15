@@ -87,6 +87,8 @@ As of July 2025, hf-inference focuses mostly on CPU inference (e.g. embedding, t
 
 For Team & Enterprise organizations, it is possible to centralize billing for all of your users. Each user still uses their own User Access Token but the requests are billed to your organization. This can be done by passing `"X-HF-Bill-To: my-org-name"` as a header in your HTTP requests.
 
+If your organization has [Resource Groups](../hub/security-resource-groups) set up, you can also attribute inference costs to a specific resource group by passing the resource group's ID instead of the org name: `"X-HF-Bill-To: <resource-group-id>"`. The user's token must be a member of the resource group.
+
 Team & Enterprise organizations receive a pool of free usage credits based on the number of seats in the subscription. Inference Providers usage can be tracked on the organization's billing page. Team & Enterprise organization administrators can also set a spending limit and disable a set of Inference Providers from the organization's settings.
 
 <div class="flex justify-center">

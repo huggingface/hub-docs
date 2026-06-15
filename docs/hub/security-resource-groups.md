@@ -96,6 +96,15 @@ The available options are:
 
 When a non-admin member creates a Resource Group through the UI, they are automatically added as an **admin** of that newly created group. Through the API, this does not happen automatically, since API callers may be creating groups on behalf of others. Non-admin API callers must include at least one user with the admin role in the group's initial member list.
 
+## Cost attribution
+
+Resource Groups also serve as a cost attribution unit for compute services. When compute is billed to a resource group, costs are tracked separately per group, making it easier to understand spending across teams.
+
+- **Spaces**: cost is automatically attributed to the resource group the Space belongs to.
+- **Jobs**: pass the resource group's ID as the `namespace` when creating a job. See [Bill to a resource group](./jobs-pricing#bill-to-a-resource-group).
+- **Inference Providers**: pass the resource group's ID via the `X-HF-Bill-To` header (or `bill_to` parameter in the SDK). See [Billing for Team and Enterprise organizations](../inference-providers/pricing#billing-for-team-and-enterprise-organizations).
+- **Inference Endpoints**: cost is automatically attributed to the resource group the model repository belongs to.
+
 ## Resource Groups API
 
 You can list resource groups and add users to them (or change a member's org role and resource group assignments) via the Hub API. For the full reference, examples, and batch workflows, see the [Programmatic User Access Control Management](./programmatic-user-access-control) guide.
