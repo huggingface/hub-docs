@@ -100,9 +100,34 @@ openclaw onboard --non-interactive \
 
 You can also run `openclaw onboard` interactively, select `custom-compatibility` with `openai`, and pass the same configuration.
 
-## Hermes
+### Local Memory Search for OpenClaw
 
-[Hermes](https://hermes-agent.nousresearch.com/) works locally with llama.cpp. Define a default config as:
+You can run local embedding models with Llama.cpp for your agent's memory search. To do so, make sure to have node-llama-cpp. 
+
+```bash
+npm i node-llama-cpp 
+```
+
+Here's an example snippet to run [quantized EmbeddingGemma-300M](https://huggingface.co/ggml-org/embeddinggemma-300M-GGUF?show_file_info=embeddinggemma-300M-Q8_0.gguf) locally for memory search. OpenClaw automatically downloads and serves the model with the command below.
+
+```bash
+openclaw config set agents.defaults.memorySearch.provider local
+openclaw config set agents.defaults.memorySearch.local.modelPath "hf:ggml-org/embeddinggemma-300m-qat-q8_0-GGUF/embeddinggemma-300m-qat-Q8_0.gguf"
+```
+
+Restart the gateway and validate.
+
+```bash
+openclaw gateway restart
+openclaw memory status
+# Memory Search (main)
+# Provider: local (requested: local)
+# Model: hf:ggml-org/embeddinggemma-300m-qat-q8_0-GGUF/embeddinggemma-300m-qat-Q8_0.gguf
+```
+
+## Hermes Agent
+
+[Hermes Agent](https://hermes-agent.nousresearch.com/) works locally with llama.cpp. Define a default config as:
 
 ```yaml
 model:
@@ -116,6 +141,30 @@ custom_providers:
     base_url: http://127.0.0.1:8080/v1
     api_key: llama.cpp
     model: ggml-org/gemma-4-26B-A4B-it-GGUF:Q4_K_M
+```
+
+### Local Memory Search for Hermes Agent
+
+Hermes Agent consumes semantic search models through endpoints. Once you get your preferred embedding model up on endpoint 8080 with llama.cpp or the inference engine of your choice, add the following to `~/.hermes/config.yaml`.
+
+```bash
+auxiliary:
+  session_search:
+    base_url: "http://127.0.0.1:8080/v1"
+    api_key: "no-key-required"
+    model: "local-llama" # your model alias
+    timeout: 90
+    max_concurrency: 1
+```
+
+Check if this works, `none - built-in only` shows that no other memory plug-ins are used. The output below shows that local serving is active.
+
+```bash
+$ hermes memory status
+# Memory status
+#────────────────────────────────────────
+#  Built-in:  always active
+#  Provider:  (none — built-in only)
 ```
 
 ## OpenCode
