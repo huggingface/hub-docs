@@ -157,7 +157,7 @@ auxiliary:
     max_concurrency: 1
 ```
 
-Check if this works, `none - built-in only` shows that no other memory plug-ins are used. Below output shows that local serving is active.
+Check if this works, `none - built-in only` shows that no other memory plug-ins are used. The output below shows that local serving is active.
 
 ```bash
 $ hermes memory status
