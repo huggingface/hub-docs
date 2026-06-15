@@ -33,7 +33,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1","providerModelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1"}} }
+    providersMapping={ {"hf-inference":{"modelId":"Babelscape/wikineural-multilingual-ner","providerModelId":"Babelscape/wikineural-multilingual-ner"}} }
 />
 
 
