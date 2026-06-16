@@ -84,11 +84,11 @@ In this case the Job runs under the organization account, and you can see it in 
 ### Bill to a resource group
 
 > [!WARNING]
-> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
 
 If your organization has [Resource Groups](./security-resource-groups) set up, you can attribute job costs to a specific resource group. To do so:
 
-1. Your user token must be a member of the resource group.
+1. You must be a member of the resource group.
 2. Pass the resource group's ID as the `namespace` when running the job.
 
 You can find the resource group's ID in your organization's Resource Groups settings page.
