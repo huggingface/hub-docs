@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@huggingface/inference':
-        specifier: ^4.13.18
-        version: 4.13.18
+        specifier: ^4.13.19
+        version: 4.13.19
       '@huggingface/tasks':
         specifier: ^0.21.11
         version: 0.21.11
@@ -189,8 +189,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@huggingface/inference@4.13.18':
-    resolution: {integrity: sha512-n0dP3FhmIqJoLU5yGoG6lBZVW50+IgeLDubLL1P28zG4Adp2rhKYQGt5j52JCwlmKDf2ruWjuIcfrjkobT0RlQ==}
+  '@huggingface/inference@4.13.19':
+    resolution: {integrity: sha512-F2Jv7kCAGsdrUCCHMcyQev3ax9XVUdeYYng9bDPffRnnph55g9n0IzeK4ILUr5zRjifCK5ZWIu7VfIn9nQWcIw==}
     engines: {node: '>=18'}
 
   '@huggingface/jinja@0.5.9':
@@ -415,7 +415,7 @@ snapshots:
   '@esbuild/win32-x64@0.23.1':
     optional: true
 
-  '@huggingface/inference@4.13.18':
+  '@huggingface/inference@4.13.19':
     dependencies:
       '@huggingface/jinja': 0.5.9
       '@huggingface/tasks': 0.21.11
