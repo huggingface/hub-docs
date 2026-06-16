@@ -37,7 +37,7 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 ### Organization Management & Security
 
   > [!TIP]
-  > These granular events replace the previous single `org.update_settings` event. Historical `org.update_settings` entries already in your logs are unchanged and remain readable, so update any integration that filters or parses the event `type` field to handle the new `org.settings.*` types.
+  > The **Settings changes** events below are only available for actions taken after June 16th, 2026. Events before that date use a unique `org.update_settings` event type. Any integration that filters or parses the event `type` field for orgs created before June 16th, 2026, should handle both.  
 
 - **Core organization changes** — Creation, deletion, restoration, and renaming.
   - **Events:** `org.create`, `org.delete`, `org.restore`, `org.rename`
