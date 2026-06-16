@@ -3,7 +3,7 @@
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
-Regions allow you to specify where your organization's models, datasets and Spaces are stored. For non-Team or Enterprise users, repositories are always stored in the US.
+Regions allow you to specify where your organization's models, datasets, Spaces, and buckets are stored. For non-Team or Enterprise users, repositories are always stored in the US.
 
 This offers two key benefits:
 
