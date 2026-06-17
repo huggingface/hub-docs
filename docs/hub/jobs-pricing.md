@@ -81,6 +81,33 @@ hf jobs run --namespace my-org-name ...
 
 In this case the Job runs under the organization account, and you can see it in your organization Jobs page (organization page > settings > Jobs).
 
+### Bill to a resource group
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
+
+If your organization has [Resource Groups](./security-resource-groups) set up, you can attribute job costs to a specific resource group. To do so:
+
+1. You must be a member of the resource group.
+2. Pass the resource group's ID as the `namespace` when running the job.
+
+You can find the resource group's ID in your organization's Resource Groups settings page.
+
+```bash
+hf jobs run --namespace <resource-group-id> ...
+```
+
+In Python:
+
+```python
+>>> from huggingface_hub import run_job
+>>> run_job(
+...     image="python:3.12",
+...     command=["python", "-c", "print('Hello!')"],
+...     namespace="<resource-group-id>",
+... )
+```
+
 ### View current compute usage
 
 You can look at your current billing information for Jobs in in your [Billing](https://huggingface.co/settings/billing) page, under the "Compute Usage" section:
