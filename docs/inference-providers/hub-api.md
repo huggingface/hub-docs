@@ -216,6 +216,7 @@ Each provider entry may include the following fields:
 | `status` | string | `live` or `error` |
 | `context_length` | number | Maximum context length supported by this provider for the model, when available |
 | `pricing` | object | `input` and `output` prices in USD per million tokens, when available |
+| `is_free` | boolean | Whether the model is currently free of charge on this provider (temporary promo), when applicable |
 | `supports_tools` | boolean | Whether the provider supports tool calling, when available |
 | `supports_structured_output` | boolean | Whether the provider supports structured output, when available |
 | `first_token_latency_ms` | number | Time to first token in milliseconds from the latest validation probe, when available |
