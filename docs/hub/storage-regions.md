@@ -15,6 +15,7 @@ Currently available regions:
 - US 🇺🇸
 - EU 🇪🇺
 - Coming soon: Asia-Pacific 🌏
+- Coming soon: GCC (KSA) 🇸🇦
 
 ## Getting started with Storage Regions
 
