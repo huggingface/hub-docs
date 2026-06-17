@@ -3,7 +3,7 @@
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
-Regions allow you to specify where your organization's models, datasets and Spaces are stored. For non-Team or Enterprise users, repositories are always stored in the US.
+Regions allow you to specify where your organization's models, datasets, Spaces, and buckets are stored. For non-Team or Enterprise users, repositories are always stored in the US.
 
 This offers two key benefits:
 
@@ -62,7 +62,7 @@ Any repository (model or dataset) stored in a non-default location displays its 
 
 Regulated industries often require data storage in specific regions.
 
-For EU companies, you can use the Hub for ML development in a GDPR-compliant manner, with datasets, models and inference endpoints stored in EU data centers.
+For EU companies, you can use the Hub for ML development in a GDPR-compliant manner, with datasets, models, buckets and inference endpoints all stored in EU data centers.
 
 ## Performance
 
