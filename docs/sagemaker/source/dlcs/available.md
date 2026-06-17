@@ -38,8 +38,17 @@ In case you want to serve text generation models with vLLM, there are specific D
 
 | vLLM version | Container URI                                                                                                                    | Accelerator |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 0.17.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm:0.17.0-transformers4.57.5-gpu-py312-cu129-ubuntu22.04 | GPU         |
+| 0.21.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm:0.21.0-transformers5.8.1-gpu-py312-cu130-ubuntu22.04 | GPU         |
 | 0.11.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.5-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
+
+### vLLM Omni
+
+You can also use vLLM Omni for serving multimodal models with vLLM on GPUs.
+
+| vLLM Omni version | Container URI                                                                                                                    | Accelerator |
+| ---------------| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| 0.20.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-omni:0.20.0-transformers5.8.1-gpu-py312-cu130-amzn2023 | GPU         |
+
 
 ### SGLang
 
@@ -48,6 +57,16 @@ There is also a specific DLC for serving models with SGLang on GPU.
 | SGLang version | Container URI                                                                                                                    | Accelerator |
 | ---------------| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | 0.5.8          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-sglang:0.5.8-transformers4.57.3-gpu-py312-cu129-ubuntu24.04 | GPU         |
+
+
+### Llama.cpp
+
+For a lightweight inference serving, there is a specific DLC for serving models with Llama.cpp on both CPU and GPU.
+
+| Llama.cpp version | Container URI                                                                                                                    | Accelerator |
+| ---------------| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| b9522          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-llama.cpp:b9522-gpu-cu130-ubuntu24.04 | GPU         |
+| b9522          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-llama.cpp:b9522-cpu-ubuntu24.04 | CPU         |
 
 
 ### Text Embeddings Inference
