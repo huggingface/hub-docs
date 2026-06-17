@@ -70,7 +70,7 @@ Find out more about Feature Extraction [here](../tasks/feature-extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"ibm-granite/granite-embedding-311m-multilingual-r2","providerModelId":"ibm-granite/granite-embedding-311m-multilingual-r2"} } }
+    providersMapping={ {"hf-inference":{"modelId":"microsoft/harrier-oss-v1-0.6b","providerModelId":"microsoft/harrier-oss-v1-0.6b"} } }
 />
 
 
@@ -200,6 +200,6 @@ Find out more about Zero Shot Classification [here](../tasks/zero-shot-classific
 
 <InferenceSnippet
     pipeline=zero-shot-classification
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
+    providersMapping={ {"hf-inference":{"modelId":"MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7","providerModelId":"MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7"} } }
 />
 
