@@ -40,7 +40,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"deepseek-ai/DeepSeek-V4-Pro","providerModelId":"deepseek-ai/DeepSeek-V4-Pro"},"hf-inference":{"modelId":"HuggingFaceBio/Carbon-3B","providerModelId":"HuggingFaceBio/Carbon-3B"}} }
+    providersMapping={ {"featherless-ai":{"modelId":"zai-org/GLM-5.2","providerModelId":"zai-org/GLM-5.2"},"hf-inference":{"modelId":"HuggingFaceBio/Carbon-3B","providerModelId":"HuggingFaceBio/Carbon-3B"}} }
 />
 
 
