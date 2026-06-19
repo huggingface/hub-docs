@@ -140,7 +140,7 @@ A. Please ensure the card supports 3D-secure authentication and is properly co
 
 **Q. How can I add my tax ID or update the billing details?**
 
-A. Email billing@huggingface.co and we can help!
+A. When adding or updating a card at https://huggingface.co/settings/billing/payment, check the **Additional invoicing information (optional)** box. You can then provide a **Business name** and **Invoicing details** (e.g. tax ID, PO number, or company registration number), which will appear on your invoices. If you need further help, email billing@huggingface.co.
 
 **Q. I was just billed for the PRO/Team subscription a few days ago. Why did you charge me again?**
 
