@@ -248,6 +248,68 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 ['https://6a2ab384c4f53f9fc5aa4d4f--8000.hf.jobs']
 ```
 
+## SSH
+
+You can open an interactive SSH session into a running Job to debug, inspect, or work directly inside the container. Enable it at job creation with `--ssh` (CLI) or `ssh=True` (Python API), then connect with `hf jobs ssh <job_id>`.
+
+Only users with Write access to the Job's namespace are allowed (i.e. the Job creator, or members of the owner organization with Write permissions). Authentication is performed via SSH public keys registered at [https://huggingface.co/settings/keys](https://huggingface.co/settings/keys).
+
+SSH is available on `hf jobs run` and `hf jobs uv run`. It is not supported for scheduled jobs.
+
+### CLI
+
+```bash
+# Start a job with SSH enabled
+>>> hf jobs run --ssh --detach --timeout 10m python:3.12 sleep infinity
+✓ Job started
+  id: 6a2bd1f1871c005b5352ad31
+  url: https://huggingface.co/jobs/Wauplin/6a2bd1f1871c005b5352ad31
+Hint: Use `hf jobs ssh 6a2bd1f1871c005b5352ad31` to open an SSH session into the job.
+
+# Open an SSH session into the job
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31
+```
+
+You can also print the SSH command without running it (`--dry-run`), or pass a specific identity file (`-i`/`--identity-file`):
+
+```bash
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31 --dry-run
+ssh 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
+
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31 -i ~/.ssh/id_ed25519
+```
+
+### Python
+
+```python
+>>> from huggingface_hub import run_job
+>>> job = run_job(image="python:3.12", command=["sleep", "infinity"], ssh=True)
+>>> job.status.ssh_url
+'ssh://6a2bd1f1871c005b5352ad31@ssh.hf.jobs'
+```
+
+Then connect from a terminal with `hf jobs ssh <job_id>`, or directly with `ssh <job_id>@ssh.hf.jobs`.
+
+### Port forwarding
+
+Since this is a regular SSH connection, you can use SSH's `-L` and `-R` flags to forward ports between your machine and the Job. Connect directly with `ssh` (use `hf jobs ssh <job_id> --dry-run` to get the exact destination) and add the forwarding flags.
+
+Use `-L` (local forwarding) to access a service running inside the Job from your machine. For example, to reach a TensorBoard started in a training Job:
+
+```bash
+# Forward local port 6006 to the Job's TensorBoard on port 6006
+>>> ssh -L 6006:localhost:6006 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
+```
+
+Then open [http://localhost:6006](http://localhost:6006) in your browser.
+
+Use `-R` (remote forwarding) to let the Job access a service running on your machine. For example, to expose a local database or API to the Job:
+
+```bash
+# Make your local port 8080 reachable from inside the Job on port 8080
+>>> ssh -R 8080:localhost:8080 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
+```
+
 ## Timeout
 
 Jobs have a default timeout (30 minutes), after which they will automatically stop. This is important to know when running long-running tasks like model training.
