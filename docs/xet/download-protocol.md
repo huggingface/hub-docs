@@ -148,23 +148,28 @@ for xorb_hash, fetch_entries in xorbs.items():
     parts = parse_multipart_response(response) if len(ranges) > 1 else [response.content]
 
     for part, range_desc in zip(parts, ranges):
-      # Deserialize xorb data to extract chunks
+      # `part` is a reader over the xorb bytes that advances forwards on each read
       for i in range(range_desc["chunks"]["start"], range_desc["chunks"]["end"]):
-        chunk = deserialize_chunk(part)
+        chunk = deserialize_chunk(part)  # advances `part` past this chunk
         downloaded_chunks[(xorb_hash, i)] = chunk
+      # at this point `part` should be fully consumed
 ```
 
 #### Step 3: Extract Term Data and Reconstruct
 
-Process the `terms` array in order, using the downloaded chunk data:
+Process the `terms` array in order, using the downloaded chunk data. For each term, the combined decompressed length of its chunks MUST match the term's `unpacked_length`; reject the reconstruction otherwise (it indicates truncated or corrupt xorb data).
 
 ```python
 file_chunks = []
 for term in terms:
   xorb_hash = term["hash"]
-  for i in range(term["range"]["start"], term["range"]["end"]):
-    chunk = downloaded_chunks[(xorb_hash, i)]
+  term_chunks = [downloaded_chunks[(xorb_hash, i)]
+                 for i in range(term["range"]["start"], term["range"]["end"])]
 
+  # Validate: decompressed length MUST match unpacked_length from the term
+  assert sum(len(chunk) for chunk in term_chunks) == term["unpacked_length"]
+
+  for chunk in term_chunks:
     # skip offset_into_first_range bytes from the beginning
     if offset_into_first_range > len(chunk):
       offset_into_first_range -= len(chunk)

@@ -181,10 +181,12 @@ An example shard request body can be found in [Xet reference files](https://hugg
 - **Headers**:
   - `Accept-Encoding`: OPTIONAL. The server supports `gzip` and `zstd` compression on the JSON response. Clients SHOULD send `Accept-Encoding: gzip` or `Accept-Encoding: zstd` to reduce response size.
 - **Minimum Token Scope**: `read`
-- **Body**: JSON array of file ids (hex strings, 64 lowercase hexadecimal characters). Duplicate ids are de-duplicated server-side.
+- **Body**: JSON array of keys, each a `{ "prefix", "hash" }` object. `prefix` is `default`; `hash` is the file hash in hex format (64 lowercase hexadecimal characters). Duplicate keys are de-duplicated server-side.
 
   ```json
-  ["0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef", "..."]
+  [
+    { "prefix": "default", "hash": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef" }
+  ]
   ```
 
 - **Response**: JSON (`BatchQueryReconstructionResponse`)
