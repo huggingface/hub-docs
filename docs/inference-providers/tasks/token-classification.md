@@ -33,7 +33,7 @@ Explore all available models and find the one that suits you best [here](https:/
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"Babelscape/wikineural-multilingual-ner","providerModelId":"Babelscape/wikineural-multilingual-ner"}} }
+    providersMapping={ {"hf-inference":{"modelId":"blaze999/Medical-NER","providerModelId":"blaze999/Medical-NER"}} }
 />
 
 
