@@ -175,7 +175,7 @@ An example shard request body can be found in [Xet reference files](https://hugg
 
 ### 5. Batch File Reconstruction
 
-- **Description**: Retrieves reconstruction information for multiple files in a single request. Useful for clients that need to fetch reconstruction data for a batch of files without issuing N separate requests.
+- **Description**: Retrieves reconstruction information for multiple files in a single request, avoiding N separate calls.
 - **Path**: `/v1/reconstructions`
 - **Method**: `POST`
 - **Headers**:
@@ -260,7 +260,7 @@ HEAD /v1/files/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 
 ### 8. Get File Chunk Hashes
 
-- **Description**: For a file and a set of "dirty" byte ranges (regions the client intends to re-chunk), returns the chunk windows the client must re-chunk plus opaque hash subtrees that cover the unchanged gaps. Used by delta uploads to compose a new shard without re-uploading already-known chunks. The response covers the full file: gaps between dirty windows are summarized as `MerkleHashSubtree` entries; each stable segment outside any dirty range also gets a verification hash.
+- **Description**: For a file and a set of "dirty" byte ranges (regions the client intends to re-chunk), returns the chunk windows the client must re-chunk plus opaque hash subtrees covering the unchanged gaps. Used by delta uploads to compose a new shard without re-uploading already-known chunks. The response covers the full file; see the field notes below for how windows, gaps, and verification hashes fit together.
 - **Path**: `/v2/file-chunk-hashes/{file_id}`
 - **Method**: `GET`
 - **Parameters**:
