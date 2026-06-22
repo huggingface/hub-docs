@@ -305,6 +305,43 @@ GET /v2/file-chunk-hashes/0123456789abcdef0123456789abcdef0123456789abcdef012345
 -H "X-Range-Dirty: bytes=0-65535,200000-299999"
 ```
 
+### 9. Get File Reconstruction (v1)
+
+> [!WARNING]
+> **Deprecated.** Use [`GET /v2/reconstructions/{file_id}`](./api#1-get-file-reconstruction) instead. This v1 endpoint is still served for existing clients but will be removed once they migrate. The v2 endpoint returns the multi-range optimized response described in section 1.
+
+- **Description**: Retrieves reconstruction information for a specific file, includes byte range support when `Range` header is set. Returns the v1 response shape (`terms` + `fetch_info`).
+- **Path**: `/v1/reconstructions/{file_id}`
+- **Method**: `GET`
+- **Parameters**:
+  - `file_id`: File hash in hex format (64 lowercase hexadecimal characters).
+See [file hashes](./hashing#file-hashes) for computing the file hash and [converting hashes to strings](./api#converting-hashes-to-strings).
+- **Headers**:
+  - `Range`: OPTIONAL. Format: `bytes={start}-{end}` (end is inclusive).
+- **Minimum Token Scope**: `read`
+- **Body**: None.
+- **Response**: JSON (`QueryReconstructionResponse`)
+
+  ```json
+  {
+    "offset_into_first_range": 0,
+    "terms": [...],
+    "fetch_info": {...}
+  }
+  ```
+
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Malformed `file_id` in the path. Fix the path before retrying.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `404 Not Found`: The file does not exist. Not retryable.
+  - `416 Range Not Satisfiable`: The requested byte range start exceeds the end of the file. Not retryable.
+
+```txt
+GET /v1/reconstructions/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+-H "Authorization: Bearer <token>"
+OPTIONAL: -H Range: "bytes=0-100000"
+```
+
 ## Error Cases
 
 ### Non-Retryable Errors
