@@ -173,6 +173,138 @@ POST /v1/shards
 
 An example shard request body can be found in [Xet reference files](https://huggingface.co/datasets/xet-team/xet-spec-reference-files/blob/main/Electric_Vehicle_Population_Data_20250917.csv.shard.verification-no-footer).
 
+### 5. Batch File Reconstruction
+
+- **Description**: Retrieves reconstruction information for multiple files in a single request. Useful for clients that need to fetch reconstruction data for a batch of files without issuing N separate requests.
+- **Path**: `/v1/reconstructions`
+- **Method**: `POST`
+- **Headers**:
+  - `Accept-Encoding`: OPTIONAL. The server supports `gzip` and `zstd` compression on the JSON response. Clients SHOULD send `Accept-Encoding: gzip` or `Accept-Encoding: zstd` to reduce response size.
+- **Minimum Token Scope**: `read`
+- **Body**: JSON array of file ids (hex strings, 64 lowercase hexadecimal characters). Duplicate ids are de-duplicated server-side.
+
+  ```json
+  ["0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef", "..."]
+  ```
+
+- **Response**: JSON (`BatchQueryReconstructionResponse`)
+
+  ```json
+  {
+    "files": {
+      "0123...": [/* CASReconstructionTerm, ... */]
+    },
+    "fetch_info": {
+      "0123...": [/* CASReconstructionFetchInfo, ... */]
+    }
+  }
+  ```
+
+  `files` maps each file id to its reconstruction terms; `fetch_info` is shared across files and keyed by xorb hash. This endpoint returns the v1 response shape; for the multi-range optimized format, call `/v2/reconstructions/{file_id}` per file.
+
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Malformed body or invalid file id in the request.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `404 Not Found`: One or more files do not exist. Not retryable.
+
+```txt
+POST /v1/reconstructions
+-H "Authorization: Bearer <token>"
+-H "Content-Type: application/json"
+```
+
+### 6. Head Xorb
+
+- **Description**: Existence check for a Xorb. Returns no body; the `Content-Length` response header carries the stored Xorb size in bytes.
+- **Path**: `/v1/xorbs/{prefix}/{hash}`
+- **Method**: `HEAD`
+- **Parameters**:
+  - `prefix`: The only acceptable prefix for Xorbs is `default`.
+  - `hash`: Xorb hash in hex format (64 lowercase hexadecimal characters).
+See [Xorb Hashes](./hashing#xorb-hashes) and [converting hashes to strings](./api#converting-hashes-to-strings).
+- **Minimum Token Scope**: `read`
+- **Body**: None.
+- **Response**: Empty body. Response headers:
+  - `Content-Length`: size in bytes of the stored Xorb.
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Malformed hash in the path.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `404 Not Found`: The Xorb does not exist. Not retryable.
+
+```txt
+HEAD /v1/xorbs/default/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+-H "Authorization: Bearer <token>"
+```
+
+### 7. Head File
+
+- **Description**: Existence check for a file. Returns no body; the `Content-Length` response header carries the full file size in bytes.
+- **Path**: `/v1/files/{file_id}`
+- **Method**: `HEAD`
+- **Parameters**:
+  - `file_id`: File hash in hex format (64 lowercase hexadecimal characters).
+See [file hashes](./hashing#file-hashes) and [converting hashes to strings](./api#converting-hashes-to-strings).
+- **Minimum Token Scope**: `read`
+- **Body**: None.
+- **Response**: Empty body. Response headers:
+  - `Content-Length`: size in bytes of the full file.
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Malformed `file_id` in the path.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `404 Not Found`: The file does not exist. Not retryable.
+
+```txt
+HEAD /v1/files/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+-H "Authorization: Bearer <token>"
+```
+
+### 8. Get File Chunk Hashes
+
+- **Description**: For a file and a set of "dirty" byte ranges (regions the client intends to re-chunk), returns the chunk windows the client must re-chunk plus opaque hash subtrees that cover the unchanged gaps. Used by delta uploads to compose a new shard without re-uploading already-known chunks. The response covers the full file: gaps between dirty windows are summarized as `MerkleHashSubtree` entries; each stable segment outside any dirty range also gets a verification hash.
+- **Path**: `/v2/file-chunk-hashes/{file_id}`
+- **Method**: `GET`
+- **Parameters**:
+  - `file_id`: File hash in hex format (64 lowercase hexadecimal characters).
+See [file hashes](./hashing#file-hashes) and [converting hashes to strings](./api#converting-hashes-to-strings).
+- **Headers**:
+  - `X-Range-Dirty`: REQUIRED. One or more byte ranges using the standard `bytes=` syntax (inclusive ends, comma-separated), e.g. `bytes=0-1023,5000-9999`. Ranges are sorted and merged server-side. At least one range MUST be present.
+  - `Accept-Encoding`: OPTIONAL. The server supports `gzip` and `zstd` compression on the JSON response.
+- **Minimum Token Scope**: `read`
+- **Body**: None.
+- **Response**: JSON (`FileChunkHashesResponse`)
+
+  ```json
+  {
+    "totalChunks": 1234,
+    "fileSize": 9876543,
+    "windows": [
+      { "dirtyByteRange": [0, 65536] }
+    ],
+    "hashRanges": [
+      null,
+      "<opaque MerkleHashSubtree>"
+    ],
+    "gapVerification": [
+      "<hex MerkleHash>"
+    ]
+  }
+  ```
+
+  - `windows`: one entry per dirty range (adjacent dirty ranges that share the same chunk are merged). Bounds are chunk-aligned, expanded outward to fully contain the requested dirty range; the client re-chunks this exact span.
+  - `hashRanges`: `N + 1` entries for `N` windows — `[before_w0, between_w0_w1, ..., after_wN]`. Each entry is an opaque `MerkleHashSubtree`; pass as-is to the client merge routine. `null` when the gap is empty (for example, a window starts at chunk 0).
+  - `gapVerification`: one hash per stable original segment (a segment lying entirely in a gap between dirty windows or before/after them, in segment order). The client wraps each into a `FileVerificationEntry` for the verification section of the composed shard. Empty when every segment overlaps a dirty range.
+
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Missing or malformed `X-Range-Dirty` header, malformed `file_id`, or no range survives clamping to the file.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `404 Not Found`: The file does not exist. Not retryable.
+
+```txt
+GET /v2/file-chunk-hashes/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+-H "Authorization: Bearer <token>"
+-H "X-Range-Dirty: bytes=0-65535,200000-299999"
+```
+
 ## Error Cases
 
 ### Non-Retryable Errors
