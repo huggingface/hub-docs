@@ -180,7 +180,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"Babelscape/wikineural-multilingual-ner","providerModelId":"Babelscape/wikineural-multilingual-ner"} } }
+    providersMapping={ {"hf-inference":{"modelId":"blaze999/Medical-NER","providerModelId":"blaze999/Medical-NER"} } }
 />
 
 
@@ -190,7 +190,7 @@ Find out more about Translation [here](../tasks/translation).
 
 <InferenceSnippet
     pipeline=translation
-    providersMapping={ {"hf-inference":{"modelId":"google-t5/t5-small","providerModelId":"google-t5/t5-small"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google/madlad400-3b-mt","providerModelId":"google/madlad400-3b-mt"} } }
 />
 
 
