@@ -53,11 +53,13 @@ ds = load_dataset("buckets/username/my-bucket", data_files=["data.parquet"])
 
 ## Inspect AI
 
-[Inspect AI](https://inspect.aisi.org.uk/) can write evaluation logs directly to a bucket — point its log directory at an `hf://buckets/` path (requires `huggingface_hub>=1.6.0`):
+[Inspect AI](https://inspect.aisi.org.uk/) can write evaluation logs directly to a bucket — point its log directory at an `hf://buckets/` path (requires `huggingface_hub>=1.6.0`). Create the bucket and authenticate first (Inspect won't create it for you):
 
 ```bash
-export INSPECT_LOG_DIR=hf://buckets/username/my-bucket/eval-logs
+hf auth login
+hf buckets create username/my-bucket --private
 
+export INSPECT_LOG_DIR=hf://buckets/username/my-bucket/eval-logs
 inspect eval popularity.py --model openai/gpt-4
 inspect view
 ```
