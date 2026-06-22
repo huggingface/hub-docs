@@ -433,6 +433,8 @@
   sections:
   - local: storage-buckets-access
     title: Access Patterns
+  - local: storage-buckets-s3
+    title: S3 Compatibility
   - local: storage-buckets-integrations
     title: Bucket Integrations
   - local: storage-buckets-security
