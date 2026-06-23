@@ -380,7 +380,6 @@ api.upload_folder(folder_path="./data", repo_id="username/dataset", repo_type="d
 hf upload username/dataset ./data --repo-type=dataset
 ```
 
-`upload_folder` / `hf upload` now handle very large datasets too, so reach for them first. If a big or flaky upload runs into trouble, `upload_large_folder` is a more aggressive fallback (multi-worker hashing/upload, per-task retry) — at the cost of some flexibility (it can't set a custom `path_in_repo` or `commit_message`, open a PR, or delete during upload):
 
 ```python
 api.upload_large_folder(folder_path="./data", repo_id="username/dataset", repo_type="dataset", num_workers=16)
