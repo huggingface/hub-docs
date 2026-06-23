@@ -6,6 +6,9 @@
 
 > Decision guide for uploading datasets to Hugging Face Hub. Optimized for Dataset Viewer compatibility and integration with the Hugging Face ecosystem.
 
+> [!TIP]
+> If you're an LLM or agent following this guide, check `hf --help` and `hf <command> --help` (e.g. `hf upload --help`, `hf auth --help`) for the exact flags before running upload commands. The CLI matches the installed `huggingface_hub` version, so prefer its output over flags recalled from memory.
+
 ## Overview
 
 Your goal is to help a user upload a dataset to the Hugging Face Hub. Ideally, the dataset should be compatible with the Dataset Viewer (and thus the `load_dataset` function) to ensure easy access and usability. You should aim to meet the following criteria:
@@ -95,10 +98,10 @@ See https://huggingface.co/docs/hub/storage-limits#repository-limitations-and-re
 | **Video files**                     | Use [videofolder](https://huggingface.co/docs/datasets/en/video_load#videofolder) for automatic organization | `load_dataset("videofolder", data_dir="./videos").push_to_hub("username/dataset")`               |
 | **PDF documents**                   | Use [pdffolder](https://huggingface.co/docs/datasets/en/document_dataset#pdffolder) for text extraction      | `load_dataset("pdffolder", data_dir="./pdfs").push_to_hub("username/dataset")`                   |
 | **Very large datasets (100GB+)**    | Use `max_shard_size` to control memory usage                                                                 | `dataset.push_to_hub("username/dataset", max_shard_size="5GB")`                                  |
-| **Many files / directories (>10k)** | Use upload_large_folder to avoid Git limitations                                                             | `api.upload_large_folder(folder_path="./data", repo_id="username/dataset", repo_type="dataset")` |
-| **Streaming large media**           | WebDataset format for efficient streaming                                                                    | Create .tar shards, then `upload_large_folder()`                                                 |
+| **Many files / directories (>10k)** | Use `upload_folder`/`hf upload` (handles large/many-file uploads)                                                             | `hf upload username/dataset ./data --repo-type=dataset` |
+| **Streaming large media**           | WebDataset format for efficient streaming                                                                    | Create .tar shards, then `hf upload`                                                 |
 | **Scientific data (HDF5, NetCDF)**  | Convert to Parquet with Array features                                                                       | See [Scientific Data](#scientific-data) section                                                  |
-| **Custom/proprietary formats**      | Document thoroughly if conversion impossible                                                                 | `upload_large_folder()` with comprehensive README                                                |
+| **Custom/proprietary formats**      | Document thoroughly if conversion impossible                                                                 | `hf upload` with comprehensive README                                                |
 
 ## Upload Workflow
 
@@ -119,7 +122,7 @@ See https://huggingface.co/docs/hub/storage-limits#repository-limitations-and-re
 
    - **Small files (<1GB) with hub-compatible format**: Can use [Hub UI](https://huggingface.co/new-dataset) for quick uploads
    - **Built-in loader available**: Use the loader + `push_to_hub()` (see Quick Reference table)
-   - **Large datasets or many files**: Use `upload_large_folder()` for files >100GB or >10k files
+   - **Large datasets or many files**: Use `upload_folder` / `hf upload` which handles large uploads (auto multi-commit, resumable).
    - **Custom formats**: Convert to hub-compatible format if possible, otherwise document thoroughly
 
 4. ✓ **Test locally** (if using built-in loader):
@@ -363,16 +366,21 @@ Use when you've loaded/converted data using the datasets library
 dataset.push_to_hub("username/dataset", max_shard_size="5GB")
 ```
 
-**Pre-existing files (use upload_large_folder)**:
-Use when you have hub-compatible files (e.g., Parquet files) already prepared and organized
+**Pre-existing files (use `upload_folder` / `hf upload`)**:
+Use when you have hub-compatible files (e.g., Parquet files) already prepared and organized.
 
 ```python
 from huggingface_hub import HfApi
 api = HfApi()
-api.upload_large_folder(folder_path="./data", repo_id="username/dataset", repo_type="dataset", num_workers=16)
+api.upload_folder(folder_path="./data", repo_id="username/dataset", repo_type="dataset")
 ```
 
-**Important**: Before using `upload_large_folder`, verify the files meet repository limits:
+```bash
+# Or from the CLI:
+hf upload username/dataset ./data --repo-type=dataset
+```
+
+**Important**: Before uploading, verify the files meet repository limits:
 
 - Check folder structure if you have file access: ensure no folder contains >10k files
 - Ask the user to confirm: "Are your files in a hub-compatible format (Parquet/CSV/JSON) and organized appropriately?"
@@ -420,7 +428,6 @@ api.upload_large_folder(folder_path="./data", repo_id="username/dataset", repo_t
 | "Repository not found"     | Run `hf auth login`          |
 | Memory errors              | Use `max_shard_size="500MB"`         |
 | Dataset viewer not working | Wait 5-10min, check README.md config |
-| Timeout errors             | Use `multi_commits=True`             |
 | Files >50GB                | Split into smaller files             |
 | "File not found"           | Use relative paths in metadata       |
 
@@ -510,7 +517,7 @@ For streaming large media datasets:
 
 - Create 1-5GB tar shards
 - Consistent internal structure
-- Upload with `upload_large_folder`
+- Upload with `hf upload`
 
 ### Scientific Data
 
