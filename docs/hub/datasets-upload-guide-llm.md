@@ -367,7 +367,7 @@ dataset.push_to_hub("username/dataset", max_shard_size="5GB")
 ```
 
 **Pre-existing files (use `upload_folder` / `hf upload`)**:
-Use when you have hub-compatible files (e.g., Parquet files) already prepared and organized. This is the recommended path for large uploads — it automatically splits big folders into multiple commits and resumes if interrupted.
+Use when you have hub-compatible files (e.g., Parquet files) already prepared and organized.
 
 ```python
 from huggingface_hub import HfApi
