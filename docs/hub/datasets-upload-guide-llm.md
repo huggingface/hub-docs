@@ -524,7 +524,7 @@ For streaming large media datasets:
 
 - Create 1-5GB tar shards
 - Consistent internal structure
-- Upload with `hf upload` (or `upload_large_folder` for very large sets)
+- Upload with `hf upload`
 
 ### Scientific Data
 
