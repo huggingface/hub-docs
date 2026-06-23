@@ -1,6 +1,7 @@
 # S3 Compatibility
 
-Storage Buckets can be accessed through an **S3-compatible API**, letting you use existing S3 tooling — the AWS CLI, `boto3`, `rclone`, `s5cmd`, and most other S3 SDKs — against your buckets without changing your code. Requests go through a gateway at `https://s3.hf.co`.
+Storage Buckets can be accessed through an **S3-compatible API**, letting you use existing S3 tooling — the AWS CLI, `boto3`, `s5cmd`, and most other S3 SDKs — against your buckets without changing your code. 
+Requests go through a gateway service at `https://s3.hf.co`.
 
 > [!NOTE]
 > The S3 API works only with [Storage Buckets](./storage-buckets). It does not expose other Hugging Face repository types (models, datasets, Spaces).
@@ -11,6 +12,12 @@ The gateway authenticates with AWS-style access keys derived from a Hugging Face
 
 1. Go to your [Access Tokens settings](https://huggingface.co/settings/tokens). Create a token with the **Create new token** button if you don't already have one.
 2. Find the token in the list, open its dropdown menu, and choose **Generate S3 credentials**.
+
+   <div class="flex justify-center">
+   <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/bucket-generate-s3-credentials-light.png" alt="Generate S3 credentials option in access token's dropdown menu"/>
+   <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/bucket-generate-s3-credentials-dark.png" alt="Generate S3 credentials option in access token's dropdown menu"/>
+   </div>
+
 3. Copy the generated **access key ID** (prefixed `HFAK…`) and **secret access key** somewhere safe — the secret is shown only once.
 
 The S3 credentials inherit the permissions of the underlying access token, so scope your token to the namespaces and buckets you intend to use.
@@ -19,20 +26,21 @@ The S3 credentials inherit the permissions of the underlying access token, so sc
 
 Point your S3 client at the gateway endpoint and set a few required options. Use your Hugging Face **namespace** (your username or an organization name) in the endpoint URL — see [Addressing buckets](#addressing-buckets) below.
 
-| Setting | Value | Why |
-|---------|-------|-----|
-| `endpoint_url` | `https://s3.hf.co/<namespace>` | The gateway, scoped to your namespace |
-| `region` | `us-east-1` | Required; the gateway is currently single-region |
-| `s3.addressing_style` | `path` | Buckets are addressed as path segments, not subdomains |
-| `request_checksum_calculation` | `when_required` | Prevents recent clients from sending trailing checksums the gateway can't parse |
-| `response_checksum_validation` | `when_required` | Same, for responses |
+| Setting                        | Value                          | Why                                                           |
+|--------------------------------|--------------------------------|---------------------------------------------------------------|
+| `endpoint_url`                 | `https://s3.hf.co/<namespace>` | The gateway, scoped to your namespace                         |
+| `region`                       | `us-east-1`                    | Required; the gateway is currently single-region              |
+| `s3.addressing_style`          | `path`                         | Buckets are addressed as path segments, not subdomains        |
+| `request_checksum_calculation` | `when_required`                | Prevents recent clients from sending trailing checksums       |
+| `response_checksum_validation` | `when_required`                | Prevents recent clients from expecting checksums in responses |
 
-The two checksum settings matter for recent clients: AWS CLI ≥ 2.23 and recent `boto3` versions send trailing CRC32 checksums (via `aws-chunked` framing) by default, which the gateway does not parse. These settings tell the client to send checksums only when an operation strictly requires them.
+The two checksum settings matter for recent clients: AWS CLI ≥ 2.23 and recent `boto3` versions send trailing CRC32 checksums (via `aws-chunked` framing) by default, which the gateway does not parse. 
+These settings tell the client to send checksums only when an operation strictly requires them.
 
 The following are optional but recommended so large uploads use as few multipart parts as possible:
 
-| Setting | Value |
-|---------|-------|
+| Setting                  | Value |
+|--------------------------|-------|
 | `s3.multipart_threshold` | `2GB` |
 | `s3.multipart_chunksize` | `2GB` |
 
@@ -51,8 +59,9 @@ s3 =
 request_checksum_calculation = when_required
 response_checksum_validation = when_required
 ```
+Note: replace the `<namespace>` above with the username or organization your buckets are stored in.
 
-and the matching credentials to `~/.aws/credentials`:
+Add the matching credentials for the profile to `~/.aws/credentials`:
 
 ```ini
 [hf]
@@ -63,8 +72,9 @@ aws_secret_access_key = ...
 Then use any S3 command with the profile:
 
 ```bash
-aws s3 ls --profile hf
-aws s3 cp ./model.safetensors s3://my-bucket/models/model.safetensors --profile hf
+aws --profile hf s3 ls
+aws --profile hf s3 mb s3://my-bucket
+aws --profile hf s3 cp ./model.safetensors s3://my-bucket/models/model.safetensors
 ```
 
 ## Addressing Buckets

@@ -10,7 +10,7 @@ Beyond the [CLI and Python SDK](./storage-buckets#managing-files), there are sev
 | **Volume mounts** | HF Jobs & Spaces (same idea, managed for you) | [See below](#volume-mounts-in-jobs-and-spaces) |
 | **hf:// paths** (fsspec) | Python data tools (pandas, DuckDB) | [See below](#python-data-tools) |
 | **CLI sync** | Batch transfers, backups | [Sync docs](./storage-buckets#syncing-directories) |
-| **S3 API** | Existing S3 tooling (AWS CLI, boto3, rclone) | [S3-Compatible API](./storage-buckets-s3) |
+| **S3 API** | Existing S3 tooling (AWS CLI, boto3, s5cmd) | [S3-Compatible API](./storage-buckets-s3) |
 
 ## Mount as a Local Filesystem
 
