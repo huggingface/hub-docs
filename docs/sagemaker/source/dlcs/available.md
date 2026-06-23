@@ -27,7 +27,7 @@ For inference, there is a general-purpose PyTorch inference DLC, for serving mod
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.51.3-cpu-py312-ubuntu22.04- | CPU         |
+| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.51.3-cpu-py312-ubuntu22.04 | CPU         |
 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.51.3-gpu-py312-cu124-ubuntu22.04 | GPU         |
 | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-inference-neuronx:2.8.0-transformers4.55.4-neuronx-py310-sdk2.26.0-ubuntu22.04 | Neuron         |
 
@@ -56,7 +56,6 @@ Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance s
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/2.0.1-tei1.8.2-cpu-py310-ubuntu22.04 | CPU         |
 | 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.8.2-cpu-py310-ubuntu22.04 | CPU         |
 | 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.8.2-gpu-py310-cu122-ubuntu22.04 | GPU         |
 
@@ -80,18 +79,24 @@ Let's say you want to use the training DLC for GPUs:
 
 **How to find the URI of my container but simpler?**
 
-The Python SageMaker SDK util functions are not always up to date but it is much simpler than reconstructing the image URI yourself.
+The `image_uris.retrieve` helper from `sagemaker.core` is not always up to date but it is much simpler than reconstructing the image URI yourself. The processor (CPU/GPU/Neuron) is inferred from the `instance_type`.
 
-> [!WARNING]
-> [SageMaker Python SDK v3 has been recently released](https://github.com/aws/sagemaker-python-sdk), so unless specified otherwise, all the documentation and tutorials are still using the [SageMaker Python SDK v2](https://github.com/aws/sagemaker-python-sdk/tree/master-v2). We are actively working on updating all the tutorials and examples, but in the meantime make sure to install the SageMaker SDK as `pip install "sagemaker<3.0.0"`.
+> [!NOTE]
+> These docs and examples use the [SageMaker Python SDK v3](https://github.com/aws/sagemaker-python-sdk), which introduces a new framework-agnostic API built around `ModelBuilder` (inference) and `ModelTrainer` (training), replacing the v2 `HuggingFaceModel` and `HuggingFace` classes. Install it with `pip install "sagemaker>=3.0.0"`. In v2 these URIs were retrieved with `get_huggingface_llm_image_uri`, which has been removed.
 
 ```python
-from sagemaker.huggingface import HuggingFaceModel, get_huggingface_llm_image_uri
+from sagemaker.core import image_uris
 
-print(f"TGI GPU: {get_huggingface_llm_image_uri('huggingface')}")
-print(f"TEI GPU: {get_huggingface_llm_image_uri('huggingface-tei')}")
-print(f"TEI CPU: {get_huggingface_llm_image_uri('huggingface-tei-cpu')}")
-print(f"TGI Neuron: {get_huggingface_llm_image_uri('huggingface-neuronx')}")
+region = "us-east-1"  # the AWS region where you want to use the container
+
+# TGI (LLMs) on GPU
+print(f"TGI GPU: {image_uris.retrieve(framework='huggingface-llm', region=region, image_scope='inference', instance_type='ml.g5.2xlarge')}")
+# TEI (embeddings) on GPU
+print(f"TEI GPU: {image_uris.retrieve(framework='huggingface-tei', region=region, image_scope='inference', instance_type='ml.g5.2xlarge')}")
+# TEI (embeddings) on CPU
+print(f"TEI CPU: {image_uris.retrieve(framework='huggingface-tei-cpu', region=region, image_scope='inference', instance_type='ml.c6i.2xlarge')}")
+# TGI (LLMs) on AWS Inferentia2 (Neuron)
+print(f"TGI Neuron: {image_uris.retrieve(framework='huggingface-llm-neuronx', region=region, image_scope='inference', instance_type='ml.inf2.xlarge')}")
 ```
 
 For PyTorch Training and PyTorch Inference DLCs, there is no such utility.
