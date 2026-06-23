@@ -122,7 +122,7 @@ See https://huggingface.co/docs/hub/storage-limits#repository-limitations-and-re
 
    - **Small files (<1GB) with hub-compatible format**: Can use [Hub UI](https://huggingface.co/new-dataset) for quick uploads
    - **Built-in loader available**: Use the loader + `push_to_hub()` (see Quick Reference table)
-   - **Large datasets or many files**: Use `upload_folder` / `hf upload` — it handles large uploads now (auto multi-commit, resumable). If a very large or flaky upload runs into trouble, fall back to `upload_large_folder()` (multi-worker, aggressive retry)
+   - **Large datasets or many files**: Use `upload_folder` / `hf upload` which handles large uploads (auto multi-commit, resumable).
    - **Custom formats**: Convert to hub-compatible format if possible, otherwise document thoroughly
 
 4. ✓ **Test locally** (if using built-in loader):
