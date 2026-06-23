@@ -7,7 +7,7 @@
 > Decision guide for uploading datasets to Hugging Face Hub. Optimized for Dataset Viewer compatibility and integration with the Hugging Face ecosystem.
 
 > [!TIP]
-> The `hf` CLI is the source of truth for current commands and flags, and it tracks the installed `huggingface_hub` version. Run `hf --help` and `hf <command> --help` (e.g. `hf upload --help`, `hf auth --help`) to confirm the latest syntax before running anything — prefer what the CLI reports over commands recalled from memory.
+> If you're an LLM or agent following this guide, check `hf --help` and `hf <command> --help` (e.g. `hf upload --help`, `hf auth --help`) for the exact flags before running upload commands. The CLI matches the installed `huggingface_hub` version, so prefer its output over flags recalled from memory.
 
 ## Overview
 
@@ -380,18 +380,11 @@ api.upload_folder(folder_path="./data", repo_id="username/dataset", repo_type="d
 hf upload username/dataset ./data --repo-type=dataset
 ```
 
-
-```python
-api.upload_large_folder(folder_path="./data", repo_id="username/dataset", repo_type="dataset", num_workers=16)
-```
-
 **Important**: Before uploading, verify the files meet repository limits:
 
 - Check folder structure if you have file access: ensure no folder contains >10k files
 - Ask the user to confirm: "Are your files in a hub-compatible format (Parquet/CSV/JSON) and organized appropriately?"
 - For non-standard formats, consider converting to Dataset objects first to ensure compatibility
-
-**Note (huggingface_hub ≥1.20)**: `upload_folder()` and `hf upload` now handle large folders robustly — they automatically split big uploads into **multiple commits** (follow-up commits get a ` (part 2)`, ` (part 3)`, … suffix) and are **resumable and idempotent**: if an upload is interrupted, re-run the same call and already-committed files are skipped. The old `multi_commits=True` parameter has been removed — multi-commit is now automatic, so you no longer need it. Two things to know: don't combine `create_pr=True` with a non-default `revision` (uploads always open the PR against the default branch), and on non-interactive / agent (non-TTY) runs progress is emitted as periodic log summaries rather than a live progress bar.
 
 ## Validation
 
