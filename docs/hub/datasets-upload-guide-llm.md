@@ -435,7 +435,6 @@ api.upload_large_folder(folder_path="./data", repo_id="username/dataset", repo_t
 | "Repository not found"     | Run `hf auth login`          |
 | Memory errors              | Use `max_shard_size="500MB"`         |
 | Dataset viewer not working | Wait 5-10min, check README.md config |
-| Timeout errors             | `upload_folder()`/`hf upload` auto-split into multiple resumable commits — just re-run if interrupted (the `multi_commits=True` flag no longer exists)             |
 | Files >50GB                | Split into smaller files             |
 | "File not found"           | Use relative paths in metadata       |
 
