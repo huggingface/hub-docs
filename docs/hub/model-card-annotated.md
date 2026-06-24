@@ -1,5 +1,7 @@
 # Annotated Model Card Template
 
+> [!TIP]
+> Getting ready to publish? See the [Model Release Checklist](./model-release-checklist) for the essential steps to a concise, informative, and user-friendly model release.
 
 ## Template
 
