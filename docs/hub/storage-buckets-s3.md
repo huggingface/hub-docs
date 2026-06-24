@@ -10,7 +10,7 @@ Requests go through a gateway service at `https://s3.hf.co`.
 
 The gateway authenticates with AWS-style access keys derived from a Hugging Face [User Access Token](./security-tokens).
 
-1. Go to your [Access Tokens settings](https://huggingface.co/settings/tokens). Create a token with the **Create new token** button if you don't already have one.
+1. Go to your [Access Tokens settings](https://huggingface.co/settings/tokens). Create a token with the **Create new token** button if you don't already have one. The token's permissions become the S3 credentials' permissions — choose **Read** for read-only access to your buckets, or **Write** for read and write access.
 2. Find the token in the list, open its dropdown menu, and choose **Generate S3 credentials**.
 
    <div class="flex justify-center">
@@ -20,7 +20,7 @@ The gateway authenticates with AWS-style access keys derived from a Hugging Face
 
 3. Copy the generated **access key ID** (prefixed `HFAK…`) and **secret access key** somewhere safe — the secret is shown only once.
 
-The S3 credentials inherit the permissions of the underlying access token, so scope your token to the namespaces and buckets you intend to use.
+The S3 credentials inherit the permissions of the underlying access token. For fine-grained tokens, scope them to only the namespaces and buckets you intend to use.
 
 ## Configuring a Client
 
@@ -118,7 +118,8 @@ Bucket object keys are more restricted than S3. A key must **not**:
 
 ### ListObjects
 
-- `ListObjectsV1` is not supported — use `ListObjectsV2`.
+- `ListObjectsV1` is not supported — use `ListObjectsV2`. Note that some clients (like rclone) 
+  may need to be configured to use `ListObjectsV2` exclusively.
 - Only `/` is allowed as the delimiter.
 
 ### Other API differences
@@ -128,3 +129,55 @@ Bucket object keys are more restricted than S3. A key must **not**:
 - **CopyObject**: server-side copy works only within a single namespace. Cross-namespace copy and `UploadPartCopy` (copying a part from an existing object into a multipart upload) are not supported.
 - **Conditional requests**: `If-Match` / `If-None-Match` preconditions are honored on `PutObject` and on the copy-source of `CopyObject`, but not on `GetObject`.
 - **Multipart upload expiry**: in-flight multipart uploads that are never completed or aborted are automatically expired and cleaned up after 7 days.
+
+## Examples
+
+Real-world recipes for common tasks. Each builds on the [client configuration](#configuring-a-client) above.
+
+### Import data using `rclone`
+
+[`rclone`](https://rclone.org/) is a convenient way to copy data between two S3-compatible stores, so it's a good fit for moving an existing AWS S3 bucket (or any S3-compatible source) into a Storage Bucket.
+
+The idea is to declare two remotes — your source bucket and the Hugging Face gateway — and let `rclone` stream the objects between them. Add both remotes to `~/.config/rclone/rclone.conf`. The first points at your existing S3 bucket; adjust it to match your source (here, plain AWS S3):
+
+```ini
+[aws]
+type = s3
+provider = AWS
+access_key_id = AKIA...
+secret_access_key = ...
+region = us-east-1
+```
+
+The second points at the Hugging Face gateway. As with any other client, scope the endpoint to your [namespace](#addressing-buckets), use `path` addressing, force ListObjectsV2 (the only listing version the gateway supports), and set large multipart sizes so uploads use as few parts as possible:
+
+```ini
+[hf]
+type = s3
+provider = Other
+endpoint = https://s3.hf.co/<namespace>
+access_key_id = HFAK...
+secret_access_key = ...
+region = us-east-1
+force_path_style = true
+list_version = 2
+upload_cutoff = 2G
+chunk_size = 2G
+```
+
+Note: replace the `<namespace>` above with the username or organization your buckets are stored in, and use the [S3 credentials](#generating-s3-credentials) generated from your access token. The destination bucket must already exist under that namespace.
+
+Now copy a source bucket into your Storage Bucket:
+
+```bash
+rclone copy aws:my-source-bucket hf:my-bucket --progress
+```
+
+`rclone copy` only transfers objects that are missing or changed at the destination, so it's safe to re-run to resume an interrupted import or pick up new objects. To make the destination an exact mirror of the source — deleting objects at the destination that no longer exist at the source — use `rclone sync` instead:
+
+```bash
+rclone sync aws:my-source-bucket hf:my-bucket --progress
+```
+
+> [!TIP]
+> For large imports, add `--transfers` and `--checkers` to raise the concurrency (e.g. `--transfers 16 --checkers 16`), and run `rclone check aws:my-source-bucket hf:my-bucket` afterwards to confirm every object made it across.
