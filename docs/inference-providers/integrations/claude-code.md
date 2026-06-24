@@ -70,6 +70,23 @@ Available policies are `:cheapest`, `:fastest`, or `:preferred`; use one of thes
 > [!TIP]
 > The `ANTHROPIC_DEFAULT_*_MODEL` variables map to Claude Code's internal model slots (Opus, Sonnet, Haiku), from the most powerful to the quickest. You can assign different models to each slot to balance capability and speed e.g. `zai-org/GLM-5.1` for Opus, `google/gemma-4-31B-it:together` for Sonnet, and `openai/gpt-oss-120b:cerebras` for Haiku. `CLAUDE_CODE_SUBAGENT_MODEL` controls which model is used for sub-agents.
 
+### Billing to an Organization
+
+To bill inference usage to a Hugging Face organization instead of your personal account, you have several options depending on your setup.
+
+**With the `hf-claude` extension**, pass the `--bill-to` flag:
+
+
+You can also set the `HF_BILL_TO` environment variable instead:
+
+```
+
+**With manual environment variables**, set `ANTHROPIC_CUSTOM_HEADERS` to include the `X-HF-Bill-To` header:
+
+```
+
+Replace `your-org-name` with the name of the organization you want to bill to. The org must be a Team or Enterprise org that you're a member of.
+
 ## Resources
 
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
