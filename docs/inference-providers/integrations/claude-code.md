@@ -76,13 +76,20 @@ To bill inference usage to a Hugging Face organization instead of your personal 
 
 **With the `hf-claude` extension**, pass the `--bill-to` flag:
 
+```bash
+hf claude --bill-to your-org-name
+```
 
 You can also set the `HF_BILL_TO` environment variable instead:
 
+```bash
+export HF_BILL_TO="your-org-name"
 ```
 
 **With manual environment variables**, set `ANTHROPIC_CUSTOM_HEADERS` to include the `X-HF-Bill-To` header:
 
+```bash
+export ANTHROPIC_CUSTOM_HEADERS="X-HF-Bill-To: your-org-name"
 ```
 
 Replace `your-org-name` with the name of the organization you want to bill to. The org must be a Team or Enterprise org that you're a member of.
