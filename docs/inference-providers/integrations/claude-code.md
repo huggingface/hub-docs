@@ -85,7 +85,7 @@ You can also set the `HF_BILL_TO` environment variable instead:
 
 ```
 
-Replace `your-org-name` with the name of the organization you want to bill to. You must have Write privileges in the org.
+Replace `your-org-name` with the name of the organization you want to bill to. The org must be a Team or Enterprise org that you're a member of.
 
 ## Resources
 
