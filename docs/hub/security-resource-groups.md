@@ -108,6 +108,8 @@ Resource Groups also serve as a cost attribution unit for compute services. When
 - **Inference Providers**: pass the resource group's ID via the `X-HF-Bill-To` header (or `bill_to` parameter in the SDK). See [Billing for Team and Enterprise organizations](/docs/inference-providers/pricing#billing-for-team-and-enterprise-organizations).
 - **Inference Endpoints**: cost is automatically attributed to the resource group the model repository belongs to. Endpoints instantiated directly from the built-in Inference Endpoints catalog aren't supported at this time.
 
+You can use the [dedicated API endpoint](https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/{name}/billing/usage-by-resource-group) to retrieve cost attribution data for resource groups.
+
 ## Resource Groups API
 
 You can list resource groups and add users to them (or change a member's org role and resource group assignments) via the Hub API. For the full reference, examples, and batch workflows, see the [Programmatic User Access Control Management](./programmatic-user-access-control) guide.
