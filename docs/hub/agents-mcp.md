@@ -13,7 +13,7 @@ The Hugging Face MCP (Model Context Protocol) Server connects your MCP‑compati
 
 1. Open your [MCP settings](https://huggingface.co/settings/mcp) while logged in.
 
-2. Pick your client: select your MCP‑compatible client (for example Cursor, VS Code, Zed, Claude Desktop). The page shows client‑specific instructions and a ready‑to‑copy configuration snippet.
+2. Pick your client: select your MCP‑compatible client (for example Cursor, VS Code, Zed, Claude Desktop, [Gamut](https://www.gamut.so/mcp/search-ai/hugging-face)). The page shows client‑specific instructions and a ready‑to‑copy configuration snippet.
 
 3. Paste and restart: copy the snippet into your client’s MCP configuration, save, and restart/reload the client. You should see “Hugging Face” (or similar) listed as a connected MCP server in your client.
 
