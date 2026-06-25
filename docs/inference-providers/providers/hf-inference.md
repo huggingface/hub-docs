@@ -100,7 +100,7 @@ Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"fashn-ai/fashn-human-parser","providerModelId":"fashn-ai/fashn-human-parser"} } }
+    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
 />
 
 
@@ -180,7 +180,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"blaze999/Medical-NER","providerModelId":"blaze999/Medical-NER"} } }
+    providersMapping={ {"hf-inference":{"modelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1","providerModelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1"} } }
 />
 
 
