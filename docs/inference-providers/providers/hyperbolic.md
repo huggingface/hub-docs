@@ -79,13 +79,3 @@ For the latest pricing, visit our [pricing page](https://hyperbolic.xyz/pricing?
 ## Supported tasks
 
 
-### Chat Completion (LLM)
-
-Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"hyperbolic":{"modelId":"meta-llama/Llama-3.3-70B-Instruct","providerModelId":"meta-llama/Llama-3.3-70B-Instruct"} } }
-conversational />
-
-
