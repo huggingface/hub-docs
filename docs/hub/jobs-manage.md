@@ -158,6 +158,35 @@ hf jobs inspect --namespace <my-org-name> <job_id>
 hf jobs logs --namespace <my-org-name> <job_id>
 ```
 
+## Wait for Jobs to finish
+
+Use `hf jobs wait` to block until one or more Jobs reach a terminal state (`COMPLETED`, `CANCELED`, `ERROR` or `DELETED`). It exits with code `0` only if every Job completed successfully, and a non-zero code otherwise — handy for chaining steps in shell scripts or CI:
+
+```bash
+# Wait for a single Job
+>>> hf jobs wait 693994e21a39f67af5a41ad0
+
+# Wait for several Jobs at once (all must be in the same namespace)
+>>> hf jobs wait <job_id_1> <job_id_2>
+
+# Wait for every currently running Job
+>>> hf jobs ps -q | xargs hf jobs wait
+```
+
+Set a maximum wait with `--timeout` (accepts `s`, `m`, `h` or `d`):
+
+```bash
+>>> hf jobs wait --timeout 30m 693994e21a39f67af5a41ad0
+```
+
+Because `hf jobs wait` returns a non-zero exit code when a Job fails, you can chain it with `&&`. A non-detached `hf jobs run` (or `hf jobs uv run`) already blocks and exits non-zero on failure, so an explicit wait is only needed for detached Jobs (`-d`) or when waiting on a batch:
+
+```bash
+>>> hf jobs wait 693994e21a39f67af5a41ad0 && echo "job completed successfully"
+```
+
+In Python, use [`wait_for_job()`](https://huggingface.co/docs/huggingface_hub/en/package_reference/hf_api#huggingface_hub.HfApi.wait_for_job); it returns the final `JobInfo` (a failed Job does not raise an exception), so check `job.status.stage`.
+
 ## Debug a Job
 
 If a Job has an error, you can see it in on the Job page
