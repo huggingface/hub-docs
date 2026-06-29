@@ -6,3 +6,5 @@ usage: index
 faq: index
 rate-limits: pricing
 guides/vscode: integrations/vscode
+providers/hyperbolic: index
+providers/sambanova: index

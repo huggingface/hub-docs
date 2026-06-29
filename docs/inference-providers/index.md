@@ -48,13 +48,11 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [Fireworks](./providers/fireworks-ai)        |          ✅           |          ✅           |                    |               |               |                |
 | [Groq](./providers/groq)                     |          ✅           |          ✅           |                    |               |               |                |
 | [HF Inference](./providers/hf-inference)     |          ✅           |          ✅           |         ✅         |      ✅       |               |       ✅       |
-| [Hyperbolic](./providers/hyperbolic)         |          ✅           |          ✅           |                    |               |               |                |
 | [Novita](./providers/novita)                 |          ✅           |          ✅           |                    |               |      ✅       |                |
 | [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |      ✅       |               |                |
 | [OVHcloud AI Endpoints](./providers/ovhcloud)|          ✅           |          ✅           |                    |               |               |                |
 | [Public AI](./providers/publicai)            |          ✅           |                       |                    |               |               |                |
 | [Replicate](./providers/replicate)           |                       |                       |                    |      ✅       |      ✅       |       ✅       |
-| [SambaNova](./providers/sambanova)           |          ✅           |                       |         ✅         |               |               |                |
 | [Scaleway](./providers/scaleway)             |          ✅           |                       |         ✅         |               |               |                |
 | [Together](./providers/together)             |          ✅           |          ✅           |                    |      ✅       |               |                |
 | [WaveSpeedAI](./providers/wavespeed)         |                       |                       |                    |      ✅       |      ✅       |                |
@@ -82,7 +80,7 @@ Here's what you can build:
 ## Key Features
 
 - **🎯 All-in-One API**: A single API for text generation, image generation, document embeddings, NER, summarization, image classification, and more.
-- **🔀 Multi-Provider Support**: Easily run models from top-tier providers like fal, Replicate, Sambanova, Together AI, and others.
+- **🔀 Multi-Provider Support**: Easily run models from top-tier providers like fal, Replicate, Together AI, and others.
 - **🚀 Scalable & Reliable**: Built for high availability and low-latency performance in production environments.
 - **🔧 Developer-Friendly**: Simple requests, fast responses, and a consistent developer experience across Python and JavaScript clients.
 - **👷 Easy to integrate**: Drop-in replacement for the OpenAI chat completions API.
@@ -135,7 +133,7 @@ By default, our system automatically selects the fastest available provider for 
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
 ```python
 import os
@@ -166,7 +164,7 @@ By default, our system automatically selects the fastest available provider for 
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
 ```python
 import os
@@ -198,7 +196,7 @@ By default, our system automatically selects the fastest available provider for 
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
 ```python
 import os
@@ -246,7 +244,7 @@ By default, our system automatically selects the fastest available provider for 
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
 ```js
 import { InferenceClient } from "@huggingface/inference";
@@ -276,7 +274,7 @@ By default, our system automatically selects the fastest available provider for 
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
 ```javascript
 import OpenAI from "openai";
@@ -309,7 +307,7 @@ By default, our system automatically selects the fastest available provider for 
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
 ```js
 import fetch from "node-fetch";
@@ -348,7 +346,7 @@ By default, our system automatically selects the fastest available provider for 
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:sambanova"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
 ```bash
 curl https://router.huggingface.co/v1/chat/completions \
@@ -440,7 +438,7 @@ const client = new InferenceClient(process.env.HF_TOKEN);
 // Explicit provider selection
 await client.chatCompletion({
   model: "deepseek-ai/DeepSeek-R1",
-  provider: "sambanova", // Specific provider
+  provider: "novita", // Specific provider
   messages: [{ role: "user", content: "Hello!" }],
 });
 
@@ -466,7 +464,7 @@ client = InferenceClient(token=os.environ["HF_TOKEN"])
 # Explicit provider selection
 result = client.chat_completion(
     model="deepseek-ai/DeepSeek-R1",
-    provider="sambanova",  # Specific provider
+    provider="novita",  # Specific provider
     messages=[{"role": "user", "content": "Hello!"}],
 )
 
