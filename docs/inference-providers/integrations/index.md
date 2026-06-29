@@ -15,11 +15,11 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 
 | Integration                                                        | Description                                                              | Resources                                                                                                                                          |
 | ------------------------------------------------------------------ | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Pi](https://github.com/badlogic/pi-mono)                          | Minimalist terminal-based coding assistant                              | [Official docs](https://github.com/badlogic/pi-mono) / [Getting started](./pi)                                                                     |
-| [OpenCode](https://opencode.ai/)                                   | AI coding agent built for the terminal                                  | [Official docs](https://opencode.ai/docs/providers#hugging-face) / [Getting started](./opencode)                                                   |
+| [Pi](https://github.com/badlogic/pi-mono)                          | Minimalist terminal-based coding assistant                              | [Getting started](./pi)                                                                     |
+| [OpenCode](https://opencode.ai/)                                   | AI coding agent built for the terminal                                  | [Getting started](./opencode)                                                   |
 | [Codex](https://developers.openai.com/codex)                       | OpenAI's agentic coding CLI for the terminal                            | [Getting started](./codex)                                                                                                                         |
 | [Claude Code](https://docs.anthropic.com/en/docs/claude-code)      | Agentic coding tool for the terminal                                    | [Getting started](./claude-code)                                                                                                                   |
-| [Hermes Agent](https://github.com/NousResearch/hermes-agent)       | Open-source AI agent CLI for coding and development                     | [Official docs](https://hermes-agent.nousresearch.com/docs/user-guide/configuration/#hugging-face-inference-providers) / [Getting started](./hermes-agent) |
+| [Hermes Agent](https://github.com/NousResearch/hermes-agent)       | Open-source AI agent CLI for coding and development                     | [Getting started](./hermes-agent) |
 | [CrewAI](https://www.crewai.com/)                                  | Framework for orchestrating AI agent teams                              | [Official docs](https://docs.crewai.com/en/concepts/llms#hugging-face)                                                                             |
 | [NeMo Data Designer](https://github.com/NVIDIA-NeMo/DataDesigner)  | Synthetic dataset generation framework                                  | [Getting started](./datadesigner)                                                                                                                  |
 | [GitHub Copilot Chat](https://docs.github.com/en/copilot)          | AI pair programmer in VS Code                                           | [Getting started](./vscode)                                                                                                                        |
@@ -33,7 +33,7 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 | [PydanticAI](https://ai.pydantic.dev/)                             | Framework for building AI agents with Python                            | [Official docs](https://ai.pydantic.dev/models/huggingface/)                                                                                       |
 | [Roo Code](https://roocode.com/)                                   | AI-powered code generation and refactoring                              | [Official docs](https://docs.roocode.com/providers/huggingface)                                                                                    |
 | [smolagents](https://huggingface.co/docs/smolagents)               | Framework for building LLM agents with tool integration                 | [Official docs](https://huggingface.co/docs/smolagents/reference/models#smolagents.InferenceClientModel)                                          |
-| [Vision Agents](https://visionagents.ai/)                          | SDK for real-time AI with text and vision language models               | [Official docs](https://visionagents.ai/integrations/huggingface) / [Getting started](./visionagents)                                              |
+| [Vision Agents](https://visionagents.ai/)                          | SDK for real-time AI with text and vision language models               | [Getting started](./visionagents)                                              |
 
 ## Integrations by Category
 
@@ -53,11 +53,11 @@ End-user applications and interfaces powered by LLMs.
 
 AI-powered coding assistants and development environments.
 
-- [Pi](https://github.com/badlogic/pi-mono) - Minimalist terminal-based coding assistant ([Official docs](https://github.com/badlogic/pi-mono) / [Getting started](./pi))
-- [OpenCode](https://opencode.ai/) - AI coding agent built for the terminal ([Official docs](https://opencode.ai/docs/providers#hugging-face) / [Getting started](./opencode))
+- [Pi](https://github.com/badlogic/pi-mono) - Minimalist terminal-based coding assistant ([Getting started](./pi))
+- [OpenCode](https://opencode.ai/) - AI coding agent built for the terminal ([Getting started](./opencode))
 - [Codex](https://developers.openai.com/codex) - OpenAI's agentic coding CLI for the terminal ([Getting started](./codex))
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) - Agentic coding tool for the terminal ([Getting started](./claude-code))
-- [Hermes Agent](https://github.com/NousResearch/hermes-agent) - Open-source AI agent CLI for coding and development ([Official docs](https://hermes-agent.nousresearch.com/docs/user-guide/configuration/#hugging-face-inference-providers) / [Getting started](./hermes-agent))
+- [Hermes Agent](https://github.com/NousResearch/hermes-agent) - Open-source AI agent CLI for coding and development ([Getting started](./hermes-agent))
 - [GitHub Copilot Chat](https://docs.github.com/en/copilot) - AI pair programmer in VS Code ([Getting started](./vscode))
 - [Roo Code](https://roocode.com/) - AI-powered code generation and refactoring ([Official docs](https://docs.roocode.com/providers/huggingface))
 
@@ -78,7 +78,7 @@ LLM application frameworks and orchestration platforms.
 - [LlamaIndex](https://www.llamaindex.ai/) - Data framework for connecting custom data to LLMs ([Official docs](https://developers.llamaindex.ai/python/examples/llm/huggingface/#use-a-model-via-inference-providers))
 - [PydanticAI](https://ai.pydantic.dev/) - Framework for building AI agents with Python ([Official docs](https://ai.pydantic.dev/models/huggingface/))
 - [smolagents](https://huggingface.co/docs/smolagents) - Framework for building LLM agents with tool integration ([Official docs](https://huggingface.co/docs/smolagents/reference/models#smolagents.InferenceClientModel))
-- [Vision Agents](https://visionagents.ai/) - SDK for real-time AI with text and vision language models ([Official docs](https://visionagents.ai/integrations/huggingface) / [Getting started](./visionagents))
+- [Vision Agents](https://visionagents.ai/) - SDK for real-time AI with text and vision language models ([Getting started](./visionagents))
 
 ### Synthetic Data
 
