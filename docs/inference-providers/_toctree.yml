@@ -134,6 +134,8 @@
     title: Replicate
   - local: providers/scaleway
     title: Scaleway
+  - local: providers/textclf
+    title: TextCLF
   - local: providers/together
     title: Together
   - local: providers/wavespeed

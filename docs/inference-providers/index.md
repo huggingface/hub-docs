@@ -54,6 +54,7 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [Public AI](./providers/publicai)            |          ✅           |                       |                    |               |               |                |
 | [Replicate](./providers/replicate)           |                       |                       |                    |      ✅       |      ✅       |       ✅       |
 | [Scaleway](./providers/scaleway)             |          ✅           |                       |         ✅         |               |               |                |
+| [TextCLF](./providers/textclf)               |          ✅           |                       |                     |               |               |                |
 | [Together](./providers/together)             |          ✅           |          ✅           |                    |      ✅       |               |                |
 | [WaveSpeedAI](./providers/wavespeed)         |                       |                       |                    |      ✅       |      ✅       |                |
 | [Z.ai](./providers/zai-org)                  |          ✅           |          ✅           |                    |               |               |                |

@@ -49,6 +49,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   publicai: "https://publicai.co/",
   replicate: "https://replicate.com/",
   scaleway: "https://www.scaleway.com",
+  textclf: "https://textclf.com/",
   together: "https://together.xyz/",
   wavespeed: "https://wavespeed.ai/",
   "zai-org": "https://z.ai/"
