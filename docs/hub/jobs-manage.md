@@ -185,8 +185,6 @@ Because `hf jobs wait` returns a non-zero exit code when a Job fails, you can ch
 >>> hf jobs wait 693994e21a39f67af5a41ad0 && echo "job completed successfully"
 ```
 
-In Python, use [`wait_for_job()`](https://huggingface.co/docs/huggingface_hub/en/package_reference/hf_api#huggingface_hub.HfApi.wait_for_job); it returns the final `JobInfo` (a failed Job does not raise an exception), so check `job.status.stage`.
-
 ## Debug a Job
 
 If a Job has an error, you can see it in on the Job page
