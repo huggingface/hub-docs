@@ -68,7 +68,7 @@ The same pattern works with any server that speaks HTTP. llama.cpp's `llama serv
 
 ```bash
 >>> hf jobs run --detach --expose 8080 --flavor a10g-small -s HF_TOKEN \
-...   ghcr.io/ggml-org/llama.cpp:full-cuda -- \
+...   ghcr.io/ggml-org/llama.cpp:server-cuda -- \
 ...   /app/llama serve -hf ggml-org/gemma-4-E4B-it-GGUF \
 ...   --host 0.0.0.0 --port 8080 -ngl 99 \
 ...   --temp 1.0 --top-p 0.95 --top-k 64
@@ -82,7 +82,7 @@ The `--` separates the job's command from `hf jobs run`'s own options — needed
 > ```bash
 > >>> hf jobs run --detach --expose 8080 --flavor a10g-small -s HF_TOKEN \
 > ...   -v hf://ggml-org/gemma-4-E4B-it-GGUF:/model:ro \
-> ...   ghcr.io/ggml-org/llama.cpp:full-cuda -- \
+> ...   ghcr.io/ggml-org/llama.cpp:server-cuda -- \
 > ...   /app/llama serve --model /model/gemma-4-E4B-it-Q4_K_M.gguf \
 > ...   --host 0.0.0.0 --port 8080 -ngl 99
 > ```
