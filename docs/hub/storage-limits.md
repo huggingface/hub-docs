@@ -38,7 +38,18 @@ Users on a paid plan (PRO, Team, or Enterprise) can subscribe to a **Public Stor
 | 20 TB          | $240/month     | $12/TB/month     |
 | 50 TB          | $500/month     | $10/TB/month     |
 
-You can subscribe or change your tier from the **Billing** settings page of your account or organization. Upgrades take effect immediately; downgrades are scheduled to take effect at the start of the next month. If you need more storage, you can [contact us](https://huggingface.co/contact/sales) to take advantage of [custom large-scale pricing](https://huggingface.co/pricing#storage).
+You can subscribe or change your tier from the **Billing** settings page of your account or organization. Upgrades take effect immediately; downgrades are scheduled to take effect at the start of the next month.
+
+If you need more than the self-serve tiers above, you can [contact us](https://huggingface.co/contact/sales) for a custom large-scale public storage package, billed per TB with volume discounts:
+
+| Volume | Price (public repos) |
+| ------ | -------------------- |
+| Base   | $12/TB/mo            |
+| 50TB+  | $10/TB/mo            |
+| 200TB+ | $9/TB/mo             |
+| 500TB+ | $8/TB/mo             |
+
+You can always view the latest pricing at [huggingface.co/pricing](https://huggingface.co/pricing#storage).
 
 ### Private storage Pay-as-you-go
 
