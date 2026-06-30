@@ -64,17 +64,17 @@ Because the token travels in the `Authorization` header, these URLs work from sc
 
 ## Serve GGUF models with llama.cpp
 
-The same pattern works with any server that speaks HTTP. llama.cpp's `llama-server` pulls GGUF files straight from the Hub with the `-hf` flag and serves the same OpenAI-compatible API. For example, to serve [Gemma 4 E4B](https://huggingface.co/ggml-org/gemma-4-E4B-it-GGUF) with Gemma's recommended sampling settings:
+The same pattern works with any server that speaks HTTP. llama.cpp's `llama serve` pulls GGUF files straight from the Hub with the `-hf` flag and serves the same OpenAI-compatible API. For example, to serve [Gemma 4 E4B](https://huggingface.co/ggml-org/gemma-4-E4B-it-GGUF) with Gemma's recommended sampling settings:
 
 ```bash
 >>> hf jobs run --detach --expose 8080 --flavor a10g-small -s HF_TOKEN \
 ...   ghcr.io/ggml-org/llama.cpp:server-cuda -- \
-...   /app/llama-server -hf ggml-org/gemma-4-E4B-it-GGUF \
+...   /app/llama serve -hf ggml-org/gemma-4-E4B-it-GGUF \
 ...   --host 0.0.0.0 --port 8080 -ngl 99 \
 ...   --temp 1.0 --top-p 0.95 --top-k 64
 ```
 
-The `--` separates the job's command from `hf jobs run`'s own options — needed here because `llama-server`'s flags would otherwise be parsed by the CLI itself.
+The `--` separates the job's command from `hf jobs run`'s own options — needed here because `llama serve`'s flags would otherwise be parsed by the CLI itself.
 
 > [!TIP]
 > You can skip the model download entirely by mounting the model repo as a read-only volume and pointing the server at the file directly:
@@ -83,14 +83,14 @@ The `--` separates the job's command from `hf jobs run`'s own options — needed
 > >>> hf jobs run --detach --expose 8080 --flavor a10g-small -s HF_TOKEN \
 > ...   -v hf://ggml-org/gemma-4-E4B-it-GGUF:/model:ro \
 > ...   ghcr.io/ggml-org/llama.cpp:server-cuda -- \
-> ...   /app/llama-server --model /model/gemma-4-E4B-it-Q4_K_M.gguf \
+> ...   /app/llama serve --model /model/gemma-4-E4B-it-Q4_K_M.gguf \
 > ...   --host 0.0.0.0 --port 8080 -ngl 99
 > ```
 >
 > The server starts much faster since there is nothing to download — the model streams from the mounted repo as it loads.
 
 > [!WARNING]
-> Your server must listen on `0.0.0.0`. `llama-server` binds to `127.0.0.1` by default, which the jobs proxy can't reach — pass `--host 0.0.0.0` explicitly.
+> Your server must listen on `0.0.0.0`. `llama serve` binds to `127.0.0.1` by default, which the jobs proxy can't reach — pass `--host 0.0.0.0` explicitly.
 
 The same applies to any other OpenAI-compatible server (SGLang, ...): start the server on an exposed port, listen on `0.0.0.0`, and connect with your HF token as the API key.
 
