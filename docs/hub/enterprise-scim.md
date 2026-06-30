@@ -67,7 +67,7 @@ Once a SCIM group is linked to a Resource Group:
 
 ### SCIM-managed Resource Groups
 
-A Resource Group linked to a SCIM group is considered **SCIM-managed**. The IdP is the sole source of truth for its regular members. As a result:
+A Resource Group linked to a SCIM group is considered **SCIM-managed**. The IdP is the sole source of truth for its regular users. As a result:
 
 - Manual membership changes via the Hub UI or API are **blocked** for regular users — any attempt to add, remove, or change the role of a regular user on a SCIM-managed Resource Group will return a `403` error.
 - [Service accounts](./enterprise-service-accounts) are the exception: since they are never provisioned through SCIM, you can still add, remove, or change the role of a service account manually on a SCIM-managed Resource Group.
