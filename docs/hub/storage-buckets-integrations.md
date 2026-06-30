@@ -88,4 +88,4 @@ text_files = hffs.glob("buckets/username/my-bucket/*.txt")
 
 ## Coming soon
 
-Support for more libraries is on the way — including Polars, DuckDB (native `hf://` URL support), Daft, and webdataset.
+Native `hf://` URL support is on the way for more libraries — including Polars, DuckDB, Daft, and webdataset. In the meantime, all of these already work today through the [S3-compatible API](./storage-buckets-s3).
