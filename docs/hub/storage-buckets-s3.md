@@ -3,6 +3,8 @@
 Storage Buckets can be accessed through an **S3-compatible API**, letting you use existing S3 tooling — the AWS CLI, `boto3`, `s5cmd`, and most other S3 SDKs — against your buckets without changing your code. 
 Requests go through a gateway service at `https://s3.hf.co`.
 
+The S3 API is one of several ways to reach bucket data — for Hugging Face-native access (the `hf` CLI, `hf://` paths, and filesystem mounts) without separate S3 credentials, see [Access Patterns](./storage-buckets-access).
+
 > [!NOTE]
 > The S3 API works only with [Storage Buckets](./storage-buckets). It does not expose other Hugging Face repository types (models, datasets, Spaces).
 
@@ -133,6 +135,54 @@ Bucket object keys are more restricted than S3. A key must **not**:
 ## Examples
 
 Real-world recipes for common tasks. Each builds on the [client configuration](#configuring-a-client) above.
+
+### Read and write with `boto3`
+
+[`boto3`](https://docs.aws.amazon.com/boto3/latest/) works against the gateway with the [client settings](#configuring-a-client) above. Replace `<namespace>` with your username or organization:
+
+```python
+import boto3
+from botocore.config import Config
+
+s3 = boto3.client(
+    "s3",
+    endpoint_url="https://s3.hf.co/<namespace>",
+    aws_access_key_id="HFAK...",
+    aws_secret_access_key="...",
+    config=Config(
+        region_name="us-east-1",
+        s3={"addressing_style": "path"},
+        request_checksum_calculation="when_required",
+        response_checksum_validation="when_required",
+    ),
+)
+
+s3.upload_file("model.safetensors", "my-bucket", "models/model.safetensors")
+s3.download_file("my-bucket", "models/model.safetensors", "model.safetensors")
+```
+
+### Query a bucket with DuckDB
+
+With the `httpfs` extension, [DuckDB](https://duckdb.org/) can read Parquet (and other formats) straight from a bucket:
+
+```sql
+INSTALL httpfs;
+LOAD httpfs;
+
+CREATE SECRET hf (
+    TYPE s3,
+    KEY_ID 'HFAK...',
+    SECRET '...',
+    ENDPOINT 's3.hf.co/<namespace>',
+    URL_STYLE 'path',
+    REGION 'us-east-1'
+);
+
+SELECT * FROM read_parquet('s3://my-bucket/data.parquet');
+```
+
+> [!NOTE]
+> `URL_STYLE 'path'` is required. Without it, DuckDB uses virtual-hosted-style addressing (`my-bucket.s3.hf.co`), which the gateway does not serve — you will see a "Could not resolve hostname" error.
 
 ### Import data using `rclone`
 
