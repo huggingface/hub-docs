@@ -47,7 +47,7 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
-    providersMapping={ {"fal-ai":{"modelId":"openai/whisper-large-v3","providerModelId":"fal-ai/whisper"} } }
+    providersMapping={ {"fal-ai":{"modelId":"nvidia/nemotron-3.5-asr-streaming-0.6b","providerModelId":"nvidia/nemotron-asr-multilingual/asr"} } }
 />
 
 

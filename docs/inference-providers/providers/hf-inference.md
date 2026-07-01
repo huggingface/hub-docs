@@ -54,16 +54,6 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 />
 
 
-### Chat Completion (LLM)
-
-Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceBio/Carbon-3B","providerModelId":"HuggingFaceBio/Carbon-3B"} } }
-conversational />
-
-
 ### Feature Extraction
 
 Find out more about Feature Extraction [here](../tasks/feature-extraction).
@@ -151,16 +141,6 @@ Find out more about Text Classification [here](../tasks/text-classification).
 <InferenceSnippet
     pipeline=text-classification
     providersMapping={ {"hf-inference":{"modelId":"BAAI/bge-reranker-v2-m3","providerModelId":"BAAI/bge-reranker-v2-m3"} } }
-/>
-
-
-### Text Generation
-
-Find out more about Text Generation [here](../tasks/text-generation).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceBio/Carbon-3B","providerModelId":"HuggingFaceBio/Carbon-3B"} } }
 />
 
 
