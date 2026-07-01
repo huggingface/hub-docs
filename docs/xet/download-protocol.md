@@ -87,7 +87,7 @@ This example describes a small file made of a single term: chunks `[0, 4)` from 
     - `bytes`: Physical byte range `{ start: number, end: number }` for the HTTP Range header; end-inclusive `[start, end]`
 
 > [!IMPORTANT]
-> The URL encodes the exact set of byte ranges that MUST be requested. Requesting individual sub-ranges separately will result in an authorization failure. The client MUST send all ranges from a single `XorbMultiRangeFetch` entry in a single request.
+> The signed `url` authorizes exactly the byte ranges in its `X-Xet-Signed-Range` set; a `Range` header requesting bytes outside that set returns an authorization failure. Clients SHOULD request all ranges of a `XorbMultiRangeFetch` entry in a single request, which returns a `multipart/byteranges` response when the entry has more than one range.
 
 ## Stage 3: Downloading and Reconstructing the File
 

@@ -36,6 +36,9 @@ It is: `07060504030201000f0e0d0c0b0a0908171615141312111f1e1d1c1b1a1918`.
 
 ### 1. Get File Reconstruction
 
+> [!NOTE]
+> This v2 endpoint is the recommended default. Because older CAS deployments may not serve `/v2/`, clients SHOULD fall back to the deprecated [`GET /v1/reconstructions/{file_id}`](./api#10-get-file-reconstruction-v1) on a `404` or `501`.
+
 - **Description**: Retrieves reconstruction information for a specific file. Returns URLs optimized for multi-range fetching: multiple byte ranges for the same xorb are combined into a single URL. Supports byte range via the optional `Range` header.
 - **Path**: `/v2/reconstructions/{file_id}`
 - **Method**: `GET`
@@ -356,7 +359,7 @@ See [file hashes](./hashing#file-hashes) and [converting hashes to strings](./ap
   }
   ```
 
-  - `windows`: one entry per dirty range (adjacent dirty ranges that share the same chunk are merged). Bounds are chunk-aligned, expanded outward to fully contain the requested dirty range; the client re-chunks this exact span.
+  - `windows`: one entry per dirty range (adjacent dirty ranges that share the same chunk are merged). Each `dirtyByteRange` is `[start, end)` with an **exclusive** end (note: the `X-Range-Dirty` request header uses inclusive ends). Bounds are chunk-aligned, expanded outward to fully contain the requested dirty range; the client re-chunks this exact span.
   - `hashRanges`: `N + 1` entries for `N` windows — `[before_w0, between_w0_w1, ..., after_wN]`. Each entry is an opaque `MerkleHashSubtree`; pass as-is to the client merge routine. `null` when the gap is empty (for example, a window starts at chunk 0).
   - `gapVerification`: one hash per stable original segment (a segment lying entirely in a gap between dirty windows or before/after them, in segment order). The client wraps each into a `FileVerificationEntry` for the verification section of the composed shard. Empty when every segment overlaps a dirty range.
 
