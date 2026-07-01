@@ -36,14 +36,18 @@ It is: `07060504030201000f0e0d0c0b0a0908171615141312111f1e1d1c1b1a1918`.
 
 ### 1. Get File Reconstruction
 
-- **Description**: Retrieves reconstruction information for a specific file, includes byte range support when `Range` header is set.
-- **Path**: `/v1/reconstructions/{file_id}`
+> [!NOTE]
+> This v2 endpoint is the recommended default. Because older CAS deployments may not serve `/v2/`, clients SHOULD fall back to the deprecated [`GET /v1/reconstructions/{file_id}`](./api#10-get-file-reconstruction-v1) on a `404` or `501`.
+
+- **Description**: Retrieves reconstruction information for a specific file. Returns URLs optimized for multi-range fetching: multiple byte ranges for the same xorb are combined into a single URL. Supports byte range via the optional `Range` header.
+- **Path**: `/v2/reconstructions/{file_id}`
 - **Method**: `GET`
 - **Parameters**:
   - `file_id`: File hash in hex format (64 lowercase hexadecimal characters).
 See [file hashes](./hashing#file-hashes) for computing the file hash and [converting hashes to strings](./api#converting-hashes-to-strings).
 - **Headers**:
   - `Range`: OPTIONAL. Format: `bytes={start}-{end}` (end is inclusive).
+  - `Accept-Encoding`: OPTIONAL. The server supports `gzip` and `zstd` compression on the JSON response. Clients SHOULD send `Accept-Encoding: gzip` or `Accept-Encoding: zstd` to reduce reconstruction response size.
 - **Minimum Token Scope**: `read`
 - **Body**: None.
 - **Response**: JSON (`QueryReconstructionResponse`)
@@ -52,7 +56,7 @@ See [file hashes](./hashing#file-hashes) for computing the file hash and [conver
   {
     "offset_into_first_range": 0,
     "terms": [...],
-    "fetch_info": {...}
+    "xorbs": {...}
   }
   ```
 
@@ -63,7 +67,7 @@ See [file hashes](./hashing#file-hashes) for computing the file hash and [conver
   - `416 Range Not Satisfiable`: The requested byte range start exceeds the end of the file. Not retryable.
 
 ```txt
-GET /v1/reconstructions/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+GET /v2/reconstructions/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 -H "Authorization: Bearer <token>"
 OPTIONAL: -H Range: "bytes=0-100000"
 ```
@@ -171,6 +175,241 @@ POST /v1/shards
 #### Example Shard Request Body
 
 An example shard request body can be found in [Xet reference files](https://huggingface.co/datasets/xet-team/xet-spec-reference-files/blob/main/Electric_Vehicle_Population_Data_20250917.csv.shard.verification-no-footer).
+
+### 5. Streaming Shard Upload
+
+- **Description**: Runs the same validation and registration as [Upload Shard](./api#4-upload-shard), but streams finalization progress back as newline-delimited JSON so clients can show real progress on large shards, which can take several seconds to finalize server-side.
+- **Path**: `/v2/shards`
+- **Method**: `POST`
+- **Minimum Token Scope**: `write`
+- **Body**: Serialized Shard data as bytes (`application/octet-stream`), identical to [`/v1/shards`](./api#4-upload-shard). See [Shard format guide](./shard#shard-upload).
+- **Response**: A newline-delimited JSON stream (`Content-Type: application/x-ndjson`, `Cache-Control: no-cache`), one JSON object ("event") per line.
+
+The HTTP status is `200 OK` as soon as the stream starts, so success or failure is carried by the terminal event, NOT by the status code.
+Clients MUST read the stream to completion and inspect the terminal event.
+
+Each event has a `type` field:
+
+  - `validating`: verification progress. `verified` is the number of completed verification tasks, `total` the number spawned so far. While the shard is still being received `total` grows, so treat `verified / total` as a live ratio, not a final percentage.
+
+    ```json
+    {"type":"validating","verified":120,"total":512}
+    ```
+
+  - `committing`: the shard is being durably written. `stage` identifies the sub-step, so a stalled commit shows where it is stuck:
+    - `uploading`: persisting the shard object to storage.
+    - `syncing`: registering the shard (file ids, global dedup, shard list).
+
+    ```json
+    {"type":"committing","stage":"uploading"}
+    ```
+
+  - `result`: terminal success. Carries the same [`UploadShardResponse`](./api#4-upload-shard) values (`0`: already existed, `1`: registered); as with `/v1/shards` the value is informational, a `result` event means the upload succeeded.
+
+    ```json
+    {"type":"result","result":1}
+    ```
+
+  - `error`: terminal failure with a sanitized message. Because the status is already `200 OK`, this event is the only failure signal once streaming has started.
+
+    ```json
+    {"type":"error","message":"..."}
+    ```
+
+A typical successful stream:
+
+```txt
+{"type":"validating","verified":0,"total":512}
+{"type":"validating","verified":256,"total":512}
+{"type":"committing","stage":"uploading"}
+{"type":"committing","stage":"syncing"}
+{"type":"result","result":1}
+```
+
+If validation stalls, the server periodically re-emits the last progress event as a heartbeat so the stream never looks dead, which lets clients keep a short read timeout.
+
+> [!NOTE]
+> Additive change: `/v1/shards` is unchanged. Clients SHOULD try `/v2/shards` and fall back to `/v1/shards` on `404 Not Found`.
+
+- **Error Responses**: A malformed or unauthorized request can still fail before streaming starts; see [Error Cases](./api#error-cases). Once the stream has started (`200 OK`), validation and registration failures are reported through the terminal `error` event instead.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `403 Forbidden`: Token provided but does not have a wide enough scope (for example, a `read` token was provided).
+
+```txt
+POST /v2/shards
+-H "Authorization: Bearer <token>"
+```
+
+### 6. Batch File Reconstruction
+
+- **Description**: Retrieves reconstruction information for multiple files in a single request, avoiding N separate calls.
+- **Path**: `/v1/reconstructions`
+- **Method**: `POST`
+- **Headers**:
+  - `Accept-Encoding`: OPTIONAL. The server supports `gzip` and `zstd` compression on the JSON response. Clients SHOULD send `Accept-Encoding: gzip` or `Accept-Encoding: zstd` to reduce response size.
+- **Minimum Token Scope**: `read`
+- **Body**: JSON array of keys, each a `{ "prefix", "hash" }` object. `prefix` is `default`; `hash` is the file hash in hex format (64 lowercase hexadecimal characters). Duplicate keys are de-duplicated server-side.
+
+  ```json
+  [
+    { "prefix": "default", "hash": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef" }
+  ]
+  ```
+
+- **Response**: JSON (`BatchQueryReconstructionResponse`)
+
+  ```json
+  {
+    "files": {
+      "0123...": [/* CASReconstructionTerm, ... */]
+    },
+    "fetch_info": {
+      "0123...": [/* CASReconstructionFetchInfo, ... */]
+    }
+  }
+  ```
+
+  `files` maps each file id to its reconstruction terms; `fetch_info` is shared across files and keyed by xorb hash. This endpoint returns the v1 response shape; for the multi-range optimized format, call `/v2/reconstructions/{file_id}` per file.
+
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Malformed body or invalid file id in the request.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `404 Not Found`: One or more files do not exist. Not retryable.
+
+```txt
+POST /v1/reconstructions
+-H "Authorization: Bearer <token>"
+-H "Content-Type: application/json"
+```
+
+### 7. Head Xorb
+
+- **Description**: Existence check for a Xorb.
+- **Path**: `/v1/xorbs/{prefix}/{hash}`
+- **Method**: `HEAD`
+- **Parameters**:
+  - `prefix`: The only acceptable prefix for Xorbs is `default`.
+  - `hash`: Xorb hash in hex format (64 lowercase hexadecimal characters).
+See [Xorb Hashes](./hashing#xorb-hashes) and [converting hashes to strings](./api#converting-hashes-to-strings).
+- **Minimum Token Scope**: `read`
+- **Body**: None.
+- **Response**: Empty body. Response headers:
+  - `Content-Length`: size in bytes of the stored Xorb.
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Malformed hash in the path.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `404 Not Found`: The Xorb does not exist. Not retryable.
+
+```txt
+HEAD /v1/xorbs/default/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+-H "Authorization: Bearer <token>"
+```
+
+### 8. Head File
+
+- **Description**: Existence check for a file.
+- **Path**: `/v1/files/{file_id}`
+- **Method**: `HEAD`
+- **Parameters**:
+  - `file_id`: File hash in hex format (64 lowercase hexadecimal characters).
+See [file hashes](./hashing#file-hashes) and [converting hashes to strings](./api#converting-hashes-to-strings).
+- **Minimum Token Scope**: `read`
+- **Body**: None.
+- **Response**: Empty body. Response headers:
+  - `Content-Length`: size in bytes of the full file.
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Malformed `file_id` in the path.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `404 Not Found`: The file does not exist. Not retryable.
+
+```txt
+HEAD /v1/files/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+-H "Authorization: Bearer <token>"
+```
+
+### 9. Get File Chunk Hashes
+
+- **Description**: For a file and a set of "dirty" byte ranges (regions the client intends to re-chunk), returns the chunk windows the client must re-chunk plus opaque hash subtrees covering the unchanged gaps. Used by delta uploads to compose a new shard without re-uploading already-known chunks. The response covers the full file.
+- **Path**: `/v2/file-chunk-hashes/{file_id}`
+- **Method**: `GET`
+- **Parameters**:
+  - `file_id`: File hash in hex format (64 lowercase hexadecimal characters).
+See [file hashes](./hashing#file-hashes) and [converting hashes to strings](./api#converting-hashes-to-strings).
+- **Headers**:
+  - `X-Range-Dirty`: REQUIRED. One or more byte ranges using the standard `bytes=` syntax (inclusive ends, comma-separated), e.g. `bytes=0-1023,5000-9999`. Ranges are sorted and merged server-side. At least one range MUST be present.
+  - `Accept-Encoding`: OPTIONAL. The server supports `gzip` and `zstd` compression on the JSON response.
+- **Minimum Token Scope**: `read`
+- **Body**: None.
+- **Response**: JSON (`FileChunkHashesResponse`). Unlike other endpoints in this spec, this response uses `camelCase` field names, matching the server.
+
+  ```json
+  {
+    "totalChunks": 1234,
+    "fileSize": 9876543,
+    "windows": [
+      { "dirtyByteRange": [0, 65536] }
+    ],
+    "hashRanges": [
+      null,
+      "<opaque MerkleHashSubtree>"
+    ],
+    "gapVerification": [
+      "<hex MerkleHash>"
+    ]
+  }
+  ```
+
+  - `windows`: one entry per dirty range (adjacent dirty ranges that share the same chunk are merged). Each `dirtyByteRange` is `[start, end)` with an **exclusive** end (note: the `X-Range-Dirty` request header uses inclusive ends). Bounds are chunk-aligned, expanded outward to fully contain the requested dirty range; the client re-chunks this exact span.
+  - `hashRanges`: `N + 1` entries for `N` windows — `[before_w0, between_w0_w1, ..., after_wN]`. Each entry is an opaque `MerkleHashSubtree`; pass as-is to the client merge routine. `null` when the gap is empty (for example, a window starts at chunk 0).
+  - `gapVerification`: one hash per stable original segment (a segment lying entirely in a gap between dirty windows or before/after them, in segment order). The client wraps each into a `FileVerificationEntry` for the verification section of the composed shard. Empty when every segment overlaps a dirty range.
+
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Missing or malformed `X-Range-Dirty` header, malformed `file_id`, or no range survives clamping to the file.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `404 Not Found`: The file does not exist. Not retryable.
+
+```txt
+GET /v2/file-chunk-hashes/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+-H "Authorization: Bearer <token>"
+-H "X-Range-Dirty: bytes=0-65535,200000-299999"
+```
+
+### 10. Get File Reconstruction (v1)
+
+> [!WARNING]
+> **Deprecated.** Use [`GET /v2/reconstructions/{file_id}`](./api#1-get-file-reconstruction) instead. This v1 endpoint is still served for existing clients but will be removed once they migrate. The v2 endpoint returns the multi-range optimized response described in section 1.
+
+- **Description**: Retrieves reconstruction information for a specific file, includes byte range support when `Range` header is set. Returns the v1 response shape (`terms` + `fetch_info`).
+- **Path**: `/v1/reconstructions/{file_id}`
+- **Method**: `GET`
+- **Parameters**:
+  - `file_id`: File hash in hex format (64 lowercase hexadecimal characters).
+See [file hashes](./hashing#file-hashes) for computing the file hash and [converting hashes to strings](./api#converting-hashes-to-strings).
+- **Headers**:
+  - `Range`: OPTIONAL. Format: `bytes={start}-{end}` (end is inclusive).
+- **Minimum Token Scope**: `read`
+- **Body**: None.
+- **Response**: JSON (`QueryReconstructionResponse`)
+
+  ```json
+  {
+    "offset_into_first_range": 0,
+    "terms": [...],
+    "fetch_info": {...}
+  }
+  ```
+
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Malformed `file_id` in the path. Fix the path before retrying.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `404 Not Found`: The file does not exist. Not retryable.
+  - `416 Range Not Satisfiable`: The requested byte range start exceeds the end of the file. Not retryable.
+
+```txt
+GET /v1/reconstructions/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+-H "Authorization: Bearer <token>"
+OPTIONAL: -H Range: "bytes=0-100000"
+```
 
 ## Error Cases
 

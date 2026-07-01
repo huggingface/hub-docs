@@ -116,6 +116,9 @@ For this to succeed, all xorbs referenced by the shard MUST have already complet
 
 This API registers files as uploaded.
 
+> [!TIP]
+> A [streaming variant](./api#5-streaming-shard-upload) (`POST /v2/shards`) runs the same validation and registration but streams finalization progress back as newline-delimited JSON, so clients can show real progress while the server verifies a large shard. Clients SHOULD fall back to `/v1/shards` on a `404`.
+
 > [!NOTE]
 > For a large batch of files or a batch of large files if the serialized shard will be greater than 64 MiB you MUST break up the content into multiple shards.
 
