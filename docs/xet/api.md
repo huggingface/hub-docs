@@ -175,8 +175,7 @@ An example shard request body can be found in [Xet reference files](https://hugg
 
 ### 5. Streaming Shard Upload
 
-- **Description**: Runs the exact same validation and registration as [Upload Shard](./api#4-upload-shard), but streams finalization progress back as newline-delimited JSON so clients can show real progress instead of a bar frozen at 100%.
-Large or heavily-deduplicated shards can take several seconds to finalize: the server verifies every file reconstruction entry against its xorb metadata, and a cache miss there is an S3 fetch.
+- **Description**: Runs the same validation and registration as [Upload Shard](./api#4-upload-shard), but streams finalization progress back as newline-delimited JSON so clients can show real progress on large shards, which can take several seconds to finalize server-side.
 - **Path**: `/v2/shards`
 - **Method**: `POST`
 - **Minimum Token Scope**: `write`
@@ -194,15 +193,15 @@ Each event has a `type` field:
     {"type":"validating","verified":120,"total":512}
     ```
 
-  - `committing`: the shard is being durably written. `stage` identifies the sub-step, so a stalled commit points at the responsible system:
-    - `uploading`: uploading the shard object to S3.
-    - `syncing`: registering the shard in DynamoDB (file ids, global dedup, shard list).
+  - `committing`: the shard is being durably written. `stage` identifies the sub-step, so a stalled commit shows where it is stuck:
+    - `uploading`: persisting the shard object to storage.
+    - `syncing`: registering the shard (file ids, global dedup, shard list).
 
     ```json
     {"type":"committing","stage":"uploading"}
     ```
 
-  - `result`: terminal success. `result` carries the same [`UploadShardResponse`](./api#4-upload-shard) semantics (`0`: the shard already exists, `1`: the shard was registered) and, as with `/v1/shards`, the value carries no further meaning: a `result` event means the upload succeeded.
+  - `result`: terminal success. Carries the same [`UploadShardResponse`](./api#4-upload-shard) values (`0`: already existed, `1`: registered); as with `/v1/shards` the value is informational, a `result` event means the upload succeeded.
 
     ```json
     {"type":"result","result":1}
@@ -224,9 +223,11 @@ A typical successful stream:
 {"type":"result","result":1}
 ```
 
-If validation stalls (for example on a slow xorb-metadata fetch), the server re-emits the last progress event as a heartbeat after roughly 20 seconds of silence so the connection stays alive.
+If validation stalls, the server periodically re-emits the last progress event as a heartbeat so the stream never looks dead, which lets clients keep a short read timeout.
 
-- **Compatibility**: Additive. `/v1/shards` is unchanged. Clients SHOULD try `/v2/shards` and fall back to `/v1/shards` on `404 Not Found`.
+> [!NOTE]
+> Additive change: `/v1/shards` is unchanged. Clients SHOULD try `/v2/shards` and fall back to `/v1/shards` on `404 Not Found`.
+
 - **Error Responses**: A malformed or unauthorized request can still fail before streaming starts; see [Error Cases](./api#error-cases). Once the stream has started (`200 OK`), validation and registration failures are reported through the terminal `error` event instead.
   - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
   - `403 Forbidden`: Token provided but does not have a wide enough scope (for example, a `read` token was provided).
@@ -280,7 +281,7 @@ POST /v1/reconstructions
 
 ### 7. Head Xorb
 
-- **Description**: Existence check for a Xorb. Returns no body; the `Content-Length` response header carries the stored Xorb size in bytes.
+- **Description**: Existence check for a Xorb.
 - **Path**: `/v1/xorbs/{prefix}/{hash}`
 - **Method**: `HEAD`
 - **Parameters**:
@@ -303,7 +304,7 @@ HEAD /v1/xorbs/default/0123456789abcdef0123456789abcdef0123456789abcdef012345678
 
 ### 8. Head File
 
-- **Description**: Existence check for a file. Returns no body; the `Content-Length` response header carries the full file size in bytes.
+- **Description**: Existence check for a file.
 - **Path**: `/v1/files/{file_id}`
 - **Method**: `HEAD`
 - **Parameters**:
@@ -325,7 +326,7 @@ HEAD /v1/files/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 
 ### 9. Get File Chunk Hashes
 
-- **Description**: For a file and a set of "dirty" byte ranges (regions the client intends to re-chunk), returns the chunk windows the client must re-chunk plus opaque hash subtrees covering the unchanged gaps. Used by delta uploads to compose a new shard without re-uploading already-known chunks. The response covers the full file; see the field notes below for how windows, gaps, and verification hashes fit together.
+- **Description**: For a file and a set of "dirty" byte ranges (regions the client intends to re-chunk), returns the chunk windows the client must re-chunk plus opaque hash subtrees covering the unchanged gaps. Used by delta uploads to compose a new shard without re-uploading already-known chunks. The response covers the full file.
 - **Path**: `/v2/file-chunk-hashes/{file_id}`
 - **Method**: `GET`
 - **Parameters**:
@@ -336,7 +337,7 @@ See [file hashes](./hashing#file-hashes) and [converting hashes to strings](./ap
   - `Accept-Encoding`: OPTIONAL. The server supports `gzip` and `zstd` compression on the JSON response.
 - **Minimum Token Scope**: `read`
 - **Body**: None.
-- **Response**: JSON (`FileChunkHashesResponse`)
+- **Response**: JSON (`FileChunkHashesResponse`). Unlike other endpoints in this spec, this response uses `camelCase` field names, matching the server.
 
   ```json
   {

@@ -81,7 +81,7 @@ This example describes a small file made of a single term: chunks `[0, 4)` from 
 - Maps xorb hashes to a list of multi-range fetch entries.
 - Typically 1 entry per xorb. Multiple entries only when the URL would exceed the URL length limit.
 - Each `XorbMultiRangeFetch` contains:
-  - `url`: Signed URL with all byte ranges encoded. The client MUST send exactly the signed range value as the `Range` header. The query string carries the signed byte ranges in `X-Xet-Signed-Range` (URL-encoded, e.g. `bytes%3D0-131071`) plus the CDN signature parameters (`Expires`, `Policy`, `Signature`, `Key-Pair-Id`). These are short-lived; do not cache or rewrite them.
+  - `url`: Signed URL with all byte ranges encoded in the query string: `X-Xet-Signed-Range` (URL-encoded, e.g. `bytes%3D0-131071`) plus the CDN signature parameters (`Expires`, `Policy`, `Signature`, `Key-Pair-Id`). These are short-lived; do not cache or rewrite them.
   - `ranges`: Array of `XorbRangeDescriptor`, sorted by chunk start. Each descriptor contains:
     - `chunks`: Chunk index range `{ start: number, end: number }`; end-exclusive `[start, end)`
     - `bytes`: Physical byte range `{ start: number, end: number }` for the HTTP Range header; end-inclusive `[start, end]`
