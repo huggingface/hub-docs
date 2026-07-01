@@ -11,6 +11,6 @@ You can connect agents via the HF MCP Server, install pre-built Skills for codin
 - [Hugging Face MCP Server](./agents-mcp)
 - [Hugging Face Agent Skills](./agents-skills)
 - [Building agents with the HF SDK](./agents-sdk)
-- [Local Agents with llama.cpp and Pi](./agents-local)
+- [Local Agents with llama.cpp](./agents-local)
 - [Agent Libraries](./agents-libraries)
-- [Agent Traces](./agent-traces)
+- [Session Traces Format](./session-traces-format)
