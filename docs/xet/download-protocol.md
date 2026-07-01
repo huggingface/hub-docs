@@ -37,13 +37,12 @@ The reconstruction API returns a `QueryReconstructionResponse` object with three
         "start": 0,
         "end": 4
       }
-    },
-    ...
+    }
   ],
   "xorbs": {
     "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456": [
       {
-        "url": "https://transfer.xethub.hf.co/xorb/default/a1b2c3d4...?<signed-params>",
+        "url": "https://transfer.xethub.hf.co/xorb/default/a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456?X-Xet-Signed-Range=bytes%3D0-131071&Expires=1735689600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoidHJhbnNmZXIueGV0aHViLmhmLmNvL3hvcmIvZGVmYXVsdC9hMWIyYzNkNCoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3MzU2ODk2MDB9fX1dfQ__&Signature=Kx8n2rJ5pYqWc3vLdBhTfZ9mAeRsUgN1oiXwEbCa0kqLm4t7yHpV6dZ~woIsPuGj&Key-Pair-Id=K2EXAMPLECDNKEY01",
         "ranges": [
           {
             "chunks": { "start": 0, "end": 4 },
@@ -51,11 +50,12 @@ The reconstruction API returns a `QueryReconstructionResponse` object with three
           }
         ]
       }
-    ],
-    ...
+    ]
   }
 }
 ```
+
+This example describes a small file made of a single term: chunks `[0, 4)` from xorb `a1b2c3d4...`, whose 131072 bytes are downloaded from a single signed URL.
 
 ### Fields
 
@@ -81,7 +81,7 @@ The reconstruction API returns a `QueryReconstructionResponse` object with three
 - Maps xorb hashes to a list of multi-range fetch entries.
 - Typically 1 entry per xorb. Multiple entries only when the URL would exceed the URL length limit.
 - Each `XorbMultiRangeFetch` contains:
-  - `url`: Signed URL with all byte ranges encoded. The client MUST send exactly the signed range value as the `Range` header.
+  - `url`: Signed URL with all byte ranges encoded. The client MUST send exactly the signed range value as the `Range` header. The query string carries the signed byte ranges in `X-Xet-Signed-Range` (URL-encoded, e.g. `bytes%3D0-131071`) plus the CDN signature parameters (`Expires`, `Policy`, `Signature`, `Key-Pair-Id`). These are short-lived; do not cache or rewrite them.
   - `ranges`: Array of `XorbRangeDescriptor`, sorted by chunk start. Each descriptor contains:
     - `chunks`: Chunk index range `{ start: number, end: number }`; end-exclusive `[start, end)`
     - `bytes`: Physical byte range `{ start: number, end: number }` for the HTTP Range header; end-inclusive `[start, end]`
@@ -261,7 +261,7 @@ Here's an example of a `QueryReconstructionResponse` that shows how file reconst
   "xorbs": {
     "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456": [
       {
-        "url": "https://transfer.xethub.hf.co/xorb/default/a1b2c3d4...?<signed-params>",
+        "url": "https://transfer.xethub.hf.co/xorb/default/a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456?X-Xet-Signed-Range=bytes%3D57980-1433008&Expires=1735689600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoidHJhbnNmZXIueGV0aHViLmhmLmNvL3hvcmIvZGVmYXVsdC9hMWIyYzNkNCoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3MzU2ODk2MDB9fX1dfQ__&Signature=Qz3mWpLf9xKvR2sHnDbTgY7uAeJcUiO1kXwEbCa5rqPm8t4yHpV6dZ~woIsPuGjN&Key-Pair-Id=K2EXAMPLECDNKEY01",
         "ranges": [
           {
             "chunks": { "start": 1, "end": 43 },
@@ -272,7 +272,7 @@ Here's an example of a `QueryReconstructionResponse` that shows how file reconst
     ],
     "fedcba0987654321098765432109876543210fedcba098765432109876543": [
       {
-        "url": "https://transfer.xethub.hf.co/xorb/default/fedcba09...?<signed-params>",
+        "url": "https://transfer.xethub.hf.co/xorb/default/fedcba0987654321098765432109876543210fedcba098765432109876543?X-Xet-Signed-Range=bytes%3D0-65670&Expires=1735689600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoidHJhbnNmZXIueGV0aHViLmhmLmNvL3hvcmIvZGVmYXVsdC9mZWRjYmEwOSoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3MzU2ODk2MDB9fX1dfQ__&Signature=Ht6bYnQd4wKfM9xRcS2vLpDgT8uAeJiO1kXwEbCa7rqZm5t3yHpV6dZ~woIsPuFa&Key-Pair-Id=K2EXAMPLECDNKEY01",
         "ranges": [
           {
             "chunks": { "start": 0, "end": 3 },
