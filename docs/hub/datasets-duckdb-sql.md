@@ -101,7 +101,7 @@ WHERE  subject = 'nutrition' LIMIT 3;
 │       question       │  subject  │                                                                               choices                                                                               │ answer │
 │       varchar        │  varchar  │                                                                              varchar[]                                                                              │ int64  │
 ├──────────────────────┼───────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────┤
-│ Which foods tend t…  │ nutrition │ [Meat, Confectionary, Fruits and vegetables, Potatoes]                                                                                                              │      2 │
+│ Which foods tend t…  │ nutrition │ [Meat, Confectionery, Fruits and vegetables, Potatoes]                                                                                                              │      2 │
 │ In which one of th…  │ nutrition │ [If the incidence rate of the disease falls., If survival time with the disease increases., If recovery of the disease is faster., If the population in which the…  │      1 │
 │ Which of the follo…  │ nutrition │ [The flavonoid class comprises flavonoids and isoflavonoids., The digestibility and bioavailability of isoflavones in soya food products are not changed by proce…  │      0 │
 └──────────────────────┴───────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────┘
