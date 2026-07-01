@@ -173,7 +173,70 @@ POST /v1/shards
 
 An example shard request body can be found in [Xet reference files](https://huggingface.co/datasets/xet-team/xet-spec-reference-files/blob/main/Electric_Vehicle_Population_Data_20250917.csv.shard.verification-no-footer).
 
-### 5. Batch File Reconstruction
+### 5. Streaming Shard Upload
+
+- **Description**: Runs the exact same validation and registration as [Upload Shard](./api#4-upload-shard), but streams finalization progress back as newline-delimited JSON so clients can show real progress instead of a bar frozen at 100%.
+Large or heavily-deduplicated shards can take several seconds to finalize: the server verifies every file reconstruction entry against its xorb metadata, and a cache miss there is an S3 fetch.
+- **Path**: `/v2/shards`
+- **Method**: `POST`
+- **Minimum Token Scope**: `write`
+- **Body**: Serialized Shard data as bytes (`application/octet-stream`), identical to [`/v1/shards`](./api#4-upload-shard). See [Shard format guide](./shard#shard-upload).
+- **Response**: A newline-delimited JSON stream (`Content-Type: application/x-ndjson`, `Cache-Control: no-cache`), one JSON object ("event") per line.
+
+The HTTP status is `200 OK` as soon as the stream starts, so success or failure is carried by the terminal event, NOT by the status code.
+Clients MUST read the stream to completion and inspect the terminal event.
+
+Each event has a `type` field:
+
+  - `validating`: verification progress. `verified` is the number of completed verification tasks, `total` the number spawned so far. While the shard is still being received `total` grows, so treat `verified / total` as a live ratio, not a final percentage.
+
+    ```json
+    {"type":"validating","verified":120,"total":512}
+    ```
+
+  - `committing`: the shard is being durably written. `stage` identifies the sub-step, so a stalled commit points at the responsible system:
+    - `uploading`: uploading the shard object to S3.
+    - `syncing`: registering the shard in DynamoDB (file ids, global dedup, shard list).
+
+    ```json
+    {"type":"committing","stage":"uploading"}
+    ```
+
+  - `result`: terminal success. `result` carries the same [`UploadShardResponse`](./api#4-upload-shard) semantics (`0`: the shard already exists, `1`: the shard was registered) and, as with `/v1/shards`, the value carries no further meaning: a `result` event means the upload succeeded.
+
+    ```json
+    {"type":"result","result":1}
+    ```
+
+  - `error`: terminal failure with a sanitized message. Because the status is already `200 OK`, this event is the only failure signal once streaming has started.
+
+    ```json
+    {"type":"error","message":"..."}
+    ```
+
+A typical successful stream:
+
+```txt
+{"type":"validating","verified":0,"total":512}
+{"type":"validating","verified":256,"total":512}
+{"type":"committing","stage":"uploading"}
+{"type":"committing","stage":"syncing"}
+{"type":"result","result":1}
+```
+
+If validation stalls (for example on a slow xorb-metadata fetch), the server re-emits the last progress event as a heartbeat after roughly 20 seconds of silence so the connection stays alive.
+
+- **Compatibility**: Additive. `/v1/shards` is unchanged. Clients SHOULD try `/v2/shards` and fall back to `/v1/shards` on `404 Not Found`.
+- **Error Responses**: A malformed or unauthorized request can still fail before streaming starts; see [Error Cases](./api#error-cases). Once the stream has started (`200 OK`), validation and registration failures are reported through the terminal `error` event instead.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `403 Forbidden`: Token provided but does not have a wide enough scope (for example, a `read` token was provided).
+
+```txt
+POST /v2/shards
+-H "Authorization: Bearer <token>"
+```
+
+### 6. Batch File Reconstruction
 
 - **Description**: Retrieves reconstruction information for multiple files in a single request, avoiding N separate calls.
 - **Path**: `/v1/reconstructions`
@@ -215,7 +278,7 @@ POST /v1/reconstructions
 -H "Content-Type: application/json"
 ```
 
-### 6. Head Xorb
+### 7. Head Xorb
 
 - **Description**: Existence check for a Xorb. Returns no body; the `Content-Length` response header carries the stored Xorb size in bytes.
 - **Path**: `/v1/xorbs/{prefix}/{hash}`
@@ -238,7 +301,7 @@ HEAD /v1/xorbs/default/0123456789abcdef0123456789abcdef0123456789abcdef012345678
 -H "Authorization: Bearer <token>"
 ```
 
-### 7. Head File
+### 8. Head File
 
 - **Description**: Existence check for a file. Returns no body; the `Content-Length` response header carries the full file size in bytes.
 - **Path**: `/v1/files/{file_id}`
@@ -260,7 +323,7 @@ HEAD /v1/files/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 -H "Authorization: Bearer <token>"
 ```
 
-### 8. Get File Chunk Hashes
+### 9. Get File Chunk Hashes
 
 - **Description**: For a file and a set of "dirty" byte ranges (regions the client intends to re-chunk), returns the chunk windows the client must re-chunk plus opaque hash subtrees covering the unchanged gaps. Used by delta uploads to compose a new shard without re-uploading already-known chunks. The response covers the full file; see the field notes below for how windows, gaps, and verification hashes fit together.
 - **Path**: `/v2/file-chunk-hashes/{file_id}`
@@ -307,7 +370,7 @@ GET /v2/file-chunk-hashes/0123456789abcdef0123456789abcdef0123456789abcdef012345
 -H "X-Range-Dirty: bytes=0-65535,200000-299999"
 ```
 
-### 9. Get File Reconstruction (v1)
+### 10. Get File Reconstruction (v1)
 
 > [!WARNING]
 > **Deprecated.** Use [`GET /v2/reconstructions/{file_id}`](./api#1-get-file-reconstruction) instead. This v1 endpoint is still served for existing clients but will be removed once they migrate. The v2 endpoint returns the multi-range optimized response described in section 1.
