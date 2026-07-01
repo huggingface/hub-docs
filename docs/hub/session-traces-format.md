@@ -7,7 +7,7 @@ The **Session Trace Simple Format (STS-Format)** is a [JSONL](https://jsonlines.
 ## 1. Session header (first line)
 
 ```json
-{ "type": "session", "harness": "my-agent", "id": "b1a2c3" }
+{ "type": "session", "harness": "my-agent", "id": "b1a2c3", "name": "Implementing a new API" }
 ```
 
 | field     | required | notes                                             |
