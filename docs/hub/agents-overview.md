@@ -184,7 +184,7 @@ Agent: [Fetches documentation]
 
 ## Register your agent harness
 
-Hugging Face maintains a public registry of agent harnesses, the coding agents and tools that interact with the Hub (Claude Code, Codex, Cursor, and more). When `huggingface_hub` detects it is running inside a registered harness, it reports it via the user agent on Hub requests. Registering your harness means this activity is attributed to your tool by name and gives your project a friendly display label, links back to your docs and repository, and a place in upcoming agent leaderboards.
+Hugging Face maintains a public registry of agent harnesses, the coding agents and tools that interact with the Hub (Claude Code, Codex, Cursor, and more). When `huggingface_hub` detects it is running inside a registered harness, it reports it via the user agent on Hub requests. Registering your harness means this activity is attributed to your tool by name and gives your project a friendly display label, links back to your docs and repository, and a place in the public [agent usage dataset](https://huggingface.co/datasets/huggingface/agent-usage) — unregistered tools are only counted in its aggregate `unknown` share.
 
 To register a harness, open a Pull Request adding an entry to [`agent-harnesses.ts`](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/agent-harnesses.ts) in the `@huggingface/tasks` package:
 
@@ -197,7 +197,7 @@ To register a harness, open a Pull Request adding an entry to [`agent-harnesses.
   - If your harness sets one of the standard environment variables (`AI_AGENT` or `AGENT`), its value is used directly as the identifier and no extra config is needed.
   - Otherwise, set `envVars` to map environment variable names to value patterns. Use `"*"` to match any non-empty value, an exact string for an exact match, or `"<prefix>*"` for prefix matching.
 
-And that's it! Once the PR is merged, we will start tracking usage of the `hf` CLI by your agent harness.
+And that's it! Once the PR is merged, `huggingface_hub` traffic (including the `hf` CLI) from your agent harness is attributed to it by name, and it appears in the [agent usage dataset](https://huggingface.co/datasets/huggingface/agent-usage) from the next monthly update.
 
 ## Next Steps
 
