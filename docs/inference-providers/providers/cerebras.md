@@ -50,3 +50,13 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
     providersMapping={ {"cerebras":{"modelId":"openai/gpt-oss-120b","providerModelId":"gpt-oss-120b"} } }
 conversational />
 
+
+### Chat Completion (VLM)
+
+Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
+
+<InferenceSnippet
+    pipeline=image-text-to-text
+    providersMapping={ {"cerebras":{"modelId":"google/gemma-4-31B-it","providerModelId":"gemma-4-31b"} } }
+conversational />
+
