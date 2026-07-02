@@ -21,6 +21,16 @@ import dask.dataframe as dd
 df = dd.read_parquet("hf://buckets/username/my-bucket/data.parquet")
 ```
 
+## Daft
+
+Daft supports `hf://buckets/` paths natively, with [Xet-accelerated reads](https://docs.daft.ai/en/stable/connectors/huggingface/) enabled by default:
+
+```python
+import daft
+
+df = daft.read_parquet("hf://buckets/username/my-bucket/data.parquet")
+```
+
 ## PyArrow
 
 ```python
@@ -88,4 +98,4 @@ text_files = hffs.glob("buckets/username/my-bucket/*.txt")
 
 ## Coming soon
 
-Native `hf://` URL support is on the way for more libraries — including Polars, DuckDB, Daft, and webdataset. In the meantime, all of these already work today through the [S3-compatible API](./storage-buckets-s3).
+Native `hf://` URL support is on the way for more libraries — including Polars, DuckDB, and webdataset. In the meantime, all of these already work today through the [S3-compatible API](./storage-buckets-s3).
