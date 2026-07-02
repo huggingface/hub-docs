@@ -11,6 +11,8 @@ Resource Groups allow organization administrators to group related repositories 
 
 A repository can belong to only one Resource Group.
 
+Organization collections can also be assigned to a Resource Group, following the same rules as repositories: a collection can belong to only one Resource Group, and can be moved between groups by members with the appropriate permissions.
+
 Organizations members need to be added to the Resource Group to access its repositories. An Organization Member can belong to several Resource Groups.
 
 Members are assigned a role in each Resource Group that determines their permissions for the group's repositories. Four distinct roles exist for Resource Groups:
@@ -22,7 +24,7 @@ Members are assigned a role in each Resource Group that determines their permiss
 
 In addition, Organization admins can manage all resource groups inside the organization. This includes moving repositories in and out of any Resource Group.
 
-Resource Groups also affect the visibility of private repositories inside the organization. A private repository that is part of a Resource Group will only be visible to members of that Resource Group. Public repositories, on the other hand, are visible to anyone, inside and outside the organization.
+Resource Groups also affect the visibility of private repositories inside the organization. A private repository that is part of a Resource Group will only be visible to members of that Resource Group. Public repositories, on the other hand, are visible to anyone, inside and outside the organization. The same visibility rules apply to private collections that belong to a Resource Group.
 
 ## Getting started
 
