@@ -15,7 +15,7 @@ Unlike traditional single-GPU allocations, ZeroGPU's efficient system lowers bar
   - ZeroGPU Spaces are available to use for free to all users. (Visit [the curated list](https://huggingface.co/spaces/enzostvs/zero-gpu-spaces)).
   - [PRO users](https://huggingface.co/subscribe/pro) get x8 more daily usage quota, highest priority in GPU queues, and can go beyond their daily quota using pre-paid credits when using any ZeroGPU Spaces.
 - **Hosting your own ZeroGPU Spaces**
-  - Personal accounts: [Subscribe to PRO](https://huggingface.co/settings/billing/subscription) to access ZeroGPU in the hardware options when creating a new Gradio SDK Space.
+  - Personal accounts: Established free accounts in good standing can host a limited number of ZeroGPU Spaces, selectable under the **Free tier** hardware option when creating a new Gradio SDK Space. [Subscribe to PRO](https://huggingface.co/settings/billing/subscription) to host more ZeroGPU Spaces and unlock higher usage quotas and queue priority.
   - Organizations: [Subscribe to a Team or Enterprise plan](https://huggingface.co/enterprise) to enable ZeroGPU Spaces for all organization members.
 
 ## Technical Specifications
@@ -175,6 +175,7 @@ You can add credits from your [billing settings](https://huggingface.co/settings
 
 ## Hosting Limitations
 
+- **Free personal accounts**: Established accounts in good standing can host a limited number of ZeroGPU Spaces on the Free tier.
 - **Personal accounts ([PRO subscribers](https://huggingface.co/subscribe/pro))**: Maximum of 10 ZeroGPU Spaces.
 - **Organization accounts ([Team & Enterprise](https://huggingface.co/enterprise))**: Maximum of 50 ZeroGPU Spaces.
 

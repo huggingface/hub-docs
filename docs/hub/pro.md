@@ -6,7 +6,7 @@ The PRO subscription unlocks essential features for serious users, including:
 - Higher bandwidth and API [rate limits](./rate-limits)
 - Included credits for [Inference Providers](/docs/inference-providers/)
 - Higher tier for [ZeroGPU Spaces](./spaces-zerogpu) usage, and pay-as-you-go quota extension
-- Ability to create ZeroGPU Spaces and use [Dev Mode](./spaces-dev-mode)
+- Ability to host more ZeroGPU Spaces and use [Dev Mode](./spaces-dev-mode)
 - Ability to publish Social Posts and Community Blogs
 - Leverage the [Data Studio](./data-studio) on private datasets
 
