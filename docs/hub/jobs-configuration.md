@@ -103,7 +103,7 @@ You can pass environment variables to your job using
 
 ## Volumes
 
-Mount Hugging Face repositories (models, datasets) or [Storage Buckets](./storage-buckets) as volumes in your job container using `-v` or `--volume`. The syntax uses the `hf://` URL scheme: `hf://[TYPE/]SOURCE:/MOUNT_PATH[:ro]`.
+Mount Hugging Face repositories (models, datasets), [Storage Buckets](./storage-buckets), or local directories as volumes in your job container using `-v` or `--volume`. Hub sources use the `hf://` URL scheme: `hf://[TYPE/]SOURCE:/MOUNT_PATH[:ro]`; a local directory is passed directly as the source.
 
 Volume types:
 
@@ -113,6 +113,7 @@ Volume types:
 | Dataset repo | `-v hf://datasets/stanfordnlp/imdb:/data` |
 | Storage bucket | `-v hf://buckets/username/my-bucket:/mnt` |
 | Subfolder | `-v hf://datasets/org/my-dataset/train:/data` |
+| Local directory | `-v ./training-data:/data` |
 
 Then use the mounted volume as a local directory inside the container:
 
@@ -138,6 +139,16 @@ Models and datasets are always mounted **read-only**. Storage buckets are **read
 ```bash
 >>> hf jobs run -v hf://buckets/username/my-bucket:/mnt:ro python:3.12 ls /mnt
 ```
+
+### Local directories
+
+Passing a local directory as the source syncs it to your private `jobs-artifacts` [Storage Bucket](./storage-buckets) (created automatically) before the Job starts, then mounts it in the container. Local directories are mounted **read-only** by default; use `:rw` to write outputs:
+
+```bash
+>>> hf jobs uv run -v ./pdfs:/input -v ./md-out:/output:rw ocr.py
+```
+
+Re-syncing the same directory only uploads new or modified files. To retrieve files a Job wrote to a read-write volume, sync its bucket folder back once the Job is over — the CLI prints the exact `hf buckets sync` command when the Job starts. Scheduled jobs work too: the directory is synced once when the schedule is created, and every trigger mounts the same folder. In Python, use [`sync_job_volume`](https://huggingface.co/docs/huggingface_hub/guides/jobs#mount-local-data).
 
 In Python, use the [`Volume`](https://huggingface.co/docs/huggingface_hub/package_reference/jobs#huggingface_hub.Volume) class:
 
