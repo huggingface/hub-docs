@@ -61,6 +61,12 @@ You can use a collection to [gate](https://huggingface.co/docs/hub/en/models-gat
 
 This feature is reserved for [Team & Enterprise](https://huggingface.co/docs/hub/en/enterprise) subscribers: more information about Gating Group Collections can be found in [our dedicated doc](https://huggingface.co/docs/hub/en/enterprise-gating-group-collections).
 
+### Assigning a collection to a Resource Group (Team & Enterprise)
+
+Organization collections can be assigned to a [Resource Group](./security-resource-groups) to control which members can access them, the same way repositories are. You can pick a Resource Group when creating an organization collection, and members with the appropriate permissions can move a collection to a different Resource Group later from the collection's menu. Private collections that belong to a Resource Group are only visible to members of that group.
+
+This feature is reserved for [Team & Enterprise](https://huggingface.co/docs/hub/en/enterprise) subscribers.
+
 ### Ordering your collections and their items
 
 You can use the drag and drop handles in the collections list (on the left side of your collections page) to change the order of your collections (1). The first two collections will be directly visible on your profile/organization pages.
