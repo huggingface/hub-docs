@@ -2,7 +2,7 @@
 
 Every Job comes with a fixed amount of local disk, set by its [hardware flavor](./jobs-pricing#pricing) (the **Ephemeral Storage** column, also shown by `hf jobs hardware`). You don't need to fit a whole dataset on that disk to work with it: datasets and [Storage Buckets](./storage-buckets) can be read directly from the Hub — streamed, queried, or mounted — so a single Job can process data far larger than its disk. This page covers the options and when to reach for each.
 
-**Which approach?**
+## Which approach?
 
 - **Fits on disk** → a plain `load_dataset(...)` works as-is (or just pick a bigger flavor — up to 1 TB of ephemeral disk).
 - **Iterating over rows, or training** → [stream](#stream-the-dataset) it.
