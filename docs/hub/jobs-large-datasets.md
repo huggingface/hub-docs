@@ -1,6 +1,6 @@
 # Process Large Datasets
 
-Every Job comes with a fixed amount of local disk, set by its [hardware flavor](./jobs-pricing#pricing) (the **Ephemeral Storage** column, also shown by `hf jobs hardware`). That's plenty for many tasks — but you don't need to fit a dataset on disk to work with it. To use datasets larger than the disk, read them directly from the Hub.
+Every Job comes with a fixed amount of local disk, set by its [hardware flavor](./jobs-pricing#pricing) (the **Ephemeral Storage** column, also shown by `hf jobs hardware`). You don't need to fit a whole dataset on that disk to work with it: datasets and [Storage Buckets](./storage-buckets) can be read directly from the Hub — streamed, queried, or mounted — so a single Job can process data far larger than its disk. This page covers the options and when to reach for each.
 
 **Which approach?**
 
@@ -77,7 +77,7 @@ Datasets and models mount read-only; buckets are read-write, which makes them a 
 
 ## Save results
 
-Ephemeral disk doesn't survive the Job, so write anything you want to keep to a [Storage Bucket](./storage-buckets) mounted read-write, or push it to the Hub as a dataset. DuckDB can filter the source over `hf://` and persist the matches to a mounted bucket in one query — and because it writes out-of-core, the result doesn't need to fit in memory. A filter like this reads the full `text` column, so expect it to take a while (it transfers most of the ~28 GB):
+Ephemeral disk doesn't survive the Job, so write anything you want to keep to a [Storage Bucket](./storage-buckets) mounted read-write, or push it to the Hub as a dataset. DuckDB can filter the source over `hf://` and write the matches straight to a mounted bucket in one out-of-core query, so the result never has to fit in memory:
 
 ```bash
 hf jobs uv run --flavor cpu-upgrade --timeout 1h \
@@ -149,12 +149,7 @@ Run it with `hf jobs uv run cc_wet.py` — it completes in about a minute on the
 │ zho     │   586 │
 │ rus     │   434 │
 │ jpn     │   244 │
-│ spa     │   239 │
-│ fra     │   194 │
-│ deu     │   179 │
-│ por     │   145 │
-│ pol     │    98 │
-│ ita     │    79 │
+│ …       │    …  │
 └─────────┴───────┘
 ```
 
