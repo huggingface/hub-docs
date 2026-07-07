@@ -27,8 +27,11 @@ Daft supports `hf://buckets/` paths natively, with [Xet-accelerated reads](https
 
 ```python
 import daft
+from daft.io import IOConfig, HuggingFaceConfig
+from huggingface_hub import get_token
 
-df = daft.read_parquet("hf://buckets/username/my-bucket/data.parquet")
+io_config = IOConfig(hf=HuggingFaceConfig(token=get_token()))
+df = daft.read_parquet("hf://buckets/username/my-bucket/data.parquet", io_config=io_config)
 ```
 
 ## PyArrow
