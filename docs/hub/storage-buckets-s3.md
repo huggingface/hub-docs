@@ -258,4 +258,4 @@ dvc push
 ```
 
 > [!NOTE]
-> Use your [namespace](#addressing-buckets) in `endpointurl` and the bare bucket name in the `s3://` URL. If `dvc push` fails with a checksum error, set `AWS_REQUEST_CHECKSUM_CALCULATION=when_required` and `AWS_RESPONSE_CHECKSUM_VALIDATION=when_required` — recent `boto3` sends trailing checksums the gateway does not accept.
+> Use your [namespace](#addressing-buckets) in `endpointurl` and the bare bucket name in the `s3://` URL.
