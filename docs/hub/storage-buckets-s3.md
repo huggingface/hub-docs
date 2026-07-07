@@ -231,3 +231,31 @@ rclone sync aws:my-source-bucket hf:my-bucket --progress
 
 > [!TIP]
 > For large imports, add `--transfers` and `--checkers` to raise the concurrency (e.g. `--transfers 16 --checkers 16`), and run `rclone check aws:my-source-bucket hf:my-bucket` afterwards to confirm every object made it across.
+
+### Version data with DVC
+
+[DVC](https://dvc.org/) versions datasets and models in git by keeping small pointer files in the repository and pushing the actual data to a remote. A bucket works as a DVC remote through the gateway, so your code and `.dvc` pointers stay in git while the data lives in your bucket. Install DVC with S3 support (`pip install 'dvc[s3]'`), then add the remote using the [client settings](#configuring-a-client) above:
+
+```bash
+dvc remote add -d hf-bucket s3://my-bucket/dvc-store
+dvc remote modify hf-bucket endpointurl https://s3.hf.co/<namespace>
+dvc remote modify hf-bucket region us-east-1
+```
+
+Pass the [S3 credentials](#generating-s3-credentials) through the environment, or with `dvc remote modify --local` so they stay out of git:
+
+```bash
+export AWS_ACCESS_KEY_ID=HFAK...
+export AWS_SECRET_ACCESS_KEY=...
+```
+
+Then track, push, and pull as usual — `dvc push` uploads to the bucket, and `dvc pull` on a fresh clone downloads it back:
+
+```bash
+dvc add data/
+git add data.dvc .gitignore .dvc/config && git commit -m "Track data with DVC"
+dvc push
+```
+
+> [!NOTE]
+> Use your [namespace](#addressing-buckets) in `endpointurl` and the bare bucket name in the `s3://` URL.
