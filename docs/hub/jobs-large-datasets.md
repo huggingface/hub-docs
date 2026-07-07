@@ -107,7 +107,7 @@ Files written under the bucket mount path persist after the Job ends. To publish
 
 ## Worked example: query Common Crawl without downloading it
 
-Common Crawl mirrors its archive to the bucket [`commoncrawl/commoncrawl`](https://huggingface.co/datasets/commoncrawl/commoncrawl) — hundreds of TB. Stream one WET (plaintext) shard straight from `hf://`, parse it, and query it with DuckDB; only a few MB transit because the gzip is read sequentially and stopped early:
+Common Crawl mirrors its archive to the bucket [`commoncrawl/commoncrawl`](https://huggingface.co/buckets/commoncrawl/commoncrawl) — hundreds of TB. Stream one WET (plaintext) shard straight from `hf://`, parse it, and query it with DuckDB; only a few MB transit because the gzip is read sequentially and stopped early:
 
 ```python
 # /// script
