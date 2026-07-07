@@ -102,7 +102,7 @@ def process_file(root, file, dirname):
         print("No relative paths found in the processed file.")
 
     # Calculate the example URL
-    example_url = f"https://github.com/huggingface/hub-docs/tree/{BRANCH_NAME}/{root}"
+    example_url = f"https://github.com/huggingface/hub-docs/tree/{BRANCH_NAME}/docs/sagemaker/{root}"
     if file.__contains__("sagemaker-notebook"):
         example_url += "/sagemaker-notebook.ipynb"
 
