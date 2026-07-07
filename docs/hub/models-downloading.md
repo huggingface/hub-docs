@@ -82,3 +82,44 @@ hf-mount start repo openai-community/gpt2 /tmp/gpt2
 ```
 
 Repos are mounted read-only. See [Mount as a Local Filesystem](./storage-buckets-access#mount-as-a-local-filesystem) for full setup details, backend options, and caching.
+
+## Downloading behind a proxy or firewall
+
+If your network restricts outbound traffic through a firewall or proxy, downloading models and datasets requires more than just `huggingface.co`. File contents are served from separate storage and CDN hostnames, and `from_pretrained` / `hf download` will fail if these are not reachable, even when `huggingface.co` itself is allowlisted.
+
+Allowlist the following hostnames (all over HTTPS / port 443):
+
+| Hostname | Purpose |
+|---|---|
+| `huggingface.co` | Hub API, metadata, and download redirects |
+| `cas-server.xethub.hf.co` | Xet storage coordination (US) |
+| `transfer.xethub.hf.co` | Xet chunk transfer (US) |
+| `cas-bridge.xethub.hf.co` | Xet content delivery bridge (US) |
+| `cas-server.xethub-eu.hf.co` | Xet storage coordination (EU) |
+| `transfer.xethub-eu.hf.co` | Xet chunk transfer (EU) |
+| `cas-bridge.xethub-eu.hf.co` | Xet content delivery bridge (EU) |
+| `us.aws.cdn.hf.co` | CDN edge (AWS, US) |
+| `us.gcp.cdn.hf.co` | CDN edge (GCP, US) |
+| `cdn-lfs.hf.co` | LFS file content (legacy/global CDN) |
+| `cdn-lfs-us-1.hf.co` | LFS file content (US CDN) |
+| `cdn-lfs-eu-1.hf.co` | LFS file content (EU CDN) |
+| `cdn-lfs.huggingface.co` | LFS file content (legacy) |
+| `cdn-lfs-us-1.huggingface.co` | LFS file content (US, legacy) |
+| `cdn-lfs-eu-1.huggingface.co` | LFS file content (EU, legacy) |
+
+> [!TIP]
+> Downloads follow HTTP redirects from `huggingface.co` to these hostnames, so
+> allowlisting `huggingface.co` alone is not sufficient. A `ReadTimeoutError` (rather than
+> a connection error) partway through a download usually means the initial connection
+> succeeded but a storage or CDN host is blocked.
+
+> [!TIP]
+> If you use wildcard rules, `*.hf.co` and `*.xethub.hf.co` cover current and future
+> CDN and Xet endpoints. Note that the legacy `cdn-lfs*.huggingface.co` hosts are on
+> `huggingface.co`, not `hf.co`, so a `*.hf.co` wildcard does not cover them, keep
+> `*.huggingface.co` allowlisted as well, or list those hosts explicitly.
+
+> [!WARNING]
+> These hostnames may change as our storage and CDN infrastructure evolves. Where your
+> security policy allows it, prefer the `*.hf.co` / `*.xethub.hf.co` / `*.huggingface.co`
+> wildcards so allowlists don't break when a specific endpoint changes.
