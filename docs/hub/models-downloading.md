@@ -92,14 +92,14 @@ Allowlist the following hostnames (all over HTTPS / port 443):
 | Hostname | Purpose |
 |---|---|
 | `huggingface.co` | Hub API, metadata, and download redirects |
-| `cas-server.xethub.hf.co` | Xet storage coordination (US) |
-| `transfer.xethub.hf.co` | Xet chunk transfer (US) |
-| `cas-bridge.xethub.hf.co` | Xet content delivery bridge (US) |
-| `cas-server.xethub-eu.hf.co` | Xet storage coordination (EU) |
-| `transfer.xethub-eu.hf.co` | Xet chunk transfer (EU) |
-| `cas-bridge.xethub-eu.hf.co` | Xet content delivery bridge (EU) |
-| `us.aws.cdn.hf.co` | CDN edge (AWS, US) |
-| `us.gcp.cdn.hf.co` | CDN edge (GCP, US) |
+| `cas-server.xethub.hf.co` | Xet storage protocol APIs + upload (US) |
+| `transfer.xethub.hf.co` | Xet storage download APIs (US) |
+| `cas-bridge.xethub.hf.co` | HTTP/LFS content delivery bridge, legacy (US) |
+| `cas-server.xethub-eu.hf.co` | Xet storage protocol APIs + upload (EU) |
+| `transfer.xethub-eu.hf.co` | Xet storage download APIs (EU) |
+| `cas-bridge.xethub-eu.hf.co` | HTTP/LFS content delivery bridge, legacy (EU) |
+| `us.aws.cdn.hf.co` | CDN edge (AWS) |
+| `us.gcp.cdn.hf.co` | CDN edge (GCP) |
 | `cdn-lfs.hf.co` | LFS file content (legacy/global CDN) |
 | `cdn-lfs-us-1.hf.co` | LFS file content (US CDN) |
 | `cdn-lfs-eu-1.hf.co` | LFS file content (EU CDN) |
@@ -114,12 +114,18 @@ Allowlist the following hostnames (all over HTTPS / port 443):
 > succeeded but a storage or CDN host is blocked.
 
 > [!TIP]
-> If you use wildcard rules, `*.hf.co` and `*.xethub.hf.co` cover current and future
-> CDN and Xet endpoints. Note that the legacy `cdn-lfs*.huggingface.co` hosts are on
-> `huggingface.co`, not `hf.co`, so a `*.hf.co` wildcard does not cover them, keep
-> `*.huggingface.co` allowlisted as well, or list those hosts explicitly.
+> Wildcard behavior depends on how your proxy matches domains. Many enterprise proxies
+> treat an allowlist entry as a suffix match that covers subdomains at any depth. If yours
+> does, the simplest option is to allowlist the suffixes `hf.co` and `huggingface.co` —
+> these cover every current and future storage and CDN endpoint.
+>
+> If your proxy only supports single-label wildcards (where `*.hf.co` matches
+> `cdn-lfs.hf.co` but not the deeper `us.aws.cdn.hf.co` or `cas-bridge.xethub.hf.co`),
+> allowlist the explicit hostnames from the table above. Note that `*.xethub.hf.co` does
+> not cover the EU hosts under `xethub-eu.hf.co`, and `*.cdn.hf.co` does not cover the
+> two-label `us.aws.cdn.hf.co` / `us.gcp.cdn.hf.co`.
 
 > [!WARNING]
 > These hostnames may change as our storage and CDN infrastructure evolves. Where your
-> security policy allows it, prefer the `*.hf.co` / `*.xethub.hf.co` / `*.huggingface.co`
-> wildcards so allowlists don't break when a specific endpoint changes.
+> security policy allows it, allowlist the `hf.co` and `huggingface.co` suffixes (all
+> subdomains) so your rules don't break when a specific endpoint changes.
