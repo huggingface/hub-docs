@@ -89,23 +89,24 @@ If your network restricts outbound traffic through a firewall or proxy, download
 
 Allowlist the following hostnames (all over HTTPS / port 443):
 
-| Hostname | Purpose |
-|---|---|
-| `huggingface.co` | Hub API, metadata, and download redirects |
-| `cas-server.xethub.hf.co` | Xet storage protocol APIs + upload (US) |
-| `transfer.xethub.hf.co` | Xet storage download APIs (US) |
-| `cas-bridge.xethub.hf.co` | HTTP/LFS content delivery bridge, legacy (US) |
-| `cas-server.xethub-eu.hf.co` | Xet storage protocol APIs + upload (EU) |
-| `transfer.xethub-eu.hf.co` | Xet storage download APIs (EU) |
-| `cas-bridge.xethub-eu.hf.co` | HTTP/LFS content delivery bridge, legacy (EU) |
-| `us.aws.cdn.hf.co` | CDN edge (AWS) |
-| `us.gcp.cdn.hf.co` | CDN edge (GCP) |
-| `cdn-lfs.hf.co` | LFS file content (legacy/global CDN) |
-| `cdn-lfs-us-1.hf.co` | LFS file content (US CDN) |
-| `cdn-lfs-eu-1.hf.co` | LFS file content (EU CDN) |
-| `cdn-lfs.huggingface.co` | LFS file content (legacy) |
-| `cdn-lfs-us-1.huggingface.co` | LFS file content (US, legacy) |
-| `cdn-lfs-eu-1.huggingface.co` | LFS file content (EU, legacy) |
+
+| Hostname                      | Purpose                                   |
+|-------------------------------|-------------------------------------------|
+| `huggingface.co`              | Hub API, metadata, and download redirects |
+| `cas-server.xethub.hf.co`     | Xet storage protocol APIs + upload (US)   |
+| `cas-server.xethub-eu.hf.co`  | Xet storage protocol APIs + upload (EU)   |
+| `transfer.xethub.hf.co`       | Xet storage download APIs (US)            |
+| `transfer.xethub-eu.hf.co`    | Xet storage download APIs (EU)            |
+| `cas-bridge.xethub.hf.co`     | Bridge CDN, legacy (US)                   |
+| `cas-bridge.xethub-eu.hf.co`  | Bridge CDN, legacy (EU)                   |
+| `us.aws.cdn.hf.co`            | CDN edge (US)                             |
+| `us.gcp.cdn.hf.co`            | CDN edge (US)                             |
+| `cdn-lfs.hf.co`               | LFS CDN, legacy (global)                  |
+| `cdn-lfs-us-1.hf.co`          | LFS CDN (US)                              |
+| `cdn-lfs-eu-1.hf.co`          | LFS CDN (EU)                              |
+| `cdn-lfs.huggingface.co`      | LFS CDN, legacy (global)                  |
+| `cdn-lfs-us-1.huggingface.co` | LFS CDN, legacy (US)                      |
+| `cdn-lfs-eu-1.huggingface.co` | LFS CDN, legacy (EU)                      |
 
 > [!TIP]
 > Downloads follow HTTP redirects from `huggingface.co` to these hostnames, so
