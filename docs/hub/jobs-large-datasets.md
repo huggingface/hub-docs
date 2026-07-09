@@ -125,7 +125,7 @@ WET = (
 )
 
 rows = []
-with HfFileSystem().open(WET, "rb") as f:
+with hffs.open(WET, "rb") as f:
     for rec in ArchiveIterator(f, record_types=WarcRecordType.conversion):
         lang = (rec.headers.get("WARC-Identified-Content-Language", "") or "und").split(",")[0]
         rows.append((rec.headers.get("WARC-Target-URI", ""), lang, len(rec.reader.read())))
