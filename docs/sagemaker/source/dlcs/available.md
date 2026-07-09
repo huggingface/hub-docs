@@ -81,14 +81,6 @@ Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance s
 
 ## FAQ
 
-**How to choose the right inference container for my use case?**
-
-![inference-dlc-decision-tree](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/inference-dlc-decision-tree.png)
-
-*Note:* See [here](https://huggingface.co/docs/sagemaker/main/en/reference/inference-toolkit) for the list of supported task in the inference toolkit.
-
-*Note:* Browse through the Hub to see if your model is tagged ["text-generation-inference"](https://huggingface.co/models?other=text-generation-inference) or ["text-embeddings-inference"](https://huggingface.co/models?other=text-embeddings-inference).
-
 **How to find the URI of my container?**
 
 The URI is built with an AWS account ID and an AWS region. Those two values need to be replaced depending on your use case.
@@ -96,21 +88,3 @@ The URI is built with an AWS account ID and an AWS region. Those two values need
 Let's say you want to use the training DLC for GPUs:
 - `dlc-aws-account-id`: The AWS account ID of the account that owns the ECR repository. You can find them in the [here](https://github.com/aws/sagemaker-python-sdk/blob/e0b9d38e1e3b48647a02af23c4be54980e53dc61/src/sagemaker/image_uri_config/huggingface.json#L21)
 - `region`: The AWS region where you want to use it.
-
-**How to find the URI of my container but simpler?**
-
-The Python SageMaker SDK util functions are not always up to date but it is much simpler than reconstructing the image URI yourself.
-
-> [!WARNING]
-> [SageMaker Python SDK v3 has been recently released](https://github.com/aws/sagemaker-python-sdk), so unless specified otherwise, all the documentation and tutorials are still using the [SageMaker Python SDK v2](https://github.com/aws/sagemaker-python-sdk/tree/master-v2). We are actively working on updating all the tutorials and examples, but in the meantime make sure to install the SageMaker SDK as `pip install "sagemaker<3.0.0"`.
-
-```python
-from sagemaker.huggingface import HuggingFaceModel, get_huggingface_llm_image_uri
-
-print(f"TGI GPU: {get_huggingface_llm_image_uri('huggingface')}")
-print(f"TEI GPU: {get_huggingface_llm_image_uri('huggingface-tei')}")
-print(f"TEI CPU: {get_huggingface_llm_image_uri('huggingface-tei-cpu')}")
-print(f"TGI Neuron: {get_huggingface_llm_image_uri('huggingface-neuronx')}")
-```
-
-For PyTorch Training and PyTorch Inference DLCs, there is no such utility.
