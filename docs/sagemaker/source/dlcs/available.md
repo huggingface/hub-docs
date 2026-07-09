@@ -38,8 +38,17 @@ In case you want to serve text generation models with vLLM, there are specific D
 
 | vLLM version | Container URI                                                                                                                    | Accelerator |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 0.17.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm:0.17.0-transformers4.57.5-gpu-py312-cu129-ubuntu22.04 | GPU         |
+| 0.21.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm:0.21.0-transformers5.8.1-gpu-py312-cu130-ubuntu22.04 | GPU         |
 | 0.11.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.5-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
+
+### vLLM Omni
+
+You can also use vLLM Omni for serving multimodal models with vLLM on GPUs.
+
+| vLLM Omni version | Container URI                                                                                                                    | Accelerator |
+| ---------------| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| 0.20.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-omni:0.20.0-transformers5.8.1-gpu-py312-cu130-amzn2023 | GPU         |
+
 
 ### SGLang
 
@@ -47,7 +56,17 @@ There is also a specific DLC for serving models with SGLang on GPU.
 
 | SGLang version | Container URI                                                                                                                    | Accelerator |
 | ---------------| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 0.5.8          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-sglang:0.5.8-transformers4.57.3-gpu-py312-cu129-ubuntu24.04 | GPU         |
+| 0.5.12          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-sglang:0.5.12-transformers5.6.0-gpu-py312-cu130-ubuntu24.04 | GPU         |
+
+
+### Llama.cpp
+
+For a lightweight inference serving, there is a specific DLC for serving models with Llama.cpp on both CPU and GPU.
+
+| Llama.cpp version | Container URI                                                                                                                    | Accelerator |
+| ---------------| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| b9522          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-llama.cpp:b9522-gpu-cu130-ubuntu24.04 | GPU         |
+| b9522          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-llama.cpp:b9522-cpu-ubuntu24.04 | CPU         |
 
 
 ### Text Embeddings Inference
@@ -56,39 +75,46 @@ Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance s
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.8.2-cpu-py310-ubuntu22.04 | CPU         |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.8.2-gpu-py310-cu122-ubuntu22.04 | GPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.9.3-cpu-py310-ubuntu24.04 | CPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.9.3-gpu-py310-cu129-ubuntu24.04 | GPU         |
 
 ## FAQ
 
 **How to find the URI of my container?**
 
-The URI is built with an AWS account ID and an AWS region. Those two values need to be replaced depending on your use case.
-
-Let's say you want to use the training DLC for GPUs:
-- `dlc-aws-account-id`: The AWS account ID of the account that owns the ECR repository. You can find them in the [here](https://github.com/aws/sagemaker-python-sdk/blob/e0b9d38e1e3b48647a02af23c4be54980e53dc61/src/sagemaker/image_uri_config/huggingface.json#L21)
-- `region`: The AWS region where you want to use it.
-
-**How to find the URI of my container but simpler?**
-
-The `image_uris.retrieve` helper from `sagemaker.core` is not always up to date but it is much simpler than reconstructing the image URI yourself. The processor (CPU/GPU/Neuron) is inferred from the `instance_type`.
-
-> [!NOTE]
-> These docs and examples use the [SageMaker Python SDK v3](https://github.com/aws/sagemaker-python-sdk), which introduces a new framework-agnostic API built around `ModelBuilder` (inference) and `ModelTrainer` (training), replacing the v2 `HuggingFaceModel` and `HuggingFace` classes. Install it with `pip install "sagemaker>=3.0.0"`. In v2 these URIs were retrieved with `get_huggingface_llm_image_uri`, which has been removed.
+The SageMaker SDK provides a utility function to get the URI of a container programmatically:
 
 ```python
 from sagemaker.core import image_uris
 
-region = "us-east-1"  # the AWS region where you want to use the container
+AVAILABLE_FRAMEWORKS = [
+    "huggingface",
+    "huggingface-tei",
+    "huggingface-llamacpp",
+    "huggingface-vllm",
+    "huggingface-vllm-omni",
+    "huggingface-sglang",
+]
 
-# TGI (LLMs) on GPU
-print(f"TGI GPU: {image_uris.retrieve(framework='huggingface-llm', region=region, image_scope='inference', instance_type='ml.g5.2xlarge')}")
-# TEI (embeddings) on GPU
-print(f"TEI GPU: {image_uris.retrieve(framework='huggingface-tei', region=region, image_scope='inference', instance_type='ml.g5.2xlarge')}")
-# TEI (embeddings) on CPU
-print(f"TEI CPU: {image_uris.retrieve(framework='huggingface-tei-cpu', region=region, image_scope='inference', instance_type='ml.c6i.2xlarge')}")
-# TGI (LLMs) on AWS Inferentia2 (Neuron)
-print(f"TGI Neuron: {image_uris.retrieve(framework='huggingface-llm-neuronx', region=region, image_scope='inference', instance_type='ml.inf2.xlarge')}")
+image_uris.retrieve(
+    "huggingface-vllm",
+    region="us-east-1",
+    image_scope="inference", # or "training" for training containers
+    instance_type="ml.g5.2xlarge",
+)
 ```
 
-For PyTorch Training and PyTorch Inference DLCs, there is no such utility.
+If you just want to use the default container for a given model, you can also rely on the SageMaker SDK `ModelBuilder`, which will automatically choose the correct container for you:
+
+```python
+from sagemaker.serve import ModelBuilder
+
+builder = ModelBuilder(
+    model="google/gemma-4-E2B-it",
+    instance_type="ml.g5.2xlarge",
+    role_arn=role,
+)
+```
+
+>[!NOTE]
+>Be aware that the SDK may not always be up to date or may choose the wrong container for your use case. When in doubt, always double check the container URI returned by the SDK and compare it to the ones available in this documentation.
