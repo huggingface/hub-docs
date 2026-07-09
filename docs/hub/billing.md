@@ -80,31 +80,6 @@ You can add a credit card to your account from your billing settings.
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/payment-method-dark.png"/>
 </div>
 
-
-### Billing thresholds & Invoicing
-
-When using credit cards as a payment method, you'll be billed for the Hugging Face compute usage each time the accrued usage goes above a billing threshold for your user or organization.
-
-On the 1st of every month, Hugging Face edits an invoice for usage accrued during the prior month. Any usage that has yet to be charged will be charged at that time.
-
-For example, if your billing threshold is set at $100.00, and you incur $254.00 of usage during a given month, your credit card will be charged a total of three times during the month:
-- Once for usage between $0 and $100: $100
-- Once for usage between $100 and $200: $100
-- Once at the end of the month for the remaining $54: $54  
-
-Note: this will be detailed in your monthly invoice.
-
-<div class="flex justify-center">
-	<img class="block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/explain-threshold.png "/>
-</div>
-
-You can view invoices and receipts for the last 3 months in your billing dashboard.
-
-<div class="flex justify-center">
-	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/threshold-payments-light.png "/>
-	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/threshold-payments-dark.png"/>
-</div>
-
 ## Cloud providers partnerships
 
 We partner with cloud providers like [AWS](https://huggingface.co/blog/aws-partnership), [Azure](https://huggingface.co/blog/hugging-face-endpoints-on-azure),
@@ -140,7 +115,7 @@ A. Please ensure the card supports 3D-secure authentication and is properly co
 
 **Q. How can I add my tax ID or update the billing details?**
 
-A. Email billing@huggingface.co and we can help!
+A. When adding or updating a card at https://huggingface.co/settings/billing/payment, check the **Additional invoicing information (optional)** box. You can then provide a **Business name** and **Invoicing details** (e.g. tax ID, PO number, or company registration number), which will appear on your invoices. If you need further help, email billing@huggingface.co.
 
 **Q. I was just billed for the PRO/Team subscription a few days ago. Why did you charge me again?**
 

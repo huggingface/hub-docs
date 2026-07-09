@@ -19,6 +19,12 @@ Each supported agent writes JSONL sessions to the following directories:
 
 These trace files are supported out of the box, so you can upload them without modifying or converting them first.
 
+<Tip>
+
+Are you building your own harness? If your agent isn't listed above, you can make its sessions render in the trace viewer by emitting the [Session Traces Format](./session-traces-format).
+
+</Tip>
+
 Trace files can include prompts, tool inputs, command output, local paths, screenshots, secrets, private code, and personal data. Review and redact traces before publishing them publicly, or keep the dataset or bucket private if you are not sure what is inside.
 
 For Pi Agent sessions, [`pi-share-hf`](https://github.com/badlogic/pi-share-hf) can help collect project sessions, redact known secrets, run TruffleHog and LLM review, and upload only sessions that pass checks.

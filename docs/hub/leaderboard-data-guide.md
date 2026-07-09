@@ -41,7 +41,7 @@ for entry in leaderboard[:5]:
 ```
 
 > [!TIP]
-> `huggingface_hub` uses your cached token by default. For gated benchmark datasets, make sure you are logged in (`huggingface-cli login`) or pass a token explicitly:
+> `huggingface_hub` uses your cached token by default. For gated benchmark datasets, make sure you are logged in (`hf auth login`) or pass a token explicitly:
 > ```python
 > leaderboard = api.get_dataset_leaderboard("gated/benchmark", token="hf_...")
 > ```

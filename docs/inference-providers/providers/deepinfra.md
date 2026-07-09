@@ -45,13 +45,23 @@ DeepInfra is a serverless AI inference platform offering one of the most cost-ef
 ## Supported tasks
 
 
+### Automatic Speech Recognition
+
+Find out more about Automatic Speech Recognition [here](../tasks/automatic-speech-recognition).
+
+<InferenceSnippet
+    pipeline=automatic-speech-recognition
+    providersMapping={ {"deepinfra":{"modelId":"nvidia/nemotron-3.5-asr-streaming-0.6b","providerModelId":"nvidia/Nemotron-3.5-ASR-Streaming-Multilingual-0.6b"} } }
+/>
+
+
 ### Chat Completion (LLM)
 
 Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"deepinfra":{"modelId":"deepseek-ai/DeepSeek-V4-Pro","providerModelId":"deepseek-ai/DeepSeek-V4-Pro"} } }
+    providersMapping={ {"deepinfra":{"modelId":"zai-org/GLM-5.2","providerModelId":"zai-org/GLM-5.2"} } }
 conversational />
 
 
@@ -61,7 +71,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"deepinfra":{"modelId":"Qwen/Qwen3.6-35B-A3B","providerModelId":"Qwen/Qwen3.6-35B-A3B"} } }
+    providersMapping={ {"deepinfra":{"modelId":"MiniMaxAI/MiniMax-M3","providerModelId":"MiniMaxAI/MiniMax-M3"} } }
 conversational />
 
 

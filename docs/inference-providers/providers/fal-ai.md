@@ -47,7 +47,7 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
-    providersMapping={ {"fal-ai":{"modelId":"openai/whisper-large-v3","providerModelId":"fal-ai/whisper"} } }
+    providersMapping={ {"fal-ai":{"modelId":"nvidia/nemotron-3.5-asr-streaming-0.6b","providerModelId":"nvidia/nemotron-asr-multilingual/asr"} } }
 />
 
 
@@ -67,7 +67,7 @@ Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"fal/Qwen-Image-Edit-2511-Multiple-Angles-LoRA","providerModelId":"fal-ai/qwen-image-edit-2511/lora"} } }
+    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.2-klein-9B","providerModelId":"fal-ai/flux-2/klein/9b/edit"} } }
 />
 
 
@@ -77,7 +77,7 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"fal-ai/flux/dev"} } }
+    providersMapping={ {"fal-ai":{"modelId":"krea/Krea-2-Turbo","providerModelId":"fal-ai/krea-2/turbo"} } }
 />
 
 
@@ -87,6 +87,6 @@ Find out more about Text To Video [here](../tasks/text-to-video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"fal-ai":{"modelId":"meituan-longcat/LongCat-Video","providerModelId":"fal-ai/longcat-video/text-to-video/480p"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Wan-AI/Wan2.2-TI2V-5B","providerModelId":"fal-ai/wan/v2.2-5b/text-to-video"} } }
 />
 

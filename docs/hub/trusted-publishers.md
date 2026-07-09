@@ -96,7 +96,7 @@ Complete working examples:
 
 | Flavor | Configured on | What you get | Use it to… |
 | --- | --- | --- | --- |
-| **Repo publisher** | A repo's **Settings → Trusted Publishers** | A token with **write access to that one repo** | Publish a model, dataset, Space, or kernel from CI |
+| **Repo publisher** | A repo's **Settings → Trusted Publishers** | A token with **write access to that one repo** | Publish a model, dataset, Space, kernel, or bucket from CI |
 | **User publisher** | Your account's [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) | A read-only token with the `gated-repos` scope | Read **gated repos you have access to** and use your rate limits from CI |
 
 Both tokens expire after 60 minutes. You need the **Write** role on a Hub repo to manage its trusted publishers.
@@ -166,7 +166,7 @@ No client authentication is needed — the OIDC ID token authenticates the reque
 | `grant_type` | yes | `urn:ietf:params:oauth:grant-type:token-exchange` |
 | `subject_token_type` | yes | `urn:ietf:params:oauth:token-type:id_token` |
 | `subject_token` | yes | The raw OIDC ID token (JWT) from your CI provider. Its `aud` claim **must** be `https://huggingface.co`. |
-| `resource` | yes | A Hub repo (`namespace/name`, `datasets/namespace/name`, `spaces/namespace/name`, `kernels/namespace/name`) or a Hub **username** (no slash) for a user-scoped token. |
+| `resource` | yes | A Hub repo (`namespace/name`, `datasets/namespace/name`, `spaces/namespace/name`, `kernels/namespace/name`, `buckets/namespace/name`) or a Hub **username** (no slash) for a user-scoped token. |
 
 **Success response:**
 

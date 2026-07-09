@@ -10,8 +10,7 @@ Beyond the [CLI and Python SDK](./storage-buckets#managing-files), there are sev
 | **Volume mounts** | HF Jobs & Spaces (same idea, managed for you) | [See below](#volume-mounts-in-jobs-and-spaces) |
 | **hf:// paths** (fsspec) | Python data tools (pandas, DuckDB) | [See below](#python-data-tools) |
 | **CLI sync** | Batch transfers, backups | [Sync docs](./storage-buckets#syncing-directories) |
-
-Access through the S3 API is not currently supported, but is on the roadmap.
+| **S3 API** | Existing S3 tooling (AWS CLI, boto3, s5cmd) | [S3-Compatible API](./storage-buckets-s3) |
 
 ## Mount as a Local Filesystem
 
@@ -41,6 +40,8 @@ Volume mounts in [Jobs](./jobs) and [Spaces](./spaces) are the same idea as `hf-
 ```bash
 hf jobs run -v hf://buckets/username/my-bucket:/data python:3.12 python script.py
 ```
+
+Jobs can also take a **local directory** as the volume source (`-v ./training-data:/data`): the directory is synced to your private `jobs-artifacts` bucket and mounted from there, so incremental re-syncs and output pull-back come for free.
 
 For the full volume mount syntax and Python API, see the [Jobs configuration docs](./jobs-configuration#volumes) and the [Spaces volume mount guide](/docs/huggingface_hub/guides/manage-spaces#mount-volumes-in-your-space).
 

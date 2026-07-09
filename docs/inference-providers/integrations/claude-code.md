@@ -15,7 +15,7 @@ Claude Code supports custom API endpoints via environment variables. By setting 
 
 ### Option 1: Using the `hf-claude` Extension (Recommended)
 
-The [`hf-claude`](https://github.com/hanouticelina/hf-claude) extension for the `hf` CLI provides an interactive model and provider picker that launches Claude Code with the right environment variables preconfigured.
+The [`hf-claude`](https://github.com/huggingface/hf-claude) extension for the `hf` CLI provides an interactive model and provider picker that launches Claude Code with the right environment variables preconfigured.
 
 1. Make sure you have `HF_TOKEN` set:
 
@@ -26,7 +26,7 @@ export HF_TOKEN="hf_..."
 2. Install the extension:
 
 ```bash
-hf extensions install hanouticelina/hf-claude
+hf extensions install hf-claude
 ```
 
 3. Launch Claude Code through `hf`:
@@ -70,8 +70,35 @@ Available policies are `:cheapest`, `:fastest`, or `:preferred`; use one of thes
 > [!TIP]
 > The `ANTHROPIC_DEFAULT_*_MODEL` variables map to Claude Code's internal model slots (Opus, Sonnet, Haiku), from the most powerful to the quickest. You can assign different models to each slot to balance capability and speed e.g. `zai-org/GLM-5.1` for Opus, `google/gemma-4-31B-it:together` for Sonnet, and `openai/gpt-oss-120b:cerebras` for Haiku. `CLAUDE_CODE_SUBAGENT_MODEL` controls which model is used for sub-agents.
 
+### Billing to an Organization
+
+To bill inference usage to a Hugging Face organization instead of your personal account, you have several options depending on your setup.
+
+**With the `hf-claude` extension**, pass the `--bill-to` flag:
+
+```bash
+hf extensions install hf-claude --force # reinstall to get the latest version of the extension
+hf claude --bill-to your-org-name
+```
+
+You can also set the `HF_BILL_TO` environment variable instead:
+
+```bash
+export HF_BILL_TO="your-org-name"
+hf claude
+```
+
+**With manual environment variables**, set `ANTHROPIC_CUSTOM_HEADERS` to include the `X-HF-Bill-To` header:
+
+```bash
+export ANTHROPIC_CUSTOM_HEADERS="X-HF-Bill-To: your-org-name"
+claude
+```
+
+Replace `your-org-name` with the name of the organization you want to bill to. The org must be a Team or Enterprise org that you're a member of.
+
 ## Resources
 
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
-- [`hf-claude` Extension](https://github.com/hanouticelina/hf-claude)
+- [`hf-claude` Extension](https://github.com/huggingface/hf-claude)
 - [Available models on Inference Providers](https://huggingface.co/inference/models)

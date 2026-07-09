@@ -5,8 +5,8 @@ Amazon Bedrock now exposes Hugging Face open-weight models—including Gemma, Ll
 
 ## 1 . Prerequisites
 
-|  | Requirement | Notes |
-|---|-------------|
+| Requirement | Notes |
+|-------------|-------|
 | AWS account in a Bedrock Region | Marketplace is regional; switch the console to one of the 14 supported Regions first, for example `us-east-1`. |
 | Permissions | For a quick trial, attach `AmazonBedrockFullAccess` and `AmazonSageMakerFullAccess`.|
 | Service quotas | The SageMaker endpoint uses GPU instances (for example ml.g5). Verify you have quota or request it. |
@@ -53,11 +53,11 @@ bedrock = boto3.client("bedrock-runtime")
 # Paste the endpoint ARN you copied above
 endpoint_arn = "arn:aws:sagemaker:<region>:<account‑id>:endpoint/<name>"
 
-inference_cfg = {"maxTokens": 256, "temperature": 0.1, "topP": 0.95}
-extra = {"parameters": {"repetition_penalty": 1.05}}
+inference_cfg = {"maxTokens": 256, "temperature": 0.1, "topP": 0.95}
+extra = {"parameters": {"repetition_penalty": 1.05}}
 
 response = bedrock.converse(
-    modelId=endpoint_arn,                  # <- SageMaker endpoint ARN
+    modelId=endpoint_arn,                  # <- SageMaker endpoint ARN
     messages=[{
         "role": "user",
         "content": [{"text": "Give me three taglines for a serverless AI startup"}]

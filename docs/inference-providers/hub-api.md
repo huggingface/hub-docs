@@ -31,8 +31,8 @@ It can be combined with other filters to e.g. select only `text-to-image` models
 Pass a comma-separated list of providers to select multiple:
 
 ```sh
-# List image-text-to-text models served by Novita or Sambanova
-~ curl -s https://huggingface.co/api/models?inference_provider=sambanova,novita&pipeline_tag=image-text-to-text | jq ".[].id"
+# List image-text-to-text models served by Novita or Nscale
+~ curl -s https://huggingface.co/api/models?inference_provider=nscale,novita&pipeline_tag=image-text-to-text | jq ".[].id"
 "meta-llama/Llama-3.2-11B-Vision-Instruct"
 "meta-llama/Llama-3.2-90B-Vision-Instruct"
 "Qwen/Qwen2-VL-72B-Instruct"

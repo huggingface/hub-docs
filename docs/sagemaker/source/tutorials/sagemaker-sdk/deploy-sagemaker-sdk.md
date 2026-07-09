@@ -3,10 +3,12 @@
 Deploying a 🤗 Transformers models in SageMaker for inference is as easy as:
 
 ```python
-from sagemaker.huggingface import HuggingFaceModel
+from sagemaker.serve import ModelBuilder
 
-# create Hugging Face Model Class and deploy it as SageMaker endpoint
-huggingface_model = HuggingFaceModel(...).deploy()
+# build a Model with ModelBuilder and deploy it as a SageMaker endpoint
+model_builder = ModelBuilder(...)
+model_builder.build()
+endpoint = model_builder.deploy()
 ```
 
 This guide will show you how to deploy models with zero-code using the [Inference Toolkit](https://github.com/aws/sagemaker-huggingface-inference-toolkit). The Inference Toolkit builds on top of the [`pipeline` feature](https://huggingface.co/docs/transformers/main_classes/pipelines) from 🤗 Transformers. Learn how to:
@@ -32,20 +34,20 @@ To start training locally, you need to setup an appropriate [IAM role](https://d
 Upgrade to the latest `sagemaker` version.
 
 ```bash
-pip install 'sagemaker<3.0.0'
+pip install 'sagemaker>=3.0.0'
 ```
 
-> [!WARNING]
-> [SageMaker Python SDK v3 has been recently released](https://github.com/aws/sagemaker-python-sdk), so unless specified otherwise, all the documentation and tutorials are still using the [SageMaker Python SDK v2](https://github.com/aws/sagemaker-python-sdk/tree/master-v2). We are actively working on updating all the tutorials and examples, but in the meantime make sure to install the SageMaker SDK as `pip install "sagemaker<3.0.0"`.
+> [!NOTE]
+> These docs and examples use the [SageMaker Python SDK v3](https://github.com/aws/sagemaker-python-sdk), which introduces a new framework-agnostic API built around `ModelBuilder` (inference) and `ModelTrainer` (training), replacing the v2 `HuggingFaceModel` and `HuggingFace` classes. Install it with `pip install "sagemaker>=3.0.0"`.
 
 **SageMaker environment**
 
 Setup your SageMaker environment as shown below:
 
 ```python
-import sagemaker
-sess = sagemaker.Session()
-role = sagemaker.get_execution_role()
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+sess = Session()
+role = get_execution_role()
 ```
 
 _Note: The execution role is only available when running a notebook within SageMaker. If you run `get_execution_role` in a notebook not on SageMaker, expect a `region` error._
@@ -55,12 +57,12 @@ _Note: The execution role is only available when running a notebook within SageM
 Setup your local environment as shown below:
 
 ```python
-import sagemaker
 import boto3
+from sagemaker.core.helper.session_helper import Session
 
 iam_client = boto3.client('iam')
 role = iam_client.get_role(RoleName='role-name-of-your-iam-role-with-right-permissions')['Role']['Arn']
-sess = sagemaker.Session()
+sess = Session()
 ```
 
 ## Deploy a 🤗 Transformers model trained in SageMaker
@@ -81,20 +83,31 @@ To deploy your model directly after training, ensure all required files are save
 If you use the Hugging Face `Trainer`, you can pass your tokenizer as an argument to the `Trainer`. It will be automatically saved when you call `trainer.save_model()`.
 
 ```python
-from sagemaker.huggingface import HuggingFace
+import json
+from sagemaker.train.model_trainer import ModelTrainer
+from sagemaker.serve import ModelBuilder
 
 ############ pseudo code start ############
 
-# create Hugging Face Estimator for training
-huggingface_estimator = HuggingFace(....)
+# create a ModelTrainer for training
+huggingface_estimator = ModelTrainer(....)
 
 # start the train job with our uploaded datasets as input
-huggingface_estimator.fit(...)
+huggingface_estimator.train(...)
 
 ############ pseudo code end ############
 
-# deploy model to SageMaker Inference
-predictor = hf_estimator.deploy(initial_instance_count=1, instance_type="ml.m5.xlarge")
+# build a Model from the trained artifacts and deploy it to SageMaker Inference
+model_data = huggingface_estimator._latest_training_job.model_artifacts.s3_model_artifacts
+model_builder = ModelBuilder(
+    image_uri=inference_image,        # Hugging Face inference DLC, see image_uris.retrieve below
+    s3_model_data_url=model_data,
+    role_arn=role,
+    sagemaker_session=sess,
+    instance_type="ml.m5.xlarge",
+)
+model_builder.build()
+predictor = model_builder.deploy(initial_instance_count=1, instance_type="ml.m5.xlarge")
 
 # example request: you always need to define "inputs"
 data = {
@@ -102,36 +115,56 @@ data = {
 }
 
 # request
-predictor.predict(data)
+res = predictor.invoke(body=json.dumps(data), content_type="application/json")
+print(json.loads(res.body.read()))
 ```
 
 After you run your request you can delete the endpoint as shown:
 
 ```python
 # delete endpoint
-predictor.delete_endpoint()
+predictor.delete()
 ```
 
 ### Deploy with `model_data`
 
-If you've already trained your model and want to deploy it at a later time, use the `model_data` argument to specify the location of your tokenizer and model weights.
+If you've already trained your model and want to deploy it at a later time, use the `s3_model_data_url` argument to specify the location of your tokenizer and model weights.
 
 ```python
-from sagemaker.huggingface.model import HuggingFaceModel
+import json
+from sagemaker.serve import ModelBuilder
+from sagemaker.core import image_uris
+from sagemaker.core.helper.session_helper import Session, get_execution_role
 
-# create Hugging Face Model Class
-huggingface_model = HuggingFaceModel(
-   model_data="s3://models/my-bert-model/model.tar.gz",  # path to your trained SageMaker model
-   role=role,                                            # IAM role with permissions to create an endpoint
-   transformers_version="4.26",                           # Transformers version used
-   pytorch_version="1.13",                                # PyTorch version used
-   py_version='py39',                                    # Python version used
+# set up the SageMaker session and execution role
+sess = Session()
+role = get_execution_role()
+
+# Retrieve the Hugging Face PyTorch inference DLC image URI
+inference_image = image_uris.retrieve(
+    framework="huggingface",
+    region=sess.boto_region_name,
+    version="4.51.3",                          # Transformers version
+    base_framework_version="pytorch2.6.0",   # PyTorch version
+    py_version="py312",                      # Python version
+    image_scope="inference",
+    instance_type="ml.m5.xlarge",
 )
 
+# create a ModelBuilder pointing at your trained model artifacts
+model_builder = ModelBuilder(
+    image_uri=inference_image,
+    s3_model_data_url="s3://models/my-bert-model/model.tar.gz",  # path to your trained SageMaker model
+    role_arn=role,                                               # IAM role with permissions to create an endpoint
+    sagemaker_session=sess,
+    instance_type="ml.m5.xlarge",
+)
+model_builder.build()
+
 # deploy model to SageMaker Inference
-predictor = huggingface_model.deploy(
-   initial_instance_count=1,
-   instance_type="ml.m5.xlarge"
+predictor = model_builder.deploy(
+    initial_instance_count=1,
+    instance_type="ml.m5.xlarge",
 )
 
 # example request: you always need to define "inputs"
@@ -140,14 +173,15 @@ data = {
 }
 
 # request
-predictor.predict(data)
+res = predictor.invoke(body=json.dumps(data), content_type="application/json")
+print(json.loads(res.body.read()))
 ```
 
 After you run our request, you can delete the endpoint again with:
 
 ```python
 # delete endpoint
-predictor.delete_endpoint()
+predictor.delete()
 ```
 
 ### Create a model artifact for deployment
@@ -198,35 +232,65 @@ Now you can provide the S3 URI to the `model_data` argument to deploy your model
 
 <iframe width="700" height="394" src="https://www.youtube.com/embed/l9QZuazbzWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-To deploy a model directly from the 🤗 Hub to SageMaker, define two environment variables when you create a `HuggingFaceModel`:
+To deploy a model directly from the 🤗 Hub to SageMaker, pass the model ID as the `model` argument and the task via the `HF_TASK` environment variable when you create a `ModelBuilder`:
 
-- `HF_MODEL_ID` defines the model ID which is automatically loaded from [huggingface.co/models](http://huggingface.co/models) when you create a SageMaker endpoint. Access 10,000+ models on he 🤗 Hub through this environment variable.
+- `model` is the model ID, automatically loaded from [huggingface.co/models](http://huggingface.co/models) when you create a SageMaker endpoint (ModelBuilder sets the `HF_MODEL_ID` environment variable from it). Access 10,000+ models on the 🤗 Hub this way.
 - `HF_TASK` defines the task for the 🤗 Transformers `pipeline`. A complete list of tasks can be found [here](https://huggingface.co/docs/transformers/main_classes/pipelines).
 
 > ⚠️ ** Pipelines are not optimized for parallelism (multi-threading) and tend to consume a lot of RAM. For example, on a GPU-based instance, the pipeline operates on a single vCPU. When this vCPU becomes saturated with the inference requests preprocessing, it can create a bottleneck, preventing the GPU from being fully utilized for model inference. Learn more [here](https://huggingface.co/docs/transformers/en/pipeline_webserver#using-pipelines-for-a-webserver)
 
 ```python
-from sagemaker.huggingface.model import HuggingFaceModel
+import json
+from sagemaker.serve import ModelBuilder, ModelServer
+from sagemaker.serve.builder.schema_builder import SchemaBuilder
+from sagemaker.core import image_uris
+from sagemaker.core.helper.session_helper import Session, get_execution_role
 
-# Hub model configuration <https://huggingface.co/models>
-hub = {
-  'HF_MODEL_ID':'distilbert-base-uncased-distilled-squad', # model_id from hf.co/models
-  'HF_TASK':'question-answering'                           # NLP task you want to use for predictions
-}
+# set up the SageMaker session and execution role
+sess = Session()
+role = get_execution_role()
 
-# create Hugging Face Model Class
-huggingface_model = HuggingFaceModel(
-   env=hub,                                                # configuration for loading model from Hub
-   role=role,                                              # IAM role with permissions to create an endpoint
-   transformers_version="4.26",                             # Transformers version used
-   pytorch_version="1.13",                                  # PyTorch version used
-   py_version='py39',                                      # Python version used
+model_id = "distilbert-base-uncased-distilled-squad"   # model_id from hf.co/models
+instance_type = "ml.m5.xlarge"
+
+# Retrieve the Hugging Face PyTorch inference DLC image URI
+inference_image = image_uris.retrieve(
+    framework="huggingface",
+    region=sess.boto_region_name,
+    version="4.51.3",                          # Transformers version
+    base_framework_version="pytorch2.6.0",   # PyTorch version
+    py_version="py312",                      # Python version
+    image_scope="inference",
+    instance_type=instance_type,
 )
 
+# sample input/output used by ModelBuilder to set up request/response serialization
+sample_input = {
+    "inputs": {
+        "question": "What is used for inference?",
+        "context": "My Name is Philipp and I live in Nuremberg. This model is used with sagemaker for inference.",
+    }
+}
+sample_output = [{"score": 0.99, "start": 68, "end": 77, "answer": "sagemaker"}]
+
+# Pass the model ID as `model` (ModelBuilder sets HF_MODEL_ID from it) and serve it with the
+# Hugging Face Inference Toolkit. `HF_TASK` tells the toolkit which pipeline to build.
+model_builder = ModelBuilder(
+    model=model_id,
+    model_server=ModelServer.MMS,
+    image_uri=inference_image,
+    env_vars={"HF_TASK": "question-answering"},
+    role_arn=role,                 # IAM role with permissions to create an endpoint
+    sagemaker_session=sess,
+    instance_type=instance_type,
+    schema_builder=SchemaBuilder(sample_input=sample_input, sample_output=sample_output),
+)
+model_builder.build()
+
 # deploy model to SageMaker Inference
-predictor = huggingface_model.deploy(
-   initial_instance_count=1,
-   instance_type="ml.m5.xlarge"
+predictor = model_builder.deploy(
+    initial_instance_count=1,
+    instance_type="ml.m5.xlarge",
 )
 
 # example request: you always need to define "inputs"
@@ -238,14 +302,15 @@ data = {
 }
 
 # request
-predictor.predict(data)
+res = predictor.invoke(body=json.dumps(data), content_type="application/json")
+print(json.loads(res.body.read()))
 ```
 
 After you run our request, you can delete the endpoint again with:
 
 ```python
 # delete endpoint
-predictor.delete_endpoint()
+predictor.delete()
 ```
 
 📓 Open the [deploy_transformer_model_from_hf_hub.ipynb notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/11_deploy_model_from_hf_hub/deploy_transformer_model_from_hf_hub.ipynb) for an example of how to deploy a model from the 🤗 Hub to SageMaker for inference.
@@ -260,10 +325,21 @@ After training a model, you can use [SageMaker batch transform](https://docs.aws
 
 _Note: Make sure your `inputs` fit the `max_length` of the model during preprocessing._
 
-If you trained a model using the Hugging Face Estimator, call the `transformer()` method to create a transform job for a model based on the training job (see [here](https://sagemaker.readthedocs.io/en/stable/overview.html#sagemaker-batch-transform) for more details):
+If you trained a model with a `ModelTrainer`, build a `ModelBuilder` from the trained artifacts and call its `transformer()` method to create a transform job:
 
 ```python
-batch_job = huggingface_estimator.transformer(
+from sagemaker.serve import ModelBuilder
+
+# build a Model from the trained artifacts
+model_builder = ModelBuilder(
+    image_uri=inference_image,
+    s3_model_data_url=huggingface_estimator._latest_training_job.model_artifacts.s3_model_artifacts,
+    role_arn=role,
+    sagemaker_session=sess,
+)
+model_builder.build()
+
+batch_job = model_builder.transformer(
     instance_count=1,
     instance_type='ml.p3.2xlarge',
     strategy='SingleRecord')
@@ -275,28 +351,51 @@ batch_job.transform(
     split_type='Line')
 ```
 
-If you want to run your batch transform job later or with a model from the 🤗 Hub, create a `HuggingFaceModel` instance and then call the `transformer()` method:
+If you want to run your batch transform job later or with a model from the 🤗 Hub, create a `ModelBuilder` and then call the `transformer()` method:
 
 ```python
-from sagemaker.huggingface.model import HuggingFaceModel
+from sagemaker.serve import ModelBuilder, ModelServer
+from sagemaker.serve.builder.schema_builder import SchemaBuilder
+from sagemaker.core import image_uris
+from sagemaker.core.helper.session_helper import Session, get_execution_role
 
-# Hub model configuration <https://huggingface.co/models>
-hub = {
-	'HF_MODEL_ID':'distilbert/distilbert-base-uncased-finetuned-sst-2-english',
-	'HF_TASK':'text-classification'
-}
+# set up the SageMaker session and execution role
+sess = Session()
+role = get_execution_role()
 
-# create Hugging Face Model Class
-huggingface_model = HuggingFaceModel(
-   env=hub,                                                # configuration for loading model from Hub
-   role=role,                                              # IAM role with permissions to create an endpoint
-   transformers_version="4.26",                             # Transformers version used
-   pytorch_version="1.13",                                  # PyTorch version used
-   py_version='py39',                                      # Python version used
+model_id = "distilbert/distilbert-base-uncased-finetuned-sst-2-english"
+instance_type = "ml.p3.2xlarge"
+
+# Retrieve the Hugging Face PyTorch inference DLC image URI
+inference_image = image_uris.retrieve(
+    framework="huggingface",
+    region=sess.boto_region_name,
+    version="4.51.3",
+    base_framework_version="pytorch2.6.0",
+    py_version="py312",
+    image_scope="inference",
+    instance_type=instance_type,
 )
 
+# Pass the model ID as `model` (ModelBuilder sets HF_MODEL_ID) and serve it with the
+# Hugging Face Inference Toolkit.
+model_builder = ModelBuilder(
+    model=model_id,
+    model_server=ModelServer.MMS,
+    image_uri=inference_image,
+    env_vars={"HF_TASK": "text-classification"},
+    role_arn=role,                 # IAM role with permissions to create an endpoint
+    sagemaker_session=sess,
+    instance_type=instance_type,
+    schema_builder=SchemaBuilder(
+        sample_input={"inputs": "this movie is terrible"},
+        sample_output=[{"label": "NEGATIVE", "score": 0.99}],
+    ),
+)
+model_builder.build()
+
 # create transformer to run a batch job
-batch_job = huggingface_model.transformer(
+batch_job = model_builder.transformer(
     instance_count=1,
     instance_type='ml.p3.2xlarge',
     strategy='SingleRecord'
@@ -330,69 +429,84 @@ If you are interested in using a high-performance serving container for LLMs, yo
 First, make sure that the latest version of SageMaker SDK is installed:
 
 ```bash
-pip install sagemaker>=2.231.0
+pip install 'sagemaker>=3.0.0'
 ```
 
 Then, we import the SageMaker Python SDK and instantiate a sagemaker_session to find the current region and execution role.
 
 ```python
-import sagemaker
-from sagemaker.huggingface import HuggingFaceModel, get_huggingface_llm_image_uri
 import time
+from sagemaker.core.helper.session_helper import Session, get_execution_role
 
-sagemaker_session = sagemaker.Session()
+sagemaker_session = Session()
 region = sagemaker_session.boto_region_name
-role = sagemaker.get_execution_role()
+role = get_execution_role()
 ```
 
-Next we retrieve the LLM image URI. We use the helper function get_huggingface_llm_image_uri() to generate the appropriate image URI for the Hugging Face Large Language Model (LLM) inference. The function takes a required parameter backend and several optional parameters. The backend specifies the type of backend to use for the model:  “huggingface” refers to using Hugging Face TGI backend.
+Next we retrieve the LLM image URI. We use `image_uris.retrieve` from `sagemaker.core` to generate the appropriate image URI for Hugging Face Large Language Model (LLM) inference. The `framework="huggingface-llm"` value selects the Hugging Face TGI container; the processor (CPU/GPU) is inferred from the `instance_type`.
 
 ```python
-image_uri = get_huggingface_llm_image_uri(
-  backend="huggingface",
-  region=region
+from sagemaker.core import image_uris
+
+image_uri = image_uris.retrieve(
+    framework="huggingface-llm",
+    region=region,
+    image_scope="inference",
+    instance_type="ml.g5.2xlarge",
 )
 ```
 
 Now that we have the image uri, the next step is to configure the model object. We specify a unique name, the image_uri for the managed TGI container, and the execution role for the endpoint. Additionally, we specify a number of environment variables including the `HF_MODEL_ID` which corresponds to the model from the HuggingFace Hub that will be deployed, and the `HF_TASK` which configures the inference task to be performed by the model.
 
-You should also define `SM_NUM_GPUS`, which specifies the tensor parallelism degree of the model. Tensor parallelism can be used to split the model across multiple GPUs, which is necessary when working with LLMs that are too big for a single GPU. To learn more about tensor parallelism with inference, see our previous blog post. Here, you should set `SM_NUM_GPUS` to the number of available GPUs on your selected instance type. For example, in this tutorial, we set `SM_NUM_GPUS` to 4 because our selected instance type ml.g4dn.12xlarge has 4 available GPUs.
+You should also define `SM_NUM_GPUS`, which specifies the tensor parallelism degree of the model. Tensor parallelism can be used to split the model across multiple GPUs, which is necessary when working with LLMs that are too big for a single GPU. To learn more about tensor parallelism with inference, see our previous blog post. Here, you should set `SM_NUM_GPUS` to the number of available GPUs on your selected instance type. For example, in this tutorial, we set `SM_NUM_GPUS` to 1 because our selected instance type ml.g5.2xlarge has 1 available GPU.
 
 Note that you can optionally reduce the memory and computational footprint of the model by setting the `HF_MODEL_QUANTIZE` environment variable to `true`, but this lower weight precision could affect the quality of the output for some models.
 
 ```python
+from sagemaker.serve import ModelBuilder, ModelServer
+from sagemaker.serve.builder.schema_builder import SchemaBuilder
+
 model_name = "llama-3-1-8b-instruct" + time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime())
 
-hub = {
-    'HF_MODEL_ID':'meta-llama/Llama-3.1-8B-Instruct',
-    'SM_NUM_GPUS':'1',
-	'HUGGING_FACE_HUB_TOKEN': '<REPLACE WITH YOUR TOKEN>',
+env = {
+    'SM_NUM_GPUS': '1',                                     # GPUs used for tensor parallelism
+    'HUGGING_FACE_HUB_TOKEN': '<REPLACE WITH YOUR TOKEN>',  # required for gated models like Llama
 }
 
-assert hub['HUGGING_FACE_HUB_TOKEN'] != '<REPLACE WITH YOUR TOKEN>', "You have to provide a token."
+assert env['HUGGING_FACE_HUB_TOKEN'] != '<REPLACE WITH YOUR TOKEN>', "You have to provide a token."
 
-
-model = HuggingFaceModel(
-    name=model_name,
-    env=hub,
-    role=role,
-    image_uri=image_uri
+# Pass the model ID as `model` (ModelBuilder sets HF_MODEL_ID from it) and select the TGI server.
+model_builder = ModelBuilder(
+    model='meta-llama/Llama-3.1-8B-Instruct',
+    model_server=ModelServer.TGI,
+    image_uri=image_uri,
+    env_vars=env,
+    role_arn=role,
+    sagemaker_session=sagemaker_session,
+    instance_type="ml.g5.2xlarge",
+    schema_builder=SchemaBuilder(
+        sample_input={"inputs": "The diamondback terrapin was the first reptile to", "parameters": {"max_new_tokens": 100}},
+        sample_output=[{"generated_text": "..."}],
+    ),
 )
+model_builder.build()
 ```
 
 Next, we invoke the deploy method to deploy the model.
 
 ```python
-predictor = model.deploy(
+predictor = model_builder.deploy(
   initial_instance_count=1,
   instance_type="ml.g5.2xlarge",
   endpoint_name=model_name
 )
 ```
 
-Once the model is deployed, we can invoke it to generate text. We pass an input prompt and run the predict method to generate a text response from the LLM running in the TGI container.
+Once the model is deployed, we can invoke it to generate text. We pass an input prompt and run the `invoke` method to generate a text response from the LLM running in the TGI container.
 
 ```python
+import json
+
 input_data = {
   "inputs": "The diamondback terrapin was the first reptile to",
   "parameters": {
@@ -403,7 +517,8 @@ input_data = {
   }
 }
 
-predictor.predict(input_data)
+res = predictor.invoke(body=json.dumps(input_data), content_type="application/json")
+print(json.loads(res.body.read()))
 ```
 
 We receive the following auto-generated text response:
@@ -414,8 +529,7 @@ We receive the following auto-generated text response:
 Once we are done experimenting, we delete the endpoint and the model resources.
 
 ```python
-predictor.delete_model()
-predictor.delete_endpoint()
+predictor.delete()
 ```
 
 ## User defined code and modules

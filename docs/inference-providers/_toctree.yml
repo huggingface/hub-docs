@@ -120,8 +120,6 @@
     title: Fireworks
   - local: providers/groq
     title: Groq
-  - local: providers/hyperbolic
-    title: Hyperbolic
   - local: providers/hf-inference
     title: HF Inference
   - local: providers/novita
@@ -134,8 +132,6 @@
     title: Public AI
   - local: providers/replicate
     title: Replicate
-  - local: providers/sambanova
-    title: SambaNova
   - local: providers/scaleway
     title: Scaleway
   - local: providers/together

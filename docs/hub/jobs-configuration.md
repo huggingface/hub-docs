@@ -103,7 +103,7 @@ You can pass environment variables to your job using
 
 ## Volumes
 
-Mount Hugging Face repositories (models, datasets) or [Storage Buckets](./storage-buckets) as volumes in your job container using `-v` or `--volume`. The syntax uses the `hf://` URL scheme: `hf://[TYPE/]SOURCE:/MOUNT_PATH[:ro]`.
+Mount Hugging Face repositories (models, datasets), [Storage Buckets](./storage-buckets), or local directories as volumes in your job container using `-v` or `--volume`. Hub sources use the `hf://` URL scheme: `hf://[TYPE/]SOURCE:/MOUNT_PATH[:ro]`; a local directory is passed directly as the source.
 
 Volume types:
 
@@ -113,6 +113,7 @@ Volume types:
 | Dataset repo | `-v hf://datasets/stanfordnlp/imdb:/data` |
 | Storage bucket | `-v hf://buckets/username/my-bucket:/mnt` |
 | Subfolder | `-v hf://datasets/org/my-dataset/train:/data` |
+| Local directory | `-v ./training-data:/data` |
 
 Then use the mounted volume as a local directory inside the container:
 
@@ -138,6 +139,16 @@ Models and datasets are always mounted **read-only**. Storage buckets are **read
 ```bash
 >>> hf jobs run -v hf://buckets/username/my-bucket:/mnt:ro python:3.12 ls /mnt
 ```
+
+### Local directories
+
+Passing a local directory as the source syncs it to your private `jobs-artifacts` [Storage Bucket](./storage-buckets) (created automatically) before the Job starts, then mounts it in the container. Local directories are mounted **read-only** by default; use `:rw` to write outputs:
+
+```bash
+>>> hf jobs uv run -v ./pdfs:/input -v ./md-out:/output:rw ocr.py
+```
+
+Re-syncing the same directory only uploads new or modified files. To retrieve files a Job wrote to a read-write volume, sync its bucket folder back once the Job is over — the CLI prints the exact `hf buckets sync` command when the Job starts. Scheduled jobs work too: the directory is synced once when the schedule is created, and every trigger mounts the same folder. In Python, use [`sync_job_volume`](https://huggingface.co/docs/huggingface_hub/guides/jobs#mount-local-data).
 
 In Python, use the [`Volume`](https://huggingface.co/docs/huggingface_hub/package_reference/jobs#huggingface_hub.Volume) class:
 
@@ -246,6 +257,68 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 >>> job = run_job(image="python:3.12", command=["python", "-m", "http.server", "8000"], expose=[8000])
 >>> job.status.expose_urls
 ['https://6a2ab384c4f53f9fc5aa4d4f--8000.hf.jobs']
+```
+
+## SSH
+
+You can open an interactive SSH session into a running Job to debug, inspect, or work directly inside the container. Enable it at job creation with `--ssh` (CLI) or `ssh=True` (Python API), then connect with `hf jobs ssh <job_id>`.
+
+Only users with Write access to the Job's namespace are allowed (i.e. the Job creator, or members of the owner organization with Write permissions). Authentication is performed via SSH public keys registered at [https://huggingface.co/settings/keys](https://huggingface.co/settings/keys).
+
+SSH is available on `hf jobs run` and `hf jobs uv run`. It is not supported for scheduled jobs.
+
+### CLI
+
+```bash
+# Start a job with SSH enabled
+>>> hf jobs run --ssh --detach --timeout 10m python:3.12 sleep infinity
+✓ Job started
+  id: 6a2bd1f1871c005b5352ad31
+  url: https://huggingface.co/jobs/Wauplin/6a2bd1f1871c005b5352ad31
+Hint: Use `hf jobs ssh 6a2bd1f1871c005b5352ad31` to open an SSH session into the job.
+
+# Open an SSH session into the job
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31
+```
+
+You can also print the SSH command without running it (`--dry-run`), or pass a specific identity file (`-i`/`--identity-file`):
+
+```bash
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31 --dry-run
+ssh 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
+
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31 -i ~/.ssh/id_ed25519
+```
+
+### Python
+
+```python
+>>> from huggingface_hub import run_job
+>>> job = run_job(image="python:3.12", command=["sleep", "infinity"], ssh=True)
+>>> job.status.ssh_url
+'ssh://6a2bd1f1871c005b5352ad31@ssh.hf.jobs'
+```
+
+Then connect from a terminal with `hf jobs ssh <job_id>`, or directly with `ssh <job_id>@ssh.hf.jobs`.
+
+### Port forwarding
+
+Since this is a regular SSH connection, you can use SSH's `-L` and `-R` flags to forward ports between your machine and the Job. Connect directly with `ssh` (use `hf jobs ssh <job_id> --dry-run` to get the exact destination) and add the forwarding flags.
+
+Use `-L` (local forwarding) to access a service running inside the Job from your machine. For example, to reach a TensorBoard started in a training Job:
+
+```bash
+# Forward local port 6006 to the Job's TensorBoard on port 6006
+>>> ssh -L 6006:localhost:6006 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
+```
+
+Then open [http://localhost:6006](http://localhost:6006) in your browser.
+
+Use `-R` (remote forwarding) to let the Job access a service running on your machine. For example, to expose a local database or API to the Job:
+
+```bash
+# Make your local port 8080 reachable from inside the Job on port 8080
+>>> ssh -R 8080:localhost:8080 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
 ```
 
 ## Timeout

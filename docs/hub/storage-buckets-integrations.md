@@ -21,6 +21,19 @@ import dask.dataframe as dd
 df = dd.read_parquet("hf://buckets/username/my-bucket/data.parquet")
 ```
 
+## Daft
+
+Daft supports `hf://buckets/` paths natively, with [Xet-accelerated reads](https://docs.daft.ai/en/stable/connectors/huggingface/) enabled by default:
+
+```python
+import daft
+from daft.io import IOConfig, HuggingFaceConfig
+from huggingface_hub import get_token
+
+io_config = IOConfig(hf=HuggingFaceConfig(token=get_token()))
+df = daft.read_parquet("hf://buckets/username/my-bucket/data.parquet", io_config=io_config)
+```
+
 ## PyArrow
 
 ```python
@@ -51,6 +64,21 @@ from datasets import load_dataset
 ds = load_dataset("buckets/username/my-bucket", data_files=["data.parquet"])
 ```
 
+## Inspect AI
+
+[Inspect AI](https://inspect.aisi.org.uk/) can write evaluation logs directly to a bucket — point its log directory at an `hf://buckets/` path (requires `huggingface_hub>=1.6.0`). Create the bucket and authenticate first (Inspect won't create it for you):
+
+```bash
+hf auth login
+hf buckets create username/my-bucket --private
+
+export INSPECT_LOG_DIR=hf://buckets/username/my-bucket/eval-logs
+inspect eval popularity.py --model openai/gpt-4
+inspect view
+```
+
+See [Inspect's eval logs guide](https://inspect.aisi.org.uk/eval-logs.html#sec-hugging-face-storage-buckets) for details.
+
 ## Filesystem operations
 
 For direct file operations, `huggingface_hub` exposes a pre-instantiated [filesystem object](/docs/huggingface_hub/guides/hf_file_system), `hffs`:
@@ -73,4 +101,4 @@ text_files = hffs.glob("buckets/username/my-bucket/*.txt")
 
 ## Coming soon
 
-Support for more libraries is on the way — including Polars, DuckDB (native `hf://` URL support), Daft, and webdataset.
+Native `hf://` URL support is on the way for more libraries — including Polars, DuckDB, and webdataset. In the meantime, all of these already work today through the [S3-compatible API](./storage-buckets-s3).

@@ -50,18 +50,8 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
-    providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3-turbo","providerModelId":"openai/whisper-large-v3-turbo"} } }
+    providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"} } }
 />
-
-
-### Chat Completion (LLM)
-
-Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceBio/Carbon-3B","providerModelId":"HuggingFaceBio/Carbon-3B"} } }
-conversational />
 
 
 ### Feature Extraction
@@ -70,7 +60,7 @@ Find out more about Feature Extraction [here](../tasks/feature-extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"microsoft/harrier-oss-v1-0.6b","providerModelId":"microsoft/harrier-oss-v1-0.6b"} } }
+    providersMapping={ {"hf-inference":{"modelId":"BAAI/bge-small-en-v1.5","providerModelId":"BAAI/bge-small-en-v1.5"} } }
 />
 
 
@@ -154,16 +144,6 @@ Find out more about Text Classification [here](../tasks/text-classification).
 />
 
 
-### Text Generation
-
-Find out more about Text Generation [here](../tasks/text-generation).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"hf-inference":{"modelId":"HuggingFaceBio/Carbon-3B","providerModelId":"HuggingFaceBio/Carbon-3B"} } }
-/>
-
-
 ### Text To Image
 
 Find out more about Text To Image [here](../tasks/text-to-image).
@@ -180,7 +160,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"Babelscape/wikineural-multilingual-ner","providerModelId":"Babelscape/wikineural-multilingual-ner"} } }
+    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
 />
 
 

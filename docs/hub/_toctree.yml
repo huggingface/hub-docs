@@ -433,6 +433,8 @@
   sections:
   - local: storage-buckets-access
     title: Access Patterns
+  - local: storage-buckets-s3
+    title: S3 Compatibility
   - local: storage-buckets-integrations
     title: Bucket Integrations
   - local: storage-buckets-security
@@ -454,6 +456,8 @@
     title: Configuration
   - local: jobs-popular-images
     title: Popular Images
+  - local: jobs-serving
+    title: Serve Models
   - local: jobs-examples
     title: Examples & Tutorials
   - local: jobs-schedule
@@ -481,6 +485,8 @@
     title: Local Agents with llama.cpp
   - local: agents-libraries
     title: Agent Libraries
+  - local: session-traces-format
+    title: Session Traces Format
 
 - local: other
   title: Other

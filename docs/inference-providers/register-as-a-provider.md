@@ -329,6 +329,16 @@ More details about the pricing structure can be found on the [pricing page](./pr
 We propose an easier way to figure out this cost and charge it to our users, by asking you to
 provide the cost for each request via an HTTP API you host on your end. 
 
+### How billing works
+
+The flow is the same for every routed request:
+
+1. When we proxy a request to you, we immediately record it on our side with a *placeholder* cost, so that the user's usage shows up right away.
+2. A background job runs every minute, collects the request IDs we routed to you, and calls your billing API (see specs below) to ask for the real cost of each one.
+3. Once you return a cost, we replace the placeholder with the real amount and bill the user accordingly.
+
+It means **a request is only billed once your API returns a cost for it**, so the reliability and timeliness of this endpoint matter. See [Timing and retries](#timing-and-retries) for what happens when a cost never comes back.
+
 ### HTTP API Specs
 
 We ask that you expose an API that supports a HTTP POST request.
@@ -367,17 +377,39 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint will be requested by our system every minute, in batches of up to 10,000 requests.
+A few things to keep in mind when building the response:
+
+- Return **one entry per request ID for which you know the cost**. The order does not matter.
+- If you don't have the cost for a request yet, just leave it out of the response. We will ask again on the next run (see [Timing and retries](#timing-and-retries)).
+- Only return costs for request IDs we actually sent you. We ignore any ID in the response that we didn't ask about.
+- If you have no billing data at all for the whole batch yet, you can return `{ "requests": null }` and we will retry later.
 
 ### Price Unit
 
 We require the price to be a **non-negative integer** number of **nano-USDs** (10^-9 USD).
+
+- `0` is a valid cost, for instance when you serve a cached response for free.
+- If you send a non-integer value, we round it **up** to the next integer.
+- Negative values, or anything we can't parse as a number, are treated as invalid: we skip that request and retry it on a later run.
+
+### Timing and retries
+
+- We call your billing API **every minute**, in batches of **up to 10,000 request IDs**.
+- For some providers we wait a few minutes after a request before asking for its cost, to give you time to finalize it. If you need such a delay, let us know and we'll configure it with you.
+- We keep asking for a request's cost on every run until you return one, so **your API must be idempotent**: the same request ID can be queried several times and should always return the same cost.
+- If a request is still unbilled roughly **30 minutes** after it was served, we give up on it. The request is then marked as failed to bill and is **not charged to the user**. In practice, we expect your billing data to be available within that window.
+
+### Which requests we ask about
+
+We only ask for the cost of requests that **completed successfully** (a 2xx or 3xx HTTP status) on your side.
 
 ### How to define the request ID
 
 For each request/generation you serve, you should define a unique request (or response) ID,
 and provide it as a response Header. We will use this ID as the request ID for the billing API
 above.
+
+Make sure this header is present on **every** response you return, including streaming responses. If it's missing, we have no way to match the request and it can't be billed.
 
 As part of those requirements, please let us know your Header name. If you don't already have one, we suggest the `Inference-Id` name for instance, and it should contain a UUID character string.
 

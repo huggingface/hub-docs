@@ -82,3 +82,51 @@ hf-mount start repo openai-community/gpt2 /tmp/gpt2
 ```
 
 Repos are mounted read-only. See [Mount as a Local Filesystem](./storage-buckets-access#mount-as-a-local-filesystem) for full setup details, backend options, and caching.
+
+## Downloading behind a proxy or firewall
+
+If your network restricts outbound traffic through a firewall or proxy, downloading models and datasets requires more than just `huggingface.co`. File contents are served from separate storage and CDN hostnames, and `from_pretrained` / `hf download` will fail if these are not reachable, even when `huggingface.co` itself is allowlisted.
+
+Allowlist the following hostnames (all over HTTPS / port 443):
+
+
+| Hostname                      | Purpose                                   |
+|-------------------------------|-------------------------------------------|
+| `huggingface.co`              | Hub API, metadata, and download redirects |
+| `cas-server.xethub.hf.co`     | Xet storage protocol APIs + upload (US)   |
+| `cas-server.xethub-eu.hf.co`  | Xet storage protocol APIs + upload (EU)   |
+| `transfer.xethub.hf.co`       | Xet storage download APIs (US)            |
+| `transfer.xethub-eu.hf.co`    | Xet storage download APIs (EU)            |
+| `cas-bridge.xethub.hf.co`     | Bridge CDN, legacy (US)                   |
+| `cas-bridge.xethub-eu.hf.co`  | Bridge CDN, legacy (EU)                   |
+| `us.aws.cdn.hf.co`            | CDN edge (US)                             |
+| `us.gcp.cdn.hf.co`            | CDN edge (US)                             |
+| `cdn-lfs.hf.co`               | LFS CDN, legacy (global)                  |
+| `cdn-lfs-us-1.hf.co`          | LFS CDN (US)                              |
+| `cdn-lfs-eu-1.hf.co`          | LFS CDN (EU)                              |
+| `cdn-lfs.huggingface.co`      | LFS CDN, legacy (global)                  |
+| `cdn-lfs-us-1.huggingface.co` | LFS CDN, legacy (US)                      |
+| `cdn-lfs-eu-1.huggingface.co` | LFS CDN, legacy (EU)                      |
+
+> [!TIP]
+> Downloads follow HTTP redirects from `huggingface.co` to these hostnames, so
+> allowlisting `huggingface.co` alone is not sufficient. A `ReadTimeoutError` (rather than
+> a connection error) partway through a download usually means the initial connection
+> succeeded but a storage or CDN host is blocked.
+
+> [!TIP]
+> Wildcard behavior depends on how your proxy matches domains. Many enterprise proxies
+> treat an allowlist entry as a suffix match that covers subdomains at any depth. If yours
+> does, the simplest option is to allowlist the suffixes `hf.co` and `huggingface.co` —
+> these cover every current and future storage and CDN endpoint.
+>
+> If your proxy only supports single-label wildcards (where `*.hf.co` matches
+> `cdn-lfs.hf.co` but not the deeper `us.aws.cdn.hf.co` or `cas-bridge.xethub.hf.co`),
+> allowlist the explicit hostnames from the table above. Note that `*.xethub.hf.co` does
+> not cover the EU hosts under `xethub-eu.hf.co`, and `*.cdn.hf.co` does not cover the
+> two-label `us.aws.cdn.hf.co` / `us.gcp.cdn.hf.co`.
+
+> [!WARNING]
+> These hostnames may change as our storage and CDN infrastructure evolves. Where your
+> security policy allows it, allowlist the `hf.co` and `huggingface.co` suffixes (all
+> subdomains) so your rules don't break when a specific endpoint changes.

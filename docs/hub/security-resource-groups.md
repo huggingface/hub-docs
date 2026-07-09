@@ -11,6 +11,8 @@ Resource Groups allow organization administrators to group related repositories 
 
 A repository can belong to only one Resource Group.
 
+Organization collections can also be assigned to a Resource Group, following the same rules as repositories: a collection can belong to only one Resource Group, and can be moved between groups by members with the appropriate permissions.
+
 Organizations members need to be added to the Resource Group to access its repositories. An Organization Member can belong to several Resource Groups.
 
 Members are assigned a role in each Resource Group that determines their permissions for the group's repositories. Four distinct roles exist for Resource Groups:
@@ -22,7 +24,7 @@ Members are assigned a role in each Resource Group that determines their permiss
 
 In addition, Organization admins can manage all resource groups inside the organization. This includes moving repositories in and out of any Resource Group.
 
-Resource Groups also affect the visibility of private repositories inside the organization. A private repository that is part of a Resource Group will only be visible to members of that Resource Group. Public repositories, on the other hand, are visible to anyone, inside and outside the organization.
+Resource Groups also affect the visibility of private repositories inside the organization. A private repository that is part of a Resource Group will only be visible to members of that Resource Group. Public repositories, on the other hand, are visible to anyone, inside and outside the organization. The same visibility rules apply to private collections that belong to a Resource Group.
 
 ## Getting started
 
@@ -107,6 +109,8 @@ Resource Groups also serve as a cost attribution unit for compute services. When
 - **Jobs**: pass the resource group's ID as the `namespace` when creating a job. See [Bill to a resource group](./jobs-pricing#bill-to-a-resource-group).
 - **Inference Providers**: pass the resource group's ID via the `X-HF-Bill-To` header (or `bill_to` parameter in the SDK). See [Billing for Team and Enterprise organizations](/docs/inference-providers/pricing#billing-for-team-and-enterprise-organizations).
 - **Inference Endpoints**: cost is automatically attributed to the resource group the model repository belongs to. Endpoints instantiated directly from the built-in Inference Endpoints catalog aren't supported at this time.
+
+You can use the <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/&#123;name&#125;/billing/usage-by-resource-group">dedicated API endpoint</a> to retrieve cost attribution data for resource groups.
 
 ## Resource Groups API
 
