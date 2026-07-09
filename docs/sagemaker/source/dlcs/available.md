@@ -61,14 +61,6 @@ Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance s
 
 ## FAQ
 
-**How to choose the right inference container for my use case?**
-
-![inference-dlc-decision-tree](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/inference-dlc-decision-tree.png)
-
-*Note:* See [here](https://huggingface.co/docs/sagemaker/main/en/reference/inference-toolkit) for the list of supported task in the inference toolkit.
-
-*Note:* Browse through the Hub to see if your model is tagged ["text-generation-inference"](https://huggingface.co/models?other=text-generation-inference) or ["text-embeddings-inference"](https://huggingface.co/models?other=text-embeddings-inference).
-
 **How to find the URI of my container?**
 
 The URI is built with an AWS account ID and an AWS region. Those two values need to be replaced depending on your use case.
