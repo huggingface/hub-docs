@@ -75,8 +75,8 @@ Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance s
 
 | Container URI                                                                                                                    | Accelerator |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.8.2-cpu-py310-ubuntu22.04 | CPU         |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.8.2-gpu-py310-cu122-ubuntu22.04 | GPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.9.3-cpu-py310-ubuntu24.04 | CPU         |
+| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.9.3-gpu-py310-cu129-ubuntu24.04 | GPU         |
 
 ## FAQ
 
