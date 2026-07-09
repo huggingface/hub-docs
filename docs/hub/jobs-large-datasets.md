@@ -22,7 +22,17 @@ for example in ds.take(1000):
     ...  # streams in as you iterate, nothing hits disk
 ```
 
-A streamed dataset is an `IterableDataset` supporting lazy `.filter()`, `.map()`, `.shuffle(buffer_size=...)`, and `.batch()`, and can be passed straight to a PyTorch `DataLoader` or a `Trainer` to train on data larger than disk. See the [Stream guide](/docs/datasets/stream) for the full API, and [Examples & Tutorials](./jobs-examples) for end-to-end training walkthroughs.
+A streamed dataset is an `IterableDataset` supporting lazy `.filter()`, `.map()`, `.shuffle(buffer_size=...)`, and `.batch()`, and can be passed straight to a PyTorch `DataLoader` or a `Trainer` to train on data larger than disk. See the [Stream guide](/docs/datasets/stream) for the full API, and [Examples & Tutorials](./jobs-examples) for end-to-end training walkthroughs for single-node or distributed setups.
+
+Streaming also works in distributed setups, using Spark:
+
+```python
+import pyspark_huggingface
+
+df = spark.read.format("huggingface").option("config", "sample-10BT").load("HuggingFaceFW/fineweb-edu")
+```
+
+The resulting Spark dataframe is distributed: each worker streams from its own subset of files. See the [Spark documentation](./datasets-spark) for examples of reading, writing, and efficiently filtering rows and columns.
 
 ## Read and filter over `hf://`
 
@@ -112,7 +122,7 @@ Common Crawl mirrors its archive to the bucket [`commoncrawl/commoncrawl`](https
 ```python
 # /// script
 # requires-python = ">=3.11"
-# dependencies = ["huggingface_hub>=1.0", "fastwarc>=0.15", "duckdb>=1.0"]
+# dependencies = ["huggingface_hub>=1.9", "fastwarc>=0.15", "duckdb>=1.0"]
 # ///
 import duckdb
 from fastwarc.warc import ArchiveIterator, WarcRecordType
