@@ -116,7 +116,7 @@ Common Crawl mirrors its archive to the bucket [`commoncrawl/commoncrawl`](https
 # ///
 import duckdb
 from fastwarc.warc import ArchiveIterator, WarcRecordType
-from huggingface_hub import HfFileSystem
+from huggingface_hub import hffs
 
 WET = (
     "buckets/commoncrawl/commoncrawl/crawl-data/CC-MAIN-2026-17/"
