@@ -52,6 +52,24 @@ Finally, you can select all models served by at least one inference provider:
 "BagOu22/Lora_HKLPAZ"
 ```
 
+The same filters are available from the terminal with the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-models-list):
+
+```bash
+# List models served by at least one inference provider
+hf models ls --warm
+
+# Search served models for GLM-5.2
+hf models ls --warm --search GLM-5.2
+
+# List text-to-image models served by Fal AI
+hf models ls --inference-provider fal-ai --pipeline-tag text-to-image
+
+# List models served by Fireworks AI, most downloaded first
+hf models ls --inference-provider fireworks-ai --sort downloads
+```
+
+Repeat `--inference-provider` to match models served by any of several providers. Add `--expand inferenceProviderMapping` to see which provider serves each model and the provider-specific model id, or `--json` for machine-readable output.
+
 ## Get model status
 
 To find an inference provider for a specific model, request the `inference` attribute in the model info endpoint:

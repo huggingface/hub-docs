@@ -98,6 +98,8 @@ Before diving into integration, explore models interactively with our [Inference
 
 <a href="https://huggingface.co/playground" target="blank"><img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/9_Tgf0Tv65srhBirZQMTp.png" alt="Inference Playground thumbnail" style="max-width: 550px; width: 100%;"/></a>
 
+Prefer the terminal? Run `hf models ls --warm` with the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-models-list) to list every model served by at least one provider, and add `--json` for scripts and agents. See the [Hub API](./hub-api) page for the full set of filters.
+
 ### Authentication
 
 You'll need a Hugging Face token to authenticate your requests. Create one by visiting your [token settings](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) and generating a `fine-grained` token with `Make calls to Inference Providers` permissions.

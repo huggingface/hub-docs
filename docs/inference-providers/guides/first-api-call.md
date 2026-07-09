@@ -22,6 +22,15 @@ Visit the [Hugging Face Hub](https://huggingface.co/models?pipeline_tag=text-to-
 
 For this example, we'll use [FLUX.1-schnell](https://huggingface.co/black-forest-labs/FLUX.1-schnell), a powerful text-to-image model. Next, navigate to the model page and scroll down to find the inference widget on the right side. 
 
+> [!TIP]
+> You can also do this step from the terminal — or have a coding agent do it for you. The `hf` CLI (installed with `huggingface_hub`) supports the same filters:
+>
+> ```bash
+> hf models ls --pipeline-tag text-to-image --warm --sort trending_score
+> ```
+>
+> Swap `--warm` for `--inference-provider fal-ai` to narrow to a specific provider, or add `--json` for machine-readable output. See the [Hub API page](https://huggingface.co/docs/inference-providers/hub-api) for the full set of filters.
+
 ## Step 2: Try the Interactive Widget
 
 Before writing any code, try the widget directly on the [model page](https://huggingface.co/black-forest-labs/FLUX.1-dev?inference_provider=fal-ai):  
