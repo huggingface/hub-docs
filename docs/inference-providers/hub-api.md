@@ -54,12 +54,15 @@ Finally, you can select all models served by at least one inference provider:
 
 The same filters are available from the terminal with the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-models-list):
 
-```sh
-# List models served by Fireworks AI, most downloaded first
-~ hf models ls --inference-provider fireworks-ai --sort downloads
+```bash
+# List models served by at least one inference provider
+hf models ls --warm
 
-# List "llama" models served by at least one provider
-~ hf models ls --warm --search llama
+# Is GLM-5.2 served by at least one provider?
+hf models ls --warm --search GLM-5.2
+
+# List models served by Fireworks AI, most downloaded first
+hf models ls --inference-provider fireworks-ai --sort downloads
 ```
 
 Repeat `--inference-provider` to match models served by any of several providers. Add `--expand inferenceProviderMapping` to see which provider serves each model and the provider-specific model id.
