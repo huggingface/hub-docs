@@ -5,7 +5,7 @@ Every Job comes with a fixed amount of local disk, set by its [hardware flavor](
 ## Which approach?
 
 - **Fits on disk** → a plain `load_dataset(...)` works as-is (or just pick a bigger flavor — up to 1 TB of ephemeral disk).
-- **Iterating over rows, or training** → [stream](#stream-the-dataset) it.
+- **Iterating over rows, processing or training** → [stream](#stream-the-dataset) it.
 - **Filtered or column-pruned scans** → query it [directly over `hf://`](#read-and-filter-over-hf) with Polars or DuckDB.
 - **Tools that expect local file paths** → [mount](#mount-a-dataset-model-or-bucket) the repo and read it lazily.
 - **Persisting results** → write them to a [Storage Bucket](#save-results) so they survive the Job.
