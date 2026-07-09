@@ -61,6 +61,9 @@ hf models ls --warm
 # Check whether GLM-5.2 is served by at least one provider
 hf models ls --warm --search GLM-5.2
 
+# List text-to-image models served by Fal AI
+hf models ls --inference-provider fal-ai --pipeline-tag text-to-image
+
 # List models served by Fireworks AI, most downloaded first
 hf models ls --inference-provider fireworks-ai --sort downloads
 ```

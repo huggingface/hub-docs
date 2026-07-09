@@ -26,7 +26,7 @@ For this example, we'll use [FLUX.1-schnell](https://huggingface.co/black-forest
 > You can also do this step from the terminal — or have a coding agent do it for you. The `hf` CLI (installed with `huggingface_hub`) supports the same filters:
 >
 > ```bash
-> hf models ls --filter text-to-image --warm --sort trending_score
+> hf models ls --pipeline-tag text-to-image --warm --sort trending_score
 > ```
 >
 > Swap `--warm` for `--inference-provider fal-ai` to narrow to a specific provider, or add `--json` for machine-readable output. See the [Hub API page](https://huggingface.co/docs/inference-providers/hub-api) for the full set of filters.
