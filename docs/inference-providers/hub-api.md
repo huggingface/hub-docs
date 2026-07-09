@@ -58,14 +58,14 @@ The same filters are available from the terminal with the [`hf` CLI](https://hug
 # List models served by at least one inference provider
 hf models ls --warm
 
-# Is GLM-5.2 served by at least one provider?
+# Check whether GLM-5.2 is served by at least one provider
 hf models ls --warm --search GLM-5.2
 
 # List models served by Fireworks AI, most downloaded first
 hf models ls --inference-provider fireworks-ai --sort downloads
 ```
 
-Repeat `--inference-provider` to match models served by any of several providers. Add `--expand inferenceProviderMapping` to see which provider serves each model and the provider-specific model id.
+Repeat `--inference-provider` to match models served by any of several providers. Add `--expand inferenceProviderMapping` to see which provider serves each model and the provider-specific model id, or `--json` for machine-readable output.
 
 ## Get model status
 
