@@ -4,7 +4,7 @@ Below you can find the current Hugging Face Deep Learning Containers (DLCs) avai
 
 For each supported combination of use case (training or inference), accelerator type (CPU, GPU, or Neuron), and framework or serving stack, AWS publishes a SageMaker container image.
 
-The source of truth is the [AWS Deep Learning Containers available images](https://aws.github.io/deep-learning-containers/reference/available_images/#huggingface-pytorch-training) page. Replace `<region>` in the image URIs below with the AWS Region where you run SageMaker.
+If you want to keep track of all our available DLCs, you can also check the [AWS Deep Learning Containers releases](https://aws.github.io/deep-learning-containers/reference/available_images/#huggingface-pytorch-training) page. Replace `<region>` in the image URIs below with the AWS Region where you run SageMaker.
 
 Neuron DLCs for training and inference on AWS Trainium and AWS Inferentia instances can also be found in the [Optimum Neuron documentation](https://huggingface.co/docs/optimum-neuron/en/containers).
 
