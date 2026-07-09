@@ -58,7 +58,7 @@ The same filters are available from the terminal with the [`hf` CLI](https://hug
 # List models served by at least one inference provider
 hf models ls --warm
 
-# Check whether GLM-5.2 is served by at least one provider
+# Search served models for GLM-5.2
 hf models ls --warm --search GLM-5.2
 
 # List text-to-image models served by Fal AI
