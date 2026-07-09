@@ -56,7 +56,7 @@ There is also a specific DLC for serving models with SGLang on GPU.
 
 | SGLang version | Container URI                                                                                                                    | Accelerator |
 | ---------------| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 0.5.8          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-sglang:0.5.8-transformers4.57.3-gpu-py312-cu129-ubuntu24.04 | GPU         |
+| 0.5.12          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-sglang:0.5.12-transformers5.6.0-gpu-py312-cu130-ubuntu24.04 | GPU         |
 
 
 ### Llama.cpp
