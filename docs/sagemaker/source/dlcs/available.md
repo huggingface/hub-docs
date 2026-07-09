@@ -82,8 +82,39 @@ Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance s
 
 **How to find the URI of my container?**
 
-The URI is built with an AWS account ID and an AWS region. Those two values need to be replaced depending on your use case.
+The SageMaker SDK provides a utility function to get the URI of a container programmatically:
 
-Let's say you want to use the training DLC for GPUs:
-- `dlc-aws-account-id`: The AWS account ID of the account that owns the ECR repository. You can find them in the [here](https://github.com/aws/sagemaker-python-sdk/blob/e0b9d38e1e3b48647a02af23c4be54980e53dc61/src/sagemaker/image_uri_config/huggingface.json#L21)
-- `region`: The AWS region where you want to use it.
+```python
+from sagemaker.core import image_uris
+
+AVAILABLE_FRAMEWORKS = [
+    "huggingface",
+    "huggingface-tei",
+    "huggingface-llamacpp",
+    "huggingface-vllm",
+    "huggingface-vllm-omni",
+    "huggingface-sglang",
+]
+
+image_uris.retrieve(
+    "huggingface-vllm",
+    region="us-east-1",
+    image_scope="inference", # or "training" for training containers
+    instance_type="ml.g5.2xlarge",
+)
+```
+
+If you just want to use the default container for a given model, you can also rely on the SageMaker SDK `ModelBuilder`, which will automatically choose the correct container for you:
+
+```python
+from sagemaker.serve import ModelBuilder
+
+builder = ModelBuilder(
+    model="google/gemma-4-E2B-it",
+    instance_type="ml.g5.2xlarge",
+    role_arn=role,
+)
+```
+
+>[!NOTE]
+>Be aware that the SDK may not always be up to date or may choose the wrong container for your use case. When in doubt, always double check the container URI returned by the SDK and compare it to the ones available in this documentation.
