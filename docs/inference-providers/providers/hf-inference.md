@@ -50,7 +50,7 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
-    providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"} } }
+    providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3-turbo","providerModelId":"openai/whisper-large-v3-turbo"} } }
 />
 
 
@@ -60,7 +60,7 @@ Find out more about Feature Extraction [here](../tasks/feature-extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"BAAI/bge-small-en-v1.5","providerModelId":"BAAI/bge-small-en-v1.5"} } }
+    providersMapping={ {"hf-inference":{"modelId":"microsoft/harrier-oss-v1-0.6b","providerModelId":"microsoft/harrier-oss-v1-0.6b"} } }
 />
 
 
