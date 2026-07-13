@@ -35,7 +35,7 @@ Xorbs are always less than or equal to 64MiB in length and on average contain 10
 A file reconstruction is a "recipe" to recreate a file using data from xorbs.
 
 Each file reconstruction is made of a series of "terms" where each term contains a xorb hash and a chunk index range.
-To reconstruct a file, a user needs will need the chunks at the specified range for each term, deserialized and decompressed and concatenated in term order.
+To reconstruct a file, a user will need the chunks at the specified range for each term, deserialized and decompressed and concatenated in term order.
 
 ### Shards
 
