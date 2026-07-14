@@ -172,6 +172,129 @@ POST /v1/shards
 
 An example shard request body can be found in [Xet reference files](https://huggingface.co/datasets/xet-team/xet-spec-reference-files/blob/main/Electric_Vehicle_Population_Data_20250917.csv.shard.verification-no-footer).
 
+### 5. Batch File Reconstruction
+
+- **Description**: Retrieves reconstruction information for multiple files in a single request. This is the batch form of endpoint 1 (Get File Reconstruction); it does not support byte ranges.
+- **Path**: `/v1/reconstructions`
+- **Method**: `POST`
+- **Minimum Token Scope**: `read`
+- **Body**: JSON array of unique keys (`BatchQueryReconstructionRequest`). Each key is an object with a `prefix` and a hex-encoded file `hash`:
+
+  ```json
+  [
+    { "prefix": "default", "hash": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef" }
+  ]
+  ```
+
+- **Response**: JSON (`BatchQueryReconstructionResponse`)
+
+  ```json
+  {
+    "files": {...},
+    "fetch_info": {...}
+  }
+  ```
+
+  `files` maps each requested file hash to its ordered reconstruction terms; `fetch_info` maps each xorb hash referenced by those terms to the ranges needed to fetch it. See [QueryReconstructionResponse](./download-protocol#queryreconstructionresponse-structure) for the term and fetch-info structures.
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Malformed request body. Fix the body before retrying.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+
+```txt
+POST /v1/reconstructions
+-H "Authorization: Bearer <token>"
+-H "Content-Type: application/json"
+```
+
+### 6. Get File Reconstruction (V2)
+
+- **Description**: Optimized variant of endpoint 1 (Get File Reconstruction) for multi-range fetching. Where possible it combines multiple byte ranges of a xorb into a single signed URL, returning fewer URLs per xorb.
+- **Path**: `/v2/reconstructions/{file_id}`
+- **Method**: `GET`
+- **Parameters**:
+  - `file_id`: File hash in hex format (64 lowercase hexadecimal characters).
+See [file hashes](./hashing#file-hashes) for computing the file hash and [converting hashes to strings](./api#converting-hashes-to-strings).
+- **Headers**:
+  - `Range`: OPTIONAL. Format: `bytes={start}-{end}` (end is inclusive).
+- **Minimum Token Scope**: `read`
+- **Body**: None.
+- **Response**: JSON (`QueryReconstructionResponseV2`)
+
+  ```json
+  {
+    "offset_into_first_range": 0,
+    "terms": [...],
+    "xorbs": {
+      "<xorb_hash>": [
+        { "url": "<signed url>", "ranges": [ { "chunks": {...}, "bytes": {...} } ] }
+      ]
+    }
+  }
+  ```
+
+  Unlike the v1 response, fetch information is keyed under `xorbs`: each entry is a signed URL plus the chunk and byte ranges it covers. When fetching, the client MUST send the exact signed `bytes` value from a `ranges` entry as the `Range` header. A xorb may have more than one entry when the URL length limit forces a split.
+- **Error Responses**: Same as endpoint 1 (Get File Reconstruction).
+
+```txt
+GET /v2/reconstructions/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+-H "Authorization: Bearer <token>"
+OPTIONAL: -H Range: "bytes=0-100000"
+```
+
+### 7. Get File Chunk Hashes (V2)
+
+- **Description**: Returns chunk-window and range-hash summaries for the "dirty" (changed) regions of an existing file, so a client editing or appending to that file can re-chunk only the changed spans and reuse the rest. Per-chunk hashes are not transferred; the response carries opaque Merkle subtree summaries for the unchanged gaps.
+- **Path**: `/v2/file-chunk-hashes/{file_id}`
+- **Method**: `GET`
+- **Parameters**:
+  - `file_id`: File hash in hex format (64 lowercase hexadecimal characters).
+- **Headers**:
+  - `X-Range-Dirty`: REQUIRED. The byte ranges the client intends to re-chunk, using the same `bytes=A-B,C-D` syntax as `Range` (comma-separated, inclusive ends). This is distinct from `Range`: it tags the dirty regions, and the response covers the whole file.
+- **Minimum Token Scope**: `read`
+- **Body**: None.
+- **Response**: JSON (`FileChunkHashesResponse`)
+
+  ```json
+  {
+    "totalChunks": 0,
+    "fileSize": 0,
+    "windows": [ { "dirtyByteRange": [0, 1024] } ],
+    "hashRanges": [...],
+    "gapVerification": [...]
+  }
+  ```
+
+  Each dirty window in `windows` is expanded outward to full chunk boundaries. `hashRanges` and `gapVerification` summarize the unchanged segments between and around the windows so the client can recompute the file hash without downloading data.
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: The `X-Range-Dirty` header is missing or malformed.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `404 Not Found`: The file does not exist. Not retryable.
+
+```txt
+GET /v2/file-chunk-hashes/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+-H "Authorization: Bearer <token>"
+-H "X-Range-Dirty: bytes=0-1023"
+```
+
+### 8. Upload Shard (V2)
+
+- **Description**: Streaming variant of endpoint 4 (Upload Shard). It performs the same validation and file registration, but streams progress back as newline-delimited JSON (`ShardUploadEvent`) frames instead of returning a single JSON object.
+- **Path**: `/v2/shards`
+- **Method**: `POST`
+- **Minimum Token Scope**: `write`
+- **Body**: Serialized Shard data as bytes (`application/octet-stream`).
+See [Shard format guide](./shard#shard-upload).
+- **Response**: A stream of newline-delimited JSON events. The status is `200 OK` once the stream starts; success or failure is carried by the terminal frame (a `result` frame on success, an `error` frame on failure). A `200` stream always ends with a terminal frame.
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Shard is incorrectly serialized or Shard contents failed verification.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `403 Forbidden`: Token provided but does not have a wide enough scope (for example, a `read` token was provided).
+
+```txt
+POST /v2/shards
+-H "Authorization: Bearer <token>"
+```
+
 ## Error Cases
 
 ### Non-Retryable Errors

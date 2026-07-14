@@ -10,7 +10,7 @@ It is advantageous to collect series of chunks in Xorbs such that they can be re
 
 Suppose a file is chunked into chunks A, B, C, D in the order ABCD. Then create a Xorb X1 with chunks A, B, C, D in this order (starting at chunk index 0), let's say this Xorb's hash is X1. Then to reconstruct the file we ask for Xorb X1 chunk range `[0, 4)`.
 
-While there's no explicit limit on the number of chunks in a Xorb, there is a limit of 64MiB on the total size of the Xorb as serialized.
+A Xorb is limited to at most 8192 chunks (`MAX_XORB_CHUNKS`) and to 64MiB on the total serialized size of the Xorb, whichever limit is reached first. Clients cut the current Xorb and start a new one once either bound is hit.
 Since some chunks will get compressed, it is generally advised to collect chunks until their total uncompressed length is near 64 MiB then serialize the struct.
 Namely, Xorbs point to roughly 64 MiB worth of data.
 (Recall that the target chunk size is 64 KiB so expect roughly ~1024 chunks per Xorb).
