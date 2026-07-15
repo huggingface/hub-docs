@@ -150,7 +150,7 @@ Enterprise Plus organizations can block visitors from specific locations across 
 Two lists define the blocked locations:
 
 - **Blocked countries**: countries, identified by their [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
-- **Blocked regions**: specific territories to block in addition to the countries above, for territories that are not distinct countries and therefore cannot be selected in the list above. The available regions are Crimea, Sevastopol, Donetsk and Luhansk.
+- **Blocked regions**: specific territories to block in addition to the countries above, for territories that are not distinct countries and therefore cannot be selected in the list above.
 
 ### Enforcement
 
