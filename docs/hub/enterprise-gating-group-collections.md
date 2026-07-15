@@ -161,9 +161,6 @@ The **Enforcement** setting controls what blocked visitors are denied:
 
 Enforcement applies to visitors from the blocked countries and regions, whether or not they are signed in. Members of the organization are not exempt.
 
-> [!TIP]
-> Blocking is based on IP geolocation, which is best-effort. Use it to enforce a policy, not as a hard security boundary.
-
 ## Access gated repos in a Gating Group Collection as a user
 
 A Gated Group Collection shows a specific icon next to its name:
