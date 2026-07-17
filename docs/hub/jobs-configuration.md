@@ -377,7 +377,7 @@ Note that you can pass a token with the right permission manually:
 
 ## Labels
 
-Add one or more labels to a Job to add some metadata with `-l` or `-label`.
+Add one or more labels to a Job to add some metadata with `-l` or `--label`.
 You can use such metadata later to filter Jobs on the website or in the CLI.
 
 Add labels with `--label my-label` or key-value labels with `--label key=value`.
@@ -388,3 +388,26 @@ hf jobs uv run --label fine-tuning --label model=Qwen3-0.6B --label dataset=Capy
 ```
 
 Note that using the same `key` multiple times causes the last `key=value` to overwrite and discard any previous label with `key`.
+
+### Name a Job
+
+Give a Job a name to make it easier to find and identify in the UI. The name is stored as the `name` label. Names are optional and do not have to be unique:
+
+```bash
+hf jobs run --name daily-report python:3.12 python report.py
+```
+
+### Update labels
+
+Update labels on an existing Job with `hf jobs labels`. Passing `--label` replaces all existing labels; passing `--name` alone keeps them:
+
+```bash
+# Replace the labels on a Job
+hf jobs labels <job_id> --label env=prod --label team=ml
+
+# Name an existing Job (keeps its other labels)
+hf jobs labels <job_id> --name daily-report
+
+# Remove all labels from a Job
+hf jobs labels <job_id> --clear
+```
