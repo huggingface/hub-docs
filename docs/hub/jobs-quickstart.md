@@ -100,7 +100,7 @@ Save this script as `train.py`, and we can now run it with UV on Hugging Face Jo
 
 ## Run the training job
 
-`hf jobs` takes several arguments: select the hardware with `--flavor`, choose a maximum duration with `--timeout`, and pass environment variable with `--env` and `--secrets`. Here we use the A100 Large GPU flavor with `--flavor a100-large` and pass your Hugging Face token as a secret with `--secrets HF_TOKEN` in order to be able to push the resulting model to your account.
+`hf jobs` takes several arguments: select the hardware with `--flavor`, choose a maximum duration with `--timeout`, and pass environment variable with `--env` and `--secrets`. Here we use the A100 Large GPU flavor with `--flavor a100-large` and pass your Hugging Face token as a secret with `--secrets HF_TOKEN` in order to be able to push the resulting model to your account. See [Persist your results](./jobs-manage#persist-your-results) for how to make sure your Job's outputs survive after it finishes.
 
 Moreover, UV accepts the `--with` argument to define python dependencies, so we use `--with trl` to have the `trl` library available.
 

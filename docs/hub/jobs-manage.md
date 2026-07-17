@@ -185,6 +185,22 @@ Because `hf jobs wait` returns a non-zero exit code when a Job fails, you can ch
 >>> hf jobs wait 693994e21a39f67af5a41ad0 && echo "job completed successfully"
 ```
 
+## Persist your results
+
+A Job's filesystem is deleted when the Job ends. Write anything you want to keep somewhere durable before the Job exits:
+
+- **Intermediate artifacts, checkpoints, and logs → a Storage Bucket volume.** Mount a bucket and write outputs under the mount path (see [Volumes](./jobs-configuration#volumes)). Volume mounts are authorized with your Hugging Face identity when the Job is created, so your script doesn't need a token to write to them:
+
+  ```bash
+  >>> hf jobs uv run -v hf://buckets/username/my-bucket:/outputs train.py --output-dir /outputs/run-1
+  ```
+
+- **Final models and datasets → push to a Hub repo.** Jobs have no Hugging Face token unless you pass one, e.g. `--secrets HF_TOKEN` (the bare form resolves to your logged-in token automatically). If your script calls `push_to_hub()` or `create_repo()`, make sure the token has write access (fine-grained tokens need repo write and create permissions). A common failure mode is a Job that completes hours of compute and then errors on the final upload because the token can't write — the compute is done, but the results aren't saved.
+
+- **Print key results to the logs.** Job logs are retained after the Job ends and can be fetched anytime with `hf jobs logs <job-id>`. Printing final metrics to stdout keeps them recoverable even if an upload step fails.
+
+After a Job completes, check that your outputs actually landed (for example with `hf buckets list`) — a `COMPLETED` status means the command exited successfully, not that files were persisted where you expected.
+
 ## Debug a Job
 
 If a Job has an error, you can see it in on the Job page
