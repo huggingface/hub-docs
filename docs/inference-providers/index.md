@@ -131,9 +131,9 @@ hf auth login # get a read token from hf.co/settings/tokens
 
 You can now use the client with a Python interpreter.
 
-By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
+By default, our system automatically selects a suitable provider for the specified model (the `auto` policy). For chat models, `auto` prioritizes providers that support the model's advanced capabilities, such as tool calling and structured outputs, using throughput (tokens per second) as a tiebreaker.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest-throughput provider (tokens per second), `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
@@ -162,9 +162,9 @@ print(completion.choices[0].message)
 
 If you're already using OpenAI's Python client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
-By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
+By default, our system automatically selects a suitable provider for the specified model (the `auto` policy). For chat models, `auto` prioritizes providers that support the model's advanced capabilities, such as tool calling and structured outputs, using throughput (tokens per second) as a tiebreaker.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest-throughput provider (tokens per second), `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
@@ -194,9 +194,9 @@ completion = client.chat.completions.create(
 
 For maximum control and interoperability with custom frameworks, use our OpenAI-compatible REST API directly.
 
-By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
+By default, our system automatically selects a suitable provider for the specified model (the `auto` policy). For chat models, `auto` prioritizes providers that support the model's advanced capabilities, such as tool calling and structured outputs, using throughput (tokens per second) as a tiebreaker.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest-throughput provider (tokens per second), `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
@@ -242,9 +242,9 @@ npm install @huggingface/inference
 
 Then use the client with Javascript.
 
-By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
+By default, our system automatically selects a suitable provider for the specified model (the `auto` policy). For chat models, `auto` prioritizes providers that support the model's advanced capabilities, such as tool calling and structured outputs, using throughput (tokens per second) as a tiebreaker.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest-throughput provider (tokens per second), `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
@@ -272,9 +272,9 @@ console.log(chatCompletion.choices[0].message);
 
 If you're already using OpenAI's Javascript client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
-By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
+By default, our system automatically selects a suitable provider for the specified model (the `auto` policy). For chat models, `auto` prioritizes providers that support the model's advanced capabilities, such as tool calling and structured outputs, using throughput (tokens per second) as a tiebreaker.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest-throughput provider (tokens per second), `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
@@ -305,9 +305,9 @@ console.log(completion.choices[0].message.content);
 
 For lightweight applications or custom implementations, use our REST API directly with standard fetch.
 
-By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
+By default, our system automatically selects a suitable provider for the specified model (the `auto` policy). For chat models, `auto` prioritizes providers that support the model's advanced capabilities, such as tool calling and structured outputs, using throughput (tokens per second) as a tiebreaker.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest-throughput provider (tokens per second), `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
@@ -344,9 +344,9 @@ console.log(await response.json());
 
 For testing, debugging, or integrating with any HTTP client, here's the raw REST API format.
 
-By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
+By default, our system automatically selects a suitable provider for the specified model (the `auto` policy). For chat models, `auto` prioritizes providers that support the model's advanced capabilities, such as tool calling and structured outputs, using throughput (tokens per second) as a tiebreaker.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest-throughput provider (tokens per second), `:cheapest` for the most cost-efficient provider (lowest price per output token), or `:preferred` to follow your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers). For example, `openai/gpt-oss-120b:cheapest`.
 
 You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:groq"`).
 
@@ -485,16 +485,17 @@ result = client.chat_completion(
 
 **Provider Selection Policy:**
 
-- `provider: "auto"` (default): Selects the fastest available provider for the model (highest throughput in tokens per second), equivalent to the `:fastest` policy.
+- `provider: "auto"` (default): Automatically selects a suitable provider for the model. For chat models, this prioritizes providers that support the model's advanced capabilities (such as tool calling and structured outputs), using throughput as a tiebreaker. Append `:fastest` to the model id if you always want the highest-throughput provider regardless of capabilities.
 - `provider: "specific-provider"`: Forces use of a specific provider (e.g., "together", "replicate", "fal-ai", ...).
 
 ### Alternative: OpenAI-Compatible Chat Completions Endpoint (Chat Only)
 
 If you prefer to work with familiar OpenAI APIs or want to migrate existing chat completion code with minimal changes, we offer a drop-in compatible endpoint that handles all provider selection automatically on the server side.
 
-By default, the fastest available provider is selected for the model (highest throughput in tokens per second). This is equivalent to appending `:fastest` to the model name.
+By default, a suitable provider is selected for the model (the `auto` policy). For chat models, this prioritizes providers that support the model's advanced capabilities (such as tool calling and structured outputs), using throughput as a tiebreaker.
 You can change that policy by adding a suffix to the model name:
 
+- `:fastest` selects the highest-throughput provider for the model (tokens per second)
 - `:cheapest` selects the most cost-efficient provider for the model (lowest price per output tokens)
 - `:preferred` selects the first available provider sorted by your preference order in [Inference Provider settings](https://hf.co/settings/inference-providers)
 
@@ -562,7 +563,7 @@ curl https://router.huggingface.co/v1/chat/completions \
 
 **Key Features:**
 
-- **Server-Side Provider Selection**: The server automatically selects the fastest available provider by default (`:fastest` policy)
+- **Server-Side Provider Selection**: The server automatically selects a suitable provider by default (`auto` policy)
 - **Model Listing**: GET `/v1/models` returns available models across all providers, including per-provider pricing, context length, latency, and throughput when available
 - **OpenAI SDK Compatibility**: Works with existing OpenAI client libraries
 - **Chat Tasks Only**: Limited to conversational workloads

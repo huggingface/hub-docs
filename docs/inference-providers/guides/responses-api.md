@@ -89,7 +89,7 @@ curl https://router.huggingface.co/v1/responses \
 
 
 > [!TIP]
-> If you plan to use a specific provider, append it to the model id as `<repo>:<provider>` (for example `moonshotai/Kimi-K2-Instruct-0905:groq`). Otherwise, omit the suffix and the fastest available provider will be selected by default (equivalent to the `:fastest` policy). You can also use `:cheapest` or `:preferred` (follows your [Inference Provider settings](https://hf.co/settings/inference-providers) order).
+> If you plan to use a specific provider, append it to the model id as `<repo>:<provider>` (for example `moonshotai/Kimi-K2-Instruct-0905:groq`). Otherwise, omit the suffix and a suitable provider will be selected by default (the `auto` policy, which prioritizes providers supporting the model's advanced capabilities such as tool calling and structured outputs). You can also use `:fastest`, `:cheapest`, or `:preferred` (follows your [Inference Provider settings](https://hf.co/settings/inference-providers) order).
 
 ## Core Response patterns
 
