@@ -102,10 +102,10 @@ def update_toctree_yaml():
 
     # Read the existing content
     with open(input_file, "r") as f:
-        content = f.read()
+        toctree_content = f.read()
 
     # Find the position between tutorials and reference sections
-    tutorials_end = content.find(
+    tutorials_end = toctree_content.find(
         "- sections:\n    - local: reference/inference-toolkit"
     )
     if tutorials_end == -1:
@@ -125,8 +125,8 @@ def update_toctree_yaml():
 
         file_entries = []
         for file_path in files:
-            content = process_example_metadata(file_path, dirname)
-            title_match = re.search(r"^# (.+)", content, re.MULTILINE)
+            example_content = process_example_metadata(file_path, dirname)
+            title_match = re.search(r"^# (.+)", example_content, re.MULTILINE)
             if title_match:
                 title = title_match.group(1).strip()
                 base_name = Path(file_path).stem
@@ -149,11 +149,11 @@ def update_toctree_yaml():
 
     # Insert the new content
     updated_content = (
-        content[:tutorials_end]
+        toctree_content[:tutorials_end]
         + "\n"
         + "\n".join(new_content)
         + "\n"
-        + content[tutorials_end:]
+        + toctree_content[tutorials_end:]
     )
 
     # Write the updated content back to the file
