@@ -226,7 +226,7 @@ async function transcribe(file) {
 <hfoptions id="summarization">
 <hfoption id="python">
 
-Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider. The `auto` policy is the default for chat completions, automatically selecting a suitable provider for this model.
+Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider. The `auto` policy is the default for chat completions, automatically selecting the best provider for this model.
 We will define a custom prompt to ensure the output is formatted as a summary with action items and decisions made:
 
 ```python
