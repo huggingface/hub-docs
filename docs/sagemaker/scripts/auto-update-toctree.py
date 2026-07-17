@@ -1,4 +1,5 @@
 import glob
+import html
 import os
 from pathlib import Path
 import re
@@ -90,7 +91,10 @@ def format_authors(metadata: dict[str, str]) -> str | None:
     for index, author in enumerate(authors):
         profile_url = format_hf_profile_url(profiles[index] if index < len(profiles) else None)
         if profile_url and "](" not in author and "<a " not in author:
-            formatted_authors.append(f"[{author}]({profile_url})")
+            formatted_authors.append(
+                f'<a href="{html.escape(profile_url, quote=True)}">'
+                f"{html.escape(author)}</a>"
+            )
         else:
             formatted_authors.append(author)
 
