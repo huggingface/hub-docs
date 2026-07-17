@@ -49,6 +49,54 @@ def strip_metadata_block(content: str) -> str:
     ).strip()
 
 
+def split_metadata_list(value: str | None) -> list[str]:
+    """Split comma-separated metadata values."""
+    if not value:
+        return []
+
+    return [item.strip() for item in value.split(",") if item.strip()]
+
+
+def format_hf_profile_url(profile: str | None) -> str | None:
+    """Return a Hugging Face profile URL from a username or URL."""
+    if not profile:
+        return None
+
+    profile = profile.strip()
+    if profile.startswith(("https://", "http://")):
+        return profile
+
+    return f"https://huggingface.co/{profile.removeprefix('@')}"
+
+
+def get_author_profiles(metadata: dict[str, str]) -> list[str]:
+    """Return Hugging Face profile metadata values, preserving author order."""
+    return split_metadata_list(
+        metadata.get("author_hf")
+        or metadata.get("author_hf_username")
+        or metadata.get("hf_username")
+        or metadata.get("author_url")
+    )
+
+
+def format_authors(metadata: dict[str, str]) -> str | None:
+    """Format author names, linking each to a Hugging Face profile when available."""
+    authors = split_metadata_list(metadata.get("authors") or metadata.get("author"))
+    if not authors:
+        return None
+
+    profiles = get_author_profiles(metadata)
+    formatted_authors = []
+    for index, author in enumerate(authors):
+        profile_url = format_hf_profile_url(profiles[index] if index < len(profiles) else None)
+        if profile_url and "](" not in author and "<a " not in author:
+            formatted_authors.append(f"[{author}]({profile_url})")
+        else:
+            formatted_authors.append(author)
+
+    return ", ".join(formatted_authors)
+
+
 def get_notebook_path(file_path: str, dirname: str) -> str:
     """Return the source notebook corresponding to a generated example page."""
     prefix = f"{dirname}-"
@@ -84,7 +132,7 @@ def process_example_metadata(file_path: str, dirname: str) -> str:
         content = strip_metadata_block(content)
         content = inject_author_date(
             content,
-            metadata.get("author") or metadata.get("authors"),
+            format_authors(metadata),
             get_git_date(get_notebook_path(file_path, dirname)),
         )
 
