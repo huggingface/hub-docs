@@ -40,12 +40,13 @@ def process_file(root, file, dirname):
     # For Juypter Notebooks, remove the comment i.e. `<!--` and the `--!>` but keep the metadata
     content = re.sub(r"<!-- (.*?) -->", r"\1", content, flags=re.DOTALL)
 
-    # Replace image and link paths
+    # Replace local notebook image paths with the copies hosted in the
+    # huggingface/documentation-images dataset.
     content = re.sub(
-        r"\(\./(imgs|assets)/([^)]*\.png)\)",
-        rf"(https://raw.githubusercontent.com/huggingface/hub-docs/refs/heads/{BRANCH_NAME}/docs/sagemaker/"
-        + root
-        + r"/\1/\2)",
+        r"\(\./(?:imgs|assets)/([^)]*\.png)\)",
+        r"(https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/"
+        + base
+        + r"/\1)",
         content,
     )
     content = re.sub(
