@@ -90,23 +90,17 @@ If your network restricts outbound traffic through a firewall or proxy, download
 Allowlist the following hostnames (all over HTTPS / port 443):
 
 
-| Hostname                      | Purpose                                   |
-|-------------------------------|-------------------------------------------|
-| `huggingface.co`              | Hub API, metadata, and download redirects |
-| `cas-server.xethub.hf.co`     | Xet storage protocol APIs + upload (US)   |
-| `cas-server.xethub-eu.hf.co`  | Xet storage protocol APIs + upload (EU)   |
-| `transfer.xethub.hf.co`       | Xet storage download APIs (US)            |
-| `transfer.xethub-eu.hf.co`    | Xet storage download APIs (EU)            |
-| `cas-bridge.xethub.hf.co`     | Bridge CDN, legacy (US)                   |
-| `cas-bridge.xethub-eu.hf.co`  | Bridge CDN, legacy (EU)                   |
-| `us.aws.cdn.hf.co`            | CDN edge (US)                             |
-| `us.gcp.cdn.hf.co`            | CDN edge (US)                             |
-| `cdn-lfs.hf.co`               | LFS CDN, legacy (global)                  |
-| `cdn-lfs-us-1.hf.co`          | LFS CDN (US)                              |
-| `cdn-lfs-eu-1.hf.co`          | LFS CDN (EU)                              |
-| `cdn-lfs.huggingface.co`      | LFS CDN, legacy (global)                  |
-| `cdn-lfs-us-1.huggingface.co` | LFS CDN, legacy (US)                      |
-| `cdn-lfs-eu-1.huggingface.co` | LFS CDN, legacy (EU)                      |
+| Hostname                     | Purpose                                   |
+|------------------------------|-------------------------------------------|
+| `huggingface.co`             | Hub API, metadata, and download redirects |
+| `cas-server.xethub.hf.co`    | Xet storage protocol APIs + upload (US)   |
+| `cas-server.xethub-eu.hf.co` | Xet storage protocol APIs + upload (EU)   |
+| `transfer.xethub.hf.co`      | Xet storage download APIs (US)            |
+| `transfer.xethub-eu.hf.co`   | Xet storage download APIs (EU)            |
+| `us.aws.cdn.hf.co`           | CDN edge (US)                             |
+| `us.gcp.cdn.hf.co`           | CDN edge (US)                             |
+| `cdn-lfs-us-1.hf.co`         | LFS CDN (US)                              |
+| `cdn-lfs-eu-1.hf.co`         | LFS CDN (EU)                              |
 
 > [!TIP]
 > Downloads follow HTTP redirects from `huggingface.co` to these hostnames, so
@@ -121,7 +115,7 @@ Allowlist the following hostnames (all over HTTPS / port 443):
 > these cover every current and future storage and CDN endpoint.
 >
 > If your proxy only supports single-label wildcards (where `*.hf.co` matches
-> `cdn-lfs.hf.co` but not the deeper `us.aws.cdn.hf.co` or `cas-bridge.xethub.hf.co`),
+> `cdn-lfs-us-1.hf.co` but not the deeper `us.aws.cdn.hf.co` or `cas-server.xethub.hf.co`),
 > allowlist the explicit hostnames from the table above. Note that `*.xethub.hf.co` does
 > not cover the EU hosts under `xethub-eu.hf.co`, and `*.cdn.hf.co` does not cover the
 > two-label `us.aws.cdn.hf.co` / `us.gcp.cdn.hf.co`.
