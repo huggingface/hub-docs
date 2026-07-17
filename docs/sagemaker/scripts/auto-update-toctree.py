@@ -25,9 +25,9 @@ def get_git_date(file_path: str) -> str | None:
 def parse_metadata(content: str) -> dict[str, str]:
     """Parse a YAML-like metadata block, optionally wrapped in an HTML comment."""
     metadata_match = re.search(
-        r"^\s*(?:<!--\s*)?---\s*\n(.*?)\n---\s*(?:\s*-->)?",
+        r"\A[ \t\r\n]*(?:<!--\s*)?---[ \t]*\n(.*?)\n---[ \t]*(?:\s*-->)?",
         content,
-        re.DOTALL | re.MULTILINE,
+        re.DOTALL,
     )
     if not metadata_match:
         return {}
@@ -41,11 +41,11 @@ def parse_metadata(content: str) -> dict[str, str]:
 def strip_metadata_block(content: str) -> str:
     """Remove the first YAML-like metadata block from generated MDX."""
     return re.sub(
-        r"^\s*(?:<!--\s*)?---\s*\n.*?\n---\s*(?:\s*-->)?\s*\n",
+        r"\A[ \t\r\n]*(?:<!--\s*)?---[ \t]*\n.*?\n---[ \t]*(?:\s*-->)?[ \t]*(?:\n|$)",
         "",
         content,
         count=1,
-        flags=re.DOTALL | re.MULTILINE,
+        flags=re.DOTALL,
     ).strip()
 
 
