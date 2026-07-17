@@ -45,7 +45,7 @@ def process_file(root, file, dirname):
     content = re.sub(
         r"\(\./(?:imgs|assets)/([^)]*\.png)\)",
         r"(https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/"
-        + base
+        + root
         + r"/\1)",
         content,
     )
