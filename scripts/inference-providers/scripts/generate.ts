@@ -33,7 +33,6 @@ const HEADERS: Record<string, string> = process.env.HF_TOKEN
   ? { Authorization: `Bearer ${process.env.HF_TOKEN}` }
   : {};
 
-
 const PROVIDERS_URLS: Record<string, string> = {
   cerebras: "https://www.cerebras.ai/",
   cohere: "https://cohere.com/",
@@ -51,10 +50,12 @@ const PROVIDERS_URLS: Record<string, string> = {
   scaleway: "https://www.scaleway.com",
   together: "https://together.xyz/",
   wavespeed: "https://wavespeed.ai/",
-  "zai-org": "https://z.ai/"
+  "zai-org": "https://z.ai/",
 };
 //filter PROVIDERS_HUB_ORGS to only include providers that are in PROVIDERS_URLS
-const INFERENCE_PROVIDERS = Object.keys(PROVIDERS_HUB_ORGS).filter(provider => PROVIDERS_URLS[provider]); 
+const INFERENCE_PROVIDERS = Object.keys(PROVIDERS_HUB_ORGS).filter(
+  (provider) => PROVIDERS_URLS[provider],
+);
 
 async function authFetchJson(url: string) {
   const headers = url.includes("huggingface.co") ? HEADERS : {};
@@ -374,7 +375,11 @@ const TIP_LINK_TO_TASK_PAGE_TEMPLATE = Handlebars.compile(`> [!TIP]
 `);
 
 const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
-  `Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`,
+  `Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending), or from the terminal with the [\`hf\` CLI](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-models-list):
+
+\`\`\`bash
+hf models ls --warm --pipeline-tag {{task}} --sort trending_score
+\`\`\``,
 );
 const SPECS_HEADERS = await readTemplate("specs-headers", "common");
 const PAGE_HEADER = Handlebars.compile(
