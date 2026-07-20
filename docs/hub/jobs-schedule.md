@@ -19,6 +19,9 @@ Use `hf jobs uv run ` or `hf jobs run` with a schedule of `@annually`, `@yearly`
 
 # Schedule a Python script with a label
 >>> hf jobs scheduled uv run --label fine-tuning @hourly my_script.py
+
+# Schedule a named job (names show up in the UI and do not have to be unique)
+>>> hf jobs scheduled run --name hourly-task @hourly python:3.12 python -c "print('This runs every hour!')"
 ```
 
 Use the same parameters as `hf jobs uv run` and `hf jobs run` to pass environment variables, secrets, timeout, labels, etc.
