@@ -391,7 +391,7 @@ Note that using the same `key` multiple times causes the last `key=value` to ove
 
 ### Name a Job
 
-Give a Job a name to make it easier to find and identify in the UI. The name is stored as the `name` label. Names are optional and do not have to be unique:
+Give a Job a name to make it easier to find and identify in the UI. The name is stored as the `name` label. Names are optional and do not have to be unique. In the UI Jobs will be grouped by name.
 
 ```bash
 hf jobs run --name daily-report python:3.12 python report.py
