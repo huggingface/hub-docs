@@ -105,6 +105,9 @@ You can pass environment variables to your job using
 
 Mount Hugging Face repositories (models, datasets), [Storage Buckets](./storage-buckets), or local directories as volumes in your job container using `-v` or `--volume`. Hub sources use the `hf://` URL scheme: `hf://[TYPE/]SOURCE:/MOUNT_PATH[:ro]`; a local directory is passed directly as the source.
 
+> [!TIP]
+> Because mounted files are fetched lazily, mounting lets a Job work with datasets far larger than its local disk. See [Process Large Datasets](./jobs-large-datasets) for mounting, streaming, and processing big data on Jobs.
+
 Volume types:
 
 | Type | Example |
