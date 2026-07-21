@@ -55,7 +55,7 @@ When you're ready to release:
 3. Repo members with write access will see a banner reading "N users are waiting to be notified about this release", with a **Send release notifications** button.
 4. Click **Send release notifications** to email each subscriber that your model is now available on Hugging Face.
 
-Notifications are sent to confirmed email addresses only, and respect each user's notification preferences.
+Notifications are respect each user's notification preferences.
 
 ## Things to keep in mind
 
