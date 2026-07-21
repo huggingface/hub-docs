@@ -61,4 +61,3 @@ Notifications are sent to confirmed email addresses only, and respect each user'
 
 - **The page stays up past the date**: reaching the release date does not automatically take the pre-release page down; remove `release_date` from the model card to switch back to the regular model page.
 - **You must remove `release_date` first**: release notifications can only be sent once the model is out of pre-release.
-- **Do not upload model files until release**: users can still browse the model files
