@@ -12,6 +12,8 @@ Beyond the [CLI and Python SDK](./storage-buckets#managing-files), there are sev
 | **CLI sync** | Batch transfers, backups | [Sync docs](./storage-buckets#syncing-directories) |
 | **S3 API** | Existing S3 tooling (AWS CLI, boto3, s5cmd) | [S3-Compatible API](./storage-buckets-s3) |
 
+For tools that use buckets as a backend (SkyPilot, Inspect, …), see [Integrations](./storage-buckets-integrations).
+
 ## Mount as a Local Filesystem
 
 [hf-mount](https://github.com/huggingface/hf-mount) lets you mount buckets (and repos) as local filesystems via NFS (recommended) or FUSE. Files are fetched lazily — only the bytes your code reads hit the network.
