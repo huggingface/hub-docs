@@ -8,10 +8,11 @@ Beyond the [CLI and Python SDK](./storage-buckets#managing-files), there are sev
 |--------|----------|---------|
 | **hf-mount** | Mount as local filesystem — any tool works | [See below](#mount-as-a-local-filesystem) |
 | **Volume mounts** | HF Jobs & Spaces (same idea, managed for you) | [See below](#volume-mounts-in-jobs-and-spaces) |
-| **SkyPilot** | Cloud training/serving jobs across 20+ clouds | [Bucket Integrations](./storage-buckets-integrations#skypilot) |
 | **hf:// paths** (fsspec) | Python data tools (pandas, DuckDB) | [See below](#python-data-tools) |
 | **CLI sync** | Batch transfers, backups | [Sync docs](./storage-buckets#syncing-directories) |
 | **S3 API** | Existing S3 tooling (AWS CLI, boto3, s5cmd) | [S3-Compatible API](./storage-buckets-s3) |
+
+For tools that use buckets as a backend (SkyPilot, Inspect, …), see [Integrations](./storage-buckets-integrations).
 
 ## Mount as a Local Filesystem
 
