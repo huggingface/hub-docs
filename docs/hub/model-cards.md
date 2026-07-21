@@ -22,7 +22,7 @@ Model Cards on the Hub have two key parts, with overlapping information:
 
 ## Model card metadata
 
-A model repo will render its `README.md` as a model card. The model card is a [Markdown](https://en.wikipedia.org/wiki/Markdown) file, with a [YAML](https://en.wikipedia.org/wiki/YAML) section at the top that contains metadata about the model. 
+A model repo will render its `README.md` as a model card. The model card is a [Markdown](https://en.wikipedia.org/wiki/Markdown) file, with a [YAML](https://en.wikipedia.org/wiki/YAML) section at the top that contains metadata about the model.
 
 The metadata you add to the model card supports discovery and easier use of your model. For example:
 
@@ -40,7 +40,7 @@ There are a few different ways to add metadata to your model card including:
 - Directly editing the YAML section of the `README.md` file
 - Via the [`huggingface_hub`](https://huggingface.co/docs/huggingface_hub) Python library, see the [docs](https://huggingface.co/docs/huggingface_hub/guides/model-cards#update-metadata) for more details.
 
-Many libraries with [Hub integration](./models-libraries) will automatically add metadata to the model card when you upload a model. 
+Many libraries with [Hub integration](./models-libraries) will automatically add metadata to the model card when you upload a model.
 
 #### Using the metadata UI
 
@@ -60,7 +60,7 @@ You can also directly edit the YAML section of the `README.md` file. If the mode
 
 ```yaml
 ---
-language: 
+language:
   - "List of ISO 639-1 code for your language"
   - lang1
   - lang2
@@ -95,14 +95,14 @@ tags:
 - flair
 ```
 
-If it's not specified, the Hub will try to automatically detect the library type. However, this approach is discouraged, and repo creators should use the explicit `library_name` as much as possible. 
+If it's not specified, the Hub will try to automatically detect the library type. However, this approach is discouraged, and repo creators should use the explicit `library_name` as much as possible.
 
 1. By looking into the presence of files such as `*.nemo` or `*.mlmodel`, the Hub can determine if a model is from NeMo or CoreML.
 2. In the past, if nothing was detected and there was a `config.json` file, it was assumed the library was `transformers`. For model repos created after August 2024, this is not the case anymore, so you need to set `library_name: transformers` explicitly.
 
 ### Specifying a base model
 
-If your model is a fine-tune, an adapter, or a quantized version of a base model, you can specify the base model in the model card metadata section. This information can also be used to indicate if your model is a merge of multiple existing models. Hence, the `base_model` field can either be a single model ID, or a list of one or more base_models (specified by their Hub identifiers). 
+If your model is a fine-tune, an adapter, or a quantized version of a base model, you can specify the base model in the model card metadata section. This information can also be used to indicate if your model is a merge of multiple existing models. Hence, the `base_model` field can either be a single model ID, or a list of one or more base_models (specified by their Hub identifiers).
 
 ```yaml
 base_model: HuggingFaceH4/zephyr-7b-beta
@@ -157,7 +157,7 @@ The Hub will infer the type of relationship from the current model to the base m
 
 ### Specifying a new version
 
-If a new version of your model is available in the Hub, you can specify it in a `new_version` field.  
+If a new version of your model is available in the Hub, you can specify it in a `new_version` field.
 
 For example, on `l3utterfly/mistral-7b-v0.1-layla-v3`:
 
@@ -165,14 +165,14 @@ For example, on `l3utterfly/mistral-7b-v0.1-layla-v3`:
 new_version: l3utterfly/mistral-7b-v0.1-layla-v4
 ```
 
-This metadata will be used to display a link to the latest version of a model on the model page. If the model linked in `new_version` also has a `new_version` field, the very latest version will always be displayed. 
+This metadata will be used to display a link to the latest version of a model on the model page. If the model linked in `new_version` also has a `new_version` field, the very latest version will always be displayed.
 
 <div class="flex justify-center">
    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_version.png"/>
    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_version-dark.png"/>
 </div>
 
-### Announcing an upcoming release (`release_date`)
+### Announcing an upcoming release
 
 Organizations on an Enterprise plan or above can announce an upcoming model before its weights are public. Adding a `release_date` field to the model card metadata turns the model page into a [pre-release page](./models-release-announcements) with a countdown and a **Like and Notify on release** button:
 
@@ -212,7 +212,7 @@ For `transformers` models, the pipeline tag is automatically inferred from the m
 
 You can specify the license in the model card metadata section. The license will be displayed on the model page and users will be able to filter models by license. Using the metadata UI, you will see a dropdown of the most common licenses.
 
-If required, you can also specify a custom license by adding `other` as the license value and specifying the name and a link to the license in the metadata. 
+If required, you can also specify a custom license by adding `other` as the license value and specifying the name and a link to the license in the metadata.
 
 ```yaml
 # Example from https://huggingface.co/coqui/XTTS-v1
@@ -297,7 +297,7 @@ Yes, you can add custom tags to your model by adding them to the `tags` field in
 
 ### How can I indicate that my model is not suitable for all audiences
 
-You can add a `not-for-all-audiences` tag to your model card metadata. When this tag is present, a message will be displayed on the model page indicating that the model is not for all audiences. Users can click through this message to view the model card. 
+You can add a `not-for-all-audiences` tag to your model card metadata. When this tag is present, a message will be displayed on the model page indicating that the model is not for all audiences. Users can click through this message to view the model card.
 
 ### How can I display different images for dark and light mode?
 
@@ -346,5 +346,3 @@ $$
 $$
 
 $$ E=mc^2 $$
-
-
