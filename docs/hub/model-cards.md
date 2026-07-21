@@ -172,6 +172,16 @@ This metadata will be used to display a link to the latest version of a model on
    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/new_version-dark.png"/>
 </div>
 
+### Announcing an upcoming release (`release_date`)
+
+Organizations on an Enterprise plan or above can announce an upcoming model before its weights are public. Adding a `release_date` field to the model card metadata turns the model page into a [pre-release page](./models-release-announcements) with a countdown and a **Like and Notify on release** button:
+
+```yaml
+release_date: 2026-07-27
+```
+
+The field accepts a YAML date or a quoted ISO 8601 timestamp (e.g. `"2026-07-27T15:00:00Z"`). See the [Pre-Release Model Pages](./models-release-announcements) documentation for more details.
+
 ### Specifying a dataset
 
 You can specify the datasets used to train your model in the model card metadata section. The datasets will be displayed on the model page and users will be able to filter models by dataset. You should use the Hub dataset identifier, which is the same as the dataset's repo name as the identifier:
