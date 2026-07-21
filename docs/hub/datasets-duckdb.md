@@ -13,6 +13,9 @@ There are also other APIs available for running DuckDB, including Python, C++, G
 > [!TIP]
 > For installation details, visit the [installation page](https://duckdb.org/docs/installation).
 
+> [!TIP]
+> If you use the `hf` CLI, you can run DuckDB queries directly with [`hf datasets sql`](/docs/huggingface_hub/package_reference/cli#hf-datasets-sql), e.g. `hf datasets sql "FROM 'hf://datasets/ibm/duorc/ParaphraseRC/*.parquet' LIMIT 3"`. Authentication for gated and private datasets is configured automatically from your logged-in token, and `--format json` returns machine-readable output.
+
 Starting from version `v0.10.3`, the DuckDB CLI includes native support for accessing datasets on the Hugging Face Hub via URLs with the `hf://` scheme. Here are some features you can leverage with this powerful tool:
 
 - Query public datasets and your own gated and private datasets
