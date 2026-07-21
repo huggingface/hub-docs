@@ -143,7 +143,7 @@ Organizations can customize the gating parameters as well as the user informatio
 
 ## Advanced settings
 
-Enterprise Plus organizations can block visitors from specific locations across all of their models and datasets. These settings live in the **Publisher Analytics** settings, under the **Advanced Gating** tab.
+Enterprise Plus organizations can automatically reject or block visitors from specific locations across all of their models and datasets. These settings live in the **Publisher Analytics** settings, under the **Advanced Gating** tab.
 
 ### Blocked locations
 
