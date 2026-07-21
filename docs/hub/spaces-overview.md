@@ -10,6 +10,9 @@ In the following sections, you'll learn the basics of creating a Space, configur
 
 **To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's [visibility](#space-visibility) (public, protected, or private), you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Docker and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
 
+> [!WARNING]
+> Static Spaces are free for everyone. Gradio and Docker Spaces run on compute and require a paid plan to create: <a href="https://huggingface.co/pro">PRO</a> for personal accounts, <a href="https://huggingface.co/enterprise">Team or Enterprise</a> for organizations. Free personal accounts in good standing can still host up to 2 Gradio Spaces running on [ZeroGPU](./spaces-zerogpu).
+
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-blank-space.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-blank-space-dark.png"/>
@@ -43,7 +46,7 @@ You can set a Space's visibility from the **Settings** tab using the visibility 
 
 ## Hardware resources
 
-Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
+Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not persistent) disk space by default. The default CPU Basic hardware has no hourly cost, but creating a Space that runs on compute (Gradio or Docker) requires a paid plan, while Static Spaces are free for everyone. You can upgrade to better hardware, including a variety of GPU accelerators, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
 
 | **Hardware**           | **CPU**       | **Memory**   | **GPU Memory**  | **Hourly Price**  |
 |----------------------- |-------------- |------------- |---------------- | ----------------- |
@@ -117,7 +120,7 @@ If you want to duplicate a Space, you can click the three dots at the top right 
 * Storage: If the original repo uses a storage bucket, you will be prompted to configure storage. Read more about disk usage and storage [here](./spaces-storage).
 * Secrets and variables: If the original repo has set some secrets and variables, you'll be able to set them while duplicating the repo.
 
-Some Spaces might have environment variables that you may need to set up. In these cases, the duplicate workflow will auto-populate the public Variables from the source Space, and give you a warning about setting up the Secrets. The duplicated Space will use a free CPU hardware by default, but you can later upgrade if needed.
+Some Spaces might have environment variables that you may need to set up. In these cases, the duplicate workflow will auto-populate the public Variables from the source Space, and give you a warning about setting up the Secrets. The duplicated Space will use CPU Basic hardware by default, but you can later upgrade if needed. Duplicating follows the same rules as creating a new Space: duplicating a Gradio or Docker Space requires a paid plan for the target account or organization (with the same [ZeroGPU free tier](./spaces-zerogpu) exception for personal accounts).
 
 ## Networking
 

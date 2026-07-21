@@ -29,7 +29,7 @@ The PRO subscription unlocks essential features for serious users, including:
 - Higher bandwidth and API [rate limits](./rate-limits)
 - Included credits for [Inference Providers](/docs/inference-providers/)
 - Higher tier for ZeroGPU Spaces usage, and pay-as-you-go quota extension
-- Ability to create ZeroGPU Spaces and use Dev Mode
+- Ability to create Gradio and Docker Spaces running on compute, host up to 10 ZeroGPU Spaces, and use Dev Mode
 - Ability to publish Social Posts and Community Blogs
 - Leverage the [Data Studio](./data-studio) on private datasets
 
@@ -56,7 +56,7 @@ See the full pricing tiers at [huggingface.co/pricing](https://huggingface.co/pr
 
 We also directly provide compute services with [Spaces](./spaces), [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) and [Inference Providers](https://huggingface.co/docs/inference-providers/index).
 
-While most of our compute services have a comprehensive free tier, users and organizations can pay to access more powerful hardware accelerators.
+While several of our compute services have a free tier, users and organizations can pay to access more powerful hardware accelerators.
 
 The billing for our compute services is usage-based, meaning you only pay for what you use. You can monitor your usage at any time from your billing dashboard, located in your user's or organization's settings menu.
 

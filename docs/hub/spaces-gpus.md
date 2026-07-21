@@ -28,6 +28,9 @@ In the following tables, you can see the Specs for the different upgrade options
 | CPU Basic              | 2 vCPU        | 16 GB        |  -              | 50 GB     | Free!             |
 | CPU Upgrade            | 8 vCPU        | 32 GB        |  -              | 50 GB     | $0.03             |
 
+> [!NOTE]
+> CPU Basic has no hourly cost, but creating a new Space that runs on compute (Gradio or Docker) requires a paid plan. Static Spaces are free for everyone. See the [Spaces Overview](./spaces-overview#hardware-resources) for details.
+
 ### GPU
 
 | **Hardware**           | **CPU**       | **Memory**   | **GPU Memory**  | **Disk**  | **Hourly Price**  |
