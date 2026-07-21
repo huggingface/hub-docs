@@ -61,6 +61,4 @@ Notifications are sent to confirmed email addresses only, and respect each user'
 
 - **The page stays up past the date**: reaching the release date does not automatically take the pre-release page down; remove `release_date` from the model card to switch back to the regular model page.
 - **You must remove `release_date` first**: release notifications can only be sent once the model is out of pre-release.
-- **Notifications are strictly one-time**: each subscription is only ever emailed once. Re-clicking the button or toggling `release_date` cannot re-email anyone; a user will only be emailed again if they like the model again during a new pre-release period.
-- **Only pre-release likes subscribe**: likes made while the model is in pre-release subscribe the user to the release notification; likes made at any other time do not.
-- **Users can opt out**: users can disable these emails at any time in their [notification settings](https://huggingface.co/settings/notifications).
+- **Do not upload model files until release**: users can still browse the model files
