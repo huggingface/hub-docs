@@ -143,7 +143,23 @@ Organizations can customize the gating parameters as well as the user informatio
 
 ## Advanced settings
 
-Enterprise Plus organizations can define **blocked countries** to automatically reject access requests across their gated models and datasets. This setting is available in the **Publisher Analytics** settings, under the **Advanced Gating** tab.
+Enterprise Plus organizations can automatically reject or block visitors from specific locations across all of their models and datasets. These settings live in the **Publisher Analytics** settings, under the **Advanced Gating** tab.
+
+### Enforcement
+
+The **Enforcement** setting controls what blocked visitors are denied:
+
+- **Gated repositories**: access requests to the organization's gated repositories are auto-rejected.
+- **All repositories**: in addition to auto-rejecting access requests, downloads are denied on every repository of the organization, including public ones. Blocked visitors see a "not available in your region" notice on the repository page, and the dataset viewer is disabled for them.
+
+Enforcement applies to visitors from the blocked countries and regions, whether or not they are signed in. Members of the organization are not exempt.
+
+### Blocked locations
+
+Two lists define the blocked locations:
+
+- **Blocked countries**: countries, identified by their [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
+- **Blocked regions**: specific territories to block in addition to the countries above, for territories that are not distinct countries and therefore cannot be selected in the list above.
 
 ## Access gated repos in a Gating Group Collection as a user
 
