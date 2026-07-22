@@ -174,7 +174,7 @@ This metadata will be used to display a link to the latest version of a model on
 
 ### Announcing an upcoming release
 
-Organizations on an Enterprise plan or above can announce an upcoming model before its weights are public. Adding a `release_date` field to the model card metadata turns the model page into a [pre-release page](./models-release-announcements) with a countdown and a **Like and Notify on release** button:
+Organizations on an Enterprise plan or above can announce an upcoming model before its weights are public. Adding a `release_date` field to the model card metadata of a **private** model turns the model page into a [pre-release page](./models-release-announcements) with a countdown and a **Like and Notify on release** button. Making the model public releases it:
 
 ```yaml
 release_date: 2026-07-27
