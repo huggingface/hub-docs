@@ -49,6 +49,7 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [Fireworks](./providers/fireworks-ai)        |          ✅           |          ✅           |                    |               |               |                |
 | [Groq](./providers/groq)                     |          ✅           |          ✅           |                    |               |               |                |
 | [HF Inference](./providers/hf-inference)     |          ✅           |          ✅           |         ✅         |      ✅       |               |       ✅       |
+| [Impossibl](./providers/impossibl)           |          ✅           |                       |                    |               |               |                |
 | [Novita](./providers/novita)                 |          ✅           |          ✅           |                    |               |      ✅       |                |
 | [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |      ✅       |               |                |
 | [OVHcloud AI Endpoints](./providers/ovhcloud)|          ✅           |          ✅           |                    |               |               |                |
