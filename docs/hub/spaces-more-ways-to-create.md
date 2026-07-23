@@ -6,7 +6,7 @@ You can duplicate a Space by clicking the three dots at the top right and select
 
 ## Creating a Space from a model
 
-You can create a Gradio demo directly from most model pages, using the "Deploy -> Spaces" button.
+You can build a Space demo directly from most model pages, using the "Deploy -> Spaces" button. This opens a prompt you can copy and paste into your AI coding agent (Claude Code, Codex, and others), which reads the model's page and builds a Space with a demo for it.
 
 <video src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/model-page-deploy-to-spaces.mp4" controls autoplay muted loop />
 
