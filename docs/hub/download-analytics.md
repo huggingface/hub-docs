@@ -4,7 +4,7 @@ Download Analytics gives organizations a bandwidth-level view of their Hugging F
 
 ## Accessing Download Analytics
 
-Organization admins can find Download Analytics on the organization's Downloads settings page, at `https://huggingface.co/organizations/<name>/settings/downloads`. Individual users can see their own usage at `https://huggingface.co/settings/downloads`.
+Organization admins can find Download Analytics on the organization's Downloads settings page, at `https://huggingface.co/organizations/[organizationIdentifier]/settings/downloads`. Individual users can see their own usage at `https://huggingface.co/settings/downloads`.
 
 ## Egress overview
 
