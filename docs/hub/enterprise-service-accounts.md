@@ -30,7 +30,7 @@ A service account's access to your organization is defined entirely by the fine-
 Permissions can be granted at two levels:
 
 - Organization-wide — apply a permission (for example, read or write access to repository contents) across all repositories in the organization.
-- Per-repository — scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions for each. Selected repositories must be owned by the organization or be public.
+- Per-repository — scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions to grant. Selected repositories must be owned by the organization or be public.
 
 This lets you issue narrowly-scoped tokens — for example, a token that can only read a single model repository — rather than granting access to the entire organization.
 
