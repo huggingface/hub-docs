@@ -90,7 +90,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | [Resource groups](./enterprise-advanced-security)                   |  ❌  |     ✅      |     ✅      |       ✅        |
 | [Tokens admin / management](./enterprise-tokens-management)         |  ❌  |     ✅      |     ✅      |       ✅        |
 | [Token revocation](./enterprise-tokens-management#revoking-via-api) |  ❌  |     ❌      |     ✅      |       ✅        |
-| [Users Download analytics](./enterprise-network-security)           |  ❌  |     ❌      |     ❌      |       ✅        |
+| [Download analytics](./download-analytics)                          |  ✅  |     ✅      |     ✅      |       ✅        |
 | [Content access / policy controls](./enterprise-network-security)   |  ❌  |     ❌      |     ❌      |       ✅        |
 | [Network access controls](./enterprise-network-security)            |  ❌  |     ❌      |     ❌      |       ✅        |
 | [Enforced authentication (advanced)](./enterprise-network-security) |  ❌  |     ❌      |     ❌      |       ✅        |
