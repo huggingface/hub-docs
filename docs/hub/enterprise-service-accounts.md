@@ -27,6 +27,13 @@ Service accounts do not have a password and cannot sign in interactively — the
 
 A service account's access to your organization is defined entirely by the fine-grained access tokens you issue to it. For each token, you choose a name and a set of fine-grained permissions, so you can grant only the access a given workflow needs.
 
+Permissions can be granted at two levels:
+
+- Organization-wide — apply a permission (for example, read or write access to repository contents) across all repositories in the organization.
+- Per-repository — scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions for each. Selected repositories must be owned by the organization or be public.
+
+This lets you issue narrowly-scoped tokens — for example, a token that can only read a single model repository — rather than granting access to the entire organization.
+
 <div class="flex justify-center">
   <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-create-token.png" alt="Creating a new access token with fine-grained permissions for a service account."/>
   <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-service-account-create-token.png" alt="Creating a new access token with fine-grained permissions for a service account."/>
