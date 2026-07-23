@@ -3,7 +3,7 @@
 > [!WARNING]
 > This feature is available to organizations on an <a href="https://huggingface.co/enterprise">Enterprise</a> plan or above — or <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">contact us</a>.
 
-Pre-release model pages let your organization announce an upcoming model while it is still private. Instead of a 404 page, visitors see a dedicated announcement page with a live countdown to the release date and a **Like and Notify on release** button, so they can be notified by email the moment your model is out. When you make the model public, it is released.
+Pre-release model pages let your organization announce an upcoming model while it is still private. Instead of a 404 page, visitors see a dedicated announcement page with a live countdown to the release date and a **Like and Notify on release** button, so they can be notified by email the moment your model is out. When you make the model public, it is considered released and the announcement page is replaced with the model card.
 
 ## Eligibility
 
