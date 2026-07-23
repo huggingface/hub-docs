@@ -13,8 +13,8 @@ Manage it any time from your [Hardware settings](https://huggingface.co/settings
 
 On your [Hardware settings](https://huggingface.co/settings/hardware) page, add each piece of hardware you own:
 
-1. Pick a **type**: GPU, CPU, or Apple Silicon.
-2. Choose the **provider** and **model** (for example, NVIDIA RTX 4090).
+1. Pick a **manufacturer**, such as NVIDIA, AMD, Intel, Qualcomm, or Apple.
+2. Choose the **model** from that manufacturer's list (for example, NVIDIA RTX 4090). The type — GPU, CPU, or Apple Silicon — is set automatically from your choice.
 3. Set the **memory** (VRAM, RAM, or unified memory) and the **number of units** you have.
 
 Add as many items as you like. If you own several, mark one as your **primary** hardware so it appears first on model pages.
