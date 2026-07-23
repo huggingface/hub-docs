@@ -27,4 +27,4 @@ If you publish your own models or datasets and want per-repository download coun
 
 ## Data availability and retention
 
-Historical data is available from when this feature rolled out; CDN usage metering is retained for 90 days.
+CDN usage metering is retained for 90 days.
