@@ -169,7 +169,7 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 | `HF_XET_CLIENT_RETRY_BASE_DELAY` | `3000ms` | Base delay between retries (with exponential backoff). |
 | `HF_XET_CLIENT_RETRY_MAX_DURATION` | `360s` | Maximum total time to spend retrying a request. |
 | `HF_XET_CLIENT_CONNECT_TIMEOUT` | `60s` | TCP connection timeout. |
-| `HF_XET_CLIENT_READ_TIMEOUT` | `120s` | Read timeout for HTTP responses. |
+| `HF_XET_CLIENT_READ_TIMEOUT` | `300s` | Read timeout for HTTP responses. |
 | `HF_XET_CLIENT_IDLE_CONNECTION_TIMEOUT` | `60s` | Timeout before idle connections are closed. |
 | `HF_XET_CLIENT_MAX_IDLE_CONNECTIONS` | `16` | Maximum number of idle connections in the pool. |
 
