@@ -74,6 +74,12 @@ To define Blocked content, add rules that target a repository type, an organizat
 
 The Always allowed field lets you define exceptions to the blocking rules. You can target content that should remain accessible even when a block rule would otherwise apply.
 
+#### Keep repository metadata visible
+
+By default, when a repository is blocked by the Content Access Policy, the whole repository becomes inaccessible. Enable the "Keep repository metadata visible" option to only block a repository's content while keeping its metadata visible.
+
+When this option is enabled, blocked repositories still show their metadata (repo card, profile and listing pages), and only their content is blocked: file downloads, the dataset viewer, running Spaces and model inference.
+
 ## Manage Network Security via API
 
 You can read and update your organization's network security settings programmatically via the Hub API.
