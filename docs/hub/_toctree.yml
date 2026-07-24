@@ -105,6 +105,8 @@
     title: Leaderboard Data
   - local: models-gated
     title: Gated Models
+  - local: models-release-announcements
+    title: Pre-Release Model Pages
   - local: models-uploading
     title: Uploading Models
   - local: models-downloading
