@@ -38,7 +38,7 @@ In case you want to serve text generation models with vLLM, there are specific D
 
 | vLLM version | Container URI                                                                                                                    | Accelerator |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 0.25.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm:0.25-transformers5.10-gpu-py312-cu130-ubuntu22.04 | GPU         |
+| 0.25.1         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm:0.25.1-transformers5.10-gpu-py312-cu130-ubuntu22.04 | GPU         |
 | 0.11.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.5-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
 
 ### vLLM Omni
