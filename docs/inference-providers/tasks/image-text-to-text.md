@@ -23,6 +23,7 @@ Image-text-to-text models take in an image and text prompt and output text. Thes
 ### Recommended models
 
 - [zai-org/GLM-4.5V](https://huggingface.co/zai-org/GLM-4.5V): Cutting-edge reasoning vision language model.
+- [Qwen/Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct): Small yet powerful model.
 
 Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-text-to-text&sort=trending), or from the terminal with the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-models-list):
 
@@ -35,7 +36,7 @@ hf models ls --warm --pipeline-tag image-text-to-text --sort trending_score
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"cerebras":{"modelId":"google/gemma-4-31B-it","providerModelId":"gemma-4-31b"},"cohere":{"modelId":"CohereLabs/aya-vision-32b","providerModelId":"c4ai-aya-vision-32b"},"deepinfra":{"modelId":"MiniMaxAI/MiniMax-M3","providerModelId":"MiniMaxAI/MiniMax-M3"},"featherless-ai":{"modelId":"MiniMaxAI/MiniMax-M3","providerModelId":"MiniMaxAI/MiniMax-M3"},"fireworks-ai":{"modelId":"MiniMaxAI/MiniMax-M3","providerModelId":"accounts/fireworks/models/minimax-m3"},"groq":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/llama-4-scout-17b-16e-instruct"},"novita":{"modelId":"MiniMaxAI/MiniMax-M3","providerModelId":"minimax/minimax-m3"},"nscale":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct"},"ovhcloud":{"modelId":"Qwen/Qwen3.6-27B","providerModelId":"Qwen3.6-27B"},"scaleway":{"modelId":"Qwen/Qwen3.6-35B-A3B","providerModelId":"qwen3.6-35b-a3b"},"together":{"modelId":"MiniMaxAI/MiniMax-M3","providerModelId":"MiniMaxAI/MiniMax-M3"},"zai-org":{"modelId":"zai-org/GLM-4.6V","providerModelId":"glm-4.6v"}} }
+    providersMapping={ {"cerebras":{"modelId":"google/gemma-4-31B-it","providerModelId":"gemma-4-31b"},"cohere":{"modelId":"CohereLabs/aya-vision-32b","providerModelId":"c4ai-aya-vision-32b"},"deepinfra":{"modelId":"thinkingmachines/Inkling","providerModelId":"thinkingmachines/Inkling"},"featherless-ai":{"modelId":"bottlecapai/ThinkingCap-Qwen3.6-27B","providerModelId":"bottlecapai/ThinkingCap-Qwen3.6-27B"},"fireworks-ai":{"modelId":"moonshotai/Kimi-K2.7-Code","providerModelId":"accounts/fireworks/models/kimi-k2p7-code"},"novita":{"modelId":"moonshotai/Kimi-K2.7-Code","providerModelId":"moonshotai/kimi-k2.7-code"},"nscale":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct"},"ovhcloud":{"modelId":"Qwen/Qwen3.6-27B","providerModelId":"Qwen3.6-27B"},"publicai":{"modelId":"swiss-ai/Apertus-v1.5-70B","providerModelId":"swiss-ai/apertus-v1.5-70b"},"scaleway":{"modelId":"Qwen/Qwen3.6-35B-A3B","providerModelId":"qwen3.6-35b-a3b"},"together":{"modelId":"thinkingmachines/Inkling","providerModelId":"thinkingmachines/Inkling"},"zai-org":{"modelId":"zai-org/GLM-4.6V","providerModelId":"glm-4.6v"}} }
 conversational />
 
 
