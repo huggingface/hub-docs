@@ -29,6 +29,8 @@
     title: Gating Group Collections
   - local: enterprise-network-security
     title: Network Security
+  - local: download-analytics
+    title: Download Analytics
   - local: rate-limits
     title: Rate Limits
   - local: enterprise-blog-articles
