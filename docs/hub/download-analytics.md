@@ -2,6 +2,19 @@
 
 Download Analytics gives organizations a bandwidth-level view of their Hugging Face usage: how much data is being downloaded and by whom.
 
+<div class="flex justify-center" style="max-width: 750px">
+  <img
+    class="block dark:hidden m-0!"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/download-analytics.png"
+    alt="screenshot of the organization Downloads settings page, showing daily egress usage and the per-member breakdown"
+  />
+  <img
+    class="hidden dark:block m-0!"
+    src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-download-analytics.png"
+    alt="screenshot of the organization Downloads settings page, showing daily egress usage and the per-member breakdown"
+  />
+</div>
+
 ## Accessing Download Analytics
 
 Organization admins can find Download Analytics on the organization's Downloads settings page, at `https://huggingface.co/organizations/[organizationIdentifier]/settings/downloads`. Individual users can see their own usage at `https://huggingface.co/settings/downloads`.
