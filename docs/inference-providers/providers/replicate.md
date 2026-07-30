@@ -57,7 +57,7 @@ Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"replicate":{"modelId":"black-forest-labs/FLUX.2-klein-9B","providerModelId":"black-forest-labs/flux-2-klein-9b"} } }
+    providersMapping={ {"replicate":{"modelId":"prithivMLmods/Kontext-Watermark-Remover","providerModelId":"black-forest-labs/flux-kontext-dev-lora"} } }
 />
 
 
@@ -67,7 +67,7 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"replicate":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/flux-dev"} } }
+    providersMapping={ {"replicate":{"modelId":"lustlyai/Flux_Lustly.ai_Uncensored_nsfw_v1","providerModelId":"black-forest-labs/flux-dev-lora"} } }
 />
 
 
