@@ -139,6 +139,15 @@ Both `hf_xet` and Git Xet are powered by `xet-core`, which can be configured via
 > [!NOTE]
 > `HF_XET_HIGH_PERFORMANCE=1` is a convenience flag that adjusts several settings at once (concurrency bounds, buffer sizes, and parallel file limits). It is intended for machines with high bandwidth **and at least 64 GB of RAM** for buffering. On machines with less memory, it may degrade performance.
 
+### General
+
+High-level flags that most users reach for first.
+
+| Environment Variable | Default | Description |
+|---|---|---|
+| `HF_XET_HIGH_PERFORMANCE` (alias `HF_XET_HP`) | off | Convenience flag that maximizes network and CPU usage by raising concurrency, buffer sizes, and parallel file limits at once. See the note above — best on machines with high bandwidth and at least 64 GB of RAM. |
+| `HF_XET_CACHE` | `$HF_HOME/xet` | Directory where Xet caches data locally (downloaded chunks and deduplication shards). Takes precedence over `HF_HOME`. |
+
 ### Adaptive Concurrency
 
 By default, `xet-core` uses adaptive concurrency — dynamically adjusting parallelism based on real-time network conditions. These are advanced settings that are unlikely to be needed in most cases. The variables below control the adaptive controller's behavior:
@@ -196,6 +205,24 @@ These control memory usage during downloads. `HF_XET_HIGH_PERFORMANCE=1` raises 
 | `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_LIMIT` | `8gb` | `64gb` | Hard limit on total download buffer memory. |
 | `HF_XET_RECONSTRUCTION_TARGET_BLOCK_COMPLETION_TIME` | `15m` | — | Target time for completing a prefetch block. Used to determine how much data to prefetch ahead during downloads. |
 | `HF_XET_RECONSTRUCTION_MIN_PREFETCH_BUFFER` | `1gb` | — | Minimum amount of data to keep prefetched during downloads, regardless of estimated completion time. |
+
+### Shard Cache
+
+The **shard cache** holds the deduplication index (the "shards" describing chunks already uploaded) on disk, under the Xet cache directory. A larger cache lets the client deduplicate against more previously-seen data, so fewer bytes are re-uploaded.
+
+| Environment Variable | Default | Description |
+|---|---|---|
+| `HF_XET_SHARD_CACHE_SIZE_LIMIT` | `16gb` | Soft cap on the on-disk shard cache. The cache is pruned to this size at the **start** of a run, but may grow past it within a single long-running session. As a rough guide, a cache of size *X* deduplicates against roughly 1000 × *X* of data (16 GB → ~16 TB). Raise it for better dedup on very large repos; lower it if the growing cache risks filling your disk. Accepts a human-readable size (e.g. `32gb`) or a raw byte count. |
+| `HF_XET_SHARD_CHUNK_INDEX_TABLE_MAX_SIZE` | `64mb` | Maximum size of the in-memory chunk index. Once reached, no further chunks are loaded for deduplication. |
+| `HF_XET_SHARD_CACHE_SUBDIR` | `shard-cache` | Subdirectory for the shard cache within the Xet cache directory. |
+
+### Chunk Cache
+
+The **chunk cache** stores downloaded byte ranges (chunks) on disk so overlapping data isn't re-fetched from storage. It is most useful when repeatedly downloading, or generating new revisions of, related models or datasets.
+
+| Environment Variable | Default | Description |
+|---|---|---|
+| `HF_XET_CHUNK_CACHE_SIZE_BYTES` | `0` (disabled) | Size of the local chunk cache. The `hf_xet` Python package ships with the cache **disabled by default**; set a byte count (e.g. `10000000000` for 10 GB) to enable it, or `0` to disable it. This variable has no effect in Git Xet v0. |
 
 ### Logging
 
