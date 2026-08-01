@@ -57,7 +57,7 @@ Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"replicate":{"modelId":"prithivMLmods/Kontext-Watermark-Remover","providerModelId":"black-forest-labs/flux-kontext-dev-lora"} } }
+    providersMapping={ {"replicate":{"modelId":"csbowei/ART","providerModelId":"black-forest-labs/flux-kontext-dev-lora"} } }
 />
 
 
