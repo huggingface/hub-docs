@@ -61,7 +61,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"deepinfra":{"modelId":"zai-org/GLM-5.2","providerModelId":"zai-org/GLM-5.2"} } }
+    providersMapping={ {"deepinfra":{"modelId":"deepseek-ai/DeepSeek-V4-Flash-0731","providerModelId":"deepseek-ai/DeepSeek-V4-Flash-0731"} } }
 conversational />
 
 
@@ -73,5 +73,15 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
     pipeline=image-text-to-text
     providersMapping={ {"deepinfra":{"modelId":"thinkingmachines/Inkling","providerModelId":"thinkingmachines/Inkling"} } }
 conversational />
+
+
+### Text Generation
+
+Find out more about Text Generation [here](../tasks/text-generation).
+
+<InferenceSnippet
+    pipeline=text-generation
+    providersMapping={ {"deepinfra":{"modelId":"deepseek-ai/DeepSeek-V4-Flash-0731","providerModelId":"deepseek-ai/DeepSeek-V4-Flash-0731"} } }
+/>
 
 
