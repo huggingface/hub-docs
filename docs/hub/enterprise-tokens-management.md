@@ -118,6 +118,9 @@ curl -X POST "https://huggingface.co/api/organizations/${ORG_NAME}/settings/toke
 
 An administrator cannot revoke their own token (`LEAKED_HF_TOKEN` cannot have the same value as `ADMIN_HF_TOKEN` in the snippet above).
 
+> [!NOTE]
+> This endpoint only revokes the token's access to your organization; the token keeps working for its owner's other resources. To invalidate a leaked token everywhere, use [`POST /api/credentials/revoke`](./security-tokens#revoking-a-leaked-token) instead, which requires no authentication and accepts a batch of raw token values.
+
 ## Programmatic Token Issuance
 
 > [!WARNING]
