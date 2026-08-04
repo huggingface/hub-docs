@@ -33,6 +33,34 @@ While your hardware is public:
 - A **TFLOPS** badge appears on your profile, summarizing your estimated total compute power.
 - You can browse [what the community is running](https://huggingface.co/hardware) and see how your setup compares across GPUs, CPUs, and Apple Silicon.
 
+## Read hardware from the API
+
+While your hardware is public, it is also available programmatically:
+
+- `GET https://huggingface.co/api/users/{username}/overview` returns a `hardwareItems` array for any user whose hardware is public.
+- `GET https://huggingface.co/oauth/userinfo` includes a `hardwareItems` claim when your app was granted the `profile` scope, so a [Sign in with Hugging Face](./oauth) app can read the signed-in user's setup without an extra call.
+
+```bash
+curl https://huggingface.co/api/users/{username}/overview
+```
+
+```json
+{
+  "hardwareItems": [
+    { "sku": ["GPU", "NVIDIA", "RTX 4090"], "mem": 24, "num": 2, "isPrimary": true }
+  ]
+}
+```
+
+Each item contains:
+
+- `sku`: a `[type, provider, model]` triplet.
+- `mem`: the memory in GB (VRAM, RAM, or unified memory).
+- `num`: the number of units.
+- `isPrimary`: only present on the item marked as primary.
+
+If the user turned off the **Publicly Visible** toggle, `hardwareItems` is omitted from both responses. See the [Hub API documentation](./api) for the full response schemas.
+
 ## Next steps
 
 - [Use AI Models Locally](./local-apps) — run models with your favorite local app.
