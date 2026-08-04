@@ -57,7 +57,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"together":{"modelId":"zai-org/GLM-5.2","providerModelId":"zai-org/GLM-5.2"} } }
+    providersMapping={ {"together":{"modelId":"deepseek-ai/DeepSeek-V4-Flash-0731","providerModelId":"deepseek-ai/DeepSeek-V4-Flash-0731"} } }
 conversational />
 
 
@@ -98,15 +98,5 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 <InferenceSnippet
     pipeline=text-to-image
     providersMapping={ {"together":{"modelId":"black-forest-labs/FLUX.1-schnell","providerModelId":"black-forest-labs/FLUX.1-schnell"} } }
-/>
-
-
-### Text To Video
-
-Find out more about Text To Video [here](../tasks/text-to-video).
-
-<InferenceSnippet
-    pipeline=text-to-video
-    providersMapping={ {"together":{"modelId":"Wan-AI/Wan2.2-T2V-A14B","providerModelId":"Wan-AI/Wan2.2-T2V-A14B"} } }
 />
 
