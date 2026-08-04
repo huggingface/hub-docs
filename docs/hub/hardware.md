@@ -35,7 +35,7 @@ While your hardware is public:
 
 ## Read hardware from the API
 
-While your hardware is public, it is also [available programmatically](https://huggingface-openapi.hf.space/#tag/users/GET/api/users/%7Busername%7D/overview):
+While your hardware is public, it is also [available programmatically](https://huggingface-openapi.hf.space/#tag/users/GET/api/users/{username}/overview):
 
 - `GET https://huggingface.co/api/users/{username}/overview` returns a `hardwareItems` array for any user whose hardware is public.
 - `GET https://huggingface.co/oauth/userinfo` includes a `hardwareItems` claim when your app was granted the `profile` scope, so a [Sign in with Hugging Face](./oauth) app can read the signed-in user's setup without an extra call.
