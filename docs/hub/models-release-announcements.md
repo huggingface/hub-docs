@@ -30,8 +30,9 @@ release_date: "2026-07-27T15:00:00Z"
 
 Invalid values are rejected by the metadata validator and ignored. A few more things to know:
 
+- The markdown body of your model card (everything below the YAML metadata) is what visitors read on the pre-release page — use it to describe what's coming, show teasers, link to a paper, etc.
 - The optional `description` metadata field is used as the hero tagline of the pre-release page.
-- The markdown body of your model card is rendered as the content of the page, so you can use it to describe what's coming.
+- You don't need to upload any weights yet: the repository can stay empty for the whole announcement period. Upload the model files whenever you're ready.
 - Metadata changes can take up to a minute to propagate.
 
 ## What visitors see
@@ -42,6 +43,9 @@ While the model is private and `release_date` is set (and your organization is e
 - A sidebar showing the number of users waiting for the release, the expected release date, and your organization's latest models.
 - A **Like and Notify on release** button: clicking it likes the repo and subscribes the user to an email notification for the release. Unliking the model unsubscribes.
 - The social-share thumbnail of the page also gets an "Upcoming release" treatment.
+
+> [!TIP]
+> The pre-release page renders your model card content — everything you write in the `README.md` body is publicly visible while the announcement is up.
 
 Members with **write access** to the repository always see the regular model page instead, so they can keep managing files and settings while the announcement is up.
 
