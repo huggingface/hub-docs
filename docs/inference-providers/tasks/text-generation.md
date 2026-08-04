@@ -44,7 +44,7 @@ hf models ls --warm --pipeline-tag text-generation --sort trending_score
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"deepinfra":{"modelId":"deepseek-ai/DeepSeek-V4-Flash-0731","providerModelId":"deepseek-ai/DeepSeek-V4-Flash-0731"},"featherless-ai":{"modelId":"zai-org/GLM-5.2","providerModelId":"zai-org/GLM-5.2"}} }
+    providersMapping={ {"featherless-ai":{"modelId":"zai-org/GLM-5.2","providerModelId":"zai-org/GLM-5.2"}} }
 />
 
 

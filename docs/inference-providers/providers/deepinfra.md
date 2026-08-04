@@ -75,13 +75,3 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 conversational />
 
 
-### Text Generation
-
-Find out more about Text Generation [here](../tasks/text-generation).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"deepinfra":{"modelId":"deepseek-ai/DeepSeek-V4-Flash-0731","providerModelId":"deepseek-ai/DeepSeek-V4-Flash-0731"} } }
-/>
-
-
