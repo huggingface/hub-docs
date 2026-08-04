@@ -37,8 +37,6 @@ A few things to keep in mind:
 - Loopback hosts are matched individually: a request for `http://localhost:49282/callback` does not match a registered `http://127.0.0.1/callback`. Register both if your app may use either.
 - Only the port may differ. Path, query and userinfo must still match exactly.
 
-When the authorization code is going to be sent to a loopback address, the authorization screen tells the user that the app is a local application, and shows the host it will be sent to.
-
 ### If you are hosting in Spaces
 
 > [!TIP]
