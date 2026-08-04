@@ -110,7 +110,7 @@ Administrators can also revoke a token programmatically by providing the raw tok
 curl -X POST "https://huggingface.co/api/organizations/${ORG_NAME}/settings/tokens/revoke" \
   -H "Authorization: Bearer ${ADMIN_HF_TOKEN}" \
   -H "Content-Type: application/json" \
-  -d '{"token": "${LEAKED_HF_TOKEN}"}'
+    -d "{\"token\": \"${LEAKED_HF_TOKEN}\"}"
 ```
 
 > [!TIP]
