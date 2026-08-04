@@ -62,20 +62,17 @@ This is useful for Resource Groups that should be accessible to your entire orga
 
 ### Enabling auto-join
 
-**Via the UI**: Open the Resource Group's settings page and check the **Auto-include org members** option, then select the role to assign.
+**Via the UI**: Open the Resource Group's **Auto-include org members** settings, check **Automatically include all org members**, and pick the default role for new members.
 
 **Via the API**: See [Configure auto-join via API](./programmatic-user-access-control#configure-auto-join-via-api).
 
 When auto-join is enabled on an existing Resource Group, current org members matching the selected scope are **immediately added** to the group at the configured role (backfill).
 
-### Auto-join scope
+### Members with the `no_access` role
 
-Auto-join can apply to:
+Members with the `no_access` organization role are **excluded** from auto-join unless you check the nested **Include no_access members** option. That option is only available while **Automatically include all org members** is checked.
 
-- **All org members**: Include every member, including members with the `no_access` organization role.
-- **Read+ members only**: Exclude members with the `no_access` organization role.
-
-Use **Read+ members only** when `no_access` members should keep access only to the specific Resource Groups where they are added manually or through another provisioning flow.
+Leave it unchecked when `no_access` members should keep access only to the specific Resource Groups where they are added manually or through another provisioning flow.
 
 ### Auto-join and SCIM
 
