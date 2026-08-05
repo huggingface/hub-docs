@@ -25,6 +25,18 @@ You can create or use OAuth apps without a client secret. This is useful for nat
 
 Public apps authenticate using only the client ID (e.g. in device code or authorization code flows with PKCE). Apps that have a secret can still use the secret when needed (e.g. `Authorization: Basic` for token requests).
 
+### Redirect URIs
+
+The `redirect_uri` sent in an authorization request must exactly match one of the redirect URIs registered on your app.
+
+Loopback redirect URIs are the one exception: for URIs using the `http` scheme on a loopback host (`localhost`, `127.0.0.1` or `[::1]`), any port is accepted at request time, as long as every other component matches a registered URI. This follows [RFC 8252 §7.3](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3) / OAuth 2.1, and lets native apps, CLIs and MCP clients register a port-less URI such as `http://localhost/callback` and then listen on whatever ephemeral port the operating system assigns them (e.g. `http://localhost:49282/callback`).
+
+A few things to keep in mind:
+
+- The exception only applies to the `http` scheme. `https` and custom-scheme (e.g. `myapp://callback`) redirect URIs always require an exact match, port included.
+- Loopback hosts are matched individually: a request for `http://localhost:49282/callback` does not match a registered `http://127.0.0.1/callback`. Register both if your app may use either.
+- Only the port may differ. Path, query and userinfo must still match exactly.
+
 ### If you are hosting in Spaces
 
 > [!TIP]
@@ -48,6 +60,8 @@ Hugging Face supports CIMD aka [Client ID Metadata Documents](https://datatracke
 ```
 
 - Use `"[your website url]/.well-known/oauth-cimd"` as client ID, and PCKE as auth mechanism
+
+Native apps and MCP clients that receive the authorization code on a local port can list port-less loopback URIs in `redirect_uris`, e.g. `["http://localhost/callback", "http://127.0.0.1/callback"]` — see [Redirect URIs](#redirect-uris).
 
 This is particularly useful for ephemeral environments or MCP clients. See an [implementation example](https://github.com/huggingface/chat-ui/pull/1978) in Hugging Chat.
 
