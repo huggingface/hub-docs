@@ -81,6 +81,8 @@ Those scopes are optional and can be added by setting `hf_oauth_scopes` in your 
 - `read-collections`: Get read access to the user's personal collections.
 - `write-collections`: Get write/read access to the user's personal collections. Also grants collection creation and deletion.
 - `inference-api`: Get access to the [Inference Providers](https://huggingface.co/docs/inference-providers/index), you will be able to make inference requests on behalf of the user.
+- `read-endpoints`: Get read access to the user's [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index), and make inference requests to them on behalf of the user.
+- `write-endpoints`: Get write/read access to the user's Inference Endpoints. Also grants endpoint creation and deletion.
 - `jobs`: Run [jobs](https://huggingface.co/docs/huggingface_hub/main/en/guides/jobs) 
 - `webhooks`: Manage [webhooks](https://huggingface.co/docs/huggingface_hub/main/en/guides/webhooks)
 - `write-discussions`: Open discussions and Pull Requests on behalf of the user as well as interact with discussions (including reactions, posting/editing comments, closing discussions, ...). To open Pull Requests on private repos, you need to request the `read-repos` scope as well.
