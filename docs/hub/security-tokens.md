@@ -84,7 +84,7 @@ If your organization needs to programmatically issue tokens for members without 
 
 If one of your own tokens has leaked, delete or refresh it from the [Access Tokens tab](https://huggingface.co/settings/tokens) of your settings.
 
-If you have found somebody else's Hugging Face access token — in a public repository, a log file, a notebook, a paste site, anywhere — you can invalidate it with the `POST /api/credentials/revoke` endpoint. Possession of the raw token value is the only proof required: no authentication is needed, and you don't need any rights over the account or organization that owns the token.
+If you have found somebody else's Hugging Face access token you can invalidate it with the [`POST /api/credentials/revoke`](https://huggingface-openapi.hf.space/#tag/tokens/POST/api/credentials/revoke) endpoint. You don't need any rights over the account or organization that owns the token.
 
 ```bash
 # LEAKED_HF_TOKEN should contain the raw token value to revoke
