@@ -32,6 +32,10 @@ filter: [
 					{
 						term: { path: "model_index.json" },
 					},
+					/// Downloaded from diffusers lib through modular pipelines
+					{
+						term: { path: "modular_model_index.json" },
+					},
 					/// Direct downloads (LoRa, Auto1111 and others)
 					/// Filter out nested safetensors and pickle weights to avoid double counting downloads from the diffusers lib
 					{
