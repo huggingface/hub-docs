@@ -14,7 +14,7 @@ Before proceeding, make sure your organization has been converted to a Hugging F
 
 ## Step 1: Get SCIM configuration from Hugging Face
 
-1.  Log in to the account owner account we provide after the managed user conversion.
+1.  Log in to a Hugging Face account that is an owner of the organization (for managed users, use the owner account provided after the managed user conversion).
 2.  Navigate to your organization's settings page on Hugging Face.
 3.  Go to the **SSO** tab, then click on the **SCIM** sub-tab.
 4.  Copy the **SCIM Tenant URL**. You will need this for the Okta configuration.
@@ -30,7 +30,7 @@ Before proceeding, make sure your organization has been converted to a Hugging F
 1. In Okta, go to **Applications** and select your Hugging Face app.
 2. Go to the **General** tab and click **Edit** on App Settings
 3. For the Provisioning option select **SCIM**, click **Save**
-4. Go to the **Provisioning** tab and under settings click **Integration**.
+4. Go to the **Provisioning** tab, and under **Settings**, click **Integration**.
 5. Enter the **SCIM Tenant URL** as the SCIM connector base URL.
 6. Enter **userName** for Unique identifier field for users.
 7. Select all necessary actions for Supported provisioning actions.
@@ -73,7 +73,6 @@ For SCIM provisioning with a managed organization configured with SAML SSO, upda
 4. In the mapping modal the Username needs to be edited to comply with the following rules.
 
 > [!WARNING]
->
 > <ul>
 > <li>Only regular characters and `-` are accepted in the Username.</li>
 > <li>`--` (double dash) is forbidden.</li>
