@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@huggingface/inference": "^4.13.24",
+    "@huggingface/inference": "^4.13.25",
     "@huggingface/tasks": "^0.21.33",
     "@types/node": "^22.5.0",
     "handlebars": "^4.7.8",
