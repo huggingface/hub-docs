@@ -98,8 +98,8 @@ curl -X POST https://huggingface.co/oauth/token \
 The currently supported scopes are:
 
 - `openid`: Receive an ID token in addition to the access token.
-- `profile`: Access the user's profile information (username, avatar, etc.)
-- `email`: Access the user's email address.
+- `profile`: Read the user's profile information (username, avatar, etc.)
+- `email`: Read the user's email address.
 - `read-billing`: Know whether the user has a payment method set up.
 - `read-repos`: Read the user's personal repos.
 - `gated-repos`: Read the content of public gated repos the user has been granted access to. Unlike `read-repos`, this does not grant access to private repos.
