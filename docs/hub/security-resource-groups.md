@@ -103,7 +103,12 @@ When a non-admin member creates a Resource Group through the UI, they are automa
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
 
-Beyond repository access, org admins can control which members are allowed to use a given organization feature. This is configured from the **Access settings** tab of the Resource Groups settings page.
+Org admins can also control who's allowed to use a given organization feature, separately from repository access. The setting lives on the **Access settings** tab of the Resource Groups settings page.
+
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/feature-access.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dark-feature-access.png"/>
+</div>
 
 The following features can be restricted:
 
@@ -113,17 +118,16 @@ The following features can be restricted:
 - **Inference Endpoints**: creating, managing, and calling Inference Endpoints owned by the organization.
 - **Inference Providers**: [Inference Providers](/docs/inference-providers) requests billed to the organization.
 
-For each feature, you can pick who has access:
 
-- **Everyone** (default): every member of the organization.
+For each one, you can pick who has access:
+
+- **Everyone** (default): every member of the organization depending on their organization role.
 - **Org admins only**: only organization admins keep access.
-- **Specific resource groups**: only members of the selected Resource Groups.
+- **Specific resource groups**: only members of the selected Resource Groups depending on their role in the group.
 
 Organization admins always keep access to every feature, whichever option is selected.
 
-Members who don't have access to a feature can no longer use it in the organization's context, from the UI as well as from the API, where the corresponding requests are rejected with a `403` error. This has no effect on what those members can do under their personal account or in other organizations.
-
-When a Resource Group is deleted, it is automatically removed from every feature's access list. If it was the only Resource Group granting access to a feature, that feature then remains available to org admins only.
+Members without access can no longer use the feature in the organization's context, from the API as well as the UI — API requests return an authorization error. Nothing changes for them under their personal account or in another org.
 
 ## Cost attribution
 
