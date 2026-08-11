@@ -5,7 +5,7 @@ This guide explains how to set up SCIM user and group provisioning between Okta 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> and <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plans.
 
-## Step 0: Confirm your organization is properly set up for managed users
+## Step 0: Confirm your organization is properly set up
 
 > [!NOTE]
 > This step is only required if you're setting up managed users on Hugging Face.
