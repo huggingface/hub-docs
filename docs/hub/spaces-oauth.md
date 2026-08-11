@@ -67,11 +67,11 @@ For example, you can use `https://{SPACE_HOST}/login/callback` as a redirect URI
 The following scopes are always included for Spaces:
 
 - `openid`: Receive an ID token in addition to the access token.
-- `profile`: Access the user's profile information (username, avatar, etc.)
+- `profile`: Read the user's profile information (username, avatar, etc.)
 
 Those scopes are optional and can be added by setting `hf_oauth_scopes` in your Space's metadata:
 
-- `email`: Access the user's email address.
+- `email`: Read the user's email address.
 - `read-billing`: Know whether the user has a payment method set up.
 - `read-repos`: Read the user's personal repos.
 - `gated-repos`: Read the content of public gated repos the user has been granted access to. Unlike `read-repos`, this does not grant access to private repos.
