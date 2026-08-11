@@ -82,7 +82,7 @@ hf jobs run --namespace my-org-name ...
 In this case the Job runs under the organization account, and you can see it in your organization Jobs page (organization page > settings > Jobs).
 
 > [!NOTE]
-> On Enterprise plans and above, org admins can restrict who can run and view Jobs billed to the organization — to org admins only or to members of selected Resource Groups — via [Feature access](./security-resource-groups#feature-access).
+> On Enterprise plans and above, org admins can restrict who can run and view Jobs billed to the organization — to org admins only or to members of selected Resource Groups — via [Feature access](./security-resource-groups#feature-access) settings.
 
 ### Bill to a resource group
 

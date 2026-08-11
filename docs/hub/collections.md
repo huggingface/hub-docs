@@ -68,7 +68,7 @@ Organization collections can be assigned to a [Resource Group](./security-resour
 This feature is reserved for [Team & Enterprise](https://huggingface.co/docs/hub/en/enterprise) subscribers.
 
 > [!NOTE]
-> Assigning a collection to a Resource Group controls access to *that specific collection*. To restrict who can create or edit organization Collections at all — on Enterprise plans and above — see [Feature access](./security-resource-groups#feature-access).
+> Assigning a collection to a Resource Group controls access to *that specific collection*. To restrict who can create or edit organization Collections at all, see [Feature access](./security-resource-groups#feature-access) (Enterprise plans and above).
 
 ### Ordering your collections and their items
 
