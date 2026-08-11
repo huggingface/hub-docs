@@ -111,18 +111,20 @@ curl -X POST https://huggingface.co/oauth/token \
 
 The currently supported scopes are:
 
-- `openid`: Get the ID token in addition to the access token.
-- `profile`: Get the user's profile information (username, avatar, etc.)
-- `email`: Get the user's email address.
+- `openid`: Receive an ID token in addition to the access token.
+- `profile`: Read the user's profile information (username, avatar, etc.)
+- `email`: Read the user's email address.
 - `read-billing`: Know whether the user has a payment method set up.
-- `read-repos`: Get read access to the user's personal repos.
-- `gated-repos`: Get read access to the content of public gated repos the user has been granted access to. Unlike `read-repos`, this does not grant access to private repos.
-- `contribute-repos`: Can create repositories and access those created by this app. Cannot access any other repositories unless additional permissions are granted.
-- `write-repos`: Get write/read access to the user's personal repos.
-- `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion.
-- `read-collections`: Get read access to the user's personal collections.
-- `write-collections`: Get write/read access to the user's personal collections. Also grants collection creation and deletion.
-- `inference-api`: Get access to the [Inference Providers](https://huggingface.co/docs/inference-providers/index), you will be able to make inference requests on behalf of the user.
+- `read-repos`: Read the user's personal repos.
+- `gated-repos`: Read the content of public gated repos the user has been granted access to. Unlike `read-repos`, this does not grant access to private repos.
+- `contribute-repos`: Create repositories and access those created by this app. Cannot access any other repositories unless additional permissions are granted.
+- `write-repos`: Read and write the user's personal repos.
+- `manage-repos`: Fully manage the user's personal repos, including creating and deleting them.
+- `read-collections`: Read the user's personal collections.
+- `write-collections`: Read and write the user's personal collections, including creating and deleting them.
+- `inference-api`: Make inference requests to [Inference Providers](https://huggingface.co/docs/inference-providers/index) on behalf of the user.
+- `read-endpoints`: View the user's [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) and make inference requests to them on behalf of the user.
+- `write-endpoints`: Manage the user's Inference Endpoints, including creating and deleting them. Includes `read-endpoints` access.
 - `jobs`: Run [jobs](https://huggingface.co/docs/huggingface_hub/main/en/guides/jobs)
 - `webhooks`: Manage [webhooks](https://huggingface.co/docs/huggingface_hub/main/en/guides/webhooks)
 - `write-discussions`: Open discussions and Pull Requests on behalf of the user as well as interact with discussions (including reactions, posting/editing comments, closing discussions, ...). To open Pull Requests on private repos, you need to request the `read-repos` scope as well.
