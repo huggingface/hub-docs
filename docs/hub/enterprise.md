@@ -88,7 +88,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | RBAC                                                                           |  ✅  | ✅ Advanced | ✅ Advanced |   ✅ Advanced   |
 | [Audit logs](./audit-logs)                                                     |  ❌  |     ✅      |     ✅      |       ✅        |
 | [Resource groups](./enterprise-advanced-security)                              |  ❌  |     ✅      |     ✅      |       ✅        |
-| [Feature access per resource group](./security-resource-groups#feature-access) |  ❌  |     ❌      |     ✅      |       ✅        |
+| [Feature access per resource group](./security-resource-groups#granular-feature-access) |  ❌  |     ❌      |     ✅      |       ✅        |
 | [Tokens admin / management](./enterprise-tokens-management)                    |  ❌  |     ✅      |     ✅      |       ✅        |
 | [Token revocation](./enterprise-tokens-management#revoking-via-api)            |  ❌  |     ❌      |     ✅      |       ✅        |
 | [Download analytics](./download-analytics)                                     |  ✅  |     ✅      |     ✅      |       ✅        |
