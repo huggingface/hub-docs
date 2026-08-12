@@ -83,18 +83,18 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 ### Governance, auditing, compliance
 
-| Feature                                                                        | Free |    Team     | Enterprise  | Enterprise Plus |
-| ------------------------------------------------------------------------------ | :--: | :---------: | :---------: | :-------------: |
-| RBAC                                                                           |  ✅  | ✅ Advanced | ✅ Advanced |   ✅ Advanced   |
-| [Audit logs](./audit-logs)                                                     |  ❌  |     ✅      |     ✅      |       ✅        |
-| [Resource groups](./enterprise-advanced-security)                              |  ❌  |     ✅      |     ✅      |       ✅        |
-| [Feature access per resource group](./security-resource-groups#feature-access) |  ❌  |     ❌      |     ✅      |       ✅        |
-| [Tokens admin / management](./enterprise-tokens-management)                    |  ❌  |     ✅      |     ✅      |       ✅        |
-| [Token revocation](./enterprise-tokens-management#revoking-via-api)            |  ❌  |     ❌      |     ✅      |       ✅        |
-| [Download analytics](./download-analytics)                                     |  ✅  |     ✅      |     ✅      |       ✅        |
-| [Content access / policy controls](./enterprise-network-security)              |  ❌  |     ❌      |     ❌      |       ✅        |
-| [Network access controls](./enterprise-network-security)                       |  ❌  |     ❌      |     ❌      |       ✅        |
-| [Enforced authentication (advanced)](./enterprise-network-security)            |  ❌  |     ❌      |     ❌      |       ✅        |
+| Feature                                                                                | Free |    Team     | Enterprise  | Enterprise Plus |
+|----------------------------------------------------------------------------------------| :--: | :---------: | :---------: | :-------------: |
+| RBAC                                                                                   |  ✅  | ✅ Advanced | ✅ Advanced |   ✅ Advanced   |
+| [Audit logs](./audit-logs)                                                             |  ❌  |     ✅      |     ✅      |       ✅        |
+| [Resource groups](./enterprise-advanced-security)                                      |  ❌  |     ✅      |     ✅      |       ✅        |
+| [Feature access per resource group](./security-resource-groups#granular-feature-access)|  ❌  |     ❌      |     ✅      |       ✅        |
+| [Tokens admin / management](./enterprise-tokens-management)                            |  ❌  |     ✅      |     ✅      |       ✅        |
+| [Token revocation](./enterprise-tokens-management#revoking-via-api)                    |  ❌  |     ❌      |     ✅      |       ✅        |
+| [Download analytics](./download-analytics)                                             |  ✅  |     ✅      |     ✅      |       ✅        |
+| [Content access / policy controls](./enterprise-network-security)                      |  ❌  |     ❌      |     ❌      |       ✅        |
+| [Network access controls](./enterprise-network-security)                               |  ❌  |     ❌      |     ❌      |       ✅        |
+| [Enforced authentication (advanced)](./enterprise-network-security)                    |  ❌  |     ❌      |     ❌      |       ✅        |
 
 ### User provisioning & admin
 

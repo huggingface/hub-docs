@@ -5,12 +5,20 @@ This guide explains how to set up automatic user and group provisioning between 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> and <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plans.
 
+## Step 0: Confirm your organization is properly set up
+
+> [!NOTE]
+> This step is only required if you're setting up managed users on Hugging Face.
+
+Before proceeding, make sure your organization has been converted to a Hugging Face **managed organization**. SCIM provisioning for managed users is only available on managed organizations — if yours hasn't been converted yet, contact your Hugging Face account team before continuing with the steps below.
+
 ## Step 1: Get SCIM configuration from Hugging Face
 
-1.  Navigate to your organization's settings page on Hugging Face.
-2.  Go to the **SSO** tab, then click on the **SCIM** sub-tab.
-3.  Copy the **SCIM Tenant URL**. You will need this for the Entra ID configuration.
-4.  Click **Generate an access token**. A new SCIM token will be generated. Copy this token immediately and store it securely, as you will not be able to see it again.
+1.  Log in to a Hugging Face account that is an owner of the organization (for managed users, use the owner account provided after the managed user conversion).
+2.  Navigate to your organization's settings page on Hugging Face.
+3.  Go to the **SSO** tab, then click on the **SCIM** sub-tab.
+4.  Copy the **SCIM Tenant URL**. You will need this for the Entra ID configuration.
+5.  Click **Generate an access token**. A new SCIM token will be generated. Copy this token immediately and store it securely, as you will not be able to see it again.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/scim-settings.png"/>

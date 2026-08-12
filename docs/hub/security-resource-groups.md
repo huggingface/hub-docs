@@ -98,7 +98,7 @@ The available options are:
 
 When a non-admin member creates a Resource Group through the UI, they are automatically added as an **admin** of that newly created group. Through the API, this does not happen automatically, since API callers may be creating groups on behalf of others. Non-admin API callers must include at least one user with the admin role in the group's initial member list.
 
-## Feature access
+## Granular feature access
 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
@@ -125,7 +125,7 @@ For each one, you can pick who has access:
 - **Org admins only**: only organization admins keep access.
 - **Specific resource groups**: only members of the selected Resource Groups depending on their role in the group.
 
-Organization admins always keep access to every feature, whichever option is selected.
+Organization admins always keep access to every feature, whichever option is selected. If a feature is restricted to specific resource groups, associated resources must reside within those resource groups (only organization admins retain the ability to do so at the organization root level).
 
 Members without access can no longer use the feature in the organization's context, from the API as well as the UI — API requests return an authorization error. Nothing changes for them under their personal account or in another org.
 

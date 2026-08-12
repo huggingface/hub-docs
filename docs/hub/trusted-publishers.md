@@ -123,6 +123,18 @@ HF_OIDC_ID_TOKEN="$ID_TOKEN" HF_OIDC_RESOURCE="your-hf-username" hf download acm
 
 The resulting token can read gated repos you have access to and uses your account's rate limits. It **cannot** write anything, and **cannot** read your private repos.
 
+> [!TIP]
+> Need the token itself (for `curl`, `git clone`, or a tool that reads `HF_TOKEN`)? `hf auth token` performs the exchange and prints the short-lived token to stdout:
+>
+> ```yaml
+>       - name: Get a short-lived HF token
+>         env:
+>           HF_OIDC_RESOURCE: your-hf-username  # or a repo, e.g. acme/awesome-model
+>         run: echo "HF_TOKEN=$(hf auth token)" >> "$GITHUB_ENV"
+> ```
+>
+> This works with both user publishers and repo publishers — the token is scoped to whatever `HF_OIDC_RESOURCE` points at.
+
 ## Supported CI providers
 
 The settings UI ships with presets for the providers below, but any OIDC-compliant provider works (AWS, GCP, Buildkite, your own IdP, …).
