@@ -125,7 +125,7 @@ For each one, you can pick who has access:
 - **Org admins only**: only organization admins keep access.
 - **Specific resource groups**: only members of the selected Resource Groups depending on their role in the group.
 
-Organization admins always keep access to every feature, whichever option is selected.
+Organization admins always keep access to every feature, whichever option is selected. If a feature is restricted to specific resource groups, associated resources must reside within those resource groups (only organization admins retain the ability to do so at the organization root level).
 
 Members without access can no longer use the feature in the organization's context, from the API as well as the UI — API requests return an authorization error. Nothing changes for them under their personal account or in another org.
 
