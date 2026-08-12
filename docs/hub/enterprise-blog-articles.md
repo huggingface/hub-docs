@@ -14,7 +14,7 @@ When creating a new article at [huggingface.co/new-blog](https://huggingface.co/
 To publish blog articles under an organization namespace, members need `write` or `admin` role at the organization level. See [Access Control in Organizations](./organizations-security) for more details on roles.
 
 > [!NOTE]
-> On Enterprise plans and above, org admins can instead restrict who is allowed to write and publish organization blog articles through Resource Groups [Feature access](./security-resource-groups#feature-access) settings.
+> On Enterprise plans and above, org admins can instead restrict who is allowed to write and publish organization blog articles through Resource Groups [Granular feature access](./security-resource-groups#granular-feature-access) settings.
 
 ## Linking to Models and Datasets
 
