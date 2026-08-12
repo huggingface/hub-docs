@@ -67,6 +67,9 @@ Organization collections can be assigned to a [Resource Group](./security-resour
 
 This feature is reserved for [Team & Enterprise](https://huggingface.co/docs/hub/en/enterprise) subscribers.
 
+> [!NOTE]
+> Assigning a collection to a Resource Group controls access to *that specific collection*. To restrict who can create or edit organization Collections at all, see [Granular feature access](./security-resource-groups#granular-feature-access) (Enterprise plans and above).
+
 ### Ordering your collections and their items
 
 You can use the drag and drop handles in the collections list (on the left side of your collections page) to change the order of your collections (1). The first two collections will be directly visible on your profile/organization pages.
