@@ -98,7 +98,7 @@ The available options are:
 
 When a non-admin member creates a Resource Group through the UI, they are automatically added as an **admin** of that newly created group. Through the API, this does not happen automatically, since API callers may be creating groups on behalf of others. Non-admin API callers must include at least one user with the admin role in the group's initial member list.
 
-## Feature access
+## Granular feature access
 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
