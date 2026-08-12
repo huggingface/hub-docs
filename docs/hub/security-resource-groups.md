@@ -28,7 +28,7 @@ Resource Groups also affect the visibility of private repositories inside the or
 
 ## Getting started
 
-Head to your Organization's settings, then navigate to the "Resource Group" tab in the left menu.
+Head to your Organization's settings, then navigate to the "Resource Group" entry in the left menu. The page is split in two tabs: **Resource Groups**, where the groups themselves are listed and managed, and **Access settings**, where org admins configure who can create Resource Groups and which members can use specific organization features.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-groups-page.png"/>
@@ -88,7 +88,7 @@ To switch a Resource Group from auto-join to SCIM-managed (or vice versa), disab
 
 ## Who can create Resource Groups
 
-By default, only organization admins can create new Resource Groups. Org admins can change this by setting the **minimum member role required to create Resource Groups** on the Resource Groups settings page.
+By default, only organization admins can create new Resource Groups. Org admins can change this by setting the **minimum member role required to create Resource Groups** in the **Access settings** tab of the Resource Groups settings page.
 
 The available options are:
 - **Admins only** (default) — only org admins can create Resource Groups.
@@ -97,6 +97,37 @@ The available options are:
 - **Read+** — any org member can create Resource Groups.
 
 When a non-admin member creates a Resource Group through the UI, they are automatically added as an **admin** of that newly created group. Through the API, this does not happen automatically, since API callers may be creating groups on behalf of others. Non-admin API callers must include at least one user with the admin role in the group's initial member list.
+
+## Granular feature access
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
+
+Org admins can also control who's allowed to use a given organization feature, separately from repository access. The setting lives on the **Access settings** tab of the Resource Groups settings page.
+
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/feature-access.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dark-feature-access.png"/>
+</div>
+
+The following features can be restricted:
+
+- **Blog**: writing and publishing organization [blog articles](./enterprise-blog-articles).
+- **Collections**: creating and editing organization [collections](./collections).
+- **Jobs**: running and viewing [Jobs](./jobs) billed to the organization.
+- **Inference Endpoints**: creating, managing, and calling Inference Endpoints owned by the organization.
+- **Inference Providers**: [Inference Providers](/docs/inference-providers) requests billed to the organization.
+
+
+For each one, you can pick who has access:
+
+- **Everyone** (default): every member of the organization depending on their organization role.
+- **Org admins only**: only organization admins keep access.
+- **Specific resource groups**: only members of the selected Resource Groups depending on their role in the group.
+
+Organization admins always keep access to every feature, whichever option is selected. If a feature is restricted to specific resource groups, associated resources must reside within those resource groups (only organization admins retain the ability to do so at the organization root level).
+
+Members without access can no longer use the feature in the organization's context, from the API as well as the UI — API requests return an authorization error. Nothing changes for them under their personal account or in another org.
 
 ## Cost attribution
 
