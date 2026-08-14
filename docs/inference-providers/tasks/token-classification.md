@@ -37,7 +37,7 @@ hf models ls --warm --pipeline-tag token-classification --sort trending_score
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"OpenMed/privacy-filter-nemotron-v2","providerModelId":"OpenMed/privacy-filter-nemotron-v2"}} }
+    providersMapping={ {"hf-inference":{"modelId":"rizzoaiacademy/rizzo-pii-0.3B","providerModelId":"rizzoaiacademy/rizzo-pii-0.3B"}} }
 />
 
 

@@ -49,7 +49,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"cohere":{"modelId":"CohereLabs/tiny-aya-global","providerModelId":"tiny-aya-global"} } }
+    providersMapping={ {"cohere":{"modelId":"CohereLabs/aya-expanse-32b","providerModelId":"c4ai-aya-expanse-32b"} } }
 conversational />
 
 
@@ -59,6 +59,6 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"cohere":{"modelId":"CohereLabs/aya-vision-32b","providerModelId":"c4ai-aya-vision-32b"} } }
+    providersMapping={ {"cohere":{"modelId":"CohereLabs/command-a-plus-05-2026-w4a4","providerModelId":"command-a-plus-05-2026"} } }
 conversational />
 
