@@ -4,40 +4,40 @@
   title: Get Started
   isExpanded: true
 - sections:
+    - local: tutorials/index
+      title: Overview
+    - sections:
+        - local: tutorials/sagemaker-sdk/sagemaker-sdk-quickstart
+          title: Quickstart
+        - local: tutorials/sagemaker-sdk/deploy-sagemaker-sdk
+          title: Deploy models
+        - local: tutorials/sagemaker-sdk/training-sagemaker-sdk
+          title: Train models
+      title: SageMaker SDK
+      isExpanded: false
+    - sections:
+        - local: tutorials/jumpstart/jumpstart-quickstart
+          title: Quickstart
+      title: JumpStart
+      isExpanded: false
+    - sections:
+        - local: tutorials/bedrock/bedrock-quickstart
+          title: Quickstart
+      title: Bedrock
+      isExpanded: false
+    - sections:
+        - local: tutorials/compute-services/compute-services-quickstart
+          title: Quickstart
+      title: EC2, ECS, and EKS
+      isExpanded: false
+  title: Tutorials
+  isExpanded: true
+- sections:
     - local: dlcs/introduction
       title: Introduction
     - local: dlcs/available
       title: Available DLCs on AWS
   title: Deep Learning Containers (DLCs)
-  isExpanded: true
-- sections:
-    - local: tutorials/index
-      title: Introduction
-    - sections:
-        - local: tutorials/sagemaker-sdk/sagemaker-sdk-quickstart
-          title: SageMaker SDK Quickstart
-        - local: tutorials/sagemaker-sdk/training-sagemaker-sdk
-          title: Train models with SageMaker SDK
-        - local: tutorials/sagemaker-sdk/deploy-sagemaker-sdk
-          title: Deploy models with SageMaker SDK
-      title: SageMaker SDK
-      isExpanded: false
-    - sections:
-        - local: tutorials/jumpstart/jumpstart-quickstart
-          title: Jumpstart Quickstart
-      title: Jumpstart
-      isExpanded: false
-    - sections:
-        - local: tutorials/bedrock/bedrock-quickstart
-          title: Bedrock Quickstart
-      title: Bedrock
-      isExpanded: false
-    - sections:
-        - local: tutorials/compute-services/compute-services-quickstart
-          title: EC2, ECS and EKS Quickstart
-      title: EC2, ECS and EKS
-      isExpanded: false
-  title: Tutorials
   isExpanded: false
 
 
