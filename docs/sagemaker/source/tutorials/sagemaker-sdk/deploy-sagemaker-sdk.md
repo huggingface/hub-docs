@@ -130,15 +130,15 @@ from sagemaker.serve import ModelBuilder
 ############ pseudo code start ############
 
 # create a ModelTrainer for training
-huggingface_estimator = ModelTrainer(....)
+model_trainer = ModelTrainer(....)
 
 # start the train job with our uploaded datasets as input
-huggingface_estimator.train(...)
+model_trainer.train(...)
 
 ############ pseudo code end ############
 
 # build a Model from the trained artifacts and deploy it to SageMaker Inference
-model_data = huggingface_estimator._latest_training_job.model_artifacts.s3_model_artifacts
+model_data = model_trainer._latest_training_job.model_artifacts.s3_model_artifacts
 model_builder = ModelBuilder(
     image_uri=inference_image,        # Hugging Face inference DLC, from the Hub example above
     s3_model_data_url=model_data,
@@ -344,7 +344,7 @@ from sagemaker.serve import ModelBuilder
 # build a Model from the trained artifacts
 model_builder = ModelBuilder(
     image_uri=inference_image,
-    s3_model_data_url=huggingface_estimator._latest_training_job.model_artifacts.s3_model_artifacts,
+    s3_model_data_url=model_trainer._latest_training_job.model_artifacts.s3_model_artifacts,
     role_arn=role,
     sagemaker_session=sess,
 )
