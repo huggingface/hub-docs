@@ -66,7 +66,7 @@ For a more in-depth exploration of the different options, choose from the follow
 DLCs are Docker images pre-installed with Hugging Face libraries and serving engines such as vLLM, SGLang, and llama.cpp, maintained by Hugging Face and AWS.
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 my-6 not-prose">
-  <a class="group rounded-xl border border-gray-200 px-5 py-4 no-underline! dark:border-gray-800" href="./dlcs/introduction">
+  <a class="group rounded-xl border border-gray-200 px-5 py-4 no-underline! dark:border-gray-800" href="./get-started/dlcs">
     <div class="font-semibold text-gray-900 group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-300">Deep Learning Containers</div>
     <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">What the DLCs are, how they work, and which images are available.</p>
   </a>
@@ -82,6 +82,6 @@ DLCs are Docker images pre-installed with Hugging Face libraries and serving eng
 
 ## Reference
 
-- [Available DLCs](./dlcs/available)
+- [Deep Learning Containers](./get-started/dlcs)
 - [Inference Toolkit API](./reference/inference-toolkit)
 - [Other Resources](./reference/resources)

@@ -255,7 +255,7 @@ Now you can provide the S3 URI to the `model_data` argument to deploy your model
 
 ## Deploy an LLM with the vLLM DLC
 
-For high-performance LLM serving, use the Hugging Face vLLM DLC. [vLLM](https://docs.vllm.ai/) serves most text-generation architectures on the Hub with high throughput and memory efficiency, and exposes an OpenAI-compatible API. The DLC is available for GPU and AWS AI chips (Neuron) — browse all images on the [Available DLCs](../../dlcs/available) page.
+For high-performance LLM serving, use the Hugging Face vLLM DLC. [vLLM](https://docs.vllm.ai/) serves most text-generation architectures on the Hub with high throughput and memory efficiency, and exposes an OpenAI-compatible API. The DLC is available for GPU and AWS AI chips (Neuron) — browse all images on the [Available DLCs](../../get-started/dlcs#available-dlcs) page.
 
 Retrieve the vLLM DLC image URI and deploy with `ModelBuilder`:
 

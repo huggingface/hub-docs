@@ -1,7 +1,14 @@
 - sections:
     - local: index
       title: Hugging Face on AWS
-  title: Get Started
+  title: Overview
+  isExpanded: true
+- sections:
+    - local: get-started/quickstart
+      title: Quickstart
+    - local: get-started/dlcs
+      title: Deep Learning Containers
+  title: Get started
   isExpanded: true
 - sections:
     - local: tutorials/index
@@ -34,13 +41,6 @@
       isExpanded: false
   title: Tutorials
   isExpanded: true
-- sections:
-    - local: dlcs/introduction
-      title: Introduction
-    - local: dlcs/available
-      title: Available DLCs on AWS
-  title: Deep Learning Containers (DLCs)
-  isExpanded: false
 
 
 
