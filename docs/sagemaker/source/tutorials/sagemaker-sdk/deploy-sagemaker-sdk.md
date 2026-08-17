@@ -26,7 +26,8 @@ To deploy a model directly from the 🤗 Hub to SageMaker, pass the model ID as 
 - `model` is the model ID, automatically loaded from [huggingface.co/models](http://huggingface.co/models) when you create a SageMaker endpoint (ModelBuilder sets the `HF_MODEL_ID` environment variable from it).
 - `HF_TASK` defines the task for the 🤗 Transformers `pipeline`. A complete list of tasks can be found [here](https://huggingface.co/docs/transformers/main_classes/pipelines).
 
-> ⚠️ ** Pipelines are not optimized for parallelism (multi-threading) and tend to consume a lot of RAM. For example, on a GPU-based instance, the pipeline operates on a single vCPU. When this vCPU becomes saturated with the inference requests preprocessing, it can create a bottleneck, preventing the GPU from being fully utilized for model inference. Learn more [here](https://huggingface.co/docs/transformers/en/pipeline_webserver#using-pipelines-for-a-webserver)
+> [!WARNING]
+> Pipelines are not optimized for parallelism (multi-threading) and tend to consume a lot of RAM. For example, on a GPU-based instance, the pipeline operates on a single vCPU. When this vCPU becomes saturated with the inference requests preprocessing, it can create a bottleneck, preventing the GPU from being fully utilized for model inference. Learn more [here](https://huggingface.co/docs/transformers/en/pipeline_webserver#using-pipelines-for-a-webserver).
 
 ```python
 import json
@@ -329,9 +330,11 @@ predictor.delete()
 
 After training a model, you can use [SageMaker batch transform](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-batch.html) to perform inference with the model. Batch transform accepts your inference data as an S3 URI  and then SageMaker will take care of downloading the data, running the prediction, and uploading the results to S3. For more details about batch transform, take a look [here](https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html).
 
-⚠️ The Hugging Face Inference DLC currently only supports `.jsonl` for batch transform due to the complex structure of textual data.
+> [!WARNING]
+> The Hugging Face Inference DLC currently only supports `.jsonl` for batch transform due to the complex structure of textual data.
 
-_Note: Make sure your `inputs` fit the `max_length` of the model during preprocessing._
+> [!NOTE]
+> Make sure your `inputs` fit the `max_length` of the model during preprocessing.
 
 If you trained a model with a `ModelTrainer`, build a `ModelBuilder` from the trained artifacts and call its `transformer()` method to create a transform job:
 

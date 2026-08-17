@@ -69,7 +69,8 @@ response = bedrock.converse(
 print(response["output"]["message"]["content"][0]["text"])
 ```
 
-*Heads‑up*: the same `modelId=endpoint_arn` works with **InvokeModel**, **Knowledge Bases (RetrieveAndGenerate)**, **Agents**, and **Guardrails**—no code changes.
+> [!NOTE]
+> The same `modelId=endpoint_arn` works with **InvokeModel**, **Knowledge Bases (RetrieveAndGenerate)**, **Agents**, and **Guardrails** — no code changes.
 
 ## 4 . Clean‑up (stop charges)
 
