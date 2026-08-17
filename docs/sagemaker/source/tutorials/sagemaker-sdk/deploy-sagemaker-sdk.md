@@ -1,6 +1,6 @@
 # Deploy models to Amazon SageMaker
 
-Deploying a 🤗 Transformers models in SageMaker for inference is as easy as:
+Deploying 🤗 Transformers models in SageMaker for inference is as easy as:
 
 ```python
 from sagemaker.serve import ModelBuilder
@@ -23,7 +23,7 @@ This guide will show you how to deploy models with zero-code using the [Inferenc
 
 To deploy a model directly from the 🤗 Hub to SageMaker, pass the model ID as the `model` argument and the task via the `HF_TASK` environment variable when you create a `ModelBuilder`:
 
-- `model` is the model ID, automatically loaded from [huggingface.co/models](http://huggingface.co/models) when you create a SageMaker endpoint (ModelBuilder sets the `HF_MODEL_ID` environment variable from it). Access 10,000+ models on the 🤗 Hub this way.
+- `model` is the model ID, automatically loaded from [huggingface.co/models](http://huggingface.co/models) when you create a SageMaker endpoint (ModelBuilder sets the `HF_MODEL_ID` environment variable from it).
 - `HF_TASK` defines the task for the 🤗 Transformers `pipeline`. A complete list of tasks can be found [here](https://huggingface.co/docs/transformers/main_classes/pipelines).
 
 > ⚠️ ** Pipelines are not optimized for parallelism (multi-threading) and tend to consume a lot of RAM. For example, on a GPU-based instance, the pipeline operates on a single vCPU. When this vCPU becomes saturated with the inference requests preprocessing, it can create a bottleneck, preventing the GPU from being fully utilized for model inference. Learn more [here](https://huggingface.co/docs/transformers/en/pipeline_webserver#using-pipelines-for-a-webserver)
@@ -95,7 +95,9 @@ res = predictor.invoke(body=json.dumps(data), content_type="application/json")
 print(json.loads(res.body.read()))
 ```
 
-After you run our request, you can delete the endpoint again with:
+The remaining sections on this page reuse `sess`, `role`, and `inference_image` from this example; each snippet shows only what it changes.
+
+After you run your request, you can delete the endpoint again with:
 
 ```python
 # delete endpoint
@@ -137,7 +139,7 @@ huggingface_estimator.train(...)
 # build a Model from the trained artifacts and deploy it to SageMaker Inference
 model_data = huggingface_estimator._latest_training_job.model_artifacts.s3_model_artifacts
 model_builder = ModelBuilder(
-    image_uri=inference_image,        # Hugging Face inference DLC, see image_uris.retrieve below
+    image_uri=inference_image,        # Hugging Face inference DLC, from the Hub example above
     s3_model_data_url=model_data,
     role_arn=role,
     sagemaker_session=sess,
@@ -170,23 +172,8 @@ If you've already trained your model and want to deploy it at a later time, use 
 ```python
 import json
 from sagemaker.serve import ModelBuilder
-from sagemaker.core import image_uris
-from sagemaker.core.helper.session_helper import Session, get_execution_role
 
-# set up the SageMaker session and execution role
-sess = Session()
-role = get_execution_role()
-
-# Retrieve the Hugging Face PyTorch inference DLC image URI
-inference_image = image_uris.retrieve(
-    framework="huggingface",
-    region=sess.boto_region_name,
-    version="4.51.3",                          # Transformers version
-    base_framework_version="pytorch2.6.0",   # PyTorch version
-    py_version="py312",                      # Python version
-    image_scope="inference",
-    instance_type="ml.m5.xlarge",
-)
+# reuses sess, role, and inference_image from the Hub example above
 
 # create a ModelBuilder pointing at your trained model artifacts
 model_builder = ModelBuilder(
@@ -214,7 +201,7 @@ res = predictor.invoke(body=json.dumps(data), content_type="application/json")
 print(json.loads(res.body.read()))
 ```
 
-After you run our request, you can delete the endpoint again with:
+After you run your request, you can delete the endpoint again with:
 
 ```python
 # delete endpoint
@@ -272,12 +259,10 @@ For high-performance LLM serving, use the Hugging Face vLLM DLC. [vLLM](https://
 Retrieve the vLLM DLC image URI and deploy with `ModelBuilder`:
 
 ```python
-from sagemaker.core.helper.session_helper import Session, get_execution_role
 from sagemaker.core.image_uris import retrieve
 from sagemaker.serve import ModelBuilder, ModelServer
 
-sess = Session()
-role = get_execution_role()
+# reuses sess and role from the Hub example above
 
 model_id = "Qwen/Qwen3-8B"
 instance_type = "ml.g5.xlarge"
@@ -380,16 +365,13 @@ If you want to run your batch transform job later or with a model from the 🤗 
 from sagemaker.serve import ModelBuilder, ModelServer
 from sagemaker.serve.builder.schema_builder import SchemaBuilder
 from sagemaker.core import image_uris
-from sagemaker.core.helper.session_helper import Session, get_execution_role
 
-# set up the SageMaker session and execution role
-sess = Session()
-role = get_execution_role()
+# reuses sess and role from the Hub example above
 
 model_id = "distilbert/distilbert-base-uncased-finetuned-sst-2-english"
 instance_type = "ml.p3.2xlarge"
 
-# Retrieve the Hugging Face PyTorch inference DLC image URI
+# Retrieve the inference DLC image URI again for this instance type (GPU)
 inference_image = image_uris.retrieve(
     framework="huggingface",
     region=sess.boto_region_name,

@@ -35,8 +35,8 @@ if __name__ == "__main__":
 
     # hyperparameters sent by the client are passed as command-line arguments to the script
     parser.add_argument("--epochs", type=int, default=3)
-    parser.add_argument("--per_device_train_batch_size", type=int, default=32)
-    parser.add_argument("--model_name_or_path", type=str)
+    parser.add_argument("--train_batch_size", type=int, default=32)
+    parser.add_argument("--model_name", type=str)
 
     # data, model, and output directories
     parser.add_argument("--model-dir", type=str, default=os.environ["SM_MODEL_DIR"])
@@ -65,7 +65,7 @@ Run 🤗 Transformers training scripts on SageMaker by creating a [`ModelTrainer
 3. `training_image` is the training container image, retrieved with `image_uris.retrieve`.
 4. `hyperparameters` specifies training hyperparameters. View additional available hyperparameters in [train.py file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py).
 
-The following code sample shows how to train with a custom script `train.py` with three hyperparameters (`epochs`, `per_device_train_batch_size`, and `model_name_or_path`):
+The following code sample shows how to train with a custom script `train.py` with three hyperparameters (`epochs`, `train_batch_size`, and `model_name`):
 
 ```python
 from sagemaker.train.model_trainer import ModelTrainer
@@ -80,8 +80,8 @@ role = get_execution_role()
 # hyperparameters which are passed to the training job (as `--key value` CLI args)
 hyperparameters = {
     'epochs': 1,
-    'per_device_train_batch_size': 32,
-    'model_name_or_path': 'distilbert-base-uncased',
+    'train_batch_size': 32,
+    'model_name': 'distilbert-base-uncased',
 }
 
 instance_type = 'ml.g6.12xlarge'
@@ -116,6 +116,8 @@ huggingface_estimator = ModelTrainer(
 
 If you are running a `TrainingJob` locally, define `instance_type='local'` or `instance_type='local_gpu'` for GPU usage. Note that this will not work with SageMaker Studio.
 
+The sections below reuse `sess`, `role`, `training_image`, and `hyperparameters` from this example; each snippet shows only what it changes.
+
 ## Execute training
 
 Start your `TrainingJob` by calling `train` on a `ModelTrainer`. Specify your input training data as channels via `input_data_config`. Each channel's `data_source` can be a:
@@ -139,7 +141,7 @@ huggingface_estimator.train(
 SageMaker starts and manages all the required EC2 instances and initiates the `TrainingJob` by running:
 
 ```bash
-/opt/conda/bin/python train.py --epochs 1 --model_name_or_path distilbert-base-uncased --per_device_train_batch_size 32
+/opt/conda/bin/python train.py --epochs 1 --model_name distilbert-base-uncased --train_batch_size 32
 ```
 
 ## Access trained model
@@ -170,34 +172,11 @@ SageMaker provides two strategies for distributed training: data parallelism and
 The Hugging Face [Trainer](https://huggingface.co/docs/transformers/main_classes/trainer) supports distributed data parallel training. With `ModelTrainer` you launch your script with `torchrun` by passing a `Torchrun` config to the `distributed` parameter. Set `process_count_per_node` to the number of GPUs per instance (`ml.p3dn.24xlarge` has 8):
 
 ```python
-from sagemaker.train.model_trainer import ModelTrainer
-from sagemaker.train.configs import SourceCode, Compute
 from sagemaker.train.distributed import Torchrun
-from sagemaker.core import image_uris
-from sagemaker.core.helper.session_helper import Session, get_execution_role
 
-# set up the SageMaker session and execution role
-sess = Session()
-role = get_execution_role()
+# reuses sess, role, training_image, and hyperparameters from the ModelTrainer example above
 
-# hyperparameters which are passed to the training job (as `--key value` CLI args)
-hyperparameters = {
-    'epochs': 1,
-    'per_device_train_batch_size': 32,
-    'model_name_or_path': 'distilbert-base-uncased',
-}
-
-instance_type = 'ml.p3dn.24xlarge'
-
-training_image = image_uris.retrieve(
-    framework="huggingface",
-    region=sess.boto_region_name,
-    version="4.49.0",
-    base_framework_version="pytorch2.5.1",
-    py_version="py311",
-    image_scope="training",
-    instance_type=instance_type,
-)
+instance_type = 'ml.p3dn.24xlarge'  # 8 GPUs per instance
 
 # create the ModelTrainer with torchrun for distributed data parallelism
 huggingface_estimator = ModelTrainer(
@@ -218,34 +197,11 @@ huggingface_estimator = ModelTrainer(
 The Hugging Face [Trainer] also supports model parallelism through the SageMaker Model Parallelism library (SMP). With `ModelTrainer` you enable it by passing an `SMP` config to `Torchrun`. SMP provides tensor parallelism, context parallelism and sharded data parallelism:
 
 ```python
-from sagemaker.train.model_trainer import ModelTrainer
-from sagemaker.train.configs import SourceCode, Compute
 from sagemaker.train.distributed import Torchrun, SMP
-from sagemaker.core import image_uris
-from sagemaker.core.helper.session_helper import Session, get_execution_role
 
-# set up the SageMaker session and execution role
-sess = Session()
-role = get_execution_role()
+# reuses sess, role, training_image, and hyperparameters from the ModelTrainer example above
 
-# hyperparameters which are passed to the training job (as `--key value` CLI args)
-hyperparameters = {
-    'epochs': 1,
-    'per_device_train_batch_size': 32,
-    'model_name_or_path': 'distilbert-base-uncased',
-}
-
-instance_type = 'ml.p3dn.24xlarge'
-
-training_image = image_uris.retrieve(
-    framework="huggingface",
-    region=sess.boto_region_name,
-    version="4.49.0",
-    base_framework_version="pytorch2.5.1",
-    py_version="py311",
-    image_scope="training",
-    instance_type=instance_type,
-)
+instance_type = 'ml.p3dn.24xlarge'  # 8 GPUs per instance
 
 # create the ModelTrainer with torchrun + SMP for model parallelism
 huggingface_estimator = ModelTrainer(
@@ -276,16 +232,10 @@ _Note: Unless your training job completes quickly, we recommend you use [checkpo
 Set `enable_managed_spot_training=True` on `Compute` and define `max_wait_time_in_seconds` and `max_runtime_in_seconds` on `StoppingCondition` to use spot instances:
 
 ```python
-from sagemaker.train.model_trainer import ModelTrainer
-from sagemaker.train.configs import SourceCode, Compute, StoppingCondition, CheckpointConfig
-from sagemaker.core import image_uris
-from sagemaker.core.helper.session_helper import Session, get_execution_role
+from sagemaker.train.configs import StoppingCondition, CheckpointConfig
 
-# set up the SageMaker session and execution role
-sess = Session()
-role = get_execution_role()
-
-# hyperparameters which are passed to the training job
+# reuses sess, role, and training_image from the ModelTrainer example above
+# spot instances need checkpointing, so the training script must write to /opt/ml/checkpoints
 hyperparameters = {
     'epochs': 1,
     'train_batch_size': 32,
@@ -294,16 +244,6 @@ hyperparameters = {
 }
 
 instance_type = 'ml.g6.12xlarge'
-
-training_image = image_uris.retrieve(
-    framework="huggingface",
-    region=sess.boto_region_name,
-    version="4.49.0",
-    base_framework_version="pytorch2.5.1",
-    py_version="py311",
-    image_scope="training",
-    instance_type=instance_type,
-)
 
 # create the ModelTrainer
 huggingface_estimator = ModelTrainer(
@@ -344,34 +284,13 @@ git clone --branch v4.49.0 https://github.com/huggingface/transformers.git
 ```
 
 ```python
-from sagemaker.train.model_trainer import ModelTrainer
-from sagemaker.train.configs import SourceCode, Compute
-from sagemaker.core import image_uris
-from sagemaker.core.helper.session_helper import Session, get_execution_role
-
-# set up the SageMaker session and execution role
-sess = Session()
-role = get_execution_role()
-
-# hyperparameters which are passed to the training job (as `--key value` CLI args)
+# reuses sess, role, and training_image from the ModelTrainer example above
+# run_glue.py takes the Transformers example argument names
 hyperparameters = {
     'epochs': 1,
     'per_device_train_batch_size': 32,
     'model_name_or_path': 'distilbert-base-uncased',
 }
-
-instance_type = 'ml.g6.12xlarge'
-
-# Retrieve the Hugging Face PyTorch training DLC image URI
-training_image = image_uris.retrieve(
-    framework="huggingface",
-    region=sess.boto_region_name,
-    version="4.49.0",
-    base_framework_version="pytorch2.5.1",
-    py_version="py311",
-    image_scope="training",
-    instance_type=instance_type,
-)
 
 # create the ModelTrainer pointing at the cloned example directory
 huggingface_estimator = ModelTrainer(
@@ -393,33 +312,11 @@ huggingface_estimator = ModelTrainer(
 [SageMaker metrics](https://docs.aws.amazon.com/sagemaker/latest/dg/training-metrics.html#define-train-metrics) automatically parses training job logs for metrics and sends them to CloudWatch. If you want SageMaker to parse the logs, you must specify the metric's name and a regular expression for SageMaker to use to find the metric. With `ModelTrainer` you attach them using `with_metric_definitions`:
 
 ```python
-from sagemaker.train.model_trainer import ModelTrainer
-from sagemaker.train.configs import SourceCode, Compute, MetricDefinition
-from sagemaker.core import image_uris
-from sagemaker.core.helper.session_helper import Session, get_execution_role
+from sagemaker.train.configs import MetricDefinition
 
-# set up the SageMaker session and execution role
-sess = Session()
-role = get_execution_role()
-
-# hyperparameters which are passed to the training job (as `--key value` CLI args)
-hyperparameters = {
-    'epochs': 1,
-    'per_device_train_batch_size': 32,
-    'model_name_or_path': 'distilbert-base-uncased',
-}
+# reuses sess, role, training_image, and hyperparameters from the ModelTrainer example above
 
 instance_type = 'ml.g6.12xlarge'
-
-training_image = image_uris.retrieve(
-    framework="huggingface",
-    region=sess.boto_region_name,
-    version="4.49.0",
-    base_framework_version="pytorch2.5.1",
-    py_version="py311",
-    image_scope="training",
-    instance_type=instance_type,
-)
 
 # define metrics definitions
 metric_definitions = [
