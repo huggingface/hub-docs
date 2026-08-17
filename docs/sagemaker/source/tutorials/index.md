@@ -10,4 +10,4 @@ Pick the offering that matches how you want to work. Every tutorial is self-cont
 | EC2, ECS, and EKS | You want to run the Deep Learning Containers directly on AWS compute services. | [Quickstart](./compute-services/compute-services-quickstart) |
 | Inference Endpoints | You want Hugging Face to manage the infrastructure, optimized for cost and throughput. | [Guide](https://huggingface.co/docs/inference-endpoints/guides/create_endpoint) |
 
-All offerings run the same Hugging Face [Deep Learning Containers](../dlcs/introduction). For end-to-end recipes (TRL fine-tuning, embedding models, Inferentia2, and more), see the **Examples** section in the sidebar.
+All offerings run the same Hugging Face [Deep Learning Containers](../get-started/dlcs). For end-to-end recipes (TRL fine-tuning, embedding models, Inferentia2, and more), see the **Examples** section in the sidebar.
