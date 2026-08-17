@@ -9,10 +9,12 @@
     - sections:
         - local: tutorials/sagemaker-sdk/sagemaker-sdk-quickstart
           title: Quickstart
-        - local: tutorials/sagemaker-sdk/deploy-sagemaker-sdk
-          title: Deploy models
+        - local: tutorials/sagemaker-sdk/setup-sagemaker-sdk
+          title: Set up the SDK
         - local: tutorials/sagemaker-sdk/training-sagemaker-sdk
           title: Train models
+        - local: tutorials/sagemaker-sdk/deploy-sagemaker-sdk
+          title: Deploy models
       title: SageMaker SDK
       isExpanded: false
     - sections:
