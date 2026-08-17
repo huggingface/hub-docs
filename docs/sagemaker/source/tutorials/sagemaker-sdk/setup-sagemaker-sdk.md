@@ -1,12 +1,12 @@
 # Set up the SageMaker SDK
 
-Everything in the SageMaker SDK tutorials assumes the setup below. Do it once, then pick any tutorial.
+Welcome to the SageMaker SDK tutorials. Spend a few minutes on this page once, and every tutorial after it will work out of the box.
 
 ## AWS account and SDK
 
-You need an AWS account. If you do not have one, follow the [AWS setup guide](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-set-up.html).
+You need an AWS account. If you do not have one yet, the [AWS setup guide](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-set-up.html) walks you through it.
 
-Install the SageMaker Python SDK v3:
+Then install the SageMaker Python SDK v3:
 
 ```bash
 pip install "sagemaker>=3.0.0"
@@ -17,19 +17,17 @@ pip install "sagemaker>=3.0.0"
 
 ## Where to run
 
-You can run the tutorials from any of the following:
+The tutorials work the same wherever you prefer to run them:
 
 - [SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html)
 - A [SageMaker notebook instance](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-console.html)
-- A local environment with AWS credentials configured
+- Your local environment, as long as your AWS credentials are configured
 
 ## Execution role
 
-SageMaker needs an [IAM execution role](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html) with permissions to access S3 and create training jobs and endpoints.
+SageMaker runs training jobs and endpoints under an [IAM execution role](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html) with access to S3. How you provide the role depends on where you run.
 
-**SageMaker environment (Studio or notebook instance)**
-
-`get_execution_role()` returns the role automatically:
+**SageMaker Studio or a notebook instance** — nothing to set up, `get_execution_role()` finds the role for you:
 
 ```python
 from sagemaker.core.helper.session_helper import Session, get_execution_role
@@ -38,11 +36,9 @@ sess = Session()
 role = get_execution_role()
 ```
 
-The execution role only exists inside SageMaker. If you call `get_execution_role` in a notebook that does not run on SageMaker, you get a region error.
+Keep in mind that this only works inside SageMaker: `get_execution_role()` fails with a region error anywhere else.
 
-**Local environment**
-
-Look up the role ARN yourself and create the session:
+**Your local environment** — look up the role ARN once and pass it yourself:
 
 ```python
 import boto3
@@ -52,3 +48,7 @@ iam_client = boto3.client("iam")
 role = iam_client.get_role(RoleName="role-name-of-your-iam-role-with-right-permissions")["Role"]["Arn"]
 sess = Session()
 ```
+
+## What's next
+
+You are all set. Continue with [Train models](./training-sagemaker-sdk) or [Deploy models](./deploy-sagemaker-sdk) — or head back to the [Quickstart](./sagemaker-sdk-quickstart) if you have not run it yet.

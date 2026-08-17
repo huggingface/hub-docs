@@ -1,6 +1,6 @@
 # Amazon SageMaker SDK Quickstart
 
-Deploy a model from the Hugging Face Hub to a live SageMaker endpoint in a few minutes with the SageMaker Python SDK. No training, no data preparation.
+Deploy a model from the Hugging Face Hub to a live SageMaker endpoint in a few minutes with the SageMaker Python SDK.
 
 ## Prerequisites
 
