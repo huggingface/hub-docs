@@ -44,17 +44,19 @@ if __name__ == "__main__":
     parser.add_argument("--test_dir", type=str, default=os.environ["SM_CHANNEL_TEST"])
 ```
 
-_Note that SageMaker doesn’t support argparse actions. For example, if you want to use a boolean hyperparameter, specify `type` as `bool` in your script and provide an explicit `True` or `False` value._
+> [!NOTE]
+> SageMaker does not support argparse actions. For example, if you want a boolean hyperparameter, specify `type` as `bool` in your script and provide an explicit `True` or `False` value.
 
 Look [train.py file](https://github.com/huggingface/notebooks/blob/main/sagemaker/01_getting_started_pytorch/scripts/train.py) for a complete example of a 🤗 Transformers training script.
 
 ## Training Output Management
 
-If `output_dir` in the `TrainingArguments` is set to '/opt/ml/model' the Trainer saves all training artifacts, including logs, checkpoints, and models. Amazon SageMaker archives the whole '/opt/ml/model' directory as `model.tar.gz` and uploads it at the end of the training job to Amazon S3. Depending on your Hyperparameters and `TrainingArguments` this could lead to a large artifact (> 5GB), which can slow down deployment for Amazon SageMaker Inference. 
-You can control how checkpoints, logs, and artifacts are saved by customization the [TrainingArguments](https://huggingface.co/docs/transformers/main/en/main_classes/trainer#transformers.TrainingArguments). For example by providing `save_total_limit` as `TrainingArgument` you can control the limit of the total amount of checkpoints. Deletes the older checkpoints in `output_dir` if new ones are saved and the maximum limit is reached.
+If `output_dir` in the `TrainingArguments` is set to `/opt/ml/model`, the Trainer saves all training artifacts, including logs, checkpoints, and models. Amazon SageMaker archives the whole `/opt/ml/model` directory as `model.tar.gz` and uploads it at the end of the training job to Amazon S3. Depending on your hyperparameters and `TrainingArguments`, this can lead to a large artifact (> 5GB), which slows down deployment for Amazon SageMaker Inference.
+You can control how checkpoints, logs, and artifacts are saved by customizing the [TrainingArguments](https://huggingface.co/docs/transformers/main/en/main_classes/trainer#transformers.TrainingArguments). For example, set `save_total_limit` to cap the number of checkpoints: older checkpoints in `output_dir` are deleted once the limit is reached.
 
 In addition to the options already mentioned above, there is another option to save the training artifacts during the training session. Amazon SageMaker supports [Checkpointing](https://docs.aws.amazon.com/sagemaker/latest/dg/model-checkpoints.html), which allows you to continuously save your artifacts during training to Amazon S3 rather than at the end of your training. To enable [Checkpointing](https://docs.aws.amazon.com/sagemaker/latest/dg/model-checkpoints.html) you need to provide a `CheckpointConfig(s3_uri=...)` pointing to an Amazon S3 location on the `ModelTrainer` and set `output_dir` to `/opt/ml/checkpoints`. 
-_Note: If you set `output_dir` to `/opt/ml/checkpoints` make sure to call `trainer.save_model("/opt/ml/model")` or model.save_pretrained("/opt/ml/model")/`tokenizer.save_pretrained("/opt/ml/model")` at the end of your training to be able to deploy your model seamlessly to Amazon SageMaker for Inference._
+> [!WARNING]
+> If you set `output_dir` to `/opt/ml/checkpoints`, call `trainer.save_model("/opt/ml/model")` — or `model.save_pretrained("/opt/ml/model")` and `tokenizer.save_pretrained("/opt/ml/model")` — at the end of training. Otherwise the model artifacts are missing from `model.tar.gz` and the model cannot be deployed to Amazon SageMaker for inference.
 
 ## Create a ModelTrainer
 
@@ -227,7 +229,8 @@ huggingface_estimator = ModelTrainer(
 
 The Hugging Face extension for the SageMaker Python SDK means we can benefit from [fully-managed EC2 spot instances](https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html). This can help you save up to 90% of training costs!
 
-_Note: Unless your training job completes quickly, we recommend you use [checkpointing](https://docs.aws.amazon.com/sagemaker/latest/dg/model-checkpoints.html) with managed spot training. In this case, you need to define the `checkpoint_s3_uri`._
+> [!NOTE]
+> Unless your training job completes quickly, we recommend you use [checkpointing](https://docs.aws.amazon.com/sagemaker/latest/dg/model-checkpoints.html) with managed spot training. In this case, you need to define the `checkpoint_s3_uri`.
 
 Set `enable_managed_spot_training=True` on `Compute` and define `max_wait_time_in_seconds` and `max_runtime_in_seconds` on `StoppingCondition` to use spot instances:
 
@@ -276,7 +279,8 @@ huggingface_estimator = ModelTrainer(
 
 The v2 `git_config` parameter is not available in `ModelTrainer`. To run a training script that lives in a GitHub repository (such as the [🤗 Transformers example scripts](https://github.com/huggingface/transformers/tree/main/examples)), clone the repository locally first and point `source_dir`/`entry_script` at the checked-out files. Choose a branch that matches the Transformers version of your training image.
 
-_Tip: Save your model to S3 by setting `output_dir=/opt/ml/model` in the hyperparameter of your training script._
+> [!TIP]
+> Save your model to S3 by setting `output_dir=/opt/ml/model` in the hyperparameters of your training script.
 
 ```bash
 # clone the repo locally, matching the transformers version of your training image
