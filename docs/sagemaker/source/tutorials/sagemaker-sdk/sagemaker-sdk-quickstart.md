@@ -11,7 +11,7 @@ Deploy a model from the Hugging Face Hub to a live SageMaker endpoint in a few m
 pip install "sagemaker>=3.0.0"
 ```
 
-- An IAM execution role. In SageMaker Studio or on a SageMaker notebook instance, `get_execution_role()` returns it automatically. In a local environment you must pass the role ARN yourself — both setups are shown in [Deploy models](./deploy-sagemaker-sdk#installation-and-setup).
+- An IAM execution role. In SageMaker Studio or on a SageMaker notebook instance, `get_execution_role()` returns it automatically. In a local environment you must pass the role ARN yourself — both setups are shown in [Set up the SageMaker SDK](./setup-sagemaker-sdk).
 
 ## Deploy a model from the Hub
 

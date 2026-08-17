@@ -1,12 +1,8 @@
 # Run training on Amazon SageMaker
 
-<iframe width="700" height="394" src="https://www.youtube.com/embed/ok3hetb42gU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+This guide will show you how to train a 🤗 Transformers model with the SageMaker Python SDK. Make sure you have [set up the SageMaker SDK](./setup-sagemaker-sdk) first. Learn how to:
 
-
-This guide will show you how to train a 🤗 Transformers model with the SageMaker Python SDK. Learn how to:
-
-- [Install and setup your training environment](#installation-and-setup).
-- [Prepare a training script](#prepare-a-transformers-fine-tuning-script).
+- [Prepare a training script](#prepare-a--transformers-fine-tuning-script).
 - [Create a ModelTrainer](#create-a-modeltrainer).
 - [Run training with the `train` method](#execute-training).
 - [Access your trained model](#access-trained-model).
@@ -14,52 +10,6 @@ This guide will show you how to train a 🤗 Transformers model with the SageMak
 - [Create a spot instance](#spot-instances).
 - [Load a training script from a GitHub repository](#git-repository).
 - [Collect training metrics](#sagemaker-metrics).
-
-## Installation and setup
-
-Before you can train a 🤗 Transformers model with SageMaker, you need to sign up for an AWS account. If you don't have an AWS account yet, learn more [here](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-set-up.html).
-
-Once you have an AWS account, get started using one of the following:
-
-- [SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html)
-- [SageMaker notebook instance](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-console.html)
-- Local environment
-
-To start training locally, you need to setup an appropriate [IAM role](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html).
-
-Upgrade to the latest `sagemaker` version:
-
-```bash
-pip install 'sagemaker>=3.0.0'
-```
-
-> [!NOTE]
-> These docs and examples use the [SageMaker Python SDK v3](https://github.com/aws/sagemaker-python-sdk), which introduces a new framework-agnostic API built around `ModelTrainer` (training) and `ModelBuilder` (inference), replacing the v2 `HuggingFace` and `HuggingFaceModel` classes. Install it with `pip install "sagemaker>=3.0.0"`.
-
-**SageMaker environment**
-
-Setup your SageMaker environment as shown below:
-
-```python
-from sagemaker.core.helper.session_helper import Session, get_execution_role
-sess = Session()
-role = get_execution_role()
-```
-
-_Note: The execution role is only available when running a notebook within SageMaker. If you run `get_execution_role` in a notebook not on SageMaker, expect a `region` error._
-
-**Local environment**
-
-Setup your local environment as shown below:
-
-```python
-import boto3
-from sagemaker.core.helper.session_helper import Session
-
-iam_client = boto3.client('iam')
-role = iam_client.get_role(RoleName='role-name-of-your-iam-role-with-right-permissions')['Role']['Arn']
-sess = Session()
-```
 
 ## Prepare a 🤗 Transformers fine-tuning script
 
@@ -490,3 +440,7 @@ huggingface_estimator = ModelTrainer(
 ```
 
 📓 Open the [notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/06_sagemaker_metrics/sagemaker-notebook.ipynb) for an example of how to capture metrics in SageMaker.
+
+## What's next
+
+Once your training job is complete, the model artifacts are in S3 and ready for deployment. Continue with [Deploy models](./deploy-sagemaker-sdk#deploy-a--transformers-model-trained-in-sagemaker) to serve your trained model on a SageMaker endpoint.
