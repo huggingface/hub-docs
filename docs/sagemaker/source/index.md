@@ -1,6 +1,10 @@
 # Hugging Face on AWS
 
-Train and deploy open models from the Hugging Face Hub on AWS, using Deep Learning Containers (DLCs) and integrations maintained by Hugging Face and AWS.
+![cover](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/cover.png)
+
+Hugging Face partners with Amazon Web Services (AWS) to democratize artificial intelligence, enabling developers to seamlessly build, train, and deploy state-of-the-art machine learning models on AWS cloud infrastructure. This collaboration gives developers access to a growing catalog of pre-trained models and datasets from the Hugging Face Hub, through Hugging Face open-source libraries, across a broad spectrum of AWS services and hardware platforms.
+
+We build new experiences to train and deploy Hugging Face models, whether you use AWS AI platforms such as Amazon SageMaker AI and AWS Bedrock, or AWS compute services such as Elastic Container Service (ECS), Elastic Kubernetes Service (EKS), and Amazon Elastic Compute Cloud (EC2). We also develop tools to simplify the adoption of custom AI accelerators like AWS Inferentia and AWS Trainium, designed to enhance the performance and cost-efficiency of machine learning workloads.
 
 > [!NOTE]
 > These docs and examples use the [SageMaker Python SDK v3](https://github.com/aws/sagemaker-python-sdk), which introduces a new framework-agnostic API built around `ModelBuilder` (inference) and `ModelTrainer` (training), replacing the v2 `HuggingFaceModel` and `HuggingFace` classes. Install it with `pip install "sagemaker>=3.0.0"`.
