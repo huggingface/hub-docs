@@ -1,4 +1,4 @@
-# Train models on Amazon SageMaker
+# Train models on Amazon SageMaker with the SageMaker SDK
 
 This guide shows how to train models with the SageMaker Python SDK `ModelTrainer` and your own training script. Make sure you have [set up the SageMaker SDK](./setup-sagemaker-sdk) first.
 
