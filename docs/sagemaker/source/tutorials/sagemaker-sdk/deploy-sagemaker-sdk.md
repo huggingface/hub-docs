@@ -1,4 +1,4 @@
-# Deploy models to Amazon SageMaker
+# Deploy models on Amazon SageMaker with the SageMaker SDK
 
 Deploying 🤗 Transformers models in SageMaker for inference is as easy as:
 
@@ -11,7 +11,7 @@ model_builder.build()
 endpoint = model_builder.deploy()
 ```
 
-This guide will show you how to deploy models with zero-code using the [Inference Toolkit](https://github.com/aws/sagemaker-huggingface-inference-toolkit). The Inference Toolkit builds on top of the [`pipeline` feature](https://huggingface.co/docs/transformers/main_classes/pipelines) from 🤗 Transformers. Make sure you have [set up the SageMaker SDK](./setup-sagemaker-sdk) first. Learn how to:
+This guide shows how to deploy models for inference with `ModelBuilder` from the SageMaker Python SDK. It covers the three serving paths: the zero-code [Inference Toolkit](https://github.com/aws/sagemaker-huggingface-inference-toolkit) for 🤗 Transformers models (built on the [`pipeline` feature](https://huggingface.co/docs/transformers/main_classes/pipelines)), the vLLM DLC for high-performance LLM serving, and batch transform for offline jobs. Make sure you have [set up the SageMaker SDK](./setup-sagemaker-sdk) first. Learn how to:
 
 - [Deploy a 🤗 Transformers model from the Hugging Face Hub](#deploy-a-model-from-the--hub).
 - [Deploy a 🤗 Transformers model trained in SageMaker](#deploy-a--transformers-model-trained-in-sagemaker), directly after training or later from S3.
@@ -20,6 +20,8 @@ This guide will show you how to deploy models with zero-code using the [Inferenc
 - [Create a custom inference module](#user-defined-code-and-modules).
 
 ## Deploy a model from the 🤗 Hub
+
+The [Quickstart](./sagemaker-sdk-quickstart) walks this same path end to end in a few minutes; this section explains what each piece does.
 
 To deploy a model directly from the 🤗 Hub to SageMaker, pass the model ID as the `model` argument and the task via the `HF_TASK` environment variable when you create a `ModelBuilder`:
 
@@ -40,7 +42,7 @@ from sagemaker.core.helper.session_helper import Session, get_execution_role
 sess = Session()
 role = get_execution_role()
 
-model_id = "distilbert-base-uncased-distilled-squad"   # model_id from hf.co/models
+model_id = "cardiffnlp/twitter-roberta-base-sentiment-latest"   # model ID from hf.co/models
 instance_type = "ml.m5.xlarge"
 
 # Retrieve the Hugging Face PyTorch inference DLC image URI
@@ -55,13 +57,8 @@ inference_image = image_uris.retrieve(
 )
 
 # sample input/output used by ModelBuilder to set up request/response serialization
-sample_input = {
-    "inputs": {
-        "question": "What is used for inference?",
-        "context": "My Name is Philipp and I live in Nuremberg. This model is used with sagemaker for inference.",
-    }
-}
-sample_output = [{"score": 0.99, "start": 68, "end": 77, "answer": "sagemaker"}]
+sample_input = {"inputs": "I love how simple this was!"}
+sample_output = [{"label": "positive", "score": 0.99}]
 
 # Pass the model ID as `model` (ModelBuilder sets HF_MODEL_ID from it) and serve it with the
 # Hugging Face Inference Toolkit. `HF_TASK` tells the toolkit which pipeline to build.
@@ -69,7 +66,7 @@ model_builder = ModelBuilder(
     model=model_id,
     model_server=ModelServer.MMS,
     image_uri=inference_image,
-    env_vars={"HF_TASK": "question-answering"},
+    env_vars={"HF_TASK": "text-classification"},
     role_arn=role,                 # IAM role with permissions to create an endpoint
     sagemaker_session=sess,
     instance_type=instance_type,
@@ -84,12 +81,7 @@ predictor = model_builder.deploy(
 )
 
 # example request: you always need to define "inputs"
-data = {
-"inputs": {
-	"question": "What is used for inference?",
-	"context": "My Name is Philipp and I live in Nuremberg. This model is used with sagemaker for inference."
-	}
-}
+data = {"inputs": "I love how simple this was!"}
 
 # request
 res = predictor.invoke(body=json.dumps(data), content_type="application/json")
@@ -105,8 +97,6 @@ After you run your request, you can delete the endpoint again with:
 predictor.delete()
 ```
 
-📓 Open the [deploy_transformer_model_from_hf_hub.ipynb notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/11_deploy_model_from_hf_hub/deploy_transformer_model_from_hf_hub.ipynb) for an example of how to deploy a model from the 🤗 Hub to SageMaker for inference.
-
 ## Deploy a 🤗 Transformers model trained in SageMaker
 
 There are two ways to deploy your Hugging Face model trained in SageMaker:
@@ -114,31 +104,18 @@ There are two ways to deploy your Hugging Face model trained in SageMaker:
 - Deploy it after your training has finished. 
 - Deploy your saved model at a later time from S3 with the `model_data`.
 
-📓 Open the [deploy_transformer_model_from_s3.ipynb notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/10_deploy_model_from_s3/deploy_transformer_model_from_s3.ipynb) for an example of how to deploy a model from S3 to SageMaker for inference.
-
 ### Deploy after training
 
-To deploy your model directly after training, ensure all required files are saved in your training script, including the tokenizer and the model.
-
-If you use the Hugging Face `Trainer`, you can pass your tokenizer as an argument to the `Trainer`. It will be automatically saved when you call `trainer.save_model()`.
+To deploy your model directly after training, the training script must save everything the endpoint needs — model and tokenizer. The training script from the [Train models guide](./training-sagemaker-sdk) already does this with `trainer.save_model()` and `save_pretrained()`.
 
 ```python
 import json
-from sagemaker.train.model_trainer import ModelTrainer
 from sagemaker.serve import ModelBuilder
 
-############ pseudo code start ############
-
-# create a ModelTrainer for training
-model_trainer = ModelTrainer(....)
-
-# start the train job with our uploaded datasets as input
-model_trainer.train(...)
-
-############ pseudo code end ############
+# model_trainer is the completed ModelTrainer from the Train models guide
+model_data = model_trainer._latest_training_job.model_artifacts.s3_model_artifacts
 
 # build a Model from the trained artifacts and deploy it to SageMaker Inference
-model_data = model_trainer._latest_training_job.model_artifacts.s3_model_artifacts
 model_builder = ModelBuilder(
     image_uri=inference_image,        # Hugging Face inference DLC, from the Hub example above
     s3_model_data_url=model_data,
@@ -150,12 +127,7 @@ model_builder.build()
 predictor = model_builder.deploy(initial_instance_count=1, instance_type="ml.m5.xlarge")
 
 # example request: you always need to define "inputs"
-data = {
-   "inputs": "Camera - You are awarded a SiPix Digital Camera! call 09061221066 from landline. Delivery within 28 days."
-}
-
-# request
-res = predictor.invoke(body=json.dumps(data), content_type="application/json")
+res = predictor.invoke(body=json.dumps({"inputs": "SageMaker is pretty cool"}), content_type="application/json")
 print(json.loads(res.body.read()))
 ```
 
@@ -193,9 +165,7 @@ predictor = model_builder.deploy(
 )
 
 # example request: you always need to define "inputs"
-data = {
-   "inputs": "Camera - You are awarded a SiPix Digital Camera! call 09061221066 from landline. Delivery within 28 days."
-}
+data = {"inputs": "SageMaker is pretty cool"}
 
 # request
 res = predictor.invoke(body=json.dumps(data), content_type="application/json")
@@ -213,8 +183,8 @@ predictor.delete()
 
 For later deployment, you can create a `model.tar.gz` file that contains all the required files, such as:
 
-- `pytorch_model.bin`
-- `tf_model.h5`
+- `model.safetensors`
+- `config.json`
 - `tokenizer.json`
 - `tokenizer_config.json`
 
@@ -222,10 +192,10 @@ For example, your file should look like this:
 
 ```bash
 model.tar.gz/
-|- pytorch_model.bin
-|- vocab.txt
-|- tokenizer_config.json
+|- model.safetensors
 |- config.json
+|- tokenizer.json
+|- tokenizer_config.json
 |- special_tokens_map.json
 ```
 
@@ -352,7 +322,7 @@ model_builder.build()
 
 batch_job = model_builder.transformer(
     instance_count=1,
-    instance_type='ml.p3.2xlarge',
+    instance_type='ml.m5.xlarge',   # matches the CPU inference image from the Hub example
     strategy='SingleRecord')
 
 
@@ -367,23 +337,11 @@ If you want to run your batch transform job later or with a model from the 🤗 
 ```python
 from sagemaker.serve import ModelBuilder, ModelServer
 from sagemaker.serve.builder.schema_builder import SchemaBuilder
-from sagemaker.core import image_uris
 
-# reuses sess and role from the Hub example above
+# reuses sess, role, and inference_image from the Hub example above
 
-model_id = "distilbert/distilbert-base-uncased-finetuned-sst-2-english"
-instance_type = "ml.p3.2xlarge"
-
-# Retrieve the inference DLC image URI again for this instance type (GPU)
-inference_image = image_uris.retrieve(
-    framework="huggingface",
-    region=sess.boto_region_name,
-    version="4.51.3",
-    base_framework_version="pytorch2.6.0",
-    py_version="py312",
-    image_scope="inference",
-    instance_type=instance_type,
-)
+model_id = "cardiffnlp/twitter-roberta-base-sentiment-latest"
+instance_type = "ml.m5.xlarge"
 
 # Pass the model ID as `model` (ModelBuilder sets HF_MODEL_ID) and serve it with the
 # Hugging Face Inference Toolkit.
@@ -397,7 +355,7 @@ model_builder = ModelBuilder(
     instance_type=instance_type,
     schema_builder=SchemaBuilder(
         sample_input={"inputs": "this movie is terrible"},
-        sample_output=[{"label": "NEGATIVE", "score": 0.99}],
+        sample_output=[{"label": "negative", "score": 0.99}],
     ),
 )
 model_builder.build()
@@ -405,7 +363,7 @@ model_builder.build()
 # create transformer to run a batch job
 batch_job = model_builder.transformer(
     instance_count=1,
-    instance_type='ml.p3.2xlarge',
+    instance_type=instance_type,
     strategy='SingleRecord'
 )
 
@@ -428,15 +386,13 @@ The `input.jsonl` looks like this:
 {"inputs":"this movie is amazing"}
 ```
 
-📓 Open the [sagemaker-notebook.ipynb notebook](https://github.com/huggingface/notebooks/blob/main/sagemaker/12_batch_transform_inference/sagemaker-notebook.ipynb) for an example of how to run a batch transform job for inference.
-
 ## User defined code and modules
 
 The Hugging Face Inference Toolkit allows the user to override the default methods of the `HuggingFaceHandlerService`. You will need to create a folder named `code/` with an `inference.py` file in it. See [here](#create-a-model-artifact-for-deployment) for more details on how to archive your model artifacts. For example:  
 
 ```bash
 model.tar.gz/
-|- pytorch_model.bin
+|- model.safetensors
 |- ....
 |- code/
   |- inference.py

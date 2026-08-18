@@ -19,9 +19,9 @@
         - local: tutorials/sagemaker-sdk/setup-sagemaker-sdk
           title: Set up the SDK
         - local: tutorials/sagemaker-sdk/training-sagemaker-sdk
-          title: Train models
+          title: Train models with the SageMaker SDK
         - local: tutorials/sagemaker-sdk/deploy-sagemaker-sdk
-          title: Deploy models
+          title: Deploy models with the SageMaker SDK
       title: SageMaker SDK
       isExpanded: false
     - sections:
