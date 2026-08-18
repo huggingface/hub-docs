@@ -17,6 +17,16 @@ hf jobs uv run --flavor a10g-small --secrets HF_TOKEN \
   --push_to_hub
 ```
 
+## Process data at scale
+
+[DataTrove](https://github.com/huggingface/datatrove) provides an experimental [`JobsPipelineExecutor`](https://github.com/huggingface/datatrove#jobspipelineexecutor) for distributing data processing pipelines across a pool of Jobs. It supports concurrency limits, multi-stage dependencies, retries, and resumable runs — re-running a pipeline skips tasks that already completed and only runs the remaining ones.
+
+See the ready-to-run examples for:
+
+- [Filtering a Hub dataset](https://github.com/huggingface/datatrove/blob/main/examples/filter_hf_dataset_jobs.py)
+- [Tokenizing and merging a Hub dataset](https://github.com/huggingface/datatrove/blob/main/examples/tokenize_hf_dataset_jobs.py)
+- [Multi-stage MinHash deduplication](https://github.com/huggingface/datatrove/blob/main/examples/minhash_deduplication_jobs.py)
+
 ## UV Scripts
 
 The [uv-scripts](https://huggingface.co/uv-scripts) organization maintains a collection of self-contained uv scripts that run on Jobs with a single command. Scripts cover OCR, batch inference, text classification, object detection, dataset statistics, embedding visualization, and more.
