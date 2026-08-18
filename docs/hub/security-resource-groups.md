@@ -143,6 +143,40 @@ Resource Groups also serve as a cost attribution unit for compute services. When
 
 You can use the <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/&#123;name&#125;/billing/usage-by-resource-group">dedicated API endpoint</a> to retrieve cost attribution data for resource groups.
 
+## Spend limits
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
+
+On top of tracking costs, you can cap them. Organization admins and resource group admins can set monthly spending limits on the group's page in the Resource Groups settings, from the **Spend limits** card.
+
+Two kinds of limits are available, both expressed in USD:
+
+- **Total (all products)**: caps the group's combined compute spend.
+- A per-product limit for **Inference Providers**, **Spaces**, **Jobs** and **Inference Endpoints**, on top of the total.
+
+Leave a field empty for no limit. When a total limit and a per-product limit both apply, the stricter of the two wins.
+
+Limits apply to the spend attributed to the group for the current calendar month, so a group that hit its limit is unblocked at the beginning of the next month — or as soon as an admin raises the limit.
+
+### What happens when a limit is reached
+
+New usage billed to the resource group is refused with an authorization error:
+
+- **Inference Providers**: requests billed to the group are rejected.
+- **Jobs**: creating, resubmitting or resuming a job in the group is rejected, scheduled jobs included.
+- **Spaces**: upgrading a Space in the group to paid hardware is rejected.
+- **Inference Endpoints**: requests to endpoints that incur cost for the group are rejected.
+
+Workloads that are already running in the group are stopped as well, shortly after the limit is reached:
+
+- Paid **Spaces** are paused. Spaces on free hardware are left alone, and so are Spaces running on a [hardware grant](./spaces-gpus).
+- **Jobs** are cancelled, with `Resource group spend limit reached` as their stop reason.
+
+Raising the limit, or the start of a new month, lets members start new workloads again. Spaces and Jobs that were stopped are not restarted automatically.
+
+You can also set spend limits programmatically, see [Set spend limits via API](./programmatic-user-access-control#set-spend-limits-via-api).
+
 ## Resource Groups API
 
 You can list resource groups and add users to them (or change a member's org role and resource group assignments) via the Hub API. For the full reference, examples, and batch workflows, see the [Programmatic User Access Control Management](./programmatic-user-access-control) guide.

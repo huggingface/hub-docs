@@ -28,6 +28,7 @@ This feature allows organization administrators to:
 - Configure which member roles are allowed to create new resource groups
 - Restrict organization features such as Blog, Collections, Jobs, Inference Endpoints and Inference Providers to the members of specific resource groups
 - Attribute costs to specific resource groups for better budget management
+- Cap monthly compute spend per resource group, in total or per product
 
 This Team & Enterprise feature helps organizations manage complex team structures and maintain proper access control over their repositories.
 
