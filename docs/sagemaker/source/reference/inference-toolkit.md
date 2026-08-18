@@ -2,7 +2,7 @@
 
 ## Supported tasks
 
-The [Sagemaker Hugging Face Inference Toolkit](https://github.com/aws/sagemaker-huggingface-inference-toolkit/tree/main) accepts inputs in the `inputs` key, and supports additional [`pipelines`](https://huggingface.co/docs/transformers/main_classes/pipelines) parameters in the `parameters` key. You can provide any of the supported `kwargs` from `pipelines` as `parameters`.
+The [SageMaker Hugging Face Inference Toolkit](https://github.com/aws/sagemaker-huggingface-inference-toolkit/tree/main) accepts inputs in the `inputs` key, and supports additional [`pipelines`](https://huggingface.co/docs/transformers/main_classes/pipelines) parameters in the `parameters` key. You can provide any of the supported `kwargs` from `pipelines` as `parameters`.
 
 Tasks supported by the Inference Toolkit API include:
 
@@ -15,7 +15,7 @@ Tasks supported by the Inference Toolkit API include:
 - **`translation_xx_to_yy`**
 - **`text2text-generation`**
 - **`text-generation`**
-- **`audio-classificatin`**
+- **`audio-classification`**
 - **`automatic-speech-recognition`**
 - **`conversational`**
 - **`image-classification`**
@@ -118,10 +118,10 @@ HF_TASK="question-answering"
 
 **`HF_MODEL_ID`**
 
-`HF_MODEL_ID` defines the model ID which is automatically loaded from [hf.co/models](https://huggingface.co/models) when creating a SageMaker endpoint. All of the 🤗 Hub's 10,000+ models are available through this environment variable.
+`HF_MODEL_ID` defines the model ID which is automatically loaded from [hf.co/models](https://huggingface.co/models) when creating a SageMaker endpoint. Any public model on the Hub can be loaded this way.
 
 ```bash
-HF_MODEL_ID="distilbert-base-uncased-finetuned-sst-2-english"
+HF_MODEL_ID="cardiffnlp/twitter-roberta-base-sentiment-latest"
 ```
 
 **`HF_MODEL_REVISION`**
@@ -137,5 +137,5 @@ HF_MODEL_REVISION="03b4d196c19d0a73c7e0322684e97db1ec397613"
 `HF_API_TOKEN` defines your Hugging Face authorization token. The `HF_API_TOKEN` is used as a HTTP bearer authorization for remote files like private models. You can find your token under [Settings](https://huggingface.co/settings/tokens) of your Hugging Face account.
 
 ```bash
-HF_API_TOKEN="api_XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+HF_API_TOKEN="hf_XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ```
