@@ -18,7 +18,7 @@ Choose from the following options to quicklyget started:
     <p class="mb-4 grow text-sm text-gray-600 dark:text-gray-400">Deploy and test a Hugging Face model with SageMaker JumpStart.</p>
     <span class="text-sm font-semibold text-gray-800 group-hover:text-orange-600 dark:text-gray-200 dark:group-hover:text-orange-300">Deploy a model →</span>
   </a>
-  <a class="group flex flex-col rounded-xl border border-blue-100 bg-linear-to-br from-blue-50 px-6 py-5 no-underline! dark:border-gray-850 dark:from-blue-500/10" href="./tutorials/index">
+  <a class="group flex flex-col rounded-xl border border-blue-100 bg-linear-to-br from-blue-50 px-6 py-5 no-underline! dark:border-gray-850 dark:from-blue-500/10" href="./get-started/choose-an-offering">
     <div class="mb-2 text-lg font-semibold text-blue-600 dark:text-blue-300">Choose a service</div>
     <p class="mb-4 grow text-sm text-gray-600 dark:text-gray-400">Compare SageMaker AI, Bedrock, AWS compute, and Inference Endpoints.</p>
     <span class="text-sm font-semibold text-gray-800 group-hover:text-blue-600 dark:text-gray-200 dark:group-hover:text-blue-300">Compare options →</span>
@@ -70,7 +70,7 @@ DLCs are Docker images pre-installed with Hugging Face libraries and serving eng
     <div class="font-semibold text-gray-900 group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-300">Deep Learning Containers</div>
     <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">What the DLCs are, how they work, and which images are available.</p>
   </a>
-  <a class="group rounded-xl border border-gray-200 px-5 py-4 no-underline! dark:border-gray-800" href="./tutorials/index">
+  <a class="group rounded-xl border border-gray-200 px-5 py-4 no-underline! dark:border-gray-800" href="./tutorials/sagemaker-sdk/sagemaker-sdk-quickstart">
     <div class="font-semibold text-gray-900 group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-300">Guides</div>
     <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Follow task-oriented training and deployment tutorials.</p>
   </a>
