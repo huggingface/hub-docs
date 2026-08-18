@@ -115,6 +115,7 @@ The currently supported scopes are:
 - `profile`: Read the user's profile information (username, avatar, etc.)
 - `email`: Read the user's email address.
 - `read-billing`: Know whether the user has a payment method set up.
+- `read-memberships`: Read which organizations the user belongs to, and their role in each of them. This does not grant access to the organizations' settings or resources.
 - `read-repos`: Read the user's personal repos.
 - `gated-repos`: Read the content of public gated repos the user has been granted access to. Unlike `read-repos`, this does not grant access to private repos.
 - `contribute-repos`: Create repositories and access those created by this app. Cannot access any other repositories unless additional permissions are granted.
