@@ -164,6 +164,17 @@ def update_toctree_yaml():
         print("Error: Could not find the SageMaker SDK section in the file")
         return
 
+    # Examples are grouped by domain via the `category` key in each notebook's metadata block,
+    # mirroring the Hugging Face Hub task taxonomy
+    category_titles = {
+        "text-generation": "Text generation (LLMs)",
+        "embeddings": "Embeddings",
+        "image": "Image generation",
+        "audio": "Audio and speech",
+        "document": "Document understanding",
+        "other": "Other",
+    }
+
     # Generate the new content, nested inside the SageMaker SDK section
     new_content = []
     new_content.append("# GENERATED CONTENT DO NOT EDIT!")
@@ -175,23 +186,34 @@ def update_toctree_yaml():
         files = sorted(glob.glob(f"source/examples/{dirname}-*.mdx"))
         files = [f for f in files if not f.endswith(f"{dirname}-index.mdx")]
 
-        file_entries = []
+        grouped_entries = {}
         for file_path in files:
+            with open(file_path, "r") as f:
+                category = parse_metadata(f.read()).get("category", "other")
             example_content = process_example_metadata(file_path, dirname)
             title_match = re.search(r"^# (.+)", example_content, re.MULTILINE)
             if title_match:
                 title = title_match.group(1).strip()
                 base_name = Path(file_path).stem
-                file_entries.append((base_name, title))
+                grouped_entries.setdefault(category, []).append((base_name, title))
             else:
                 print(f"⚠️ Skipping {Path(file_path).name} - missing H1 title")
                 continue
 
-        for idx, (base, title) in enumerate(file_entries):
-            if idx == 0:
+        first_group = True
+        for category, group_title in category_titles.items():
+            file_entries = grouped_entries.get(category)
+            if not file_entries:
+                continue
+            if first_group:
                 new_content.append("      sections:")
-            new_content.append(f"        - local: examples/{base}")
-            new_content.append(f'          title: "{title}"')
+                first_group = False
+            new_content.append(f"        - title: {group_title}")
+            new_content.append("          isExpanded: false")
+            new_content.append("          sections:")
+            for base, title in file_entries:
+                new_content.append(f"            - local: examples/{base}")
+                new_content.append(f'              title: "{title}"')
 
     new_content.append("# END GENERATED CONTENT")
 
