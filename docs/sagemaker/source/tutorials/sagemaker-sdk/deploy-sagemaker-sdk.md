@@ -266,7 +266,7 @@ model_builder.build()
 predictor = model_builder.deploy(initial_instance_count=1, instance_type=instance_type)
 ```
 
-Tune vLLM through environment variables: `SM_VLLM_MAX_MODEL_LEN` for the context length, `SM_VLLM_GPU_MEMORY_UTILIZATION` for the KV cache budget, and more — each maps to a vLLM engine argument. For a full configuration example, see the [trip planner agent with vLLM](https://github.com/huggingface/hub-docs/tree/main/docs/sagemaker/notebooks/sagemaker-sdk/trip-planner-agent-vllm) notebook.
+Tune vLLM through environment variables: `SM_VLLM_MAX_MODEL_LEN` for the context length, `SM_VLLM_GPU_MEMORY_UTILIZATION` for the KV cache budget, and more — each maps to a vLLM engine argument. For a full configuration example, see the [trip planner agent with vLLM](../../examples/sagemaker-sdk-trip-planner-agent-vllm) example.
 
 ### Invoke the endpoint
 

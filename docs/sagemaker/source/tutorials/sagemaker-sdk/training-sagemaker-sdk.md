@@ -2,7 +2,7 @@
 
 This guide shows how to train models with the SageMaker Python SDK `ModelTrainer` and your own training script. Make sure you have [set up the SageMaker SDK](./setup-sagemaker-sdk) first.
 
-The examples come from the [fine-tune an LLM with TRL](https://github.com/huggingface/hub-docs/tree/main/docs/sagemaker/notebooks/sagemaker-sdk/fine-tune-llm-sft) notebook, which fine-tunes `Qwen/Qwen3-0.6B` with TRL `SFTTrainer` on the Hugging Face PyTorch training DLC. The notebook is the complete runnable version; this guide explains each concept.
+The examples come from the [Fine-Tune an LLM with the SageMaker SDK and TRL](../../examples/sagemaker-sdk-fine-tune-llm-sft) example, which fine-tunes `Qwen/Qwen3-0.6B` with TRL `SFTTrainer` on the Hugging Face PyTorch training DLC. The example is the complete runnable version; this guide explains each concept.
 
 Learn how to:
 
