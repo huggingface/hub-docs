@@ -19,7 +19,7 @@ hf jobs uv run --flavor a10g-small --secrets HF_TOKEN \
 
 ## Process data at scale
 
-[DataTrove](https://github.com/huggingface/datatrove) provides an experimental [`JobsPipelineExecutor`](https://github.com/huggingface/datatrove#jobspipelineexecutor) for distributing data processing pipelines across a pool of Jobs. It supports concurrency limits, multi-stage dependencies, retries, and resuming completed tasks.
+[DataTrove](https://github.com/huggingface/datatrove) provides an experimental [`JobsPipelineExecutor`](https://github.com/huggingface/datatrove#jobspipelineexecutor) for distributing data processing pipelines across a pool of Jobs. It supports concurrency limits, multi-stage dependencies, retries, and resumable runs — re-running a pipeline skips tasks that already completed and only runs the remaining ones.
 
 See the ready-to-run examples for:
 
