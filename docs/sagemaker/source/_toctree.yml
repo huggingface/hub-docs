@@ -90,6 +90,6 @@
     - local: reference/inference-toolkit
       title: Inference Toolkit API
     - local: reference/resources
-      title: Other Resources
+      title: Resources
   title: Reference
   isExpanded: false
