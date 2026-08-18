@@ -467,3 +467,55 @@ Content-Type: application/json
 
 > [!NOTE]
 > Disabling auto-join does **not** remove members who were previously auto-joined. It only stops future org members from being added automatically. Existing members remain in the Resource Group.
+
+## Set spend limits via API
+
+[Spend limits](./security-resource-groups#spend-limits) cap the monthly compute spend attributed to a Resource Group. Set them with the update endpoint:
+
+```http
+PATCH /api/organizations/{org_name}/resource-groups/{resource_group_id}
+Authorization: Bearer <your_access_token>
+Content-Type: application/json
+
+{
+  "spendLimits": {
+    "total": 500000,
+    "spaces": 100000,
+    "jobs": 50000
+  }
+}
+```
+
+- **Path parameters**
+  - `org_name`: Organization slug (e.g. `my-org`).
+  - `resource_group_id`: The Resource Group's ID (24-character hex string; get IDs from the [list resource groups endpoint](#list-resource-groups)).
+- **Body**
+  - `spendLimits`: Monthly limits **in cents**. The example above sets a $5,000 total limit, with $1,000 for Spaces and $500 for Jobs.
+    - `total`: Limit on the group's combined spend across every product.
+    - `inferenceProviders`, `spaces`, `jobs`, `endpoints`: Per-product limits, applied on top of the total. The stricter of the two wins.
+
+Only the keys you send are updated, the others keep their current value. Send `null` to remove a limit:
+
+```http
+PATCH /api/organizations/{org_name}/resource-groups/{resource_group_id}
+Authorization: Bearer <your_access_token>
+Content-Type: application/json
+
+{
+  "spendLimits": {
+    "jobs": null
+  }
+}
+```
+
+**Example (curl)**
+
+```bash
+curl -s -X PATCH \
+  -H "Authorization: Bearer $HF_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"spendLimits": {"total": 500000}}' \
+  "https://huggingface.co/api/organizations/my-org/resource-groups/507f1f77bcf86cd799439011"
+```
+
+The response is the updated resource group, including its `spendLimits`.
