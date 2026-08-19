@@ -19,3 +19,7 @@ Take a look at our tutorials about using Hugging Face models on AWS.
 ## EC2, ECS and EKS
 
 - [EC2, ECS and EKS Quickstart](https://huggingface.co/docs/sagemaker/main/en/tutorials/compute-services/compute-services-quickstart)
+
+## AWS Deadline Cloud
+
+- [AWS Deadline Cloud Quickstart](https://huggingface.co/docs/sagemaker/main/en/tutorials/deadline-cloud/deadline-cloud-quickstart)
