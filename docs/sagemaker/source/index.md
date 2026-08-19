@@ -10,7 +10,7 @@ Whether you are building a first prototype or operating production workloads, yo
 
 ## Where to start
 
-Choose from the following options to quicklyget started:
+Choose from the following options to quickly get started:
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 my-6 not-prose">
   <a class="group flex flex-col rounded-xl border border-orange-100 bg-linear-to-br from-orange-50 px-6 py-5 no-underline! dark:border-gray-850 dark:from-orange-500/10" href="./tutorials/jumpstart/jumpstart-quickstart">
@@ -74,7 +74,7 @@ DLCs are Docker images pre-installed with Hugging Face libraries and serving eng
     <div class="font-semibold text-gray-900 group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-300">Guides</div>
     <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Follow task-oriented training and deployment tutorials.</p>
   </a>
-  <a class="group rounded-xl border border-gray-200 px-5 py-4 no-underline! dark:border-gray-800" href="./examples/sagemaker-sdk-fine-tune-embedding-models">
+  <a class="group rounded-xl border border-gray-200 px-5 py-4 no-underline! dark:border-gray-800" href="./examples/sagemaker-sdk-fine-tune-llm-sft">
     <div class="font-semibold text-gray-900 group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-300">Examples</div>
     <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Explore complete notebooks for real workloads.</p>
   </a>
@@ -84,4 +84,4 @@ DLCs are Docker images pre-installed with Hugging Face libraries and serving eng
 
 - [Deep Learning Containers](./get-started/dlcs)
 - [Inference Toolkit API](./reference/inference-toolkit)
-- [Other Resources](./reference/resources)
+- [Resources](./reference/resources)

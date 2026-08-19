@@ -11,7 +11,17 @@ model_builder.build()
 endpoint = model_builder.deploy()
 ```
 
-This guide shows how to deploy models for inference with `ModelBuilder` from the SageMaker Python SDK. It covers the three serving paths: the zero-code [Inference Toolkit](https://github.com/aws/sagemaker-huggingface-inference-toolkit) for 🤗 Transformers models (built on the [`pipeline` feature](https://huggingface.co/docs/transformers/main_classes/pipelines)), the vLLM DLC for high-performance LLM serving, and batch transform for offline jobs. Make sure you have [set up the SageMaker SDK](./setup-sagemaker-sdk) first. Learn how to:
+This guide shows how to deploy models for inference with `ModelBuilder` from the SageMaker Python SDK. It covers the three serving paths: the zero-code [Inference Toolkit](https://github.com/aws/sagemaker-huggingface-inference-toolkit) for 🤗 Transformers models (built on the [`pipeline` feature](https://huggingface.co/docs/transformers/main_classes/pipelines)), the vLLM DLC for high-performance LLM serving, and batch transform for offline jobs. Make sure you have [set up the SageMaker SDK](./setup-sagemaker-sdk) first.
+
+```mermaid
+flowchart LR
+    A["Hub model ID"] --> C["ModelBuilder"]
+    B["model.tar.gz in S3"] --> C
+    C --> D["Real-time endpoint"]
+    C --> E["Batch transform job"]
+```
+
+Learn how to:
 
 - [Deploy a 🤗 Transformers model from the Hugging Face Hub](#deploy-a-model-from-the--hub).
 - [Deploy a 🤗 Transformers model trained in SageMaker](#deploy-a--transformers-model-trained-in-sagemaker), directly after training or later from S3.
