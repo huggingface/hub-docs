@@ -28,18 +28,22 @@ Let's explain how you would deploy a Hugging Face model to SageMaker browsing th
 4. Wait until Endpoints shows In service.  
 5. Copy the Endpoint name (or ARN) for later use.
 
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/jumpstart-deployment.gif"
+<div class="flex justify-center my-6">
+  <img class="rounded-xl border border-gray-200 dark:border-gray-800" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/jumpstart-deployment.gif"
      alt="JumpStart deployment demo"
-     width="500">
+     width="640">
+</div>
 
 Alternatively, you can also browse through the Hugging Face Model Hub:
 
 1. Open the model page → Click Deploy → SageMaker → Jumpstart tab if model is available.
 2. Copy the code snippet and use it from a SageMaker Notebook instance.
 
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/hf-jumpstart-deployment.gif"
-     alt="JumpStart deployment demo"
-     width="500">
+<div class="flex justify-center my-6">
+  <img class="rounded-xl border border-gray-200 dark:border-gray-800" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/hf-jumpstart-deployment.gif"
+     alt="JumpStart deployment demo from the Hugging Face Hub"
+     width="640">
+</div>
 
 ```python
 # SageMaker JumpStart models can be deployed with ModelBuilder by passing the

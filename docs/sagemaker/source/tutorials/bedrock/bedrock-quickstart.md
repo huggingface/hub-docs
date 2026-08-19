@@ -26,9 +26,11 @@ Path A is from the Bedrock *Model Catalog*:
 5. Wait for Foundation Models → Marketplace deployments to show status In service (takes a few minutes)  
 6. Click the deployment name and copy the SageMaker endpoint ARN — you’ll need it for API calls
 
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/bedrock-marketplace-deployment.gif"
+<div class="flex justify-center my-6">
+  <img class="rounded-xl border border-gray-200 dark:border-gray-800" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/bedrock-marketplace-deployment.gif"
      alt="Bedrock deployment demo"
-     width="500">
+     width="640">
+</div>
 
 Path B is from SageMaker JumpStart for the model that shows “Use with Bedrock”:
 1. In SageMaker Studio, open JumpStart  

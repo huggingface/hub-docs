@@ -2,6 +2,21 @@
 
 Deploy a model from the Hugging Face Hub to a live SageMaker endpoint in a few minutes with the SageMaker Python SDK.
 
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-3 my-6 not-prose">
+  <div class="rounded-xl border border-gray-200 px-5 py-4 dark:border-gray-800">
+    <div class="text-sm font-semibold text-orange-600 dark:text-orange-300">1 · Deploy</div>
+    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Point ModelBuilder at a Hub model ID and create the endpoint.</p>
+  </div>
+  <div class="rounded-xl border border-gray-200 px-5 py-4 dark:border-gray-800">
+    <div class="text-sm font-semibold text-orange-600 dark:text-orange-300">2 · Invoke</div>
+    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Send a JSON request to the live endpoint and get a prediction.</p>
+  </div>
+  <div class="rounded-xl border border-gray-200 px-5 py-4 dark:border-gray-800">
+    <div class="text-sm font-semibold text-orange-600 dark:text-orange-300">3 · Delete</div>
+    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">One call deletes the endpoint and stops all charges.</p>
+  </div>
+</div>
+
 ## Prerequisites
 
 - An AWS account. If you do not have one, follow the [AWS setup guide](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-set-up.html).
