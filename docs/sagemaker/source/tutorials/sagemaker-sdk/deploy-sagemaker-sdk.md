@@ -42,16 +42,20 @@ from sagemaker.core.helper.session_helper import Session, get_execution_role
 sess = Session()
 role = get_execution_role()
 
-model_id = "cardiffnlp/twitter-roberta-base-sentiment-latest"   # model ID from hf.co/models
+# model ID from hf.co/models
+model_id = "cardiffnlp/twitter-roberta-base-sentiment-latest"
 instance_type = "ml.m5.xlarge"
 
 # Retrieve the Hugging Face PyTorch inference DLC image URI
 inference_image = image_uris.retrieve(
     framework="huggingface",
     region=sess.boto_region_name,
-    version="4.51.3",                          # Transformers version
-    base_framework_version="pytorch2.6.0",   # PyTorch version
-    py_version="py312",                      # Python version
+    # Transformers version
+    version="4.51.3",
+    # PyTorch version
+    base_framework_version="pytorch2.6.0",
+    # Python version
+    py_version="py312",
     image_scope="inference",
     instance_type=instance_type,
 )
@@ -67,7 +71,8 @@ model_builder = ModelBuilder(
     model_server=ModelServer.MMS,
     image_uri=inference_image,
     env_vars={"HF_TASK": "text-classification"},
-    role_arn=role,                 # IAM role with permissions to create an endpoint
+    # IAM role with permissions to create an endpoint
+    role_arn=role,
     sagemaker_session=sess,
     instance_type=instance_type,
     schema_builder=SchemaBuilder(sample_input=sample_input, sample_output=sample_output),
@@ -117,7 +122,8 @@ model_data = model_trainer._latest_training_job.model_artifacts.s3_model_artifac
 
 # build a Model from the trained artifacts and deploy it to SageMaker Inference
 model_builder = ModelBuilder(
-    image_uri=inference_image,        # Hugging Face inference DLC, from the Hub example above
+    # Hugging Face inference DLC, from the Hub example above
+    image_uri=inference_image,
     s3_model_data_url=model_data,
     role_arn=role,
     sagemaker_session=sess,
@@ -151,8 +157,10 @@ from sagemaker.serve import ModelBuilder
 # create a ModelBuilder pointing at your trained model artifacts
 model_builder = ModelBuilder(
     image_uri=inference_image,
-    s3_model_data_url="s3://models/my-bert-model/model.tar.gz",  # path to your trained SageMaker model
-    role_arn=role,                                               # IAM role with permissions to create an endpoint
+    # path to your trained SageMaker model
+    s3_model_data_url="s3://models/my-bert-model/model.tar.gz",
+    # IAM role with permissions to create an endpoint
+    role_arn=role,
     sagemaker_session=sess,
     instance_type="ml.m5.xlarge",
 )
@@ -247,8 +255,10 @@ image_uri = retrieve(
 )
 
 env_vars = {
-    "SM_VLLM_HOST": "0.0.0.0",   # required so the container passes the SageMaker health check
-    # "HF_TOKEN": "hf_...",      # required for gated models
+    # required so the container passes the SageMaker health check
+    "SM_VLLM_HOST": "0.0.0.0",
+    # required for gated models
+    # "HF_TOKEN": "hf_...",
 }
 
 # Pass the model ID as `model` (ModelBuilder sets HF_MODEL_ID from it) and select the vLLM server.
@@ -257,7 +267,8 @@ model_builder = ModelBuilder(
     model_server=ModelServer.VLLM,
     image_uri=image_uri,
     env_vars=env_vars,
-    role_arn=role,                 # IAM role with permissions to create an endpoint
+    # IAM role with permissions to create an endpoint
+    role_arn=role,
     sagemaker_session=sess,
     instance_type=instance_type,
 )
@@ -322,7 +333,8 @@ model_builder.build()
 
 batch_job = model_builder.transformer(
     instance_count=1,
-    instance_type='ml.m5.xlarge',   # matches the CPU inference image from the Hub example
+    # matches the CPU inference image from the Hub example
+    instance_type='ml.m5.xlarge',
     strategy='SingleRecord')
 
 
@@ -350,7 +362,8 @@ model_builder = ModelBuilder(
     model_server=ModelServer.MMS,
     image_uri=inference_image,
     env_vars={"HF_TASK": "text-classification"},
-    role_arn=role,                 # IAM role with permissions to create an endpoint
+    # IAM role with permissions to create an endpoint
+    role_arn=role,
     sagemaker_session=sess,
     instance_type=instance_type,
     schema_builder=SchemaBuilder(
