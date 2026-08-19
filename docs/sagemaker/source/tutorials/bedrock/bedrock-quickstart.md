@@ -57,7 +57,8 @@ inference_cfg = {"maxTokens": 256, "temperature": 0.1, "topP": 0.95}
 extra = {"parameters": {"repetition_penalty": 1.05}}
 
 response = bedrock.converse(
-    modelId=endpoint_arn,                  # <- SageMaker endpoint ARN
+    # SageMaker endpoint ARN
+    modelId=endpoint_arn,
     messages=[{
         "role": "user",
         "content": [{"text": "Give me three taglines for a serverless AI startup"}]

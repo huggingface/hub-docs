@@ -63,7 +63,8 @@ def main():
         per_device_train_batch_size=args.train_batch_size,
         learning_rate=args.learning_rate,
         logging_steps=5,
-        save_strategy="no",  # the final model is saved explicitly below
+        # the final model is saved explicitly below
+        save_strategy="no",
         report_to=[],
     )
 
@@ -106,9 +107,12 @@ sess = Session()
 role = get_execution_role()
 
 hyperparameters = {
-    "model_name": "Qwen/Qwen3-0.6B",       # any small causal LM from the Hub works
-    "dataset_name": "trl-lib/Capybara",    # conversational SFT dataset
-    "max_steps": 50,                       # short run: enough to see the loss go down
+    # any small causal LM from the Hub works
+    "model_name": "Qwen/Qwen3-0.6B",
+    # conversational SFT dataset
+    "dataset_name": "trl-lib/Capybara",
+    # short run: enough to see the loss go down
+    "max_steps": 50,
     "train_batch_size": 4,
     "learning_rate": 2e-5,
 }
@@ -119,9 +123,12 @@ instance_type = "ml.g6.xlarge"
 training_image = image_uris.retrieve(
     framework="huggingface",
     region=sess.boto_region_name,
-    version="5.3.0",                         # Transformers version
-    base_framework_version="pytorch2.9.0",   # PyTorch version
-    py_version="py312",                      # Python version
+    # Transformers version
+    version="5.3.0",
+    # PyTorch version
+    base_framework_version="pytorch2.9.0",
+    # Python version
+    py_version="py312",
     image_scope="training",
     instance_type=instance_type,
 )
@@ -131,16 +138,20 @@ model_trainer = ModelTrainer(
     role=role,
     training_image=training_image,
     source_code=SourceCode(
-        source_dir="./scripts",            # directory with the training script
-        entry_script="train.py",           # script to run in the training job
+        # directory with the training script
+        source_dir="./scripts",
+        # script to run in the training job
+        entry_script="train.py",
     ),
     compute=Compute(
         instance_type=instance_type,
         instance_count=1,
-        # enable_managed_spot_training=True,  # uncomment for managed spot instances (needs spot quota)
+        # uncomment for managed spot instances (needs spot quota)
+        # enable_managed_spot_training=True,
     ),
     stopping_condition=StoppingCondition(
-        max_runtime_in_seconds=3600,  # safety cap on billable seconds
+        # safety cap on billable seconds
+        max_runtime_in_seconds=3600,
     ),
     hyperparameters=hyperparameters,
 )
@@ -199,9 +210,12 @@ model_data = model_trainer._latest_training_job.model_artifacts.s3_model_artifac
 
 parsed = urlparse(model_data)
 boto3.client("s3").download_file(
-    parsed.netloc,                 # bucket
-    parsed.path.lstrip("/"),       # key
-    "model.tar.gz",                # local path where the artifact is saved
+    # bucket
+    parsed.netloc,
+    # key
+    parsed.path.lstrip("/"),
+    # local path where the artifact is saved
+    "model.tar.gz",
 )
 ```
 
@@ -218,7 +232,8 @@ from sagemaker.train.distributed import Torchrun
 
 # reuses sess, role, training_image, and hyperparameters from the ModelTrainer example above
 
-instance_type = "ml.g6e.12xlarge"  # 4x L40S GPUs
+# 4x L40S GPUs
+instance_type = "ml.g6e.12xlarge"
 
 # create the ModelTrainer with torchrun for distributed data parallelism
 model_trainer = ModelTrainer(
@@ -241,7 +256,8 @@ from sagemaker.train.distributed import Torchrun, SMP
 
 # reuses sess, role, training_image, and hyperparameters from the ModelTrainer example above
 
-instance_type = "ml.p4de.24xlarge"  # 8x A100 GPUs
+# 8x A100 GPUs
+instance_type = "ml.p4de.24xlarge"
 
 # create the ModelTrainer with torchrun + SMP for model parallelism
 model_trainer = ModelTrainer(
@@ -287,7 +303,8 @@ model_trainer = ModelTrainer(
     compute=Compute(
         instance_type="ml.g6.xlarge",
         instance_count=1,
-        enable_managed_spot_training=True,   # use fully-managed spot instances
+        # use fully-managed spot instances
+        enable_managed_spot_training=True,
     ),
     # max_wait_time_in_seconds should be equal to or greater than max_runtime_in_seconds
     stopping_condition=StoppingCondition(

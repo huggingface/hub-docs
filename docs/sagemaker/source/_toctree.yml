@@ -68,6 +68,11 @@
           sections:
             - local: examples/sagemaker-sdk-deepseek-ocr-sagemaker
               title: "DeepSeek OCR Pipeline on SageMaker Training Jobs"
+        - title: Other
+          isExpanded: false
+          sections:
+            - local: examples/sagemaker-sdk-serve-qwen3-8-27b-llamacpp
+              title: "Serve Qwen3.8 27B on a single GPU with Hugging Face llama.cpp"
 # END GENERATED CONTENT
   title: SageMaker SDK
   isExpanded: true
