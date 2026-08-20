@@ -103,7 +103,7 @@ A. Credits let you use HF pay-as-you-go services:
 - ZeroGPU: extra quota beyond daily allowance
 - Private Storage: extra storage for private repos
 
-If you have a PRO, Team, or Enterprise subscription, the credits included with your subscription are credited every month and count towards the same services. They are applied automatically before any pay-as-you-go usage is billed, so you only need to add credits once they are exhausted.
+If you have a PRO, Team, or Enterprise subscription, the credits included with your subscription are credited every month and count towards the same services. They are applied automatically before any pay-as-you-go usage is billed.
 
 **Q. What happens if I run out of credits?**
 
