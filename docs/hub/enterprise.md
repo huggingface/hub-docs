@@ -34,12 +34,15 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 | Feature                                                                                                                | Free    | Team                              | Enterprise                        | Enterprise Plus                   |
 | ---------------------------------------------------------------------------------------------------------------------- | ------- | --------------------------------- | --------------------------------- | --------------------------------- |
-| Serve models with Inference Providers                                                                                  | ✅ <br>PAYG | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG |
+| Serve models with Inference Providers                                                                                  | ✅ <br>PAYG | ✅ <br>PAYG                       | ✅ <br>PAYG                       | ✅ <br>PAYG                       |
+| Included monthly compute credits\*\*                                                                                  | ❌      | $2/seat/mo                        | $2/seat/mo                        | $2/seat/mo                        |
 | [Usage & billing control](https://huggingface.co/docs/inference-providers/pricing#inference-providers-usage-breakdown) | ❌      | ✅                                | ✅                                | ✅                                |
 | Scale deployment with Inference Endpoints                                                                              | ✅ PAYG | ✅ PAYG                           | ✅ PAYG                           | ✅ PAYG                           |
 | Hub credits\* included in plan                                                                                         | ❌      | ❌ (bulk purchase available)      | ❌ (bulk purchase available)      | 5% of ACV included                |
 
 \* Hub credits can be utilized for inference providers, inference endpoints, Jobs, Space upgrade, ZeroGPU quota extension
+
+\*\* Included monthly compute credits can be spent on the same services as Hub credits, are shared among all members of the organization, and are applied automatically before any pay-as-you-go usage is billed
 
 ### Spaces & Jobs
 
