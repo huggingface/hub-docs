@@ -27,7 +27,7 @@ The PRO subscription unlocks essential features for serious users, including:
 
 - Higher [storage capacity](./storage-limits) for public and private repositories
 - Higher bandwidth and API [rate limits](./rate-limits)
-- Included credits for [Inference Providers](/docs/inference-providers/)
+- Included monthly compute credits, usable across all Hugging Face compute services: [Inference Providers](/docs/inference-providers/), [Inference Endpoints](https://huggingface.co/docs/inference-endpoints), [Spaces](./spaces-overview) upgraded hardware, and [Jobs](./jobs-overview)
 - Higher tier for ZeroGPU Spaces usage, and pay-as-you-go quota extension
 - Ability to create Gradio and Docker Spaces running on compute, host up to 10 ZeroGPU Spaces, and use Dev Mode
 - Ability to publish Social Posts and Community Blogs
@@ -102,6 +102,8 @@ A. Credits let you use HF pay-as-you-go services:
 - GPU Spaces: host on custom hardware
 - ZeroGPU: extra quota beyond daily allowance
 - Private Storage: extra storage for private repos
+
+If you have a PRO, Team, or Enterprise subscription, the credits included with your subscription are credited every month and count towards the same services. They are applied automatically before any pay-as-you-go usage is billed.
 
 **Q. What happens if I run out of credits?**
 

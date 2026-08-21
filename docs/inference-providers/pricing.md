@@ -6,11 +6,13 @@ Access 200+ models from leading AI inference providers with centralized, transpa
 
 Every Hugging Face user receives monthly credits to experiment with Inference Providers:
 
-| Account Type                     | Monthly Credits          | Extra usage (pay-as-you-go)     |
-| -------------------------------- | ------------------------ | ------------------------------- |
-| Free Users                       | $0.10, subject to change | yes (credits purchase required) |
-| PRO Users                        | $2.00                    | yes                             |
-| Team or Enterprise Organizations | $2.00 per seat           | yes                             |
+| Account Type                     | Monthly Credits          | Can be spent on                   | Extra usage (pay-as-you-go)     |
+| -------------------------------- | ------------------------ | --------------------------------- | ------------------------------- |
+| Free Users                       | $0.10, subject to change | Inference Providers               | yes (credits purchase required) |
+| PRO Users                        | $2.00                    | All Hugging Face compute services | yes                             |
+| Team or Enterprise Organizations | $2.00 per seat           | All Hugging Face compute services | yes                             |
+
+Credits included with a PRO, Team, or Enterprise subscription are general-purpose **compute credits**: on top of Inference Providers, they can also be spent on [Inference Endpoints](https://huggingface.co/docs/inference-endpoints), upgraded CPU & GPU hardware for [Spaces](/docs/hub/spaces-overview) (including [ZeroGPU](/docs/hub/spaces-zerogpu) usage beyond your quota), and [Jobs](/docs/hub/jobs-overview). They are credited every month and applied automatically before any pay-as-you-go usage is billed.
 
 > [!TIP]
 > Your monthly credits automatically apply when you route requests through Hugging Face. For Team or Enterprise organizations, credits are shared among all members.
