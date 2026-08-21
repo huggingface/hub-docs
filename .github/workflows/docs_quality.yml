@@ -1,0 +1,59 @@
+name: Docs Quality
+
+on:
+  pull_request:
+    paths:
+      - "**/*.md"
+      - ".github/workflows/docs_quality.yml"
+      - ".markdownlint-cli2.yaml"
+      - "lychee.toml"
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.md"
+      - ".github/workflows/docs_quality.yml"
+      - ".markdownlint-cli2.yaml"
+      - "lychee.toml"
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  docs-quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Collect changed Markdown files
+        id: changed-markdown
+        uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47
+        with:
+          files: |
+            **/*.md
+
+      - name: Lint changed Markdown files
+        if: steps.changed-markdown.outputs.any_changed == 'true'
+        uses: DavidAnson/markdownlint-cli2-action@ce4853d43830c74c1753b39f3cf40f71c2031eb9 # v23
+        with:
+          config: .markdownlint-cli2.yaml
+          globs: ${{ steps.changed-markdown.outputs.all_changed_files }}
+          separator: " "
+
+      - name: Check changed Markdown links
+        if: steps.changed-markdown.outputs.any_changed == 'true'
+        uses: lycheeverse/lychee-action@a8c4c7cb88f0c7386610c35eb25108e448569cb0 # v2.7.0
+        with:
+          failIfEmpty: false
+          args: >-
+            --config ./lychee.toml
+            ${{ steps.changed-markdown.outputs.all_changed_files }}
