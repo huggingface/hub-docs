@@ -47,7 +47,7 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
-    providersMapping={ {"together":{"modelId":"nvidia/nemotron-3.5-asr-streaming-0.6b","providerModelId":"nvidia/nemotron-3.5-asr-streaming-0.6b"} } }
+    providersMapping={ {"together":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"} } }
 />
 
 
@@ -78,15 +78,5 @@ Find out more about Feature Extraction [here](../tasks/feature-extraction).
 <InferenceSnippet
     pipeline=feature-extraction
     providersMapping={ {"together":{"modelId":"intfloat/multilingual-e5-large-instruct","providerModelId":"intfloat/multilingual-e5-large-instruct"} } }
-/>
-
-
-### Text To Image
-
-Find out more about Text To Image [here](../tasks/text-to-image).
-
-<InferenceSnippet
-    pipeline=text-to-image
-    providersMapping={ {"together":{"modelId":"black-forest-labs/FLUX.1-schnell","providerModelId":"black-forest-labs/FLUX.1-schnell"} } }
 />
 
