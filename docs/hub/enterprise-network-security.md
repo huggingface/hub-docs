@@ -5,7 +5,7 @@
 
 ## Define your organization IP Ranges
 
-You can list the IP addresses of your organization's outbound traffic to apply for higher rate limits and/or to enforce authenticated access to Hugging Face from your corporate network.
+You can list the IP addresses of your organization's outbound traffic to enforce authenticated access to Hugging Face from your corporate network.
 The outbound IP address ranges are defined in <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" target="_blank">CIDR</a> format. For example, `52.219.168.0/24` or `2600:1f69:7400::/40`.
 
 You can set multiple ranges, one per line. 
@@ -24,9 +24,9 @@ After the “Organization IP Ranges” have been manually verified, and the orga
 
 ## Higher Hub Rate Limits
 
-Most of the actions on the Hub have limits; for example, users are limited to creating a certain number of repositories per day. Enterprise Plus automatically gives your users the highest rate limits possible for every action.
+Most of the actions on the Hub have limits; for example, users are limited to creating a certain number of repositories per day. Enterprise Plus automatically gives your users high rate limits for every action.
 
-Additionally, once your IP ranges are set, enabling the "Higher Hub Rate Limits" option allows your organization to benefit from the highest HTTP rate limits on the Hub API, unlocking large volumes of model or dataset downloads.
+Additionally, enabling the "Higher Hub Rate Limits" option allows your organization to benefit from the highest HTTP rate limits on the Hub API, unlocking large volumes of model or dataset downloads.
 
 For more information about rate limits, see the [Hub Rate limits](./rate-limits) documentation.
 
