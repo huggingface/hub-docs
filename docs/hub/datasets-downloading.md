@@ -79,17 +79,17 @@ If your network restricts outbound traffic through a firewall or proxy, download
 
 Allowlist the following hostnames (all over HTTPS / port 443):
 
-| Hostname                     | Purpose                                   |
-|------------------------------|-------------------------------------------|
-| `huggingface.co`             | Hub API, metadata, and download redirects |
-| `cas-server.xethub.hf.co`    | Xet storage protocol APIs + upload (US)   |
-| `cas-server.xethub-eu.hf.co` | Xet storage protocol APIs + upload (EU)   |
-| `transfer.xethub.hf.co`      | Xet storage download APIs (US)            |
-| `transfer.xethub-eu.hf.co`   | Xet storage download APIs (EU)            |
-| `us.aws.cdn.hf.co`           | CDN edge (US)                             |
-| `us.gcp.cdn.hf.co`           | CDN edge (US)                             |
-| `cdn-lfs-us-1.hf.co`         | LFS CDN (US)                              |
-| `cdn-lfs-eu-1.hf.co`         | LFS CDN (EU)                              |
+| Hostname                     | Purpose                                     |
+|------------------------------|---------------------------------------------|
+| `huggingface.co`             | Hub API, metadata, and download redirects   |
+| `cas-server.xethub.hf.co`    | Xet protocol APIs, download and upload (US) |
+| `cas-server.xethub-eu.hf.co` | Xet protocol APIs, download and upload (EU) |
+| `transfer.xethub.hf.co`      | Xet storage download APIs (US)              |
+| `transfer.xethub-eu.hf.co`   | Xet storage download APIs (EU)              |
+| `us.aws.cdn.hf.co`           | CDN edge (US)                               |
+| `us.gcp.cdn.hf.co`           | CDN edge (US)                               |
+| `cdn-lfs-us-1.hf.co`         | LFS CDN (US)                                |
+| `cdn-lfs-eu-1.hf.co`         | LFS CDN (EU)                                |
 
 > [!TIP]
 > Downloads follow HTTP redirects from `huggingface.co` to these hostnames, so
@@ -113,3 +113,13 @@ Allowlist the following hostnames (all over HTTPS / port 443):
 > These hostnames may change as our storage and CDN infrastructure evolves. Where your
 > security policy allows it, allowlist the `hf.co` and `huggingface.co` suffixes (all
 > subdomains) so your rules don't break when a specific endpoint changes.
+
+### Machine-readable list
+
+The hostnames above are also published as JSON at
+[`https://huggingface.co/.well-known/meta.json`](https://huggingface.co/.well-known/meta.json),
+so you can generate proxy or firewall rules from it rather than copying the table by hand.
+
+> [!WARNING]
+> The file changes as endpoints are added and removed. Fetch it when you build your rules
+> rather than pinning a copy.
