@@ -13,6 +13,13 @@
   title: Get started
   isExpanded: true
 - sections:
+    - local: agents/agent-harnesses
+      title: Connect agent harnesses
+    - local: agents/sagemaker-skills
+      title: Manage SageMaker with skills
+  title: Agents
+  isExpanded: false
+- sections:
     - local: tutorials/sagemaker-sdk/sagemaker-sdk-quickstart
       title: Quickstart
     - local: tutorials/sagemaker-sdk/setup-sagemaker-sdk

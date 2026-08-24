@@ -63,12 +63,16 @@ For a more in-depth exploration of the different options, choose from the follow
 
 ## Explore the documentation
 
-DLCs are Docker images pre-installed with Hugging Face libraries and serving engines such as vLLM, SGLang, and llama.cpp, maintained by Hugging Face and AWS.
+Explore containers, agent workflows, guides, and end-to-end examples for building with Hugging Face on AWS.
 
-<div class="grid grid-cols-1 gap-4 sm:grid-cols-3 my-6 not-prose">
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 my-6 not-prose">
   <a class="group rounded-xl border border-gray-200 px-5 py-4 no-underline! dark:border-gray-800" href="./get-started/dlcs">
     <div class="font-semibold text-gray-900 group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-300">Deep Learning Containers</div>
     <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">What the DLCs are, how they work, and which images are available.</p>
+  </a>
+  <a class="group rounded-xl border border-gray-200 px-5 py-4 no-underline! dark:border-gray-800" href="./agents/agent-harnesses">
+    <div class="font-semibold text-gray-900 group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-300">Agents</div>
+    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Connect agent harnesses to AWS-hosted models and manage SageMaker with skills.</p>
   </a>
   <a class="group rounded-xl border border-gray-200 px-5 py-4 no-underline! dark:border-gray-800" href="./tutorials/sagemaker-sdk/sagemaker-sdk-quickstart">
     <div class="font-semibold text-gray-900 group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-300">Guides</div>
