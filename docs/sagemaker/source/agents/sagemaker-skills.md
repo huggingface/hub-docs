@@ -76,7 +76,7 @@ The planner asks for confirmation before creating paid resources. It also checks
 Once the skills are installed, describe the outcome rather than the AWS plumbing. For example:
 
 ```text
-Deploy Qwen/Qwen3-8B to SageMaker for an internal coding agent.
+Deploy Qwen/Qwen3.8-27B to SageMaker for an internal coding agent.
 Traffic will be low but interactive, and I want to minimize idle cost.
 ```
 

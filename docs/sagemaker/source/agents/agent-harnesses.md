@@ -63,8 +63,8 @@ Add the provider to `~/.pi/agent/models.json`:
       "apiKey": "!python ~/.pi/agent/sagemaker-token.py",
       "models": [
         {
-          "id": "Qwen/Qwen3-8B",
-          "name": "Qwen3 8B on SageMaker",
+          "id": "Qwen/Qwen3.8-27B",
+          "name": "Qwen3.8 27B on SageMaker",
           "reasoning": false,
           "input": ["text"],
           "contextWindow": 32768,
@@ -95,7 +95,7 @@ Then configure the model in `~/.hermes/config.yaml`:
 
 ```yaml
 model:
-  default: Qwen/Qwen3-8B
+  default: Qwen/Qwen3.8-27B
   provider: openai-api
 ```
 
