@@ -92,18 +92,18 @@ Complete working examples:
 - GitHub Actions — [`github.com/coyotte508/publish-to-hf`](https://github.com/coyotte508/publish-to-hf)
 - GitLab CI — [`gitlab.com/coyotte508/publish-to-hf`](https://gitlab.com/coyotte508/publish-to-hf)
 
-## Two flavors: repo vs. user
+## Two flavors: repo publishers and CI/CD identities
 
 | Flavor | Configured on | What you get | Use it to… |
 | --- | --- | --- | --- |
-| **Repo publisher** | A repo's **Settings → Trusted Publishers** | A token with **write access to that one repo** | Publish a model, dataset, Space, kernel, or bucket from CI |
-| **User publisher** | Your account's [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) | A read-only token with the `gated-repos` scope | Read **gated repos you have access to** and use your rate limits from CI |
+| **Repo trusted publisher** | A repo's **Settings → Trusted Publishers** | A token with **write access to that one repo** | Publish a model, dataset, Space, kernel, or bucket from CI |
+| **Account CI/CD identity** | Your account's [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) | A read-only token with the `gated-repos` scope, plus `inference-api` if you opt in | Read **gated repos you have access to**, use your rate limits, and optionally call Inference Providers from CI |
 
 Both tokens expire after 60 minutes. You need the **Write** role on a Hub repo to manage its trusted publishers.
 
 ### Accessing gated repos from CI
 
-If you only need to *read* gated repos (e.g. download a model from a job), configure a publisher on your account under [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) instead of on a specific repo, then use your **username** as the resource.
+If you only need to *read* gated repos (e.g. download a model from a job), add a CI/CD identity on your account under [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) instead of on a specific repo, then use your **username** as the resource.
 
 On **GitHub Actions**, the `hf` CLI does the exchange for you, just set `HF_OIDC_RESOURCE`:
 
@@ -133,7 +133,24 @@ The resulting token can read gated repos you have access to and uses your accoun
 >         run: echo "HF_TOKEN=$(hf auth token)" >> "$GITHUB_ENV"
 > ```
 >
-> This works with both user publishers and repo publishers — the token is scoped to whatever `HF_OIDC_RESOURCE` points at.
+> This works with both CI/CD identities and repo publishers — the token is scoped to whatever `HF_OIDC_RESOURCE` points at.
+
+### Calling Inference Providers from CI
+
+Tokens from a CI/CD identity are read-only by default. To let them also call Inference Providers, tick **Allow Inference Providers calls** when adding the identity — exchanged tokens then carry the `inference-api` scope in addition to `gated-repos`, and the entry shows an **Inference** badge in the list.
+
+Inference usage is **billed to your account**, exactly as if you had made the requests yourself — so pin the claims tightly (`repository` *and* `branch` and/or `workflow`) before enabling it.
+
+```yaml
+      - name: Run inference from CI
+        env:
+          HF_OIDC_RESOURCE: your-hf-username
+        run: |
+          export HF_TOKEN="$(hf auth token)"
+          python inference_script.py
+```
+
+Repo publishers aren't eligible — their tokens are repo-scoped and can't call Inference Providers. The capability is fixed at creation; to change it, delete the identity and add it again.
 
 ## Supported CI providers
 
@@ -206,8 +223,8 @@ When the `hf` CLI performs the exchange, a failure surfaces the `error` code alo
 
 - **Tokens are short-lived.** 60 minutes from the moment of exchange — the clock only starts when you call the endpoint, not when the workflow starts. There's no refresh token; long jobs should re-exchange.
 - **Repo tokens are repo-scoped.** A token for `acme/awesome-model` cannot touch `acme/anything-else`. Pushes are attributed to a synthetic `[OIDC]` system user, with a reference to the originating issuer and subject.
-- **User tokens are read-only.** Only the `gated-repos` scope — no writes, no private repos, no account management.
-- - **Claims are matched exactly.** No regex, no prefix matching.
+- **User tokens are read-only.** `gated-repos` scope by default — no writes, no private repos, no account management. The optional `inference-api` scope adds Inference Providers calls (billed to your account), but still no write or private-repo access.
+- **Claims are matched exactly.** No regex, no prefix matching.
 - **Audit logs.** Adding or removing a publisher is logged, and successful exchanges update last used time.
 
 ## See also
