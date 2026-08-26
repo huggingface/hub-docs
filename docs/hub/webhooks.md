@@ -220,6 +220,16 @@ If you set a secret for your Webhook, it will be sent along as an `X-Webhook-Sec
 >
 > This can be helpful if accessing the HTTP headers of the request is complicated for your Webhook handler.
 
+## Delivery and retries
+
+Webhook payloads are delivered asynchronously, shortly after the event happens on the Hub.
+
+If your endpoint cannot be reached at all – for instance on a connection error or when the request times out – the delivery is retried a few times, with an increasing delay between attempts. All the attempts for a single event are grouped into one entry in the "Activity" tab, so retries don't show up as duplicate events.
+
+Only such transport-level errors count as failed deliveries: if your handler answers with an HTTP error status code (for example `500`), the payload is considered delivered and is not retried. If you don't want to miss events, make sure your handler always accepts the request, for example by answering right away and processing the payload in the background.
+
+When deliveries to a Webhook keep failing repeatedly, the Webhook is automatically suspended and its owner is notified by email. You can troubleshoot it and re-enable it from your Webhooks [settings](https://huggingface.co/settings/webhooks).
+
 ## Rate limiting
 
 Each Webhook is limited to 1,000 triggers per 24 hours. You can view your usage in the Webhook settings page in the "Activity" tab.
