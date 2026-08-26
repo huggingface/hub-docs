@@ -25,6 +25,7 @@ You can deploy any Hugging Face Model on AWS with:
 - [AWS Bedrock](#deploy-with-aws-bedrock)
 - [Hugging Face Inference Endpoints](#deploy-with-hugging-face-inference-endpoints)
 - [ECS, EKS, and EC2](#deploy-with-ecs-eks-and-ec2)
+- [AWS Deadline Cloud](#run-batch-inference-with-aws-deadline-cloud)
 
 ### Deploy with Sagemaker SDK
 
@@ -58,6 +59,12 @@ AWS Elastic Container Service (ECS), Elastic Kubernetes Service (EKS), and Elast
 
 [EC2, ECS and EKS Quickstart](https://huggingface.co/docs/sagemaker/main/en/tutorials/compute-services/compute-services-quickstart)
 
+### Run batch inference with AWS Deadline Cloud
+
+AWS Deadline Cloud is a fully managed service for running batch compute workloads at scale, with built-in job queuing, scheduling, and auto-scaling pay-as-you-go worker fleets, including GPU instances. Its Open Job Description job bundles are a great fit for offline, batch-style Hugging Face workloads where you don't need an always-on endpoint: batch LLM inference with vLLM, large-scale text-to-image generation, model evaluation across benchmarks, or protein structure prediction with ESMFold.
+
+[AWS Deadline Cloud Quickstart](https://huggingface.co/docs/sagemaker/main/en/tutorials/deadline-cloud/deadline-cloud-quickstart)
+
 ## Train models on AWS
 
 Training Hugging Face models on AWS is streamlined through various services. Here's how you can fine-tune your models using AWS and Hugging Face offerings.
@@ -65,6 +72,7 @@ Training Hugging Face models on AWS is streamlined through various services. Her
 You can fine-tune any Hugging Face Model on AWS with:
 - [Amazon Sagemaker SDK](#train-with-sagemaker-sdk)
 - [ECS, EKS, and EC2](#train-with-ecs-eks-and-ec2)
+- [AWS Deadline Cloud](#train-with-aws-deadline-cloud)
 
 ### Train with Sagemaker SDK
 
@@ -79,3 +87,9 @@ Hugging Face provides Training Deep Learning Containers (DLCs) to AWS users, opt
 AWS Elastic Container Service (ECS), Elastic Kubernetes Service (EKS), and Elastic Compute Cloud (EC2) allow you to leverage DLCs directly.
 
 [EC2, ECS and EKS Quickstart](https://huggingface.co/docs/sagemaker/main/en/tutorials/compute-services/compute-services-quickstart)
+
+### Train with AWS Deadline Cloud
+
+AWS Deadline Cloud's job bundles can also express training workflows on auto-scaling GPU fleets, from single-step LoRA fine-tuning of any Hugging Face causal language model with 🤗 Transformers, PEFT, and bitsandbytes, to multi-step pipelines that combine data preparation, training, and evaluation as dependent steps in a single job.
+
+[AWS Deadline Cloud Quickstart](https://huggingface.co/docs/sagemaker/main/en/tutorials/deadline-cloud/deadline-cloud-quickstart)
