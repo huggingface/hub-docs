@@ -227,6 +227,9 @@ l40sx4           4x Nvidia L40S          48 vCPU   382 GB   3200 GB   4x L40S (1
 l40sx8           8x Nvidia L40S          192 vCPU  1534 GB  6500 GB   8x L40S (384 GB)          $0.3917   $23.50
 ```
 
+> [!NOTE]
+> NVIDIA GPU performance counters are not accessible from inside a Job. Profilers that read them, such as Nsight Compute, fail with `ERR_NVGPUCTRPERM` even after attaching to the process. The restriction is enforced on the host, so it cannot be enabled from the job's image, command, or environment (see [NVIDIA's documentation](https://developer.nvidia.com/nvidia-development-tools-solutions-err_nvgpuctrperm-permission-issue-performance-counters)). Tools that do not read performance counters, such as `nvidia-smi` and CUDA events, work normally.
+
 ## Expose Ports
 
 Jobs can expose container ports through the public jobs proxy using `--expose <port>` (CLI) or `expose=[<port>]` (Python API). Each exposed port is reachable at `https://<job_id>--<port>.hf.jobs` and requires an HF token with `read` access to the job's namespace:
