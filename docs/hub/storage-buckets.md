@@ -82,6 +82,25 @@ create_bucket("my-bucket", private=True)
 create_bucket("my-org/shared-bucket")
 ```
 
+### Changing visibility
+
+You can change a bucket's visibility after creation:
+
+```bash
+# Make a bucket private
+hf buckets settings username/my-bucket --private
+
+# Make it public again
+hf buckets settings username/my-bucket --public
+```
+
+```python
+from huggingface_hub import update_bucket_settings
+
+update_bucket_settings("username/my-bucket", private=True)
+update_bucket_settings("username/my-bucket", private=False)
+```
+
 For the full Python API reference including deleting, moving, and listing buckets, see the [`huggingface_hub` Buckets guide](https://huggingface.co/docs/huggingface_hub/guides/buckets).
 
 ## Browsing Buckets on the Hub
