@@ -36,56 +36,41 @@ Specify your organization `namespace` to list Jobs under your organization:
 
 ## Filter Jobs
 
-Click on a Job's label to filter Jobs by label:
+Your most-used labels are shown above the Jobs list with the number of Jobs using each; click one to filter by it, or type any `key=value` label:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-labels-page.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-labels-page-dark.png"/>
 </div>
 
-In the CLI, you can filter Jobs based on conditions provided, using the format key=value:
-
-Filter by labels:
+In the CLI, filter by status with `--status` and by label with `--label key=value`. Repeat `--label` to require several labels at once:
 
 ```bash
->>> hf jobs ps --filter label=fine-tuning --filter label=model=Qwen3-06B -a
-JOB ID       IMAGE/SPACE  COMMAND          CREATED             STATUS 
------------- ------------ ---------------- ------------------- ---------
-6978b1254... ghcr.io/a... uv run --with... 2026-01-27 12:35:49 COMPLETED  
-6978b11d4... ghcr.io/a... uv run --with... 2026-01-27 12:33:53 COMPLETED
+# Jobs that ended in error
+>>> hf jobs ps --status error
+
+# Running or scheduling Jobs with a given label
+>>> hf jobs ps --status running,scheduling --label env=prod
+
+# All Jobs (any status) that have both labels
+>>> hf jobs ps -a --label model=Qwen3-06B --label dataset=Capybara
+
+# A label added without a value (`--label fine-tuning`) is matched with a trailing "="
+>>> hf jobs ps -a --label fine-tuning=
 ```
 
-Filter on any condition:
+Filter by name with `--name`, a shortcut for `--label name=<name>`, for example to list every run of a named Job:
 
 ```bash
->>> hf jobs ps --filter status=error -a
-JOB ID       IMAGE/SPACE COMMAND            CREATED            STATUS 
------------- ---------- ------------------ ------------------- ------ 
-693b069fc... ghcr.io... uv run python -... 2025-12-11 17:59:59 ERROR  
-693996dec... ghcr.io... bash -c python ... 2025-12-10 15:50:54 ERROR  
-69399695c... ghcr.io... uv run --with t... 2025-12-10 15:49:41 ERROR  
-693994bdc... ghcr.io... uv run --with t... 2025-12-10 15:41:49 ERROR  
-68d3c1af3... ghcr.io... uv run bash -c ... 2025-09-24 10:02:23 ERROR
+>>> hf jobs ps -a --name daily-report
+JOB_ID      NAME         IMAGE/SPACE COMMAND      CREATED      STATUS    RUNTIME
+----------- ------------ ----------- ------------ ------------ --------- -------
+6a9042c2... daily-report python:3.12 python -c... 2026-08-2... COMPLETED 0s     
+6a904162... daily-report python:3.12 python -c... 2026-08-2... CANCELED  --     
 ```
 
-Filtering supports negation `!=` and glob patterns (including `*` and `?`):
-
-```bash
-# Show Jobs that are not completed
->>> hf jobs ps -a --filter status!=completed
-
-# Show Jobs with a command that ends with "train.py"
->>> hf jobs ps -a --filter "command=*train.py"
-
-# Show Jobs with a "fine-tuning" label
->>> hf jobs ps -a --filter label=fine-tuning
-
-# Show Jobs that don't have the "prod" label and have a label that starts with "data-"
->>> hf jobs ps -a --filter label!=prod --filter "label=data-*"
-
-# Show Jobs based on key=value labels
->>> hf jobs ps -a --filter label=model=Qwen3-06B --filter label=dataset!=Capybara
-```
+> [!TIP]
+> By default `hf jobs ps` shows running and scheduling Jobs. Use `-a` to show all statuses; `-a` cannot be combined with `--status`.
 
 ## Monitor resource usage
 
