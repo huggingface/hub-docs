@@ -49,6 +49,27 @@ From the service account's page, administrators can:
 > [!WARNING]
 > An access token is only displayed once, at the time it is created or rotated. Store it securely — it cannot be retrieved later. If you lose it, rotate the token to generate a new value.
 
+### Network Security exemption
+
+> [!WARNING]
+> This option is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
+
+If your organization uses [Network Security](./enterprise-network-security) settings, service account tokens are subject to them like any other credential: they only work from your organization's IP ranges, and the Content Access Policy applies to what they can reach.
+
+Some automated workflows run outside your corporate network — for example, a CI job hosted by a cloud provider. For those cases, you can exempt an individual token from your organization's Network Security enforcement with the **Bypass IP restrictions and the Content Access Policy** option in the token form.
+
+When enabled:
+
+- The token works from any IP address, even when **Restrict organization access to your IP ranges only** is on.
+- The token can reach content that your organization's Content Access Policy would otherwise block.
+- The exemption only applies to your own organization's Network Security settings. It never bypasses another organization's policy.
+- The token is listed with a **No IP restrictions** badge on the service account's page.
+- Rotating the token preserves the exemption.
+
+Enabling the exemption requires permission to manage the organization's Network Security settings, which is separate from the permission to manage service accounts. This means a member who manages service account tokens cannot grant an exemption on their own. The same permission is required to rotate a token that is already exempt.
+
+Because an exempt token is no longer protected by your network perimeter, the token itself becomes the only credential guarding the resources it can reach. We recommend scoping it to the smallest possible set of repositories, granting read-only permissions where that is sufficient, and rotating it regularly.
+
 ## Billing
 
 Service accounts are not counted as billable members of your organization, so creating them does not consume a paid seat in your plan.
