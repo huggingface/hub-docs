@@ -2,7 +2,7 @@
 
 Webhooks are a foundation for MLOps-related features. They allow you to listen for new changes on specific repos or to all repos belonging to particular set of users/organizations (not just your repos, but any repo).
 
-You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, Spaces, and [Buckets](./storage-buckets). Webhooks can also [trigger Jobs](./jobs-webhooks) to automate compute tasks in response to repo events.
+You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, Spaces, and buckets (and much more!). Webhooks can also [trigger Jobs](./jobs-webhooks) to automate compute tasks in response to repo events.
 
 
 The documentation for Webhooks is below – or you can also browse our **guides** showcasing a few possible use cases of Webhooks:
@@ -17,7 +17,7 @@ You can create new Webhooks and edit existing ones in your Webhooks [settings](h
 
 ![Settings of an individual webhook](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-settings.png)
 
-Webhooks can watch for repos updates (including [Storage Buckets](./storage-buckets)), Pull Requests, discussions, and new comments. It's even possible to create a Space to react to your Webhooks!
+Webhooks can watch for repos updates, Pull Requests, discussions, and new comments. It's even possible to create a Space to react to your Webhooks!
 
 ## Webhook Payloads
 
