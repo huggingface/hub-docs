@@ -200,10 +200,10 @@ These control memory usage during downloads. The three `DOWNLOAD_BUFFER` default
 |---|---|---|---|
 | `HF_XET_RECONSTRUCTION_MIN_RECONSTRUCTION_FETCH_SIZE` | `256mb` | `1gb` | Minimum fetch size for reconstruction requests. |
 | `HF_XET_RECONSTRUCTION_MAX_RECONSTRUCTION_FETCH_SIZE` | `8gb` | `16gb` | Maximum fetch size for reconstruction requests. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` | memory/16 (`32mb`–`16gb`) | memory/8 | Total download buffer size. Derived from usable memory. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_PERFILE_SIZE` | memory/64 (`8mb`–`2gb`) | memory/32 | Per-file download buffer size. Derived from usable memory. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_LIMIT` | memory/4 (`128mb`–`64gb`) | memory/2 | Hard limit on total download buffer memory. Derived from usable memory; setting `DOWNLOAD_BUFFER_SIZE` above this raises the limit to match. |
-| `HF_XET_MEMORY_DERIVED_DOWNLOAD_BUFFERS` | `true` | — | Set to `0` to disable memory-derived buffer defaults and restore the fixed values (`2gb` / `512mb` / `8gb`; HP mode `16gb` / `2gb` / `64gb`). |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` | memory/16 (`64mb`–`16gb`) | memory/8 | Total download buffer size. Derived from usable memory. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_PERFILE_SIZE` | memory/64 (`16mb`–`2gb`) | memory/32 | Per-file download buffer size. Derived from usable memory. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_LIMIT` | memory/4 (`264mb`–`64gb`) | memory/2 | Hard limit on total download buffer memory. Derived from usable memory; setting `DOWNLOAD_BUFFER_SIZE` above this raises the limit to match. |
+| `HF_XET_DISABLE_MEMORY_DERIVED_DOWNLOAD_BUFFERS` | unset | — | Set to `1` to disable memory-derived buffer defaults and restore the fixed values (`2gb` / `512mb` / `8gb`; HP mode `16gb` / `2gb` / `64gb`). |
 | `HF_XET_RECONSTRUCTION_TARGET_BLOCK_COMPLETION_TIME` | `15m` | — | Target time for completing a prefetch block. Used to determine how much data to prefetch ahead during downloads. |
 | `HF_XET_RECONSTRUCTION_MIN_PREFETCH_BUFFER` | `1gb` | — | Minimum amount of data to keep prefetched during downloads, regardless of estimated completion time. |
 
