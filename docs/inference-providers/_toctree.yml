@@ -134,6 +134,8 @@
     title: Public AI
   - local: providers/replicate
     title: Replicate
+  - local: providers/scalattice
+    title: Scalattice
   - local: providers/scaleway
     title: Scaleway
   - local: providers/together

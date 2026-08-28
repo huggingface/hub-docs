@@ -48,6 +48,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   ovhcloud: "https://www.ovhcloud.com/",
   publicai: "https://publicai.co/",
   replicate: "https://replicate.com/",
+  scalattice: "https://scalattice.com/",
   scaleway: "https://www.scaleway.com",
   together: "https://together.xyz/",
   wavespeed: "https://wavespeed.ai/",
