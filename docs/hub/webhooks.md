@@ -2,7 +2,7 @@
 
 Webhooks are a foundation for MLOps-related features. They allow you to listen for new changes on specific repos or to all repos belonging to particular set of users/organizations (not just your repos, but any repo).
 
-You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, Spaces, and [Storage Buckets](./storage-buckets). Webhooks can also [trigger Jobs](./jobs-webhooks) to automate compute tasks in response to repo events.
+You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, Spaces, and [Buckets](./storage-buckets). Webhooks can also [trigger Jobs](./jobs-webhooks) to automate compute tasks in response to repo events.
 
 
 The documentation for Webhooks is below – or you can also browse our **guides** showcasing a few possible use cases of Webhooks:
@@ -94,7 +94,7 @@ It has two sub-properties: `event.action` and `event.scope`.
 `event.scope` will be one of the following values:
 
 - `"repo"` - Global events on repos. Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`, `"move"`.
-- `"repo.content"` - Events on the repo's content, such as new commits or tags. It triggers on new Pull Requests as well due to the newly created reference/commit. For Storage Buckets, it triggers on files being added or deleted rather than on Git refs. The associated `action` is always `"update"`.
+- `"repo.content"` - Events on the repo's content, such as new commits or tags. It triggers on new Pull Requests as well due to the newly created reference/commit. For Buckets, it triggers on files being added or deleted rather than on Git refs. The associated `action` is always `"update"`.
 - `"repo.config"` - Events on the config: update Space secrets, update settings, update DOIs, disabled or not, etc. The associated `action` is always `"update"`.
 - `"discussion"` - Creating a discussion or Pull Request, updating the title or status, and merging. Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`.
 - `"discussion.comment"` - Creating, updating, and hiding a comment. Possible values for the associated `action`: `"create"`, `"update"`.
@@ -149,9 +149,9 @@ Newly created references will have `oldSha` set to `null`. Deleted references wi
 
 You can react to new commits on specific pull requests, new tags, or new branches.
 
-### Storage Buckets
+### Buckets
 
-[Storage Buckets](./storage-buckets) are not Git repositories: they have no commits, branches, or tags. Lifecycle events (`create`, `delete`, `move`, and config updates such as visibility) use the same `"repo"` / `"repo.config"` scopes as other repo types.
+[Buckets](./storage-buckets) are not Git repositories: they have no commits, branches, or tags. Lifecycle events (`create`, `delete`, `move`, and config updates such as visibility) use the same `"repo"` / `"repo.config"` scopes as other repo types.
 
 File changes use `"repo.content"`, but the payload has an `updatedFiles` property instead of `updatedRefs`. Overwriting an existing file is reported as an `"add"`. Here is an example payload after one file was added and another deleted:
 
