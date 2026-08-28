@@ -124,7 +124,7 @@ In the current version of webhooks, the top-level property `repo` is always spec
 }
 ```
 
-`repo.headSha` is the sha of the latest commit on the repo's `main` branch. It is only sent when `event.scope` starts with `"repo"`, not on community events like discussions and comments, and not for Storage Buckets, which have no Git history.
+`repo.headSha` is the sha of the latest commit on the repo's `main` branch. It is only sent when `event.scope` starts with `"repo"`, not on community events like discussions and comments, and not for buckets, which have no Git history.
 
 ### Code changes
 
