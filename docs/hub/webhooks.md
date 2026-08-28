@@ -2,7 +2,7 @@
 
 Webhooks are a foundation for MLOps-related features. They allow you to listen for new changes on specific repos or to all repos belonging to particular set of users/organizations (not just your repos, but any repo).
 
-You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, and Spaces (and much more!). Webhooks can also [trigger Jobs](./jobs-webhooks) to automate compute tasks in response to repo events.
+You can use them to auto-convert models, build community bots, or build CI/CD for your models, datasets, Spaces, and [Storage Buckets](./storage-buckets). Webhooks can also [trigger Jobs](./jobs-webhooks) to automate compute tasks in response to repo events.
 
 
 The documentation for Webhooks is below – or you can also browse our **guides** showcasing a few possible use cases of Webhooks:
@@ -17,7 +17,7 @@ You can create new Webhooks and edit existing ones in your Webhooks [settings](h
 
 ![Settings of an individual webhook](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/webhook-settings.png)
 
-Webhooks can watch for repos updates, Pull Requests, discussions, and new comments. It's even possible to create a Space to react to your Webhooks!
+Webhooks can watch for repos updates (including [Storage Buckets](./storage-buckets)), Pull Requests, discussions, and new comments. It's even possible to create a Space to react to your Webhooks!
 
 ## Webhook Payloads
 
@@ -94,7 +94,7 @@ It has two sub-properties: `event.action` and `event.scope`.
 `event.scope` will be one of the following values:
 
 - `"repo"` - Global events on repos. Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`, `"move"`.
-- `"repo.content"` - Events on the repo's content, such as new commits or tags. It triggers on new Pull Requests as well due to the newly created reference/commit. The associated `action` is always `"update"`.
+- `"repo.content"` - Events on the repo's content, such as new commits or tags. It triggers on new Pull Requests as well due to the newly created reference/commit. For Storage Buckets, it triggers on files being added or deleted rather than on Git refs. The associated `action` is always `"update"`.
 - `"repo.config"` - Events on the config: update Space secrets, update settings, update DOIs, disabled or not, etc. The associated `action` is always `"update"`.
 - `"discussion"` - Creating a discussion or Pull Request, updating the title or status, and merging. Possible values for the associated `action`: `"create"`, `"delete"`, `"update"`.
 - `"discussion.comment"` - Creating, updating, and hiding a comment. Possible values for the associated `action`: `"create"`, `"update"`.
@@ -124,7 +124,7 @@ In the current version of webhooks, the top-level property `repo` is always spec
 }
 ```
 
-`repo.headSha` is the sha of the latest commit on the repo's `main` branch. It is only sent when `event.scope` starts with `"repo"`, not on community events like discussions and comments.
+`repo.headSha` is the sha of the latest commit on the repo's `main` branch. It is only sent when `event.scope` starts with `"repo"`, not on community events like discussions and comments, and not for Storage Buckets, which have no Git history.
 
 ### Code changes
 
@@ -148,6 +148,56 @@ On code changes, the top-level property `updatedRefs` is specified on repo event
 Newly created references will have `oldSha` set to `null`. Deleted references will have `newSha` set to `null`.
 
 You can react to new commits on specific pull requests, new tags, or new branches.
+
+### Storage Buckets
+
+[Storage Buckets](./storage-buckets) are not Git repositories: they have no commits, branches, or tags. Lifecycle events (`create`, `delete`, `move`, and config updates such as visibility) use the same `"repo"` / `"repo.config"` scopes as other repo types.
+
+File changes use `"repo.content"`, but the payload has an `updatedFiles` property instead of `updatedRefs`. Overwriting an existing file is reported as an `"add"`. Here is an example payload after one file was added and another deleted:
+
+```json
+{
+  "event": {
+    "action": "update",
+    "scope": "repo.content"
+  },
+  "repo": {
+    "type": "bucket",
+    "name": "some-user/some-bucket",
+    "id": "6366c000a2abcdf2fd69a080",
+    "private": false,
+    "url": {
+      "web": "https://huggingface.co/buckets/some-user/some-bucket",
+      "api": "https://huggingface.co/api/buckets/some-user/some-bucket"
+    },
+    "owner": {
+      "id": "61d2000c3c2083e1c08af22d"
+    }
+  },
+  "updatedFiles": [
+    {
+      "path": "data/train.txt",
+      "action": "add",
+      "xetHash": "55faef2f2f80cd1a087c35b729f228960739441d38073cd5aa4320751e137166",
+      "size": 20
+    },
+    {
+      "path": "data/old.txt",
+      "action": "delete"
+    },
+    ...
+  ],
+  "updatedFilesTruncated": true,
+  "webhook": {
+    "id": "6390e855e30d9209411de93b",
+    "version": 3
+  }
+}
+```
+
+Above 10,000 entries the list is cut short and `updatedFilesTruncated` is set to `true`. In that case, list the bucket to get the full picture.
+
+Buckets have no discussions or Pull Requests, so you will never receive `"discussion"` and `"discussion.comment"` events for them.
 
 ### Config changes
 
@@ -222,13 +272,9 @@ If you set a secret for your Webhook, it will be sent along as an `X-Webhook-Sec
 
 ## Delivery and retries
 
-Webhook payloads are delivered asynchronously, shortly after the event happens on the Hub.
+Webhook payloads are delivered asynchronously, shortly after the event happens on the Hub. Order is not guaranteed: if several events occur close together, they may arrive out of sequence.
 
-If your endpoint cannot be reached at all – for instance on a connection error or when the request times out – the delivery is retried a few times, with an increasing delay between attempts. All the attempts for a single event are grouped into one entry in the "Activity" tab, so retries don't show up as duplicate events.
-
-Only such transport-level errors count as failed deliveries: if your handler answers with an HTTP error status code (for example `500`), the payload is considered delivered and is not retried. If you don't want to miss events, make sure your handler always accepts the request, for example by answering right away and processing the payload in the background.
-
-When deliveries to a Webhook keep failing repeatedly, the Webhook is automatically suspended and its owner is notified by email. You can troubleshoot it and re-enable it from your Webhooks [settings](https://huggingface.co/settings/webhooks).
+When deliveries to a Webhook keep failing, the Webhook is automatically suspended and its owner is notified by email. You can troubleshoot it and re-enable it from your Webhooks [settings](https://huggingface.co/settings/webhooks).
 
 ## Rate limiting
 
