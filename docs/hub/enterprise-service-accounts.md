@@ -66,7 +66,7 @@ When enabled:
 - The token is listed with a **No IP restrictions** badge on the service account's page.
 - Rotating the token preserves the exemption.
 
-Only organization admins can enable the exemption or rotate a token that is already exempt. If you automate this through the API, the token also needs the `org.networkSecurity.write` permission.
+Only organization admins can enable the exemption or rotate a token that is already exempt.
 
 Because an exempt token is no longer protected by your network perimeter, the token itself becomes the only credential guarding the resources it can reach. We recommend scoping it to the smallest possible set of repositories, granting read-only permissions where that is sufficient, and rotating it regularly.
 
