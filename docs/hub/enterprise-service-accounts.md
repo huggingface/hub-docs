@@ -66,7 +66,7 @@ When enabled:
 - The token is listed with a **No IP restrictions** badge on the service account's page.
 - Rotating the token preserves the exemption.
 
-Enabling the exemption requires permission to manage the organization's Network Security settings, which is separate from the permission to manage service accounts. This means a member who manages service account tokens cannot grant an exemption on their own. The same permission is required to rotate a token that is already exempt.
+Enabling the exemption, and rotating a token that is already exempt, requires permission to manage the organization's Network Security settings.
 
 Because an exempt token is no longer protected by your network perimeter, the token itself becomes the only credential guarding the resources it can reach. We recommend scoping it to the smallest possible set of repositories, granting read-only permissions where that is sufficient, and rotating it regularly.
 
