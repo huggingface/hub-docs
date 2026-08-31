@@ -32,8 +32,8 @@ Resource Groups also affect the visibility of private repositories inside the or
 Head to your Organization's settings, then navigate to the "Resource Groups" entry in the left menu. The page is split in two tabs: **Resource Groups**, where the groups themselves are listed and managed, and **Access settings**, where org admins configure who can create Resource Groups and which members can use specific organization features.
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-groups-page.png" alt="The Resource Groups settings page in light mode: the Resource Groups tab is active, with the New Resource Group card and the list of groups in the left sidebar, and the explainer text with role chips on the right"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-groups-page-dark.png" alt="The Resource Groups settings page in dark mode: the Resource Groups tab is active, with the New Resource Group card and the list of groups in the left sidebar, and the explainer text with role chips on the right"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-groups-page.png" alt="The Resource Groups settings page"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-groups-page-dark.png" alt="The Resource Groups settings page"/>
 </div>
 
 Organization admins can create and manage Resource Groups from that page. Depending on the organization's settings, members with lower roles may also be allowed to create Resource Groups (see [Who can create Resource Groups](#who-can-create-resource-groups) below).
@@ -46,15 +46,15 @@ After creating a Resource Group and giving it a meaningful name, you land on the
 - **Settings**: the group's auto-include and spend limits configuration.
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-overview.png" alt="The Overview tab of a Resource Group in light mode: the group name and description, the four tabs (Overview active, Resources, Users, Settings), the summary chips (repository type counts, member role counts, auto-include state, spend limit) and the Resources and Users preview cards with View all links"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-overview-dark.png" alt="The Overview tab of a Resource Group in dark mode: the group name and description, the four tabs (Overview active, Resources, Users, Settings), the summary chips (repository type counts, member role counts, auto-include state, spend limit) and the Resources and Users preview cards with View all links"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-overview.png" alt="The Overview tab of a resource group"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-overview-dark.png" alt="The Overview tab of a resource group"/>
 </div>
 
 You can start adding repositories and users to the group from the **Resources** and **Users** tabs.
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-add-resources-modal.png" alt="The Add resources modal in light mode: the repository quick search and a staged repository chip ready to be added"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-add-resources-modal-dark.png" alt="The Add resources modal in dark mode: the repository quick search and a staged repository chip ready to be added"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-add-resources-modal.png" alt="The Add resources modal"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-add-resources-modal-dark.png" alt="The Add resources modal"/>
 </div>
 
 > [!TIP]
@@ -75,8 +75,8 @@ This is useful for Resource Groups that should be accessible to your entire orga
 - **Via the API**: See [Configure auto-join via API](./programmatic-user-access-control#configure-auto-join-via-api).
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-auto-include.png" alt="The Auto-include org members section of a Resource Group Settings tab in light mode: the Automatically include all org members checkbox enabled, the Include no_access members option, the default role selector set to read, and the Save button"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-auto-include-dark.png" alt="The Auto-include org members section of a Resource Group Settings tab in dark mode: the Automatically include all org members checkbox enabled, the Include no_access members option, the default role selector set to read, and the Save button"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-auto-include.png" alt="The Auto-include org members settings"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-auto-include-dark.png" alt="The Auto-include org members settings"/>
 </div>
 
 When auto-join is enabled on an existing Resource Group, current org members matching the selected scope are **immediately added** to the group at the configured role (backfill).
@@ -119,8 +119,8 @@ When a non-admin member creates a Resource Group through the UI, they are automa
 Org admins can also control who's allowed to use a given organization feature, separately from repository access. The setting lives on the **Access settings** tab of the Resource Groups settings page.
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/feature-access.png" alt="The Granular feature access table in light mode: rounded card with Feature and Who has access columns, one row per feature (Blog, Inference Providers, Inference Endpoints, Jobs, Collections) with an Everyone tag and an edit button at the end of each row"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dark-feature-access.png" alt="The Granular feature access table in dark mode: rounded card with Feature and Who has access columns, one row per feature (Blog, Inference Providers, Inference Endpoints, Jobs, Collections) with an Everyone tag and an edit button at the end of each row"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/feature-access.png" alt="The Granular feature access table"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/dark-feature-access.png" alt="The Granular feature access table"/>
 </div>
 
 The following features can be restricted:
@@ -164,8 +164,8 @@ You can use the <a href="https://huggingface.co/spaces/huggingface/openapi#tag/o
 On top of tracking costs, you can cap them. Organization admins and resource group admins can set monthly spending limits in the group's **Settings** tab, under **Spend limits**.
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-spend-limits.png" alt="The Spend limits section of a Resource Group's Settings tab in light mode: the Total (all products) input with a dollar prefix, the description text, the four per-product inputs (Inference Providers, Spaces, Jobs, Inference Endpoints) and the Save button"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-spend-limits-dark.png" alt="The Spend limits section of a Resource Group's Settings tab in dark mode: the Total (all products) input with a dollar prefix, the description text, the four per-product inputs (Inference Providers, Spaces, Jobs, Inference Endpoints) and the Save button"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-spend-limits.png" alt="The Spend limits settings"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/org-resource-group-spend-limits-dark.png" alt="The Spend limits settings"/>
 </div>
 
 Two kinds of limits are available, both expressed in USD:
