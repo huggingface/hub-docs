@@ -51,8 +51,7 @@ The list of all possible tasks can be found at https://huggingface.co/tasks and 
 
 > [!TIP]
 > Note that `chatCompletion` is an exception as it is not a pipeline_tag, per se. Instead, it
-> includes models with either `pipeline_tag="text-generation"` or `pipeline_tag="image-text-to-text"`
-> which are tagged as "conversational".
+> includes all models with either `pipeline_tag="text-generation"` or `pipeline_tag="image-text-to-text"`.
 
 
 ### Task API schema
@@ -144,7 +143,7 @@ Create a new mapping item, with the following body (JSON-encoded):
 ```
 
 - `task`, also known as `pipeline_tag` in the HF ecosystem, is the type of model / type of API
-(examples: "text-to-image", "text-generation", but you should use "conversational" for chat models)
+(examples: "text-to-image", "automatic-speech-recognition"; use "conversational" for "text-generation" and "image-text-to-text" models)
 - `hfModel` is the model id on the Hub's side.
 - `providerModel` is the model id on your side (can be the same or different. In general, we encourage you to use the HF model ids on your side as well, but this is up to you).
 
@@ -158,8 +157,8 @@ for TogetherAI) with **Write** permissions to be able to access this endpoint.
 #### Validation
 
 The endpoint validates that:
-- `hfModel` is indeed of `pipeline_tag == task` OR `task` is "conversational" and the model is
-compatible (i.e. the `pipeline_tag` is either "text-generation" or "image-text-to-text" AND the model is tagged as "conversational").
+- `hfModel`'s `pipeline_tag` matches the provided task: for "text-generation" and "image-text-to-text"
+models the task must be "conversational", for all other models the task must be equal to the `pipeline_tag`.
 - After the mapping creation (asynchronously) we automatically test whether the Partner API correctly handles huggingface.js/inference calls for the relevant task, ensuring the API specifications are valid. See the [Automatic validation](#automatic-validation) section below.
 
 
@@ -191,7 +190,7 @@ Create a new mapping item, with the following body (JSON-encoded):
 ```
 
 - `task`, also known as `pipeline_tag` in the HF ecosystem, is the type of model / type of API
-(examples: "text-to-image", "text-generation", but you should use "conversational" for chat models)
+(examples: "text-to-image", "automatic-speech-recognition"; use "conversational" for "text-generation" and "image-text-to-text" models)
 - `tags` is the set of model tags to match. For example, to match all LoRAs of Flux, you can use: `["lora", "base_model:adapter:black-forest-labs/FLUX.1-dev"]` 
 - `providerModel` is the model ID on your side (can be the same or different from the HF model ID).
 - `adapterType` is a literal value that helps client libraries interpret how to call your API. The only supported value at the moment is `"lora"`.
