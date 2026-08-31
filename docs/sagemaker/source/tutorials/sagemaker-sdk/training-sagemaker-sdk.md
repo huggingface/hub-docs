@@ -4,14 +4,20 @@ This guide shows how to train models with the SageMaker Python SDK `ModelTrainer
 
 The examples come from the [Fine-Tune an LLM with the SageMaker SDK and TRL](../../examples/sagemaker-sdk-fine-tune-llm-sft) example, which fine-tunes `Qwen/Qwen3-0.6B` with TRL `SFTTrainer` on the Hugging Face PyTorch training DLC. The example is the complete runnable version; this guide explains each concept.
 
-```mermaid
-flowchart LR
-    A["scripts/train.py"] --> B["ModelTrainer"]
-    C["S3 data channels"] --> B
-    B --> D["Training job on the training DLC"]
-    D --> E["model.tar.gz in S3"]
-    E -.-> F["Deploy with ModelBuilder"]
-```
+<div class="my-6 flex flex-wrap items-center gap-2 not-prose text-sm">
+  <div class="flex flex-col gap-2">
+    <div class="rounded-lg border border-gray-200 px-3 py-2 font-mono text-xs text-gray-900 dark:border-gray-800 dark:text-gray-200">scripts/train.py</div>
+    <div class="rounded-lg border border-gray-200 px-3 py-2 font-mono text-xs text-gray-900 dark:border-gray-800 dark:text-gray-200">S3 data channels</div>
+  </div>
+  <span class="text-gray-400">→</span>
+  <div class="rounded-lg border border-gray-200 px-3 py-2 font-medium text-gray-900 dark:border-gray-800 dark:text-gray-200">ModelTrainer</div>
+  <span class="text-gray-400">→</span>
+  <div class="rounded-lg border border-gray-200 px-3 py-2 font-medium text-gray-900 dark:border-gray-800 dark:text-gray-200">Training job on the training DLC</div>
+  <span class="text-gray-400">→</span>
+  <div class="rounded-lg border border-gray-200 px-3 py-2 font-mono text-xs text-gray-900 dark:border-gray-800 dark:text-gray-200">model.tar.gz in S3</div>
+  <span class="text-gray-400">⇢</span>
+  <a class="rounded-lg border border-orange-200 px-3 py-2 font-medium text-orange-600 no-underline! hover:shadow-md dark:border-orange-500/40 dark:text-orange-300" href="./deploy-sagemaker-sdk">Deploy with ModelBuilder →</a>
+</div>
 
 Learn how to:
 

@@ -13,13 +13,19 @@ endpoint = model_builder.deploy()
 
 This guide shows how to deploy models for inference with `ModelBuilder` from the SageMaker Python SDK. It covers the three serving paths: the zero-code [Inference Toolkit](https://github.com/aws/sagemaker-huggingface-inference-toolkit) for 🤗 Transformers models (built on the [`pipeline` feature](https://huggingface.co/docs/transformers/main_classes/pipelines)), the vLLM DLC for high-performance LLM serving, and batch transform for offline jobs. Make sure you have [set up the SageMaker SDK](./setup-sagemaker-sdk) first.
 
-```mermaid
-flowchart LR
-    A["Hub model ID"] --> C["ModelBuilder"]
-    B["model.tar.gz in S3"] --> C
-    C --> D["Real-time endpoint"]
-    C --> E["Batch transform job"]
-```
+<div class="my-6 flex flex-wrap items-center gap-2 not-prose text-sm">
+  <div class="flex flex-col gap-2">
+    <div class="rounded-lg border border-gray-200 px-3 py-2 font-mono text-xs text-gray-900 dark:border-gray-800 dark:text-gray-200">Hub model ID</div>
+    <div class="rounded-lg border border-gray-200 px-3 py-2 font-mono text-xs text-gray-900 dark:border-gray-800 dark:text-gray-200">model.tar.gz in S3</div>
+  </div>
+  <span class="text-gray-400">→</span>
+  <div class="rounded-lg border border-gray-200 px-3 py-2 font-medium text-gray-900 dark:border-gray-800 dark:text-gray-200">ModelBuilder</div>
+  <span class="text-gray-400">→</span>
+  <div class="flex flex-col gap-2">
+    <div class="rounded-lg border border-gray-200 px-3 py-2 font-medium text-gray-900 dark:border-gray-800 dark:text-gray-200">Real-time endpoint</div>
+    <div class="rounded-lg border border-gray-200 px-3 py-2 font-medium text-gray-900 dark:border-gray-800 dark:text-gray-200">Batch transform job</div>
+  </div>
+</div>
 
 Learn how to:
 
