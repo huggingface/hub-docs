@@ -27,7 +27,7 @@ hf skills add hf-cloud-serving-image-selection
 
 The CLI installs each skill with its supporting scripts, references, and templates. Run `hf skills update` to fetch newer versions later.
 
-If your harness does not have a location that the CLI detects automatically, pass `--dest` with one of its Agent Skills directories. For example, Pi discovers `.agents/skills/` and Hermes Agent discovers `~/.hermes/skills/`.
+If your harness does not have a location that the CLI detects automatically, pass `--dest` with one of its Agent Skills directories. For example, Pi discovers `.agents/skills/`, Hermes Agent discovers `~/.hermes/skills/`, and Tau discovers `~/.tau/skills/` and `~/.agents/skills/`.
 
 ## Available SageMaker skills
 

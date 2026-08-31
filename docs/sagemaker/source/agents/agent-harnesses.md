@@ -1,6 +1,6 @@
 # Use AWS-hosted models with agent harnesses
 
-Agent harnesses such as [Pi](https://pi.dev/) and [Hermes Agent](https://hermes-agent.nousresearch.com/) can use models hosted on Amazon SageMaker AI, SageMaker JumpStart, or Amazon Bedrock. The harness runs locally and sends model requests to an OpenAI-compatible endpoint on AWS.
+Agent harnesses such as [Pi](https://pi.dev/), [Hermes Agent](https://hermes-agent.nousresearch.com/), or [Tau](https://github.com/huggingface/tau) can use models hosted on Amazon SageMaker AI, SageMaker JumpStart, or Amazon Bedrock. The harness runs locally and sends model requests to an OpenAI-compatible endpoint on AWS.
 
 This guide covers client-side agent harnesses. [Amazon Bedrock Agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html) is a separate managed AWS service for building and orchestrating agents.
 
@@ -101,6 +101,41 @@ model:
 
 The environment variable keeps the short-lived token out of the configuration file. Generate a new token when it expires. See [Hermes AI providers](https://hermes-agent.nousresearch.com/docs/integrations/providers) for other configuration methods.
 
+### Tau
+
+Tau supports OpenAI-compatible endpoints through custom providers. Because SageMaker bearer tokens are short-lived, pass the token through an environment variable generated in the shell that starts Tau:
+
+```bash
+export SAGEMAKER_API_KEY="$(python -c 'from sagemaker.core.token_generator import generate_token; print(generate_token(region=\"us-west-2\"))')"
+```
+
+Add the provider to `~/.tau/catalog.toml`:
+
+```toml
+schema_version = 1
+
+[[providers]]
+name = "sagemaker"
+display_name = "Amazon SageMaker"
+kind = "openai-compatible"
+base_url = "https://runtime.sagemaker.us-west-2.amazonaws.com/endpoints/my-endpoint/openai/v1"
+api_key_env = "SAGEMAKER_API_KEY"
+credential_name = "sagemaker"
+models = ["Qwen/Qwen3.8-27B"]
+default_model = "Qwen/Qwen3.8-27B"
+
+[providers.context_windows]
+"Qwen/Qwen3.8-27B" = 32768
+```
+
+Replace the Region, endpoint name, model ID, and context window with your deployment values, then start Tau with the provider:
+
+```bash
+tau --provider sagemaker
+```
+
+The environment variable keeps the short-lived token out of the configuration file. Generate a new token when it expires. You can also run `/login custom` inside Tau for an interactive setup. See [Tau providers and models](https://twotimespi.dev/guides/providers-and-models/) for the complete provider schema.
+
 ## Connect to Amazon Bedrock
 
 Amazon Bedrock exposes an OpenAI-compatible endpoint at:
@@ -159,6 +194,35 @@ model:
   default: openai.gpt-oss-120b
   provider: openai-api
 ```
+
+### Tau
+
+Add a Bedrock provider to `~/.tau/catalog.toml`:
+
+```toml
+schema_version = 1
+
+[[providers]]
+name = "bedrock"
+display_name = "Amazon Bedrock"
+kind = "openai-compatible"
+base_url = "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1"
+api_key_env = "AWS_BEARER_TOKEN_BEDROCK"
+credential_name = "bedrock"
+models = ["openai.gpt-oss-120b"]
+default_model = "openai.gpt-oss-120b"
+
+[providers.context_windows]
+"openai.gpt-oss-120b" = 131072
+```
+
+Then start Tau with the provider:
+
+```bash
+tau --provider bedrock
+```
+
+Use a model ID and limits supported by Bedrock in your Region.
 
 ## Use another agent harness
 
