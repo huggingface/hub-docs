@@ -16,7 +16,7 @@ Choose from the following options to quickly get started:
   <a class="group flex flex-col rounded-xl border border-orange-100 bg-linear-to-br from-orange-50 px-6 py-5 no-underline! dark:border-gray-850 dark:from-orange-500/10" href="./tutorials/jumpstart/jumpstart-quickstart">
     <div class="mb-2 text-lg font-semibold text-orange-600 dark:text-orange-300">Quickstart</div>
     <p class="mb-4 grow text-sm text-gray-600 dark:text-gray-400">Deploy and test a Hugging Face model with SageMaker JumpStart.</p>
-    <span class="text-sm font-semibold text-gray-800 group-hover:text-orange-600 dark:text-gray-200 dark:group-hover:text-orange-300">Deploy a model →</span>
+    <span class="text-sm font-semibold text-gray-800 group-hover:text-orange-500 dark:text-gray-200 dark:group-hover:text-orange-300">Deploy a model →</span>
   </a>
   <a class="group flex flex-col rounded-xl border border-blue-100 bg-linear-to-br from-blue-50 px-6 py-5 no-underline! dark:border-gray-850 dark:from-blue-500/10" href="./get-started/choose-an-offering">
     <div class="mb-2 text-lg font-semibold text-blue-600 dark:text-blue-300">Choose a service</div>
@@ -26,7 +26,7 @@ Choose from the following options to quickly get started:
   <a class="group flex flex-col rounded-xl border border-purple-100 bg-linear-to-br from-purple-50 px-6 py-5 no-underline! dark:border-gray-850 dark:from-purple-500/10" href="./tutorials/sagemaker-sdk/sagemaker-sdk-quickstart">
     <div class="mb-2 text-lg font-semibold text-purple-600 dark:text-purple-300">SageMaker SDK</div>
     <p class="mb-4 grow text-sm text-gray-600 dark:text-gray-400">Deploy any Hub model to a managed endpoint from Python.</p>
-    <span class="text-sm font-semibold text-gray-800 group-hover:text-purple-600 dark:text-gray-200 dark:group-hover:text-purple-300">Start from Python →</span>
+    <span class="text-sm font-semibold text-gray-800 group-hover:text-purple-500 dark:text-gray-200 dark:group-hover:text-purple-300">Start from Python →</span>
   </a>
 </div>
 

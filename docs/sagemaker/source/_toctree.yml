@@ -18,7 +18,7 @@
     - local: agents/sagemaker-skills
       title: Manage SageMaker with skills
   title: Agents
-  isExpanded: false
+  isExpanded: true
 - sections:
     - local: tutorials/sagemaker-sdk/sagemaker-sdk-quickstart
       title: Quickstart
