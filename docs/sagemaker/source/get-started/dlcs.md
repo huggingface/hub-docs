@@ -31,116 +31,150 @@ Hugging Face DLCs are open source and licensed under Apache 2.0. Browse the full
 
 ## Features & benefits
 
-Hugging Face DLCs provide ready-to-use, tested environments to train and deploy Hugging Face models.
-
-### One command is all you need
-
-Train and deploy cutting-edge Transformers models in a single line of code. The Hugging Face PyTorch DLCs for training ship with everything needed to run a single command — for example the [TRL CLI](https://huggingface.co/docs/trl/en/clis) — to fine-tune LLMs in any setting, from single-GPU to multi-node multi-GPU.
-
-### From science to production
-
-For inference, the general-purpose Hugging Face PyTorch DLC comes with the [`sagemaker-huggingface-inference-toolkit`](https://github.com/aws/sagemaker-huggingface-inference-toolkit), which supports serving any PyTorch model on AWS. Deploy your own trained models or pick from the ever-growing catalog of models on the [Hugging Face Hub](https://huggingface.co/models) with just one more line of code.
-
-### High-performance text generation
-
-For deploying large language models in production, Hugging Face provides dedicated DLCs built around leading open-source inference engines:
-
-* **[vLLM](https://docs.vllm.ai/)** — high-throughput, memory-efficient LLM serving, available for both GPU and AWS AI chips (Neuron).
-* **[SGLang](https://docs.sglang.ai/)** — fast serving with an efficient runtime, available for GPU.
-* **[llama.cpp](https://github.com/ggml-org/llama.cpp)** — lightweight serving of GGUF / quantized models, available for both CPU and GPU.
-
-These engines serve the vast majority of text generation architectures available on the Hugging Face Hub, expose OpenAI-compatible APIs, and support loading models directly from Amazon S3 with no extra configuration. Pick the latest image for your engine and accelerator in the [Available DLCs](#available-dlcs) section below.
-
-### High-performance embeddings
-
-For embedding, re-ranking, and sequence-classification workloads, the [Text Embeddings Inference (TEI)](https://huggingface.co/docs/text-embeddings-inference) DLC provides high-performance serving on both CPU and GPU. It can deploy any of the thousands of [supported embedding models](https://huggingface.co/models?other=text-embeddings-inference) on the Hub, or any custom model whose architecture is supported by TEI.
-
-### Built-in performance
-
-Hugging Face DLCs feature built-in optimizations that let you train faster and serve efficiently, while giving you the flexibility to choose the infrastructure that best fits your price/performance target. The inference DLCs provide production-ready endpoints that scale with your AWS environment, with built-in monitoring and enterprise features.
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 my-6 not-prose">
+  <div class="rounded-xl border border-gray-200 px-5 py-4 dark:border-gray-800">
+    <div class="font-semibold text-gray-900 dark:text-white">One command to train</div>
+    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">The training DLCs ship with everything needed to run a single command — for example the <a href="https://huggingface.co/docs/trl/en/clis">TRL CLI</a> — to fine-tune LLMs from single-GPU to multi-node multi-GPU.</p>
+  </div>
+  <div class="rounded-xl border border-gray-200 px-5 py-4 dark:border-gray-800">
+    <div class="font-semibold text-gray-900 dark:text-white">Production serving engines</div>
+    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Dedicated DLCs built around <a href="https://docs.vllm.ai/">vLLM</a>, <a href="https://docs.sglang.ai/">SGLang</a>, and <a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a> serve most Hub text-generation architectures with OpenAI-compatible APIs and direct Amazon S3 model loading.</p>
+  </div>
+  <div class="rounded-xl border border-gray-200 px-5 py-4 dark:border-gray-800">
+    <div class="font-semibold text-gray-900 dark:text-white">Embeddings and reranking</div>
+    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">The <a href="https://huggingface.co/docs/text-embeddings-inference">Text Embeddings Inference (TEI)</a> DLC serves embedding, re-ranking, and sequence-classification models on CPU and GPU, including the thousands of <a href="https://huggingface.co/models?other=text-embeddings-inference">supported models</a> on the Hub.</p>
+  </div>
+  <div class="rounded-xl border border-gray-200 px-5 py-4 dark:border-gray-800">
+    <div class="font-semibold text-gray-900 dark:text-white">Built-in performance</div>
+    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Tested, optimized environments with production-ready endpoints that scale with your AWS environment, so you can pick infrastructure by price/performance target.</p>
+  </div>
+</div>
 
 ## Available DLCs
 
 Below you can find a listing of our latest Deep Learning Containers (DLCs) available on AWS.
 
-For each supported combination of use-case (training, inference), accelerator type (CPU, GPU, Neuron), and framework (PyTorch, TGI, TEI) containers are created.
+For each supported combination of use-case (training, inference), accelerator type (CPU, GPU, Neuron), and framework (PyTorch, vLLM, SGLang, llama.cpp, TEI) containers are created. The URIs below use `us-east-1` or `us-west-2`; replace the region as needed, or [retrieve the URI programmatically](#faq).
 
-Neuron DLCs for training and inference on AWS Trainium and AWS Inferentia instances can be found in the [Optimum Neuron documentation](https://huggingface.co/docs/optimum-neuron/en/containers).
-
-If you want to keep track of all our available DLCs, you can also check the [AWS Deep Learning Containers releases](https://aws.github.io/deep-learning-containers/reference/available_images#huggingface-pytorch-training) page.
+Neuron DLCs for training and inference on AWS Trainium and AWS Inferentia instances can be found in the [Optimum Neuron documentation](https://huggingface.co/docs/optimum-neuron/en/containers). To keep track of all our available DLCs, check the [AWS Deep Learning Containers releases](https://aws.github.io/deep-learning-containers/reference/available_images#huggingface-pytorch-training) page.
 
 ### Transformers
 
 #### Training
 
-For training, the DLCs are available for PyTorch via Transformers. They include GPUs and AWS AI chips support, with libraries such as TRL, Sentence Transformers, or Diffusers.
+For training, the DLCs are available for PyTorch via Transformers. They include GPUs and AWS AI chips support, with libraries such as TRL, Sentence Transformers, or Diffusers. You can also keep track of the latest PyTorch Training DLC releases [here](https://github.com/aws/deep-learning-containers/releases?q=huggingface-training+AND+NOT+neuronx&expanded=true).
 
-You can also keep track of the latest PyTorch Training DLC releases [here](https://github.com/aws/deep-learning-containers/releases?q=huggingface-training+AND+NOT+neuronx&expanded=true).
-
-| Container URI                                                                                                                    | Accelerator |
-| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.9.0-transformers5.3.0-gpu-py312-cu130-ubuntu22.04 | GPU         |
-| 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-training-neuronx:2.8.0-transformers4.55.4-neuronx-py310-sdk2.26.0-ubuntu22.04 | Neuron         |
+<div class="overflow-x-auto my-4 not-prose">
+<table class="w-full text-sm">
+<thead>
+<tr class="border-b border-gray-200 dark:border-gray-800"><th class="py-2 pr-4 text-left font-semibold">Accelerator</th><th class="py-2 text-left font-semibold">Container URI</th></tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">GPU</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.9.0-transformers5.3.0-gpu-py312-cu130-ubuntu22.04</code></td></tr>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">Neuron</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-training-neuronx:2.8.0-transformers4.55.4-neuronx-py310-sdk2.26.0-ubuntu22.04</code></td></tr>
+</tbody>
+</table>
+</div>
 
 #### Inference
 
-For inference, there is a general-purpose PyTorch inference DLC, for serving models trained with any of those frameworks mentioned before on CPU, GPU, and AWS AI chips.
+For inference, the general-purpose PyTorch inference DLC serves models trained with any of those frameworks on CPU, GPU, and AWS AI chips.
 
-| Container URI                                                                                                                    | Accelerator |
-| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.51.3-cpu-py312-ubuntu22.04 | CPU         |
-| 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.51.3-gpu-py312-cu124-ubuntu22.04 | GPU         |
-| 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-inference-neuronx:2.8.0-transformers4.55.4-neuronx-py310-sdk2.26.0-ubuntu22.04 | Neuron         |
+<div class="overflow-x-auto my-4 not-prose">
+<table class="w-full text-sm">
+<thead>
+<tr class="border-b border-gray-200 dark:border-gray-800"><th class="py-2 pr-4 text-left font-semibold">Accelerator</th><th class="py-2 text-left font-semibold">Container URI</th></tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">CPU</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.51.3-cpu-py312-ubuntu22.04</code></td></tr>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">GPU</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:2.6.0-transformers4.51.3-gpu-py312-cu124-ubuntu22.04</code></td></tr>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">Neuron</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-inference-neuronx:2.8.0-transformers4.55.4-neuronx-py310-sdk2.26.0-ubuntu22.04</code></td></tr>
+</tbody>
+</table>
+</div>
 
 ### vLLM
 
-In case you want to serve text generation models with vLLM, there are specific DLCs available for GPU and AWS AI chips.
+For serving text generation models with [vLLM](https://docs.vllm.ai/), there are specific DLCs available for GPU and AWS AI chips.
 
-| vLLM version | Container URI                                                                                                                    | Accelerator |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 0.28.0         | 763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-vllm:0.28.0-transformers5.15.0-gpu-py312-cu130-ubuntu24.04 | GPU         |
-| 0.11.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.5-neuronx-py310-sdk2.26.1-ubuntu22.04 | Neuron         |
+<div class="overflow-x-auto my-4 not-prose">
+<table class="w-full text-sm">
+<thead>
+<tr class="border-b border-gray-200 dark:border-gray-800"><th class="py-2 pr-4 text-left font-semibold">Accelerator</th><th class="py-2 pr-4 text-left font-semibold">Version</th><th class="py-2 text-left font-semibold">Container URI</th></tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">GPU</td><td class="py-2 pr-4 whitespace-nowrap">0.28.0</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-vllm:0.28.0-transformers5.15.0-gpu-py312-cu130-ubuntu24.04</code></td></tr>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">Neuron</td><td class="py-2 pr-4 whitespace-nowrap">0.11.0</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.5-neuronx-py310-sdk2.26.1-ubuntu22.04</code></td></tr>
+</tbody>
+</table>
+</div>
 
 #### vLLM Omni
 
 You can also use vLLM Omni for serving multimodal models with vLLM on GPUs.
 
-| vLLM Omni version | Container URI                                                                                                                    | Accelerator |
-| ---------------| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 0.20.0         | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-omni:0.20.0-transformers5.8.1-gpu-py312-cu130-amzn2023 | GPU         |
-
+<div class="overflow-x-auto my-4 not-prose">
+<table class="w-full text-sm">
+<thead>
+<tr class="border-b border-gray-200 dark:border-gray-800"><th class="py-2 pr-4 text-left font-semibold">Accelerator</th><th class="py-2 pr-4 text-left font-semibold">Version</th><th class="py-2 text-left font-semibold">Container URI</th></tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">GPU</td><td class="py-2 pr-4 whitespace-nowrap">0.20.0</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-omni:0.20.0-transformers5.8.1-gpu-py312-cu130-amzn2023</code></td></tr>
+</tbody>
+</table>
+</div>
 
 ### SGLang
 
-There is also a specific DLC for serving models with SGLang on GPU.
+There is also a specific DLC for serving models with [SGLang](https://docs.sglang.ai/) on GPU.
 
-| SGLang version | Container URI                                                                                                                    | Accelerator |
-| ---------------| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 0.5.12          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-sglang:0.5.12-transformers5.6.0-gpu-py312-cu130-ubuntu24.04 | GPU         |
-
+<div class="overflow-x-auto my-4 not-prose">
+<table class="w-full text-sm">
+<thead>
+<tr class="border-b border-gray-200 dark:border-gray-800"><th class="py-2 pr-4 text-left font-semibold">Accelerator</th><th class="py-2 pr-4 text-left font-semibold">Version</th><th class="py-2 text-left font-semibold">Container URI</th></tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">GPU</td><td class="py-2 pr-4 whitespace-nowrap">0.5.12</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-sglang:0.5.12-transformers5.6.0-gpu-py312-cu130-ubuntu24.04</code></td></tr>
+</tbody>
+</table>
+</div>
 
 ### Llama.cpp
 
-For a lightweight inference serving, there is a specific DLC for serving models with Llama.cpp on both CPU and GPU.
+For lightweight inference serving, there is a specific DLC for serving models with [llama.cpp](https://github.com/ggml-org/llama.cpp) on both CPU and GPU.
 
-| Llama.cpp version | Container URI                                                                                                                    | Accelerator |
-| ---------------| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| b9522          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-llama.cpp:b9522-gpu-cu130-ubuntu24.04 | GPU         |
-| b9522          | 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-llama.cpp:b9522-cpu-ubuntu24.04 | CPU         |
-
+<div class="overflow-x-auto my-4 not-prose">
+<table class="w-full text-sm">
+<thead>
+<tr class="border-b border-gray-200 dark:border-gray-800"><th class="py-2 pr-4 text-left font-semibold">Accelerator</th><th class="py-2 pr-4 text-left font-semibold">Version</th><th class="py-2 text-left font-semibold">Container URI</th></tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">GPU</td><td class="py-2 pr-4 whitespace-nowrap">b9522</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-llama.cpp:b9522-gpu-cu130-ubuntu24.04</code></td></tr>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">CPU</td><td class="py-2 pr-4 whitespace-nowrap">b9522</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-llama.cpp:b9522-cpu-ubuntu24.04</code></td></tr>
+</tbody>
+</table>
+</div>
 
 ### Text Embeddings Inference
 
-Finally, there is the Text Embeddings Inference (TEI) DLC for high-performance serving of embedding models on CPU and GPU.
+Finally, the [Text Embeddings Inference (TEI)](https://huggingface.co/docs/text-embeddings-inference) DLC provides high-performance serving of embedding models on CPU and GPU.
 
-| Container URI                                                                                                                    | Accelerator |
-| -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.9.3-cpu-py310-ubuntu24.04 | CPU         |
-| 683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.9.3-gpu-py310-cu129-ubuntu24.04 | GPU         |
+<div class="overflow-x-auto my-4 not-prose">
+<table class="w-full text-sm">
+<thead>
+<tr class="border-b border-gray-200 dark:border-gray-800"><th class="py-2 pr-4 text-left font-semibold">Accelerator</th><th class="py-2 text-left font-semibold">Container URI</th></tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">CPU</td><td class="py-2"><code class="text-xs break-all">683313688378.dkr.ecr.us-east-1.amazonaws.com/tei-cpu:2.0.1-tei1.9.3-cpu-py310-ubuntu24.04</code></td></tr>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">GPU</td><td class="py-2"><code class="text-xs break-all">683313688378.dkr.ecr.us-east-1.amazonaws.com/tei:2.0.1-tei1.9.3-gpu-py310-cu129-ubuntu24.04</code></td></tr>
+</tbody>
+</table>
+</div>
 
 ## FAQ
 
-**How to find the URI of my container?**
+<details class="my-3 rounded-xl border border-gray-200 px-5 py-4 dark:border-gray-800">
+<summary class="cursor-pointer font-semibold text-gray-900 dark:text-white">How do I find the URI of my container?</summary>
 
 The SageMaker SDK provides a utility function to get the URI of a container programmatically:
 
@@ -156,15 +190,21 @@ AVAILABLE_FRAMEWORKS = [
     "huggingface-sglang",
 ]
 
+# use image_scope="training" for training containers
 image_uris.retrieve(
     "huggingface-vllm",
     region="us-east-1",
-    image_scope="inference", # or "training" for training containers
+    image_scope="inference",
     instance_type="ml.g5.2xlarge",
 )
 ```
 
-If you just want to use the default container for a given model, you can also rely on the SageMaker SDK `ModelBuilder`, which will automatically choose the correct container for you:
+</details>
+
+<details class="my-3 rounded-xl border border-gray-200 px-5 py-4 dark:border-gray-800">
+<summary class="cursor-pointer font-semibold text-gray-900 dark:text-white">Can the SDK choose the container for me?</summary>
+
+If you just want the default container for a given model, you can rely on the SageMaker SDK `ModelBuilder`, which automatically chooses the container for you:
 
 ```python
 from sagemaker.serve import ModelBuilder
@@ -176,5 +216,7 @@ builder = ModelBuilder(
 )
 ```
 
->[!NOTE]
->Be aware that the SDK may not always be up to date or may choose the wrong container for your use case. When in doubt, always double check the container URI returned by the SDK and compare it to the ones available in this documentation.
+> [!NOTE]
+> The SDK may not always be up to date or may choose the wrong container for your use case. When in doubt, compare the container URI returned by the SDK with the ones listed on this page.
+
+</details>
