@@ -274,7 +274,7 @@ If you set a secret for your Webhook, it will be sent along as an `X-Webhook-Sec
 
 Webhook payloads are delivered asynchronously, shortly after the event happens on the Hub. Order is not guaranteed: if several events occur close together, they may arrive out of sequence.
 
-Every delivery carries a unique identifier in the `Webhook-Id` HTTP header, following the [Standard Webhooks](https://github.com/standard-webhooks/standard-webhooks/blob/main/spec/standard-webhooks.md#webhook-headers-sending-metadata-to-consumers) specification. If a delivery fails to reach your endpoint and is retried, every retry reuses the same `Webhook-Id`, so you can use it as an idempotency key to process each event only once.
+Each delivery has a unique `Webhook-Id` HTTP header. Retries of a failed delivery reuse the same ID, so you can treat it as an idempotency key and process each event once.
 
 When deliveries to a Webhook keep failing, the Webhook is automatically suspended and its owner is notified by email. You can troubleshoot it and re-enable it from your Webhooks [settings](https://huggingface.co/settings/webhooks).
 
@@ -300,7 +300,7 @@ Here you can review the HTTP status code and the payload of the generated events
 
 Note: When changing the target URL or secret of a Webhook, replaying an event will send the payload to the updated URL.
 
-Note: A replayed event is sent with the same `Webhook-Id` as the original delivery, so a handler that dedupes on that header will skip the replay as a duplicate.
+Note: A replayed event is sent with the same `Webhook-Id` as the original delivery.
 
 ## FAQ
 
