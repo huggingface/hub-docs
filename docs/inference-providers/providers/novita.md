@@ -59,6 +59,6 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"novita":{"modelId":"google/gemma-4-31B-it","providerModelId":"google/gemma-4-31b-it"} } }
+    providersMapping={ {"novita":{"modelId":"zai-org/GLM-5.3-Flash","providerModelId":"zai-org/glm-5.3-flash"} } }
 conversational />
 
