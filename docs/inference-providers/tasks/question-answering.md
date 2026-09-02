@@ -22,7 +22,6 @@ Question Answering models can retrieve the answer to a question from a given tex
 
 ### Recommended models
 
-- [deepset/roberta-base-squad2](https://huggingface.co/deepset/roberta-base-squad2): A robust baseline model for most question answering domains.
 - [distilbert/distilbert-base-cased-distilled-squad](https://huggingface.co/distilbert/distilbert-base-cased-distilled-squad): Small yet robust model that can answer questions.
 - [google/tapas-base-finetuned-wtq](https://huggingface.co/google/tapas-base-finetuned-wtq): A special model that can answer questions from tables.
 
@@ -37,7 +36,7 @@ hf models ls --warm --pipeline-tag question-answering --sort trending_score
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-base-squad2","providerModelId":"deepset/roberta-base-squad2"}} }
+    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-large-squad2","providerModelId":"deepset/roberta-large-squad2"}} }
 />
 
 
