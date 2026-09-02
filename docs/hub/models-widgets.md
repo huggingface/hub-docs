@@ -177,7 +177,7 @@ You can also click _Ask for provider support_ directly on the model page to enco
 
 Before integrating models into your applications, you can test them interactively with the [Inference Playground](https://huggingface.co/playground). The playground allows you to:
 
-- Test different [chat completion models](https://huggingface.co/models?inference_provider=all&sort=trending&pipeline_tag=text-generation) with custom prompts
+- Test different [chat completion models](https://huggingface.co/models?inference_provider=all&sort=trending&other=conversational) with custom prompts
 - Compare responses across different models
 - Experiment with inference parameters like temperature, max tokens, and more
 - Find the perfect model for your specific use case

@@ -108,7 +108,7 @@ Implement the methods that require custom handling. Check out the base implement
 
 If the provider supports multiple tasks that require different implementations, create dedicated subclasses for each task, following the pattern used in the existing providers implementation, e.g. [Together AI provider implementation](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/together.ts).
 
-For text-generation and conversational tasks, you can just inherit from `BaseTextGenerationTask` and `BaseConversationalTask` respectively (defined in [providerHelper.ts]((https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/providerHelper.ts))) and override the methods if needed. Examples can be found in [Cerebras](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/cerebras.ts) or [Fireworks](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/fireworks.ts) provider implementations.
+For conversational tasks, you can just inherit from `BaseConversationalTask` (defined in [providerHelper.ts]((https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/providerHelper.ts))) and override the methods if needed. Examples can be found in [Cerebras](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/cerebras.ts) or [Fireworks](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/fireworks.ts) provider implementations.
 
 ### Register the provider
 
@@ -266,17 +266,10 @@ Here is an example of response:
             "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
             "providerId": "deepseek-ai/DeepSeek-R1",
             "status": "live"
-        }
-    },
-    "text-generation": {
-        "meta-llama/Llama-2-70b-hf": {
-            "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
-            "providerId": "meta-llama/Llama-2-70b-hf",
-            "status": "live"
         },
-        "mistralai/Mixtral-8x7B-v0.1": {
+        "Qwen/Qwen3-VL-8B-Instruct": {
             "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
-            "providerId": "mistralai/Mixtral-8x7B-v0.1",
+            "providerId": "Qwen/Qwen3-VL-8B-Instruct",
             "status": "live"
         }
     }
@@ -303,7 +296,7 @@ The validation process checks the following:
 - The Inference API is reachable, and the HTTP call succeeds.
 - The output format is compatible with the Hugging Face JavaScript Inference Client.
 - Latency requirements are met:
-  - For conversational and text models: under 5 seconds (time to first token in streaming mode).
+  - For conversational models: under 5 seconds (time to first token in streaming mode).
   - For other tasks: under 30 seconds.
 
 For large language models (LLMs), additional behavioral tests are conducted:
@@ -473,7 +466,7 @@ Implement the methods that require custom handling. Check out the base implement
 
 If the provider supports multiple tasks that require different implementations, create dedicated subclasses for each task, following the pattern shown in fal_ai.py.
 
-For text-generation and conversational tasks, one can just inherit from BaseTextGenerationTask and BaseConversationalTask respectively (defined in _common.py) and override the methods if needed. Examples can be found in fireworks_ai.py and together.py.
+For conversational tasks, one can just inherit from BaseConversationalTask (defined in _common.py) and override the methods if needed. Examples can be found in fireworks_ai.py and together.py.
 
 ```python
 from typing import Any, Dict, Optional, Union
