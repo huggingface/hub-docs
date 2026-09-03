@@ -124,6 +124,8 @@
     title: Groq
   - local: providers/hf-inference
     title: HF Inference
+  - local: providers/neuronpool
+    title: NeuronPool
   - local: providers/novita
     title: Novita
   - local: providers/nscale

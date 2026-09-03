@@ -1,0 +1,35 @@
+# NeuronPool
+
+> [!TIP]
+> All supported NeuronPool models can be found [here](https://huggingface.co/models?inference_provider=neuronpool&sort=trending)
+
+{{{logoSection}}}
+
+{{{followUsSection}}}
+
+NeuronPool is social compute: idle machines join a pool and serve
+OpenAI-compatible inference, so a friend group can run a shared model and
+public buyers can pay the same catalog. Linux hosts run llama.cpp; Mac hosts
+run MLX. The coordinator is an OpenAI-compatible LLM API (`/v1/chat/completions`)
+with tool calling and structured output.
+
+**Supported task:** Chat Completion (LLM). Embeddings are served on the
+NeuronPool API but are not mapped through Inference Providers.
+
+**Billing:** every response includes an `Inference-Id` header (the job id).
+Hugging Face polls `POST /partners/hf/billing` with those ids and receives
+`costNanoUsd` (nano-USD, idempotent, unknown/unsettled ids omitted). Catalog
+prices are on `GET /v1/models` as `pricing.input` / `pricing.output` (USD per
+million tokens) plus `context_length`.
+
+For latest pricing, see [`GET /v1/models`](https://api.neuronpool.dev/v1/models)
+or the [OpenRouter-shaped catalog](https://api.neuronpool.dev/openrouter/models).
+
+## Resources
+ - **Website**: https://neuronpool.dev/
+ - **API**: https://api.neuronpool.dev/v1
+ - **Documentation**: https://docs.neuronpool.dev/
+ - **Dashboard**: https://neuronpool.dev/dashboard
+ - **GitHub**: [dannymota/neuronpool](https://github.com/dannymota/neuronpool)
+
+{{{tasksSection}}}
