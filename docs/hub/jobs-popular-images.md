@@ -37,6 +37,21 @@ Use the `--image` argument to use this Docker image:
 >>> hf jobs uv run --image huggingface/trl --flavor a100-large -s HF_TOKEN train.py
 ```
 
+This gives your script the image's CUDA stack and matched PyTorch build — but not its TRL. A
+script with a `# /// script` header imports the TRL that header declares, from PyPI. To use the
+image's build instead — pinning a run to `:dev`, say — [point UV at its
+interpreter](#using-framework-images-for-gpu-libraries):
+
+```bash
+hf jobs uv run \
+    --image huggingface/trl \
+    --flavor a100-large \
+    --python /opt/conda/bin/python3 \
+    -e PYTHONPATH=/opt/conda/lib/python3.11/site-packages \
+    -s HF_TOKEN \
+    train.py
+```
+
 ## Using framework images for GPU libraries
 
 GPU libraries like vLLM need more than their Python package — they need a matching system
@@ -64,8 +79,8 @@ image's system stack, so the framework works.
 
 These images also ship prebuilt, CUDA-matched builds of the framework itself. To import those
 instead of UV's fresh PyPI install — handy if a PyPI build and the image's CUDA stack disagree
-(an ABI mismatch, or a kernel that won't build) — point UV at the image's interpreter and add
-its site-packages to the import path:
+(an ABI mismatch, or a kernel that won't build), or if you specifically want the version the
+image ships — point UV at the image's interpreter and add its site-packages to the import path:
 
 ```bash
 hf jobs uv run \
@@ -79,6 +94,9 @@ hf jobs uv run \
 
 - `--python` uses the **image's** interpreter, keeping ABI compatibility with its compiled extensions.
 - `-e PYTHONPATH=...` makes `import vllm` resolve to the image's prebuilt build for that run.
+- Trim your `# /// script` dependencies to what the image *lacks*. `PYTHONPATH` is searched
+  before UV's environment, so the image shadows anything your header declares for the same
+  package — including a newer version you pinned.
 
 Paths differ per image, so probe them on `cpu-basic` rather than hardcoding:
 
@@ -93,10 +111,12 @@ Location: /usr/local/lib/python3.12/dist-packages   # pass to PYTHONPATH
 ```
 
 Swap `vllm` for whichever library you're reusing. Layouts vary — `vllm/vllm-openai` and
-`lmsysorg/sglang` use the system `dist-packages` above, while `unsloth/unsloth` uses a
-virtualenv (`/opt/venv/...`).
+`lmsysorg/sglang` use the system `dist-packages` above, `unsloth/unsloth` uses a virtualenv
+(`/opt/venv/...`), and `huggingface/trl` uses conda
+(`/opt/conda/lib/python3.11/site-packages`, inherited from `pytorch/pytorch`).
 
 > [!TIP]
-> This pins imports to the image's build; UV still installs your declared dependencies, so it
-> isn't a speed-up. A `uv run --system-site-packages` that would reuse the image's packages and
-> skip the reinstall is [requested upstream](https://github.com/astral-sh/uv/issues/7999).
+> This pins imports to the image's build. UV still installs whatever your header declares, so
+> it only saves time once you trim those to what the image lacks. A `uv run
+> --system-site-packages` that would skip the `PYTHONPATH` step is [requested
+> upstream](https://github.com/astral-sh/uv/issues/7999).
