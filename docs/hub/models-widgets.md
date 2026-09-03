@@ -17,7 +17,7 @@ You can explore more models and their widgets on the [models page](https://huggi
 
 Widgets are displayed when the model is hosted by at least one Inference Provider, ensuring optimal performance and reliability for the model's inference. Providers autonomously choose and control what models they deploy.
 
-The type of widget displayed (text-generation, text to image, etc) is inferred from the model's `pipeline_tag`, a special tag that the Hub tries to compute automatically for all models. The only exception is for the `conversational` widget which is shown on models with a `pipeline_tag` of either `text-generation` or `image-text-to-text`, as long as they’re also tagged as `conversational`. We choose to expose **only one** widget per model for simplicity.
+The type of widget displayed (text to image, automatic speech recognition, etc) is inferred from the model's `pipeline_tag`, a special tag that the Hub tries to compute automatically for all models. The only exception is for the `conversational` widget, which is shown on all models with a `pipeline_tag` of either `text-generation` or `image-text-to-text`. We choose to expose **only one** widget per model for simplicity.
 
 For some libraries, such as `transformers`, the model type can be inferred automatically based from configuration files (`config.json`). The architecture can determine the type: for example, `AutoModelForTokenClassification` corresponds to `token-classification`. If you're interested in this, you can see pseudo-code in [this gist](https://gist.github.com/julien-c/857ba86a6c6a895ecd90e7f7cab48046).
 
