@@ -22,6 +22,7 @@ The webhook triggers the Job with the following environment variables:
 - `WEBHOOK_REPO_ID`: the repository name (e.g., `user/repo-name`)
 - `WEBHOOK_REPO_TYPE`: the repository type (`model`, `dataset`, or `space`)
 - `WEBHOOK_SECRET`: the webhook secret, if one was configured
+- `WEBHOOK_ID`: a unique identifier for the delivery, stable across retries of that delivery
 
 The webhook payload contains multiple fields, here are a few useful ones:
 

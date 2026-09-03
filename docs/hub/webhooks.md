@@ -274,6 +274,8 @@ If you set a secret for your Webhook, it will be sent along as an `X-Webhook-Sec
 
 Webhook payloads are delivered asynchronously, shortly after the event happens on the Hub. Order is not guaranteed: if several events occur close together, they may arrive out of sequence.
 
+Each delivery has a unique `Webhook-Id` HTTP header. Retries of a failed delivery reuse the same ID, so you can treat it as an idempotency key and process each event once.
+
 When deliveries to a Webhook keep failing, the Webhook is automatically suspended and its owner is notified by email. You can troubleshoot it and re-enable it from your Webhooks [settings](https://huggingface.co/settings/webhooks).
 
 ## Rate limiting
@@ -297,6 +299,8 @@ You can easily find recently generated events for your webhooks. Open the activi
 Here you can review the HTTP status code and the payload of the generated events. Additionally, you can replay these events by clicking on the `Replay` button! 
 
 Note: When changing the target URL or secret of a Webhook, replaying an event will send the payload to the updated URL.
+
+Note: A replayed event is sent with the same `Webhook-Id` as the original delivery.
 
 ## FAQ
 
