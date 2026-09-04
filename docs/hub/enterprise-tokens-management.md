@@ -113,9 +113,9 @@ curl -H "Authorization: Bearer ${ADMIN_HF_TOKEN}" \
   "https://huggingface.co/api/organizations/${ORG_NAME}/settings/tokens"
 ```
 
-The response is an array of member access tokens, with the token id (`_id`), kind (`role`: `read`, `write` or `fineGrained`), last 4 characters (`last4`), creation date (`createdAt`), last-used date (`lastUsedAt`, absent if never used), owner and authorization status (`pending`, `approved`, `denied` or `revoked`). Fine-grained tokens also include their specific permissions.
+The response is an array of member access tokens. See the OpenAPI reference for the full schema: <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/%7Bname%7D/settings/tokens" rel="nofollow">GET /api/organizations/<name>/settings/tokens</a>
 
-Pagination uses the `Link` header (`rel="next"`, up to 100 tokens per page). The `q` parameter filters the list on `owner:`, `role:`, `status:` and `token:` (last 4 characters), each negatable with `-`; by default, revoked tokens are hidden. Pass `q=status:all` to include them, like the **Show revoked tokens** toggle in the UI.
+By default, revoked tokens are hidden; pass `q=status:all` to include them, like the **Show revoked tokens** toggle in the UI.
 
 ### Revoking via API
 
