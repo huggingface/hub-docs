@@ -10,6 +10,10 @@ Choose how to run your code:
   a `# /// script` dependency header, UV creates an isolated environment. `--image` supplies
   the system environment, but does not automatically expose the image's Python packages.
 
+> [!TIP]
+> With `hf jobs run`, add `--` between the image and command when the command uses options
+> that Jobs also recognises, such as `--help`. See [Docker Jobs configuration](./jobs-configuration#docker-jobs).
+
 The UV examples below require an image with `uv` installed. To combine UV-managed dependencies
 with the image's preinstalled packages, see [Reuse the image's packages and add dependencies with UV](#reuse-the-images-packages-and-add-dependencies-with-uv).
 
