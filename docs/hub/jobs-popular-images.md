@@ -1,8 +1,17 @@
 # Popular Images
 
-Here is the list of ready-to-use Docker images from popular frameworks that you can use in Jobs with uv.
+Here is the list of ready-to-use Docker images from popular frameworks that you can use in Jobs.
 
-These Docker images already have uv installed but if you want to use an image + uv for an image without uv installed you’ll need to make sure uv is installed first. This will work well in many cases but for LLM inference libraries which can have quite specific requirements, it can be useful to use a specific image that has the library installed.
+Choose how to run your code:
+
+- [`hf jobs run`](./jobs-configuration#docker-jobs) executes a command directly in the image,
+  so you can use its preinstalled Python packages.
+- [`hf jobs uv run`](./jobs-configuration#uv-jobs) runs your script with UV. For a script with
+  a `# /// script` dependency header, UV creates an isolated environment. `--image` supplies
+  the system environment, but does not automatically expose the image's Python packages.
+
+The UV examples below require an image with `uv` installed. To combine UV-managed dependencies
+with the image's preinstalled packages, see [Reuse the image's packages and add dependencies with UV](#reuse-the-images-packages-and-add-dependencies-with-uv).
 
 > [!TIP]
 > For GPU inference libraries, pass `--image` so the run gets a matching CUDA system stack
@@ -21,9 +30,10 @@ Use the `--image` argument to use this Docker image:
 ```
 
 > [!TIP]
-> The `vllm/vllm-openai` image bundles the CUDA toolkit and prebuilt vLLM/FlashInfer kernels.
-> Using it is usually all you need; you can also reuse its prebuilt Python builds — see [Using
-> framework images for GPU libraries](#using-framework-images-for-gpu-libraries) below.
+> With `hf jobs uv run`, this image provides CUDA tooling, but UV resolves vLLM from your
+> script's dependencies rather than using the image's preinstalled vLLM build and its kernels.
+> To use the image's build, run a command with `hf jobs run`, or use the
+> [reuse approach](#reuse-the-images-packages-and-add-dependencies-with-uv) below.
 
 You can find more information on vLLM batch inference on Jobs in [Daniel Van Strien's blog post](https://danielvanstrien.xyz/posts/2025/hf-jobs/vllm-batch-inference.html).
 
@@ -37,10 +47,16 @@ Use the `--image` argument to use this Docker image:
 >>> hf jobs uv run --image huggingface/trl --flavor a100-large -s HF_TOKEN train.py
 ```
 
-This gives your script the image's CUDA stack and matched PyTorch build — but not its TRL. A
-script with a `# /// script` header imports the TRL that header declares, from PyPI. To use the
-image's build instead — pinning a run to `:dev`, say — [point UV at its
-interpreter](#using-framework-images-for-gpu-libraries):
+This gives your script the image's CUDA stack, but not its Python packages, including TRL and
+PyTorch. A script with a `# /// script` header uses the dependencies UV resolves from that header.
+To use the image's TRL directly, use `hf jobs run`. For example, check its installed version:
+
+```bash
+>>> hf jobs run --flavor cpu-basic huggingface/trl python -c 'import trl; print(trl.__version__)'
+```
+
+If you need UV's script workflow while reusing the image's packages, select its interpreter
+and expose its site-packages as described in [Reuse the image's packages and add dependencies with UV](#reuse-the-images-packages-and-add-dependencies-with-uv):
 
 ```bash
 hf jobs uv run \
@@ -65,22 +81,24 @@ for example FlashInfer's sampler JIT-compiles a kernel and aborts with:
 RuntimeError: Could not find nvcc and default cuda_home='/usr/local/cuda' doesn't exist
 ```
 
-Passing the framework image fixes this — it provides the CUDA toolkit, `nvcc`, and matched
-libraries — and this is usually all you need:
+Passing a framework image with the required CUDA tooling addresses this missing-toolkit error:
 
 ```bash
 hf jobs uv run --image vllm/vllm-openai --flavor l4x4 -s HF_TOKEN generate-responses.py
 ```
 
-UV still reinstalls your script dependencies from PyPI, but they now run against the
-image's system stack, so the framework works.
+UV still resolves and installs your script dependencies separately. The image supplies system
+tooling, but does not guarantee that the resolved Python packages are compatible with it.
 
-### Optionally: reuse the image's prebuilt Python builds
+### Reuse the image's packages and add dependencies with UV
 
-These images also ship prebuilt, CUDA-matched builds of the framework itself. To import those
-instead of UV's fresh PyPI install — handy if a PyPI build and the image's CUDA stack disagree
-(an ABI mismatch, or a kernel that won't build), or if you specifically want the version the
-image ships — point UV at the image's interpreter and add its site-packages to the import path:
+Framework images provide preinstalled packages that can be slow or difficult to build, such as
+PyTorch, vLLM, and their CUDA extensions. You may still need additional Python packages for your
+script — for example, to load a particular data format or track experiments.
+
+You can reuse the image's preinstalled stack while using UV to install those extras. Declare the
+additional packages in your script's `# /// script` dependency header, then point UV at the
+image's interpreter and add its site-packages to the import path:
 
 ```bash
 hf jobs uv run \
@@ -92,11 +110,13 @@ hf jobs uv run \
     generate-responses.py
 ```
 
-- `--python` uses the **image's** interpreter, keeping ABI compatibility with its compiled extensions.
+- `--python` creates UV's environment with the **image's** interpreter, matching the Python
+  version used by its compiled extensions. It does not expose the image's packages by itself.
 - `-e PYTHONPATH=...` makes `import vllm` resolve to the image's prebuilt build for that run.
 - Trim your `# /// script` dependencies to what the image *lacks*. `PYTHONPATH` is searched
   before UV's environment, so the image shadows anything your header declares for the same
-  package — including a newer version you pinned.
+  package — including a newer version you pinned. Dependencies you retain can still pull in
+  those packages transitively; UV does not use `PYTHONPATH` to satisfy dependency resolution.
 
 Paths differ per image, so probe them on `cpu-basic` rather than hardcoding:
 
@@ -116,7 +136,7 @@ Swap `vllm` for whichever library you're reusing. Layouts vary — `vllm/vllm-op
 (`/opt/conda/lib/python3.11/site-packages`, inherited from `pytorch/pytorch`).
 
 > [!TIP]
-> This pins imports to the image's build. UV still installs whatever your header declares, so
-> it only saves time once you trim those to what the image lacks. A `uv run
+> This selects the image's builds for imports, not for UV's dependency resolver. Trimming the
+> header can reduce redundant installs, but does not guarantee they are eliminated. A `uv run
 > --system-site-packages` that would skip the `PYTHONPATH` step is [requested
 > upstream](https://github.com/astral-sh/uv/issues/7999).
