@@ -89,18 +89,7 @@ Administrators have two ways to remove a token's access to an organization:
 
 Use **deny** when managing access within the approval workflow (the token transitions to a `denied` state and can be re-approved later). Use **revoke** when you need to permanently cut off a token's access to the organization.
 
-## Revoking Tokens
-
-> [!WARNING]
-> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
-
-Organization administrators can revoke any member's access token from the token detail page. Revocation is available regardless of whether the organization uses the "Require administrator approval" policy. A revoked token can no longer access the organization's resources, but continues to work elsewhere. The token owner receives an email notification upon revocation.
-
-Revoked tokens remain revoked even if the organization's token policy is later changed or disabled. Revocation is permanent at the organization level — there is no un-revoke action. If a member needs access restored, they must delete the revoked token and create a new one. If the organization uses the "Require administrator approval" policy, the new token will start in the pending state and require admin approval.
-
-Members whose tokens have been revoked receive a `403` error with the message: _"Your token has been revoked by the organization administrator, you can no longer access organization resources. Please contact them for more information."_ This message is shown regardless of whether the organization uses the "Require administrator approval" policy.
-
-### Listing Tokens via API
+## Listing Tokens via API
 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
@@ -116,6 +105,17 @@ curl -H "Authorization: Bearer ${ADMIN_HF_TOKEN}" \
 The response is an array of member access tokens. See the OpenAPI reference for the full schema: <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/%7Bname%7D/settings/tokens" rel="nofollow">GET /api/organizations/<name>/settings/tokens</a>
 
 By default, revoked tokens are hidden; pass `q=status:all` to include them, like the **Show revoked tokens** toggle in the UI.
+
+## Revoking Tokens
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
+
+Organization administrators can revoke any member's access token from the token detail page. Revocation is available regardless of whether the organization uses the "Require administrator approval" policy. A revoked token can no longer access the organization's resources, but continues to work elsewhere. The token owner receives an email notification upon revocation.
+
+Revoked tokens remain revoked even if the organization's token policy is later changed or disabled. Revocation is permanent at the organization level — there is no un-revoke action. If a member needs access restored, they must delete the revoked token and create a new one. If the organization uses the "Require administrator approval" policy, the new token will start in the pending state and require admin approval.
+
+Members whose tokens have been revoked receive a `403` error with the message: _"Your token has been revoked by the organization administrator, you can no longer access organization resources. Please contact them for more information."_ This message is shown regardless of whether the organization uses the "Require administrator approval" policy.
 
 ### Revoking via API
 
