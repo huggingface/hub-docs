@@ -91,9 +91,6 @@ Use **deny** when managing access within the approval workflow (the token transi
 
 ## Listing Tokens via API
 
-> [!WARNING]
-> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
-
 The token listing shown in the settings UI is also available programmatically:
 
 ```bash
