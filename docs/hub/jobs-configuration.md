@@ -26,7 +26,7 @@ The `hf jobs uv run` command accepts an UV argument like `--with` and `--python`
 >>> hf jobs uv run --python 3.12 train.py
 ```
 
-Arguments following the command (or script) are not interpreted as arguments to uv. All options to uv must be provided before the command, e.g., uv run --verbose foo. A `--` can be used to separate the command from jobs/uv options for clarity, e.g.
+Put Jobs options before the script or command. Use `--` to forward arguments that Jobs also recognises:
 
 ```bash
 >>> hf jobs uv run --with trl-jobs -- trl-jobs sft --model_name Qwen/Qwen3-0.6B --dataset_name trl-lib/Capybara
