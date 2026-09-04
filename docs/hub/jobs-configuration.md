@@ -8,9 +8,9 @@ Alternatively, pass a Hugging Face token manually with `--token` in the CLI, or 
 
 ## Passing arguments
 
-Use `--` to separate Jobs options from arguments passed to your command or script.
-Jobs does not interpret options after `--`, so options such as `--help` or `--timeout`
-reach your command or script instead. This applies to both UV and Docker Jobs.
+Use `--` to separate Jobs options from your command or script and its arguments. Options after
+`--`, such as `--help` or `--timeout`, are passed through rather than interpreted by Jobs.
+This applies to both UV and Docker Jobs.
 
 ```text
 hf jobs uv run --flavor t4-small -- script.py --early-stopping-patience 3
