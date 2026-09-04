@@ -44,12 +44,12 @@ Specify the Docker image and the command to run as you would with docker:
 >>> hf jobs run ubuntu echo "Hello from the cloud!"
 ```
 
-Place Jobs options before the image. If your command uses options that Jobs also recognises,
-such as `--help` or `--timeout`, add `--` between the image and command. Otherwise, Jobs can
-consume those options instead of forwarding them to your command:
+Use `--` before the command and its arguments to prevent Jobs from interpreting their options.
+Here, `python --help` runs inside the image and shows Python's help, not Jobs help:
 
-```bash
->>> hf jobs run --flavor cpu-basic huggingface/trl -- trl --help
+```text
+hf jobs run --flavor cpu-basic python:3.12 -- python --help
+            └─ Jobs option ─┘ └─ image ─┘    command + args
 ```
 
 Find the list of all arguments in the [CLI documentation](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-jobs-run).
