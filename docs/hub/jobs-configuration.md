@@ -6,6 +6,17 @@ You need to be authenticated with `hf auth login` to run Jobs, and use a token w
 
 Alternatively, pass a Hugging Face token manually with `--token` in the CLI, or the `token` argument in Python.
 
+## Passing arguments
+
+Use `--` to separate Jobs options from your command or script and its arguments. Options after
+`--`, such as `--help` or `--timeout`, are passed through rather than interpreted by Jobs.
+This applies to both UV and Docker Jobs.
+
+```text
+hf jobs uv run --flavor t4-small -- script.py --early-stopping-patience 3
+               └─ Jobs option ┘    └─ script + arguments ─────────────┘
+```
+
 ## UV Jobs
 
 Specify the UV script or python command to run as you would with UV:
@@ -26,7 +37,7 @@ The `hf jobs uv run` command accepts an UV argument like `--with` and `--python`
 >>> hf jobs uv run --python 3.12 train.py
 ```
 
-Arguments following the command (or script) are not interpreted as arguments to uv. All options to uv must be provided before the command, e.g., uv run --verbose foo. A `--` can be used to separate the command from jobs/uv options for clarity, e.g.
+For example, pass arguments to a command using `--`:
 
 ```bash
 >>> hf jobs uv run --with trl-jobs -- trl-jobs sft --model_name Qwen/Qwen3-0.6B --dataset_name trl-lib/Capybara
@@ -44,10 +55,10 @@ Specify the Docker image and the command to run as you would with docker:
 >>> hf jobs run ubuntu echo "Hello from the cloud!"
 ```
 
-All options to Jobs must be provided before the command. A `--` can be used to separate the command from jobs/uv options for clarity, e.g.
+Here, `--help` reaches Python rather than showing Jobs help:
 
 ```bash
->>> hf jobs run --token hf_xxx ubuntu -- echo "Hello from the cloud!"
+>>> hf jobs run --flavor cpu-basic python:3.12 -- python --help
 ```
 
 Find the list of all arguments in the [CLI documentation](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-jobs-run).
