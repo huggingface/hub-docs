@@ -100,6 +100,23 @@ Revoked tokens remain revoked even if the organization's token policy is later c
 
 Members whose tokens have been revoked receive a `403` error with the message: _"Your token has been revoked by the organization administrator, you can no longer access organization resources. Please contact them for more information."_ This message is shown regardless of whether the organization uses the "Require administrator approval" policy.
 
+### Listing Tokens via API
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
+
+The token listing shown in the settings UI is also available programmatically:
+
+```bash
+# ORG_NAME should be your organization name and ADMIN_HF_TOKEN an admin's access token
+curl -H "Authorization: Bearer ${ADMIN_HF_TOKEN}" \
+  "https://huggingface.co/api/organizations/${ORG_NAME}/settings/tokens"
+```
+
+The response is an array of member access tokens, with the token id (`_id`), kind (`role`: `read`, `write` or `fineGrained`), last 4 characters (`last4`), creation date (`createdAt`), last-used date (`lastUsedAt`, absent if never used), owner and authorization status (`pending`, `approved`, `denied` or `revoked`). Fine-grained tokens also include their specific permissions.
+
+Pagination uses the `Link` header (`rel="next"`, up to 100 tokens per page). The `q` parameter filters the list on `owner:`, `role:`, `status:` and `token:` (last 4 characters), each negatable with `-`; by default, revoked tokens are hidden. Pass `q=status:all` to include them, like the **Show revoked tokens** toggle in the UI.
+
 ### Revoking via API
 
 Administrators can also revoke a token programmatically using its token id. This is useful for automated workflows, where a token needs to be revoked immediately.
