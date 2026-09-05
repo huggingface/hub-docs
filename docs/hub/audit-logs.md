@@ -30,6 +30,18 @@ Audit Logs are accessible through your organization settings. Each log entry inc
 
 You can also download the complete audit log as a JSON file for further analysis.
 
+### Export via API
+
+Programmatic export is available at:
+
+```
+GET https://huggingface.co/api/organizations/{org}/audit-log/export
+```
+
+Authenticate with a user access token or service-account token that has the **Export the audit log** permission (`org.auditLog.write`) for the organization. The response is a JSON array of log entries, identical to the file downloaded from the settings page. Like the manual export, the API call is recorded as `org.audit_log.export`.
+
+The endpoint is also documented in the [OpenAPI reference](https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/%7Bname%7D/audit-log/export).
+
 ## What Events Are Tracked?
 
 Each action has an **event name** in `scope.action` format (e.g. `repo.create`, `collection.delete`). This is the `type` field in each log entry and in the exported JSON—use it when searching or filtering logs.
