@@ -1,79 +1,107 @@
 - sections:
     - local: index
       title: Hugging Face on AWS
-  title: Get Started
+  title: Overview
   isExpanded: true
 - sections:
-    - local: dlcs/introduction
-      title: Introduction
-    - local: dlcs/available
-      title: Available DLCs on AWS
-  title: Deep Learning Containers (DLCs)
+    - local: get-started/quickstart
+      title: Quickstart
+    - local: get-started/choose-an-offering
+      title: Choose an offering
+    - local: get-started/dlcs
+      title: Deep Learning Containers
+  title: Get started
   isExpanded: true
 - sections:
-    - local: tutorials/index
-      title: Introduction
-    - sections:
-        - local: tutorials/sagemaker-sdk/sagemaker-sdk-quickstart
-          title: SageMaker SDK Quickstart
-        - local: tutorials/sagemaker-sdk/training-sagemaker-sdk
-          title: Train models with SageMaker SDK
-        - local: tutorials/sagemaker-sdk/deploy-sagemaker-sdk
-          title: Deploy models with SageMaker SDK
-      title: SageMaker SDK
-      isExpanded: false
-    - sections:
-        - local: tutorials/jumpstart/jumpstart-quickstart
-          title: Jumpstart Quickstart
-      title: Jumpstart
-      isExpanded: false
-    - sections:
-        - local: tutorials/bedrock/bedrock-quickstart
-          title: Bedrock Quickstart
-      title: Bedrock
-      isExpanded: false
-    - sections:
-        - local: tutorials/compute-services/compute-services-quickstart
-          title: EC2, ECS and EKS Quickstart
-      title: EC2, ECS and EKS
-      isExpanded: false
-  title: Tutorials
-  isExpanded: false
-
-
-
-
-
-
-
-
-
-
+    - local: agents/agent-harnesses
+      title: Connect agent harnesses
+    - local: agents/sagemaker-skills
+      title: Manage SageMaker with skills
+  title: Agents
+  isExpanded: true
+- sections:
+    - local: tutorials/sagemaker-sdk/sagemaker-sdk-quickstart
+      title: Quickstart
+    - local: tutorials/sagemaker-sdk/setup-sagemaker-sdk
+      title: Set up the SDK
+    - local: tutorials/sagemaker-sdk/training-sagemaker-sdk
+      title: Train models with the SageMaker SDK
+    - local: tutorials/sagemaker-sdk/deploy-sagemaker-sdk
+      title: Deploy models with the SageMaker SDK
 # GENERATED CONTENT DO NOT EDIT!
-- title: Examples
-  sections:
-     - title: SageMaker SDK
-       isExpanded: false
-       sections:
-          - local: examples/sagemaker-sdk-deepseek-ocr-sagemaker
-            title: "DeepSeek OCR Pipeline on SageMaker Training Jobs"
-          - local: examples/sagemaker-sdk-deploy-embedding-models
-            title: "How to deploy Embedding Models to Amazon SageMaker using new Hugging Face Embedding DLC"
-          - local: examples/sagemaker-sdk-deploy-llama-3-3-70b-inferentia2
-            title: "Deploy Llama 3.3 70B on AWS Inferentia2"
-          - local: examples/sagemaker-sdk-evaluate-llm-lighteval
-            title: "Evaluate LLMs with Hugging Face Lighteval on Amazon SageMaker"
-          - local: examples/sagemaker-sdk-fine-tune-embedding-models
-            title: "Fine-tune and deploy embedding models with Amazon SageMaker"
-          - local: examples/sagemaker-sdk-fine-tune-trl-cli
-            title: "Fine-Tuning LLMs with TRL CLI on SageMaker"
-          - local: examples/sagemaker-sdk-neuron-agent-inf
-            title: "Deploy an AI Agent on AWS Inferentia2 with SageMaker"
+    - title: Examples
+      isExpanded: false
+      sections:
+        - title: Text generation (LLMs)
+          isExpanded: false
+          sections:
+            - local: examples/sagemaker-sdk-deploy-llama-3-3-70b-inferentia2
+              title: "Deploy Llama 3.3 70B on AWS Inferentia2"
+            - local: examples/sagemaker-sdk-evaluate-llm-lighteval
+              title: "Evaluate LLMs with Hugging Face Lighteval on Amazon SageMaker"
+            - local: examples/sagemaker-sdk-fine-tune-llm-sft
+              title: "Fine-Tune an LLM with the SageMaker SDK and TRL"
+            - local: examples/sagemaker-sdk-fine-tune-trl-cli
+              title: "Fine-Tuning LLMs with TRL CLI on SageMaker"
+            - local: examples/sagemaker-sdk-grpo-llm-trl
+              title: "Improve tool calling with GRPO on Amazon SageMaker"
+            - local: examples/sagemaker-sdk-multi-lora-adapters-vllm
+              title: "Serve many LoRA adapters from one endpoint with Hugging Face vLLM"
+            - local: examples/sagemaker-sdk-neuron-agent-inf
+              title: "Deploy an AI Agent on AWS Inferentia2 with SageMaker"
+            - local: examples/sagemaker-sdk-trip-planner-agent-vllm
+              title: "Build a reasoning trip-planning agent on Amazon SageMaker AI with Hugging Face vLLM"
+        - title: Embeddings
+          isExpanded: false
+          sections:
+            - local: examples/sagemaker-sdk-async-inference-embedding-tei
+              title: "Batch-embed a corpus with SageMaker asynchronous inference"
+            - local: examples/sagemaker-sdk-deploy-embedding-models
+              title: "How to deploy Embedding Models to Amazon SageMaker using new Hugging Face Embedding DLC"
+            - local: examples/sagemaker-sdk-fine-tune-embedding-models
+              title: "Fine-tune and deploy embedding models with Amazon SageMaker"
+        - title: Image generation
+          isExpanded: false
+          sections:
+            - local: examples/sagemaker-sdk-flux-2-image-generation
+              title: "Decorate your house with Flux.2 and Amazon SageMaker AI"
+        - title: Audio and speech
+          isExpanded: false
+          sections:
+            - local: examples/sagemaker-sdk-tts-qwen-sagemaker-vllm-omni
+              title: "Deploy Qwen3-TTS for ad voiceovers on Amazon SageMaker AI"
+        - title: Document understanding
+          isExpanded: false
+          sections:
+            - local: examples/sagemaker-sdk-deepseek-ocr-sagemaker
+              title: "DeepSeek OCR Pipeline on SageMaker Training Jobs"
+        - title: Other
+          isExpanded: false
+          sections:
+            - local: examples/sagemaker-sdk-serve-qwen3-8-27b-llamacpp
+              title: "Serve Qwen3.8 27B on a single GPU with Hugging Face llama.cpp"
 # END GENERATED CONTENT
+  title: SageMaker SDK
+  isExpanded: true
+- sections:
+    - local: tutorials/jumpstart/jumpstart-quickstart
+      title: Quickstart
+  title: JumpStart
+  isExpanded: false
+- sections:
+    - local: tutorials/bedrock/bedrock-quickstart
+      title: Quickstart
+  title: Bedrock
+  isExpanded: false
+- sections:
+    - local: tutorials/compute-services/compute-services-quickstart
+      title: Quickstart
+  title: EC2, ECS, and EKS
+  isExpanded: false
 - sections:
     - local: reference/inference-toolkit
       title: Inference Toolkit API
     - local: reference/resources
-      title: Other Resources
+      title: Resources
   title: Reference
   isExpanded: false
