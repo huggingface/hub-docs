@@ -40,6 +40,8 @@ GET https://huggingface.co/api/organizations/{org}/audit-log/export
 
 Authenticate with a user access token or service-account token that has the **Export the audit log** permission (`org.auditLog.write`) for the organization. The response is a JSON array of log entries, identical to the file downloaded from the settings page. Like the manual export, the API call is recorded as `org.audit_log.export`.
 
+The endpoint is also documented in the [OpenAPI reference](https://huggingface.co/openapi/) (source: [`.well-known/openapi.json`](https://huggingface.co/.well-known/openapi.json)).
+
 ## What Events Are Tracked?
 
 Each action has an **event name** in `scope.action` format (e.g. `repo.create`, `collection.delete`). This is the `type` field in each log entry and in the exported JSON—use it when searching or filtering logs.
