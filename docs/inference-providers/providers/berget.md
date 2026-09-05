@@ -43,3 +43,5 @@ Our API is fully OpenAI-compatible, so any tool or SDK that works with OpenAI wo
 ## Supported tasks
 
 
+
+Berget currently offers conversational (chat) models — model mappings appear in the section above as they are validated by Hugging Face. The full Berget catalog is available at [docs.berget.ai](https://docs.berget.ai).
