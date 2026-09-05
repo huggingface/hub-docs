@@ -51,7 +51,7 @@ Team & Enterprise organization administrators can enforce the following policies
 
 ## Reviewing Token Authorization
 
-When token policy is set to "Require administrator approval", organization administrators can review details of all fine-grained tokens accessing organization-owned resources and approve or deny access. When a new token enters the pending state, up to 5 organization administrators with confirmed email addresses receive a notification with a direct link to the token review page. No notification is sent when a token is auto-approved (e.g., because the creator is an org admin).
+When token policy is set to "Require administrator approval", organization administrators can review details of all fine-grained tokens accessing organization-owned resources and approve or deny access. When a new token enters the pending state, up to 50 organization administrators with confirmed email addresses receive a notification with a direct link to the token review page. No notification is sent when a token is auto-approved (e.g., because the creator is an org admin).
 
 - **Pending** tokens are awaiting an administrator decision
 - **Approved** tokens have been authorized and are active
@@ -89,6 +89,20 @@ Administrators have two ways to remove a token's access to an organization:
 
 Use **deny** when managing access within the approval workflow (the token transitions to a `denied` state and can be re-approved later). Use **revoke** when you need to permanently cut off a token's access to the organization.
 
+## Listing Tokens via API
+
+The token listing shown in the settings UI is also available programmatically:
+
+```bash
+# ORG_NAME should be your organization name and ADMIN_HF_TOKEN an admin's access token
+curl -H "Authorization: Bearer ${ADMIN_HF_TOKEN}" \
+  "https://huggingface.co/api/organizations/${ORG_NAME}/settings/tokens"
+```
+
+The response is an array of member access tokens. See the OpenAPI reference for the full schema: <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/%7Bname%7D/settings/tokens" rel="nofollow">GET /api/organizations/<name>/settings/tokens</a>
+
+By default, revoked tokens are hidden; pass `q=status:all` to include them, like the **Show revoked tokens** toggle in the UI.
+
 ## Revoking Tokens
 
 > [!WARNING]
@@ -102,21 +116,16 @@ Members whose tokens have been revoked receive a `403` error with the message: _
 
 ### Revoking via API
 
-Administrators can also revoke a token programmatically by providing the raw token value. This is useful for automated workflows such as secrets scanning, where a leaked token is detected and needs to be revoked immediately.
+Administrators can also revoke a token programmatically using its token id. This is useful for automated workflows, where a token needs to be revoked immediately.
 
 ```bash
 # ORG_NAME should be your organization name and ADMIN_HF_TOKEN an admin's access token
-# LEAKED_HF_TOKEN should contain the raw token value to revoke
-curl -X POST "https://huggingface.co/api/organizations/${ORG_NAME}/settings/tokens/revoke" \
-  -H "Authorization: Bearer ${ADMIN_HF_TOKEN}" \
-  -H "Content-Type: application/json" \
-    -d "{\"token\": \"${LEAKED_HF_TOKEN}\"}"
+# TOKEN_ID is the 24-character id shown on the org token settings page (or returned by the tokens listing API)
+curl -X POST "https://huggingface.co/api/organizations/${ORG_NAME}/settings/tokens/${TOKEN_ID}/revoke" \
+  -H "Authorization: Bearer ${ADMIN_HF_TOKEN}"
 ```
 
-> [!TIP]
-> To avoid leaking token values in shell history or logs, pass them via environment variables or files, and avoid pasting raw tokens directly into command lines.
-
-An administrator cannot revoke their own token (`LEAKED_HF_TOKEN` cannot have the same value as `ADMIN_HF_TOKEN` in the snippet above).
+An administrator cannot revoke their own token: a request whose token id matches the token used for authentication is rejected with a `403` error.
 
 > [!NOTE]
 > This endpoint only revokes the token's access to your organization; the token keeps working for its owner's other resources. To invalidate a leaked token everywhere, use [`POST /api/credentials/revoke`](./security-tokens#revoking-a-leaked-token) instead, which requires no authentication and accepts a batch of raw token values.
