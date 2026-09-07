@@ -37,6 +37,11 @@
           title: EC2, ECS and EKS Quickstart
       title: EC2, ECS and EKS
       isExpanded: false
+    - sections:
+        - local: tutorials/deadline-cloud/deadline-cloud-quickstart
+          title: Deadline Cloud Quickstart
+      title: AWS Deadline Cloud
+      isExpanded: false
   title: Tutorials
   isExpanded: false
 
