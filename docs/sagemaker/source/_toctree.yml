@@ -6,8 +6,8 @@
 - sections:
     - local: get-started/quickstart
       title: Quickstart
-    - local: get-started/choose-an-offering
-      title: Choose an offering
+    - local: get-started/choose-a-service
+      title: Choose a service
     - local: get-started/dlcs
       title: Deep Learning Containers
   title: Get started
