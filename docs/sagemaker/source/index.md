@@ -18,7 +18,7 @@ Choose from the following options to quickly get started:
     <p class="mb-4 grow text-sm text-gray-600 dark:text-gray-400">Deploy and test a Hugging Face model with SageMaker JumpStart.</p>
     <span class="text-sm font-semibold text-gray-800 group-hover:text-orange-500 dark:text-gray-200 dark:group-hover:text-orange-300">Deploy a model →</span>
   </a>
-  <a class="group flex flex-col rounded-xl border border-blue-100 bg-linear-to-br from-blue-50 px-6 py-5 no-underline! dark:border-gray-850 dark:from-blue-500/10" href="./get-started/choose-an-offering">
+  <a class="group flex flex-col rounded-xl border border-blue-100 bg-linear-to-br from-blue-50 px-6 py-5 no-underline! dark:border-gray-850 dark:from-blue-500/10" href="./get-started/choose-a-service">
     <div class="mb-2 text-lg font-semibold text-blue-600 dark:text-blue-300">Choose a service</div>
     <p class="mb-4 grow text-sm text-gray-600 dark:text-gray-400">Compare SageMaker AI, Bedrock, AWS compute, and Inference Endpoints.</p>
     <span class="text-sm font-semibold text-gray-800 group-hover:text-blue-600 dark:text-gray-200 dark:group-hover:text-blue-300">Compare options →</span>
