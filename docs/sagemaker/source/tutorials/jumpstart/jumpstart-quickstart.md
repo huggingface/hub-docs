@@ -2,7 +2,7 @@
 
 ## Why use SageMaker JumpStart for Hugging Face models?
 
-Amazon SageMaker JumpStart lets you deploy the most-popular open Hugging Face models with one click—inside your own AWS account. JumpStart offers a curated [selection](https://aws.amazon.com/sagemaker-ai/jumpstart/getting-started/?sagemaker-jumpstart-cards.sort-by=item.additionalFields.model-name&sagemaker-jumpstart-cards.sort-order=asc&awsf.sagemaker-jumpstart-filter-product-type=*all&awsf.sagemaker-jumpstart-filter-text=*all&awsf.sagemaker-jumpstart-filter-vision=*all&awsf.sagemaker-jumpstart-filter-tabular=*all&awsf.sagemaker-jumpstart-filter-audio-tasks=*all&awsf.sagemaker-jumpstart-filter-multimodal=*all&awsf.sagemaker-jumpstart-filter-RL=*all&awsm.page-sagemaker-jumpstart-cards=1&sagemaker-jumpstart-cards.q=qwen&sagemaker-jumpstart-cards.q_operator=AND) of model checkpoints for various tasks, including text generation, embeddings, vision, audio, and more. Most models are deployed using the official [Hugging Face Deep Learning Containers](https://huggingface.co/docs/sagemaker/main/en/dlcs/introduction) with a sensible default instance type, so you can move from idea to production in minutes.
+Amazon SageMaker JumpStart lets you deploy the most-popular open Hugging Face models with one click—inside your own AWS account. JumpStart offers a curated [selection](https://aws.amazon.com/sagemaker-ai/jumpstart/getting-started/?sagemaker-jumpstart-cards.sort-by=item.additionalFields.model-name&sagemaker-jumpstart-cards.sort-order=asc&awsf.sagemaker-jumpstart-filter-product-type=*all&awsf.sagemaker-jumpstart-filter-text=*all&awsf.sagemaker-jumpstart-filter-vision=*all&awsf.sagemaker-jumpstart-filter-tabular=*all&awsf.sagemaker-jumpstart-filter-audio-tasks=*all&awsf.sagemaker-jumpstart-filter-multimodal=*all&awsf.sagemaker-jumpstart-filter-RL=*all&awsm.page-sagemaker-jumpstart-cards=1&sagemaker-jumpstart-cards.q=qwen&sagemaker-jumpstart-cards.q_operator=AND) of model checkpoints for various tasks, including text generation, embeddings, vision, audio, and more. Most models are deployed using the official [Hugging Face Deep Learning Containers](../../get-started/dlcs) with a sensible default instance type, so you can move from idea to production in minutes.
 
 In this quickstart guide, we will deploy [Qwen/Qwen2.5-14B-Instruct](https://huggingface.co/Qwen/Qwen2.5-14B-Instruct).
 
@@ -28,18 +28,22 @@ Let's explain how you would deploy a Hugging Face model to SageMaker browsing th
 4. Wait until Endpoints shows In service.  
 5. Copy the Endpoint name (or ARN) for later use.
 
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/jumpstart-deployment.gif"
+<div class="flex justify-center my-6">
+  <img class="rounded-xl border border-gray-200 dark:border-gray-800" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/jumpstart-deployment.gif"
      alt="JumpStart deployment demo"
-     width="500">
+     width="640">
+</div>
 
 Alternatively, you can also browse through the Hugging Face Model Hub:
 
 1. Open the model page → Click Deploy → SageMaker → Jumpstart tab if model is available.
 2. Copy the code snippet and use it from a SageMaker Notebook instance.
 
-<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/hf-jumpstart-deployment.gif"
-     alt="JumpStart deployment demo"
-     width="500">
+<div class="flex justify-center my-6">
+  <img class="rounded-xl border border-gray-200 dark:border-gray-800" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/sagemaker/hf-jumpstart-deployment.gif"
+     alt="JumpStart deployment demo from the Hugging Face Hub"
+     width="640">
+</div>
 
 ```python
 # SageMaker JumpStart models can be deployed with ModelBuilder by passing the
