@@ -1,4 +1,4 @@
-# Choose an offering
+# Choose a service
 
 Pick the offering that matches how you want to work. Every guide is self-contained and reproducible.
 
