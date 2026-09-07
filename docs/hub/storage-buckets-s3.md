@@ -163,7 +163,7 @@ s3.download_file("my-bucket", "models/model.safetensors", "model.safetensors")
 
 ### Query a bucket with DuckDB
 
-With the `httpfs` extension, [DuckDB](https://duckdb.org/) can read Parquet (and other formats) straight from a bucket:
+With the `httpfs` extension, [DuckDB](https://duckdb.org/) can read Parquet (and other formats) straight from a bucket over the S3 gateway. If you are on DuckDB 2.0 or later, `httpfs` also reads `hf://buckets/` paths directly with your Hugging Face token and no S3 secret, see [Query with DuckDB](./storage-buckets-access#query-with-duckdb).
 
 ```sql
 INSTALL httpfs;
