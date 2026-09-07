@@ -1,6 +1,6 @@
 # Choose a service
 
-Pick the offering that matches how you want to work. Every guide is self-contained and reproducible.
+Pick the service that matches how you want to work. Every guide is self-contained and reproducible.
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 my-6 not-prose">
   <div class="flex flex-col rounded-xl border border-gray-200 px-6 py-5 dark:border-gray-800">
