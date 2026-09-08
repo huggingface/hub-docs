@@ -339,11 +339,9 @@ Use `-R` (remote forwarding) to let the Job access a service running on your mac
 
 ## Network groups
 
-Jobs of the same owner (user or organization) that share a network group are placed together and can reach each other directly, on every port. Opt in at job creation with `--network-group <name>` (CLI) or `network_group="<name>"` (Python API), on `hf jobs run`, `hf jobs uv run`, [`run_job`](https://huggingface.co/docs/huggingface_hub/en/package_reference/hf_api#huggingface_hub.HfApi.run_job) and [`run_uv_job`](https://huggingface.co/docs/huggingface_hub/en/package_reference/hf_api#huggingface_hub.HfApi.run_uv_job). A group never crosses owners.
+Jobs can join a network group using `--network-group <name>` (CLI) or `network_group="<name>"` (Python API). Jobs of the same owner in the same group can reach each other on every port: `HF_NETWORK_GROUP_HOSTNAME` resolves to every member, and `${HF_NETWORK_GROUP_PREFIX}<alias>` to the members that claimed an alias with `--network-alias <alias>` (CLI) or `network_aliases=[<alias>]` (Python API).
 
-Inside each member, `HF_NETWORK_GROUP_HOSTNAME` resolves to every job in the group. A job can also claim one or more aliases with `--network-alias <alias>` (repeat the flag) or `network_aliases=["<alias>"]`: `${HF_NETWORK_GROUP_PREFIX}<alias>` then resolves to the members claiming that alias. Several jobs may claim the same alias, and one job may claim several. Group names and aliases are lowercase alphanumerics and dashes, starting and ending alphanumeric, 46 characters max.
-
-Members appear in DNS before they are ready, so connect with retries. Because members share one cluster, a job is rejected with `Flavor '<flavor>' for arch '<arch>' is not available where network group '<group>' already runs` if its hardware is not available where the group already runs. Once no member is pending or running anymore, the group is free again and the next member can land anywhere.
+This works on `hf jobs run` and `hf jobs uv run`. Members are resolvable before they are ready, so connect with retries.
 
 ### CLI
 
@@ -351,7 +349,7 @@ Members appear in DNS before they are ready, so connect with retries. Because me
 # Start a server, reachable by the other members of the group as "master"
 >>> hf jobs run --detach --network-group train --network-alias master python:3.12 python -m http.server 8000
 
-# Start a client in the same group. The env var is expanded inside the job.
+# Start a client in the same group
 >>> hf jobs run --detach --network-group train python:3.12 sh -c 'curl --retry 10 --retry-connrefused "http://${HF_NETWORK_GROUP_PREFIX}master:8000/"'
 ```
 
