@@ -75,6 +75,8 @@ Similarly to the [built-in environment variables in Spaces](./spaces-overview#bu
 | `ACCELERATOR` | The type of accelerator available (e.g., `t4-medium`, `a10g-small`, `a100x4`), or `none` for CPU-only jobs. |
 | `CPU_CORES` | The number of CPU cores allocated to the job. |
 | `MEMORY` | The amount of memory allocated to the job (e.g., `8Gi`). |
+| `HF_NETWORK_GROUP_HOSTNAME` | Hostname resolving to every job in the job's [network group](#network-groups). Only set when the job declares one. |
+| `HF_NETWORK_GROUP_PREFIX` | Prefix to prepend to an alias to get the hostname of the group members claiming it (e.g., `${HF_NETWORK_GROUP_PREFIX}master`). Only set when the job declares a network group. |
 
 You can use these variables to track outputs, adapt your code to available resources, or reference the current job programmatically:
 
@@ -334,6 +336,43 @@ Use `-R` (remote forwarding) to let the Job access a service running on your mac
 # Make your local port 8080 reachable from inside the Job on port 8080
 >>> ssh -R 8080:localhost:8080 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
 ```
+
+## Network groups
+
+Jobs of the same owner (user or organization) that share a network group are placed together and can reach each other directly, on every port. Opt in at job creation with `--network-group <name>` (CLI) or `network_group="<name>"` (Python API), on `hf jobs run`, `hf jobs uv run`, [`run_job`](https://huggingface.co/docs/huggingface_hub/en/package_reference/hf_api#huggingface_hub.HfApi.run_job) and [`run_uv_job`](https://huggingface.co/docs/huggingface_hub/en/package_reference/hf_api#huggingface_hub.HfApi.run_uv_job). A group never crosses owners.
+
+Inside each member, `HF_NETWORK_GROUP_HOSTNAME` resolves to every job in the group. A job can also claim one or more aliases with `--network-alias <alias>` (repeat the flag) or `network_aliases=["<alias>"]`: `${HF_NETWORK_GROUP_PREFIX}<alias>` then resolves to the members claiming that alias. Several jobs may claim the same alias, and one job may claim several. Group names and aliases are lowercase alphanumerics and dashes, starting and ending alphanumeric, 46 characters max.
+
+Members appear in DNS before they are ready, so connect with retries. Because members share one cluster, a job is rejected with `Flavor '<flavor>' for arch '<arch>' is not available where network group '<group>' already runs` if its hardware is not available where the group already runs. Once no member is pending or running anymore, the group is free again and the next member can land anywhere.
+
+### CLI
+
+```bash
+# Start a server, reachable by the other members of the group as "master"
+>>> hf jobs run --detach --network-group train --network-alias master python:3.12 python -m http.server 8000
+
+# Start a client in the same group. The env var is expanded inside the job.
+>>> hf jobs run --detach --network-group train python:3.12 sh -c 'curl --retry 10 --retry-connrefused "http://${HF_NETWORK_GROUP_PREFIX}master:8000/"'
+```
+
+### Python
+
+```python
+>>> from huggingface_hub import run_job
+>>> server = run_job(
+...     image="python:3.12",
+...     command=["python", "-m", "http.server", "8000"],
+...     network_group="train",
+...     network_aliases=["master"],
+... )
+>>> client = run_job(
+...     image="python:3.12",
+...     command=["sh", "-c", 'curl --retry 10 --retry-connrefused "http://${HF_NETWORK_GROUP_PREFIX}master:8000/"'],
+...     network_group="train",
+... )
+```
+
+Multi-node training frameworks can use an alias as the rendezvous host, e.g. `torchrun --master_addr "${HF_NETWORK_GROUP_PREFIX}master"`.
 
 ## Timeout
 
