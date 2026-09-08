@@ -1,8 +1,8 @@
 # Jobs
 
-`Hugging Face Jobs` provide compute for AI and data workflows, allowing you to run workloads on Hugging Face infrastructure with a familiar UV & Docker-like interface. Jobs are ideal for fine-tuning AI models, running inference with GPUs, and data ingestion and processing.
+Hugging Face Jobs runs your Python scripts and Docker commands on CPUs and GPUs in the cloud. Use Jobs to fine-tune models, run inference over datasets, or process data without setting up your own compute infrastructure.
 
-You can run jobs using the `hf` CLI, the `huggingface_hub` Python client, or the Jobs HTTP API. Jobs support any hardware from CPUs to A100s & TPUs, with pay-as-you-go pricing where you only pay for seconds used.
+[Run your first Job](./jobs-quickstart) with the `hf` CLI, or [browse examples](./jobs-examples) to start from an existing script.
 
 ## Contents
 

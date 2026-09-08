@@ -1,162 +1,113 @@
 # Quickstart
 
-In this guide you will run a Job to fine-tune an open source model on Hugging Face infrastructure in only a few minutes.
-Make sure you are logged in to Hugging Face and have [pre-paid credits](https://huggingface.co/settings/billing) available on your account or organization. You can then access your [Jobs page](https://huggingface.co/settings/jobs) to create and manage Jobs.
+Run your Python code on Hugging Face CPUs and GPUs. In this guide, you'll run a simple command on a CPU, then generate text with a small language model on a GPU.
 
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-page.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-page-dark.png"/>
-</div>
+You'll need a Hugging Face account with [pre-paid credits](https://huggingface.co/settings/billing). See [Pricing and Billing](./jobs-pricing) for compute costs.
 
-## Getting started
+## 1. Set up the CLI
 
-First install the Hugging Face CLI:
-
-### 1. Install the CLI
-
-
-Recommended approach:
-
-```bash
->>> curl -LsSf https://hf.co/cli/install.sh | bash
-```
-
-Or using Homebrew:
-
-```bash
->>> brew install hf
-```
-
-Or using uv:
-
-```bash
->>> uv tool install hf
-```
-
-### 2. Login to your Hugging Face account
-
-Login
+[Install the Hugging Face CLI](https://huggingface.co/docs/huggingface_hub/en/guides/cli#getting-started), then log in to your account:
 
 ```bash
 >>> hf auth login
 ```
 
-### 3. Create your first jobs using the `hf jobs` command
+## 2. Run Hello World
 
-Run a UV command or script
+Run this command in your terminal:
 
 ```bash
 >>> hf jobs uv run python -c 'print("Hello from the cloud!")'
-Job started with ID: 693aef401a39f67af5a41c0e
-View at: https://huggingface.co/jobs/lhoestq/693aef401a39f67af5a41c0e
+```
+
+`hf jobs uv run` runs the command in a Python environment on Hugging Face infrastructure. It uses a CPU by default and streams the Job's logs to your terminal. After startup, you'll see:
+
+```text
 Hello from the cloud!
 ```
 
-```bash
->>> echo "print('Hello from uv script!')" > script.py
->>> hf jobs uv run script.py
-Job started with ID: 695f6cd8d2f3efac77e8cf7f
-View at: https://huggingface.co/jobs/lhoestq/695f6cd8d2f3efac77e8cf7f
-Hello from uv script!
-```
+The CLI also prints your Job's ID and a link to its page. Open the link to view its status and logs in your browser. You can find your Jobs again on your [Jobs page](https://huggingface.co/settings/jobs), or use the ID with the CLI commands below.
 
-Run a Docker command
+## 3. Run a model on a GPU
 
-```bash
->>> hf jobs run ubuntu echo 'Hello from the cloud!'
-Job started with ID: 693aee76c67c9f186cfe233e
-View at: https://huggingface.co/jobs/lhoestq/693aee76c67c9f186cfe233e
-Hello from the cloud!
-```
-
-### 4. Check your first jobs
-
-The job logs appear in your terminal, but you can also see them in your jobs page. Open the job page to see the job information, status and logs:
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/first-job-page.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/first-job-page-dark.png"/>
-</div>
-
-
-## The training script
-
-Here is a simple training script to fine-tune a base model to a conversational model using Supervised Fine-Tuning (SFT). It uses the [Qwen/Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B) model and the [trl-lib/Capybara](https://huggingface.co/datasets/trl-lib/Capybara) dataset, and the [TRL](https://huggingface.co/docs/trl/en/index) library, and saves the resulting model to your Hugging Face account under the name `"Qwen2.5-0.5B-SFT"`:
-
-```python
-from datasets import load_dataset
-from trl import SFTTrainer
-
-dataset = load_dataset("trl-lib/Capybara", split="train")
-trainer = SFTTrainer(
-    model="Qwen/Qwen2.5-0.5B",
-    train_dataset=dataset,
-)
-trainer.train()
-trainer.push_to_hub("Qwen2.5-0.5B-SFT")
-```
-
-Save this script as `train.py`, and we can now run it with UV on Hugging Face Jobs.
-
-## Run the training job
-
-`hf jobs` takes several arguments: select the hardware with `--flavor`, choose a maximum duration with `--timeout`, and pass environment variable with `--env` and `--secrets`. Here we use the A100 Large GPU flavor with `--flavor a100-large` and pass your Hugging Face token as a secret with `--secrets HF_TOKEN` in order to be able to push the resulting model to your account. See [Persist your results](./jobs-manage#persist-your-results) for how to make sure your Job's outputs survive after it finishes.
-
-Moreover, UV accepts the `--with` argument to define python dependencies, so we use `--with trl` to have the `trl` library available.
-
-You can now run the final command which looks like this:
+Run this prepared script to generate a robot name. You can [view it on GitHub](https://github.com/huggingface/hub-docs/blob/main/examples/jobs/hello_gpu.py) or read the code below.
 
 ```bash
 hf jobs uv run \
-    --flavor a100-large \
-    --timeout 6h \
-    --with trl \
-    --secrets HF_TOKEN \
-    train.py
+    --flavor t4-small \
+    --timeout 5m \
+    https://raw.githubusercontent.com/huggingface/hub-docs/main/examples/jobs/hello_gpu.py
 ```
 
-The logs appear in your terminal, and you can safely Ctrl+C to stop streaming the logs, the job will keep running.
+- `--flavor t4-small` selects a machine with an NVIDIA T4 GPU.
+- `--timeout 5m` sets a five-minute limit on the Job.
 
-```
-...
-Downloaded nvidia-cudnn-cu12 
-Downloaded torch
-Installed 66 packages in 233ms
-Generating train split: 100%|██████████| 15806/15806 [00:00<00:00, 76686.50 examples/s]
-Generating test split: 100%|██████████| 200/200 [00:00<00:00, 43880.36 examples/s]
-Tokenizing train dataset: 100%|██████████| 15806/15806 [00:41<00:00, 384.97 examples/s]
-Truncating train dataset: 100%|██████████| 15806/15806 [00:00<00:00, 212272.92 examples/s]
-The model is already on multiple devices. Skipping the move to device specified in `args`.
-The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
-{'loss': 1.7357, 'grad_norm': 4.8733229637146, 'learning_rate': 1.9969635627530365e-05, 'entropy': 1.7238958358764649, 'num_tokens': 59528.0, 'mean_token_accuracy': 0.6124177813529968, 'epoch': 0.01}
-{'loss': 1.6239, 'grad_norm': 6.200186729431152, 'learning_rate': 1.9935897435897437e-05, 'entropy': 1.644005584716797, 'num_tokens': 115219.0, 'mean_token_accuracy': 0.6259662985801697, 'epoch': 0.01}
-{'loss': 1.4449, 'grad_norm': 6.167325496673584, 'learning_rate': 1.990215924426451e-05, 'entropy': 1.5156117916107177, 'num_tokens': 171787.0, 'mean_token_accuracy': 0.6586395859718323, 'epoch': 0.02}
-{'loss': 1.6023, 'grad_norm': 5.133708953857422, 'learning_rate': 1.986842105263158e-05, 'entropy': 1.6885507702827454, 'num_tokens': 226067.0, 'mean_token_accuracy': 0.6271904468536377, 'epoch': 0.02}
+The Job downloads the model and prints its answer in the logs. For example:
+
+```text
+RoboLearnbot
 ```
 
-Follow the Job advancements on the job page on Hugging Face:
+Here is the complete script:
 
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/trl-sft-job-page.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/trl-sft-job-page-dark.png"/>
-</div>
+```python
+# /// script
+# dependencies = ["torch", "transformers"]
+# ///
 
-Monitor GPU usage and other metrics in the CLI or use the [MacOS menu bar](./jobs-manage#macos-menu-bar). Here with the CLI you get:
+from transformers import pipeline
+
+generator = pipeline(
+    "text-generation",
+    model="HuggingFaceTB/SmolLM2-360M-Instruct",
+    dtype="float16",
+)
+messages = [{
+    "role": "user",
+    "content": "Suggest a name for a robot that helps people learn Python. Answer with only the name.",
+}]
+outputs = generator(messages, max_new_tokens=48, do_sample=False, return_full_text=False)
+print(outputs[0]["generated_text"])
+```
+
+The [dependency header](https://docs.astral.sh/uv/guides/scripts/#declaring-script-dependencies) tells uv to install `torch` and `transformers` in the Job. You can also specify dependencies with `--with`. You only need the `hf` CLI locally.
+
+The script runs [SmolLM2-360M-Instruct](https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct) on the Job's GPU. `max_new_tokens` caps the answer length.
+
+Startup time varies with hardware availability, dependency installation and model downloads.
+
+> [!TIP]
+> Pressing Ctrl+C stops streaming logs; the Job keeps running. To stop the Job, use `hf jobs cancel JOB_ID`, replacing `JOB_ID` with the ID printed by the CLI.
+
+## 4. Check your result
+
+Use the GPU Job's ID to check its status and read its logs again:
 
 ```bash
->>> hf jobs stats
-JOB ID                   CPU % NUM CPU MEM % MEM USAGE        NET I/O         GPU UTIL % GPU MEM % GPU MEM USAGE   
------------------------- ----- ------- ----- ---------------- --------------- ---------- --------- --------------- 
-695e83c5d2f3efac77e8cf18 8%    12.0    7.18% 10.9GB / 152.5GB 0.0bps / 0.0bps 100%       31.92%    25.9GB / 81.2GB
+>>> hf jobs inspect JOB_ID
+>>> hf jobs logs JOB_ID
 ```
 
-Once the job is done, find your model on your account:
+A successful run has the status `COMPLETED`, and its logs contain the generated answer.
 
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/trl-sft-model-page.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/trl-sft-model-page-dark.png"/>
-</div>
+The answer remains available in the Job's logs after it finishes. When you adapt the script to produce files, [save those results to a bucket or Hub repository](./jobs-manage#persist-your-results) so they survive the Job.
 
-Congrats ! You just run your first Job to fine-tune an open source model 🔥
+## Try your own script (optional)
 
-Feel free to try out your model locally and evaluate it using e.g. [transformers](https://huggingface.co/docs/transformers) by clicking on "Use this model", or deploy it to [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) in one click using the "Deploy" button.
+Copy the code above into `hello_gpu.py`, edit the prompt in `messages`, and run your local file:
+
+```bash
+hf jobs uv run --flavor t4-small --timeout 5m hello_gpu.py
+```
+
+The CLI uploads your edited script automatically. Replace `hello_gpu.py` with its path if you saved it elsewhere.
+
+## Next steps
+
+Build on this example with a larger workload:
+
+- [Annotate a dataset with OCR, classification or batch inference](./jobs-examples#uv-scripts).
+- [Fine-tune and save a model](./jobs-examples#guides-to-train-with-jobs) using TRL or Unsloth.
+- [Read datasets or buckets and save processed results](./jobs-large-datasets).
+- [Run commands in Docker images](./jobs-configuration#docker-jobs).
+- [Use Jobs from a coding agent](./jobs-examples#coding-agent-skills).
