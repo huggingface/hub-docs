@@ -33,7 +33,7 @@ Use `hf jobs uv run` to run a Python script remotely. Specify its dependencies w
 
 ### Docker images
 
-Use `hf jobs run` with a Docker image and the command to run. The image provides the tools and libraries your workload needs, whether you're using Python or another language. Choose an [existing image](./jobs-popular-images) or build your own.
+Use `hf jobs run` with a Docker image and the command to run. The image provides the tools and libraries your workload needs, whether you're using Python or another language. Choose an [existing image](./jobs-popular-images), use one built from a [Docker Space](./spaces-sdks-docker), or build your own.
 
 ```diff
 - docker run <image> <command>
