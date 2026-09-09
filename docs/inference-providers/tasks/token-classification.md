@@ -37,7 +37,7 @@ hf models ls --warm --pipeline-tag token-classification --sort trending_score
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1","providerModelId":"OpenMed/OpenMed-PII-SuperClinical-Large-434M-v1"}} }
+    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen3-ForcedAligner-0.6B-hf","providerModelId":"Qwen/Qwen3-ForcedAligner-0.6B-hf"}} }
 />
 
 
