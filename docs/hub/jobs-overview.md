@@ -1,6 +1,6 @@
 # Jobs Overview
 
-Hugging Face Jobs runs your Python scripts and container commands on remote CPUs and GPUs. Use it to fine-tune models, run inference over datasets, or process data.
+Hugging Face Jobs runs your code on remote CPUs and GPUs. Use it to fine-tune models, run inference over datasets, or process data.
 
 A Job runs a command in an environment on the hardware you choose. You can follow its status and logs from the terminal or on the Hub.
 
@@ -22,14 +22,18 @@ There are multiple tools you can use to run jobs:
 
 ## Run any workload
 
-The `hf` Jobs CLI and the `huggingface_hub` Python client offer a UV-like interface to run Python workloads. UV installs the required Python dependencies and run the Python script in one single command. Python dependencies may also be defined in a self-contained UV script, and in this case there is no need to specify anything but the UV script to run the Job.
+### Python scripts
+
+Use `hf jobs uv run` to run a Python script remotely. Specify its dependencies with `--with` or in a [script header](https://docs.astral.sh/uv/guides/scripts/#declaring-script-dependencies). Jobs uses uv to install those dependencies before running your code.
 
 ```diff
 - uv run <script.py>
 + hf jobs uv run <script.py>
 ```
 
-More generally, Hugging Face Jobs supports any workload based on Docker and a command. Jobs offers a Docker-like interface to run Jobs, where you can specify a Docker image from Hugging Face Spaces or Docker Hub, as well as the command to run. Docker provides the ability to package ready-to-use environments as Docker images that are shared by the community or custom made. Therefore you may choose or define your Docker image based on what your workloads need (e.g. python, torch, vllm) and run any command. This is more advanced than using UV but provides more flexibility.
+### Docker images
+
+Use `hf jobs run` with a Docker image and the command to run. The image provides the tools and libraries your workload needs, whether you're using Python or another language. Choose an [existing image](./jobs-popular-images) or build your own.
 
 ```diff
 - docker run <image> <command>
