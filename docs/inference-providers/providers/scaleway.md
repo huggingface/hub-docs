@@ -47,7 +47,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"scaleway":{"modelId":"zai-org/GLM-5.2","providerModelId":"glm-5.2"} } }
+    providersMapping={ {"scaleway":{"modelId":"deepseek-ai/DeepSeek-V4-Flash-0731","providerModelId":"deepseek-v4-flash-0731"} } }
 conversational />
 
 
