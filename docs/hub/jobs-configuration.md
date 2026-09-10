@@ -339,9 +339,9 @@ Use `-R` (remote forwarding) to let the Job access a service running on your mac
 
 ## Network groups
 
-Jobs can join a network group using `--network-group <name>` (CLI) or `network_group="<name>"` (Python API). Jobs of the same owner in the same group can reach each other on every port: `HF_NETWORK_GROUP_HOSTNAME` resolves to every member, and `${HF_NETWORK_GROUP_PREFIX}<alias>` to the members that claimed an alias with `--network-alias <alias>` (CLI) or `network_aliases=[<alias>]` (Python API).
+Jobs can join a network group using `--network-group <name>` (CLI) or `network_group="<name>"` (Python API). Jobs in the same namespace and resource group sharing a group can reach each other on every port: `HF_NETWORK_GROUP_HOSTNAME` resolves to every member, and `${HF_NETWORK_GROUP_PREFIX}<alias>` to the members that claimed an alias with `--network-alias <alias>` (CLI) or `network_aliases=[<alias>]` (Python API).
 
-This works on `hf jobs run` and `hf jobs uv run`. Members are resolvable before they are ready, so connect with retries.
+This works on `hf jobs run` and `hf jobs uv run`. Members are resolvable before they are ready, so connect with retries. Group names and aliases are lowercase alphanumerics and dashes, 46 and 34 characters max; a job's aliases must be unique.
 
 ### CLI
 
