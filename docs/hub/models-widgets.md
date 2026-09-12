@@ -157,6 +157,24 @@ We can also surface the example outputs in the Hugging Face UI, for instance, fo
 <img width="650" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gallery.png"/>
 </div>
 
+## Video previews for robotics models
+
+Models with `pipeline_tag: robotics` show a **Video Preview** card rather than an inference widget. This card does not read `widget` metadata. It looks for a file named `replay.mp4` at the root of the model repository, on the `main` revision:
+
+```
+https://huggingface.co/<namespace>/<model>/resolve/main/replay.mp4
+```
+
+When the file is present it is played inline on a loop, and when it is missing the card reads "Preview not found". Since the path is fixed, a robotics model can surface a single preview video, it has to be named `replay.mp4`, and it has to sit at the repository root. Adding `widget` entries with an `output.url` has no effect on this card.
+
+The file should be tracked with Git LFS:
+
+```
+replay.mp4 filter=lfs diff=lfs merge=lfs -text
+```
+
+[`lerobot/diffusion_pusht`](https://huggingface.co/lerobot/diffusion_pusht) is an example of a repository with the file in place.
+
 ## Widget Availability and Provider Support
 
 Not all models have widgets available. Widget availability depends on:
@@ -169,7 +187,7 @@ To view the full list of supported tasks, check out [our dedicated documentation
 
 The list of all providers and the tasks they support is available in [this documentation page](https://huggingface.co/docs/inference-providers/index#partners).
 
-For models without provider support, you can still showcase functionality using [example outputs](#example-outputs) in your model card.
+For models without provider support, you can still showcase functionality using [example outputs](#example-outputs) in your model card. Robotics models are an exception, see [Video previews for robotics models](#video-previews-for-robotics-models).
 
 You can also click _Ask for provider support_ directly on the model page to encourage providers to serve the model, given there is enough community interest.
 
