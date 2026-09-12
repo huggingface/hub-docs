@@ -1,0 +1,6 @@
+accept = ["200..=204", "429"]
+cache = true
+exclude_all_private = true
+max_retries = 2
+retry_wait_time = 2
+timeout = 20

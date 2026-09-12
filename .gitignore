@@ -2,6 +2,7 @@ node_modules/
 __pycache__/
 .vscode/
 .idea/
+.lycheecache
 
 .DS_Store
 .ipynb_checkpoints/
