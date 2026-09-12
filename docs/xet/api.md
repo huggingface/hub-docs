@@ -229,7 +229,7 @@ A typical successful stream:
 If validation stalls, the server periodically re-emits the last progress event as a heartbeat so the stream never looks dead, which lets clients keep a short read timeout.
 
 > [!NOTE]
-> Additive change: `/v1/shards` is unchanged. Clients SHOULD try `/v2/shards` and fall back to `/v1/shards` on `404 Not Found`.
+> Additive change: `/v1/shards` is unchanged. Clients SHOULD try `/v2/shards` and fall back to `/v1/shards` on a `404` or `501`. The reference client caches the detected shard API version for the session, so this fallback probe happens once rather than per shard.
 
 - **Error Responses**: A malformed or unauthorized request can still fail before streaming starts; see [Error Cases](./api#error-cases). Once the stream has started (`200 OK`), validation and registration failures are reported through the terminal `error` event instead.
   - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.

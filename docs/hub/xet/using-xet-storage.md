@@ -155,8 +155,8 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 | Environment Variable | Default | Description |
 |---|---|---|
 | `HF_XET_CLIENT_ENABLE_ADAPTIVE_CONCURRENCY` | `true` | Enable or disable adaptive concurrency control. When disabled, concurrency stays at the initial value. |
-| `HF_XET_CLIENT_AC_INITIAL_UPLOAD_CONCURRENCY` | `1` | Starting number of concurrent upload streams. HP mode: `16`. |
-| `HF_XET_CLIENT_AC_INITIAL_DOWNLOAD_CONCURRENCY` | `1` | Starting number of concurrent download streams. HP mode: `16`. |
+| `HF_XET_CLIENT_AC_INITIAL_UPLOAD_CONCURRENCY` | `2` | Starting number of concurrent upload streams. HP mode: `16`. |
+| `HF_XET_CLIENT_AC_INITIAL_DOWNLOAD_CONCURRENCY` | `4` | Starting number of concurrent download streams. HP mode: `16`. |
 | `HF_XET_CLIENT_AC_MIN_UPLOAD_CONCURRENCY` | `1` | Lower bound for upload concurrency. HP mode: `4`. |
 | `HF_XET_CLIENT_AC_MIN_DOWNLOAD_CONCURRENCY` | `1` | Lower bound for download concurrency. HP mode: `4`. |
 | `HF_XET_CLIENT_AC_MAX_UPLOAD_CONCURRENCY` | `64` | Upper bound for upload concurrency. HP mode: `124`. |
@@ -178,7 +178,7 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 | `HF_XET_CLIENT_RETRY_BASE_DELAY` | `3000ms` | Base delay between retries (with exponential backoff). |
 | `HF_XET_CLIENT_RETRY_MAX_DURATION` | `360s` | Maximum total time to spend retrying a request. |
 | `HF_XET_CLIENT_CONNECT_TIMEOUT` | `60s` | TCP connection timeout. |
-| `HF_XET_CLIENT_READ_TIMEOUT` | `120s` | Read timeout for HTTP responses. |
+| `HF_XET_CLIENT_READ_TIMEOUT` | `300s` | Read timeout for HTTP responses. |
 | `HF_XET_CLIENT_IDLE_CONNECTION_TIMEOUT` | `60s` | Timeout before idle connections are closed. |
 | `HF_XET_CLIENT_MAX_IDLE_CONNECTIONS` | `16` | Maximum number of idle connections in the pool. |
 
