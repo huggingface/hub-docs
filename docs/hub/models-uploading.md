@@ -145,7 +145,7 @@ As you can see, the only requirement is that your model inherits from `PyTorchMo
 This comes with automated download metrics, meaning that you'll be able to see how many times the model is downloaded, the same way they are available for models integrated natively in the Transformers, Diffusers or Timm libraries. With this mixin class, each separate checkpoint is stored on the Hub in a single repository consisting of 2 files:
 
 - a `pytorch_model.bin` or `model.safetensors` file containing the weights
-- a `config.json` file which is a serialized version of the model configuration. This class is used for counting download metrics: everytime a user calls `from_pretrained` to load a `config.json`, the count goes up by one. See [this guide](https://huggingface.co/docs/hub/models-download-stats) regarding automated download metrics.
+- a `config.json` file which is a serialized version of the model configuration. This class is used for counting download metrics: every time a user calls `from_pretrained` to load a `config.json`, the count goes up by one. See [this guide](https://huggingface.co/docs/hub/models-download-stats) regarding automated download metrics.
 
 It's recommended to add a model card to each checkpoint so that people can read what the model is about, have a link to the paper, etc.
 
