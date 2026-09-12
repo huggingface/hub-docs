@@ -137,7 +137,7 @@ When uploading or downloading in Git or Python:
 Both `hf_xet` and Git Xet are powered by `xet-core`, which can be configured via environment variables. The tables below list the individual variables for fine-grained control. Most users will not need to change any of these — the defaults are tuned to saturate most network paths automatically.
 
 > [!NOTE]
-> `HF_XET_HIGH_PERFORMANCE=1` is a convenience flag that adjusts several settings at once (concurrency bounds, buffer sizes, and parallel file limits). It is intended for machines with high bandwidth **and at least 64 GB of RAM** for buffering. On machines with less memory, it may degrade performance.
+> `HF_XET_HIGH_PERFORMANCE=1` is a convenience flag that adjusts several settings at once (concurrency bounds, buffer sizes, and parallel file limits). It is intended for machines with high bandwidth. Download buffer sizes scale with the memory available to the process, so the flag is safe on smaller machines too — though its raised concurrency mostly pays off on fast links. Explicitly set `HF_XET_*` variables take precedence over the values this flag applies.
 
 ### General
 
@@ -194,15 +194,16 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 
 ### Download Buffers
 
-These control memory usage during downloads. `HF_XET_HIGH_PERFORMANCE=1` raises these significantly.
+These control memory usage during downloads. The three `DOWNLOAD_BUFFER` defaults are derived from the memory usable by the process — the smaller of the host's RAM and the container (cgroup) memory limit, so a small container gets a small buffer and a large host gets a large one. Each value is a fraction of usable memory, kept within a fixed floor and ceiling; `HF_XET_HIGH_PERFORMANCE=1` uses fractions twice as large with the same bounds. On a 32 GB machine the derived defaults are close to the previous constants (2 GB / 512 MB / 8 GB). If available memory cannot be determined, those constants are used as-is.
 
 | Environment Variable | Default | HP Mode | Description |
 |---|---|---|---|
 | `HF_XET_RECONSTRUCTION_MIN_RECONSTRUCTION_FETCH_SIZE` | `256mb` | `1gb` | Minimum fetch size for reconstruction requests. |
 | `HF_XET_RECONSTRUCTION_MAX_RECONSTRUCTION_FETCH_SIZE` | `8gb` | `16gb` | Maximum fetch size for reconstruction requests. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` | `2gb` | `16gb` | Total download buffer size. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_PERFILE_SIZE` | `512mb` | `2gb` | Per-file download buffer size. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_LIMIT` | `8gb` | `64gb` | Hard limit on total download buffer memory. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` | memory/16 (`64mb`–`16gb`) | memory/8 | Total download buffer size. Derived from usable memory. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_PERFILE_SIZE` | memory/64 (`16mb`–`2gb`) | memory/32 | Per-file download buffer size. Derived from usable memory. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_LIMIT` | memory/4 (`264mb`–`64gb`) | memory/2 | Hard limit on total download buffer memory. Derived from usable memory; setting `DOWNLOAD_BUFFER_SIZE` above this raises the limit to match. |
+| `HF_XET_DISABLE_MEMORY_DERIVED_DOWNLOAD_BUFFERS` | unset | — | Set to `1` to disable memory-derived buffer defaults and restore the fixed values (`2gb` / `512mb` / `8gb`; HP mode `16gb` / `2gb` / `64gb`). |
 | `HF_XET_RECONSTRUCTION_TARGET_BLOCK_COMPLETION_TIME` | `15m` | — | Target time for completing a prefetch block. Used to determine how much data to prefetch ahead during downloads. |
 | `HF_XET_RECONSTRUCTION_MIN_PREFETCH_BUFFER` | `1gb` | — | Minimum amount of data to keep prefetched during downloads, regardless of estimated completion time. |
 
