@@ -108,6 +108,8 @@
   sections:
   - local: providers/baseten
     title: Baseten
+  - local: providers/berget
+    title: Berget
   - local: providers/cerebras
     title: Cerebras
   - local: providers/cohere
