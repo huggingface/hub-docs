@@ -18,14 +18,15 @@ In these pages, you will go over the basics of getting started with Git and Xet 
 ## Contents
 
 - [Getting Started with Repositories](./repositories-getting-started)
-- [Settings](./repositories-settings)
+- [Repository Settings](./repositories-settings)
 - [Storage Limits](./storage-limits)
 - [Storage Backend (Xet)](./xet/index)
 - [Local Cache](./local-cache)
 - [Pull Requests & Discussions](./repositories-pull-requests-discussions)
-  - [Pull Requests advanced usage](./repositories-pull-requests-discussions#pull-requests-advanced-usage)
-- [Collections](./collections)
 - [Notifications](./notifications)
+- [Collections](./collections)
 - [Webhooks](./webhooks)
+- [GitHub Actions](./repositories-github-actions)
+- [Notebooks](./notebooks)
 - [Next Steps](./repositories-next-steps)
 - [Licenses](./repositories-licenses)

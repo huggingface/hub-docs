@@ -7,17 +7,22 @@ The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M 
 <div class="group flex flex-col space-y-1 rounded-xl border border-purple-100 bg-linear-to-br from-purple-50 dark:from-purple-500/10 px-6 py-4 dark:border-gray-850">
 <div class="flex items-center py-0.5 text-lg font-semibold text-black dark:text-white mb-2">
 <svg class="shrink-0 mr-1.5 text-gray-900 dark:text-white" height="1em" viewBox="0 0 27 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="img"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.555 8.061a4.447 4.447 0 0 0-3.94 2.913l-2.435 7.261c-.52 1.59.465 2.913 2.097 2.913h7.655a4.504 4.504 0 0 0 3.997-2.913l2.35-7.26c.506-1.591-.422-2.914-2.055-2.914H16.555Zm.563 2.913-2.435 7.107h5.024l.507-1.576h-2.955l.393-1.281h2.463l.563-1.548h-2.477l.422-1.168h2.815l.507-1.548h-4.87.057l-.014.014Z" fill="currentColor"/><path d="M15.201 1c1.633 0 2.562 1.337 2.055 2.913l-.738 2.273h-.013l-.05.002a6.326 6.326 0 0 0-5.602 4.142l-.009.024-.009.024-1.248 3.724H3.241c-1.647 0-2.604-1.338-2.112-2.914l2.463-7.275A4.447 4.447 0 0 1 7.532 1h7.67Zm-.309 10.188a4.503 4.503 0 0 1-3.296 2.823l1.019-3.036a4.448 4.448 0 0 1 3.264-2.826l-.987 3.04ZM5.593 5.545h2.928l-1.83 5.488h2.068l.247-.795.246-.795.422-1.266.564-1.548.393-1.084h2.815l.52-1.632h-7.81l-.563 1.632Z" fill="currentColor"/></svg> Subscriptions &  Plans</div>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./pro">PRO subscription</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./pro">PRO Plan</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./enterprise">Team & Enterprise Plans</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./enterprise-sso">Single Sign-On (SSO)</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./audit-logs">Audit Logs</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./storage-regions">Storage Regions</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./enterprise-datasets">Data Studio for Private datasets</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./security-resource-groups">Resource Groups</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./enterprise-resource-groups">Resource Groups (Access Control)</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./advanced-compute-options">Advanced Compute Options</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./enterprise-advanced-security">Advanced Security</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./enterprise-tokens-management">Tokens Management</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./enterprise-service-accounts">Service Accounts</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./publisher-analytics">Publisher Analytics</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./enterprise-gating-group-collections">Gating Group Collections</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./enterprise-network-security">Network Security</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./rate-limits">Rate Limits</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./enterprise-blog-articles">Blog Articles</a>
 </div>
 
 <div class="group flex flex-col space-y-1 rounded-xl border border-orange-100 bg-linear-to-br from-orange-50 dark:from-orange-500/10 px-6 py-4 dark:border-gray-850">
@@ -32,6 +37,8 @@ The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M 
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./notifications">Notifications</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./collections">Collections</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./webhooks">Webhooks</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./repositories-github-actions">GitHub Actions</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./notebooks">Notebooks</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./repositories-next-steps">Next Steps</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./repositories-licenses">Licenses</a>
 </div>
@@ -42,14 +49,19 @@ The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M 
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-the-hub">The Model Hub</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./model-cards">Model Cards</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./eval-results">Eval Results</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./leaderboard-data-guide">Leaderboard Data</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-gated">Gated Models</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-uploading">Uploading Models</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-downloading">Downloading Models</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-libraries">Libraries</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-tasks">Tasks</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-widgets">Widgets</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-inference">Inference Providers</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-download-stats">Download Stats</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-libraries">Integrated Libraries</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-widgets">Model Widgets</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-inference">Model Inference</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-download-stats">Models Download Stats</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./model-release-checklist">Model Release Checklist</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./hardware">Hardware</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./local-apps">Local Apps</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-faq">Frequently Asked Questions</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./models-advanced">Advanced Topics</a>
 </div>
 
 <div class="group flex flex-col space-y-1 rounded-xl border border-red-100 bg-linear-to-br from-red-50 dark:from-red-500/10 px-6 py-4 dark:border-gray-850">
@@ -60,14 +72,13 @@ The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M 
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-cards">Dataset Cards</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-gated">Gated Datasets</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-adding">Uploading Datasets</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-ingesting">Ingesting Datasets</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-upload-guide-llm">Uploading Datasets (for LLMs)</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-downloading">Downloading Datasets</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-streaming">Streaming Datasets</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-editing">Editing Datasets</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-libraries">Libraries</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-libraries">Integrated Libraries</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./data-studio">Data Studio</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-download-stats">Download Stats</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-data-files-configuration">Data files Configuration</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./agent-traces">Agent Traces</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./datasets-download-stats">Datasets Download Stats</a>
 </div>
 
 <div class="group flex flex-col space-y-1 rounded-xl border border-blue-100 bg-linear-to-br from-blue-50 dark:from-blue-500/10 px-6 py-4 dark:border-gray-850">
@@ -75,26 +86,35 @@ The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M 
 <svg class="shrink-0 mr-1.5 text-blue-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 25 25"><path opacity=".5" d="M6.016 14.674v4.31h4.31v-4.31h-4.31ZM14.674 14.674v4.31h4.31v-4.31h-4.31ZM6.016 6.016v4.31h4.31v-4.31h-4.31Z" fill="currentColor"></path><path opacity=".75" fill-rule="evenodd" clip-rule="evenodd" d="M3 4.914C3 3.857 3.857 3 4.914 3h6.514c.884 0 1.628.6 1.848 1.414a5.171 5.171 0 0 1 7.31 7.31c.815.22 1.414.964 1.414 1.848v6.514A1.914 1.914 0 0 1 20.086 22H4.914A1.914 1.914 0 0 1 3 20.086V4.914Zm3.016 1.102v4.31h4.31v-4.31h-4.31Zm0 12.968v-4.31h4.31v4.31h-4.31Zm8.658 0v-4.31h4.31v4.31h-4.31Zm0-10.813a2.155 2.155 0 1 1 4.31 0 2.155 2.155 0 0 1-4.31 0Z" fill="currentColor"></path><path opacity=".25" d="M16.829 6.016a2.155 2.155 0 1 0 0 4.31 2.155 2.155 0 0 0 0-4.31Z" fill="currentColor"></path></svg> Spaces</div>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces">Introduction</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-overview">Spaces Overview</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-gpus">Spaces GPU Upgrades</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-zerogpu">Spaces ZeroGPU</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-dev-mode">Spaces Dev Mode</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-storage">Spaces Disk Usage & Storage</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-custom-domain">Spaces Custom Domain</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-mcp-servers">Spaces as MCP servers</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-agents">Spaces as Agent Tools</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-api-endpoints">Spaces as API Endpoints</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-sdks-gradio">Gradio Spaces</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-sdks-streamlit">Streamlit Spaces</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-sdks-static">Static HTML Spaces</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-sdks-docker">Docker Spaces</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-zerogpu">ZeroGPU Spaces</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-embed">Embed your Space</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-run-with-docker">Run with Docker</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-config-reference">Reference</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-run-with-docker">Run Spaces with Docker</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-config-reference">Spaces Configuration Reference</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-oauth">Sign-In with HF button</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-featured">Featured Spaces</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-changelog">Spaces Changelog</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-advanced">Advanced Topics</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./spaces-oauth">Sign in with HF</a>
 </div>
 
 <div class="group flex flex-col space-y-1 rounded-xl border border-blue-100 bg-linear-to-br from-blue-50 dark:from-blue-500/10 px-6 py-4 dark:border-gray-850">
 <div class="flex items-center py-0.5 text-lg font-semibold text-blue-600 dark:text-white mb-2">
 <svg class="shrink-0 mr-1.5 text-blue-500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48" fill="none"><path opacity="0.25" d="M36 4H12C7.58172 4 4 7.58172 4 12V36C4 40.4183 7.58172 44 12 44H36C40.4183 44 44 40.4183 44 36V12C44 7.58172 40.4183 4 36 4Z" fill="currentColor"/><path opacity="0.5" d="M31 11H17C13.6863 11 11 13.6863 11 17V31C11 34.3137 13.6863 37 17 37H31C34.3137 37 37 34.3137 37 31V17C37 13.6863 34.3137 11 31 11Z" fill="currentColor"/><path d="M27 18H21C19.3431 18 18 19.3431 18 21V27C18 28.6569 19.3431 30 21 30H27C28.6569 30 30 28.6569 30 27V21C30 19.3431 28.6569 18 27 18Z" fill="currentColor"/></svg> Storage Buckets <span class="ml-1 rounded-sm bg-blue-500/10 px-1 text-xs leading-tight text-blue-700 dark:text-blue-200">new</span></div>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./storage-buckets">Introduction</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./storage-buckets#buckets-vs-repositories">Buckets vs Git Repositories</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./storage-buckets#creating-a-bucket">Creating a Bucket</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./storage-buckets#managing-files">Managing Files</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./storage-buckets#use-cases">Use Cases</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./storage-buckets-security">Security & Compliance</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./storage-buckets-access">Access Patterns</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./storage-buckets-s3">S3 Compatibility</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./storage-buckets-integrations">Bucket Integrations</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./storage-buckets-security">Bucket Security</a>
 </div>
 
 <div class="group flex flex-col space-y-1 rounded-xl border border-teal-100 bg-linear-to-br from-teal-50 dark:from-teal-500/10 px-6 py-4 dark:border-gray-850">
@@ -103,12 +123,14 @@ The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M 
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs">Introduction</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-overview">Jobs Overview</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-quickstart">Quickstart</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-pricing">Pricing</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-pricing">Pricing and Billing</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-manage">Manage Jobs</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-configuration">Jobs Configuration</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-popular-images">Popular images</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-configuration">Configuration</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-popular-images">Popular Images</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-serving">Serve Models</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-examples">Examples & Tutorials</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-schedule">Schedule Jobs</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-webhooks">Webhooks Automation</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-webhooks">Webhook Automation</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-reference">Reference</a>
 </div>
 
@@ -121,8 +143,9 @@ The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M 
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./agents-mcp">Hugging Face MCP Server</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./agents-skills">Hugging Face Agent Skills</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./agents-sdk">Building agents with the HF SDK</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./agents-local">Local Agents</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./agents-local">Local Agents with llama.cpp</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./agents-libraries">Agent Libraries</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./session-traces-format">Session Traces Format</a>
 </div>
 
 <div class="group flex flex-col space-y-1 rounded-xl border border-green-100 bg-linear-to-br from-green-50 dark:from-green-500/10 px-6 py-4 dark:border-gray-850">
@@ -138,9 +161,7 @@ The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M 
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./search">Search</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./doi">Digital Object Identifier (DOI)</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./api">Hub API Endpoints</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./oauth">Sign in with HF</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="https://huggingface.co/code-of-conduct">Contributor Code of Conduct</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="https://huggingface.co/content-guidelines">Content Guidelines</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./oauth">OAuth / Sign in with HF</a>
 </div>
 
 </div>
