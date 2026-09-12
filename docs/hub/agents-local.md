@@ -36,7 +36,7 @@ Pick one of the agents below and follow the setup instructions.
 Install Pi:
 
 ```bash
-npm install -g @mariozechner/pi-coding-agent
+npm install -g @earendil-works/pi-coding-agent
 ```
 
 Then add your local model to Pi's configuration file at `~/.pi/agent/models.json`:

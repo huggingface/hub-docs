@@ -15,7 +15,7 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 
 | Integration                                                        | Description                                                              | Resources                                                                                                                                          |
 | ------------------------------------------------------------------ | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Pi](https://github.com/badlogic/pi-mono)                          | Minimalist terminal-based coding assistant                              | [Getting started](./pi)                                                                     |
+| [Pi](https://github.com/earendil-works/pi)                          | Minimalist terminal-based coding assistant                              | [Getting started](./pi)                                                                     |
 | [OpenCode](https://opencode.ai/)                                   | AI coding agent built for the terminal                                  | [Getting started](./opencode)                                                   |
 | [Codex](https://developers.openai.com/codex)                       | OpenAI's agentic coding CLI for the terminal                            | [Getting started](./codex)                                                                                                                         |
 | [Claude Code](https://docs.anthropic.com/en/docs/claude-code)      | Agentic coding tool for the terminal                                    | [Getting started](./claude-code)                                                                                                                   |
@@ -53,7 +53,7 @@ End-user applications and interfaces powered by LLMs.
 
 AI-powered coding assistants and development environments.
 
-- [Pi](https://github.com/badlogic/pi-mono) - Minimalist terminal-based coding assistant ([Getting started](./pi))
+- [Pi](https://github.com/earendil-works/pi) - Minimalist terminal-based coding assistant ([Getting started](./pi))
 - [OpenCode](https://opencode.ai/) - AI coding agent built for the terminal ([Getting started](./opencode))
 - [Codex](https://developers.openai.com/codex) - OpenAI's agentic coding CLI for the terminal ([Getting started](./codex))
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) - Agentic coding tool for the terminal ([Getting started](./claude-code))
