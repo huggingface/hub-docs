@@ -21,7 +21,7 @@ All models on the Hub come up with the following features:
 
 For a full guide on loading pre-trained models, we recommend checking out the [official guide](https://github.com/asteroid-team/asteroid/blob/master/docs/source/readmes/pretrained_models.md). 
 
-All model classes (`BaseModel`, `ConvTasNet`, etc) have a `from_pretrained` method that allows to load models from the Hub.
+All model classes (`BaseModel`, `ConvTasNet`, etc) have a `from_pretrained` method that allows you to load models from the Hub.
 
 ```py
 from asteroid.models import ConvTasNet
