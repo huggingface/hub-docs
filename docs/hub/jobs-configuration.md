@@ -47,7 +47,7 @@ Find the list of all arguments in the [CLI documentation](https://huggingface.co
 
 By default, UV Jobs run with the `ghcr.io/astral-sh/uv:python3.12-bookworm` Docker image, but you can use another image as long as it has UV installed, using `--image <docker-image>`.
 
-See [Using Docker images](./jobs-popular-images#use-an-image-with-uv) for choosing an image and understanding how its environment interacts with UV dependencies.
+See [Using Docker images](./jobs-images#use-an-image-with-uv) for choosing an image and understanding how its environment interacts with UV dependencies.
 
 ## Docker Jobs
 
@@ -65,7 +65,7 @@ Here, `--help` reaches Python rather than showing Jobs help:
 
 Find the list of all arguments in the [CLI documentation](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-jobs-run).
 
-See [Using Docker images](./jobs-popular-images) for examples using existing images and images built by Docker Spaces.
+See [Using Docker images](./jobs-images) for examples using existing images and images built by Docker Spaces.
 
 ## Environment variables and Secrets
 
