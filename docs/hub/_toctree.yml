@@ -457,7 +457,7 @@
   - local: jobs-configuration
     title: Configuration
   - local: jobs-popular-images
-    title: Popular Images
+    title: Using Docker images
   - local: jobs-serving
     title: Serve Models
   - local: jobs-examples
