@@ -1,7 +1,5 @@
 # Using Docker images
 
-<a id="popular-images"></a>
-
 Every Job runs inside a Docker image, which provides its software environment, including
 system tools and installed libraries. With `hf jobs run`, you provide an image and a command.
 With `hf jobs uv run`, uv prepares the Python environment for your script, and Jobs selects
