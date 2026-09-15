@@ -156,53 +156,70 @@ def update_toctree_yaml():
     with open(input_file, "r") as f:
         toctree_content = f.read()
 
-    # Find the position between tutorials and reference sections
+    # Find the closing keys of the SageMaker SDK section to insert the Examples block inside it
     tutorials_end = toctree_content.find(
-        "- sections:\n    - local: reference/inference-toolkit"
+        "  title: SageMaker SDK\n  isExpanded: true"
     )
     if tutorials_end == -1:
-        print("Error: Could not find the reference section in the file")
+        print("Error: Could not find the SageMaker SDK section in the file")
         return
 
-    # Generate the new content
+    # Examples are grouped by domain via the `category` key in each notebook's metadata block,
+    # mirroring the Hugging Face Hub task taxonomy
+    category_titles = {
+        "text-generation": "Text generation (LLMs)",
+        "embeddings": "Embeddings",
+        "image": "Image generation",
+        "audio": "Audio and speech",
+        "document": "Document understanding",
+        "other": "Other",
+    }
+
+    # Generate the new content, nested inside the SageMaker SDK section
     new_content = []
     new_content.append("# GENERATED CONTENT DO NOT EDIT!")
-    new_content.append("- title: Examples")
-    new_content.append("  sections:")
+    new_content.append("    - title: Examples")
+    new_content.append("      isExpanded: false")
 
     for dirname in dirnames:
         # Get sorted files excluding index
         files = sorted(glob.glob(f"source/examples/{dirname}-*.mdx"))
         files = [f for f in files if not f.endswith(f"{dirname}-index.mdx")]
 
-        file_entries = []
+        grouped_entries = {}
         for file_path in files:
+            with open(file_path, "r") as f:
+                category = parse_metadata(f.read()).get("category", "other")
             example_content = process_example_metadata(file_path, dirname)
             title_match = re.search(r"^# (.+)", example_content, re.MULTILINE)
             if title_match:
                 title = title_match.group(1).strip()
                 base_name = Path(file_path).stem
-                file_entries.append((base_name, title))
+                grouped_entries.setdefault(category, []).append((base_name, title))
             else:
                 print(f"⚠️ Skipping {Path(file_path).name} - missing H1 title")
                 continue
 
-        # Write directory section
-        new_content.append("     - title: SageMaker SDK")
-        new_content.append("       isExpanded: false")
-
-        for idx, (base, title) in enumerate(file_entries):
-            if idx == 0:
-                new_content.append("       sections:")
-            new_content.append(f"          - local: examples/{base}")
-            new_content.append(f'            title: "{title}"')
+        first_group = True
+        for category, group_title in category_titles.items():
+            file_entries = grouped_entries.get(category)
+            if not file_entries:
+                continue
+            if first_group:
+                new_content.append("      sections:")
+                first_group = False
+            new_content.append(f"        - title: {group_title}")
+            new_content.append("          isExpanded: false")
+            new_content.append("          sections:")
+            for base, title in file_entries:
+                new_content.append(f"            - local: examples/{base}")
+                new_content.append(f'              title: "{title}"')
 
     new_content.append("# END GENERATED CONTENT")
 
     # Insert the new content
     updated_content = (
         toctree_content[:tutorials_end]
-        + "\n"
         + "\n".join(new_content)
         + "\n"
         + toctree_content[tutorials_end:]

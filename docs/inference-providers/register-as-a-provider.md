@@ -51,8 +51,7 @@ The list of all possible tasks can be found at https://huggingface.co/tasks and 
 
 > [!TIP]
 > Note that `chatCompletion` is an exception as it is not a pipeline_tag, per se. Instead, it
-> includes models with either `pipeline_tag="text-generation"` or `pipeline_tag="image-text-to-text"`
-> which are tagged as "conversational".
+> includes all models with either `pipeline_tag="text-generation"` or `pipeline_tag="image-text-to-text"`.
 
 
 ### Task API schema
@@ -109,7 +108,7 @@ Implement the methods that require custom handling. Check out the base implement
 
 If the provider supports multiple tasks that require different implementations, create dedicated subclasses for each task, following the pattern used in the existing providers implementation, e.g. [Together AI provider implementation](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/together.ts).
 
-For text-generation and conversational tasks, you can just inherit from `BaseTextGenerationTask` and `BaseConversationalTask` respectively (defined in [providerHelper.ts]((https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/providerHelper.ts))) and override the methods if needed. Examples can be found in [Cerebras](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/cerebras.ts) or [Fireworks](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/fireworks.ts) provider implementations.
+For conversational tasks, you can just inherit from `BaseConversationalTask` (defined in [providerHelper.ts]((https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/providerHelper.ts))) and override the methods if needed. Examples can be found in [Cerebras](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/cerebras.ts) or [Fireworks](https://github.com/huggingface/huggingface.js/blob/main/packages/inference/src/providers/fireworks.ts) provider implementations.
 
 ### Register the provider
 
@@ -144,7 +143,7 @@ Create a new mapping item, with the following body (JSON-encoded):
 ```
 
 - `task`, also known as `pipeline_tag` in the HF ecosystem, is the type of model / type of API
-(examples: "text-to-image", "text-generation", but you should use "conversational" for chat models)
+(examples: "text-to-image", "automatic-speech-recognition"; use "conversational" for "text-generation" and "image-text-to-text" models)
 - `hfModel` is the model id on the Hub's side.
 - `providerModel` is the model id on your side (can be the same or different. In general, we encourage you to use the HF model ids on your side as well, but this is up to you).
 
@@ -158,8 +157,8 @@ for TogetherAI) with **Write** permissions to be able to access this endpoint.
 #### Validation
 
 The endpoint validates that:
-- `hfModel` is indeed of `pipeline_tag == task` OR `task` is "conversational" and the model is
-compatible (i.e. the `pipeline_tag` is either "text-generation" or "image-text-to-text" AND the model is tagged as "conversational").
+- `hfModel`'s `pipeline_tag` matches the provided task: for "text-generation" and "image-text-to-text"
+models the task must be "conversational", for all other models the task must be equal to the `pipeline_tag`.
 - After the mapping creation (asynchronously) we automatically test whether the Partner API correctly handles huggingface.js/inference calls for the relevant task, ensuring the API specifications are valid. See the [Automatic validation](#automatic-validation) section below.
 
 
@@ -191,7 +190,7 @@ Create a new mapping item, with the following body (JSON-encoded):
 ```
 
 - `task`, also known as `pipeline_tag` in the HF ecosystem, is the type of model / type of API
-(examples: "text-to-image", "text-generation", but you should use "conversational" for chat models)
+(examples: "text-to-image", "automatic-speech-recognition"; use "conversational" for "text-generation" and "image-text-to-text" models)
 - `tags` is the set of model tags to match. For example, to match all LoRAs of Flux, you can use: `["lora", "base_model:adapter:black-forest-labs/FLUX.1-dev"]` 
 - `providerModel` is the model ID on your side (can be the same or different from the HF model ID).
 - `adapterType` is a literal value that helps client libraries interpret how to call your API. The only supported value at the moment is `"lora"`.
@@ -267,17 +266,10 @@ Here is an example of response:
             "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
             "providerId": "deepseek-ai/DeepSeek-R1",
             "status": "live"
-        }
-    },
-    "text-generation": {
-        "meta-llama/Llama-2-70b-hf": {
-            "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
-            "providerId": "meta-llama/Llama-2-70b-hf",
-            "status": "live"
         },
-        "mistralai/Mixtral-8x7B-v0.1": {
+        "Qwen/Qwen3-VL-8B-Instruct": {
             "_id": "xxxxxxxxxxxxxxxxxxxxxxxx",
-            "providerId": "mistralai/Mixtral-8x7B-v0.1",
+            "providerId": "Qwen/Qwen3-VL-8B-Instruct",
             "status": "live"
         }
     }
@@ -304,7 +296,7 @@ The validation process checks the following:
 - The Inference API is reachable, and the HTTP call succeeds.
 - The output format is compatible with the Hugging Face JavaScript Inference Client.
 - Latency requirements are met:
-  - For conversational and text models: under 5 seconds (time to first token in streaming mode).
+  - For conversational models: under 5 seconds (time to first token in streaming mode).
   - For other tasks: under 30 seconds.
 
 For large language models (LLMs), additional behavioral tests are conducted:
@@ -474,7 +466,7 @@ Implement the methods that require custom handling. Check out the base implement
 
 If the provider supports multiple tasks that require different implementations, create dedicated subclasses for each task, following the pattern shown in fal_ai.py.
 
-For text-generation and conversational tasks, one can just inherit from BaseTextGenerationTask and BaseConversationalTask respectively (defined in _common.py) and override the methods if needed. Examples can be found in fireworks_ai.py and together.py.
+For conversational tasks, one can just inherit from BaseConversationalTask (defined in _common.py) and override the methods if needed. Examples can be found in fireworks_ai.py and together.py.
 
 ```python
 from typing import Any, Dict, Optional, Union

@@ -59,6 +59,6 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"publicai":{"modelId":"swiss-ai/Apertus-v1.5-70B","providerModelId":"swiss-ai/apertus-v1.5-70b"} } }
+    providersMapping={ {"publicai":{"modelId":"swiss-ai/Apertus-v1.5-8B","providerModelId":"swiss-ai/apertus-v1.5-8b"} } }
 conversational />
 
