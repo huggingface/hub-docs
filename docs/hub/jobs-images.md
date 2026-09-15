@@ -55,7 +55,7 @@ There are three parts to the environment:
 
 - **System tools and libraries in the image**, such as `ffmpeg` or the CUDA toolkit, are available to the Job according to the image's configuration.
 - **Python packages installed in the image** belong to its existing Python environment.
-- **Python packages declared by your script** are installed by uv. A `# /// script` dependency header creates an isolated environment, so the image's Python packages are not automatically included.
+- **Script dependencies.** With an [inline dependency header](https://docs.astral.sh/uv/guides/scripts/#declaring-script-dependencies), uv installs your Python packages in an isolated environment. Packages preinstalled in the image are not automatically available.
 
 For example, a vLLM script may need an image with CUDA tooling while using uv to install its own declared Python dependencies. The system tooling must still be compatible with the packages uv installs.
 
