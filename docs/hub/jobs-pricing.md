@@ -15,7 +15,9 @@ If a running Job starts to fail, it will be automatically suspended and the bill
 
 <!-- STRETCH TABLES -->
 
-Jobs are billed per minute based on the hardware used. Below are the available hardware options and their pricing.
+Jobs are billed per minute based on the hardware used. For example, 10 billable minutes on `a10g-small` costs approximately $0.17 in hardware charges.
+
+To manage spending, [set a timeout](#set-timeout-limits), [cancel a Job](#cancel-irrelevant-jobs), or [view your current usage](#view-current-compute-usage).
 
 ### CPU
 
@@ -111,6 +113,8 @@ In Python:
 ...     resource_group_id="<resource-group-id>",
 ... )
 ```
+
+Organization and Resource Group admins can set [monthly spending limits](./security-resource-groups#spend-limits) for Jobs billed to the group.
 
 ### View current compute usage
 
