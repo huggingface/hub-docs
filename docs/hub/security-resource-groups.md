@@ -152,7 +152,7 @@ Members without access can no longer use the feature in the organization's conte
 Resource Groups also serve as a cost attribution unit for compute services. When compute is billed to a resource group, costs are tracked separately per group, making it easier to understand spending across teams.
 
 - **Spaces**: cost is automatically attributed to the resource group the Space belongs to.
-- **Jobs**: pass the resource group's ID as the `resourceGroupId` field when creating a job. See [Bill to a resource group](./jobs-pricing#bill-to-a-resource-group).
+- **Jobs**: set `namespace` to the owning organization and pass the resource group's ID using `resource_group_id` in Python, `--resource-group-id` in the CLI, or `resourceGroupId` in the HTTP request body. See [Bill to a resource group](./jobs-pricing#bill-to-a-resource-group).
 - **Inference Providers**: pass the resource group's ID via the `X-HF-Bill-To` header (or `bill_to` parameter in the SDK). See [Billing for Team and Enterprise organizations](/docs/inference-providers/pricing#billing-for-team-and-enterprise-organizations).
 - **Inference Endpoints**: cost is automatically attributed to the resource group the model repository belongs to. Endpoints instantiated directly from the built-in Inference Endpoints catalog aren't supported at this time.
 
