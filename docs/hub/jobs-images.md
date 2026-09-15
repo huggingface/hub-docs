@@ -22,7 +22,7 @@ for the current default image and available options.
 
 You can use an existing image from a registry such as Docker Hub, or an
 [image from a Space](#use-an-image-from-a-space). To build and host your own image on the Hub,
-see the [Docker Spaces setup guide](./spaces-sdks-docker#setting-up-docker-spaces).
+see [Build your own image with a Docker Space](#build-your-own-image-with-a-docker-space).
 
 ## Run a command in an existing image
 
@@ -110,6 +110,55 @@ a Job can still involve downloading the image. A repository containing a Dockerf
 is not enough: an image must have been built successfully.
 Configure the Job's [secrets](./jobs-configuration#environment-variables-and-secrets) and
 [volumes](./jobs-configuration#volumes) when you launch it.
+
+### Build your own image with a Docker Space
+
+A Docker Space can build and host an image with the tools your workload needs. For example,
+add FFmpeg to a Python image to prepare an environment for processing audio or video.
+
+Create a [Docker Space](./spaces-sdks-docker#setting-up-docker-spaces) and add this `Dockerfile`
+at the root of its repository:
+
+```dockerfile
+FROM python:3.12-slim-bookworm
+
+# Install FFmpeg for audio and video processing.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+# Match the non-root user ID used by Docker Spaces.
+RUN useradd --create-home --uid 1000 user
+USER user
+
+# Check that FFmpeg is available.
+CMD ["ffmpeg", "-version"]
+```
+
+`FROM` supplies Python. FFmpeg is not included in this base image, so `RUN` installs it
+at build time. `useradd` creates a user with a home directory and UID `1000`, matching
+[Docker Spaces](./spaces-sdks-docker#permissions); `USER` runs commands as that user.
+`CMD` sets a default command, here checking the FFmpeg installation.
+
+Commit the file and wait for the Space's build logs to show that the image was pushed.
+Then run a Job using the image, replacing `YOUR_USERNAME/video-tools` with your Space ID:
+
+```bash
+hf jobs run --flavor cpu-basic --timeout 5m \
+    hf.co/spaces/YOUR_USERNAME/video-tools -- ffmpeg -version
+```
+
+The version appears in the Job's logs. Supply a different command after the Space URL to use
+FFmpeg or Python for your workload. To include your own script in the image, add a line such
+as `COPY --chown=user:user process.py /app/process.py` to the Dockerfile and run
+`python /app/process.py`.
+See [input and output files](#run-your-own-script-with-input-and-output-files) for mounting data
+and saving results.
+
+> [!NOTE]
+> This example prints a version and exits, so the Space can show a runtime error with exit
+> code `0` after the build succeeds. You can pause the Space and use its built image in Jobs;
+> the Space does not need to serve a web app for this workflow.
 
 ## Example images
 
