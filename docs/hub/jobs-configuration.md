@@ -75,6 +75,8 @@ Similarly to the [built-in environment variables in Spaces](./spaces-overview#bu
 | `ACCELERATOR` | The type of accelerator available (e.g., `t4-medium`, `a10g-small`, `a100x4`), or `none` for CPU-only jobs. |
 | `CPU_CORES` | The number of CPU cores allocated to the job. |
 | `MEMORY` | The amount of memory allocated to the job (e.g., `8Gi`). |
+| `HF_NETWORK_GROUP_HOSTNAME` | Hostname resolving to every job in the job's [network group](#network-groups). Only set when the job declares one. |
+| `HF_NETWORK_GROUP_PREFIX` | Prefix to prepend to an alias to get the hostname of the group members claiming it (e.g., `${HF_NETWORK_GROUP_PREFIX}master`). Only set when the job declares a network group. |
 
 You can use these variables to track outputs, adapt your code to available resources, or reference the current job programmatically:
 
@@ -334,6 +336,41 @@ Use `-R` (remote forwarding) to let the Job access a service running on your mac
 # Make your local port 8080 reachable from inside the Job on port 8080
 >>> ssh -R 8080:localhost:8080 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
 ```
+
+## Network groups
+
+Jobs can join a network group using `--network-group <name>` (CLI) or `network_group="<name>"` (Python API). Jobs in the same namespace and resource group sharing a group can reach each other on every port: `HF_NETWORK_GROUP_HOSTNAME` resolves to every member, and `${HF_NETWORK_GROUP_PREFIX}<alias>` to the members that claimed an alias with `--network-alias <alias>` (CLI) or `network_aliases=[<alias>]` (Python API).
+
+This works on `hf jobs run` and `hf jobs uv run`. Members are resolvable before they are ready, so connect with retries. Group names and aliases are lowercase alphanumerics and dashes, 46 and 34 characters max; a job's aliases must be unique.
+
+### CLI
+
+```bash
+# Start a server, reachable by the other members of the group as "master"
+>>> hf jobs run --detach --network-group train --network-alias master python:3.12 python -m http.server 8000
+
+# Start a client in the same group
+>>> hf jobs run --detach --network-group train python:3.12 sh -c 'curl --retry 10 --retry-connrefused "http://${HF_NETWORK_GROUP_PREFIX}master:8000/"'
+```
+
+### Python
+
+```python
+>>> from huggingface_hub import run_job
+>>> server = run_job(
+...     image="python:3.12",
+...     command=["python", "-m", "http.server", "8000"],
+...     network_group="train",
+...     network_aliases=["master"],
+... )
+>>> client = run_job(
+...     image="python:3.12",
+...     command=["sh", "-c", 'curl --retry 10 --retry-connrefused "http://${HF_NETWORK_GROUP_PREFIX}master:8000/"'],
+...     network_group="train",
+... )
+```
+
+Multi-node training frameworks can use an alias as the rendezvous host, e.g. `torchrun --master_addr "${HF_NETWORK_GROUP_PREFIX}master"`.
 
 ## Timeout
 
