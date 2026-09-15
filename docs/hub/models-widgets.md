@@ -187,7 +187,7 @@ To view the full list of supported tasks, check out [our dedicated documentation
 
 The list of all providers and the tasks they support is available in [this documentation page](https://huggingface.co/docs/inference-providers/index#partners).
 
-For models without provider support, you can still showcase functionality using [example outputs](#example-outputs) in your model card. Robotics models are an exception, see [Video previews for robotics models](#video-previews-for-robotics-models).
+For models without provider support, you can still showcase functionality using [example outputs](#example-outputs) in your model card.
 
 You can also click _Ask for provider support_ directly on the model page to encourage providers to serve the model, given there is enough community interest.
 
