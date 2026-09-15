@@ -85,8 +85,8 @@ When auto-join is enabled on an existing Resource Group, current org members mat
 
 Auto-join can apply to:
 
-- **All org members**: check **Include no_access members** to include every member, including members with the `no_access` organization role.
-- **Read+ members only** (default): leave **Include no_access members** unchecked to exclude members with the `no_access` organization role.
+- **All org members** (default): leave **Include no_access members** unchecked to exclude members with the `no_access` organization role.
+- **All org members including no_access**: check **Include no_access members** to include every member, including members with the `no_access` organization role.
 
 Use **Read+ members only** when `no_access` members should keep access only to the specific Resource Groups where they are added manually or through another provisioning flow.
 
