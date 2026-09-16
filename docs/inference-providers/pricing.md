@@ -93,6 +93,8 @@ Enterprise organizations with [Resource Groups](/docs/hub/security-resource-grou
 
 Team & Enterprise organizations receive a pool of free usage credits based on the number of seats in the subscription. Inference Providers usage can be tracked on the organization's billing page. Team & Enterprise organization administrators can also set a spending limit and disable a set of Inference Providers from the organization's settings.
 
+The spending limit is monthly and applies to the whole organization: requests that exceed it fail and return an error. It does not apply to providers configured with a custom key. The highest limit an organization can set depends on its plan, and the organization's Inference Providers settings page shows the maximum that applies. Higher tiers allow higher maximums, and some plans let you set any amount. Leaving the field empty means the organization has no limit of its own and can spend up to the maximum its plan allows. If your organization moves to a plan with a lower maximum, the effective limit is capped at that plan's maximum. If you need a higher maximum than your plan allows, [contact us](https://huggingface.co/contact/sales?from=enterprise).
+
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/enterprise-org-settings-light.png"/>
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/enterprise-org-settings-dark.png"/>
