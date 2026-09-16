@@ -352,18 +352,18 @@ The stream emits four event types:
 | Event       | Data                                                  | Meaning                                                                                       |
 | ----------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `ready`     | `{"cursor"}`                                          | Any requested replay is done and live changes follow. `cursor` is absent on an idle bucket.    |
-| `changes`   | `{"cursor", "changes": [...], "dirs": [...]}`          | A batch of file changes, coalesced over a short window.                                        |
+| `changes`   | `{"cursor", "changes": [...]}`                         | A batch of file changes, coalesced over a short window.                                        |
 | `reset`     | `{"reason": "cursor_too_old"}`                        | The resume point is too old to replay; the stream ends and you should re-list the bucket.      |
 | `reconnect` | `{"cursor"}`                                          | The server is closing the stream on purpose; reconnect with that cursor.                       |
 
-Each entry in `changes` has a `path` and an `op` (`add`, `update`, or `delete`). An `add` or `update` also carries the fields that changed — `size`, `xetHash`, `uploadedAt`, `mtime`, `mtimeNanos` — so an `update` may be as small as a new `uploadedAt` when a file was re-uploaded identically, and `mtime`/`mtimeNanos` are `null` when an upload cleared them. `xetHash` is only included if you have read access to the bucket's content. `dirs` lists the distinct parent directories of the paths in the batch (`""` for the bucket root), which is handy for invalidating per-directory caches.
+Each entry in `changes` has a `path` and an `op` (`add`, `update`, or `delete`). An `add` or `update` also carries the fields that changed — `size`, `xetHash`, `uploadedAt`, `mtime`, `mtimeNanos` — so an `update` may be as small as a new `uploadedAt` when a file was re-uploaded identically, and `mtime`/`mtimeNanos` are `null` when an upload cleared them. `xetHash` is only included if you have read access to the bucket's content.
 
 ```
 event: ready
 data: {"cursor":"..."}
 
 event: changes
-data: {"cursor":"...","changes":[{"path":"data/train.txt","op":"add","size":20,"uploadedAt":"2026-09-16T09:21:45.000Z"},{"path":"data/old.txt","op":"delete"}],"dirs":["data"]}
+data: {"cursor":"...","changes":[{"path":"data/train.txt","op":"add","size":20,"uploadedAt":"2026-09-16T09:21:45.000Z"},{"path":"data/old.txt","op":"delete"}]}
 ```
 
 **Resuming.** Every `ready` and `changes` event carries an opaque `cursor`. Reconnect with `?cursor=<cursor>` to get the changes that happened after it, or with `?since=<ISO timestamp>` (inclusive) to resume from an instant instead — for example the bucket's `updatedAt` the last time you listed it. With neither parameter, you only receive changes that happen after you connect.
