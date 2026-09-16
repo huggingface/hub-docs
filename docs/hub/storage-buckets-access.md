@@ -12,7 +12,7 @@ Beyond the [CLI and Python SDK](./storage-buckets#managing-files), there are sev
 | **CLI sync** | Batch transfers, backups | [Sync docs](./storage-buckets#syncing-directories) |
 | **S3 API** | Existing S3 tooling (AWS CLI, boto3, s5cmd) | [S3-Compatible API](./storage-buckets-s3) |
 
-For tools that use buckets as a backend (SkyPilot, Inspect, …), see [Integrations](./storage-buckets-integrations).
+For tools that use buckets as a backend (SkyPilot, Inspect, …), see [Integrations](./storage-buckets-integrations). To keep a client in sync with a bucket without polling it, see [Tracking Changes](./storage-buckets#tracking-changes).
 
 ## Mount as a Local Filesystem
 

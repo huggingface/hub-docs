@@ -199,6 +199,8 @@ Above 10,000 entries the list is cut short and `updatedFilesTruncated` is set to
 
 Buckets have no discussions or Pull Requests, so you will never receive `"discussion"` and `"discussion.comment"` events for them.
 
+If you want a client to track a bucket's file changes directly rather than through a callback to your own server, buckets also expose a [live follow stream](./storage-buckets#live-follow).
+
 ### Config changes
 
 When the top-level property `event.scope` is `"repo.config"`, the `updatedConfig` property is specified. It is an object containing the updated config. Here is an example value:
