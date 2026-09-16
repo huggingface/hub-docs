@@ -14,11 +14,17 @@ Start with `hf jobs uv run` when your Python script's dependencies can be instal
 
 The default image includes Python and uv. See [UV Jobs configuration](./jobs-configuration#uv-jobs) for the current default image and available options.
 
-You can use an existing image from a registry such as Docker Hub, or an [image from a Space](#use-an-image-from-a-space). To build and host your own image on the Hub, see [Build your own image with a Docker Space](#build-your-own-image-with-a-docker-space).
+You can use an existing image from a registry such as Docker Hub, or [build and host your own image with a Docker Space](#build-your-own-image-with-a-docker-space).
 
-## Run a command in an existing image
+## Use a ready-made image
 
-Use `hf jobs run` with an image and the command to run inside it. For example, use a PyTorch image to create a tensor on a GPU and double its values:
+Use `hf jobs run` with an image and the command to run inside it. Any public image from Docker Hub or another registry works, including a specific tag. Start with a small one:
+
+```bash
+hf jobs run ubuntu echo 'Hello from the cloud!'
+```
+
+The Job pulls the image, runs the command and exits. To use software an image already provides, choose an image that ships it. For example, use a PyTorch image to create a tensor on a GPU and double its values:
 
 ```bash
 hf jobs run --flavor t4-small --timeout 5m \
@@ -61,21 +67,9 @@ For example, a vLLM script may need an image with CUDA tooling while using uv to
 
 If you want to use an image's preinstalled PyTorch, TRL or vLLM directly, use `hf jobs run`. If you also need uv to install extra dependencies, see [Reuse the image's packages and add dependencies with uv](#reuse-the-images-packages-and-add-dependencies-with-uv).
 
-## Use an image from a Space
+## Build your own image with a Docker Space
 
-Use a Space's image when it already packages the tools or workload you need, or when someone has shared their environment as a Space. Its source repository gives you a place to inspect the code and build configuration. Pass the Space URL where you would normally put an image name:
-
-```bash
-hf jobs run --flavor cpu-basic hf.co/spaces/lhoestq/duckdb -- duckdb -c "SELECT 42 AS answer;"
-```
-
-The [lhoestq/duckdb Space](https://huggingface.co/spaces/lhoestq/duckdb/tree/main) packages the DuckDB command-line tool. The Space supplies the built image; the Job runs the SQL command on the hardware you select.
-
-Inspect the Space's source files to see what its image contains and which command to run. When a Space uses the Docker SDK, its Dockerfile defines how the image is built. The Space build produces the image that Jobs uses; each Job does not rebuild the Dockerfile. Starting a Job can still involve downloading the image. A repository containing a Dockerfile alone is not enough: an image must have been built successfully. Configure the Job's [secrets](./jobs-configuration#environment-variables-and-secrets) and [volumes](./jobs-configuration#volumes) when you launch it.
-
-### Build your own image with a Docker Space
-
-A Docker Space can build and host an image with the tools your workload needs. For example, add FFmpeg to a Python image to prepare an environment for processing audio or video.
+A Docker Space can build and host an image with the tools your workload needs, including your own scripts, and the image can be private without a registry account. For example, add FFmpeg to a Python image to prepare an environment for processing audio or video.
 
 Create a [Docker Space](./spaces-sdks-docker#setting-up-docker-spaces) and add this `Dockerfile` at the root of its repository:
 
@@ -97,7 +91,7 @@ CMD ["ffmpeg", "-version"]
 
 `FROM` supplies Python. FFmpeg is not included in this base image, so `RUN` installs it at build time. `useradd` creates a user with a home directory and UID `1000`, matching [Docker Spaces](./spaces-sdks-docker#permissions); `USER` runs commands as that user. `CMD` sets a default command, here checking the FFmpeg installation.
 
-Commit the file and wait for the Space's build logs to show that the image was pushed. Then run a Job using the image, replacing `YOUR_USERNAME/video-tools` with your Space ID:
+Commit the file and wait for the Space's build logs to show that the image was pushed. Then pass the Space URL where you would normally put an image name, replacing `YOUR_USERNAME/video-tools` with your Space ID:
 
 ```bash
 hf jobs run --flavor cpu-basic --timeout 5m \
@@ -107,12 +101,17 @@ hf jobs run --flavor cpu-basic --timeout 5m \
 The version appears in the Job's logs. Supply a different command after the Space URL to use FFmpeg or Python for your workload. To include your own script in the image, add a line such as `COPY --chown=user:user process.py /app/process.py` to the Dockerfile and run `python /app/process.py`. See [input and output files](#run-your-own-script-with-input-and-output-files) for mounting data and saving results.
 
 > [!NOTE]
-> This example prints a version and exits, so the Space can show a runtime error with exit code `0` after the build succeeds. You can pause the Space and use its built image in Jobs; the Space does not need to serve a web app for this workflow.
+> This example prints a version and exits, so the Space shows a runtime error after the build. That is fine: Jobs only need the built image, not a running Space.
+
+> [!TIP]
+> A Space's built image is not guaranteed to stay pullable. It can be lost to registry maintenance or a region move. If a Job reports that the image was not found, factory reboot the Space to rebuild it. Jobs always use the latest build, so a new commit replaces the image too.
 
 ## Example images
 
 <a id="vllm"></a>
 <a id="trl"></a>
+
+Registry images are maintained by their publishers and can be pinned to a specific tag.
 
 | Image                                         | What it provides                                                                  |
 | --------------------------------------------- | --------------------------------------------------------------------------------- |
