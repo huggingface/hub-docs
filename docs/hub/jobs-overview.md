@@ -24,7 +24,7 @@ There are multiple tools you can use to run jobs:
 
 ### Python scripts
 
-Use `hf jobs uv run` to run a Python script remotely. Specify its dependencies with `--with` or in a [script header](https://docs.astral.sh/uv/guides/scripts/#declaring-script-dependencies). Jobs uses uv to install those dependencies before running your code.
+Use `hf jobs uv run` to run a Python script remotely. Specify its dependencies using `--with` or in a [script header](https://docs.astral.sh/uv/guides/scripts/#declaring-script-dependencies). Jobs uses uv to install those dependencies before running your code.
 
 ```diff
 - uv run <script.py>
