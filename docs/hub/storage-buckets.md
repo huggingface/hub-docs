@@ -339,7 +339,7 @@ Buckets are mutable, so tools that keep a view of a bucket — mounts, filesyste
 
 ### Live follow
 
-`GET https://huggingface.co/api/buckets/<owner>/<bucket-name>/events` streams a bucket's file changes as [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events). The request must carry `Accept: text/event-stream` (otherwise it returns a `400`), and it requires the same read access as listing the bucket — no token is needed for a public bucket.
+`GET https://huggingface.co/api/buckets/<owner>/<bucket-name>/events` streams a bucket's file changes as [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events). The request must carry `Accept: text/event-stream` (otherwise it returns a `400`), and it requires the same read access as listing the bucket — no token is needed for a public bucket. See the [OpenAPI spec](https://huggingface-openapi.hf.space/#tag/buckets/GET/api/buckets/{namespace}/{repo}/events) for the full parameter and response schema.
 
 ```bash
 curl -N -H "Accept: text/event-stream" \
