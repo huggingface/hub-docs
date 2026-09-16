@@ -137,7 +137,7 @@ hf jobs uv run \
     generate-responses.py
 ```
 
-- `--python` creates uv's environment with the **image's** interpreter, matching the Python version used by its compiled extensions. It does not expose the image's packages by itself.
+- `--python` creates uv's environment with the image's interpreter, matching the Python version used by its compiled extensions. It does not expose the image's packages by itself.
 - `-e PYTHONPATH=...` makes `import vllm` resolve to the image's prebuilt build for that run.
 - Trim your `# /// script` dependencies to what the image _lacks_. `PYTHONPATH` is searched before uv's environment, so the image shadows anything your header declares for the same package — including a newer version you pinned. Dependencies you retain can still pull in those packages transitively; uv does not use `PYTHONPATH` to satisfy dependency resolution.
 
