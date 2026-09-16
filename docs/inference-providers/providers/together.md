@@ -70,13 +70,3 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
     providersMapping={ {"together":{"modelId":"zai-org/GLM-5.3-Flash","providerModelId":"zai-org/GLM-5.3-Flash"} } }
 conversational />
 
-
-### Feature Extraction
-
-Find out more about Feature Extraction [here](../tasks/feature-extraction).
-
-<InferenceSnippet
-    pipeline=feature-extraction
-    providersMapping={ {"together":{"modelId":"intfloat/multilingual-e5-large-instruct","providerModelId":"intfloat/multilingual-e5-large-instruct"} } }
-/>
-
