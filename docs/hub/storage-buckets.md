@@ -351,12 +351,12 @@ The stream emits four event types:
 
 | Event       | Data                                                  | Meaning                                                                                       |
 | ----------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `ready`     | `{"cursor"}`                                          | Any requested replay is done and live changes follow. `cursor` is absent on an idle bucket.    |
+| `ready`     | `{"cursor"}`                                          | Any requested replay is done and live changes follow. `cursor` is the current position of the change feed, so it is present even if the bucket is idle. |
 | `changes`   | `{"cursor", "changes": [...]}`                         | A batch of file changes, coalesced over a short window.                                        |
-| `reset`     | `{"reason": "cursor_too_old"}`                        | The resume point is too old to replay; the stream ends and you should re-list the bucket.      |
+| `reset`     | `{"reason": "cursor_too_old"}`                        | The resume point is too old (or malformed) to replay; the stream ends and you should re-list the bucket. |
 | `reconnect` | `{"cursor"}`                                          | The server is closing the stream on purpose; reconnect with that cursor.                       |
 
-Each entry in `changes` has a `path` and an `op` (`add`, `update`, or `delete`). An `add` or `update` also carries the fields that changed — `size`, `xetHash`, `uploadedAt`, `mtime`, `mtimeNanos` — so an `update` may be as small as a new `uploadedAt` when a file was re-uploaded identically, and `mtime`/`mtimeNanos` are `null` when an upload cleared them. `xetHash` is only included if you have read access to the bucket's content.
+Each entry in `changes` has a `path` and an `op` (`add`, `update`, or `delete`). An `add` or `update` also carries the fields that changed — `size`, `xetHash`, `uploadedAt`, `mtime`, `mtimeNanos` — so an `update` may be as small as a new `uploadedAt` when a file was re-uploaded identically. A field that did not change, or that is not set on the file, is **omitted** from the entry; `mtime`/`mtimeNanos` are only sent as `null` when an update explicitly cleared them, so treat both "absent" and `null` as "no mtime" rather than checking for `null` alone. `xetHash` is only included if you have read access to the bucket's content.
 
 ```
 event: ready
@@ -366,11 +366,13 @@ event: changes
 data: {"cursor":"...","changes":[{"path":"data/train.txt","op":"add","size":20,"uploadedAt":"2026-09-16T09:21:45.000Z"},{"path":"data/old.txt","op":"delete"}]}
 ```
 
-**Resuming.** Every `ready` and `changes` event carries an opaque `cursor`. Reconnect with `?cursor=<cursor>` to get the changes that happened after it, or with `?since=<ISO timestamp>` (inclusive) to resume from an instant instead — for example the bucket's `updatedAt` the last time you listed it. With neither parameter, you only receive changes that happen after you connect.
+**Resuming.** Every `ready` and `changes` event carries an opaque `cursor`. Reconnect with `?cursor=<cursor>` to get the changes that happened after it, or with `?since=<ISO 8601 UTC timestamp>` (inclusive, e.g. `2026-09-16T09:21:45Z`) to resume from an instant instead — for example the bucket's `updatedAt` the last time you listed it, if that was recent. If both are given, `cursor` wins. With neither parameter, you only receive changes that happen after you connect.
 
-**Reconnecting.** Long-lived connections are recycled: the server periodically sends `reconnect` (also during deployments) and then ends the stream. Treat *any* end of the stream the same way — reconnect with the last cursor you received. If a `reconnect` arrives without a cursor, reconnect with the same `cursor` or `since` you originally requested. A `: ping` comment is sent periodically to keep the connection alive, so a stream that goes fully silent can be considered dead.
+Only a **short window of recent changes — about 15 minutes — can be replayed**. If your `cursor` or `since` is older than that (or the cursor is malformed), you receive `reset` instead of a replay and the stream ends: list the bucket once to rebuild your view, then follow again from the `cursor` of the new stream's `ready` event. In practice this means `since` is only useful to bridge a brief gap (a restart, a dropped connection); a client that has been away longer should expect a `reset` and go straight to re-listing. A `since` in the future is accepted and simply yields no replay.
 
-Only a limited window of recent changes can be replayed. If your `cursor` or `since` falls outside it, you receive `reset` instead of a replay: list the bucket once to rebuild your view, then follow again from the `cursor` of the new stream's `ready` event. A `503` response means live follow is momentarily unavailable — retry after the delay in the `Retry-After` header.
+**Reconnecting.** Long-lived connections are recycled: roughly every 20 minutes (and during deployments) the server sends `reconnect` and then ends the stream. Treat *any* end of the stream the same way — reconnect with the last cursor you received. If a `reconnect` arrives without a cursor, reconnect with the same `cursor` or `since` you originally requested. A `: ping` comment is sent every 30 seconds to keep the connection alive, so a stream that goes fully silent for much longer can be considered dead.
+
+A `503` response means live follow is momentarily unavailable (for instance while the server is catching up after a restart) — retry after the delay in the `Retry-After` header.
 
 ## Pre-warming and CDN
 
