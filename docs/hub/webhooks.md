@@ -274,6 +274,8 @@ If you set a secret for your Webhook, it will be sent along as an `X-Webhook-Sec
 
 Webhook payloads are delivered asynchronously, shortly after the event happens on the Hub. Order is not guaranteed: if several events occur close together, they may arrive out of sequence.
 
+Your handler should acknowledge a delivery with a `2xx` status code. Any other status code counts as a failed delivery, just like a connection error: it is retried with a backoff. If your processing is slow, answer with a `2xx` right away and do the work asynchronously, so the delivery is not considered failed.
+
 Each delivery has a unique `Webhook-Id` HTTP header. Retries of a failed delivery reuse the same ID, so you can treat it as an idempotency key and process each event once.
 
 When deliveries to a Webhook keep failing, the Webhook is automatically suspended and its owner is notified by email. You can troubleshoot it and re-enable it from your Webhooks [settings](https://huggingface.co/settings/webhooks).
