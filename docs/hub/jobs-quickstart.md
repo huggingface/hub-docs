@@ -28,6 +28,14 @@ Hello from the cloud!
 
 The CLI also prints your Job's ID and a link to its page. Open the link to view its status and logs in your browser. You can find your Jobs again on your [Jobs page](https://huggingface.co/settings/jobs), or use the ID with the CLI commands below.
 
+Jobs can also run a command in any Docker image:
+
+```bash
+>>> hf jobs run ubuntu echo 'Hello from the cloud!'
+```
+
+The rest of this guide uses `hf jobs uv run`. See [Docker Jobs](./jobs-configuration#docker-jobs) for when and how to use an image.
+
 ## 3. Run a model on a GPU
 
 Run this prepared script to generate a robot name. You can [view it on GitHub](https://github.com/huggingface/hub-docs/blob/main/examples/jobs/hello_gpu.py) or read the code below.
@@ -78,6 +86,19 @@ Startup time varies with hardware availability, dependency installation and mode
 
 > [!TIP]
 > Pressing Ctrl+C stops streaming logs; the Job keeps running. To stop the Job, use `hf jobs cancel JOB_ID`, replacing `JOB_ID` with the ID printed by the CLI.
+
+You can also launch the same Job from Python with the [`huggingface_hub` client](https://huggingface.co/docs/huggingface_hub/guides/jobs):
+
+```python
+from huggingface_hub import run_uv_job
+
+job = run_uv_job(
+    "https://raw.githubusercontent.com/huggingface/hub-docs/main/examples/jobs/hello_gpu.py",
+    flavor="t4-small",
+    timeout="5m",
+)
+print(job.url)
+```
 
 ## 4. Check your result
 
