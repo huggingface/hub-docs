@@ -474,7 +474,7 @@ Give a Job a name to make it easier to find and identify in the UI. The name is 
 hf jobs run --name daily-report python:3.12 python report.py
 ```
 
-If you don't pass `--name`, the Job is named after its Docker image or script plus a short hash (e.g. `python-3-12-6b9d662c` for a Job running on `python:3.12`). From the CLI, the hash covers the command and the resolved launch configuration (flavor, timeout, namespace, environment values, secret names, volumes and network group). Reruns of the same command with the same configuration share a name, while changing the command or any of those settings, including one set in the script's `[tool.hf-jobs]` header, gives a different name. From the Python API, the hash covers the command only.
+If you don't pass `--name`, the Job is named after its Docker image or script plus a short hash of the command, so reruns of the same command share a name while different commands get different names (e.g. `python-3-12-6b9d662c` for a Job running on `python:3.12`).
 
 ### Update labels
 
