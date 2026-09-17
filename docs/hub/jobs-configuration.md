@@ -47,6 +47,32 @@ Find the list of all arguments in the [CLI documentation](https://huggingface.co
 
 By default, UV Jobs run with the `ghcr.io/astral-sh/uv:python3.12-bookworm` Docker image, but you can use another image as long as it has UV installed, using `--image <docker-image>`.
 
+### Define the launch config in the script
+
+A script that only runs correctly on a specific runtime (a given image, GPU flavor or system interpreter) can carry that configuration with it, in an optional `[tool.hf-jobs]` table of its PEP 723 header:
+
+```python
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ["vllm", "datasets"]
+#
+# [tool.hf-jobs]
+# image   = "vllm/vllm-openai:unlimited-ocr"
+# flavor  = "l4x1"
+# python  = "/usr/bin/python3"
+# secrets = ["HF_TOKEN"]
+# ///
+```
+
+`hf jobs uv run ocr.py` then launches on that image and hardware. A plain `uv run` ignores the table, as `[tool.*]` tables are part of PEP 723 and tools skip the ones they don't own.
+
+Supported keys, all optional: `image`, `flavor`, `python`, `timeout`, `name`, `namespace`, `env`, `secrets`, `labels`, `volumes`, `network_group` and `network_aliases`. They map to the flags of the same name. Values from the script are defaults: an explicit flag always wins, and `env`, `secrets`, `labels` and `volumes` are merged entry by entry, so `-e` and `-v` add to what the script declares. An unknown key is an error, and `secrets` only lists names: values come from the environment of whoever runs the script, and a secret that is not set locally is an error too.
+
+Use `--dry-run` to print the resolved configuration without submitting; values that come from the script are marked `(from script)`. See the [`hf` CLI guide](https://huggingface.co/docs/huggingface_hub/guides/cli#ship-the-launch-config-with-the-script) for the full merge rules.
+
+> [!WARNING]
+> The table is read by the `hf` CLI only. `run_uv_job()` and `create_scheduled_uv_job()` ignore it, so pass `image=`, `flavor=`, ... explicitly from Python.
+
 ## Docker Jobs
 
 Specify the Docker image and the command to run as you would with docker:
@@ -448,7 +474,7 @@ Give a Job a name to make it easier to find and identify in the UI. The name is 
 hf jobs run --name daily-report python:3.12 python report.py
 ```
 
-If you don't pass `--name`, the Job is named after its Docker image or script plus a short hash (e.g. `python-3-12-6b9d662c` for a Job running on `python:3.12`). From the CLI, the hash covers the command and the resolved launch configuration (flavor, timeout, namespace, environment values, secret names, volumes and network group). Reruns of the same command with the same configuration share a name, while changing the command or any of those settings gives a different name. From the Python API, the hash covers the command only.
+If you don't pass `--name`, the Job is named after its Docker image or script plus a short hash (e.g. `python-3-12-6b9d662c` for a Job running on `python:3.12`). From the CLI, the hash covers the command and the resolved launch configuration (flavor, timeout, namespace, environment values, secret names, volumes and network group). Reruns of the same command with the same configuration share a name, while changing the command or any of those settings, including one set in the script's `[tool.hf-jobs]` header, gives a different name. From the Python API, the hash covers the command only.
 
 ### Update labels
 
