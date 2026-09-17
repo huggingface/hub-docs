@@ -335,7 +335,7 @@ Note that transferring data the other way from a bucket to a repository (model, 
 Buckets are mutable, so tools that keep a view of a bucket — mounts, filesystem layers, sync daemons, dashboards — need to know when files change. Two mechanisms are available:
 
 - [Webhooks](./webhooks#buckets): HTTP callbacks to a server you control, for automation and integrations.
-- **Live follow**: a server-sent events stream your client subscribes to, so it can stop polling the bucket listing.
+- **Live follow**: a server-sent events stream your client subscribes to.
 
 ### Live follow
 
