@@ -57,10 +57,13 @@ You can automate the approval of access requests by using the API. You must pass
 | `GET` | `/api/models/{repo_id}/user-access-request/pending` | Retrieve the list of pending requests. | `{"authorization": "Bearer $token"}` | |
 | `GET` | `/api/models/{repo_id}/user-access-request/accepted` | Retrieve the list of accepted requests. | `{"authorization": "Bearer $token"}` | |
 | `GET` | `/api/models/{repo_id}/user-access-request/rejected` | Retrieve the list of rejected requests. | `{"authorization": "Bearer $token"}` | |
-| `POST` | `/api/models/{repo_id}/user-access-request/handle` | Change the status of a given access request to `status`. | `{"authorization": "Bearer $token"}` | `{"status": "accepted"/"rejected"/"pending", "user": "username", "rejectionReason": "Optional rejection reason that will be visible to the user (max 200 characters)."}` |
+| `GET` | `/api/models/{repo_id}/user-access-request/reset` | Retrieve the list of reset requests. | `{"authorization": "Bearer $token"}` | |
+| `POST` | `/api/models/{repo_id}/user-access-request/handle` | Change the status of a given access request to `status`. | `{"authorization": "Bearer $token"}` | `{"status": "accepted"/"rejected"/"pending"/"reset", "user": "username", "rejectionReason": "Optional rejection reason that will be visible to the user (max 200 characters).", "resetReason": "Optional reset reason that will be included in the email sent to the user (max 200 characters)."}` |
 | `POST` | `/api/models/{repo_id}/user-access-request/grant` | Allow a specific user to access your repo. | `{"authorization":  "Bearer $token"}` | `{"user": "username"} ` |
 
 The base URL for the HTTP endpoints above is `https://huggingface.co`.
+
+Setting a request to `reset` revokes the previous decision and asks the user to start over: they lose access to the model, receive an email notifying them that their request has been reset (including the optional `resetReason`), and are prompted to agree to the gating terms and submit a new request the next time they visit the model page. This differs from `pending`, which keeps the existing request as-is and simply puts it back in the review queue, and from `rejected`, which blocks the user from requesting access again.
 
 **NEW!** Those endpoints are now officially supported in our Python client `huggingface_hub`. List the access requests to your model with [`list_pending_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_pending_access_requests), [`list_accepted_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_accepted_access_requests) and [`list_rejected_access_requests`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_rejected_access_requests). You can also accept, cancel and reject access requests with [`accept_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.accept_access_request), [`cancel_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.cancel_access_request), [`reject_access_request`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.reject_access_request). Finally, you can grant access to a user with [`grant_access`](https://huggingface.co/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.grant_access).
 
@@ -70,7 +73,7 @@ The base URL for the HTTP endpoints above is `https://huggingface.co`.
 You can download a report of all access requests for a gated model with the **download user access report** button. Click on it to download a json file with a list of users. For each entry, you have:
 - **user**: the user id. Example: *julien-c*.
 - **fullname**: name of the user on the Hub. Example: *Julien Chaumond*.
-- **status**: status of the request. Either `"pending"`, `"accepted"` or `"rejected"`.
+- **status**: status of the request. Either `"pending"`, `"accepted"`, `"rejected"` or `"reset"`.
 - **email**: email of the user.
 - **time**: datetime when the user initially made the request.
 - **reviewedAt**: datetime when the request was accepted or rejected. Not set for pending requests.
