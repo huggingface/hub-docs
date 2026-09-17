@@ -351,10 +351,10 @@ The stream emits four event types:
 
 | Event       | Data                                                  | Meaning                                                                                       |
 | ----------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `ready`     | `{"cursor"}`                                          | Any requested replay is done and live changes follow.                                         |
-| `changes`   | `{"cursor", "changes": [...]}`                         | A batch of file changes, coalesced over a short window.                                        |
+| `ready`     | `{"cursor": "..."}`                                   | Any requested replay is done and live changes follow.                                         |
+| `changes`   | `{"cursor": "...", "changes": [...]}`                 | A batch of file changes, coalesced over a short window.                                       |
 | `reset`     | `{"reason": "cursor_too_old"}`                        | The resume point cannot be replayed; the stream ends and you should re-list the bucket.       |
-| `reconnect` | `{"cursor"}`                                          | The server is closing the stream on purpose; reconnect with that cursor.                       |
+| `reconnect` | `{"cursor": "..."}`                                   | The server is closing the stream on purpose; reconnect with that cursor.                      |
 
 Each entry in `changes` has a `path` and an `op` (`add`, `update`, or `delete`). An `add` or `update` also carries the fields that changed — `size`, `xetHash`, `uploadedAt`, `mtime`, `mtimeNanos` — so an `update` may be as small as a new `uploadedAt` when a file was re-uploaded identically. Fields that did not change are omitted; `mtime`/`mtimeNanos` may also be `null` when an upload cleared them, so treat absent and `null` alike. `xetHash` is only included if you have read access to the bucket's content.
 
