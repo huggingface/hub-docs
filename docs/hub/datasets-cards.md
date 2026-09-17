@@ -83,7 +83,7 @@ tags:
 
 ### Declare an RL environment dataset
 
-An RL environment is an ordinary dataset repository whose files can be consumed by one or more environment frameworks. Add the `environment` tag to make the dataset discoverable with the **RL Environments** filter, then add a tag for each supported framework. The framework tags also add their generated commands to **Use this dataset**.
+An RL environment is an ordinary dataset repository whose files can be consumed by one or more environment frameworks. Add the `rl-environment` tag to make the dataset discoverable with the **RL Environments** filter, then add a tag for each supported framework. The framework tags also add their generated commands to **Use this dataset**.
 
 For example, a dataset containing Harbor task directories that can also be loaded by Verifiers uses this Dataset Card YAML:
 
@@ -91,7 +91,7 @@ For example, a dataset containing Harbor task directories that can also be loade
 ---
 pretty_name: Terminal-Bench 2.0
 tags:
-- environment
+- rl-environment
 - harbor
 - verifiers
 ---
