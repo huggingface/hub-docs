@@ -90,7 +90,7 @@ Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"nvidia/segformer-b0-finetuned-ade-512-512","providerModelId":"nvidia/segformer-b0-finetuned-ade-512-512"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Roboflow/rf-detr-segmentation","providerModelId":"Roboflow/rf-detr-segmentation"} } }
 />
 
 
@@ -110,7 +110,7 @@ Find out more about Question Answering [here](../tasks/question-answering).
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"distilbert/distilbert-base-cased-distilled-squad","providerModelId":"distilbert/distilbert-base-cased-distilled-squad"} } }
+    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-base-squad2","providerModelId":"deepset/roberta-base-squad2"} } }
 />
 
 
