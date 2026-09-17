@@ -35,7 +35,13 @@ The [uv-scripts](https://huggingface.co/uv-scripts) organization maintains a col
 
 ## Coding Agent Skills
 
-The [hugging-face-jobs skill](https://github.com/huggingface/skills/tree/main/skills/hugging-face-jobs) lets coding agents like Claude Code and Cursor submit and monitor Jobs directly from your editor.
+Coding agents like Claude Code, Codex and Cursor can submit and monitor Jobs for you. Install the `hf` CLI skill, generated from your installed CLI so it stays current:
+
+```bash
+hf skills add
+```
+
+See [Hugging Face CLI for AI agents](./agents-cli) for setup per agent, and [Agent Skills](./agents-skills) for training and other workflow skills.
 
 ## Sandboxes
 
