@@ -39,11 +39,10 @@ hf jobs uv run --flavor a10g-small --timeout 2h -s HF_TOKEN \
   --model_name_or_path google/vit-base-patch16-224-in21k \
   --dataset_name ethz/food101 \
   --do_train --do_eval \
+  --remove_unused_columns False \
   --output_dir vit-food101 \
   --push_to_hub
 ```
-
-<!-- TODO: run this exact command once; the Examples page version had no --do_train, which the script needs to train at all -->
 
 `--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more.
 
