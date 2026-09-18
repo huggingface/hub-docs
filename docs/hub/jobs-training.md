@@ -5,14 +5,14 @@
        sentence-transformers, diffusers, timm / vision, speech (?), PEFT-only (?)
      - decide whether every library gets a [tool.hf-jobs] header variant or only the image-form ones
      - switch the images link to ./jobs-images once hub-docs#2782 merges
-     - Unsloth scripts need a review pass before the command is quoted as-is
+     - run the Unsloth command end to end before it is quoted as-is
 -->
 
 A Job gives a training run a GPU for exactly as long as it needs one. You launch from your machine, the run pushes its weights to the Hub, and the machine goes away when it finishes. There is no environment to set up on the GPU side: the script or image you launch brings its own.
 
 This page shows the launch command for the most common training libraries. Where a library has its own Jobs guide, the section links to it for what to train and how; the job here is to get the run started.
 
-<!-- TODO: every HF training library should have at least a minimal "on Jobs" page of its own; note which ones do not yet -->
+<!-- TODO: list which libraries have their own Jobs guide to link, and which still need one -->
 
 ## How a training Job is put together
 
@@ -59,7 +59,7 @@ hf jobs uv run --flavor a100-large --timeout 2h -s HF_TOKEN \
 
 The full guide, including writing your own TRL script and running the `huggingface/trl` image, is [Training with Jobs](https://huggingface.co/docs/trl/jobs_training) in the TRL docs.
 
-<!-- TODO: trl-jobs (https://github.com/huggingface/trl-jobs) has had no substantive commit since 2025-11; leave it off unless it is picked up again.
+<!-- TODO: decide whether to mention trl-jobs (https://github.com/huggingface/trl-jobs).
      TODO: show the header form for the TRL image, once run:
        # [tool.hf-jobs]
        # image   = "huggingface/trl"
@@ -69,7 +69,7 @@ The full guide, including writing your own TRL script and running the `huggingfa
 
 ## Unsloth
 
-<!-- TODO: review the unsloth/jobs scripts (flags, pins, which model families still run) before quoting the command as-is -->
+<!-- TODO: run this command end to end and confirm the flags against the current unsloth/jobs scripts -->
 
 [Unsloth](https://unsloth.ai) provides ready-to-run scripts in the [`unsloth/jobs`](https://huggingface.co/datasets/unsloth/jobs) dataset, one per model family. They install Unsloth from the script header and take the dataset and output repo as arguments:
 
