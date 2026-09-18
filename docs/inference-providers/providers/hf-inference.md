@@ -110,7 +110,7 @@ Find out more about Question Answering [here](../tasks/question-answering).
 
 <InferenceSnippet
     pipeline=question-answering
-    providersMapping={ {"hf-inference":{"modelId":"deepset/roberta-base-squad2","providerModelId":"deepset/roberta-base-squad2"} } }
+    providersMapping={ {"hf-inference":{"modelId":"distilbert/distilbert-base-cased-distilled-squad","providerModelId":"distilbert/distilbert-base-cased-distilled-squad"} } }
 />
 
 
@@ -160,7 +160,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen3-ForcedAligner-0.6B-hf","providerModelId":"Qwen/Qwen3-ForcedAligner-0.6B-hf"} } }
+    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
 />
 
 
