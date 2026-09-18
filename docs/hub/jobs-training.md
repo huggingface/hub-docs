@@ -22,7 +22,7 @@ Every command below has the same four parts.
 <!-- TODO: link becomes ./jobs-images after hub-docs#2782 -->
 
 - **A token.** Jobs get no Hugging Face token by default. `-s HF_TOKEN` forwards yours as a secret, so the run can push its model and read gated or private inputs. Without it, a run that trains for an hour fails at the push.
-- **Hardware and time.** `--flavor` picks the GPU and `--timeout` raises the default of 30 minutes. A run that hits the timeout is stopped and its container is discarded, so set it above your expected run time. See [Hardware flavor](./jobs-configuration#hardware-flavor) and [Timeout](./jobs-configuration#timeout).
+- **Hardware and time.** `--flavor` picks the GPU and `--timeout` raises the default of 30 minutes. A run that hits the timeout is stopped and its container is discarded, so set it above your expected run time. Flavors ending in `x2`, `x4` or `x8` give several GPUs on one machine; whether a run uses them depends on how the library launches, noted per library below. See [Hardware flavor](./jobs-configuration#hardware-flavor) and [Timeout](./jobs-configuration#timeout).
 - **Where the output goes.** The container's disk is gone when the Job ends. Every library below can push the finished model to a Hub repo; pass the repo name through the library's own option, shown in each example.
 
 A script can also carry its own launch config. A `[tool.hf-jobs]` table in the script header sets the flavor, timeout, secrets and image, so `hf jobs uv run train.py` needs no flags at all and an explicit flag still wins. See [Define the launch config in the script](./jobs-configuration#define-the-launch-config-in-the-script).
@@ -105,6 +105,8 @@ hub_private_repo: true
 ```
 
 Any example from the [Axolotl examples](https://github.com/axolotl-ai-cloud/axolotl/tree/main/examples) works with those three lines added. Pin an image tag from [Docker Hub](https://hub.docker.com/r/axolotlai/axolotl/tags) rather than `main-latest`, so a rerun next month starts the same software.
+
+For more GPUs, change the flavor and nothing else: on `a10g-largex4`, `axolotl train` starts one process per GPU by itself. DeepSpeed and FSDP are then a matter of YAML keys, covered in [Axolotl's multi-GPU guide](https://docs.axolotl.ai/docs/multi-gpu.html).
 
 ## Keep checkpoints across runs
 
