@@ -460,6 +460,8 @@
     title: Popular Images
   - local: jobs-serving
     title: Serve Models
+  - local: jobs-training
+    title: Train Models
   - local: jobs-examples
     title: Examples & Tutorials
   - local: jobs-large-datasets
