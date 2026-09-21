@@ -34,7 +34,7 @@ Jobs can also run a command in any Docker image:
 >>> hf jobs run ubuntu echo 'Hello from the cloud!'
 ```
 
-The rest of this guide uses `hf jobs uv run`. See [Docker Jobs](./jobs-configuration#docker-jobs) for when and how to use an image.
+The rest of this guide uses `hf jobs uv run`. See [Using Docker images](./jobs-images) for when and how to use an image.
 
 ## 3. Run a model on a GPU
 

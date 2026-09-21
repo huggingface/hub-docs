@@ -13,7 +13,7 @@ Use Jobs to fine-tune models, run inference over datasets, or process data witho
 - [Pricing](./jobs-pricing)
 - [Manage Jobs](./jobs-manage)
 - [Jobs Configuration](./jobs-configuration)
-- [Popular Images](./jobs-popular-images)
+- [Using Docker images](./jobs-images)
 - [Schedule Jobs](./jobs-schedule)
 - [Webhooks Automation](./jobs-webhooks)
 - [Reference](./jobs-reference)

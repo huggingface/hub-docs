@@ -106,7 +106,7 @@ The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M 
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-pricing">Pricing</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-manage">Manage Jobs</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-configuration">Jobs Configuration</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-popular-images">Popular images</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-images">Using Docker images</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-schedule">Schedule Jobs</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-webhooks">Webhooks Automation</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-reference">Reference</a>
