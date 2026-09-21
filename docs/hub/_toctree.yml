@@ -79,6 +79,8 @@
         title: "How-to: Build a Discussion bot with Inference Providers"
       - local: webhooks-guide-metadata-review
         title: "How-to: Create automatic metadata quality reports"
+      - local: webhooks-guide-bucket-jobs
+        title: "How-to: Process new files in a bucket with Jobs"
   - local: repositories-github-actions
     title: GitHub Actions
   - local: notebooks
