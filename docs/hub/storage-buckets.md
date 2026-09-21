@@ -330,6 +330,50 @@ You need read access to the source repository or bucket and write access to the 
 
 Note that transferring data the other way from a bucket to a repository (model, dataset, Space) without reuploading is not yet available, but is on the roadmap.
 
+## Tracking Changes
+
+Buckets are mutable, so tools that keep a view of a bucket — mounts, filesystem layers, sync daemons, dashboards — need to know when files change. Two mechanisms are available:
+
+- [Webhooks](./webhooks#buckets): HTTP callbacks to a server you control, for automation and integrations.
+- **Live follow**: a server-sent events stream your client subscribes to.
+
+### Live follow
+
+`GET https://huggingface.co/api/buckets/<owner>/<bucket-name>/events` streams a bucket's file changes as [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events). The request must carry `Accept: text/event-stream` (otherwise it returns a `400`), and it requires the same read access as listing the bucket — no token is needed for a public bucket. See the [OpenAPI spec](https://huggingface.co/spaces/huggingface/openapi#tag/buckets/GET/api/buckets/{namespace}/{repo}/events) for the full parameter and response schema.
+
+```bash
+curl -N -H "Accept: text/event-stream" \
+  -H "Authorization: Bearer $HF_TOKEN" \
+  "https://huggingface.co/api/buckets/username/my-bucket/events"
+```
+
+The stream emits four event types:
+
+| Event       | Data                                                  | Meaning                                                                                       |
+| ----------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `ready`     | `{"cursor": "..."}`                                   | Any requested replay is done and live changes follow.                                         |
+| `changes`   | `{"cursor": "...", "changes": [...]}`                 | A batch of file changes, coalesced over a short window.                                       |
+| `reset`     | `{"reason": "cursor_too_old"}`                        | The resume point cannot be replayed; the stream ends and you should re-list the bucket.       |
+| `reconnect` | `{"cursor": "..."}`                                   | The server is closing the stream on purpose; reconnect with that cursor.                      |
+
+Each entry in `changes` has a `path` and an `op` (`add`, `update`, or `delete`). An `add` or `update` also carries the fields that changed — `size`, `xetHash`, `uploadedAt`, `mtime`, `mtimeNanos` — so an `update` may be as small as a new `uploadedAt` when a file was re-uploaded identically. Fields that did not change are omitted; `mtime`/`mtimeNanos` may also be `null` when an upload cleared them, so treat absent and `null` alike. `xetHash` is only included if you have read access to the bucket's content.
+
+```
+event: ready
+data: {"cursor":"..."}
+
+event: changes
+data: {"cursor":"...","changes":[{"path":"data/train.txt","op":"add","size":20,"uploadedAt":"2026-09-16T09:21:45.000Z"},{"path":"data/old.txt","op":"delete"}]}
+```
+
+**Resuming.** Every `ready` and `changes` event carries an opaque `cursor`. Reconnect with `?cursor=<cursor>` to get the changes that happened after it, or with `?since=<ISO timestamp>` (inclusive, e.g. `2026-09-16T09:21:45Z`) to resume from an instant instead. With neither parameter, you only receive changes that happen after you connect.
+
+Only the **last ~15 minutes** of changes can be replayed. If your `cursor` or `since` is older than that, you receive `reset` instead of a replay: list the bucket once to rebuild your view, then follow again from the `cursor` of the new stream's `ready` event. Resuming is meant to bridge short gaps such as a dropped connection or a restart; a client that has been away longer should expect to re-list.
+
+**Reconnecting.** Long-lived connections are recycled: about every 20 minutes (and during deployments) the server sends `reconnect` and then ends the stream. Treat *any* end of the stream the same way — reconnect with the last cursor you received. If a `reconnect` arrives without a cursor, reconnect with the same `cursor` or `since` you originally requested. A `: ping` comment is sent every 30 seconds to keep the connection alive, so a stream that goes fully silent can be considered dead.
+
+A `503` response means live follow is momentarily unavailable — retry after the delay in the `Retry-After` header.
+
 ## Pre-warming and CDN
 
 Buckets live on the Hub's global storage by default. For workloads where storage location directly affects throughput you can **pre-warm** bucket data to bring it closer to your compute.
