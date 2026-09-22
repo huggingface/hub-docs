@@ -70,7 +70,7 @@ For training, the DLCs are available for PyTorch via Transformers. They include 
 <tr class="border-b border-gray-200 dark:border-gray-800"><th class="py-2 pr-4 text-left font-semibold">Accelerator</th><th class="py-2 text-left font-semibold">Container URI</th></tr>
 </thead>
 <tbody>
-<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">GPU</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.9.0-transformers5.3.0-gpu-py312-cu130-ubuntu22.04</code></td></tr>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">GPU</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-training:2.11.0-transformers5.13.1-cu130-amzn2023</code></td></tr>
 <tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">Neuron</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-training-neuronx:2.8.0-transformers4.55.4-neuronx-py310-sdk2.26.0-ubuntu22.04</code></td></tr>
 </tbody>
 </table>
@@ -103,7 +103,7 @@ For serving text generation models with [vLLM](https://docs.vllm.ai/), there are
 <tr class="border-b border-gray-200 dark:border-gray-800"><th class="py-2 pr-4 text-left font-semibold">Accelerator</th><th class="py-2 pr-4 text-left font-semibold">Version</th><th class="py-2 text-left font-semibold">Container URI</th></tr>
 </thead>
 <tbody>
-<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">GPU</td><td class="py-2 pr-4 whitespace-nowrap">0.28.0</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-vllm:0.28.0-transformers5.15.0-gpu-py312-cu130-ubuntu24.04</code></td></tr>
+<tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">GPU</td><td class="py-2 pr-4 whitespace-nowrap">0.29.0</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-vllm:0.29-gpu-py312-cu130-ubuntu24.04</code></td></tr>
 <tr class="border-b border-gray-100 dark:border-gray-850"><td class="py-2 pr-4 whitespace-nowrap">Neuron</td><td class="py-2 pr-4 whitespace-nowrap">0.11.0</td><td class="py-2"><code class="text-xs break-all">763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm-inference-neuronx:0.11.0-optimum0.4.5-neuronx-py310-sdk2.26.1-ubuntu22.04</code></td></tr>
 </tbody>
 </table>
