@@ -15,11 +15,16 @@ df.to_parquet("hf://buckets/username/my-bucket/output.parquet")
 
 ## Dask
 
+Dask reads and writes lazily, one partition per file, so you can process datasets larger than memory straight from a bucket:
+
 ```python
 import dask.dataframe as dd
 
-df = dd.read_parquet("hf://buckets/username/my-bucket/data.parquet")
+df = dd.read_parquet("hf://buckets/username/my-bucket/data/")
+df.to_parquet("hf://buckets/username/my-bucket/output/")
 ```
+
+See [Dask on the Hub](./datasets-dask) for more.
 
 ## Daft
 

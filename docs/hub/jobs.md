@@ -13,7 +13,7 @@ Use Jobs to [train models](./jobs-training), run inference over datasets, or [pr
 - [Pricing](./jobs-pricing)
 - [Manage Jobs](./jobs-manage)
 - [Jobs Configuration](./jobs-configuration)
-- [Popular Images](./jobs-popular-images)
+- [Using Docker images](./jobs-images)
 - [Schedule Jobs](./jobs-schedule)
 - [Webhooks Automation](./jobs-webhooks)
 - [Reference](./jobs-reference)

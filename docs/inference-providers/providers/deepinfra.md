@@ -71,7 +71,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"deepinfra":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"Qwen/Qwen3.8-27B"} } }
+    providersMapping={ {"deepinfra":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash","providerModelId":"deepseek-ai/DeepSeek-V4.1-Flash"} } }
 conversational />
 
 
